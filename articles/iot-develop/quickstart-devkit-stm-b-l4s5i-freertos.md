@@ -1,5 +1,5 @@
 ---
-title: Connect an STMicroelectronics B-L4S5I-IOT01A to Azure IoT Central quickstart
+title: Connect an STMicroelectronics B-L4S5I to Azure IoT Central quickstart
 description: Use Azure FreeRTOS device middleware to connect an STMicroelectronics B-L4S5I-IOT01A Discovery kit to Azure IoT and send telemetry.
 author: timlt
 ms.author: timlt
@@ -80,121 +80,44 @@ To install the tools:
 [!INCLUDE [iot-develop-embedded-create-central-app-with-device](../../includes/iot-develop-embedded-create-central-app-with-device.md)]
 
 ## Prepare the device
-To connect the ESP32 DevKit to Azure, you'll modify configuration settings, build the image, and flash the image to the device. You can run all the commands in this section within the ESP-IDF command line.
-
-### Set up the environment
-To start the ESP-IDF PowerShell and clone the repo:
-1. Select Windows **Start**, and launch **ESP-IDF PowerShell**. 
-1. Navigate to a working folder where you want to clone the repo.
-1. Clone the repo. This repo contains the Azure FreeRTOS middleware and sample code that you'll use to build an image for the ESP32 DevKit. 
-
-    ```shell 
-    git clone --recursive https://github.com/Azure-Samples/iot-middleware-freertos-samples
-    ```
-
-To launch the ESP-IDF configuration settings:
-1. In **ESP-IDF PowerShell**, navigate to the *iot-middleware-freertos-samples* directory that you cloned previously.
-1. Navigate to the ESP32-Azure IoT Kit project directory *demos\projects\ESPRESSIF\aziotkit*.
-1. Run the following command to launch the configuration menu:
-
-    ```shell
-    idf.py menuconfig
-    ```
+To connect the STM DevKit to Azure, you'll modify configuration settings, build the image, and flash the image to the device.
 
 ### Add configuration
 
-To add configuration to connect to Azure IoT Central:
-1. In **ESP-IDF PowerShell**, select **Azure IoT middleware for FreeRTOS Main Task Configuration --->**, and press Enter.
-1. Select **Enable Device Provisioning Sample**, and press Enter to enable it.
-1. Set the following Azure IoT configuration settings to the values that you saved after you created Azure resources.
+1. Open the following file in a text editor:
 
-    |Setting|Value|
+    *iot-middleware-freertos-samples/demos/projects/ST/b-l475e-iot01a/config/demo_config.h*
+
+1. Set the Wi-Fi constants to the following values from your local environment.
+
+    |Constant name|Value|
     |-------------|-----|
-    |**Azure IoT Device Symmetric Key** |{*Your primary key value*}|
-    |**Azure Device Provisioning Service Registration ID** |{*Your Device ID value*}|
-    |**Azure Device Provisioning Service ID Scope** |{*Your ID scope value*}|
+    |`WIFI_SSID` |{*Your Wi-Fi ssid*}|
+    |`WIFI_PASSWORD` |{*Your Wi-Fi password*}|
+    |`WIFI_SECURITY_TYPE` |{*One of the enumerated Wi-Fi mode values in the file*}|
 
-1. Press Esc to return to the previous menu.
+1. Set the Azure IoT device information constants to the values that you saved after you created Azure resources.
 
-To add wireless network configuration:
-1. Select **Azure IoT middleware for FreeRTOS Sample Configuration --->**, and press Enter.
-1. Set the following configuration settings using your local wireless network credentials.
-
-    |Setting|Value|
+    |Constant name|Value|
     |-------------|-----|
-    |**WiFi SSID** |{*Your Wi-Fi SSID*}|
-    |**WiFi Password** |{*Your Wi-Fi password*}|
+    |`democonfigID_SCOPE` |{*Your ID scope value*}|
+    |`democonfigREGISTRATION_ID` |{*Your Device ID value*}|
+    |`democonfigDEVICE_SYMMETRIC_KEY` |{*Your Primary key value*}|
 
-1. Press Esc to return to the previous menu.
+1. Save and close the file.
 
-To save the configuration:
-1. Press **S** to open the save options, then press Enter to save the configuration.
-1. Press Enter to dismiss the acknowledgment message.
-1. Press **Q** to quit the configuration menu.
+### Build the image
 
-
-### Build and flash the image
-In this section, you use the ESP-IDF tools to build, flash, and monitor the ESP32 DevKit as it connects to Azure IoT.  
-
-> [!NOTE]
-> In the following commands in this section, use a short build output path near your root directory. Specify the build path after the `-B` parameter in each command that requires it. The short path helps to avoid a current issue in the ESPRESSIF ESP-IDF tools that can cause errors with long build path names.  The following commands use a local path *C:\espbuild* as an example.
-
-To build the image:
-1. In **ESP-IDF PowerShell**, from the *iot-middleware-freertos-samples\demos\projects\ESPRESSIF\aziotkit* directory, run the following command to build the image.
+1. In your console, run the following commands from the *iot-middleware-freertos-samples* directory to build the device image:
 
     ```shell
-    idf.py --no-ccache -B "C:\espbuild" build 
+    cmake -G Ninja -DVENDOR=ST -DBOARD=b-l475e-iot01a -Bb-l475e-iot01a .
+    cmake --build b-l475e-iot01a
     ```
 
-1. After the build completes, confirm that the binary image file was created in the build path that you specified previously.
+2. After the build completes, confirm that the binary file was created in the following path:
 
-    *C:\espbuild\azure_iot_freertos_esp32.bin*
-
-To flash the image:
-1. On the ESP32 DevKit, locate the Micro USB port, which is highlighted in the following image:
-
-    :::image type="content" source="media/quickstart-devkit-espressif-esp32/esp-azure-iot-kit.png" alt-text="Photo of the ESP32-Azure IoT Kit board.":::
-
-1. Connect the Micro USB cable to the Micro USB port on the ESP32 DevKit, and then connect it to your computer.
-1. Open Windows **Device Manager**, and view **Ports** to find out which COM port the ESP32 DevKit is connected to.
-
-    :::image type="content" source="media/quickstart-devkit-espressif-esp32/esp-device-manager.png" alt-text="Screenshot of Windows Device Manager displaying COM port for a connected device.":::
-
-1. In **ESP-IDF PowerShell**, run the following command, replacing the *\<Your-COM-port\>* placeholder and brackets with the correct COM port from the previous step. For example, replace the placeholder with `COM3`. 
-
-    ```shell
-    idf.py --no-ccache -B "C:\espbuild" -p <Your-COM-port> flash
-    ```
-
-1. Confirm that the output completes with the following text for a successful flash:
-
-    ```output
-    Hash of data verified
-    
-    Leaving...
-    Hard resetting via RTS pin...
-    Done
-    ```
-
-To confirm that the device connects to Azure IoT Central:
-1. In **ESP-IDF PowerShell**, run the following command to start the monitoring tool. As you did in a previous command, replace the *\<Your-COM-port\>* placeholder and brackets with the COM port that the device is connected to.
-
-    ```shell
-    idf.py -B "C:\espbuild" -p <Your-COM-port> monitor
-    ```
-
-1. Check for repeating blocks of output similar to the following example. This output confirms that the device connects to Azure IoT and sends telemetry.
-
-    ```output
-    I (50807) AZ IOT: Successfully sent telemetry message
-    I (50807) AZ IOT: Attempt to receive publish message from IoT Hub.
-    
-    I (51057) MQTT: Packet received. ReceivedBytes=2.
-    I (51057) MQTT: Ack packet deserialized with result: MQTTSuccess.
-    I (51057) MQTT: State record updated. New state=MQTTPublishDone.
-    I (51067) AZ IOT: Puback received for packet id: 0x00000008
-    I (53067) AZ IOT: Keeping Connection Idle...
-    ```
+    *iot-middleware-freertos-samples\b-l475e-iot01a\demos\projects\ST\b-l475e-iot01a\iot-middleware-sample-gsg.bin*
 
 ## Verify the device status
 
