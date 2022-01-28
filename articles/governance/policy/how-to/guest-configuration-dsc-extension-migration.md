@@ -1,7 +1,7 @@
 ---
 title: Planning a change from Desired State Configuration extension to guest configuration
 description: Guidance for moving from Desired State Configuration extension to the guest configuration feature of Azure Policy.
-ms.date: 01/26/2022
+ms.date: 01/28/2022
 ms.topic: how-to
 ---
 # Planning a change from Desired State Configuration extension to guest configuration
@@ -106,11 +106,11 @@ guest configuration package.
 #### Update deployment templates
 
 If your deployment templates include the DSC extension
-(see [examples](../virtual-machines/extensions/dsc-template)),
+(see [examples](../../virtual-machines/extensions/dsc-template)),
 there are two changes required.
 
 First, replace the DSC extension with the
-[extension for the guest configuration feature](../virtual-machines/extensions/guest-configuration).
+[extension for the guest configuration feature](../../virtual-machines/extensions/guest-configuration).
 
 Then, add 
 
