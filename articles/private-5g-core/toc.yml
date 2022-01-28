@@ -28,6 +28,8 @@ items:
       href: distributed-tracing.md
     - name: Packet core dashboards
       href: packet-core-dashboards.md
+  - name: Security
+    href: security.md
 - name: How-to guides
   items:
   - name: Private mobile networks
