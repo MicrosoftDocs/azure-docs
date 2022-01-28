@@ -2,7 +2,7 @@
 title: Azure PowerShell Samples
 description: Learn about Azure PowerShell scripts. These samples help you manage labs in Azure Lab Services.
 ms.topic: sample
-ms.date: 01/28/2022
+ms.date: 02/02/2022
 ---
 
 # Azure PowerShell samples for Azure Lab Services
@@ -15,11 +15,13 @@ This article includes the sample Azure PowerShell scripts for Azure Lab Services
 
 This article includes the following samples:
 
-- [Add an external user to a lab](#add-an-external-user-to-a-lab)
-- [Add marketplace images to a lab](#add-a-marketplace-image-to-a-lab)
-- [Create a custom image from a virtual hard drive (VHD)](#create-a-custom-image-from-a-vhd-file)
-- [Create a custom role in a lab](#create-a-custom-role-in-a-lab)
-- [Set allowed VM sizes in a lab](#set-allowed-virtual-machine-sizes)
+| Script | Description |
+|------- |------------ |
+| [Add an external user to a lab](#add-an-external-user-to-a-lab) | This PowerShell script adds an external user to a lab in Azure DevTest Labs. |
+| [Add marketplace images to a lab](#add-a-marketplace-image-to-a-lab) | This PowerShell script adds marketplace images to a lab in Azure DevTest Labs. |
+| [Create a custom image from a virtual hard drive (VHD)](#create-a-custom-image-from-a-vhd-file) | This PowerShell script creates a custom image in a lab in Azure DevTest Labs. |
+| [Create a custom role in a lab](#create-a-custom-role-in-a-lab) | This PowerShell script creates a custom role in a lab in Azure Lab Services. |
+| [Set allowed VM sizes in a lab](#set-allowed-virtual-machine-sizes) | This PowerShell script sets allowed virtual machine sizes in a lab. |
 
 ## Prerequisites
 
@@ -29,7 +31,7 @@ All of these scripts have the following prerequisite:
 
 ## Add an external user to a lab
 
-This sample PowerShell script adds an external user to a lab in Azure DevTest Labs. 
+This sample PowerShell script adds an external user to a lab in Azure DevTest Labs.
 
 :::code language="powershell" source="../../powershell_scripts/devtest-lab/add-external-user-to-lab/add-external-user-to-custom-lab.ps1":::
 
@@ -42,7 +44,7 @@ This script uses the following commands:
 
 ## Add a marketplace image to a lab
 
-This sample PowerShell script adds a marketplace image to a lab in Azure DevTest Labs. 
+This sample PowerShell script adds a marketplace image to a lab in Azure DevTest Labs.
 
 :::code language="powershell" source="../../powershell_scripts/devtest-lab/add-marketplace-images-to-lab/add-marketplace-images-to-lab.ps1":::
 
@@ -50,14 +52,13 @@ This script uses the following commands:
 
 | Command | Notes |
 |---|---|
-| [Find-AzResource](/powershell/module/az.resources/find-azresource) | Searches for resources based on specified parameters. |
 | [Get-AzResource](/powershell/module/az.resources/get-azresource) | Gets resources. |
 | [Set-AzResource](/powershell/module/az.resources/set-azresource) | Modifies a resource. |
 | [New-AzResource](/powershell/module/az.resources/new-azresource) | Create a resource. |
 
 ## Create a custom image from a VHD file
 
-This sample PowerShell script creates a custom image from a VHD file in Azure Lab Services
+This sample PowerShell script creates a custom image from a VHD file in Azure Lab Services.
 
 :::code language="powershell" source="../../powershell_scripts/devtest-lab/create-custom-image-from-vhd/create-custom-image-from-vhd.ps1":::
 
@@ -71,7 +72,7 @@ This script uses the following commands:
 
 ## Create a custom role in a lab
 
-This sample PowerShell script creates a custom role to use in a lab in Azure DevTest Labs. 
+This sample PowerShell script creates a custom role to use in a lab in Azure DevTest Labs.
 
 :::code language="powershell" source="../../powershell_scripts/devtest-lab/create-custom-role-in-lab/create-custom-role-in-lab.ps1":::
 
@@ -91,7 +92,6 @@ This sample PowerShell script sets allowed virtual machine (VM) sizes in Azure L
 
 | Command | Notes |
 |---|---|
-| [Find-AzResource](/powershell/module/az.resources/find-azresource) | Searches for resources based on specified parameters. |
 | [Get-AzResource](/powershell/module/az.resources/get-azresource) | Gets resources. |
 | [Set-AzResource](/powershell/module/az.resources/set-azresource) | Modifies a resource. |
 | [New-AzResource](/powershell/module/az.resources/new-azresource) | Create a resource. |
