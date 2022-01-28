@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 author: bwren
 ms.author: bwren
-ms.date: 01/19/2022
+ms.date: 01/27/2022
 ---
 
 # Log Analytics workspace overview
@@ -24,32 +24,17 @@ Log queries retrieve their data from a Log Analytics workspace. Each workspace c
 
 [![Diagram that shows the Azure Monitor Logs structure.](media/data-platform-logs/logs-structure.png)](media/data-platform-logs/logs-structure.png#lightbox)
 
-Log data from Application Insights is also stored in Azure Monitor Logs, but it's stored differently depending on how your application is configured: 
-
-- For a workspace-based application, data is stored in a Log Analytics workspace in a standard set of tables. The types of data include application requests, exceptions, and page views. Multiple applications can use the same workspace. 
-
-- For a classic application, the data is not stored in a Log Analytics workspace. It uses the same query language, and you create and run queries by using the same Log Analytics tool in the Azure portal. Data items for classic applications are stored separately from each other. The general structure is the same as for workspace-based applications, although the table and column names are different. 
-
-For a detailed comparison of the schema for workspace-based and classic applications, see [Workspace-based resource changes](../app/apm-tables.md).
-
-> [!NOTE]
-> The classic Application Insights experience includes backward compatibility for your resource queries, workbooks, and log-based alerts. To query or view against the [new workspace-based table structure or schema](../app/apm-tables.md), you must first go to your Log Analytics workspace. During the preview, selecting **Logs** from within the Application Insights panes will give you access to the classic Application Insights query experience. For more information, see [Query scope](./scope.md).
-
-[![Diagram that shows the Azure Monitor Logs structure for Application Insights.](media/data-platform-logs/logs-structure-ai.png)](media/data-platform-logs/logs-structure-ai.png#lightbox)
-
 
 ## Cost
-There is no direct cost for creating or maintaining a workspace. You charged for the data sent to it (data ingestion) and how long that data is stored (data retention). These costs will vary based on the data plan of each table as described in [Log data plans (preview)](#log-data-plans). 
+There is no direct cost for creating or maintaining a workspace. You're charged for the data sent to it (data ingestion) and how long that data is stored (data retention). These costs may vary based on the data plan of each table as described in [Log data plans (preview)](#log-data-plans). 
 
 See [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/) for detailed pricing and [Manage usage and costs with Azure Monitor Logs](manage-cost-storage.md) for guidance on reducing your costs. If you are using your Log Analytics workspace with services other than Azure Monitor, then see the documentation for those services for pricing information.
 
 ## Log data plans (preview)
-By default, all tables in a workspace are **Archive Logs** which are available to all features of Azure Monitor and any other services that use the workspace. You can configure certain tables as **Basic Logs (preview)** which reduces the cost for high-value verbose logs that don’t require analytics and alerts.
+By default, all tables in a workspace are **Archive Logs** which are available to all features of Azure Monitor and any other services that use the workspace. You can configure certain tables as **Basic Logs (preview)** which reduces the cost for high-value verbose logs that don’t require analytics and alerts. Tables configured for Basic Logs have a lower ingestion cost in exchange for reduced features. The following table gives a brief summary of the two plans. See [Configure Basic Logs in Azure Monitor (Preview)](basic-logs-configure.md) for more details on Basic Logs and how to configure them.
 
 > [!NOTE]
 > Basic Logs are currently in public preview.
-
-You can configure certain data in the workspace as a different log type to optimize your cost in exchange for reduced features. The following table gives a brief summary of the different types. Follow the links for each for complete details.
 
 The following table summarizes the differences between the plans.
 
@@ -69,7 +54,12 @@ Data in each table in a [Log Analytics workspace](log-analytics-workspace-overvi
 
 To access archived data, you must first retrieve data from it in an Analytics Logs table using one of the following methods:
 
-:::image type="content" source="media/data-retention-configure/retention-archive.png" alt-text="Overview of data retention and archive periods":::
+| Method | Description |
+|:---|:---|
+| [Search Jobs](search-jobs.md) | Retrieve data matching particular criteria. |
+| [Restore](restore.md) | Retrieve data from a particular time range. |
+
+:::image type="content" source="media/log-analytics-workspace-overview/workspace-plan-overview.png" alt-text="Overview of data plans and archive":::
 
 
 ## Permissions
@@ -79,6 +69,6 @@ See [Manage access to log data and workspaces in Azure Monitor](manage-access.md
 
 ## Next steps
 
-- Learn about [log queries](./log-query-overview.md) to retrieve and analyze data from a Log Analytics workspace.
-- Learn about [metrics in Azure Monitor](../essentials/data-platform-metrics.md).
-- Learn about the [monitoring data available](../agents/data-sources.md) for various resources in Azure.
+- [Create a new Log Analytics workspace](quick-create-workspace.md)
+- See [Designing your Azure Monitor Logs deployment](design-logs-deployment.md) for considerations on creating multiple workspaces.
+- [Learn about log queries to retrieve and analyze data from a Log Analytics workspace.](./log-query-overview.md)

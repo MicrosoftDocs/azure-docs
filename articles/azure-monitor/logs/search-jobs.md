@@ -9,10 +9,10 @@ ms.date: 01/27/2022
 ---
 
 # Search jobs in Azure Monitor (preview)
-Search jobs are asynchronous log queries in Azure Monitor that make results available as a  [Analytics Logs table](log-analytics-overview.md) you can use for log queries. Use search jobs to retrieve data matching particular require from [Archived Logs](archived-logs-overview.md) and [Basic Logs](basic-logs-overview.md). This article describes how to create a search job and how to query its resulting data. 
+Search jobs are asynchronous log queries in Azure Monitor that make results available as a  [Analytics Logs table](log-analytics-overview.md) you can use for log queries. Use search jobs to retrieve data matching particular criteria from [Archived Logs](archived-logs-overview.md) and [Basic Logs](basic-logs-overview.md). This article describes how to create a search job and how to query its resulting data. 
 
 ## When to use search jobs
-Search jobs are one method that you can use to analyze Archived Logs and Basic Logs. 
+Search jobs are one method that you can use to analyze Archived Logs and Basic Logs. Other methods include the followsin:
 
 - For Archived Logs, use [restore](restore.md) to make a specific time range of the data available for querying. Use restore when you have a temporary need to run many queries on a large volume of data. 
 - You can query Basic Logs directly, but there is a cost for each query. Depending on how many queries you need to perform, you should balance the cost for querying Basic Logs against the cost to perform the search job and store the resulting data.

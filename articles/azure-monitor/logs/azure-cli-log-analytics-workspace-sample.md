@@ -51,7 +51,7 @@ az monitor log-analytics workspace table update --resource-group ContosoRG \
 
 The retention time is between 30 and 730 days.
 
-For more information about tables, see [Data structure](./data-platform-logs.md#data-structure).
+For more information about tables, see [Data structure](./log-analytics-workspace-overview.md#data-structure).
 
 ## Export data from selected tables
 
