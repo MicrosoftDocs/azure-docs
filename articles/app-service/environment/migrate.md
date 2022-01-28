@@ -9,7 +9,7 @@ ms.custom: references_regions
 ---
 # Migration to App Service Environment v3
 
-App Service can now migrate your App Service Environment v2 to an [App Service Environment v3](overview.md). App Service Environment v3 provides [advantages and feature differences](overview.md#feature-differences) over earlier versions. Make sure to review the [supported features](overview.md#feature-differences) of App Service Environment v3 before migrating to reduce the risk of an unexpected application issue.
+App Service can now migrate your App Service Environment v2 to an [App Service Environment v3](overview.md). If you want to migrate an App Service Environment v1 to an App Service Environment v3, see the [migration alternatives documentation](migration-alternatives.md). App Service Environment v3 provides [advantages and feature differences](overview.md#feature-differences) over earlier versions. Make sure to review the [supported features](overview.md#feature-differences) of App Service Environment v3 before migrating to reduce the risk of an unexpected application issue.
 
 > [!IMPORTANT]
 > It is recommended to use this feature for dev environments first before migrating any production environments to ensure there are no unexpected issues. Please provide any feedback related to this article or the feature using the buttons at the bottom of the page.
