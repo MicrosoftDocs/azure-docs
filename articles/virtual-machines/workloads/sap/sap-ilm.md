@@ -1,6 +1,6 @@
 ---
-title:  SAP ILM with Microsoft Azure Blob Storage | Microsoft Docs
-description: SAP ILM with Microsoft Azure Blob Storage
+title:  SAP Information Lifecycle Management with Microsoft Azure Blob Storage | Microsoft Docs
+description: SAP Information Lifecycle Management with Microsoft Azure Blob Storage
 services: virtual-machines-linux,virtual-machines-windows
 documentationcenter: ''
 author: MSSedusch
@@ -12,7 +12,7 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 10/22/2021
+ms.date: 01/28/2022
 ms.author: sedusch
 ms.custom: subject-rbac-steps
 
@@ -43,9 +43,7 @@ Note: Steps 2, 3 and 4 can either be done manually or by using the Microsoft Qui
 
 ### QuickStart template approach:
 
-This is an automated approach to create the Azure account. The steps to be followed are:
-<mention how to trigger this quick start template>
-<add link to Quick start template>
+This is an automated approach to create the Azure account. You can find the template in the [Azure Quickstart Templates library](https://azure.microsoft.com/resources/templates/sap-ilm-store/).
 
 ### Manual configuration approach:
 Azure blob storage account can be configured manually.
@@ -66,14 +64,14 @@ It is recommended to set the following property values:
    * Enable storage account key access = false  
 1. Maintain IAM for the account  
 In the Access Control (IAM) setting, go to "Role Assignments" and add "Role assignment" for
-the App created with the role of “Storage Blob Data Contributor”. In the App dialog, choose
+the App created with the role of "Storage Blob Data Contributor". In the App dialog, choose
 "User, group or Service Principal" for "Assign Access to" field.
 
    > [!NOTE]
    > Ensure no other user has access to this storage account apart from the registered application.
 
-During the process of the account set up and configuration, it is recommended to refer to [Security recommendations for Blob Storage](/azure/storage/blobs/security-recommendations)
-With the completion of this set up, we are ready to use this blob storage account with SAP ILM
+During the process of the account setup and configuration, it is recommended to refer to [Security recommendations for Blob Storage](/azure/storage/blobs/security-recommendations)
+With the completion of this setup, we are ready to use this blob storage account with SAP ILM
 to store archive files from S/4 HANA System.
 
 ## Next steps
