@@ -37,6 +37,7 @@ az group delete --name $resourceGroup
 ```
 
 ## Sample reference
+
 | Command | Notes |
 |---|---|
 | [az group create](/cli/azure/ad/group) | Creates a resource group in which all resources are stored. |
