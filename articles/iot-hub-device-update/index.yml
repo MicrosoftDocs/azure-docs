@@ -30,7 +30,7 @@ landingContent:
           - text: Provisioning Device Update Agent
             url: device-update-agent-provisioning.md
           - text: Create an update
-            url: create-update.md- 
+            url: create-update.md 
           - text: Import an update
             url: import-update.md
           - text: Create an update group
