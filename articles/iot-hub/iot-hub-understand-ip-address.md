@@ -6,7 +6,7 @@ ms.author: lizross
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 04/21/2021
+ms.date: 01/28/2022
 ---
 
 
@@ -33,7 +33,7 @@ You may use these IP address prefixes to control connectivity between IoT Hub an
 * For constrained IoT systems without domain name resolution (DNS), IoT Hub IP address ranges are published periodically via service tags before changes taking effect. It is therefore important that you develop processes to regularly retrieve and use the latest service tags. This process can be automated via the [service tags discovery API](../virtual-network/service-tags-overview.md#service-tags-on-premises). Note that Service tags discovery API is still in preview and in some cases may not produce the full list of tags and IP addresses. Until discovery API is generally available, consider using the [service tags in downloadable JSON format](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files). 
 
 
-* Use the *AzureIoTHub.[region name]* tag to identify IP prefixes used by IoT hub endpoints in a specific region. To account for datacenter disaster recovery, or [regional failover](iot-hub-ha-dr.md) ensure connectivity to IP prefixes of your IoT Hub's geo-pair region is also enabled.
+* Use the *AzureIoTHub.[region name]* tag to identify IP prefixes used by IoT Hub endpoints in a specific region. To account for datacenter disaster recovery, or [regional failover](iot-hub-ha-dr.md) ensure connectivity to IP prefixes of your IoT Hub's geo-pair region is also enabled.
 
 * Setting up firewall rules in IoT Hub may block off connectivity needed to run Azure CLI and PowerShell commands against your IoT Hub. To avoid this, you can add ALLOW rules for your clients' IP address prefixes to re-enable CLI or PowerShell clients to communicate with your IoT Hub.
 
