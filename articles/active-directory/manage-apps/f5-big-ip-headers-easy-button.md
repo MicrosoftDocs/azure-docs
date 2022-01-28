@@ -120,7 +120,7 @@ The Easy Button client must also be registered as a client in Azure AD, before i
   * Policy.ReadWrite.ApplicationConfiguration
   * Policy.ReadWrite.ConditionalAccess
   * User.Read.All
- 8. Grant admin consent for your organization
+8. Grant admin consent for your organization
 9. In the **Certificates & Secrets** blade, generate a new **client secret** and note it down
 10. From the **Overview** blade, note the **Client ID** and **Tenant ID**
 
@@ -131,12 +131,14 @@ Next, step through the Easy Button configurations to federate and publish the in
 1. From a browser, sign-in to the F5 BIG-IP management console
 2. Navigate to **System > Certificate Management > Traffic Certificate Management SSL Certificate List > Import**
 3. Select **PKCS 12 (IIS)** and import your certificate along with its private key
-  Once provisioned, the certificate can be used for every application published through Easy Button. You can also choose to upload a separate certificate for individual applications.
+
+Once provisioned, the certificate can be used for every application published through Easy Button. You can also choose to upload a separate certificate for individual applications.
   
-    ![Screenshot for Configure Easy Button- Import SSL certificates and keys](./media/f5-big-ip-easy-button-ldap/configure-easy-button.png)
+   ![Screenshot for Configure Easy Button- Import SSL certificates and keys](./media/f5-big-ip-easy-button-ldap/configure-easy-button.png)
 
 4. Navigate to **Access > Guided Configuration > Microsoft Integration and select Azure AD Application**
- You can now access the Easy Button functionality that provides quick configuration steps to set up the APM as a SAML Service Provider (SP) and Azure AD as an Identity Provider (IdP) for your application.
+
+You can now access the Easy Button functionality that provides quick configuration steps to set up the APM as a SAML Service Provider (SP) and Azure AD as an Identity Provider (IdP) for your application.
 
    ![Screenshot for Configure Easy Button- Install the template](./media/f5-big-ip-easy-button-ldap/easy-button-template.png)
 
@@ -159,7 +161,7 @@ Consider the **Azure Service Account Details** be the BIG-IP client application 
 
 Some of these are global settings that can be reused for publishing more applications, further reducing deployment time and effort.
 
-1. Enter **Configuration Name**. A unique name that enables an admin to easily distinguish between Easy Button configurations for published applications
+1. Enter a unique **Configuration Name** so admins can easily distinguish between Easy Button configurations.
 
 2. Enable **Single Sign-On (SSO) & HTTP Headers**
 
@@ -179,7 +181,7 @@ The Service Provider settings define the SAML SP properties for the APM instance
 
     ![Screenshot for Service Provider settings](./media/f5-big-ip-easy-button-ldap/service-provider.png)
 
-  Next, under security settings, enter information for Azure AD to encrypt issued SAML assertions. Encrypting assertions between Azure AD and the BIG-IP APM provides additional  assurance that the content tokens can’t be intercepted, and personal or corporate data be compromised.
+Next, under security settings, enter information for Azure AD to encrypt issued SAML assertions. Encrypting assertions between Azure AD and the BIG-IP APM provides additional  assurance that the content tokens can’t be intercepted, and personal or corporate data be compromised.
 
 3. Check **Enable Encrypted Assertion (Optional)**. Enable to request Azure AD to encrypt SAML assertions
 
