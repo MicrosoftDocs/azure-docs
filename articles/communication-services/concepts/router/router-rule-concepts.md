@@ -1,5 +1,5 @@
 ---
-title: Router rules engine concepts for Azure Communication Services
+title: Job Router Rule Engines
 titleSuffix: An Azure Communication Services concept document
 description: Learn about the Azure Communication Services Job Router rules engine concepts.
 author: jasonshave
@@ -13,11 +13,11 @@ ms.service: azure-communication-services
 zone_pivot_groups: acs-js-csharp
 ---
 
-# Job Router rules engine concepts
+# Job Router Rule Engines
 
 [!INCLUDE [Private Preview Disclaimer](../../includes/private-preview-include-section.md)]
 
-Azure Communication Services Job Router uses an extensible rules engine to process data and make decisions about your Jobs and Workers. This document covers what the rule engine does and why you may want to apply it in your implementation.
+Job Router can use one or more rule engines to process data and make decisions about your Jobs and Workers. This document covers what the rule engines do and why you may want to apply them in your implementation.
 
 ## Rules engine overview
 
@@ -37,7 +37,7 @@ The following rule engine types exist in Job Router to provide flexibility in ho
 
 ### Example: Use a static rule to set the priority of a job
 
-In this example a `StaticRule`, which is a sub-type of `RouterRule` can be used to set the priority of all Jobs, which use this classification policy.
+In this example a `StaticRule`, which is a subtype of `RouterRule` can be used to set the priority of all Jobs, which use this classification policy.
 
 ::: zone pivot="programming-language-csharp"
 
@@ -66,7 +66,7 @@ await client.upsertClassificationPolicy({
 
 ### Example: Use an expression rule to set the priority of a job
 
-In this example a `ExpressionRule`, which is a sub-type of `RouterRule` can be used to set the priority of all Jobs, which use this classification policy.
+In this example a `ExpressionRule`, which is a subtype of `RouterRule` can be used to set the priority of all Jobs, which use this classification policy.
 
 ::: zone pivot="programming-language-csharp"
 

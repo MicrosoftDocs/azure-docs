@@ -17,7 +17,7 @@ zone_pivot_groups: acs-js-csharp
 
 [!INCLUDE [Private Preview Disclaimer](../../includes/private-preview-include-section.md)]
 
-This document describes the registration of workers, the submission of jobs and how they are matched to each other.
+This document describes the registration of workers, the submission of jobs and how they're matched to each other.
 
 ## Worker Registration
 
@@ -28,7 +28,7 @@ In the following example we register a worker to
 
 - Listen on `queue-1` and `queue-2`
 - Be able to handle both the voice and chat channels.  In this case, the worker could either take a single `voice` job at one time or two `chat` jobs at the same time.  This is configured by specifying the total capacity of the worker and assigning a cost per job for each channel.
-- Have a set of labels that describe things about the worker that could help determine if it is a match for a particular job.
+- Have a set of labels that describe things about the worker that could help determine if it's a match for a particular job.
 
 ::: zone pivot="programming-language-csharp"
 
@@ -81,7 +81,7 @@ let worker = await client.registerWorker({
 
 ## Job Submission
 
-In the following example, we will submit a job that
+In the following example, we'll submit a job that
 
 - Goes directly to `queue-1`.
 - For the `chat` channel.
@@ -134,7 +134,7 @@ let job = await client.createJob({
 ::: zone-end
 
 Job Router will now try to match this job to an available worker listening on `queue-1` for the `chat` channel, with `English` set to `true` and `Skill` greater than `10`.
-Once a match is made, an offer is created. The distribution policy that is attached to the queue will control how many active offers there can be for a job and how long each offer is valid. [You will receive][subscribe_events] an [OfferIssued Event][offer_issued_event] which would look like this:
+Once a match is made, an offer is created. The distribution policy that is attached to the queue will control how many active offers there can be for a job and how long each offer is valid. [You'll receive][subscribe_events] an [OfferIssued Event][offer_issued_event] which would look like this:
 
 ```json
 {
@@ -152,7 +152,7 @@ Once a match is made, an offer is created. The distribution policy that is attac
 }
 ```
 
-The [OfferIssued Event][offer_issued_event] includes details about the job, worker, how long the offer is valid and the `offerId` which you will need to accept or decline the job.
+The [OfferIssued Event][offer_issued_event] includes details about the job, worker, how long the offer is valid and the `offerId` which you'll need to accept or decline the job.
 
 <!-- LINKS -->
 [subscribe_events]: ../../how-tos/router-sdk/subscribe-events.md

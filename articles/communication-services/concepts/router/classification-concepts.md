@@ -16,9 +16,9 @@ ms.service: azure-communication-services
 
 [!INCLUDE [Private Preview Disclaimer](../../includes/private-preview-include-section.md)]
 
-When you submit a job to Job Router, you can either specify the queue, priority and worker selectors manually or you can specify a classification policy to drive these values.
+When you submit a job to Job Router, you can either specify the queue, priority, and worker selectors manually or you can specify a classification policy to drive these values.
 
-If you choose to use a classification policy, you will receive a [JobClassified Event][job_classified_event] or a [JobClassificationFailed Event][job_classify_failed_event] with the result.  Once the job has been successfully classified it will be automatically queued.  If the classification process fails, you will need to intervene to fix it.
+If you choose to use a classification policy, you will receive a [JobClassified Event][job_classified_event] or a [JobClassificationFailed Event][job_classify_failed_event] with the result.  Once the job has been successfully classified, it will be automatically queued.  If the classification process fails, you'll need to intervene to fix it.
 
 The process of classifying a Job involves optionally setting the following properties:
 
@@ -34,7 +34,7 @@ See the [Rule concepts](router-rule-concepts.md) page for more information.
 
 ## Worker selectors
 
-Each job carries a collection of worker selectors, which are conditions that need to be true of a workers labels to be a match.
+Each job carries a collection of worker selectors, that are evaluated against the worker labels.  These are conditions that need to be true of a worker to be a match.
 You can use the classification policy to attach these conditions to a job.  You can do this by specifying one or more selector attachments.
 
 For more information See the section [below](#using-label-selector-attachments).
@@ -47,7 +47,7 @@ For more information See the section [below](#using-label-selector-attachments).
 
 ## Using label selector attachments
 
-The following label selector attachment types are available:
+The following label selector attachments are available:
 
 **Static label selector -** Always attaches the given `LabelSelector`.
 
@@ -57,7 +57,7 @@ The following label selector attachment types are available:
 
 **Rule label selector -** Sources a collection of selectors from one of many rule engines. Read the [RouterRule concepts](router-rule-concepts.md) page for more information.
 
-**Weighted allocation label selector -** Enables you to specify a percentage based weighting and a collection of selectors to apply based on the weighting allocation. For example, you may want 30% of the Jobs to go to "Vendor 1" and 70% of Jobs to go to "Vendor 2".
+**Weighted allocation label selector -** Enables you to specify a percentage-based weighting and a collection of selectors to apply based on the weighting allocation. For example, you may want 30% of the Jobs to go to "Vendor 1" and 70% of Jobs to go to "Vendor 2".
 
 ## Reclassifying a job
 
