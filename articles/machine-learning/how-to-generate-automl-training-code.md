@@ -93,11 +93,15 @@ There are two main files with the generated code,
 
 ## Get generated code and model artifacts
 
-After the automated ML training run completes, you can get the `script.py` and the `script_run_notebook.ipynb` files with the following code.
+After the automated ML training run completes, you can get the `script.py` and the `script_run_notebook.ipynb` files. 
+The following code gets the best child run and downloads both files. 
 
 ```python
-remote_run.download_file("outputs/generated_code/script.py", "script.py")
-remote_run.download_file("outputs/generated_code/script_run_notebook.ipynb", "script_run_notebook.ipynb")
+
+best_run = remote_run.get_best_child()
+
+best_run.download_file("outputs/generated_code/script.py", "script.py")
+best_run.download_file("outputs/generated_code/script_run_notebook.ipynb", "script_run_notebook.ipynb")
 ```
 
 You also can view the generated code and prepare it for code customization via the Azure Machine Learning studio UI. 
@@ -106,7 +110,7 @@ To do so, navigate to the **Models** tab of the automated ML experiment parent r
 
 ![parent run models tab view generate code button](./media/how-to-generate-automl-training-code/parent-run-view-generated-code.png)
 
-, you can also access to the model's generated code from the top of the child run's page once you navigate into that child run's page of a particular model.
+Alternatively, you can also access to the model's generated code from the top of the child run's page once you navigate into that child run's page of a particular model.
 
 ![child run page view generated code button](./media/how-to-generate-automl-training-code/child-run-view-generated-code.png)
 
