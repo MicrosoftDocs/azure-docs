@@ -5,7 +5,6 @@ author: deborahc
 ms.author: dech
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
-ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 08/26/2021
 ms.custom: mode-ui

@@ -4,7 +4,7 @@ description: An overview of the managed identities for Azure resources.
 services: active-directory
 documentationcenter:
 author: barclayn
-manager: daveba
+manager: karenhoran
 editor:
 ms.assetid: 0232041d-b8f5-4bd2-8d11-27999ad69370
 ms.service: active-directory
@@ -25,7 +25,7 @@ A common challenge for developers is the management of secrets and credentials u
 
 Take a look at how you can use managed identities</br>
 
-> [!VIDEO https://channel9.msdn.com/Shows/On-NET/Using-Azure-Managed-identities/player?format=ny]
+> [!VIDEO https://docs.microsoft.com/Shows/On-NET/Using-Azure-Managed-identities/player?format=ny]
 
 
 

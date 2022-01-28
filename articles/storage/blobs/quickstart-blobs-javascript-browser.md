@@ -7,6 +7,7 @@ ms.date: 07/24/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
+ms.devlang: javascript
 ms.custom: devx-track-js, mode-api
 #Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage.
 ---
@@ -29,7 +30,7 @@ Additional resources:
 - [Node.js](https://nodejs.org)
 - [Microsoft Visual Studio Code](https://code.visualstudio.com)
 - A Visual Studio Code extension for browser debugging, such as:
-  - [Debugger for Microsoft Edge](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-edge)
+  - [Debugger for Microsoft Edge](https://devblogs.microsoft.com/visualstudio/debug-javascript-in-microsoft-edge-from-visual-studio/)
   - [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome)
   - [Debugger for Firefox](https://marketplace.visualstudio.com/items?itemName=firefox-devtools.vscode-firefox-debug)
 

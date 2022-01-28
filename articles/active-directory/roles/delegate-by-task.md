@@ -4,7 +4,7 @@ description: Least privileged roles to delegate for tasks in Azure Active Direct
 services: active-directory
 documentationcenter: ''
 author: rolyon
-manager: daveba
+manager: karenhoran
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
@@ -152,7 +152,7 @@ You can further restrict permissions by assigning roles at smaller scopes or by 
 > | Manage user settings | [Global Administrator](../roles/permissions-reference.md#global-administrator) |  |
 > | Read access review of a group or of an app | [Security Reader](../roles/permissions-reference.md#security-reader) | [Security Administrator](../roles/permissions-reference.md#security-administrator)<br/>[User Administrator](../roles/permissions-reference.md#user-administrator) |
 > | Read all configuration | [Default user role](../fundamentals/users-default-permissions.md) |  |
-> | Update enterprise application assignments | [Enterprise application owner](../fundamentals/users-default-permissions.md#object-ownership) | [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator)<br/>[Application Administrator](../roles/permissions-reference.md#application-administrator) |
+> | Update enterprise application assignments | [Enterprise application owner](../fundamentals/users-default-permissions.md#object-ownership) | [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator)<br/>[Application Administrator](../roles/permissions-reference.md#application-administrator)<br/>[User Administrator](../roles/permissions-reference.md#user-administrator) |
 > | Update enterprise application owners | [Enterprise application owner](../fundamentals/users-default-permissions.md#object-ownership) | [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator)<br/>[Application Administrator](../roles/permissions-reference.md#application-administrator) |
 > | Update enterprise application properties | [Enterprise application owner](../fundamentals/users-default-permissions.md#object-ownership) | [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator)<br/>[Application Administrator](../roles/permissions-reference.md#application-administrator) |
 > | Update enterprise application provisioning | [Enterprise application owner](../fundamentals/users-default-permissions.md#object-ownership) | [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator)<br/>[Application Administrator](../roles/permissions-reference.md#application-administrator) |

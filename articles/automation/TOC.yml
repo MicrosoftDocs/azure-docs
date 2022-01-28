@@ -38,7 +38,7 @@
     - name: Automation runbook types
       href: automation-runbook-types.md
     - name: PowerShell DSC
-      href: /powershell/dsc/overview/overview
+      href: /powershell/dsc/overview
     - name: Automation network configuration details
       href: automation-network-configuration.md
     - name: Security

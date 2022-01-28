@@ -13,43 +13,45 @@ ms.author: v-nisba
 ms.collection: M365-identity-device-management
 ---
 
-# Tutorial: Configure F5 BIG-IP Easy Button for Header-based and LDAP SSO
+# Tutorial: Configure F5 BIG-IP Easy Button for header-based and LDAP SSO
 
-In this tutorial, you’ll implement Secure Hybrid Access (SHA) with Single Sign-on (SSO) to header-based applications that also require session augmentation through Lightweight Directory Access Protocol (LDAP) sourced attributes using F5’s BIG-IP Easy Button guided configuration.
+In this article, you'll learn to implement Secure Hybrid Access (SHA) with single sign-on (SSO) to header-based applications that also require session augmentation through Lightweight Directory Access Protocol (LDAP) sourced attributes using F5’s BIG-IP Easy Button guided configuration.
 
-Configuring BIG-IP published applications with Azure AD provides many benefits, including:
+Enabling BIG-IP published services for Azure Active Directory (Azure AD) SSO provides many benefits, including:
 
-* Improved zero-trust governance through Azure AD pre-authentication and authorization
+* Improved Zero Trust governance through Azure AD pre-authentication and authorization
 
-* Full Single Sign-on (SSO) between Azure AD and BIG-IP published services
+* Full SSO between Azure AD and BIG-IP published services
 
-* Manage Identities and access from a single control plane - [The Azure portal](https://portal.azure.com/)
+* Manage identities and access from a single control plane, [The Azure portal](https://portal.azure.com/)
 
 To learn about all of the benefits, see the article on [F5 BIG-IP and Azure AD integration](./f5-aad-integration.md) and [what is application access and single sign-on with Azure AD](/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## Scenario description
 
-For this scenario, we have a legacy application using HTTP authorization headers to control access to protected content. Azure AD pre-authentication provides the user identifier, while other attributes fetched from an LDAP connected Human Resource (HR) system provide fine grained application permissions.
+For this scenario, we have a legacy application using HTTP authorization headers to control access to protected content.
 
-Ideally, Azure AD should manage the application, but being legacy it does not support any form of modern authentication protocol. Modernization would take considerable effort, introducing inevitable costs and risk of potential downtime.
+Being legacy, the application lacks any form of modern protocols to support a direct integration with Azure AD. Modernizing the app is also costly, requires careful planning, and introduces risk of potential impact. 
 
-Instead, a BIG-IP Virtual Edition (VE) deployed between the public internet and the internal Azure VNet application is connected and will be used to gate inbound access to the application, along with Azure AD for its extensive choice of authentication and authorization capabilities.
+One option would be to consider [Azure AD Application Proxy](/azure/active-directory/app-proxy/application-proxy), to gate remote access to the application.
 
-Having a BIG-IP in front of the application enables us to overlay the service with Azure AD pre-authentication and header-based SSO. It significantly improves the overall security posture of the application, and allows the business to continue operating at pace, without interruption.
+Another approach is to use an F5 BIG-IP Application Delivery Controller, as it too provides the protocol transitioning required to bridge legacy applications to the modern ID control plane.
+
+Having a BIG-IP in front of the application enables us to overlay the service with Azure AD pre-authentication and header-based SSO, significantly improving the overall security posture of the application for both remote and local access.
 
 ## Scenario architecture
 
 The secure hybrid access solution for this scenario is made up of:
 
-**Application:** Backend header-based service to be protected by Azure AD and BIG-IP secure hybrid access.
+**Application:** BIG-IP published service to be protected by Azure AD SHA.
 
-**Azure AD:** Security Assertion Markup Language (SAML) Identity Provider (IdP) responsible for verification of user credentials, Conditional Access (CA), and SSO to the BIG-IP APM.
+**Azure AD:** Security Assertion Markup Language (SAML) Identity Provider (IdP) responsible for verification of user credentials, Conditional Access (CA), and SSO to the BIG-IP APM. Through SSO, Azure AD provides the BIG-IP with any required session attributes.
 
-**HR system:** Legacy employee database acting as source of truth for application authorization
+**HR system:** Legacy employee database acting as source of truth for fine grained application permissions.
 
 **BIG-IP:** Reverse proxy and SAML service provider (SP) to the application, delegating authentication to the SAML IdP before performing header-based SSO to the backend application.
 
-Secure hybrid access for this scenario supports both SP and IdP initiated flows. The following image illustrates the SP initiated flow.
+SHA for this scenario supports both SP and IdP initiated flows. The following image illustrates the SP initiated flow.
 
 ![Secure hybrid access - SP initiated flow](./media/f5-big-ip-easy-button-ldap/sp-initiated-flow.png)
 
@@ -93,11 +95,11 @@ Prior BIG-IP experience isn't necessary, but you'll need:
 
 - A user directory that supports LDAP, including Windows Active Directory Lightweight Directory Services (AD LDS), OpenLDAP etc.
 
-## BIG-IP deployment methods
+## BIG-IP configuration methods
 
-There are many methods to deploy BIG-IP for this scenario including a template-driven Guided Configuration wizard, or the manual advanced configuration. This tutorial covers the latest Guided Configuration 16.1 offering an Easy Button template.
+There are many methods to deploy BIG-IP for this scenario including a template-driven Guided Configuration wizard, or the manual advanced configuration. This tutorial covers the Easy Button templates offered by the Guided Configuration 16.1 and upwards.
 
-With the **Easy Button**, admins no longer go back and forth between Azure AD and a BIG-IP to enable services for secure hybrid access. The end-to-end deployment and policy management is handled directly between the APM’s Guided Configuration wizard and Microsoft Graph. This rich integration between BIG-IP APM and Azure AD ensures applications can quickly, easily support identity federation, SSO, and Azure AD Multi-Factor Authentication (MFA), without management overhead of having to do on a per app basis. 
+With the **Easy Button**, admins no longer go back and forth between Azure AD and a BIG-IP to enable services for secure hybrid access. The end-to-end deployment and policy management is handled directly between the APM’s Guided Configuration wizard and Microsoft Graph. This rich integration between BIG-IP APM and Azure AD ensures applications can quickly, easily support identity federation, SSO, and Azure AD Conditional Access, reducing administrative overhead.
 
 For scenarios where the Guided Configuration lacks the flexibility to achieve a particular set of requirements, see the [Advanced deployment](#advanced-deployment) at the end of this tutorial.
 
@@ -106,7 +108,9 @@ For scenarios where the Guided Configuration lacks the flexibility to achieve a 
 
 ## Register Easy Button
 
-Before a client or service can access Microsoft Graph, it must be trusted by the Microsoft identity platform. Registering with Azure AD establishes a trust relationship between your application and the identity provider. BIG-IP must also be registered as a client in Azure AD, before the Easy Button wizard is trusted to access Microsoft Graph.
+Before a client or service can access Microsoft Graph, it must be trusted by the Microsoft identity platform. 
+
+The Easy Button client must also be registered as a client in Azure AD, before it is allowed to establish a trust relationship between each SAML SP instance of a BIG-IP published applications, and the IdP.
 
 1. Sign-in to the [Azure AD portal](https://portal.azure.com) using an account with Application Administrative rights
 
@@ -150,7 +154,7 @@ Before a client or service can access Microsoft Graph, it must be trusted by the
 
 ## Configure Easy Button
 
-Next, step through the Easy Button configurations, and complete the trust to start publishing the internal application. Start by provisioning your BIG-IP with an X509 certificate that Azure AD can use to sign SAML tokens and claims issued for SHA enabled services.
+Next, step through the Easy Button configurations to federate and publish the EBS application. Start by provisioning your BIG-IP with an X509 certificate that Azure AD can use to sign SAML tokens and claims issued for SHA enabled services.
 
 1. From a browser, sign-in to the F5 BIG-IP management console
 2. Navigate to **System > Certificate Management > Traffic Certificate Management  SSL Certificate List > Import**
@@ -160,13 +164,13 @@ Next, step through the Easy Button configurations, and complete the trust to sta
 
     ![Screenshot for Configure Easy Button- Import SSL certificates and keys](./media/f5-big-ip-easy-button-ldap/configure-easy-button.png)
 
-1. Navigate to **Access > Guided Configuration > Microsoft Integration** and select  **Azure AD Application**
+4. Navigate to **Access > Guided Configuration > Microsoft Integration** and select  **Azure AD Application**
    
    You can now access the Easy Button functionality that provides quick configuration steps to set up the APM as a SAML Service Provider (SP) and Azure AD as an Identity Provider (IdP) for your application.
 
     ![Screenshot for Configure Easy Button- Install the template](./media/f5-big-ip-easy-button-ldap/easy-button-template.png)
 
-2. Review the list of configuration steps and select **Next**
+5. Review the list of configuration steps and select **Next**
 
     ![Screenshot for Configure Easy Button - List configuration steps](./media/f5-big-ip-easy-button-ldap/config-steps.png)
 
@@ -355,7 +359,7 @@ Enabling SSO allows users to access BIG-IP published services without having to 
 ![Screenshot for SSO and HTTP headers](./media/f5-big-ip-easy-button-ldap/sso-headers.png)
 
 >[!NOTE]
->The APM session variables defined within curly brackets are CASE sensitive. For example, if our queried LDAP attribute was returned as eventroles, then the above variable definition would fail to populate the eventrole header value. In case of any issues, troubleshoot using the session analysis steps to check how the APM has variables defined will avoid any issues.
+>APM session variables defined within curly brackets are CASE sensitive. If you enter EventRoles when the Azure AD attribute name is being defined as eventroles, it will cause an attribute mapping failure.
 
 ### Session Management
 
@@ -375,7 +379,7 @@ If making a change to the app is a no go, then consider having the BIG-IP listen
 
 Select **Deploy** to commit all settings and verify that the application has appeared in your tenant. This last step provides break down of all applied settings before they’re committed.
 
-Your application should now be published and accessible via Secure Hybrid Access, either directly via its URL or through Microsoft’s application portals. For increased security, organizations using this pattern could also consider blocking all direct access to the application, thereby forcing a strict path through the BIG-IP.
+Your application should now be published and accessible via SHA, either directly via its URL or through Microsoft’s application portals. For increased security, organizations using this pattern could also consider blocking all direct access to the application, thereby forcing a strict path through the BIG-IP.
 
 ## Next steps
 
@@ -426,10 +430,9 @@ If you don’t see a BIG-IP error page, then the issue is probably more related 
 For more information, visit this F5 knowledge article [Configuring LDAP remote authentication for Active Directory](https://support.f5.com/csp/article/K11072). There’s also a great BIG-IP reference table to help diagnose LDAP-related issues in this F5 knowledge article on [LDAP Query](https://techdocs.f5.com/kb/en-us/products/big-ip_apm/manuals/product/apm-authentication-single-sign-on-11-5-0/5.html).
 
  
-
 ## Additional resources
 
-* [The end of passwords, go password-less](https://www.microsoft.com/en-gb/security/business/identity/passwordless)
+* [The end of passwords, go password-less](https://www.microsoft.com/security/business/identity/passwordless)
 
 * [What is Conditional Access?](../conditional-access/overview.md)
 

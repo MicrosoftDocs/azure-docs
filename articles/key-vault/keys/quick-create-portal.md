@@ -37,7 +37,9 @@ To add a key to the vault, you just need to take a couple of additional steps. I
     - **Name**: ExampleKey.
     - Leave the other values to their defaults. Click **Create**.
 
-Once that you receive the message that the key has been successfully created, you may click on it on the list. You can then see some of the properties. 
+## Retrieve a key from Key Vault
+
+Once that you receive the message that the key has been successfully created, you may click on it on the list. You can then see some of the properties and click **Download public key** to retrieve the key.
 
 :::image type="content" source="../media/keys/quick-create-portal/current-version-hidden.png" alt-text="Key properties":::
 

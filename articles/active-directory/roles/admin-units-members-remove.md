@@ -4,7 +4,7 @@ description: Remove users or groups from an administrative unit in Azure Active 
 services: active-directory
 documentationcenter: ''
 author: rolyon
-manager: daveba
+manager: karenhoran
 ms.service: active-directory
 ms.topic: how-to
 ms.subservice: roles

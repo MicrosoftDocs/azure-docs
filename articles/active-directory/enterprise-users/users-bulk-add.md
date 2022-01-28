@@ -4,7 +4,7 @@ description: Add users in bulk in the Azure AD admin center in Azure Active Dire
 services: active-directory 
 author: curtand
 ms.author: curtand
-manager: KarenH444
+manager: karenhoran
 ms.date: 05/19/2021
 ms.topic: how-to
 ms.service: active-directory

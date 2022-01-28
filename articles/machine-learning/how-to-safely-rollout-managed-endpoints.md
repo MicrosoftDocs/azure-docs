@@ -47,7 +47,7 @@ In this article, you'll learn to:
    az configure --defaults workspace=<azureml workspace name> group=<resource group>
    ```
 
-* An existing online endpoint and deployment. This article assumes that your deployment is as described in [Deploy and score a machine learning model with a managed online endpoint (preview)](how-to-deploy-managed-online-endpoints.md).
+* An existing online endpoint and deployment. This article assumes that your deployment is as described in [Deploy and score a machine learning model with an online endpoint (preview)](how-to-deploy-managed-online-endpoints.md).
 
 * If you haven't already set the environment variable $ENDPOINT_NAME, do so now:
 
@@ -76,7 +76,7 @@ You should see the endpoint identified by `$ENDPOINT_NAME` and, a deployment cal
 
 ## Scale your existing deployment to handle more traffic
 
-In the deployment described in [Deploy and score a machine learning model with a managed online endpoint (preview)](how-to-deploy-managed-online-endpoints.md), you set the `instance_count` to the value `1` in the deployment yaml file. You can scale out using the `update` command :
+In the deployment described in [Deploy and score a machine learning model with an online endpoint (preview)](how-to-deploy-managed-online-endpoints.md), you set the `instance_count` to the value `1` in the deployment yaml file. You can scale out using the `update` command :
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-safe-rollout-online-endpoints.sh" ID="scale_blue" :::
 
@@ -130,11 +130,11 @@ If you aren't going use the deployment, you should delete it with:
 
 ## Next steps
 - [Deploy models with REST (preview)](how-to-deploy-with-rest.md)
-- [Create and use managed online endpoints (preview) in the studio](how-to-use-managed-online-endpoint-studio.md)
-- [Access Azure resources with a managed online endpoint and managed identity (preview)](how-to-access-resources-from-endpoints-managed-identities.md)
+- [Create and use online endpoints (preview) in the studio](how-to-use-managed-online-endpoint-studio.md)
+- [Access Azure resources with a online endpoint and managed identity (preview)](how-to-access-resources-from-endpoints-managed-identities.md)
 - [Monitor managed online endpoints (preview)](how-to-monitor-online-endpoints.md)
 - [Manage and increase quotas for resources with Azure Machine Learning](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints-preview)
 - [View costs for an Azure Machine Learning managed online endpoint (preview)](how-to-view-online-endpoints-costs.md)
 - [Managed online endpoints SKU list (preview)](reference-managed-online-endpoints-vm-sku-list.md)
-- [Troubleshooting managed online endpoints deployment and scoring (preview)](how-to-troubleshoot-managed-online-endpoints.md)
+- [Troubleshooting  online endpoints deployment and scoring (preview)](how-to-troubleshoot-managed-online-endpoints.md)
 - [Managed online endpoints (preview) YAML reference](reference-yaml-endpoint-managed-online.md)

@@ -24,12 +24,6 @@ keywords: face search by image, facial recognition search, facial recognition, f
 
 ::: zone-end
 
-::: zone pivot="programming-language-go"
-
-[!INCLUDE [Go quickstart](../includes/quickstarts/go-sdk.md)]
-
-::: zone-end
-
 ::: zone pivot="programming-language-javascript"
 
 [!INCLUDE [JavaScript quickstart](../includes/quickstarts/javascript-sdk.md)]

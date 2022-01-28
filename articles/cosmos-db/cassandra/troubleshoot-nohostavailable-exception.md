@@ -1,34 +1,38 @@
 ---
-title: Troubleshooting NoHostAvailableException and NoNodeAvailableException
-description: This article discusses the different possible reasons for having a NoHostException and ways to handle it.
+title: Troubleshoot NoHostAvailableException and NoNodeAvailableException
+description: This article discusses the various reasons for having a NoHostException and ways to handle it.
 author: IriaOsara
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: troubleshooting
 ms.date: 12/02/2021
 ms.author: IriaOsara
-
+ms.devlang: csharp, java
 ---
 
-# Troubleshooting NoHostAvailableException and NoNodeAvailableException
-The NoHostAvailableException is a top-level wrapper exception with many possible causes and inner exceptions, many of which can be client-related. This exception tends to occur if there are some issues with cluster, connection settings or one or more Cassandra nodes is unavailable. Here we explore possible reasons for this exception along with details specific to the client driver being used.
+# Troubleshoot NoHostAvailableException and NoNodeAvailableException
+NoHostAvailableException is a top-level wrapper exception with many possible causes and inner exceptions, many of which can be client-related. This exception tends to occur if there are some issues with the cluster or connection settings, or if one or more Cassandra nodes are unavailable. 
 
-## Driver Settings
-One of the most common causes of a NoHostAvailableException is because of the default driver settings. We advised the following [settings](#code-sample).
+This article explores possible reasons for this exception, and it discusses specific details about the client driver that's being used.
 
-- The default value of the connections per host is 1, which is not recommended for CosmosDB, a minimum value of 10 is advised. While more aggregated RUs are provisioned, increase connection count. The general guideline is 10 connections per 200k RU.
-- Use cosmos retry policy to handle intermittent throttling responses, please reference [cosmosdb extension library](https://github.com/Azure/azure-cosmos-cassandra-extensions)(https://github.com/Azure/azure-cosmos-cassandra-extensions/tree/release/java-driver-4/1.0.1)
-- For multi-region account, CosmosDB load-balancing policy in the extension should be used.
-- Read request timeout should be set greater than 1 minute. We recommend 90 seconds.
+## Driver settings
+One of the most common causes of NoHostAvailableException is the default driver settings. We recommend that you use the [settings](#code-sample) listed at the end of this article. Here is some explanatory information:
 
-## Exception Messages
-If exception still persists after the recommended settings, review the exception messages below. Follow the recommendation, if your error log contains any of these messages.
+- The default value of the connections per host is 1, which we don't recommend for Azure Cosmos DB. We do recommend a minimum value of 10. Although more aggregated Request Units (RU) are provided, increase the connection count. The general guideline is 10 connections per 200,000 RU.
+- Use the Azure Cosmos DB retry policy to handle intermittent throttling responses. For more information, see the Azure Cosmos DB extension libraries: 
+   - [Driver 3 extension library](https://github.com/Azure/azure-cosmos-cassandra-extensions)
+   - [Driver 4 extension library](https://github.com/Azure/azure-cosmos-cassandra-extensions/tree/release/java-driver-4/1.0.1)
+- For multi-region accounts, use the Azure Cosmos DB load-balancing policy in the extension.
+- The read request timeout should be set at greater than 1 minute. We recommend 90 seconds.
+
+## Exception messages
+If the exception persists after you've made the recommended changes, review the exception messages in the next three sections. If your error log contains any of these exception messages, follow the recommendation for that exception.
 
 ### BusyPoolException
-This client-side error indicates that the maximum number of request connections for a host has been reached. If unable to remove, request from the queue, you might see this error. If the connection per host has been set to minimum of 10, this could be caused by high server-side latency.
+This client-side error indicates that the maximum number of request connections for a host has been reached. If you're unable to remove the request from the queue, you might see this error. If the connection per host has been set to minimum of 10, the exception could be caused by high server-side latency.
 
 ```
-Java driver v3  exception:
+Java driver v3 exception:
 All host(s) tried for query failed (tried: :10350 (com.datastax.driver.core.exceptions.BusyPoolException: [:10350] Pool is busy (no available connection and the queue has reached its max size 256)))
 All host(s) tried for query failed (tried: :10350 (com.datastax.driver.core.exceptions.BusyPoolException: [:10350] Pool is busy (no available connection and timed out after 5000 MILLISECONDS)))
 ```
@@ -37,35 +41,35 @@ C# driver 3:
 All hosts tried for query failed (tried :10350: BusyPoolException 'All connections to host :10350 are busy, 2048 requests are in-flight on each 10 connection(s)')
 ```
 #### Recommendation
-Instead of tuning the `max requests per connection`, we advise making sure the `connections per host` is set to a minimum of 10. See the [code sample section](#code-sample).
+Instead of tuning `max requests per connection`, make sure that `connections per host` is set to a minimum of 10. See the [code sample section](#code-sample).
 
 ### TooManyRequest(429)
-OverloadException is thrown when the request rate is too large. Which may be because of insufficient throughput being provisioned for the table and the RU budget being exceeded. Learn more about [large request](../sql/troubleshoot-request-rate-too-large.md#request-rate-is-large) and [server-side retry](prevent-rate-limiting-errors.md)
+OverloadException is thrown when the request rate is too great, which might happen when insufficient throughput is provisioned for the table and the RU budget is exceeded. For more information, see [large request](../sql/troubleshoot-request-rate-too-large.md#request-rate-is-large) and [server-side retry](prevent-rate-limiting-errors.md).
 #### Recommendation
-We recommend using either of the following options:
-- If throttling is persistent, increase provisioned RU.
-- If throttling is intermittent, use the CosmosRetryPolicy.
-- If the extension library cannot be referenced [enable server side retry](prevent-rate-limiting-errors.md).
+Apply one of the following options:
+- If throttling is persistent, increase the provisioned RU.
+- If throttling is intermittent, use the Azure Cosmos DB retry policy.
+- If the extension library can't be referenced, [enable server-side retry](prevent-rate-limiting-errors.md).
 
 ### All hosts tried for query failed
-When the client is set to connect to a different region other than the primary contact point region, you will get below exception during the initial a few seconds upon start-up.
+When the client is set to connect to a region other than the primary contact point region, during the initial few seconds at startup, you'll get one of the following exception messages:
  
-Exception message with a Java driver 3: `Exception in thread "main" com.datastax.driver.core.exceptions.NoHostAvailableException: All host(s) tried for query failed (no host was tried)at cassandra.driver.core@3.10.2/com.datastax.driver.core.exceptions.NoHostAvailableException.copy(NoHostAvailableException.java:83)`
+- For Java driver 3: `Exception in thread "main" com.datastax.driver.core.exceptions.NoHostAvailableException: All host(s) tried for query failed (no host was tried)at cassandra.driver.core@3.10.2/com.datastax.driver.core.exceptions.NoHostAvailableException.copy(NoHostAvailableException.java:83)`
 
-Exception message with a Java driver 4: `No node was available to execute the query`
+- For Java driver 4: `No node was available to execute the query`
 
-Exception message with a C# driver 3: `System.ArgumentException: Datacenter West US does not match any of the nodes, available datacenters: West US 2`
+- For C# driver 3: `System.ArgumentException: Datacenter West US does not match any of the nodes, available datacenters: West US 2`
 
 #### Recommendation
-We advise using the CosmosLoadBalancingPolicy in [Java driver 3](https://github.com/Azure/azure-cosmos-cassandra-extensions) and [Java driver 4](https://github.com/Azure/azure-cosmos-cassandra-extensions/tree/release/java-driver-4/1.0.1). This policy falls back to the ContactPoint of the primary write region where the specified local data is unavailable.
+Use CosmosLoadBalancingPolicy in [Java driver 3](https://github.com/Azure/azure-cosmos-cassandra-extensions) and [Java driver 4](https://github.com/Azure/azure-cosmos-cassandra-extensions/tree/release/java-driver-4/1.0.1). This policy falls back to the contact point of the primary write region where the specified local data is unavailable.
 
 > [!NOTE]
-> Please reach out to Azure Cosmos DB support with details around - exception message, exception stacktrace, datastax driver log, universal time of failure, consistent or intermittent failures, failing keyspace and table, request type that failed, SDK version if none of the above recommendations help resolve your issue.
+> If the preceding recommendations don't help resolve your issue, contact Azure Cosmos DB support. Be sure to provide the following details: exception message, exception stacktrace, datastax driver log, universal time of failure, consistent or intermittent failures, failing keyspace and table, request type that failed, and SDK version.
 
 
-## Code Sample
+## Code sample
 
-#### Java Driver 3 Settings
+#### Java driver 3 settings
 ``` java
    // socket options with default values
     // https://docs.datastax.com/en/developer/java-driver/3.6/manual/socket_options/
@@ -105,7 +109,7 @@ We advise using the CosmosLoadBalancingPolicy in [Java driver 3](https://github.
         .build();
 ```
 
-#### Java Driver 4 Settings
+#### Java driver 4 settings
 ```java
     // driver configurations
     // https://docs.datastax.com/en/developer/java-driver/4.6/manual/core/configuration/
@@ -147,7 +151,7 @@ We advise using the CosmosLoadBalancingPolicy in [Java driver 3](https://github.
         .build();
 ```
 
-#### C# v3 Driver Settings
+#### C# v3 driver settings
 ```dotnetcli
     PoolingOptions poolingOptions = PoolingOptions.Create()
         .SetCoreConnectionsPerHost(HostDistance.Local, 10) // default 2
@@ -169,8 +173,8 @@ We advise using the CosmosLoadBalancingPolicy in [Java driver 3](https://github.
 ```
 
 ## Next steps
-* [Server-side diagnostics](error-codes-solution.md) to understand different error codes and their meaning.
-* [Diagnose and troubleshoot](../sql/troubleshoot-dot-net-sdk.md) issues when you use the Azure Cosmos DB .NET SDK.
+* To understand the various error codes and their meaning, see [Server-side diagnostics](error-codes-solution.md).
+* See [Diagnose and troubleshoot issues with the Azure Cosmos DB .NET SDK](../sql/troubleshoot-dot-net-sdk.md).
 * Learn about performance guidelines for [.NET v3](../sql/performance-tips-dotnet-sdk-v3-sql.md) and [.NET v2](../sql/performance-tips.md).
-* [Diagnose and troubleshoot](../sql/troubleshoot-java-sdk-v4-sql.md) issues when you use the Azure Cosmos DB Java v4 SDK.
-* Learn about performance guidelines for [Java v4 SDK](../sql/performance-tips-java-sdk-v4-sql.md).
+* See [Troubleshoot issues with the Azure Cosmos DB Java SDK v4 with SQL API accounts](../sql/troubleshoot-java-sdk-v4-sql.md).
+* See [Performance tips for the Azure Cosmos DB Java SDK v4](../sql/performance-tips-java-sdk-v4-sql.md).

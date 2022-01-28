@@ -2,11 +2,11 @@
 title: "include file"
 description: "include file"
 services: redis-cache
-author: curib
+author: flang-msft
 ms.service: cache
 ms.topic: "include"
 ms.date: 10/06/2020
-ms.author: cauribeg
+ms.author: franlanglois
 ms.custom: "include file"
 ---
 

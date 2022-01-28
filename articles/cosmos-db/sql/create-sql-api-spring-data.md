@@ -1,13 +1,13 @@
 ---
 title: Quickstart - Use Spring Data Azure Cosmos DB v3 to create a document database using Azure Cosmos DB
 description: This quickstart presents a Spring Data Azure Cosmos DB v3 code sample you can use to connect to and query the Azure Cosmos DB SQL API
-author: anfeldma-ms
+author: rothja
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: quickstart
 ms.date: 08/26/2021
-ms.author: anfeldma
+ms.author: jroth
 ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java, mode-api
 ---
 

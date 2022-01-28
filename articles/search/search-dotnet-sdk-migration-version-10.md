@@ -7,7 +7,7 @@ manager: nitinme
 author: arv100kri
 ms.author: arjagann
 ms.service: cognitive-search
-ms.devlang: dotnet
+ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 09/16/2021
 ms.custom: devx-track-csharp

@@ -150,3 +150,4 @@ A port is reused for an unlimited number of connections. The port is only reused
 
 *	[Troubleshoot outbound connection failures because of SNAT exhaustion](./troubleshoot-outbound-connection.md)
 *	[Review SNAT metrics](./load-balancer-standard-diagnostics.md#how-do-i-check-my-snat-port-usage-and-allocation) and familiarize yourself with the correct way to filter, split, and view them.
+* Learn how to [migrate your existing outbound connectivity method to NAT gateway](../virtual-network/nat-gateway/tutorial-migrate-outbound-nat.md)

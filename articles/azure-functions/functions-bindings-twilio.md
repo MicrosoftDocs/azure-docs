@@ -6,6 +6,7 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 07/09/2018
 ms.author: cshoe
+ms.devlang: csharp, java, javascript, python
 ms.custom: "devx-track-csharp, H1Hack27Feb2017"
 ---
 

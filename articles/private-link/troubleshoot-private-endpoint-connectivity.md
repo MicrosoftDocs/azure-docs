@@ -8,7 +8,6 @@ manager: narayan
 editor: ''
 
 ms.service: private-link
-ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services

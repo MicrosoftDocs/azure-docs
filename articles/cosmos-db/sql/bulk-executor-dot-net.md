@@ -5,7 +5,7 @@ author: abinav2307
 ms.author: abramees
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
-ms.devlang: dotnet
+ms.devlang: csharp
 ms.topic: how-to
 ms.date: 03/23/2020
 ms.reviewer: sngun

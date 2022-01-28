@@ -5,7 +5,7 @@ author: TheovanKraay
 ms.author: thvankra
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
-ms.devlang: nodejs
+ms.devlang: javascript
 ms.topic: quickstart
 ms.date: 02/10/2021
 ms.custom: devx-track-js, mode-api
