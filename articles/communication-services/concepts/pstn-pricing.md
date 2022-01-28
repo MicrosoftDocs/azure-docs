@@ -20,6 +20,8 @@ In most cases, only customers with Azure subscriptions that match the offer loca
 
 All prices shown below are in USD.
 
+***
+
 ## United States Telephony Offers
 
 ### Phone Number Leasing Charges
@@ -68,7 +70,9 @@ For additional destinations, please refer to details [here](https://github.com/A
 
 For additional destinations, please refer to details [here](https://github.com/Azure/Communication/blob/master/pricing/communication-services-pstn-rates.csv)
 
-Note: Pricing is subject to change as pricing is market-based and depends on third-party suppliers of telephony services.
+***
+
+Note: Pricing for all countries is subject to change as pricing is market-based and depends on third-party suppliers of telephony services.
 
 ## Next steps
 
