@@ -232,21 +232,6 @@ A common scenario for DNS zone group is in a hub-and-spoke topology, where it al
 
 > [!NOTE]
 > Adding multiple DNS zone groups to a single Private Endpoint is not supported. 
-Below is an example of how to create a private DNS zone group via Powershell.
-
-```azurepowershell-interactive
-$dnsZone = New-AzPrivateDnsZone -ResourceGroupName "rg" -Name "test.vault.azure.com"
-$config = New-AzPrivateDnsZoneConfig -Name "test-vault-azure-com" -PrivateDnsZoneId $dnsZone.ResourceId
-New-AzPrivateDnsZoneGroup -ResourceGroupName "rg" -PrivateEndpointName "test-pr-endpoint" -name "dnsgroup1" -PrivateDnsZoneConfig $config -Force
-```
-
-For more details about Powershell commands for DNS zone groups, see [DNS Powershell Cmdlet](https://docs.microsoft.com/powershell/module/az.network/?view=azps-7.1.0#dns&preserve-view=true).
-
-See also [Azure CLI for DNS zone group](https://docs.microsoft.com/cli/azure/network/private-endpoint/dns-zone-group?view=azure-cli-latest&preserve-view=true). 
-
-See also [REST API for DNS zone group](https://docs.microsoft.com/rest/api/virtualnetwork/private-dns-zone-groups).
-
-See also [Bicep and ARM template for DNS zone group](https://docs.microsoft.com/azure/templates/microsoft.network/privateendpoints/privatednszonegroups?tabs=bicep).
 
 ## Next steps
 - [Learn about private endpoints](private-endpoint-overview.md)
