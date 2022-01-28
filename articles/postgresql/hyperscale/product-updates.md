@@ -35,14 +35,6 @@ Here are the features currently available for preview:
   session and object audit logging via the standard PostgreSQL
   logging facility. It produces audit logs required to pass
   certain government, financial, or ISO certification audits.
-* **[Private access](concepts-private-access.md)**.
-  Allow hosts on a virtual network (VNet) to securely access a
-  Hyperscale (Citus) server group over a private endpoint.
-
-> [!NOTE]
->
-> Private access is available for preview in only [certain
-> regions](concepts-limits.md#regions).
 
 ## Contact us
 
