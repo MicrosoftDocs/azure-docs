@@ -75,8 +75,6 @@ See the [Scala API reference](https://synapsesql.blob.core.windows.net/docs/1.0.
   df.show
   ```
 
-* Register a temporary view from a `DataFrame`, created by the `Scala` connector, to interact with its content from `PySpark`.
-
 * We can use the `Scala` connector API to interact with content from a `DataFrame` in `PySpark` by using [DataFrame.createOrReplaceTempView](https://spark.apache.org/docs/latest/api/python/reference/api/pyspark.sql.DataFrame.createOrReplaceTempView.html#pyspark.sql.DataFrame.createOrReplaceTempView) or [DataFrame.createOrReplaceGlobalTempView](https://spark.apache.org/docs/latest/api/python/reference/api/pyspark.sql.DataFrame.createOrReplaceGlobalTempView.html#pyspark.sql.DataFrame.createOrReplaceGlobalTempView).
 
   ```py
