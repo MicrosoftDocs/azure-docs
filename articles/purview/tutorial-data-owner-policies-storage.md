@@ -6,11 +6,11 @@ ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: tutorial
-ms.date: 1/27/2022
+ms.date: 1/28/2022
 ms.custom:
 ---
 
-# Access provisioning by data owner to Azure Storage datasets (preview)
+# Tutorial: Access provisioning by data owner to Azure Storage datasets (preview)
 
 This tutorial describes how a data owner can leverage Azure Purview to enable access to datasets in Azure Storage. At this point, only the following data sources are supported:
 - Blob storage
@@ -43,7 +43,7 @@ Enable the data source for access policies in Azure Purview by setting the **Dat
 
 
 ## Policy authoring
-Execute the steps in the [data-owner policy authoring tutorial](tutorial-data-owner-policy-authoring-generic.md) to create and publish a policy similar to the example shown in the image: a policy that provides group *Contoso Team* *read* access to Storage account *marketinglake1*:
+Execute the steps in the [data-owner policy authoring tutorial](how-to-data-owner-policy-authoring-generic.md) to create and publish a policy similar to the example shown in the image: a policy that provides group *Contoso Team* *read* access to Storage account *marketinglake1*:
 
 ![Image shows a sample data owner policy giving access to an Azure Storage account.](./media/tutorial-data-owner-policies-storage/data-owner-policy-example-storage.png)
 
