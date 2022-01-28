@@ -1,16 +1,16 @@
 ---
-title: Dataset provisioning by data owner for Azure Storage
-description: Step-by-step guide on how to integrate Azure Storage with Azure Purview to enable data owners to create access policies.
+title: Tutorial 
+description: Step-by-step guide for data owners to create access policies for Azure Storage
 author: ePpnqeqR
 ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
-ms.topic: how-to
-ms.date: 1/25/2022
+ms.topic: tutorial
+ms.date: 1/27/2022
 ms.custom:
 ---
 
-# Dataset provisioning by data owner for Azure Storage (preview)
+# Authoring data owner 
 
 This guide describes how a data owner can leverage Azure Purview to enable access to datasets in Azure Storage. At this point, only the following data sources are supported:
 - Blob storage
@@ -37,13 +37,16 @@ Register and scan each data source with Azure Purview to later define access pol
 
 Enable the data source for access policies in Azure Purview by setting the **Data use governance** toggle to enable, as shown in the picture.
 
-![Image shows how to register a data source for policy.](./media/how-to-access-policies-storage/register-data-source-for-policy-storage.png)
+![Image shows how to register a data source for policy.](./media/tutorial-data-owner-policies-storage/register-data-source-for-policy-storage.png)
 
 [!INCLUDE [Access policies generic registration](./includes/access-policies-registration-generic.md)]
 
 
 ## Policy authoring
-[!INCLUDE [Access policies generic authoring](./includes/access-policies-authoring-generic.md)]
+Goal of this section: execute the steps in the generic [data owner policy authoring tutorial](tutorial-data-owner-policy-authoring-generic.md) to create and publish a data owner policy similar to the example shown in the image: a policy on XXXX:
+
+![Image shows how to register a resource group or subscription for policy.](./media/tutorial-data-owner-policies-storage/data-owner-policy-example-storage.png)
+
 
 ## Additional information
 >[!Important]
