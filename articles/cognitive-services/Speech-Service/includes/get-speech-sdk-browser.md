@@ -7,17 +7,7 @@ ms.author: eur
 ms.custom: devx-track-js
 ---
 
-:::row:::
-    :::column span="3":::
-        The Speech SDK for JavaScript is available as an npm package. See <a href="https://www.npmjs.com/package/microsoft-cognitiveservices-speech-sdk" target="_blank">microsoft-cognitiveservices-speech-sdk </a> and its companion GitHub repository <a href="https://github.com/Microsoft/cognitive-services-speech-sdk-js" target="_blank">cognitive-services-speech-sdk-js</a>.
-    :::column-end:::
-    :::column:::
-        <br>
-        <div class="icon is-large">
-            <img alt="JavaScript" src="/media/logos/logo_js.svg"  width="60px">
-        </div>
-    :::column-end:::
-:::row-end:::
+The Speech SDK for JavaScript is available as an npm package. See <a href="https://www.npmjs.com/package/microsoft-cognitiveservices-speech-sdk" target="_blank">microsoft-cognitiveservices-speech-sdk </a> and its companion GitHub repository <a href="https://github.com/Microsoft/cognitive-services-speech-sdk-js" target="_blank">cognitive-services-speech-sdk-js</a>.
 
 > [!TIP]
 > The Speech SDK for JavaScript is available as an npm package, so both client web browsers and Node.js can consume it. But make sure to consider the various architectural implications of each environment. For example, the <a href="https://en.wikipedia.org/wiki/Document_Object_Model" target="_blank">document object model (DOM) </a> isn't available for server-side applications just as the <a href="https://nodejs.org/api/fs.html" target="_blank">file system </a> isn't available to client-side applications.

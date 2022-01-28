@@ -7,17 +7,7 @@ ms.author: eur
 ms.custom: devx-track-csharp
 ---
 
-:::row:::
-    :::column span="3":::
-        The .NET Speech SDK is available as a NuGet package and implements .NET Standard 2.0. For more information, see <a href="https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech" target="_blank">Microsoft.CognitiveServices.Speech</a>.
-    :::column-end:::
-    :::column:::
-        <br>
-        <div class="icon is-large">
-            <img alt="C#" src="/media/logos/logo_Csharp.svg" width="60px">
-        </div>
-    :::column-end:::
-:::row-end:::
+The .NET Speech SDK is available as a NuGet package and implements .NET Standard 2.0. For more information, see <a href="https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech" target="_blank">Microsoft.CognitiveServices.Speech</a>.
 
 #### C# NuGet package
 

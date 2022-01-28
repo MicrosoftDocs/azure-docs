@@ -19,18 +19,7 @@ When you develop for macOS, the following Speech SDKs are available:
 
 # [Xcode](#tab/mac-xcode)
 
-:::row:::
-    :::column span="3":::
-        The macOS CocoaPod package is available for download and use with the <a href="https://apps.apple.com/us/app/xcode/id497799835" target="_blank">Xcode 9.4.1 (or later) </a> integrated development environment (IDE). First, <a href="https://aka.ms/csspeech/macosbinary" target="_blank">download the binary CocoaPod </a>. Extract the pod in the same directory for its intended use, create a *Podfile*, and list the `pod` as a `target`.
-    :::column-end:::
-    :::column:::
-        <br>
-        <div class="icon is-large">
-            <img alt="Xcode" src="/media/logos/logo_xcode.svg" width="60px">
-        </div>
-    :::column-end:::
-:::row-end:::
-
+The macOS CocoaPod package is available for download and use with the <a href="https://apps.apple.com/us/app/xcode/id497799835" target="_blank">Xcode 9.4.1 (or later) </a> integrated development environment (IDE). First, <a href="https://aka.ms/csspeech/macosbinary" target="_blank">download the binary CocoaPod </a>. Extract the pod in the same directory for its intended use, create a *Podfile*, and list the `pod` as a `target`.
 ```
 platform :osx, 10.14
 use_frameworks!
@@ -42,23 +31,7 @@ end
 
 # [Xamarin.Mac](#tab/mac-xamarin)
 
-:::row:::
-    :::column span="3":::
-        Xamarin.Mac exposes the complete macOS SDK for .NET developers to build native Mac applications by using C#. For more information, see <a href="/xamarin/mac/" target="_blank">Xamarin.Mac</a>.
-    :::column-end:::
-    :::column:::
-        <br>
-        <div class="icon is-large">
-            <img alt="Xamarin" src="/media/logos/logo_xamarin.svg" width="60px">
-        </div>
-    :::column-end:::
-:::row-end:::
-
-[!INCLUDE [Get .NET Speech SDK](get-speech-sdk-dotnet.md)]
-
-# [Python](#tab/mac-python)
-
-[!INCLUDE [Get Python Speech SDK](get-speech-sdk-python.md)]
+Xamarin.Mac exposes the complete macOS SDK for .NET developers to build native Mac applications by using C#. For more information, see <a href="/xamarin/mac/" target="_blank">Xamarin.Mac</a>.
 
 ---
 

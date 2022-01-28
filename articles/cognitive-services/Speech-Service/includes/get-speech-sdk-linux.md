@@ -6,17 +6,7 @@ ms.date: 04/03/2020
 ms.author: eur
 ---
 
-:::row:::
-    :::column span="3":::
-        The Speech SDK only supports **Ubuntu 16.04** (until September 2021), **Ubuntu 18.04/20.04**, **Debian 9/10**, **Red Hat Enterprise Linux (RHEL) 7/8**, and **CentOS 7/8** on the following target architectures when used with Linux:
-    :::column-end:::
-    :::column:::
-        <br>
-        <div class="icon is-large">
-            <img alt="Linux" src="/media/logos/logo_linux.svg" width="60px">
-        </div>
-    :::column-end:::
-:::row-end:::
+The Speech SDK only supports **Ubuntu 16.04** (until September 2021), **Ubuntu 18.04/20.04**, **Debian 9/10**, **Red Hat Enterprise Linux (RHEL) 7/8**, and **CentOS 7/8** on the following target architectures when used with Linux:
 
 - x86 (Debian/Ubuntu), x64, ARM32 (Debian/Ubuntu), and ARM64 (Debian/Ubuntu) for C++ development
 - x64, ARM32 (Debian/Ubuntu), and ARM64 (Debian/Ubuntu) for Java
@@ -63,19 +53,3 @@ sudo yum install alsa-lib openssl wget
 > - On RHEL/CentOS 8, follow the instructions on [how to configure OpenSSL for Linux](~/articles/cognitive-services/speech-service/how-to-configure-openssl-linux.md).
 
 ---
-
-### C#
-
-[!INCLUDE [Get .NET Speech SDK](get-speech-sdk-dotnet.md)]
-
-### C++
-
-[!INCLUDE [Get C++ Speech SDK](get-speech-sdk-cpp.md)]
-
-### Python
-
-[!INCLUDE [Get Python Speech SDK](get-speech-sdk-python.md)]
-
-### Java
-
-[!INCLUDE [Get Java Speech SDK](get-speech-sdk-java.md)]

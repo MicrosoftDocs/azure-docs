@@ -34,6 +34,16 @@ Download the Speech SDK as a [.zip package](https://aka.ms/csspeech/jsbrowserpac
 
 Create a new file named *index.html* in the folder, and open this file with a text editor.
 
+
+## HTML script tag
+
+Alternatively, you could directly include a `<script>` tag in the HTMLs `<head>` element, relying on the <a href="https://www.jsdelivr.com/package/npm/microsoft-cognitiveservices-speech-sdk" target="_blank">**JSDelivr** NPM syndicate</a>.
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/microsoft-cognitiveservices-speech-sdk@latest/distrib/browser/microsoft.cognitiveservices.speech.sdk.bundle-min.js">
+</script>
+```
+
 ## Next steps
 
 [!INCLUDE [windows](../quickstart-list.md)]
