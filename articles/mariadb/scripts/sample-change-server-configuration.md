@@ -7,7 +7,7 @@ ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc, devx-track-azurecli
-ms.date: 01/11/2022
+ms.date: 01/26/2022 
 ---
 
 # List and update configurations of an Azure Database for MariaDB server using Azure CLI
