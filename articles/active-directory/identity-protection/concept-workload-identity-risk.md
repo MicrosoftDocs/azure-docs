@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: conceptual
-ms.date: 01/03/2022
+ms.date: 01/28/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -21,9 +21,9 @@ Azure AD Identity Protection has historically protected users in detecting, inve
 
 A workload identity is an identity that allows an application or service principal access to resources, sometimes in the context of a user. These workload identities differ from traditional user accounts as they:
 
+- Cannot perform multi-factor authentication.
 - Often have no formal lifecycle process.
 - Need to store their credentials or secrets somewhere.
-- May use multiple identities.
 
 These differences make workload identities harder to manage and puts them at higher risk for compromise.
 
@@ -50,7 +50,7 @@ We detect risk on workload identities across sign-in behavior and offline indica
 | Detection name | Detection type | Description |
 | --- | --- | --- |
 | Azure AD threat intelligence | Offline | This risk detection indicates some activity that is consistent with known attack patterns based on Microsoft's internal and external threat intelligence sources. |
-| Suspicious Sign-ins | Offline | This risk detection indicates sign-in properties or patterns that are unusual for this service principal. <br><br> The detection learns the baselines sign-in behavior for workload identities in your tenant in between 2 and 60 days, and fires if one or more of the following unfamiliar properties appear during a later sign-in: IP address / ASN, target resource, user agent, hosting/non-hosting IP change, IP country, credential type. <br><br> Because of the programmatic nature of workload identity sign-ins, we provide a timestamp for the suspicious activity instead of flagging a specific sign-in event. <br><br> We mark accounts at high risk when the Suspicious Sign-ins detection fires because this detection can indicate account takeover for the subject application. <br><br>  Legitimate changes to an application’s configuration sometimes trigger this detection. |
+| Suspicious Sign-ins | Offline | This risk detection indicates sign-in properties or patterns that are unusual for this service principal. <br><br> The detection learns the baselines sign-in behavior for workload identities in your tenant in between 2 and 60 days, and fires if one or more of the following unfamiliar properties appear during a later sign-in: IP address / ASN, target resource, user agent, hosting/non-hosting IP change, IP country, credential type. <br><br> Because of the programmatic nature of workload identity sign-ins, we provide a timestamp for the suspicious activity instead of flagging a specific sign-in event. <br><br> We mark accounts at high risk when the Suspicious Sign-ins detection fires because this detection can indicate account takeover for the subject application. <br><br>  Sign-ins that are initiated after an authorized configuration change may trigger this detection. |
 | Leaked Credentials | Offline | This risk detection indicates that the account's valid credentials have been leaked. This leak can occur when someone checks in the credentials in public code artifact on GitHub, or when the credentials are leaked through a data breach. <br><br> When the Microsoft leaked credentials service acquires credentials from GitHub, the dark web, paste sites, or other sources, they're checked against Azure AD identities’ current valid credentials to find valid matches. For more information about leaked credentials, see [Common questions](). |
 | Admin confirmed account compromised | Offline | This detection indicates an admin has selected 'Confirm compromised' in the Risky Workload Identities UI or using riskyServicePrincipals API. To see which admin has confirmed this account compromised, check the account’s risk history (via UI or API). |
 
@@ -83,7 +83,9 @@ Some of the key questions to answer during your investigation include:
 1. Have there been suspicious configuration changes to accounts?
 1. Did the account acquire unauthorized application roles?
 
-Once you determine if the workload identity was compromised, dismiss the account’s risk or confirm the account as compromised in the Risky workload identities (preview) report. You can also select “Disable service principal” ID you want to block the account from further sign-ins.
+The [Azure Active Directory security operations guide for Applications](../fundamentals/security-operations-applications.md) provides detailed guidance on the above investigation areas.
+
+Once you determine if the workload identity was compromised, dismiss the account’s risk or confirm the account as compromised in the Risky workload identities (preview) report. You can also select “Disable service principal” if you want to block the account from further sign-ins.
 
 :::image type="content" source="media/concept-workload-identity-risk/confirm-compromise-or-dismiss-risk.png" alt-text="Confirm workload identity compromise or dismiss the risk in the Azure portal." lightbox="media/concept-workload-identity-risk/confirm-compromise-or-dismiss-risk.png":::
 
@@ -94,7 +96,7 @@ Once you determine if the workload identity was compromised, dismiss the account
 1. Remove the compromised credentials. If you believe the account is at risk, we recommend removing all existing credentials.
 1.	Remediate any Azure KeyVault secrets that the Service Principal has access to by rotating them. 
 
-The [Azure Active Directory security operations guide for Applications](../fundamentals/security-operations-applications.md) provides detailed guidance on the above investigation areas.
+The [Azure AD Toolkit](https://github.com/microsoft/AzureADToolkit) is a PowerShell module that can help you perform some of these actions.
 
 ## Configure a risk-based Conditional Access policy
 
@@ -125,13 +127,9 @@ To simulate a leaked credential, do the following steps:
 
 1.	The detection should appear in Identity Protection within 48 hours.
 
-
 ## Next steps
 
 - [Conditional Access for workload identities](../conditional-access/workload-identity.md)
-
 - [Microsoft Graph API](/graph/use-the-api)
-
 - [Azure AD audit logs](../reports-monitoring/concept-audit-logs.md)
-
 - [Azure AD sign-in logs](../reports-monitoring/concept-sign-ins.md)
