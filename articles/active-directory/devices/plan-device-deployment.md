@@ -195,7 +195,7 @@ If hybrid Azure AD join is the best option for your organization, see the follow
 If installing the required version of Azure AD Connect isn't an option for you, see [how to manually configure hybrid Azure AD join](hybrid-azuread-join-manual.md). 
 
 > [!NOTE] 
-> The on-premises domain-joined Windows 10 device attempts to auto-join to Azure AD to become hybrid Azure AD joined by default. This will only succeed if you haves set up the right environment. 
+> The on-premises domain-joined Windows 10 device attempts to auto-join to Azure AD to become hybrid Azure AD joined by default. This will only succeed if you have set up the right environment. 
 
 You may determine that hybrid Azure AD join is the best solution for a device in a different state. The following table shows how to change the state of a device.
 
