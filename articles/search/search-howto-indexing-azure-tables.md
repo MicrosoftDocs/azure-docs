@@ -9,12 +9,12 @@ ms.author: magottei
 
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 01/17/2022
+ms.date: 01/19/2022
 ---
 
 # Index data from Azure Table Storage
 
-Configure a table [indexer](search-indexer-overview.md) in Azure Cognitive Search to retrieve, serialize, and index entity content from a single table in Azure Table Storage.
+Configure a [search indexer](search-indexer-overview.md) to extract content from Azure Table Storage and make it searchable in Azure Cognitive Search. 
 
 This article supplements [**Create an indexer**](search-howto-create-indexers.md) with information specific to indexing from Azure Table Storage.
 
@@ -22,11 +22,11 @@ This article supplements [**Create an indexer**](search-howto-create-indexers.md
 
 + [Azure Table Storage](../storage/tables/table-storage-overview.md)
 
-+ Tables with entities containing non-binary textual content for text-based indexing. This indexer also supports [AI enrichment](cognitive-search-concept-intro.md) if you have binary files.
++ Tables containing text. If you have binary data, you can include [AI enrichment](cognitive-search-concept-intro.md) for image analysis.
 
 ## Define the data source
 
-A primary difference between a table indexer and other indexers is the data source assignment. The data source definition specifies "type": `"azuretable"`, a content path, and how to connect.
+The data source definition specifies the data source type, content path, and how to connect.
 
 1. [Create or update a data source](/rest/api/searchservice/create-data-source) to set its definition: 
 
@@ -47,7 +47,7 @@ A primary difference between a table indexer and other indexers is the data sour
 
 1. Optionally, set "query" to a filter on PartitionKey. This is a best practice that improves performance. If "query" is specified any other way, the indexer will execute a full table scan, resulting in poor performance if the tables are large.
 
-A data source definition can also include additional properties for [soft deletion policies](#soft-delete-using-custom-metadata) and [field mappings](search-indexer-field-mappings.md) if field names and types are not the same.
+A data source definition can also include [soft deletion policies](search-howto-index-changed-deleted-blobs.md), if you want the indexer to delete a search document when the source document is flagged for deletion.
 
 <a name="Credentials"></a>
 
@@ -55,22 +55,48 @@ A data source definition can also include additional properties for [soft deleti
 
 Indexers can connect to a table using the following connections.
 
-**Full access storage account connection string**:
-`{ "connectionString" : "DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>;" }`
+| Managed identity connection string |
+|------------------------------------|
+|`{ "connectionString" : "ResourceId=/subscriptions/<your subscription ID>/resourceGroups/<your resource group name>/providers/Microsoft.Storage/storageAccounts/<your storage account name>/;" }`|
+|This connection string does not require an account key, but you must have previously configured a search service to [connect using a managed identity](search-howto-managed-identities-storage.md).|
 
-You can get the connection string from the Storage account page in Azure portal by selecting **Access keys** in the left navigation pane. Make sure to select a full connection string and not just a key.
+| Full access storage account connection string |
+|-----------------------------------------------|
+|`{ "connectionString" : "DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>;" }` |
+| You can get the connection string from the Storage account page in Azure portal by selecting **Access keys** in the left navigation pane. Make sure to select a full connection string and not just a key. |
 
-+ **Managed identity connection string**: `ResourceId=/subscriptions/<your subscription ID>/resourceGroups/<your resource group name>/providers/Microsoft.Storage/storageAccounts/<your storage account name>/;` 
-This connection string does not require an account key, but you must follow the instructions for [Setting up a connection to an Azure Storage account using a managed identity](search-howto-managed-identities-storage.md).
+| Storage account shared access signature** (SAS) connection string |
+|-------------------------------------------------------------------|
+| `{ "connectionString" : "BlobEndpoint=https://<your account>.blob.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=b&sp=rl;" }` |
+| The SAS should have the list and read permissions on tables and entities. |
 
-+ **Storage account shared access signature connection string**: `TableEndpoint=https://<your account>.table.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=t&sp=rl` The shared access signature should have the list and read permissions on containers (tables in this case) and objects (table rows).
-
-+ **Table shared access signature**: `ContainerSharedAccessUri=https://<your storage account>.table.core.windows.net/<table name>?tn=<table name>&sv=2016-05-31&sig=<the signature>&se=<the validity end time>&sp=r` The shared access signature should have query (read) permissions on the table.
-
-For more information on storage shared access signatures, see [Using shared access signatures](../storage/common/storage-sas-overview.md).
+| Container shared access signature |
+|-----------------------------------|
+| `{ "connectionString" : "ContainerSharedAccessUri=https://<your storage account>.blob.core.windows.net/<container name>?sv=2016-05-31&sr=c&sig=<the signature>&se=<the validity end time>&sp=rl;" }` |
+| The SAS should have the list and read permissions on the container. For more information, see [Using Shared Access Signatures](../storage/common/storage-sas-overview.md). |
 
 > [!NOTE]
-> If you use shared access signature credentials, you will need to update the data source credentials periodically with renewed signatures to prevent their expiration or the indexer will fail with a "Credentials provided in the connection string are invalid or have expired" message.
+> If you use SAS credentials, you will need to update the data source credentials periodically with renewed signatures to prevent their expiration. If SAS credentials expire, the indexer will fail with an error message similar to "Credentials provided in the connection string are invalid or have expired".  
+
+<a name="Performance"></a>
+
+### Partition for improved performance
+
+By default, Azure Cognitive Search uses the following internal query filter to keep track of which source entities have been updated since the last run: `Timestamp >= HighWaterMarkValue`. Because Azure tables don’t have a secondary index on the `Timestamp` field, this type of query requires a full table scan and is therefore slow for large tables.
+
+To avoid a full scan, you can use table partitions to narrow the scope of each indexer job.
+
++ If your data can naturally be partitioned into several partition ranges, create a data source and a corresponding indexer for each partition range. Each indexer now has to process only a specific partition range, resulting in better query performance. If the data that needs to be indexed has a small number of fixed partitions, even better: each indexer only does a partition scan. 
+
+   For example, to create a data source for processing a partition range with keys from `000` to `100`, use a query like this: `"container" : { "name" : "my-table", "query" : "PartitionKey ge '000' and PartitionKey lt '100' " }`
+
++ If your data is partitioned by time (for example, if you create a new partition every day or week), consider the following approach: 
+
+  + In the data source definition, specify a query similar to the following example: `(PartitionKey ge <TimeStamp>) and (other filters)`. 
+
+  + Monitor indexer progress by using [Get Indexer Status API](/rest/api/searchservice/get-indexer-status), and periodically update the `<TimeStamp>` condition of the query based on the latest successful high-water-mark value. 
+
+  + With this approach, if you need to trigger a complete reindexing, you need to reset the data source query in addition to resetting the indexer. 
 
 ## Add search fields to an index
 
@@ -81,19 +107,23 @@ In a [search index](search-what-is-an-index.md), add fields to accept the conten
     ```http
     POST https://[service name].search.windows.net/indexes?api-version=2020-06-30 
     {
-        "name" : "my-search-index",
-        "fields": [
-            { "name": "ID", "type": "Edm.String", "key": true, "searchable": false },
-            { "name": "SomeColumnInMyTable", "type": "Edm.String", "searchable": true }
-        ]
+      "name" : "my-search-index",
+      "fields": [
+        { "name": "ID", "type": "Edm.String", "key": true, "searchable": false },
+        { "name": "SomeColumnInMyTable", "type": "Edm.String", "searchable": true }
+      ]
     }
     ```
 
-1. Create a key field, but do not define field mappings to alternative unique strings in the table. 
+1. Create a document key field ("key": true), but allow the indexer to populate it automatically. Do not define a field mapping to alternative unique string field in your table. 
 
-   A table indexer will populate the key field with concatenated partition and row keys from the table. For example, if a row’s PartitionKey is `PK1` and RowKey is `RK1`, then the `Key` field's value is `PK1RK1`. If the partition key is null, just the row key is used.
+   A table indexer populates the key field with concatenated partition and row keys from the table. For example, if a row’s PartitionKey is `PK1` and RowKey is `RK1`, then the key value is `PK1RK1`. If the partition key is null, just the row key is used.
 
-1. Create additional fields that correspond to entity fields. Using the same names and compatible [data types](/rest/api/searchservice/supported-data-types) minimizes the need for [field mappings](search-indexer-field-mappings.md).
+1. Create additional fields that correspond to entity fields. For example, if an entity looks like the following example, your search index should have fields for HotelName, Description, and Category.
+
+   :::image type="content" source="media/search-howto-indexing-tables/table.png" alt-text="Screenshot of table content in Storage browser." border="true":::
+
+   Using the same names and compatible [data types](/rest/api/searchservice/supported-data-types) minimizes the need for [field mappings](search-indexer-field-mappings.md).
 
 ## Configure the table indexer
 
@@ -105,61 +135,23 @@ In a [search index](search-what-is-an-index.md), add fields to accept the conten
         "name" : "table-indexer",
         "dataSourceName" : "my-table-datasource",
         "targetIndexName" : "my-search-index",
-        "schedule" : { "interval" : "PT2H" }
+        "parameters": {
+            "batchSize": null,
+            "maxFailedItems": null,
+            "maxFailedItemsPerBatch": null,
+            "base64EncodeKeys": null,
+            "configuration:" { }
+          },
+        "schedule" : { },
+        "fieldMappings" : [ ]
     }
     ```
 
 1. See [Create an indexer](search-howto-create-indexers.md) for more information about other properties.
 
-## Change and deletion detection
+## Next steps
 
-After an initial search index is created, you might want subsequent indexer jobs to pick up only new and changed documents. Fortunately, content in Azure Storage is timestamped, which gives indexers sufficient information for determining what's new and changed automatically. For search content that originates from Azure Table Storage, the indexer keeps track of the entity's `Timestamp` timestamp and reindexes only new and changed content.
+You can now [run the indexer](search-howto-run-reset-indexers.md), [monitor status](search-howto-monitor-indexers.md), or [schedule indexer execution](search-howto-schedule-indexers.md). The following articles apply to indexers that pull content from Azure Storage:
 
-Although change detection is a given, deletion detection is not. If you want to detect deleted entities, make sure to use a "soft delete" approach. If you delete the files outright in a table, corresponding search documents will not be removed from the search index.
-
-## Soft delete using custom metadata
-
-To indicate that certain documents must be removed from the search index, you can use a soft delete strategy. Instead of deleting an entity, add a property to indicate that it's deleted, and set up a soft deletion detection policy on the data source. For example, the following policy considers that an entity is deleted if it has an `IsDeleted` property set to `"true"`:
-
-```http
-PUT https://[service name].search.windows.net/datasources?api-version=2020-06-30
-Content-Type: application/json
-api-key: [admin key]
-
-{
-    "name" : "my-table-datasource",
-    "type" : "azuretable",
-    "credentials" : { "connectionString" : "<your storage connection string>" },
-    "container" : { "name" : "table name", "query" : "<query>" },
-    "dataDeletionDetectionPolicy" : { "@odata.type" : "#Microsoft.Azure.Search.SoftDeleteColumnDeletionDetectionPolicy", "softDeleteColumnName" : "IsDeleted", "softDeleteMarkerValue" : "true" }
-}   
-```
-
-<a name="Performance"></a>
-
-## Performance considerations
-
-By default, Azure Cognitive Search uses the following internal query filter to keep track of which source entities have been updated since the last run: `Timestamp >= HighWaterMarkValue`. 
-
-Because Azure tables don’t have a secondary index on the `Timestamp` field, this type of query requires a full table scan and is therefore slow for large tables.
-
-Here are two possible approaches for improving table indexing performance. Both rely on using table partitions: 
-
-+ If your data can naturally be partitioned into several partition ranges, create a data source and a corresponding indexer for each partition range. Each indexer now has to process only a specific partition range, resulting in better query performance. If the data that needs to be indexed has a small number of fixed partitions, even better: each indexer only does a partition scan. For example, to create a data source for processing a partition range with keys from `000` to `100`, use a query like this: 
-
-	```json
-	"container" : { "name" : "my-table", "query" : "PartitionKey ge '000' and PartitionKey lt '100' " }
-	```
-
-+ If your data is partitioned by time (for example, you create a new partition every day or week), consider the following approach: 
-
-  + Use a query of the form: `(PartitionKey ge <TimeStamp>) and (other filters)`. 
-
-  + Monitor indexer progress by using [Get Indexer Status API](/rest/api/searchservice/get-indexer-status), and periodically update the `<TimeStamp>` condition of the query based on the latest successful high-water-mark value. 
-
-  + With this approach, if you need to trigger a complete reindexing, you need to reset the datasource query in addition to resetting the indexer. 
-
-## See also
-
-+ [Indexers in Azure Cognitive Search](search-indexer-overview.md)
-+ [Create an indexer](search-howto-create-indexers.md)
++ [Change detection and deletion detection](search-howto-index-changed-deleted-blobs.md)
++ [Index large data sets](search-howto-large-index.md)

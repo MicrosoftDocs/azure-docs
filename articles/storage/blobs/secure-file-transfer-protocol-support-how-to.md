@@ -125,7 +125,9 @@ To learn more about the SFTP permissions model, see [SFTP Permissions model](sec
    If you enabled password authentication, then the Azure generated password appears in a dialog box after the local user has been added. 
 
    > [!IMPORTANT]
-   > You can't retrieve this password later, so make sure to copy the password, and then store it in a place where you can find it.
+   > You can't retrieve this password later, so make sure you copy the password, and then store it in a place where you can find it.
+   > 
+   > If you do lose your password, you can generate a new password.
 
    If you chose to generate a new key pair, then you'll be prompted to download the private key of that key pair after the local user has been added.
 

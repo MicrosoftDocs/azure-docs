@@ -10,7 +10,7 @@ ms.custom: devx-track-azurecli
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 01/10/2022
+ms.date: 01/12/2022
 ---
 
 # Configure a private endpoint for an Azure Machine Learning workspace
@@ -42,7 +42,7 @@ Azure Private Link enables you to connect to your workspace using a private endp
 * Using a private endpoint does not effect Azure control plane (management operations) such as deleting the workspace or managing compute resources. For example, creating, updating, or deleting a compute target. These operations are performed over the public Internet as normal. Data plane operations, such as using Azure Machine Learning studio, APIs (including published pipelines), or the SDK use the private endpoint.
 * When creating a compute instance or compute cluster in a workspace with a private endpoint, the compute instance and compute cluster must be in the same Azure region as the workspace.
 * When creating or attaching an Azure Kubernetes Service cluster to a workspace with a private endpoint, the cluster must be in the same region as the workspace.
-* When using a workspace with multiple private endpoints (preview), one of the private endpoints must be in the same VNet as the following dependency services:
+* When using a workspace with multiple private endpoints, one of the private endpoints must be in the same VNet as the following dependency services:
 
     * Azure Storage Account that provides the default storage for the workspace
     * Azure Key Vault for the workspace
@@ -383,9 +383,9 @@ The Azure CLI [extension 1.0 for machine learning](reference-azure-machine-learn
 
 [!INCLUDE [machine-learning-connect-secure-workspace](../../includes/machine-learning-connect-secure-workspace.md)]
 
-## Multiple private endpoints (preview)
+## Multiple private endpoints
 
-As a preview feature, Azure Machine Learning supports multiple private endpoints for a workspace. Multiple private endpoints are often used when you want to keep different environments separate. The following are some scenarios that are enabled by using multiple private endpoints:
+Azure Machine Learning supports multiple private endpoints for a workspace. Multiple private endpoints are often used when you want to keep different environments separate. The following are some scenarios that are enabled by using multiple private endpoints:
 
 * Client development environments in a separate VNet.
 * An Azure Kubernetes Service (AKS) cluster in a separate VNet.
@@ -400,7 +400,7 @@ As a preview feature, Azure Machine Learning supports multiple private endpoints
 > [!IMPORTANT]
 > Each VNet that contains a private endpoint for the workspace must also be able to access the Azure Storage Account, Azure Key Vault, and Azure Container Registry used by the workspace. For example, you might create a private endpoint for the services in each VNet.
 
-Adding multiple endpoints uses the same steps as described in the [Add a private endpoint to a workspace](#add-a-private-endpoint-to-a-workspace) section.
+Adding multiple private endpoints uses the same steps as described in the [Add a private endpoint to a workspace](#add-a-private-endpoint-to-a-workspace) section.
 
 ### Scenario: Isolated clients
 

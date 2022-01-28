@@ -23,7 +23,8 @@ The autoscale feature (preview) lets you scale your Azure Virtual Desktop deploy
 >[!NOTE]
 > - Azure Virtual Desktop (classic) doesn't support the autoscale feature. 
 > - Autoscale doesn't support Azure Virtual Desktop for Azure Stack HCI 
-> - Autsoscale doesn't support scaling of ephemeral disks.
+> - Autoscale doesn't support scaling of ephemeral disks.
+> - Autoscale doesn't support scaling of generalized VMs.
 
 
 For best results, we recommend using autoscale with VMs you deployed with Azure Virtual Desktop Azure Resource Manager templates or first-party tools from Microsoft.
@@ -123,7 +124,7 @@ To assign the custom role to grant access:
 
 2. Select the role you just created and continue to the next screen.
 
-3. Select **+Select members**. In the search bar, enter and select **Windows Virtual Desktop**, as shown in the following screenshot. When you have a Azure Virtual Desktop (classic) deployment and an Azure Virtual Desktop with Azure Resource Manager Azure Virtual Desktop objects, you will see two apps with the same name. Select them both.
+3. Select **+Select members**. In the search bar, enter and select **Windows Virtual Desktop**, as shown in the following screenshot. When you have an Azure Virtual Desktop (classic) deployment and an Azure Virtual Desktop with Azure Resource Manager Azure Virtual Desktop objects, you will see two apps with the same name. Select them both.
 
     > [!div class="mx-imgBorder"]
     > ![A screenshot of the add role assignment menu. The Select field is highlighted in red, with the user entering "Windows Virtual Desktop" into the search field.](media/search-for-role.png)
@@ -179,7 +180,7 @@ To create a scaling plan:
 
 8. For **Time zone**, select the time zone you'll use with your plan.
 
-9. In **Exclusion tags**, enter tags for VMs you don't want to include in scaling operations. For example, you might want to tag VMs that are set to drain mode so that autoscale doesn't override drain mode during maintenance.
+9. In **Exclusion tags**, enter a tag name for VMs you don't want to include in scaling operations. For example, you might want to tag VMs that are set to drain mode so that autoscale doesn't override drain mode during maintenance using the exclusion tag "excludeFromScaling". If you've set "excludeFromScaling" as the tag name field on any of the VMs in the host pool, the autoscale feature won't start, stop, or change the drain mode of those particular VMs.
         
     >[!NOTE]
     >- Though an exclusion tag will exclude the tagged VM from power management scaling operations, tagged VMs will still be considered as part of the calculation of the minimum percentage of hosts.
