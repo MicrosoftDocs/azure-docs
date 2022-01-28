@@ -257,7 +257,7 @@ The well-defined schema representation creates a simple tabular representation o
 * The first document defines the base schema and property must always have the same type across all documents. The only exceptions are:
   * From null to any other data type.The first non-null occurrence defines the column data type. Any document not following the first non-null datatype won't be represented in analytical store.
   * From `float` to `integer`. All documents will be represented in analytical store.
-  * From `integer` to `float`. All documents will be represented in analytical store. However, to read this data with Azure Synapse SQL serverless pools, you must use a WITH clause to convert the column to `varchar`. And after this initial conversion, it't possible to convert it again to a number. Please check the example below, where **num** initial value was an integer and the second one was a float.
+  * From `integer` to `float`. All documents will be represented in analytical store. However, to read this data with Azure Synapse SQL serverless pools, you must use a WITH clause to convert the column to `varchar`. And after this initial conversion, it's possible to convert it again to a number. Please check the example below, where **num** initial value was an integer and the second one was a float.
 
 ```SQL
 SELECT CAST (num as float) as num
