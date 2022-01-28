@@ -187,11 +187,11 @@ Azure App Service captures all messages output to the console to assist you in d
 
 ### [Flask](#tab/flask)
 
-:::code language="python" source="~/msdocs-python-flask-webapp-quickstart/app.py" range="6-21" highlight="3,12,15":::
+:::code language="python" source="~/../msdocs-python-flask-webapp-quickstart/app.py" range="6-21" highlight="3,12,15":::
 
 ### [Django](#tab/django)
 
-:::code language="python" source="~/msdocs-python-django-webapp-quickstart/hello_azure/views.py" range="5-21" highlight="2,10,13":::
+:::code language="python" source="~/../msdocs-python-django-webapp-quickstart/hello_azure/views.py" range="5-21" highlight="2,11,14":::
 
 ---
 
