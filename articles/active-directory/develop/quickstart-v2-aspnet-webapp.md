@@ -10,6 +10,7 @@ ms.subservice: develop
 ms.topic: portal
 ms.workload: identity
 ms.date: 11/22/2021
+ROBOTS: NOINDEX
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, "scenarios:getting-started", "languages:ASP.NET", contperf-fy21q1, mode-other
 #Customer intent: As an application developer, I want to see a sample ASP.NET web app that can sign in Azure AD users.
