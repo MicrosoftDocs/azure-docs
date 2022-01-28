@@ -234,4 +234,4 @@ The default cache size is 10 MB but can be modified in the [omsagent.conf file](
 
 - Review [Troubleshooting the Linux agent](agent-linux-troubleshoot.md) if you encounter issues while installing or managing the agent.
 
-- Review [Agent Data Sources](https://docs.microsoft.com/azure/azure-monitor/agents/agent-data-sources) to learn about data source configuration.
+- Review [Agent Data Sources](./agent-data-sources.md) to learn about data source configuration.

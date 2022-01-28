@@ -619,15 +619,21 @@
     items:
     - name: Create server group
       items:
-      - name: Basic tier
-        href: hyperscale/quickstart-create-basic-tier.md
-      - name: Standard tier
+      - name: Azure portal
         href: hyperscale/quickstart-create-portal.md
         displayName: portal, create hyperscale
+    - name: Connect
+      items:
+      - name: psql
+        href: hyperscale/quickstart-connect-psql.md
+    - name: Model and load data
+      items:
+      - name: Create and distribute tables
+        href: hyperscale/quickstart-distribute-tables.md
+    - name: Run queries
+      href: hyperscale/quickstart-run-queries.md
   - name: Tutorials
     items:
-      - name: Create a server group
-        href: hyperscale/tutorial-server-group.md
       - name: Model and load data
         items:
         - name: Shard data on worker nodes
@@ -645,8 +651,8 @@
           displayName: hyperscale, tutorial, private
   - name: Concepts
     items:
-    - name: Basic tier
-      href: hyperscale/concepts-tiers.md
+    - name: Server group
+      href: hyperscale/concepts-server-group.md
     - name: Distributed data
       items:
       - name: Nodes and tables

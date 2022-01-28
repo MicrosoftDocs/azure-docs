@@ -202,6 +202,10 @@ The following limits apply to [Azure role-based access control (Azure RBAC)](../
 
 [!INCLUDE [signalr-service-limits](../../../includes/signalr-service-limits.md)]
 
+## Azure Virtual Desktop Service limits
+
+[!INCLUDE [azure-virtual-desktop-service-limits](../../../includes/azure-virtual-desktop-limits.md)]
+
 ## Azure VMware Solution limits
 
 [!INCLUDE [azure-vmware-solutions-limits](../../azure-vmware/includes/azure-vmware-solutions-limits.md)]
@@ -366,7 +370,7 @@ The following table applies to v1, v2, Standard, and WAF SKUs unless otherwise s
 
 [!INCLUDE [notification-hub-limits](../../../includes/notification-hub-limits.md)]
 
-## Purview limits
+## Azure Purview limits
 
 The latest values for Azure Purview quotas can be found in the [Azure Purview quota page](../../purview/how-to-manage-quotas.md).
 

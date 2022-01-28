@@ -5,7 +5,7 @@ author: vhorne
 ms.service: web-application-firewall
 ms.topic: article
 services: web-application-firewall
-ms.date: 06/09/2020
+ms.date: 01/21/2022
 ms.author: victorh
 ---
 
@@ -35,8 +35,8 @@ WAF with Front Door provides detailed reporting on each threat it detects. Loggi
 | ClientIp | The IP address of the client that made the request. If there was an X-Forwarded-For header in the request, then the Client IP is picked from the header field. |
 | ClientPort | The IP port of the client that made the request. |
 | Details|Additional details on the matched request |
-|| matchVariableName:   http parameter name of the request matched, for example, header names|
-|| matchVariableValue:  values that triggered the match|
+|| matchVariableName:   http parameter name of the request matched, for example, header names (max chars 100)|
+|| matchVariableValue:  values that triggered the match (max chars 100)|
 | Host | The host header of the matched request |
 | Policy | The name of the WAF policy that the request matched. |
 | PolicyMode | Operations mode of the WAF policy. Possible values are "Prevention" and "Detection" |

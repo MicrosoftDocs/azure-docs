@@ -20,14 +20,14 @@ Here 's some common customer-blocking issues and information on how to resolve t
 ### How do I control my costs, and understand how much I am spending on marketplace?
 
 - Involve your Microsoft account team for a detailed analysis of your particular environment, Azure subscription hierarchy, and EA setup.
-- For more information, see [Cost Management Billing Overview](/azure/cost-management-billing/cost-management-billing-overview).
+- For more information, see [Cost Management Billing Overview](../cost-management-billing/cost-management-billing-overview.md).
 
 ### Azure Administrator
 
 - The Azure Administrator is responsible for controlling users’ Role Based Access Control. They have the ability to grant Marketplace purchase rights, and determine how these rights can be exercised, and into which Azure Subscriptions the user has access control.
 - Involve your Microsoft account team for a detailed analysis of your particular environment, Azure subscription hierarchy, and EA setup.
 - Microsoft recommends that at least two users carry the Azure Administrator role. Refer to the appropriate documentation
-- For more information, see the documentation on [Roles and Security Planning](/azure/active-directory/roles/security-planning).
+- For more information, see the documentation on [Roles and Security Planning](../active-directory/roles/security-planning.md).
 
 ### Marketplace purchases succeeded, but the deployment fails. The error message typically refers to contracts terms and conditions, what else can be going on?
 
@@ -63,15 +63,15 @@ While troubleshooting the Azure Subscription Hierarchy, keep these things in min
 
 ## Troubleshooting Checklist
 
-- ISV to ensure the SaaS private plan is using the correct tenant ID for the customer - [How to find your tenant ID - Azure Active Directory | Microsoft Docs](/azure/active-directory/fundamentals/active-directory-how-to-find-tenant). For VMs use the [Azure Subscription ID. (video guide)](/azure/media-services/latest/setup-azure-subscription-how-to?tabs=portal)
+- ISV to ensure the SaaS private plan is using the correct tenant ID for the customer - [How to find your tenant ID - Azure Active Directory | Microsoft Docs](../active-directory/fundamentals/active-directory-how-to-find-tenant.md). For VMs use the [Azure Subscription ID. (video guide)](../media-services/latest/setup-azure-subscription-how-to.md?tabs=portal)
 - ISV to ensure that the Customer is not buying through a CSP. Private Plans are not available on a CSP-managed subscription.
 - Customer to ensure customer is logging in with an email ID that is registered under the same tenant ID (use the same user ID they used in step #1 above)
 - ISV to ask the customer to find the Private Plan in Azure Marketplace: [Private offers in Azure Marketplace - Microsoft marketplace | Microsoft Docs](/marketplace/private-plans)
-- Customer to ensure marketplace is enabled - [Azure Marketplace | Microsoft Docs](/azure/cost-management-billing/manage/ea-azure-marketplace) – if it is not, the user has to contact their Azure Administrator to enable marketplace, for more information regarding Azure Marketplace, see [Azure Marketplace | Microsoft Docs](/azure/cost-management-billing/manage/ea-azure-marketplace).
+- Customer to ensure marketplace is enabled - [Azure Marketplace | Microsoft Docs](../cost-management-billing/manage/ea-azure-marketplace.md) – if it is not, the user has to contact their Azure Administrator to enable marketplace, for more information regarding Azure Marketplace, see [Azure Marketplace | Microsoft Docs](../cost-management-billing/manage/ea-azure-marketplace.md).
 - (Customer) If the offer is still not visible, it’s possible that the customer has Private Marketplace enabled - Customer to Ask the Azure Administrator to enable the specific Private Plan in Private Marketplace: [Create and manage Private Azure Marketplace in the Azure portal - Microsoft marketplace | Microsoft Docs](/marketplace/create-manage-private-azure-marketplace-new)
 - If the Private Plan is visible, and the deployment fails, the troubleshooting moves to ensuring the customer allows for Marketplace billing:
-  - (Customer) The Azure Administrator must follow the instructions in [Azure EA portal administration | Microsoft Docs](/azure/cost-management-billing/manage/ea-portal-administration), and discuss with their Microsoft Representative the steps to enable billing for Marketplace
-  - (customer) [This documentation](/azure/cost-management-billing/manage/ea-portal-administration) explains the details to enable Marketplace billing for customers with an Azure Enterprise Agreement.
+  - (Customer) The Azure Administrator must follow the instructions in [Azure EA portal administration | Microsoft Docs](../cost-management-billing/manage/ea-portal-administration.md), and discuss with their Microsoft Representative the steps to enable billing for Marketplace
+  - (customer) [This documentation](../cost-management-billing/manage/ea-portal-administration.md) explains the details to enable Marketplace billing for customers with an Azure Enterprise Agreement.
 
 ### If all else fails, open a ticket and create a HAR file
 
@@ -81,4 +81,4 @@ While troubleshooting the Azure Subscription Hierarchy, keep these things in min
 
 ## Next steps
 
-- [Create an Azure Support Request](/azure/azure-portal/supportability/how-to-create-azure-support-request)
+- [Create an Azure Support Request](../azure-portal/supportability/how-to-create-azure-support-request.md)

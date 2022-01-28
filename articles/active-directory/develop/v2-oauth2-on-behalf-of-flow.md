@@ -240,9 +240,13 @@ Depending on the architecture or usage of your application, you may consider dif
 > [!NOTE]
 > Previously the Microsoft account system (personal accounts) did not support the "Known client application" field, nor could it show combined consent.  This has been added and all apps in the Microsoft identity platform can use the known client application approach for getting consent for OBO calls.
 
-### /.default and combined consent
+### .default and combined consent
 
-The middle tier application adds the client to the known client applications list in its manifest, and then the client can trigger a combined consent flow for both itself and the middle tier application. On the Microsoft identity platform, this is done using the [`/.default` scope](v2-permissions-and-consent.md#the-default-scope). When triggering a consent screen using known client applications and `/.default`, the consent screen will show permissions for **both** the client to the middle tier API, and also request whatever permissions are required by the middle-tier API. The user provides consent for both applications, and then the OBO flow works.
+The middle tier application adds the client to the known client applications list in its manifest. If a consent prompt is triggered by the client, the consent flow will be both for itself and the middle tier application. On the Microsoft identity platform, this is done using the [`.default` scope](v2-permissions-and-consent.md#the-default-scope). When triggering a consent screen using known client applications and `.default`, the consent screen will show permissions for **both** the client to the middle tier API, and also request whatever permissions are required by the middle-tier API. The user provides consent for both applications, and then the OBO flow works.
+
+The resource service (API) identified in the request should be the API for which the client application is requesting an access token as a result of the user's sign-in. For example, `scope=openid https://middle-tier-api.example.com/.default` (to request an access token for the middle tier API), or `scope=openid offline_access .default` (when a resource is not identified, it defaults to Microsoft Graph).
+
+Regardless of which API is identified in the authorization request, the consent prompt will be a combined consent prompt including all required permissions configured for the client app, as well as all required permissions configured for each middle tier API listed in the client's required permissions list, and which have identified the client as a known client application. 
 
 ### Pre-authorized applications
 
