@@ -247,4 +247,4 @@ The script will continue to delete all the backup items and ultimately the entir
 
 ## Next steps
 
-[Learn more](../backup-azure-delete-vault?tabs.md) about vault deletion process.
+[Learn more](../backup-azure-delete-vault.md) about vault deletion process.

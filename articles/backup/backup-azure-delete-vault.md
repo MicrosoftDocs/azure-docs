@@ -316,46 +316,48 @@ Follow these steps:
   1. Delete Disaster Recovery items
   1. Remove private endpoints
 
-### Delete vault
+### Scripts to delete vault
 
-To delete delete all the backup items and ultimately the entire vault recursively, see [PowerShell script to delete a Recovery Services vault](./scripts/delete-recovery-services-vault.md).
+To delete delete all the backup items and ultimately the entire vault recursively, see [PowerShell script to delete a Recovery Services vault](./scripts/delete-recovery-services-vault.md). To delete individual backup items or to write your own script, use the following PowerShell commands:
 
-To delete individual backup items or to write your own script, use the following PowerShell commands:
+#### Stop protection and delete the backup data
 
-To stop protection and delete the backup data:
+If you're using SQL in Azure VMs backup and enabled autoprotection for SQL instances, first disable the autoprotection.
 
-- If you're using SQL in Azure VMs backup and enabled autoprotection for SQL instances, first disable the autoprotection.
+```PowerShell
+    Disable-AzRecoveryServicesBackupAutoProtection
+        [-InputItem] <ProtectableItemBase>
+        [-BackupManagementType] <BackupManagementType>
+        [-WorkloadType] <WorkloadType>
+        [-PassThru]
+        [-VaultId <String>]
+        [-DefaultProfile <IAzureContextContainer>]
+        [-WhatIf]
+        [-Confirm]
+        [<CommonParameters>]
+```
 
-    ```PowerShell
-        Disable-AzRecoveryServicesBackupAutoProtection
-           [-InputItem] <ProtectableItemBase>
-           [-BackupManagementType] <BackupManagementType>
-           [-WorkloadType] <WorkloadType>
-           [-PassThru]
-           [-VaultId <String>]
-           [-DefaultProfile <IAzureContextContainer>]
-           [-WhatIf]
-           [-Confirm]
-           [<CommonParameters>]
-    ```
+[Learn more](/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupautoprotection) on how to disable protection for an Azure Backup-protected item.
 
-  [Learn more](/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupautoprotection) on how to disable protection for an Azure Backup-protected item.
+#### Stop protection and delete data for all backup-protected items
 
-- Stop protection and delete data for all backup-protected items in cloud (for example: IaaS VM, Azure file share, and so on):
+To stop protection and delete data for all protected items  in cloud (for example: IaaS VM, Azure file share, and so on), use the following command:
 
-    ```PowerShell
-       Disable-AzRecoveryServicesBackupProtection
-       [-Item] <ItemBase>
-       [-RemoveRecoveryPoints]
-       [-Force]
-       [-VaultId <String>]
-       [-DefaultProfile <IAzureContextContainer>]
-       [-WhatIf]
-       [-Confirm]
-       [<CommonParameters>]
-    ```
+```PowerShell
+    Disable-AzRecoveryServicesBackupProtection
+    [-Item] <ItemBase>
+    [-RemoveRecoveryPoints]
+    [-Force]
+    [-VaultId <String>]
+    [-DefaultProfile <IAzureContextContainer>]
+    [-WhatIf]
+    [-Confirm]
+    [<CommonParameters>]
+```
 
-    [Learn more](/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupprotection) about disables protection for a Backup-protected item.
+[Learn more](/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupprotection) about disables protection for a Backup-protected item.
+
+### Unregister on-premises containers and management servers
 
 After deleting the backed-up data, unregister any on-premises containers and management servers.
 
@@ -388,8 +390,9 @@ After deleting the backed-up data, unregister any on-premises containers and man
     ```
 
     [Learn more](/powershell/module/az.recoveryservices/unregister-azrecoveryservicesbackupcontainer) about unregistering a Backup management container from the vault.
+### Delete the vault
 
-After permanently deleting backed up data and unregistering all containers, proceed to delete the vault.
+After permanently deleting backed-up data and unregistering all containers, proceed to delete the vault.
 
 To delete a Recovery Services vault:
 
