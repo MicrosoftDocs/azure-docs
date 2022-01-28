@@ -9,7 +9,7 @@ ms.subservice: ip-services
 ms.topic: quickstart
 ms.date: 10/01/2021
 ms.author: allensu
-
+ms.custom: mode-other
 ---
 # Quickstart: Create a public IP address using a Resource Manager template
 
@@ -36,23 +36,23 @@ To create an IPv6 address, modify the **`publicIPAddressVersion`** parameter to 
 Template section to add:
 
 ```JSON
-    {
-      "apiVersion": "2020-08-01",
-      "type": "Microsoft.Network/publicIPAddresses",
-      "name": "myStandardPublicIP",
-      "location": "[resourceGroup().location]",
-      "sku": {
-        "name": "Standard"
-      },
-      "zones": [
-                "1",
-                "2",
-                "3"
-      ],
-      "properties": {
-        "publicIPAllocationMethod": "Static",
-        "publicIPAddressVersion": "IPv4"
-      }
+{
+  "apiVersion": "2020-08-01",
+  "type": "Microsoft.Network/publicIPAddresses",
+  "name": "myStandardPublicIP",
+  "location": "[resourceGroup().location]",
+  "sku": {
+    "name": "Standard"
+  },
+  "zones": [
+    "1",
+    "2",
+    "3"
+  ],
+  "properties": {
+    "publicIPAllocationMethod": "Static",
+    "publicIPAddressVersion": "IPv4"
+  }
 ```
 > [!IMPORTANT]
 > For API versions older than 2020-08-01, use the code above without specifying a zone parameter for a Standard SKU to create a zone-redundant IP address. 
@@ -70,21 +70,21 @@ To create a standard zonal public IP address in Zone 2, the **"zones"** property
 Template section to add:
 
 ```JSON
-    {
-      "apiVersion": "2020-08-01",
-      "type": "Microsoft.Network/publicIPAddresses",
-      "name": "myStandardPublicIP-zonal",
-      "location": "[resourceGroup().location]",
-      "sku": {
-        "name": "Standard"
-      },
-      "zones": [
-                "2"
-      ],
-      "properties": {
-        "publicIPAllocationMethod": "Static",
-        "publicIPAddressVersion": "IPv4"
-      }
+{
+  "apiVersion": "2020-08-01",
+  "type": "Microsoft.Network/publicIPAddresses",
+  "name": "myStandardPublicIP-zonal",
+  "location": "[resourceGroup().location]",
+  "sku": {
+    "name": "Standard"
+  },
+  "zones": [
+    "2"
+  ],
+  "properties": {
+    "publicIPAllocationMethod": "Static",
+    "publicIPAddressVersion": "IPv4"
+  }
 ```
 
 >[!NOTE]
@@ -101,18 +101,18 @@ To create an IPv6 address, modify the **publicIPAddressVersion** parameter to **
 Template section to add:
 
 ```JSON
-    {
-      "apiVersion": "2020-08-01",
-      "type": "Microsoft.Network/publicIPAddresses",
-      "name": "myStandardPublicIP-nozone",
-      "location": "[resourceGroup().location]",
-      "sku": {
-        "name": "Standard"
-      },
-      "properties": {
-        "publicIPAllocationMethod": "Static",
-        "publicIPAddressVersion": "IPv4"
-      }
+{
+  "apiVersion": "2020-08-01",
+  "type": "Microsoft.Network/publicIPAddresses",
+  "name": "myStandardPublicIP-nozone",
+  "location": "[resourceGroup().location]",
+  "sku": {
+    "name": "Standard"
+  },
+  "properties": {
+    "publicIPAllocationMethod": "Static",
+    "publicIPAddressVersion": "IPv4"
+  }
 ```
 > [!IMPORTANT]
 > For API versions older than 2020-08-01, not specifying a zone parameter for a Standard SKU will create a zone-redundant IP address. 
@@ -130,18 +130,18 @@ To create an IPv6 address, modify the **publicIPAddressVersion** parameter to **
 Template section to add:
 
 ```JSON
-    {
-      "apiVersion": "2020-08-01",
-      "type": "Microsoft.Network/publicIPAddresses",
-      "name": "myBasicPublicIP",
-      "location": "[resourceGroup().location]",
-      "sku": {
-        "name": "Basic"
-      },
-      "properties": {
-        "publicIPAllocationMethod": "Static",
-        "publicIPAddressVersion": 'IPv4'
-      }
+{
+  "apiVersion": "2020-08-01",
+  "type": "Microsoft.Network/publicIPAddresses",
+  "name": "myBasicPublicIP",
+  "location": "[resourceGroup().location]",
+  "sku": {
+    "name": "Basic"
+  },
+  "properties": {
+    "publicIPAllocationMethod": "Static",
+    "publicIPAddressVersion": "IPv4"
+  }
 ```
 
 If it's acceptable for the IP address to change over time, **publicIPAllocationMethod** IP assignment can be selected by changing the AllocationMethod to **Dynamic**. 
@@ -164,30 +164,30 @@ For more information on routing preference, see [What is routing preference (pre
 To use Internet Routing preference for a standard zone-redundant public IPv4 address, the template section should look similar to:
 
 ```JSON
-    {
-      "apiVersion": "2020-08-01",
-      "type": "Microsoft.Network/publicIPAddresses",
-      "name": "myStandardZRPublicIP-RP",
-      "location": "[resourceGroup().location]",
-      "sku": {
-        "name": "Standard"
-      },
-      "zones": [
-                "1",
-                "2",
-                "3"
-      ],
-      "properties": {
-        "publicIPAllocationMethod": "Static",
-        "publicIPAddressVersion": "IPv4",
-		    "ipTags": [
-          {
-           "ipTagType": "RoutingPreference",
-            "tag": "Internet"
-           }
-         ]
+{
+  "apiVersion": "2020-08-01",
+  "type": "Microsoft.Network/publicIPAddresses",
+  "name": "myStandardZRPublicIP-RP",
+  "location": "[resourceGroup().location]",
+  "sku": {
+    "name": "Standard"
+  },
+  "zones": [
+    "1",
+    "2",
+    "3"
+  ],
+  "properties": {
+    "publicIPAllocationMethod": "Static",
+    "publicIPAddressVersion": "IPv4",
+    "ipTags": [
+      {
+        "ipTagType": "RoutingPreference",
+        "tag": "Internet"
       }
-    }
+    ]
+  }
+}
 ```
 
 ### Tier
@@ -199,19 +199,19 @@ For more information, see [Cross-region load balancer](../../load-balancer/cross
 To use a standard global public IPv4 address, the template section should look similar to:
 
 ```JSON
-    {
-      "apiVersion": "2020-08-01",
-      "type": "Microsoft.Network/publicIPAddresses",
-      "name": "myStandardPublicIP-Global",
-      "location": "[resourceGroup().location]",
-      "sku": {
-        "name": "Standard",
-		    "tier": "Global"
-      },
-      "properties": {
-        "publicIPAllocationMethod": "Static",
-        "publicIPAddressVersion": "IPv4"
-      }
+{
+  "apiVersion": "2020-08-01",
+  "type": "Microsoft.Network/publicIPAddresses",
+  "name": "myStandardPublicIP-Global",
+  "location": "[resourceGroup().location]",
+  "sku": {
+    "name": "Standard",
+    "tier": "Global"
+  },
+  "properties": {
+    "publicIPAllocationMethod": "Static",
+    "publicIPAddressVersion": "IPv4"
+  }
 ```
 
 ## Additional information 

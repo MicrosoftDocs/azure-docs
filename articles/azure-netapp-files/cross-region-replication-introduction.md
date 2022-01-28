@@ -3,7 +3,7 @@ title: Cross-region replication of Azure NetApp Files volumes | Microsoft Docs
 description: Describes what Azure NetApp Files cross-region replication does, supported region pairs, service-level objectives, data durability, and cost model.  
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 
@@ -11,10 +11,9 @@ ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/20/2021
-ms.author: b-juche
+ms.author: anfdocs
 ms.custom: references_regions
 ---
 # Cross-region replication of Azure NetApp Files volumes
@@ -23,14 +22,15 @@ The Azure NetApp Files replication functionality provides data protection throug
 
 ## <a name="supported-region-pairs"></a>Supported cross-region replication pairs
 
-Azure NetApp Files volume replication is supported between various [Azure regional pairs](../best-practices-availability-paired-regions.md#azure-regional-pairs) and non-pairs. Azure NetApp Files volume replication is currently available between the following regions:  
+Azure NetApp Files volume replication is supported between various [Azure regional pairs](../availability-zones/cross-region-replication-azure.md#azure-cross-region-replication-pairings-for-all-geographies) and non-pairs. Azure NetApp Files volume replication is currently available between the following regions:  
 
 ### Azure regional pairs
 
 | Geography | Regional Pair A | Regional Pair B  |
 |:--- |:--- |:--- |
 | Australia | Australia East | Australia Southeast |
-| Asia-Pacific | East Asia | Southeast Asia |
+| Asia-Pacific | East Asia | Southeast Asia | 
+| Brazil/North America | Brazil South | South Central US |
 | Canada | Canada Central | Canada East |
 | Europe | North Europe | West Europe |
 | Germany | Germany West Central | Germany North |
@@ -39,6 +39,7 @@ Azure NetApp Files volume replication is supported between various [Azure region
 | North America | East US | West US |
 | North America | East US 2 | Central US |
 | North America | North Central US | South Central US|
+| North America | West US 3 | East US |
 | Norway | Norway East | Norway West |
 | Switzerland | Switzerland North | Switzerland West |
 | UK | UK South | UK West |

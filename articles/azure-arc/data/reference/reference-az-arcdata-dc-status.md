@@ -5,7 +5,7 @@ description: Reference article for az arcdata dc status commands.
 author: MikeRayMSFT
 ms.author: mikeray
 ms.reviewer: seanw
-ms.date: 07/30/2021
+ms.date: 11/04/2021
 ms.topic: reference
 ms.service: azure-arc
 ms.subservice: azure-arc-data
@@ -19,29 +19,25 @@ ms.subservice: azure-arc-data
 ## az arcdata dc status show
 Show the status of the data controller.
 ```bash
-az arcdata dc status show [--k8s-namespace -k] 
-                          [--use-k8s]
+az arcdata dc status show 
 ```
 ### Examples
 Show the status of the data controller in a particular kubernetes namespace.
 ```bash
-az arcdata dc status show --k8s-namespace <ns>
+az arcdata dc status show --k8s-namespace namespace --use-k8s
 ```
-### Optional Parameters
-#### `--k8s-namespace -k`
-The Kubernetes namespace in which the data controller exists.
-#### `--use-k8s`
-Use local Kubernetes APIs to perform this action.
+Show the status of a directly connected data controller in a particular resource group.
+```bash
+az arcdata dc status show --resource-group resource-group    
+```
 ### Global Arguments
 #### `--debug`
 Increase logging verbosity to show all debug logs.
 #### `--help -h`
 Show this help message and exit.
 #### `--output -o`
-Output format.  Allowed values: json, jsonc, none, table, tsv, yaml, yamlc.  Default: json.
+Output format.  Allowed values: json, jsonc, table, tsv.  Default: json.
 #### `--query -q`
-JMESPath query string. See [http://jmespath.org](http://jmespath.org) for more information and examples.
-#### `--subscription`
-Name or ID of subscription. You can configure the default subscription using `az account set -s NAME_OR_ID`.
+JMESPath query string. See [http://jmespath.org/](http://jmespath.org) for more information and examples.
 #### `--verbose`
-Increase logging verbosity. Use --debug for full debug logs.
+Increase logging verbosity. Use `--debug` for full debug logs.

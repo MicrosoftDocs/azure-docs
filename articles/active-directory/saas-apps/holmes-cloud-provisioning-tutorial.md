@@ -46,8 +46,8 @@ The scenario outlined in this tutorial assumes that you already have the followi
 ## Step 2. Configure Holmes Cloud to support provisioning with Azure AD
 
 > [!NOTE]
-> * You will receive your Holmes Cloud tenant url from **Holmes Cloud Support** <cs@holmescloud.com> team after purchasing the subscription.
-> * You can find the requried information(endpoint url, token, etc.) to set up the provisioning service in the **Company Settings** page as long as you subscribe single sign-on and user provisioning service.
+> * You will receive your Holmes Cloud tenant URL from **Holmes Cloud Support** <cs@holmescloud.com> team after purchasing the subscription.
+> * You can find the required information(endpoint URL, token, etc.) to set up the provisioning service in the **Company Settings** page as long as you subscribe single sign-on and user provisioning service.
  
 1. Login to Holmes Cloud account with your Holmes Cloud credentials.
 1. Select "会社設定 (Company Settings)" menu and then select the hat shaped icon.

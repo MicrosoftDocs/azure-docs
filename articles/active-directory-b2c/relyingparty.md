@@ -8,7 +8,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 06/27/2021
+ms.date: 11/09/2021
 ms.custom: project-no-code
 ms.author: kengaderdus
 ms.subservice: B2C
@@ -240,6 +240,7 @@ When the protocol is `SAML`, a metadata element contains the following elements.
 | UseDetachedKeys | No |  Possible values: `true`, or `false` (default). When the value is set to `true`, Azure AD B2C changes the format of the encrypted assertions. Using detached keys adds the encrypted assertion as a child of the EncrytedAssertion as opposed to the EncryptedData. |
 | WantsSignedResponses| No | Indicates whether Azure AD B2C signs the `Response` section of the SAML response. Possible values: `true` (default) or `false`.  |
 | RemoveMillisecondsFromDateTime| No | Indicates whether the milliseconds will be removed from datetime values within the SAML response (these include IssueInstant, NotBefore, NotOnOrAfter, and AuthnInstant). Possible values: `false` (default) or `true`.  |
+| RequestContextMaximumLengthInBytes| No | Indicates the maximum length of the [SAML applications](saml-service-provider.md) `RelayState` parameter. The default is 1000. The maximum is 2048.| 
 
 ### InputClaims
 

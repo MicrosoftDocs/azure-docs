@@ -5,12 +5,13 @@ description: Use this quickstart to send a request to the Bing Entity Search RES
 services: cognitive-services
 author: aahill
 manager: nitinme
-
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: aahi
+ms.devlang: php
+ms.custom: mode-api
 ---
 
 # Quickstart: Send a search request to the Bing Entity Search REST API using PHP

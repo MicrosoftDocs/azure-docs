@@ -8,7 +8,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/25/2021
+ms.date: 10/29/2021
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: "b2c-support"
@@ -37,13 +37,13 @@ You learn how to register an application in the next tutorial.
 
 - An Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-- An Azure Azure account that's been assigned at least the [Contributor](../role-based-access-control/built-in-roles.md) role within the subscription or a resource group within the subscription is required. 
+- An Azure account that's been assigned at least the [Contributor](../role-based-access-control/built-in-roles.md) role within the subscription or a resource group within the subscription is required. 
 
 ## Create an Azure AD B2C tenant
 
 1. Sign in to the [Azure portal](https://portal.azure.com/). 
 
-1. Select the directory that contains your subscription:
+1. Switch to the directory that contains your subscription:
     1. In the Azure portal toolbar, select the **Directories + subscriptions** filter icon. 
     
         ![Directories + subscriptions filter icon](media/tutorial-create-tenant/directories-subscription-filter-icon.png)
@@ -52,10 +52,10 @@ You learn how to register an application in the next tutorial.
 
         ![Directories + subscriptions with Switch button](media/tutorial-create-tenant/switch-directory.png)
 
-1. Add **Microsoft.AzureActiveDirectory** as a resource provider for the Azure subscription your're using ([learn more](../azure-resource-manager/management/resource-providers-and-types.md?WT.mc_id=Portal-Microsoft_Azure_Support#register-resource-provider-1)):
+1. Add **Microsoft.AzureActiveDirectory** as a resource provider for the Azure subscription you're using ([learn more](../azure-resource-manager/management/resource-providers-and-types.md?WT.mc_id=Portal-Microsoft_Azure_Support#register-resource-provider-1)):
 
-    1. On the Azure portal menu or from the **Home** page, select **Subscriptions**.
-    2. Select your subscription, and then in the left menu, select **Resource providers** .
+    1. On the Azure portal, search for and select **Subscriptions**.
+    2. Select your subscription, and then in the left menu, select **Resource providers**. If you don't see the left menu, select the **Show the menu for < name of your subscription >** icon at the top left part of the page to expand it.
     3. Make sure the **Microsoft.AzureActiveDirectory** row shows a status of **Registered**. If it doesn't, select the row, and then select **Register**.
 
 1. On the Azure portal menu or from the **Home** page, select **Create a resource**.
@@ -81,6 +81,9 @@ You learn how to register an application in the next tutorial.
 1. Review your directory settings. Then select **Create**. Learn more about [troubleshooting deployment errors](../azure-resource-manager/templates/common-deployment-errors.md).
 
 You can link multiple Azure AD B2C tenants to a single Azure subscription for billing purposes. To link a tenant, you must be an admin in the Azure AD B2C tenant and be assigned at least a Contributor role within the Azure subscription. See [Link an Azure AD B2C tenant to a subscription](billing.md#link-an-azure-ad-b2c-tenant-to-a-subscription).
+
+> [!NOTE]
+> When an Azure AD B2C directory is created, an application called `b2c-extensions-app`  is automatically created inside the new directory. Do not modify or delete it. The application is used by Azure AD B2C for storing user data. Learn more about [Azure AD B2C: Extensions app](extensions-app.md).
 
 ## Select your B2C tenant directory
 

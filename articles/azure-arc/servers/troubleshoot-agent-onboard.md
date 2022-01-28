@@ -7,7 +7,7 @@ ms.topic: conceptual
 
 # Troubleshoot Azure Arc-enabled servers agent connection issues
 
-This article provides information on troubleshooting and resolving issues that may occur while attempting to configure the Azure Arc-enabled servers Connected Machine agent for Windows or Linux. Both the interactive and at-scale installation methods when configuring connection to the service are included. For general information, see [Azure Arc-enabled servers overview](./overview.md).
+This article provides information on troubleshooting and resolving issues that may occur while attempting to configure the Azure Connected Machine agent for Windows or Linux. Both the interactive and at-scale installation methods when configuring connection to the service are included. For general information, see [Azure Arc-enabled servers overview](./overview.md).
 
 ## Agent error codes
 

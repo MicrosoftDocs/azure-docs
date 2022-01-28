@@ -107,7 +107,7 @@ az acr update --name myContainerRegistry --default-action Deny
 
 Use the [az acr network-rule add][az-acr-network-rule-add] command to add a network rule to your registry that allows access from the VM's subnet. Substitute the container registry's name and the resource ID of the subnet in the following command: 
 
- ```azurecli
+```azurecli
 az acr network-rule add \
   --name mycontainerregistry \
   --subnet <subnet-resource-id>

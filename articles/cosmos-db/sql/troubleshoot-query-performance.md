@@ -95,11 +95,11 @@ Here's an example of scan query that wasn't entirely served by the index:
 
 Query:
 
- ```sql
+```sql
 SELECT VALUE c.description
 FROM c
 WHERE UPPER(c.description) = "BABYFOOD, DESSERT, FRUIT DESSERT, WITHOUT ASCORBIC ACID, JUNIOR"
- ```
+```
 
 Query metrics:
 

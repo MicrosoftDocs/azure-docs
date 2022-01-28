@@ -124,7 +124,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
         Creationtime datetime
     );
 
-	```
+    ```
 
 ### Create another table in your database to store the high watermark value
 

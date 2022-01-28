@@ -16,18 +16,18 @@ ms.custom: seodec18, devx-track-azurepowershell
 > This article is about the App Service Environment v2 and App Service Environment v3 which are used with Isolated App Service plans
 > 
 
-Azure App Service environments (ASEs) can be created with an internet-accessible endpoint or an endpoint on an internal address in an Azure virtual network (VNet). When created with an internal endpoint, that endpoint is provided by an Azure component called an internal load balancer (ILB). The ASE on an internal IP address is called an ILB ASE. The ASE with a public endpoint is called an External ASE. 
+Azure App Service environments (ASEs) can be created with an internet-accessible endpoint or an endpoint on an internal address in an Azure Virtual Network. When created with an internal endpoint, that endpoint is provided by an Azure component called an internal load balancer (ILB). The ASE on an internal IP address is called an ILB ASE. The ASE with a public endpoint is called an External ASE. 
 
 An ASE can be created by using the Azure portal or an Azure Resource Manager template. This article walks through the steps and syntax you need to create an External ASE or ILB ASE with Resource Manager templates. To learn how to create an ASEv2 in the Azure portal, see [Make an External ASE][MakeExternalASE] or [Make an ILB ASE][MakeILBASE].
 To learn how to create an ASEv3 in Azure portal, see [Create ASEv3][Create ASEv3].
 
-When you create an ASE in the Azure portal, you can create your VNet at the same time or choose a preexisting VNet to deploy into. 
+When you create an ASE in the Azure portal, you can create your virtual network at the same time or choose a preexisting virtual network to deploy into. 
 
 When you create an ASE from a template, you must start with: 
 
-* A Resource Manager VNet.
-* A subnet in that VNet. We recommend an ASE subnet size of `/24` with 256 addresses to accommodate future growth and scaling needs. After the ASE is created, you can't change the size.
-* When you creating an ASE into preexisting VNet and subnet, the existing resource group name, virtual network name and subnet name are required.
+* An Azure Virtual Network.
+* A subnet in that virtual network. We recommend an ASE subnet size of `/24` with 256 addresses to accommodate future growth and scaling needs. After the ASE is created, you can't change the size.
+* When you creating an ASE into preexisting virtual network and subnet, the existing resource group name, virtual network name and subnet name are required.
 * The subscription you want to deploy into.
 * The location you want to deploy into.
 
@@ -47,17 +47,17 @@ If you want to make an ASE, use these Resource Manager template [ASEv3][asev3qui
 * *internalLoadBalancingMode*: Required. In most cases, set this to 3, which means both HTTP/HTTPS traffic on ports 80/443. If this property is set to 0, the HTTP/HTTPS traffic remains on the public VIP.
 * *zoneRedundant*: Required. In most cases, set this to false, which means the ASE will not be deployed into Availability Zones(AZ). Zonal ASEs can be deployed in some regions, you can refer to [this][AZ Support for ASEv3].
 * *dedicatedHostCount*: Required. In most cases, set this to 0, which means the ASE will be deployed as normal without dedicated hosts deployed.
-* *useExistingVnetandSubnet*: Required. Set to true if using an existing VNet and subnet. 
-* *vNetResourceGroupName*: Required if an using existing VNET and Subnet. This parameter defines the resource group name of the existing VNet and subnet where ASE will reside.
-* *virtualNetworkName*: Required if using an existing VNet and Subnet. This parameter defines the virtual network name of the existing VNet and subnet where ASE will reside.
-* *subnetName*: Required if using an existing VNet and Subnet. This parameter defines the subnet name of the existing VNet and subnet where ASE will reside.
+* *useExistingVnetandSubnet*: Required. Set to true if using an existing virtual network and subnet. 
+* *vNetResourceGroupName*: Required if using an existing virtual network and subnet. This parameter defines the resource group name of the existing virtual network and subnet where ASE will reside.
+* *virtualNetworkName*: Required if using an existing virtual network and subnet. This parameter defines the virtual network name of the existing virtual network and subnet where ASE will reside.
+* *subnetName*: Required if using an existing virtual network and subnet. This parameter defines the subnet name of the existing virtual network and subnet where ASE will reside.
 * *createPrivateDNS*: Set to true if you want to create a private DNS zone after ASEv3 created. For an ILB ASE, when set this parameter to true, it will create a private DNS zone as ASE name with *appserviceenvironment.net* DNS suffix. 
 ### ASEv2 parameters
 * *aseName*: This parameter defines an unique ASE name.
 * *location*: This parameter defines the location of the App Service Environment.
-* *existingVirtualNetworkName*: This parameter defines the virtual network name of the existing VNet and subnet where ASE will reside.
-* *existingVirtualNetworkResourceGroup*: his parameter defines the resource group name of the existing VNet and subnet where ASE will reside.
-* *subnetName*: This parameter defines the subnet name of the existing VNet and subnet where ASE will reside.
+* *existingVirtualNetworkName*: This parameter defines the virtual network name of the existing virtual network and subnet where ASE will reside.
+* *existingVirtualNetworkResourceGroup*: his parameter defines the resource group name of the existing virtual network and subnet where ASE will reside.
+* *subnetName*: This parameter defines the subnet name of the existing virtual network and subnet where ASE will reside.
 * *internalLoadBalancingMode*: In most cases, set this to 3, which means both HTTP/HTTPS traffic on ports 80/443, and the control/data channel ports listened to by the FTP service on the ASE, will be bound to an ILB-allocated virtual network internal address. If this property is set to 2, only the FTP service-related ports (both control and data channels) are bound to an ILB address. If this property is set to 0, the HTTP/HTTPS traffic remains on the public VIP.
 * *dnsSuffix*: This parameter defines the default root domain that's assigned to the ASE. In the public variation of Azure App Service, the default root domain for all web apps is *azurewebsites.net*. Because an ILB ASE is internal to a customer's virtual network, it doesn't make sense to use the public service's default root domain. Instead, an ILB ASE should have a default root domain that makes sense for use within a company's internal virtual network. For example, Contoso Corporation might use a default root domain of *internal-contoso.com* for apps that are intended to be resolvable and accessible only within Contoso's virtual network. 
 * *ipSslAddressCount*: This parameter automatically defaults to a value of 0 in the *azuredeploy.json* file because ILB ASEs only have a single ILB address. There are no explicit IP-SSL addresses for an ILB ASE. Hence, the IP-SSL address pool for an ILB ASE must be set to zero. Otherwise, a provisioning error occurs.

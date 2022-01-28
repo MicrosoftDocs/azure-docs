@@ -84,7 +84,7 @@ Renewal notification emails are sent 30 days before expiration and again on the 
 
 Emails are sent to different people depending on your purchase method:
 
-- EA customers - Emails are sent to the notification contacts set on the EA portal.
+- EA customers - Emails are sent to the notification contacts set on the EA portal or Enterprise Administrators who are automatically enrolled to receive usage notifications.
 - Individual subscription customers with pay-as-you-go rates - Emails are sent to users who are set up as account administrators.
 - Cloud Solution Provider customers - Emails are sent to the partner notification contact.
 

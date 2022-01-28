@@ -24,7 +24,7 @@ Some things to consider when selecting a pricing option:
 
 - In the first four options, Microsoft does the currency conversion.
 - Microsoft suggests using a flat rate pricing for software solutions.
-- Prices are fixed, so once published they cannot be adjusted. However, if you would like to reduce prices for your VM offers you can open a [support ticket](/azure/marketplace/support).
+- Prices are fixed, so once published they cannot be adjusted. However, if you would like to reduce prices for your VM offers you can open a [support ticket](./support.md).
 
 ## New offering pricing
 
@@ -36,4 +36,4 @@ If the publisher chose Free, Flat or Per core size, then the publisher has alrea
 
 ## Next steps
 
-- If you have any questions, open a ticket with [support](/azure/marketplace/support).
+- If you have any questions, open a ticket with [support](./support.md).

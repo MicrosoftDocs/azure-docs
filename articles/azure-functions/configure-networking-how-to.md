@@ -3,7 +3,7 @@ title: How to configure Azure Functions with a virtual network
 description: Article that shows you how to perform certain virtual networking tasks for Azure Functions.
 ms.topic: conceptual
 ms.date: 3/13/2021
-ms.custom: template-how-to #Required; leave this attribute/value as-is.
+ms.custom: template-how-to, ignite-fall-2021
 ---
 
 # How to configure Azure Functions with a virtual network
@@ -42,7 +42,7 @@ To set up a function with a storage account restricted to a private network:
     | `AzureWebJobsStorage`| Storage connection string | This is the connection string for a secured storage account. |
     | `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` |  Storage connection string | This is the connection string for a secured storage account. |
     | `WEBSITE_CONTENTSHARE` | File share | The name of the file share created in the secured storage account where the project deployment files reside. |
-    | `WEBSITE_CONTENTOVERVNET` | 1 | New setting |
+    | `WEBSITE_CONTENTOVERVNET` | 1 | A value of 1 enables your function app to scale when you have your storage account restricted to a virtual network. You should enable this setting when restricting your storage account to a virtual network. |
     | `WEBSITE_VNET_ROUTE_ALL` | 1 | Forces all outbound traffic through the virtual network. Required when the storage account is using private endpoint connections. |
 
 1. Select **Save** to save the application settings. Changing app settings causes the app to restart.  
@@ -53,4 +53,3 @@ After the function app restarts, it's now connected to a secured storage account
 
 > [!div class="nextstepaction"]
 > [Azure Functions networking options](functions-networking-options.md)
-

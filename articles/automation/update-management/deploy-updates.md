@@ -3,7 +3,7 @@ title: How to create update deployments for Azure Automation Update Management
 description: This article describes how to schedule update deployments and review their status.
 services: automation
 ms.subservice: update-management
-ms.date: 08/25/2021
+ms.date: 11/05/2021
 ms.topic: conceptual
 ---
 
@@ -93,7 +93,7 @@ To schedule a new update deployment, perform the following steps. Depending on t
 
    * If you only want to install a specific list of updates, you should not select any **Update classifications** and provide a list of updates to be applied using **Include** option.
 
-   * If you want to install only security and critical updates, along with one or more optional driver updates, you should select **Security** and **Critical** under **Update classifications**. Then for the **Include** option, specify the driver updates.
+   * If you want to install only security and critical updates, along with one or more optional updates, you should select **Security** and **Critical** under **Update classifications**. Then for the **Include** option, specify the KBIDs for the optional updates.
 
    * If you want to install only security and critical updates, but skip one or more updates for python to avoid breaking your legacy application, you should select **Security** and **Critical** under **Update classifications**. Then for the **Exclude** option add the python packages to skip.
 

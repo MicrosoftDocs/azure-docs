@@ -114,6 +114,25 @@ If any of these need to be updated, then the **Status** reflects the same. Click
 
   ![replication appliance components](./media/upgrade-mobility-service-preview/appliance-components.png)
 
+### Turn off auto-update
+
+1. On the server running the appliance, open the Registry Editor.
+2. Navigate to **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance**.
+3. To turn off auto-update, create a registry key **AutoUpdate** key with DWORD value of 0.
+
+    ![Set registry key](./media/upgrade-mobility-service-preview/registry-key.png)
+
+
+### Turn on auto-update
+
+You can turn on auto-update by deleting the AutoUpdate registry key from HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance.
+
+To delete the registry key:
+
+1. On the server running the appliance, open the Registry Editor.
+2. Navigate to **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance**.
+3. Delete the registry key **AutoUpdate**, that was previously created to turn off auto-update.
+
 ### Resolve issues with component upgrade
 
 If prerequisites to upgrade any of the components are not met, then it cannot be updated. The reasons/prerequisites include, but not limited to,

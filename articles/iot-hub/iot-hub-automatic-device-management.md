@@ -1,12 +1,12 @@
 ---
 title: Automatic device management at scale with Azure IoT Hub | Microsoft Docs
 description: Use Azure IoT Hub automatic configurations to manage multiple IoT devices and modules
-author: robinsh
+author: eross-msft
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 12/13/2019
-ms.author: robinsh
+ms.date: 10/26/2021
+ms.author: lizross
 ms.custom: ['Role: Cloud Development', 'Role: IoT Device']
 ---
 
@@ -49,13 +49,13 @@ Before you create a configuration, you must specify which devices or modules you
 
 ## Create a configuration
 
-1. In the [Azure portal](https://portal.azure.com), go to your IoT hub. 
+1. In the [Azure portal](https://portal.azure.com), go to your IoT hub.
 
-2. Select **IoT device configuration**.
+2. Select **Configurations** in the left navigation pane.
 
 3. Select **Add device configuration** or **Add module configuration**.
 
-   ![Add device configuration or module configuration](./media/iot-hub-automatic-device-management/create-automatic-configuration.png)
+   :::image type="content" source="./media/iot-hub-automatic-device-management/create-automatic-configuration.png" alt-text="Screenshot showing how to add a configuration." border="true":::
 
 There are five steps to create a configuration. The following sections walk through each one. 
 

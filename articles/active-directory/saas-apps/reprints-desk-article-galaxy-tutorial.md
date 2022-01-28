@@ -38,7 +38,7 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Reprints Desk - Article Galaxy supports **Just In Time** user provisioning
 
-* [Once you configure the Reprints Desk - Article Galaxy you can enforce session controls, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session controls extend from Conditional Access. Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+* [Once you configure the Reprints Desk - Article Galaxy you can enforce session controls, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session controls extend from Conditional Access. Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).
 
 ## Adding Reprints Desk - Article Galaxy from the gallery
 
@@ -151,6 +151,6 @@ When you click the Reprints Desk - Article Galaxy tile in the Access Panel, you 
 
 - [Try Reprints Desk - Article Galaxy with Azure AD](https://aad.portal.azure.com/)
 
-- [What is session control in Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
+- [What is session control in Microsoft Defender for Cloud Apps?](/cloud-app-security/proxy-intro-aad)
 
 - [How to protect Reprints Desk - Article Galaxy with advanced visibility and controls](/cloud-app-security/proxy-intro-aad)

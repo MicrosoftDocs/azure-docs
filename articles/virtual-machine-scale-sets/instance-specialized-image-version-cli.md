@@ -1,6 +1,6 @@
 ---
 title: Create a scale set from a specialized image version using the Azure CLI
-description: Create a scale set using a specialized image version in a Shared Image Gallery using the Azure CLI.
+description: Create a scale set using a specialized image version in an Azure Compute Gallery using the Azure CLI.
 author: cynthn
 ms.service: virtual-machine-scale-sets
 ms.subservice: shared-image-gallery
@@ -16,7 +16,7 @@ ms.custom: devx-track-azurecli
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Uniform scale sets
 
-Create a scale set from a [specialized image version](../virtual-machines/shared-image-galleries.md#generalized-and-specialized-images) stored in a Shared Image Gallery. If you want to create a scale set using a generalized image version, see [Create a scale set from a generalized image](instance-generalized-image-version-cli.md).
+Create a scale set from a [specialized image version](../virtual-machines/shared-image-galleries.md#generalized-and-specialized-images) stored in an Azure Compute Gallery. If you want to create a scale set using a generalized image version, see [Create a scale set from a generalized image](instance-generalized-image-version-cli.md).
 
 If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.4.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
 
@@ -53,8 +53,8 @@ az vmss create \
 ## Next steps
 [Azure Image Builder (preview)](../virtual-machines/image-builder-overview.md) can help automate image version creation, you can even use it to update and [create a new image version from an existing image version](../virtual-machines/linux/image-builder-gallery-update-image-version.md). 
 
-You can also create Shared Image Gallery resource using templates. There are several Azure Quickstart Templates available: 
+You can also create Azure Compute Gallery resource using templates. There are several Azure Quickstart Templates available: 
 
-- [Create a Shared Image Gallery](https://azure.microsoft.com/resources/templates/sig-create/)
-- [Create an Image Definition in a Shared Image Gallery](https://azure.microsoft.com/resources/templates/sig-image-definition-create/)
-- [Create an Image Version in a Shared Image Gallery](https://azure.microsoft.com/resources/templates/sig-image-version-create/)
+- [Create an Azure Compute Gallery](https://azure.microsoft.com/resources/templates/sig-create/)
+- [Create an Image Definition in an Azure Compute Gallery](https://azure.microsoft.com/resources/templates/sig-image-definition-create/)
+- [Create an Image Version in an Azure Compute Gallery](https://azure.microsoft.com/resources/templates/sig-image-version-create/)

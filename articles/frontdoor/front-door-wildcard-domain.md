@@ -4,7 +4,6 @@ description: This article helps you understand how Azure Front Door supports map
 services: frontdoor
 author: duongau
 ms.service: frontdoor
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services

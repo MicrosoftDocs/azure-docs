@@ -3,7 +3,7 @@ title: Use Azure AD groups to manage role assignments - Azure Active Directory
 description: Use Azure AD groups to simplify role assignment management in Azure Active Directory.
 services: active-directory
 author: rolyon
-manager: daveba
+manager: karenhoran
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
@@ -50,13 +50,16 @@ Role-assignable groups are designed to help prevent potential breaches by having
 - Only Global Administrators and Privileged Role Administrators can create a role-assignable group.
 - The membership type for role-assignable groups must be Assigned and can't be an Azure AD dynamic group. Automated population of dynamic groups could lead to an unwanted account being added to the group and thus assigned to the role.
 - By default, only Global Administrators and Privileged Role Administrators can manage the membership of a role-assignable group, but you can delegate the management of role-assignable groups by adding group owners.
-- RoleManagement.ReadWrite.All Microsoft Graph permission is required to be able to be able to manage the membership of such groups; Group.ReadWrite.All won't work.
+- RoleManagement.ReadWrite.Directory Microsoft Graph permission is required to be able to manage the membership of such groups; Group.ReadWrite.All won't work.
 - To prevent elevation of privilege, only a Privileged Authentication Administrator or a Global Administrator can change the credentials or reset MFA for members and owners of a role-assignable group.
 - Group nesting is not supported. A group can't be added as a member of a role-assignable group.
 
 ## Use PIM to make a group eligible for a role assignment
 
 If you do not want members of the group to have standing access to a role, you can use [Azure AD Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md) to make a group eligible for a role assignment. Each member of the group is then eligible to activate the role assignment for a fixed time duration.
+
+> [!NOTE]
+> For privileged access groups that are used to elevate into Azure AD roles, we recommend that you require an approval process for eligible member assignments. Assignments that can be activated without approval might create a security risk from administrators who have a lower level of permissions. For example, the Helpdesk Administrator has permissions to reset an eligible user's password.
 
 ## Scenarios not supported
 

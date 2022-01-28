@@ -24,6 +24,8 @@ landingContent:
         links:
           - text: What is Azure Monitor?
             url: overview.md
+          - text: What can you Monitor?
+            url: monitor-reference.md  
           - text: What is Azure Monitor Logs / Log Analytics?
             url: ./logs/data-platform-logs.md
           - text: What is Application Insights?

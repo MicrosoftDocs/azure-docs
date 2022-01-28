@@ -5,7 +5,7 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: references_regions
 ms.date: 09/01/2021
---- 
+---
 
 # Create an HDInsight cluster that uses Availability Zones (Preview)
 

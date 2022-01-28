@@ -60,7 +60,7 @@ Now, you change the function's schedule so that it runs once every hour instead 
 
 ## Update the timer schedule
 
-1. In your function, select **Integration**. Here, you define input and output bindings for your function and also set the schedule. 
+1. In your function, select **Integration**. Here, you define input and output bindings for your function and also set the schedule.
 
 1. Select **Timer (myTimer)**.
 

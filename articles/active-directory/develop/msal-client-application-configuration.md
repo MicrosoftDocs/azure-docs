@@ -111,8 +111,7 @@ The redirect URI is the URI the identity provider will send the security tokens 
 
 If you're a public client app developer who's using MSAL:
 
-- You'd want to use `.WithDefaultRedirectUri()` in desktop or UWP applications (MSAL.NET 4.1+). This method will set the public client application's
-  redirect uri property to the default recommended redirect uri for public client applications.
+- You'd want to use `.WithDefaultRedirectUri()` in desktop or UWP applications (MSAL.NET 4.1+). This method will set the public client application's redirect URI property to the default recommended redirect URI for public client applications.
 
   | Platform | Redirect URI |
   |--|--|

@@ -4,7 +4,7 @@ description: Learn how to assign Azure AD roles in Azure AD Privileged Identity 
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: KarenH444
+manager: karenhoran
 editor: ''
 ms.service: active-directory
 ms.topic: how-to
@@ -61,7 +61,7 @@ Follow these steps to make a user eligible for an Azure AD admin role.
 
     ![Memberships settings - date and time](./media/pim-how-to-add-role-to-user/start-and-end-dates.png)
 
-1. After the role is assigned, a assignment status notification is displayed.
+1. After the role is assigned, an assignment status notification is displayed.
 
     ![New assignment - Notification](./media/pim-how-to-add-role-to-user/assignment-notification.png)
 

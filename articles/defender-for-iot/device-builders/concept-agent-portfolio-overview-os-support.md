@@ -1,13 +1,13 @@
 ---
 title: Agent portfolio overview and OS support (Preview)
-description: Azure Defender for IoT provides a large portfolio of agents based on the device type. 
-ms.date: 10/03/2021
+description: Microsoft Defender for IoT provides a large portfolio of agents based on the device type. 
+ms.date: 11/09/2021
 ms.topic: conceptual
 ---
 
 # Agent portfolio overview and OS support (Preview)
 
-Azure Defender for IoT provides a large portfolio of agents based on the device type.
+Microsoft Defender for IoT provides a large portfolio of agents based on the device type.
 
 ## Standalone agent
 
@@ -25,9 +25,9 @@ For additional information, supported operating systems, or to request access to
 
 ## Azure RTOS micro agent
 
-The Azure Defender for IoT micro agent provides a comprehensive and lightweight security solution for devices that use Azure RTOS. Azure Defender for IoT micro agent provides coverage for common threats, and potential malicious activities on real-time operating system (RTOS) devices. The micro agent comes built in as part of the Azure RTOS NetX Duo component, and monitors the device's network activity.
+The Microsoft Defender for IoT micro agent provides a comprehensive and lightweight security solution for devices that use Azure RTOS. Microsoft Defender for IoT micro agent provides coverage for common threats, and potential malicious activities on real-time operating system (RTOS) devices. The micro agent comes built in as part of the Azure RTOS NetX Duo component, and monitors the device's network activity.
 
-The Azure Defender for IoT micro agent comes built in as part of the Azure RTOS NetX Duo component, and monitors the device's network activity. The micro agent consists of a comprehensive and lightweight security solution that provides coverage for common threats, and potential malicious activities on a real-time operating system (RTOS) devices.
+The Microsoft Defender for IoT micro agent comes built in as part of the Azure RTOS NetX Duo component, and monitors the device's network activity. The micro agent consists of a comprehensive and lightweight security solution that provides coverage for common threats, and potential malicious activities on a real-time operating system (RTOS) devices.
 
 ## Next steps
 

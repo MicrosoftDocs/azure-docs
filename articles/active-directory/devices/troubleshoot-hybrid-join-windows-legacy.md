@@ -44,7 +44,7 @@ This article provides you with troubleshooting guidance on how to resolve potent
 - You can also get multiple entries for a device on the user info tab because of a reinstallation of the operating system or a manual re-registration.
 - The initial registration / join of devices is configured to perform an attempt at either sign-in or lock / unlock. There could be 5-minute delay triggered by a task scheduler task. 
 - Make sure [KB4284842](https://support.microsoft.com/help/4284842) is installed, in case of Windows 7 SP1 or Windows Server 2008 R2 SP1. This update prevents future authentication failures due to customer's access loss to protected keys after changing password.
-- Hybrid Azure AD join may fail after an user has their UPN changed, breaking the Seamless SSO authentication process. During the join process you may see that it is still sending the old UPN to Azure AD, unless, browser session cookies are cleared or user explicitly signs-out and removes old UPN.
+- Hybrid Azure AD join may fail after a user has their UPN changed, breaking the Seamless SSO authentication process. During the join process you may see that it is still sending the old UPN to Azure AD, unless, browser session cookies are cleared or user explicitly signs-out and removes old UPN.
 
 ## Step 1: Retrieve the registration status 
 
@@ -74,7 +74,7 @@ If the device was not hybrid Azure AD joined, you can attempt to do hybrid Azure
    - It could be that AD FS and Azure AD URLs are missing in IE's intranet zone on the client.
    - Network connectivity issues may be preventing **autoworkplace.exe** from reaching AD FS or the Azure AD URLs. 
    - **Autoworkplace.exe** requires the client to have direct line of sight from the client to the organization's on-premises AD domain controller, which means that hybrid Azure AD join succeeds only when the client is connected to organization's intranet.
-   - Your organization uses Azure AD Seamless Single Sign-On, `https://autologon.microsoftazuread-sso.com` or `https://aadg.windows.net.nsatc.net` are not present on the device's IE intranet settings, and **Allow updates to status bar via script** is not enabled for the Intranet zone.
+   - Your organization uses Azure AD Seamless Single Sign-On, `https://autologon.microsoftazuread-sso.com` or `https://aadg.windows.net.nsatc.net` are not present on the device's IE intranet settings.
 - You are not signed on as a domain user
 
    :::image type="content" source="./media/troubleshoot-hybrid-join-windows-legacy/03.png" alt-text="Screenshot of the Workplace Join for Windows dialog box. Text reports that an error occurred during account verification." border="false":::

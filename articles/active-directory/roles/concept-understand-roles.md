@@ -3,12 +3,12 @@ title: Understand Azure Active Directory role concepts
 description: Learn how to understand Azure Active Directory built-in and custom roles with resource scope in Azure Active Directory.
 services: active-directory
 author: rolyon
-manager: daveba
+manager: karenhoran
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: overview
-ms.date: 11/20/2020
+ms.date: 11/11/2021
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -24,17 +24,19 @@ This article explains what Azure AD roles are and how they can be used.
 
 ## How Azure AD roles are different from other Microsoft 365 roles
 
-There are many different services in Microsoft 365, such as Azure AD and Intune. Some of these services have their own role-based access control systems; specifically:
+There are many different services in Microsoft 365, such as Azure AD and Intune. Some of these services have their own role-based access control systems;, specifically:
 
 - Azure AD
 - Exchange
 - Intune
-- Security Center
+- Defender for Cloud
 - Compliance Center
-- Microsoft Cloud App Security
+- Microsoft Defender for Cloud Apps
 - Commerce
 
 Other services such as Teams, SharePoint, and Managed Desktop don’t have separate role-based access control systems. They use Azure AD roles for their administrative access. Azure has its own role-based access control system for Azure resources such as virtual machines, and this system is not the same as Azure AD roles.
+
+![Azure RBAC versus Azure AD roles](./media/concept-understand-roles/azure-roles-azure-ad-roles.png)
 
 When we say separate role-based access control system. it means there is a different data store where role definitions and role assignments are stored. Similarly, there is a different policy decision point where access checks happen. For more information , see [Roles for Microsoft 365 services in Azure AD](m365-workload-docs.md) and [Classic subscription administrator roles, Azure roles, and Azure AD roles](../../role-based-access-control/rbac-and-directory-admin-roles.md).
 
@@ -48,7 +50,7 @@ Azure AD built-in roles differ in where they can be used, which fall into the fo
 
 - **Azure AD-specific roles**: These roles grant permissions to manage resources within Azure AD only. For example, User Administrator, Application Administrator, Groups Administrator all grant permissions to manage resources that live in Azure AD.
 - **Service-specific roles**: For major Microsoft 365 services (non-Azure AD), we have built service-specific roles that grant permissions to manage all features within the service.  For example, Exchange Administrator, Intune Administrator, SharePoint Administrator, and Teams Administrator roles can manage features with their respective services. Exchange Administrator can manage mailboxes, Intune Administrator can manage device policies, SharePoint Administrator can manage site collections, Teams Administrator can manage call qualities and so on.
-- **Cross-service roles**: There are some roles that span services. We have two global roles - Global Administrator and Global Reader. All Microsoft 365 services honor these two roles. Also, there are some security-related roles like Security Administrator and Security Reader that grant access across multiple security services within Microsoft 365. For example, using Security Administrator roles in Azure AD, you can manage Microsoft 365 Security Center, Microsoft Defender Advanced Threat Protection, and Microsoft Cloud App Security. Similarly, in the Compliance Administrator role you can manage Compliance-related settings in Microsoft 365 Compliance Center, Exchange, and so on.
+- **Cross-service roles**: There are some roles that span services. We have two global roles - Global Administrator and Global Reader. All Microsoft 365 services honor these two roles. Also, there are some security-related roles like Security Administrator and Security Reader that grant access across multiple security services within Microsoft 365. For example, using Security Administrator roles in Azure AD, you can manage Microsoft 365 Defender portal, Microsoft Defender Advanced Threat Protection, and Microsoft Defender for Cloud Apps. Similarly, in the Compliance Administrator role you can manage Compliance-related settings in Microsoft 365 Compliance Center, Exchange, and so on.
 
 ![The three categories of Azure AD built-in roles](./media/concept-understand-roles/role-overlap-diagram.png)
 
@@ -63,5 +65,5 @@ Service-specific roles | Azure DevOps Administrator<br>Azure Information Protect
 ## Next steps
 
 - [Overview of Azure AD role-based access control](custom-overview.md)
-- Create role assignments using [the Azure portal, Azure AD PowerShell, and Graph API](custom-create.md)
+- Create role assignments using [the Azure portal, Azure AD PowerShell, and Microsoft Graph API](custom-create.md)
 - [List role assignments](view-assignments.md)

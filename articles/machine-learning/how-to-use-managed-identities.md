@@ -9,7 +9,7 @@ ms.service: machine-learning
 ms.subservice: enterprise-readiness
 ms.reviewer: larryfr
 ms.topic: how-to
-ms.date: 10/13/2021
+ms.date: 10/21/2021
 ---
 
 # Use Managed identities with Azure Machine Learning
@@ -71,7 +71,7 @@ If you do not bring your own ACR, Azure Machine Learning service will create one
     az ml workspace show -n <my workspace> -g <my resource group>
     ```
 
-1. Perform an action that requires ACR. For example, the [tutorial on training a model](tutorial-train-models-with-aml.md).
+1. Perform an action that requires ACR. For example, the [tutorial on training a model](tutorial-train-deploy-notebook.md).
 
 1. Get the ACR name created by the cluster:
 

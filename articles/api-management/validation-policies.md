@@ -4,28 +4,51 @@ description: Learn about policies you can use in Azure API Management to validat
 services: api-management
 documentationcenter: ''
 author: dlepow
-
 ms.service: api-management
 ms.topic: article
-ms.date: 11/2/2021
+ms.date: 01/27/2022
 ms.author: danlep
+ms.custom: ignite-fall-2021
 ---
 
 # API Management policies to validate requests and responses
 
 This article provides a reference for the following API Management policies. For information on adding and configuring policies, see [Policies in API Management](./api-management-policies.md).
 
-Use validation policies to validate API requests and responses against a JSON or XML schema in the API definition (for example, OpenAPI or WSDL) and protect from vulnerabilities such as injection of headers or payload. While not a replacement for a Web Application Firewall, validation policies provide flexibility to respond to an additional class of threats that are not covered by security products that rely on static, predefined rules.
+Use validation policies to validate API requests and responses against a JSON or XML schema in the API definition (for example, OpenAPI or WSDL) and protect from vulnerabilities such as injection of headers or payload. While not a replacement for a Web Application Firewall, validation policies provide flexibility to respond to an additional class of threats that aren’t covered by security products that rely on static, predefined rules.
 
 ## Validation policies
 
-- [Validate content](#validate-content) - Validates the size or schema of a request or response body. The supported schema formats are JSON and XML.
+- [Validate content](#validate-content) - Validates the size or content of a request or response body against one or more API schemas. The supported schema formats are JSON and XML.
 - [Validate parameters](#validate-parameters) - Validates the request header, query, or path parameters against the API schema.
 - [Validate headers](#validate-headers) - Validates the response headers against the API schema.
 - [Validate status code](#validate-status-code) - Validates the HTTP status codes in responses against the API schema.
 
 > [!NOTE]
 > The maximum size of the API schema that can be used by a validation policy is 4 MB. If the schema exceeds this limit, validation policies will return errors on runtime. To increase it, please contact [support](https://azure.microsoft.com/support/options/). 
+
+## Schemas for content validation
+
+By default, request or response content validation uses the schema that API Management generates automatically from a JSON- or XML-based API definition. Examples include OpenAPI and WSDL specifications.
+
+Using the `validate-content` policy, you may optionally validate against one or more JSON or XML schemas that you’ve added to your API Management instance.
+
+You can add a schema to your API Management instance using the Azure portal:
+
+1. In the [portal](https://portal.azure.com), navigate to your API Management instance.
+1. In the left-hand menu, under **APIs**, select **Schemas** > **+ Add**.
+
+    :::image type="content" source="media/validation-policies/add-schema.png" alt-text="Add schema":::
+1. In the **Create schema** window, do the following:
+    1. Enter a **Name** for the schema
+    1. In **Schema type**, select **JSON** or **XML**.
+    1. Enter a **Description**.
+    1. In **Create method**, do one of the following:
+        * Select **Create new** and enter or paste the schema. 
+        * Select **Import from file** or **Import from URL** and enter a schema location.
+    1. Select **Save**.
+
+After the schema is created, it appears in the list on the **Schemas** page. Select a schema to view its properties or to edit in a schema editor.
 
 ## Actions
 
@@ -35,9 +58,9 @@ Available actions:
 
 | Action         | Description          |                                                                                                                         
 | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| ignore | Skip validation. |
-| prevent | Block the request or response processing, log the verbose [validation error](#validation-errors), and return an error. Processing is interrupted when the first set of errors is detected. 
-| detect | Log [validation errors](#validation-errors), without interrupting request or response processing. |
+| `ignore` | Skip validation. |
+| `prevent` | Block the request or response processing, log the verbose [validation error](#validation-errors), and return an error. Processing is interrupted when the first set of errors is detected. 
+| `detect` | Log [validation errors](#validation-errors), without interrupting request or response processing. |
 
 ## Logs
 
@@ -57,7 +80,7 @@ We recommend performing load tests with your expected production workloads to as
 
 ## Validate content
 
-The `validate-content` policy validates the size or schema of a request or response body against the API schema. 
+The `validate-content` policy validates the size or schema of a request or response body against one or more [supported API schemas](#schemas-for-content-validation).
 
 The following table shows the formats and content types used in API definitions that the policy supports.
 
@@ -71,7 +94,7 @@ The following table shows the formats and content types used in API definitions 
 
 ```xml
 <validate-content unspecified-content-type-action="ignore|prevent|detect" max-size="size in bytes" size-exceeded-action="ignore|prevent|detect" errors-variable-name="variable name">
-    <content type="content type string, for example: application/json, application/hal+json, application/soap+xml" validate-as="json|xml|soap" action="ignore|prevent|detect" />
+    <content type="content type string, for example: application/json, application/hal+json, application/soap+xml" validate-as="json|xml|soap" schema-id="schema id" schema-ref="#/local/reference/path" action="ignore|prevent|detect" />
 </validate-content>
 ```
 
@@ -92,11 +115,11 @@ In the following example, the JSON payload in requests and responses is validate
 
 The following example validates a SOAP 1.2 API's request or response body in prevention mode. Messages with payloads larger than 100 KB are blocked. 
 
-Content types other than `application/soap+xml`, including messages without the `content-type` header, are blocked. The body of the incoming message is extracted from the SOAP envelope and validated against the WSDL schema. If validation fails, the request or response is blocked. 
+Content types other than `application/soap+xml`, including messages without the `content-type` header, are blocked. The body of the incoming message is extracted from the SOAP envelope and validated against the XML schema named "myschema". If validation fails, the request or response is blocked. 
 
 ```xml
 <validate-content unspecified-content-type-action="prevent" max-size="102400" size-exceeded-action="prevent"> 
-    <content type="application/soap+xml" validate-as="soap" action="prevent" /> 
+    <content type="application/soap+xml" validate-as="soap" schema-id="myschema" action="prevent" /> 
 </validate-content>
 ```
 
@@ -104,8 +127,8 @@ Content types other than `application/soap+xml`, including messages without the 
 
 | Name         | Description                                                                                                                                   | Required |
 | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| validate-content | Root element.                                                                                                                               | Yes      |
-| content | Add one or more of these elements to validate the content type in the request or response, and perform the specified action.  | No |
+| `validate-content` | Root element.                                                                                                                               | Yes      |
+| `content` | Add one or more of these elements to validate the content type in the request or response, and perform the specified action.  | No |
 
 ### Attributes
 
@@ -115,8 +138,10 @@ Content types other than `application/soap+xml`, including messages without the 
 | max-size | Maximum length of the body of the request or response in bytes, checked against the `Content-Length` header. If the request body or response body is compressed, this value is the decompressed length. Maximum allowed value: 102,400 bytes (100 KB). (Contact [support](https://azure.microsoft.com/support/options/) if you need to increase this limit.) | Yes       | N/A   |
 | size-exceeded-action | [Action](#actions) to perform for requests or responses whose body exceeds the size specified in `max-size`. |  Yes     | N/A   |
 | errors-variable-name | Name of the variable in `context.Variables` to log validation errors to.  |   No    | N/A   |
-| type | Content type to execute body validation for, checked against the `content-type` header. This value is case insensitive. If empty, it applies to every content type specified in the API schema.<br/><br/>To validate SOAP requests and responses (`validate-as` attribute set to "soap""), set `type` to `application/soap+xml` for SOAP 1.2 APIs or `text/xml` for SOAP 1.1 APIs. |   No    |  N/A  |
-| validate-as | Validation engine to use for validation of the body of a request or response with a matching `type`. Supported values: "json", "xml", "soap".<br/><br/>When "soap" is specified, the XML schema from the request or response is extracted from the SOAP envelope and validated against an XML schema.  |  Yes     |  N/A  |
+| type | Content type to execute body validation for, checked against the `content-type` header. This value is case insensitive. If empty, it applies to every content type specified in the API schema.<br/><br/>To validate SOAP requests and responses (`validate-as` attribute set to "soap"), set `type` to `application/soap+xml` for SOAP 1.2 APIs or `text/xml` for SOAP 1.1 APIs. |   No    |  N/A  |
+| validate-as | Validation engine to use for validation of the body of a request or response with a matching `type`. Supported values: "json", "xml", "soap".<br/><br/>When "soap" is specified, the XML from the request or response is extracted from the SOAP envelope and validated against an XML schema.  |  Yes     |  N/A  |
+| schema-id | Name of an existing schema that was added to the API Management instance and that is used for content validation. If not specified, the default schema that was generated when the API was imported is used. | No | N/A |
+| schema-ref| For a JSON schema specified in `schema-id`, optional reference to be a valid local reference path in the JSON document, for example, `#/components/schemas/address`.<br/><br/>The attribute should return a JSON object that API Management handles as a valid JSON schema. | No | N/A |
 | action | [Action](#actions) to perform for requests or responses whose body doesn't match the specified content type.  |  Yes      | N/A   |
 
 ### Usage
@@ -132,7 +157,7 @@ This policy can be used in the following policy [sections](./api-management-howt
 The `validate-parameters` policy validates the header, query, or path parameters in requests against the API schema.
 
 > [!IMPORTANT]
-> If you imported an API using a management API version prior to `2021-01-01-preview`, the `validate-parameters` policy might not work. You may need to [reimport your API](/rest/api/apimanagement/2021-01-01-preview/apis/createorupdate) using management API version `2021-01-01-preview` or later.
+> If you imported an API using a management API version prior to `2021-01-01-preview`, the `validate-parameters` policy might not work. You may need to [reimport your API](/rest/api/apimanagement/current-ga/apis/create-or-update) using management API version `2021-01-01-preview` or later.
 
 
 ### Policy statement
@@ -170,21 +195,21 @@ In this example, all query and path parameters are validated in the prevention m
 
 | Name         | Description                                                                                                                                   | Required |
 | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| validate-parameters | Root element. Specifies default validation actions for all parameters in requests.                                                                                                                              | Yes      |
-| headers | Add this element to override default validation actions for header parameters in requests.   | No |
-| query | Add this element to override default validation actions for query parameters in requests.  | No |
-| path | Add this element to override default validation actions for URL path parameters in requests.  | No |
-| parameter | Add one or more elements for named parameters to override higher-level configuration of the validation actions. | No |
+| `validate-parameters` | Root element. Specifies default validation actions for all parameters in requests.                                                                                                                              | Yes      |
+| `headers` | Add this element to override default validation actions for header parameters in requests.   | No |
+| `query` | Add this element to override default validation actions for query parameters in requests.  | No |
+| `path` | Add this element to override default validation actions for URL path parameters in requests.  | No |
+| `parameter` | Add one or more elements for named parameters to override higher-level configuration of the validation actions. | No |
 
 ### Attributes
 
 | Name                       | Description                                                                                                                                                            | Required | Default |
 | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
-| specified-parameter-action | [Action](#actions) to perform for request parameters specified in the API schema. <br/><br/> When provided in a `headers`, `query`, or `path` element, the value overrides the value of `specified-parameter-action` in the `validate-parameters` element.  |  Yes     | N/A   |
-| unspecified-parameter-action | [Action](#actions) to perform for request parameters that are not specified in the API schema. <br/><br/>When provided in a `headers`or `query` element, the value overrides the value of `unspecified-parameter-action` in the `validate-parameters` element. |  Yes     | N/A   |
-| errors-variable-name | Name of the variable in `context.Variables` to log validation errors to.  |   No    | N/A   |
-| name | Name of the parameter to override validation action for. This value is case insensitive.  | Yes | N/A |
-| action | [Action](#actions) to perform for the parameter with the matching name. If the parameter is specified in the API schema, this value overrides the higher-level `specified-parameter-action` configuration. If the parameter isn’t specified in the API schema, this value overrides the higher-level `unspecified-parameter-action` configuration.| Yes | N/A | 
+| `specified-parameter-action` | [Action](#actions) to perform for request parameters specified in the API schema. <br/><br/> When provided in a `headers`, `query`, or `path` element, the value overrides the value of `specified-parameter-action` in the `validate-parameters` element.  |  Yes     | N/A   |
+| `unspecified-parameter-action` | [Action](#actions) to perform for request parameters that aren’t specified in the API schema. <br/><br/>When provided in a `headers`or `query` element, the value overrides the value of `unspecified-parameter-action` in the `validate-parameters` element. |  Yes     | N/A   |
+| `errors-variable-name` | Name of the variable in `context.Variables` to log validation errors to.  |   No    | N/A   |
+| `name` | Name of the parameter to override validation action for. This value is case insensitive.  | Yes | N/A |
+| `action` | [Action](#actions) to perform for the parameter with the matching name. If the parameter is specified in the API schema, this value overrides the higher-level `specified-parameter-action` configuration. If the parameter isn’t specified in the API schema, this value overrides the higher-level `unspecified-parameter-action` configuration.| Yes | N/A | 
 
 ### Usage
 
@@ -218,18 +243,18 @@ The `validate-headers` policy validates the response headers against the API sch
 
 | Name         | Description                                                                                                                                   | Required |
 | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| validate-headers | Root element. Specifies default validation actions for all headers in responses.                                                                                                                              | Yes      |
-| header | Add one or more elements for named headers to override the default validation actions for headers in responses. | No |
+| `validate-headers` | Root element. Specifies default validation actions for all headers in responses.                                                                                                                              | Yes      |
+| `header` | Add one or more elements for named headers to override the default validation actions for headers in responses. | No |
 
 ### Attributes
 
 | Name                       | Description                                                                                                                                                            | Required | Default |
 | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
-| specified-header-action | [Action](#actions) to perform for response headers specified in the API schema.  |  Yes     | N/A   |
-| unspecified-header-action | [Action](#actions) to perform for response headers that are not specified in the API schema.  |  Yes     | N/A   |
-| errors-variable-name | Name of the variable in `context.Variables` to log validation errors to.  |   No    | N/A   |
-| name | Name of the header to override validation action for. This value is case insensitive. | Yes | N/A |
-| action | [Action](#actions) to perform for header with the matching name. If the header is specified in the API schema, this value overrides value of `specified-header-action` in the `validate-headers` element. Otherwise, it overrides value of `unspecified-header-action` in the validate-headers element. | Yes | N/A | 
+| `specified-header-action` | [Action](#actions) to perform for response headers specified in the API schema.  |  Yes     | N/A   |
+| `unspecified-header-action` | [Action](#actions) to perform for response headers that aren’t specified in the API schema.  |  Yes     | N/A   |
+| `errors-variable-name` | Name of the variable in `context.Variables` to log validation errors to.  |   No    | N/A   |
+| `name` | Name of the header to override validation action for. This value is case insensitive. | Yes | N/A |
+| `action` | [Action](#actions) to perform for header with the matching name. If the header is specified in the API schema, this value overrides value of `specified-header-action` in the `validate-headers` element. Otherwise, it overrides value of `unspecified-header-action` in the validate-headers element. | Yes | N/A | 
 
 ### Usage
 
@@ -261,17 +286,17 @@ The `validate-status-code` policy validates the HTTP status codes in responses a
 
 | Name         | Description                                                                                                                                   | Required |
 | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| validate-status-code | Root element.                                                                                                | Yes      |
-| status-code | Add one or more elements for HTTP status codes to override the default validation action for status codes in responses. | No |
+| `validate-status-code` | Root element.                                                                                                | Yes      |
+| `status-code` | Add one or more elements for HTTP status codes to override the default validation action for status codes in responses. | No |
 
 ### Attributes
 
 | Name                       | Description                                                                                                                                                            | Required | Default |
 | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
-| unspecified-status-code-action | [Action](#actions) to perform for HTTP status codes in responses that are not specified in the API schema.  |  Yes     | N/A   |
-| errors-variable-name | Name of the variable in `context.Variables` to log validation errors to.  |   No    | N/A   |
-| code | HTTP status code to override validation action for. | Yes | N/A |
-| action | [Action](#actions) to perform for the matching status code, which is not specified in the API schema. If the status code is specified in the API schema, this override does not take effect. | Yes | N/A | 
+| `unspecified-status-code-action` | [Action](#actions) to perform for HTTP status codes in responses that aren’t specified in the API schema.  |  Yes     | N/A   |
+| `errors-variable-name` | Name of the variable in `context.Variables` to log validation errors to.  |   No    | N/A   |
+| `code` | HTTP status code to override validation action for. | Yes | N/A |
+| `action` | [Action](#actions) to perform for the matching status code, which isn’t specified in the API schema. If the status code is specified in the API schema, this override doesn’t take effect. | Yes | N/A | 
 
 ### Usage
 
@@ -299,10 +324,10 @@ API Management generates validation errors in the following format:
 
 The following table lists all possible errors of the validation policies. 
 
-* **Details** - Can be used to investigate errors. Not meant to be shared publicly.
-* **Public response** - Error returned to the client. Does not leak implementation details.
+* **Details**: Can be used to investigate errors. Not meant to be shared publicly.
+* **Public response**: Error returned to the client. Does not leak implementation details.
 
-When a validation policy specifies the `prevent` action and produces an error, the response from API management includes an HTTP status code: 400 when the the policy is applied in the inbound section, and 502 when the policy is applied in the outbound section.
+When a validation policy specifies the `prevent` action and produces an error, the response from API management includes an HTTP status code: 400 when the policy is applied in the inbound section, and 502 when the policy is applied in the outbound section.
 
 
 | **Name**   | **Type**                                                        | **Validation rule** | **Details**                                                                                                                                       | **Public response**                                                                                                                       | **Action**           |

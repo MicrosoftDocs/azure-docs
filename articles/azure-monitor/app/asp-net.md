@@ -3,6 +3,7 @@ title: Configure monitoring for ASP.NET with Azure Application Insights | Micros
 description: Configure performance, availability, and user behavior analytics tools for your ASP.NET website hosted on-premises or in Azure.
 ms.topic: conceptual
 ms.date: 10/12/2021
+ms.devlang: csharp
 ms.custom: contperf-fy21q1
 
 ---
@@ -48,8 +49,9 @@ This section will guide you through automatically adding Application Insights to
 3. Before the closing `</ApplicationInsights>` tag, add a line that contains the instrumentation key for your Application Insights resource.  You can find your instrumentation key on the overview pane of the newly created Application Insights resource that you created as part of the prerequisites for this article.
 
     ```xml
-	<InstrumentationKey>your-instrumentation-key-goes-here</InstrumentationKey>
-	```
+    <InstrumentationKey>your-instrumentation-key-goes-here</InstrumentationKey>
+    ```
+
 4. Select **Project** > **Manage NuGet Packages** > **Updates**. Then update each `Microsoft.ApplicationInsights` NuGet package to the latest stable release.   
 5. Run your application by selecting **IIS Express**. A basic ASP.NET app opens. As you browse through the pages on the site, telemetry will be sent to Application Insights.
 
@@ -214,8 +216,8 @@ This section will guide you through manually adding Application Insights to a te
 4. Before the closing `</ApplicationInsights>` tag, add your instrumentation key for your Application Insights resource.  You can find your instrumentation key on the overview pane of the newly created Application Insights resource that you created as part of the prerequisites for this article.
 
     ```xml
-	<InstrumentationKey>your-instrumentation-key-goes-here</InstrumentationKey>
-	```
+    <InstrumentationKey>your-instrumentation-key-goes-here</InstrumentationKey>
+    ```
 
 5. At the same level of your project as the *ApplicationInsights.config* file, create a folder called *ErrorHandler* with a new C# file called *AiHandleErrorAttribute.cs*. The contents of the file will look like this:
 

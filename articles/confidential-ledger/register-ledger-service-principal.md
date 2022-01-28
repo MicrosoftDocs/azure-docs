@@ -1,6 +1,6 @@
 ---
-title: Register a Ledger Service Principal with Microsoft Azure Confidential Ledger
-description: Register a Ledger Service Principal with Microsoft Azure Confidential Ledger
+title: Register a Ledger Service Principal with Microsoft Azure confidential ledger
+description: Register a Ledger Service Principal with Microsoft Azure confidential ledger
 services: confidential-ledger
 author: msmbaldwin
 ms.service: confidential-ledger
@@ -9,9 +9,9 @@ ms.date: 04/15/2021
 ms.author: mbaldwin
 
 ---
-# Register a Confidential Ledger service principal
+# Register a confidential ledger service principal
 
-To associate a storage account with your Confidential Ledger, you must first register Confidential Ledger service principal.
+To associate a storage account with your confidential ledger, you must first register confidential ledger service principal.
 
 ## Create a service principal
 
@@ -31,7 +31,7 @@ New-AzureADServicePrincipal -AppId 4353526e-1c33-4fcf-9e82-9683edf52848 -Display
 
 ## Assign roles
 
-Set the IAM "[Storage Blob Data Contributor](../role-based-access-control/built-in-roles.md#storage-blob-data-contributor)" for the Confidential Ledger service principal for the Storage Account. You can do so with the Azure CLI [az role assignment create](/cli/azure/role/assignment) command or the Azure PowerShell [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) cmdlet.
+Set the IAM "[Storage Blob Data Contributor](../role-based-access-control/built-in-roles.md#storage-blob-data-contributor)" for the confidential ledger service principal for the Storage Account. You can do so with the Azure CLI [az role assignment create](/cli/azure/role/assignment) command or the Azure PowerShell [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) cmdlet.
 
 # [Azure CLI](#tab/azure-cli)
 ```azurecli-interactive
@@ -46,4 +46,4 @@ New-AzRoleAssignment -ApplicationId 4353526e-1c33-4fcf-9e82-9683edf52848 -RoleDe
 
 ## Next steps
 
-- [Overview of Microsoft Azure Confidential Ledger](overview.md)
+- [Overview of Microsoft Azure confidential ledger](overview.md)

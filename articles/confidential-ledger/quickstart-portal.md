@@ -1,17 +1,17 @@
 ---
-title: Quickstart – Microsoft Azure Confidential Ledger with the Azure portal
-description: Learn to use the Microsoft Azure Confidential Ledger through the Azure portal
+title: Quickstart – Microsoft Azure confidential ledger with the Azure portal
+description: Learn to use the Microsoft Azure confidential ledger through the Azure portal
 author: msmbaldwin
 ms.author: mbaldwin
 ms.date: 10/18/2021
 ms.service: confidential-ledger
 ms.topic: quickstart
-ms.custom: "devx-track-python, devx-track-azurepowershell"
+ms.custom: devx-track-python, devx-track-azurepowershell, mode-ui
 ---
 
 # Quickstart: Create a confidential ledger using the Azure portal
 
-Azure Confidential Ledger is a cloud service that provides a high integrity store for sensitive data logs and records that require data to be kept intact. For more information on Confidential Ledger, and for examples of what can be stored in a confidential ledger, see [About Microsoft Azure Confidential Ledger](overview.md).
+Azure confidential ledger is a cloud service that provides a high integrity store for sensitive data logs and records that require data to be kept intact. For more information on Azure confidential ledger, and for examples of what can be stored in a confidential ledger, see [About Microsoft Azure confidential ledger](overview.md).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -25,11 +25,11 @@ Sign in to the Azure portal at https://portal.azure.com.
 
 1. From the Azure portal menu, or from the Home page, select **Create a resource**.
 
-1. In the Search box, enter "Confidential Ledger".
+1. In the Search box, enter "confidential ledger".
 
-1. From the results list, choose **Confidential Ledger**.
+1. From the results list, choose **confidential ledger**.
 
-1. On the Confidential Ledger section, choose **Create**.
+1. On the confidential ledger section, choose **Create**.
 
 1. On the Create confidential ledger section, provide the following information:
     - **Name**: Provide your confidential ledger a unique name.
@@ -53,16 +53,16 @@ When the deployment is complete. select **Go to resource**.
 :::image type="content" source="./media/confidential-ledger-portal-quickstart.png" alt-text="ACL portal create screen":::
 
 Take note of the two properties listed below:
-- **Confidential Ledger name**: In the example, it is "test-create-ledger-demo." You will use this name for other steps.
+- **confidential ledger name**: In the example, it is "test-create-ledger-demo." You will use this name for other steps.
 - **Ledger endpoint**: In the example, this endpoint is `https://test-create-ledger-demo.confidential-ledger.azure.net/`. 
 
 You will need these property names to transact with the confidential ledger from the data plane.
  
 ## Clean up resources
 
-Other Confidential Ledger articles build upon this quickstart. If you plan to continue on to work with subsequent articles, you may wish to leave these resources in place. 
+Other Azure confidential ledger articles build upon this quickstart. If you plan to continue on to work with subsequent articles, you may wish to leave these resources in place. 
 
-When no longer needed, delete the resource group, which deletes the Confidential Ledger and related resources. To delete the resource group through the portal:
+When no longer needed, delete the resource group, which deletes the confidential ledger and related resources. To delete the resource group through the portal:
 
 1.	Enter the name of your resource group in the Search box at the top of the portal. When you see the resource group used in this quickstart in the search results, select it.
 
@@ -72,6 +72,6 @@ When no longer needed, delete the resource group, which deletes the Confidential
 
 ## Next steps
 
-In this quickstart, you created a Confidential Ledger by using the Azure portal. To learn more about Confidential Ledger and how to integrate it with your applications, continue on to the articles below.
+In this quickstart, you created a confidential ledger by using the Azure portal. To learn more about Azure confidential ledger and how to integrate it with your applications, continue on to the articles below.
 
-- [Overview of Microsoft Azure Confidential Ledger](overview.md)
+- [Overview of Microsoft Azure confidential ledger](overview.md)

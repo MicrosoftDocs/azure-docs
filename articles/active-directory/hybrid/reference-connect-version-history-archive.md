@@ -3,7 +3,7 @@ title: 'Azure AD Connect: Version release history archive | Microsoft Docs'
 description: This article lists all archived releases of Azure AD Connect and Azure AD Sync
 services: active-directory
 author: billmath
-manager: daveba
+manager: karenhoran
 ms.assetid: 
 ms.service: active-directory
 ms.topic: reference
@@ -167,7 +167,7 @@ We fixed a bug in the sync errors compression utility that was not handling surr
 - Security improvement by resetting constrained delegation on AZUREADSSOACC object.
 - When adding/editing a sync rule, if there are any attributes used in the rule that are in the connector schema but not added to the connector, the attributes automatically added to the connector. The same is true for the object type the rule affects. If anything is added to the connector, the connector will be marked for full import on the next sync cycle.
 - Using an Enterprise or Domain admin as the connector account is no longer supported in new Azure AD Connect Deployments. Current Azure AD Connect deployments using an Enterprise or Domain admin as the connector account will not be affected by this release.
-- In the Synchronization Manager a full sync is run on rule creation/edit/deletion. A popup will appear on any rule change notifying the user if full import or full sync is going to be run.
+- In the Synchronization Manager a full sync is run on rule creation/edit/deletion. A pop-up will appear on any rule change notifying the user if full import or full sync is going to be run.
 - Added mitigation steps for password errors to 'connectors > properties > connectivity' page.
 - Added a deprecation warning for the sync service manager on the connector properties page. This warning notifies the user that changes should be made through the Azure AD Connect wizard.
 - Added new error for issues with a user's password policy.
@@ -184,7 +184,7 @@ We fixed a bug in the sync errors compression utility that was not handling surr
 
 ### Fixed issues
 - Resolved sync error issue for the scenario where a user object taking over its corresponding contact object has a self-reference (e.g. user is their own manager).
-- Help popups now show on keyboard focus.
+- Help pop-ups now show on keyboard focus.
 - For Auto upgrade, if any conflicting app is running from 6 hours, kill it and continue with upgrade.
 - Limit the number of attributes a customer can select to 100 per object when selecting directory extensions. This will prevent the error from occurring during export as Azure has a maximum of 100 extension attributes per object.
 - Fixed a bug to make the AD Connectivity script more robust.
@@ -428,7 +428,7 @@ New features and improvements
 - Azure AD Connect Wizard: Correct Error Message Mapping when installation of passthrough authentication agent fails
 - Azure AD Connect Wizard: Removed "Configuration" container from Domain OU Filtering page
 - Sync Engine install: remove unnecessary legacy logic that occasionally failed from Sync Engine install msi
-- Azure AD Connect Wizard: Fix popup help text on Optional Features page for Password Hash Sync
+- Azure AD Connect Wizard: Fix pop-up help text on Optional Features page for Password Hash Sync
 - Sync Engine runtime: Fix the scenario where a CS object has an imported delete and Sync Rules attempt to re-provision the object.
 - Sync Engine runtime: Add help link for Online connectivity troubleshooting guide to the event log for an Import Error
 - Sync Engine runtime: Reduced memory usage of Sync Scheduler when enumerating Connectors
