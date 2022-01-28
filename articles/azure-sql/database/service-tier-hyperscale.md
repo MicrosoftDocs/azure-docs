@@ -86,9 +86,9 @@ vCore resource limits are listed in the following articles, please be sure to up
 /managed-instance/resource-limits.md
 --->
 
-The vCore-based service tiers are differentiated based on database availability and storage type, performance, and maximum storagesize, as described in the following table: 
+The vCore-based service tiers are differentiated based on database availability and storage type, performance, and maximum storage size, as described in the following table: 
 
-| |  General Purpose |  Hyperscale | Business Critical |
+| |  **General Purpose** |  **Hyperscale** | **Business Critical** |
 |:---:|:---:|:---:|:---:|
 | **Best for** |Offers budget oriented balanced compute and storage options.|Most business workloads. Autoscaling storage size up to 100 TB,fast vertical and horizontal compute scaling, fast database restore.|OLTP applications with high transaction rate and low IO latency. Offers highest resilience to failures and fast failovers using multiple synchronously updated replicas.|
 | **Resource type** |SQL Database / SQL Managed Instance | Single database | SQL Database / SQL Managed Instance |

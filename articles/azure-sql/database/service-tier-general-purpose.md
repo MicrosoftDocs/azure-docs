@@ -53,13 +53,12 @@ vCore resource limits are listed in the following articles, please be sure to up
 /managed-instance/resource-limits.md
 --->
 
-Review the table in this section to briefly compare resource limits between Azure SQL Database and Azure SQL managed Instance in the General Purpose service tier. 
+Review the table in this section for a brief overview comparison of the resource limits for Azure SQL Database and Azure SQL managed Instance in the General Purpose service tier. 
 
 For comprehensive details about resource limits, review:
-- Azure SQL Database [single database](resource-limits-vcore-single-databases.md), [pooled database ](resource-limits-vcore-elastic-pools.md) 
-- [SQL Managed Instance](../managed-instance/resource-limits.md) in the vCore purchasing model.
+- Azure SQL Database: [vCore single database](resource-limits-vcore-single-databases.md), [vCore pooled database ](resource-limits-vcore-elastic-pools.md), [Hyperscale](service-tier-hyperscale.md), [DTU single database](resource-limits-dtu-single-databases.md) and [DTU pooled databases](resource-limits-dtu-elastic-pools.md)
+- Azure SQL Managed Instance: [vCore instance limits](../managed-instance/resource-limits.md)
 
-To learn more about Azure SQL Database, review the [Hyperscale service tier resource limits](service-tier-hyperscale.md), and DTU resource limits for [single databases](resource-limits-dtu-single-databases.md) and [pooled databases](resource-limits-dtu-elastic-pools.md). 
 
 To compare features between SQL Database and SQL Managed Instance, see the [database engine features](features-comparison.md). 
 
