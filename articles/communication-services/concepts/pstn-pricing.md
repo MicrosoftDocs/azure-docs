@@ -25,14 +25,14 @@ All prices shown below are in USD.
 ### Phone Number Leasing Charges
 |Number type   |Monthly fee   |
 |--------------|-----------|
-|Geographic     |USD 1/mo        |
-|Toll-Free     |USD 2/mo        |
+|Geographic     |USD 1.00/mo        |
+|Toll-Free     |USD 2.00/mo        |
 
 ### Usage Charges
 |Number type   |To make calls   |To receive calls|
 |--------------|-----------|------------|
-|Geographic     |Starting at USD 0.0110/min       |USD 0.0085/min        |
-|Toll-free |Starting at USD 0.0130/min   |Starting at USD 0.0220/min |
+|Geographic     |Starting at USD 0.0130/min       |USD 0.0085/min        |
+|Toll-free |Starting at USD 0.0130/min   | USD 0.0220/min |
 
 For additional destinations, please refer to details [here](https://github.com/Azure/Communication/blob/master/pricing/communication-services-pstn-rates.csv)
 
@@ -41,14 +41,14 @@ For additional destinations, please refer to details [here](https://github.com/A
 ### Phone Number Leasing Charges
 |Number type   |Monthly fee   |
 |--------------|-----------|
-|Geographic     |USD 1/mo        |
-|Toll-Free     |USD 2/mo        |
+|Geographic     |USD 1.00/mo        |
+|Toll-Free     |USD 2.00/mo        |
 
 ### Usage Charges
 |Number type   |To make calls   |To receive calls|
 |--------------|-----------|------------|
-|Geographic     |Starting at USD 0.0130/min       |USD 0.0085/min        |
-|Toll-free |Starting at USD 0.0130/min   |Starting at USD 0.0220/min |
+|Geographic     |Starting at USD 0.0110/min       |USD 0.0090/min        |
+|Toll-free |Starting at USD 0.0110/min   |Starting at USD 0.0290/min |
 
 For additional destinations, please refer to details [here](https://github.com/Azure/Communication/blob/master/pricing/communication-services-pstn-rates.csv)
 
@@ -57,14 +57,14 @@ For additional destinations, please refer to details [here](https://github.com/A
 ### Phone Number Leasing Charges
 |Number type   |Monthly fee   |
 |--------------|-----------|
-|Geographic     |USD 1/mo        |
-|Toll-Free     |USD 2/mo        |
+|Geographic     |USD 0.82/mo        |
+|Toll-Free     |USD 25.00/mo        |
 
 ### Usage Charges
 |Number type   |To make calls   |To receive calls|
 |--------------|-----------|------------|
-|Geographic     |Starting at USD 0.0130/min       |USD 0.0085/min        |
-|Toll-free |Starting at USD 0.0130/min   |Starting at USD 0.0220/min |
+|Geographic     |Starting at USD 0.0100/min       |USD 0.0100/min        |
+|Toll-free |Starting at USD 0.0190/min   |Starting at USD 0.0343/min |
 
 For additional destinations, please refer to details [here](https://github.com/Azure/Communication/blob/master/pricing/communication-services-pstn-rates.csv)
 
