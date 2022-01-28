@@ -17,7 +17,7 @@ ms.author: radubulboaca
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - An active Communication Services resource and connection string. [Create a Communication Services resource](../../create-communication-resource.md).
-- Two or more Communication User Identities. [Create and manage access tokens](../../access-tokens.md?pivots=programming-language-csharp) or [Quick-create identities for testing](../../identity/quick-create-identity.md).
+- Two or more Communication User Identities. [Create and manage access tokens](../../access-tokens.md?pivots=programming-language-java) or [Quick-create identities for testing](../../identity/quick-create-identity.md).
 - [Java Development Kit (JDK)](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable) version 8 or above.
 - [Apache Maven](https://maven.apache.org/download.cgi)
 
@@ -25,7 +25,7 @@ ms.author: radubulboaca
 
 ### Create a new Java application
 
-In a console window (such as cmd, PowerShell, or Bash), use the `mvn` command bellow to create a new console app with the name `rooms-quickstart`. This command creates a simple "Hello World" Java project with a single source file: **App.java**.
+In a console window (such as cmd, PowerShell, or Bash), use the `mvn` command below to create a new console app with the name `rooms-quickstart`. This command creates a simple "Hello World" Java project with a single source file: **App.java**.
 
 ```console
 mvn archetype:generate -DgroupId=com.contoso.app -DartifactId=rooms-quickstart -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.4 -DinteractiveMode=false
@@ -62,8 +62,7 @@ and then include the direct dependency in the dependencies section without the v
 ```
 
 #### Include direct dependency
-If you want to take dependency on a particular version of the library that is not present in the BOM,
-add the direct dependency to your project as follows.
+If you want to take dependency on a particular version of the library that isn't present in the BOM, add the direct dependency to your project as follows.
 
 [//]: # ({x-version-update-start;com.azure:azure-communication-rooms;current})
 ```xml
