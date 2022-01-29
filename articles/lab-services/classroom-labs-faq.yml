@@ -56,13 +56,4 @@ sections:
             - Instead of Ubuntu 18.04 LTS, consider using Ubuntu 20.04 or 21.04 LTS which don't have this networking conflict with the agent when GNOME\MATE is installed.
             - Otherwise, to use 18.04 LTS and GNOME\MATE, you will need to apply a workaround to fix the networking conflict with the agent.
           See our [ReadMe and scripts](https://aka.ms/azlabs/scripts/LinuxDesktop-GnomeMate) that set up Ubuntu Server 18.04\20.04\21.04 with GNOME\MATE.  When you use these scripts to set up 18.04 with GNOME\MATE, they will apply the workaround for the networking conflict.
-  
-  - name: General
-    questions:
-      - question: |
-          How do I prevent capacity constraints and Azure compute capacity limitations on my subscription?
-        answer: |
-          When you start to use Azure Lab Services for the first time, you will need to submit a request to increase the Azure compute capacity limit that exists on your subscription.  As your lab usage grows and increases in the number of VM cores you need, you may need to repeat this process to increase your quota limit further.
-          As part of your up front planning each time that you deploy new labs, you also need to ensure that there is adequate VM core capacity in the region that you plan to deploy in.  This is especially important for GPUs.
-          For more information on how to plan for both capacity and Azure compute capacity limitations, read the following article:
-            - [Capacity limits in Azure Lab Services](./capacity-limits.md)
+ 
