@@ -4,7 +4,7 @@ description: Overview of Azure managed disks, which handle the storage accounts 
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/02/2021
+ms.date: 01/28/2022
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: contperf-fy21q1
@@ -92,7 +92,7 @@ A data disk is a managed disk that's attached to a virtual machine to store appl
 
 Every virtual machine has one attached operating system disk. That OS disk has a pre-installed OS, which was selected when the VM was created. This disk contains the boot volume.
 
-This disk has a maximum capacity of 4,095 GiB.
+This disk has a maximum capacity of 4,095 GiB, however, it is formatted as MBR. We recommend using data disks to increase storage capacity or store data. If you need to store data on the OS disk and require the additional space, [convert it to GPT](/windows-server/storage/disk-management/change-an-mbr-disk-into-a-gpt-disk).
 
 ### Temporary disk
 
