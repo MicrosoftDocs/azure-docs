@@ -49,8 +49,11 @@ git clone --recursive https://github.com/Azure-Samples/iot-middleware-freertos-s
 
 ### Install Ninja
 
+Ninja is a build tool that you'll use to build an image for the STM DevKit. 
+
 1. Download [Ninja](https://github.com/ninja-build/ninja/releases) and unzip it to your local disk.
-1. Confirm that the Ninja binary is available in the `PATH` environment variable:
+1. Add the path to the Ninja executable to a PATH environment variable.
+1. Open a new console to recognize the update, and confirm that the Ninja binary is available in the `PATH` environment variable:
     ```shell
     ninja --version
     ```
@@ -130,11 +133,9 @@ To connect the STM DevKit to Azure, you'll modify configuration settings, build 
     > [!NOTE]
     > For detailed setup information about the STM DevKit, see the instructions on the packaging, or see [B-L475E-IOT01A Resources](https://www.st.com/en/evaluation-tools/b-l475e-iot01a.html#resource)
 
-1. In File Explorer, find the binary files that you created in the previous section.
+1. In File Explorer, find the binary file named *iot-middleware-sample-gsg.bin* that you created previously.
 
-1. Copy the binary file whose file name corresponds to the part number of the STM Devkit you are using. For example, if your board part number is **B-L475E-IOT01A1**, copy the binary file named *iot-middleware-sample-gsg.bin*.
-
-1. In File Explorer, find the STM Devkit that's connected to your computer. The device appears as a drive on your system with the drive label **DIS_L4IOT**.
+1. In File Explorer, find the STM Devkit board that's connected to your computer. The device appears as a drive on your system with the drive label **DIS_L4IOT**.
 
 1. Paste the binary file into the root folder of the STM Devkit. Flashing starts automatically and completes in a few seconds.
 
