@@ -19,11 +19,11 @@ You can deploy your application code from a local Git repository to Azure by con
 
 First, configure the deployment source for your web app to be local Git using the `az webapp deployment source` command.  This command will output the URL of the remote Git repository that you will be pushing code to.  Make a copy of this value as you will need it in a later step.
 
-[!INCLUDE [CLI deploy configure](<./deploy-local-instructions-azcli-1.md>)]
+[!INCLUDE [CLI deploy configure](<./deploy-local-instructions-cli-1.md>)]
 
 Retrieve the deployment credentials for your application.  These will be needed for Git to authenticate to Azure when you push code to Azure in a later step.
 
-[!INCLUDE [CLI deploy retrieve credentials](<./deploy-local-instructions-azcli-2.md>)]
+[!INCLUDE [CLI deploy retrieve credentials](<./deploy-local-instructions-cli-2.md>)]
 
 Next, in the root directory of your application, configure a [Git remote](https://git-scm.com/book/en/v2/Git-Basics-Working-with-Remotes) that points to Azure using the Git URL of the Azure remote obtained in a previous step.
 

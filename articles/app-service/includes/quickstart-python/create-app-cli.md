@@ -1,3 +1,9 @@
+---
+author: DavidCBerry13
+ms.author: daberry
+ms.topic: include
+ms.date: 01/29/2022
+---
 Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com) or on a workstation with the [Azure CLI installed](/cli/azure/install-azure-cli).
 
 First, create a resource group to act as a container for all of the Azure resources related to this application.
