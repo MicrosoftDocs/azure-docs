@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 10/13/2021
+ms.date: 01/28/2022
 ms.author: alkohli 
 zone_pivot_groups: azure-stack-edge-device-deployment
 ---
@@ -23,7 +23,7 @@ Use the following checklist to ensure you have this information after you have p
 
 | Stage                             | Parameter                                                                                                                                                                                                                           | Details                                                                                                           |
 |-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------|
-| Device   management               | <li>Azure subscription</li><li>Resource providers registered</li><li>Azure Storage account</li>|<li>Enabled for Azure Stack Edge Pro/Data Box Gateway, owner or contributor access.</li><li>In Azure portal, go to **Home > Subscriptions > Your-subscription > Resource providers**. Search for `Microsoft.DataBoxEdge` and register. Repeat for `Microsoft.Devices` if deploying IoT workloads.</li><li>Need access credentials</li> |
+| Device   management               | <li>Azure subscription</li><li>Resource providers registered</li><li>Azure Storage account</li>|<li>Enabled for Azure Stack Edge, owner or contributor access.</li><li>In Azure portal, go to **Home > Subscriptions > Your-subscription > Resource providers**. Search for `Microsoft.EdgeOrder` and register. Repeat for `Microsoft.Devices` if deploying IoT workloads.</li><li>Need access credentials</li> |
 | Device installation               | Power cables in the package. <br>For US, an SVE 18/3 cable rated for 125 V and 15 Amps with a NEMA 5-15P to C13 (input to output) connector is shipped. | For more information, see the list of [Supported power cords by country](azure-stack-edge-technical-specifications-power-cords-regional.md)  |
 |                                   | <li>At least  1 X 1-GbE RJ-45 network cable for Port 1  </li><li> At least 1 X 25/10-GbE SFP+ copper cable for Port 3, Port 4, Port 5, or Port 6</li>| Customer needs to procure these cables.<br>For a full list of supported network cables, switches, and transceivers for device network cards from Cavium, see [Cavium FastlinQ 41000 Series Interoperability Matrix](https://www.marvell.com/documents/xalflardzafh32cfvi0z/)<br>For a full list of supported cables and modules for 25 GbE and 10 GbE from Mellanox, see [Mellanox dual port 25G ConnectX-4 channel network adapter compatible products](https://docs.mellanox.com/display/ConnectX4LxFirmwarev14271016/Firmware+Compatible+Products).| 
 | First-time device connection      | <li>Laptop whose IPv4 settings can be changed. This laptop connects to Port 1 via a switch or a USB to Ethernet adaptor.  </li><!--<li> A minimum of 1 GbE switch must be used for the device once the initial setup is complete. The local web UI will not be accessible if the connected switch is not at least 1 Gbe.</li>-->|   |
@@ -36,11 +36,9 @@ Use the following checklist to ensure you have this information after you have p
 | (Optional) Update server settings | <li>Require update server IP address on local network, path to WSUS server. </li> | By default, public windows update server is used.|
 | Device settings | <li>Device fully qualified domain name (FQDN) </li><li>DNS domain</li> | |
 | (Optional) Certificates  | To test non-production workloads, use [Generate certificates option](azure-stack-edge-gpu-deploy-configure-certificates.md#generate-device-certificates) <br><br> If you bring your own certificates including the signing chain(s), [Add certificates](azure-stack-edge-gpu-deploy-configure-certificates.md#bring-your-own-certificates) in appropriate format.| Configure certificates only if you change the device name and/or DNS domain. |
-| Activation  | Require activation key from the Azure Stack Edge Pro/ Data Box Gateway resource.    | Once generated, the key expires in 3 days. |
+| Activation  | Require activation key from the Azure Stack Edge resource.    | Once generated, the key expires in 3 days. |
 
-<!--
-| (Optional) MAC Address            | If MAC address needs to be on the allowed list, get the address of the connected port from local UI of the device. |                                                                                                                   |
-| (Optional) Network switch port    | Device hosts Hyper-V VMs for compute. Some network switch port configurations don’t accommodate these setups by default.                                                                                                        |                                                                                                                   |-->
+
 
 ::: zone-end
 
@@ -48,7 +46,7 @@ Use the following checklist to ensure you have this information after you have p
 
 | Stage                             | Parameter                                                                                                                                                                                                                           | Details                                                                                                           |
 |-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------|
-| Device   management               | <li>Azure subscription</li><li>Resource providers registered</li><li>Azure Storage account</li>|<li>Enabled for Azure Stack Edge Pro/Data Box Gateway, owner or contributor access.</li><li>In Azure portal, go to **Home > Subscriptions > Your-subscription > Resource providers**. Search for `Microsoft.DataBoxEdge` and register. Repeat for `Microsoft.Devices` if deploying IoT workloads.</li><li>Need access credentials</li> |
+| Device   management               | <li>Azure subscription</li><li>Resource providers registered</li><li>Azure Storage account</li>|<li>Enabled for Azure Stack Edge, owner or contributor access.</li><li>In Azure portal, go to **Home > Subscriptions > Your-subscription > Resource providers**. Search for `Microsoft.EdgeOrder` and register. Repeat for `Microsoft.Devices` if deploying IoT workloads.</li><li>Need access credentials</li> |
 | Device installation               | 4 X Power cables for the two device nodes in the package. <br>For US, an SVE 18/3 cable rated for 125 V and 15 Amps with a NEMA 5-15P to C13 (input to output) connector is shipped. | For more information, see the list of [Supported power cords by country](azure-stack-edge-technical-specifications-power-cords-regional.md)  |
 |                                   | <li>At least  2 X 1-GbE RJ-45 network cables for Port 1 on the two device nodes  </li><li> You would need 2 X 1-GbE RJ-45 network cables to connect Port 2 on each device node to the internet. Depending on the network topology you wish to deploy, you also need SFP+ copper cables to connect Port 3 and Port 4 across the device nodes and also from device nodes to the switches. See the [Supported network topologies](azure-stack-edge-gpu-clustering-overview.md#supported-networking-topologies). </li>| Customer needs to procure these cables.<br>For a full list of supported network cables, switches, and transceivers for device network cards from Cavium, see [Cavium FastlinQ 41000 Series Interoperability Matrix](https://www.marvell.com/documents/xalflardzafh32cfvi0z/)<br>For a full list of supported cables and modules for 25 GbE and 10 GbE from Mellanox, see [Mellanox dual port 25G ConnectX-4 channel network adapter compatible products](https://docs.mellanox.com/display/ConnectX4LxFirmwarev14271016/Firmware+Compatible+Products).| 
 | First-time device connection      | <li>Laptop whose IPv4 settings can be changed. This laptop connects to Port 1 via a switch or a USB to Ethernet adaptor.  </li><!--<li> A minimum of 1 GbE switch must be used for the device once the initial setup is complete. The local web UI will not be accessible if the connected switch is not at least 1 Gbe.</li>-->|   |
@@ -61,17 +59,14 @@ Use the following checklist to ensure you have this information after you have p
 | (Optional) Update server settings | <li>Require update server IP address on local network, path to WSUS server. </li> | By default, public windows update server is used.|
 | Device settings | <li>Device fully qualified domain name (FQDN) </li><li>DNS domain</li> | |
 | (Optional) Certificates  | To test non-production workloads, use [Generate certificates option](azure-stack-edge-gpu-deploy-configure-certificates.md#generate-device-certificates) <br><br> If you bring your own certificates including the signing chain(s), [Add certificates](azure-stack-edge-gpu-deploy-configure-certificates.md#bring-your-own-certificates) in appropriate format.| Configure certificates only if you change the device name and/or DNS domain. |
-| Activation  | Require activation key from the Azure Stack Edge Pro/ Data Box Gateway resource.    | Once generated, the key expires in 3 days. |
+| Activation  | Require activation key from the Azure Stack Edge resource.    | Once generated, the key expires in 3 days. |
 
-<!--
-| (Optional) MAC Address            | If MAC address needs to be on the allowed list, get the address of the connected port from local UI of the device. |                                                                                                                   |
-| (Optional) Network switch port    | Device hosts Hyper-V VMs for compute. Some network switch port configurations don’t accommodate these setups by default.                                                                                                        |                                                                                                                   |-->
 
 ::: zone-end
 
 ## Next steps
 
 
-Prepare to deploy your [Azure Stack Edge Pro device](azure-stack-edge-gpu-deploy-prep.md).
+Prepare to deploy your [Azure Stack Edge Pro GPU device](azure-stack-edge-gpu-deploy-prep.md).
 
 
