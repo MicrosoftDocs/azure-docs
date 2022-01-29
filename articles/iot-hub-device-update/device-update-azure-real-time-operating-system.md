@@ -44,7 +44,7 @@ Learn more about [Azure RTOS](/azure/rtos/).
 2. Log into [Azure portal](https://portal.azure.com) and navigate to the IoT Hub.
 3. From 'IoT Devices' on the left navigation pane, find your IoT device and navigate to the Device Twin.
 4. In the Device Twin, delete any existing Device Update tag value by setting them to null.
-5. Add a new Device Update tag value as shown below.
+5. Add a new Device Update tag value to the root JSON object as shown below.
 
 ```JSON
     "tags": {
@@ -55,7 +55,7 @@ Learn more about [Azure RTOS](/azure/rtos/).
 ## Create update group
 
 1. Go to the IoT Hub you previously connected to your Device Update instance.
-2. Select the Device Updates option under Automatic Device Management from the left-hand navigation bar.
+2. Select the Updates option under "Device management" from the left-hand navigation bar.
 3. Select the Groups tab at the top of the page. 
 4. Select the Add button to create a new group.
 5. Select the IoT Hub tag you created in the previous step from the list. Select Create update group.
