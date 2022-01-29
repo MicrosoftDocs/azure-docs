@@ -81,7 +81,7 @@ The cloned repo contains a setup script that installs and configures the require
 
 To install the tools:
 
-1. From File Explorer, navigate to the following path in the repo and run the setup batch file named *get-toolchain.bat*:
+1. From File Explorer, navigate to the following path in the repo and run the setup batch file named *get-toolchain.bat*.
 
     *getting-started\tools\get-toolchain.bat*
 1. After the installation, open a new console window to recognize the configuration changes made by the setup batch file. Use this console to complete the remaining programming tasks in the quickstart. You can use Windows CMD, PowerShell, or Git Bash for Windows.
@@ -98,7 +98,7 @@ To connect the STM DevKit to Azure, you'll modify a configuration file for Wi-Fi
 
 ### Add configuration
 
-1. Open the following file in a text editor:
+1. Open the following file in a text editor.
 
     *getting-started\STMicroelectronics\B-L4S5I-IOT01A\app\azure_config.h*
 
@@ -246,7 +246,7 @@ git clone --recursive https://github.com/azure-rtos/getting-started.git
 A 14-day free trial of IAR’s EWARM can be downloaded from this page:
 https://www.iar.com/iar-embedded-workbench/#!?architecture=Arm
 
-You will need to create an IAR account in order to download the free trial.
+You’ll need to create an IAR account in order to download the free trial.
 
 The sample distribution zip file contains the **azure_rtos.eww** workspace as well as following sub-folders:
 
@@ -308,11 +308,11 @@ To connect the device to Azure, you'll modify a configuration file for Azure IoT
 
 ### Build the project
 
-In IAR, select **Project > Batch Build** and choose **build_all** and select **Make** to build all projects. You will observe compilation and linking of all sample projects.
+In IAR, select **Project > Batch Build** and choose **build_all** and select **Make** to build all projects. You’ll observe compilation and linking of all sample projects.
 
 ### Flash the image
 
-1. On the STM DevKit MCU, locate the **Reset** button (1), the Micro USB port (2), which is labeled **USB STLink**, and the board part number (3). You will refer to these items in the next steps. All of them are highlighted in the following picture:
+1. On the STM DevKit MCU, locate the **Reset** button (1), the Micro USB port (2), which is labeled **USB STLink**, and the board part number (3). You’ll refer to these items in the next steps. All of them are highlighted in the following picture:
 
     :::image type="content" source="media/quickstart-devkit-stm-b-l4s5i/stm-b-l4s5i.png" alt-text="Locate key components on the STM DevKit board":::
 
@@ -384,7 +384,7 @@ To remove the entire Azure IoT Central sample application and all its devices an
 
 ## Next steps
 
-In this quickstart, you built a custom image that contains Azure RTOS sample code, and then flashed the image to the STM DevKit device. You also used the IoT Central portal to create Azure resources, connect the STM DevKit securely to Azure, view telemetry, and send messages.
+In this quickstart, you built a custom image that contains Azure RTOS sample code, and then flashed the image to the STM DevKit device. You also used the IoT Central portal to create Azure resources, connect the STM DevKit securely to Azure, view customer content, and send messages.
 
 As a next step, explore the following articles to learn more about using the IoT device SDKs to connect devices to Azure IoT. 
 
