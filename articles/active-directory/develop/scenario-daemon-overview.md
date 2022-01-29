@@ -34,6 +34,11 @@ Here are some examples of use cases for daemon apps:
 
 There's another common case where non-daemon applications use client credentials: even when they act on behalf of users, they need to access a web API or a resource under their own identity for technical reasons. An example is access to secrets in Azure Key Vault or Azure SQL Database for a cache.
 
+Note, **the daemon applications cannot be deployed to regular users’ devices or be accessed by regular users**, only limited set of IT administrator can access devices which have daemon apps running, otherwise a bad actor can access client secret or tokens from the traffic of the device and behave on behalf of the daemon application. The daemon app scenario is not replacement of device authentication.
+Example of non-daemon applications:
+-	A mobile application accessing web service on behalf of application, but not a user.
+-	IoT device that accessing a web service on behalf of device, but not a user.
+
 Applications that acquire a token for their own identities:
 
 - Are confidential client applications. These apps, given that they access resources independently of users, need to prove their identity. They're also rather sensitive apps. They need to be approved by the Azure Active Directory (Azure AD) tenant admins.
