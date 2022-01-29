@@ -101,7 +101,7 @@ The following constraints are applicable on the operational data in Azure Cosmos
 * Sample scenarios:
   * If your document's first level has 2000 properties, only the first 1000 will be represented.
   * If your documents have five levels with 200 properties in each one, all properties will be represented.
-  * If your documents have ten levels with 400 properties in each one, only the two first levels will be fully represented in analytical store. Half of the third level will also be represented.
+  * If your documents have 10 levels with 400 properties in each one, only the two first levels will be fully represented in analytical store. Half of the third level will also be represented.
 
 * The hypothetical document below contains four properties and three levels.
   * The levels are `root`, `myArray`, and the nested structure within the `myArray`.
@@ -218,7 +218,7 @@ df = spark.read\
 
 There are two types of schema representation in the analytical store. These types define the schema representation method for all containers in the database account and have tradeoffs between the simplicity of query experience versus the convenience of a more inclusive columnar representation for polymorphic schemas.
 
-* Well-defined schema representation, default option for SQL (CORE) API accounts. 
+* Well defined schema representation, default option for SQL (CORE) API accounts. 
 * Full fidelity schema representation, default option for Azure Cosmos DB API for MongoDB accounts.
 
 #### Full fidelity schema for SQL API accounts
@@ -226,9 +226,9 @@ There are two types of schema representation in the analytical store. These type
 It's possible to use full fidelity Schema for SQL (Core) API accounts, instead of the default option, by setting the schema type when enabling Synapse Link on a Cosmos DB account for the first time. Here are the considerations about changing the default schema representation type:
 
  * This option is only valid for accounts that **don't** have Synapse Link already enabled.
- * It isn't possible to reset the schema representation type, from well-defined to full fidelity or vice-versa.
- * Currently Azure Cosmos DB API for MongoDB accounts aren't compatible with this possibility of changing the schema representation. All MongoDB accounts will always have full fidelity schema representation type.
- * Currently this change can't be made through the Azure portal. All database accounts that have Synapse Link enabled by the Azure portal will have the default schema representation type, well-defined schema.
+ * It isn't possible to reset the schema representation type, from well defined to full fidelity or vice-versa.
+ * Currently Azure Cosmos DB API for MongoDB isn't compatible with this possibility of changing the schema representation. All MongoDB accounts will always have full fidelity schema representation type.
+ * Currently this change can't be made through the Azure portal. All database accounts that have Synapse Link enabled by the Azure portal will have the default schema representation type, well defined schema.
  
 The schema representation type decision must be made at the same time that Synapse Link is enabled on the account, using Azure CLI or PowerShell.
  
@@ -250,12 +250,12 @@ The schema representation type decision must be made at the same time that Synap
  
 
 
-#### Well-defined schema representation
+#### Well defined schema representation
 
-The well-defined schema representation creates a simple tabular representation of the schema-agnostic data in the transactional store. The well-defined schema representation has the following considerations:
+The well defined schema representation creates a simple tabular representation of the schema-agnostic data in the transactional store. The well defined schema representation has the following considerations:
 
 * The first document defines the base schema and property must always have the same type across all documents. The only exceptions are:
-  * From `NULL` to any other data type.The first non-null occurrence defines the column data type. Any document not following the first non-null datatype won't be represented in analytical store.
+  * From `NULL` to any other data type. The first non-null occurrence defines the column data type. Any document not following the first non-null datatype won't be represented in analytical store.
   * From `float` to `integer`. All documents will be represented in analytical store.
   * From `integer` to `float`. All documents will be represented in analytical store. However, to read this data with Azure Synapse SQL serverless pools, you must use a WITH clause to convert the column to `varchar`. And after this initial conversion, it's possible to convert it again to a number. Please check the example below, where **num** initial value was an integer and the second one was a float.
 
@@ -269,23 +269,23 @@ FROM OPENROWSET(PROVIDER = 'CosmosDB',
 WITH (num varchar(100)) AS [IntToFloat]
 ```
 
-  * Properties that don't follow the base schema data type won't be represented in analytical store. For example, consider the documents below: the first one defined the analytical store base schema. The second document, where `id` is `"2"`, **doesn't** have a well-defined schema since property `"code"` is a string and the first document has `"code"` as a number. In this case, the analytical store registers the data type of `"code"` as `integer` for lifetime of the container. The second document will still be included in analytical store, but its `"code"` property won't.
+  * Properties that don't follow the base schema data type won't be represented in analytical store. For example, consider the documents below: the first one defined the analytical store base schema. The second document, where `id` is `"2"`, **doesn't** have a well defined schema since property `"code"` is a string and the first document has `"code"` as a number. In this case, the analytical store registers the data type of `"code"` as `integer` for lifetime of the container. The second document will still be included in analytical store, but its `"code"` property won't.
   
     * `{"id": "1", "code":123}` 
     * `{"id": "2", "code": "123"}`
      
  > [!NOTE]
- > The condition above doesn't apply for `NULL` properties. For example, `{"a":123} and {"a":NULL}` is still well-defined.
+ > The condition above doesn't apply for `NULL` properties. For example, `{"a":123} and {"a":NULL}` is still well defined.
 
 > [!NOTE]
  > The condition above doesn't change if you update `"code"` of document `"1"` to a string in your transactional store. In analytical store, `"code"` will be kept as `integer` since currently we don't support schema reset.
 
-* Array types must contain a single repeated type. For example, `{"a": ["str",12]}` isn't a well-defined schema because the array contains a mix of integer and string types.
+* Array types must contain a single repeated type. For example, `{"a": ["str",12]}` isn't a well defined schema because the array contains a mix of integer and string types.
 
 > [!NOTE]
-> If the Azure Cosmos DB analytical store follows the well-defined schema representation and the specification above is violated by certain items, those items won't be included in the analytical store.
+> If the Azure Cosmos DB analytical store follows the well defined schema representation and the specification above is violated by certain items, those items won't be included in the analytical store.
 
-* Expect different behavior in regard to different types in well-defined schema:
+* Expect different behavior in regard to different types in well defined schema:
   * Spark pools in Azure Synapse will represent these values as `undefined`.
   * SQL serverless pools in Azure Synapse will represent these values as `NULL`.
 
@@ -300,7 +300,7 @@ WITH (num varchar(100)) AS [IntToFloat]
 
 #### Full fidelity schema representation
 
-The full fidelity schema representation is designed to handle the full breadth of polymorphic schemas in the schema-agnostic operational data. In this schema representation, no items are dropped from the analytical store even if the well-defined schema constraints (that is no mixed data type fields nor mixed data type arrays) are violated.
+The full fidelity schema representation is designed to handle the full breadth of polymorphic schemas in the schema-agnostic operational data. In this schema representation, no items are dropped from the analytical store even if the well defined schema constraints (that is no mixed data type fields nor mixed data type arrays) are violated.
 
 This is achieved by translating the leaf properties of the operational data into the analytical store with distinct columns based on the data type of values in the property. The leaf property names are extended with data types as a suffix in the analytical store schema such that they can be queries without ambiguity.
 
@@ -399,7 +399,7 @@ With periodic backup mode and existing containers, you can:
  
  ### Partially rebuild analytical store when TTTL < ATTL
  
-The data that was only in analytical store isn't restored, but it will be kept available for queries as long as you keep the original container. Analytical store is only deleted when you delete the container. You analytical queries in Azure Synapse Analytics can read data from both original and restored container's analytical stores. Example:
+The data that was only in analytical store isn't restored, but it will be kept available for queries as long as you keep the original container. Analytical store is only deleted when you delete the container. Your analytical queries in Azure Synapse Analytics can read data from both original and restored container's analytical stores. Example:
 
  * Container `OnlineOrders` has TTTL set to one month and ATTL set for one year.
  * When you restore it to `OnlineOrdersNew` and turn on analytical store to rebuild it, there will be only one month of data in both transactional and analytical store.
