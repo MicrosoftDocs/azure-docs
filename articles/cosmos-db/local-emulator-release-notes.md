@@ -32,7 +32,7 @@ This article shows the Azure Cosmos DB Emulator release notes and the updates th
 
 ### 2.14.3 (8 September 2021)
 
- - This release updates the Azure Cosmos DB Emulator background services to match the latest online functionality of the Azure Cosmos DB. It also adresses couple issues with telemetry data that is collected and resets the base image for the Linux Cosmos emulator Docker image.
+ - This release updates the Azure Cosmos DB Emulator background services to match the latest online functionality of the Azure Cosmos DB. It also addresses couple issues with telemetry data that is collected and resets the base image for the Linux Cosmos emulator Docker image.
 
 ### 2.14.2 (12 August 2021)
 
@@ -71,7 +71,7 @@ This article shows the Azure Cosmos DB Emulator release notes and the updates th
 
 ### 2.11.6 (6 October 2020)
 
- - This release addresses a concurrency-related issue when multiple containers might be created at the same time. In such cases emulator's data is left in a corrupted state and following API requests to the emulator's endpoint could fail with "service unavailable" errors, requiring a restart and a reset of the emulator's local data.
+ - This release addresses a concurrency-related issue when multiple containers might be created at the same time. This can leave the emulator in a corrupted state and future API requests to the emulator's endpoint will fail with "service unavailable" errors. The work around is to stop the emulator, reset of the emulator's local data and restart.
 
 ### 2.11.5 (23 August 2020)
 
@@ -82,15 +82,18 @@ This release adds two new Azure Cosmos DB Emulator startup options:
 
 ### 2.11.2 (7 July 2020)
 
-- This release changes how ETL traces required when troubleshooting the Azure Cosmos DB Emulator are collected. WPR (Windows Performance Runtime tools) is now the default tools for capturing ETL-based traces while old LOGMAN based capturing has been deprecated. This change is required in part because latest Windows security updates had an unexpected impact on how LOGMAN works when executed through the Azure Cosmos DB Emulator.
+- This release changes how ETL traces required when troubleshooting the Azure Cosmos DB Emulator are collected. WPR (Windows Performance Runtime tools) is now the default tools for capturing ETL-based traces while old LOGMAN based capturing has been deprecated. With the latest Windows security update, LOGMAN stopped working as expected when executed through the Azure Cosmos DB Emulator.
 
 ### 2.11.1 (10 June 2020)
 
-- This release fixes couple bugs related to emulator Data Explorer. In certain cases when using the emulator Data Explorer through a web browser, it fails to connect to the Azure Cosmos DB Emulator endpoint and all the related actions such as creating a database or a container will result in error. The second issue fixed is related to creating an item from a JSON file using Data Explorer upload action.
+This release fixes couple bugs related to Azure Cosmos DB Emulator Data Explorer: 
+
+* Data Explorer when hosted in some Web browser versions, it could fail to connect to the Azure Cosmos DB Emulator endpoint and emulator users might not be able to create a database or a container.
+* Another issue that was fixed in this release, creating an item from a JSON file using Data Explorer upload action.
 
 ### 2.11.0
 
-- This release introduces support for autoscale provisioned throughput. The added features include the option to set a custom maximum provisioned throughput level in request units (RU/s), enable autoscale on existing databases and containers, and programmatic support through Azure Cosmos DB SDKs.
+- This release introduces support for autoscale provisioned throughput. The added features include the option to set a custom maximum provisioned throughput level in request units (RU/s), enable autoscale on existing databases and containers, and API support through Azure Cosmos DB SDKs.
 - Fix an issue while querying through large number of documents (over 1 GB) were the emulator will fail with internal error status code 500.
 
 ### 2.9.2
@@ -111,7 +114,7 @@ This release adds two new Azure Cosmos DB Emulator startup options:
 
 ### 2.7.0
 
-- This release fixes a regression in the Azure Cosmos DB Emulator which prevented users from executing SQL related queries. This issue impacted emulator users that configured SQL API endpoint and they are using .NET core or x86 .NET based client applications.
+- This release fixes a regression in the Azure Cosmos DB Emulator that prevented users from executing SQL related queries. This issue impacts emulator users that configured SQL API endpoint and they're using .NET core or x86 .NET based client applications.
 
 ### 2.4.6
 
