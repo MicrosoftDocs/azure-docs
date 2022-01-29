@@ -1,6 +1,6 @@
 ---
-title: Microsoft CloudKnox Permissions Management - View usage analytics about groups
-description: How to use Microsoft CloudKnox Permissions Management Usage Analytics to view usage analytics about groups.
+title: View analytic information about groups in Microsoft CloudKnox Permissions Management 
+description: How to view analytic information about groups in Microsoft CloudKnox Permissions Management.
 services: active-directory
 author: Yvonne-deQ
 manager: karenh444
@@ -8,162 +8,144 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/17/2022
+ms.date: 01/28/2022
 ms.author: v-ydequadros
 ---
 
-# View usage analytics about groups
+# View analytic information about groups
 
-The **Usage Analytics** feature in Microsoft CloudKnox Permissions Management (CloudKnox) contains details about identities, resources, and tasks that you can use make informed decisions about granting privileges, and reducing risk on unused privileges.
+The **Usage Analytics** dashboard in Microsoft CloudKnox Permissions Management (CloudKnox) provides details about identities, resources, and tasks that you can use make informed decisions about granting permissions, and reducing risk on unused permissions.
 
-- **Users**: Tracks assigned privileges and usage of various identities.
-- **Groups**: Tracks assigned privileges and usage of the group and the group members.
-- **Active Resources**: Tracks resources that have been used in the last 90 days.
-- **Active Tasks**: Tracks tasks that have been performed in the last 90 days.
-- **Access Keys**: Tracks the privilege usage of access keys for a given user.
-- **Serverless Functions**: Tracks assigned privileges and usage of the serverless functions.
+- **Users**: Tracks assigned permissions and usage of various identities.
+- **Groups**: Tracks assigned permissions and usage of the group and the group members.
+- **Active resources**: Tracks active resources (used in the last 90 days).
+- **Active tasks**: Tracks active tasks (performed in the last 90 days).
+- **Access keys**: Tracks the permission usage of access keys for a given user.
+- **Serverless functions**: Tracks assigned permissions and usage of the serverless functions.
 
-The Microsoft CloudKnox Permissions Management **Usage Analytics** dashboard allows system administrators to collect, analyze, report on, and visualize data about all identity types.
+The **Usage Analytics** dashboard allows system administrators to collect, analyze, report on, and visualize data about all identity types.
 
-This topic describes how to view usage analytics about groups.
+This article describes how to view usage analytics about active groups.
 
-## View information on the Groups dashboard
+## Create a query to view active tasks
 
-The **Groups** dashboard provides a high level overview of group details.
+When you select **Groups**, the **Usage Analytics** dashboard provides a high-level overview of tasks used by various identities. 
 
-- On the **Usage Analytics** page, select **Groups** from the  drop-down list across the top of the screen. The following components make up the **Groups** dashboard:
+- On the main **Usage Analytics** dashboard, select **Groups** from the  drop-down list at the top of the screen. 
 
-    - **Groups** - This section  displays the total number of groups, inactive, and active groups based on the authorization system selected. For more information, see Apply filters for groups.
-        <!---Add link.--->
-    - **Tasks** - This section  displays the number of tasks granted to groups, and the total number of unexecuted and executed tasks based on the authorization system selected. For more information, see Apply filters for groups.
-        <!---Add link.--->
-    - **Resources** - This section displays how many resources have been accessed by groups based on the authorization system selected. For more information, see Apply filters for active resources.
-        <!---Add link.--->
+The dashboard only lists tasks that are active. The following components make up the **Groups** dashboard:
 
-
-The **Groups** table  displays the privileges assigned,  privileges used, and resources accessed by users.
-
-- **Group Name**: Provides the name of the group.
-
-     External directory groups are denoted with an icon for SAML groups, an icon for ED groups, and an icon for local users.
+- **Authorization system type** - Select the authorization you want to use: Amazon Web Services (AWS), Microsoft Azure, or Google Cloud Platform (GCP).
+- **Authorization system** - Select from a **List** of accounts and **Folders**.
+- **Group type** - Select **All**, **ED**, or **Local**.
+- **Group activity status** - Select **All**, **Active**, or **Inactive**.
+- **Tasks** - Select **All**, **High-risk tasks**, or **Delete tasks**
+- **Search** - Enter criteria to find specific tasks.
+- **Apply** - Select to display the criteria you've selected.
+- **Reset filter** - Select to discard your changes.
 
 
-- **Domain/Account**: This column displays a domain name for SAML or Enterprise Directory (ED) groups and displays an account name for local groups.
-- **Privilege Creep Index**: Captures the incurred risk of groups with access to high-risk privileges and is displayed in the following columns:
-    - **Index**: Calculates a risk score for the group based on the high-risk privileges they have access to and if that privilege has been accessed.
-    - **Since**: Indicates if the user's PCI is high, medium, or low based on the past 30 days. A user with a high PCI exceeding 30 days is denoted with an exclamation point (**!**), and provides the number of days the user has been marked at a high level, that is **! High - 130 days**.
+## View the results of your query
 
-         You can hover over the information in this column for more information on how long the user has had a high, medium, or low privilege creep index.
+The **Groups** table displays the the results of your query.
 
-         For example, hovering over **! High - 130 days** displays **The User's privilege creep index has been High since 14 February 2020, 1:37 PM in the authorization system**. 
+- **Group Name**: Provides the name of the group. 
+    - To view details about the group, select the down arrow. 
+- A **Group type** icon displays to the left of the group name to describe the type of group (**ED** or **Local**).
+- The **Domain/Account** name.
+- The **Permission creep index (PCI)** - Provides the following information:
+    - **Index** - A numeric value assigned to the PCI.
+    - **Since** - How many days the PCI value has been at the displayed level.
+- **Tasks** Displays the number of **Granted** and **Executed** tasks.
+- **Resources** - The number of resources used.
+- **Users** - The number of users who accessed the group.
+- Select the ellipses **(...)** and select **Tags** to add a tag.
 
-- **Users**: Displays the number of users that belong to the group.
-- **Tasks**: Displays how many tasks are assigned to a particular group. It is organized into the following columns:
-    - **Granted**: Captures the number of tasks that have been granted to the user directly, granted to the user if part of a group, or granted based on the AWS role type the user can assume.
-    - **Executed**: Displays how many of the granted tasks the member's of the group have executed.
-- **Resources**: Displays how many resources a particular group can access. It is organized into the following columns:
-    - **All**: Captures the number of resources the group has access to.
-    - **Accessed**: Displays how many of the resources the group has accessed.
-- **Tags**: Displays the number of tags applied to a group.
+## Add a tag to a group
 
-## Apply filters for groups
+1. Select the ellipses **(...)** and select **Tags**.
+1. From the **Select a tag** dropdown, select a tag.
+1. To create a custom tag select **New custom tag**, add a tag name, and then select **Create**.
+1. In the **Value (Optional)** box, enter a value.
+1. Select the ellipses **(...)** to select **Advanced save** options, and then select **Save**.
+1. To add the tag to the serverless function, select **Add tag**.
 
-There are many filter options within the **Groups** screen, including filters by **Authorization System** and **Task**. Filters can be applied in both categories depending on what information the system administrator is looking for.  
+## View detailed information about a group
 
-- **Filtering by Authorization Systems**
-    1. To expand the **Authorization systems** menu, and select all applicable systems, select the **Lock** icon on the left side of the page. 
+1. Select the down arrow to the left of the function name.
 
-        The default filter is the first authorization system in the filter list, if filters haven't been used before. If you have used a filter before, the last filtered selection displays.
+    The pane on the left displays a list of **Tasks** organized by **Used** and **Unused** displays.
 
-       -  To automatically select all options for a single authorization system, next to the authorization system name, select **Only**.
-    2. To filter by the selection, select **Apply**.
+1. Select the arrow to the left of the group name to view details about the task.
+1. Select **Information** (**i**) to view when the task was last used.
+1. From the **Tasks** dropdown, select **All tasks**, **High-risk tasks**, and **Delete tasks**.
+1. The pane on the right displays a list of **Users**, **Policies**, and **Tags**.
 
-         Both SAML and local users will be listed if the selection spans multiple authorization systems.
-    3. To remove all filters, select **X**.
+## Apply filters to your query  
 
-- **Filtering by Tasks**
+There are many filter options within the **Groups** screen, including filters by **Authorization system**, **Group name** and **Group type**. 
+Filters can be applied in one, two, or all three categories depending on the type of information you're looking for. 
 
-    System administrators can filter group details by tasks performed.
+### Apply filters by authorization system type
 
-    1. To filter by task, select the applicable option:
-        - **All**: Filters by all existing tasks a user can perform.
-        - **High Risk Tasks**: Filters tasks by high risk, which includes modifying and deleting content.
+1. From the **Authorization system type** dropdown, select the authorization system you want to use: **AWS**, **Azure**, or **GCP**.
+1. Select **Apply** to run your query and display the information you selected.
 
-    2. To filter groups that have delete task privileges, under the **High Risk Tasks**, select **Delete**. 
+    Select **Reset filter** to discard your changes. 
 
-    3. To filter by the selection, select **Apply**. 
+### Apply filters by authorization system
 
-         Both SAML and local groups will be listed if the selection spans multiple authorization systems and accounts. The top of the screen will display the authorization system that is being viewed (for example, **Azure - Azure PIM**), or if multiple authorization systems were selected, **Multiple Authorization Systems** will display. 
- 
-    4. To remove all filters, select **X**.
+1. From the **Authorization system type** dropdown, select the authorization system you want to use: **AWS**, **Azure**, or **GCP**. 
+1. From the **Authorization system** dropdown, select accounts from a **List** of accounts and **Folders**.
+1. Select **Apply** to run your query and display the information you selected.
 
-
-## View information about groups on the Information pane
-
-1. To view more information about the group after you have applied the filters and selected the authorization system, select the icon at the end of the row.
-
-     **Tasks** (all authorization systems) displays unused and used tasks for each group. Tasks are grouped by service and can be expanded to view the task, application, or service names.
-
-     A service can  display in both the **Unused** and **Used** columns, depending on when it was accessed. If none of the tasks have been used in a service, there will be an exclamation point (**!**) and if hovered over displays **None of the tasks in this group have been used in the last 90 days**.
-
-     A task can move from **Used** to **Unused** if that task hasn't been accessed for more than 90 days.
+    Select **Reset filter** to discard your changes. 
 
 
-2. You can perform the following actions in the **Tasks** section.
+### Apply filters by group type
 
-    - **Search**: Enter a specific task name and find how many of those tasks have been unused or used.
-        - **All Tasks**: Use the **Tasks** drop-down to filter data by **All Tasks**, **High-Risk Tasks**, or **Delete Tasks**.
+You can filter user details by type of user, user role, app, or service used, or by resource.
 
-    - **Users** (all authorization systems): Displays aa list of users who belong to the group and how many tasks each user has executed.
-    - **Roles Available** (AWS only): Lists all the roles the user can assume within the group, including **Type**, **Name**, and **Domain**.
+1. From the **Authorization system type** dropdown, select the authorization system you want to use: **AWS**, **Azure**, or **GCP**.
+1. From the **Authorization system** dropdown, select from a **List** of accounts and **Folders**.
+1. From the **Group type** dropdown, select the type of user: **All**, **ED**, or **Local**.
+1. Select **Apply** to run your query and display the information you selected.
 
-## View or add a tag to a group
+    Select **Reset filter** to discard your changes.
 
-- You can tag all groups displayed in the **Group** page.
-    1. Click the ellipses in the far right column and select **Tags** to apply a tag to a user or view tags applied to the user.
-    
-       Alternately, select the number in the **Tags** column view and apply tags.
-    2. On the **Tags** window, the **Identity Name** will  display the current group the tag is being created for and the **Type** will  display **Group** since usage analytics are being viewed at the group level. 
+### Apply filters by group activity status
 
-        > [!NOTE]
-        >  The **Authorization Type**, **Tag**, **Value (Optional),** and **Authorization Systems** boxes are pre-loaded with information if a tag is already applied to the current group. </p>These details cannot be edited, but the system administrator can select **Delete** to delete the current tag(s).
+You can filter user details by type of user, user role, app, or service used, or by resource.
 
-    3. Click **Add Tag**.
-    4. Select the **Authorization System Type**.
+1. From the **Authorization system type** dropdown, select the authorization system you want to use: **AWS**, **Azure**, or **GCP**.
+1. From the **Authorization system** dropdown, select from a **List** of accounts and **Folders**.
+1. From the **Group activity status** dropdown, select the type of user: **All**, **Active**, or **Inactive**.
+1. Select **Apply** to run your query and display the information you selected.
 
-         If the current group is only part of one authorization system, the **Authorization System Type**  drop-down list won't have multiple options.
+    Select **Reset filter** to discard your changes.
 
-    5. Click in the **Tag** box.
+### Apply filters by tasks type
 
-         A  drop-down list of existing tags appears. Select a tag from the current options.
+You can filter user details by type of user, user role, app, or service used, or by resource.
 
-         To create a new tag, enter a new tag name and then select **Create**.
+1. From the **Authorization system type** dropdown, select the authorization system you want to use: **AWS**, **Azure**, or **GCP**.
+1. From the **Authorization system** dropdown, select from a **List** of accounts and **Folders**.
+1. From the **Tasks type** dropdown, select the type of user: **All**, **High-risk tasks**, or **Delete tasks**.
+1. Select **Apply** to run your query and display the information you selected.
 
-    6. Input a value in the **Value (Optional)** box, such as the date and time the tag is being created.
-    7. Click in the **Authorization Systems** box. 
-
-         If the current group is only part of one authorization system, this box will be pre-populated. 
-
-         If they're part of multiple authorization systems, the system administrator can select the appropriate authorization system the tag is being created for.
-
-    8. To save the tag, select **Save**.
-    9. To close the **Tag** window, select the **X**.
-
-### Apply predefined tags
-
-You can apply the following set of predefined tags in CloudKnox:
-
-- **ck_attest**: This tag is used to confirm an identity. When selected, the value is automatically filled in with the date and time the tag is applied, and the name of the user who applied the tag.
-- **ck_exclude_from_reports**: Any identity with this tag is excluded from reports.
-- **ck_primary_owner**: This tag is used for service accounts to indicate the primary owner of the service account.
-- **ck_secondary_owner**: This tag is used for service accounts to indicate the secondary owner of the service account.
+    Select **Reset filter** to discard your changes.
 
 
-<!---## Next steps--->
+## Export the results of your query
+
+- To view a report of the results of your query as a comma-separated values (CSV) file, select **Export**, and then select **CSV**. 
 
 
-<!---Add link: To track assigned privileges and usage of various identities, see [View usage analytics about users](https://azure/active-directory/cloud-infrastructure-entitlement-management/cloudknox-usage-analytics-users.html).--->
-<!---Add link. To track resources that have been used in the last 90 days, see [View usage analytics about active resources](https://azure/active-directory/cloud-infrastructure-entitlement-management/cloudknox-usage-analytics-active-resources.html).--->
-<!---Add link. To track tasks that have been performed in the last 90 days, see [View usage analytics about active tasks](https://azure/active-directory/cloud-infrastructure-entitlement-management/cloudknox-usage-analytics-active-tasks.html).--->
-<!---Add link. To track the privilege usage of access keys for a given user, see [View usage analytics about access keys](https://azure/active-directory/cloud-infrastructure-entitlement-management/cloudknox-usage-analytics-access-keys.html).--->
-<!---Add link. To track assigned privileges and usage of the serverless functions, see [View usage analytics about serverless functions](https://azure/active-directory/cloud-infrastructure-entitlement-management/cloudknox-usage-analytics-serverless-functions.html).--->
+
+## Next steps
+
+- To view active tasks, see [View analytic information about active tasks](cloudknox-usage-analytics-active-tasks.md)
+- To view assigned permissions and usage by users, see [View analytic information about users](cloudknox-usage-analytics-users.md).
+- To view active active resources, see [View analytic information about active resources](cloudknox-usage-analytics-active-resources.md).
+- To view the permission usage of access keys for a given user, see [View analytic information about access keys](cloudknox-usage-analytics-access-keys.md).
+- To view assigned permissions and usage of the serverless functions, see [View analytic information about serverless functions](cloudknox-usage-analytics-serverless-functions.md).

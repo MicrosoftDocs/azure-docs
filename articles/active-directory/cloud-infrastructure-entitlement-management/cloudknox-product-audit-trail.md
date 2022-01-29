@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/27/2022
+ms.date: 01/28/2022
 ms.author: v-ydequadros
 ---
 
@@ -24,7 +24,7 @@ The Audit Trail dashboard provides:
 
 1. To view all applicable authorization systems, select **Authorization System**. 
 
-    If you have not used filters before, the default filter is the first authorization system in the filter list. 
+    If you haven't used filters before, the default filter is the first authorization system in the filter list. 
 
     If you have used filters before, the default filter is last filter you selected.
 
@@ -50,7 +50,7 @@ There are 11 different query parameters that you can configure individually or i
 
 1. In the **New Query** section, the default displayed is **DATE IN "Last Day"**.
 
-    The first-line item defaults to **Date**. This item cannot be deleted.
+    The first-line item defaults to **Date**. This itemcan't be deleted.
 
 2. To edit date details, select **Edit**.
 
@@ -278,7 +278,7 @@ The **Operator** menu contains the following options:
 
 1. In the **Activity** section, your search results display in columns. 
 
-     The results display all executed tasks that are not read-only.
+     The results display all executed tasks that aren't read-only.
 
 2. To sort each column by ascending or descending value, select the up or down arrows next to the column name.
 
@@ -370,7 +370,7 @@ The **Operator** menu contains the following options:
       - **Duplicate** - Creates a duplicate of the query and names it *Copy of XXX*.
       - **Delete Schedule** - Deletes the schedule details for this query.
 
-           This option is not available if you have not yet saved a schedule.
+           This option isn't available if you haven't yet saved a schedule.
 
            The **Delete Schedule** box opens, asking you to confirm that you want to delete the schedule. Select **Yes** or **No**.
 

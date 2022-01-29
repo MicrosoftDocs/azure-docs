@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: overview
-ms.date: 01/27/2022
+ms.date: 01/28/2022
 ms.author: v-ydequadros
 ---
 
@@ -20,13 +20,13 @@ Microsoft CloudKnox Permissions Management (CloudKnox) provides a summary of key
 
 ## View metrics related to avoidable risk
 
-The data provided by CloudKnox includes metrics related to avoidable risk. These metrics allow the CloudKnox administrator to identify areas where they can reduce risks related to the principle of least privilege.
+The data provided by CloudKnox includes metrics related to avoidable risk. These metrics allow the CloudKnox administrator to identify areas where they can reduce risks related to the principle of least permissions.
 
 You can view the following information in CloudKnox:
 
 - The **Permission creep index (PCI)** heat map on the CloudKnox **Dashboard** identifies:
-    - The number of users who have been granted high-risk privileges aren't using them.
-    - The number of users who contribute to the privilege creep index and where they appear on the scale.
+    - The number of users who have been granted high-risk permissions aren't using them.
+    - The number of users who contribute to the permission creep index (PCI) and where they appear on the scale.
 
 - The **Usage Analytics** dashboard provides a snapshot of permission metrics within the last 90 days.
 
@@ -54,14 +54,14 @@ When you launch CloudKnox, select **Dashboard** to displays the following inform
         - Check your email for the message from the CloudKnox Customer Success Team. The email contains a link to the **PCI history** report in Microsoft Excel format.
         <!---Ad Link reports@cloudknox.io---> 
         - The email also includes a link to the **Reports** dashboard, where you can configure how and when you want to receive reports automatically.
-    - To view all the PCI changes in the privilege creep index, select **View all**.
+    - To view all the PCI changes, select **View all**.
 
 - **Identity** - A summary of the **Findings** that includes the number of identities that are:
     - **Inactive roles** - A list of roles that haven't been accessed in over 90 days.
     - **Roles that can access secret information** - A list of roles that can access secret information.
     - **Over-provisioned active roles** - A list of roles that have more permissions than they currently access.
     - **Resources that can access secret information** - A list of resources that can access secret information.
-    - **Roles with privilege escalation** - A list of roles that can increase privileges.
+    - **Roles with permission escalation** - A list of roles that can increase permissions.
 
     To view the list to all findings, select **All findings**.
 
@@ -76,23 +76,23 @@ When you launch CloudKnox, select **Dashboard** to displays the following inform
 
 ## The PCI heat map
 
-The **Permission creep index**  heat map shows the incurred risk of users with access to high-risk privileges, and provides information about:
+The **Permission creep index**  heat map shows the incurred risk of users with access to high-risk permissions, and provides information about:
 
-- Users who were given access to high-risk privileges but aren't actively using them. *High-risk privileges* include the ability to modify or delete information in the authorization system.
+- Users who were given access to high-risk permissions but aren't actively using them. *High-risk permissions* include the ability to modify or delete information in the authorization system.
 
 - The number of resources a user has access to, otherwise known as resource reach.
 
-- The high-risk privileges coupled with the number of resources a user has access to produce the score seen on the chart. They're classified as high, medium, and low.
+- The high-risk permissions coupled with the number of resources a user has access to produce the score seen on the chart. They're classified as high, medium, and low.
 
-    - **High** (displayed in red) - The score is between 68 and 100. A user has access to many high-risk privileges they aren't using, and has high resource reach.
-    - **Medium** (displayed in yellow) - The score is between 34 and 67. A user has access to some high-risk privileges that they use, or have medium resource reach.
-    - **Low** (displayed in green) - The score is between 0 and 33. A user has access to fewer high-risk privileges. They use all of them, and have low resource reach.
+    - **High** (displayed in red) - The score is between 68 and 100. A user has access to many high-risk permissions they aren't using, and has high resource reach.
+    - **Medium** (displayed in yellow) - The score is between 34 and 67. A user has access to some high-risk permissions that they use, or have medium resource reach.
+    - **Low** (displayed in green) - The score is between 0 and 33. A user has access to fewer high-risk permissions. They use all of them, and have low resource reach.
 
 - The number displayed on the graph shows how many users contribute to a particular score. To view detailed data about a user, hover over the number. 
 
-    The distribution graph displays all the users who contribute to the privilege creep. It displays how many users contribute to a particular score. For example, if the score from the privilege creep index chart is 14, the graph shows how many users have a score of 14.
+    The distribution graph displays all the users who contribute to the permission creep. It displays how many users contribute to a particular score. For example, if the score from the PCI chart is 14, the graph shows how many users have a score of 14.
 
-- The PCI Trend graph shows you the historical trend of the privilege creep index score over the last 90 days. To download the **PCI history report**, select the **Download** icon.
+- The PCI Trend graph shows you the historical trend of the PCI score over the last 90 days. To download the **PCI history report**, select the **Download** icon.
 
 ### View information on the heat map
 
@@ -114,7 +114,7 @@ You can also view a summary of users and activities section on the [Usage Analyt
 
 - **Users with access to high-risk tasks** - Displays the total number of users with access to a high risk task (**Total**), how many users have access but haven't used the task (**Inactive**), and how many users are actively using the task (**Active**).
 
-- **Users with access to delete tasks** - A subset of high-risk tasks, which displays the number of users with access to delete tasks (**Total**), how many users have the delete privilege but haven't used the privilege (**Inactive**), and how many users are actively executing the delete capability (**Active**).
+- **Users with access to delete tasks** - A subset of high-risk tasks, which displays the number of users with access to delete tasks (**Total**), how many users have the delete permissions but haven't used the permissions (**Inactive**), and how many users are actively executing the delete capability (**Active**).
 
 - **High-risk tasks accessible by users** - Displays all available high-risk tasks in the authorization system (**Granted**), how many high-risk tasks aren't used (**Unexecuted**), and how many high-risk tasks are used (**Executed**).
 

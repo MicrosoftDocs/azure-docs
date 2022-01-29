@@ -69,8 +69,8 @@
       items:
       - name: The Usage Analytics dashboard - Overview
         href: cloudknox-ui-usage-analytics.md
-      - name: The Usage Analytics explorers - Overview
-        href: cloudknox-usage-analytics-explorers.md
+      # - name: The Usage Analytics explorers - Overview
+        # href: cloudknox-usage-analytics-explorers.md
       - name: View information in the Usage analytics dashboard
         href: cloudknox-product-view-information.md
       - name: View analytic information with the Usage Analytics dashboard
@@ -115,10 +115,10 @@
         href: cloudknox-product-define-permission-levels.md
       - name: Create group-based permissions
         href: cloudknox-howto-create-group-based-permissions.md
-    - name: Review how users access their authorization systems
+    - name: Create and view how users access their authorization systems and accounts
       expanded: true
       items:
-      - name: The Audit Trail dashboard - Overview
+      - name: View queries on users access 
         href: cloudknox-ui-audit-trail.md
       - name: Create a custom query
         href: cloudknox-howto-create-custom-queries.md

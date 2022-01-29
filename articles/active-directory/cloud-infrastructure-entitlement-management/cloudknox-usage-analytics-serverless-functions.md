@@ -1,6 +1,6 @@
 ---
-title: Microsoft CloudKnox Permissions Management - View analytic information about serverless functions (AWS only)
-description: How to view Microsoft CloudKnox Permissions Management usage analytics about serverless functions (AWS only).
+title: View analytic information about serverless functions in Microsoft CloudKnox Permissions Management - Amazon Web Services (AWS only)
+description: How to view analytic information about serverless functions in Microsoft CloudKnox Permissions Management - for Amazon Web Services (AWS only).
 services: active-directory
 author: Yvonne-deQ
 manager: karenh444
@@ -8,114 +8,104 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/27/2022
+ms.date: 01/28/2022
 ms.author: v-ydequadros
 ---
 
-# View analytic information about serverless functions (AWS only)
+# View analytic information about serverless functions - Amazon Web Services (AWS only)
 
-The **Usage Analytics** dashboard in Microsoft CloudKnox Permissions Management (CloudKnox) provides information about identities, resources, and tasks that you can use make informed decisions about granting privileges, and reducing risk on unused privileges.
+The **Usage Analytics** dashboard in Microsoft CloudKnox Permissions Management (CloudKnox) provides details about identities, resources, and tasks that you can use make informed decisions about granting permissions, and reducing risk on unused permissions.
 
-- **Users**: Tracks assigned privileges and usage of various identities.
-- **Groups**: Tracks assigned privileges and usage of the group and the group members.
-- **Active Resources**: Tracks resources that have been used in the last 90 days.
-- **Active Tasks**: Tracks tasks that have been performed in the last 90 days.
-- **Access Keys**: Tracks the privilege usage of access keys for a given user.
-- **Serverless Functions**: Tracks assigned privileges and usage of the serverless functions.
+- **Users**: Tracks assigned permissions and usage of various identities.
+- **Groups**: Tracks assigned permissions and usage of the group and the group members.
+- **Active resources**: Tracks active resources (used in the last 90 days).
+- **Active tasks**: Tracks active tasks (performed in the last 90 days).
+- **Access keys**: Tracks the permission usage of access keys for a given user.
+- **Serverless functions**: Tracks assigned permissions and usage of the serverless functions.
 
-The Microsoft CloudKnox Permissions Management **Usage Analytics** dashboard allows system administrators to collect, analyze, report on, and visualize data about all identity types.
+The **Usage Analytics** dashboard allows system administrators to collect, analyze, report on, and visualize data about all identity types.
 
-This topic describes how to view usage analytics about serverless functions (AWS only).
+This article describes how to view usage analytics about active tasks.
 
-## View information on the Serverless Functions dashboard
+## Create a query to view serverless functions
 
-The **Serverless Functions**, or lambda table, provides a high level overview of serverless function details. On the **Usage Analytics** dashboard, select **Serverless Functions** from the  drop-down list across the top of the screen. **
+When you select **Serverless functions**, the **Usage Analytics** dashboard provides a high-level overview of tasks used by various identities. 
 
-To activate the **Access Keys** option, select **AWS** from the filter options drop-down list. The following components make up the **Serverless Functions** table:
+- On the main **Usage Analytics** dashboard, select **Serverless functions** from the  drop-down list at the top of the screen. 
 
+The following components make up the **Serverless functions** dashboard:
 
-- **Function Name**: Displays the name of the function.
-- **Domain/Account**: Displays the authorization system that contains lambda.
-- **Privilege Creep Index**: Captures the incurred risk of lambda function with access to high-risk privileges. This information is organized into the following columns:
-    - **Index**: Calculates a risk score for the lambda function based on the high-risk privileges they have access to and if that privilege has been accessed.
-    - **Since**: Indicates if the user's PCI is high, medium, or low based on the past 30 days. A user with a high PCI exceeding 30 days is denoted with an exclamation point (**!**), and provides the number of days the user has been marked at a high level, that is **! High - 130 days**.
-
-        You can hover over the information in this column for specific details on how long the user has had a high, medium, or low privilege creep index.
-
-        For example, hovering over **! High - 130 days** will display **The User's privilege creep index has been High since 14 February 2020, 1:37 PM in the authorization system**.
-
-- **Tasks**: Displays how many tasks are assigned to a particular lambda function. This information is organized into the following columns:
-    - **Granted**: Captures the sum of the unique tasks assigned to all versions of the lambda function through the execution roles, meaning a function can have two roles with seven tasks each. If both roles have a delete task, the delete task will only be counted once.
-    - **Executed**: Displays how many of the granted tasks the lambda function has executed through any version of the function.
-- **Resources**: Displays how many resources a particular lambda function can access. The information is organized into the following columns:
-    - **All**: Captures the number of resources the lambda function has access to.
-    - **Accessed**: Displays how many of the resources the lambda function has accessed through any version of the function.
-- **Last Activity On**: Displays the date and time the lambda function last performed any type of task in the authorization system. 
-  
-  If the lambda function hasn't yet been active or hasn't been active for more than 90 days, a dash (**-**) displays.
-
-## Apply filters to serverless functions
-
-The only filter option in the **Serverless Functions** screen is **Authorization System.** The only authorization system available is AWS, but it can be narrowed down by console. 
-
-1. To expand the **Authorization systems** menu, select the **Lock** icon on the left side of the page. Then select all applicable consoles. 
-2. To filter by the selection, select **Apply**. 
-
-    The top of the screen displays a list of filters that were applied.
-3. To remove all filters, select **X**.
+- **Authorization system type** - Select the authorization you want to use: Amazon Web Services (AWS), Microsoft Azure, or Google Cloud Platform (GCP).
+- **Authorization system** - Select from a **List** of accounts and **Folders***.
+- **Search** - Enter criteria to find specific tasks.
+- **Apply** - Select to display the criteria you've selected.
+- **Reset filter** - Select to discard your changes.
 
 
-## Use predefined tags
+## View the results of your query
 
-You can apply the following set of predefined tags:
+The **Serverless functions** table displays the the results of your query.
 
-- **ck_attest**: This tag is used to confirm an identity. When selected, the value is automatically filled in with the date and time the tag was applied, and the user who applied the tag.
-- **ck_exclude_from_pci**: Any identity with this tag is excluded from the account level PCI score.
-- **ck_exclude_from_reports**: Any identity with this tag is excluded from reports.
-- **ck_primary_owner**: Used for service accounts to indicate the primary owner of the service account.
-- **ck_secondary_owner**: Used for service accounts to indicate the secondary owner of the service account
+- **Function name**: Provides the name of the serverless function. 
+    - To view details about a serverless function, select the down arrow to the left of the function name. 
+- A **Function type** icon displays to the left of the function name to describe the type of serverless function, for example **Lambda function**.
+- The **Permission creep index (PCI)** - Provides the following information:
+    - **Index** - A numeric value assigned to the PCI.
+    - **Since** - How many days the PCI value has been at the displayed level.
+- **Tasks** Displays the number of **Granted** and **Executed** tasks.
+- **Resources** - The number of resources used.
+- **Last activity on** - The date the function was last accessed.
+- Select the ellipses **(...)** and select **Tags** to add a tag.
 
-## View information about serverless functions on the Information pane 
+## Add a tag to a serverless function
 
-
-- Set your filters and select your Authorization System. Then select the icon at the end of the row to view more information about the serverless function.
-
-- **Tasks**:  Displays unused and used tasks for each lambda function. The tasks are grouped by service and can be expanded to view the task, application, or service names.
-
-     A service can display in both the **Unused** and **Used** columns, depending on when it was accessed. If none of the tasks have been used in a service, there will be an exclamation point (**!**). If you hover over it, it displays **None of the tasks in this group have been used in the last 90 days**.
-
-    You can perform the following actions in the **Tasks** section:
-
-    - **Search**: In the **Search** box, enter a specific task name and find how many of those tasks have been unused or used.
-    - **All Tasks**: The Tasks drop-down can be filtered by **All Tasks**, **High-Risk Tasks**, or **Delete Tasks**.
-
-    **Version**: The right side of the panel displays serverless function **Version** (several versions can be listed, but the latest are listed first), **Execution Role** (the role assigned to the serverless function), and **Alias**.
-
-## View information about roles/policies
-
-1. In the **Execution Role** column, select **View json.**
-
-     The **Role Summary** screen opens and lists the **Role Name** and **Role Type**. The **Policies** tab is selected by default.
-
-2. Under **Policies**, a list will display showing all the policies directly attached to the serverless function. 
-
-     To expand and read the details of the policy, select the icon.
-
-3. Under **SCP** (Service Control Policy), three columns are displayed: **Policy Name**, **Source Name**, and **Source**. 
-
-     The purpose of the SCP section is to provide permission boundaries on each policy. 
-
-     To expand and read the details of the policy, select the icon in the **Policy Name** column.
-
-4. To view details on who can assume the role being viewed, select the **Trusted Entities** tab.
+1. Select the ellipses **(...)** and select **Tags**.
+1. From the **Select a tag** dropdown, select a tag.
+1. To create a custom tag select **New custom tag**, add a tag name, and then select **Create**.
+1. In the **Value (Optional)** box, enter a value.
+1. Select the ellipses **(...)** to select **Advanced save** options, and then select **Save**.
+1. To add the tag to the serverless function, select **Add tag**.
 
 
 
+## View detailed information about a serverless function
 
-<!---## Next steps--->
+1. Select the down arrow to the left of the function name to display the following:
 
-<!---Add link: To track assigned privileges and usage of various identities, see [View usage analytics about users](https://azure/active-directory/cloud-infrastructure-entitlement-management/cloudknox-usage-analytics-users.html).--->
-<!---Add link. To track assigned privileges and usage of the group and the group members, see [View usage analytics about groups](https://azure/active-directory/cloud-infrastructure-entitlement-management/cloudknox-usage-analytics-groups.html).--->
-<!---Add link. To track resources that have been used in the last 90 days, see [View usage analytics about active resources](https://azure/active-directory/cloud-infrastructure-entitlement-management/cloudknox-usage-analytics-active-resources.html).--->
-<!---Add link. To track tasks that have been performed in the last 90 days, see [View usage analytics about active tasks](https://azure/active-directory/cloud-infrastructure-entitlement-management/cloudknox-usage-analytics-active-tasks.html).--->
-<!---Add link. To track the privilege usage of access keys for a given user, see [View usage analytics about access keys](https://azure/active-directory/cloud-infrastructure-entitlement-management/cloudknox-usage-analytics-access-keys.html).--->
+    - A list of **Tasks** organized by **Used** and **Unused**.
+    - **Versions**, if a version is available.
+
+1. Select the arrow to the left of the task name to view details about the task.
+1. Select **Information** (**i**) to view when the task was last used.
+1. From the **Tasks** dropdown, select **All tasks**, **High-risk tasks**, and **Delete tasks**.
+
+
+## Apply filters to your query  
+
+You can filter the **Serverless functions** results by **Authorization system type** and **Authorization system**.  
+
+### Apply filters by authorization system type
+
+1. From the **Authorization system type** dropdown, select the authorization system you want to use: **AWS**, **Azure**, or **GCP**.
+1. Select **Apply** to run your query and display the information you selected.
+
+    Select **Reset filter** to discard your changes. 
+
+
+### Apply filters by authorization system
+
+1. From the **Authorization system type** dropdown, select the authorization system you want to use: **AWS**, **Azure**, or **GCP**. 
+1. From the **Authorization system** dropdown, select accounts from a **List** of accounts and **Folders**.
+1. Select **Apply** to run your query and display the information you selected.
+
+    Select **Reset filter** to discard your changes. 
+
+
+
+## Next steps
+
+- To view active tasks, see [View usage analytics about active tasks](cloudknox-usage-analytics-active-tasks.md)
+- To view assigned permissions and usage by users, see [View analytic information about users](cloudknox-usage-analytics-users.md).
+- To view assigned permissions and usage of the group and the group members, see [View analytic information about groups](cloudknox-usage-analytics-groups.md).
+- To view active resources, see [View analytic information about active resources](cloudknox-usage-analytics-active-resources.md).
+- To view the permission usage of access keys for a given user, see [View analytic information about access keys](cloudknox-usage-analytics-access-keys.md).

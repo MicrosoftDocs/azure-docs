@@ -27,7 +27,7 @@ The Microsoft CloudKnox Permissions Management (CloudKnox) home page provides an
 
    The **Permission creep index (PCI)** chart updates to display information about the accounts and folders you selected. The number of days since the information was last updated displays in the upper right corner.
 
-1. In the PCI graph, select a bubble. The bubble displays
+1. In the Permission creep index (PCI) graph, select a bubble. The bubble displays
 
     A box appears, displaying the number of identities that are considered high-risk. *High-risk* refers to the number of users who have permissions that exceed their normal or required usage.
 

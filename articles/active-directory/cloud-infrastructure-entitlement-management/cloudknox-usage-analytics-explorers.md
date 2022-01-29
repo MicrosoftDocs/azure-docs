@@ -48,7 +48,7 @@ The CloudKnox explorers provide more information about an identity, including en
     - **User Info**: This section displays the following details:
         - **User Groups**: Lists any groups the user is in.
 
-        - **Last Login** (AWS users only) - Displays the date the user was last active, the Client or browser the user last used, and the user's IP address from which they logged in.
+        - **Last Login** (Amazon Web Services (AWS) - Displays the date the user was last active, the Client or browser the user last used, and the user's IP address from which they logged in.
     - **Access Key** (Local AWS users only) - The following information is given about access keys:
         - **Access Key ID**: The ID for the access key.
         - **Last Rotated On**: The date and time since the access key was created.
@@ -85,7 +85,7 @@ The CloudKnox explorers provide more information about an identity, including en
 
              - To display the full details of the policy, next to the policy name, select **View**.
 
-    - **Azure/GCP/VCENTER**
+    - **Azure/GCP**
 
         - **Policies/Roles**:  Displays the roles that apply to a user.
             - **Name**: Displays the name of the role.
@@ -170,10 +170,9 @@ The CloudKnox explorers provide more information about an identity, including en
         - **Source Name**: The name of the source, for example, *admin*.
         - **Source**: Displays the type of policy that applies to the user, for example, the source could be **Group**, meaning the user belongs to a group to which the policy applies.
 
-    - **Azure/GCP/VCENTER**
-        - **Subscription** (Azure only) - Displays the name of the authorization system account.
-        - **Project** (GCP only) - Displays the name of the project.
-        - **Account** (VCENTER only) - Displays the name of the account.
+    - **Azure/GCP**
+        - **Subscription** (Microsoft Azure only) - Displays the name of the authorization system account.
+        - **Project** (Google Cloud Platform (GCP) only) - Displays the name of the project.
         - **Name**: Displays the name of the subscription.
         - **Resource**: Displays the name of the resource.
         - **Type**: Displays the type of subscription applied to the identity.
@@ -260,7 +259,7 @@ The CloudKnox explorers provide more information about an identity, including en
            - To view the full details of the policy or role, select **View**.
         - **Roles** –  Displays that the user acquired access through a role that the identity can assume.
         - **Group** –  Displays that the identity is part of a group to which the policy is attached.
-    - **Scope** (Azure/GCP/VCENTER) - Displays the name of the project with access to the resource.
+    - **Scope** (Azure/GCP) - Displays the name of the project with access to the resource.
 
         Each column in the **Access Graph** view has a **Search** bar and a **Filter** button with various options available from the  drop-down list.
 
@@ -286,7 +285,7 @@ The CloudKnox explorers provide more information about an identity, including en
     
         - **Graph View**: Displays a graph view of how many users have access to the resource, how many resources haven't been accessed, and how many have been accessed.
 
-7. (Azure/GCP/VCENTER only) To display details about tasks, including the following details, select the **Tasks** tab:
+7. (Azure/GCP only) To display details about tasks, including the following details, select the **Tasks** tab:
 
     - **Task Name**: Displays the name of the task
     - **No. of Times Executed**: Displays how many times the task was executed
