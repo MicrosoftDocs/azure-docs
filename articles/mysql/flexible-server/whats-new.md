@@ -27,8 +27,8 @@ This release of Azure Database for MySQL - Flexible Server includes the followin
 - **Availability in three additional Azure regions**
 
    The public preview of Azure Database for MySQL - Flexible Server is now available in the following Azure regions:
-      - China East 2
-      - China North 2
+   - China East 2
+   - China North 2
 
 - **Bug fixes**
 
