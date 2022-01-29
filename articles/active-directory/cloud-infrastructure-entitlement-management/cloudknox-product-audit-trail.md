@@ -282,8 +282,10 @@ The **Operator** menu contains the following options:
 
 2. To sort each column by ascending or descending value, select the up or down arrows next to the column name.
 
-    - **Username or Role Session Name** - The name of the identity, for example user, AWS resource, Azure Application, GCP Service Account, or the name of the role session performing the task, for example AWS.
+    - **Username or Role Session Name** - The name of the identity, for example user, Amazon Web Services (AWS) resource, Microsoft Azure Application, Google Cloud Platform (GCP) service account, or the name of the role session performing the task, for example AWS.
 
+
+, Microsoft Azure, or Google Cloud Platform (GCP)
         - To view the **Raw Events Summary**, which displays the full details of the event, next to the **Name** column, select **View**.
 
     - **Resource Name** - The name of the resource on which the task is being performed.

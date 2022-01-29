@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/27/2022
+ms.date: 01/28/2022
 ms.author: v-ydequadros
 ---
 
@@ -45,7 +45,7 @@ This glossary provides a list of some of the commonly used multi-cloud terms at 
 | MISE 	                | Microsoft Identity Service Essentials |
 | Multi-cloud	        | Multi-cloud is a phrase often said in the “tech world”, and it’s here to stay, at least for the foreseeable future. Embracing and learning the multi-cloud lingo is beneficial for practitioners, c-levels, and everyone in-between.      |
 | Multi-tenant	        | Multi-tenancy means that a single instance of the software and its supporting infrastructure serves multiple customers. Each customer shares the software application and also shares a single database.	                |
-| OIDC	                | OpenID Connect. An authentication protocol which allows to verify user identity when a user is trying to access a protected HTTPs end point. OIDC is an evolutionary development of ideas implemented earlier in OAuth and OpenID.
+| OIDC	                | OpenID Connect. An authentication protocol that verifies user identity when a user is trying to access a protected HTTPs end point. OIDC is an evolutionary development of ideas implemented earlier in OAuth and OpenID.
 | PAM	                | Privileged Access Management     |
 | Permission	        | Rights and privileges. Details given by users or network administrators that define access rights to files on a network.              |
 | PIM	                | Privileged Identity management     |  
@@ -55,7 +55,7 @@ This glossary provides a list of some of the commonly used multi-cloud terms at 
 | Role	                | Grants permissions to users so they can do a set of tasks.                 |
 | SCIM	                | System for Cross–domain Identity Management |
 | SCI–M 	            | Security Compliance Identity and Management    |
-| SIEM	                | Security Information and Event Management (SIEM), pronounced “See-im”.     |
+| SIEM	                | Security Information and Event Management (SIEM).     |
 | SCP	                | SAP Cloud Platform. A platform as a service developed by SAP SE for creating new applications or extending existing applications in a secure cloud computing environment managed by SAP.|
 | Tenant	            | A dedicated instance of the services and organization data stored within a specific default location.                  |
 | UUID		            | Universally unique identifier. A 128-bit label used for information in computer systems. The term globally unique identifier (GUID) is also used.|

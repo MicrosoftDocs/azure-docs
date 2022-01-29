@@ -29,7 +29,7 @@ This article describes how to onboard a Google Cloud Platform (GCP) project on M
 
     The **CloudKnox onboarding – Azure OIDC app creation** box displays the **OIDC Azure project name** box, and the Azure command-line interface (CLI) script.
 
-    OIDC stands for *OpenID Connect*, an authentication protocol that allows you to verify a user's identity when they are trying to access a protected HTTPS end point.
+    OpenID Connect (OIDC) is an authentication protocol that allows you to verify a user's identity when they're trying to access a protected HTTPS end point.
 
     <!---1. In the **OIDC Workload Identity Pool Id** box, enter your ID.--->
     <!---1. In the **OIDC Service Account Name** box, enter your account name.--->

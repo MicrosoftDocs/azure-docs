@@ -45,7 +45,7 @@ The dashboard only lists tasks that are active. The following components make up
 
 ## View the results of your query
 
-The **Active tasks** table displays the the results of your query.
+The **Active tasks** table displays the results of your query.
 
 - **Task Name**: Provides the name of the task. 
     - To view details about the task, select the down arrow. 
@@ -65,7 +65,7 @@ The **Active tasks** table displays the the results of your query.
 
 ## Apply filters to your query  
 
-There are many filter options within the **Active tasks** screen, including **Authorization system**, **User** and **Task**. 
+There are many filter options within the **Active tasks** screen, including **Authorization system**, **User**, and **Task**. 
 Filters can be applied in one, two, or all three categories depending on the type of information you're looking for. 
 
 ### Apply filters by authorization system
@@ -90,7 +90,7 @@ You can filter user details by type of user, user role, app, or service used, or
 
 1. From the **Authorization system type** dropdown, select the authorization system you want to use: **AWS**, **Azure**, or **GCP**.
 1. From the **Authorization system** dropdown, select from a **List** of accounts and **Folders**.
-1. From the **Task type** dropdown, select the type of user: **All**, **User**, **Role/App/Service a/c** or **Resource**.
+1. From the **Task type** dropdown, select the type of user: **All**, **User**, **Role/App/Service a/c**, or **Resource**.
 1. Select **Apply** to run your query and display the information you selected.
 
     Select **Reset filter** to discard your changes.

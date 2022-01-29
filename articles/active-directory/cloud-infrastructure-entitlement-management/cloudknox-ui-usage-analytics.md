@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: overview
-ms.date: 01/27/2022
+ms.date: 01/28/2022
 ms.author: v-ydequadros
 ---
 
@@ -143,7 +143,7 @@ When you select **Active Tasks** in the top toolbar, the results table displays 
 
 When you select **Access Keys** in the top toolbar, the results table displays the following information:
 
-- **Authorization System Type** - The selected authorization system (AWS, Azure, GCP, and so on).
+- **Authorization System Type** - The selected authorization system: Amazon Web Services (AWS), Microsoft Azure, or Google Cloud Platform (GCP).
 - **Authorization System** - Information about the lists and folders in the authorization system and its accounts.
 - **Key Status** - Select **All**, **Active**, or **Inactive**.
 - **Key Activity Status** - Select number of days used: **All**, **Used <90**, **Used <91-365**, **Used >365**, or **Unused**.

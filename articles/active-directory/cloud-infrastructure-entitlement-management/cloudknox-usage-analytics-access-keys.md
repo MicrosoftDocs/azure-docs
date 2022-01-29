@@ -1,5 +1,5 @@
 ---
-title:  - View analytic information about access keys in Microsoft CloudKnox Permissions Management
+title: View analytic information about access keys in Microsoft CloudKnox Permissions Management
 description: How to view  analytic information about access keys in Microsoft CloudKnox Permissions Management.
 services: active-directory
 author: Yvonne-deQ
@@ -48,7 +48,7 @@ The following components make up the **Access keys** dashboard:
 
 ## View the results of your query
 
-The **Access keys** table displays the the results of your query.
+The **Access keys** table displays the results of your query.
 
 - **Access key ID**: Provides the ID for the access key. 
     - To view details about the access keys, select the down arrow to the left of the ID. 
@@ -129,7 +129,7 @@ Filters can be applied in one, two, or all three categories depending on the typ
 
 ## Next steps
 
-- To view active tasks, see [View usage analytics about active tasks](cloudknox-usage-analytics-active-tasks.md)
+- To view active tasks, see [View usage analytics about active tasks](cloudknox-usage-analytics-active-tasks.md).
 - To view assigned permissions and usage by users, see [View usage analytics about users](cloudknox-usage-analytics-users.md).
 - To view assigned permissions and usage of the group and the group members, see [View usage analytics about groups](cloudknox-usage-analytics-groups.md).
 - To view active resources, see [View usage analytics about active resources](cloudknox-usage-analytics-active-resources.md).

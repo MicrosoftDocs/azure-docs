@@ -19,10 +19,10 @@ The Just Enough Permissions (JEP) Controller dashboard in Microsoft CloudKnox Pe
 This topic provides an overview of the components of the **JEP Controller** dashboard.
 
 > [!NOTE]
-> Only users with the **Viewer**, **Controller**, or **Administrator** role can view this tab. </p>Only users with the **Controller** and **Administrator** role can make changes on this tab.
+> Only users with the **Viewer**, **Controller**, or **Administrator** role can view this tab. Only users with the **Controller** and **Administrator** role can make changes on this tab.
 
 > [!NOTE]
-> A role/policy is an object associated with an identity or resource that defines their permissions. </p>The Amazon Web Services (AWS) authorization system uses the term *policy* to refer to these objects. The Microsoft Azure and Google Cloud Platform (GCP) authorization systems both use the term *role*. </p>In the CloudKnox documentation, we use *role/policy* to refer to to these objects for the three authorization systems.
+> A role/policy is an object associated with an identity or resource that defines their permissions. The Amazon Web Services (AWS) authorization system uses the term *policy* to refer to these objects. The Microsoft Azure and Google Cloud Platform (GCP) authorization systems both use the term *role*. In the CloudKnox documentation, we use *role/policy* to refer to to these objects for the three authorization systems.
 
 ## The Roles/Policies tab 
 

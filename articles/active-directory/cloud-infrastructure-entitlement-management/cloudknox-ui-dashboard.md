@@ -33,7 +33,7 @@ You can view the following information in CloudKnox:
 
 ## Components of the CloudKnox Dashboard
 
-When you launch CloudKnox, select **Dashboard** to displays the following information:
+When you launch CloudKnox, select **Dashboard** to display the following information:
 
 - **Authorization system types** - A drop-down list of authorization system types you can access: Amazon Web Services (AWS), Microsoft Azure (Azure), and Google Cloud Platform (GCP).
  

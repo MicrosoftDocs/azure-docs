@@ -45,7 +45,7 @@ The following components make up the **Users** dashboard:
 
 ## View the results of your query
 
-The **Identities** table displays the the results of your query.
+The **Identities** table displays the results of your query.
 
 - **Name**: Provides the name of the group. 
     - To view details about the group, select the down arrow. 
@@ -57,7 +57,7 @@ The **Identities** table displays the the results of your query.
 - **Resources** - The number of resources used.
 - **User groups** - The number of users who accessed the group.
 - **Last activity on** - The date the function was last accessed.
-- Select the ellipses **(...)** and select **Tags** to add a tag or **Auto remediate** to remediate your results automatically.
+- Select the ellipses **(...)** and select **Tags** to add a tag or **Auto-remediate** to remediate your results automatically.
 
 ## Add a tag to a user
 
@@ -68,9 +68,9 @@ The **Identities** table displays the the results of your query.
 1. Select the ellipses **(...)** to select **Advanced save** options, and then select **Save**.
 1. To add the tag to the serverless function, select **Add tag**.
 
-## Set the auto remediate option
+## Set the auto-remediate option
 
-- Select the ellipses **(...)** and select **Auto remediate**.
+- Select the ellipses **(...)** and select **Auto-remediate**.
 
 
 ## Apply filters to your query  
@@ -152,7 +152,7 @@ You can filter user details by type of user, user role, app, or service used, or
 
 ## Next steps
 
-- To view active tasks, see [View analytic information about active tasks](cloudknox-usage-analytics-active-tasks.md)
+- To view active tasks, see [View analytic information about active tasks](cloudknox-usage-analytics-active-tasks.md).
 - To view assigned permissions and usage of the group and the group members, see [View analytic information about groups](cloudknox-usage-analytics-groups.md).
 - To view active resources, see [View analytic information about active resources](cloudknox-usage-analytics-active-resources.md).
 - To view the permission usage of access keys for a given user, see [View analytic information about access keys](cloudknox-usage-analytics-access-keys.md).

@@ -44,7 +44,7 @@ The following components make up the **Serverless functions** dashboard:
 
 ## View the results of your query
 
-The **Serverless functions** table displays the the results of your query.
+The **Serverless functions** table displays the results of your query.
 
 - **Function name**: Provides the name of the serverless function. 
     - To view details about a serverless function, select the down arrow to the left of the function name. 
@@ -104,7 +104,7 @@ You can filter the **Serverless functions** results by **Authorization system ty
 
 ## Next steps
 
-- To view active tasks, see [View usage analytics about active tasks](cloudknox-usage-analytics-active-tasks.md)
+- To view active tasks, see [View usage analytics about active tasks](cloudknox-usage-analytics-active-tasks.md).
 - To view assigned permissions and usage by users, see [View analytic information about users](cloudknox-usage-analytics-users.md).
 - To view assigned permissions and usage of the group and the group members, see [View analytic information about groups](cloudknox-usage-analytics-groups.md).
 - To view active resources, see [View analytic information about active resources](cloudknox-usage-analytics-active-resources.md).

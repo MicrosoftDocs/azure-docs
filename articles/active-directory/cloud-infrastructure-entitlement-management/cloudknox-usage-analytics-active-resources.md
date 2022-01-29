@@ -92,7 +92,7 @@ You can filter user details by type of user, user role, app, or service used, or
 
 1. From the **Authorization system type** dropdown, select the authorization system you want to use: **AWS**, **Azure**, or **GCP**.
 1. From the **Authorization system** dropdown, select from a **List** of accounts and **Folders**.
-1. From the **Task type**, select the type of user: **All**, **User**, **Role/App/Service a/c** or **Resource**.
+1. From the **Task type**, select the type of user: **All**, **User**, **Role/App/Service a/c**, or **Resource**.
 1. Select **Apply** to run your query and display the information you selected.
 
     Select **Reset filter** to discard your changes.
@@ -116,7 +116,7 @@ You can filter user details by type of user, user role, app, or service used, or
 
 ## Next steps
 
-- To track active tasks, see [View usage analytics about active tasks](cloudknox-usage-analytics-active-tasks.md)
+- To track active tasks, see [View usage analytics about active tasks](cloudknox-usage-analytics-active-tasks.md).
 - To track assigned permissions and usage of users, see [View usage analytics about users](cloudknox-usage-analytics-users.md).
 - To track assigned permissions and usage of the group and the group members, see [View usage analytics about groups](cloudknox-usage-analytics-groups.md).
 - To track the permission usage of access keys for a given user, see [View usage analytics about access keys](cloudknox-usage-analytics-access-keys.md).

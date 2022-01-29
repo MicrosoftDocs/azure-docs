@@ -1,6 +1,6 @@
 ---
 title: View data about the activity in your authorization system in Microsoft CloudKnox Permissions Management
-description: How to view data about the activity in your authorization system in the CloudKnox Dashboard in Microsoft CloudKnox Permissions Management.
+description: How to view data about the activity in your authorization system in the Dashboard in Microsoft CloudKnox Permissions Management.
 services: active-directory
 author: Yvonne-deQ
 manager: karenh444
@@ -39,7 +39,7 @@ The Microsoft CloudKnox Permissions Management (CloudKnox) home page provides an
 
 1. To return to the PCI graph, select the **Graph** icon in the upper right of the list box. 
 
-For more information about the CloudKnox dashboard, see [View key statistics and data about your authorization system](cloudknox-ui-dashboard.md).
+For more information about the Dashboard, see [View key statistics and data about your authorization system](cloudknox-ui-dashboard.md).
 
 ## View user data on the PCI heat map
 
@@ -73,4 +73,4 @@ The **Resource** section below the heat map on the right side of the page shows 
 
 ## Next steps
 
-- For more information about how to view key statistics and data in the CloudKnox Dashboard, see [View key statistics and data about your authorization system](cloudknox-ui-dashboard.md).
+- For more information about how to view key statistics and data in the Dashboard, see [View key statistics and data about your authorization system](cloudknox-ui-dashboard.md).

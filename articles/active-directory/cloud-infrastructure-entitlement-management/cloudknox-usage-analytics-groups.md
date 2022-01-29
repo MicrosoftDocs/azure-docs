@@ -47,7 +47,7 @@ The dashboard only lists tasks that are active. The following components make up
 
 ## View the results of your query
 
-The **Groups** table displays the the results of your query.
+The **Groups** table displays the results of your query.
 
 - **Group Name**: Provides the name of the group. 
     - To view details about the group, select the down arrow. 
@@ -83,7 +83,7 @@ The **Groups** table displays the the results of your query.
 
 ## Apply filters to your query  
 
-There are many filter options within the **Groups** screen, including filters by **Authorization system**, **Group name** and **Group type**. 
+There are many filter options within the **Groups** screen, including filters by **Authorization system**, **Group name**, and **Group type**. 
 Filters can be applied in one, two, or all three categories depending on the type of information you're looking for. 
 
 ### Apply filters by authorization system type
@@ -144,8 +144,8 @@ You can filter user details by type of user, user role, app, or service used, or
 
 ## Next steps
 
-- To view active tasks, see [View analytic information about active tasks](cloudknox-usage-analytics-active-tasks.md)
+- To view active tasks, see [View analytic information about active tasks](cloudknox-usage-analytics-active-tasks.md).
 - To view assigned permissions and usage by users, see [View analytic information about users](cloudknox-usage-analytics-users.md).
-- To view active active resources, see [View analytic information about active resources](cloudknox-usage-analytics-active-resources.md).
+- To view active resources, see [View analytic information about active resources](cloudknox-usage-analytics-active-resources.md).
 - To view the permission usage of access keys for a given user, see [View analytic information about access keys](cloudknox-usage-analytics-access-keys.md).
 - To view assigned permissions and usage of the serverless functions, see [View analytic information about serverless functions](cloudknox-usage-analytics-serverless-functions.md).

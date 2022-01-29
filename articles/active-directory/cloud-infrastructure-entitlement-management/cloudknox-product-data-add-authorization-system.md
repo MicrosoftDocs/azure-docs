@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/27/2022
+ms.date: 01/28/2022
 ms.author: v-ydequadros
 ---
 
@@ -44,7 +44,7 @@ You can use the **Authorization system** dashboard in Microsoft CloudKnox Permis
 
      - **Status** - The date the data was most recently collected.
      - **Recently uploaded on** - The date the data was most recently uploaded. 
-     - **Recently tramsformed on** - The date the data was most recently processed. 
+     - **Recently transformed on** - The date the data was most recently processed. 
 
 
 ## Start collecting data from an authorization system   
