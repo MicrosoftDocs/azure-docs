@@ -5,7 +5,7 @@ author: ePpnqeqR
 ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 1/28/2022
 ms.custom:
 ---
