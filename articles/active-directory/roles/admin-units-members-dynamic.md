@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.topic: how-to
 ms.subservice: roles
 ms.workload: identity
-ms.date: 01/21/2022
+ms.date: 01/28/2022
 ms.author: rolyon
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
@@ -29,13 +29,13 @@ Although administrative units with members assigned manually support multiple ob
 ## Prerequisites
 
 - Azure AD Premium P1 or P2 license for each administrative unit administrator
-- Azure AD Premium P1 or P2 license or Intune for Education for each administrative unit member
+- Azure AD Premium P1 or P2 license for each administrative unit member
 - Privileged Role Administrator or Global Administrator
 - AzureADPreview module when using PowerShell
 - Admin consent when using Graph explorer for Microsoft Graph API
 
 > [!NOTE]
-> Dynamic membership rules for administrative units requires an Azure AD Premium P1 license or Intune for Education for each unique user that is a member of one or more dynamic administrative units. You don't have to assign licenses to users for them to be members of dynamic administrative units, but you must have the minimum number of licenses in the Azure AD organization to cover all such users. For example, if you had a total of 1,000 unique users in all dynamic administrative units in your organization, you would need at least 1,000 licenses for Azure AD Premium P1 to meet the license requirement. No license is required for devices that are members of a dynamic device administrative unit.
+> Dynamic membership rules for administrative units requires an Azure AD Premium P1 license for each unique user that is a member of one or more dynamic administrative units. You don't have to assign licenses to users for them to be members of dynamic administrative units, but you must have the minimum number of licenses in the Azure AD organization to cover all such users. For example, if you had a total of 1,000 unique users in all dynamic administrative units in your organization, you would need at least 1,000 licenses for Azure AD Premium P1 to meet the license requirement. No license is required for devices that are members of a dynamic device administrative unit.
 
 For more information, see [Prerequisites to use PowerShell or Graph Explorer](prerequisites.md).
 
@@ -77,7 +77,7 @@ For steps on how to edit your rule, see the following [Edit dynamic membership r
 
 ### PowerShell
 
-1. Create a dynamic membership rule using the rule builder and then copy the syntax. For more information, see [Rule builder in the Azure portal](../enterprise-users/groups-dynamic-membership.md#rule-builder-in-the-azure-portal).
+1. Create a dynamic membership rule. For more information, see [Dynamic membership rules for groups in Azure Active Directory](../enterprise-users/groups-dynamic-membership.md).
 
 1. Use the [Connect-AzureAD](/powershell/module/azuread/connect-azuread) command to connect with Azure Active Directory with a user that has been assigned the Privileged Role Administrator or Global Administrator role.
 
@@ -99,29 +99,9 @@ For steps on how to edit your rule, see the following [Edit dynamic membership r
 
 ### Microsoft Graph API
 
-1. Create a dynamic membership rule using the rule builder and then copy the syntax. For more information, see [Rule builder in the Azure portal](../enterprise-users/groups-dynamic-membership.md#rule-builder-in-the-azure-portal).
+1. Create a dynamic membership rule. For more information, see [Dynamic membership rules for groups in Azure Active Directory](../enterprise-users/groups-dynamic-membership.md).
 
 1. Use the [Create administrativeUnit](/graph/api/administrativeunit-post-administrativeunits?view=graph-rest-beta&preserve-view=true) API to create a new administrative unit with a dynamic membership rule.
-
-    The following shows an example of a dynamic membership rule that applies to all users.
-
-    Request
-    
-    ```http
-    POST https://graph.microsoft.com/beta/administrativeUnits
-    ```
-    
-    Body
-    
-    ```http
-    {
-      "displayName": "displayName-value",
-      "description": "description-value",
-      "membershipType": "Dynamic",
-      "membershipRule": "All Users",
-      "membershipRuleProcessingState": "On"
-    }
-    ```
     
     The following shows an example of a dynamic membership rule that applies to Windows devices.
 
@@ -135,8 +115,8 @@ For steps on how to edit your rule, see the following [Edit dynamic membership r
     
     ```http
     {
-      "displayName": "displayName-value",
-      "description": "description-value",
+      "displayName": "Windows Devices",
+      "description": "All Contoso devices running Windows",
       "membershipType": "Dynamic",
       "membershipRule": "(device.deviceOSType -eq \"Windows\")",
       "membershipRuleProcessingState": "On"
@@ -186,7 +166,7 @@ Body
 
 ```http
 {
-  "membershipRule": "All Users"
+  "membershipRule": "(user.country -eq "Germany")"
 }
 ```
 
@@ -245,34 +225,9 @@ Body
 }
 ```
 
-## Frequently asked questions
-
-**I just saved a dynamic membership rule for an administrative unit, but I don't see any users populated yet.**
-
-The initial update of an administrative unit can take up to 5 minutes depending on your tenant size and the current Azure AD load.
-
-**How can I add a single member to an administrative unit in addition to the current dynamic membership rule?**
-
-To add a single user, add an appropriate expression with the `OR` query operator to the dynamic membership rule.
-
-**I am a Global Administrator, but I can't add or remove a members for an administrative unit**
-
-When an administrative unit has been configured for dynamic membership, you must edit the dynamic membership rules to change membership.
-
-**How many administrative units with dynamic membership rules can I create in a tenant?**
-
-For this preview, the total number of dynamic groups and dynamic administrative units combined cannot exceed 5,000.
-
-**Is there a limit to the number of characters in a dynamic membership rule?**
-
-Yes. 3,072 characters.
-
-**Can I create administrative units with dynamic membership rules in the Microsoft 365 admin center?**
-
-No.
-
 ## Next steps
 
 - [Assign Azure AD roles with administrative unit scope](admin-units-assign-roles.md)
 - [Add users or groups to an administrative unit](admin-units-members-add.md)
+- [Azure AD administrative units: Troubleshooting and FAQ](admin-units-faq-troubleshoot.yml)
 
