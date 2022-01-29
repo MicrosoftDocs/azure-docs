@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 11/09/2021
+ms.date: 01/29/2022
 ms.custom: ignite-fall-2021
 ---
 
@@ -49,7 +49,7 @@ Currently, replication task templates are available for [Azure Event Hubs](../ev
 | Resource type | Replication source and target |
 |---------------|-------------------------------|
 | Azure Event Hubs namespace | - Event Hubs instance to Event Hubs instance <br>- Event Hubs instance to Service Bus queue <br>- Event Hubs instance to Service Bus topic |
-| Azure Service Bus namespace | - Service Bus queue to Service Bus queue <br>- Service Bus queue to Service Bus topic <br>- Service Bus topic to Service Bus topic <br>- Service Bus queue to Event Hubs instance <br>- Service Bus topic to Service Bus queue <br>- Service Bus topic to Event Hubs instance <p><p>**Important**: When a queue is the source, a replication task doesn't copy messages but *moves* them instead to the target. In this scenario, consumers compete for each message. To copy messages instead, use a topic as the source and a task that replicates from the topic to the target. In this scenario, consumers subscribe to the topic, and each subscription gets a copy of each message. |
+| Azure Service Bus namespace | - Service Bus queue to Service Bus queue <br>- Service Bus queue to Service Bus topic <br>- Service Bus topic to Service Bus topic <br>- Service Bus queue to Event Hubs instance <br>- Service Bus topic to Service Bus queue <br>- Service Bus topic to Event Hubs instance <p><p>**Important**: When a queue is the source, a replication task doesn't copy messages but *moves* them from the source to the target and deletes them from the source. <p><p>To mirror messages instead, use a topic as your source instead where the "main" subscription acts like a queue endpoint. That way, the target gets a copy of each message from the source. <p><p>To route messages across different regions, you can create a queue where messages are sent from an app. The replication task transfers messages from that queue to a target queue in a namespace that's in another region. You can also use a topic subscription as the entity that acts as the transfer queue. For more information, review [Replication topology for ServiceBusCopy](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/ServiceBusCopy#replication-topology).|
 |||
 
 ### Replication topology and workflow
