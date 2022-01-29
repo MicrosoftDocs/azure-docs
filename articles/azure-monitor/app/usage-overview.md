@@ -130,14 +130,16 @@ To do this, [set up a telemetry initializer](./api-filtering-sampling.md#addmodi
     // Telemetry initializer class
     public class MyTelemetryInitializer : ITelemetryInitializer
     {
+        // In this example, to differentiate versions, we use the value specified in the AssemblyInfo.cs
+        // for ASP.NET apps, or in your project file (.csproj) for the ASP.NET Core apps. Make sure that
+        // you set a different assembly version when you deploy your application for A/B testing.
+        static readonly string _version = 
+            System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
+            
         public void Initialize(ITelemetry item)
-            {
-                var itemProperties = item as ISupportProperties;
-                if (itemProperties != null && !itemProperties.Properties.ContainsKey("AppVersion"))
-                {
-                    itemProperties.Properties["AppVersion"] = "v2.1";
-                }
-            }
+        {
+            item.Context.Component.Version = _version;
+        }
     }
 ```
 
@@ -149,7 +151,7 @@ In the web app initializer such as Global.asax.cs:
     {
         // ...
         TelemetryConfiguration.Active.TelemetryInitializers
-         .Add(new MyTelemetryInitializer());
+            .Add(new MyTelemetryInitializer());
     }
 ```
 
@@ -161,15 +163,13 @@ In the web app initializer such as Global.asax.cs:
 For [ASP.NET Core](asp-net-core.md#adding-telemetryinitializers) applications, adding a new `TelemetryInitializer` is done by adding it to the Dependency Injection container, as shown below. This is done in `ConfigureServices` method of your `Startup.cs` class.
 
 ```csharp
- using Microsoft.ApplicationInsights.Extensibility;
- using CustomInitializer.Telemetry;
- public void ConfigureServices(IServiceCollection services)
+using Microsoft.ApplicationInsights.Extensibility;
+
+public void ConfigureServices(IServiceCollection services)
 {
     services.AddSingleton<ITelemetryInitializer, MyTelemetryInitializer>();
 }
 ```
-
-All new TelemetryClients automatically add the property value you specify. Individual telemetry events can override the default values.
 
 ## Next steps
    - [Users, Sessions, Events](usage-segmentation.md)

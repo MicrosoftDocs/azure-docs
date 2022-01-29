@@ -386,16 +386,33 @@ In Azure Machine Learning studio, select __Compute__, __Inference clusters__, an
 
 Updates to Azure Machine Learning components installed in an Azure Kubernetes Service cluster must be manually applied. 
 
-You can apply these updates by detaching the cluster from the Azure Machine Learning workspace, and then reattaching the cluster to the workspace. If TLS is enabled in the cluster, you will need to supply the TLS/SSL certificate and private key when reattaching the cluster. 
+You can apply these updates by detaching the cluster from the Azure Machine Learning workspace and reattaching the cluster to the workspace. 
 
 ```python
 compute_target = ComputeTarget(workspace=ws, name=clusterWorkspaceName)
 compute_target.detach()
 compute_target.wait_for_completion(show_output=True)
+```
 
+Before you can re-attach the cluster to your workspace, you need to first delete any `azureml-fe` related resources. If there is no active service in the cluster, you can delete your `azureml-fe` related resources with the following code. 
+
+```shell
+kubectl delete sa azureml-fe
+kubectl delete clusterrole azureml-fe-role
+kubectl delete clusterrolebinding azureml-fe-binding
+kubectl delete svc azureml-fe
+kubectl delete svc azureml-fe-int-http
+kubectl delete deploy azureml-fe
+kubectl delete secret azuremlfessl
+kubectl delete cm azuremlfeconfig
+```
+
+If TLS is enabled in the cluster, you will need to supply the TLS/SSL certificate and private key when reattaching the cluster.
+
+```python
 attach_config = AksCompute.attach_configuration(resource_group=resourceGroup, cluster_name=kubernetesClusterName)
 
-## If SSL is enabled.
+# If SSL is enabled.
 attach_config.enable_ssl(
     ssl_cert_pem_file="cert.pem",
     ssl_key_pem_file="key.pem",
@@ -413,8 +430,8 @@ If you no longer have the TLS/SSL certificate and private key, or you are using 
 kubectl get secret/azuremlfessl -o yaml
 ```
 
->[!Note]
->Kubernetes stores the secrets in base-64 encoded format. You will need to base-64 decode the `cert.pem` and `key.pem` components of the secrets prior to providing them to `attach_config.enable_ssl`. 
+> [!NOTE]
+> Kubernetes stores the secrets in Base64-encoded format. You will need to Base64-decode the `cert.pem` and `key.pem` components of the secrets prior to providing them to `attach_config.enable_ssl`. 
 
 ### Webservice failures
 
@@ -422,6 +439,21 @@ Many webservice failures in AKS can be debugged by connecting to the cluster usi
 
 ```azurecli-interactive
 az aks get-credentials -g <rg> -n <aks cluster name>
+```
+
+### Delete azureml-fe related resources
+
+After detaching cluster, if there is none active service in cluster, please delete the `azureml-fe` related resources before attaching again:
+
+```shell
+kubectl delete sa azureml-fe
+kubectl delete clusterrole azureml-fe-role
+kubectl delete clusterrolebinding azureml-fe-binding
+kubectl delete svc azureml-fe
+kubectl delete svc azureml-fe-int-http
+kubectl delete deploy azureml-fe
+kubectl delete secret azuremlfessl
+kubectl delete cm azuremlfeconfig
 ```
 
 ## Next steps
