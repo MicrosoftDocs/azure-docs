@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 10/18/2021
+ms.date: 01/28/2022
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: keyam, udayh, vakarand
@@ -44,7 +44,13 @@ In the **Federated credential scenario** drop-down box select **GitHub actions d
 
 Specify the **Organization** and **Repository** for your GitHub Actions workflow.  
 
-For **Entity type**, select **Environment**, **Branch**, **Pull request**, or **Tag** and specify the value.
+For **Entity type**, select **Environment**, **Branch**, **Pull request**, or **Tag** and specify the value. The values must exactly match the configuration in the [GitHub workflow](https://docs.github.com/actions/using-workflows/workflow-syntax-for-github-actions#on).  For example, specify an **Entity type** of **branch** and a **Value** of "main" for the following workflow configuration:
+
+```yml
+on:
+  push:
+    branches: [ main ]
+```
 
 Add a **Name** for the federated credential.
 
