@@ -32,7 +32,7 @@ In the Role selection, search for one of the built-in roles for the FHIR data pl
 
 In the **Select** section, type the client application registration name. If the name is found, the application name is listed. Select the application name, and then select **Save**. 
 
-If the client application is not found, check your application registration, to ensure that the name is correct. Ensure that the client application is created in the same tenant where the FHIR service in the Azure Healthcare APIs (hereby called the FHIR service) is deployed in.
+If the client application isn’t found, check your application registration to ensure that the name is correct. Ensure that the client application is created in the same tenant where the FHIR service in the Azure Healthcare APIs (hereby called the FHIR service) is deployed in.
 
 
 [ ![Select role assignment.](fhir/media/rbac/select-role-assignment.png) ](fhir/media/rbac/select-role-assignment.png#lightbox)
@@ -54,7 +54,7 @@ You can choose between:
 * DICOM Data Owner:  Full access to DICOM data.
 * DICOM Data Reader: Read and search DICOM data.
 
-If these roles are not sufficient for your need, you can use PowerShell to create custom roles.  For information about creating custom roles, see [Create a custom role using Azure PowerShell](../role-based-access-control/custom-roles-powershell.md).
+If these roles aren’t sufficient for your need, you can use PowerShell to create custom roles.  For information about creating custom roles, see [Create a custom role using Azure PowerShell](../role-based-access-control/custom-roles-powershell.md).
 
 In the **Select** box, search for a user, service principal, or group that you want to assign the role to.
 
