@@ -5,7 +5,7 @@ author: j82w
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 07/08/2021
+ms.date: 01/25/2022
 ms.author: jawilley
 ms.devlang: csharp
 ms.custom: devx-track-dotnet, contperf-fy21q2
@@ -60,6 +60,46 @@ If you're testing at high throughput levels, or at rates that are greater than 5
 
 > [!NOTE] 
 > High CPU usage can cause increased latency and request timeout exceptions.
+
+## <a id="logging-and-tracing"></a> Logging and tracing
+
+Some environments have the [.NET DefaultTraceListener](/dotnet/api/system.diagnostics.defaulttracelistener) enabled. The DefaultTraceListener poses performance issues on production environments causing high CPU and I/O bottlenecks. Check and make sure that the DefaultTraceListener is disabled for your application by removing it from the [TraceListeners](/dotnet/framework/debug-trace-profile/how-to-create-and-initialize-trace-listeners) on production environments.
+
+Latest SDK versions (greater than 3.23.0) automatically remove it when they detect it, with older versions, you can remove it by:
+
+# [.NET 6 / .NET Core](#tab/trace-net-core)
+
+```csharp
+if (!Debugger.IsAttached)
+{
+    Type defaultTrace = Type.GetType("Microsoft.Azure.Cosmos.Core.Trace.DefaultTrace,Microsoft.Azure.Cosmos.Direct");
+    TraceSource traceSource = (TraceSource)defaultTrace.GetProperty("TraceSource").GetValue(null);
+    traceSource.Listeners.Remove("Default");
+    // Add your own trace listeners
+}
+```
+
+# [.NET Framework](#tab/trace-net-fx)
+
+Edit your `app.config` or `web.config` files:
+
+```xml
+<configuration>
+  <system.diagnostics>
+    <sources>
+      <source name="DocDBTrace" switchName="SourceSwitch" switchType="System.Diagnostics.SourceSwitch" >
+        <listeners>
+          <remove name="Default" />
+          <!--Add your own trace listeners-->
+          <add name="myListener" ... />
+        </listeners>
+      </source>
+    </sources>
+  </system.diagnostics>
+<configuration>
+```
+
+---
 
 ## Networking
 <a id="direct-connection"></a>
