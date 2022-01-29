@@ -11,7 +11,7 @@ ms.date: 09/21/2020
 # Azure Cosmos DB Emulator - Release notes and download information
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-This article shows the Azure Cosmos DB Emulator released versions and it details the updates that were made. Only the latest version is made available to download and use; previous versions are not actively supported by the Azure Cosmos DB developer team.
+This article shows the Azure Cosmos DB Emulator released versions and it details the updates that were made. Only the latest version is made available to download and use and previous versions aren't actively supported by the Azure Cosmos DB Emulator developers.
 
 ## Download
 
