@@ -10,6 +10,7 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 01/28/2022
+ms.custom: references_regions
 ---
 
 # Tutorial: Index and enrich encrypted blobs for full-text search in Azure Cognitive Search
@@ -51,13 +52,13 @@ Custom skill deployment creates an Azure Function app and an Azure Storage accou
 
 This example uses the sample [DecryptBlobFile](https://github.com/Azure-Samples/azure-search-power-skills/blob/main/Utils/DecryptBlobFile) project from the [Azure Search Power Skills](https://github.com/Azure-Samples/azure-search-power-skills) GitHub repository. In this section, you will deploy the skill to an Azure Function so that it can be used in a skillset. A built-in deployment script creates an Azure Function resource named starting with **psdbf-function-app-** and loads the skill. You'll be prompted to provide a subscription and resource group. Be sure to choose the same subscription that your Azure Key Vault instance lives in.
 
-Operationally, the DecryptBlobFile skill takes the URL and SAS token for each blob as inputs, and it outputs the downloaded, decrypted file using the file reference contract that Azure Cognitive Search expects. Recall that DecryptBlobFile needs the encryption key to perform the decryption. As part of set up, you'll also create an access policy that grants DecryptBlobFile function access to the encryption key in Azure Key Vault.
+Operationally, the DecryptBlobFile skill takes the URL and SAS token for each blob as inputs, and it outputs the downloaded, decrypted file using the file reference contract that Azure Cognitive Search expects. Recall that DecryptBlobFile needs the encryption key to perform the decryption. As part of setup, you'll also create an access policy that grants DecryptBlobFile function access to the encryption key in Azure Key Vault.
 
 1. Click the **Deploy to Azure** button found on the [DecryptBlobFile landing page](https://github.com/Azure-Samples/azure-search-power-skills/blob/main/Utils/DecryptBlobFile#deployment), which will open the provided Resource Manager template within the Azure portal.
 
 1. Choose the same subscription where your Azure Key Vault instance exists (this tutorial will not work if you select a different subscription).
 
-1. Select an existing resource group or create a new one. A dedicated resource group makes clean up easier later.
+1. Select an existing resource group or create a new one. A dedicated resource group makes cleanup easier later.
 
 1. Select **Review + create**, make sure you agree to the terms, and then select **Create** to deploy the Azure Function.
 
