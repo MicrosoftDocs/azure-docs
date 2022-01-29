@@ -66,10 +66,3 @@ sections:
           As part of your up front planning each time that you deploy new labs, you also need to ensure that there is adequate VM core capacity in the region that you plan to deploy in.  This is especially important for GPUs.
           For more information on how to plan for both capacity and Azure compute capacity limitations, read the following article:
             - [Capacity limits in Azure Lab Services](./capacity-limits.md)
-      - question: |
-          What if my question isn't answered here?
-        answer: |
-          If your question isn't listed here, let us know, so we can help you find an answer.
-          
-          - Post a question at the end of this FAQ. 
-          - To reach a wider audience, post a question on the [Azure Lab Services — Tech community forum](https://techcommunity.microsoft.com/t5/azure-lab-services/bd-p/AzureLabServices). 
