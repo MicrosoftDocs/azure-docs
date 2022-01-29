@@ -22,6 +22,10 @@ This article shows the Azure Cosmos DB Emulator release notes with a list of fea
 
 ## Release notes
 
+### 2.14.5 (18 January 2022)
+
+ - This release updates the Cosmos Emulator background services to match the latest online functionality of the Azure Cosmos DB services. One other important update with this release is to reduce the number of services executed in the background and start them as needed.
+
 ### 2.14.4 (25 October 2021)
 
  - This release updates the Cosmos Emulator background services to match the latest online functionality of the Azure Cosmos DB services.
