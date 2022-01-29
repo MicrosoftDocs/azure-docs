@@ -89,8 +89,7 @@ The following properties are supported for the SQL Server linked service:
 | connectVia | This [integration runtime](concepts-integration-runtime.md) is used to connect to the data store. Learn more from [Prerequisites](#prerequisites) section. If not specified, the default Azure integration runtime is used. |No |
 
 > [!NOTE]
-> - Currently, SQL Server [**Always Encrypted**](/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-ver15&preserve-view=true) is only supported in source transformations of data flow. 
-> - Windows authentication is not supported in data flow.
+> Windows authentication is not supported in data flow.
 
 >[!TIP]
 >If you hit an error with the error code "UserErrorFailedToConnectToSqlServer" and a message like "The session limit for the database is XXX and has been reached," add `Pooling=false` to your connection string and try again.
@@ -753,6 +752,7 @@ When you copy data from/to SQL Server with [Always Encrypted](/sql/relational-da
 >1. Either source or sink data stores is using managed identity or service principal as key provider authentication type.
 >2. Both source and sink data stores are using managed identity as key provider authentication type.
 >3. Both source and sink data stores are using the same service principal as key provider authentication type.
+>4. Currently, SQL Server Always Encrypted is only supported for source transformation in mapping data flows.
 
 ## Troubleshoot connection issues
 
