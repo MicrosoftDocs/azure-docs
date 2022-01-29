@@ -55,7 +55,7 @@ This section describes different user profiles in Azure Lab Services.
 The lab plan owner is typically an IT administrator of organization's cloud resources.  The lab plan owner is the one who owns the Azure subscription and does the following tasks:
 
 - Creates and organizes resource groups to contain lab plans and labs.
-- Creates lab plan(s) for your organization.
+- Creates lab plans for your organization.
 - Manages and configures policies across all labs.
 - Gives permissions to people in the organization to create a lab under the lab plan.
 
@@ -64,20 +64,21 @@ The lab plan owner is typically an IT administrator of organization's cloud reso
 Typically, a teacher or an online trainer, creates labs using a pre-created lab plan. An educator does the following tasks:
 
 - Creates a lab.
-- Installs the appropriate software on virtual machines template.
-- Creates virtual machines in the lab based on the template.
+- Installs the appropriate software on a template VM.
+- Publishes a lab to create VMs for the students based on the template VM.
 - Specifies who can access the lab.
-- Provides registration link to the lab to students, if necessary.
+- Sends registration link to the lab to students, if necessary.
 
 ### Student
 
 A student does the following tasks:
 
-- Uses the registration link that the lab user receives from a lab creator to register with the lab.
+- Uses the registration link to register with the lab.
 - Connects to a virtual machine in the lab and uses it for doing class work, assignments, and projects.
 
 ## Next steps
 
-First action to take to use Azure Lab Services is to create one or more lab plan(s).  Labs can be created only after a lab plan is created.
+The first action to take to use Azure Lab Services is to create a lab plan.  Labs can be created only after a lab plan is created.
 
-- [As an admin, set up a lab plan](tutorial-setup-lab-plan.md)
+- [As an admin, create a lab plan](tutorial-setup-lab-plan.md)
+- [As an educator, create a lab](tutorial-setup-lab.md)
