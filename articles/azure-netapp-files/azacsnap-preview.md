@@ -564,6 +564,11 @@ Disks in the mounted Logical Volume(s).
 > [!IMPORTANT]
 > The Linux system must have `xfs_freeze` available to block disk I/O.
 
+> [!CAUTION]
+> Take extra care to configure AzAcSnap with the correct mountpoints (filesystems).  `xfs_freeze` blocks I/O to the device ID as provided by the mount-point.  
+> If the mount-point provided in the configuration file is incorrect **`xfs_freeze` could block I/O to the root (/) filesystem and hang the entire system.** 
+> A future release of AzAcSnap will provide improved protection against this likelihood. 
+
 Architecture at a high level:
 1. Azure Managed Disks attached to the VM using the Azure portal
 1. Logical Volume is created from these Managed Disks.
