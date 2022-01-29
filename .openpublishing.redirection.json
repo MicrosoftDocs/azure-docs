@@ -45249,12 +45249,12 @@
     },
     {
       "source_path_from_root": "/articles/azure/cognitive-services/translator/tutorial-wpf-translation-csharp.md",
-      "redirect_url": "/ai-builder/flow-text-translation",
+      "redirect_url": "/ai-builder/flow-text-translation?toc=/azure/cognitive-services/translator/toc.json&bc=/azure/cognitive-services/translator/breadcrumb/toc.json",
       "redirect_document_id": false
       },
       {
         "source_path_from_root": "/articles/azure/cognitive-services/translator/tutorial-build-flask-app-translation-synthesis.md",
-        "redirect_url": "/learn/modules/translate-text-with-translator-service",
+        "redirect_url": "/learn/modules/translate-text-with-translator-service?toc=/azure/cognitive-services/translator/toc.json&bc=/azure/cognitive-services/translator/breadcrumb/toc.json",
         "redirect_document_id": false
         }
   ]
