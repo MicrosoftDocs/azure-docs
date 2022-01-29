@@ -24,9 +24,9 @@ ms.author: phjensen
 
 This article provides a guide on setup and usage of the new features in preview for **AzAcSnap v5.1**.  These new features can be used with Azure NetApp Files, Azure BareMetal, and now Azure Managed Disk.  This guide should be read along with the documentation for the generally available version of AzAcSnap at [aka.ms/azacsnap](https://aka.ms/azacsnap).
 
-The 4 new preview features provided with AzAcSnap v5.1 are:
+The four new preview features provided with AzAcSnap v5.1 are:
 - Oracle Database support
-- Backint Co-existence
+- Backint coexistence
 - Azure Managed Disk
 - RunBefore and RunAfter capability
 
@@ -66,7 +66,7 @@ New database platforms and operating systems supported with this preview release
 > Support for Oracle is Preview feature.  
 > This section's content supplements [Install Azure Application Consistent Snapshot tool](azacsnap-installation.md) website page.
 
-This section explains how to enable communication with storage. Ensure the storage back-end you are using is correctly selected.
+This section explains how to enable communication with storage. Ensure the storage back-end you're using is correctly selected.
 
 # [Oracle](#tab/oracle)
 
@@ -177,7 +177,7 @@ The following example commands set up a user (AZACSNAP) in the Oracle database, 
    configuration unnecessary.
    
    This feature can be leveraged to use the Oracle TNS (Transparent Network Substrate) administrative file to hide the details of the database 
-   connection string and instead use an alias. If the connection information changes, it is a matter of changing the `tnsnames.ora` file instead 
+   connection string and instead use an alias. If the connection information changes, it's a matter of changing the `tnsnames.ora` file instead 
    of potentially many datasource definitions.
    
    Set up the Oracle Wallet (change the password) This example uses the mkstore command from the Linux shell to set up the Oracle wallet. Theses commands 
@@ -187,7 +187,7 @@ The following example commands set up a user (AZACSNAP) in the Oracle database, 
    > [!IMPORTANT]
    > Be sure to create a unique user to generate the Oracle Wallet to avoid any impact on the running database.
    
-   1. Run the following commands on the Oracle Database Server
+   1. Run the following commands on the Oracle Database Server.
       
     1. Get the Oracle environment variables to be used in setup.  Run the following commands as the `root` user on the Oracle Database Server.
 
@@ -207,10 +207,10 @@ The following example commands set up a user (AZACSNAP) in the Oracle database, 
        /u01/app/oracle/product/19.0.0/dbhome_1
        ```
        
-    1. Create the Linux user to generate the Oracle Wallet and associated `*.ora` files using the output from the previous step
+    1. Create the Linux user to generate the Oracle Wallet and associated `*.ora` files using the output from the previous step.
 
        > [!NOTE]
-       > In these examples we are using the `bash` shell.  If you are using a different shell (for example, csh), then ensure environment variables have been set correctly.
+       > In these examples we are using the `bash` shell.  If you're using a different shell (for example, csh), then ensure environment variables have been set correctly.
 
        ```bash
        useradd -m azacsnap
@@ -508,10 +508,10 @@ When adding an Oracle database to the configuration, the following values are re
 
 ---
 
-## Backint co-existence
+## Backint coexistence
 
 > [!NOTE]
-> Support for co-existence with SAP HANA's Backint interface is a Preview feature.  
+> Support for coexistence with SAP HANA's Backint interface is a Preview feature.  
 > This section's content supplements [Configure Azure Application Consistent Snapshot tool](azacsnap-cmd-ref-configure.md) website page.
 
 [Azure Backup](/azure/backup/) service provides an alternate backup tool for SAP HANA, where database and log backups are streamed into the 
@@ -521,17 +521,17 @@ the Azure Backup site on how to [Run SAP HANA native client backup to local disk
 
 The process described in the Azure Backup documentation has been implemented with AzAcSnap to automatically do the following steps:
 
-1. force a log backup flush to backint
-1. wait for running backups to complete
-1. disable the backint-based backup
-1. put SAP HANA into a consistent state for backup
-1. take a storage snapshot-based backup
-1. release SAP HANA
+1. force a log backup flush to backint.
+1. wait for running backups to complete.
+1. disable the backint-based backup.
+1. put SAP HANA into a consistent state for backup.
+1. take a storage snapshot-based backup.
+1. release SAP HANA.
 1. re-enable the backint-based backup.
 
 By default this option is disabled, but it can be enabled by running `azacsnap -c configure –configuration edit` and answering ‘y’ (yes) to the question 
 “Do you need AzAcSnap to automatically disable/enable backint during snapshot? (y/n) [n]”.  This will set the autoDisableEnableBackint value to true in the 
-JSON configuration file (for example, `azacsnap.json`).  It is also possible to change this value by editing the configuration file directly.
+JSON configuration file (for example, `azacsnap.json`).  It's also possible to change this value by editing the configuration file directly.
 
 Refer to this partial snippet of the configuration file to see where this value is placed and the correct format:
 
@@ -554,7 +554,7 @@ Refer to this partial snippet of the configuration file to see where this value 
 > This section's content supplements [Configure Azure Application Consistent Snapshot tool](azacsnap-cmd-ref-configure.md) website page.
 
 Microsoft provides a number of storage options for deploying databases such as SAP HANA.  Many of these are detailed on the 
-[Azure Storage types for SAP workload](/azure/virtual-machines/workloads/sap/planning-guide-storage) web page.  Additionally there is a 
+[Azure Storage types for SAP workload](/azure/virtual-machines/workloads/sap/planning-guide-storage) web page.  Additionally there's a 
 [Cost conscious solution with Azure premium storage](/azure/virtual-machines/workloads/sap/hana-vm-operations-storage#cost-conscious-solution-with-azure-premium-storage).  
 
 AzAcSnap is able to take application consistent database snapshots when deployed on this type of architecture (that is, a VM with Managed Disks).  However, the setup 
@@ -564,17 +564,22 @@ Disks in the mounted Logical Volume(s).
 > [!IMPORTANT]
 > The Linux system must have `xfs_freeze` available to block disk I/O.
 
+> [!CAUTION]
+> Take extra care to configure AzAcSnap with the correct mountpoints (filesystems).  `xfs_freeze` blocks I/O to the device ID as provided by the mount-point.  
+> If the mount-point provided in the configuration file is incorrect **`xfs_freeze` could block I/O to the root (/) filesystem and hang the entire system.** 
+> A future release of AzAcSnap will provide improved protection against this likelihood. 
+
 Architecture at a high level:
-1. Azure Managed Disks attached to the VM using the Azure portal
+1. Azure Managed Disks attached to the VM using the Azure portal.
 1. Logical Volume is created from these Managed Disks.
 1. Logical Volume mounted to a Linux directory.
 1. Service Principal should be created in the same way as for Azure NetApp Files in [AzAcSnap installation](azacsnap-installation.md?tabs=azure-netapp-files%2Csap-hana#enable-communication-with-storage).
-1. Install and Configure AzAcSnap
+1. Install and Configure AzAcSnap.
    > [!NOTE]
    > The configurator has a new option to define the mountpoint for the Logical Volume.  This parameter gets passed to `xfs_freeze` to block the I/O (this 
    > happens after the database is put into backup mode).  After the I/O cache has been flushed (dependent on Linux kernel parameter `fs.xfs.xfssyncd_centisecs`).  
 1. Install and Configure `xfs_freeze` to be run as a non-privileged user: 
-   1. Create an executable file called $HOME/bin/xfs_freeze with the following content
+   1. Create an executable file called $HOME/bin/xfs_freeze with the following content.
    
       ```bash
       #!/bin/sh
@@ -597,7 +602,7 @@ Architecture at a high level:
    1. Test the azacsnap user can freeze and unfreeze I/O to the target mountpoint by running the following as the azacsnap user.
    
       > [!NOTE]
-      > In this example we run each command twice to show it worked the first time as there is no command to confirm if `xfs_freeze` has frozen I/O.
+      > In this example we run each command twice to show it worked the first time as there's no command to confirm if `xfs_freeze` has frozen I/O.
   
       Freeze I/O.
   
@@ -625,7 +630,7 @@ Architecture at a high level:
 
 ### Example configuration file
 
-Here is an example config file, note the hierarchy for the dataVolume, mountpoint, azureManagedDisks:
+Here's an example config file, note the hierarchy for the dataVolume, mountpoint, azureManagedDisks:
 
 ```output
 {
@@ -768,7 +773,7 @@ Although `azacsnap` is currently missing the `-c restore` option for Azure Manag
 1.	Connect the disks to the VM via the Azure portal.
 1.	Log in to the VM as the `root` user and scan for the newly attached disks using dmesg or pvscan:
     
-    1. Using `dmesg`
+    1. Using `dmesg`:
     
        ```bash
        dmesg | tail -n30
@@ -793,7 +798,7 @@ Although `azacsnap` is currently missing the `-c restore` option for Azure Manag
        [2510054.627310] sd 5:0:0:3: [sdf] Attached SCSI disk
        ```
     
-    1. Using `pvscan`
+    1. Using `pvscan`:
     
        ```bash
        saphana:~ # pvscan
@@ -847,7 +852,7 @@ Although `azacsnap` is currently missing the `-c restore` option for Azure Manag
     1 logical volume(s) in volume group "hanadata_adhoc" now active
     ```
     
-1.	Mount the logical volume as the `root` user.
+1.	Mount the logical volume as the `root` user:
 
     > [!IMPORTANT]
     > Use the `mount -o rw,nouuid` options, otherwise volume mounting will fail due to duplicate UUIDs on the VM.
@@ -856,7 +861,7 @@ Although `azacsnap` is currently missing the `-c restore` option for Azure Manag
     mount -o rw,nouuid /dev/hanadata_adhoc/hanadata /mnt/hanadata_adhoc
     ```
 
-1.	Then access the data 
+1.	Then access the data:
 
     ```bash
     ls /mnt/hanadata_adhoc/
@@ -892,10 +897,10 @@ The following list of environment variables is generated by `azacsnap` and passe
 - `$azPrefix` = the --prefix value.
 - `$azRetention` = the --retention value.
 - `$azSid` = the --dbsid value.
-- `$azSnapshotName` = the snapshot name generated by azacsnap
+- `$azSnapshotName` = the snapshot name generated by azacsnap.
 
 > [!NOTE]
-> There is only a value for `$azSnapshotName` in the `--runafter` option.
+> There's only a value for `$azSnapshotName` in the `--runafter` option.
 
 ### Example usage
 
@@ -910,7 +915,7 @@ The following crontab entry is a single line and runs `azacsnap` at five past mi
 This example shell script has a special stanza at the end to prevent AzAcSnap from killing the external command due to the timeout described earlier.  This allows for 
 a long running command, such as uploading large files with azcopy, to be run without being prematurely stopped. 
 
-The snapshots need to be mounted on the system doing the copy, with at a minimum read-only privileges.  The base location of the mount point for the snapshots should
+The snapshots need to be mounted on the system doing the copy, with at a minimum read-only privilege.  The base location of the mount point for the snapshots should
 be provided to the `sourceDir` variable in the script.
 
 ```bash
