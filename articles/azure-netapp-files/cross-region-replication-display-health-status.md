@@ -62,7 +62,7 @@ Follow the following steps to create [alert rules in Azure Monitor](../azure-mon
     * Set **Aggregation type** to `Average`. 
     * Set **Threshold** value to `0`.
     * Set **Unit** to `Count`.
-8.	To check if the replication is_healthy_: 
+8.	To check if the replication is _healthy_: 
     * Set **Operator** to `Greater than or equal to`.
     * Set **Aggregation** type to `Average`.
     * Set **Threshold** value to `1`. 
