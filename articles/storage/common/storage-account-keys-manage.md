@@ -265,7 +265,7 @@ Follow these steps to assign the built-in policy to the appropriate scope in the
 1. On the **Basics** tab of the **Assign policy** page, in the **Scope** section, specify the scope for the policy assignment. Select the **More** button to choose the subscription and optional resource group.
 1. For the **Policy definition** field, select the **More** button, and enter *storage account keys* in the **Search** field. Select the policy definition named **Storage account keys should not be expired**.
 
-    :::image type="content" source="media/storage-account-keys-manage/policy-definition-select-portal.png" alt-text="Screenshot showing how to select the built-in policy to monitor key expiration for your storage accounts":::
+    :::image type="content" source="media/storage-account-keys-manage/policy-definition-select-portal.png" alt-text="Screenshot showing how to select the built-in policy to monitor key rotation intervals for your storage accounts":::
 
 1. Select **Review + create** to assign the policy definition to the specified scope.
 
