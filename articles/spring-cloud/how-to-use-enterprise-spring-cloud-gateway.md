@@ -37,12 +37,12 @@ Default resource usage:
 
 ## Prerequisites
 
-- An already provisioned Azure Spring Cloud Enterprise tier service instance. For more information, see [Get started with Enterprise Tier](./get-started-enterprise.md)
-- Spring Cloud Gateway installed and enabled. For more information, see [Installing Spring Cloud Gateway for VMware Tanzu](https://docs.vmware.com/Spring-Cloud-Gateway-for-VMware-Tanzu/1.1/spring-cloud-gateway/GUID-installing.html)
+- An already provisioned Azure Spring Cloud Enterprise tier service instance. For more information, see [Quickstart: Build and deploy apps to Azure Spring Cloud using the Enterprise tier](quickstart-deploy-apps-enterprise.md)
 - [Azure CLI version 2.0.67 or later](/cli/azure/install-azure-cli).
+- Spring Cloud Gateway installed and enabled. For more information, see [Installing Spring Cloud Gateway for VMware Tanzu](https://docs.vmware.com/Spring-Cloud-Gateway-for-VMware-Tanzu/1.1/spring-cloud-gateway/GUID-installing.html)
 
-> [!NOTE]
-> To use Spring Cloud Gateway, you must enable it when you provision your Azure Spring Cloud service instance. You cannot enable it after provisioning at this time.
+   > [!NOTE]
+   > To use Spring Cloud Gateway, you must enable it when you provision your Azure Spring Cloud service instance. You cannot enable it after provisioning at this time.
 
 ## Configure Spring Cloud Gateway
 

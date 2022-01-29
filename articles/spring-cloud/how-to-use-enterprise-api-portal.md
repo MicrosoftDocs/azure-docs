@@ -16,7 +16,7 @@ ms.custom: devx-track-java, devx-track-azurecli
 
 This article shows you how to use the API portal with Azure Spring Cloud Enterprise Tier.
 
-[API portal](https://docs.vmware.com/en/API-portal-for-VMware-Tanzu/1.0/api-portal/GUID-index.html) is one of the proprietary VMware Tanzu components. The API portal supports viewing API definitions from [Spring Cloud Gateway](./how-to-use-enterprise-spring-cloud-gateway.md) and testing of specific API routes from the browser. It also supports enabling Single Sign-On authentication via configuration.
+[API portal](https://docs.vmware.com/en/API-portal-for-VMware-Tanzu/1.0/api-portal/GUID-index.html) is one of the proprietary VMware Tanzu components. API portal supports viewing API definitions from [Spring Cloud Gateway](./how-to-use-enterprise-spring-cloud-gateway.md) and testing of specific API routes from the browser. It also supports enabling Single Sign-On authentication via configuration.
 
 ## Prerequisites
 
@@ -27,7 +27,10 @@ This article shows you how to use the API portal with Azure Spring Cloud Enterpr
 
 ### Configure single sign-on (SSO)
 
-The API portal supports authentication and authorization using single sign-on (SSO) with an OpenID identity provider (IdP) which supports OpenID Connect Discovery protocol.
+The API portal supports authentication and authorization using single sign-on (SSO) with an OpenID identity provider (IdP) that supports the OpenID Connect Discovery protocol.
+
+> [!NOTE]
+> Only authorization servers supporting the OpenID Connect Discovery protocol are supported. Be sure to configure the external authorization server to allow redirects back to the gateway. Refer to your authorization server's documentation and add `https://<gateway-external-url>/login/oauth2/code/sso` to the list of allowed redirect URIs.
 
 | Property | Required? | Description |
 | - | - | - |
@@ -36,13 +39,11 @@ The API portal supports authentication and authorization using single sign-on (S
 | clientSecret | Yes | The OpenID Connect client secret provided by your IdP |
 | scope | Yes | A list of scopes to include in JWT identity tokens. This list should be based on the scopes allowed by your identity provider |
 
-> Note that only authorization servers supporting OpenID Connect Discovery protocol are supported.
-Also configure the external authorization server to allow redirects back to the gateway. Refer to your authorization server's documentation and add `https://<gateway-external-url>/login/oauth2/code/sso` to the list of allowed redirect URIs.
-
 > [!NOTE]
 > If you configure the wrong SSO property, such as the wrong password, you should remove the entire SSO property and re-add the correct configuration.
 
-> Important: If you are using the SSO feature, only one instance count is supported.
+> [!IMPORTANT]
+> If you're using the SSO feature, only one instance count is supported.
 
 ### Configure the instance count
 
@@ -60,7 +61,7 @@ To access the API portal, use the following steps to assign a public endpoint:
 
 1. Save the URL for use later.
 
-You can also use the CLI to assign a public endpoint with the following command:
+You can also use the Azure CLI to assign a public endpoint with the following command:
 
 ```azurecli
 az spring-cloud api-portal update --assign-endpoint
@@ -71,7 +72,7 @@ az spring-cloud api-portal update --assign-endpoint
 > [!NOTE]
 > It takes several minutes to sync between Spring Cloud Gateway and the API portal.
 
-Select the `endpoint URL` to go to API portal. You will see all the routes configured in Spring Cloud Gateway.
+Select the `endpoint URL` to go to API portal. You'll see all the routes configured in Spring Cloud Gateway.
 
 :::image type="content" source="media/enterprise/getting-started-enterprise/api-portal.png" alt-text="Screenshot of the API portal showing configured routes.":::
 

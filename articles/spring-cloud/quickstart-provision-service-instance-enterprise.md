@@ -79,14 +79,14 @@ It takes about 5 minutes to finish the resource provisioning.
    az account set --subscription <subscription-ID>
    ```
 
-1. Use the following command to accept term to agree to all legal terms and privacy statements of the Enterprise tier if the Azure Subscription never hosts Azure Spring Cloud Enterprise instance.
+1. Use the following command to accept the legal terms and privacy statements for the Enterprise tier. This step is necessary only if your subscription has never been used to create an Enterprise tier instance of Azure Spring Cloud.
 
    ```azurecli
    az provider register --namespace Microsoft.SaaS
    az term accept --publisher vmware-inc --product azure-spring-cloud-vmware-tanzu-2 --plan tanzu-asc-ent-mtr
    ```
 
-1. Prepare a name for your Azure Spring Cloud service. The name must be between 4 and 32 characters long and can contain only lowercase letters, numbers, and hyphens. The first character of the service name must be a letter and the last character must be either a letter or a number.
+1. Prepare a name for your Azure Spring Cloud service instance. The name must be between 4 and 32 characters long and can contain only lowercase letters, numbers, and hyphens. The first character of the service name must be a letter and the last character must be either a letter or a number.
 
 1. Create a resource group and an Azure Spring Cloud service instance using the following the command:
 
