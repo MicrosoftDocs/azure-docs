@@ -6,11 +6,11 @@ author: ginalee-dotcom
 ms.custom: references_regions
 ms.service: healthcare-apis
 ms.topic: reference
-ms.date: 01/14/2022
+ms.date: 01/28/2022
 ms.author: ginle
 ---
 
-# Frequently asked questions about Azure Healthcare APIs (preview)
+# Frequently asked questions about Azure Healthcare APIs
 
 These are some of the frequently asked questions for the Azure Healthcare APIs.
 
