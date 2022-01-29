@@ -233,7 +233,7 @@ A: Yes, Azure Hybrid Benefit on virtual machine scale sets for RHEL and SLES is 
 
 *Q: Can I use Azure Hybrid Benefit on reserved instances for RHEL and SLES?*
 
-A: AHB can be used with reserved instances for Pay-as-you-Go RHEL and SLES. It cannot be used with pre-paid annualized RHEL or SLES subscriptions.
+A: AHB can be used with reserved instances for Pay-as-you-Go RHEL and SLES. It cannot be used with pre-paid annualized RHEL or SLES subscriptions purchased through Azure.
 
 *Q: Can I use Azure Hybrid Benefit on a virtual machine deployed for SQL Server on RHEL images?*
 
