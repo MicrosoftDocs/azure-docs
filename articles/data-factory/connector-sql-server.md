@@ -752,7 +752,9 @@ When you copy data from/to SQL Server with [Always Encrypted](/sql/relational-da
 >1. Either source or sink data stores is using managed identity or service principal as key provider authentication type.
 >2. Both source and sink data stores are using managed identity as key provider authentication type.
 >3. Both source and sink data stores are using the same service principal as key provider authentication type.
->4. Currently, SQL Server Always Encrypted is only supported for source transformation in mapping data flows.
+
+>[!NOTE]
+>Currently, SQL Server [**Always Encrypted**](/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-ver15&preserve-view=true) is only supported for source transformation in mapping data flows.
 
 ## Troubleshoot connection issues
 
