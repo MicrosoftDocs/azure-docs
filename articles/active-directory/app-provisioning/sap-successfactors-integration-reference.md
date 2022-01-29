@@ -296,6 +296,20 @@ The SuccessFactors connector supports expansion of the position object. To expan
 | positionNameFR | $.employmentNav.results[0].jobInfoNav.results[0].positionNav.externalName_fr_FR |
 | positionNameDE | $.employmentNav.results[0].jobInfoNav.results[0].positionNav.externalName_de_DE |
 
+### Provisioning users in the Onboarding module
+Inbound user provisioning from SAP SuccessFactors to on-premises Active Directory and Azure AD now supports advance provisioning of pre-hires present in the SAP SuccessFactors Onboarding 2.0 module. Upon encountering a new hire profile with future start date, the Azure AD provisioning service queries SAP SuccessFactors to get new hires with one of the following status codes: `active`, `inactive`, `active_external`. The status code `active_external` corresponds to pre-hires present in the SAP SuccessFactors Onboarding 2.0 module. For a description of these status codes, refer to [SAP support note 2736579](https://launchpad.support.sap.com/#/notes/0002736579).
+
+The default behavior of the provisioning service is to process pre-hires in the Onboarding module. 
+
+If you want to exclude processing of pre-hires in the Onboarding module, update your provisioning job configuration as follows: 
+1. Open the attribute-mapping blade of your SuccessFactors provisioning app.
+1. Under show advanced options, edit the SuccessFactors attribute list to add a new attribute called `userStatus`.
+1. Set the JSONPath API expression for this attribute as: `$.employmentNav.results[0].userNav.status`
+1. Save the schema to return back to the attribute mapping blade. 
+1. Edit the Source Object scope to apply a scoping filter `userStatus NOT EQUALS active_external`
+1. Save the mapping and validate that the scoping filter works using provisioning on demand. 
+
+
 ## Writeback scenarios
 
 This section covers different write-back scenarios. It recommends configuration approaches based on how email and phone number is setup in SuccessFactors.

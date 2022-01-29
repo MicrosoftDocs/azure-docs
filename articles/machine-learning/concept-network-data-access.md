@@ -56,6 +56,17 @@ The following diagram shows the general flow of a data access call. In this exam
 
 :::image type="content" source="./media/concept-network-data-access/data-access-flow.svg" alt-text="Diagram of the logic flow when accessing data":::
 
+### Scenarios and identities
+
+The following table lists what identities should be used for specific scenarios:
+
+| Scenario | Use workspace</br>Managed Service Identity (MSI) | Identity to use |
+|--|--|--|
+| Access from UI | Yes | Workspace MSI |
+| Access from UI | No | User's Identity |
+| Access from Job | Yes/No | Compute MSI |
+| Access from Notebook | Yes/No | User's identity |
+
 ## Azure Storage Account
 
 When using an Azure Storage Account from Azure Machine Learning studio, you must add the managed identity of the workspace to the following Azure RBAC roles for the storage account:
