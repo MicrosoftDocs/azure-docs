@@ -93,7 +93,7 @@ The following are some scenarios where you can use alerts:
 
 * When the keys of an Azure Cosmos account are updated.
 * When the data or index usage of a container, database, or a region exceeds a certain number of bytes.
-* When the storage for a logical partition key is reaching the Azure Cosmos DB 20 GB logical partition storage limit.
+* [When the storage for a logical partition key is reaching the Azure Cosmos DB 20 GB logical partition storage limit.](how-to-alert-on-logical-partition-key-storage-size.md)
 * When the normalized RU/s consumption is greater than certain percentage. The normalized RU consumption metric gives the maximum throughput utilization within a replica set. To learn, see the [How to monitor normalized RU/s](monitor-normalized-request-units.md) article.  
 * When a region is added, removed, or if it goes offline.
 * When a database or a container is created, deleted, or updated.
