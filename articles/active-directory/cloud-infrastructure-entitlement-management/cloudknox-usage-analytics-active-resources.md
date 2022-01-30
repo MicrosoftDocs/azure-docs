@@ -1,5 +1,5 @@
 ---
-title: Microsoft CloudKnox Permissions Management - View usage analytics about active resources
+title: Microsoft CloudKnox Permissions Management - View analytic information about active resources
 description: How to view usage analytics about active resources in Microsoft CloudKnox Permissions Management.
 services: active-directory
 author: Yvonne-deQ
@@ -8,148 +8,116 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/17/2022
+ms.date: 01/28/2022
 ms.author: v-ydequadros
 ---
 
-# View usage analytics about active resources
+# View analytic information about active resources
 
-The **Usage Analytics** feature in Microsoft CloudKnox Permissions Management (CloudKnox) contains details about identities, resources, and tasks that you can use make informed decisions about granting privileges, and reducing risk on unused privileges.
+The **Usage Analytics** dashboard in Microsoft CloudKnox Permissions Management (CloudKnox) provides details about identities, resources, and tasks that you can use make informed decisions about granting permissions, and reducing risk on unused permissions.
 
-- **Users**: Tracks assigned privileges and usage of various identities.
-- **Groups**: Tracks assigned privileges and usage of the group and the group members.
-- **Active Resources**: Tracks resources that have been used in the last 90 days.
-- **Active Tasks**: Tracks tasks that have been performed in the last 90 days.
-- **Access Keys**: Tracks the privilege usage of access keys for a given user.
-- **Serverless Functions**: Tracks assigned privileges and usage of the serverless functions.
+- **Users**: Tracks assigned permissions and usage of various identities.
+- **Groups**: Tracks assigned permissions and usage of the group and the group members.
+- **Active resources**: Tracks active resources (used in the last 90 days).
+- **Active tasks**: Tracks active tasks (performed in the last 90 days).
+- **Access keys**: Tracks the permission usage of access keys for a given user.
+- **Serverless functions**: Tracks assigned permissions and usage of the serverless functions.
 
-The Microsoft CloudKnox Permissions Management **Usage Analytics** dashboard allows system administrators to collect, analyze, report on, and visualize data about all identity types.
+The **Usage Analytics** dashboard allows system administrators to collect, analyze, report on, and visualize data about all identity types.
 
-This topic describes how to view usage analytics about active resources.
+This article describes how to view usage analytics about active resources.
 
-## View information on the Active Resources dashboard
+## Create a query to view active tasks
 
-The **Active Resources** dashboard provides a high-level overview of resource details. On the main **Usage Analytics** page, select **Active Resources** from the  drop-down list across the top of the screen. The following components make up the **Active Resources** dashboard:
+- On the main **Usage Analytics** dashboard, select **Active resources** from the  drop-down list at the top of the screen. 
 
-- **Users**: This section  displays the total number of users, inactive and active users based on the authorization system selected. For more information, see Apply filters for users.
-    <!---Add link.--->
-- **Tasks**: This section  displays the number of tasks granted to a user, and the total number of unexecuted and executed tasks based on the authorization system selected. For more information, see Apply filters to tasks.
-    <!---Add link.--->
-- **Resources**: This section  displays how many resources have been accessed by users based on the authorization system selected. 
-     For more information, see Apply filters for resources.
-    <!---Add link.--->
-    The **Active Resources** table for each resource  displays the following information about its tasks, activity, and user privileges.
+The dashboard only lists tasks that are active. The following components make up the **Active resources** dashboard:
 
-- **Resource Name**: Provides the name of the resource.
-
-     - To view more details about the resource, select the resource name. For more information, see Use the Resource Explorer.
-     <!---Add link.--->
-
-     - To display the resource ID, hover over the resource name. Two resources may potentially have the same name, but different IDs.
-
-- **Account**: Displays the account name the resource belongs to.
-- **Resource Type**: Displays the type of resource, that is, Key (encryption key) or bucket (storage).
-- **No. of Times Users Accessed**: Provides the number of times a user has accessed a particular resource.
-- **Tasks**: Displays how many tasks are assigned to a particular user. This information is organized into the following columns:
-    - **Granted**: Captures the number of tasks that have been granted to the user directly, granted to the user if part of a group, or granted based on the role type the user can assume.
-    - **Executed**: Displays how many of the granted tasks the user has executed.
-- **No. of Users**: Displays how many users can access the resource, and is broken into the following columns:
-    - **Access with**: Captures the number of users that have access to the resource.
-    - **Accessed**: Displays how many users have accessed the resource.
-
-     - To view more information about the resource, select the resource name. For more information, see Use the Resource Explorer.
-     <!---Add link.--->
-
-     - To display the resource ID, hover over the resource name. Two resources may potentially have the same name, but different IDs.
-
-- **Account** - Displays the account name the resource belongs to.
-- **Resource Type** - Displays the type of resource. For example, Key (encryption key) or bucket (storage).
-- **No. of Times Users Accessed** - Provides the number of times a user has accessed a particular resource.
-- **Tasks** - Displays how many tasks are assigned to a particular user. This information is organized into the following columns:
-    - **Granted** - Captures the number of tasks that have been granted to the user directly, granted to the user if part of a group, or granted based on the role type the user can assume.
-    - **Executed** - Displays how many of the granted tasks the user has executed.
-- **No. of Users** - Displays how many users can access the resource, and is broken into the following columns:
-    - **Access with** - Captures the number of users that have access to the resource.
-    - **Accessed** - Displays how many users have accessed the resource.
-
-## Apply filters for active resources
-
-There are many filter options within the **Active Resources** screen, including filters by **Authorization System**, filters by **Tasks** and filters by **Resource Type**. You can apply filters in one, two, or all three categories; depending on the type of information you want. 
-
-- **Filtering by Authorization Systems**
-    1. To expand the **Authorization systems** menu, on the left of the page, select the **Lock** icon. Then select all applicable systems. 
-
-         The default filter is the first authorization system in the filter list if you haven't used filters before, or default to the last filtered selection. 
-
-        - To automatically select all options for a single authorization system, next to the authorization system name, select **Only**.
-
-    2. To filter by the selection, select **Apply**. 
-
-    3. To remove all filters, select **X**.
-
-- **Filtering by Tasks**
-
-    You can filter user details by the tasks they perform.
-
-    1. Select the applicable option to filter by task:
-        - **All**: Filters by all existing tasks a user can perform.
-        - **High Risk Tasks**: Filters tasks by high risk, which includes modifying and deleting content.
-    2. To filter users who have delete task privileges, under **High Risk Tasks**, select **Delete**.
-    3. To filter by the selection, select **Apply**. 
-
-- **Filtering by Resource Type**
-
-     AWS is currently the only **Resource Type** available. 
-
-    1. In the **Search** box, select **Resource Type** and **Service**. Then select the appropriate boxes under the **Resource Type** column.
-    1. When a resource is selected, a symbol appears next to the icon. 
-
-        To expand the menu, select the down caret icon.
-       
-    1. More options under **Access Type** and **Encryptions Settings** appear:
-        - **Access Type** - Select **All**, **Public**, **Private**, **Restricted**, or **Other Accounts**.
-
-             - To view information about each option, hover over the information **(i)** icon.
-
-        - **Encryption Settings**: Select **All**, **Not Encrypted**, **SSE-S3**, or **KMS**.
-
-             There may be more resource types depending on the type of resource. For example, if you select **s3 bucket**, more **Access Type** options appear:  **All**, **Public**, **Private**, **Restricted**, and **Other Accounts**.
-
-    4. Click **Apply**.
-
-## Use predefined tags
-
-You can apply the following predefined tags in CloudKnox:
-
-- **ck_attest:**  Use this tag to confirm the group. When this tag is selected, the value is automatically filled in with the date and time of when the tag was applied and the user who applied the tag
-- **ck_exclude_from_reports:** Any group with this tag is excluded from the reports
-
-## View information on active resources in the Information pane
-
-1. Set the filters and select your Authorization System. Then select the icon at the end of the row to view more information about the active resource.
+- **Authorization system type** - Select the authorization you want to use: Amazon Web Services (AWS), Microsoft Azure, or Google Cloud Platform (GCP).
+- **Authorization system** - Select from a **List** of accounts and **Folders**.
+- **Tasks type** - Select **All** tasks, **High-risk tasks** or, for a list of tasks where users have deleted data, select **Delete tasks**.
+- **Service resource type** - Select the service resource type.
+- **Search** - Enter criteria to find specific tasks.
+- **Apply** - Select to display the criteria you've selected.
+- **Reset filter** - Select to discard your changes.
 
 
-    - The **Tasks**: **Used** section  displays tasks that were performed on the resource.
+## View the results of your query
 
-         The **Unused** section  displays that tasks weren't performed on the resource. The tasks are grouped by service and can be expanded to view the task, application, or service names.
+The **Active resources** table displays the results of your query.
 
-         You can move an action from **Used** to **Unused** if you haven't accessed that action for over 90 days.
+- **Resource Name**- Provides the name of the task. 
+    - To view details about the task, select the down arrow. 
+- **Account** - Provides the name of the account.
+- **Resources type** - The type of resources used, for example, **bucket** or **key**.
+- **Tasks** Displays the number of **Granted** and **Executed** tasks.
+- **Number of users**: The number of users with access and accessed.
+- Select the ellipses **(...)** and select **Tags** to add a tag.
 
-    You can perform the following actions in the **Tasks** section:
+## Add a tag to an active resource
 
-    - **Search**: Enter a specific action name to find if this action has been used or not.
-    - **All Tasks**: Use the **Tasks** drop-down to filter by **All Tasks**, **High-Risk Tasks**, or **Delete Tasks**.
-- **Users with Access**: Displays the names of users that have access to the resource, and is sorted into the following columns:
-    - **Not Accessed**: Displays the users who have access to the resource but haven't yet performed an action on the resource.
-    - **Accessed by Current Users**: Displays the users who have performed actions on the resource in the last 90 days.
-- **Accessed by Transient Users**: An identity that performed an operation on the resource but the identity no longer exists. This identity could have been given temporary access and is most commonly seen with virtual machines.
+1. Select the ellipses **(...)** and select **Tags**.
+1. From the **Select a tag** dropdown, select a tag.
+1. To create a custom tag select **New custom tag**, add a tag name, and then select **Create**.
+1. In the **Value (Optional)** box, enter a value.
+1. Select the ellipses **(...)** to select **Advanced save** options, and then select **Save**.
+1. To add the tag to the serverless function, select **Add tag**.
 
 
+## Apply filters to your query  
 
-<!---## Next steps--->
+There are many filter options within the **Active resources** screen, including filters by **Authorization system**, filters by **User** and filters by **Task**. 
+Filters can be applied in one, two, or all three categories depending on the type of information you're looking for. 
 
-<!---Add link: To track assigned privileges and usage of various identities, see [View usage analytics about users](https://azure/active-directory/cloud-infrastructure-entitlement-management/cloudknox-usage-analytics-users.html).--->
-<!---Add link. To track resources that have been used in the last 90 days, see [View usage analytics about active resources](https://azure/active-directory/cloud-infrastructure-entitlement-management/cloudknox-usage-analytics-active-resources.html).--->
-<!---Add link. To track tasks that have been performed in the last 90 days, see [View usage analytics about active tasks](https://azure/active-directory/cloud-infrastructure-entitlement-management/cloudknox-usage-analytics-active-tasks.html).--->
-<!---Add link. To track the privilege usage of access keys for a given user, see [View usage analytics about access keys](https://azure/active-directory/cloud-infrastructure-entitlement-management/cloudknox-usage-analytics-access-keys.html).--->
-<!---Add link. To track assigned privileges and usage of the serverless functions, see [View usage analytics about serverless functions](https://azure/active-directory/cloud-infrastructure-entitlement-management/cloudknox-usage-analytics-serverless-functions.html).--->
+### Apply filters by authorization system
+
+1. From the **Authorization system type** dropdown, select the authorization system you want to use: **AWS**, **Azure**, or **GCP**.
+1. Select **Apply** to run your query and display the information you selected.
+
+    Select **Reset filter** to discard your changes. 
+
+
+### Apply filters by authorization system type
+
+1. From the **Authorization system type** dropdown, select the authorization system you want to use: **AWS**, **Azure**, or **GCP**. 
+1. From the **Authorization system** dropdown, select from a **List** of accounts and **Folders**.
+1. From the **Tasks type** dropdown, select **All** tasks, **High-risk tasks** or, for a list of tasks where users have deleted data, select **Delete tasks**.
+1. Select **Apply** to run your query and display the information you selected.
+
+    Select **Reset filter** to discard your changes. 
+
+### Apply filters by task type
+
+You can filter user details by type of user, user role, app, or service used, or by resource.
+
+1. From the **Authorization system type** dropdown, select the authorization system you want to use: **AWS**, **Azure**, or **GCP**.
+1. From the **Authorization system** dropdown, select from a **List** of accounts and **Folders**.
+1. From the **Task type**, select the type of user: **All**, **User**, **Role/App/Service a/c**, or **Resource**.
+1. Select **Apply** to run your query and display the information you selected.
+
+    Select **Reset filter** to discard your changes.
+
+
+### Apply filters by service resource type
+
+You can filter user details by type of user, user role, app, or service used, or by resource.
+
+1. From the **Authorization system type** dropdown, select the authorization system you want to use: **AWS**, **Azure**, or **GCP**.
+1. From the **Authorization system** dropdown, select from a **List** of accounts and **Folders**.
+1. From the **Service Resource type**, select the type of service resource.
+1. Select **Apply** to run your query and display the information you selected.
+
+    Select **Reset filter** to discard your changes.
+
+## Export the results of your query
+
+- To view a report of the results of your query as a comma-separated values (CSV) file, select **Export**, and then select **CSV**. 
+
+
+## Next steps
+
+- To track active tasks, see [View usage analytics about active tasks](cloudknox-usage-analytics-active-tasks.md).
+- To track assigned permissions and usage of users, see [View usage analytics about users](cloudknox-usage-analytics-users.md).
+- To track assigned permissions and usage of the group and the group members, see [View usage analytics about groups](cloudknox-usage-analytics-groups.md).
+- To track the permission usage of access keys for a given user, see [View usage analytics about access keys](cloudknox-usage-analytics-access-keys.md).
+- To track assigned permissions and usage of the serverless functions, see [View usage analytics about serverless functions](cloudknox-usage-analytics-serverless-functions.md).

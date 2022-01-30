@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: overview
-ms.date: 01/17/2022
+ms.date: 01/28/2022
 ms.author: v-ydequadros
 ---
 
@@ -23,17 +23,17 @@ This topic provides an overview of the components of the **Usage Analytics** das
 
 The **Usage Analytics** dashboard provides details about:
 
-- **Users**: Tracks assigned privileges and usage of various identities. For more information, see View usage analytics about users.
+- **Users**: Tracks assigned privileges and usage of various identities. For more information, see View analytic information about users.
     <!---Add link--->
-- **Groups**: Tracks assigned privileges and usage of the group and the group members.  For more information, see View usage analytics about groups.
+- **Groups**: Tracks assigned privileges and usage of the group and the group members.  For more information, see View analytic information about groups.
     <!---Add link--->
-- **Active Resources**: Tracks resources that have been used in the last 90 days.  For more information, see View usage analytics about active resources.
+- **Active Resources**: Tracks resources that have been used in the last 90 days.  For more information, see View analytic information about active resources.
     <!---Add link--->
-- **Active Tasks**: Tracks tasks that have been completed in the last 90 days.  For more information, see View usage analytics about active tasks.
+- **Active Tasks**: Tracks tasks that have been completed in the last 90 days.  For more information, see View analytic information about active tasks.
     <!---Add link--->
-- **Access Keys**: Tracks the privilege usage of access keys for a given user.  For more information, see View usage analytics about access keys.
+- **Access Keys**: Tracks the privilege usage of access keys for a given user.  For more information, see View analytic information about access keys.
     <!---Add link--->
-- **Serverless Functions**: Tracks assigned privileges and usage of the serverless functions.  For more information, see View usage analytics about serverless functions.
+- **Serverless Functions**: Tracks assigned privileges and usage of the serverless functions.  For more information, see View analytic information about serverless functions.
     <!---Add link--->
 
 The **Usage Analytics** dashboard allows system administrators to easily access information they can use to:
@@ -143,7 +143,7 @@ When you select **Active Tasks** in the top toolbar, the results table displays 
 
 When you select **Access Keys** in the top toolbar, the results table displays the following information:
 
-- **Authorization System Type** - The selected authorization system (AWS, Azure, GCP, and so on).
+- **Authorization System Type** - The selected authorization system: Amazon Web Services (AWS), Microsoft Azure, or Google Cloud Platform (GCP).
 - **Authorization System** - Information about the lists and folders in the authorization system and its accounts.
 - **Key Status** - Select **All**, **Active**, or **Inactive**.
 - **Key Activity Status** - Select number of days used: **All**, **Used <90**, **Used <91-365**, **Used >365**, or **Unused**.

@@ -13,7 +13,7 @@ metadata:
   ms.subservice: ciem
   ms.workload: identity
   ms.topic: landing-page
-  ms.date: 01/13/2022
+  ms.date: 01/28/2022
   ms.author: v-ydequadros
   
   
@@ -52,13 +52,6 @@ landingContent:
           # - text: Use Microsoft CloudKnox Permissions Management Tasks
             # url: cloudknox-howto-generate-custom-reports.md
   # Card
-  - title: Use Microsoft CloudKnox Permissions Management dashboards
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: Use the CloudKnox Settings dashboard
-            url: cloudknox-ui-product-settings.md
-  # Card
   - title: Manage data with Microsoft CloudKnox Permissions Management
     linkLists:
       - linkListType: overview
@@ -86,13 +79,6 @@ landingContent:
         links:
           - text: Overview of CloudKnox system report types
             url: cloudknox-product-reports.md
-  # Card
-  - title: Standards compliance with Microsoft CloudKnox Permissions Management
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: Product compliance guidelines
-            url: cloudknox-product-compliance.md
   # Card
   # - title: Learn with Microsoft CloudKnox Permissions Management training materials
     # linkLists:

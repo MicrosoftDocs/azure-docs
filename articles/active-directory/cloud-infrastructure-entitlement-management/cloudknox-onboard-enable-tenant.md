@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/25/2022
+ms.date: 01/28/2022
 ms.author: v-ydequadros
 ---
 
@@ -26,7 +26,7 @@ This article describes how to enable Microsoft CloudKnox Permissions Management 
 To add CloudKnox to your Azure AD tenant, you must have:
 
 - An Azure AD user account. If you don't already have one, [Create a free account](https://azure.microsoft.com/free/).
-- A global administrator role
+- A global administrator role.
 
 ## Enable CloudKnox on your Azure AD tenant
 
@@ -68,9 +68,9 @@ To add CloudKnox to your Azure AD tenant, you must have:
 
     The tenant completes enabling CloudKnox on your tenant and launches the CloudKnox **Data collectors** settings page.
 
-    :::image type="content" source="media/cloudknox-onboard-enable-tenant/data-collectors-tab.png" alt-text="Data collectors settings page.":::
+    <!--- :::image type="content" source="media/cloudknox-onboard-enable-tenant/data-collectors-tab.png" alt-text="Data collectors settings page.":::--->
 
-    You use the **Data collectors** page to configure data collection settings for your authorization system. 
+    Use the **Data collectors** page to configure data collection settings for your authorization system. 
 
 1. In the CloudKnox **Data collectors** settings page, select the authorization system you want.
 
