@@ -4,7 +4,7 @@ description: This article describes new features in Microsoft Sentinel from the 
 author: batamig
 ms.author: bagol
 ms.topic: conceptual
-ms.date: 01/13/2022
+ms.date: 01/30/2022
 ms.custom: ignite-fall-2021
 ---
 
