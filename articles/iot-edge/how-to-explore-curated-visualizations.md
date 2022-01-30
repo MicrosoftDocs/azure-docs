@@ -53,7 +53,7 @@ By default, this view shows the health of devices associated with the current Io
 
 Use the **Settings** tab to adjust the various thresholds to categorize the device as Healthy or Unhealthy.
 
-Click on the **Details** button to see the device list with a snapshot of aggregated, primary metrics. Click the link in the **Status** column to view the trend of an individual device's health metrics or on the device name to view its detailed metrics.
+Click the **Details** button to see the device list with a snapshot of aggregated, primary metrics. Click the link in the **Status** column to view the trend of an individual device's health metrics or the device name to view its detailed metrics.
 
 ## Device details workbook
 
