@@ -34,7 +34,7 @@ namespace CosmosDBSamplesV2
 {
     public class ToDoItem
     {
-        public string Id { get; set; }
+        public string id { get; set; }
         public string Description { get; set; }
     }
 }
@@ -777,7 +777,7 @@ For information about those settings and other properties that you can configure
     [FunctionName("QueueToDocDB")]
     public static void Run(
         [QueueTrigger("myqueue-items", Connection = "AzureWebJobsStorage")] string myQueueItem,
-        [CosmosDB("ToDoList", "Items", Id = "id", ConnectionStringSetting = "myCosmosDB")] out dynamic document)
+        [CosmosDB("ToDoList", "Items", ConnectionStringSetting = "myCosmosDB")] out dynamic document)
     {
         ...
     }
@@ -851,7 +851,7 @@ For information about those settings and other properties that you can configure
     [FunctionName("QueueToDocDB")]
     public static void Run(
         [QueueTrigger("myqueue-items", Connection = "AzureWebJobsStorage")] string myQueueItem,
-        [CosmosDB("ToDoList", "Items", Id = "id", ConnectionStringSetting = "myCosmosDB")] out dynamic document)
+        [CosmosDB("ToDoList", "Items", ConnectionStringSetting = "myCosmosDB")] out dynamic document)
     {
         ...
     }
