@@ -6,7 +6,7 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to #Required; leave this attribute/value as-is.
-ms.date: 01/20/2022
+ms.date: 01/30/2022
 ms.custom: template-how-to #Required; leave this attribute/value as-is.
 ---
 
@@ -187,7 +187,7 @@ To create and run a new scan, do the following:
 
     1. **Warehouse**: Specify the name of the warehouse instance used to empower scan in capital case. The default role assigned to the user specified in the credential must have USAGE rights on this warehouse.
 
-    1. **Database**: Specify the name of the database instance to import in capital case. The default role assigned to the user specified in the credential must have adequate rights on the database objects.
+    1. **Databases**: Specify one or more database instance names to import in capital case. Separate the names in the list with a semi-colon (;).The default role assigned to the user specified in the credential must have adequate rights on the database objects.
 
     1. **Schema**: List subset of schemas to import expressed as a semicolon separated list. For example, `schema1; schema2`. All user schemas are imported if that list is empty. All system schemas and objects are ignored by default.
         
