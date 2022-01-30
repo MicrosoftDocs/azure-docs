@@ -4,7 +4,7 @@ description: This article tells what Azure Automation services are and how to us
 services: automation
 keywords: azure automation services, automanage, Bicep, Blueprints, Guest Config, Policy, Functions
 ms.date: 10/25/2021
-ms.topic: services overview
+ms.topic: overview
 ---
 
 # Automation services
