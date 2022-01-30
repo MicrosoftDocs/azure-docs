@@ -159,17 +159,17 @@ Yes. The Mobility agent for Linux support custom scripts for app-consistency. A 
 
 To understand how Site Recovery generates recovery points, let's use an example.
 
-- A replication policy retains recovery points for 1 day, and takes an app-consistent frequency snapshot every hour.
+- A replication policy retains recovery points for one day, and takes an app-consistent snapshot every hour.
 - Site Recovery creates a crash-consistent recovery point every five minutes. You can't change this frequency.
-- Site Recovery prunes recovery points after 2 hours, saving one point per hour.
+- Site Recovery prunes recovery points after two hours, saving one point per hour.
 
-So, for the last 2 hours, you can choose from 24 crash-consistent points, and two app-consistent points, as shown in the graphic.
+So, for the recent two hours, you can choose from 24 crash-consistent points, and two app-consistent points, as shown in the graphic.
 
    ![List of generated recovery points](./media/azure-to-azure-common-questions/recovery-points.png)
 
 ### How far back can I recover?
 
-The oldest recovery point that you can use is 15 days in case of Managed disk and 3 days in case of Unmanaged disk.
+The oldest recovery point that you can use is 15 days with Managed disk and 3 days with Unmanaged disk.
 
 ### How does the pruning of recovery points happen?
 
@@ -180,13 +180,13 @@ Crash-consistent recovery points are generated in every five minutes. App-consis
 |0 day|No recovery point saved. You can failover only to the latest point|
 |1 day|One recovery point saved per hour beyond the last two hours|
 |2 - 7 days|One recovery point saved per two hours beyond the last two hours|
-|8 - 15 days|One recovery point saved per two hours beyond the last two hours for 7 days. Post that, one recovery point saved per four hours.<p>App-consistent snapshots will also be pruned based on the duration mentioned above even if you had input lesser app-consistent snapshot frequency.|
+|8 - 15 days|One recovery point saved per two hours beyond the last two hours for 7 days. Post that, one recovery point saved per four hours.<p>App-consistent snapshots will also be pruned based on the duration mentioned above in the table even if you had input lesser app-consistent snapshot frequency.|
 
 
 
-### What happens if Site Recovery can't generate recovery points for more than 1 day?
+### What happens if Site Recovery can't generate recovery points for more than one day?
 
-If you have a replication policy of 1 day, and Site Recovery can't generate recovery points for more than 1 day, your old recovery points remain. Site Recovery only replaces the oldest point if it generates new points. Until there are new recovery points, all the old points remain after you reach the retention window.
+If you have a replication policy of one day, and Site Recovery can't generate recovery points for more than one day, your old recovery points remain. Site Recovery only replaces the oldest point if it generates new points. Until there are new recovery points, all the old points remain after you reach the retention window.
 
 ### Can I change the replication policy after replication is enabled?
 
@@ -198,7 +198,7 @@ The first recovery point that's generated has the complete copy. Successive reco
 
 ### Do increases in recovery point retention increase storage costs?
 
-Yes. For example, if you increase retention from 1 day to 3 days, Site Recovery saves recovery points for an additional 2 days.The added time incurs storage changes. Earlier, it was saving recovery points per hour for 1 day. Now, it is saving recovery points per two hours for 3 days. Refer [pruning of recovery points](#how-does-the-pruning-of-recovery-points-happen). So additional 12 recovery points are saved.  As an example only, if a single recovery point had delta changes of 10 GB, with a per-GB cost of $0.16 per month, then additional charges would be $1.60 × 12 per month.
+Yes. For example, if you increase retention from 1 day to 3 days, Site Recovery saves recovery points for an additional two days.The added time incurs storage changes. Earlier, it was saving recovery points per hour for 1 day. Now, it is saving recovery points per two hours for 3 days. Refer [pruning of recovery points](#how-does-the-pruning-of-recovery-points-happen). So additional 12 recovery points are saved.  As an example only, if a single recovery point had delta changes of 10 GB, with a per-GB cost of $0.16 per month, then additional charges would be $1.60 × 12 per month.
 
 ## Multi-VM consistency
 
