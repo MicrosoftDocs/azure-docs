@@ -35,7 +35,9 @@ To access the curated workbooks, use the following steps:
 1. Choose the workbook that you want to explore from the list of public templates:
 
   * **Fleet View**: Monitor your fleet of devices across multiple IoT Hubs or Central Apps, and drill into specific devices for a health snapshot.
+
   * **Device Details**: Visualize device details around messaging, modules, and host components on an IoT Edge device.
+
   * **Alerts**: View triggered [alerts](how-to-create-alerts.md) for devices across multiple IoT resources.
 
 Use the following sections to get a preview of the kind of data and visualizations that each workbook offers.
@@ -43,7 +45,7 @@ Use the following sections to get a preview of the kind of data and visualizatio
 >[!NOTE]
 > The screen captures that follow may not reflect the latest workbook design.
 
-## IoT Edge fleet view workbook
+## Fleet view workbook
 
 :::image type="content" source="./media/how-to-explore-curated-visualizations/how-to-explore-fleet-view.gif" alt-text="The devices section of the fleet view workbook." lightbox="./media/how-to-explore-curated-visualizations/how-to-explore-fleet-view.gif":::
 
@@ -51,9 +53,9 @@ By default, this view shows the health of devices associated with the current Io
 
 Use the **Settings** tab to adjust the various thresholds to categorize the device as Healthy or Unhealthy.
 
-Click on the **Details** button to see the device list with a snapshot of aggregated, primary metrics. For an individual device, click the link in the **Status** column the view the trend of the device's health metrics or on the device name to view its detailed metrics.
+Click on the **Details** button to see the device list with a snapshot of aggregated, primary metrics. Click the link in the **Status** column to view the trend of an individual device's health metrics or on the device name to view its detailed metrics.
 
-## IoT Edge device details workbook
+## Device details workbook
 
 The device details workbook has three views:
 
