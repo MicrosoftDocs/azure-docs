@@ -29,7 +29,7 @@ If you're looking for items older than six months, you'll find them in the [Arch
 
 ## January 2022
 
-- [MITRE ATT&CK support enhancements](#mitre-attck-support-enhancements)
+- [Support for MITRE ATT&CK techniques (Public preview)](#support-for-mitre-attck-techniques-public-preview)
 - [SentinelHealth data table (Public preview)](#sentinelhealth-data-table-public-preview)
 - [More workspaces supported for Multiple Workspace View](#more-workspaces-supported-for-multiple-workspace-view)
 - [Kusto Query Language workbook and tutorial](#kusto-query-language-workbook-and-tutorial)
