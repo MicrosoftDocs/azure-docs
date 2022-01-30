@@ -50,7 +50,7 @@ There are 11 different query parameters that you can configure individually or i
 
 1. In the **New Query** section, the default displayed is **DATE IN "Last Day"**.
 
-    The first-line item defaults to **Date**. This itemcan't be deleted.
+    The first-line item defaults to **Date**. This item can't be deleted.
 
 2. To edit date details, select **Edit**.
 
