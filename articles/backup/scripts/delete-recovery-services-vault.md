@@ -222,17 +222,17 @@ Remove-AzRecoveryServicesVault -Vault $VaultToDelete
 
 ```
 
-## How to execute the script
+## How to execute the script?
 
 1. Save the script on your machine with a name of your choice and _.ps1_ extension.
-1. To upgrade to the latest version of PowerShell 7 if not done, run the following command in your PowerShell window:
+1. To upgrade to the latest version of PowerShell 7, if not done, run the following command in the PowerShell window:
 
    ```azurepowershell-interactive
     iex "& { $(irm https://aka.ms/install-powershell.ps1) } -UseMSI"
    ```
 
 1. Launch PowerShell 7 as Administrator.
-1. Before you run the script for vault deletion, upgrade the _Az module_ to the latest version by running the following commands:
+1. Before you run the script for vault deletion, run the following command to upgrade the _Az module_ to the latest version:
 
    ```azurepowershell-interactive
     Uninstall-Module -Name Az.RecoveryServices
@@ -240,7 +240,7 @@ Remove-AzRecoveryServicesVault -Vault $VaultToDelete
     Install-Module -Name Az.RecoveryServices -Repository PSGallery -Force -AllowClobber
    ```
 
-1. In the PowerShell windpw, change the path to the location the file is present, and then run the file using "./NameOfFile.ps1".
+1. In the PowerShell windpw, change the path to the location the file is present, and then run the file using **./NameOfFile.ps1**.
 1. Provide authentication via browser by signing into your Azure account.
 
 The script will continue to delete all the backup items and ultimately the entire vault recursively.

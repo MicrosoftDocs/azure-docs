@@ -351,7 +351,7 @@ To delete delete all the backup items and ultimately the entire vault recursivel
        [<CommonParameters>]
     ```
 
-    [Learn more](/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupprotection) about disables protection for a Backup-protected item.
+    [Learn more](/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupprotection) about disabling protection for a Backup-protected item.
 
 After deleting the backed-up data, unregister any on-premises containers and management servers.
 
@@ -476,5 +476,5 @@ For more information on the ARMClient command, see [ARMClient README](https://gi
 
 ## Next steps
 
-- [Learn about Recovery Services vaults](backup-azure-recovery-services-vault-overview.md)
-- [Learn about monitoring and managing Recovery Services vaults](backup-azure-manage-windows-server.md)
+- [Learn about Recovery Services vaults](backup-azure-recovery-services-vault-overview.md).
+- [Learn about monitoring and managing Recovery Services vaults](backup-azure-manage-windows-server.md).
