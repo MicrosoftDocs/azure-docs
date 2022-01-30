@@ -4,6 +4,8 @@
   items:
   - name: What is Automation?
     href: overview.md
+  - name: What are Automation services?
+    href: automation-services.md
   - name: FAQ
     href: automation-faq.md
   - name: What's new?
