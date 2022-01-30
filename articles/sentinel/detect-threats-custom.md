@@ -37,9 +37,9 @@ Analytics rules search for specific events or sets of events across your environ
 
 - Provide a unique **Name** and a **Description**.
 
-- In the **Tactics and techniques** field, you can choose from among categories of attacks by which to classify the rule. These are based on the tactics of the [MITRE ATT&CK](https://attack.mitre.org/) framework.
+- In the **Tactics and techniques** field, you can choose from among categories of attacks by which to classify the rule. These are based on the tactics and techniques of the [MITRE ATT&CK](https://attack.mitre.org/) framework.
 
-    [Incidents](investigate-cases.md) created from alerts that are detected by rules that are mapped to MITRE ATT&CK techniques automatically inherit the query's MITRE ATT&CK technique and entity mappings.
+    [Incidents](investigate-cases.md) created from alerts that are detected by rules mapped to MITRE ATT&CK tactics and techniques automatically inherit the rule's mapping.
 
 - Set the alert **Severity** as appropriate.
 

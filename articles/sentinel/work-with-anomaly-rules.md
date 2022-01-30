@@ -3,7 +3,7 @@ title: Work with anomaly detection analytics rules in Microsoft Sentinel | Micro
 description: This article explains how to view, create, manage, assess, and fine-tune anomaly detection analytics rules in Microsoft Sentinel.
 author: yelevin
 ms.topic: how-to
-ms.date: 11/09/2021
+ms.date: 01/30/2022
 ms.author: yelevin
 ms.custom: ignite-fall-2021
 ---
@@ -40,7 +40,7 @@ When you select one of the rule templates, you will see the following informatio
 
 - **Data sources** indicates the type of logs that need to be ingested in order to be analyzed.
 
-- **Tactics** are the MITRE ATT&CK framework tactics covered by the anomaly.
+- **Tactics and techniques** are the MITRE ATT&CK framework tactics and techniques covered by the anomaly.
 
 - **Parameters** are the configurable attributes for the anomaly.
 
