@@ -18,12 +18,13 @@ You will perform the following tasks during this lab:
 > [!div class="checklist"]
 > * Deploy the Control Plane (Deployer Infrastructure & Library)
 > * Deploy the Workload Zone (Landscape, System)
-> * Download the SAP software
-> * Configure standard and SAP-specific OS settings
-> * Install HANA DB
+> * Deploy the SAP Infrastructure
+> * Install HANA Database
 > * Install SCS server
-> * Load HANA DB
+> * Load HANA Database
 > * Install Primary Application Server
+> * Download the SAP software
+> * Install SAP
 
 ## Prerequisites
 
@@ -48,7 +49,7 @@ These steps reference and use the [default naming convention](automation-naming.
 - The SAP workload zone has the environment name `DEV` and is in the same region as the control plane using the virtual network `SAP01`, leading to the SAP workload zone configuration name: `DEV-WEEU-SAP01-INFRASTRUCTURE`
 - The SAP System with SID `X00` will be installed in this SAP workload zone. This leads to the configuration name for the SAP System: `DEV-WEEU-SAP01-X00`
 
-| Artifact type | Name                            | Location        |
+| Artifact type | Configuration name              | Location        |
 | ------------- | ------------------------------- | --------------- |
 | Control Plane | MGMT-WEEU-DEP00-INFRASTRUCTURE  | westeurope      |
 | Workload Zone | DEP-WEEU-SAP01-INFRASTRUCTURE   | westeurope      |
@@ -68,14 +69,16 @@ The deployed infrastructure is shown in the diagram below.
 
 ## Deploying the Control Plane
 
-The deployment will use the configuration defined in the Terraform variable files located in the 'samples/WORKSPACES/DEPLOYER/MGMT-WEEU-DEP00-INFRASTRUCTURE' and 'samples/WORKSPACES/LIBRARY/MGMT-WEEU-SAP_LIBRARY' folders.
+The deployment will use the configuration defined in the Terraform variable files located in the 'samples/WORKSPACES/DEPLOYER/MGMT-WEEU-DEP00-INFRASTRUCTURE' and 'samples/WORKSPACES/LIBRARY/MGMT-WEEU-SAP_LIBRARY' folders. 
+
+Update the 'Deployment_Configuration_Path' variable in the 'SDAF-General' variable group to 'samples/WORKSPACES'
 
 Run the pipeline by navigating to the Pipelines section in the [Azure DevOps Portal](https://dev.azure.com) and selecting the _Deploy control plane_ pipeline. Run the pipeline and when prompted enter the following values:
 
 Deployer configuration name: MGMT-WEEU-DEP00-INFRASTRUCTURE
 SAP Library configuration name: MGMT-WEEU-SAP_LIBRARY
 
- :::image type="content" source="media/automation-devops/automation-run-pipeline.png" alt-text="DevOps tutorial, run pipeline dialog":::
+:::image type="content" source="media/automation-devops/automation-run-pipeline.png" alt-text="DevOps tutorial, run pipeline dialog":::
 
 You can track the progress in the Azure DevOps portal. Once the deployment is complete you can see the Control Plane details in the _Extensions_ tab.
 
@@ -106,9 +109,9 @@ You can track the progress in the Azure DevOps portal. Once the deployment is co
 
 Run the pipeline by navigating to the Pipelines section in the [Azure DevOps Portal](https://dev.azure.com) and selecting the _SAP software acquisition_ pipeline. Run the pipeline and when prompted enter the following values:
 
-Name of Bill of Materials (BoM): S41909SPS03_v0009ms
+Name of Bill of Materials (BoM): S41909SPS03_v0010ms
 Control Plane Environment name: MGMT
-Control Plane Environment name: WEEU
+Control Plane (SAP Library) location code: WEEU
 
 You can track the progress in the Azure DevOps portal. 
 
@@ -117,10 +120,8 @@ You can track the progress in the Azure DevOps portal.
 Run the pipeline by navigating to the Pipelines section in the [Azure DevOps Portal](https://dev.azure.com) and selecting the _Configuration and SAP installation_ pipeline. Run the pipeline and when prompted enter the following values:
 
 SAP System configuration name: DEV-WEEU-SAP01-X00
-Bill of Materials name: S41909SPS03_v0009ms
+Bill of Materials name: S41909SPS03_v0010ms
 SAP Fully Qualified Domain Name: sap.contoso.net
-
-In the variables section choose the agent pool for the region: MGMT-WEEU-POOL.
 
 Choose the playbooks to execute.
 
