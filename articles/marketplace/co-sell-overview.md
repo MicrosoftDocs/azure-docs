@@ -4,10 +4,10 @@ description: The Microsoft Partner Center Co-sell program for partners can help 
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-author: vamahtan
-ms.author: vamahtan
+author: vikrambmsft
+ms.author: vikramb
 ms.reviewer: stmummer
-ms.date: 07/13/2021
+ms.date: 12/03/2021
 ---
 
 # Co-sell with Microsoft sales teams and partners overview
@@ -67,8 +67,8 @@ Azure IP Co-sell incentive status can be applied to these offer types:
 
 Business Applications Co-sell incentive (Standard and Premium) status can be applied to these offer types:
 
-- Dynamics 365 for Customer Engagement & Power Apps
-- Dynamics 365 for operations
+- Dynamics 365 apps on Dataverse and Power Apps
+- Dynamics 365 Operations Apps
 
 Offers that achieve _Azure IP Co-sell incentivized_ status gain these commercial marketplace benefits:
 

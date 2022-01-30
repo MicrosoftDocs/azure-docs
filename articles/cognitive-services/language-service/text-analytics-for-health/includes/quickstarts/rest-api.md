@@ -3,7 +3,7 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
-ms.topic: quickstart
+ms.topic: include
 ms.date: 11/02/2021
 ms.author: aahi
 ms.custom: ignite-fall-2021

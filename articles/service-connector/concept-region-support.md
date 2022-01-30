@@ -25,7 +25,7 @@ If your compute service instance is located in one of the regions that Service C
 
 ## Supported regions with geographical endpoint
 
-Your compute service instance might be created in the region that Service Connector has geographical region support. It means that your service connection will be created in a different region from your compute instance. You will see a banner about this information when you create a service connection. The region difference may impact your compliance, data residency, and data latency.
+Your compute service instance might be created in the region that Service Connector has geographical region support. It means that your service connection will be created in a different region from your compute instance. You will see an information banner about the region details when you create a service connection in this case. The region difference may impact your compliance, data residency, and data latency.
 
 - East US 2
 - West US 3

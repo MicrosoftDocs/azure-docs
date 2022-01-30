@@ -8,13 +8,12 @@ editor: ''
 ms.assetid: 
 ms.service: azure-app-configuration
 ms.devlang: csharp
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, mode-other
 ms.topic: quickstart
 ms.tgt_pltfrm: .NET
 ms.workload: tbd
 ms.date: 10/19/2020
 ms.author: alkemper
-
 #Customer intent: As a .NET Framework developer, I want to use feature flags to control feature availability quickly and confidently.
 ---
 # Quickstart: Add feature flags to a .NET Framework app

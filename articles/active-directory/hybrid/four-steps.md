@@ -3,11 +3,10 @@ title: Four steps to a strong identity foundation - Azure AD
 description: This topic describes four steps hybrid identity customers can take to build a strong identity foundation.
 services: active-directory
 author: martincoetzer
-manager: daveba
+manager: karenhoran
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/20/2019
 ms.subservice: hybrid
@@ -72,15 +71,15 @@ Azure AD Application Proxy offers the following benefits:
 * Single sign-on (SSO) across devices, resources, and apps in the cloud and on-premises
 * Empowers end users to be productive anytime and anywhere
 
-### Discover Shadow IT with Microsoft Cloud App Security
+### Discover Shadow IT with Microsoft Defender for Cloud Apps
 
 In modern enterprises, IT departments are often not aware of all the cloud applications that are used by the users to do their work. When IT admins are asked how many cloud apps they think their employees use, on average they say 30 or 40. In reality, the average is over 1,000 separate apps being used by employees in your organization. 80% of employees use non-sanctioned apps that no one has reviewed and may not be compliant with your security and compliance policies.
 
-[Microsoft Cloud App Security (MCAS)](/cloud-app-security/what-is-cloud-app-security) can help you identify useful apps that are popular with users that IT may sanction and add to the Enterprise applications gallery so that users benefit from capabilities such as SSO and Conditional Access.
+[Microsoft Defender for Cloud Apps](/cloud-app-security/what-is-cloud-app-security) can help you identify useful apps that are popular with users that IT may sanction and add to the Enterprise applications gallery so that users benefit from capabilities such as SSO and Conditional Access.
 
-<em>"**Cloud App Security** helps us ensure that our people are properly using our cloud and SaaS applications, in ways that support the foundational security policies that help protect Accenture."</em> --- [John Blasi, Managing Director, Information Security, Accenture](https://customers.microsoft.com/story/accenture-professional-services-cloud-app-security)
+<em>"**Defender for Cloud Apps** helps us ensure that our people are properly using our cloud and SaaS applications, in ways that support the foundational security policies that help protect Accenture."</em> --- [John Blasi, Managing Director, Information Security, Accenture](https://customers.microsoft.com/story/accenture-professional-services-cloud-app-security)
 
-In addition to detecting shadow IT, MCAS can also determine the risk level of apps, prevent unauthorized access to corporate data, possible data leakage, and other security risks inherent in the applications.
+In addition to detecting shadow IT, Defender for Cloud Apps can also determine the risk level of apps, prevent unauthorized access to corporate data, possible data leakage, and other security risks inherent in the applications.
 
 ## Step 2 - Establish one identity for every user automatically
 
@@ -199,13 +198,13 @@ If you don't observe a reduction in support calls, we recommend that you analyze
 
 ### Monitor your usage of apps to drive insights
 
-In addition to discovering Shadow IT, monitoring app usage across your organization using [Microsoft Cloud App Security](/cloud-app-security/what-is-cloud-app-security) can help your organization as you move to take full advantage of the promise of cloud applications. It can help keep you in control of your assets through improved visibility into activity and increase the protection of critical data across cloud applications. Monitoring app usage in your organization using MCAS can help you answer the following questions:
+In addition to discovering Shadow IT, monitoring app usage across your organization using [Microsoft Defender for Cloud Apps](/cloud-app-security/what-is-cloud-app-security) can help your organization as you move to take full advantage of the promise of cloud applications. It can help keep you in control of your assets through improved visibility into activity and increase the protection of critical data across cloud applications. Monitoring app usage in your organization using Defender for Cloud Apps can help you answer the following questions:
 
 * What unsanctioned apps are employees using to store data in?
 * Where and when is sensitive data being stored in the cloud?
 * Who is accessing sensitive data in the cloud?
 
-*"With Cloud App Security, we can quickly spot anomalies and take action."* --- [Eric LePenske, Senior Manager, Information Security, Accenture](https://customers.microsoft.com/story/accenture-professional-services-cloud-app-security)
+*"With Defender for Cloud Apps, we can quickly spot anomalies and take action."* --- [Eric LePenske, Senior Manager, Information Security, Accenture](https://customers.microsoft.com/story/accenture-professional-services-cloud-app-security)
 
 ## Summary
 
@@ -229,7 +228,7 @@ We recommend that you print the following checklist for reference as you begin y
 ||Pilot Self- Service Password Reset (SSPR) for a group|
 ||Monitor hybrid components using Azure AD Connect Health|
 ||Assign least privileged admin roles for operation|
-||Discover Shadow IT with Microsoft Cloud App Security|
+||Discover Shadow IT with Microsoft Defender for Cloud Apps|
 ||Use Azure Monitor to collect data logs for analysis|
 
 ### Next two weeks

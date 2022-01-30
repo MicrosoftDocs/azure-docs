@@ -191,10 +191,10 @@ The following code parses the returned Form Recognizer response, constructs a .c
 > [!IMPORTANT]
 > You will likely need to edit this code to match the structure of your own form documents.
 
-```Python
-# The code below is how I extract the json format into tabular data 
-    # Please note that you need to adjust the code below to your form structure
-    # It probably won't work out-of-box for your specific form
+```python
+    # The code below extracts the json format into tabular data.
+    # Please note that you need to adjust the code below to your form structure.
+    # It probably won't work out-of-the-box for your specific form.
     pages = results["analyzeResult"]["pageResults"]
 
     def make_page(p):

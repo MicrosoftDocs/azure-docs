@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 10/05/2021
+ms.date: 01/28/2022
 ms.custom: ignite-fall-2021
 ---
 
@@ -150,7 +150,7 @@ After you create your empty logic app resource, you have to add your first workf
 
 This example builds a workflow that has these steps:
 
-* The built-in [Request trigger](../connectors/connectors-native-reqres.md), **When a HTTP request is received**, which receives inbound calls or requests and creates an endpoint that other services or logic apps can call.
+* The built-in [Request trigger](../connectors/connectors-native-reqres.md), **When an HTTP request is received**, which receives inbound calls or requests and creates an endpoint that other services or logic apps can call.
 
 * The [Office 365 Outlook action](../connectors/connectors-create-api-office365-outlook.md), **Send an email**.
 
@@ -160,13 +160,13 @@ Before you can add a trigger to a blank workflow, make sure that the workflow de
 
 1. Next to the designer surface, in the **Add a trigger** pane, under the **Choose an operation** search box, check that the **Built-in** tab is selected. This tab shows triggers that run natively in Azure Logic Apps.
 
-1. In the **Choose an operation** search box, enter `when a http request`, and select the built-in Request trigger that's named **When a HTTP request is received**.
+1. In the **Choose an operation** search box, enter `when a http request`, and select the built-in Request trigger that's named **When an HTTP request is received**.
 
-   ![Screenshot that shows the designer and **Add a trigger** pane with "When a HTTP request is received" trigger selected.](./media/create-single-tenant-workflows-azure-portal/find-request-trigger.png)
+   ![Screenshot that shows the designer and **Add a trigger** pane with "When an HTTP request is received" trigger selected.](./media/create-single-tenant-workflows-azure-portal/find-request-trigger.png)
 
    When the trigger appears on the designer, the trigger's details pane opens to show the trigger's properties, settings, and other actions.
 
-   ![Screenshot that shows the designer with the "When a HTTP request is received" trigger selected and trigger details pane open.](./media/create-single-tenant-workflows-azure-portal/request-trigger-added-to-designer.png)
+   ![Screenshot that shows the designer with the "When an HTTP request is received" trigger selected and trigger details pane open.](./media/create-single-tenant-workflows-azure-portal/request-trigger-added-to-designer.png)
 
    > [!TIP]
    > If the details pane doesn't appear, makes sure that the trigger is selected on the designer.
@@ -175,7 +175,7 @@ Before you can add a trigger to a blank workflow, make sure that the workflow de
 
 1. To save your work, on the designer toolbar, select **Save**.
 
-   When you save a workflow for the first time, and that workflow starts with a Request trigger, the Logic Apps service automatically generates a URL for an endpoint that's created by the Request trigger. Later, when you test your workflow, you send a request to this URL, which fires the trigger and starts the workflow run.
+   When you save a workflow for the first time, and that workflow starts with a Request trigger, Azure Logic Apps automatically generates a URL for an endpoint that's created by the Request trigger. Later, when you test your workflow, you send a request to this URL, which fires the trigger and starts the workflow run.
 
 ### Add the Office 365 Outlook action
 
@@ -267,9 +267,9 @@ To find the fully qualified domain names (FQDNs) for connections, follow these s
 
 ## Trigger the workflow
 
-In this example, the workflow runs when the Request trigger receives an inbound request, which is sent to the URL for the endpoint that's created by the trigger. When you saved the workflow for the first time, the Logic Apps service automatically generated this URL. So, before you can send this request to trigger the workflow, you need to find this URL.
+In this example, the workflow runs when the Request trigger receives an inbound request, which is sent to the URL for the endpoint that's created by the trigger. When you saved the workflow for the first time, Azure Logic Apps automatically generated this URL. So, before you can send this request to trigger the workflow, you need to find this URL.
 
-1. On the workflow designer, select the Request trigger that's named **When a HTTP request is received**.
+1. On the workflow designer, select the Request trigger that's named **When an HTTP request is received**.
 
 1. After the details pane opens, on the **Parameters** tab, find the **HTTP POST URL** property. To copy the generated URL, select the **Copy Url** (copy file icon), and save the URL somewhere else for now. The URL follows this format:
 
@@ -546,6 +546,8 @@ To stop the trigger from firing the next time when the trigger condition is met,
   1. In the workflow, edit any part of the workflow's trigger.
   1. Save your changes. This step resets your trigger's current state.
   1. [Reactivate your workflow](#disable-enable-workflows).
+
+* When a workflow is disabled, you can still resubmit runs.
 
 > [!NOTE]
 > The disable workflow and stop logic app operations have different effects. For more information, review 

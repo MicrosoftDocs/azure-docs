@@ -1,5 +1,5 @@
 ---
-title: Record video for playback with Azure Video Analyzer
+title: Record video for playback
 description: This article discusses recording of video for playback with Azure Video Analyzer.
 ms.service: azure-video-analyzer
 ms.topic: conceptual

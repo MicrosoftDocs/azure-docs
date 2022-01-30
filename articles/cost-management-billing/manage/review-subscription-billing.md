@@ -6,7 +6,7 @@ ms.reviewer: adwise
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: article
-ms.date: 09/15/2021
+ms.date: 12/13/2021
 ms.author: banders
 # Customer intent: As an administrator or developer, I want to use REST APIs to review subscription billing data for a specified period.
 ---
@@ -29,9 +29,9 @@ Authorization: Bearer
 
 The `{subscriptionID}` parameter is required and identifies the target subscription.
 
-The `{billingPeriod}` parameter is required and specifies a current [billing period](/rest/api/billing/enterprise/billing-enterprise-api-billing-periods).
+The `{billingPeriod}` parameter is required and specifies a current [billing period](/rest/api/billing/enterprise/billing-enterprise-api-billing-periods). The billingPeriod parameter must be formatted without dashes. For example, `202112`. If a day of the month is added to billingPeriod, it is ignored.
 
-The `${startDate}` and `${endDate}` parameters are required for this example, but optional for the endpoint. They specify the date range as strings in the form of YYYY-MM-DD (examples: `'20180501'` and `'20180615'`).
+The `${startDate}` and `${endDate}` parameters are required for this example, but optional for the endpoint. They specify the date range as strings in the form of YYYY-MM-DD. For example, `2018-05-01` and `2018-06-15`. Dashes are required for startDate and endDate.
 
 The following headers are required:
 

@@ -4,7 +4,6 @@ titleSuffix: An Azure Communication Services quickstart
 description: Azure Active Directory lets you authorize Azure Communication Services access from applications running in Azure VMs, function apps, and other resources.
 services: azure-communication-services
 author: peiliu
-
 ms.service: azure-communication-services
 ms.subservice: identity
 ms.topic: quickstart
@@ -12,6 +11,7 @@ ms.date: 06/30/2021
 ms.author: peiliu
 ms.reviewer: mikben
 zone_pivot_groups: acs-js-csharp-java-python
+ms.custom: mode-other
 ---
 
 # Quickstart: Authenticate using Azure Active Directory
@@ -24,8 +24,8 @@ This quickstart shows you how to authorize access to the Identity and SMS SDKs f
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free)
 - An active Azure Communication Services resource, see [create a Communication Services resource](../create-communication-resource.md) if you do not have one.
-- To send an SMS you will need a [Phone Number](../telephony-sms/get-phone-number.md).
-- A setup Service Principal for a development environment, see [Authorize access with managed identity](./service-principal-from-cli.md)
+- To send an SMS you will need a [Phone Number](../telephony/get-phone-number.md).
+- A setup Service Principal for a development environment, see [Authorize access with service principal](./service-principal-from-cli.md)
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [.NET](./includes/active-directory/service-principal-net.md)]
@@ -48,7 +48,6 @@ This quickstart shows you how to authorize access to the Identity and SMS SDKs f
 - [Learn more about Azure role-based access control](../../../../articles/role-based-access-control/index.yml)
 - [Learn more about Azure identity library for .NET](/dotnet/api/overview/azure/identity-readme)
 - [Creating user access tokens](../../quickstarts/access-tokens.md)
-- [Send an SMS message](../../quickstarts/telephony-sms/send.md)
-- [Learn more about SMS](../../concepts/telephony-sms/concepts.md)
+- [Send an SMS message](../../quickstarts/sms/send.md)
+- [Learn more about SMS](../../concepts/sms/concepts.md)
 - [Quickly create an identity for testing](./quick-create-identity.md).
-

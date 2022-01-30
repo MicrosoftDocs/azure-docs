@@ -10,6 +10,7 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: chlandsi
+ms.devlang: cpp, csharp, java, javascript, objective-c, python
 ms.custom: devx-track-js, ignite-fall-2021
 ---
 

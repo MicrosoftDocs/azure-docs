@@ -42,6 +42,9 @@ To complete this tutorial, you need to:
     - Owner or Contributor role for the Azure Resource Groups containing the target Azure SQL Managed Instance or the Azure storage account.
     - Owner or Contributor role for the Azure subscription.
 * Create a target [SQL Server on Azure Virtual Machine](../azure-sql/virtual-machines/windows/create-sql-vm-portal.md).
+
+    > [!IMPORTANT]
+    > If you have an existing Azure Virtual Machine, it should be registered with [SQL IaaS Agent extension in Full management mode](../azure-sql/virtual-machines/windows/sql-server-iaas-agent-extension-automate-management.md#management-modes).
 * Ensure that the logins used to connect the source SQL Server are members of the *sysadmin* server role or have `CONTROL SERVER` permission. 
 * Use one of the following storage options for the full database and transaction log backup files: 
     - SMB network share 

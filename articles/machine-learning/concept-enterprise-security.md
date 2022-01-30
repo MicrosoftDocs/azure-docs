@@ -102,7 +102,7 @@ When deploying models as web services, you can enable transport-layer security (
 
 ## Vulnerability scanning
 
-[Azure Security Center](../security-center/security-center-introduction.md) provides unified security management and advanced threat protection across hybrid cloud workloads. For Azure machine learning, you should enable scanning of your [Azure Container Registry](../container-registry/container-registry-intro.md) resource and Azure Kubernetes Service resources. For more information, see [Azure Container Registry image scanning by Security Center](../security-center/defender-for-container-registries-introduction.md) and [Azure Kubernetes Services integration with Security Center](../security-center/defender-for-kubernetes-introduction.md).
+[Microsoft Defender for Cloud](../security-center/security-center-introduction.md) provides unified security management and advanced threat protection across hybrid cloud workloads. For Azure machine learning, you should enable scanning of your [Azure Container Registry](../container-registry/container-registry-intro.md) resource and Azure Kubernetes Service resources. For more information, see [Azure Container Registry image scanning by Defender for Cloud](../security-center/defender-for-container-registries-introduction.md) and [Azure Kubernetes Services integration with Defender for Cloud](../security-center/defender-for-kubernetes-introduction.md).
 
 ## Audit and manage compliance
 

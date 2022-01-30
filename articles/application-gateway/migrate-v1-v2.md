@@ -38,6 +38,7 @@ An Azure PowerShell script is available that does the following:
 * v2 doesn't support IPv6, so IPv6 enabled v1 gateways aren't migrated. If you run the script, it may not complete.
 * If the v1 gateway has only a private IP address, the script creates a public IP address and a private IP address for the new v2 gateway. v2 gateways currently don't support only private IP addresses.
 * Headers with names containing anything other than letters, digits, hyphens and underscores are not passed to your application. This only applies to header names, not header values. This is a breaking change from v1.
+* NTLM and Kerberos authentication is not supported by Application Gateway v2. The script is unable to detect if the gateway is serving this type of traffic and may pose as a breaking change from v1 to v2 gateways if run.
 
 ## Download the script
 

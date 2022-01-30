@@ -15,7 +15,7 @@ ms.custom:
 
 # VM Applications overview (preview)
 
-VM Applications are a resource type in Azure Compute Gallery (formerly known as Shared Image Gallery) that simplifies management,sharing and global distribution of applications for your virtual machines.
+VM Applications are a resource type in Azure Compute Gallery (formerly known as Shared Image Gallery) that simplifies management, sharing, and global distribution of applications for your virtual machines.
 
 > [!IMPORTANT]
 > **VM applications in Azure Compute Gallery** are currently in public preview.
@@ -36,7 +36,7 @@ Application packages provide benefits over other deployment and packaging method
 - Support for virtual machines, and both flexible and uniform scale sets
 
 - If you have Network Security Group (NSG) rules applied on your VM or scale set, downloading the packages from an internet repository might not be possible. And  with storage accounts, downloading packages onto locked-down VMs would require setting up private links.
-- VM applications can be used with the [DeployIfNotExists](/azure/governance/policy/concepts/effects) policy.
+- VM applications can be used with the [DeployIfNotExists](../governance/policy/concepts/effects.md) policy.
 
 
 ## What are VM app packages?
@@ -202,7 +202,7 @@ Most 3rd party applications in Windows are available as .exe or .msi installers.
 
 Installer executables typically launch a user interface (UI) and require someone to click through the UI. If the installer supports a silent mode parameter, it should be included in your installation string. 
 
-Cmd.exe also expects executable files to have the extension .exe, so you need to rename the file to have te .exe extension.  
+Cmd.exe also expects executable files to have the extension .exe, so you need to rename the file to have the .exe extension.  
 
 If I wanted to create a VM application package for myApp.exe, which ships as an executable, my VM Application is called 'myApp', so I write the command assuming that the application package is in the current directory:
 
@@ -303,5 +303,3 @@ Get-AzVmss -name <VMSS name> -ResourceGroupName <resource group name> -InstanceV
 ## Next steps
 
 - Learn how to [create and deploy VM application packages](vm-applications-how-to.md).
-
-

@@ -1,5 +1,5 @@
 ---
-title: Azure Video Analyzer SDKs and resources
+title: SDKs and resources
 description: Learn about the Azure Video Analyzer SDKs
 author: bennage
 ms.author: christb

@@ -25,6 +25,7 @@ ms.reviewer: olegan
 
 ### Auto-instrumentation (enable without code changes)
 * [ASP.NET - for web apps hosted with IIS](./status-monitor-v2-overview.md)
+* [ASP.NET Core - for web apps hosted with IIS](./status-monitor-v2-overview.md)
 * [Java](./java-in-process-agent.md)
 
 ### Manual instrumentation / SDK (some code changes required)

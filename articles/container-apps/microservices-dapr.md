@@ -19,7 +19,7 @@ You learn how to:
 > [!div class="checklist"]
 > * Create a Container Apps environment for your container apps
 > * Create an Azure Blob Storage state store for the container app
-> * Deploy two apps that a produce and consume messages and persist them using the state store
+> * Deploy two apps that produce and consume messages and persist them using the state store
 > * Verify the interaction between the two microservices.
 
 Azure Container Apps offers a fully managed version of the Dapr APIs when building microservices. When you use Dapr in Azure Container Apps, you can enable sidecars to run next to your microservices that provide a rich set of capabilities. Available Dapr APIs include [Service to Service calls](https://docs.dapr.io/developing-applications/building-blocks/service-invocation/), [Pub/Sub](https://docs.dapr.io/developing-applications/building-blocks/pubsub/), [Event Bindings](https://docs.dapr.io/developing-applications/building-blocks/bindings/), [State Stores](https://docs.dapr.io/developing-applications/building-blocks/state-management/), and [Actors](https://docs.dapr.io/developing-applications/building-blocks/actors/).
@@ -118,14 +118,14 @@ Next, install the Azure Container Apps extension to the CLI.
 
 ```azurecli
 az extension add \
-  --source https://workerappscliextension.blob.core.windows.net/azure-cli-extension/containerapp-0.2.0-py2.py3-none-any.whl 
+  --source https://workerappscliextension.blob.core.windows.net/azure-cli-extension/containerapp-0.2.2-py2.py3-none-any.whl 
 ```
 
 # [PowerShell](#tab/powershell)
 
 ```azurecli
 az extension add `
-  --source https://workerappscliextension.blob.core.windows.net/azure-cli-extension/containerapp-0.2.0-py2.py3-none-any.whl 
+  --source https://workerappscliextension.blob.core.windows.net/azure-cli-extension/containerapp-0.2.2-py2.py3-none-any.whl 
 ```
 
 ---

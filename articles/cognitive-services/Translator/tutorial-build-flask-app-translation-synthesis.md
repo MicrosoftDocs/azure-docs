@@ -10,7 +10,8 @@ ms.subservice: translator-text
 ms.topic: tutorial
 ms.date: 10/28/2021
 ms.author: lajanuar
-ms.custom: devx-track-python, devx-track-js
+ms.devlang: python
+ms.custom: devx-track-python
 ---
 
 # Tutorial: Build a Flask app with Azure Cognitive Services

@@ -2,7 +2,7 @@
 title: Micro agent security alerts (Preview)
 description: Learn about security alerts and recommended remediation using Defender for IoT device's features, and services.
 ms.topic: conceptual
-ms.date: 10/19/2021
+ms.date: 11/09/2021
 ---
 
 # Micro agent security alerts (Preview)

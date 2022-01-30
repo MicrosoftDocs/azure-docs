@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Learn about the YAML files used to deploy models as online endpoints
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.topic: how-to
 
 author: rsethur
@@ -18,6 +18,8 @@ ms.reviewer: laobri
 The source JSON schema can be found at https://azuremlschemas.azureedge.net/latest/managedOnlineEndpoint.schema.json.
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+
+[!INCLUDE [schema note](../../includes/machine-learning-preview-old-json-schema-note.md)]
 
 > [!NOTE]
 > A fully specified sample YAML for managed online endpoints is available for [reference](https://azuremlschemas.azureedge.net/latest/managedOnlineEndpoint.template.yaml)
@@ -46,15 +48,15 @@ Examples are available in the [examples GitHub repository](https://github.com/Az
 
 ## YAML: basic
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/endpoints/online/managed/sample/endpoint.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/managed/sample/endpoint.yml":::
 
 ## YAML: system-assigned identity
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/endpoints/online/managed/managed-identities/1-sai-create-endpoint.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/managed/managed-identities/1-sai-create-endpoint.yml":::
 
 ## YAML: user-assigned identity
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/endpoints/online/managed/managed-identities/1-uai-create-endpoint.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/managed/managed-identities/1-uai-create-endpoint.yml":::
 
 ## Next steps
 

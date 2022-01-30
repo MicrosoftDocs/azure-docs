@@ -3,7 +3,7 @@ title: Manage disaster recovery using Azure NetApp Files cross-region replicatio
 description: Describes how to manage disaster recovery by using Azure NetApp Files cross-region replication.
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 
@@ -11,10 +11,9 @@ ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.date: 09/29/2021
-ms.author: b-juche
+ms.author: anfdocs
 ---
 # Manage disaster recovery using cross-region replication 
 
@@ -94,7 +93,7 @@ After the resync operation from destination to source is complete, you need to b
     a. Select the *destination* volume. Click **Replication** under Storage Service. Then click **Resync**.   
     b. Type **Yes** when prompted and click the **Resync** button.
 
-3. Remount the source volume by following the steps in [Mount or unmount a volume for Windows or Linux virtual machines](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md).  
+3. Remount the source volume by following the steps in [Mount a volume for Windows or Linux virtual machines](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md).  
     This step enables a client to access the source volume.
 
 ## Next steps  

@@ -5,13 +5,12 @@ author: mksuni
 ms.author: sumuth
 ms.service: postgresql
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 11/30/2021
 ---
 
 # Manage an Azure Database for PostgreSQL - Flexible Server by using the Azure CLI
 
-> [!IMPORTANT]
-> Azure Database for PostgreSQL - Flexible Server is in preview.
+
 
 This article shows you how to manage your flexible server deployed in Azure. Management tasks include compute and storage scaling, admin password reset, and viewing server details.
 

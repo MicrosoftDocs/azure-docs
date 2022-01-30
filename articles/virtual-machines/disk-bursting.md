@@ -3,7 +3,7 @@ title: Managed disk bursting
 description: Learn about disk bursting for Azure disks and Azure virtual machines.
 author: roygara
 ms.author: rogarana
-ms.date: 11/03/2021
+ms.date: 11/09/2021
 ms.topic: conceptual
 ms.service: storage
 ms.subservice: disks

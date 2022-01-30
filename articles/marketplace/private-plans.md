@@ -1,12 +1,13 @@
 ---
-title: Private plans in Microsoft commercial marketplace
+title: Private plans in the Microsoft commercial marketplace
 description: Private plans in the Microsoft commercial marketplace for app and service publishers (Azure Marketplace).
 ms.subservice: partnercenter-marketplace-publisher
 ms.service: marketplace
 ms.topic: article
 author: navits09
 ms.author: navits
-ms.date: 10/26/2021
+ms.reviewer: amhindma
+ms.date: 11/10/2021
 ---
 
 # Private plans in the Microsoft commercial marketplace
@@ -52,7 +53,7 @@ For *new offers that only include private plans*, publishers can create their of
 
 For both new and existing private plans, publishers can target customers using subscription identifiers. For Azure Application and Managed Service offers, publishers can constrain availability of a private plan to individual Azure subscription IDs. For SaaS offers, publishers can associate Azure Active Directory tenant IDs to constrain the availability of a private plan. For Virtual Machine offers, publishers can assign the audience that will have access to a private plan using Azure tenant IDs, subscription IDs, or both. For any of these offer types, up to 10 IDs can be added manually or a CSV spreadsheet can be imported if more than 10 IDs are required.
 
-Once an offer has been certified and published, customers can be updated or removed from the plan by using the Sync Private Subscriptions feature. This capability enables publishers to quickly and easily update the list of customers to which the private plan is presented without certifying or publishing the offer again.
+Once an offer has been certified and published, customers can be updated or removed from the plan by using the Sync Private Audiences feature. This capability enables publishers to quickly and easily update the list of customers to which the private plan is presented without certifying or publishing the offer again.
 
 ## Deploying a private plan
 

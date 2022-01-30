@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 09/22/2021
+ms.date: 11/18/2021
 ms.author: davidmu
 ms.reviewer: ergreenl
 ms.collection: M365-identity-device-management
@@ -17,7 +17,7 @@ ms.custom: has-adal-ref
 # Customer intent: As an IT admin, I need to learn what it takes to plan a single-sign on deployment for my application in Azure Active Directory.
 ---
 
-# Plan a single sign-on deployment in Azure Active Directory
+# Plan a single sign-on deployment
 
 This article provides information that you can use to plan your [single sign-on (SSO)](what-is-single-sign-on.md) deployment in Azure Active Directory (Azure AD). When you plan your SSO deployment with your applications in Azure AD, you need to consider these questions:
 
@@ -51,12 +51,6 @@ You change that certificate duration in the Azure portal. Make sure to document 
 - Owner for updating user properties in the application
 - Owner On-Call for application troubleshooting support
 - Closely monitored email distribution list for certificate-related change notifications
-
-You can use the following methods to manage your certificates:
-
-- **Automatic certificate rollover** - Signing key rollover is supported in Azure AD. While signing key rollover is the preferred method for managing certificates, not all applications support this scenario.
-
-- **Manually update** - Every application has its own certificate that expires based on how it's defined. Before the application’s certificate expires, create a new certificate and send it to the application provider. This information can be pulled from the federation metadata. For more information, see [Federation metadata](../azuread-dev/azure-ad-federation-metadata.md). 
 
 Set up a process for how you'll handle a certificate change between Azure AD and your application. By having this process in place, you can help prevent or minimize an outage due to a certificate expiring or a forced certificate rollover. For more information, see [Manage certificates for federated single sign-on in Azure Active Directory](manage-certificates-for-federated-single-sign-on.md).
 

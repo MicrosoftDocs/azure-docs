@@ -1,9 +1,8 @@
 ---
 title: Troubleshoot user creation issues with HR provisioning
 description: Learn how to troubleshoot user creation issues with HR provisioning
-services: active-directory
 author: kenwith
-manager: karenh444
+manager: karenhoran
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: troubleshooting
@@ -23,7 +22,7 @@ ms.reviewer: chmutali
 * SAP SuccessFactors to on-premises Active Directory user provisioning
 * SAP SuccessFactors to Azure Active Directory user provisioning
 
-| | |
+| Troubleshooting | Details |
 |-- | -- |
 | **Issue** | You have successfully configured the inbound provisioning app. You are getting null or empty value from the HR app. The create operation fails with the error message: `InvalidAttributeSyntax-LdapErr: The syntax is invalid. The parameter is incorrect. Error in attribute conversion operation, data 0, v3839` |
 | **Cause** | The provisioning service does not have a default logic for null value processing. When the provisioning service gets an empty string from the source app, it tries to flow the value "as-is" to the target app. In this case, on-premises Active Directory does not support setting empty string values and hence you see the above error. |

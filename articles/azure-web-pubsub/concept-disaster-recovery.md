@@ -23,7 +23,7 @@ Inside each pair app server and Web PubSub service are located in the same regio
 
 To better illustrate the architecture, we call Web PubSub service the **primary** service to the app server in the same pair. And we call Web PubSub services in other pairs as the **secondary** services to the app server.
 
-The application server can use [service health check API](/rest/api/webpubsub/health-api/get-service-status) to detect if its **primary** and **secondary** services are healthy or not. For example, for a Web PubSub service called `demo`, the endpoint `https://demo.webpubsub.azure.com/api/health` returns 200 when the service is healthy. The app server can periodically call the endpoints or call the endpoints on demand to check if the endpoints are healthy. WebSocket clients usually **negotiate** with its application server first to get the URL connecting to the Web PubSub service, and the application uses this **negotiate** step to fail over the clients to other healthy **secondary** services. Detailed steps as below:
+The application server can use [service health check API](/rest/api/webpubsub/dataplane/health-api/get-service-status) to detect if its **primary** and **secondary** services are healthy or not. For example, for a Web PubSub service called `demo`, the endpoint `https://demo.webpubsub.azure.com/api/health` returns 200 when the service is healthy. The app server can periodically call the endpoints or call the endpoints on demand to check if the endpoints are healthy. WebSocket clients usually **negotiate** with its application server first to get the URL connecting to the Web PubSub service, and the application uses this **negotiate** step to fail over the clients to other healthy **secondary** services. Detailed steps as below:
 
 1. When a client **negotiate** with the app server, app server SHOULD only return primary Web PubSub service endpoints so in normal case clients only connect to primary endpoints.
 1. When primary instance is down, **negotiate** SHOULD return a healthy secondary endpoint so client can still make connections, and the client connects to the secondary endpoint.
@@ -36,7 +36,7 @@ With this topology, message from one server can still be delivered to all client
 We haven't integrated the strategy into the SDK yet, so for now the application needs to implement this strategy by itself. 
 
 In summary, what the application side needs to implement is:
-1. Health check. Application can either check if the service is healthy using [service health check API](/rest/api/webpubsub/health-api/get-service-status) periodically in the background or on demand for every **negotiate** call.
+1. Health check. Application can either check if the service is healthy using [service health check API](/rest/api/webpubsub/dataplane/health-api/get-service-status) periodically in the background or on demand for every **negotiate** call.
 1. Negotiate logic. Application returns healthy **primary** endpoint by default. When **primary** endpoint is down, application returns healthy **secondary** endpoint.
 1. Broadcast logic. When sending messages to multiple clients, application needs to make sure it broadcasts messages to all the **healthy** endpoints.
 

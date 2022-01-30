@@ -243,7 +243,7 @@ sections:
       - question: |
           Is the shared disks feature supported for unmanaged disks or page blobs?
         answer: |
-          No, it is only supported for ultra disks and premium SSD managed disks.
+          No, it is only supported for a subset of managed disk types. For details, see the [conceptual article](disks-shared.md).
 
       - question: |
           What regions support shared disks?

@@ -25,6 +25,8 @@ Samples for the Azure CLI are written for the `bash` shell. To run this sample i
 
 If you don't have Azure CLI installed, you can use Azure Cloud Shell. For more information, see [Deploy Bicep files from Azure Cloud Shell](./deploy-cloud-shell.md).
 
+[!INCLUDE [permissions](../../../includes/template-deploy-permissions.md)]
+
 ## Deployment scope
 
 You can target your deployment to a resource group, subscription, management group, or tenant. Depending on the scope of the deployment, you use different commands.
@@ -89,7 +91,7 @@ The deployment can take a few minutes to complete. When it finishes, you see a m
 
 ## Deploy remote Bicep file
 
-Currently, Azure CLI doesn't support deploying remote Bicep files. Use [Bicep CLI](./install.md#vs-code-and-bicep-extension) to compile the Bicep file to a JSON template, and then load the JSON file to the remote location.
+Currently, Azure CLI doesn't support deploying remote Bicep files. You can use [Bicep CLI](./install.md#vs-code-and-bicep-extension) to [build](/cli/azure/bicep#az_bicep_build) the Bicep file to a JSON template, and then load the JSON file to the remote location.
 
 ## Parameters
 

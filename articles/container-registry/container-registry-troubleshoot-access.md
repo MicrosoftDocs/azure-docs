@@ -22,7 +22,7 @@ May include one or more of the following:
 * Unable to access or view registry settings in Azure portal or manage registry using the Azure CLI
 * Unable to add or modify virtual network settings or public access rules
 * ACR Tasks is unable to push or pull images
-* Azure Security Center can't scan images in registry, or scan results don't appear in Azure Security Center
+* Microsoft Defender for Cloud can't scan images in registry, or scan results don't appear in Microsoft Defender for Cloud
 * You receive error `host is not reachable` when attempting to access a registry configured with a private endpoint.
 
 ## Causes
@@ -30,7 +30,7 @@ May include one or more of the following:
 * A client firewall or proxy prevents access - [solution](#configure-client-firewall-access)
 * Public network access rules on the registry prevent access - [solution](#configure-public-access-to-registry)
 * Virtual network or private endpoint configuration prevents access - [solution](#configure-vnet-access)
-* You attempt to integrate Azure Security Center or certain other Azure services with a registry that has a private endpoint, service endpoint, or public IP access rules - [solution](#configure-service-access)
+* You attempt to integrate Microsoft Defender for Cloud or certain other Azure services with a registry that has a private endpoint, service endpoint, or public IP access rules - [solution](#configure-service-access)
 
 ## Further diagnosis 
 
@@ -109,7 +109,7 @@ Related links:
 
 Currently, access to a container registry with network restrictions isn't allowed from several Azure services:
 
-* Azure Security Center can't perform [image vulnerability scanning](../security-center/defender-for-container-registries-introduction.md?bc=%2fazure%2fcontainer-registry%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fcontainer-registry%2ftoc.json) in a registry that restricts access to private endpoints, selected subnets, or IP addresses. 
+* Microsoft Defender for Cloud can't perform [image vulnerability scanning](../security-center/defender-for-container-registries-introduction.md?bc=%2fazure%2fcontainer-registry%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fcontainer-registry%2ftoc.json) in a registry that restricts access to private endpoints, selected subnets, or IP addresses. 
 * Resources of certain Azure services are unable to access a container registry with network restrictions, including Azure App Service and  Azure Container Instances.
 
 If access or integration of these Azure services with your container registry is required, remove the network restriction. For example, remove the registry's private endpoints, or remove or modify the registry's public access rules.
@@ -118,7 +118,7 @@ Starting January 2021, you can configure a network-restricted registry to [allow
 
 Related links:
 
-* [Azure Container Registry image scanning by Security Center](../security-center/defender-for-container-registries-introduction.md)
+* [Azure Container Registry image scanning by Microsoft Defender for container registries](../security-center/defender-for-container-registries-introduction.md)
 * Provide [feedback](https://feedback.azure.com/d365community/idea/cbe6351a-0525-ec11-b6e6-000d3a4f07b8)
 * [Allow trusted services to securely access a network-restricted container registry](allow-access-trusted-services.md)
 

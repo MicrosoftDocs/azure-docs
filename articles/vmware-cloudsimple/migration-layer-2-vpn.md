@@ -1,4 +1,4 @@
---- 
+---
 title: Azure VMware Solution by CloudSimple - Stretch a Layer 2 network on-premises to Private Cloud
 description: Describes how to set up a Layer 2 VPN between NSX-T on a CloudSimple Private Cloud and an on-premises standalone NSX Edge client
 author: suzizuber
@@ -257,7 +257,7 @@ POST  https://192.168.110.201/api/v1/vpn/ipsec/tunnel-profiles
 
 ### Create a local endpoint
 
-``` 
+```
 POST https://192.168.110.201/api/v1/vpn/ipsec/local-endpoints
  
 {
@@ -352,7 +352,7 @@ POST : https://192.168.110.201/api/v1/vpn/l2vpn/services
 
 For the following POST command, the L2VPN service ID is the ID that you just obtained and the IPsec VPN session ID is the ID obtained in the previous section.
 
-```    
+```
 POST: https://192.168.110.201/api/v1/vpn/l2vpn/sessions
 
 {

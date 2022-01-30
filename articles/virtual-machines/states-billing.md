@@ -88,9 +88,9 @@ OS Provisioning states only apply to virtual machines created with a [generalize
 
 ## Troubleshooting VM states
 
-To troubleshoot specific VM state issues, see [Troubleshoot Windows VM deployments](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/troubleshoot-deployment-new-vm-windows) and [Troubleshoot Linux VM deployments](https://docs.microsoft.comtroubleshoot/azure/virtual-machines/troubleshoot-deployment-new-vm-linux).
+To troubleshoot specific VM state issues, see [Troubleshoot Windows VM deployments](/troubleshoot/azure/virtual-machines/troubleshoot-deployment-new-vm-windows) and [Troubleshoot Linux VM deployments](/troubleshoot/azure/virtual-machines/troubleshoot-deployment-new-vm-linux).
 
-For other troubleshooting help visit [Azure Virtual Machines troubleshooting documentation](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/welcome-virtual-machines).
+For other troubleshooting help visit [Azure Virtual Machines troubleshooting documentation](/troubleshoot/azure/virtual-machines/welcome-virtual-machines).
 
 
 ## Next steps

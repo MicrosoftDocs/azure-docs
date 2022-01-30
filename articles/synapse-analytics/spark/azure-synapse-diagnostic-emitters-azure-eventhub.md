@@ -4,7 +4,7 @@ description: In this tutorial, you learn how to use the Synapse Apache Spark dia
 services: synapse-analytics 
 author: hrasheed-msft
 ms.author: jejiang
-ms.reviewer: jrasnick 
+ms.reviewer: sngun 
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark

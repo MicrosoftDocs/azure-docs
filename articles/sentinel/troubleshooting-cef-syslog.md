@@ -1,18 +1,9 @@
 ---
-title: Troubleshoot a connection between Azure Sentinel and a CEF or Syslog data connector| Microsoft Docs
-description: Learn how to troubleshoot issues with your Azure Sentinel CEF or Syslog data connector.
-services: sentinel
-documentationcenter: na
+title: Troubleshoot a connection between Microsoft Sentinel and a CEF or Syslog data connector| Microsoft Docs
+description: Learn how to troubleshoot issues with your Microsoft Sentinel CEF or Syslog data connector.
 author: batamig
-manager: rkarlin
-editor: ''
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 08/23/2021
+ms.date: 11/09/2021
 ms.author: bagol
 ms.custom: ignite-fall-2021
 ---
@@ -21,9 +12,9 @@ ms.custom: ignite-fall-2021
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-This article describes common methods for verifying and troubleshooting a CEF or Syslog data connector for Azure Sentinel.
+This article describes common methods for verifying and troubleshooting a CEF or Syslog data connector for Microsoft Sentinel.
 
-For example, if your logs are not appearing in Azure Sentinel, either in the Syslog or the Common Security Log tables, your data source may be failing to connect or there may be another reason your data is not being ingested.
+For example, if your logs are not appearing in Microsoft Sentinel, either in the Syslog or the Common Security Log tables, your data source may be failing to connect or there may be another reason your data is not being ingested.
 
 Other symptoms of a failed connector deployment include when either the **security_events.conf** or the **security-omsagent.config.conf** files are missing, or if the rsyslog server is not listening on port 514.
 
@@ -41,7 +32,7 @@ For more information, see [Connect your external solution using Common Event For
 
 ## Validate CEF connectivity
 
-After you've [deployed your log forwarder](connect-common-event-format.md) and [configured your security solution to send it CEF messages](./connect-common-event-format.md), use the steps in this section to verify connectivity between your security solution and Azure Sentinel.
+After you've [deployed your log forwarder](connect-common-event-format.md) and [configured your security solution to send it CEF messages](./connect-common-event-format.md), use the steps in this section to verify connectivity between your security solution and Microsoft Sentinel.
 
 1. Make sure that you have the following prerequisites:
 
@@ -51,13 +42,13 @@ After you've [deployed your log forwarder](connect-common-event-format.md) and [
 
     - You may need the Workspace ID and Workspace Primary Key at some point in this process. You can find them in the workspace resource, under **Agents management**.
 
-1. From the Azure Sentinel navigation menu, open **Logs**. Run a query using the **CommonSecurityLog** schema to see if you are receiving logs from your security solution.
+1. From the Microsoft Sentinel navigation menu, open **Logs**. Run a query using the **CommonSecurityLog** schema to see if you are receiving logs from your security solution.
 
     It may take about 20 minutes until your logs start to appear in **Log Analytics**.
 
 1. If you don't see any results from the query, verify that events are being generated from your security solution, or try generating some, and verify they are being forwarded to the Syslog forwarder machine you designated.
 
-1. Run the following script on the log forwarder (applying the Workspace ID in place of the placeholder) to check connectivity between your security solution, the log forwarder, and Azure Sentinel. This script checks that the daemon is listening on the correct ports, that the forwarding is properly configured, and that nothing is blocking communication between the daemon and the Log Analytics agent. It also sends mock messages 'TestCommonEventFormat' to check end-to-end connectivity. <br>
+1. Run the following script on the log forwarder (applying the Workspace ID in place of the placeholder) to check connectivity between your security solution, the log forwarder, and Microsoft Sentinel. This script checks that the daemon is listening on the correct ports, that the forwarding is properly configured, and that nothing is blocking communication between the daemon and the Log Analytics agent. It also sends mock messages 'TestCommonEventFormat' to check end-to-end connectivity. <br>
 
     ```bash
     sudo wget -O cef_troubleshoot.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_troubleshoot.py&&sudo python cef_troubleshoot.py [WorkspaceID]
@@ -157,7 +148,7 @@ The validation script performs the following checks:
     sudo tcpdump -A -ni any port 25226 -vv
     ```
 
-1. Sends MOCK data to port 514 on localhost. This data should be observable in the Azure Sentinel workspace by running the following query:
+1. Sends MOCK data to port 514 on localhost. This data should be observable in the Microsoft Sentinel workspace by running the following query:
 
     ```kusto
     CommonSecurityLog
@@ -251,7 +242,7 @@ The validation script performs the following checks:
     sudo tcpdump -A -ni any port 25226 -vv
     ```
 
-1. Sends MOCK data to port 514 on localhost. This data should be observable in the Azure Sentinel workspace by running the following query:
+1. Sends MOCK data to port 514 on localhost. This data should be observable in the Microsoft Sentinel workspace by running the following query:
 
     ```kusto
     CommonSecurityLog
@@ -267,13 +258,13 @@ Use the following sections to check your CEF or Syslog data connector prerequisi
 
 If you're using an Azure Virtual Machine as a Syslog collector, verify the following:
 
-- While you are setting up your Syslog data connector, make sure to turn off your [Azure Security Center auto-provisioning settings](../security-center/security-center-enable-data-collection.md) for the [MMA/OMS agent](connect-windows-security-events.md#connector-options).
+- While you are setting up your Syslog data connector, make sure to turn off your [Microsoft Defender for Cloud auto-provisioning settings](../security-center/security-center-enable-data-collection.md) for the [MMA/OMS agent](connect-windows-security-events.md#connector-options).
 
     You can turn them back on after your data connector is completely set up.
 
 - Before you deploy the [Common Event Format Data connector python script](./connect-log-forwarder.md), make sure that your Virtual Machine isn't already connected to an existing Syslog workspace. You can find this information on the Log Analytics Workspace Virtual Machine list, where a VM that's connected to a Syslog workspace is listed as **Connected**.
 
-- Make sure that Azure Sentinel is connected to the correct Syslog workspace, with the **SecurityInsights** solution installed.
+- Make sure that Microsoft Sentinel is connected to the correct Syslog workspace, with the **SecurityInsights** solution installed.
 
     For more information, see [Step 1: Deploy the log forwarder](./connect-log-forwarder.md).
 
@@ -284,7 +275,7 @@ If you're using an Azure Virtual Machine as a Syslog collector, verify the follo
 If you are using an on-premises machine or a non-Azure virtual machine for your data connector, make sure that you've run the installation script on a fresh installation of a supported Linux operating system:
 
 > [!TIP]
-> You can also find this script from the **Common Event Format** data connector page in Azure Sentinel.
+> You can also find this script from the **Common Event Format** data connector page in Microsoft Sentinel.
 >
 
 ```cli
@@ -295,7 +286,7 @@ sudo wget -O cef_installer.py https://raw.githubusercontent.com/Azure/Azure-Sent
 
 The Syslog server, either rsyslog or syslog-ng, forwards any data defined in the relevant configuration file, which is automatically populated by the settings defined in your Log Analytics workspace.
 
-Make sure to add details about the facilities and severity log levels that you want to be ingested into Azure Sentinel. The configuration process may take about 20 minutes.
+Make sure to add details about the facilities and severity log levels that you want to be ingested into Microsoft Sentinel. The configuration process may take about 20 minutes.
 
 For more information, see [Deployment script explained](./connect-log-forwarder.md#deployment-script-explained) and [Configure Syslog in the Azure portal](../azure-monitor/agents/data-sources-syslog.md).
 
@@ -391,7 +382,7 @@ This procedure describes how to troubleshoot issues that are certainly derived f
 This procedure describes how to confirm whether SELinux is currently in a `permissive` state, or is blocking a connection to the OMS agent. This procedure is relevant when your operating system is a distribution from RedHat or CentOS.
 
 > [!NOTE]
-> Azure Sentinel support for CEF and Syslog only includes FIPS hardening. Other hardening methods, such as SELinux or CIS are not currently supported.
+> Microsoft Sentinel support for CEF and Syslog only includes FIPS hardening. Other hardening methods, such as SELinux or CIS are not currently supported.
 >
 
 1. Run:
@@ -402,8 +393,8 @@ This procedure describes how to confirm whether SELinux is currently in a `permi
 
     The status is displayed as one of the following:
 
-    - `disabled`. This configuration is supported for your connection to Azure Sentinel.
-    - `permissive`. This configuration is supported for your connection to Azure Sentinel.
+    - `disabled`. This configuration is supported for your connection to Microsoft Sentinel.
+    - `permissive`. This configuration is supported for your connection to Microsoft Sentinel.
     - `enforced`. This configuration is not supported, and you must either disable the status or set it to `permissive`.
 
 1. If the status is currently set to `enforced`, turn it off temporarily to confirm whether this was the blocker. Run:
@@ -494,7 +485,7 @@ This procedure describes how to verify whether a firewall policy is blocking the
 
 ## Linux and OMS Agent-related issues
 
-If the steps described earlier in this article do not solve your issue, you may have a connectivity problem between the OMS Agent and the Azure Sentinel workspace.
+If the steps described earlier in this article do not solve your issue, you may have a connectivity problem between the OMS Agent and the Microsoft Sentinel workspace.
 
 In such cases, continue troubleshooting by verifying the following:
 
@@ -522,11 +513,11 @@ A log entry is returned if the agent is communicating successfully. Otherwise, t
 
 ## Next steps
 
-If the troubleshooting steps in this article have not helped your issue, open a support ticket or use the Azure Sentinel community resources. For more information, see [Useful resources for working with Azure Sentinel](resources.md).
+If the troubleshooting steps in this article have not helped your issue, open a support ticket or use the Microsoft Sentinel community resources. For more information, see [Useful resources for working with Microsoft Sentinel](resources.md).
 
-To learn more about Azure Sentinel, see the following articles:
+To learn more about Microsoft Sentinel, see the following articles:
 
 - Learn about [CEF and CommonSecurityLog field mapping](cef-name-mapping.md).
 - Learn how to [get visibility into your data, and potential threats](get-visibility.md).
-- Get started [detecting threats with Azure Sentinel](./detect-threats-built-in.md).
+- Get started [detecting threats with Microsoft Sentinel](./detect-threats-built-in.md).
 - [Use workbooks](monitor-your-data.md) to monitor your data.

@@ -19,6 +19,8 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
+[!INCLUDE [schema note](../../includes/machine-learning-preview-old-json-schema-note.md)]
+
 ## YAML syntax
 
 | Key | Type | Description | Allowed values | Default value |
@@ -51,23 +53,23 @@ Examples are available in the [examples GitHub repository](https://github.com/Az
 
 ## YAML: basic
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/resources/workspace/basic.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/resources/workspace/basic.yml":::
 
 ## YAML: with existing resources
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/resources/workspace/with-existing-resources.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/resources/workspace/with-existing-resources.yml":::
 
 ## YAML: customer-managed key
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/resources/workspace/cmk.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/resources/workspace/cmk.yml":::
 
 ## YAML: private link
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/resources/workspace/privatelink.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/resources/workspace/privatelink.yml":::
 
 ## YAML: high business impact
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/resources/workspace/hbi.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/resources/workspace/hbi.yml":::
 
 ## Next steps
 

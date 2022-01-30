@@ -8,7 +8,7 @@ ms.subservice: service-overview
 ms.topic: conceptual
 author: dimitri-furman
 ms.author: dfurman
-ms.reviewer: mathoma
+ms.reviewer: kendralittle, mathoma
 ms.date: 05/18/2021
 ROBOTS: NOINDEX 
 ms.custom: devx-track-azurepowershell

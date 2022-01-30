@@ -91,7 +91,7 @@ additionalContent:
           - text: Azure Cognitive Search
             url: ../search/search-get-started-portal.md
           - text: Azure Video Analyzer
-            url: ../azure-video-analyzer/video-analyzer-docs/detect-motion-emit-events-quickstart.md
+            url: ../azure-video-analyzer/video-analyzer-docs/edge/detect-motion-emit-events-quickstart.md
           - text: Azure Bot Service
             url: /composer/quickstart-create-bot
             

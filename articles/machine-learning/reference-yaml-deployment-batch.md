@@ -19,6 +19,8 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
+[!INCLUDE [schema note](../../includes/machine-learning-preview-old-json-schema-note.md)]
+
 ## YAML syntax
 
 | Key | Type | Description | Allowed values | Default value |
@@ -56,11 +58,11 @@ Examples are available in the [examples GitHub repository](https://github.com/Az
 
 ## YAML: basic (MLflow)
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/endpoints/batch/mlflow-deployment.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/mlflow-deployment.yml":::
 
 ## YAML: custom model and scoring code
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/endpoints/batch/nonmlflow-deployment.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/nonmlflow-deployment.yml":::
 
 ## Next steps
 

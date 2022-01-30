@@ -53,20 +53,22 @@ Create your root CA certificate using OpenSSL.
    
 ### Create a Root Certificate and self-sign it
 
-1. Use the following commands to generate the csr and the certificate.
+1. Use the following command to generate the Certificate Signing Request (CSR).
 
    ```
    openssl req -new -sha256 -key contoso.key -out contoso.csr
    ```
-   
-   ```
-   openssl x509 -req -sha256 -days 365 -in contoso.csr -signkey contoso.key -out contoso.crt
-   ```
-   The previous commands create the root certificate. You'll use this to sign your server certificate.
 
 1. When prompted, type the password for the root key, and the organizational information for the custom CA such as Country/Region, State, Org, OU, and the fully qualified domain name (this is the domain of the issuer).
 
    ![create root certificate](media/self-signed-certificates/root-cert.png)
+
+1. Use the following command to generate the Root Certificate.
+
+   ```
+   openssl x509 -req -sha256 -days 365 -in contoso.csr -signkey contoso.key -out contoso.crt
+   ```
+   The previous commands create the root certificate. You'll use this to sign your server certificate.
 
 ## Create a server certificate
 

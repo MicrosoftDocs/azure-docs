@@ -3,11 +3,11 @@ title: 'Disable PTA when using Azure AD Connect "Do not configure" | Microsoft D
 description: This article describes how to disable PTA with the Azure AD Connect "do not configure" feature.
 services: active-directory
 author: billmath
-manager: daveba
+manager: karenhoran
 ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
-ms.date: 04/20/2020
+ms.date: 01/21/2022
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -48,8 +48,8 @@ The following prerequisites are required:
 From within a PowerShell session, use the following to disable PTA:
 
 1. PS C:\Program Files\Microsoft Azure AD Connect Authentication Agent> `Import-Module .\Modules\PassthroughAuthPSModule`
-2. `Get-PassthroughAuthenticationEnablementStatus -Feature PassthroughAuth` or `Get-PassthroughAuthenticationEnablementStatus -Feature PassthroughAuth -EnvironmentName <identifier>`
-3. `Disable-PassthroughAuthentication  -Feature PassthroughAuth` or `Disable-PassthroughAuthentication -Feature PassthroughAuth -EnvironmentName <identifier>`
+2. `Get-PassthroughAuthenticationEnablementStatus`
+3. `Disable-PassthroughAuthentication`
 
 ## If you don't have access to an agent
 

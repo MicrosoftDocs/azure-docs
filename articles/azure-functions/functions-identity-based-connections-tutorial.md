@@ -293,7 +293,7 @@ Next you will update your function app to use its system-assigned identity when 
 > [!IMPORTANT]
 > The `AzureWebJobsStorage` configuration is used by some triggers and bindings, and those extensions must be able to use identity-based connections, too. Apps that use blob triggers or event hub triggers may need to update those extensions. Because no functions have been defined for this app, there isn't a concern yet. To learn more about this requirement, see [Connecting to host storage with an identity (Preview)](./functions-reference.md#connecting-to-host-storage-with-an-identity-preview).
 >
-> Similarly, `AzureWebJobsStorage` is used for deployment artifacts when using server-side build in Linux Consumption. When you enable identity-based connections for `AzureWebJobsStorage` in Linux Consmption, you will need to deploy via [an external deployment package](/run-functions-from-deployment-package).
+> Similarly, `AzureWebJobsStorage` is used for deployment artifacts when using server-side build in Linux Consumption. When you enable identity-based connections for `AzureWebJobsStorage` in Linux Consmption, you will need to deploy via [an external deployment package](run-functions-from-deployment-package.md).
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your function app.
 

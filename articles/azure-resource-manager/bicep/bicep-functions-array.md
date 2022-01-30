@@ -4,7 +4,7 @@ description: Describes the functions to use in a Bicep file for working with arr
 author: mumian
 ms.topic: conceptual
 ms.author: jgao
-ms.date: 10/18/2021
+ms.date: 12/08/2021
 
 ---
 # Array functions for Bicep
@@ -352,15 +352,15 @@ The following example converts a dictionary object to an array. For each object 
 
 ```bicep
 var entities = {
-  item001: {
-    enabled: true
-    displayName: 'Example item 1'
-    number: 300
-  }
   item002: {
     enabled: false
     displayName: 'Example item 2'
     number: 200
+  }
+  item001: {
+    enabled: true
+    displayName: 'Example item 1'
+    number: 300
   }
 }
 
@@ -397,15 +397,15 @@ The following example shows the array that is returned from the items function.
 
 ```bicep
 var entities = {
-  item001: {
-    enabled: true
-    displayName: 'Example item 1'
-    number: 300
-  }
   item002: {
     enabled: false
     displayName: 'Example item 2'
     number: 200
+  }
+  item001: {
+    enabled: true
+    displayName: 'Example item 1'
+    number: 300
   }
 }
 
@@ -439,6 +439,8 @@ The example returns:
   ]
 }
 ```
+
+The items() function sorts the objects in the alphabetical order. For example, **item001** appears before **item002** in the outputs of the two preceding samples.
 
 ## last
 
@@ -744,7 +746,7 @@ The output from the preceding example with the default values is:
 
 `union(arg1, arg2, arg3, ...)`
 
-Returns a single array or object with all elements from the parameters. Duplicate values or keys are only included once.
+Returns a single array or object with all elements from the parameters. For arrays, duplicate values are included once. For objects, duplicate property names are only included once.
 
 Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
@@ -759,6 +761,14 @@ Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 ### Return value
 
 An array or object.
+
+### Remarks
+
+The union function uses the sequence of the parameters to determine the order and values of the result.
+
+For arrays, the function iterates through each element in the first parameter and adds it to the result if it isn't already present. Then, it repeats the process for the second parameter and any additional parameters. If a value is already present, it's earlier placement in the array is preserved.
+
+For objects, property names and values from the first parameter are added to the result. For later parameters, any new names are added to the result. If a later parameter has a property with the same name, that value overwrites the existing value. The order of the properties isn't guaranteed.
 
 ### Example
 
@@ -786,6 +796,7 @@ param firstArray array = [
 param secondArray array = [
   'three'
   'four'
+  'two'
 ]
 
 output objectOutput object = union(firstObject, secondObject)

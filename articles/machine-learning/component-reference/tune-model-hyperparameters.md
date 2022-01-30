@@ -64,7 +64,7 @@ This section describes how to perform a basic parameter sweep, which trains a mo
 
     However, the metric that you choose determines how the models are ranked. Only the top model, as ranked by the chosen metric, is output as a trained model to use for scoring.
 
-8.  For **Random seed**, enter a number to use for starting the parameter sweep. 
+8.  For **Random seed**, enter an integer number as a pseudo random number generator state used for randomly selecting parameter values over a pre-defined range. This parameter is only effective if **Parameter sweeping mode** is **Random sweep**.
 
 9. Submit the pipeline.
 
