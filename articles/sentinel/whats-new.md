@@ -45,7 +45,11 @@ The Maturity Model for Event Log Management (M-21-31) solution provides a quanti
 - Respond to notifications with Security Orchestration Automation & Response (SOAR) activities
 - Remediate with Cloud Security Posture Management (CSPM)
 
-For more information, see [Centrally discover and deploy Microsoft Sentinel out-of-the-box content and solutions (Public preview)](sentinel-solutions-deploy.md) and the [content hub catalog](sentinel-solutions-catalog.md#domain-solutions).
+For more information, see:
+
+- [Modernize Log Management with the Maturity Model for Event Log Management (M-21-31) Solution](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/modernize-log-management-with-the-maturity-model-for-event-log/ba-p/3072842) (blog)
+- [Centrally discover and deploy Microsoft Sentinel out-of-the-box content and solutions](sentinel-solutions-deploy.md)
+- [The Microsoft Sentinel content hub catalog](sentinel-solutions-catalog.md#domain-solutions)
 
 ### SentinelHealth data table (Public preview)
 
