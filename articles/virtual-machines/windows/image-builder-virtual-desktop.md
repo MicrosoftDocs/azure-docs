@@ -241,7 +241,7 @@ Feel free to view the [template](https://raw.githubusercontent.com/azure/azvmima
 Your template must be submitted to the service, this will download any dependent artifacts (like scripts), validate, check permissions, and store them in the staging Resource Group, prefixed, *IT_*.
 
 ```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName $imageResourceGroup -TemplateFile $templateFilePath -api-version "2020-02-14" -imageTemplateName $imageTemplateName -svclocation $location
+New-AzResourceGroupDeployment -ResourceGroupName $imageResourceGroup -TemplateFile $templateFilePath -TemplateParameterObject @{"api-Version" = "2020-02-14"} -imageTemplateName $imageTemplateName -svclocation $location
 
 # Optional - if you have any errors running the above, run:
 $getStatus=$(Get-AzImageBuilderTemplate -ResourceGroupName $imageResourceGroup -Name $imageTemplateName)

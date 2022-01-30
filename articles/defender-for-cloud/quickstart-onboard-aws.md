@@ -24,6 +24,8 @@ To protect your AWS-based resources, you can connect an account with one of two 
     - **Microsoft Defender for Containers** extends Defender for Cloud's container threat detection and advanced defenses to your **Amazon EKS clusters**.
     - **Microsoft Defender for servers** brings threat detection and advanced defenses to your Windows and Linux EC2 instances. This plan includes the integrated license for Microsoft Defender for Endpoint, security baselines and OS level assessments, vulnerability assessment scanning, adaptive application controls (AAC), file integrity monitoring (FIM), and more.
 
+For a reference list of all the recommendations Defender for Cloud can provide for AWS resources, see [Security recommendations for AWS resources - a reference guide](recommendations-reference-aws.md).
+
 This screenshot shows AWS accounts displayed in Defender for Cloud's [overview dashboard](overview-page.md).
 
 :::image type="content" source="./media/quickstart-onboard-aws/aws-account-in-overview.png" alt-text="Four AWS projects listed on Defender for Cloud's overview dashboard" lightbox="./media/quickstart-onboard-aws/aws-account-in-overview.png":::
@@ -104,7 +106,7 @@ If you have any existing connectors created with the classic cloud connectors ex
     1. Select **Next: Review and generate**.
     1. Select **Create**.
 
-Defender for Cloud will immediately start scanning your AWS resources and you'll see security recommendations in within a few hours.
+Defender for Cloud will immediately start scanning your AWS resources and you'll see security recommendations within a few hours. For a reference list of all the recommendations Defender for Cloud can provide for AWS resources, see [Security recommendations for AWS resources - a reference guide](recommendations-reference-aws.md).
 
 ::: zone-end
 
@@ -279,4 +281,5 @@ For other operating systems, the SSM Agent should be installed manually using th
 
 Connecting your AWS account is part of the multi-cloud experience available in Microsoft Defender for Cloud. For related information, see the following page:
 
+- [Security recommendations for AWS resources - a reference guide](recommendations-reference-aws.md).
 - [Connect your GCP accounts to Microsoft Defender for Cloud](quickstart-onboard-gcp.md)

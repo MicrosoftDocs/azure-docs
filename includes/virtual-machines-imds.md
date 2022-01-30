@@ -46,6 +46,8 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http:
 curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance?api-version=2021-02-01" | jq
 ```
 
+The `jq` utility is available in many cases, but not all. If the `jq` utility is missing, use `| python -m json.tool` instead.
+
 ---
 
 **Response**
@@ -569,6 +571,8 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http:
 curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/compute/tagsList?api-version=2019-06-04" | jq
 ```
 
+The `jq` utility is available in many cases, but not all. If the `jq` utility is missing, use `| python -m json.tool` instead.
+
 ---
 
 **Response**
@@ -703,7 +707,7 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
             "lun": "0",
             "managedDisk": {
               "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/MicrosoftCompute/disks/exampledatadiskname",
-              "storageAccountType": "Standard_LRS"
+              "storageAccountType": "StandardSSD_LRS"
             },
             "name": "exampledatadiskname",
             "opsPerSecondThrottle": "65280",
@@ -734,7 +738,7 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
             },
             "managedDisk": {
                 "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampleosdiskname",
-                "storageAccountType": "Standard_LRS"
+                "storageAccountType": "StandardSSD_LRS"
             },
             "name": "exampleosdiskname",
             "osType": "Windows",
@@ -821,7 +825,7 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
             "lun": "0",
             "managedDisk": {
               "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampledatadiskname",
-              "storageAccountType": "Standard_LRS"
+              "storageAccountType": "StandardSSD_LRS"
             },
             "name": "exampledatadiskname",
             "opsPerSecondThrottle": "65280",
@@ -852,7 +856,7 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
             },
             "managedDisk": {
                 "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampleosdiskname",
-                "storageAccountType": "Standard_LRS"
+                "storageAccountType": "StandardSSD_LRS"
             },
             "name": "exampleosdiskname",
             "osType": "linux",
@@ -978,6 +982,9 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/ne
 ```
 
 ---
+
+>[!NOTE]
+> * If you are looking to retrieve IMDS information for **Standard** SKU Public IP address, review [Load Balancer Metadata API](https://docs.microsoft.com/azure/load-balancer/howto-load-balancer-imds?tabs=windows) for more infomration.
 
 ## Attested data
 

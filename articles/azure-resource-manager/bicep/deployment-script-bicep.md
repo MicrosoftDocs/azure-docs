@@ -5,7 +5,7 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 11/29/2021
+ms.date: 12/28/2021
 ms.author: jgao
 
 ---
@@ -200,6 +200,14 @@ The output looks like:
 
 ![ARM Bicep deployment script output](./media/deployment-script-bicep/resource-manager-template-deployment-script-inline-script-output.png)
 
+## Load script file
+
+You can use the [loadTextContent](bicep-functions-files.md#loadtextcontent) function to load a script file as a string. This function enables you to keep the script in a separate file and retrieve it as a deployment script. The path you provide to the script file is relative to the Bicep file.
+
+The following example loads a script from a file and uses it for a deployment script.
+
+::: code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/functions/loadTextContent/loaddeploymentscript.bicep" highlight="13" :::
+
 ## Use external scripts
 
 In addition to inline scripts, you can also use external script files. Only primary PowerShell scripts with the _ps1_ file extension are supported. For CLI scripts, the primary scripts can have any extensions (or without an extension), as long as the scripts are valid bash scripts. To use external script files, replace `scriptContent` with `primaryScriptUri`. For example:
@@ -248,7 +256,7 @@ Different from the PowerShell deployment script, CLI/bash support doesn't expose
 
 Deployment script outputs must be saved in the `AZ_SCRIPTS_OUTPUT_PATH` location, and the outputs must be a valid JSON string object. The contents of the file must be saved as a key-value pair. For example, an array of strings is stored as `{ "MyResult": [ "foo", "bar"] }`.  Storing just the array results, for example `[ "foo", "bar" ]`, is invalid.
 
-:::code language="bicep" source="~/azure-docs-bicep-samples/samples/deployment-script/passValue-cli.bicep" range="1-25" highlight="19":::
+:::code language="bicep" source="~/azure-docs-bicep-samples/samples/deployment-script/passValue-cli.bicep" range="1-35" highlight="29":::
 
 [jq](https://stedolan.github.io/jq/) is used in the previous sample. It comes with the container images. See [Configure development environment](#configure-development-environment).
 

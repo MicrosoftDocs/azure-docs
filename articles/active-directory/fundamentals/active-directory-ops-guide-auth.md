@@ -3,7 +3,7 @@ title: Azure Active Directory Authentication management operations reference gui
 description: This operations reference guide describes the checks and actions you should take to secure authentication management
 services: active-directory
 author: martincoetzer
-manager: daveba
+manager: karenhoran
 tags: azuread
 ms.service: active-directory
 ms.topic: conceptual
@@ -155,7 +155,7 @@ Providing a standardized single sign-on mechanism to the entire enterprise is cr
 > [!NOTE]
 > If you don't have a mechanism to discover unmanaged applications in your organization, we recommend implementing a discovery process using a cloud access security broker solution (CASB) such as [Microsoft Defender for Cloud Apps](https://www.microsoft.com/enterprise-mobility-security/cloud-app-security).
 
-Finally, if you have an Azure AD app gallery and use applications that support SSO with Azure AD, we recommend [listing the application in the app gallery](../develop/v2-howto-app-gallery-listing.md).
+Finally, if you have an Azure AD app gallery and use applications that support SSO with Azure AD, we recommend [listing the application in the app gallery](../manage-apps/v2-howto-app-gallery-listing.md).
 
 #### Single sign-on recommended reading
 

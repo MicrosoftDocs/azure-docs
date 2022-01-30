@@ -4,12 +4,11 @@ description: Learn how to reprocess a request for an access package in Azure Act
 services: active-directory
 documentationCenter: ''
 author: ajburnle
-manager: daveba
+manager: karenhoran
 editor: 
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
 ms.date: 06/25/2021

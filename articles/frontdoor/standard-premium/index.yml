@@ -64,7 +64,7 @@ landingContent:
           - text: Origin
             url: concept-origin.md
           - text: Health probes
-            url: /azure/frontdoor/front-door-health-probes
+            url: ../front-door-health-probes.md
       - linkListType: how-to-guide
         links:
           - text: Configure an Origin Group
@@ -96,7 +96,7 @@ landingContent:
           - text: WAF on Azure Front Door Standard/Premium
             url: ../../web-application-firewall/afds/afds-overview.md
           - text: DDoS protection
-            url: /azure/frontdoor/front-door-ddos
+            url: ../front-door-ddos.md
       - linkListType: how-to-guide
         links:
           - text: Enable Private Link

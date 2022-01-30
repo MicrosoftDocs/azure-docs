@@ -195,7 +195,7 @@ Incident teams are especially helpful when used as a dedicated conference bridge
 
 In Microsoft Teams, the new team's **Incident page** tab always has the most updated and recent data from Azure Sentinel, ensuring that your teams have the most relevant data right at hand.
 
-[ ![Incident page in Microsoft Teams.](media/collaborate-in-microsoft-teams/incident-in-teams.jpg) ](media/collaborate-in-microsoft-teams/incident-in-teams.jpg#lightbox)
+[ ![Incident page in Microsoft Teams.](media/collaborate-in-microsoft-teams/incident-in-teams.png) ](media/collaborate-in-microsoft-teams/incident-in-teams.png#lightbox)
 
 For more information, see [Collaborate in Microsoft Teams (Public preview)](collaborate-in-microsoft-teams.md).
 
@@ -203,7 +203,7 @@ For more information, see [Collaborate in Microsoft Teams (Public preview)](coll
 
 The new, Azure Sentinel Zero Trust (TIC3.0) workbook provides an automated visualization of [Zero Trust](/security/zero-trust/) principles, cross-walked to the [Trusted Internet Connections](https://www.cisa.gov/trusted-internet-connections) (TIC) framework.
 
-We know that compliance isn’t just an annual requirement, and organizations must monitor configurations over time like a muscle. Azure Sentinel's Zero Trust workbook uses the full breadth of Microsoft security offerings across Azure, Office 365, Teams, Intune, Windows Virtual Desktop, and many more.
+We know that compliance isn’t just an annual requirement, and organizations must monitor configurations over time like a muscle. Azure Sentinel's Zero Trust workbook uses the full breadth of Microsoft security offerings across Azure, Office 365, Teams, Intune, Azure Virtual Desktop, and many more.
 
 [ ![Zero Trust workbook.](media/zero-trust-workbook.gif) ](media/zero-trust-workbook.gif#lightbox)
 
@@ -362,7 +362,7 @@ Customers will still be able to send the logs manually for specific instances an
 
 ### Cybersecurity Maturity Model Certification (CMMC) workbook
 
-The Azure Sentinel CMMC Workbook provides a mechanism for viewing log queries aligned to CMMC controls across the Microsoft portfolio, including Microsoft security offerings, Office 365, Teams, Intune, Windows Virtual Desktop and many more.
+The Azure Sentinel CMMC Workbook provides a mechanism for viewing log queries aligned to CMMC controls across the Microsoft portfolio, including Microsoft security offerings, Office 365, Teams, Intune, Azure Virtual Desktop and many more.
 
 The CMMC workbook enables security architects, engineers, security operations analysts, managers, and IT professionals to gain situational awareness visibility for the security posture of cloud workloads. There are also recommendations for selecting, designing, deploying, and configuring Microsoft offerings for alignment with respective CMMC requirements and practices.
 

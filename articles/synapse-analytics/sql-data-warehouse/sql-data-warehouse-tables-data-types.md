@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 01/06/2020
 ms.author: fipopovi
-ms.reviewer: jrasnick
+ms.reviewer: sngun
 ms.custom: 
 ---
 

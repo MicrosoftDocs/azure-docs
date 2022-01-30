@@ -15,6 +15,13 @@ This page provides information of changes and fixes for each Azure Percept DK OS
 
 To download the update images, refer to [Azure Percept DK software releases for USB cable update](./software-releases-usb-cable-updates.md) or [Azure Percept DK software releases for OTA update](./software-releases-over-the-air-updates.md).
 
+## January (2201) Release
+
+- Setup Experience
+  - Fixed the compatibility issue with Windows 11 PC during OOBE setup.
+- Operating System
+  - Latest security updates on vim package.
+
 ## November (2111) Release
 
 - Operating System

@@ -5,7 +5,7 @@ services: synapse-analytics
 ms.service: synapse-analytics
 ms.subservice: machine-learning
 ms.topic: tutorial
-ms.reviewer: jrasnick, garye
+ms.reviewer: sngun, garye
 ms.date: 07/01/2021
 author: nelgson
 ms.author: negust

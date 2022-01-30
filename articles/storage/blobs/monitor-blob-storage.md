@@ -105,7 +105,7 @@ If you choose to archive your logs to a storage account, you'll pay for the volu
    > [!div class="mx-imgBorder"]
    > ![Diagnostic settings page archive storage](media/monitor-blob-storage/diagnostic-logs-settings-pane-archive-storage.png)
 
-2. In the **Storage account** drop-down list, select the storage account that you want to archive your logs to, click the **OK** button, and then select the **Save** button.
+2. In the **Storage account** drop-down list, select the storage account that you want to archive your logs to, and then select the **Save** button.
 
    [!INCLUDE [no retention policy](../../../includes/azure-storage-logs-retention-policy.md)]
 
@@ -637,8 +637,8 @@ This table shows how this feature is supported in your account and the impact on
 
 | Storage account type | Blob Storage (default support) | Data Lake Storage Gen2 <sup>1</sup> | NFS 3.0 <sup>1</sup> | SFTP <sup>1</sup> |
 |--|--|--|--|--|
-| Standard general-purpose v2 | ![Yes](../media/icons/yes-icon.png)  <sup>2</sup> |![Yes](../media/icons/yes-icon.png)  <sup>2</sup>              | ![Yes](../media/icons/yes-icon.png)  <sup>2</sup> | ![Yes](../media/icons/yes-icon.png)  <sup>2</sup> |
-| Premium block blobs          | ![Yes](../media/icons/yes-icon.png)  <sup>2</sup>|![Yes](../media/icons/yes-icon.png)  <sup>2</sup> | ![Yes](../media/icons/yes-icon.png)  <sup>2</sup> | ![Yes](../media/icons/yes-icon.png)  <sup>2</sup> |
+| Standard general-purpose v2 | ![Yes](../media/icons/yes-icon.png)  <sup>2</sup> |![Yes](../media/icons/yes-icon.png)  <sup>2</sup>              | ![Yes](../media/icons/yes-icon.png)  <sup>2</sup> | ![No](../media/icons/no-icon.png) |
+| Premium block blobs          | ![Yes](../media/icons/yes-icon.png)  <sup>2</sup>|![Yes](../media/icons/yes-icon.png)  <sup>2</sup> | ![Yes](../media/icons/yes-icon.png)  <sup>2</sup> | ![No](../media/icons/no-icon.png) |
 
 ### Metrics in Azure Monitor
 

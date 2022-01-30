@@ -4,7 +4,7 @@ description: This article describes new features in Microsoft Sentinel from the 
 author: batamig
 ms.author: bagol
 ms.topic: conceptual
-ms.date: 12/01/2021
+ms.date: 01/13/2022
 ms.custom: ignite-fall-2021
 ---
 
@@ -63,8 +63,45 @@ We've upgraded the MITRE ATT&CK support throughout Microsoft Sentinel to use the
 - [Inhibit Response Function](https://collaborate.mitre.org/attackics/index.php/Inhibit_Response_Function)
 
 
-
 ## January 2022
+
+- [SentinelHealth data table (Public preview)](#sentinelhealth-data-table-public-preview)
+- [More workspaces supported for Multiple Workspace View](#more-workspaces-supported-for-multiple-workspace-view)
+- [Kusto Query Language workbook and tutorial](#kusto-query-language-workbook-and-tutorial)
+
+### SentinelHealth data table (Public preview)
+
+Microsoft Sentinel now provides the **SentinelHealth** data table to help you monitor your connector health, providing insights on health drifts, such as latest failure events per connector, or connectors with changes from success to failure states. Use this data to create alerts and other automated actions, such as Microsoft Teams messages, new tickets in a ticketing system, and so on.
+
+Turn on the Microsoft Sentinel health feature for your workspace in order to have the **SentinelHealth** data table created at the next success or failure event generated for supported data connectors.
+
+For more information, see [Use the SentinelHealth data table (Public preview)](monitor-data-connector-health.md#use-the-sentinelhealth-data-table-public-preview).
+
+### More workspaces supported for Multiple Workspace View
+
+Now, instead of being limited to 10 workspaces in Microsoft Sentinel's [Multiple Workspace View](multiple-workspace-view.md), you can view data from up to 30 workspaces simultaneously.
+
+While we often recommend a single-workspace environment, some use cases require multiple use cases, such as for Managed Security Service Providers (MSSPs) and their customers. **Multiple Workspace View** lets you see and work with security incidents across several workspaces at the same time, even across tenants, allowing you to maintain full visibility and control of your organization’s security responsiveness.
+
+For more information, see:
+
+- [The need to use multiple Microsoft Sentinel workspaces](extend-sentinel-across-workspaces-tenants.md#the-need-to-use-multiple-microsoft-sentinel-workspaces)
+- [Work with incidents in many workspaces at once](multiple-workspace-view.md)
+- [Manage multiple tenants in Microsoft Sentinel as an MSSP](multiple-tenants-service-providers.md)
+
+### Kusto Query Language workbook and tutorial
+
+Kusto Query Language is used in Microsoft Sentinel to search, analyze, and visualize data, as the basis for detection rules, workbooks, hunting, and more.
+
+The new **Advanced KQL for Microsoft Sentinel** interactive workbook is designed to help you improve your Kusto Query Language proficiency by taking a use case-driven approach based on:
+
+- Grouping Kusto Query Language operators/commands by category for easy navigation.
+- Listing the possible tasks a user would perform with Kusto Query Language in Microsoft Sentinel. Each task includes operators used, sample queries and use cases.
+- Compiling a list of existing content found in Microsoft Sentinel (analytics rules, hunting queries, workbooks and so on) to provide additional references specific to the operators you want to learn.
+- Allowing you to execute sample queries on-the-fly, within your own environment or in "LA Demo" - a public [Log Analytics demo environment](https://aka.ms/lademo). Try the sample Kusto Query Language statements in real time without the need to navigate away from the workbook.
+
+Accompanying the new workbook is an explanatory [blog post](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/advanced-kql-framework-workbook-empowering-you-to-become-kql/ba-p/3033766), as well as a new [introduction to Kusto Query Language](kusto-overview.md) and a [collection of learning and skilling resources](kusto-resources.md) in the Microsoft Sentinel documentation.
+
 ## December 2021
 
 - [IoT OT Threat Monitoring with Defender for IoT solution](#iot-ot-threat-monitoring-with-defender-for-iot-solution-public-preview)
@@ -73,7 +110,7 @@ We've upgraded the MITRE ATT&CK support throughout Microsoft Sentinel to use the
 
 ### IoT OT Threat Monitoring with Defender for IoT solution (Public preview)
 
-The new **IoT OT Threat Monitoring with Defender for IoT** solution available in the [Microsoft Sentinel content hub](sentinel-solutions-catalog.md#microsoft) provides further support for the Microsoft Sentinel integration with Microsoft Defender for IoT, bridging gaps between IT and OT  security challenges, and empowering SOC teams with enhanced abilities to efficiently and effectively detect and respond to OT threats.
+The new **IoT OT Threat Monitoring with Defender for IoT** solution available in the [Microsoft Sentinel content hub](sentinel-solutions-catalog.md#microsoft) provides further support for the Microsoft Sentinel integration with Microsoft Defender for IoT, bridging gaps between IT and OT security challenges, and empowering SOC teams with enhanced abilities to efficiently and effectively detect and respond to OT threats.
 
 For more information, see [Tutorial: Integrate Microsoft Sentinel and Microsoft Defender for IoT](iot-solution.md).
 
@@ -382,8 +419,21 @@ For more information, see:
 
 ## September 2021
 
+- [Data connector health enhancements (Public preview)](#data-connector-health-enhancements-public-preview)
+
 - [New in docs: scaling data connector documentation](#new-in-docs-scaling-data-connector-documentation)
 - [Azure Storage account connector changes](#azure-storage-account-connector-changes)
+
+### Data connector health enhancements (Public preview)
+
+Azure Sentinel now provides the ability to enhance your data connector health monitoring with a new *SentinelHealth* table. The *SentinelHealth* table is created after you've [turned on the Azure Sentinel health feature](monitor-data-connector-health.md#turn-on-microsoft-sentinel-health-for-your-workspace) in your Azure Sentinel workspace, at the first success or failure health event that's generated.
+
+For more information, see [Monitor the health of your data connectors with this Azure Sentinel workbook](monitor-data-connector-health.md).
+
+> [!NOTE]
+> The *SentinelHealth* data table is currently supported only for selected data connectors. For more information, see [Supported data connectors](monitor-data-connector-health.md#supported-data-connectors).
+>
+
 
 ### New in docs: scaling data connector documentation
 
@@ -469,7 +519,7 @@ Watchlist templates currently include:
 - **High Value Assets**. A list of devices, resources, or other assets that have critical value in the organization.
 - **Network Mapping**. A list of IP subnets and their respective organizational contexts.
 
-For more information, see [Create a new watchlist using a template](watchlists.md#create-a-new-watchlist-using-a-template-public-preview) and [Built-in watchlist schemas](watchlist-schemas.md).
+For more information, see [Create a new watchlist using a template](watchlists-create.md#create-a-watchlist-by-using-a-template-public-preview) and [Built-in watchlist schemas](watchlist-schemas.md).
 
 
 
@@ -567,7 +617,6 @@ See the [complete list of supported geos](quickstart-onboard.md#geographical-ava
 The Azure Defender connector now supports bi-directional syncing of alerts' status between Defender and Azure Sentinel. When you close a Sentinel incident containing a Defender alert, the alert will automatically be closed in the Defender portal as well.
 
 See this [complete description of the updated Azure Defender connector](connect-defender-for-cloud.md).
-
 
 ## Next steps
 

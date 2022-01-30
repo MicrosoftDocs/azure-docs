@@ -138,6 +138,45 @@ The following table lists the terms and descriptions shown on the Credits tab.
 | Credit applied toward charges | Total amount of the invoice or credit generated |
 | Ending credit | Credit end balance |
 
+Below are the Accounting codes and description for the adjustments. 
+
+| **Accounting Code** | **Description** |
+| --- | --- |
+| F2 | Contractual Credit |
+| F3 | Strategic Investment Credit: Future Utilization Credit |
+| O1 | Offer Conversion Credit |
+| O2 | Pricing or Billing Credit |
+| O3 | Deployment Credit |
+| O4 | Offset Service Credit |
+| O5 | Coverage Gap Credit |
+| O6 | Subscription Interrupt Credit |
+| O7 | Technical Concession Credit |
+| O8 | Usage Emission Credit |
+| O9 | Fraud False Positive Credit |
+| O10 | Pricing Alignment Credit |
+| O11 | Sponsorship Continuity Credit |
+| O12 | Exchange Rate Reconciliation Credit |
+| O13 | Microsoft Internal Credit |
+| O14 | Supporting Documentation Credit |
+| O15 | Support Troubleshooting Credit |
+| O16 | Data Center Credit |
+| O17 | Backdated Pricing Credit |
+| O18 | Strategic Investment Credit: Offset of Past Utilization |
+| O19 | Licensing Benefit Credit |
+| O20 | Return of Reservation Credit |
+| O21 | Service Level Agreement Credit |
+| P1 | Custom Billing Credit |
+| P2 | Strategic Investment Credit: Planned Usage Credit |
+| T1 | Contractual Fund Transfer |
+| T2 | Strategic Investment Credit: Transfer of Funds |
+| T3 | Volume Licensing Reconciliation Credit |
+| T4 | Separate Channel Balance Transfer |
+| T5 | Reservations - Exchange |
+| U1 | Latent Onboarding Credit |
+| U2 | Funding Transfer |
+| U3 | Contract Term Transfer |
+| U4 | Strategic Investment Credit: Transfer of Utilization |
+
 ## Review reservation transaction details
 
 You can view all the reservations placed for an Enterprise Agreement in the Azure portal.

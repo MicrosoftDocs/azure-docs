@@ -182,21 +182,13 @@ For examples of this method, see:
 
 ## Parse your custom connector data
 
-You can use your custom connector's built-in parsing technique to extract the relevant information and populate the relevant fields in Microsoft Sentinel.
+To take advantage of the data collected with your custom connector, [develop Advanced SIM Information Model (SIEM) parsers](normalization-develop-parsers.md) to work with your connector. Using [ASIM](normalization.md) enables Microsoft Sentinel's built-in content to use your custom data and makes it easier for analysts to query the data.
 
-For example:
-
+If your connector method allows for it, you can implement part of the parsing as part of the connector to improve query time parsing performance:
 - **If you've used Logstash**, use the [Grok](https://www.elastic.co/guide/en/logstash/current/plugins-filters-grok.html) filter plugin to parse your data.
 - **If you've used an Azure function**, parse your data with code.
 
-Microsoft Sentinel supports parsing at query time. Parsing at query time enables you to push data in at the original format, and then parse on demand, when needed.
-
-Parsing at query time also means you don't need to know your data's exact structure ahead of time, when you create your custom connector, or even the information you'll need to extract. Instead, parse your data at any time, even during an investigation.
-
-For more information on parsing at query time, see [Parsers](normalization-about-parsers.md).
-
-> [!NOTE]
-> Updating your parser also applies to data that you've already ingested into Microsoft Sentinel.
+You will still need to implement ASIM parsers, but implementing part of the parsing directly with the connector simplifies the parsing and improves performance.
 
 ## Next steps
 

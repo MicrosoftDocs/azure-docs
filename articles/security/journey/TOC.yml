@@ -235,8 +235,8 @@
     href: ../fundamentals/log-audit.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
   - name: Review and auditing 
     href: /azure/architecture/framework/security/monitor-audit?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
-  - name: Identity and network risks 
-    href: /azure/architecture/framework/security/monitor?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+  - name: Monitor security posture 
+    href: /azure/architecture/framework/security/monitor-resources?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
   - name: Checklist 
     href: /azure/architecture/framework/security/monitor?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
 

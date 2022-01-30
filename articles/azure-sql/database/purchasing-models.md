@@ -22,10 +22,6 @@ Azure SQL Database and Azure SQL Managed Instance let you easily purchase a full
 - [Database transaction unit (DTU)-based purchasing model](service-tiers-dtu.md). This purchasing model provides bundled compute and storage packages balanced for common workloads.
 
 
-> [!div class="nextstepaction"]
-> [Survey to improve Azure SQL!](https://aka.ms/AzureSQLSurveyNov2021) 
-
-
 There are two purchasing models:
 
 - [vCore-based purchasing model](service-tiers-vcore.md) is available for both [Azure SQL Database](sql-database-paas-overview.md) and [Azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md). The [Hyperscale service tier](service-tier-hyperscale.md) is available for single databases that are using the [vCore-based purchasing model](service-tiers-vcore.md).
@@ -36,7 +32,7 @@ The following table and chart compare and contrast the vCore-based and the DTU-b
 |**Purchasing model**|**Description**|**Best for**|
 |---|---|---|
 |DTU-based|This model is based on a bundled measure of compute, storage, and I/O resources. Compute sizes are expressed in DTUs for single databases and in elastic database transaction units (eDTUs) for elastic pools. For more information about DTUs and eDTUs, see [What are DTUs and eDTUs?](purchasing-models.md#dtu-based-purchasing-model).|Customers who want simple, preconfigured resource options|
-|vCore-based|This model allows you to independently choose compute and storage resources. The vCore-based purchasing model also allows you to use [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/) for SQL Server to save costs.|Customers who value flexibility, control, and transparency|
+|vCore-based|This model allows you to independently choose and scale compute and storage resources. The vCore-based purchasing model allows you to use [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/) for SQL Server to save costs. Newer capabilities (e.g. Hyperscale, serverless) are only available in the vCore model.|Customers who value flexibility, control, and transparency|
 ||||  
 
 ![Pricing model comparison](./media/purchasing-models/pricing-model.png)

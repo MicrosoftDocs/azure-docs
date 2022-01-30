@@ -17,25 +17,25 @@ The Multi-Cloud Scanning Connector for Azure Purview allows you to explore your 
 
 This article describes how to use Azure Purview to scan your structured data currently stored in Amazon RDS, including both Microsoft SQL and PostgreSQL databases, and discover what types of sensitive information exists in your data. You'll also learn how to identify the Amazon RDS databases where the data is currently stored for easy information protection and data compliance.
 
-For this service, use Purview to provide a Microsoft account with secure access to AWS, where the Multi-Cloud Scanning Connectors for Azure Purview will run. The Multi-Cloud Scanning Connectors for Azure Purview use this access to your Amazon RDS databases to read your data, and then reports the scanning results, including only the metadata and classification, back to Azure. Use the Purview classification and labeling reports to analyze and review your data scan results.
+For this service, use Azure Purview to provide a Microsoft account with secure access to AWS, where the Multi-Cloud Scanning Connectors for Azure Purview will run. The Multi-Cloud Scanning Connectors for Azure Purview use this access to your Amazon RDS databases to read your data, and then reports the scanning results, including only the metadata and classification, back to Azure. Use the Azure Purview classification and labeling reports to analyze and review your data scan results.
 
 > [!IMPORTANT]
 > The Multi-Cloud Scanning Connectors for Azure Purview are separate add-ons to Azure Purview. The terms and conditions for the Multi-Cloud Scanning Connectors for Azure Purview are contained in the agreement under which you obtained Microsoft Azure Services. For more information, see Microsoft Azure Legal Information at https://azure.microsoft.com/support/legal/.
 >
 
 > [!IMPORTANT]
-> Purview support for Amazon RDS is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> Azure Purview support for Amazon RDS is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 
-## Purview scope for Amazon RDS
+## Azure Purview scope for Amazon RDS
 
 - **Supported database engines**: Amazon RDS structured data storage supports multiple database engines. Azure Purview supports Amazon RDS with/based on Microsoft SQL and PostgreSQL.
 
 - **Maximum columns supported**: Scanning RDS tables with more than 300 columns is not supported.
 
-- **Public access support**: Purview supports scanning only with VPC Private Link in AWS, and does not include public access scanning.
+- **Public access support**: Azure Purview supports scanning only with VPC Private Link in AWS, and does not include public access scanning.
 
-- **Supported regions**: Purview only supports Amazon RDS databases that are located in the following AWS regions:
+- **Supported regions**: Azure Purview only supports Amazon RDS databases that are located in the following AWS regions:
 
     - US East (Ohio)
     - US East (N. Virginia)
@@ -61,19 +61,19 @@ For more information, see:
 
 - [Manage and increase quotas for resources with Azure Purview](how-to-manage-quotas.md)
 - [Supported data sources and file types in Azure Purview](sources-and-scans.md)
-- [Use private endpoints for your Purview account](catalog-private-link.md)
+- [Use private endpoints for your Azure Purview account](catalog-private-link.md)
 
 ## Prerequisites
 
-Ensure that you've performed the following prerequisites before adding your Amazon RDS database as Purview data sources and scanning your RDS data.
+Ensure that you've performed the following prerequisites before adding your Amazon RDS database as Azure Purview data sources and scanning your RDS data.
 
 > [!div class="checklist"]
 > * You need to be an Azure Purview Data Source Admin.
-> * You need a Purview account. [Create an Azure Purview account instance](create-catalog-portal.md), if you don't yet have one.
+> * You need an Azure Purview account. [Create an Azure Purview account instance](create-catalog-portal.md), if you don't yet have one.
 > * You need an Amazon RDS PostgreSQL or Microsoft SQL database, with data.
 
 
-## Configure AWS to allow Purview to connect to your RDS VPC
+## Configure AWS to allow Azure Purview to connect to your RDS VPC
 
 Azure Purview supports scanning only when your database is hosted in a virtual private cloud (VPC), where your RDS database can only be accessed from within the same VPC.
 
@@ -90,13 +90,13 @@ The following diagram shows the components in both your customer account and Mic
 
 ### Configure AWS PrivateLink using a CloudFormation template
 
-The following procedure describes how to use an AWS CloudFormation template to configure AWS PrivateLink, allowing Purview to connect to your RDS VPC. This procedure is performed in AWS and is intended for an AWS admin.
+The following procedure describes how to use an AWS CloudFormation template to configure AWS PrivateLink, allowing Azure Purview to connect to your RDS VPC. This procedure is performed in AWS and is intended for an AWS admin.
 
 This CloudFormation template is available for download from the [Azure GitHub repository](https://github.com/Azure/Azure-Purview-Starter-Kit/tree/main/Amazon/AWS/RDS), and will help you create a target group, load balancer, and endpoint service.
 
 - **If you have multiple RDS servers in the same VPC**, perform this procedure once, [specifying all RDS server IP addresses and ports](#parameters). In this case, the CloudFormation output will include different ports for each RDS server.
 
-    When [registering these RDS servers as data sources in Purview](#register-an-amazon-rds-data-source), use the ports included in the output instead of the real RDS server ports.
+    When [registering these RDS servers as data sources in Azure Purview](#register-an-amazon-rds-data-source), use the ports included in the output instead of the real RDS server ports.
 
 - **If you have RDS servers in multiple VPCs**, perform this procedure for each of the VPCs.
 
@@ -128,7 +128,7 @@ This CloudFormation template is available for download from the [Azure GitHub re
 
     |Name  |Description  |
     |---------|---------|
-    |**Endpoint & port**    | Enter the resolved IP address of the RDS endpoint URL and port. For example: `192.168.1.1:5432` <br><br>- **If an RDS proxy is configured**, use the IP address of the read/write endpoint of the proxy for the relevant database. We recommend using an RDS proxy when working with Purview, as the IP address is static.<br><br>- **If you have multiple endpoints behind the same VPC**, enter up to 10, comma-separated endpoints.  In this case, a single load balancer is created to the VPC, allowing a connection from the Amazon RDS Multi-Cloud Scanning Connector for Azure Purview in AWS to all RDS endpoints in the VPC.       |
+    |**Endpoint & port**    | Enter the resolved IP address of the RDS endpoint URL and port. For example: `192.168.1.1:5432` <br><br>- **If an RDS proxy is configured**, use the IP address of the read/write endpoint of the proxy for the relevant database. We recommend using an RDS proxy when working with Azure Purview, as the IP address is static.<br><br>- **If you have multiple endpoints behind the same VPC**, enter up to 10, comma-separated endpoints.  In this case, a single load balancer is created to the VPC, allowing a connection from the Amazon RDS Multi-Cloud Scanning Connector for Azure Purview in AWS to all RDS endpoints in the VPC.       |
     |**Networking**     | Enter your VPC ID        |
     |**VPC IPv4 CIDR**     | Enter the value your VPC's CIDR. You can find this value by selecting the VPC link on your RDS database page. For example: `192.168.0.0/16`        |
     |**Subnets**     |Select all the subnets that are associated with your VPC.         |
@@ -149,11 +149,11 @@ This CloudFormation template is available for download from the [Azure GitHub re
     - **Resources**: Shows the newly created target group, load balancer, and endpoint service
     - **Outputs**: Displays the **ServiceName** value, and the IP address and port of the RDS servers
 
-        If you have multiple RDS servers configured, a different port is displayed. In this case, use the port shown here instead of the actual RDS server port when [registering your RDS database](#register-an-amazon-rds-data-source) as Purview data source.
+        If you have multiple RDS servers configured, a different port is displayed. In this case, use the port shown here instead of the actual RDS server port when [registering your RDS database](#register-an-amazon-rds-data-source) as Azure Purview data source.
 
 1. In the **Outputs** tab, copy the **ServiceName** key value to the clipboard.
 
-    You'll use the value of the **ServiceName** key in the Azure Purview portal, when [registering your RDS database](#register-an-amazon-rds-data-source) as Purview data source. There, enter the **ServiceName** key in the **Connect to private network via endpoint service** field.
+    You'll use the value of the **ServiceName** key in the Azure Purview portal, when [registering your RDS database](#register-an-amazon-rds-data-source) as Azure Purview data source. There, enter the **ServiceName** key in the **Connect to private network via endpoint service** field.
 
 ## Register an Amazon RDS data source
 
@@ -182,31 +182,31 @@ Your RDS data source appears in the Sources map or list. For example:
 
 :::image type="content" source="media/register-scan-amazon-rds/amazon-rds-in-sources.png" alt-text="Screenshot of an Amazon RDS data source on the Sources page.":::
 
-## Create Purview credentials for your RDS scan
+## Create Azure Purview credentials for your RDS scan
 
 Credentials supported for Amazon RDS data sources include username/password authentication only, with a password stored in an Azure KeyVault secret.
 
-### Create a secret for your RDS credentials to use in Purview
+### Create a secret for your RDS credentials to use in Azure Purview
 
 1.	Add your password to an Azure KeyVault as a secret. For more information, see [Set and retrieve a secret from Key Vault using Azure portal](../key-vault/secrets/quick-create-portal.md).
 
 1.	Add an access policy to your KeyVault with **Get** and **List** permissions. For example:
 
-    :::image type="content" source="media/register-scan-amazon-rds/keyvault-for-rds.png" alt-text="Screenshot of an access policy for RDS in Purview.":::
+    :::image type="content" source="media/register-scan-amazon-rds/keyvault-for-rds.png" alt-text="Screenshot of an access policy for RDS in Azure Purview.":::
 
-    When defining the principal for the policy, select your Purview account. For example:
+    When defining the principal for the policy, select your Azure Purview account. For example:
 
-    :::image type="content" source="media/register-scan-amazon-rds/select-purview-as-principal.png" alt-text="Screenshot of selecting your Purview account as Principal.":::
+    :::image type="content" source="media/register-scan-amazon-rds/select-purview-as-principal.png" alt-text="Screenshot of selecting your Azure Purview account as Principal.":::
 
     Select **Save** to save your Access Policy update. For more information, see [Assign an Azure Key Vault access policy](/azure/key-vault/general/assign-access-policy-portal).
 
-1. In Azure Purview, add a KeyVault connection to connect the KeyVault with your RDS secret to Purview. For more information, see [Credentials for source authentication in Azure Purview](manage-credentials.md).
+1. In Azure Purview, add a KeyVault connection to connect the KeyVault with your RDS secret to Azure Purview. For more information, see [Credentials for source authentication in Azure Purview](manage-credentials.md).
 
-### Create your Purview credential object for RDS
+### Create your Azure Purview credential object for RDS
 
 In Azure Purview, create a credentials object to use when scanning your Amazon RDS account.
 
-1. In the Purview **Management** area, select **Security and access** > **Credentials** > **New**.
+1. In the Azure Purview **Management** area, select **Security and access** > **Credentials** > **New**.
 
 1. Select **SQL authentication** as the authentication method. Then, enter details for the Key Vault where your RDS credentials are stored, including the names of your Key Vault and secret.
 
@@ -220,12 +220,12 @@ For more information, see [Credentials for source authentication in Azure Purvie
 
 To configure an Azure Purview scan for your RDS database:
 
-1.	From the Purview **Sources** page, select the Amazon RDS data source to scan.
+1.	From the Azure Purview **Sources** page, select the Amazon RDS data source to scan.
 
 1.	Select :::image type="icon" source="media/register-scan-amazon-s3/new-scan-button.png" border="false"::: **New scan** to start defining your scan. In the pane that opens on the right, enter the following details, and then select **Continue**.
 
     - **Name**: Enter a meaningful name for your scan.
-    - **Database name**: Enter the name of the database you want to scan. You’ll need to find the names available from outside Purview, and create a separate scan for each database in the registered RDS server.
+    - **Database name**: Enter the name of the database you want to scan. You’ll need to find the names available from outside Azure Purview, and create a separate scan for each database in the registered RDS server.
     - **Credential**: Select the credential you created earlier for the Multi-Cloud Scanning Connectors for Azure Purview to access the RDS database.
 
 1.	On the **Select a scan rule set** pane, select the scan rule set you want to use, or create a new one. For more information, see [Create a scan rule set](create-a-scan-rule-set.md).
@@ -242,11 +242,11 @@ While you run your scan, select **Refresh** to monitor the scan progress.
 
 ## Explore scanning results
 
-After a Purview scan is complete on your Amazon RDS databases, drill down in the Purview **Data Map**  area to view the scan history. Select a data source to view its details, and then select the **Scans** tab to view any currently running or completed scans.
+After an Azure Purview scan is complete on your Amazon RDS databases, drill down in the Azure Purview **Data Map**  area to view the scan history. Select a data source to view its details, and then select the **Scans** tab to view any currently running or completed scans.
 
-Use the other areas of Purview to find out details about the content in your data estate, including your Amazon RDS databases:
+Use the other areas of Azure Purview to find out details about the content in your data estate, including your Amazon RDS databases:
 
-- **Explore RDS data in the catalog**. The Purview catalog shows a unified view across all source types, and RDS scanning results are displayed in a similar way to Azure SQL. You can browse the catalog using filters or browse the assets and navigate through the hierarchy. For more information, see:
+- **Explore RDS data in the catalog**. The Azure Purview catalog shows a unified view across all source types, and RDS scanning results are displayed in a similar way to Azure SQL. You can browse the catalog using filters or browse the assets and navigate through the hierarchy. For more information, see:
 
     - [Tutorial: Browse assets in Azure Purview (preview) and view their lineage](tutorial-browse-and-view-lineage.md)
     - [Search the Azure Purview Data Catalog](how-to-search-catalog.md)
@@ -254,11 +254,11 @@ Use the other areas of Purview to find out details about the content in your dat
 
 - **View Insight reports** to view statistics for the classification, sensitivity labels, file types, and more details about your content.
 
-    All Purview Insight reports include the Amazon RDS scanning results, along with the rest of the results from your Azure data sources. When relevant, an **Amazon RDS** asset type is added to the report filtering options.
+    All Azure Purview Insight reports include the Amazon RDS scanning results, along with the rest of the results from your Azure data sources. When relevant, an **Amazon RDS** asset type is added to the report filtering options.
 
     For more information, see the [Understand Insights in Azure Purview](concept-insights.md).
 
-- **View RDS data in other Purview features**, such as the **Scans** and **Glossary** areas. For more information, see:
+- **View RDS data in other Azure Purview features**, such as the **Scans** and **Glossary** areas. For more information, see:
 
     - [Create a scan rule set](create-a-scan-rule-set.md)
     - [Tutorial: Create and import glossary terms in Azure Purview (preview)](tutorial-import-create-glossary-terms.md)
@@ -471,7 +471,7 @@ After the [Load Balancer is created](#step-4-create-a-load-balancer) and its Sta
 
 <a name="service-name"></a>**To copy the service name for use in Azure Purview**:
 
-After you’ve created your endpoint service, you can copy the **Service name** value in the Azure Purview portal, when [registering your RDS database](#register-an-amazon-rds-data-source) as Purview data source.
+After you’ve created your endpoint service, you can copy the **Service name** value in the Azure Purview portal, when [registering your RDS database](#register-an-amazon-rds-data-source) as Azure Purview data source.
 
 Locate the **Service name** on the **Details** tab for your selected endpoint service.
 
@@ -497,7 +497,7 @@ If an error of `Invalid VPC service name` or `Invalid endpoint service` appears 
 
     For more information, see [Step 5: Create an endpoint service](#step-5-create-an-endpoint-service).
 
-1. Make sure that your RDS database is listed in one of the supported regions. For more information, see [Purview scope for Amazon RDS](#purview-scope-for-amazon-rds).
+1. Make sure that your RDS database is listed in one of the supported regions. For more information, see [Azure Purview scope for Amazon RDS](#azure-purview-scope-for-amazon-rds).
 
 ### Invalid availability zone
 

@@ -7,7 +7,6 @@ author: duongau
 ms.service: frontdoor
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.author: duau 
