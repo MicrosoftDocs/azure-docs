@@ -9,7 +9,7 @@ ms.topic: overview
 
 # Automation services
 
- his article  explains various automation services offered in the Azure portfolio. 
+ This article  explains various automation services offered in the Azure portfolio. 
 All of these services can automate business and operational  processes and can solve integration problems amongst various services, system, and processes. They can all define input, action or activity to be performed, conditions, error handling, and output generation. You can run them on a schedule or trigger or do a manual demand-based execution. Each service has its unique advantages and target audience.
 Using these services, you can shift effort from manually performing operational tasks towards building automation for these tasks. In doing so, you achieve so much, including:
 
@@ -39,16 +39,16 @@ There are multiple Azure services that can fulfill the above requirements. Each 
 
 - **Azure Automation** – Orchestrates repetitive processes using graphical, PowerShell, and Python runbooks in the cloud or hybrid environment . Provides persistent shared assets including variables, connections, objects, which allows orchestration of complex jobs [Learn more](/azure/automation/automation-runbook-gallery).
 
-## Automation
+### Automation
 
-### Azure Automation based in-guest management
+#### Azure Automation based in-guest management
 
 - **Configuration Management** – allows you to write, manage, and compile PowerShell Desired State Configuration (DSC) configurations for nodes in any cloud or on-premises datacenter. [Learn more](/azure/automation/automation-dsc-overview).
 
 - **Update Management** – allows you to manage operating system updates for your Windows and Linux virtual machines in Azure, physical or VMs in on-premises environments, and in other cloud environments. [Learn more](/azure/automation/update-management/overview).
 
 
-### Azure Policy based in guest configuration
+#### Azure Policy based in guest configuration
 
 - **Azure Automation State Configuration** – allows you to create, import and compile configurations, enable machines to manage, and view reports. [Learn more](/azure/automation/automation-dsc-getting-started).
 
