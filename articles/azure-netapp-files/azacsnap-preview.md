@@ -950,7 +950,7 @@ export AZCOPY_SHOW_PERF_STATES=true
 
 
 # Make sure we got some command line args
-if [ "$(basename "$0")" = "snapshot-to-blob.sh" ] && { [ "$1" = "" ] || [ "$2" = "" ] }; then
+if [ "$(basename "$0")" = "snapshot-to-blob.sh" ] && ([ "$1" = "" ] || [ "$2" = "" ]) ; then
   echo "Usage: $0 <SNAPSHOT_NAME> <PREFIX>"
   exit 1
 fi
