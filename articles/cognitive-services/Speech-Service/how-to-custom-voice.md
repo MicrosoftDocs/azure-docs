@@ -14,14 +14,14 @@ ms.author: eur
 
 # Get started with Custom Neural Voice
 
-[Custom Neural Voice](https://aka.ms/customvoice) is a set of online tools that allow you to create a recognizable, one-of-a-kind voice for your brand. All it takes to get started are a handful of audio files and the associated transcriptions. Follow the links below to start creating a custom Text-to-Speech experience. See the supported [languages](language-support.md#custom-neural-voice) and [regions](regions.md#custom-neural-voices) for Custom Neural Voice.
+[Custom Neural Voice](https://aka.ms/customvoice) is a set of online tools that allow you to create a recognizable, one-of-a-kind voice for your brand. All it takes to get started are a handful of audio files and the associated transcriptions. Follow the following links to start creating a custom Text-to-Speech experience. See the supported [languages](language-support.md#custom-neural-voice) and [regions](regions.md#custom-neural-voices) for Custom Neural Voice.
 
 > [!NOTE]
 > As part of Microsoft's commitment to designing responsible AI, we have limited the use of Custom Neural Voice. You may gain access to the technology only after your applications are reviewed and you have committed to using it in alignment with our responsible AI principles. Learn more about our [policy on the limit access](/legal/cognitive-services/speech-service/custom-neural-voice/limited-access-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext) and [apply here](https://aka.ms/customneural). 
  
 ## Set up your Azure account
 
-A Speech service subscription is required before you can use Custom Neural Voice. Follow these instructions to create a Speech service subscription in Azure. If you do not have an Azure account, you can sign up for a new one.  
+A Speech service subscription is required before you can use Custom Neural Voice. Follow these instructions to create a Speech service subscription in Azure. If you don't have an Azure account, you can sign up for a new one.  
 
 Once you've created an Azure account and a Speech service subscription, you'll need to sign in Speech Studio and connect your subscription.
 
@@ -41,19 +41,19 @@ To create a custom voice project:
 1. Sign in [Speech Studio](https://speech.microsoft.com).
 1. Select **Text-to-Speech** > **Custom Voice** > **Create project**. 
 1. Follow the instructions provided by the wizard to create your project. 
-1. After you've created a project, you will see four tabs: **Set up voice talent**, **Prepare training data**, **Train model**, and **Deploy model**. See [Prepare data for custom neural voice](how-to-custom-voice-prepare-data.md) to set up voice talent and proceed to training data.
+1. After you've created a project, you'll see four tabs: **Set up voice talent**, **Prepare training data**, **Train model**, and **Deploy model**. See [Prepare data for custom neural voice](how-to-custom-voice-prepare-data.md) to set up voice talent and proceed to training data.
 
 ## Tips for creating a custom neural voice
 
-Creating a great custom neural voice requires careful quality control in each step, from voice design and data preparation, to the deployment of the voice model to your system. Below are some key steps to take when creating a custom neural voice for your organization. 
+To create a great custom neural voice, careful quality control is required in each step, from voice design and data preparation, to the deployment of the voice model to your system. Here are some key steps to take when creating a custom neural voice for your organization. 
 
 ### Persona design
 
-First, design a persona of the voice that represents your brand using a persona brief document that defines elements such as the features of the voice, and the character behind the voice. This will help to guide the process of creating a custom neural voice model, including defining the scripts, selecting your voice talent, training and voice tuning.
+First, design a persona of the voice that represents your brand using a persona brief document. This document defines elements such as the features of the voice, and the character behind the voice. This will guide the process of creating a custom neural voice model. The process includes defining the scripts, selecting your voice talent, training your voice model, and tuning the voice.
 
 ### Script selection
  
-Carefully select the recording script to represent the user scenarios for your voice. For example, you can use the phrases from bot conversations as your recording script if you are creating a customer service bot. Include different sentence types in your scripts, including statements, questions, exclamations, etc.
+Carefully select the recording script to represent the user scenarios for your voice. For example, you can use the phrases from bot conversations as your recording script if you're creating a customer service bot. Include different sentence types in your scripts, including statements, questions, exclamations, etc.
 
 ### Preparing training data
 
@@ -63,19 +63,19 @@ Once the recordings are ready, follow [Prepare training data](how-to-custom-voic
 
 ### Training
 
-Once you have prepared the training data, go to [Speech Studio](https://aka.ms/custom-voice) to create your custom neural voice. You need to select at least 300 utterances to create a custom neural voice. A series of data quality checks are automatically performed when you upload them. To build high-quality voice models, you should fix the errors and submit again.
+Once you've prepared the training data, go to [Speech Studio](https://aka.ms/custom-voice) to create your custom neural voice. You need to select at least 300 utterances to create a custom neural voice. A series of data quality checks are automatically performed when you upload them. To build high-quality voice models, you should fix the errors and submit again.
 
 ### Testing
 
-Prepare test scripts for your voice model that cover the different use cases for your apps. It’s recommended that you use scripts within and outside the training dataset so you can test the quality more broadly for different content.
+Prepare test scripts for your voice model that cover the different use cases for your apps. We recommend that you use scripts within and outside the training dataset. Thus, you can test the quality more broadly for different content.
 
 ### Tuning and adjustment
 
-The style and the characteristics of the trained voice model depend on the style and the quality of the recordings from the voice talent used for training. However, several adjustments can be made using [SSML (Speech Synthesis Markup Language)](./speech-synthesis-markup.md?tabs=csharp) when you make the API calls to your voice model to generate synthetic speech. SSML is the markup language used to communicate with the TTS service to convert text into audio. The adjustments include change of pitch, rate, intonation, and pronunciation correction.  If the voice model is built with multiple styles, SSML can also be used to switch the styles.
+The style and the characteristics of the trained voice model depend on the style and the quality of the recordings from the voice talent. However, several adjustments can be made using [SSML (Speech Synthesis Markup Language)](./speech-synthesis-markup.md?tabs=csharp) when you make the API call to your voice model to generate synthetic speech. SSML is the markup language used to communicate with the Text-to-Speech (TTS) service to convert text into audio. The adjustments include change of pitch, rate, intonation, and pronunciation correction.  If the voice model is built with multiple styles, SSML can also be used to switch the styles.
 
 ## Migrate to Custom Neural Voice
 
-If you are using the old version of Custom Voice (to be retired in 2/2024), check the instructions [here](how-to-migrate-to-custom-neural-voice.md) on how to migrate it to Custom Neural Voice.
+If you're using the old version of Custom Voice (to be retired in 2/2024), check the instructions [here](how-to-migrate-to-custom-neural-voice.md) on how to migrate it to Custom Neural Voice.
 
 
 ## Next steps
