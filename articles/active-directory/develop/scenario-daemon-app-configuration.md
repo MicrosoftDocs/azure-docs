@@ -301,9 +301,23 @@ ConfidentialClientApplication cca =
 ```
 
 # [Node.js](#tab/nodejs)
+```JavaScript
+const msal = require('@azure/msal-node');
 
-The sample application does not implement initialization with certificates at the moment.
+const config = {
+    auth: {
+        clientId: "YOUR_CLIENT_ID",
+        authority: "https://login.microsoftonline.com/YOUR_TENANT_ID",
+        clientCertificate: {
+            thumbprint: "CERT_THUMBPRINT", // a 40-digit hexadecimal string
+            privateKey: "CERT_PRIVATE_KEY",
+        }
+    }
+};
 
+// Create msal application object
+const cca = new msal.ConfidentialClientApplication(config);
+```
 # [Python](#tab/python)
 
 ```Python
