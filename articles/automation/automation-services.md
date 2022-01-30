@@ -54,6 +54,6 @@ There are multiple Azure services that can fulfill the above requirements. Each 
 
 - **Azure Logic Apps** – cloud-based platform for creating and running automated workflows that integrate your apps, data, services, and systems. [Learn more](/azure/logic-apps/logic-apps-overview).
 
-## Azure Automanage
+### Azure Automanage
 
 - **Azure Automanage** – a service that eliminates the need to discover, know how to onboard, and how to configure certain services in Azure that would benefit your virtual machine. [Learn more](/azure/automanage/automanage-virtual-machines#overview).
