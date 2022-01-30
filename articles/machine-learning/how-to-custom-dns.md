@@ -200,7 +200,7 @@ $workspaceDns.CustomDnsConfigs | format-table
 1. Select the link in the __Private endpoint__ column that is displayed.
 1. A list of the fully qualified domain names (FQDN) and IP addresses for the workspace private endpoint are at the bottom of the page.
 
-    :::image type="content" source="./media/how-to-custom-dns/private-endpoint-custom-dns.png" alt-text="List of FQDNs in the portal" lightbox ="./media/how-to-custom-dns/private-endpoint-custom-dns-expanded.png":::
+    :::image type="content" source="./media/how-to-custom-dns/private-endpoint-custom-dns.png" alt-text="List of FQDNs in the portal":::
 
     > [!TIP]
     > If the DNS settings do not appear at the bottom of the page, use the __DNS configuration__ link from the left side of the page to view the FQDNs.
@@ -241,7 +241,7 @@ Once the list of FQDNs and corresponding IP addresses are gathered, proceed to c
 
 This architecture uses the common Hub and Spoke virtual network topology. One virtual network contains the DNS server and one contains the private endpoint to the Azure Machine Learning workspace and associated resources. There must be a valid route between both virtual networks. For example, through a series of peered virtual networks.
 
-:::image type="content" source="./media/how-to-custom-dns/custom-dns-topology.svg" alt-text="Diagram of custom DNS hosted in Azure topology":::
+:::image type="content" source="./media/how-to-custom-dns/custom-dns-topology.svg" alt-text="Diagram of custom DNS hosted in Azure topology"  lightbox ="./media/how-to-custom-dns/custom-dns-topology-expanded.png":::
 
 The following steps describe how this topology works:
 
