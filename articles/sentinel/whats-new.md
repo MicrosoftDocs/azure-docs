@@ -4,7 +4,7 @@ description: This article describes new features in Microsoft Sentinel from the 
 author: batamig
 ms.author: bagol
 ms.topic: conceptual
-ms.date: 01/13/2022
+ms.date: 01/30/2022
 ms.custom: ignite-fall-2021
 ---
 
@@ -29,9 +29,34 @@ If you're looking for items older than six months, you'll find them in the [Arch
 
 ## January 2022
 
+- [MITRE ATT&CK support enhancements](#mitre-attck-support-enhancements)
 - [SentinelHealth data table (Public preview)](#sentinelhealth-data-table-public-preview)
 - [More workspaces supported for Multiple Workspace View](#more-workspaces-supported-for-multiple-workspace-view)
 - [Kusto Query Language workbook and tutorial](#kusto-query-language-workbook-and-tutorial)
+
+### MITRE ATT&CK support enhancements
+
+We've upgraded the MITRE ATT&CK support throughout Microsoft Sentinel to use the MITRE ATT&CK framework *version 9*. This update includes support for the following new tactics:
+
+**Replacing the deprecated *PreAttack* tactic**:
+
+- [Reconnaissance](https://attack.mitre.org/versions/v9/tactics/TA0043/)
+- [Resource Development](https://attack.mitre.org/versions/v9/tactics/TA0042/)
+
+**Industrial Control System (ICS) tactics**:
+
+- [Impair Process Control](https://collaborate.mitre.org/attackics/index.php/Impair_Process_Control)
+- [Inhibit Response Function](https://collaborate.mitre.org/attackics/index.php/Inhibit_Response_Function)
+
+You can map [analytics rules](detect-threats-custom.md) and custom [hunting queries](hunting.md) to one or more MITRE ATT&CK techniques and tactics. When searching for rules on the **Analytics** page, filter by technique or tactic to speed up your search.
+
+:::image type="content" source="media/whats-new/mitre-in-analytics-rules.png" alt-text="Screenshot of MITRE technique and tactic filtering.":::
+
+You can also view MITRE tactic and technique mapping in the following locations:
+
+- [Bookmarks](bookmarks.md) that capture results from hunting queries that are mapped to MITRE ATT&CK techniques automatically inherit the query's MITRE ATT&CK technique and entity mappings.
+
+- [Incidents](investigate-cases.md) created from alerts that are detected by rules that are mapped to MITRE ATT&CK techniques automatically inherit the query's MITRE ATT&CK technique and entity mappings.
 
 ### SentinelHealth data table (Public preview)
 
