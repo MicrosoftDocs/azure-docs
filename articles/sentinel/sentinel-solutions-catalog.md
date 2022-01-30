@@ -30,7 +30,6 @@ For more information, see [Centrally discover and deploy Microsoft Sentinel out-
 |**Cybersecurity Maturity Model Certification CMMC** | Analytics rules, workbook | Compliance | Microsoft|
 |**Maturity Model for Event Log Management M2131** | Analytics rules, hunting queries, playbooks, workbook | Compliance | Microsoft|
 |**Microsoft Insider Risk Management** (IRM) |[Data connector](data-connectors-reference.md#microsoft-365-insider-risk-management-irm-preview), workbook, analytics rules, hunting queries |Security - Insider threat | Microsoft|
-| **Microsoft MITRE ATT&CK solution for Cloud**| Workbooks, analytics rules, hunting queries|Security - Threat protection, Security - Others |Microsoft |
 | **Microsoft Sentinel Deception** | [Workbooks, analytics rules, watchlists](monitor-key-vault-honeytokens.md)  | Security - Threat Protection  |Microsoft |
 |**Zero Trust** (TIC3.0) |[Workbooks](https://techcommunity.microsoft.com/t5/public-sector-blog/announcing-the-azure-sentinel-zero-trust-tic3-0-workbook/ba-p/2313761) |Identity, Security - Others |Microsoft  |
 | | | | |

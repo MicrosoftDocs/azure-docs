@@ -184,7 +184,7 @@ This article lists significant changes to Azure Monitor documentation.
 
 - [How to troubleshoot issues with the Log Analytics agent for Linux](agents/agent-linux-troubleshoot.md)
 - [Overview of Azure Monitor agents](agents/agents-overview.md)
-- [Install the Azure Monitor agent](agents/azure-monitor-agent-install.md)
+- [Install the Azure Monitor agent](agents/azure-monitor-agent-manage.md)
 
 ### Alerts
 
