@@ -4,7 +4,7 @@ description: This article describes new features in Microsoft Sentinel from the 
 author: batamig
 ms.author: bagol
 ms.topic: conceptual
-ms.date: 01/13/2022
+ms.date: 01/30/2022
 ms.custom: ignite-fall-2021
 ---
 
@@ -39,29 +39,7 @@ For example:
 
 :::image type="content" source="media/whats-new/mitre-coverage.png" alt-text="Screenshot of the MITRE coverage page with both active and simulated indicators selected.":::
 
-MITRE ATT&CK mappings are also available from the following areas in Microsoft Sentinel:
-
-- **[Hunting queries](hunting.md)**. Map your custom hunting queries to one or more MITRE ATT&CK techniques.
-- **[Bookmarks](bookmarks.md)**. Bookmarks that capture results from hunting queries that are mapped to MITRE ATT&CK techniques automatically inherit the query's MITRE ATT&CK technique and entity mappings.
-- **[Analytics rules](detect-threats-built-in.md)**. Map your analytics rules to one or more MITRE ATT&CK techniques, and filter by technique when looking for rules in the **Analytics** page.
-- **[Incidents](investigate-cases.md)**. Incidents created from alerts that are detected by rules that are mapped to MITRE ATT&CK techniques automatically inherit the query's MITRE ATT&CK technique and entity mappings.
-
 For more information, see [Understand security coverage by the MITRE ATT&CK® framework](mitre-coverage.md).
-
-#### MITRE ATT&CK version upgrade
-
-We've upgraded the MITRE ATT&CK support throughout Microsoft Sentinel to use the MITRE ATT&CK framework *version 9*. This update includes support for the following new tactics:
-
-**Replacing the deprecated *PreAttack* tactic**:
-
-- [Reconnaissance](https://attack.mitre.org/versions/v9/tactics/TA0043/)
-- [Resource Development](https://attack.mitre.org/versions/v9/tactics/TA0042/)
-
-**Industrial Control System (ICS) tactics**:
-
-- [Impair Process Control](https://collaborate.mitre.org/attackics/index.php/Impair_Process_Control)
-- [Inhibit Response Function](https://collaborate.mitre.org/attackics/index.php/Inhibit_Response_Function)
-
 
 ## January 2022
 
