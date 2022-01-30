@@ -2,7 +2,7 @@
 title: Script Sample - Delete a Recovery Services vault
 description: Learn about how to use a PowerShell script to delete a Recovery Services vault.
 ms.topic: sample
-ms.date: 01/28/2022
+ms.date: 01/30/2022
 author: v-amallick
 ms.service: backup
 ms.author: v-amallick
