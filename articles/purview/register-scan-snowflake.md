@@ -42,7 +42,7 @@ When scanning Snowflake source, Azure Purview supports:
 
 - Fetching static lineage on assets relationships among tables, views, and streams.
 
-When setting up scan, you can choose to scan an entire Snowflake database, or scope the scan to a subset of schemas matching the given name(s) or name pattern(s).
+When setting up scan, you can choose to scan one or more Snowflake database(s) entirely, or further scope the scan to a subset of schemas matching the given name(s) or name pattern(s).
 
 ## Prerequisites
 
