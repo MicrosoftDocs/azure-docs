@@ -139,7 +139,11 @@ If you use **certThumbprint** for authentication and the certificate is installe
 1. Open the Microsoft Management Console (MMC). Add the **Certificates** snap-in that targets **Local Computer**.
 2. Expand **Certificates** > **Personal**, and then select **Certificates**.
 3. Right-click the certificate from the personal store, and then select **All Tasks** > **Manage Private Keys**.
-3. On the **Security** tab, add the user account under which the Integration Runtime Host Service (DIAHostService) is running, with read access to the certificate.
+4. On the **Security** tab, add the user account under which the Integration Runtime Host Service (DIAHostService) is running, with read access to the certificate.
+5. HTTP connector only loads trusted certificate, if you are using a self-signed or non-integrated CA issued certificate, to enable trust, it also needs to be installed in one of the following stores:
+- Trusted People
+- Third-Party Root Certification Authorities
+- Trusted Root Certification Authorities
 
 **Example 1: Using certThumbprint**
 
