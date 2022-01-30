@@ -4,7 +4,7 @@ description: Use Azure workbooks to visualize and explore IoT Edge built-in metr
 author: veyalla
 
 ms.author: veyalla
-ms.date: 08/11/2021
+ms.date: 01/29/2022
 ms.topic: conceptual
 ms.reviewer: kgremban
 ms.service: iot-edge 
@@ -20,7 +20,7 @@ You can visualize and explore metrics collected from the IoT Edge device right i
 * For devices connected to IoT Hub, from the **IoT Hub** blade in the Azure portal navigate to the **Workbooks** page in the **Monitoring** section.
 * For devices connected to IoT Central, from the **IoT Central** blade in the Azure portal navigate to the **Workbooks** page in the **Monitoring** section.
 
-The curated workbooks use [built-in metrics](how-to-access-built-in-metrics.md) from the IoT Edge runtime. These views don't need any metrics instrumentation from the workload modules.
+The curated workbooks use [built-in metrics](how-to-access-built-in-metrics.md) from the IoT Edge runtime and need them to be [ingested](how-to-collect-and-transport-metrics.md) into a Log Analytics workspace. These views don't need any metrics instrumentation from the workload modules.
 
 ## Access curated workbooks
 
@@ -34,42 +34,24 @@ To access the curated workbooks, use the following steps:
 
 1. Choose the workbook that you want to explore from the list of public templates:
 
-  * **IoT Edge fleet view**: Monitor your fleet of devices, and drill into specific devices for a health snapshot.
-  * **IoT Edge device details**: Visualize device details around messaging, modules, and host components on an IoT Edge device.
-  * **IoT Edge health snapshot**: View a device's health based on six common performance metrics. To access the health snapshot workbook, start in the fleet view workbook and select the specific device that you want to view. The fleet view workbook passes some required parameters to the health snapshot view.
+  * **Fleet View**: Monitor your fleet of devices across mulitple IoT Hubs or Central Apps, and drill into specific devices for a health snapshot.
+  * **Device Details**: Visualize device details around messaging, modules, and host components on an IoT Edge device.
+  * **Alerts**: View triggered [alerts](how-to-create-alerts.md) for devices across mutliple IoT resources.
 
 You can explore the workbooks on your own, or use the following sections to get a preview of the kind of data and visualizations that each workbook offers.
 
+>[!NOTE]
+> The screen captures below may not reflect the latest workbook design.
+
 ## IoT Edge fleet view workbook
-
-The fleet view workbook has two views that you can use:
-
-* The **Devices** view shows an overview of active devices.
-* The **Alerts** view shows alerts generated from [pre-configured alert rules](how-to-create-alerts.md).
-
-You can switch between the views using the tabs at the top of the workbook.
-
-# [Devices](#tab/devices)
 
 :::image type="content" source="./media/how-to-explore-curated-visualizations/how-to-explore-fleet-view.gif" alt-text="The devices section of the fleet view workbook." lightbox="./media/how-to-explore-curated-visualizations/how-to-explore-fleet-view.gif":::
 
-See the overview of active devices sending metrics in the **Devices** view. This view shows devices associated with the current IoT hub or IoT Central application.
+By default, this view shows the health of devices associated with the current IoT hub or IoT Central application. You can select mutiple IoT resources using the downdrop control on the top left. 
 
-On the right, there's the device list with composite bars showing local and upstream messages sent. You can filter the list by device name and click on the device name link to see its detailed metrics.
+Use the **Settings** tab to adjust the various thresholds to catergorize the device as Healthy or Unhealthy.
 
-On the left, the hive cell visualization shows which devices are healthy or unhealthy. It also shows when the device last sent metrics. Devices that haven't sent metrics for more than 30 minutes are shown in Blue. Click on the device name in the hive cell to see its health snapshot. Only the last 3 measurements from the device are considered when determining health. Using only recent data accounts for temporary spikes in the reported metrics.
-
-# [Alerts](#tab/alerts)
-
-:::image type="content" source="./media/how-to-explore-curated-visualizations/how-to-explore-alerts.gif" alt-text="The alerts section of the fleet view workbook." lightbox="./media/how-to-explore-curated-visualizations/how-to-explore-alerts.gif":::
-
-See the generated alerts from [pre-created alert rules](how-to-create-alerts.md) in the **Alerts** view. This view lets you see alerts from multiple IoT hubs or IoT Central applications.
-
-On the left, there's a list of alert severities with their count. On the right, there's map with total alerts per region.
-
-Click on a severity row to see alerts details. The **Alert rule** link takes you to the alert context and the **Device** link opens the detailed metrics workbook. When opened from this view, the device details workbook is automatically adjusted to the time range around when the alert fired.
-
----
+Click on the **Details** button to see the device list with a snapshop of aggregrated, primary metrics. For an individual device, click the link in the **Status** column the view the trend of the device's health metrics or on the device name to view its detailed metrics.
 
 ## IoT Edge device details workbook
 
@@ -124,40 +106,24 @@ This workbook integrates directly with the portal-based troubleshooting experien
 
 ---
 
-## IoT Edge health snapshot workbook
+## Alerts workbook
 
-The health snapshot workbook can be accessed from within the fleet view workbook. The fleet view workbook passes in some parameters required to initialize the health snapshot view. Select a device name in the hive cell to see the health snapshot of that device.
+See the generated alerts from [pre-created alert rules](how-to-create-alerts.md) in the **Alerts** workbook. This view lets you see alerts from multiple IoT hubs or IoT Central applications.
 
-:::image type="content" source="./media/how-to-explore-curated-visualizations/how-to-access-health-snapshot.png" alt-text="Access the health snapshot workbook by selecting a device in the fleet view workbook." lightbox="./media/how-to-explore-curated-visualizations/how-to-access-health-snapshot.png":::
+:::image type="content" source="./media/how-to-explore-curated-visualizations/how-to-explore-alerts.gif" alt-text="The alerts section of the fleet view workbook." lightbox="./media/how-to-explore-curated-visualizations/how-to-explore-alerts.gif":::
 
-Out of the box, the health snapshot is made up of six signals:
+On the left, there's a list of alert severities with their count. On the right, there's map with total alerts per region.
 
-* Upstream messages
-* Local messages
-* Queue length
-* Disk usage
-* Host-level CPU utilization
-* Host-level memory utilization
-
-These signals are measured against configurable thresholds to determine if a device is healthy or not. The thresholds can be adjusted or new signals can be added by editing the workbook. See the next section to learn about workbook customizations.
-
-:::image type="content" source="./media/how-to-explore-curated-visualizations/how-to-explore-health-snapshot.gif" alt-text="View the health snapshot workbook." lightbox="./media/how-to-explore-curated-visualizations/how-to-explore-health-snapshot.gif":::
+Click on a severity row to see alerts details. The **Alert rule** link takes you to the alert context and the **Device** link opens the detailed metrics workbook. When opened from this view, the device details workbook is automatically adjusted to the time range around when the alert fired.
 
 ## Customize workbooks
 
 [Azure Monitor workbooks](../azure-monitor/visualize/workbooks-overview.md) are very customizable. You can edit the public templates to suit your requirements. All the visualizations are driven by resource-centric [KQL](/azure/data-explorer/kusto/query/) queries on the [InsightsMetrics](/azure/azure-monitor/reference/tables/insightsmetrics) table. See the example below that edits the health thresholds.
 
-To begin customizing a workbook, first enter editing mode. Select the **Edit** button in the menu bar of the workbook.
-
-:::image type="content" source="./media/how-to-explore-curated-visualizations/how-to-access-edit-mode.png" alt-text="Enter the editing mode of a workbook." lightbox="./media/how-to-explore-curated-visualizations/how-to-access-edit-mode.png":::
-
-Curated workbooks make extensive use of workbook groups. You may need to click **Edit** on several nested groups before being able to view a visualization query.
+To begin customizing a workbook, first enter editing mode. Select the **Edit** button in the menu bar of the workbook. Curated workbooks make extensive use of workbook groups. You may need to click **Edit** on several nested groups before being able to view a visualization query.
 
 Save your changes as a new workbook. You can [share](../azure-monitor/visualize/workbooks-access-control.md) the saved workbook with your team or [deploy them programmatically](../azure-monitor/visualize/workbooks-automate.md) as part of your organization's resource deployments.
 
-For example, you may want to change the thresholds for when a device is considered healthy or unhealthy. You could do so by drilling into the fleet view workbook template until you get to the **device-health-graph** query item which includes all the metric thresholds that this workbook compares a device against.
-
-:::image type="content" source="./media/how-to-explore-curated-visualizations/how-to-edit-thresholds.gif" alt-text="Continue opening the edit mode of nested components until you reach the query item." lightbox="./media/how-to-explore-curated-visualizations/how-to-edit-thresholds.gif":::
 
 ## Next steps
 
