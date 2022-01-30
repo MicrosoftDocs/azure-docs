@@ -15,55 +15,55 @@ services: iot-edge
 
 [!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
-You can visualize and explore metrics collected from the IoT Edge device right in the Azure portal using Azure Monitor Workbooks. Curated monitoring workbooks for IoT Edge devices are provided in the form of public templates:
+You can visually explore metrics collected from IoT Edge devices using Azure Monitor workbooks. Curated monitoring workbooks for IoT Edge devices are provided in the form of public templates:
 
-* For devices connected to IoT Hub, from the **IoT Hub** blade in the Azure portal navigate to the **Workbooks** page in the **Monitoring** section.
-* For devices connected to IoT Central, from the **IoT Central** blade in the Azure portal navigate to the **Workbooks** page in the **Monitoring** section.
+* For devices connected to IoT Hub, from the **IoT Hub** page in the Azure portal, navigate to the **Workbooks** page in the **Monitoring** section.
+* For devices connected to IoT Central, from the **IoT Central** page in the Azure portal, navigate to the **Workbooks** page in the **Monitoring** section.
 
-The curated workbooks use [built-in metrics](how-to-access-built-in-metrics.md) from the IoT Edge runtime and need them to be [ingested](how-to-collect-and-transport-metrics.md) into a Log Analytics workspace. These views don't need any metrics instrumentation from the workload modules.
+Curated workbooks use [built-in metrics](how-to-access-built-in-metrics.md) from the IoT Edge runtime. They first need metrics to be [ingested](how-to-collect-and-transport-metrics.md) into a Log Analytics workspace. These views don't need any metrics instrumentation from the workload modules.
 
 ## Access curated workbooks
 
-Azure Monitor workbooks for IoT are a set of templates that you can use to start visualizing your metrics right away, or that you can customize to fit your solution.
+Azure Monitor workbooks for IoT are a set of templates that you can use to visualize your device metrics. They can be customized to fit your solution.
 
 To access the curated workbooks, use the following steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your IoT hub or IoT Central application.
+1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your IoT Hub or IoT Central application.
 
 1. Select **Workbooks** from the **Monitoring** section of the menu.
 
 1. Choose the workbook that you want to explore from the list of public templates:
 
-  * **Fleet View**: Monitor your fleet of devices across mulitple IoT Hubs or Central Apps, and drill into specific devices for a health snapshot.
+  * **Fleet View**: Monitor your fleet of devices across multiple IoT Hubs or Central Apps, and drill into specific devices for a health snapshot.
   * **Device Details**: Visualize device details around messaging, modules, and host components on an IoT Edge device.
-  * **Alerts**: View triggered [alerts](how-to-create-alerts.md) for devices across mutliple IoT resources.
+  * **Alerts**: View triggered [alerts](how-to-create-alerts.md) for devices across multiple IoT resources.
 
-You can explore the workbooks on your own, or use the following sections to get a preview of the kind of data and visualizations that each workbook offers.
+Use the following sections to get a preview of the kind of data and visualizations that each workbook offers.
 
 >[!NOTE]
-> The screen captures below may not reflect the latest workbook design.
+> The screen captures that follow may not reflect the latest workbook design.
 
 ## IoT Edge fleet view workbook
 
 :::image type="content" source="./media/how-to-explore-curated-visualizations/how-to-explore-fleet-view.gif" alt-text="The devices section of the fleet view workbook." lightbox="./media/how-to-explore-curated-visualizations/how-to-explore-fleet-view.gif":::
 
-By default, this view shows the health of devices associated with the current IoT hub or IoT Central application. You can select mutiple IoT resources using the downdrop control on the top left. 
+By default, this view shows the health of devices associated with the current IoT cloud resource. You can select multiple IoT resources using the dropdown control on the top left. 
 
-Use the **Settings** tab to adjust the various thresholds to catergorize the device as Healthy or Unhealthy.
+Use the **Settings** tab to adjust the various thresholds to categorize the device as Healthy or Unhealthy.
 
-Click on the **Details** button to see the device list with a snapshop of aggregrated, primary metrics. For an individual device, click the link in the **Status** column the view the trend of the device's health metrics or on the device name to view its detailed metrics.
+Click on the **Details** button to see the device list with a snapshot of aggregated, primary metrics. For an individual device, click the link in the **Status** column the view the trend of the device's health metrics or on the device name to view its detailed metrics.
 
 ## IoT Edge device details workbook
 
-The device details workbook has three views that you can use:
+The device details workbook has three views:
 
 * The **Messaging** view visualizes the message routes for the device and reports on the overall health of the messaging system.
 * The **Modules** view shows how the individual modules on a device are performing.
 * The **Host** view shows information about the host device including version information for host components and resource use.
 
-You can switch between the views using the tabs at the top of the workbook.
+Switch between the views using the tabs at the top of the workbook.
 
-The device details workbook also integrates with the IoT Edge portal-based troubleshooting experience so that you can view **Live logs** coming in from your device. You can access this experience by selecting the **Troubleshoot \<device name> live** button above the workbook.
+The device details workbook also integrates with the IoT Edge portal-based troubleshooting experience. You can pull **Live logs** from your device using this feature. Access this experience by selecting the **Troubleshoot \<device name> live** button above the workbook.
 
 # [Messaging](#tab/messaging)
 
@@ -73,9 +73,9 @@ The **Messaging** view includes three subsections: routing details, a routing gr
 
 The **Routing** section shows message flow between sending modules and receiving modules. It presents information such as message count, rate, and number of connected clients. Click on a sender or receiver to drill in further. Clicking a sender shows the latency trend chart experienced by the sender and number of messages it sent. Clicking a receiver shows the queue length trend for the receiver and number of messages it received.
 
-The **Graph** section shows a visual representation of message flow between modules. You can drag and zoom to adjust the graph.
+The **Graph** section shows a visual representation of message flow between modules. Drag and zoom to adjust the graph.
 
-The **Health** section presents various metrics related to overall health of the messaging subsystem. You can progressively drill-in to details if any errors are noted.
+The **Health** section presents various metrics related to overall health of the messaging subsystem. Progressively drill-in to details if any errors are noted.
 
 # [Modules](#tab/modules)
 
@@ -86,7 +86,7 @@ The **Modules** view presents metrics collected from the edgeAgent module, which
 * Module availability
 * Per-module CPU and memory use
 * CPU and memory use across all modules
-* Modules restart count and restart timeline.
+* Modules restart count and restart timeline
 
 # [Host](#tab/host)
 
@@ -108,19 +108,17 @@ This workbook integrates directly with the portal-based troubleshooting experien
 
 ## Alerts workbook
 
-See the generated alerts from [pre-created alert rules](how-to-create-alerts.md) in the **Alerts** workbook. This view lets you see alerts from multiple IoT hubs or IoT Central applications.
+See the generated alerts from [pre-created alert rules](how-to-create-alerts.md) in the **Alerts** workbook. This view lets you see alerts from multiple IoT Hubs or IoT Central applications.
 
 :::image type="content" source="./media/how-to-explore-curated-visualizations/how-to-explore-alerts.gif" alt-text="The alerts section of the fleet view workbook." lightbox="./media/how-to-explore-curated-visualizations/how-to-explore-alerts.gif":::
-
-On the left, there's a list of alert severities with their count. On the right, there's map with total alerts per region.
 
 Click on a severity row to see alerts details. The **Alert rule** link takes you to the alert context and the **Device** link opens the detailed metrics workbook. When opened from this view, the device details workbook is automatically adjusted to the time range around when the alert fired.
 
 ## Customize workbooks
 
-[Azure Monitor workbooks](../azure-monitor/visualize/workbooks-overview.md) are very customizable. You can edit the public templates to suit your requirements. All the visualizations are driven by resource-centric [KQL](/azure/data-explorer/kusto/query/) queries on the [InsightsMetrics](/azure/azure-monitor/reference/tables/insightsmetrics) table. See the example below that edits the health thresholds.
+[Azure Monitor workbooks](../azure-monitor/visualize/workbooks-overview.md) are very customizable. You can edit the public templates to suit your requirements. All the visualizations are driven by resource-centric [Kusto Query Language](/azure/data-explorer/kusto/query/) queries on the [InsightsMetrics](/azure/azure-monitor/reference/tables/insightsmetrics) table. 
 
-To begin customizing a workbook, first enter editing mode. Select the **Edit** button in the menu bar of the workbook. Curated workbooks make extensive use of workbook groups. You may need to click **Edit** on several nested groups before being able to view a visualization query.
+To begin customizing a workbook, first enter editing mode. Select the **Edit** button in the menu bar of the workbook. Curated workbooks make extensive use of workbook groups. You may need to select **Edit** on several nested groups before being able to view a visualization query.
 
 Save your changes as a new workbook. You can [share](../azure-monitor/visualize/workbooks-access-control.md) the saved workbook with your team or [deploy them programmatically](../azure-monitor/visualize/workbooks-automate.md) as part of your organization's resource deployments.
 
