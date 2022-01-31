@@ -12,11 +12,11 @@ ms.custom: mode-api
 
 # Deploy Healthcare APIs Using Azure Bicep
 
-In this article, you'll learn how to create Healthcare APIs, including workspaces, FHIR services, DICOM services, and IoT connectors using Bicep. You can view and download the Bicep scripts used in this article in [HealthcareAPIs samples](https://github.com/microsoft/healthcare-apis-samples/blob/main/src/templates/healthcareapis.bicep). 
+In this article, you'll learn how to create Healthcare APIs, including workspaces, FHIR services, DICOM services, and IoT connectors using Azure Bicep. You can view and download the Bicep scripts used in this article in [HealthcareAPIs samples](https://github.com/microsoft/healthcare-apis-samples/blob/main/src/templates/healthcareapis.bicep). 
 
 ## What is Azure Bicep
 
-Bicep is built on top of Azure Resource Manager (ARM) template. Bicep immediately supports all preview and GA versions for Azure services, including Healthcare APIs. During development, you can generate a JSON ARM template file using the `az bicep build` command. Conversely, you can decompile the JSON files to Bicep using the `az bicep decompile` command. During deployment, the Bicep CLI converts a Bicep file into an ARM template JSON.
+Bicep is built on top of Azure Resource Manager (ARM) template. Bicep immediately supports all preview and generally available (GA) versions for Azure services, including Healthcare APIs. During development, you can generate a JSON ARM template file using the `az bicep build` command. Conversely, you can decompile the JSON files to Bicep using the `az bicep decompile` command. During deployment, the Bicep CLI converts a Bicep file into an ARM template JSON.
 
 You can continue to work with JSON ARM templates, or use Bicep to develop your ARM templates. For more information on Bicep, see [What is Bicep](../azure-resource-manager/bicep/overview.md).
 
@@ -27,9 +27,9 @@ You can continue to work with JSON ARM templates, or use Bicep to develop your A
 
 Using Bicep parameters and variables instead of hard coding names and other values allows you to debug and reuse your Bicep templates.
 
-To create Healthcare APIs, we define several parameters with the keyword *param* for workspace, FHIR service, DICOM service, IoT connector, and Azure Active Directory (Azure AD) tenant. They’re used in the CLI command line with the "--parameters" option.
+We first define parameters with the keyword *param* for workspace, FHIR service, DICOM service, IoT connector. Also, we define parameters for Azure subscription and Azure Active Directory (Azure AD) tenant. They’re used in the CLI command line with the "--parameters" option.
 
-We also define several variables with the keyword *var*, including the authority and the audience for the FHIR service. They’re specified and used internally in the Bicep templates, and can be used in combination of parameters, Bicep functions, and other variables. Unlike parameters, they aren’t used in the CLI command line.
+We then define variables for resources with the keyword *var*. Also, we define variables for properties such as the authority and the audience for the FHIR service. They’re specified and used internally in the Bicep template, and can be used in combination of parameters, Bicep functions, and other variables. Unlike parameters, they aren’t used in the CLI command line.
 
 It's important to note that one Bicep function and environment(s) are required to specify the log in URL, `https://login.microsoftonline.com`. For more information on Bicep functions, see [Deployment functions for Bicep](../azure-resource-manager/bicep/bicep-functions-deployment.md#environment).
 
@@ -51,7 +51,7 @@ var audience = 'https://${workspaceName}-${fhirName}.fhir.azurehealthcareapis.co
 
 ## Create a workspace template
 
-To define a resource, use the keyword *resource*. For the workspace resource, the required properties include the workspace name and location. In the template, the location of the resource group is used, but you can specify a different value for the location. The resource type name is arbitrary and can be referenced in the template as a dependency or a specific property such as resource ID.
+To define a resource, use the keyword *resource*. For the workspace resource, the required properties include the workspace name and location. In the template, the location of the resource group is used, but you can specify a different value for the location. For the resource name, you can reference the defined parameter or variable.
 
 For more information on resource and module, see [Resource declaration in Bicep](../azure-resource-manager/bicep/resource-declaration.md).
 
@@ -63,7 +63,7 @@ resource exampleWorkspace 'Microsoft.HealthcareApis/workspaces@2021-06-01-previe
 }
 ```
 
-To use or reference an existing workspace without creating one, use the keyword *existing*. Specify the workspace resource name, and the existing workspace instance name for the name property. Note that a different workspace resource name is used in the template. This isn’t required, but doing it allows you to debug the template more conveniently whether you create a new resource or reference an existing resource.
+To use or reference an existing workspace without creating one, use the keyword *existing*. Specify the workspace resource name, and the existing workspace instance name for the name property. Note that a different name for the existing workspace resource is used in the template, but that is not a requirement.
 
 ```
 //Use an existing workspace
@@ -260,7 +260,7 @@ tenantid=$(az account show --subscription $subscriptionid --query tenantId --out
 az deployment group create --resource-group $resourcegroupname --template-file $bicepfilename --parameters workspaceName=$workspacename fhirName=$fhirname dicomName=$dicomname iotName=$iotname tenantId=$tenantid
 ```
 
-Note that when a child resource such as the FHIR service or the DICOM service is created outside of the parent resource such as workspace, the child resource name must include the parent resource in the form of "parent resource name/child resource name" and the "dependsOn" property must be specified in the template. However, when the child resource is created within the parent resource, the child resource name does not need to include the parent resource name and the "dependsOn" property is not required. For more info, see [Set name and type for child resources in Bicep](../azure-resource-manager/bicep/child-resource-name-type.md).
+Note that the child resource name such as the FHIR service includes the parent resource name, and the "dependsOn" property is required. However, when the child resource is created within the parent resource, its name does not need to include the parent resource name, and the "dependsOn" property is not required. For more info on nested resources, see [Set name and type for child resources in Bicep](../azure-resource-manager/bicep/child-resource-name-type.md).
 
 ## Debugging Bicep templates
 
