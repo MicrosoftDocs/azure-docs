@@ -20,6 +20,13 @@ In this how-to guide, you'll learn how to make changes to the packet core instan
 
 Ensure you can sign in to the Azure portal using an account with access to the active subscription you used to create your private mobile network. This account must have the built-in Contributor role at the subscription scope.
 
+If you want to make changes to any of the following, you must first update the configuration on the Azure Kubernetes Service on Azure Stack HCI (AKS-HCI) cluster on the Azure Stack Edge Pro device in the site. 
+
+- IP addresses for the packet core instance's N2 signaling, N3, and N6 interfaces.
+- Network addresses and default gateways for the access and data subnets.
+
+Contact your support representative for information on how you can make these changes.Once you've made them, you can then make the corresponding changes on the packet core instance as described below.
+
 ## Modify the packet core instance's configuration
 
 In this step, you'll modify configuration for your chosen packet core instance in the Azure portal.
