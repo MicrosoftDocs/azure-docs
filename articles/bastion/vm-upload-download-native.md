@@ -1,7 +1,7 @@
 ---
 title: 'Upload and download files - native client'
 titleSuffix: Azure Bastion
-description: Learn how to upload or transfer files using Azure Bastion and the native client.
+description: Learn how to upload or transfer files using Azure Bastion and a native client.
 services: bastion
 author: cherylmc
 
@@ -13,7 +13,7 @@ ms.author: cherylmc
 
 ---
 
-# Upload or download files to a VM using Azure Bastion and the native client (Preview)
+# Upload or download files using a native client: Azure Bastion (Preview)
 
 Azure Bastion offers support for file transfer between your target VM and local computer using Bastion and a native RDP or SSH client. To learn more about native client support, refer to [Connect to a VM using the native Windows client](connect-native-client-windows.md). You can use either SSH or RDP to upload files to a VM from your local computer. To download files from a VM, you must use RDP.
 
