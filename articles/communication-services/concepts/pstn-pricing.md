@@ -11,7 +11,7 @@ ms.service: azure-communication-services
 # Telephony (PSTN) Pricing
 
 > [!IMPORTANT]
-> Number Retention and Portability: Phone numbers that are assigned to you during any preview program will be returned to Microsoft at the end of the preview program unless otherwise agreed by Microsoft.  During private preview and public preview, telephone numbers are not eligible for porting. [Details on offers in Public Preview / GA](../concepts/numbers/sub-eligibility-number-capability.md)
+> Number Retention and Portability: Phone numbers that are assigned to you during any preview program may need to be returned to Microsoft if you do not meet regulatory requirements before General Availability. During private preview and public preview, telephone numbers are not eligible for porting. [Details on offers in Public Preview / GA](../concepts/numbers/sub-eligibility-number-capability.md)
 
 Numbers are billed on a per month basis, and pricing differs based on the type of a number and the source (country) of the number. Once a number is purchased, Customers can make / receive calls using that number and are billed on a per minute basis. PSTN call pricing is based on the type of number and location in which a call is terminated (destination), with few scenarios having rates based on origination location.
 
