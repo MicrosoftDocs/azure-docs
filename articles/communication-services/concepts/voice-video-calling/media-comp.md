@@ -17,14 +17,14 @@ ms.subservice: calling
 
 Azure Communication Services Media Streaming and Composition enables you to build dynamic voice and video calling experiences at large scales, suitable for interactive streaming, virtual events, and broadcast scenarios. In a common video calling scenario, each participant is uploading several media streams captured from:
 
-1. Cameras
-2. Microphones
-3. Applications (screen sharing)
+- Cameras
+- Microphones
+- Applications (screen sharing)
 
 These media streams are typically arrayed in a grid and broadcast to call participants. Media Streaming and Composition allows you to extend and enhance this experience:
 
-1. Connect devices and services using streaming protocols such as [RTMP](https://datatracker.ietf.org/doc/html/rfc7016) or [SRT](https://datatracker.ietf.org/doc/html/draft-sharabayko-srt)
-2. Compose media streams into complex scenes
+- Connect devices and services using streaming protocols such as [RTMP](https://datatracker.ietf.org/doc/html/rfc7016) or [SRT](https://datatracker.ietf.org/doc/html/draft-sharabayko-srt)
+- Compose media streams into complex scenes
 
 RTMP & SRT connectivity can be used for both input and output. Using RTMP/SRT input, a videography studio that emits RTMP/SRT can join an Azure Communication Services call. RTMP/SRT output allows you to stream media from Azure Communication Services into [Azure Media Services](https://docs.microsoft.com/azure/media-services/latest/concepts-overview), YouTube Live, and many other broadcasting channels. The ability to attach industry standard RTMP/SRT emitters and to output content to RTMP/SRT subscribers for broadcasting transforms a small group call into a virtual event that reaches millions of people in real time.
 
@@ -53,10 +53,10 @@ This functionality is activated through REST APIs and open-source SDKs. Below is
 ```
 The presenter layout is one of several layouts available through the media composition capability:
 
-1. **Grid** - This is the typical video calling layout, where all media sources are shown on a grid with similar sizes. You can use the grid layout to specify grid positions and size.
-1. **Presentation.** Similar to the grid layout but media sources can have different sizes, allowing for emphasis.
-1. **Presenter** - This layout overlays two sources on top of each other.
-1. **Weather Person** - This layout overlays two sources, but in real-time Azure will remove the background behind people.
+- **Grid** - This is the typical video calling layout, where all media sources are shown on a grid with similar sizes. You can use the grid layout to specify grid positions and size.
+- **Presentation.** Similar to the grid layout but media sources can have different sizes, allowing for emphasis.
+- **Presenter** - This layout overlays two sources on top of each other.
+- **Weather Person** - This layout overlays two sources, but in real-time Azure will remove the background behind people.
 
 <!----To try out media composition, check out following content:----->
 
