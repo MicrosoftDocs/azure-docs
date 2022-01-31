@@ -14,40 +14,40 @@ ms.date: 01/10/2022
 
 ## Adopt a Cybersecurity framework
 
-A good place to start is to adopt the [Azure Security Benchmark](/security/benchmark/azure/) to secure the Azure environment. The Azure Security Benchmark is Azure's own security control framework based on industry-based security control frameworks such as NIST SP800-53, CIS Controls v7.1. 
+A good place to start is to adopt the [Azure Security Benchmark](/security/benchmark/azure/) to secure the Azure environment. The Azure Security Benchmark is the Azure security control framework, based on industry-based security control frameworks such as NIST SP800-53, CIS Controls v7.1.
 
 :::image type="content" source="./media/ransomware/ransomware13.png" alt-text="Screenshot of the NS-1: Establish Network Segmentation Boundaries security control":::
 
-The Azure Security Benchmark provides organizations guidance on how to configure Azure and Azure Services and implement the security controls. Organizations can use Microsoft Defender for Cloud to monitor their live Azure environment status with all the Azure Security Benchmark controls.
+The Azure Security Benchmark provides organizations guidance on how to configure Azure and Azure Services and implement the security controls. Organizations can use [Microsoft Defender for Cloud](../../defender-for-cloud/index.yml) to monitor their live Azure environment status with all the Azure Security Benchmark controls.
 
-Ultimately, the Framework is aimed at reducing and better managing cybersecurity risks. 
+Ultimately, the Framework is aimed at reducing and better managing cybersecurity risks.
 
-| Azure Security Benchmark stack | 
+| Azure Security Benchmark stack |
 |--|
-| [Network&nbsp;security&nbsp;(NS)](/security/benchmark/azure/security-controls-v3-network-security) | 
-| [Identity&nbsp;Management&nbsp;(IM)](/security/benchmark/azure/security-controls-v3-identity-management) | 
-| [Privileged&nbsp;Access&nbsp;(PA)](/security/benchmark/azure/security-controls-v3-privileged-access) | 
-| [Data&nbsp;Protection&nbsp;(DP)](/security/benchmark/azure/security-controls-v3-data-protection) | 
-| [Asset&nbsp;Management&nbsp;(AM)](/security/benchmark/azure/security-controls-v3-asset-management) | 
-| [Logging&nbsp;and&nbsp;Threat&nbsp;Detection (LT)](/security/benchmark/azure/security-controls-v2-logging-threat-detection) | 
-| [Incident&nbsp;Response&nbsp;(IR)](/security/benchmark/azure/security-controls-v3-incident-response) | 
-| [Posture&nbsp;and&nbsp;Vulnerability&nbsp;Management&nbsp;(PV)](/security/benchmark/azure/security-controls-v3-posture-vulnerability-management) | 
-| [Endpoint&nbsp;Security&nbsp;(ES)](/security/benchmark/azure/security-controls-v3-endpoint-security) | 
-| [Backup&nbsp;and&nbsp;Recovery&nbsp;(BR)](/security/benchmark/azure/security-controls-v3-backup-recovery) | 
+| [Network&nbsp;security&nbsp;(NS)](/security/benchmark/azure/security-controls-v3-network-security) |
+| [Identity&nbsp;Management&nbsp;(IM)](/security/benchmark/azure/security-controls-v3-identity-management) |
+| [Privileged&nbsp;Access&nbsp;(PA)](/security/benchmark/azure/security-controls-v3-privileged-access) |
+| [Data&nbsp;Protection&nbsp;(DP)](/security/benchmark/azure/security-controls-v3-data-protection) |
+| [Asset&nbsp;Management&nbsp;(AM)](/security/benchmark/azure/security-controls-v3-asset-management) |
+| [Logging&nbsp;and&nbsp;Threat&nbsp;Detection (LT)](/security/benchmark/azure/security-controls-v2-logging-threat-detection) |
+| [Incident&nbsp;Response&nbsp;(IR)](/security/benchmark/azure/security-controls-v3-incident-response) |
+| [Posture&nbsp;and&nbsp;Vulnerability&nbsp;Management&nbsp;(PV)](/security/benchmark/azure/security-controls-v3-posture-vulnerability-management) |
+| [Endpoint&nbsp;Security&nbsp;(ES)](/security/benchmark/azure/security-controls-v3-endpoint-security) |
+| [Backup&nbsp;and&nbsp;Recovery&nbsp;(BR)](/security/benchmark/azure/security-controls-v3-backup-recovery) |
 | [DevOps&nbsp;Security&nbsp;(DS)](/security/benchmark/azure/security-controls-v3-devops-security) |
-| [Governance&nbsp;and&nbsp;Strategy&nbsp;(GS)](/security/benchmark/azure/security-controls-v3-governance-strategy) | 
+| [Governance&nbsp;and&nbsp;Strategy&nbsp;(GS)](/security/benchmark/azure/security-controls-v3-governance-strategy) |
 
 ## Prioritize mitigation
 
-Based on our experience with ransomware attacks, we've found that prioritization should focus on: 1) prepare, 2) limit, 3) prevent. This may seem counterintuitive, since most people want to simply prevent an attack and move on. But the unfortunate truth is that we must assume breach (a key Zero Trust principle) and focus on reliably mitigating the most damage first. This prioritization is critical because of the high likelihood of a worst-case scenario with ransomware. While it's not a pleasant truth to accept, we're facing creative and motivated human attackers who are adept at finding a way to control the complex real-world environments in which we operate. Against that reality, it's important to prepare for the worst and establish frameworks to contain and prevent attackers' ability to get what they're after. 
+Based on our experience with ransomware attacks, we've found that prioritization should focus on: 1) prepare, 2) limit, 3) prevent. This may seem counterintuitive, since most people want to simply prevent an attack and move on. But the unfortunate truth is that we must assume breach (a key Zero Trust principle) and focus on reliably mitigating the most damage first. This prioritization is critical because of the high likelihood of a worst-case scenario with ransomware. While it's not a pleasant truth to accept, we're facing creative and motivated human attackers who are adept at finding a way to control the complex real-world environments in which we operate. Against that reality, it's important to prepare for the worst and establish frameworks to contain and prevent attackers' ability to get what they're after.
 
-While these priorities should govern what to do first, we encourage organizations to run as many steps in parallel as possible (including pulling quick wins forward from step 1 whenever you can). 
+While these priorities should govern what to do first, we encourage organizations to run as many steps in parallel as possible (including pulling quick wins forward from step 1 whenever you can).
 
 ## Make it harder to get in
 
 Prevent a ransomware attacker from entering your environment and rapidly respond to incidents to remove attacker access before they can steal and encrypt data. This will cause attackers to fail earlier and more often, undermining the profit of their attacks. While prevention is the preferred outcome, it is a continuous journey and may not be possible to achieve 100% prevention  and rapid response across a real-world organizations (complex multi-platform and multi-cloud estate with distributed IT responsibilities).
 
-To achieve this, organizations should identify and execute quick wins to strengthen  security controls to prevent entry and rapidly detect/evict attackers while implementing a sustained program that helps them stay secure. Microsoft recommends organizations follow the principles outlined in the Zero Trust strategy here . Specifically, against Ransomware, organizations should prioritize: 
+To achieve this, organizations should identify and execute quick wins to strengthen  security controls to prevent entry and rapidly detect/evict attackers while implementing a sustained program that helps them stay secure. Microsoft recommends organizations follow the principles outlined in the Zero Trust strategy [here](https://aka.ms/zerotrust). Specifically, against Ransomware, organizations should prioritize:
 - Improving security hygiene by focusing efforts on attack surface reduction and threat and vulnerability management for assets in their estate. 
 - Implementing Protection, Detection and Response controls for their digital assets that can protect against commodity and advanced threats, provide visibility and alerting on attacker activity and respond to active threats. 
 
@@ -55,7 +55,7 @@ To achieve this, organizations should identify and execute quick wins to strengt
 
 Ensure you have strong controls (prevent, detect, respond) for privileged accounts like IT Admins and other roles with control of business-critical systems. This slows and/or blocks attackers from gaining complete access to your resources to steal and encrypt them. Taking away the attackers' ability to use IT Admin accounts as a shortcut to resources will drastically lower the chances they are successful at attacking you and demanding payment / profiting.
 
-Organizations should have elevated security for privileged accounts (tightly protect, closely monitor, and rapidly respond to incidents related to these roles). See Microsoft's recommended steps at https://aka.ms/sparoadmap that cover:
+Organizations should have elevated security for privileged accounts (tightly protect, closely monitor, and rapidly respond to incidents related to these roles). See Microsoft's [Security rapid modernization plan](https://aka.ms/sparoadmap), which covers:
 - End to End Session Security (including multifactor authentication (MFA) for admins)
 - Protect and Monitor Identity Systems
 - Mitigate Lateral Traversal
@@ -81,13 +81,13 @@ Protect backups against deliberate erasure and encryption with offline storage, 
 ## Promote awareness and ensure there is no knowledge gap
 
 There are a number of activities that may be undertaken to prepare for potential ransomware incidents.
- 
+
 ### Educate end-users on the dangers of ransomware
- 
+
 As most ransomware variants rely on end-users to install the ransomware or connect to compromised Web sites, all end-users should be educated about the dangers.  This would typically be part of annual security awareness training as well as ad hoc training available through the company's learning management systems.  The awareness training should also extend to the company's customers via the company's portals or other appropriate channels.
- 
+
 ### Educate security operations center (SOC) analysts and others on how to respond to ransomware incidents
- 
+
 SOC analysts and others involved in ransomware incidents should know the fundamentals of malicious software and ransomware specifically.  They should be aware of major variants/families of ransomware, along with some of their typical characteristics.  Customer call center staff should also be aware of how to handle ransomware reports from the company's end-users and customers.
 
 ## Ensure that you have appropriate technical controls in place
@@ -152,7 +152,7 @@ Ensure that you have well-documented procedures for engaging any third-party sup
 
 The Azure platform provides backup and recovery options through Azure Backup as well built-in within various data services and workloads. 
 
-Isolated backups with Azure Backup
+Isolated backups with [Azure Backup](../../backup/backup-azure-security-feature.md#prevent-attacks)
 - Azure Virtual Machines
 - Databases in Azure VMs: SQL, SAP HANA
 - Azure Database for PostgreSQL

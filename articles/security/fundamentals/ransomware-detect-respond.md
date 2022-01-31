@@ -18,19 +18,19 @@ In general, such infections obvious from basic system behavior, the absence of k
 
 ## Detecting ransomware attacks
 
-Microsoft Defender for Cloud provides high quality threat detection and response capabilities, also called Extended Detection and Response – XDR.
+Microsoft Defender for Cloud provides high-quality threat detection and response capabilities, also called Extended Detection and Response (XDR).
 
 Ensure rapid detection and remediation of common attacks on VMs, SQL Servers, Web applications, and identity.
 
-- **Prioritize Common Entry Points** – Ransomware (and other) operators favor Endpoint/Email/Identity + RDP
-  - **Integrated XDR** - Use integrated Extended Detection and Response (XDR) tools like Microsoft Defender for Cloud to provide high quality alerts and minimize friction and manual steps during response
-  - **Brute Force** - Monitor for brute-force attempts like password spray
+- **Prioritize Common Entry Points** – Ransomware (and other) operators favor Endpoint/Email/Identity + Remote Desktop Protocol (RDP)
+  - **Integrated XDR** - Use integrated Extended Detection and Response (XDR) tools like Microsoft [Defender for Cloud](https://azure.microsoft.com/services/azure-defender/) to provide high quality alerts and minimize friction and manual steps during response
+  - **Brute Force** - Monitor for brute-force attempts like [password spray](../../defender-for-identity/compromised-credentials-alerts.md)
 - **Monitor for Adversary Disabling Security** – as this is often part of Human Operated Ransomware (HumOR) attack chain
   - **Event Logs Clearing** – especially the Security Event log and PowerShell Operational logs
   - **Disabling of security tools/controls** (associated with some groups)
 - **Don't Ignore Commodity Malware** - Ransomware attackers regularly purchase access to target organizations from dark markets
-- **Integrate outside experts** – into processes to supplement expertise, such as Microsoft Detection and Response Team (DART).
-- **Rapidly isolate** compromised computers using Defender for Endpoint in on-premises deployment.
+- **Integrate outside experts** – into processes to supplement expertise, such as the [Microsoft Detection and Response Team (DART)](https://aka.ms/dart).
+- **Rapidly isolate** compromised computers using [Defender for Endpoint](/windows/security/threat-protection/microsoft-defender-atp/respond-machine-alerts#isolate-devices-from-the-network) in on-premises deployment.
 
 ## Responding to ransomware attacks
 
@@ -42,37 +42,37 @@ Once a successful ransomware infection has been confirmed, the analyst should ve
 
 In general, various server/endpoint antimalware, email antimalware and network protection solutions should be configured to automatically contain and mitigate known ransomware.  There may be cases, however, where the specific ransomware variant has been able to bypass such protections and successfully infect target systems.
  
-Microsoft provides extensive resources to help update your incident response processes on the Top Azure Security Best Practices.
+Microsoft provides extensive resources to help update your incident response processes on the [Top Azure Security Best Practices](/cloud-adoption-framework/secure/security-top-10#4-process-update-incident-response-processes-for-cloud).
 
 The following are recommended actions to contain or mitigate a declared incident involving ransomware where automated actions taken by antimalware systems have been unsuccessful:
 
 1. Engage antimalware vendors through standard support processes
 1. Manually add hashes and other information associated with malware to antimalware systems  
-1. Apply antimalware vendor updates 
+1. Apply antimalware vendor updates
 1. Contain affected systems until they can be remediated 
 1. Disable compromised accounts
-1. Perform root cause analysis 
+1. Perform root cause analysis
 1. Apply relevant patches and configuration changes on affected systems  
 1. Block ransomware communications using internal and external controls
-1. Purge cached content 
+1. Purge cached content
 
 ## Road to recovery
 
-Microsoft's Detection and Response Team will help protect you from attacks
+The Microsoft Detection and Response Team will help protect you from attacks
 
-Understanding and fixing the fundamental security issues that led to the compromise in the first place should be a priority for ransomware victims. 
+Understanding and fixing the fundamental security issues that led to the compromise in the first place should be a priority for ransomware victims.
 
-Integrate outside experts – into processes to supplement expertise, such as Microsoft Detection and Response Team (DART). The DART engages with customers around the world, helping to protect and harden against attacks before they occur, as well as investigating and remediating when an attack has occurred. 
+Integrate outside experts into processes to supplement expertise, such as the [Microsoft Detection and Response Team (DART)](https://aka.ms/dart). The DART engages with customers around the world, helping to protect and harden against attacks before they occur, as well as investigating and remediating when an attack has occurred.
 
-Customers can engage our security experts directly from within the Microsoft 365 Defender portal for timely and accurate response. Experts provide insights needed to better understand the complex threats affecting your organization, from alert inquiries, potentially compromised devices, root cause of a suspicious network connection, to additional threat intelligence regarding ongoing advanced persistent threat campaigns. 
+Customers can engage our security experts directly from within the Microsoft 365 Defender portal for timely and accurate response. Experts provide insights needed to better understand the complex threats affecting your organization, from alert inquiries, potentially compromised devices, root cause of a suspicious network connection, to additional threat intelligence regarding ongoing advanced persistent threat campaigns.
 
 Microsoft is ready to assist your company in returning to safe operations.
 
 Microsoft performs hundreds of compromise recoveries and has a tried-and-true methodology. Not only will it get you to a more secure position, it affords you the opportunity to consider your long-term strategy rather than reacting to the situation. 
 
-Microsoft provides Rapid Ransomware Recovery services. Under this, assistance is provided in all areas such as restoration of identity services, remediation and hardening and with monitoring deployment to help victims of ransomware attacks to return to normal business in the shortest possible timeframe. 
+Microsoft provides Rapid Ransomware Recovery services. Under this, assistance is provided in all areas such as restoration of identity services, remediation and hardening and with monitoring deployment to help victims of ransomware attacks to return to normal business in the shortest possible timeframe.
 
-Our Rapid Ransomware Recovery services are treated as "Confidential" for the duration of the engagement. Rapid Ransomware Recovery engagements are exclusively delivered by the WW Compromise Recovery Security Practice (CRSP), part of the Azure Cloud & AI Domain. For more information you can contact CRSP at Request contact about Azure security. 
+Our Rapid Ransomware Recovery services are treated as "Confidential" for the duration of the engagement. Rapid Ransomware Recovery engagements are exclusively delivered by the Compromise Recovery Security Practice (CRSP) team, part of the Azure Cloud & AI Domain. For more information, you can contact CRSP at [Request contact about Azure security](https://azure.microsoft.com/overview/meet-with-an-azure-specialist/). 
 
 ## What's next
 
