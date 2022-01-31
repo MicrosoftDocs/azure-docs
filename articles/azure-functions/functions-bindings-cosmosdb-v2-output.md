@@ -851,7 +851,7 @@ For information about those settings and other properties that you can configure
     [FunctionName("QueueToDocDB")]
     public static void Run(
         [QueueTrigger("myqueue-items", Connection = "AzureWebJobsStorage")] string myQueueItem,
-        [CosmosDB("ToDoList", "Items", Id = "id", ConnectionStringSetting = "myCosmosDB")] out dynamic document)
+        [CosmosDB("ToDoList", "Items", ConnectionStringSetting = "myCosmosDB")] out dynamic document)
     {
         ...
     }
@@ -894,6 +894,7 @@ The `CosmosDBOutput` annotation is available to write data to Cosmos DB. You can
 
 ::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"
+
 # [JavaScript](#tab/javascript)
 
 Attributes are not supported by JavaScript.
@@ -931,8 +932,7 @@ The following table explains the binding configuration properties that you set i
 |**connectionStringSetting** <br> or <br> **connection**   **ConnectionStringSetting** <br> or <br> **Connection**| The name of an app setting or setting collection that specifies how to connect to the Azure Cosmos DB account. <br><br> In [version 4.x of the extension] this property is called `connection`. |
 |**preferredLocations** **PreferredLocations**| (Optional) Defines preferred locations (regions) for geo-replicated database accounts in the Azure Cosmos DB service. Values should be comma-separated. For example, "East US,South Central US,North Europe". |
 |**useMultipleWriteLocations** **UseMultipleWriteLocations**| (Optional) When set to `true` along with `PreferredLocations`, it can leverage [multi-region writes](../cosmos-db/how-to-manage-database-account.md#configure-multiple-write-regions) in the Azure Cosmos DB service. <br><br> This property is not available in [version 4.x of the extension]. |
-::: zone-end  
-
+ 
 See the [Example section](#example) for complete examples.
 
 ## Usage
