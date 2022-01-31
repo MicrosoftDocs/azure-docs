@@ -416,7 +416,7 @@ items:
     - name: Overview
       href: agents/agents-overview.md
     - name: FAQ
-      href: ./faq.yml#agents
+      href: /azure/azure-monitor/faq#agents
     - name: Azure Monitor Agent
       items:
       - name: Overview
@@ -433,7 +433,7 @@ items:
         href: agents/azure-monitor-agent-migration.md
       - name: FAQ
         displayName: Azure Monitor agent FAQ
-        href: ./faq.yml#azure-monitor-agent
+        href: /azure/azure-monitor/faq#azure-monitor-agent
     - name: Log Analytics agent
       items:
       - name: Overview
