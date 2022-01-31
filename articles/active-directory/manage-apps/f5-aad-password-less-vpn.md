@@ -307,8 +307,6 @@ The F5 VPN application should also be visible as a target resource in Azure AD C
 
 - [The end of passwords, go passwordless](https://www.microsoft.com/security/business/identity/passwordless)
 
-- [What is Conditional Access?](../conditional-access/overview.md)
+- [Five steps to full application integration with Azure AD](../fundamentals/five-steps-to-full-application-integration-with-azure-ad.md)
 
 - [Microsoft Zero Trust framework to enable remote work](https://www.microsoft.com/security/blog/2020/04/02/announcing-microsoft-zero-trust-assessment-tool/)
-
-- [Five steps to full application integration with Azure AD](../fundamentals/five-steps-to-full-application-integration-with-azure-ad.md)
