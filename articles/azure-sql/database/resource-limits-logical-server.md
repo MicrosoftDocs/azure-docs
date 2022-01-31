@@ -29,6 +29,17 @@ For specific resource limits per pricing tier (also known as service objective) 
 
 ## Logical server limits
 
+<!---
+vCore resource limits are listed in the following articles, please be sure to update all of them: 
+/database/resource-limits-vcore-single-databases.md
+/database/resource-limits-vcore-elastic-pools.md
+/database/resource-limits-logical-server.md
+/database/service-tier-general-purpose.md
+/database/service-tier-business-critical.md
+/database/service-tier-hyperscale.md
+/managed-instance/resource-limits.md
+--->
+
 | Resource | Limit |
 | :--- | :--- |
 | Databases per [logical server](logical-servers.md) | 5000 |
