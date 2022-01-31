@@ -38,14 +38,14 @@ Functions run as C# script, which is supported primarily for C# portal editing. 
 
 The functionality of the extension varies depending on the extension version:
 
-# [Extension 5.x higher](#tab/extensionv5/in-process)
+# [Extension 5.x+](#tab/extensionv5/in-process)
 
 <a name="storage-extension-5x-and-higher"></a>
 A new version of the Storage bindings extension is available in preview. It introduces the ability to [connect using an identity instead of a secret](./functions-reference.md#configure-an-identity-based-connection). For a tutorial on configuring your function apps with managed identities, see the [creating a function app with identity-based connections tutorial](./functions-identity-based-connections-tutorial.md). For .NET applications, the new extension version also changes the types that you can bind to, replacing the types from `WindowsAzure.Storage` and `Microsoft.Azure.Storage` with newer types from [Azure.Storage.Queues](/dotnet/api/azure.storage.queues).
 
 This extension version is available by installing this [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage.Queues), version 5.x.
 
-# [Functions 2.x and higher](#tab/functionsv2/in-process)
+# [Functions 2.x+](#tab/functionsv2/in-process)
 
 <a name="functions-2x-and-higher"></a>
 Working with the trigger and bindings requires that you reference the appropriate NuGet package. Install the [NuGet package], version 3.x or 4.x.
@@ -56,19 +56,19 @@ Functions 1.x apps automatically have a reference the [Microsoft.Azure.WebJobs](
 
 [!INCLUDE [functions-storage-sdk-version](../../includes/functions-storage-sdk-version.md)]
 
-# [Extension 5.x and higher](#tab/extensionv5/isolated-process)
+# [Extension 5.x+](#tab/extensionv5/isolated-process)
 
-Add the extension to your project by installing the [NuGet package](https://www.nuget.org/packages//dotnet/api/microsoft.azure.webjobs.blobattribute.Queues), version 5.x.
+Add the extension to your project by installing the [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Storage/), version 5.x.
 
-# [Functions 2.x and higher](#tab/functionsv2/isolated-process)
+# [Functions 2.x+](#tab/functionsv2/isolated-process)
 
-Add the extension to your project by installing the [NuGet package](https://www.nuget.org/packages//dotnet/api/microsoft.azure.webjobs.blobattribute), version 3.x.
+Add the extension to your project by installing the [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Storage/), version 3.x.
 
 # [Functions 1.x](#tab/functionsv1/isolated-process)
 
 Functions version 1.x doesn't support isolated process.
 
-# [Extension 5.x and higher](#tab/extensionv5/csharp-script)
+# [Extension 5.x+](#tab/extensionv5/csharp-script)
 
 This extension version is available from the extension bundle v3 by adding the following lines in your `host.json` file:
 
@@ -86,7 +86,7 @@ To learn more, see [Update your extensions].
 
 You can install this version of the extension in your function app by registering the [extension bundle], version 3.x.
 
-# [Functions 2.x and higher](#tab/functionsv2/csharp-script)
+# [Functions 2.x+](#tab/functionsv2/csharp-script)
 
 You can install this version of the extension in your function app by registering the [extension bundle], version 2.x. 
 
