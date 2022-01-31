@@ -283,13 +283,13 @@ Having issues? [Let us know](https://aka.ms/FlaskCLIQuickstartHelp).
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Tutorial: Python (Django) web app with PostgreSQL](/azure/app-service/tutorial-python-postgresql-app.md)
+> [Tutorial: Python (Django) web app with PostgreSQL](/azure/app-service/tutorial-python-postgresql-app)
 
 > [!div class="nextstepaction"]
-> [Configure Python app](/azure/app-service/configure-language-python.md)
+> [Configure Python app](/azure/app-service/configure-language-python)
 
 > [!div class="nextstepaction"]
-> [Add user sign-in to a Python web app](/azure/active-directory/develop/quickstart-v2-python-webapp.md)
+> [Add user sign-in to a Python web app](/azure/active-directory/develop/quickstart-v2-python-webapp)
 
 > [!div class="nextstepaction"]
-> [Tutorial: Run Python app in custom container](/azure/app-service/tutorial-custom-container.md)
+> [Tutorial: Run Python app in custom container](/azure/app-service/tutorial-custom-container)
