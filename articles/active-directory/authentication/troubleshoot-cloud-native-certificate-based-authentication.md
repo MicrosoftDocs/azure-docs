@@ -37,6 +37,8 @@ This is a server-side error that occurs when the server could not fetch an authe
 
 **AADSTS1001003 – User sign-in fails with "Unable To Acquire Value Specified In Binding From Certificate"**
 
+:::image type="content" border="true" source="./media/troubleshoot-cloud-native-certificate-based-authentication/binding.png" alt-text="Screenshot of password reset error." :::
+
 This error is returned if the user selects the wrong user certificate from the list while signing in.
 
 Make sure the certificate is valid and works for the user binding and authentication policy configuration.
