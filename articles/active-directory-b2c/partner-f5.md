@@ -422,7 +422,7 @@ Exact root cause is still being investigated by F5 engineering, but issue appear
 
   4. Check the **Use Auto JWT** box then select **Discover**, followed by **Save**.
 
-    You should now see the Key (JWT) field populated with the key ID (KID) of the token signing certificate provided through the OpenID URI metadata.
+You should now see the Key (JWT) field populated with the key ID (KID) of the token signing certificate provided through the OpenID URI metadata.
   
   5. Finally, select the yellow **Apply Access Policy** option in the top left-hand corner, located next to the F5 logo. Apply those settings and select **Apply** again to refresh the access profile list.
 
