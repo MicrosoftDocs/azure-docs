@@ -63,7 +63,7 @@ For destination-specific pricing, please refer to details [here](https://github.
 ### Usage Charges
 |Number type   |To make calls   |To receive calls|
 |--------------|-----------|------------|
-|Geographic     |Starting at USD 0.0100/min       |USD 0.0100/min        |
+|Geographic     |Starting at USD 0.0190/min       |USD 0.0100/min        |
 |Toll-free |Starting at USD 0.0190/min   |Starting at USD 0.0343/min |
 
 For destination-specific pricing, please refer to details [here](https://github.com/Azure/Communication/blob/master/pricing/communication-services-pstn-rates.csv)
