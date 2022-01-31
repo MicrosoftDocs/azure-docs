@@ -4,7 +4,7 @@ description: This article describes new features in Microsoft Sentinel from the 
 author: batamig
 ms.author: bagol
 ms.topic: conceptual
-ms.date: 01/24/2022
+ms.date: 01/31/2022
 ms.custom: ignite-fall-2021
 ---
 
@@ -30,6 +30,7 @@ If you're looking for items older than six months, you'll find them in the [Arch
 ## January 2022
 
 - [Codeless data connectors (Public preview)](#codeless-data-connectors-public-preview)
+- [Maturity Model for Event Log Management (M-21-31) Solution (Public preview)](#maturity-model-for-event-log-management-m-21-31-solution-public-preview)
 - [SentinelHealth data table (Public preview)](#sentinelhealth-data-table-public-preview)
 - [More workspaces supported for Multiple Workspace View](#more-workspaces-supported-for-multiple-workspace-view)
 - [Kusto Query Language workbook and tutorial](#kusto-query-language-workbook-and-tutorial)
@@ -43,6 +44,23 @@ The Codeless Connector Platform (CCP) provides support for new data connectors v
 Connectors created using CCP are fully SaaS, without any requirements for service installations, and also include [health monitoring](monitor-data-connector-health.md) and full support from Microsoft Sentinel.
 
 For more information, see [Create a codeless connector for Microsoft Sentinel](create-codeless-connector.md).
+
+### Maturity Model for Event Log Management (M-21-31) Solution (Public preview)
+
+The Microsoft Sentinel content hub now includes the **Maturity Model for Event Log Management (M-21-31)** solution, which integrates Microsoft Sentinel and Microsoft Defender for Cloud to provide an industry differentiator for meeting challenging requirements in regulated industries.
+
+The Maturity Model for Event Log Management (M-21-31) solution provides a quantifiable framework to measure maturity. Use the analytics rules, hunting queries, playbooks, and workbook provided with the solution to do any of the following:
+
+- Design and build log management architectures
+- Monitor and alert on log health issues, coverage, and blind spots
+- Respond to notifications with Security Orchestration Automation & Response (SOAR) activities
+- Remediate with Cloud Security Posture Management (CSPM)
+
+For more information, see:
+
+- [Modernize Log Management with the Maturity Model for Event Log Management (M-21-31) Solution](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/modernize-log-management-with-the-maturity-model-for-event-log/ba-p/3072842) (blog)
+- [Centrally discover and deploy Microsoft Sentinel out-of-the-box content and solutions](sentinel-solutions-deploy.md)
+- [The Microsoft Sentinel content hub catalog](sentinel-solutions-catalog.md#domain-solutions)
 
 ### SentinelHealth data table (Public preview)
 
@@ -535,6 +553,7 @@ For more information, see:
 > You can find more guidance added across our documentation in relevant conceptual and how-to articles. For more information, see [Best practice references](best-practices.md#best-practice-references).
 >
 
+<<<<<<< HEAD
 ## July 2021
 
 - [Microsoft Threat Intelligence Matching Analytics (Public preview)](#microsoft-threat-intelligence-matching-analytics-public-preview)
@@ -603,6 +622,8 @@ The Azure Defender connector now supports bi-directional syncing of alerts' stat
 
 See this [complete description of the updated Azure Defender connector](connect-defender-for-cloud.md).
 
+=======
+>>>>>>> 91945b1d354c3636d3b79c5ac5db6df9fe6a0306
 ## Next steps
 
 > [!div class="nextstepaction"]
