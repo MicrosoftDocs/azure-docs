@@ -220,7 +220,7 @@
       - name: Defender for Cosmos DB overview
         href: concept-defender-for-cosmos.md
       - name: Enable Defender for Cosmos
-        href:
+        href: quickstart-enable-defender-for-cosmos.md
       - name: Manage Defender for Cosmos alerts
         href: 
   - name: Protect your containerized environments
