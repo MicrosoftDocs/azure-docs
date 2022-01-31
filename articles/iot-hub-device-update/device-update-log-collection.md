@@ -14,7 +14,7 @@ Learn how to initiate a Device Update for IoT Hub log operation and view collect
 ## Prerequisites
 * [Access to an IoT Hub with Device Update for IoT Hub enabled](create-device-update-account.md). 
 * An IoT device (or simulator) [provisioned for Device Update](device-update-agent-provisioning.md) within IoT Hub and implementing the Diagnostic Interface.
-* An Azure Blob storage account under the same subscription as your Device Update for Iot Hub account.
+* An [Azure Blob storage account](../storage/common/storage-account-create.md) under the same subscription as your Device Update for Iot Hub account.
 
 > [!NOTE]
 > The remote log collection feature is currently compatible only with devices that implement the Diagnostic Interface and are able to upload files to Azure Blob storage. The reference agent implementation also expects the device to write log files to a user-specified file path on the device.
