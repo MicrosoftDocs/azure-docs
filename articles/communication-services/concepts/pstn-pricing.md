@@ -34,7 +34,7 @@ All prices shown below are in USD.
 |Geographic     |Starting at USD 0.0130/min       |USD 0.0085/min        |
 |Toll-free |Starting at USD 0.0130/min   | USD 0.0220/min |
 
-* For destination-specific pricing for making outbound calls, please refer to details [here](https://github.com/Azure/Communication/blob/master/pricing/communication-services-pstn-rates.csv)
+\* For destination-specific pricing for making outbound calls, please refer to details [here](https://github.com/Azure/Communication/blob/master/pricing/communication-services-pstn-rates.csv)
 
 ## United Kingdom Telephony Offers
 
@@ -50,7 +50,7 @@ All prices shown below are in USD.
 |Geographic     |Starting at USD 0.0150/min       |USD 0.0090/min        |
 |Toll-free |Starting at USD 0.0150/min   |Starting at USD 0.0290/min |
 
-* For destination-specific pricing for making outbound calls, please refer to details [here](https://github.com/Azure/Communication/blob/master/pricing/communication-services-pstn-rates.csv)
+\* For destination-specific pricing for making outbound calls, please refer to details [here](https://github.com/Azure/Communication/blob/master/pricing/communication-services-pstn-rates.csv)
 
 ## Denmark Telephony Offers
 
@@ -66,7 +66,7 @@ All prices shown below are in USD.
 |Geographic     |Starting at USD 0.0190/min       |USD 0.0100/min        |
 |Toll-free |Starting at USD 0.0190/min   |Starting at USD 0.0343/min |
 
-* For destination-specific pricing for making outbound calls, please refer to details [here](https://github.com/Azure/Communication/blob/master/pricing/communication-services-pstn-rates.csv)
+\* For destination-specific pricing for making outbound calls, please refer to details [here](https://github.com/Azure/Communication/blob/master/pricing/communication-services-pstn-rates.csv)
 
 ***
 
