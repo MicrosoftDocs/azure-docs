@@ -40,13 +40,6 @@
     href: https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Modules/Library
   - name: Azure CLI
     href: samples-cli.md
-    items:
-    - name: Create and verify availability of a VM
-      href: scripts/create-verify-virtual-machine-in-lab-cli.md
-    - name: Start a VM
-      href: scripts/start-connect-virtual-machine-in-lab-cli.md
-    - name: Stop and delete a VM
-      href: scripts/stop-delete-virtual-machine-in-lab-cli.md
 - name: Concepts
   items:
   - name: Key concepts

@@ -19,12 +19,12 @@ In this article, you’ll learn to implement Secure Hybrid Access (SHA) with sin
 
 Configuring BIG-IP published applications with Azure AD provides many benefits, including:
 
-- Improved Zero trust governance through Azure AD pre-authentication and authorization
+- Improved Zero trust governance through Azure AD pre-authentication and [Conditional Access](/conditional-access/overview)
 
 - Full Single sign-on (SSO) between Azure AD and BIG-IP published
   services.
 
-- Manage identities and access from a single control plane, The [Azure portal](https://azure.microsoft.com/features/azure-portal)
+- Manage identities and access from a single control plane, the [Azure portal](https://azure.microsoft.com/features/azure-portal)
 
 To learn about all of the benefits, see the article on [F5 BIG-IP and Azure AD integration](./f5-aad-integration.md) and [what is application access and single sign-on with Azure AD](/azure/active-directory/active-directory-appssoaccess-whatis).
 
