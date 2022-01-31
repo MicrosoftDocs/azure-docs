@@ -51,7 +51,7 @@ See how data, including name, birth date, machine-readable zone, and expiration 
 > [!NOTE]
 > Form Recognizer studio is available with the preview (v3.0) API.
 
-1. On the Form Recognizer Studio home page, select **Invoices**
+1. On the Form Recognizer Studio home page, select **Identity documents**
 
 1. You can analyze the sample invoice or select the **+ Add** button to upload your own sample.
 

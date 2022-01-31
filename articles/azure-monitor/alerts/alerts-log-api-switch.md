@@ -12,7 +12,7 @@ ms.date: 01/25/2022
 > This article is only relevant to Azure public (**not** to Azure Government or Azure China cloud).
 
 > [!NOTE]
-> Once a user chooses to switch rules with legacy management to the current [scheduledQueryRules API](/rest/api/monitor/scheduledqueryrule-2021-02-01-preview/scheduled-query-rules) it is not possible to revert back to the older [legacy Log Analytics Alert API](./api-alerts.md).
+> Once a user chooses to switch rules with legacy management to the current [scheduledQueryRules API](/rest/api/monitor/scheduledqueryrule-2021-08-01/scheduled-query-rules) it is not possible to revert back to the older [legacy Log Analytics Alert API](./api-alerts.md).
 
 In the past, users used the [legacy Log Analytics Alert API](./api-alerts.md) to manage log alert rules. Currently workspaces use [ScheduledQueryRules API](/rest/api/monitor/scheduledqueryrule-2021-08-01/scheduled-query-rules) for new rules. This article describes the benefits and the process of switching legacy log alert rules management from the legacy API to the current API.
 
@@ -80,7 +80,7 @@ You can also use [ARMClient](https://github.com/projectkudu/ARMClient) tool:
 armclient GET /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName>/alertsversion?api-version=2017-04-26-preview
 ```
 
-If the Log Analytics workspace was switched to [scheduledQueryRules API](/rest/api/monitor/scheduledqueryrule-2021-02-01-preview/scheduled-query-rules), the response is:
+If the Log Analytics workspace was switched to [scheduledQueryRules API](/rest/api/monitor/scheduledqueryrule-2021-08-01/scheduled-query-rules), the response is:
 
 ```json
 {

@@ -1,9 +1,8 @@
 ---
 title: Plan an Azure Application offer for the commercial marketplace
 description: Plan an Azure application offer for Azure Marketplace using Partner Center.
-author: aarathin
-ms.author: aarathin
-ms.reviewer: dannyevers
+author: macerru
+ms.author: macerr
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual

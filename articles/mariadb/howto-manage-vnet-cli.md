@@ -6,7 +6,7 @@ ms.author: pariks
 ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: how-to
-ms.date: 3/18/2020 
+ms.date: 01/26/2022 
 ms.custom: devx-track-azurecli
 ---
 # Create and manage Azure Database for MariaDB VNet service endpoints using Azure CLI
