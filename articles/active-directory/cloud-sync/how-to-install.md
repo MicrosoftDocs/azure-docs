@@ -73,16 +73,11 @@ Agent verification occurs in the Azure portal and on the local server that's run
 To verify the agent is being seen by Azure:
 
  1. Sign in to the Azure portal.
- 1. On the left, select **Azure Active Directory** > **Azure AD Connect**. In the center, select **Manage cloud sync**.
-
+ 2. On the left, select **Azure Active Directory** > **Azure AD Connect**. In the center, select **Manage cloud sync**.
     ![Screenshot that shows the Azure portal.](media/how-to-install/install-6.png)</br>
-
- 1. On the **Azure AD Connect cloud sync** screen, select **Review all agents**.
-
+ 3. On the **Azure AD Connect cloud sync** screen, select **Review all agents**.
     ![Screenshot that shows the Review all agents option.](media/how-to-install/install-7.png)</br>
- 
- 1. On the **On-premises provisioning agents** screen, you see the agents you installed. Verify that the agent in question is there and is marked *active*.
-
+ 4.  On the **On-premises provisioning agents** screen, you see the agents you installed. Verify that the agent in question is there and is marked *active*.
     ![Screenshot that shows On-premises provisioning agents screen.](media/how-to-install/verify-1.png)</br>
 
 ### On the local server
@@ -107,7 +102,12 @@ To use password writeback and enable the self-service password reset (SSPR) serv
 
 For more information on using password writeback with Azure AD Connect cloud sync, see [Tutorial: Enable cloud sync self-service password reset writeback to an on-premises environment (preview)](../../active-directory/authentication/tutorial-enable-cloud-sync-sspr-writeback.md).
 
-## Installing 
+## Installing against US govt cloud
+By default, the Azure Active Directory (Azure AD) Connect provisioning agent installs against the default Azure cloud environment.  If you are installing the agent for use in the US government cloud do the following:
+
+- In step #7 above, instead of click **Open file**, go to start run and navigate to the **AADConnectProvisioningAgentSetup.exe** file.  In the run box, after the executable, enter **ENVIRONMENTNAME=AzureUSGovernment** and click **Ok**.
+ [![Screenshot showing US govt cloud install](media/how-to-install/new-install-12.png)](media/how-to-install/new-install-12.png#lightbox)</br>
+
 
 ## Next steps 
 
