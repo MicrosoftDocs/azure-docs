@@ -5,20 +5,20 @@ author: stevewohl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 01/25/2022
+ms.date: 01/31/2022
 ms.author: zxue
 ms.custom: mode-api
 ---
 
 # Deploy Healthcare APIs Using Bicep
 
-In this article, you'll learn how to create Healthcare APIs, including workspaces, FHIR services, DICOM services, and IoT connectors using Bicep. You can access the open-source Bicep scripts and [HealthcareAPIs samples](https://github.com/microsoft/healthcare-apis-samples/blob/main/src/templates/healthcareapis.bicep) used in this article. 
+In this article, you'll learn how to create Healthcare APIs, including workspaces, FHIR services, DICOM services, and IoT connectors using Bicep. You can view and download the Bicep scripts used in this article in [HealthcareAPIs samples](https://github.com/microsoft/healthcare-apis-samples/blob/main/src/templates/healthcareapis.bicep). 
 
 ## What is Azure Bicep
 
-Bicep is built on top of Azure Resource Manager (ARM) template. You can continue to work with JSON ARM templates, or use Bicep to develop your ARM templates. For more information on Bicep, see [What is Bicep](../azure-resource-manager/bicep/overview.md).
+Bicep is built on top of Azure Resource Manager (ARM) template. Bicep immediately supports all preview and GA versions for Azure services, including Healthcare APIs. During development, you can generate a JSON ARM template file using the `az bicep build` command. Conversely, you can decompile the JSON files to Bicep using the `az bicep decompile` command. During deployment, the Bicep CLI converts a Bicep file into an ARM template JSON.
 
-Bicep immediately supports all preview and GA versions for Azure services, including Healthcare APIs. During development, you can generate a JSON ARM template file using the `az bicep build` command. Conversely, you can decompile the JSON files to Bicep using the `az bicep decompile` command. During deployment, the Bicep CLI converts a Bicep file into an ARM template JSON.
+You can continue to work with JSON ARM templates, or use Bicep to develop your ARM templates. For more information on Bicep, see [What is Bicep](../azure-resource-manager/bicep/overview.md).
 
 >[!Note]
 >The templates and scripts in the article are tested in Visual Studio Code during the public preview. Some changes may be necessary to adapt the code to run in your environment.
