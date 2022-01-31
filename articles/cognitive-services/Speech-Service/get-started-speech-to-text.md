@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 09/15/2020
+ms.date: 01/08/2022
 ms.author: eur
 ms.devlang: cpp, csharp, golang, java, javascript, objective-c, python
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020, mode-other
@@ -60,5 +60,5 @@ keywords: speech to text, speech to text software
 
 ## Next steps
 
-* [Use codec compressed audio formats](how-to-use-codec-compressed-audio-input-streams.md)
-* See the [quickstart samples](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart) on GitHub
+> [!div class="nextstepaction"]
+> [See the quickstart samples on GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart)

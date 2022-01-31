@@ -35,7 +35,7 @@ In this tutorial, you deploy the same applications from the Dapr [Hello World](h
 
 ::: zone pivot="container-apps-bicep"
 
-* [Bicep](/azure-resource-manager/bicep/install)
+* [Bicep](../azure-resource-manager/bicep/install.md)
 
 ::: zone-end
 
@@ -127,14 +127,14 @@ Next, install the Azure Container Apps extension to the CLI.
 
 ```azurecli
 az extension add \
-  --source https://workerappscliextension.blob.core.windows.net/azure-cli-extension/containerapp-0.2.0-py2.py3-none-any.whl 
+  --source https://workerappscliextension.blob.core.windows.net/azure-cli-extension/containerapp-0.2.2-py2.py3-none-any.whl 
 ```
 
 # [PowerShell](#tab/powershell)
 
 ```azurecli
 az extension add `
-  --source https://workerappscliextension.blob.core.windows.net/azure-cli-extension/containerapp-0.2.0-py2.py3-none-any.whl 
+  --source https://workerappscliextension.blob.core.windows.net/azure-cli-extension/containerapp-0.2.2-py2.py3-none-any.whl 
 ```
 
 ---

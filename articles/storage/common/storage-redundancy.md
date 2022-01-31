@@ -56,7 +56,7 @@ LRS is a good choice for the following scenarios:
 
 Zone-redundant storage (ZRS) replicates your Azure Storage data synchronously across three Azure availability zones in the primary region. Each availability zone is a separate physical location with independent power, cooling, and networking. ZRS offers durability for Azure Storage data objects of at least 99.9999999999% (12 9's) over a given year.
 
-With ZRS, your data is still accessible for both read and write operations even if a zone becomes unavailable. If a zone becomes unavailable, Azure undertakes networking updates, such as DNS re-pointing. These updates may affect your application if you access data before the updates have completed. When designing applications for ZRS, follow practices for transient fault handling, including implementing retry policies with exponential back-off.
+With ZRS, your data is still accessible for both read and write operations even if a zone becomes unavailable. No remounting of Azure file shares from the connected clients is required. If a zone becomes unavailable, Azure undertakes networking updates, such as DNS re-pointing. These updates may affect your application if you access data before the updates have completed. When designing applications for ZRS, follow practices for transient fault handling, including implementing retry policies with exponential back-off.
 
 A write request to a storage account that is using ZRS happens synchronously. The write operation returns successfully only after the data is written to all replicas across the three availability zones.
 
@@ -73,8 +73,8 @@ The following table shows which types of storage accounts support ZRS in which r
 | Storage account type | Supported regions | Supported services |
 |--|--|--|
 | General-purpose v2<sup>1</sup> | (Africa) South Africa North<br /> (Asia Pacific) Southeast Asia<br /> (Asia Pacific) Australia East<br /> (Asia Pacific) Japan East<br /> (Canada) Canada Central<br /> (Europe) North Europe<br /> (Europe) West Europe<br /> (Europe) France Central<br /> (Europe) Germany West Central<br /> (Europe) UK South<br /> (South America) Brazil South<br /> (US) Central US<br /> (US) East US<br /> (US) East US 2<br /> (US) South Central US<br /> (US) West US 2 | Block blobs<br /> Page blobs<sup>2</sup><br /> File shares (standard)<br /> Tables<br /> Queues<br /> |
-| Premium block blobs<sup>1</sup> | Asia Southeast<br /> Australia East<br /> Europe North<br /> Europe West<br /> France Central <br /> Japan East<br /> UK South <br /> US East <br /> US East 2 <br /> US West 2| Premium block blobs only |
-| Premium file shares | Asia Southeast<br /> Australia East<br /> Europe North<br /> Europe West<br /> France Central <br /> Japan East<br /> UK South <br /> US East <br /> US East 2 <br /> US West 2 | Premium files shares only |
+| Premium block blobs<sup>1</sup> | Asia Southeast<br /> Australia East<br /> Brazil South<br /> Europe North<br /> Europe West<br /> France Central <br /> Japan East<br /> UK South <br /> US East <br /> US East 2 <br /> US West 2| Premium block blobs only |
+| Premium file shares | Asia Southeast<br /> Australia East<br /> Brazil South<br /> Europe North<br /> Europe West<br /> France Central <br /> Japan East<br /> UK South <br /> US East <br /> US East 2 <br /> US West 2 | Premium files shares only |
 
 <sup>1</sup> The archive tier is not currently supported for ZRS accounts.<br />
 <sup>2</sup> Azure unmanaged disks should also use LRS. It is possible to create a storage account for Azure unmanaged disks that uses GRS, but it is not recommended due to potential issues with consistency over asynchronous geo-replication. Unmanaged disks don't support ZRS or GZRS.

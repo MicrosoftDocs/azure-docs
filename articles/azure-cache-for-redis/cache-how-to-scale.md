@@ -152,6 +152,7 @@ No, your cache name and keys are unchanged during a scaling operation.
 - When you scale a **Standard** cache to a different size or to a **Premium** cache, one of the replicas is shut down and reprovisioned to the new size and the data transferred over, and then the other replica does a failover before it's reprovisioned, similar to the process that occurs during a failure of one of the cache nodes.
 - When you scale out a clustered cache, new shards are provisioned and added to the Redis server cluster. Data is then resharded across all shards.
 - When you scale in a clustered cache, data is first resharded and then cluster size is reduced to required shards.
+- In some cases, such as scaling or migrating your cache to a different cluster, the underlying IP address of the cache can change. The DNS records for the cache changes and is transparent to most applications. However, if you use an IP address to configure the connection to your cache, or to configure NSGs, or firewalls allowing traffic to the cache, your application might have trouble connecting sometime after that the DNS record updates.
 
 ### Will I lose data from my cache during scaling?
 

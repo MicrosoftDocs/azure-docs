@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.topic: how-to
 ms.subservice: roles
 ms.workload: identity
-ms.date: 12/17/2021
+ms.date: 01/28/2022
 ms.author: rolyon
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
@@ -38,9 +38,9 @@ The following Azure AD roles can be assigned with administrative unit scope:
 | -----| ----------- |
 | [Authentication Administrator](permissions-reference.md#authentication-administrator) | Has access to view, set, and reset authentication method information for any non-admin user in the assigned administrative unit only. |
 | [Groups Administrator](permissions-reference.md#groups-administrator) | Can manage all aspects of groups and groups settings, such as naming and expiration policies, in the assigned administrative unit only. |
-| [Helpdesk Administrator](permissions-reference.md#helpdesk-administrator) | Can reset passwords for non-administrators and Helpdesk Administrators in the assigned administrative unit only. |
+| [Helpdesk Administrator](permissions-reference.md#helpdesk-administrator) | Can reset passwords for non-administrators in the assigned administrative unit only. |
 | [License Administrator](permissions-reference.md#license-administrator) | Can assign, remove, and update license assignments within the administrative unit only. |
-| [Password Administrator](permissions-reference.md#password-administrator) | Can reset passwords for non-administrators and Password Administrators within the assigned administrative unit only. |
+| [Password Administrator](permissions-reference.md#password-administrator) | Can reset passwords for non-administrators within the assigned administrative unit only. |
 | [SharePoint Administrator](permissions-reference.md#sharepoint-administrator) * | Can manage all aspects of the SharePoint service. |
 | [Teams Administrator](permissions-reference.md#teams-administrator) * | Can manage the Microsoft Teams service. |
 | [Teams Devices Administrator](permissions-reference.md#teams-devices-administrator) | Can perform management related tasks on Teams certified devices. |

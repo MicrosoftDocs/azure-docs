@@ -7,6 +7,8 @@
     displayName: benefits,faq,playground
   - name: Compare JSON and Bicep
     href: compare-template-syntax.md
+  - name: Frequently asked questions
+    href: frequently-asked-questions.yml
 - name: Install
   items:
   - name: Install Bicep tools
@@ -21,6 +23,8 @@
   - name: Use loops
     displayName: multiple
     href: quickstart-loops.md
+  - name: Use private module registry
+    href: quickstart-private-module-registry.md
   - name: CI/CD
     items:
     - name: Bicep with pipelines
@@ -66,9 +70,10 @@
       items:
       - name: Module definition
         href: modules.md
-        displayName: scopes,consume
+        displayName: scopes,consume,registry,module registry,private module registry
       - name: Create private registry
         href: private-module-registry.md
+        displayName: module registry,private module registry
     - name: Loops
       displayName: multiple
       href: loops.md
@@ -88,6 +93,8 @@
         displayName: assign role
     - name: Deployment script
       href: deployment-script-bicep.md
+    - name: Template specs
+      href: template-specs.md
     - name: Linter
       items:
       - name: Linter

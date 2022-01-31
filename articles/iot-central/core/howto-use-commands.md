@@ -157,7 +157,7 @@ The following screenshot shows how the successful command response displays in t
 
 ## Long-running commands
 
-This section shows you how a device can delay sending a confirmation that the command competed.
+This section shows you how a device can delay sending a confirmation that the command completed.
 
 The following code snippet shows how a device can implement a long-running command:
 

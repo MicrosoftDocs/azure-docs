@@ -13,14 +13,14 @@ ms.date: 12/30/2021
 
 # Debug Sessions in Azure Cognitive Search
 
-Debug Sessions is a visual editor that works with an existing skillset in the Azure portal, exposing the structure and content of a single enriched document, as its produced by an indexer and skillset, for the duration of the session. Because you are working with a live document, the session is interactive - you can identify errors, modify and invoke skill execution, and validate the results in real time. If your changes resolve the problem, you can commit them to a published skillset to apply the fixes globally.
+Debug Sessions is a visual editor that works with an existing skillset in the Azure portal, exposing the structure and content of a single enriched document, as it's produced by an indexer and skillset, for the duration of the session. Because you are working with a live document, the session is interactive - you can identify errors, modify and invoke skill execution, and validate the results in real time. If your changes resolve the problem, you can commit them to a published skillset to apply the fixes globally.
 
 > [!Important]
 > Debug Sessions is a preview feature provided under [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## How a debug session works
 
-When you start a session, the search service creates a copy of the skillset, indexer, and a search index containing a single document that will be used to test the skillset. All session state will be saved to a container in an Azure Storage account that you provide. 
+When you start a session, the search service creates a copy of the skillset, indexer, and a data source containing a single document that will be used to test the skillset. All session state will be saved to a container in an Azure Storage account that you provide. 
 
 A cached copy of the enriched document and skillset is loaded into the visual editor so that you can inspect the content and metadata of the enriched document, with the ability to check each document node and edit any aspect of the skillset definition. Any changes made within the session are cached. Those changes will not affect the published skillset unless you commit them. Committing changes will overwrite the production skillset.
 
@@ -32,22 +32,22 @@ The visual editor is organized into tabs and panes. This section introduces the 
 
 The **Skill Graph** provides a visual hierarchy of the skillset and its order of execution from top to bottom. Skills that are dependent upon the output of other skills are positioned lower in the graph. Skills at the same level in the hierarchy can execute in parallel. Color coded labels of skills in the graph indicate the types of skills that are being executed in the skillset (TEXT or VISION).
 
-Selecting a skill in the graph will display the details of that instance of the skill in the right pane, including it's definition, errors or warnings, and execution history. The **Skill Graph** is where you will select which skill to debug or enhance. When you select a skill, its details will be displayed in the skill details pane to the right of the graph.
+Selecting a skill in the graph will display the details of that instance of the skill in the right pane, including it's definition, errors or warnings, and execution history. The **Skill Graph** is where you will select which skill to debug or enhance. The details pane to the right is where you edit and explore.
 
 :::image type="content" source="media/cognitive-search-debug/skills-graph.png" alt-text="Screenshot of Skills Graph tab." border="true":::
 
 ### Skill details pane
 
-When you select an object in the **Skill Graph**, the adjacent pane displays a set of areas for working with it. An illustration of the details pane can be found in the previous screenshot.
+When you select an object in the **Skill Graph**, the adjacent pane provides interactive work areas in a tabbed layout. An illustration of the details pane can be found in the previous screenshot.
 
-In this pane, select a skill to review and edit its composition through **Skill Settings**, **Skill JSON Editor**, and **Executions**:
+Skill details includes the following areas:
 
-+ Skill Settings shows a formatted version of the skill definition.
-+ Skill JSON Editor shows the raw JSON document of the definition.
-+ Executions shows the number of times a skill was executed.
-+ Errors and warnings shows the messages generated upon session start or refresh.
++ **Skill Settings** shows a formatted version of the skill definition.
++ **Skill JSON Editor** shows the raw JSON document of the definition.
++ **Executions** shows the data corresponding to each time a skill was executed.
++ **Errors and warnings** shows the messages generated upon session start or refresh.
 
-On the Executions pane, select the **`</>`** symbol to open the [**Expression Evaluator**](#expression-evaluator) used for viewing and editing the expressions of the skills inputs and outputs.
+On Executions or Skill Settings, select the **`</>`** symbol to open the [**Expression Evaluator**](#expression-evaluator) used for viewing and editing the expressions of the skills inputs and outputs.
 
 Nested input controls in Skill Settings can be used to build complex shapes for [projections](knowledge-store-projection-overview.md), [output field mappings](cognitive-search-output-field-mapping.md) for a complex type field, or an input to a skill. When used with the Expression Evaluator, nested inputs provide an easy test and validate expression builder.
 
