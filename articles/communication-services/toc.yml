@@ -95,14 +95,12 @@ items:
     href: concepts/sdk-options.md
   - name: Client and server architecture
     href: concepts/client-and-server-architecture.md
-  - name: Identity, authentication, and privacy
+  - name: Identity and authentication
     items:
     - name: Identity 
       href: concepts/identity-model.md
     - name: Authenticating services
       href: concepts/authentication.md
-    - name: End-user privacy
-      href: concepts/privacy.md
   - name: Chat
     items:
       - name: Chat SDK overview
@@ -212,6 +210,8 @@ items:
             href: concepts/teams-endpoint.md 
   - name: Network Traversal (TURN)
     href: concepts/network-traversal.md    
+  - name: Data residency and user privacy
+    href: concepts/privacy.md
   - name: Pricing
     href: concepts/pricing.md
   - name: SMS Pricing
