@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.subservice: automanage
 ms.workload: infrastructure
 ms.topic: how-to
-ms.date: 01/31/2022
+ms.date: 12/10/2021
 ms.author: jushiman
 ---
 
