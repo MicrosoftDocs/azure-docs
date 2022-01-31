@@ -188,7 +188,7 @@ Use the form elements in the application to add and complete tasks.
 
 Azure App Service captures all messages logged to the console to assist you in diagnosing issues with your application. The sample app outputs console log messages in each of its endpoints to demonstrate this capability.  For example, the `get` endpoint outputs a message about the number of tasks retrieved from the database and an error message if something goes wrong.
 
-:::code language="javascript" source="~/../msdocs-nodejs-mongodb-azure-sample-app/routes/index.js" range="7-21" highlight="8,12":::
+:::code language="javascript" source="~/msdocs-nodejs-mongodb-azure-sample-app/routes/index.js" range="7-21" highlight="8,12":::
 
 The contents of the App Service diagnostic logs can be reviewed in the Azure portal, VS Code, or using the Azure CLI.
 
