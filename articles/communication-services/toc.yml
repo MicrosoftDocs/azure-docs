@@ -105,7 +105,7 @@ items:
       href: concepts/privacy.md
   - name: Chat
     items:
-      - name: Chat SDK overview
+      - name: Chat overview
         href: concepts/chat/sdk-features.md
       - name: Chat concepts
         href: concepts/chat/concepts.md
@@ -127,7 +127,7 @@ items:
         href: concepts/telephony/certified-session-border-controllers.md
   - name: SMS
     items:
-      - name: SMS SDK overview
+      - name: SMS overview
         href: concepts/sms/sdk-features.md
       - name: SMS concepts
         href: concepts/sms/concepts.md
@@ -139,9 +139,9 @@ items:
         href: concepts/sms/program-brief-guidelines.md
   - name: Voice and video calling
     items:
-      - name: Calling SDK overview
+      - name: Calling overview
         href: concepts/voice-video-calling/calling-sdk-features.md
-      - name: Teams identity overview
+      - name: Teams identity
         href: concepts/interop/teams-user-calling.md
       - name: Voice and video terminology
         href: concepts/voice-video-calling/about-call-types.md
