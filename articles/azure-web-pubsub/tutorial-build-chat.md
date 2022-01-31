@@ -59,8 +59,8 @@ Copy the fetched **ConnectionString** and it will be used later in this tutorial
 
 # [Java](#tab/java)
 
-- [Java Development Kit (JDK)](/java/azure/jdk/) version 8 or above
-- [Apache Maven](https://maven.apache.org/download.cgi)
+* [Java Development Kit (JDK)](/java/azure/jdk/) version 8 or above
+* [Apache Maven](https://maven.apache.org/download.cgi)
 
 ---
 
@@ -151,7 +151,7 @@ You may remember in the [publish and subscribe message tutorial](./tutorial-pub-
     }
     ```
 
-    `AddWebPubSubServiceClient<THub>()` is used to inject the service client `WebPubSubServiceClient<THub>`, with which we can use in negotiation step to generate client connection token and in hub methods to invoke service REST APIs when hub events are triggered.
+  `AddWebPubSubServiceClient<THub>()` is used to inject the service client `WebPubSubServiceClient<THub>`, with which we can use in negotiation step to generate client connection token and in hub methods to invoke service REST APIs when hub events are triggered.
 
 3.  Add a `/negotiate` API to the server inside `app.UseEndpoints` to generate the token.
 
@@ -173,9 +173,9 @@ You may remember in the [publish and subscribe message tutorial](./tutorial-pub-
     });
     ```
 
-    This token generation code is similar to the one we used in the [publish and subscribe message tutorial](./tutorial-pub-sub-messages.md), except we pass one more argument (`userId`) when generating the token. User ID can be used to identify the identity of client so when you receive a message you know where the message is coming from.
+  This token generation code is similar to the one we used in the [publish and subscribe message tutorial](./tutorial-pub-sub-messages.md), except we pass one more argument (`userId`) when generating the token. User ID can be used to identify the identity of client so when you receive a message you know where the message is coming from.
 
-    You can test this API by running `dotnet run --urls http://localhost:8080` and accessing `http://localhost:8080/negotiate?id=<user-id>` and it will give you the full url of the Azure Web PubSub with an access token.
+  You can test this API by running `dotnet run --urls http://localhost:8080` and accessing `http://localhost:8080/negotiate?id=<user-id>` and it will give you the full url of the Azure Web PubSub with an access token.
 
 4.  Then update `index.html` to include the following script to get the token from server and connect to service.
  
@@ -197,7 +197,7 @@ You may remember in the [publish and subscribe message tutorial](./tutorial-pub-
     </html>
     ```
 
-    If you are using Chrome, you can test it by opening the home page, input your user name. Press F12 to open the Developer Tools window, switch to **Console** table and you'll see `connected` being printed in browser console.
+  If you are using Chrome, you can test it by opening the home page, input your user name. Press F12 to open the Developer Tools window, switch to **Console** table and you'll see `connected` being printed in browser console.
 
 # [C# .NET 6](#tab/net6)
 We'll use [ASP.NET Core 6](/aspnet/core) to host the web pages and handle incoming requests.
@@ -236,6 +236,7 @@ First let's create an empty ASP.NET Core app.
       </body>
     </html>
     ```
+    
 You can test the server by running `dotnet run --urls http://localhost:8080` and access http://localhost:8080/index.html in browser.
 
 You may remember in the [publish and subscribe message tutorial](./tutorial-pub-sub-messages.md) the subscriber uses an API in Web PubSub SDK to generate an access token from connection string and use it to connect to the service. This is usually not safe in a real world application as connection string has high privilege to do any operation to the service so you don't want to share it with any client. Let's change this access token generation process to a REST API at server side, so client can call this API to request an access token every time it needs to connect, without need to hold the connection string.
@@ -249,43 +250,43 @@ You may remember in the [publish and subscribe message tutorial](./tutorial-pub-
 2.  Create a file `SampleChatHub.cs` for the `SampleChatHub` class to handle hub events with the following content.
 
     ```csharp
-      using Microsoft.Azure.WebPubSub.AspNetCore;
+    using Microsoft.Azure.WebPubSub.AspNetCore;
 
-      sealed class SampleChatHub : WebPubSubHub
-      {
-      }
+    sealed class SampleChatHub : WebPubSubHub
+    {
+    }
     ```
 
 3. Then update the `Program.cs` file to add DI for the service middleware and service client inside. Don't forget to replace `<connection_string>` with the one of your services. 
 
     ```csharp
-      using Microsoft.Azure.WebPubSub.AspNetCore;
+    using Microsoft.Azure.WebPubSub.AspNetCore;
 
-      var builder = WebApplication.CreateBuilder(args);
+    var builder = WebApplication.CreateBuilder(args);
 
-      builder.Services.AddWebPubSub(
-          o => o.ServiceEndpoint = new ServiceEndpoint("<connection_string>"))
-          .AddWebPubSubServiceClient<SampleChatHub>();
+    builder.Services.AddWebPubSub(
+        o => o.ServiceEndpoint = new ServiceEndpoint("<connection_string>"))
+        .AddWebPubSubServiceClient<SampleChatHub>();
 
-      var app = builder.Build();
+    var app = builder.Build();
 
-      if (app.Environment.IsDevelopment())
-      {
-          app.UseDeveloperExceptionPage();
-      }
+    if (app.Environment.IsDevelopment())
+    {
+        app.UseDeveloperExceptionPage();
+    }
 
-      app.UseDefaultFiles();
-      app.UseStaticFiles();
-      app.UseRouting();
+    app.UseDefaultFiles();
+    app.UseStaticFiles();
+    app.UseRouting();
 
-      app.UseEndpoints(endpoints =>
-      {
-      });
+    app.UseEndpoints(endpoints =>
+    {
+    });
 
-      app.Run();    
+    app.Run();    
     ```
 
-    `AddWebPubSubServiceClient<THub>()` is used to inject the service client `WebPubSubServiceClient<THub>`, with which we can use in negotiation step to generate client connection token and in hub methods to invoke service REST APIs when hub events are triggered.
+  `AddWebPubSubServiceClient<THub>()` is used to inject the service client `WebPubSubServiceClient<THub>`, with which we can use in negotiation step to generate client connection token and in hub methods to invoke service REST APIs when hub events are triggered.
 
 4.  Add a `/negotiate` API to the server inside `app.UseEndpoints` to generate the token.
 
@@ -305,9 +306,10 @@ You may remember in the [publish and subscribe message tutorial](./tutorial-pub-
       });
     });
     ```
-    This token generation code is similar to the one we used in the [publish and subscribe message tutorial](./tutorial-pub-sub-messages.md), except we pass one more argument (`userId`) when generating the token. User ID can be used to identify the identity of client so when you receive a message you know where the message is coming from.
 
-    You can test this API by running `dotnet run --urls http://localhost:8080` and accessing `http://localhost:8080/negotiate?id=<user-id>` and it will give you the full url of the Azure Web PubSub with an access token.
+  This token generation code is similar to the one we used in the [publish and subscribe message tutorial](./tutorial-pub-sub-messages.md), except we pass one more argument (`userId`) when generating the token. User ID can be used to identify the identity of client so when you receive a message you know where the message is coming from.
+
+  You can test this API by running `dotnet run --urls http://localhost:8080` and accessing `http://localhost:8080/negotiate?id=<user-id>` and it will give you the full url of the Azure Web PubSub with an access token.
 
 5.  Then update `index.html` to include the following script to get the token from server and connect to service.
  
@@ -678,6 +680,7 @@ Here we're using Web PubSub middleware SDK, there is already an implementation t
     ```
 
 2. Go the `SampleChatHub` we created in previous step. Add a constructor to work with `WebPubSubServiceClient<SampleChatHub>` so we can use to invoke service. And override `OnConnectedAsync()` method to respond when `connected` event is triggered.
+
     ```csharp
     using Microsoft.Azure.WebPubSub.AspNetCore;
     using Microsoft.Azure.WebPubSub.Common;
