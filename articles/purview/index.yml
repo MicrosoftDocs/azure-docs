@@ -161,7 +161,7 @@ landingContent:
   #Card
   - title: Secure your data
     linkLists:
-    - linkListType:
+    - linkListType: tutorial
       links:
         - text: Authoring data owner access policies
           url: how-to-data-owner-policy-authoring-generic.md
