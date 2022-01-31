@@ -182,6 +182,8 @@
       href: connect-logstash.md
     - name: Create a custom connector
       href: create-custom-connector.md
+    - name: Create a codeless connector
+      href: create-codeless-connector.md
     - name: Connect Azure Stack VMs
       href: connect-azure-stack.md
     - name: Monitor data connector health
