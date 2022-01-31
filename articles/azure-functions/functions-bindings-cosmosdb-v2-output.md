@@ -163,7 +163,7 @@ namespace CosmosDBSamplesV2
 {
     public class ToDoItem
     {
-        public string Id { get; set; }
+        public string id { get; set; }
         public string Description { get; set; }
     }
 }
@@ -369,7 +369,7 @@ namespace CosmosDBSamplesV2
 {
     public class ToDoItem
     {
-        public string Id { get; set; }
+        public string id { get; set; }
         public string Description { get; set; }
     }
 }
@@ -949,8 +949,6 @@ By default, when you write to the output parameter in your function, a document 
 
 # [Isolated process](#tab/isolated-process)
 
-<!--If available, call out any usage information from the linked example in the worker repo. -->
-
 # [C# script](#tab/csharp-script)
 
 By default, when you write to the output parameter in your function, a document is created in your database. This document has an automatically generated GUID as the document ID. You can specify the document ID of the output document by specifying the `id` property in the JSON object passed to the output parameter.
@@ -960,19 +958,6 @@ By default, when you write to the output parameter in your function, a document 
 
 ---
 
-::: zone-end  
-<!--Any of the below pivots can be combined if the usage info is identical.-->
-::: zone pivot="programming-language-java"
-<!--Any usage information from the Java tab in ## Usage. -->
-::: zone-end  
-::: zone pivot="programming-language-javascript,programming-language-powershell"  
-<!--Any usage information from the JavaScript tab in ## Usage. -->
-::: zone-end  
-::: zone pivot="programming-language-powershell"  
-<!--Any usage information from the PowerShell tab in ## Usage. -->
-::: zone-end   
-::: zone pivot="programming-language-python"  
-<!--Any usage information from the Python tab in ## Usage. -->
 ::: zone-end  
 
 ## Exceptions and return codes
