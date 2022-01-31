@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/13/2022
+ms.date: 01/24/2022
 ms.author: tamram
 ms.subservice: common 
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
@@ -143,7 +143,6 @@ The following table describes the fields on the **Advanced** tab.
 | Blob storage | Allow cross-tenant replication | Required | By default, users with appropriate permissions can configure object replication across Azure AD tenants. To prevent replication across tenants, deselect this option. For more information, see [Prevent replication across Azure AD tenants](../blobs/object-replication-overview.md#prevent-replication-across-azure-ad-tenants). |
 | Blob storage | Access tier | Required | Blob access tiers enable you to store blob data in the most cost-effective manner, based on usage. Select the hot tier (default) for frequently accessed data. Select the cool tier for infrequently accessed data. For more information, see [Hot, Cool, and Archive access tiers for blob data](../blobs/access-tiers-overview.md). |
 | Azure Files | Enable large file shares | Optional | Available only for standard file shares with the LRS or ZRS redundancies. |
-| Tables and queues | Enable support for customer-managed keys | Optional | To enable support for customer-managed keys for tables and queues, you must select this setting at the time that you create the storage account. For more information, see [Create an account that supports customer-managed keys for tables and queues](account-encryption-key-create.md). |
 
 ### Networking tab
 
@@ -174,12 +173,14 @@ The following table describes the fields on the **Data protection** tab.
 
 ### Encryption tab
 
-On the **Encryption** tab, you can configure options that relate to how your data is encrypted when it is persisted to the cloud. Some of these options can be configured only when you create the storage account. 
+On the **Encryption** tab, you can configure options that relate to how your data is encrypted when it is persisted to the cloud. Some of these options can be configured only when you create the storage account.
 
 | Field | Required or optional | Description |
 |--|--|--|
 | Encryption type| Required | By default, data in the storage account is encrypted by using Microsoft-managed keys. You can rely on Microsoft-managed keys for the encryption of your data, or you can manage encryption with your own keys. For more information, see [Azure Storage encryption for data at rest](storage-service-encryption.md).  |
-| Enable support for customer-managed keys | Required | By default, customer managed keys can be used to encrypt only blobs and files. You can use the options presented in this section to enable support for tables and queues as well. This option can be configured only when you create the storage account. For more information, see [Customer-managed keys for Azure Storage encryption](customer-managed-keys-overview.md). |
+| Enable support for customer-managed keys | Required | By default, customer managed keys can be used to encrypt only blobs and files. Set this option to **All service types (blobs, files, tables, and queues)** to enable support for customer-managed keys for all services. You are not required to use customer-managed keys if you choose this option. For more information, see [Customer-managed keys for Azure Storage encryption](customer-managed-keys-overview.md). |
+| Encryption key | Required if **Encryption type** field is set to **Customer-managed keys**. | If you choose **Select a key vault and key**, you are presented with the option to navigate to the key vault and key that you wish to use. If you choose **Enter key from URI**, then you are presented with a field to enter the key URI and the subscription. |
+| User-assigned identity | Required if **Encryption type** field is set to **Customer-managed keys**. | If you are configuring customer-managed keys at create time for the storage account, you must provide a user-assigned identity to use for authorizing access to the key vault. |
 | Enable infrastructure encryption | Optional | By default, infrastructure encryption is not enabled. Enable infrastructure encryption to encrypt your data at both the service level and the infrastructure level. For more information, see [Create a storage account with infrastructure encryption enabled for double encryption of data](infrastructure-encryption-enable.md). |
 
 ### Tags tab
