@@ -922,6 +922,12 @@ An extension that inherits from [FuncExtensionBase](https://github.com/Azure/azu
 
 CORS is fully supported for Python function apps.
 
+## Async
+
+As Python is a single-threaded runtime, a host instance for Python can process only one function invocation at a time by default. For applications that process a large number of I/O events and/or is I/O bound, you can improve performance significantly by running functions asynchronously.
+
+For additional information and examples about using async to improve performance in the right way, see [Improve throughout performance of Python apps in Azure Functions](python-scale-performance-reference#async).
+
 ## <a name="shared-memory"></a>Shared memory (preview)
 
 To improve throughput, Functions lets your out-of-process Python language worker share memory with the Functions host process. When your function app is hitting bottlenecks, you can enable shared memory by adding an application setting named [FUNCTIONS_WORKER_SHARED_MEMORY_DATA_TRANSFER_ENABLED](functions-app-settings.md#functions_worker_shared_memory_data_transfer_enabled) with a value of `1`. With shared memory enabled, you can then use the [DOCKER_SHM_SIZE](functions-app-settings.md#docker_shm_size) setting to set the shared memory to something like `268435456`, which is equivalent to 256 MB.
