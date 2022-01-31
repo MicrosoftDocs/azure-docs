@@ -101,6 +101,8 @@ Count Ext TenantID/App User Pair
     6 45fc4ed2-8f2b-42c1-b98c-b254d552f4a7, Access Panel, a@b.com
 ```
 
+For the most up-to-date PowerShell script, see the [cross-tenant user sign-in activity script](https://aka.ms/cross-tenant-signins-ps).
+
 ### Azure Monitor
 
 If your organization subscribes to the Azure Monitor service, you can use the [CrossTenantAccessActivity workbook](../reports-monitoring/howto-use-azure-monitor-workbooks.md) to visually explore inbound and outbound sign-ins for longer time periods.  
