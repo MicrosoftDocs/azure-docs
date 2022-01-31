@@ -207,7 +207,7 @@ items:
       - name: Custom Teams endpoint
         items:
           - name: Overview
-            href: concepts/interop/teams-endpoint.md 
+            href: concepts/teams-endpoint.md
           - name: Use cases
             href: concepts/interop/custom-teams-endpoint-use-cases.md
           - name: Authentication overview
