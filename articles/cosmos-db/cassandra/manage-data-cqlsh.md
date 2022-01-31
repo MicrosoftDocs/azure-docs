@@ -60,7 +60,7 @@ Now go back to the Azure portal to get your connection string information and co
 4. Connect to Azure Cosmos DB API for Cassandra:
     - Paste the USERNAME and PASSWORD value into the command.
     ```sql
-    cqlsh <USERNAME>.cassandra.cosmosdb.azure.com 10350 -u <USERNAME> -p <PASSWORD> --ssl --protocol-version=4
+    cqlsh <USERNAME>.cassandra.cosmos.azure.com 10350 -u <USERNAME> -p <PASSWORD> --ssl --protocol-version=4
     ```
 
 
