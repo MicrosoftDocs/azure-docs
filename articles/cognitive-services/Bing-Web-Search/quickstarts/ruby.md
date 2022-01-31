@@ -69,23 +69,16 @@ Use this code to make a request and handle the response:
 ```ruby
 # Construct the endpoint uri.
 
-> [!WARNING]
-> On October 30, 2020, the Bing Search APIs moved from Cognitive Services to Bing Search Services. This documentation is provided for reference only. For updated documentation, see the [Bing search API documentation](/bing/search-apis). For instructions on creating new Azure resources for Bing search, see [Create a Bing Search resource through the Azure Marketplace](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
-
 uri = URI(uri + path + "?q=" + URI.escape(term))
 puts "Searching the Web for: " + term
 
 # Create the request.
-
-> [!WARNING]
-> On October 30, 2020, the Bing Search APIs moved from Cognitive Services to Bing Search Services. This documentation is provided for reference only. For updated documentation, see the [Bing search API documentation](/bing/search-apis). For instructions on creating new Azure resources for Bing search, see [Create a Bing Search resource through the Azure Marketplace](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 request = Net::HTTP::Get.new(uri)
 request['Ocp-Apim-Subscription-Key'] = accessKey
 
 # Get the response.
 
-[!INCLUDE [Bing move notice](../../Bing-Web-Search/includes/bing-move-notice.md)]
 response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|
     http.request(request)
 end
