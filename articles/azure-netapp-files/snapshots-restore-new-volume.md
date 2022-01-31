@@ -22,7 +22,7 @@ ms.author: anfdocs
 
 ## Steps
 
-1. Select **Snapshots** from the Volume blade to display the snapshot list. 
+1. Select **Snapshots** from the Volume page to display the snapshot list. 
 2. Right-click the snapshot to restore and select **Restore to new volume** from the menu option.  
 
     ![Screenshot that shows the Restore New Volume menu.](../media/azure-netapp-files/azure-netapp-files-snapshot-restore-to-new-volume.png)
@@ -40,7 +40,7 @@ ms.author: anfdocs
 
 4. Select **Review+create**. Select **Create**.   
     The new volume uses the same protocol that the snapshot uses.   
-    The new volume to which the snapshot is restored appears in the Volumes blade.   
+    The new volume to which the snapshot is restored appears in the Volumes page.   
     The snapshot used to create the new volume will also be present on the new volume. 
 
 ## Next steps
