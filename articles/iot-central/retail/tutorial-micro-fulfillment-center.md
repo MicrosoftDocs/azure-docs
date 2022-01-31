@@ -11,6 +11,18 @@ ms.date: 12/21/2021
 
 # Tutorial: Deploy and walk through the micro-fulfillment center application template
 
+In the increasingly competitive retail landscape, retailers constantly face pressure to close the gap between demand and fulfillment. A new trend that has emerged to address the growing consumer demand is to house inventory near the end customers and the stores they visit.
+
+The IoT Central micro-fulfillment center application template enables you to monitor and manage all aspects of your fully automated fulfillment centers. The template includes a set of simulated condition monitoring sensors and robotic carriers to accelerate the solution development process. These sensor devices capture meaningful signals that can be converted into business insights allowing retailers to reduce their operating costs and create experiences for their customers.
+
+The application template enables you to:
+
+- Seamlessly connect different kinds of IoT sensors such as robots or condition monitoring sensors to an IoT Central application instance.
+- Monitor and manage the health of the sensor network, and any gateway devices in the environment.
+- Create custom rules around the environmental conditions within a fulfillment center to trigger appropriate alerts.
+- Transform the environmental conditions within your fulfillment center into insights that the retail warehouse team can use.
+- Export the aggregated insights into existing or new business applications for the benefit of the retail staff members.
+
 Use the IoT Central *micro-fulfillment center* application template and the guidance in this article to develop an end-to-end micro-fulfillment center solution.
 
 ![Azure IoT Central Store Analytics](./media/tutorial-micro-fulfillment-center-app/micro-fulfillment-center-architecture-frame.png)
@@ -63,9 +75,9 @@ In this tutorial, you learn:
 
 Create the application using following steps:
 
-1. Navigate to the [Azure IoT Central Build](https://aka.ms/iotcentral) site. Then sign in with a Microsoft personal, work, or school account. Select **Build** from the left-hand navigation bar and then select the **Retail** tab:
+1. Navigate to the [Azure IoT Central Build](https://aka.ms/iotcentral) site. Then sign in with a Microsoft personal, work, or school account. Select **Build** from the navigation bar and then select the **Retail** tab:
 
-   :::image type="content" source="media/tutorial-micro-fulfillment-center-app/iotc-retail-homepage-mfc.png" alt-text="Screenshot showing how to create an app.":::
+    :::image type="content" source="media/tutorial-micro-fulfillment-center-app/iotc-retail-homepage-mfc.png" alt-text="Screenshot showing how to create an app.":::
 
 1. Select **Create app** under **micro-fulfillment center**.
 
@@ -76,25 +88,27 @@ The following sections walk you through the key features of the application:
 After successfully deploying the app template, you see the **Northwind Traders micro-fulfillment center dashboard**. Northwind Traders is a fictitious retailer that has a micro-fulfillment center being managed in this Azure IoT Central application. On this dashboard, you see information and telemetry about the devices in this template, along with a set of commands, jobs, and actions that you can take. The dashboard is logically split into two sections. On the left, you can monitor the environmental conditions within the fulfillment structure, and on the right, you can monitor the health of a robotic carrier within the facility.  
 
 From the dashboard, you can:
-   * See device telemetry, such as the number of picks, the number of orders processed, and properties, such as the structure system status.  
-   * View the floor plan and location of the robotic carriers within the fulfillment structure.
-   * Trigger commands, such as resetting the control system, updating the carrier's firmware, and reconfiguring the network.
 
-  :::image type="content" source="media/tutorial-micro-fulfillment-center-app/mfc-dashboard-1.png" alt-text="Screenshot of the top half of the Northwind Traders micro-fulfillment center dashboard.":::
-   * See an example of the dashboard that an operator can use to monitor conditions within the fulfillment center.
-   * Monitor the health of the payloads that are running on the gateway device within the fulfillment center.
+* See device telemetry, such as the number of picks, the number of orders processed, and properties, such as the structure system status.  
+* View the floor plan and location of the robotic carriers within the fulfillment structure.
+* Trigger commands, such as resetting the control system, updating the carrier's firmware, and reconfiguring the network.
+
+    :::image type="content" source="media/tutorial-micro-fulfillment-center-app/mfc-dashboard-1.png" alt-text="Screenshot of the top half of the Northwind Traders micro-fulfillment center dashboard.":::
+
+* See an example of the dashboard that an operator can use to monitor conditions within the fulfillment center.
+* Monitor the health of the payloads that are running on the gateway device within the fulfillment center.
 
   :::image type="content" source="media/tutorial-micro-fulfillment-center-app/mfc-dashboard-2.png" alt-text="Screenshot of the bottom half of the Northwind Traders micro-fulfillment center dashboard.":::
 
 
 ### Device template
 
-If you select the device templates tab, you see that there are two different device types that are part of the template: 
-   * **Robotic Carrier**: This device template represents the definition for a functioning robotic carrier that has been deployed in the fulfillment structure, and is performing appropriate storage and retrieval operations. If you select the template, you see that the robot is sending device data, such as temperature and axis position, and properties like the robotic carrier status. 
-   * **Structure Condition Monitoring**: This device template represents a device collection that allows you to monitor environment condition, as well as the gateway device hosting various edge workloads to power your fulfillment center. The device sends telemetry data, such as the temperature, the number of picks, and the number of orders. It also sends information about the state and health of the compute workloads running in your environment. 
+If you select the device templates tab, you see that there are two different device types that are part of the template:
 
-  :::image type="content" source="media/tutorial-micro-fulfillment-center-app/device-templates.png" alt-text="Micro-fulfillment Center Device Templates.":::
+* **Robotic Carrier**: This device template represents the definition for a functioning robotic carrier that has been deployed in the fulfillment structure, and is performing appropriate storage and retrieval operations. If you select the template, you see that the robot is sending device data, such as temperature and axis position, and properties like the robotic carrier status. 
+* **Structure Condition Monitoring**: This device template represents a device collection that allows you to monitor environment condition, as well as the gateway device hosting various edge workloads to power your fulfillment center. The device sends telemetry data, such as the temperature, the number of picks, and the number of orders. It also sends information about the state and health of the compute workloads running in your environment. 
 
+:::image type="content" source="media/tutorial-micro-fulfillment-center-app/device-templates.png" alt-text="Micro-fulfillment Center Device Templates.":::
 
 
 If you select the device groups tab, you also see that these device templates automatically have device groups created for them.
@@ -105,13 +119,13 @@ On the **Rules** tab, you see a sample rule that exists in the application templ
 
 Use the sample rule as inspiration to define rules that are more appropriate for your business functions.
 
-  :::image type="content" source="media/tutorial-micro-fulfillment-center-app/rules.png" alt-text="Screenshot of the Rules tab.":::
+:::image type="content" source="media/tutorial-micro-fulfillment-center-app/rules.png" alt-text="Screenshot of the Rules tab.":::
 
 ### Clean up resources
 
 If you're not going to continue to use this application, delete the application template. Go to **Administration** > **Application settings**, and select **Delete**.
 
-  :::image type="content" source="media/tutorial-micro-fulfillment-center-app/delete.png" alt-text="Screenshot of Micro-fulfillment center Application settings page.":::
+:::image type="content" source="media/tutorial-micro-fulfillment-center-app/delete.png" alt-text="Screenshot of Micro-fulfillment center Application settings page.":::
 
 ## Next steps
 
