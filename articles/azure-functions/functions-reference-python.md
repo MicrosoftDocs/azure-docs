@@ -393,9 +393,10 @@ Host.json needs to be updated to include `routePrefix`.
 }
 ```
 
-In the file, `init.py`, the changes should be made based on the approach.
+Update the Python code file `init.py`, depending on the interface used by your framework. The following example shows either an ASGI hander approach or a WSGI wrapper approach for Flask:
 
-ASGI, Handler Approach
+# [ASGI](#tab/asgi)
+
 ```python
 app=Flask("Test")
 
@@ -408,7 +409,8 @@ def main(req: func.HttpRequest, context) -> func.HttpResponse:
   return func.AsgiMiddleware(app).handle(req, context)
 ```
 
-WSGI, Wrapper Approach
+# [WSGI](#tab/wsgi)
+
 ```python
 app=Flask("Test")
 
@@ -420,6 +422,9 @@ def main(req: func.HttpRequest, context) -> func.HttpResponse:
   logging.info('Python HTTP trigger function processed a request.')
   return func.WsgiMiddleware(app).handle(req, context)
 ```
+
+---
+
 
 ## Scaling and Performance
 
