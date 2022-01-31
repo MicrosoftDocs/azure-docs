@@ -37,8 +37,8 @@ Azure supports multiple types of storage accounts for different storage scenario
 | Maximum storage account capacity | 5 PiB<sup>1</sup> | 100 TiB (provisioned) |
 | Maximum number of file shares | Unlimited | Unlimited, total provisioned size of all shares must be less than max than the max storage account capacity |
 | Maximum concurrent request rate | 20,000 IOPS<sup>1</sup> | 100,000 IOPS |
-| Maximum ingress | <ul><li>US/Europe: 9,536 MiB/sec<sup>1</sup></li><li>Other regions (LRS/ZRS): 9,536 MiB/sec<sup>1</sup></li><li>Other regions (GRS): 4,768 MiB/sec<sup>1</sup></li></ul> | 4,136 MiB/sec |
-| Maximum egress | 47,683 MiB/sec<sup>1</sup> | 6,204 MiB/sec |
+| Maximum ingress | 7,152 MiB/sec<sup>1</sup> | 10,340 MiB/sec |
+| Maximum egress | 14,305 MiB/sec<sup>1</sup> | 10,340 MiB/sec |
 | Maximum number of virtual network rules | 200 | 200 |
 | Maximum number of IP address rules | 200 | 200 |
 | Management read operations | 800 per 5 minutes | 800 per 5 minutes |
@@ -46,6 +46,7 @@ Azure supports multiple types of storage accounts for different storage scenario
 | Management list operations | 100 per 5 minutes | 100 per 5 minutes |
 
 <sup>1</sup> General-purpose version 2 storage accounts support higher capacity limits and higher limits for ingress by request. To request an increase in account limits, contact [Azure Support](https://azure.microsoft.com/support/faq/).
+<br>For scale targets per region, see [Standard Scale Target](../common/scalability-targets-standard-account.md)
 
 ### Azure file share scale targets
 | Attribute | Standard file shares<sup>1</sup> | Premium file shares |
