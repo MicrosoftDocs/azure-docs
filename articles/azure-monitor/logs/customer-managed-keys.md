@@ -21,7 +21,7 @@ We recommend you review [Limitations and constraints](#limitationsandconstraints
 
 Azure Monitor ensures that all data and saved queries are encrypted at rest using Microsoft-managed keys (MMK). You also have the option to encrypt data with your own key in [Azure Key Vault](../../key-vault/general/overview.md), with control over key lifecycle and ability to revoke  access to your data at any time. Azure Monitor use of encryption is identical to the way [Azure Storage encryption](../../storage/common/storage-service-encryption.md#about-azure-storage-encryption) operates.
 
-Customer-managed key is delivered on [dedicated clusters](./logs-dedicated-clusters.md) providing higher protection level and control. Data to dedicated clusters is encrypted twice, once at the service level using Microsoft-managed keys or Customer-managed keys, and once at the infrastructure level, using two different encryption algorithms and two different keys. [Double encryption](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) protects against a scenario where one of the encryption algorithms or keys may be compromised. In this case, the additional layer of encryption continues to protect your data. Dedicated cluster also allows you to protect your data with [Lockbox](#customer-lockbox-preview) control.
+Customer-managed key is delivered on [dedicated clusters](./logs-dedicated-clusters.md) providing higher protection level and control. Data to dedicated clusters is encrypted twice, once at the service level using Microsoft-managed keys or Customer-managed keys, and once at the infrastructure level, using two different encryption algorithms and two different keys. [double encryption](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) protects against a scenario where one of the encryption algorithms or keys may be compromised. In this case, the additional layer of encryption continues to protect your data. Dedicated cluster also allows you to protect your data with [Lockbox](#customer-lockbox-preview) control.
 
 Data ingested in the last 14 days or recently used in queries is kept in hot-cache (SSD-backed) for query efficiency. SSD data is encrypted with Microsoft keys regardless customer-managed key configuration, but your control over SSD access adheres to [key revocation](#key-revocation)
 
@@ -99,8 +99,8 @@ Follow the procedure illustrated in [Dedicated Clusters article](./logs-dedicate
 
 Create Access Policy in Key Vault to grants permissions to your cluster. These permissions are used by the underlay cluster storage. Open your Key Vault in Azure portal and click *Access Policies* then *+ Add Access Policy* to create a policy with these settings:
 
-- Key permissions: select *Get*, *Wrap Key* and *Unwrap Key*.
-- Select principal: depending on the identity type used in the cluster (system or user assigned managed identity)
+- Key permissions—select *Get*, *Wrap Key* and *Unwrap Key*.
+- Select principal—depending on the identity type used in the cluster (system or user assigned managed identity)
   - System assigned managed identity - enter the cluster name or cluster principal ID 
   - User assigned managed identity - enter the identity name
 
@@ -176,7 +176,7 @@ Content-type: application/json
 
 It takes the propagation of the key a while to complete. You can check the update state by sending GET request on the cluster and look at the *KeyVaultProperties* properties. Your recently updated key should return in the response.
 
-A response to GET request should look like this when the key update is complete:
+Response to GET request when key update is completed:
 202 (Accepted) and header
 ```json
 {
@@ -236,8 +236,8 @@ The cluster storage will always respect changes in key permissions within an hou
 ## Key rotation
 
 Key rotation has two modes: 
-- Autorotation: update your cluster with ```"keyVaultProperties"``` but omit ```"keyVersion"``` property, or set it to ```""```. Storage will automatically use the latest versions.
-- Explicit key version update: update your cluster with key version in ```"keyVersion"``` property. Rotatio of keys require an explicit ```"keyVaultProperties"``` update in cluster, see [Update cluster with Key identifier details](#update-cluster-with-key-identifier-details). If you generate new key version in Key Vault but don't update it in the cluster, the cluster storage will keep using your previous key. If you disable, or delete the old key before updating a new one in the cluster, you will get into [key revocation](#key-revocation) state.
+- Autorotation—update your cluster with ```"keyVaultProperties"``` but omit ```"keyVersion"``` property, or set it to ```""```. Storage will automatically use the latest versions.
+- Explicit key version update—update your cluster with key version in ```"keyVersion"``` property. Rotatio of keys require an explicit ```"keyVaultProperties"``` update in cluster, see [Update cluster with Key identifier details](#update-cluster-with-key-identifier-details). If you generate new key version in Key Vault but don't update it in the cluster, the cluster storage will keep using your previous key. If you disable, or delete the old key before updating a new one in the cluster, you will get into [key revocation](#key-revocation) state.
 
 All your data remains accessible after the key rotation operation. Data always encrypted with the Account Encryption Key ("AEK"), which is encrypted with your new Key Encryption Key ("KEK") version in Key Vault.
 
@@ -401,7 +401,7 @@ Customer-Managed key is provided on dedicated cluster and these operations are r
 - Lockbox isn't available in China currently. 
 
 - [Double encryption](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) is configured automatically for clusters created from October 2020 in supported regions. You can verify if your cluster is configured for double encryption by sending a GET request on the cluster and observing that the `isDoubleEncryptionEnabled` value is `true` for clusters with Double encryption enabled. 
-  - If you create a cluster and get an error: "region-name doesn’t support Double Encryption for clusters", you can still create the cluster without Double encryption, by adding `"properties": {"isDoubleEncryptionEnabled": false}` in the REST request body.
+  - If you create a cluster and get an error—"region-name doesn’t support Double Encryption for clusters", you can still create the cluster without Double encryption, by adding `"properties": {"isDoubleEncryptionEnabled": false}` in the REST request body.
   - Double encryption setting can not be changed after the cluster has been created.
 
   - Setting the cluster's `identity` `type` to `None` also revokes access to your data, but this approach isn't recommended since you can't revert it without contacting support. The recommended way to revoke access to your data is [key revocation](#key-revocation).
@@ -411,15 +411,15 @@ Customer-Managed key is provided on dedicated cluster and these operations are r
 ## Troubleshooting
 
 - Behavior per Key Vault availability:
-  - Normal operation: storage caches "AEK" for short periods of time and goes back to Key Vault to unwrap periodically.
+  - Normal operation—storage caches "AEK" for short periods of time and goes back to Key Vault to unwrap periodically.
     
-  - Key Vault connection errors: storage handles transient errors (timeouts, connection failures, "DNS" issues), by allowing keys to stay in cache for the duration of the availability issue, and it overcomes blips and availability issues. The query and ingestion capabilities continue without interruption.
+  - Key Vault connection errors—storage handles transient errors (timeouts, connection failures, "DNS" issues), by allowing keys to stay in cache for the duration of the availability issue, and it overcomes blips and availability issues. The query and ingestion capabilities continue without interruption.
     
-- Key Vault access rate — The frequency that Azure the cluster storage accesses Key Vault for wrap and unwrap is between 6 to 60 seconds.
+- Key Vault access rate—The frequency that Azure the cluster storage accesses Key Vault for wrap and unwrap is between 6 to 60 seconds.
 
 - If you update your cluster while it's at provisioning state, or updating state, the update will fail.
 
-- If you get conflict: error when creating a cluster, you may have deleted your cluster in the last 14 days and it’s in a soft-delete state. The cluster name remains reserved during the soft-delete period and you can't create a new cluster with that name. The name is released after the soft-delete period when the cluster is permanently deleted.
+- If you get conflict—error when creating a cluster, you may have deleted your cluster in the last 14 days and it’s in a soft-delete state. The cluster name remains reserved during the soft-delete period and you can't create a new cluster with that name. The name is released after the soft-delete period when the cluster is permanently deleted.
 
 - Workspace link to cluster will fail if it is linked to another cluster.
 
@@ -427,7 +427,7 @@ Customer-Managed key is provided on dedicated cluster and these operations are r
 
 - If you update existing cluster with KeyVaultProperties and 'Get' key Access Policy is missing in Key Vault, the operation will fail.
 
-- If you fail to deploy your cluster, verify that your Azure Key Vault, cluster and linked workspaces are in the same region. The can be in different subscriptions.
+- If you fail to deploy your cluster, verify that your Azure Key Vault, cluster and linked workspaces are in the same region. The can be in different subscriptions.
 
 - If you update your key version in Key Vault and don't update the new key identifier details in the cluster, the cluster will keep using your previous key and your data will become inaccessible. Update new key identifier details in the cluster to resume data ingestion and ability to query data.
 
