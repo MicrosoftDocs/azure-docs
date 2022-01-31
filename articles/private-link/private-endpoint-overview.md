@@ -81,7 +81,7 @@ The table below lists the available resources that support a private endpoint:
 | **Azure IoT Hub** | Microsoft.Devices/IotHubs | iotHub |
 | **Microsoft Digital Twins** | Microsoft.DigitalTwins/digitalTwinsInstances | digitaltwinsinstance |
 | **Azure Event Grid** | Microsoft.EventGrid/domains | domain |
-| **Azure Event Grid** | Microsoft.EventGrid/topics  | Event grid topic |
+| **Azure Event Grid** | Microsoft.EventGrid/topics  | topic |
 | **Azure Event Hub** | Microsoft.EventHub/namespaces | namespace |
 | **Azure HDInsight** | Microsoft.HDInsight/clusters | cluster |
 | **Azure API for FHIR** | Microsoft.HealthcareApis/services | service |
