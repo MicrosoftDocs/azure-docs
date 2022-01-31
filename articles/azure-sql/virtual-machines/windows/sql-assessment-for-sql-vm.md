@@ -19,12 +19,8 @@ The SQL Assessment feature of the Azure portal identifies possible performance i
 The SQL Assessment feature is currently in preview.
 
 To learn more, watch this video on [SQL Assessment](/shows/Data-Exposed/?WT.mc_id=dataexposed-c9-niner):
-> [!VIDEO https://docs.microsoft.com/shows/Data-Exposed/optimally-configure-sql-server-on-azure-virtual-machines-with-sql-assessment/player]
-
-If you're new to Azure SQL, check out the *What is Azure SQL* video from our in-depth [Azure SQL video series](/shows/Azure-SQL-for-Beginners/?WT.mc_id=azuresql4beg_azuresql-ch9-niner):
-> [!VIDEO https://docs.microsoft.com/shows/Azure-SQL-for-Beginners/What-is-Azure-SQL-3-of-61/player]
-
 <iframe src="https://aka.ms/docs/player?id=13b2bf63-485c-4ec2-ab14-a1217734ad9f" width="1920" height="1080" style="border: 0; max-width: 100%; min-width: 100%;"></iframe>
+
 
 ## Overview
 
