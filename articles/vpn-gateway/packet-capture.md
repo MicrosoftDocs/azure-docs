@@ -332,7 +332,7 @@ A valid SAS (or Shared Access Signature) Uri with read/write access is required 
 
 * Navigate to the VPN Gateway Packet Capture blade in the Azure Portal and clicking the **Stop Packet Capture** button
 
-* Paste the SAS URL (from the previous step) in the Output Sas Uri text box and click **Stop Packet Capture**.
+* Paste the SAS URL (from the previous step) in the **Output Sas Uri** text box and click **Stop Packet Capture**.
 
 :::image type="content" source="./media/packet-capture/stopcapture.jpg" alt-text="Screenshot of stop packet capture in the portal." lightbox="./media/packet-capture/stopcapture.jpg":::
 
