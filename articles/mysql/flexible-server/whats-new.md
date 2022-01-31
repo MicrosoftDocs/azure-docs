@@ -51,7 +51,7 @@ This release of Azure Database for MySQL - Flexible Server includes the followin
   
 - **Fastest restore points**
   
-  With the fastest restore point option, you can restore a Flexible Server instance in the fastest time possible on a given day within the server’s retention period. This restore operation will simply restore the full snapshot backup without requiring restore or recovery of logs. With fastest restore point, customers will see 3 options while performing point in time restores from Azure portal viz latest restore point, custom restore point and fastest restore point. [Learn more](concepts-backup-restore.md#point-in-time-restore)
+  With the fastest restore point option, you can restore a Flexible Server instance in the fastest time possible on a given day within the server’s retention period. This restore operation will simply restore the full snapshot backup without requiring restore or recovery of logs. With fastest restore point, customers will see three options while performing point in time restores from Azure portal viz latest restore point, custom restore point and fastest restore point. [Learn more](concepts-backup-restore.md#point-in-time-restore)
   
 - **FAQ blade in Azure portal**
 
@@ -59,11 +59,11 @@ This release of Azure Database for MySQL - Flexible Server includes the followin
 
 - **Restore a deleted Flexible server**
 
-  The service now allows you to recover a deleted MySQL flexible server resource within 5 days from the time of server deletion. For a detailed guide on how to restore a deleted server, [refer documented steps](../flexible-server/how-to-restore-dropped-server.md). To protect server resources post deployment from accidental deletion or unexpected changes, we recommend administrators to leverage [management locks](../../azure-resource-manager/management/lock-resources.md).
+  The service now allows you to recover a deleted MySQL flexible server resource within five days from the time of server deletion. For a detailed guide on how to restore a deleted server, [refer documented steps](../flexible-server/how-to-restore-dropped-server.md). To protect server resources post deployment from accidental deletion or unexpected changes, we recommend administrators to leverage [management locks](../../azure-resource-manager/management/lock-resources.md).
 
 - **Known issues**
 
-    On servers where we have HA and  Geo-redundant backup option enabled, we found an rare issue encountered by a race condition which blocks the restart of the standby server to finish. As a result of this issue, when you failover the  HA enabled Azure database for MySQL - Flexible server MySQL Instance may get stuck in restarting state for a long time. The fix will be deployed to the production in the next deployment cycle.
+    On servers where we have HA and  Geo-redundant backup option enabled, we found a rare issue encountered by a race condition, which blocks the restart of the standby server to finish. As a result of this issue, when you fail over the  HA enabled Azure database for MySQL - Flexible server MySQL Instance may get stuck in restarting state for a long time. The fix will be deployed to the production in the next deployment cycle.
 
 ## October 2021
 
@@ -77,13 +77,13 @@ This release of Azure Database for MySQL - Flexible Server includes the followin
 
 -  **Availability Zones Selection when creating Read replicas**
 
-    When creating Read replica you have an option to select the Availability Zones location of your choice. An Availability Zone is a high availability offering that protects your applications and data from datacenter failures. Availability Zones are unique physical locations within an Azure region. [Learn more](../flexible-server/concepts-read-replicas.md).
+    When creating Read replica, you have an option to select the Availability Zones location of your choice. An Availability Zone is a high availability offering that protects your applications and data from datacenter failures. Availability Zones are unique physical locations within an Azure region. [Learn more](../flexible-server/concepts-read-replicas.md).
 
 - **Read replicas in Azure Database for MySQL - Flexible servers will no longer be available on Burstable SKUs**
 
-    You will not be able to create new or maintain existing read replicas on the Burstable tier server. In the interest of providing a good query and development experience for Burstable SKU tiers, the support for creating and maintaining read replica for servers in the Burstable pricing tier will be discontinued. 
+    You won’t be able to create new or maintain existing read replicas on the Burstable tier server. In the interest of providing a good query and development experience for Burstable SKU tiers, the support for creating and maintaining read replica for servers in the Burstable pricing tier will be discontinued. 
 
-    If you have an existing Azure Database for MySQL - Flexible Server with read replica enabled, you will have to scale up your server to either General Purpose or Memory Optimized pricing tiers or delete the read replica within 60 days. After the 60-day period, while you can continue to use the primary server for your read-write operations, replication to read replica servers will be stopped. For newly created servers, read replica option will be available only for the General Purpose and Memory Optimized pricing tiers.  
+    If you have an existing Azure Database for MySQL - Flexible Server with read replica enabled, you’ll have to scale up your server to either General Purpose or Memory Optimized pricing tiers or delete the read replica within 60 days. After the 60-day period, while you can continue to use the primary server for your read-write operations, replication to read replica servers will be stopped. For newly created servers, read replica option will be available only for the General Purpose and Memory Optimized pricing tiers.  
 
  - **Monitoring Azure Database for MySQL - Flexible Server with Azure Monitor Workbooks**
 
@@ -95,7 +95,7 @@ This release of Azure Database for MySQL - Flexible Server includes the followin
 
 - **Stopping the server for up to 30 days while the server is not in use**
 
-    Azure Database for MySQL Flexible Server now gives you the ability to Stop the server for up to 30 days when not in use and Start the server within this time when you are ready to resume your development. This enables you to develop at your own pace and save development costs on the database servers by paying for the resources only when they are in use. This is important for dev-test workloads and when you are only using the server for part of the day. When you stop the server, all active connections will be dropped. When the server is in the Stopped state, the server's compute is not billed. However, storage continues to to be billed as the server's storage remains to ensure that data files are available when the server is started again. [Learn more](concept-servers.md#stopstart-an-azure-database-for-mysql-flexible-server)
+    Azure Database for MySQL Flexible Server now gives you the ability to Stop the server for up to 30 days when not in use and Start the server within this time when you’re ready to resume your development. This enables you to develop at your own pace and save development costs on the database servers by paying for the resources only when they are in use. This is important for dev-test workloads and when you’re only using the server for part of the day. When you stop the server, all active connections will be dropped. When the server is in the Stopped state, the server's compute isn’t billed. However, storage continues to be billed as the server's storage remains to ensure that data files are available when the server is started again. [Learn more](concept-servers.md#stopstart-an-azure-database-for-mysql-flexible-server)
 
 - **Terraform Support for MySQL Flexible Server**
 
@@ -103,7 +103,7 @@ This release of Azure Database for MySQL - Flexible Server includes the followin
 
 - **Static Parameter innodb_log_file_size is now Configurable**
 
-  - [innodb_log_file_size](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_log_file_size) can now be configured to any of these values: 256MB, 512MB, 1GB, or 2GB. Because it's a static parameter, it will require a server restart. If you have changed the parameter innodb_log_file_size from default, check if the value of "show global status like 'innodb_buffer_pool_pages_dirty'" stays at 0 for 30 seconds to avoid restart delay. See [Server parameters in Azure Database for MySQL](./concepts-server-parameters.md) to learn more.
+  - [innodb_log_file_size](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_log_file_size) can now be configured to any of these values: 256 MB, 512 MB, 1 GB, or 2 GB. Because it's a static parameter, it will require a server restart. If you’ve changed the parameter innodb_log_file_size from default, check if the value of "show global status like 'innodb_buffer_pool_pages_dirty'" stays at 0 for 30 seconds to avoid restart delay. See [Server parameters in Azure Database for MySQL](./concepts-server-parameters.md) to learn more.
 
 - **Availability in two additional Azure regions**
 
@@ -114,7 +114,7 @@ This release of Azure Database for MySQL - Flexible Server includes the followin
      [Learn more](overview.md#azure-regions).
 
 - **Known Issues**
-  - When a primary Azure region is down, one cannot create geo-redundant servers in it's geo-paired region as storage cannot be provisioned in the primary Azure region. One must wait for the primary region to be up to provision geo-redundant servers in the geo-paired region.
+  - When a primary Azure region is down, one can’t create geo-redundant servers in its geo-paired region as storage can’t be provisioned in the primary Azure region. One must wait for the primary region to be up to provision geo-redundant servers in the geo-paired region.
 
 
 ## September 2021
@@ -183,7 +183,7 @@ This release of Azure Database for MySQL - Flexible Server includes the followin
    - Right after Zone-Redundant high availability server failover, clients fail to connect to the server if using SSL with ssl_mode VERIFY_IDENTITY. This issue can be mitigated by using ssl_mode as VERIFY_CA.
    - Unable to create Same-Zone High availability server in the following regions: Central India, East Asia, Korea Central, South Africa North, Switzerland North.
    - In a rare scenario and after HA failover, the primary server will be in read_only mode. Resolve the issue by updating “read_only” value from the server parameters blade to OFF.
-   - After successfully scaling Compute in the Compute+Storage blade, IOPS is reset to the SKU default. Customers can work around the issue by rescaling IOPs in the Compute+Storage blade to desired value (previously set) post the compute deployment and consequent IOPS reset.
+   - After successfully scaling Compute in the Compute+Storage blade, IOPS are reset to the SKU default. Customers can work around the issue by rescaling IOPs in the Compute+Storage blade to desired value (previously set) post the compute deployment and consequent IOPS reset.
 
 ## July 2021
 
@@ -248,7 +248,7 @@ This release of Azure Database for MySQL - Flexible Server includes the followin
 
 - **Zone redundant HA available in UK South and Japan East region**
 
-   Azure Database for MySQL - Flexible Server now offers zone redundant high availability in two additional regions: UK South and Japan East. [Learn more](overview.md#azure-regions).
+   Azure Database for MySQL - Flexible Server now offers zone-redundant high availability in two additional regions: UK South and Japan East. [Learn more](overview.md#azure-regions).
 
 - **Known issues**
 
@@ -294,7 +294,7 @@ This release of Azure Database for MySQL - Flexible Server includes the followin
 
 - **Known issues**
 
-   - SSL\TLS 1.2 is enforced and cannot be disabled. (No workarounds)
+   - SSL\TLS 1.2 is enforced and can’t be disabled. (No workarounds)
    - There are intermittent provisioning failures for servers provisioned in a VNet. The workaround is to retry the server provisioning until it succeeds.
 
 ## February 2021
@@ -307,7 +307,7 @@ This release of Azure Database for MySQL - Flexible Server includes the followin
 
 - **Known issues**
 
-  The performance of Azure Database for MySQL – Flexible Server degrades with private access virtual network isolation (No workaround).
+  The performance of Azure Database for MySQL – Flexible Server degrades with private access-virtual network isolation (No workaround).
 
 ## January 2021
 
