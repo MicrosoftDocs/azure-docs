@@ -373,7 +373,6 @@ params = {
     'from': 'en',
     'to': ['de', 'it']
 }
-constructed_url = endpoint + path
 
 headers = {
     'Ocp-Apim-Subscription-Key': subscription_key,
@@ -659,7 +658,6 @@ params = {
     'api-version': '3.0',
     'to': ['de', 'it']
 }
-constructed_url = endpoint + path
 
 headers = {
     'Ocp-Apim-Subscription-Key': subscription_key,
@@ -937,7 +935,6 @@ constructed_url = endpoint + path
 params = {
     'api-version': '3.0'
 }
-constructed_url = endpoint + path
 
 headers = {
     'Ocp-Apim-Subscription-Key': subscription_key,
@@ -1226,7 +1223,6 @@ params = {
     'to': 'th',
     'toScript': 'latn'
 }
-constructed_url = endpoint + path
 
 headers = {
     'Ocp-Apim-Subscription-Key': subscription_key,
@@ -1517,7 +1513,6 @@ params = {
     'fromScript': 'thai',
     'toScript': 'latn'
 }
-constructed_url = endpoint + path
 
 headers = {
     'Ocp-Apim-Subscription-Key': subscription_key,
@@ -1793,7 +1788,6 @@ params = {
     'to': 'es',
     'includeSentenceLength': True
 }
-constructed_url = endpoint + path
 
 headers = {
     'Ocp-Apim-Subscription-Key': subscription_key,
@@ -2079,7 +2073,6 @@ constructed_url = endpoint + path
 params = {
     'api-version': '3.0'
 }
-constructed_url = endpoint + path
 
 headers = {
     'Ocp-Apim-Subscription-Key': subscription_key,
@@ -2358,7 +2351,6 @@ params = {
     'from': 'en',
     'to': 'es'
 }
-constructed_url = endpoint + path
 
 headers = {
     'Ocp-Apim-Subscription-Key': subscription_key,
@@ -2665,7 +2657,6 @@ params = {
     'from': 'en',
     'to': 'es'
 }
-constructed_url = endpoint + path
 
 headers = {
     'Ocp-Apim-Subscription-Key': subscription_key,

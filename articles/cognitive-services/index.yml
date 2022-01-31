@@ -111,18 +111,15 @@ conceptualContent:
         - url: ./cognitive-services-container-support.md
           itemType: overview
           text: What are Cognitive Service containers?
-        - url: ./containers/container-reuse-recipe.md
-          itemType: learn
-          text: Create containers for reuse
         - url: ./containers/azure-container-instance-recipe.md
           itemType: how-to-guide
           text: Deploy and run container on Azure Container Instance
-        - url: ./containers/azure-kubernetes-recipe.md
-          itemType: deploy
-          text: Deploy to Azure Kubernetes Service
         - url: ./containers/docker-compose-recipe.md
           itemType: get-started
           text: Use Docker Compose to deploy multiple containers
+        - url: ./containers/disconnected-containers.md
+          itemType: get-started
+          text: Use Docker containers disconnected from the internet
         - url: ./containers/container-faq.yml
           itemType: reference
           text: Cognitive Services containers FAQ
