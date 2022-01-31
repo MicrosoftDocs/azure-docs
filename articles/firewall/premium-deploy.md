@@ -5,7 +5,7 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: how-to
-ms.date: 11/24/2021
+ms.date: 01/31/2022
 ms.author: victorh
 ---
 
@@ -67,7 +67,7 @@ To collect firewall logs, you need to add diagnostics settings to collect firewa
 
 ### IDPS tests
 
-To test IDPS, you'll need to deploy your own internal Web server with an appropriate server certificate. For more information about Azure Firewall Premium certificate requirements, see [Azure Firewall Premium certificates](premium-certificates.md).
+To test IDPS, you should to deploy your own internal test Web server with an appropriate server certificate. This test includes sending malicious traffic to a Web server, so it isn't advisable to do this to a public Web serer. For more information about Azure Firewall Premium certificate requirements, see [Azure Firewall Premium certificates](premium-certificates.md).
 
 You can use `curl` to control various HTTP headers and simulate malicious traffic.
 
