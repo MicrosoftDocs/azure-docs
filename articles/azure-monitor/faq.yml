@@ -265,7 +265,6 @@ sections:
           
   - name: Azure Monitor Agent
     questions: |
-    
       - question: |
           Why should I use the AMA or migrate from Log Analytics agent (MMA) to AMA?
         answer: |
