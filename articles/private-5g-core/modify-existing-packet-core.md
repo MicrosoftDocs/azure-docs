@@ -62,7 +62,7 @@ In this step, you'll modify configuration for your chosen packet core instance i
 
 The **Configuration** tab lets you set configuration for the packet core instance's connection to the access network. For information on each of the available fields, see [Collect access network values](collect-required-information-for-private-mobile-network.md#collect-access-network-values).
 
-:::image type="content" source="media/modify-existing-packet-core/packet-core-configuration-tab.png" alt-text="Screenshot of the Azure portal. The configuration option for the packet core instance is highlighted."::: 
+:::image type="content" source="media/modify-existing-packet-core/packet-core-configuration-tab.png" alt-text="Screenshot of the Azure portal. The configuration tab for a packet core instance is highlighted."::: 
 
 ### Change data network configuration
 

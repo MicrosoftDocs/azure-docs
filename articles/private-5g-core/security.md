@@ -5,7 +5,7 @@ author: richardwhiuk
 ms.author: rwhitehouse
 ms.service: private-5g-core
 ms.topic: conceptual
-ms.date: 25/01/2022
+ms.date: 01/25/2022
 ---
 
 # Security for Azure Private 5G Core Preview

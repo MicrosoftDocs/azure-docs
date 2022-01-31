@@ -94,7 +94,7 @@ In this step, you'll create the site resource representing the physical enterpri
 
     :::image type="content" source="media/configure-a-custom-location.png" alt-text="Screenshot of the Azure portal showing the Configure a custom location option.":::
 
-1. On the **Configuration** tab, select the **Custom location** resource you identified in [Verify that the correct resources have been created and that the connection is active](#verify-that-the-correct-resources-have-been-created-and-that-the-connection-is-active) from the **Custom ARC location** drop-down menu. Ensure you select the correct resource, as this can't be reversed once you've applied it.
+1. On the **Configuration** tab, select the **Custom location** resource you identified in [Verify that your Azure Stack Edge Pro cluster resources have been created and that the connection is active](#verify-that-your-azure-stack-edge-pro-cluster-resources-have-been-created-and-that-the-connection-is-active) from the **Custom ARC location** drop-down menu. Ensure you select the correct resource, as this can't be reversed once you've applied it.
 1. Select **Apply**.
 1. Return to the **Mobile network site** resource and confirm that the **Edge custom location** field is now displaying the correct **Custom location** resource.
 

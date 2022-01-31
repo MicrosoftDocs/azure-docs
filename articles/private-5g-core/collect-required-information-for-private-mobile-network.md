@@ -35,7 +35,7 @@ Collect all of the following values for the resource that will represent your pr
 
 Each SIM resource represents a physical SIM or eSIM that will be served by the private mobile network.
 
-As part of creating your private mobile network, you can provision one or more SIMs that will use it. If you decide not to provision SIMs at this point, you can do so after deploying your private mobile network using the instructions in [Provisioning SIMs](provisioning-sims.md).
+As part of creating your private mobile network, you can provision one or more SIMs that will use it. If you decide not to provision SIMs at this point, you can do so after deploying your private mobile network using the instructions in [Provisioning SIMs](provision-sims-azure-portal.md).
 
 If you want to provision SIMs as part of deploying your private mobile network, you must choose one of the following provisioning methods.
 
@@ -88,7 +88,7 @@ Each site represents a physical enterprise location (for example, Contoso Corpor
    |The Azure resource group to use to deploy the site resource. We recommend that you use the same resource group you chose for the private mobile network under **Project details: Resource group** in [Collect private mobile network resource values](#collect-private-mobile-network-resource-values).                |**Project details: Resource group**|
    |The name for the site.           |**Instance details: Name**|
    |The region in which you’re deploying the private mobile network. We recommend that you use the East US region.                         |**Instance details: Region**|
-   |The private mobile network resource representing the network to which you’re adding the site. This must match the private mobile network name you chose under **Instance details: Mobile network name** in [Collect private mobile network resource configuration values](#collect-private-mobile-network-resource-configuration-values).    |**Instance details: Mobile network**|
+   |The private mobile network resource representing the network to which you’re adding the site. This must match the private mobile network name you chose under **Instance details: Mobile network name** in [Collect private mobile network resource values](#collect-private-mobile-network-resource-values).    |**Instance details: Mobile network**|
 
 ## Collect access network values
 
@@ -123,6 +123,6 @@ Collect all the values in the following table to define the packet core instance
 
 ## Next steps
 
-You can now use the information you've collected to deploy your private mobile network
+You can now use the information you've collected to deploy your private mobile network.
 
 - [Deploy a private mobile network - Azure portal](how-to-guide-deploy-a-private-mobile-network-azure-portal.md)
