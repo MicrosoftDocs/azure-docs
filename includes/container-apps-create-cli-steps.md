@@ -2,15 +2,9 @@
 author: craigshoemaker
 ms.service: app-service
 ms.topic: include
-ms.date: 12/15/2021
+ms.date: 01/26/2022
 ms.author: cshoe
 ---
-
-## Prerequisites
-
-- Azure account with an active subscription. 
-  - If you don't have one, you [can create one for free](https://azure.microsoft.com/free/).
-- Install the [Azure CLI](/cli/azure/install-azure-cli).
 
 ## Setup
 
@@ -36,7 +30,7 @@ Next, install the Azure Container Apps extension to the CLI.
 
 ```azurecli
 az extension add \
-  --source https://workerappscliextension.blob.core.windows.net/azure-cli-extension/containerapp-0.2.0-py2.py3-none-any.whl 
+  --source https://workerappscliextension.blob.core.windows.net/azure-cli-extension/containerapp-0.2.2-py2.py3-none-any.whl 
 ```
 
 # [PowerShell](#tab/powershell)
