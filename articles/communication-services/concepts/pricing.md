@@ -24,7 +24,7 @@ Each participant of the call will count in billing for each minute they're conne
 
 ### Pricing example: Group audio/video call using JS and iOS SDKs
 
-Alice made a group call with her colleagues, Bob and Charlie. Alice and Bob used the JS SDKs, Charlie iOS SDKs.
+Alice made a group call with her colleagues, Bob, and Charlie. Alice and Bob used the JS SDKs, Charlie iOS SDKs.
 
 - The call lasts a total of 60 minutes.
 - Alice and Bob participated for the entire call. Alice turned on her video for five minutes and shared her screen for 23 minutes. Bob had the video on for the whole call (60 minutes) and shared his screen for 12 minutes.
@@ -32,8 +32,8 @@ Alice made a group call with her colleagues, Bob and Charlie. Alice and Bob used
 
 **Cost calculations**
 
-- 2 participants x 60 minutes x $0.004 per participant per minute = $0.48 [both video and audio are charged at the same rate]
-- 1 participant x 43 minutes x $0.004 per participant per minute = $0.172  [both video and audio are charged at the same rate]
+- Two participants x 60 minutes x $0.004 per participant per minute = $0.48 [both video and audio are charged at the same rate]
+- One participant x 43 minutes x $0.004 per participant per minute = $0.172  [both video and audio are charged at the same rate]
 
 **Total cost for the group call**: $0.48 + $0.172 = $0.652
 
@@ -47,8 +47,8 @@ Alice makes a PSTN Call from an app to Bob on his US phone number beginning with
 
 **Cost calculations**
 
-- 1 participant on the VoIP leg (Alice) from App to Communication Services servers x 10 minutes x $0.004 per participant leg per minute = $0.04
-- 1 participant on the PSTN outbound leg (Bob) from Communication Services servers to a US telephone number x 10 minutes x $0.013 per participant leg per minute = $0.13.
+- One participant on the VoIP leg (Alice) from App to Communication Services servers x 10 minutes x $0.004 per participant leg per minute = $0.04
+- One participant on the PSTN outbound leg (Bob) from Communication Services servers to a US telephone number x 10 minutes x $0.013 per participant leg per minute = $0.13.
 
 > [!Note]
 > USA mixed rates to `+1-425` is $0.013. Refer to the following link for details: https://github.com/Azure/Communication/blob/master/pricing/communication-services-pstn-rates.csv)
@@ -65,8 +65,8 @@ Alice makes an outbound call from an Azure Communication Services app to a telep
 
 **Cost calculations**
 
-- 1 participant on the VoIP leg (Alice) from App to Communication Services servers x 10 minutes x $0.004 per participant leg per minute = $0.04
-- 1 participant on the Communication Services direct routing outbound leg (Bob) from Communication Services servers to an SBC x 10 minutes x $0.004 per participant leg per minute = $0.04.
+- One participant on the VoIP leg (Alice) from App to Communication Services servers x 10 minutes x $0.004 per participant leg per minute = $0.04
+- One participant on the Communication Services direct routing outbound leg (Bob) from Communication Services servers to an SBC x 10 minutes x $0.004 per participant leg per minute = $0.04.
 
 **Total cost for the call**: $0.04 + $0.04 = $0.08
 
@@ -79,8 +79,8 @@ Alice and Bob are on a VOIP Call. Bob escalated the call to Charlie on Charlie's
 
 **Cost calculations**
 
-- 2 participants on the VoIP leg (Alice and Bob) from App to Communication Services servers x 20 minutes x $0.004 per participant leg per minute = $0.16
-- 1 participant on the PSTN outbound leg (Charlie) from Communication Services servers to US Telephone number x 10 minutes x $0.013 per participant leg per minute = $0.13
+- Two participants on the VoIP leg (Alice and Bob) from App to Communication Services servers x 20 minutes x $0.004 per participant leg per minute = $0.16
+- One participant on the PSTN outbound leg (Charlie) from Communication Services servers to US Telephone number x 10 minutes x $0.013 per participant leg per minute = $0.13
 
 Note: USA mixed rates to `+1-425` is $0.013. Refer to the following link for details: https://github.com/Azure/Communication/blob/master/pricing/communication-services-pstn-rates.csv)
 
@@ -99,11 +99,11 @@ Alice is a doctor meeting with her patient, Bob. Alice will be joining the visit
 
 **Cost calculations**
 
-- 1 Participant (Bob) connected to Teams lobby x 1 minute x $0.004 per participant per minute (lobby charged at regular rate of meetings) = $0.004
-- 1 participant (Bob) x 29 minutes x $0.004 per participant per minute = $0.116 [both video and audio are charged at the same rate]
-- 1 participant (Alice) x 30 minutes x $0.000 per participant per minute = $0.0*.
-- 1 participant (Bob) x 3 chat messages x $0.0008 = $0.0024.
-- 1 participant (Alice) x 5 chat messages x $0.000  = $0.0*.
+- One Participant (Bob) connected to Teams lobby x 1 minute x $0.004 per participant per minute (lobby charged at regular rate of meetings) = $0.004
+- One participant (Bob) x 29 minutes x $0.004 per participant per minute = $0.116 [both video and audio are charged at the same rate]
+- One participant (Alice) x 30 minutes x $0.000 per participant per minute = $0.0*.
+- One participant (Bob) x 3 chat messages x $0.0008 = $0.0024.
+- One participant (Alice) x 5 chat messages x $0.000  = $0.0*.
 
 *Alice's participation is covered by her Teams license. Your Azure invoice will show the minutes and chat messages that Teams users had with Communication Services Users for your convenience, but those minutes and messages originating from the Teams client won't be charged.
 
@@ -123,9 +123,9 @@ Alice has ordered a product from Contoso and struggles to set it up. Alice calls
 
 **Cost calculations**
 
-- 1 Participant (Alice) called the phone number associated with Teams user Bob using Teams Calling plan x 25 minutes deducted from Bob's tenant Teams minute pool
-- 1 participant (Bob) x 30 minutes x $0.004 per participant per minute = $0.12 [both video and audio are charged at the same rate]
-- 1 participant (Charlie) x 25 minutes x $0.000 per participant per minute = $0.0*.
+- One Participant (Alice) called the phone number associated with Teams user Bob using Teams Calling plan x 25 minutes deducted from Bob's tenant Teams minute pool
+- One participant (Bob) x 30 minutes x $0.004 per participant per minute = $0.12 [both video and audio are charged at the same rate]
+- One participant (Charlie) x 25 minutes x $0.000 per participant per minute = $0.0*.
 
 *Charlie's participation is covered by her Teams license.
 
