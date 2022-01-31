@@ -57,6 +57,8 @@ landingContent:
             url: ingress.md
           - text: Connect multiple apps
             url: connect-apps.md
+          - text: Use a custom VNET 
+            url: vnet-custom.md
   - title: Apps and microservices
     linkLists:
       - linkListType: tutorial

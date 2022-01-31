@@ -75,7 +75,7 @@ The free certificate comes with the following limitations:
 - All the above must be met for successful certificate issuances and renewals
 
 # [Subdomain](#tab/subdomain)
-- Must have CNAME mapped _directly_ to <app-name>.azurewebsites.net; using services that proxy the CNAME value will block certificate issuance and renewal
+- Must have CNAME mapped _directly_ to \<app-name\>.azurewebsites.net; using services that proxy the CNAME value will block certificate issuance and renewal
 - All the above must be met for successful certificate issuance and renewals
 
 -----
