@@ -7,7 +7,7 @@ ms.author: nehsin
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 09/29/2020
+ms.date: 01/31/2022
 ms.custom: [mqtt, 'Role: Cloud Development']
 ---
 
