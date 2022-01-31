@@ -38,7 +38,7 @@ Alice made a group call with her colleagues, Bob, and Charlie. Alice and Bob use
 **Total cost for the group call**: $0.48 + $0.172 = $0.652
 
 
-### Pricing example: Outbound Call from app using JS SDK to a PSTN number
+### Pricing example: Outbound Call from app using JS SDK to a PSTN (Public Switched Telephony Network) number
 
 Alice makes a PSTN Call from an app to Bob on his US phone number beginning with `+1-425`.
 
@@ -190,7 +190,7 @@ Rose sees the messages and starts chatting. In the meanwhile Casey gets a call a
 - Number of messages sent (20 + 30 + 18 + 30 + 25 + 35) x $0.0008 = $0.1264
 
 
-## SMS and Telephony
+## SMS (Short Messaging Service) and Telephony
 
 Please refer to the following links for details on SMSand Telephony pricing
 
