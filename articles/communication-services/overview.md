@@ -17,9 +17,9 @@ Azure Communication Services are cloud-based services with REST APIs and client 
 
 Azure Communication Services supports various communication formats:
 
-1. [Voice and Video Calling](concepts/voice-video-calling/calling-sdk-features.md)
-1. [Rich Text Chat](concepts/chat/concepts.md)
-1. [SMS](concepts/sms/concepts.md)
+- [Voice and Video Calling](concepts/voice-video-calling/calling-sdk-features.md)
+- [Rich Text Chat](concepts/chat/concepts.md)
+- [SMS](concepts/sms/concepts.md)
 
 You can connect custom client apps, custom services, and the publicly switched telephony network (PSTN) to your communications experience. You can acquire [phone numbers](./concepts/telephony/plan-solution.md) directly through Azure Communication Services REST APIs, SDKs, or the Azure portal; and use these numbers for SMS or calling applications. Azure Communication Services [direct routing](./concepts/telephony/plan-solution.md) allows you to use SIP and session border controllers to connect your own PSTN carriers and bring your own phone numbers.
 
