@@ -19,8 +19,7 @@ The SQL Assessment feature of the Azure portal identifies possible performance i
 The SQL Assessment feature is currently in preview.
 
 To learn more, watch this video on [SQL Assessment](/shows/Data-Exposed/?WT.mc_id=dataexposed-c9-niner):
-<iframe src="https://aka.ms/docs/player?id=13b2bf63-485c-4ec2-ab14-a1217734ad9f" width="640" height="360" style="border: 0; max-width: 100%; min-width: 100%;"></iframe>
-
+<iframe src="https://aka.ms/docs/player?id=13b2bf63-485c-4ec2-ab14-a1217734ad9f" width="1200" height="690" style="border: 0; max-width: 100%; min-width: 100%;"></iframe>
 
 ## Overview
 
