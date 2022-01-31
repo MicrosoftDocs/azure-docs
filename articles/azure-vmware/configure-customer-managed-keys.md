@@ -2,7 +2,7 @@
 title: Configure customer-managed key encryption at rest in Azure VMware Solution
 description: Learn how to encrypt data in Azure VMware Solution with customer-managed keys using Azure Key Vault.
 ms.topic: how-to 
-ms.date: 12/17/2021
+ms.date: 1/31/2022
 
 ---
 
