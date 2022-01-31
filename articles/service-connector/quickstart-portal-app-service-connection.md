@@ -3,7 +3,7 @@ title: Quickstart - Create a service connection in App Service from Azure portal
 description: Quickstart showing how to create a service connection in App Service from Azure portal
 author: shizn
 ms.author: xshi
-ms.service: serviceconnector
+ms.service: service-connector
 ms.topic: overview
 ms.date: 10/29/2021
 ms.custom: ignite-fall-2021
