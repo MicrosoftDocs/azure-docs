@@ -49,6 +49,10 @@ Copy the fetched **ConnectionString** and it will be used later in this tutorial
 
 * [ASP.NET Core 3.1 or above](/aspnet/core)
 
+# [C# .NET 6](#tab/net6)
+
+* [ASP.NET Core 6](/aspnet/core)
+
 # [JavaScript](#tab/javascript)
 
 * [Node.js 12.x or above](https://nodejs.org)
@@ -102,10 +106,9 @@ First let's create an empty ASP.NET Core app.
 
     ```html
     <html>
-    <body>
-      <h1>Azure Web PubSub Chat</h1>
-    </body>
-
+      <body>
+        <h1>Azure Web PubSub Chat</h1>
+      </body>
     </html>
     ```
 
@@ -175,6 +178,138 @@ You may remember in the [publish and subscribe message tutorial](./tutorial-pub-
     You can test this API by running `dotnet run --urls http://localhost:8080` and accessing `http://localhost:8080/negotiate?id=<user-id>` and it will give you the full url of the Azure Web PubSub with an access token.
 
 4.  Then update `index.html` to include the following script to get the token from server and connect to service.
+ 
+    ```html
+    <html>
+      <body>
+        <h1>Azure Web PubSub Chat</h1>
+      </body>
+  
+      <script>
+        (async function () {
+          let id = prompt('Please input your user name');
+          let res = await fetch(`/negotiate?id=${id}`);
+          let url = await res.text();
+          let ws = new WebSocket(url);
+          ws.onopen = () => console.log('connected');
+        })();
+      </script>
+    </html>
+    ```
+
+    If you are using Chrome, you can test it by opening the home page, input your user name. Press F12 to open the Developer Tools window, switch to **Console** table and you'll see `connected` being printed in browser console.
+
+# [C# .NET 6](#tab/net6)
+We'll use [ASP.NET Core 6](/aspnet/core) to host the web pages and handle incoming requests.
+
+First let's create an empty ASP.NET Core app.
+
+1.  Create web app
+
+    ```bash
+    dotnet new web
+    dotnet add package Microsoft.Azure.WebPubSub.AspNetCore --version 1.0.0-beta.3
+    ```
+2.  Remove the default `app.MapGet("/", () => "Hello World!");` in `Program.cs` and by replacing it by the following code snippet.
+
+    ``` csharp
+    if (app.Environment.IsDevelopment())
+    {
+        app.UseDeveloperExceptionPage();
+    }
+
+    app.UseDefaultFiles();
+    app.UseStaticFiles();
+    app.UseRouting();
+
+    app.UseEndpoints(endpoints =>
+    {
+    });
+    ```
+
+3.  Also create an HTML file and save it as `wwwroot/index.html`, we'll use it for the UI of the chat app later.
+
+    ```html
+    <html>
+      <body>
+        <h1>Azure Web PubSub Chat</h1>
+      </body>
+    </html>
+    ```
+You can test the server by running `dotnet run --urls http://localhost:8080` and access http://localhost:8080/index.html in browser.
+
+You may remember in the [publish and subscribe message tutorial](./tutorial-pub-sub-messages.md) the subscriber uses an API in Web PubSub SDK to generate an access token from connection string and use it to connect to the service. This is usually not safe in a real world application as connection string has high privilege to do any operation to the service so you don't want to share it with any client. Let's change this access token generation process to a REST API at server side, so client can call this API to request an access token every time it needs to connect, without need to hold the connection string.
+
+1.  Install dependencies.
+
+    ```bash
+    dotnet add package Microsoft.Extensions.Azure
+    ```
+
+2.  Create a file `SampleChatHub.cs` for the `SampleChatHub` class to handle hub events with the following content.
+
+  ```csharp
+    using Microsoft.Azure.WebPubSub.AspNetCore;
+
+    sealed class SampleChatHub : WebPubSubHub
+    {
+    }
+    ```
+
+3. Then update the `Program.cs` file to add DI for the service middleware and service client inside. Don't forget to replace `<connection_string>` with the one of your services. 
+
+    ```csharp
+      using Microsoft.Azure.WebPubSub.AspNetCore;
+
+      var builder = WebApplication.CreateBuilder(args);
+
+      builder.Services.AddWebPubSub(
+          o => o.ServiceEndpoint = new ServiceEndpoint("<connection_string>"))
+          .AddWebPubSubServiceClient<SampleChatHub>();
+
+      var app = builder.Build();
+
+      if (app.Environment.IsDevelopment())
+      {
+          app.UseDeveloperExceptionPage();
+      }
+
+      app.UseDefaultFiles();
+      app.UseStaticFiles();
+      app.UseRouting();
+
+      app.UseEndpoints(endpoints =>
+      {
+      });
+
+      app.Run();    
+    ```
+
+    `AddWebPubSubServiceClient<THub>()` is used to inject the service client `WebPubSubServiceClient<THub>`, with which we can use in negotiation step to generate client connection token and in hub methods to invoke service REST APIs when hub events are triggered.
+
+4.  Add a `/negotiate` API to the server inside `app.UseEndpoints` to generate the token.
+
+    ```csharp
+    app.UseEndpoints(endpoints =>
+    {    
+      endpoints.MapGet("/negotiate", async  (WebPubSubServiceClient<SampleChatHub> serviceClient, HttpContext context) =>
+      {
+          var id = context.Request.Query["id"];
+          if (id.Count != 1)
+          {
+              context.Response.StatusCode = 400;
+              await context.Response.WriteAsync("missing user id");
+              return;
+          }
+          await context.Response.WriteAsync(serviceClient.GetClientAccessUri(userId: id).AbsoluteUri);
+      });
+    });
+    ```
+    This token generation code is similar to the one we used in the [publish and subscribe message tutorial](./tutorial-pub-sub-messages.md), except we pass one more argument (`userId`) when generating the token. User ID can be used to identify the identity of client so when you receive a message you know where the message is coming from.
+
+    You can test this API by running `dotnet run --urls http://localhost:8080` and accessing `http://localhost:8080/negotiate?id=<user-id>` and it will give you the full url of the Azure Web PubSub with an access token.
+
+5.  Then update `index.html` to include the following script to get the token from server and connect to service.
  
     ```html
     <html>
@@ -519,6 +654,52 @@ Here we're using Web PubSub middleware SDK, there is already an implementation t
 
 In the above code, we use the service client to broadcast a notification message to all of whom is joined.
 
+# [C# .NET 6](#tab/net6)
+Here we're using Web PubSub middleware SDK, there is already an implementation to parse and process CloudEvents schema, so we don't need to deal with these details. Instead, we can focus on the inner business logic in the hub methods. 
+
+1. Add event handlers inside `UseEndpoints`. Specify the endpoint path for the events, let's say `/eventhandler`. 
+    ```csharp
+    app.UseEndpoints(endpoints =>
+    {
+        endpoints.MapGet("/negotiate", async  (WebPubSubServiceClient<SampleChatHub> serviceClient, HttpContext context) =>
+        {
+            var id = context.Request.Query["id"];
+            if (id.Count != 1)
+            {
+                context.Response.StatusCode = 400;
+                await context.Response.WriteAsync("missing user id");
+                return;
+            }
+            await context.Response.WriteAsync(serviceClient.GetClientAccessUri(userId: id).AbsoluteUri);
+        });
+
+        endpoints.MapWebPubSubHub<SampleChatHub>("/eventhandler/{*path}");
+    });
+    ```
+
+2. Go the `SampleChatHub` we created in previous step. Add a constructor to work with `WebPubSubServiceClient<SampleChatHub>` so we can use to invoke service. And override `OnConnectedAsync()` method to respond when `connected` event is triggered.
+    ```csharp
+    using Microsoft.Azure.WebPubSub.AspNetCore;
+    using Microsoft.Azure.WebPubSub.Common;
+
+    sealed class SampleChatHub : WebPubSubHub
+    {
+        private readonly WebPubSubServiceClient<SampleChatHub> _serviceClient;
+
+        public SampleChatHub(WebPubSubServiceClient<SampleChatHub> serviceClient)
+        {
+            _serviceClient = serviceClient;
+        }
+
+        public override async Task OnConnectedAsync(ConnectedEventRequest request)
+        {
+            await _serviceClient.SendToAllAsync($"[SYSTEM] {request.ConnectionContext.UserId} joined.");
+        }
+    }
+    ```
+
+In the above code, we use the service client to broadcast a notification message to all of whom is joined.
+
 # [JavaScript](#tab/javascript)
 
 If you use Web PubSub SDK, there is already an implementation to parse and process CloudEvents schema so you don't need to deal with these details.
@@ -690,6 +871,76 @@ Implement the `OnMessageReceivedAsync()` method in `SampleChatHub`.
 Now run the server using `dotnet run --urls http://localhost:8080` and open multiple browser instances to access http://localhost:8080/index.html, then you can chat with each other.
 
 The complete code sample of this tutorial can be found [here][code-csharp].
+
+# [C# NET 6](#tab/csharp)
+1. Handle message event.
+
+    ```csharp
+    sealed class SampleChatHub : WebPubSubHub
+    {
+        private readonly WebPubSubServiceClient<SampleChatHub> _serviceClient;
+
+        public SampleChatHub(WebPubSubServiceClient<SampleChatHub> serviceClient)
+        {
+            _serviceClient = serviceClient;
+        }
+
+        public override async Task OnConnectedAsync(ConnectedEventRequest request)
+        {
+            await _serviceClient.SendToAllAsync($"[SYSTEM] {request.ConnectionContext.UserId} joined.");
+        }
+
+        public override async ValueTask<UserEventResponse> OnMessageReceivedAsync(UserEventRequest request, CancellationToken cancellationToken)
+        {
+            await _serviceClient.SendToAllAsync($"[{request.ConnectionContext.UserId}] {request.Data}");
+
+            return request.CreateResponse($"[SYSTEM] ack.");
+        }
+    }
+    ```
+
+    This event handler uses `WebPubSubServiceClient.SendToAllAsync()` to broadcast the received message to all clients. You can see in the end we returned `UserEventResponse`, which contains a message directly to the caller and make the WebHook request success. If you have extra logic to validate and would like to break this call, you can throw an exception here. The middleware will deliver the exception message to service and service will drop current client connection.
+
+2.  Update `index.html` to add the logic to send message from user to server and display received messages in the page.
+
+    ```html
+    <html>
+
+    <body>
+      <h1>Azure Web PubSub Chat</h1>
+      <input id="message" placeholder="Type to chat...">
+      <div id="messages"></div>
+      <script>
+        (async function () {
+          let id = prompt('Please input your user name');
+          let res = await fetch(`/negotiate?id=${id}`);
+          let url = await res.text();
+          let ws = new WebSocket(url);
+          ws.onopen = () => console.log('connected');
+
+          let messages = document.querySelector('#messages');
+          ws.onmessage = event => {
+            let m = document.createElement('p');
+            m.innerText = event.data;
+            messages.appendChild(m);
+          };
+
+          let message = document.querySelector('#message');
+          message.addEventListener('keypress', e => {
+            if (e.charCode !== 13) return;
+            ws.send(message.value);
+            message.value = '';
+          });
+        })();
+      </script>
+    </body>
+
+    </html>
+    ```
+
+    You can see in the above code we use `WebSocket.send()` to send message and `WebSocket.onmessage` to listen to message from service.
+
+Now run the server using `dotnet run --urls http://localhost:8080` and open multiple browser instances to access http://localhost:8080/index.html, then you can chat with each other.
 
 # [JavaScript](#tab/javascript)
 
