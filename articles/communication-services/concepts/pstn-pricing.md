@@ -13,12 +13,11 @@ ms.service: azure-communication-services
 > [!IMPORTANT]
 > Number Retention and Portability: Phone numbers that are assigned to you during any preview program will be returned to Microsoft at the end of the preview program unless otherwise agreed by Microsoft.  During private preview and public preview, telephone numbers are not eligible for porting. [Details on offers in Public Preview / GA](../concepts/numbers/sub-eligibility-number-capability.md)
 
-Numbers are billed on a per month basis, and pricing differs based on the type of a number and the source (country) of the number. Once a number is purchased, Customers can make / receive calls using that number and are billed on a per minute basis. PSTN call pricing is based on the location in which a call is terminated (destination).
+Numbers are billed on a per month basis, and pricing differs based on the type of a number and the source (country) of the number. Once a number is purchased, Customers can make / receive calls using that number and are billed on a per minute basis. PSTN call pricing is based on the type of number and location in which a call is terminated (destination), with few scenarios having rates based on origination location.
 
-In most cases, only customers with Azure subscriptions that match the offer location will be able to buy a number. Please see here for details on [in-country and cross-country purchases](../concepts/numbers/sub-eligibility-number-capability.md).
+In most cases, customers with Azure subscriptions locations that match the country of the Number offer will be able to buy the Number. However, US and UK numbers may be purchased by customers with Azure subscription locations in other countries. Please see here for details on [in-country and cross-country purchases](../concepts/numbers/sub-eligibility-number-capability.md).
 
 All prices shown below are in USD.
-
 
 ## United States Telephony Offers
 
