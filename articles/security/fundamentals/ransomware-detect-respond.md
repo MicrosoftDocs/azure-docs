@@ -24,7 +24,7 @@ Ensure rapid detection and remediation of common attacks on VMs, SQL Servers, We
 
 - **Prioritize Common Entry Points** – Ransomware (and other) operators favor Endpoint/Email/Identity + Remote Desktop Protocol (RDP)
   - **Integrated XDR** - Use integrated Extended Detection and Response (XDR) tools like Microsoft [Defender for Cloud](https://azure.microsoft.com/services/azure-defender/) to provide high quality alerts and minimize friction and manual steps during response
-  - **Brute Force** - Monitor for brute-force attempts like [password spray](../../defender-for-identity/compromised-credentials-alerts.md)
+  - **Brute Force** - Monitor for brute-force attempts like [password spray](/defender-for-identity/compromised-credentials-alerts)
 - **Monitor for Adversary Disabling Security** – as this is often part of Human Operated Ransomware (HumOR) attack chain
   - **Event Logs Clearing** – especially the Security Event log and PowerShell Operational logs
   - **Disabling of security tools/controls** (associated with some groups)
