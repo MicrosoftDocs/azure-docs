@@ -193,18 +193,30 @@
       href: harden-docker-hosts.md
   - name: Protect your databases
     items:
-    - name: Overview of Defender for SQL
-      displayName: database
-      href: defender-for-sql-introduction.md
-    - name: Enable Defender for SQL servers on machines
-      href: defender-for-sql-usage.md
-      displayName: hybrid, arc, Azure Defender
-    - name: Overview of Defender for open-source relational databases
-      displayName: PG, PostgreSQL, MySQL, MariaDB, Azure Defender, OS RDBs, OSRDB
-      href: defender-for-databases-introduction.md
-    - name: Enable Defender for OSS RDBs and respond to alerts
-      displayName: PG, PostgreSQL, MySQL, MariaDB, open-source relational databases, Azure Defender, OS RDBs, OSRDB
-      href: defender-for-databases-usage.md
+    - name: Defender for Azure SQL database
+      items: 
+      - name: Overview of Defender for SQL
+        displayName: database
+        href: defender-for-sql-introduction.md
+      - name: Enable Defender for SQL servers on machines
+        href: defender-for-sql-usage.md
+        displayName: hybrid, arc, Azure Defender
+    - name: Defender for open-source relational databases
+      items: 
+      - name: Overview of Defender for open-source relational databases
+        displayName: PG, PostgreSQL, MySQL, MariaDB, Azure Defender, OS RDBs, OSRDB
+        href: defender-for-databases-introduction.md
+      - name: Enable Defender for OSS RDBs and respond to alerts
+        displayName: PG, PostgreSQL, MySQL, MariaDB, open-source relational databases, Azure Defender, OS RDBs, OSRDB
+        href: defender-for-databases-usage.md
+    - name: Defender for Cosmos DB (Preview)
+      items: 
+      - name: Defender for Cosmos DB overview
+        href: concept-defender-for-cosmos.md
+      - name: Enable Defender for Cosmos
+        href:
+      - name: Manage Defender for Cosmos alerts
+        href: 
     - name: Scan your SQL resources for vulnerabilities
       href: defender-for-sql-on-machines-vulnerability-assessment.md
       displayName: hybrid, arc, Azure Defender, VA, registry, vulnerabilities
