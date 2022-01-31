@@ -11,14 +11,14 @@ ms.date: 01/28/2022
 
 # Considerations for naming Azure resources
 
-You should not include sensitive or restricted information in Azure resource names because it may be stored or accessed outside the compliance boundary to facilitate support and troubleshooting. Examples of sensitive information include data subject to:
+You shouldn't include sensitive or restricted information in Azure resource names because it may be stored or accessed outside the compliance boundary to facilitate support and troubleshooting. Examples of sensitive information include data subject to:
 
 - [Export control laws](./documentation-government-overview-itar.md)
 - [DoD Impact Level 5 isolation requirements](./documentation-government-impact-level-5.md)
 - [Controlled Unclassified Information](/azure/compliance/offerings/offering-nist-800-171) (CUI) that warrants extra protection or is subject to NOFORN marking
 - And others
 
-Data stored or processed in customer VMs, storage accounts, databases, Azure Import/Export, Azure Cache for Redis, ExpressRoute, Azure Cognitive Search, App Service, API Management, and other Azure services suitable for holding, processing, or transmitting customer data can contain sensitive data. However, metadata for these Azure services is not permitted to contain sensitive or restricted data. This metadata includes all configuration data entered when creating and maintaining an Azure service, including:
+Data stored or processed in customer VMs, storage accounts, databases, Azure Import/Export, Azure Cache for Redis, ExpressRoute, Azure Cognitive Search, App Service, API Management, and other Azure services suitable for holding, processing, or transmitting customer data can contain sensitive data. However, metadata for these Azure services isn't permitted to contain sensitive or restricted data. This metadata includes all configuration data entered when creating and maintaining an Azure service, including:
 
 - Subscription names, service names, server names, database names, tenant role names, resource groups, deployment names, resource names, resource tags, circuit name, and so on.
 - All shipping information that is used to transport media for Azure Import/Export, such as carrier name, tracking number, description, return information, drive list, package list, storage account name, container name, and so on.
@@ -43,7 +43,7 @@ An example of a virtual machine resource ID is:
 
 ## Naming considerations
 
-You should avoid names that are sensitive to business or mission functions. This guidance applies to all names that meet the criteria above, from the name of the larger resource group to the name of the end resources within it. You should also avoid names that indicate your regulatory requirements, for example:
+You should avoid names that are sensitive to business or mission functions. This guidance applies to all names that meet the criteria mentioned previously, from the name of the larger resource group to the name of the end resources within it. You should also avoid names that indicate your regulatory requirements, for example:
 
 - [Criminal Justice Information Services (CJIS)](/azure/compliance/offerings/offering-cjis)
 - [Committee on National Security Systems Instruction No. 1253 (CNSSI 1253)](/azure/compliance/offerings/offering-cnssi-1253)
