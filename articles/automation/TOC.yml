@@ -2,9 +2,9 @@
   href: index.yml
 - name: Overview
   items:
-  - name: What is Automation?
+  - name: What is Azure Automation?
     href: overview.md
-  - name: What are Automation services?
+  - name: What are Azure Automation services?
     href: automation-services.md
   - name: FAQ
     href: automation-faq.md

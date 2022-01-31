@@ -7,9 +7,9 @@ ms.date: 10/25/2021
 ms.topic: overview
 ---
 
-# Automation services
+# Azure Automation services
 
- This article  explains various automation services offered in the Azure portfolio. 
+ This article explains various automation services offered in the Azure portfolio. 
 All of these services can automate business and operational  processes and can solve integration problems amongst various services, system, and processes. They can all define input, action or activity to be performed, conditions, error handling, and output generation. You can run them on a schedule or trigger or do a manual demand-based execution. Each service has its unique advantages and target audience.
 Using these services, you can shift effort from manually performing operational tasks towards building automation for these tasks. In doing so, you achieve so much, including:
 
@@ -18,9 +18,12 @@ Using these services, you can shift effort from manually performing operational 
 - Increased human capacity for further innovation.
 - Standardize operations
 
-Automation is mainly required in 3 broad categories of operations **Deployment & management of resources** – Many services can be created and configured programmatically using automation or infrastructure as code tooling to deliver repeatable and consistent deployment and management of cloud resources. For example, an Azure Network Security Group can be deployed, and security group rules created using an Azure Resource Manager template. Or using an automation script.
+Automation is mainly required in 3 broad categories of operations:
+
+**Deployment & management of resources** – Many services can be created and configured programmatically using automation or infrastructure as code tooling to deliver repeatable and consistent deployment and management of cloud resources. For example, an Azure Network Security Group can be deployed, and security group rules created using an Azure Resource Manager template. Or using an automation script.
 
 - **Responding to external events** – to diagnose and resolve issues on the basis of critical external event like responding to database changes, taking action on the basis of inputs given to a web page etc.
+
 - **Complex Orchestration** – Integration with 1st or 3rd party products to define end to end automation workflows.
 
 There are multiple Azure services that can fulfill the above requirements. Each service has its own pros and cons and customers can use multiple services together to meet their automation requirements.
@@ -33,27 +36,31 @@ There are multiple Azure services that can fulfill the above requirements. Each 
 
 ## What are these services
 
-### Infrastructure as code
+### Deploy and Manage
 
-- **ARM/BICEP** –  a domain-specific language (DSL) that uses declarative syntax to deploy Azure resources [Learn more](/azure/azure-resource-manager/bicep/overview?tabs=bicep).
-
-- **Azure Automation** – Orchestrates repetitive processes using graphical, PowerShell, and Python runbooks in the cloud or hybrid environment . Provides persistent shared assets including variables, connections, objects, which allows orchestration of complex jobs [Learn more](/azure/automation/automation-runbook-gallery).
-
-### Automation
-
-#### Azure Automation based in-guest management
-
-- **Configuration Management** – allows you to write, manage, and compile PowerShell Desired State Configuration (DSC) configurations for nodes in any cloud or on-premises datacenter. [Learn more](/azure/automation/automation-dsc-overview).
-
-- **Update Management** – allows you to manage operating system updates for your Windows and Linux virtual machines in Azure, physical or VMs in on-premises environments, and in other cloud environments. [Learn more](/azure/automation/update-management/overview).
+**Services** | **Description** | **Features** | **Audience**
+--- | --- |--- | --- |
+**BICEP** | A domain-specific language (DSL) that uses declarative syntax to deploy Azure resources [Learn more](/azure/azure-resource-manager/bicep/overview?tabs=bicep). |
+**Azure Automation** | Orchestrates repetitive processes using graphical, PowerShell, and Python runbooks in the cloud or hybrid environment. </br></br> Provides persistent shared assets including variables, connections, objects, which allows orchestration of complex jobs [Learn more](/azure/automation/automation-runbook-gallery). | You can schedule tasks for example – Stop dev/test VMs or services at night and turn on during day. </br></br> You can respond to alerts such as system alerts, service alerts, high CPU/memory alerts, create ServiceNow tickets, etc. </br></br> Hybrid automation where you can manage, automate on-premises servers like SQL server, Active Directory etc. </br></br> Azure resource life-cycle management and governance which includes Resource provisioning, deprovisioning, adding correct tags, locks, NSGs etc. | IT admins, System admins, IT operations admins who are skilled at using PowerShell or Python based scripting. </br></br> Infrastructure Admins managing on-prem infrastructure using scripts or executing long running jobs like month-end operations on servers running on-prem. |
+|**Automanage** | A service that eliminates the need to discover, know how to onboard, and how to configure certain services in Azure that would benefit your virtual machine. [Learn more](/azure/automanage/automanage-virtual-machines#overview). |Replaces repetitive, day-to-day operational tasks with an exception-only management model, where a healthy, steady state of VM is equal to hands free management. </br></br> It supports Windows and Linux operating systems. </br></br> Provides VM best practices template for Dev/Test and Production workload. </br></br>It has a point and click onboarding portal experience. | The IT Admins/Infra Admins/IT Operations Admins who are responsible for managing server workload, day to day admin tasks like backup, disaster recovery, security updates, responding to security threats, etc. across Azure and on-premise. </br></br> Developers who do not wish to manage servers or spend the time on less priority tasks.
 
 
-#### Azure Policy based in guest configuration
+### Respond
 
-- **Azure Automation State Configuration** – allows you to create, import and compile configurations, enable machines to manage, and view reports. [Learn more](/azure/automation/automation-dsc-getting-started).
+**Services** | **Description** | **Features** | **Audience**
+--- | --- |--- | --- |
+  **Configuration Management** | Allows you to write, manage, and compile PowerShell Desired State Configuration (DSC) configurations for nodes in any cloud or on-premises datacenter. [Learn more](/azure/automation/automation-dsc-overview).| You can collect inventory & track changes in your environment. </br></br> By configuring the desired state of your machines, you can discover and correct configuration drift. |
+  **Update Management** | Allows you to manage operating system updates for your Windows and Linux virtual machines in Azure, physical or VMs in on-premises environments, and in other cloud environments. [Learn more](/azure/automation/update-management/overview). | You can assess the compliance of servers and schedule the update installation. </br></br> You can know what is installed in your servers, detect and configure alerts on software services, file and registry changes on your various machines. </br></br> You can assess and install updates on your servers. </br></br> To stay compliant, you can configure the desired state of your servers.|
+ **Azure Automation State Configuration** | Allows you to create, import and compile configurations, enable machines to manage, and view reports. [Learn more](/azure/automation/automation-dsc-getting-started).|
+ **Azure Policy** | | You can apply policies for the audit settings inside servers including the machines running in Azure and Arc connected machines. </br></br>You can check for the harmful apps, protocols, and the installed applications – the certificates, admin privileges, health of agents and so on.</br></br>You can set Windows server as per Group policy baseline. | The Central IT/Infrastructure Admins/Auditors (Cloud custodian) who are working towards the regulatory requirements at scale,and ensure that end state of servers looks as desired. </br></br> The application teams validating compliance before releasing change.|
+ **Azure Functions**  |  |Deliver event based automation where you can compute on demand to react to critical events. </br></br> Language choice so that you can write functions in a language of your choice such as C#, Java, JavaScript, PowerShell, or Python and focus on specific piece of code. </br></br> Orchestrate complex workflows through durable functions. </br></br> Set scheduled tasks such as set a pattern to stop and start a VM at a specific time, read blob storage content at regular intervals etc. </br></br> Process Azure alerts – you can send team’s event when the CPU activity spikes to 90%. | The Application Developers who are skilled in coding languages like C#, F#, PHP, Java, JavaScript, PowerShell, or Python. </br></br> Cloud Architects who build serverless Micro-services based applications.  
 
-- **Azure Logic Apps** – cloud-based platform for creating and running automated workflows that integrate your apps, data, services, and systems. [Learn more](/azure/logic-apps/logic-apps-overview).
 
-### Azure Automanage
+### Orchestrate
 
-- **Azure Automanage** – a service that eliminates the need to discover, know how to onboard, and how to configure certain services in Azure that would benefit your virtual machine. [Learn more](/azure/automanage/automanage-virtual-machines#overview).
+**Services** | **Description** | **Features** | **Audience**
+--- | --- |--- | --- |
+**Azure Logic Apps** | A cloud-based platform for creating and running automated workflows that integrate your apps, data, services, and systems. [Learn more](/azure/logic-apps/logic-apps-overview).| Build "Smart" Integrations between 1st party and 3rd party apps, services, and systems running across on-premises, hybrid, and cloud native. </br></br> Use managed connectors from a 450+ and growing Azure connectors ecosystem to use in your workflows. </br></br> Provide first-class support for enterprise integration and B2B scenarios.</br></br> Visually create and edit workflows with low Code/no code approach | The Pro integrators and developers, IT professionals who would want to use low code/no code option for Advanced integration scenarios to external systems or APIs.| 
+
+
+
