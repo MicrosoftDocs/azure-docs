@@ -22,7 +22,7 @@ This article assumes that you have an Azure account and Speech service subscript
 > [!IMPORTANT]
 > Microsoft limits access to speaker recognition. Apply to use it through the [Azure Cognitive Services Speaker Recognition Limited Access Review](https://aka.ms/azure-speaker-recognition) form. After approval, you can access the Speaker Recognition APIs.
 
-## Install the Speech SDK
+### Install the Speech SDK
 
 Before you start, you must install the Speech SDK. Depending on your platform, use the following instructions:
 
@@ -32,7 +32,7 @@ Before you start, you must install the Speech SDK. Depending on your platform, u
 * <a href="/azure/cognitive-services/speech-service/quickstarts/setup-platform?pivots=programming-language-csharp&tabs=uwps" target="_blank">UWP </a>
 * <a href="/azure/cognitive-services/speech-service/quickstarts/setup-platform?pivots=programming-language-csharp&tabs=xaml" target="_blank">Xamarin </a>
 
-## Import dependencies
+### Import dependencies
 
 To run the examples in this article, include the following `using` statements at the top of your script:
 
@@ -46,7 +46,7 @@ using Microsoft.CognitiveServices.Speech.Audio;
 
 ## Create a speech configuration
 
-To call the Speech service by using the Speech SDK, you need to create a [`SpeechConfig`](/dotnet/api/microsoft.cognitiveservices.speech.speechconfig). In this example, you create a [`SpeechConfig`](/dotnet/api/microsoft.cognitiveservices.speech.speechconfig) by using a subscription key and region. You also create some basic boilerplate code to use for the rest of this article, which you modify for different customizations.
+To call the Speech service by using the Speech SDK, you need to create a [`SpeechConfig`](/dotnet/api/microsoft.cognitiveservices.speech.speechconfig) instance. In this example, you create a `SpeechConfig` instance by using a subscription key and region. You also create some basic boilerplate code to use for the rest of this article, which you modify for different customizations.
 
 ```csharp
 public class Program 
