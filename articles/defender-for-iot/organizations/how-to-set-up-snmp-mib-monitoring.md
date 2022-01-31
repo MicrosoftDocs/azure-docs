@@ -44,6 +44,7 @@ Note that:
 4. In **Authentication** section, select the SNMP version.
     - If you select V2, type the string in **SNMP v2 Community String**. You can enter up to 32 characters, and include any combination of alphanumeric characters (uppercase letters, lowercase letters, and numbers). Spaces aren't allowed.
     - If you select V3, specify the following:
+    
         | Parameter | Description |
         |--|--|
         | **Username** | The SNMP username can contain up to 32 characters and include any combination of alphanumeric characters (uppercase letters, lowercase letters, and numbers). Spaces are not allowed. <br /> <br />The username for the SNMP v3 authentication must be configured on the system and on the SNMP server. |
@@ -51,6 +52,7 @@ Note that:
         | **Auth Type** | Select MD5 or SHA. |
         | **Encryption** | Select DES or AES. |
         | **Secret Key** | The key must contain exactly eight characters and include any combination of alphanumeric characters (uppercase letters, lowercase letters, and numbers). |
+
 5. Select **Save**.
 
 ## See also
