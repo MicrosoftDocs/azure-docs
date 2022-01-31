@@ -296,7 +296,7 @@ namespace CosmosDBSamplesV2
 {
     public class ToDoItem
     {
-        public string Id { get; set; }
+        public string id { get; set; }
         public string Description { get; set; }
     }
 }
@@ -395,7 +395,7 @@ namespace CosmosDBSamplesV2
 {
     public class ToDoItem
     {
-        public string Id { get; set; }
+        public string id { get; set; }
         public string Description { get; set; }
     }
 }
@@ -434,7 +434,7 @@ namespace CosmosDBSamplesV2
 {
     public class ToDoItem
     {
-        public string Id { get; set; }
+        public string id { get; set; }
         public string Description { get; set; }
     }
 }
@@ -488,7 +488,7 @@ namespace CosmosDBSamplesV2
 {
     public class ToDoItem
     {
-        public string Id { get; set; }
+        public string id { get; set; }
         public string Description { get; set; }
     }
 }
@@ -527,7 +527,7 @@ namespace CosmosDBSamplesV2
 {
     public class ToDoItem
     {
-        public string Id { get; set; }
+        public string id { get; set; }
         public string Description { get; set; }
     }
 }
