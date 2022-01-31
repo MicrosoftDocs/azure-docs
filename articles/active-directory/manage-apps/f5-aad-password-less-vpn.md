@@ -23,7 +23,7 @@ Enabling a BIG-IP SSL-VPN for Azure AD single sign-on (SSO) provides many benefi
 
 - Improved Zero trust governance through Azure AD pre-authentication and [Conditional Access](/conditional-access/overview)
 - [Password-less authentication to the VPN service](https://www.microsoft.com/security/business/identity/passwordless)
-- Manage Identities and access from a single control plane, the [Azure portal](https://azure.microsoft.com/en-us/features/azure-portal/)
+- Manage Identities and access from a single control plane, the [Azure portal](https://azure.microsoft.com/features/azure-portal/)
 
 To learn about all of the benefits, see [Integrate F5 BIG-IP with Azure Active Directory](./f5-aad-integration.md) and [What is single sign-on in Azure Active Directory?](/azure/active-directory/active-directory-appssoaccess-whatis).
 
