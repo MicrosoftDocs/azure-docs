@@ -16,10 +16,12 @@ The following table describes the maximum limits for Azure Virtual Desktop.
 |-----------------------------------------------------|-------------------------------------------------|--------------------------------------------------|
 | Workspace                                           | Azure Active Directory Tenant                   | 1300 |
 | HostPool                                            | Workspace                                       | 400 |
-| Application group                                   | HostPool                                        | 200 |
+| Application group                                   | HostPool                                        | 500<sup>1</sup>  |
 | RemoteApp                                           | Application group                               | 500 |
 | Role Assignment                                     | Any Azure Virtual Desktop Object                | 200 |
 | Session Host                                        | HostPool                                        | 10,000 |
+
+<sup>1</sup>If you require over 500 Application groups then please raise a support ticket via the Azure portal, this will be automatically approved. If you require over 1,000 Application groups after raising a support ticket we will reach out to discuss your requirements.
 
 All other Azure resources used in Azure Virtual Desktop such as Virtual Machines, Storage, Networking etc. are all subject to their own resource limitations documented in the relevant sections of this article.
 
