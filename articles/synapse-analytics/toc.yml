@@ -238,10 +238,6 @@ items:
       href: database-designer/create-lake-database-from-lake-database-templates.md
     - name: Modify a lake database
       href: database-designer/modify-lake-database.md
-- name: Migration guides
-  items:
-  - name: Migrate to a dedicated SQL pool
-    href: migration-guides/migrate-to-synapse-analytics-guide.md
 - name: Synapse SQL
   items:
   - name: Overview
@@ -435,6 +431,8 @@ items:
       items:
       - name: Database access control
         href: ../azure-sql/database/logins-create-manage.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json
+      - name: Shared database access control
+        href: sql/shared-databases-access-control.md
       - name: Data security
         items:
         - name: Column-level security
@@ -550,6 +548,8 @@ items:
         href: ./sql-data-warehouse/sql-data-warehouse-install-visual-studio.md?context=/azure/synapse-analytics/context/context
       - name: Continuous integration and deployment
         href: ./sql-data-warehouse/sql-data-warehouse-continuous-integration-and-deployment.md?context=/azure/synapse-analytics/context/context
+      - name: Deploy linked ARM templates with VSTS
+        href: ../data-factory/deploy-linked-arm-templates-with-vsts.md
     - name: Query external data
       items:
       - name: Overview
@@ -915,6 +915,8 @@ items:
             href: ../data-factory/concepts-data-flow-performance-transformations.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
           - name: Using data flows in pipelines
             href: ../data-factory/concepts-data-flow-performance-pipelines.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
+          - name: Memory optimized compute
+            href: ../data-factory/memory-optimized-compute.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
       - name: Integration Runtime performance
         href: ../data-factory/concepts-integration-runtime-performance.md?context=/azure/synapse-analytics/context/context
       - name: Manage graph
@@ -1468,6 +1470,26 @@ items:
     href: plan-manage-costs.md
   - name: Browse an ADLS Gen2 folder with ACLs
     href: how-to-access-container-with-access-control-lists.md
+- name: Guidance
+  items:
+  - name: Migration guides
+    items:
+    - name: Migrate to a dedicated SQL pool
+      href: migration-guides/migrate-to-synapse-analytics-guide.md
+  - name: Security white paper
+    items:
+    - name: Introduction
+      href: ./guidance/security-white-paper-introduction.md
+    - name: Data protection
+      href: ./guidance/security-white-paper-data-protection.md
+    - name: Access control
+      href: ./guidance/security-white-paper-access-control.md
+    - name: Authentication
+      href: ./guidance/security-white-paper-authentication.md
+    - name: Network security
+      href: ./guidance/security-white-paper-network-security.md
+    - name: Threat protection
+      href: ./guidance/security-white-paper-threat-protection.md
 - name: Reference
   items:
   - name: Azure CLI
@@ -1484,6 +1506,8 @@ items:
     href: /rest/api/synapse/
   - name: Microsoft Spark Utilities
     href: ./spark/microsoft-spark-utilities.md
+  - name: File mount/unmount API in Synapse
+    href: ./spark/synapse-file-mount-api.md
   - name: Samples
     href: https://github.com/Azure-Samples/Synapse
   - name: System views
@@ -1513,6 +1537,8 @@ items:
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Questions & Answers
     href: /answers/questions/topics/single/25423.html
+  - name: Monthly updates archive
+    href: whats-new-archive.md
   - name: Service updates
     href: https://azure.microsoft.com/updates/?product=sql-data-warehouse
   - name: Stack Overflow

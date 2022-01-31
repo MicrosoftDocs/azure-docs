@@ -8,13 +8,12 @@ documentationcenter: vs-devops-build
 author: georgewallace
 manager: gwallace
 editor: ''
-ms.assetid:
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 02/23/2021
 ms.author: gwallace
-ms.custom: "devx-track-csharp, mvc"
+ms.custom: devx-track-csharp, mvc, mode-other
 ---
 
 # Create a CI/CD pipeline for .NET with Azure DevOps Starter

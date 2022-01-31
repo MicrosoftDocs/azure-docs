@@ -1,9 +1,8 @@
 ---
 title: Plan an Azure Application offer for the commercial marketplace
 description: Plan an Azure application offer for Azure Marketplace using Partner Center.
-author: aarathin
-ms.author: aarathin
-ms.reviewer: dannyevers
+author: macerru
+ms.author: macerr
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
@@ -41,7 +40,7 @@ Review the following resources as you plan your Azure application offer for the 
     - [Azure PowerShell](../azure-resource-manager/managed-applications/powershell-samples.md)
     - [Managed application solutions](../azure-resource-manager/managed-applications/sample-projects.md)
 
-The video [Building Solution Templates, and Managed Applications for Azure Marketplace](https://channel9.msdn.com/Events/Build/2018/BRK3603) gives a comprehensive introduction to the Azure application offer type:
+The video [Building Solution Templates, and Managed Applications for Azure Marketplace](/Events/Build/2018/BRK3603) gives a comprehensive introduction to the Azure application offer type:
 
 - What offer types are available
 - What technical assets are required

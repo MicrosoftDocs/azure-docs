@@ -7,6 +7,7 @@ ms.topic: quickstart
 ms.service: azure-education
 ms.subservice: education-hub
 ms.date: 06/30/2020
+ms.custom: mode-other
 ---
 
 # Setting up access for Azure Dev tools

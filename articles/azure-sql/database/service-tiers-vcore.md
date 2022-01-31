@@ -8,7 +8,7 @@ ms.subservice: service-overview
 ms.topic: conceptual
 author: dimitri-furman
 ms.author: dfurman
-ms.reviewer: mathoma
+ms.reviewer: kendralittle, mathoma
 ms.date: 05/18/2021
 ROBOTS: NOINDEX 
 ms.custom: devx-track-azurepowershell
@@ -24,9 +24,6 @@ The virtual core (vCore) purchasing model used by Azure SQL Database and Azure S
 - In the case of Azure SQL Database, vCore purchasing model provides higher compute, memory, I/O, and storage limits than the DTU model.
 
 For more information on choosing between the vCore and DTU purchase models, see [Choose between the vCore and DTU purchasing models](purchasing-models.md).
-
-> [!div class="nextstepaction"]
-> [Survey to improve Azure SQL!](https://aka.ms/AzureSQLSurveyNov2021)
 
 ## Service tiers
 

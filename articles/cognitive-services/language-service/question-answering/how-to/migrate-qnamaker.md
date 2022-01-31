@@ -4,15 +4,15 @@ description: Migrate your legacy QnAMaker knowledge bases to custom question ans
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: how-to
-ms.author: diagarw
-author: DishaAgarwal
-ms.date: 11/02/2021
+ms.author: mbullwin
+author: mrbullwinkle
+ms.date: 01/23/2022
 ms.custom: language-service-question-answering, ignite-fall-2021
 ---
 
 # Migrate from QnA Maker to custom question answering
 
-Custom question answering was introduced in May 2021 with several new features including enhanced relevance using a deep learning ranker, precise answers, and end-to-end region support. Each custom question answering project is equivalent to a knowledge base in QnA Maker. You can easily migrate knowledge bases from a QnA Maker resource to custom question answering projects within a [language resource](https://aka.ms/create-language-resource). You can also choose to migrate knowledge bases from multiple QnA Maker resources to a specific language resource.
+Custom question answering, a feature of Azure Cognitive Service for Language was introduced in May 2021 with several new capabilities including enhanced relevance using a deep learning ranker, precise answers, and end-to-end region support. Each custom question answering project is equivalent to a knowledge base in QnA Maker. You can easily migrate knowledge bases from a QnA Maker resource to custom question answering projects within a [language resource](https://aka.ms/create-language-resource). You can also choose to migrate knowledge bases from multiple QnA Maker resources to a specific language resource.
 
 To successfully migrate knowledge bases, **the account performing the migration needs contributor access to the selected QnA Maker and language resource**. When a knowledge base is migrated, the following details are copied to the new custom question answering project:
 
@@ -28,7 +28,7 @@ You can follow the steps below to migrate knowledge bases:
 
 1. Create a [language resource](https://aka.ms/create-language-resource) with custom question answering enabled in advance. When you create the language resource in the Azure portal, you will see the option to enable custom question answering. When you select that option and proceed, you will be asked for Azure Search details to save the knowledge bases.
 
-2. If you want to add knowledge bases in multiple languages to your language resource, visit [Language Studio](https://lanuage.azure.com) to create your first custom question answering project and select the first option as shown below. Language settings for the language resource can be specified only when creating a project. If you want to migrate existing knowledge bases in a single language to the language resource, you can skip this step.
+2. If you want to add knowledge bases in multiple languages to your language resource, visit [Language Studio](https://language.azure.com/) to create your first custom question answering project and select the first option as shown below. Language settings for the language resource can be specified only when creating a project. If you want to migrate existing knowledge bases in a single language to the language resource, you can skip this step.
 
    > [!div class="mx-imgBorder"]
    > ![Screenshot of choose language UI screen"](../media/migrate-qnamaker/choose-language.png)
@@ -72,7 +72,7 @@ You can follow the steps below to migrate knowledge bases:
     > [!div class="mx-imgBorder"]
     > ![Screenshot with special characters removed](../media/migrate-qnamaker/validation-errors.png)
 
-10. It will take a few minutes for the migration to occur. Do not cancel the migration while it is in progress. You can navigate to the migrated projects within the [Language Studio](https://lanuage.azure.com) post migration.
+10. It will take a few minutes for the migration to occur. Do not cancel the migration while it is in progress. You can navigate to the migrated projects within the [Language Studio](https://language.azure.com/) post migration.
 
     > [!div class="mx-imgBorder"]
     > ![Screenshot of successfully migrated knowledge bases with information that you can publish by using the Language Studio](../media/migrate-qnamaker/migration-success.png)

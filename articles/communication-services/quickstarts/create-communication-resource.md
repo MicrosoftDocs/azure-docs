@@ -5,13 +5,13 @@ description: In this quickstart, you'll learn how to create and manage your firs
 author: probableprime
 manager: chpalm
 services: azure-communication-services
-
 ms.author: rifox
 ms.date: 06/30/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: arm
 zone_pivot_groups: acs-plat-azp-azcli-net-ps
+ms.custom: mode-other
 ---
 # Quickstart: Create and manage Communication Services resources
 

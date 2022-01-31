@@ -10,6 +10,7 @@ editor: ''
 
 ms.service: media-services
 ms.workload: 
+ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 09/20/2021
 ms.author: johndeu

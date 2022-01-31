@@ -2,13 +2,12 @@
 metadata:
   title: Azure Automanage for virtual machines FAQ
   description: Answers to frequently asked questions about Azure Automanage for virtual machines.
-  author: deanwe
-  ms.service: virtual-machines
-  ms.subservice: automanage
+  author: mmccrory
+  ms.service: automanage
   ms.workload: infrastructure
   ms.topic: troubleshooting
-  ms.date: 02/22/2021
-  ms.author: deanwe
+  ms.date: 12/10/2021
+  ms.author: memccror
     
 title: Frequently asked questions for Azure Automanage for VMs
 summary: |
@@ -51,9 +50,9 @@ sections:
           Automanage enrolls, configures, and monitors throughout the lifecycle of the VM the services listed [here](automanage-virtual-machines.md).
           
       - question: |
-          Does Azure Automanage work with Azure Arc-enabled VMs?
+          Does Azure Automanage work with Azure Arc-enabled servers?
         answer: |
-          Automanage currently does not support Arc-enabled VMs.
+          Yes, Automanage supports Arc-enabled servers with a limited set of [services](automanage-arc.md)
 
       - question: |
           What does the status "Needs upgrade" mean?

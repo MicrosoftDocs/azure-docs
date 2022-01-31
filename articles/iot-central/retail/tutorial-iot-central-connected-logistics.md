@@ -6,11 +6,41 @@ ms.author: nandab
 ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: tutorial
-ms.date: 08/17/2021
+ms.date: 01/06/2022
 
 ---
 
 # Tutorial: Deploy and walk through a connected logistics application template
+
+Global logistics spending is expected to reach $10.6 trillion in 2020. Transportation of goods accounts for most of this spending and shipping providers are under intense competitive pressure and constraints.
+
+You can use IoT sensors to collect and monitor ambient conditions such as temperature, humidity, tilt, shock, light, and the location of a shipment. You can combine telemetry gathered from IoT sensors and devices with other data sources such as weather and traffic information in cloud-based business intelligence systems.
+
+The benefits of a connected logistics solution include:
+
+- Shipment monitoring with real-time tracing and tracking.
+- Shipment integrity with real-time ambient condition monitoring.
+- Security from theft, loss, or damage of shipments.
+- Geo-fencing, route optimization, fleet management, and vehicle analytics.
+- Forecasting for predictable departure and arrival of shipments.
+
+Use the application template and guidance in this article to develop an end-to-end *connected logistics solution*.
+
+:::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-architecture.png" alt-text="Connected logistics dashboard." border="false":::
+
+1. IoT tags send telemetry data to a gateway device.
+2. Gateway devices send telemetry and aggregated insights to IoT Central.
+3. IoT Central routes data to an Azure service for manipulation.
+4. Services such as Azure Stream Analytics or Azure Functions can reformat data streams and send the data to storage accounts.
+5. End-user business applications can power business workflows.
+
+*IoT tags* provide physical, ambient, and environmental sensor capabilities such as temperature, humidity, shock, tilt, and light. IoT tags typically connect to gateway device through Zigbee (802.15.4). Tags are less expensive sensors and can be discarded at the end of a typical logistics journey to avoid challenges with reverse logistics.
+
+*Gateways* enable upstream Azure IoT cloud connectivity using cellular or Wi-Fi channels.  Bluetooth, NFC, and 802.15.4 Wireless Sensor Network modes are used for downstream communication with IoT tags. Gateways provide end-to-end secure cloud connectivity, IoT tag pairing, sensor data aggregation, data retention, and the ability to configure alarm thresholds.
+
+Azure IoT Central is a solution development platform that simplifies IoT device connectivity, configuration, and management. The platform significantly reduces the burden and costs of IoT device management, operations, and related developments. You can build end-to-end enterprise solutions to achieve a digital feedback loop in logistics.
+
+The IoT Central platform provides rich extensibility options through data export and APIs. Business insights based on telemetry data processing or raw telemetry are typically exported to a preferred line-of-business application.
 
 This tutorial shows you how to get started with the IoT Central *connected logistics* application template. You'll learn how to deploy and use the template.
 

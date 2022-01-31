@@ -9,8 +9,8 @@ ms.devlang:
 ms.topic: conceptual
 author: dimitri-furman 
 ms.author: dfurman
-ms.reviewer: mathoma, wiassaf
-ms.date: 06/12/2020
+ms.reviewer: kendralittle, mathoma, wiassaf
+ms.date: 01/31/2022
 ---
 
 # Use the Intelligent Insights performance diagnostics log of Azure SQL Database and Azure SQL Managed Instance performance issues

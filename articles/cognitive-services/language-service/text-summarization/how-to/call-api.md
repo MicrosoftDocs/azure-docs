@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: conceptual
-ms.date: 11/02/2021
+ms.date: 12/10/2021
 ms.author: aahi
 ms.custom: language-service-summarization, ignite-fall-2021
 ---
@@ -43,11 +43,7 @@ There is another feature in Azure Cognitive Service for Language, [key phrases e
 
 ### Specify the text summarization model
 
-By default, text summarization will use the latest available AI model on your text. You can also configure your API requests to use a specific model version. The model you specify will be used to perform text summarization operations.
-
-| Supported Versions | latest version |
-|--|--|
-| `2021-08-01` | `2021-08-01` |
+By default, text summarization will use the latest available AI model on your text. You can also configure your API requests to use a specific [model version](../../concepts/model-lifecycle.md).
 
 ### Input languages
 
@@ -55,7 +51,7 @@ When you submit documents to be processed by key phrase extraction, you can spec
 
 ## Submitting data
 
-You submit documents to the API as strings of text. Analysis is performed upon receipt of the request. Because the API is asynchronous, there may be a delay between sending an API request, and receiving the results.  For information on the size and number of requests you can send per minute and second, see the data limits below.
+You submit documents to the API as strings of text. Analysis is performed upon receipt of the request. Because the API is [asynchronous](../../concepts/use-asynchronously.md), there may be a delay between sending an API request, and receiving the results.  For information on the size and number of requests you can send per minute and second, see the data limits below.
 
 When using this feature, the API results are available for 24 hours from the time the request was ingested, and is indicated in the response. After this time period, the results are purged and are no longer available for retrieval.
 

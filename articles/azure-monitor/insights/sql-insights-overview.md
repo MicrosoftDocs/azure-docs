@@ -16,7 +16,7 @@ SQL insights performs all monitoring remotely. Monitoring agents on dedicated vi
 
 The following diagram details the steps that information from the database engine and Azure resource logs take and how they can be surfaced. For a more detailed diagram of Azure SQL logging, see [Monitoring and diagnostic telemetry](../../azure-sql/database/monitor-tune-overview.md#monitoring-and-diagnostic-telemetry).
 
-:::image type="content" source="media/sql-insights/azure-sql-insights-horizontal-analytics.svg" alt-text="Diagram showing how database engine information and resource logs are surfaced through AzureDiagnostics and Log Analytics.":::
+:::image type="content" source="media/sql-insights/azure-sql-insights-horizontal-analytics.svg" lightbox="media/sql-insights/azure-sql-insights-horizontal-analytics.svg" alt-text="Diagram showing how database engine information and resource logs are surfaced through AzureDiagnostics and Log Analytics.":::
 
 ## Pricing
 There is no direct cost for SQL insights. All costs are incurred by the virtual machines that gather the data, the Log Analytics workspaces that store the data, and any alert rules configured on the data. 

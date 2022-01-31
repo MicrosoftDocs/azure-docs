@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: conceptual
 author: MaraSteiu 
 ms.author: masteiu
-ms.reviewer: mathoma
+ms.reviewer: kendralittle, mathoma
 ms.date: 09/09/2021
 ---
 # What is SQL Data Sync for Azure?
@@ -76,6 +76,10 @@ Data Sync isn't the preferred solution for the following scenarios:
 | **Disadvantages** | - No transactional consistency<br/>- Higher performance impact | - Can't publish from Azure SQL Database <br/>-    High maintenance cost |
 
 ## Private link for Data Sync
+
+> [!NOTE]
+> The SQL Data Sync private link is different from the [Azure Private Link](https://azure.microsoft.com/services/private-link/). 
+
 The new private link feature allows you to choose a service managed private endpoint to establish a secure connection between the sync service and your member/hub databases during the data synchronization process. A service managed private endpoint is a private IP address within a specific virtual network and subnet. Within Data Sync, the service managed private endpoint is created by Microsoft and is exclusively used by the Data Sync service for a given sync operation. 
 Before setting up the private link, read the [general requirements](sql-data-sync-data-sql-server-sql-database.md#general-requirements) for the feature. 
 
@@ -216,16 +220,16 @@ Yes. You must have a SQL Database account to host the hub database.
 
 Not directly. You can sync between SQL Server databases indirectly, however, by creating a Hub database in Azure, and then adding the on-premises databases to the sync group.
 
-### Can I use Data Sync to sync between databases in SQL Database that belong to different subscriptions
+### Can I configure Data Sync to sync between databases in Azure SQL Database that belong to different subscriptions
 
-Yes. You can sync between databases that belong to resource groups owned by different subscriptions, even if the subscriptions belong to different tenants.
+Yes. You can configure sync between databases that belong to resource groups owned by different subscriptions, even if the subscriptions belong to different tenants.
 
-- If the subscriptions belong to the same tenant, and you have permission to all subscriptions, you can configure the sync group in the Azure portal.
+- If the subscriptions belong to the same tenant and you have permission to all subscriptions, you can configure the sync group in the Azure portal.
 - Otherwise, you have to use PowerShell to add the sync members.
 
-### Can I use Data Sync to sync between databases in SQL Database that belong to different clouds (like Azure Public Cloud and Azure China 21Vianet)
+### Can I setup Data Sync to sync between databases in SQL Database that belong to different clouds (like Azure Public Cloud and Azure China 21Vianet)
 
-Yes. You can sync between databases that belong to different clouds. You have to use PowerShell to add the sync members that belong to the different subscriptions.
+Yes. You can setup sync between databases that belong to different clouds. You have to use PowerShell to add the sync members that belong to the different subscriptions.
 
 ### Can I use Data Sync to seed data from my production database to an empty database, and then sync them
 

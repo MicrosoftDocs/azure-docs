@@ -3,7 +3,7 @@ title: Secure group managed service accounts  | Azure Active Directory
 description: A guide to securing group managed service account (gMSA) computer accounts.
 services: active-directory
 author: BarbaraSelden
-manager: daveba
+manager: martinco
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
@@ -71,10 +71,10 @@ Uninstall-ADServiceAccount
 ```
 
 
-To work effectively, gMSAs must be in the managed service account's organizational unit (OU).
+To work effectively, gMSAs must be in the Managed Service Accounts AD container.
 
   
-![Screen shot of a gMSA account in the managed service account OU.](./media/securing-service-accounts/secure-gmsa-image-1.png)
+![Screen shot of a gMSA account in the managed service accounts container.](./media/securing-service-accounts/secure-gmsa-image-1.png)
 
 To find service MSAs that might not be in the list, run the following commands:
 

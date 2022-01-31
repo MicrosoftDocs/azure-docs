@@ -20,7 +20,7 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
 
 ## 2021-10-04
 
-### Azure Machine Learning CLI (v2) v2.0.1a6
+### Azure Machine Learning CLI (v2) v2.0.2
 
 - `az ml workspace`
   - Updated [workspace YAML schema](reference-yaml-workspace.md)

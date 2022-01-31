@@ -10,8 +10,8 @@ ms.devlang:
 ms.topic: conceptual
 author: danimir
 ms.author: danil
-ms.reviewer: bonova, mathoma, danil
-ms.date: 09/21/2021
+ms.reviewer: kendralittle, bonova, mathoma, danil
+ms.date: 12/14/2021
 ---
 
 # Features comparison: Azure SQL Database and Azure SQL Managed Instance
@@ -31,10 +31,6 @@ Azure manages your databases and guarantees their high-availability. Some featur
 If you need more details about the differences, you can find them in the separate pages:
 - [Azure SQL Database vs. SQL Server differences](transact-sql-tsql-differences-sql-server.md)
 - [Azure SQL Managed Instance vs. SQL Server differences](../managed-instance/transact-sql-tsql-differences-sql-server.md)
-
-> [!div class="nextstepaction"]
-> [Survey to improve Azure SQL!](https://aka.ms/AzureSQLSurveyNov2021)
-
 
 ## Features of SQL Database and SQL Managed Instance
 
@@ -56,7 +52,7 @@ The following table lists the major features of SQL Server and provides informat
 | [Columnstore indexes](/sql/relational-databases/indexes/columnstore-indexes-overview) | Yes - [Premium tier, Standard tier - S3 and above, General Purpose tier, Business Critical, and HyperScale tiers](/sql/relational-databases/indexes/columnstore-indexes-overview) |Yes |
 | [Common language runtime - CLR](/sql/relational-databases/clr-integration/common-language-runtime-clr-integration-programming-concepts) | No | Yes, but without access to file system in `CREATE ASSEMBLY` statement - see [CLR differences](../managed-instance/transact-sql-tsql-differences-sql-server.md#clr) |
 | [Credentials](/sql/relational-databases/security/authentication-access/credentials-database-engine) | Yes, but only [database scoped credentials](/sql/t-sql/statements/create-database-scoped-credential-transact-sql). | Yes, but only **Azure Key Vault** and `SHARED ACCESS SIGNATURE` are supported - see [details](../managed-instance/transact-sql-tsql-differences-sql-server.md#credential) |
-| [Cross-database/three-part name queries](/sql/relational-databases/linked-servers/linked-servers-database-engine) | No - see [Elastic queries](elastic-query-overview.md) | Yes, plus [Elastic queries](elastic-query-overview.md) |
+| [Cross-database/three-part name queries](/sql/relational-databases/linked-servers/linked-servers-database-engine) | No - see [Elastic queries](elastic-query-overview.md) | Yes|
 | [Cross-database transactions](/sql/relational-databases/linked-servers/linked-servers-database-engine) | No | Yes, within the instance. See [Linked server differences](../managed-instance/transact-sql-tsql-differences-sql-server.md#linked-servers) for cross-instance queries. |
 | [Database mail - DbMail](/sql/relational-databases/database-mail/database-mail) | No | Yes |
 | [Database mirroring](/sql/database-engine/database-mirroring/database-mirroring-sql-server) | No | [No](../managed-instance/transact-sql-tsql-differences-sql-server.md#database-mirroring) |
@@ -68,7 +64,7 @@ The following table lists the major features of SQL Server and provides informat
 | [Distributed transactions - MS DTC](/sql/relational-databases/native-client-ole-db-transactions/supporting-distributed-transactions) | No - see [Elastic transactions](elastic-transactions-overview.md) | No - see [Elastic transactions](elastic-transactions-overview.md) |
 | [DML triggers](/sql/relational-databases/triggers/create-dml-triggers) | Most - see individual statements |  Yes |
 | [DMVs](/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views) | Most - see individual DMVs |  Yes - see [T-SQL differences](../managed-instance/transact-sql-tsql-differences-sql-server.md) |
-| [Elastic query](elastic-query-overview.md) (in public preview) | Yes, with required RDBMS type. | No |
+| [Elastic query](elastic-query-overview.md) (in public preview) | Yes, with required RDBMS type. | No, use native cross-DB queries and Linked Server instead|
 | [Event notifications](/sql/relational-databases/service-broker/event-notifications) | No - see [Alerts](alerts-insights-configure-portal.md) | No |
 | [Expressions](/sql/t-sql/language-elements/expressions-transact-sql) |Yes | Yes |
 | [Extended events (XEvent)](/sql/relational-databases/extended-events/extended-events) | Some - see [Extended events in SQL Database](xevent-db-diff-from-svr.md) | Yes - see [Extended events differences](../managed-instance/transact-sql-tsql-differences-sql-server.md#extended-events) |
@@ -91,7 +87,7 @@ The following table lists the major features of SQL Server and provides informat
 | [OPENQUERY](/sql/t-sql/functions/openquery-transact-sql)|No|Yes, only to SQL Database, SQL Managed Instance and SQL Server. See [T-SQL differences](../managed-instance/transact-sql-tsql-differences-sql-server.md)|
 | [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql)|Yes, only to import from Azure Blob storage. |Yes, only to SQL Database, SQL Managed Instance and SQL Server, and to import from Azure Blob storage. See [T-SQL differences](../managed-instance/transact-sql-tsql-differences-sql-server.md)|
 | [Operators](/sql/t-sql/language-elements/operators-transact-sql) | Most - see individual operators |Yes - see [T-SQL differences](../managed-instance/transact-sql-tsql-differences-sql-server.md) |
-| [Polybase](/sql/relational-databases/polybase/polybase-guide) | No. You can query data in the files placed on Azure Blob Storage using `OPENROWSET` function or use [an external table that references a serverless SQL pool in Synapse Analytics](https://devblogs.microsoft.com/azure-sql/read-azure-storage-files-using-synapse-sql-external-tables/). | No. You can query data in the files placed on Azure Blob Storage using `OPENROWSET` function, [a linked server that references a serverless SQL pool in Synapse Analytics](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance/), or an external table (in public preview) that references [a serverless SQL pool in Synapse Analytics](https://devblogs.microsoft.com/azure-sql/read-azure-storage-files-using-synapse-sql-external-tables/) or SQL Server. |
+| [Polybase](/sql/relational-databases/polybase/polybase-guide) | No. You can query data in the files placed on Azure Blob Storage using `OPENROWSET` function or use [an external table that references a serverless SQL pool in Synapse Analytics](https://devblogs.microsoft.com/azure-sql/read-azure-storage-files-using-synapse-sql-external-tables/). | No. You can query data in the files placed on Azure Blob Storage using `OPENROWSET` function, a linked server that references [serverless SQL pool in Synapse Analytics](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance/), [SQL Database](https://techcommunity.microsoft.com/t5/azure-database-support-blog/lesson-learned-63-it-is-possible-to-create-linked-server-in/ba-p/369168), or SQL Server. |
 | [Query Notifications](/sql/relational-databases/native-client/features/working-with-query-notifications) | No | Yes |
 | [Machine Learning Services](/sql/advanced-analytics/what-is-sql-server-machine-learning) (_Formerly R Services_)| No | Yes, see [Machine Learning Services in Azure SQL Managed Instance](../managed-instance/machine-learning-services-overview.md) |
 | [Recovery models](/sql/relational-databases/backup-restore/recovery-models-sql-server) | Only Full Recovery that guarantees high availability is supported. Simple and Bulk Logged recovery models are not available. | Only Full Recovery that guarantees high availability is supported. Simple and Bulk Logged recovery models are not available. |
@@ -152,7 +148,7 @@ The Azure platform provides a number of PaaS capabilities that are added as an a
 | [SQL Server Reporting Services (SSRS)](/sql/reporting-services/create-deploy-and-manage-mobile-and-paginated-reports) | No - [see Power BI](/power-bi/) | No - use [Power BI paginated reports](/power-bi/paginated-reports/paginated-reports-report-builder-power-bi) instead or host SSRS on an Azure VM. While SQL Managed Instance cannot run SSRS as a service, it can host [SSRS catalog databases](/sql/reporting-services/install-windows/ssrs-report-server-create-a-report-server-database#database-server-version-requirements) for a reporting server installed on Azure Virtual Machine, using SQL Server authentication. |
 | [Query Performance Insights (QPI)](query-performance-insight-use.md) | Yes | No. Use built-in reports in SQL Server Management Studio and Azure Data Studio. |
 | [VNet](../../virtual-network/virtual-networks-overview.md) | Partial, it enables restricted access using [VNet Endpoints](vnet-service-endpoint-rule-overview.md) | Yes, SQL Managed Instance is injected in customer's VNet. See [subnet](../managed-instance/transact-sql-tsql-differences-sql-server.md#subnet) and [VNet](../managed-instance/transact-sql-tsql-differences-sql-server.md#vnet) |
-| VNet Service endpoint | [Yes](vnet-service-endpoint-rule-overview.md) | No |
+| VNet Service endpoint | [Yes](vnet-service-endpoint-rule-overview.md) | Yes |
 | VNet Global peering | Yes, using [Private IP and service endpoints](vnet-service-endpoint-rule-overview.md) | Yes, using [Virtual network peering](https://techcommunity.microsoft.com/t5/azure-sql/new-feature-global-vnet-peering-support-for-azure-sql-managed/ba-p/1746913). |
 | [Private connectivity](../../private-link/private-link-overview.md) | Yes, using [Private Link](../../private-link/private-endpoint-overview.md) | Yes, using VNet. | 
 

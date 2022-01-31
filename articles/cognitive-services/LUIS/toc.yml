@@ -226,14 +226,12 @@ items:
       href: luis-tutorial-review-endpoint-utterances.md
     - name: Add patterns to improve predictions
       href: luis-tutorial-pattern.md
-  - name: Use with bot
+  - name: Use with Bot Framework 
     items:
-    - name: With C#
-      href: luis-csharp-tutorial-bf-v4.md
-      displayName: bot framework, framework, sdk, abs
-    - name: With Node.js
-      displayName: bot framework, framework, sdk, abs
-      href: luis-nodejs-tutorial-bf-v4.md
+    - name: Bot Framework Composer
+      href: /composer/how-to-add-luis?context=/azure/cognitive-services/luis/context/context
+    - name: Bot Framework SDK
+      href: /azure/bot-service/bot-builder-howto-v4-luis?context=/azure/cognitive-services/luis/context/context
   - name: Build app programmatically using Node.js
     href: luis-tutorial-node-import-utterances-csv.md
 - name: Reference
