@@ -79,7 +79,8 @@ Log operations are a new service-driven action that you can instruct your IoT de
 
 5. If you have not modified the diagnostic component of the DU Agent, the device will respond to any log operation by attempting to upload two plaintext log files: the DU Agent diagnostic log ("aduc.log"), and the DO Agent diagnostic log ("do-agent.log"). You can learn more about the default log files as defined by the DU reference agent in the [Device update diagnostics](device-update-diagnostics.md) concept page.
 
-6. You can view the log file's contents by clicking on the file name and clicking on the **Edit** tab on the resulting screen. You can also download or delete the log file by clicking on the respectively labeled buttons.
+6. You can view the log file's contents by clicking on the file name, then clicking on the menu element (ellipsis) and clicking **View/edit**. You can also download or delete the log file by clicking on the respectively labeled options.
+    :::image type="content" source="media/device-update-log-collection/blob-storage-log.png" alt-text="Screenshot of log file within Azure Blob storage." lightbox="media/device-update-log-collection/blob-storage-log.png":::
 
 ## Next steps
 
