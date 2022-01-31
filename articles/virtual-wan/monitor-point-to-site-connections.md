@@ -18,7 +18,7 @@ This section documents how to create an Azure Workbook that shows relevant data 
 
 To complete the steps in this article, you need to have a virtual WAN,  a hub, and a User VPN Gateway. To create these resources, follow the steps in this article:
 
-* [Create virtual WAN, a hub, and a gateway](virtual-wan-point-to-site-portal.md#P2S)
+* [Create virtual WAN, a hub, and a gateway](virtual-wan-point-to-site-portal.md)
 
 
 ## Workbook solution architecture
