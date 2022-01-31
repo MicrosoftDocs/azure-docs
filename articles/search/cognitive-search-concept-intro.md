@@ -41,15 +41,15 @@ AI enrichment is available in regions where Azure Cognitive Services is also ava
 + China North 2
 + Germany West Central
 
-If your search service is located in one of these regions, you will not be able to create and use skillsets, but all other search service functionality is available and fully supported.
+If your search service is located in one of these regions, you won't be able to create and use skillsets, but all other search service functionality is available and fully supported.
 
-Billing is under a pay-as-you-go pricing model. The costs of using built-in skills is passed on to the customer when you provide a multi-region Cognitive Services key. There are also costs associated with image extraction, as metered by Cognitive search. Text extraction and utility skills are not billable. For more information , see [How you're charged for Azure Cognitive Search](search-sku-manage-costs#how-youre-charged-for-azure-cognitive-search).
+Billing is under a pay-as-you-go pricing model. The costs of using built-in skills are passed on to the customer when you provide a multi-region Cognitive Services key. There are also costs associated with image extraction, as metered by Cognitive Search. Text extraction and utility skills aren't billable. For more information, see [How you're charged for Azure Cognitive Search](search-sku-manage-costs#how-youre-charged-for-azure-cognitive-search).
 
 ## When to use AI enrichment
 
-You should consider enrichment if your raw content is unstructured text, image content, or content that needs language detection and translation. Applying AI through the built-in cognitive skills can unlock this content for full text search and data science applications.
+Enrichment is useful if your raw content is unstructured text, image content, or content that needs language detection and translation. Applying AI through the built-in cognitive skills can unlock this content for full text search and data science applications.
 
-Additionally, you might consider adding a custom skill if you have open-source, third-party, or first-party code that you'd like to integrate into the pipeline. Classification models that identify salient characteristics of various document types fall into this category, but any package that adds value to your content could be used.
+Enrichment also helps if you want to integrate external processing. Open-source, third-party, or first-party code can be integrated into the pipeline as a custom skill. Classification models that identify salient characteristics of various document types fall into this category, but any external package that adds value to your content could be used.
 
 ### Use-cases for built-in skills
 
@@ -99,7 +99,7 @@ Internally, the pipeline generates a collection of enriched documents. You can d
 
 ### Step 3: Indexing
 
-Indexing is the process wherein raw and enriched content is ingested as fields in a search index, and as [projections](knowledge-store-projection-overview.md) if you are also creating a knowledge store. The same enriched content can appear in both, using implicit or explicit field mappings to send the content to the correct fields.
+Indexing is the process wherein raw and enriched content is ingested as fields in a search index, and as [projections](knowledge-store-projection-overview.md) if you're also creating a knowledge store. The same enriched content can appear in both, using implicit or explicit field mappings to send the content to the correct fields.
 
 Enriched content is generated during skillset execution, and is temporary unless you save it. In order for enriched content to appear in a search index, the indexer must have mapping information so that it can send enriched content to a field in a search index. [Output field mappings](cognitive-search-output-field-mapping.md) set up these associations.
 
@@ -125,11 +125,11 @@ The output of AI enrichment is either a [fully text-searchable index](search-wha
 
 ### Accessing content in a knowledge store
 
-In Azure Storage, a [knowledge store](knowledge-store-concept-intro.md) has two manifestations: a blob container of JSON document, a blob container of image objects, or tables in Table storage. You can use [Storage Browser](knowledge-store-view-storage-explorer.md), [Power BI](knowledge-store-connect-power-bi.md), or any app that connects to Azure Storage.
+In Azure Storage, a [knowledge store](knowledge-store-concept-intro.md) has two manifestations: a blob container of JSON document, a blob container of image objects, or tables in Table Storage. You can use [Storage Browser](knowledge-store-view-storage-explorer.md), [Power BI](knowledge-store-connect-power-bi.md), or any app that connects to Azure Storage.
 
 + A blob container captures enriched documents in their entirety, which is useful if you want to feed into other processes. 
 
-+ In contrast, Table storage can accommodate physical projections of enriched documents. You can create slices or layers of enriched documents that include or exclude specific parts. For analysis in Power BI, the tables in Azure Table Storage become the data source for further visualization and exploration.
++ In contrast, Table Storage can accommodate physical projections of enriched documents. You can create slices or layers of enriched documents that include or exclude specific parts. For analysis in Power BI, the tables in Azure Table Storage become the data source for further visualization and exploration.
 
 An enriched document at the output of the pipeline differs from its original source input  by the presence of additional fields containing new information that was extracted or generated during enrichment. As such, you can work with a combination of original and created content, regardless of which output structure you use.
 
