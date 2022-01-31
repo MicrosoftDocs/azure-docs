@@ -26,9 +26,11 @@ This article supplements [**Create an indexer**](search-howto-create-indexers.md
 
 + [Azure Database for MySQL](../mysql/overview.md) ([single server](../mysql/single-server-overview.md)).
 
-+ A table or view that provides the content. A primary key is required. A view is required to have a high water mark column.
++ A table or view that provides the content. A primary key is required. If you're using a view, it must have a high water mark column.
 
-+ A REST API client, such as [Postman](search-get-started-rest.md) or [Visual Studio Code with the extension for Azure Cognitive Search](search-get-started-vs-code.md) to create the data source, index, and indexer.  
++ A REST API client, such as [Postman](search-get-started-rest.md) or [Visual Studio Code with the extension for Azure Cognitive Search](search-get-started-vs-code.md) to create the data source, index, and indexer.
+
++ [Register for the preview](https://aka.ms/azure-cognitive-search/indexer-preview) to provide feedback and get help with any issues you encounter.
 
 ## Preview limitations
 
@@ -85,7 +87,7 @@ In a [search index](search-what-is-an-index.md), add search index fields that co
     ]
 ```
 
-If the primary key in the source table matches the document key (in this case, "ID"), the indexer will use the primary key value as the document
+If the primary key in the source table matches the document key (in this case, "ID"), the indexer will import the primary key as the document key.
 
 ## Configure the MySQL indexer
 
