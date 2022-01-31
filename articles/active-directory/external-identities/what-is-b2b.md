@@ -66,7 +66,6 @@ With a self-service sign-up user flow, you can create a sign-up experience for e
 You can also use [API connectors](api-connectors-overview.md) to integrate your self-service sign-up user flows with external cloud systems. You can connect with custom approval workflows, perform identity verification, validate user-provided information, and more.
 
 ![Screenshot showing the user flows page](media/what-is-b2b/self-service-sign-up-user-flow-overview.png)
-<!--TODO: Add screenshot with API connectors -->
 
 ## Use policies to securely share your apps and services
 
