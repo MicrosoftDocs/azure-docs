@@ -27,16 +27,21 @@ ms.topic: how-to
 
 ### Connect
 
-1. Open Azure Data Studio
-2. Select the **Connections** tab on the left
-3. Expand the panel called **Azure Arc Controllers**
-4. Click the **Connect Controller** button. This will open a blade on the right side
-5. By default, Azure Data Studio will try to read from the kube.config file in your default directory and list the available kubernetes cluster contexts and pre-select the current cluster context. If this is the right cluster to connect to, enter the namespace where the Azure Arc data controller is deployed in the input for **Namespace**. If you need to retrieve the namespace where the Azure Arc data controller is deployed, you can run ```kubectl get datacontrollers -A``` on your kubernetes cluster. 
-6. Optionally add a display name for the Azure Arc data controller in the input for **Name**
-7. Select **Connect**
+1. Open Azure Data Studio.
+2. Select the **Connections** tab on the left.
+3. Expand the panel called **Azure Arc Controllers**.
+4. Select the **Connect Controller** button. Azure Data Studio opens a blade on the right side
+1. Enter the **Namespace** for the data controller.
+
+   Azure Data Studio reads from the `kube.config` file in your default directory and lists the available Kubernetes cluster contexts. It selects the current cluster context. If this is the right cluster to connect to, use that namespace. 
+
+   If you need to retrieve the namespace where the Azure Arc data controller is deployed, you can run `kubectl get datacontrollers -A` on your Kubernetes cluster. 
+
+6. Optionally add a display name for the Azure Arc data controller in the input for **Name**.
+7. Select **Connect**.
 
 
-Now that you are connected to a data controller, you can view the dashboards for the data controller and any SQL managed instances or PostgreSQL Hyperscale server group resources that you have.
+Now that you are connected to a data controller, you can view the dashboards. Azure Data Studio has dashboards for the data controller and any SQL managed instances or PostgreSQL Hyperscale server group resources that you have.
 
 ## View the Data Controller dashboard
 
@@ -64,7 +69,7 @@ If you are able to connect to the SQL manage instance, you can see additional in
 
 You can delete the SQL managed instance from here or open the Azure portal to view the SQL managed instance in the Azure portal.
 
-If you click on the Connection Strings tab on the left, you can see a list of pre-constructed connection strings for that SQL managed instance making it easy for you to copy/paste into various other applications or code.
+If you click on the Connection Strings tab, the portal presents a list of pre-constructed connection strings for that instance making. Copy and paste these strings into various other applications or code.
 
 ## View the PostgreSQL Hyperscale server group dashboards
 
