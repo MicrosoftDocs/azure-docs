@@ -22,7 +22,7 @@ This article assumes that you have an Azure account and Speech service subscript
 > [!IMPORTANT]
 > Microsoft limits access to speaker recognition. Apply to use it through the [Azure Cognitive Services Speaker Recognition Limited Access Review](https://aka.ms/azure-speaker-recognition) form. After approval, you can access the Speaker Recognition APIs.
 
-## Install the Speech SDK
+### Install the Speech SDK
 
 Before you start, you must install the Speech SDK. Depending on your platform, use the following instructions:
 
@@ -30,7 +30,7 @@ Before you start, you must install the Speech SDK. Depending on your platform, u
 * <a href="/azure/cognitive-services/speech-service/quickstarts/setup-platform?pivots=programming-language-cpp&tabs=macos" target="_blank">macOS </a>
 * <a href="/azure/cognitive-services/speech-service/quickstarts/setup-platform?pivots=programming-language-cpp&tabs=windows" target="_blank">Windows </a>
 
-## Import dependencies
+### Import dependencies
 
 To run the examples in this article, add the following statements at the top of your .cpp file:
 
