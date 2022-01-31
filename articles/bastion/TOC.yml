@@ -74,7 +74,7 @@
     - name: Full screen view
       href: bastion-vm-full-screen.md
     - name: Upload or download files - native client
-      href: vm-file-transfer.md
+      href: vm-upload-download-native.md
   - name: Work with NSGs
     href: bastion-nsg.md
   - name: Health monitoring
