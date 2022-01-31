@@ -140,7 +140,7 @@ If your update is more complex, such as a [proxy update](device-update-proxy-upd
     
     Remove-Item $childFile -Force -ErrorAction SilentlyContinue | Out-Null
     Remove-Item $parentFile -Force -ErrorAction SilentlyContinue | Out-Null
-    ```
+  ```
 
 ## Next steps
 
