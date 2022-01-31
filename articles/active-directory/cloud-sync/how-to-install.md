@@ -38,24 +38,23 @@ To upgrade an existing agent to use the group Managed Service Account created du
 To install the agent:
 
  1. Sign in to the server you'll use with enterprise admin permissions.
- 1. Sign in to the Azure portal, and then go to **Azure Active Directory**.
- 1. On the menu on the left, select **Azure AD Connect**.
- 1. Select **Manage cloud sync** > **Review all agents**.
- 1. Download the Azure AD Connect provisioning agent from the Azure portal.
- 
-    ![Screenshot that shows Download on-premises agent.](media/how-to-install/install-9.png)</br>
- 1. Accept the terms and select **Download**.
- 1. Run the Azure AD Connect provisioning installer AADConnectProvisioningAgentSetup.msi.
- 1. On the **Microsoft Azure AD Connect Provisioning Agent Package** screen, accept the licensing terms and select **Install**.
- 
+ 2. Sign in to the Azure portal, and then go to **Azure Active Directory**.
+ 3. On the menu on the left, select **Azure AD Connect**.
+ 4. Select **Manage cloud sync**.
+     [![Screenshot that shows the Microsoft Azure AD Connect Provisioning Agent Package screen.](media/how-to-install/new-install-1.png)](media/how-to-install/new-install-1.png#lightbox)</br>
+ 6. At the top, click **Download agent**.
+ 7. On the right, click **Accept terms and download**.
+ 8. Once the agent has completed downloading, click **Open file**.  This will start the installation.
+ 9. Download the Azure AD Connect provisioning agent from the Azure portal.
+ 10. On the **Microsoft Azure AD Connect Provisioning Agent Package** screen, accept the licensing terms and select **Install**.
     ![Screenshot that shows the Microsoft Azure AD Connect Provisioning Agent Package screen.](media/how-to-install/install-1.png)</br>
- 1. After this operation finishes, the configuration wizard starts. Sign in with your Azure AD global administrator account.
- 1. On the **Configure Service Account** screen, select either **Create gMSA** or **Use custom gMSA**. If you allow the agent to create the account, it will be named provAgentgMSA$. If you specify **Use custom gMSA**, you're prompted to provide this account.
- 1. Enter the domain admin credentials to create the group Managed Service account that will be used to run the agent service. Select **Next**.
-  
-    ![Screenshot that shows the Create gMSA option.](media/how-to-install/install-12.png)</br>
- 1. On the **Connect Active Directory** screen, select **Add Directory**. Then sign in with your Active Directory administrator account. This operation adds your on-premises directory. 
- 1. Optionally, you can manage the preference of domain controllers the agent will use by selecting the **Select domain controller priority** checkbox and ordering the list of domain controllers. Select **OK**.
+ 11. After this operation finishes, the configuration wizard starts. Click **Next**.
+ 12. Sign in with your Azure AD global administrator account.
+ 13. On the **Configure Service Account** screen, select either **Create gMSA** or **Use custom gMSA**. If you allow the agent to create the account, it will be named **provAgentgMSA$**. If you specify **Use custom gMSA**, you're prompted to provide this account.
+ 14. Enter the domain administrator credentials to create the group Managed Service account that will be used to run the agent service. Select **Next**.
+  ![Screenshot that shows the Create gMSA option.](media/how-to-install/install-12.png)</br>
+ 15. On the **Connect Active Directory** screen click **Next**.  Your current domain has been added automatically.  If you wish to add additional domains, enter them and select **Add Directory**. Then sign in with an administrator account from that domain.
+    a. Optionally, you can manage the preference of domain controllers the agent will use.  To do this, click **Add Directory** and select the **Select domain controller priority** checkbox and then order the list of domain controllers. Select **OK**.
  
     ![Screenshot that shows ordering the domain controllers.](media/how-to-install/install-2a.png)</br>
  1. Select **Next**.
@@ -111,6 +110,7 @@ To use password writeback and enable the SSPR service to detect the cloud sync a
 
 For more information on using password writeback with Azure AD Connect cloud sync, see [Tutorial: Enable cloud sync self-service password reset writeback to an on-premises environment (preview)](../../active-directory/authentication/tutorial-enable-cloud-sync-sspr-writeback.md).
 
+## Installing 
 
 ## Next steps 
 
