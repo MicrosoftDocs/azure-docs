@@ -39,6 +39,9 @@ During a meeting, Communication Services users will be able to use core audio, v
 
 Additional information on required dataflows for joining Teams meetings is available at the [client and server architecture page](client-and-server-architecture.md). The [Group Calling Hero Sample](../samples/calling-hero-sample.md) provides example code for joining a Teams meeting from a web application.
 
+## Diagnostics and call analytics
+After a Teams meeting ends, diagnostic information about the meeting is available using the [Communication Services logging and diagnostics](/azure/communication-services/concepts/logging-and-diagnostics) and using the [Teams Call Analytics](/MicrosoftTeams/use-call-analytics-to-troubleshoot-poor-call-quality) in the Teams admin center. Communication Services users will appear as "Anonymous" in Call Analytics screens.
+
 ## Privacy
 Interoperability between Azure Communication Services and Microsoft Teams enables your applications and users to participate in Teams calls, meetings, and chat. It is your responsibility to ensure that the users of your application are notified when recording or transcription are enabled in a Teams call or meeting.
 
