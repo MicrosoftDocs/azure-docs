@@ -28,7 +28,7 @@ zone_pivot_groups: iot-develop-stm-toolset
 **Total completion time**:  30 minutes
 
 :::zone pivot="iot-toolset-cmake"
-[![Browse code](media/common/browse-code.svg)](https://github.com/azure-rtos/getting-started/tree/master/STMicroelectronics/
+[![Browse code](media/common/browse-code.svg)](https://github.com/azure-rtos/getting-started/tree/master/STMicroelectronics/)
 :::zone-end
 :::zone pivot="iot-toolset-iar-ewarm"
 [![Browse code](media/common/browse-code.svg)](https://github.com/azure-rtos/samples/)
@@ -236,7 +236,7 @@ To set up your development environment, first you clone a GitHub repo that conta
 
 ## Prepare the device
 
-To connect the device to Azure, you'll modify a configuration file for Azure IoT settings and IAR settings for Wi-Fi, and then build and flash the image to the device.
+To connect the device to Azure, you'll modify a configuration file for Azure IoT settings and IAR settings for Wi-Fi. Then you'll build and flash the image to the device.
 
 ### Add configuration
 
@@ -247,7 +247,7 @@ To connect the device to Azure, you'll modify a configuration file for Azure IoT
 
 1. Expand the project, then expand the **Sample** subfolder and open the *sample_config.h* file.
 
-1. Near the top of the file uncomment the `#define ENABLE_DPS_SAMPLE` directive.
+1. Near the top of the file, uncomment the `#define ENABLE_DPS_SAMPLE` directive.
 
     ```c
     #define ENABLE_DPS_SAMPLE
@@ -282,14 +282,14 @@ In IAR, select **Project > Batch Build** and choose **build_all** and select **M
 
 ### Flash the image
 
-1. On the STM DevKit MCU, locate the **Reset** button (1), the Micro USB port (2), which is labeled **USB STLink**, and the board part number (3). You’ll refer to these items in the next steps. All of them are highlighted in the following picture:
+1. On the STM DevKit MCU, locate the **Reset** button (1), the Micro USB port (2), which is labeled **USB STLink**, and the board part number (3). You’ll refer to these items in the next steps. All of them are highlighted in the following picture.
 
     :::image type="content" source="media/quickstart-devkit-stm-b-l4s5i/stm-b-l4s5i.png" alt-text="Locate key components on the STM DevKit board":::
 
 1. Connect the Micro USB cable to the **USB STLINK** port on the STM DevKit, and then connect it to your computer.
 
     > [!NOTE]
-    > For detailed setup information about the STM DevKit, see the instructions on the packaging, or see [B-L4S5I-IOT01A Resources](https://www.st.com/en/evaluation-tools/b-l4s5i-iot01a.html#resource)
+    > For detailed setup information about the STM DevKit, see the instructions on the packaging, or see [B-L4S5I-IOT01A Resources](https://www.st.com/en/evaluation-tools/b-l4s5i-iot01a.html#resource).
 
 1. In IAR, press the green **Download and Debug** button in the toolbar to download the program and run it. Then press *Go*.
 1. Check the Terminal I/O to verify that messages have been successfully sent to the Azure IoT hub.
