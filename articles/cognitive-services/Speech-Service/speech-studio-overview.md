@@ -14,7 +14,7 @@ ms.author: eur
 
 # What is Speech Studio?
 
-[Speech Studio](https://speech.microsoft.com) is a set of UI-based tools for building and integrating features from Azure Cognitive Services Speech service in your applications. You create projects in Speech Studio by using a no-code approach, and then reference those assets in your applications by using the [Speech SDK](speech-sdk.md), the [Speech CLI](spx-overview.md), or REST APIs.
+[Speech Studio](https://speech.microsoft.com) is a set of UI-based tools for building and integrating features from Azure Cognitive Services Speech service in your applications. You create projects in Speech Studio by using a no-code approach, and then reference those assets in your applications by using the [Speech SDK](speech-sdk.md), the [Speech CLI](spx-overview.md), or the REST APIs.
 
 ## Prerequisites
 
