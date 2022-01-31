@@ -156,9 +156,7 @@
       href: language-packs.md
     - name: Windows 11 Enterprise images
       href: windows-11-language-packs.md
-  - name: Use Azure Advisor
-    href: azure-advisor.md
-  - name: Resolve recommendations
+  - name: Resolve Azure Advisor recommendations
     href: azure-advisor-recommendations.md
   - name: Use Azure Monitor for Azure Virtual Desktop
     href: azure-monitor.md
