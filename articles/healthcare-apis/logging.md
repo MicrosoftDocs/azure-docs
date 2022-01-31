@@ -5,18 +5,18 @@ services: healthcare-apis
 author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.topic: tutorial
-ms.date: 01/28/2022
+ms.date: 01/31/2022
 ms.author: ginle
 ---
 
 # Logging for Azure Healthcare APIs
 
-The Azure platform provides three types of logs, activity logs, resource logs and Azure Active Directory logs. See more details on [activity logs](../azure-monitor/essentials/platform-logs-overview.md). In this article, you will learn about how logging works for the Azure Healthcare APIs.
+The Azure platform provides three types of logs, activity logs, resource logs and Azure Active Directory logs. See more details on [activity logs](../azure-monitor/essentials/platform-logs-overview.md). In this article, you’ll learn about how logging works for the Azure Healthcare APIs.
 
 ## AuditLogs
 While activity logs are available for each Azure resource from the Azure portal, the Healthcare APIs emit resource logs, which include two categories of logs, AuditLogs and DiagnosticLogs.
 
-- AuditLogs provides auditing trail for healthcare services, for example, caller's ip address and resource url when a user or application accesses the FHIR service. Each service emits required properties and optionally implements additional properties.
+- AuditLogs provide auditing trails for healthcare services. For example, a caller's IP address and resource URL are logged when a user or application accesses the FHIR service. Each service emits required properties and optionally implements additional properties.
 - DiagnosticLogs provides insight into the operation of the service, for example, log level (information, warning or error) and log message.
 
 Currently, Healthcare APIs only supports AuditLogs for public preview. Diagnostic Logs will be available when the service is generally available.

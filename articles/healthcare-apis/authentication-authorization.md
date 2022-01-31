@@ -5,7 +5,7 @@ services: healthcare-apis
 author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.topic: overview
-ms.date: 01/28/2022
+ms.date: 01/31/2022
 ms.author: ginle
 ---
 
@@ -17,7 +17,7 @@ The Healthcare APIs is a collection of secured managed services using [Azure Act
 
 For the Healthcare APIs services to access Azure resources, such as storage accounts and event hubs, you must **enable the system managed identity**, and **grant proper permissions** to the managed identity. For more information, see [Azure managed identities](../active-directory/managed-identities-azure-resources/overview.md).
 
-The Healthcare APIs do not support other identity providers. However, customers can use their own identity provider to secure applications, and enable them to interact with the Healthcare APIs by managing client applications and user data access controls.
+The Healthcare APIs don’t support other identity providers. However, customers can use their own identity provider to secure applications, and enable them to interact with the Healthcare APIs by managing client applications and user data access controls.
 
 The client applications are registered in the Azure AD and can be used to access the Healthcare APIs. User data access controls are done in the applications or services that implement business logic.
 
@@ -38,7 +38,7 @@ The DICOM service of the Healthcare APIs provides the following roles:
 * **DICOM Data Owner**: Can read, write, and delete DICOM data.
 * **DICOM Data Read**: Can read DICOM data.
 
-The IoT Connector does not require application roles, but it does rely on the “Azure Event Hubs Data Receiver” to retrieve data stored in the event hub of the customer’s subscription.
+The IoT Connector doesn’t require application roles, but it does rely on the “Azure Event Hubs Data Receiver” to retrieve data stored in the event hub of the customer’s subscription.
 
 ## Authorization
 
@@ -46,7 +46,7 @@ After being granted with proper application roles, the authenticated users and c
  
 * For the FHIR service, the access token is specific to the service or resource.
 * For the DICOM service, the access token is granted to the `dicom.healthcareapis.azure.com` resource, not a specific service.
-* For the IoT Connector, the access token is not required because it is not exposed to the users or client applications.
+* For the IoT Connector, the access token isn’t required because it isn’t exposed to the users or client applications.
 
 ### Steps for authorization
 
@@ -60,12 +60,12 @@ For obtaining an access token for the Healthcare APIs, these are the steps using
  
 3. **The client makes a request to the Healthcare APIs**, for example, a `GET` request to search all patients in the FHIR service. When making the request, it **includes the access token in an `HTTP` request header**, for example, **`Authorization: Bearer xxx`**.
 
-4. **The Healthcare APIs service validates that the token contains appropriate claims (properties in the token).** If it is valid, it completes the request and returns data to the client.
+4. **The Healthcare APIs service validates that the token contains appropriate claims (properties in the token).** If it’s valid, it completes the request and returns data to the client.
 
-In the **client credentials flow**, permissions are granted directly to the application itself. When the application presents a token to a resource, the resource enforces that the application itself has authorization to perform an action since there is no user involved in the authentication. Therefore, it is different from the **authorization code flow** in the following ways:
+In the **client credentials flow**, permissions are granted directly to the application itself. When the application presents a token to a resource, the resource enforces that the application itself has authorization to perform an action since there’s no user involved in the authentication. Therefore, it’s different from the **authorization code flow** in the following ways:
 
-- The user or the client does not need to log in interactively
-- The authorization code is not required.
+- The user or the client doesn’t need to log in interactively
+- The authorization code isn’t required.
 - The access token is obtained directly through application permissions.
 
 ### Access token
@@ -83,7 +83,7 @@ You can use online tools such as [https://jwt.ms](https://jwt.ms/) to view the t
 
 |**Claim type**          |**Value**               |**Notes**                               |
 |------------------------|------------------------|----------------------------------------|
-|aud                     |https://xxx.fhir.azurehealthcareapis.com|Identifies the intended recipient of the token. In `id_tokens`, the audience is your app's Application ID, assigned to your app in the Azure portal. Your app should validate this value and reject the token if the value does not match.|
+|aud                     |https://xxx.fhir.azurehealthcareapis.com|Identifies the intended recipient of the token. In `id_tokens`, the audience is your app's Application ID, assigned to your app in the Azure portal. Your app should validate this value and reject the token if the value doesn’t match.|
 |iss                     |https://sts.windows.net/{tenantid}/|Identifies the security token service (STS) that constructs and returns the token, and the Azure AD tenant in which the user was authenticated. If the token was issued by the v2.0 endpoint, the URI will end in `/v2.0`. The GUID that indicates that the user is a consumer user from a Microsoft account is `9188040d-6c67-4c5b-b112-36a304b66dad`. Your app should use the GUID portion of the claim to restrict the set of tenants that can sign in to the app, if it's applicable.|
 |iat                     |(time stamp)            |"Issued At" indicates when the authentication for this token occurred.|
 |nbf                     |(time stamp)            |The "nbf" (not before) claim identifies the time before which the JWT MUST NOT be accepted for processing.|
@@ -91,10 +91,10 @@ You can use online tools such as [https://jwt.ms](https://jwt.ms/) to view the t
 |aio                     |E2ZgYxxx                |An internal claim used by Azure AD to record data for token reuse. Should be ignored.|
 |appid                   |e97e1b8c-xxx            |This is the application ID of the client using the token. The application can act as itself or on behalf of a user. The application ID typically represents an application object, but it can also represent a service principal object in Azure AD.|
 |appidacr                |1                       |Indicates how the client was authenticated. For a public client, the value is "0". If client ID and client secret are used, the value is "1". If a client certificate was used for authentication, the value is "2".|
-|idp                     |https://sts.windows.net/{tenantid}/|Records the identity provider that authenticated the subject of the token. This value is identical to the value of the Issuer claim unless the user account is not in the same tenant as the issuer - guests, for instance. If the claim is not present, it means that the value of iss can be used instead. For personal accounts being used in an organizational context (for instance, a personal account invited to an Azure AD tenant), the idp claim may be 'live.com' or an STS URI containing the Microsoft account tenant 9188040d-6c67-4c5b-b112-36a304b66dad.|
-|oid                     |For example, tenantid         |This is the immutable identifier for an object in the Microsoft identity system, in this case, a user account. This ID uniquely identifies the user across applications - two different applications signing in the same user will receive the same value in the oid claim. The Microsoft Graph will return this ID as the ID property for a given user account. Because the oid allows multiple apps to correlate users, the profile scope is required to receive this claim. Note: If a single user exists in multiple tenants, the user will contain a different object ID in each tenant - they are considered different accounts, even though the user logs into each account with the same credentials.|
+|idp                     |https://sts.windows.net/{tenantid}/|Records the identity provider that authenticated the subject of the token. This value is identical to the value of the Issuer claim unless the user account isn’t in the same tenant as the issuer - guests, for instance. If the claim isn’t present, it means that the value of iss can be used instead. For personal accounts being used in an organizational context (for instance, a personal account invited to an Azure AD tenant), the idp claim may be 'live.com' or an STS URI containing the Microsoft account tenant 9188040d-6c67-4c5b-b112-36a304b66dad.|
+|oid                     |For example, tenantid         |This is the immutable identifier for an object in the Microsoft identity system, in this case, a user account. This ID uniquely identifies the user across applications - two different applications signing in the same user will receive the same value in the oid claim. The Microsoft Graph will return this ID as the ID property for a given user account. Because the oid allows multiple apps to correlate users, the profile scope is required to receive this claim. Note: If a single user exists in multiple tenants, the user will contain a different object ID in each tenant - they’re considered different accounts, even though the user logs into each account with the same credentials.|
 |rh                       |0.ARoxxx              |An internal claim used by Azure to revalidate tokens. It should be ignored.|
-|sub                      |For example, tenantid        |The principal about which the token asserts information, such as the user of an app. This value is immutable and cannot be reassigned or reused. The subject is a pairwise identifier - it is unique to a particular application ID. Therefore, if a single user signs into two different apps using two different client IDs, those apps will receive two different values for the subject claim. This may or may not be desired depending on your architecture and privacy requirements.|
+|sub                      |For example, tenantid        |The principal about which the token asserts information, such as the user of an app. This value is immutable and can’t be reassigned or reused. The subject is a pairwise identifier - it’s unique to a particular application ID. Therefore, if a single user signs into two different apps using two different client IDs, those apps will receive two different values for the subject claim. This may or may not be desired depending on your architecture and privacy requirements.|
 |tid                      |For example, tenantid        |A GUID that represents the Azure AD tenant that the user is from. For work and school accounts, the GUID is the immutable tenant ID of the organization that the user belongs to. For personal accounts, the value is 9188040d-6c67-4c5b-b112-36a304b66dad. The profile scope is required in order to receive this claim.
 |uti                      |bY5glsxxx             |An internal claim used by Azure to revalidate tokens. It should be ignored.|
 |ver                      |1                     |Indicates the version of the token.|
@@ -108,7 +108,7 @@ To obtain an access token, you can use tools such as Postman, the Rest Client ex
 When you create a new service of Azure Healthcare APIs, your data is encrypted using **Microsoft-managed keys** by default. 
 
 * FHIR service provides encryption of data at rest when data is persisted in the data store.
-* DICOM service provides encryption of data at rest when imaging data including embedded metadata is persisted in the data store. When metadata is extracted and persisted in the FHIR service, it is encrypted automatically.
+* DICOM service provides encryption of data at rest when imaging data including embedded metadata is persisted in the data store. When metadata is extracted and persisted in the FHIR service, it’s encrypted automatically.
 * IoT Connector, after data mapping and normalization, persists device messages to the FHIR service, which is encrypted automatically. In cases where device messages are sent to Azure Event Hubs, which use Azure Storage to store the data, data is automatically encrypted with Azure Storage Service Encryption (Azure SSE).
 
 ## Next steps

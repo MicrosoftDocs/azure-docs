@@ -1,16 +1,16 @@
 ---
-title: Configure Azure RBAC for FHIR service - Azure Healthcare APIs
-description: This article describes how to configure Azure RBAC for FHIR.
+title: Configure Azure RBAC role for FHIR service - Azure Healthcare APIs
+description: This article describes how to configure Azure RBAC role for FHIR.
 author: SteveWohl
 ms.service: healthcare-apis
 ms.topic: tutorial
-ms.date: 01/21/2022
+ms.date: 01/31/2022
 ms.author: zxue
 ---
 
-# Configure Azure RBAC for Healthcare APIs
+# Configure Azure RBAC role for Healthcare APIs
 
-In this article, you'll learn how to use [Azure role-based access control (Azure RBAC)](../role-based-access-control/index.yml) to assign access to the Healthcare APIs data plane. Azure RBAC is the preferred methods for assigning data plane access when data plane users are managed in the Azure Active Directory tenant associated with your Azure subscription.
+In this article, you'll learn how to use [Azure role-based access control (Azure RBAC role)](../role-based-access-control/index.yml) to assign access to the Healthcare APIs data plane. Azure RBAC role is the preferred methods for assigning data plane access when data plane users are managed in the Azure Active Directory tenant associated with your Azure subscription.
 
 You can complete role assignments through the Azure portal. Note that the FHIR service and DICOM service have defined different application roles. Add or remove one or more roles to manage user access controls.
 
@@ -28,7 +28,7 @@ In the Role selection, search for one of the built-in roles for the FHIR data pl
 * **FHIR Data Writer**: Can read, write, and soft delete FHIR data.
 * **FHIR Data Exporter**: Can read and export ($export operator) data.
 * **FHIR Data Contributor**: Can perform all data plane operations.
-* **FHIR Data Converter**: Can use the converter to perform data conversion
+* **FHIR Data Converter**: Can use the converter to perform data conversion.
 
 In the **Select** section, type the client application registration name. If the name is found, the application name is listed. Select the application name, and then select **Save**. 
 
