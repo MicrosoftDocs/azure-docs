@@ -11,9 +11,9 @@ This article includes sample bash scripts built for Azure CLI for Azure Lab Serv
 
 | Script | Description |
 |---|---|
-| [Create and verify a virtual machine (VM)](#create-and-verify-availability-of-a-virtual-machine) | Creates a Windows VM with minimal configuration. |
-| [Start a VM](#start-a-virtual-machine) | Starts a VM. |
-| [Stop and delete a VM](#stop-and-delete-a-virtual-machine) | Stops and deletes a VM. |
+| [Create and verify a virtual machine (VM)](#create-and-verify-availability-of-a-vm) | Creates a Windows VM with minimal configuration. |
+| [Start a VM](#start-a-vm) | Starts a VM. |
+| [Stop and delete a VM](#stop-and-delete-a-vm) | Stops and deletes a VM. |
 
 ## Prerequisites
 
