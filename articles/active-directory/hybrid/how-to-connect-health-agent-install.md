@@ -11,8 +11,7 @@ ms.service: active-directory
 ms.subservice: hybrid
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
-ms.date: 10/20/2020
+ms.date: 01/21/2022
 ms.topic: how-to
 ms.author: billmath
 ms.collection: M365-identity-device-management 
@@ -37,7 +36,7 @@ The following table lists requirements for using Azure AD Connect Health.
 | Firewall ports on the server are running the agent. |The agent requires the following firewall ports to be open so that it can communicate with the Azure AD Connect Health service endpoints: <br /><li>TCP port 443</li><li>TCP port 5671</li> <br />The latest version of the agent doesn't require port 5671. Upgrade to the latest version so that only port 443 is required. For more information, see [Hybrid identity required ports and protocols](./reference-connect-ports.md). |
 | If Internet Explorer enhanced security is enabled, allow specified websites.  |If Internet Explorer enhanced security is enabled, then allow the following websites on the server where you install the agent:<br /><li>https:\//login.microsoftonline.com</li><li>https:\//secure.aadcdn.microsoftonline-p.com</li><li>https:\//login.windows.net</li><li>https:\//aadcdn.msftauth.net</li><li>The federation server for your organization that's trusted by Azure AD (for example, https:\//sts.contoso.com)</li> <br />For more information, see [How to configure Internet Explorer](https://support.microsoft.com/help/815141/internet-explorer-enhanced-security-configuration-changes-the-browsing). If you have a proxy in your network, then see the note that appears at the end of this table.|
 | PowerShell version 5.0 or newer is installed. | Windows Server 2016 includes PowerShell version 5.0. 
-|FIPS (Federal Information Processing Standard) is disabled.|Azure AD Connect Health agents don't support FIPS.|
+
 
 > [!IMPORTANT]
 > Windows Server Core doesn't support installing the Azure AD Connect Health agent.

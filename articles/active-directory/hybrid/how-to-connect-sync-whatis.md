@@ -11,7 +11,6 @@ ms.assetid: ee4bf802-045b-4da0-986e-90aba2de58d6
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.date: 11/08/2017
 ms.subservice: hybrid

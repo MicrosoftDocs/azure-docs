@@ -8,11 +8,10 @@ manager: karenhoran
 editor: bryanla
 ms.service: active-directory
 ms.subservice: msi
-ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/26/2021
+ms.date: 01/11/2022
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.custom: mode-other

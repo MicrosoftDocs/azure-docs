@@ -39,9 +39,6 @@ In Azure AD, when users join a licensed group, they're automatically assigned th
 
 If there are not enough available licenses, or an issue occurs like service plans that can't be assigned at the same time, you can see status of any licensing issue for the group in the Azure portal.
 
->[!NOTE]
->The group-based licensing feature currently is in public preview. During the preview, the feature is available with any paid Azure Active Directory (Azure AD) license plan or trial.
-
 ## Delegate administrator roles
 
 Many large organizations want options for their users to obtain sufficient permissions for their work tasks without assigning the powerful Global Administrator role to, for example, users who must register applications. Here's an example of new Azure AD administrator roles to help you distribute the work of application management with more granularity:

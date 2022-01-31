@@ -7,7 +7,6 @@ author: billmath
 manager: karenhoran
 editor: ''
 ms.service: active-directory
-ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity

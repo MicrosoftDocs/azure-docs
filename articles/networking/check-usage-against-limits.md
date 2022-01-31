@@ -7,7 +7,6 @@ author: KumudD
 ms.author: kumud
 tags: azure-resource-manager
 ms.service: azure
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services

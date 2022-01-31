@@ -93,7 +93,7 @@ There are three charts on the **Trends** page to show changes over time: all iss
 
 If there are multiple runs in a single day, only the latest run is included in the graphs on the **Trends** page. 
 
-## Known issues
+## Known Issues
 
 You may encounter some of the following known issues when using SQL assessments. 
 
@@ -107,17 +107,10 @@ Refer to the [deployment history](../../../azure-resource-manager/templates/depl
  
 ### Failed assessments 
 
-**Assessment run failed** - 
-This indicates that the SQL IaaS extension encountered a problem while running assessment. The detailed error message will be available in the extension log inside the VM at `C:\WindowsAzure\Logs\Plugins\Microsoft.SqlServer.Management.SqlIaaSAgent\2.0.X.Y` where `2.0.X.Y `is the latest version folder present.  
-
-**Upload result to Log Analytics workspace failed** - 
-This indicates the Microsoft Monitoring Agent (MMA) was unable to upload the results in a time-bound manner. Ensure the MMA extension is [provisioned correctly](../../../azure-monitor/visualize/vmext-troubleshoot.md) and refer to the Connectivity issues and Data collection issues listed in this [troubleshooting guide](../../../azure-monitor/agents/agent-windows-troubleshoot.md). 
+If the assessment or uploading the results failed for some reason, the status of that run will indicate the failure. Clicking on the status will open a context pane where you can see the details about the failure and possible ways to remediate the issue.
 
 >[!TIP]
 >If you have enforced TLS 1.0 or higher in Windows and disabled older SSL protocols as described [here](/troubleshoot/windows-server/windows-security/restrict-cryptographic-algorithms-protocols-schannel#schannel-specific-registry-keys), then you must also ensure that .NET Framework is [configured](../../../azure-monitor/agents/agent-windows.md#configure-agent-to-use-tls-12) to use strong cryptography. 
-
-**Result expired due to Log Analytics workspace data retention** - 
-This indicates that the results are no longer retained in the Log Analytics workspace based on its retention policy. You can [change the retention period](../../../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period) for the workspace
 
 ## Next steps
 

@@ -83,7 +83,8 @@ To learn more about the CLI command, see [az iot central device manual-failover]
 
 You can now check to see that telemetry from the device is still reaching your IoT Central application.
 
-To see sample device code that handles failovers in various programing languages, see [IoT high availability clients](https://github.com/iot-for-all/iot-central-high-availability-clients).
+> [!TIP]
+> To see sample device code that handles failovers in various programing languages, see [IoT Central high availability clients](/samples/azure-samples/iot-central-high-availability-clients/iotc-high-availability-clients/).
 
 ## Next steps
 

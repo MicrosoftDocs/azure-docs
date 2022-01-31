@@ -32,5 +32,5 @@ From the web console in the previous step, set the **Channel** to the correct ch
 Selection a version to update to, and select **Update**. You'll see the update status change to: `Update to <product-version> in progress`. You can review the progress of the cluster update by watching the progress bars for the Operators and nodes.
 
 ## Next steps
-- [Learn to upgrade an ARO cluster using the OC CLI](https://docs.openshift.com/container-platform/4.6/updating/updating-cluster-between-minor.html)
+- [Learn to upgrade an ARO cluster using the OC CLI](https://docs.openshift.com/container-platform/4.5/updating/updating-cluster-between-minor.html)
 - You can find information about available OpenShift Container Platform advisories and updates in the [errata section](https://access.redhat.com/downloads/content/290/ver=4.6/rhel---8/4.6.0/x86_64/product-errata) of the Customer Portal.

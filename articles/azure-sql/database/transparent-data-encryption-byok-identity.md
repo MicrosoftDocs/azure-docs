@@ -16,7 +16,7 @@ ms.date: 12/16/2021
 > [!NOTE]
 > Assigning a user-assigned managed identity for Azure SQL logical servers and Managed Instances is in **public preview**.
 
-Managed identities in Azure Active Directory (Azure AD) provide Azure services with an automatically managed identity in Azure AD. This identity can be used to authenticate to any service that supports Azure AD authentication, such as [Azure Key Vault](/azure/key-vault/general/overview), without any credentials in the code. For more information, see [Managed identity types](/azure/active-directory/managed-identities-azure-resources/overview#managed-identity-types) in Azure. 
+Managed identities in Azure Active Directory (Azure AD) provide Azure services with an automatically managed identity in Azure AD. This identity can be used to authenticate to any service that supports Azure AD authentication, such as [Azure Key Vault](../../key-vault/general/overview.md), without any credentials in the code. For more information, see [Managed identity types](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) in Azure. 
 
 Managed Identities can be of two types:
 
@@ -30,7 +30,7 @@ For [TDE with customer-managed key (CMK)](transparent-data-encryption-byok-overv
 In addition to the system-assigned managed identity that is already supported for TDE with CMK, a user-assigned managed identity (UMI) that is assigned to the server can be used to allow the server to access the key vault. A prerequisite to enable key vault access is to ensure the user-assigned managed identity has been provided the *Get*, *wrapKey* and *unwrapKey* permissions on the key vault. Since the user-assigned managed identity is a standalone resource that can be created and granted access to the key vault, [TDE with a customer-managed key can now be enabled at creation time for the server or database](transparent-data-encryption-byok-create-server.md). 
 
 > [!NOTE]
-> For assigning a user-assigned managed identity to the logical server or managed instance, a user must have the [SQL Server Contributor](/azure/role-based-access-control/built-in-roles#sql-server-contributor) or [SQL Managed Instance Contributor](/azure/role-based-access-control/built-in-roles#sql-managed-instance-contributor) Azure RBAC role along with any other Azure RBAC role containing the **Microsoft.ManagedIdentity/userAssignedIdentities/*/assign/action** action. 
+> For assigning a user-assigned managed identity to the logical server or managed instance, a user must have the [SQL Server Contributor](../../role-based-access-control/built-in-roles.md#sql-server-contributor) or [SQL Managed Instance Contributor](../../role-based-access-control/built-in-roles.md#sql-managed-instance-contributor) Azure RBAC role along with any other Azure RBAC role containing the **Microsoft.ManagedIdentity/userAssignedIdentities/*/assign/action** action. 
 
 ## Benefits of using UMI for customer-managed TDE
 
@@ -65,4 +65,3 @@ In addition to the system-assigned managed identity that is already supported fo
 
 > [!div class="nextstepaction"]
 > [Create Azure SQL database configured with user-assigned managed identity and customer-managed TDE](transparent-data-encryption-byok-create-server.md)
-

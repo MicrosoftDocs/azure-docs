@@ -22,6 +22,12 @@ This article provides information about limitations and known issues related to 
 
 The following sections provide information about known issues associated with the Communication Services JavaScript voice and video calling SDKs.
 
+### Some Android devices failing to join calls and meetings.
+
+A number of specific Android devices fail to join calls and meetings. The devices that run into this issue, wont recover and will fail on every attemp. These are mostly Samsung phones with biggest contributors A326U, A125U and A215U models.
+
+- This is a known regression introduced on [Chromium](https://bugs.chromium.org/p/webrtc/issues/detail?id=13223).
+
 ### iOS 15.1 users joining group calls or Microsoft Teams meetings.
 
 * Low volume. Known regression introduced by Apple with the release of iOS 15.1. Related webkit bug [here](https://bugs.webkit.org/show_bug.cgi?id=230902).
@@ -155,4 +161,6 @@ The following are known issues in the Communication Services Call Automation API
 
 Up to 100 users can join a group call using the JS web calling SDK. 
 
+##Android API emulators
+When utilizing Android API emulators some crashes are expected.  
 

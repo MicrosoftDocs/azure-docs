@@ -2,7 +2,7 @@
 author: v-jaswel
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 09/28/2020
+ms.date: 01/08/2022
 ms.author: v-jawe
 ms.custom: references_regions, ignite-fall-2021
 ---
@@ -73,8 +73,8 @@ public static async Task VerificationEnroll(SpeechConfig config, Dictionary<stri
 {
     using (var client = new VoiceProfileClient(config))
     using (var profile = await client.CreateProfileAsync(VoiceProfileType.TextDependentVerification, "en-us"))
-    using (var phraseResult = await client.GetActivationPhrasesAsync(VoiceProfileType.TextDependentVerification, "en-us"))
     {
+        var phraseResult = await client.GetActivationPhrasesAsync(VoiceProfileType.TextDependentVerification, "en-us");
         using (var audioInput = AudioConfig.FromDefaultMicrophoneInput())
         {
             Console.WriteLine($"Enrolling profile id {profile.Id}.");
@@ -169,8 +169,8 @@ public static async Task VerificationEnroll(SpeechConfig config, Dictionary<stri
 {
     using (var client = new VoiceProfileClient(config))
     using (var profile = await client.CreateProfileAsync(VoiceProfileType.TextIndependentVerification, "en-us"))
-    using (var phraseResult = await client.GetActivationPhrasesAsync(VoiceProfileType.TextIndependentVerification, "en-us"))
     {
+        var phraseResult = await client.GetActivationPhrasesAsync(VoiceProfileType.TextIndependentVerification, "en-us");
         using (var audioInput = AudioConfig.FromDefaultMicrophoneInput())
         {
             Console.WriteLine($"Enrolling profile id {profile.Id}.");
@@ -234,8 +234,8 @@ public static async Task<List<VoiceProfile>> IdentificationEnroll(SpeechConfig c
 {
     List<VoiceProfile> voiceProfiles = new List<VoiceProfile>();
     using (var client = new VoiceProfileClient(config))
-    using (var phraseResult = await client.GetActivationPhrasesAsync(VoiceProfileType.TextIndependentVerification, "en-us"))
     {
+        var phraseResult = await client.GetActivationPhrasesAsync(VoiceProfileType.TextIndependentVerification, "en-us");
         foreach (string name in profileNames)
         {
             using (var audioInput = AudioConfig.FromDefaultMicrophoneInput())

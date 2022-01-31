@@ -8,11 +8,10 @@ manager: karenhoran
 editor: ''
 ms.assetid: 1034c000-59f2-4fc8-8137-2416fa5e4bfe
 ms.service: active-directory
-ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 01/14/2022
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -137,9 +136,9 @@ It's possible to have more than one staging server when you want to have multipl
 ## Multiple Azure AD tenants
 We recommend having a single tenant in Azure AD for an organization. Before you plan to use multiple Azure AD tenants, see the article [Administrative units management in Azure AD](../roles/administrative-units.md). It covers common scenarios where you can use a single tenant.
 
-### (Public preview) Each object multiple times in an Azure AD tenant
+### (Public preview) Sync AD objects to multiple Azure AD tenants
 
-![Diagram that shows a topology of multiple Azure A D tenants.](./media/plan-connect-topologies/multi-tenant-1.png)
+![Diagram that shows a topology of multiple Azure A D tenants.](./media/plan-connect-topologies/multi-tenant-2.png)
 
 > [!NOTE]
 > This topology is currently in Public Preview. As the supported scenarios might still change, we recommend not deploying this topology in a production environment.

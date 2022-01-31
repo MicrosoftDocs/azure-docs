@@ -7,7 +7,6 @@ manager: martincoetzer
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/18/2021
 ms.subservice: hybrid

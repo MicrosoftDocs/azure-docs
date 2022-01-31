@@ -76,7 +76,6 @@ The status of items that appear in this tables may change over time as support c
 | [GRS or GZRS redundancy types](storage-files-planning.md#redundancy)| ⛔ |
 | [AzCopy](../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)| ⛔ |
 | Azure Storage Explorer| ⛔ |
-| Create NFS shares on existing storage accounts*| ⛔ |
 | Support for more than 16 groups| ⛔ |
 
 ## Regional availability
