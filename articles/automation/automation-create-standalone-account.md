@@ -94,7 +94,7 @@ When the Automation account is successfully created, several resources are autom
 |AzureAutomationTutorialPython2Runbook |An example Python runbook that demonstrates how to authenticate by using a Run As account. The runbook lists all resource groups present in the subscription.|
 
 > [!NOTE]
-> The tutorial runbooks have not been updated to authenticate using a managed identity. Review the [Using system-assigned identity](enable-managed-identity-for-automation.md#give-access-to-azure-resources-by-obtaining-a-token) or [Using user-assigned identity](add-user-assigned-identity.md#give-identity-access-to-azure-resources-by-obtaining-a-token) to learn how to grant the managed identity access to resources and configure your runbooks to authenticate using either type of managed identity.
+> The tutorial runbooks have not been updated to authenticate using a managed identity. Review the [Using system-assigned identity](enable-managed-identity-for-automation.md#assign-role-to-a-system-assigned-managed-identity) or [Using user-assigned identity](add-user-assigned-identity.md#assign-a-role-to-a-user-assigned-managed-identity) to learn how to grant the managed identity access to resources and configure your runbooks to authenticate using either type of managed identity.
 
 ## Next steps
 
