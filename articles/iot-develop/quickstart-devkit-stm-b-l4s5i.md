@@ -228,9 +228,6 @@ Keep Termite open to monitor device output in the following steps.
 
 * Download the [Azure_RTOS_6.1_STM32F746G-DISCO_IAR_Samples_2021_11_03.zip]
 (https://github.com/azure-rtos/samples/releases/download/v6.1_rel/Azure_RTOS_6.1_STM32F746G-DISCO_IAR_Samples_2021_11_03.zip) file and extract it to a working directory. Choose a directory with a short path to avoid compiler errors when you build.
-## Prepare the development environment
-
-To set up your development environment, first you clone a GitHub repo that contains all the assets you need for the quickstart. Then you install a set of programming tools.
 
 [!INCLUDE [iot-develop-embedded-create-central-app-with-device](../../includes/iot-develop-embedded-create-central-app-with-device.md)]
 
@@ -274,7 +271,7 @@ To connect the device to Azure, you'll modify a configuration file for Azure IoT
     |`WIFI_SSID` |{*Your Wi-Fi SSID*}|
     |`WIFI_PASSWORD` |{*Your Wi-Fi password*}|
 
- :::image type="content" source="media/quickstart-devkit-stm-b-l4s5i/options-for-node-sample.png" alt-text="Options for node sample":::
+     :::image type="content" source="media/quickstart-devkit-stm-b-l4s5i/options-for-node-sample.png" alt-text="Options for node sample":::
 
 ### Build the project
 
