@@ -40773,12 +40773,22 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/aks/open-service-mesh-azure-application-gateway-ingress.md",
+      "redirect_url": "/azure/aks/open-service-mesh-about",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/aks/open-service-mesh-ip-port-exclusion.md",
       "redirect_url": "/azure/aks/open-service-mesh-about",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/aks/open-service-mesh-deploy-new-application.md",
+      "redirect_url": "/azure/aks/open-service-mesh-about",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/aks/open-service-mesh-nginx-ingress.md",
       "redirect_url": "/azure/aks/open-service-mesh-about",
       "redirect_document_id": false
     },
