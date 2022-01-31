@@ -102,8 +102,8 @@ Alice is a doctor meeting with her patient, Bob. Alice will be joining the visit
 - One Participant (Bob) connected to Teams lobby x 1 minute x $0.004 per participant per minute (lobby charged at regular rate of meetings) = $0.004
 - One participant (Bob) x 29 minutes x $0.004 per participant per minute = $0.116 [both video and audio are charged at the same rate]
 - One participant (Alice) x 30 minutes x $0.000 per participant per minute = $0.0*.
-- One participant (Bob) x 3 chat messages x $0.0008 = $0.0024.
-- One participant (Alice) x 5 chat messages x $0.000  = $0.0*.
+- One participant (Bob) x three chat messages x $0.0008 = $0.0024.
+- One participant (Alice) x five chat messages x $0.000  = $0.0*.
 
 *Alice's participation is covered by her Teams license. Your Azure invoice will show the minutes and chat messages that Teams users had with Communication Services Users for your convenience, but those minutes and messages originating from the Teams client won't be charged.
 
@@ -117,9 +117,9 @@ Alice has ordered a product from Contoso and struggles to set it up. Alice calls
 
 - The call lasts a total of 30 minutes.
 - Bob accepts the call from Alice.
-- After 5 minutes, Bob adds Charlie to the call. Charlie has his camera turned off for 10 minutes. Then turns his camera on for the rest of the call. 
+- After five minutes, Bob adds Charlie to the call. Charlie has his camera turned off for 10 minutes. Then turns his camera on for the rest of the call. 
 - After another 10 minutes, Alice leaves the call. 
-- After another 5 minutes, both Bob and Charlie leave the call
+- After another five minutes, both Bob and Charlie leave the call
 
 **Cost calculations**
 
@@ -166,7 +166,7 @@ Alice starts a call with Jane.
 
 ## Chat
 
-With Communication Services you can enhance your application with the ability to send and receive chat messages between two or more users. Chat SDKs are available for JavaScript, .NET, Python and Java. Refer to [this page to learn about SDKs](./sdk-options.md)
+With Communication Services you can enhance your application with the ability to send and receive chat messages between two or more users. Chat SDKs are available for JavaScript, .NET, Python, and Java. Refer to [this page to learn about SDKs](./sdk-options.md)
 
 ### Price
 
@@ -174,7 +174,7 @@ You're charged $0.0008 for every chat message sent.
 
 ### Pricing example: Chat between two users
 
-Geeta starts a chat thread with Emily to share an update and sends 5 messages. The chat lasts 10 minutes. Geeta and Emily send another 15 messages each.
+Geeta starts a chat thread with Emily to share an update and sends five messages. The chat lasts 10 minutes. Geeta and Emily send another 15 messages each.
 
 **Cost calculations**
 - Number of messages sent (5 + 15 + 15) x $0.0008 = $0.028
