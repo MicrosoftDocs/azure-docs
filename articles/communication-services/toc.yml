@@ -78,16 +78,16 @@ items:
 - name: Tutorials
   expanded: false
   items:
-  - name: Build a authentication service using Azure Functions
+  - name: Use Postman to send SMS messages
+    href: tutorials/postman-tutorial.md
+  - name: Sign an HTTP request with HMAC using C#
+    href: tutorials/hmac-header-tutorial.md  
+  - name: Build an authentication service using Azure Functions
     href: tutorials/trusted-service-tutorial.md
-  - name: Export SDK telemetry data to Application Insights
-    href: quickstarts/telemetry-application-insights.md
   - name: Prepare a Node.js web app for Calling
     href: tutorials/building-app-start.md
-  - name: Sign an HTTP request with HMAC using C#
-    href: tutorials/hmac-header-tutorial.md
-  - name: Send requests to the SMS API with Postman
-    href: tutorials/postman-tutorial.md
+  - name: Export SDK telemetry to Application Insights
+    href: quickstarts/telemetry-application-insights.md  
 - name: Concepts
   expanded: false
   items:
