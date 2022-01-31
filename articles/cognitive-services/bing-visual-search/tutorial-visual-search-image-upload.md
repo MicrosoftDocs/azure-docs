@@ -10,7 +10,7 @@ ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: tutorial
 ms.date: 03/31/2020
-
+ms.devlang: javascript
 ms.custom: devx-track-js
 ---
 

@@ -43,7 +43,7 @@ If AKS finds multiple unhealthy nodes during a health check, each node is repair
 
 ## Limitations
 
-In many cases, AKS can determine if a node is unhealthy and attempt to repair the issue, but there are cases where AKS either can't repair the issue or can't detect that there is an issue. For example, AKS can't detect issues if a node status is not being reported due to error in network configuration.
+In many cases, AKS can determine if a node is unhealthy and attempt to repair the issue, but there are cases where AKS either can't repair the issue or can't detect that there is an issue. For example, AKS can't detect issues if a node status is not being reported due to error in network configuration, or has failed to initially register as a healthy node.
 
 ## Next steps
 

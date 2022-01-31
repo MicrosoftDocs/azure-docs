@@ -24,17 +24,11 @@ The example IoT Plug and Play device in this article implements a [Temperature C
 
 ## Device twins and digital twins
 
-As well as a digital twin, Azure IoT Hub also maintains a *device twin* for every connected device. A device twin is similar to a digital twin in that it's a representation of a device's properties. The Azure IoT service SDKs include APIs for interacting with device twins.
+Along with a digital twin, Azure IoT Hub also maintains a *device twin* for every connected device. A device twin is similar to a digital twin in that it's a representation of a device's properties. An IoT hub initializes a digital twin and a device twin the first time an IoT Plug and Play device is provisioned. The Azure IoT service SDKs include APIs for interacting with device twins.
 
-An IoT hub initializes a digital twin and a device twin the first time an IoT Plug and Play device connects.
+Device twins are JSON documents that store device state information, including metadata, configurations, and conditions. To learn more, see [IoT Hub service client examples](concepts-developer-guide-service.md#iot-hub-service-client-examples). Device and solution builders can both use the same set of device twin APIs and SDKs to implement devices and solutions using IoT Plug and Play conventions. In a device twin, the state of a writable property is split across the *desired properties* and *reported properties* sections. All read-only properties are available within the reported properties section.
 
-Device twins are JSON documents that store device state information including metadata, configurations, and conditions. To learn more, see [IoT Hub service client examples](concepts-developer-guide-service.md#iot-hub-service-client-examples). Both device and solution builders can continue to use the same set of Device Twin APIs and SDKs to implement devices and solutions using IoT Plug and Play conventions.
-
-The digital twin APIs operate on high-level DTDL constructs such as components, properties, and commands. The digital twin APIs make it easier for solution builders to create IoT Plug and Play solutions.
-
-In a device twin, the state of a writable property is split across the *desired properties* and *reported properties* sections. All read-only properties are available within the reported properties section.
-
-In a digital twin, there's a unified view of the current and desired state of the property. The synchronization state for a given property is stored in the corresponding default component `$metadata` section.
+The digital twin APIs operate on high-level DTDL constructs such as components, properties, and commands and makes it easier for solution builders to create IoT Plug and Play solutions. In a digital twin, there's a unified view of the current and desired state of the property. The synchronization state for a given property is stored in the corresponding default component `$metadata` section.
 
 ### Device twin JSON example
 

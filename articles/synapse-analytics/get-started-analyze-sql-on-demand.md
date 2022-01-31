@@ -4,8 +4,7 @@ description: In this tutorial, you'll learn how to analyze data with a serverles
 services: synapse-analytics
 author: saveenr
 ms.author: saveenr
-manager: julieMSFT
-ms.reviewer: jrasnick
+ms.reviewer: sngun
 ms.service: synapse-analytics
 ms.subservice: sql
 ms.topic: tutorial
@@ -74,7 +73,7 @@ However, as you continue data exploration, you might want to create some utility
    > [!NOTE]
    > An external data source can be created without a credential. If a credential does not exist, the caller's identity will be used to access the external data source.
 
-3. Optionally, use the 'master' database to create a login for a user in `DataExplorationDB` that will access external data:
+3. Optionally, use the newly created 'DataExplorationDB' database to create a login for a user in DataExplorationDB that will access external data:
 
     ```sql
     CREATE LOGIN data_explorer WITH PASSWORD = 'My Very Strong Password 1234!';

@@ -3,13 +3,13 @@ title: Install Visual Studio 2019
 description: Install Visual Studio and SQL Server Development Tools (SSDT) for Synapse SQL
 ms.custom: vs-azure, azure-synapse
 ms.workload: azure-vs
-author: julieMSFT
+author: WilliamDAssafMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw 
 ms.date: 05/11/2020
-ms.author: jrasnick
+ms.author: wiassaf
 ms.reviewer: igorstan
 ---
 

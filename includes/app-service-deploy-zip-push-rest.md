@@ -26,6 +26,19 @@ This request triggers push deployment from the uploaded .zip file. You can revie
 curl -u <deployment_user> https://<app_name>.scm.azurewebsites.net/api/deployments
 ```
 
+#### Azure AD authentication
+
+An alternative to using HTTP BASIC authentication for the zip deployment is to use an Azure AD identity. Azure AD identity may be needed if [HTTP BASIC authentication is disabled for the SCM site](../articles/app-service/deploy-configure-credentials.md#disable-basic-authentication).
+
+A valid Azure AD access token for the the user or service principal performing the deployment will be required. An access token can be retrieved using the Azure CLI's `az account get-access-token` command.  The access token will be used in the Authentication header of the HTTP POST request.
+
+```bash
+curl -X POST \
+    --data-binary @"<zip_file_path>" \
+    -H "Authorization: Bearer <access_token>" \
+    "https://<app_name>.scm.azurewebsites.net/api/zipdeploy"
+```
+
 ### With PowerShell
 
 The following example uses [Publish-AzWebapp](/powershell/module/az.websites/publish-azwebapp) upload the .zip file. Replace the placeholders `<group-name>`, `<app-name>`, and `<zip-file-path>`.

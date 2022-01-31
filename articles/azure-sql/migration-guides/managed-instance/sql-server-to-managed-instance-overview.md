@@ -8,7 +8,7 @@ ms.devlang:
 ms.topic: how-to
 author: mokabiru
 ms.author: mokabiru
-ms.reviewer: cawrites
+ms.reviewer: mathoma
 ms.date: 09/07/2021
 ---
 # Migration overview: SQL Server to Azure SQL Managed Instance

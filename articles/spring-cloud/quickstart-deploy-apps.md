@@ -6,7 +6,7 @@ ms.author: karler
 ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 11/15/2021
-ms.custom: devx-track-java, devx-track-azurecli
+ms.custom: devx-track-java, devx-track-azurecli, mode-other
 zone_pivot_groups: programming-languages-spring-cloud
 ---
 
@@ -411,4 +411,4 @@ Other microservices included in this sample can be deployed similarly.
 In this quickstart, you created Azure resources that will continue to accrue charges if they remain in your subscription. If you don't intend to continue on to the next quickstart, see [Clean up resources](./quickstart-logs-metrics-tracing.md#clean-up-resources). Otherwise, advance to the next quickstart:
 
 > [!div class="nextstepaction"]
-> [Logs, Metrics and Tracing](./quickstart-logs-metrics-tracing.md)
+> [Set up Log Analytics](./quickstart-setup-log-analytics.md)

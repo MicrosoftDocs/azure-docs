@@ -10,7 +10,7 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/30/2021
 ms.author: hasshah
-ms.custom: devx-track-csharp, ignite-fall-2021
+ms.custom: ignite-fall-2021
 ---
 
 # Keyword recognition
@@ -51,7 +51,7 @@ Custom Keyword allows you to generate two types of on-device models for any keyw
 | Advanced | Best suited for product integration purposes. Models are generated with adaptation of a common base model using simulated training data to improve accuracy characteristics. It can take up to 48 hours for models to be ready. |
 
 > [!NOTE]
-> You can view a list of regions that support the **Advanced** model type in the [Keyword recognition region support](keyword-recognition-region-support.md) documentation. 
+> You can view a list of regions that support the **Advanced** model type in the [Keyword recognition region support](regions.md#keyword-recognition) documentation. 
 
 Neither model type requires you to upload training data. Custom Keyword fully handles data generation and model training.
 

@@ -9,7 +9,7 @@ author: VanMSFT
 ms.author: vanto
 ms.topic: article
 ms.date: 11/10/2021
-ms.reviewer: ""
+ms.reviewer: kendralittle, mathoma
 ---
 
 # Playbook for addressing common security requirements with Azure SQL Database and Azure SQL Managed Instance

@@ -6,7 +6,7 @@ services: synapse-analytics
 ms.service: synapse-analytics 
 ms.subservice: machine-learning
 ms.topic: overview 
-ms.reviewer: jrasnick, garye
+ms.reviewer: sngun, garye
 
 ms.date: 10/01/2021
 author: nelgson

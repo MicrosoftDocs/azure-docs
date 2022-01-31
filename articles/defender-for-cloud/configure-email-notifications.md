@@ -1,13 +1,9 @@
 ---
 title: Configure email notifications for Microsoft Defender for Cloud alerts
-description: Learn how to fine-tune the Microsoft Defender for Cloud security alert emails. 
-author: memildin
-manager: rkarlin
-ms.service: defender-for-cloud
+description: Learn how to fine-tune the Microsoft Defender for Cloud security alert emails.
 ms.topic: quickstart
 ms.date: 11/09/2021
-ms.author: memildin
-
+ms.custom: mode-other
 ---
 # Configure email notifications for security alerts 
 
@@ -42,7 +38,7 @@ To avoid alert fatigue, Defender for Cloud limits the volume of outgoing mails. 
 ## Customize the security alerts email notifications via the portal<a name="email"></a>
 You can send email notifications to individuals or to all users with specific Azure roles.
 
-1. From Defender for Cloud's **Environment settings** area, select the relevant subscription, and select **Email notifications**.
+1. From Defender for Cloud's **Environment settings** area, select the relevant subscription, and open **Email notifications**.
 
 1. Define the recipients for your notifications with one or both of these options:
 

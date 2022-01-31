@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 10/25/2021
+ms.date: 01/10/2022
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: keyam, udayh, vakarand
@@ -32,15 +32,16 @@ Find the object ID of the app (not the application (client) ID), which you need 
 
 Get the information for your external IdP and software workload, which you need in the following steps.
 
-## Configure a federated identity credential using Microsoft Graph
+The Microsoft Graph beta endpoint (`https://graph.microsoft.com/beta`) exposes REST APIs to create, update, delete [federatedIdentityCredentials](/graph/api/resources/federatedidentitycredential?view=graph-rest-beta&preserve-view=true) on applications. Launch [Azure Cloud Shell](https://portal.azure.com/#cloudshell/) and sign in to your tenant.
 
-Launch [Azure Cloud Shell](https://portal.azure.com/#cloudshell/) and sign in to your tenant.
+## Configure a federated identity credential
 
-### Create a federated identity credential
+Run the Microsoft Graph [create a new federated identity credential](/graph/api/application-post-federatedidentitycredentials?view=graph-rest-beta&preserve-view=true) operation on your app (specified by the object ID of the app).  
 
-Run the following command to [create a new federated identity credential](/graph/api/application-post-federatedidentitycredentials?view=graph-rest-beta&preserve-view=true) on your app (specified by the object ID of the app).  
+*issuer* and *subject* are the key pieces of information needed to set up the trust relationship. *issuer* is the URL of the external identity provider and must match the `issuer` claim of the external token being exchanged.  *subject* is the identifier of the external software workload and must match the `sub` (`subject`) claim of the external token being exchanged. *subject* has no fixed format, as each IdP uses their own - sometimes a GUID, sometimes a colon delimited identifier, sometimes arbitrary strings. The combination of `issuer` and `subject` must be unique on the app.  When the external software workload requests Microsoft identity platform to exchange the external token for an access token, the *issuer* and *subject* values of the federated identity credential are checked against the `issuer` and `subject` claims provided in the external token. If that validation check passes, Microsoft identity platform issues an access token to the external software workload.
 
-*issuer* and *subject* are the key pieces of information needed to set up the trust relationship. *issuer* is the URL of the external identity provider and must match the `issuer` claim of the external token being exchanged.  *subject* is the identifier of the external software workload and must match the `sub` (`subject`) claim of the external token being exchanged. *subject* has no fixed format, as each IdP uses their own - sometimes a GUID, sometimes a colon delimited identifier, sometimes arbitrary strings. The combination of `issuer` and `subject` must be unique on the app.  When the external software workload requests Microsoft identity platform to exchange the external token for an access token, the *issuer* and *subject* values of the federated identity credential are checked against the `issuer` and `subject` claims provided in the external token. If that validation check passes, Microsoft identity platform issues an access token to the external software workload.
+> [!IMPORTANT]
+> If you accidentally add the incorrect external workload information in the *subject* setting the federated identity credential is created successfully without error.  The error does not become apparent until the token exchange fails.
 
 *audiences* lists the audiences that can appear in the external token.  This field is mandatory, and defaults to "api://AzureADTokenExchange". It says what Microsoft identity platform must accept in the `aud` claim in the incoming token.  This value represents Azure AD in your external identity provider and has no fixed value across identity providers - you may need to create a new application registration in your IdP to serve as the audience of this token.
 
@@ -48,6 +49,7 @@ Run the following command to [create a new federated identity credential](/graph
 
 *description* is the un-validated, user-provided description of the federated identity credential. 
 
+### GitHub Actions example
 Run the following command to [create a new federated identity credential](/graph/api/application-post-federatedidentitycredentials?view=graph-rest-beta&preserve-view=true) on your app (specified by the object ID of the app).  The *issuer* identifies GitHub as the external token issuer.  *subject* identifies the GitHub organization, repo, and environment for your GitHub Actions workflow.  When the GitHub Actions workflow requests Microsoft identity platform to exchange a GitHub token for an access token, the values in the federated identity credential are checked against the provided GitHub token.
 
 ```azurecli
@@ -69,10 +71,29 @@ And you get the response:
 }
 ```
 
-> [!IMPORTANT]
-> If you accidentally add the incorrect external workload information in the *subject* setting the federated identity credential is created successfully without error.  The error does not become apparent until the token exchange fails.
+### Kubernetes example
+Run the following command to configure a federated identity credential on an app and create a trust relationship with a Kubernetes service account.  The *issuer* is your service account issuer URL.  *subject* is the subject name in the tokens issued to the service account. Kubernetes uses the following format for subject names: `system:serviceaccount:<SERVICE_ACCOUNT_NAMESPACE>:<SERVICE_ACCOUNT_NAME>`.
 
-### List federated identity credentials on an app
+```azurecli
+az rest --method POST --uri 'https://graph.microsoft.com/beta/applications/f6475511-fd81-4965-a00e-41e7792b7b9c/federatedIdentityCredentials' --body '{"name":"Kubernetes-federated-credential","issuer":"https://aksoicwesteurope.blob.core.windows.net/9d80a3e1-2a87-46ea-ab16-e629589c541c/","subject":"system:serviceaccount:erp8asle:pod-identity-sa","description":"Kubernetes service account federated credential","audiences":["api://AzureADTokenExchange"]}' 
+```
+
+And you get the response:
+```azurecli
+{
+  "@odata.context": "https://graph.microsoft.com/beta/$metadata#applications('f6475511-fd81-4965-a00e-41e7792b7b9c')/federatedIdentityCredentials/$entity",
+  "audiences": [
+    "api://AzureADTokenExchange"
+  ],
+  "description": "Kubernetes service account federated credential",
+  "id": "51ecf9c3-35fc-4519-a28a-8c27c6178bca",
+  "issuer": "https://aksoicwesteurope.blob.core.windows.net/9d80a3e1-2a87-46ea-ab16-e629589c541c/",
+  "name": "Kubernetes-federated-credential",
+  "subject": "system:serviceaccount:erp8asle:pod-identity-sa"
+}
+```
+
+## List federated identity credentials on an app
 
 Run the following command to [list the federated identity credential(s)](/graph/api/application-list-federatedidentitycredentials?view=graph-rest-beta&preserve-view=true) for an app (specified by the object ID of the app):
 
@@ -100,7 +121,7 @@ And you get a response similar to:
 }
 ```
 
-### Delete a federated identity credential
+## Delete a federated identity credential
 
 Run the following command to [delete a federated identity credential](/graph/api/application-list-federatedidentitycredentials?view=graph-rest-beta&preserve-view=true) from an app (specified by the object ID of the app):
 
@@ -110,4 +131,6 @@ az rest -m DELETE  -u 'https://graph.microsoft.com/beta/applications/f6475511-fd
 ```
 
 ## Next steps
-For more information, read about how Azure AD uses the [OAuth 2.0 client credentials grant](v2-oauth2-client-creds-grant-flow.md#third-case-access-token-request-with-a-federated-credential) and a client assertion issued by another IdP to get a token.
+- To learn how to use workload identity federation for Kubernetes, see [Azure AD Workload Identity for Kubernetes](https://azure.github.io/azure-workload-identity/docs/quick-start.html) open source project. 
+- To learn how to use workload identity federation for GitHub Actions, see [Configure a GitHub Actions workflow to get an access token](/azure/developer/github/connect-from-azure).
+- For more information, read about how Azure AD uses the [OAuth 2.0 client credentials grant](v2-oauth2-client-creds-grant-flow.md#third-case-access-token-request-with-a-federated-credential) and a client assertion issued by another IdP to get a token.

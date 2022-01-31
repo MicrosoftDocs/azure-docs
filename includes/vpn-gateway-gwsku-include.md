@@ -5,12 +5,12 @@
  author: cherylmc
  ms.service: vpn-gateway
  ms.topic: include
- ms.date: 11/12/2019
+ ms.date: 12/15/2021
  ms.author: cherylmc
  ms.custom: include file
 ---
 
-When you create a virtual network gateway, you need to specify the gateway SKU that you want to use. Select the SKU that satisfies your requirements based on the types of workloads, throughputs, features, and SLAs. For virtual network gateway SKUs in Azure Availability Zones, see [Azure Availability Zones gateway SKUs](../articles/vpn-gateway/about-zone-redundant-vnet-gateways.md).
+When you create a virtual network gateway, you need to specify the gateway SKU that you want to use. Select the SKU that satisfies your requirements based on the types of workloads, throughput, features, and SLAs. For virtual network gateway SKUs in Azure Availability Zones, see [Azure Availability Zones gateway SKUs](../articles/vpn-gateway/about-zone-redundant-vnet-gateways.md).
 
 ###  <a name="benchmark"></a>Gateway SKUs by tunnel, connection, and throughput
 

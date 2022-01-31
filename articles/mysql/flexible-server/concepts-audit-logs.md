@@ -17,7 +17,7 @@ Azure Database for MySQL Flexible Server provides users with the ability to conf
 ## Configure audit logging
 
 >[!IMPORTANT]
-> It is recommended to only log the event types and users required for your auditing purposes to ensure your server's performance is not heavily impacted.
+> It is recommended to only log the event types and users required for your auditing purposes to ensure your server's performance is not heavily impacted and minium amount of data is collected.
 
 By default, audit logs are disabled. To enable them, set the `audit_log_enabled` server parameter to *ON*. This can be configured using the Azure portal or Azure CLI <!-- add link to server parameter-->.
 
@@ -143,9 +143,9 @@ Once your audit logs are piped to Azure Monitor Logs through Diagnostic Logs, yo
 
     ```kusto
     AzureDiagnostics
-    | where LogicalServerName_s == '<your server name>'
+    | where Resource  == '<your server name>'
     | where Category == 'MySqlAuditLogs' and event_class_s == "general_log"
-    | project TimeGenerated, LogicalServerName_s, event_class_s, event_subclass_s, event_time_t, user_s , ip_s , sql_text_s
+    | project TimeGenerated, Resource, event_class_s, event_subclass_s, event_time_t, user_s , ip_s , sql_text_s
     | order by TimeGenerated asc nulls last
     ```
 
@@ -153,9 +153,9 @@ Once your audit logs are piped to Azure Monitor Logs through Diagnostic Logs, yo
 
     ```kusto
     AzureDiagnostics
-    | where LogicalServerName_s == '<your server name>'
+    | where Resource  == '<your server name>'
     | where Category == 'MySqlAuditLogs' and event_class_s == "connection_log"
-    | project TimeGenerated, LogicalServerName_s, event_class_s, event_subclass_s, event_time_t, user_s , ip_s , sql_text_s
+    | project TimeGenerated, Resource, event_class_s, event_subclass_s, event_time_t, user_s , ip_s , sql_text_s
     | order by TimeGenerated asc nulls last
     ```
 
@@ -163,9 +163,9 @@ Once your audit logs are piped to Azure Monitor Logs through Diagnostic Logs, yo
 
     ```kusto
     AzureDiagnostics
-    | where LogicalServerName_s == '<your server name>'
+    | where Resource  == '<your server name>'
     | where Category == 'MySqlAuditLogs'
-    | project TimeGenerated, LogicalServerName_s, event_class_s, event_subclass_s, event_time_t, user_s , ip_s , sql_text_s
+    | project TimeGenerated, Resource, event_class_s, event_subclass_s, event_time_t, user_s , ip_s , sql_text_s
     | summarize count() by event_class_s, event_subclass_s, user_s, ip_s
     ```
 
@@ -173,10 +173,10 @@ Once your audit logs are piped to Azure Monitor Logs through Diagnostic Logs, yo
 
     ```kusto
     AzureDiagnostics
-    | where LogicalServerName_s == '<your server name>'
+    | where Resource  == '<your server name>'
     | where Category == 'MySqlAuditLogs'
-    | project TimeGenerated, LogicalServerName_s, event_class_s, event_subclass_s, event_time_t, user_s , ip_s , sql_text_s
-    | summarize count() by LogicalServerName_s, bin(TimeGenerated, 5m)
+    | project TimeGenerated, Resource, event_class_s, event_subclass_s, event_time_t, user_s , ip_s , sql_text_s
+    | summarize count() by Resource, bin(TimeGenerated, 5m)
     | render timechart
     ```
 
@@ -185,7 +185,7 @@ Once your audit logs are piped to Azure Monitor Logs through Diagnostic Logs, yo
     ```kusto
     AzureDiagnostics
     | where Category == 'MySqlAuditLogs'
-    | project TimeGenerated, LogicalServerName_s, event_class_s, event_subclass_s, event_time_t, user_s , ip_s , sql_text_s
+    | project TimeGenerated, Resource, event_class_s, event_subclass_s, event_time_t, user_s , ip_s , sql_text_s
     | order by TimeGenerated asc nulls last
     ```
 

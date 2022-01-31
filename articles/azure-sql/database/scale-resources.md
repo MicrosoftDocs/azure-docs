@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: conceptual
 author: dimitri-furman
 ms.author: dfurman
-ms.reviewer: mathoma, urmilano, wiassaf
+ms.reviewer: kendralittle, mathoma, urmilano, wiassaf
 ms.date: 06/25/2019
 ---
 

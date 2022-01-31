@@ -5,7 +5,7 @@ author: sffamily
 ms.service: signalr
 ms.devlang: azurecli
 ms.topic: sample
-ms.date: 11/13/2018
+ms.date: 12/08/2021
 ms.author: zhshang
 ms.custom: mvc, devx-track-azurecli
 ---
@@ -33,7 +33,7 @@ let randomNum=$RANDOM*$RANDOM
 # Generate a unique service and group name with the suffix
 SignalRName=SignalRTestSvc$randomNum
 #resource name must be lowercase
-mySignalRSvcName=${SignalRName,,}
+mySignalRSvcName=${SignalRName}
 myResourceGroupName=$SignalRName"Group"
 
 # Create resource group 

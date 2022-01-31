@@ -1,12 +1,12 @@
 ---
 title: 'Azure Cosmos DB: .NET (Microsoft.Azure.Cosmos) examples for the SQL API'
 description: Find the C# .NET V3 SDK examples on GitHub for common tasks using the Azure Cosmos DB SQL API.
-author: SnehaGunda
+author: StefArroyo
+ms.author: esarroyo
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: sample
 ms.date: 08/26/2021
-ms.author: sngun
 ms.custom: devx-track-dotnet
 
 ---
@@ -85,7 +85,7 @@ The [RunItemsDemo](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/M
 | [Upsert an item](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/ItemManagement/Program.cs#L574) |[container.UpsertItemAsync](/dotnet/api/microsoft.azure.cosmos.container.upsertitemasync) |
 | [Delete an item](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/ItemManagement/Program.cs#L627) |[container.DeleteItemAsync](/dotnet/api/microsoft.azure.cosmos.container.deleteitemasync) |
 | [Replace an item with conditional ETag check](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/ItemManagement/Program.cs#L798) |[RequestOptions.IfMatchEtag](/dotnet/api/microsoft.azure.cosmos.requestoptions.ifmatchetag) |
-| [Partially update (patch) an item](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/ItemManagement/Program.cs#L520) |[container.PatchItemAsync](/dotnet/api/microsoft.azure.cosmos.patchitemasync) |
+| [Partially update (patch) an item](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/ItemManagement/Program.cs#L520) |[container.PatchItemAsync](/dotnet/api/microsoft.azure.cosmos.container.patchitemasync) |
 
 
 ## Indexing examples

@@ -6,7 +6,7 @@ author: asudbring
 ms.author: allensu
 ms.service: load-balancer
 ms.topic: tutorial
-ms.date: 11/02/2021
+ms.date: 12/03/2021
 ms.custom: template-tutorial, ignite-fall-2021
 ---
 
@@ -17,7 +17,6 @@ Azure Load Balancer consists of Standard, Basic, and Gateway SKUs. Gateway Load 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Register preview feature.
 > * Create virtual network.
 > * Create network security group.
 > * Create a gateway load balancer.
@@ -34,46 +33,9 @@ In this tutorial, you learn how to:
 - An existing public standard SKU Azure Load Balancer. For more information on creating a load balancer, see **[Create a public load balancer using the Azure portal](quickstart-load-balancer-standard-public-portal.md)**.
     - For the purposes of this tutorial, the load balancer in the examples is named **myLoadBalancer**.
 
-## Register preview feature
-
-As part of the public preview, the provider must be registered in your Azure subscription. Use the following PowerShell or Azure CLI examples to enable your subscription.
-
-### PowerShell
-
-Use [Register-AzProviderFeature](/powershell/module/az.resources/register-azproviderfeature) to register the **AllowGatewayLoadBalancer** provider feature:
-
-```azurepowershell-interactive
-Register-AzProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowGatewayLoadBalancer
-
-```
-
-Use [Register-AzResourceProvider](/powershell/module/az.resources/register-azresourceprovider) to register the **Microsoft.Network** resource provider:
-
-```azurepowershell-interactive
-Register-AzResourceProvider -ProviderNamespace Microsoft.Network
-
-```
-
-### Azure CLI
-
-Use [az feature register](/cli/azure/feature#az_feature_register) to register the **AllowGatewayLoadBalancer** provider feature:
-
-```azurecli-interactive
-  az feature register \
-    --name AllowGatewayLoadBalancer \
-    --namespace Microsoft.Network
-```
-
-Use [az provider register](/cli/azure/provider#az_provider_register) to register the **Microsoft.Network** resource provider:
-
-```azurecli-interactive
-  az provider register \
-    --namespace Microsoft.Network
-```
-
 ## Sign in to Azure
 
-Sign in to the Azure portal at [https://preview.portal.azure.com](https://preview.portal.azure.com).
+Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
 
 ## Create virtual network
 
