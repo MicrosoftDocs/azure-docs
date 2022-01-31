@@ -5,7 +5,7 @@ ms.topic: article
 ms.service: azure-government
 ms.custom: references_regions
 recommendations: false
-ms.date: 01/25/2022
+ms.date: 01/26/2022
 ---
 
 # Azure, Dynamics 365, Microsoft 365, and Power Platform services compliance scope
@@ -201,7 +201,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Microsoft Sentinel](https://azure.microsoft.com/services/azure-sentinel/) (incl. [UEBA](../../sentinel/identify-threats-with-entity-behavior-analytics.md#what-is-user-and-entity-behavior-analytics-ueba)) | &#x2705; | &#x2705; |
 | [Microsoft Stream](/stream/overview) | &#x2705; | &#x2705; |
 | [Microsoft Threat Experts](/microsoft-365/security/defender-endpoint/microsoft-threat-experts) | &#x2705; | &#x2705; |
-| [Multifactor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md) | &#x2705; | &#x2705; |
+| [Multi-factor authentication](../../active-directory/authentication/concept-mfa-howitworks.md) | &#x2705; | &#x2705; |
 | [Network Watcher](https://azure.microsoft.com/services/network-watcher/) (incl. [Traffic Analytics](../../network-watcher/traffic-analytics.md)) | &#x2705; | &#x2705; |
 | **Service** | **FedRAMP High** | **DoD IL2** |
 | [Notification Hubs](https://azure.microsoft.com/services/notification-hubs/) | &#x2705; | &#x2705; |
@@ -225,7 +225,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Storage: Tables](https://azure.microsoft.com/services/storage/tables/) | &#x2705; | &#x2705; |
 | [StorSimple](https://azure.microsoft.com/services/storsimple/) | &#x2705; | &#x2705; |
 | [Traffic Manager](https://azure.microsoft.com/services/traffic-manager/) | &#x2705; | &#x2705; |
-| [Video Analyzer for Media (formerly Video Indexer)](../../azure-video-analyzer/video-analyzer-for-media-docs/index.yml) | &#x2705; | &#x2705; |
+| [Video Analyzer for Media](../../azure-video-analyzer/video-analyzer-for-media-docs/index.yml) (formerly Video Indexer) | &#x2705; | &#x2705; |
 | [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/) | &#x2705; | &#x2705; |
 | [Virtual Machines (incl. Reserved Instances)](https://azure.microsoft.com/services/virtual-machines/) | &#x2705; | &#x2705; |
 | [Virtual Network](https://azure.microsoft.com/services/virtual-network/) | &#x2705; | &#x2705; |
@@ -372,7 +372,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Event Grid](https://azure.microsoft.com/services/event-grid/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | **Service** | **FedRAMP High** | **DoD IL2** | **DoD IL4** | **DoD IL5** | **DoD IL6** |
 | [Event Hubs](https://azure.microsoft.com/services/event-hubs/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
-| [GitHub AE](https://docs.github.com/en/github-ae@latest/admin/overview/about-github-ae) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
+| [GitHub AE](https://docs.github.com/en/github-ae@latest/admin/overview/about-github-ae) | &#x2705; | &#x2705; | &#x2705; | | |
 | [Import/Export](https://azure.microsoft.com/services/storage/import-export/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Key Vault](https://azure.microsoft.com/services/key-vault/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Load Balancer](https://azure.microsoft.com/services/load-balancer/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
@@ -389,7 +389,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | **Service** | **FedRAMP High** | **DoD IL2** | **DoD IL4** | **DoD IL5** | **DoD IL6** |
 | [Microsoft Sentinel](https://azure.microsoft.com/services/azure-sentinel/) (formerly Azure Sentinel) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Microsoft Stream](/stream/overview) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
-| [Multifactor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
+| [Multi-factor authentication](../../active-directory/authentication/concept-mfa-howitworks.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Network Watcher](https://azure.microsoft.com/services/network-watcher/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Network Watcher Traffic Analytics](../../network-watcher/traffic-analytics.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Notification Hubs](https://azure.microsoft.com/services/notification-hubs/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
@@ -436,5 +436,5 @@ Learn more about Azure Government:
 - [DoD Impact Level 4](/azure/compliance/offerings/offering-dod-il4)
 - [DoD Impact Level 5](/azure/compliance/offerings/offering-dod-il5)
 - [DoD Impact Level 6](/azure/compliance/offerings/offering-dod-il6)
-- [Isolation guidelines for Impact Level 5 workloads](../documentation-government-impact-level-5.md)
+- [Azure Government isolation guidelines for Impact Level 5 workloads](../documentation-government-impact-level-5.md)
 - [Azure guidance for secure isolation](../azure-secure-isolation-guidance.md)

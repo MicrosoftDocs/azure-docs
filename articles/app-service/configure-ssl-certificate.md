@@ -58,17 +58,27 @@ To secure a custom domain in a TLS binding, the certificate has additional requi
 > [!NOTE]
 > Before creating a free managed certificate, make sure you have [fulfilled the prerequisites](#prerequisites) for your app.
 
-The free App Service managed certificate is a turn-key solution for securing your custom DNS name in App Service. It's a TLS/SSL server certificate that's fully managed by App Service and renewed continuously and automatically in six-month increments, 45 days before expiration. You create the certificate and bind it to a custom domain, and let App Service do the rest.
+The free App Service managed certificate is a turn-key solution for securing your custom DNS name in App Service. It's a TLS/SSL server certificate that's fully managed by App Service and renewed continuously and automatically in six-month increments, 45 days before expiration, as long as the prerequisites set-up remain the same without any action required from you. All the associated bindings will be updated with the renewed certificate. You create the certificate and bind it to a custom domain, and let App Service do the rest.
 
 The free certificate comes with the following limitations:
 
 - Does not support wildcard certificates.
 - Does not support usage as a client certificate by certificate thumbprint (removal of certificate thumbprint is planned).
+- Does not support private DNS.
 - Is not exportable.
-- Is not supported on App Service not publicly accessible.
 - Is not supported on App Service Environment (ASE).
+- Only supports alphanumeric characters, dashes (-), and periods (.).
+
+# [Apex domain](#tab/apex)
+- Must have an A record pointing to your web app's IP address.
 - Is not supported with root domains that are integrated with Traffic Manager.
-- If a certificate is for a CNAME-mapped domain, the CNAME must be mapped directly to `<app-name>.azurewebsites.net`.
+- All the above must be met for successful certificate issuances and renewals
+
+# [Subdomain](#tab/subdomain)
+- Must have CNAME mapped _directly_ to \<app-name\>.azurewebsites.net; using services that proxy the CNAME value will block certificate issuance and renewal
+- All the above must be met for successful certificate issuance and renewals
+
+-----
 
 > [!NOTE]
 > The free certificate is issued by DigiCert. For some domains, you must explicitly allow DigiCert as a certificate issuer by creating a [CAA domain record](https://wikipedia.org/wiki/DNS_Certification_Authority_Authorization) with the value: `0 issue digicert.com`.
