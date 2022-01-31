@@ -516,6 +516,10 @@ In routes conditions, the following string functions are supported:
 | ENDS_WITH(x, y) | Returns a Boolean indicating whether the first string expression ends with the second. |
 | CONTAINS(x,y) | Returns a Boolean indicating whether the first string expression contains the second. |
 
+## Limitations
+
+Though Device Twins and message bodies support a wide variety of characters, the IoT Hub query language does not support using the `/` character in the body path, twin path, or property name of queries.
+
 ## Next steps
 
 Learn how to execute queries in your apps using [Azure IoT SDKs](iot-hub-devguide-sdks.md).
