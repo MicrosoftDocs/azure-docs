@@ -106,6 +106,8 @@ There is a CPU quota limit of 5% while configuring extension-based Linux Hybrid 
 
 ## Create hybrid worker group 
 
+You can create a Hybrid Worker Group via the Azure Portal. Currently, creating through the ARM template is not supported.
+
 Perform the following steps to create a hybrid worker group in the Azure portal.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
