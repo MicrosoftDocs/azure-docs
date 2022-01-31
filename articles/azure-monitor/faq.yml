@@ -740,7 +740,7 @@ sections:
             </TelemetryModules>
               ...
             <TelemetryChannel>
-               <EndpointAddress>https://dc.services.visualstudio.com/v2/track</EndpointAddress>
+              <EndpointAddress>https://dc.services.visualstudio.com/v2/track</EndpointAddress>
             </TelemetryChannel>
             ...
             <ApplicationIdProvider Type="Microsoft.ApplicationInsights.Extensibility.Implementation.ApplicationId.ApplicationInsightsApplicationIdProvider, Microsoft.ApplicationInsights">
@@ -758,7 +758,7 @@ sections:
           Proxy passthrough can be achieved by configuring either a machine level or application level proxy.
           For more information see dotnet's article on [DefaultProxy](/dotnet/framework/configure-apps/file-schema/network/defaultproxy-element-network-settings).
           
-           Example Web.config:
+          Example Web.config:
           
           ```xml
           <system.net>
@@ -921,7 +921,7 @@ sections:
           ContainerLog
           | where TimeGenerated >= startTime and TimeGenerated < endTime
           | join kind= leftouter (
-             ContainerData
+            ContainerData
           ) on $left.ContainerID == $right.ContainerID2 | project-away ContainerID1, ContainerID2, Name, Image, ImageTag | project-rename Name = Name1, Image=Image1, ImageTag=ImageTag1
           ```
           
