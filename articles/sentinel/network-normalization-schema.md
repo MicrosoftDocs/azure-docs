@@ -40,7 +40,7 @@ For more information, see [built-in ASIM parsers and workspace-deployed parsers]
 
 ### Out-of-the-box, source-specific parsers
 
-Microsoft Sentinel provides the following out-of-the-box, product-specific Web Session parsers:
+Microsoft Sentinel provides the following out-of-the-box, product-specific Network Session parsers:
 
 | **Source** | **Built-in parsers** | **Workspace deployed parsers** | 
 | --- | --------------------------- | ------------------------------ | 
@@ -51,8 +51,6 @@ Microsoft Sentinel provides the following out-of-the-box, product-specific Web S
 | **Palo Alto PanOS** collected using CEF |`_ASim_NetworkSession_PaloAltoCEF` (regular)<br> `_Im_NetworkSession_PaloAltoCEF` (filtering)  | `ASimNetworkSessionPaloAltoCEF` (regular)<br> `vimNetworkSessionPaloAltoCEF` (filtering)  |
 | **Zscaler ZIA** |`_ASim_NetworkSessionZscalerZIA` (regular)<br> `_Im_NetworkSessionZscalerZIA` (filtering)  | `AsimNetworkSessionZscalerZIA` (regular)<br> `vimNetowrkSessionSzcalerZIA` (filtering)  |
 | | | | 
-
-These parsers can be deployed from the [Microsoft Sentinel GitHub repository](https://aka.ms/DeployASIM).
 
 ### Add your own normalized parsers
 
