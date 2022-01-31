@@ -101,6 +101,9 @@ If you use a firewall to restrict access to the Internet, you must configure the
 |Global URL |*.azure-automation.net|
 |Global URL of US Gov Virginia |*.azure-automation.us|
 
+### CPU Quota limit 
+There is a CPU quota limit of 5% while configuring extension-based Linux Hybrid Runbook worker. There is no such limit for Windows Hybrid Runbook Worker.
+
 ## Create hybrid worker group 
 
 Perform the following steps to create a hybrid worker group in the Azure portal.
