@@ -249,7 +249,7 @@ Perform the following steps.
 
    The output will look similar to the output shown for the REST API example, above.
 
-## Give access to Azure resources by obtaining a token
+## Assign role to a system-assigned managed identity
 
 An Automation account can use its system-assigned managed identity to get tokens to access other resources protected by Azure AD, such as Azure Key Vault. These tokens don't represent any specific user of the application. Instead, they represent the application that's accessing the resource. In this case, for example, the token represents an Automation account.
 
@@ -266,9 +266,9 @@ New-AzRoleAssignment `
     -RoleDefinitionName "Contributor"
 ```
 
-## Assign role to a system-assigned managed identity
+## Verify role assignments to a system managed identity
 
-To assign a role to a system-assigned managed identity of the Automation account, follow these steps:
+To verify a role to a system-assigned managed identity of the Automation account, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com)
 1. Go to your Automation account.
