@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 09/16/2021
+ms.date: 01/31/2022
 ms.author: anfdocs
 ---
 
@@ -38,9 +38,10 @@ ms.author: anfdocs
 
     ![Screenshot that shows the Create a Volume window.](../media/azure-netapp-files/snapshot-restore-new-volume.png) 
 
-4. Click **Review+create**.  Click **Create**.   
+4. Click **Review+create**. Click **Create**.   
     The new volume uses the same protocol that the snapshot uses.   
-    The new volume to which the snapshot is restored appears in the Volumes blade.
+    The new volume to which the snapshot is restored appears in the Volumes blade.   
+    The snapshot used to create the new volume will also be present on the new volume. 
 
 ## Next steps
 
