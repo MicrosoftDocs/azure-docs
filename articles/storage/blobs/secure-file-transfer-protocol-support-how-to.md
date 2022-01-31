@@ -293,15 +293,62 @@ To learn more about the SFTP permissions model, see [SFTP Permissions model](sec
    $password = New-AzStorageLocalUserSshPassword -ResourceGroupName $resourceGroupName -StorageAccountName $storageAccountName -UserName $UserName
    $password 
    ```
-
+   > [!IMPORTANT]
+   > You can't retrieve this password later, so make sure to copy the password, and then store it in a place where you can find it. If you lose this password, you'll have to generate a new one.
 
 ### [Azure CLI](#tab/azure-cli)
 
-Put description here
+1. Decide which containers you want to make available to the local user and the types of operations that you want to enable this local user to perform. Create a permission scope object by using the the **New-AzStorageLocalUserPermissionScope** command, and setting the `-Permission` parameter of that command to one or more letters that correspond to access permission levels. Possible values are Read(r), Write (w), Delete (d), List (l), and Create (c).
+  
+   The following example sets creates a permission scope object that gives read and write permission to the `mycontainer` container.  
 
-```azurecli
+   ```azurecli
+   $permissionScope = New-AzStorageLocalUserPermissionScope -Permission rw -Service blob -ResourceName mycontainer 
+   ``` 
 
-```
+2. Decide which methods of authentication you'd like associate with this local user. You can associate a password and / or an SSH key. 
+
+   > [!IMPORTANT]
+   > While you can enable both forms of authentication, SFTP clients can connect by using only one of them. Multifactor authentication, whereby both a valid password and a valid public and private key pair are required for successful authentication is not supported.
+
+   If you want to use an SSH key, you'll need to public key of the public / private key pair. You can use existing public keys stored in Azure or use any existing public keys outside of Azure.
+   
+   To find existing keys in Azure, see [List keys](../../virtual-machines/ssh-keys-portal.md#list-keys). When SFTP clients connect to Azure Blob Storage, those clients need to provide the private key associated with this public key.
+
+   If you want to use a public key outside of Azure, but you don't yet have one, then see [Generate keys with ssh-keygen](../../virtual-machines/linux/create-ssh-keys-detailed.md#generate-keys-with-ssh-keygen) for guidance about how to create one.   
+
+   If you want to use a password to authenticate the local user, you can generate one after the local user is created.  
+
+3. If want to use an SSH key, create a public key object by using the **New-AzStorageLocalUserSshPublicKey** command. Set the `-Key` parameter to a string that contains the key type and public key. In the following example, the key type is `ssh-rsa` and the key is `keykeykeykeykey=`.
+
+   ```azurecli
+   $sshkey = "ssh-rsa keykeykeykeykey="
+   $sshkey = New-AzStorageLocalUserSshPublicKey -Key $sshkey -Description "description for ssh public key"
+   ```
+
+4. Create a local user by using the **Set-AzStorageLocalUser** command. Set the `-PermissionScope` parameter to the permission scope object that you created earlier. If you are using an SSH key, then set the `SshAuthorization` parameter to the public key object that you created in the previous step. If you want to use a password to authenticate this local user, then set the `-HasSshPassword` parameter to `$true`.
+
+   The following example creates a local user and then prints the key and permission scopes to the console.
+  
+   ```azurecli
+   $UserName = "mylocalusername"
+   $localuser = Set-AzStorageLocalUser -ResourceGroupName $resourceGroupName -StorageAccountName $storageAccountName -UserName $UserName -HomeDirectory "/" -SshAuthorizedKey $sshkey -PermissionScope $permissionScope -HasSharedKey $true -HasSshKey $true -HasSshPassword $true
+
+	$localuser
+	$localuser.SshAuthorizedKeys | ft
+	$localuser.PermissionScopes | ft
+   ```
+
+5. If you want to use a password to authenticate the user, you can create a password by using the **New-AzStorageLocalUserSshPassword** command. Set the `-UserName` parameter to the user name.
+
+   The following example generates a password for the user.
+
+   ```powershell
+   $password = New-AzStorageLocalUserSshPassword -ResourceGroupName $resourceGroupName -StorageAccountName $storageAccountName -UserName $UserName
+   $password 
+   ```
+   > [!IMPORTANT]
+   > You can't retrieve this password later, so make sure to copy the password, and then store it in a place where you can find it. If you lose this password, you'll have to generate a new one.
 
 --- 
 
