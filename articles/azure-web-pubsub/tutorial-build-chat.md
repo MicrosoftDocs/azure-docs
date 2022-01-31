@@ -872,7 +872,7 @@ Now run the server using `dotnet run --urls http://localhost:8080` and open mult
 
 The complete code sample of this tutorial can be found [here][code-csharp].
 
-# [C# NET 6](#tab/csharp)
+# [C# .NET 6](#tab/net6)
 1. Handle message event.
 
     ```csharp
