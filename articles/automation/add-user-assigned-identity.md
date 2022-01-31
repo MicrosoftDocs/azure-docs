@@ -311,7 +311,7 @@ New-AzRoleAssignment `
     -RoleDefinitionName "Contributor"
 ```
 
-## Verify role assignment to a user managed identity
+## Verify role assignment to a user-managed identity
 
 To verify a role to a user-assigned managed identity of the Automation account, follow these steps:
 
