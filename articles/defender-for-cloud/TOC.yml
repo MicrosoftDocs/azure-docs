@@ -193,6 +193,8 @@
       href: harden-docker-hosts.md
   - name: Protect your databases
     items:
+    - name: Enable protection on all of your databases
+      href: quickstart-enable-database-protections.md
     - name: Defender for Azure SQL database
       items: 
       - name: Overview of Defender for SQL
@@ -221,8 +223,6 @@
         href: concept-defender-for-cosmos.md
       - name: Enable Defender for Cosmos
         href: quickstart-enable-defender-for-cosmos.md
-      - name: Manage Defender for Cosmos alerts
-        href: 
   - name: Protect your containerized environments
     items:
     - name: Overview of Defender for Containers
