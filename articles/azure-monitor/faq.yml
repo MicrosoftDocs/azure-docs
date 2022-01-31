@@ -333,12 +333,12 @@ sections:
           It does not have full parity yet with existing agents. Here are some high-level gaps:
           
           - **Comparison with Log Analytics Agents (MMA/OMS)**
-          	-	Not all Log Analytics Solutions are supported today. See [what's supported](agents/azure-monitor-agent-overview.md#supported-services-and-features)
-          	-	No support for Private Links 
-          	-	No support for collecting custom logs or IIS logs
+          -	Not all Log Analytics Solutions are supported today. See [what's supported](agents/azure-monitor-agent-overview.md#supported-services-and-features)
+          -	No support for Private Links 
+          -	No support for collecting custom logs or IIS logs
           
           - **Comparison with Azure Diagnostic Extensions (WAD/LAD)**
-          	-	No support for Event Hubs and Storage accounts as destinations
+          -	No support for Event Hubs and Storage accounts as destinations
           
           
       - question: |
@@ -351,7 +351,7 @@ sections:
           Is Azure Arc required for AAD-joined machines?
         answer: |
           Any on-premises server, or non-Azure cloud server, must be on Azure Arc to run the AMA. For more information, see [About Azure Arc](/azure/azure-arc/overview).
-           
+
       - question: |
           Why do I need to install the Azure Arc Connected Machine agent to use AMA?
         answer: |
