@@ -42,7 +42,7 @@ In addition to supporting MITRE ATT&CK tactics, your entire Microsoft Sentinel u
 
 When creating or editing [analytics rules](detect-threats-custom.md), map the rule to one or more specific tactics *and* techniques. When searching for rules on the **Analytics** page, filter by tactic and technique to narrow your search results.
 
-:::image type="content" source="media/whats-new/mitre-in-analytics-rules.png" alt-text="Screenshot of MITRE technique and tactic filtering.":::
+:::image type="content" source="media/whats-new/mitre-in-analytics-rules.png" alt-text="Screenshot of MITRE technique and tactic filtering." lightbox="media/whats-new/mitre-in-analytics-rules.png":::
 
 Check for mapped tactics and techniques throughout Microsoft Sentinel, in:
 
