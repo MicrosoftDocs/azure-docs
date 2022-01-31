@@ -16,6 +16,12 @@ Azure Container Apps Preview enables you to run microservices and containerized 
 
 In this quickstart, you create a secure Container Apps environment and deploy your first container app.
 
+## Prerequisites
+
+- Azure account with an active subscription.
+  - If you don't have one, you [can create one for free](https://azure.microsoft.com/free/).
+- Install the [Azure CLI](/cli/azure/install-azure-cli).
+
 [!INCLUDE [container-apps-create-cli-steps.md](../../includes/container-apps-create-cli-steps.md)]
 
 To create the environment, run the following command:

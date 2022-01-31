@@ -19,6 +19,12 @@ This article demonstrates how to deploy an existing container to Azure Container
 > [!NOTE]
 > Private registry authorization is supported via registry username and password.
 
+## Prerequisites
+
+- Azure account with an active subscription.
+  - If you don't have one, you [can create one for free](https://azure.microsoft.com/free/).
+- Install the [Azure CLI](/cli/azure/install-azure-cli).
+
 [!INCLUDE [container-apps-create-cli-steps.md](../../includes/container-apps-create-cli-steps.md)]
 
 To create the environment, run the following command:
