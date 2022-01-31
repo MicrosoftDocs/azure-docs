@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 01/21/2022
+ms.date: 01/31/2022
 
 ms.author: justinha
 author: justinha
@@ -23,15 +23,14 @@ This topic covers supported and unsupported scenarios for cloud native certifica
 >[!NOTE]
 >Cloud-native certificate-based authentication is currently in public preview. Some features might not be supported or have limited capabilities. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
 
-
 ## Supported scenarios
 
 The following scenarios are supported:
 
 - User sign-ins to web browser-based applications on all platforms.
 - User sign-ins on mobile Native browsers.
-- Support for strong authentication with multifactor authentication.
-- Certificate-to-user account binding configurations using the subject field and issuer.
+- Support for granular authentication rules for multifactor authentication using the certificate issuer Subject and policy OIDs.
+- Certificate-to-user account binding configurations using the certificate SAN principal name and SAN RFC8022 Name.
 
 ## Unsupported scenarios
 

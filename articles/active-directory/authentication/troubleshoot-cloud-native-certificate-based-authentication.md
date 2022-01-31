@@ -41,9 +41,11 @@ This error is returned if the user selects the wrong user certificate from the l
 
 Make sure the certificate is valid and works for the user binding and authentication policy configuration.
 
-**AADSTS50034 - Users sign in fails with “Your account or password is incorrect. If you don't remember your password, reset it now.**
+**AADSTS50034 - Users sign in fails with "Your account or password is incorrect. If you don't remember your password, reset it now."**
 
-Make sure the user is trying to sign in with the correct username. This error happens when a unique user can't be found in the certificate fields. 
+:::image type="content" border="true" source="./media/troubleshoot-cloud-native-certificate-based-authentication/reset.png" alt-text="Screenshot of password reset error." :::
+
+Make sure the user is trying to sign in with the correct username. This error happens when a unique user can't be found using the [username binding](how-to-certificate-based-authentication.md#step-3-configure-username-binding-policy) on the certificate fields.
 
 - Make sure user bindings are set correctly and the certificate field is mapped to the correct user Attribute.
 - Make sure the user Attribute contains the correct value that matches the certificate field value.
@@ -60,14 +62,13 @@ If the user is a federated user moving to Azure AD and if the user binding confi
 
 **AADSTS130501 - Users sign in fails with "Sign in was blocked due to User Credential Policy"**
 
-This error happens when the target user is not in scope for the certificate-based authentication. Make sure the user is listed in the **target** attribute of CBA.
+:::image type="content" border="true" source="./media/troubleshoot-cloud-native-certificate-based-authentication/policy-failed.png" alt-text="Screenshot of policy error." :::
 
 There is also a known issue when a user who is not in scope for CBA ties to sign in with a certificate to an [Office app](https://office.com) or any portal app, and the sign-in fails with an error:
 
 :::image type="content" border="false" source="./media/troubleshoot-cloud-native-certificate-based-authentication/alt-failed.png" alt-text="Alternative error message for cloud-native certificate-based authentication in Azure AD.":::
 
 In both cases, the error can be resolved by making sure the user is in scope for cloud-native CBA. For more information, see [Step 4: Enable CBA on the tenant](how-to-certificate-based-authentication.md#step-4-enable-cba-on-the-tenant).
-
 
 
 ## User sign-in failed but not much diagnostic information
@@ -80,11 +81,18 @@ For example, if a user certificate is revoked and is part of a Certificate Revoc
 
 To get more diagnostic information, look in **Sign-in logs**. If a user authentication fails due to CRL validation for example, sign-in logs show the error information correctly.
 
-:::image type="content" border="true" source="./media/troubleshoot-cloud-native-certificate-based-authentication/details.png" alt-text="Screenshot of Authentication Details." lightbox="./media/troubleshoot-cloud-native-certificate-based-authentication/details.png":::
+:::image type="content" border="true" source="./media/troubleshoot-cloud-native-certificate-based-authentication/details.png" alt-text="Screenshot of Authentication Details." :::
 
 ## Why didn't my changes to authentication policy changes take effect?
 
 The authentication policy is cached. After a policy update, it may take up to an hour for the changes to be effective. Try after an hour to make sure the policy caching is not the cause.
+
+## I get an error ‘Cannot read properties of undefine’ while trying to add a custom authentication rule
+
+This is a known issue, and we are working on graceful error handling. This error happens when there is no Certificate Authority (CA) on the tenant. To resolve the error, see [Configure the certificate authorities](how-to-certificate-based-authentication.md#step-1-configure-the-certificate-authorities).
+
+:::image type="content" border="false" source="./media/troubleshoot-cloud-native-certificate-based-authentication/no-ca.png" alt-text="Error message when no CA is set for Azure AD.":::
+
 
 ## I see a valid Certificate Revocation List (CRL) endpoint set, but why don't I see any CRL revocation?
 

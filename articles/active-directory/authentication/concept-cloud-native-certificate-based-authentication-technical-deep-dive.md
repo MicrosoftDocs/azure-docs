@@ -49,12 +49,12 @@ Let's cover each step:
 
    :::image type="content" border="true" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/sign-in-alt.png" alt-text="Screenshot of the Sign-in if FIDO2 is also enabled.":::
 
-1. After the user clicks the link, the client is redirected to [http://certauth.login.microsoftonline.com](http://certauth.login.microsoftonline.com). The endpoint performs mutual authentication and requests the client certificate as part of the TLS handshake. You will see an entry for this request in the Sign-in logs. There is a [known issue](#known-issues) where User ID is displayed instead of Username.
+1. After the user clicks the link, the client is redirected to the certauth endpoint [http://certauth.login.microsoftonline.com](http://certauth.login.microsoftonline.com). The endpoint performs mutual authentication and requests the client certificate as part of the TLS handshake. You will see an entry for this request in the Sign-in logs. There is a [known issue](#known-issues) where User ID is displayed instead of Username.
 
    :::image type="content" border="true" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/sign-in-log.png" alt-text="Screenshot of the Sign-in log in Azure AD.":::
    
    >[!NOTE]
-   >The network administrator should allow access to certauth.login.microsoftonline.com in addition to login.microsoftonline.com and disable TLS inspection on the certauth endpoint to make sure the client certificate request succeeds as part of the TLS handshake.
+   >The network administrator should allow access to certauth endpoint for the customer’s cloud environment in addition to login.microsoftonline.com. Disable TLS inspection on the certauth endpoint to make sure the client certificate request succeeds as part of the TLS handshake.
 
    Click the log entry to bring up **Activity Details** and click **Authentication Details**. You will see an entry for X.509 certificate.
 
