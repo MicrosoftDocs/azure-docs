@@ -17,7 +17,7 @@ Azure Machine Learning is built on top of multiple Azure services. While the dat
 
 Customer-managed keys are used with the following services that Azure Machine Learning relies on:
 
-| Service | What it is used for |
+| Service | What it’s used for |
 | ----- | ----- |
 | Azure Cosmos DB | Stores metadata for Azure Machine Learning |
 | Azure Search | Stores workspace metadata for Azure Machine Learning |
@@ -30,7 +30,7 @@ Customer-managed keys are used with the following services that Azure Machine Le
 
 In addition to customer-managed keys, Azure Machine Learning also provides a [hbi_workspace flag](/python/api/azureml-core/azureml.core.workspace%28class%29#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-). Enabling this flag reduces the amount of data Microsoft collects for diagnostic purposes and enables [additional encryption in Microsoft-managed environments](../security/fundamentals/encryption-atrest.md). This flag also enables the following behaviors:
 
-* Starts encrypting the local scratch disk in your Azure Machine Learning compute cluster, provided you have not created any previous clusters in that subscription. Else, you need to raise a support ticket to enable encryption of the scratch disk of your compute clusters.
+* Starts encrypting the local scratch disk in your Azure Machine Learning compute cluster, provided you haven’t created any previous clusters in that subscription. Else, you need to raise a support ticket to enable encryption of the scratch disk of your compute clusters.
 * Cleans up your local scratch disk between runs.
 * Securely passes credentials for your storage account, container registry, and SSH account from the execution layer to your compute clusters using your key vault.
 
@@ -45,7 +45,7 @@ In addition to customer-managed keys, Azure Machine Learning also provides a [hb
 
 The following resources store metadata for your workspace:
 
-| Service | How it is used |
+| Service | How it’s used |
 | ----- | ----- |
 | Azure Cosmos DB | Stores run history data. |
 | Azure Search | Stores indices that are used to help query your machine learning content. |
@@ -54,7 +54,7 @@ The following resources store metadata for your workspace:
 > [!TIP]
 > The Azure Storage Account for metadata can be different than the default storage account for your workspace.
 
-Azure Machine Learning reads and writes data using the workspace managed identity. Azure role-based access control (Azure RBAC) is used to grant the managed identity access to these resources.
+Azure Machine Learning reads and writes data using the workspace managed identity. An Azure role-based access control (Azure RBAC) role is used to grant the managed identity access to these resources.
 
 ### Customer-managed keys
 
@@ -74,7 +74,7 @@ When you create a workspace using a customer-managed key, there are two options:
 
 __When you allow Microsoft to create and manage resources__, a separate resource group is created in your Azure subscription. Data stored in these services is encrypted using the key you provide. 
 
-__Bringing your own resources__ allows for enhanced configuration, but you are responsible for managing the resources that you bring.
+__Bringing your own resources__ allows for enhanced configuration, but you’re responsible for managing the resources that you bring.
 
 > [!TIP]
 > You can have a mix of resources that you bring and those that Microsoft manages. For example, you can select an existing Azure Cosmos DB and use Microsoft-managed for the Storage Account and Search services.
@@ -105,8 +105,8 @@ If you use a customer-managed key and allow Microsoft to manage the resources, a
 
 ### HBI_workspace flag
 
-* The `hbi_workspace` flag can only be set when a workspace is created. It cannot be changed for an existing workspace.
-* When this flag is set to True, one possible impact is increased difficulty troubleshooting issues. This could happen because some telemetry isn't sent to Microsoft and there is less visibility into success rates or problem types, and therefore may not be able to react as proactively when this flag is True.
+* The `hbi_workspace` flag can only be set when a workspace is created. It can’t be changed for an existing workspace.
+* When this flag is set to True, it may increase the difficulty of troubleshooting issues because less telemetry data is sent to Microsoft. There’s less visibility into success rates or problem types. Microsoft may not be able to react as proactively when this flag is True.
 
 To enable the `hbi_workspace` flag when creating an Azure Machine Learning workspace, follow the steps in one of the following articles:
 
@@ -119,88 +119,4 @@ To enable the `hbi_workspace` flag when creating an Azure Machine Learning works
 
 * Cosmos DB: If you need to __rotate or revoke__ your key, you can do so at any time. When rotating a key, Cosmos DB will start using the new key (latest version) to encrypt data at rest. When revoking (disabling) a key, Cosmos DB takes care of failing requests. It usually takes an hour for the rotation or revocation to be effective.
 
-### Automatic key rotation
-<!-- ## How-to info
-
-TODO: Can we link out to other docs for this? For example, there's maybe a key vault article on creating keys.
-### Create Azure Key Vault
-
-1. When creating Azure Key Vault, you must enable __soft delete__ and __purge protection__.
-
-    <!-- :::image type="content" source="{source}" alt-text="{alt-text}"::: -->
-
-    For the steps to create the key vault, see [Create a key vault](/azure/key-vault/general/quick-create-portal).
-
-1. Once the key vault has been created, select it in the [Azure portal](https://portal.azure.com). From __Overview__, copy the __Vault URI__. This value is needed by other steps in this article.
-1. 
-### Create a key
-
-1. From the [Azure portal](https://portal.azure.com), select the key vault instance. Then select __Keys__ from the left.
-1. Select __+ Generate/import__ from the top of the page. Use the following values to create a key:
-
-    * Set __Options__ to __Generate__.
-    * Enter a __Name__ for the key. The name should be something that you identifies what the planned use is. For example, `my-cosmos-key`.
-    * Set __Key type__ to __RSA__.
-    * We recommend selecting at least __3072__ for the __RSA key size__.
-    * Leave __Enabled__ set to yes.
-
-    Optionally you can set an activation date, expiration date, and tags.
-
-1. Select __Create__ to create the key.
-
-### Azure Cosmos DB
-
-Azure Machine Learning stores metadata in an Azure Cosmos DB instance. By default, this instance is associated with a Microsoft subscription managed by Azure Machine Learning. All the data stored in Azure Cosmos DB is encrypted at rest with Microsoft-managed keys.
-
-To use your own (customer-managed) keys to encrypt the Azure Cosmos DB instance, use the following steps:
-
-1. Register the __Microsoft.DocumentDB__ resource provider in your subscription, if not done already. For more information, see For information on registering resource providers, see [Resolve errors for resource provider registration](/azure/azure-resource-manager/templates/error-register-resource-provider).
-
-1. To configure the key vault, select it in the [Azure portal](https://portal.azure.com) and then select __Access polices__ from the left menu.
-
-    1. To create permissions for Azure Cosmos DB, select __+ Create__ at the top of the page. Under __Key permissions__, select __Get__, __Unwrap Key__, and __Wrap key__ permissions.
-    1. Under __Principal__, search for __Azure Cosmos DB__ and then select it. The principal ID for this entry is different depending on the Azure region you are using:
-
-        | Region | Principal ID |
-        | ----- | ----- |
-        | Azure public | `a232010e-820c-4083-83bb-3ace5fc29d0b` |
-        | Azure Government | `57506a73-e302-42a9-b869-6f12d9ec29e9` |
-        | Azure China | ????? |
-
-    1. Select __Review + Create__, and then select __Create__.
-
-1. Create an Azure Machine Learning workspace. When creating the workspace, use the following parameters. Both parameters are mandatory and supported in SDK, Azure CLI, REST APIs, and Resource Manager templates.
-
-    * `cmk_keyvault`: This parameter is the resource ID of the key vault in your subscription. This key vault needs to be in the same region and subscription that you will use for the Azure Machine Learning workspace. 
-
-    * `resource_cmk_uri`: This parameter is the full resource URI of the customer managed key in your key vault, including the [version information for the key](../key-vault/general/about-keys-secrets-certificates.md#objects-identifiers-and-versioning). 
-
-For more information on customer-managed keys with Cosmos DB, see [Configure customer-managed keys for your Azure Cosmos DB account](../cosmos-db/how-to-setup-cmk.md).
-
-### Azure Container Instance
-
-When __deploying__ a trained model to an Azure Container instance (ACI), you can encrypt the deployed resource using a customer-managed key. For information on generating a key, see [Encrypt data with a customer-managed key](../container-instances/container-instances-encrypt-data.md#generate-a-new-key).
-
-To use the key when deploying a model to Azure Container Instance, create a new deployment configuration using `AciWebservice.deploy_configuration()`. Provide the key information using the following parameters:
-
-* `cmk_vault_base_url`: The URL of the key vault that contains the key.
-* `cmk_key_name`: The name of the key.
-* `cmk_key_version`: The version of the key.
-
-For more information on creating and using a deployment configuration, see the following articles:
-
-* [AciWebservice.deploy_configuration()](/python/api/azureml-core/azureml.core.webservice.aci.aciwebservice#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none--primary-key-none--secondary-key-none--collect-model-data-none--cmk-vault-base-url-none--cmk-key-name-none--cmk-key-version-none-) reference
-* [Where and how to deploy](how-to-deploy-and-where.md)
-* [Deploy a model to Azure Container Instances](how-to-deploy-azure-container-instance.md)
-
-For more information on using a customer-managed key with ACI, see [Encrypt data with a customer-managed key](../container-instances/container-instances-encrypt-data.md#encrypt-data-with-a-customer-managed-key).
-
-### Azure Kubernetes Service
-
-You may encrypt a deployed Azure Kubernetes Service resource using customer-managed keys at any time. For more information, see [Bring your own keys with Azure Kubernetes Service](../aks/azure-disk-customer-managed-keys.md). 
-
-This process allows you to encrypt both the Data and the OS Disk of the deployed virtual machines in the Kubernetes cluster.
-
-> [!IMPORTANT]
-> This process only works with AKS K8s version 1.17 or higher.
- -->
+## Next Steps
