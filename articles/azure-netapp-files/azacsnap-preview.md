@@ -922,74 +922,171 @@ cat snapshot-to-blob.sh
 ```
 
 ```output
-#!/bin/sh
+#!/bin/bash
+# Utility to upload-to/list Azure Blob store.
+#   If run as snapshot-to-blob.sh will upload a gzipped tarball of the snapshot.
+#   If run as list-blobs.sh will list uploaded blobs.
+#     e.g. `ln -s snapshot-to-blob.sh list-blobs.sh`
+
+
 # _START_ Change these
-saskeyFile="$HOME/bin/blob-credentials.saskey"
+SAS_KEY_FILE="${HOME}/bin/blob-credentials.saskey"
 # the snapshots need to be mounted locally for copying, put source directory here
-sourceDir=/mnt/saphana1/hana_data_PR1/.snapshot
+SOURCE_DIR="/mnt/saphana1/hana_data_PR1/.snapshot"
 # _END_ Change these
 
-# do not change any of the following
-#
-if [ -r $saskeyFile ]; then
-  . $saskeyFile
-else
-  echo "Credential file '$saskeyFile' not found, exiting!"
-fi
 
-# Log files
-archiveLog="logs/`basename $0`.log"
-echo "----- Started ($0 $snapshotName $prefix) @ `date "+%d-%h-%Y %H:%M"`" >> $archiveLog
-env >> $archiveLog
-#
-if [ "$1" == "" -o "$2" == "" ]; then
-  echo "Usage: $0 <snapshotName> <prefix>"
+# _START_ AzCopy Settings
+#Overrides where the job plan files (used for progress tracking and resuming) are stored, to avoid filling up a disk.
+export AZCOPY_JOB_PLAN_LOCATION="${HOME}/.azcopy/plans/"
+#Overrides where the log files are stored, to avoid filling up a disk.
+export AZCOPY_LOG_LOCATION="${HOME}/.azcopy/logs/"
+#If set, to anything, on-screen output will include counts of chunks by state
+export AZCOPY_SHOW_PERF_STATES=true
+# _END_ AzCopy Settings
+
+
+# do not change any of the following
+
+
+# Make sure we got some command line args
+if [ "$(basename "$0")" = "snapshot-to-blob.sh" ] && ([ "$1" = "" ] || [ "$2" = "" ]); then
+  echo "Usage: $0 <SNAPSHOT_NAME> <PREFIX>"
   exit 1
 fi
 
-blobStore="`echo $portalGeneratedSas | cut -f1 -d'?'`"
-blobSasKey="`echo $portalGeneratedSas | cut -f2 -d'?'`"
-snapshotName=$1
-prefix=$2
+# Make sure we can read the SAS key credential file.
+if [ -r "${SAS_KEY_FILE}" ]; then
+  source "${SAS_KEY_FILE}"
+else
+  echo "Credential file '${SAS_KEY_FILE}' not found, exiting!"
+fi
+
+
+# Assign the rest of the Global variables.
+SNAPSHOT_NAME=$1
+PREFIX=$2
+BLOB_STORE="$(echo "${PORTAL_GENERATED_SAS}" | cut -f1 -d'?')"
+BLOB_SAS_KEY="$(echo "${PORTAL_GENERATED_SAS}" | cut -f2 -d'?')"
+ARCHIVE_LOG="logs/$(basename "$0").log"
 
 # Archive naming (daily.1, daily.2, etc...)
-dayOfWeek=`date "+%u"`
-monthOfYear=`date "+%m"`
-archiveBlobTgz="$prefix.$dayOfWeek.tgz"
+DAY_OF_WEEK=$(date "+%u")
+MONTH_OF_YEAR=$(date "+%m")
+ARCHIVE_BLOB_TGZ="${PREFIX}.${DAY_OF_WEEK}.tgz"
 
-runCmd(){
-  echo "[RUNCMD] $1" >> $archiveLog
-  bash -c "$1"
+#######################################
+# Write to the log.
+# Globals:
+#   None
+# Arguments:
+#   LOG_MSG
+#######################################
+write_log(){
+  LOG_MSG=$1
+  date=$(date "+[%d/%h/%Y:%H:%M:%S %z]")
+  echo "$date ${LOG_MSG}" >> "${ARCHIVE_LOG}"
 }
 
-main() {
-  # Check sourceDir and snapshotName exist
-  if [ ! -d "$sourceDir/$snapshotName" ]; then
-    echo "$sourceDir/$snapshotName not found, exiting!" | tee -a $archiveLog
+
+#######################################
+# Run and Log the command.
+# Globals:
+#   None
+# Arguments:
+#   CMD_TO_RUN
+#######################################
+run_cmd(){
+  CMD_TO_RUN="${1}"
+  write_log "[RUNCMD] ${CMD_TO_RUN}"
+  bash -c "${CMD_TO_RUN}"
+}
+
+
+#######################################
+# Check snapshot exists and then background the upload to Blob store.
+# Globals:
+#   SOURCE_DIR
+#   SNAPSHOT_NAME
+#   ARCHIVE_LOG
+# Arguments:
+#   None
+#######################################
+snapshot_to_blob(){
+  # Check SOURCE_DIR and SNAPSHOT_NAME exist
+  if [ ! -d "${SOURCE_DIR}/${SNAPSHOT_NAME}" ]; then
+    echo "${SOURCE_DIR}/${SNAPSHOT_NAME} not found, exiting!" | tee -a "${ARCHIVE_LOG}"
     exit 1
   fi
+  # background ourselves so AzAcSnap exits cleanly
+  echo "Backgrounding '$0 $@' to prevent blocking azacsnap"
+  echo "write_logging to ${ARCHIVE_LOG}"
+  {
+    trap '' HUP
+    # the script
+    upload_to_blob
+    list_blob >> "${ARCHIVE_LOG}"
+  } < /dev/null > /dev/null 2>&1 &
+}
 
+
+#######################################
+# Upload to Blob store.
+# Globals:
+#   SOURCE_DIR
+#   SNAPSHOT_NAME
+#   ARCHIVE_BLOB_TGZ
+#   BLOB_STORE
+#   BLOB_SAS_KEY
+#   ARCHIVE_LOG
+# Arguments:
+#   None
+#######################################
+upload_to_blob(){
   # Copy snapshot to blob store
-  echo "--- Starting copy of $snapshotName to $blobStore/$archiveBlobTgz" >> $archiveLog
-  runCmd "cd $sourceDir/$snapshotName && tar zcvf - * | azcopy cp \"$blobStore/$archiveBlobTgz?$blobSasKey\" --from-to PipeBlob && cd -"
-  echo "--- Completed copy of $snapshotName $blobStore/$archiveBlobTgz" >> $archiveLog
-  echo "--- Current list of files stored in $blobStore" >> $archiveLog
-  runCmd "azcopy list \"$blobStore?$blobSasKey\"  --properties LastModifiedTime " >> $archiveLog
+  echo "Starting upload of ${SNAPSHOT_NAME} to ${BLOB_STORE}/${ARCHIVE_BLOB_TGZ}" >> "${ARCHIVE_LOG}"
+  run_cmd "azcopy env ; cd ${SOURCE_DIR}/${SNAPSHOT_NAME} && tar zcvf - * | azcopy cp \"${BLOB_STORE}/${ARCHIVE_BLOB_TGZ}?${BLOB_SAS_KEY}\" --from-to PipeBlob && cd -"
+  echo "Completed upload of ${SNAPSHOT_NAME} ${BLOB_STORE}/${ARCHIVE_BLOB_TGZ}" >> "${ARCHIVE_LOG}"
 
   # Complete
-  echo "----- Finished ($0 $snapshotName $prefix) @ `date "+%d-%h-%Y %H:%M"`" >> $archiveLog
-  echo "--------------------------------------------------------------------------------" >> $archiveLog
+  echo "Finished ($0 ${SNAPSHOT_NAME} ${PREFIX}) @ $(date "+%d-%h-%Y %H:%M")" >> "${ARCHIVE_LOG}"
+  echo "--------------------------------------------------------------------------------" >> "${ARCHIVE_LOG}"
   # col 12345678901234567890123456789012345678901234567890123456789012345678901234567890
 }
 
-# background ourselves so AzAcSnap exits cleanly
-echo "Backgrounding '$0 $@' to prevent blocking azacsnap"
-echo "Logging to $archiveLog"
-{
-  trap '' HUP
-  # the script
-  main
-} < /dev/null > /dev/null 2>&1 &
+
+#######################################
+# List contents of Blob store.
+# Globals:
+#   BLOB_STORE
+#   BLOB_SAS_KEY
+# Arguments:
+#   None
+#######################################
+list_blob(){
+  LOG_MSG="Current list of files stored in ${BLOB_STORE}"
+  write_log "${LOG_MSG}"
+  echo "${LOG_MSG}"
+  run_cmd "azcopy list \"${BLOB_STORE}?${BLOB_SAS_KEY}\"  --properties LastModifiedTime "
+}
+
+
+# Log when script started.
+write_log "Started ($0 ${SNAPSHOT_NAME} ${PREFIX}) @ $(date "+%d-%h-%Y %H:%M")"
+
+
+# Check what this was called as ($0) and run accordingly.
+case "$(basename "$0")" in
+  "snapshot-to-blob.sh" )
+    snapshot_to_blob
+    ;;
+  "list-blobs.sh" )
+    list_blob
+    ;;
+  *)
+    echo "Command '$0' not recognised!"
+    ;;
+esac
 ```
 
 The saskeyFile contains the following example SAS Key (content changed for security):
@@ -1000,7 +1097,7 @@ cat blob-credentials.saskey
 
 ```output
 # we need a generated SAS key, get this from the portal with read,add,create,write,list permissions
-portalGeneratedSas="https://<targetstorageaccount>.blob.core.windows.net/<blob-store>?sp=racwl&st=2021-06-10T21:10:38Z&se=2021-06-11T05:10:38Z&spr=https&sv=2020-02-10&sr=c&sig=<key-material>"
+PORTAL_GENERATED_SAS="https://<targetstorageaccount>.blob.core.windows.net/<blob-store>?sp=racwl&st=2021-06-10T21:10:38Z&se=2021-06-11T05:10:38Z&spr=https&sv=2020-02-10&sr=c&sig=<key-material>"
 ```
 
 ## Next steps
