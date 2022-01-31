@@ -248,12 +248,12 @@ You may remember in the [publish and subscribe message tutorial](./tutorial-pub-
 
 2.  Create a file `SampleChatHub.cs` for the `SampleChatHub` class to handle hub events with the following content.
 
-  ```csharp
-    using Microsoft.Azure.WebPubSub.AspNetCore;
+    ```csharp
+      using Microsoft.Azure.WebPubSub.AspNetCore;
 
-    sealed class SampleChatHub : WebPubSubHub
-    {
-    }
+      sealed class SampleChatHub : WebPubSubHub
+      {
+      }
     ```
 
 3. Then update the `Program.cs` file to add DI for the service middleware and service client inside. Don't forget to replace `<connection_string>` with the one of your services. 
@@ -329,7 +329,7 @@ You may remember in the [publish and subscribe message tutorial](./tutorial-pub-
     </html>
     ```
 
-    If you are using Chrome, you can test it by opening the home page, input your user name. Press F12 to open the Developer Tools window, switch to **Console** table and you'll see `connected` being printed in browser console.
+  If you are using Chrome, you can test it by opening the home page, input your user name. Press F12 to open the Developer Tools window, switch to **Console** table and you'll see `connected` being printed in browser console.
 
 # [JavaScript](#tab/javascript)
 
