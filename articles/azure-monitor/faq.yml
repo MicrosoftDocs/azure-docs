@@ -265,7 +265,15 @@ sections:
           
           
   - name: Azure Monitor Agent
-    questions:
+    questions: |
+    
+      - question: |
+          Why should I use the AMA or migrate from Log Analytics agent (MMA) to AMA?
+        answer: |
+          The AMA replaces the [Log Analytics agent](/azure/azure-monitor/agents/log-analytics-agent), the [Azure Diagnostics extension](/azure/azure-monitor/agents/diagnostics-extension-overview), and the [Telegraf Agent](/azure/azure-monitor/essentials/collect-custom-metrics-linux-telegraf). The AMA offers a higher rate of EPS with a lower footprint, providing enhanced filtering features, scalable deployment management and configuration using DCRs and Azure policies.
+          While the AMA has not yet reached full parity with the MMA, we continue to add features and support and the MMA will be retired on August 31, 2024.
+          For more information, see the [Azure Monitor Agent overview](/azure/azure-monitor/agents/azure-monitor-agent-overview).
+
       - question: |
           What is the upgrade path from Log Analytics agents to Azure Monitor Agent? How do we migrate?
         answer: |
@@ -309,12 +317,19 @@ sections:
           
           
       - question: |
-          Can the new Azure Monitor Agent and Log Analytics Agent co-exist side-by-side?
+          Can the Azure Monitor Agent and Log Analytics Agent co-exist side-by-side?
         answer: |
-          Yes they can, but with certain considerations. Read more [here](agents/azure-monitor-agent-overview.md#coexistence-with-other-agents).
+          Yes they can, but with certain considerations. If they both send data, from the same data source to an Microsoft Sentinel workspace, at the same time, from a single host, duplicate events and double ingestion charges will occur. Read more [here](agents/azure-monitor-agent-overview.md#coexistence-with-other-agents).
           
       - question: |
-          Is the new Azure Monitor Agent at parity with existing agents?
+          Will I duplicate events if I use the Azure Monitor agent and the Log Analytics agent on the same machine? 
+        answer: |
+          If you are collecting the same events with both agents, there will be duplication. This could be the legacy agent collecting data from the [workspace configuration](agents/agent-data-sources.md) that duplicates data collected by the data collection rule. Or you might be collecting security events with Legacy Agent and enable Windows Security Events with the AMA connectors in Microsoft Sentinel.
+          
+          You should limit duplication events to only while you transition from one agent to the other. After you've fully tested the DCR and verified its data collection, you should disconnect disable collection for the workspace and disconnect any MMA data connectors.
+
+      - question: |
+          Is the Azure Monitor Agent at parity with existing agents?
         answer: |
           It does not have full parity yet with existing agents. Here are some high-level gaps:
           
@@ -328,10 +343,25 @@ sections:
           
           
       - question: |
-          Does the new Azure Monitor Agent support non-Azure environments (other clouds, on-premises)?
+          Does the Azure Monitor Agent support non-Azure environments (other clouds, on-premises)?
         answer: |
           Both on-premises machines and machines connected to other clouds are supported for servers today, once you have the Azure Arc agent installed. For purposes of running AMA and DCR, the ARC requirement comes at **no additional cost or resource consumption**, since the ARC agent is only used an installation mechanism and isn’t performing any operations unless you enable them
           
+
+      - question: |
+          Is Azure Arc required for AAD-joined machines?
+        answer: |
+          Any on-premises server, or non-Azure cloud server, must be on Azure Arc to run the AMA. For more information, see [About Azure Arc](/azure/azure-arc/overview).
+           
+      - question: |
+          Why do I need to install the Azure Arc Connected Machine agent to use AMA?
+        answer: |
+          The AMA authenticates to your workspace via managed identity, which is created when you install the Connected Machine agent. The legacy Log Analytics agent authenticate using the workspace ID and key instead, and therefore did not need Azure Arc.
+
+      - question: |
+          What impact does installing the Azure Arc Connected Machine agent have on my non-Azure machine?
+        answer: |
+          There is no impact to the machine once the Azure Arc is installed. It hardly uses system or network resources, and is designed to have a low footprint on the host where it’s run.
           
       - question: |
           What types of machines does the new Azure Monitor Agent support?
@@ -356,7 +386,25 @@ sections:
           Does the new Azure Monitor agent have hardening support for Linux?
         answer: |
           This is not available currently for the agent in preview, and is planned to be added post general availability.
-          
+
+      - question: |
+          What roles do I need to create a DCR that collects events from my servers?
+        answer: |
+          - [Monitoring contributor](/azure/role-based-access-control/built-in-roles#monitoring-contributor): Required to create a DCR and an association between the DCR and the machine. If your DCR, your server, and your Log Analytics workspace are in different resource groups, you will need to have a Monitoring contributor role in each resource group.
+          - [Contributor](/azure/role-based-access-control/built-in-roles#contributor): You must have a Contributor role in the resource group where you are creating the DCR.
+          - [Virtual machine contributor](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor): The AMA is automatically deployed when you first deploy a DCR in a VM, if it was not already installed. Therefore, if you don't yet have the AMA installed, you must have a Virtual machine contributor role in the server in order to install the agent.
+
+      - question: |
+          If I create DCRs that contain the same event ID and associate it to the same VM, will the events be duplicated?
+        answer: |
+          Yes. To avoid duplication, please make sure the event selection you make in your Data Collection Rules does not contain duplicate events.
+
+      - question: |
+          How can I validate my XPATH queries on the AMA?
+        answer: |
+          Use the [Get-WinEvent](/powershell/module/microsoft.powershell.diagnostics/get-winevent) PowerShell cmdlet **-FilterXPath** parameter to test the validity of an XPath query. For more information, see the tip provided in the [Windows agent-based connections](connect-azure-windows-microsoft-services.md#instructions-3) instructions.
+          The [Get-WinEvent](/powershell/module/microsoft.powershell.diagnostics/get-winevent) PowerShell cmdlet supports up to 23 expressions, which Azure Monitor DCRs support up to 20. Also `>` and `<` characters must be encoded as `&gt;` and `&lt;` in your DCR.        
+
           
   - name: Visualizations
     questions:
