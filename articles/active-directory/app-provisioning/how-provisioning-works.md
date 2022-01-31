@@ -33,7 +33,7 @@ The **Azure AD Provisioning Service** provisions users to SaaS apps and other sy
 
 The Azure AD provisioning service uses the [SCIM 2.0 protocol](https://techcommunity.microsoft.com/t5/Identity-Standards-Blog/bg-p/IdentityStandards) for automatic provisioning. The service connects to the SCIM endpoint for the application, and uses SCIM user object schema and REST APIs to automate the provisioning and de-provisioning of users and groups. A SCIM-based provisioning connector is provided for most applications in the Azure AD gallery. When building apps for Azure AD, developers can use the SCIM 2.0 user management API to build a SCIM endpoint that integrates Azure AD for provisioning. For details, see [Build a SCIM endpoint and configure user provisioning](../app-provisioning/use-scim-to-provision-users-and-groups.md).
 
-To request an automatic Azure AD provisioning connector for an app that doesn't currently have one, see [Azure Active Directory Application Request](../develop/v2-howto-app-gallery-listing.md).
+To request an automatic Azure AD provisioning connector for an app that doesn't currently have one, see [Azure Active Directory Application Request](../manage-apps/v2-howto-app-gallery-listing.md).
 
 ## Authorization
 

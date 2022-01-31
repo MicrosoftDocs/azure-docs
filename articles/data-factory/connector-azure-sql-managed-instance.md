@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.author: jianleishen
 author: jianleishen
 ms.custom: synapse
-ms.date: 12/28/2021
+ms.date: 01/28/2022
 ---
 
 # Copy and transform data in Azure SQL Managed Instance using Azure Data Factory or Synapse Analytics
@@ -83,9 +83,6 @@ The following properties are supported for the SQL Managed Instance linked servi
 | alwaysEncryptedSettings | Specify **alwaysencryptedsettings** information that's needed to enable Always Encrypted to protect sensitive data stored in SQL server by using either managed identity or service principal. For more information, see the JSON example following the table and [Using Always Encrypted](#using-always-encrypted) section. If not specified, the default always encrypted setting is disabled. |No |
 | credentials | Specify the user-assigned managed identity as the credential object. | Yes, when you use user-assigned managed identity authentication |
 | connectVia | This [integration runtime](concepts-integration-runtime.md) is used to connect to the data store. You can use a self-hosted integration runtime or an Azure integration runtime if your managed instance has a public endpoint and allows the service to access it. If not specified, the default Azure integration runtime is used. |Yes |
-
-> [!NOTE]
-> SQL Managed Instance [**Always Encrypted**](/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-ver15&preserve-view=true) is not supported in data flow. 
 
 For different authentication types, refer to the following sections on prerequisites and JSON samples, respectively:
 
@@ -488,6 +485,12 @@ To copy data to SQL Managed Instance, the following properties are supported in 
 | writeBatchSize |Number of rows to insert into the SQL table *per batch*.<br/>Allowed values are integers for the number of rows. By default, the service dynamically determines the appropriate batch size based on the row size.  |No |
 | writeBatchTimeout |This property specifies the wait time for the batch insert operation to complete before it times out.<br/>Allowed values are for the timespan. An example is "00:30:00," which is 30 minutes. |No |
 | maxConcurrentConnections |The upper limit of concurrent connections established to the data store during the activity run. Specify a value only when you want to limit concurrent connections.| No |
+| WriteBehavior | Specify the write behavior for copy activity to load data into Azure SQL MI. <br/> The allowed value is **Insert** and **Upsert**. By default, the service uses insert to load data. | No |
+| upsertSettings | Specify the group of the settings for write behavior. <br/> Apply when the WriteBehavior option is `Upert`. | No |
+| ***Under `upsertSettings`:*** | | |
+| useTempDB | Specify whether to use the a global temporary table or physical table as the interim table for upsert. <br>By default, the service uses global temporary table as the interim table. value is `true`. | No |
+| interimSchemaName | Specify the interim schema for creating interim table if physical table is used. Note: user need to have the permission for creating and deleting table. By default, interim table will share the same schema as sink table. <br/> Apply when the useTempDB option is `False`. | No |
+| keys | Specify the column names for unique row identification. Either a single key or a series of keys can be used. If not specified, the primary key is used. | No |
 
 **Example 1: Append data**
 
@@ -556,6 +559,45 @@ Learn more details from [Invoke a stored procedure from a SQL MI sink](#invoke-a
                     "identifier": { "value": "1", "type": "Int" },
                     "stringData": { "value": "str1" }
                 }
+            }
+        }
+    }
+]
+```
+
+**Example 3: Upsert data**
+
+```json
+"activities":[
+    {
+        "name": "CopyToAzureSqlMI",
+        "type": "Copy",
+        "inputs": [
+            {
+                "referenceName": "<input dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "outputs": [
+            {
+                "referenceName": "<SQL Managed Instance output dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "typeProperties": {
+            "source": {
+                "type": "<source type>"
+            },
+            "sink": {
+                "type": "SqlMISink",
+                "tableOption": "autoCreate",
+                "writeBehavior": "upsert",
+                "upsertSettings": {
+                    "useTempDB": true,
+                    "keys": [
+                        "<column name>"
+                    ]
+                },            
             }
         }
     }
@@ -646,34 +688,7 @@ Appending data is the default behavior of the SQL Managed Instance sink connecto
 
 ### Upsert data
 
-**Option 1:** When you have a large amount of data to copy, you can bulk load all records into a staging table by using the copy activity, then run a stored procedure activity to apply a [MERGE](/sql/t-sql/statements/merge-transact-sql) or INSERT/UPDATE statement in one shot. 
-
-Copy activity currently doesn't natively support loading data into a database temporary table. There is an advanced way to set it up with a combination of multiple activities, refer to [Optimize SQL Database Bulk Upsert scenarios](https://github.com/scoriani/azuresqlbulkupsert). Below shows a sample of using a permanent table as staging.
-
-As an example, you can create a pipeline with a **Copy activity** chained with a **Stored Procedure activity**. The former copies data from your source store into an Azure SQL Managed Instance staging table, for example, **UpsertStagingTable**, as the table name in the dataset. Then the latter invokes a stored procedure to merge source data from the staging table into the target table and clean up the staging table.
-
-:::image type="content" source="./media/connector-azure-sql-database/azure-sql-database-upsert.png" alt-text="Upsert":::
-
-In your database, define a stored procedure with MERGE logic, like the following example, which is pointed to from the previous stored procedure activity. Assume that the target is the **Marketing** table with three columns: **ProfileID**, **State**, and **Category**. Do the upsert based on the **ProfileID** column.
-
-```sql
-CREATE PROCEDURE [dbo].[spMergeData]
-AS
-BEGIN
-    MERGE TargetTable AS target
-    USING UpsertStagingTable AS source
-    ON (target.[ProfileID] = source.[ProfileID])
-    WHEN MATCHED THEN
-        UPDATE SET State = source.State
-    WHEN NOT matched THEN
-        INSERT ([ProfileID], [State], [Category])
-      VALUES (source.ProfileID, source.State, source.Category);
-    
-    TRUNCATE TABLE UpsertStagingTable
-END
-```
-
-**Option 2:** You can choose to [invoke a stored procedure within the copy activity](#invoke-a-stored-procedure-from-a-sql-sink). This approach runs each batch (as governed by the `writeBatchSize` property) in the source table instead of using bulk insert as the default approach in the copy activity.
+Copy activity now supports natively loading data into a database temporary table and then update the data in sink table if key exists and otherwise insert new data.
 
 ### Overwrite the entire table
 
@@ -848,7 +863,7 @@ When data is copied to and from SQL Managed Instance using copy activity, the fo
 
 ## Using Always Encrypted
 
-When you copy data from/to SQL Server with [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine), follow below steps: 
+When you copy data from/to SQL Managed Instance with [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine), follow below steps: 
 
 1. Store the [Column Master Key (CMK)](/sql/relational-databases/security/encryption/create-and-store-column-master-keys-always-encrypted?view=sql-server-ver15&preserve-view=true) in an [Azure Key Vault](../key-vault/general/overview.md). Learn more on [how to configure Always Encrypted by using Azure Key Vault](../azure-sql/database/always-encrypted-azure-key-vault-configure.md?tabs=azure-powershell)
 
@@ -857,10 +872,13 @@ When you copy data from/to SQL Server with [Always Encrypted](/sql/relational-da
 3. Create linked service to connect to your SQL database and enable 'Always Encrypted' function by using either managed identity or service principal. 
 
 >[!NOTE]
->SQL Server [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine) supports below scenarios: 
+>SQL Managed Instance [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine) supports below scenarios: 
 >1. Either source or sink data stores is using managed identity or service principal as key provider authentication type.
 >2. Both source and sink data stores are using managed identity as key provider authentication type.
 >3. Both source and sink data stores are using the same service principal as key provider authentication type.
+
+>[!NOTE]
+>Currently, SQL Managed Instance [**Always Encrypted**](/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-ver15&preserve-view=true) is only supported for source transformation in mapping data flows.
 
 ## Next steps
 For a list of data stores supported as sources and sinks by the copy activity, see [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

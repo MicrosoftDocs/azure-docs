@@ -74,6 +74,6 @@ items:
   expanded: true
   items:
   - name: Rest API
-    href: /rest/api/
+    href: /rest/api/serviceconnector
   - name: Python SDK
     href: /python/api/overview/azure/

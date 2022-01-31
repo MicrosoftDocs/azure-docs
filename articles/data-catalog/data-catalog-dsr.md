@@ -1246,14 +1246,12 @@ If you want to see a specific data source supported, suggest it (or voice your s
       <td>Container</td>
       <td>Model</td>
       <td>
-        <font size="2">
           Protocol: mssql-mds
           <br>Authentication: {windows}
           <br>Address:
           <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
           <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; model
           <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; version
-        
       </td>
     </tr>
     <tr>
@@ -1261,7 +1259,6 @@ If you want to see a specific data source supported, suggest it (or voice your s
       <td>Table</td>
       <td>Entity</td>
       <td>
-        <font size="2">
           Protocol: mssql-mds
           <br>Authentication: {windows}
           <br>Address:
@@ -1269,7 +1266,6 @@ If you want to see a specific data source supported, suggest it (or voice your s
           <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; model
           <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; version
           <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; entity
-        
       </td>
     </tr>
     <tr>
