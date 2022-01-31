@@ -37,7 +37,7 @@ Azure supports multiple types of storage accounts for different storage scenario
 | Maximum storage account capacity | 5 PiB<sup>1</sup> | 100 TiB (provisioned) |
 | Maximum number of file shares | Unlimited | Unlimited, total provisioned size of all shares must be less than max than the max storage account capacity |
 | Maximum concurrent request rate | 20,000 IOPS<sup>1</sup> | 100,000 IOPS |
-| Maximum ingress | 7,152 MiB/sec<sup>1</sup> | 10,340 MiB/sec |
+| Maximum ingress | 7,152 MiB/sec<sup>1</sup><br><li>Australia East <li>Central US</li><li>East US</li><li>East US 2</li><li>Japan East</li><li>North Europe</li><li>South Central US</li><li>Southeast Asia</li><li>UK South</li><li>West Europe</li><li>West US 2</li><li>East Asia</li><li>Korea Central</li>| 10,340 MiB/sec |
 | Maximum egress | 14,305 MiB/sec<sup>1</sup> | 10,340 MiB/sec |
 | Maximum number of virtual network rules | 200 | 200 |
 | Maximum number of IP address rules | 200 | 200 |
