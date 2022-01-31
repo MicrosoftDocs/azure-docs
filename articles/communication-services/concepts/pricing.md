@@ -192,7 +192,7 @@ Rose sees the messages and starts chatting. In the meanwhile Casey gets a call a
 
 ## SMS (Short Messaging Service) and Telephony
 
-Please refer to the following links for details on SMSand Telephony pricing
+Please refer to the following links for details on SMS and Telephony pricing
 
 - [SMS Pricing Details](./sms-pricing.md)
 - [PSTN Pricing Details](./pstn-pricing.md)
