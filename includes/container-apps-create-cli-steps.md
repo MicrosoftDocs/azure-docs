@@ -8,7 +8,7 @@ ms.author: cshoe
 
 ## Setup
 
-Begin by signing in to Azure. Run the following command, and follow the prompts to complete the authentication process.
+Begin by signing in to Azure from the CLI. Run the following command, and follow the prompts to complete the authentication process.
 
 # [Bash](#tab/bash)
 
@@ -18,23 +18,11 @@ az login
 
 # [PowerShell](#tab/powershell)
 
-```powershell
-Connect-AzAccount
-```
-
-Ensure that the azure CLI is up-to-date.
-
-# [Bash](#tab/bash)
-
 ```azurecli
-az upgrade
+az login
 ```
 
-# [PowerShell](#tab/powershell)
-
-```azurecli
-az upgrade
-```
+---
 
 Next, install the Azure Container Apps extension to the CLI.
 
@@ -49,7 +37,7 @@ az extension add \
 
 ```azurecli
 az extension add `
-  --source https://workerappscliextension.blob.core.windows.net/azure-cli-extension/containerapp-0.2.2-py2.py3-none-any.whl 
+  --source https://workerappscliextension.blob.core.windows.net/azure-cli-extension/containerapp-0.2.0-py2.py3-none-any.whl 
 ```
 
 ---
@@ -64,8 +52,8 @@ az provider register --namespace Microsoft.Web
 
 # [PowerShell](#tab/powershell)
 
-```powershell
-Register-AzResourceProvider -ProviderNamespace Microsoft.Web
+```azurecli
+az provider register --namespace Microsoft.Web
 ```
 
 ---
@@ -99,18 +87,20 @@ With these variables defined, you can create a resource group to organize the se
 ```azurecli
 az group create \
   --name $RESOURCE_GROUP \
-  --location $LOCATION
+  --location "$LOCATION"
 ```
 
 # [PowerShell](#tab/powershell)
 
-```powershell
-New-AzResourceGroup -Name $RESOURCE_GROUP -Location $LOCATION
+```azurecli
+az group create `
+  --name $RESOURCE_GROUP `
+  --location "$LOCATION"
 ```
 
 ---
 
-With the CLI upgraded and a new resource group available, you can create a Container Apps environment.
+With the CLI upgraded and a new resource group available, you can create a Container Apps environment and deploy your container app.
 
 ## Create an environment
 
@@ -130,11 +120,10 @@ az monitor log-analytics workspace create \
 
 # [PowerShell](#tab/powershell)
 
-```powershell
-New-AzOperationalInsightsWorkspace `
-  -Location $LOCATION `
-  -Name $LOG_ANALYTICS_WORKSPACE `
-  -ResourceGroupName $RESOURCE_GROUP
+```azurecli
+az monitor log-analytics workspace create `
+  --resource-group $RESOURCE_GROUP `
+  --workspace-name $LOG_ANALYTICS_WORKSPACE
 ```
 
 ---
@@ -154,7 +143,7 @@ LOG_ANALYTICS_WORKSPACE_CLIENT_SECRET=`az monitor log-analytics workspace get-sh
 # [PowerShell](#tab/powershell)
 
 ```powershell
-$LOG_ANALYTICS_WORKSPACE_CLIENT_ID=(Get-AzOperationalInsightsWorkspace -ResourceGroupName $RESOURCE_GROUP -Name $LOG_ANALYTICS_WORKSPACE).CustomerId
+$LOG_ANALYTICS_WORKSPACE_CLIENT_ID=(az monitor log-analytics workspace show --query customerId -g $RESOURCE_GROUP -n $LOG_ANALYTICS_WORKSPACE --out tsv)
 ```
 
 ```powershell
