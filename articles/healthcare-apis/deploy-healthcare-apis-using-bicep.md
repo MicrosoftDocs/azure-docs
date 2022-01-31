@@ -1,6 +1,6 @@
 ---
-title: How to create Healthcare APIs, workspaces, FHIR and DICOM service, and IoT connectors using Bicep.
-description: This document describes how to deploy Healthcare APIs using Bicep.
+title: How to create Healthcare APIs, workspaces, FHIR and DICOM service, and IoT connectors using Azure Bicep.
+description: This document describes how to deploy Healthcare APIs using Azure Bicep.
 author: stevewohl
 ms.service: healthcare-apis
 ms.subservice: fhir
@@ -10,7 +10,7 @@ ms.author: zxue
 ms.custom: mode-api
 ---
 
-# Deploy Healthcare APIs Using Bicep
+# Deploy Healthcare APIs Using Azure Bicep
 
 In this article, you'll learn how to create Healthcare APIs, including workspaces, FHIR services, DICOM services, and IoT connectors using Bicep. You can view and download the Bicep scripts used in this article in [HealthcareAPIs samples](https://github.com/microsoft/healthcare-apis-samples/blob/main/src/templates/healthcareapis.bicep). 
 
