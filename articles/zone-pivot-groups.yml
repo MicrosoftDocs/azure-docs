@@ -1618,6 +1618,15 @@ groups:
     title: Private container registry
   - id: container-apps-public-registry
     title: Public container registry
+# Owner: cshoe
+- id: azure-cli-or-portal
+  title: Interaction type
+  prompt: Select how you want to interact with Azure
+  pivots:
+  - id: azure-portal
+    title: Azure portal
+  - id: azure-cli
+    title: Azure CLI
 # Owner: duau
 - id: front-door-tiers
   title: Front Door tiers

@@ -13,15 +13,14 @@ ms.service: azure-communication-services
 ---
 # SDKs and REST APIs
 
-Azure Communication Services capabilities are conceptually organized into eight areas. Most areas have fully open-sourced SDKs programmed against published REST APIs that you can use directly over the Internet. The Calling SDK uses proprietary network interfaces and is closed-source.
+Azure Communication Services APIs are organized into eight areas. Most areas have fully open-sourced SDKs programmed against published REST APIs that you can use directly over the Internet. The Calling SDK uses proprietary network interfaces and is closed-source.
 
-In the tables below we summarize these areas and availability of REST APIs and SDK libraries. We also note if APIs and SDKs are intended for end-user clients or trusted service environments. APIs and SDKs such as SMS should not be directly accessed by end-user devices in low trust environments.
+In the tables below we summarize these areas and availability of REST APIs and SDK libraries. We note if APIs and SDKs are intended for end-user clients or trusted service environments. APIs such as SMS should not be directly accessed by end-user devices in low trust environments.
 
-Development of Web-based Calling and Chat applications can be accelerated by [Azure Communication Services UI libraries](https://azure.github.io/communication-ui-library). The UI library provides production-ready UI components that you can drop into your applications.
+Development of Calling and Chat applications can be accelerated by the  [Azure Communication Services UI library](./ui-library/ui-library-overview.md). The customizable UI library provides open-source UI components for Web and mobile apps, and a Microsoft Teams theme.
 
 ## REST APIs
-Communication Services APIs are documented alongside other Azure REST APIs in [docs.microsoft.com](/rest/api/azure/). This documentation will tell you how to structure your HTTP messages and offers guidance for using Postman. REST interface documentation is also offered in Swagger format on [GitHub](https://github.com/Azure/azure-rest-api-specs).
-
+Communication Services APIs are documented alongside other [Azure REST APIs in docs.microsoft.com](/rest/api/azure/). This documentation will tell you how to structure your HTTP messages and offers guidance for using [Postman](../tutorials/postman-tutorial.md). REST interface documentation is also published in Swagger format on [GitHub](https://github.com/Azure/azure-rest-api-specs).
 
 ## SDKs
 | Assembly | Protocols| Environment | Capabilities|
@@ -69,17 +68,6 @@ The mapping between friendly assembly names and namespaces is:
 | Calling Server | Azure.Communication.CallingServer|
 | Network Traversal| Azure.Communication.NetworkTraversal |
 | UI Library | Azure.Communication.Calling|
-
-
-## REST API Throttles
-Certain REST APIs and corresponding SDK methods have throttle limits you should be mindful of. Exceeding these throttle limits will trigger a`429 - Too Many Requests` error response. These limits can be increased through [a request to Azure Support](../../azure-portal/supportability/how-to-create-azure-support-request.md).
-
-| API| Throttle|
-|------------------------------------------------------------------------------------------------------------------------------|---------------------|
-| [All Search Telephone Number Plan APIs](/rest/api/communication/phonenumbers) | 4 requests/day|
-| [Purchase Telephone Number Plan](/rest/api/communication/phonenumbers/purchasephonenumbers) | 1 purchase a month|
-| [Send SMS](/rest/api/communication/sms/send) | 200 requests/minute |
-
 
 ## SDK platform support details
 

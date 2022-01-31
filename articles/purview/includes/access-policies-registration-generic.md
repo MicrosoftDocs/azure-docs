@@ -19,6 +19,7 @@ ms.custom:
 > [!WARNING]
 > **Known issues** related to source registration
 > - Moving data sources to a different resource group or subscription is not yet supported. If want to do that, de-register the data source in Azure Purview before moving it and then register it again after that happens.
+> - Once a subscription gets disabled for *Data use governance* any underlying assets that are enabled for *Data use governance* will be disabled, which is the right behavior. However, policy statements based on those assets will still be allowed after that.
 
 ### Data use governance best practices
 - We highly encourage registering data sources for *Data use governance* and managing all associated access policies in a single Azure Purview account.
