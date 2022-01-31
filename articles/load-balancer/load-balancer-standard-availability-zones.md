@@ -71,7 +71,7 @@ Using multiple frontends allow you to load balance traffic on more than one port
 
 ### Transition between regional zonal models
 
-In the case where a region is augmented to have [availability zones](../availability-zones/az-overview.md) would remain non-zonal. In order to ensure your architecture can take advantage of the new zones, it is recommended that new frontend IPs be created, and the appropriate rules and configurations be replicated to utilizes these new public IPs.
+In the case where a region is augmented to have [availability zones](../availability-zones/az-overview.md), any existing Public IPs (e.g. used for Load Balancer frontends) would remain non-zonal. In order to ensure your architecture can take advantage of the new zones, it is recommended that new frontend IPs be created, and the appropriate rules and configurations be replicated to utilizes these new public IPs.
 
 ### Control vs data plane implications
 
