@@ -1,5 +1,5 @@
 ---
-title: Import and data ingestion in search indexes
+title: Data import and data ingestion
 titleSuffix: Azure Cognitive Search
 description: Populate and upload data to an index in Azure Cognitive Search from external data sources.
 
@@ -10,7 +10,7 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 12/07/2021
 ---
-# Data import overview - Azure Cognitive Search
+# Data import in Azure Cognitive Search
 
 In Azure Cognitive Search, queries execute over user-owned content that's loaded into a [search index](search-what-is-an-index.md). This article describes the two basic workflows for populating an index: *push* your data into the index programmatically, or point an [Azure Cognitive Search indexer](search-indexer-overview.md) at a supported data source to *pull* in the data.
 
