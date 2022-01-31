@@ -869,7 +869,7 @@ In [extension version 4.x](./functions-bindings-cosmosdb-v2.md#cosmos-db-extensi
     }
 ```
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/CosmosDB/CosmosDBFunction.cs" range="13-19":::
+:::code language="csharp-script" source="~/azure-functions-dotnet-worker/samples/Extensions/CosmosDB/CosmosDBFunction.cs" range="13-19":::
 
 # [C# script](#tab/csharp-script)
 
