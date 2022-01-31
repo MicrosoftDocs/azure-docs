@@ -18,7 +18,7 @@ Azure Communication Services allow for adding voice/video calling and screen sha
 
 ### Pricing
 
-Calling and screen-sharing services are charged on a per minute per participant basis at $0.004 per participant per minute for group calls. Azure Communication Services does not charge for data egress. To understand the various call flows that are possible, refer to [this page](./call-flows.md).
+Calling and screen-sharing services are charged on a per minute per participant basis at $0.004 per participant per minute for group calls. Azure Communication Services does'nt charge for data egress. To understand the various call flows that are possible, refer to [this page](./call-flows.md).
 
 Each participant of the call will count in billing for each minute they're connected to the call. This holds true regardless of whether the user is video calling, voice calling, or screen-sharing.
 
@@ -105,7 +105,7 @@ Alice is a doctor meeting with her patient, Bob. Alice will be joining the visit
 - 1 participant (Bob) x 3 chat messages x $0.0008 = $0.0024.
 - 1 participant (Alice) x 5 chat messages x $0.000  = $0.0*.
 
-*Alice's participation is covered by her Teams license. Your Azure invoice will show the minutes and chat messages that Teams users had with Communication Services Users for your convenience, but those minutes and messages originating from the Teams client will not cost.
+*Alice's participation is covered by her Teams license. Your Azure invoice will show the minutes and chat messages that Teams users had with Communication Services Users for your convenience, but those minutes and messages originating from the Teams client won't be charged.
 
 **Total cost for the visit**:
 - User joining using the Communication Services JavaScript SDK: $0.004 + $0.116 + $0.0024 = $0.1224
@@ -151,7 +151,7 @@ Alice made a group call with her colleagues, Bob and Charlie.
 - Bob stayed in a call for 30 minutes and Alice and Charlie for 60 minutes.
 
 **Cost calculations**
-- You will be charged the length of the meeting. (Length of the meeting is the timeline between user starts a recording and either explicitly stops or when there is no one left in a meeting).
+- You'll be charged the length of the meeting. (Length of the meeting is the timeline between user starts a recording and either explicitly stops or when there's no one left in a meeting).
 - 60 minutes x $0.01 per recording per minute = $0.6
 
 ### Pricing example: Record a call in a mixed audio+only format
@@ -161,7 +161,7 @@ Alice starts a call with Jane.
 - The call lasts a total of 60 minutes. The recording lasted for 45 minutes.
 
 **Cost calculations**
-- You will be charged the length of the recording. 
+- You'll be charged the length of the recording. 
 - 45 minutes x $0.002 per recording per minute = $0.09
 
 ## Chat
@@ -199,7 +199,7 @@ Please refer to the following links for details on SMSand Telephony pricing
 
 
 ## Next Steps
-Get started with ACS!
+Get started with ACS
 
 - [Send an SMS](../quickstarts/sms/send.md)
 - [Add Voice calling to you app](../quickstarts/voice-video-calling/getting-started-with-calling.md)
