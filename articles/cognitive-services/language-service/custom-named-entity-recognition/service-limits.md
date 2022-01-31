@@ -29,7 +29,6 @@ Use this article to learn about the data and service limits when using Custom NE
 
 * Your [training dataset](how-to/train-model.md#data-split) should include at least 10 files and not more than 100,000 files.
 
-
 ## APIs limits
 
 * When using the Authoring API, there is a maximum of 10 POST requests and 100 GET requests per minute.
