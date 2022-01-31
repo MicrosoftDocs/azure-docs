@@ -22,7 +22,7 @@ This article assumes that you have an Azure account and Speech service subscript
 > [!IMPORTANT]
 > Microsoft limits access to speaker recognition. Apply to use it through the [Azure Cognitive Services Speaker Recognition Limited Access Review](https://aka.ms/azure-speaker-recognition) form. After approval, you can access the Speaker Recognition APIs.
 
-## Install the Speech SDK
+### Install the Speech SDK
 
 Before you start, you must install the <a href="https://www.npmjs.com/package/microsoft-cognitiveservices-speech-sdk" target="_blank">Speech SDK for JavaScript </a>. Depending on your platform, use the following instructions:
 
@@ -60,7 +60,7 @@ For more information on `require`, see <a href="https://nodejs.org/en/knowledge/
 
 ---
 
-## Import dependencies
+### Import dependencies
 
 To run the examples in this article, add the following statements at the top of your .js file:
 
