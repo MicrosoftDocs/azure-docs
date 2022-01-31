@@ -78,6 +78,10 @@ You can set, at a per profile level, the DNS TTL to be as low as 0 seconds and a
 
 One of the metrics provided by Traffic Manager is the number of queries responded by a profile. You can get this information at a profile level aggregation or you can split it up further to see the volume of queries where specific endpoints were returned. In addition, you can set up alerts to notify you if the query response volume crosses the conditions you have set. For more details, [Traffic Manager metrics and alerts](traffic-manager-metrics-alerts.md).
 
+### When I delete a Traffic Manager profile, what is the amount of time before the name of the profile is available for re-use?
+
+It can take up to 2 hours for the name to become available after a Traffic Manger profile is deleted.
+
 ## Traffic Manager Geographic traffic routing method
 
 ### What are some use cases where geographic routing is useful?
