@@ -69,6 +69,7 @@ When creating or updating your Azure Cosmos DB account using Azure Resource Mana
 - You can only assign role definitions to Azure AD identities belonging to the same Azure AD tenant as your Azure Cosmos DB account.
 - Azure AD group resolution is not currently supported for identities that belong to more than 200 groups.
 - The Azure AD token is currently passed as a header with each individual request sent to the Azure Cosmos DB service, increasing the overall payload size.
+- listCollections and listDatabases are excluded from RBAC in the preview.
 
 ## Frequently asked questions
 
