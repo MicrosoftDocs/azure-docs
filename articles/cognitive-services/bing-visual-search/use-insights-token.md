@@ -457,13 +457,7 @@ To run this application, follow these steps:
 
 # Run the following in a command console window
 
-> [!WARNING]
-> On October 30, 2020, the Bing Search APIs moved from Cognitive Services to Bing Search Services. This documentation is provided for reference only. For updated documentation, see the [Bing search API documentation](/bing/search-apis). For instructions on creating new Azure resources for Bing search, see [Create a Bing Search resource through the Azure Marketplace](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
-
 # pip3 install requests
-
-> [!WARNING]
-> On October 30, 2020, the Bing Search APIs moved from Cognitive Services to Bing Search Services. This documentation is provided for reference only. For updated documentation, see the [Bing search API documentation](/bing/search-apis). For instructions on creating new Azure resources for Bing search, see [Create a Bing Search resource through the Azure Marketplace](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 import requests
 import json
@@ -476,13 +470,7 @@ HEADERS = {'Ocp-Apim-Subscription-Key': SUBSCRIPTION_KEY}
 
 # To get an insights, call the /images/search endpoint. Get the token from
 
-> [!WARNING]
-> On October 30, 2020, the Bing Search APIs moved from Cognitive Services to Bing Search Services. This documentation is provided for reference only. For updated documentation, see the [Bing search API documentation](/bing/search-apis). For instructions on creating new Azure resources for Bing search, see [Create a Bing Search resource through the Azure Marketplace](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
-
 # the imageInsightsToken field in the Image object.
-
-> [!WARNING]
-> On October 30, 2020, the Bing Search APIs moved from Cognitive Services to Bing Search Services. This documentation is provided for reference only. For updated documentation, see the [Bing search API documentation](/bing/search-apis). For instructions on creating new Azure resources for Bing search, see [Create a Bing Search resource through the Azure Marketplace](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 insightsToken = 'ccid_tmaGQ2eU*mid_D12339146CFEDF3D409CC7A66D2C98D0D71904D4*simid_608022145667564759*thid_OIP.tmaGQ2eUI1yq3yll!_jn9kwHaFZ'
 
@@ -509,9 +497,6 @@ def print_json(obj):
 
 
 # Main execution
-
-> [!WARNING]
-> On October 30, 2020, the Bing Search APIs moved from Cognitive Services to Bing Search Services. This documentation is provided for reference only. For updated documentation, see the [Bing search API documentation](/bing/search-apis). For instructions on creating new Azure resources for Bing search, see [Create a Bing Search resource through the Azure Marketplace](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 if __name__ == '__main__':
     main()
