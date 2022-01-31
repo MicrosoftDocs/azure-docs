@@ -931,9 +931,7 @@ CORS is fully supported for Python function apps.
 
 ## Async
 
-As Python is a single-threaded runtime, a host instance for Python can process only one function invocation at a time by default. For applications that process a large number of I/O events and/or is I/O bound, you can improve performance significantly by running functions asynchronously.
-
-For additional information and examples about using async to improve performance in the right way, see [Improve throughout performance of Python apps in Azure Functions](python-scale-performance-reference#async).
+By default, a host instance for Python can process only one function invocation at a time. This is because Python is a single-threaded runtime. For a function app that processes a large number of I/O events or is being I/O bound, you can significantly improve performance by running functions asynchronously. For more information, see [Improve throughout performance of Python apps in Azure Functions](python-scale-performance-reference#async).
 
 ## <a name="shared-memory"></a>Shared memory (preview)
 
