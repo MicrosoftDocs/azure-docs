@@ -22,7 +22,7 @@ This article walks you through the installation process for the Azure Active Dir
 >[!NOTE]
 >This article deals with installing the provisioning agent by using the wizard. For information on installing the Azure AD Connect provisioning agent by using a command-line interface (CLI), see [Install the Azure AD Connect provisioning agent by using a CLI and PowerShell](how-to-install-pshell.md).
 
-For additional information and an example, see the following video.
+For more information and an example, see the following video.
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWK5mR]
 
@@ -48,21 +48,21 @@ To install the agent:
    [![Screenshot that accept and download](media/how-to-install/new-install-3.png)](media/how-to-install/new-install-3.png#lightbox)</br>
  9. Once the agent has completed downloading, click **Open file**.  This will start the installation.
     [![Screenshot that shows open file](media/how-to-install/new-install-4.png)](media/how-to-install/new-install-4.png#lightbox)</br>
- 10. On the **Microsoft Azure AD Connect Provisioning Agent Package** screen, accept the licensing terms and select **Install**.
+ 10. On the **Microsoft Azure AD Connect Provisioning Agent Package** screen, accept the licensing terms, and select **Install**.
   [![Screenshot that shows install](media/how-to-install/new-install-5.png)](media/how-to-install/new-install-5.png#lightbox)</br>
  11. After this operation finishes, the configuration wizard starts. Click **Next**.
  [![Screenshot that shows wizard](media/how-to-install/new-install-6.png)](media/how-to-install/new-install-6.png#lightbox)</br>
  13. Sign in with your Azure AD global administrator account.
- 14. On the **Configure Service Account** screen, select either **Create gMSA** or **Use custom gMSA**. If you allow the agent to create the account, it will be named **provAgentgMSA$**. If you specify **Use custom gMSA**, you're prompted to provide this account.
+ 14. On the **Configure Service Account** screen, select either **Create gMSA**, or **Use custom gMSA**. If you allow the agent to create the account, it will be named **provAgentgMSA$**. If you specify **Use custom gMSA**, you're prompted to provide this account.
  [![Screenshot that shows create service account](media/how-to-install/new-install-7.png)](media/how-to-install/new-install-7.png#lightbox)</br>
  15. Enter the domain administrator credentials to create the group Managed Service account that will be used to run the agent service. Select **Next**.
   ![Screenshot that shows the Create gMSA option.](media/how-to-install/install-12.png)</br>
- 16. On the **Connect Active Directory** screen click **Next**.  Your current domain has been added automatically.  If you wish to add additional domains, enter them and select **Add Directory**. Then sign in with an administrator account from that domain.
+ 16. On the **Connect Active Directory** screen, click **Next**.  Your current domain has been added automatically.  If you wish to add additional domains, enter them and select **Add Directory**. Then sign in with an administrator account from that domain.
  [![Screenshot that shows connecting to AD](media/how-to-install/new-install-8.png)](media/how-to-install/new-install-8.png#lightbox)</br>
  17. Optionally, you can manage the preference of domain controllers the agent will use.  To do this, click **Add Directory** and select the **Select domain controller priority** checkbox and then order the list of domain controllers. Select **OK**.  Click **Next**.
     [![Screenshot that shows adding domain controller priority](media/how-to-install/new-install-10.png)](media/how-to-install/new-install-10.png#lightbox)</br>
  18. On the **Agent installation** screen, confirm settings and the account that will be created and select **Confirm**.
-  [![Screenshot that shows adding domain controller priority](media/how-to-install/new-install-11.png)](media/how-to-install/new-install-11.png#lightbox)</br>
+  [![Screenshot that shows install confirmation](media/how-to-install/new-install-11.png)](media/how-to-install/new-install-11.png#lightbox)</br>
  20. After this operation finishes, you should see **Your agent installation is complete.** Select **Exit**.
  21. If you still see the initial **Microsoft Azure AD Connect Provisioning Agent Package** screen, select **Close**.
 
@@ -89,17 +89,16 @@ To verify the agent is being seen by Azure:
 To verify that the agent is running:
 
 1. Sign in to the server with an administrator account.
-1. Open **Services** by going to it or by selecting **Start** > **Run** > **Services.msc**.
-1. Under **Services**, make sure **Microsoft Azure AD Connect Agent Updater** and **Microsoft Azure AD Connect Provisioning Agent** are there and their status is *Running*.
-
-    ![Screenshot that shows the Services screen.](media/how-to-install/troubleshoot-1.png)
+2. Open **Services** by going to it or by selecting **Start** > **Run** > **Services.msc**.
+3. Under **Services**, make sure **Microsoft Azure AD Connect Agent Updater** and **Microsoft Azure AD Connect Provisioning Agent** are present.  Also, ensure the status is *Running*.
+ ![Screenshot that shows the Services screen.](media/how-to-install/troubleshoot-1.png)
 
 >[!IMPORTANT]
 >The agent has been installed, but it must be configured and enabled before it will start synchronizing users. To configure a new agent, see [Create a new configuration for Azure AD Connect cloud sync](how-to-configure.md).
 
 ## Enable password writeback in Azure AD Connect cloud sync 
 
-To use password writeback and enable the SSPR service to detect the cloud sync agent , you need to use the `Set-AADCloudSyncPasswordWritebackConfiguration` cmdlet and tenant’s global administrator credentials: 
+To use password writeback and enable the self-service password reset (SSPR) service to detect the cloud sync agent, you need to use the `Set-AADCloudSyncPasswordWritebackConfiguration` cmdlet and tenant’s global administrator credentials: 
 
   ```   
    Import-Module "C:\\Program Files\\Microsoft Azure AD Connect Provisioning Agent\\Microsoft.CloudSync.Powershell.dll" 
