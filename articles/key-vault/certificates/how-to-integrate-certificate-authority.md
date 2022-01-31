@@ -90,7 +90,7 @@ DigicertCA is now in the certificate authority list.
 3.	Select the **Certificate Authorities** tab:
 :::image type="content" source="../media/certificates/how-to-integrate-certificate-authority/select-certificate-authorities.png" alt-text="Screenshot that shows selecting the Certificate Authorities tab.":::
 4.	Select **Add**:
-:::image type="content" source="../media/certificates/how-to-integrate-certificate-authority/add-global-sign-certificate-authority.jpg" alt-text="Screenshot that shows the Add button on the Certificate Authorities tab.":::
+:::image type="content" source="../media/certificates/how-to-integrate-certificate-authority/add-global-sign-certificate-authority.jpg" alt-text="Screenshot that shows the Add button on the Global Sign Certificate Authorities tab.":::
 5.	Under **Create a certificate authority**, enter these values:
     - 	**Name**: An identifiable issuer name. For example, **GlobalSignCA**.
     - 	**Provider**: **GlobalSign**.
