@@ -19,11 +19,11 @@ In this article, you’ll learn to implement Secure Hybrid Access (SHA) with sin
 
 Enabling BIG-IP published services for Azure Active Directory (Azure AD) SSO provides many benefits, including:
 
-  * Improved Zero Trust governance through Azure AD pre-authentication and authorization
+  * Improved Zero Trust governance through Azure AD pre-authentication and [Conditional Access](/conditional-access/overview)
 
   * Full SSO between Azure AD and BIG-IP published services
 
-  * Manage Identities and access from a single control plane, [the Azure portal](https://portal.azure.com/)
+  * Manage Identities and access from a single control plane, the [Azure portal](https://portal.azure.com/)
 
 To learn about all of the benefits, see the article on [F5 BIG-IP and Azure AD integration](./f5-aad-integration.md) and [what is application access and single sign-on with Azure AD](/azure/active-directory/active-directory-appssoaccess-whatis).
 
@@ -298,15 +298,11 @@ Our backend application sits on HTTP port 80 but obviously switch to 443 if your
 Enabling SSO allows users to access BIG-IP published services without having to enter credentials. The **Easy Button wizard** supports Kerberos, OAuth Bearer, and HTTP authorization headers for SSO, the latter of which we’ll enable to configure the following.
 
 * **Header Operation:** Insert
-
 * **Header Name:** upn
-
 * **Header Value:** %{session.saml.last.identity}
 
 * **Header Operation:** Insert
-
 * **Header Name:** employeeid
-
 * **Header Value:** %{session.saml.last.attr.name.employeeid}
 
 ![Screenshot for SSO and HTTP headers](./media/f5-big-ip-easy-button-header/sso-http-headers.png)
