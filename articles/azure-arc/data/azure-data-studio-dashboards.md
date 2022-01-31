@@ -58,7 +58,7 @@ To view the SQL managed instance dashboard for a given instance, right-click on 
 
 The Connection panel will pop up on the right and prompt you for the login/password to connect to that SQL instance. If you know the connection information you can enter it and click Connect.  If you don't know, you can click Cancel.  Either way, you will be brought to the dashboard when the Connection panel closes.
 
-On the Overview tab you can view details about the SQL managed instance such as resource group, data controller, subscription ID, status, region and more.  You can also see link that you can click to go into the Grafana or Kibana dashboards in context to that SQL managed instance.
+On the Overview tab you can view details about the SQL managed instance such as resource group, data controller, subscription ID, status, region and more. You can also see link that you can click to go into the Grafana dashboard for viewing metrics or Kibana dashboard for viewing logs in context to that SQL managed instance.
 
 If you are able to connect to the SQL manage instance, you can see additional information here.
 
@@ -72,7 +72,7 @@ If you have created some PostgreSQL Hyperscale server groups, you can see them l
 
 To view the PostgreSQL Hyperscale server group dashboard for a given server group, right-click on the server group and choose Manage.
 
-On the Overview tab you can view details about the server group such as resource group, data controller, subscription ID, status, region and more.  You can also see link that you can click to go into the Grafana or Kibana dashboards in context to that server group.
+On the Overview tab you can view details about the server group such as resource group, data controller, subscription ID, status, region and more. You can also see link that you can click to go into the Grafana dashboard for viewing metrics or Kibana dashboard for viewing logs in context to that server group.
 
 You can delete the server group from here or open the Azure portal to view the server group in the Azure portal.
 
