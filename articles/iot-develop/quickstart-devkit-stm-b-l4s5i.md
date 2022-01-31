@@ -27,10 +27,8 @@ zone_pivot_groups: iot-develop-stm-toolset
 **Applies to**: [Embedded device development](about-iot-develop.md#embedded-device-development)<br>
 **Total completion time**:  30 minutes
 
-[![Browse code](media/common/browse-code.svg)](https://github.com/azure-rtos/getting-started/tree/master/STMicroelectronics/B-L4S5I-IOT01A)
-
 :::zone pivot="iot-toolset-cmake"
-[![Browse code](media/common/browse-code.svg)](https://github.com/azure-rtos/getting-started/tree/master/NXP/MIMXRT1060-EVK)
+[![Browse code](media/common/browse-code.svg)](https://github.com/azure-rtos/getting-started/tree/master/STMicroelectronics/
 :::zone-end
 :::zone pivot="iot-toolset-iar-ewarm"
 [![Browse code](media/common/browse-code.svg)](https://github.com/azure-rtos/samples/)
@@ -226,43 +224,15 @@ Keep Termite open to monitor device output in the following steps.
     * Wi-Fi 2.4 GHz
     * USB 2.0 A male to Micro USB male cable
 
+* IAR Embedded Workbench for ARM (IAR EW). You can download and install a [14-day free trial of IAR EW for ARM](https://www.iar.com/products/architectures/arm/iar-embedded-workbench-for-arm/).
+
+* Download the [Azure_RTOS_6.1_STM32F746G-DISCO_IAR_Samples_2021_11_03.zip]
+(https://github.com/azure-rtos/samples/releases/download/v6.1_rel/Azure_RTOS_6.1_STM32F746G-DISCO_IAR_Samples_2021_11_03.zip) file and extract it to a working directory. Choose a directory with a short path to avoid compiler errors when you build.
 ## Prepare the development environment
 
 To set up your development environment, first you clone a GitHub repo that contains all the assets you need for the quickstart. Then you install a set of programming tools.
 
-### Clone the repo for the quickstart
-
-Clone the following repo to download all sample device code, setup scripts, and offline versions of the documentation. If you previously cloned this repo in another quickstart, you don't need to do it again.
-
-To clone the repo, run the following command:
-
-```shell
-git clone --recursive https://github.com/azure-rtos/getting-started.git
-```
 [!INCLUDE [iot-develop-embedded-create-central-app-with-device](../../includes/iot-develop-embedded-create-central-app-with-device.md)]
-
-## Download IAR Embedded Workbench for Arm
-
-A 14-day free trial of IAR’s EWARM can be downloaded from this page:
-https://www.iar.com/iar-embedded-workbench/#!?architecture=Arm
-
-You’ll need to create an IAR account in order to download the free trial.
-
-The sample distribution zip file contains the **azure_rtos.eww** workspace as well as following sub-folders:
-
-|Constant name|Value|
-|-------------|-----|
-|`iar` | *Contains the following sub-folders as well as the azure_rtos.eww workspace*|
-|`azure-iot` | *Azure loT Middleware for Azure RTOS source code*|
-|`common_hardware_code` | *Common code for STM32FL4S5I-DISCO board*|
-|`docs` | *User guides*|
-|`netxduo` | *NetX Duo*|
-|`sample_azure_iot_embedded_sdk` | *source code*|
-|`sample_azure_iot_embedded_sdk_pnp` | *Sample project to connect to Azure loT Hub using Azure loT Middleware for Azure RTOS*|
-|`sample_pnp_temperature_controller` | *Sample project to connect to Azure loT Hub using Azure loT Middleware for Azure RTOS via loT Plug and Play*|
-|`stm32l4xx_lib` | *Sample project with loT Plug and Play using multiple components STM32L4+ drivers*|
-|`threadx` | *ThreadX source code*|
-
 
 ## Prepare the device
 
@@ -322,9 +292,12 @@ In IAR, select **Project > Batch Build** and choose **build_all** and select **M
     > For detailed setup information about the STM DevKit, see the instructions on the packaging, or see [B-L4S5I-IOT01A Resources](https://www.st.com/en/evaluation-tools/b-l4s5i-iot01a.html#resource)
 
 1. In IAR, press the green **Download and Debug** button in the toolbar to download the program and run it. Then press *Go*.
-1. As the project runs, the demo displays the status information to the Terminal IO window (**View > Terminal I/O**). The demo also publishes the message to IoT Hub every few seconds. Check the Terminal I/O to verify that messages have been successfully sent to the Azure IoT hub.
+1. Check the Terminal I/O to verify that messages have been successfully sent to the Azure IoT hub.
 
-[!NOTE] The terminal output content varies depending on which sample you choose to build and run.
+    As the project runs, the demo displays the status information to the Terminal IO window (**View > Terminal I/O**). The demo also publishes the message to IoT Hub every few seconds. 
+    
+    > [!NOTE]
+    > The terminal output content varies depending on which sample you choose to build and run.
 
 ### Confirm device connection details
 
