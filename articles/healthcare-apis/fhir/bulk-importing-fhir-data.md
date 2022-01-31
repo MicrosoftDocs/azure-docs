@@ -5,7 +5,7 @@ services: healthcare-apis
 author: SteveWohl
 ms.service: healthcare-apis
 ms.topic: tutorial
-ms.date: 01/06/2022
+ms.date: 01/28/2022
 ms.author: zxue
 ---
 
@@ -70,4 +70,4 @@ In this article, you've learned about the tools and the steps for bulk-importing
 >[Configure export settings and set up a storage account](configure-export-data.md)
 
 >[!div class="nextstepaction"]
->[Moving data from Azure API for FHIR to Azure Synapse Analytics](move-to-synapse.md)
+>[Copy data from Azure API for FHIR to Azure Synapse Analytics](copy-to-synapse.md)
