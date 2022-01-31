@@ -6,7 +6,7 @@ ms.assetid: ef2797d7-d440-4a9a-a648-db32ad137494
 ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
-ms.date: 10/21/2021
+ms.date: 1/31/2022
 ms.subservice: hybrid
 ms.author: rodejo
 ms.custom: has-adal-ref
@@ -34,8 +34,27 @@ Topic |  Details
 Steps to upgrade from Azure AD Connect | Different methods to [upgrade from a previous version to the latest](how-to-upgrade-previous-version.md) Azure AD Connect release.
 Required permissions | For permissions required to apply an update, see [Azure AD Connect: Accounts and permissions](reference-connect-accounts-permissions.md#upgrade).
 
+## Retiring Azure AD Connect 1.x versions
 > [!IMPORTANT]
 > *On August 31, 2022, all 1.x versions of Azure AD Connect will be retired because they include SQL Server 2012 components that will no longer be supported.* Upgrade to the most recent version of Azure AD Connect (2.x version) by that date or [evaluate and switch to Azure AD cloud sync](../cloud-sync/what-is-cloud-sync.md).
+
+## Retiring Azure AD Connect 2.x versions
+> We will begin retiring past versions of Azure AD Connect Sync 2.x 12 months from the date they are superseded by a newer version. 
+> 
+> On 15 March 2023, this policy will go into effect, and, as a result, all versions prior to the last released version will retire. 
+> 
+> This policy does not change the retirement of all 1.x versions of Azure AD Connect Sync on 31 August 2022, which is due to the retirement of the SQL Server 2012 and Azure AD Authentication Library (ADAL) components.
+> 
+> If you are not already using the latest release version of Azure AD Connect Sync, you should upgrade your Azure AD Connect Sync software before that date. The following versions will retire on 15 March 2023:
+>
+> - 2.0.89.0
+> - 2.0.88.0
+> - 2.0.28.0
+> - 2.0.25.1
+> - 2.0.10.0
+> - 2.0.9.0
+> - 2.0.8.0
+> - 2.0.3.0
 
 Make sure you're running a recent version of Azure AD Connect to receive an optimal support experience.
 
