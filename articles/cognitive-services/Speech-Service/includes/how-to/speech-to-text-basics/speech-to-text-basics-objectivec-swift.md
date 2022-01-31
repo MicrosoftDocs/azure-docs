@@ -14,7 +14,7 @@ The following samples assume that you have an Azure account and a Speech service
 
 ## Install Speech SDK and samples
 
-The [Cognitive Services Speech SDK](https://github.com/Azure-Samples/cognitive-services-speech-sdk) contains samples written in in Swift and Objective-C for iOS and Mac. Select a link to see installation instructions for each sample:
+The [Cognitive Services Speech SDK](https://github.com/Azure-Samples/cognitive-services-speech-sdk) contains samples written in Swift and Objective-C for iOS and Mac. Select a link to see installation instructions for each sample:
 
 * [Recognize speech from a microphone in Objective-C on macOS](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/objectivec/macos/from-microphone)
 * [Recognize speech in Swift on macOS](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/swift/macos/from-microphone)

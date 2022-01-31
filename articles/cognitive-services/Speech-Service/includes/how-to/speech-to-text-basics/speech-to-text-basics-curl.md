@@ -19,7 +19,7 @@ This article assumes that you have an Azure account and a Speech service subscri
 At a command prompt, run the following command. Insert the following values into the command:
 - Your subscription key for the Speech service.
 - Your Speech service region.
-- The input audio file path. You can generate audio files by using [text-to-speech](../../../get-started-text-to-speech.md).
+- The path for input audio files. You can generate audio files by using [text-to-speech](../../../get-started-text-to-speech.md).
 
 :::code language="curl" source="~/cognitive-services-quickstart-code/curl/speech/speech-to-text.sh" id="request":::
 
