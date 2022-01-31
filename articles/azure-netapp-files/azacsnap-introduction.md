@@ -34,8 +34,7 @@ Azure Application Consistent Snapshot tool (AzAcSnap) is a command-line tool tha
   - Azure Large Instance (on BareMetal Infrastructure)
 
 > [!TIP]
-> If looking for new features, or support for other databases, operating systems and platforms, check out the [Preview](azacsnap-preview.md) page.  
-> You can also provide [feedback or suggestions](https://aka.ms/azacsnap-feedback).
+> If looking for new features, or support for other databases, operating systems and platforms, check out the [Preview](azacsnap-preview.md) page.  You can also provide [feedback or suggestions](https://aka.ms/azacsnap-feedback).
 
 ## Benefits of using AzAcSnap
 
