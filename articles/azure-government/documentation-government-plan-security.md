@@ -5,7 +5,8 @@ author: stevevi
 ms.author: stevevi
 ms.service: azure-government
 ms.topic: article
-ms.date: 11/17/2021
+recommendations: false
+ms.date: 01/28/2022
 ---
 
 # Azure Government security
@@ -68,7 +69,7 @@ Isolation in Azure Government is achieved through the implementation of trust bo
 
 ### Environment isolation
 
-The Azure Government multi-tenant cloud platform environment is an Internet standards-based Autonomous System (AS) that is physically isolated and separately administered from the rest of Azure public cloud. The AS as defined by [IETF RFC 4271](https://datatracker.ietf.org/doc/rfc4271/) is composed of a set of switches and routers under a single technical administration, using an interior gateway protocol and common metrics to route packets within the AS, and using an exterior gateway protocol to route packets to other ASs though a single and clearly defined routing policy. In addition, Azure Government for DoD regions within Azure Government are geographically separated physical instances of compute, storage, SQL, and supporting services that store and/or process customer content in accordance with DoD Impact Level 5 (IL5) tenant separation requirements, as stated in the DoD Cloud Computing Security Requirements Guide (SRG) [Section 5.2.2.3](https://dl.dod.cyber.mil/wp-content/uploads/cloud/SRG/index.html#5.2LegalConsiderations).  
+The Azure Government multi-tenant cloud platform environment is an Internet standards-based Autonomous System (AS) that is physically isolated and separately administered from the rest of Azure public cloud. The AS as defined by [IETF RFC 4271](https://datatracker.ietf.org/doc/rfc4271/) is composed of a set of switches and routers under a single technical administration, using an interior gateway protocol and common metrics to route packets within the AS, and using an exterior gateway protocol to route packets to other ASs though a single and clearly defined routing policy. In addition, Azure Government for DoD regions within Azure Government are geographically separated physical instances of compute, storage, SQL, and supporting services that store and/or process customer content in accordance with DoD Impact Level 5 (IL5) tenant separation requirements, as stated in Section 5.2.2.3 (Page 51) of the DoD [Cloud Computing Security Requirements Guide (SRG)](https://public.cyber.mil/dccs/dccs-documents/).
 
 The isolation of the Azure Government environment is achieved through a series of physical and logical controls, and associated capabilities that include:
 
@@ -95,7 +96,7 @@ You can manage your isolation posture to meet individual requirements through ne
 
 All Azure and Azure Government employees in the United States are subject to Microsoft background checks, as outlined in the table below. Personnel with the ability to access customer data for troubleshooting purposes in Azure Government are additionally subject to the verification of U.S. citizenship and extra screening requirements where appropriate.
 
-We are now screening all our operators at a Tier 3 Investigation (formerly National Agency Check with Law and Credit, NACLC) as defined in the DoD SRG [Section 5.6.2.2](https://dl.dod.cyber.mil/wp-content/uploads/cloud/SRG/index.html#5.6PhysicalFacilitiesandPersonnelRequirements):
+We are now screening all our operators at a Tier 3 Investigation (formerly National Agency Check with Law and Credit, NACLC) as defined in Section 5.6.2.2 (Page 77) of the DoD [Cloud Computing SRG](https://public.cyber.mil/dccs/dccs-documents/):
 
 > [!NOTE]
 > The minimum background investigation required for CSP personnel having access to Level 4 and 5 information based on a “noncritical-sensitive” (e.g., DoD’s ADP-2) is a Tier 3 Investigation (for “noncritical-sensitive” contractors), or a Moderate Risk Background Investigation (MBI) for a “moderate risk” position designation.
@@ -209,7 +210,7 @@ Azure Monitor collects data from each of the following tiers:
 
 With Azure Monitor, you can get a 360-degree view of your applications, infrastructure, and network with advanced analytics, dashboards, and visualization maps. Azure Monitor provides intelligent insights and enables better decisions with AI. You can analyze, correlate, and monitor data from various sources using a powerful query language and built-in machine learning constructs. Moreover, Azure Monitor provides out-of-the-box integration with popular DevOps, IT Service Management (ITSM), and Security Information and Event Management (SIEM) tools.
   
-**[Azure Policy](../governance/policy/overview.md)** enables effective governance of Azure resources by creating, assigning, and managing policies. These policies enforce various rules over provisioned Azure resources to keep them compliant with your specific corporate security and privacy standards. For example, one of the built-in policies for Allowed Locations can be used to restrict available locations for new resources to enforce your geo-compliance requirements. Azure Policy provides a comprehensive compliance view of all provisioned resources and enables cloud policy management and security at scale.
+**[Azure Policy](../governance/policy/overview.md)** enables effective governance of Azure resources by creating, assigning, and managing policies. These policies enforce various rules over provisioned Azure resources to keep them compliant with your specific corporate security and privacy standards. For example, one of the built-in policies for Allowed Locations can be used to restrict available locations for new resources to enforce your geo-compliance requirements. For additional customer assistance, Microsoft provides **Azure Policy regulatory compliance built-in initiatives**, which map to **compliance domains** and **controls** in many US government, global, regional, and industry standards. For more information, see [Azure Policy samples](../governance/policy/samples/index.md#regulatory-compliance). Regulatory compliance in Azure Policy provides built-in initiative definitions to view a list of the controls and compliance domains based on responsibility - customer, Microsoft, or shared. For Microsoft-responsible controls, we provide additional audit result details based on third-party attestations and our control implementation details to achieve that compliance. Each control is associated with one or more Azure Policy definitions. These policies may help you [assess compliance](../governance/policy/how-to/get-compliance-data.md) with the control; however, compliance in Azure Policy is only a partial view of your overall compliance status. Azure Policy helps to enforce organizational standards and assess compliance at scale. Through its compliance dashboard, it provides an aggregated view to evaluate the overall state of the environment, with the ability to drill down to more granular status.
 
 **[Azure Firewall](../firewall/overview.md)** provides a managed, cloud-based network security service that protects your Azure Virtual Network resources. It is a fully stateful firewall as a service with built-in high availability that integrates with Azure Monitor for logging and analytics.
 
@@ -226,8 +227,14 @@ With Azure Monitor, you can get a 360-degree view of your applications, infrastr
 
 **[Azure Advisor](../advisor/advisor-overview.md)** helps you follow best practices to optimize your Azure deployments. It analyzes resource configurations and usage telemetry and then recommends solutions that can help you improve the cost effectiveness, performance, high availability, and security of Azure resources.
 
-**[Azure Blueprints](../governance/blueprints/overview.md)** is a service that helps you deploy and update cloud environments in a repeatable manner using composable artifacts such as Azure Resource Manager templates to provision resources, role-based access controls, and policies that adhere to your organization’s standards, patterns, and requirements. You can use pre-defined standard blueprints and customize these solutions to meet specific requirements, including data encryption, host and service configuration, network and connectivity configuration, identity, and other security aspects of deployed resources. The overarching goal of Azure Blueprints is to help automate compliance and cybersecurity risk management in cloud environments. For more information on Azure Blueprints, including production-ready blueprint solutions for ISO 27001, NIST SP 800-171, PCI DSS, HIPAA/HITRUST, IRS 1075, CMMC Level 3, and other standards, see the [Azure Blueprints samples](../governance/blueprints/samples/index.md). 
-
 ## Next steps
 
-For supplemental information and updates, subscribe to the [Microsoft Azure Government Blog](https://devblogs.microsoft.com/azuregov/).
+- [Azure Government overview](./documentation-government-welcome.md)
+- [Azure Government compliance](./documentation-government-plan-compliance.md)
+- [Azure and other Microsoft services compliance offerings](/azure/compliance/offerings/)
+- [Compare Azure Government and global Azure](./compare-azure-government-global-azure.md)
+- [Azure guidance for secure isolation](./azure-secure-isolation-guidance.md)
+- [Azure Government isolation guidelines for Impact Level 5 workloads](./documentation-government-impact-level-5.md)
+- [Azure Government DoD overview](./documentation-government-overview-dod.md)
+- [Azure security fundamentals documentation](../security/fundamentals/index.yml)
+- [Azure Policy regulatory compliance built-in initiatives](../governance/policy/samples/index.md#regulatory-compliance)

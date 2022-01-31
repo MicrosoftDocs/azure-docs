@@ -436,5 +436,5 @@ Learn more about Azure Government:
 - [DoD Impact Level 4](/azure/compliance/offerings/offering-dod-il4)
 - [DoD Impact Level 5](/azure/compliance/offerings/offering-dod-il5)
 - [DoD Impact Level 6](/azure/compliance/offerings/offering-dod-il6)
-- [Isolation guidelines for Impact Level 5 workloads](../documentation-government-impact-level-5.md)
+- [Azure Government isolation guidelines for Impact Level 5 workloads](../documentation-government-impact-level-5.md)
 - [Azure guidance for secure isolation](../azure-secure-isolation-guidance.md)
