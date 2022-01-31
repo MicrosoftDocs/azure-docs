@@ -84,7 +84,7 @@ model->Entities.push_back({ "floorName" , Intent::EntityType::List, Intent::Enti
 Now it is necessary to apply the model to the `IntentRecognizer`. It is possible to use multiple models at once so the API takes a collection of models.
 
 ```cpp
-std::vector<std::shared_ptr<LanguageUnderstandingModel>> collecton;
+std::vector<std::shared_ptr<LanguageUnderstandingModel>> collection;
 
 collection.push_back(model);
 intentRecognizer->ApplyLanguageModels(collection);
@@ -181,14 +181,14 @@ int main()
     auto intentRecognizer = IntentRecognizer::FromConfig(config);
 
     auto model = PatternMatchingModel::FromId("myNewModel");
-    
+
     model->Intents.push_back({"Take me to floor {floorName}.", "Go to floor {floorName}."} , "ChangeFloors");
     model->Intents.push_back({"{action} the door."}, "OpenCloseDoor");
-    
+
     model->Entities.push_back({ "floorName" , Intent::EntityType::List, Intent::EntityMatchMode::Strict, {"one", "1", "two", "2", "lobby", "ground floor"} });
 
-    std::vector<std::shared_ptr<LanguageUnderstandingModel>> collecton;
-    
+    std::vector<std::shared_ptr<LanguageUnderstandingModel>> collection;
+
     collection.push_back(model);
     intentRecognizer->ApplyLanguageModels(collection);
 

@@ -38,11 +38,11 @@ See below for information about changes to Speech services and resources.
 
 [!INCLUDE [speech-cli](./includes/release-notes/release-notes-cli.md)]
 
-# [Text-to-speech Service](#tab/text-to-speech)
+# [Text-to-speech service](#tab/text-to-speech)
 
 [!INCLUDE [text-to-speech](./includes/release-notes/release-notes-tts.md)]
 
-# [Speech-to-text Service](#tab/speech-to-text)
+# [Speech-to-text service](#tab/speech-to-text)
 
 [!INCLUDE [speech-to-text](./includes/release-notes/release-notes-stt.md)]
 
