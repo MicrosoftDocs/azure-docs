@@ -48,6 +48,8 @@ With Azure Container Apps, you can:
 
 - [**Use the Azure CLI extension or ARM templates**](get-started.md) to manage your applications.
 
+- [**Provide an existing virtual network**](vnet-custom.md) when creating an environment for your container apps.
+
 - [**Securely manage secrets**](secure-app.md) directly in your application.
 
 - [**View application logs**](monitor.md) using Azure Log Analytics.

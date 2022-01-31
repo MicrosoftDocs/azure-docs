@@ -6,7 +6,7 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
-ms.date: 10/15/2021
+ms.date: 01/14/2022
 ---
 
 # Security in Azure Database for PostgreSQL – Hyperscale (Citus)
@@ -42,8 +42,7 @@ page.
 
 ## Next steps
 
-* Learn how to [enable and manage private
-  access](howto-private-access.md) (preview)
+* Learn how to [enable and manage private access](howto-private-access.md)
 * Learn about [private
   endpoints](../../private-link/private-endpoint-overview.md)
 * Learn about [virtual
