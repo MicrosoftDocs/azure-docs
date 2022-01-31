@@ -343,11 +343,13 @@ In this function, the value of the `name` query parameter is obtained from the `
 
 Likewise, you can set the `status_code` and `headers` for the response message in the returned [HttpResponse] object.
 
-### Using WSGI and ASGI-compatible frameworks
-You can also leverage the WSGI and ASGI framework such as Flask and FastAPI.
+## Web frameworks
 
-Function.json should be updated to include `route`.
-```python
+You can leverage WSGI and ASGI-compatible frameworks such as Flask and FastAPI with your HTTP-triggered Python functions. This section shows how to modify your functions to support these frameworks.
+
+First, the function.json file must be updated to include a `route` in the HTTP trigger, as shown in the following example:
+
+```json
 {
   "scriptFile": "__init__.py",
   "bindings": [
