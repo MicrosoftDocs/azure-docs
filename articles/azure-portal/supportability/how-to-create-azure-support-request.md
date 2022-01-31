@@ -25,12 +25,12 @@ You can get to **Help + support** in the Azure portal. It's available from the A
 
 ### Azure role-based access control
 
-To create a support request, you must have the [Owner](../../role-based-access-control/built-in-roles.md#owner), [Contributor](../../role-based-access-control/built-in-roles.md#contributor) or [Support Request Contributor](../../role-based-access-control/built-in-roles.md#support-request-contributor) role, or a custom role with the [Microsoft.Support/supportTickets/read permission](/azure/role-based-access-control/resource-provider-operations), at the subscription level.
+To create a support request, you must have the [Owner](../../role-based-access-control/built-in-roles.md#owner), [Contributor](../../role-based-access-control/built-in-roles.md#contributor) or [Support Request Contributor](../../role-based-access-control/built-in-roles.md#support-request-contributor) role, or a custom role with the [Microsoft.Support/*](/azure/role-based-access-control/resource-provider-operations) permission, at the subscription level.
 
 To create a support request without a subscription, for example an Azure Active Directory scenario, you must be an [Admin](../../active-directory/roles/permissions-reference.md).
 
 > [!IMPORTANT]
-> If a support request requires investigation into multiple subscriptions, you must have the required access for each subscription involved (Owner, Contributor, Support Request Contributor, or a custom role with the Microsoft.Support/supportTickets/read permission).
+> If a support request requires investigation into multiple subscriptions, you must have the required access for each subscription involved ([Owner](../../role-based-access-control/built-in-roles.md#owner), [Contributor](../../role-based-access-control/built-in-roles.md#contributor), [Reader](../../role-based-access-control/built-in-roles.md#reader), [Support Request Contributor](../../role-based-access-control/built-in-roles.md#support-request-contributor) role, or a custom role with the [Microsoft.Support/*](/azure/role-based-access-control/resource-provider-operations) permission).
 
 ### Go to Help + support from the global header
 
