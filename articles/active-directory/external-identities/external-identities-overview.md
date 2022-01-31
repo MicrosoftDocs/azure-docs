@@ -77,7 +77,7 @@ The following table gives a detailed comparison of the scenarios you can enable 
 
 Azure AD B2B collaboration is a feature of Azure AD, and it's managed in the Azure portal through the Azure Active Directory service. To control inbound and outbound collaboration with other Azure AD organizations, you can use *cross-tenant access settings*. To control inbound collaboration with other non-Azure AD organizations, you can use *external collaboration settings*.
 
-### Cross-tenant access settings
+### Cross-tenant access settings (Preview)
 
 Cross-tenant access settings let you manage B2B collaboration with other Azure AD organizations. You can determine how other Azure AD organizations collaborate with you (inbound access), and how your users collaborate with other Azure AD organizations (outbound access). Granular controls let you determine the people, groups, and apps, both in your organization and in external Azure AD organizations, that can participate in B2B collaboration. You can also trust multi-factor authentication (MFA) and device claims (compliant claims and hybrid Azure AD joined claims) from other Azure AD organizations.
 
@@ -128,7 +128,7 @@ As an inviting organization, you might not know ahead of time who the individual
 
 Microsoft Graph APIs are available for creating and managing External Identities features.
 
-- **Cross-tenant access settings API**: The Microsoft Graph cross-tenant access policy API lets you programmatically create the same B2B collaboration policies that are configurable in the Azure portal. Using the API, you can set up policies for inbound and outbound collaboration to allow or block features for everyone by default and limit access to specific organizations, groups, users, and applications. The API also allows you to accept MFA and device claims (compliant claims and hybrid Azure AD joined claims) from other Azure AD organizations.
+- **Cross-tenant access settings API**: The Microsoft Graph cross-tenant access API lets you programmatically create the same B2B collaboration policies that are configurable in the Azure portal. Using the API, you can set up policies for inbound and outbound collaboration to allow or block features for everyone by default and limit access to specific organizations, groups, users, and applications. The API also allows you to accept MFA and device claims (compliant claims and hybrid Azure AD joined claims) from other Azure AD organizations.
 
 - **B2B collaboration invitation manager**: The [Microsoft Graph invitation manager API](/graph/api/resources/invitation) is available for building your own onboarding experiences for B2B guest users. You can use the [create invitation API](/graph/api/invitation-post?tabs=http) to automatically send a customized invitation email directly to the B2B user, for example. Or your app can use the inviteRedeemUrl returned in the creation response to craft your own invitation (through your communication mechanism of choice) to the invited user.
 

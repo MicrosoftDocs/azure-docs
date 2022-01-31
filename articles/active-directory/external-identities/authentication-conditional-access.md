@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 
 # Authentication and Conditional Access for External Identities
 
-When an external user accesses resources in your organization, the authentication flow is determined by the user's identity provider (an external Azure AD tenant, social identity provider, etc.), Conditional Access policies, and the cross-tenant access settings configured both in the user's home tenant and the tenant hosting resources.
+When an external user accesses resources in your organization, the authentication flow is determined by the user's identity provider (an external Azure AD tenant, social identity provider, etc.), Conditional Access policies, and the [cross-tenant access settings](cross-tenant-access-overview.md) configured both in the user's home tenant and the tenant hosting resources.
 
 This article describes the authentication flow for external users who are accessing resources in your organization. Organizations can enforce multiple Conditional Access policies for their external users, which can be enforced at the tenant, app, or individual user level in the same way that they're enabled for full-time employees and members of the organization.
 

@@ -14,7 +14,10 @@ ms.custom: "it-pro"
 ms.collection: M365-identity-device-management
 ---
 
-# Overview: Cross-tenant access with Azure AD External Identities
+# Overview: Cross-tenant access with Azure AD External Identities (Preview)
+
+> [!NOTE]
+> Cross-tenant access settings are preview features of Azure Active Directory. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Azure AD organizations can use External Identities cross-tenant access settings to manage how they collaborate with other Azure AD organizations through B2B collaboration. [Cross-tenant access settings](cross-tenant-access-settings-b2b-collaboration.md) give you granular control over how external Azure AD organizations collaborate with you (inbound access) and how your users collaborate with external Azure AD organizations (outbound access). These settings also let you trust multi-factor authentication (MFA) and device claims ([compliant and Hybrid Azure AD join claims](../conditional-access/howto-conditional-access-policy-compliant-device.md)) from other Azure AD organizations.
 

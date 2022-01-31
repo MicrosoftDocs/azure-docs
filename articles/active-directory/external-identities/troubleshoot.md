@@ -25,7 +25,7 @@ Here are some remedies for common problems with Azure Active Directory (Azure AD
 
 ## An error similar to "Failure to update policy due to object limit" appears while configuring cross-tenant access settings
 
-If you receive an error that says “Failure to update policy due to object limit” you have reached the policy object limit of 25 KB. We're working toward increasing this limit. If you need to be able to calculate how close the current policy is to this limit, do the following:
+While configuring [cross-tenant access settings](cross-tenant-access-settings-b2b-collaboration.md), if you receive an error that says “Failure to update policy due to object limit” you have reached the policy object limit of 25 KB. We're working toward increasing this limit. If you need to be able to calculate how close the current policy is to this limit, do the following:
 
 1. Open Microsoft Graph Explorer and run the following:  
 

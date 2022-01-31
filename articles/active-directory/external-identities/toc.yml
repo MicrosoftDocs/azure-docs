@@ -75,11 +75,11 @@
   items:
   - name: Configure B2B collaboration
     items:
-    - name: B2B collaboration cross-tenant access
+    - name: Cross-tenant access settings (Preview)
       displayName: XTAS, XTAP, inbound, outbound, organizational settings, trust settings
       href: cross-tenant-access-settings-b2b-collaboration.md
-    - name: B2B collaboration settings
-      displayName: External collaboration settings, guest access, guest invite restrictions, self-service, domains
+    - name: External collaboration settings
+      displayName: guest access, guest invite restrictions, self-service, domains
       href: external-collaboration-settings-configure.md
     - name: Allow or block domains
       href: allow-deny-list.md

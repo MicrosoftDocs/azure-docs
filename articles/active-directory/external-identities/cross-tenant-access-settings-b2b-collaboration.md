@@ -14,7 +14,7 @@ ms.custom: "it-pro"
 ms.collection: M365-identity-device-management
 ---
 
-# Configure cross-tenant access settings for B2B collaboration
+# Configure cross-tenant access settings for B2B collaboration (Preview)
 
 > [!NOTE]
 > Cross-tenant access settings are preview features of Azure Active Directory. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
