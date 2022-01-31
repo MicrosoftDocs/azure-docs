@@ -17,10 +17,10 @@ Azure Communication Services APIs are organized into eight areas. Most areas hav
 
 In the tables below we summarize these areas and availability of REST APIs and SDK libraries. We note if APIs and SDKs are intended for end-user clients or trusted service environments. APIs such as SMS should not be directly accessed by end-user devices in low trust environments.
 
-Development of Calling and Chat applications can be accelerated by the  [Azure Communication Services UI library](https://azure.github.io/communication-ui-library). The customizable UI library provides open-source UI components for Web and mobile apps, and a Microsoft Teams theme.
+Development of Calling and Chat applications can be accelerated by the  [Azure Communication Services UI library](./ui-library/ui-library-overview.md). The customizable UI library provides open-source UI components for Web and mobile apps, and a Microsoft Teams theme.
 
 ## REST APIs
-Communication Services APIs are documented alongside other Azure REST APIs in [docs.microsoft.com](/rest/api/azure/). This documentation will tell you how to structure your HTTP messages and offers guidance for using [Postman](../tutorials/postman-tutorial). REST interface documentation is also published in Swagger format on [GitHub](https://github.com/Azure/azure-rest-api-specs).
+Communication Services APIs are documented alongside other [Azure REST APIs in docs.microsoft.com](/rest/api/azure/). This documentation will tell you how to structure your HTTP messages and offers guidance for using [Postman](../tutorials/postman-tutorial.md). REST interface documentation is also published in Swagger format on [GitHub](https://github.com/Azure/azure-rest-api-specs).
 
 ## SDKs
 | Assembly | Protocols| Environment | Capabilities|
