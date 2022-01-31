@@ -14,7 +14,7 @@ metadata:
     
 title: Speech-to-text FAQ
 summary: |
-  If you can't find answers to your questions in this FAQ article, check out [other support options](../cognitive-services-support-options.md?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext%253fcontext%253d%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext).
+  This article answers commonly asked questions about the speech-to-text service. If you can't find answers to your questions here, check out [other support options](../cognitive-services-support-options.md?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext%253fcontext%253d%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext).
   
 
 sections:
@@ -93,7 +93,7 @@ sections:
       - question: |
           Are my requests logged?
         answer: |
-          By default, requests aren't logged (neither audio nor transcription). If necessary, you may select the **Log content from this endpoint** option when you [create a custom endpoint](how-to-custom-speech-train-model.md#deploy-a-custom-model). You can also enable audio logging in the [Speech SDK](how-to-use-logging.md) on a per-request basis, without having to create a custom endpoint. In both cases, audio and recognition results of requests will be stored in secure storage. Subscriptions that use Microsoft-owned storage will be available for 30 days.
+          By default, requests aren't logged (neither audio nor transcription). If necessary, you can select the **Log content from this endpoint** option when you [create a custom endpoint](how-to-custom-speech-train-model.md#deploy-a-custom-model). You can also enable audio logging in the [Speech SDK](how-to-use-logging.md) on a per-request basis, without having to create a custom endpoint. In both cases, audio and recognition results of requests will be stored in secure storage. Subscriptions that use Microsoft-owned storage will be available for 30 days.
           
           You can export the logged files on the deployment page in Speech Studio if you use a custom endpoint with **Log content from this endpoint** enabled. If audio logging is enabled via the SDK, call the [API](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetBaseModelLogs) to access the files.
           
@@ -127,7 +127,7 @@ sections:
           No. Currently, only uncompressed text files are allowed.
 
       - question: |
-          The data report says there were *failed utterances*. What is the issue?
+          The data report says there were failed utterances. What is the issue?
         answer: |
           A failure to upload 100 percent of the utterances in a file isn't a problem. If the vast majority of the utterances in an acoustic or language dataset (for example, more than 95 percent) are successfully imported, the dataset can be usable. However, we still recommend that you try to understand why the utterances failed and then fix the problem. Most common problems, such as formatting errors, are easy to fix.
 
@@ -151,7 +151,7 @@ sections:
       - question: |
           Do I need to transcribe adaptation data myself?
         answer: |
-          Yes. You can transcribe it yourself or use a professional transcription service. Some users prefer professional transcribers, and others use crowdsourcing or do the transcriptions themselves.
+          Yes. You can transcribe it yourself or use a professional transcription service. Some users prefer professional transcribers, and others use crowdsourcing or transcribe the data themselves.
 
       - question: |
           How long does it take to train a custom model with audio data?
@@ -177,7 +177,7 @@ sections:
           The results show a comparison between the baseline model and the model you customized. To make customization worthwhile, you should aim to beat the baseline model.
 
       - question: |
-          How do I determine the WER of a base model so I can see if there was an improvement?
+          How do I determine the WER of a base model so I can see whether it improved?
         answer: |
           The offline test results show the baseline accuracy of the custom model and the improvement over baseline.
 
@@ -191,7 +191,7 @@ sections:
       - question: |
           Can I simply upload a list of words?
         answer: |
-          Uploading a list of words adds them to the vocabulary, but it won't teach the system how they're are ordinarily used. By providing full or partial utterances (sentences or phrases of things that users are likely to say), the language model can learn the new words and how they're used. The custom language model is good not only for adding new words to the system, but also for adjusting the likelihood of known words for your application. Providing full utterances helps the system learn better.
+          Uploading a list of words adds them to the vocabulary, but it doesn't teach the system how the words are ordinarily used. By providing full or partial utterances (sentences or phrases of things that users are likely to say), the language model can learn the new words and how they're used. The custom language model is good not only for adding new words to the system, but also for adjusting the likelihood of known words for your application. Providing full utterances helps the system learn better.
 
   - name: Tenant Model service (Custom Speech with Microsoft 365 data)
     questions:
