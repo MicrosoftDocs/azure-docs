@@ -33,7 +33,6 @@ We also define several variables with the keyword *var*, including the authority
 
 It's important to note that one Bicep function and environment(s) are required to specify the log in URL, `https://login.microsoftonline.com`. For more information on Bicep functions, see [Deployment functions for Bicep](../azure-resource-manager/bicep/bicep-functions-deployment.md#environment).
 
-
 ```
 param workspaceName string
 param fhirName string
@@ -260,6 +259,8 @@ tenantid=$(az account show --subscription $subscriptionid --query tenantId --out
 
 az deployment group create --resource-group $resourcegroupname --template-file $bicepfilename --parameters workspaceName=$workspacename fhirName=$fhirname dicomName=$dicomname iotName=$iotname tenantId=$tenantid
 ```
+
+Note that when a child resource such as the FHIR service or the DICOM service is created outside of the parent resource such as workspace, the child resource name must include the parent resource in the form of "parent resource name/child resource name" and the "dependsOn" property must be specified in the template. However, when the child resource is created within the parent resource, the child resource name does not need to include the parent resource name and the "dependsOn" property is not required. For more info, see [Set name and type for child resources in Bicep](../azure-resource-manager/bicep/child-resource-name-type.md).
 
 ## Debugging Bicep templates
 
