@@ -100,7 +100,7 @@ The following diagram is the simplest of the scenarios to implement.
 
 :::image type="content" source="./media/documentation-government-plan-identity-cloud-identities-for-subscription-administration.png" alt-text="Multi-cloud subscription administration option using cloud identities for Office 365 and Azure Government." border="false":::
 
-While using cloud identities is the simplest approach, it is also the least secure because passwords are used as an authentication factor. We recommend [Azure AD Multifactor authentication](../active-directory/authentication/concept-mfa-howitworks.md), Microsoft's two-step verification solution, to add a critical second layer of security to secure access to Azure subscriptions when using cloud identities.
+While using cloud identities is the simplest approach, it is also the least secure because passwords are used as an authentication factor. We recommend [Azure AD Multi-Factor Authentication](../active-directory/authentication/concept-mfa-howitworks.md), Microsoft's two-step verification solution, to add a critical second layer of security to secure access to Azure subscriptions when using cloud identities.
 
 ### Using hybrid and cloud identities for multi-cloud subscription administration
 
