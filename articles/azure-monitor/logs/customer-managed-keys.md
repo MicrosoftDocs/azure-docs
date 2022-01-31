@@ -11,7 +11,7 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli
 
 # Azure Monitor customer-managed key 
 
-Data in Azure Monitor is encrypted with Microsoft-managed keys. You can use your own encryption key to protect the data and saved queries in your workspaces. Customer-managed keys give you greater flexibility to manage access controls. When you configure customer-managed key in [dedicated clusters](./logs-dedicated-clusters.md), any new data sent to linked workspaces is encrypted with your key stored in [Azure Key Vault](../../key-vault/general/overview.md) or [Azure Key Vault Managed HSM](../../key-vault/general/managed-hsm/overview.md). 
+Data in Azure Monitor is encrypted with Microsoft-managed keys. You can use your own encryption key to protect the data and saved queries in your workspaces. Customer-managed keys give you greater flexibility to manage access controls. When you configure customer-managed key in [dedicated clusters](./logs-dedicated-clusters.md), any new data sent to linked workspaces is encrypted with your key stored in [Azure Key Vault](../../key-vault/general/overview.md) or [Azure Key Vault Managed HSM](../../key-vault/managed-hsm/overview.md). 
 
 We recommend you review [Limitations and constraints](#limitationsandconstraints) below before configuration.
 
