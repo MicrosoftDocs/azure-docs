@@ -46,7 +46,6 @@ Azure supports multiple types of storage accounts for different storage scenario
 | Management list operations | 100 per 5 minutes | 100 per 5 minutes |
 
 <sup>1</sup> General-purpose version 2 storage accounts support higher capacity limits and higher limits for ingress by request. To request an increase in account limits, contact [Azure Support](https://azure.microsoft.com/support/faq/).
-<br>For scale targets per region, see [Standard Scale Target](../common/scalability-targets-standard-account.md)
 
 ### Azure file share scale targets
 | Attribute | Standard file shares<sup>1</sup> | Premium file shares |
