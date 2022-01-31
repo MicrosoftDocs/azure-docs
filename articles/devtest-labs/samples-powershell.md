@@ -27,7 +27,7 @@ This article includes the following samples:
 
 All of these scripts have the following prerequisite:
 
-- **A lab**. The script requires you to have an existing lab.
+- An existing lab. If you don't have one, follow this quickstart on how to [Create a lab in Azure portal](devtest-lab-create-lab.md).
 
 ## Add an external user to a lab
 
