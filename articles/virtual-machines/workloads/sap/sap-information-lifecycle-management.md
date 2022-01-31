@@ -25,7 +25,7 @@ total cost of ownership, risk, and legal compliance. SAP ILM Store (a component 
 storing of these archive files and attachments from SAP system into Microsoft Azure Blob storage, thus
 enabling cloud storage.
 
-![Fig: Azure Blob Storage with ILM Store](media/sap-ilm/ilm_azure.png)
+![Fig: Azure Blob Storage with ILM Store](media/sap-information-lifecycle-management/ilm-azure.png)
 
 ## How to
 
@@ -39,7 +39,8 @@ The steps to be followed to create a storage account are:
 3. Create a new custom role or use an existing (build-In or custom) role.
 4. Assign the role to application to allow access to the storage account.
 
-Note: Steps 2, 3 and 4 can either be done manually or by using the Microsoft Quickstart template.
+> [!NOTE]
+> Steps 2, 3 and 4 can either be done manually or by using the Microsoft Quickstart template.
 
 ### QuickStart template approach:
 
