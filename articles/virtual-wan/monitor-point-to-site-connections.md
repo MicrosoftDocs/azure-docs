@@ -36,7 +36,6 @@ The VPN service is running in the Azure vWAN P2S VPN gateway. It has associated 
 
 The output stored in the storage account is fetched from within the workbook by using a special function called "externaldata".
 
- These are the steps you should follow:
 
 ## Create Azure storage account
 
