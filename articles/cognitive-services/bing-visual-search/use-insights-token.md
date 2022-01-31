@@ -452,9 +452,6 @@ To run this application, follow these steps:
 
 # Download and install Python at https://www.python.org/
 
-> [!WARNING]
-> On October 30, 2020, the Bing Search APIs moved from Cognitive Services to Bing Search Services. This documentation is provided for reference only. For updated documentation, see the [Bing search API documentation](/bing/search-apis). For instructions on creating new Azure resources for Bing search, see [Create a Bing Search resource through the Azure Marketplace](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
-
 # Run the following in a command console window
 
 # pip3 install requests
