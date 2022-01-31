@@ -10,9 +10,9 @@ ms.date: 1/31/2022
 
 ## Overview
 
-This article will show you how to encrypt VMware vSAN Key Encryption Keys (KEK) with Customer-Managed Keys (CMKs) handled by customer-owned Azure Key Vault. 
+This article will show you how to encrypt VMware vSAN Key Encryption Keys (KEK) with customer-managed keys (CMKs) handled by customer-owned Azure Key Vault. 
 
-When CMK encryptions are enabled on your Azure VMware Solution private cloud, Azure VMware Solution uses the CMK from your key vault to encrypt the vSAN KEKs. Each ESXi host that participates in the vSAN cluster uses randomly generated Disk Encryption Keys (DEKs) that ESXi uses to encrypt disk data at rest. vSAN encrypts all DEKs with a KEK provided by Azure VMware Solution key management system (KMS). Azure VMware Solution private cloud and Key vault don't need to be in the same subscription.
+When CMK encryptions are enabled on your Azure VMware Solution private cloud, Azure VMware Solution uses the CMK from your Key Vault to encrypt the vSAN KEKs. Each ESXi host that participates in the vSAN cluster uses randomly generated Disk Encryption Keys (DEKs) that ESXi uses to encrypt disk data at rest. vSAN encrypts all DEKs with a KEK provided by Azure VMware Solution key management system (KMS). Azure VMware Solution private cloud and Key Vault don't need to be in the same subscription.
 
 When managing your own encryption keys, you can do the following actions:
 
@@ -20,7 +20,7 @@ When managing your own encryption keys, you can do the following actions:
 - Centrally manage and lifecycle CMK.
 - Revoke Azure from accessing the KEK.
 
-Customer-managed keys (CMKs) feature supports, shown below by key type and key size.
+Customer-managed keys (CMKs) feature supports, see the following shown by key type and key size.
 
 - RSA: 2048, 3072, 4096
 - RSA-HSM: 2048, 3072, 4096
@@ -34,10 +34,10 @@ Customer-managed keys (CMKs) feature supports, shown below by key type and key s
 
 ## Prerequisites
 
-Before you begin to enable customer-managed key (CMK) functionality, ensure the requirements listed below are met:
+Before you begin to enable customer-managed key (CMK) functionality, ensure the following listed requirements are met:
 
-1. You'll need an Azure key vault to use CMK functionality. If you don't have an Azure key vault, you can create one using [Quickstart: Create a key vault using the Azure portal](https://docs.microsoft.com/azure/key-vault/general/quick-create-portal).
-1. If you enabled restricted access to key vault, you'll need to allow Microsoft Trusted Services to bypass the Azure Key Vault firewall. Go to [Configure Azure Key Vault networking settings](https://docs.microsoft.com/azure/key-vault/general/how-to-azure-key-vault-network-security?tabs=azure-portal) to learn more.
+1. You'll need an Azure Key Vault to use CMK functionality. If you don't have an Azure Key Vault, you can create one using [Quickstart: Create a Key Vault using the Azure portal](https://docs.microsoft.com/azure/key-vault/general/quick-create-portal).
+1. If you enabled restricted access to Key Vault, you'll need to allow Microsoft Trusted Services to bypass the Azure Key Vault firewall. Go to [Configure Azure Key Vault networking settings](https://docs.microsoft.com/azure/key-vault/general/how-to-azure-key-vault-network-security?tabs=azure-portal) to learn more.
 1. Enable system assigned Identity on your Azure VMware Solution private cloud if you didn't enable it during software-defined data center (SDDC) provisioning.
 
 # [Portal](#tab/azure-portal)
@@ -54,7 +54,7 @@ Before you begin to enable customer-managed key (CMK) functionality, ensure the 
 
 # [Template](#tab/azure-resource-manager)
 
-Below is the JSON file used to create an Azure Resource Manager template (ARM template). Use it to enable MSI on pre-existing SDDC or while deploying a new SDDC.
+Use the given JSON file to create an Azure Resource Manager template (ARM template). Use it to enable Managed Service Identity (MSI) on pre-existing SDDC or while deploying a new SDDC.
 
 ```json
    {
@@ -140,23 +140,23 @@ Below is the JSON file used to create an Azure Resource Manager template (ARM te
 
 ## Enable CMK with system-assigned identity 
 
-System-assigned identity is restricted to one per resource and is tied to the lifecycle of the resource.  You can grant permissions to the managed identity by using Azure Role-Based Access Control (Azure RBAC). The managed identity is authenticated with Azure AD, so you don't have to store any credentials in code.
+System-assigned identity is restricted to one per resource and is tied to the lifecycle of the resource.  You can grant permissions to the managed identity by using Azure Role-Based Access Control (RBAC). The managed identity is authenticated with Azure AD, so you don't have to store any credentials in code.
 
 >[!IMPORTANT]
-> Ensure that Key vault is in the same region as the Azure VMware Solution private cloud.
+> Ensure that Key Vault is in the same region as the Azure VMware Solution private cloud.
 
 # [Portal](#tab/azure-portal)
 
-Navigate to your **Azure Key vault** and provide access to the SDDC on Azure Key vault using the Principal ID captured in the **Enable MSI** tab.
+Navigate to your **Azure Key Vault** and provide access to the SDDC on Azure Key Vault using the Principal ID captured in the **Enable MSI** tab.
 
 1. From your Azure VMware Solution private cloud, under **Manage**, select **Encryption** and then **Customer-managed keys (CMK)**.
 1. CMK provides two options for **Key Selection** from Azure Key Vault.
     
     **Option 1**
 
-    1. Under **Encryption key**, choose the **select from key vault** button.
-    1. Select the encryption type, then the **Select key vault and key** option.
-    1. Select the Key vault and key from the drop-down, click **Select**.
+    1. Under **Encryption key**, choose the **select from Key Vault** button.
+    1. Select the encryption type, then the **Select Key Vault and key** option.
+    1. Select the Key Vault and key from the drop-down, click **Select**.
     
     **Option 2**
 
@@ -164,13 +164,13 @@ Navigate to your **Azure Key vault** and provide access to the SDDC on Azure Key
       1. Enter a specific Key URI in the **Key URI** box.
 
     > [!IMPORTANT]
-    > If you'd like to select a specific key version instead of the auto selected latest version, you'll need to specify key URI with key version. This will affect the CMK key version life cycle,
+    > If you'd like to select a specific key version instead of the auto selected latest version, you'll need to specify key URI with key version. This will affect the CMK key version life cycle.
 
 1. Select **Save** to grant access to the resource. 
 
 # [Template](#tab/azure-resource-manager)
 
-Below is the JSON file used to create an Azure Resource Manager template (ARM template) and enable CMK on SDDC.
+Use the given JSON file to create an Azure Resource Manager template (ARM template) and enable CMK on SDDC.
 
 ```json
 {
@@ -230,7 +230,7 @@ Below is the JSON file used to create an Azure Resource Manager template (ARM te
 		"keyVaultUrl": {
 			"type": "String",
 			"metadata": {
-				"description": "Key vault url to be used for Customer Managed Key"
+				"description": "Key Vault url to be used for Customer Managed Key"
 			}
 		},
 		"keyName": {
@@ -272,23 +272,23 @@ Below is the JSON file used to create an Azure Resource Manager template (ARM te
 }
 ```
 ---
-## Customer-Managed Key version lifecycle
+## Customer-managed key version lifecycle
 
-Change the Customer-Managed Key (CMK) by creating a new version of the key. The creation of a new version won't interrupt the virtual machine (VM) workflow.
+Change the customer-managed key (CMK) by creating a new version of the key. The creation of a new version won't interrupt the virtual machine (VM) workflow.
 
 In Azure VMware Solution, CMK key version rotation will depend on the key selection setting you've chosen during CMK setup.
 
 **Key selection setting 1**
 
-A customer enables CMK encryption without supplying a specific key version for CMK. Azure VMware Solution selects the latest key version for CMK from the customer's key vault to encrypt the vSAN KEKs. Azure VMware Solution tracks the CMK for version rotation. When a new version of the CMK key in Azure Key Vault is created, it is captured by Azure VMware Solution automatically to encrypt vSAN KEKs.
+A customer enables CMK encryption without supplying a specific key version for CMK. Azure VMware Solution selects the latest key version for CMK from the customer's Key Vault to encrypt the vSAN KEKs. Azure VMware Solution tracks the CMK for version rotation. When a new version of the CMK key in Azure Key Vault is created, it's captured by Azure VMware Solution automatically to encrypt vSAN KEKs.
 
 **Key selection setting 2**
 
 A customer can enable CMK encryption for a specified CMK key version to supply the full key version URI under the **Enter Key from URI** option. In this scenario, when the customer's current key expires, the customer will need to re-enable CMK encryption with a new key.
 
-## Change from Customer-Managed Key to Microsoft Managed Key 
+## Change from customer-managed key to Microsoft managed key 
 
-If a customer wants to change from Customer-managed key (CMK) to Microsoft managed key (MMK), it won't interrupt VM workload. To make the change from CMK to MMK, follow the steps below.
+If a customer wants to change from customer-managed key (CMK) to Microsoft managed key (MMK), it won't interrupt VM workload. To make the change from CMK to MMK, use the following steps.
 
 1. From your Azure VMware Solution private cloud, under **Manage**, select **Encryption**.
 
@@ -305,9 +305,9 @@ If a customer wants to change from Customer-managed key (CMK) to Microsoft manag
 
 ## Errors  
 
-Errors 403 and 404 occur when managed service identity doesn't have access to Key vault. These errors occur when a user removes access policies within Key vault, deletes Key vault, DNS outages, networking issues, or Key vault outages.  It results in the delay of update operations on vCenter. The approach is to shut down the hosts to avoid any malicious access to the data within an hour of the error.  Host maintenance and update operations, whether manual or automatic, won't work, but you can still access the private cloud. 
+Errors 403 and 404 occur when Managed Service Identity (MSI) doesn't have access to Key Vault. These errors occur when a user removes access policies within Key Vault, deletes Key Vault, DNS outages, networking issues, or Key Vault outages.  It results in the delay of update operations on vCenter. The approach is to shut down the hosts to avoid any malicious access to the data within an hour of the error.  Host maintenance and update operations, whether manual or automatic, won't work, but you can still access the private cloud. 
 
-When all errors get resolved, access to the data will be restored. No data is lost because of outages. The error will get resolved by Microsoft fixing service outages or by you restoring a KEK or access to the Key vault. To protect data from errors, Azure VMware Solution caches data encryption keys for as long as possible. You can write the data encryption keys to disks protected by a Microsoft key or a data protection API (DP API). But only if it continues to honor the one-hour window and is cleaned up afterward.
+When all errors get resolved, access to the data will be restored. No data is lost because of outages. The error will get resolved by Microsoft fixing service outages or by you restoring a KEK or access to the Key Vault. To protect data from errors, Azure VMware Solution caches data encryption keys for as long as possible. You can write the data encryption keys to disks protected by a Microsoft key or a data protection API (DP API). But only if it continues to honor the one-hour window and is cleaned up afterward.
 
 >[!TIP]
 > You'll be notified if a key or access to the key is revoked. Once revoked, you can then define custom actions to take. If you lose access to your cached data encryption key, make the data inaccessible so you don't lose the data.
