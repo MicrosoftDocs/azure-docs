@@ -12,7 +12,7 @@ ms.date: 01/24/2022
 ms.author: eur
 ms.devlang: cpp, csharp, golang, java, javascript, python
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp, mode-other
-zone_pivot_groups: programming-languages-speech-services-nomore-variant
+zone_pivot_groups: programming-languages-speech-sdk
 ---
 
 # Quickstart: Set up the development environment
