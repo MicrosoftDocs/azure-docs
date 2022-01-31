@@ -8,7 +8,7 @@ ms.topic: reference
 
 ## Reserved system labels
 
-Since [Release 2021-08-19][aks-release-gh], AKS has stopped the ability to make changes to AKS reserved system labels. The following list of labels are reserved for usage by AKS and are not to be used for any node. Use of these labels will result in an error or deny message. 
+Since [Release 2021-08-19][aks-release-2021-gh], AKS has stopped the ability to make changes to AKS reserved system labels. The following list of labels are reserved for usage by AKS and are not to be used for any node. Use of these labels will result in an error or deny message. 
 
 | Label                                   | Value                          | Example/Options                  | Virtual node usage |
 |-----------------------------------------|--------------------------------|----------------------------------|--------------------|
