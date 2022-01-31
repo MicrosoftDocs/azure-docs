@@ -92,8 +92,8 @@ Custom text classification is only available select Azure regions. When you crea
 |--|--|
 | Project name |  You can only use letters `(a-z, A-Z)`, and numbers `(0-9)` with no spaces. Maximum length allowed is 50 characters. |
 | Model name |  You can only use letters `(a-z, A-Z)`, and numbers `(0-9)` with no spaces. Maximum length allowed is 50 characters. |
-| Entity names| You can only use letters `(a-z, A-Z)`, and numbers `(0-9)` and symbols `@ # _ . , ^ \ [ ]`. Maximum length allowed is 50 characters. |
-| File names | You can only use letters `(a-z, A-Z)`, and numbers `(0-9)` with no spaces. |
+| Entity name | You can only use letters `(a-z, A-Z)`, and numbers `(0-9)` and symbols `@ # _ . , ^ \ [ ]`. Maximum length allowed is 50 characters. |
+| File name | You can only use letters `(a-z, A-Z)`, and numbers `(0-9)` with no spaces. |
 
 ## Next steps
 
