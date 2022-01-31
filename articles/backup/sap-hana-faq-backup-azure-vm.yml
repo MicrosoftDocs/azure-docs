@@ -6,7 +6,6 @@ metadata:
   ms.service: backup
   ms.date: 02/01/2022
   author: v-amallick
-  ms.service: backup
   ms.author: v-amallick
     
 title: Frequently asked questions – Back up SAP HANA databases on Azure VMs
