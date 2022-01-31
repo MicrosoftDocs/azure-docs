@@ -78,5 +78,5 @@ In this quickstart, you learned how Telephony (PSTN) Offers are priced for Azure
 
 The following documents may be interesting to you:
 - [Learn more about Telephony](../concepts/telephony/telephony-concept.md)
-- Get an Telephony capable [phone number](../quickstarts/telephony/get-phone-number.md)
+- Get a Telephony capable [phone number](../quickstarts/telephony/get-phone-number.md)
 - [Phone number types in Azure Communication Services](../concepts/telephony/plan-solution.md)
