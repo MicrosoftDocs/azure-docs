@@ -1,12 +1,12 @@
 ---
-title: Certificate-based authentication - Azure Active Directory
-description: Learn how to configure certificate-based authentication in your environment
+title: Certificate-based authentication with federation - Azure Active Directory
+description: Learn how to configure certificate-based authentication with federation in your environment
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 11/21/2019
+ms.date: 01/31/2022
 
 ms.author: justinha
 author: justinha
@@ -16,25 +16,28 @@ ms.reviewer: annaba
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
 ---
-# Get started with certificate-based authentication in Azure Active Directory
+# Get started with certificate-based authentication in Azure Active Directory with federation
 
-Certificate-based authentication enables you to be authenticated by Azure Active Directory with a client certificate on a Windows, Android, or iOS device when connecting your Exchange online account to:
+Certificate-based authentication (CBA) with federation enables you to be authenticated by Azure Active Directory with a client certificate on a Windows, Android, or iOS device when connecting your Exchange online account to:
 
 - Microsoft mobile applications such as Microsoft Outlook and Microsoft Word
 - Exchange ActiveSync (EAS) clients
 
 Configuring this feature eliminates the need to enter a username and password combination into certain mail and Microsoft Office applications on your mobile device.
 
+>[!NOTE]
+>As an alternative, organizations can deploy cloud-native CBA against Azure Active Directory without needing federation. For more information, see [Overview of cloud-native certificate-based authentication against Azure Active Directory](concept-cloud-native-certificate-based-authentication.md).
+
 This topic:
 
-- Provides you with the steps to configure and utilize certificate-based authentication for users of tenants in Office 365 Enterprise, Business, Education, and US Government plans. This feature is available in preview in Office 365 China, US Government Defense, and US Government Federal plans.
+- Provides you with the steps to configure and utilize CBA for users of tenants in Office 365 Enterprise, Business, Education, and US Government plans. 
 - Assumes that you already have a [public key infrastructure (PKI)](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831740(v=ws.11)) and [AD FS](../hybrid/how-to-connect-fed-whatis.md) configured.
 
 ## Requirements
 
-To configure certificate-based authentication, the following statements must be true:
+To configure CBA with federation, the following statements must be true:
 
-- Certificate-based authentication (CBA) is only supported for Federated environments for browser applications, native clients using modern authentication (ADAL), or MSAL libraries. The one exception is Exchange Active Sync (EAS) for Exchange Online (EXO), which can be used for  federated and managed accounts.
+- CBA with federation is only supported for Federated environments for browser applications, native clients using modern authentication (ADAL), or MSAL libraries. The one exception is Exchange Active Sync (EAS) for Exchange Online (EXO), which can be used for federated and managed accounts. To configure cloud-native CBA without needing federation, see [How to configure cloud-native certificate-based authentication in Azure Active Directory](how-to-certificate-based-authentication.md).
 - The root certificate authority and any intermediate certificate authorities must be configured in Azure Active Directory.
 - Each certificate authority must have a certificate revocation list (CRL) that can be referenced via an internet-facing URL.
 - You must have at least one certificate authority configured in Azure Active Directory. You can find related steps in the [Configure the certificate authorities](#step-2-configure-the-certificate-authorities) section.

@@ -58,7 +58,7 @@ sections:
       - question: |
           How do I turn certificate revocation checking on or off for a particular CA?
         answer: |
-          We highly recommend not to disable CRL checking as you will not be able to revoke certificates. 
+          We highly recommend not to disable certificate revocation list (CRL) checking as you will not be able to revoke certificates. 
           However, to disable CRL checking if there are issues with CRL for a particular CA, you can update a trusted certificate authority and set the crlDistributionPoint attribute to """.
           
           Use the [Set-AzureADTrustedCertificateAuthority](https://docs.microsoft.com/powershell/module/azuread/set-azureadtrustedcertificateauthority) cmdlet:
