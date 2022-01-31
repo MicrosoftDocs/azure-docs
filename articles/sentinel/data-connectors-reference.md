@@ -1053,6 +1053,16 @@ Add http://localhost:8081/ under **Authorized redirect URIs** while creating [We
 | **Supported by** | Microsoft |
 | | |
 
+            
+## Microsoft Project
+| Connector attribute | Description |
+| --- | --- |
+| **Data ingestion method** | **Azure service-to-service integration: <br>[API-based connections](connect-azure-windows-microsoft-services.md#api-based-connections)** |
+| **License prerequisites/<br>Cost information** | Your Office 365 deployment must be on the same tenant as your Microsoft Sentinel workspace.<br>Other charges may apply |
+| **Log Analytics table(s)** | ProjectActivity |
+| **Supported by** | Microsoft |
+| | |      
+
 ## Microsoft Defender for Cloud
 
 | Connector attribute | Description |
@@ -1120,6 +1130,15 @@ Add http://localhost:8081/ under **Authorized redirect URIs** while creating [We
 | **Data ingestion method** | **Azure service-to-service integration: <br>[API-based connections](connect-azure-windows-microsoft-services.md#api-based-connections)** |
 | **License prerequisites/<br>Cost information** | Your Office 365 deployment must be on the same tenant as your Microsoft Sentinel workspace.<br>Other charges may apply |
 | **Log Analytics table(s)** | OfficeActivity |
+| **Supported by** | Microsoft |
+| | |
+     
+## Microsoft Power BI
+| Connector attribute | Description |
+| --- | --- |
+| **Data ingestion method** | **Azure service-to-service integration: <br>[API-based connections](connect-azure-windows-microsoft-services.md#api-based-connections)** |
+| **License prerequisites/<br>Cost information** | Your Office 365 deployment must be on the same tenant as your Microsoft Sentinel workspace.<br>Other charges may apply |
+| **Log Analytics table(s)** | PowerBIActivity |
 | **Supported by** | Microsoft |
 | | |
 
@@ -1446,12 +1465,12 @@ If a longer timeout duration is required, consider upgrading to an [App Service 
 | **Supported by** | Microsoft |
 | | |
 
+For more information, see:
 
-For more information, see [Insecure protocols workbook setup](./get-visibility.md#use-built-in-workbooks).
-
-See also: [**Windows Security Events via AMA**](#windows-security-events-via-ama) connector based on Azure Monitor Agent (AMA)
-
-[Configure the **Security events / Windows Security Events connector** for **anomalous RDP login detection**](#configure-the-security-events--windows-security-events-connector-for-anomalous-rdp-login-detection).
+- [Windows security event sets that can be sent to Microsoft Sentinel](windows-security-event-id-reference.md)
+- [Insecure protocols workbook setup](./get-visibility.md#use-built-in-workbooks)
+- [**Windows Security Events via AMA**](#windows-security-events-via-ama) connector based on Azure Monitor Agent (AMA)
+- [Configure the **Security events / Windows Security Events connector** for **anomalous RDP login detection**](#configure-the-security-events--windows-security-events-connector-for-anomalous-rdp-login-detection).
 
 ## SentinelOne (Preview)
 
@@ -1697,7 +1716,7 @@ If your DNS events don't show up in Microsoft Sentinel:
 1. In the **Configuration** area, change any of the settings and save your changes. Change your settings back if you need to, and then save your changes again.
 1. Check your Azure DNS Analytics to make sure that your events and queries display properly.
 
-For more information, see [Gather insights about your DNS infrastructure with the DNS Analytics Preview solution](/azure/azure-monitor/insights/dns-analytics).
+For more information, see [Gather insights about your DNS infrastructure with the DNS Analytics Preview solution](../azure-monitor/insights/dns-analytics.md).
 
 ## Windows Forwarded Events (Preview)
 

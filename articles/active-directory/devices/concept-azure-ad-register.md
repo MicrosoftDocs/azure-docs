@@ -1,12 +1,12 @@
 ---
 title: What are Azure AD registered devices?
-description: Learn how Azure AD registered devices provide your users with support for the Bring Your Own Device (BYOD) or mobile device scenarios.
+description: Learn how Azure AD registered devices provide your users with support for bring your own device (BYOD) or mobile device scenarios.
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: conceptual
-ms.date: 06/09/2021
+ms.date: 01/26/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # Azure AD registered devices
 
-The goal of Azure AD registered devices is to provide your users with support for the bring your own device (BYOD) or mobile device scenarios. In these scenarios, a user can access your organization’s resources using a personal device.
+The goal of Azure AD registered devices is to provide your users with support for bring your own device (BYOD) or mobile device scenarios. In these scenarios, a user can access your organization’s resources using a personal device.
 
 | Azure AD Registered | Description |
 | --- | --- |

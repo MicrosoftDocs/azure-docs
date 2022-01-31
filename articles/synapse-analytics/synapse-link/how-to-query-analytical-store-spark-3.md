@@ -6,7 +6,7 @@ author: moderakh
 ms.service: synapse-analytics
 ms.topic: quickstart
 ms.subservice: synapse-link
-ms.date: 08/26/2021
+ms.date: 01/27/2022
 ms.author: moderakh
 ms.custom: cosmos-db, mode-other
 ---

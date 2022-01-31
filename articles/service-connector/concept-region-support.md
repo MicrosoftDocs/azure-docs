@@ -3,7 +3,7 @@ title: Service Connector Region Support
 description: Service Connector region availability and region support list
 author: shizn
 ms.author: xshi
-ms.service: serviceconnector
+ms.service: service-connector
 ms.topic: conceptual
 ms.date: 10/29/2021
 ms.custom: ignite-fall-2021, references_regions
@@ -22,10 +22,6 @@ If your compute service instance is located in one of the regions that Service C
 - North Europe
 - East US
 - West US 2
-- Australia East
-- UK South
-- Japan East
-- Southeast Asia
 
 ## Supported regions with geographical endpoint
 
@@ -34,12 +30,6 @@ Your compute service instance might be created in the region that Service Connec
 - East US 2
 - West US 3
 - South Central US
-- Australia Central
-- Australia Southeast
-- UK West
-- Japan West
-- West US
-- North Central US
 
 ## Not supported regions in public preview
 

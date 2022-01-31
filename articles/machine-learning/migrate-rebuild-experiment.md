@@ -19,7 +19,7 @@ In this article, you learn how to rebuild an ML Studio (classic) experiment in A
 
 Studio (classic) **experiments** are similar to **pipelines** in Azure Machine Learning. However, in Azure Machine Learning pipelines are built on the same back-end that powers the SDK. This means that you have two options for machine learning development: the drag-and-drop designer or code-first SDKs.
 
-For more information on building pipelines with the SDK, see [What are Azure Machine Learning pipelines](concept-ml-pipelines.md#building-pipelines-with-the-python-sdk).
+For more information on building pipelines with the SDK, see [What are Azure Machine Learning pipelines](concept-ml-pipelines.md).
 
 
 ## Prerequisites

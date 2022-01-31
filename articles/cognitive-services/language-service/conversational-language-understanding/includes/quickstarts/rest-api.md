@@ -3,9 +3,9 @@ services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: text-analytics
+ms.subservice: language-service
 ms.topic: include
-ms.date: 11/02/2021
+ms.date: 01/27/2022
 ms.author: aahi
 ms.custom: ignite-fall-2021
 ---
@@ -34,7 +34,7 @@ Create a **POST** request using the following URL, headers, and JSON body to cre
 Use the following URL when creating your API request. Replace the placeholder values below with your own values. 
 
 ```rest
-{YOUR-ENDPOINT}/language/analyze-conversation/projects/EmailProject/:import?api-version=2021-11-01-preview
+{YOUR-ENDPOINT}/language/analyze-conversations/projects/EmailProject/:import?api-version=2021-11-01-preview
 ```
 
 |Placeholder  |Value  | Example |
@@ -48,6 +48,7 @@ Use the following header to authenticate your request.
 |Key|Value|
 |--|--|
 |`Ocp-Apim-Subscription-Key`| The key to your resource. Used for authenticating your API requests.|
+| `format` | `clu` |
 
 ### Body
 
@@ -58,10 +59,12 @@ Use the following sample JSON as your body.
     "api-version": "2021-11-01-preview",
     "metadata": {
         "name": "EmailProject",
-        "description": "",
+        "description": "A test application",
         "type": "Conversation",
         "multilingual": true,
-        "language": "en-us"
+        "language": "en-us",
+        "settings": {
+        }
     },
     "assets": {
         "intents": [
@@ -88,116 +91,126 @@ Use the following sample JSON as your body.
         ],
         "examples": [
             {
-                "text": "add the pdf file with the name signed contract",
+                "text": "Open Blake's email",
                 "language": "en-us",
-                "intent": "Attach",
+                "intent": "Read",
                 "entities": [
                     {
-                        "entity": "FileName",
-                        "offset": 31,
-                        "length": 15
-                    },
-                    {
-                        "entity": "FileType",
-                        "offset": 8,
-                        "length": 3
-                    }
-                ]
-            },
-            {
-                "text": "attach the powerpoint file",
-                "language": "en-us",
-                "intent": "Attach",
-                "entities": [
-                    {
-                        "entity": "FileType",
-                        "offset": 11,
-                        "length": 10
-                    }
-                ]
-            },
-            {
-                "text": "attach the excel file called reports q1",
-                "language": "en-us",
-                "intent": "Attach",
-                "entities": [
-                    {
-                        "entity": "FileName",
-                        "offset": 29,
-                        "length": 10
-                    },
-                    {
-                        "entity": "FileType",
-                        "offset": 11,
+                        "entityName": "Sender",
+                        "offset": 5,
                         "length": 5
                     }
-                ]
+                ],
+                "dataset": "Train"
             },
             {
-                "text": "move this to the deleted folder",
+                "text": "Add the PDF file with the name signed contract",
+                "language": "en-us",
+                "intent": "Attach",
+                "entities": [
+                    {
+                        "entityName": "FileType",
+                        "offset": 8,
+                        "length": 3
+                    },
+                    {
+                        "entityName": "FileName",
+                        "offset": 31,
+                        "length": 15
+                    }
+                ],
+                "dataset": "Train"
+            },
+            {
+                "text": "Attach the PowerPoint file",
+                "language": "en-us",
+                "intent": "Attach",
+                "entities": [
+                    {
+                        "entityName": "FileType",
+                        "offset": 11,
+                        "length": 10
+                    }
+                ],
+                "dataset": "Train"
+            },
+            {
+                "text": "Attach the excel file called reports q1",
+                "language": "en-us",
+                "intent": "Attach",
+                "entities": [
+                    {
+                        "entityName": "FileType",
+                        "offset": 11,
+                        "length": 5
+                    },
+                    {
+                        "entityName": "FileName",
+                        "offset": 29,
+                        "length": 10
+                    }
+                ],
+                "dataset": "Train"
+            },
+            {
+                "text": "Move this to the deleted folder",
                 "language": "en-us",
                 "intent": "Delete",
-                "entities": []
+                "entities": [],
+                "dataset": "Train"
             },
             {
-                "text": "remove this one",
+                "text": "Remove this one",
                 "language": "en-us",
                 "intent": "Delete",
-                "entities": []
+                "entities": [],
+                "dataset": "Train"
             },
             {
-                "text": "delete this",
+                "text": "Delete this",
                 "language": "en-us",
                 "intent": "Delete",
-                "entities": []
+                "entities": [],
+                "dataset": "Train"
             },
             {
-                "text": "delete my last email from martha",
+                "text": "Delete my last email from Martha",
                 "language": "en-us",
                 "intent": "Delete",
                 "entities": [
                     {
-                        "entity": "Sender",
+                        "entityName": "Sender",
                         "offset": 26,
                         "length": 6
                     }
-                ]
+                ],
+                "dataset": "Train"
             },
             {
-                "text": "what did the email from matt say",
+                "text": "Read John's email for me",
                 "language": "en-us",
                 "intent": "Read",
                 "entities": [
                     {
-                        "entity": "Sender",
-                        "offset": 24,
-                        "length": 4
-                    }
-                ]
-            },
-            {
-                "text": "read john's email for me",
-                "language": "en-us",
-                "intent": "Read",
-                "entities": [
-                    {
-                        "entity": "Sender",
+                        "entityName": "Sender",
                         "offset": 5,
                         "length": 4
                     }
-                ]
+                ],
+                "dataset": "Train"
             },
             {
-                "text": "read the email from carol",
+                "text": "read the email from Carol",
                 "language": "en-us",
                 "intent": "Read",
                 "entities": [
                     {
-                        "entity": "Sender",
+                        "entityName": "Sender",
                         "offset": 20,
                         "length": 5
                     }
-                ]
+                ],
+                "dataset": "Train"
             }
         ]
     }
@@ -227,7 +240,8 @@ Use the following header to authenticate your request.
 |Key|Value|
 |--|--|
 |`Ocp-Apim-Subscription-Key`| The key to your resource. Used for authenticating your API requests.|
-
+|`Content-Type` | application/json |
+ 
 ### Request body
 
 Use the following object in your request. The model will be named `MyModel` once training is complete.  
@@ -295,7 +309,7 @@ Once you send the request, you will get the following response. Keep polling thi
 
 Once training is completed, you can deploy your model for predictions. 
 
-Create a **POST** request using the following URL, headers, and JSON body to start deploying a conversational language understanding model.
+Create a **PUT** request using the following URL, headers, and JSON body to start deploying a conversational language understanding model.
 
 
 ### Request URL
@@ -316,7 +330,7 @@ Use the following header to authenticate your request.
 |Key|Value|
 |--|--|
 |`Ocp-Apim-Subscription-Key`| The key to your resource. Used for authenticating your API requests.|
-
+|`Content-Type` | application/json |
 
 ### Request Body
 
@@ -396,6 +410,7 @@ Use the following header to authenticate your request.
 |Key|Value|
 |--|--|
 |`Ocp-Apim-Subscription-Key`| The key to your resource. Used for authenticating your API requests.|
+|`Content-Type` | application/json |
 
 ### Request Body
 

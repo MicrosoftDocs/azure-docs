@@ -10,7 +10,18 @@ services: iot-central
 manager: abjork
 ---
 
-# Tutorial: Deploy and walk through the solar panel monitoring app template 
+# Tutorial: Deploy and walk through the solar panel monitoring app template
+
+The solar panel monitoring app enables utilities and partners to monitor solar panels, such as their energy generation and connection status in near real time. It can send notifications based on defined threshold criteria. It provides sample commands, such as update firmware and other properties. The solar panel data can be set up to egress to other business applications and to develop custom solutions.
+
+App's key functionalities:
+
+- Solar panel sample device model
+- Solar Panel info and live status
+- Solar energy generation and other readings
+- Command and control samples
+- Built-in visualization and dashboards
+- Extensibility for custom solution development
 
 Use the IoT Central *solar panel monitoring* application template and the guidance in this article to develop an end-to-end solar panel monitoring solution.
 
@@ -20,11 +31,11 @@ This architecture consists of the following components. Some applications may no
 
 ### Solar panels and connectivity
 
-Solar panels are one of the significant sources of renewable energy. Depending on the solar panel type and set up, you can connect it either using gateways or other intermediate devices and proprietary systems. You might need to build IoT Central device bridge to connect devices, which can't be connected directly. The IoT Central device bridge is an open-source solution and you can find the complete details [here](../core/howto-build-iotc-device-bridge.md). 
+Solar panels are one of the significant sources of renewable energy. Typically, a solar panel uses a gateway to connect to an IoT Central application. You might need to build IoT Central device bridge to connect devices, which can't be connected directly. The IoT Central device bridge is an open-source solution and you can find the complete details [here](../core/howto-build-iotc-device-bridge.md).
 
 ### IoT Central platform
 
-Azure IoT Central is a platform that simplifies building your IoT solution and helps reduce the burden and costs of IoT management, operations, and development. With IoT Central, you can easily connect, monitor, and manage your Internet of Things (IoT) assets at scale. After you connect your solar panels to IoT Central, the app template uses built-in features such as device models, commands, and dashboards. The app template also uses the IoT Central storage for warm path scenarios such as near real-time meter data monitoring, analytics, rules, and visualization.
+When you build an IoT solution, Azure IoT Central simplifies the build process and helps to reduce the burden and costs of IoT management, operations, and development. With IoT Central, you can easily connect, monitor, and manage your Internet of Things (IoT) assets at scale. After you connect your solar panels to IoT Central, the app template uses built-in features such as device models, commands, and dashboards. The app template also uses the IoT Central storage for warm path scenarios such as near real-time meter data monitoring, analytics, rules, and visualization.
 
 ### Extensibility options to build with IoT Central
 

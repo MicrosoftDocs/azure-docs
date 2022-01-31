@@ -10,7 +10,7 @@ ms.topic: reference
 author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: kendralittle, mathoma
-ms.date: 04/16/2021
+ms.date: 01/18/2022
 ---
 # Resource limits for single databases using the DTU purchasing model - Azure SQL Database
 
@@ -47,7 +47,7 @@ The following tables show the resources available for a single database at each 
 | Included storage (GB) | 2 |
 | Max storage (GB) | 2 |
 | Max in-memory OLTP storage (GB) |N/A |
-| Max concurrent workers (requests) | 30 |
+| Max concurrent workers | 30 |
 | Max concurrent sessions | 300 |
 |||
 
@@ -65,7 +65,7 @@ The following tables show the resources available for a single database at each 
 | Included storage (GB) <sup>1</sup> | 250 | 250 | 250 | 250 |
 | Max storage (GB) | 250 | 250 | 250 | 1024 |
 | Max in-memory OLTP storage (GB) | N/A | N/A | N/A | N/A |
-| Max concurrent workers (requests)| 60 | 90 | 120 | 200 |
+| Max concurrent workers | 60 | 90 | 120 | 200 |
 | Max concurrent sessions |600 | 900 | 1200 | 2400 |
 ||||||
 
@@ -85,7 +85,7 @@ The following tables show the resources available for a single database at each 
 | Included storage (GB) <sup>1</sup> | 250 | 250 | 250 | 250 | 250 |
 | Max storage (GB) | 1024 | 1024 | 1024 | 1024 | 1024 |
 | Max in-memory OLTP storage (GB) | N/A | N/A | N/A | N/A |N/A |
-| Max concurrent workers (requests)| 400 | 800 | 1600 | 3200 |6000 |
+| Max concurrent workers | 400 | 800 | 1600 | 3200 |6000 |
 | Max concurrent sessions |4800 | 9600 | 19200 | 30000 |30000 |
 |||||||
 
@@ -99,7 +99,7 @@ The following tables show the resources available for a single database at each 
 | Included storage (GB) <sup>1</sup> | 500 | 500 | 500 | 500 | 4096 <sup>2</sup> | 4096 <sup>2</sup> |
 | Max storage (GB) | 1024 | 1024 | 1024 | 1024 | 4096 <sup>2</sup> | 4096 <sup>2</sup> |
 | Max in-memory OLTP storage (GB) | 1 | 2 | 4 | 8 | 14 | 32 |
-| Max concurrent workers (requests)| 200 | 400 | 800 | 1600 | 2800 | 6400 |
+| Max concurrent workers | 200 | 400 | 800 | 1600 | 2800 | 6400 |
 | Max concurrent sessions | 30000 | 30000 | 30000 | 30000 | 30000 | 30000 |
 |||||||
 

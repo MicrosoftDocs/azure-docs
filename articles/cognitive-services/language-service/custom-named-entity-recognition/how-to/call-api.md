@@ -34,7 +34,7 @@ See the [application development lifecycle](../overview.md#application-developme
 
 2. Select **Deploy model** from the left side menu.
 
-3. Select the model you want to deploy, then select **Deploy model**.
+3. Select the model you want to deploy, then select **Deploy model**. If you deploy your model through the Language Studio, your `deployment-name` is `prod`.
 
 > [!TIP]
 > You can test your model in Language Studio by sending samples of text for it to classify. 
@@ -44,7 +44,7 @@ See the [application development lifecycle](../overview.md#application-developme
 > 4. Click on **Run the test**.
 > 5. In the **Result** tab, you can see the extracted entities from your text. You can also view the JSON response under the **JSON** tab.
 
-## Send a text classification request to your model
+## Send an entity recognition request to your model
 
 # [Using Language Studio](#tab/language-studio)
 
@@ -163,7 +163,7 @@ First you will need to get your resource key and endpoint
     
 4. After you've installed the client library, use the following samples on GitHub to start calling the API.
     
-    * [C#](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/textanalytics/Azure.AI.TextAnalytics/tests/samples/Sample9_RecognizeCustomEntitiesConvenience.cs)
+    * [C#](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/textanalytics/Azure.AI.TextAnalytics/samples/Sample9_RecognizeCustomEntities.md)
     * [Java](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/textanalytics/azure-ai-textanalytics/src/samples/java/com/azure/ai/textanalytics/lro/RecognizeCustomEntities.java)
     * [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/textanalytics/ai-text-analytics/samples/v5/javascript/customText.js)
     * [Python](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/textanalytics/azure-ai-textanalytics/samples/sample_recognize_custom_entities.py)

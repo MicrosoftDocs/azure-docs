@@ -197,7 +197,7 @@ We'll use an example to illustrate how to estimate the amount of free space woul
 1. NTFS allocates a cluster size for each of the tiered files. 1 million files * 4 KiB cluster size = 4,000,000 KiB (4 GiB)
 > [!Note]  
 > The space occupied by tiered files is allocated by NTFS. Therefore, it will not show up in any UI.
-3. Sync metadata occupies a cluster size per item. (1 million files + 100,000 directories) * 4 KiB cluster size = 4,400,000 KiB (4.4 GiB)
+3. Sync metadata occupies a cluster size per item. (1 million files + 100,000 directories) * 4 KB cluster size = 4,400,000 KiB (4.4 GiB)
 4. Azure File Sync heatstore occupies 1.1 KiB per file. 1 million files * 1.1 KiB = 1,100,000 KiB (1.1 GiB)
 5. Volume free space policy is 20%. 1000 GiB * 0.2 = 200 GiB
 
@@ -352,7 +352,7 @@ The following regions require you to request access to Azure Storage before you 
 - South Africa West
 - UAE Central
 
-To request access for these regions, follow the process in [this document](https://docs.microsoft.com/troubleshoot/azure/general/region-access-request-process).
+To request access for these regions, follow the process in [this document](/troubleshoot/azure/general/region-access-request-process).
 
 ## Redundancy
 [!INCLUDE [storage-files-redundancy-overview](../../../includes/storage-files-redundancy-overview.md)]

@@ -42,7 +42,7 @@ A role assignment's resource name must be a globally unique identifier (GUID). I
 
 ### Role definition ID
 
-The role you assign can be a built-in role definition or a [custom role definition](#custom-role-definitions). To use a built-in role definition, [find the appropriate role definition ID](/azure/role-based-access-control/built-in-roles). For example, the *Contributor* role has a role definition ID of `b24988ac-6180-42a0-ab88-20f7382dd24c`.
+The role you assign can be a built-in role definition or a [custom role definition](#custom-role-definitions). To use a built-in role definition, [find the appropriate role definition ID](../../role-based-access-control/built-in-roles.md). For example, the *Contributor* role has a role definition ID of `b24988ac-6180-42a0-ab88-20f7382dd24c`.
 
 When you create the role assignment resource, you need to specify a fully qualified resource ID. Built-in role definition IDs are subscription-scoped resources. It's a good practice to use an `existing` resource to refer to the built-in role, and to access its fully qualified resource ID by using the `.id` property:
 

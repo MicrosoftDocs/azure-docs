@@ -231,7 +231,7 @@ The default message type is [RabbitMQ Event](https://rabbitmq.github.io/rabbitmq
 * `An object serializable as JSON` - The message is delivered as a valid JSON string.
 * `string`
 * `byte[]`
-* `POCO` - The message is formatted as a C# object. For a complete example, see C# [example](#example).
+* `POCO` - The message is formatted as a C# object. For complete code, see C# [example](#example).
 
 # [C# Script](#tab/csharp-script)
 

@@ -40,12 +40,12 @@ Alert processing rules allow you to specify that logic in a single rule, instead
 
 ### Add action groups to all alert types
 
-Azure Monitor alert rules let you select which action groups will be triggered when their alerts are fired. However, not all Azure alert sources let you specify action groups. Some examples of such alerts include [Azure Backup alerts](/azure/backup/backup-azure-monitoring-built-in-monitor#azure-monitor-alerts-for-azure-backup-preview.md), [VM Insights guest health alerts](/azure/azure-monitor/vm/vminsights-health-alerts#configure-notifications.md), [Azure Stack Edge](/azure/databox-online/azure-stack-edge-gpu-manage-device-event-alert-notifications), and Azure Stack Hub.
+Azure Monitor alert rules let you select which action groups will be triggered when their alerts are fired. However, not all Azure alert sources let you specify action groups. Some examples of such alerts include [Azure Backup alerts](../../backup/backup-azure-monitoring-built-in-monitor.md), [VM Insights guest health alerts](../vm/vminsights-health-alerts.md), [Azure Stack Edge](../../databox-online/azure-stack-edge-gpu-manage-device-event-alert-notifications.md), and Azure Stack Hub.
 
 For those alert types, you can use alert processing rules to add action groups.
 
 > [!NOTE]
-> Alert processing rules do not affect [Azure Service Health](/azure/service-health/service-health-overview) alerts.
+> Alert processing rules do not affect [Azure Service Health](../../service-health/service-health-overview.md) alerts.
 
 ## Alert processing rule properties
 <a name="filter-criteria"></a>

@@ -25,7 +25,7 @@ You’ll get traceability information such as the GitHub workflow and the GitHub
 |Aspect|Details|
 |----|:----|
 |Release state:| **This CI/CD integration is in preview.**<br>We recommend that you experiment with it on non-production workflows only.<br>[!INCLUDE [Legalese](../../includes/defender-for-cloud-preview-legal-text.md)]|
-|Pricing:|**Microsoft Defender for container registries** is billed as shown on the [pricing page](https://azure.microsoft.com/pricing/details/security-center/)|
+|Pricing:|**Microsoft Defender for container registries** is billed as shown on the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/)|
 |Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National (Azure Government, Azure China 21Vianet)|
 |||
 

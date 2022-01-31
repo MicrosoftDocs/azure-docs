@@ -31,16 +31,16 @@ Microsoft Sentinel provides the following built-in, product-specific file event 
 - **Microsoft 365 Defender for Endpoint file events**
 - **Azure Storage**, including Blob, File, Queue, and Table Storage.
 
-To use the source-agnostic parser that unifies all of the built-in parsers, and ensure that your analysis runs across all the configured sources, use imFileEvent as the table name in your query.
+To use the unifying parser that unifies all of the built-in parsers, and ensure that your analysis runs across all the configured sources, use imFileEvent as the table name in your query.
 
-Deploy the [source-agnostic and source-specific parsers](normalization-about-parsers.md) from the [Microsoft Sentinel GitHub repository](https://aka.ms/AzSentinelFileEvent).
+Deploy the [unifying and source-specific parsers](normalization-about-parsers.md) from the [Microsoft Sentinel GitHub repository](https://aka.ms/AzSentinelFileEvent).
 
 ## Add your own normalized parsers
 
 
 When implementing custom parsers for the File Event information model, name your KQL functions using the following syntax: `imFileEvent<vendor><Product`.
 
-Add your KQL function to the `imFileEvent` source-agnostic parser to ensure that any content using the File Event model also uses your new parser.
+Add your KQL function to the `imFileEvent` unifying parser to ensure that any content using the File Event model also uses your new parser.
 
 ## Normalized content for file activity data
 
@@ -189,9 +189,8 @@ The path should be normalized to match one of the following formats. The format 
 
 For more information, see:
 
-- [Normalization in Microsoft Sentinel](normalization.md)
-- [Microsoft Sentinel authentication normalization schema reference (Public preview)](authentication-normalization-schema.md)
-- [Microsoft Sentinel DNS normalization schema reference](dns-normalization-schema.md)
-- [Microsoft Sentinel network normalization schema reference](./network-normalization-schema.md)
-- [Microsoft Sentinel process event normalization schema reference (Public preview)](process-events-normalization-schema.md)
-- [Microsoft Sentinel registry event normalization schema reference (Public preview)](registry-event-normalization-schema.md)
+- Watch the [ASIM Webinar](https://www.youtube.com/watch?v=WoGD-JeC7ng) or review the [slides](https://1drv.ms/b/s!AnEPjr8tHcNmjDY1cro08Fk3KUj-?e=murYHG)
+- [Advanced SIEM Information Model (ASIM) overview](normalization.md)
+- [Advanced SIEM Information Model (ASIM) schemas](normalization-about-schemas.md)
+- [Advanced SIEM Information Model (ASIM) parsers](normalization-parsers-overview.md)
+- [Advanced SIEM Information Model (ASIM) content](normalization-content.md)
