@@ -945,6 +945,8 @@ The complete code sample of this tutorial can be found [here][code-csharp].
 
 Now run the server using `dotnet run --urls http://localhost:8080` and open multiple browser instances to access http://localhost:8080/index.html, then you can chat with each other.
 
+The complete code sample of this tutorial can be found [here][code-csharp-net6].
+
 # [JavaScript](#tab/javascript)
 
 1. Add a new `handleUserEvent` handler
@@ -1178,3 +1180,4 @@ Check other tutorials to further dive into how to use the service.
 [code-js]: https://github.com/Azure/azure-webpubsub/tree/main/samples/javascript/chatapp/
 [code-java]: https://github.com/Azure/azure-webpubsub/tree/main/samples/java/chatapp/
 [code-csharp]: https://github.com/Azure/azure-webpubsub/tree/main/samples/csharp/chatapp/
+[code-csharp-net6]: https://github.com/Azure/azure-webpubsub/tree/main/samples/csharp/chatapp/
