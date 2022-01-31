@@ -63,6 +63,15 @@ sections:
         answer: |
           Azure Backup doesn’t set an explicit retention period on the Auto-heal full backups. This backup is retained till the time you retain the dependent Delta (differential or incremental) and Log backups. Once you delete the last dependent backup on this Auto-heal backup, the Auto-heal backup is also deleted.
 
+      - question: | 
+          Can a full backup and a log backup run parallelly?
+        answer: |
+          Yes, a full backup and a log backup can run parallelly. This instance occurs in one of the following ways:
+
+          - **Full backup is in progress, and a log backup is triggered**: The log backup should succeed irrespective of an ongoing full backup operation. The backups may fail if the triggered full backup is a remedial full to handle any log backups and log sequence number (LSN) chain break.
+
+          - **Log backup is in progress, and a full backup is triggered**: Both backups should run parallelly and su
+
       - question: |
           Are future databases automatically added for backup?
         answer: |
