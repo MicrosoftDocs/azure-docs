@@ -25,7 +25,7 @@ ms.author: eur
 
 #### Bug fixes
 - **C++, C#, Java, JavaScript, Objective-C, and Swift**: Fix to remove a 10-second delay while stopping a speech recognizer that uses a PushAudioInputStream. This is for the case where no new audio is pushed in after StopContinuousRecognition is called (GitHub issues [1318](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/1388), [331](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/331))
-- **Unity on Android**: Unity meta files were fixed for Android ARM64 and Windows Subsystem for Android (WSA) ARM64 ([GitHub issue 1360](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/1360))
+- **Unity on Android and UWP**: Unity meta files were fixed for UWP, Android ARM64 and Windows Subsystem for Android (WSA) ARM64 ([GitHub issue 1360](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/1360))
 - **iOS**: Compiling your Speech SDK application on any iOS Device when using CocoaPods is now fixed ([GitHub issue 1320](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/1320))
 - **iOS**: When SpeechSynthesizer is configured to output audio directly to a speaker, playback stopped at the beginning in rare conditions. This was fixed.
 - **JavaScript**: Use script processor fallback for microphone input if no audio worklet is found ([GitHub issue 455](https://github.com/microsoft/cognitive-services-speech-sdk-js/issues/455))
