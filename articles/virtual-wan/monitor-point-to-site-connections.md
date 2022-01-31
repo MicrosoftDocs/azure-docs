@@ -23,21 +23,20 @@ To complete the steps in this article, you need to have a virtual WAN,  a hub, a
 
 ## Workbook solution architecture
 
-- AzureDiagnostics: Enable P2S Debugging through Azure Monitor debug settings, GatewayDiagnosticLog, IKEDiagnosticLog, P2SDiagnosticLog, AllMetrics. Notice that some logs are very noisy and thereby rather costly in regards to Log Analytics cost, specially IKEDiagnostics
-- Azure Metrics : Can be used directly from within the workbook, but the metrics available are limited
-- Get-AzP2sVpnGatewayDetailedConnectionHealth which is a separate PowerShell command to get active sessions and this command only supports storing data in a storage account based on a SAS Key.
+- AzureDiagnostics: These logs are received by enabling P2S Debugging through Azure Monitor debug settings and enabling the following logs: GatewayDiagnosticLog, IKEDiagnosticLog, P2SDiagnosticLog, AllMetrics. Note that some logs are very noisy and costly in regards to Log Analytics cost, specially IKEDiagnostics
+- Get-AzP2sVpnGatewayDetailedConnectionHealth: PowerShell command (running in a function app) to get active sessions details. This command only supports storing data in a storage account based on a SAS Key.
 
 When you work with Azure Virtual WAN and look at metrics, it is most often done from within the context of an Azure workbook. You could also choose to extract data and use PowerBI which is another great tool to visualize data. In this case we choose to make a solution based on Azure Workbook and use what is already available and enrich it with more details, especially about active connections. 
 
 The figure below shows the involved components in the suggested solution. 
 
-![workbookarchitecture.png](/.attachments/workbookarchitecture.png)
+:::image type="content" source="./media/monitor-point-to-site-connections/workbookarchitecture.png" alt-text="Screenshot shows workbook architecture.":::
 
-The VPN service is running in the Azure vWAN P2S VPN gateway and has associated metrics and debug settings that we can read and act on directly from within an Azure workbook. To get the extra information that the PowerShell command can provide, we choose to execute this command in an Azure FunctionApp and from there store the output it the required Azure storage account.
+The VPN service is running in the Azure vWAN P2S VPN gateway and has associated metrics and debug settings that we can read and act on directly from within an Azure workbook. To get the extra information that the PowerShell command can provide, we choose to execute this command in an Azure FunctionApp and from there store the output in the Azure storage account.
 
 The output stored in the storage account is fetched from within the workbook by using a special function called "externaldata".
 
-Below is a description of the various components.
+Below are the steps to follow. 
 
 ## Create Azure storage account
 
@@ -222,147 +221,66 @@ The Azure workbook is now ready to be created with a mix of built-in functionali
 1. Save the workbook to return to it later. 
 ------------------------------------------------------------------------
 ------------------------------------------------------------------------
-For the below metrics, you must enable diagnostics logging by adding diagnostic settings in Azure portal. Enable P2S Debugging through Azure Monitor debug settings, GatewayDiagnosticLog, IKEDiagnosticLog, P2SDiagnosticLog, AllMetrics. Notice that some logs are very noisy and thereby rather costly in regards to Log Analytics cost, specially IKEDiagnostics
-:::image type="content" source="./media/monitor-point-to-site-connections/final-monitoring.png" alt-text="Screenshot shows Diagnostic settings page in Azure Monitor.":::
+For the below metrics, you must enable diagnostics logging by adding diagnostic settings in Azure portal. Fill in the required fields for subscription and resource group. For resource type, type in "microsoft.network/p2svpngateways". Add a diagnostic setting (or edit the current diagnostic setting) for the point-to-site gateway you wish to monitor.
+:::image type="content" source="./media/monitor-point-to-site-connections/final-monitoring.png" alt-text="Screenshot shows first Diagnostic settings page in Azure Monitor.":::
 
-### P2S VPN Gateway Metrics
+ Enable allLogs and allMetrics, and choose to send to "Log Analytics workspace" as the destination. Note that some logs are very noisy and might be costly (specifically IKEDiagnosticLog). As a result, feel free to enable only specific logs you want to view instead of enabling allLogs. 
+:::image type="content" source="./media/monitor-point-to-site-connections/diagnostic-setting.png" alt-text="Screenshot shows second Diagnostic settings page in Azure Monitor.":::
 
-![workbook1.png](/.attachments/workbook1.png)
-
-### Express Route Circuit Metrics
-
-![workbook2.png](/.attachments/workbook2.png)
-
-### Express Route Gateway Metrics
-
-![workbook3.png](/.attachments/workbook3.png)
 
 ### P2S User successful connections with IP
 
-![workbook4.png](/.attachments/workbook4.png)
+:::image type="content" source="./media/monitor-point-to-site-connections/workbook4.png" alt-text="Screenshot shows query for P2S successful connections.":::
 
-Log Query:
+### EAP authentication succeeded
 
-AzureDiagnostics
-| where Category == "P2SDiagnosticLog" and Message has "Connection successful" and Message has "Username={UserName}"
-| project splitted=split(Message, "Username=")
-| mv-expand col1=splitted[0], col2=splitted[1], col3=splitted[2]
-| project user=split(col2, " ")
-| mv-expand username=user[0]
-| project ['user']
-
-### EAP Authentication succeded
-
-![workbook5.png](/.attachments/workbook5.png)
-
-Log Query:
-
-AzureDiagnostics 
-| where Category == "P2SDiagnosticLog" and Message has "EAP authentication succeeded" and Message has "Username={UserName}"
-| project Message, MessageFields = split(Message, " "), Userinfo = split(Message, "Username=")
-| mv-expand MessageId=MessageFields[2],user=split(Userinfo[1]," ")
-| project MessageId, Message, Userinfo[1]
+:::image type="content" source="./media/monitor-point-to-site-connections/workbook5.png" alt-text="Screenshot shows query for EAP Authentication metrics.":::
 
 
-### P2S VPN User Info
+### P2S VPN user info
 
-![workbook6.png](/.attachments/workbook6.png)
+:::image type="content" source="./media/monitor-point-to-site-connections/workbook6.png" alt-text="Screenshot shows query for P2S VPN User Info.":::
 
-Log Query:
 
-AzureDiagnostics
-| where Category == "P2SDiagnosticLog" and Message has "Username={UserName}"
-| project Message, MessageFields = split(Message, " "), Userinfo = split(Message, "Username=")
-| mv-expand MessageId=MessageFields[2], Username=Userinfo[1]
-| project MessageId, Message, Username;
+### P2S VPN successful connections per user
 
-### P2S VPN Successful connections per user
+:::image type="content" source="./media/monitor-point-to-site-connections/workbook7.png" alt-text="Screenshot shows query for P2S VPN successful connections.":::
 
-![workbook7.png](/.attachments/workbook7.png)
-
-Log Query:
-
-AzureDiagnostics 
-| where Category == "P2SDiagnosticLog" and Message has "Connection successful"
-| project splitted=split(Message, "Username=")
-| mv-expand col1=splitted[0], col2=splitted[1], col3=splitted[2]
-| project user=split(col2, " ")
-| mv-expand username=user[0]
-| project-away ['user']
-| summarize count() by tostring(username)
-| sort by count_ desc
 
 ### P2S VPN Connections
 
-![workbook8.png](/.attachments/workbook8.png)
-
-Log Query:
-
-AzureDiagnostics | where Category == "P2SDiagnosticLog"
-| project TimeGenerated, OperationName, Message, Resource, ResourceGroup
-| sort by TimeGenerated asc
-
-### Successful P2S VPN Connections
-
-![workbook9.png](/.attachments/workbook9.png)
-
-Log Query:
-
-AzureDiagnostics
-| where Category == "P2SDiagnosticLog" and Message has "Connection successful"
-| project TimeGenerated, Resource ,Message
+:::image type="content" source="./media/monitor-point-to-site-connections/workbook8.png" alt-text="Screenshot shows query for P2S VPN connections.":::
 
 
-### Failed P2S VPN Connections
+### Successful P2S VPN connections
 
-![workbook10.png](/.attachments/workbook10.png)
+:::image type="content" source="./media/monitor-point-to-site-connections/workbook9.png" alt-text="Screenshot shows query for successful P2S VPN connections.":::
 
-Log Query:
 
-AzureDiagnostics
-| where Category == "P2SDiagnosticLog" and Message has "Connection failed"
-| project TimeGenerated, Resource ,Message
 
-### VPN Connection count by P2SDiagnosticLog
+### Failed P2S VPN connections
 
-![workbook11.png](/.attachments/workbook11.png)
+:::image type="content" source="./media/monitor-point-to-site-connections/workbook10.png" alt-text="Screenshot shows query for failed P2S VPN connections.":::
 
-Log Query: 
 
-AzureDiagnostics 
-| where Category == "P2SDiagnosticLog" and Message has "Connection successful" and Message has "Username={UserName}"| count
+### VPN connection count by P2SDiagnosticLog
 
-### IKE Diagnosticsdetails
+:::image type="content" source="./media/monitor-point-to-site-connections/workbook11.png" alt-text="Screenshot shows query for VPN connection count.":::
 
-![workbook12.png](/.attachments/workbook12.png)
-
-Log Query:
-
-AzureDiagnostics
-| where Category == "IKEDiagnosticLog"
-| extend Message1=Message
-| parse Message with * "Remote " RemoteIP ":" * "500: Local " LocalIP ":" * "500: " Message2
-| extend Event = iif(Message has "SESSION_ID",Message2,Message1)
-| project TimeGenerated, RemoteIP, LocalIP, Event, Level
-| sort by TimeGenerated asc
 
 ### IKEDiagnosticLog
 
-![workbook13.png](/.attachments/workbook13.png)
+:::image type="content" source="./media/monitor-point-to-site-connections/workbook13.png" alt-text="Screenshot shows query for IKEDiagnosticLog.":::
 
-### P2S VPN Statistics
+### Additional IKE diagnostics details
 
-![workbook14.png](/.attachments/workbook14.png)
+:::image type="content" source="./media/monitor-point-to-site-connections/workbook12.png" alt-text="Screenshot shows query for IKE Diagnostic details.":::
 
-Log Query:
+### P2S VPN statistics
 
-AzureDiagnostics 
-| where Category == "P2SDiagnosticLog" and Message has "Statistics"
-| project Message, MessageFields = split(Message, " ")
-| mv-expand MessageId=MessageFields[2]
-| project MessageId, Message;
+:::image type="content" source="./media/monitor-point-to-site-connections/workbook14.png" alt-text="Screenshot shows query for P2S VPN statistics.":::
 
-### P2S VPN Active Sessions Details
 
-![workbook14.png](/.attachments/workbook14.png)
+
+
 
