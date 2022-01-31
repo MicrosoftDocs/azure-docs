@@ -62,127 +62,35 @@ The related information exists for the following device platforms:
 
 ## Step 2: Configure the certificate authorities
 
-To configure your certificate authorities in Azure Active Directory, for each certificate authority, upload the following:
-
-* The public portion of the certificate, in *.cer* format
-* The internet-facing URLs where the Certificate Revocation Lists (CRLs) reside
-
-The schema for a certificate authority looks as follows:
-
-```csharp
-    class TrustedCAsForPasswordlessAuth
-    {
-       CertificateAuthorityInformation[] certificateAuthorities;
-    }
-
-    class CertificateAuthorityInformation
-
-    {
-        CertAuthorityType authorityType;
-        X509Certificate trustedCertificate;
-        string crlDistributionPoint;
-        string deltaCrlDistributionPoint;
-        string trustedIssuer;
-        string trustedIssuerSKI;
-    }
-
-    enum CertAuthorityType
-    {
-        RootAuthority = 0,
-        IntermediateAuthority = 1
-    }
-```
-
-For the configuration, you can use the [Azure Active Directory PowerShell Version 2](/powershell/azure/active-directory/install-adv2):
-
-1. Start Windows PowerShell with administrator privileges.
-2. Install the Azure AD module version [2.0.0.33](https://www.powershellgallery.com/packages/AzureAD/2.0.0.33) or higher.
-
-   ```powershell
-       Install-Module -Name AzureAD –RequiredVersion 2.0.0.33
-   ```
-
-As a first configuration step, you need to establish a connection with your tenant. As soon as a connection to your tenant exists, you can review, add, delete, and modify the trusted certificate authorities that are defined in your directory.
+[!INCLUDE [Configure certificate authorities](../../../includes/active-directory-authentication-configure-certificate-authorities.md)
 
 ### Connect
 
-To establish a connection with your tenant, use the [Connect-AzureAD](/powershell/module/azuread/connect-azuread) cmdlet:
+[!INCLUDE [Connect-AzureAD](../../../includes/active-directory-authentication-connect-azuread.md)
 
-```azurepowershell
-    Connect-AzureAD
-```
 
 ### Retrieve
 
-To retrieve the trusted certificate authorities that are defined in your directory, use the [Get-AzureADTrustedCertificateAuthority](/powershell/module/azuread/get-azureadtrustedcertificateauthority) cmdlet.
+[!INCLUDE [Get-AzureAD](../../../includes/active-directory-authentication-get-trusted-azuread.md)
 
-```azurepowershell
-    Get-AzureADTrustedCertificateAuthority
-```
 
 ### Add
 
-To create a trusted certificate authority, use the [New-AzureADTrustedCertificateAuthority](/powershell/module/azuread/new-azureadtrustedcertificateauthority) cmdlet and set the **crlDistributionPoint** attribute to a correct value:
-
-```azurepowershell
-    $cert=Get-Content -Encoding byte "[LOCATION OF THE CER FILE]"
-    $new_ca=New-Object -TypeName Microsoft.Open.AzureAD.Model.CertificateAuthorityInformation
-    $new_ca.AuthorityType=0
-    $new_ca.TrustedCertificate=$cert
-    $new_ca.crlDistributionPoint="<CRL Distribution URL>"
-    New-AzureADTrustedCertificateAuthority -CertificateAuthorityInformation $new_ca
-```
+[!INCLUDE [New-AzureAD](../../../includes/active-directory-authentication-new-trusted-azuread.md)
 
 ### Remove
 
-To remove a trusted certificate authority, use the [Remove-AzureADTrustedCertificateAuthority](/powershell/module/azuread/remove-azureadtrustedcertificateauthority) cmdlet:
+[!INCLUDE [Remove-AzureAD](../../../includes/active-directory-authentication-remove-trusted-azuread.md)
 
-```azurepowershell
-    $c=Get-AzureADTrustedCertificateAuthority
-    Remove-AzureADTrustedCertificateAuthority -CertificateAuthorityInformation $c[2]
-```
 
 ### Modify
 
-To modify a trusted certificate authority, use the [Set-AzureADTrustedCertificateAuthority](/powershell/module/azuread/set-azureadtrustedcertificateauthority) cmdlet:
-
-```azurepowershell
-    $c=Get-AzureADTrustedCertificateAuthority
-    $c[0].AuthorityType=1
-    Set-AzureADTrustedCertificateAuthority -CertificateAuthorityInformation $c[0]
-```
+[!INCLUDE [Set-AzureAD](../../../includes/active-directory-authentication-set-trusted-azuread.md)
 
 ## Step 3: Configure revocation
 
-To revoke a client certificate, Azure Active Directory fetches the certificate revocation list (CRL) from the URLs uploaded as part of certificate authority information and caches it. The last publish timestamp (**Effective Date** property) in the CRL is used to ensure the CRL is still valid. The CRL is periodically referenced to revoke access to certificates that are a part of the list.
+[!INCLUDE [Configure revocation](../../../includes/active-directory-authentication-configure-revocation.md)
 
-If a more instant revocation is required (for example, if a user loses a device), the authorization token of the user can be invalidated. To invalidate the authorization token, set the **StsRefreshTokenValidFrom** field for this particular user using Windows PowerShell. You must update the **StsRefreshTokenValidFrom** field for each user you want to revoke access for.
-
-To ensure that the revocation persists, you must set the **Effective Date** of the CRL to a date after the value set by **StsRefreshTokenValidFrom** and ensure the certificate in question is in the CRL.
-
-The following steps outline the process for updating and invalidating the authorization token by setting the **StsRefreshTokenValidFrom** field.
-
-1. Connect with admin credentials to the MSOL service:
-
-   ```powershell
-           $msolcred = get-credential
-            connect-msolservice -credential $msolcred
-   ```
-
-2. Retrieve the current StsRefreshTokensValidFrom value for a user:
-
-   ```powershell
-           $user = Get-MsolUser -UserPrincipalName test@yourdomain.com`
-           $user.StsRefreshTokensValidFrom
-   ```
-
-3. Configure a new StsRefreshTokensValidFrom value for the user equal to the current timestamp:
-
-   ```powershell
-           Set-MsolUser -UserPrincipalName test@yourdomain.com -StsRefreshTokensValidFrom ("03/05/2016")
-   ```
-
-The date you set must be in the future. If the date is not in the future, the **StsRefreshTokensValidFrom** property is not set. If the date is in the future, **StsRefreshTokensValidFrom** is set to the current time (not the date indicated by Set-MsolUser command).
 
 ## Step 4: Test your configuration
 

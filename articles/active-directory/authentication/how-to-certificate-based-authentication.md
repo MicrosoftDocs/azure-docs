@@ -54,11 +54,33 @@ Optionally, you can also configure authentication bindings to map certificates t
 
 ## Step 1: Configure the certificate authorities
 
-To configure your certificate authorities in Azure Active Directory, follow the steps to [Configure Certificate Authorities](active-directory-certificate-based-authentication-get-started.md#step-2-configure-the-certificate-authorities).
+Only one Certificate Distribution Point (CDP) for a trusted CA is supported. The CDP can only be HTTP URLs. Online Certificate Status Protocol (OCSP) or Lightweight Directory Access Protocol (LDAP) URLs are not supported.
 
->[!NOTE]
->Only one Certificate Distribution Point (CDP) for a trusted CA is supported.
->The CDP can be only HTTP URLs. We do not support Online Certificate Status Protocol (OCSP) or Lightweight Directory Access Protocol (LDAP) URLs.
+[!INCLUDE [Configure certificate authorities](../../../includes/active-directory-authentication-configure-certificate-authorities.md)
+
+### Connect
+
+[!INCLUDE [Connect-AzureAD](../../../includes/active-directory-authentication-connect-azuread.md)
+
+### Retrieve
+
+[!INCLUDE [Get-AzureAD](../../../includes/active-directory-authentication-get-trusted-azuread.md)
+
+### Add
+
+[!INCLUDE [New-AzureAD](../../../includes/active-directory-authentication-new-trusted-azuread.md)
+
+### Remove
+
+[!INCLUDE [Remove-AzureAD](../../../includes/active-directory-authentication-remove-trusted-azuread.md)
+
+### Modify
+
+[!INCLUDE [Set-AzureAD](../../../includes/active-directory-authentication-set-trusted-azuread.md)
+
+## Configure revocation
+
+[!INCLUDE [Configure revocation](../../../includes/active-directory-authentication-configure-revocation.md)
 
 ## Step 2: Configure authentication binding policy 
 
