@@ -30,7 +30,7 @@ B2B collaboration is enabled by default, but comprehensive admin settings let yo
 
 - **Inbound access settings** control whether users from external Azure AD organizations can access resources in your organization. You can apply these settings to everyone, or you can specify individual users, groups, and applications.
 
-- **Trust settings** (inbound) determine whether your Conditional Access policies will trust the multi-factor authentication (MFA), compliant device, and [hybrid Azure AD joined device]() claims from an external organization when their users access your resources.
+- **Trust settings** (inbound) determine whether your Conditional Access policies will trust the multi-factor authentication (MFA), compliant device, and [hybrid Azure AD joined device](../devices/concept-azure-ad-join-hybrid.md) claims from an external organization if their users have already satisfied these requirements in their home tenants. For example, when you configure your trust settings to trust MFA, your MFA policies are still applied to external users, but users who have already completed MFA in their home tenants won't have to complete MFA again in your tenant.
 
 ## Default settings
 
@@ -100,8 +100,6 @@ Count Ext TenantID/App User Pair
     6 45fc4ed2-8f2b-42c1-b98c-b254d552f4a7, AAD ID Gov, a@b.com
     6 45fc4ed2-8f2b-42c1-b98c-b254d552f4a7, Access Panel, a@b.com
 ```
-
-For the most up-to-date PowerShell script, see [Identify External Sign-ins PowerShell script](https://aka.ms/cross-tenant-signins-ps).
 
 ### Azure Monitor
 

@@ -178,7 +178,7 @@ With inbound settings, you select which external users and groups will be able t
 
 1. Select one or more of the following options:
 
-   - **Trust multi-factor authentication from Azure AD tenants**: Select this checkbox if your Conditional Access policies require multi-factor authentication (MFA). This setting allows your Conditional Access policies to trust MFA claims from external organizations. During authentication, Azure AD will check a user's credentials for a claim that the user has completed MFA. If not, an MFA challenge will be initiated in the user's home tenant.  
+   - **Trust multi-factor authentication from Azure AD tenants**: Select this checkbox to allow your Conditional Access policies to trust MFA claims from external organizations. During authentication, Azure AD will check a user's credentials for a claim that the user has completed MFA. If not, an MFA challenge will be initiated in the user's home tenant.  
 
    - **Trust compliant devices**: Allows your Conditional Access policies to trust compliant device claims from an external organization when their users access your resources.
 
