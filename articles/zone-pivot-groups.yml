@@ -941,6 +941,15 @@ groups:
     title: C#
   - id: programming-language-python
     title: Python
+# Owner: jordanselig
+- id: app-service-cli-portal
+  title: Experience
+  prompt: Choose an experience
+  pivots:
+  - id: experience-azp
+    title: Azure Portal
+  - id: experience-azcli
+    title: Azure CLI
 # Owner: msangapu
 - id: app-service-vscode-cli-portal
   title: Development environment
@@ -1611,6 +1620,15 @@ groups:
     title: Private container registry
   - id: container-apps-public-registry
     title: Public container registry
+# Owner: cshoe
+- id: azure-cli-or-portal
+  title: Interaction type
+  prompt: Select how you want to interact with Azure
+  pivots:
+  - id: azure-portal
+    title: Azure portal
+  - id: azure-cli
+    title: Azure CLI
 # Owner: duau
 - id: front-door-tiers
   title: Front Door tiers
