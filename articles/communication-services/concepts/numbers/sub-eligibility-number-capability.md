@@ -61,9 +61,11 @@ The tables below summarize current availability:
 |Denmark  |Local |   |   |Public Preview   |Public Preview*   |
 
 ***
-* Available through Azure Bot Framework and Dynamics only
+\* Available through Azure Bot Framework and Dynamics only
 
 ## Next Steps
-- Get a [Toll-Free or Local Phone Number](../../quickstarts/telephony/get-phone-number.md)
-- Get a [Short-Code](../../quickstarts/sms/apply-for-short-code.md)
+In this quickstart, you learned about Subscription Eligibility and Number Capabilities for Communication Services.
 
+The following documents may be interesting to you:
+- [Learn more about Telephony](../concepts/telephony/telephony-concept.md)
+- Get a Telephony capable [phone number](../quickstarts/telephony/get-phone-number.md)
