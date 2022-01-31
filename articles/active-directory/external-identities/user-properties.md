@@ -64,7 +64,7 @@ The user principal name for a B2B collaboration user object contains an #EXT# id
 
 This property indicates the relationship of the user to the host tenancy. This property can have two values:
 
-- **Member**: This value indicates an employee of the host organization and a user in the organization's payroll. For example, this user expects to have access to internal-only sites. This user is not considered an external collaborator.
+- **Member**: This value indicates an employee of the host organization and a user in the organization's payroll. For example, this user expects to have access to internal-only sites. This user isn't considered an external collaborator.
 
 - **Guest**: This value indicates a user who isn't considered internal to the company, such as an external collaborator, partner, or customer. Such a user isn't expected to receive a CEO's internal memo or receive company benefits, for example.
 
@@ -85,9 +85,9 @@ Microsoft account |  This user is homed in a Microsoft account and authenticates
 {host’s domain} | This user authenticates by using an Azure AD account that belongs to this organization.
 google.com | This user has a Gmail account and has signed up by using self-service to the other organization.
 facebook.com | This user has a Facebook account and has signed up by using self-service to the other organization.
-mail | This user has an email address that does not match with verified Azure AD or SAML/WS-Fed domains, and is not a Gmail address or a Microsoft account.
-phone | This user has an email address that does not match a verified Azure AD domain or a SAML/WS-Fed domain, and is not a Gmail address or Microsoft account.
-{issuer URI} | This user is homed in an external organization that does not use Azure Active Directory as their identity provider, but instead uses a SAML/WS-Fed based identity providers. The issuer URI is shown when the issuer field is clicked.
+mail | This user has an email address that doesn't match with verified Azure AD or SAML/WS-Fed domains, and is not a Gmail address or a Microsoft account.
+phone | This user has an email address that doesn't match a verified Azure AD domain or a SAML/WS-Fed domain, and is not a Gmail address or Microsoft account.
+{issuer URI} | This user is homed in an external organization that doesn't use Azure Active Directory as their identity provider, but instead uses a SAML/WS-Fed-based identity provider. The issuer URI is shown when the issuer field is clicked.
 
 ### Directory synced
 

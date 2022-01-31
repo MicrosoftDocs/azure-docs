@@ -36,7 +36,7 @@ B2B collaboration is enabled by default, but comprehensive admin settings let yo
 
 The default cross-tenant access settings apply to all Azure AD organizations external to your tenant, except those for which you've configured organizational settings. You can change your default settings, but the initial default settings for B2B collaboration are as follows:
 
-- All your internal users are enabled for B2B collaboration by default. This means your users can invite external guests to access your resources and they can be invited to external organizations as guests. MFA and device claims from other Azure AD organizations are not trusted.
+- All your internal users are enabled for B2B collaboration by default. This means your users can invite external guests to access your resources and they can be invited to external organizations as guests. MFA and device claims from other Azure AD organizations aren't trusted.
 
 - No organizations are added to your Organizational settings by default. This means all external Azure AD organizations are enabled for B2B collaboration with your organization.
 
@@ -58,7 +58,7 @@ You can configure organization-specific settings by adding an organization and m
 - If you want to apply access settings to specific users, groups, or applications in an external organization, you'll need to contact the organization for information before configuring your settings. Obtain their user object IDs, group object IDs, or application IDs (*client app IDs* or *resource app IDs*) so you can target your settings correctly.
 
   > [!TIP]
-  > You might be able to find the application IDs for apps in external organizations by checking your sign-in logs. See [Identify inbound and outbound sign-ins](#identify-inbound-and-outbound-sign-ins) below.
+  > You might be able to find the application IDs for apps in external organizations by checking your sign-in logs. See the [Identify inbound and outbound sign-ins](#identify-inbound-and-outbound-sign-ins) section.
 
 - The access settings you configure for users and groups must match the access settings for applications. Conflicting settings aren't allowed, and you’ll see warning messages if you try to configure them.
 
@@ -66,7 +66,7 @@ You can configure organization-specific settings by adding an organization and m
 
   - **Example 2**: If you allow outbound B2B collaboration for all your users (or specific users or groups), you’ll be prevented from blocking all access to external applications; access to at least one application must be allowed.
 
-- If you block access to all apps by default, users will be unable to read emails encrypted with Microsoft Rights Management Service (also known as OME). To avoid this issue, we recommend configuring your outbound settings to allow your users to access this app ID: 00000012-0000-0000-c000-000000000000. If this is the only application you allow, access to all other apps will be blocked by default.
+- If you block access to all apps by default, users will be unable to read emails encrypted with Microsoft Rights Management Service (also known as Office 365 Message Encryption or OME). To avoid this issue, we recommend configuring your outbound settings to allow your users to access this app ID: 00000012-0000-0000-c000-000000000000. If this is the only application you allow, access to all other apps will be blocked by default.
 
 - To configure cross-tenant access settings in the Azure portal, you'll need an account with a Global administrator or Security administrator role.
 
@@ -74,7 +74,7 @@ You can configure organization-specific settings by adding an organization and m
 
 ## Identify inbound and outbound sign-ins
 
-Several tools are available to help you identify the access your users and partners need before you set inbound and outbound access settings. To ensure you don’t remove access that your users and partners need, you can examine current sign-in behavior. Taking this preliminary step will help prevent loss of desired access for your end users and partner users. However, in some cases these logs are only retained for 30 days, so we strongly recommend you speak with your business stakeholders to ensure required access is not lost.
+Several tools are available to help you identify the access your users and partners need before you set inbound and outbound access settings. To ensure you don’t remove access that your users and partners need, you can examine current sign-in behavior. Taking this preliminary step will help prevent loss of desired access for your end users and partner users. However, in some cases these logs are only retained for 30 days, so we strongly recommend you speak with your business stakeholders to ensure required access isn't lost.
 
 ### Sign-In Logs
 
@@ -103,7 +103,7 @@ Count Ext TenantID/App User Pair
 
 ### Azure Monitor
 
-If your organization subscribes to the Azure Monitor service, you can use the [CrossTenantAccessActivity workbook](https://aka.ms/cross-tenant-signins-workbook) to visually explore inbound and outbound sign-ins for longer time periods.  
+If your organization subscribes to the Azure Monitor service, you can use the [CrossTenantAccessActivity workbook](../reports-monitoring/howto-use-azure-monitor-workbooks.md) to visually explore inbound and outbound sign-ins for longer time periods.  
 
 ### Security Information and Event Management (SIEM) Systems
 

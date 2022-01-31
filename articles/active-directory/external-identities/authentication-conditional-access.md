@@ -36,7 +36,7 @@ The following diagram illustrates the authentication flow when an Azure AD organ
 |**5**     | If MFA is required but not completed or if a device ID isn't provided, Azure AD issues MFA and device challenges in the user's home tenant as needed. When MFA and device requirements are satisfied in Fabrikam, the user is allowed access to the resource in Contoso. If the checks can’t be satisfied, access is blocked.        |
 |**6**     | When no trust settings are configured and MFA is required, B2B collaboration users are prompted for MFA, which they need to satisfy in the resource tenant. If device compliance is required, access is blocked.             |
 
-For more details, see the [Conditional Access for external users](#conditional-access-for-external-users) section below.
+For more information, see the [Conditional Access for external users](#conditional-access-for-external-users) section.
 
 ## Authentication flow for non-Azure AD external users
 
@@ -128,7 +128,7 @@ The following PowerShell cmdlets are available to *proof up* or request MFA regi
 
 ### Device-based Conditional Access
 
-In Conditional Access, there's an option to require a user’s [device to be compliant or hybrid Azure AD joined](../conditional-access/howto-conditional-access-policy-compliant-device.md). Because devices can only be managed by the home tenant, additional considerations must be made for external users. As the resource tenant, you can use cross-tenant access settings to trust device (compliant and hybrid azure AD joined) claims.
+In Conditional Access, there's an option to require a user’s [device to be compliant or hybrid Azure AD joined](../conditional-access/howto-conditional-access-policy-compliant-device.md). Because devices can only be managed by the home tenant, additional considerations must be made for external users. As the resource tenant, you can use cross-tenant access settings to trust device (compliant and hybrid Azure AD joined) claims.
 
 >[!Important]
 >
@@ -152,7 +152,7 @@ Policies can also be enforced based on **geographical locations**.
 
 The [Sign-in risk policy](../conditional-access/concept-conditional-access-conditions.md#sign-in-risk) is enforced if the B2B guest user satisfies the grant control. For example, an organization could require Azure AD Multi-Factor Authentication for medium or high sign-in risk. However, if a user hasn't previously registered for Azure AD Multi-Factor Authentication in the resource tenant, the user will be blocked. This is done to prevent malicious users from registering their own Azure AD Multi-Factor Authentication credentials in the event they compromise a legitimate user’s password.
 
-The [User-risk policy](../conditional-access/concept-conditional-access-conditions.md#user-risk) however cannot be resolved in the resource tenant. For example, if you require a password change for high-risk guest users, they'll be blocked because of the inability to reset passwords in the resource directory.
+The [User-risk policy](../conditional-access/concept-conditional-access-conditions.md#user-risk), however, can't be resolved in the resource tenant. For example, if you require a password change for high-risk guest users, they'll be blocked because of the inability to reset passwords in the resource directory.
 
 ### Conditional Access client apps condition
 
