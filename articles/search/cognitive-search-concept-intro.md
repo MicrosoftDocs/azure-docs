@@ -33,7 +33,7 @@ Built-in skills are based on pre-trained machine learning models in Cognitive Se
 
 Natural language and image processing is applied during the data ingestion phase, with results becoming part of a document's composition in a searchable index in Azure Cognitive Search. Data is sourced as an Azure data set and then pushed through an indexing pipeline using whichever [built-in skills](cognitive-search-predefined-skills.md) you need.  
 
-## Feature availability
+## Availability and pricing
 
 AI enrichment is available in regions where Azure Cognitive Services is also available. You can check the current availability of AI enrichment on the [Azure products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=search) page. AI enrichment is available in all supported regions except:
 
@@ -42,6 +42,8 @@ AI enrichment is available in regions where Azure Cognitive Services is also ava
 + Germany West Central
 
 If your search service is located in one of these regions, you will not be able to create and use skillsets, but all other search service functionality is available and fully supported.
+
+Billing is under a pay-as-you-go pricing model. The costs of using built-in skills is passed on to the customer when you provide a multi-region Cognitive Services key. There are also costs associated with image extraction, as metered by Cognitive search. Text extraction and utility skills are not billable. For more information , see [How you're charged for Azure Cognitive Search](search-sku-manage-costs#how-youre-charged-for-azure-cognitive-search).
 
 ## When to use AI enrichment
 
@@ -101,7 +103,7 @@ Indexing is the process wherein raw and enriched content is ingested as fields i
 
 Enriched content is generated during skillset execution, and is temporary unless you save it. In order for enriched content to appear in a search index, the indexer must have mapping information so that it can send enriched content to a field in a search index. [Output field mappings](cognitive-search-output-field-mapping.md) set up these associations.
 
-## Saving enriched output
+## Storing enriched output
 
 In Azure Cognitive Search, an indexer saves the output it creates.
 
@@ -113,7 +115,7 @@ Finally, an indexer can [**cache enriched documents**](cognitive-search-incremen
 
 Indexes and knowledge stores are fully independent of each other. While you must attach an index to satisfy indexer requirements, if your sole objective is a knowledge store, you can ignore the index after it's populated. Avoid deleting it though. If you want to rerun the indexer and skillset, you'll need the index in order for the indexer to run.
 
-## Consume enriched content
+## Consuming enriched content
 
 The output of AI enrichment is either a [fully text-searchable index](search-what-is-an-index.md) on Azure Cognitive Search, or a [knowledge store](knowledge-store-concept-intro.md) in Azure Storage.
 
