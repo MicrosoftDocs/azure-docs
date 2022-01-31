@@ -67,7 +67,7 @@ Once you've created your import manifest, if you're ready to import your update,
 
 If your update is more complex, such as a [proxy update](device-update-proxy-updates.md), you may need to create multiple import manifests. You can use the same PowerShell script from the previous section to create parent and child import manifests for complex updates. Run the following commands after replacing the sample parameter values with your own. See [Import schema and API information](import-schema.md) for details on what values you can use.
 
-    ```powershell
+  ```powershell
     Import-Module $PSScriptRoot/AduUpdate.psm1 -ErrorAction Stop
     
     # We will use arbitrary files as update payload files.
