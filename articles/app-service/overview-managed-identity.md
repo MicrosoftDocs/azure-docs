@@ -25,7 +25,7 @@ This article shows you how to create a managed identity for App Service and Azur
 
 # [Azure portal](#tab/portal)
 
-1. If using a function app, navigate to **Platform features**. For App Service, scroll down to the **Settings** group in the left navigation.
+1. In the left navigation of your app's page, scroll down to the **Settings** group.
 
 1. Select **Identity**.
 
@@ -135,7 +135,7 @@ First, you'll need to create a user-assigned identity resource.
 
 1. Create a user-assigned managed identity resource according to [these instructions](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md#create-a-user-assigned-managed-identity).
 
-1. For Functions, navigate to your app's **Platform features** page. For App Service, scroll down to the **Settings** group in the left navigation.
+1. In the left navigation for your app's page, scroll down to the **Settings** group.
 
 1. Select **Identity**.
 
@@ -353,7 +353,7 @@ When you remove a system-assigned identity, it's deleted from Azure Active Direc
 
 # [Azure portal](#tab/portal)
 
-1. If using a function app, navigate to **Platform features**. For App Service, scroll down to the **Settings** group in the left navigation.
+1. In the left navigation of your app's page, scroll down to the **Settings** group.
 
 1. Select **Identity**. Then follow the steps based on the identity type:
 
@@ -425,7 +425,7 @@ The **IDENTITY_ENDPOINT** is a local URL from which your app can request tokens.
 > | Parameter name    | In     | Description                                                                                                                                                                                                                                                                                                                                |
 > |-------------------|--------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 > | resource          | Query  | The Azure AD resource URI of the resource for which a token should be obtained. This could be one of the [Azure services that support Azure AD authentication](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) or any other resource URI.    |
-> | api-version       | Query  | The version of the token API to be used. Please use "2019-08-01" or later (unless using Linux Consumption, which currently only offers "2017-09-01" - see note above).                                                                                                                                                                                                                                                                 |
+> | api-version       | Query  | The version of the token API to be used. Use "2019-08-01" or later.                                                                                                                                                                                                                                                                 |
 > | X-IDENTITY-HEADER | Header | The value of the IDENTITY_HEADER environment variable. This header is used to help mitigate server-side request forgery (SSRF) attacks.                                                                                                                                                                                                    |
 > | client_id         | Query  | (Optional) The client ID of the user-assigned identity to be used. Cannot be used on a request that includes `principal_id`, `mi_res_id`, or `object_id`. If all ID parameters  (`client_id`, `principal_id`, `object_id`, and `mi_res_id`) are omitted, the system-assigned identity is used.                                             |
 > | principal_id      | Query  | (Optional) The principal ID of the user-assigned identity to be used. `object_id` is an alias that may be used instead. Cannot be used on a request that includes client_id, mi_res_id, or object_id. If all ID parameters (`client_id`, `principal_id`, `object_id`, and `mi_res_id`)  are omitted, the system-assigned identity is used. |
