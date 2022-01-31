@@ -11,7 +11,7 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli
 
 # Azure Monitor customer-managed key 
 
-Data in Azure Monitor is encrypted with Microsoft-managed keys. You can use your own encryption key to protect the data and saved queries in your workspaces. When you specify a customer-managed key, that key is used to protect and control access to your data and once configured, any data sent to your workspaces is encrypted with your Azure Key Vault key. Customer-managed keys offer greater flexibility to manage access controls.
+Data in Azure Monitor is encrypted with Microsoft-managed keys. You can use your own encryption key to protect the data and saved queries in your workspaces. Customer-managed keys give you greater flexibility to manage access controls. When you configure customer-managed key in [dedicated clusters](./logs-dedicated-clusters.md), any new data sent to linked workspaces is encrypted with your key stored in [Azure Key Vault](../../key-vault/general/overview.md) or [Azure Key Vault Managed HSM](../../key-vault/general/managed-hsm/overview.md). 
 
 We recommend you review [Limitations and constraints](#limitationsandconstraints) below before configuration.
 
@@ -56,7 +56,7 @@ The following rules apply:
 - The Log Analytics cluster storage accounts generate unique encryption key for every storage account, which is known as the AEK.
 - The AEK is used to derive DEKs, which are the keys that are used to encrypt each block of data written to disk.
 - When you configure your key in Key Vault and reference it in the cluster, Azure Storage sends requests to your Azure Key Vault to wrap and unwrap the AEK to perform data encryption and decryption operations.
-- Your KEK never leaves your Key Vault.
+- Your KEK never leaves your Key Vault and in the case of Managed HSM, it never leaves the hardware.
 - Azure Storage uses the managed identity that's associated with the *Cluster* resource to authenticate and access to Azure Key Vault via Azure Active Directory.
 
 ### Customer-Managed key provisioning steps
