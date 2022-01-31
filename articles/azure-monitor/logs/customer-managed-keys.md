@@ -21,7 +21,7 @@ We recommend you review [Limitations and constraints](#limitationsandconstraints
 
 Azure Monitor ensures that all data and saved queries are encrypted at rest using Microsoft-managed keys (MMK). You also have the option to encrypt data with your own key in [Azure Key Vault](../../key-vault/general/overview.md), with control over key lifecycle and ability to revoke  access to your data at any time. Azure Monitor use of encryption is identical to the way [Azure Storage encryption](../../storage/common/storage-service-encryption.md#about-azure-storage-encryption) operates.
 
-Customer-managed key is delivered on [dedicated clusters](./logs-dedicated-clusters.md) providing higher protection level and control. Data to dedicated clusters is encrypted twice—once at the service level using Microsoft-managed keys or Customer-managed keys, and once at the infrastructure level, using two different encryption algorithms and two different keys. [Double encryption](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) protects against a scenario where one of the encryption algorithms or keys may be compromised. In this case, the additional layer of encryption continues to protect your data. Dedicated cluster also allows you to protect your data with [Lockbox](#customer-lockbox-preview) control.
+Customer-managed key is delivered on [dedicated clusters](./logs-dedicated-clusters.md) providing higher protection level and control. Data to dedicated clusters is encrypted twice, once at the service level using Microsoft-managed keys or Customer-managed keys, and once at the infrastructure level, using two different encryption algorithms and two different keys. [Double encryption](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) protects against a scenario where one of the encryption algorithms or keys may be compromised. In this case, the additional layer of encryption continues to protect your data. Dedicated cluster also allows you to protect your data with [Lockbox](#customer-lockbox-preview) control.
 
 Data ingested in the last 14 days or recently used in queries is kept in hot-cache (SSD-backed) for query efficiency. SSD data is encrypted with Microsoft keys regardless customer-managed key configuration, but your control over SSD access adheres to [key revocation](#key-revocation)
 
@@ -97,7 +97,7 @@ Follow the procedure illustrated in [Dedicated Clusters article](./logs-dedicate
 
 ## Grant Key Vault permissions
 
-Create Access Policy in Key Vault to grants permissions to your cluster. These permissions are used by the underlay Azure Monitor storage. Open your Key Vault in Azure portal and click *"Access Policies"* then *"+ Add Access Policy"* to create a policy with these settings:
+Create Access Policy in Key Vault to grants permissions to your cluster. These permissions are used by the underlay cluster storage. Open your Key Vault in Azure portal and click *Access Policies* then *+ Add Access Policy* to create a policy with these settings:
 
 - Key permissions: select *Get*, *Wrap Key* and *Unwrap Key*.
 - Select principal: depending on the identity type used in the cluster (system or user assigned managed identity)
@@ -221,7 +221,7 @@ A response to GET request should look like this when the key update is complete:
 > [!IMPORTANT]
 > This step should be performed only after the cluster provisioning. If you link workspaces and ingest data prior to the provisioning, ingested data will be dropped and won't be recoverable.
 
-You need to have 'write' permissions to both your workspace and cluster to perform this operation, which include `Microsoft.OperationalInsights/workspaces/write` and `Microsoft.OperationalInsights/clusters/write`.
+You need to have "write" permissions on your workspace and cluster to perform this operation. It include `Microsoft.OperationalInsights/workspaces/write` and `Microsoft.OperationalInsights/clusters/write`.
 
 Follow the procedure illustrated in [Dedicated Clusters article](./logs-dedicated-clusters.md#link-a-workspace-to-a-cluster).
 
@@ -231,13 +231,13 @@ Follow the procedure illustrated in [Dedicated Clusters article](./logs-dedicate
 > - The recommended way to revoke access to your data is by disabling your key, or deleting Access Policy in your Key Vault.
 > - Setting the cluster's `identity` `type` to `None` also revokes access to your data, but this approach isn't recommended since you can't revert it without contacting support.
 
-The cluster storage will always respect changes in key permissions within an hour or sooner and storage will become unavailable. New data ingested to linked workspaces is dropped and non-recoverable. Data is inaccessible on these workspaces and queries fail. Previously ingested data remains in storage as long as your cluster and your workspaces aren't deleted. Inaccessible data is governed by the data-retention policy and will be purged when retention is reached. Data ingested in the last 14 days and data recently used in queries is also kept in hot-cache (SSD-backed) for query efficiency. The data on SSD gets deleted on key revocation operation and becomes inaccessible. The cluster storage attempts reach your Key Vault to unwrap encryption periodically, and when key is enabled, unwrap succeeds, SSD data is reloaded from storage, data ingestion and query are resumed within 30-minutes.
+The cluster storage will always respect changes in key permissions within an hour or sooner and storage will become unavailable. New data ingested to linked workspaces is dropped and non-recoverable. Data is inaccessible on these workspaces and queries fail. Previously ingested data remains in storage as long as your cluster and your workspaces aren't deleted. Inaccessible data is governed by the data-retention policy and will be purged when retention is reached. Data ingested in the last 14 days and data recently used in queries is also kept in hot-cache (SSD-backed) for query efficiency. The data on SSD gets deleted on key revocation operation and becomes inaccessible. The cluster storage attempts reach your Key Vault to unwrap encryption periodically, and when key is enabled, unwrap succeeds, SSD data is reloaded from storage, data ingestion and query are resumed within 30 minutes.
 
 ## Key rotation
 
 Key rotation has two modes: 
-- Auto-rotation — update your cluster with ```"keyVaultProperties"``` but omit ```"keyVersion"``` property, or set it to ```""```. Storage will automatically use the latest versions.
-- Explicit key version update — Update your cluster with key version in ```"keyVersion"``` property. Rotatio of keys require an explicit ```"keyVaultProperties"``` update in cluster, see [Update cluster with Key identifier details](#update-cluster-with-key-identifier-details). If you generate new key version in Key Vault but don't update it in the cluster, the cluster storage will keep using your previous key. If you disable, or delete the old key before updating a new one in the cluster, you will get into [key revocation](#key-revocation) state.
+- Autorotation: update your cluster with ```"keyVaultProperties"``` but omit ```"keyVersion"``` property, or set it to ```""```. Storage will automatically use the latest versions.
+- Explicit key version update: update your cluster with key version in ```"keyVersion"``` property. Rotatio of keys require an explicit ```"keyVaultProperties"``` update in cluster, see [Update cluster with Key identifier details](#update-cluster-with-key-identifier-details). If you generate new key version in Key Vault but don't update it in the cluster, the cluster storage will keep using your previous key. If you disable, or delete the old key before updating a new one in the cluster, you will get into [key revocation](#key-revocation) state.
 
 All your data remains accessible after the key rotation operation. Data always encrypted with the Account Encryption Key ("AEK"), which is encrypted with your new Key Encryption Key ("KEK") version in Key Vault.
 
@@ -251,13 +251,13 @@ The query language used in Log Analytics is expressive and can contain sensitive
 When link your own storage (BYOS) to workspace, the service stores *saved-searches* and *log alerts* queries to your Storage Account. With the control on Storage Account and the [encryption-at-rest policy](../../storage/common/customer-managed-keys-overview.md), you can protect *saved-searches* and *log alerts* with Customer-managed key. You will, however, be responsible for the costs associated with that Storage Account. 
 
 **Considerations before setting Customer-managed key for queries**
-* You need to have 'write' permissions to both your workspace and Storage Account
-* Make sure to create your Storage Account in the same region as your Log Analytics workspace is located
-* The *saves searches* in storage is considered as service artifacts and their format may change
-* Existing *saves searches* are removed from your workspace. Copy and any *saves searches* that you need before the configuration. You can view your *saved-searches* using  [PowerShell](/powershell/module/az.operationalinsights/get-azoperationalinsightssavedsearch)
-* Query history isn't supported and you won't be able to see queries that you ran
-* You can link a single Storage Account to a workspace, which can be used for both *saved-searches* and *log alerts* queries
-* Pin to dashboard isn't supported
+* You need to have "write" permissions on your workspace and Storage Account.
+* Make sure to create your Storage Account in the same region as your Log Analytics workspace is located.
+* The *saves searches* in storage is considered as service artifacts and their format may change.
+* Existing *saves searches* are removed from your workspace. Copy and any *saves searches* that you need before the configuration. You can view your *saved-searches* using  [PowerShell](/powershell/module/az.operationalinsights/get-azoperationalinsightssavedsearch).
+* Query history isn't supported and you won't be able to see queries that you ran.
+* You can link a single Storage Account to a workspace, which can be used for both *saved-searches* and *log alerts* queries.
+* Pin to dashboard isn't supported.
 * Fired log alerts will not contains search results or alert query. You can use [alert dimensions](../alerts/alerts-unified-log.md#split-by-alert-dimensions) to get context in the fired alerts.
 
 **Configure BYOS for saved-searches queries**
@@ -380,16 +380,16 @@ Customer-Managed key is provided on dedicated cluster and these operations are r
 
 ## Limitations and constraints
 
-- The max number of cluster per region and subscription is 2
+- The max number of cluster per region and subscription is two.
 
-- The maximum number of workspaces that can be linked to a cluster is 1000
+- The maximum number of workspaces that can be linked to a cluster is 1000.
 
-- You can link a workspace to your cluster and then unlink it. The number of workspace link operations on particular workspace is limited to 2 in a period of 30 days.
+- You can link a workspace to your cluster and then unlink it. The number of workspace link operations on particular workspace is limited to two in a period of 30 days.
 
 - Customer-managed key encryption applies to newly ingested data after the configuration time. Data that was ingested prior to the configuration, remains encrypted with Microsoft key. You can query data ingested before and after the Customer-managed key configuration seamlessly.
 
 - The Azure Key Vault must be configured as recoverable. These properties aren't enabled by default and should be configured using CLI or PowerShell:<br>
-  - [Soft Delete](../../key-vault/general/soft-delete-overview.md)
+  - [Soft Delete](../../key-vault/general/soft-delete-overview.md).
   - [Purge protection](../../key-vault/general/soft-delete-overview.md#purge-protection) should be turned on to guard against force deletion of the secret, vault even after soft delete.
 
 - Cluster move to another resource group or subscription isn't supported currently.
@@ -401,7 +401,7 @@ Customer-Managed key is provided on dedicated cluster and these operations are r
 - Lockbox isn't available in China currently. 
 
 - [Double encryption](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) is configured automatically for clusters created from October 2020 in supported regions. You can verify if your cluster is configured for double encryption by sending a GET request on the cluster and observing that the `isDoubleEncryptionEnabled` value is `true` for clusters with Double encryption enabled. 
-  - If you create a cluster and get an error: "region-name doesn’t support Double Encryption for clusters.", you can still create the cluster without Double encryption, by adding `"properties": {"isDoubleEncryptionEnabled": false}` in the REST request body.
+  - If you create a cluster and get an error: "region-name doesn’t support Double Encryption for clusters", you can still create the cluster without Double encryption, by adding `"properties": {"isDoubleEncryptionEnabled": false}` in the REST request body.
   - Double encryption setting can not be changed after the cluster has been created.
 
   - Setting the cluster's `identity` `type` to `None` also revokes access to your data, but this approach isn't recommended since you can't revert it without contacting support. The recommended way to revoke access to your data is [key revocation](#key-revocation).
@@ -410,12 +410,12 @@ Customer-Managed key is provided on dedicated cluster and these operations are r
 
 ## Troubleshooting
 
-- Behavior with Key Vault availability
-  - Normal operation — Storage caches "AEK" for short periods of time and goes back to Key Vault to unwrap periodically.
+- Behavior per Key Vault availability:
+  - Normal operation: storage caches "AEK" for short periods of time and goes back to Key Vault to unwrap periodically.
     
-  - Key Vault connection errors — Storage handles transient errors (timeouts, connection failures, "DNS" issues), by allowing keys to stay in cache for the duration of the availability issue, and it overcomes blips and availability issues. The query and ingestion capabilities continue without interruption.
+  - Key Vault connection errors: storage handles transient errors (timeouts, connection failures, "DNS" issues), by allowing keys to stay in cache for the duration of the availability issue, and it overcomes blips and availability issues. The query and ingestion capabilities continue without interruption.
     
-- Key Vault access rate — The frequency that Azure Monitor Storage accesses Key Vault for wrap and unwrap operations is between 6 to 60 seconds.
+- Key Vault access rate — The frequency that Azure the cluster storage accesses Key Vault for wrap and unwrap is between 6 to 60 seconds.
 
 - If you update your cluster while it's at provisioning state, or updating state, the update will fail.
 
