@@ -244,10 +244,18 @@ database, change the IP address, usernames, and passwords as appropriate:
 
     This example sets the permission for the AZACSNAP user to allow for performing a database
     consistent storage snapshot.
+    
+    1. For SAP HANA releases up to version 2.0 SPS 03
 
-    ```sql
-    hdbsql SYSTEMDB=> GRANT BACKUP ADMIN, CATALOG READ, MONITORING TO AZACSNAP;
-    ```
+       ```sql
+       hdbsql SYSTEMDB=> GRANT BACKUP ADMIN, CATALOG READ TO AZACSNAP;
+       ```
+
+    1. For SAP HANA releases from version 2.0 SPS 04, SAP added new fine-grained privileges
+
+       ```sql
+       hdbsql SYSTEMDB=> GRANT BACKUP ADMIN, DATABASE BACKUP ADMIN, CATALOG READ TO AZACSNAP;
+       ```
 
 1. *OPTIONAL* - Prevent user's password from expiring
 
