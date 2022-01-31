@@ -28,197 +28,7 @@ In this tutorial, you deploy the same applications from the Dapr [Hello World](h
 
 :::image type="content" source="media/microservices-dapr/azure-container-apps-microservices-dapr.png" alt-text="Architecture diagram for Dapr Hello World microservices on Azure Container Apps":::
 
-## Prerequisites
-
-* [Azure CLI](/cli/azure/install-azure-cli)
-
-## Before you begin
-
-This guide makes use of the following environment variables:
-
-# [Bash](#tab/bash)
-
-```bash
-RESOURCE_GROUP="my-containerapps"
-LOCATION="canadacentral"
-CONTAINERAPPS_ENVIRONMENT="containerapps-env"
-LOG_ANALYTICS_WORKSPACE="containerapps-logs"
-STORAGE_ACCOUNT_CONTAINER="mycontainer"
-```
-
-# [PowerShell](#tab/powershell)
-
-```powershell
-$RESOURCE_GROUP="my-containerapps"
-$LOCATION="canadacentral"
-$CONTAINERAPPS_ENVIRONMENT="containerapps-env"
-$LOG_ANALYTICS_WORKSPACE="containerapps-logs"
-$STORAGE_ACCOUNT_CONTAINER="mycontainer"
-```
-
----
-
-The above snippet can be used to set the environment variables using bash, zsh, or PowerShell.
-
-# [Bash](#tab/bash)
-
-```bash
-STORAGE_ACCOUNT="<storage account name>"
-```
-
-# [PowerShell](#tab/powershell)
-
-```powershell
-$STORAGE_ACCOUNT="<storage account name>"
-```
-
----
-
-Choose a name for `STORAGE_ACCOUNT`. It will be created in a following step. Storage account names must be *unique within Azure* and between 3 and 24 characters in length and may contain numbers and lowercase letters only.
-
-## Setup
-
-Begin by signing in to Azure from the CLI.
-
-Run the following command, and follow the prompts to complete the authentication process.
-
-# [Bash](#tab/bash)
-
-```azurecli
-az login
-```
-
-# [PowerShell](#tab/powershell)
-
-```azurecli
-az login
-```
-
----
-
-Ensure you're running the latest version of the CLI via the upgrade command.
-
-# [Bash](#tab/bash)
-
-```azurecli
-az upgrade
-```
-
-# [PowerShell](#tab/powershell)
-
-```azurecli
-az upgrade
-```
-
----
-
-Next, install the Azure Container Apps extension to the CLI.
-
-# [Bash](#tab/bash)
-
-```azurecli
-az extension add \
-  --source https://workerappscliextension.blob.core.windows.net/azure-cli-extension/containerapp-0.2.0-py2.py3-none-any.whl 
-```
-
-# [PowerShell](#tab/powershell)
-
-```azurecli
-az extension add `
-  --source https://workerappscliextension.blob.core.windows.net/azure-cli-extension/containerapp-0.2.0-py2.py3-none-any.whl 
-```
-
----
-
-Now that the extension is installed, register the `Microsoft.Web` namespace.
-
-# [Bash](#tab/bash)
-
-```azurecli
-az provider register --namespace Microsoft.Web
-```
-
-# [PowerShell](#tab/powershell)
-
-```azurecli
-az provider register --namespace Microsoft.Web
-```
-
----
-
-Create a resource group to organize the services related to your new container app.
-
-# [Bash](#tab/bash)
-
-```azurecli
-az group create \
-  --name $RESOURCE_GROUP \
-  --location "$LOCATION"
-```
-
-# [PowerShell](#tab/powershell)
-
-```azurecli
-az group create `
-  --name $RESOURCE_GROUP `
-  --location "$LOCATION"
-```
-
----
-
-With the CLI upgraded and a new resource group available, you can create a Container Apps environment and deploy your container app.
-
-## Create an environment
-
-Azure Container Apps environments act as isolation boundaries between a group of container apps. Container Apps deployed to the same environment are deployed in the same virtual network and write logs to the same Log Analytics workspace.
-
-Azure Log Analytics is used to monitor your container app and is required when creating a Container Apps environment.
-
-Create a new Log Analytics workspace with the following command:
-
-# [Bash](#tab/bash)
-
-```azurecli
-az monitor log-analytics workspace create \
-  --resource-group $RESOURCE_GROUP \
-  --workspace-name $LOG_ANALYTICS_WORKSPACE
-```
-
-# [PowerShell](#tab/powershell)
-
-```azurecli
-az monitor log-analytics workspace create `
-  --resource-group $RESOURCE_GROUP `
-  --workspace-name $LOG_ANALYTICS_WORKSPACE
-```
-
----
-
-Next, retrieve the Log Analytics Client ID and client secret.
-
-# [Bash](#tab/bash)
-
-Make sure to run each query separately to give enough time for the request to complete.
-
-```bash
-LOG_ANALYTICS_WORKSPACE_CLIENT_ID=`az monitor log-analytics workspace show --query customerId -g $RESOURCE_GROUP -n $LOG_ANALYTICS_WORKSPACE --out tsv`
-```
-
-```bash
-LOG_ANALYTICS_WORKSPACE_CLIENT_SECRET=`az monitor log-analytics workspace get-shared-keys --query primarySharedKey -g $RESOURCE_GROUP -n $LOG_ANALYTICS_WORKSPACE --out tsv`
-```
-
-# [PowerShell](#tab/powershell)
-
-Make sure to run each query separately to give enough time for the request to complete.
-
-```powershell
-$LOG_ANALYTICS_WORKSPACE_CLIENT_ID=(az monitor log-analytics workspace show --query customerId -g $RESOURCE_GROUP -n $LOG_ANALYTICS_WORKSPACE --out tsv)
-```
-
-```powershell
-$LOG_ANALYTICS_WORKSPACE_CLIENT_SECRET=(az monitor log-analytics workspace get-shared-keys --query primarySharedKey -g $RESOURCE_GROUP -n $LOG_ANALYTICS_WORKSPACE --out tsv)
-```
+[!INCLUDE [container-apps-create-cli-steps.md](../../includes/container-apps-create-cli-steps.md)]
 
 ---
 
@@ -252,6 +62,23 @@ az containerapp env create `
 
 ### Create an Azure Blob Storage account
 
+
+Choose a name for `STORAGE_ACCOUNT`. It will be created in a following step. Storage account names must be *unique within Azure* and between 3 and 24 characters in length and may contain numbers and lowercase letters only.
+
+# [Bash](#tab/bash)
+
+```bash
+STORAGE_ACCOUNT="<storage account name>"
+```
+
+# [PowerShell](#tab/powershell)
+
+```powershell
+$STORAGE_ACCOUNT="<storage account name>"
+```
+
+---
+
 Use the following command to create a new Azure Storage account.
 
 # [Bash](#tab/bash)
@@ -267,13 +94,11 @@ az storage account create \
 
 # [PowerShell](#tab/powershell)
 
-```azurecli
-az storage account create `
-  --name $STORAGE_ACCOUNT `
-  --resource-group $RESOURCE_GROUP `
-  --location "$LOCATION" `
-  --sku Standard_RAGRS `
-  --kind StorageV2
+```powershell
+New-AzStorageAccount -ResourceGroupName $RESOURCE_GROUP `
+  -Name $STORAGE_ACCOUNT `
+  -Location $LOCATION `
+  -SkuName Standard_RAGRS
 ```
 
 ---
@@ -299,7 +124,7 @@ echo $STORAGE_ACCOUNT_KEY
 # [PowerShell](#tab/powershell)
 
 ```powershell
-$STORAGE_ACCOUNT_KEY=(az storage account keys list --resource-group $RESOURCE_GROUP --account-name $STORAGE_ACCOUNT --query '[0].value' --out tsv)
+$STORAGE_ACCOUNT_KEY=(Get-AzStorageAccountKey -ResourceGroupName $RESOURCE_GROUP -AccountName $STORAGE_ACCOUNT)| Where-Object -Property KeyName -Contains 'key1' | Select-Object -ExpandProperty Value
 ```
 
 ```powershell
@@ -455,11 +280,9 @@ az monitor log-analytics query \
 
 # [PowerShell](#tab/powershell)
 
-```azurecli
-az monitor log-analytics query `
-  --workspace $LOG_ANALYTICS_WORKSPACE_CLIENT_ID `
-  --analytics-query "ContainerAppConsoleLogs_CL | where ContainerAppName_s == 'nodeapp' and (Log_s contains 'persisted' or Log_s contains 'order') | project ContainerAppName_s, Log_s, TimeGenerated | take 5" `
-  --out table
+```powershell
+$queryResults = Invoke-AzOperationalInsightsQuery -WorkspaceId $LOG_ANALYTICS_WORKSPACE_CLIENT_ID -Query "ContainerAppConsoleLogs_CL | where ContainerAppName_s == 'nodeapp' and (Log_s contains 'persisted' or Log_s contains 'order') | project ContainerAppName_s, Log_s, TimeGenerated | take 5"
+$queryResults.Results
 ```
 
 ---
@@ -492,9 +315,8 @@ az group delete \
 
 # [PowerShell](#tab/powershell)
 
-```azurecli
-az group delete `
-    --resource-group $RESOURCE_GROUP
+```powershell
+Remove-AzResourceGroup -Name $RESOURCE_GROUP -Force
 ```
 
 ---
