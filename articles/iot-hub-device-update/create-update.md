@@ -31,7 +31,7 @@ Now that you've set up Device Update and provisioned your devices, you'll need t
 
 When creating an update to be deployed using Device Update for IoT Hub, start with either the [image-based or package-based approach](understand-device-update.md#support-for-a-wide-range-of-update-artifacts) depending on your scenario.
 
-## Create a Device Update import manifest
+## Create a basic Device Update import manifest
 
 Once you have your update files, create an import manifest to describe the update. If you haven't already done so, be sure to familiarize yourself with the basic [import concepts](import-concepts.md). While it is possible to author an import manifest JSON manually using a text editor, this guide will use PowerShell as example.
 
@@ -61,6 +61,11 @@ Once you have your update files, create an import manifest to describe the updat
     $update | Out-File "./$($updateId.provider).$($updateId.name).$($updateId.version).importmanifest.json" -Encoding utf8
     ```
 
+Once you've created your import manifest, if you're ready to import your update, you can scroll to the Next steps link at the bottom of this page.
+
+## Create an advanced Device Update import manifest for a proxy update
+
+If your update is more complex, such as a [proxy update](device-update-proxy-updates.md), you may need to create multiple import manifests. You can use the same PowerShell script from the previous section to create parent and child import manifests for complex updates. Run the following commands after replacing the sample parameter values with your own. See [Import schema and API information](import-schema.md) for details on what values you can use.
 
 ## Next steps
 
