@@ -234,7 +234,7 @@ The fields below are specific to DNS events, although many are similar to fields
 
 ### Deprecated aliases
 
-The following fields are aliases that, although currently deprecated, are maintained for backwards compatibility. They have been removed from the schema on December 31st, 2021.
+The following fields are aliases that, although currently deprecated, are maintained for backwards compatibility. They were removed from the schema on December 31st, 2021.
 
 - Query (alias to DnsQuery)
 - QueryType (alias to DnsQueryType)
@@ -261,7 +261,9 @@ These are the changes in version 0.1.3 of the schema:
 
 ## Source-specific discrepancies 
 
-The goal of normalizing is to ensure that all sources provide consistent telemetry. A source that doesn't provide required telemetry, for example, mandatory schema fields, cannot be normalized. That said, a source that typically provides all required telemetry, apart from specific situations, can be normalized. The discrepancies may affect the completeness of query results and therefore known discrepancies are listed here:
+The goal of normalizing is to ensure that all sources provide consistent telemetry. A source that doesn't provide the required telemetry, such as mandatory schema fields, cannot be normalized. However, sources that typically provide all required telemetry, even if there are some discrepancies, can be normalized. Discrepancies may affect the completeness of query results.
+
+The following table lists known discrepancies:
 
 | Source | Discrepancies |
 | ------ | ------------- |

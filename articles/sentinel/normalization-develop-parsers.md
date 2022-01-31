@@ -85,20 +85,29 @@ Event | where Source == "Microsoft-Windows-Sysmon" and EventID == 1
 
 #### Filtering by source type using a Watchlist
 
-In some cases, the event itself does not contain information that would allow to filter only events for a specific source type. For example, Infoblox DNS events are send as Syslog messages and are hard to distinguish from  Syslog messages from other sources. In such cases, the parser has to rely on the list of sources that provide events of the relevant type. The list is maintained in the ASimSourceType watchlist.
+In some cases, the event itself does not contain information that would allow filtering for specific source types.
 
-To use ASimSourceType watchlist in your parsers, include the following line at the beginning of your parser:
+For example, Infoblox DNS events are sent as Syslog messages, and are hard to distinguish from Syslog messages sent from other sources. In such cases, the parser relies on a list of sources that defines the relevant events. This list is maintained in the **ASimSourceType** watchlist.
+
+**To use the ASimSourceType watchlist in your parsers**:
+
+1. Include the following line at the beginning of your parser:
 
 ```KQL
   let Sources_by_SourceType=(sourcetype:string){_GetWatchlist('ASimSourceType') | where SearchKey == tostring(sourcetype) | extend Source=column_ifexists('Source','') | where isnotempty(Source)| distinct Source };
 ```
-Next, add a filter that uses the Watchlist in the parser filtering section. For example, the Infoblox DNS parser includes the following in the filtering section:
+
+2. Add a filter that uses the watchlist in the parser filtering section. For example, the Infoblox DNS parser includes the following in the filtering section:
 
 ```KQL
   | where Computer in (Sources_by_SourceType('InfobloxNIOS'))
 ```
 
-Replace `Computer` with the name of the field that includes the source information for your source. You can keep it as `Computer` for any parsers based on Syslog. Replace the token `InfobloxNIOS` with a value of your choice for your parser and let the parser users know that they need to update the ASimSourceType using this value and the list of sources sending events of this type.
+To use this sample in your parser:
+
+ * Replace `Computer` with the name of the field that includes the source information for your source. You can keep this as `Computer` for any parsers based on Syslog.
+
+ * Replace the `InfobloxNIOS` token with a value of your choice for your parser. Inform parser users that they must update the `ASimSourceType` watchlist using your selected value, as well as the list of sources that send events of this type.
 
 #### Filtering based on parser parameters
 
