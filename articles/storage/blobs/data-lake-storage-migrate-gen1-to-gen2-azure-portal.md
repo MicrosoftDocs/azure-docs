@@ -5,7 +5,7 @@ description: You can simplify the task of migrating between Azure Data Lake Stor
 author: normesta
 ms.topic: how-to
 ms.author: normesta
-ms.date: 07/13/2021
+ms.date: 12/21/2021
 ms.service: storage
 ms.reviewer: rukmani-msft
 ms.subservice: data-lake-storage-gen2
@@ -147,6 +147,20 @@ If you perform a complete migration, data is copied from Gen1 to Gen2. Then, you
 ## Migrate workloads and applications
 
 1. Configure [services in your workloads](./data-lake-storage-supported-azure-services.md) to point to your Gen2 endpoint.
+
+
+   For HDInsight clusters, you can add storage account configuration settings to the %HADOOP_HOME%/conf/core-site.xml file. If you plan to migrate external Hive tables from Gen1 to Gen2, then make sure to add storage account settings to the %HIVE_CONF_DIR%/hive-site.xml file as well.
+
+   You can modify the settings each file by using [Apache Ambari](../../hdinsight/hdinsight-hadoop-manage-ambari.md). To find storage account settings, see [Hadoop Azure Support: ABFS — Azure Data Lake Storage Gen2](https://hadoop.apache.org/docs/stable/hadoop-azure/abfs.html). This example uses the `fs.azure.account.key` setting to enable Shared Key authorization:
+
+   ```xml
+   <property>
+     <name>fs.azure.account.key.abfswales1.dfs.core.windows.net</name>
+     <value>your-key-goes-here</value>
+   </property>
+   ```
+ 
+   For links to articles that help you configure HDInsight, Azure Databricks, and other Azure services to use Gen2, see [Azure services that support Azure Data Lake Storage Gen2](data-lake-storage-supported-azure-services.md).
 
 2. Update applications to use Gen2 APIs. See these guides:
 

@@ -4,13 +4,12 @@ description: Describes the different roles in Azure - Classic subscription admin
 services: active-directory
 documentationcenter: ''
 author: rolyon
-manager: mtillman
+manager: karenhoran
 
 ms.assetid: 174f1706-b959-4230-9a75-bf651227ebf6
 ms.service: role-based-access-control
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: overview
 ms.date: 05/20/2021
 ms.author: rolyon
@@ -42,7 +41,7 @@ Account Administrator, Service Administrator, and Co-Administrator are the three
 | --- | --- | --- | --- |
 | Account Administrator | 1 per Azure account | <ul><li>Can access the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) and manage billing</li><li>Manage billing for all subscriptions in the account</li><li>Create new subscriptions</li><li>Cancel subscriptions</li><li>Change the billing for a subscription</li><li>Change the Service Administrator</li><li>Can't cancel subscriptions unless they have the Service Administrator or subscription Owner role</li></ul> | Conceptually, the billing owner of the subscription. |
 | Service Administrator | 1 per Azure subscription | <ul><li>Manage services in the [Azure portal](https://portal.azure.com)</li><li>Cancel the subscription</li><li>Assign users to the Co-Administrator role</li></ul> | By default, for a new subscription, the Account Administrator is also the Service Administrator.<br>The Service Administrator has the equivalent access of a user who is assigned the Owner role at the subscription scope.<br>The Service Administrator has full access to the Azure portal. |
-| Co-Administrator | 200 per subscription | <ul><li>Same access privileges as the Service Administrator, but can’t change the association of subscriptions to Azure directories</li><li>Assign users to the Co-Administrator role, but cannot change the Service Administrator</li></ul> | The Co-Administrator has the equivalent access of a user who is assigned the Owner role at the subscription scope. |
+| Co-Administrator | 200 per subscription | <ul><li>Same access privileges as the Service Administrator, but can’t change the association of subscriptions to Azure AD directories</li><li>Assign users to the Co-Administrator role, but cannot change the Service Administrator</li></ul> | The Co-Administrator has the equivalent access of a user who is assigned the Owner role at the subscription scope. |
 
 In the Azure portal, you can manage Co-Administrators or view the Service Administrator by using the **Classic administrators** tab.
 

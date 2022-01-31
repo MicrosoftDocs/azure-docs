@@ -104,7 +104,7 @@ Here is a list of useful technical resources for Azure Maps.
 - Documentation: [https://aka.ms/AzureMapsDocs](./index.yml)
 - Web SDK Code Samples: [https://aka.ms/AzureMapsSamples](https://aka.ms/AzureMapsSamples)
 - Developer Forums: [https://aka.ms/AzureMapsForums](/answers/topics/azure-maps.html)
-- Videos: [https://aka.ms/AzureMapsVideos](https://aka.ms/AzureMapsVideos)
+- Videos: [https://aka.ms/AzureMapsVideos](/shows/)
 - Blog: [https://aka.ms/AzureMapsBlog](https://aka.ms/AzureMapsBlog)
 - Tech Blog: [https://aka.ms/AzureMapsTechBlog](https://aka.ms/AzureMapsTechBlog)
 - Azure Maps Feedback (UserVoice): [https://aka.ms/AzureMapsFeedback](/answers/topics/25319/azure-maps.html)

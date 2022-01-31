@@ -33,7 +33,7 @@ Take the following steps in the Azure portal to create an action rule for your A
 > [!NOTE]
 > These steps create an action rule that sends notifications to an action group. For details about creating an action rule to suppress notifications, see [Configuring an action rule](../azure-monitor/alerts/alerts-action-rules.md?tabs=portal#configuring-an-action-rule).
 
-1. Go to the Azure Stack Edge device in the [Azure portal](https://portal.azure.com.), and select the **Alerts** menu item (under **Monitoring**). Then select **Action rules (preview)**.
+1. Go to the Azure Stack Edge device in the [Azure portal](https://portal.azure.com), and select the **Alerts** menu item (under **Monitoring**). Then select **Action rules (preview)**.
 
    ![Screenshot showing the Alerts screen for an Azure Stack Edge resource. The Action Rules Preview command is highlighted.](media/azure-stack-edge-gpu-manage-device-event-alert-notifications/action-rules-open-view-01.png)
 

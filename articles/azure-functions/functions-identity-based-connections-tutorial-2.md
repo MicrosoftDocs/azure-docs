@@ -4,6 +4,7 @@ ms.service: azure-functions
 description: Learn how to use identity-based connections instead of connection strings when connecting to a Service Bus queue using Azure Functions.
 ms.topic: tutorial
 ms.date: 10/20/2021
+ms.devlang: csharp
 #Customer intent: As a function developer, I want to learn how to use managed identities so that I can avoid having to handle connection strings in my application settings.
 ---
 

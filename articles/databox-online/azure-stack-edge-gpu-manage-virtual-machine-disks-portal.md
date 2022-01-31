@@ -9,7 +9,7 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/02/2021
 ms.author: alkohli
-Customer intent: As an IT admin, I need to understand how to manage disks on a VM running on an Azure Stack Edge Pro device so that I can use it to run applications using Edge compute before sending it to Azure.
+#Customer intent: As an IT admin, I need to understand how to manage disks on a VM running on an Azure Stack Edge Pro device so that I can use it to run applications using Edge compute before sending it to Azure.
 ---
 
 # Use the Azure portal to manage disks on the VMs on your Azure Stack Edge Pro GPU

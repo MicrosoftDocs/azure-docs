@@ -9,12 +9,10 @@ ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: calling
 zone_pivot_groups: acs-plat-web-ios-android-windows
-ms.custom: mode-other
+ms.custom: mode-api
 ---
 
 # QuickStart: Add 1:1 video calling to your app
-
-[!INCLUDE [SDP Plan B Deprecation Notice](../../includes/plan-b-sdp-deprecation.md)]
 
 ::: zone pivot="platform-web"
 [!INCLUDE [Video calling with JavaScript](./includes/video-calling/video-calling-javascript.md)]

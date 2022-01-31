@@ -23,7 +23,8 @@ For example, consent requests for newly registered multi-tenant apps that are no
 
 When a risky consent request is detected, the consent prompt displays a message that indicates that admin approval is needed. If the [admin consent request workflow](configure-admin-consent-workflow.md) is enabled, the user can send the request to an admin for further review directly from the consent prompt. If the admin consent request workflow isn't enabled, the following message is displayed:
 
-> "**AADSTS90094**: \<clientAppDisplayName> needs permission to access resources in your organization that only an admin can grant. Request an admin to grant permission to this app before you can use it."
+> **AADSTS90094**: \<clientAppDisplayName> needs permission to access resources in your organization that only an admin can grant. Request an admin to grant permission to this app before you can use it.
+
 In this case, an audit event is also logged with a category of "ApplicationManagement," an activity type of "Consent to application,"  and a status reason of "Risky application detected."
 
 ## Prerequisites

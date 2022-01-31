@@ -3,9 +3,10 @@ title: Azure SQL output binding for Functions
 description: Learn to use the Azure SQL output binding in Azure Functions.
 author: dzsquared
 ms.topic: reference
-ms.date: 11/12/2021
+ms.date: 12/15/2021
 ms.author: drskwier
 ms.reviewer: cachai
+ms.devlang: csharp
 ---
 
 # Azure SQL output binding for Azure Functions (preview)
@@ -169,3 +170,4 @@ The Azure SQL binding for Azure Functions does not currently support Python.
 ## Next steps
 
 - [Read data from a database (Input binding)](./functions-bindings-azure-sql-input.md)
+- [Review ToDo API sample with Azure SQL bindings](/samples/azure-samples/azure-sql-binding-func-dotnet-todo/todo-backend-dotnet-azure-sql-bindings-azure-functions/)

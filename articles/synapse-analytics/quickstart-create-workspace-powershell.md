@@ -8,7 +8,7 @@ ms.topic: quickstart
 ms.subservice: workspace
 ms.date: 10/19/2020
 ms.author: wiassaf
-ms.reviewer: jrasnick
+ms.reviewer: sngun
 ms.custom: devx-track-azurepowershell, mode-api
 ---
 

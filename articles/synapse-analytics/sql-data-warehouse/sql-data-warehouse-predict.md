@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.subservice: machine-learning
 ms.date: 07/21/2020
 ms.author: wiassaf
-ms.reviewer: jrasnick
+ms.reviewer: sngun
 ms.custom: azure-synapse
 ---
 

@@ -115,11 +115,11 @@ Select one of the following tabs, depending on whether you'll be using a public 
 
 # [Private endpoint](#tab/private-endpoint)
 
-The steps in this procedure reference specific articles in the Azure Machine Learning documentation when relevant. For more information, see [How to create a secure Azure ML workspace](/azure/machine-learning/tutorial-create-secure-workspace).
+The steps in this procedure reference specific articles in the Azure Machine Learning documentation when relevant. For more information, see [How to create a secure Azure ML workspace](../machine-learning/tutorial-create-secure-workspace.md).
 
 1.	Create a VM jump box within a VNet. Since the VNet restricts access from the public internet, the jump box is used as a way to connect to resources behind the VNet.
 
-1.	Access the jump box, and then go to your Microsoft Sentinel workspace. We recommend using [Azure Bastion](/azure/bastion/bastion-overview) to access the VM.
+1.	Access the jump box, and then go to your Microsoft Sentinel workspace. We recommend using [Azure Bastion](../bastion/bastion-overview.md) to access the VM.
 
 1. In Microsoft Sentinel, select **Threat management** > **Notebooks** and then select **Create a new AML workspace**.
 
@@ -149,9 +149,9 @@ The steps in this procedure reference specific articles in the Azure Machine Lea
 
     It can take several minutes to create your workspace in the cloud. During this time, the workspace **Overview** page shows the current deployment status, and updates when the deployment is complete.
 
-1.	In the Azure Machine Learning studio, on the **Compute** page, create a new compute. On the **Advanced Settings** tab, make sure to select the same VNet that you'd used for your VM jump box. For more information, see [Create and manage an Azure Machine Learning compute instance](/azure/machine-learning/how-to-create-manage-compute-instance?tabs=python).
+1.	In the Azure Machine Learning studio, on the **Compute** page, create a new compute. On the **Advanced Settings** tab, make sure to select the same VNet that you'd used for your VM jump box. For more information, see [Create and manage an Azure Machine Learning compute instance](../machine-learning/how-to-create-manage-compute-instance.md?tabs=python).
 
-1.	Configure your network traffic to access Azure ML from behind a firewall. For more information, see [Configure inbound and outbound network traffic](/azure/machine-learning/how-to-access-azureml-behind-firewall?tabs=ipaddress%2Cpublic).
+1.	Configure your network traffic to access Azure ML from behind a firewall. For more information, see [Configure inbound and outbound network traffic](../machine-learning/how-to-access-azureml-behind-firewall.md?tabs=ipaddress%2cpublic).
 
 Continue with one of the following sets of steps:
 
@@ -169,12 +169,12 @@ Continue with one of the following sets of steps:
 
     1. For each resource, including both **privatelink.api.azureml.ms** and **privatelink.notebooks.azure.ms**, add a virtual network link.
 
-        Select the resource > **Virtual network links** > **Add**. For more information, see [Link the virtual network](/azure/dns/private-dns-getstarted-portal).
+        Select the resource > **Virtual network links** > **Add**. For more information, see [Link the virtual network](../dns/private-dns-getstarted-portal.md).
 
 For more information, see:
 
-- [Network traffic flow when using a secured workspace](/azure/machine-learning/concept-secure-network-traffic-flow)
-- [Secure Azure Machine Learning workspace resources using virtual networks (VNets)](/azure/machine-learning/how-to-network-security-overview)
+- [Network traffic flow when using a secured workspace](../machine-learning/concept-secure-network-traffic-flow.md)
+- [Secure Azure Machine Learning workspace resources using virtual networks (VNets)](../machine-learning/how-to-network-security-overview.md)
 
 ---
 

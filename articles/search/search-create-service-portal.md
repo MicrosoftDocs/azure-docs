@@ -8,12 +8,12 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 08/24/2021
+ms.date: 01/17/2022
 ---
 
 # Create an Azure Cognitive Search service in the portal
 
-[Azure Cognitive Search](search-what-is-azure-search.md) is an Azure resource used for adding a full text search experience to custom apps. You can integrate it easily with other Azure services that provide data or additional processing, with apps on network servers, or with software running on other cloud platforms.
+[**Azure Cognitive Search**](search-what-is-azure-search.md) is an Azure resource used for adding a full text search experience to custom apps.
 
 You can create search service using the [Azure portal](https://portal.azure.com/), which is covered in this article. You can also use [Azure PowerShell](search-manage-powershell.md), [Azure CLI](/cli/azure/search), the [Management REST API](/rest/api/searchmanagement/), or an [Azure Resource Manager service template](https://azure.microsoft.com/resources/templates/azure-search-create/).
 

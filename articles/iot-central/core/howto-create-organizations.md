@@ -5,13 +5,16 @@ services: iot-central
 ms.service: iot-central
 author: dominicbetts
 ms.author: dobett
-ms.date: 08/20/2021
+ms.date: 12/27/2021
 ms.topic: how-to
+ms.custom: contperf-fy22q2
 ---
 
 # Manage IoT Central organizations
 
-Organizations let you define a hierarchy that you use to manage which users can see which devices in your IoT Central application. The user's role determines their permissions over the devices they see, and the experiences they can access.
+Organizations let you define a hierarchy that you use to manage which users can see which devices in your IoT Central application. The user's role determines their permissions over the devices they see, and the experiences they can access. Use organizations to implement a multi-tenanted application.
+
+Organizations is an optional feature that gives you more control over the [users and roles](howto-manage-users-roles.md) in your application.
 
 Organizations are hierarchical:
 
@@ -71,11 +74,11 @@ When you reassign a device to another organization, the device's data stays with
 
 Devices can self-register with your IoT Central application without first being added to the device list. In this case, IoT Central adds the device to the root organization in the hierarchy. You can then reassign the device to a different organization.
 
-Instead, you can use the CSV import feature to bulk register devices with your application and assign them to organizations. To learn more, see [Import devices](howto-manage-devices.md#import-devices).
+Instead, you can use the CSV import feature to bulk register devices with your application and assign them to organizations. To learn more, see [Import devices](howto-manage-devices-in-bulk.md#import-devices).
 
 ### Gateways
 
-You assign gateway and leaf devices to organizations. You don't have to assign a gateway and its associated leaf devices to the same organization. If you assign them to different organizations, it's possible that a user can see the gateway but not the leaf devices, or the leaf devices but not the gateway.
+You assign gateway and downstream devices to organizations. You don't have to assign a gateway and its associated downstream devices to the same organization. If you assign them to different organizations, it's possible that a user can see the gateway but not the downstream devices, or the downstream devices but not the gateway.
 
 ## Roles
 

@@ -6,7 +6,7 @@ ms.service: signalr
 ms.topic: quickstart
 ms.date: 11/13/2019
 ms.author: zhshang
-ms.custom: mode-other
+ms.custom: mode-api
 ---
 # Quickstart: Broadcast real-time messages from console app
 

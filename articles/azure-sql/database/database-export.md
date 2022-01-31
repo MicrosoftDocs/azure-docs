@@ -58,11 +58,11 @@ Exporting a BACPAC of a database from [Azure SQL Managed Instance](../managed-in
 
 ## SQLPackage utility
 
-We recommend the use of the SQLPackage utility for scale and performance in most production environments.
+We recommend the use of the SQLPackage utility for scale and performance in most production environments. You can run multiple sqlpackage.exe commands in parallel for subsets of tables to speed up import/export operations.
 
 To export a database in SQL Database using the [SQLPackage](/sql/tools/sqlpackage) command-line utility, see [Export parameters and properties](/sql/tools/sqlpackage#export-parameters-and-properties). The SQLPackage utility ships with the latest versions of [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) and [SQL Server Data Tools for Visual Studio](/sql/ssdt/download-sql-server-data-tools-ssdt), or you can download the latest version of [SQLPackage](/sql/tools/sqlpackage/sqlpackage-download) directly from the Microsoft download center.
 
-This example shows how to export a database using SqlPackage.exe with Active Directory Universal Authentication:
+This example shows how to export a database using sqlpackage.exe with Active Directory Universal Authentication:
 
 ```cmd
 sqlpackage.exe /a:Export /tf:testExport.BACPAC /scs:"Data Source=apptestserver.database.windows.net;Initial Catalog=MyDB;" /ua:True /tid:"apptest.onmicrosoft.com"

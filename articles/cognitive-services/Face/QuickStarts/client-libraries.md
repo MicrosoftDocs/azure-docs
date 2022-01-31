@@ -11,7 +11,8 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 09/27/2021
 ms.author: pafarley
-ms.custom: devx-track-python, devx-track-csharp, cog-serv-seo-aug-2020, mode-other
+ms.devlang: csharp, golang, javascript, python
+ms.custom: devx-track-python, devx-track-csharp, cog-serv-seo-aug-2020, mode-api
 keywords: face search by image, facial recognition search, facial recognition, face recognition app
 ---
 
@@ -20,12 +21,6 @@ keywords: face search by image, facial recognition search, facial recognition, f
 ::: zone pivot="programming-language-csharp"
 
 [!INCLUDE [C# quickstart](../includes/quickstarts/csharp-sdk.md)]
-
-::: zone-end
-
-::: zone pivot="programming-language-go"
-
-[!INCLUDE [Go quickstart](../includes/quickstarts/go-sdk.md)]
 
 ::: zone-end
 

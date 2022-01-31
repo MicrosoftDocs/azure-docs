@@ -2,7 +2,7 @@
 title: Manage security alerts in Microsoft Defender for Cloud | Microsoft Docs
 description: This document helps you to use Microsoft Defender for Cloud capabilities to manage and respond to security alerts.
 ms.topic: how-to
-ms.date: 11/09/2021
+ms.date: 12/14/2021
 ---
 # Manage and respond to security alerts in Microsoft Defender for Cloud
 
@@ -62,8 +62,28 @@ For an overview of how Defender for Cloud generates alerts, see [How Microsoft D
 
     ![Take action tab.](./media/managing-and-responding-alerts/alert-take-action.png)
 
+## Change the status of multiple security alerts at once
 
+The alerts list includes checkboxes so you can handle multiple alerts at once. For example, for triaging purposes you might decide to dismiss all informational alerts for a specific resource.
 
+1. Filter according to the alerts you want to handle in bulk.
+
+    In this example, we've selected all alerts with severity of 'Informational' for the resource 'ASC-AKS-CLOUD-TALK'. 
+
+    :::image type="content" source="media/managing-and-responding-alerts/processing-alerts-bulk-filter.png" alt-text="Screenshot of filtering the alerts to the list of those to handle together.":::
+
+1. Use the checkboxes to select the alerts to be processed - or use the checkbox at the top of the list to select them all. 
+
+    In this example, we've selected all alerts. Notice that the **Change status** button is now available. 
+
+    :::image type="content" source="media/managing-and-responding-alerts/processing-alerts-bulk-select.png" alt-text="Screenshot of selecting all alerts to handle in bulk.":::
+
+1. Use the **Change status** options to set the desired status.
+
+    :::image type="icon" source="media/managing-and-responding-alerts/processing-alerts-bulk-change-status.png" border="false":::
+
+The alerts shown in the current page will have their status changed to the selected value. 
+ 
 
 ## See also
 

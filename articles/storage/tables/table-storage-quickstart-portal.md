@@ -8,7 +8,7 @@ ms.date: 12/02/2019
 ms.topic: quickstart
 ms.service: storage
 ms.subservice: tables
-ms.custom: mode-portal
+ms.custom: mode-ui
 ---
 # Quickstart: Create an Azure Storage table in the Azure portal 
 

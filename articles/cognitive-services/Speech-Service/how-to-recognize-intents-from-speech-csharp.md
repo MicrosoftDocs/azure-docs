@@ -10,6 +10,7 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/10/2020
 ms.author: eur
+ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
 
