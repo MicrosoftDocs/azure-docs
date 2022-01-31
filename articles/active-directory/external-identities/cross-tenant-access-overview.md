@@ -105,7 +105,7 @@ For the most up-to-date PowerShell script, see the [cross-tenant user sign-in ac
 
 ### Azure Monitor
 
-If your organization subscribes to the Azure Monitor service, you can use the [CrossTenantAccessActivity workbook](../reports-monitoring/howto-use-azure-monitor-workbooks.md) to visually explore inbound and outbound sign-ins for longer time periods.  
+If your organization subscribes to the Azure Monitor service, you can use the **Cross-tenant access activity**  workbook (available in the Monitoring workbooks gallery in the Azure portal) to visually explore inbound and outbound sign-ins for longer time periods.  
 
 ### Security Information and Event Management (SIEM) Systems
 
