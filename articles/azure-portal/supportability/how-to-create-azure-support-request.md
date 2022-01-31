@@ -30,7 +30,7 @@ To create a support request, you must have the [Owner](../../role-based-access-c
 To create a support request without a subscription, for example an Azure Active Directory scenario, you must be an [Admin](../../active-directory/roles/permissions-reference.md).
 
 > [!IMPORTANT]
-> If a support request requires investigation into multiple subscriptions, you must have the required access for each subscription involved (Owner, Contributor, Support Request Contributor, or a custom role with the Microsoft.Support/supportTickets/read permission.
+> If a support request requires investigation into multiple subscriptions, you must have the required access for each subscription involved (Owner, Contributor, Support Request Contributor, or a custom role with the Microsoft.Support/supportTickets/read permission).
 
 ### Go to Help + support from the global header
 
