@@ -62,7 +62,7 @@ The multi-tenant version of Azure App Service contains numerous features to enab
 
 ## Feature differences
 
-Compared to earlier versions of the App Service Environment, there are some differences with App Service Environment v3. With App Service Environment v3:
+Compared to earlier versions of the App Service Environment, there are some differences with App Service Environment v3:
 
 - There are no networking dependencies in the customer virtual network. You can secure all inbound and outbound as desired. Outbound traffic can be routed also as desired. 
 - You can deploy it enabled for zone redundancy. Zone redundancy can only be set during creation and only in regions where all App Service Environment v3 dependencies are zone redundant. 
