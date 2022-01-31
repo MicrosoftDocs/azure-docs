@@ -14,9 +14,17 @@ ms.subservice: chat
 
 # Chat concepts
 
-Azure Communication Services Chat SDKs can be used to add real-time text chat to your applications. This page summarizes key Chat concepts and capabilities.
+Azure Communication Services Chat can help you add real-time text communication to your cross-platform applications. This page summarizes key Chat concepts and capabilities.
 
-See the [Communication Services Chat SDK Overview](./sdk-features.md) to learn more about specific SDK languages and capabilities.
+The Chat APIs provide an **auto-scaling** service for persistently storied text and data communication. Other key features include:
+
+- **Custom Identity and Addressing** - Azure Communication Services provides generic [identities](../identity-model.md) that are used to address communication endpoints. Clients use these identities to authenticate to the Azure service and communicate with each other in `chat threads` you control.
+- **Encryption** - Chat SDKs encrypt traffic and prevents tampering on the wire.
+- **Microsoft Teams Meetings** - Chat SDKs can [join Teams meetings](../../quickstarts/chat/meeting-interop.md) and communicate with Teams chat messages.
+- **Real-time Notifications** - Chat SDKs use efficient persistent connectivity (WebSockets) to receive real-time notifications such as when a remote user is typing. When apps are running in the backgrounds, built-in functionality is available to [fire pop-up notifications](../notifications.md) ("toasts") to inform end-users of new threads and messages.
+**Service & Bot Extensibility** - REST APIs and server SDKs allow services to send and receive messages. Bots can be added easily with [Azure Bot Framework integration](../../quickstarts/chat/quickstart-botframework-integration.md).
+
+See the [Communication Services Chat SDK Overview](./sdk-features.md) lists of SDKs, languages, platforms, and detailed feature support. 
 
 ## Chat overview
 
