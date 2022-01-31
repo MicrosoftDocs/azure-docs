@@ -23,7 +23,7 @@ In this tutorial you will learn how to:
 If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
-* Access to an IoT Hub. It is recommended that you use a S1 (Standard) tier or above.
+* Access to an IoT Hub. It is recommended that you use a S1 (Standard) tier or higher.
 * A Device Update instance and account linked to your IoT Hub. Follow the guide to [create and link](./create-device-update-account.md) a device update account if you have not done so previously.
 
 ## Get started
@@ -31,7 +31,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 Each board-specific sample Azure RTOS project contains code and documentation on how to use Device Update for IoT Hub on it. 
 1. Download the board-specific sample files from [Azure RTOS and Device Update samples](https://github.com/azure-rtos/samples/tree/PublicPreview/ADU).
 2. Find the docs folder from the downloaded sample.
-3. From the docs follow the steps for how to prepare Azure Resources, Account, and register IoT devices to it.
+3. From the docs, follow the steps for how to prepare Azure Resources, Account, and register IoT devices to it.
 5. Next follow the docs to build a new firmware image and import manifest for your board.
 6. Next publish firmware image and manifest to Device Update for IoT Hub.
 7. Finally download and run the project on your device.
@@ -44,7 +44,7 @@ Learn more about [Azure RTOS](/azure/rtos/).
 2. Log into [Azure portal](https://portal.azure.com) and navigate to the IoT Hub.
 3. From 'IoT Devices' on the left navigation pane, find your IoT device and navigate to the Device Twin.
 4. In the Device Twin, delete any existing Device Update tag value by setting them to null.
-5. Add a new Device Update tag value as shown below.
+5. Add a new Device Update tag value to the root JSON object as shown below.
 
 ```JSON
     "tags": {
@@ -55,7 +55,7 @@ Learn more about [Azure RTOS](/azure/rtos/).
 ## Create update group
 
 1. Go to the IoT Hub you previously connected to your Device Update instance.
-2. Select the Device Updates option under Automatic Device Management from the left-hand navigation bar.
+2. Select the Updates option under "Device management" from the left-hand navigation bar.
 3. Select the Groups tab at the top of the page. 
 4. Select the Add button to create a new group.
 5. Select the IoT Hub tag you created in the previous step from the list. Select Create update group.
