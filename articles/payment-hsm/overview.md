@@ -23,15 +23,16 @@ Azure Payment HSM a highly specialized service. Therefore, we recommend that you
 
 ## Why use Azure Payment HSM?
 
-Momentum is building as financial institutions move some or all of their payment applications to the cloud. This entails a migration from the legacy on-premises (on-prem) applications and HSMs to a cloud-based infrastructure that isn't generally under their direct control. Often it means a subscription service rather than perpetual ownership of physical equipment and software. Corporate initiatives for efficiency and a scaled-down physical presence are the drivers for this. Conversely, with cloud-native organizations, the adoption of cloud-first without any on-prem presence is their fundamental business model. Whatever the reason, end users of a cloud-based payment infrastructure expect reduced IT complexity, streamlined security compliance and flexibility to scale their solution seamlessly as their business grows.
+Momentum is building as financial institutions move some or all of their payment applications to the cloud. This entails a migration from the legacy on-premises (on-prem) applications and HSMs to a cloud-based infrastructure that isn't generally under their direct control. Often it means a subscription service rather than perpetual ownership of physical equipment and software. Corporate initiatives for efficiency and a scaled-down physical presence are the drivers for this. Conversely, with cloud-native organizations, the adoption of cloud-first without any on-prem presence is their fundamental business model. Whatever the reason, end users of a cloud-based payment infrastructure expect reduced IT complexity, streamlined security compliance, and flexibility to scale their solution seamlessly as their business grows.
 
-Cloud ultimately offers significant benefits, but challenges when migrating a legacy on-prem payment application (involving payment HSMs) to the cloud must be addressed. Some of these are:
+The cloud offers significant benefits, but challenges when migrating a legacy on-prem payment application (involving payment HSMs) to the cloud must be addressed. Some of these are:
+
 - Shared responsibility and trust – what potential loss of control in some areas is acceptable?
-- Latency – how can an efficient, high performance link between the application and HSM be achieved?
+- Latency – how can an efficient, high-performance link between the application and HSM be achieved?
 - Performing everything remotely – what existing processes and procedures may need to be adapted?
 - Security certifications and audit compliance – how will current stringent requirements be fulfilled?
 
-Azure Payment HSM addresses these challenges and deliver a compelling value proposition to users of the service through the following features.
+Azure Payment HSM addresses these challenges and delivers a compelling value proposition to users of the service through the following features.
 
 ### Enhanced security and compliance
 
@@ -39,15 +40,15 @@ End users of the service can leverage Microsoft security and compliance investme
  
 ### Customer-managed HSM in Azure
 
-The Azure Payment HSM is a part of a subscription service that offers single-tenant HSMs for the service customer to have complete administrative control and exclusive access to the HSM. The customer could be a payment service provider acting on behalf of multiple financial institutions or a financial institution that wishes to directly access the Azure Payment HSM service. Once the HSM is allocated to a customer, Microsoft has no access to customer data. Likewise, when the HSM is no longer required, customer data is zeroized and erased as soon as the HSM is released to ensure complete privacy and security is maintained. The customer is responsible for ensuring sufficient HSM subscriptions are active to meet their requirements for backup, disaster recovery and resilience to achieve the same performance available on their on-prem HSMs.
+The Azure Payment HSM is a part of a subscription service that offers single-tenant HSMs for the service customer to have complete administrative control and exclusive access to the HSM. The customer could be a payment service provider acting on behalf of multiple financial institutions or a financial institution that wishes to directly access the Azure Payment HSM service. Once the HSM is allocated to a customer, Microsoft has no access to customer data. Likewise, when the HSM is no longer required, customer data is zeroized and erased as soon as the HSM is released to ensure complete privacy and security is maintained. The customer is responsible for ensuring sufficient HSM subscriptions are active to meet their requirements for backup, disaster recovery, and resilience to achieve the same performance available on their on-prem HSMs.
 
 ### Accelerate digital transformation and innovation in cloud
 
-For existing Thales payShield customers wishing to add a cloud option, the Azure Payment HSM solution offers native access to a payment HSM in Azure for "lift and shift" while still experiencing the low latency they are accustomed to via their on-prem payShield HSMs. The solution also offers high performance transactions for mission critical payment applications. Consequently, customers can continue their digital transformation strategy by leveraging technology innovation in the cloud. Existing Thales payShield customers can utilize their existing remote management solutions (payShield Manager and payShield TMD together with associated smart card readers and smart cards as appropriate) to work with the Azure Payment HSM service. Customers new to payShield can source the hardware accessories from Thales or one of its partners before deploying their HSM as part of the subscription service. 
+For existing Thales payShield customers wishing to add a cloud option, the Azure Payment HSM solution offers native access to a payment HSM in Azure for "lift and shift" while still experiencing the low latency they're accustomed to via their on-prem payShield HSMs. The solution also offers high-performance transactions for mission-critical payment applications. Consequently, customers can continue their digital transformation strategy by leveraging technology innovation in the cloud. Existing Thales payShield customers can utilize their existing remote management solutions (payShield Manager and payShield TMD together with associated smart card readers and smart cards as appropriate) to work with the Azure Payment HSM service. Customers new to payShield can source the hardware accessories from Thales or one of its partners before deploying their HSM as part of the subscription service. 
 
 ## Typical use cases
 
-With benefits including low latency and the ability to quickly add more HSM capacity as required, the cloud service is a perfect fit for a broad range of use cases which include:
+With benefits including low latency and the ability to quickly add more HSM capacity as required, the cloud service is a perfect fit for a broad range of use cases, including:
 Payment processing
 - Card & mobile payment authorization
 - PIN & EMV cryptogram validation
@@ -67,13 +68,13 @@ Securing keys & authentication data
 - PIN routing
 
 Sensitive data protection
-- Point to point encryption (P2PE)
+- Point-to-point encryption (P2PE)
 - Security tokenization (for PCI DSS compliance)
-- EMV payment tokenisation
+- EMV payment tokenization
 
 ## Suitable for both existing and new payment HSM users
 
-The solution provides clear benefits for both payment HSM users with a legacy on-prem HSM footprint and those new payment ecosystem entrants with no legacy infrastructure to support and who may choose a cloud-native approach from the outset. 
+The solution provides clear benefits for both Payment HSM users with a legacy on-prem HSM footprint and those new payment ecosystem entrants with no legacy infrastructure to support and who may choose a cloud-native approach from the outset. 
 
 Benefits for existing on-prem HSM users
 - Requires no modifications to payment applications or HSM software to migrate existing applications to the Azure solution
@@ -98,7 +99,7 @@ Benefits for new payment participants
 | HCE | Host Card Emulation |
 | HSM | Hardware Security Module |
 | mPOS | Mobile Point of Sale |
-| P2PE | Point to Point Encryption |
+| P2PE | Point-to-Point Encryption |
 | PCI | Payment Card Industry |
 | PIN | Personal Identification Number |
 | POS | Point of Sale |
