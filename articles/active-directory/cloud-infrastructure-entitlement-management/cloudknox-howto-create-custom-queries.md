@@ -1,6 +1,6 @@
 ---
-title: Microsoft CloudKnox Permissions Management - Create a custom query in the Audit Trail dashboard 
-description: Microsoft CloudKnox Permissions Management - How to create a custom query in the Audit Trail dashboard.
+title: Create a custom query in Microsoft CloudKnox Permissions Management  
+description: How to create a custom query in the Audit trail dashboard in Microsoft CloudKnox Permissions Management .
 services: active-directory
 author: Yvonne-deQ
 manager: karenh444
@@ -8,27 +8,27 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/27/2022
+ms.date: 01/31/2022
 ms.author: v-ydequadros
 ---
 
 # Create a custom query 
 
-This topic describes how you can use the Audit Trail dashboard in Microsoft CloudKnox Permissions Management (CloudKnox) to create custom queries that you can modify, save, and run as often as you want.
+This article describes how you can use the Audit trail dashboard in Microsoft CloudKnox Permissions Management (CloudKnox) to create custom queries that you can modify, save, and run as often as you want.
 
-## Open the Audit Trail dashboard
+## Open the Audit trail dashboard
 
-- In CloudKnox, select the **Audit Trail** tab.
+- In CloudKnox, select the **Audit trail** tab.
 
     CloudKnox displays the query options available to you.
 
 ## Create a custom query
 
-1. In the **Audit Trail** tab, select the authorization systems you want to search: 
-    1. Select **Authorization System**.
+1. In the **Audit trail** tab, select the authorization systems you want to search: 
+    1. Select **Authorization system**.
     2. Select the authorization systems you want to search.
     3. Select **Apply**.
-2. In **New Query**, enter a query.
+2. In **New Query**, enter query paarameters.
 3. To change your query, select **Edit** (the pencil icon), and then change the query parameters.
 4. To change the parameter options, select the down arrow in each box to display a dropdown list of available selections. Then select the option you want.
 
@@ -41,18 +41,18 @@ This topic describes how you can use the Audit Trail dashboard in Microsoft Clou
 8. When you’re ready to run your query, select **Search**.
 9. To save the query, select **Save**.
 
-    CloudKnox saves the query and adds it to the **Saved Queries** list.
+    CloudKnox saves the query and adds it to the **Saved queries** list.
 
 ## Save the query under a new name
 
-1. In the **Audit Trail** tab, select the ellipses menu **(…)** on the far right and select **Save As**.
+1. In the **Audit trail** tab, select the ellipses menu **(…)** on the far right and select **Save as**.
 2. Enter a new name for the query, and then select **Save**.
 
-    CloudKnox saves the query under the new name. Both the new query and the original query display in the **Saved Queries** list.
+    CloudKnox saves the query under the new name. Both the new query and the original query display in the **Saved queries** list.
 
 ## View a saved query
 
-1. In the **Audit Trail** tab, select the down arrow next to **Saved Queries**.
+1. In the **Audit trail** tab, select the down arrow next to **Saved queries**.
 
     A list of saved queries appears.
 2. Select the query you want to open.
@@ -64,34 +64,39 @@ This topic describes how you can use the Audit Trail dashboard in Microsoft Clou
 
 ## Run a saved query
 
-1. In the **Audit Trail** tab, load the query you want to run.
+1. In the **Audit trail** tab, load the query you want to run.
 2. Select the name of the query.
 
     CloudKnox displays the results of the query in a report.
 
 ## Delete a query
 
-1. In the **Audit Trail** tab, load the query you want to delete.
+1. In the **Audit trail** tab, load the query you want to delete.
 2. Select **Delete**.
 
-    CloudKnox deletes the query. Deleted queries don't display in the **Saved Queries** list.
+    CloudKnox deletes the query. Deleted queries don't display in the **Saved queries** list.
 
 ## Rename a query
 
-1. In the **Audit Trail** tab, load the query you want to rename.
+1. In the **Audit trail** tab, load the query you want to rename.
 2. Select the ellipses menu **(…)** on the far right, and select **Rename**. 
 3. Enter a new name for the query, and then select **Save**.
 
-    CloudKnox saves the query under the new name. Both the new query and the original query display in the **Saved Queries** list.
+    CloudKnox saves the query under the new name. Both the new query and the original query display in the **Saved queries** list.
 
 ## Duplicate a query
 
-1. In the **Audit Trail** tab, load the query you want to duplicate.
+1. In the **Audit trail** tab, load the query you want to duplicate.
 2. Select the ellipses menu **(…)** on the far right, and then select **Duplicate**.
 
-    CloudKnox creates a copy of the query. Both the copy of the query and the original query display in the **Saved Queries** list.
+    CloudKnox creates a copy of the query. Both the copy of the query and the original query display in the **Saved queries** list.
 
     You can rename the original or copy of the query, change it, and save it without changing the other query.
 
-<!---## Next steps--->
-<!---Use the Audit Trail dashboard to generate custom reports--->
+
+
+## Next steps
+
+- For information on how to view how users access information, see [View information on how users access information](cloudknox-ui-audit-trail.md).
+- For information on how to filter and view user activity, see [Filter and query user activity](cloudknox-product-audit-trail.md).
+- For information on how to generate an on-demand report from a custom query, see [Generate an on-demand report from a query](cloudknox-howto-audit-trail-results.md).

@@ -1,5 +1,5 @@
 ---
-title: Microsoft CloudKnox Permissions Management - Filter and query user activity 
+title: Filter and query user activity in Microsoft CloudKnox Permissions Management 
 description: How to filter and query user activity in Microsoft CloudKnox Permissions Management.
 services: active-directory
 author: Yvonne-deQ
@@ -8,175 +8,185 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/28/2022
+ms.date: 01/31/2022
 ms.author: v-ydequadros
 ---
 
 # Filter and query user activity
 
-The Audit Trail dashboard in Microsoft CloudKnox Permissions Management (CloudKnox) details all user activity performed in the Cloud. It captures all high risk activity in a centralized location, and allows system administrators to query the logs. 
+The **Audit trail** dashboard in Microsoft CloudKnox Permissions Management (CloudKnox) details all user activity performed in your authorization system. It captures all high risk activity in a centralized location, and allows system administrators to query the logs. 
 
-The Audit Trail dashboard provides: 
-- The ability to set and save new queries and easily access key data points.
-- The functionality to query across multiple authorization systems at once.
+The **Audit trail** dashboard enables you to: 
 
-## How to filter by the authorization system
+- Create and save new queries so you can access key data points.
+- Query across multiple authorization systems on one query.
 
-1. To view all applicable authorization systems, select **Authorization System**. 
+## Filter information by authorization system
 
-    If you haven't used filters before, the default filter is the first authorization system in the filter list. 
+If you haven't used filters before, the default filter is the first authorization system in the filter list. 
 
-    If you have used filters before, the default filter is last filter you selected.
+If you have used filters before, the default filter is last filter you selected.
 
-2. To automatically select all options for a single authorization system, next to the authorization system name, select **Only**.
+1. To display the **Audit trail** dashboard, on the CloudKnox home page, select **Audit trail**.
 
-3. To filter by the selection, select **Apply**.
+1. To select your authorization system type, in the **Authorization system type** box, select Amazon Web Services (**AWS**), Microsoft Azure (**Azure**), or Google Cloud Platform (**GCP**). 
 
-## How to create a new query
+1. To select your authorization system, in the **Authorization system** box:
 
-There are 11 different query parameters that you can configure individually or in combination with other parameters. The query parameters and corresponding instructions are listed in the following sections.
+    - From the **List** subtab, select the accounts you want to use. 
+    - From the **Folders** subtab, select the folders you want to use.
 
-### How to read the Query options
+1. To view your query results, select **Apply**.
 
-- To create a new query, select **New Query**.
+## Create, view, modify, or delete a query
+
+There are several different query parameters you can configure individually or in combination. The query parameters and corresponding instructions are listed in the following sections.
+
+- To create a new query, select **New query**.
 - To view an existing query, select **View**.
 - To edit an existing query, select **Edit**.
 - To delete a function line in a query, select **Delete**.
-- To create multiple queries at one time, select the icon next to the **New Query** tab. 
+- To create multiple queries at one time, select the icon next to the **New query** tab. 
 
   You can open a maximum number of six query tab pages at the same time. A message will appear when you've reached the maximum.
 
-### How to create a query with a date
+## Create a query with specific parameters
 
-1. In the **New Query** section, the default displayed is **DATE IN "Last Day"**.
+### Create a query with a date
 
-    The first-line item defaults to **Date**. This item can't be deleted.
+1. In the **New query** section, the default parameter displayed is **DATE IN "Last day"**.
 
-2. To edit date details, select **Edit**.
+    The first-line parameter always defaults to **Date** and can't be deleted.
 
-3. Select **Operator**, and then select an option:
+1. To edit date details, select **Edit** (the pencil icon).
+
+    To view query details, select **View** (the eye icon).
+
+1. Select **Operator**, and then select an option:
     - **In** - Select this option to set a time range from the past day to the past year.
     - **Is** - Select this option to choose a specific date from the calendar.
     - **Custom** - Select this option to set a date range from the **From** and **To** calendars.
 
-4. To search on the current selection, select **Search**. 
+1. To search on the current selection, select **Search**. 
 
-5. To clear the recent selections, select **Reset**.
+1. To save your query, select **Save**.
 
-### How to read the Operator options
+    To clear the recent selections, select **Reset**.
 
-The **Operator** menu contains the following options:
+### View operator options for identities
+
+The **Operator** menu displays the following options depending on the identity you select in the first dropdown:
 
 - **Is** / **Is Not** - View a list of all available usernames. You can either select or enter a username in the box.
 - **Contains** / **Not Contains** - Enter text that the **Username** should or shouldn't contain, for example, *CloudKnox*.
 - **In** / **Not In** - View a list all available usernames and select multiple usernames.
 
-### How to create a query with a username
+### Create a query with a username
 
-1. In the **New Query** section, select **Add**.
+1. In the **New query** section, select **Add**.
 
-2. From the menu, select **Username**.
+1. From the menu, select **Username**.
 
-3. From the **Operator** menu, select the required option.
+1. From the **Operator** menu, select the required option.
 
-4. To add criteria to this section, select **Add**.
+1. To add criteria to this section, select **Add**.
 
     You can change the operation between **And** / **Or** statements, and select other criteria. For example, the first set of criteria selected can be **Is** with the username **Test**.
 
-5. Select the plus (**+**) sign, select **Or** with **Contains**, and then enter a username, for example, *CloudKnox*.
+1. Select the plus (**+**) sign, select **Or** with **Contains**, and then enter a username, for example, *CloudKnox*.
 
-6. To remove a row of criteria, select **Remove**.
+1. To remove a row of criteria, select **Remove**.
 
-7. To search on the current selection, select **Search**. 
+1. To search on the current selection, select **Search**. 
 
-8. To clear the recent selections, select **Reset**.
+1. To clear the recent selections, select **Reset**.
 
-### How to create a query with a resource name
+### Create a query with a resource name
 
-1. In the **New Query** section, select **Add**.
+1. In the **New query** section, select **Add**.
 
-2. From the menu, select **Resource Name**.
+1. From the menu, select **Resource name**.
 
-3. From the **Operator** menu, select the required option.
+1. From the **Operator** menu, select the required option.
 
-4. To add criteria to this section, select **Add**.   
+1. To add criteria to this section, select **Add**.
 
       You can change the operation between **And** / **Or** statements, and select other criteria. For example, the first set of criteria selected can be **Is** with resource name **Test**. 
 
-5. Select the plus (**+**) sign, select **Or** with **Contains**, and then enter a username, for example, *CloudKnox*. 
+1. Select the plus (**+**) sign, select **Or** with **Contains**, and then enter a username, for example, *CloudKnox*. 
 
-6. To remove a row of criteria, select **Remove**.
+1. To remove a row of criteria, select **Remove**.
 
-7. To search on the current selection, select **Search**. 
+1. To search on the current selection, select **Search**. 
 
-8. To clear the recent selections, select **Reset**.
+1. To clear the recent selections, select **Reset**.
 
-### How to create a query with a resource type
+### Create a query with a resource type
 
-1. In the **New Query** section, select **Add**.
+1. In the **New query** section, select **Add**.
 
-2. From the menu, select **Resource Type**.
+1. From the menu, select **Resource type**.
 
-3. From the **Operator** menu, select the required option.
+1. From the **Operator** menu, select the required option.
 
-4. To add criteria to this section, select **Add**.
+1. To add criteria to this section, select **Add**.
 
-5. Change the operation between **And** / **Or** statements, and select other criteria. For example, the first set of criteria selected can be **Is** with resource type **s3::bucket**. 
+1. Change the operation between **And** / **Or** statements, and select other criteria. For example, the first set of criteria selected can be **Is** with resource type **s3::bucket**. 
 
-6. Select the plus (**+**) sign, select **Or** with **Is**, and then enter or select  `ec2::instance`. 
+1. Select the plus (**+**) sign, select **Or** with **Is**, and then enter or select  `ec2::instance`. 
 
-7. To remove a row of criteria, select **Remove**.
+1. To remove a row of criteria, select **Remove**.
 
-8. To search on the current selection, select **Search**.
+1. To search on the current selection, select **Search**.
 
-9. To clear the recent selections, select **Reset**.
+1. To clear the recent selections, select **Reset**.
 
 
-### How to create a query with a task name
+### Create a query with a task name
 
-1. In the **New Query** section, select **Add**.
+1. In the **New query** section, select **Add**.
 
-2. From the menu, select **Task Name**.
+1. From the menu, select **Task name**.
 
-3. From the **Operator** menu, select the required option.
+1. From the **Operator** menu, select the required option.
 
-4. To add criteria to this section, select **Add**. 
+1. To add criteria to this section, select **Add**. 
 
-5. Change the operation between **And** / **Or** statements, and select other criteria. For example, the first set of criteria selected can be **Is** with task name **s3:CreateBucket**. 
+1. Change the operation between **And** / **Or** statements, and select other criteria. For example, the first set of criteria selected can be **Is** with task name **s3:CreateBucket**. 
 
-6. Select **Add**, select **Or**  with **Is**, and then enter or select `ec2:TerminateInstance`. 
+1. Select **Add**, select **Or**  with **Is**, and then enter or select `ec2:TerminateInstance`. 
 
-7. To remove a row of criteria, select **Remove**.
+1. To remove a row of criteria, select **Remove**.
 
-8. To search on the current selection, select **Search**. 
+1. To search on the current selection, select **Search**. 
 
-9. To clear the recent selections, select **Reset**.
+1. To clear the recent selections, select **Reset**.
 
-### How to create a query with a state
+### Create a query with a state
 
-1. In the **New Query** section, select **Add**.
+1. In the **New query** section, select **Add**.
 
-2. From the menu, select **State**.
+1. From the menu, select **State**.
 
-3. From the **Operator** menu, select the required option.
+1. From the **Operator** menu, select the required option.
 
-    - **Is** / **Is Not** - Allows a user to select in the value field and select **Authorization Failure**, **Error**, or **Success**.
+    - **Is** / **Is not** - Allows a user to select in the value field and select **Authorization failure**, **Error**, or **Success**.
 
-4. To add criteria to this section, select **Add**. 
+1. To add criteria to this section, select **Add**. 
 
-5. Change the operation between **And** / **Or** statements, and select other criteria. For example, the first set of criteria selected can be **Is** with State **Authorization Failure**. 
+1. Change the operation between **And** / **Or** statements, and select other criteria. For example, the first set of criteria selected can be **Is** with State **Authorization failure**. 
 
-6. Select the **Add** icon, select **Or** with **Is**, and then select **Success**. 
+1. Select the **Add** icon, select **Or** with **Is**, and then select **Success**. 
 
-7. To remove a row of criteria, select **Remove**.
+1. To remove a row of criteria, select **Remove**.
 
-8. To search on the current selection, select **Search**. 
+1. To search on the current selection, select **Search**. 
 
-9. To clear the recent selections, select **Reset**.
+1. To clear the recent selections, select **Reset**.
 
-### How to create a query with a role name
+### Create a query with a role name
 
-1. In the **New Query** section, select **Add**.
+1. In the **New query** section, select **Add**.
 
 2. From the menu, select **Role Name**.
 
@@ -194,11 +204,11 @@ The **Operator** menu contains the following options:
 
 9. To clear the recent selections, select **Reset**.
 
-### How to create a query with a role session name
+### Create a query with a role session name
 
-1. In the **New Query** section, select **Add**.
+1. In the **New query** section, select **Add**.
 
-2. From the menu, select **Role Session Name**.
+2. From the menu, select **Role session name**.
 
 3. From the **Operator** menu, select the required option.
 
@@ -214,9 +224,9 @@ The **Operator** menu contains the following options:
 
 9. To clear the recent selections, select **Reset**.
 
-### How to create a query with an access key ID
+### Create a query with an access key ID
 
-1. In the **New Query** section, select **Add**.
+1. In the **New query** section, select **Add**.
 
 2. From the menu, select **Access Key ID**.
 
@@ -234,9 +244,9 @@ The **Operator** menu contains the following options:
 
 9. To clear the recent selections, select **Reset**.
 
-### How to create a query with a tag key
+### Create a query with a tag key
 
-1. In the **New Query** section, select **Add**.
+1. In the **New query** section, select **Add**.
 
 2. From the menu, select **Tag Key**.
 
@@ -254,9 +264,9 @@ The **Operator** menu contains the following options:
 
 9. To clear the recent selections, select **Reset**.
 
-### How to create a query with a tag key value
+### Create a query with a tag key value
 
-1. In the **New Query** section, select **Add**.
+1. In the **New query** section, select **Add**.
 
 2. From the menu, select **Tag Key Value**.
 
@@ -274,87 +284,89 @@ The **Operator** menu contains the following options:
 
 9. To clear the recent selections, select **Reset**.
 
-### How to read query search results
+### View query results
 
-1. In the **Activity** section, your search results display in columns. 
+1. In the **Activity** table, your query results display in columns. 
 
      The results display all executed tasks that aren't read-only.
 
-2. To sort each column by ascending or descending value, select the up or down arrows next to the column name.
+1. To sort each column by ascending or descending value, select the up or down arrows next to the column name.
 
-    - **Username or Role Session Name** - The name of the identity, for example the name of the role session performing the task.
+    - **Identity details** - The name of the identity, for example the name of the role session performing the task.
 
-        - To view the **Raw Events Summary**, which displays the full details of the event, next to the **Name** column, select **View**.
+        - To view the **Raw events summary**, which displays the full details of the event, next to the **Name** column, select **View**.
 
-    - **Resource Name** - The name of the resource on which the task is being performed.
+    - **Resource name** - The name of the resource on which the task is being performed.
 
         If the column displays **Multiple**, it means multiple resources are listed in the column. 
 
-3. To view a list of all resources, hover over **Multiple**.
+1. To view a list of all resources, hover over **Multiple**.
 
-    - **Resource Type** - Displays the type of resource, for example, *Key* (encryption key) or *Bucket* (storage).
-    - **Task Name** - The name of the task that was performed by the identity.
+    - **Resource type** - Displays the type of resource, for example, *Key* (encryption key) or *Bucket* (storage).
+    - **Task name** - The name of the task that was performed by the identity.
 
          An exclamation mark (**!**) next to the task name indicates that the task failed.
 
     - **Date** - The date when the task was performed.
 
-    - **IP Address** - The IP address from where the user performed the task.
+    - **IP address** - The IP address from where the user performed the task.
 
-    - **Authorization System** - The authorization system name in which the task was performed.
+    - **Authorization system** - The authorization system name in which the task was performed.
 
-4. To download the results in comma-separated values (CSV) file format, select **Download**.
+1. To download the results in comma-separated values (CSV) file format, select **Download**.
 
-## How to save a query
+## Save a query
 
-1. After you complete your query selections from the **New Query** section, select **Save**.
+1. After you complete your query selections from the **New query** section, select **Save**.
 
-2. In the **Query Name** box, enter a name for your query, and then select **Save**.
+2. In the **Query name** box, enter a name for your query, and then select **Save**.
 
-3. To save a query with a different name, select the ellipses (**...**) next to **Save**, and then select **Save As**. 
+3. To save a query with a different name, select the ellipses (**...**) next to **Save**, and then select **Save as**. 
 
-4. Make your query selections from the **New Query** section, select the ellipses (**...**), and then select **Save As**.
+4. Make your query selections from the **New query** section, select the ellipses (**...**), and then select **Save as**.
 
-5. To save a new query, in the **Save Query** box, enter the name for the query, and then select **Save**.  
+5. To save a new query, in the **Save query** box, enter the name for the query, and then select **Save**.  
 
-      The following message displays in green at the top of the screen to indicate the query was saved successfully: **Saved Query as XXX**.
+      The following message displays in green at the top of the screen to indicate the query was saved successfully: **Saved query as XXX**.
 
 6. To save an existing query you've modified, select the ellipses (**...**). 
 
       - To save a modified query under the same name, select **Save**.
-      - To save a modified query under a different name, select **Save As**.
+      - To save a modified query under a different name, select **Save as**.
 
-### How to view a saved query
+### View a saved query
 
-1. Select **Saved Queries**, and then select the appropriate option from the list.  
+1. Select **Saved Queries**, and then select **Load queries**.  
 
       A message box opens with the following options: **Load with the saved authorization system** or **Load with the currently selected authorization system**. 
 
-2. Select the appropriate option, and then select **Load Query**.
+1. Select the appropriate option, and then select **Load query**.
 
-3. View the query information:
+1. View the query information:
 
       - **Query** - Displays the name of the saved query.
-      - **Query Type** - Displays whether the query is a *System* query or a *Custom* query.
+      - **Query type** - Displays whether the query is a *System* query or a *Custom* query.
       - **Schedule** - Displays how often a report will be generated. You can schedule a one-time report or a monthly report.
-      - **Next On** - Displays the date and time the next report will be generated.
+      - **Next on** - Displays the date and time the next report will be generated.
       - **Format** - Displays the output format for the report, for example, CSV.
 
-4. To view or set schedule details, select the gear icon, select **Create Schedule**, and then set the details.
+1. To view or set schedule details, select the gear icon, select **Create schedule**, and then set the details.
 
-   If a schedule has already been created, select the gear icon to open the **Edit Schedule** box.
+   If a schedule has already been created, select the gear icon to open the **Edit schedule** box.
 
       - **Repeats** - Sets how often the report should repeat.
       - **Date** - Sets the date when you want to receive the report.
       - **hh:mm** - Sets the specific time when you want to receive the report.
-      - **Report File Format** - Select the output type for the file, for example, CSV.
-      - **Share Report with People** - The email address of the user who is creating the schedule is displayed in this field. You can add other email addresses.
+      - **Report file format** - Select the output type for the file, for example, CSV.
+      - **Share report with people** - The email address of the user who is creating the schedule is displayed in this field. You can add other email addresses.
 
-4. After selecting your options, select **Schedule**.
+1. After selecting your options, select **Schedule**.
 
-5. To export the results of the query, select the downward facing arrow icon.
 
-6. To make changes to the query and select from the following options, select the ellipses (**...**).  
+
+### Save a query under a different name
+
+1. Select the ellipses (**...**).  
 
     System queries have only one option:
 
@@ -365,13 +377,25 @@ The **Operator** menu contains the following options:
       - **Rename** - Enter the new name of the query and select **Save**.
       - **Delete** - Delete the saved query.  
 
-           The **Delete Query** box opens, asking you to confirm that you want to delete the query. Select **Yes** or **No**.
+           The **Delete query** box opens, asking you to confirm that you want to delete the query. Select **Yes** or **No**.
 
       - **Duplicate** - Creates a duplicate of the query and names it *Copy of XXX*.
-      - **Delete Schedule** - Deletes the schedule details for this query.
+      - **Delete schedule** - Deletes the schedule details for this query.
 
            This option isn't available if you haven't yet saved a schedule.
 
-           The **Delete Schedule** box opens, asking you to confirm that you want to delete the schedule. Select **Yes** or **No**.
+           The **Delete schedule** box opens, asking you to confirm that you want to delete the schedule. Select **Yes** or **No**.
 
-<!---## Next steps--->
+
+## Export the results of a query as a report
+
+- To export the results of the query, select the down arrow icon.
+
+    CloudKnox exports the results in comma-separated values (**CSV**) format, portable document format (**PDF**), or Microsoft Excel Open XML Spreadsheet (**XLSX**) format.
+
+
+## Next steps
+
+- For information on how to view how users access information, see [View information on how users access information](cloudknox-ui-audit-trail.md).
+- For information on how to create a query,see [Create a custom query](cloudknox-howto-create-custom-queries.md).
+- For information on how to generate an on-demand report from a custom query, see [Generate an on-demand report from a query](cloudknox-howto-audit-trail-results.md).

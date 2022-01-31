@@ -56,7 +56,6 @@
         href: cloudknox-product-data-add-authorization-system.md
       - name: Display an inventory of created resources and licenses 
         href: cloudknox-product-data-inventory.md
-
     - name: Manage organizational and personal information
       expanded: true
       items:
@@ -115,18 +114,17 @@
         href: cloudknox-product-define-permission-levels.md
       - name: Create group-based permissions
         href: cloudknox-howto-create-group-based-permissions.md
-    - name: Create and view how users access their authorization systems and accounts
+    - name: View information about access information
       expanded: true
       items:
-      - name: View queries on users access 
+      - name: View information on how users access information 
         href: cloudknox-ui-audit-trail.md
       - name: Create a custom query
         href: cloudknox-howto-create-custom-queries.md
-      - name: Generate custom reports
-        href: cloudknox-howto-generate-custom-reports.md
+      - name: Generate an on-demand report from a query
+        href: cloudknox-howto-audit-trail-results.md
       - name: Filter and query user activity
         href: cloudknox-product-audit-trail.md
-
     - name: Set up and view authorization systems
       expanded: true
       items:
@@ -153,17 +151,15 @@
     - name: Create and view reports 
       expanded: true
       items: 
-      - name: The Reports dashboard - Overview
-        href: cloudknox-ui-reports.md
-      - name: Overview of available system report types
+      - name: View an overview of available system report types
         href: cloudknox-product-reports.md
-      - name: Summary of system reports
+      - name: View a list and description of system reports
         href: cloudknox-all-reports.md
-      - name: View a system report
+      - name: Generate and view a system report
         href: cloudknox-report-view-system-report.md
-      - name: Create and view a custom report
+      - name: Generate and view a custom report
         href: cloudknox-report-create-custom-report.md
-      - name: View the Permissions Analytics report
+      - name: Generate and download the Permissions analytics report
         href: cloudknox-product-permissions-analytics-reports.md
   #- name: Troubleshooting
     #expanded: true

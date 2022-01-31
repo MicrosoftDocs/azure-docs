@@ -1,6 +1,6 @@
 ---
-title: Microsoft CloudKnox Permissions Management - View the Permissions Analytics report
-description: How to view the Permissions Analytics report in Microsoft CloudKnox Permissions Management.
+title: Generate and download the Permissions analytics report in Microsoft CloudKnox Permissions Management 
+description: How to generate and download the Permissions analytics report in Microsoft CloudKnox Permissions Management.
 services: active-directory
 author: Yvonne-deQ
 manager: karenh444
@@ -8,28 +8,35 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/12/2022
+ms.date: 01/31/2022
 ms.author: v-ydequadros
 ---
 
-# View the Permissions Analytics report
+# Generate and download the Permissions analytics report
 
-This topic describes how to view the **Permissions Analytics report** in Microsoft CloudKnox Permissions Management (CloudKnox).
+This article describes how to generate and download the **Permissions analytics report** in Microsoft CloudKnox Permissions Management (CloudKnox).
 
 > [!NOTE]
 > This topic applies only to Amazon Web Services (AWS) users.
 
-## View the Permissions Analytics report 
+## Generate and download the Permissions analytics report 
 
-1. From the **Systems Reports** tab, under **Report Name**, select **Permissions Analytics Report**.
-2. To view the Privilege Creep Index and Identities statistics, select the right arrow next to **Summary**. 
+1. In the CloudKnox home page, select the **Reports** tab, and then select the **Systems reports** subtab.
+    The **Systems Reports** subtab displays the following options in the **Reports** table:
 
-    Or, under the **Findings** column on the left, select **Summary**.
+    - **Report Name** - The name of the report.
+    - **Category** - The type of report: **Permission** or **Compliance**.
+    - **Authorization System** - The authorization system in which you can view the report: Amazon Web Services (**AWS**), Microsoft Azure (**Azure**), or Google Cloud Platform (**GCP**).
+    - **Format** - The format of the report.
+    
+1. In the **Report Name** table, find **Permissions analytics report**, and then select the down arrow to the right of the report name to download the report.
+
+    The following message displays: **Successfully started to generate on demand report.
 
 	> [!NOTE]
-    > The summary only appears for one authorization system at a time. If you select more than one authorization system, CloudKnox does not display a summary.
+    > If you select one authorization system, the report includes a summary. If you select more than one authorization system, the report does not include a summary.
 
-3. Select the right arrow next to one of the following categories.
+1. For detailed information, select the right arrow next to one of the following categories.
 
     Or, select the required category under the **Findings** column.
 
@@ -86,42 +93,40 @@ This topic describes how to view the **Permissions Analytics report** in Microso
 			- Security Groups
 			- S3 Buckets
 
-<!---Do we need to list all these options?--->
 
-4. Select a category and view the following columns of information:
+1. Select a category and view the following columns of information:
 
-	- User, Role, Resource, Serverless Function name - Displays the name of the identity.
-	- Authorization System - Displays the authorization system the identity belongs to.
-	- Domain - Displays the domain name the identity belongs to.
-	- Privileges - Displays the maximum number of privileges the identity has.
-		- Used - Displays how many privileges the identity has used.
-		- Granted - Displays how many privileges the identity has been granted.
-	- PCI - Displays the privilege creep index score of the identity.
-	- Date Last Active On - Displays the date the identity was last active.
-	- Date Created On - Displays the date in which the identity was created.
+	- **User**, **Role**, **Resource**, **Serverless function name** - Displays the name of the identity.
+	- **Authorization system** - Displays the authorization system the identity belongs to.
+	- **Domain** - Displays the domain name the identity belongs to.
+	- **Permissions** - Displays the maximum number of permissions the identity has.
+		- **Used** - Displays how many permissions the identity has used.
+		- **Granted** - Displays how many permissions the identity has been granted.
+	- **PCI** - Displays the permission creep index (PCI) score of the identity.
+	- **Date last active on** - Displays the date the identity was last active.
+	- **Date created on** - Displays the date when the identity was created.
 
 
-## Add and remove tags in the Permissions Analytics report
+
+## Add and remove tags in the Permissions analytics report
 
 1. Select **Tags**.
-
-2. Select one of the categories from the **Permissions Analytics Report**.
-
-     <!---For more information, see [Use the Permissions Analytics Report](cloudknox-prod-reports.md#how-to-use-the-Permissions-Analytics-Report).--->
-
-3. Select the identity name to which you want to add a tag. Then, select the checkbox at the top to select all identities.
-
-4. Select **Add Tag**.
-
-5. In the **Tag** column: 
-    - To select from the available options from the list, select **Select a Tag**.
+1. Select one of the categories from the **Permissions analytics report**.
+1. Select the identity name to which you want to add a tag. Then, select the checkbox at the top to select all identities.
+1. Select **Add tag**.
+1. In the **tag** column: 
+    - To select from the available options from the list, select **Select a tag**.
     - To search for a tag, enter the tag name.
-    - To create a new custom tag, select  **New Custom Tag**.
+    - To create a new custom tag, select  **New custom tag**.
     - To create a new tag, enter a name for the tag and select **Create**.
     - To remove a tag, select **Delete**.
 
-6. In the **Value (optional)** box, enter a value, if necessary.
-
-7. Select **Save**.
+1. In the **Value (optional)** box, enter a value, if necessary.
+1. Select **Save**.
  
-<!---## Next steps--->
+## Next steps
+
+- For a brief overview of available system reports, see [View an overview of available system report types](cloudknox-product-reports.md).
+- For a detailed overview of available system reports, see [View a list and description of system reports](cloudknox-all-reports.md).
+- For information about how to generate and view a system report, see [Generate and view a system report](cloudknox-report-view-system-report.md).
+- For information about how to create and view a custom report, see [Generate and view a custom report](cloudknox-report-create-custom-report.md).

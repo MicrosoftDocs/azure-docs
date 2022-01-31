@@ -1,6 +1,6 @@
 ---
-title: Microsoft CloudKnox Permissions Management reports - Summary of system reports
-description: A quick list and description of all Microsoft CloudKnox Permissions Management reports.
+title: View a list and description of all system reports available in Microsoft CloudKnox Permissions Management reports
+description: View a list and description of all system reports available in Microsoft CloudKnox Permissions Management.
 services: active-directory
 author: Yvonne-deQ
 manager: karenh444
@@ -8,11 +8,11 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: overview
-ms.date: 01/17/2022
+ms.date: 01/31/2022
 ms.author: v-ydequadros
 ---
 
-# Summary of system reports
+# View a list and description of system reports
 
 Microsoft CloudKnox Permissions Management (CloudKnox) has various types of system reports that capture specific sets of data. These reports allow management, auditors, and administrators to:
 
@@ -20,8 +20,9 @@ Microsoft CloudKnox Permissions Management (CloudKnox) has various types of syst
 - Analyze trends and system/user performance.
 - Identify trends in data and high risk areas so that management can address issues more quickly and improve their efficiency.
 
-This topic provides you with a quick list and description of the system reports included with CloudKnox.
+This article provides you with a list and description of all system reports available in CloudKnox in comma-separated values (**CSV**) format, portable document format (**PDF**), or Microsoft Excel Open XML Spreadsheet (**XLSX**) format.
 
+## Summary of available system reports
 
 | Report name                | Type of the report                | File format              | Description               | Availability                | Collated report?                 |
 |----------------------------|-----------------------------------|--------------------------|---------------------------| ----------------------------|----------------------------------|
@@ -40,9 +41,9 @@ This topic provides you with a quick list and description of the system reports 
 | Well-Architected Framework                 | Detailed </p>Summary </p>Dashboard                 | CSV </p>PDF                 | **Dashboard**: This report tracks the overall progress of the AWS- Well-Architected Framework. It lists the percentage passing, overall pass or fail of test control and the breakup of L1/L2 per Auth system. </p>**Summary**: For each authorized system, this report lists the test control pass or fail per authorized system. The number of resources evaluated for each test control. </p>**Detailed**: This report helps auditors and administrators track the resource level pass or fail per test control.                | AWS only                | Yes      |
 
 
-<!---## Next steps--->
+## Next steps
 
-<!---For information about how to view a system report, see [View a system report](cloudknox-report-view-system-report.html).--->
-<!---For information about how to create and view a custom report, see [Create and view a custom report](cloudknox-report-create-custom-report.html).--->
-<!---For a detailed overview of available system reports, see [Overview of available system reports}(cloudknox-product-reports.html).--->
-<!---For information about how to create and view the Permissions Analytics report, see [The Permissions Analytics report](cloudknox-product-permissions-analytics-reports).--->
+- For a brief overview of available system reports, see [View an overview of available system report types](cloudknox-product-reports.md).
+- For information about how to generate and view a system report, see [Generate and view a system report](cloudknox-report-view-system-report.md).
+- For information about how to create and view a custom report, see [Generate and view a custom report](cloudknox-report-create-custom-report.md).
+- For information about how to create and view the Permissions analytics report, see [Generate and download the Permissions analytics report](cloudknox-product-permissions-analytics-reports.md).
