@@ -298,15 +298,11 @@ Our backend application sits on HTTP port 80 but obviously switch to 443 if your
 Enabling SSO allows users to access BIG-IP published services without having to enter credentials. The **Easy Button wizard** supports Kerberos, OAuth Bearer, and HTTP authorization headers for SSO, the latter of which we’ll enable to configure the following.
 
 * **Header Operation:** Insert
-
 * **Header Name:** upn
-
 * **Header Value:** %{session.saml.last.identity}
 
 * **Header Operation:** Insert
-
 * **Header Name:** employeeid
-
 * **Header Value:** %{session.saml.last.attr.name.employeeid}
 
 ![Screenshot for SSO and HTTP headers](./media/f5-big-ip-easy-button-header/sso-http-headers.png)
