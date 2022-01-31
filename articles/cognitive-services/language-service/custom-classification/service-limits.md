@@ -64,11 +64,15 @@ Custom text classification is only available select Azure regions. When you crea
 
 * You can't rename your project after creation.
 
+* Your prjoect name must only contain alphnumeric characters,only letters and numbers, no spaces or special characters are allowed). Project name must have a maximum of 50 characters.
+
 * You must have minimum of 10 files in your project and a maximum of 1,000,000 files.
 
 * You can have up to 10 trained models per project.
 
 * Model names have to be unique within the same project.
+
+* Model names must only contain alphnumeric characters,only letters and numbers, no spaces or special characters are allowed). Model name must have a maximum of 50 characters.
 
 * You can't rename your model after creation.
 
@@ -84,7 +88,7 @@ Custom text classification is only available select Azure regions. When you crea
 
 | Attribute | Limits |
 |--|--|
-| Project name |  You can only use letters `(a-z, A-Z)`, and numbers `(0-9)` with no spaces. |
-| Model name |  You can only use letters `(a-z, A-Z)`, numbers `(0-9)` and symbols `@ # _ . , ^ \ [ ]` |
-| entity names| You can only use letters `(a-z, A-Z)`, numbers `(0-9)` and symbols `@ # _ . , ^ \ [ ]` |
-| File names | You can only use letters `(a-z, A-Z)`, and numbers `(0-9)` with no spaces. |
+| Project name |  You can only use letters `(a-z, A-Z)`, and numbers `(0-9)` with no spaces. Maximum length allowed is 50 characters. |
+| Model name |  You can only use letters `(a-z, A-Z)`, numbers `(0-9)` and symbols `@ # _ . , ^ \ [ ]`. Maximum length allowed is 50 characters.  |
+| Class name| You can only use letters `(a-z, A-Z)`, numbers `(0-9)` and symbols `@ # _ . , ^ \ [ ]`. Maximum length allowed is 50 characters.  |
+| File name | You can only use letters `(a-z, A-Z)`, and numbers `(0-9)` with no spaces. |
