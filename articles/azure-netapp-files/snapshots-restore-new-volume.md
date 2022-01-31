@@ -29,7 +29,7 @@ ms.author: anfdocs
 
 3. In the Create a Volume window, provide information for the new volume:  
     * **Name**   
-        Specify the name for the volume that you are creating.  
+        Specify the name for the volume that you're creating.  
         
         The name must be unique within a resource group. It must be at least three characters long.  It can use any alphanumeric characters.
 
@@ -38,7 +38,7 @@ ms.author: anfdocs
 
     ![Screenshot that shows the Create a Volume window.](../media/azure-netapp-files/snapshot-restore-new-volume.png) 
 
-4. Click **Review+create**. Click **Create**.   
+4. Select **Review+create**. Select **Create**.   
     The new volume uses the same protocol that the snapshot uses.   
     The new volume to which the snapshot is restored appears in the Volumes blade.   
     The snapshot used to create the new volume will also be present on the new volume. 
