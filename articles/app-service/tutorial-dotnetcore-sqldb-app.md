@@ -29,11 +29,10 @@ In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Create a SQL Database in Azure
-> * Connect an ASP.NET Core app to SQL Database
+> * Connect an ASP.NET Core app to SQL Database and run [database migrations](/ef/core/managing-schemas/migrations)
 > * Deploy the app to Azure
 > * Update the data model and redeploy the app
 > * Stream diagnostic logs from Azure
-> * Manage the app in the Azure portal
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -74,7 +73,7 @@ In this step, you set up the local ASP.NET Core project.
 
 ### Run the application
 
-1. Run the following commands to install the required packages, run database migrations, and start the application.
+1. Run the following commands to install the [EF Core tools](/ef/core/cli/), run [database migrations](/ef/core/managing-schemas/migrations), and start the application.
 
     ```bash
     dotnet tool install -g dotnet-ef
@@ -499,11 +498,10 @@ What you learned:
 
 > [!div class="checklist"]
 > * Create a SQL Database in Azure
-> * Connect a ASP.NET Core app to SQL Database
+> * Connect an ASP.NET Core app to SQL Database and run [database migrations](/ef/core/managing-schemas/migrations)
 > * Deploy the app to Azure
 > * Update the data model and redeploy the app
-> * Stream logs from Azure to your terminal
-> * Manage the app in the Azure portal
+> * Stream diagnostic logs from Azure
 
 Advance to the next tutorial to learn how to map a custom DNS name to your app.
 
