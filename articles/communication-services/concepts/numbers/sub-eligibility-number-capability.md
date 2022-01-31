@@ -67,5 +67,5 @@ The tables below summarize current availability:
 In this quickstart, you learned about Subscription Eligibility and Number Capabilities for Communication Services.
 
 The following documents may be interesting to you:
-- [Learn more about Telephony](../concepts/telephony/telephony-concept.md)
-- Get a Telephony capable [phone number](../quickstarts/telephony/get-phone-number.md)
+- [Learn more about Telephony](../telephony/telephony-concept.md)
+- Get a Telephony capable [phone number](../../quickstarts/telephony/get-phone-number.md)
