@@ -19,11 +19,11 @@ In this article, you'll learn to implement Secure Hybrid Access (SHA) with singl
 
 Integrating a BIG-IP with Azure Active Directory (Azure AD) provides many benefits, including:
 
-* Improved Zero Trust governance through Azure AD pre-authentication and authorization
+* Improved Zero Trust governance through Azure AD pre-authentication and [Conditional Access](/conditional-access/overview)
 
 * Full SSO between Azure AD and BIG-IP published services
 
-* Manage identities and access from a single control plane, [The Azure portal](https://portal.azure.com/)
+* Manage identities and access from a single control plane, the [Azure portal](https://portal.azure.com/)
 
 To learn about all of the benefits, see the article on [F5 BIG-IP and Azure AD integration](./f5-aad-integration.md) and [what is application access and single sign-on with Azure AD](/azure/active-directory/active-directory-appssoaccess-whatis).
 
@@ -118,23 +118,14 @@ Before a client or service can access Microsoft Graph, it must be trusted by the
 7. Navigate to **API permissions** and authorize the following Microsoft Graph permissions:
 
    * Application.Read.All
-
    * Application.ReadWrite.All
-
    * Application.ReadWrite.OwnedBy
-
    * Directory.Read.All
-
    * Group.Read.All
-
    * IdentityRiskyUser.Read.All
-
    * Policy.Read.All
-
    * Policy.ReadWrite.ApplicationConfiguration
-
    * Policy.ReadWrite.ConditionalAccess
-
    * User.Read.All
 
 8. Grant admin consent for your organization
@@ -153,13 +144,13 @@ Next, step through the Easy Button configurations, and complete the trust to sta
 
 3. Select **PKCS 12 (IIS)** and import your certificate along with its private key
 
-   Once provisioned, the certificate can be used for every application published through Easy Button. You can also choose to upload a separate certificate for individual applications.
+Once provisioned, the certificate can be used for every application published through Easy Button. You can also choose to upload a separate certificate for individual applications.
 
    ![Screenshot for Configure Easy Button- Import SSL certificates and keys](./media/f5-big-ip-kerberos-easy-button/config-easy-button.png)
 
 4. Navigate to **Access > Guided Configuration > Microsoft Integration and select Azure AD Application**
 
-   You can now access the Easy Button functionality that provides quick configuration steps to set up the APM as a SAML Service Provider (SP) and Azure AD as an Identity Provider (IdP) for your application.
+You can now access the Easy Button functionality that provides quick configuration steps to set up the APM as a SAML Service Provider (SP) and Azure AD as an Identity Provider (IdP) for your application.
 
    ![Screenshot for Configure Easy Button- Install the template](./media/f5-big-ip-kerberos-easy-button/easy-button-template.png)
 
@@ -179,11 +170,11 @@ These are general and service account properties. Consider this section to be th
 
 Some of these are global settings so can be re-used for publishing more applications, further reducing deployment time and effort.
 
-1. Provide a unique **Configuration Name** that enables admins to easily distinguish between Easy Button configurations
+1. Provide a unique **Configuration Name** so admins can easily distinguish between Easy Button configurations
 
 2. Enable **Single Sign-On (SSO) & HTTP Headers**
 
-3. Enter the **Tenant Id, Client ID,** and **Client Secret** from your registered application
+3. Enter the **Tenant Id, Client ID,** and **Client Secret** you noted down during tenant registration
 
    ![Screenshot for Configuration General and Service Account properties](./media/f5-big-ip-kerberos-easy-button/azure-configuration-properties.png)
 
@@ -270,7 +261,7 @@ To select a policy to be applied to the application being published:
 
 2. Select the right arrow and move it to the **Selected Policies** list
 
-   Selected policies should either have an **Include** or **Exclude** option checked. If both options are checked, the selected policy is not enforced. Excluding all policies may ease testing, you can go back and enable them later.
+Selected policies should either have an **Include** or **Exclude** option checked. If both options are checked, the selected policy is not enforced. Excluding all policies may ease testing, you can go back and enable them later.
 
   ![Screenshot for CA policies](./media/f5-big-ip-kerberos-easy-button/conditional-access-policy.png)
 
