@@ -131,7 +131,7 @@ auto audioInput = AudioConfig::FromWavFileInput("YourAudioFile.wav");
 auto recognizer = SpeechRecognizer::FromConfig(config, audioInput);
 ```
 
-Next, create a variable to manage the state of speech recognition. Declare `promise<void>`, because at the start of recognition you can safely assume that it's not finished:
+Next, create a variable to manage the state of speech recognition. Declare `promise<void>` because at the start of recognition, you can safely assume that it's not finished:
 
 ```cpp
 promise<void> recognitionEnd;
