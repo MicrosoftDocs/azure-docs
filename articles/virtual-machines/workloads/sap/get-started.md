@@ -13,7 +13,7 @@ ms.assetid: ad8e5c75-0cf6-4564-ae62-ea1246b4e5f2
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 01/24/2022
+ms.date: 01/30/2022
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
@@ -78,6 +78,7 @@ In this section, you find documents about Microsoft Power BI integration into SA
 
 ## Change Log
 
+- January 30, 2022: Adding context about SQL Server proprotional fill and expectations that SQL server data files should be the same size and should have the same free space in [SQL Server Azure Virtual Machines DBMS deployment for SAP NetWeaver](./dbms_guide_sqlserver.md)
 - January 24, 2022: Change in [HA for SAP NW on SLES with NFS on Azure Files](./high-availability-guide-suse-nfs-azure-files.md), [HA for SAP NW on Azure VMs on SLES with ANF](./high-availability-guide-suse-netapp-files.md), [HA for SAP NW on Azure VMs on SLES for SAP applications](./high-availability-guide-suse.md), [HA for NFS on Azure VMs on SLES](./high-availability-guide-suse-nfs.md), [HA for SAP NNW on Azure VMs on SLES multi-SID guide](./high-availability-guide-suse-multi-sid.md), [HA for SAP NW on RHEL with NFS on Azure Files](./high-availability-guide-rhel-nfs-azure-files.md), [HA for SAP NW on Azure VMs on RHEL for SAP applications](./high-availability-guide-rhel.md) and  [HA for SAP NW on Azure VMs on RHEL with ANF](./high-availability-guide-rhel-netapp-files.md) and [HA for SAP NW on Azure VMs on RHEL multi-SID guide](./high-availability-guide-rhel-multi-sid.md) to remove cidr_netmask from Pacemaker configuration to allow the resource agent to determine the value automatically 
 - January 12, 2022: Change in [HA for SAP NetWeaver on Azure VMs on Windows with Azure NetApp Files(SMB)](./high-availability-guide-windows-netapp-files-smb.md) to remove obsolete information for the SAP kernel that supports the scenario.   
 - December 08, 2021: Change in [SQL Server Azure Virtual Machines DBMS deployment for SAP NetWeaver](./dbms_guide_sqlserver.md) to clarify Azure Load Balancer settings   
