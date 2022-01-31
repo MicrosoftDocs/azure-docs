@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 01/21/2022
+ms.date: 01/31/2022
 
 ms.author: justinha
 author: justinha
@@ -48,7 +48,7 @@ Make sure the user is trying to sign in with the correct username. This error ha
 - Make sure user bindings are set correctly and the certificate field is mapped to the correct user Attribute.
 - Make sure the user Attribute contains the correct value that matches the certificate field value.
 
-Link to Getting started configure user binding
+For more information, see [Step 3: Configure username binding policy](how-to-certificate-based-authentication.md#step-3-configure-username-binding-policy).
 
 If the user is a federated user moving to Azure AD and if the user binding configuration is Principal Name > onPremisesUserPrincipalName:
 
@@ -60,9 +60,15 @@ If the user is a federated user moving to Azure AD and if the user binding confi
 
 **AADSTS130501 - Users sign in fails with "Sign in was blocked due to User Credential Policy"**
 
-This error happens when the target user is not in scope for the Certificate-based authentication. Make sure the user is listed in the **target** attribute of CBA.
+This error happens when the target user is not in scope for the certificate-based authentication. Make sure the user is listed in the **target** attribute of CBA.
 
-Link to Getting started configuring enable CBA (step 4)
+There is also a known issue when a user who is not in scope for CBA ties to sign in with a certificate to an [Office app](https://office.com) or any portal app, and the sign-in fails with an error:
+
+:::image type="content" border="false" source="./media/troubleshoot-cloud-native-certificate-based-authentication/alt-failed.png" alt-text="Alternative error message for cloud-native certificate-based authentication in Azure AD.":::
+
+In both cases, the error can be resolved by making sure the user is in scope for cloud-native CBA. For more information, see [Step 4: Enable CBA on the tenant](how-to-certificate-based-authentication.md#step-4-enable-cba-on-the-tenant).
+
+
 
 ## User sign-in failed but not much diagnostic information
 
@@ -70,7 +76,7 @@ There is a known issue when the authentication sometimes fails, the failure scre
 
 For example, if a user certificate is revoked and is part of a Certificate Revocation List, then authentication fails correctly. However, instead of the error message, you might see the following screen:
 
-:::image type="content" border="false" source="./media/troubleshoot-cloud-native-certificate-based-authentication/failed.png" alt-text="Error message for cloud-native certificate-based authentication works in Azure AD.":::
+:::image type="content" border="false" source="./media/troubleshoot-cloud-native-certificate-based-authentication/failed.png" alt-text="Error message for cloud-native certificate-based authentication in Azure AD.":::
 
 To get more diagnostic information, look in **Sign-in logs**. If a user authentication fails due to CRL validation for example, sign-in logs show the error information correctly.
 
