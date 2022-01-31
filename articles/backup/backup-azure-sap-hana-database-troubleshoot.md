@@ -29,8 +29,8 @@ Refer to the [prerequisites](tutorial-backup-sap-hana-db.md#prerequisites) and [
 
 | **Error message**      | `Failed to connect to HANA system`                        |
 | ------------------ | ------------------------------------------------------------ |
-| **Possible causes**    | <ul><li>Connection to HANA instance failed</li><li>System DB  is offline</li><li>Tenant DB is offline</li><li>Backup user (AZUREWLBACKUPHANAUSER) doesn't have enough permissions/privileges.</li></ul> |
-| **Recommended action** | Check if the system is up and running. If the database(s) is up and running, ensure that the required permissions are set by downloading and running the [pre-registration script](https://aka.ms/scriptforpermsonhana) on the SAP HANA instance. |
+| **Possible causes**    | <ul><li>Connection to HANA instance failed.</li><li>System DB  is offline.</li><li>Tenant DB is offline.</li><li>Backup user (AZUREWLBACKUPHANAUSER) doesn't have enough permissions/ privileges.</li></ul> |
+| **Recommended action** | Check if the system is up and running. If the database(s) is up and running, ensure that the required permissions are set. To do so, download and run the [pre-registration script](https://aka.ms/scriptforpermsonhana) on the SAP HANA instance. |
 
 ### UserErrorHanaInstanceNameInvalid
 
@@ -58,14 +58,14 @@ Refer to the [prerequisites](tutorial-backup-sap-hana-db.md#prerequisites) and [
 | **Error message**      | `Backups will fail with this error when the Backint Configuration is incorrectly updated.`                       |
 | ------------------ | ------------------------------------------------------------ |
 | **Possible causes**    | The backint configuration updated during the Configure Protection flow by Azure Backup is either altered/updated by the customer. |
-| **Recommended action** | Check if the following (backint) parameters are set:<br><ul><li>[catalog_backup_using_backint:true]</li><li>[enable_accumulated_catalog_backup:false]</li><li>[parallel_data_backup_backint_channels:1]</li><li>[log_backup_timeout_s:900)]</li><li>[backint_response_timeout:7200]</li></ul>If backint-based parameters are present at the HOST level, remove them. However, if parameters aren't present at the HOST level but have been manually modified at a database level, ensure that the database level values are set above. Or, run [stop protection with retain backup data](./sap-hana-db-manage.md#stop-protection-for-an-sap-hana-database) from the Azure portal, and then select Resume backup. |
+| **Recommended action** | Check if the following (backint) parameters are set:<br><ul><li>[catalog_backup_using_backint:true]</li><li>[enable_accumulated_catalog_backup:false]</li><li>[parallel_data_backup_backint_channels:1]</li><li>[log_backup_timeout_s:900)]</li><li>[backint_response_timeout:7200]</li></ul>If backint-based parameters are present at the HOST level, remove them. You may have a scenarios where parameters aren't present at the HOST level but have been manually modified at a database level. For this, ensure that the database level values are set earlier. Or, run [stop protection with retain backup data](./sap-hana-db-manage.md#stop-protection-for-an-sap-hana-database) from the Azure portal, and then select Resume backup. |
 
 ### UserErrorIncompatibleSrcTargetSystemsForRestore
 
 |**Error message**  | `The source and target systems for restore are incompatible.`  |
 |---------|---------|
 |**Possible causes**   | The restore flow fails with this error when the source and target HANA databases, and systems are incompatible. |
-|Recommended action   |   Ensure that your restore scenario isn't in the following list of possible incompatible restores:<br> **Case 1:** SYSTEMDB cannot be renamed during restore.<br>**Case 2:** Source - SDC and target - MDC: The source database cannot be restored as SYSTEMDB or tenant DB on the target. <br> **Case 3:** Source - MDC and target - SDC: The source database (SYSTEMDB or tenant DB) cannot be restored to the target.<br>To learn more, see the note **1642148** in the [SAP support launchpad](https://launchpad.support.sap.com). |
+|Recommended action   |   Ensure that your restore scenario isn't in the following list of possible incompatible restores:<br> **Case 1:** SYSTEMDB cannot be renamed during restore.<br>**Case 2:** Source - SDC and target - MDC: The source database can't be restored as SYSTEMDB or tenant DB on the target. <br> **Case 3:** Source - MDC and target - SDC: The source database (SYSTEMDB or tenant DB) cannot be restored to the target.<br>To learn more, see the note **1642148** in the [SAP support launchpad](https://launchpad.support.sap.com). |
 
 ### UserErrorHANAPODoesNotExist
 
@@ -78,8 +78,8 @@ Refer to the [prerequisites](tutorial-backup-sap-hana-db.md#prerequisites) and [
 
 **Error message** |    `Azure Backup does not have enough privileges to carry out Backup and Restore operations.`
 ---------- | ---------
-**Possible causes** | Backup user (AZUREWLBACKUPHANAUSER) created by the pre-registration script doesn't have one or more of the following roles assigned:<ul><li>For MDC, DATABASE ADMIN and BACKUP ADMIN (for HANA 2.0 SPS05 and later) to create new databases during restore.</li><li>For SDC, BACKUP ADMIN to create new databases during restore.</li><li>CATALOG READ to read the backup catalog.</li><li>SAP_INTERNAL_HANA_SUPPORT to access a few private tables. Only required for SDC and MDC versions prior to HANA 2.0 SPS04 Rev 46. This is not required for HANA 2.0 SPS04 Rev 46 and later as we are getting the required information from public tables now with the fix from HANA team.</li></ul>
-**Recommended action** | To resolve the issue, add the required roles and permissions manually to the Backup user (AZUREWLBACKUPHANAUSER), or download and run the pre-registration script on the [SAP HANA instance](https://aka.ms/scriptforpermsonhana).
+**Possible causes** | Backup user (AZUREWLBACKUPHANAUSER) created by the pre-registration script doesn't have one or more of the following roles assigned:<ul><li>For MDC, DATABASE ADMIN and BACKUP ADMIN (for HANA 2.0 SPS05 and later) to create new databases during restore.</li><li>For SDC, BACKUP ADMIN to create new databases during restore.</li><li>CATALOG READ to read the backup catalog.</li><li>SAP_INTERNAL_HANA_SUPPORT to access a few private tables. Only required for SDC and MDC versions prior to HANA 2.0 SPS04 Rev 46. This is not required for HANA 2.0 SPS04 Rev 46 and later. This is because we are getting the required information from public tables now with the fix from HANA team.</li></ul>
+**Recommended action** | To resolve the issue, add the required roles and permissions manually to the Backup user (AZUREWLBACKUPHANAUSER). Or, you can download and run the pre-registration script on the [SAP HANA instance](https://aka.ms/scriptforpermsonhana).
 
 ### UserErrorDatabaseUserPasswordExpired
 
@@ -100,7 +100,7 @@ Refer to the [prerequisites](tutorial-backup-sap-hana-db.md#prerequisites) and [
 **Error message** | `Unable to connect to the AAD service from the HANA system.`
 --------- | --------
 **Possible causes** | Firewall or proxy settings as Backup extension's plugin service account is not allowing the outbound connection to AAD.
-**Recommended action** | Fix the firewall or proxy settings for the outbound connection to AAD to succeed.
+**Recommended action** | Fix the firewall or proxy settings for the outbound connection to Azure Active Directory (AAD) to succeed.
 
 ### UserErrorMisConfiguredSslCaStore
 
@@ -221,7 +221,7 @@ This scenario could include two possible cases. Learn how to back up the replica
     - If you discover and protect the new databases, you'll start seeing duplicate active databases in the portal. To avoid this, [Stop protection with retain data](sap-hana-db-manage.md#stop-protection-for-an-sap-hana-database) for the old databases. Then continue with the remaining steps.
     - Discover the databases to enable backup
     - Enable backups on these databases
-    - The already existing backed up databases (from the deleted VM) will continue to be stored in the vault (with their backups being retained according to the policy)
+    - The already existing backed-up databases (from the deleted VM) will continue to be stored. This will be in the vault (with their backups being retained according to the policy)
 
 ### Scenario 2
 
@@ -289,7 +289,7 @@ These symptoms may arise for one or more of the following reasons:
 - An extension was deleted or uninstalled from the portal.
 - The VM was restored back in time through in-place disk restore.
 - The VM was shut down for an extended period, so the extension configuration on it expired.
-- The VM was deleted, and another VM was created with the same name and in the same resource group as the deleted VM.
+- The VM was deleted. Then another VM was created in the same resource group with the same name as the deleted VM.
 
 In the preceding scenarios, we recommend that you trigger a re-register operation on the VM.
 
