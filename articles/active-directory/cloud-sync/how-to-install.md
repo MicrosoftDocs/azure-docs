@@ -42,7 +42,6 @@ To install the agent:
  3. On the menu on the left, select **Azure AD Connect**.
  4. Select **Manage cloud sync**.
      [![Screenshot that shows manage cloud sync](media/how-to-install/new-install-1.png)](media/how-to-install/new-install-1.png#lightbox)</br>
- 
  5. At the top, click **Download agent**.
     [![Screenshot that the download agent](media/how-to-install/new-install-2.png)](media/how-to-install/new-install-2.png#lightbox)</br>
  7. On the right, click **Accept terms and download**.
@@ -51,25 +50,21 @@ To install the agent:
     [![Screenshot that shows open file](media/how-to-install/new-install-4.png)](media/how-to-install/new-install-4.png#lightbox)</br>
  10. On the **Microsoft Azure AD Connect Provisioning Agent Package** screen, accept the licensing terms and select **Install**.
   [![Screenshot that shows install](media/how-to-install/new-install-5.png)](media/how-to-install/new-install-5.png#lightbox)</br>
-    a. After this operation finishes, the configuration wizard starts. Click **Next**.
-    b. Sign in with your Azure AD global administrator account.
-    c. On the **Configure Service Account** screen, select either **Create gMSA** or **Use custom gMSA**. If you allow the agent to create the account, it will be named **provAgentgMSA$**. If you specify **Use custom gMSA**, you're prompted to provide this account.
-    d. Enter the domain administrator credentials to create the group Managed Service account that will be used to run the agent service. Select **Next**.
+ 11. After this operation finishes, the configuration wizard starts. Click **Next**.
+ [![Screenshot that shows wizard](media/how-to-install/new-install-6.png)](media/how-to-install/new-install-6.png#lightbox)</br>
+ 13. Sign in with your Azure AD global administrator account.
+ 14. On the **Configure Service Account** screen, select either **Create gMSA** or **Use custom gMSA**. If you allow the agent to create the account, it will be named **provAgentgMSA$**. If you specify **Use custom gMSA**, you're prompted to provide this account.
+ [![Screenshot that shows create service account](media/how-to-install/new-install-7.png)](media/how-to-install/new-install-7.png#lightbox)</br>
+ 15. Enter the domain administrator credentials to create the group Managed Service account that will be used to run the agent service. Select **Next**.
   ![Screenshot that shows the Create gMSA option.](media/how-to-install/install-12.png)</br>
-    e. On the **Connect Active Directory** screen click **Next**.  Your current domain has been added automatically.  If you wish to add additional domains, enter them and select **Add Directory**. Then sign in with an administrator account from that domain.
-    f. Optionally, you can manage the preference of domain controllers the agent will use.  To do this, click **Add Directory** and select the **Select domain controller priority** checkbox and then order the list of domain controllers. Select **OK**.
- 
-    ![Screenshot that shows ordering the domain controllers.](media/how-to-install/install-2a.png)</br>
- 1. Select **Next**.
- 
-    ![Screenshot that shows the Connect Active Directory screen.](media/how-to-install/install-3a.png)</br>
- 1. On the **Agent installation** screen, confirm settings and the account that will be created and select **Confirm**.
- 
-    ![Screenshot that shows the Confirm settings.](media/how-to-install/install-11.png)</br>
- 1. After this operation finishes, you should see **Your agent installation is complete.** Select **Exit**.
- 
-    ![Screenshot that shows the Configuration complete screen.](media/how-to-install/install-4a.png)</br>
- 1. If you still see the initial **Microsoft Azure AD Connect Provisioning Agent Package** screen, select **Close**.
+ 16. On the **Connect Active Directory** screen click **Next**.  Your current domain has been added automatically.  If you wish to add additional domains, enter them and select **Add Directory**. Then sign in with an administrator account from that domain.
+ [![Screenshot that shows connecting to AD](media/how-to-install/new-install-8.png)](media/how-to-install/new-install-8.png#lightbox)</br>
+ 17. Optionally, you can manage the preference of domain controllers the agent will use.  To do this, click **Add Directory** and select the **Select domain controller priority** checkbox and then order the list of domain controllers. Select **OK**.  Click **Next**.
+    [![Screenshot that shows adding domain controller priority](media/how-to-install/new-install-10.png)](media/how-to-install/new-install-10.png#lightbox)</br>
+ 18. On the **Agent installation** screen, confirm settings and the account that will be created and select **Confirm**.
+  [![Screenshot that shows adding domain controller priority](media/how-to-install/new-install-11.png)](media/how-to-install/new-install-11.png#lightbox)</br>
+ 20. After this operation finishes, you should see **Your agent installation is complete.** Select **Exit**.
+ 21. If you still see the initial **Microsoft Azure AD Connect Provisioning Agent Package** screen, select **Close**.
 
 ## Verify agent installation
 Agent verification occurs in the Azure portal and on the local server that's running the agent.
