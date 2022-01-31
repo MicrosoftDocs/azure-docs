@@ -41,20 +41,23 @@ To install the agent:
  2. Sign in to the Azure portal, and then go to **Azure Active Directory**.
  3. On the menu on the left, select **Azure AD Connect**.
  4. Select **Manage cloud sync**.
-     [![Screenshot that shows the Microsoft Azure AD Connect Provisioning Agent Package screen.](media/how-to-install/new-install-1.png)](media/how-to-install/new-install-1.png#lightbox)</br>
- 6. At the top, click **Download agent**.
+     [![Screenshot that shows manage cloud sync](media/how-to-install/new-install-1.png)](media/how-to-install/new-install-1.png#lightbox)</br>
+ 
+ 5. At the top, click **Download agent**.
+    [![Screenshot that the download agent](media/how-to-install/new-install-2.png)](media/how-to-install/new-install-2.png#lightbox)</br>
  7. On the right, click **Accept terms and download**.
- 8. Once the agent has completed downloading, click **Open file**.  This will start the installation.
- 9. Download the Azure AD Connect provisioning agent from the Azure portal.
+   [![Screenshot that accept and download](media/how-to-install/new-install-3.png)](media/how-to-install/new-install-3.png#lightbox)</br>
+ 9. Once the agent has completed downloading, click **Open file**.  This will start the installation.
+    [![Screenshot that shows open file](media/how-to-install/new-install-4.png)](media/how-to-install/new-install-4.png#lightbox)</br>
  10. On the **Microsoft Azure AD Connect Provisioning Agent Package** screen, accept the licensing terms and select **Install**.
-    ![Screenshot that shows the Microsoft Azure AD Connect Provisioning Agent Package screen.](media/how-to-install/install-1.png)</br>
- 11. After this operation finishes, the configuration wizard starts. Click **Next**.
- 12. Sign in with your Azure AD global administrator account.
- 13. On the **Configure Service Account** screen, select either **Create gMSA** or **Use custom gMSA**. If you allow the agent to create the account, it will be named **provAgentgMSA$**. If you specify **Use custom gMSA**, you're prompted to provide this account.
- 14. Enter the domain administrator credentials to create the group Managed Service account that will be used to run the agent service. Select **Next**.
+  [![Screenshot that shows install](media/how-to-install/new-install-5.png)](media/how-to-install/new-install-5.png#lightbox)</br>
+    a. After this operation finishes, the configuration wizard starts. Click **Next**.
+    b. Sign in with your Azure AD global administrator account.
+    c. On the **Configure Service Account** screen, select either **Create gMSA** or **Use custom gMSA**. If you allow the agent to create the account, it will be named **provAgentgMSA$**. If you specify **Use custom gMSA**, you're prompted to provide this account.
+    d. Enter the domain administrator credentials to create the group Managed Service account that will be used to run the agent service. Select **Next**.
   ![Screenshot that shows the Create gMSA option.](media/how-to-install/install-12.png)</br>
- 15. On the **Connect Active Directory** screen click **Next**.  Your current domain has been added automatically.  If you wish to add additional domains, enter them and select **Add Directory**. Then sign in with an administrator account from that domain.
-    a. Optionally, you can manage the preference of domain controllers the agent will use.  To do this, click **Add Directory** and select the **Select domain controller priority** checkbox and then order the list of domain controllers. Select **OK**.
+    e. On the **Connect Active Directory** screen click **Next**.  Your current domain has been added automatically.  If you wish to add additional domains, enter them and select **Add Directory**. Then sign in with an administrator account from that domain.
+    f. Optionally, you can manage the preference of domain controllers the agent will use.  To do this, click **Add Directory** and select the **Select domain controller priority** checkbox and then order the list of domain controllers. Select **OK**.
  
     ![Screenshot that shows ordering the domain controllers.](media/how-to-install/install-2a.png)</br>
  1. Select **Next**.
