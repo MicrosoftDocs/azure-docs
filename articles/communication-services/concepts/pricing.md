@@ -14,11 +14,11 @@ Prices for Azure Communication Services are generally based on a pay-as-you-go m
 
 ## Voice/Video calling and screen sharing
 
-Azure Communication Services allow for adding voice/video calling and screen sharing to your applications. You can embed the experience into your applications using JavaScript, Objective-C (Apple), Java (Android), or .NET SDKs. Refer to our [full list of available SDKs](./sdk-options.md).
+Azure Communication Services allows for adding voice/video calling and screen sharing to your applications. You can embed the experience into your applications using JavaScript, Objective-C (Apple), Java (Android), or .NET SDKs. Refer to our [full list of available SDKs](./sdk-options.md).
 
 ### Pricing
 
-Calling and screen-sharing services are charged on a per minute per participant basis at $0.004 per participant per minute for group calls. Azure Communication Services does'nt charge for data egress. To understand the various call flows that are possible, refer to [this page](./call-flows.md).
+Calling and screen-sharing services are charged on a per minute per participant basis at $0.004 per participant per minute for group calls. Azure Communication Services doesn't charge for data egress. To understand the various call flows that are possible, refer to [this page](./call-flows.md).
 
 Each participant of the call will count in billing for each minute they're connected to the call. This holds true regardless of whether the user is video calling, voice calling, or screen-sharing.
 
@@ -51,7 +51,7 @@ Alice makes a PSTN Call from an app to Bob on his US phone number beginning with
 - One participant on the PSTN outbound leg (Bob) from Communication Services servers to a US telephone number x 10 minutes x $0.013 per participant leg per minute = $0.13.
 
 > [!Note]
-> USA mixed rates to `+1-425` is $0.013. Refer to the following link for details: https://github.com/Azure/Communication/blob/master/pricing/communication-services-pstn-rates.csv)
+> USA mixed rate to `+1-425` is $0.013. Refer to the following link for details: https://github.com/Azure/Communication/blob/master/pricing/communication-services-pstn-rates.csv)
 
 
 **Total cost for the call**: $0.04 + $0.13 = $0.17
@@ -137,7 +137,7 @@ Alice has ordered a product from Contoso and struggles to set it up. Alice calls
 
 ## Call Recording
 
-Azure Communication Services allow to record PSTN, WebRTC, Conference, SIP Interface calls. Currently Call Recording supports mixed audio+video MP4 and mixed audio-only MP3/WAV output formats. Call Recording SDKs are available for Java and C#. Refer to [this page to learn more](../quickstarts/voice-video-calling/call-recording-sample.md).
+Azure Communication Services allows customers to record PSTN, WebRTC, Conference, SIP Interface calls. Currently Call Recording supports mixed audio+video MP4 and mixed audio-only MP3/WAV output formats. Call Recording SDKs are available for Java and C#. Refer to [this page to learn more](../quickstarts/voice-video-calling/call-recording-sample.md).
 
 ### Price
 
@@ -202,4 +202,4 @@ Please refer to the following links for details on SMSand Telephony pricing
 Get started with ACS
 
 - [Send an SMS](../quickstarts/sms/send.md)
-- [Add Voice calling to you app](../quickstarts/voice-video-calling/getting-started-with-calling.md)
+- [Add Voice calling to your app](../quickstarts/voice-video-calling/getting-started-with-calling.md)
