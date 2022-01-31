@@ -45,7 +45,7 @@ The preceding diagram shows a new virtual machine called SQL-3. SQL-3 is in a di
 
 In this architecture, the replica in the remote region is normally configured with asynchronous commit availability mode and manual failover mode.
 
-When availability group replicas are on Azure virtual machines in different Azure regions, then you can connect the Virtual Networks using the recommended [Virtual Network Peering](/azure/virtual-network/virtual-network-peering-overview) or [Site to Site VPN Gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways)
+When availability group replicas are on Azure virtual machines in different Azure regions, then you can connect the Virtual Networks using the recommended [Virtual Network Peering](../../../virtual-network/virtual-network-peering-overview.md) or [Site to Site VPN Gateway](../../../vpn-gateway/vpn-gateway-about-vpngateways.md)
 
 
 >[!IMPORTANT]
@@ -59,7 +59,7 @@ To create a replica in a remote data center, do the following steps:
 
 1. Connect the Virtual Networks in the two Azure regions using one of the following methods:
    
-   [Virtual Network Peering - Connect virtual networks with virtual network peering using the Azure portal](azure/virtual-network/tutorial-connect-virtual-networks-portal) (Recommended)
+   [Virtual Network Peering - Connect virtual networks with virtual network peering using the Azure portal](../../../virtual-network/tutorial-connect-virtual-networks-portal.md) (Recommended)
    
    or
    
