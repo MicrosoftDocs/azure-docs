@@ -19,7 +19,7 @@ See below for information about changes to Speech services and resources.
 
 ## What's new?
 
-* Speech SDK 1.20.0 released January 2022. Updates include extended programming language support for DialogServiceConnector, Unity on Linux, enhancements to IntentRecognizer, added support for Python 3.10, and a fix for the 10-second delay stopping continuous recognition while using PushAudioInputStreams, as reported by some customers.
+* Speech SDK 1.20.0 released January 2022. Updates include extended programming language support for DialogServiceConnector, Unity on Linux, enhancements to IntentRecognizer, added support for Python 3.10, and a fix to remove a 10-second delay while stopping a speech recognizer (when using a PushAudioInputStream, and no new audio is pushed in after StopContinuousRecognition is called).
 * Speech CLI 1.20.0 released January 2022. Updates include microphone input for Speaker recognition and expanded support for Intent recognition.
 * Speaker Recognition service is generally available (GA). With [Speaker Recognition](./speaker-recognition-overview.md) you can accurately verify and identify speakers by their unique voice characteristics.
 * Custom Neural Voice extended to support [49 locales](./language-support.md#custom-neural-voice).
