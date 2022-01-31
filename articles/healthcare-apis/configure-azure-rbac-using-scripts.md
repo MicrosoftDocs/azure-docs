@@ -5,14 +5,14 @@ services: healthcare-apis
 author: SteveWohl
 ms.service: healthcare-apis
 ms.topic: tutorial
-ms.date: 01/21/2022
+ms.date: 01/31/2022
 ms.author: zxue
 ---
 
-# Configure Azure RBAC Using Azure CLI and REST API
+# Configure Azure RBAC role Using Azure CLI and REST API
 
 In this article, you'll learn how to grant permissions to client applications (and users) to access Healthcare APIs using Azure Command-Line Interface (CLI) and REST API. This step is referred to as "role assignment" or Azure 
-[role-based access control (Azure RBAC)](./../role-based-access-control/role-assignments-cli.md). To further your understanding about the application roles defined for Healthcare APIs, see [Configure Azure RBAC](configure-azure-rbac.md).
+[role-based access control (Azure RBAC role)](./../role-based-access-control/role-assignments-cli.md). To further your understanding about the application roles defined for Healthcare APIs, see [Configure Azure RBAC role](configure-azure-rbac.md).
 
 You can view and download the [CLI scripts](https://github.com/microsoft/healthcare-apis-samples/blob/main/src/scripts/role-assignment-using-cli.http) and [REST API scripts](https://github.com/microsoft/healthcare-apis-samples/blob/main/src/scripts/role-assignment-using-rest-api.http) from [Healthcare APIs Samples](https://github.com/microsoft/healthcare-apis-samples).
 
@@ -37,7 +37,7 @@ The role assignments for Healthcare APIs require the following values.
 
 - Application role name or GUID ID.
 - Service principal ID for the user or client application.
-- Scope for the role assignment, that is, the Healthcare APIs service instance. It includes subscription, resource group, workspace name, and FHIR or DICOM service name. You can use the absolute or relative URL for the scope. Note that "/" is not added at the beginning of the relative URL.
+- Scope for the role assignment, that is, the Healthcare APIs service instance. It includes subscription, resource group, workspace name, and FHIR or DICOM service name. You can use the absolute or relative URL for the scope. Note that "/" isn’t added at the beginning of the relative URL.
 
 ```
 #healthcare apis role assignment
@@ -60,11 +60,11 @@ az role assignment create --assignee-object-id $spid --assignee-principal-type S
 az role assignment create --assignee-object-id $spid --assignee-principal-type ServicePrincipal --role "$dicomrole" --scope $dicomrolescope
 ```
 
-You can verify the role assignment status from the command line response or in the Azure portal.
+You can verify the role assignment status from the command-line response or in the Azure portal.
 
 ### Azure API for FHIR role assignment
 
-Role assignments for Azure API for FHIR work similarly. The difference is that the scope contains the FHIR service only and the workspace name is not required.
+Role assignments for Azure API for FHIR work similarly. The difference is that the scope contains the FHIR service only and the workspace name isn’t required.
 
 ```
 #azure api for fhir role assignment
@@ -101,7 +101,7 @@ The API requires the following values:
 ```
 ### Create a role assignment - Healthcare APIs (DICOM)
 @roleassignmentid=xxx
-@roleapiversion=2021-04-01-preview
+@roleapiversion=2021-04-01
 @roledefinitionid=58a3b984-7adf-4c20-983a-32417c86fbc8
 dicomservicename-xxx
 @scope=/subscriptions/{{subscriptionid}}/resourceGroups/{{resourcegroupname}}/providers/Microsoft.HealthcareApis/workspaces/{{workspacename}}/dicomservices/{{dicomservicename}}
@@ -128,7 +128,7 @@ For Azure API for FHIR, the scope is defined slightly differently as it supports
 ```
 ### Create a role assignment - Azure API for FHIR
 @roleassignmentid=xxx
-@roleapiversion=2021-04-01-preview
+@roleapiversion=2021-04-01
 @roledefinitionid=5a1fc7df-4bf1-4951-a576-89034ee01acd
 fhirservicename-xxx
 @scope=/subscriptions/{{subscriptionid}}/resourceGroups/{{resourcegroupname}}/providers/Microsoft.HealthcareApis/services/{{fhirservicename}}
@@ -158,7 +158,7 @@ For Healthcare APIs, specify the subscription ID, resource group name, workspace
 
 ```
 ### Get Healthcare APIs DICOM services
-@apiversion=2021-06-01-preview
+@apiversion=2021-06-01
 @subscriptionid=xxx
 @resourcegroupname=xxx
 @workspacename=xxx
@@ -174,7 +174,7 @@ For Azure API for FHIR, specify the subscription ID and the API version.
  
 ```
 ### Get a list of Azure API for FHIR services
-@apiversion=2021-06-01-preview
+@apiversion=2021-06-01
 @subscriptionid=xxx
 
 GET  https://management.azure.com/subscriptions/{{subscriptionid}}/providers/Microsoft.HealthcareApis/services?api-version={{apiversion}}

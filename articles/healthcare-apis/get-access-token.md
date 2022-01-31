@@ -6,14 +6,14 @@ author: SteveWohl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 01/21/2022
+ms.date: 01/31/2022
 ms.author: zxue
 ms.custom: devx-track-azurepowershell
 ---
 
 # Get access token using Azure CLI or Azure PowerShell
 
-In this article, you'll learn how to obtain an access token for the FHIR service and the DICOM service using PowerShell and the Azure CLI. Keep in mind that in order to access the FHIR service or the DICOM service, users and applications must be granted permissions through [role assignments](configure-azure-rbac.md) from the Azure portal or using [scripts](configure-azure-rbac-using-scripts.md). For more details on how to get started with the Healthcare APIs, see [How to get started with FHIR](./../healthcare-apis/fhir/get-started-with-fhir.md) or [How to get started with DICOM](./../healthcare-apis/dicom/get-started-with-dicom.md). 
+In this article, you'll learn how to obtain an access token for the FHIR service and the DICOM service using PowerShell and the Azure CLI. Keep in mind that in order to access the FHIR service or the DICOM service, users and applications must be granted permissions through [role assignments](configure-azure-rbac.md) from the Azure portal or using [scripts](configure-azure-rbac-using-scripts.md). For more information about how to get started with the Healthcare APIs, see [How to get started with FHIR](./../healthcare-apis/fhir/get-started-with-fhir.md) or [How to get started with DICOM](./../healthcare-apis/dicom/get-started-with-dicom.md). 
 
 ---
 ## Obtain and use an access token for the FHIR service
