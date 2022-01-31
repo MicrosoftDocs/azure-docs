@@ -12,7 +12,9 @@ services: azure-maps
 
 # Tutorial: Query datasets with WFS API
 
-This tutorial describes how to query Azure Maps Creator [datasets](/rest/api/maps/v2/dataset) using [WFS API](/rest/api/maps/v2/wfs). In this tutorial, you'll learn how to:
+This tutorial describes how to query Azure Maps Creator [datasets](/rest/api/maps/v2/dataset) using [WFS API](/rest/api/maps/v2/wfs). You can use the WFS API to query features within a dataset. For example, you can use WFS to find all mid-size meeting rooms in a specific building and floor level.
+
+In this tutorial, you'll learn how to:
 
 > [!div class="checklist"]
 >
@@ -125,9 +127,13 @@ To query the unit collection in your dataset:
     }
     ```
 
+## Additional information
+
+See [WFS](/rest/api/maps/wfs) for information on the Creator Web Feature Service REST API.
+
 ## Next steps
 
-To learn how to use feature statesets to define dynamic properties and values on specific features.
+To learn how to use feature statesets to define dynamic properties and values on specific features in the final Creator tutorial.
 
 > [!div class="nextstepaction"]
 > [Tutorial: Create a feature stateset](tutorial-creator-feature-stateset.md)

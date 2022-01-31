@@ -4,7 +4,7 @@ titleSuffix: Microsoft Azure Maps
 description: Tutorial on how to use Microsoft Azure Maps Creator to create indoor maps
 author: stevemunk
 ms.author: v-munksteve
-ms.date: 01/24/2022
+ms.date: 01/28/2022
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
@@ -67,7 +67,7 @@ To upload the Drawing package:
 
 8. In the **VALUE** field, select `application/octet-stream`.
 
-     :::image type="content" source="./media/tutorial-creator-indoor-maps/data-upload-header.png"alt-text="Header tab information for data upload.":::
+     :::image type="content" source="./media/tutorial-creator-indoor-maps/data-upload-header.png"alt-text="A screenshot of Postman showing the header tab information for data upload that highlights the Content Type key with the value of application forward slash octet dash stream.":::
 
 9. Select the **Body** tab.
 
@@ -109,7 +109,7 @@ To check the status of the drawing package and retrieve its unique ID (`udid`):
 
 8. Copy the value of the **Resource-Location** key, which is the `resource location URL`. The `resource location URL` contains the unique identifier (`udid`) of the drawing package resource.
 
-    :::image type="content" source="./media/tutorial-creator-indoor-maps/resource-location-url.png" alt-text="Copy the resource location URL.":::
+    :::image type="content" source="./media/tutorial-creator-indoor-maps/resource-location-url.png" alt-text="A screenshot of Postman showing the resource location URL in the responses header.":::
 
 ### (Optional) Retrieve Drawing package metadata
 
@@ -172,7 +172,7 @@ To convert a drawing package:
 
 8. Copy the value of the **Operation-Location** key. This is the `status URL` that you'll use to check the status of the conversion.
 
-    :::image type="content" source="./media/tutorial-creator-indoor-maps/data-convert-location-url.png" border="true" alt-text="Copy the value of the location key for drawing package.":::
+    :::image type="content" source="./media/tutorial-creator-indoor-maps/data-convert-location-url.png" border="true" alt-text="A screenshot of Postman showing the URL value of the operation location key in the responses header.":::
 
 ### Check the Drawing package conversion status
 
@@ -200,7 +200,7 @@ To check the status of the conversion process and retrieve the `conversionId`:
 
 8. Copy the value of the **Resource-Location** key, which is the `resource location URL`. The `resource location URL` contains the unique identifier (`conversionId`), which can be used by other APIs to access the converted map data.
 
-      :::image type="content" source="./media/tutorial-creator-indoor-maps/data-conversion-id.png" alt-text="Copy the conversion ID.":::
+      :::image type="content" source="./media/tutorial-creator-indoor-maps/data-conversion-id.png" alt-text="A screenshot of Postman highlighting the conversion ID value that appears in the resource location key in the responses header.":::
 
 The sample Drawing package should be converted without errors or warnings. However, if you receive errors or warnings from your own Drawing package, the JSON response includes a link to the [Drawing error visualizer](drawing-error-visualizer.md). You can use the Drawing Error visualizer to inspect the details of errors and warnings. To receive recommendations to resolve conversion errors and warnings, see [Drawing conversion errors and warnings](drawing-conversion-error-codes.md).
 
@@ -257,7 +257,7 @@ To create a dataset:
 
 8. Copy the value of the **Operation-Location** key. This is the `status URL` that you'll use to check the status of the dataset.
 
-    :::image type="content" source="./media/tutorial-creator-indoor-maps/data-dataset-location-url.png" border="true" alt-text="Copy the value of the location key for dataset.":::
+    :::image type="content" source="./media/tutorial-creator-indoor-maps/data-dataset-location-url.png" border="true" alt-text="A screenshot of Postman showing the value of the operation location key for dataset in the responses header.":::
 
 ### Check the dataset creation status
 
@@ -283,7 +283,7 @@ To check the status of the dataset creation process and retrieve the `datasetId`
 
 8. Save the `datasetId` value, because you'll use it in the next tutorial.
 
-    :::image type="content" source="./media/tutorial-creator-indoor-maps/dataset-id.png" alt-text="Copy the dataset ID.":::
+    :::image type="content" source="./media/tutorial-creator-indoor-maps/dataset-id.png" alt-text="A screenshot of Postman highlighting the dataset ID value of the resource location key in the responses header.":::
 
 ## Create a tileset
 
@@ -311,7 +311,7 @@ To create a tileset:
 
 8. Copy the value of the **Operation-Location** key, this is the `status URL`, which you'll use to check the status of the tileset.
 
-    :::image type="content" source="./media/tutorial-creator-indoor-maps/data-tileset-location-url.png" border="true" alt-text="Copy the value of the tileset status url.":::
+    :::image type="content" source="./media/tutorial-creator-indoor-maps/data-tileset-location-url.png" border="true" alt-text="A screenshot of Postman highlighting the status URL that is the value of the operation location key in the responses header.":::
 
 ### Check the tileset creation status
 
@@ -335,11 +335,16 @@ To check the status of the tileset creation process and retrieve the `tilesetId`
 
 7. In the response window, select the **Headers** tab. The value of the **Resource-Location** key is the `resource location URL`.  The `resource location URL` contains the unique identifier (`tilesetId`) of the dataset.
 
-    :::image type="content" source="./media/tutorial-creator-indoor-maps/tileset-id.png" alt-text="Copy the tileset ID.":::
+    :::image type="content" source="./media/tutorial-creator-indoor-maps/tileset-id.png" alt-text="A screenshot of Postman highlighting the tileset ID that is part of the value of the resource location URL in the responses header.":::
+
+## Additional information
+
+* For additional information see the how to [Use the Azure Maps Indoor Maps module](how-to-use-indoor-module.md) article.
+* See [Azure IoT Maps Creator Functional API](/rest/api/maps-creator/) for additional information on the Creator REST API.
 
 ## Next steps
 
-To learn how to query Azure Maps Creator [datasets](/rest/api/maps/v2/dataset) using [WFS API](/rest/api/maps/v2/wfs).
+To learn how to query Azure Maps Creator [datasets](/rest/api/maps/v2/dataset) using [WFS API](/rest/api/maps/v2/wfs) in the next Creator tutorial.
 
 > [!div class="nextstepaction"]
 > [Tutorial: Query datasets with WFS API](tutorial-creator-wfs.md)
