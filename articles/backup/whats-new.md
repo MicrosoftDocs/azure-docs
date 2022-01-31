@@ -40,7 +40,7 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 
 Azure Backup and Azure Database services together help you to build an enterprise-class backup solution for Azure PostgreSQL (is now generally available). You can meet your data protection and compliance needs with a customer-controlled backup policy that enables retention of backups for up to 10 years.
 
-With this, you've granular control to manage the backup and restore operations at the individual database level. Likewise, you can restore across PostgreSQL versions or to blob storage with ease. Besides using the Azure portal to perform the protection of PostgreSQL operations, you can also use the PowerShell, CLI, and REST API clients.
+With this, you've granular control to manage the backup and restore operations at the individual database level. Likewise, you can restore across PostgreSQL versions or to blob storage with ease. Besides using the Azure portal to perform the PostgreSQL database protection operations, you can also use the PowerShell, CLI, and REST API clients.
 
 For more information, see [Azure Database for PostgreSQL backup](backup-azure-database-postgresql-overview.md).
 
