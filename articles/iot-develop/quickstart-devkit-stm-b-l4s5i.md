@@ -226,8 +226,7 @@ Keep Termite open to monitor device output in the following steps.
 
 * IAR Embedded Workbench for ARM (IAR EW). You can download and install a [14-day free trial of IAR EW for ARM](https://www.iar.com/products/architectures/arm/iar-embedded-workbench-for-arm/).
 
-* Download the [Azure_RTOS_6.1_STM32F746G-DISCO_IAR_Samples_2021_11_03.zip]
-(https://github.com/azure-rtos/samples/releases/download/v6.1_rel/Azure_RTOS_6.1_STM32F746G-DISCO_IAR_Samples_2021_11_03.zip) file and extract it to a working directory. Choose a directory with a short path to avoid compiler errors when you build.
+* Download the [Azure_RTOS_6.1_STM32F746G-DISCO_IAR_Samples_2021_11_03.zip](https://github.com/azure-rtos/samples/releases/download/v6.1_rel/Azure_RTOS_6.1_STM32F746G-DISCO_IAR_Samples_2021_11_03.zip) file and extract it to a working directory. Choose a directory with a short path to avoid compiler errors when you build.
 
 [!INCLUDE [iot-develop-embedded-create-central-app-with-device](../../includes/iot-develop-embedded-create-central-app-with-device.md)]
 
