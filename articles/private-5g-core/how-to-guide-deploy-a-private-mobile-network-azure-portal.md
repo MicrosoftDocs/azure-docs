@@ -13,7 +13,7 @@ ms.custom: template-how-to
 
 Azure Private 5G Core Preview is an Azure cloud service for service providers and system integrators to securely deploy and manage private mobile networks for enterprises on Azure Arc-connected edge platforms such as an Azure Stack Edge device. In this how-to guide, you'll use the Azure portal to deploy a private mobile network to match your enterprise's requirements.
 
-You'll create the following as part of this how-to guide.
+You'll create the following resources as part of this how-to guide.
 
 - The Mobile Network resource representing your private mobile network as a whole.
 - The Site resource representing the physical enterprise location of your Azure Stack Edge device, which will host the packet core instance.
@@ -25,35 +25,35 @@ You'll create the following as part of this how-to guide.
 - Complete all of the steps in [Complete the prerequisite tasks for deploying a private mobile network](complete-private-mobile-network-prerequisites.md).
 - Ensure you can sign in to the Azure portal using an account with access to the active subscription you identified in [Complete the prerequisite tasks for deploying a private mobile network](complete-private-mobile-network-prerequisites.md). This account must have the built-in Contributor role at the subscription scope.
 - Collect all of the information listed in [Collect the required information to deploy a private mobile network - Azure portal](collect-required-information-for-private-mobile-network.md).
-- If you decided when collecting the information in [Collect the required information to deploy a private mobile network - Azure portal](collect-required-information-for-private-mobile-network.md) that you wanted to provision SIMs using a JSON file as part of deploying your private mobile network, you must have prepared this file and made it available on the machine you will use to access the Azure portal. You can find more information on the format of this file in [Provisioning SIM resources through the Azure portal using a JSON file](collect-required-information-for-private-mobile-network.md#provisioning-sim-resources-through-the-azure-portal-using-a-json-file) if necessary.
+- If you decided when collecting the information in [Collect the required information to deploy a private mobile network - Azure portal](collect-required-information-for-private-mobile-network.md) that you wanted to provision SIMs using a JSON file as part of deploying your private mobile network, you must have prepared this file and made it available on the machine you'll use to access the Azure portal. You can find more information on the format of this file in [Provisioning SIM resources through the Azure portal using a JSON file](collect-required-information-for-private-mobile-network.md#provisioning-sim-resources-through-the-azure-portal-using-a-json-file) if necessary.
 - Retrieve the name of the resource group you created as part of commissioning the Azure Kubernetes Service on Azure Stack HCI (AKS-HCI) cluster on your Azure Stack Edge Pro device. You did this as part of the steps in [Complete the prerequisite tasks for deploying a private mobile network](complete-private-mobile-network-prerequisites.md).
 
 ## Create the mobile network and (optionally) SIM resources
-In this step, you will create the mobile network resource representing your private mobile network as a whole. You can also provision one or more SIMs.
+In this step, you'll create the mobile network resource representing your private mobile network as a whole. You can also provision one or more SIMs.
 
 1. Sign in to the Azure portal at [https://aka.ms/AP5GCPortal](https://aka.ms/AP5GCPortal).
 1. In the Search bar, type *mobile networks* and then select the **Mobile Networks** service from the results that appear.
 
     :::image type="content" source="media/mobile-networks-search.png" alt-text="Screenshot of the Azure portal showing a search for the Mobile Networks service." lightbox="media/mobile-networks-search.png":::
 
-1. On the Mobile Networks page, click **Create**.
+1. On the Mobile Networks page, select **Create**.
 
     :::image type="content" source="media/create-button-mobile-networks.png" alt-text="Screenshot of the Azure portal showing the Create button on the Mobile Networks page.":::
 
-1. Use the information you collected in [Collect private mobile network resource configuration values](collect-required-information-for-private-mobile-network.md#collect-private-mobile-network-resource-configuration-values) to fill out the fields on the **Basics** configuration tab. Once you have done this, select **Next : SIMs >**.
+1. Use the information you collected in [Collect private mobile network resource values](collect-required-information-for-private-mobile-network.md#collect-private-mobile-network-resource-values) to fill out the fields on the **Basics** configuration tab. Once you've done this, select **Next : SIMs >**.
 
     :::image type="content" source="media/how-to-guide-deploy-a-private-mobile-network-azure-portal/create-private-mobile-network-basics-tab.png" alt-text="Screenshot of the Azure portal showing the Basics configuration tab.":::
 
-1. On the SIMs configuration tab, select your chosen input method by selecting the appropriate radio button next to **How would you like to input the SIMs information?**. You can then input the information you collected in [Collect SIM resource values](collect-required-information-for-private-mobile-network.md#collect-sim-resource-configuration-values).
+1. On the SIMs configuration tab, select your chosen input method by selecting the appropriate radio button next to **How would you like to input the SIMs information?**. You can then input the information you collected in [Collect SIM values](collect-required-information-for-private-mobile-network.md#collect-sim-values).
 
     :::image type="content" source="media/how-to-guide-deploy-a-private-mobile-network-azure-portal/create-private-mobile-network-sims-tab.png" alt-text="Screenshot of the Azure portal showing the SIMs configuration tab.":::
 
     - If you select **Upload JSON file**, the **Upload SIM profile configurations** field will appear. Use this field to upload your chosen JSON file.
-    - If you select **Add manually**, a new set of fields will appear under **Enter SIM profile configurations**. Fill out the first row of these fields with the correct settings for the first SIM you want to provision. If you have further SIMs you want to provision, add the settings for each of these SIMs to a new row.
-    - If you decided that you do not want to provision any SIMs at this point, select **Add SIMs later**.
+    - If you select **Add manually**, a new set of fields will appear under **Enter SIM profile configurations**. Fill out the first row of these fields with the correct settings for the first SIM you want to provision. If you've got more SIMs you want to provision, add the settings for each of these SIMs to a new row.
+    - If you decided that you don't want to provision any SIMs at this point, select **Add SIMs later**.
 
-1. Once you have selected the appropriate radio button and provided information for any SIMs you want to provision, select **Review + create**.
-1. Azure will now validate the configuration values you have entered. You should see a message indicating that your values have passed validation, as shown below.
+1. Once you've selected the appropriate radio button and provided information for any SIMs you want to provision, select **Review + create**.
+1. Azure will now validate the configuration values you've entered. You should see a message indicating that your values have passed validation, as shown below.
 
     :::image type="content" source="media/how-to-guide-deploy-a-private-mobile-network-azure-portal/create-private-mobile-network-review-create-tab.png" alt-text="Screenshot of the Azure portal showing validated configuration for a private mobile network.":::
 
@@ -68,7 +68,7 @@ In this step, you will create the mobile network resource representing your priv
 
     :::image type="content" source="media/pmn-deployment-resource-group.png" alt-text="Screenshot of the Azure portal showing a resource group containing Mobile Network and Service resources.":::
 
-1. Once you have confirmed that the correct resources are displayed, select the name of the **Mobile Network** resource and move to the next step.
+1. Once you've confirmed that the correct resources are displayed, select the name of the **Mobile Network** resource and move to the next step.
 
 ## Create the site resource
 
@@ -78,7 +78,7 @@ In this step, you will create the site resource representing the physical enterp
 
     :::image type="content" source="media/create-sites-button.png" alt-text="Screenshot of the Azure portal showing the Get started tab, with the Create sites button highlighted.":::
 
-1. Use the information you collected in [Collect site resource configuration values](collect-required-information-for-private-mobile-network.md#collect-site-resource-configuration-values) to fill out the fields on the **Basics** configuration tab, and then select **Next : Packet core >**.
+1. Use the information you collected in [Collect site resource values](collect-required-information-for-private-mobile-network.md#collect-site-resource-values) to fill out the fields on the **Basics** configuration tab, and then select **Next : Packet core >**.
 
     :::image type="content" source="media/how-to-guide-deploy-a-private-mobile-network-azure-portal/create-site-basics-tab.png" alt-text="Screenshot of the Azure portal showing the Basics configuration tab for a site resource.":::
 
@@ -86,13 +86,13 @@ In this step, you will create the site resource representing the physical enterp
 
     :::image type="content" source="media/how-to-guide-deploy-a-private-mobile-network-azure-portal/create-site-packet-core-tab.png" alt-text="Screenshot of the Azure portal showing the Packet core configuration tab for a site resource.":::
 
-1. In the **Packet core** section, ensure **Technology type** is set to *5G*, and then leave the **Version** and **Custom location** fields blank unless you have been instructed to do otherwise by your support representative.
-1. Use the information you collected in [Collect access network configuration values](collect-required-information-for-private-mobile-network.md#collect-access-network-configuration-values) to fill out the fields in the **Access network** section. Note the following.
+1. In the **Packet core** section, ensure **Technology type** is set to *5G*, and then leave the **Version** and **Custom location** fields blank unless you've been told to do otherwise by your support representative.
+1. Use the information you collected in [Collect access network values](collect-required-information-for-private-mobile-network.md#collect-access-network-values) to fill out the fields in the **Access network** section. Note the following.
 
     - You must use the same value for both the **N2 subnet** and **N3 subnet** fields.
     - You must use the same value for both the **N2 gateway** and **N3 gateway** fields.
 
-1. Use the information you collected in [Collect attached data network configuration values](collect-required-information-for-private-mobile-network.md#collect-attached-data-network-configuration-values) to fill out the fields in the **Attached data networks** section. Note that you can only connect the packet core instance to a single data network.
+1. Use the information you collected in [Collect data network values](collect-required-information-for-private-mobile-network.md#collect-data-network-values) to fill out the fields in the **Attached data networks** section. Note that you can only connect the packet core instance to a single data network.
 1. Select **Review + create**.
 1. Azure will now validate the configuration values you have entered. You should see a message indicating that your values have passed validation, as shown below.
 

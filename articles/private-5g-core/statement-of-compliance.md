@@ -15,7 +15,7 @@ This article provides information on the standards for which Azure Private 5G Co
 
 ## 3GPP specifications
 
-All packet core Network Functions are compliant with the 3GPP specifications given below. Several of the Network Functions can play the role of both the service consumer and service producer to adhere to many of these standards.
+All packet core Network Functions are compliant with the 3GPP specifications listed. Several of the Network Functions can play the role of both the service consumer and service producer to adhere to these standards.
 
 ### 5G System (5GS)
 
@@ -49,14 +49,14 @@ All packet core Network Functions are compliant with the 3GPP specifications giv
 - TS 38.410: 	NG-RAN; NG general aspects and principles (NGAP)
 - TS 38.413: NG-RAN; NG Application Protocol (NGAP)
 
-### Service Based Interfaces
+### Service-based interfaces
 
 - TS 29.500: 5G System; Technical Realization of Service Based Architecture; Stage 3
 - TS 29.501: 5G System; Principles and Guidelines for Services Definition; Stage 3
 - TS 29.512: 5G System; Session Management Policy Control Service; Stage 3
 - TS 29.571: 5G System; Common Data Types for Service Based Interfaces; Stage 3
 
-### Service Based Interface Exposure
+### Service-based interface exposure
 
 - SMF - TS 29.502: 5G System; Session Management Services; Stage 3
 - UDM - TS 29.503: 5G System; Unified Data Management Services; Stage 3

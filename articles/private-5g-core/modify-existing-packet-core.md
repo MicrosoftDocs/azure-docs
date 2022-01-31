@@ -25,7 +25,7 @@ If you want to make changes to any of the following, you must first update the c
 - IP addresses for the packet core instance's N2 signaling, N3, and N6 interfaces.
 - Network addresses and default gateways for the access and data subnets.
 
-Contact your support representative for information on how you can make these changes.Once you've made them, you can then make the corresponding changes on the packet core instance as described below.
+Contact your support representative for information on how you can make these changes. Once you've made them, you can then make the corresponding changes on the packet core instance as described below.
 
 ## Modify the packet core instance's configuration
 
@@ -60,7 +60,7 @@ In this step, you'll modify configuration for your chosen packet core instance i
 
 ### Change access network configuration
 
-The **Configuration** tab lets you set configuration for the packet core instance's connection to the access network. For information on each of the available fields, see [Collect access network configuration values](collect-required-information-for-private-mobile-network.md#collect-access-network-configuration-values).
+The **Configuration** tab lets you set configuration for the packet core instance's connection to the access network. For information on each of the available fields, see [Collect access network values](collect-required-information-for-private-mobile-network.md#collect-access-network-values).
 
 :::image type="content" source="media/modify-existing-packet-core/packet-core-configuration-tab.png" alt-text="Screenshot of the Azure portal. The configuration option for the packet core instance is highlighted."::: 
 
@@ -68,11 +68,11 @@ The **Configuration** tab lets you set configuration for the packet core instanc
 
 The **Data network** tab lets you set configuration for the packet core instance's connection to the data network. 
 
-Select the data network from the list, and then make your changes under **Modify a data network** on the right.
+Select the data network from the list, and then make your changes under **Modify a data network**.
 
 :::image type="content" source="media/modify-existing-packet-core/packet-core-data-network-tab.png" alt-text="Screenshot of the Azure portal. The data network tab for a packet core instance is shown. The network name and configuration fields are highlighted." lightbox="media/modify-existing-packet-core/packet-core-data-network-tab.png"::: 
 
-For information on each of the available fields, see [Collect data network configuration values](collect-required-information-for-private-mobile-network.md#collect-data-network-configuration-values).
+For information on each of the available fields, see [Collect data network values](collect-required-information-for-private-mobile-network.md#collect-data-network-values).
 
 Once you have made your changes, select **Modify**.
 
@@ -82,7 +82,7 @@ Network Address and Port Translation (NAPT) lets you translate a large pool of p
 
 The **Data network** tab lets you manage NAPT configuration.
 
-Select the data network from the list, and then make your changes under **Modify a data network** on the right.
+Select the data network from the list, and then make your changes under **Modify a data network**.
 
 :::image type="content" source="media/modify-existing-packet-core/packet-core-napt-configuration.png" alt-text="Screenshot of the Azure portal. The data network tab for a packet core instance is shown. The network name and N A P T fields are highlighted." lightbox="media/modify-existing-packet-core/packet-core-data-network-tab.png"::: 
 
@@ -95,12 +95,12 @@ If NAPT is enabled, you can also set any of the following fields to determine ho
 |--|--|
 | **Port range: Minimum** | The first port in the port range to use as translated ports on each translated address. Select an integer between 1024 and 65535. If you don't specify a value, this will default to 1024. |
 | **Port range: Maximum** | The last port in the port range to use as translated ports on each translated address. Select an integer between 1025 and 65535 that is greater than value you chose for **Port range: Minimum**. If you don't specify a value, this will default to 65535. |
-| **Port reuse hold time (seconds): TCP** | The minimum time (in seconds) that must pass before a port used by a closed pinhole handling TCP traffic can be recycled for use by another pinhole. Select an integer greater than 0. If you do not specify a value, this will default to 120. |
-| **Port reuse hold time (seconds): UDP** | The minimum time (in seconds) that must pass before a port used by a closed pinhole handling UDP traffic can be recycled for use by another pinhole. Select an integer greater than 0. If you do not specify a value, this will default to 60. |
+| **Port reuse hold time (seconds): TCP** | The minimum time (in seconds) that must pass before a port used by a closed pinhole handling TCP traffic can be recycled for use by another pinhole. Select an integer greater than 0. If you don't specify a value, this will default to 120. |
+| **Port reuse hold time (seconds): UDP** | The minimum time (in seconds) that must pass before a port used by a closed pinhole handling UDP traffic can be recycled for use by another pinhole. Select an integer greater than 0. If you don't specify a value, this will default to 60. |
 | **Pinhole timeouts (seconds): TCP** | The expiry time (in seconds) for an inactive NAPT pinhole handling TCP traffic. Select an integer greater than 0. If you don't specify a value, this will default to 7440, as recommended in Section 5 of RFC 5382. |
 | **Pinhole timeouts (seconds): UDP** | The expiry time (in seconds) for an inactive NAPT pinhole handling UDP traffic. Select an integer greater than 0. If you don't specify a value, this will default to 300, as recommended in Section 4.3 of RFC 4787. |
-| **Pinhole timeouts (seconds): ICMP** | The expiry time (in seconds) for an inactive NAPT pinhole handling ICMP traffic. Select an integer greater than 0. If you do not specify a value, this will default to 60, as recommended in Section 3.2 of RFC 5508. |
-| **Pinhole limit** | <p>The maximum number of NAPT pinholes that can be open simultaneously on the core interface for each protocol. Select an integer between 1 and 65536. If you do not specify a value, this will default to 65536.</p><p>The packet core instance applies this limit separately to each protocol. For example, if you set this limit to 100, the packet core instance can have 100 ICMP pinholes, 100 TCP pinholes and 100 UDP pinholes open simultaneously on the core interface.</p> |
+| **Pinhole timeouts (seconds): ICMP** | The expiry time (in seconds) for an inactive NAPT pinhole handling ICMP traffic. Select an integer greater than 0. If you don't specify a value, this will default to 60, as recommended in Section 3.2 of RFC 5508. |
+| **Pinhole limit** | <p>The maximum number of NAPT pinholes that can be open simultaneously on the core interface for each protocol. Select an integer between 1 and 65536. If you don't specify a value, this will default to 65536.</p><p>The packet core instance applies this limit separately to each protocol. For example, if you set this limit to 100, the packet core instance can have 100 ICMP pinholes, 100 TCP pinholes, and 100 UDP pinholes open simultaneously on the core interface.</p> |
 
 Once you have made your changes to the NAPT configuration, select **Modify**.
 

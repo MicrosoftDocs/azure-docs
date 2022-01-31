@@ -6,10 +6,6 @@ items:
   items:
   - name: What is Azure Private 5G Core?
     href: private-5g-core-overview.md
-- name: Quickstarts
-  items:
-  - name: Quickstart - Deploy an example private mobile network using the Azure portal
-    href: quickstart-deploy-a-private-mobile-network-azure-portal.md
 - name: Tutorials
   items:
   - name: Create an example policy control configuration set
@@ -40,12 +36,12 @@ items:
       href: collect-required-information-for-private-mobile-network.md
     - name: Deploy a private mobile network - Azure portal
       href: how-to-guide-deploy-a-private-mobile-network-azure-portal.md
-    - name: Delete a private mobile network - Azure portal
-      href: delete-private-mobile-network.md
   - name: Sites
     items:
     - name: Create an additional site
       href: create-an-additional-site.md
+    - name: Modify an existing packet core instance
+      href: modify-existing-packet-core.md
   - name: Services
     items:
     - name: Collect the required information for a service
@@ -72,4 +68,3 @@ items:
   items:
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=databases
-
