@@ -1053,6 +1053,16 @@ Add http://localhost:8081/ under **Authorized redirect URIs** while creating [We
 | **Supported by** | Microsoft |
 | | |
 
+            
+## Microsoft Project
+| Connector attribute | Description |
+| --- | --- |
+| **Data ingestion method** | **Azure service-to-service integration: <br>[API-based connections](connect-azure-windows-microsoft-services.md#api-based-connections)** |
+| **License prerequisites/<br>Cost information** | Your Office 365 deployment must be on the same tenant as your Microsoft Sentinel workspace.<br>Other charges may apply |
+| **Log Analytics table(s)** | ProjectActivity |
+| **Supported by** | Microsoft |
+| | |      
+
 ## Microsoft Defender for Cloud
 
 | Connector attribute | Description |
@@ -1120,6 +1130,15 @@ Add http://localhost:8081/ under **Authorized redirect URIs** while creating [We
 | **Data ingestion method** | **Azure service-to-service integration: <br>[API-based connections](connect-azure-windows-microsoft-services.md#api-based-connections)** |
 | **License prerequisites/<br>Cost information** | Your Office 365 deployment must be on the same tenant as your Microsoft Sentinel workspace.<br>Other charges may apply |
 | **Log Analytics table(s)** | OfficeActivity |
+| **Supported by** | Microsoft |
+| | |
+     
+## Microsoft Power BI
+| Connector attribute | Description |
+| --- | --- |
+| **Data ingestion method** | **Azure service-to-service integration: <br>[API-based connections](connect-azure-windows-microsoft-services.md#api-based-connections)** |
+| **License prerequisites/<br>Cost information** | Your Office 365 deployment must be on the same tenant as your Microsoft Sentinel workspace.<br>Other charges may apply |
+| **Log Analytics table(s)** | PowerBIActivity |
 | **Supported by** | Microsoft |
 | | |
 
