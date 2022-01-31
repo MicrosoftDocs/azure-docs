@@ -39,7 +39,7 @@ The following ARM template will onboard your specified machine onto Azure Automa
             "apiVersion": "2021-04-30-preview",
             "name": "[concat(parameters('machineName'), '/Microsoft.Automanage/default')]",
             "properties": {
-                "configurationProfile": "[parameters('configurationProfile')]",
+                "configurationProfile": "[parameters('configurationProfile')]"
             }
         }
     ]
