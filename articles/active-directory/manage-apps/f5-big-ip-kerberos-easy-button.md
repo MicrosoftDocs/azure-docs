@@ -51,8 +51,6 @@ The SHA solution for this scenario is made up of the following:
 
 SHA for this scenario supports both SP and IdP initiated flows. The following image illustrates the SP initiated flow.
 
-![Scenario architecture](./media/f5-big-ip-kerberos-easy-button/scenario-architecture.png)
-
 | Steps| Description|
 | -------- |-------|
 | 1| User connects to SAML SP endpoint for application (BIG-IP APM) |
