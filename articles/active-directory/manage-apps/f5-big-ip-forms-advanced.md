@@ -19,7 +19,7 @@ Enabling BIG-IP published services for Azure Active Directory (Azure AD) SSO pro
 
 - Improved Zero Trust governance through Azure AD pre-authentication and [Conditional Access](/conditional-access/overview)
 - Full single sign-on (SSO) between Azure AD and BIG-IP published services
-- Identities and access are managed from a single control plane, the [Azure portal](https://azure.microsoft.com/en-us/features/azure-portal/)
+- Identities and access are managed from a single control plane, the [Azure portal](https://azure.microsoft.com/features/azure-portal/)
 
 To learn about all the benefits, see [Integrate F5 BIG-IP with Azure Active Directory](f5-aad-integration.md) and [What is application access and single sign-on with Azure AD?](../active-directory-appssoaccess-whatis.md).
 
