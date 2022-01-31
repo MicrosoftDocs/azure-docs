@@ -34,8 +34,6 @@ Microsoft Defender for Cloud delivers protection for all resources from directly
 - Protects data services against ransomware attacks
 - Protects your managed and unmanaged IoT / OT devices with continuous asset discovery, vulnerability management and threat monitoring
 
-:::image type="content" source="./media/ransomware/ransomware7.png" alt-text="Placeholder Text 7":::
-
 Microsoft Defender for Cloud provides you the tools to detect and block ransomware, advanced malware and threats for your resources
 
 Keeping your resources safe is a joint effort between your cloud provider, Azure, and you, the customer. You have to make sure your workloads are secure as you move to the cloud, and at the same time, when you move to IaaS (infrastructure as a service) there is more customer responsibility than there was in PaaS (platform as a service), and SaaS (software as a service). Microsoft Defender for Cloud provides you the tools needed to harden your network, secure your services and make sure you're on top of your security posture.
@@ -57,9 +55,6 @@ Key Features:
 - Streamlined investigation: Quickly investigate the scope and impact of an attack with a visual, interactive experience. Use ad hoc queries for deeper exploration of security data. 
 - Automation and orchestration: Automate common security workflows to address threats quickly using built-in integration with Azure Logic Apps. Create security playbooks that can route alerts to existing ticketing system or trigger incident response actions. 
 
-:::image type="content" source="./media/ransomware/ransomware8.png" alt-text="Placeholder Text 8":::
-:::image type="content" source="./media/ransomware/ransomware9.png" alt-text="Placeholder Text 9":::
-
 ## Microsoft Sentinel
 
 Microsoft Sentinel helps to create a complete view of a kill chain
@@ -80,15 +75,13 @@ Respond to incidents rapidly with built-in orchestration and automation of commo
 
 Microsoft Defender for Cloud scans virtual machines across an Azure subscription and makes a recommendation to deploy endpoint protection where an existing solution is not detected. This recommendation can be accessed via the Recommendations section as shown below:
 
-:::image type="content" source="./media/ransomware/ransomware10.png" alt-text="Placeholder 10":::
+:::image type="content" source="../../defender-for-cloud/media/get-started/overview.png" alt-text="Screenshot of Microsoft Defender for Cloud overview":::
 
 Microsoft Defender for Cloud provides security alerts and advanced threat protection for virtual machines, SQL databases, containers, web applications, your network, and more. When Microsoft Defender for Cloud detects a threat in any area of your environment, it generates a security alert. These alerts describe details of the affected resources, suggested remediation steps, and in some cases an option to trigger a logic app in response.
 
-:::image type="content" source="./media/ransomware/ransomware11.png" alt-text="Placeholder Text 11":::
-
 The alert below is an example of a detected Petya ransomware alert:
 
-:::image type="content" source="./media/ransomware/ransomware12.png" alt-text="Placeholder Text 12":::
+:::image type="content" source="./media/ransomware/ransomware12.png" alt-text="Example of a detected Petya ransomware alert":::
 
 ### Azure Native Backup Solution Protects Your Data 
 

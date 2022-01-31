@@ -16,7 +16,7 @@ ms.date: 01/10/2022
 
 A good place to start is to adopt the [Azure Security Benchmark](/security/benchmark/azure/) to secure the Azure environment. The Azure Security Benchmark is Azure's own security control framework based on industry-based security control frameworks such as NIST SP800-53, CIS Controls v7.1. 
 
-:::image type="content" source="./media/ransomware/ransomware13.png" alt-text="Placeholder Text 13":::
+:::image type="content" source="./media/ransomware/ransomware13.png" alt-text="Screenshot of the NS-1: Establish Network Segmentation Boundaries security control":::
 
 The Azure Security Benchmark provides organizations guidance on how to configure Azure and Azure Services and implement the security controls. Organizations can use Microsoft Defender for Cloud to monitor their live Azure environment status with all the Azure Security Benchmark controls.
 
@@ -132,7 +132,7 @@ This should include some or all of the following essential tools:
 
 ## Establish an incident handling process
 
-Ensure your organization undertakes a number of activities roughly following the incident response steps and guidance described in the US National Institute of Standards and Technology (NIST) Computer Security Incident Handling Guide (Special Publication 800-61r2) to prepare for potential ransomware incidents.  As illustrated in Figure 8, these steps include:
+Ensure your organization undertakes a number of activities roughly following the incident response steps and guidance described in the US National Institute of Standards and Technology (NIST) Computer Security Incident Handling Guide (Special Publication 800-61r2) to prepare for potential ransomware incidents.  These steps include:
 
 1. **Preparation**:  This stage describes the various measures that should be put into place prior to an incident.  This may include both technical preparations (such as the implementation of suitable security controls and other technologies) and non-technical preparations (such as the preparation of processes and procedures).
 1. **Triggers / Detection**:  This stage describes how this type of incident may be detected and what triggers may be available that should be used to initiate either further investigation or the declaration of an incident.  These are generally separated into high-confidence and low-confidence triggers.
@@ -142,7 +142,7 @@ Ensure your organization undertakes a number of activities roughly following the
 1. **Remediation / Recovery**:  This stage covers the steps that may be taken to remediate or recover from damage that was caused by the incident before it was contained and mitigated.
 1. **Post-Incident Activity**:  This stage covers the activities that should be performed once the incident has been closed.  This can include capturing the final narrative associated with the incident as well as identifying lessons learned.
 
-:::image type="content" source="./media/ransomware/ransomware17.png" alt-text="Placeholder Text X":::
+:::image type="content" source="./media/ransomware/ransomware17.png" alt-text="Flowchart of an incident handling process":::
 
 ## Prepare for a quick recovery
 
