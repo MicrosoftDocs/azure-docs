@@ -30,7 +30,7 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
-          - text: Cross-tenant access
+          - text: Cross-tenant access settings (preview)
             url: cross-tenant-access-overview.md
           - text: B2B collaboration user properties
             url: user-properties.md
