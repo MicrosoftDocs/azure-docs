@@ -8,7 +8,6 @@ ms.date: 06/12/2020
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
-manager: timlt
 ms.custom: devx-track-js
 ---
 

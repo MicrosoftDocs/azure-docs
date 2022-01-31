@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: how-to
 author: MaraSteiu 
 ms.author: masteiu
-ms.reviewer: mathoma
+ms.reviewer: kendralittle, mathoma
 ms.date: 11/14/2018
 ---
 # Automate the replication of schema changes in Azure SQL Data Sync

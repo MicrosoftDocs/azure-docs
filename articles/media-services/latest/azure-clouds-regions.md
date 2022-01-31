@@ -6,8 +6,8 @@ author: IngridAtMicrosoft
 manager: femila
 ms.service: media-services
 ms.topic: reference
-ms.date: 10/28/2020
-ms.author: inhenkel
+ms.date: 12/9/2021
+ms.author: johndeu
 ---
 
 # Azure Media Services v3 clouds and regions availability
@@ -47,6 +47,8 @@ Use the navigation on the right to find the region you are interested in.
 [!INCLUDE [reference-feature-availability-korea](./includes/reference-feature-availability-korea.md)]
 <!-- Norway -->
 [!INCLUDE [reference-feature-availability-norway](./includes/reference-feature-availability-norway.md)]
+<!-- Sweden -->
+[!INCLUDE [reference-feature-availability-switzerland](./includes/reference-feature-availability-sweden.md)]
 <!-- Switzerland -->
 [!INCLUDE [reference-feature-availability-switzerland](./includes/reference-feature-availability-switzerland.md)]
 <!-- UAE -->

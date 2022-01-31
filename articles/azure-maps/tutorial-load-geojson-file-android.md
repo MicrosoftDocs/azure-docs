@@ -7,7 +7,6 @@ ms.date: 12/10/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
-manager: cpendle
 zone_pivot_groups: azure-maps-android
 ---
 

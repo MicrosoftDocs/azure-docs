@@ -9,7 +9,7 @@ ms.topic: quickstart
 ms.author: jukullam
 ms.date: 05/05/2021
 ms.custom: github-actions-azure, mode-other
-ms.reviewer: mathoma
+ms.reviewer: kendralittle, mathoma
 ---
 
 # Use GitHub Actions to connect to Azure SQL Database

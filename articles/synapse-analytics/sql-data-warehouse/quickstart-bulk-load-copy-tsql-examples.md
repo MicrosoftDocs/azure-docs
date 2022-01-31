@@ -8,7 +8,7 @@ ms.topic: quickstart
 ms.subservice: sql-dw
 ms.date: 07/10/2020
 ms.author: wiassaf
-ms.reviewer: jrasnick
+ms.reviewer: sngun
 ms.custom: subject-rbac-steps, mode-other
 ---
 

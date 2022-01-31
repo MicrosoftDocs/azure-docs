@@ -21,6 +21,7 @@ items:
     href: quick-create-net.md
   - name: Node.js
     href: quick-create-node.md
+    displayName: az ad sp create-for-rbac, az keyvault set-policy    
   - name: Python
     href: quick-create-python.md
   - name: Java

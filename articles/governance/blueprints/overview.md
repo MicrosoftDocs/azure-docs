@@ -1,7 +1,7 @@
 ---
 title: Overview of Azure Blueprints
 description: Understand how the Azure Blueprints service enables you to create, define, and deploy artifacts in your Azure environment.
-ms.date: 06/21/2021
+ms.date: 01/28/2022
 ms.topic: overview
 ---
 # What is Azure Blueprints?
@@ -83,6 +83,9 @@ as artifacts:
 |ARM template | Subscription, Resource Group | Templates, including nested and linked templates, are used to compose complex environments. Example environments: a SharePoint farm, Azure Automation State Configuration, or a Log Analytics workspace. |
 |Policy Assignment | Subscription, Resource Group | Allows assignment of a policy or initiative to the subscription the blueprint is assigned to. The policy or initiative must be within the scope of the blueprint definition location. If the policy or initiative has parameters, these parameters are assigned at creation of the blueprint or during blueprint assignment. |
 |Role Assignment | Subscription, Resource Group | Add an existing user or group to a built-in role to make sure the right people always have the right access to your resources. Role assignments can be defined for the entire subscription or nested to a specific resource group included in the blueprint. |
+
+> [!NOTE]
+> Each artifact must be 2 MB or less. If the artifact exceeds 2 MB, you'll get an HTTP 500 error (Internal Server Error).
 
 ### Blueprint definition locations
 
@@ -196,7 +199,7 @@ The following limitations exist for certain fields:
 ## Video overview
 
 The following overview of Azure Blueprints is from Azure Fridays. For video download, visit
-[Azure Fridays - An overview of Azure Blueprints](https://channel9.msdn.com/Shows/Azure-Friday/An-overview-of-Azure-Blueprints)
+[Azure Fridays - An overview of Azure Blueprints](/Shows/Azure-Friday/An-overview-of-Azure-Blueprints)
 on Channel 9.
 
 > [!VIDEO https://www.youtube.com/embed/cQ9D-d6KkMY]

@@ -3,7 +3,7 @@ title: Understand how Application Provisioning in Azure Active Directory
 description: Understand how Application Provisioning works in Azure Active Directory.
 services: active-directory
 author: kenwith
-manager: karenh444
+manager: karenhoran
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
@@ -33,7 +33,7 @@ The **Azure AD Provisioning Service** provisions users to SaaS apps and other sy
 
 The Azure AD provisioning service uses the [SCIM 2.0 protocol](https://techcommunity.microsoft.com/t5/Identity-Standards-Blog/bg-p/IdentityStandards) for automatic provisioning. The service connects to the SCIM endpoint for the application, and uses SCIM user object schema and REST APIs to automate the provisioning and de-provisioning of users and groups. A SCIM-based provisioning connector is provided for most applications in the Azure AD gallery. When building apps for Azure AD, developers can use the SCIM 2.0 user management API to build a SCIM endpoint that integrates Azure AD for provisioning. For details, see [Build a SCIM endpoint and configure user provisioning](../app-provisioning/use-scim-to-provision-users-and-groups.md).
 
-To request an automatic Azure AD provisioning connector for an app that doesn't currently have one, see [Azure Active Directory Application Request](../develop/v2-howto-app-gallery-listing.md).
+To request an automatic Azure AD provisioning connector for an app that doesn't currently have one, see [Azure Active Directory Application Request](../manage-apps/v2-howto-app-gallery-listing.md).
 
 ## Authorization
 
@@ -78,8 +78,7 @@ It's possible to use the Azure AD user provisioning service to provision B2B (or
 However, for B2B users to sign in to the SaaS application using Azure AD, the SaaS application must have its SAML-based single sign-on capability configured in a specific way. For more information on how to configure SaaS applications to support sign-ins from B2B users, see [Configure SaaS apps for B2B collaboration](../external-identities/configure-saas-apps.md).
 
 > [!NOTE]
-The userPrincipalName for a guest user is often displayed as "alias#EXT#@domain.com". When the userPrincipalName is included in your attribute mappings as a source attribute, the #EXT# is stripped from the userPrincipalName. If you require the #EXT# to be present, replace userPrincipalName with originalUserPrincipalName as the source attribute. 
-
+> The userPrincipalName for a guest user is often displayed as "alias#EXT#@domain.com". When the userPrincipalName is included in your attribute mappings as a source attribute, the #EXT# is stripped from the userPrincipalName. If you require the #EXT# to be present, replace userPrincipalName with originalUserPrincipalName as the source attribute. 
 userPrincipalName = alias@domain.com
 originalUserPrincipalName = alias#EXT#@domain.com
 

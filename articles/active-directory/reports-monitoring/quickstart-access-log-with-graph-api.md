@@ -10,9 +10,9 @@ ms.author: markvi
 author: MarkusVi
 manager: karenhoran
 ms.reviewer: besiler
-# Customer intent: As an IT admin, you need to how to use the Graph API to access the log files so that you can fix issues.
 ms.collection: M365-identity-device-management
-ms.custom: mode-other
+ms.custom: mode-api
+#Customer intent: As an IT admin, you need to how to use the Graph API to access the log files so that you can fix issues.
 ---
 # Quickstart: Access Azure AD logs with the Microsoft Graph API 
 

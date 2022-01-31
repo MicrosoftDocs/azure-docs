@@ -9,7 +9,6 @@ editor:
 
 ms.service: active-directory
 ms.subservice: msi
-ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
@@ -22,6 +21,9 @@ ms.custom: devx-track-azurepowershell
 # Assign a managed identity access to an application role using Azure CLI
 
 Managed identities for Azure resources provide Azure services with an identity in Azure Active Directory. They work without needing credentials in your code. Azure services use this identity to authenticate to services that support Azure AD authentication. Application roles provide a form of role-based access control, and allow a service to implement authorization rules.
+
+> [!NOTE]
+> The tokens which your application receives are cached by the underlying infrastructure, which means that any changes to the managed identity's roles can take significant time to take effect. For more information, see [Limitation of using managed identities for authorization](managed-identity-best-practice-recommendations.md#limitation-of-using-managed-identities-for-authorization).
 
 In this article, you learn how to assign a managed identity to an application role exposed by another application using Azure CLI.
 

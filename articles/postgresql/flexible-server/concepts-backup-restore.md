@@ -28,7 +28,7 @@ Backups on flexible servers are snapshot-based. The first snapshot backup is sch
 
 Azure Database for PostgreSQL stores multiple copies of your backups so that your data is protected from planned and unplanned events, including transient hardware failures, network or power outages, and massive natural disasters. Azure Database for PostgreSQL provides the flexibility to choose between a local backup copy within a region or a geo-redundant backup (Preview). By default, Azure Database for PostgreSQL server backup uses zone redundant storage if available in the region. If not, it uses locally redundant storage. In addition, customers can choose geo-redundant backup, which is in preview, for Disaster Recovery at the time of server create. Refer to the list of regions where the geo-redundant backups are supported. 
 
-Backup redundancy ensures that your database meets its availability and durability targets even in the face of failures and Azure Database for PostgreSQL extends three options to users - 
+Backup redundancy ensures that your database meets its availability and durability targets even in the case of failures and Azure Database for PostgreSQL extends three options to users - 
 
 - **Zone-redundant backup storage** : This is automatically chosen for regions that support Availability zones. When the backups are stored in zone-redundant backup storage, multiple copies are not only stored within the availability zone in which your server is hosted, but are also replicated to another availability zone in the same region. This option can be leveraged for scenarios that require high availability or for restricting replication of data to within a country/region to meet data residency requirements. Also this provides at least 99.9999999999% (12 9's) durability of Backups objects over a given year.  
 
@@ -70,7 +70,7 @@ In Flexible server, performing a point-in-time restore creates a new server in t
 
 The physical database files are first restored from the snapshot backups to the server's data location. The appropriate backup that was taken earlier than the desired point-in-time is automatically chosen and restored. A recovery process is then initiated using WAL files to bring the database to a consistent state. 
 
- For example, let us assume the backups are performed at 11pm every night. If the restore point is for August 15, 2020 at 10:00 am, the daily backup of August 14, 2020 is restored. The database will be recovered until 10am of August 25, 2020 using the transaction logs backup between August 24, 11pm until August 25, 10am. 
+ For example, let us assume the backups are performed at 11pm every night. If the restore point is for August 15, 2020 at 10:00 am, the daily backup of August 14, 2020 is restored. The database will be recovered until 10am of August 15, 2020 using the transaction logs backup from August 14, 11pm to August 15, 10am. 
 
  Please see [these steps](./how-to-restore-server-portal.md) to restore your database server.
 

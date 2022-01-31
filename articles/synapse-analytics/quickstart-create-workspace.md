@@ -8,7 +8,7 @@ ms.topic: quickstart
 ms.subservice: workspace
 ms.date: 09/03/2020
 ms.author: saveenr
-ms.reviewer: jrasnick
+ms.reviewer: sngun
 ms.custom: subject-rbac-steps, mode-other
 ---
 

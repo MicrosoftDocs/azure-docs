@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.subservice: security 
 ms.date: 10/25/2020 
 ms.author: xujiang1
-ms.reviewer: jrasnick
+ms.reviewer: sngun
 ---
 
 # Connect to workspace resources from a restricted network
@@ -91,7 +91,7 @@ On the **Resource** tab:
 To access the linked storage with the storage explorer in Azure Synapse Analytics Studio workspace, you must create one private endpoint. The steps for this are similar to those of step 3. 
 
 On the **Resource** tab:
-* For **Resource type**, select **Microsoft.Synapse/storageAccounts**.
+* For **Resource type**, select **Microsoft.Storage/storageAccounts**.
 * For **Resource**, select the storage account name that you created previously.
 * For **Target sub-resource**, select the endpoint type:
   * **blob** is for Azure Blob Storage.

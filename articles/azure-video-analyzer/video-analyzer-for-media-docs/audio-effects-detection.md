@@ -1,41 +1,36 @@
 ---
 title: Audio effects detection  
-description: Audio Effects Detection is one of Azure Video Analyzer for Media AI capabilities. It can detects a various of acoustics events and classify them into different acoustic categories (such as Gunshot, Screaming, Crowd Reaction and more).
-
+description: Audio Effects Detection is one of Azure Video Analyzer for Media AI capabilities. It can detects a various of acoustics events and classify them into different acoustic categories (for example, gunshot, screaming, crowd reaction and more).
 ms.topic: conceptual
-ms.date: 05/12/2021
+ms.date: 01/04/2022
 ms.author: juliako
 ---
 
-#  Audio effects detection (preview)
+# Audio effects detection (preview)
 
-**Audio Effects Detection** is one of Azure Video Analyzer for Media AI capabilities. It can detects a various of acoustics events and classify them into different acoustic categories (such as Gunshot, Screaming, Crowd Reaction and more).
- 
-Audio Events Detection can be used in many domains. Two examples are:
+**Audio effects detection** is one of Azure Video Analyzer for Media AI capabilities. It can detects a various of acoustics events and classify them into different acoustic categories (such as dog barking, crowd reactions, laugher and more).
 
-* Using Audio Effects Detection is the domain of **Public Safety & Justice**. Audio Effects Detection can detect and classify Gunshots, Explosion and Glass-Shattering. Therefore, it can be implemented in a smart-city system or in other public environments that include cameras and microphones. Offering a fast and accurate detection of violence incidents. 
-* In the **Media & Entertainment** domain, companies with a large set of video archives can easily improve their accessibility scenarios, by enhancing their video transcription with non-speech effects to provide more context for people who are hard of hearing.
+Some scenarios where this feature is useful:
 
-> [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/audio-effects-detection/audio-effects.jpg" alt-text="Audio Effects image":::
-<br/>*Example of the Video Analyzer for Media Audio Effects Detection output*
+- Companies with a large set of video archives can easily improve accessibility with audio effects detection. The feature provides more context for persons who are hard of hearing, and enhances video transcription with non-speech effects.
+- In the Media & Entertainment domain, the detection feature can improve efficiency when creating raw data for content creators. Important moments in promos and trailers (such as laughter, crowd reactions, gunshot, or explosion) can be identified by using **audio effects detection**.
+- In the Public Safety & Justice domain, the feature can detect and classify gunshots, explosions, and glass shattering. It can be implemented in a smart-city system or in other public environments that include cameras and microphones to offer fast and accurate detection of violence incidents. 
 
 ## Supported audio categories  
 
-**Audio Effect Detection** can detect and classify 8 different categories. In the next table, you can find the different categories split in to the different VI presets, divided to **Standard** and **Advanced**. For more information, see [pricing](https://azure.microsoft.com/pricing/details/media-services/).
+**Audio effect detection** can detect and classify 7 different categories. In the next table, you can find the different categories split in to the different presets, divided to **Standard** and **Advanced**. For more information, see [pricing](https://azure.microsoft.com/pricing/details/media-services/).
 
 |Indexing type |Standard indexing| Advanced indexing|
 |---|---|---|
 |**Preset Name** |**"Audio Only"** <br/>**"Video + Audio"** |**"Advance Audio"**<br/> **"Advance Video + Audio"**|
 |**Appear in insights pane**|| V|
-|Crowd Reaction |V| V|
+| Crowd Reactions || V|
 | Silence| V| V|
-| Gunshot ||V |
+| Gunshot or explosion ||V |
 | Breaking glass ||V|
-| Alarm ringing|| V |
-| Siren Wailing|| V |
+| Alarm or siren|| V |
 | Laughter|| V |
-| Dog Barking|| V|
+| Dog barking|| V|
 
 ## Result formats
 
@@ -46,7 +41,7 @@ The `name` parameter will be presented in the language in which the JSON was ind
 ```json
 audioEffects: [{
         id: 0,
-        type: "Gunshot",
+        type: "Gunshot or explosion",
         name: "Gunshot",
         instances: [{
                 confidence: 0.649,
@@ -85,24 +80,24 @@ audioEffects: [{
 ],
 ```
 
-## How to index Audio Effects
+## How to index audio effects
 
-In order to set the index process to include the detection of Audio Effects, the user should chose one of the Advanced presets under "Video + audio indexing" menu as can be seen below.
+In order to set the index process to include the detection of audio effects, the user should chose one of the **Advanced** presets under **Video + audio indexing** menu as can be seen below.
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/audio-effects-detection/index-audio-effect.png" alt-text="Index Audio Effects image":::
 
 ## Closed Caption
 
-When Audio Effects are retrieved in the closed caption files, they will be retrieved in square brackets the following structure:
+When audio effects are retrieved in the closed caption files, they will be retrieved in square brackets the following structure:
 
 |Type| Example|
 |---|---|
-|SRT |00:00:00,000  00:00:03,671<br/>[Gunshot]|
-|VTT |00:00:00.000  00:00:03.671<br/>[Gunshot]|
-|TTML|Confidence: 0.9047 <br/> `<p begin="00:00:00.000" end="00:00:03.671">[Gunshot]</p>`|
-|TXT |[Gunshot]|
-|CSV |0.9047,00:00:00.000,00:00:03.671, [Gunshot]|
+|SRT |00:00:00,000  00:00:03,671<br/>[Gunshot or explosion]|
+|VTT |00:00:00.000  00:00:03.671<br/>[Gunshot or explosion]|
+|TTML|Confidence: 0.9047 <br/> `<p begin="00:00:00.000" end="00:00:03.671">[Gunshot or explosion]</p>`|
+|TXT |[Gunshot or explosion]|
+|CSV |0.9047,00:00:00.000,00:00:03.671, [Gunshot or explosion]|
 
 Audio Effects in closed captions file will be retrieved with the following logic employed:
 
@@ -112,7 +107,7 @@ Audio Effects in closed captions file will be retrieved with the following logic
 
 ## Adding audio effects in closed caption files
 
-Audio effects can be added to the closed captions files supported by Azure Video Analyzer via the [Get video captions API](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Video-Captions) by choosing true in the `includeAudioEffects` parameter or via the video.ai portal experience by selecting **Download** -> **Closed Captions** -> **Include Audio Effects**.
+Audio effects can be added to the closed captions files supported by Azure Video Analyzer for Media via the [Get video captions API](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Video-Captions) by choosing true in the `includeAudioEffects` parameter or via the video.ai portal experience by selecting **Download** -> **Closed Captions** -> **Include Audio Effects**.
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/audio-effects-detection/close-caption.jpg" alt-text="Audio Effects in CC":::
@@ -122,10 +117,15 @@ Audio effects can be added to the closed captions files supported by Azure Video
 
 ## Limitations and assumptions
 
-* The model works on non-speech segments only.
-* The model is currently working for a single category at a time. For example, a crying and speech on the background or gunshot + explosion are not supported for now.
-* The model is currently not supporting cases when there is a loud music on background.
-* Minimal segment length – 2 seconds.
+* The audio effects are detected when present in non-speech segments only. 
+* The model is optimized for cases where there is no loud background music. 
+* Low quality audio may impact the detection results .
+* Minimal non-speech section duration is 2 seconds. 
+* Music that is characterized with repetitive and/or linearly scanned frequency can be mistakenly classified as Alarm or siren. 
+* The model is currently optimized for natural and non-synthetic gunshot and explosions sounds. 
+* Door knocks and door slams can sometimes be mistakenly labeled as gunshot and explosions.
+* Prolonged shouting and human physical effort sounds can sometimes be mistakenly detected.
+* Group of people laughing can sometime be classified as both Laughter and Crowd reactions.
 
 ## Next steps
 

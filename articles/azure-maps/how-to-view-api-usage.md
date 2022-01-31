@@ -7,7 +7,6 @@ ms.date: 08/06/2018
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
-manager: timlt
 ---
 
 # View Azure Maps API usage metrics

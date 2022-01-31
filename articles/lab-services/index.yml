@@ -10,9 +10,9 @@ metadata:
   ms.subservice: 
   ms.topic: landing-page # Required
   ms.collection: collection
-  author: spelluru #Required; your GitHub user alias, with correct capitalization.
-  ms.author: spelluru #Required; microsoft alias of author; optional team alias.
-  ms.date: 08/26/2021 #Required; mm/dd/yyyy format.
+  author: j-martens #Required; your GitHub user alias, with correct capitalization.
+  ms.author: jmartens #Required; microsoft alias of author; optional team alias.
+  ms.date: 12/15/2021 #Required; mm/dd/yyyy format.
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -24,10 +24,8 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: About Lab Services and DevTest Labs
-            url: ../devtest-labs/lab-services-overview.md?toc=%2fazure%2fevent-grid%2fclassroom-labs%2ftoc.json                        
-          - text: About labs
-            url: classroom-labs-overview.md
+          - text: About Lab Services
+            url: lab-services-overview.md
       - linkListType: concept
         links:
           - text: Labs concepts

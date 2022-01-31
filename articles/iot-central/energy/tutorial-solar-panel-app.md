@@ -3,7 +3,7 @@ title: Tutorial - Azure IoT solar panel monitoring | Microsoft Docs
 description: This tutorial shows you how to deploy and use the solar panel monitoring application template for IoT Central.
 author: op-ravi
 ms.author: omravi
-ms.date: 08/02/2021
+ms.date: 12/23/2021
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
@@ -20,7 +20,7 @@ This architecture consists of the following components. Some applications may no
 
 ### Solar panels and connectivity
 
-Solar panels are one of the significant sources of renewable energy. Depending on the solar panel type and set up, you can connect it either using gateways or other intermediate devices and proprietary systems. You might need to build IoT Central device bridge to connect devices, which can't be connected directly. The IoT Central device bridge is an open-source solution and you can find the complete details [here](../core/howto-build-iotc-device-bridge.md). 
+Solar panels are one of the significant sources of renewable energy. Typically, a solar panel uses a gateway to connect to an IoT Central application. You might need to build IoT Central device bridge to connect devices, which can't be connected directly. The IoT Central device bridge is an open-source solution and you can find the complete details [here](../core/howto-build-iotc-device-bridge.md). 
 
 ### IoT Central platform
 

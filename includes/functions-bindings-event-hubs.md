@@ -40,6 +40,8 @@ This extension version is available by installing the [NuGet package], version 5
 }
 ```
 
+[!INCLUDE [functions-bindings-bundle-v3-tables-note](./functions-bindings-bundle-v3-tables-note.md)]
+
 To learn more, see [Update your extensions].
 
 [core tools]: ./functions-run-local.md

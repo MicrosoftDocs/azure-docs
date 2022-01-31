@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: article
-ms.date: 12/03/2021
+ms.date: 12/10/2021
 ms.author: aahi
 ms.custom: language-service-key-phrase, ignite-fall-2021
 ---
@@ -27,11 +27,7 @@ This feature is useful if you need to quickly identify the main points in a coll
 
 ### Specify the key phrase extraction model
 
-By default, key phrase extraction will use the latest available AI model on your text. You can also configure your API requests to use a specific model version. The model you specify will be used to perform key phrase extraction operations.
-
-| Supported Versions | latest version |
-|--|--|
-| `2019-10-01`, `2020-07-01`, `2021-06-01`  | `2021-06-01`   |
+By default, key phrase extraction will use the latest available AI model on your text. You can also configure your API requests to use a specific [model version](../../concepts/model-lifecycle.md).
 
 ### Input languages
 

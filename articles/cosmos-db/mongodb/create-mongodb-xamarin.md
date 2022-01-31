@@ -4,11 +4,11 @@ description: Presents a Xamarin code sample you can use to connect to and query 
 author: codemillmatt
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
-ms.devlang: dotnet
+ms.devlang: csharp
 ms.topic: quickstart
 ms.date: 08/26/2021
 ms.author: masoucou
-ms.custom: devx-track-csharp, mode-other
+ms.custom: devx-track-csharp, mode-api
 ---
 
 # QuickStart: Build a Xamarin.Forms app with .NET SDK and Azure Cosmos DB's API for MongoDB

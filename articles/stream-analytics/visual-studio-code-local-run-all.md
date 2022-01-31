@@ -9,9 +9,9 @@ ms.date: 11/26/2021
 ms.topic: how-to
 ---
 
-# Overview of local Stream Analytics runs in Visual Studio Code with ASA Tools
+# Overview of local testing of Stream Analytics jobs in Visual Studio Code with ASA Tools
 
-You can use **Azure Stream Analytics Tools** (ASA Tools) for Visual Studio Code to run your Stream Analytics jobs locally. When speaking of locality, there are three aspects to consider: the job execution context (a local machine or the Azure cloud service), the input sources, and the output sinks.
+You can use **Azure Stream Analytics Tools** (ASA Tools) for Visual Studio Code to test your Stream Analytics jobs locally. When speaking of locality, there are three aspects to consider: the job execution context (a local machine or the Azure cloud service), the input sources, and the output sinks.
 
 In local runs the query is executed on the local machine. For input, data can be ingested from local files or live sources. Output results are either sent as files to a local folder, or to the live sinks.
 

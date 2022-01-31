@@ -2,7 +2,8 @@
 title: include file
 description: include file
 services: active-directory
-author: msaburnley
+author: ajburnle
+manager: karenhoran
 ms.service: active-directory
 ms.topic: include
 ms.date: 10/15/2019

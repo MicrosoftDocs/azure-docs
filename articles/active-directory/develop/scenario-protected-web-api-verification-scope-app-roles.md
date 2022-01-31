@@ -169,7 +169,7 @@ public class TodoListController : Controller
     /// The web API will accept only tokens 1) for users, 2) that have the `access_as_user` scope for
     /// this API.
     /// </summary>
-    const string[] scopeRequiredByApi = new string[] { "access_as_user" };
+    static readonly string[] scopeRequiredByApi = new string[] { "access_as_user" };
 
     // GET: api/values
     [HttpGet]
@@ -276,6 +276,7 @@ public class TodoListController : ApiController
         // ...
     }
 ```
+
 
 Instead, you can use the [Authorize(Roles = "access_as_application")] attributes on the controller or an action (or a razor page).
 

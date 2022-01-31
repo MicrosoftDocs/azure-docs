@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: tutorial
 author: LitKnd
 ms.author: kendralittle
-ms.reviewer: 
+ms.reviewer: mathoma
 ms.date: 10/30/2018
 ---
 # Run ad hoc analytics queries across multiple databases (Azure SQL Database)

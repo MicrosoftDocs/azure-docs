@@ -37,6 +37,14 @@ No. You can only restore between accounts within the same subscription.
 
 No. You can't restore into an account with lower RU/s or fewer partitions.
 
+### Is periodic backup mode supported for Azure Synapse Link enabled accounts?
+
+Yes. However, analytical store data isn't included in backups and restores. When Synapse Link is enabled on a database account, Azure Cosmos DB will continue to automatically take backups of your data in the transactional store at scheduled backup interval, as always.
+
+### Is periodic backup mode supported for analytical store enabled containers?
+
+Yes, but only for the regular transactional data. Backup and restore of your data in the analytical store is not supported at this time.
+
 ## Next steps
 
 Next you can learn about how to configure and manage periodic and continuous backup modes for your account:
