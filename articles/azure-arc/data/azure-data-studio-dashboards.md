@@ -90,3 +90,7 @@ The **Resource health** tab on the left displays the current health of that serv
 The **Diagnose and solve problems** tab on the left, launches the PostgreSQL troubleshooting notebook.
 
 For Azure support, select the **New support request** tab. This launches the Azure portal in context to the server group. Create an Azure support request from there.
+
+## Next steps
+
+- [View SQL Managed Instance in the Azure portal](view-arc-data-services-inventory-in-azure-portal.md)
