@@ -87,8 +87,10 @@ Then, you will need to [apply permissions to scan the contents of the workspace]
 
 ### Authentication for enumerating serverless SQL database resources
 
-There are three places you will need to set authentication to allow Azure Purview to enumerate your serverless SQL database resources: The Synapse workspace, the associated storage, and on the Serverless databases. The steps below will set permissions for all three.
-#### Synapse Workspace
+There are three places you will need to set authentication to allow Azure Purview to enumerate your serverless SQL database resources: The Azure Synapse workspace, the associated storage, and the Azure Synapse serverless databases. The steps below will set permissions for all three.
+
+#### Azure Synapse workspace
+
 1. In the Azure portal, go to the Azure Synapse workspace resource.  
 1. On the left pane, select **Access Control (IAM)**. 
 
@@ -98,7 +100,9 @@ There are three places you will need to set authentication to allow Azure Purvie
 1. Select the **Add** button.   
 1. Set the **Reader** role and enter your Azure Purview account name, which represents its managed service identity (MSI).
 1. Select **Save** to finish assigning the role.
+
 #### Storage account
+
 1. In the Azure portal, go to the **Resource group** or **Subscription** that the storage account associated with the Azure Synapse workspace is in.
 1. On the left pane, select **Access Control (IAM)**. 
 
@@ -107,7 +111,9 @@ There are three places you will need to set authentication to allow Azure Purvie
 1. Select the **Add** button. 
 1. Set the **Storage blob data reader** role and enter your Azure Purview account name (which represents its MSI) in the **Select** box. 
 1. Select **Save** to finish assigning the role.
-#### Synapse serverless database
+
+#### Azure Synapse serverless database
+
 1. Go to your Azure Synapse workspace and open the Synapse Studio.
 1. Select the **Data** tab on the left menu.
 1. Select the ellipsis (**...**) next to one of your databases, and then start a new SQL script.
