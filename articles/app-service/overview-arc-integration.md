@@ -114,7 +114,7 @@ By default, logs from system components are sent to the Azure team. Application 
 
 ### What do I do if I see a provider registration error?
 
-When creating a Kubernetes environment resource, some subscriptions may see a "No registered resource provider found" error. The error details may include a set of locations and api versions that are considered valid. If this happens, it may be that the subscription needs to be re-registered with the Microsoft.Web provider, an operation which has no impact on existing applications or APIs. To re-register, use the Azure CLI to run `az provider register --namespace Microsoft.Web --wait`. Then re-attempt the Kubernetes environment command.
+When creating a Kubernetes environment resource, some subscriptions may see a "No registered resource provider found" error. The error details may include a set of locations and api versions that are considered valid. If this happens, it may be that the subscription needs to be re-registered with the Microsoft.Web provider, an operation that has no impact on existing applications or APIs. To re-register, use the Azure CLI to run `az provider register --namespace Microsoft.Web --wait`. Then re-attempt the Kubernetes environment command.
 
 ### Can I deploy the Application services extension on an ARM64 based cluster?
 
@@ -161,10 +161,10 @@ If your extension was in the stable version and auto-upgrade-minor-version is se
 - Upgrade Envoy to 1.20.1
 - Resolved issue with Application Insights support for .NET Applications
 
-If your extension was in the stable version and auto-upgrade-minor-version is set to true, the extension will upgrade automatically.  To manually upgrade the extension to the latest version, you can run the command below:
+If your extension was in the stable version and auto-upgrade-minor-version is set to true, the extension upgrades automatically.  To manually upgrade the extension to the latest version, you can run the command:
 
 ```azurecli-interactive
-    az k8s-extension update --cluster-type connectedClusters -c <clustername> -g <resource group> -n <extension name> --release-train stable --version 0.11.0
+    az k8s-extension update --cluster-type connectedClusters -c <clustername> -g <resource group> -n <extension name> --release-train stable --version 0.12.0
 ```
 
 ## Next steps
