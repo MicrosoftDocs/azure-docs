@@ -65,7 +65,7 @@ In the `main.hbs` file, add the following code:
 
 The `main.hbs` file is in the `layout` folder. It should contain any HTML code that's required throughout your application. Any UI that changes from one view to another, such as in `signin.hbs`, is placed in the placeholder shown as `{{{body}}}`. 
 
-The `main.hbs` file implements UI built with the Bootstrap 5 CSS framework. You'll see the **Edit password**, **Reset password**, and **Sign out** UI components when signed in. You'll see **Sign in** when signed out. This behavior is tracked by the `showSignInButton` Boolean variable, which the app server sends. 
+The `main.hbs` file implements UI built with the Bootstrap 5 CSS framework. You'll see the **Edit password**, **Reset password**, and **Sign out** UI components (buttons) when signed in. You'll see **Sign in** when signed out. This behavior is controlled by the `showSignInButton` Boolean variable, which the app server sends. 
 
 In the `signin.hbs` file, add the following code:
 
