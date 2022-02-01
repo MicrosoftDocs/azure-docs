@@ -1,6 +1,6 @@
 ---
 title: Configure F5 BIG-IP Easy Button for SSO to Oracle EBS
-description: learn to implement Secure Hybrid Access with header-based single sign-on to Oracle Enterprise Business Suite using F5’s BIG-IP Easy Button Guided Configuration
+description: Learn to implement Secure Hybrid Access with header-based single sign-on to Oracle Enterprise Business Suite using F5’s BIG-IP Easy Button Guided Configuration
 services: active-directory
 author: NishthaBabith-V
 manager: martinco
@@ -15,7 +15,7 @@ ms.collection: M365-identity-device-management
 
 # Tutorial: Configure F5’s BIG-IP Easy Button for SSO to Oracle EBS
 
-In this article, you’ll learn to implement Secure Hybrid Access (SHA) with header-based single sign-on (SSO) to Oracle EBS (Enterprise Business Suite) using F5’s BIG-IP Easy Button Guided Configuration.
+In this article, you'll learn to implement Secure Hybrid Access (SHA) with header-based single sign-on (SSO) to Oracle Enterprise Business Suite (EBS) using F5’s BIG-IP Easy Button guided configuration.
 
 Enabling BIG-IP published services for Azure Active Directory (Azure AD) SSO provides many benefits, including:
 
@@ -25,15 +25,15 @@ Enabling BIG-IP published services for Azure Active Directory (Azure AD) SSO pro
 
 * Manage Identities and access from a single control plane, [the Azure portal](https://portal.azure.com/)
 
-To learn about all the benefits, see the article on [F5 BIG-IP and Azure AD integration](http://f5-aad-integration.md/) and and [what is application access and single sign-on with Azure AD](/azure/active-directory/active-directory-appssoaccess-whatis).
+To learn about all the benefits, see the article on [F5 BIG-IP and Azure AD integration](http://f5-aad-integration.md/) and [what is application access and single sign-on with Azure AD](/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## Scenario description
 
-For this scenario, we have an **Oracle EBS application using HTTP authorization headers** to manage access to protected content.
+For this scenario, use an **Oracle EBS application using HTTP authorization headers** to manage access to protected content.
 
-Being legacy, the application lacks modern protocols to support a direct integration with Azure AD. Modernizing the app would be ideal, but is costly, requires careful planning, and introduces risk of potential impact of downtime. Instead, an F5 BIG-IP Application Delivery Controller will be used to bridge the gap between the legacy application and the modern ID control plane, through protocol transitioning.
+Being legacy, the application lacks modern protocols to support a direct integration with Azure AD. Modernizing the app would be ideal, but is costly, requires careful planning, and introduces risk of potential impact. Instead, an F5 BIG-IP Application Delivery Controller will be used to bridge the gap between the legacy application and the modern ID control plane, through protocol transitioning.
 
-Having a BIG-IP in front of the application enables us to overlay the service with Azure AD pre-authentication and header-based SSO, significantly improving the overall security posture of the application for both remote and local access.
+The BIG-IP in front of the application enables an overlay of service with Azure AD pre-authentication and header-based SSO, which significantly improves the overall security posture of the application for both remote and local access.
 
 ## Scenario architecture
 
@@ -86,13 +86,13 @@ Prior BIG-IP experience isn’t necessary, but you’ll need:
 
  * An account with Azure AD application admin [permissions](../users-groups-roles/directory-assign-admin-roles#application-administrator)
 
-* An [SSL certificate](./f5-bigip-deployment-guide#ssl-profile) for publishing services over HTTPS
+* [SSL certificate](./f5-bigip-deployment-guide#ssl-profile) for publishing services over HTTPS
 
-* An existing Oracle EBS suite including Oracle AccessGate and an LDAP enabled OID (Oracle Internet Database) .
+* An existing Oracle EBS suite including Oracle AccessGate and an LDAP enabled OID (Oracle Internet Database)
 
 ## BIG-IP configuration methods
 
-There are many methods to configure BIG-IP for this scenario, including two template-based options and an advanced configuration. This tutorial covers the latest Guided Configuration 16.1 offering an Easy button template. With the **Easy Button**, admins no longer go back and forth between Azure AD and a BIG-IP to enable services for SHA. The end-to-end deployment and policy management of applications is handled directly between the APM’s Guided Configuration wizard and Microsoft Graph. This rich integration between BIG-IP APM and Azure AD ensures applications can quickly, easily support identity federation, SSO, and Azure AD Conditional Access, reducing administrative overhead.
+There are many methods to configure BIG-IP for this scenario, including two template-based options and an advanced configuration. This tutorial covers the latest Guided Configuration 16.1 offering an Easy button template. With the Easy Button, admins no longer go back and forth between Azure AD and a BIG-IP to enable services for SHA. The deployment and policy management is handled directly between the APM’s Guided Configuration wizard and Microsoft Graph. This rich integration between BIG-IP APM and Azure AD ensures applications can quickly, easily support identity federation, SSO, and Azure AD Conditional Access, reducing administrative overhead.
 
 >[!NOTE] 
 > All example strings or values referenced throughout this guide should be replaced with those for your actual environment.
@@ -103,7 +103,7 @@ Before a client or service can access Microsoft Graph, it must be [trusted by th
 
 The Easy Button client must also be registered in Azure AD, before it is allowed to establish a trust between each SAML SP instance of a BIG-IP published application, and Azure AD as the SAML IdP.
 
-1. Sign-in to the [Azure AD portal](https://portal.azure.com/) using an account with Application Administrative rights
+1. Sign in to the [Azure AD portal](https://portal.azure.com/) using an account with Application Administrative rights
 
 2. From the left navigation pane, select the **Azure Active Directory** service
 
@@ -130,13 +130,13 @@ The Easy Button client must also be registered in Azure AD, before it is allowed
 
 8. Grant admin consent for your organization
 
-9. In the **Certificates & Secrets** blade, generate a new **Client secret** and note it down
+9. Go to **Certificates & Secrets**, generate a new **Client secret** and note it down
 
-10. From the **Overview** blade, note the **Client ID** and **Tenant ID**
+10. Go to **Overview**, note the **Client ID** and **Tenant ID**
 
 ## Configure Easy Button
 
-Initiate **Easy Button** configuration to setup a SAML Service Provider (SP) and Azure AD as an Identity Provider (IdP) for your application.
+Initiate **Easy Button** configuration to set up a SAML Service Provider (SP) and Azure AD as an Identity Provider (IdP) for your application.
 
 1. Navigate to **Access > Guided Configuration > Microsoft Integration** and select **Azure AD Application**.
 
@@ -176,7 +176,7 @@ The **Service Provider** settings define the SAML SP properties for the APM inst
 
    ![Screenshot for Service Provider settings](./media/f5-big-ip-easy-button-oracle-ebs/service-provider-settings.png)
 
-   Next, under optional **Security Settings** specify whether Azure AD should encrypt issued SAML assertions. Encrypting assertions between Azure AD and the BIG-IP APM provides   additional assurance that the content tokens can’t be intercepted, and personal or corporate data be compromised.
+   Next, under optional **Security Settings** specify whether Azure AD should encrypt issued SAML assertions. Encrypting assertions between Azure AD and the BIG-IP APM provides  additional assurance that the content tokens can’t be intercepted, and personal or corporate data be compromised.
 
 3. From the **Assertion Decryption Private Key** list, select **Create New**
 
@@ -333,9 +333,9 @@ The **Easy Button wizard** supports Kerberos, OAuth Bearer, and HTTP authorizati
 
 The BIG-IPs session management settings are used to define the conditions under which user sessions are terminated or allowed to continue, limits for users and IP addresses, and corresponding user info. Consult [F5 documentation](https://support.f5.com/csp/article/K18390492) for details on these settings.
 
-What isn’t covered however is Single Log-Out (SLO) functionality, which ensures all sessions between the IdP, the BIG-IP, and the user agent are terminated as users log off. When the Easy Button deploys a SAML application to your Azure AD tenant, it also populates the Logout Url with the APM’s SLO endpoint. That way IdP initiated sign-outs from the Azure AD MyApps portal also terminate the session between the BIG-IP and a client.
+What isn’t covered however is Single Log-Out (SLO) functionality, which ensures all sessions between the IdP, the BIG-IP, and the user agent are terminated as users sign off. When the Easy Button deploys a SAML application to your Azure AD tenant, it also populates the Logout Url with the APM’s SLO endpoint. That way IdP initiated sign-outs from the Azure AD MyApps portal also terminate the session between the BIG-IP and a client.
 
-During deployment, the SAML federation metadata for the published application is imported from your tenant, providing the APM the SAML logout endpoint for Azure AD. This helps SP initiated sign-outs terminate the session between a client and Azure AD. 
+During deployment, the SAML federation metadata for the published application is imported from your tenant, providing the APM the SAML logout endpoint for Azure AD. This helps SP initiated sign outs terminate the session between a client and Azure AD. 
 
 ## Summary
 
@@ -349,7 +349,7 @@ For increased security, organizations using this pattern could also consider blo
 
 ## Advanced deployment
 
-There may be cases where the Guided Configuration templates lacks the flexibility to achieve more specific requirements. For those scenarios, see [Advanced Configuration for kerberos-based SSO](./f5-big-ip-kerberos-advanced.md).Alternatively, the BIG-IP gives the option to disable **Guided Configuration’s strict management mode**. This allows you to manually tweak your configurations, even though bulk of your configurations are automated through the wizard-based templates.
+There may be cases where the Guided Configuration templates lack the flexibility to achieve more specific requirements. For those scenarios, see [Advanced Configuration for kerberos-based SSO](./f5-big-ip-kerberos-advanced.md).Alternatively, the BIG-IP gives the option to disable **Guided Configuration’s strict management mode**. This allows you to manually tweak your configurations, even though bulk of your configurations are automated through the wizard-based templates.
 
 You can navigate to **Access > Guided Configuration** and select the **small padlock icon** on the far right of the row for your applications’ configs. 
 
