@@ -66,9 +66,6 @@ ws = Workspace.from_config()
 mlflow.set_tracking_uri(ws.get_mlflow_tracking_uri())
 ```
 
->[!NOTE]
->The tracking URI is valid up to an hour or less. If you restart your script after some idle time, use the get_mlflow_tracking_uri API to get a new URI.
-
 Set the MLflow experiment name with `set_experiment()` and start your training run with `start_run()`. Then use `log_metric()` to activate the MLflow logging API and begin logging your training run metrics.
 
 ```Python
