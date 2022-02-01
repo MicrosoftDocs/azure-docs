@@ -234,14 +234,26 @@
       href: add-custom-domain.md
     - name: Add company branding
       href: customize-branding.md
-    - name: Configure 'Stay signed in?'
-      href: keep-me-signed-in.md
-    - name: How to find tenant ID
-      href: active-directory-how-to-find-tenant.md
-    - name: Associate an Azure subscription
-      href: active-directory-how-subscriptions-associated-directory.md
     - name: Add your privacy info
       href: active-directory-properties-area.md
+    - name: Configure 'Stay signed in?'
+      href: keep-me-signed-in.md
+    - name: Associate an Azure subscription
+      href: active-directory-how-subscriptions-associated-directory.md
+  - name: Users
+    items:
+    - name: Add or delete a new user
+      href: add-users-azure-active-directory.md
+    - name: Add or change user profile info
+      href: active-directory-users-profile-azure-portal.md
+    - name: Reset a user's password
+      href: active-directory-users-reset-password-azure-portal.md
+    - name: Assign roles to users
+      href: active-directory-users-assign-role-azure-portal.md
+    - name: Assign or remove licenses from users
+      href: license-users-groups.md
+    - name: Restore a deleted user
+      href: active-directory-users-restore.md
   - name: Groups
     items:
     - name: Create a group and add members
@@ -258,20 +270,6 @@
       href: active-directory-accessmanagement-managing-group-owners.md
     - name: Manage access to resources with groups
       href: active-directory-manage-groups.md
-  - name: Users
-    items:
-    - name: Add or delete a new user
-      href: add-users-azure-active-directory.md
-    - name: Add or change user profile info
-      href: active-directory-users-profile-azure-portal.md
-    - name: Reset a user's password
-      href: active-directory-users-reset-password-azure-portal.md
-    - name: Assign roles to users
-      href: active-directory-users-assign-role-azure-portal.md
-    - name: Assign or remove licenses from users
-      href: license-users-groups.md
-    - name: Restore a deleted user
-      href: active-directory-users-restore.md
   - name: Custom security attributes
     items:
     - name: Add or deactivate attributes
@@ -283,6 +281,8 @@
 - name: Troubleshooting
   expanded: true
   items:
+  - name: How to find tenant ID
+    href: active-directory-how-to-find-tenant.md
   - name: Get support for Azure Active Directory
     href: active-directory-troubleshooting-support-howto.md
   - name: Support and help options for Azure AD
