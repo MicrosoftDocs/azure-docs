@@ -10,7 +10,7 @@ ms.service: iot-hub-device-update
 
 # Device Update for IoT Hub and IoT Plug and Play
 
-Device Update for IoT Hub uses [IoT Plug and Play](../iot-develop/index.yml) to discover and manage devices that are over-the-air update capable. The Device Update service will send and receive properties and messages to and from devices using IoT Plug and Play interfaces. Device Update for IoT Hub requires IoT devices to implement the following interfaces and model-id as described below.
+Device Update for IoT Hub uses [IoT Plug and Play](../iot-develop/index.yml) to discover and manage devices that are over-the-air update capable. The Device Update service sends and receives properties and messages to and from devices using IoT Plug and Play interfaces. Device Update for IoT Hub requires IoT devices to implement the following interfaces and model-id.
 
 Concepts:
 * Understand the [IoT Plug and Play device client](../iot-develop/concepts-developer-guide-device.md?pivots=programming-language-csharp).
@@ -20,7 +20,7 @@ Concepts:
 
 The 'DeviceUpdateCore' interface is used to send update actions and metadata to devices and receive update status from devices. The 'DeviceUpdateCore' interface is split into two Object properties.
 
-The expected component name in your model is **"deviceUpdate"** when implementing this interface. [Learn more about Azure IoT Plug and Play Components](../iot-develop/concepts-modeling-guide.md)
+The expected component name in your model is **"deviceUpdate"** when this interface is implemented. [Learn more about Azure IoT Plug and Play Components](../iot-develop/concepts-modeling-guide.md)
 
 ### Agent Metadata
 
