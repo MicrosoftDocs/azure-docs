@@ -147,7 +147,8 @@ The next step is to create the data controller in directly connected mode via th
    :::image type="content" source="media/create-complete-managed-instance-directly-connected/custom-location.png" alt-text="Create a new custom location and specify a namespace.":::
 
 1. For **Kubernetes configuration template**, specify *azure-arc-aks-premium-storage* because this example uses an AKS cluster. 
-1. Set a user name and password for the metrics and log services. 
+2. For **Service type**, select **Load balancer**.
+3. Set a user name and password for the metrics and log services. 
 
    The passwords must be at least eight characters long and contain characters from three of the following four categories: Latin uppercase letters, Latin lowercase letters, numbers, and non-alphanumeric characters.
 

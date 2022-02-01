@@ -40768,6 +40768,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/aks/open-service-mesh-ip-port-exclusion.md",
+      "redirect_url": "/azure/aks/open-service-mesh-about",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/azure-monitor/platform/alerts-metric-create-templates.md",
       "redirect_url": "/azure/azure-monitor/alerts/alerts-metric-create-templates",
       "redirect_document_id": false
@@ -45276,6 +45281,11 @@
         "source_path_from_root": "/articles/azure/cognitive-services/translator/tutorial-build-flask-app-translation-synthesis.md",
         "redirect_url": "/learn/modules/translate-text-with-translator-service?toc=/azure/cognitive-services/translator/toc.json&bc=/azure/cognitive-services/translator/breadcrumb/toc.json",
         "redirect_document_id": false
-        }
+      },
+      {
+        "source_path_from_root": "/articles/governance/policy/how-to/guest-configuration-create-group-policy.md",
+        "redirect_url": "/azure/governance/policy/how-to/guest-configuration-create",
+        "redirect_document_id": false
+      }
   ]
 }

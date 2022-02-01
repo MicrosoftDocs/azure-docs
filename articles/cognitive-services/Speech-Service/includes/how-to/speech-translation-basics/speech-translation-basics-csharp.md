@@ -7,9 +7,9 @@ ms.author: eur
 ms.custom: devx-track-csharp
 ---
 
-One of the core features of the Speech service is the ability to recognize human speech and translate it to other languages. In this quickstart you learn how to use the Speech SDK in your apps and products to perform high-quality speech translation. This quickstart covers topics including:
+One of the core features of the Speech service is the ability to recognize human speech and translate it to other languages. In this quickstart, you learn how to use the Speech SDK in your apps and products to perform high-quality speech translation. This quickstart covers these topics:
 
-* Translating speech-to-text
+* Translating speech to text
 * Translating speech to multiple target languages
 * Performing direct speech-to-speech translation
 
@@ -19,15 +19,15 @@ If you want to skip straight to sample code, see the [C# quickstart samples](htt
 
 ## Prerequisites
 
-This article assumes that you have an Azure account and Speech service subscription. If you don't have an account and subscription, [try the Speech service for free](../../../overview.md#try-the-speech-service-for-free).
+This article assumes that you have an Azure account and a Speech service subscription. If you don't have an account and a subscription, [try the Speech service for free](../../../overview.md#try-the-speech-service-for-free).
 
-## Install the Speech SDK
+### Install the Speech SDK
 
-Before you can do anything, you'll need to install the Speech SDK. Depending on your platform, follow the instructions under the <a href="/azure/cognitive-services/speech-service/speech-sdk#get-the-speech-sdk" target="_blank">Get the Speech SDK </a> section of the _About the Speech SDK_ article.
+Before you can do anything, you need to install the Speech SDK. Depending on your platform, follow the instructions in the <a href="/azure/cognitive-services/speech-service/speech-sdk#get-the-speech-sdk" target="_blank">Get the Speech SDK </a> section of the _About the Speech SDK_ article.
 
-## Import dependencies
+### Import dependencies
 
-To run the examples in this article, include the following `using` statements at the top of the *Program.cs* file.
+To run the examples in this article, include the following `using` statements at the top of the *Program.cs* file:
 
 ```csharp
 using System;
@@ -42,7 +42,7 @@ using Microsoft.CognitiveServices.Speech.Translation;
 
 ## Sensitive data and environment variables
 
-The example source code in this article depends on environment variables for storing sensitive data, such as the Speech resource subscription key and region. The `Program` class contains two `static readonly string` values that are assigned from the host machines environment variables, namely `SPEECH__SUBSCRIPTION__KEY` and `SPEECH__SERVICE__REGION`. Both of these fields are at the class scope, making them accessible within method bodies of the class. For more information on environment variables, see [environment variables and application configuration](../../../../cognitive-services-security.md#environment-variables-and-application-configuration).
+The example source code in this article depends on environment variables for storing sensitive data, such as the Speech resource's subscription key and region. The `Program` class contains two `static readonly string` values that are assigned from the host machine's environment variables: `SPEECH__SUBSCRIPTION__KEY` and `SPEECH__SERVICE__REGION`. Both of these fields are at the class scope, so they're accessible within method bodies of the class: 
 
 ```csharp
 public class Program
@@ -57,21 +57,23 @@ public class Program
 }
 ```
 
+For more information on environment variables, see [Environment variables and application configuration](../../../../cognitive-services-security.md#environment-variables-and-application-configuration).
+
 ## Create a speech translation configuration
 
-To call the Speech service using the Speech SDK, you need to create a [`SpeechTranslationConfig`][config]. This class includes information about your subscription, like your key and associated region, endpoint, host, or authorization token.
+To call the Speech service by using the Speech SDK, you need to create a [`SpeechTranslationConfig`][config] instance. This class includes information about your subscription, like your key and associated region, endpoint, host, or authorization token.
 
 > [!TIP]
 > Regardless of whether you're performing speech recognition, speech synthesis, translation, or intent recognition, you'll always create a configuration.
 
-There are a few ways that you can initialize a [`SpeechTranslationConfig`][config]:
+You can initialize `SpeechTranslationConfig` in a few ways:
 
 * With a subscription: pass in a key and the associated region.
 * With an endpoint: pass in a Speech service endpoint. A key or authorization token is optional.
 * With a host: pass in a host address. A key or authorization token is optional.
 * With an authorization token: pass in an authorization token and the associated region.
 
-Let's take a look at how a [`SpeechTranslationConfig`][config] is created using a key and region. Get these credentials by following steps in [Try the Speech service for free](../../../overview.md#try-the-speech-service-for-free).
+Let's look at how you create a `SpeechTranslationConfig` instance by using a key and region. Get these credentials by following the steps in [Try the Speech service for free](../../../overview.md#try-the-speech-service-for-free).
 
 ```csharp
 public class Program
@@ -92,9 +94,9 @@ public class Program
 }
 ```
 
-## Change source language
+## Change the source language
 
-One common task of speech translation is specifying the input (or source) language. Let's take a look at how you would change the input language to Italian. In your code, interact with the [`SpeechTranslationConfig`][config] instance, assigning to the `SpeechRecognitionLanguage` property.
+One common task of speech translation is specifying the input (or source) language. The following example shows how you would change the input language to Italian. In your code, interact with the `SpeechTranslationConfig` instance by assigning it to the [`SpeechRecognitionLanguage`][recognitionlang] property:
 
 ```csharp
 static async Task TranslateSpeechAsync()
@@ -107,11 +109,11 @@ static async Task TranslateSpeechAsync()
 }
 ```
 
-The [`SpeechRecognitionLanguage`][recognitionlang] property expects a language-locale format string. You can provide any value in the **Locale** column in the list of supported [locales/languages](../../../language-support.md).
+The `SpeechRecognitionLanguage` property expects a language-locale format string. You can provide any value in the **Locale** column in the [list of supported locales/languages](../../../language-support.md).
 
-## Add translation language
+## Add a translation language
 
-Another common task of speech translation is to specify target translation languages, at least one is required but using multiple is supported. The following code snippet sets both French and German as translation language targets.
+Another common task of speech translation is to specify target translation languages. At least one is required, but multiples are supported. The following code snippet sets both French and German as translation language targets:
 
 ```csharp
 static async Task TranslateSpeechAsync()
@@ -121,7 +123,7 @@ static async Task TranslateSpeechAsync()
 
     translationConfig.SpeechRecognitionLanguage = "it-IT";
     
-    // Translate to languages. See, https://aka.ms/speech/sttt-languages
+    // Translate to languages. See https://aka.ms/speech/sttt-languages
     translationConfig.AddTargetLanguage("fr");
     translationConfig.AddTargetLanguage("de");
 }
@@ -131,9 +133,9 @@ With every call to [`AddTargetLanguage`][addlang], a new target translation lang
 
 ## Initialize a translation recognizer
 
-After you've created a [`SpeechTranslationConfig`][config], the next step is to initialize a [`TranslationRecognizer`][recognizer]. When you initialize a [`TranslationRecognizer`][recognizer], you'll need to pass it your `translationConfig`. The configuration object provides the credentials that the speech service requires to validate your request.
+After you've created a [`SpeechTranslationConfig`][config] instance, the next step is to initialize [`TranslationRecognizer`][recognizer]. When you initialize `TranslationRecognizer`, you need to pass it your `translationConfig` instance. The configuration object provides the credentials that the Speech service requires to validate your request.
 
-If you're recognizing speech using your device's default microphone, here's what the [`TranslationRecognizer`][recognizer] should look like:
+If you're recognizing speech by using your device's default microphone, here's what the `TranslationRecognizer` instance should look like:
 
 ```csharp
 static async Task TranslateSpeechAsync()
@@ -150,12 +152,12 @@ static async Task TranslateSpeechAsync()
 }
 ```
 
-If you want to specify the audio input device, then you'll need to create an [`AudioConfig`][audioconfig] and provide the `audioConfig` parameter when initializing your [`TranslationRecognizer`][recognizer].
+If you want to specify the audio input device, then you need to create an [`AudioConfig`][audioconfig] class instance and provide the `audioConfig` parameter when initializing `TranslationRecognizer`.
 
 > [!TIP]
 > [Learn how to get the device ID for your audio input device](../../../how-to-select-audio-input-devices.md).
 
-First, you'll reference the `AudioConfig` object as follows:
+First, reference the `AudioConfig` object as follows:
 
 ```csharp
 static async Task TranslateSpeechAsync()
@@ -173,7 +175,7 @@ static async Task TranslateSpeechAsync()
 }
 ```
 
-If you want to provide an audio file instead of using a microphone, you'll still need to provide an `audioConfig`. However, when you create an [`AudioConfig`][audioconfig], instead of calling `FromDefaultMicrophoneInput`, you'll call `FromWavFileInput` and pass the `filename` parameter.
+If you want to provide an audio file instead of using a microphone, you still need to provide an `audioConfig` parameter. However, when you create an `AudioConfig` class instance, instead of calling `FromDefaultMicrophoneInput`, you call `FromWavFileInput` and pass the `filename` parameter:
 
 ```csharp
 static async Task TranslateSpeechAsync()
@@ -193,7 +195,7 @@ static async Task TranslateSpeechAsync()
 
 ## Translate speech
 
-To translate speech, the Speech SDK relies on a microphone or an audio file input. Speech recognition occurs before speech translation. After all objects have been initialized, call the recognize-once function and get the result.
+To translate speech, the Speech SDK relies on a microphone or an audio file input. Speech recognition occurs before speech translation. After all objects have been initialized, call the recognize-once function and get the result:
 
 ```csharp
 static async Task TranslateSpeechAsync()
@@ -227,14 +229,16 @@ For more information about speech-to-text, see [the basics of speech recognition
 
 ## Synthesize translations
 
-After a successful speech recognition and translation, the result contains all the translations in a dictionary. The [`Translations`][translations] dictionary key is the target translation language and the value is the translated text. Recognized speech can be translated, then synthesized in a different language (speech-to-speech).
+After a successful speech recognition and translation, the result contains all the translations in a dictionary. The [`Translations`][translations] dictionary key is the target translation language, and the value is the translated text. Recognized speech can be translated and then synthesized in a different language (speech-to-speech).
 
 ### Event-based synthesis
 
-The `TranslationRecognizer` object exposes a `Synthesizing` event. The event fires several times, and provides a mechanism to retrieve the synthesized audio from the translation recognition result. If you're translating to multiple languages, see [manual synthesis](#manual-synthesis). Specify the synthesis voice by assigning a [`VoiceName`][voicename] and provide an event handler for the `Synthesizing` event, get the audio. The following example saves the translated audio as a *.wav* file.
+The `TranslationRecognizer` object exposes a `Synthesizing` event. The event fires several times and provides a mechanism to retrieve the synthesized audio from the translation recognition result. If you're translating to multiple languages, see [Manual synthesis](#manual-synthesis). 
+
+Specify the synthesis voice by assigning a [`VoiceName`][voicename] instance, and provide an event handler for the `Synthesizing` event to get the audio. The following example saves the translated audio as a .wav file.
 
 > [!IMPORTANT]
-> The event-based synthesis only works with a single translation, **do not** add multiple target translation languages. Additionally, the [`VoiceName`][voicename] should be the same language as the target translation language, for example; `"de"` could map to `"de-DE-Hedda"`.
+> The event-based synthesis works only with a single translation. *Do not* add multiple target translation languages. Additionally, the `VoiceName` value should be the same language as the target translation language. For example, `"de"` could map to `"de-DE-Hedda"`.
 
 ```csharp
 static async Task TranslateSpeechAsync()
@@ -277,7 +281,9 @@ static async Task TranslateSpeechAsync()
 
 ### Manual synthesis
 
-The [`Translations`][translations] dictionary can be used to synthesize audio from the translation text. Iterate through each translation, and synthesize the translation. When creating a `SpeechSynthesizer` instance, the `SpeechConfig` object needs to have its [`SpeechSynthesisVoiceName`][speechsynthesisvoicename] property set to the desired voice. The following example translates to five languages, and each translation is then synthesized to an audio file in the corresponding neural language.
+You can use the [`Translations`][translations] dictionary to synthesize audio from the translation text. Iterate through each translation and synthesize it. When you're creating a `SpeechSynthesizer` instance, the `SpeechConfig` object needs to have its [`SpeechSynthesisVoiceName`][speechsynthesisvoicename] property set to the desired voice. 
+
+The following example translates to five languages. Each translation is then synthesized to an audio file in the corresponding neural language.
 
 ```csharp
 static async Task TranslateSpeechAsync()
@@ -332,12 +338,12 @@ For more information about speech synthesis, see [the basics of speech synthesis
 
 ## Multi-lingual translation with language identification
 
-In many scenarios, you may not know which input languages to specify. Using language identification allows you to specify up to ten possible input languages, and automatically translate into your target languages. 
+In many scenarios, you might not know which input languages to specify. Using language identification allows you to specify up to 10 possible input languages and automatically translate to your target languages. 
 
-The following example uses continuous translation from an audio file, and automatically detects the input language, even if the language being spoken is changing. When you run the sample, `en-US` and `zh-CN` will be automatically detected because they are defined in the `AutoDetectSourceLanguageConfig`. Then, the speech will be translated to `de` and `fr` as specified in the calls to `AddTargetLanguage()`.
+The following example uses continuous translation from an audio file. It automatically detects the input language, even if the language being spoken is changing. When you run the sample, `en-US` and `zh-CN` will be automatically detected because they're defined in `AutoDetectSourceLanguageConfig`. Then, the speech will be translated to `de` and `fr` as specified in the calls to `AddTargetLanguage()`.
 
 > [!IMPORTANT]
-> This feature is currently in **preview**.
+> This feature is currently in *preview*.
 
 ```csharp
 using Microsoft.CognitiveServices.Speech;
@@ -346,13 +352,13 @@ using Microsoft.CognitiveServices.Speech.Audio;
 public static async Task MultiLingualTranslation()
 {
     var region = "<paste-your-region>";
-    // currently the v2 endpoint is required for this design pattern
+    // Currently, the v2 endpoint is required for this design pattern
     var endpointString = $"wss://{region}.stt.speech.microsoft.com/speech/universal/v2";
     var endpointUrl = new Uri(endpointString);
     
     var config = SpeechConfig.FromEndpoint(endpointUrl, "<paste-your-subscription-key>");
 
-    // Source lang is required, but is currently NoOp 
+    // Source language is required, but is currently NoOp 
     string fromLanguage = "en-US";
     config.SpeechRecognitionLanguage = fromLanguage;
 
@@ -432,7 +438,7 @@ public static async Task MultiLingualTranslation()
                 stopTranslation.TrySetResult(0);
             };
 
-            // Starts continuous recognition. Uses StopContinuousRecognitionAsync() to stop recognition.
+            // Start continuous recognition. Use StopContinuousRecognitionAsync() to stop recognition.
             Console.WriteLine("Start translation...");
             await recognizer.StartContinuousRecognitionAsync().ConfigureAwait(false);
 
