@@ -34,7 +34,7 @@ To learn more, see [Manage users and roles in your IoT Central application](howt
 
 ## Organizations
 
-To manage which users see which devices in your IoT Central application, use an _organization_ hierarchy. You define an organization in your application which will also provide three new built-in roles foroOrg administrators, org operators and org viewers.
+To manage which users see which devices in your IoT Central application, use an _organization_ hierarchy. You define an organization in your application which will also provide three new built-in roles for org administrators, org operators and org viewers.
 The user's role in application determines their permissions over the devices they can see.
 
 To learn more, see [Create an IoT Central organization](howto-create-organizations.md).
