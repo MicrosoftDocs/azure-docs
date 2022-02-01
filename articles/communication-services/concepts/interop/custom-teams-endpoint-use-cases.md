@@ -262,3 +262,11 @@ callAgent.startCallJoinAsync(meetingLocator , new JoinCallOptions());
 Alice then joins the Teams meeting.
 
 4. Other participants joining the Teams meeting: The provided experience is a standard Teams meeting. Based on the configuration and invites, the Teams meeting can be joined by Teams user, Teams anonymous user using Team web client, Teams desktop client, Teams mobile client, Azure Communication Services user via applications based on Communication Services calling SDK or users using phones.
+
+## Next steps
+
+The following articles might be of interest to you:
+
+- Learn more about [authentication](../authentication.md).
+- Try [quickstart for authentication of Teams users](../../quickstarts/manage-teams-identity.md).
+- Try [quickstart for calling to a Teams user](../../quickstarts/voice-video-calling/get-started-with-voice-video-calling-custom-teams-client.md).
