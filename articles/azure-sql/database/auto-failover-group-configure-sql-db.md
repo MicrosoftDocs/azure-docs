@@ -12,6 +12,7 @@ author: emlisa
 ms.author: emlisa
 ms.reviewer: kendralittle, mathoma
 ms.date: 02/24/2022
+zone_pivot_groups: azure-sql-deployment-option-single-elastic
 ---
 # Configure a failover group for Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -46,18 +47,16 @@ The following table lists specific permission scopes for Azure SQL Database:
 | **Fail over failover group** | Azure RBAC write access | Failover group on new server |
 | | | 
 
+::: zone pivot="azure-sql-single-db"
 
-## Single database
 
-Create the failover group and add a single database to it using the Azure portal or PowerShell.
-
-### Prerequisites
+## Prerequisites
 
 Consider the following prerequisites:
 
 - The server login and firewall settings for the secondary server must match that of your primary server.
 
-### Create failover group
+## Create failover group
 
 # [Portal](#tab/azure-portal)
 
@@ -130,7 +129,7 @@ Create your failover group and add your database to it using PowerShell.
 
 ---
 
-### Test failover
+## Test failover
 
 Test failover of your failover group using the Azure portal or PowerShell.
 
@@ -215,9 +214,10 @@ Revert failover group back to the primary server:
 > [!IMPORTANT]
 > If you need to delete the secondary database, remove it from the failover group before deleting it. Deleting a secondary database before it is removed from the failover group can cause unpredictable behavior.
 
-## Elastic pool
+::: zone-end
 
-Create the failover group and add an elastic pool to it using the Azure portal, or PowerShell.  
+::: zone pivot="azure-sql-elastic-pool"
+
 
 ### Prerequisites
 
@@ -365,6 +365,7 @@ Fail over to the secondary server:
 > [!IMPORTANT]
 > If you need to delete the secondary database, remove it from the failover group before deleting it. Deleting a secondary database before it is removed from the failover group can cause unpredictable behavior.
 
+::: zone-end
 
 ## Use Private Link
 
