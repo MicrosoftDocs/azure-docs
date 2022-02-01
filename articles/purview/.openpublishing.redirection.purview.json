@@ -106,7 +106,7 @@
         "redirect_document_id": true
       },
       {
-        "source_path_from_root": "/articles/purview/create-azure-purview-dotnet.md",
+        "source_path_from_root": "/articles/purview/create-purview-dotnet.md",
         "redirect_url": "/azure/purview/create-azure-purview-dotnet",
         "redirect_document_id": true
       },
