@@ -9,7 +9,7 @@ ms.service: media-services
 ms.topic: conceptual
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 03/25/2021
+ms.date: 01/31/2022
 ms.author: inhenkel
 ---
 
@@ -21,18 +21,18 @@ ms.author: inhenkel
 
 ![migration steps 2](./media/migration-guide/steps-2.svg)
 
-This part of the migration guidance gives you detailed information about the
-differences between the V2 and V3 APIs.
+This part of the migration guidance gives you detailed information about the differences between the V2 and V3 APIs.
 
 ## Feature gaps between V2 and V3 APIs
 
 The V3 API has the following feature gaps with the V2 API. A couple
-of the advanced features of the Media Encoder Standard in V2 APIs are currently
-not available in V3:
+of the advanced features of the Media Encoder Standard in V2 APIs are currently not available in V3:
 
-- Inserting a silent audio track when input has no audio, as this is no longer required with the Azure Media Player.
+- Inserting a silent audio track when input has no audio or inserting a monochrome video track when input has no video, as this is no longer required with the Azure Media Player.
 
 - Inserting a video track when input has no video.
+
+- The `InsertBlackIfNoVideoBottomLayerOnly` and `InsertBlackIfNoVideo` flags are not longer supported in v3.
 
 - Live Events with transcoding currently don't support Slate insertion mid-stream and ad marker insertion via API call.
 
