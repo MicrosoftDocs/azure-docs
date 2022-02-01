@@ -17,11 +17,11 @@ In most cases, app developers need to know nothing more than how to deploy to th
 - The connected cluster, which is an Azure projection of your Kubernetes infrastructure. For more information, see [What is Azure Arc-enabled Kubernetes?](../azure-arc/kubernetes/overview.md).
 - A cluster extension, which is a sub-resource of the connected cluster resource. The App Service extension [installs the required pods into your connected cluster](#pods-created-by-the-app-service-extension). For more information about cluster extensions, see [Cluster extensions on Azure Arc-enabled Kubernetes](../azure-arc/kubernetes/conceptual-extensions.md).
 - A custom location, which bundles together a group of extensions and maps them to a namespace for created resources. For more information, see [Custom locations on top of Azure Arc-enabled Kubernetes](../azure-arc/kubernetes/conceptual-custom-locations.md).
-- An App Service Kubernetes environment, which enables configuration common across apps but not related to cluster operations. Conceptually, it's deployed into the custom location resource, and app developers create apps into this environment. This is described in greater detail in [App Service Kubernetes environment](#app-service-kubernetes-environment).
+- An App Service Kubernetes environment, which enables configuration common across apps but not related to cluster operations. Conceptually, it's deployed into the custom location resource, and app developers create apps into this environment. This resource is described in greater detail in [App Service Kubernetes environment](#app-service-kubernetes-environment).
 
 ## Public preview limitations
 
-The following public preview limitations apply to App Service Kubernetes environments. They will be updated as changes are made available.
+The following public preview limitations apply to App Service Kubernetes environments. This list of limitations will be updated as changes and features are made available.
 
 | Limitation                                              | Details                                                                               |
 |---------------------------------------------------------|---------------------------------------------------------------------------------------|
@@ -38,7 +38,7 @@ The following public preview limitations apply to App Service Kubernetes environ
 
 ## Pods created by the App Service extension
 
-When the App Service extension is installed on the Azure Arc-enabled Kubernetes cluster, you see several pods created in the release namespace that was specified. These pods enable your Kubernetes cluster to be an extension of the `Microsoft.Web` resource provider in Azure and support the management and operation of your apps. Optionally, you can choose to have the extension install [KEDA](https://keda.sh/) for event-driven scaling.
+When the App Service extension is installed on the Azure Arc-enabled Kubernetes cluster, several pods are created in the release namespace that was specified. These pods enable your Kubernetes cluster to be an extension of the `Microsoft.Web` resource provider in Azure and support the management and operation of your apps. Optionally, you can choose to have the extension install [KEDA](https://keda.sh/) for event-driven scaling.
  <!-- You can only have one installation of KEDA on the cluster. If you have one already, you must disable this behavior during installation of the cluster extension `TODO`. -->
 
 The following table describes the role of each pod that is created by default:
@@ -56,7 +56,7 @@ The following table describes the role of each pod that is created by default:
 
 ## App Service Kubernetes environment
 
-The App Service Kubernetes environment resource is required before apps may be created. It enables configuration common to apps in the custom location, such as the default DNS suffix.
+The App Service Kubernetes environment resource is required before apps can be created. It enables configuration common to apps in the custom location, such as the default DNS suffix.
 
 Only one Kubernetes environment resource may be created in a custom location. In most cases, a developer who creates and deploys apps doesn't need to be directly aware of the resource. It can be directly inferred from the provided custom location ID. However, when defining Azure Resource Manager templates, any plan resource needs to reference the resource ID of the environment directly. The custom location values of the plan and the specified environment must match.
 
@@ -108,13 +108,13 @@ All applications deployed with Azure App Service on Kubernetes with Azure Arc ar
 
 ### What logs are collected?
 
-Logs for both system components and your applications are written to standard output. Both log types can be collected for analysis using standard Kubernetes tools. You can also configure the App Service cluster extension with a [Log Analytics workspace](../azure-monitor/logs/log-analytics-overview.md), and it will send all logs to that workspace.
+Logs for both system components and your applications are written to standard output. Both log types can be collected for analysis using standard Kubernetes tools. You can also configure the App Service cluster extension with a [Log Analytics workspace](../azure-monitor/logs/log-analytics-overview.md), and it sends all logs to that workspace.
 
-By default, logs from system components are sent to the Azure team. Application logs are not sent. You can prevent these logs from being transferred by setting `logProcessor.enabled=false` as an extension configuration setting. This will also disable forwarding of application to your Log Analytics workspace. Disabling the log processor may impact time needed for any support cases, and you will be asked to collect logs from standard output through some other means.
+By default, logs from system components are sent to the Azure team. Application logs are not sent. You can prevent these logs from being transferred by setting `logProcessor.enabled=false` as an extension configuration setting. This configuration setting will also disable forwarding of application to your Log Analytics workspace. Disabling the log processor may impact time needed for any support cases, and you will be asked to collect logs from standard output through some other means.
 
 ### What do I do if I see a provider registration error?
 
-When creating a Kubernetes environment resource, some subscriptions may see a "No registered resource provider found" error. The error details may include a set of locations and api versions that are considered valid. If this happens, it may be that the subscription needs to be re-registered with the Microsoft.Web provider, an operation that has no impact on existing applications or APIs. To re-register, use the Azure CLI to run `az provider register --namespace Microsoft.Web --wait`. Then re-attempt the Kubernetes environment command.
+When creating a Kubernetes environment resource, some subscriptions might see a "No registered resource provider found" error. The error details might include a set of locations and api versions that are considered valid. If this error message is returned, the subscription must be re-registered with the Microsoft.Web provider, an operation that has no impact on existing applications or APIs. To re-register, use the Azure CLI to run `az provider register --namespace Microsoft.Web --wait`. Then re-attempt the Kubernetes environment command.
 
 ### Can I deploy the Application services extension on an ARM64 based cluster?
 
@@ -147,8 +147,8 @@ If your extension was in the stable version and auto-upgrade-minor-version is se
 - Added Application Insights support for Java and .NET Web Applications
 - Added support for .NET 6.0 Web Applications
 - Removed .NET Core 2.0
-- Resolved issues with slot swap operations failing
-- Resolved issues during Ruby app creation
+- Resolved issues which caused slot swap operations to fail
+- Resolved issues customers experienced during creation of Ruby web applications
 
 ### Application services extension v 0.11.1 (December 2021)
 
