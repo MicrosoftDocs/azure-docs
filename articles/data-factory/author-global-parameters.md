@@ -6,7 +6,7 @@ ms.subservice: authoring
 ms.topic: conceptual
 author: joshuha-msft
 ms.author: joowen
-ms.date: 05/12/2021 
+ms.date: 01/31/2022
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -29,6 +29,8 @@ In the side-nav, enter a name, select a data type, and specify the value of your
 After a global parameter is created, you can edit it by clicking the parameter's name. To alter multiple parameters at once, select **Edit all**.
 
 :::image type="content" source="media/author-global-parameters/create-global-parameter-3.png" alt-text="Create global parameters":::
+
+Global parameters are stored as part of the /factory/{factory_name}-arm-template parameters.json.
 
 ## Using global parameters in a pipeline
 
@@ -93,7 +95,8 @@ $globalParametersJson = Get-Content $globalParametersFilePath
 Write-Host "Parsing JSON..."
 $globalParametersObject = [Newtonsoft.Json.Linq.JObject]::Parse($globalParametersJson)
 
-foreach ($gp in $globalParametersObject.GetEnumerator()) {
+foreach ($gp in $factoryFileObject.properties.globalParameters.GetEnumerator()) {
+ # foreach ($gp in $globalParametersObject.GetEnumerator()) {
     Write-Host "Adding global parameter:" $gp.Key
     $globalParameterValue = $gp.Value.ToObject([Microsoft.Azure.Management.DataFactory.Models.GlobalParameterSpecification])
     $newGlobalParameters.Add($gp.Key, $globalParameterValue)
