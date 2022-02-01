@@ -22,7 +22,7 @@ The following items are needed to ensure you're set up to begin the onboarding p
 
 - A jump box virtual machine (VM) with network access to the Azure VMware Solution vCenter. 
     - From the jump-box VM, verify you have access to [vCenter and NSX-T portals](https://docs.microsoft.com/azure/azure-vmware/tutorial-configure-networking). 
-- Private cloud should be internet enabled or have reachability to Azure end points, mentioned in the [Appendices](#Appendices).
+- Verify that your Azure subscription has been enabled or you have connectivity to Azure end points, mentioned in the [Appendices](#Appendices).
 - Resource group in the subscription where you have owner or contributor role.  
 - A minimum of three free non-overlapping IPs addresses.  
 - Verify that your vCenter Server version is 6.7 or higher. 
