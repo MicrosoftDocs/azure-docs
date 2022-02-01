@@ -17,6 +17,9 @@ This tutorial describes how to configure certificates for your Azure Stack Edge 
 
 The time taken for this step will vary depending on the option you choose and how the certificate flow is established in your environment.
 
+> [!NOTE]
+> If you didn't change the device name or DNS domain when you [configured device settings earlier](azure-stack-edge-gpu-deploy-set-up-device-update-time.md#configure-device-settings), and you don't want to use your own certificates, you can skip this step. The device has automatically generated self-signed certificates. You're ready to [Activate your device](azure-stack-edge-gpu-deploy-activate.md).
+
 In this tutorial, you learn about:
 
 > [!div class="checklist"]
@@ -28,39 +31,41 @@ In this tutorial, you learn about:
 
 Before you configure and set up your Azure Stack Edge Pro device with GPU, make sure that:
 
-* You've installed the physical device as detailed in [Install Azure Stack Edge Pro GPU](azure-stack-edge-gpu-deploy-install.md).
+* You've installed the physical device as described in [Install Azure Stack Edge Pro GPU](azure-stack-edge-gpu-deploy-install.md).
 * If you plan to bring your own certificates:
-    - You should have your certificates ready in the appropriate format including the signing chain certificate. For details on certificate, go to [Manage certificates](azure-stack-edge-gpu-manage-certificates.md)
-
-    - If your device is deployed in Azure Government and not deployed in Azure public cloud, a signing chain certificate is required before you can activate your device. 
-    For details on certificates, go to [Manage certificates](azure-stack-edge-gpu-manage-certificates.md).
+    - You've prepared your certificates, including the signing chain certificate, in the required format. For steps, see [Manage certificates](azure-stack-edge-gpu-manage-certificates.md)
+    - If you're deploying your device in the Azure Government cloud instead of the Azure public cloud, a signing chain certificate is required before you can activate your device.
+    <!--DO WE NEED TO PROVIDE THIS LINK TWICE IN THIS SECTION?--For details on certificates, go to [Manage certificates](azure-stack-edge-gpu-manage-certificates.md).-->
 
 
 ## Configure certificates for device
 
 1. In the **Certificates** page, you will configure your certificates. Depending on whether you changed the device name or the DNS domain in the **Device** page, you can choose one of the following options for your certificates.
 
-    - If you have not changed the device name or the DNS domain in the earlier step and do not wish to bring your own certificates, then you can skip this step and proceed to the next step. The device has automatically generated self-signed certificates to begin with. 
+<!--Replaced by a note in the introduction.    - If you didn't change the device name or DNS domain when you configured your device, and you don't want to use your own certificates, you can skip this step. The device has automatically generated self-signed certificates to begin with. You're ready to [Activate your device](azure-stack-edge-gpu-deploy-activate.md).-->
 
-        ![Screenshot of the Certificates page in the local web UI for Azure Stack Edge. The Certificates menu item is highlighted.](./media/azure-stack-edge-gpu-deploy-configure-certificates/generate-certificate-2.png)
+    ![Screenshot of the Certificates page in the local web UI for Azure Stack Edge. The Certificates menu item is highlighted.](./media/azure-stack-edge-gpu-deploy-configure-certificates/generate-certificate-2.png)
 
-    - If you changed the device name or DNS domain, you will see that the status of certificates will show as **Not valid**. 
+    If you've changed the device name or DNS domain for your device, the status of certificates will be **Not valid**. That's because the device name and DNS domain in the certificates' `subject name` and `subject alternative` settings are out of date.<!--Explanation was moved up from below.--> 
 
-        ![Screenshot of the Certificates page in the local web UI for Azure Stack Edge. Certificates with Not Valid status are highlighted](./media/azure-stack-edge-gpu-deploy-configure-certificates/generate-certificate-1.png)
+    ![Screenshot of the Certificates page in the local web UI for Azure Stack Edge. Certificates with Not Valid status are highlighted](./media/azure-stack-edge-gpu-deploy-configure-certificates/generate-certificate-1.png)
 
-        Select a certificate to view the details of the status.
+    You can select a certificate to view status details.
 
-        ![Screenshot of Certificate Details for a certificate on the Certificates page in the local web UI of an Azure Stack Edge device. The selected certificate and certificate details are highlighted.](./media/azure-stack-edge-gpu-deploy-configure-certificates/generate-certificate-1a.png)  
+    ![Screenshot of Certificate Details for a certificate on the Certificates page in the local web UI of an Azure Stack Edge device. The selected certificate and certificate details are highlighted.](./media/azure-stack-edge-gpu-deploy-configure-certificates/generate-certificate-1a.png)  
 
-        This is because the certificates do not reflect the updated device name and DNS domain (that are used in subject name and subject alternative). To successfully activate your device, choose one of the following options: 
+2. To use a new set of certificates on your device, choose one of the following options:
     
-        - **Generate all the device certificates**. These device certificates should only be used for testing and not used with production workloads. For more information, go to [Generate device certificates on your Azure Stack Edge Pro GPU](#generate-device-certificates).
+     - **Generate all the device certificates**. Select this option, and then complete the steps in [Generate device certificates](#generate-device-certificates), if you plan to use automatically generated device certificates and need to generate new device certificates. You should only use these device certificates for testing, not with production workloads.
 
-        - **Bring your own certificates**. You can bring your own signed endpoint certificates and the corresponding signing chains. You first add the signing chain and then upload the endpoint certificates. **We recommend that you always bring your own certificates for production workloads.** For more information, go to [Bring your own certificates on your Azure Stack Edge Pro GPU device](#bring-your-own-certificates).
+     - **Bring your own certificates**. Select this option, and then do the steps in [Bring your own certificates](#bring-your-own-certificates), if you want to use your own signed endpoint certificates and the corresponding signing chains. **We recommend that you always bring your own certificates for production workloads.**
     
-        - You can bring some of your own certificates and generate some device certificates. The **Generate certificates** option will only regenerate the device certificates.
+     - You can choose to bring some of your own certificates and generate some device certificates. The **Generate all the device certificates** option only regenerates the device certificates.<!--1) It's not clear which certificates are "device certificates" and which can be added to the device certificates. Current explanation is slightly contradictory. Can we fix this? 2) Ideally, we should frame this as a very simple set of substeps. This is doable if we can clearly distinguish between device certs automatically generated and the additional certs they  could bring.-->
 
-    - If you changed the device name or DNS domain, and you do not generate certificates or bring your own certificates, then the **activation will be blocked**.
+     > [!NOTE]
+     > If you've changed the device name or DNS domain of your device, and you don't provide new certificates, **activation of the device will be blocked**.
+
+3. After you generate or add the certificates for your device, select **< Back to Get started**. You're ready to [activate your device](azure-stack-edge-gpu-deploy-activate.md).
 
 
 ## Generate device certificates
@@ -78,7 +83,7 @@ Use these steps to regenerate and download the Azure Stack Edge Pro GPU device c
     ![Screenshot of the Generate Certificates pane for an Azure Stack Edge device. The Generate button is highlighted.](./media/azure-stack-edge-gpu-deploy-configure-certificates/generate-certificate-4.png)
 
     The device certificates are now generated and applied. It takes a few minutes to generate and apply the certificates.
-    
+
     > [!IMPORTANT]
     > While the certificate generation operation is in progress, do not bring your own certificates and try to add those via the **+ Add certificate** option.
 
@@ -145,7 +150,7 @@ Follow these steps to upload your own certificates, including the signing chain,
 
 2. If you didn't include all certificates in the certification path when you exported certificates, upload the **Signing Chain** certificate chain first using the Browse button by **Signing Chain**. Then select **Validate & add**.
 
-   If you included all certificates in your export, you can skip this step. For more information, see [Export certificates as .pfx format with private key](azure-stack-edge-gpu-prepare-certificates-device-upload.md#export-certificates-as-pfx-format-with-private-key).
+    If you included all certificates in your export, you can skip this step. For more information, see [Export certificates as .pfx format with private key](azure-stack-edge-gpu-prepare-certificates-device-upload.md#export-certificates-as-pfx-format-with-private-key).
 
     ![Screenshot of the Add Certificate pane for a Signing Chain certificate in the local web UI of an Azure Stack Edge device. The certificate type, certificate entries, and Validate And Add button are highlighted.](./media/azure-stack-edge-gpu-deploy-configure-certificates/add-certificate-2.png)
 
@@ -179,7 +184,7 @@ Follow these steps to upload your own certificates, including the signing chain,
     > Except for Azure public cloud, signing chain certificates must be brought in before activation for all cloud configurations (Azure Government or Azure Stack).
 
 
-When you finish [regenerating device certificates](#generate-device-certificates), if needed, or [adding your own certificates](#bring-your-own-certificates), your device is ready to be activated. Select **< Back to Get started**.
+When you finish [regenerating device certificates](#generate-device-certificates), if needed, or [adding your own certificates](#bring-your-own-certificates), you're ready to activate your device. Select **< Back to Get started** and proceed.
 
 
 ## Next steps
