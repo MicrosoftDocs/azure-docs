@@ -303,11 +303,11 @@ You can export any Consumption logic app workflow that starts with a recurring t
    | **Template Name** | Yes | <*template-name*> | The name to use for the new automation task template |
    | **Template Description** | Yes | <*template-description*> | A description for the template's task or purpose |
    | **Supported Resource Types** | No | Empty or <*supported-Azure-resource-type-list*> | If the template supports all Azure resource types, leave this property empty. Otherwise, enter one or multiple Azure resource types supported by the template. Separate each name with a comma and follow the `Microsoft.<*service-provider*>/<*entity*>` syntax, for example, `Microsoft.Compute/virtualmachines`. <p><p>For more information, review [Resource providers for Azure services](../azure-resource-manager/management/azure-services-resource-providers.md). |
-   | **Unsupported Resource Types** | No | Empty or <*unsupported-Azure-resource-type-list*> | Enter one or more Azure resource types not supported by the template. Separate each name with a comma and follow the `Microsoft.<*service-provider*>/<*entity*>` syntax, for example, `Microsoft.Compute/virtualmachines`. <p><p>For more information, review [Resource providers for Azure services](../azure-resource-manager/management/azure-services-resource-providers.md). |
+   | **Unsupported Resource Types** | No | Empty or <*unsupported-Azure-resource-type-list*> | Enter one or multiple Azure resource types not supported by the template. Separate each name with a comma and follow the `Microsoft.<*service-provider*>/<*entity*>` syntax, for example, `Microsoft.Compute/virtualmachines`. <p><p>For more information, review [Resource providers for Azure services](../azure-resource-manager/management/azure-services-resource-providers.md). |
    | **Configure Parameters** | No | | |
    |||||
 
-   The following example shows the properties for a custom automation template that works only on a Azure virtual machine resource:
+   The following example shows the properties for a custom automation template that works only on an Azure virtual machine resource:
 
    ![Screenshot showing the 'Export to Automation Task' pane with example properties for an automation task template.](./media/create-automation-tasks-azure-resources/export-template-properties.png)
 
