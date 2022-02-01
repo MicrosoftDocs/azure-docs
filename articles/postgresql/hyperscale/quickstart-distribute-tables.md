@@ -12,7 +12,7 @@ ms.date: 01/24/2022
 
 # Create and distribute tables
 
-Within Hyperscale (Citus) servers there are three types of tables:
+Within Hyperscale (Citus) servers, there are three types of tables:
 
 * **Distributed Tables** - Distributed across worker nodes (scaled out).
   Generally large tables should be distributed tables to improve performance.
@@ -22,10 +22,9 @@ Within Hyperscale (Citus) servers there are three types of tables:
 * **Local tables** - Tables that reside on coordinator node. Administration
   tables are good examples of local tables.
 
-In this quickstart, we'll primarily focus on distributed tables, and getting
-familiar with them.
-
-The data model we're going to work with is simple: user and event data from GitHub. Events include fork creation, git commits related to an organization, and more.
+In this quickstart, we'll focus on distributed tables, and get familiar with
+them.  The data model we're going to work with is simple: an HTTP request log
+for multiple websites, sharded by site.
 
 ## Prerequisites
 
@@ -37,69 +36,95 @@ To follow this quickstart, you'll first need to:
 
 ## Create tables
 
-Once you've connected via psql, let's create our tables. In the psql console run:
+Once you've connected via psql, let's create our table. In the psql console,
+run:
 
 ```sql
-CREATE TABLE github_events
-(
-    event_id bigint,
-    event_type text,
-    event_public boolean,
-    repo_id bigint,
-    payload jsonb,
-    repo jsonb,
-    user_id bigint,
-    org jsonb,
-    created_at timestamp
+CREATE TABLE http_request (
+  site_id INT,
+  ingest_time TIMESTAMPTZ DEFAULT now(),
+
+  url TEXT,
+  request_country TEXT,
+  ip_address TEXT,
+
+  status_code INT,
+  response_time_msec INT
 );
-
-CREATE TABLE github_users
-(
-    user_id bigint,
-    url text,
-    login text,
-    avatar_url text,
-    gravatar_id text,
-    display_login text
-);
-```
-
-The `payload` field of `github_events` has a JSONB datatype. JSONB is the JSON datatype in binary form in Postgres. The datatype makes it easy to store a flexible schema in a single column.
-
-Postgres can create a `GIN` index on this type, which will index every key and value within it. With an  index, it becomes fast and easy to query the payload with various conditions. Let's go ahead and create a couple of indexes before we load our data. In psql:
-
-```sql
-CREATE INDEX event_type_index ON github_events (event_type);
-CREATE INDEX payload_index ON github_events USING GIN (payload jsonb_path_ops);
 ```
 
 ## Shard tables across worker nodes
 
-Next we’ll take those Postgres tables on the coordinator node and tell Hyperscale (Citus) to shard them across the workers. To do so, we’ll run a query for each table specifying the key to shard it on. In the current example we’ll shard both the events and users table on `user_id`:
+Next, we’ll tell Hyperscale (Citus) to shard the `http_request` table. If your
+Hyperscale (Citus) server group is running on the Standard Tier (meaning it has
+worker nodes), then the table shards will be created on workers. If the server
+group is  running on the Basic Tier, then the shards will all be stored on the
+coordinator node.
+
+To shard and distribute the table, call `create_distributed_table()` and
+specify the table and key to shard it on.
 
 ```sql
-SELECT create_distributed_table('github_events', 'user_id');
-SELECT create_distributed_table('github_users', 'user_id');
+SELECT create_distributed_table('http_request', 'site_id');
 ```
 
 [!INCLUDE [azure-postgresql-hyperscale-dist-alert](../../../includes/azure-postgresql-hyperscale-dist-alert.md)]
 
-## Load data into distributed tables
-
-We're ready to load data. In psql still, shell out to download the files:
+By default, `create_distributed_table()` splits the table into thirty-two shards.
+We can verify using the `citus_shards` view:
 
 ```sql
-\! curl -O https://examples.citusdata.com/users.csv
-\! curl -O https://examples.citusdata.com/events.csv
+SELECT table_name, count(*)
+  FROM citus_shards
+ GROUP BY 1;
+
+┌──────────────┬───────┐
+│  table_name  │ count │
+├──────────────┼───────┤
+│ http_request │    32 │
+└──────────────┴───────┘
 ```
 
-Next, load the data from the files into the distributed tables:
+## Load data into distributed tables
+
+We're ready to load data. For simplicity, let's generate a million rows of
+fake random data:
 
 ```sql
-SET CLIENT_ENCODING TO 'utf8';
+INSERT INTO http_request
+SELECT
+	trunc(random()*1000),
+	clock_timestamp(),
+	concat('http://example.com/', md5(random()::text)),
+	('{China,India,USA,Indonesia}'::text[])[ceil(random()*4)],
+	concat(
+	  trunc(random()*250 + 2), '.',
+	  trunc(random()*250 + 2), '.',
+	  trunc(random()*250 + 2), '.',
+	  trunc(random()*250 + 2)
+	)::inet,
+	('{200,404}'::int[])[ceil(random()*2)],
+	5+trunc(random()*150)
+FROM generate_series(1, 1000000);
+```
 
-\copy github_events from 'events.csv' WITH CSV
-\copy github_users from 'users.csv' WITH CSV
+We can confirm that each shard contains between 3 and 5 MB of data.
+Here's data for the first 5 shards:
+
+```sql
+SELECT shardid, table_name, pg_size_pretty(shard_size)
+  FROM citus_shards
+ LIMIT 5;
+
+┌─────────┬──────────────┬────────────────┐
+│ shardid │  table_name  │ pg_size_pretty │
+├─────────┼──────────────┼────────────────┤
+│  102136 │ http_request │ 3264 kB        │
+│  102137 │ http_request │ 4424 kB        │
+│  102138 │ http_request │ 3920 kB        │
+│  102139 │ http_request │ 4176 kB        │
+│  102140 │ http_request │ 4032 kB        │
+└─────────┴──────────────┴────────────────┘
 ```
 
 ## Next steps
@@ -107,3 +132,7 @@ SET CLIENT_ENCODING TO 'utf8';
 * [Run queries](quickstart-run-queries.md) on the distributed tables you
   created in this quickstart.
 * Learn more about [sharding data](tutorial-shard.md).
+* Run other [useful diagnostic queries](howto-useful-diagnostic-queries.md)
+  to learn about distributed tables.
+* Compare Hyperscale (Citus) [server group
+  tiers](concepts-server-group.md#tiers).
