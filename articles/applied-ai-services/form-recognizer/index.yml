@@ -79,9 +79,9 @@ landingContent:
       - linkListType: video
         links:
           - text: Extracting Data From Documents and Forms with OCR and Form Recognizer
-            url: https://channel9.msdn.com/Shows/AI-Show/Extracting-Data-From-Documents-and-Forms-with-OCR-and-Form-Recognizer
+            url: /Shows/AI-Show/Extracting-Data-From-Documents-and-Forms-with-OCR-and-Form-Recognizer
           - text: AI-powered process automation
-            url: https://channel9.msdn.com/Shows/AI-Show/Learn-about-AI-powered-robotic-process-automation-with-Form-Recognizer
+            url: /Shows/AI-Show/Learn-about-AI-powered-robotic-process-automation-with-Form-Recognizer
 
 #Card 4
    - title: Try Sample Labeling tool
@@ -143,9 +143,9 @@ landingContent:
           - text: Python SDK
             url: "quickstarts/try-v3-python-sdk.md#general-document-model"
           - text: Java SDK
-            url: "quickstarts/try-v3-java-sdk.md#try-it-general-document-model"
+            url: "quickstarts/try-v3-java-sdk.md#general-document-model"
           - text: JavaScript SDK
-            url: "quickstarts/try-v3-javascript-sdk.md#try-it-general-document-model"
+            url: "quickstarts/try-v3-javascript-sdk.md#general-document-model"
           - text: REST API (cURL)
             url: "quickstarts/try-v3-rest-api.md#try-it-general-document-model"
           - text: Form Recognizer Studio

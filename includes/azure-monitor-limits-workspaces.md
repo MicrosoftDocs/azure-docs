@@ -58,10 +58,11 @@ ms.custom: "include file"
 
 | Category | Limit | Comments |
 |:---|:---|:---|
-| Max size of data | ~16.7 MB (~16 MiB) | Connector infrastructure dictates that limit is set lower than query API limit |
+| Max size of data | ~16.7 MB (~16 MiB) | The connector infrastructure dictates that limit is set lower than query API limit |
 | Max number of records | 500,000 | |
-| Max query timeout | 110 second | |
-| Charts | | Visualization in Logs page and the connector are using different charting libraries and some functionality isn't available in the connector currently. |
+| Max connector timeout | 110 second | |
+| Max query timeout | 100 second | |
+| Charts | | Visualization in Logs page and the connector are using different charting libraries and some functionality isn't available in the connector currently |
 
 **General workspace limits**
 

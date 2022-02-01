@@ -2,9 +2,9 @@
 title: Configure Node.js apps
 description: Learn how to configure a Node.js app in the native Windows instances, or in a pre-built Linux container, in Azure App Service. This article shows the most common configuration tasks. 
 ms.custom: devx-track-js, devx-track-azurecli
-ms.devlang: nodejs
+ms.devlang: javascript
 ms.topic: article
-ms.date: 04/23/2021
+ms.date: 01/21/2022
 zone_pivot_groups: app-service-platform-windows-linux
 
 ---
@@ -56,10 +56,13 @@ az webapp list-runtimes --linux | grep NODE
 To set your app to a [supported Node.js version](#show-nodejs-version), run the following command in the [Cloud Shell](https://shell.azure.com) to set `WEBSITE_NODE_DEFAULT_VERSION` to a supported version:
 
 ```azurecli-interactive
-az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings WEBSITE_NODE_DEFAULT_VERSION="10.15"
+az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings WEBSITE_NODE_DEFAULT_VERSION="~16"
 ```
 
-This setting specifies the Node.js version to use, both at runtime and during automated package restore during App Service build automation. This setting only recognizes major minor versions, the _LTS_ moniker is not supported.
+> [!NOTE] 
+> This example uses the recommended "tilde syntax" to target the latest available version of Node.js 16 runtime on App Service.
+> 
+>Since the runtime is regularly patched and updated by the platform it's not recommended to target a specific minor version/patch as these are not guaranteed to be available due to potential security risks.
 
 > [!NOTE]
 > You should set the Node.js version in your project's `package.json`. The deployment engine runs in a separate process that contains all the supported Node.js versions.
@@ -71,7 +74,7 @@ This setting specifies the Node.js version to use, both at runtime and during au
 To set your app to a [supported Node.js version](#show-nodejs-version), run the following command in the [Cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
-az webapp config set --resource-group <resource-group-name> --name <app-name> --linux-fx-version "NODE|10.14"
+az webapp config set --resource-group <resource-group-name> --name <app-name> --linux-fx-version "NODE|14-lts"
 ```
 
 This setting specifies the Node.js version to use, both at runtime and during automated package restore in Kudu.
@@ -165,6 +168,9 @@ You can also configure a custom start file with the following extensions:
 
 - A *.js* file
 - A [PM2 file](https://pm2.keymetrics.io/docs/usage/application-declaration/#process-file) with the extension *.json*, *.config.js*, *.yaml*, or *.yml*
+
+> [!NOTE]
+> Starting from **Node 14 LTS**, the container doesn't automatically start your app with PM2. To start your app with PM2, set the startup command to `pm2 start <.js-file-or-PM2-file> --no-daemon`. Be sure to use the `--no-daemon` argument because PM2 needs to run in the foreground for the container to work properly.
 
 To add a custom start file, run the following command in the [Cloud Shell](https://shell.azure.com):
 

@@ -7,6 +7,7 @@ ms.date: 12/13/2019
 ms.topic: quickstart
 ms.service: storage
 ms.subservice: queues
+ms.devlang: javascript
 ms.custom: devx-track-js, mode-api
 ---
 

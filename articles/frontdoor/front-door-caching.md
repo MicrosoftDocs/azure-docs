@@ -5,7 +5,6 @@ services: frontdoor
 documentationcenter: ''
 author: duongau
 ms.service: frontdoor
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
@@ -90,6 +89,8 @@ With Front Door, you can control how files are cached for a web request that con
 Front Door caches assets until the asset's time-to-live (TTL) expires. Whenever a client requests an asset with expired TTL, the Front Door environment retrieves a new updated copy of the asset to serve the request and then stores the refreshed cache.
 
 The best practice to make sure your users always obtain the latest copy of your assets is to version your assets for each update and publish them as new URLs. Front Door will immediately retrieve the new assets for the next client requests. Sometimes you may wish to purge cached content from all edge nodes and force them all to retrieve new updated assets. The reason could be because of updates to your web application, or to quickly update assets that contain incorrect information.
+
+:::image type="content" source=".\media\front-door-caching\cache-purge.png" alt-text="Screenshot of the cache purge button and page." lightbox=".\media\front-door-caching\cache-purge-expanded.png":::
 
 Select the assets you want to purge from the edge nodes. To clear all assets, select **Purge all**. Otherwise, in **Path**, enter the path of each asset you want to purge.
 

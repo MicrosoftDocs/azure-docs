@@ -11,10 +11,9 @@ ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/13/2020
-ms.author: b-hchen
+ms.author: anfdocs
 ---
 # Benefits of using Azure NetApp Files with Azure Virtual Desktop 
 

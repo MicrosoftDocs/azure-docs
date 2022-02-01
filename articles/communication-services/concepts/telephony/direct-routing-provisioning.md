@@ -107,4 +107,4 @@ You can select multiple SBCs for a single pattern. In such a case, the routing a
 
 ### Quickstarts
 
-- [Call to Phone](../../quickstarts/voice-video-calling/pstn-call.md)
+- [Call to Phone](../../quickstarts/telephony/pstn-call.md)

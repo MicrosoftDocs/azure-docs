@@ -13,7 +13,6 @@ ms.topic: quickstart
 ms.service: load-balancer
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.custom: devx-track-azurepowershell, mode-api
 #Customer intent: I want to create a load balancer so that I can load balance internet traffic to VMs.
 ---

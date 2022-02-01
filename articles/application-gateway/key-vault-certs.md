@@ -31,7 +31,10 @@ Application Gateway integration with Key Vault offers many benefits, including:
 
 Application Gateway currently supports software-validated certificates only. Hardware security module (HSM)-validated certificates are not supported. 
 
-After Application Gateway is configured to use Key Vault certificates, its instances retrieve the certificate from Key Vault and install them locally for TLS termination. The instances poll Key Vault at four-hour intervals to retrieve a renewed version of the certificate, if it exists. If an updated certificate is found, the TLS/SSL certificate that's currently associated with the HTTPS listener is automatically rotated. 
+After Application Gateway is configured to use Key Vault certificates, its instances retrieve the certificate from Key Vault and install them locally for TLS termination. The instances poll Key Vault at four-hour intervals to retrieve a renewed version of the certificate, if it exists. If an updated certificate is found, the TLS/SSL certificate that's currently associated with the HTTPS listener is automatically rotated.
+
+> [!TIP]
+> Any change to Application Gateway will force a check against Key Vault to see if any new versions of certificates are available. This includes, but not limited to, changes to Frontend IP Configurations, Listeners, Rules, Backend Pools, Resource Tags, and more. If an updated certificate is found, the new certificate will immediately be presented.
 
 Application Gateway uses a secret identifier in Key Vault to reference the certificates. For Azure PowerShell, the Azure CLI, or Azure Resource Manager, we strongly recommend that you use a secret identifier that doesn't specify a version. This way, Application Gateway will automatically rotate the certificate if a newer version is available in your key vault. An example of a secret URI without a version is `https://myvault.vault.azure.net/secrets/mysecret/`.
 
@@ -133,7 +136,20 @@ Add-AzApplicationGatewaySslCertificate -KeyVaultSecretId $secretId -ApplicationG
 Set-AzApplicationGateway -ApplicationGateway $appgw
 ```
 
-Once the commands have been executed, you can navigate to your Application Gateway in the Azure portal and select the Listeners tab.  Click Add Lister (or select an existing) and specify the Protocol to HTTPS.
+> [!NOTE]
+> If you require Application Gateway to sync the last version of the certificate with the key vault, provide the versionless `secretId` value (no hash). To do this, in the preceding example, replace the following line:
+>
+> ```
+> $secretId = $secret.Id # https://<keyvaultname>.vault.azure.net/secrets/<hash>
+> ```
+> 
+> With this line:
+>
+> ```
+> $secretId = $secret.Id.Replace($secret.Version, "") # https://<keyvaultname>.vault.azure.net/secrets/
+> ```
+
+Once the commands have been executed, you can navigate to your Application Gateway in the Azure portal and select the Listeners tab.  Click Add Listener (or select an existing) and specify the Protocol to HTTPS.
 
 Under *Choose a certificate* select the certificate named in the previous steps.  Once selected, select  *Add* (if creating) or *Save* (if editing) to apply the referenced Key Vault certificate to the listener.
 

@@ -96,7 +96,7 @@ To specify that the portal will use Azure AD authorization by default for data a
 1. Create a new storage account, following the instructions in [Create a storage account](../common/storage-account-create.md).
 1. On the **Advanced** tab, in the **Security** section, check the box next to **Default to Azure Active Directory authorization in the Azure portal**.
 
-    :::image type="content" source="media/authorize-data-operations-portal/default-auth-account-create-portal.png" alt-text="Screenshot showing how to configure default Azure AD authorization in Azure portal for new account":::
+    :::image type="content" source="media/authorize-data-operations-portal/default-auth-account-create-portal.png" alt-text="Screenshot showing how to configure default Azure AD authorization in Azure portal for new account.":::
 
 1. Select the **Review + create** button to run validation and create the account.
 
@@ -106,7 +106,7 @@ To update this setting for an existing storage account, follow these steps:
 1. Under **Settings**, select **Configuration**.
 1. Set **Default to Azure Active Directory authorization in the Azure portal** to **Enabled**.
 
-    :::image type="content" source="media/authorize-data-operations-portal/default-auth-account-update-portal.png" alt-text="Screenshot showing how to configure default Azure AD authorization in Azure portal for existing account":::
+    :::image type="content" source="media/authorize-data-operations-portal/default-auth-account-update-portal.png" alt-text="Screenshot showing how to configure default Azure AD authorization in Azure portal for existing account.":::
 
 ## Next steps
 

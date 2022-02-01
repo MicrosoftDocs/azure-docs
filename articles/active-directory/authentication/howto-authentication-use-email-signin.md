@@ -10,7 +10,7 @@ ms.date: 07/07/2021
 
 ms.author: justinha
 author: calui
-manager: daveba
+manager: karenhoran
 ms.reviewer: calui
 
 ---

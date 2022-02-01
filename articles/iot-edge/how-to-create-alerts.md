@@ -58,7 +58,7 @@ Aggregate values by the `_ResourceId` field and choose it as the *Resource ID co
 
 ## Viewing alerts
 
-See alerts generated for devices across multiple IoT Hubs in **Alerts** tab of the [IoT Edge fleet view workbook](how-to-explore-curated-visualizations.md#iot-edge-fleet-view-workbook).
+See alerts generated for devices across multiple IoT Hubs in **Alerts** tab of the [IoT Edge fleet view workbook](how-to-explore-curated-visualizations.md#fleet-view-workbook).
 
 Click the alert rule name to see more context about the alert. Clicking the device name link will show you the detailed metrics for the device around the time when the alert fired.
 

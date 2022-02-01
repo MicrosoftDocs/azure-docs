@@ -5,7 +5,7 @@ author: mksuni
 ms.author: sumuth
 ms.service: postgresql
 ms.custom: mvc, devcenter, seo-javascript-september2019, seo-javascript-october2019, devx-track-js, mode-api
-ms.devlang: nodejs
+ms.devlang: javascript
 ms.topic: quickstart
 ms.date: 5/6/2019
 ---

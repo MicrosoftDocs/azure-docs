@@ -106,8 +106,7 @@ New-AzVm `
     -VirtualNetworkName "myVnet" `
     -SubnetName "mySubnet" `
     -SecurityGroupName "myNSG" `
-    -PublicIpAddressName "myPIP" `
-    -OpenPorts 3389
+    -PublicIpAddressName "myPIP" 
 ```
 
 

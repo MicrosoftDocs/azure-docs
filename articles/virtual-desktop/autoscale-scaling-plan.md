@@ -23,7 +23,8 @@ The autoscale feature (preview) lets you scale your Azure Virtual Desktop deploy
 >[!NOTE]
 > - Azure Virtual Desktop (classic) doesn't support the autoscale feature. 
 > - Autoscale doesn't support Azure Virtual Desktop for Azure Stack HCI 
-> - Autsoscale doesn't support scaling of ephemeral disks.
+> - Autoscale doesn't support scaling of ephemeral disks.
+> - Autoscale doesn't support scaling of generalized VMs.
 
 
 For best results, we recommend using autoscale with VMs you deployed with Azure Virtual Desktop Azure Resource Manager templates or first-party tools from Microsoft.
@@ -43,9 +44,9 @@ Before you create your first scaling plan, make sure you follow these guidelines
 - All host pools you autoscale must have a configured MaxSessionLimit parameter. Don't use the default value. You can configure this value in the host pool settings in the Azure portal or run the [New-AZWvdHostPool](/powershell/module/az.desktopvirtualization/new-azwvdhostpool?view=azps-5.7.0&preserve-view=true) or [Update-AZWvdHostPool](/powershell/module/az.desktopvirtualization/update-azwvdhostpool?view=azps-5.7.0&preserve-view=true) cmdlets in PowerShell.
 - You must grant Azure Virtual Desktop access to manage power on your VM Compute resources.
 
-## Create a Custom RBAC role
+## Create a custom RBAC role in your subscription
 
-To start creating a scaling plan, you'll first need to create a custom Role-based Access Control (RBAC) role in your subscription. This role will allow Windows Virtual Desktop to power manage all VMs in your subscription. It will also let the service apply actions on both host pools and VMs when there are no active user sessions.
+To start creating a scaling plan, you'll first need to create a custom Role-based Access Control (RBAC) role in your subscription. This role will allow Windows Virtual Desktop to power manage all VMs in your subscription. It will also let the service apply actions on both host pools and VMs when there are no active user sessions. Creating this RBAC role at any level lower than your subscription, like at the host pool or VM level, will prevent the autoscale feature from working properly.
 
 To create the custom role, follow the instructions in [Azure custom roles](../role-based-access-control/custom-roles.md) while using the following JSON template. This template already includes any permissions you need. For more detailed instructions, see [Assign custom roles with the Azure portal](#assign-custom-roles-with-the-azure-portal).
 ```json
@@ -71,8 +72,7 @@ To create the custom role, follow the instructions in [Azure custom roles](../ro
 				 "Microsoft.DesktopVirtualization/hostpools/sessionhosts/write",
 				 "Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/delete",
 				 "Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/read",
-				 "Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/sendMessage/action",
-				 "Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/read"
+				 "Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/sendMessage/action"
 ],
   "notActions": [],
   "dataActions": [],
@@ -112,7 +112,6 @@ To create and assign the custom role to your subscription with the Azure portal:
 				 "Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/delete"
 				 "Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/read"
 				 "Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/sendMessage/action"
-				 "Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/read"
     ```
 
 5. When you're finished, select **Ok**.
@@ -125,7 +124,7 @@ To assign the custom role to grant access:
 
 2. Select the role you just created and continue to the next screen.
 
-3. Select **+Select members**. In the search bar, enter and select **Windows Virtual Desktop**, as shown in the following screenshot. When you have a Azure Virtual Desktop (classic) deployment and an Azure Virtual Desktop with Azure Resource Manager Azure Virtual Desktop objects, you will see two apps with the same name. Select them both.
+3. Select **+Select members**. In the search bar, enter and select **Windows Virtual Desktop**, as shown in the following screenshot. When you have an Azure Virtual Desktop (classic) deployment and an Azure Virtual Desktop with Azure Resource Manager Azure Virtual Desktop objects, you will see two apps with the same name. Select them both.
 
     > [!div class="mx-imgBorder"]
     > ![A screenshot of the add role assignment menu. The Select field is highlighted in red, with the user entering "Windows Virtual Desktop" into the search field.](media/search-for-role.png)
@@ -181,7 +180,7 @@ To create a scaling plan:
 
 8. For **Time zone**, select the time zone you'll use with your plan.
 
-9. In **Exclusion tags**, enter tags for VMs you don't want to include in scaling operations. For example, you might want to tag VMs that are set to drain mode so that autoscale doesn't override drain mode during maintenance.
+9. In **Exclusion tags**, enter a tag name for VMs you don't want to include in scaling operations. For example, you might want to tag VMs that are set to drain mode so that autoscale doesn't override drain mode during maintenance using the exclusion tag "excludeFromScaling". If you've set "excludeFromScaling" as the tag name field on any of the VMs in the host pool, the autoscale feature won't start, stop, or change the drain mode of those particular VMs.
         
     >[!NOTE]
     >- Though an exclusion tag will exclude the tagged VM from power management scaling operations, tagged VMs will still be considered as part of the calculation of the minimum percentage of hosts.

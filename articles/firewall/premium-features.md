@@ -5,7 +5,7 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: conceptual
-ms.date: 12/09/2021
+ms.date: 01/19/2022
 ms.author: victorh
 ms.custom: references_regions
 ---
@@ -59,7 +59,7 @@ IDPS signature rules allow you to:
 
 - Customize one or more signatures and change their mode to *Disabled*, *Alert* or *Alert and Deny*. 
 
-   For example, if you receive a false positive where a legitimate request is blocked by Azure Firewall due to a faulty signature, you can use the signature ID from the application rules logs, and set its IDPS mode to off. This causes the "faulty" signature to be ignored and resolves the false positive issue.
+   For example, if you receive a false positive where a legitimate request is blocked by Azure Firewall due to a faulty signature, you can use the signature ID from the network rules logs, and set its IDPS mode to off. This causes the "faulty" signature to be ignored and resolves the false positive issue.
 - You can apply the same fine-tuning procedure for signatures that are creating too many low-priority alerts, and therefore interfering with visibility for high-priority alerts.
 - Get a holistic view of the entire 55,000 signatures
 - Smart search
@@ -73,11 +73,11 @@ IDPS signature rules have the following properties:
 |Column  |Description  |
 |---------|---------|
 |Signature ID     |Internal ID for each signature. This ID is also presented in Azure Firewall Network Rules logs.|
-|Mode      |Indicates if the signature is active or not, and whether it should drop matched traffic. Signature mode can override IDPS mode<br>- **Disabled**: The signature is not enabled on your firewall.<br>- **Alert**: You will receive alerts when suspicious traffic is detected.<br>- **Alert and Deny**: You will receive alerts when suspicious traffic is detected, and that traffic will be denied when the matching signature is from a high confidence category.|
+|Mode      |Indicates if the signature is active or not, and whether firewall will drop or alert upon matched traffic. The below signature mode can override IDPS mode<br>- **Disabled**: The signature is not enabled on your firewall.<br>- **Alert**: You will receive alerts when suspicious traffic is detected.<br>- **Alert and Deny**: You will receive alerts and suspicious traffic will be blocked. Few signature categories are defined as “Alert Only”, therefore by default, traffic matching their signatures will not be blocked even though IDPS mode is set to “Alert and Deny”. Customers may override this by customizing these specific signatures to “Alert and Deny” mode. <br><br> Note: IDPS alerts are available in the portal via network rule log query.|
 |Severity      |Each signature has an associated severity level that indicates the probability that the signature is an actual attack.<br>- **Low**: An abnormal event is one that does not normally occur on a network or Informational events are logged. Probability of attack is low.<br>- **Medium**: The signature indicates an attack of a suspicious nature. The administrator should investigate further.<br>- **High**: The attack signatures indicate that an attack of a severe nature is being launched. There is very little probability that the packets have a legitimate purpose.|
 |Direction      |The traffic direction for which the signature is applied.<br>- **Inbound**: Signature is applied only on traffic arriving from the Internet and destined in Azure private IP range (according to IANA RFC 1918).<br>- **Outbound**: Signature is applied only on traffic sent from Azure private IP range (according to IANA RFC 1918) to the Internet.<br>- **Bidirectional**: Signature is always applied on any traffic direction.|
 |Group      |The group name that the signature belongs to.|
-|Description      |Structured from the following three parts:<br>- **Group name**: The group name that the signature belongs to as described in [Azure Firewall IDPS signature rule categories](idps-signature-categories.md).<br>- High level description of the signature<br>- **CVE-ID** (optional) in the case where the signature is associated with a specific CVE. The ID is listed here.|
+|Description      |Structured from the following three parts:<br>- **Category name**: The category name that the signature belongs to as described in [Azure Firewall IDPS signature rule categories](idps-signature-categories.md).<br>- High level description of the signature<br>- **CVE-ID** (optional) in the case where the signature is associated with a specific CVE. The ID is listed here.|
 |Protocol     |The protocol associated with this signature.|
 |Source/Destination Ports     |The ports associated with this signature.|
 |Last updated     |The last date that this signature was introduced or modified.|
@@ -130,72 +130,10 @@ Under the **Web Categories** tab in **Firewall Policy Settings**, you can reques
 
 :::image type="content" source="media/premium-features/firewall-category-change.png" alt-text="Firewall category report dialog":::
 
- ## Supported regions
+## Supported regions
 
-Azure Firewall Premium is supported in the following regions:
+For the supported regions for Azure Firewall, see [Azure products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=azure-firewall).
 
-- Australia Central (Public / Australia)
-- Australia Central 2 (Public / Australia)
-- Australia East (Public / Australia)
-- Australia Southeast (Public / Australia)
-- Brazil South (Public / Brazil)
-- Brazil Southeast (Public / Brazil)
-- Canada Central (Public / Canada)
-- Canada East (Public / Canada)
-- Central India (Public / India)
-- Central US (Public / United States)
-- Central US EUAP (Public / Canary (US))
-- China North 2 (Mooncake / China)
-- China East 2 (Mooncake / China)
-- East Asia (Public / Asia Pacific)
-- East US (Public / United States)
-- East US 2 (Public / United States)
-- France Central (Public / France)
-- France South (Public / France)
-- Germany West Central (Public / Germany)
-- Japan East (Public / Japan)
-- Japan West (Public / Japan)
-- Korea Central (Public / Korea)
-- Korea South (Public / Korea)
-- North Central US (Public / United States)
-- North Europe (Public / Europe)
-- Norway East (Public / Norway)
-- South Africa North (Public / South Africa)
-- South Central US (Public / United States)
-- South India (Public / India)
-- Southeast Asia (Public / Asia Pacific)
-- Switzerland North (Public / Switzerland)
-- UAE Central (Public / UAE)
-- UAE North (Public / UAE)
-- UK South (Public / United Kingdom)
-- UK West (Public / United Kingdom)
-- USGov Arizona (Fairfax / USGov)
-- USGov Texas (Fairfax / USGov)
-- USGov Virginia (Fairfax / USGov)
-- West Central US (Public / United States)
-- West Europe (Public / Europe)
-- West India (Public / India)
-- West US (Public / United States)
-- West US 2 (Public / United States)
-- West US 3 (Public / United States)
-
-
-## Known issues
-
-Azure Firewall Premium has the following known issues:
-
-
-|Issue  |Description  |Mitigation  |
-|---------|---------|---------|
-|ESNI support for FQDN resolution in HTTPS|Encrypted SNI isn't supported in HTTPS handshake.|Today only Firefox supports ESNI through custom configuration. Suggested workaround is to disable this feature.|
-|Client Certificates (TLS)|Client certificates are used to build a mutual identity trust between the client and the server. Client certificates are used during a TLS negotiation. Azure firewall renegotiates a connection with the server and has no access to the private key of the client certificates.|None|
-|QUIC/HTTP3|QUIC is the new major version of HTTP. It's a UDP-based protocol over 80 (PLAN) and 443 (SSL). FQDN/URL/TLS inspection won't be supported.|Configure passing UDP 80/443 as network rules.|
-Untrusted customer signed certificates|Customer signed certificates are not trusted by the firewall once received from an intranet-based web server.|A fix is being investigated.
-|Wrong source IP address in Alerts with IDPS for HTTP (without TLS inspection).|When plain text HTTP traffic is in use, and IDPS issues a new alert, and the destination is a public IP address, the displayed source IP address is wrong (the internal IP address is displayed instead of the original IP address).|A fix is being investigated.|
-|Certificate Propagation|After a CA certificate is applied on the firewall, it may take between 5-10 minutes for the certificate to take effect.|A fix is being investigated.|
-|TLS 1.3 support|TLS 1.3 is partially supported. The TLS tunnel from client to the firewall is based on TLS 1.2, and from the firewall to the external Web server is based on TLS 1.3.|Updates are being investigated.|
-|KeyVault Private Endpoint|KeyVault supports Private Endpoint access to limit its network exposure. Trusted Azure Services can bypass this limitation if an exception is configured as described in the [KeyVault documentation](../key-vault/general/overview-vnet-service-endpoints.md#trusted-services). Azure Firewall is not currently listed as a trusted service and can't access the Key Vault.|A fix is being investigated.|
-|IDPS Bypass list|IDPS Bypass list doesn't support IP Groups.|A fix is being investigated.|
 
 ## Next steps
 

@@ -9,12 +9,11 @@ editor: ''
 
 ms.assetid: 9b88958d-94a2-4f4b-a18c-616f0617a24e
 ms.service: active-directory
-ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 12/14/2021
+ms.date: 12/17/2021
 ms.author: markvi
 ms.reviewer: besiler
 
@@ -58,6 +57,10 @@ The request ID is an identifier that corresponds to an issued token. If you are 
 
 The correlation ID groups sign-ins from the same sign-in session. The identifier was implemented for convenience. Its accuracy is not guaranteed because the value is based on parameters passed by a client. 
 
+
+## Sign-in identifier
+
+The sign-in identifier is a string the user provides to Azure AD to identify itself when attempting to sign-in. It's usually a UPN, but can be another identifier such as a phone number. 
 
 
 ## Authentication requirement 

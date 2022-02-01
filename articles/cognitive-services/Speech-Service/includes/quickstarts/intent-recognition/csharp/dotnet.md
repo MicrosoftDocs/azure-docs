@@ -29,7 +29,9 @@ Next, open your project in Visual Studio.
 ## Start with some boilerplate code
 
 Let's add some code that works as a skeleton for our project. Make note that you've created an async method called `RecognizeIntentAsync()`.
-[!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/intent-recognition/helloworld/Program.cs?range=7-17,77-86)]
+
+:::code language="csharp" source="~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/intent-recognition/helloworld/Program.cs" id="skeleton_1":::
+:::code language="csharp" source="~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/intent-recognition/helloworld/Program.cs" id="skeleton_2":::
 
 ## Create a Speech configuration
 
@@ -46,7 +48,7 @@ Insert this code in the `RecognizeIntentAsync()` method. Make sure you update th
 >[!TIP]
 > If you need help finding these values, see [Create a LUIS app for intent recognition](#create-a-luis-app-for-intent-recognition).
 
-[!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/intent-recognition/helloworld/Program.cs?range=26)]
+:::code language="csharp" source="~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/intent-recognition/helloworld/Program.cs" id="create_speech_configuration":::
 
 This sample uses the `FromSubscription()` method to build the `SpeechConfig`. For a full list of available methods, see [SpeechConfig Class](/dotnet/api/microsoft.cognitiveservices.speech.speechconfig).
 
@@ -56,7 +58,8 @@ The Speech SDK will default to recognizing using en-us for the language, see [Sp
 
 Now, let's create an `IntentRecognizer`. This object is created inside of a using statement to ensure the proper release of unmanaged  resources. Insert this code in the `RecognizeIntentAsync()` method, right below your Speech configuration.
 
-[!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/intent-recognition/helloworld/Program.cs?range=29-30,76)]
+:::code language="csharp" source="~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/intent-recognition/helloworld/Program.cs" id="create_intent_recognizer_1":::
+:::code language="csharp" source="~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/intent-recognition/helloworld/Program.cs" id="create_intent_recognizer_2":::
 
 ## Add a LanguageUnderstandingModel and intents
 
@@ -65,7 +68,7 @@ You need to associate a `LanguageUnderstandingModel` with the intent recognizer,
 >[!TIP]
 > If you need help finding this value, see [Create a LUIS app for intent recognition](#create-a-luis-app-for-intent-recognition).
 
-[!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/intent-recognition/helloworld/Program.cs?range=33-35)]
+:::code language="csharp" source="~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/intent-recognition/helloworld/Program.cs" id="add_intents":::
 
 This example uses the `AddIntent()` function to individually add intents. If you want to add all intents from a model, use `AddAllIntents(model)` and pass the model. 
 
@@ -82,7 +85,7 @@ From the `IntentRecognizer` object, you're going to call the `RecognizeOnceAsync
 
 Inside the using statement, add this code below your model.
 
-[!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/intent-recognition/helloworld/Program.cs?range=46)]
+:::code language="csharp" source="~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/intent-recognition/helloworld/Program.cs" id="recognize_intent":::
 
 ## Display recognition results (or errors)
 
@@ -90,7 +93,7 @@ When the recognition result is returned by the Speech service, you'll want to do
 
 Inside the using statement, below `RecognizeOnceAsync()`, add this code:
 
-[!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/intent-recognition/helloworld/Program.cs?range=49-75)]
+:::code language="csharp" source="~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/intent-recognition/helloworld/Program.cs" id="print_results":::
 
 ## Check your code
 
@@ -99,7 +102,7 @@ At this point, your code should look like this:
 > [!NOTE]
 > We've added some comments to this version.
 
-[!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/intent-recognition/helloworld/Program.cs?range=7-86)]
+:::code language="csharp" source="~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/intent-recognition/helloworld/Program.cs" id="code":::
 
 ## Build and run your app
 

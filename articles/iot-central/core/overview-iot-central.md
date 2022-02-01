@@ -3,7 +3,7 @@ title: What is Azure IoT Central | Microsoft Docs
 description: Azure IoT Central is an IoT application platform that simplifies the creation of IoT solutions and helps to reduce the burden and cost of IoT management operations, and development. This article provides an overview of the features of Azure IoT Central.
 author: dominicbetts
 ms.author: dobett
-ms.date: 11/05/2021
+ms.date: 12/22/2021
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
@@ -27,12 +27,14 @@ This article outlines, for IoT Central:
 
 ## Create your IoT Central application
 
-[Quickly deploy a new IoT Central application](quick-deploy-iot-central.md) and then customize it to your specific requirements. Start with a generic _application template_ or with one of the industry-focused application templates:
+[Quickly deploy a new IoT Central application](quick-deploy-iot-central.md) and then customize it to your specific requirements. Application templates in Azure IoT Central are a tool to help you kickstart your IoT solution development. You can use app templates for everything from getting a feel for what is possible, to fully customizing your application to resell to your customers.
 
-- [Retail](../retail/overview-iot-central-retail.md)
-- [Energy](../energy/overview-iot-central-energy.md)
-- [Government](../government/overview-iot-central-government.md)
-- [Healthcare](../healthcare/overview-iot-central-healthcare.md).
+Start with a generic _application template_ or with one of the industry-focused application templates:
+
+- [Retail](../retail/tutorial-in-store-analytics-create-app.md)
+- [Energy](../energy/tutorial-smart-meter-app.md)
+- [Government](../government/tutorial-connected-waste-management.md)
+- [Healthcare](../healthcare/tutorial-continuous-patient-monitoring.md).
 
 See the [Create a new application](quick-deploy-iot-central.md) quickstart for a walk-through of how to create your first application.
 

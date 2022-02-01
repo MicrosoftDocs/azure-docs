@@ -9,7 +9,7 @@ ms.date: 09/27/2021
 ---
 # Data lineage in Azure Purview Data Catalog client
 
-This article provides an overview of data lineage in Azure Purview Data Catalog. It also details how data systems can integrate with the catalog to capture lineage of data. Purview can capture lineage for data in different parts of your organization's data estate, and at different levels of preparation including:
+This article provides an overview of data lineage in Azure Purview Data Catalog. It also details how data systems can integrate with the catalog to capture lineage of data. Azure Purview can capture lineage for data in different parts of your organization's data estate, and at different levels of preparation including:
 
 - Completely raw data staged from various platforms
 - Transformed and prepared data
@@ -21,7 +21,7 @@ Data lineage is broadly understood as the lifecycle that spans the data’s orig
 
 ## Lineage experience in Azure Purview Data Catalog
 
-Purview Data Catalog will connect with other data processing, storage, and analytics systems to extract lineage information. The information is combined to represent a generic, scenario-specific lineage experience in the Catalog.
+Azure Purview Data Catalog will connect with other data processing, storage, and analytics systems to extract lineage information. The information is combined to represent a generic, scenario-specific lineage experience in the Catalog.
 
 :::image type="content" source="media/concept-lineage/lineage-end-end.png" alt-text="end-end lineage showing data copied from blob store all the way to Power BI dashboard":::
 
@@ -36,7 +36,7 @@ The following example is a typical use case of data moving across multiple syste
 
 ## Lineage granularity
 
-The following section covers the details about the granularity of which the lineage information is gathered by Purview. This granularity can vary based on the data systems supported in Purview.
+The following section covers the details about the granularity of which the lineage information is gathered by Azure Purview. This granularity can vary based on the data systems supported in Azure Purview.
 
 ###	Entity level lineage: Source(s) > Process > Target(s) 
 
@@ -54,10 +54,10 @@ To support root cause analysis and data quality scenarios, we capture the execut
 
 ## Summary
 
-Lineage is a critical feature of the Purview Data Catalog to support quality, trust, and audit scenarios. The goal of a data catalog is to build a robust framework where all the data systems within your environment can naturally connect and report lineage. Once the metadata is available, the data catalog can bring together the metadata provided by data systems to power data governance use cases.
+Lineage is a critical feature of the Azure Purview Data Catalog to support quality, trust, and audit scenarios. The goal of a data catalog is to build a robust framework where all the data systems within your environment can naturally connect and report lineage. Once the metadata is available, the data catalog can bring together the metadata provided by data systems to power data governance use cases.
 
 ## Next steps
 
 * [Quickstart: Create an Azure Purview account in the Azure portal](create-catalog-portal.md)
 * [Quickstart: Create an Azure Purview account using Azure PowerShell/Azure CLI](create-catalog-powershell.md)
-* [Use the Purview Studio](use-purview-studio.md)
+* [Use the Azure Purview Studio](use-purview-studio.md)

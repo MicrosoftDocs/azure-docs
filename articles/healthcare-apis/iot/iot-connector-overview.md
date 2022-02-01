@@ -27,7 +27,7 @@ IoT connector transforms device data into Fast Healthcare Interoperability Resou
 Below is an overview of each step IoT connector does once IoMT device data is received. Each step will be further explained in the [IoT connector data flow](./iot-data-flow.md) article.
 
 > [!NOTE]
-> Learn more about [Azure Event Hubs](/azure/event-hubs) use cases, features and architectures.
+> Learn more about [Azure Event Hubs](../../event-hubs/index.yml) use cases, features and architectures.
 
 :::image type="content" source="media/iot-data-flow/iot-data-flow.png" alt-text="IoMT data flows from IoT devices into an event hub. IoMT data is ingested by IoT connector as it is normalized, grouped, transformed, and persisted in the FHIR service." lightbox="media/iot-data-flow/iot-data-flow.png":::
 
@@ -59,7 +59,7 @@ IoT connector may also be used with the following Microsoft solutions to provide
  * [Microsoft Teams](./iot-connector-teams.md)
  
 ## Secure
-IoT connector uses Azure [Resource-based Access Control](/azure/role-based-access-control/overview) and [Managed Identities](/azure/active-directory/managed-identities-azure-resources/overview) for granular security and access control of your IoT connector assets. 
+IoT connector uses Azure [Resource-based Access Control](../../role-based-access-control/overview.md) and [Managed Identities](../../active-directory/managed-identities-azure-resources/overview.md) for granular security and access control of your IoT connector assets. 
 
 ## Next steps
 

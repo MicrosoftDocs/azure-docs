@@ -87,6 +87,67 @@ Follow these steps to register the Microsoft.DataShare resource provider into yo
  
 To learn more about resource provider, refer to [Azure resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md).
 
+## Custom roles for Data Share
+This section describes custom roles and permissions required within the custom roles for sharing and receiving data, specific to a Storage account. There are also pre-requisites that are independent of custom role or Azure Data Share role. 
+
+### Pre-requisites for Data Share, in addition to custom role
+* For storage and data lake snapshot-based sharing, to add a dataset in Azure Data Share, the provider data share resource's managed identity needs to be granted access to the source Azure data store.  For example, in the case of a storage account, the data share resource's managed identity is granted the Storage Blob Data Reader role.  
+* To receive data into a storage account, the consumer data share resource's managed identity needs to be granted access to the target storage account. The data share resource's managed identity needs to be granted the Storage Blob Data Contributor role.  
+* See the [Data Provider](#data-provider) and [Data Consumer](#data-consumer) sections of this article for more specific steps. 
+* You may also need to manually register the Microsoft.DataShare resource provider into your Azure subscription for some scenarios. See in [Resource provider registration](#resource-provider-registration) section of this article for specific details. 
+
+### Create custom roles and required permissions 
+Custom roles can be created in a subscription or resource group for sharing and receiving data. Users and groups can then be assigned the custom role. 
+
+* For creating a custom role, there are actions required for Storage, Data Share, Resources group, and Authorization. Please see the [Azure resource provider operations document](../role-based-access-control/resource-provider-operations.md#microsoftdatashare) for Data Share to understand the different levels of permissions and choose the ones relevant for your custom role. 
+* Alternately, you can use the Azure Portal to navigate to IAM, Custom role, Add permissions, Search, search for Microsoft.DataShare permissions to see the list of actions available. 
+* To learn more about custom role assignment, refer to [Azure custom roles](../role-based-access-control/custom-roles.md). Once you have your custom role, test it to verify that it works as you expect.  
+
+The following shows an example of how the required actions will be listed in JSON view for a custom role to share and receive data. 
+
+```json
+{
+"Actions": [ 
+
+"Microsoft.Storage/storageAccounts/read",  
+
+"Microsoft.Storage/storageAccounts/write",  
+
+"Microsoft.Storage/storageAccounts/blobServices/containers/read", 
+
+"Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey/action", 
+
+"Microsoft.DataShare/accounts/read", 
+
+"Microsoft.DataShare/accounts/providers/Microsoft.Insights/metricDefinitions/read", 
+
+"Microsoft.DataShare/accounts/shares/listSynchronizations/action", 
+
+"Microsoft.DataShare/accounts/shares/synchronizationSettings/read", 
+
+"Microsoft.DataShare/accounts/shares/synchronizationSettings/write", 
+
+"Microsoft.DataShare/accounts/shares/synchronizationSettings/delete", 
+
+"Microsoft.DataShare/accounts/shareSubscriptions/*", 
+
+"Microsoft.DataShare/listInvitations/read", 
+
+"Microsoft.DataShare/locations/rejectInvitation/action", 
+
+"Microsoft.DataShare/locations/consumerInvitations/read", 
+
+"Microsoft.DataShare/locations/operationResults/read", 
+
+"Microsoft.Resources/subscriptions/resourceGroups/read", 
+
+"Microsoft.Resources/subscriptions/resourcegroups/resources/read", 
+
+"Microsoft.Authorization/roleAssignments/read", 
+ ] 
+}
+```
+
 ## Next steps
 
 - Learn more about roles in Azure - [Understand Azure role definitions](../role-based-access-control/role-definitions.md)
