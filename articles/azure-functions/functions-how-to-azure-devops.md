@@ -128,7 +128,7 @@ You can use the following sample to create a YAML file to build a JavaScript app
 
 ```yaml
 pool:
-      vmImage: ubuntu-latest # Use 'windows-latest' if you have Windows native +Node modules
+  vmImage: ubuntu-latest # Use 'windows-latest' if you have Windows native +Node modules
 steps:
 - bash: |
     if [ -f extensions.csproj ]
@@ -218,7 +218,7 @@ You can use the following sample to create a YAML file to package a PowerShell a
 
 ```yaml
 pool:
-      vmImage: 'windows-latest'
+  vmImage: 'windows-latest'
 steps:
 - task: ArchiveFiles@2
   displayName: "Archive files"
