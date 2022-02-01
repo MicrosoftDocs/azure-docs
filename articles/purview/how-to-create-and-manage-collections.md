@@ -275,6 +275,6 @@ Now that you have a collection, you can follow these guides below to add resourc
 
 * [Manage data sources](manage-data-sources.md)
 
-* [Supported data sources](purview-connector-overview.md)
+* [Supported data sources](azure-purview-connector-overview.md)
 
 * [Scan and ingestion](concept-scans-and-ingestion.md)

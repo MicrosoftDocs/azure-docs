@@ -43,4 +43,4 @@ The following steps show how to configure Azure Purview to enforce a Conditional
 
 ## Next steps
 
-- [Use Azure Purview Studio](/use-purview-studio.md)
+- [Use Azure Purview Studio](/use-azure-purview-studio.md)

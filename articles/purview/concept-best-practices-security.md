@@ -309,7 +309,7 @@ For more information, see [Encrypt sensitive data at rest](/security/benchmark/a
 
 ## Credential management
 
-To extract metadata from a data source system into Azure Purview Data Map, it is required to register and scan the data source systems in Azure Purview Data Map. To automate this process, we have made available [connectors](purview-connector-overview.md) for different data source systems in Azure Purview to simplify the registration and scanning process.
+To extract metadata from a data source system into Azure Purview Data Map, it is required to register and scan the data source systems in Azure Purview Data Map. To automate this process, we have made available [connectors](azure-purview-connector-overview.md) for different data source systems in Azure Purview to simplify the registration and scanning process.
 
 To connect to a data source Azure Purview requires a credential with read-only access to the data source system.  
 
@@ -334,7 +334,7 @@ As a general rule, you can use the following options to set up integration runti
 |Multi-cloud      | Azure runtime or self-hosted integration runtime based on data source types          |  Supported credential options vary based on data sources types       |
 |Power BI tenant    | Azure Runtime          | Azure Purview Managed Identity         |
 
-Use [this guide](purview-connector-overview.md) to read more about each connector and their supported authentication options.
+Use [this guide](azure-purview-connector-overview.md) to read more about each connector and their supported authentication options.
 
 ## Additional recommendations
 

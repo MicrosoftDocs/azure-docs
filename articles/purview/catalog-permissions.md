@@ -105,4 +105,4 @@ For full instructions, see our [how-to guide for adding role assignments](how-to
 Now that you have a base understanding of collections, and access control, follow the guides below to create and manage those collections, or get started with registering sources into your Azure Purview Resource.
 
 - [How to create and manage collections](how-to-create-and-manage-collections.md)
-- [Azure Purview supported data sources](purview-connector-overview.md)
+- [Azure Purview supported data sources](azure-purview-connector-overview.md)

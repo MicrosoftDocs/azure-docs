@@ -73,6 +73,6 @@ To create a UAMI follow our [guide to create a user-assigned managed identity](m
 
 Follow these next articles to learn how to navigate the Azure Purview Studio, create a collection, and grant access to Azure Purview:
 
-* [Using the Azure Purview Studio](use-purview-studio.md)
+* [Using the Azure Purview Studio](use-azure-purview-studio.md)
 * [Create a collection](quickstart-create-collection.md)
 * [Add users to your Azure Purview account](catalog-permissions.md)
