@@ -71,7 +71,7 @@ The free certificate comes with the following limitations:
 
 # [Apex domain](#tab/apex)
 - Must have an A record pointing to your web app's IP address.
-- Is not supported on App Service not publicly accessible.
+- Is not supported on apps that are not publicly accessible.
 - Is not supported with root domains that are integrated with Traffic Manager.
 - All the above must be met for successful certificate issuances and renewals
 
