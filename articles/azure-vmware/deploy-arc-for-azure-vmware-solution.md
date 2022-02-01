@@ -21,7 +21,7 @@ Before you begin checking off the prerequisites, verify the following actions ha
 The following items are needed to ensure you're set up to begin the onboarding process to deploy Arc for Azure VMware Solution.
 
 - A jump box virtual machine (VM) with network access to the Azure VMware Solution vCenter. 
-    - From the jump-box VM, verify you have access to [vCenter and NSX-T portals](https://docs.microsoft.com/azure/azure-vmware/tutorial-configure-networking). 
+    - From the jump-box VM, verify you have access to [vCenter and NSX-T portals](/azure/azure-vmware/tutorial-configure-networking). 
 - Verify that your Azure subscription has been enabled or you have connectivity to Azure end points, mentioned in the [Appendices](#Appendices).
 - Resource group in the subscription where you have owner or contributor role.  
 - A minimum of three free non-overlapping IPs addresses.  
@@ -63,7 +63,7 @@ az feature show –-name AzureArcForAVS --namespace Microsoft.AVS
 
 Use the following steps to guide you through the process to onboard in Arc for Azure VMware Solution (Preview).
 
-1. Sign into the jumpbox VM and extract the contents from the compressed file from the following [location path](). The extracted file contains the scripts to install the preview software.
+1. Sign into the jumpbox VM and extract the contents from the compressed file from the following [location](https://github.com/Azure/ArcOnAVS/releases). The extracted file contains the scripts to install the preview software.
 1. Open the 'config_avs.json' file and populate all the variables.
 
     **Config JSON**
@@ -444,7 +444,7 @@ Use the following tips as a self-help guide.
 
 **Where can I find more information related to Azure Arc resource bridge?**
 
-- For more information, go to [Azure Arc resource bridge (preview) overview](https://docs.microsoft.com/azure/azure-arc/resource-bridge/overview)
+- For more information, go to [Azure Arc resource bridge (preview) overview](/azure/azure-arc/resource-bridge/overview)
 
 ## Appendices
 
