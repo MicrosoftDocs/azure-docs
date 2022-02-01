@@ -288,17 +288,17 @@ When you change the underlying workflow for an automation task, your changes aff
 
 You can export any automation task that starts with a recurring trigger as an automation task template. Automation tasks are based on Consumption logic app workflows only.
 
-1. In the [Azure portal](https://portal.azure.com), find the resource that has the automation task that you want to export.
+1. In the [Azure portal](https://portal.azure.com), find the resource that has the automation task that you want to export. Or, if you know the name for the automation task, find and open the task's underlying logic app workflow directly and skip to Step 4.
 
 1. On the resource navigation menu, in the **Automation** section, select **Tasks**.
 
 1. In the tasks list, find the task that you want to update. Open the task's ellipses (**...**) menu, and select **Open in Logic Apps**.
 
-   ![Screenshot showing the tasks list and opened ellipses menu with "Open in Logic Apps" selected.](./media/create-automation-tasks-azure-resources/edit-task-logic-app-designer.png)
+   ![Screenshot showing the tasks list and opened ellipses menu with 'Open in Logic Apps' selected.](./media/create-automation-tasks-azure-resources/edit-task-logic-app-designer.png)
 
-   The task's underlying workflow opens in the Azure Logic Apps service and shows the **Overview** pane where you can view the same runs history that's available for the task.
+   The task's underlying workflow opens in the Azure Logic Apps service and shows the **Overview** pane.
 
-   ![Screenshot showing the task in Azure Logic Apps view with "Overview" pane selected.](./media/create-automation-tasks-azure-resources/task-logic-apps-view.png)
+   ![Screenshot showing the task in Azure Logic Apps view with 'Overview' pane selected.](./media/create-automation-tasks-azure-resources/task-logic-apps-view.png)
 
 1. On the **Overview** pane toolbar, select **Export** > **Export to Automation Task**.
 
