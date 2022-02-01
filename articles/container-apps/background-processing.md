@@ -12,11 +12,12 @@ ms.custom: ignite-fall-2021
 
 # Tutorial: Deploy a background processing application with Azure Container Apps Preview
 
-Azure Container Apps allows you to deploy applications without requiring the exposure of public endpoints. In this tutorial, you deploy a sample application that reads messages from an Azure Storage Queue and logs the messages in Azure log Analytics workspace. Using Container Apps scale rules, the application can scale up and down based on the Azure Storage queue length. When there are no messages on the queue, the container app scales down to zero.
+Using Azure Container Apps allows you to deploy applications without requiring the exposure of public endpoints. By using Container Apps scale rules, the application can scale up and down based on the Azure Storage queue length. When there are no messages on the queue, the container app scales down to zero.
 
 You learn how to:
 
 > [!div class="checklist"]
+
 > * Create a Container Apps environment to deploy your container apps
 > * Create an Azure Storage Queue to send messages to the container app
 > * Deploy your background processing application as a container app
@@ -54,7 +55,7 @@ az containerapp env create `
 
 ## Set up a storage queue
 
-Choose a name for `STORAGE_ACCOUNT`. It will be created in a following step. Storage account names must be *unique within Azure* and between 3 and 24 characters in length and may contain numbers and lowercase letters only.
+Choose a name for `STORAGE_ACCOUNT`. Storage account names must be *unique within Azure* and be from 3 to 24 characters in length containing numbers and lowercase letters only.
 
 # [Bash](#tab/bash)
 
@@ -96,7 +97,7 @@ $STORAGE_ACCOUNT = New-AzStorageAccount `
 
 ---
 
-Next, get the queue's connection string.
+Next, get the connection string for the queue.
 
 # [Bash](#tab/bash)
 
@@ -272,7 +273,7 @@ The application scales up to 10 replicas based on the queue length as defined in
 
 ## Verify the result
 
-The container app running as a background process creates logs entries in Log analytics as messages arrive from Azure Storage Queue. You may need to wait a few minutes for the analytics to arrive for the first time before you are able to query the logged data.
+The container app runs as a background process. As messages arrive from the Azure Storage Queue, the application creates log entries in Log analytics. You must wait a few minutes for the analytics to arrive for the first time before you are able to query the logged data.
 
 Run the following command to see logged messages. This command requires the Log analytics extension, so accept the prompt to install extension when requested.
 
@@ -299,7 +300,7 @@ $queryResults.Results
 
 ## Clean up resources
 
-Once you are done, clean up your Container Apps resources by running the following command to delete your resource group.
+Once you are done, run the following command to delete the resource group that contains your Container Apps resources.
 
 # [Bash](#tab/bash)
 
