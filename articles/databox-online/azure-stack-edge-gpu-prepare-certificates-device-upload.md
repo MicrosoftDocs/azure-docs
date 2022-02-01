@@ -32,22 +32,21 @@ If you bring your own certificates, then the certificates that you created for y
 
 1. Run *certlm.msc* to launch the local machine certificate store.
 
-1. In the Personal certificate store, select the root certificate. Right-click and select **All Tasks > Export...**
+2. In the Personal certificate store, select the root certificate. Right-click and select **All Tasks > Export...**
 
-    ![Export certificate DER 1](media/azure-stack-edge-gpu-manage-certificates/export-cert-cer-1.png)
+    ![Illustration showing the Local Machine Store on an Azure Stack Edge device with the Root certificate selected for Export.](media/azure-stack-edge-gpu-manage-certificates/export-cert-cer-1.png)
 
-2. The certificate wizard opens. Select the format **DER encoded binary X.509 (.cer)**. Select **Next**.
+3. The certificate wizard opens. Select the format **DER encoded binary X.509 (.cer)**. Select **Next**.
 
-    ![Export certificate DER 2](media/azure-stack-edge-gpu-manage-certificates/export-cert-cer-2.png)
+    ![Screenshot of the Export File Format page of the Certificate Export Wizard. The selected DER format and the Next button are highlighted.](media/azure-stack-edge-gpu-manage-certificates/export-cert-cer-2.png)
 
-3. Browse and select the location where you want to export the .cer format file.
+4. Browse and select the location where you want to export the .cer format file.
 
-    ![Export certificate DER 3](media/azure-stack-edge-gpu-manage-certificates/export-cert-cer-3.png)
+    ![Screenshot of the File To Export page of the Certificate Export Wizard with a certificate file uploaded. The Browse button and Next button are highlighted.](media/azure-stack-edge-gpu-manage-certificates/export-cert-cer-3.png)
 
-4. Select **Finish**.
+5. Select **Finish**.
 
-    ![Export certificate DER 4](media/azure-stack-edge-gpu-manage-certificates/export-cert-cer-4.png)
-
+    ![Screenshot of the completion page of the Certificate Export Wizard. The Finish button is highlighted.](media/azure-stack-edge-gpu-manage-certificates/export-cert-cer-4.png)
 
 ## Export certificates as .pfx format with private key
 
@@ -60,19 +59,19 @@ Take the following steps to export an SSL certificate with private key on a Wind
 
 2. Double-click on the **Personal** folder, and then on **Certificates**.
 
-    ![Export certificate 1](media/azure-stack-edge-gpu-manage-certificates/export-cert-pfx-1.png)
+    ![Screenshot of the Local Machine Store on a device with Certificates displayed for the Personal store. The Personal folder and Certificates store are highlighted.](media/azure-stack-edge-gpu-manage-certificates/export-cert-pfx-1.png)
  
 3. Right-click on the certificate you would like to back up and choose **All tasks > Export...**.
 
-    ![Export certificate 2](media/azure-stack-edge-gpu-manage-certificates/export-cert-pfx-2.png)
+    ![Screenshot showing the Export option for a selected certificate in the Personal Certificates store on a device. The Export option on the All Tasks menu is highlighted.](media/azure-stack-edge-gpu-manage-certificates/export-cert-pfx-2.png)
 
 4. Follow the Certificate Export Wizard to back up your certificate to a .pfx file.
 
-    ![Export certificate 3](media/azure-stack-edge-gpu-manage-certificates/export-cert-pfx-3.png)
+    ![Screenshot of the Welcome page of the Certificate Export Wizard. The Next button is highlighted.](media/azure-stack-edge-gpu-manage-certificates/export-cert-pfx-3.png)
 
 5. Choose **Yes, export the private key**.
 
-    ![Export certificate 4](media/azure-stack-edge-gpu-manage-certificates/export-cert-pfx-4.png)
+    ![Screenshot of the Export Private Key page of the Certificate Export Wizard. The Export The Private Key option and Next button are highlighted.](media/azure-stack-edge-gpu-manage-certificates/export-cert-pfx-4.png)
 
 6. Choose **Include all certificates in certificate path if possible**, **Export all extended properties** and **Enable certificate privacy**.
 
@@ -81,15 +80,15 @@ Take the following steps to export an SSL certificate with private key on a Wind
     > [!IMPORTANT]
     > DO NOT select the **Delete Private Key option if export is successful**.
 
-    ![Export certificate 5](media/azure-stack-edge-gpu-manage-certificates/export-cert-pfx-5.png)
+    ![Screenshot of the Export File Format page of the Certificate Export Wizard. The Personal Information Exchange options and the Next button are highlighted.](media/azure-stack-edge-gpu-manage-certificates/export-cert-pfx-5.png)
 
 7. Enter a password you will remember. Confirm the password. The password protects the private key.
 
-    ![Export certificate 6](media/azure-stack-edge-gpu-manage-certificates/export-cert-pfx-6.png)
+    ![Screenshot of the Security page of the Certificate Export Wizard with a password entered. The Password and Confirm Password options are highlighted.](media/azure-stack-edge-gpu-manage-certificates/export-cert-pfx-6.png)
 
 8. Choose to save the file in a set location.
 
-    ![Export certificate 7](media/azure-stack-edge-gpu-manage-certificates/export-cert-pfx-7.png)
+    ![Screenshot of the File to Export page of the Certificate Export Wizard with a certificate file selected. The File Name option and Next button are highlighted.](media/azure-stack-edge-gpu-manage-certificates/export-cert-pfx-7.png)
   
 9. Select **Finish**.
 
@@ -97,7 +96,7 @@ Take the following steps to export an SSL certificate with private key on a Wind
 
 10. You receive a message that the export was successful. Select **OK**.
 
-    ![Export certificate 9](media/azure-stack-edge-gpu-manage-certificates/export-cert-pfx-9.png)
+    ![Screenshot of the completion page of the Certificate Export Wizard for a certificate exported in DER format. The Finish button is highlighted.](media/azure-stack-edge-gpu-manage-certificates/export-cert-pfx-9.png)
 
 The .pfx file backup is now saved in the selected location, and is ready to be moved or stored for safekeeping.
 
