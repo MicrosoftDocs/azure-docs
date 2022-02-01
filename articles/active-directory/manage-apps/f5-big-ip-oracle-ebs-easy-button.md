@@ -31,9 +31,9 @@ To learn about all the benefits, see the article on [F5 BIG-IP and Azure AD inte
 
 For this scenario, use an **Oracle EBS application using HTTP authorization headers** to manage access to protected content.
 
-Being legacy, the application lacks modern protocols to support a direct integration with Azure AD. Modernizing the app would be ideal, but is costly, requires careful planning, and introduces risk of potential impact. Instead, an F5 BIG-IP Application Delivery Controller is used to bridge the gap between the legacy application and the modern ID control plane, through protocol transitioning.
+Being legacy, the application lacks modern protocols to support a direct integration with Azure AD. The application can be modernized, but it is costly, requires careful planning, and introduces risk of potential downtime. Instead, an F5 BIG-IP Application Delivery Controller is used to bridge the gap between the legacy application and the modern ID control plane, through protocol transitioning.
 
-Having a BIG-IP in front of the app enables us to overlay the service with Azure AD pre-authentication and header-based SSO, significantly improving the overall security posture of the application for remote and local access.
+Having a BIG-IP in front of the app enables us to overlay the service with Azure AD pre-authentication and header-based SSO, significantly improving the overall security posture of the application.
 
 ## Scenario architecture
 
