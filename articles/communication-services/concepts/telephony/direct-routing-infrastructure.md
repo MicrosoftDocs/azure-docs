@@ -30,9 +30,9 @@ The infrastructure requirements for the supported SBCs, domains, and other netwo
 |Azure subscription|An Azure subscription that you use to create Communication Services resource, and the configuration and connection to the SBC.|
 |Communication Services Access Token|To make calls, you need a valid Access Token with `voip` scope. See [Access Tokens](../identity-model.md#access-tokens)|
 |Public IP address for the SBC|A public IP address that can be used to connect to the SBC. Based on the type of SBC, the SBC can use NAT.|
-|Fully Qualified Domain Name (FQDN) for the SBC|An FQDN for the SBC, where the domain portion of the FQDN doesn’t match registered domains in your Microsoft 365 or Office 365 organization. For more information, see [SBC domain names](#sbc-domain-names).|
+|Fully Qualified Domain Name (FQDN) for the SBC|An FQDN for the SBC, where the domain portion of the FQDN doesn’t match registered domains in your Microsoft 365 or Office 365 organization. For more information, see [SBC certificates and domain names](#sbc-certificates-and-domain-names).|
 |Public DNS entry for the SBC |A public DNS entry mapping the SBC FQDN to the public IP address. |
-|Public trusted certificate for the SBC |A certificate for the SBC to be used for all communication with Azure direct routing. For more information, see [Public trusted certificate for the SBC](#public-trusted-certificate-for-the-sbc).|
+|Public trusted certificate for the SBC |A certificate for the SBC to be used for all communication with Azure direct routing. For more information, see [SBC certificates and domain names](#sbc-certificates-and-domain-names).|
 |Firewall IP addresses and ports for SIP signaling and media |The SBC communicates to the following services in the cloud:<br/><br/>SIP Proxy, which handles the signaling<br/>Media Processor, which handles media<br/><br/>These two services have separate IP addresses in Microsoft Cloud, described later in this document.
 
 
@@ -53,9 +53,9 @@ Domains that aren’t previously used in O365 must be provisioned.
 An example would be using `\*.contoso.com`, which would match the SBC FQDN `sbc.contoso.com`, but wouldn't match with `sbc.test.contoso.com`.
 
 >[!IMPORTANT]
->During Public Preview only: if you plan to use a wildcard certificate for the domain that is not registered in Teams, please raise a support ticket, and we will add it as a trusted domain.
+>During Public Preview only: if you plan to use a wildcard certificate for the domain that is not registered in Teams, please raise a support ticket, and our team will add it as a trusted domain.
 
-Communication Services only trusts certificates signed by Certificate Authorities (CAs) that are part of the Microsoft Trusted Root Certificate Program. Ensure that your SBC certificate is signed by a CA that is part of the program and that Extended Key Usage (EKU) extension of your certificate includes Server Authentication.
+Communication Services only trusts certificates signed by Certificate Authorities (CAs) that are part of the Microsoft Trusted Root Certificate Program. Ensure that your SBC certificate is signed by a CA that is part of the program, and that Extended Key Usage (EKU) extension of your certificate includes Server Authentication.
 Learn more:
 
 [Program Requirements — Microsoft Trusted Root Program](/security/trusted-root/program-requirements)
@@ -73,7 +73,7 @@ The connection points for Communication Services direct routing are the followin
 - **sip2.pstnhub.microsoft.com — Secondary FQDN — geographically maps to the second priority region.
 - **sip3.pstnhub.microsoft.com — Tertiary FQDN — geographically maps to the third priority region.
 
-Placing these three FQDNs in order is required to:
+These three FQDNs in order are required to:
 
 - Provide optimal experience (less loaded and closest to the SBC datacenter assigned by querying the first FQDN).
 - Provide failover when connection from an SBC is established to a datacenter that is experiencing a temporary issue. For more information, see [Failover mechanism](#failover-mechanism-for-sip-signaling).  
@@ -138,7 +138,7 @@ You can force use of the specific codec on the Session Border Controller by excl
 
 ### Leg between Communication Services Calling SDK app and Cloud Media Processor
 
-On the leg between the Cloud Media Processor and Communication Services Calling SDK app, G.722 is used. Microsoft is working on adding more codecs on this leg. 
+On the leg between the Cloud Media Processor and Communication Services Calling SDK app, G.722 is used. Work on adding more codecs on this leg is in progress. 
 
 ## Supported Session Border Controllers (SBCs)
 
