@@ -65,7 +65,9 @@ ms.author: lajanuar
 | Hungarian | `hu` |✔|✔|✔|✔|✔|
 | Icelandic | `is` |✔|✔|✔|✔|✔|
 | Indonesian | `id` |✔|✔|✔|✔|✔|
+| 🆕 </br> Inuinnaqtun | `ikt` |✔|||||
 | Inuktitut | `iu` |✔|✔|✔|✔||
+| 🆕 </br> Inuktitut (Latin) | `iu-Latn` |✔||||| 
 | Irish | `ga` |✔|✔|✔|✔||
 | Italian | `it` |✔|✔|✔|✔|✔|
 | Japanese | `ja` |✔|✔|✔|✔|✔|
