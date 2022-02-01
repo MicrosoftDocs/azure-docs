@@ -127,7 +127,7 @@ The following issues are possible causes:
 
 * There's a mistyped workspace ID or workspace key (primary) in the agent's settings. 
 * The Hybrid Runbook Worker can't download the configuration, which causes an account linking error. When Azure enables features on machines, it supports only certain regions for linking a Log Analytics workspace and an Automation account. It's also possible that an incorrect date or time is set on the computer. If the time is +/- 15 minutes from the current time, feature deployment fails.
-•	Log Analytics Gateway is not configured to support Hybrid Runbook Worker.
+* Log Analytics Gateway is not configured to support Hybrid Runbook Worker.
 
 #### Resolution
 
