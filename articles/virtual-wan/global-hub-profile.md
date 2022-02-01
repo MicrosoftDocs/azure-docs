@@ -43,13 +43,13 @@ To check whether or not the hub is included in the global VPN profile:
 1. Navigate to **User VPN** under **Connectivity** on the left-hand panel
 1. See **Gateway Attachment State** to determine if this hub is included in the global VPN profile. If the state is **attached**, then the hub is included in the global VPN profile. If the state is **detached**, then the hub is not included in the global VPN profile. 
 
- :::image type="content" source="./media/nat-rules-vpn-gateway/attachment-state.png" alt-text="Screenshot showing attachment state of gateway."lightbox="./media/dynamic-diagram.png":::
+ :::image type="content" source="./media/global-hub-profile/attachment-state.png" alt-text="Screenshot showing attachment state of gateway."lightbox="./media/global-hub-profile/attachment-state.png":::
 
 To include or exclude a specific hub from the global VPN profile: 
 
 1. Click **Include/Exclude Gateway from Global Profile**
 
- :::image type="content" source="./media/nat-rules-vpn-gateway/Include-exclude1.png" alt-text="Screenshot showing how to include or exclude hub from profile."lightbox="./media/dynamic-diagram.png":::
+ :::image type="content" source="./media/global-hub-profile/Include-exclude1.png" alt-text="Screenshot showing how to include or exclude hub from profile."lightbox="/media/global-hub-profile/Include-exclude1.png":::
 
 1. Click **Exclude** if you wish to remove this hub's gateway from the WAN Global User VPN Profile. Users who are using the Hub-level User VPN profile will still be able to connect to this gateway. Users who are using the WAN-level profile will not be able to connect to this gateway.
 
@@ -68,7 +68,7 @@ The profile points to a single hub. The user can only connect to the particular 
     ![Hub profile 1](./media/global-hub-profile/hub1.png)
 3. Click **User VPN (Point to site)**.
 4. Click **Download virtual Hub User VPN profile**.
- :::image type="content" source="./media/nat-rules-vpn-gateway/hub2.png" alt-text="Screenshot showing how to download hub profile."lightbox="./media/dynamic-diagram.png":::
+ :::image type="content" source="./media/global-hub-profile/hub2.png" alt-text="Screenshot showing how to download hub profile."lightbox="./media/global-hub-profile/hub2.png":::
 
 5. Check **EAPTLS**.
 6. Click **Generate and download profile**.
