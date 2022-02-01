@@ -370,21 +370,21 @@ The **Operator** menu displays the following options depending on the identity y
 
     System queries have only one option:
 
-      - **Duplicate** - Creates a duplicate of the query and names the file *Copy of XXX*.
+    - **Duplicate** - Creates a duplicate of the query and names the file *Copy of XXX*.
 
     Custom queries have the following options: 
 
-      - **Rename** - Enter the new name of the query and select **Save**.
-      - **Delete** - Delete the saved query.  
+    - **Rename** - Enter the new name of the query and select **Save**.
+    - **Delete** - Delete the saved query.  
 
-           The **Delete query** box opens, asking you to confirm that you want to delete the query. Select **Yes** or **No**.
+        The **Delete query** box opens, asking you to confirm that you want to delete the query. Select **Yes** or **No**.
 
-      - **Duplicate** - Creates a duplicate of the query and names it *Copy of XXX*.
-      - **Delete schedule** - Deletes the schedule details for this query.
+    - **Duplicate** - Creates a duplicate of the query and names it *Copy of XXX*.
+    - **Delete schedule** - Deletes the schedule details for this query.
 
-           This option isn't available if you haven't yet saved a schedule.
+        This option isn't available if you haven't yet saved a schedule.
 
-           The **Delete schedule** box opens, asking you to confirm that you want to delete the schedule. Select **Yes** or **No**.
+        The **Delete schedule** box opens, asking you to confirm that you want to delete the schedule. Select **Yes** or **No**.
 
 
 ## Export the results of a query as a report
