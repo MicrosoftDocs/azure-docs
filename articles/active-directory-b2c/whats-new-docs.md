@@ -34,7 +34,6 @@ Welcome to what's new in Azure Active Directory B2C documentation. This article 
 - [Configure SAML identity provider options with Azure Active Directory B2C](identity-provider-generic-saml-options.md)
 - [About claim resolvers in Azure Active Directory B2C custom policies](claim-resolver-overview.md)
 - [Add AD FS as a SAML identity provider using custom policies in Azure Active Directory B2C](identity-provider-adfs-saml.md)
-- [Azure Active Directory B2C: What's new](whats-new-docs.md)
 
 ## December 2021
 
