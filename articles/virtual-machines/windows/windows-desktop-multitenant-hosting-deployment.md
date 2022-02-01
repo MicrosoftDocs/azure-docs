@@ -1,5 +1,5 @@
 ---
-title: How to deploy Windows 10 on Azure with Multitenant Hosting Rights 
+title: How to deploy Windows 10 on Azure 
 description: Learn how to maximize your Windows Software Assurance benefits to bring on-premises licenses to Azure with Multitenant Hosting Rights.
 author: mimckitt
 ms.service: virtual-machines
@@ -11,7 +11,7 @@ ms.author: mimckitt
 ms.custom: rybaker, chmimckitt, devx-track-azurepowershell
 
 ---
-# How to deploy Windows 10 on Azure with Multitenant Hosting Rights 
+# How to deploy Windows 10 on Azure
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets
 
 For customers with Windows 10 Enterprise E3/E5 per user or Windows Virtual Desktop Access per user (User Subscription Licenses or Add-on User Subscription Licenses), Multitenant Hosting Rights for Windows 10 allows you to bring your Windows 10 Licenses to the cloud and run Windows 10 Virtual Machines on Azure without paying for another license. Multitenant Hosting Rights are only available for Windows 10 (version 1703 or later).
@@ -24,7 +24,7 @@ For more information, see [Multitenant Hosting for Windows 10](https://www.micro
 
 ## Subscription Licenses that qualify for Multitenant Hosting Rights
 
-For more details about subscription licenses that qualify to run Windows 10 on Azure, download the [Windows 10 licensing breif for Virtual Desktops](https://download.microsoft.com/download/3/D/4/3D42BDC2-6725-4B29-B75A-A5B04179958B/Licensing_brief_PLT_Windows_10_licensing_for_Virtual_Desktops.pdf)
+For more details about subscription licenses that qualify to run Windows 10 on Azure, download the [Windows 10 licensing brief for Virtual Desktops](https://download.microsoft.com/download/3/D/4/3D42BDC2-6725-4B29-B75A-A5B04179958B/Licensing_brief_PLT_Windows_10_licensing_for_Virtual_Desktops.pdf)
 
 > [!IMPORTANT]
 > Users **must** have one of the below subscription licenses in order to use Windows 10 images in Azure for any production workload. If you do not have one of these subscription licenses, they can be purchased through your [Cloud Service Partner](https://azure.microsoft.com/overview/choosing-a-cloud-service-provider/) or directly through [Microsoft](https://www.microsoft.com/microsoft-365?rtc=1).
@@ -122,8 +122,8 @@ Location                 : westus
 LicenseType              :
 ```
 
-## Additional Information about joining Azure AD
-Azure provisions all Windows VMs with built-in administrator account, which cannot be used to join AAD. For example, *Settings > Account > Access Work or School > +Connect* will not work. You must create and log on as a second administrator account to join Azure AD manually. You can also configure Azure AD using a provisioning package, use the link in the *Next Steps* section to learn more.
+## Additional Information about joining Azure Active Directory
+Azure provisions all Windows VMs with built-in administrator account, which cannot be used to join Azure Active Directory. For example, *Settings > Account > Access Work or School > +Connect* will not work. You must create and log on as a second administrator account to join Azure AD manually. You can also configure Azure AD using a provisioning package, use the link in the *Next Steps* section to learn more.
 
 ## Next Steps
 - Learn more about [Configuring VDA for Windows 10](/windows/deployment/vda-subscription-activation)

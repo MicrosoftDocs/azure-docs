@@ -13,17 +13,29 @@ ms.date: 12/20/2021
 
 # Tutorial: Deploy and walk through the in-store analytics application template
 
+For many retailers, environmental conditions within their stores are a key differentiator from their competitors. Retailers want to maintain pleasant conditions within their stores for the benefit of their customers.  
+
+You can use the IoT Central in-store analytics condition monitoring application template to build an end-to-end solution. The application template lets you digitally connect to and monitor a retail store environment using of  different kinds of sensor devices. These sensor devices generate telemetry that you can convert into business insights to help the retailer reduce operating costs and create a great experience for their customers.
+
+Use the application template to:
+
+- Connect different kinds of IoT sensors to an IoT Central application instance.
+- Monitor and manage the health of the sensor network and any gateway devices in the environment.
+- Create custom rules around the environmental conditions within a store to trigger  alerts for store managers.
+- Transform the environmental conditions within your store into insights that the retail store team can use to improve the customer experience.
+- Export the aggregated insights into existing or new business applications to provide useful and timely information to retail staff.
+
+The application template comes with a set of device templates and uses a set of simulated devices to populate the dashboard.
+
 Use the IoT Central *in-store analytics* application template and the guidance in this article to develop an end-to-end in-store analytics solution.
 
 :::image type="content" source="media/tutorial-in-store-analytics-create-app/store-analytics-architecture-frame.png" alt-text="Azure IoT Central Store Analytics.":::
 
-- Set of IoT sensors sending telemetry data to a gateway device
-- Gateway devices sending telemetry and aggregated insights to IoT Central
-- Continuous data export to the desired Azure service for manipulation
-- Data can be structured in the desired format and sent to a storage service
-- Business applications can query data and generate insights that power retail operations
-
-Let's take a look at key components that generally play a part in an in-store analytics solution.
+- Set of IoT sensors sending telemetry data to a gateway device.
+- Gateway devices sending telemetry and aggregated insights to IoT Central.
+- Continuous data export to the desired Azure service for manipulation.
+- Data can be structured in the desired format and sent to a storage service.
+- Business applications can query data and generate insights that power retail operations.
 
 ## Condition monitoring sensors
 
@@ -31,11 +43,11 @@ An IoT solution starts with a set of sensors capturing meaningful signals from w
 
 ## Gateway devices
 
-Many IoT sensors can feed raw signals directly to the cloud or to a gateway device located near them. The gateway device performs data aggregation at the edge before sending summary insights to an IoT Central application. The gateway devices are also responsible for relaying command and control operations to the sensor devices when applicable. 
+Many IoT sensors can feed raw signals directly to the cloud or to a gateway device located near them. The gateway device performs data aggregation at the edge before sending summary insights to an IoT Central application. The gateway devices are also responsible for relaying command and control operations to the sensor devices when applicable.
 
 ## IoT Central application
 
-The Azure IoT Central application ingests data from different kinds of IoT sensors as well gateway devices within the retail store environment and generates a set of meaningful insights.
+The Azure IoT Central application ingests data from different kinds of IoT sensors and gateway devices within the retail store environment and generates a set of meaningful insights.
 
 Azure IoT Central also provides a tailored experience to the store operator enabling them to remotely monitor and manage the infrastructure devices.
 
@@ -218,8 +230,8 @@ After you have created and customized device templates, it's time to add devices
 
 For this tutorial, you use the following set of real and simulated devices to build the application:
 
-- A real Rigado C500 gateway
-- Two real RuuviTag sensors
+- A real Rigado C500 gateway.
+- Two real RuuviTag sensors.
 - A simulated **Occupancy** sensor. The simulated sensor is included in the application template, so you don't need to create it. 
 
 > [!NOTE]

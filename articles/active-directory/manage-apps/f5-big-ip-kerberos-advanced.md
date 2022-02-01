@@ -17,13 +17,13 @@ ms.collection: M365-identity-device-management
 
 In this tutorial, you'll learn to implement Secure Hybrid Access (SHA) with single sign-on (SSO) to Kerberos applications by using F5's BIG-IP advanced configuration. 
 
-Integrating a BIG-IP with Azure Active Directory (Azure AD) provides many benefits, including:
+Enabling BIG-IP published services for Azure Active Directory (Azure AD) SSO provides many benefits, including:
 
-* Improved Zero Trust governance through Azure AD pre-authentication and authorization.
+* Improved Zero Trust governance through Azure AD pre-authentication and [Conditional Access](/conditional-access/overview)
 
 * Full SSO between Azure AD and BIG-IP published services.
 
-* Management of identities and access from a single control plane, the [Azure portal](https://portal.azure.com/).
+* Management of identities and access from a single control plane, the [Azure portal](https://azure.microsoft.com/features/azure-portal/)
 
 To learn about all of the benefits, see [Integrate F5 BIG-IP with Azure Active Directory](./f5-aad-integration.md) and [What is single sign-on in Azure Active Directory?](/azure/active-directory/active-directory-appssoaccess-whatis).
 

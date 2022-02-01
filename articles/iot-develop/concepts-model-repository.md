@@ -3,7 +3,7 @@ title: Understand concepts of the device models repository | Microsoft Docs
 description: As a solution developer or an IT professional, learn about the basic concepts of the device models repository.
 author: rido-min
 ms.author: rmpablos
-ms.date: 11/12/2021
+ms.date: 01/20/2022
 ms.topic: conceptual
 ms.service: iot-develop
 services: iot-develop
@@ -122,7 +122,7 @@ The tools used to validate the models during the PR checks can also be used to a
 ### Install `dmr-client`
 
 ```bash
-dotnet tool install --global Microsoft.IoT.ModelsRepository.CommandLine --version 1.0.0-beta.5
+dotnet tool install --global Microsoft.IoT.ModelsRepository.CommandLine --version 1.0.0-beta.6
 ```
 
 ### Import a model to the `dtmi/` folder
