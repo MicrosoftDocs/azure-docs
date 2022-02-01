@@ -94,7 +94,7 @@ fake random data:
 INSERT INTO http_request
 SELECT
 	trunc(random()*1000),
-	clock_timestamp(),
+	clock_timestamp() + make_interval(secs => random()*60*24),
 	concat('http://example.com/', md5(random()::text)),
 	('{China,India,USA,Indonesia}'::text[])[ceil(random()*4)],
 	concat(
