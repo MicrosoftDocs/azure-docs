@@ -10,9 +10,9 @@ ms.service: iot-hub-device-update
 
 # Device Update for Azure IoT Hub tutorial using Azure Real Time Operating System (RTOS)
 
-This tutorial will walk through how to create the Device Update for IoT Hub Agent in Azure RTOS NetX Duo. It also provides simple APIs for developers to integrate the Device Update capability in their application. Explore [samples](https://github.com/azure-rtos/samples/tree/PublicPreview/ADU) of key semiconductors evaluation boards that include the get started guides to learn configure, build, and deploy the over-the-air (OTA) updates to the devices.
+This tutorial walks through how to create the Device Update for IoT Hub Agent in Azure RTOS NetX Duo. It also provides simple APIs for developers to integrate the Device Update capability in their application. Explore [samples](https://github.com/azure-rtos/samples/tree/PublicPreview/ADU) of key semiconductors evaluation boards that include the get started guides to learn configure, build, and deploy the over-the-air (OTA) updates to the devices.
 
-In this tutorial you will learn how to:
+In this tutorial you learn how to:
 > [!div class="checklist"]
 > * Get started
 > * Tag your device
@@ -58,7 +58,7 @@ Learn more about [Azure RTOS](/azure/rtos/).
 2. Select the Updates option under "Device management" from the left-hand navigation bar.
 3. Select the Groups tab at the top of the page. 
 4. Select the Add button to create a new group.
-5. Select the IoT Hub tag you created in the previous step from the list. Select Create update group.
+5. Select the IoT Hub tag that you created in the previous step from the list. Select Create update group.
 
    :::image type="content" source="media/create-update-group/select-tag.PNG" alt-text="Screenshot showing tag selection." lightbox="media/create-update-group/select-tag.PNG":::
 
@@ -66,9 +66,9 @@ Learn more about [Azure RTOS](/azure/rtos/).
 
 ## Deploy new firmware
 
-1. Once the group is created, you should see a new update available for your device group, with a link to the update under Pending Updates. You may need to Refresh once. 
+1. Once the group is created, you should see a new update available for your device group, with a link to the update under Pending Updates. You might need to Refresh once. 
 2. Click on the available update.
-3. Confirm the correct group is selected as the target group. Schedule your deployment, then select Deploy update.
+3. Confirm that the correct group is selected as the target group. Schedule your deployment, then select Deploy update.
 
    :::image type="content" source="media/deploy-update/select-update.png" alt-text="Select update" lightbox="media/deploy-update/select-update.png":::
 
@@ -86,17 +86,17 @@ Learn more about [Azure RTOS](/azure/rtos/).
 
    :::image type="content" source="media/deploy-update/deployments-tab.png" alt-text="Deployments tab" lightbox="media/deploy-update/deployments-tab.png":::
 
-2. Select the deployment you created to view the deployment details.
+2. Select the deployment that you created to view the deployment details.
 
    :::image type="content" source="media/deploy-update/deployment-details.png" alt-text="Deployment details" lightbox="media/deploy-update/deployment-details.png":::
 
 3. Select Refresh to view the latest status details. Continue this process until the status changes to Succeeded.
 
-You have now completed a successful end-to-end image update using Device Update for IoT Hub on a Raspberry Pi 3 B+ device. 
+You have now completed a successful end-to-end image update using Device Update for IoT Hub on an Azure RTOS embedded device. 
 
 ## Cleanup resources
 
-When no longer needed cleanup your device update account, instance, IoT Hub and IoT device. 
+When no longer neededn clean up your device update account, instance, IoT Hub, and IoT device. 
 
 ## Next steps
 
