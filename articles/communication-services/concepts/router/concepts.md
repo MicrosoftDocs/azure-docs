@@ -118,6 +118,7 @@ An exception policy controls the behavior of a Job based on a trigger and execut
 - [Quickstart guide](../../quickstarts/router/get-started-router.md)
 - [Manage queues](../../how-tos/router-sdk/manage-queue.md)
 - [Classifying a Job](../../how-tos/router-sdk/job-classification.md)
+- [Target a preferred worker](../../how-tos/router-sdk/preferred-worker.md)
 - [Escalate a Job](../../how-tos/router-sdk/escalate-job.md)
 - [Subscribe to events](../../how-tos/router-sdk/subscribe-events.md)
 
