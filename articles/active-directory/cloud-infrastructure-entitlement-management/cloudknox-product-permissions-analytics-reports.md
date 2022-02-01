@@ -97,9 +97,9 @@ This article describes how to generate and download the **Permissions analytics 
 	- **User**, **Role**, **Resource**, **Serverless function name** — Displays the name of the identity.
 	- **Authorization system** — Displays the authorization system that the identity belongs to.
 	- **Domain** — Displays the domain name that the identity belongs to.
-	- **Permissions** — Displays the maximum number of permissions the identity has.
-		- **Used** — Displays how many permissions the identity has used.
-		- **Granted** — Displays how many permissions the identity has been granted.
+	- **Permissions** — Displays the maximum number of permissions that the identity can be granted.
+		- **Used** — Displays how many permissions that the identity has used.
+		- **Granted** — Displays how many permissions that the identity has been granted.
 	- **PCI** — Displays the permission creep index (PCI) score of the identity.
 	- **Date last active on** — Displays the date that the identity was last active.
 	- **Date created on** — Displays the date when the identity was created.
