@@ -2,7 +2,7 @@
 title: Deploy resources with REST API and template
 description: Use Azure Resource Manager and Resource Manager REST API to deploy resources to Azure. The resources are defined in a Resource Manager template.
 ms.topic: conceptual
-ms.date: 10/22/2020
+ms.date: 02/01/2022
 ---
 
 # Deploy resources with ARM templates and Azure Resource Manager REST API
@@ -196,8 +196,40 @@ The examples in this article use resource group deployments.
 
 ARMClient is a simple command line tool to invoke the Azure Resource Manager API. To install the tool, see [ARMClient](https://github.com/projectkudu/ARMClient).
 
+To list your subscriptions:
 
+```cmd
+armclient GET /subscriptions?api-version=2021-04-01
+```
 
+To list your resource group:
+
+```cmd
+armclient GET /subscriptions/<subscription-id>/resourceGroups?api-version=2021-04-01
+```
+
+Replace **<subscription-id>** with your Azure subscription ID.
+
+To create a resource group in the Central US region:
+
+```cmd
+armclient PUT /subscriptions/<subscription-id>/resourceGroups/<resource-group-name>?api-version=2021-04-01  "{location: 'central us', properties: {}}"
+```
+
+Alternatively, you can put the body into a JSON file called **Createrg.json**:
+
+```json
+{
+  "location": "Central US",
+  "properties": { }
+}
+```
+
+```cmd
+armclient PUT /subscriptions/<subscription-id>/resourceGroups/<resource-group-name>?api-version=2021-04-01 '@CreateRg.json'
+```
+
+For more information, see [ARMClient: a command line tool for the Azure API](http://blog.davidebbo.com/2015/01/azure-resource-manager-client.html).
 
 ## Deployment name
 
