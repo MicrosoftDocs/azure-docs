@@ -10,9 +10,9 @@ ms.date: 01/06/2022
 
 # Business processes for managing data effectively
 
-As data and content has a lifecycle that requires active management (for example, acquisition - processing - disposal) assets in the Azure Purview data catalog need active management in a similar way. "Assets" in the catalog include the technical metadata that describes collection, lineage and scan information. Metadata describing the business structure of data such as glossary, classifications, ownership and usage also needs to be managed. 
+As data and content has a lifecycle that requires active management (for example, acquisition - processing - disposal) assets in the Azure Purview data catalog need active management in a similar way. "Assets" in the catalog include the technical metadata that describes collection, lineage and scan information. Metadata describing the business structure of data such as glossary, classifications and ownership also needs to be managed. 
  
-To manage assets effectively, the responsible people in the organization must understand how and when to apply data governance processes and manage workflows. 
+To manage data assets, responsible people in the organization must understand how and when to apply data governance processes and manage workflows. 
 
 ## Why do you need business processes for managing assets in Azure Purview?
 
@@ -22,9 +22,9 @@ An organization employing Azure Purview should define processes and people struc
 
 - Agreed definition and structure of data is required for the Azure Purview data catalog to provide effective data search and protection functionality at scale across organizations' data estates. 
  
-- Defining and using processes for asset lifecycle management is key to maintaining accurate scan, glossary and classification metadata which will improve usability of the catalog and ability to protect relevant data. 
+- Defining and using processes for asset lifecycle management is key to maintaining accurate asset metadata, which will improve usability of the catalog and the ability to protect relevant data. 
  
-- Business users looking for data in the organization will be more likely to use the catalog to search for data when it is maintained using data governance processes.
+- Business users looking for data will be more likely to use the catalog to search for data when it is maintained using data governance processes.
 
 ### Best practice processes that should be considered when starting the data governance journey with Azure Purview: 
 
@@ -34,22 +34,22 @@ An organization employing Azure Purview should define processes and people struc
 
 ## Data curator organizational personas
 
-The [Data Curator](catalog-permissions.md) role in Azure Purview controls read/write permission to assets within a collection group. To support the processes below, the Data Curator role has been granted to separate data governance personas in the organization: 
+The [Data Curator](catalog-permissions.md) role in Azure Purview controls read/write permission to assets within a collection group. To support the data governance processes, the Data Curator role has been granted to separate data governance personas in the organization: 
 
 > [!Note] 
 > The 4 **personas** listed are suggested read/write users, and would all be assigned Data Curator role in Azure Purview. 
 
 - Data Owner or Data Expert:
 
-    - Data Owner is typically a senior business stakeholder with authority and budget who is accountable for overseeing the quality and protection of a data subject area. This person is accountable for making decisions on who has the right to access data and how it is used
+    - A Data Owner is typically a senior business stakeholder with authority and budget who is accountable for overseeing the quality and protection of a data subject area. This person is accountable for making decisions on who has the right to access data and how it is used.
 
-    - Data Expert is an individual who is an authority in the business process, data manufacturing process or data consumption patterns in the business. 
+    - A Data Expert is an individual who is an authority in the business process, data manufacturing process or data consumption patterns. 
 
 - Data Steward or Data Custodian
 
-    -  Data Steward is typically a business professional responsible for overseeing the definition, quality and management of a data subject area or data entity. They are typically experts in the data domain and work in a team with other data stewards across the enterprise to make decisions to ensure all aspects of data management are applied
-
-    - Data Custodian is an individual responsible for performing one or more data controls. 
+    - A Data Steward is typically a business professional responsible for overseeing the definition, quality and management of a data subject area or data entity. They are typically experts in the data domain and work with other data stewards to make decisions on how to apply all aspects of data management. 
+    
+    - A Data Custodian is an individual responsible for performing one or more data controls. 
 
 ## 1. Capture and maintain assets
 
