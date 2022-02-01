@@ -68,7 +68,7 @@ Learn more about [Azure RTOS](/azure/rtos/).
 
 1. Once the group is created, you should see a new update available for your device group, with a link to the update under Pending Updates. You might need to Refresh once. 
 2. Click on the available update.
-3. Confirm the correct group is selected as the target group. Schedule your deployment, then select Deploy update.
+3. Confirm that the correct group is selected as the target group. Schedule your deployment, then select Deploy update.
 
    :::image type="content" source="media/deploy-update/select-update.png" alt-text="Select update" lightbox="media/deploy-update/select-update.png":::
 
@@ -86,7 +86,7 @@ Learn more about [Azure RTOS](/azure/rtos/).
 
    :::image type="content" source="media/deploy-update/deployments-tab.png" alt-text="Deployments tab" lightbox="media/deploy-update/deployments-tab.png":::
 
-2. Select the deployment you created to view the deployment details.
+2. Select the deployment that you created to view the deployment details.
 
    :::image type="content" source="media/deploy-update/deployment-details.png" alt-text="Deployment details" lightbox="media/deploy-update/deployment-details.png":::
 
@@ -96,7 +96,7 @@ You have now completed a successful end-to-end image update using Device Update 
 
 ## Cleanup resources
 
-When no longer needed cleanup your device update account, instance, IoT Hub and IoT device. 
+When no longer neededn clean up your device update account, instance, IoT Hub, and IoT device. 
 
 ## Next steps
 
