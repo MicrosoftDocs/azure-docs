@@ -26,8 +26,8 @@ The following steps are required when you use audio input streams:
 
    - PCM format
    - One channel
-   - 16 bits per sample, 8000 or 16000 samples per second (16000 or 32000 bytes per second)
-   - Two-block align (16 bit including padding for a sample)
+   - 16 bits per sample, 8,000 or 16,000 samples per second (16,000 bytes or 32,000 bytes per second)
+   - Two-block aligned (16 bit including padding for a sample)
 
   The corresponding code in the SDK to create the audio format looks like this example:
 
@@ -40,7 +40,7 @@ The following steps are required when you use audio input streams:
 
 - Make sure that your code provides the RAW audio data according to these specifications. Also, make sure that 16-bit samples arrive in little-endian format. Signed samples are also supported. If your audio source data doesn't match the supported formats, the audio must be transcoded into the required format.
 
-- Create your own audio input stream class derived from `PullAudioInputStreamCallback`. Implement the `Read()` and `Close()` members. The exact function signature is language dependent, but the code looks similar to this code sample:
+- Create your own audio input stream class derived from `PullAudioInputStreamCallback`. Implement the `Read()` and `Close()` members. The exact function signature is language-dependent, but the code looks similar to this code sample:
 
   ```csharp
    public class ContosoAudioStream : PullAudioInputStreamCallback {
