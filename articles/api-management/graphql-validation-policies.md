@@ -53,7 +53,7 @@ The policy for path=`/__*` is the [introspection](https://graphql.org/learn/intr
 ```xml
 <validate-graphql-request error-variable-name="variable name" max-size="size in bytes" max-depth="query depth">
     <authorize>
-        <rule path="query path, for example: '/Query/listUsers' or '/__*'" action="string or policy expression that evaluates to 'allow|remove|reject|ignore'" />
+        <rule path="query path, for example: '/listUsers' or '/__*'" action="string or policy expression that evaluates to 'allow|remove|reject|ignore'" />
     </authorize>
 </validate-graphql-request>
 ```
@@ -63,13 +63,13 @@ The policy for path=`/__*` is the [introspection](https://graphql.org/learn/intr
 This example applies the following validation and authorization rules to a GraphQL query:
 * Requests larger than 100 kb or with query depth greater than 4 are rejected. 
 * Requests to the introspection system are rejected. 
-* The `/ship/missions/name` field is removed from requests containing more than two headers. 
+* The `/Missions/name` field is removed from requests containing more than two headers. 
 
 ```xml
 <validate-graphql-request error-variable-name="name" max-size="102400" max-depth="4"> 
     <authorize>
         <rule path="/__*" action="reject" /> 
-        <rule path="Query/ship/missions/name" action="@(context.Request.Headers.Count > 2 ? "remove" : "allow")" />
+        <rule path="/Missions/name" action="@(context.Request.Headers.Count > 2 ? "remove" : "allow")" />
     </authorize>
 </validate-graphql-request> 
 ```
@@ -103,7 +103,7 @@ This example applies the following validation and authorization rules to a Graph
 | `error-variable-name` | Name of the variable in `context.Variables` to log validation errors to.  |   No    | N/A   |
 | `max-size` | Maximum size of the request payload in bytes. Maximum allowed value: 102,400 bytes (100 KB). (Contact [support](https://azure.microsoft.com/support/options/) if you need to increase this limit.) | Yes       | N/A   |
 | `max-depth` | An integer. Maximum query depth. | No | 6 |
-| `path` | Path to execute authorization validation on. | Yes | N/A |
+| `path` | Path to execute authorization validation on. It must follow the pattern: `/type/field`. | Yes | N/A |
 | `action` | [Action](#request-actions) to perform if the rule applies. May be specified conditionally using a policy expression. |  No     | allow   |
 
 ### Request actions
