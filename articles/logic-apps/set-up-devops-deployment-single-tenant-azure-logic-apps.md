@@ -77,11 +77,11 @@ To set up a build pipeline based on your logic app project type, complete the co
 
 ### Before release to Azure
 
-You will need to update the Visual Studio artifacts before they can be released to Azure. Specifically the managed API connections inside the Visual Studio connections.json file are created for Visual Studio Code local use. We need to update them so that they are in the correct format to be used in Azure. The difference is in authentication methods.
+You will need to update the Visual Studio artifacts before they can be released to Azure. Specifically the managed API connections inside the Visual Studio connections.json file are created for Visual Studio Code local use. You need to update them so that they are in the correct format to be used in Azure. The difference is in authentication methods.
 
 #### Update authentication type
 
-We need to update the *authentication" field from this Visual Studio Cde local format
+You need to update the *authentication" field from this Visual Studio Code local format
 ```json
 {
   "managedApiConnections": {
@@ -123,7 +123,7 @@ to this portal format
 
 #### Create API connections as needed
 
-If you are deploying the workflow to a different region or subscription from the local development, you also need to ake sure to create these managed API connections before the deployment. The easist way to create managed API connections is to use ARM deployment. Here is an example of ARM template to create a SQL managed API connection.
+If you are deploying the workflow to a different region or subscription from the local development, you also need to make sure to create these managed API connections before the deployment. The easiest way to create managed API connections is to use ARM deployment. Here is an example of ARM template to create a SQL managed API connection.
 
 ```json
 {
@@ -350,9 +350,9 @@ az logicapp deployment source config-zip --name MyLogicAppName
 
 ### After release to Azure
 
-Each API connection has access policies. After the zip deployment, you will need to open the logic app in portal and create access policies for each and every API connection.
+Each API connection has access policies. After the zip deployment, you need to open the logic app in portal and create access policies for each API connection to give permission for the current logic app.
 
-The zip deployment does not create app settings. So after the deployment, you will need to create these app settings based on the content of the local.settings.json file in your local Visual Studio Code project.
+The zip deployment does not create app settings. So after the deployment, you need to create these app settings based on the local.settings.json file in your local Visual Studio Code project.
 
 ## Next steps
 
