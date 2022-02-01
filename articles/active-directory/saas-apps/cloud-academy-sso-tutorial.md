@@ -71,26 +71,24 @@ Follow these steps to enable Azure AD SSO in the Azure portal:
 
    ![Screenshot that shows the pencil button for editing the basic SAML configuration.](common/edit-urls.png)
 
-1. In the **Basic SAML Configuration** section, perform the following steps:
-
-    a. In the **Sign-on URL** text box, type one of the following URLs:
+1. In the **Basic SAML Configuration** section, update the **Sign-on URL** text box, type one of the following URLs and save it:
     
     | Sign-on URL |
     |--------------|
     | `https://cloudacademy.com/login/enterprise/` |
     | `https://app.qa.com/login/enterprise/` |
-    |
     
-    b. In the **Reply URL** text box, type one of the following URLs:
-    
-    | Reply URL |
-    |--------------|
-    | `https://cloudacademy.com/labs/social/complete/saml/` |
-    | `https://app.qa.com/labs/social/complete/saml/` |
-    |
-1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, select the copy button to copy the **App Federation Metadata Url**. Save the URL.
+1. Select the pencil button for **SAML Signing Certificate** to edit the settings:
 
-	![Screenshot that shows the copy button for the app federation metadata URL.](common/copy-metadataurl.png)
+   ![Screenshot that shows how to edit the ceritificate.](common/edit-certificate.png)
+
+1. Download the **PEM certificate**:
+
+   ![Screenshot that shows how to download the PEM ceritificate.](common/certificate-base64-download.png)
+    
+1. On the **Set up Cloud Academy** section, copy the **Login URL**:
+
+	![Screenshot that shows the copy button for the login URL.](common/copy_configuration_urls.png)
 
 ### Create an Azure AD test user
 
