@@ -29,7 +29,7 @@ A real-world example is an incoming call or chat in the context of a call center
 ### Job submission flow
 
 1. Your application submits a Job via the Job Router SDK.
-2. The Job is classified and a [JobClassified Event][job_classified_event] is sent via EventGrid.
+2. The Job is classified and a [JobClassified Event][job_classified_event] is sent via Event Grid.
 
     :::image type="content" source="../media/router/acs-router-job-submission.png" alt-text="Diagram of job submission.":::
 
@@ -66,7 +66,7 @@ A real-world example is the ringing of an agent in a call center.
 
 ### Offer flow
 
-1. When Job Router finds a matching Worker for a Job, it creates ab Offer and sends an [OfferIssued Event][offer_issued_event] via [EventGrid][subscribe_events].
+1. When Job Router finds a matching Worker for a Job, it creates ab Offer and sends an [OfferIssued Event][offer_issued_event] via [Event Grid][subscribe_events].
 2. The Offer is accepted via the Job Router API.
 3. Job Router sends an [OfferAccepted Event][offer_accepted_event].
 
