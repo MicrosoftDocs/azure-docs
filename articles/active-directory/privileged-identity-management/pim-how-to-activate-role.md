@@ -199,7 +199,7 @@ You can view the status of your pending requests to activate.
 
 ## Cancel a pending request for new version
 
-If you do not require activation of a role that requires approval, you can cancel a pending request at any time.
+If you don't require activation of a role that requires approval, you can cancel a pending request at any time.
 
 1. Open Azure AD Privileged Identity Management.
 
@@ -207,7 +207,7 @@ If you do not require activation of a role that requires approval, you can cance
 
 1. For the role that you want to cancel, select the **Cancel** link.
 
-    When you select Cancel, the request will be canceled. To activate the role again, you will have to submit a new request for activation.
+    When you select Cancel, the request will be canceled. To activate the role again, you'll have to submit a new request for activation.
 
    ![My request list with Cancel action highlighted](./media/pim-resource-roles-activate-your-roles/resources-my-requests-cancel.png)
 
@@ -218,7 +218,7 @@ UX deactivate a role assignment can't within five minutes of activation
 
 "SQL Server 2019 Big Data Clusters" and "big data clusters"
 WACTH
-
+WACHT
 Press deaCTIVATE LOOKS LIKE IT DOES BUT THERE'S A LAG
 not instantaneous
 Section in Activate articles for Deactivate. AD roles
@@ -227,7 +227,7 @@ Section in Activate articles for Deactivate. AD roles
 
 ### Permissions aren't granted after activating a role
 
-When you activate a role in Privileged Identity Management, the activation may not instantly propagate to all portals that require the privileged role. Sometimes, even if the change is propagated, web caching in a portal may result in the change not taking effect immediately. If your activation is delayed, sign out of the portal you are trying to perform the action and then sign back in. In the Azure portal, PIM signs you out and back in automatically.
+When you activate a role in Privileged Identity Management, the activation might not instantly propagate to all portals that require the privileged role. Sometimes, even if the change is propagated, web caching in a portal may cause a delay before the change takes effect. If your activation is delayed, sign out of the portal you're trying to perform the action and then sign back in. In the Azure portal, PIM signs you out and back in automatically.
 
 ## Next steps
 
