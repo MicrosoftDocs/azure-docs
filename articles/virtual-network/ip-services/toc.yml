@@ -38,6 +38,8 @@ items:
     href: routing-preference-azure-kubernetes-service-cli.md
 - name: Concepts
   items:
+  - name: Custom IP address prefix (BYOIP)
+    href: custom-ip-address-prefix.md
   - name: Public IPs
     href: public-ip-addresses.md
   - name: Private IPs
