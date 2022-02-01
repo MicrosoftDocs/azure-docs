@@ -42,6 +42,14 @@ OSM can be used to help your AKS deployments in many different ways. For example
 - Configure weighted traffic controls between two or more services for A/B testing or canary deployments.
 - Collect and view KPIs from application traffic.
 
+## Add-on limitations
+
+The OSM AKS add-on has the following limitations:
+
+* [Iptables redirection][ip-tables-redirection] for port IP address and port range exclusion must be enabled using `kubectl patch` after installation. For more details, see [iptables redirection][ip-tables-redirection].
+* Pods that are onboarded to the mesh that need access to IMDS, Azure DNS, or the Kubernetes API server must have their IP addresses to the global list of excluded outbound IP ranges using [Global outbound IP range exclusions][global-exclusion].
 
 [osm-azure-cli]: open-service-mesh-deploy-addon-az-cli.md
 [osm-bicep]: open-service-mesh-deploy-addon-bicep.md
+[ip-tables-redirection]: https://docs.openservicemesh.io/docs/guides/traffic_management/iptables_redirection/
+[global-exclusion]: https://docs.openservicemesh.io/docs/guides/traffic_management/iptables_redirection/#global-outbound-ip-range-exclusions
