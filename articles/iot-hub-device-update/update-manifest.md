@@ -49,7 +49,7 @@ The update manifest is auto generated after creation of an import manifest. For 
 
 The purpose of the update manifest is to describe the contents of an update, namely its identity, type,
 installed criteria, and update file metadata. In addition, the update manifest is cryptographically signed to
-allow the Device Update Agent to verify its authenticity. Refer to the [Device Update security](./device-update-security.md) documentation for more information on how the update manifest is used to securely import content.
+allow the Device Update Agent to verify its authenticity. For more information, see the document on [Device Update security](./device-update-security.md).
 
 ## Import manifest vs update manifest
 
@@ -83,7 +83,7 @@ for each update type supported by Device Update for IoT Hub.
 
 ### files
 
-Tells the Device Update Agent which files to download, and the hash that will be used to use to verify the files were downloaded correctly.
+Tells the Device Update Agent which files to download, and the hash that will be used to use to verify that the files were downloaded correctly.
 Here's a closer look at the `files` property contents:
 
 ```json
