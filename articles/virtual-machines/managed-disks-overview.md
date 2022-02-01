@@ -43,7 +43,7 @@ To protect against regional disasters, [Azure Backup](../backup/backup-overview.
 
 #### Azure Disk Backup
 
-Azure Backup offers Azure Disk Backup (preview) as a  native, cloud-based backup solution that protects your data in managed disks. It's a simple, secure, and cost-effective solution that enables you to configure protection for managed disks in a few steps. Azure Disk Backup offers a turnkey solution that provides snapshot lifecycle management for managed disks by automating periodic creation of snapshots and retaining it for configured duration using backup policy. For details on Azure Disk Backup, see [Overview of Azure Disk Backup (in preview)](../backup/disk-backup-overview.md).
+Azure Backup offers Azure Disk Backup (preview) as a  native, cloud-based backup solution that protects your data in managed disks. It's a simple, secure, and cost-effective solution that enables you to configure protection for managed disks in a few steps. Azure Disk Backup offers a turnkey solution that provides snapshot lifecycle management for managed disks by automating periodic creation of snapshots and retaining it for configured duration using backup policy. For details on Azure Disk Backup, see [Overview of Azure Disk Backup](../backup/disk-backup-overview.md).
 
 ### Granular access control
 
