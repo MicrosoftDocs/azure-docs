@@ -81,7 +81,12 @@ Configuration parameters for the [Node.js daemon sample](https://github.com/Azur
 # Credentials
 TENANT_ID=Enter_the_Tenant_Info_Here
 CLIENT_ID=Enter_the_Application_Id_Here
+
+// You provide either a ClientSecret or a CertificateConfiguration, or a ClientAssertion. These settings are exclusive
 CLIENT_SECRET=Enter_the_Client_Secret_Here
+CERTIFICATE_THUMBPRINT=Enter_the_certificate_thumbprint_Here
+CERTIFICATE_PRIVATE_KEY=Enter_the_certificate_private_key_Here
+CLIENT_ASSERTION=Enter_the_Assertion_String_Here
 
 # Endpoints
 // the Azure AD endpoint is the authority endpoint for token issuance
@@ -302,15 +307,14 @@ ConfidentialClientApplication cca =
 
 # [Node.js](#tab/nodejs)
 ```JavaScript
-const msal = require('@azure/msal-node');
 
 const config = {
     auth: {
-        clientId: "YOUR_CLIENT_ID",
-        authority: "https://login.microsoftonline.com/YOUR_TENANT_ID",
+        clientId: process.env.CLIENT_ID,
+        authority: process.env.AAD_ENDPOINT + process.env.TENANT_ID,
         clientCertificate: {
-            thumbprint: "CERT_THUMBPRINT", // a 40-digit hexadecimal string
-            privateKey: "CERT_PRIVATE_KEY",
+            thumbprint:  process.env.CERTIFICATE_THUMBPRINT, // a 40-digit hexadecimal string
+            privateKey:  process.env.CERTIFICATE_PRIVATE_KEY,
         }
     }
 };
@@ -318,6 +322,8 @@ const config = {
 // Create msal application object
 const cca = new msal.ConfidentialClientApplication(config);
 ```
+For more details, see [Using certificate credentials with MSAL Node](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-node/docs/certificate-credentials.md)
+
 # [Python](#tab/python)
 
 ```Python
@@ -384,8 +390,17 @@ ConfidentialClientApplication cca =
 ```
 
 # [Node.js](#tab/nodejs)
-
-The sample application does not implement initialization with assertions at the moment.
+```JavaScript
+const clientConfig = {
+    auth: {
+        clientId: process.env.CLIENT_ID,
+        authority: process.env.AAD_ENDPOINT + process.env.TENANT_ID,
+        clientAssertion:  process.env.CLIENT_ASSERTION
+    }
+};
+const cca = new msal.ConfidentialClientApplication(clientConfig);
+```
+For more details, see [Initializing the ConfidentialClientApplication object](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-node/docs/initialize-confidential-client-application.md)
 
 # [Python](#tab/python)
 
