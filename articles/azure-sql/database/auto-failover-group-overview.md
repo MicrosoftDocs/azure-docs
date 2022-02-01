@@ -130,7 +130,7 @@ Permissions for a failover group are managed via [Azure role-based access contro
 
 Azure RBAC write access is necessary to create and manage failover groups. The [SQL Server Contributor role](../../role-based-access-control/built-in-roles.md#sql-server-contributor) has all the necessary permissions to manage failover groups.
 
-For specific permission scopes, review how to configure auto-failover groups in [Azure SQL Database](uto-failover-group-sql-db.md#permissions) and [Azure SQL Managed Instance](../managed-instance/auto-failover-group-sql-mi.md#permissions). 
+For specific permission scopes, review how to configure auto-failover groups in [Azure SQL Database](auto-failover-group-sql-db.md#permissions) and [Azure SQL Managed Instance](../managed-instance/auto-failover-group-sql-mi.md#permissions). 
 
 
 ## Failover groups and point-in-time restore
