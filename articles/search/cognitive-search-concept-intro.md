@@ -15,19 +15,19 @@ ms.custom: references_regions
 
 In Azure Cognitive Search, AI enrichment refers to a pipeline process that adds machine learning to [indexer-based indexing](search-indexer-overview.md). Steps in the pipeline create information where none previously existed. For example, steps in the pipeline can extract information from images, detect sentiment or key phrases from chunks of text, and recognize entities. These processes transform unsearchable content into searchable text, for full text search and knowledge mining scenarios.
 
-[**Azure Blob Storage**](../storage/blobs/storage-blobs-overview.md) is a frequently used input, but any supported data source can provide the initial content. A [**skillset**](cognitive-search-working-with-skillsets.md), attached to an indexer, adds the AI processing. The indexer extracts content and sets up the pipeline. The AI processing identifies, analyzes, and creates information out of blob, image, and raw text inputs. Output is always a [**search index**](search-what-is-an-index.md), and optionally a [**knowledge store**](knowledge-store-concept-intro.md).
+[**Azure Blob Storage**](../storage/blobs/storage-blobs-overview.md) is a frequently used input, but any supported data source can provide the initial content. A [**skillset**](cognitive-search-working-with-skillsets.md), attached to an indexer, adds the AI processing. The indexer extracts content and sets up the pipeline. The skillset performs enrichment steps over blob, image, and raw text inputs. Output is always a [**search index**](search-what-is-an-index.md), and optionally a [**knowledge store**](knowledge-store-concept-intro.md).
 
 ![Enrichment pipeline diagram](./media/cognitive-search-intro/cogsearch-architecture.png "enrichment pipeline overview")
 
-Skillsets are composed of [*built-in skills*](cognitive-search-predefined-skills.md) from Cognitive Search or [*custom skills*](cognitive-search-create-custom-skill-example.md) for external processing that you provide. Custom skills are not always complex. For example, if you have existing packages that provide pattern matching or document classification models, you can wrap them in a custom skill. 
+Skillsets are composed of [*built-in skills*](cognitive-search-predefined-skills.md) from Cognitive Search or [*custom skills*](cognitive-search-create-custom-skill-example.md) for external processing that you provide. Custom skills are not always complex. For example, if you have an existing package that provides pattern matching or a document classification model, you can wrap it in a custom skill. 
 
 Built-in skills fall into these categories:
 
-+ **Machine translation** is provided by the [text translation](cognitive-search-skill-text-translation.md) skill, often paired with [language detection](cognitive-search-skill-language-detection.md) for multi-language solutions.
++ **Machine translation** is provided by the [Text Translation](cognitive-search-skill-text-translation.md) skill, often paired with [language detection](cognitive-search-skill-language-detection.md) for multi-language solutions.
 
 + **Image processing** skills include [Optical Character Recognition (OCR)](cognitive-search-skill-ocr.md) and identification of [visual features](cognitive-search-skill-image-analysis.md), such as facial detection, image interpretation, image recognition (famous people and landmarks), or attributes like image orientation. These skills create text representations of image content for full text search in Azure Cognitive Search.
 
-+ **Natural language processing** skills include [entity recognition](cognitive-search-skill-entity-recognition-v3.md), [language detection](cognitive-search-skill-language-detection.md), [key phrase extraction](cognitive-search-skill-keyphrases.md), text manipulation, [sentiment detection (including opinion mining)](cognitive-search-skill-sentiment-v3.md), and [personal identifiable information detection](cognitive-search-skill-pii-detection.md). With these skills, unstructured text is mapped as searchable and filterable fields in an index.
++ **Natural language processing** skills include [Entity Recognition](cognitive-search-skill-entity-recognition-v3.md), [Language Detection](cognitive-search-skill-language-detection.md), [Key Phrase Extraction](cognitive-search-skill-keyphrases.md), text manipulation, [Sentiment Detection (including opinion mining)](cognitive-search-skill-sentiment-v3.md), and [Personal Identifiable Information Detection](cognitive-search-skill-pii-detection.md). With these skills, unstructured text is mapped as searchable and filterable fields in an index.
 
 Built-in skills are based on the Cognitive Services APIs: [Computer Vision](../cognitive-services/computer-vision/index.yml) and [Language Service](../cognitive-services/language-service/overview.md). Unless your content input is small, expect to [attach a billable Cognitive Services resource](cognitive-search-attach-cognitive-services.md) to run larger workloads.
 
@@ -119,11 +119,11 @@ Indexes and knowledge stores are fully independent of each other. While you must
 
 The output of AI enrichment is either a [fully text-searchable index](search-what-is-an-index.md) on Azure Cognitive Search, or a [knowledge store](knowledge-store-concept-intro.md) in Azure Storage.
 
-### Accessing content in a search index
+### Check content in a search index
 
-[*Run queries**](search-query-overview.md) to access the enriched content generated by the pipeline. The index is like any other you might create for Azure Cognitive Search: you can supplement text analysis with custom analyzers, invoke fuzzy search queries, add filters, or experiment with scoring profiles to tune search relevance.
+[Run queries](search-query-overview.md) to access the enriched content generated by the pipeline. The index is like any other you might create for Azure Cognitive Search: you can supplement text analysis with custom analyzers, invoke fuzzy search queries, add filters, or experiment with scoring profiles to tune search relevance.
 
-### Accessing content in a knowledge store
+### Check content in a knowledge store
 
 In Azure Storage, a [knowledge store](knowledge-store-concept-intro.md) can assume the following forms: a blob container of JSON documents, a blob container of image objects, or tables in Table Storage. You can use [Storage Browser](knowledge-store-view-storage-explorer.md), [Power BI](knowledge-store-connect-power-bi.md), or any app that connects to Azure Storage to access your content.
 
