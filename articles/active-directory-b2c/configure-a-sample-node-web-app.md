@@ -110,7 +110,7 @@ The `views` folder contains Handlebars files for the app's UI.
 |---------|---------|
 |`SERVER_PORT`|The HTTP port on which the Node server runs. Leave the value as is.|
 |`APP_CLIENT_ID`| |
-|``|The **Application (client) ID** for the web app you registered in [step 2.1](#step-21-register-the-app).|
+|`APP_CLIENT_ID`|The **Application (client) ID** for the web app you registered in [step 2.1](#step-21-register-the-app).|
 |`SESSION_SECRET`|The express session secret. Leave the value as is or use a random string. |
 |`APP_CLIENT_SECRET`|The client secret for the web app you created in [step 2.2](#step-22-create-a-web-app-client-secret) |
 |`SIGN_UP_SIGN_IN_POLICY_AUTHORITY`|The **Sign in and sign up** user flow authority such as `https://<your-tenant-name>.b2clogin.com/<your-tenant-name>.onmicrosoft.com/<sign-in-sign-up-user-flow-name>`. Replace `<your-tenant-name>` with the name of your tenant and `<sign-in-sign-up-user-flow-name>` with the name of your Sign in and Sign up user flow such as `B2C_1_susi_node_app`. Learn how to [Get your tenant name](tenant-management.md#get-your-tenant-name). If you're using a custom domain, replace `<tenant-name>.b2clogin.com` with your domain, such as `contoso.com`. |
