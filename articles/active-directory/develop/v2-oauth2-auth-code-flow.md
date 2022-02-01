@@ -22,7 +22,7 @@ The OAuth 2.0 authorization code grant can be used in apps that are installed on
 
 This article describes how to program directly against the protocol in your application using any language. When possible, we recommend you use the supported Microsoft Authentication Libraries (MSAL) to [acquire tokens and call secured web APIs](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows). For more information, look at [sample apps that use MSAL](sample-v2-code.md).
 
-The OAuth 2.0 authorization code flow is described in [section 4.1 of the OAuth 2.0 specification](https://tools.ietf.org/html/rfc6749). With OIDC, this flow does authentication and authorization in most app types. These types include [single page apps](v2-app-types.md#single-page-apps-javascript), [web apps](v2-app-types.md#web-apps), and [natively installed apps](v2-app-types.md#mobile-and-native-apps). The flow enables apps to securely acquire an `access_token` that can be used to access resources secured by the Microsoft identity platform. Apps can refresh tokens to get other access tokens and ID tokens for the signed in user.
+The OAuth 2.0 authorization code flow is described in [section 4.1 of the OAuth 2.0 specification](https://tools.ietf.org/html/rfc6749). With OIDC, this flow does authentication and authorization for most app types. These types include [single page apps](v2-app-types.md#single-page-apps-javascript), [web apps](v2-app-types.md#web-apps), and [natively installed apps](v2-app-types.md#mobile-and-native-apps). The flow enables apps to securely acquire an `access_token` that can be used to access resources secured by the Microsoft identity platform. Apps can refresh tokens to get other access tokens and ID tokens for the signed in user.
 
 [!INCLUDE [try-in-postman-link](includes/try-in-postman-link.md)]
 
@@ -30,15 +30,15 @@ The OAuth 2.0 authorization code flow is described in [section 4.1 of the OAuth 
 
 This diagram provides a high-level overview of the authentication flow for an application:
 
-![Diagram shows OAuth authentication code flow. Native app and Web A P I interact by using tokens as described in this article.](./media/v2-oauth2-auth-code-flow/convergence-scenarios-native.svg)
+![Diagram shows OAuth authorization code flow. Native app and Web A P I interact by using tokens as described in this article.](./media/v2-oauth2-auth-code-flow/convergence-scenarios-native.svg)
 
 ## Redirect URI setup required for single-page apps
 
-The authorization code flow for single page applications requires setup. Follow the instructions for [creating your single-page application](scenario-spa-app-registration.md#redirect-uri-msaljs-20-with-auth-code-flow) to correctly mark your redirect URI as enabled for Cross-Origin Resource Sharing (CORS). To update an existing redirect URI to enable CORS, open the manifest editor and set the `type` field for your redirect URI to `spa` in the `replyUrlsWithType` section. Or, you can select the redirect URI in **Authentication** > **Web** and select URIs to migrate to using the authorization code flow.
+The authorization code flow for single page applications requires additional setup. Follow the instructions for [creating your single-page application](scenario-spa-app-registration.md#redirect-uri-msaljs-20-with-auth-code-flow) to correctly mark your redirect URI as enabled for Cross-Origin Resource Sharing (CORS). To update an existing redirect URI to enable CORS, open the manifest editor and set the `type` field for your redirect URI to `spa` in the `replyUrlsWithType` section. Or, you can select the redirect URI in **Authentication** > **Web** and select URIs to migrate to using the authorization code flow.
 
 The `spa` redirect type is backwards compatible with the implicit flow. Apps currently using the implicit flow to get tokens can move to the `spa` redirect URI type without issues and continue using the implicit flow.
 
-If you attempt to use the authorization code flow, you might see this error:
+If you attempt to use the authorization code flow without setting up CORS for your redirect URI, you will see this error in the console:
 
 ```http
 access to XMLHttpRequest at 'https://login.microsoftonline.com/common/v2.0/oauth2/token' from origin 'yourApp.com' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
@@ -46,7 +46,7 @@ access to XMLHttpRequest at 'https://login.microsoftonline.com/common/v2.0/oauth
 
 If so, visit your app registration and update the redirect URI for your app to use the `spa` type.
 
-Applications can't use a `spa` redirect URI with non-SPA flows, for example, native applications or client credential flows. To ensure security and best practices, the Microsoft identity platform returns an error if you attempt to use a `spa` redirect URI without an `Origin` header. Similarly, the Microsoft identity platform also prevents the use of client credentials, in the On-Behalf-Of (OBO) flow, client credentials flow, and auth code flow, in the presence of an `Origin` header, to ensure that secrets aren't used from within the browser.
+Applications can't use a `spa` redirect URI with non-SPA flows, for example, native applications or client credential flows. To ensure security and best practices, the Microsoft identity platform returns an error if you attempt to use a `spa` redirect URI without an `Origin` header. Similarly, the Microsoft identity platform also prevents the use of client credentials in all flows in the presence of an `Origin` header, to ensure that secrets aren't used from within the browser.
 
 ## Request an authorization code
 
@@ -120,8 +120,8 @@ error=access_denied
 
 | Parameter | Description  |
 |----------|------------------|
-| `error`  | An error code string that can be used to classify types of errors, and to react to errors. |
-| `error_description` | A specific error message that can help a developer identify the cause of an authentication error. |
+| `error`  | An error code string that can be used to classify types of errors, and to react to errors. This part of the error is provided so that the app can react appropriately to the error, but does not explain in depth why an error occurred.  |
+| `error_description` | A specific error message that can help a developer identify the cause of an authentication error. This part of the error contains most of the useful information about _why_ the error occurred. |
 
 #### Error codes for authorization endpoint errors
 
@@ -143,7 +143,7 @@ The following table describes the various error codes that can be returned in th
 
 To learn who the user is before redeeming an authorization code, it's common for applications to also request an ID token when they request the authorization code. This approach is called the *hybrid flow* because it mixes the implicit grant with the authorization code flow.
 
-The hybrid flow is commonly used in web apps to render a page for a user without blocking on code redemption, notably [ASP.NET](quickstart-v2-aspnet-core-webapp.md). Both single-page apps and traditional web apps benefit from reduced latency in this model.
+The hybrid flow is commonly used in web apps to render a page for a user without blocking on code redemption, notably in [ASP.NET](quickstart-v2-aspnet-core-webapp.md). Both single-page apps and traditional web apps benefit from reduced latency in this model.
 
 The hybrid flow is the same as the authorization code flow described earlier but with three additions. All of these additions are required to request an ID token: new scopes, a new response_type, and a new `nonce` query parameter.
 
@@ -185,7 +185,7 @@ code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...
 | Parameter | Description  |
 |-----------|--------------|
 | `code` | The authorization code that the app requested. The app can use the authorization code to request an access token for the target resource. Authorization codes are short lived, typically expiring after about 10 minutes. |
-| `id_token` | An ID token for the user, issued by using *implicit grant*. Contains a special `c_hash` claim that is the hash of the `code` in the same request. |
+| `id_token` | An ID token for the user, issued by using the *implicit grant*. Contains a special `c_hash` claim that is the hash of the `code` in the same request. |
 | `state` | If a `state` parameter is included in the request, the same value should appear in the response. The app should verify that the state values in the request and response are identical. |
 
 ## Redeem a code for an access token
