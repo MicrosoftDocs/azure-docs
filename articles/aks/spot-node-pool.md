@@ -40,7 +40,7 @@ The following limitations apply when you create and manage AKS clusters with a s
 * You cannot change ScaleSetPriority or SpotMaxPrice after creation.
 * When setting SpotMaxPrice, the value must be -1 or a positive value with up to five decimal places.
 * A spot node pool will have the label *kubernetes.azure.com/scalesetpriority:spot*, the taint *kubernetes.azure.com/scalesetpriority=spot:NoSchedule*, and system pods will have anti-affinity.
-* You must add a [corresponding toleration][spot-toleration] to schedule workloads on a spot node pool.
+* You must add a [corresponding toleration][spot-toleration] and affinity to schedule workloads on a spot node pool.
 
 ## Add a spot node pool to an AKS cluster
 
