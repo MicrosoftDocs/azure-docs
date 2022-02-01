@@ -33,6 +33,7 @@ The following public preview limitations apply to App Service Kubernetes environ
 | Feature: Key vault references                           | Not available (depends on managed identities)                                         |
 | Feature: Pull images from ACR with managed identity     | Not available (depends on managed identities)                                         |
 | Feature: In-portal editing for Functions and Logic Apps | Not available                                                                         |
+| Feature: Portal listing of Functions or keys            | Not available if cluster is not publicly reachable                                    |
 | Feature: FTP publishing                                 | Not available                                                                         |
 | Logs                                                    | Log Analytics must be configured with cluster extension; not per-site                 |
 
