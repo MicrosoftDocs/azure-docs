@@ -69,6 +69,7 @@ Let's assume we have a list of floors for our elevator. Since we're dealing with
 When an entity with an ID is of type "List" and is in "Strict" mode, the engine will only match if the text in the slot appears in the list.
 
 > "take me to floor one" will match.
+
 > "take me to floor 5" will not.
 
 It's important to note that the Intent will not match, not just the entity.
@@ -85,8 +86,11 @@ The "PrebuiltInteger" entity is used when you expect to get an integer in that s
 #### Examples of a valid match and return values
 
 > "Two thousand one hundred and fifty-five" -> "2155"
+
 > "first" -> "1"
+
 > "a" -> "1"
+
 > "four oh seven one" -> "4071"
 
 If there's text that is not recognizable as a number, the entity and intent will not match.
@@ -94,8 +98,11 @@ If there's text that is not recognizable as a number, the entity and intent will
 #### Examples of an invalid match
 
 > "the third"
+
 > "first floor I think"
+
 > "second plus three"
+
 > "thirty-three and anyways"
 
 Consider our elevator example.
@@ -111,12 +118,19 @@ In the pattern it's allowed to include words or entities that may be present in 
 To see how this would reduce the number of patterns needed consider the following set.
 
 > "Take me to the {floorName}"
+
 > "Take me the {floorName}"
+
 > "Take me to {floorName}"
+
 > "take me {floorName}"
+
 > "Take me to the {floorName}" please
+
 > "Take me the {floorName}" please
+
 > "Take me to {floorName}" please
+
 > "take me {floorName}" please
 
 These can all be reduced to a single pattern with optional items.
