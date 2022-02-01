@@ -48,7 +48,7 @@ A custom IP address prefix is a contiguous range of IP addresses owned by an ext
 
 * There is no charge to provision or utilize custom IP address prefixes. The no charge applies to all public IP prefixes and public IP addresses that are derived from custom IP address prefixes.
 
-* All traffic destined to a custom prefix range is charged the [internet egress rate](https://azure.microsoft.com/pricing/details/bandwidth/). Azure customers sending traffic to a custom IP prefix address are charged internet egress for the source region of their traffic. Egress traffic from a custom IP address prefix range is charged the equivalent rate as an Azure Public IP from the same region.
+* All traffic destined to a custom prefix range is charged the [internet egress rate](https://azure.microsoft.com/pricing/details/bandwidth/). Customers sending traffic to a custom IP prefix address are charged internet egress for the source region of their traffic. Egress traffic from a custom IP address prefix range is charged the equivalent rate as an Azure Public IP from the same region.
 
 ## Next steps
 
