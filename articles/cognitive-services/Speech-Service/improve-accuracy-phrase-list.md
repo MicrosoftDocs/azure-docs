@@ -35,9 +35,11 @@ There are some situations where [training a custom model](custom-speech-overview
 
 You can use Speech Studio to test how phrase list would help improve recognition for your audio. To implement a phrase list with your application in production, you'll use the Speech SDK or Speech CLI. 
 
-For example, let's say that you want the Speech service to recognize this sentence:<br/>"Abdoulaye Gueye is a Senegalese professional footballer."
+For example, let's say that you want the Speech service to recognize this sentence:
+"Abdoulaye Gueye is a Senegalese professional footballer."
 
-After testing, you might find that it's incorrectly recognized as:<br/>"**Abdullah Guy** is a Senegalese professional footballer."
+After testing, you might find that it's incorrectly recognized as:
+"**Abdullah Guy** is a Senegalese professional footballer."
 
 In this case you would want to add "Abdoulaye Gueye" to your phrase list. Then the name should be recognized correctly. 
 
@@ -146,7 +148,7 @@ spx --% recognize --file "your\path\to\audio.wav" --phrases @phrases.txt
 
 ::: zone-end
 
-## Next Steps
+## Next steps
 
 Check out more options to improve recognition accuracy.
 
