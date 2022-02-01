@@ -8,7 +8,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/25/2022
+ms.date: 02/02/2022
 ms.author: kengaderdus
 ms.subservice: B2C
 ---
@@ -17,14 +17,15 @@ ms.subservice: B2C
 
 In this article, you'll learn how to add Azure Active Directory B2C (Azure AD B2C) authentication in your own Node.js web application. You'll enable users to sign in, sign out, update profile and reset password using Azure AD B2C user flows. This article uses [Microsoft Authentication Library (MSAL) for Node](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node) to simplify adding authentication to your node web application. 
 
-The aim of this article is to substitute the samples application you used in [Configure authentication in a sample Node.js web application by using Azure AD B2C](configure-a-sample-node-web-app.md) with your own Node.js web application. 
+The aim of this article is to substitute the sample application you used in [Configure authentication in a sample Node.js web application by using Azure AD B2C](configure-a-sample-node-web-app.md) with your own Node.js web application. 
 
 This article uses Node.js and [Express](https://expressjs.com/) to create a basic Node.js web app. The application's views uses [Handlebars](https://handlebarsjs.com/). 
 
-## Prerequisites
+## Prerequisites 
+
 - Complete the steps in [Configure authentication in a sample Node.js web application by using Azure AD B2C](configure-a-sample-node-web-app.md). You'll create Azure AD B2C user flows and register a web application in Azure portal. 
 
-## Create the node project
+## Step 1: Create the node project
 
 Create a folder to host your node application, such as  `active-directory-b2c-msal-node-sign-in-sign-out-webapp`.
 
@@ -45,7 +46,7 @@ Create a folder to host your node application, such as  `active-directory-b2c-ms
 
 The `views` folder contains Handlebars files for the app's UI.
 
-## Install app dependencies 
+## Step 2: Install app dependencies 
 
 In your terminal, install the `dotenv`, `express-handlebars`, `express-session`, and `@azure/msal-node` packages by running the following commands:
 
@@ -56,7 +57,7 @@ npm install express-session
 npm install @azure/msal-node
 ```
 
-## Build app UI components 
+## Step 3: Build app UI components 
 
 In the `main.hbs` file, add the following code:
 
@@ -64,31 +65,29 @@ In the `main.hbs` file, add the following code:
 
 The `main.hbs` file is in the `layout` folder. It should contain any HTML code that's required throughout your application. Any UI that changes from one view to another, such as in `signin.hbs`, is placed in the placeholder shown as `{{{body}}}`. 
 
-The `main.hbs` file implements UI built with the Bootstrap 5 CSS framework. The user sees the **Edit password**, **Reset password**, and **Sign out** UI components when signed in. The user sees **Sign in** when signed out. This behavior is tracked by the `showSignInButton` Boolean variable, which the app server sends. 
+The `main.hbs` file implements UI built with the Bootstrap 5 CSS framework. You'll see the **Edit password**, **Reset password**, and **Sign out** UI components when signed in. You'll see **Sign in** when signed out. This behavior is tracked by the `showSignInButton` Boolean variable, which the app server sends. 
 
 In the `signin.hbs` file, add the following code:
 
 :::code language="HTML" source="~/active-directory-b2c-msal-node-sign-in-sign-out-webapp/views/signin.hbs":::
 
-## Configure the web server and MSAL client
+## Step 4: Configure the web server and MSAL client
 
-1. In the `.env` file, add the following code, which includes the server HTTP port, app registration details, and user flow/policy details:
+1. In the `.env` file, add the following code and update the code in as explained in [Get and update the sample Node web app code](configure-a-sample-node-web-app.md#step-5-configure-the-sample-web-app).
 
-    :::code language="JavaScript" source="~/active-directory-b2c-msal-node-sign-in-sign-out-webapp/.env":::
-
-    Update the code in `.env` file as explained in [Get and update the sample Node web app code](configure-a-sample-node-web-app.md#get-and-update-the-sample-node-web-app-code).
+    :::code language="text" source="~/active-directory-b2c-msal-node-sign-in-sign-out-webapp/.env":::    
 
 1. In your `index.js` file, add the following code to use your app dependencies: 
 
     :::code language="JavaScript" source="~/active-directory-b2c-msal-node-sign-in-sign-out-webapp/index.js" id="ms_docref_use_app_dependencies":::
 
-1. In your `index.js` file, add the following code:
+1. In your `index.js` file, add the following code to configure the authentication library:
     
     :::code language="JavaScript" source="~/active-directory-b2c-msal-node-sign-in-sign-out-webapp/index.js" id="ms_docref_configure_msal":::
     
-    `confidentialClientConfig` is the MSAL configuration object that's used to create the confidential client application (that is, `confidentialClientApplication`). 
+    `confidentialClientConfig` is the MSAL configuration object used to connect to your Azure AD B2C tenant's authentication endpoints.
 
-1. To add mode global variables in the `index.js` file, add the following code:
+1. To add more global variables in the `index.js` file, add the following code:
 
     :::code language="JavaScript" source="~/active-directory-b2c-msal-node-sign-in-sign-out-webapp/index.js" id="ms_docref_global_variable":::
 
@@ -101,7 +100,7 @@ In the `signin.hbs` file, add the following code:
     
     :::code language="JavaScript" source="~/active-directory-b2c-msal-node-sign-in-sign-out-webapp/index.js" id="ms_docref_view_tepmplate_engine":::
 
-## Add app express routes
+## Step 5: Add app express routes
 
 Before you add the app route, add the logic that retrieves the authorization code URL. This is the first leg of authorization code grant flow. In the `index.js` file, add the following code:
 
@@ -118,22 +117,22 @@ The app express routes are:
     - It's used to enter the web app.
     - It renders the `signin` page.
 - `/signin`:
-    - It's used when the user signs in.
+    - It's used when you signs in.
     - It calls the `getAuthCode()` method and passes `authority` for the **Sign in and sign up** user flow/policy, `APP_STATES.LOGIN`, and an empty `scopes` array to it.  
-    - If necessary, it causes the user to be challenged to enter their credentials. If the user doesn't have an account, it prompts the user to sign up.
+    - If necessary, it causes a challenge on you to enter your credentials. If the you don't have an account, it prompts you to sign up.
     - The final response that results from this route includes an authorization code from Azure AD B2C posted back to the `/redirect` route. 
 - `/password`:
-    - It's used when a user resets a password.
+    - It's used when a you reset a password.
     - It calls the `getAuthCode()` method and passes `authority` for the **Password reset** user flow/policy, `APP_STATES.PASSWORD_RESET`, and an empty `scopes` array to it.
-    - It causes the user to change their password by using the password reset experience, or they can cancel the operation.
-    - The final response that results from this route includes an authorization code from Azure AD B2C posted back to the `/redirect` route. If the user cancels the operation, an error is posted back. 
+    - It enables you to change your password by using the password reset experience, or they can cancel the operation.
+    - The final response that results from this route includes an authorization code from Azure AD B2C posted back to the `/redirect` route. If you cancel the operation, an error is posted back. 
 - `/profile`: 
-    - It's used when a user updates their profile.
+    - It's used when you updates your profile.
     - It calls the `getAuthCode()` method and passes `authority` for the **Profile editing** user flow/policy, `APP_STATES.EDIT_PROFILE`, and an empty `scopes` array to it.
-    - It causes the user to update their profile by using the profile-editing experience. 
+    - It enables you to update your profile, and you use the profile-editing experience. 
     - The final response that results from this route includes an authorization code from Azure AD B2C posted back to the `/redirect` route. 
 - `/signout`:
-    - It's used when a user signs out.
+    - It's used when you igns out.
     - The web app session is cleared, and an HTTP call is made to the Azure AD B2C logout endpoint. 
 - `/redirect`:
     - It's the route set as Redirect URI for the web app in Azure portal.
@@ -147,10 +146,10 @@ To start the Node server, add the following code in the `index.js` file:
 
 :::code language="JavaScript" source="~/active-directory-b2c-msal-node-sign-in-sign-out-webapp/index.js" id="ms_docref_start_node_server":::
 
-## Test your web app
+## Run your web app
 
-Follow the steps in [Run your web app](configure-a-sample-node-web-app.md#run-your-web-app) to test your Node.js web app. 
+Follow the steps in [Run your web app](configure-a-sample-node-web-app.md#run-the-sample-web-app) to test your Node.js web app. 
 
 ## Next steps
 
-- [Enable authentication in a Node.js web API using Azure AD B2C](enable-authentication-in-node-web-api.md).
+- Learn how to [customize and enhance the Azure AD B2C authentication experience for your web app](enable-authentication-in-node-web-app-options.md)
