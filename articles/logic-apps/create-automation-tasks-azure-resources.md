@@ -15,7 +15,7 @@ ms.custom: ignite-fall-2021
 > This capability is in preview and is subject to the 
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-To help you manage [Azure resources](../azure-resource-manager/management/overview.md#terminology) more easily, you can create automated management tasks for a specific resource or resource group by using automation task templates, which vary in availability based on the resource type. For example, for an [Azure storage account](../storage/common/storage-account-overview.md), you can set up an automation task that sends you the monthly cost for that storage account. For an [Azure virtual machine](https://azure.microsoft.com/services/virtual-machines/), you can create an automation task that turns on or turns off that virtual machine on a predefined schedule.
+To help you manage [Azure resources](../azure-resource-manager/management/overview.md#terminology) more easily, you can create automated management tasks for a specific resource or resource group by using automation task templates, which vary in availability based on the resource type. For example, for an [Azure storage account](../storage/common/storage-account-overview.md), you can set up an automation task that sends the monthly cost for that storage account. For an [Azure virtual machine](https://azure.microsoft.com/services/virtual-machines/), you can create an automation task that turns on or turns off that virtual machine on a predefined schedule.
 
 Here are the currently available task templates in this preview:
 
@@ -64,7 +64,7 @@ Triggers and actions follow [Consumption plan rates](https://azure.microsoft.com
 
 * The Azure resource that you want to manage. This article uses an Azure storage account as the example.
 
-* An Office 365 account if you want to follow along with the example, which sends you email by using Office 365 Outlook.
+* An Office 365 account if you want to follow along with the example, which sends email by using Office 365 Outlook.
 
 <a name="create-automation-task"></a>
 
