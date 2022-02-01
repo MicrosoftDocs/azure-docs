@@ -49,7 +49,7 @@ When you need to assume an Azure AD role, you can request activation by opening 
 
     ![Screen to provide security verification such as a PIN code](./media/pim-resource-roles-activate-your-roles/resources-mfa-enter-code.png)
 
-1. After multi-factor authentication, select **Activate before proceeding**.
+1. After multifactor authentication, select **Activate before proceeding**.
 
     ![Verify my identity with MFA before role activates](./media/pim-how-to-activate-role/activate-role-mfa-banner.png)
 
@@ -79,7 +79,7 @@ GET https://graph.microsoft.com/beta/roleManagement/directory/roleEligibilitySch
 
 #### HTTP response
 
-To save space we're showing only the response for one roles, but all eligible role assignments that you can activate will be listed.
+To save space we're showing only the response for one role, but all eligible role assignments that you can activate will be listed.
 
 ````HTTP
 { 
@@ -210,6 +210,18 @@ If you do not require activation of a role that requires approval, you can cance
     When you select Cancel, the request will be canceled. To activate the role again, you will have to submit a new request for activation.
 
    ![My request list with Cancel action highlighted](./media/pim-resource-roles-activate-your-roles/resources-my-requests-cancel.png)
+
+## Deactivate a role assignment
+
+five minutes
+UX deactivate a role assignment can't within five minutes of activation
+
+"SQL Server 2019 Big Data Clusters" and "big data clusters"
+
+
+Press deaCTIVATE LOOKS LIKE IT DOES BUT THERE'S A LAG
+not instantaneous
+Section in Activate articles for Deactivate. AD roles
 
 ## Troubleshoot portal delay
 
