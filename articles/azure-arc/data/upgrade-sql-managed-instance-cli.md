@@ -1,5 +1,5 @@
 ---
-title: Upgrade an an indirectly connected Azure Arc-enabled Managed Instance using the CLI
+title: Upgrade an indirectly connected Azure Arc-enabled Managed Instance using the CLI
 description: Article describes how to upgrade an indirectly connected Azure Arc-enabled Managed Instance using the CLI
 services: azure-arc
 ms.service: azure-arc
