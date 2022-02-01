@@ -40,7 +40,7 @@ By default, every hub using a specific User VPN Configuration is included in the
 To check whether or not the hub is included in the global VPN profile:
 
 1. Navigate to the hub
-1. Navigate to **User VPN** under **Connectivity** on the left-hand panel
+1. Navigate to **User VPN (Point to site)** under **Connectivity** on the left-hand panel
 1. See **Gateway Attachment State** to determine if this hub is included in the global VPN profile. If the state is **attached**, then the hub is included in the global VPN profile. If the state is **detached**, then the hub is not included in the global VPN profile. 
 
  :::image type="content" source="./media/global-hub-profile/attachment-state.png" alt-text="Screenshot showing attachment state of gateway."lightbox="./media/global-hub-profile/attachment-state.png":::
