@@ -1,9 +1,9 @@
 ---
-title: How to add a new update | Microsoft Docs
-description: How-To guide for adding a new update into Device Update for IoT Hub.
+title: Add a new update | Microsoft Docs
+description: How-To guide to add a new update into Device Update for IoT Hub.
 author: andrewbrownmsft
 ms.author: andbrown
-ms.date: 1/10/2022
+ms.date: 1/31/2022
 ms.topic: how-to
 ms.service: iot-hub-device-update
 ---
@@ -32,7 +32,7 @@ Learn how to obtain a new update and import it into Device Update for IoT Hub.
 
    :::image type="content" source="media/import-update/import-updates-3-ppr.png" alt-text="Import Updates" lightbox="media/import-update/import-updates-3-ppr.png":::
 
-3. You'll see several tabs across the top of the screen. Select the `Updates` tab.
+3. Select the `Updates` tab from the list of tabs across the top of the screen.
 
    :::image type="content" source="media/import-update/updates-tab-ppr.png" alt-text="Updates" lightbox="media/import-update/updates-tab-ppr.png":::
 
@@ -40,19 +40,19 @@ Learn how to obtain a new update and import it into Device Update for IoT Hub.
 
    :::image type="content" source="media/import-update/import-new-update-2-ppr.png" alt-text="Import New Update" lightbox="media/import-update/import-new-update-2-ppr.png":::
 
-5. Select `+ Select from storage container`. The Storage accounts UI will be shown. Select an existing account or create a new account using `+ Storage account`. This account will be used for a container to stage your updates for importing.
+5. Select `+ Select from storage container`. The Storage accounts UI is shown. Select an existing account, or create a new account using `+ Storage account`. This account is used for a container to stage your updates for import.
 
    :::image type="content" source="media/import-update/select-update-files-ppr.png" alt-text="Select Update Files" lightbox="media/import-update/select-update-files-ppr.png":::
 
-6. Once you've selected a Storage account, the Containers UI will be shown. Select an existing container or create a new container using `+ Container`. This container will be used to stage your update files for importing _Recommendation: use a new container each time you import an update to avoid accidentally importing files from previous updates. If you don't use a new container, be sure to delete any files from the existing container before completing this step._
+6. Once you've selected a Storage account, the Containers UI is shown. Select an existing container, or create a new container using `+ Container`. This container is used to stage your update files for importing _Recommendation: use a new container each time you import an update to avoid accidentally importing files from previous updates. If you don't use a new container, be sure to delete any files from the existing container before completing this step._
 
    :::image type="content" source="media/import-update/storage-account-ppr.png" alt-text="Storage Account" lightbox="media/import-update/storage-account-ppr.png":::
 
-7. In your container, select `Upload`. The Upload UI will be shown.
+7. In your container, select `Upload`. The Upload UI is shown.
 
    :::image type="content" source="media/import-update/container-ppr.png" alt-text="Select Container" lightbox="media/import-update/container-ppr.png":::
 
-8. Select the folder icon on the right side of the `Files` section under the `Upload blob` header. A file picker will be shown. Navigate to the location of your update file(s) and import manifest, select all of the files, then select `Open`. _You can hold the Shift key and click to multi-select files._
+8. Select the folder icon on the right side of the `Files` section under the `Upload blob` header. Using the file picker, navigate to the location of your update file(s) and import manifest, select all of the files, then select `Open`. _You can hold the Shift key and click to multi-select files._
 
    :::image type="content" source="media/import-update/container-picker-ppr.png" alt-text="Publish Update" lightbox="media/import-update/container-picker-ppr.png":::
 
@@ -60,25 +60,25 @@ Learn how to obtain a new update and import it into Device Update for IoT Hub.
 
    :::image type="content" source="media/import-update/container-upload-ppr.png" alt-text="Container Upload" lightbox="media/import-update/container-picker-ppr.png":::
 
-10. Select the files you just uploaded to designate them for importing. Then click the `Select` button to return to the `Import update` page.
+10. Select the uploaded files to designate them for importing. Then click the `Select` button to return to the `Import update` page.
 
        :::image type="content" source="media/import-update/import-select-ppr.png" alt-text="Select Uploaded Files" lightbox="media/import-update/import-select-ppr.png":::
 
-11. On the Import update page, review the files to be imported. Then select `Import update` to start the import process. _See the [Proxy Update Troubleshooting](device-update-proxy-update-troubleshooting.md) page to resolve any errors._
+11. On the Import update page, review the files to be imported. Then select `Import update` to start the import process. _To resolve any errors, see the [Proxy Update Troubleshooting](device-update-proxy-update-troubleshooting.md) page ._
 
        :::image type="content" source="media/import-update/import-start-2-ppr.png" alt-text="Import Start" lightbox="media/import-update/import-start-2-ppr.png":::
 
-12. The import process begins, and the screen switches to the `Import History` section. Select `Refresh` to view progress until the import process completes (depending on the size of the update, this may complete in a few minutes but could take longer).
+12. The import process begins, and the screen switches to the `Import History` section. Select `Refresh` to view progress until the import process completes (depending on the size of the update, the process may complete in a few minutes but could take longer).
 
        :::image type="content" source="media/import-update/update-publishing-sequence-2-ppr.png" alt-text="Update Import Sequencing" lightbox="media/import-update/update-publishing-sequence-2-ppr.png":::
 
-13. When the `Status` column indicates the import has succeeded, select the `Available Updates` header. You should see your imported update in the list now.
+13. When the `Status` column indicates that the import has succeeded, select the `Available Updates` header. You should see your imported update in the list now.
 
        :::image type="content" source="media/import-update/update-ready-ppr.png" alt-text="Job Status" lightbox="media/import-update/update-ready-ppr.png":::
 
 ## If you're importing via APIs instead
 
-In addition to using the Azure portal, you may also import an update programmatically by:
+In addition to importing via the Azure portal, you can also import an update programmatically by:
 * Using `Azure SDK` for [.NET](https://docs.microsoft.com/dotnet/api/azure.iot.deviceupdate), [Java](https://docs.microsoft.com/java/api/com.azure.iot.deviceupdate), [JavaScript](https://docs.microsoft.com/javascript/api/@azure/iot-device-update) or [Python](https://docs.microsoft.com/python/api/azure-mgmt-deviceupdate/azure.mgmt.deviceupdate)
 * Using [Import Update REST API](https://docs.microsoft.com/rest/api/deviceupdate/updates/import-update)
 * Using [sample PowerShell modules](https://github.com/Azure/iot-hub-device-update/tree/main/tools/AduCmdlets)
