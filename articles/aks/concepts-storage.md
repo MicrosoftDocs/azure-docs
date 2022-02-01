@@ -41,7 +41,7 @@ Use *Azure Disks* to create a Kubernetes *DataDisk* resource. Disks can use:
 > [!TIP]
 >For most production and development workloads, use Premium storage. 
 
-Since Azure Disks are mounted as *ReadWriteOnce*, they're only available to a single pod. For storage volumes that can be accessed by multiple pods simultaneously, use Azure Files.
+Since Azure Disks are mounted as *ReadWriteOnce*, they're only available to a single or multiple pods running on the same node. For storage volumes that can be accessed by multiple pods simultaneously, use Azure Files.
 
 ### Azure Files
 Use *Azure Files* to mount an SMB 3.0 share backed by an Azure Storage account to pods. Files let you share data across multiple nodes and pods and can use:
