@@ -12,7 +12,7 @@ ms.custom: references_regions
 To enable Azure Purview to manage policies for one or more Azure Storage accounts, execute the following PowerShell commands in the subscription where you'll deploy your Azure Storage account. These PowerShell commands will enable Azure Purview to manage policies on all newly created Azure Storage accounts in that subscription.
 
 If you’re executing these commands locally, be sure to run PowerShell as an administrator.
-Alternatively, you can use the [Azure Cloud Shell](../cloud-shell/overview.md) in the Azure portal: [https://shell.azure.com](https://shell.azure.com).
+Alternatively, you can use the [Azure Cloud Shell](../../cloud-shell/overview.md) in the Azure portal: [https://shell.azure.com](https://shell.azure.com).
 
 ```powershell
 # Install the Az module
@@ -34,6 +34,6 @@ If the output is *Registering*, wait at least 10 minutes before retrying the com
 ### Create a new Azure Storage account
 After you’ve enabled the access policy above, create new Azure Storage account(s) in one of the regions listed below:
 
-[!INCLUDE [Azure Storage specific pre-requisites](./includes/access-policies-storage-regions.md)]
+[!INCLUDE [Azure Storage specific pre-requisites](access-policies-storage-regions.md)]
 
 You can [follow this guide to create one](../../storage/common/storage-account-create.md).
