@@ -53,7 +53,7 @@ In this tutorial you will learn how to:
    # For example sudo /usr/bin/AducIotAgent --register-content-handler /var/lib/adu/extensions/sources/libmicrosoft_simulator_1.so --update-type 'microsoft/apt:1'
    ```
 
-2. Download the sample-du-simulator-data.json from Release Assets. Run the command below to create and edit the du-simulator-data.json in the tmp folder. 
+2. Download the sample-du-simulator-data.json from [Release Assets](https://github.com/Azure/iot-hub-device-update/releases). Run the command below to create and edit the du-simulator-data.json in the tmp folder. 
 
    ```sh
    sudo nano /tmp/du-simulator-data.json
