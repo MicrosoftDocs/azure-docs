@@ -34,7 +34,7 @@ ms.custom: ignite-fall-2021
 
 :::image type="content" source="media/studio/general-document.png" alt-text="Screenshot: Studio general document icon.":::
 
-* The general document API supports most form types and will analyze your documents and associate values to keys and entries to tables that it discovers. It is ideal for extracting common key-value pairs from documents. You can use the general document model as an alternative to [training a custom model without labels](compose-custom-models.md#train-without-labels).
+* The general document API supports most form types and will analyze your documents and associate values to keys and entries to tables that it discovers. It's ideal for extracting common key-value pairs from documents. You can use the general document model as an alternative to [training a custom model without labels](compose-custom-models.md#train-without-labels).
 
 * The general document is a pre-trained model and can be directly invoked via the REST API.
 
@@ -90,7 +90,7 @@ The receipt model analyzes and extracts key information from sales receipts. The
 
 :::image type="content" source="media/studio/id-document.png" alt-text="Screenshot: Studio identity document icon.":::
 
-The ID document model analyzes and extracts key information from U.S. Driver's Licenses (all 50 states and District of Columbia) and international passport biographical pages (excluding visa and other travel documents). The API analyzes identity documents and extracts key information such as first name, last name, address, and date of birth.
+The ID document model analyzes and extracts key information from U.S. Driver's Licenses (all 50 states and District of Columbia) and biographical pages for international passports (excluding visa and other travel documents). The API analyzes identity documents and extracts key information such as first name, last name, address, and date of birth.
 
 ***Sample U.S. Driver's License processed with [Form Recognizer Sample Labeling tool](https://fott-2-1.azurewebsites.net/)***:
 
@@ -128,7 +128,7 @@ The custom model analyzes and extracts data from forms and documents specific to
 ## Data extraction
 
  | **Model**   | **Text extraction** |**Key-Value pairs** |**Fields**|**Selection Marks**   | **Tables**   |**Entities** |
-  | --- | :---: |:---:| :---: | :---: |:---: |:---: |
+  | --- |: ---: |:---:|: ---: |: ---: |:---: |:---: |
   |🆕General document  | ✓  |  ✓ || ✓  | ✓  | ✓  |
   | Layout  | ✓  |   || ✓  | ✓  |   |
   | Invoice  | ✓ | ✓  |✓| ✓  | ✓ ||

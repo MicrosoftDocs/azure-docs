@@ -9,7 +9,7 @@ metadata:
   ms.service: applied-ai-services
   ms.subservice: forms-recognizer
   ms.topic: conceptual
-  ms.date: 02/01/2022
+  ms.date: 02/15/2022
   ms.author: lajanuar
 
 title: Form Recognizer frequently asked questions
@@ -76,7 +76,7 @@ sections:
 
           OCR is used to extract text from printed and handwritten documents.
 
-          Form Recognizer uses OCR to detect and extract information from forms and documents supported by AI to provide additional structure and information to the text extraction.
+          Form Recognizer uses OCR to detect and extract information from forms and documents supported by AI to provide more structure and information to the text extraction.
 
           Learn more about [Form Recognizer and Applied AI Services](/azure/applied-ai-services/what-are-applied-ai-services).
 
@@ -265,7 +265,7 @@ sections:
 
           Form Recognizer doesn’t have an explicit retrain operation. Each train operation generates a new model.
 
-          If you find that your model needs retraining, add additional samples to your training data set and train a new model.
+          If you find that your model needs retraining, add more samples to your training data set and train a new model.
 
       - question: |
           How many custom models can I compose into a single custom model?
@@ -363,7 +363,7 @@ sections:
 
           Learn more about [Data, privacy, and security for Form Recognizer](/legal/cognitive-services/form-recognizer/fr-data-privacy-security?context=/azure/applied-ai-services/form-recognizer/context/context).
 
-  - name: Additional help and support
+  - name: More help and support
     questions:
       - question: |
             Where can I find more solutions to my Azure Form Recognizer questions?
@@ -373,4 +373,4 @@ sections:
       - question: |
             What should I do if specific text isn’t recognized or recognized incorrectly when labeling documents?
         answer: |
-            We continually update and improve the Form Recognizer OCR model. Please reach out to the Form Recognizer team: [formrecog_contact@microsoft.com](mailto:formrecog_contact@microsoft.com). If possible, please share a sample document with the issue highlighted.
+            We continually update and improve the Form Recognizer OCR model. Please reach out to the Form Recognizer team: [formrecog_contact@microsoft.com](mailto:formrecog_contact@microsoft.com). If possible, share a sample document with the issue highlighted.

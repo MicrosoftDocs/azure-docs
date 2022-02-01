@@ -1,13 +1,13 @@
 ---
 title: "Use Form Recognizer client library SDKs or REST API"
 titleSuffix: Azure Applied AI Services
-description: Use a Form Recognizer client library SDK or REST API to create a forms processing app that extracts key/value pairs and table data from your custom documents.
+description: How to use a Form Recognizer client libraries or REST API to create apps that extracts key-value pairs and table data from your custom documents.
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
-ms.date: 11/02/2021
+ms.date: 02/01/2022
 ms.author: lajanuar
 zone_pivot_groups: programming-languages-set-formre
 recommendations: false
