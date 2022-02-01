@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: how-to
-ms.date: 11/16/2021
+ms.date: 02/03/2022
 ms.collection: M365-identity-device-management
 ---
 
@@ -93,9 +93,14 @@ An attribute set is a collection of related attributes. All custom security attr
 
     Select **Yes** to require that this custom security attribute be assigned values from a predefined values list. Select **No** to allow this custom security attribute to be assigned user-defined values or potentially predefined values.
 
-    You can only add the predefined values after you add the custom security attribute by using the Edit attribute page. For more information, see [Edit a custom security attribute](#edit-a-custom-security-attribute).
+1. If **Only allow predefined values to be assigned** is **Yes**, click **Add value** to add predefined values.
 
-1. When finished, click **Add**.
+    An active value is available for assignment to objects. A value that is not active is defined, but not yet available for assignment.
+
+    ![Screenshot of New attribute pane with Add predefined value pane in Azure portal.](./media/custom-security-attributes-add/attribute-new-value-add.png)
+
+
+1. When finished, click **Save**.
 
     The new custom security attribute appears in the list of custom security attributes.
 
@@ -116,8 +121,6 @@ Once you add a new custom security attribute, you can later edit some of the pro
 1. Edit the properties that are enabled.
   
 1. If **Only allow predefined values to be assigned** is **Yes**, click **Add value** to add predefined values. Click an existing predefined value to change the **Is active?** setting.
-
-    An active value is available for assignment to objects. A value that is not active is defined, but not yet available for assignment.
 
     ![Screenshot of Add predefined value pane in Azure portal.](./media/custom-security-attributes-add/attribute-predefined-value-add.png)
 
@@ -380,6 +383,43 @@ POST https://graph.microsoft.com/beta/directory/customSecurityAttributeDefinitio
 }
 ```
 
+#### Add a custom security attribute with a list of predefined values
+
+- Attribute set: `Engineering`
+- Attribute: `Project`
+- Attribute data type: Collection of Strings
+- Predefined value: `Alpine`
+- Predefined value: `Baker`
+- Predefined value: `Cascade`
+
+```http
+POST https://graph.microsoft.com/beta/directory/customSecurityAttributeDefinitions
+{
+    "attributeSet": "Engineering",
+    "description": "Active projects for user",
+    "isCollection": true,
+    "isSearchable": true,
+    "name": "Project",
+    "status": "Available",
+    "type": "String",
+    "usePreDefinedValuesOnly": true,
+    "allowedValues": [
+        {
+            "id": "Alpine",
+            "isActive": true
+        },
+        {
+            "id": "Baker",
+            "isActive": true
+        },
+        {
+            "id": "Cascade",
+            "isActive": true
+        }
+    ]
+}
+```
+
 #### Update a custom security attribute
 
 - Attribute set: `Engineering`
@@ -389,6 +429,35 @@ POST https://graph.microsoft.com/beta/directory/customSecurityAttributeDefinitio
 PATCH https://graph.microsoft.com/beta/directory/customSecurityAttributeDefinitions/Engineering_ProjectDate
 {
   "description": "Target completion date (YYYY/MM/DD)",
+}
+```
+
+#### Update the predefined values for a custom security attribute
+
+- Attribute set: `Engineering`
+- Attribute: `Project`
+- Attribute data type: Collection of Strings
+- Update predefined value: `Baker`
+- New predefined value: `Skagit`
+
+> [!NOTE]
+> For this request, you must add the following to the header:<br/>
+> Key: odata-version<br/>
+> Value: 4.01
+
+```http
+PATCH https://graph.microsoft.com/beta/directory/customSecurityAttributeDefinitions/Engineering_Project
+{
+    "allowedValues@delta": [
+        {
+            "id": "Baker",
+            "isActive": false
+        },
+        {
+            "id": "Skagit",
+            "isActive": true
+        }
+    ]
 }
 ```
 
