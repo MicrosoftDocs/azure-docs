@@ -27,7 +27,7 @@ May include one or more of the following:
 * Docker isn't configured properly in your environment - [solution](#check-docker-configuration)
 * The registry doesn't exist or the name is incorrect - [solution](#specify-correct-registry-name)
 * The registry credentials aren't valid - [solution](#confirm-credentials-to-access-registry)
-* The registry public access is disabled. - [solution](#configure-public-access-to-registry)
+* The registry public access is disabled.Public network access rules on the registry prevent access- [solution](#configure-public-access-to-registry)
 * The credentials aren't authorized for push, pull, or Azure Resource Manager operations - [solution](#confirm-credentials-are-authorized-to-access-registry)
 * The credentials are expired - [solution](#check-that-credentials-arent-expired)
 
