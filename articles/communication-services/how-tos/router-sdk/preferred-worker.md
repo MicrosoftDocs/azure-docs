@@ -15,7 +15,7 @@ zone_pivot_groups: acs-js-csharp
 
 # Target a Preferred Worker
 
-In the context of a call center, customers may be assigned an account manager or have a relationship with a specific worker.  As such, we'd like to route a specific job to a specific worker if possible.
+In the context of a call center, customers might be assigned an account manager or have a relationship with a specific worker. As such, You'd want to route a specific job to a specific worker if possible.
 
 [!INCLUDE [Private Preview Disclaimer](../../includes/private-preview-include-section.md)]
 
@@ -27,9 +27,9 @@ In the context of a call center, customers may be assigned an account manager or
 
 ## Setup worker selectors
 
-Every worker will automatically have an `Id` label.  We can leverage the worker selectors of the job to target a specific worker.
+Every worker automatically has an `Id` label. You can apply worker selectors to the job, to target a specific worker.
 
-In the following example we create a job that will target a specific worker, if that worker does not accept the job within the TTL of 1 minute, the condition for the specific worker will no longer be valid and the job could go to any worker.
+In the following example, a job is created that targets a specific worker. If that worker does not accept the job within the TTL of 1 minute, the condition for the specific worker is no longer be valid and the job could go to any worker.
 
 ::: zone pivot="programming-language-csharp"
 
