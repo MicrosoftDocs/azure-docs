@@ -366,7 +366,7 @@ The **Operator** menu displays the following options depending on the identity y
 
 ### Save a query under a different name
 
-1. Select the ellipses (**...**).  
+- Select the ellipses (**...**).  
 
     System queries have only one option:
 
