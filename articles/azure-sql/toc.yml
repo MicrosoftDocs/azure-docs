@@ -127,7 +127,7 @@
         - name: High availability
           href: database/high-availability-sla.md
         - name: Auto-failover groups
-          href: database/auto-failover-group-overview.md
+          href: auto-failover-group-overview.md
         - name: Backup and recovery 
           items:
           - name: Automated backups
@@ -188,8 +188,6 @@
 
     - name: Business continuity  
       items: 
-      - name: Configure failover group
-        href: database/auto-failover-group-configure.md
       - name: Configure temporal retention policy
         href: database/temporal-tables-retention-policy.md
       - name: Configure backup retention using Azure Blob storage
@@ -453,6 +451,8 @@
       items: 
       - name: Active geo-replication
         href: database/active-geo-replication-overview.md
+      - name: Auto-failover groups
+        href: database/auto-failover-group-sql-db.md
       - name: Outage recovery guidance
         href: database/disaster-recovery-guidance.md
       - name: Recovery drills
@@ -621,6 +621,8 @@
       items: 
       - name: Configure backup retention using Azure Blob storage
         href: database/long-term-backup-retention-configure.md
+      - name: Create auto-failover group
+        href: database/auto-failover-group-configure-sql-db.md
       - name: Configure geo-replication - Portal
         href: database/active-geo-replication-configure-portal.md
       - name: Configure security for geo-replicas
@@ -938,6 +940,8 @@
       href: managed-instance/service-tiers-managed-instance-vcore.md
     - name: Connectivity architecture
       href: managed-instance/connectivity-architecture-overview.md
+    - name: Auto-failover groups
+      href: managed-instance/auto-failover-group-sql-mi.md
     - name: T-SQL differences
       href: managed-instance/transact-sql-tsql-differences-sql-server.md
     - name: Transactional replication
@@ -1200,8 +1204,12 @@
         href: managed-instance/point-in-time-restore.md
       - name: Monitor back up
         href: managed-instance/backup-activity-monitor.md
-      - name: Manually initiate a failover on managed instance
-        href: managed-instance/user-initiated-failover.md
+      - name: Auto-failover groups
+        items: 
+        - name: Create failover group
+          href: managed-instance/auto-failover-group-configure-sql-mi.md
+        - name: Manually initiate a failover
+          href: managed-instance/user-initiated-failover.md
   - name: Samples
     items:
     - name: Azure CLI
