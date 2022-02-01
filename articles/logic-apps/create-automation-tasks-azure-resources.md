@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 11/02/2021
+ms.date: 02/04/2022
 ms.custom: ignite-fall-2021
 ---
 
@@ -281,6 +281,28 @@ When you change the underlying workflow for an automation task, your changes aff
    ![Screenshot that shows the workflow's run details on the designer.](./media/create-automation-tasks-azure-resources/view-run-details-designer.png)
 
 1. To disable the workflow so that the task doesn't continue running, see [Manage logic apps in the Azure portal](../logic-apps/manage-logic-apps-with-azure-portal.md).
+
+<a name="export-template"></a>
+
+## Export automation task as a template
+
+You can export any automation task that starts with a recurring trigger as an automation task template. Automation tasks are based on Consumption logic app workflows only.
+
+1. In the [Azure portal](https://portal.azure.com), find the resource that has the automation task that you want to export.
+
+1. On the resource navigation menu, in the **Automation** section, select **Tasks**.
+
+1. In the tasks list, find the task that you want to update. Open the task's ellipses (**...**) menu, and select **Open in Logic Apps**.
+
+   ![Screenshot showing the tasks list and opened ellipses menu with "Open in Logic Apps" selected.](./media/create-automation-tasks-azure-resources/edit-task-logic-app-designer.png)
+
+   The task's underlying workflow opens in the Azure Logic Apps service and shows the **Overview** pane where you can view the same runs history that's available for the task.
+
+   ![Screenshot showing the task in Azure Logic Apps view with "Overview" pane selected.](./media/create-automation-tasks-azure-resources/task-logic-apps-view.png)
+
+1. On the **Overview** pane toolbar, select **Export** > **Export to Automation Task**.
+
+   :::image type="content" source="/media/create-automation-tasks-azure-resources/export-automation-task.png" alt-text="Screenshot showing 'Overview' pane toolbar with 'Export' menu open and 'Export to Automation Task' selected.":::
 
 ## Provide feedback
 
