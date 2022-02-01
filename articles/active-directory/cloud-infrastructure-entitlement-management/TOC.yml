@@ -144,12 +144,10 @@
     - name: Manage rules for authorization systems
       expanded: true
       items:
-      - name: The Autopilot dashboard - Overview
-        href: cloudknox-ui-autopilot.md
-      - name: Manage users with the Autopilot dashboard
-        href: cloudknox-product-autopilot.md
-      - name: Create a rule
+      - name: Create a rule in the Autopilot dashboard
         href: cloudknox-howto-create-rule.md 
+      - name: View rules in the Autopilot dashboard
+        href: cloudknox-ui-autopilot.md
     - name: Create and view reports 
       expanded: true
       items: 

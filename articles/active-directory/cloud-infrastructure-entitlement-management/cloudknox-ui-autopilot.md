@@ -1,6 +1,6 @@
 ---
-title: Microsoft CloudKnox Permissions Management - The Autopilot dashboard
-description: How to use the Autopilot dashboard in Microsoft CloudKnox Permissions Management.
+title: View rules in the Autopilot dashboard in Microsoft CloudKnox Permissions Management
+description: How to view rules in the Autopilot dashboard in Microsoft CloudKnox Permissions Management.
 services: active-directory
 author: Yvonne-deQ
 manager: karenh444
@@ -8,57 +8,60 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: overview
-ms.date: 01/17/2022
+ms.date: 01/30/2022
 ms.author: v-ydequadros
 ---
 
-# The Autopilot dashboard
+# View rules in the Autopilot dashboard
 
-The **Autopilot** dashboard in Microsoft CloudKnox Permissions Management (CloudKnox) provides a table of information about **Autopilot Rules** for administrators.
+The **Autopilot** dashboard in Microsoft CloudKnox Permissions Management (CloudKnox) provides a table of information about **Autopilot rules** for administrators.
 
-This topic provides an overview of the components of the **Autopilot** dashboard.
 
 > [!NOTE]
 > Only users with the **Administrator** role can view and make changes on this tab.
 
-**To display a list of Autopilot Rules**
+## View a list of rules 
 
-- **Authorization system types** - From a drop-down list, select the authorization system types you can access. May include Amazon Web Services (AWS), Microsoft Azure (Azure), Google Cloud Platform (GCP), and so on.
-- **Authorization systems** - Select the appropriate option from either the **List** or **Folders** section, and then select **Apply**. 
+1. In CloudKnox, select the **Autopilot** tab.
+1. From the **Authorization system types** dropdown, select the authorization system types you want: Amazon Web Services (**AWS**), Microsoft **Azure**, or Google Cloud Platform (**GCP**).
+1. Select **All** or the account names you want.
+From the **Folders** dropdown, select a folder, and then select **Apply**. 
 
-The following information displays in the table:
+    The following information displays in the **Autopilot rules** table:
 
-- **Rule Name** - The name of the rule.
-- **State** - The status of the rule: idle (not being use) or active (being used).
-- **Rule Type** - The type of rule being applied. 
-- **Mode** - The status of the mode: on-demand or not.
-- **Last Generated** - The date and time the rule was last generated.
-- **Created By** - The email address of the user who created the rule.
-- **Last Modified** - The date and time the rule was last modified.
-- **Subscription** - Provides an **On** or **Off** subscription that allows you to receive email notifications when recommendations have been generated, applied, or unapplied.
+    - **Rule Name** - The name of the rule.
+    - **State** - The status of the rule: idle (not being use) or active (being used).
+    - **Rule Type** - The type of rule being applied. 
+    - **Mode** - The status of the mode: on-demand or not.
+    - **Last Generated** - The date and time the rule was last generated.
+    - **Created By** - The email address of the user who created the rule.
+    - **Last Modified** - The date and time the rule was last modified.
+    - **Subscription** - Provides an **On** or **Off** subscription that allows you to receive email notifications when recommendations have been generated, applied, or unapplied.
 
-**To view the available options**
+## View other available options for rules
 
 - Select the ellipses **(...)**
 
-The following options are available:
+    The following options are available:
 
-- **View Rule** - Displays the details of the rule.
-- **Delete Rule** - Deletes the rule. Only the user who created the selected rule can delete the rule. 
-- **Generate Recommendations** - Creates recommendations for each user and the authorization system. Only the user who created the selected rule can create recommendations.
-- **View Recommendations** - Displays the recommendations for each user and authorization system.
-- **Notification Settings** - Displays the users subscribed to this rule. Only the user who created the selected rule can add other users to be notified.
+    - **Edit rule** - Select to change the details of the rule.
+    - **Delete rule** - Select to change the details of the rule.
+    - **Delete rule** - Select to delete the rule. Only the user who created the selected rule can delete the rule. 
+    - **Generate recommendations** - Creates recommendations for each user and the authorization system. Only the user who created the selected rule can create recommendations.
+    - **View recommendations** - Displays the recommendations for each user and authorization system.
+    - **Notification settings** - Displays the users subscribed to this rule. Only the user who created the selected rule can add other users to be notified.
 
 You can also select:
 
 - **Reload** - Select to refresh the displayed list of roles/policies.
 - **Search** - Select to search for a specific role/policy.
-- **||| Columns** - From the drop-down list, select the columns you want to display.
+- **||| Columns** - From the dropdown list, select the columns you want to display.
     - Select **Reset to default** to return to the system defaults. 
-- **New Rule** - Select to create a new rule. For more information, see Create a new rule.
+- **New Rule** - Select to create a new rule. For more information, see [Create a rule](cloudknox-howto-create-rule).
 <!---cloudknox-howto-create-rule.html--->
 
 
 
+## Next steps
 
-<!---## Next steps--->
+- For more information about creating rules, see [Create a rule](cloudknox-howto-create-rule).
