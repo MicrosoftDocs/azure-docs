@@ -14,7 +14,7 @@ ms.author: mbaldwin
 
 # Getting started with Azure Payment HSM
 
-To get started with Azure Payment PSH (preview), request access [via email](mailto:paymentHSMRequest@microsoft.com). Upon approval, you will be provided with onboarding instructions 
+To get started with Azure Payment HSM (preview), please contact your Microsoft sales representative and request access [via email](mailto:paymentHSMRequest@microsoft.com). Upon approval, you will be provided with onboarding instructions.
 
 ## Availability
 
@@ -40,13 +40,19 @@ Please ensure that the following information is provided:
 
 ## Support
 
-Microsoft will provide support for hardware issues, networking issues and provisioning through standard support. Support ticket can be created from Azure portal use Service Type -> Dedicated HSM (under Security category) and mention "Payment HSM" in the summary field.  All support cases in public preview will be severity 3 only.
+There is no service-level agreement (SLA) for this public preview.  Use of this service for production workloads is not supported
 
-:::image type="content" source="./media/support.png" alt-text="Screenshot of filing a support ticket for Payment HSM":::
- 
-For application-level support (client software, HSM configuration, backup etc.), contact Thales support.
+The HSM base firmware installed in public preview is Thales payShield10K base software version 1.4a 1.8.3.
 
-Customers are responsible for applying payShield security patches and upgrading payShield firmware for the allocated HSMs.
+Microsoft will provide support for hardware issues, networking issues, and provisioning issues. Support tickets can be created from the Azure portal. Select **Dedicated HSM** as the Service Type, and mention "payment HSM" in the summary field, with a severity case of B or C.
+
+Support through engineering escalation is only available during business hours: Monday - Friday, 9 AM - 5 PM PST.
+
+Thales only provides application-level support,  such as client software, HSM configuration, and backup.
+
+Customers are responsible for applying payShield security patches and upgrading payShield firmware for their provisioned HSMs. Thales payShield10K versions prior to 1.4a 1.8.3. are not supported
+
+Microsoft will apply payShield security patches to unallocated HSMs.
 
 ## Next steps
 

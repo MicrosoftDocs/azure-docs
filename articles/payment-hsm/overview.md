@@ -17,7 +17,7 @@ ms.author: mbaldwin
 
 Azure Payment HSM Service is a "BareMetal" service delivered using [Thales payShield 10K payment hardware security modules (HSM)](https://cpl.thalesgroup.com/encryption/hardware-security-modules/payment-hsms/payshield-10k) to provide cryptographic key operations for real-time, critical payment transactions in the Azure cloud. Azure Payment HSM is designed specifically to help a service provider and an individual financial institution accelerate their payment system's digital transformation strategy and adopt the public cloud. It meets the most stringent security, audit compliance, low latency, and high-performance requirements by the Payment Card Industry (PCI). 
 
-Payment HSMs are provisioned and connected directly to users' virtual network, and HSMs are under users' sole administration control. HSMs can be easily provisioned as a pair of devices and configured for high availability. Users of the service utilize [Thales payShield Manager](https://cpl.thalesgroup.com/encryption/hardware-security-modules/payment-hsms/payshield-manager) for secure remote access to the HSMs as part of their OPEX-based subscription. Multiple subscription options are available to satisfy a broad range of performance and multiple application requirements that can be upgraded quickly in line with end-user business growth. Azure payment HSM service offers highest performance level 2500 CPS.
+Payment HSMs are provisioned and connected directly to users' virtual network, and HSMs are under users' sole administration control. HSMs can be easily provisioned as a pair of devices and configured for high availability. Users of the service utilize [Thales payShield Manager](https://cpl.thalesgroup.com/encryption/hardware-security-modules/payment-hsms/payshield-manager) for secure remote access to the HSMs as part of their Azure-based subscription. Multiple subscription options are available to satisfy a broad range of performance and multiple application requirements that can be upgraded quickly in line with end-user business growth. Azure payment HSM service offers highest performance level 2500 CPS.
 
 Azure Payment HSM a highly specialized service. Therefore, we recommend that you fully understand the key concepts, including [pricing](https://azure.microsoft.com/services/azure-payment-hsm/) and [support](getting-started.md#support). 
 
@@ -85,7 +85,7 @@ Benefits for existing on-prem HSM users
 
 Benefits for new payment participants
 - Avoids introduction of on-prem HSM infrastructure
-- Lowers upfront investment via the OPEX subscription model 
+- Lowers upfront investment via the Azure subscription model 
 - Offers access to latest certified hardware and software on-demand
 
 ## Glossary
