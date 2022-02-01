@@ -100,24 +100,21 @@ Use these steps to regenerate and download the Azure Stack Edge Pro GPU device c
 
         ![Screenshot of the Certificates page on an Azure Stack Edge device. The download links for generated certificates are highlighted.](./media/azure-stack-edge-gpu-deploy-configure-certificates/generate-certificate-6b.png)
 
-
-4. Select the download link for a certificate and when prompted, save the certificate. 
+4. Select the download link for a certificate and, when prompted, save the certificate.
 
     ![Screenshot of the Certificates page on an Azure Stack Edge device. A download link has been selected. The link and the download options are highlighted.](./media/azure-stack-edge-gpu-deploy-configure-certificates/generate-certificate-7.png)
 
-5. Repeat this process for all the certificates that you wish to download. 
-    
+5. Repeat this process for all the certificates that you wish to download.
+
     ![Screenshot showing downloaded certificates in Windows File Explorer. Certificates for an Azure Stack Edge device are highlighted.](./media/azure-stack-edge-gpu-deploy-configure-certificates/generate-certificate-8.png)
 
     The device-generated certificates are saved as DER certificates with the following name format: 
 
     `<Device name>_<Endpoint name>.cer`. These certificates contain the public key for the corresponding certificates installed on the device. 
 
-You will need to install these certificates on the client system that you are using to access the endpoints on the Azure Stack Edge device. These certificates establish trust between the client and the device.
+You'll need to install these certificates on the client that you're using to access the endpoints on the Azure Stack Edge device. These certificates establish trust between the client and the device. Follow the steps in [Import certificates on the clients accessing your Azure Stack Edge Pro GPU device](azure-stack-edge-gpu-manage-certificates.md#import-certificates-on-the-client-accessing-the-device).
 
-To import and install these certificates on the client that you are using to access the device, follow the steps in [Import certificates on the clients accessing your Azure Stack Edge Pro GPU device](azure-stack-edge-gpu-manage-certificates.md#import-certificates-on-the-client-accessing-the-device).
-
-If using Azure Storage Explorer, you will need to install certificates on your client in PEM format and you will need to convert the device-generated certificates into PEM format.
+If you're using Azure Storage Explorer, you'll need to install certificates on your client in PEM format, and you'll' need to convert the device-generated certificates into PEM format.
 
 > [!IMPORTANT]
 > - The download link is only available for device-generated certificates. It's not available if you bring your own certificates.
@@ -149,15 +146,15 @@ Follow these steps to upload your own certificates, including the signing chain,
 
     After you select a certificate type, use the **Add certificates** pane to upload each certificate and provide the password that you assigned when you exported the certificate. Then select **Validate & add** to add the certificates to the device. 
 
-    - Select the **Endpoints** certificate type to upload certificates for the endpoints used by the Azure Stack Edge service. For example, you can upload the Azure Resource Manager and Blob storage endpoint certificates.
+    - Select the **Endpoints** certificate type, and add a certificate for each endpoint that the device exposes. For example, upload the Azure Resource Manager and Blob storage endpoint certificates.
 
       ![Screenshot of the Add Certificate pane for endpoints for an Azure Stack Edge device. The certificate type and certificate entries are highlighted.](./media/azure-stack-edge-gpu-deploy-configure-certificates/add-certificate-3.png)
 
-    - Select the **Local web UI** certificate type to upload the local web UI certificate. After you upload this certificate, you'll need to start your browser and clear the cache. You'll then need to connect to the device local web UI.  
+    - Select the **Local web UI** certificate type, and add the certificate you'll use to access the local web UI via a browser. After you upload this certificate, you'll need to start your browser and clear the cache. You'll then need to connect to the device local web UI.  
 
       ![Screenshot of the Add Certificate pane for the Local Web UI certificate for an Azure Stack Edge device. The certificate type and certificate entries highlighted.](./media/azure-stack-edge-gpu-deploy-configure-certificates/add-certificate-4.png)
 
-    - Select the **Node** certificate type to upload your node certificate.<!--What's the purpose of this certificate?-->
+    - On a multi-node device, select the **Node** certificate type, and add the certificate(s) you'll use to establish a trust relationship among nodes.
 
       ![Screenshot of the Add Certificate pane for a node certificate for an Azure Stack Edge device. The certificate type and certificate entries highlighted.](./media/azure-stack-edge-gpu-deploy-configure-certificates/add-certificate-5.png)
 
