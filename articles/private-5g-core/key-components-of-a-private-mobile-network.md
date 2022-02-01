@@ -37,7 +37,7 @@ You'll configure two primary types of resource to manage policy control for your
 - **Services** - Each service is a representation of a set of QoS characteristics that you want to offer to UEs on SDFs that match particular properties, such as their destination, or the protocol used. You can also use services to limit or block particular SDFs based on these properties.
 - **SIM policies** - SIM policies allow you to define different sets of policies and interoperability settings, which can each be assigned to a group of SIMs. SIM policies also allow you to determine which services will be offered to the SIMs. You'll need to assign a SIM policy to a SIM before the UE using that SIM can access the private mobile network.
 
-For detailed information on policy control, see [Policy control](policy-control.md)
+For detailed information on policy control, see [Policy control](policy-control.md).
 
 ## Next steps
 

@@ -16,7 +16,7 @@ Azure Private 5G Core private mobile networks include one or more sites. Each si
 ## Prerequisites
 
 - Complete steps 3 - 11 of [Complete the prerequisite tasks for deploying a private mobile network](complete-private-mobile-network-prerequisites.md) for the Azure Stack Edge Pro device in your new site.
-- Ensure you can sign in to the Azure portal using an account with access to the active subscription you used to create your private mobile network. This account must have the built-in Contributor role at the subscription scope.
+- Ensure you can sign in to the Azure portal using an account with access to the active subscription you used to create your private mobile network. This account must have the built-in Contributor or Owner role at the subscription scope.
 - Collect all of the information in the following sections for your new site.
 
     - [Collect site resource values](collect-required-information-for-private-mobile-network.md#collect-site-resource-values)

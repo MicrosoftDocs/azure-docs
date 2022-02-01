@@ -18,7 +18,7 @@ In this how-to guide, you'll learn how to make changes to the packet core instan
 
 ## Prerequisites
 
-Ensure you can sign in to the Azure portal using an account with access to the active subscription you used to create your private mobile network. This account must have the built-in Contributor role at the subscription scope.
+Ensure you can sign in to the Azure portal using an account with access to the active subscription you used to create your private mobile network. This account must have the built-in Contributor or Owner role at the subscription scope.
 
 If you want to make changes to any of the following, you must first update the configuration on the Azure Kubernetes Service on Azure Stack HCI (AKS-HCI) cluster on the Azure Stack Edge Pro device in the site. 
 
@@ -84,7 +84,7 @@ The **Data network** tab lets you manage NAPT configuration.
 
 Select the data network from the list, and then make your changes under **Modify a data network**.
 
-:::image type="content" source="media/modify-existing-packet-core/packet-core-napt-configuration.png" alt-text="Screenshot of the Azure portal. The data network tab for a packet core instance is shown. The network name and N A P T fields are highlighted." lightbox="media/modify-existing-packet-core/packet-core-data-network-tab.png"::: 
+:::image type="content" source="media/modify-existing-packet-core/packet-core-napt-configuration.png" alt-text="Screenshot of the Azure portal. The data network tab for a packet core instance is shown. The network name and N A P T fields are highlighted." lightbox="media/modify-existing-packet-core/packet-core-napt-configuration.png"::: 
 
 You can enable or disable NAPT using the **Network address and port translation** toggle.
 
