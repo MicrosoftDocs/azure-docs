@@ -179,7 +179,7 @@ Follow these steps to upload your own certificates, including the signing chain,
     > Except for Azure public cloud, signing chain certificates must be brought in before activation for all cloud configurations (Azure Government or Azure Stack).
 
 
-When you finish [generating device certificates](#generate-device-certificates) or [adding your own certificates](#bring-your-own-certificates), your device is ready to be activated. Select **< Back to Get started**.
+When you finish [regenerating device certificates](#generate-device-certificates), if needed, or [adding your own certificates](#bring-your-own-certificates), your device is ready to be activated. Select **< Back to Get started**.
 
 
 ## Next steps
