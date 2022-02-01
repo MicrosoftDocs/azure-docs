@@ -36,12 +36,12 @@ There are some situations where [training a custom model](custom-speech-overview
 You can use Speech Studio to test how phrase list would help improve recognition for your audio. To implement a phrase list with your application in production, you'll use the Speech SDK or Speech CLI. 
 
 For example, let's say that you want the Speech service to recognize this sentence:
-"Abdoulaye Gueye is a Senegalese professional footballer."
+"Hi Rehaan, this is Jessie from Contoso bank. "
 
 After testing, you might find that it's incorrectly recognized as:
-"**Abdullah Guy** is a Senegalese professional footballer."
+"Hi **everyone**, this is **Jesse** from **can't do so bank**."
 
-In this case you would want to add "Abdoulaye Gueye" to your phrase list. Then the name should be recognized correctly. 
+In this case you would want to add "Rehaan", "Jessie", and "Contoso" to your phrase list. Then the name should be recognized correctly. 
 
 Now try Speech Studio to see how Phrase list can improve recognition accuracy.
 
@@ -50,12 +50,12 @@ Now try Speech Studio to see how Phrase list can improve recognition accuracy.
 
 1. Sign in to [Speech Studio](https://speech.microsoft.com/). 
 1. Select **Real-time Speech-to-text**.
-1. You test speech recognition by uploading an audio file or recording audio with a microphone. For example, select **record audio with a microphone** and then say "Abdoulaye Gueye is a Senegalese professional footballer." Then select the red button to stop recording. 
-1. You should see the transcription result in the **Test results** text box. If "Abdoulaye Gueye" was not recognized, you can add their name to a phrase list in the next step.
+1. You test speech recognition by uploading an audio file or recording audio with a microphone. For example, select **record audio with a microphone** and then say "Hi Rehaan, this is Jessie from Contoso bank. " Then select the red button to stop recording. 
+1. You should see the transcription result in the **Test results** text box. If "Rehaan", "Jesse", or "Contoso" were not recognized, you can add the terms to a phrase list in the next step.
 1. Select **Show advanced options** and turn on **Phrase list**. 
-1. Enter "Abdoulaye Gueye" in the phrase list text box. Note that multiple phrases need to be separated by a semicolon.
+1. Enter "Contoso;Jessie;Rehaan" in the phrase list text box. Note that multiple phrases need to be separated by a semicolon.
     :::image type="content" source="./media/custom-speech/phrase-list-after-zoom.png" alt-text="Screenshot of a phrase list applied in Speech Studio." lightbox="./media/custom-speech/phrase-list-after-full.png":::
-1. Use the microphone to test recognition again. Otherwise you can select the retry arrow next to your audio file to re-run your audio. The name "Abdoulaye Gueye" should be recognized. 
+1. Use the microphone to test recognition again. Otherwise you can select the retry arrow next to your audio file to re-run your audio. The terms "Rehaan", "Jesse", or "Contoso" should be recognized. 
 
 ## Implement phrase list
 
@@ -64,7 +64,7 @@ With the [Speech SDK](speech-sdk.md) you add phrases and then run speech recogni
 
 ```csharp
 var phraseList = PhraseListGrammar.FromRecognizer(recognizer);
-phraseList.AddPhrase("Abdoulaye Gueye");
+phraseList.AddPhrase("Contoso;Jessie;Rehaan");
 phraseList.Clear();
 ```
 ::: zone-end
@@ -74,7 +74,7 @@ With the [Speech SDK](speech-sdk.md) you add phrases and then run speech recogni
 
 ```cpp
 auto phraseListGrammar = PhraseListGrammar::FromRecognizer(recognizer);
-phraseListGrammar->AddPhrase("Abdoulaye Gueye");
+phraseListGrammar->AddPhrase("Contoso;Jessie;Rehaan");
 phraseListGrammar->Clear();
 ```
 ::: zone-end
@@ -84,7 +84,7 @@ With the [Speech SDK](speech-sdk.md) you add phrases and then run speech recogni
 
 ```java
 PhraseListGrammar phraseList = PhraseListGrammar.fromRecognizer(recognizer);
-phraseList.addPhrase("Abdoulaye Gueye");
+phraseList.addPhrase("Contoso;Jessie;Rehaan");
 phraseList.clear();
 ```
 ::: zone-end
@@ -94,7 +94,7 @@ With the [Speech SDK](speech-sdk.md) you add phrases and then run speech recogni
 
 ```javascript
 const phraseList = sdk.PhraseListGrammar.fromRecognizer(recognizer);
-phraseList.addPhrase("Abdoulaye Gueye");
+phraseList.addPhrase("Contoso;Jessie;Rehaan");
 phraseList.clear();
 ```
 ::: zone-end
@@ -104,7 +104,7 @@ With the [Speech SDK](speech-sdk.md) you add phrases and then run speech recogni
 
 ```Python
 phrase_list_grammar = speechsdk.PhraseListGrammar.from_recognizer(reco)
-phrase_list_grammar.addPhrase("Abdoulaye Gueye")
+phrase_list_grammar.addPhrase("Contoso;Jessie;Rehaan")
 phrase_list_grammar.clear()
 ```
 ::: zone-end
@@ -117,8 +117,8 @@ With the [Speech CLI](spx-overview.md) you can include a phrase list along with 
 Try recognition from a microphone or an audio file. 
 
 ```console
-spx recognize --microphone --phrases "Abdoulaye Gueye;"
-spx recognize --file "your\path\to\audio.wav" --phrases "Abdoulaye Gueye;"
+spx recognize --microphone --phrases "Contoso;Jessie;Rehaan;"
+spx recognize --file "your\path\to\audio.wav" --phrases "Contoso;Jessie;Rehaan;"
 ```
 
 You can also add a phrase list using a text file that contains one phrase per line
@@ -133,8 +133,8 @@ spx recognize --file "your\path\to\audio.wav" --phrases @phrases.txt
 Try recognition from a microphone or an audio file. 
 
 ```powershell
-spx --% recognize --microphone --phrases "Abdoulaye Gueye;"
-spx --% recognize --file "your\path\to\audio.wav" --phrases "Abdoulaye Gueye;"
+spx --% recognize --microphone --phrases "Contoso;Jessie;Rehaan;"
+spx --% recognize --file "your\path\to\audio.wav" --phrases "Contoso;Jessie;Rehaan;"
 ```
 
 You can also add a phrase list using a text file that contains one phrase per line
