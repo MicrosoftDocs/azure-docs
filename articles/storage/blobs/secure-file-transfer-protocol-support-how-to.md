@@ -61,7 +61,7 @@ Before you can enable SFTP support, you must register the SFTP feature with your
     Install-Module -Name Az.Storage -AllowPrerelease 
     ```
 
-    For more information about how to install PowerShell modules, see [Install the Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps)
+    For more information about how to install PowerShell modules, see [Install the Azure PowerShell module](/powershell/azure/install-az-ps)
 
 3. Sign in to your Azure subscription with the `Connect-AzAccount` command and follow the on-screen directions.
 
@@ -308,7 +308,7 @@ To learn more about the SFTP permissions model, see [SFTP Permissions model](sec
 
 ### [Azure CLI](#tab/azure-cli)
 
-1. Decide which methods of authentication you'd like associate with this local user. You can associate a password and / or an SSH key. 
+1. First, decide which methods of authentication you'd like associate with this local user. You can associate a password and / or an SSH key. 
 
    > [!IMPORTANT]
    > While you can enable both forms of authentication, SFTP clients can connect by using only one of them. Multifactor authentication, whereby both a valid password and a valid public and private key pair are required for successful authentication is not supported.
@@ -326,7 +326,7 @@ To learn more about the SFTP permissions model, see [SFTP Permissions model](sec
    The following example gives a local user name `contoso-user` read and write access to a container named `contoso-container`. An ssh-rsa key with a key value of `a2V5` is used for authentication.
   
    ```azurecli
-   az storage account local-user create --account-name contosoaccount -g contoso-resource-group -n 'contoso-user --home-directory home --permission-scope permissions=rw service=blob resource-name=contoso-container --ssh-authorized-key key="ssh-rsa a2V5" --has-ssh-key true --has-ssh-password true
+   az storage account local-user create --account-name contosoaccount -g contoso-resource-group -n contoso-user --home-directory home --permission-scope permissions=rw service=blob resource-name=contoso-container --ssh-authorized-key key="ssh-rsa a2V5" --has-ssh-key true --has-ssh-password true
    ```
 3. If you want to use a password to authenticate the user, you can create a password by using the [az storage account local-user regenerate-password](/cli/azure/storage/account/local-user#az-storage-account-local-user-regenerate-password) command. Set the `-n` parameter to the local user name.
 
