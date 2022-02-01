@@ -39,13 +39,11 @@ await client.CreateJobAsync(
   queueId: "<queue id>",
   workerSelectors: new List<LabelSelector>
   {
-    new ()
-    {
-      Key = "Id",
-      Operator = "Equal",
-      Value = "<preferred worker id>",
-      Ttl = TimeSpan.FromMinutes(1)
-    }
+    new LabelSelector(    
+      key: "Id",
+      @operator: LabelOperator.Equal,
+      value: "<preferred worker id>",
+      ttl: TimeSpan.FromMinutes(1))    
   });
 ```
 
