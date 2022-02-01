@@ -14,7 +14,7 @@ ms.author: alkohli
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
-This article describes how to convert the certificates into appropriate format so these are ready to upload on your Azure Stack Edge device. This procedure is typically required when your bring your own certificates.
+This article describes how to convert the certificates into appropriate format so these are ready to upload on your Azure Stack Edge device. This procedure is typically required when you bring your own certificates.
 
 To know more about how to create these certificates, see [Create certificates using Azure PowerShell](azure-stack-edge-gpu-create-certificates-powershell.md).
 
