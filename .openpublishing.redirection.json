@@ -29460,6 +29460,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/security/fundamentals/ddos-best-practices.md",
+      "redirect_url": "/azure/ddos-protection/fundamental-best-practices",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/vpn-gateway/create-vpn-azure-aws-managed-solutions.md",
       "redirect_url": "/azure/vpn-gateway/tutorial-site-to-site-portal",
       "redirect_document_id": false
