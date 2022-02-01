@@ -62,7 +62,7 @@ Custom text classification is only available select Azure regions. When you crea
 
 * You cannot rename your project after creation.
 
-* Your prjoect name must only contain alphnumeric characters,only letters and numbers, no spaces or special characters are allowed). Project name must have a maximum of 50 characters.
+* Your project name must only contain alphanumeric characters (letters and numbers). Spaces and special characters are not allowed. Project names can have a maximum of 50 characters.
 
 * You must have minimum of 10 tagged files in your project and a maximum of 100,000 files.
 
