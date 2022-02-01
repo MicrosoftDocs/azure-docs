@@ -24,7 +24,7 @@ When an application is marked as publisher verified, it means that the publisher
 
 A blue "verified" badge appears on the Azure AD consent prompt and other screens:
 ![Consent prompt](./media/publisher-verification-overview/consent-prompt.png)
-> [!NOTE] We are reverting the code that inadvertently changed the "verified" badge logo color from blue to grey. 
+> [!NOTE] We recently changed the color of the “verified” badge from blue to grey.  We will revert that change sometime in the last half of February so that the "verified" badge will show up as blue
 
 
 This feature is primarily for developers building multi-tenant apps that leverage [OAuth 2.0 and OpenID Connect](active-directory-v2-protocols.md) with the [Microsoft identity platform](v2-overview.md). These apps can sign users in using OpenID Connect, or they may use OAuth 2.0 to request access to data using APIs like [Microsoft Graph](https://developer.microsoft.com/graph/).
