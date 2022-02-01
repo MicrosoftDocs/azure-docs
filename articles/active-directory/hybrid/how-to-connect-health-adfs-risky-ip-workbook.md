@@ -66,6 +66,14 @@ Each item in the Risky IP report table shows aggregated information about failed
 
 Filter the report by IP address or user name to see an expanded view of sign-ins details for each risky IP event.
 
+## Accessing the workbook
+
+To access workbooks:
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+2. Navigate to **Azure Active Directory** > **Monitoring** > **Workbooks**. 
+3. Select the Risky IP report workbook. 
+
 ## Load balancer IP addresses in the list
 Load balancer aggregate failed sign-in activities and hit the alert threshold. If you are seeing load balancer IP addresses, it is highly likely that your external load balancer is not sending the client IP address when it passes the request to the Web Application Proxy server. Please configure your load balancer correctly to pass forward client IP address. 
 
