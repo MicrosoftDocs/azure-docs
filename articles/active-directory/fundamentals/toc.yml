@@ -280,10 +280,6 @@
       href: custom-security-attributes-manage.md
     - name: Troubleshoot attributes
       href: custom-security-attributes-troubleshoot.md
-  - name: Scenarios
-    items:
-    - name: Using Azure Active Directory to secure access to SAP platforms and applications
-      href: scenario-azure-first-sap-identity-integration.md
 - name: Troubleshooting
   expanded: true
   items:
