@@ -17,8 +17,6 @@ ms.subservice: teams-interop
 
 Azure Communication Services provides the ability to leverage Communication Services calling Software development kit (SDK) to build custom Teams calling experience. To enable this experience, Administrators need to configure the firewall according to Communication Services and Microsoft Teams guidance. Communication Services requirements allow control plane, and Teams requirements allow calling experience. If an independent software vendor (ISV) provides the authentication experience, then instead of Communication Services configuration, use configuration guidance of the vendor. 
 
-## Next steps
-
 The following articles might be of interest to you:
 
 - Learn more about [Azure Communication Services firewall configuration](../voice-video-calling/network-requirements.md).
