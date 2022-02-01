@@ -318,7 +318,7 @@ The following examples of JSON and a JSON schema provide explanations of each pr
 
 ## Start packet capture - portal
 
-You can set up packet capture in the Azure portal by navigating to the VPN Gateway Packet Capture blade in the Azure Portal and clicking the **Start Packet Capture button**
+You can set up packet capture in the Azure portal by navigating to the VPN Gateway Packet Capture blade in the Azure portal and clicking the **Start Packet Capture button**
 
 :::image type="content" source="./media/packet-capture/portal.jpg" alt-text="Screenshot of start packet capture in the portal." lightbox="./media/packet-capture/portal.jpg":::
 
@@ -330,7 +330,7 @@ A valid SAS (or Shared Access Signature) Uri with read/write access is required 
 
 * Copy the Blob SAS URL as it will be needed in the next step.
 
-* Navigate to the VPN Gateway Packet Capture blade in the Azure Portal and clicking the **Stop Packet Capture** button
+* Navigate to the VPN Gateway Packet Capture blade in the Azure portal and clicking the **Stop Packet Capture** button
 
 * Paste the SAS URL (from the previous step) in the **Output Sas Uri** text box and click **Stop Packet Capture**.
 
