@@ -42,7 +42,7 @@ In this tutorial you will learn how to:
    
 1. Enter your IoT device's module (or device, depending on how you [provisioned the device with Device Update](device-update-agent-provisioning.md)) primary connection string in the configuration file by running the command below.
 
-   ```markdown
+   ```bash
    /etc/adu/du-config.json
    ```
    
@@ -53,9 +53,26 @@ In this tutorial you will learn how to:
    # For example sudo /usr/bin/AducIotAgent --register-content-handler /var/lib/adu/extensions/sources/libmicrosoft_simulator_1.so --update-type 'microsoft/apt:1'
    ```
 
+2. Download the sample-du-simulator-data.json from Release Assets. Run the command below to create and edit the du-simulator-data.json in the tmp folder. 
+
+   ```sh
+   sudo nano /tmp/du-simulator-data.json
+   sudo chown adu:adu /tmp/du-simulator-data.json
+   sudo chmod 664 /tmp/du-simulator-data.json
+   ```
+   Copy the contents from the downloaded file into the du-simulator-data.json. Press Ctrl + X to save the changes.
+  
+   If /tmp doesn't exist then
+
+   ```sh
+    sudo mkdir/tmp
+    sudo chown root:root/tmp
+    sudo chmod 1777/tmp
+   ```  
+   
 1. Restart the Device Update agent by running the command below.
 
-   ```markdown
+   ```bash
     sudo systemctl restart adu-agent
    ```
    
