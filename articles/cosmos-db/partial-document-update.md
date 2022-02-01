@@ -1,12 +1,12 @@
 ---
 title: Partial document update in Azure Cosmos DB
 description: Learn about partial document update in Azure Cosmos DB.
-author: abhirockzz
+author: rothja
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 08/23/2021
-ms.author: abhishgu
+ms.author: jroth
 ms.custom: ignite-fall-2021
 ---
 

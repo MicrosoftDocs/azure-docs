@@ -1,8 +1,9 @@
 ---
 title: Azure Marketplace offer for Red Hat JBoss EAP on Azure Red Hat Enterprise Linux Virtual Machine (VM) and virtual machine scale sets
 description: How to deploy Red Hat JBoss EAP on Azure Red Hat Enterprise Linux (RHEL) VM and virtual machine scale sets using Azure Marketplace offer.
-author: theresa-nguyen
-ms.author: bicnguy
+author: m-reza-rahman
+ms.author: rezar
+ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-jboss-eap, devx-track-javaee-jboss-eap-vms
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: redhat

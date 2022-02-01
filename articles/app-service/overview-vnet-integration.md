@@ -3,7 +3,7 @@ title: Integrate your app with an Azure virtual network
 description: Integrate your app in Azure App Service with Azure virtual networks.
 author: madsd
 ms.topic: conceptual
-ms.date: 10/20/2021
+ms.date: 01/26/2022
 ms.author: madsd
 
 ---
@@ -62,7 +62,17 @@ When you scale up or down in size, the required address space is doubled for a s
 
 Because subnet size can't be changed after assignment, use a subnet that's large enough to accommodate whatever scale your app might reach. To avoid any issues with subnet capacity, use a `/26` with 64 addresses. When creating subnets in Azure portal as part of integrating with the virtual network, a minimum size of /27 is required.
 
-When you want your apps in your plan to reach a virtual network that's already connected to by apps in another plan, select a different subnet than the one being used by the preexisting virtual network integration.
+When you want your apps in your plan to reach a virtual network that's already connected to by apps in another plan, select a different subnet than the one being used by the pre-existing virtual network integration.
+
+You must have at least the following Role-based access control permissions on the subnet or at a higher level to configure regional virtual network integration through Azure portal, CLI or when setting the `virtualNetworkSubnetId` site property directly:
+
+| Action | Description |
+|-|-|
+| Microsoft.Network/virtualNetworks/read | Read the virtual network definition |
+| Microsoft.Network/virtualNetworks/subnets/read | Read a virtual network subnet definition |
+| Microsoft.Network/virtualNetworks/subnets/join/action | Joins a virtual network |
+
+If the virtual network is in a different subscription than the app, you must ensure that the subscription with the virtual network is registered for the Microsoft.Web resource provider. You can explicitly register the provider [by following this documentation](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider), but it will also automatically be registered when creating the first web app in a subscription.
 
 ### Routes
 
