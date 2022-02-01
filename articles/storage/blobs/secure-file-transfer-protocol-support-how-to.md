@@ -5,7 +5,7 @@ author: normesta
 ms.subservice: blobs
 ms.service: storage
 ms.topic: conceptual
-ms.date: 01/27/2022
+ms.date: 02/01/2022
 ms.author: normesta
 ms.reviewer: ylunagaria
 
@@ -186,10 +186,10 @@ Set-AzStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccount
 
 ### [Azure CLI](#tab/azure-cli)
 
-Put description here
+To enable SFTP support, call the [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) command and set the `--enable-sftp` parameter to true. Remember to replace the values in angle brackets with your own values:
 
 ```azurecli
-
+az storage account update -g <resource-group> -n <storage-account> --enable-sftp=true
 ```
 
 ---
@@ -326,21 +326,19 @@ To learn more about the SFTP permissions model, see [SFTP Permissions model](sec
    The following example gives a local user name `contoso-user` read and write access to a container named `contoso-container`. An ssh-rsa key with a key value of `a2V5` is used for authentication.
   
    ```azurecli
-   az storage account local-user create --account-name contosoaccount -g contoso-resource-group -n contoso-user --home-directory home --permission-scope permissions=rw service=blob resource-name=contoso-container --ssh-authorized-key key="ssh-rsa a2V5" --has-ssh-key true --has-ssh-password true
+   az storage account local-user create --account-name contosoaccount -g contoso-resource-group -n contosouser --home-directory home --permission-scope permissions=rw service=blob resource-name=contoso-container --ssh-authorized-key key="ssh-rsa a2V5" --has-ssh-key true --has-ssh-password true
    ```
 3. If you want to use a password to authenticate the user, you can create a password by using the [az storage account local-user regenerate-password](/cli/azure/storage/account/local-user#az-storage-account-local-user-regenerate-password) command. Set the `-n` parameter to the local user name.
 
    The following example generates a password for the user.
 
    ```azurecli
-   az storage account local-user regenerate-password --account-name contosoaccount -g contoso-resource-group -n contoso-user 
+   az storage account local-user regenerate-password --account-name contosoaccount -g contoso-resource-group -n contosouser  
    ```
    > [!IMPORTANT]
    > You can't retrieve this password later, so make sure to copy the password, and then store it in a place where you can find it. If you lose this password, you'll have to generate a new one.
 
 --- 
-
-
 
 ## Connect an SFTP client
 
