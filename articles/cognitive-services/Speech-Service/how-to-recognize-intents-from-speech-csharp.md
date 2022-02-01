@@ -48,9 +48,9 @@ LUIS uses two kinds of keys:
 | Key type  | Purpose                                               |
 | --------- | ----------------------------------------------------- |
 | Authoring | Lets you create and modify LUIS apps programmatically |
-| Predection | Used to access the LUIS application in runtime       |
+| Prediction | Used to access the LUIS application in runtime       |
 
-For this guide, you need the predection key type. This guide uses the example Home Automation LUIS app, which you can create by following the [Use prebuilt Home automation app](../luis/luis-get-started-create-app.md) quickstart. If you've created a LUIS app of your own, you can use it instead.
+For this guide, you need the prediction key type. This guide uses the example Home Automation LUIS app, which you can create by following the [Use prebuilt Home automation app](../luis/luis-get-started-create-app.md) quickstart. If you've created a LUIS app of your own, you can use it instead.
 
 When you create a LUIS app, LUIS automatically generates a authoring key so you can test the app using text queries. This key doesn't enable the Speech service integration and won't work with this guide. Create a LUIS resource in the Azure dashboard and assign it to the LUIS app. You can use the free subscription tier for this guide.
 
@@ -113,7 +113,7 @@ The following sections include a discussion of the code.
 
 ## Create an intent recognizer
 
-First, you need to create a speech configuration from your LUIS predection key and region. You can use speech configurations to create recognizers for the various capabilities of the Speech SDK. The speech configuration has multiple ways to specify the subscription you want to use; here, we use `FromSubscription`, which takes the subscription key and region.
+First, you need to create a speech configuration from your LUIS prediction key and region. You can use speech configurations to create recognizers for the various capabilities of the Speech SDK. The speech configuration has multiple ways to specify the subscription you want to use; here, we use `FromSubscription`, which takes the subscription key and region.
 
 > [!NOTE]
 > Use the key and region of your LUIS subscription, not a Speech service subscription.
@@ -173,7 +173,7 @@ To try out these features, delete or comment out the body of the `RecognizeInten
 
 [!code-csharp[Intent recognition by using events from a file](~/samples-cognitive-services-speech-sdk/samples/csharp/sharedcontent/console/intent_recognition_samples.cs#intentContinuousRecognitionWithFile)]
 
-Revise the code to include your LUIS predection key, region, and app ID and to add the Home Automation intents, as before. Change `whatstheweatherlike.wav` to the name of your recorded audio file. Then build, copy the audio file to the build directory, and run the application.
+Revise the code to include your LUIS prediction key, region, and app ID and to add the Home Automation intents, as before. Change `whatstheweatherlike.wav` to the name of your recorded audio file. Then build, copy the audio file to the build directory, and run the application.
 
 For example, if you say "Turn off the lights", pause, and then say "Turn on the lights" in your recorded audio file, console output similar to the following may appear:
 
