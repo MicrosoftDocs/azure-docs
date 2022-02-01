@@ -143,7 +143,7 @@ Export logs as follows:
 1. You can export all data, all system data to investigate system state, or select specific logs.
 
     | Export category | Description |
-    |--|--|
+    |---|---9|
     | **Core Application Logs** | Select this option to export data about the core application configuration and operation. |
     | **Communication with CM logs** | Select this option if there are continuous problems or interruptions of connection with the management console. |  | **SNMP Logs** | Select this option to receive SNMP health check information. |
     | **System Sanity Output** | Select this option to check system performance. |

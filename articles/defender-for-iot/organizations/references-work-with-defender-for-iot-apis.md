@@ -2488,7 +2488,7 @@ Array of JSON objects that represent devices.
     "error": "Invalid action"
 }
 ```
-
+o
 #### Curl command
 
 | Type | APIs | Example |
