@@ -34,23 +34,105 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 ---
 
 ## January 2022
- 
 
-[746829](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=746829&triage=true&fullScreen=false&_a=edit)
+### Public preview - Custom security attributes
+
+**Type:** New feature  
+**Service category:** Directory Management  
+**Product capability:** Directory  
+ 
+Enables you to define business-specific attributes that you can assign to Azure AD objects. These attributes can be used to store information, categorize objects, or enforce fine-grained access control. Custom security attributes can be used with Azure attribute-based access control. [Learn more](custom-security-attributes-overview.md).
+ 
+---
+
+### Public preview - Filter groups in tokens using a substring match
+
+**Type:** New feature  
+**Service category:** Enterprise Apps  
+**Product capability:** SSO  
+ 
+In the past, Azure AD only permitted groups to be filtered based on whether they were assigned to an application. Now, you can also use Azure AD to filter the groups included in the token. You can filter with the substring match on the display name or onPremisesSAMAccountName attributes of the group object on the token. Only groups that the user is a member of will be included in the token. This token will be recognized whether it's on the ObjectID or the on premises SAMAccountName or security identifier (SID). This feature can be used together with the setting to include only groups assigned to the application if desired to further filter the list.[Learn more](../hybrid/how-to-connect-fed-group-claims.md)
+
+---
 
 ### General availability - Continuous Access Evaluation
 
 **Type:** New feature  
 **Service category:** Other  
-**Product capability:** Access Control  
-**Clouds impacted:** 
+**Product capability:** Access Control   
  
+With Continuous access evaluation (CAE), critical security events and policies are evaluated in real time. This includes account disable, password reset, and location change. [Learn more](../conditional-access/concept-continuous-access-evaluation.md). 
+ 
+---
 
-With CAE, critical security events and policies are evaluated in real time. This includes account disable, password reset, and location change. To learn more, see Continuous access evaluation.
+### General Availability - User management enhancements are now available
+
+**Type:** New feature  
+**Service category:** User Management  
+**Product capability:** User Management  
  
+The Azure AD portal has been updated to make it easier to find users in the All users and Deleted users pages. Changes in the preview include:
+
+- More visible user properties including object ID, directory sync status, creation type, and identity issuer.
+- **Search now** allows substring search and combined search of names, emails, and object IDs.
+- Enhanced filtering by user type (member, guest, and none), directory sync status, creation type, company name, and domain name.
+- New sorting capabilities on properties like name, user principal name, creation time, and deletion date.
+- A new total users count that updates with any searches or filters.
+
+For more information, go to [User management enhancements (preview) in Azure Active Directory](../enterprise-users/users-search-enhanced.md).
 
 ---
+
+### General Availability - My Apps customization of default Apps view
+
+**Type:** New feature  
+**Service category:** My Apps  
+**Product capability:** End User Experiences  
+
+Customization of the default My Apps view in now in general availability. For more information on My Apps, you can go to [Sign in and start apps from the My Apps portal](https://support.microsoft.com/en-us/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
  
+---
+
+### General Availability - Audited BitLocker Recovery
+
+**Type:** New feature  
+**Service category:** Device Access Management  
+**Product capability:** Device Lifecycle Management  
+**Clouds impacted:** China;Public (M365,GCC);US Gov (GCC-H, DoD)
+ 
+BitLocker keys are sensitive security items. Audited BitLocker recovery ensures that when BitLocker keys are read, an audit log is generated so that you can trace who accesses this information for given devices. [Learn more](../devices/device-management-azure-portal.md#view-or-copy-bitlocker-keys).
+
+---
+
+### General Availability - Download a list of devices
+
+**Type:** New feature  
+**Service category:** Device Registration and Management  
+**Product capability:** Device Lifecycle Management 
+
+Download a list of your organization's devices to a .csv file for easier reporting and management. [Learn more](../devices/device-management-azure-portal.md#download-devices-preview).
+ 
+---
+
+### New provisioning connectors in the Azure AD Application Gallery - January 2022
+
+**Type:** New feature  
+**Service category:** App Provisioning  
+**Product capability:** 3rd Party Integration  
+ 
+You can now automate creating, updating, and deleting user accounts for these newly integrated apps:
+
+- [Autodesk SSO](../saas-apps/autodesk-sso-provisioning-tutorial.md)
+- [Evercate](../saas-apps/evercate-provisioning-tutorial.md)
+- [frankli.io](../saas-apps/frankli-io-provisioning-tutorial.md)
+- [Plandisc](../saas-apps/plandisc-provisioning-tutorial.md)
+- [Swit](../saas-apps/swit-provisioning-tutorial.md)
+- [TerraTrue](../saas-apps/terratrue-provisioning-tutorial.md)
+- [TimeClock 365 SAML](../saas-apps/timeclock-365-saml-provisioning-tutorial.md)
+
+For more information about how to better secure your organization by using automated user account provisioning, go to [Automate user provisioning to SaaS applications with Azure AD](../manage-apps/user-provisioning.md).
+
+---
 
 [1744803](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=1744803&triage=true&fullScreen=false&_a=edit)
 
@@ -60,216 +142,37 @@ With CAE, critical security events and policies are evaluated in real time. This
 **Service category:** Enterprise Apps  
 **Product capability:** 3rd Party Integration  
 **Clouds impacted:** 
- 
 
+In January 2022, we have added the following 47 new applications in our App gallery with Federation support
 
-
-
-
-
-
-
-In January 2022 we have added the following 47 new applications in our App gallery with Federation support
-
-Jooto, Proprli, Pace Scheduler, Compaas, DRTrack, Dining Sidekick, Cryotos, Emergency Management Systems, Manifestly Checklists, eLearnPOSH, Scuba Analytics, Athena Systems Login Platform, TimeTrack, MiHCM, Health Note, Active Directory SSO for DoubleYou, Emplifi platform, Flexera One, Hypothesis, Recurly, XpressDox AU Cloud, Active and Thriving - Perth Airport, Zoom for Intune, UPWARD AGENT, Linux Foundation ID, Asset Planner, Kiho, chezie, Excelity HCM, yuccaHR, Blue Ocean Brain, EchoSpan, Archie, Equifax Workforce Solutions, Palantir Foundry, ATP SpotLight and ChronicX, DigiSign, mConnect, BrightHR, Mural Identity, NordPass SSO, CloudClarity, Twic, Eduhouse Online, Bealink, Time Intelligence Bot, SentinelOne
+[Jooto](../saas-apps/jooto-tutorial.md), [Proprli](https://app.proprli.com/), [Pace Scheduler](https://www.pacescheduler.com/accounts/login/), [Compaas](), [DRTrack](../saas-apps/drtrack-tutorial.md), [Dining Sidekick](../saas-apps/dining-sidekick-tutorial.md), [Cryotos](https://app.cryotos.com/oauth2/authorization/azure-client), [Emergency Management Systems](https://secure.emsystems.com.au/), [Manifestly Checklists](../saas-apps/manifestly-checklists-tutorial.md), [eLearnPOSH](../saas-apps/elearnposh-tutorial.md), [Scuba Analytics](../saas-apps/scuba-analytics-tutorial.md), [Athena Systems Login Platform](../saas-apps/athena-systems-login-platform-tutorial.md), [TimeTrack](../saas-apps/timetrack-tutorial.md), [MiHCM](../saas-apps/mihcm-tutorial.md), [Health Note](https://auth.healthnote.works/oauth), [Active Directory SSO for DoubleYou](../saas-apps/active-directory-sso-for-doubleyou-tutorial.md), [Emplifi platform](../saas-apps/emplifi-platform-tutorial.md), Flexera One, Hypothesis, Recurly, XpressDox AU Cloud, Active and Thriving - Perth Airport, Zoom for Intune, UPWARD AGENT, Linux Foundation ID, Asset Planner, Kiho, chezie, Excelity HCM, yuccaHR, Blue Ocean Brain, EchoSpan, Archie, Equifax Workforce Solutions, Palantir Foundry, ATP SpotLight and ChronicX, DigiSign, mConnect, BrightHR, Mural Identity, NordPass SSO, CloudClarity, Twic, Eduhouse Online, Bealink, Time Intelligence Bot, SentinelOne
 
 You can also find the documentation of all the applications from here https://aka.ms/AppsTutorial,
 
 For listing your application in the Azure AD app gallery, please read the details here https://aka.ms/AzureADAppRequest
 
- 
-
-
- 
-
 ---
- 
 
-[1695148](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=1695148&triage=true&fullScreen=false&_a=edit)
-
-### Public preview - Custom security attributes
-
-**Type:** New feature  
-**Service category:** Directory Management  
-**Product capability:** Directory  
-**Clouds impacted:** China;Public (M365,GCC);US Gov (GCC-H, DoD);US Nat;US Sec
- 
-
-Enables you to define business-specific attributes that you can assign to Azure AD objects. These attributes can be used to store information, categorize objects, or enforce fine-grained access control. Custom security attributes can be used with Azure attribute-based access control.
- 
-
----
- 
-
-[1128484](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=1128484&triage=true&fullScreen=false&_a=edit)
-
-### General Availability - User management enhancements are available now
-
-**Type:** New feature  
-**Service category:** User Management  
-**Product capability:** User Management  
-**Clouds impacted:** 
- 
-
-The Azure AD portal has been updated to make it easier to find users in the All users and Deleted users pages. Changes in the preview include:
-
-More visible user properties including object ID, directory sync status, creation type, and identity issuer.
-Search now allows substring search and combined search of names, emails, and object IDs.
-Enhanced filtering by user type (member, guest, and none), directory sync status, creation type, company name, and domain name.
-New sorting capabilities on properties like name, user principal name, creation time, and deletion date.
-A new total users count that updates with any searches or filters.
-For more information, please see User management enhancements (preview) in Azure Active Directory.
-
-
- 
-
----
- 
-
-[1323660](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=1323660&triage=true&fullScreen=false&_a=edit)
-
-### Public preview - Filter groups in tokens using a substring match
-
-**Type:** New feature  
-**Service category:** Enterprise Apps  
-**Product capability:** SSO  
-**Clouds impacted:** 
- 
-
- 
-Large organizations where users often have a large number of group memberships need to specify which groups are relevant to an application.   Applications be blocked from being moved from ADFS to Azure AD because the need to reorganize group memberships.  ADFS had the capability of filtering groups included in the token with a substring match.  Azure AD only permitted Groups to be filtered based on whether they were assigned to the application.  Now, in addition, Azure AD  has the capability to filter the groups included in the token using substring match on the display name or onPremisesSAMAccountName attributes of the group object.  Only Groups the user is a member of will be included in the token.  This can be used in whether the group attribute emitted in the token is the ObjectID, or the on premises SAMAccountName or SID and in conjunction with the setting to include only groups assigned to the application if desired to further limit the list.
-
- 
-
----
- 
-
-[1528509](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=1528509&triage=true&fullScreen=false&_a=edit)
-
-### Public Preview - Filter and transform group names in token claims configuration
-
-**Type:** New feature  
-**Service category:** Enterprise Apps  
-**Product capability:** SSO  
-**Clouds impacted:** 
- 
-
-Public Preview - Filter and transform group names in token claims configuration using regular expressions
-
- 
-
-Many application configurations on ADFS and other IdPs rely on the ability to create authorization claims based on the content of Group Names using regular expression functions in the claim rules.  Azure AD now has the capability to use a regular expression match and replace function to create claim content based on Group onpremisesSAMAccount names.   This functionality will allow those applications to be moved to Azure AD for authentication using the same group management patterns.
-
- 
-
----
- 
-
-[1515788](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=1515788&triage=true&fullScreen=false&_a=edit)
-
-### General Availability - My Apps customization of default Apps view
-
-**Type:** New feature  
-**Service category:** My Apps  
-**Product capability:** End User Experiences  
-**Clouds impacted:** 
- 
-
-For more information on My Apps, you can go here.
- 
-
----
- 
-
-[1130788](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=1130788&triage=true&fullScreen=false&_a=edit)
-
-### General Availability - Audited BitLocker Recovery
-
-**Type:** New feature  
-**Service category:** Device Access Management  
-**Product capability:** Device Lifecycle Management  
-**Clouds impacted:** China;Public (M365,GCC);US Gov (GCC-H, DoD)
- 
-
-BitLocker keys are sensitive security items. Audited BitLocker recovery ensures that when BitLocker keys are read, an audit log is generated so that you can trace who accesses this information for given devices. Learn more.
- 
-
----
- 
-
-[1309824](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=1309824&triage=true&fullScreen=false&_a=edit)
-
-### General Availability - Download a list of devices
-
-**Type:** New feature  
-**Service category:** Device Registration and Management  
-**Product capability:** Device Lifecycle Management  
-**Clouds impacted:** China;Public (M365,GCC);US Gov (GCC-H, DoD);US Nat
- 
-
-Download a list of your organization's devices to a .csv file for easier reporting and management. Learn more.
- 
-
----
- 
-
-[1744866](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=1744866&triage=true&fullScreen=false&_a=edit)
-
-### Public preview - New provisioning connectors in the Azure AD Application Gallery - January 2022
-
-**Type:** New feature  
-**Service category:** App Provisioning  
-**Product capability:** 3rd Party Integration  
-**Clouds impacted:** 
- 
-
-You can now automate creating, updating, and deleting user accounts for these newly integrated apps:
-
-Autodesk SSO
-Evercate
-frankli.io
-Plandisc
-Swit
-TerraTrue
-TimeClock 365 SAML
-For more information about how to better secure your organization by using automated user account provisioning, see Automate user provisioning to SaaS applications with Azure AD.
- 
-
----
- 
-
-[1424502](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=1424502&triage=true&fullScreen=false&_a=edit)
-
-### Generally available: Azure Ad access reviews reviewer recommendations now account for non-interactive sign-in information
+### Azure Ad access reviews reviewer recommendations now account for non-interactive sign-in information
 
 **Type:** Changed feature  
 **Service category:** Access Reviews  
 **Product capability:** Identity Governance  
-**Clouds impacted:** 
- 
 
-Azure AD access reviews reviewer recommendations now account for non-interactive sign-in information, improving upon original recommendations based on interactive last sign-ins only. Reviewers can now make more accurate decisions based on the last sign-in activity of the users they are reviewing.
+Azure AD access reviews reviewer recommendations now account for non-interactive sign-in information, improving upon original recommendations based on interactive last sign-ins only. Reviewers can now make more accurate decisions based on the last sign-in activity of the users they are reviewing. To learn more about how to create access reviews, go to [Create an access review of groups and applications in Azure AD](../governance/create-access-review.md).
  
-
 ---
- 
-
-[1444033](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=1444033&triage=true&fullScreen=false&_a=edit)
 
 ### Risk reason for offline Azure AD Threat Intelligence risk detection
 
 **Type:** Changed feature  
 **Service category:** Identity Protection  
 **Product capability:** Identity Security & Protection  
-**Clouds impacted:** 
  
-
-The offline Azure AD Threat Intelligence risk detection can now have a risk reason which will help customers with the risk investigation. If a risk reason is available, it will show up as Additional Info in the risk details of that risk event in the Risk detections report. It will also be available through the additionalInfo property of the riskDetections API.
+The offline Azure AD Threat Intelligence risk detection can now have a risk reason which will help customers with the risk investigation. If a risk reason is available, it will show up as Additional Info in the risk details of that risk event in the Risk detections report. It will also be available through the additionalInfo property of the riskDetections API. [Learn more](../identity-protection/howto-identity-protection-investigate-risk.md).
  
-
 ---
  
-
 [897320](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=897320&triage=true&fullScreen=false&_a=edit)
 
 ### Option to hide custom request timeline in Entitlement Management Access Package requests.
@@ -279,7 +182,6 @@ The offline Azure AD Threat Intelligence risk detection can now have a risk reas
 **Product capability:** Entitlement Management  
 **Clouds impacted:** 
  
-
 Owners of access packages in entitlement management can now choose to hide the custom request timeline options for end users requesting their access package.
  
 ---
