@@ -7,12 +7,12 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 11/02/2021
+ms.date: 01/28/2022
 ms.author: lajanuar
 ms.custom: ignite-fall-2021, mode-api
 ---
 
-# Quickstart: REST API  | Preview
+# Get started: Form Recognizer REST API v3.0 | Preview
 
 >[!NOTE]
 > Form Recognizer v3.0 is currently in public preview. Some features may not be supported or have limited capabilities.
