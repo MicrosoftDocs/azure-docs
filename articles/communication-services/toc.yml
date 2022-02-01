@@ -216,6 +216,8 @@ items:
     href: concepts/pricing.md
   - name: SMS Pricing
     href: concepts/sms-pricing.md
+  - name: PSTN Pricing
+    href: concepts/pstn-pricing.md
   - name: Push notifications
     href: concepts/notifications.md
   - name: Azure Advisor
