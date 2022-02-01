@@ -33,7 +33,7 @@ If you want to keep it simpler for now, [Custom Commands](custom-commands.md) ma
 
    ![Screenshot of a graph comparing the relative complexity and flexibility of the two voice assistant solutions.](media/voice-assistants/assistant-solution-comparison.png)
 
-## Reference architecture for building a voice assistant using the Speech SDK
+## Reference architecture for building a voice assistant by using the Speech SDK
 
    ![Conceptual diagram of the voice assistant orchestration service flow.](media/voice-assistants/overview.png)
 
