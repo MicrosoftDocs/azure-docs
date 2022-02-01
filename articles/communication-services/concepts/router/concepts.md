@@ -30,7 +30,7 @@ A real-world example is an incoming call or chat in the context of a call center
 
 1. Your application submits a Job via the Job Router SDK.
 2. The Job is classified and a [JobClassified Event][job_classified_event] is sent via EventGrid.
- 
+
     :::image type="content" source="../media/router/acs-router-job-submission.png" alt-text="Diagram of job submission.":::
 
 ## Worker
