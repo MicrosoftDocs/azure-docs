@@ -83,7 +83,7 @@
         href: cloudknox-usage-analytics-groups.md
       - name: View analytic information about active resources
         href: cloudknox-usage-analytics-active-resources.md
-      - name: View  analytic information about active tasks
+      - name: View analytic information about active tasks
         href: cloudknox-usage-analytics-active-tasks.md
       - name: View analytic information about access keys
         href: cloudknox-usage-analytics-access-keys.md
@@ -96,20 +96,28 @@
       items:
       - name: View information about active and completed activities
         href: cloudknox-ui-tasks.md
-    - name: Manage roles/policies and user permission requests
+    - name: Manage roles/policies and permission requests
       expanded: true
       items:
-      - name: The JEP Controller dashboard - Overview
+      - name: View existing roles/policies and requests for permission
         href: cloudknox-ui-jep-controller.md
-      - name: Manage permissions with the JEP Controller
-        href: cloudknox-product-jep-controller.md
-      - name: Attach and detach permissions
+      - name: View information about roles/policies
+        href: howto-view-role-policy.md
+      - name: Create a role/policy
+        href: howto-create-role-policy.md
+      - name: Clone a role/policy
+        href: howto-clone-role-policy.md
+      - name: Modify a role/policy
+        href: howto-modify-role-policy.md
+      - name: Delete a role/policy
+        href: howto-delete-role-policy.md
+      - name: Attach and detach permissions for identities
         href: cloudknox-howto-attach-detach-permissions.md
-      - name: Create and view a role/policy
-        href: cloudknox-howto-create-role-policy.md
-      - name: Create or approve a request for privileges 
+      - name: Create or approve a request for permissions 
         href: cloudknox-howto-create-approve-privilege-request.md
-      - name: Manage permissions with the JEP Controller
+      # - name: Manage permissions with the JEP Controller
+        # href: cloudknox-product-jep-controller.md
+      - name: Manage users with the User management dashboard
         href: cloudknox-ui-user-management.md
       - name: Define and manage users, roles, and access levels
         href: cloudknox-product-define-permission-levels.md
@@ -126,7 +134,6 @@
         href: cloudknox-howto-generate-custom-reports.md
       - name: Filter and query user activity
         href: cloudknox-product-audit-trail.md
-
     - name: Set up and view authorization systems
       expanded: true
       items:

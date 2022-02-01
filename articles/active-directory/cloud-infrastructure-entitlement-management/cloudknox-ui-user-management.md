@@ -1,6 +1,6 @@
 ---
-title: Microsoft CloudKnox Permissions Management - The User Management dashboard
-description: How to view user management information in the User Management dashboard in Microsoft CloudKnox Permissions Management.
+title: Manage users with the User management dashboard in Microsoft CloudKnox Permissions Management
+description: How to manage users in the User management dashboard in Microsoft CloudKnox Permissions Management.
 services: active-directory
 author: Yvonne-deQ
 manager: karenh444
@@ -8,11 +8,11 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: overview
-ms.date: 01/17/2022
+ms.date: 02/o1/2022
 ms.author: v-ydequadros
 ---
 
-# The User Management dashboard
+# Manage users with the User management dashboard
 
 This topic describes how to use the Microsoft CloudKnox Permissions Management (CloudKnox) **User Management** dashboard to view user management information.
 

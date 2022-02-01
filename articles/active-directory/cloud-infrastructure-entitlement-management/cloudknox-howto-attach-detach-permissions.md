@@ -1,6 +1,6 @@
 ---
-title: Microsoft CloudKnox Permissions Management - Attach and detach permissions for users, roles, and resources in the Just Enough Permissions (JEP) Controller
-description: How to attach and detach permissions for users, roles, and resources manually or using the Just Enough Permissions (JEP) Controller in Microsoft CloudKnox Permissions Management.
+title: Attach and detach permissions for users, roles, and resources in the JEP Controller in Microsoft CloudKnox Permissions Management - 
+description: How to attach and detach permissions for users, roles, and resources manually or using the JEP Controller in Microsoft CloudKnox Permissions Management.
 services: active-directory
 author: Yvonne-deQ
 manager: karenh444
@@ -8,132 +8,121 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/17/2022
+ms.date: 02/01/2022
 ms.author: v-ydequadros
 ---
 
-# Attach and detach permissions in the JEP Controller
+# Attach and detach permissions for identities
 
-This topic describes how you can attach and detach permissions for users, roles, and resources manually or allow Microsoft CloudKnox Permissions Management (CloudKnox) to do it for you using the Just Enough Permissions (JEP) Controller.
+This article describes how you can attach and detach permissions for users, roles, and resources manually or allow Microsoft CloudKnox Permissions Management (CloudKnox) to do it for you using the Just Enough Permissions (JEP) Controller. You can create and approve requests for the Amazon Web Services (AWS), Microsoft Azure, or Google Cloud Platform (GCP) authorization systems.
 
 > [!NOTE]
-> You must have **Controller** access to the JEP Controller to perform these tasks. If you don’t have Controller access, contact your system administrator.
+> To view the **JEP Controller** tab, your role must be **Viewer**, **Controller**, or **Administrator**. To make changes on this tab, you must be a **Controller** or **Administrator**. If you don’t have access, contact your system administrator.
 
-## Attach permissions for users manually
+## Attach permissions manually
 
-1. Select the **JEP Controller** tab.
-2. Select the **Permissions** tab.
-3. From the **Authorization System Type**  drop-down list, select the authorization system type you want.
-4. From the **Authorization System**  drop-down list, select the authorization system you want. 
+1. On the CloudKnox home page, select the **JEP Controller** tab, and then select the **Permissions** subtab.
+1. From the **Select an authorization system type** dropdown, select the authorization system type you want to access: **AWS**, **Azure** or **GCP**.
+1. From the **Select an authorization system** dropdown, select the accounts you want to access.
 
     > [!NOTE]
-    > If you select Microsoft Azure, you can only modify permissions for users. You cannot modify permissions for groups.
-5. From the **Search For**  drop-down list, select **User**, **Role**, or **Resources**.
-6. To search for more parameters, you can make a selection from the **User States**, **Privilege Creep Index**, and **User Name**  drop-down lists below.
-7. Select **Search**.
+    > If you select **Azure**, you can only modify permissions for users. You can't modify permissions for groups.
+
+1. From the **Search For** dropdown, select **Group**, **User**, or **Role**.
+1. To search for more parameters, you can make a selection from the **User States**, **Privilege Creep Index**, and **Task usage** dropdowns.
 
     CloudKnox displays a list of users, roles, or resources who match your criteria.
-8. Select a user, role, or resource from the list.
+1. In the **Enter a username** box, enter or select a user.
+1. In the **Enter a group name** box, enter or select a group, then select **Apply**.
 
-    CloudKnox displays the **Quick Actions**, **Roles**, and **Task** tabs.
-9. To make a quick action, one-click selection, select the **Quick Actions** tab, and then select a task from the following options:
-    - **Revoke Unused Tasks**
-    - **Revoke High-Risk Tasks**
-    - **Assign Read-Only Status**
-    - **Revoke Deleted Tasks**
-10. To make more granular selections by role, select the **Role** tab, and then select a role from the **Add Role** list.
+    The **Permissions** table displays the **Users**, **Username** **Domain/Account**, **Source** and **Policy name**.
 
-    The roles you select appear in the **Selected to Add** list on the right.
-11. To make more granular selections by task, select the **Task** tab, and then select a role from the **Available** list.
-
-    The tasks you select appear in the **Selected to Grant** list on the right.
-12. Click **Submit**.
-13. When the following message displays: **Are you sure you want to change permissions?**, select: 
+    To locate a specific user, use **Search**.
+1. To attach policies, select **Attach policies**.
+1. In the **Attach policies** page, from the **Available policies** list, select the plus sign **(+)** to add the policy to the **Selected policies** list. 
+1. When you have finished adding policies, select **Submit**.
+1. When the following message displays: **Are you sure you want to change permissions?**, select: 
     - **Generate Script** to generate a script where you can manually add/remove the permissions you selected.
-    - **Cancel** to cancel the action. 
+    - **Close** to cancel the action.
 
-## Detach permissions for users manually
+## Detach permissions manually
 
-1. Select the **JEP Controller** tab.
-2. Select the **Permissions** tab.
-3. From the **Authorization System Type**  drop-down list, select the authorization system type you want.
-4. From the **Authorization System**  drop-down list, select the authorization system you want.
+1. On the CloudKnox home page, select the **JEP Controller** tab, and then select the **Permissions** subtab.
+1. From the **Select an authorization system type** dropdown, select the authorization system type you want to access: **AWS**, **Azure** or **GCP**.
+1. From the **Select an authorization system** dropdown, select the accounts you want to access.
 
     > [!NOTE]
-    > If you select Microsoft Azure, you can only modify permissions for users. You cannot modify permissions for groups.
-5. From the **Search For**  drop-down list, select **User**, **Role**, or **Resources**.
-6. To search for more parameters, you can make a selection from the **User States**, **Privilege Creep Index**, and **User Name**  drop-down lists below.
-7. Select **Search**.
+    > If you select **Azure**, you can only modify permissions for users. You can't modify permissions for groups.
+1. From the **Search For** dropdown, select **Group**, **User**, or **Role**.
+1. To search for more parameters, you can make a selection from the **User States**, **Privilege Creep Index**, and **Task usage** dropdowns.
 
     CloudKnox displays a list of users, roles, or resources who match your criteria.
-8. Select a user, role, or resource from the list.
+1. In the **Enter a username** box, enter or select a user.
+1. In the **Enter a group name** box, enter or select a group, then select **Apply**.
 
-    CloudKnox displays the **Quick Actions**, **Roles**, and **Task** tabs.
-9. To make a quick action selection, select the **Quick Actions** tab, and then select a task from the following one-click options: 
-    - **Revoke Unused Tasks** 
-    - **Revoke High-Risk Tasks** 
-    - **Assign Read-Only Status** 
-    - **Revoke Deleted Tasks**
-10. To make more granular selections by role, select the **Role** tab, and then select a role from the **Remove Role** list.
+    The **Permissions** table displays the **Users**, **Username** **Domain/Account**, **Source** and **Policy name**.
 
-    The roles you select appear in the **Selected to Remove** list on the left.
-11. To make more granular selections by task, select the **Task** tab, and then select a role from the **Revocable list**.
+    To locate a specific user, use **Search**.
+1. To attach policies, select **Detach policies**.
+1. In the **Detach policies** page, from the **Available policies** list, select the plus sign **(+)** to add the policy to the **Selected policies** list. 
+1. When you have finished adding policies, select **Submit**.
+1. When the **Confirmation** box appears, select **Generate script** to change permission, or **Close** to discard your changes.
 
-    The roles you select appear in the **Selected to Revoke** list on the left.
-12. Click **Submit**.
-13. When the following message displays: **Are you sure you want to change permissions?**, select: 
+    CloudKnox displays a script for each policy you added. 
+1. You can **Copy** or **Download** the script, or select **Close** to close the box.
+
+13. When the following message displays: **Are you sure you want to change permissions?**, select:
     - **Generate Script** to generate a script where you can manually add/remove the permissions you selected.
-    - **Cancel** to cancel the action. 
+    - **Close** to cancel the action. 
 
-## Allow CloudKnox to attach permissions
+<!---## Allow CloudKnox to attach permissions
 
-1. Enable the **JEP Controller**.
-    <!---How?.--->
-2. Select the **Permissions** tab.
-3. From the **Authorization System Type**  drop-down list, select the authorization system type you want.
-4. From the **Authorization System**  drop-down list, select the authorization system you want.
+1. On the CloudKnox home page, select the **JEP Controller** tab, and then select the **Permissions** subtab.
+1. From the **Select an authorization system type** dropdown, select the authorization system type you want to access: **AWS**, **Azure** or **GCP**.
+1. From the **Select an authorization system** dropdown, select the accounts you want to access.
 
     > [!NOTE]
     > If you select Microsoft Azure, you can only modify permissions for users. You cannot modify permissions for groups.
-5. From the **Search For**  drop-down list, select **User**, **Role**, or **Resources**.
-6. From the list, select the user, role, or resources you want.
-7. On the **Attach/Detach Policies** tab, from the **Attachable** list select a policy you want to add.
+1. From the **Search For** dropdown, select **User**, **Role**, or **Resources**.
+1. From the list, select the user, role, or resources you want.
+1. On the **Attach/Detach Policies** subtab, from the **Attachable** list select a policy you want to add.
     The policies you select appear in the **Selected to Attach** list on the right.
-8. Click **Submit**.
-9. When the following message displays: **Are you sure you want to change permissions?**, select: 
+1. Click **Submit**.
+1. When the following message displays: **Are you sure you want to change permissions?**, select: 
     - **Generate Script** to generate a script where you can manually attach/detach the policies you selected.
     - **Confirm** to allow CloudKnox to attach/detach the policies you selected.
     - **Cancel** to cancel the action. 
-10. The **Activity** pane appears on the right. 
+1. The **Activity** pane appears on the right. 
 
-    The **Active** tab displays a list of the tasks CloudKnox is currently processing.
+    The **Active** subtab displays a list of the tasks CloudKnox is currently processing.
 
-    The **Completed** tab displays a list of the tasks CloudKnox has completed processing.
+    The **Completed** subtab displays a list of the tasks CloudKnox has completed processing.
 
 ## Allow CloudKnox to detach permissions
 
-1. Enable the **JEP Controller**.
-    <!---How?.--->
-2. Select the **Permissions** tab.
-3. From the **Authorization System Type**  drop-down list, select the authorization system type you want.
-4. From the **Authorization System**  drop-down list, select the authorization system you want.
+1. On the CloudKnox home page, select the **JEP Controller** tab, and then select the **Permissions** subtab.
+1. From the **Select an authorization system type** dropdown, select the authorization system type you want to access: **AWS**, **Azure** or **GCP**.
+1. From the **Select an authorization system** dropdown, select the accounts you want to access.
 
     > [!NOTE]
     > If you select Microsoft Azure, you can only modify permissions for users. You cannot modify permissions for groups.
-5. From the **Search For**  drop-down list, select **User**, **Role**, or **Resources**.
-6. From the list, select the user, role, or resources you want.
-7. On the **Attach/Detach Policies** tab, from the **Detachable** list, select a policy you want to remove.
+1. From the **Search For** dropdown, select **User**, **Role**, or **Resources**.
+1. From the list, select the user, role, or resources you want.
+1. On the **Attach/Detach Policies** subtab, from the **Detachable** list, select a policy you want to remove.
     The policies you select appear in the **Selected to Detach** list on the left.
-8. Click **Submit**.
-9. When the following message displays: **Are you sure you want to change permissions?**, select: 
+1. Click **Submit**.
+1. When the following message displays: **Are you sure you want to change permissions?**, select: 
     - **Generate Script** to generate a script where you can manually attach/detach the policies you selected.
     - **Confirm** to allow CloudKnox to attach/detach the policies you selected.
     - **Cancel** to cancel the action. 
-10. The **Activity** pane appears on the right.
+1. The **Activity** pane appears on the right.
 
-    The **Active** tab displays a list of the tasks CloudKnox is currently processing.
+    The **Active** subtab displays a list of the tasks CloudKnox is currently processing.
 
-    The **Completed** tab displays a list of the tasks CloudKnox has completed.
+    The **Completed** subtab displays a list of the tasks CloudKnox has completed.--->
 
 
-<!---## Next steps--->
+## Next steps
+
+- For information on how to create or approve a request for permissions, see [Create or approve a request for permissions](cloudknox-howto-create-approve-privilege-request.md).
+

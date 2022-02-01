@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/30/2022
+ms.date: 02/01/2022
 ms.author: v-ydequadros
 ---
 
@@ -32,23 +32,23 @@ This article describes how to create a rule in the Microsoft CloudKnox Permissio
 
 1. In the **Configure** tab, select the following parameters for your rule:
 
-    - **Role created on is** — Select the duration in days.
-    - **Role last used on is** — Select the duration in days when the role was last used.
-    - **Cross account role** — Select **True** or **False**.
+    - **Role created on is**: Select the duration in days.
+    - **Role last used on is**: Select the duration in days when the role was last used.
+    - **Cross account role**: Select **True** or **False**.
 
 1. In the **Mode** tab, if you want recommendations to be generated and applied manually, select **On-demand**.
 1. Select **Save**
 
     The following information displays in the **Autopilot rules** table:
 
-    - **Rule Name** — The name of the rule.
-    - **State** — The status of the rule: idle (not being use) or active (being used).
-    - **Rule Type** — The type of rule being applied. 
-    - **Mode** — The status of the mode: on-demand or not.
-    - **Last Generated** — The date and time the rule was last generated.
-    - **Created By** — The email address of the user who created the rule.
-    - **Last Modified** — The date and time the rule was last modified.
-    - **Subscription** — Provides an **On** or **Off** subscription that allows you to receive email notifications when recommendations have been generated, applied, or unapplied.
+    - **Rule Name**: The name of the rule.
+    - **State**: The status of the rule: idle (not being use) or active (being used).
+    - **Rule Type**: The type of rule being applied. 
+    - **Mode**: The status of the mode: on-demand or not.
+    - **Last Generated**: The date and time the rule was last generated.
+    - **Created By**: The email address of the user who created the rule.
+    - **Last Modified**: The date and time the rule was last modified.
+    - **Subscription**: Provides an **On** or **Off** subscription that allows you to receive email notifications when recommendations have been generated, applied, or unapplied.
 
 ## Create a rule for Microsoft Azure 
 
@@ -61,20 +61,20 @@ This article describes how to create a rule in the Microsoft CloudKnox Permissio
 
      To change your folder settings, select **Reset**.
 
-1. In the **Configure** tab, select a duration in days for how long your rule has not been used.
+1. In the **Configure** tab, select a duration in days for how long your rule hasn't been used.
 1. In the **Mode** tab, if you want recommendations to be generated and applied manually, select **On-demand**.
 1. Select **Save**
 
     The following information displays in the **Autopilot rules** table:
 
-    - **Rule Name** — The name of the rule.
-    - **State** — The status of the rule: idle (not being use) or active (being used).
-    - **Rule Type** — The type of rule being applied. 
-    - **Mode** — The status of the mode: on-demand or not.
-    - **Last Generated** — The date and time the rule was last generated.
-    - **Created By** — The email address of the user who created the rule.
-    - **Last Modified** — The date and time the rule was last modified.
-    - **Subscription** — Provides an **On** or **Off** subscription that allows you to receive email notifications when recommendations have been generated, applied, or unapplied.
+    - **Rule Name**: The name of the rule.
+    - **State**: The status of the rule: idle (not being use) or active (being used).
+    - **Rule Type**: The type of rule being applied. 
+    - **Mode**: The status of the mode: on-demand or not.
+    - **Last Generated**: The date and time the rule was last generated.
+    - **Created By**: The email address of the user who created the rule.
+    - **Last Modified**: The date and time the rule was last modified.
+    - **Subscription**: Provides an **On** or **Off** subscription that allows you to receive email notifications when recommendations have been generated, applied, or unapplied.
 
 ## Create a rule for Google Cloud Platform (GCP) 
 
@@ -89,22 +89,22 @@ This article describes how to create a rule in the Microsoft CloudKnox Permissio
 
 1. The **Configure** tab displays the following options:
 
-    - **Cross project** — Select **True** or **False**.
-    - **Unused** — Select a duration in days for how long your rule has not been used.
+    - **Cross project**: Select **True** or **False**.
+    - **Unused**: Select a duration in days for how long your rule hasn't been used.
 
 1. In the **Mode** tab, if you want recommendations to be generated and applied manually, select **On-demand**.
 1. Select **Save**
 
     The following information displays in the **Autopilot rules** table:
 
-    - **Rule Name** — The name of the rule.
-    - **State** — The status of the rule: idle (not being use) or active (being used).
-    - **Rule Type** — The type of rule being applied. 
-    - **Mode** — The status of the mode: on-demand or not.
-    - **Last Generated** — The date and time the rule was last generated.
-    - **Created By** — The email address of the user who created the rule.
-    - **Last Modified** — The date and time the rule was last modified.
-    - **Subscription** — Provides an **On** or **Off** subscription that allows you to receive email notifications when recommendations have been generated, applied, or unapplied.
+    - **Rule Name**: The name of the rule.
+    - **State**: The status of the rule: idle (not being use) or active (being used).
+    - **Rule Type**: The type of rule being applied. 
+    - **Mode**: The status of the mode: on-demand or not.
+    - **Last Generated**: The date and time the rule was last generated.
+    - **Created By**: The email address of the user who created the rule.
+    - **Last Modified**: The date and time the rule was last modified.
+    - **Subscription**: Provides an **On** or **Off** subscription that allows you to receive email notifications when recommendations have been generated, applied, or unapplied.
 
 
 ## Next steps

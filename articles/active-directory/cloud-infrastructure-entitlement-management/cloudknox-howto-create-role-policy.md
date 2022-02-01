@@ -1,6 +1,6 @@
 ---
-title: Microsoft CloudKnox Permissions Management - Create and view a role/policy in the Just Enough Permissions (JEP) Controller 
-description: How to review data and create and view a role/policy in the Just Enough Permissions (JEP) Controller.
+title: Create a role/policy in the JEP Controller in Microsoft CloudKnox Permissions Management 
+description: How to create a role/policy in the Just Enough Permissions (JEP) Controller.
 services: active-directory
 author: Yvonne-deQ
 manager: karenh444
@@ -8,89 +8,74 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/17/2022
+ms.date: 02/01/2022
 ms.author: v-ydequadros
 ---
 
-# Create and view a role/policy in the JEP Controller
+# Create a role/policy in the JEP Controller
 
-This topic describes how you can use the Just Enough Permissions (JEP) Controller in Microsoft CloudKnox Permissions Management (CloudKnox) to:
-- Review and interpret role/policy data.
-- Create a role/policy in the  JEP Controller.
+This article describes how you can use the JEP Controller in Microsoft CloudKnox Permissions Management to create roles/policies for the Amazon Web Services (AWS), Microsoft Azure, or Google Cloud Platform (GCP) authorization systems. 
 
 > [!NOTE]
-> Microsoft Azure uses the term *role* for what other Cloud providers call *policy*. </p>- The user interface automatically makes this change when you select the authorization system type on the **Roles/Policies** tab in the **JEP Controller** tab. </p>- In the user documentation, we use *role/policy* to refer to both.
+> To view the **JEP Controller** tab, your role must be **Viewer**, **Controller**, or **Administrator**. To make changes on this tab, you must be a **Controller** or **Administrator**. If you don’t have access, contact your system administrator.
 
 > [!NOTE]
-> You must have **Controller** access to the JEP Controller to perform these tasks. If you don’t have Controller access, contact your system administrator.
-
-## Review and interpret data on the Role/Policy tab
-
-1. Select the **JEP Controller** tab.
-2. Select the **Role/Policies** tab.
-
-    A list of **Role Name** and **Role Types** appears.
-3. A Search bar displays at the top of the list. You can use this bar to search for: 
-    - **Authorization System Type**
-    - **Authorization System**
-    - **Policy Name**
-    - **Policy Type**
-4. To search for a policy, in **Policy Name**, enter a policy name, or select a name from the drop-down list.
-
-    CloudKnox displays a list of policies that match your criteria.
-5. To filter policies by **Policy Type**, select the type of policy you want from the drop-down list.
-
-    CloudKnox displays a list of policy types that match your criteria.
-6. Select a role/policy to review the data.
+> Microsoft Azure uses the term *role* for what other Cloud providers call *policy*. CloudKnox automatically makes this terminology change when you select the authorization system type. In the user documentation, we use *role/policy* to refer to both.
 
 ## Create a role/policy
 
-1. Select the **JEP Controller** tab.
-2. Select the **Role/Policies** tab.
-3. Use the drop-down lists to select the **Authorization System Type** and **Authorization System**.
-4. Select **Create Role/Policy**.
+1. On the CloudKnox home page, select the **JEP Controller** tab, and then select the **Role/Policies** tab.
+
+1. Use the drop-down lists to select the **Authorization System Type** and **Authorization System**.
+1. Select **Create Role/Policy**.
 
     The **Create role/Policy** wizard opens.
-5. The **Authorization System Type** and **Authorization System** are pre-populated from your selections in Step 3.
-6. In the **Role/Policy Name** box, enter a role/policy name.
-7. Select which activity you want to create the role/policy:
-    - **Activity of User(s)**
-    - **Activity of Group(s)**
-    - **Activity of Resource(s)**
-    - **Activity of Role/Policy**
-    - **From Existing Role/Policy**
-    - **New Policy**
+1. The **Authorization System Type** and **Authorization System** are pre-populated from your previous settings.
+    - To change the settings, select the box and make a selection from the dropdown. 
 
-    To create a role/policy based on user activity, select **Activity of User(s)**.
-8. In **Tasks performed in the last**, select the duration: **90 days**, **60 days**, **30 days**, **7 days**, or **1 day**.
-9. In **Select Users**, select the **Users** and **User Type** you want.
-10. Select **Next**.
+1. Under **How Would You Like to Create the Policy?**, select the required option::
 
-    CloudKnox displays a **Statement** of **Available Tasks** and **Selected Tasks**.  
-11. To create a more generalized role/policy, select tasks from the **Available Tasks** list.
+    - **Activity of user(s)**: Allows you to create a role/policy based on a user's activity.
+    - **Activity of group(s)**: Allows you to create a role/policy based on the aggregated activity of all the users belonging to the group(s).
+    - **Activity of resource(s)**: Allows you to create a role/policy based on the activity of a resource, for example, an EC2 instance.
+    - **Activity of role/policy**: Allows you to create a role/policy based on the aggregated activity of all the users that assumed the role.
+    - **Activity of Lambda function**: Allows you to create a new polrole/policy based on the Lambda function.
+    - **From existing role/policy**: Allows you to create a new role/policy based on an existing role/policy.
+    - **New role/policy**: Allows you to create a new role/policy from scratch.
+
+1. In **Tasks performed in the last**, select the duration: **90 days**, **60 days**, **30 days**, **7 days**, or **1 day**.
+1. Depending on your preference, select or deselect **Include Access Advisor data.**
+1. Complete the required data depending on the type of policy you want to create, and then select **Next**.
+
+    CloudKnox displays a **Statement** of **Available tasks** and **Selected tasks**.  
+1. To create a more generalized role/policy, select tasks from the **Available tasks** list.
     - To add a category of tasks, select a category.
     - To add individual tasks from a category, select the plus sign next to the category name, and then select individual tasks.
 
-    The tasks you select appear the **Selected Tasks** list.
-12. To add another statement to your role/policy, select **Add a statement**, and then add a category of tasks or individual tasks as described in Step 11.
-13. In **Resources**, select **All Resources**, **Specific Resources**, or **No Resources**.
+    The tasks you select appear the **Selected tasks** list.
+1. To add another statement to your role/policy, select **Add a statement**, and then add a category of tasks or individual tasks as described in Step 11.
+1. In **Resources**, select **All Resources**, **Specific Resources**, or **No Resources**.
 
     If you select **Specific Resources**, a list of available resources appears.
-14. In **Request Conditions**, select **JSON** or **Script**.
-15. In **Effect**, select **Allow** or **Deny**.
-16. Select **Next**.
-17. Review the code to confirm it's what you want.
-18. If your controller isn't enabled, select **Download JSON** or **Download Script** to download the code and run it yourself.
+1. In **Request Conditions**, select **JSON** or **Script**.
+1. In **Effect**, select **Allow** or **Deny**, and then select **Next**.
+1. Review the script to confirm it's what you want.
+1. If your controller isn't enabled, select **Download JSON** or **Download Script** to download the code and run it yourself.
 
     If your controller is enabled, skip this step.
-19. Select **Submit**.
-20. The **CloudKnox Tasks** pane appears on the right.
+1. Select **Submit**.
+1. The **CloudKnox tasks** pane appears on the right.
 
     The **Active** tab displays a list of the roles/policies CloudKnox is currently processing.
 
     The **Completed** tab displays a list of the roles/policies CloudKnox has completed.
-21. Select the **Role/Policies** tab. In a few minutes, you’ll see the role/policy you created.
+1. Refresh the **Role/Policies** tab to see the role/policy you created.
 
 
 
-<!---## Next steps--->
+## Next steps
+
+- For information on how to view roles/policies, see [View information about roles/policies in the JEP Controller](howto-view-role-policy.md).
+- For information on how to clone roles/policies, see [Clone a role/policy in the JEP Controller](howto-clone-role-policy.md).
+- For information on how to modify roles/policies, see [Modify a role/policy in the JEP Controller](howto-modify-role-policy.md).
+- For information on how to delete roles/policies, see [Delete a role/policy in the JEP Controller](howto-delete-role-policy.md).
