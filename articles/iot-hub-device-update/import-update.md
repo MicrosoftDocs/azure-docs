@@ -1,6 +1,6 @@
 ---
-title: Add a new update | Microsoft Docs
-description: How-To guide to add a new update into Device Update for IoT Hub.
+title: Add an update to Device Update for IoT Hub | Microsoft Docs
+description: How-To guide to add an update into Device Update for IoT Hub.
 author: andrewbrownmsft
 ms.author: andbrown
 ms.date: 1/31/2022
@@ -40,11 +40,11 @@ Learn how to obtain a new update and import it into Device Update for IoT Hub.
 
    :::image type="content" source="media/import-update/import-new-update-2-ppr.png" alt-text="Import New Update" lightbox="media/import-update/import-new-update-2-ppr.png":::
 
-5. Select `+ Select from storage container`. The Storage accounts UI is shown. Select an existing account, or create a new account using `+ Storage account`. This account is used for a container to stage your updates for import.
+5. Select `+ Select from storage container`. The Storage accounts UI is shown. Select an existing account, or create an account using `+ Storage account`. This account is used for a container to stage your updates for import.
 
    :::image type="content" source="media/import-update/select-update-files-ppr.png" alt-text="Select Update Files" lightbox="media/import-update/select-update-files-ppr.png":::
 
-6. Once you've selected a Storage account, the Containers UI is shown. Select an existing container, or create a new container using `+ Container`. This container is used to stage your update files for importing _Recommendation: use a new container each time you import an update to avoid accidentally importing files from previous updates. If you don't use a new container, be sure to delete any files from the existing container before completing this step._
+6. Once you've selected a Storage account, the Containers UI is shown. Select an existing container, or create a container using `+ Container`. This container is used to stage your update files for importing _Recommendation: use a new container each time you import an update to avoid accidentally importing files from previous updates. If you don't use a new container, be sure to delete any files from the existing container before you complete this step._
 
    :::image type="content" source="media/import-update/storage-account-ppr.png" alt-text="Storage Account" lightbox="media/import-update/storage-account-ppr.png":::
 
@@ -52,7 +52,7 @@ Learn how to obtain a new update and import it into Device Update for IoT Hub.
 
    :::image type="content" source="media/import-update/container-ppr.png" alt-text="Select Container" lightbox="media/import-update/container-ppr.png":::
 
-8. Select the folder icon on the right side of the `Files` section under the `Upload blob` header. Using the file picker, navigate to the location of your update file(s) and import manifest, select all of the files, then select `Open`. _You can hold the Shift key and click to multi-select files._
+8. Select the folder icon on the right side of the `Files` section under the `Upload blob` header. Use the file picker to navigate to the location of your update files and import manifest, select all of the files, then select `Open`. _You can hold the Shift key and click to multi-select files._
 
    :::image type="content" source="media/import-update/container-picker-ppr.png" alt-text="Publish Update" lightbox="media/import-update/container-picker-ppr.png":::
 
@@ -60,7 +60,7 @@ Learn how to obtain a new update and import it into Device Update for IoT Hub.
 
    :::image type="content" source="media/import-update/container-upload-ppr.png" alt-text="Container Upload" lightbox="media/import-update/container-picker-ppr.png":::
 
-10. Select the uploaded files to designate them for importing. Then click the `Select` button to return to the `Import update` page.
+10. Select the uploaded files to designate them to be imported . Then click the `Select` button to return to the `Import update` page.
 
        :::image type="content" source="media/import-update/import-select-ppr.png" alt-text="Select Uploaded Files" lightbox="media/import-update/import-select-ppr.png":::
 
@@ -68,7 +68,7 @@ Learn how to obtain a new update and import it into Device Update for IoT Hub.
 
        :::image type="content" source="media/import-update/import-start-2-ppr.png" alt-text="Import Start" lightbox="media/import-update/import-start-2-ppr.png":::
 
-12. The import process begins, and the screen switches to the `Import History` section. Select `Refresh` to view progress until the import process completes (depending on the size of the update, the process may complete in a few minutes but could take longer).
+12. The import process begins, and the screen switches to the `Import History` section. Select `Refresh` to view progress until the import process completes (depending on the size of the update, the process might complete in a few minutes but could take longer).
 
        :::image type="content" source="media/import-update/update-publishing-sequence-2-ppr.png" alt-text="Update Import Sequencing" lightbox="media/import-update/update-publishing-sequence-2-ppr.png":::
 
