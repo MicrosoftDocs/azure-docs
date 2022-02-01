@@ -2,8 +2,8 @@
 author: memildin
 ms.service: defender-for-cloud
 ms.topic: include
-ms.date: 01/10/2022
-ms.author: memildin
+ms.date: 01/24/2022
+
 ---
 ## Enable the plan
 
@@ -33,20 +33,11 @@ ms.author: memildin
     - Azure Kubernetes Service profile - [Azure Kubernetes Service clusters should have Defender profile enabled](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/56a83a6e-c417-42ec-b567-1e6fcb3d09a9)
     - Azure Arc-enabled Kubernetes extension - [Azure Arc-enabled Kubernetes clusters should have the Defender extension installed](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/3ef9848c-c2c8-4ff3-8b9c-4c8eb8ddfce6)
 
-## Prerequisites
+## Additional Prerequisites
 
 Before deploying the extension, ensure you:
 - [Connect the Kubernetes cluster to Azure Arc](../../azure-arc/kubernetes/quickstart-connect-cluster.md)
 - Complete the [pre-requisites listed under the generic cluster extensions documentation](../../azure-arc/kubernetes/extensions.md#prerequisites).
-- Configure **port 443** on the following endpoints for outbound access:
-    - For clusters on Azure Government cloud:
-        - *.ods.opinsights.azure.us
-        - *.oms.opinsights.azure.us
-        - :::no-loc text="login.microsoftonline.us":::
-    - For clusters on other Azure cloud deployments:
-        - *.ods.opinsights.azure.com
-        - *.oms.opinsights.azure.com
-        - :::no-loc text="login.microsoftonline.com":::
 
 ## Deploy the Defender extension
 
