@@ -72,7 +72,7 @@ Custom text classification is only available select Azure regions. When you crea
 
 * Model names have to be unique within the same project.
 
-* Model names must only contain alphnumeric characters,only letters and numbers, no spaces or special characters are allowed). Model name must have a maximum of 50 characters.
+* Model name must only contain alphanumeric characters (letters and numbers). Spaces and special characters are not allowed. Project names can have a maximum of 50 characters.
 
 * You can't rename your model after creation.
 
