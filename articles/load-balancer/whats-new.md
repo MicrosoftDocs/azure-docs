@@ -41,6 +41,7 @@ The product group is actively working on resolutions for the following known iss
 |Issue |Description  |Mitigation  |
 | ---------- |---------|---------|
 | IP based LB outbound IP | IP based LB leverages Azure's Default Outbound Access IP for outbound when no outbound rules are configured | In order to prevent outbound access from this IP, please leverage Outbound rules or a NAT Gateway for a predictable IP address and to prevent SNAT port exhaustion |
+| numberOfProbes, "Unhealthy threshold" | Health probe configuration property numberOfProbes, otherwise known as "Unhealthy threshold" in Portal, is not respeted. Load Balancer health probes will probe up/down immediately after 1 probe regardless of the property's configure value | To reflect the current behavior, please set the value of numberOfProbes ("Unhealthy threshold" in Portal) as 1 |
 
   
 
