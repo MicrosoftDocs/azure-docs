@@ -104,7 +104,7 @@ No. Apps cannot be assigned managed identities when running in Azure Arc. If you
 
 ### Are there any scaling limits?
 
-All applications deployed with Azure App Service on Kubernetes with Azure Arc are able to scale within the limits of the underlying Kubernetes cluster.  If the underlying Kubernetes Cluster runs out of available compute resources (CPU and memory primarily), then applications will only be able to scale to the number of instances of the application that Kubernetes can schedule with available resource.
+All applications deployed with Azure App Service on Kubernetes with Azure Arc are able to scale within the limits of the underlying Kubernetes cluster. If the underlying Kubernetes Cluster runs out of available compute resources (CPU and memory primarily), then applications will only be able to scale to the number of instances of the application that Kubernetes can schedule with available resource.
 
 ### What logs are collected?
 
@@ -136,7 +136,7 @@ ARM64 based clusters are not supported at this time.
 - Upgrade Azure Function runtime to v3.3.1
 - Set default replica count of App Controller and Envoy Controller to 2 to add further stability
 
-If your extension was in the stable version and auto-upgrade-minor-version is set to true, the extension upgrades automatically.  To manually upgrade the extension to the latest version, you can run the command:
+If your extension was in the stable version and auto-upgrade-minor-version is set to true, the extension upgrades automatically. To manually upgrade the extension to the latest version, you can run the command:
 
 ```azurecli-interactive
     az k8s-extension update --cluster-type connectedClusters -c <clustername> -g <resource group> -n <extension name> --release-train stable --version 0.10.0
@@ -150,7 +150,7 @@ If your extension was in the stable version and auto-upgrade-minor-version is se
 - Resolved issues that caused slot swap operations to fail
 - Resolved issues customers experienced during creation of Ruby web applications
 
-If your extension was in the stable version and auto-upgrade-minor-version is set to true, the extension upgrades automatically.  To manually upgrade the extension to the latest version, you can run the command:
+If your extension was in the stable version and auto-upgrade-minor-version is set to true, the extension upgrades automatically. To manually upgrade the extension to the latest version, you can run the command:
 
 ```azurecli-interactive
     az k8s-extension update --cluster-type connectedClusters -c <clustername> -g <resource group> -n <extension name> --release-train stable --version 0.11.0
@@ -160,7 +160,7 @@ If your extension was in the stable version and auto-upgrade-minor-version is se
 
 - Minor release to resolve issue with CRD update
 
-If your extension was in the stable version and auto-upgrade-minor-version is set to true, the extension upgrades automatically.  To manually upgrade the extension to the latest version, you can run the command:
+If your extension was in the stable version and auto-upgrade-minor-version is set to true, the extension upgrades automatically. To manually upgrade the extension to the latest version, you can run the command:
 
 ```azurecli-interactive
     az k8s-extension update --cluster-type connectedClusters -c <clustername> -g <resource group> -n <extension name> --release-train stable --version 0.11.!
@@ -173,7 +173,7 @@ If your extension was in the stable version and auto-upgrade-minor-version is se
 - Upgrade Envoy to 1.20.1
 - Resolved issue with Application Insights support for .NET Applications
 
-If your extension was in the stable version and auto-upgrade-minor-version is set to true, the extension upgrades automatically.  To manually upgrade the extension to the latest version, you can run the command:
+If your extension was in the stable version and auto-upgrade-minor-version is set to true, the extension upgrades automatically. To manually upgrade the extension to the latest version, you can run the command:
 
 ```azurecli-interactive
     az k8s-extension update --cluster-type connectedClusters -c <clustername> -g <resource group> -n <extension name> --release-train stable --version 0.12.0
