@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 01/31/2022
+ms.date: 02/01/2022
 ms.author: alkohli
 ---
 # Prepare certificates to upload on your Azure Stack Edge Pro GPU
@@ -36,7 +36,7 @@ If you bring your own certificates, then the certificates that you created for y
 
     ![Export certificate DER 1](media/azure-stack-edge-gpu-manage-certificates/export-cert-cer-1.png)
 
-2. The certificate wizard opens up. Select the format as **DER encoded binary X.509 (.cer)**. Select **Next**.
+2. The certificate wizard opens. Select the format **DER encoded binary X.509 (.cer)**. Select **Next**.
 
     ![Export certificate DER 2](media/azure-stack-edge-gpu-manage-certificates/export-cert-cer-2.png)
 
@@ -62,7 +62,7 @@ Take the following steps to export an SSL certificate with private key on a Wind
 
     ![Export certificate 1](media/azure-stack-edge-gpu-manage-certificates/export-cert-pfx-1.png)
  
-3. Right-click on the certificate you would like to back up and choose **All tasks > Export...**
+3. Right-click on the certificate you would like to back up and choose **All tasks > Export...**.
 
     ![Export certificate 2](media/azure-stack-edge-gpu-manage-certificates/export-cert-pfx-2.png)
 
@@ -74,7 +74,7 @@ Take the following steps to export an SSL certificate with private key on a Wind
 
     ![Export certificate 4](media/azure-stack-edge-gpu-manage-certificates/export-cert-pfx-4.png)
 
-6. Choose **Include all certificates in certificate path if possible**, **Export all extended properties** and **Enable certificate privacy**. 
+6. Choose **Include all certificates in certificate path if possible**, **Export all extended properties** and **Enable certificate privacy**.
 
     > [!IMPORTANT]
     > DO NOT select the **Delete Private Key option if export is successful**.
@@ -85,7 +85,7 @@ Take the following steps to export an SSL certificate with private key on a Wind
 
     ![Export certificate 6](media/azure-stack-edge-gpu-manage-certificates/export-cert-pfx-6.png)
 
-8. Choose to save file on a set location.
+8. Choose to save the file in a set location.
 
     ![Export certificate 7](media/azure-stack-edge-gpu-manage-certificates/export-cert-pfx-7.png)
   
@@ -97,7 +97,7 @@ Take the following steps to export an SSL certificate with private key on a Wind
 
     ![Export certificate 9](media/azure-stack-edge-gpu-manage-certificates/export-cert-pfx-9.png)
 
-The .pfx file backup is now saved in the location you selected and is ready to be moved or stored for your safe keeping.
+The .pfx file backup is now saved in the location you selected and is ready to be moved or stored for your safekeeping.
 
 
 ## Next steps
