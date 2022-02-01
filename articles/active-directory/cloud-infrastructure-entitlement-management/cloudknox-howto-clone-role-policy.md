@@ -39,7 +39,7 @@ This article describes how you can use the JEP Controller in Microsoft CloudKnox
 
 ## Next steps
 
-- For information on how to view roles/policies, see [View information about roles/policies in the JEP Controller](howto-view-role-policy.md).
-- For information on how to create roles/policies, see [Create a role/policy in the JEP Controller](howto-create-role-policy.md).
-- For information on how to modify roles/policies, see [Modify a role/policy in the JEP Controller](howto-modify-role-policy.md).
-- For information on how to delete roles/policies, see [Delete a role/policy in the JEP Controller](howto-delete-role-policy.md).
+- For information on how to view roles/policies, see [View information about roles/policies in the JEP Controller](cloudknox-howto-view-role-policy.md).
+- For information on how to create roles/policies, see [Create a role/policy in the JEP Controller](cloudknox-howto-create-role-policy.md).
+- For information on how to modify roles/policies, see [Modify a role/policy in the JEP Controller](cloudknox-howto-modify-role-policy.md).
+- For information on how to delete roles/policies, see [Delete a role/policy in the JEP Controller](cloudknox-howto-delete-role-policy.md).

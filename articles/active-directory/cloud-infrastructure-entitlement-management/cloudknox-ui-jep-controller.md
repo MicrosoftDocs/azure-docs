@@ -62,7 +62,7 @@ The **Role/Policies list** displays a list of existing roles/policies and the fo
 
 - **Search**: Select this option to search for a specific role/policy.
 - **Reload**: Select this option to refresh the displayed list of roles/policies.
-- **Create Role/Policy**: Select this option to create a new role/policy. For more information, see [Create a role/policy](howto-create-role-policy.md).
+- **Create Role/Policy**: Select this option to create a new role/policy. For more information, see [Create a role/policy](cloudknox-howto-create-role-policy.md).
 
 
 - **Export CSV**: Select this option to export the displayed list of roles/policies as a comma-separated values (CSV) file. 
@@ -212,4 +212,4 @@ The **Settings** tab provides the following settings that you can use to make se
 
 ## Next steps
 
-- For information on how to view roles/policies, see [View information about roles/policies in the JEP Controller](howto-view-role-policy.md).
+- For information on how to view roles/policies, see [View information about roles/policies in the JEP Controller](cloudknox-howto-view-role-policy.md).

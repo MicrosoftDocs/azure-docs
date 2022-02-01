@@ -69,7 +69,7 @@ The **Roles/Policies** in the Just Enough Permissions (JEP) Controller in Micros
 
 ## Next steps
 
-- For information on how to create roles/policies, see [Create a role/policy in the JEP Controller](howto-create-role-policy.md).
-- For information on how to clone roles/policies, see [Clone a role/policy in the JEP Controller](howto-clone-role-policy.md).
-- For information on how to modify roles/policies, see [Modify a role/policy in the JEP Controller](howto-modify-role-policy.md).
-- For information on how to delete roles/policies, see [Delete a role/policy in the JEP Controller](howto-delete-role-policy.md).
+- For information on how to create roles/policies, see [Create a role/policy in the JEP Controller](cloudknox-howto-create-role-policy.md).
+- For information on how to clone roles/policies, see [Clone a role/policy in the JEP Controller](cloudknox-howto-clone-role-policy.md).
+- For information on how to modify roles/policies, see [Modify a role/policy in the JEP Controller](cloudknox-howto-modify-role-policy.md).
+- For information on how to delete roles/policies, see [Delete a role/policy in the JEP Controller](cloudknox-howto-delete-role-policy.md).

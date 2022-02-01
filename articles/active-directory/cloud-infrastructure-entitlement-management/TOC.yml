@@ -98,11 +98,7 @@
     - name: Manage roles/policies and permission requests
       expanded: true
       items:
-<<<<<<< HEAD
       - name: View existing roles/policies and requests for permission
-=======
-      - name: The JEP Controller dashboard — Overview
->>>>>>> 0f64e814397fe5a0fa9a6e884326bbda0a5f1953
         href: cloudknox-ui-jep-controller.md
       - name: View information about roles/policies
         href: howto-view-role-policy.md
