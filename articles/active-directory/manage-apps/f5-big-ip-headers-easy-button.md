@@ -99,9 +99,9 @@ With the **Easy Button**, admins no longer go back and forth between Azure AD an
 
 ## Register Easy Button
 
-Before a client or service can access Microsoft Graph, it must be trusted by the Microsoft identity platform. 
+Before a client or service can access Microsoft Graph, it must be [trusted by the Microsoft identity platform.](/develop/quickstart-register-app)
 
-The Easy Button client must also be registered as a client in Azure AD, before it is allowed to establish a trust relationship between each SAML SP instance of a BIG-IP published applications, and the IdP.
+The Easy Button client must also be registered in Azure AD, before it is allowed to establish a trust between each SAML SP instance of a BIG-IP published application, and Azure AD as the SAML IdP.
 
 1. Sign-in to the [Azure AD portal](https://portal.azure.com/) using an account with Application Administrative rights
 2. From the left navigation pane, select the **Azure Active Directory** service
@@ -157,11 +157,9 @@ The **Easy Button** template will display the sequence of steps required to publ
 
 ### Configuration Properties
 
-These are general and service account properties. The **Configuration Properties tab** creates up a new application config and SSO object that will be managed through the BIG-IP’s Guided Configuration UI. The configuration can then be reused for publishing more applications through the Easy Button template.
+These are general and service account properties. The **Configuration Properties** tab creates up a new application config and SSO object that will be managed through the BIG-IP’s Guided Configuration UI. This configuration can then be reused for publishing more applications through the Easy Button template.
 
-Consider the **Azure Service Account Details** be the BIG-IP client application you registered in your Azure AD tenant earlier. This section allows the BIG-IP to programmatically register a SAML application directly in your tenant, along with the other properties you would normally configure manually, in the portal. Easy Button will do this for every BIG-IP APM service being published and enabled for SHA.
-
-Some of these are global settings that can be reused for publishing more applications, further reducing deployment time and effort.
+Consider the **Azure Service Account Details** be the BIG-IP client application you registered in your Azure AD tenant earlier. This section allows the BIG-IP to programmatically register a SAML application directly in your tenant, along with the other properties you would normally configure manually in the portal. Easy Button will do this for every BIG-IP APM service being published and enabled for SHA.
 
 1. Enter a unique **Configuration Name** so admins can easily distinguish between Easy Button configurations.
 
@@ -183,13 +181,21 @@ The Service Provider settings define the SAML SP properties for the APM instance
 
     ![Screenshot for Service Provider settings](./media/f5-big-ip-easy-button-ldap/service-provider.png)
 
-Next, under security settings, enter information for Azure AD to encrypt issued SAML assertions. Encrypting assertions between Azure AD and the BIG-IP APM provides additional  assurance that the content tokens can’t be intercepted, and personal or corporate data be compromised.
+The optional **Security Settings** specify whether Azure AD should encrypt issued SAML assertions. Encrypting assertions between Azure AD and the BIG-IP APM provides additional assurance that the content tokens can’t be intercepted, and personal or corporate data be compromised.
 
-3. Check **Enable Encrypted Assertion (Optional)**. Enable to request Azure AD to encrypt SAML assertions
+3.	From the **Assertion Decryption Private Key** list, select **Create New**
+ 
+      ![Screenshot for Import SSL certificates and keys](./media/f5-big-ip-easy-button-oracle-ebs/configure-security-create-new.png)
 
-4. Select **Assertion Decryption Private Key**. The private key for the certificate that BIG-IP APM will use to decrypt Azure AD assertions
+4.	Select **OK**. This opens the **Import SSL Certificate and Keys** dialog in a new tab  
 
-5. Select **Assertion Decryption Certificate**. This is the certificate that BIG-IP will upload to Azure AD for encrypting the issued SAML assertions. This can be the certificate you provisioned earlier
+6.	Select **PKCS 12 (IIS) ** to import your certificate and private key. Once provisioned close the browser tab to return to the main tab.
+
+     ![Screenshot for Import SSL certificates and keys](./media/f5-big-ip-easy-button-ldap/import-ssl-certificates-and-keys.png)
+
+6.	Check **Enable Encrypted Assertion**
+7.	If you have enabled encryption, select your certificate from the **Assertion Decryption Private Key** list. This is the private key for the certificate that BIG-IP APM will use to decrypt Azure AD assertions
+8.	If you have enabled encryption, select your certificate from the **Assertion Decryption Certificate** list. This is the certificate that BIG-IP will upload to Azure AD for encrypting the issued SAML assertions.
    
    ![Screenshot for Service Provider security settings](./media/f5-big-ip-easy-button-ldap/service-provider-security-settings.png)
 
@@ -209,13 +215,11 @@ The Easy Button wizard provides a set of pre-defined application templates for O
    
    ![Screenshot for Azure configuration add display info](./media/f5-big-ip-easy-button-ldap/azure-configuration-properties.png)
 
-3. Select **Signing key**. The IdP SAML signing certificate you provisioned earlier
+3. Select the refresh icon next to the **Signing Key** and **Signing Certificate** to locate the certificate you imported earlier
+ 
+5. Enter the certificate’s password in **Signing Key Passphrase**
 
-4. Select the same certificate for **Singing Certificate**
-
-5. Enter the certificate’s password in **Passphrase**
-
-6. Select **Signing Options**. It can be enabled optionally to ensure the BIG-IP only accepts tokens and claims that have been signed by your Azure AD tenant
+6. Enable **Signing Option** (optional). This ensures that BIG-IP only accepts tokens and claims that are signed by Azure AD
    
    ![Screenshot for Azure configuration - Add signing certificates info](./media/f5-big-ip-easy-button-ldap/azure-configuration-sign-certificates.png)
 
@@ -246,21 +250,20 @@ In the **Additional User Attributes tab**, you can enable session augmentation r
 
 #### Conditional Access Policy
 
-You can further protect the published application with policies returned from your Azure AD tenant. These policies are enforced after the first-factor authentication has been completed and uses signals from conditions like device platform, location, user or group membership, or application to determine access.
+CA policies are enforced post Azure AD pre-authentication, to control access based on device, application, location, and risk signals.
 
-The **Available Policies** by default, lists all CA policies defined without user based actions.
+The **Available Policies** view, by default, will list all CA policies that do not include user based actions.
 
-The **Selected Policies** list, by default, displays all policies targeting All cloud apps. These policies cannot be deselected or moved to the Available Policies list.
+The **Selected Policies** view, by default, displays all policies targeting All cloud apps. These policies cannot be deselected or moved to the Available Policies list as they are enforced at a tenant level.
 
 To select a policy to be applied to the application being published:
 
-1. Select the desired policy in the **Available Policies** list
+1.	Select the desired policy in the **Available Policies** list
+2.	Select the right arrow and move it to the **Selected Policies** list
 
-2. Select the right arrow and move it to the **Selected Policies** list
+Selected policies should either have an **Include** or **Exclude** option checked. If both options are checked, the selected policy is not enforced.
 
-Selected policies should either have an **Include** or **Exclude option** checked. If both options are checked, the selected policy is not enforced. Excluding all policies may ease testing, you can go back and enable them later.
-
-![Screenshot for CA policies](./media/f5-big-ip-easy-button-ldap/conditional-access-policy.png)
+![Screenshot for CA policies](./media/f5-big-ip-kerberos-easy-button/conditional-access-policy.png)
 
 > [!NOTE]
 > The policy list is enumerated only once when first switching to this tab. A refresh button is available to manually force the wizard to query your tenant, but this button is displayed only when the application has been deployed.
@@ -269,7 +272,7 @@ Selected policies should either have an **Include** or **Exclude option** checke
 
 A virtual server is a BIG-IP data plane object represented by a virtual IP address listening for clients requests to the application. Any received traffic is processed and evaluated against the APM profile associated with the virtual server, before being directed according to the policy results and settings.
 
-1. Enter **Destination Address**. This is any available IPv4/IPv6 address that the BIG-IP can use to receive client traffic
+1. Enter **Destination Address**. This is any available IPv4/IPv6 address that the BIG-IP can use to receive client traffic. A corresponding record should also exist in DNS, enabling clients to resolve the external URL of your BIG-IP published application to this IP.
 
 2. Enter **Service Port** as *443* for HTTPS
 
@@ -342,14 +345,18 @@ For increased security, organizations using this pattern could also consider blo
 
 ## Advanced deployment
 
-There may be cases where the Guided Configuration templates lack the flexibility to achieve a particular set of requirements. Or even a need to fast track a proof of concept. For those scenarios, the BIG-IP offers the ability to disable the Guided Configuration’s strict management mode. That way the bulk of your configurations can be deployed through the wizard-based templates, and any tweaks or additional settings applied manually.
+There may be cases where the Guided Configuration templates lacks the flexibility to achieve more specific requirements. For those scenarios, see [Advanced Configuration for headers-based SSO](./f5-big-ip-header-advanced).
 
-For those scenarios, go ahead and deploy using the Guided Configuration. Then navigate to **Access > Guided Configuration** and select the small padlock icon on the far right of the row for your applications’ configs. At that point, changes via the wizard UI are no longer possible, but all BIG-IP objects associated with the published instance of the application will be unlocked for direct management. 
+Alternatively, the BIG-IP gives you the option to disable **Guided Configuration’s strict management mode**. This allows you to manually tweak your configurations, even though bulk of your configurations are automated through the wizard-based templates.
 
-For more information, see [Advanced Configuration for header-based SSO](./f5-big-ip-header-advanced.md).
+You can navigate to **Access > Guided Configuration** and select the **small padlock icon** on the far right of the row for your applications’ configs. 
+ 
+![Screenshot for Configure Easy Button - Strict Management](./media/f5-big-ip-easy-button-oracle-ebs/disable-strict-mode.png)
 
-> [!NOTE] 
-> Re-enabling strict mode and deploying a configuration will overwrite any settings performed outside of the Guided Configuration UI, therefore we recommend the manual approach for production services.
+At that point, changes via the wizard UI are no longer possible, but all BIG-IP objects associated with the published instance of the application will be unlocked for direct management.
+
+[!NOTE] Re-enabling strict mode and deploying a configuration will overwrite any settings performed outside of the Guided Configuration UI, therefore we recommend the advanced configuration method for production services.
+
 
 ## Troubleshooting
 
