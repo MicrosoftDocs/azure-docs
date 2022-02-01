@@ -44,6 +44,7 @@ To complete this tutorial, you need the following resources and privileges:
   * If needed, [create and configure an Azure Active Directory Domain Services managed domain][create-azure-ad-ds-instance].
 * The *LDP.exe* tool installed on your computer.
   * If needed, [install the Remote Server Administration Tools (RSAT)][rsat] for *Active Directory Domain Services and LDAP*.
+* You need global administrator privileges in your Azure AD tenant to enable secure LDAP.
 
 ## Sign in to the Azure portal
 

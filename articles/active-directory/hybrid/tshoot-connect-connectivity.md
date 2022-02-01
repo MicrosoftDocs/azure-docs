@@ -12,7 +12,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: troubleshooting
-ms.date: 11/18/2021
+ms.date: 01/11/2022
 ms.subservice: hybrid
 ms.author: billmath
 
@@ -47,7 +47,7 @@ Of these URLs, the following table is the absolute bare minimum to be able to co
 | mscrl.microsoft.com |HTTP/80 |Used to download CRL lists. |
 | \*.verisign.com |HTTP/80 |Used to download CRL lists. |
 | \*.entrust.net |HTTP/80 |Used to download CRL lists for MFA. |
-| \*.asazure.windows.net (Analysis Services)</br>\*.core.windows.net (Azure Storage)</br>\*.database.windows.net (SQL Server) </br>\*.graph.windows.net (Azure AD Graph)</br>\*.kusto.windows.net (Azure Data Explorer/Kusto)</br>\*.search.windows.net (search)</br>\*.servicebus.windows.net (Azure Service Bus)</br>|HTTPS/443|Used for the various Azure services|
+| \*.management.core.windows.net (Azure Storage)</br>\*.graph.windows.net (Azure AD Graph)|HTTPS/443|Used for the various Azure services|
 | secure.aadcdn.microsoftonline-p.com |HTTPS/443 |Used for MFA. |
 | \*.microsoftonline.com |HTTPS/443 |Used to configure your Azure AD directory and import/export data. |
 | \*.crl3.digicert.com |HTTP/80 |Used to verify certificates. |

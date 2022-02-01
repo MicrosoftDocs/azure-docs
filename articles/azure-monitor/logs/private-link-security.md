@@ -4,7 +4,7 @@ description: Set up an Azure Monitor Private Link Scope to securely connect netw
 author: noakup
 ms.author: noakuper
 ms.topic: conceptual
-ms.date: 10/05/2020
+ms.date: 1/5/2022
 ---
 
 # Use Azure Private Link to connect networks to Azure Monitor
@@ -58,6 +58,8 @@ When configuring Private Link even for a single resource, traffic to the below e
 ### Resource-specific endpoints
 Log Analytics endpoints are workspace-specific, except for the query endpoint discussed earlier. As a result, adding a specific Log Analytics workspace to the AMPLS will send ingestion requests to this workspace over the Private Link, while ingestion to other workspaces will continue to use the public endpoints.
 
+[Data Collection Endpoints](../agents/data-collection-endpoint-overview.md) are also resource-specific, and allow you to uniquely configure ingestion settings for collecting guest OS telemetry data from your machines (or set of machines) when using the new [Azure Monitor agent](../agents/azure-monitor-agent-overview.md) and [Data Collection Rules](../agents/data-collection-rule-overview.md). Configuring a data collection endpoint for a set of machines does not affect ingestion of guest telemetry from other machines using the new agent.
+
 > [!IMPORTANT]
 > Starting December 1, 2021, the Private Endpoints DNS configuration will use the Endpoint Compression mechanism, which allocates a single private IP address for all workspaces in the same region. This improves the supported scale (up to 300 workspaces and 1000 components per AMPLS) and  reduces the total number of IPs taken from the network's IP pool.  
 
@@ -77,6 +79,7 @@ Therefore, Private Links created starting September 2021 have new mandatory AMPL
 
 > [!NOTE]
 > Log Analytics ingestion uses resource-specific endpoints. As such, it doesn’t adhere to AMPLS access modes. **To assure Log Analytics ingestion requests can’t access workspaces out of the AMPLS, set the network firewall to block traffic to public endpoints, regardless of the AMPLS access modes**.
+
 
 ## Next steps
 - [Design your Private Link setup](private-link-design.md)

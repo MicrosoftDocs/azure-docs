@@ -25,7 +25,7 @@ This clause is optional while querying.
 
 ## Core syntax: MATCH
 
-`MATCH` supports any query that finds a path between twins with an unpredictable number of hops, based on certain relationship conditions. 
+`MATCH` supports any query that finds a path between twins with an unpredictable number of hops, based on certain relationship conditions. 
 
 The **relationship condition** can include one or more of the following details:
 * [Relationship direction](#specify-relationship-direction) (left-to-right, right-to-left, or non-directional)
@@ -33,7 +33,7 @@ The **relationship condition** can include one or more of the following details:
 * [Number of "hops"](#specify-number-of-hops) from one twin to another (exact number or range)
 * [A query variable assignment](#assign-query-variable-to-relationship-and-specify-relationship-properties) to represent the relationship within the query text. This will also allow you to filter on relationship properties.
 
-A query with a `MATCH` clause must also use the [WHERE clause](reference-query-clause-where.md) to specify the `$dtId` for at least one of the twins it references.
+A query with a `MATCH` clause must also use the [WHERE clause](reference-query-clause-where.md) to specify the `$dtId` for at least one of the twins it references.
 
 >[!NOTE]
 >`MATCH` is a superset of all `JOIN` queries that can be performed in the query store.
