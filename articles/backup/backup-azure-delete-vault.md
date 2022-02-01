@@ -298,13 +298,7 @@ Follow these steps:
 	 Install-Module -Name Az.RecoveryServices -Repository PSGallery -Force -AllowClobber
      ```
 
-- **Step 3**: Copy the following script, change the parameters (vault name, resource group name, subscription name, and subscription ID), and run it in your PowerShell environment.
-  
-  The file prompts the user for authentication. Provide the user details to start the vault deletion process.
-  
-  Alternately, you can use Cloud Shell in Azure portal for vaults with fewer backups.
-
-  :::image type="content" source="./media/backup-azure-delete-vault/delete-vault-using-cloud-shell-inline.png" alt-text="Screenshot showing to delete a vault using Cloud Shell." lightbox="./media/backup-azure-delete-vault/delete-vault-using-cloud-shell-expanded.png":::
+- **Step 3**: Delete all the backup items and ultimately the entire vault recursively. For more information, see [PowerShell script to delete a Recovery Services vault](./scripts/delete-recovery-services-vault.md).
 
   **Run the script in the PowerShell console**
 
@@ -316,7 +310,10 @@ Follow these steps:
   1. Delete Disaster Recovery items
   1. Remove private endpoints
 
-To delete delete all the backup items and ultimately the entire vault recursively, see [PowerShell script to delete a Recovery Services vault](./scripts/delete-recovery-services-vault.md). If you want to delete individual backup items or write your own script, use the following PowerShell commands:
+>[!Note]
+>To delete all the backup items and ultimately the entire vault recursively, see [PowerShell script to delete a Recovery Services vault](./scripts/delete-recovery-services-vault.md).
+
+To delete an individual backup items or write your own script, use the following PowerShell commands:
 
 - Stop protection and delete the backup data:
 

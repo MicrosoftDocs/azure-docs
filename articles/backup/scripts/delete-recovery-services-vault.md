@@ -45,6 +45,7 @@ $authHeader = @{
 $body = @{properties=@{enhancedSecurityState= "Disabled"}}
 $restUri = 'https://management.azure.com/subscriptions/'+$SubscriptionId+'/resourcegroups/'+$ResourceGroup+'/providers/Microsoft.RecoveryServices/vaults/'+$VaultName+'/backupconfig/vaultconfig?api-version=2019-05-13'
 $response = Invoke-RestMethod -Uri $restUri -Headers $authHeader -Body ($body | ConvertTo-JSON -Depth 9) -Method PATCH
+#Replace "management.azure.com" with "management.usgovcloudapi.net" if your subscription is in USGov.
 
 #Fetch all protected items and servers
 $backupItemsVM = Get-AzRecoveryServicesBackupItem -BackupManagementType AzureVM -WorkloadType AzureVM -VaultId $VaultToDelete.ID
@@ -225,6 +226,13 @@ Remove-AzRecoveryServicesVault -Vault $VaultToDelete
 ## How to execute the script?
 
 1. Save the script on your machine with a name of your choice and _.ps1_ extension.
+1. In the script, change the parameters (vault name, resource group name, subscription name, and subscription ID).
+1. To run it in your PowerShell environment, continue with the next steps.
+
+   Alternatively, you can use Cloud Shell in Azure portal for vaults with fewer backups.
+
+   :::image type="content" source="./media/backup-azure-delete-vault/delete-vault-using-cloud-shell-inline.png" alt-text="Screenshot showing to delete a vault using Cloud Shell." lightbox="./media/backup-azure-delete-vault/delete-vault-using-cloud-shell-expanded.png":::
+
 1. To upgrade to the latest version of PowerShell 7, if not done, run the following command in the PowerShell window:
 
    ```azurepowershell-interactive
