@@ -95,7 +95,7 @@ To regenerate and download device certificates for your device, do these steps:
 
     <!--MOVE THIS UP. - You are notified when the operation completes successfully.-->
 
-3. **To avoid any potential cache issues, restart your browser.**<!--With this changed to a step, is bold really needed? It's pretty visible.-->
+3. To avoid any potential cache issues, restart your browser.<!--With this changed to a step, is bold really needed? It's pretty visible.-->
 
 4. After the certificates are generated: 
 
