@@ -63,7 +63,7 @@ The free App Service managed certificate is a turn-key solution for securing you
 The free certificate comes with the following limitations:
 
 - Does not support wildcard certificates.
-- Does not support usage as a client certificate by certificate thumbprint (removal of certificate thumbprint is planned).
+- Does not support usage as a client certificate by using certificate thumbprint (removal of certificate thumbprint is planned).
 - Does not support private DNS.
 - Is not exportable.
 - Is not supported on App Service Environment (ASE).
@@ -73,11 +73,11 @@ The free certificate comes with the following limitations:
 - Must have an A record pointing to your web app's IP address.
 - Is not supported on apps that are not publicly accessible.
 - Is not supported with root domains that are integrated with Traffic Manager.
-- All the above must be met for successful certificate issuances and renewals
+- All the above must be met for successful certificate issuances and renewals.
 
 # [Subdomain](#tab/subdomain)
-- Must have CNAME mapped _directly_ to \<app-name\>.azurewebsites.net; using services that proxy the CNAME value will block certificate issuance and renewal
-- All the above must be met for successful certificate issuance and renewals
+- Must have CNAME mapped _directly_ to `<app-name>.azurewebsites.net`. Mapping to an intermediate CNAME value will block certificate issuance and renewal.
+- All the above must be met for successful certificate issuance and renewals.
 
 -----
 
@@ -395,7 +395,7 @@ Click **Rekey** to start the process. This process can take 1-10 minutes to comp
 
 Rekeying your certificate rolls the certificate with a new certificate issued from the certificate authority.
 
-You may be required to [re-verify domain ownership](#verify-domain-ownership).
+You may be required to [reverify domain ownership](#verify-domain-ownership).
 
 Once the rekey operation is complete, click **Sync**. The sync operation automatically updates the hostname bindings for the certificate in App Service without causing any downtime to your apps.
 
@@ -427,7 +427,7 @@ The downloaded *appservicecertificate.pfx* file is a raw PKCS12 file that contai
 
 ### Delete certificate 
 
-Deletion of an App Service certificate is final and irreversible. Deletion of a App Service Certificate resource results in the certificate being revoked. Any binding in App Service with this certificate becomes invalid. To prevent accidental deletion, Azure puts a lock on the certificate. To delete an App Service certificate, you must first remove the delete lock on the certificate.
+Deletion of an App Service certificate is final and irreversible. Deletion of an App Service Certificate resource results in the certificate being revoked. Any binding in App Service with this certificate becomes invalid. To prevent accidental deletion, Azure puts a lock on the certificate. To delete an App Service certificate, you must first remove the delete lock on the certificate.
 
 Select the certificate in the [App Service Certificates](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) page, then select **Locks** in the left navigation.
 
