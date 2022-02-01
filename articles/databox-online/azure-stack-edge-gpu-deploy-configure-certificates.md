@@ -13,9 +13,9 @@ ms.author: alkohli
 ---
 # Tutorial: Configure certificates for your Azure Stack Edge Pro with GPU
 
-This tutorial describes how you can configure certificates for your Azure Stack Edge Pro device with an onboard GPU by using the local web UI.
+This tutorial describes how to configure certificates for your Azure Stack Edge Pro with device onboard GPU using the local web UI.
 
-The time taken for this step can vary depending on the specific option you choose and how the certificate flow is established in your environment.
+The time taken for this step will vary depending on the option you choose and how the certificate flow is established in your environment.
 
 In this tutorial, you learn about:
 
@@ -65,7 +65,7 @@ Before you configure and set up your Azure Stack Edge Pro device with GPU, make 
 
 ## Generate device certificates
 
-Follow these steps if you prefer to generate device certificates.
+Use this procedure if you're using the device certificates that are generated automatically on your Azure Stack Edge device and you need to generate new certificates. For example, if you change the device name or domain name server (DNS) domain for your device, you'll need to generate new certificates.<!--Lead rewritten. Verify the context.-->
 
 Use these steps to regenerate and download the Azure Stack Edge Pro GPU device certificates:
 
@@ -73,7 +73,7 @@ Use these steps to regenerate and download the Azure Stack Edge Pro GPU device c
 
     ![Screenshot of the Certificates page in the local web UI of an Azure Stack Edge device. The Generate Certificates button is  highlighted.](./media/azure-stack-edge-gpu-deploy-configure-certificates/generate-certificate-3.png)
 
-2. On the **Generate device certificates** pane, select **Generate**. 
+2. On the **Generate device certificates** pane, select **Generate**.
 
     ![Screenshot of the Generate Certificates pane for an Azure Stack Edge device. The Generate button is highlighted.](./media/azure-stack-edge-gpu-deploy-configure-certificates/generate-certificate-4.png)
 
@@ -123,14 +123,21 @@ If you're using Azure Storage Explorer, you'll need to install certificates on y
 
 ## Bring your own certificates
 
-If you don't want to generate device certificates, you can bring your own certificates.
+To use your own certificates instead the automatically generated device certificates with your Azure Stack Edge device, use the following procedures.
 
-- Start by understanding the [Types of certificates that can be used with your Azure Stack Edge device](azure-stack-edge-gpu-certificates-overview.md).
-- Next, review the [Certificate requirements for each type of certificate](azure-stack-edge-gpu-certificate-requirements.md).
-- You can then [Create your certificates via Azure PowerShell](azure-stack-edge-gpu-create-certificates-powershell.md) or [Create your certificates via Readiness Checker tool](azure-stack-edge-gpu-create-certificates-tool.md).
-- Finally, [Convert the certificates to appropriate format](azure-stack-edge-gpu-prepare-certificates-device-upload.md) so that they are ready to upload on to your device.
+### Prepare your certificates
 
-Follow these steps to upload your own certificates, including the signing chain, to your device.
+Complete these steps to prepare your certificates for upload to the device:
+
+1. Understand certificate requirements:
+    - [Review the types of certificates to use with your Azure Stack Edge device](azure-stack-edge-gpu-certificates-overview.md).
+    - [Review certificate requirements for each certificate type](azure-stack-edge-gpu-certificate-requirements.md).
+2. [Create your certificates via Azure PowerShell](azure-stack-edge-gpu-create-certificates-powershell.md), or [use the Readiness Checker tool](azure-stack-edge-gpu-create-certificates-tool.md).
+3. [Convert the certificates to the required format](azure-stack-edge-gpu-prepare-certificates-device-upload.md).
+
+### Upload your certificates to the device
+
+Follow these steps to upload your own certificates, including the signing chain, to your device:
 
 1. To upload a certificate, on the **Certificates** page of the local web UI, select **+ Add certificate**. Then use the **Add certificate** pane to upload your certificate.
 
