@@ -217,7 +217,7 @@ five minutes
 UX deactivate a role assignment can't within five minutes of activation
 
 "SQL Server 2019 Big Data Clusters" and "big data clusters"
-
+WACTH
 
 Press deaCTIVATE LOOKS LIKE IT DOES BUT THERE'S A LAG
 not instantaneous
