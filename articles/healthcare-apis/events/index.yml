@@ -28,7 +28,7 @@ landingContent:
             
   - title: Using Events
     linkLists:
-      - linkListType: quickstarts
+      - linkListType: quickstart
         links:
           - text: Deploy Events in the Azure Portal
             url: events-deploy-in-portal.md
