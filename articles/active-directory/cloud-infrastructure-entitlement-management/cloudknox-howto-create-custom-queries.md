@@ -1,6 +1,6 @@
 ---
 title: Create a custom query in Microsoft CloudKnox Permissions Management  
-description: How to create a custom query in the Audit trail dashboard in Microsoft CloudKnox Permissions Management .
+description: How to create a custom query in the Audit trail dashboard in Microsoft CloudKnox Permissions Management.
 services: active-directory
 author: Yvonne-deQ
 manager: karenh444
@@ -28,7 +28,7 @@ This article describes how you can use the Audit trail dashboard in Microsoft Cl
     1. Select **Authorization system**.
     2. Select the authorization systems you want to search.
     3. Select **Apply**.
-2. In **New Query**, enter query paarameters.
+2. In **New Query**, enter query parameters.
 3. To change your query, select **Edit** (the pencil icon), and then change the query parameters.
 4. To change the parameter options, select the down arrow in each box to display a dropdown list of available selections. Then select the option you want.
 

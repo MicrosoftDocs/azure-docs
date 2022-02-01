@@ -24,7 +24,7 @@ This article describes how to generate and view a custom report in Microsoft Clo
 1. From the **Report Based on** list, make a selection from the list of reports.
     1. To view which authorization systems the report applies to, hover over each report option.
     1. To view a description of the report, select a report.
-1. Select **Next**
+1. Select **Next**.
 1. In the **MyReport** box, select the **Authorization system** you want: Amazon Web Services (**AWS**), Microsoft Azure (**Azure**), or Google Cloud Platform (**GCP**).
 
 1. To add specific accounts, select the **List** subtab, and then select **All** or the account names.
@@ -35,7 +35,7 @@ This article describes how to generate and view a custom report in Microsoft Clo
 
 	- For **Hourly** and **Daily** options, set the start date by choosing from the **Calendar** dropdown, and can input a specific time of the day they want to receive the report. 
 
-    In addition to date and time, the **Weekly** and **Biweekly** provide options for you to select on which day(s)of the week the report should repeat .
+    In addition to date and time, the **Weekly** and **Biweekly** provide options for you to select on which day(s)of the week the report should repeat.
 
 9. Select **Save**.
 

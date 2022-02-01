@@ -31,7 +31,7 @@ This article describes how to generate and download the **Permissions analytics 
     
 1. In the **Report Name** table, find **Permissions analytics report**, and then select the down arrow to the right of the report name to download the report.
 
-    The following message displays: **Successfully started to generate on demand report.
+    The following message displays: **Successfully started to generate on-demand report.
 
 	> [!NOTE]
     > If you select one authorization system, the report includes a summary. If you select more than one authorization system, the report does not include a summary.
