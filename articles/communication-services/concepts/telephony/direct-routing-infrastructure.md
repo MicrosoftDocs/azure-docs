@@ -26,80 +26,44 @@ The infrastructure requirements for the supported SBCs, domains, and other netwo
 |Infrastructure requirement|You need the following|
 |:--- |:--- |
 |Session Border Controller (SBC)|A supported SBC. For more information, see [Supported SBCs](#supported-session-border-controllers-sbcs).|
-|Telephony trunks connected to the SBC|One or more telephony trunks connected to the SBC. On one end, the SBC connects to the Azure Communication Service via direct routing. The SBC can also connect to third-party telephony entities, such as PBXs, Analog Telephony Adapters, and so on. Any PSTN connectivity option connected to the SBC will work. (For configuration of the PSTN trunks to the SBC, refer to the SBC vendors or trunk providers.)|
+|Telephony trunks connected to the SBC|One or more telephony trunks connected to the SBC. On one end, the SBC connects to the Azure Communication Service via direct routing. The SBC can also connect to third-party telephony entities, such as PBXs, Analog Telephony Adapters, and so on. Any Public Switched Telephony Network (PSTN) connectivity option connected to the SBC will work. (For configuration of the PSTN trunks to the SBC, refer to the SBC vendors or trunk providers.)|
 |Azure subscription|An Azure subscription that you use to create Communication Services resource, and the configuration and connection to the SBC.|
 |Communication Services Access Token|To make calls, you need a valid Access Token with `voip` scope. See [Access Tokens](../identity-model.md#access-tokens)|
 |Public IP address for the SBC|A public IP address that can be used to connect to the SBC. Based on the type of SBC, the SBC can use NAT.|
-|Fully Qualified Domain Name (FQDN) for the SBC|An FQDN for the SBC, where the domain portion of the FQDN does not match registered domains in your Microsoft 365 or Office 365 organization. For more information, see [SBC domain names](#sbc-domain-names).|
-|Public DNS entry for the SBC |A public DNS entry mapping the SBC FQDN to the public IP Address. |
+|Fully Qualified Domain Name (FQDN) for the SBC|An FQDN for the SBC, where the domain portion of the FQDN doesn’t match registered domains in your Microsoft 365 or Office 365 organization. For more information, see [SBC domain names](#sbc-domain-names).|
+|Public DNS entry for the SBC |A public DNS entry mapping the SBC FQDN to the public IP address. |
 |Public trusted certificate for the SBC |A certificate for the SBC to be used for all communication with Azure direct routing. For more information, see [Public trusted certificate for the SBC](#public-trusted-certificate-for-the-sbc).|
 |Firewall IP addresses and ports for SIP signaling and media |The SBC communicates to the following services in the cloud:<br/><br/>SIP Proxy, which handles the signaling<br/>Media Processor, which handles media<br/><br/>These two services have separate IP addresses in Microsoft Cloud, described later in this document.
 
 
-## SBC domain names
-
-Customers without Office 365 can use any domain name for which they can obtain a public certificate.
-
-The following table shows examples of DNS names registered for the tenant, whether the name can be used as a fully qualified domain name (FQDN) for the SBC, and examples of valid FQDN names:
-
-|DNS name|Can be used for SBC FQDN|Examples of FQDN names|
-|:--- |:--- |:--- |
-contoso.com|Yes|**Valid names:**<br/>sbc1.contoso.com<br/>ssbcs15.contoso.com<br/>europe.contoso.com|
-|contoso.onmicrosoft.com|No|Using *.onmicrosoft.com domains is not supported for SBC names
-
-If you are an Office 365 customer, then the SBC domain name must not match registered in Domains of the Office 365 tenant. Below is the example of Office 365 and Azure Communication Service coexistence:
-
-|Domain registered in Office 365|Examples of SBC FQDN in Teams|Examples of SBC FQDN names in Azure Communication Services|
-|:--- |:--- |:--- |
-**contoso.com** (second level domain)|**sbc.contoso.com** (name in the second level domain)|**sbc.acs.contoso.com** (name in the third level domain)<br/>**sbc.fabrikam.com** (any name within different domain)|
-|**o365.contoso.com** (third level domain)|**sbc.o365.contoso.com** (name in the third level domain)|**sbc.contoso.com** (name in the second level domain)<br/>**sbc.acs.o365.contoso.com** (name in the fourth level domain)<br/>**sbc.fabrikam.com** (any name within different domain)
-
-SBC pairing works on the Communication Services resource level, meaning you can pair many SBCs to a single Communication Services resource, but you cannot pair a single SBC to more than one Communication Services resource. Unique SBC FQDNs are required for pairing to different resources.
-
-## Public trusted certificate for the SBC
+## SBC certificates and domain names
 
 Microsoft recommends that you request the certificate for the SBC by generating a certification signing request (CSR). For specific instructions on generating a CSR for an SBC, refer to the interconnection instructions or documentation provided by your SBC vendors. 
 
-  > [!NOTE]
-  > Most Certificate Authorities (CAs) require the private key size to be at least 2048. Keep this in mind when generating the CSR.
+ >[!NOTE]
+ > Most Certificate Authorities (CAs) require the private key size to be at least 2048. Keep this in mind when generating the CSR.
 
-The certificate needs to have the SBC FQDN as the common name (CN) or the subject alternative name (SAN) field. The certificate should be issued directly from a certification authority, not from an intermediate provider.
+The certificate must have the SBC FQDN as the common name (CN) or the subject alternative name (SAN) field. The certificate should be issued directly from a certification authority, not an intermediate provider.
 
 Alternatively, Communication Services direct routing supports a wildcard in the CN and/or SAN, and the wildcard needs to conform to standard [RFC HTTP Over TLS](https://tools.ietf.org/html/rfc2818#section-3.1). 
 
+Customers who already use Office 365 and have a domain registered in Microsoft 365 Admin Center can use SBC FQDN from the same domain.
+Domains that aren’t previously used in O365 need to be provisioned.
+
 An example would be using `\*.contoso.com`, which would match the SBC FQDN `sbc.contoso.com`, but wouldn't match with `sbc.test.contoso.com`.
 
-The certificate needs to be generated by one of the following root certificate authorities:
+>[!IMPORTANT]
+>During Public Preview only: if you plan to use a wildcard certificate for the domain that is not registered in Teams, please raise a support ticket, and we will add it as a trusted domain.
 
-- AffirmTrust
-- AddTrust External CA Root
-- Baltimore CyberTrust Root*
-- Buypass
-- Cybertrust
-- Class 3 Public Primary Certification Authority
-- Comodo Secure Root CA
-- Deutsche Telekom 
-- DigiCert Global Root CA
-- DigiCert High Assurance EV Root CA
-- Entrust
-- GlobalSign
-- Go Daddy
-- GeoTrust
-- Verisign, Inc. 
-- SSL.com
-- Starfield
-- Symantec Enterprise Mobile Root for Microsoft 
-- SwissSign
-- Thawte Timestamping CA
-- Trustwave
-- TeliaSonera 
-- T-Systems International GmbH (Deutsche Telekom)
-- QuoVadis
-- USERTrust RSA Certification Authority
-- Hongkong Post Root CA 1,2,3
-- Sectigo Root CA
+Communication Services will only trust certificates signed by Certificate Authorities (CAs) that are part of the Microsoft Trusted Root Certificate Program. Ensure that your SBC certificate is signed by a CA that is part of the program and that your certificate's Extended Key Usage (EKU) extension includes Server Authentication.
+Learn more:
 
-Microsoft is working on adding more certification authorities based on customer requests. 
+[Program Requirements - Microsoft Trusted Root Program](/security/trusted-root/program-requirements)
+ 
+[Included CA Certificate List](https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT)
+
+SBC pairing works on the Communication Services resource level, meaning you can pair many SBCs to a single Communication Services resource. Still, you cannot pair a single SBC to more than one Communication Services resource. Unique SBC FQDNs are required for pairing to different resources.
+
 
 ## SIP Signaling: FQDNs 
 
@@ -132,7 +96,7 @@ SIP/TLS|SBC|SIP Proxy|Defined on the SBC|5061|
 
 ### Failover mechanism for SIP Signaling
 
-The SBC makes a DNS query to resolve sip.pstnhub.microsoft.com. Based on the SBC location and the datacenter performance metrics, the primary datacenter is selected. If the primary datacenter experiences an issue, the SBC will try the sip2.pstnhub.microsoft.com, which resolves to the second assigned datacenter, and, in the rare case that datacenters in two regions are not available, the SBC retries the last FQDN (sip3.pstnhub.microsoft.com), which provides the tertiary datacenter IP.
+The SBC makes a DNS query to resolve sip.pstnhub.microsoft.com. Based on the SBC location and the datacenter performance metrics, the primary datacenter is selected. If the primary datacenter experiences an issue, the SBC will try the sip2.pstnhub.microsoft.com, which resolves to the second assigned datacenter, and, in the rare case that datacenters in two regions aren’t available, the SBC retries the last FQDN (sip3.pstnhub.microsoft.com), which provides the tertiary datacenter IP.
 
 ## Media traffic: IP and Port ranges
 
@@ -144,8 +108,8 @@ The port range of the Media Processors is shown in the following table:
 
 |Traffic|From|To|Source port|Destination port|
 |:--- |:--- |:--- |:--- |:--- |
-|UDP/SRTP|Media Processor|SBC|3478-3481 and 49152 – 53247|Defined on the SBC|
-|UDP/SRTP|SBC|Media Processor|Defined on the SBC|3478-3481 and 49152 – 53247|
+|UDP/SRTP|Media Processor|SBC|3478 - 3481 and 49152 – 53247|Defined on the SBC|
+|UDP/SRTP|SBC|Media Processor|Defined on the SBC|3478 - 3481 and 49152 – 53247|
 
   > [!NOTE]
   > Microsoft recommends at least two ports per concurrent call on the SBC.
