@@ -30,20 +30,9 @@ In this article, you will accomplish the following:
 - [Visual Studio Code](https://code.visualstudio.com/download) or another code editor.
 - Azure AD B2C tenant. If you haven't already created your own, follow the steps in [Tutorial: Create an Azure Active Directory B2C tenant](tutorial-create-tenant.md) and record your tenant name.
 
-## Register the web application in the Azure portal
-Register the web application in the Azure portal so that Azure AD B2C can provide an authentication service for your application and its users.
+## Step 1: Configure your user flows 
 
-First, complete the steps in [Tutorial: Register a web application in Azure Active Directory B2C](tutorial-register-applications.md) to register the web app. 
-
-Use the following settings for your app registration:
-- For **Name**, enter **WebAppNode** (suggested).
-- For **Supported account types**, select **Accounts in any identity provider or organizational directory (for authenticating users with user flows)**.
-- For **Redirect URI**, select **Web**, and then enter `http://localhost:3000/redirect` in the URL text box.
-- After you generate a **Client secret** value, record the value as advised, because it appears only once.
-
-At this point, you have the application (client) ID and client secret.
-
-## Create Azure AD B2C user flows 
+When users try to sign in to your app, the app starts an authentication request to the authorization endpoint via a user flow. The [user flow](user-flow-overview.md) defines and controls the user experience. After users complete the user flow, Azure AD B2C generates a token and then redirects users back to your application.
 
 Follow the steps in [Tutorial: Create user flows and custom policies in Azure Active Directory B2C](tutorial-create-user-flows.md?pivots=b2c-user-flow) to create a user flow. Repeat the steps to create three separate user flows as follows: 
 - A combined **Sign in and sign up** user flow, such as `susi_node_app`. This user flow also supports the **Forgot your password** experience.
@@ -52,48 +41,86 @@ Follow the steps in [Tutorial: Create user flows and custom policies in Azure Ac
 
 Azure AD B2C prepends `B2C_1_` to the user flow name. For example, `susi_node_app` becomes `B2C_1_susi_node_app`.
 
-## Get and update the sample Node web app code
+## Step 2: Register a web application
 
-1. Clone the sample node web app from GitHub by running the following command:
+To enable your application to sign in with Azure AD B2C, register your app in the Azure AD B2C directory. Registering your app establishes a trust relationship between the app and Azure AD B2C.  
 
-    ```
-    git clone https://github.com/Azure-Samples/active-directory-b2c-msal-node-sign-in-sign-out-webapp.git
-    ```
-    You'll get a web app with the following directory structure:
-    ```       
-       active-directory-b2c-msal-node-sign-in-sign-out-webapp/
-       ├── index.js
-       └── package.json
-       └── .env
-       └── views/
-           └── layouts/
-               └── main.hbs
-           └── signin.hbs
-    ```
+During app registration, you'll specify the *Redirect URI*. The redirect URI is the endpoint to which users are redirected by Azure AD B2C after they authenticate with Azure AD B2C. The app registration process generates an *Application ID*, also known as the *client ID*, that uniquely identifies your app. After your app is registered, Azure AD B2C uses both the application ID and the redirect URI to create authentication requests. 
 
-    The `views` folder contains Handlebars files for the app's UI.
+### Step 2.1: Register the app 
+
+To create the web app registration, do the following:
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
+1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. In the Azure portal, search for and select **Azure AD B2C**.
+1. Select **App registrations**, and then select **New registration**.
+1. Under **Name**, enter a name for the application (for example, *webapp1*).
+1. Under **Supported account types**, select **Accounts in any identity provider or organizational directory (for authenticating users with user flows)**. 
+1. Under **Redirect URI**, select **Web** and then, in the URL box, enter `http://localhost:3000/redirect`.
+1. Under **Permissions**, select the **Grant admin consent to openid and offline_access permissions** checkbox.
+1. Select **Register**.
+1. Select **Overview**.
+1. Record the **Application (client) ID** for later use, when you configure the web application.
+
+    ![Screenshot of the web app Overview page for recording your web app ID.](./media/configure-authentication-sample-python-web-app/get-azure-ad-b2c-app-id.png)
+
+### Step 2.2: Create a web app client secret
+
+[!INCLUDE [active-directory-b2c-app-integration-client-secret](../../includes/active-directory-b2c-app-integration-client-secret.md)]
+
+
+## Step 3: Get the sample web app 
+
+Clone the sample Node.js web app from GitHub by running the following command:
+
+```
+git clone https://github.com/Azure-Samples/active-directory-b2c-msal-node-sign-in-sign-out-webapp.git
+```
+You'll get a web app with the following directory structure:
+
+```       
+    active-directory-b2c-msal-node-sign-in-sign-out-webapp/
+    ├── index.js
+    └── package.json
+    └── .env
+    └── views/
+        └── layouts/
+            └── main.hbs
+        └── signin.hbs
+```
+
+The `views` folder contains Handlebars files for the app's UI.
+
+## Step 4: Configure the sample web app
 
 1. In your terminal, change directory into your Node app folder, such as `cd active-directory-b2c-msal-node-sign-in-sign-out-webapp`, and then run the following commands to install app dependencies:
     ```
         npm install && npm update
     ```
-1. Open your web app in a code editor such as Visual Studio Code and update the `.env` file as follows: 
-    1. **SERVER_PORT**: The HTTP port on which the Node server runs. Leave the value as is.
-    1. **APP_CLIENT_ID**: The **Application (client) ID** for the web app you registered in Azure portal. 
-    1. **SESSION_SECRET**: The express session secret. Leave the value as is or use a random string. 
-    1. **APP_CLIENT_SECRET**: The client secret for the web app you registered in Azure portal.
-    1. **SIGN_UP_SIGN_IN_POLICY_AUTHORITY**: The **Sign in and sign up** user flow authority such as `https://<your-tenant-name>.b2clogin.com/<your-tenant-name>.onmicrosoft.com/<sign-in-sign-up-user-flow-name>`. Replace `<your-tenant-name>` with the name of your tenant and `<sign-in-sign-up-user-flow-name>` with the name of your Sign in and Sign up user flow such as `B2C_1_susi_node_app`. Learn how to [Get your tenant name](tenant-management.md#get-your-tenant-name). If you're using a custom domain, replace `<tenant-name>.b2clogin.com` with your domain, such as `contoso.com`.
-    1. **RESET_PASSWORD_POLICY_AUTHORITY**: The **Reset password **user flow authority such as `https://<your-tenant-name>.b2clogin.com/<your-tenant-name>.onmicrosoft.com/<reset-password-user-flow-name>`. Replace `<your-tenant-name>` with the name of your tenant and `<reset-password-user-flow-name>` with the name of your Reset password user flow such as `B2C_1_reset_password_node_app`.
-    1. **EDIT_PROFILE_POLICY_AUTHORITY**: The **Profile editing** user flow authority such as `https://<your-tenant-name>.b2clogin.com/<your-tenant-name>.onmicrosoft.com/<profile-edit-user-flow-name>`. Replace `<your-tenant-name>` with the name of your tenant and `<reset-password-user-flow-name>` with the name of your reset password user flow such as `B2C_1_edit_profile_node_app`.
-    1. **AUTHORITY_DOMAIN**: The Azure AD B2C authority domain such as `https://<your-tenant-name>.b2clogin.com`. Replace `<your-tenant-name>` with the name of your tenant. 
-    1. **APP_REDIRECT_URI**: The application redirect URI where Azure AD B2C will return authentication responses (tokens). It matches the **Redirect URI** you set while registering your app in Azure portal, and it must be publicly accessible. Leave the value as is.
-    1. **LOGOUT_ENDPOINT**: The Azure AD B2C logout endpoint such as `https://<your-tenant-name>.b2clogin.com/<your-tenant-name>.onmicrosoft.com/<sign-in-sign-up-user-flow-name>/oauth2/v2.0/logout?post_logout_redirect_uri=http://localhost:3000`. Replace `<your-tenant-name>` with the name of your tenant and `<sign-in-sign-up-user-flow-name>` with the name of your Sign in and Sign up user flow such as `B2C_1_susi_node_app`.
+1. Open your web app in a code editor such as Visual Studio Code. The `.env` file should look similar to the following sample:
+
+    :::code language="text" source="~/active-directory-b2c-msal-node-sign-in-sign-out-webapp/.env":::
+
+1. Update the `.env` file as follows: 
+
+|Key  |Value  |
+|---------|---------|
+|`SERVER_PORT`|The HTTP port on which the Node server runs. Leave the value as is.|
+|`APP_CLIENT_ID`| |
+|``|The **Application (client) ID** for the web app you registered in [step 2.1](#).|
+|`SESSION_SECRET`|The express session secret. Leave the value as is or use a random string. |
+|`APP_CLIENT_SECRET`|The client secret for the web app you created in [step 2.2](#step-22-create-a-web-app-client-secret) |
+|`SIGN_UP_SIGN_IN_POLICY_AUTHORITY`|The **Sign in and sign up** user flow authority such as `https://<your-tenant-name>.b2clogin.com/<your-tenant-name>.onmicrosoft.com/<sign-in-sign-up-user-flow-name>`. Replace `<your-tenant-name>` with the name of your tenant and `<sign-in-sign-up-user-flow-name>` with the name of your Sign in and Sign up user flow such as `B2C_1_susi_node_app`. Learn how to [Get your tenant name](tenant-management.md#get-your-tenant-name). If you're using a custom domain, replace `<tenant-name>.b2clogin.com` with your domain, such as `contoso.com`. |
+|`RESET_PASSWORD_POLICY_AUTHORITY`| The **Reset password** user flow authority such as `https://<your-tenant-name>.b2clogin.com/<your-tenant-name>.onmicrosoft.com/<reset-password-user-flow-name>`. Replace `<your-tenant-name>` with the name of your tenant and `<reset-password-user-flow-name>` with the name of your Reset password user flow such as `B2C_1_reset_password_node_app`.|
+|`EDIT_PROFILE_POLICY_AUTHORITY`|The **Profile editing** user flow authority such as `https://<your-tenant-name>.b2clogin.com/<your-tenant-name>.onmicrosoft.com/<profile-edit-user-flow-name>`. Replace `<your-tenant-name>` with the name of your tenant and `<reset-password-user-flow-name>` with the name of your reset password user flow such as `B2C_1_edit_profile_node_app`. |
+|`AUTHORITY_DOMAIN`| The Azure AD B2C authority domain such as `https://<your-tenant-name>.b2clogin.com`. Replace `<your-tenant-name>` with the name of your tenant.|
+|`APP_REDIRECT_URI`| The application redirect URI where Azure AD B2C will return authentication responses (tokens). It matches the **Redirect URI** you set while registering your app in Azure portal, and it must be publicly accessible. Leave the value as is.|
+|`LOGOUT_ENDPOINT`| The Azure AD B2C logout endpoint such as `https://<your-tenant-name>.b2clogin.com/<your-tenant-name>.onmicrosoft.com/<sign-in-sign-up-user-flow-name>/oauth2/v2.0/logout?post_logout_redirect_uri=http://localhost:3000`. Replace `<your-tenant-name>` with the name of your tenant and `<sign-in-sign-up-user-flow-name>` with the name of your Sign in and Sign up user flow such as `B2C_1_susi_node_app`.|
+|| |
     
-After the update, your resulting code should look similar to following sample:
-
-:::code language="JavaScript" source="~/active-directory-b2c-msal-node-sign-in-sign-out-webapp/.env":::
-
-## Run your web app
+## Run the sample web app
 
 You can now test the sample app. You need to start the Node server and access it through your browser on `http://localhost:300`. 
 
@@ -143,4 +170,3 @@ When you use a social identity provider such as Google, that provider manages th
 
 ## Next steps
 - Learn how to [Enable authentication in your own Node web application using Azure AD B2C](enable-authentication-in-node-web-app.md).
-
