@@ -89,13 +89,15 @@ To regenerate and download device certificates for your device, do these steps:
     The device certificates are now generated and applied. It takes a few minutes to generate and apply the certificates.
 
     > [!IMPORTANT]
-    > While the certificate generation operation is in progress, do not bring your own certificates and try to add those via the **+ Add certificate** option.
+    > While certificate generation is in progress, do not bring your own certificates and try to add those via the **+ Add certificate** option.
 
-    You are notified when the operation is successfully completed. **To avoid any potential cache issues, restart your browser.**
+    You are notified when the operation completes successfully.
+
+3. **To avoid any potential cache issues, restart your browser.**
     
     ![Screenshot showing the notification that certificates were successfully generated on an Azure Stack Edge device.](./media/azure-stack-edge-gpu-deploy-configure-certificates/generate-certificate-5.png)
 
-3. After the certificates are generated: 
+4. After the certificates are generated: 
 
     - The status of all the certificates shows as **Valid**. 
 
@@ -109,11 +111,11 @@ To regenerate and download device certificates for your device, do these steps:
 
         ![Screenshot of the Certificates page on an Azure Stack Edge device. The download links for generated certificates are highlighted.](./media/azure-stack-edge-gpu-deploy-configure-certificates/generate-certificate-6b.png)
 
-4. Select the download link for a certificate and, when prompted, save the certificate.
+5. Select the download link for a certificate and, when prompted, save the certificate.
 
     ![Screenshot of the Certificates page on an Azure Stack Edge device. A download link has been selected. The link and the download options are highlighted.](./media/azure-stack-edge-gpu-deploy-configure-certificates/generate-certificate-7.png)
 
-5. Repeat this process for all the certificates that you wish to download.
+6. Repeat this process for all the certificates that you wish to download.
 
     ![Screenshot showing downloaded certificates in Windows File Explorer. Certificates for an Azure Stack Edge device are highlighted.](./media/azure-stack-edge-gpu-deploy-configure-certificates/generate-certificate-8.png)
 
