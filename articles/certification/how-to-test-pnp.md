@@ -17,7 +17,7 @@ This article shows you how to:
 
 - Install the Azure IoT command-line tool extension for the Azure CLI
 - Run the IoT Plug and Play tests to validate your device application while in-development phase  
-- Use the Azure Certified Device portal to validate the device application
+
 > [!Note]
 > A full walk through the certification process can be found in the [Azure Certified Device certification tutorial](tutorial-00-selecting-your-certification.md).
 
@@ -30,14 +30,13 @@ The application code that runs on your IoT Plug and Play must:
 
 The application is software that's installed separately from the operating system or is bundled with the operating system in a firmware image that's flashed to the device.
 
-The certification process verifies the device is IoT Plug and Play compatible by validating that the device implementation matches the telemetry, properties and commands defined in the [Digital Twins Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl) device model, and that the model is available in the [Azure IoT Public Model Repository](../iot-develop/concepts-model-repository.md).
+Prior to certifying your device through the certification process for IoT Plug and Play, you will want to validate that the device implementation matches the telemetry, properties and commands defined in the [Digital Twins Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl) device model locally prior to submitting to the [Azure IoT Public Model Repository](../iot-develop/concepts-model-repository.md).
 
 To meet the certification requirements, your device must:
 
 - Connects to Azure IoT Hub using the [DPS](../iot-dps/about-iot-dps.md).
 - Implement of telemetry, properties, or commands following the IoT Plug and Play convention.
 - Describe the device interactions with a [DTDL v2](https://aka.ms/dtdl) model.
-- Publish the model, and all required interfaces, in the [Azure IoT Public Model Repository](https://devicemodels.azureiotsolutions.com/)
 - Send the model ID during [DPS registration](../iot-develop/concepts-developer-guide-device.md#dps-payload) in the DPS provisioning payload.
 - Announce the model ID during the [MQTT connection](../iot-develop/concepts-developer-guide-device.md#model-id-announcement).
 
@@ -48,8 +47,7 @@ The [Azure IoT CLI extension](/cli/azure/ext/azure-iot/iot/product?view=azure-cl
 The following steps show you how to prepare for and run the certification tests using the CLI:
 
 ### Install the Azure IoT extension for the Azure CLI
-
-See the installation instructions to set up the [Azure CLI](https://docs.microsoft.com/cli/azure/iot?view=azure-cli-latest) in your environment.
+Install the [Azure CLI](/cli/azure/install-azure-cli) and review the installation instructions to set up the [Azure CLI](/cli/azure/iot?view=azure-cli-latest) in your environment.
 
 To install the Azure IoT Extension, run the following command:
 
@@ -69,9 +67,6 @@ The following command creates a test using DPS with a symmetric key attestation 
 ```azurecli
 az iot product test create --badge-type Pnp --at SymmetricKey --device-type FinishedProduct --models {local folder name}
 ```
-
-> [!NOTE]
-> You need to [sign in](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest) to your subscription when you use the CLI.
 
 The JSON output from the command contains the `primaryKey`, `registrationId`, and `scopeID` to use when you connect your device.
 
@@ -101,7 +96,7 @@ When the device is connected and ready to interact with the IoT hub, generate a 
 - Use the `--wait` parameter to get the test case.
 
 ```azurecli
-az iot product test task create --type GenerateTestCases --test-id d45d53d9-656d-4be7-9bbf-140bc87e98dc --wait
+az iot product test task create --type GenerateTestCases --test-id [YourTestId] --wait
 ```
 
 Expected output:
@@ -124,7 +119,7 @@ You can use the `az iot product test case update` command to modify the test con
 After you generate the test configuration, the next step is to run the tests. Use the same `devicetestId` from the previous commands as parameter to run the tests. Check the test results to make sure that all tests have a status `Passed`.
 
 ```azurecli
-az iot product test task create --type QueueTestRun --test-id d45d53d9-656d-4be7-9bbf-140bc87e98dc --wait
+az iot product test task create --type QueueTestRun --test-id [YourTestId] --wait
 ```
 
 Example test run output
