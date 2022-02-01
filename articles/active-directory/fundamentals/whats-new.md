@@ -98,7 +98,6 @@ Customization of the default My Apps view in now in general availability. For mo
 **Type:** New feature  
 **Service category:** Device Access Management  
 **Product capability:** Device Lifecycle Management  
-**Clouds impacted:** China;Public (M365,GCC);US Gov (GCC-H, DoD)
  
 BitLocker keys are sensitive security items. Audited BitLocker recovery ensures that when BitLocker keys are read, an audit log is generated so that you can trace who accesses this information for given devices. [Learn more](../devices/device-management-azure-portal.md#view-or-copy-bitlocker-keys).
 
@@ -141,11 +140,10 @@ For more information about how to better secure your organization by using autom
 **Type:** New feature  
 **Service category:** Enterprise Apps  
 **Product capability:** 3rd Party Integration  
-**Clouds impacted:** 
 
-In January 2022, we have added the following 47 new applications in our App gallery with Federation support
+In January 2022, we’ve added the following 47 new applications in our App gallery with Federation support
 
-[Jooto](../saas-apps/jooto-tutorial.md), [Proprli](https://app.proprli.com/), [Pace Scheduler](https://www.pacescheduler.com/accounts/login/), [Compaas](), [DRTrack](../saas-apps/drtrack-tutorial.md), [Dining Sidekick](../saas-apps/dining-sidekick-tutorial.md), [Cryotos](https://app.cryotos.com/oauth2/authorization/azure-client), [Emergency Management Systems](https://secure.emsystems.com.au/), [Manifestly Checklists](../saas-apps/manifestly-checklists-tutorial.md), [eLearnPOSH](../saas-apps/elearnposh-tutorial.md), [Scuba Analytics](../saas-apps/scuba-analytics-tutorial.md), [Athena Systems Login Platform](../saas-apps/athena-systems-login-platform-tutorial.md), [TimeTrack](../saas-apps/timetrack-tutorial.md), [MiHCM](../saas-apps/mihcm-tutorial.md), [Health Note](https://auth.healthnote.works/oauth), [Active Directory SSO for DoubleYou](../saas-apps/active-directory-sso-for-doubleyou-tutorial.md), [Emplifi platform](../saas-apps/emplifi-platform-tutorial.md), Flexera One, Hypothesis, Recurly, XpressDox AU Cloud, Active and Thriving - Perth Airport, Zoom for Intune, UPWARD AGENT, Linux Foundation ID, Asset Planner, Kiho, chezie, Excelity HCM, yuccaHR, Blue Ocean Brain, EchoSpan, Archie, Equifax Workforce Solutions, Palantir Foundry, ATP SpotLight and ChronicX, DigiSign, mConnect, BrightHR, Mural Identity, NordPass SSO, CloudClarity, Twic, Eduhouse Online, Bealink, Time Intelligence Bot, SentinelOne
+[Jooto](../saas-apps/jooto-tutorial.md), [Proprli](https://app.proprli.com/), [Pace Scheduler](https://www.pacescheduler.com/accounts/login/), [Compaas](), [DRTrack](../saas-apps/drtrack-tutorial.md), [Dining Sidekick](../saas-apps/dining-sidekick-tutorial.md), [Cryotos](https://app.cryotos.com/oauth2/authorization/azure-client), [Emergency Management Systems](https://secure.emsystems.com.au/), [Manifestly Checklists](../saas-apps/manifestly-checklists-tutorial.md), [eLearnPOSH](../saas-apps/elearnposh-tutorial.md), [Scuba Analytics](../saas-apps/scuba-analytics-tutorial.md), [Athena Systems Login Platform](../saas-apps/athena-systems-login-platform-tutorial.md), [TimeTrack](../saas-apps/timetrack-tutorial.md), [MiHCM](../saas-apps/mihcm-tutorial.md), [Health Note](https://auth.healthnote.works/oauth), [Active Directory SSO for DoubleYou](../saas-apps/active-directory-sso-for-doubleyou-tutorial.md), [Emplifi platform](../saas-apps/emplifi-platform-tutorial.md), [Flexera One](../saas-apps/flexera-one-tutorial.md), [Hypothesis](https://web.hypothes.is/help/authorizing-hypothesis-from-the-azure-ad-app-gallery/), [Recurly](../saas-apps/recurly-tutorial.md), [XpressDox AU Cloud](https://au.xpressdox.com/Authentication/Login.aspx), [Active and Thriving - Perth Airport](../saas-apps/active-and-thriving-perth-airport-tutorial.md), [Zoom for Intune](https://zoom.us/), [UPWARD AGENT](https://app.upward.jp/login/), [Linux Foundation ID](https://openprofile.dev/), [Asset Planner](../saas-apps/asset-planner-tutorial.md), [Kiho](https://v3.kiho.fi/index/sso), [chezie](https://app.chezie.co/), [Excelity HCM](../saas-apps/excelity-hcm-tutorial.md), [yuccaHR](https://app.yuccahr.com/), [Blue Ocean Brain](../saas-apps/blue-ocean-brain-tutorial.md), [EchoSpan](../saas-apps/echospan-tutorial.md), [Archie](../saas-apps/archie-tutorial.md), [Equifax Workforce Solutions](../saas-apps/equifax-workforce-solutions-tutorial.md), [Palantir Foundry](../saas-apps/palantir-foundry-tutorial.md), [ATP SpotLight and ChronicX](../saas-apps/atp-spotlight-and-chronicx-tutorial.md), [DigiSign](https://app.digisign.org/selfcare/sso), [mConnect](https://mconnect.skooler.com/), [BrightHR](https://login.brighthr.com/), [Mural Identity](../saas-apps/mural-identity-tutorial.md), [NordPass SSO](https://app.nordpass.com/login%20use%20%22Log%20in%20to%20business%22%20option), [CloudClarity](https://portal.cloudclarity.app/dashboard), [Twic](../saas-apps/twic-tutorial.md), [Eduhouse Online](https://app.eduhouse.fi/palvelu/kirjaudu/microsoft), [Bealink](../saas-apps/bealink-tutorial.md), [Time Intelligence Bot](https://teams.microsoft.com/), [SentinelOne](https://sentinelone.com/)
 
 You can also find the documentation of all the applications from here https://aka.ms/AppsTutorial,
 
@@ -159,7 +157,7 @@ For listing your application in the Azure AD app gallery, please read the detail
 **Service category:** Access Reviews  
 **Product capability:** Identity Governance  
 
-Azure AD access reviews reviewer recommendations now account for non-interactive sign-in information, improving upon original recommendations based on interactive last sign-ins only. Reviewers can now make more accurate decisions based on the last sign-in activity of the users they are reviewing. To learn more about how to create access reviews, go to [Create an access review of groups and applications in Azure AD](../governance/create-access-review.md).
+Azure AD access reviews reviewer recommendations now account for non-interactive sign-in information, improving upon original recommendations based on interactive last sign-ins only. Reviewers can now make more accurate decisions based on the last sign-in activity of the users they’re reviewing. To learn more about how to create access reviews, go to [Create an access review of groups and applications in Azure AD](../governance/create-access-review.md).
  
 ---
 
@@ -169,20 +167,7 @@ Azure AD access reviews reviewer recommendations now account for non-interactive
 **Service category:** Identity Protection  
 **Product capability:** Identity Security & Protection  
  
-The offline Azure AD Threat Intelligence risk detection can now have a risk reason which will help customers with the risk investigation. If a risk reason is available, it will show up as Additional Info in the risk details of that risk event in the Risk detections report. It will also be available through the additionalInfo property of the riskDetections API. [Learn more](../identity-protection/howto-identity-protection-investigate-risk.md).
- 
----
- 
-[897320](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=897320&triage=true&fullScreen=false&_a=edit)
-
-### Option to hide custom request timeline in Entitlement Management Access Package requests.
-
-**Type:** Changed feature  
-**Service category:** User Access Management  
-**Product capability:** Entitlement Management  
-**Clouds impacted:** 
- 
-Owners of access packages in entitlement management can now choose to hide the custom request timeline options for end users requesting their access package.
+The offline Azure AD Threat Intelligence risk detection can now have a risk reason that will help customers with the risk investigation. If a risk reason is available, it will show up as **Additional Info** in the risk details of that risk event. The information can be found in the Risk detections report. It will also be available through the additionalInfo property of the riskDetections API. [Learn more](../identity-protection/howto-identity-protection-investigate-risk.md).
  
 ---
 
@@ -194,7 +179,7 @@ Owners of access packages in entitlement management can now choose to hide the c
 **Service category:** MFA  
 **Product capability:** Identity Security & Protection  
  
-We previously announced in April 2020, a new combined registration experience enabling users to register authentication methods for SSPR and multifactor authentication at the same time was generally available for existing customer to opt-in. Any Azure AD tenants created after August 2020 automatically have the default experience set to combined registration. Starting in 2022 Microsoft will be enabling the multifactor authentication and SSPR combined registration experience for existing customers. [Learn more](../authentication/concept-registration-mfa-sspr-combined.md).
+We previously announced in April 2020, a new combined registration experience enabling users to register authentication methods for SSPR and multi-factor authentication at the same time was generally available for existing customer to opt in. Any Azure AD tenants created after August 2020 automatically have the default experience set to combined registration. Starting in 2022 Microsoft will be enabling the multi-factor authentication and SSPR combined registration experience for existing customers. [Learn more](../authentication/concept-registration-mfa-sspr-combined.md).
  
 ---
 
@@ -204,7 +189,7 @@ We previously announced in April 2020, a new combined registration experience en
 **Service category:** Microsoft Authenticator App  
 **Product capability:** User Authentication  
  
-To prevent accidental notification approvals, admins can now  require users to enter the number displayed on the sign-in screen when approving an multifactor authentication notification in the Authenticator app. This feature adds an additional security measure to the Microsoft Authenticator app. [Learn more](../authentication/how-to-mfa-number-match.md).
+To prevent accidental notification approvals, admins can now  require users to enter the number displayed on the sign in screen when approving a multi-factor authentication notification in the Authenticator app. This feature adds an extra security measure to the Microsoft Authenticator app. [Learn more](../authentication/how-to-mfa-number-match.md).
  
 ---
 
@@ -214,12 +199,12 @@ To prevent accidental notification approvals, admins can now  require users to e
 **Service category:** Reporting  
 **Product capability:** Monitoring & Reporting  
  
-We are no longer publishing sign-in logs with the following error codes because these events are pre-authentication events that occur before our service has authenticated a user. Because these events happen before authentication, our service is not always able to correctly identify the user. If a user continues on to authenticate, the user sign-in will show up in your tenant Sign-in logs. These logs are no longer visible in the Azure portal UX, and querying these error codes in the Graph API will no longer return results.
+We’re no longer publishing sign-in logs with the following error codes because these events are pre-authentication events that occur before our service has authenticated a user. Because these events happen before authentication, our service isn’t always able to correctly identify the user. If a user continues on to authenticate, the user sign-in will show up in your tenant Sign-in logs. These logs are no longer visible in the Azure portal UX, and querying these error codes in the Graph API will no longer return results.
 
 |Error code | Failure reason|
 | --- | --- |
-|50058|	Session information is not sufficient for single-sign-on.|
-|16000| Either multiple user identities are available for the current request or selected account is not supported for the scenario.|
+|50058|	Session information isn’t sufficient for single-sign-on.|
+|16000| Either multiple user identities are available for the current request or selected account isn’t supported for the scenario.|
 |500581| Rendering JavaScript. Fetching sessions for single-sign-on on V2 with prompt=none requires JavaScript to verify if any MSA accounts are signed in.|
 |81012| The user trying to sign in to Azure AD is different from the user signed into the device.|
 
@@ -233,7 +218,7 @@ We are no longer publishing sign-in logs with the following error codes because 
 **Service category:** MFA  
 **Product capability:** Identity Security & Protection
  
-We previously announced in April 2020, a new combined registration experience enabling users to register authentication methods for SSPR and multifactor authentication at the same time was generally available for existing customer to opt-in. Any Azure AD tenants created after August 2020 automatically have the default experience set to combined registration. Starting 2022, Microsoft will be enabling the MFA/SSPR combined registration experience for existing customers. [Learn more](../authentication/concept-registration-mfa-sspr-combined.md).
+We previously announced in April 2020, a new combined registration experience enabling users to register authentication methods for SSPR and multi-factor authentication at the same time was generally available for existing customer to opt in. Any Azure AD tenants created after August 2020 automatically have the default experience set to combined registration. Starting 2022, Microsoft will be enabling the MFA/SSPR combined registration experience for existing customers. [Learn more](../authentication/concept-registration-mfa-sspr-combined.md).
  
 ---
 
@@ -275,11 +260,11 @@ The Public Preview feature for Azure AD Connect Cloud Sync Password writeback pr
 **Service category:** Conditional Access for workload identities  
 **Product capability:** Identity Security & Protection
  
-Previously, Conditional Access policies applied only to users when they access apps and services like SharePoint online or the Azure portal. This preview adds support for Conditional Access policies applied to service principals owned by the organization. You can block service principals from accessing resources from outside trusted named locations or Azure Virtual Networks. [Learn more](../conditional-access/workload-identity.md).
+Previously, Conditional Access policies applied only to users when they access apps and services like SharePoint online or the Azure portal. This preview adds support for Conditional Access policies applied to service principals owned by the organization. You can block service principals from accessing resources from outside trusted-named locations or Azure Virtual Networks. [Learn more](../conditional-access/workload-identity.md).
 
 ---
 
-### Public preview - Additional attributes available as claims
+### Public preview - Extra attributes available as claims
 
 **Type:** Changed feature  
 **Service category:** Enterprise Apps  
@@ -295,7 +280,7 @@ Several user attributes have been added to the list of attributes available to m
 **Service category:** Authentications (Logins)  
 **Product capability:** Identity Security & Protection
  
-We have recently added other property to the sign-in logs called "Session Lifetime Policies Applied". This property will list all the session lifetime policies that applied to the sign-in for example, Sign-in frequency, Remember multifactor authentication and Configurable token lifetime. [Learn more](../reports-monitoring/concept-sign-ins.md#authentication-details).
+We have recently added other property to the sign-in logs called "Session Lifetime Policies Applied". This property will list all the session lifetime policies that applied to the sign-in for example, Sign-in frequency, Remember multi-factor authentication and Configurable token lifetime. [Learn more](../reports-monitoring/concept-sign-ins.md#authentication-details).
  
 ---
 
@@ -431,7 +416,7 @@ Updated "switch organizations" user interface in My Account. This visually impro
  
 Sometimes, application developers configure their apps to require more permissions than it's possible to grant. To prevent this from happening, a limit on the total number of required permissions that can be configured for an app registration will be enforced.
 
-The total number of required permissions for any single application registration mustn't exceed 400 permissions, across all APIs. The change to enforce this limit will begin rolling out mid-October 2021. Applications exceeding the limit can't increase the number of permissions they are configured for. The existing limit on the number of distinct APIs for which permissions are required remains unchanged and may not exceed 50 APIs.
+The total number of required permissions for any single application registration mustn't exceed 400 permissions, across all APIs. The change to enforce this limit will begin rolling out mid-October 2021. Applications exceeding the limit can't increase the number of permissions they’re configured for. The existing limit on the number of distinct APIs for which permissions are required remains unchanged and may not exceed 50 APIs.
 
 In the Azure portal, the required permissions are listed under API permissions for the application you wish to configure. Using Microsoft Graph or Microsoft Graph PowerShell, the required permissions are listed in the requiredResourceAccess property of an [application](/graph/api/resources/application) entity. [Learn more](../enterprise-users/directory-service-limits-restrictions.md).
  
@@ -453,7 +438,7 @@ Previously, we announced that starting October 31, 2021, Microsoft Azure Active 
 **Service category:** Conditional Access  
 **Product capability:** End User Experiences
  
-If there's no trust relation between a home and resource tenant, a guest user would have previously been asked to re-register their device, which would break the previous registration. However, the user would end up in a registration loop because only home tenant device registration is supported. In this specific scenario, instead of this loop, we have created a new conditional access blocking page. The page tells the end user that they can't get access to conditional access protected resources as a guest user. [Learn more](../external-identities/b2b-quickstart-add-guest-users-portal.md#prerequisites).
+If there's no trust relation between a home and resource tenant, a guest user would have previously been asked to re-register their device, which would break the previous registration. However, the user would end up in a registration loop because only home tenant device registration is supported. In this specific scenario, instead of this loop, we’ve created a new conditional access blocking page. The page tells the end user that they can't get access to conditional access protected resources as a guest user. [Learn more](../external-identities/b2b-quickstart-add-guest-users-portal.md#prerequisites).
  
 ---
 
@@ -842,7 +827,7 @@ We've released beta MS Graph API for Azure AD access reviews. The API has method
 **Product capability:** Identity Security & Protection
  
 
-The "Register or join devices" user action is generally available in Conditional access. This user action allows you to control multifactor authentication policies for Azure Active Directory (AD) device registration. Currently, this user action only allows you to enable multifactor authentication as a control when users register or join devices to Azure AD. Other controls that are dependent on or not applicable to Azure AD device registration continue to be disabled with this user action. [Learn more](../conditional-access/concept-conditional-access-cloud-apps.md#user-actions).
+The "Register or join devices" user action is generally available in Conditional access. This user action allows you to control multi-factor authentication policies for Azure Active Directory (AD) device registration. Currently, this user action only allows you to enable multi-factor authentication as a control when users register or join devices to Azure AD. Other controls that are dependent on or not applicable to Azure AD device registration continue to be disabled with this user action. [Learn more](../conditional-access/concept-conditional-access-cloud-apps.md#user-actions).
 
 ---
 
@@ -907,7 +892,7 @@ For more information about how to better secure your organization by using autom
 **Product capability:** Identity Security & Protection
  
 
-To help administrators understand that their users are blocked for multifactor authentication as a result of fraud report, we have added a new audit event. This audit event is tracked when the user reports fraud. The audit log is available in addition to the existing information in the sign-in logs about fraud report. To learn how to get the audit report, see [multifactor authentication Fraud alert](../authentication/howto-mfa-mfasettings.md#fraud-alert).
+To help administrators understand that their users are blocked for multi-factor authentication as a result of fraud report, we’ve added a new audit event. This audit event is tracked when the user reports fraud. The audit log is available in addition to the existing information in the sign-in logs about fraud report. To learn how to get the audit report, see [multi-factor authentication Fraud alert](../authentication/howto-mfa-mfasettings.md#fraud-alert).
 
 ---
 
