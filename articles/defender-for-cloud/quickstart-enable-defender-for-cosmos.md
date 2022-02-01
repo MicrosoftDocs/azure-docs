@@ -81,6 +81,8 @@ The resource level enables Microsoft Defender for Cloud for a specific Cosmos DB
 
 ***Awaiting information***
 
+---
+
 ## Simulate security alerts from Microsoft Defender for Cosmos DB
 
 A full list of [supported alerts](azure/defender-for-cloud/alerts-reference#alerts-k8scluster) is available in the reference table of all Defender for Cloud security alerts. 
