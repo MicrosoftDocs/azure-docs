@@ -105,7 +105,7 @@ This section provides basic guidance for migrating a large set of agents using s
 	- **Microsoft Sentinel-specific events:** [Windows agent-based connections](data-collection-rule-overview.md)
 
 
-2. [Create new data collection rules](agents/data-collection-rule-overview#create-a-dcr) to duplicate your data collection with the Log Analytics agent. You may might find it more manageable to have separate data collection rules for Windows versus Linux sources. You may also separate data collection rules for individual teams with different data collection needs.
+2. [Create new data collection rules](../essentials/data-collection-rule-overview.md#create-a-dcr) to duplicate your data collection with the Log Analytics agent. You may might find it more manageable to have separate data collection rules for Windows versus Linux sources. You may also separate data collection rules for individual teams with different data collection needs.
 
 3. Use a resource manager template to [enable system-assigned managed identity](../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md#system-assigned-managed-identity) on target resources since this is required for Azure Monitor agent.
 
@@ -125,4 +125,5 @@ This section provides basic guidance for migrating a large set of agents using s
 For more information, see:
 
 - [Overview of the Azure Monitor agents](agents-overview.md)
-- [AMA migration for Microsoft Sentinel](../../sentinel/azure-monitor-agent-migration.md)
+- [AMA migration for Microsoft Sentinel](../../sentinel/ama-migration.md)
+- [Frequently asked questions for AMA migration](/azure/azure-monitor/faq#azure-monitor-agent)

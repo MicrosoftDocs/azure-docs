@@ -58,6 +58,7 @@ Each organization will have different metrics of success and internal migration 
 
 For more information, see:
 
+- [Frequently asked questions for AMA migration](/azure/azure-monitor/faq#azure-monitor-agent)
 - [Overview of the Azure Monitor agents](/azure/azure-monitor/agents/agents-overview)
 - [Migrate from Log Analytics agents](/azure/azure-monitor/agents/azure-monitor-agent-migration)
 - [Windows Security Events via AMA](data-connectors-reference.md#windows-security-events-via-ama)
