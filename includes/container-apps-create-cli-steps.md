@@ -8,7 +8,7 @@ ms.author: cshoe
 
 ## Setup
 
-Begin by signing in to Azure from the CLI. Run the following command, and follow the prompts to complete the authentication process.
+First, sign in to Azure from the CLI. Run the following command, and follow the prompts to complete the authentication process.
 
 # [Bash](#tab/bash)
 
@@ -24,7 +24,7 @@ az login
 
 ---
 
-Next, install the Azure Container Apps extension to the CLI.
+Next, install the Azure Container Apps extension for the CLI.
 
 # [Bash](#tab/bash)
 
@@ -37,7 +37,7 @@ az extension add \
 
 ```azurecli
 az extension add `
-  --source https://workerappscliextension.blob.core.windows.net/azure-cli-extension/containerapp-0.2.0-py2.py3-none-any.whl 
+  --source https://workerappscliextension.blob.core.windows.net/azure-cli-extension/containerapp-0.2.2-py2.py3-none-any.whl 
 ```
 
 ---
@@ -106,9 +106,9 @@ With the CLI upgraded and a new resource group available, you can create a Conta
 
 An environment in Azure Container Apps creates a secure boundary around a group of container apps. Container Apps deployed to the same environment are deployed in the same virtual network and write logs to the same Log Analytics workspace.
 
-Azure Log Analytics is used to monitor your container app required when creating a Container Apps environment.
+Container apps are monitored with Azure Log Analytics, which is required when you create a Container Apps environment.
 
-Create a new Log Analytics workspace with the following command:
+Create a Log Analytics workspace with the following command:
 
 # [Bash](#tab/bash)
 
