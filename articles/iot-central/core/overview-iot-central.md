@@ -16,16 +16,9 @@ IoT Central is an IoT application platform that reduces the burden and cost of d
 
 The web UI lets you quickly connect devices, monitor device conditions, create rules, and manage millions of devices and their data throughout their life cycle. Furthermore, it enables you to act on device insights by extending IoT intelligence into line-of-business applications.
 
-This article outlines, for IoT Central:
+This article provides an overview of IoT Central and describes its functionalities.
 
-- How to create your application.
-- How to connect your devices to your application.
-- How to integrate your application with other services.
-- How to administer your application.
-- The typical user roles associated with a project.
-- Pricing options.
-
-## Create your IoT Central application
+## IoT Central application
 
 [Quickly deploy a new IoT Central application](quick-deploy-iot-central.md) and then customize it to your specific requirements. Application templates in Azure IoT Central are a tool to help you kickstart your IoT solution development. You can use app templates for everything from getting a feel for what is possible, to fully customizing your application to resell to your customers.
 
@@ -34,7 +27,7 @@ Start with a generic _application template_ or with one of the industry-focused 
 - [Retail](../retail/tutorial-in-store-analytics-create-app.md)
 - [Energy](../energy/tutorial-smart-meter-app.md)
 - [Government](../government/tutorial-connected-waste-management.md)
-- [Healthcare](../healthcare/tutorial-continuous-patient-monitoring.md).
+- [Healthcare](../healthcare/tutorial-continuous-patient-monitoring.md)
 
 See the [Create a new application](quick-deploy-iot-central.md) quickstart for a walk-through of how to create your first application.
 
@@ -45,8 +38,8 @@ After creating your application, the first step is to create and connect devices
 - Telemetry it sends. Examples include temperature and humidity. Telemetry is streaming data.
 - Business properties that an operator can modify. Examples include a customer address and a last serviced date.
 - Device properties that are set by a device and are read-only in the application. For example, the state of a valve as either open or shut.
-- Properties, that an operator sets, that determine the behavior of the device. For example, a target temperature for the device.
-- Commands, that an operator can call, that run on a device. For example, a command to remotely reboot a device.
+- Properties that an operator sets, that determine the behavior of the device. For example, a target temperature for the device.
+- Commands that an operator can call, that run on a device. For example, a command to remotely reboot a device.
 
 Every [device template](howto-set-up-template.md) includes:
 
