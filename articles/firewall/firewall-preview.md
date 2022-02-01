@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 01/27/2022
+ms.date: 01/31/2022
 ms.author: victorh
 ---
 
@@ -47,7 +47,8 @@ Run the following Azure PowerShell commands to configure Azure Firewall network 
 ```azurepowershell
 Connect-AzAccount 
 Select-AzSubscription -Subscription "subscription_id or subscription_name" 
-Register-AzProviderFeature -FeatureName AFWEnableNetworkRuleNameLogging -ProviderNamespace Microsoft.Network 
+Register-AzProviderFeature -FeatureName AFWEnableNetworkRuleNameLogging -ProviderNamespace Microsoft.Network
+Register-AzResourceProvider -ProviderNamespace Microsoft.Network 
 ```
 
 Run the following Azure PowerShell command to turn off this feature:
@@ -72,6 +73,7 @@ Run the following Azure PowerShell commands to configure the Azure Firewall Prem
 Connect-AzAccount
 Select-AzSubscription -Subscription "subscription_id or subscription_name"
 Register-AzProviderFeature -FeatureName AFWEnableAccelnet -ProviderNamespace Microsoft.Network
+Register-AzResourceProvider -ProviderNamespace Microsoft.Network
 ```
 
 Run the following Azure PowerShell command to turn off this feature:
