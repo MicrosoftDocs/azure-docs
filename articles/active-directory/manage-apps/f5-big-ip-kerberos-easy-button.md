@@ -234,7 +234,7 @@ The Easy Button wizard provides a set of pre-defined application templates for O
 
 6. Enable **Signing Option** (optional). This ensures that BIG-IP only accepts tokens and claims that are signed by Azure AD
 
-   ![Screenshot for Azure configuration - Add signing certificates info](./media/f5-big-ip-kerberos-easy-button/azure-configuration-sign-certificates.png)
+   ![Screenshot for Azure configuration - Add signing certificates info](./media/f5-big-ip-easy-button-ldap/azure-configuration-sign-certificates.png)
 
 7. **User and User Groups** are dynamically queried from your Azure AD tenant and used to authorize access to the application. **Add** a user or group that you can use later for testing, otherwise all access will be denied![Graphical user interface, text, application, email
 
