@@ -74,11 +74,11 @@ Create the primary virtual network gateway using the Azure portal.
 1. In the [Azure portal](https://portal.azure.com), go to your resource group and select the **Virtual network** resource for your primary managed instance.
 1. Select **Subnets** under **Settings** and then select to add a new **Gateway subnet**. Leave the default values.
 
-   ![Add gateway for primary managed instance](./media/auto-failover-group-configure/add-subnet-gateway-primary-vnet.png)
+   ![Add gateway for primary managed instance](./media/auto-failover-group-configure-sql-mi/add-subnet-gateway-primary-vnet.png)
 
 1. Once the subnet gateway is created, select **Create a resource** from the left navigation pane and then type `Virtual network gateway` in the search box. Select the **Virtual network gateway** resource published by **Microsoft**.
 
-   ![Create a new virtual network gateway](./media/auto-failover-group-configure/create-virtual-network-gateway.png)
+   ![Create a new virtual network gateway](./media/auto-failover-group-configure-sql-mi/create-virtual-network-gateway.png)
 
 1. Fill out the required fields to configure the gateway your primary managed instance.
 
@@ -100,7 +100,7 @@ Create the primary virtual network gateway using the Azure portal.
 
 1. Leave the other values as default, and then select **Review + create** to review the settings for your virtual network gateway.
 
-   ![Primary gateway settings](./media/auto-failover-group-configure/settings-for-primary-gateway.png)
+   ![Primary gateway settings](./media/auto-failover-group-configure-sql-mi/settings-for-primary-gateway.png)
 
 1. Select **Create** to create your new virtual network gateway.
 
@@ -160,7 +160,7 @@ The following table shows the values necessary for the gateway for the secondary
    | **Public IP address name**| Enter a name for your IP address, such as `secondary-gateway-IP`. |
    | &nbsp; | &nbsp; |
 
-   ![Secondary gateway settings](./media/auto-failover-group-configure/settings-for-secondary-gateway.png)
+   ![Secondary gateway settings](./media/auto-failover-group-configure-sql-mi/settings-for-secondary-gateway.png)
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -222,7 +222,7 @@ Create connections between the two gateways using the Azure portal.
     1. Either leave the default primary connection name, or rename it to a value of your choice.
     1. Provide a **Shared key (PSK)** for the connection, such as `mi1m2psk`.
 
-   ![Create gateway connection](./media/auto-failover-group-configure/create-gateway-connection.png)
+   ![Create gateway connection](./media/auto-failover-group-configure-sql-mi/create-gateway-connection.png)
 
 1. On the **Summary** tab, review the settings for your bidirectional connection and then select **OK** to create your connection.
 
@@ -269,11 +269,11 @@ Create the failover group for your SQL Managed Instances by using the Azure port
 1. Select the primary managed instance you want to add to the failover group.  
 1. Under **Settings**, navigate to **Instance Failover Groups** and then choose to **Add group** to open the **Instance Failover Group** page.
 
-   ![Add a failover group](./media/auto-failover-group-configure/add-failover-group.png)
+   ![Add a failover group](./media/auto-failover-group-configure-sql-mi/add-failover-group.png)
 
 1. On the **Instance Failover Group** page, type the name of your failover group and then choose the secondary managed instance from the drop-down. Select **Create** to create your failover group.
 
-   ![Create failover group](./media/auto-failover-group-configure/create-failover-group.png)
+   ![Create failover group](./media/auto-failover-group-configure-sql-mi/create-failover-group.png)
 
 1. Once failover group deployment is complete, you will be taken back to the **Failover group** page.
 
@@ -312,11 +312,11 @@ Test failover of your failover group using the Azure portal.
 1. Review which managed instance is the primary, and which managed instance is the secondary.
 1. Select **Failover** and then select **Yes** on the warning about TDS sessions being disconnected.
 
-   ![Fail over the failover group](./media/auto-failover-group-configure/failover-mi-failover-group.png)
+   ![Fail over the failover group](./media/auto-failover-group-configure-sql-mi/failover-mi-failover-group.png)
 
 1. Review which manged instance is the primary and which instance is the secondary. If failover succeeded, the two instances should have switched roles.
 
-   ![Managed instances have switched roles after failover](./media/auto-failover-group-configure/mi-switched-after-failover.png)
+   ![Managed instances have switched roles after failover](./media/auto-failover-group-configure-sql-mi/mi-switched-after-failover.png)
 
 1. Go to the new _secondary_ managed instance and select **Failover** once again to fail the primary instance back to the primary role.
 
@@ -368,7 +368,7 @@ Once your failover group is configured, update the connection string for your ap
 
 The listener endpoint is in the form of `fog-name.database.windows.net`, and is visible in the Azure portal, when viewing the failover group:
 
-![Failover group connection string](./media/auto-failover-group-configure/find-failover-group-connection-string.png)
+![Failover group connection string](./media/auto-failover-group-configure-sql-mi/find-failover-group-connection-string.png)
 
 ## <a name="creating-a-failover-group-between-managed-instances-in-different-subscriptions"></a> Create group between instances in different subscriptions
 

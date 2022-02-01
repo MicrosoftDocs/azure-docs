@@ -66,17 +66,17 @@ Create your failover group and add your single database to it using the Azure po
 1. Select the database you want to add to the failover group.
 1. Select the name of the server under **Server name** to open the settings for the server.
 
-   ![Open server for single db](./media/auto-failover-group-configure/open-sql-db-server.png)
+   ![Open server for single db](./media/auto-failover-group-configure-sql-db/open-sql-db-server.png)
 
 1. Select **Failover groups** under the **Settings** pane, and then select **Add group** to create a new failover group.
 
-   ![Add new failover group](./media/auto-failover-group-configure/sqldb-add-new-failover-group.png)
+   ![Add new failover group](./media/auto-failover-group-configure-sql-db/sqldb-add-new-failover-group.png)
 
 1. On the **Failover Group** page, enter or select the required values, and then select **Create**.
 
    - **Databases within the group**: Choose the database you want to add to your failover group. Adding the database to the failover group will automatically start the geo-replication process.
 
-   ![Add SQL Database to failover group](./media/auto-failover-group-configure/add-sqldb-to-failover-group.png)
+   ![Add SQL Database to failover group](./media/auto-failover-group-configure-sql-db/add-sqldb-to-failover-group.png)
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -140,17 +140,17 @@ Test failover of your failover group using the Azure portal.
 1. Select **Azure SQL** in the left-hand menu of the [Azure portal](https://portal.azure.com). If **Azure SQL** is not in the list, select **All services**, then type "Azure SQL" in the search box. (Optional) Select the star next to **Azure SQL** to favorite it and add it as an item in the left-hand navigation.
 1. Select the database you want to add to the failover group.
 
-   ![Open server for single db](./media/auto-failover-group-configure/open-sql-db-server.png)
+   ![Open server for single db](./media/auto-failover-group-configure-sql-db/open-sql-db-server.png)
 
 1. Select **Failover groups** under the **Settings** pane and then choose the failover group you just created.
   
-   ![Select the failover group from the portal](./media/auto-failover-group-configure/select-failover-group.png)
+   ![Select the failover group from the portal](./media/auto-failover-group-configure-sql-db/select-failover-group.png)
 
 1. Review which server is primary and which server is secondary.
 1. Select **Failover** from the task pane to fail over your failover group containing your database.
 1. Select **Yes** on the warning that notifies you that TDS sessions will be disconnected.
 
-   ![Fail over your failover group containing your database](./media/auto-failover-group-configure/failover-sql-db.png)
+   ![Fail over your failover group containing your database](./media/auto-failover-group-configure-sql-db/failover-sql-db.png)
 
 1. Review which server is now primary and which server is secondary. If failover succeeded, the two servers should have swapped roles.
 1. Select **Failover** again to fail the servers back to their original roles.
@@ -219,13 +219,13 @@ Revert failover group back to the primary server:
 ::: zone pivot="azure-sql-elastic-pool"
 
 
-### Prerequisites
+## Prerequisites
 
 Consider the following prerequisites for creating your failover group for a pooled database: 
 
 - The server login and firewall settings for the secondary server must match that of your primary server.
 
-### Create the failover group
+## Create the failover group
 
 Create the failover group for your elastic pool using the Azure portal or PowerShell.
 
@@ -237,17 +237,17 @@ Create your failover group and add your elastic pool to it using the Azure porta
 1. Select the elastic pool you want to add to the failover group.
 1. On the **Overview** pane, select the name of the server under **Server name** to open the settings for the server.
   
-   ![Open server for elastic pool](./media/auto-failover-group-configure/server-for-elastic-pool.png)
+   ![Open server for elastic pool](./media/auto-failover-group-configure-sql-db/server-for-elastic-pool.png)
 
 1. Select **Failover groups** under the **Settings** pane, and then select **Add group** to create a new failover group.
 
-   ![Add new failover group](./media/auto-failover-group-configure/sqldb-add-new-failover-group.png)
+   ![Add new failover group](./media/auto-failover-group-configure-sql-db/sqldb-add-new-failover-group.png)
 
 1. On the **Failover Group** page, enter or select the required values, and then select **Create**. Either create a new secondary server, or select an existing secondary server.
 
 1. Select **Databases within the group** then choose the elastic pool you want to add to the failover group. If an elastic pool does not already exist on the secondary server, a warning appears prompting you to create an elastic pool on the secondary server. Select the warning, and then select **OK** to create the elastic pool on the secondary server.
 
-   ![Add elastic pool to failover group](./media/auto-failover-group-configure/add-elastic-pool-to-failover-group.png)
+   ![Add elastic pool to failover group](./media/auto-failover-group-configure-sql-db/add-elastic-pool-to-failover-group.png)
 
 1. Select **Select** to apply your elastic pool settings to the failover group, and then select **Create** to create your failover group. Adding the elastic pool to the failover group will automatically start the geo-replication process.
 
@@ -297,7 +297,7 @@ Create your failover group and add your elastic pool to it using PowerShell.
 
 ---
 
-### Test failover
+## Test failover
 
 Test failover of your elastic pool using the Azure portal or PowerShell.
 
@@ -309,16 +309,16 @@ Fail your failover group over to the secondary server, and then fail back using 
 1. Select the elastic pool you want to add to the failover group.
 1. On the **Overview** pane, select the name of the server under **Server name** to open the settings for the server.
 
-   ![Open server for elastic pool](./media/auto-failover-group-configure/server-for-elastic-pool.png)
+   ![Open server for elastic pool](./media/auto-failover-group-configure-sql-db/server-for-elastic-pool.png)
 1. Select **Failover groups** under the **Settings** pane and then choose the failover group you created in section 2.
   
-   ![Select the failover group from the portal](./media/auto-failover-group-configure/select-failover-group.png)
+   ![Select the failover group from the portal](./media/auto-failover-group-configure-sql-db/select-failover-group.png)
 
 1. Review which server is primary, and which server is secondary.
 1. Select **Failover** from the task pane to fail over your failover group containing your elastic pool.
 1. Select **Yes** on the warning that notifies you that TDS sessions will be disconnected.
 
-   ![Fail over your failover group containing your database](./media/auto-failover-group-configure/failover-sql-db.png)
+   ![Fail over your failover group containing your database](./media/auto-failover-group-configure-sql-db/failover-sql-db.png)
 
 1. Review which server is primary, which server is secondary. If failover succeeded, the two servers should have swapped roles.
 1. Select **Failover** again to fail the failover group back to the original settings.
@@ -386,7 +386,7 @@ Once your failover group is configured, update the connection string for your ap
 
 The listener endpoint is in the form of `fog-name.database.windows.net`, and is visible in the Azure portal, when viewing the failover group:
 
-![Failover group connection string](./media/auto-failover-group-configure/find-failover-group-connection-string.png)
+![Failover group connection string](./media/auto-failover-group-configure-sql-db/find-failover-group-connection-string.png)
 
 ## <a name="changing-secondary-region-of-the-failover-group"></a> Change the secondary region 
 

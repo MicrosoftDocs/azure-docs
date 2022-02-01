@@ -16,7 +16,7 @@ ms.date: 02/24/2022
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
 > [!div class="op_single_selector"]
-> * [Azure SQL](../auto-failover-group-overview.md)
+> * [Azure SQL DB & MI](../database/auto-failover-group-overview.md)
 > * [Azure SQL Database](../database/auto-failover-group-sql-db.md)
 > * [Azure SQL Managed Instance](auto-failover-group-sql-mi.md)
 
