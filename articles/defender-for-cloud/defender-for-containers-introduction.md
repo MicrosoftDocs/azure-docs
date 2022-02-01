@@ -166,7 +166,7 @@ Defender for Cloud filters and classifies findings from the scanner. When an ima
 
 ### View vulnerabilities for running images
 
-Defender for Containers expands on the registry scanning features of the Defender for container registries plan by introducing the **preview feature** of run-time visibility of vulnerabilities powered by the Defender profile.
+Defender for Containers expands on the registry scanning features of the Defender for container registries plan by introducing the **preview feature** of run-time visibility of vulnerabilities powered by the Defender profile, or extension.
 
 The new recommendation, **Running container images should have vulnerability findings resolved** groups running images that have vulnerabilities, and provides details about the issues discovered, and how to remediate them. This recommendation scans images located within a registry. The Security profile, or extension is used to give customers visibility into vulnerable containers that are active.
 
