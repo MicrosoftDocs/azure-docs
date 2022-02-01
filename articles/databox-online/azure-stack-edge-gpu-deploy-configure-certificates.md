@@ -33,7 +33,7 @@ Before you configure and set up your Azure Stack Edge Pro device with GPU, make 
     - You should have your certificates ready in the appropriate format including the signing chain certificate. For details on certificate, go to [Manage certificates](azure-stack-edge-gpu-manage-certificates.md)
 
     - If your device is deployed in Azure Government and not deployed in Azure public cloud, a signing chain certificate is required before you can activate your device. 
-    For details on certificate, go to [Manage certificates](azure-stack-edge-gpu-manage-certificates.md).
+    For details on certificates, go to [Manage certificates](azure-stack-edge-gpu-manage-certificates.md).
 
 
 ## Configure certificates for device
@@ -69,11 +69,11 @@ Follow these steps if you prefer to generate device certificates.
 
 Use these steps to regenerate and download the Azure Stack Edge Pro GPU device certificates:
 
-1. In the local web UI of your device, go to **Configuration > Certificates**. Select **Generate certificates**.
+1. In the local web UI of your device, go to **CONFIGURATION > Certificates**. Select **Generate certificates**.
 
     ![Screenshot of the Certificates page in the local web UI of an Azure Stack Edge device. The Generate Certificates button is  highlighted.](./media/azure-stack-edge-gpu-deploy-configure-certificates/generate-certificate-3.png)
 
-2. In the **Generate device certificates**, select **Generate**. 
+2. On the **Generate device certificates** pane, select **Generate**. 
 
     ![Screenshot of the Generate Certificates pane for an Azure Stack Edge device. The Generate button is highlighted.](./media/azure-stack-edge-gpu-deploy-configure-certificates/generate-certificate-4.png)
 
@@ -137,15 +137,13 @@ Follow these steps to upload your own certificates, including the signing chain,
 
 1. To upload a certificate, on the **Certificates** page of the local web UI, select **+ Add certificate**. Then use the **Add certificate** pane to upload your certificate.
 
-    ![Screenshot of the Add Certificate pane in the local web UI of an Azure Stack Edge device. The Certificates menu item, Plus Add Certificate button, and Add Certificate pane are highlighted.](./media/azure-stack-edge-gpu-deploy-configure-certificates/add-certificate-01.png)
+    ![Screenshot of the Add Certificate pane in the local web UI of an Azure Stack Edge device. The Certificates menu item, Plus Add Certificate button, and Add Certificate pane are highlighted.](./media/azure-stack-edge-gpu-deploy-configure-certificates/add-certificate-1.png)
 
 2. If you didn't include all certificates in the certification path when you exported certificates, upload the **Signing Chain** certificate chain first using the Browse button by **Signing Chain**. Then select **Validate & add**.
 
    If you included all certificates in your export, you can skip this step. For more information, see [Export certificates as .pfx format with private key](azure-stack-edge-gpu-prepare-certificates-device-upload.md#export-certificates-as-pfx-format-with-private-key).
 
-    ![Screenshot of the Add Certificate pane for a Signing Chain certificate in the local web UI of an Azure Stack Edge device. The certificate type, certificate entries, and Validate And Add button are highlighted.](./media/azure-stack-edge-gpu-deploy-configure-certificates/add-certificate-02.png)
-
-    ![Screenshot of the Add Certificate pane for a Signing Chain certificate on an Azure Stack Edge device. The certificate type and certificate entry is highlighted.](./media/azure-stack-edge-gpu-deploy-configure-certificates/add-certificate-2.png)
+    ![Screenshot of the Add Certificate pane for a Signing Chain certificate in the local web UI of an Azure Stack Edge device. The certificate type, certificate entries, and Validate And Add button are highlighted.](./media/azure-stack-edge-gpu-deploy-configure-certificates/add-certificate-2.png)
 
 3. Upload your remaining certificates.
 
@@ -157,11 +155,11 @@ Follow these steps to upload your own certificates, including the signing chain,
 
     - Select the **Local web UI** certificate type to upload the local web UI certificate. After you upload this certificate, you'll need to start your browser and clear the cache. You'll then need to connect to the device local web UI.  
 
-      ![Screenshot of the Add Certificate pane for the Local Web UI certificate for an Azure Stack Edge device. The certificate type and certificate entries highlighted.](./media/azure-stack-edge-gpu-deploy-configure-certificates/add-certificate-5.png)
+      ![Screenshot of the Add Certificate pane for the Local Web UI certificate for an Azure Stack Edge device. The certificate type and certificate entries highlighted.](./media/azure-stack-edge-gpu-deploy-configure-certificates/add-certificate-4.png)
 
     - Select the **Node** certificate type to upload your node certificate.<!--What's the purpose of this certificate?-->
 
-      ![Screenshot of the Add Certificate pane for a node certificate for an Azure Stack Edge device. The certificate type and certificate entries highlighted.](./media/azure-stack-edge-gpu-deploy-configure-certificates/add-certificate-4.png)
+      ![Screenshot of the Add Certificate pane for a node certificate for an Azure Stack Edge device. The certificate type and certificate entries highlighted.](./media/azure-stack-edge-gpu-deploy-configure-certificates/add-certificate-5.png)
 
 4. As you add certificates, the **Certificates** page shows the newly added certificates.
 
