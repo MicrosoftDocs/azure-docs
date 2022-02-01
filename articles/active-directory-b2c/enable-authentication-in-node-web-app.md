@@ -73,7 +73,7 @@ In the `signin.hbs` file, add the following code:
 
 ## Step 4: Configure the web server and MSAL client
 
-1. In the `.env` file, add the following code and update the code in as explained in [Get and update the sample Node web app code](configure-a-sample-node-web-app.md#step-5-configure-the-sample-web-app).
+1. In the `.env` file, add the following code and update it as explained in [Get and update the sample Node web app code](configure-a-sample-node-web-app.md#step-5-configure-the-sample-web-app).
 
     :::code language="text" source="~/active-directory-b2c-msal-node-sign-in-sign-out-webapp/.env":::    
 
