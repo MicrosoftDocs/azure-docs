@@ -81,22 +81,22 @@ completed role assignments for all AKS clusters in subscription: <subscriptionId
 
 To update a specific cluster in your subscription by using Azure CLI, run the following command. Edit the values for `subscriptionId`, `resourceGroupName`, and `clusterName` by using the values on the **AKS Overview** page for the AKS cluster. The value of `clientIdOfSPN` is returned when you run the command `az aks show`.
 
-    ```azurecli
-    az login
-    az account set --subscription "<subscriptionName>"
-    az aks show -g <resourceGroupName> -n <clusterName> 
-    az role assignment create --assignee <clientIdOfSPN> --scope <clusterResourceId> --role "Monitoring Metrics Publisher" 
-    ```
+```azurecli
+az login
+az account set --subscription "<subscriptionName>"
+az aks show -g <resourceGroupName> -n <clusterName> 
+az role assignment create --assignee <clientIdOfSPN> --scope <clusterResourceId> --role "Monitoring Metrics Publisher" 
+```
 
 
 To get the value for `clientIdOfSPNOrMsi`, you can run the command `az aks show` as shown in the following example. If the `servicePrincipalProfile` object has a valid `clientid` value, you can use that. Otherwise, if it's set to `msi`, you need to pass in the client ID from `addonProfiles.omsagent.identity.clientId`.
 
-    ```azurecli
-    az login
-    az account set --subscription "<subscriptionName>"
-    az aks show -g <resourceGroupName> -n <clusterName> 
-    az role assignment create --assignee <clientIdOfSPNOrMsi> --scope <clusterResourceId> --role "Monitoring Metrics Publisher"
-    ```
+```azurecli
+az login
+az account set --subscription "<subscriptionName>"
+az aks show -g <resourceGroupName> -n <clusterName> 
+az role assignment create --assignee <clientIdOfSPNOrMsi> --scope <clusterResourceId> --role "Monitoring Metrics Publisher"
+```
 
 >[!NOTE]
 >If you want to perform the role assignment with your user account, use the `--assignee` parameter as shown in the example. If you want to perform the role assignment with a service principal name (SPN), use the `--assignee-object-id` and `--assignee-principal-type` parameters instead of the `--assignee` parameter.
