@@ -261,16 +261,16 @@ sections:
           What are the firewall requirements for Log Analytics agents?
         answer: |
           See [Network firewall requirements](agents/log-analytics-agent.md#network-requirements)for details on firewall requirements.
-          
-          
-  - name: Azure Monitor Agent
-    questions: |
-      - question: |
+
+  - name: Azure Monitor agent
+    questions:
+      - question: 
           Why should I use the AMA or migrate from Log Analytics agent (MMA) to AMA?
         answer: |
           The AMA replaces the [Log Analytics agent](/azure/azure-monitor/agents/log-analytics-agent), the [Azure Diagnostics extension](/azure/azure-monitor/agents/diagnostics-extension-overview), and the [Telegraf Agent](/azure/azure-monitor/essentials/collect-custom-metrics-linux-telegraf). The AMA offers a higher rate of EPS with a lower footprint, providing enhanced filtering features, scalable deployment management and configuration using DCRs and Azure policies.
           While the AMA has not yet reached full parity with the MMA, we continue to add features and support and the MMA will be retired on August 31, 2024.
           For more information, see the [Azure Monitor Agent overview](/azure/azure-monitor/agents/azure-monitor-agent-overview).
+
 
       - question: |
           What is the upgrade path from Log Analytics agents to Azure Monitor Agent? How do we migrate?
@@ -279,7 +279,7 @@ sections:
           
           
       - question: |
-          What’s the upgrade path from Log Analytics Agent (MMA) to Azure Monitor Agent (AMA) for monitoring System Center Operations Manager? Can we use AMA for System Center Operations Manager scenarios?
+          What's the upgrade path from Log Analytics Agent (MMA) to Azure Monitor Agent (AMA) for monitoring System Center Operations Manager? Can we use AMA for System Center Operations Manager scenarios?
         answer: |
           Here's how AMA impacts the two System Center Operations Manager related monitor scenarios:
           - **Scenario 1**: For monitoring the Windows operating system of System Center Operations Manager, the upgrade path is same as any other machine, wherein you can migrate from MMA (versions 2016, 2019) to AMA as soon as your required parity features are available on AMA.
@@ -295,7 +295,7 @@ sections:
           Review the list of [AMA extensions currently available in preview](./agents/azure-monitor-agent-overview.md#supported-services-and-features). These are the same solutions and services now available using the new Azure Monitor agent instead. 
           You may see additional extensions getting installed for the solution/service, this is to collect additional data or perform transformation/processing as required for the solution/service, and then use AMA to route the final data to Azure Monitor. 
           
-          Here’s a diagram explaining the **new extensibility architecture**:
+          Here's a diagram explaining the **new extensibility architecture**:
           
           ![Extensions architecture](agents/media/azure-monitor-agent/extensibility-arch-new.png)
           
@@ -338,14 +338,12 @@ sections:
           
           - **Comparison with Azure Diagnostic Extensions (WAD/LAD)**
           -	No support for Event Hubs and Storage accounts as destinations
-          
-          
+        
       - question: |
           Does the Azure Monitor Agent support non-Azure environments (other clouds, on-premises)?
         answer: |
           Both on-premises machines and machines connected to other clouds are supported for servers today, once you have the Azure Arc agent installed. For purposes of running AMA and DCR, the ARC requirement comes at **no additional cost or resource consumption**, since the ARC agent is only used an installation mechanism and isn’t performing any operations unless you enable them
           
-
       - question: |
           Is Azure Arc required for AAD-joined machines?
         answer: |
@@ -365,15 +363,13 @@ sections:
           What types of machines does the new Azure Monitor Agent support?
         answer: |
           You can directly install them on Virtual Machines, Virtual Machines Scale Sets, and Arc enabled Servers only. 
-          
-          
+
       - question: |
           Can we filter events using event ID, i.e. more granular event filtering using the new Azure Monitor Agent?
         answer: |
           Yes. You can use **Xpath queries** for filtering events on Windows machines. [Learn more](agents/data-collection-rule-azure-monitor-agent.md#limit-data-collection-with-custom-xpath-queries)  
           For performance counters, you can specify specific counters you wish to collect, and exclude ones you don’t need.
           For syslog on Linux, you can choose Facilities and log level for each facility to collect.
-          
           
       - question: |
           Does the new Azure Monitor agent support sending data to Event Hubs and Azure Storage Accounts?
@@ -403,7 +399,7 @@ sections:
           Use the [Get-WinEvent](/powershell/module/microsoft.powershell.diagnostics/get-winevent) PowerShell cmdlet **-FilterXPath** parameter to test the validity of an XPath query. For more information, see the tip provided in the [Windows agent-based connections](connect-azure-windows-microsoft-services.md#instructions-3) instructions.
           The [Get-WinEvent](/powershell/module/microsoft.powershell.diagnostics/get-winevent) PowerShell cmdlet supports up to 23 expressions, which Azure Monitor DCRs support up to 20. Also `>` and `<` characters must be encoded as `&gt;` and `&lt;` in your DCR.        
 
-          
+
   - name: Visualizations
     questions:
       - question: |
