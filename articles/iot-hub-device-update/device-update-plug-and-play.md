@@ -24,14 +24,14 @@ The expected component name in your model is **"deviceUpdate"** when this interf
 
 ### Agent Metadata
 
-Agent Metadata contains fields that the device or Device Update agent uses to send
-information and status to Device Update services.
+The Device Update agent uses Agent Metadata fields to send
+information to Device Update services.
 
 |Name|Schema|Direction|Description|Example|
 |----|------|---------|-----------|-----------|
-|deviceProperties|Map|device to cloud|The set of properties that contain the manufacturer, model, and other device information.|See below for details|
-|compatPropertyNames|String (Comma separated)|device to cloud|The device reported properties that are used to check for compatibility of the device for targeting the update deployment. Limited to 5 device properties|"compatPropertyNames": "manufacturer,model"|
-|lastInstallResult|Map|device to cloud|The result reported by the agent containing result code, extended result code, and result details for main update and other step updates||
+|deviceProperties|Map|device to cloud|The set of properties that contain the manufacturer, model, and other device information.|See other examples for details|
+|compatPropertyNames|String (Comma separated)|device to cloud|The device reported properties that are used to check for compatibility of the device to target the update deployment. Limited to 5 device properties|"compatPropertyNames": "manufacturer,model"|
+|lastInstallResult|Map|device to cloud|The result reported by the agent. It contains result code, extended result code, and result details for main update and other step updates||
 |resultCode|integer|device to cloud|A code that contains information about the result of the last update action. Can be populated for either success or failure.|700|
 |extendedResultCode|integer|device to cloud|A code that contains additional information about the result. Can be populated for either success or failure.|0x80004005|
 |resultDetails|string|device to cloud|Free form string set by user to provide additional result details. Returned to the twin without parsing||
