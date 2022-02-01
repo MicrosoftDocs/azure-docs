@@ -373,8 +373,9 @@ First, the function.json file must be updated to include a `route` in the HTTP t
 }
 ```
 
-Host.json needs to be updated to include `routePrefix`.
-```python
+The host.json file must also be updated to include an HTTP `routePrefix`, as shown in the following example.
+
+```json
 {
   "version": "2.0",
   "logging": {
