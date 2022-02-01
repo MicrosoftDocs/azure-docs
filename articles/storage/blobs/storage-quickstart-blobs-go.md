@@ -19,7 +19,7 @@ In this quickstart, you learn how to use the Go programming language to upload, 
 
 [!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
-Make sure you have the following additional prerequisites installed:
+Make sure you have the following more prerequisites installed:
 
 - [Go 1.17 or above](https://go.dev/dl/)
 - [Azure Storage Blob SDK for Go](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob/), using the following command:
@@ -57,7 +57,7 @@ To learn more about different authentication methods, check out [Azure authentic
 
 ## Run the sample
 
-This sample creates creates an Azure storage container, uploads a blob, lists the blobs in the container, then downloads the blob data into a buffer.
+This sample creates an Azure storage container, uploads a blob, lists the blobs in the container, then downloads the blob data into a buffer.
 
 Before you run the sample, open the `storage-quickstart.go` file. Replace `<StorageAccountName>` with the name of your Azure storage account.
 
@@ -195,7 +195,7 @@ if err != nil {
 
 ### Download the blob
 
-Download blobs using the **Download** low-level function on a BlobURL. This will return a **DownloadResponse** struct. Run the function **Body** on the struct to get a **RetryReader** stream for reading data. If a connection fails while reading, it will make additional requests to re-establish a connection and continue reading. Specifying a RetryReaderOption's with MaxRetryRequests set to 0 (the default), returns the original response body and no retries will be performed. Alternatively, use the high-level APIs **DownloadBlobToBuffer** or **DownloadBlobToFile** to simplify your code.
+Download blobs using the **Download** low-level function on a BlobURL will return a **DownloadResponse** struct. Run the function **Body** on the struct to get a **RetryReader** stream for reading data. If a connection fails while reading, it will make other requests to re-establish a connection and continue reading. Specifying a RetryReaderOption's with MaxRetryRequests set to 0 (the default), returns the original response body and no retries will be performed. Alternatively, use the high-level APIs **DownloadBlobToBuffer** or **DownloadBlobToFile** to simplify your code.
 
 The following code downloads the blob using the **Download** function. The contents of the blob is written into a buffer and shown on the console.
 
