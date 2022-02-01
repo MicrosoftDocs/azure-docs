@@ -244,20 +244,22 @@ The following tables display the current Microsoft Sentinel feature availability
 | - [Anomalous Windows File Share Access Detection](../../sentinel/fusion.md)  | Public Preview | Not Available |
 | - [Anomalous RDP Login Detection](../../sentinel/data-connectors-reference.md#configure-the-security-events--windows-security-events-connector-for-anomalous-rdp-login-detection)<br>Built-in ML detection | Public Preview | Not Available |
 | - [Anomalous SSH login detection](../../sentinel/connect-syslog.md#configure-the-syslog-connector-for-anomalous-ssh-login-detection)<br>Built-in ML detection | Public Preview | Not Available |
-| **Azure service connectors** |  |  |
+| **Azure and Microsoft service connectors** |  |  |
 | - [Azure Activity Logs](../../sentinel/data-connectors-reference.md#azure-activity) | GA | GA |
 | - [Azure Active Directory](../../sentinel/connect-azure-active-directory.md) | GA | GA |
 | - [Azure ADIP](../../sentinel/data-connectors-reference.md#azure-active-directory-identity-protection) | GA | GA |
 | - [Azure DDoS Protection](../../sentinel/data-connectors-reference.md#azure-ddos-protection) | GA | GA |
-| - [Microsoft Defender for Cloud](../../sentinel/connect-azure-security-center.md) | GA | GA |
-| - [Microsoft Defender for IoT](../../sentinel/data-connectors-reference.md#microsoft-defender-for-iot) | Public Preview | Not Available |
-| - [Microsoft Insider Risk Management](../../sentinel/sentinel-solutions-catalog.md#domain-solutions) | Public Preview | Not Available |
 | - [Azure Firewall ](../../sentinel/data-connectors-reference.md#azure-firewall) | GA | GA |
 | - [Azure Information Protection](../../sentinel/data-connectors-reference.md#azure-information-protection) | Public Preview | Not Available |
 | - [Azure Key Vault ](../../sentinel/data-connectors-reference.md#azure-key-vault) | Public Preview | Not Available |
 | - [Azure Kubernetes Services (AKS)](../../sentinel/data-connectors-reference.md#azure-kubernetes-service-aks) | Public Preview | Not Available |
 | - [Azure SQL Databases](../../sentinel/data-connectors-reference.md#azure-sql-databases) | GA | GA |
 | - [Azure WAF](../../sentinel/data-connectors-reference.md#azure-web-application-firewall-waf) | GA | GA |
+| - [Microsoft Defender for Cloud](../../sentinel/connect-azure-security-center.md) | GA | GA |
+| - [Microsoft Defender for IoT](../../sentinel/data-connectors-reference.md#microsoft-defender-for-iot) | Public Preview | Not Available |
+| - [Microsoft Insider Risk Management](../../sentinel/sentinel-solutions-catalog.md#domain-solutions) | Public Preview | Not Available |
+| - [Microsoft Power BI](../../sentinel/data-connectors-reference#microsoft-power-bi-preview) | Public Preview | Not Available |
+| - [Microsoft Project](../../sentinel/data-connectors-reference#microsoft-project-preview) | Public Preview | Not Available |
 | **Windows connectors** |  |  |
 | - [Windows Firewall](../../sentinel/data-connectors-reference.md#windows-firewall) | GA | GA |
 | - [Windows Security Events](/azure/sentinel/connect-windows-security-events) | GA | GA |
