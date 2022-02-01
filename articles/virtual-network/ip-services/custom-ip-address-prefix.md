@@ -44,6 +44,10 @@ A custom IP address prefix is a contiguous range of IP addresses owned by an ext
 
 ## Next steps
 
+<!--Commenting these until all files are in the branch
+
 - [Onboard](create-custom-ip-address-prefix-powershell.md) a custom IP address prefix using PowerShell
 - [Onboard](create-custom-ip-address-prefix-cli.md) a custom IP address prefix using CLI
 - [Manage](manage-custom-ip-address-prefix.md) a custom IP address prefix
+
+-->
