@@ -1,3 +1,9 @@
+---
+author: DavidCBerry13
+ms.author: daberry
+ms.topic: include
+ms.date: 01/30/2022
+---
 First, you need to configure Azure App Service to output logs to the App Service filesystem using the [az webapp log config](/cli/azure/webapp/log#az_webapp_log_config) command.
 
 #### [bash](#tab/terminal-bash)
