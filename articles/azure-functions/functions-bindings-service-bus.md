@@ -152,7 +152,7 @@ When using service bus extension version 5.x and higher, the following global co
 |---------|---------|---------|
 |prefetchCount|0|Gets or sets the number of messages that the message receiver can simultaneously request.|
 |autoCompleteMessages|true|Determines whether or not to automatically complete messages after successful execution of the function and should be used in place of the `autoComplete` configuration setting.|
-|maxAutoLockRenewalDuration|00:05:00|This should be used in place of `maxAutoRenewDuration`|
+|maxAutoLockRenewalDuration|00:05:00|The maximum duration within which the message lock will be renewed automatically. This only applies for functions that receive a batch of messages.|
 |maxConcurrentCalls|16|The maximum number of concurrent calls to the callback that the message pump should initiate per scaled instance. By default, the Functions runtime processes multiple messages concurrently.|
 |maxConcurrentSessions|8|The maximum number of sessions that can be handled concurrently per scaled instance.|
 |maxMessages|1000|The maximum number of messages that will be passed to each function call. This only applies for functions that receive a batch of messages.|

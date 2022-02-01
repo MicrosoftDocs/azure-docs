@@ -17,7 +17,7 @@ Azure Purview is a unified data governance solution. You deploy an Azure Purview
 
 Consider deploying minimum number of Azure Purview accounts for the entire organization. This approach takes maximum advantage of the "network effects" where the value of the platform increases exponentially as a function of the data that resides inside the platform. 
 
-Use [Azure Purview collections hierarchy](./concept-best-practices-collections.md) to lay out your organization's data management structure inside a single Azure Purview account. In this scenario, one Purview account is deployed in an Azure subscription. Data sources from one or more Azure subscriptions can be registered and scanned inside the Azure Purview. You can also register and scan data sources from your on-premises or multi-cloud environments.
+Use [Azure Purview collections hierarchy](./concept-best-practices-collections.md) to lay out your organization's data management structure inside a single Azure Purview account. In this scenario, one Azure Purview account is deployed in an Azure subscription. Data sources from one or more Azure subscriptions can be registered and scanned inside the Azure Purview. You can also register and scan data sources from your on-premises or multi-cloud environments.
 
 :::image type="content" source="media/concept-best-practices/accounts-single-account.png" alt-text="Screenshot that shows the single Azure Purview account."lightbox="media/concept-best-practices/accounts-single-account.png":::
 
@@ -61,7 +61,7 @@ An exception applies to VM-based data sources and Power BI tenants.For more info
 
 Review [Azure Purview Pricing model](https://azure.microsoft.com/pricing/details/azure-purview) when defining budgeting model and designing Azure Purview architecture for your organization. One billing is generated for a single Azure Purview account in the subscription where Azure Purview account is deployed. This model also applies to other Azure Purview costs such as scanning and classifying metadata inside Azure Purview Data Map.
 
-Some organizations often have many business units (BUs) that operate separately, and, in some cases, they don't even share billing with each other. In those cases, the organization will end up creating a Azure Purview instance for each BU. This model is not ideal, however, may be necessary, especially because Business Units are often not willing to share Azure billing. 
+Some organizations often have many business units (BUs) that operate separately, and, in some cases, they don't even share billing with each other. In those cases, the organization will end up creating an Azure Purview instance for each BU. This model is not ideal, however, may be necessary, especially because Business Units are often not willing to share Azure billing. 
 
 For more information about cloud computing cost model in chargeback and showback models, see, [What is cloud accounting?](/azure/cloud-adoption-framework/strategy/cloud-accounting).  
 
@@ -78,4 +78,4 @@ For more information about cloud computing cost model in chargeback and showback
 - Review [Azure Purview prerequisites](./create-catalog-portal.md#prerequisites) before deploying any new Azure Purview accounts in your environment.
   
 ## Next steps
--  [Create a Purview account](./create-catalog-portal.md)
+-  [Create an Azure Purview account](./create-catalog-portal.md)

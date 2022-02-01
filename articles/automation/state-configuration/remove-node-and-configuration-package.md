@@ -77,7 +77,7 @@ The configuration files are stored in /etc/opt/omi/conf/dsc/configuration/. Remo
 ---
 
 ## Re-register a node
-You can re-register a node just as you registered the node initially, using any of the methods described in [Enable Azure Automation State Configuration](/azure/automation/automation-dsc-onboarding)
+You can re-register a node just as you registered the node initially, using any of the methods described in [Enable Azure Automation State Configuration](../automation-dsc-onboarding.md)
 
 
 ## Remove the DSC package from a Linux node

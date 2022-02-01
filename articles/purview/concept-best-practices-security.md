@@ -236,7 +236,7 @@ When an Azure Purview account is deployed, in addition, a managed resource group
 
 Azure Purview extracts only the metadata from different data source systems into [Azure Purview Data Map](concept-elastic-data-map.md) during the scanning process. 
 
-You can deploy a Azure Purview account inside your Azure subscription in any [supported Azure regions](https://azure.microsoft.com/global-infrastructure/services/?products=purview&regions=all).  
+You can deploy an Azure Purview account inside your Azure subscription in any [supported Azure regions](https://azure.microsoft.com/global-infrastructure/services/?products=purview&regions=all).  
 
 All metadata is stored inside Data Map inside your Azure Purview instance. This means the metadata is stored in the same region as your Azure Purview instance. 
 

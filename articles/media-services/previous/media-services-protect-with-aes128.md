@@ -37,8 +37,6 @@ To take advantage of dynamic encryption, you need to have an asset that contains
 This article is useful to developers who work on applications that deliver protected media. The article shows you how to configure the key delivery service with authorization policies so that only authorized clients can receive encryption keys. It also shows how to use dynamic encryption.
 
 For information on how to encrypt content with the Advanced Encryption Standard (AES) for delivery to Safari on macOS, see [this blog post](https://azure.microsoft.com/blog/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/).
-For an overview of how to protect your media content with AES encryption, see [this video](https://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-Protecting-your-Media-Content-with-AES-Encryption).
-
 
 ## AES-128 dynamic encryption and key delivery service workflow
 

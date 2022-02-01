@@ -38,7 +38,7 @@ On premises SSIS lineage extraction is not supported yet.
 *\* Azure Purview currently doesn't support query or stored procedure for lineage or scanning. Lineage is limited to table and view sources only.*
 
 
-## How to bring SSIS lineage into Purview
+## How to bring SSIS lineage into Azure Purview
 
 ### Step 1. [Connect a Data Factory to Azure Purview](how-to-link-azure-data-factory.md)
 

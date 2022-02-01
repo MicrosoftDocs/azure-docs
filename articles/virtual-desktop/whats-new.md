@@ -36,6 +36,11 @@ The Azure Virtual Desktop agent updates at least once per month.
 
 Here's what's changed in the Azure Virtual Desktop Agent:
 
+- Version 1.0.3855.1400: This update was released December 2021 and has the following changes:
+    - Fixes an issue that caused an unhandled exception.
+    - This version now supports Azure Stack HCI by retrieving VM metadata from the Azure Arc service.
+    - This version now allows built-in stacks to be automatically updated if its version number is beneath a certain threshold.
+    - The UrlsAccessibleCheck health check now only gets the URL until the path delimiter to prevent 404 errors.
 - Version 1.0.3719.1700: This update was released November 2021 and has the following changes:
     - Updated agent error messages.
     - Fixes an issue with the agent restarting every time the side-by-side stack was updated.
@@ -613,7 +618,7 @@ Here's what changed in August 2020:
 
 - We fixed an issue in the Teams Desktop client (version 1.3.00.21759) where the client only showed the UTC time zone in the chat, channels, and calendar. The updated client now shows the remote session's time zone instead.
 
-- Azure Advisor is now a part of Azure Virtual Desktop. When you access Azure Virtual Desktop through the Azure portal, you can see recommendations for optimizing your Azure Virtual Desktop environment. Learn more at [Azure Advisor](azure-advisor.md).
+- Azure Advisor is now a part of Azure Virtual Desktop. When you access Azure Virtual Desktop through the Azure portal, you can see recommendations for optimizing your Azure Virtual Desktop environment. Learn more at [Introduction to Azure Advisor](../advisor/advisor-overview.md).
 
 - Azure CLI now supports Azure Virtual Desktop (`az desktopvirtualization`) to help you automate your Azure Virtual Desktop deployments. Check out [desktopvirtualization](/cli/azure/desktopvirtualization) for a list of extension commands.
 
