@@ -107,10 +107,10 @@ conceptualContent:
           text: Recognize speech intents with LUIS and C#
           url: how-to-recognize-intents-from-speech-csharp.md
         - itemType: how-to-guide
-          text: Recognize speech intents with simple pattern matching, C++
+          text: Recognize speech intents with simple pattern matching
           url: how-to-use-simple-language-pattern-matching.md
         - itemType: how-to-guide
-          text: Recognize speech intents with custom entity matching, C++
+          text: Recognize speech intents with custom entity matching
           url: how-to-use-custom-entity-pattern-matching.md
         - itemType: reference
           text: Language Understanding (LUIS) portal
