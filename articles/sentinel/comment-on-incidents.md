@@ -49,6 +49,10 @@ There are several considerations to take into account when using incident commen
 
 - **Deleting:** A comment can be deleted by its author and by anyone else with the [Microsoft Sentinel Contributor](roles.md) role.
 
+### Can I search through comments?
+
+
+
 ## Next steps
 
 For more information, see:
