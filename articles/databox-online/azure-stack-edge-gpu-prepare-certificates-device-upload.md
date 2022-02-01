@@ -34,7 +34,7 @@ If you bring your own certificates, then the certificates that you created for y
 
 2. In the Personal certificate store, select the root certificate. Right-click and select **All Tasks > Export...**
 
-    ![Illustration showing the Local Machine Store on an Azure Stack Edge device with the Root certificate selected for Export.](media/azure-stack-edge-gpu-manage-certificates/export-cert-cer-1.png)
+    ![Illustration showing the Local Machine Store on a device with the Root certificate selected for Export.](media/azure-stack-edge-gpu-manage-certificates/export-cert-cer-1.png)
 
 3. The certificate wizard opens. Select the format **DER encoded binary X.509 (.cer)**. Select **Next**.
 
