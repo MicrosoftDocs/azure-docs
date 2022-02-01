@@ -32,7 +32,7 @@ After a Key Vault certificate is created, you can retrieve it from the addressab
 - **Exportable**: The policy used to create the certificate indicates the key is exportable.
 - **Non-exportable**: The policy used to create the certificate indicates the key is non-exportable. In this case, the private key isn't part of the value when it's retrieved as a secret.
 
-Supported keytypes: RSA, RSA-HSM, EC, EC-HSM, oct (listed [here](/rest/api/keyvault/createcertificate/createcertificate#jsonwebkeytype))
+Supported keytypes: RSA, RSA-HSM, EC, EC-HSM, oct (listed [here](/rest/api/keyvault/certificates/create-certificate/create-certificate#jsonwebkeytype))
 Exportable is only allowed with RSA, EC. HSM keys would be non-exportable.
 
 See [About Azure Key Vault certificates](./about-certificates.md#exportable-or-non-exportable-key) for more information.
