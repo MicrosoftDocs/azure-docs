@@ -16,7 +16,7 @@ ms.custom: devx-track-js, ignite-fall-2021
 
 # Select an audio input device with the Speech SDK
 
-Version 1.3.0 of the Speech SDK introduces an API to select the audio input. This article describes how to obtain the IDs of the audio devices connected to a system. These IDs can then be used in the Speech SDK by configuring the audio device through the `AudioConfig` object:
+Version 1.3.0 of the Speech SDK introduces an API to select the audio input. This article describes how to obtain the IDs of the audio devices connected to a system. These IDs can then be used in the Speech SDK. You configure the audio device through the `AudioConfig` object:
 
 ```C++
 audioConfig = AudioConfig.FromMicrophoneInput("<device id>");
@@ -375,7 +375,7 @@ For example, the instruction
     withOptions:AVAudioSessionCategoryOptionAllowBluetooth error:NULL];
 ```
 
-enables the use of a Bluetooth headset for a speech-enabled app.
+Enables the use of a Bluetooth headset for a speech-enabled app.
 
 ## Audio device IDs in JavaScript
 
@@ -384,7 +384,7 @@ In JavaScript, the [MediaDevices.enumerateDevices()](https://developer.mozilla.o
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Explore our samples on GitHub](https://aka.ms/csspeech/samples)
+> [Explore samples on GitHub](https://aka.ms/csspeech/samples)
 
 ## See also
 
