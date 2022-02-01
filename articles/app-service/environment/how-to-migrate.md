@@ -21,7 +21,7 @@ Ensure you understand how migrating to an App Service Environment v3 will affect
 
 ::: zone pivot="experience-azcli"
 
-When using the Azure CLI to carry out the migration, you should follow the below steps in order and as written since you'll be making Azure REST API calls. The recommended way for making these calls is by using the [Azure CLI](/cli/azure/). For information about other methods, see [Getting Started with Azure REST](/rest/api/azure/).
+The recommended experience for migration is using the Azure portal. If you decide to use the Azure CLI to carry out the migration, you should follow the below steps in order and as written since you'll be making Azure REST API calls. The recommended way for making these API calls is by using the [Azure CLI](/cli/azure/). For information about other methods, see [Getting Started with Azure REST](/rest/api/azure/).
 
 For this guide, [install the Azure CLI](/cli/azure/install-azure-cli) or use the [Azure Cloud Shell](https://shell.azure.com/).
 
