@@ -56,31 +56,30 @@ Optionally, you can also configure authentication bindings to map certificates t
 
 Only one Certificate Distribution Point (CDP) for a trusted CA is supported. The CDP can only be HTTP URLs. Online Certificate Status Protocol (OCSP) or Lightweight Directory Access Protocol (LDAP) URLs are not supported.
 
-[!INCLUDE [Configure certificate authorities](../../../includes/active-directory-authentication-configure-certificate-authorities.md)
+[!INCLUDE [Configure certificate authorities](../../../includes/active-directory-authentication-configure-certificate-authorities.md)]
 
 ### Connect
 
-[!INCLUDE [Connect-AzureAD](../../../includes/active-directory-authentication-connect-azuread.md)
+[!INCLUDE [Connect-AzureAD](../../../includes/active-directory-authentication-connect-azuread.md)]
 
 ### Retrieve
 
-[!INCLUDE [Get-AzureAD](../../../includes/active-directory-authentication-get-trusted-azuread.md)
-
+[!INCLUDE [Get-AzureAD](../../../includes/active-directory-authentication-get-trusted-azuread.md)]
 ### Add
 
-[!INCLUDE [New-AzureAD](../../../includes/active-directory-authentication-new-trusted-azuread.md)
+[!INCLUDE [New-AzureAD](../../../includes/active-directory-authentication-new-trusted-azuread.md)]
 
 ### Remove
 
-[!INCLUDE [Remove-AzureAD](../../../includes/active-directory-authentication-remove-trusted-azuread.md)
+[!INCLUDE [Remove-AzureAD](../../../includes/active-directory-authentication-remove-trusted-azuread.md)]
 
 ### Modify
 
-[!INCLUDE [Set-AzureAD](../../../includes/active-directory-authentication-set-trusted-azuread.md)
+[!INCLUDE [Set-AzureAD](../../../includes/active-directory-authentication-set-trusted-azuread.md)]
 
 ## Configure revocation
 
-[!INCLUDE [Configure revocation](../../../includes/active-directory-authentication-configure-revocation.md)
+[!INCLUDE [Configure revocation](../../../includes/active-directory-authentication-configure-revocation.md)]
 
 ## Step 2: Configure authentication binding policy 
 
@@ -178,8 +177,7 @@ To enable the certificate-based authentication in the Azure MyApps portal, compl
 Once certificate-based authentication is enabled on the tenant, all users in the tenant will see the option to sign in with a certificate. Only users who are enabled for certificate-based authentication will be able to authenticate using the X.509 certificate. 
 
 >[!NOTE]
->The network administrator should allow access to certauth.login.microsoftonline.com in addition to login.microsoftonline.com and disable TLS inspection on the certauth endpoint to make sure the client certificate request succeeds as part of the TLS handshake.
-
+>The network administrator should allow access to certauth endpoint for the customer’s cloud environment in addition to login.microsoftonline.com. Disable TLS inspection on the certauth endpoint to make sure the client certificate request succeeds as part of the TLS handshake.
 
 ## Step 5: Test your configuration
 

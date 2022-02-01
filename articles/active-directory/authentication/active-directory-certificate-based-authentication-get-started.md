@@ -62,34 +62,34 @@ The related information exists for the following device platforms:
 
 ## Step 2: Configure the certificate authorities
 
-[!INCLUDE [Configure certificate authorities](../../../includes/active-directory-authentication-configure-certificate-authorities.md)
+[!INCLUDE [Configure certificate authorities](../../../includes/active-directory-authentication-configure-certificate-authorities.md)]
 
 ### Connect
 
-[!INCLUDE [Connect-AzureAD](../../../includes/active-directory-authentication-connect-azuread.md)
+[!INCLUDE [Connect-AzureAD](../../../includes/active-directory-authentication-connect-azuread.md)]
 
 
 ### Retrieve
 
-[!INCLUDE [Get-AzureAD](../../../includes/active-directory-authentication-get-trusted-azuread.md)
+[!INCLUDE [Get-AzureAD](../../../includes/active-directory-authentication-get-trusted-azuread.md)]
 
 
 ### Add
 
-[!INCLUDE [New-AzureAD](../../../includes/active-directory-authentication-new-trusted-azuread.md)
+[!INCLUDE [New-AzureAD](../../../includes/active-directory-authentication-new-trusted-azuread.md)]
 
 ### Remove
 
-[!INCLUDE [Remove-AzureAD](../../../includes/active-directory-authentication-remove-trusted-azuread.md)
+[!INCLUDE [Remove-AzureAD](../../../includes/active-directory-authentication-remove-trusted-azuread.md)]
 
 
 ### Modify
 
-[!INCLUDE [Set-AzureAD](../../../includes/active-directory-authentication-set-trusted-azuread.md)
+[!INCLUDE [Set-AzureAD](../../../includes/active-directory-authentication-set-trusted-azuread.md)]
 
 ## Step 3: Configure revocation
 
-[!INCLUDE [Configure revocation](../../../includes/active-directory-authentication-configure-revocation.md)
+[!INCLUDE [Configure revocation](../../../includes/active-directory-authentication-configure-revocation.md)]
 
 
 ## Step 4: Test your configuration
