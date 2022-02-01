@@ -194,7 +194,7 @@ For the `RelativeHumidity` telemetry type, make the following changes:
 
 1. Update the **Display Name** value from *RelativeHumidity* to a custom value such as *Humidity*.
 
-1. Change the **Semantic Type** option from *Relative humity* to *Humidity*.  Optionally, set schema values for the humidity telemetry type in the expanded schema view. Schema settings allow you to create detailed validation requirements for the data that your sensors track. For example, you could set minimum and maximum operating range values for a given interface.
+1. Change the **Semantic Type** option from *Relative humidity* to *Humidity*.  Optionally, set schema values for the humidity telemetry type in the expanded schema view. Schema settings allow you to create detailed validation requirements for the data that your sensors track. For example, you could set minimum and maximum operating range values for a given interface.
 
 1. Select **Save** to save your changes.
 
