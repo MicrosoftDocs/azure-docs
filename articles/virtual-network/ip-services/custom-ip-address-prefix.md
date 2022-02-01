@@ -14,7 +14,7 @@ ms.author: allensu
 
 # Custom IP address prefix
 
-A custom IP address prefix is a contiguous range of IP addresses owned by an external customer (not Microsoft) and on boarded to Azure.  The range would continue to be owned by the customer, though Microsoft would be permitted to advertise it.  Addresses from a custom IP address prefix can be utilized in a similar manner to Azure-owned public IP address prefixes.  That is, they can be associated to Azure resources, interact with internal/private IPs and virtual networks, and reach external destinations by egressing from the Azure Wide Area Network.
+A custom IP address prefix is a contiguous range of IP addresses owned by an external customer (not Microsoft) and provisioned into to Azure. The range would continue to be owned by the customer, though Microsoft would be permitted to advertise it. Addresses from a custom IP address prefix can be utilized in a similar manner to Azure owned public IP address prefixes. Addresses from a custom IP address prefix can be associated to Azure resources, interact with internal/private IPs and virtual networks, and reach external destinations outbound from the Azure Wide Area Network.
 
 > [!IMPORTANT]
 > BYOIP (custom IP address prefix) is currently in preview.
@@ -23,23 +23,24 @@ A custom IP address prefix is a contiguous range of IP addresses owned by an ext
 
 ## Benefits
 
-- Customers now have the ability to retain their IP ranges (BYOIP) to maintain established reputation and continue to pass through externally controlled allow lists.
-- Both Public IP address prefixes and Standard SKU Public IPs (from Public IP Prefixes) can be derived from custom IP address prefixes, and utilized in the same manner as Azure-owned public IPs. 
+- Customers can retain their IP ranges (BYOIP) to maintain established reputation and continue to pass through externally controlled allowlists.
+- Public IP address prefixes and Standard SKU Public IPs from Public IP Prefixes, can be derived from custom IP address prefixes, and utilized in the same way as Azure-owned public IPs. 
 
 ## Constraints
 
-- Only IPv4 prefixes are supported for onboarding as a custom IP address prefix at this time.
-- Only zone-redundant IP prefixes are supported with a custom IP address prefix at this time.
-- The number of overall prefixes that can be brought to Azure is limited to 5 per region.
-- There is no SLA for provisioning/advertisement of a range during the Preview period – estimate is approximately 4-6 weeks.
-- The advertisement of IPs from a custom IP address prefix are not supported over Azure ExpressRoute at this time.
-- Once on boarded, custom IP address prefix ranges cannot be moved to another subscription or within resource groups in a single subscription.
-- Overlapping ranges in the same region (e.g. onboarding a /23 in a region, deprovisioning the /23, attempting to onboard a pair of child /24s) are not allowed at this time
+- Only IPv4 prefixes are supported for as a custom IP address prefix currently.
+- Only zone-redundant IP prefixes are supported with a custom IP address prefix currently.
+- The number of overall prefixes that can be on boarded is limited to 5 per region.
+- There is no SLA for provisioning/advertisement of a range during the Preview period. Estimate for SLA is approximately 4–6 weeks.
+- Currently, the advertisements of IPs from a custom IP prefix aren't supported with Azure ExpressRoute.
+- Once provisioned, custom IP address prefix ranges can't be moved to another subscription. Custom IP address prefix ranges can't be moved within resource groups in a single subscription.
+- Overlapping ranges in the same region currently aren't allowed.
+    - Example: You attempt to provision a /23 in a region. You then deprovision the /23 and then incorporate a pair of child /24s.
 
 ## Pricing
 
-- There is no charge to onboard or utilize custom IP address prefixes.  This also applies to all public IP Prefixes and public IP addresses that are derived from custom IP address prefixes.
-- All traffic that is bound to a custom IP address prefix range will be charged the [Internet egress rate](https://azure.microsoft.com/pricing/details/bandwidth/).  In other words, Azure customers sending traffic to a custom IP Prefix address will be charged Internet egress for the source region of their traffic.  Note that egress traffic from a custom IP address prefix range will be charged the equivalent rate as an Azure public IP from the same region.
+- There is no charge to onboard or utilize custom IP address prefixes. The no charge applies to all public IP prefixes and public IP addresses that are derived from custom IP address prefixes.
+- All traffic destined to a custom prefix range is charged the [internet egress rate](https://azure.microsoft.com/pricing/details/bandwidth/). Azure customers sending traffic to a custom IP prefix address are charged internet egress for the source region of their traffic. Egress traffic from a custom IP address prefix range is charged the equivalent rate as an Azure public IP from the same region.
 
 ## Next steps
 
