@@ -1,6 +1,6 @@
 ---
-title: Microsoft CloudKnox Permissions Management - Create and view a custom report
-description: How to create and view a custom report in the Microsoft CloudKnox Permissions Management.
+title: Generate and view a custom report in Microsoft CloudKnox Permissions Management
+description: How to generate and view a custom report in the Microsoft CloudKnox Permissions Management.
 services: active-directory
 author: Yvonne-deQ
 manager: karenh444
@@ -8,49 +8,35 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/17/2022
+ms.date: 01/31/2022
 ms.author: v-ydequadros
 ---
 
-# Create and view a custom report
+# Generate and view a custom report
 
-This topic describes how to create and view a custom report in Microsoft CloudKnox Permissions Management (CloudKnox).
+This article describes how to generate and view a custom report in Microsoft CloudKnox Permissions Management (CloudKnox).
 
-## Create a custom report 
+## Generate a custom report 
 
-1. From the **Systems Reports** tab, under **Report Name**, select **New Custom Report**.
-2. In the **New Custom Report** box, enter a name for your report.
-3. From the **Report Based on** list, make a selection, and then select **Next**.
+1. In the CloudKnox home page, select the **Reports** tab, and then select the **Custom reports** subtab.
+1. Select **New Custom Report**.
+1. In the **New Custom Report** box, enter a name for your report.
+1. From the **Report Based on** list, make a selection from the list of reports.
+    1. To view which authorization systems the report applies to, hover over each report option.
+    1. To view a description of the report, select a report.
+1. Select **Next**.
+1. In the **MyReport** box, select the **Authorization system** you want: Amazon Web Services (**AWS**), Microsoft Azure (**Azure**), or Google Cloud Platform (**GCP**).
 
- 	- To view which authorization systems the report applies to, hover over each report option.
-    - To view a description of the report, select the required option.
+1. To add specific accounts, select the **List** subtab, and then select **All** or the account names.
+1. To add specific folders, select the **Folders** subtab, and then select **All** or the folder names.
 
-4. In the **MyReport** box, select the **Authorization System** you want: Amazon Web Services (AWS), Microsoft Azure (Azure), and Google Cloud Platform (GCP).
+1. Select the **Report Format** subtab and select the format for your report: comma-separated values (**CSV**) file, portable document format (**PDF**), or Microsoft Excel Open XML Spreadsheet (**XLSX**) file.
+1. Select the **Schedule** tab and choose a frequency from **None** up to **Monthly**.
 
-    Deselect select the **Authorization System** you want to remove.
+	- For **Hourly** and **Daily** options, set the start date by choosing from the **Calendar** dropdown, and can input a specific time of the day they want to receive the report. 
 
-5. To add specific users from each authorization system type, select the **Identities** tab.
+    In addition to date and time, the **Weekly** and **Biweekly** provide options for you to select on which day(s)of the week the report should repeat.
 
-     - To find users, select each authorization system type. 
-     - To find a specific user, select **Search** under **Users**, and add user names.
-6. Select the **Report Format** tab and check the following options, if applicable:
-
-	- **Detailed** - Check **CSV** for a detailed report.
-	- **Summary** - Check **CSV** or **PDF** for a summary of the report.
-	- **Dashboard** - Check **CSV** for a dashboard view of the report.
-7. Select the **Schedule** tab and choose from **None** up to **Monthly**.
-
-	For **Hourly** and **Daily** options, you can set the start date by choosing from the **Calendar** dropdown, and can input a specific time of the day they want to receive the report. 
-
-    In addition to date and time, the **Weekly** and **Biweekly** options you to select what day(s)of the week the report should repeat on.
-
-	When you select the time options for the schedule, the **Share With** option appears in the left side bar. 
-8. Select the **Share With** tab. 
-
-	The current user's email appears under **Email**, and other email addresses can be added by typing them into the **Search Email to add** box.
-
-	The **User Status** column displays the type of user the email address is associate with. 
-    - To remove them from the list, select the **X** to the right of the users name.
 9. Select **Save**.
 
       The following message displays across the top of the screen in green if the download is successful: **Report has been created**.
@@ -83,7 +69,7 @@ The report name appears in the **Reports** table.
 5. To refresh the list of reports, select **Reload**.
 
 
-## Modify a saved or scheduled report
+## Modify a saved or scheduled custom report
 
 1. Hover over the report name on the **Custom Reports** tab.
 
@@ -123,9 +109,9 @@ The report name appears in the **Reports** table.
 		 This option is only available after a report has been scheduled.
 
 
-<!---## Next steps--->
+## Next steps
 
-<!---For information about how to view a system report, see [View a system report](cloudknox-report-view-system-report.html).--->
-<!---For a list of available system reports, see [List of system reports](cloudknox-all-reports.html).--->
-<!---For a detailed overview of available system reports, see [Overview of available system reports}(cloudknox-product-reports.html).--->
-<!---For information about how to create and view the Permissions Analytics report, see [The Permissions Analytics report](cloudknox-product-permissions-analytics-reports).--->
+- For a brief overview of available system reports, see [View an overview of available system report types](cloudknox-product-reports.md).
+- For a detailed overview of available system reports, see [View a list and description of system reports](cloudknox-all-reports.md).
+- For information about how to generate and view a system report, see [Generate and view a system report](cloudknox-report-view-system-report.md).
+- For information about how to create and view the Permissions analytics report, see [Generate and download the Permissions analytics report](cloudknox-product-permissions-analytics-reports.md).

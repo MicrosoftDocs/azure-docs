@@ -56,18 +56,17 @@
         href: cloudknox-product-data-add-authorization-system.md
       - name: Display an inventory of created resources and licenses 
         href: cloudknox-product-data-inventory.md
-
     - name: Manage organizational and personal information
       expanded: true
       items:
-      - name: The Account Settings dashboard - Overview
+      - name: The Account Settings dashboard — Overview
         href: cloudknox-ui-account-settings.md
       - name: Set personal information and preferences
         href: cloudknox-product-account-settings.md
     - name: View information about identities, resources, and tasks
       expanded: true
       items:
-      - name: The Usage Analytics dashboard - Overview
+      - name: The Usage Analytics dashboard — Overview
         href: cloudknox-ui-usage-analytics.md
       # - name: The Usage Analytics explorers - Overview
         # href: cloudknox-usage-analytics-explorers.md
@@ -83,7 +82,7 @@
         href: cloudknox-usage-analytics-groups.md
       - name: View analytic information about active resources
         href: cloudknox-usage-analytics-active-resources.md
-      - name: View  analytic information about active tasks
+      - name: View analytic information about active tasks
         href: cloudknox-usage-analytics-active-tasks.md
       - name: View analytic information about access keys
         href: cloudknox-usage-analytics-access-keys.md
@@ -99,7 +98,7 @@
     - name: Manage roles/policies and user permission requests
       expanded: true
       items:
-      - name: The JEP Controller dashboard - Overview
+      - name: The JEP Controller dashboard — Overview
         href: cloudknox-ui-jep-controller.md
       - name: Manage permissions with the JEP Controller
         href: cloudknox-product-jep-controller.md
@@ -115,18 +114,17 @@
         href: cloudknox-product-define-permission-levels.md
       - name: Create group-based permissions
         href: cloudknox-howto-create-group-based-permissions.md
-    - name: Create and view how users access their authorization systems and accounts
+    - name: View information about access information
       expanded: true
       items:
-      - name: View queries on users access 
+      - name: View information on how users access information 
         href: cloudknox-ui-audit-trail.md
       - name: Create a custom query
         href: cloudknox-howto-create-custom-queries.md
-      - name: Generate custom reports
-        href: cloudknox-howto-generate-custom-reports.md
+      - name: Generate an on-demand report from a query
+        href: cloudknox-howto-audit-trail-results.md
       - name: Filter and query user activity
         href: cloudknox-product-audit-trail.md
-
     - name: Set up and view authorization systems
       expanded: true
       items:
@@ -135,7 +133,7 @@
     - name: Set activity alerts and triggers 
       expanded: true
       items: 
-      - name: The Activity Triggers dashboard - Overview
+      - name: The Activity Triggers dashboard — Overview
         href: cloudknox-ui-triggers.md
       - name: Create an alert trigger
         href: cloudknox-howto-create-alert-trigger.md
@@ -144,24 +142,22 @@
     - name: Manage rules for authorization systems
       expanded: true
       items:
-      - name: Create a rule in the Autopilot dashboard
+      - name: Create a rule
         href: cloudknox-howto-create-rule.md 
       - name: View rules in the Autopilot dashboard
         href: cloudknox-ui-autopilot.md
     - name: Create and view reports 
       expanded: true
       items: 
-      - name: The Reports dashboard - Overview
-        href: cloudknox-ui-reports.md
-      - name: Overview of available system report types
+      - name: View an overview of available system report types
         href: cloudknox-product-reports.md
-      - name: Summary of system reports
+      - name: View a list and description of system reports
         href: cloudknox-all-reports.md
-      - name: View a system report
+      - name: Generate and view a system report
         href: cloudknox-report-view-system-report.md
-      - name: Create and view a custom report
+      - name: Generate and view a custom report
         href: cloudknox-report-create-custom-report.md
-      - name: View the Permissions Analytics report
+      - name: Generate and download the Permissions analytics report
         href: cloudknox-product-permissions-analytics-reports.md
   #- name: Troubleshooting
     #expanded: true

@@ -1,0 +1,64 @@
+---
+title: Generate an on-demand report from a query in Microsoft CloudKnox Permissions Management 
+description: How to generate an on-demand report from a query in Microsoft CloudKnox Permissions Management.
+services: active-directory
+author: Yvonne-deQ
+manager: karenh444
+ms.service: active-directory
+ms.subservice: ciem
+ms.workload: identity
+ms.topic: how-to
+ms.date: 01/31/2022
+ms.author: v-ydequadros
+---
+
+# Generate an on-demand report from a query
+
+This article describes how you can generate an on-demand report from a query in the Audit trail dashboard in Microsoft CloudKnox Permissions Management (CloudKnox).
+
+- Run on-demand.
+- Schedule and run as often as you want.
+- Share with other members of your team and management.
+
+## Open the Audit trail dashboard
+
+- In CloudKnox, select the **Audit trail** tab.
+
+    CloudKnox displays the query options available to you.
+
+## Generate a custom report on-demand
+
+1. In the **Audit trail** tab, load the query you want.
+2. Select **Export**.
+
+    CloudKnox generates the report and exports it in comma-separated values (**CSV**) format, portable document format (**PDF**), or Microsoft Excel Open XML Spreadsheet (**XLSX**) format.
+
+<!---
+## Create a schedule to automatically generate and share a report
+
+1. In the **Audit trail** tab, load the query you want to use to generate your report.
+2. Select **Settings** (the gear icon).
+3. In **Repeat on**, select on which days of the week you want the report to run.
+4. In **Date**, select the date when you want the query to run.
+5. In **hh mm** (time), select the time when you want the query to run.
+6. In **Request file format**, select the file format you want for your report.
+7. In **Share report with people**, enter email addresses for people to whom you want to send the report.
+8. Select **Schedule**.
+
+    CloudKnox generates the report as set in Steps 3 to 6, and emails it to the recipients you specified in Step 7.
+
+
+## Delete the schedule for a report
+
+1. In the **Audit trail** tab, load the query whose report schedule you want to delete.
+2. Select the ellipses menu **(…)** on the far right, and then select **Delete schedule**.
+
+    CloudKnox deletes the schedule for running the query. The query itself isn't deleted.
+--->
+
+
+## Next steps
+
+- For information on how to view how users access information, see [View information on how users access information](cloudknox-ui-audit-trail.md).
+- For information on how to filter and view user activity, see [Filter and query user activity](cloudknox-product-audit-trail.md).
+- For information on how to create a query,see [Create a custom query](cloudknox-howto-create-custom-queries.md).
