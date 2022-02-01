@@ -209,7 +209,7 @@
         href: search-security-manage-encryption-keys.md
       - name: Find encrypted objects
         href: search-security-get-encryption-keys.md
-    - name: Inbound security
+    - name: Inbound connections
       items:
       - name: Key-based authentication
         href: search-security-api-keys.md
@@ -223,13 +223,15 @@
         href: service-create-private-endpoint.md
       - name: Troubleshoot private connections
         href: troubleshoot-shared-private-link-resources.md
-    - name: Outbound security (indexers)  
+    - name: Outbound connections
       items:
-      - name: Data access over an IP range
+      - name: Connect through an IP firewall
         href: search-indexer-howto-access-ip-restricted.md
-      - name: Data access using a system identity
+      - name: Connect using a managed identity
+        href: how-to-create-managed-identity.md
+      - name: Indexer access to Azure Storage using the trusted service exception
         href: search-indexer-howto-access-trusted-service-exception.md
-      - name: Data access through private endpoints
+      - name: Connect through private endpoints
         href: search-indexer-howto-access-private.md
     - name: Document-level security
       items:
