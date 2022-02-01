@@ -14,19 +14,19 @@ ms.date: 01/11/2022
 
 Change Analysis lives in a standalone pane under Azure Monitor, where you can view all changes and application dependency/resource insights. You can access Change Analysis through a couple of entry points:
 
-- In the Azure portal, search for Change Analysis to launch the experience.
+In the Azure portal, search for Change Analysis to launch the experience.
 
-  :::image type="content" source="./media/change-analysis/search-change-analysis.png" alt-text="Screenshot of searching Change Analysis in Azure portal":::
+:::image type="content" source="./media/change-analysis/search-change-analysis.png" alt-text="Screenshot of searching Change Analysis in Azure portal":::
   
-  Select one or more subscriptions to view:
-  - All of its resources' changes from the past 24 hours. 
-  - Old and new values to provide insights at one glance.
+Select one or more subscriptions to view:
+- All of its resources' changes from the past 24 hours. 
+- Old and new values to provide insights at one glance.
   
-  :::image type="content" source="./media/change-analysis/change-analysis-standalone-blade.png" alt-text="Screenshot of Change Analysis blade in Azure portal":::
+:::image type="content" source="./media/change-analysis/change-analysis-standalone-blade.png" alt-text="Screenshot of Change Analysis blade in Azure portal":::
   
-  Click into a change to view full Resource Manager snippet and other properties.
+Click into a change to view full Resource Manager snippet and other properties.
   
-  :::image type="content" source="./media/change-analysis/change-details.png" alt-text="Screenshot of change details":::
+:::image type="content" source="./media/change-analysis/change-details.png" alt-text="Screenshot of change details":::
   
 Send any feedback to the [Change Analysis team](mailto:changeanalysisteam@microsoft.com) from the Change Analysis blade:
 
