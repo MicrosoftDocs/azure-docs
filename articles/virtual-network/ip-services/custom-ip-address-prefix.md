@@ -1,13 +1,13 @@
 ---
 title: Custom IP address prefix (BYOIP) Preview
-titlesuffix: Azure Virtual Network
+titleSuffix: Azure Virtual Network
 description: Learn about what an Azure custom IP address prefix is and how it enables customer to utilize their own ranges in Azure.
 services: virtual-network
 author: asudbring
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: conceptual
-ms.date: 12/03/2021
+ms.date: 02/01/2021
 ms.author: allensu
 
 ---
@@ -34,7 +34,7 @@ A custom IP address prefix is a contiguous range of IP addresses owned by an ext
 
 * The number of overall prefixes that can be provisioned is limited to 5 per region.
 
-* There isn't a SLA for provisioning/advertisement of a range during the preview period. Estimate for SLA is approximately 4–6 weeks.
+* There isn't an SLA for provisioning/advertisement of a range during the preview period. 
 
 * Currently, the advertisements of IPs from a custom IP prefix aren't supported with Azure ExpressRoute.
 
@@ -50,9 +50,8 @@ A custom IP address prefix is a contiguous range of IP addresses owned by an ext
 
 * All traffic destined to a custom prefix range is charged the [internet egress rate](https://azure.microsoft.com/pricing/details/bandwidth/). Customers sending traffic to a custom IP prefix address are charged internet egress for the source region of their traffic. Egress traffic from a custom IP address prefix range is charged the equivalent rate as an Azure Public IP from the same region.
 
-## Next steps
-
 <!--Commenting these until all files are in the branch
+## Next steps
 
 - [Onboard](create-custom-ip-address-prefix-powershell.md) a custom IP address prefix using PowerShell
 
