@@ -19,82 +19,6 @@
 - name: Concepts
   expanded: true
   items:
-  - name: Security
-    items: 
-    - name: Security baseline
-      href: /security/benchmark/azure/baselines/aad-security-baseline?toc=/azure/active-directory/fundamentals/toc.json
-    - name: Security operations guide
-      items: 
-      - name: Security operations overview
-        href: security-operations-introduction.md
-      - name: Security operations for user accounts
-        href: security-operations-user-accounts.md
-      - name: Security operations for privileged accounts
-        href: security-operations-privileged-accounts.md
-      - name: Security operations for PIM
-        href: security-operations-privileged-identity-management.md 
-      - name: Security operations for applications
-        href: security-operations-applications.md  
-      - name: Security operations for devices
-        href: security-operations-devices.md
-      - name: Security operations for Infrastructure
-        href: security-operations-infrastructure.md
-    - name: Protect Microsoft 365 from on-premises attacks 
-      href: protect-m365-from-on-premises-attacks.md    
-    - name: Secure external collaboration
-      items:
-      - name: Secure external access overview 
-        href: secure-external-access-resources.md 
-      - name: 1 Determine your security posture
-        href: 1-secure-access-posture.md  
-      - name: 2 Determine your current state
-        href: 2-secure-access-current-state.md
-      - name: 3 Create a security plan
-        href: 3-secure-access-plan.md  
-      - name: 4 Secure access with groups
-        href: 4-secure-access-groups.md
-      - name: 5 Secure access with B2B collaboration
-        href: 5-secure-access-b2b.md
-      - name: 6 Secure access with Entitlement Management
-        href: 6-secure-access-entitlement-managment.md
-      - name: 7 Secure access with conditional access
-        href: 7-secure-access-conditional-access.md
-      - name: 8 Secure access with sensitivity labels
-        href: 8-secure-access-sensitivity-labels.md
-      - name: 9 Secure access to Teams, SharePoint, and OneDrive
-        href: 9-secure-access-teams-sharepoint.md
-    - name: Secure service accounts
-      items:
-      - name: Introduction to Azure service accounts
-        href: service-accounts-introduction-azure.md
-      - name: Secure managed identities
-        href: service-accounts-managed-identities.md
-      - name: Secure service principals
-        href: service-accounts-principal.md
-      - name: Govern Azure service accounts
-        href: service-accounts-governing-azure.md       
-      - name: Introduction to on-premises service accounts
-        href: service-accounts-on-premises.md
-      - name: Secure group MSAs
-        href: service-accounts-group-managed.md
-      - name: Secure standalone MSAs
-        href: service-accounts-standalone-managed.md
-      - name: Secure computer accounts
-        href: service-accounts-computer.md
-      - name: Secure on-premises user service accounts
-        href: service-accounts-user-on-premises.md
-      - name: Govern on-premises user service accounts
-        href: service-accounts-govern-on-premises.md
-    - name: Enable MFA
-      href: concept-fundamentals-mfa-get-started.md
-    - name: Security defaults
-      href: concept-fundamentals-security-defaults.md
-    - name: Block legacy authentication
-      href: concept-fundamentals-block-legacy-authentication.md
-    - name: Identity secure score
-      href: identity-secure-score.md
-    - name: Secure remote workers
-      href: concept-secure-remote-workers.md
   - name: Groups and users
     items:
     - name: Groups and access management
@@ -221,6 +145,82 @@
       href: active-directory-ops-guide-govern.md
     - name: Operations
       href: active-directory-ops-guide-ops.md
+  - name: Security
+    items: 
+    - name: Security baseline
+      href: /security/benchmark/azure/baselines/aad-security-baseline?toc=/azure/active-directory/fundamentals/toc.json
+    - name: Security operations guide
+      items: 
+      - name: Security operations overview
+        href: security-operations-introduction.md
+      - name: Security operations for user accounts
+        href: security-operations-user-accounts.md
+      - name: Security operations for privileged accounts
+        href: security-operations-privileged-accounts.md
+      - name: Security operations for PIM
+        href: security-operations-privileged-identity-management.md 
+      - name: Security operations for applications
+        href: security-operations-applications.md  
+      - name: Security operations for devices
+        href: security-operations-devices.md
+      - name: Security operations for Infrastructure
+        href: security-operations-infrastructure.md
+    - name: Protect Microsoft 365 from on-premises attacks 
+      href: protect-m365-from-on-premises-attacks.md    
+    - name: Secure external collaboration
+      items:
+      - name: Secure external access overview 
+        href: secure-external-access-resources.md 
+      - name: 1 Determine your security posture
+        href: 1-secure-access-posture.md  
+      - name: 2 Determine your current state
+        href: 2-secure-access-current-state.md
+      - name: 3 Create a security plan
+        href: 3-secure-access-plan.md  
+      - name: 4 Secure access with groups
+        href: 4-secure-access-groups.md
+      - name: 5 Secure access with B2B collaboration
+        href: 5-secure-access-b2b.md
+      - name: 6 Secure access with Entitlement Management
+        href: 6-secure-access-entitlement-managment.md
+      - name: 7 Secure access with conditional access
+        href: 7-secure-access-conditional-access.md
+      - name: 8 Secure access with sensitivity labels
+        href: 8-secure-access-sensitivity-labels.md
+      - name: 9 Secure access to Teams, SharePoint, and OneDrive
+        href: 9-secure-access-teams-sharepoint.md
+    - name: Secure service accounts
+      items:
+      - name: Introduction to Azure service accounts
+        href: service-accounts-introduction-azure.md
+      - name: Secure managed identities
+        href: service-accounts-managed-identities.md
+      - name: Secure service principals
+        href: service-accounts-principal.md
+      - name: Govern Azure service accounts
+        href: service-accounts-governing-azure.md       
+      - name: Introduction to on-premises service accounts
+        href: service-accounts-on-premises.md
+      - name: Secure group MSAs
+        href: service-accounts-group-managed.md
+      - name: Secure standalone MSAs
+        href: service-accounts-standalone-managed.md
+      - name: Secure computer accounts
+        href: service-accounts-computer.md
+      - name: Secure on-premises user service accounts
+        href: service-accounts-user-on-premises.md
+      - name: Govern on-premises user service accounts
+        href: service-accounts-govern-on-premises.md
+    - name: Enable MFA
+      href: concept-fundamentals-mfa-get-started.md
+    - name: Security defaults
+      href: concept-fundamentals-security-defaults.md
+    - name: Block legacy authentication
+      href: concept-fundamentals-block-legacy-authentication.md
+    - name: Identity secure score
+      href: identity-secure-score.md
+    - name: Secure remote workers
+      href: concept-secure-remote-workers.md
 - name: How-to guides
   expanded: true
   items:
