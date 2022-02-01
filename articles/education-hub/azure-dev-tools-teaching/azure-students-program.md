@@ -23,8 +23,8 @@ deducted from the credit. You can see your remaining credit on the [Azure Sponso
 portal](https://www.microsoftazuresponsorships.com/).
 
 After you exhaust your available credit or reach the end of 12 months, your Azure subscription becomes disabled. 
-If you‘ve reached the end of your 12 months and are still a student, you‘ll be able to renew your Azure for Students offer. 
-We’ll notify you shortly before your 12-month anniversary to let you know how to renew. 
+If you've reached the end of your 12 months and are still a student, you'll be able to renew your Azure for Students offer. 
+We'll notify you shortly before your 12-month anniversary to let you know how to renew. 
 If your student status is no longer valid after the offer expired, you will not be able to renew. 
 In such case, if you wish to continue using Azure services, you may upgrade to a pay-as-you-go subscription in the Azure portal.
 
