@@ -71,7 +71,7 @@ Use these steps to regenerate and download the Azure Stack Edge Pro GPU device c
 
 1. In the local web UI of your device, go to **CONFIGURATION > Certificates**. Select **Generate certificates**.
 
-    ![Screenshot of the Certificates page in the local web UI of an Azure Stack Edge device. The Generate Certificates button is  highlighted.](./media/azure-stack-edge-gpu-deploy-configure-certificates/generate-certificate-3.png)
+    ![Screenshot of the Certificates page in the local web UI of an Azure Stack Edge device. The Generate Certificates button is highlighted.](./media/azure-stack-edge-gpu-deploy-configure-certificates/generate-certificate-3.png)
 
 2. On the **Generate device certificates** pane, select **Generate**.
 
@@ -157,11 +157,13 @@ Follow these steps to upload your own certificates, including the signing chain,
 
       ![Screenshot of the Add Certificate pane for endpoints for an Azure Stack Edge device. The certificate type and certificate entries are highlighted.](./media/azure-stack-edge-gpu-deploy-configure-certificates/add-certificate-3.png)
 
-    - Select the **Local web UI** certificate type, and add the certificate you'll use to access the local web UI via a browser. After you upload this certificate, you'll need to start your browser and clear the cache. You'll then need to connect to the device local web UI.  
+    - Select the **Local web UI** certificate type, and add the certificate you'll use to access the local web UI via a browser. 
+    
+      After you upload this certificate, you'll need to start your browser and clear the cache. You'll then need to connect to the device local web UI.  
 
       ![Screenshot of the Add Certificate pane for the Local Web UI certificate for an Azure Stack Edge device. The certificate type and certificate entries highlighted.](./media/azure-stack-edge-gpu-deploy-configure-certificates/add-certificate-4.png)
 
-    - On a multi-node device, select the **Node** certificate type, and add the certificate(s) you'll use to establish a trust relationship among nodes.
+    - On a multi-node device, select the **Node** certificate type, and add the certificate(s) you'll use to establish a trust relationship among nodes.<!--Verify description.-->
 
       ![Screenshot of the Add Certificate pane for a node certificate for an Azure Stack Edge device. The certificate type and certificate entries highlighted.](./media/azure-stack-edge-gpu-deploy-configure-certificates/add-certificate-5.png)
 
@@ -177,7 +179,7 @@ Follow these steps to upload your own certificates, including the signing chain,
     > Except for Azure public cloud, signing chain certificates must be brought in before activation for all cloud configurations (Azure Government or Azure Stack).
 
 
-When you finish [generating device certificates](#generate-device-certificates) or [adding your own certificates](#bring-your-own-certificates), your device is ready to be activated. Select **< Back to Get started**.
+When you finish [generating device certificates](#generate-device-certificates) or [adding your own certificates](#bring-your-own-certificates), your device is ready to be activated. Select **< Back to Get started** on the **Certificates** page.
 
 
 ## Next steps
