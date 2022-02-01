@@ -18,9 +18,9 @@ ms.custom: mode-other
 
 In this quickstart, you use the Azure FreeRTOS middleware to connect the STMicroelectronics B-L475E-IOT01A Discovery kit (from now on, the STM DevKit) to Azure IoT Central.
 
-You'll complete the following tasks:
+You complete the following tasks:
 
-* Install a set of embedded development tools for programming an STM DevKit
+* Install a set of embedded development tools to program an STM DevKit
 * Build an image and flash it onto the STM DevKit
 * Use Azure IoT Central to create cloud components, view properties, view device telemetry, and call direct commands
 
@@ -39,7 +39,7 @@ To set up your development environment, first you clone a GitHub repo that conta
 
 ### Clone the repo
 
-Clone the following repo to download all sample device code, setup scripts, and offline versions of the documentation. If you previously cloned this repo in another tutorial, you don't need to do it again.
+Clone the following repo to download all sample device code, setup scripts, and offline versions of the documentation. If you previously cloned this repo in another tutorial, you don't have to do it again.
 
 To clone the repo, run the following command:
 
@@ -49,7 +49,7 @@ git clone --recursive https://github.com/Azure-Samples/iot-middleware-freertos-s
 
 ### Install Ninja
 
-Ninja is a build tool that you'll use to build an image for the STM DevKit. 
+Ninja is a build tool that you use to build an image for the STM DevKit. 
 
 1. Download [Ninja](https://github.com/ninja-build/ninja/releases) and unzip it to your local disk.
 1. Add the path to the Ninja executable to a PATH environment variable.
@@ -60,7 +60,7 @@ Ninja is a build tool that you'll use to build an image for the STM DevKit.
 
 ### Install the tools
 
-The cloned repo contains a setup script that installs and configures the required tools. If you installed these tools in another tutorial in the getting started guide, you don't need to do it again.
+The cloned repo contains a setup script that installs and configures the required tools. If you installed these tools in another tutorial in the getting started guide, you don't have to do it again.
 
 > Note: The setup script installs the following tools:
 > * [CMake](https://cmake.org): Build
@@ -83,7 +83,7 @@ To install the tools:
 [!INCLUDE [iot-develop-embedded-create-central-app-with-device](../../includes/iot-develop-embedded-create-central-app-with-device.md)]
 
 ## Prepare the device
-To connect the STM DevKit to Azure, you'll modify configuration settings, build the image, and flash the image to the device.
+To connect the STM DevKit to Azure, modify configuration settings, build the image, and flash the image to the device.
 
 ### Add configuration
 
@@ -137,10 +137,10 @@ To connect the STM DevKit to Azure, you'll modify configuration settings, build 
 
 1. In File Explorer, find the STM Devkit board that's connected to your computer. The device appears as a drive on your system with the drive label **DIS_L4IOT**.
 
-1. Paste the binary file into the root folder of the STM Devkit. Flashing starts automatically and completes in a few seconds.
+1. Paste the binary file into the root folder of the STM Devkit. The process to flash the board starts automatically and completes in a few seconds.
 
     > [!NOTE]
-    > During the flashing process, an LED toggles between red and green on the STM DevKit.
+    > During the process, an LED toggles between red and green on the STM DevKit.
 
 ### Confirm device connection details
 
@@ -186,7 +186,7 @@ You can use the **Termite** app to monitor communication and confirm that your d
     > [!IMPORTANT]
     > If the DNS client initialization fails and notifies you that the Wi-Fi firmware is out of date, you'll need to update the Wi-Fi module firmware. Download and install the [Inventek ISM 43362 Wi-Fi module firmware update](https://www.st.com/resource/en/utilities/inventek_fw_updater.zip). Then press the **Reset** button on the device to recheck your connection, and continue with this quickstart.
 
-Keep Termite open to monitor device output in the following steps.
+Keep Termite open to monitor device output in the remaining steps.
 
 ## Verify the device status
 
@@ -215,11 +215,11 @@ You can also use IoT Central to call a command that you have implemented on your
 To call a command in IoT Central portal:
 
 1. Select the **Command** tab from the device page.
-1. Set the **State** dropdown value to *True*, and then select **Run**.  The LED light should turn on.
+1. Set the **State** dropdown value to *True*, and then select **Run**. The LED light should turn on.
 
     :::image type="content" source="media/quickstart-devkit-stm-b-l475e-freertos/iot-central-invoke-method.png" alt-text="Screenshot of calling a direct method on a device in IoT Central":::
 
-1. Set the **State** dropdown value to *False*, and then select **Run**.  The LED light should turn off.
+1. Set the **State** dropdown value to *False*, and then select **Run**. The LED light should turn off.
 
 ## View device information
 
@@ -231,9 +231,9 @@ Select **About** tab from the device page.
 
 ## Troubleshoot and debug
 
-If you experience issues building the device code, flashing the device, or connecting, see [Troubleshooting](troubleshoot-embedded-device-quickstarts.md).
+If you experience issues when you build the device code, flash the device, or connect, see [Troubleshooting](troubleshoot-embedded-device-quickstarts.md).
 
-For debugging the application, see [Debugging with Visual Studio Code](https://github.com/azure-rtos/getting-started/blob/master/docs/debugging.md).
+To debug the application, see [Debugging with Visual Studio Code](https://github.com/azure-rtos/getting-started/blob/master/docs/debugging.md).
 
 ## Clean up resources
 
@@ -252,9 +252,9 @@ To remove the entire Azure IoT Central sample application and all its devices an
 
 ## Next Steps
 
-In this quickstart, you built a custom image that contains the Azure FreeRTOS middleware sample code, and then you flashed the image to the STM DevKit device. You also used the IoT Central portal to create Azure resources, connect the STM  DevKit securely to Azure, view telemetry, and send messages.
+In this quickstart, you built a custom image that contains the Azure FreeRTOS middleware sample code. Then you flashed the image to the STM DevKit device. You also used the IoT Central portal to create Azure resources, connect the STM  DevKit securely to Azure, view telemetry, and send messages.
 
-As a next step, explore the following articles to learn more about working with embedded devices and connecting them to Azure IoT. 
+As a next step, explore the following articles to learn how to work with embedded devices and connect them to Azure IoT. 
 
 > [!div class="nextstepaction"]
 > [Azure FreeRTOS middleware samples](https://github.com/Azure-Samples/iot-middleware-freertos-samples)
