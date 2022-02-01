@@ -44,7 +44,7 @@ of the advanced features of the Media Encoder Standard in V2 APIs are currently 
 
 - In Media Services V3, FairPlay IV cannot be specified. While it doesn't impact customers using Media Services for both packaging and license delivery, it can be an issue when using a third-party DRM system to deliver the FairPlay licenses (hybrid mode).
 
-- Client-side storage encryption for protection of assets at rest has been removed in the V3 API and replaced by storage service encryption for data at rest. The V3 APIs continue to work with existing storage encrypted assets but won't allow creation of new ones.
+- Client-side storage encryption for protection of assets at rest has been removed in the V3 API and replaced by storage service encryption for data at rest. The V3 APIs continue to work with existing storage-encrypted assets but won't allow creation of new ones.
 
 ## Terminology and entity changes
 
