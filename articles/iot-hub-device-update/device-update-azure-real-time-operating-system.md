@@ -92,7 +92,7 @@ Learn more about [Azure RTOS](/azure/rtos/).
 
 3. Select Refresh to view the latest status details. Continue this process until the status changes to Succeeded.
 
-You have now completed a successful end-to-end image update using Device Update for IoT Hub on a Raspberry Pi 3 B+ device. 
+You have now completed a successful end-to-end image update using Device Update for IoT Hub on an Azure RTOS embedded device. 
 
 ## Cleanup resources
 
