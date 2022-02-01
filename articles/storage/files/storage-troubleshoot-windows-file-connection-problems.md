@@ -4,14 +4,14 @@ description: Troubleshooting Azure Files problems in Windows. See common issues 
 author: jeffpatt24
 ms.service: storage
 ms.topic: troubleshooting
-ms.date: 09/13/2019
+ms.date: 01/31/2022
 ms.author: jeffpatt
 ms.subservice: files 
 ms.custom: devx-track-azurepowershell
 ---
 # Troubleshoot Azure Files problems in Windows (SMB)
 
-This article lists common problems that are related to Microsoft Azure Files when you connect from Windows clients. It also provides possible causes and resolutions for these problems. In addition to the troubleshooting steps in this article, you can also use [AzFileDiagnostics](https://github.com/Azure-Samples/azure-files-samples/tree/master/AzFileDiagnostics/Windows) to ensure that the Windows client environment has correct prerequisites. AzFileDiagnostics automates detection of most of the symptoms mentioned in this article and helps set up your environment to get optimal performance.
+This article lists common problems that are related to Microsoft Azure Files when you connect from Windows clients. It also provides possible causes and resolutions for these problems. In addition to the troubleshooting steps in this article, you can also use [AzFileDiagnostics](https://github.com/Azure-Samples/azure-files-samples/tree/master/AzFileDiagnostics/Windows) to ensure that the Windows client environment has correct prerequisites. AzFileDiagnostics automates detection of most of the symptoms mentioned in this article and helps set up your environment to get optimal performance.
 
 > [!IMPORTANT]
 > The content of this article only applies to SMB shares. For details on NFS shares, see [Troubleshoot Azure NFS file shares](storage-troubleshooting-files-nfs.md).
@@ -486,6 +486,61 @@ $StorageAccountName = "<storage-account-name-here>"
 
 Update-AzStorageAccountAuthForAES256 -ResourceGroupName $ResourceGroupName -StorageAccountName $StorageAccountName
 ```
+
+## User formerly having the Owner or Contributor role assignment still has storage account key access
+The storage account Owner and Contributor roles grant the ability to list the storage account keys. The storage account key enables full access to the storage account's data including file shares, blob containers, tables, and queues, and limited access to the Azure Files management operations via the legacy management APIs exposed through the FileREST API. If you're changing role assignments, you should consider that the users being removed from the Owner or Contributor roles may continue to maintain access to the storage account through saved storage account keys.
+
+### Solution 1
+You can remedy this issue easily by rotating the storage account keys. We recommend rotating the keys one at a time, switching access from one to the other as they are rotated. There are two types of shared keys the storage account provides: the storage account keys, which provide super-administrator access to the storage account's data, and the Kerberos keys, which function as a shared secret between the storage account and the Windows Server Active Directory domain controller for Windows Server Active Directory scenarios.
+
+To rotate the Kerberos keys of a storage account, see [Update the password of your storage account identity in AD DS](./storage-files-identity-ad-ds-update-password.md).
+
+# [Portal](#tab/azure-portal)
+Navigate to the desired storage account in the Azure portal. In the table of contents for the desired storage account, select **Access keys** under the **Security + networking** heading. In the *Access key** pane, select **Rotate key** above the desired key. 
+
+![A screenshot of the access key pane](./media/storage-troubleshoot-windows-file-connection-problems/access-keys-1.png)
+
+# [PowerShell](#tab/azure-powershell)
+The following script will rotate both keys for the storage account. If you desire to swap out keys during rotation, you will need to provide additional logic in your script to handle this scenario. Remember to replace `<resource-group>` and `<storage-account>` with the appropriate values for your environment.
+
+```PowerShell
+$resourceGroupName = "<resource-group>"
+$storageAccountName = "<storage-account>"
+
+# Rotate primary key (key 1). You should switch to key 2 before rotating key 1.
+New-AzStorageAccountKey `
+    -ResourceGroupName $resourceGroupName `
+    -Name $storageAccountName `
+    -KeyName "key1"
+
+# Rotate secondary key (key 2). You should switch to the new key 1 before rotating key 2.
+New-AzStorageAccountKey `
+    -ResourceGroupName $resourceGroupName `
+    -Name $storageAccountName `
+    -KeyName "key2"
+```
+
+# [Azure CLI](#tab/azure-cli)
+The following script will rotate both keys for the storage account. If you desire to swap out keys during rotation, you will need to provide additional logic in your script to handle this scenario. Remember to replace `<resource-group>` and `<storage-account>` with the appropriate values for your environment.
+
+```bash
+resourceGroupName="<resource-group>"
+storageAccountName="<storage-account>"
+
+# Rotate primary key (key 1). You should switch to key 2 before rotating key 1.
+az storage account keys renew \
+    --resource-group $resourceGroupName \
+    --account-name $storageAccountName \
+    --key "primary"
+
+# Rotate secondary key (key 2). You should switch to the new key 1 before rotating key 2.
+az storage account keys renew \
+    --resource-group $resourceGroupName \
+    --account-name $storageAccountName \
+    --key "secondary"
+```
+
+---
 
 ## Need help? Contact support.
 If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your problem resolved quickly.
