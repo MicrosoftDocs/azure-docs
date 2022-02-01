@@ -32,7 +32,7 @@ of the advanced features of the Media Encoder Standard in V2 APIs are currently 
 
 - Inserting a video track when input has no video.
 
-- The `InsertBlackIfNoVideoBottomLayerOnly` and `InsertBlackIfNoVideo` flags are not longer supported in v3.
+- The `InsertBlackIfNoVideoBottomLayerOnly` and `InsertBlackIfNoVideo` flags are no longer supported in v3.
 
 - Live Events with transcoding currently don't support Slate insertion mid-stream and ad marker insertion via API call.
 
