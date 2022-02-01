@@ -150,6 +150,9 @@ conceptualContent:
         - url: /compliance/regulatory/offering-section-508-vpats
           itemType: concept
           text: Section 508 VPATs
+        - url: /azure/compliance/offerings/offering-stateramp
+          itemType: concept
+          text: StateRAMP
 
     # Card
     - title: Financial services

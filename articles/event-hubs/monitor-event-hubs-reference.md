@@ -80,7 +80,7 @@ Azure Event Hubs supports the following dimensions for metrics in Azure Monitor.
 [!INCLUDE [event-hubs-diagnostic-log-schema](./includes/event-hubs-diagnostic-log-schema.md)]
 
 
-## Runtime audit Logs
+## Runtime audit logs
 Runtime audit logs capture aggregated diagnostic information for all data plane access operations (such as send or receive events) in the Event Hubs dedicated cluster. 
 
 > [!NOTE] 
@@ -98,7 +98,7 @@ Name | Description
 `Protocol` | Type of the protocol associated with the operation.
 `AuthType` | Type of authentication (Azure Active Directory or SAS Policy).
 `AuthKey` | Azure Active Directory application ID or SAS policy name that's used to authenticate to a resource.
-`NetworkType` | Type of the network access: `PublicNetworkAccess`, `PrivateNetworkAccess`.
+`NetworkType` | Type of the network access: `Public` or `Private`.
 `ClientIP` | IP address of the client application.
 `Count` | Total number of operations performed during the aggregated period of 1 minute. 
 `Properties` | Metadata that are specific to the data plane operation. 
@@ -109,20 +109,16 @@ Here's an example of a runtime audit log entry:
 ```json
 {
     "ActivityId": "<activity id>",
-    "ActivityName": "ConnectionOpen | Authenticate | SendMessage | ReceiveMessage | GetRuntimeInfo",
+    "ActivityName": "ConnectionOpen | Authorization | SendMessage | ReceiveMessage",
     "ResourceId": "/SUBSCRIPTIONS/xxx/RESOURCEGROUPS/<Resource Group Name>/PROVIDERS/MICROSOFT.EVENTHUB/NAMESPACES/<Event Hubs namespace>/eventhubs/<event hub name>",
     "Time": "1/1/2021 8:40:06 PM +00:00",
     "Status": "Success | Failure",
     "Protocol": "AMQP | KAFKA | HTTP | Web Sockets", 
     "AuthType": "SAS | Azure Active Directory", 
-    "AuthId": "<app name | SAS policy name>",
-    "NetworkType": "PublicNetworkAccess | PrivateNetworkAccess", 
+    "AuthId": "<AAD application name | SAS policy name>",
+    "NetworkType": "Public | Private", 
     "ClientIp": "x.x.x.x",
     "Count": 1,
-    "Properties": {
-        "key1": "value1",
-        "key2": "value2"
-    }, 
     "Category": "RuntimeAuditLogs"
  }
 

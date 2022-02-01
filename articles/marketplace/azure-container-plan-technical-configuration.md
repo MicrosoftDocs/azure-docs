@@ -62,6 +62,6 @@ Select **Save draft**, then **← Plan overview**  in the left-nav menu to retur
 -->
 ## Next steps
 
-- To **Co-sell with Microsoft** (optional), select it in the left-nav menu. For details, see [Co-sell partner engagement](./co-sell-overview.md).
+- To **Co-sell with Microsoft** (optional), select it in the left-nav menu. For details, see [Co-sell partner engagement](/partner-center/co-sell-overview?context=/azure/marketplace/context/context).
 - To **Resell through CSPs** (Cloud Solution Partners, also optional), select it in the left-nav menu. For details, see [Resell through CSP Partners](cloud-solution-providers.md).
 - If you're not setting up either of these or you've finished, it's time to [Review and publish your offer](review-publish-offer.md).

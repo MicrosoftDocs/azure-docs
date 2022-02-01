@@ -193,7 +193,7 @@ This method follows the same implementation behavior as the one available in Int
 ```javascript
 function main(datetime){
     const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-    return event.toLocaleDateString('de-DE', options);
+    return datetime.toLocaleDateString('de-DE', options);
 }
 ```
 

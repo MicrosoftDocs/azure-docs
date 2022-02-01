@@ -55,8 +55,6 @@ The _subdomain_ you choose uniquely identifies your application. The subdomain i
 
 The application template you choose determines the initial contents of your application, such as dashboards and device templates. The template ID For a custom application, use `iotc-pnp-preview` as the template ID.
 
-To learn more about custom and industry-focused application templates, see [What are application templates?](concepts-app-templates.md).
-
 ### Billing information
 
 If you choose one of the standard plans, you need to provide billing information:
