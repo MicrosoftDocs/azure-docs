@@ -158,6 +158,7 @@ If your extension was in the stable version and auto-upgrade-minor-version is se
 
 - Support for outbound proxy
 - Support for parallel builds in build service
+- Upgrade Envoy to 1.20.1
 - Resolved issue with Application Insights support for .NET Applications
 
 If your extension was in the stable version and auto-upgrade-minor-version is set to true, the extension will upgrade automatically.  To manually upgrade the extension to the latest version, you can run the command below:
