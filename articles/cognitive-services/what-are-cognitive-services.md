@@ -8,32 +8,30 @@ manager: nitinme
 keywords: cognitive services, cognitive intelligence, cognitive solutions, ai services, cognitive understanding, cognitive features
 ms.service: cognitive-services
 ms.topic: overview
-ms.date: 01/05/2022
+ms.date: 01/31/2022
 ms.author: nitinme
 ms.custom: cog-serv-seo-aug-2020, ignite-fall-2021
 ---
 
 # What are Azure Cognitive Services?
 
-Azure Cognitive Services are cloud-based services with REST APIs and client library SDKs available to help you build cognitive intelligence into your applications. You can add cognitive features to your applications without having artificial intelligence (AI) or data science skills. Azure Cognitive Services comprise various AI services that enable you to build cognitive solutions that can see, hear, speak, understand, and even make decisions.
+Azure Cognitive Services are cloud-based services with REST APIs, client library SDKs, and user interfaces available to help you build cognitive intelligence into your applications. You can add cognitive features to your applications without having artificial intelligence (AI) or data science skills. Azure Cognitive Services comprise various AI services that enable you to build cognitive solutions that can see, hear, speak, understand, and even make decisions.
 
 ## Categories of Cognitive Services
 
-The catalog of cognitive services that provide cognitive understanding is categorized into four main pillars:
+Cognitive Services can be categorized into four main pillars:
 
 * Vision
 * Speech
 * Language
 * Decision
 
-The following sections in this article provide a list of services that are part of these four pillars.
-
 ## Vision APIs
 
 |Service Name|Service Description|
 |:-----------|:------------------|
 |[Computer Vision](./computer-vision/index.yml "Computer Vision")|The Computer Vision service provides you with access to advanced cognitive algorithms for processing images and returning information. See [Computer Vision quickstart](./computer-vision/quickstarts-sdk/client-library.md) to get started with the service.|
-|[Custom Vision Service](./custom-vision-service/index.yml "Custom Vision Service")|The Custom Vision Service lets you build, deploy, and improve your own image classifiers. An image classifier is an AI service that applies labels to images, based on their visual characteristics. |
+|[Custom Vision](./custom-vision-service/index.yml "Custom Vision Service")|The Custom Vision Service lets you build, deploy, and improve your own image classifiers. An image classifier is an AI service that applies labels to images, based on their visual characteristics. |
 |[Face](./face/index.yml "Face")| The Face service provides access to advanced face algorithms, enabling face attribute detection and recognition. See [Face quickstart](./face/quickstarts/client-libraries.md) to get started with the service.|
 
 ## Speech APIs
@@ -46,14 +44,15 @@ The following sections in this article provide a list of services that are part 
 |[Bing Speech](./speech-service/how-to-migrate-from-bing-speech.md "Bing Speech") (Retiring)|The Bing Speech API provides you with an easy way to create speech-enabled features in your applications.|
 |[Translator Speech](/azure/cognitive-services/translator-speech/ "Translator Speech") (Retiring)|Translator Speech is a machine translation service.|
 -->
+
 ## Language APIs
 
 |Service Name|Service Description|
 |:-----------|:------------------|
 |[Azure Cognitive Service for language](./language-service/index.yml "Language service")| Azure Cognitive Service for Language provides several Natural Language Processing (NLP) features for understanding and analyzing text.|
+|[Translator](./translator/index.yml "Translator")|Translator provides machine-based text translation in near real-time.|
 |[Language Understanding LUIS](./luis/index.yml "Language Understanding")|Language Understanding (LUIS) is a cloud-based conversational AI service that applies custom machine-learning intelligence to a user's conversational, natural language text to predict overall meaning, and pull out relevant, detailed information. [See LUIS quickstart](./luis/luis-get-started-create-app.md) to get started with the service.|
 |[QnA Maker](./qnamaker/index.yml "QnA Maker")|QnA Maker allows you to build a question and answer service from your semi-structured content. [See QnA Maker quickstart](./qnamaker/quickstarts/create-publish-knowledge-base.md) to get started with the service.|
-|[Translator](./translator/index.yml "Translator")|Translator provides machine-based text translation in near real-time.|
 
 ## Decision APIs
 
@@ -99,7 +98,7 @@ Azure Cognitive Services provides a layered security model, including [authentic
 
 ## Containers for Cognitive Services
 
- Azure Cognitive Services provides several Docker containers that let you use the same APIs that are available in Azure, on-premises. Using these containers gives you the flexibility to bring Cognitive Services closer to your data for compliance, security or other operational reasons. Learn more about [Cognitive Services Containers](cognitive-services-container-support.md "Cognitive Services Containers").
+ Azure Cognitive Services provides several Docker containers that let you use the same APIs that are available in Azure, on-premises. Using these containers gives you the flexibility to bring Cognitive Services closer to your data for compliance, security, or other operational reasons. For more information, see [Cognitive Services Containers](cognitive-services-container-support.md "Cognitive Services Containers").
 
 ## Regional availability
 
