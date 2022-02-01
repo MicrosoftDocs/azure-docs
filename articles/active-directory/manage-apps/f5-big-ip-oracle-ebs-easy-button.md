@@ -1,6 +1,17 @@
-
-
-Configure F5 BIG-IP’s Easy Button for SSO to Oracle EBS
+---
+title: Configure F5 BIG-IP Easy Button for SSO to Oracle EBS
+description: learn to implement Secure Hybrid Access with header-based single sign-on to Oracle Enterprise Business Suite using F5’s BIG-IP Easy Button Guided Configuration
+services: active-directory
+author: NishthaBabith-V
+manager: martinco
+ms.service: active-directory
+ms.subservice: app-mgmt
+ms.topic: how-to
+ms.workload: identity
+ms.date: 1/31/2022
+ms.author: v-nisba
+ms.collection: M365-identity-device-management
+---
 
 # Tutorial: Configure F5’s BIG-IP Easy Button for SSO to Oracle EBS
 
@@ -8,21 +19,19 @@ In this article, you’ll learn to implement Secure Hybrid Access (SHA) with hea
 
 Enabling BIG-IP published services for Azure Active Directory (Azure AD) SSO provides many benefits, including:
 
-* [Improved Zero Trust governance](https://www.microsoft.com/security/blog/2020/04/02/announcing-microsoft-zero-trust-assessment-tool/) through Azure AD pre-authentication and [Conditional Access](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/overview)
+* [Improved Zero Trust governance](https://www.microsoft.com/security/blog/2020/04/02/announcing-microsoft-zero-trust-assessment-tool/) through Azure AD pre-authentication and [Conditional Access](/conditional-access/overview)
 
 * Full SSO between Azure AD and BIG-IP published services
 
 * Manage Identities and access from a single control plane, [the Azure portal](https://portal.azure.com/)
 
-To learn about all the benefits, see the article on [F5 BIG-IP and Azure AD integration](http://f5-aad-integration.md/) and .
+To learn about all the benefits, see the article on [F5 BIG-IP and Azure AD integration](http://f5-aad-integration.md/) and and [what is application access and single sign-on with Azure AD](/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## Scenario description
 
 For this scenario, we have an **Oracle EBS application using HTTP authorization headers** to manage access to protected content.
 
-Being legacy, the application lacks modern protocols to support a direct integration with Azure AD. Modernizing the app would be ideal, but is costly, requires careful planning, and introduces risk of potential impact of downtime.
-
-Instead, an F5 BIG-IP Application Delivery Controller will be used to bridge the gap between the legacy application and the modern ID control plane, through protocol transitioning.
+Being legacy, the application lacks modern protocols to support a direct integration with Azure AD. Modernizing the app would be ideal, but is costly, requires careful planning, and introduces risk of potential impact of downtime. Instead, an F5 BIG-IP Application Delivery Controller will be used to bridge the gap between the legacy application and the modern ID control plane, through protocol transitioning.
 
 Having a BIG-IP in front of the application enables us to overlay the service with Azure AD pre-authentication and header-based SSO, significantly improving the overall security posture of the application for both remote and local access.
 
@@ -30,36 +39,30 @@ Having a BIG-IP in front of the application enables us to overlay the service wi
 
 The secure hybrid access solution for this scenario is made up of several components including a multi-tiered Oracle architecture:
 
-**Oracle EBS Application: ** BIG-IP published service to be protected by Azure AD SHA.
+**Oracle EBS Application:** BIG-IP published service to be protected by Azure AD SHA.
 
-**Azure AD: ** Security Assertion Markup Language (SAML) Identity Provider (IdP) responsible for verification of user credentials, Conditional Access (CA), and SSO to the BIG-IP.
+**Azure AD:** Security Assertion Markup Language (SAML) Identity Provider (IdP) responsible for verification of user credentials, Conditional Access (CA), and SSO to the BIG-IP.
 
-**Oracle Internet Directory (OID): ** Hosts the user DB that the BIG-IP will query via LDAP for authorization attributes. 
+**Oracle Internet Directory (OID):** Hosts the user DB that the BIG-IP will query via LDAP for authorization attributes. 
 
-**Oracle AccessGate: ** Validates authorization attributes through back channel with OID service, before issuing EBS access cookies 
+**Oracle AccessGate:** Validates authorization attributes through back channel with OID service, before issuing EBS access cookies 
 
-**BIG-IP: ** Reverse proxy and SAML service provider (SP) to the application, delegating authentication to the SAML IdP before performing header-based SSO to the Oracle service.
+**BIG-IP:** Reverse proxy and SAML service provider (SP) to the application, delegating authentication to the SAML IdP before performing header-based SSO to the Oracle service.
 
 SHA for this scenario supports both SP and IdP initiated flows. The following illustrates the SP initiated flow.
 
 ![Secure hybrid access - SP initiated flow](./media/f5-big-ip-easy-button-oracle-ebs/sp-initiated-flow.png)
 
- 
-
 | Steps| Description |
-| - |
+| -------- |-------|
 | 1| User connects to application endpoint (BIG-IP) |
 | 2| BIG-IP APM access policy redirects user to Azure AD (SAML IdP) |
 | 3| Azure AD pre-authenticates user and applies any enforced Conditional Access policies |
 | 4| User is redirected back to BIG-IP with issued token and claims |
 | 5| BIG-IP authenticates user and performs LDAP query for user Unique ID (UID) attribute |
 | 6| BIG-IP injects returned UID attribute as user_orclguid header in EBS session cookie request to Oracle AccessGate |
-| 7
-
-8| Oracle AccessGate validates UID against Oracle Internet Directory (OID) service and issues EBS access cookie
-
-EBS user headers and cookie sent to application and returns the payload to the user |
-
+| 7| Oracle AccessGate validates UID against Oracle Internet Directory (OID) service and issues EBS access cookie
+| 8| EBS user headers and cookie sent to application and returns the payload to the user |
 
 ## Prerequisites
 
