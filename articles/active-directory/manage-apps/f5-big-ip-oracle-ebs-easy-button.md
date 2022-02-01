@@ -84,7 +84,7 @@ Prior BIG-IP experience isn’t necessary, but you need:
 
 * User identities [synchronized](../hybrid/how-to-connect-sync-whatis.md) from an on-premises directory to Azure AD or created directly within Azure AD and flowed back to your on-premises directory
 
- * An account with Azure AD application admin [permissions](../users-groups-roles/directory-assign-admin-roles#application-administrator)
+ * An account with Azure AD application admin [permissions](/azure/active-directory/users-groups-roles/directory-assign-admin-roles#application-administrator)
 
 * [SSL certificate](./f5-bigip-deployment-guide#ssl-profile) for publishing services over HTTPS
 
@@ -388,6 +388,6 @@ See [BIG-IP APM variable assign examples](https://devcentral.f5.com/s/articles/a
 
 The following command from a bash shell validates the APM service account used for LDAP queries and can successfully authenticate and query a user object:
 
-```ldapsearch -xLLL -H 'ldap://192.168.0.58' -b "CN=oraclef5,dc=contoso,dc=lds" -s sub -D "CN=f5-apm,CN=partners,DC=contoso,DC=lds" -w 'P@55w0rd!' "(cn=testuser)"```
+```ldapsearch -xLLL -H 'ldap://192.168.0.58' -b "CN=oraclef5,dc=contoso,dc=lds" -s sub -D "CN=f5-apm,CN=partners,DC=contoso,DC=lds" -w 'P@55w0rd!' "(cn=testuser)" ```
 
 For more information, visit this F5 knowledge article [Configuring LDAP remote authentication for Active Directory](https://support.f5.com/csp/article/K11072). There’s also a great BIG-IP reference table to help diagnose LDAP-related issues in this [F5 knowledge article on LDAP Query](https://techdocs.f5.com/en-us/bigip-16-1-0/big-ip-access-policy-manager-authentication-methods/ldap-query.html).
