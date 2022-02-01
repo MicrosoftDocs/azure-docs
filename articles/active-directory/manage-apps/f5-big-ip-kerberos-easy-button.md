@@ -19,11 +19,11 @@ In this article, you'll learn to implement Secure Hybrid Access (SHA) with singl
 
 Integrating a BIG-IP with Azure Active Directory (Azure AD) provides many benefits, including:
 
-* Improved Zero Trust governance through Azure AD pre-authentication and authorization
+* Improved Zero Trust governance through Azure AD pre-authentication and [Conditional Access](/conditional-access/overview)
 
 * Full SSO between Azure AD and BIG-IP published services
 
-* Manage identities and access from a single control plane, [The Azure portal](https://portal.azure.com/)
+* Manage identities and access from a single control plane, the [Azure portal](https://portal.azure.com/)
 
 To learn about all of the benefits, see the article on [F5 BIG-IP and Azure AD integration](./f5-aad-integration.md) and [what is application access and single sign-on with Azure AD](/azure/active-directory/active-directory-appssoaccess-whatis).
 

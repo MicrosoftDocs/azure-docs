@@ -54,7 +54,7 @@ Create a new rule or open an existing rule. In the **Resources** tab, click on t
 > [!NOTE]
 > The data collection endpoint should be created in the **same region** where your virtual machines exist.  
 
-1. Create data collection endpoint(s) using these [DCE REST APIs](/rest/api/monitor/datacollectionendpoints).
+1. Create data collection endpoint(s) using these [DCE REST APIs](/cli/azure/monitor/data-collection/endpoint).
 2. Create association(s) to link the endpoint(s) to your target machines or resources, using these [DCRA REST APIs](/rest/api/monitor/datacollectionruleassociations/create#examples).
 
 

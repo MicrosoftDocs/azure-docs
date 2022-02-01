@@ -24,9 +24,9 @@ ms.author: phjensen
 
 This article provides a guide on setup and usage of the new features in preview for **AzAcSnap v5.1**.  These new features can be used with Azure NetApp Files, Azure BareMetal, and now Azure Managed Disk.  This guide should be read along with the documentation for the generally available version of AzAcSnap at [aka.ms/azacsnap](https://aka.ms/azacsnap).
 
-The 4 new preview features provided with AzAcSnap v5.1 are:
+The four new preview features provided with AzAcSnap v5.1 are:
 - Oracle Database support
-- Backint Co-existence
+- Backint coexistence
 - Azure Managed Disk
 - RunBefore and RunAfter capability
 
@@ -66,7 +66,7 @@ New database platforms and operating systems supported with this preview release
 > Support for Oracle is Preview feature.  
 > This section's content supplements [Install Azure Application Consistent Snapshot tool](azacsnap-installation.md) website page.
 
-This section explains how to enable communication with storage. Ensure the storage back-end you are using is correctly selected.
+This section explains how to enable communication with storage. Ensure the storage back-end you're using is correctly selected.
 
 # [Oracle](#tab/oracle)
 
@@ -177,7 +177,7 @@ The following example commands set up a user (AZACSNAP) in the Oracle database, 
    configuration unnecessary.
    
    This feature can be leveraged to use the Oracle TNS (Transparent Network Substrate) administrative file to hide the details of the database 
-   connection string and instead use an alias. If the connection information changes, it is a matter of changing the `tnsnames.ora` file instead 
+   connection string and instead use an alias. If the connection information changes, it's a matter of changing the `tnsnames.ora` file instead 
    of potentially many datasource definitions.
    
    Set up the Oracle Wallet (change the password) This example uses the mkstore command from the Linux shell to set up the Oracle wallet. Theses commands 
@@ -187,7 +187,7 @@ The following example commands set up a user (AZACSNAP) in the Oracle database, 
    > [!IMPORTANT]
    > Be sure to create a unique user to generate the Oracle Wallet to avoid any impact on the running database.
    
-   1. Run the following commands on the Oracle Database Server
+   1. Run the following commands on the Oracle Database Server.
       
     1. Get the Oracle environment variables to be used in setup.  Run the following commands as the `root` user on the Oracle Database Server.
 
@@ -207,10 +207,10 @@ The following example commands set up a user (AZACSNAP) in the Oracle database, 
        /u01/app/oracle/product/19.0.0/dbhome_1
        ```
        
-    1. Create the Linux user to generate the Oracle Wallet and associated `*.ora` files using the output from the previous step
+    1. Create the Linux user to generate the Oracle Wallet and associated `*.ora` files using the output from the previous step.
 
        > [!NOTE]
-       > In these examples we are using the `bash` shell.  If you are using a different shell (for example, csh), then ensure environment variables have been set correctly.
+       > In these examples we are using the `bash` shell.  If you're using a different shell (for example, csh), then ensure environment variables have been set correctly.
 
        ```bash
        useradd -m azacsnap
@@ -508,10 +508,10 @@ When adding an Oracle database to the configuration, the following values are re
 
 ---
 
-## Backint co-existence
+## Backint coexistence
 
 > [!NOTE]
-> Support for co-existence with SAP HANA's Backint interface is a Preview feature.  
+> Support for coexistence with SAP HANA's Backint interface is a Preview feature.  
 > This section's content supplements [Configure Azure Application Consistent Snapshot tool](azacsnap-cmd-ref-configure.md) website page.
 
 [Azure Backup](/azure/backup/) service provides an alternate backup tool for SAP HANA, where database and log backups are streamed into the 
@@ -521,17 +521,17 @@ the Azure Backup site on how to [Run SAP HANA native client backup to local disk
 
 The process described in the Azure Backup documentation has been implemented with AzAcSnap to automatically do the following steps:
 
-1. force a log backup flush to backint
-1. wait for running backups to complete
-1. disable the backint-based backup
-1. put SAP HANA into a consistent state for backup
-1. take a storage snapshot-based backup
-1. release SAP HANA
+1. force a log backup flush to backint.
+1. wait for running backups to complete.
+1. disable the backint-based backup.
+1. put SAP HANA into a consistent state for backup.
+1. take a storage snapshot-based backup.
+1. release SAP HANA.
 1. re-enable the backint-based backup.
 
 By default this option is disabled, but it can be enabled by running `azacsnap -c configure –configuration edit` and answering ‘y’ (yes) to the question 
 “Do you need AzAcSnap to automatically disable/enable backint during snapshot? (y/n) [n]”.  This will set the autoDisableEnableBackint value to true in the 
-JSON configuration file (for example, `azacsnap.json`).  It is also possible to change this value by editing the configuration file directly.
+JSON configuration file (for example, `azacsnap.json`).  It's also possible to change this value by editing the configuration file directly.
 
 Refer to this partial snippet of the configuration file to see where this value is placed and the correct format:
 
@@ -554,7 +554,7 @@ Refer to this partial snippet of the configuration file to see where this value 
 > This section's content supplements [Configure Azure Application Consistent Snapshot tool](azacsnap-cmd-ref-configure.md) website page.
 
 Microsoft provides a number of storage options for deploying databases such as SAP HANA.  Many of these are detailed on the 
-[Azure Storage types for SAP workload](/azure/virtual-machines/workloads/sap/planning-guide-storage) web page.  Additionally there is a 
+[Azure Storage types for SAP workload](/azure/virtual-machines/workloads/sap/planning-guide-storage) web page.  Additionally there's a 
 [Cost conscious solution with Azure premium storage](/azure/virtual-machines/workloads/sap/hana-vm-operations-storage#cost-conscious-solution-with-azure-premium-storage).  
 
 AzAcSnap is able to take application consistent database snapshots when deployed on this type of architecture (that is, a VM with Managed Disks).  However, the setup 
@@ -564,17 +564,21 @@ Disks in the mounted Logical Volume(s).
 > [!IMPORTANT]
 > The Linux system must have `xfs_freeze` available to block disk I/O.
 
+> [!CAUTION]
+> Take extra care to configure AzAcSnap with the correct mountpoints (filesystems) because `xfs_freeze` blocks I/O to the device specified by the Azure Managed Disk 
+> mount-point.  This could inadvertently block a running application until `azacsnap` finishes running.
+
 Architecture at a high level:
-1. Azure Managed Disks attached to the VM using the Azure portal
+1. Azure Managed Disks attached to the VM using the Azure portal.
 1. Logical Volume is created from these Managed Disks.
 1. Logical Volume mounted to a Linux directory.
 1. Service Principal should be created in the same way as for Azure NetApp Files in [AzAcSnap installation](azacsnap-installation.md?tabs=azure-netapp-files%2Csap-hana#enable-communication-with-storage).
-1. Install and Configure AzAcSnap
+1. Install and Configure AzAcSnap.
    > [!NOTE]
    > The configurator has a new option to define the mountpoint for the Logical Volume.  This parameter gets passed to `xfs_freeze` to block the I/O (this 
    > happens after the database is put into backup mode).  After the I/O cache has been flushed (dependent on Linux kernel parameter `fs.xfs.xfssyncd_centisecs`).  
 1. Install and Configure `xfs_freeze` to be run as a non-privileged user: 
-   1. Create an executable file called $HOME/bin/xfs_freeze with the following content
+   1. Create an executable file called $HOME/bin/xfs_freeze with the following content.
    
       ```bash
       #!/bin/sh
@@ -597,7 +601,7 @@ Architecture at a high level:
    1. Test the azacsnap user can freeze and unfreeze I/O to the target mountpoint by running the following as the azacsnap user.
    
       > [!NOTE]
-      > In this example we run each command twice to show it worked the first time as there is no command to confirm if `xfs_freeze` has frozen I/O.
+      > In this example we run each command twice to show it worked the first time as there's no command to confirm if `xfs_freeze` has frozen I/O.
   
       Freeze I/O.
   
@@ -625,7 +629,7 @@ Architecture at a high level:
 
 ### Example configuration file
 
-Here is an example config file, note the hierarchy for the dataVolume, mountpoint, azureManagedDisks:
+Here's an example config file, note the hierarchy for the dataVolume, mountpoint, azureManagedDisks:
 
 ```output
 {
@@ -768,7 +772,7 @@ Although `azacsnap` is currently missing the `-c restore` option for Azure Manag
 1.	Connect the disks to the VM via the Azure portal.
 1.	Log in to the VM as the `root` user and scan for the newly attached disks using dmesg or pvscan:
     
-    1. Using `dmesg`
+    1. Using `dmesg`:
     
        ```bash
        dmesg | tail -n30
@@ -793,7 +797,7 @@ Although `azacsnap` is currently missing the `-c restore` option for Azure Manag
        [2510054.627310] sd 5:0:0:3: [sdf] Attached SCSI disk
        ```
     
-    1. Using `pvscan`
+    1. Using `pvscan`:
     
        ```bash
        saphana:~ # pvscan
@@ -847,7 +851,7 @@ Although `azacsnap` is currently missing the `-c restore` option for Azure Manag
     1 logical volume(s) in volume group "hanadata_adhoc" now active
     ```
     
-1.	Mount the logical volume as the `root` user.
+1.	Mount the logical volume as the `root` user:
 
     > [!IMPORTANT]
     > Use the `mount -o rw,nouuid` options, otherwise volume mounting will fail due to duplicate UUIDs on the VM.
@@ -856,7 +860,7 @@ Although `azacsnap` is currently missing the `-c restore` option for Azure Manag
     mount -o rw,nouuid /dev/hanadata_adhoc/hanadata /mnt/hanadata_adhoc
     ```
 
-1.	Then access the data 
+1.	Then access the data:
 
     ```bash
     ls /mnt/hanadata_adhoc/
@@ -892,10 +896,10 @@ The following list of environment variables is generated by `azacsnap` and passe
 - `$azPrefix` = the --prefix value.
 - `$azRetention` = the --retention value.
 - `$azSid` = the --dbsid value.
-- `$azSnapshotName` = the snapshot name generated by azacsnap
+- `$azSnapshotName` = the snapshot name generated by azacsnap.
 
 > [!NOTE]
-> There is only a value for `$azSnapshotName` in the `--runafter` option.
+> There's only a value for `$azSnapshotName` in the `--runafter` option.
 
 ### Example usage
 
@@ -910,7 +914,7 @@ The following crontab entry is a single line and runs `azacsnap` at five past mi
 This example shell script has a special stanza at the end to prevent AzAcSnap from killing the external command due to the timeout described earlier.  This allows for 
 a long running command, such as uploading large files with azcopy, to be run without being prematurely stopped. 
 
-The snapshots need to be mounted on the system doing the copy, with at a minimum read-only privileges.  The base location of the mount point for the snapshots should
+The snapshots need to be mounted on the system doing the copy, with at a minimum read-only privilege.  The base location of the mount point for the snapshots should
 be provided to the `sourceDir` variable in the script.
 
 ```bash
@@ -918,74 +922,171 @@ cat snapshot-to-blob.sh
 ```
 
 ```output
-#!/bin/sh
+#!/bin/bash
+# Utility to upload-to/list Azure Blob store.
+#   If run as snapshot-to-blob.sh will upload a gzipped tarball of the snapshot.
+#   If run as list-blobs.sh will list uploaded blobs.
+#     e.g. `ln -s snapshot-to-blob.sh list-blobs.sh`
+
+
 # _START_ Change these
-saskeyFile="$HOME/bin/blob-credentials.saskey"
+SAS_KEY_FILE="${HOME}/bin/blob-credentials.saskey"
 # the snapshots need to be mounted locally for copying, put source directory here
-sourceDir=/mnt/saphana1/hana_data_PR1/.snapshot
+SOURCE_DIR="/mnt/saphana1/hana_data_PR1/.snapshot"
 # _END_ Change these
 
-# do not change any of the following
-#
-if [ -r $saskeyFile ]; then
-  . $saskeyFile
-else
-  echo "Credential file '$saskeyFile' not found, exiting!"
-fi
 
-# Log files
-archiveLog="logs/`basename $0`.log"
-echo "----- Started ($0 $snapshotName $prefix) @ `date "+%d-%h-%Y %H:%M"`" >> $archiveLog
-env >> $archiveLog
-#
-if [ "$1" == "" -o "$2" == "" ]; then
-  echo "Usage: $0 <snapshotName> <prefix>"
+# _START_ AzCopy Settings
+#Overrides where the job plan files (used for progress tracking and resuming) are stored, to avoid filling up a disk.
+export AZCOPY_JOB_PLAN_LOCATION="${HOME}/.azcopy/plans/"
+#Overrides where the log files are stored, to avoid filling up a disk.
+export AZCOPY_LOG_LOCATION="${HOME}/.azcopy/logs/"
+#If set, to anything, on-screen output will include counts of chunks by state
+export AZCOPY_SHOW_PERF_STATES=true
+# _END_ AzCopy Settings
+
+
+# do not change any of the following
+
+
+# Make sure we got some command line args
+if [ "$(basename "$0")" = "snapshot-to-blob.sh" ] && ([ "$1" = "" ] || [ "$2" = "" ]); then
+  echo "Usage: $0 <SNAPSHOT_NAME> <PREFIX>"
   exit 1
 fi
 
-blobStore="`echo $portalGeneratedSas | cut -f1 -d'?'`"
-blobSasKey="`echo $portalGeneratedSas | cut -f2 -d'?'`"
-snapshotName=$1
-prefix=$2
+# Make sure we can read the SAS key credential file.
+if [ -r "${SAS_KEY_FILE}" ]; then
+  source "${SAS_KEY_FILE}"
+else
+  echo "Credential file '${SAS_KEY_FILE}' not found, exiting!"
+fi
+
+
+# Assign the rest of the Global variables.
+SNAPSHOT_NAME=$1
+PREFIX=$2
+BLOB_STORE="$(echo "${PORTAL_GENERATED_SAS}" | cut -f1 -d'?')"
+BLOB_SAS_KEY="$(echo "${PORTAL_GENERATED_SAS}" | cut -f2 -d'?')"
+ARCHIVE_LOG="logs/$(basename "$0").log"
 
 # Archive naming (daily.1, daily.2, etc...)
-dayOfWeek=`date "+%u"`
-monthOfYear=`date "+%m"`
-archiveBlobTgz="$prefix.$dayOfWeek.tgz"
+DAY_OF_WEEK=$(date "+%u")
+MONTH_OF_YEAR=$(date "+%m")
+ARCHIVE_BLOB_TGZ="${PREFIX}.${DAY_OF_WEEK}.tgz"
 
-runCmd(){
-  echo "[RUNCMD] $1" >> $archiveLog
-  bash -c "$1"
+#######################################
+# Write to the log.
+# Globals:
+#   None
+# Arguments:
+#   LOG_MSG
+#######################################
+write_log(){
+  LOG_MSG=$1
+  date=$(date "+[%d/%h/%Y:%H:%M:%S %z]")
+  echo "$date ${LOG_MSG}" >> "${ARCHIVE_LOG}"
 }
 
-main() {
-  # Check sourceDir and snapshotName exist
-  if [ ! -d "$sourceDir/$snapshotName" ]; then
-    echo "$sourceDir/$snapshotName not found, exiting!" | tee -a $archiveLog
+
+#######################################
+# Run and Log the command.
+# Globals:
+#   None
+# Arguments:
+#   CMD_TO_RUN
+#######################################
+run_cmd(){
+  CMD_TO_RUN="${1}"
+  write_log "[RUNCMD] ${CMD_TO_RUN}"
+  bash -c "${CMD_TO_RUN}"
+}
+
+
+#######################################
+# Check snapshot exists and then background the upload to Blob store.
+# Globals:
+#   SOURCE_DIR
+#   SNAPSHOT_NAME
+#   ARCHIVE_LOG
+# Arguments:
+#   None
+#######################################
+snapshot_to_blob(){
+  # Check SOURCE_DIR and SNAPSHOT_NAME exist
+  if [ ! -d "${SOURCE_DIR}/${SNAPSHOT_NAME}" ]; then
+    echo "${SOURCE_DIR}/${SNAPSHOT_NAME} not found, exiting!" | tee -a "${ARCHIVE_LOG}"
     exit 1
   fi
+  # background ourselves so AzAcSnap exits cleanly
+  echo "Backgrounding '$0 $@' to prevent blocking azacsnap"
+  echo "write_logging to ${ARCHIVE_LOG}"
+  {
+    trap '' HUP
+    # the script
+    upload_to_blob
+    list_blob >> "${ARCHIVE_LOG}"
+  } < /dev/null > /dev/null 2>&1 &
+}
 
+
+#######################################
+# Upload to Blob store.
+# Globals:
+#   SOURCE_DIR
+#   SNAPSHOT_NAME
+#   ARCHIVE_BLOB_TGZ
+#   BLOB_STORE
+#   BLOB_SAS_KEY
+#   ARCHIVE_LOG
+# Arguments:
+#   None
+#######################################
+upload_to_blob(){
   # Copy snapshot to blob store
-  echo "--- Starting copy of $snapshotName to $blobStore/$archiveBlobTgz" >> $archiveLog
-  runCmd "cd $sourceDir/$snapshotName && tar zcvf - * | azcopy cp \"$blobStore/$archiveBlobTgz?$blobSasKey\" --from-to PipeBlob && cd -"
-  echo "--- Completed copy of $snapshotName $blobStore/$archiveBlobTgz" >> $archiveLog
-  echo "--- Current list of files stored in $blobStore" >> $archiveLog
-  runCmd "azcopy list \"$blobStore?$blobSasKey\"  --properties LastModifiedTime " >> $archiveLog
+  echo "Starting upload of ${SNAPSHOT_NAME} to ${BLOB_STORE}/${ARCHIVE_BLOB_TGZ}" >> "${ARCHIVE_LOG}"
+  run_cmd "azcopy env ; cd ${SOURCE_DIR}/${SNAPSHOT_NAME} && tar zcvf - * | azcopy cp \"${BLOB_STORE}/${ARCHIVE_BLOB_TGZ}?${BLOB_SAS_KEY}\" --from-to PipeBlob && cd -"
+  echo "Completed upload of ${SNAPSHOT_NAME} ${BLOB_STORE}/${ARCHIVE_BLOB_TGZ}" >> "${ARCHIVE_LOG}"
 
   # Complete
-  echo "----- Finished ($0 $snapshotName $prefix) @ `date "+%d-%h-%Y %H:%M"`" >> $archiveLog
-  echo "--------------------------------------------------------------------------------" >> $archiveLog
+  echo "Finished ($0 ${SNAPSHOT_NAME} ${PREFIX}) @ $(date "+%d-%h-%Y %H:%M")" >> "${ARCHIVE_LOG}"
+  echo "--------------------------------------------------------------------------------" >> "${ARCHIVE_LOG}"
   # col 12345678901234567890123456789012345678901234567890123456789012345678901234567890
 }
 
-# background ourselves so AzAcSnap exits cleanly
-echo "Backgrounding '$0 $@' to prevent blocking azacsnap"
-echo "Logging to $archiveLog"
-{
-  trap '' HUP
-  # the script
-  main
-} < /dev/null > /dev/null 2>&1 &
+
+#######################################
+# List contents of Blob store.
+# Globals:
+#   BLOB_STORE
+#   BLOB_SAS_KEY
+# Arguments:
+#   None
+#######################################
+list_blob(){
+  LOG_MSG="Current list of files stored in ${BLOB_STORE}"
+  write_log "${LOG_MSG}"
+  echo "${LOG_MSG}"
+  run_cmd "azcopy list \"${BLOB_STORE}?${BLOB_SAS_KEY}\"  --properties LastModifiedTime "
+}
+
+
+# Log when script started.
+write_log "Started ($0 ${SNAPSHOT_NAME} ${PREFIX}) @ $(date "+%d-%h-%Y %H:%M")"
+
+
+# Check what this was called as ($0) and run accordingly.
+case "$(basename "$0")" in
+  "snapshot-to-blob.sh" )
+    snapshot_to_blob
+    ;;
+  "list-blobs.sh" )
+    list_blob
+    ;;
+  *)
+    echo "Command '$0' not recognised!"
+    ;;
+esac
 ```
 
 The saskeyFile contains the following example SAS Key (content changed for security):
@@ -996,7 +1097,7 @@ cat blob-credentials.saskey
 
 ```output
 # we need a generated SAS key, get this from the portal with read,add,create,write,list permissions
-portalGeneratedSas="https://<targetstorageaccount>.blob.core.windows.net/<blob-store>?sp=racwl&st=2021-06-10T21:10:38Z&se=2021-06-11T05:10:38Z&spr=https&sv=2020-02-10&sr=c&sig=<key-material>"
+PORTAL_GENERATED_SAS="https://<targetstorageaccount>.blob.core.windows.net/<blob-store>?sp=racwl&st=2021-06-10T21:10:38Z&se=2021-06-11T05:10:38Z&spr=https&sv=2020-02-10&sr=c&sig=<key-material>"
 ```
 
 ## Next steps
