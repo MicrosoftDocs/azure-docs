@@ -61,7 +61,7 @@ Currently the only regions that require endpoint modifications are [Azure Govern
 
 ## Enable Azure Active Directory authentication for profile ingestion
 
-Application Insights Profiler supports Azure AD authentication for profiles ingestion. This means, for all profiles of your application to be ingested, your application must be authenticated and provide the required application settings to Profiler Agent.
+Application Insights Profiler supports Azure AD authentication for profiles ingestion. This means, for all profiles of your application to be ingested, your application must be authenticated and provide the required application settings to the Profiler agent.
 
 As of today, Profiler only supports Azure AD authentication when you reference and configure Azure AD using the Application Insights SDK in your application.
 

@@ -62,7 +62,7 @@ For more information about other connection overrides, see [Application Insights
 
 ## Enable Azure Active Directory authentication for snapshot ingestion
 
-Application Insights Snapshot Debugger supports Azure AD authentication for snapshot ingestion. This means, for all snapshots of your application to be ingested, your application must be authenticated and provide the required application settings to Profiler Agent.
+Application Insights Snapshot Debugger supports Azure AD authentication for snapshot ingestion. This means, for all snapshots of your application to be ingested, your application must be authenticated and provide the required application settings to the Snapshot Debugger agent.
 
 As of today, Snapshot Debugger only supports Azure AD authentication when you reference and configure Azure AD using the Application Insights SDK in your application.
 
