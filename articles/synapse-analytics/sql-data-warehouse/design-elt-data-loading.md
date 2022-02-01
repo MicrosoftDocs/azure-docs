@@ -110,8 +110,8 @@ Use the following SQL data type mapping when loading Parquet files:
 |                            INT64                             |                DECIMAL                |     decimal      |
 |                            INT64                             |         TIME (MILLIS)                 |       time       |
 |                            INT64                             | TIMESTAMP   (MILLIS)                  |    datetime2     |
-| [Complex   type](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fgithub.com%2Fapache%2Fparquet-format%2Fblob%2Fmaster%2FLogicalTypes.md%23lists&data=02\|01\|kevin%40microsoft.com\|19f74d93f5ca45a6b73c08d7d7f5f111\|72f988bf86f141af91ab2d7cd011db47\|1\|0\|637215323617803168&sdata=6Luk047sK26ijTzfvKMYc%2FNu%2Fz0AlLCX8lKKTI%2F8B5o%3D&reserved=0) |                 LIST                  |   varchar(max)   |
-| [Complex   type](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fgithub.com%2Fapache%2Fparquet-format%2Fblob%2Fmaster%2FLogicalTypes.md%23maps&data=02\|01\|kevin%40microsoft.com\|19f74d93f5ca45a6b73c08d7d7f5f111\|72f988bf86f141af91ab2d7cd011db47\|1\|0\|637215323617803168&sdata=FiThqXxjgmZBVRyigHzfh5V7Z%2BPZHjud2IkUUM43I7o%3D&reserved=0) |                  MAP                  |   varchar(max)   |
+| [Complex   type](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md) |                 LIST                  |   varchar(max)   |
+| [Complex   type](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md |                  MAP                  |   varchar(max)   |
 
 >[!IMPORTANT] 
 >- SQL dedicated pools do not currently support Parquet data types with MICROS and NANOS precision. 
