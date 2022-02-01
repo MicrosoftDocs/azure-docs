@@ -19,8 +19,6 @@
       items:
       - name: MXCHIP AZ3166
         href: quickstart-devkit-mxchip-az3166.md
-      - name: MXCHIP AZ3166 — IoT Hub
-        href: quickstart-devkit-mxchip-az3166-iot-hub.md
       - name: Microchip ATSAME54-XPro
         href: quickstart-devkit-microchip-atsame54-xpro.md
       - name: NXP MIMXRT1050-EVKB
@@ -105,6 +103,8 @@
     items:
     - name: STMicroelectronics B-L475-IOT01A
       href: quickstart-devkit-stm-b-l475e.md
+    - name: MXCHIP AZ3166 — IoT Hub
+      href: quickstart-devkit-mxchip-az3166-iot-hub.md
   - name: Troubleshoot
     items:
       - name: Troubleshoot embedded quickstarts
