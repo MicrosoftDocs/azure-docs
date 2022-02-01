@@ -2,8 +2,10 @@
 title: Back up Azure Database for PostgreSQL with long-term-retention using Azure CLI
 description: Learn how to back up Azure Database for PostgreSQL using Azure CLI.
 ms.topic: conceptual
-ms.date: 10/24/2021 
+ms.date: 01/24/2022
 ms.custom: devx-track-azurecli
+author: v-amallick
+ms.service: backup
 ms.author: v-amallick
 ---
 
@@ -18,11 +20,11 @@ In this article, you'll learn how to:
 -  Configure a backup of an Azure PostgreSQL database
 -  Run an on-demand backup job
 
-For informgreSQL databases supported scenarios and limitations, see the [support matrix](backup-azure-database-postgresql-overview.md#support-matrix).
+For informgreSQL databases supported scenarios and limitations, see the [support matrix](backup-azure-database-postgresql-support-matrix.md).
 
 ## Create a Backup vault
 
-Backup vault is a storage entity in Azure that stores backup data for various new workloads that Azure Backup supports, such as Azure Database for PostgreSQL servers, blobs in a storage account, and Azure Disks. Backup vaults help to organize your backup data, while minimizing management overhead. Backup vaults are based on the Azure Resource Manager model of Azure, which provides enhanced capabilities to help secure backup data.
+Backup vault is a storage entity in Azure. This stores the backup data for new workloads that Azure Backup supports. For example, Azure Database for PostgreSQL servers, blobs in a storage account, and Azure Disks. Backup vaults help to organize your backup data, while minimizing management overhead. Backup vaults are based on the Azure Resource Manager model of Azure, which provides enhanced capabilities to help secure backup data.
 
 Before you create a Backup vault, choose the storage redundancy of the data within the vault. Then proceed to create the Backup vault with that storage redundancy and the location.
 
@@ -72,7 +74,7 @@ While disk backup offers multiple backups per day and blob backup is a _continuo
         -  Initial Datastore (Where will the backups land initially)
         -  Trigger (How the backup is triggered)
            -  Schedule based
-           -  Default Tagging Criteria (A default 'tag' for all the scheduled backups. This tag links the backups to the retention rule)
+           -  Default tagging criteria (a default 'tag' for all the scheduled backups. This tag links the backups to the retention rule)
    -  Default Retention Rule (A rule that will be applied to all backups, by default, on the initial datastore)
 
 So, this object defines what type of backups are triggered, how they are triggered (via a schedule), what they are tagged with, where they land (a datastore), and the life cycle of the backup data in a datastore. The default PowerShell object for PostgreSQL says to trigger a *full* backup every week and they will reach the vault, where they are stored for three months.
@@ -88,7 +90,7 @@ The resultant PowerShell object is as follows:
         -  Initial Datastore (Where will the backups land initially)
         -  Trigger (How the backup is triggered)
            -  Schedule based
-           -  Default Tagging Criteria (A default 'tag' for all the scheduled backups. This tag links the backups to the retention rule)
+           -  Default tagging criteria (a default 'tag' for all the scheduled backups. This tag links the backups to the retention rule)
            -  New Tagging criteria for the new retention rule with the same name 'X'
    -  Default Retention Rule (A rule that will be applied to all backups, by default, on the initial datastore)
    -  A new Retention rule named as 'X'
@@ -163,7 +165,7 @@ az dataprotection backup-policy get-default-policy-template --datasource-type Az
 }
 ```
 
-The policy template consists of a trigger (which decides what triggers the backup) and a lifecycle (which decides when to delete/copy/move the backup). In Azure PostgreSQL database backup, the default value for trigger is a scheduled Weekly trigger (1 backup every 7 days) and to retain each backup for three months.
+The policy template consists of a trigger (which decides what triggers the backup) and a lifecycle (which decides when to delete/copy/move the backup). In Azure PostgreSQL database backup, the default value for trigger is a scheduled Weekly trigger (one backup every seven days) and to retain each backup for three months.
 
 **Scheduled trigger:**
 
@@ -243,7 +245,7 @@ az dataprotection backup-policy retention-rule set --lifecycles .\VaultToArchive
 
 Once a retention rule is created, you've to create a corresponding *tag* in the *Trigger* property of the Backup policy. Use the [az dataprotection backup-policy tag create-absolute-criteria](/cli/azure/dataprotection/backup-policy/tag#az_dataprotection_backup_policy_tag_create_absolute_criteria) command to create a new tagging criteria and use the [az dataprotection backup-policy tag set](/cli/azure/dataprotection/backup-policy/tag#az_dataprotection_backup_policy_tag_set) command to update the existing tag or create a new tag.
 
-The following example creates a new *tag* along with the criteria (which is the first successful backup of the month) with the same name as the corresponding retention rule to be applied.
+The following example creates a new *tag* along with the criteria, the first successful backup of the month. The tag has the same name as the corresponding retention rule to be applied.
 
 In this example, the tag criteria should be named *Monthly*.
 
@@ -285,7 +287,7 @@ ossId="/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx/resourcegroups/ossrg/providers/Mic
 
 #### Azure key vault
 
-Azure Backup service doesn't store the username and password to connect to the PostgreSQL database. Instead, the backup admin needs to seed the *keys* into the key vault, and then the Backup service will access the key vault, read the keys, and then access the database. Note the secret identifier of the relevant key.
+The Azure Backup service doesn't store the username and password to connect to the PostgreSQL database. Instead, the backup admin needs to seed the *keys* into the key vault. Then the Backup service will access the key vault, read the keys, and then access the database. Note the secret identifier of the relevant key.
 
 The following example uses bash.
 
@@ -295,9 +297,9 @@ keyURI="https://testkeyvaulteus.vault.azure.net/secrets/ossdbkey"
 
 #### Backup vault
 
-Backup vault has to connect to the PostgreSQL server, and then access the database via the keys present in the key vault. Therefore, it requires access to the PostgreSQL server and the key vault. Access is granted to the Backup vault's MSI.
+Backup vault has to connect to the PostgreSQL server, and then access the database via the keys present in the key vault. Therefore, it requires access to the PostgreSQL server and the key vault. Access is granted to the Backup vault's Managed Service Identity (MSI).
 
-[Read about the appropriate permissions](./backup-azure-database-postgresql-overview.md#set-of-permissions-needed-for-azure-postgresql-database-backup) that you should grant to the Backup vault's MSI on the PostgreSQL server and the Azure Key vault, where the keys to the database are stored.
+See the [permissions](./backup-azure-database-postgresql-overview.md#set-of-permissions-needed-for-azure-postgresql-database-backup) you should grant to the Backup vault's Managed Service Identity (MSI) on the PostgreSQL server and Azure Key vault that stores keys to the database.
 
 ### Prepare the request
 

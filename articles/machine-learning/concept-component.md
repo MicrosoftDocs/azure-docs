@@ -167,16 +167,6 @@ az ml component create --file my_component.yml --version 1 --resource-group my-r
 
 Use `az ml component create --help`for more information on the `create` command.
 
-### Create a component in the studio UI
-
-You can create a component in **Components** page in the studio UI.
-
-1. Click **New Component** in the component page.
-
-    :::image type="content" source="./media/concept-component/ui-create-component.png" lightbox="./media/concept-component/ui-create-component.png" alt-text="Screenshot showing new component button.":::
-
-1. Follow the wizard to finish the creation process.
-
 ## Use components to build ML pipelines
 
 You can use the Azure CLI (v2) to create a pipeline job. See [Create and run ML pipelines (CLI)](how-to-create-component-pipelines-cli.md).
@@ -189,30 +179,18 @@ You can check component details and manage the component using CLI (v2). Use `az
 
 You can use `az ml component list` to list all components in a workspace.
 
-You can see all created components in your workspace in the **Components** page in the studio UI.
-
 ### Show details for a component
 
 You can use `az ml component show --name <COMPONENT_NAME>` to show the details of a component.
-
-You can also check component details in the **Components** page in the studio UI.
-
 
 ### Upgrade a component
 
 You can use `az ml component create --file <NEW_VERSION.yaml>` to upgrade a component.
 
-You can also click **Upgrade** in the component detail page to upgrade a new version for the component.
-
-:::image type="content" source="./media/concept-component/upgrade-component.png" lightbox="./media/concept-component/upgrade-component.png" alt-text="Screenshot showing upgrade button.":::
 
 ### Delete a component
 
 You can use `az ml component delete --name <COMPONENT_NAME>` to delete a component. 
-
-You can also select a component and archive it.
-
-:::image type="content" source="./media/concept-component/archive-component.png" alt-text="Screenshot showing the archive option for a component.":::
 
 ## Next steps
 

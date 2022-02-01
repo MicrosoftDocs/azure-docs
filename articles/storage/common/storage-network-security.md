@@ -672,7 +672,7 @@ You can use the same technique for an account that has the hierarchical namespac
 | Service                        | Resource Provider Name                 | Purpose            |
 | :----------------------------- | :------------------------------------- | :----------------- |
 | Azure API Management           | Microsoft.ApiManagement/service        | Enables Api Management service access to storage accounts behind firewall using policies. [Learn more](../../api-management/api-management-authentication-policies.md#use-managed-identity-in-send-request-policy). |
-| Azure Cache for Redis | Microsoft.Cache/Redis | Allows access to storage accounts through Azure Cache for Redis. | 
+| Azure Cache for Redis | Microsoft.Cache/Redis | Allows access to storage accounts through Azure Cache for Redis. [Learn more](../../azure-cache-for-redis/cache-managed-identity.md)| 
 | Azure Cognitive Search         | Microsoft.Search/searchServices        | Enables Cognitive Search services to access storage accounts for indexing, processing and querying. |
 | Azure Cognitive Services       | Microsoft.CognitiveService/accounts    | Enables Cognitive Services to access storage accounts. [Learn more](../..//cognitive-services/cognitive-services-virtual-networks.md).|
 | Azure Container Registry Tasks | Microsoft.ContainerRegistry/registries | ACR Tasks can access storage accounts when building container images. |
@@ -687,7 +687,7 @@ You can use the same technique for an account that has the hierarchical namespac
 | Azure Machine Learning Service | Microsoft.MachineLearningServices      | Authorized Azure Machine Learning workspaces write experiment output, models, and logs to Blob storage and read the data. [Learn more](../../machine-learning/how-to-network-security-overview.md#secure-the-workspace-and-associated-resources). |
 | Azure Media Services           | Microsoft.Media/mediaservices          | Allows access to storage accounts through Media Services. |
 | Azure Migrate                  | Microsoft.Migrate/migrateprojects      | Allows access to storage accounts through Azure Migrate. |
-| Azure Purview                  | Microsoft.Purview/accounts             | Allows Purview to access storage accounts. |
+| Azure Purview                  | Microsoft.Purview/accounts             | Allows Azure Purview to access storage accounts. |
 | Azure Remote Rendering         | Microsoft.MixedReality/remoteRenderingAccounts | Allows access to storage accounts through Remote Rendering. |
 | Azure Site Recovery            | Microsoft.RecoveryServices/vaults      | Allows access to storage accounts through Site Recovery. |
 | Azure SQL Database             | Microsoft.Sql                          | Allows [writing](../../azure-sql/database/audit-write-storage-account-behind-vnet-firewall.md) audit data to storage accounts behind firewall. |

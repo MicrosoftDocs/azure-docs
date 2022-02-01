@@ -13,7 +13,7 @@ ms.assetid: ad8e5c75-0cf6-4564-ae62-ea1246b4e5f2
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 12/08/2021
+ms.date: 01/30/2022
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
@@ -41,10 +41,10 @@ If you have specific questions, we are going to point you to specific documents 
 	- [SAP workload on Azure virtual machine supported scenarios](./sap-planning-supported-configurations.md)
 	- [Supported scenarios for HANA Large Instance](./hana-supported-scenario.md)
 - What Azure Services, Azure VM types and Azure storage services are available in the different Azure regions, check the site [Products available by region](https://azure.microsoft.com/global-infrastructure/services/) 
-- Are third party HA frame works, besides Windows and Pacemaker supported? Check bottom part of [SAP support note #1928533](https://launchpad.support.sap.com/#/notes/1928533)
+- Are third-party HA frameworks, besides Windows and Pacemaker supported? Check bottom part of [SAP support note #1928533](https://launchpad.support.sap.com/#/notes/1928533)
 - What Azure storage is best for my scenario? Read [Azure Storage types for SAP workload](./planning-guide-storage.md)
 - Is the Red Hat kernel in Oracle Enterprise Linux supported by SAP? Read SAP [SAP support note #1565179](https://launchpad.support.sap.com/#/notes/1565179)
-- Why are the Azure [Da(s)v4](../../dav4-dasv4-series.md)/[Ea(s)](../../eav4-easv4-series.md) VM families not certified for SAP HANA? The Azure Das/Eas VM families are based on AMD processor driven hardware. SAP HANA does not support AMD processors, not even in virtualized scenarios
+- Why are the Azure [Da(s)v4](../../dav4-dasv4-series.md)/[Ea(s)](../../eav4-easv4-series.md) VM families not certified for SAP HANA? The Azure Das/Eas VM families are based on AMD processor-driven hardware. SAP HANA does not support AMD processors, not even in virtualized scenarios
 - Why am I still getting the message: 'The cpu flags for the RDTSCP instruction or the cpu flags for constant_tsc or nonstop_tsc are not set or current_clocksource and available_clocksource are not correctly configured' with SAP HANA, despite the fact that I am running the most recent Linux kernels. For the answer, check [SAP support note #2791572](https://launchpad.support.sap.com/#/notes/2791572)
 - Where can I find architectures for deploying SAP Fiori on Azure? Check out the blog [SAP on Azure: Application Gateway Web Application Firewall (WAF) v2 Setup for Internet facing SAP Fiori Apps](https://blogs.sap.com/2020/12/03/sap-on-azure-application-gateway-web-application-firewall-waf-v2-setup-for-internet-facing-sap-fiori-apps/) 
 
@@ -78,15 +78,18 @@ In this section, you find documents about Microsoft Power BI integration into SA
 
 ## Change Log
 
-- December 08, 2021: Change in [SQL Server Azure Virtual Machines DBMS deployment for SAP NetWeaver](./dbms_guide_sqlserver.md) to clarify Azure Load Balancer settings.   
-- December 08, 2021: Release of scenario [HA of SAP HANA Scale-up with Azure NetApp Files on SLES](./sap-hana-high-availability-netapp-files-suse.md).  
+- January 30, 2022: Adding context about SQL Server proprotional fill and expectations that SQL server data files should be the same size and should have the same free space in [SQL Server Azure Virtual Machines DBMS deployment for SAP NetWeaver](./dbms_guide_sqlserver.md)
+- January 24, 2022: Change in [HA for SAP NW on SLES with NFS on Azure Files](./high-availability-guide-suse-nfs-azure-files.md), [HA for SAP NW on Azure VMs on SLES with ANF](./high-availability-guide-suse-netapp-files.md), [HA for SAP NW on Azure VMs on SLES for SAP applications](./high-availability-guide-suse.md), [HA for NFS on Azure VMs on SLES](./high-availability-guide-suse-nfs.md), [HA for SAP NNW on Azure VMs on SLES multi-SID guide](./high-availability-guide-suse-multi-sid.md), [HA for SAP NW on RHEL with NFS on Azure Files](./high-availability-guide-rhel-nfs-azure-files.md), [HA for SAP NW on Azure VMs on RHEL for SAP applications](./high-availability-guide-rhel.md) and  [HA for SAP NW on Azure VMs on RHEL with ANF](./high-availability-guide-rhel-netapp-files.md) and [HA for SAP NW on Azure VMs on RHEL multi-SID guide](./high-availability-guide-rhel-multi-sid.md) to remove cidr_netmask from Pacemaker configuration to allow the resource agent to determine the value automatically 
+- January 12, 2022: Change in [HA for SAP NetWeaver on Azure VMs on Windows with Azure NetApp Files(SMB)](./high-availability-guide-windows-netapp-files-smb.md) to remove obsolete information for the SAP kernel that supports the scenario.   
+- December 08, 2021: Change in [SQL Server Azure Virtual Machines DBMS deployment for SAP NetWeaver](./dbms_guide_sqlserver.md) to clarify Azure Load Balancer settings   
+- December 08, 2021: Release of scenario [HA of SAP HANA Scale-up with Azure NetApp Files on SLES](./sap-hana-high-availability-netapp-files-suse.md)  
 - December 07, 2021: Change in [Setting up Pacemaker on RHEL in Azure](./high-availability-guide-rhel-pacemaker.md) to clarify that the instructions are applicable for both RHEL 7 and RHEL 8
 - December 07, 2021: Change in [HA for SAP NW on SLES with NFS on Azure Files](./high-availability-guide-suse-nfs-azure-files.md), [HA for SAP NW on Azure VMs on SLES with ANF](./high-availability-guide-suse-netapp-files.md) and [HA for SAP NW on Azure VMs on SLES for SAP applications](./high-availability-guide-suse.md) to adjust the instructions for configuring SWAP file.  
-- December 02, 2021: Introduction of new STONITH fencing method in [Setting up Pacemaker on SUSE Linux Enterprise Server in Azure](high-availability-guide-suse-pacemaker.md) using Azure shared disk SBD device.
-- December 01, 2021: Change in [SAP ASCS/SCS instance with WSFC and file share](./sap-high-availability-guide-wsfc-file-share.md), [HA for SAP NetWeaver on Azure VMs on Windows with Azure NetApp Files(SMB)](./high-availability-guide-windows-netapp-files-smb.md) and [HA for SAP NetWeaver on Azure VMs on Windows with Azure Files(SMB)](./high-availability-guide-windows-azure-files-smb.md) to update the SAP kernel version, required to support clustering SAP on Windows with file share.  
+- December 02, 2021: Introduction of new STONITH fencing method in [Setting up Pacemaker on SUSE Linux Enterprise Server in Azure](high-availability-guide-suse-pacemaker.md) using Azure shared disk SBD device
+- December 01, 2021: Change in [SAP ASCS/SCS instance with WSFC and file share](./sap-high-availability-guide-wsfc-file-share.md), [HA for SAP NetWeaver on Azure VMs on Windows with Azure NetApp Files(SMB)](./high-availability-guide-windows-netapp-files-smb.md) and [HA for SAP NetWeaver on Azure VMs on Windows with Azure Files(SMB)](./high-availability-guide-windows-azure-files-smb.md) to update the SAP kernel version, required to support clustering SAP on Windows with file share  
 - November 30, 2021: Added [Using Windows DFS-N to support flexible SAPMNT share creation for SMB-based file share](./high-availability-guide-windows-dfs.md)
 - November 22, 2021: Change in [HA for SAP NW on SLES with NFS on Azure Files](./high-availability-guide-suse-nfs-azure-files.md) and [HA for SAP NW on RHEL with NFS on Azure Files](./high-availability-guide-rhel-nfs-azure-files.md) to clarify the guidelines for J2EE SAP systems and share consolidations per storage account.
-- November 16, 2021: Release of high availability guides for SAP ASCS/ERS with NFS on Azure files [HA for SAP NW on SLES with NFS on Azure Files](./high-availability-guide-suse-nfs-azure-files.md) and [HA for SAP NW on RHEL with NFS on Azure Files](./high-availability-guide-rhel-nfs-azure-files.md). 
+- November 16, 2021: Release of high availability guides for SAP ASCS/ERS with NFS on Azure files [HA for SAP NW on SLES with NFS on Azure Files](./high-availability-guide-suse-nfs-azure-files.md) and [HA for SAP NW on RHEL with NFS on Azure Files](./high-availability-guide-rhel-nfs-azure-files.md) 
 - November 15, 2021: Introduction of new proximity placement architecture for zonal deployments in [Azure proximity placement groups for optimal network latency with SAP applications](./sap-proximity-placement-scenarios.md)
 - November 02, 2021: Changed [Azure Storage types for SAP workload](./planning-guide-storage.md) and [SAP ASE Azure Virtual Machines DBMS deployment for SAP workload](./dbms_guide_sapase.md) to declare SAP ASE support for NFS on Azure NetApp Files.
 - November 02, 2021: Changed [SAP workload configurations with Azure Availability Zones](./sap-ha-availability-zones.md) to move Singapore SouthEast to regions for active/active configurations
@@ -185,7 +188,7 @@ In this section, you find documents about Microsoft Power BI integration into SA
 - June 24, 2020: Change in [Setting up Pacemaker on SLES in Azure](./high-availability-guide-suse-pacemaker.md) to release new improved Azure Fence Agent and more resilient STONITH configuration for devices, based on Azure Fence Agent 
 - June 24, 2020: Change in [Setting up Pacemaker on RHEL in Azure](./high-availability-guide-rhel-pacemaker.md) to release more resilient STONITH configuration
 - June 23, 2020: Changes to [Azure Virtual Machines planning and implementation for SAP NetWeaver](./planning-guide.md) guide and introduction of [Azure Storage types for SAP workload](./planning-guide-storage.md) guide
-- 06/22/2020: Add installation steps for new VM Extension for SAP to the [Deployment Guide](deployment-guide.md)
+- June 22, 2020: Add installation steps for new VM Extension for SAP to the [Deployment Guide](deployment-guide.md)
 - June 16, 2020: Change in [Public endpoint connectivity for VMs using Azure Standard ILB in SAP HA scenarios](./high-availability-guide-standard-load-balancer-outbound-connections.md) to add a link to SUSE Public Cloud Infrastructure 101 documentation 
 - June 10, 2020: Adding new HLI SKUs into [Available SKUs for HLI](./hana-available-skus.md) and [SAP HANA (Large Instances) storage architecture](./hana-storage-architecture.md)
 - May 21, 2020: Change in [Setting up Pacemaker on SLES in Azure](./high-availability-guide-suse-pacemaker.md) and [Setting up Pacemaker on RHEL in Azure](./high-availability-guide-rhel-pacemaker.md) to add a link to [Public endpoint connectivity for VMs using Azure Standard ILB in SAP HA scenarios](./high-availability-guide-standard-load-balancer-outbound-connections.md)  
@@ -207,7 +210,7 @@ In this section, you find documents about Microsoft Power BI integration into SA
 - March 26, 2020: Change in [High availability for SAP NetWeaver on Azure VMs on SLES for SAP applications](./high-availability-guide-suse.md), [High availability for SAP NetWeaver on Azure VMs on SLES with Azure NetApp Files for SAP applications](./high-availability-guide-suse-netapp-files.md), [High availability for NFS on Azure VMs on SLES](./high-availability-guide-suse-nfs.md), [High availability for SAP NetWeaver on Azure VMs on RHEL multi-SID guide](./high-availability-guide-suse-multi-sid.md), [High availability for SAP NetWeaver on Azure VMs on RHEL for SAP applications](./high-availability-guide-rhel.md) and [High availability for SAP NetWeaver on Azure VMs on RHEL with Azure NetApp Files for SAP applications](./high-availability-guide-rhel-netapp-files.md) to update diagrams and clarify instructions for Azure Load Balancer backend pool creation
 - March 19, 2020: Major revision of document [Quickstart: Manual installation of single-instance SAP HANA on Azure Virtual Machines](./hana-get-started.md) to [Installation of SAP HANA on Azure Virtual Machines](./hana-get-started.md)
 - March 17, 2020: Change in [Setting up Pacemaker on SUSE Linux Enterprise Server in Azure](./high-availability-guide-suse-pacemaker.md) to remove SBD configuration setting that is no longer necessary
-- March 16 2020: Clarification of column certification scenario in SAP HANA IaaS certified platform in [What SAP software is supported for Azure deployments](./sap-supported-product-on-azure.md)
-- 03/11/2020: Change in [SAP workload on Azure virtual machine supported scenarios](./sap-planning-supported-configurations.md) to clarify multiple databases per DBMS instance support
+- March 16, 2020: Clarification of column certification scenario in SAP HANA IaaS certified platform in [What SAP software is supported for Azure deployments](./sap-supported-product-on-azure.md)
+- March 11, 2020: Change in [SAP workload on Azure virtual machine supported scenarios](./sap-planning-supported-configurations.md) to clarify multiple databases per DBMS instance support
 - March 11, 2020: Change in [Azure Virtual Machines planning and implementation for SAP NetWeaver](./planning-guide.md) explaining Generation 1 and Generation 2 VMs
 - March 10, 2020: Change in [SAP HANA Azure virtual machine storage configurations](./hana-vm-operations-storage.md) to clarify real existing throughput limits of ANF

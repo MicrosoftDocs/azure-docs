@@ -45,7 +45,7 @@ sections:
         answer: |
           Application Gateway v1 (Standard and WAF) is available in all regions of global Azure. It's also available in [Azure China 21Vianet](https://www.azure.cn/) and [Azure Government](https://azure.microsoft.com/overview/clouds/government/).
           
-          For Application Gateway v2 (Standard_v2 and WAF_v2) availability, see [supported regions for Application Gateway v2](./application-gateway-autoscaling-zone-redundant.md#supported-regions)
+          For Application Gateway v2 (Standard_v2 and WAF_v2) availability, see [supported regions for Application Gateway v2](./overview-v2.md#supported-regions)
           
       - question: Is this deployment dedicated for my subscription, or is it shared across customers?
         answer: Application Gateway is a dedicated deployment in your virtual network.
@@ -279,6 +279,36 @@ sections:
           Sample NSG configuration for private IP only access:
           ![Application Gateway V2 NSG Configuration for private IP access only](./media/application-gateway-faq/appgw-privip-nsg.png)
           
+      - question: How can I stop and start Azure Application Gateway?
+        answer: |
+          You can use Azure PowerShell or the Azure CLI to stop and start Azure Application Gateway. When you stop and start Application Gateway, [billing](https://azure.microsoft.com/pricing/details/application-gateway/) also stops and starts.
+                             
+          ```azurepowershell
+          # Stop an existing Azure Application Gateway instance
+          
+          $appGateway = Get-AzApplicationGateway -Name $appGatewayName -ResourceGroupName $resourceGroupName
+          Stop-AzApplicationGateway -ApplicationGateway $appGateway       
+          ```
+          
+          ```azurepowershell
+          # Start an existing Azure Application Gateway instance
+          
+          $appGateway = Get-AzApplicationGateway -Name $appGatewayName -ResourceGroupName $resourceGroupName
+          Start-AzApplicationGateway -ApplicationGateway $appGateway           
+          ```
+          
+          ```azurecli-interactive
+          # Stop an existing Azure Application Gateway instance
+          
+          az network application-gateway stop -g MyResourceGroup -n MyAppGateway
+          ```
+          ```azurecli-interactive
+          # Start an existing Azure Application Gateway instance
+          
+          az network application-gateway start -g MyResourceGroup -n MyAppGateway
+          ```
+          
+  
   - name: Configuration - TLS
     questions:
       - question: What certificates does Application Gateway support?

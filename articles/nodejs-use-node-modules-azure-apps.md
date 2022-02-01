@@ -87,4 +87,3 @@ For more information, see the [Node.js Developer Center](/azure/developer/javasc
 
 [specify the Node.js version]: ./app-service/overview.md
 [How to use the Azure Command-Line Interface for Mac and Linux]:cli-install-nodejs.md
-[Custom Website Deployment Scripts with Kudu]: https://channel9.msdn.com/Shows/Azure-Friday/Custom-Web-Site-Deployment-Scripts-with-Kudu-with-David-Ebbo

@@ -79,7 +79,7 @@ While you can connect from outside of Azure, it is not recommended *especially w
 
 Azure Cache for Redis requires TLS encrypted communications by default. TLS versions 1.0, 1.1 and 1.2 are currently supported. However, TLS 1.0 and 1.1 are on a path to deprecation industry-wide, so use TLS 1.2 if at all possible.
 
-If your client library or tool doesn't support TLS, then enabling unencrypted connections is possible through the [Azure portal](cache-configure.md#access-ports) or [management APIs](/rest/api/redis/redis/update). In cases where encrypted connections aren't possible, we recommend placing your cache and client application into a virtual network. For more information about which ports are used in the virtual network cache scenario, see this [table](cache-how-to-premium-vnet.md#outbound-port-requirements).
+If your client library or tool doesn't support TLS, then enabling unencrypted connections is possible through the [Azure portal](cache-configure.md#access-ports) or [management APIs](/rest/api/redis/2021-06-01/redis/update). In cases where encrypted connections aren't possible, we recommend placing your cache and client application into a virtual network. For more information about which ports are used in the virtual network cache scenario, see this [table](cache-how-to-premium-vnet.md#outbound-port-requirements).
 
 ## Client library-specific guidance
 

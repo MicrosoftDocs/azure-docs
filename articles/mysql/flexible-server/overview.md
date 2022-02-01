@@ -8,7 +8,7 @@ ms.custom: mvc, references_regions
 ms.topic: overview
 ms.date: 08/10/2021
 ---
-# Azure Database for MySQL - Flexible Server 
+# Azure Database for MySQL - Flexible Server
 
 [[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
@@ -22,16 +22,16 @@ In this article, we'll provide an overview and introduction to core concepts of 
 
 ## Overview
 
-Azure Database for MySQL Flexible Server is a fully managed production-ready database service designed for more granular control and flexibility over database management functions and configuration settings. The flexible server architecture allows users to opt for high availability within single availability zone and across multiple availability zones. Flexible servers provides better cost optimization controls with the ability to stop/start server and burstable compute tier, ideal for workloads that do not need full compute capacity continuously. Flexible Server also supports reserved instances allowing you to save up to 63% cost, ideal for production workloads with predictable compute capacity requirements. The service supports community version of MySQL 5.7 and 8.0. The service is generally available today in wide variety of [Azure regions](overview.md#azure-regions).
+Azure Database for MySQL Flexible Server is a fully managed production-ready database service designed for more granular control and flexibility over database management functions and configuration settings. The flexible server architecture allows users to opt for high availability within single availability zone and across multiple availability zones. Flexible servers provide better cost optimization controls with the ability to stop/start server and burstable compute tier, ideal for workloads that don’t need full-compute capacity continuously. Flexible Server also supports reserved instances allowing you to save up to 63% cost, ideal for production workloads with predictable compute capacity requirements. The service supports community version of MySQL 5.7 and 8.0. The service is generally available today in wide variety of [Azure regions](overview.md#azure-regions).
 
 The Flexible Server deployment option offers three compute tiers: Burstable, General Purpose, and Memory Optimized. Each tier offers different compute and memory capacity to support your database workloads. You can build your first app on a burstable tier for a few dollars a month, and then adjust the scale to meet the needs of your solution. Dynamic scalability enables your database to transparently respond to rapidly changing resource requirements. You only pay for the resources you need, and only when you need them. See [Compute and Storage](concepts-compute-storage.md) for details.
 
 Flexible servers are best suited for
-- Ease of deployments, simplified scaling and low database management overhead for functions like backups, high availability, security and monitoring
+- Ease of deployments, simplified scaling, and low database management overhead for functions like backups, high availability, security, and monitoring
 - Application developments requiring community version of MySQL with better control and customizations
-- Production workloads with same-zone, zone redundant high availability and managed maintenance windows
+- Production workloads with same-zone, zone-redundant high availability and managed maintenance windows
 - Simplified development experience 
-- Enterprise grade security, compliance and privacy
+- Enterprise grade security, compliance, and privacy
 
 For latest updates on Flexible Server, refer to [What's new in Azure Database for MySQL - Flexible Server](whats-new.md).
 
@@ -47,7 +47,7 @@ You can take advantage of this offer to develop and deploy applications that use
 
 ## High availability within and across availability zones
 
-Azure Database for MySQL Flexible Server allows configuring high availability with automatic failover. The high availability solution is designed to ensure that committed data is never lost due to failures, and improve overall uptime for your application. When high availability is configured, flexible server automatically provisions and manages a standby replica. There are two high availability architectural models: 
+Azure Database for MySQL Flexible Server allows configuring high availability with automatic failover. The high availability solution is designed to ensure that committed data is never lost due to failures, and improve overall uptime for your application. When high availability is configured, flexible server automatically provisions and manages a standby replica. There are two high availability-architectural models: 
 
 - **Zone Redundant High Availability (HA):** This option is preferred for complete isolation and redundancy of infrastructure across multiple availability zones. It provides highest level of availability, but it requires you to configure application redundancy across zones. Zone redundant HA is preferred when you want to achieve highest level of availability against any infrastructure failure in the availability zone and where latency across the availability zone is acceptable. Zone redundant HA is available in [subset of Azure regions](overview.md#azure-regions) where the region supports multiple Availability Zones and Zone redundant Premium file shares are available. 
 
@@ -89,7 +89,7 @@ See [Networking concepts](concepts-networking.md) to learn more.
 
 ## Adjust performance and scale within seconds
 
-The flexible server service is available in three SKU tiers: Burstable, General Purpose, and Memory Optimized. The Burstable tier is best suited for low-cost development and low concurrency workloads that don't need full compute capacity continuously. The General Purpose and Memory Optimized are better suited for production workloads requiring high concurrency, scale, and predictable performance. You can build your first app on a small database for a few dollars a month, and then seamlessly adjust the scale to meet the needs of your solution. The storage scaling is online and supports storage autogrowth. Flexible Server enables you to provision additional IOPS up to 20K IOPs above the complimentary IOPS limit independent of storage. Using this feature, you can increase or decrease the number of IOPS provisioned based on your workload requirements at any time. Dynamic scalability enables your database to transparently respond to rapidly changing resource requirements. You only pay for the resources you consume. 
+The flexible server service is available in three SKU tiers: Burstable, General Purpose, and Memory Optimized. The Burstable tier is best suited for low-cost development and low concurrency workloads that don't need full-compute capacity continuously. The General Purpose and Memory Optimized are better suited for production workloads requiring high concurrency, scale, and predictable performance. You can build your first app on a small database for a few dollars a month, and then seamlessly adjust the scale to meet the needs of your solution. The storage scaling is online and supports storage autogrowth. Flexible Server enables you to provision additional IOPS up to 20 K IOPs above the complimentary IOPS limit independent of storage. Using this feature, you can increase or decrease the number of IOPS provisioned based on your workload requirements at any time. Dynamic scalability enables your database to transparently respond to rapidly changing resource requirements. You only pay for the resources you consume. 
 
 See [Compute and Storage concepts](concepts-compute-storage.md) to learn more.
 
@@ -115,11 +115,11 @@ For more information, see [Data-in replication concepts](concepts-data-in-replic
 
 ## Stop/Start server to optimize cost
 
-The flexible server service allows you to stop and start server on-demand to optimize cost. The compute tier billing is stopped immediately when the server is stopped. This can allow you to have significant cost savings during development, testing and for time-bound predictable production workloads. The server remains in stopped state for thirty days unless re-started sooner.
+The flexible server service allows you to stop and start server on-demand to optimize cost. The compute tier billing is stopped immediately when the server is stopped. This can allow you to have significant cost savings during development, testing and for time-bound predictable production workloads. The server remains in stopped state for 30 days unless restarted sooner.
 
 For more information, see [Server concepts](concept-servers.md).
 
-## Enterprise grade security, compliance and privacy
+## Enterprise grade security, compliance, and privacy
 
 The flexible server service uses the FIPS 140-2 validated cryptographic module for storage encryption of data at-rest. Data, including backups, and temporary files created while running queries are encrypted. The service uses the AES 256-bit cipher included in Azure storage encryption, and the keys can be system managed (default).
 
@@ -127,7 +127,7 @@ The service encrypts data in-motion with transport layer security enforced by de
 
 For more information, see [how to use encrypted connections to flexible servers](how-to-connect-tls-ssl.md).
 
-Flexible Server allows full private access to the servers using [Azure virtual network](../../virtual-network/virtual-networks-overview.md) (VNet) integration. Servers in Azure virtual network can only be reached and connected through private IP addresses. With VNet integration, public access is denied and servers cannot be reached using public endpoints.
+Flexible Server allows full-private access to the servers using [Azure virtual network](../../virtual-network/virtual-networks-overview.md) (VNet) integration. Servers in Azure virtual network can only be reached and connected through private IP addresses. With VNet integration, public access is denied and servers can’t be reached using public endpoints.
 
 For more information, see [Networking concepts](concepts-networking.md).
 
@@ -139,7 +139,7 @@ The flexible server service is equipped with built-in performance monitoring and
 * The query details: view the query text as well as the history of execution with minimum, maximum, average, and standard deviation query time.
 * The resource utilizations (CPU, memory, and storage).
 
-In addition, you can use and integrate with community monitoring tools like [Percona Monitoring and Management with your MySQL Flexible Server](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/monitor-azure-database-for-mysql-using-percona-monitoring-and/ba-p/2568545). 
+In addition, you can use and integrate with community monitoring tools like [Percona Monitoring and Management with your MySQL Flexible Server](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/monitor-azure-database-for-mysql-using-percona-monitoring-and/ba-p/2568545).
 
 For more information, see [Monitoring concepts](concepts-monitoring.md).
 
@@ -148,13 +148,13 @@ For more information, see [Monitoring concepts](concepts-monitoring.md).
 The service runs the community version of MySQL. This allows full application compatibility and requires minimal refactoring cost to migrate existing applications developed on MySQL engine to Flexible Server. Migration to Flexible Server can be performed using the following option:
 
 ### Offline Migrations
-*	Using Azure Data Migration Service when network bandwidth between source and Azure is good (for example: High speed ExpressRoute). Learn more with step by step instructions - [Migrate MySQL to Azure Database for MySQL offline using DMS - Azure Database Migration Service](../../dms/tutorial-mysql-azure-mysql-offline-portal.md)
-*	Use mydumper/myloader to take advantage of compression settings to efficiently move data over low speed networks (such as public internet). Learn more with step by step instructions [Migrate large databases to Azure Database for MySQL using mydumper/myloader](../../mysql/concepts-migrate-mydumper-myloader.md)
+*	Using Azure Data Migration Service when network bandwidth between source and Azure is good (for example: High-speed ExpressRoute). Learn more with step-by-step instructions - [Migrate MySQL to Azure Database for MySQL offline using DMS - Azure Database Migration Service](../../dms/tutorial-mysql-azure-mysql-offline-portal.md)
+*	Use mydumper/myloader to take advantage of compression settings to efficiently move data over low speed networks (such as public internet). Learn more with step-by-step instructions [Migrate large databases to Azure Database for MySQL using mydumper/myloader](../../mysql/concepts-migrate-mydumper-myloader.md)
 
 ### Online or Minimal downtime migrations
-Use data-in replication with mydumper/myloader consistent backup/restore for initial seeding. Learn more with step by step instructions - [Tutorial: Minimal Downtime Migration of Azure Database for MySQL – Single Server to Azure Database for MySQL – Flexible Server](../../mysql/howto-migrate-single-flexible-minimum-downtime.md)
+Use data-in replication with mydumper/myloader consistent backup/restore for initial seeding. Learn more with step-by-step instructions - [Tutorial: Minimal Downtime Migration of Azure Database for MySQL – Single Server to Azure Database for MySQL – Flexible Server](../../mysql/howto-migrate-single-flexible-minimum-downtime.md)
 
-To migrate from Azure Database for MySQL - Single Server to Flexible Server in 5 easy steps, refer to [this blog](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/migrate-from-azure-database-for-mysql-single-server-to-flexible/ba-p/2674057).
+To migrate from Azure Database for MySQL - Single Server to Flexible Server in five easy steps, refer to [this blog](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/migrate-from-azure-database-for-mysql-single-server-to-flexible/ba-p/2674057).
 
 For more information, see [Select the right tools for migration to Azure Database for MySQL](../../mysql/how-to-decide-on-right-migration-tools.md)
 
@@ -166,11 +166,13 @@ One advantage of running your workload in Azure is its global reach. The flexibl
 | --- | --- | --- | --- | --- |
 | Australia East | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Australia Southeast | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
-| Brazil South | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Brazil South | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | Canada Central | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
 | Canada East | :heavy_check_mark: | :x: | :x: | :heavy_check_mark: |
 | Central India | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: |
 | Central US | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
+| China East 2 | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: |
+| China North 2 | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: |
 | East Asia (Hong Kong) | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
 | East US | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | East US 2 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
@@ -195,7 +197,7 @@ One advantage of running your workload in Azure is its global reach. The flexibl
 | West Europe | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | West US | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
 | West US 2 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| West US 3 | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
+| West US 3 | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: |
 
 ## Contacts
 
@@ -209,7 +211,7 @@ In addition, consider the following points of contact as appropriate:
 
 ## Next steps
 
-Now that you've read an introduction to Azure Database for MySQL - Single Server deployment mode, you're ready to:
+Now that you've read an introduction to Azure Database for MySQL - Single-Server deployment mode, you're ready to:
 
 - Create your first server.
   - [Create an Azure Database for MySQL flexible server using Azure portal](quickstart-create-server-portal.md)
