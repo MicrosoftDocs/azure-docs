@@ -19,14 +19,14 @@ This article assumes that you have an Azure account and Speech service subscript
 
 ## Install the Speech SDK
 
-Before you can do anything, you'll need to install the Speech SDK. Depending on your platform, use the following instructions:
+Before you can do anything, install the Speech SDK. Depending on your platform, use the following instructions:
 
 * <a href="/azure/cognitive-services/speech-service/quickstarts/setup-platform?pivots=programming-language-java&tabs=jre" target="_blank">Java Runtime </a>
 * <a href="/azure/cognitive-services/speech-service/quickstarts/setup-platform?pivots=programming-language-java&tabs=android" target="_blank">Android </a>
 
 ## Create a speech configuration
 
-To call the Speech service using the Speech SDK, you need to create a [`SpeechConfig`](/java/api/com.microsoft.cognitiveservices.speech.speechconfig). This class includes information about your subscription, like your key and associated location/region, endpoint, host, or authorization token. Create a [`SpeechConfig`](/java/api/com.microsoft.cognitiveservices.speech.speechconfig) by using your key and location/region. See the [Find keys and location/region](../../../overview.md#find-keys-and-locationregion) page to find your key-location/region pair.
+To call the Speech service using the Speech SDK, you create a [`SpeechConfig`](/java/api/com.microsoft.cognitiveservices.speech.speechconfig). This class includes information about your subscription, like your key and associated location/region, endpoint, host, or authorization token. Create a [`SpeechConfig`](/java/api/com.microsoft.cognitiveservices.speech.speechconfig) with your key and location/region. See the [Find keys and location/region](../../../overview.md#find-keys-and-locationregion) page to find your key-location/region pair.
 
 ```java
 import com.microsoft.cognitiveservices.speech.*;
@@ -78,11 +78,11 @@ public class Program {
 }
 ```
 
-If you want to use a *specific* audio input device, you need to specify the device ID in the `AudioConfig`. Learn [how to get the device ID](../../../how-to-select-audio-input-devices.md) for your audio input device.
+If you want to use a *specific* audio input device, you specify the device ID in the `AudioConfig`. Learn [how to get the device ID](../../../how-to-select-audio-input-devices.md) for your audio input device.
 
 ## Recognize from file
 
-If you want to recognize speech from an audio file instead of using a microphone, you still need to create an `AudioConfig`. However, when you create the [`AudioConfig`](/java/api/com.microsoft.cognitiveservices.speech.audio.audioconfig), instead of calling `fromDefaultMicrophoneInput()`, call `fromWavFileInput()` and pass the file path.
+If you want to recognize speech from an audio file instead of using a microphone, you still create an `AudioConfig`. However, when you create the [`AudioConfig`](/java/api/com.microsoft.cognitiveservices.speech.audio.audioconfig), instead of calling `fromDefaultMicrophoneInput()`, call `fromWavFileInput()` and pass the file path.
 
 ```java
 import com.microsoft.cognitiveservices.speech.*;
@@ -109,7 +109,7 @@ public class Program {
 
 ## Error handling
 
-The previous examples simply get the recognized text using `result.getText()`, but to handle errors and other responses, you'll need to write some code to handle the result. The following  example evaluates [`result.getReason()`](/java/api/com.microsoft.cognitiveservices.speech.recognitionresult.getreason) and:
+The previous examples simply get the recognized text using `result.getText()`, but to handle errors and other responses, you'll write some code to handle the result. The following  example evaluates [`result.getReason()`](/java/api/com.microsoft.cognitiveservices.speech.recognitionresult.getreason) and:
 
 * Prints the recognition result: `ResultReason.RecognizedSpeech`
 * If there is no recognition match, inform the user: `ResultReason.NoMatch`
@@ -151,13 +151,13 @@ AudioConfig audioConfig = AudioConfig.fromWavFileInput("YourAudioFile.wav");
 SpeechRecognizer recognizer = new SpeechRecognizer(config, audioConfig);
 ```
 
-Next, let's create a variable to manage the state of speech recognition. To start, we'll declare a `Semaphore` at the class scope.
+Next, let's create a variable to manage the state of speech recognition. To start, declare a `Semaphore` at the class scope.
 
 ```java
 private static Semaphore stopTranslationWithFileSemaphore;
 ```
 
-We'll subscribe to the events sent from the [`SpeechRecognizer`](/java/api/com.microsoft.cognitiveservices.speech.speechrecognizer).
+Subscribe to the events sent from the [`SpeechRecognizer`](/java/api/com.microsoft.cognitiveservices.speech.speechrecognizer).
 
 * [`recognizing`](/java/api/com.microsoft.cognitiveservices.speech.speechrecognizer.recognizing): Signal for events containing intermediate recognition results.
 * [`recognized`](/java/api/com.microsoft.cognitiveservices.speech.speechrecognizer.recognized): Signal for events containing final recognition results (indicating a successful recognition attempt).
@@ -199,7 +199,7 @@ recognizer.sessionStopped.addEventListener((s, e) -> {
 });
 ```
 
-With everything set up, we can call [`startContinuousRecognitionAsync`](/java/api/com.microsoft.cognitiveservices.speech.speechrecognizer.startcontinuousrecognitionasync).
+With everything set up, call [`startContinuousRecognitionAsync`](/java/api/com.microsoft.cognitiveservices.speech.speechrecognizer.startcontinuousrecognitionasync).
 
 ```java
 // Starts continuous recognition. Uses StopContinuousRecognitionAsync() to stop recognition.

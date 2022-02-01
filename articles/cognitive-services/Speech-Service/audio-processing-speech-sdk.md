@@ -1,5 +1,5 @@
 ---
-title: Using the Microsoft Audio Stack (MAS) - Speech service
+title: Use the Microsoft Audio Stack (MAS) - Speech service
 titleSuffix: Azure Cognitive Services
 description: An overview of the features, capabilities, and restrictions for audio processing using the Speech Software Development Kit (SDK).
 services: cognitive-services
@@ -14,7 +14,7 @@ ms.devlang: cpp, csharp, java
 ms.custom: devx-track-csharp, ignite-fall-2021
 ---
 
-# Using the Microsoft Audio Stack (MAS)
+# Use the Microsoft Audio Stack (MAS)
 
 The Speech SDK integrates Microsoft Audio Stack (MAS), allowing any application or product to use its audio processing capabilities on input audio. See the [Audio processing](audio-processing-overview.md) documentation for an overview.
 
