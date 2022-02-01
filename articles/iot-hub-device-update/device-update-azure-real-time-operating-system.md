@@ -10,9 +10,9 @@ ms.service: iot-hub-device-update
 
 # Device Update for Azure IoT Hub tutorial using Azure Real Time Operating System (RTOS)
 
-This tutorial will walk through how to create the Device Update for IoT Hub Agent in Azure RTOS NetX Duo. It also provides simple APIs for developers to integrate the Device Update capability in their application. Explore [samples](https://github.com/azure-rtos/samples/tree/PublicPreview/ADU) of key semiconductors evaluation boards that include the get started guides to learn configure, build, and deploy the over-the-air (OTA) updates to the devices.
+This tutorial walks through how to create the Device Update for IoT Hub Agent in Azure RTOS NetX Duo. It also provides simple APIs for developers to integrate the Device Update capability in their application. Explore [samples](https://github.com/azure-rtos/samples/tree/PublicPreview/ADU) of key semiconductors evaluation boards that include the get started guides to learn configure, build, and deploy the over-the-air (OTA) updates to the devices.
 
-In this tutorial you will learn how to:
+In this tutorial you learn how to:
 > [!div class="checklist"]
 > * Get started
 > * Tag your device
@@ -66,7 +66,7 @@ Learn more about [Azure RTOS](/azure/rtos/).
 
 ## Deploy new firmware
 
-1. Once the group is created, you should see a new update available for your device group, with a link to the update under Pending Updates. You may need to Refresh once. 
+1. Once the group is created, you should see a new update available for your device group, with a link to the update under Pending Updates. You might need to Refresh once. 
 2. Click on the available update.
 3. Confirm the correct group is selected as the target group. Schedule your deployment, then select Deploy update.
 
