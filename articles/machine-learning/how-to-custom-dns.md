@@ -8,7 +8,7 @@ ms.subservice: enterprise-readiness
 ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
-ms.date: 01/18/2022
+ms.date: 02/01/2022
 ms.topic: how-to
 ms.custom: contperf-fy21q3, devx-track-azurepowershell
 ---
@@ -416,7 +416,7 @@ The following steps describe how this topology works:
     **Azure Public regions**:
     - ```api.azureml.ms```
     - ```notebooks.azure.net```
-    - ```instances.azureml.us```     
+    - ```instances.azureml.ms```     
     
     **Azure China regions**:
     - ```api.ml.azure.cn```
@@ -440,7 +440,7 @@ The following steps describe how this topology works:
     **Azure Public regions**:
     - ```api.azureml.ms```
     - ```notebooks.azure.net```
-    - ```instances.azureml.us```
+    - ```instances.azureml.ms```
     
     **Azure China regions**:
     - ```api.ml.azure.cn```
