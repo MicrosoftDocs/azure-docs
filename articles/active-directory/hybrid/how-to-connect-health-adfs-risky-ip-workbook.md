@@ -24,7 +24,7 @@ ms.collection:
 
 AD FS customers may expose password authentication endpoints to the internet to provide authentication services for end users to access SaaS applications such as Microsoft 365. In this case, it is possible for a bad actor to attempt logins against your AD FS system to guess an end user’s password and get access to application resources. AD FS provides the extranet account lockout functionality to prevent these types of attacks since AD FS in Windows Server 2012 R2. If you are on a lower version, we strongly recommend that you upgrade your AD FS system to Windows Server 2016. <br />
 
-Additionally, it is possible for a single IP address to attempt multiple logins against multiple users. In these cases, the number of attempts per user may be under the threshold for account lockout protection in AD FS. Azure AD Connect Health now provides the “Risky IP report” that detects this condition and notifies administrators when this occurs. The following are the key benefits for this report: 
+Additionally, it is possible for a single IP address to attempt multiple logins against multiple users. In these cases, the number of attempts per user may be under the threshold for account lockout protection in AD FS. Azure AD Connect Health now provides the “Risky IP report” that detects this condition and notifies administrators. The following are the key benefits for this report: 
 - Detection of IP addresses that exceed a threshold of failed password-based logins
 - Supports failed logins due to bad password or due to extranet lockout state
 - Supports enabling alerts through Azure Alerts
@@ -41,7 +41,7 @@ Additionally, it is possible for a single IP address to attempt multiple logins 
 
 
 ## What is in the report?
-The Risky IP report workbook is powered from data in the ADFSSignInLogs stream and has pre-existing queries to be able to quickly visualize and analyze risky IPs. The parameters can be configured and customized for threshold counts. The workbook is also configurable based on queries, and each query can be updated and modified based on the organization’s needs.
+The Risky IP report workbook is powered from data in the ADFSSignInLogs stream and can quickly visualize and analyze risky IPs. The parameters can be configured and customized for threshold counts. The workbook is also configurable based on queries, and each query can be updated and modified based on the organization’s needs.
 
 The risky IP workbook analyzes data from ADFSSignInLogs to help you detect password spray or password brute force attacks. The workbook has two parts. The first part "Risky IP Analysis" identifies risky IP addresses based on designated error thresholds and detection window length. The second part provides the sign-in details and error counts for selected IPs.
 
