@@ -3,7 +3,7 @@ title: Connect an IoT Edge transparent gateway to an Azure IoT Central applicati
 description: How to connect devices through an IoT Edge transparent gateway to an IoT Central application
 author: dominicbetts
 ms.author: dobett
-ms.date: 12/21/2021
+ms.date: 01/18/2022
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
@@ -14,9 +14,11 @@ ms.custom: device-developer
 
 An IoT Edge device can act as a gateway that provides a connection between other devices on a local network and your IoT Central application. You use a gateway when the device can't access your IoT Central application directly.
 
-IoT Edge supports the [*transparent* and *translation* gateway patterns](../../iot-edge/iot-edge-as-gateway.md). This article summarizes how to implement the transparent gateway pattern. In this pattern, the gateway passes messages from the downstream device through to the IoT Hub endpoint in your IoT Central application.
+IoT Edge supports the [*transparent* and *translation* gateway patterns](../../iot-edge/iot-edge-as-gateway.md). This article summarizes how to implement the transparent gateway pattern. In this pattern, the gateway passes messages from the downstream device through to the IoT Hub endpoint in your IoT Central application. The gateway does not manipulate the messages as they pass through. In IoT Central, each downstream device appears as child to the gateway device:
 
-This article uses virtual machines to host the downstream device and gateway. In a real scenario, the downstream device and gateway would run on physical devices on your local network.
+:::image type="content" source="media/how-to-connect-iot-edge-transparent-gateway/edge-transparent-gateway.png" alt-text="IoT Edge as a transparent gateway." border="false":::
+
+For simplicity, this article uses virtual machines to host the downstream and gateway devices. In a real scenario, the downstream device and gateway would run on physical devices on your local network.
 
 ## Prerequisites
 
@@ -28,14 +30,14 @@ To complete the steps in this article, you need:
 
 To follow the steps in this article, download the following files to your computer:
 
-- [Thermostat device model](https://raw.githubusercontent.com/Azure/iot-plugandplay-models/main/dtmi/com/example/thermostat-1.json)
-- [Transparent gateway manifest](https://raw.githubusercontent.com/Azure-Samples/iot-central-docs-samples/master/transparent-gateway/EdgeTransparentGatewayManifest.json)
+- [Thermostat device model (thermostat-1.json)](https://raw.githubusercontent.com/Azure/iot-plugandplay-models/main/dtmi/com/example/thermostat-1.json) - this file is the device model for the downstream devices.
+- [Transparent gateway manifest (EdgeTransparentGatewayManifest.json)](https://raw.githubusercontent.com/Azure-Samples/iot-central-docs-samples/master/transparent-gateway/EdgeTransparentGatewayManifest.json) - this file is the IoT Edge deployment manifest for the gateway device.
 
 ## Add device templates
 
 Both the downstream devices and the gateway device require device templates in IoT Central. IoT Central lets you model the relationship between your downstream devices and your gateway so you can view and manage them after they're connected.
 
-To create a device template for a downstream device, create a standard device template that models the capabilities of your device. The example shown in this article uses the thermostat device model.
+To create a device template for a downstream device, create a standard device template that models the capabilities of your device. The example shown in this article uses the thermostat device model you downloaded.
 
 To create a device template for a downstream device:
 
@@ -49,7 +51,7 @@ To create a device template for a downstream device:
 
 1. Publish the device template.
 
-To create a device template for a transparent IoT Edge gateway:
+To create a device template for an IoT Edge transparent gateway device:
 
 1. Create a device template and choose **Azure IoT Edge** as the template type.
 
@@ -61,11 +63,11 @@ To create a device template for a transparent IoT Edge gateway:
 
 1. Add an entry in **Relationships** to the downstream device template.
 
-The following screenshot shows the **Relationships** page for an IoT Edge gateway device that has downstream devices that use the **Thermostat** device template:
+The following screenshot shows the **Relationships** page for an IoT Edge gateway device with downstream devices that use the **Thermostat** device template:
 
 :::image type="content" source="media/how-to-connect-iot-edge-transparent-gateway/device-template-relationship.png" alt-text="Screenshot showing IoT Edge gateway device template relationship with a thermostat downstream device template.":::
 
-The previous screenshot shows an IoT Edge gateway device template with no modules defined. A transparent gateway doesn't require any modules because the IoT Edge runtime forwards messages from the downstream devices to IoT Central. If the gateway itself needs to send telemetry, synchronize properties, or handle commands, you can define these capabilities in the root component or in a module.
+The previous screenshot shows an IoT Edge gateway device template with no modules defined. A transparent gateway doesn't require any modules because the IoT Edge runtime forwards messages from the downstream devices directly to IoT Central. If the gateway itself needs to send telemetry, synchronize properties, or handle commands, you can define these capabilities in the root component or in a module.
 
 Add any required cloud properties and views before you publish the gateway and downstream device templates.
 
@@ -104,11 +106,9 @@ To let you try out this scenario, the following steps show you how to deploy the
 > [!TIP]
 > To learn how to deploy the IoT Edge runtime to a physical device, see [Create an IoT Edge device](../../iot-edge/how-to-create-iot-edge-device.md) in the IoT Edge documentation.
 
-To try out the transparent gateway scenario, select the following button to deploy two Linux virtual machines. One virtual machine has the IoT Edge runtime installed and is a transparent IoT Edge gateway. The other virtual machine is a downstream device where you'll run code to send simulated telemetry:
+To try out the transparent gateway scenario, select the following button to deploy two Linux virtual machines. One virtual machine has the IoT Edge runtime installed and is the transparent IoT Edge gateway. The other virtual machine is a downstream device where you'll run code to send simulated thermostat telemetry:
 
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fiot-central-docs-samples%2Fmaster%2Ftransparent-gateway%2FDeployGatewayVMs.json" target="_blank">
-    <img src="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png" alt="Deploy to Azure button" />
-</a>
+[![Deploy to Azure Button](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fiot-central-docs-samples%2Fmaster%2Ftransparent-gateway%2FDeployGatewayVMs.json)
 
 When the two virtual machines are deployed and running, verify the IoT Edge gateway device is running on the `edgegateway` virtual machine:
 
@@ -118,8 +118,8 @@ When the two virtual machines are deployed and running, verify the IoT Edge gate
 
     :::image type="content" source="media/how-to-connect-iot-edge-transparent-gateway/iot-edge-runtime.png" alt-text="Screenshot showing the $edgeAgent and $edgeHub modules running on the IoT Edge gateway.":::
 
-> [!TIP]
-> You may have to wait for several minutes while the virtual machine starts up and the device is provisioned in your IoT Central application.
+    > [!TIP]
+    > You may have to wait for several minutes while the virtual machine starts up and the device is provisioned in your IoT Central application.
 
 ## Configure the gateway
 
@@ -184,7 +184,7 @@ Your transparent gateway is now configured and ready to start forwarding telemet
 
 ## Provision a downstream device
 
-Currently, IoT Edge can't automatically provision a downstream device to your IoT Central application. The following steps show you how to provision the `thermostat1` device. To complete these steps, you need an environment with Python 3.6 (or higher) installed and internet connectivity. The [Azure Cloud Shell](https://shell.azure.com/) has Python 3.7 pre-installed:
+IoT Central relies on the Device Provisioning Service (DPS) to provision devices in IoT Central. Currently, IoT Edge can't use DPS provision a downstream device to your IoT Central application. The following steps show you how to provision the `thermostat1` device manually. To complete these steps, you need an environment with Python 3.6 (or higher) installed and internet connectivity. The [Azure Cloud Shell](https://shell.azure.com/) has Python 3.7 pre-installed:
 
 1. Run the following command to install the `azure.iot.device` module:
 
@@ -192,13 +192,13 @@ Currently, IoT Edge can't automatically provision a downstream device to your Io
     pip install azure.iot.device
     ```
 
-1. Run the following command to download the Python script that does the provisioning:
+1. Run the following command to download the Python script that does the device provisioning:
 
     ```bash
     wget https://raw.githubusercontent.com/Azure-Samples/iot-central-docs-samples/master/transparent-gateway/provision_device.py
     ```
 
-1. To provision the `thermostat1` downstream device in your IoT Central application, run the following commands, replacing `{your application id scope}` and `{your device primary key}`  :
+1. To provision the `thermostat1` downstream device in your IoT Central application, run the following commands, replacing `{your application id scope}` and `{your device primary key}`. You made a note of these values when you added the devices to your IoT Central application:
 
     ```bash
     export IOTHUB_DEVICE_DPS_DEVICE_ID=thermostat1
@@ -207,17 +207,19 @@ Currently, IoT Edge can't automatically provision a downstream device to your Io
     python provision_device.py
     ```
 
-In your IoT Central application, verify that the **Device status** for the thermostat1 device is now **Provisioned**. 
+In your IoT Central application, verify that the **Device status** for the `thermostat1` device is now **Provisioned**.
 
 ## Configure a downstream device
 
 In the previous section, you configured the `edgegateway` virtual machine with the demo certificates to enable it to run as gateway. The `leafdevice` virtual machine is ready for you to install a thermostat simulator that uses the gateway to connect to IoT Central.
 
-The `leafdevice` virtual machine needs a copy of the root CA certificate you created on the `edgegateway` virtual machine. Copy the */home/AzureUser/certs/certs/azure-iot-test-only.root.ca.cert.pem* file from the `edgegateway` virtual machine to your home directory on the `leafdevice` virtual machine. You can use the **scp** command to copy files to and from a Linux virtual machine.
+The `leafdevice` virtual machine needs a copy of the root CA certificate you created on the `edgegateway` virtual machine. Copy the */home/AzureUser/certs/certs/azure-iot-test-only.root.ca.cert.pem* file from the `edgegateway` virtual machine to your home directory on the `leafdevice` virtual machine. You can use the **scp** command to copy files between Linux virtual machines.
 
 To learn how to check the connection from the downstream device to the gateway, see [Test the gateway connection](../../iot-edge/how-to-connect-downstream-device.md#test-the-gateway-connection).
 
 To run the thermostat simulator on the `leafdevice` virtual machine:
+
+1. Use SSH to connect to and sign in on your `leafdevice` virtual machine.
 
 1. Download the Python sample to your home directory:
 

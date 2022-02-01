@@ -59,14 +59,33 @@ applications with the basic tier and later [graduate to the standard
 tier](howto-scale-grow.md#add-worker-nodes) with confidence that the
 interface remains the same.
 
-The basic tier is also appropriate for smaller workloads in production. There
-is room to scale vertically *within* the basic tier by increasing the number of
+The basic tier is also appropriate for smaller workloads in production. There’s
+room to scale vertically *within* the basic tier by increasing the number of
 server vCores.
 
 When greater scale is required right away, use the standard tier. Its smallest
 allowed server group has one coordinator node and two workers. You can choose
 to use more nodes based on your use-case, as described in our [initial
 sizing](howto-scale-initial.md) how-to.
+
+#### Tier summary
+
+**Basic tier**
+
+* 2 to 8 vCores, 8 to 32 gigabytes of memory.
+* Consists of a single database node, which can be scaled vertically.
+* Supports sharding on a single node and can be easily upgraded to a standard tier.
+* Economical deployment option for initial development, testing.
+
+**Standard tier**
+
+* 8 to 1000+ vCores, up to 8+ TiB memory
+* Distributed Postgres cluster, which consists of a dedicated coordinator
+  node and at least two worker nodes.
+* Supports Sharding on multiple worker nodes. The cluster can be scaled
+  horizontally by adding new worker nodes, and scaled vertically by
+  increasing the node vCores.
+* Best for performance and scale.
 
 ## Next steps
 

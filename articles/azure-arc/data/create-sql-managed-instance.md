@@ -46,7 +46,7 @@ az sql mi-arc create --name <name> --resource-group <group>  --location <Azure l
 Example:
 
 ```azurecli
-az sql mi-arc create --name sqldemo --resource-group rg  --location uswest2 –subscription a97da202-47ad-4de9-8991-9f7cf689eeb9  --custom-location private-location
+az sql mi-arc create --name sqldemo --resource-group rg  --location uswest2 –subscription xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx  --custom-location private-location
 ```
 
 ---
