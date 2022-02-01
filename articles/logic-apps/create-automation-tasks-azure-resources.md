@@ -302,7 +302,7 @@ You can export any automation task that starts with a recurring trigger as an au
 
 1. On the **Overview** pane toolbar, select **Export** > **Export to Automation Task**.
 
-   :::image type="content" source="/media/create-automation-tasks-azure-resources/export-automation-task.png" alt-text="Screenshot showing 'Overview' pane toolbar with 'Export' menu open and 'Export to Automation Task' selected.":::
+   ![Screenshot showing 'Overview' pane toolbar with 'Export' menu open and 'Export to Automation Task' selected."](./media/create-automation-tasks-azure-resources/export-automation-task.png)
 
 ## Provide feedback
 
