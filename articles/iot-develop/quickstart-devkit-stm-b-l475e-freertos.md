@@ -158,49 +158,33 @@ You can use the **Termite** app to monitor communication and confirm that your d
 
 1. Select OK.
 1. Press the **Reset** button on the device. The button is black and is labeled on the device.
-1. In the **Termite** app, check the following checkpoint values to confirm that the device is initialized and connected to Azure IoT.
+1. In the **Termite** app, check the output to confirm that the device is initialized and connected to Azure IoT. After some initial connection details, you should begin to see your board sensors sending telemetry to Azure IoT. 
 
-    ```output
-    Starting Azure thread
-
-    Initializing WiFi
-    	Module: ISM43362-M3G-L44-SPI
-	    MAC address: C4:7F:51:8F:67:F6
-    	Firmware revision: C3.5.2.5.STM
-	    Connecting to SSID 'iot'
-    SUCCESS: WiFi connected to iot
-
-    Initializing DHCP
-	    IP address: 192.168.0.22
-	    Gateway: 192.168.0.1
-    SUCCESS: DHCP initialized
-
-    Initializing DNS client
-	    DNS address: 75.75.75.75
-    SUCCESS: DNS client initialized
-
-    Initializing SNTP client
-    	SNTP server 0.pool.ntp.org
-	    SNTP IP address: 108.62.122.57
-	    SNTP time update: May 21, 2021 22:42:8.394 UTC 
-    SUCCESS: SNTP initialized
-
-    Initializing Azure IoT DPS client
-	    DPS endpoint: global.azure-devices-provisioning.net
-	    DPS ID scope: ***
-	    Registration ID: mydevice
-    SUCCESS: Azure IoT DPS client initialized
-
-    Initializing Azure IoT Hub client
-	    Hub hostname: ***.azure-devices.net
-	    Device id: mydevice
-	    Model id: dtmi:azurertos:devkit:gsgstml4s5;1
-    Connected to IoT Hub
-    SUCCESS: Azure IoT Hub client initialized
+    ```output 
+    Successfully sent telemetry message
+    [INFO] [MQTT] [receivePacket:885] Packet received. ReceivedBytes=2.
+    [INFO] [MQTT] [handlePublishAcks:1161] Ack packet deserialized with result: MQTTSuccess.
+    [INFO] [MQTT] [handlePublishAcks:1174] State record updated. New state=MQTTPublishDone.
+    Puback received for packet id: 0x00000003
+    [INFO] [AzureIoTDemo] [ulCreateTelemetry:197] Telemetry message sent {"magnetometerX":-204,"magnetometerY":-215,"magnetometerZ":-875}
+    
+    Successfully sent telemetry message
+    [INFO] [MQTT] [receivePacket:885] Packet received. ReceivedBytes=2.
+    [INFO] [MQTT] [handlePublishAcks:1161] Ack packet deserialized with result: MQTTSuccess.
+    [INFO] [MQTT] [handlePublishAcks:1174] State record updated. New state=MQTTPublishDone.
+    Puback received for packet id: 0x00000004
+    [INFO] [AzureIoTDemo] [ulCreateTelemetry:197] Telemetry message sent {"accelerometerX":22,"accelerometerY":4,"accelerometerZ":1005}
+    
+    Successfully sent telemetry message
+    [INFO] [MQTT] [receivePacket:885] Packet received. ReceivedBytes=2.
+    [INFO] [MQTT] [handlePublishAcks:1161] Ack packet deserialized with result: MQTTSuccess.
+    [INFO] [MQTT] [handlePublishAcks:1174] State record updated. New state=MQTTPublishDone.
+    Puback received for packet id: 0x00000005
+    [INFO] [AzureIoTDemo] [ulCreateTelemetry:197] Telemetry message sent {"gyroscopeX":0,"gyroscopeY":-700,"gyroscopeZ":350}
     ```
+
     > [!IMPORTANT]
     > If the DNS client initialization fails and notifies you that the Wi-Fi firmware is out of date, you'll need to update the Wi-Fi module firmware. Download and install the [Inventek ISM 43362 Wi-Fi module firmware update](https://www.st.com/resource/en/utilities/inventek_fw_updater.zip). Then press the **Reset** button on the device to recheck your connection, and continue with this quickstart.
-
 
 Keep Termite open to monitor device output in the following steps.
 
@@ -209,7 +193,7 @@ Keep Termite open to monitor device output in the following steps.
 To view the device status in the IoT Central portal:
 1. From the application dashboard, select **Devices** on the side navigation menu.
 1. Confirm that the **Device status** of the device is updated to **Provisioned**.
-1. Confirm that the **Device template** of the device has updated to **Getting Started Guide**.
+1. Confirm that the **Device template** of the device has been updated to  **STM L475 FreeRTOS Getting Started Guide.**
 
     :::image type="content" source="media/quickstart-devkit-stm-b-l475e-freertos/iot-central-device-view-status.png" alt-text="Screenshot of device status in IoT Central":::
 
@@ -231,11 +215,11 @@ You can also use IoT Central to call a command that you have implemented on your
 To call a command in IoT Central portal:
 
 1. Select the **Command** tab from the device page.
-1. Select **State**, and then select **Run**.  The LED light should turn on.
+1. Set the **State** dropdown value to *True*, and then select **Run**.  The LED light should turn on.
 
     :::image type="content" source="media/quickstart-devkit-stm-b-l475e-freertos/iot-central-invoke-method.png" alt-text="Screenshot of calling a direct method on a device in IoT Central":::
 
-1. Deselect **State**, and then select **Run**. The LED light should turn off.
+1. Set the **State** dropdown value to *False*, and then select **Run**.  The LED light should turn off.
 
 ## View device information
 
