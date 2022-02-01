@@ -1,6 +1,6 @@
 ---
 title: Enable authentication in your own Node web application using Azure AD B2C
-description: Follow this how to guide to learn how to enable authentication in your own node.js web application using Azure AD B2C 
+description: This article explains how to enable authentication in your own node.js web application using Azure AD B2C 
 titleSuffix: Azure AD B2C
 services: active-directory-b2c
 author: kengaderdus
@@ -100,9 +100,9 @@ In the `signin.hbs` file, add the following code:
     
     :::code language="JavaScript" source="~/active-directory-b2c-msal-node-sign-in-sign-out-webapp/index.js" id="ms_docref_view_tepmplate_engine":::
 
-## Step 5: Add app express routes
+## Step 5: Add express routes
 
-Before you add the app route, add the logic that retrieves the authorization code URL. This is the first leg of authorization code grant flow. In the `index.js` file, add the following code:
+Before you add the app route, add the logic that retrieves the authorization code URL, which is the first leg of authorization code grant flow. In the `index.js` file, add the following code:
 
 :::code language="JavaScript" source="~/active-directory-b2c-msal-node-sign-in-sign-out-webapp/index.js" id="ms_docref_authorization_code_url":::
 
@@ -112,28 +112,28 @@ In the `index.js` file, add the following code:
 
 :::code language="JavaScript" source="~/active-directory-b2c-msal-node-sign-in-sign-out-webapp/index.js" id="ms_docref_app_endpoints":::
 
-The app express routes are:
+The express routes are:
 - `/`:
     - It's used to enter the web app.
     - It renders the `signin` page.
 - `/signin`:
     - It's used when you signs in.
     - It calls the `getAuthCode()` method and passes `authority` for the **Sign in and sign up** user flow/policy, `APP_STATES.LOGIN`, and an empty `scopes` array to it.  
-    - If necessary, it causes a challenge on you to enter your credentials. If the you don't have an account, it prompts you to sign up.
+    - If necessary, it causes a challenge on you to enter your credentials. If you don't have an account, it prompts you to sign up.
     - The final response that results from this route includes an authorization code from Azure AD B2C posted back to the `/redirect` route. 
 - `/password`:
-    - It's used when a you reset a password.
+    - It's used when you reset a password.
     - It calls the `getAuthCode()` method and passes `authority` for the **Password reset** user flow/policy, `APP_STATES.PASSWORD_RESET`, and an empty `scopes` array to it.
     - It enables you to change your password by using the password reset experience, or they can cancel the operation.
     - The final response that results from this route includes an authorization code from Azure AD B2C posted back to the `/redirect` route. If you cancel the operation, an error is posted back. 
 - `/profile`: 
-    - It's used when you updates your profile.
+    - It's used when you update your profile.
     - It calls the `getAuthCode()` method and passes `authority` for the **Profile editing** user flow/policy, `APP_STATES.EDIT_PROFILE`, and an empty `scopes` array to it.
     - It enables you to update your profile, and you use the profile-editing experience. 
     - The final response that results from this route includes an authorization code from Azure AD B2C posted back to the `/redirect` route. 
 - `/signout`:
-    - It's used when you igns out.
-    - The web app session is cleared, and an HTTP call is made to the Azure AD B2C logout endpoint. 
+    - It's used when you sign out.
+    - The web app clears the session, and makes an HTTP call to the Azure AD B2C sign out endpoint. 
 - `/redirect`:
     - It's the route set as Redirect URI for the web app in Azure portal.
     - It uses the `state` query parameter in the request from Azure AD B2C to differentiate between requests that are made from the web app. It handles all redirects from Azure AD B2C, except for sign out.
@@ -141,12 +141,16 @@ The app express routes are:
     - If the app state is `APP_STATES.PASSWORD_RESET`, it handles any error, such as `user cancelled the operation`. The`AADB2C90091` error code identifies this error. Otherwise, it decides the next user experience. 
     - If the app state is `APP_STATES.EDIT_PROFILE`, it uses the authorization code to acquire a token. The token contains `idTokenClaims`, which includes the new changes. 
 
-## Start the Node server 
+## Step 6: Start the Node server 
 To start the Node server, add the following code in the `index.js` file:
 
 :::code language="JavaScript" source="~/active-directory-b2c-msal-node-sign-in-sign-out-webapp/index.js" id="ms_docref_start_node_server":::
 
-## Run your web app
+After you make all the changes required in `index.js` file, it should look similar to the following file:
+
+:::code language="JavaScript" source="~/active-directory-b2c-msal-node-sign-in-sign-out-webapp/index.js":::
+
+## Step 7: Run your web app
 
 Follow the steps in [Run your web app](configure-a-sample-node-web-app.md#run-the-sample-web-app) to test your Node.js web app. 
 
