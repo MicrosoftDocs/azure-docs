@@ -128,39 +128,39 @@ To limit the interface bandwidth, use the `cyberx-xsense-limit-interface` CLI to
 
 ## Export sensor information
 
-In addition to tools for monitoring and analyzing your network, you can send information to the support team for further investigation. When you export logs, the sensor will automatically generate a one-time password (OTP), unique for the exported logs, in a separate text file.
+In addition to tools for monitoring and analyzing your network, you can export logs for further investigation.
+
+- When you export logs, the sensor will automatically generate a one-time password (OTP), unique for the exported logs, in a separate text file.
+- The exported logs are added to the **Archived Logs** list.
+- Send the OTP to the support team in a separate message and medium from the exported logs. The support team will be able to extract exported logs only by using the unique OTP that's used to encrypt the logs.
+- The list of archived logs can contain up to five items. If the number of items in the list goes beyond that number, the earliest item is deleted.
 
 Export logs as follows:
 
 1. On the left pane, select **System Settings**.
-1. Select **Export Logs**.
-1. In the **File Name** field, enter the file name that you want to use for the log export. The default is the current date.
-1. To define what data you want to export, select the data categories:  
+1. Under **Sensor management**, select **Backup & Restore**.
+1. In **File Name**, type the name you want to use for the log export. The default is the current date.
+1. You can export all data, all system data to investigate system state, or select specific logs.
 
     | Export category | Description |
     |--|--|
-    | **Operating System Logs** | Select this option to get information about the operating system state. |
-    | **Installation/Upgrade logs** | Select this option for investigation of the installation and upgrade configuration parameters. |
-    | **System Sanity Output** | Select this option to check system performance. |
-    | **Dissection Logs** | Select this option to allow advanced inspection of protocol dissection. |
-    | **OS Kernel Dumps** | Select this option to export your kernel memory dump. A kernel memory dump contains all the memory that the kernel is using at the time of the problem that occurred in this kernel. The size of the dump file is smaller than the complete memory dump. Typically, the dump file is around one-third the size of the physical memory on the system. |
-    | **Forwarding logs** | Select this option for investigation of the forwarding rules. |
-    | **SNMP Logs** | Select this option to receive SNMP health check information. |
     | **Core Application Logs** | Select this option to export data about the core application configuration and operation. |
-    | **Communication with CM logs** | Select this option if there are continuous problems or interruptions of connection with the management console. |
-    | **Web Application Logs** | Select this option to get information about all the requests sent from the application's web interface. |
-    | **System Backup** | Select this option to export a backup of all the system data for investigating the exact state of the system. |
-    | **Dissection Statistics** | Select this option to allow advanced inspection of protocol statistics. |
+    | **Communication with CM logs** | Select this option if there are continuous problems or interruptions of connection with the management console. |  | **SNMP Logs** | Select this option to receive SNMP health check information. |
+    | **System Sanity Output** | Select this option to check system performance. |
+    | **Dissection Logs** | Select this option to check protocol logs. |
     | **Database Logs** | Select this option to export logs from the system database. Investigating system logs helps identify system problems. |
-    | **Configuration** | Select this option to export information about all the configurable parameters to make sure everything was configured correctly. |
+    | **Operating System Logs** | Select this option to get information about the operating system state. |
+    | **OS Kernel Dumps** | Select this option to export your kernel memory dump. A kernel memory dump contains all the memory that the kernel is using at the time of the problem that occurred in this kernel. The size of the dump file is smaller than the complete memory dump. Typically, the dump file is around one-third the size of the physical memory on the system. |
+    | **Configuration** | Select this option to export information about all the configurable parameters to make sure everything was configured correctly.
+    | **Web Application Logs** | Select this option to get information about all the requests sent from the application's web interface. |
+    | **Forwarding logs** | Select this option for investigation of the forwarding rules. |
+    | **Installation/Upgrade logs** | Select this option for investigation of the installation and upgrade configuration parameters. |
+    | **Dissection Statistics** | Select this option to allow advanced inspection of protocol statistics. |
+    | **Profiling Service Log** | Select this option to allow advanced inspection of protocol statistics. |
 
-1. To select all the options, select **Select All** next to **Choose Categories**.
+1. Select **Export**.
 
-1. Select **Export Logs**.
 
-The exported logs are added to the **Archived Logs** list. Send the OTP to the support team in a separate message and medium from the exported logs. The support team will be able to extract exported logs only by using the unique OTP that's used to encrypt the logs.
-
-The list of archived logs can contain up to five items. If the number of items in the list goes beyond that number, the earliest item is deleted.
 
 ## Troubleshoot the on-premises console
 
@@ -225,7 +225,9 @@ Audit logs record key information at the time of occurrence. Audit logs are usef
 | **Login** | User |
 | **User creation** | User, User role |
 | **Password reset** | User name |
-| **Exclusion rules**: </br></br>- Creation </br></br>- Editing </br></br>- Deletion | </br></br>Rule summary </br></br>Rule ID, Rule Summary </br></br>Rule ID |
+| **Exclusion rules-Creation**| Rule summary |
+| **Exclusion rules-Editing**| Rule ID, Rule Summary |
+| **Exclusion rules-Deletion** | Rule ID |
 | **Management Console Upgrade** | The upgrade file used |
 | **Sensor upgrade retry** | Sensor ID |
 | **Uploaded TI package** | No additional information recorded. |
