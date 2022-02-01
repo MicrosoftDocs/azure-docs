@@ -65,7 +65,7 @@ You might need to prepare and clean the data in your storage account before load
 
 ### Define the tables
 
-You must first defined the table(s) you are loading to in your dedicated SQL pool when using the COPY statement.
+You must first define the table(s) you are loading to in your dedicated SQL pool when using the COPY statement.
 
 If you are using PolyBase, you need to define external tables in your dedicated SQL pool before loading. PolyBase uses external tables to define and access the data in Azure Storage. An external table is similar to a database view. The external table contains the table schema and points to data that is stored outside the dedicated SQL pool.
 
