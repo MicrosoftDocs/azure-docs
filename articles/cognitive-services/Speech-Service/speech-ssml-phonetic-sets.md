@@ -135,7 +135,7 @@ The Speech service phone set puts stress after the vowel of the stressed syllabl
 | aa ~   | `ɑ̃`  | **en**fant    | enf**en**t      | t**em**ps |
 | ax     | `ə`   |               | p**e**tite      | l**e**    |
 | eh     | `ɛ`   | **e**lle      | p**e**rdu       | ét**ai**t |
-| eu     | `ø`   | **œu**fs      | cr**eu**ser     | qu**eu**  |
+| eu     | `ø`   | **œu**fs      | cr**eu**ser     | qu**eu**e  |
 | ey     | `e`   | ému           | crétin          | ôté       |
 | eh ~   | `ɛ̃`  | **im**portant | p**ein**ture    | mat**in** |
 | iy     | `i`   | **i**dée      | pet**i**te      | am**i**   |
