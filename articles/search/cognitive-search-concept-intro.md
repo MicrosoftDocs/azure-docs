@@ -43,7 +43,7 @@ AI enrichment is available in regions where Azure Cognitive Services is also ava
 
 If your search service is located in one of these regions, you won't be able to create and use skillsets, but all other search service functionality is available and fully supported.
 
-Billing is under a pay-as-you-go pricing model. The costs of using built-in skills are passed on to the customer when you provide a multi-region Cognitive Services key. There are also costs associated with image extraction, as metered by Cognitive Search. Text extraction and utility skills aren't billable. For more information, see [How you're charged for Azure Cognitive Search](search-sku-manage-costs#how-youre-charged-for-azure-cognitive-search).
+Billing is under a pay-as-you-go pricing model. The costs of using built-in skills are passed on to the customer when you provide a multi-region Cognitive Services key. There are also costs associated with image extraction, as metered by Cognitive Search. Text extraction and utility skills aren't billable. For more information, see [How you're charged for Azure Cognitive Search](search-sku-manage-costs.md#how-youre-charged-for-azure-cognitive-search).
 
 ## When to use AI enrichment
 
