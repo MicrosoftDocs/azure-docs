@@ -37,7 +37,7 @@ IoT Hub enforces the following limitations:
 * An 8-kb size limit on the value of tags.
 * A 32-kb size limit on both the value of `properties/desired` and `properties/reported`.
 
-For more information, see [Module twin size](iot-hub-devguide-module-twins.md#module-twin-size).
+For more information, see [Module twin size](../iot-hub/iot-hub-devguide-module-twins.md#module-twin-size).
 
 ### Number of nested hierarchy layers
 An IoT Edge device has a limit of five layers of IoT Edge devices linked as children below it.
@@ -48,16 +48,16 @@ For more information, see [Parent and child relationships](iot-edge-as-gateway.m
 ### Routing syntax
 IoT Edge and IoT Hub routing syntax is almost identical.
 Supported query syntax:
-* [Message routing query based on message properties](iot-hub-devguide-routing-query-syntax.md#message-routing-query-based-on-message-properties)
-* [Message routing query based on message body](iot-hub-devguide-routing-query-syntax.md#message-routing-query-based-on-message-body)
+* [Message routing query based on message properties](../iot-hub/iot-hub-devguide-routing-query-syntax.md#message-routing-query-based-on-message-properties)
+* [Message routing query based on message body](../iot-hub/iot-hub-devguide-routing-query-syntax.md#message-routing-query-based-on-message-body)
 
 Not supported query syntax:
-* [Message routing query based on device twin](iot-hub-devguide-routing-query-syntax.md#message-routing-query-based-on-device-twin)
+* [Message routing query based on device twin](../iot-hub/iot-hub-devguide-routing-query-syntax.md#message-routing-query-based-on-device-twin)
 
 ### File upload
 IoT Hub only supports file upload APIs for device identities, not module identities. Since IoT Edge exclusively uses modules, file upload isn't natively supported in IoT Edge.
 
-For more information on uploading files with IoT Hub, see [Upload files with IoT Hub](iot-hub-devguide-file-upload.md).
+For more information on uploading files with IoT Hub, see [Upload files with IoT Hub](../iot-hub/iot-hub-devguide-file-upload.md).
 
 
 ### Number of modules in a deployment
@@ -66,4 +66,4 @@ IoT Hub has the following limitations for IoT Edge automatic deployments:
 * 100 deployments (including layered deployments per paid SKU hub)
 * 10 deployments per free SKU hub
 
-For more information, see [IoT Hub other limits](iot-hub-devguide-quotas-throttling.md#other-limits).
+For more information, see [IoT Hub other limits](../iot-hub/iot-hub-devguide-quotas-throttling.md#other-limits).
