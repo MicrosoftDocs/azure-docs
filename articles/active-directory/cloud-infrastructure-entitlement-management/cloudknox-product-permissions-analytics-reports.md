@@ -19,7 +19,7 @@ This article describes how to generate and download the **Permissions analytics 
 > [!NOTE]
 > This topic applies only to Amazon Web Services (AWS) users.
 
-## Generate and download the Permissions analytics report 
+## Generate the Permissions analytics report 
 
 1. In the CloudKnox home page, select the **Reports** tab, and then select the **Systems reports** subtab.
     The **Systems Reports** subtab displays the following options in the **Reports** table:
