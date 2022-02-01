@@ -88,7 +88,7 @@ Take the following steps to export an SSL certificate with private key on a Wind
 
 8. Choose to save the file in a set location.
 
-    ![Screenshot of the File to Export page of the Certificate Export Wizard with a certificate file selected. The File Name option and Next button are highlighted.](media/azure-stack-edge-gpu-manage-certificates/export-cert-pfx-7.png)
+    ![Screenshot of the completion page of the Certificate Export Wizard for a certificate exported in DER format. The Finish button is highlighted.](media/azure-stack-edge-gpu-manage-certificates/export-cert-pfx-7.png)
   
 9. Select **Finish**.
 
@@ -96,7 +96,7 @@ Take the following steps to export an SSL certificate with private key on a Wind
 
 10. You receive a message that the export was successful. Select **OK**.
 
-    ![Screenshot of the completion page of the Certificate Export Wizard for a certificate exported in DER format. The Finish button is highlighted.](media/azure-stack-edge-gpu-manage-certificates/export-cert-pfx-9.png)
+    ![Screenshot showing the notification for a successful certificate export. The OK button is highlighted.](media/azure-stack-edge-gpu-manage-certificates/export-cert-pfx-9.png)
 
 The .pfx file backup is now saved in the selected location, and is ready to be moved or stored for safekeeping.
 
