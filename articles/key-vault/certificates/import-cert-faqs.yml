@@ -59,7 +59,7 @@ sections:
         answer: |
           Each certificate name must be unique. A certificate with the same name might be in a soft-deleted state. Also, according to the [composition of a certificate](./about-certificates.md#composition-of-a-certificate), when new certificate is created, it creates an addressable secret with the same name so if there's another key or secret in the key vault with the same name as the one you're trying to specify for your certificate, the certificate creation will fail and you'll need to either remove that key or secret or use a different name for your certificate. 
           
-          For more information, see [Get Deleted Certificate operation](/rest/api/keyvault/getdeletedcertificate/getdeletedcertificate).
+          For more information, see [Get Deleted Certificate operation](/rest/api/keyvault/certificates/get-deleted-certificate/get-deleted-certificate).
           
       - question: |
           Why am I getting "Error type: char length is too long"?

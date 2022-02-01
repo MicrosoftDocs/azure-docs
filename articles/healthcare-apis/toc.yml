@@ -20,7 +20,12 @@ items:
   expanded: true
   items:
     - name: Deploy Healthcare APIs
-      href: healthcare-apis-quickstart.md
+      expanded: true
+      items:
+        - name: Using Portal
+          href: healthcare-apis-quickstart.md
+        - name: Using Bicep
+          href: deploy-healthcare-apis-using-bicep.md
 - name: How-to guides
   expanded: true
   items:
