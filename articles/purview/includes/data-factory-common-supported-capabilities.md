@@ -75,4 +75,4 @@ In additional to lineage, the data asset schema (shown in Asset -> Schema tab) i
 
 #### Limitations on data flow lineage
 
-Currently, data flow lineage doesn't integrate with Purview [resource set](../concept-resource-sets.md).
+Currently, data flow lineage doesn't integrate with Azure Purview [resource set](../concept-resource-sets.md).

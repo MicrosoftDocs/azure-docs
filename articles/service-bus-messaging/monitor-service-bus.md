@@ -128,6 +128,15 @@ Following are sample queries that you can use to help you monitor your Azure Ser
     | where Category == "OperationalLogs"
     | summarize count() by EventName_s, _ResourceId
     ```
++ Get runtime audit logs generated in the last one hour. 
+
+    ```Kusto
+    AzureDiagnostics
+    | where TimeGenerated > ago(1h)
+    | where ResourceProvider =="MICROSOFT.SERVICEBUS"
+    | where Category == "RuntimeAuditLogs"    
+    ```
+
 
 + Get access attempts to a key vault that resulted in "key not found" error.
 

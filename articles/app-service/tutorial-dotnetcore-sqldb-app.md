@@ -4,7 +4,7 @@ description: Learn how to get a .NET Core app working in Azure App Service, with
 
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 10/06/2021
+ms.date: 01/27/2022
 ms.custom: "devx-track-csharp, mvc, cli-validate, seodec18, devx-track-azurecli"
 zone_pivot_groups: app-service-platform-windows-linux
 ---
@@ -29,11 +29,10 @@ In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Create a SQL Database in Azure
-> * Connect an ASP.NET Core app to SQL Database
+> * Connect an ASP.NET Core app to SQL Database and run [database migrations](/ef/core/managing-schemas/migrations)
 > * Deploy the app to Azure
 > * Update the data model and redeploy the app
 > * Stream diagnostic logs from Azure
-> * Manage the app in the Azure portal
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -42,7 +41,7 @@ In this tutorial, you learn how to:
 To complete this tutorial:
 
 - <a href="https://git-scm.com/" target="_blank">Install Git</a>
-- <a href="https://dotnet.microsoft.com/download/dotnet/5.0" target="_blank">Install the latest .NET 5.0 SDK</a>
+- <a href="https://dotnet.microsoft.com/download/dotnet/6.0" target="_blank">Install the latest .NET 6.0 SDK</a>
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
@@ -61,7 +60,7 @@ In this step, you set up the local ASP.NET Core project.
     cd dotnetcore-sqldb-tutorial
     ```
 
-    The sample project contains a basic CRUD (create-read-update-delete) app using [Entity Framework Core](/ef/core/).
+    The sample project contains a basic CRUD (create-read-update-delete) app using ASP.NET Core 6.0 and [Entity Framework Core](/ef/core/).
 
 1. Make sure the default branch is `main`.
 
@@ -74,7 +73,7 @@ In this step, you set up the local ASP.NET Core project.
 
 ### Run the application
 
-1. Run the following commands to install the required packages, run database migrations, and start the application.
+1. Run the following commands to install the [EF Core tools](/ef/core/cli/), run [database migrations](/ef/core/managing-schemas/migrations), and start the application.
 
     ```bash
     dotnet tool install -g dotnet-ef
@@ -172,15 +171,15 @@ This is the connection string for your ASP.NET Core app. Copy it for use later.
 In your local repository, open Startup.cs and find the following code:
 
 ```csharp
-services.AddDbContext<MyDatabaseContext>(options =>
-        options.UseSqlite("Data Source=localdatabase.db"));
+builder.Services.AddDbContext<MyDatabaseContext>(options =>
+                    options.UseSqlite("Data Source=localdatabase.db"));
 ```
 
 Replace it with the following code.
 
 ```csharp
-services.AddDbContext<MyDatabaseContext>(options =>
-        options.UseSqlServer(Configuration.GetConnectionString("MyDbConnection")));
+builder.Services.AddDbContext<MyDatabaseContext>(options =>
+        options.UseSqlServer(builder.Configuration.GetConnectionString("MyDbConnection")));
 ```
 
 > [!IMPORTANT]
@@ -467,7 +466,7 @@ While the ASP.NET Core app runs in Azure App Service, you can get the console lo
 The sample project already follows the guidance for the [Azure App Service logging provider](/dotnet/core/extensions/logging-providers#azure-app-service) with two configuration changes:
 
 - Includes a reference to `Microsoft.Extensions.Logging.AzureAppServices` in *DotNetCoreSqlDb.csproj*.
-- Calls `loggerFactory.AddAzureWebAppDiagnostics()` in *Program.cs*.
+- Calls `builder.Logging.AddAzureWebAppDiagnostics()` in *Program.cs*.
 
 1. To set the ASP.NET Core [log level](/dotnet/core/extensions/logging#log-level) in App Service to `Information` from the default level `Error`, use the [`az webapp log config`](/cli/azure/webapp/log#az_webapp_log_config) command in the Cloud Shell.
 
@@ -499,11 +498,10 @@ What you learned:
 
 > [!div class="checklist"]
 > * Create a SQL Database in Azure
-> * Connect a ASP.NET Core app to SQL Database
+> * Connect an ASP.NET Core app to SQL Database and run [database migrations](/ef/core/managing-schemas/migrations)
 > * Deploy the app to Azure
 > * Update the data model and redeploy the app
-> * Stream logs from Azure to your terminal
-> * Manage the app in the Azure portal
+> * Stream diagnostic logs from Azure
 
 Advance to the next tutorial to learn how to map a custom DNS name to your app.
 
@@ -511,6 +509,9 @@ Advance to the next tutorial to learn how to map a custom DNS name to your app.
 > [Tutorial: Map custom DNS name to your app](app-service-web-tutorial-custom-domain.md)
 
 Or, check out other resources:
+
+> [!div class="nextstepaction"]
+> [Tutorial: Connect to SQL Database from App Service without secrets using a managed identity](tutorial-connect-msi-sql-database.md)
 
 > [!div class="nextstepaction"]
 > [Configure ASP.NET Core app](configure-language-dotnetcore.md)

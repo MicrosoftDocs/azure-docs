@@ -1,11 +1,11 @@
 ---
 title: Configure Azure HPC Cache settings
 description: Explains how to configure additional settings for the cache like MTU, custom NTP and DNS configuration, and how to access the express snapshots from Azure Blob storage targets.
-author: femila
+author: ronhogue
 ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 04/08/2021
-ms.author: femila
+ms.author: rohogue
 ---
 
 # Configure additional Azure HPC Cache settings
@@ -76,7 +76,7 @@ Consider using a test cache to check and refine your DNS setup before you use it
 
 ### Refresh storage target DNS
 
-If your DNS server updates IP addresses, the associated NFS storage targets will become temporarily unavailable. Read how to update your custom DNS system IP addresses in [View and manage storage targets](manage-storage-targets.md#update-ip-address-custom-dns-configurations-only).
+If your DNS server updates IP addresses, the associated NFS storage targets will become temporarily unavailable. Read how to update your custom DNS system IP addresses in [View and manage storage targets](manage-storage-targets.md#update-ip-address).
 
 ## View snapshots for blob storage targets
 

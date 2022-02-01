@@ -10,7 +10,7 @@ ms.topic: sample
 author: rothja
 ms.author: jroth
 ms.reviewer: mathoma
-ms.date: 01/05/2022
+ms.date: 01/26/2022 
 ---
 
 # Use CLI to add an Azure SQL Database elastic pool to a failover group
@@ -18,6 +18,8 @@ ms.date: 01/05/2022
 [!INCLUDE[appliesto-sqldb](../../includes/appliesto-sqldb.md)]
 
 This Azure CLI script example creates a single database, adds it to an elastic pool, creates a failover group, and tests failover.
+
+[!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../../includes/azure-cli-prepare-your-environment.md)]
 
