@@ -51,13 +51,14 @@ Execute the steps in the [data-owner policy authoring tutorial](how-to-data-owne
 
 ![Image shows a sample data owner policy giving access to a resource group.](./media/tutorial-data-owner-policies-resource-group/data-owner-policy-example-resource-group.png)
 
+>[!Important]
+> - Publish is a background operation. It can take up to **2 hours** for the changes to be reflected in Storage account(s).
+
 ## Additional information
+- Creating a policy at subscription or resource group level will enable the Subjects to access Azure Storage system containers e.g., *$logs*. If this is undesired, first scan the data source and then create finer-grained policies for each (i.e., at container or sub-container level).
 
 ### Limits
 The limit for Azure Purview policies that can be enforced by Storage accounts is 100MB per subscription, which roughly equates to 5000 policies.
-
->[!Important]
-> - Publish is a background operation. It can take up to **2 hours** for the changes to be reflected in the data source.
 
 ## Next steps
 Check blog, demo and related tutorials

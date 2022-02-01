@@ -73,7 +73,7 @@ In this example a `ExpressionRule`, which is a subtype of `RouterRule` can be us
 ```csharp
 await client.SetClassificationPolicyAsync(
     id: "my-policy-id",
-    new ExpressionRule("If(job.Urgent = true, 10, 5)")
+    prioritizationRule: new ExpressionRule("If(job.Urgent = true, 10, 5)")
 );
 ```
 
