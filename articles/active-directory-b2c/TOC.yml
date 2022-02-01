@@ -129,13 +129,17 @@
         href: enable-authentication-spa-app.md
       - name: Authentication options
         href: enable-authentication-spa-app-options.md
-    - name: Node web app/web api
+    - name: Node.js web app
       items:
-      - name: Configure a sample Node web app
+      - name: Configure a sample Node.js web app
         href: configure-a-sample-node-web-app.md
-      - name: Enable authentication in Node web app
+      - name: Enable authentication in Node.js web app
         href: enable-authentication-in-node-web-app.md
-      - name: Enable authentication in node web API
+      - name: Authentication options
+        href: enable-authentication-in-node-web-app-options.md
+    - name: Node.js web app that calls a web API
+      items:
+      - name: Enable authentication in Node.js web API
         href: enable-authentication-in-node-web-api.md
     - name: Angular single-page application
       items:
