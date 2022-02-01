@@ -28,7 +28,7 @@ You can use the Speech SDK or Speech Command Line Interface (CLI). The Batch tra
 
 There are some situations where [training a custom model](custom-speech-overview.md) that includes phrases is likely the best option to improve accuracy. In these cases you would not use a phrase list: 
 - If you need to use a large list of phrases. A phrase list shouldn't have more than 500 phrases. 
-- If you need a phrase list for languages that are not currently supported. For supported Phrase list locales see [Language and voice support for the Speech service](language-support.md#phrase-list).
+- If you need a phrase list for languages that are not currently supported. For supported phrase list locales see [Language and voice support for the Speech service](language-support.md#phrase-list).
 - If you use a custom endpoint. Phrase lists can't be used with custom endpoints. 
 
 ## Try it in Speech Studio
@@ -41,9 +41,9 @@ For example, let's say that you want the Speech service to recognize this senten
 After testing, you might find that it's incorrectly recognized as:
 "Hi **everyone**, this is **Jesse** from **can't do so bank**."
 
-In this case you would want to add "Rehaan", "Jessie", and "Contoso" to your phrase list. Then the name should be recognized correctly. 
+In this case you would want to add "Rehaan", "Jessie", and "Contoso" to your phrase list. Then the names should be recognized correctly. 
 
-Now try Speech Studio to see how Phrase list can improve recognition accuracy.
+Now try Speech Studio to see how phrase list can improve recognition accuracy.
 
 > [!NOTE]
 > You may be prompted to select your Azure subscription and Speech resource, and then acknowledge billing for your region. If you are new to Azure or Speech, see [Try the Speech service for free](overview.md#try-the-speech-service-for-free).
