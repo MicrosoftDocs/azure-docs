@@ -69,14 +69,14 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 ```
 
 > [!TIP]
-> Use the link below to execute this request! After signing in, your browser should be redirected to `http://localhost/myapp/` with a `code` in the address bar.
+> Select the link below to execute this request! After signing in, your browser should be redirected to `http://localhost/myapp/` with a `code` in the address bar.
 > <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=code&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&response_mode=query&scope=openid%20offline_access%20https%3A%2F%2Fgraph.microsoft.com%2Fmail.read&state=12345" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/authorize...</a>
 
 | Parameter    | Required/optional | Description |
 |--------------|-------------|--------------|
 | `tenant`     | required    | The `{tenant}` value in the path of the request can be used to control who can sign into the application. Valid values are `common`, `organizations`, `consumers`, and tenant identifiers. For guest scenarios where you sign a user from one tenant into another tenant, you *must* provide the tenant identifier to sign them into the resource tenant. For more information, see [Endpoints](active-directory-v2-protocols.md#endpoints). |
 | `client_id`  | required    | The **Application (client) ID** that the [Azure portal – App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) experience assigned to your app.  |
-| `response_type` | required    | Must include `code` for the authorization code flow. Can also include `id_token` or `token` if using the [hybrid flow](#request-an-id-token-as-well). |
+| `response_type` | required    | Must include `code` for the authorization code flow. Can also include `id_token` or `token` if using the [hybrid flow](#request-an-id-token-as-well-or-hybrid-flow). |
 | `redirect_uri` | required | The `redirect_uri` of your app, where authentication responses can be sent and received by your app. It must exactly match one of the redirect URIs you registered in the portal, except it must be URL-encoded. For native and mobile apps, use one of the recommended values: `https://login.microsoftonline.com/common/oauth2/nativeclient` for apps using embedded browsers or `http://localhost` for apps that use system browsers. |
 | `scope`  | required    | A space-separated list of [scopes](v2-permissions-and-consent.md) that you want the user to consent to.  For the `/authorize` leg of the request, this parameter can cover multiple resources. This value allows your app to get consent for multiple web APIs you want to call. |
 | `response_mode`   | recommended | Specifies the method that should be used to send the resulting token back to your app. It can be one of the following values:<br/><br/>- `query`<br/>- `fragment`<br/>- `form_post`<br/><br/>`query` provides the code as a query string parameter on your redirect URI. If you're requesting an ID token using the implicit flow, you can't use `query` as specified in the [OpenID spec](https://openid.net/specs/oauth-v2-multiple-response-types-1_0.html#Combinations). If you're requesting just the code, you can use `query`, `fragment`, or `form_post`. `form_post` executes a POST containing the code to your redirect URI. |
@@ -106,7 +106,7 @@ code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...
 | `code` | The `authorization_code` that the app requested. The app can use the authorization code to request an access token for the target resource. Authorization codes are short lived. Typically, they expire after about 10 minutes. |
 | `state` | If a `state` parameter is included in the request, the same value should appear in the response. The app should verify that the state values in the request and response are identical. |
 
-You can also receive an ID token if you request one and have the implicit grant enabled in your application registration. This behavior is sometimes referred to as the [*hybrid flow*](#request-an-id-token-as-well). It's used by frameworks like ASP.NET.
+You can also receive an ID token if you request one and have the implicit grant enabled in your application registration. This behavior is sometimes referred to as the [*hybrid flow*](#request-an-id-token-as-well-or-hybrid-flow). It's used by frameworks like ASP.NET.
 
 #### Error response
 
@@ -132,14 +132,14 @@ The following table describes the various error codes that can be returned in th
 | `invalid_request` | Protocol error, such as a missing required parameter. | Fix and resubmit the request. This error is a development error typically caught during initial testing. |
 | `unauthorized_client` | The client application isn't permitted to request an authorization code. | This error usually occurs when the client application isn't registered in Azure AD or isn't added to the user's Azure AD tenant. The application can prompt the user with instruction for installing the application and adding it to Azure AD. |
 | `access_denied`  | Resource owner denied consent  | The client application can notify the user that it can't continue unless the user consents. |
-| `unsupported_response_type` | The authorization server doesn't support the response type in the request. | Fix and resubmit the request. This error is a development error typically caught during initial testing. In the [hybrid flow](#request-an-id-token-as-well), this error signals that you must enable the ID token implicit grant setting on the client app registration. |
+| `unsupported_response_type` | The authorization server doesn't support the response type in the request. | Fix and resubmit the request. This error is a development error typically caught during initial testing. In the [hybrid flow](#request-an-id-token-as-well-or-hybrid-flow), this error signals that you must enable the ID token implicit grant setting on the client app registration. |
 | `server_error`  | The server encountered an unexpected error.| Retry the request. These errors can result from temporary conditions. The client application might explain to the user that its response is delayed to a temporary error. |
 | `temporarily_unavailable`   | The server is temporarily too busy to handle the request. | Retry the request. The client application might explain to the user that its response is delayed because of a temporary condition. |
 | `invalid_resource`  | The target resource is invalid because it does not exist, Azure AD can't find it, or it's not correctly configured. | This error indicates the resource, if it exists, hasn't been configured in the tenant. The application can prompt the user with instruction for installing the application and adding it to Azure AD. |
 | `login_required` | Too many or no users found. | The client requested silent authentication (`prompt=none`), but a single user couldn't be found. This error may mean there are multiple users active in the session, or no users. This error takes into account the tenant chosen. For example, if there are two Azure AD accounts active and one Microsoft account, and `consumers` is chosen, silent authentication works. |
 | `interaction_required` | The request requires user interaction. | Another authentication step or consent is required. Retry the request without `prompt=none`. |
 
-### Request an ID token as well
+### Request an ID token as well or hybrid flow
 
 To learn who the user is before redeeming an authorization code, it's common for applications to also request an ID token when they request the authorization code. This approach is called the *hybrid flow* because it mixes the implicit grant with the authorization code flow.
 
