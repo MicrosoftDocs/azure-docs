@@ -14,7 +14,7 @@ ms.date: 02/24/2022
 ---
 
 # Auto-failover groups overview
-[!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
+[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 > [!div class="op_single_selector"]
 > * [Azure SQL DB & MI](auto-failover-group-overview.md)
