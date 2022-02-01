@@ -284,7 +284,7 @@ When you change the underlying workflow for an automation task, your changes aff
 
 <a name="export-template"></a>
 
-## Export any workflow to an automation task template
+## Export a recurring workflow to an automation task template
 
 You can export any Consumption logic app workflow that starts with a recurring trigger to use as an automation task template.
 
