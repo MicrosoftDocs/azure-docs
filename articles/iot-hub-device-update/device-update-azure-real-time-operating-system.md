@@ -23,7 +23,7 @@ In this tutorial you will learn how to:
 If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
-* Access to an IoT Hub. It is recommended that you use a S1 (Standard) tier or above.
+* Access to an IoT Hub. It is recommended that you use a S1 (Standard) tier or higher.
 * A Device Update instance and account linked to your IoT Hub. Follow the guide to [create and link](./create-device-update-account.md) a device update account if you have not done so previously.
 
 ## Get started
@@ -58,7 +58,7 @@ Learn more about [Azure RTOS](/azure/rtos/).
 2. Select the Device Updates option under Automatic Device Management from the left-hand navigation bar.
 3. Select the Groups tab at the top of the page. 
 4. Select the Add button to create a new group.
-5. Select the IoT Hub tag you created in the previous step from the list. Select Create update group.
+5. Select the IoT Hub tag that you created in the previous step from the list. Select Create update group.
 
    :::image type="content" source="media/create-update-group/select-tag.PNG" alt-text="Screenshot showing tag selection." lightbox="media/create-update-group/select-tag.PNG":::
 
