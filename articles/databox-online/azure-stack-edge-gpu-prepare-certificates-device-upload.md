@@ -14,7 +14,7 @@ ms.author: alkohli
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
-This article describes how to convert the certificates into appropriate format so these are ready to upload on your Azure Stack Edge device. This procedure is typically required when you bring your own certificates.
+This article describes how to convert the certificates into appropriate format for upload on your Azure Stack Edge device. This procedure is typically required when you bring your own certificates.
 
 To know more about how to create these certificates, see [Create certificates using Azure PowerShell](azure-stack-edge-gpu-create-certificates-powershell.md).
 
@@ -99,7 +99,7 @@ Take the following steps to export an SSL certificate with private key on a Wind
 
     ![Export certificate 9](media/azure-stack-edge-gpu-manage-certificates/export-cert-pfx-9.png)
 
-The .pfx file backup is now saved in the location you selected and is ready to be moved or stored for your safekeeping.
+The .pfx file backup is now saved in the selected location, and is ready to be moved or stored for safekeeping.
 
 
 ## Next steps
