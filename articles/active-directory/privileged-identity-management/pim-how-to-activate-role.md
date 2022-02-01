@@ -1,5 +1,5 @@
 ---
-title: Activate my Azure AD roles in PIM - Azure Active Directory | Microsoft Docs
+title: Activate Azure AD roles in PIM - Azure Active Directory | Microsoft Docs
 description: Learn how to activate Azure AD roles in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
@@ -11,13 +11,13 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 10/07/2021
+ms.date: 02/02/2021
 ms.author: curtand
 ms.reviewer: shaunliu
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ---
-# Activate my Azure AD roles in PIM
+# Activate an Azure AD role in PIM
 
 Azure Active Directory (Azure AD) Privileged Identity Management (PIM) simplifies how enterprises manage privileged access to resources in Azure AD and other Microsoft online services like Microsoft 365 or Microsoft Intune.  
 
@@ -213,15 +213,7 @@ If you don't require activation of a role that requires approval, you can cancel
 
 ## Deactivate a role assignment
 
-five minutes
-UX deactivate a role assignment can't within five minutes of activation
-
-"SQL Server 2019 Big Data Clusters" and "big data clusters"
-WACTH
-WACHT
-Press deaCTIVATE LOOKS LIKE IT DOES BUT THERE'S A LAG
-not instantaneous
-Section in Activate articles for Deactivate. AD roles
+When a role assignment is activated, you'll see a **Deactivate** option in the PIM portal for the role assignment. When you select **Deactivate**, there's a short time lag before the role is deactivated. Also, you can't deactivate a role assignment within five minutes after activation.
 
 ## Troubleshoot portal delay
 

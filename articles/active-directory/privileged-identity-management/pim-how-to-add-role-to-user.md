@@ -25,6 +25,11 @@ The Azure AD Privileged Identity Management (PIM) service also allows Privileged
 
 Privileged Identity Management support both built-in and custom Azure AD roles. For more information on Azure AD custom roles, see [Role-based access control in Azure Active Directory](../roles/custom-overview.md).
 
+>[!Note]
+>When a role is assigned, the assignment:
+>- Can't be made for a duration of less than five minutes period 
+>- Can't be removed within five minutes of it being assigned.
+
 ## Assign a role
 
 Follow these steps to make a user eligible for an Azure AD admin role.

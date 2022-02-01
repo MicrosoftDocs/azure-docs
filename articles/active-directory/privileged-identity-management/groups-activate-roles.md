@@ -79,6 +79,10 @@ If you do not require activation of a role that requires approval, you can cance
 
     When you select **Cancel**, the request will be canceled. To activate the role again, you will have to submit a new request for activation.
 
+## Deactivate a role assignment
+
+When a role assignment is activated, you'll see a **Deactivate** option in the PIM portal for the role assignment. When you select **Deactivate**, there's a short time lag before the role is deactivated. Also, you can't deactivate a role assignment within five minutes after activation.
+
 ## Troubleshoot
 
 ### Permissions are not granted after activating a role

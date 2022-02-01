@@ -35,6 +35,11 @@ Privileged Identity Management support both built-in and custom Azure roles. For
 
 You can use the Azure attribute-based access control (Azure ABAC) preview to place resource conditions on eligible role assignments using Privileged Identity Management (PIM). With PIM, your end users must activate an eligible role assignment to get permission to perform certain actions. Using Azure attribute-based access control conditions in PIM enables you not only to limit a user’s role permissions to a resource using fine-grained conditions, but also to use PIM to secure the role assignment with a time-bound setting, approval workflow, audit trail, and so on. For more information, see [Azure attribute-based access control public preview](../../role-based-access-control/conditions-overview.md).
 
+>[!Note]
+>When a role is assigned, the assignment:
+>- Can't be made for a duration of less than five minutes period 
+>- Can't be removed within five minutes of it being assigned.
+
 ## Assign a role
 
 Follow these steps to make a user eligible for an Azure resource role.
