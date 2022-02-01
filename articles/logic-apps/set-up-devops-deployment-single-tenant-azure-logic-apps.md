@@ -47,7 +47,7 @@ Both samples include the following resources that a logic app uses to run.
 | Azure storage account | Yes, for both stateful and stateless workflows | This Azure resource stores the metadata, keys for access control, state, inputs, outputs, run history, and other information about your workflows. |
 | Application Insights | Optional | This Azure resource provides monitoring capabilities for your workflows. |
 | API connections | Optional, if none exist | These Azure resources define any managed API connections that your workflows use to run managed connector operations, such as Office 365, SharePoint, and so on. <p><p>**Important**: In your logic app project, the **connections.json** file contains metadata, endpoints, and keys for any managed API connections and Azure functions that your workflows use. To use different connections and functions in each environment, make sure that you parameterize the **connections.json** file and update the endpoints. <p><p>For more information, review [API connection resources and access policies](#api-connection-resources). |
-| Azure Resource Manager (ARM) template | Optional | This Azure resource defines a baseline infrastructure deployment that you can reuse or [export](../azure-resource-manager/templates/template-tutorial-export-template.md). The template also includes the required access policies, for example, to use managed API connections. <p><p>**Important**: Exporting the ARM template won't include all the related parameters for any API connection resources that your workflows use. For more information, review [Find API connection parameters](#find-api-connection-parameters). |
+| Azure Resource Manager (ARM) template | Optional | This Azure resource defines a baseline infrastructure deployment that you can reuse or [export](../azure-resource-manager/templates/template-tutorial-export-template.md). |
 ||||
 
 <a name="api-connection-resources"></a>
@@ -77,11 +77,12 @@ To set up a build pipeline based on your logic app project type, complete the co
 
 ### Before release to Azure
 
-You will need to update the Visual Studio artifacts before they can be released to Azure. Specifically the managed API connections inside the Visual Studio connections.json file are created for Visual Studio Code local use. You need to update them so that they are in the correct format to be used in Azure. The difference is in authentication methods.
+You need to update the Visual Studio artifacts before they can be released to Azure. Specifically the managed API connections inside the Visual Studio connections.json file are created for Visual Studio Code local use. You must update them so that they are in the correct format to be used in Azure. The difference is in authentication methods.
 
 #### Update authentication type
 
-You need to update the *authentication" field from this Visual Studio Code local format
+You must update the *authentication" field from this Visual Studio Code local format (the first cide snippet) to to this portal format (the second code snippet).
+
 ```json
 {
   "managedApiConnections": {
@@ -102,7 +103,6 @@ You need to update the *authentication" field from this Visual Studio Code local
   }
 ```
 
-to this portal format
 ```json
 {
   "managedApiConnections": {
@@ -123,7 +123,7 @@ to this portal format
 
 #### Create API connections as needed
 
-If you are deploying the workflow to a different region or subscription from the local development, you also need to make sure to create these managed API connections before the deployment. The easiest way to create managed API connections is to use ARM deployment. Here is an example of ARM template to create a SQL managed API connection.
+If you are deploying the workflow to a different region or subscription from the local development, you also must make sure to create these managed API connections before the deployment. The easiest way to create managed API connections is to use ARM deployment. Here is an example of ARM template to create a SQL managed API connection.
 
 ```json
 {
@@ -350,9 +350,9 @@ az logicapp deployment source config-zip --name MyLogicAppName
 
 ### After release to Azure
 
-Each API connection has access policies. After the zip deployment, you need to open the logic app in portal and create access policies for each API connection to give permission for the current logic app.
+Each API connection has access policies. After the zip deployment, you must open the logic app in portal and create access policies for each API connection to give permission for the current logic app.
 
-The zip deployment does not create app settings. So after the deployment, you need to create these app settings based on the local.settings.json file in your local Visual Studio Code project.
+The zip deployment does not create app settings for you. So after the deployment, you must create these app settings based on the local.settings.json file in your local Visual Studio Code project.
 
 ## Next steps
 
