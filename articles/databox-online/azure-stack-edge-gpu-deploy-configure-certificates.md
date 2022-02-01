@@ -129,7 +129,7 @@ If you're using Azure Storage Explorer, you'll need to install certificates on y
 
 > [!IMPORTANT]
 > - The download link is only available for device-generated certificates. It's not available if you bring your own certificates.
-> - You can decide to have a mix of device-generated certificates and bring your own certificates as long as other certificate requirements are met. For more information, go to [Certificate requirements](azure-stack-edge-gpu-certificate-requirements.md).
+> - You can use a mix of device-generated certificates and your own certificates as long as you meet all certificate requirements. For more information, go to [Certificate requirements](azure-stack-edge-gpu-certificate-requirements.md).
 
 
 ## Bring your own certificates
