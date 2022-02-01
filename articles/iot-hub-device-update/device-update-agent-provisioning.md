@@ -3,7 +3,7 @@ title: Provisioning Device Update for Azure IoT Hub Agent| Microsoft Docs
 description: Provisioning Device Update for Azure IoT Hub Agent
 author: ValOlson
 ms.author: valls
-ms.date: 2/16/2021
+ms.date: 1/26/2022
 ms.topic: how-to
 ms.service: iot-hub-device-update
 ---
@@ -16,7 +16,7 @@ The Device Update Module agent can run alongside other system processes and [IoT
 
 We have added many new capabilities to the Device Update agent in the latest Public Preview Refresh agent (version 0.8.0). See [list of new capabilities](https://github.com/Azure/iot-hub-device-update/blob/main/docs/agent-reference/whats-new.md) for details.
 
-If you are using the Device Update agent versions 0.6.0 or 0.7.0 please upgrade to the latest agent version 0.8.0. See [Public Preview Refresh agent for changes and how to upgrade](https://github.com/Azure/iot-hub-device-update/blob/main/docs/agent-reference/upgrade-guide.md)
+If you are using the Device Update agent versions 0.6.0 or 0.7.0 please migrate to the latest agent version 0.8.0. See [Public Preview Refresh agent for changes and how to upgrade](migration-pp-to-ppr.md)
 
 You can check installed version of the Device Update agent and the Delivery Optimization agent in the Device Properties section of your [IoT device twin](../iot-hub/iot-hub-devguide-device-twins.md). [Learn more about device properties under ADU Core Interface](device-update-plug-and-play.md#device-properties).
 
@@ -78,6 +78,8 @@ This section describes how to provision the Device Update agent as a module iden
 * IoT Edge enabled devices, or 
 * Non-Edge IoT devices, or
 * Other IoT devices. 
+
+To check if you have IoT Edge enabled on your device, please refer to the [IoT Edge installation instructions](../iot-edge/how-to-provision-single-device-linux-symmetric.md?preserve-view=true&view=iotedge-2020-11).
  
 Follow all or any of the below sections to add the Device update agent based on the type of IoT device you are managing. 
 
@@ -85,7 +87,7 @@ Follow all or any of the below sections to add the Device update agent based on 
 
 Follow these instructions to provision the Device Update agent on [IoT Edge enabled devices](../iot-edge/index.yml).
 
-1. Follow the instructions to [Manually provision a single Linux IoT Edge device](../iot-edge/how-to-provision-single-device-linux-symmetric.md?preserve-view=true&view=iotedge-2020-11).
+1. Follow the instructions to [Manually provision a single Linux IoT Edge device](../iot-edge/how-to-provision-single-device-linux-symmetric.md?preserve-view=true&view=iotedge-2020-11#install-iot-edge).
 
 1. Install the Device Update image update agent.
 
@@ -134,7 +136,11 @@ Follow these instructions to provision the Device Update agent on your IoT Linux
     sudo cp /etc/aziot/config.toml.template /etc/aziot/config.toml 
     ```
    
-1. Next edit the configuration file to include the connection string of the device you wish to act as the provisioner for this device or machine. In a terminal, enter the below command.
+1. Next edit the configuration file to include the connection string of the device you wish to act as the provisioner for this device or machine. 
+
+    The connection string is obtained from the IoT Device propoerties. Please see [Add Device to IoT Hub](device-update-simulator.md#add-device-to-azure-iot-hub) for more information. 
+
+    Once you have the connection string, enter the below command in the terminal.
 
     ```shell
     sudo nano /etc/aziot/config.toml
