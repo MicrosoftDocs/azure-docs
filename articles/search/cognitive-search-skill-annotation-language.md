@@ -11,7 +11,7 @@ ms.date: 01/27/2022
 ---
 # Skill context and input annotation language
 
-Azure Cognitive Search skills can use and enrich the data coming from the data source and from the output of other skills.
+Azure Cognitive Search skills can use and [enrich the data coming from the data source and from the output of other skills](cognitive-search-defining-skillset.md).
 During the indexing process, the data is internally organized in a tree-like structure that can be queried to be used as skill inputs or to be added to the index.
 The nodes in the tree can be simple values such as strings and numbers, arrays, or complex objects.
 Even simple values can be enriched with additional structured information.
@@ -256,3 +256,7 @@ Parentheses can be used to change or disambiguate evaluation order.
 =3*2+5 → 11
 =3*(2+5) → 21
 ```
+
+## See also
++ [Create a skillset in Azure Cognitive Search](cognitive-search-defining-skillset.md)
++ [Reference annotations in an Azure Cognitive Search skillset](cognitive-search-concept-annotations-syntax.md)
