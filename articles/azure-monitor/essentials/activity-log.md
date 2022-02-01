@@ -179,9 +179,9 @@ This section describes legacy methods for collecting the Activity log that were 
 Log profiles are the legacy method for sending the Activity log to Azure storage or Event Hubs. Use the following procedure to continue working with a log profile or to disable it in preparation for migrating to a diagnostic setting.
 
 1. From the **Azure Monitor** menu in the Azure portal, select **Activity log**.
-3. Click **Diagnostic settings**.
+3. Click **Export Activity Logs**.
 
-   ![Diagnostic settings](media/activity-log/diagnostic-settings.png)
+   ![Export activity logs](media/activity-log/diagnostic-settings-export.png)
 
 4. Click the purple banner for the legacy experience.
 
@@ -276,7 +276,7 @@ The legacy method for sending the Activity log into a Log Analytics workspace is
 To disable the setting, perform the same procedure and click **Disconnect** to remove the subscription from the workspace.
 
 ### Data structure changes
-Diagnostic settings send the same data as the legacy method used to send the Activity log with some changes to the structure of the *AzureActivity* table.
+The Export activity logs experience, sends the same data as the legacy method used to send the Activity log with some changes to the structure of the *AzureActivity* table.
 
 The columns in the following table have been deprecated in the updated schema. They still exist in *AzureActivity* but they will have no data. The replacements for these columns are not new, but they contain the same data as the deprecated column. They are in a different format, so you may need to modify log queries that use them. 
 
@@ -407,7 +407,6 @@ Click the **Azure Activity Logs** tile to open the **Azure Activity Logs** view.
 
 
 ## Next steps
-
 * [Read an overview of platform logs](./platform-logs-overview.md)
 * [Review Activity log event schema](activity-log-schema.md)
 * [Create diagnostic setting to send Activity logs to other destinations](./diagnostic-settings.md)
