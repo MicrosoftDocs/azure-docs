@@ -46,6 +46,19 @@ The profile points to a single hub. The user can only connect to the particular 
 
    ![Hub profile 3](./media/global-hub-profile/download.png)
 
+## (Optional) Include/exclude gateway from global profile
+
+By default, every hub's gateway is included in the global VPN profile. 
+
+1. To include/exclude a specific hub's gateway from the global profile, select **Include/Exclude Gateway from Global Profile**
+
+1. Select **Exclude** if you wish to remove this hub's gateway from the WAN Global User VPN Profile. Users who are using the Hub-level User VPN profile will still be able to connect to this gateway. Users who are using the WAN-level profile will not be able to connect to this gateway.
+
+1. Select **Include** if you wish to include this hub's gateway in the Virtual WAN Global User VPN Profile. Users who are using this WAN-level profile will be able to connect to this gateway. 
+
+
+![Hub profile 4](./media/global-hub-profile/include-exclude.png)
+
 ## Next steps
 
 To learn more about Virtual WAN, see the [Virtual WAN Overview](virtual-wan-about.md) page.
