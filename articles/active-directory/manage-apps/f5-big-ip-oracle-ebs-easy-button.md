@@ -84,9 +84,9 @@ Prior BIG-IP experience isn’t necessary, but you need:
 
 * User identities [synchronized](../hybrid/how-to-connect-sync-whatis.md) from an on-premises directory to Azure AD or created directly within Azure AD and flowed back to your on-premises directory
 
- * An account with Azure AD application admin [permissions](/azure/active-directory/users-groups-roles/directory-assign-admin-roles#application-administrator)
+* An account with Azure AD application admin [permissions](/azure/active-directory/users-groups-roles/directory-assign-admin-roles#application-administrator)
 
-* [SSL certificate](./f5-bigip-deployment-guide#ssl-profile) for publishing services over HTTPS
+* [SSL certificate](f5-bigip-deployment-guide#ssl-profile) for publishing services over HTTPS
 
 * An existing Oracle EBS suite including Oracle AccessGate and an LDAP enabled OID (Oracle Internet Database)
 
