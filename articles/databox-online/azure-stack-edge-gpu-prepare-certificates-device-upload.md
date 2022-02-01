@@ -76,6 +76,8 @@ Take the following steps to export an SSL certificate with private key on a Wind
 
 6. Choose **Include all certificates in certificate path if possible**, **Export all extended properties** and **Enable certificate privacy**.
 
+   When you include all certificates in your export, you don't need to add the signing chain certificate separately before adding other certificates when you use the local web UI to configure certificates. For more information, see [Bring your own certificates](azure-stack-edge-gpu-deploy-configure-certificates.md#bring-your-own-certificates).
+
     > [!IMPORTANT]
     > DO NOT select the **Delete Private Key option if export is successful**.
 
