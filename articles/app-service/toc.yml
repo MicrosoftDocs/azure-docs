@@ -70,7 +70,7 @@
           href: tutorial-connect-overview.md
         - name: Managed identity with SQL DB
           href: tutorial-connect-msi-sql-database.md
-        - name: Key vault with Cognitive services
+        - name: Key vault with Cognitive Services
           href: tutorial-connect-msi-key-vault.md
 
     - name: Secure app accesses storage, and Microsoft Graph

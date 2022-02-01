@@ -26,7 +26,7 @@ Benefits of managed identity:
 * No additional cost
 * No code changes
 
-:::image type="content" source="media/tutorial-connect-overview/when-use-managed-identities.png" alt-text="Image showing source and target resources for managed identity":::
+:::image type="content" source="media/tutorial-connect-overview/when-use-managed-identities.png" alt-text="Image showing source and target resources for managed identity.":::
 
 Learn which [services](/azure/active-directory/managed-identities-azure-resources/managed-identities-status) are supported with managed identity and what [operations you can perform](/azure/active-directory/managed-identities-azure-resources/overview).
 
@@ -52,7 +52,7 @@ Secrets include:
 |Keys and access tokens|Cognitive service API Key<br>GitHub personal access token<br>Twitter consumer keys and authentication tokens|
 |Connection strings|Database connection strings such as SQL server or MongoDB|
 
-:::image type="content" source="media/tutorial-connect-overview/app-service-connect-key-vault-managed-identity.png" alt-text="Image showing app service using a secret stored in Key Vault and managed with Managed identity to connect to Cognitive Services"::: 
+:::image type="content" source="media/tutorial-connect-overview/app-service-connect-key-vault-managed-identity.png" alt-text="Image showing app service using a secret stored in Key Vault and managed with Managed identity to connect to Cognitive Services."::: 
 
 Benefits of managed identity integrated with Key Vault include:
 
