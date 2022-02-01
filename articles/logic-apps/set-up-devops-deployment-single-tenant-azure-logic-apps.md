@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 11/02/2021
+ms.date: 01/31/2022
 
 # As a developer, I want to automate deployment for workflows hosted in single-tenant Azure Logic Apps by using DevOps tools and processes.
 ---
@@ -60,11 +60,70 @@ The following diagram shows the dependencies between your logic app project and 
 
 ![Conceptual diagram showing infrastructure dependencies for a logic app project in the single-tenant Azure Logic Apps model.](./media/set-up-devops-deployment-single-tenant-azure-logic-apps/infrastructure-dependencies.png)
 
-<a name="find-api-connection-parameters"></a>
 
-### Find API connection parameters
+## Deploy logic app resources (zip deploy)
 
-If your workflows use managed API connections, using the export template capability won't include all related parameters. In an ARM template, every [API connection resource definition](logic-apps-azure-resource-manager-templates-overview.md#connection-resource-definitions) has the following general format:
+After you push your logic app project to your source repository, you can set up build and release pipelines that deploy logic apps to infrastructure inside or outside Azure.
+
+### Build your project
+
+To set up a build pipeline based on your logic app project type, complete the corresponding actions listed in the following table:
+
+| Project type | Description and steps |
+|--------------|-----------------------|
+| Nuget-based | The NuGet-based project structure is based on the .NET Framework. To build these projects, make sure to follow the build steps for .NET Standard. For more information, review the [Create a NuGet package using MSBuild](/nuget/create-packages/creating-a-package-msbuild) documentation. |
+| Bundle-based | The extension bundle-based project isn't language-specific and doesn't require any language-specific build steps. You can use any method to zip your project files. <p><p>**Important**: Make sure that your .zip file contains the actual build artifacts, including all workflow folders, configuration files such as host.json, connections.json, and any other related files. |
+|||
+
+### Before release to Azure
+
+You will need to update the Visual Studio artifacts before they can be released to Azure. Specifically the managed API connections inside the Visual Studio connections.json file are created for Visual Studio Code local use. We need to update them so that they are in the correct format to be used in Azure. The difference is in authentication methods.
+
+#### Update authentication type
+
+We need to update the *authentication" field from this Visual Studio Cde local format
+```json
+{
+  "managedApiConnections": {
+    "sql": {
+      "api": {
+        "id": "/subscriptions/88881207-2135-4f08-9999-6577a6d47777/providers/Microsoft.Web/locations/westus/managedApis/sql"
+      },
+      "connection": {
+        "id": "/subscriptions/524c1207-2135-4f08-81f3-6577a6d41405/resourceGroups/ase/providers/Microsoft.Web/connections/sql-8"
+      },
+      "connectionRuntimeUrl": "https://b6724f3007777777.01.common.logic-westus.azure-apihub.net/apim/sql/53d7c5ba145b4fafac92adb0c7777777/",
+      "authentication": {
+        "type": "Raw",
+        "scheme": "Key",
+        "parameter": "@appsetting('sql-connectionKey')"
+      }
+    }
+  }
+```
+
+to this portal format
+```json
+{
+  "managedApiConnections": {
+    "sql": {
+      "api": {
+        "id": "/subscriptions/88881207-2135-4f08-9999-6577a6d47777/providers/Microsoft.Web/locations/westus/managedApis/sql"
+      },
+      "connection": {
+        "id": "/subscriptions/524c1207-2135-4f08-81f3-6577a6d41405/resourceGroups/ase/providers/Microsoft.Web/connections/sql-8"
+      },
+      "connectionRuntimeUrl": "https://b6724f3007777777.01.common.logic-westus.azure-apihub.net/apim/sql/53d7c5ba145b4fafac92adb0c7777777/",
+      "authentication": {
+        "type": "ManagedServiceIdentity",
+      }
+    }
+  }
+```
+
+#### Create API connections as needed
+
+If you are deploying the workflow to a different region or subscription from the local development, you also need to ake sure to create these managed API connections before the deployment. The easist way to create managed API connections is to use ARM deployment. Here is an example of ARM template to create a SQL managed API connection.
 
 ```json
 {
@@ -72,9 +131,22 @@ If your workflows use managed API connections, using the export template capabil
    "apiVersion": "2016–06–01",
    "location": "[parameters('location')]",
    "name": "[parameters('connectionName')]",
-   "properties": {}
+   "properties": {
+      "displayName": "sqltestconnector",
+      "api": {
+         "id": "/subscriptions/{subscription-ID}/providers/Microsoft.Web/locations/{location}/managedApis/sql"
+      },
+      "parameterValues": {
+         "authType": "windows", 
+         "database": "TestDB",
+         "password": "TestPassword",
+         "server": "TestServer",
+         "username": "TestUserName"
+      }
+   }
 }
 ```
+
 
 To find the values that you need to use in the `properties` object for completing the connection resource definition, you can use the following API for a specific connector:
 
@@ -105,20 +177,6 @@ In the response, find the `connectionParameters` object, which contains all the 
 ```
 
 As an alternative, you can review the network trace for when you create a connection in the Logic Apps designer. Find the `PUT` call to the managed API for the connector as previously described, and review the request body for all the information you need.
-
-## Deploy logic app resources (zip deploy)
-
-After you push your logic app project to your source repository, you can set up build and release pipelines that deploy logic apps to infrastructure inside or outside Azure.
-
-### Build your project
-
-To set up a build pipeline based on your logic app project type, complete the corresponding actions listed in the following table:
-
-| Project type | Description and steps |
-|--------------|-----------------------|
-| Nuget-based | The NuGet-based project structure is based on the .NET Framework. To build these projects, make sure to follow the build steps for .NET Standard. For more information, review the [Create a NuGet package using MSBuild](/nuget/create-packages/creating-a-package-msbuild) documentation. |
-| Bundle-based | The extension bundle-based project isn't language-specific and doesn't require any language-specific build steps. You can use any method to zip your project files. <p><p>**Important**: Make sure that your .zip file contains the actual build artifacts, including all workflow folders, configuration files such as host.json, connections.json, and any other related files. |
-|||
 
 ### Release to Azure
 
@@ -290,11 +348,11 @@ az logicapp deployment source config-zip --name MyLogicAppName
 
 ---
 
-### Release to containers
+### After release to Azure
 
-If you containerize your logic app, deployment works mostly the same as any other container you deploy and manage.
+Each API connection has access policies. After the zip deployment, you will need to open the logic app in portal and create access policies for each and every API connection.
 
-For examples that show how to implement an end-to-end container build and deployment pipeline, review [CI/CD for Containers](https://azure.microsoft.com/solutions/architecture/cicd-for-containers/).
+The zip deployment does not create app settings. So after the deployment, you will need to create these app settings based on the content of the local.settings.json file in your local Visual Studio Code project.
 
 ## Next steps
 
