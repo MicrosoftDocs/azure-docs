@@ -98,7 +98,7 @@ Use these steps to regenerate and download the Azure Stack Edge Pro GPU device c
 
     - The **Download** column is now populated. This column has links to download the regenerated certificates. 
 
-        ![Screenshot of the Certificates page on an Azure Stack Edge device. The download links for generated certificates are highlihgted.](./media/azure-stack-edge-gpu-deploy-configure-certificates/generate-certificate-6b.png)
+        ![Screenshot of the Certificates page on an Azure Stack Edge device. The download links for generated certificates are highlighted.](./media/azure-stack-edge-gpu-deploy-configure-certificates/generate-certificate-6b.png)
 
 
 4. Select the download link for a certificate and when prompted, save the certificate. 
@@ -109,7 +109,7 @@ Use these steps to regenerate and download the Azure Stack Edge Pro GPU device c
     
     ![Screenshot showing downloaded certificates in Windows File Explorer. Certificates for an Azure Stack Edge device are highlighted.](./media/azure-stack-edge-gpu-deploy-configure-certificates/generate-certificate-8.png)
 
-    The device generated certificates are saved as DER certificates with the following name format: 
+    The device-generated certificates are saved as DER certificates with the following name format: 
 
     `<Device name>_<Endpoint name>.cer`. These certificates contain the public key for the corresponding certificates installed on the device. 
 
@@ -117,11 +117,11 @@ You will need to install these certificates on the client system that you are us
 
 To import and install these certificates on the client that you are using to access the device, follow the steps in [Import certificates on the clients accessing your Azure Stack Edge Pro GPU device](azure-stack-edge-gpu-manage-certificates.md#import-certificates-on-the-client-accessing-the-device).
 
-If using Azure Storage Explorer, you will need to install certificates on your client in PEM format and you will need to convert the device generated certificates into PEM format.
+If using Azure Storage Explorer, you will need to install certificates on your client in PEM format and you will need to convert the device-generated certificates into PEM format.
 
 > [!IMPORTANT]
-> - The download link is only available for the device generated certificates and not if you bring your own certificates.
-> - You can decide to have a mix of device generated certificates and bring your own certificates as long as other certificate requirements are met. For more information, go to [Certificate requirements](azure-stack-edge-gpu-certificate-requirements.md).
+> - The download link is only available for device-generated certificates. It's not available if you bring your own certificates.
+> - You can decide to have a mix of device-generated certificates and bring your own certificates as long as other certificate requirements are met. For more information, go to [Certificate requirements](azure-stack-edge-gpu-certificate-requirements.md).
 
 
 ## Bring your own certificates
