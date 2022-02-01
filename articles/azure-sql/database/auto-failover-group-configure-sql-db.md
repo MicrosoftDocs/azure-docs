@@ -42,7 +42,7 @@ The following table lists specific permission scopes for Azure SQL Database:
 
 | **Action** | **Permission** | **Scope**|
 | :---- | :---- | :---- | 
-|**Create failover group**| Azure RBAC write access | Primary server </br> Secondary server </br> All databases in failover group |
+| **Create failover group**| Azure RBAC write access | Primary server </br> Secondary server </br> All databases in failover group |
 | **Update failover group** | Azure RBAC write access | Failover group </br> All databases on the current primary server|
 | **Fail over failover group** | Azure RBAC write access | Failover group on new server |
 | | | 
@@ -52,7 +52,7 @@ The following table lists specific permission scopes for Azure SQL Database:
 
 ## Prerequisites
 
-Consider the following prerequisites:
+Consider the following prerequisites for creating your failover group for a single database: 
 
 - The server login and firewall settings for the secondary server must match that of your primary server.
 
@@ -221,7 +221,7 @@ Revert failover group back to the primary server:
 
 ### Prerequisites
 
-Consider the following prerequisites:
+Consider the following prerequisites for creating your failover group for a pooled database: 
 
 - The server login and firewall settings for the secondary server must match that of your primary server.
 
