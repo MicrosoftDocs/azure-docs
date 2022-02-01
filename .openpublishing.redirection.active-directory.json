@@ -746,7 +746,7 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/active-directory/develop/quickstart-v2-javascript-auth-code.md.md",
+            "source_path_from_root": "/articles/active-directory/develop/quickstart-v2-javascript-auth-code.md",
             "redirect_url": "/azure/active-directory/develop/single-page-app-quickstart?pivots=devlang-javascript",
             "redirect_document_id": false
         },
