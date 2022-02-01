@@ -42,7 +42,7 @@ To step through this how-to-guide, you need:
 - A **source** PostgreSQL database server running a lower version of the engine that you want to upgrade.
 - A **target** PostgreSQL database server with the desired major version [Azure Database for PostgreSQL server - Single Server](quickstart-create-server-database-portal.md) or [Azure Database for PostgreSQL - Flexible Server](./flexible-server/quickstart-create-server-portal.md). 
 - A PostgreSQL client system to run the dump and restore commands. It is recommended to use the higher database version. For example, if you are upgrading from PostgreSQL version 9.6 to 11, please use PostgreSQL version 11 client. 
-  - It can be a Linux or Windows client with PostgreSQL installed that have [pg_dump](https://www.postgresql.org/docs/current/static/app-pgdump.html) and [pg_restore](https://www.postgresql.org/docs/current/static/app-pgrestore.html) command-line utilities installed. 
+  - It can be a Linux or Windows client that has PostgreSQL installed and that has the [pg_dump](https://www.postgresql.org/docs/current/static/app-pgdump.html) and [pg_restore](https://www.postgresql.org/docs/current/static/app-pgrestore.html) command-line utilities installed. 
   - Alternatively, you can use [Azure Cloud Shell](https://shell.azure.com) or by clicking the Azure Cloud Shell on the menu bar at the upper right in the [Azure portal](https://portal.azure.com). You will have to login to your account `az login` before running the dump and restore commands.
 - Your PostgreSQL client preferably running in the same region as the source and target servers. 
 
