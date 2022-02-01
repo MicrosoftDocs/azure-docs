@@ -22,7 +22,7 @@ ms.date: 02/24/2022
 
 The auto-failover groups feature allows you to manage the replication and failover of all databases in a managed instance to another region. This article focuses on using the Auto-failover group feature with Azure SQL Database, along with some best practices.  
 
-For a general overview of the feature and information that applies to both Azure SQL Database and Azure SQL Managed Instance, review [Auto-failover groups](../auto-failover-group-overview.md). 
+For a general overview of the feature and information that applies to both Azure SQL Database and Azure SQL Managed Instance, review [Auto-failover groups](auto-failover-group-overview.md). 
 
 To get started, review [Configure auto-failover group](auto-failover-group-configure-sql-db.md). For an end to end experience, see the [Auto-failover group tutorial](failover-group-add-single-database-tutorial.md).
 
@@ -52,7 +52,7 @@ There is some overlap of content in the following articles, be sure to make chan
 
 - **Servers**
 
-  Some or all of the user databases on a [logical server](database/logical-servers.md) can be placed in a failover group. Also, a server supports multiple failover groups on a single server.
+  Some or all of the user databases on a [logical server](logical-servers.md) can be placed in a failover group. Also, a server supports multiple failover groups on a single server.
 
 - **Primary**
 
@@ -105,7 +105,7 @@ Permissions for a failover group are managed via [Azure role-based access contro
 
 Azure RBAC write access is necessary to create and manage failover groups. The [SQL Server Contributor role](../../role-based-access-control/built-in-roles.md#sql-server-contributor) has all the necessary permissions to manage failover groups.
 
-For specific permission scopes, review how to [configure auto-failover groups in Azure SQL Database](database/auto-failover-group-sql-db.md#permissions). 
+For specific permission scopes, review how to [configure auto-failover groups in Azure SQL Database](auto-failover-group-sql-db.md#permissions). 
 
 ## <a name="best-practices-for-sql-database"></a> Overview
 

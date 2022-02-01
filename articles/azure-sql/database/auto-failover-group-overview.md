@@ -18,14 +18,14 @@ ms.date: 02/24/2022
 
 > [!div class="op_single_selector"]
 > * [Azure SQL DB & MI](auto-failover-group-overview.md)
-> * [Azure SQL Database](database/auto-failover-group-sql-db.md)
-> * [Azure SQL Managed Instance](managed-instance/auto-failover-group-sql-mi.md)
+> * [Azure SQL Database](auto-failover-group-sql-db.md)
+> * [Azure SQL Managed Instance](../managed-instance/auto-failover-group-sql-mi.md)
 
 This article provides a brief overview of the auto-failover group feature for disaster recovery for Azure SQL Database and Azure SQL Managed Instance. Auto-failover groups allow you to enable transparent and coordinated geo-failover of multiple database. 
 
 For product specific documentation, see: 
-- [Auto-failover groups with SQL Database](database/auto-failover-group-sql-db.md), [Configure auto-failover group](database/auto-failover-group-configure-sql-db.md)
-- [Auto-failover groups with SQL Database](managed-instance/auto-failover-group-sql-mi.md), [Configure auto-failover group](managed-instance/auto-failover-group-configure-sql-mi.md)
+- Azure SQL Database: [Auto-failover groups overview](auto-failover-group-sql-db.md), and [Configure auto-failover group](auto-failover-group-configure-sql-db.md)
+- Azure SQL Managed Instance: [Auto-failover groups overview](../managed-instance/auto-failover-group-sql-mi.md), and [Configure auto-failover group](../managed-instance/auto-failover-group-configure-sql-mi.md)
 
 ## Overview
 
@@ -62,7 +62,7 @@ There is some overlap of content in the following articles, be sure to make chan
 
 - **Servers**
 
-  Some or all of the user databases on a [logical server](database/logical-servers.md) can be placed in a failover group. Also, a server supports multiple failover groups on a single server.
+  Some or all of the user databases on a [logical server](logical-servers.md) can be placed in a failover group. Also, a server supports multiple failover groups on a single server.
 
 - **Primary**
 
@@ -130,7 +130,7 @@ Permissions for a failover group are managed via [Azure role-based access contro
 
 Azure RBAC write access is necessary to create and manage failover groups. The [SQL Server Contributor role](../../role-based-access-control/built-in-roles.md#sql-server-contributor) has all the necessary permissions to manage failover groups.
 
-For specific permission scopes, review how to configure auto-failover groups in [Azure SQL Database](database/auto-failover-group-sql-db.md#permissions) and [Azure SQL Managed Instance](managed-instance/auto-failover-group-sql-mi.md#permissions). 
+For specific permission scopes, review how to configure auto-failover groups in [Azure SQL Database](uto-failover-group-sql-db.md#permissions) and [Azure SQL Managed Instance](../managed-instance/auto-failover-group-sql-mi.md#permissions). 
 
 
 ## Failover groups and point-in-time restore
@@ -141,15 +141,15 @@ For information about using point-in-time restore with failover groups, see [Poi
 ## Next steps
 
 - For detailed tutorials, see
-  - [Add SQL Database to a failover group](database/failover-group-add-single-database-tutorial.md)
-  - [Add an elastic pool to a failover group](database/failover-group-add-elastic-pool-tutorial.md)
-  - [Add a SQL Managed Instance to a failover group](managed-instance/failover-group-add-instance-tutorial.md)
+  - [Add SQL Database to a failover group](failover-group-add-single-database-tutorial.md)
+  - [Add an elastic pool to a failover group](failover-group-add-elastic-pool-tutorial.md)
+  - [Add a SQL Managed Instance to a failover group](../managed-instance/failover-group-add-instance-tutorial.md)
 - For sample scripts, see:
-  - [Use PowerShell to configure active geo-replication for Azure SQL Database](database/scripts/setup-geodr-and-failover-database-powershell.md)
-  - [Use PowerShell to configure active geo-replication for a pooled database in Azure SQL Database](database/scripts/setup-geodr-and-failover-elastic-pool-powershell.md)
-  - [Use PowerShell to add an Azure SQL Database to a failover group](database/scripts/add-database-to-failover-group-powershell.md)
-  - [Use PowerShell to create an auto-failover group on a SQL Managed Instance](managed-instance/scripts/add-to-failover-group-powershell.md)
-- For a business continuity overview and scenarios, see [Business continuity overview](database/business-continuity-high-availability-disaster-recover-hadr-overview.md)
-- To learn about Azure SQL Database automated backups, see [SQL Database automated backups](database/automated-backups-overview.md).
-- To learn about using automated backups for recovery, see [Restore a database from the service-initiated backups](database/recovery-using-backups.md).
-- To learn about authentication requirements for a new primary server and database, see [SQL Database security after disaster recovery](database/active-geo-replication-security-configure.md).
+  - [Use PowerShell to configure active geo-replication for Azure SQL Database](scripts/setup-geodr-and-failover-database-powershell.md)
+  - [Use PowerShell to configure active geo-replication for a pooled database in Azure SQL Database](scripts/setup-geodr-and-failover-elastic-pool-powershell.md)
+  - [Use PowerShell to add an Azure SQL Database to a failover group](scripts/add-database-to-failover-group-powershell.md)
+  - [Use PowerShell to create an auto-failover group on a SQL Managed Instance](../managed-instance/scripts/add-to-failover-group-powershell.md)
+- For a business continuity overview and scenarios, see [Business continuity overview](business-continuity-high-availability-disaster-recover-hadr-overview.md)
+- To learn about Azure SQL Database automated backups, see [SQL Database automated backups](automated-backups-overview.md).
+- To learn about using automated backups for recovery, see [Restore a database from the service-initiated backups](recovery-using-backups.md).
+- To learn about authentication requirements for a new primary server and database, see [SQL Database security after disaster recovery](active-geo-replication-security-configure.md).

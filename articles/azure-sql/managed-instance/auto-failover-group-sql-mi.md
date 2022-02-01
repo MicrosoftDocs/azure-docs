@@ -22,7 +22,7 @@ ms.date: 02/24/2022
 
 The auto-failover groups feature allows you to manage the replication and failover of all databases in a managed instance to another region. This article focuses on using the Auto-failover group feature with Azure SQL Managed Instance and some best practices. 
 
-For a general overview of the feature and information that applies to both Azure SQL Database and Azure SQL Managed Instance, review [Auto-failover groups](../auto-failover-group-overview.md). 
+For a general overview of the feature and information that applies to both Azure SQL Database and Azure SQL Managed Instance, review [Auto-failover groups](../database/auto-failover-group-overview.md). 
 
 To get started, review [Configure auto-failover group](auto-failover-group-configure-sql-mi.md). For an end to end experience, see the [Auto-failover group tutorial](failover-group-add-instance-tutorial.md).
 
@@ -86,7 +86,7 @@ Permissions for a failover group are managed via [Azure role-based access contro
 
 Azure RBAC write access is necessary to create and manage failover groups. The [SQL Server Contributor role](../../role-based-access-control/built-in-roles.md#sql-server-contributor) has all the necessary permissions to manage failover groups.
 
-For specific permission scopes, review how to [configure auto-failover groups in Azure SQL Managed Instance](managed-instance/auto-failover-group-sql-mi.md#permissions). 
+For specific permission scopes, review how to [configure auto-failover groups in Azure SQL Managed Instance](auto-failover-group-configure-sql-mi.md#permissions). 
 
 
 ## Overview
@@ -139,7 +139,7 @@ For read-write workloads, use `<fog-name>.zone_id.database.windows.net` as the s
 If you have logically isolated read-only workloads that are tolerant to data latency, you can run them on the geo-secondary. To connect directly to the geo-secondary, use `<fog-name>.secondary.<zone_id>.database.windows.net` as the server name.
 
 > [!NOTE]
-> In the Business Critical tier, SQL Managed Instance supports the use of [read-only replicas](read-scale-out.md) to offload read-only query workloads, using the `ApplicationIntent=ReadOnly` parameter in the connection string. When you have configured a geo-replicated secondary, you can use this capability to connect to either a read-only replica in the primary location or in the geo-replicated location.
+> In the Business Critical tier, SQL Managed Instance supports the use of [read-only replicas](../database/read-scale-out.md) to offload read-only query workloads, using the `ApplicationIntent=ReadOnly` parameter in the connection string. When you have configured a geo-replicated secondary, you can use this capability to connect to either a read-only replica in the primary location or in the geo-replicated location.
 >
 > - To connect to a read-only replica in the primary location, use `ApplicationIntent=ReadOnly` and `<fog-name>.<zone_id>.database.windows.net`.
 > - To connect to a read-only replica in the secondary location, use `ApplicationIntent=ReadOnly` and `<fog-name>.secondary.<zone_id>.database.windows.net`.
@@ -176,7 +176,7 @@ Instances in a failover group remain separate Azure resources, and no changes ma
 
 ## <a name="using-failover-groups-and-virtual-network-rules"></a> Use failover groups and virtual network service endpoints
 
-If you are using [Virtual Network service endpoints and rules](vnet-service-endpoint-rule-overview.md) to restrict access to your SQL Managed Instance, be aware that each virtual network service endpoint applies to only one Azure region. The endpoint does not enable other regions to accept communication from the subnet. Therefore, only the client applications deployed in the same region can connect to the primary database. 
+If you are using [Virtual Network service endpoints and rules](../database/vnet-service-endpoint-rule-overview.md) to restrict access to your SQL Managed Instance, be aware that each virtual network service endpoint applies to only one Azure region. The endpoint does not enable other regions to accept communication from the subnet. Therefore, only the client applications deployed in the same region can connect to the primary database. 
 
 ## <a name="preventing-the-loss-of-critical-data"></a> Prevent loss of critical data
 

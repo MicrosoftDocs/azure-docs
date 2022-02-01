@@ -1,6 +1,6 @@
 ---
 title: Configure a failover group
-description: Learn how to configure an auto-failover group for Azure SQL Managed Instance, using the Azure portal, and Azure PowerShell. 
+description: Learn how to configure an auto-failover group for Azure SQL Managed Instance by using the Azure portal, and Azure PowerShell. 
 services: sql-database
 ms.service: sql-managed-instance
 ms.subservice: high-availability
@@ -19,7 +19,7 @@ ms.date: 02/24/2022
 > * [Azure SQL Database](../database/auto-failover-group-configure-sql-db.md)
 > * [Azure SQL Managed Instance](auto-failover-group-configure-sql-mi.md)
 
-This topic teaches you how to configure an [auto-failover group](auto-failover-group-overview.md) for Azure SQL Managed Instance using the Azure portal and Azure PowerShell.
+This topic teaches you how to configure an [auto-failover group](auto-failover-group-sql-mi.md) for Azure SQL Managed Instance using the Azure portal and Azure PowerShell.
 
 
 ## Permissions
@@ -415,7 +415,7 @@ When you set up a failover group between primary and secondary SQL Managed Insta
 - The virtual networks used by the instances of SQL Managed Instance need to be connected through a [VPN Gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md) or [Express Route](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md). When two virtual networks connect through an on-premises network, ensure there is no firewall rule blocking ports 5022, and 11000-11999. Global VNet Peering is supported with the limitation described in the note below.
 
    > [!IMPORTANT]
-   > [On 9/22/2020 support for global virtual network peering for newly created virtual clusters was announced](https://azure.microsoft.com/updates/global-virtual-network-peering-support-for-azure-sql-managed-instance-now-available/). It means that global virtual network peering is supported for SQL managed instances created in empty subnets after the announcement date, as well for all the subsequent managed instances created in those subnets. For all the other SQL managed instances peering support is limited to the networks in the same region due to the [constraints of global virtual network peering](../../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). See also the relevant section of the [Azure Virtual Networks frequently asked questions](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) article for more details. To be able to use global virtual network peering for SQL managed instances from virtual clusters created before the announcement date, consider configuring non-default [maintenance window](./maintenance-window.md) on the instances, as it will move the instances into new virtual clusters that support global virtual network peering.
+   > [On 9/22/2020 support for global virtual network peering for newly created virtual clusters was announced](https://azure.microsoft.com/updates/global-virtual-network-peering-support-for-azure-sql-managed-instance-now-available/). It means that global virtual network peering is supported for SQL managed instances created in empty subnets after the announcement date, as well for all the subsequent managed instances created in those subnets. For all the other SQL managed instances peering support is limited to the networks in the same region due to the [constraints of global virtual network peering](../../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). See also the relevant section of the [Azure Virtual Networks frequently asked questions](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) article for more details. To be able to use global virtual network peering for SQL managed instances from virtual clusters created before the announcement date, consider configuring non-default [maintenance window](../database/maintenance-window.md) on the instances, as it will move the instances into new virtual clusters that support global virtual network peering.
 
 - The two SQL Managed Instance VNets cannot have overlapping IP addresses.
 - You need to set up your Network Security Groups (NSG) such that ports 5022 and the range 11000~12000 are open inbound and outbound for connections from the subnet of the other managed instance. This is to allow replication traffic between the instances.
@@ -434,8 +434,8 @@ When you set up a failover group between primary and secondary SQL Managed Insta
 
 For detailed steps configuring a failover group, see the following tutorials:
 
-- [Add a single database to a failover group](failover-group-add-single-database-tutorial.md)
-- [Add an elastic pool to a failover group](failover-group-add-elastic-pool-tutorial.md)
+- [Add a single database to a failover group](../database/failover-group-add-single-database-tutorial.md)
+- [Add an elastic pool to a failover group](../database/failover-group-add-elastic-pool-tutorial.md)
 - [Add a managed instance to a failover group](../managed-instance/failover-group-add-instance-tutorial.md)
 
-For an overview of Azure SQL Database high availability options, see [geo-replication](active-geo-replication-overview.md) and [auto-failover groups](auto-failover-group-overview.md).
+For an overview of Azure SQL Database high availability options, see [geo-replication](../database/active-geo-replication-overview.md) and [auto-failover groups](../database/auto-failover-group-overview.md).

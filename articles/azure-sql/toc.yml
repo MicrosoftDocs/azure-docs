@@ -127,7 +127,7 @@
         - name: High availability
           href: database/high-availability-sla.md
         - name: Auto-failover groups
-          href: auto-failover-group-overview.md
+          href: database/auto-failover-group-overview.md
         - name: Backup and recovery 
           items:
           - name: Automated backups

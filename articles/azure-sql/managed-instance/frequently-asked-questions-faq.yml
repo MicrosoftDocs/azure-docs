@@ -295,7 +295,7 @@ sections:
         answer: |
           ### Are my system databases replicated to the secondary instance in a failover group?
           
-          System databases are not replicated to the secondary instance in a failover group. Therefore, scenarios that depend on objects from the system databases will be impossible on the secondary instance unless the objects are manually created on the secondary. For workaround, see [Enable scenarios dependent on the object from the system databases](../database/auto-failover-group-overview.md?tabs=azure-powershell#enable-scenarios-dependent-on-objects-from-the-system-databases).
+          System databases are not replicated to the secondary instance in a failover group. Therefore, scenarios that depend on objects from the system databases will be impossible on the secondary instance unless the objects are manually created on the secondary. For workaround, see [Enable scenarios dependent on the object from the system databases](auto-failover-group-sql-mi.md#enable-scenarios-dependent-on-objects-from-the-system-databases).
            
       - question: |
           Networking requirements 
