@@ -12,16 +12,16 @@ You can run App Service, Functions, and Logic Apps on an Azure Arc-enabled Kuber
 > [!NOTE]
 > To learn how to set up your Kubernetes cluster for App Service, Functions, and Logic Apps, see [Create an App Service Kubernetes environment (Preview)](manage-create-arc-environment.md).
 
-In most cases, app developers need to know nothing more than how to deploy to the correct Azure region that represents the deployed Kubernetes environment. For operators who provide the environment and maintain the underlying Kubernetes infrastructure, you need to be aware of the following Azure resources:
+In most cases, app developers need to know nothing more than how to deploy to the correct Azure region that represents the deployed Kubernetes environment. For operators who provide the environment and maintain the underlying Kubernetes infrastructure, you must be aware of the following Azure resources:
 
 - The connected cluster, which is an Azure projection of your Kubernetes infrastructure. For more information, see [What is Azure Arc-enabled Kubernetes?](../azure-arc/kubernetes/overview.md).
-- A cluster extension, which is a sub-resource of the connected cluster resource. The App Service extension [installs the required pods into your connected cluster](#pods-created-by-the-app-service-extension). For more information about cluster extensions, see [Cluster extensions on Azure Arc-enabled Kubernetes](../azure-arc/kubernetes/conceptual-extensions.md).
+- A cluster extension, which is a subresource of the connected cluster resource. The App Service extension [installs the required pods into your connected cluster](#pods-created-by-the-app-service-extension). For more information about cluster extensions, see [Cluster extensions on Azure Arc-enabled Kubernetes](../azure-arc/kubernetes/conceptual-extensions.md).
 - A custom location, which bundles together a group of extensions and maps them to a namespace for created resources. For more information, see [Custom locations on top of Azure Arc-enabled Kubernetes](../azure-arc/kubernetes/conceptual-custom-locations.md).
 - An App Service Kubernetes environment, which enables configuration common across apps but not related to cluster operations. Conceptually, it's deployed into the custom location resource, and app developers create apps into this environment. This resource is described in greater detail in [App Service Kubernetes environment](#app-service-kubernetes-environment).
 
 ## Public preview limitations
 
-The following public preview limitations apply to App Service Kubernetes environments. This list of limitations will be updated as changes and features are made available.
+The following public preview limitations apply to App Service Kubernetes environments. This list of limitations is updated as changes and features are made available.
 
 | Limitation                                              | Details                                                                               |
 |---------------------------------------------------------|---------------------------------------------------------------------------------------|
@@ -58,7 +58,7 @@ The following table describes the role of each pod that is created by default:
 
 The App Service Kubernetes environment resource is required before apps can be created. It enables configuration common to apps in the custom location, such as the default DNS suffix.
 
-Only one Kubernetes environment resource may be created in a custom location. In most cases, a developer who creates and deploys apps doesn't need to be directly aware of the resource. It can be directly inferred from the provided custom location ID. However, when defining Azure Resource Manager templates, any plan resource needs to reference the resource ID of the environment directly. The custom location values of the plan and the specified environment must match.
+Only one Kubernetes environment resource can be created in a custom location. In most cases, a developer who creates and deploys apps doesn't need to be directly aware of the resource. It can be directly inferred from the provided custom location ID. However, when defining Azure Resource Manager templates, any plan resource needs to reference the resource ID of the environment directly. The custom location values of the plan and the specified environment must match.
 
 ## FAQ for App Service, Functions, and Logic Apps on Azure Arc (Preview)
 
@@ -110,11 +110,11 @@ All applications deployed with Azure App Service on Kubernetes with Azure Arc ar
 
 Logs for both system components and your applications are written to standard output. Both log types can be collected for analysis using standard Kubernetes tools. You can also configure the App Service cluster extension with a [Log Analytics workspace](../azure-monitor/logs/log-analytics-overview.md), and it sends all logs to that workspace.
 
-By default, logs from system components are sent to the Azure team. Application logs are not sent. You can prevent these logs from being transferred by setting `logProcessor.enabled=false` as an extension configuration setting. This configuration setting will also disable forwarding of application to your Log Analytics workspace. Disabling the log processor may impact time needed for any support cases, and you will be asked to collect logs from standard output through some other means.
+By default, logs from system components are sent to the Azure team. Application logs are not sent. You can prevent these logs from being transferred by setting `logProcessor.enabled=false` as an extension configuration setting. This configuration setting will also disable forwarding of application to your Log Analytics workspace. Disabling the log processor might impact time needed for any support cases, and you will be asked to collect logs from standard output through some other means.
 
 ### What do I do if I see a provider registration error?
 
-When creating a Kubernetes environment resource, some subscriptions might see a "No registered resource provider found" error. The error details might include a set of locations and api versions that are considered valid. If this error message is returned, the subscription must be re-registered with the Microsoft.Web provider, an operation that has no impact on existing applications or APIs. To re-register, use the Azure CLI to run `az provider register --namespace Microsoft.Web --wait`. Then re-attempt the Kubernetes environment command.
+When creating a Kubernetes environment resource, some subscriptions might see a "No registered resource provider found" error. The error details might include a set of locations and api versions that are considered valid. If this error message is returned, the subscription must be re-registered with the Microsoft.Web provider, an operation that has no impact on existing applications or APIs. To re-register, use the Azure CLI to run `az provider register --namespace Microsoft.Web --wait`. Then reattempt the Kubernetes environment command.
 
 ### Can I deploy the Application services extension on an ARM64 based cluster?
 
@@ -126,7 +126,7 @@ ARM64 based clusters are not supported at this time.
 
 - Initial public preview release of Application services extension.
 - Support for code and container-based deployments of Web, Function, and Logic Applications.
-- Web application runtime support - .NET 3.1 and 5.0; Node JS 12 and 14; Python 3.6, 3.7, and 3.8; PHP 7.3 and 7.4; Ruby 2.5, 2.5.5, 2.6, and 2.6.2; Java SE 8u232, 8u242, 8u252, 11.05, 11.06 and 11.07; Tomcat 8.5, 8.5.41, 8.5.53, 8.5.57, 9.0, 9.0.20, 9.0.33, and 9.0.37.
+- Web application runtime support --- .NET 3.1 and 5.0; Node JS 12 and 14; Python 3.6, 3.7, and 3.8; PHP 7.3 and 7.4; Ruby 2.5, 2.5.5, 2.6, and 2.6.2; Java SE 8u232, 8u242, 8u252, 11.05, 11.06 and 11.07; Tomcat 8.5, 8.5.41, 8.5.53, 8.5.57, 9.0, 9.0.20, 9.0.33, and 9.0.37.
 
 ### Application services extension v 0.10.0 (November 2021)
 
@@ -147,7 +147,7 @@ If your extension was in the stable version and auto-upgrade-minor-version is se
 - Added Application Insights support for Java and .NET Web Applications
 - Added support for .NET 6.0 Web Applications
 - Removed .NET Core 2.0
-- Resolved issues which caused slot swap operations to fail
+- Resolved issues that caused slot swap operations to fail
 - Resolved issues customers experienced during creation of Ruby web applications
 
 If your extension was in the stable version and auto-upgrade-minor-version is set to true, the extension upgrades automatically.  To manually upgrade the extension to the latest version, you can run the command:
