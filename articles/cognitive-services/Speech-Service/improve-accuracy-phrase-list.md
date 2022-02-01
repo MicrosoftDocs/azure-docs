@@ -1,5 +1,5 @@
 ---
-title: Improve recognition accuracy with Phrase lists 
+title: Improve recognition accuracy with phrase list
 description: Phrase lists can be used to customize speech recognition results based on context. 
 author: ut-karsh
 ms.author: umaheshwari
@@ -10,7 +10,7 @@ ms.date: 01/26/2022
 zone_pivot_groups: programming-languages-set-two-with-js-spx
 ---
 
-# Improve recognition accuracy with Phrase lists
+# Improve recognition accuracy with phrase list
 
 A phrase list is a list of words or phrases provided ahead of time to help improve their recognition. Adding a phrase to a phrase list increases its importance, thus making it more likely to be recognized.
 
@@ -20,26 +20,26 @@ Examples of phrases include:
 * Homonyms
 * Words or acronyms unique to your industry or organization
 
-Phrase lists are lightweight and flexible:
+Phrase lists are simple and lightweight:
 - **Just-in-time**: A phrase list is provided just before starting the speech recognition, eliminating the need to train a custom model. 
 - **Lightweight**: You don't need a large data set. Simply provide a word or phrase to give it importance.
 
 You can use the Speech SDK or Speech Command Line Interface (CLI). The Batch transcription API does not support phrase lists. 
 
-There are some situations where [training a custom model](custom-speech-overview.md) that includes phrases is likely the best option to improve accuracy. In these cases you would not use phrase lists. 
+There are some situations where [training a custom model](custom-speech-overview.md) that includes phrases is likely the best option to improve accuracy. In these cases you would not use a phrase list: 
 - If you need to use a large list of phrases. A phrase list shouldn't have more than 500 phrases. 
 - If you need a phrase list for languages that are not currently supported. For supported Phrase list locales see [Language and voice support for the Speech service](language-support.md#phrase-list).
-- If you use a custom endpoint. Phrase lists can't be used custom endpoints. 
+- If you use a custom endpoint. Phrase lists can't be used with custom endpoints. 
 
-## Speech Studio demo
+## Try it in Speech Studio
 
-You can optionally use Speech Studio to compare recognition before and after using phrase lists. To use phrase lists with your application though, you'll use the Speech SDK or Speech CLI. 
+You can use Speech Studio to test how phrase list would help improve recognition for your audio. To implement a phrase list with your application in production, you'll use the Speech SDK or Speech CLI. 
 
 For example, let's say that you want the Speech service to recognize this sentence:<br/>"Abdoulaye Gueye is a Senegalese professional footballer."
 
-You might find later that it's incorrectly recognized as:<br/>"**Abdullah Guy** is a Senegalese professional footballer."
+After testing, you might find that it's incorrectly recognized as:<br/>"**Abdullah Guy** is a Senegalese professional footballer."
 
-In this case you want to add "Abdoulaye Gueye" to your phrase list. Then the name should be recognized. 
+In this case you would want to add "Abdoulaye Gueye" to your phrase list. Then the name should be recognized correctly. 
 
 Now try Speech Studio to see how Phrase list can improve recognition accuracy.
 
@@ -50,12 +50,12 @@ Now try Speech Studio to see how Phrase list can improve recognition accuracy.
 1. Select **Real-time Speech-to-text**.
 1. You test speech recognition by uploading an audio file or recording audio with a microphone. For example, select **record audio with a microphone** and then say "Abdoulaye Gueye is a Senegalese professional footballer." Then select the red button to stop recording. 
 1. You should see the transcription result in the **Test results** text box. If "Abdoulaye Gueye" was not recognized, you can add their name to a phrase list in the next step.
-1. Select **Show advanced options** and make sure **Phrase list** is turned on. 
+1. Select **Show advanced options** and turn on **Phrase list**. 
 1. Enter "Abdoulaye Gueye" in the phrase list text box. Note that multiple phrases need to be separated by a semicolon.
     :::image type="content" source="./media/custom-speech/phrase-list-after-zoom.png" alt-text="Screenshot of a phrase list applied in Speech Studio." lightbox="./media/custom-speech/phrase-list-after-full.png":::
-1. Use the microphone to test recognition again. The name "Abdoulaye Gueye" should be recognized. 
+1. Use the microphone to test recognition again. Otherwise you can select the retry arrow next to your audio file to re-run your audio. The name "Abdoulaye Gueye" should be recognized. 
 
-## Integrate phrases lists
+## Implement phrase list
 
 ::: zone pivot="programming-language-csharp"
 With the [Speech SDK](speech-sdk.md) you add phrases and then run speech recognition. Then you can optionally clear or update the phrase list to take effect before the next recognition.
@@ -108,18 +108,18 @@ phrase_list_grammar.clear()
 ::: zone-end
 
 ::: zone pivot="programmer-tool-spx"
-With the [Speech CLI](spx-overview.md) you include phrases along with the recognize command.
+With the [Speech CLI](spx-overview.md) you can include a phrase list along with the recognize command.
 
 # [Terminal](#tab/terminal)
 
-Try  recognition from a microphone or an audio file. 
+Try recognition from a microphone or an audio file. 
 
 ```console
 spx recognize --microphone --phrases "Abdoulaye Gueye;"
 spx recognize --file "your\path\to\audio.wav" --phrases "Abdoulaye Gueye;"
 ```
 
-You can also use a text file that contains one phrase per line.
+You can also add a phrase list using a text file that contains one phrase per line
 
 ```console
 spx recognize --microphone --phrases @phrases.txt
@@ -128,14 +128,14 @@ spx recognize --file "your\path\to\audio.wav" --phrases @phrases.txt
 
 # [PowerShell](#tab/powershell)
 
-Try  recognition from a microphone or an audio file. 
+Try recognition from a microphone or an audio file. 
 
 ```powershell
 spx --% recognize --microphone --phrases "Abdoulaye Gueye;"
 spx --% recognize --file "your\path\to\audio.wav" --phrases "Abdoulaye Gueye;"
 ```
 
-You can also use a text file that contains one phrase per line.
+You can also add a phrase list using a text file that contains one phrase per line
 
 ```powershell
 spx --% recognize --microphone --phrases @phrases.txt
