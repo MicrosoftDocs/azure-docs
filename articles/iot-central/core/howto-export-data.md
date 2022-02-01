@@ -210,7 +210,7 @@ If you don't have an existing Azure Data Explorer database to export to, follow 
 
 To configure the managed identity that enables your IoT Central application to securely export data to your Azure resource:
 
-1. Create a managed identity for your IoT Central application to use to connect to your database. Use the Azure CLoud Shell to run the following command:
+1. Create a managed identity for your IoT Central application to use to connect to your database. Use the Azure Cloud Shell to run the following command:
 
     ```azurecli
     az iot central app identity assign --name {your IoT Central app name} \
