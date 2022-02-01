@@ -1,6 +1,6 @@
 ---
-title: Create a rule in the in the Autopilot dashboard in Microsoft CloudKnox Permissions Management 
-description: How to create a new rule in the Autopilot dashboard in Microsoft CloudKnox Permissions Management.
+title: Create a rule in the Autopilot dashboard in Microsoft CloudKnox Permissions Management 
+description: How to create a rule in the Autopilot dashboard in Microsoft CloudKnox Permissions Management.
 services: active-directory
 author: Yvonne-deQ
 manager: karenh444
@@ -14,7 +14,10 @@ ms.author: v-ydequadros
 
 # Create a rule in the Autopilot dashboard
  
-This article describes how to create a new rule in the Microsoft CloudKnox Permissions Management (CloudKnox) **Autopilot** dashboard.
+This article describes how to create a rule in the Microsoft CloudKnox Permissions Management (CloudKnox) **Autopilot** dashboard.
+
+> [!NOTE]
+> Only users with the **Administrator** role can view and make changes on this tab.
 
 ## Create a rule for Amazon Web Services (AWS) 
 
@@ -22,30 +25,30 @@ This article describes how to create a new rule in the Microsoft CloudKnox Permi
 1. Select **New rule**.
 1. In the **Rule name** box, enter a name for your rule, and then select **Next**.
 1. Select **AWS**, and then select **Next**. 
-1. Select **All** or the account names you want.
+1. Select **All** or the account names that you want.
 1. From the **Folders** dropdown, select a folder, and then select **Apply**.
 
      To change your folder settings, select **Reset**.
 
 1. In the **Configure** tab, select the following parameters for your rule:
 
-    - **Role created on is** - Select the duration in days.
-    - **Role last used on is** - Select the duration in days when the role was last used.
-    - **Cross account role** - Select **True** or **False**.
+    - **Role created on is** — Select the duration in days.
+    - **Role last used on is** — Select the duration in days when the role was last used.
+    - **Cross account role** — Select **True** or **False**.
 
 1. In the **Mode** tab, if you want recommendations to be generated and applied manually, select **On-demand**.
 1. Select **Save**
 
     The following information displays in the **Autopilot rules** table:
 
-    - **Rule Name** - The name of the rule.
-    - **State** - The status of the rule: idle (not being use) or active (being used).
-    - **Rule Type** - The type of rule being applied. 
-    - **Mode** - The status of the mode: on-demand or not.
-    - **Last Generated** - The date and time the rule was last generated.
-    - **Created By** - The email address of the user who created the rule.
-    - **Last Modified** - The date and time the rule was last modified.
-    - **Subscription** - Provides an **On** or **Off** subscription that allows you to receive email notifications when recommendations have been generated, applied, or unapplied.
+    - **Rule Name** — The name of the rule.
+    - **State** — The status of the rule: idle (not being use) or active (being used).
+    - **Rule Type** — The type of rule being applied. 
+    - **Mode** — The status of the mode: on-demand or not.
+    - **Last Generated** — The date and time the rule was last generated.
+    - **Created By** — The email address of the user who created the rule.
+    - **Last Modified** — The date and time the rule was last modified.
+    - **Subscription** — Provides an **On** or **Off** subscription that allows you to receive email notifications when recommendations have been generated, applied, or unapplied.
 
 ## Create a rule for Microsoft Azure 
 
@@ -53,7 +56,7 @@ This article describes how to create a new rule in the Microsoft CloudKnox Permi
 1. Select **New rule**.
 1. Select **Azure**, and then select **Next**.
 1. In the **Rule name** box, enter a name for your rule, and then select **Next**.
-1. Select **All** or the account names you want.
+1. Select **All** or the account names that you want.
 1. From the **Folders** dropdown, select a folder, and then select **Apply**.
 
      To change your folder settings, select **Reset**.
@@ -64,14 +67,14 @@ This article describes how to create a new rule in the Microsoft CloudKnox Permi
 
     The following information displays in the **Autopilot rules** table:
 
-    - **Rule Name** - The name of the rule.
-    - **State** - The status of the rule: idle (not being use) or active (being used).
-    - **Rule Type** - The type of rule being applied. 
-    - **Mode** - The status of the mode: on-demand or not.
-    - **Last Generated** - The date and time the rule was last generated.
-    - **Created By** - The email address of the user who created the rule.
-    - **Last Modified** - The date and time the rule was last modified.
-    - **Subscription** - Provides an **On** or **Off** subscription that allows you to receive email notifications when recommendations have been generated, applied, or unapplied.
+    - **Rule Name** — The name of the rule.
+    - **State** — The status of the rule: idle (not being use) or active (being used).
+    - **Rule Type** — The type of rule being applied. 
+    - **Mode** — The status of the mode: on-demand or not.
+    - **Last Generated** — The date and time the rule was last generated.
+    - **Created By** — The email address of the user who created the rule.
+    - **Last Modified** — The date and time the rule was last modified.
+    - **Subscription** — Provides an **On** or **Off** subscription that allows you to receive email notifications when recommendations have been generated, applied, or unapplied.
 
 ## Create a rule for Google Cloud Platform (GCP) 
 
@@ -79,31 +82,31 @@ This article describes how to create a new rule in the Microsoft CloudKnox Permi
 1. Select **New rule**.
 1. Select **GCP**, and then select **Next**.
 1. In the **Rule name** box, enter a name for your rule, and then select **Next**.
-1. Select **All** or the account names you want.
+1. Select **All** or the account names that you want.
 1. From the **Folders** dropdown, select a folder, and then select **Apply**.
 
      To change your folder settings, select **Reset**.
 
 1. The **Configure** tab displays the following options:
 
-    - **Cross project** - Select **True** or **False**.
-    - **Unused** - Select a duration in days for how long your rule has not been used.
+    - **Cross project** — Select **True** or **False**.
+    - **Unused** — Select a duration in days for how long your rule has not been used.
 
 1. In the **Mode** tab, if you want recommendations to be generated and applied manually, select **On-demand**.
 1. Select **Save**
 
     The following information displays in the **Autopilot rules** table:
 
-    - **Rule Name** - The name of the rule.
-    - **State** - The status of the rule: idle (not being use) or active (being used).
-    - **Rule Type** - The type of rule being applied. 
-    - **Mode** - The status of the mode: on-demand or not.
-    - **Last Generated** - The date and time the rule was last generated.
-    - **Created By** - The email address of the user who created the rule.
-    - **Last Modified** - The date and time the rule was last modified.
-    - **Subscription** - Provides an **On** or **Off** subscription that allows you to receive email notifications when recommendations have been generated, applied, or unapplied.
+    - **Rule Name** — The name of the rule.
+    - **State** — The status of the rule: idle (not being use) or active (being used).
+    - **Rule Type** — The type of rule being applied. 
+    - **Mode** — The status of the mode: on-demand or not.
+    - **Last Generated** — The date and time the rule was last generated.
+    - **Created By** — The email address of the user who created the rule.
+    - **Last Modified** — The date and time the rule was last modified.
+    - **Subscription** — Provides an **On** or **Off** subscription that allows you to receive email notifications when recommendations have been generated, applied, or unapplied.
 
 
 ## Next steps
 
-- For more information about viewing rules, see [View roles in the Autopilot dashboard](cloudknox-ui-autopilot).
+- For more information about viewing rules, see [View roles in the Autopilot dashboard](cloudknox-ui-autopilot.md).
