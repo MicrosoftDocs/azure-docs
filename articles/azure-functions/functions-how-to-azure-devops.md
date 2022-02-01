@@ -97,7 +97,7 @@ You can use the following sample to create a YAML file to build a .NET app:
 
 ```yaml
 pool:
-      vmImage: 'windows-latest'
+  vmImage: 'windows-latest'
 steps:
 - script: |
     dotnet restore
