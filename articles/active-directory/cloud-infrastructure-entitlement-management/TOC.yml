@@ -59,14 +59,14 @@
     - name: Manage organizational and personal information
       expanded: true
       items:
-      - name: The Account Settings dashboard - Overview
+      - name: The Account Settings dashboard — Overview
         href: cloudknox-ui-account-settings.md
       - name: Set personal information and preferences
         href: cloudknox-product-account-settings.md
     - name: View information about identities, resources, and tasks
       expanded: true
       items:
-      - name: The Usage Analytics dashboard - Overview
+      - name: The Usage Analytics dashboard — Overview
         href: cloudknox-ui-usage-analytics.md
       # - name: The Usage Analytics explorers - Overview
         # href: cloudknox-usage-analytics-explorers.md
@@ -82,7 +82,7 @@
         href: cloudknox-usage-analytics-groups.md
       - name: View analytic information about active resources
         href: cloudknox-usage-analytics-active-resources.md
-      - name: View  analytic information about active tasks
+      - name: View analytic information about active tasks
         href: cloudknox-usage-analytics-active-tasks.md
       - name: View analytic information about access keys
         href: cloudknox-usage-analytics-access-keys.md
@@ -98,7 +98,7 @@
     - name: Manage roles/policies and user permission requests
       expanded: true
       items:
-      - name: The JEP Controller dashboard - Overview
+      - name: The JEP Controller dashboard — Overview
         href: cloudknox-ui-jep-controller.md
       - name: Manage permissions with the JEP Controller
         href: cloudknox-product-jep-controller.md
@@ -133,7 +133,7 @@
     - name: Set activity alerts and triggers 
       expanded: true
       items: 
-      - name: The Activity Triggers dashboard - Overview
+      - name: The Activity Triggers dashboard — Overview
         href: cloudknox-ui-triggers.md
       - name: Create an alert trigger
         href: cloudknox-howto-create-alert-trigger.md
@@ -142,7 +142,7 @@
     - name: Manage rules for authorization systems
       expanded: true
       items:
-      - name: The Autopilot dashboard - Overview
+      - name: The Autopilot dashboard — Overview
         href: cloudknox-ui-autopilot.md
       - name: Manage users with the Autopilot dashboard
         href: cloudknox-product-autopilot.md

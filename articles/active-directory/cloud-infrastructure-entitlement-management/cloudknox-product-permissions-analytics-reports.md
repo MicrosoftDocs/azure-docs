@@ -24,10 +24,10 @@ This article describes how to generate and download the **Permissions analytics 
 1. In the CloudKnox home page, select the **Reports** tab, and then select the **Systems reports** subtab.
     The **Systems Reports** subtab displays the following options in the **Reports** table:
 
-    - **Report Name** - The name of the report.
-    - **Category** - The type of report: **Permission** or **Compliance**.
-    - **Authorization System** - The authorization system in which you can view the report: Amazon Web Services (**AWS**), Microsoft Azure (**Azure**), or Google Cloud Platform (**GCP**).
-    - **Format** - The format of the report.
+    - **Report Name** — The name of the report.
+    - **Category** — The type of report: **Permission** or **Compliance**.
+    - **Authorization System** — The authorization system in which you can view the report: Amazon Web Services (**AWS**), Microsoft Azure (**Azure**), or Google Cloud Platform (**GCP**).
+    - **Format** — The format of the report.
     
 1. In the **Report Name** table, find **Permissions analytics report**, and then select the down arrow to the right of the report name to download the report.
 
@@ -36,9 +36,7 @@ This article describes how to generate and download the **Permissions analytics 
 	> [!NOTE]
     > If you select one authorization system, the report includes a summary. If you select more than one authorization system, the report does not include a summary.
 
-1. For detailed information, select the right arrow next to one of the following categories.
-
-    Or, select the required category under the **Findings** column.
+1. For detailed information, select the right arrow next to one of the following categories. Or, select the required category under the **Findings** column.
 
 	- **AWS**
 		- Inactive Identities
@@ -96,15 +94,15 @@ This article describes how to generate and download the **Permissions analytics 
 
 1. Select a category and view the following columns of information:
 
-	- **User**, **Role**, **Resource**, **Serverless function name** - Displays the name of the identity.
-	- **Authorization system** - Displays the authorization system the identity belongs to.
-	- **Domain** - Displays the domain name the identity belongs to.
-	- **Permissions** - Displays the maximum number of permissions the identity has.
-		- **Used** - Displays how many permissions the identity has used.
-		- **Granted** - Displays how many permissions the identity has been granted.
-	- **PCI** - Displays the permission creep index (PCI) score of the identity.
-	- **Date last active on** - Displays the date the identity was last active.
-	- **Date created on** - Displays the date when the identity was created.
+	- **User**, **Role**, **Resource**, **Serverless function name** — Displays the name of the identity.
+	- **Authorization system** — Displays the authorization system that the identity belongs to.
+	- **Domain** — Displays the domain name that the identity belongs to.
+	- **Permissions** — Displays the maximum number of permissions the identity has.
+		- **Used** — Displays how many permissions the identity has used.
+		- **Granted** — Displays how many permissions the identity has been granted.
+	- **PCI** — Displays the permission creep index (PCI) score of the identity.
+	- **Date last active on** — Displays the date that the identity was last active.
+	- **Date created on** — Displays the date when the identity was created.
 
 
 
