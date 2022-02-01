@@ -26,6 +26,7 @@ In this article, you will accomplish the following:
 - Test the sample application. 
 
 ## Prerequisites
+
 - [Node.js](https://nodejs.org).
 - [Visual Studio Code](https://code.visualstudio.com/download) or another code editor.
 - Azure AD B2C tenant. If you haven't already created your own, follow the steps in [Tutorial: Create an Azure Active Directory B2C tenant](tutorial-create-tenant.md) and record your tenant name.
@@ -109,7 +110,7 @@ The `views` folder contains Handlebars files for the app's UI.
 |---------|---------|
 |`SERVER_PORT`|The HTTP port on which the Node server runs. Leave the value as is.|
 |`APP_CLIENT_ID`| |
-|``|The **Application (client) ID** for the web app you registered in [step 2.1](#).|
+|``|The **Application (client) ID** for the web app you registered in [step 2.1](#step-21-register-the-app).|
 |`SESSION_SECRET`|The express session secret. Leave the value as is or use a random string. |
 |`APP_CLIENT_SECRET`|The client secret for the web app you created in [step 2.2](#step-22-create-a-web-app-client-secret) |
 |`SIGN_UP_SIGN_IN_POLICY_AUTHORITY`|The **Sign in and sign up** user flow authority such as `https://<your-tenant-name>.b2clogin.com/<your-tenant-name>.onmicrosoft.com/<sign-in-sign-up-user-flow-name>`. Replace `<your-tenant-name>` with the name of your tenant and `<sign-in-sign-up-user-flow-name>` with the name of your Sign in and Sign up user flow such as `B2C_1_susi_node_app`. Learn how to [Get your tenant name](tenant-management.md#get-your-tenant-name). If you're using a custom domain, replace `<tenant-name>.b2clogin.com` with your domain, such as `contoso.com`. |
@@ -135,37 +136,27 @@ You can now test the sample app. You need to start the Node server and access it
    :::image type="content" source="./media/configure-a-sample-node-web-app/tutorial-login-page.png" alt-text="Screenshot that shows a Node web app sign-in page.":::
 
 ### Test sign in
+
 1. After the page with the **Sign in** button finishes loading, select **Sign in**. You're prompted to sign in.
 1. Enter your sign-in credentials, such as email address and password. If you don't have an account, select **Sign up now** to create an account. If you have an account but have forgotten your password, select **Forgot your password?** to recover your password. After you successfully sign in or sign up, you should see the following page that shows sign-in status.
 
    :::image type="content" source="./media/configure-a-sample-node-web-app/tutorial-dashboard-page.png" alt-text="Screenshot that shows Node web app sign-in status.":::
 
 ### Test profile editing
+
 1. After you sign in, select **Edit profile**. 
 1. Enter new changes as required, and then select **Continue**. You should see the page with sign-in status showing the new changes, such as **Given Name**. 
 
 ### Test password reset
+
 1. After you sign in, select **Reset password**. 
 1. In the next dialog that appears, you can cancel the operation by selecting **Cancel**. Alternatively, enter your email address, and then select **Send verification code**. Azure AD B2C sends a verification code to your email account. Copy the verification code from your email, enter the code in the Azure AD B2C password reset dialog, and then select **Verify code**.
 1. Select **Continue**.
 1. Enter your new password, confirm it, and then select **Continue**. You should see the page that shows sign-in status.
 
 ### Test sign out 
+
 After you sign in, select **Sign out**. You should see the page that has a **Sign in** button. 
-
-## (Optional)Authenticate users with a Google account 
-You can enable users to sign in to the Node web app without adding any code to your app.
-
-Complete the steps in [Set up sign-up and sign-in with a Google account using Azure Active Directory B2C](identity-provider-google.md#create-a-google-application). Be sure to [add a Google identity provider](identity-provider-google.md#add-google-identity-provider-to-a-user-flow) to your **Sign in and sign up** user flow, such as `B2C_1_susi_node_app`.
-
-Test the Google identity provider:
-1. After you sign out, select **Sign in** again. You should see a **Sign in and sign up** experience with a Google sign-in option under **Sign in with your social account**.
-1. Select **Google**, and then select the Google account that you want to sign in with. 
-1. Complete your profile by entering required details, such as **Given Name**, and then select **Continue**. You should see the page that shows sign-in status.
-
-When you use a social identity provider such as Google, that provider manages the user's identity. The following considerations apply:
-- You can't reset your password the same way as you can with a local account.  
-- When you sign out the user in your web app, you don't also sign out the user from the identity provider.  
 
 
 ## Next steps
