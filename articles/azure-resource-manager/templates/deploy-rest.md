@@ -202,15 +202,15 @@ To list your subscriptions:
 armclient GET /subscriptions?api-version=2021-04-01
 ```
 
-To list your resource group:
+To list your resource groups:
 
 ```cmd
 armclient GET /subscriptions/<subscription-id>/resourceGroups?api-version=2021-04-01
 ```
 
-Replace **<subscription-id>** with your Azure subscription ID.
+Replace **&lt;subscription-id>** with your Azure subscription ID.
 
-To create a resource group in the Central US region:
+To create a resource group in the *Central US* region:
 
 ```cmd
 armclient PUT /subscriptions/<subscription-id>/resourceGroups/<resource-group-name>?api-version=2021-04-01  "{location: 'central us', properties: {}}"
