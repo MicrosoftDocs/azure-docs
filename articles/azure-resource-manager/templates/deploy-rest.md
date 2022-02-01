@@ -216,7 +216,7 @@ To create a resource group in the *Central US* region:
 armclient PUT /subscriptions/<subscription-id>/resourceGroups/<resource-group-name>?api-version=2021-04-01  "{location: 'central us', properties: {}}"
 ```
 
-Alternatively, you can put the body into a JSON file called **Createrg.json**:
+Alternatively, you can put the body into a JSON file called **CreateRg.json**:
 
 ```json
 {
