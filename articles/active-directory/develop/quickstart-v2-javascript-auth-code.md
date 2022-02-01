@@ -30,6 +30,8 @@ See [How the sample works](#how-the-sample-works) for an illustration.
 
 
 #### Step 1: Configure your application in the Azure portal
+If needed [create a new application in the Azure portal](https://docs.microsoft.com/en-us/azure/active-directory/develop/scenario-spa-app-registration).
+
 For the code sample in this quickstart to work, add a **Redirect URI** of `http://localhost:3000/`.
 > [!div class="nextstepaction"]
 > [Make these changes for me]()
@@ -48,7 +50,10 @@ Run the project with a web server by using Node.js
 > > [!NOTE]
 > > `Enter_the_Supported_Account_Info_Here`
 
-#### Step 3: Your app is configured and ready to run
+#### Step 3: Configure the project
+Configure the app authentication and graph properties in the json files, as described [here](https://github.com/Azure-Samples/ms-identity-javascript-v2/#running-the-sample).
+
+#### Step 4: Your app is configured and ready to run
 
 We have configured your project with values of your app's properties.
 
