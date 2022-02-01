@@ -68,7 +68,7 @@ Filter the report by IP address or user name to see an expanded view of sign-ins
 
 ## Accessing the workbook
 
-To access workbooks:
+To access the workbook:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Navigate to **Azure Active Directory** > **Monitoring** > **Workbooks**. 
