@@ -14893,6 +14893,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/postgresql/howto-manage-firewall-using-cli.md",
+      "redirect_url": "/azure/postgresql/quickstart-create-server-database-azure-cli#configure-a-server-based-firewall-rule",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/data-factory/data-factory-onprem-sybase-connector.md",
       "redirect_url": "/azure/data-factory/v1/data-factory-onprem-sybase-connector",
       "redirect_document_id": true
@@ -29320,6 +29325,11 @@
     {
       "source_path_from_root": "/articles/vpn-gateway/vpn-gateway-point-to-site-gateway-public-ca.md",
       "redirect_url": "/azure/vpn-gateway/point-to-site-about",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/security/fundamentals/ddos-best-practices.md",
+      "redirect_url": "/azure/ddos-protection/fundamental-best-practices",
       "redirect_document_id": false
     },
     {
@@ -45233,6 +45243,21 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/azure/devtest-labs/scripts/create-verify-virtual-machine-in-lab-cli.md",
+      "redirect_url": "/azure/devtest-labs/samples-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure/devtest-labs/scripts/start-connect-virtual-machine-in-lab-cli.md",
+      "redirect_url": "/azure/devtest-labs/samples-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure/devtest-labs/scripts/stop-delete-virtual-machine-in-lab-cli.md",
+      "redirect_url": "/azure/devtest-labs/samples-cli",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/azure-monitor/agents/azure-monitor-agent-install.md",
       "redirect_url": "/azure/azure-monitor/agents/azure-monitor-agent-manage",
       "redirect_document_id": true
@@ -45241,6 +45266,16 @@
     "source_path_from_root": "/articles/azure/virtual-desktop/azure-advisor.md",
     "redirect_url": "/azure/advisor/advisor-overview",
     "redirect_document_id": false
-    }
+    },
+    {
+      "source_path_from_root": "/articles/azure/cognitive-services/translator/tutorial-wpf-translation-csharp.md",
+      "redirect_url": "/ai-builder/flow-text-translation?toc=/azure/cognitive-services/translator/toc.json&bc=/azure/cognitive-services/translator/breadcrumb/toc.json",
+      "redirect_document_id": false
+      },
+      {
+        "source_path_from_root": "/articles/azure/cognitive-services/translator/tutorial-build-flask-app-translation-synthesis.md",
+        "redirect_url": "/learn/modules/translate-text-with-translator-service?toc=/azure/cognitive-services/translator/toc.json&bc=/azure/cognitive-services/translator/breadcrumb/toc.json",
+        "redirect_document_id": false
+        }
   ]
 }
