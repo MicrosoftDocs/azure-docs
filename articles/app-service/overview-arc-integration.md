@@ -136,7 +136,7 @@ ARM64 based clusters are not supported at this time.
 - Upgrade Azure Function runtime to v3.3.1
 - Set default replica count of App Controller and Envoy Controller to 2 to add further stability
 
-If your extension was in the stable version and auto-upgrade-minor-version is set to true, the extension will upgrade automatically.  To manually upgrade the extension to the latest version, you can run the command below:
+If your extension was in the stable version and auto-upgrade-minor-version is set to true, the extension upgrades automatically.  To manually upgrade the extension to the latest version, you can run the command:
 
 ```azurecli-interactive
     az k8s-extension update --cluster-type connectedClusters -c <clustername> -g <resource group> -n <extension name> --release-train stable --version 0.10.0
@@ -150,9 +150,21 @@ If your extension was in the stable version and auto-upgrade-minor-version is se
 - Resolved issues which caused slot swap operations to fail
 - Resolved issues customers experienced during creation of Ruby web applications
 
+If your extension was in the stable version and auto-upgrade-minor-version is set to true, the extension upgrades automatically.  To manually upgrade the extension to the latest version, you can run the command:
+
+```azurecli-interactive
+    az k8s-extension update --cluster-type connectedClusters -c <clustername> -g <resource group> -n <extension name> --release-train stable --version 0.11.0
+```
+
 ### Application services extension v 0.11.1 (December 2021)
 
 - Minor release to resolve issue with CRD update
+
+If your extension was in the stable version and auto-upgrade-minor-version is set to true, the extension upgrades automatically.  To manually upgrade the extension to the latest version, you can run the command:
+
+```azurecli-interactive
+    az k8s-extension update --cluster-type connectedClusters -c <clustername> -g <resource group> -n <extension name> --release-train stable --version 0.11.!
+```
 
 ### Application services extension v 0.12.0 (January 2022)
 
