@@ -7,7 +7,7 @@ ms.date: 10/25/2021
 ms.topic: overview
 ---
 
-# Azure Automation services
+# Choose the right automation services in Azure
 
  This article explains various automation services offered in the Azure portfolio. 
 All of these services can automate business and operational  processes and can solve integration problems amongst various services, system, and processes. They can all define input, action or activity to be performed, conditions, error handling, and output generation. You can run them on a schedule or trigger or do a manual demand-based execution. Each service has its unique advantages and target audience.

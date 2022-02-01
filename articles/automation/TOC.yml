@@ -4,7 +4,7 @@
   items:
   - name: What is Azure Automation?
     href: overview.md
-  - name: What are the various Azure Automation services?
+  - name: What are the various Automation services in Azure?
     href: automation-services.md
   - name: FAQ
     href: automation-faq.md
