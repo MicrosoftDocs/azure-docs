@@ -2,7 +2,7 @@
 title: 'App Service on Azure Arc'
 description: An introduction to App Service integration with Azure Arc for Azure operators.
 ms.topic: article
-ms.date: 12/03/2021
+ms.date: 01/31/2022
 ---
 
 # App Service, Functions, and Logic Apps on Azure Arc (Preview)
@@ -149,6 +149,16 @@ If your extension was in the stable version and auto-upgrade-minor-version is se
 - Removed .NET Core 2.0
 - Resolved issues with slot swap operations failing
 - Resolved issues during Ruby app creation
+
+### Application services extension v 0.11.1 (December 2021)
+
+- Minor release to resolve issue with CRD update
+
+### Application services extension v 0.12.0 (January 2022)
+
+- Support for outbound proxy
+- Support for parallel builds in build service
+- Resolved issue with Application Insights support for .NET Applications
 
 If your extension was in the stable version and auto-upgrade-minor-version is set to true, the extension will upgrade automatically.  To manually upgrade the extension to the latest version, you can run the command below:
 
