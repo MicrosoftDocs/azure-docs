@@ -47,7 +47,7 @@ Preparing to upgrade sql sqlmi-1 in namespace arc to data controller version.
 
 ### General Purpose
 
-During a SQL Managed Instance General Purpose upgrade, the containers in the pod will be upgraded and will be reprovisioned. This will cause a short amount of downtime as the new pod is created. You will need to build resiliency into your application, such as connection retry logic, to ensure minimal disruption. Read [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview) for more information on architecting resiliency and [retry guidance for Azure Services](https://docs.microsoft.com/en-us/azure/architecture/best-practices/retry-service-specific#sql-database-using-adonet).
+During a SQL Managed Instance General Purpose upgrade, the containers in the pod will be upgraded and will be reprovisioned. This will cause a short amount of downtime as the new pod is created. You will need to build resiliency into your application, such as connection retry logic, to ensure minimal disruption. Read [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview) for more information on architecting resiliency and [retry guidance for Azure Services](/azure/architecture/best-practices/retry-service-specific#sql-database-using-adonet).
 
 To upgrade the Managed Instance, use the following command:
 
