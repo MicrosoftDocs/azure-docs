@@ -14,7 +14,7 @@ ms.author: mbaldwin
 
 # Getting started with Azure Payment HSM
 
-To get started with Azure Payment HSM (preview), please contact your Microsoft sales representative and request access [via email](mailto:paymentHSMRequest@microsoft.com). Upon approval, you will be provided with onboarding instructions.
+To get started with Azure Payment HSM (preview), contact your Microsoft sales representative and request access [via email](mailto:paymentHSMRequest@microsoft.com). Upon approval, you'll be provided with onboarding instructions.
 
 ## Availability
 
@@ -22,7 +22,7 @@ The Azure Public Preview is currently available in **East US** and **North Europ
 
 ## Prerequisites 
 
-Azure Payment HSM customers must have the following:
+Azure Payment HSM customers must have:
 
 - Access to the Thales Customer Portal (Customer ID)
 - Thales smart cards and card reader for payShield Manager
@@ -33,14 +33,15 @@ The HSM devices will be charged based on the service pricing page. All other Azu
 
 ## payShield customization considerations
 
-If you are using payShield on-prem today with a custom firmware a porting exercise is required to update the firmware to a version compatible with the Azure deployment. Please contact your Thales account manager to request a quote.
-Please ensure that the following information is provided:
+If you are using payShield on-prem today with a custom firmware, a porting exercise is required to update the firmware to a version compatible with the Azure deployment. Please contact your Thales account manager to request a quote.
+
+Ensure that the following information is provided:
 - Customization hardware platform (e.g., payShield 9000 or payShield 10K)
 - Customization firmware number
 
 ## Support
 
-There is no service-level agreement (SLA) for this public preview.  Use of this service for production workloads is not supported
+There is no service-level agreement (SLA) for this public preview.  Use of this service for production workloads isn't supported
 
 The HSM base firmware installed in public preview is Thales payShield10K base software version 1.4a 1.8.3.
 
@@ -50,7 +51,7 @@ Support through engineering escalation is only available during business hours: 
 
 Thales only provides application-level support,  such as client software, HSM configuration, and backup.
 
-Customers are responsible for applying payShield security patches and upgrading payShield firmware for their provisioned HSMs. Thales payShield10K versions prior to 1.4a 1.8.3. are not supported
+Customers are responsible for applying payShield security patches and upgrading payShield firmware for their provisioned HSMs. Thales payShield10K versions prior to 1.4a 1.8.3. aren't supported
 
 Microsoft will apply payShield security patches to unallocated HSMs.
 
