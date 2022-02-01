@@ -83,7 +83,7 @@ for each update type supported by Device Update for IoT Hub.
 
 ### files
 
-Tells the Device Update Agent which files to download, and the hash that will be used to use to verify that the files were downloaded correctly.
+Tells the Device Update Agent which files to download, and the hash that will be used to verify that the files downloaded correctly.
 Here's a closer look at the `files` property contents:
 
 ```json
