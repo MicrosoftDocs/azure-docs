@@ -1,7 +1,7 @@
 ---
 title: What are Azure Cognitive Services?
 titleSuffix: Azure Cognitive Services
-description: Cognitive Services makes AI accessible to every developer without requiring machine-learning and data-science expertise. You just need to make an API call from your application to add the ability to see (advanced image search and recognition), hear, speak, search, and decision-making into your apps.
+description: Cognitive Services makes AI accessible to every developer without requiring machine-learning and data-science expertise. You need to make an API call from your application to add the ability to see (advanced image search and recognition), hear, speak, search, and decision-making into your apps.
 services: cognitive-services
 author: nitinme
 manager: nitinme
@@ -15,7 +15,7 @@ ms.custom: cog-serv-seo-aug-2020, ignite-fall-2021
 
 # What are Azure Cognitive Services?
 
-Azure Cognitive Services are cloud-based services with REST APIs, client library SDKs, and user interfaces available to help you build cognitive intelligence into your applications. You can add cognitive features to your applications without having artificial intelligence (AI) or data science skills. Azure Cognitive Services comprise various AI services that enable you to build cognitive solutions that can see, hear, speak, understand, and even make decisions.
+Azure Cognitive Services are cloud-based services with REST APIs, client library SDKs, and user interfaces available to help you build cognitive intelligence into your applications. You can add cognitive features to your applications without having artificial intelligence (AI) or data science skills. Cognitive Services comprises various AI services that enable you to build cognitive solutions that can see, hear, speak, understand, and even make decisions.
 
 ## Categories of Cognitive Services
 
@@ -49,9 +49,9 @@ Cognitive Services can be categorized into four main pillars:
 
 |Service Name|Service Description|
 |:-----------|:------------------|
-|[Azure Cognitive Service for language](./language-service/index.yml "Language service")| Azure Cognitive Service for Language provides several Natural Language Processing (NLP) features for understanding and analyzing text.|
-|[Translator](./translator/index.yml "Translator")|Translator provides machine-based text translation in near real-time.|
-|[Language Understanding LUIS](./luis/index.yml "Language Understanding")|Language Understanding (LUIS) is a cloud-based conversational AI service that applies custom machine-learning intelligence to a user's conversational, natural language text to predict overall meaning, and pull out relevant, detailed information. [See LUIS quickstart](./luis/luis-get-started-create-app.md) to get started with the service.|
+|[Azure Cognitive Service for language](./language-service/index.yml "Language service")| Azure Cognitive Service for Language provides several Natural Language Processing (NLP) features to understand and analyze text.|
+|[Translator](./translator/index.yml "Translator")|Translator provides machine-based text translation in near real time.|
+|[Language Understanding LUIS](./luis/index.yml "Language Understanding")|Language Understanding (LUIS) is a cloud-based conversational AI service that applies custom machine-learning intelligence to a user's conversational or natural language text to predict overall meaning and pull out relevant information. [See LUIS quickstart](./luis/luis-get-started-create-app.md) to get started with the service.|
 |[QnA Maker](./qnamaker/index.yml "QnA Maker")|QnA Maker allows you to build a question and answer service from your semi-structured content. [See QnA Maker quickstart](./qnamaker/quickstarts/create-publish-knowledge-base.md) to get started with the service.|
 
 ## Decision APIs
@@ -69,7 +69,7 @@ Start by creating a Cognitive Services resource with hands-on quickstarts using 
 * [Azure portal](cognitive-services-apis-create-account.md?tabs=multiservice%2Cwindows "Azure portal")
 * [Azure CLI](cognitive-services-apis-create-account-cli.md?tabs=windows "Azure CLI")
 * [Azure SDK client libraries](cognitive-services-apis-create-account-cli.md?tabs=windows "cognitive-services-apis-create-account-client-library?pivots=programming-language-csharp")
-* [Azure Resource Manager (ARM) templates](./create-account-resource-manager-template.md?tabs=portal "Azure Resource Manager (ARM) templates")
+* [Azure Resource Manager (ARM template)](./create-account-resource-manager-template.md?tabs=portal "Azure Resource Manager (ARM template)")
 
 ## Using Cognitive Services in different development environments
 
@@ -94,7 +94,7 @@ All APIs have a free tier, which has usage and throughput limits.  You can incre
 
 ## Using Cognitive Services securely
 
-Azure Cognitive Services provides a layered security model, including [authentication](authentication.md "authentication") via Azure Active Directory credentials, a valid resource key, and [Azure Virtual Networks](cognitive-services-virtual-networks.md "Azure Virtual Networks").
+Azure Cognitive Services provides a layered security model, including [authentication](authentication.md "Authentication") via Azure Active Directory credentials, a valid resource key, and [Azure Virtual Networks](cognitive-services-virtual-networks.md "Azure Virtual Networks").
 
 ## Containers for Cognitive Services
 
@@ -108,11 +108,11 @@ Looking for a region we don't support yet? Let us know by filing a feature reque
 
 ## Supported cultural languages
 
-Cognitive Services supports a wide range of cultural languages at the service level. You can find the language availability for each API in the [supported languages list](language-support.md "supported languages list").
+Cognitive Services supports a wide range of cultural languages at the service level. You can find the language availability for each API in the [supported languages list](language-support.md "Supported languages list").
 
 ## Certifications and compliance
 
-Cognitive Services has been awarded certifications such as CSA STAR Certification, FedRAMP Moderate, and HIPAA BAA. You can [download](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942 "download") certifications for your own audits and security reviews.
+Cognitive Services has been awarded certifications such as CSA STAR Certification, FedRAMP Moderate, and HIPAA BAA. You can [download](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942 "Download") certifications for your own audits and security reviews.
 
 To understand privacy and data management, go to the [Trust Center](https://servicetrust.microsoft.com/ "Trust Center").
 
