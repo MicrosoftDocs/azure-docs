@@ -4,7 +4,7 @@ description: Practices and workflows in Azure Container Registry to manage depen
 author: dlepow
 ms.topic: article
 ms.author: tejaswikolli-web
-ms.date: 01/28/2022
+ms.date: 02/01/2022
 ---
 
 # Manage public content with Azure Container Registry
