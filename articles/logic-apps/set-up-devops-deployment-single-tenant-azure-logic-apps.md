@@ -81,7 +81,7 @@ You need to update the Visual Studio artifacts before they can be released to Az
 
 #### Update authentication type
 
-You must update the *authentication" field from this Visual Studio Code local format (the first cide snippet) to to this portal format (the second code snippet).
+You must update the *authentication" field from this Visual Studio Code local format (the first code snippet) to this portal format (the second code snippet).
 
 ```json
 {
