@@ -56,7 +56,7 @@ A real-world example is a call queue in a call center.
 
 A Channel is a grouping of jobs by some type. When a worker registers to receive work, they must also specify for which channels they can handle work, and how much of each can they handle concurrently. Channels are just a string discriminator and aren't explicitly created.
 
-A real-world examples are `voice calls` or `chats` in a call center.
+Real-world examples are `voice calls` or `chats` in a call center.
 
 ## Offer
 
@@ -66,7 +66,7 @@ A real-world example is the ringing of an agent in a call center.
 
 ### Offer flow
 
-1. When Job Router finds a matching Worker for a Job, it creates ab Offer and sends an [OfferIssued Event][offer_issued_event] via [Event Grid][subscribe_events].
+1. When Job Router finds a matching Worker for a Job, it creates an Offer and sends an [OfferIssued Event][offer_issued_event] via [Event Grid][subscribe_events].
 2. The Offer is accepted via the Job Router API.
 3. Job Router sends an [OfferAccepted Event][offer_accepted_event].
 
