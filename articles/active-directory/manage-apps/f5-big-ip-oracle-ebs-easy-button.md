@@ -305,7 +305,7 @@ The **Application Pool tab** details the services behind a BIG-IP, represented a
 
 3. Update the **Pool Servers**. Select an existing node or specify an IP and port for the servers hosting the Oracle EBS application.
 
-   ![Screenshot for Application pool](./media/f5-big-ip-easy-button-ldap/application-pool.png)
+   ![Screenshot for Application pool](./media/f5-big-ip-easy-button-oracle-ebs/application-pool.png)
 
 4.The **Access Gate Pool** specifies the servers Oracle EBS uses for mapping an SSO authenticated user to an Oracle E-Business Suite session. Update **Pool Servers** with the IP and port for of the Oracle application servers hosting the application
 
@@ -353,7 +353,7 @@ There may be cases where the Guided Configuration templates lack the flexibility
 
 You can navigate to **Access > Guided Configuration** and select the **small padlock icon** on the far right of the row for your applications’ configs. 
 
-![Screenshot for Configure Easy Button - Strict Management](./media/f5-big-ip-easy-button-oracle-ebs/ strict-mode-padlock.png)
+![Screenshot for Configure Easy Button - Strict Management](./media/f5-big-ip-easy-button-oracle-ebs/strict-mode-padlock.png)
 
 At that point, changes via the wizard UI are no longer possible, but all BIG-IP objects associated with the published instance of the application will be unlocked for direct management.
 
