@@ -26,7 +26,7 @@ This feature enables the following metrics:
 To support these capabilities, the feature includes these containerized agents:
 
 - Version *microsoft/oms:ciprod05262020* for AKS
-- Version *microsoft/oms:ciprod09252020* for Azure Arc-enabled Kubernetes clusters. 
+- Version *microsoft/oms:ciprod09252020* for Azure Arc-enabled Kubernetes clusters
 
 New deployments of AKS automatically include this configuration and capabilities. You can update your cluster to support this feature from the Azure portal, Azure PowerShell, or the Azure CLI. With Azure PowerShell and the Azure CLI, you can enable the feature for each cluster or for all clusters in your subscription.
 
@@ -35,9 +35,7 @@ Either process assigns the *Monitoring Metrics Publisher* role to the cluster's 
 Monitoring Metrics Publisher has permission only to push metrics to the resource. It can't alter any state, update the resource, or read any data. For more information, see [Monitoring Metrics Publisher role](../../role-based-access-control/built-in-roles.md#monitoring-metrics-publisher). The Monitoring Metrics Publisher role requirement doesn't apply to Azure Arc-enabled Kubernetes clusters.
 
 > [!IMPORTANT]
-> Azure Arc-enabled Kubernetes clusters already have the minimum required agent version, so an update isn't necessary.
-> 
-> The assignment of Monitoring Metrics Publisher role to the cluster's service principal or user-assigned MSI for the monitoring add-on happens automatically when you're using the Azure portal, Azure PowerShell, or the Azure CLI.
+> Azure Arc-enabled Kubernetes clusters already have the minimum required agent version, so an update isn't necessary. The assignment of Monitoring Metrics Publisher role to the cluster's service principal or user-assigned MSI for the monitoring add-on happens automatically when you're using the Azure portal, Azure PowerShell, or the Azure CLI.
 
 ## Prerequisites
 
@@ -53,7 +51,7 @@ If you choose to use the Azure CLI, you first need to install and use it locally
 
 To update an existing AKS cluster monitored by Container insights:
 
-1. Select the cluster to view its health from the multiple-cluster view in Azure Monitor, or directly from the cluster by selecting **Insights** from the left pane.
+1. Select the cluster to view its health from the multiple-cluster view in Azure Monitor or directly from the cluster by selecting **Insights** from the left pane.
 
 2. In the banner that appears at the top of the pane, select **Enable** to start the update. 
 
