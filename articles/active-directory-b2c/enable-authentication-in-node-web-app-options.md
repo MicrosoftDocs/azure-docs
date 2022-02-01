@@ -20,7 +20,7 @@ This article describes how to enable, customize, and enhance the Azure Active Di
 Before you start, it's important to familiarize yourself with the following articles: 
 
 - [Configure authentication in a Node.js sample web app](configure-a-sample-node-web-app.md)
-- [Enable authentication in your own Node.js web app](_enable-authentication-in-node-web-app.md).
+- [Enable authentication in your own Node.js web app](enable-authentication-in-node-web-app.md).
 
 [!INCLUDE [active-directory-b2c-app-integration-custom-domain](../../includes/active-directory-b2c-app-integration-custom-domain.md)]
 
