@@ -155,7 +155,7 @@ items:
     - name: How-to guides
       items:
         - name: Translate and synthesize text with REST APIs
-          href: ../translator/tutorial-build-flask-app-translation-synthesis.md?toc=%2fazure%2fcognitive-services%2fspeech-service%2ftoc.json&bc=%2fazure%2fcognitive-services%2fspeech-service%2fbreadcrumb%2ftoc.json
+          href: /learn/modules/python-flask-build-ai-web-app
     - name: Speech translation FAQ
       href: https://www.microsoft.com/translator/faq.aspx
 - name: Intent recognition
