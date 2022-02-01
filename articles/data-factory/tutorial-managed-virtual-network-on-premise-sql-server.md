@@ -212,12 +212,16 @@ the page.
 
 ## Creating Forwarding Rule to Endpoint
 
-1. Login and copy script [ip_fwd.sh](https://github.com/sajitsasi/az-ip-fwd/blob/main/ip_fwd.sh) to your backend server VMs. 
+1. Login and download port forwarding script [ip_fwd.sh](https://github.com/sajitsasi/az-ip-fwd/blob/main/ip_fwd.sh) to your backend server VMs. 
 2. Run the script on with the following options:<br/>
+    **sudo chmod +x ip_fwd.sh**<br/>
     **sudo ./ip_fwd.sh -i eth0 -f 1433 -a <FQDN/IP> -b 1433**<br/>
     <FQDN/IP> is your target SQL Server IP.<br/>
     
     > [!Note] 
+    > The above script runs only once. In order to ensure that that the port forwarding is enabled every time the machine starts, it should be configured as a startup service.
+  
+   > [!Note] 
     > FQDN doesn't work for on-premises SQL Server unless you add a record in Azure DNS zone.
     
 3. Run below command and check the iptables in your backend server VMs. You can see one record in your iptables with your target IP.<br/>
