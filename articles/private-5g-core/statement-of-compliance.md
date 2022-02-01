@@ -28,19 +28,19 @@ All packet core Network Functions are compliant with the 3GPP specifications lis
 - TS 23.002: Network architecture
 - TS 23.401: General Packet Radio Service (GPRS) enhancements for Evolved Universal Terrestrial Radio Access Network (E-UTRAN) access
 - TS 29.272: Evolved Packet System (EPS); Mobility Management Entity (MME) and Serving GPRS Support Node (SGSN) related interfaces based on Diameter protocol
-- TS 29.274: 3GPP Evolved Packet System (EPS); Evolved General Packet Radio Service (GPRS) Tunnelling Protocol for Control plane (GTPv2-C); Stage 3
+- TS 29.274: 3GPP Evolved Packet System (EPS); Evolved General Packet Radio Service (GPRS) Tunneling Protocol for Control plane (GTPv2-C); Stage 3
 - TS 36.413: Evolved Universal Terrestrial Radio Access Network (E-UTRAN); S1 Application Protocol (S1AP)
 
 ### Policy and Charging Control (PCC) Framework
 
 - TS 23.503: Policy and charging control framework for the 5G System (5GS); Stage 2
 - TS 29.212: Policy and Charging Control (PCC); Reference points
-- TS 29.513: 5G System; Policy and Charging Control signalling flows and QoS parameter mapping; Stage 3
+- TS 29.513: 5G System; Policy and Charging Control signaling flows and QoS parameter mapping; Stage 3
 - TS 29.519: 5G System; Usage of the Unified Data Repository Service for Policy Data, Application Data and Structured Data for Exposure; Stage 3
 
 ### User plane
 
-- TS 29.281: General Packet Radio System (GPRS) Tunnelling Protocol User Plane (GTPv1-U)
+- TS 29.281: General Packet Radio System (GPRS) Tunneling Protocol User Plane (GTPv1-U)
 - TS 38.415: NG-RAN; PDU session user plane protocol
 
 ### Non-Access-Stratum (NAS) Protocol / NG Application Protocol (NGAP)

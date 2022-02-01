@@ -20,7 +20,7 @@ You must do the following before you can deploy a private mobile network. Detail
 
 | Step No. | Description | Detailed instructions |
 |--|--|--|
-| 1. | <p>Contact your support representative and ask them to register your Azure subscription for access to the following.</p><ul><li>Azure Private 5G Core.</li><li>The Mobile Network feature.</li><ul> |  |
+| 1. | Contact your support representative and ask them to register your Azure subscription for access to Azure Private 5G Core. |  |
 | 2. | Once your support representative has confirmed your access, register the Mobile Network resource provider (Microsoft.MobileNetwork) for your subscription, as described in [Azure resource providers and types](/azure/azure-resource-manager/management/resource-providers-and-types). |  |
 | 3. | Order and prepare your Azure Stack Edge Pro device. | [Tutorial: Prepare to deploy Azure Stack Edge Pro with GPU](/azure/databox-online/azure-stack-edge-gpu-deploy-prep?tabs=azure-portal) |
 | 4. | <p>Rack and cable your Azure Stack Edge Pro device.</p><p>When carrying out this procedure, you must ensure that the device has its ports connected as follows.</p><ul><li>Port 5 - LAN</li><li>Port 6 - WAN</li></ul><p>Additionally, you must have a port connected to your management network. You can choose any port from 2 to 4.</p> | [Tutorial: Install Azure Stack Edge Pro with GPU](/azure/databox-online/azure-stack-edge-gpu-deploy-install) |
