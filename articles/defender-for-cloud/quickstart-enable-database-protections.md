@@ -1,11 +1,11 @@
 ---
 title: Enable Microsoft Defender for for Cloud for all database types on your subscription
-description: 
+description: Learn how to enable Microsoft Defender for Cloud for all of you database types for your entire subscription. 
 ms.topic: quickstart
-ms.date: 01/31/2022
+ms.date: 02/01/2022
 ---
 
-# Quickstart: Enable Microsoft Defender for for Cloud for your databases
+# Quickstart: Enable Microsoft Defender for Cloud for your databases
 
 This article explains how to enable Microsoft Defender for Cloud for all database types that exist on your subscription.
 

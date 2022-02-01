@@ -1,8 +1,8 @@
 ---
-title: Defender for Cosmos DB overview
-description: 
+title: Overview of Defender for Cosmos DB
+description: Learn about the benefits and features of Microsoft Defender for Cosmos DB.
 ms.topic: concept
-ms.date: 01/31/2022
+ms.date: 02/01/2022
 ---
 
 # Introduction
