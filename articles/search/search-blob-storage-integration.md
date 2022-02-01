@@ -36,15 +36,19 @@ Once the index is created and populated, it exists independently of your blob co
 
 You need both Azure Cognitive Search and Azure Blob Storage. Within blob storage, you need a container that provides source content.
 
-You can start directly in your Storage account portal page. In the left navigation page, under **Blob service** select **Add Azure Cognitive Search** to create a new service or select an existing one. 
+You can start directly in your Storage account portal page. 
 
-Once you add Azure Cognitive Search to your storage account, you can follow the standard process to index blob data. We recommend the **Import data** wizard in Azure Cognitive Search for an easy initial introduction, or call the REST APIs using a tool like Postman. This tutorial walks you through the steps of calling the REST API in Postman: [Index and search semi-structured data (JSON blobs) in Azure Cognitive Search](search-semi-structured-data.md).
+1. In the left navigation page, under **Blob service** select **Add Azure Cognitive Search** to create a new service or select an existing one. 
+
+1. Once you add Azure Cognitive Search to your storage account, you can follow the standard process to index blob data. 
+
+   We recommend the [**Import data** wizard](cognitive-search-quickstart-blob.md) in Azure Cognitive Search for an easy initial introduction, or call the REST APIs using a tool like Postman. [Tutorial: Index and search semi-structured data (JSON blobs) in Azure Cognitive Search](search-semi-structured-data.md) walks you through the steps of calling the REST API in Postman.
 
 ## Use a Blob indexer
 
 An *indexer* is a data-source-aware subservice in Cognitive Search, equipped with internal logic for sampling data, reading metadata data, retrieving data, and serializing data from native formats into JSON documents for subsequent import. 
 
-Blobs in Azure Storage are indexed using the [Azure Cognitive Search Blob storage indexer](search-howto-indexing-azure-blob-storage.md). You can invoke this indexer by using the **Import data** wizard, a REST API, or the .NET SDK. In code, you use this indexer by setting the type, and by providing connection information that includes an Azure Storage account along with a blob container. You can subset your blobs by creating a virtual directory, which you can then pass as a parameter, or by filtering on a file type extension.
+Blobs in Azure Storage are indexed using the [blob indexer](search-howto-indexing-azure-blob-storage.md). You can invoke this indexer by using the **Import data** wizard, a REST API, or the .NET SDK. In code, you use this indexer by setting the type, and by providing connection information that includes an Azure Storage account along with a blob container. You can subset your blobs by creating a virtual directory, which you can then pass as a parameter, or by filtering on a file type extension.
 
 An indexer ["cracks a document"](search-indexer-overview.md#document-cracking), opening a blob to inspect content. After connecting to the data source, it's the first step in the pipeline. For blob data, this is where PDF, Office docs, and other content types are detected. Document cracking with text extraction is no charge. If your blobs contain image content, images are ignored unless you [add AI enrichment](cognitive-search-concept-intro.md). Standard indexing applies only to text content.
 

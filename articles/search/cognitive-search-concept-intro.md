@@ -21,9 +21,9 @@ ms.custom: references_regions
 + Optical Character Recognition (OCR) extracts text from binary files
 + Image analysis tags and describes images in searchable text fields
 
-AI enrichment is an extension of  [**indexers**](search-indexer-overview.md). The types of AI enrichment and order of operations are defined by a [**skillset**](cognitive-search-working-with-skillsets.md).
+AI enrichment is an extension of an [**indexer**](search-indexer-overview.md) pipeline.
 
-[**Blobs in Azure Storage**](../storage/blobs/storage-blobs-overview.md) are the most common input, but any supported data source can provide the initial content. A [**skillset**](cognitive-search-working-with-skillsets.md), attached to an indexer, adds the AI processing. The indexer extracts content and sets up the pipeline. The skillset performs the enrichment steps. Output is always a [**search index**](search-what-is-an-index.md), and optionally a [**knowledge store**](knowledge-store-concept-intro.md).
+[**Blobs in Azure Storage**](../storage/blobs/storage-blobs-overview.md) are the most common data input, but any supported data source can provide the initial content. A [**skillset**](cognitive-search-working-with-skillsets.md), attached to an indexer, adds the AI processing. The indexer extracts content and sets up the pipeline. The skillset performs the enrichment steps. Output is always a [**search index**](search-what-is-an-index.md), and optionally a [**knowledge store**](knowledge-store-concept-intro.md).
 
 ![Enrichment pipeline diagram](./media/cognitive-search-intro/cogsearch-architecture.png "enrichment pipeline overview")
 
