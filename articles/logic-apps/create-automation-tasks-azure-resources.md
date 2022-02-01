@@ -284,25 +284,34 @@ When you change the underlying workflow for an automation task, your changes aff
 
 <a name="export-template"></a>
 
-## Export automation task as a template
+## Export any workflow to an automation task template
 
-You can export any automation task that starts with a recurring trigger as an automation task template. Automation tasks are based on Consumption logic app workflows only.
+You can export any Consumption logic app workflow that starts with a recurring trigger to use as an automation task template.
 
-1. In the [Azure portal](https://portal.azure.com), find the resource that has the automation task that you want to export. Or, if you know the name for the automation task, find and open the task's underlying logic app workflow directly and skip to Step 4.
+1. In the [Azure portal](https://portal.azure.com), open the logic app workflow that you want to export. Make sure that the workflow starts with a recurring trigger.
 
-1. On the resource navigation menu, in the **Automation** section, select **Tasks**.
-
-1. In the tasks list, find the task that you want to update. Open the task's ellipses (**...**) menu, and select **Open in Logic Apps**.
-
-   ![Screenshot showing the tasks list and opened ellipses menu with 'Open in Logic Apps' selected.](./media/create-automation-tasks-azure-resources/edit-task-logic-app-designer.png)
-
-   The task's underlying workflow opens in the Azure Logic Apps service and shows the **Overview** pane.
-
-   ![Screenshot showing the task in Azure Logic Apps view with 'Overview' pane selected.](./media/create-automation-tasks-azure-resources/task-logic-apps-view.png)
+1. On the logic app resource menu, select **Overview**.
 
 1. On the **Overview** pane toolbar, select **Export** > **Export to Automation Task**.
 
-   ![Screenshot showing 'Overview' pane toolbar with 'Export' menu open and 'Export to Automation Task' selected."](./media/create-automation-tasks-azure-resources/export-automation-task.png)
+   ![Screenshot showing the 'Overview' pane toolbar with 'Export' menu open and 'Export to Automation Task' selected.](./media/create-automation-tasks-azure-resources/export-automation-task.png)
+
+1. On the **Export to Automation Task** pane that opens, provide the following information:
+
+   | Property | Required | Value | Description |
+   |----------|----------|-------|-------------|
+   | **Template Name** | Yes | <*template-name*> | The name to use for the new automation task template |
+   | **Template Description** | Yes | <*template-description*> | A description for the template's task or purpose |
+   | **Supported Resource Types** | No | Empty or <*supported-Azure-resource-type-list*> | If the template supports all Azure resource types, leave this property empty. Otherwise, enter one or multiple Azure resource types supported by the template. Separate each name with a comma and follow the `Microsoft.<*service-provider*>/<*entity*>` syntax, for example, `Microsoft.Compute/virtualmachines`. <p><p>For more information, review [Resource providers for Azure services](../azure-resource-manager/management/azure-services-resource-providers.md). |
+   | **Unsupported Resource Types** | No | Empty or <*unsupported-Azure-resource-type-list*> | Enter one or more Azure resource types not supported by the template. Separate each name with a comma and follow the `Microsoft.<*service-provider*>/<*entity*>` syntax, for example, `Microsoft.Compute/virtualmachines`. <p><p>For more information, review [Resource providers for Azure services](../azure-resource-manager/management/azure-services-resource-providers.md). |
+   | **Configure Parameters** | No | | |
+   |||||
+
+   The following example shows the properties for a custom automation template that works only on a Azure virtual machine resource:
+
+   ![Screenshot showing the 'Export to Automation Task' pane with example properties for an automation task template.](./media/create-automation-tasks-azure-resources/export-template-properties.png)
+
+1. When you're done, select **Download Template**, which prompts you to open or save the template as a workflow definition file with the .json extension.
 
 ## Provide feedback
 
