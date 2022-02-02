@@ -160,6 +160,9 @@ More information about continuous access evaluation as a session control can be 
 
 ## Limitations
 
+> [!NOTE] 
+> Continuous Access Evaluation (CAE) is not yet enabled for GCC High tenants.
+
 ### Group membership and Policy update effective time
 
 Changes made to Conditional Access policies and group membership made by administrators could take up to one day to be effective. The delay is from replication between Azure AD and resource providers like Exchange Online and SharePoint Online. Some optimization has been done for policy updates, which reduce the delay to two hours. However, it doesn't cover all the scenarios yet.  
