@@ -2519,6 +2519,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/machine-learning/how-to-compute-cluster-instance-os-upgrade.md",
+      "redirect_url": "/azure/machine-learning/concept-vulnerability-management",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/machine-learning/how-to-deploy-custom-docker-image.md",
       "redirect_url": "/azure/machine-learning/how-to-deploy-custom-container",
       "redirect_document_id": false
@@ -13474,7 +13479,7 @@
     },
     {
       "source_path_from_root": "/articles/connectors/connectors-create-api-excel.md",
-      "redirect_url": "/connectors/excelonlinebusiness/",
+      "redirect_url": "/connectors/excelonlinebusiness",
       "redirect_document_id": false
     },
     {
@@ -14890,6 +14895,11 @@
     {
       "source_path_from_root": "/articles/data-factory/data-factory-onprem-postgresql-connector.md",
       "redirect_url": "/azure/data-factory/v1/data-factory-onprem-postgresql-connector",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/postgresql/howto-manage-firewall-using-cli.md",
+      "redirect_url": "/azure/postgresql/quickstart-create-server-database-azure-cli#configure-a-server-based-firewall-rule",
       "redirect_document_id": true
     },
     {
@@ -18033,6 +18043,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/lab-services/class-type-ethical-hacking-virtualbox.md",
+      "redirect_url": "/azure/lab-services/class-types",
+      "redirect_document_id": false
+    },    
+    {
       "source_path_from_root": "/articles/lab-services/classroom-labs/class-type-jupyter-notebook.md",
       "redirect_url": "/azure/lab-services/class-type-jupyter-notebook",
       "redirect_document_id": true
@@ -21052,7 +21067,11 @@
       "redirect_url": "/azure/machine-learning/reference-yaml-job-pipeline",
       "redirect_document_id": false
     },
-
+    {
+      "source_path_from_root": "/articles/machine-learning/tutorial-pipeline-batch-scoring-classification.md",
+      "redirect_url": "/azure/machine-learning/tutorial-pipeline-python-sdk",
+      "redirect_document_id": false
+    },
     {
       "source_path_from_root": "/articles/cognitive-services/QnAMaker/reference-precise-answering.md",
       "redirect_url": "/azure/cognitive-services/language/custom-question-answering/concepts/precise-answering",
@@ -29314,6 +29333,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/security/fundamentals/ddos-best-practices.md",
+      "redirect_url": "/azure/ddos-protection/fundamental-best-practices",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/vpn-gateway/create-vpn-azure-aws-managed-solutions.md",
       "redirect_url": "/azure/vpn-gateway/tutorial-site-to-site-portal",
       "redirect_document_id": false
@@ -31309,11 +31333,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/connectors/connectors-create-api-box",
-      "redirect_url": "/connectors/box/",
-      "redirect_document_id": true
-    },
-    {
       "source_path_from_root": "/articles/logic-apps/logic-apps-custom-connector-register.md",
       "redirect_url": "/connectors/custom-connectors",
       "redirect_document_id": false
@@ -31354,14 +31373,19 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/connectors/connectors-create-api-box",
+      "redirect_url": "/connectors/box/",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/connectors/connectors-create-api-dropbox",
       "redirect_url": "/connectors/dropbox/",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/connectors/connectors-create-api-facebook",
       "redirect_url": "/connectors/facebook/",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/connectors/connectors-create-api-googledrive.md",
@@ -31371,47 +31395,47 @@
     {
       "source_path_from_root": "/articles/connectors/connectors-create-api-mailchimp",
       "redirect_url": "/connectors/mailchimp/",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/connectors/connectors-create-api-microsofttranslator",
       "redirect_url": "/connectors/microsofttranslator/",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/connectors/connectors-create-api-office365-users",
       "redirect_url": "/connectors/office365users/",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/connectors/connectors-create-api-office365-video",
       "redirect_url": "/connectors/office365video/",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/connectors/connectors-create-api-projectonline",
       "redirect_url": "/connectors/projectonline/",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/connectors/connectors-create-api-rss",
       "redirect_url": "/connectors/rss/",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/connectors/connectors-create-api-trello",
       "redirect_url": "/connectors/trello/",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/connectors/connectors-create-api-twitter",
       "redirect_url": "/connectors/twitter/",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/connectors/connectors-create-api-yammer",
       "redirect_url": "/connectors/yammer/",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/connectors/connectors-create-api-wunderlist.md",
@@ -40749,6 +40773,21 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/aks/open-service-mesh-ip-port-exclusion.md",
+      "redirect_url": "/azure/aks/open-service-mesh-about",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/aks/open-service-mesh-deploy-new-application.md",
+      "redirect_url": "/azure/aks/open-service-mesh-about",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/aks/open-service-mesh-deploy-existing-application.md",
+      "redirect_url": "/azure/aks/open-service-mesh-about",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/azure-monitor/platform/alerts-metric-create-templates.md",
       "redirect_url": "/azure/azure-monitor/alerts/alerts-metric-create-templates",
       "redirect_document_id": false
@@ -45222,6 +45261,46 @@
       "source_path_from_root": "/articles/azure/cognitive-services/translator/custom-translator/v2-preview/project-overview.md",
       "redirect_url": "/azure/cognitive-services/translator/custom-translator/v2-preview/beginners-guide",
       "redirect_document_id": true
-    }
+    },
+    {
+      "source_path_from_root": "/articles/azure/devtest-labs/scripts/create-verify-virtual-machine-in-lab-cli.md",
+      "redirect_url": "/azure/devtest-labs/samples-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure/devtest-labs/scripts/start-connect-virtual-machine-in-lab-cli.md",
+      "redirect_url": "/azure/devtest-labs/samples-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure/devtest-labs/scripts/stop-delete-virtual-machine-in-lab-cli.md",
+      "redirect_url": "/azure/devtest-labs/samples-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/agents/azure-monitor-agent-install.md",
+      "redirect_url": "/azure/azure-monitor/agents/azure-monitor-agent-manage",
+      "redirect_document_id": true
+    },
+    {
+    "source_path_from_root": "/articles/azure/virtual-desktop/azure-advisor.md",
+    "redirect_url": "/azure/advisor/advisor-overview",
+    "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure/cognitive-services/translator/tutorial-wpf-translation-csharp.md",
+      "redirect_url": "/ai-builder/flow-text-translation?toc=/azure/cognitive-services/translator/toc.json&bc=/azure/cognitive-services/translator/breadcrumb/toc.json",
+      "redirect_document_id": false
+      },
+      {
+        "source_path_from_root": "/articles/azure/cognitive-services/translator/tutorial-build-flask-app-translation-synthesis.md",
+        "redirect_url": "/learn/modules/translate-text-with-translator-service?toc=/azure/cognitive-services/translator/toc.json&bc=/azure/cognitive-services/translator/breadcrumb/toc.json",
+        "redirect_document_id": false
+      },
+      {
+        "source_path_from_root": "/articles/governance/policy/how-to/guest-configuration-create-group-policy.md",
+        "redirect_url": "/azure/governance/policy/how-to/guest-configuration-create",
+        "redirect_document_id": false
+      }
   ]
 }

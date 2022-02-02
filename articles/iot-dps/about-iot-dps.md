@@ -195,6 +195,11 @@ DPS automates device provisioning with Azure IoT Hub. Learn more about [IoT Hub]
 > [!NOTE]
 > Provisioning of nested edge devices (parent/child hierarchies) is not currently supported by DPS.
 
+IoT Central applications use an internal DPS instance to manage device connections. To learn more, see:
+
+* [Get connected to Azure IoT Central](../iot-central/core/concepts-get-connected.md)
+* [Tutorial: Create and connect a client application to your Azure IoT Central application](../iot-central/core/tutorial-connect-device.md)
+
 ## Next steps
 
 You now have an overview of provisioning IoT devices in Azure. The next step is to try out an end-to-end IoT scenario.

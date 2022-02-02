@@ -32,7 +32,7 @@ You can update the Device Twin with the appropriate Tag using RegistryManager af
 
 #### Device Update Tag Format
 
-```markdown
+```json
      "tags": {
               "ADUGroup": "<CustomTagValue>"
              }

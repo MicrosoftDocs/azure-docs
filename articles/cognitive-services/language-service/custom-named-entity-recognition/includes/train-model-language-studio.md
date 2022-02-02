@@ -11,7 +11,7 @@ ms.author: aahi
 
 ## Train your model
 
-Typically after you create a project, you would import your data and begin [tagging the entities](../../how-to/tag-data.md) within it to train the classification model. For this quickstart, you will use the example tagged data file you downloaded earlier, and stored in your Azure storage account.
+Typically after you create a project, you would import your data and begin [tagging the entities](../../how-to/tag-data.md) within it to train the classification model. For this quickstart, you’ll use the example tagged data file you downloaded earlier, and stored in your Azure storage account.
 
 A model is the machine learning object that will be trained to classify text. Your model will learn from the example data, and be able to classify loan agreements afterwards.
 
