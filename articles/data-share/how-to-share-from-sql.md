@@ -114,7 +114,7 @@ To share data snapshots from your Azure SQL resources, you first need to prepare
 - An Azure subscription: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 - An [Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md) or [Azure Synapse Analytics (formerly Azure SQL DW)](../synapse-analytics/get-started-create-workspace.md) with tables and views that you want to share.
 - [An Azure Data Share account](share-your-data-portal.md#create-a-data-share-account).
-- Your data recipient's Azure sign-in e-mail address (using their e-mail alias won't work).
+- Your data recipient's Azure sign in e-mail address (using their e-mail alias won't work).
 - If your Azure SQL resource is in a different Azure subscription than your Azure Data Share account, register the [Microsoft.DataShare resource provider](concepts-roles-permissions.md#resource-provider-registration) in the subscription where your source Azure SQL resource is located.
 
 ### Source-specific prerequisites
@@ -217,13 +217,13 @@ You can follow the [step by step demo video](https://youtu.be/hIE-TjJD8Dc) to co
 
     ![AddDatasets](./media/add-datasets.png "Add Datasets")
 
-1. Select your SQL server or Synapse workspace. If you're using Azure Active Directory authentication and the checkbox **Allow Data Share to run the above 'create user' SQL script on my behalf** appears, check the checkbox. If you're using SQL authentication, provide credentials, and be sure you have followed the prerequisites so that you have permissions.
+1. Select your SQL server or Synapse workspace. If you're using Azure Active Directory authentication and the checkbox **Allow Data Share to run the above 'create user' SQL script on my behalf** appears, check the checkbox. If you're using SQL authentication, provide credentials, and be sure you've followed the prerequisites so that you have permissions.
 
    Select **Next** to navigate to the object you would like to share and select 'Add Datasets'. You can select tables and views from Azure SQL Database and Azure Synapse Analytics (formerly Azure SQL DW), or tables from Azure Synapse Analytics (workspace) dedicated SQL pool.
 
     ![SelectDatasets](./media/select-datasets-sql.png "Select Datasets")
 
-1. In the Recipients tab, enter in the email addresses of your Data Consumer by selecting '+ Add Recipient'. The email address needs to be recipient's Azure sign-in email.
+1. In the Recipients tab, enter in the email addresses of your Data Consumer by selecting '+ Add Recipient'. The email address needs to be recipient's Azure sign in email.
 
     ![AddRecipients](./media/add-recipient.png "Add recipients")
 
@@ -249,7 +249,7 @@ Confirm that all pre-requisites are complete before accepting a data share invit
 
 - Azure Subscription: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 - A Data Share invitation: An invitation from Microsoft Azure with a subject titled "Azure Data Share invitation from **<yourdataprovider@domain.com>**".
-- Register the [Microsoft.DataShare resource provider](concepts-roles-permissions.md#resource-provider-registration) in the Azure subscription where you will create a Data Share resource and the Azure subscription where your target Azure data stores are located.
+- Register the [Microsoft.DataShare resource provider](concepts-roles-permissions.md#resource-provider-registration) in the Azure subscription where you'll create a Data Share resource and the Azure subscription where your target Azure data stores are located.
 - You'll need a resource in Azure to store the shared data. You can use these kinds of resources:
   - [Azure Storage](../storage/common/storage-account-create.md)
   - [Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md)
@@ -314,7 +314,7 @@ You can follow the [step by step demo video](https://youtu.be/aeGISgK1xro), or t
 <a id="prerequisitesforreceivingtoazuresynapseworkspacepool"></a>
 ### Prerequisites for receiving data into Azure Synapse Analytics (workspace) SQL pool
 
-- An Azure Synapse Analytics (workspace) dedicated SQL pool. Receiving data into serverless SQL pool is not currently supported.
+- An Azure Synapse Analytics (workspace) dedicated SQL pool. Receiving data into serverless SQL pool isn't currently supported.
 - Permission to write to the SQL pool in Synapse workspace: *Microsoft.Synapse/workspaces/sqlPools/write*. This permission exists in the Azure RBAC **Contributor** role.
 - Permission for the Data Share resource's managed identity to access the Synapse workspace SQL pool:
     1. In the [Azure portal](https://portal.azure.com/), navigate to Synapse workspace.
@@ -335,7 +335,7 @@ You can follow the [step by step demo video](https://youtu.be/aeGISgK1xro), or t
 - Synapse workspace Firewall access:
     1. In the [Azure portal](https://portal.azure.com/), navigate to Synapse workspace. Select *Firewalls* from left navigation.
     1. Select **ON** for **Allow Azure services and resources to access this workspace**.
-    1. Select **+Add client IP**. Client IP address is subject to change. This process might need to be repeated the next time you are sharing SQL data from Azure portal.
+    1. Select **+Add client IP**. Client IP address is subject to change. This process might need to be repeated the next time you're sharing SQL data from Azure portal.
     1. Select **Save**.
 
 ## Receive shared data
@@ -395,7 +395,7 @@ Follow the steps below to configure where you want to receive data.
 
 These steps only apply to snapshot-based sharing.
 
-1. You can trigger a snapshot by selecting **Details** tab followed by **Trigger snapshot**. Here, you can trigger a full snapshot of your data. If it's your first time receiving data from your data provider, select full copy. When a snapshot is executing, the next snapshots will not start until the previous one is complete.
+1. You can trigger a snapshot by selecting **Details** tab followed by **Trigger snapshot**. Here, you can trigger a full snapshot of your data. If it's your first time receiving data from your data provider, select full copy. When a snapshot is executing, the next snapshots won't start until the previous one is complete.
 
    ![Trigger snapshot](./media/trigger-snapshot.png "Trigger snapshot")
 
@@ -409,11 +409,11 @@ This step only applies to snapshot-based sharing. To view history of your snapsh
 
 ## Snapshot performance
 
-SQL snapshot performance is impacted by many factors. It is always recommended to conduct your own performance testing. Below are some example factors impacting performance.
+SQL snapshot performance is impacted by many factors. It's always recommended to conduct your own performance testing. Below are some example factors impacting performance.
 
 - Source or destination data store input/output operations per second (IOPS) and bandwidth.
 - Hardware configuration (For example: vCores, memory, DWU) of the source and target SQL data store.
-- Concurrent access to the source and target data stores. If you are sharing multiple tables and views from the same SQL data store, or receive multiple tables and views into the same SQL data store, performance will be impacted.
+- Concurrent access to the source and target data stores. If you're sharing multiple tables and views from the same SQL data store, or receive multiple tables and views into the same SQL data store, performance will be impacted.
 - Network bandwidth between the source and destination data stores, and location of source and target data stores.
 - Size of the tables and views being shared. SQL snapshot sharing does a full copy of the entire table. If the size of the table grows over time, snapshot will take longer.
 
@@ -421,8 +421,8 @@ For large tables where incremental updates are desired, you can export updates t
 
 ## Troubleshoot snapshot failure
 
-The most common cause of snapshot failure is that Data Share does not have permission to the source or target data store. In order to grant Data Share permission to the source or target Azure SQL Database or Azure Synapse Analytics (formerly Azure SQL DW), you must run the provided SQL script when connecting to the SQL database using Azure Active Directory authentication. To troubleshoot other SQL snapshot failures, refer to [Troubleshoot snapshot failure](data-share-troubleshoot.md#snapshots).
+The most common cause of snapshot failure is that Data Share doesn't have permission to the source or target data store. In order to grant Data Share permission to the source or target Azure SQL Database or Azure Synapse Analytics (formerly Azure SQL DW), you must run the provided SQL script when connecting to the SQL database using Azure Active Directory authentication. To troubleshoot other SQL snapshot failures, refer to [Troubleshoot snapshot failure](data-share-troubleshoot.md#snapshots).
 
 ## Next steps
 
-You have learned how to share and receive data from SQL sources using Azure Data Share service. To learn more about sharing from other data sources, continue to [supported data stores](supported-data-stores.md).
+You've learned how to share and receive data from SQL sources using Azure Data Share service. To learn more about sharing from other data sources, continue to [supported data stores](supported-data-stores.md).
