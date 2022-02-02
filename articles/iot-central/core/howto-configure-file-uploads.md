@@ -24,7 +24,7 @@ You need an Azure storage account and container to store the uploaded files. If 
 
 To configure device file uploads:
 
-1. Navigate to the **Administration** section in your application.
+1. Navigate to the **Application** section in your application.
 
 1. Select **Device file upload**.
 
