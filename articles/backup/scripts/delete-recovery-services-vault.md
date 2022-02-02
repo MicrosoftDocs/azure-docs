@@ -37,7 +37,7 @@ This script helps you to delete a Recovery Services vault.
     Install-Module -Name Az.RecoveryServices -Repository PSGallery -Force -AllowClobber
    ```
 
-1. In the PowerShell windpw, change the path to the location the file is present, and then run the file using **./NameOfFile.ps1**.
+1. In the PowerShell window, change the path to the location the file is present, and then run the file using **./NameOfFile.ps1**.
 1. Provide authentication via browser by signing into your Azure account.
 
 The script will continue to delete all the backup items and ultimately the entire vault recursively.
