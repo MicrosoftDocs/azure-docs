@@ -95,7 +95,7 @@ To view the telemetry from the smartphone app in IoT Central:
 
 1. In the list of devices, click on your device name, then select **Overview**:
 
-    :::image type="content" source="media/quick-deploy-iot-central/iotcentral-telemetry.png" alt-text="Screenshot of the overview page with telemetry plots.":::
+    :::image type="content" source="media/quick-deploy-iot-central/iot-central-telemetry.png" alt-text="Screenshot of the overview page with telemetry plots.":::
 
 > [!TIP]
 > The smartphone app only sends data when the screen is on.
