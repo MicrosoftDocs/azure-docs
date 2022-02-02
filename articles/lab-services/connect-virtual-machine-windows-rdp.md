@@ -18,9 +18,9 @@ Typically, the [Remote Desktop client](/windows-server/remote/remote-desktop-ser
 1. On the tile for your VM, ensure the [VM is running](how-to-use-lab.md#start-or-stop-the-vm) and select the **Connect** icon.
 
     :::image type="content" source="./media/connect-virtual-machine-windows-rdp/connect-vm.png" alt-text="Screenshot of My virtual machines page for Azure Lab Services.  The connect icon button on the VM tile is highlighted.":::
-1. If you’re connecting *to a Linux VM*, you'll see two options to connect to the VM: **SSH** and **RDP**.  Select the **RDP** option.
+1. If you’re connecting *to a Linux VM*, you'll see two options to connect to the VM: SSH and RDP.  Select the **Connect via RDP** option.  If you're connecting *to a Windows VM*, you don't need to choose an connection option.  The RDP file will automatically start downloading.
 
-    :::image type="content" source="./media/connect-virtual-machine-windows-rdp/student-vm-connect-options.png" alt-text="Screenshot that shows VM tile for student.  The RDP and SSH connection options are highlighted.":::
+    :::image type="content" source="./media/connect-virtual-machine-windows-rdp/student-vm-connect-options.png" alt-text="Screenshot that shows V M tile for student.  The R D P and S S H connection options are highlighted.":::
 1. When the RDP file is downloaded onto your machine, open it to launch the RDP client.
 1. After adjusting RDP connection settings as needed, select **Connect** to start the remote session.
 
@@ -35,9 +35,9 @@ If your instructor has configured the GNOME graphical desktop on a Linux VM with
     :::image type="content" source="./media/connect-virtual-machine-windows-rdp/rdp-display-settings.png" alt-text="Screenshot of display tab of the Windows R D P client.  The color depth setting is highlighted.":::
 - Under the **Experience** tab, set the connection speed to **Modem (56 kbps)**.
 
-    :::image type="content" source="./media/connect-virtual-machine-windows-rdp/rdp-experience-settings.png" alt-text="Screenshot of experience tab of the Windows R D P client.  The connection speed setting are highlighted.":::
+    :::image type="content" source="./media/connect-virtual-machine-windows-rdp/rdp-experience-settings.png" alt-text="Screenshot of experience tab of the Windows R D P client.  The connection speed setting is highlighted.":::
 
-## Next Steps
+## Next steps
 
 - [As an educator, enabled RDP on Linux](how-to-enable-remote-desktop-linux.md#rdp-setup)
 - [As a student, stop the VM](how-to-use-lab.md#start-or-stop-the-vm)

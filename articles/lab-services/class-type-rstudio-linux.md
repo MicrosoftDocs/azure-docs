@@ -49,7 +49,7 @@ For instructions on how to create a lab, see [Tutorial: Set up a lab](tutorial-s
 | ------------ | ------------------ |
 | Virtual Machine Size | Small GPU (Compute)|
 | VM image | Ubuntu Server 18.04 LTS |
-| Enable remote desktop connection | This setting should be enabled if you choose to use RDP.  This setting isn't needed if you choose [X2Go to connect to lab machines](how-to-use-remote-desktop-linux-student.md). |
+| Enable remote desktop connection | This setting should be enabled if you choose to use RDP.  This setting isn't needed if you choose [X2Go to connect to lab machines](connect-virtual-machine-linux-x2go.md). |
 
 If you choose to instead use RDP, you will need to connect to the Linux VM using SSH and install the RDP and GUI packages before publishing the lab.  Then, students can connect to the Linux VM using RDP later.  For more information, see [Enable graphical remote desktop for Linux VMs](how-to-enable-remote-desktop-linux.md).
 
@@ -66,7 +66,7 @@ sudo apt upgrade
 
 ### Install X2Go Server
 
-If you choose to use X2Go, [install the server](https://aka.ms/azlabs/scripts/LinuxDesktop).  You'll first need to [connect using ssh](how-to-use-remote-desktop-linux-student.md#connect-to-the-student-vm-using-ssh) to install the server component.  Once that is completed, the rest of the setup can be completed after [connecting using the X2Go client](how-to-use-remote-desktop-linux-student.md).
+If you choose to use X2Go, [install the server](https://aka.ms/azlabs/scripts/LinuxDesktop).  You'll first need to [Connect to a Linux lab VM using SSH](connect-virtual-machine.md#connect-to-a-linux-lab-vm-using-ssh) to install the server component.  Once that is completed, the rest of the setup can be completed after [connecting using the X2Go client](connect-virtual-machine-linux-x2go.md).
 
 The default installation of X2Go isn't compatible with RStudio.  To work around this issue, update the x2goagent options file.
 

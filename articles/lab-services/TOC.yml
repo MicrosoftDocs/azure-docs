@@ -190,7 +190,7 @@
     - name: Connect to a VM from Chromebook using RDP
       href: connect-virtual-machine-chromebook-remote-desktop.md
     - name: Connect to Linux VM using X2Go
-      href: how-to-use-remote-desktop-linux-student.md
+      href: connect-virtual-machine-linux-x2go.md
     - name: Set or reset passwords for VMs 
       href: how-to-set-virtual-machine-passwords-student.md 
     - name: View support information (student)

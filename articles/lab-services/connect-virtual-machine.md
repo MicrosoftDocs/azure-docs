@@ -31,7 +31,7 @@ SSH is configured automatically for Linux VMs.  Both students and educators can 
 
 ### Connect to a Linux lab VM Using RDP
 
-An educator must first [enable remote desktop connection for Linux VMs](how-to-enable-remote-desktop-linux.md#enable-remote-desktop-connection-for-rdp) to allow connections to a Linux VM using RDP.
+An educator must first [enable remote desktop connection for Linux VMs](how-to-enable-remote-desktop-linux.md#rdp-setup).
 
 To connect *to a Linux VM using RDP*, follow the instructions based on the type of OS you're using.
 
@@ -45,7 +45,7 @@ To connect *to a Linux VM using RDP*, follow the instructions based on the type 
 
 Linux VMs can have X2Go enabled and a graphical desktop installed.  For more information, see [X2Go Setup](how-to-enable-remote-desktop-linux.md#x2go-setup) and [Using GNOME or MATE graphical desktops](how-to-enable-remote-desktop-linux.md#using-gnome-or-mate-graphical-desktops).  
 
-For instructions to connect *to a Linux VM using X2Go*, see [Connect to a VM using X2Go](how-to-use-remote-desktop-linux-student.md#connect-to-the-student-vm-using-x2go).
+For instructions to connect *to a Linux VM using X2Go*, see [Connect to a VM using X2Go](connect-virtual-machine-linux-x2go.md).
 
 ### Connect to a Linux lab VM using SSH
 
@@ -63,6 +63,6 @@ By default Linux VMs have SSH installed. To connect *to a Linux VM using SSH*, d
 1. Go to your command prompt or terminal, paste in the command, and then press **ENTER**.
 1. Enter the password to sign in to the lab VM.
 
-## Next Steps
+## Next steps
 
 - [As a student, stop the VM](how-to-use-lab.md#start-or-stop-the-vm)

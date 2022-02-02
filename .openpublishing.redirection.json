@@ -45246,11 +45246,15 @@
       "source_path_from_root": "/articles/lab-services/tutorial-setup-classroom-lab.md",
       "redirect_url": "/azure/lab-services/tutorial-setup-lab",
       "redirect_document_id": false
-    }
-    ,
+    },
     {
       "source_path_from_root": "/articles/lab-services/tutorial-connect-virtual-machine-lab.md",
       "redirect_url": "/azure/lab-services/tutorial-connect-lab-virtual-machine",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/lab-services/how-to-use-remote-desktop-linux-student.md",
+      "redirect_url": "/azure/lab-services/connect-virtual-machine",
       "redirect_document_id": false
     },
     {

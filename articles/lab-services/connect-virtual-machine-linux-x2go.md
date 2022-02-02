@@ -11,12 +11,17 @@ Students can use X2Go to connect to their Linux VMs after their instructor sets 
 
 Students need to find out from their instructor which Linux graphical desktop environment their instructor has installed.  This information is needed in the next steps to connect using the X2Go client.
 
-1. Install the [X2Go client](https://wiki.x2go.org/doku.php/doc:installation:x2goclient) on your local computer.  Follow the instructions that match the client OS you are using.
+## Install X2Go client
 
-1. Copy SSH connection information for VM. For instructions, see [Connect to a Linux lab VM Using SSH](connect-virtual-machine.md#connect-to-a-linux-lab-vm-using-ssh) Follow the instructions in the [first section](how-to-use-remote-desktop-linux-student.md#connect-to-the-student-vm-using-ssh) to copy the SSH connection information for your VM.  You need this information to connect using the X2Go client.
+Install the [X2Go client](https://wiki.x2go.org/doku.php/doc:installation:x2goclient) on your local computer.  Follow the instructions that match the client OS you are using.
+
+## Connect to the VM using X2Go client
+
+1. Copy SSH connection information for VM. For instructions to get the SSH command, see [Connect to a Linux lab VM Using SSH](connect-virtual-machine.md#connect-to-a-linux-lab-vm-using-ssh).  You need this information to connect using the X2Go client.
 
 1. Once you have the SSH connection information, open the X2Go client and select **Session** > **New Session**.
-   ![X2Go create new session](./media/how-to-use-classroom-lab/x2go-new-session.png)
+
+    :::image type="content" source="./media/how-to-use-classroom-lab/x2go-new-session.png" alt-text="Screenshot of X 2 Go client Session menu.":::
 
 1. Enter the values in the **Session Preferences** pane based on your SSH connection information.  For example, your connection information will look similar to following command.
 
@@ -34,11 +39,11 @@ Students need to find out from their instructor which Linux graphical desktop en
 
     Finally, select **OK** to create the session.
 
-    ![X2Go Session Preferences](./media/how-to-use-classroom-lab/x2go-session-preferences.png)
+    :::image type="content" source="./media/how-to-use-classroom-lab/x2go-session-preferences.png" alt-text="Screenshot of new session window in X 2 Go client.  The session name, server information and session type settings are highlighted.":::
 
 1. Select on your session in the right-hand pane.
 
-    ![X2Go start new session](./media/how-to-use-classroom-lab/x2go-start-session.png)
+    :::image type="content" source="./media/how-to-use-classroom-lab/x2go-start-session.png" alt-text="Screenshot of X 2 Go with saved session.":::
 
     > [!NOTE]
     > If you are prompted with a message about authenticity, select **yes** to continue to entering your password.  Message will be similar to "The authenticity of host '[`00000000-0000-0000-0000-000000000000.eastus2.cloudapp.eastus.cloudapp.azure.com`]:12345' can't be established.  ECDSA key fingerprint is SHA256:00000000000000000000000000000000000000000000.Are you sure you want to continue connecting (yes/no)?"
