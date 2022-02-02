@@ -62,15 +62,9 @@ To collect resource logs, you must create a diagnostic setting. When you create 
 
 To get the list of SMB and REST operations that are logged, see [Storage logged operations and status messages](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) and [Azure Files monitoring data reference](storage-files-monitoring-reference.md).
 
-> [!NOTE]
-> Azure Storage logs in Azure Monitor is generally available in all public cloud regions. This feature enables logs for blobs (which includes Azure Data Lake Storage Gen2), files, queues, and tables. This feature is available for all storage accounts that are created with the Azure Resource Manager deployment model. For more information, see [Storage account overview](../common/storage-account-overview.md).
-
 ## Creating a diagnostic setting
 
 You can create a diagnostic setting by using the Azure portal, PowerShell, the Azure CLI, an Azure Resource Manager template, or Azure Policy.
-
-> [!NOTE]
-> Azure Storage logs in Azure Monitor is generally available in all public cloud regions. This feature enables logs for blobs (which includes Azure Data Lake Storage Gen2), files, queues, and tables. This feature is available for all storage accounts that are created with the Azure Resource Manager deployment model. For more information, see [Storage account overview](../common/storage-account-overview.md).
 
 For general guidance, see [Create diagnostic setting to collect platform logs and metrics in Azure](../../azure-monitor/essentials/diagnostic-settings.md).
 

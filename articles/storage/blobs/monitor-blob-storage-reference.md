@@ -70,9 +70,6 @@ For the metrics supporting dimensions, you need to specify the dimension value t
 
 ## Resource logs
 
-> [!NOTE]
-> Azure Storage logs in Azure Monitor is generally available in all public cloud regions. This feature enables logs for blobs (which includes Azure Data Lake Storage Gen2), files, queues, and tables. This feature is available for all storage accounts that are created with the Azure Resource Manager deployment model. For more information, see [Storage account overview](../common/storage-account-overview.md).
-
 The following table lists the properties for Azure Storage resource logs when they're collected in Azure Monitor Logs or Azure Storage. The properties describe the operation, the service, and the type of authorization that was used to perform the operation.
 
 ### Fields that describe the operation
