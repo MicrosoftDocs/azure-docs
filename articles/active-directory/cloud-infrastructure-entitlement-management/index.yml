@@ -38,12 +38,12 @@ landingContent:
           - text: Enable CloudKnox on your Azure AD tenant 
             url: cloudknox-onboard-enable-tenant.md
   # Card
-   - title: View risk metrics in your authorization system
-     linkLists:
-      - linkListType: overview
-        links:
-          - text: View key statistics and data about your authorization system
-            url: cloudknox-ui-dashboard.md
+  - title: View risk metrics in your authorization system
+    linkLists:
+    - linkListType: overview
+      links:
+        - text: View key statistics and data about your authorization system
+          url: cloudknox-ui-dashboard.md
   # Card
    - title: Configure settings for data collection
     linkLists:
