@@ -379,7 +379,7 @@ The ExpressRoute virtual network gateway facilitates the management and control 
 
     :::image type="content" source="./media/expressroute-troubleshooting-expressroute-overview/gateway-result.png" alt-text="Screenshot of the diagnostic results.":::
    
-Review if your virtual network gateway recently underwent maintenance. If maintenance occurred during a period when you experienced packet loss or latency, it's possible that the reduced capacity of the virtual network gateway contributed to connectivity issues you're experiencing with the target virtual network. Follow the recommended steps and also consider upgrading the virtual network gateway SKU to support a higher network throughput and avoid connectivity issues during future maintenance events.
+    Review if your virtual network gateway recently underwent maintenance. If maintenance occurred during a period when you experienced packet loss or latency, it's possible that the reduced capacity of the virtual network gateway contributed to connectivity issues you're experiencing with the target virtual network. Follow the recommended steps and also consider upgrading the [virtual network gateway SKU](expressroute-about-virtual-network-gateways.md#gwsku) to support a higher network throughput and avoid connectivity issues during future maintenance events.
 
 ## Next Steps
 For more information or help, check out the following links:
