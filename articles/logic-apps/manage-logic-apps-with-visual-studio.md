@@ -262,6 +262,8 @@ To stop the trigger from firing the next time when the trigger condition is met,
   1. Save your changes. This step resets your trigger's current state.
   1. [Reactivate your logic app](#enable-logic-apps).
 
+* When a workflow is disabled, you can still resubmit runs.
+
 <a name="disable-logic-apps"></a>
 
 ### Disable logic apps
@@ -269,9 +271,6 @@ To stop the trigger from firing the next time when the trigger condition is met,
 In Cloud Explorer, open your logic app's shortcut menu, and select **Disable**.
 
 ![Disable your logic app in Cloud Explorer](./media/manage-logic-apps-with-visual-studio/disable-logic-app-cloud-explorer.png)
-
-> [!NOTE]
-> When a logic app workflow is disabled, you can still resubmit runs.
 
 <a name="enable-logic-apps"></a>
 

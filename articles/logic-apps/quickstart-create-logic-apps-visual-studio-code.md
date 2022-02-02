@@ -6,7 +6,7 @@ ms.suite: integration
 ms.reviewer: azla
 ms.topic: quickstart
 ms.custom: mvc, mode-ui
-ms.date: 05/25/2021
+ms.date: 02/02/2022
 #Customer intent: As a developer, I want to create my first automated workflow by using Azure Logic Apps while working in Visual Studio Code
 ---
 
@@ -301,20 +301,21 @@ In Visual Studio Code, you can open and review the earlier versions for your log
 
 In Visual Studio Code, if you edit a published logic app and save your changes, you *overwrite* your already deployed app. To avoid breaking your logic app in production and minimize disruption, disable your logic app first. You can then reactivate your logic app after you've confirmed that your logic app still works.
 
-> [!NOTE]
-> Disabling a logic app affects workflow instances in the following ways:
->
-> * The Logic Apps service continues all in-progress and pending runs until they finish. Based on the volume or backlog, this process might take time to complete.
->
-> * The Logic Apps service doesn't create or run new workflow instances.
->
-> * The trigger won't fire the next time that its conditions are met. However, the trigger state remembers the point at which the logic app was stopped. So, if you reactivate the logic app, the trigger fires for all the unprocessed items since the last run.
->
->   To stop the trigger from firing on unprocessed items since the last run, clear the trigger's state before you reactivate the logic app:
->
->   1. In the logic app, edit any part of the workflow's trigger.
->   1. Save your changes. This step resets your trigger's current state.
->   1. Reactivate your logic app.
+* Azure Logic Apps continues all in-progress and pending runs until they finish. Based on the volume or backlog, this process might take time to complete.
+
+* Azure Logic Apps doesn't create or run new workflow instances.
+
+* The trigger won't fire the next time that its conditions are met.
+
+* The trigger state remembers the point at which the logic app was stopped. So, if you reactivate the logic app, the trigger fires for all the unprocessed items since the last run.
+
+  To stop the trigger from firing on unprocessed items since the last run, clear the trigger's state before you reactivate the logic app:
+
+  1. In the logic app, edit any part of the workflow's trigger.
+  1. Save your changes. This step resets your trigger's current state.
+  1. Reactivate your logic app.
+
+* When a workflow is disabled, you can still resubmit runs.
 
 1. If you haven't signed in to your Azure account and subscription yet from inside Visual Studio Code, follow the [previous steps to sign in now](#access-azure).
 
