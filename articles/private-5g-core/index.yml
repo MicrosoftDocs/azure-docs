@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
-title: Azure Private 5G Core Preview documentation
-summary: Learn how to securely deploy and manage private mobile networks for 5G Internet of Things (IoT) devices using Azure Private 5G Core Preview.
+title: Azure Private 5G Core documentation
+summary: Learn how to securely deploy and manage private mobile networks for 5G Internet of Things (IoT) devices using Azure Private 5G Core.
 
 metadata:
-  title: Azure Private 5G Core Preview documentation
-  description: Learn how to securely deploy and manage private mobile networks for 5G Internet of Things (IoT) devices using Azure Private 5G Core Preview.
+  title: Azure Private 5G Core documentation
+  description: Learn how to securely deploy and manage private mobile networks for 5G Internet of Things (IoT) devices using Azure Private 5G Core.
   ms.service: private-5g-core
   ms.topic: landing-page
   author: djrmetaswitch
@@ -18,6 +18,39 @@ landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
   # Card
+  - title: About Azure Private 5G Core
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Private 5G Core?
+            url: private-5g-core-overview.md
+      - linkListType: concept
+        links:
+          - text: Key components of a private mobile network
+            url: key-components-of-a-private-mobile-network.md
+          - text: Statement of compliance
+            url: statement-of-compliance.md   
+  # Card            
+  - title: Learn how to deploy a private mobile network
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Complete prerequisite tasks
+            url: complete-private-mobile-network-prerequisites.md
+          - text: Collect the required information for a private mobile network
+            url: collect-required-information-for-private-mobile-network.md
+          - text: Deploy a private mobile network using the Azure portal
+            url: how-to-guide-deploy-a-private-mobile-network-azure-portal.md
+  # Card
+  - title: Manage sites
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Create an additional site
+            url: create-an-additional-site.md
+          - text: Modify an existing packet core instance
+            url: modify-existing-packet-core.md
+  # Card                   
   - title: Customize Quality of Service (QoS) and traffic control
     linkLists:
       - linkListType: concept
@@ -38,7 +71,6 @@ landingContent:
             url: collect-required-information-for-sim-policy.md
           - text: Configure a SIM policy
             url: configure-sim-policy-azure-portal.md
-
   # Card
   - title: Provision SIMs
     linkLists:
@@ -48,3 +80,12 @@ landingContent:
             url: provision-sims-azure-portal.md
           - text: Activate SIMs
             url: activate-sims.md
+  # Card
+  - title: Monitor your private mobile network
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Distributed tracing
+            url: distributed-tracing.md
+          - text: Packet core dashboards
+            url: packet-core-dashboards.md

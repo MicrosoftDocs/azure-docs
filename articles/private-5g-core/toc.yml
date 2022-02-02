@@ -1,12 +1,21 @@
 items:
 - name: Azure Private 5G Core documentation
   href: index.yml
+- name: Overview
+  expanded: true
+  items:
+  - name: What is Azure Private 5G Core?
+    href: private-5g-core-overview.md
 - name: Tutorials
   items:
   - name: Create an example policy control configuration set
     href: tutorial-create-example-set-of-policy-control-configuration.md
 - name: Concepts
   items:
+  - name: Key components of a private mobile network
+    href: key-components-of-a-private-mobile-network.md
+  - name: Statement of compliance
+    href: statement-of-compliance.md
   - name: Policy control
     href: policy-control.md
   - name: Local monitoring tools
@@ -15,8 +24,24 @@ items:
       href: distributed-tracing.md
     - name: Packet core dashboards
       href: packet-core-dashboards.md
+  - name: Security
+    href: security.md
 - name: How-to guides
   items:
+  - name: Private mobile networks
+    items:
+    - name: Complete the prerequisite tasks for deploying a private mobile network
+      href: complete-private-mobile-network-prerequisites.md
+    - name: Collect the required information to deploy a private mobile network
+      href: collect-required-information-for-private-mobile-network.md
+    - name: Deploy a private mobile network - Azure portal
+      href: how-to-guide-deploy-a-private-mobile-network-azure-portal.md
+  - name: Sites
+    items:
+    - name: Create an additional site
+      href: create-an-additional-site.md
+    - name: Modify an existing packet core instance
+      href: modify-existing-packet-core.md
   - name: Services
     items:
     - name: Collect the required information for a service
@@ -35,3 +60,11 @@ items:
       href: provision-sims-azure-portal.md
     - name: Activate SIMs
       href: activate-sims.md
+- name: Reference
+  items:
+   - name: REST API documentation
+     href: /rest/api/private-5g-core
+- name: Resources
+  items:
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/?category=databases
