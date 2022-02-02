@@ -1,5 +1,5 @@
 ---
-title: Manage a Azure custom IP address prefix (BYOIP) Preview
+title: Manage an Azure custom IP address prefix (BYOIP) Preview
 titleSuffix: Azure Virtual Network
 description: Learn about custom IP address prefixes and how to manage and delete them.
 services: virtual-network
@@ -43,11 +43,11 @@ Use the following CLI and PowerShell commands to create public IP prefixes with 
 |CLI|[az network public-ip prefix create](/cli/azure/network/public-ip/prefix#az_network_public_ip_prefix_create)|
 |PowerShell|[New-AzPublicIpPrefix](/powershell/module/az.network/new-azpublicipprefix)|
 
-Once created, the IPs in the child public IP prefix can be associated with resources in the same manner as any other Standard SKU static public IPs.  To learn more about using IPs from a public IP prefix, including selection of a specific IP from the range, see [Create a static public IP address from a prefix](manage-public-ip-address-prefix.md#create-a-static-public-ip-address-from-a-prefix).
+Once created, the IPs in the child public IP prefix can be associated with resources like any other Standard SKU static public IPs.  To learn more about using IPs from a public IP prefix, including selection of a specific IP from the range, see [Create a static public IP address from a prefix](manage-public-ip-address-prefix.md#create-a-static-public-ip-address-from-a-prefix).
 
 ### Migration of active prefixes from outside Microsoft
 
-If the provisioned range is being advertised to the Internet by another network, it's important to plan the migration to Azure to avoid impact. Regardless of the method used, it's advised to make the transition during a maintenance window. 
+If the provisioned range is being advertised to the Internet by another network, it's important to plan the migration to Azure to avoid impact. Regardless of the method used, make the transition during a maintenance window. 
 
 **Method 1: Create public IP prefixes and public IP addresses from the prefixes when the custom IP prefix is in a "Provisioned" state**.
     
@@ -55,9 +55,9 @@ If the provisioned range is being advertised to the Internet by another network,
 
 **Method 2: Create public IP prefixes and public IP addresses from the prefixes using Microsoft ranges. Deploy an infrastructure in your subscription and verify it's operational**.  
 
-* Create a second set of mirrored public IP prefixes and public IP addresses from the prefixes when the custom IP prefix is in a **Provisioned** state. Add the provisioned IPs to the existing infrastructure. For example, add an additional network interface to a virtual machine or an additional frontend for a load balancer. Perform a change to the desired IPs before issuing the command to move the custom IP prefix to the **Commissioned** state.
+* Create a second set of mirrored public IP prefixes and public IP addresses from the prefixes when the custom IP prefix is in a **Provisioned** state. Add the provisioned IPs to the existing infrastructure. For example, add another network interface to a virtual machine or another frontend for a load balancer. Perform a change to the desired IPs before issuing the command to move the custom IP prefix to the **Commissioned** state.
 
-* Alternatively, the ranges can be commissioned first and then changed. This won't work for all resource types with public IPs. In those cases a new resource with the provisioned public IP must be created.
+* Alternatively, the ranges can be commissioned first and then changed. This process won't work for all resource types with public IPs. In those cases, a new resource with the provisioned public IP must be created.
 
 ## View a custom IP prefix
 
@@ -99,7 +99,7 @@ In order to fully remove a custom IP prefix, it must be deprovisioned and then d
 >
 > The current estimated time to fully complete the deprovisioning process in preview is 4-6 weeks.
 
-The following commands can be used in Azure CLI and Azure PowerShell to begin the process to deprovision and remove the range from Microsoft. The deprovisioning operation is asynchronous. You can use the view commands to retrieve the status. The **CommissionedState** field will initially show the prefix as **Deprovisioning**, followed by **Deprovisioned** as it transitions to the earlier state. When the range is in the **Deprovisioned** state, it can be deleted by using the commands to remove.
+The following commands can be used in Azure CLI and Azure PowerShell to deprovision and remove the range from Microsoft. The deprovisioning operation is asynchronous. You can use the view commands to retrieve the status. The **CommissionedState** field will initially show the prefix as **Deprovisioning**, followed by **Deprovisioned** as it transitions to the earlier state. When the range is in the **Deprovisioned** state, it can be deleted by using the commands to remove.
 
 **Commands**
 
@@ -123,25 +123,25 @@ For permissions to manage public IP address prefixes, your account must be assig
 
 This section provides answers for common questions about custom IP prefix resources and the provisioning and removal processes.
 
-### After creating a new custom IP prefix, the provisioning failed within 24 hours
+### After you create a new custom IP prefix, the provisioning failed within 24 hours
 
-A quick failure of provisioning is likely due to a prefix validation error. This means that we were unable to verify your ownership of the range, Microsoft permission to advertise the range, and/or the association of the range with the specific subscription. The error message given should indicate the specific problem encountered, so you can fix the required input. For example, the Route Origin Authorization, the signed message on the prefix records, and other aspects of the submission. You should delete the custom IP prefix resource and create a new one.
+A quick failure of provisioning is likely due to a prefix validation error. A prefix validation error indicates we're unable to verify your ownership of the range. Verify Microsoft permission to advertise the range, and or the association of the range with the specific subscription. The error message given should indicate the specific problem encountered, so you can fix the required input. For example, the Route Origin Authorization, the signed message on the prefix records, and other aspects of the submission. You should delete the custom IP prefix resource and create a new one.
 
 ### My custom IP prefix has been in "Provisioning" status for a long time
 
-Provisioning and deprovisioning a custom IP prefix during the preview period is an asynchronous operation that takes an estimated 4-6 weeks. The provision of a non-Microsoft (BYOIP) range goes through a number of internal safety checks which deploys on a region by region basis. Contact Microsoft Support if the range has been in Provisioning for longer than this time, or transitions to **ProvisioningFailed** state after 24 hours. The **ProvisioningFailed** state indicates its's no longer a validation error.
+Provisioning and deprovisioning a custom IP prefix during the preview period is an asynchronous operation that takes an estimated 4-6 weeks. The provision of a non-Microsoft (BYOIP) range goes through many internal safety checks, which deploys on a region-by-region basis. Contact Microsoft Support if the range has been in Provisioning for longer than this time, or transitions to **ProvisioningFailed** state after 24 hours. The **ProvisioningFailed** state indicates its's no longer a validation error.
 
 ### After updating a custom IP prefix to advertise, it transitions to a "CommissioningFailed" status
 
 During the preview period, if a custom IP prefix is unable to be fully advertised, it moves to a **CommissioningFailed** status. In these instances, it's recommended to execute the command to update the range to commissioned status again and contact Microsoft Support.
 
-### I am unable to decommission a custom IP prefix
+### I’m unable to decommission a custom IP prefix
 
-Before decommissioning a custom IP prefix, no public IP prefixes or public IP addresses can be present.
+Before you decommission a custom IP prefix, no public IP prefixes or public IP addresses can be present.
 
 ### How can I migrate a range from one region to another
 
-To migrate a custom IP prefix, first it must be completely deprovisioned from one region. A new custom IP prefix with the same CIDR can then be created in another region.
+To migrate a custom IP prefix, first it must be deprovisioned from one region. A new custom IP prefix with the same CIDR can then be created in another region.
 
 <!--Commenting these until all files are in the branch
 ## Next steps
