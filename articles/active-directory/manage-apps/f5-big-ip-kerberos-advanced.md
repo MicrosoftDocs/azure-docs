@@ -52,7 +52,7 @@ The SHA solution for this scenario consists of the following elements:
 
 The following image illustrates the SAML SP-initiated flow for this scenario, but IdP-initiated flow is also supported.
 
-![Diagram of the scenario architecture.](./media/f5-big-ip-kerberos-advanced/scenario-architecture.png)
+![Diagram of the scenario architecture.](./media/f5-big-ip-kerberos-easy-button/scenario-architecture.png)
 
 | Step| Description |
 | -------- |-------|
