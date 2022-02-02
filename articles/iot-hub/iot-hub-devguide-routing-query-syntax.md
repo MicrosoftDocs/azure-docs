@@ -209,6 +209,9 @@ Message routing enables you to query on [Device Twin](iot-hub-devguide-device-tw
 } 
 ```
 
+> [!NOTE]
+> Modules do not inherit twin tags from their corresponding devices. Twin queries for messages originating from device modules (for example from IoT Ege modules) query against the module twin and not the corresponding device twin.
+
 ### Query expressions
 
 A query on message twin needs to be prefixed with the `$twin`. Your query expression can also combine a twin tag or property reference with a body reference, message system properties, and message application properties reference. We recommend using unique names in tags and properties as the query is not case-sensitive. This applies to both device twins and module twins. Also refrain from using `twin`, `$twin`, `body`, or `$body`, as a property names. For example, the following are all valid query expressions: 
