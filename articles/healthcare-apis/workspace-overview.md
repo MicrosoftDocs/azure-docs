@@ -5,7 +5,7 @@ author: stevewohl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: overview
-ms.date: 2/2/2021
+ms.date: 2/2/2022
 ms.author: ginle
 ---
 
