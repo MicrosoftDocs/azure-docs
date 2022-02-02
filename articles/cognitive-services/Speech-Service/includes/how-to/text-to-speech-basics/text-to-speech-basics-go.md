@@ -6,7 +6,7 @@ ms.date: 07/02/2021
 ms.author: yulili
 ---
 
-In this quickstart, you learn common design patterns for doing text-to-speech synthesis using the Speech SDK.
+In this quickstart, you learn common design patterns for doing text-to-speech synthesis by using the Speech SDK.
 
 ## Skip to samples on GitHub
 
@@ -14,18 +14,15 @@ If you want to skip straight to sample code, see the [Go quickstart samples](htt
 
 ## Prerequisites
 
-This article assumes that you have an Azure account and Speech service subscription. If you don't have an account and subscription, [try the Speech service for free](../../../overview.md#try-the-speech-service-for-free).
+This article assumes that you have an Azure account and a Speech service subscription. If you don't have an account and a subscription, [try the Speech service for free](../../../overview.md#try-the-speech-service-for-free).
 
-## Install the Speech SDK
+### Install the Speech SDK
 
-
-Before you can do anything, you'll need to install the [Speech SDK for Go](../../../quickstarts/setup-platform.md?pivots=programming-language-go&tabs=dotnet%252cwindows%252cjre%252cbrowser).
+Before you can do anything, you need to install the [Speech SDK for Go](../../../quickstarts/setup-platform.md?pivots=programming-language-go&tabs=dotnet%252cwindows%252cjre%252cbrowser).
 
 ## Text-to-speech to speaker
 
-Use the following code sample to run speech synthesis to your default audio output device.
-Replace the variables `subscription` and `region` with your speech key and location/region.
-Running the script will speak your input text to default speaker.
+Use the following code sample to run speech synthesis to your default audio output device. Replace the variables `subscription` and `region` with your speech key and location/region. Running the script will speak your input text to the default speaker.
 
 ```go
 package main
@@ -128,41 +125,39 @@ func main() {
 }
 ```
 
-Run the following commands to create a `go.mod` file that links to components hosted on GitHub.
+Run the following commands to create a *go.mod* file that links to components hosted on GitHub:
 
 ```shell
 go mod init quickstart
 go get github.com/Microsoft/cognitive-services-speech-sdk-go
 ```
 
-Now build and run the code.
+Now build and run the code:
 
 ```shell
 go build
 go run quickstart
 ```
 
-See the reference docs for detailed information on the [`SpeechConfig`](https://pkg.go.dev/github.com/Microsoft/cognitive-services-speech-sdk-go/speech#SpeechConfig) and [`SpeechSynthesizer`](https://pkg.go.dev/github.com/Microsoft/cognitive-services-speech-sdk-go/speech#SpeechSynthesizer) classes.
+For detailed information about the classes, see the [`SpeechConfig`](https://pkg.go.dev/github.com/Microsoft/cognitive-services-speech-sdk-go/speech#SpeechConfig) and [`SpeechSynthesizer`](https://pkg.go.dev/github.com/Microsoft/cognitive-services-speech-sdk-go/speech#SpeechSynthesizer) reference docs.
 
 ## Text-to-speech to in-memory stream
 
-For many scenarios in speech application development, you likely need the resulting audio data as an in-memory stream rather than directly writing to a file.
-This will allow you to build custom behavior including:
+For many scenarios in speech application development, you likely need the resulting audio data as an in-memory stream rather than directly writing to a file. This will allow you to build custom behavior, including:
 
-* Abstract the resulting byte array as a seek-able stream for custom downstream services.
-* Integrate the result with other API's or services.
-* Modify the audio data, write custom `.wav` headers, etc.
+* Abstract the resulting byte array as a seekable stream for custom downstream services.
+* Integrate the result with other APIs or services.
+* Modify the audio data, write custom .wav headers, and do related tasks.
 
-It's simple to make this change from the previous example. First, remove the `AudioConfig`, as you will manage the output behavior manually from this point onward for increased control. Then pass `nil` for the `AudioConfig` in the `SpeechSynthesizer` constructor.
+It's simple to make this change from the previous example. First, remove the `AudioConfig` block, because you'll manage the output behavior manually from this point onward for increased control. Then pass `nil` for `AudioConfig` in the `SpeechSynthesizer` constructor.
 
 > [!NOTE]
-> Passing `nil` for the `AudioConfig`, rather than omitting it like in the speaker output example above, will not play the audio by default on the current active output device.
+> Passing `NULL` for `AudioConfig`, rather than omitting it as you did in the previous speaker output example, will not play the audio by default on the current active output device.
 
-This time, you save the result to a [`SpeechSynthesisResult`](https://pkg.go.dev/github.com/Microsoft/cognitive-services-speech-sdk-go/speech#SpeechSynthesisResult) variable.
-The `AudioData` property returns a `[]byte` of the output data. You can work with this `[]byte` manually, or you can use the [`AudioDataStream`](https://pkg.go.dev/github.com/Microsoft/cognitive-services-speech-sdk-go/speech#AudioDataStream) class to manage the in-memory stream.
+This time, save the result to a [`SpeechSynthesisResult`](https://pkg.go.dev/github.com/Microsoft/cognitive-services-speech-sdk-go/speech#SpeechSynthesisResult) variable. The `AudioData` property returns a `[]byte` instance for the output data. You can work with this `[]byte` instance manually, or you can use the [`AudioDataStream`](https://pkg.go.dev/github.com/Microsoft/cognitive-services-speech-sdk-go/speech#AudioDataStream) class to manage the in-memory stream.
 In this example, you use the `NewAudioDataStreamFromSpeechSynthesisResult()` static function to get a stream from the result.
 
-Replace the variables `subscription` and `region` with your speech key and location/region.
+Replace the variables `subscription` and `region` with your speech key and location/region:
 
 ```go
 package main
@@ -223,8 +218,8 @@ func main(subscription string, region string) {
 			return
 		}
 
-		// in most case we want to streaming receive the audio to lower the latency,
-		// we can use AudioDataStream to do so.
+		// In most cases, we want to streaming receive the audio to lower the latency.
+		// We can use AudioDataStream to do so.
 		stream, err := speech.NewAudioDataStreamFromSpeechSynthesisResult(outcome.Result)
 		defer stream.Close()
 		if err != nil {
@@ -249,28 +244,29 @@ func main(subscription string, region string) {
 }
 ```
 
-Run the following commands to create a `go.mod` file that links to components hosted on GitHub.
+Run the following commands to create a *go.mod* file that links to components hosted on GitHub:
 
 ```shell
 go mod init quickstart
 go get github.com/Microsoft/cognitive-services-speech-sdk-go
 ```
 
-Now build and run the code.
+Now build and run the code:
 
 ```shell
 go build
 go run quickstart
 ```
 
-See the reference docs for detailed information on the [`SpeechConfig`](https://pkg.go.dev/github.com/Microsoft/cognitive-services-speech-sdk-go/speech#SpeechConfig) and [`SpeechSynthesizer`](https://pkg.go.dev/github.com/Microsoft/cognitive-services-speech-sdk-go/speech#SpeechSynthesizer) classes.
+For detailed information about the classes, see the [`SpeechConfig`](https://pkg.go.dev/github.com/Microsoft/cognitive-services-speech-sdk-go/speech#SpeechConfig) and [`SpeechSynthesizer`](https://pkg.go.dev/github.com/Microsoft/cognitive-services-speech-sdk-go/speech#SpeechSynthesizer) reference docs.
 
 ## Use SSML to customize speech characteristics
 
-Speech Synthesis Markup Language (SSML) allows you to fine-tune the pitch, pronunciation, speaking rate, volume, and more of the text-to-speech output by submitting your requests from an XML schema. This section shows an example of changing the voice, but for a more detailed guide, see the [SSML how-to article](../../../speech-synthesis-markup.md).
+You can use Speech Synthesis Markup Language (SSML) to fine-tune the pitch, pronunciation, speaking rate, volume, and more in the text-to-speech output by submitting your requests from an XML schema. This section shows an example of changing the voice. For a more detailed guide, see the [SSML how-to article](../../../speech-synthesis-markup.md).
 
 To start using SSML for customization, you make a simple change that switches the voice.
-First, create a new XML file for the SSML config in your root project directory, in this example `ssml.xml`. The root element is always `<speak>`, and wrapping the text in a `<voice>` element allows you to change the voice using the `name` param. See the [full list](../../../language-support.md#prebuilt-neural-voices) of supported **neural** voices.
+
+First, create a new XML file for the SSML configuration in your root project directory. In this example, it's `ssml.xml`. The root element is always `<speak>`. Wrapping the text in a `<voice>` element allows you to change the voice by using the `name` parameter. See the [full list](../../../language-support.md#prebuilt-neural-voices) of supported *neural* voices.
 
 ```xml
 <speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">
@@ -280,16 +276,15 @@ First, create a new XML file for the SSML config in your root project directory,
 </speak>
 ```
 
-Next, you need to change the speech synthesis request to reference your XML file.
-The request is mostly the same, but instead of using the `SpeakTextAsync()` function, you use `SpeakSsmlAsync()`. This function expects an XML string, so you first load your SSML config as a string. From here, the result object is exactly the same as previous examples.
+Next, you need to change the speech synthesis request to reference your XML file. The request is mostly the same, but instead of using the `SpeakTextAsync()` function, you use `SpeakSsmlAsync()`. This function expects an XML string, so you first load your SSML configuration as a string. From here, the result object is exactly the same as previous examples.
 
 > [!NOTE]
-> To change the voice without using SSML, you can set the property on the `SpeechConfig` by using `speechConfig.SetSpeechSynthesisVoiceName("en-US-JennyNeural")`
+> To change the voice without using SSML, you can set the property on  `SpeechConfig` by using `speechConfig.SetSpeechSynthesisVoiceName("en-US-JennyNeural")`.
 
 ## Get facial pose events
 
 Speech can be a good way to drive the animation of facial expressions.
-Often [visemes](../../../how-to-speech-synthesis-viseme.md) are used to represent the key poses in observed speech, such as the position of the lips, jaw and tongue when producing a particular phoneme.
-You can subscribe the viseme event in Speech SDK.
-Then, you can apply viseme events to animate the face of a character as speech audio plays.
+[Visemes](../../../how-to-speech-synthesis-viseme.md) are often used to represent the key poses in observed speech. Key poses include the position of the lips, jaw, and tongue in producing a particular phoneme.
+
+You can subscribe to viseme events in the Speech SDK. Then, you can apply viseme events to animate the face of a character as speech audio plays.
 Learn [how to get viseme events](../../../how-to-speech-synthesis-viseme.md#get-viseme-events-with-the-speech-sdk).

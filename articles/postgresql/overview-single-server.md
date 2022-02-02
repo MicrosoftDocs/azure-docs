@@ -78,6 +78,13 @@ The service runs community version of PostgreSQL. This allows full application c
 - **Dump and Restore** – For offline migrations, where users can afford some downtime, dump and restore using community tools like Pg_dump and Pg_restore can provide fastest way to migrate. See [Migrate using dump and restore](./howto-migrate-using-dump-and-restore.md) for details.
 - **Azure Database Migration Service** – For seamless and simplified migrations to single server with minimal downtime, Azure Database Migration Service can be leveraged. See [DMS via portal](../dms/tutorial-postgresql-azure-postgresql-online-portal.md) and [DMS via CLI](../dms/tutorial-postgresql-azure-postgresql-online.md).
 
+## Frequently Asked Questions
+
+ Will Flexible Server replace Single Server or Will Single Server be retired soon?
+
+We continue to support Single Server and encourage you to adopt Flexible Server which has richer capabilities such as zone resilient HA, predictable performance, maximum control, custom maintenance window, cost optimization controls and simplified developer experience suitable for your enterprise workloads. If we decide to retire any service, feature, API or SKU, you will receive advance notice including a migration or transition path. Learn more about Microsoft Lifecycle policies [here](/lifecycle/faq/general-lifecycle).
+
+
 ## Contacts
 
 For any questions or suggestions you might have about working with Azure Database for PostgreSQL, send an email to the Azure Database for PostgreSQL Team ([@Ask Azure DB for PostgreSQL](mailto:AskAzureDBforPostgreSQL@service.microsoft.com)). This email address is not a technical support alias.

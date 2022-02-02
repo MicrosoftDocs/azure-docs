@@ -12,11 +12,11 @@ ms.date: 08/16/2021
 Below is a glossary of terminology used throughout Azure Purview.
 
 ## Annotation
-Information that is associated with data assets in Azure Azure Purview, for example, glossary terms and classifications. After they are applied, annotations can be used within Search to aid in the discovery of the data assets. 
+Information that is associated with data assets in Azure Purview, for example, glossary terms and classifications. After they are applied, annotations can be used within Search to aid in the discovery of the data assets. 
 ## Approved
 The state given to any request that has been accepted as satisfactory by the designated individual or group who has authority to change the state of the request. 
 ## Asset
-Any single object that is stored within an Azure Azure Purview data catalog.
+Any single object that is stored within an Azure Purview data catalog.
 > [!NOTE]
 > A single object in the catalog could potentially represent many objects in storage, for example, a resource set is an asset but it's made up of many partition files in storage.
 ## Azure Information Protection
@@ -82,7 +82,7 @@ An individual or group in charge of managing a data asset.
 ## Pattern rule
 A configuration that overrides how Azure Purview groups assets as resource sets and displays them within the catalog.
 ## Azure Purview instance
-A single Azure Azure Purview resource. 
+A single Azure Purview resource. 
 ## Registered source
 A source that has been added to an Azure Purview instance and is now managed as a part of the Data catalog. 
 ## Related terms

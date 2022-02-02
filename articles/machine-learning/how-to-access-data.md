@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.author: yogipandey
 author: ynpandey
 ms.reviewer: nibaccam
-ms.date: 10/21/2021
+ms.date: 01/28/2022
 ms.custom: contperf-fy21q1, devx-track-python, data4ml
 
 
@@ -94,13 +94,13 @@ To ensure you securely connect to your Azure storage service, Azure Machine Lear
 
 ### Virtual network 
 
-Azure Machine Learning requires additional configuration steps to communicate with a storage account that is behind a firewall or within a virtual network. If your storage account is behind a firewall, you can [allow list the IP address via the Azure portal](../storage/common/storage-network-security.md#managing-ip-network-rules).
+Azure Machine Learning requires additional configuration steps to communicate with a storage account that is behind a firewall or within a virtual network. If your storage account is behind a firewall, you can [add your client's IP address to an allowlist](../storage/common/storage-network-security.md#managing-ip-network-rules) via the Azure portal.
 
-Azure Machine Learning can receive requests from clients outside of the virtual network. To ensure that the entity requesting data from the service is safe, [use a private endpoint with your workspace](how-to-configure-private-link.md).
+Azure Machine Learning can receive requests from clients outside of the virtual network. To ensure that the entity requesting data from the service is safe and to enable data being displayed in your workspace, [use a private endpoint with your workspace](how-to-configure-private-link.md).
 
-**For Python SDK users**, to access your data via your training script on a compute target, the compute target needs to be inside the same virtual network and subnet of the storage. 
+**For Python SDK users**, to access your data via your training script on a compute target, the compute target needs to be inside the same virtual network and subnet of the storage. You can [use a compute cluster in the same virtual network](how-to-secure-training-vnet.md?tabs=azure-studio%2Cipaddress#compute-cluster) or [use a compute instance in the same virtual network](how-to-secure-training-vnet.md?tabs=azure-studio%2Cipaddress#compute-instance).
 
-**For Azure Machine Learning studio users**, several features rely on the ability to read data from a dataset; such as dataset previews, profiles and automated machine learning. For these features to work with storage behind virtual networks, use a [workspace managed identity in the studio](how-to-enable-studio-virtual-network.md) to allow Azure Machine Learning to access the storage account from outside the virtual network. 
+**For Azure Machine Learning studio users**, several features rely on the ability to read data from a dataset, such as dataset previews, profiles, and automated machine learning. For these features to work with storage behind virtual networks, use a [workspace managed identity in the studio](how-to-enable-studio-virtual-network.md) to allow Azure Machine Learning to access the storage account from outside the virtual network. 
 
 > [!NOTE]
 > If your data storage is an Azure SQL Database behind a virtual network, be sure to set *Deny public access* to **No** via the [Azure portal](https://ms.portal.azure.com/) to allow Azure Machine Learning to access the storage account.

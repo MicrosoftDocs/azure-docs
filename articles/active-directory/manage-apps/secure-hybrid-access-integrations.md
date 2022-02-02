@@ -35,7 +35,7 @@ The rest of this guide explains the technical considerations and our recommendat
 
 ## Publishing your application to Azure Marketplace
 
-You can pre-integrate your application with Azure AD to support SSO and automated provisioning by following the process to [publish it in Azure Marketplace](../develop/v2-howto-app-gallery-listing.md). Azure Marketplace is a trusted source of applications for IT admins. Applications listed there have been validated to be compatible with Azure AD. They support SSO, automate user provisioning, and can easily integrate into customer tenants with automated app registration.
+You can pre-integrate your application with Azure AD to support SSO and automated provisioning by following the process to [publish it in Azure Marketplace](../manage-apps/v2-howto-app-gallery-listing.md). Azure Marketplace is a trusted source of applications for IT admins. Applications listed there have been validated to be compatible with Azure AD. They support SSO, automate user provisioning, and can easily integrate into customer tenants with automated app registration.
 
 In addition, we recommend that you become a [verified publisher](../develop/publisher-verification-overview.md) so that customers know you're the trusted publisher of the app.
 

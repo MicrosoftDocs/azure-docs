@@ -7,7 +7,7 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: reference
-ms.date: 01/14/2022
+ms.date: 01/20/2022
 ms.author: aahi
 ---
 
@@ -81,11 +81,12 @@ docker pull mcr.microsoft.com/azure-cognitive-services/form-recognizer/invoice:l
 
 ## Configure the container to be run in a disconnected environment
 
-Now that you've downloaded your container, you will need to run the container with the `DownloadLicense=True` parameter in your `docker run` command. This parameter will download a license file that will enable your Docker container to run when it isn't connected to the internet. It also contains an expiration date, after which the license file will be invalid to run the container.
+Now that you've downloaded your container, you will need to run the container with the `DownloadLicense=True` parameter in your `docker run` command. This parameter will download a license file that will enable your Docker container to run when it isn't connected to the internet. It also contains an expiration date, after which the license file will be invalid to run the container. You can only use a license file with the appropriate container that you've been approved for. For example, you cannot use a license file for a speech-to-text container with a form recognizer container. 
 
 > [!IMPORTANT]
-> * You can only use a license file with the appropriate container that you've been approved for. For example, you cannot use a license file for a speech-to-text container with a form recognizer container. 
-> * If you're using the [Translator container](../translator/containers/translator-how-to-install-container.md), using the example below will generate a docker `run` template that you can use to run the container, containing parameters you will need for the downloaded models and configuration file. Make sure you save this template.
+> * [**Translator container only**](../translator/containers/translator-how-to-install-container.md): 
+>    * You must include a parameter to download model files for the [languages](../translator/language-support.md) you want to translate. For example: `-e Languages=en,es`
+>    * The container will generate a `docker run` template that you can use to run the container, containing parameters you will need for the downloaded models and configuration file. Make sure you save this template.
 
 The following example shows the formatting of the `docker run` command you'll use, with placeholder values. Replace these placeholder values with your own values.
 

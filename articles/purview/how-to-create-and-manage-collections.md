@@ -6,13 +6,13 @@ ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 11/04/2021
+ms.date: 01/24/2022
 ms.custom: template-how-to
 ---
 
 # Create and manage collections in Azure Purview
 
-Collections in Azure Purview can be used to organize assets and sources by your business's flow, but they are also the tool used to manage access across Azure Purview. This guide will take you through the creation and management of these collections, as well as cover steps about how to register sources and add assets into your collections.
+Collections in Azure Purview can be used to organize assets and sources by your business's flow. They are also the tool used to manage access across Azure Purview. This guide will take you through the creation and management of these collections, as well as cover steps about how to register sources and add assets into your collections.
 
 ## Prerequisites
 
@@ -24,13 +24,13 @@ Collections in Azure Purview can be used to organize assets and sources by your 
 
 ### Check permissions
 
-In order to create and manage collections in Azure Purview, you will need to be a **Collection Admin** within Azure Purview. We can check these permissions in the [Azure Purview Studio](https://web.purview.azure.com/resource/). You can find the studio by going to your Azure Purview resource in the [Azure portal](https://portal.azure.com), and selecting the Open Azure Purview Studio tile on the overview page.
+In order to create and manage collections in Azure Purview, you will need to be a **Collection Admin** within Azure Purview. We can check these permissions in the [Azure Purview Studio](https://web.purview.azure.com/resource/). You can find Studio in the overview page of the Azure Purview resource in [Azure portal](https://portal.azure.com).
 
 1. Select Data Map > Collections from the left pane to open collection management page.
 
     :::image type="content" source="./media/how-to-create-and-manage-collections/find-collections.png" alt-text="Screenshot of Azure Purview studio window, opened to the Data Map, with the Collections tab selected." border="true":::
 
-1. Select your root collection. This is the top collection in your collection list and will have the same name as your Azure Purview resource. In our example below, it is called Contoso Azure Purview. Alternatively, if collections already exist you can select any collection where you want to create a subcollection.
+1. Select your root collection. This is the top collection in your collection list and will have the same name as your Azure Purview resource. In the following example, it's called Contoso Azure Purview. Alternatively, if collections already exist you can select any collection where you want to create a subcollection.
 
     :::image type="content" source="./media/how-to-create-and-manage-collections/select-root-collection.png" alt-text="Screenshot of Azure Purview studio window, opened to the Data Map, with the root collection highlighted." border="true":::
 
@@ -38,7 +38,7 @@ In order to create and manage collections in Azure Purview, you will need to be 
 
     :::image type="content" source="./media/how-to-create-and-manage-collections/role-assignments.png" alt-text="Screenshot of Azure Purview studio window, opened to the Data Map, with the role assignments tab highlighted." border="true":::
 
-1. To create a collection, you will need to be in the collection admin list under role assignments. If you created the Azure Purview resource, you should be listed as a collection admin under the root collection already. If not, you will need to contact the collection admin to grant you permission.
+1. To create a collection, you'll need to be in the collection admin list under role assignments. If you created the Azure Purview resource, you should be listed as a collection admin under the root collection already. If not, you'll need to contact the collection admin to grant you permission.
 
     :::image type="content" source="./media/how-to-create-and-manage-collections/collection-admins.png" alt-text="Screenshot of Azure Purview studio window, opened to the Data Map, with the collection admin section highlighted." border="true":::
 
@@ -46,7 +46,7 @@ In order to create and manage collections in Azure Purview, you will need to be 
 
 ### Create a collection
 
-You will need to be a collection admin in order to create a collection. If you are not sure, follow the [guide above](#check-permissions) to check permissions.
+You'll need to be a collection admin in order to create a collection. If you aren't sure, follow the [guide above](#check-permissions) to check permissions.
 
 1. Select Data Map > Collections from the left pane to open collection management page.
 
@@ -67,7 +67,7 @@ You will need to be a collection admin in order to create a collection. If you a
 
 ### Edit a collection
 
-1. Select **Edit** either from the collection detail page, or from the collection's drop down menu.
+1. Select **Edit** either from the collection detail page, or from the collection's dropdown menu.
 
     :::image type="content" source="./media/how-to-create-and-manage-collections/edit-collection.png" alt-text="Screenshot of Azure Purview studio window, open to collection window, with the 'edit' button highlighted both in the selected collection window, and under the ellipsis button next to the name of the collection." border="true":::
 
@@ -95,7 +95,7 @@ You will need to be a collection admin in order to create a collection. If you a
 
 ### Delete a collection
 
-You will need to be a collection admin in order to delete a collection. If you are not sure, follow the guide above to check permissions. Collection can be deleted only if no child collections, assets, data sources or scans are associated with it. 
+You'll need to be a collection admin in order to delete a collection. If you aren't sure, follow the guide above to check permissions. Collection can be deleted only if no child collections, assets, data sources or scans are associated with it. 
 
 1. Select **Delete** from the collection detail page.
    
@@ -111,16 +111,17 @@ You will need to be a collection admin in order to delete a collection. If you a
 
 Since permissions are managed through collections in Azure Purview, it is important to understand the roles and what permissions they will give your users. A user granted permissions on a collection will have access to sources and assets associated with that collection, as well as inherit permissions to subcollections. Inheritance [can be restricted](#restrict-inheritance), but is allowed by default.
 
-The guide below will discuss the roles, how to manage them, and permissions inheritance.
+The following guide will discuss the roles, how to manage them, and permissions inheritance.
 
 ### Roles
 
 All assigned roles apply to sources, assets, and other objects within the collection where the role is applied.
 
-* **Collection admins** - can edit the collection, its details, and add subcollections. They can also add data curators, data readers, and other Azure Purview roles to a collection scope. Collection admins that are automatically inherited from a parent collection can't be removed.
-* **Data source admins** - can manage data sources and data scans.
-* **Data curators** - can perform create, read, modify, and delete actions on catalog data objects and establish relationships between objects.
-* **Data readers** - can access but not modify catalog data objects.
+* **Collection admins** can edit the collection, its details, and add subcollections. They can also add data curators, data readers, and other Azure Purview roles to a collection scope. Collection admins that are automatically inherited from a parent collection can't be removed.
+* **Data source admins** can manage data sources and data scans. They can also enter the policy management app to view and publish policies.
+* **Data curators** can perform create, read, modify, and delete actions on catalog data objects and establish relationships between objects. They can also enter the policy management app to view policies.
+* **Data readers** can access but not modify catalog data objects.
+* **Policy Authors** can enter the policy management app and create/edit policy statements.
 
 ### Add role assignments
 

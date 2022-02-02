@@ -355,7 +355,7 @@ sections:
       - question: |
           Does the new Azure Monitor agent have hardening support for Linux?
         answer: |
-          This is not available currently for the agent in preview, and is planned to be added post GA.
+          This is not available currently for the agent in preview, and is planned to be added post general availability.
           
           
   - name: Visualizations

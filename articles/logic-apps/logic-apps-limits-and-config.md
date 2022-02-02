@@ -30,6 +30,7 @@ The following tables list the values for a single workflow definition:
 | Name | Limit | Notes |
 | ---- | ----- | ----- |
 | Workflows per region per subscription | 1,000 workflows ||
+| Workflow - Maximum name length | 43 characters | Previously 80 characters |
 | Triggers per workflow | 10 triggers | This limit applies only when you work on the JSON workflow definition, whether in code view or an Azure Resource Manager (ARM) template, not the designer. |
 | Actions per workflow | 500 actions | To extend this limit, you can use nested workflows as necessary. |
 | Actions nesting depth | 8 actions | To extend this limit, you can use nested workflows as necessary. |

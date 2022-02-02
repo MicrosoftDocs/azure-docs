@@ -5,11 +5,10 @@ description: A common scenario for speech-to-text is transcribing large volumes 
 services: cognitive-services
 author: eric-urban
 manager: nitinme
-
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 01/23/2022
 ms.author: eur
 ---
 
@@ -69,7 +68,7 @@ Our new voices are also indistinguishable from human voices. You can use our voi
 
 ### Search
 
-Another staple of analytics is to identify interactions where a specific event or experience has occurred. This is typically done with one of two approaches; either an ad hoc search where the user simply types a phrase and the system responds, or a more structured query where an analyst can create a set of logical statements that identify a scenario in a call, and then each call can be indexed against that set of queries. A good search example is the ubiquitous compliance statement "this call shall be recorded for quality purposes... ". Many companies want to make sure that their agents are providing this disclaimer to customers before the call is actually recorded. Most analytics systems have the ability to trend the behaviors found by query/search algorithms, and this reporting of trends is ultimately one of the most important functions of an analytics system. Through [Cognitive services directory](https://azure.microsoft.com/services/cognitive-services/directory/search/) your end to end solution can be significantly enhanced with indexing and search capabilities.
+Another staple of analytics is to identify interactions where a specific event or experience has occurred. This is typically done with one of two approaches; either an ad hoc search where the user simply types a phrase and the system responds, or a more structured query where an analyst can create a set of logical statements that identify a scenario in a call, and then each call can be indexed against that set of queries. A good search example is the ubiquitous compliance statement "this call shall be recorded for quality purposes... ". Many companies want to make sure that their agents are providing this disclaimer to customers before the call is actually recorded. Most analytics systems have the ability to trend the behaviors found by query/search algorithms, and this reporting of trends is ultimately one of the most important functions of an analytics system. Through [Cognitive services directory](https://azure.microsoft.com/services/cognitive-services/directory/search/) your end-to-end solution can be significantly enhanced with indexing and search capabilities.
 
 ### Key Phrase Extraction
 
@@ -112,7 +111,7 @@ The Speech service can be easily integrated in any solution by using either the 
 
 Several IVR or telephony service products (such as Genesys or AudioCodes) offer integration capabilities that can be leveraged to enable inbound and outbound audio pass-through to an Azure service. Basically, a custom Azure service might provide a specific interface to define phone call sessions (such as Call Start or Call End) and expose a WebSocket API to receive inbound stream audio that is used with the Speech service. Outbound responses, such as conversation transcription or connections with the Bot Framework, can be synthesized with Microsoft's text-to-speech service and returned to the IVR for playback.
 
-Another scenario is direct integration with Session Initiation Protocol (SIP). An Azure service connects to a SIP Server, thus getting an inbound stream and an outbound stream, which is used for the speech-to-text and text-to-speech phases. To connect to a SIP Server there are commercial software offerings, such as Ozeki SDK, or [the Teams calling and meetings API](/graph/api/resources/communications-api-overview) (currently in beta), that are designed to support this type of scenario for audio calls.
+Another scenario is direct integration with Session Initiation Protocol (SIP). An Azure service connects to a SIP Server, thus getting an inbound stream and an outbound stream, which is used for the speech-to-text and text-to-speech phases. To connect to a SIP Server there are commercial software offerings, such as Ozeki SDK, or the [Microsoft Graph communications API](/graph/api/resources/communications-api-overview), that are designed to support this type of scenario for audio calls.
 
 ## Customize existing experiences
 

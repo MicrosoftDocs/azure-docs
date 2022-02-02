@@ -28,6 +28,12 @@ items:
       href: tutorial-data-sources-readiness.md
     - name: Azure Purview MSI configuration at scale
       href: tutorial-msi-configuration.md
+  - name: Data owner access policies
+    items:
+    - name: Data owner policies for Azure Storage
+      href: tutorial-data-owner-policies-storage.md
+    - name: Data owner policies on resource groups or subscriptions
+      href: tutorial-data-owner-policies-resource-group.md
   - name: Onboard an on-premises SQL Server instance
     href: tutorial-register-scan-on-premises-sql-server.md
   - name: Use REST APIs for data planes
@@ -85,8 +91,6 @@ items:
       href: concept-classification.md
   - name: Data catalog
     items:
-    - name: Catalog search
-      href: concept-search.md
     - name: Business glossary
       href: concept-business-glossary.md 
     - name: Asset normalization
@@ -148,7 +152,7 @@ items:
       href: register-scan-azure-synapse-analytics.md
     - name: Cassandra
       href: register-scan-cassandra-source.md
-    - name: DB2
+    - name: Db2
       href: register-scan-db2.md
     - name: Erwin
       href: register-scan-erwin-source.md
@@ -274,6 +278,10 @@ items:
       href: create-purview-portal-faq.md
     - name: Conditional access
       href: catalog-conditional-access.md
+  - name: Data owner policies
+    items:
+    - name: Authoring and publishing data owner access policies
+      href: how-to-data-owner-policy-authoring-generic.md
   - name: Manage Kafka notifications - .NET
     href: manage-kafka-dotnet.md
   - name: Disaster recovery
@@ -282,18 +290,12 @@ items:
     href: how-to-monitor-with-azure-monitor.md
   - name: Integrate with Azure security products
     href: how-to-integrate-with-azure-security-products.md
-  - name: Data owner access policies
-    items:
-    - name: Data access policy Azure Storage
-      href: how-to-access-policies-storage.md
 - name: Reference
   items:
     - name: Azure Purview product glossary
       href: reference-purview-glossary.md
     - name: Supported browsers
       href: supported-browsers.md
-    - name: Supported data sources and file types
-      href: sources-and-scans.md
     - name: Supported classifications
       href: supported-classifications.md
     - name: Azure Purview limits

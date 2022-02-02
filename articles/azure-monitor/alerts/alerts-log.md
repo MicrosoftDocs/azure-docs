@@ -4,7 +4,7 @@ description: Use Azure Monitor to create, view, and manage log alert rules
 author: AbbyMSFT
 ms.author: abbyweisberg
 ms.topic: conceptual
-ms.date: 12/14/2021
+ms.date: 01/25/2022
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 # Create, view, and manage log alerts using Azure Monitor
@@ -26,7 +26,6 @@ You can also [create log alert rules using Azure Resource Manager templates](../
 > This article describes creating alert rules using the new alert rule wizard. Please note these changes in the new alert rule experience:
 > - Search results are not included with the triggered alert and its associated notifications. The alert contains a link to the search results in Logs.
 > - The new alert rule wizard does not include the option to customize the triggered alert's email or to include a custom JSON payload.
-> - The new alert rule wizard does not currently support a frequency of 1 minute. 1 minute alert frequency will be supported soon.
 
 1. In the [portal](https://portal.azure.com/), select the relevant resource.
 1. In the Resource menu, under **Monitoring**, select **Alerts**.
@@ -82,6 +81,9 @@ You can also [create log alert rules using Azure Resource Manager templates](../
     
     :::image type="content" source="media/alerts-log/alerts-rule-details-tab.png" alt-text="Details tab.":::
 
+> [!NOTE]
+> If you, or your administrator assigned the Azure Policy **Azure Log Search Alerts over Log Analytics workspaces should use customer-managed keys**, you must select **Check workspace linked storage** option in **Advanced options**, or the rule creation will fail as it will not meet the policy requirements.
+
 1. In the **Tags** tab, set any required tags on the alert rule resource.
 
     :::image type="content" source="media/alerts-log/alerts-rule-tags-tab.png" alt-text="Tags tab.":::
@@ -107,7 +109,7 @@ You can also [create log alert rules using Azure Resource Manager templates](../
 
 This section describes how to manage log alerts using the cross-platform [Azure CLI](/cli/azure/get-started-with-azure-cli). Quickest way to start using Azure CLI is through [Azure Cloud Shell](../../cloud-shell/overview.md). For this article, we'll use Cloud Shell.
 > [!NOTE]
-> Azure CLI support is only available for the scheduledQueryRules API version `2020-08-01` and later. Previous API versions can use the Azure Resource Manager CLI with templates as described below. If you use the legacy [Log Analytics Alert API](./api-alerts.md), you will need to switch to use CLI. [Learn more about switching](./alerts-log-api-switch.md).
+> Azure CLI support is only available for the scheduledQueryRules API version `2021-08-01` and later. Previous API versions can use the Azure Resource Manager CLI with templates as described below. If you use the legacy [Log Analytics Alert API](./api-alerts.md), you will need to switch to use CLI. [Learn more about switching](./alerts-log-api-switch.md).
 
 
 1. In the [portal](https://portal.azure.com/), select **Cloud Shell**.
