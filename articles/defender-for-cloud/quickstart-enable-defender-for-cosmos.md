@@ -2,7 +2,7 @@
 title: Enable Microsoft Defender for Cosmos DB
 description: Learn how to enable Microsoft Defender for Cosmos DB's enhanced security features.
 ms.topic: quickstart
-ms.date: 02/01/2022
+ms.date: 02/02/2022
 ---
 
 # Quickstart: Enable Microsoft Defender for Cosmos DB
@@ -47,9 +47,13 @@ When you enable Microsoft Defender for Cloud's enhanced security features on you
 
 1. Locate Databases and toggle the switch to **On**.
 
+    :::image type="content" source="media/quickstart-enable-defender-for-cosmos/protection-type.png" alt-text="Screenshot showing the available protections you can enable.":::
+
 1. Select **Select types**
 
 1. Toggle the desired resource type switches to **On**.
+
+    :::image type="content" source="media/quickstart-enable-defender-for-cosmos/resource-type.png" alt-text="Screenshot showing the available resources you can enable.":::
 
 1. Select **Save**.
 
@@ -59,7 +63,7 @@ The resource level enables Microsoft Defender for Cloud for a specific Cosmos DB
 
 **To enables Microsoft Defender for Cloud for a specific Cosmos DB account**:
 
-### [Portal](#tab/azure-portal)
+### [Azure portal](#tab/azure-portal)
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
@@ -73,19 +77,27 @@ The resource level enables Microsoft Defender for Cloud for a specific Cosmos DB
 
 1. Install the [Az.Security](https://www.powershellgallery.com/packages/Az.Security/1.1.1) module.
 
-1. Call the {{Powershell command name `Your values`}} command.
+1. Call the [Enable-AzSecurityAdvancedThreatProtection](/powershell/module/az.security/enable-azsecurityadvancedthreatprotection?view=azps-7.1.0) command.
 
-1.  Verify the Microsoft Defender for Cosmos DB setting for your storage account through the PowerShell, call <<`Your values`>>.
+    ```powershell
+    Enable-AzSecurityAdvancedThreatProtection -ResourceId "/subscriptions/<Your subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.DocumentDb/databaseAccounts/myCosmosDBAccount/" 
+    ```
 
-### [Azure CLI](#tab/azure-cli)
+1.  Verify the Microsoft Defender for Cosmos DB setting for your storage account through the PowerShell call [Get-AzSecurityAdvancedThreatProtection](/powershell/module/az.security/get-azsecurityadvancedthreatprotection?view=azps-7.1.0) command.
 
-***Awaiting information***
+    ```powershell
+    Get-AzSecurityAdvancedThreatProtection -ResourceId "/subscriptions/<Your subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.DocumentDb/databaseAccounts/myCosmosDBAccount/" 
+    ```
+
+### [ARM template](#tab/arm-template)
+
+Use an Azure Resource Manager template to deploy an Azure Storage account with Microsoft Defender for Storage enabled. For more information, see [Create a Cosmos DB account with Defender for Cosmos DB enabled](https://azure.microsoft.com/resources/templates/cosmosdb-advanced-threat-protection-create-account/).
 
 ---
 
 ## Simulate security alerts from Microsoft Defender for Cosmos DB
 
-A full list of [supported alerts](azure/defender-for-cloud/alerts-reference#alerts-k8scluster) is available in the reference table of all Defender for Cloud security alerts. 
+A full list of [supported alerts](alerts-reference.md) is available in the reference table of all Defender for Cloud security alerts. 
 
 You can use sample Defender for Cosmos DB alerts to evaluate their value, and capabilities. Sample alerts will also validate any configurations you've made for your security alerts (such as SIEM integrations, workflow automation, and email notifications). 
 
@@ -103,7 +115,9 @@ You can use sample Defender for Cosmos DB alerts to evaluate their value, and ca
 
 1. Select **Create sample alerts**.
 
-After a few minutes, the alert will appear in the security alerts page. Alerts will also appear anywhere else that you've configured to receive your Microsoft Defender for Cloud security alerts, for example, connected SIEMs, and email notifications. 
+    :::image type="content" source="media/quickstart-enable-defender-for-cosmos/sample-alerts.png" alt-text="Screenshot showing the order needed to create an alert.":::
+
+After a few minutes, the alerts will appear in the security alerts page. Alerts will also appear anywhere else that you've configured to receive your Microsoft Defender for Cloud security alerts, for example, connected SIEMs, and email notifications. 
 
 ## Next Steps
 
