@@ -88,7 +88,7 @@ To prevent creating roles that can't be assigned or deleted, clone the CloudAdmi
 
 ## NSX-T Manager access and identity
 
-When a private cloud is provisioned using Azure portal, Software Defined Data Center (SDDC) management components like, vCenter and NSX-T Manager, are provisioned for customers. 
+When a private cloud is provisioned using Azure portal, Software Defined Data Center (SDDC) management components like vCenter and NSX-T Manager, are provisioned for customers. 
 
 Microsoft is responsible for the lifecycle management of NSX-T appliances like, NSX-T Managers and NSX-T Edges. They're responsible for bootstrapping network configuration, like creating the Tier-0 gateway. 
 
