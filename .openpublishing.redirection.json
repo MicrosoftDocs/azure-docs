@@ -2519,6 +2519,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/machine-learning/how-to-compute-cluster-instance-os-upgrade.md",
+      "redirect_url": "/azure/machine-learning/concept-vulnerability-management",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/machine-learning/how-to-deploy-custom-docker-image.md",
       "redirect_url": "/azure/machine-learning/how-to-deploy-custom-container",
       "redirect_document_id": false
@@ -40769,6 +40774,16 @@
     },
     {
       "source_path": "articles/aks/open-service-mesh-ip-port-exclusion.md",
+      "redirect_url": "/azure/aks/open-service-mesh-about",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/aks/open-service-mesh-deploy-new-application.md",
+      "redirect_url": "/azure/aks/open-service-mesh-about",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/aks/open-service-mesh-deploy-existing-application.md",
       "redirect_url": "/azure/aks/open-service-mesh-about",
       "redirect_document_id": false
     },
