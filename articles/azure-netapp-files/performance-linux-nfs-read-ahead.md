@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 07/02/2021
+ms.date: 02/02/2022
 ms.author: anfdocs
 ---
 # Linux NFS read-ahead best practices for Azure NetApp Files
