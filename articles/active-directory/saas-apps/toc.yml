@@ -838,6 +838,8 @@
         href: fortigate-ssl-vpn-tutorial.md
       - name: FortiSASE SIA
         href: fortisase-sia-tutorial.md
+      - name: FortiWeb Web Application Firewall
+        href: fortiweb-web-application-firewall-tutorial.md 
       - name: foundU
         href: foundu-tutorial.md
       - name: Freedcamp
@@ -1296,6 +1298,8 @@
         href: logzio-cloud-observability-for-engineers-tutorial.md
       - name: Loop Flow CRM
         href: loop-flow-crm-tutorial.md  
+      - name: Lucid (All Products)
+        href: lucid-tutorial.md  
       - name: Lucidchart
         href: lucidchart-tutorial.md
       - name: Luum
@@ -2000,6 +2004,8 @@
         href: softeon-tutorial.md
       - name: Software AG Cloud
         href: software-ag-cloud-tutorial.md
+      - name: SolarWinds Orion
+        href: solarwinds-orion-tutorial.md  
       - name: SolarWinds Service Desk
         href: samanage-tutorial.md  
       - name: Soloinsight-CloudGate SSO
