@@ -56,6 +56,8 @@ With Azure Container Apps, you can:
 
 <sup>1</sup> Applications that [scale on CPU or memory load](scale-app.md) can't scale to zero.
 
+> [!VIDEO https://www.youtube.com/embed/b3dopSTnSRg]
+
 ### Next steps
 
 > [!div class="nextstepaction"]
