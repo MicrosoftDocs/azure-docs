@@ -307,7 +307,7 @@ The **Application Pool tab** details the services behind a BIG-IP, represented a
 
    ![Screenshot for Application pool](./media/f5-big-ip-oracle/application-pool.png)
 
-4.The **Access Gate Pool** specifies the servers Oracle EBS uses for mapping an SSO authenticated user to an Oracle E-Business Suite session. Update **Pool Servers** with the IP and port for of the Oracle application servers hosting the application
+4. The **Access Gate Pool** specifies the servers Oracle EBS uses for mapping an SSO authenticated user to an Oracle E-Business Suite session. Update **Pool Servers** with the IP and port for of the Oracle application servers hosting the application
 
    ![Screenshot for AccessGate pool](./media/f5-big-ip-oracle/accessgate-pool.png)
 
