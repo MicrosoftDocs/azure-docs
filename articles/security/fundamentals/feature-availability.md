@@ -422,11 +422,11 @@ Office 365 GCC is paired with Azure Active Directory (Azure AD) in Azure. Office
 | - Office 365 GCC | Public Preview | - |
 | - Office 365 GCC High | - | Not Available |
 | - Office 365 DoD | - | Not Available |
-| - [Microsoft Power BI](../../sentinel/data-connectors-reference.md#microsoft-power-bi-preview) | |  |
+| - **[Microsoft Power BI](../../sentinel/data-connectors-reference.md#microsoft-power-bi-preview)** | |  |
 | - Office 365 GCC | Public Preview | - |
 | - Office 365 GCC High | - | Not Available |
 | - Office 365 DoD | - | Not Available |
-| - [Microsoft Project](../../sentinel/data-connectors-reference.md#microsoft-project-preview) |  |  |
+| - **[Microsoft Project](../../sentinel/data-connectors-reference.md#microsoft-project-preview)** |  |  |
 | - Office 365 GCC | Public Preview | - |
 | - Office 365 GCC High | - | Not Available |
 | - Office 365 DoD | - | Not Available |
