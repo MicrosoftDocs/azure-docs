@@ -1,7 +1,7 @@
 ---
 title: Gain insight into devices discovered by a specific sensor
 description: The device inventory displays an extensive range of device attributes that a sensor detects. 
-ms.date: 11/09/2021
+ms.date: 02/02/2022
 ms.topic: how-to
 ---
 
