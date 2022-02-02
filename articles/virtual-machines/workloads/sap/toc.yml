@@ -120,6 +120,8 @@
     href: cal-s4h.md
   - name: SAP IDES on Windows/SQL Server SAP CAL
     href: cal-ides-erp6-erp7-sp3-sql.md   
+  - name: SAP ILM
+    href: sap-information-lifecycle-management.md
   - name: SAP BOBI Platform on Azure
     items:
     - name: SAPI BOBI planning and implementation guide on Azure 

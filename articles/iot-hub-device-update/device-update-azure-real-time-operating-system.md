@@ -10,9 +10,9 @@ ms.service: iot-hub-device-update
 
 # Device Update for Azure IoT Hub tutorial using Azure Real Time Operating System (RTOS)
 
-This tutorial will walk through how to create the Device Update for IoT Hub Agent in Azure RTOS NetX Duo. It also provides simple APIs for developers to integrate the Device Update capability in their application. Explore [samples](https://github.com/azure-rtos/samples/tree/PublicPreview/ADU) of key semiconductors evaluation boards that include the get started guides to learn configure, build, and deploy the over-the-air (OTA) updates to the devices.
+This tutorial walks through how to create the Device Update for IoT Hub Agent in Azure RTOS NetX Duo. It also provides simple APIs for developers to integrate the Device Update capability in their application. Explore [samples](https://github.com/azure-rtos/samples/tree/PublicPreview/ADU) of key semiconductors evaluation boards that include the get started guides to learn configure, build, and deploy the over-the-air (OTA) updates to the devices.
 
-In this tutorial you will learn how to:
+In this tutorial you learn how to:
 > [!div class="checklist"]
 > * Get started
 > * Tag your device
@@ -20,10 +20,10 @@ In this tutorial you will learn how to:
 > * Deploy an image update
 > * Monitor the update deployment
 
-If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
-* Access to an IoT Hub. It is recommended that you use a S1 (Standard) tier or above.
+* Access to an IoT Hub. It is recommended that you use a S1 (Standard) tier or higher.
 * A Device Update instance and account linked to your IoT Hub. Follow the guide to [create and link](./create-device-update-account.md) a device update account if you have not done so previously.
 
 ## Get started
@@ -31,7 +31,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 Each board-specific sample Azure RTOS project contains code and documentation on how to use Device Update for IoT Hub on it. 
 1. Download the board-specific sample files from [Azure RTOS and Device Update samples](https://github.com/azure-rtos/samples/tree/PublicPreview/ADU).
 2. Find the docs folder from the downloaded sample.
-3. From the docs follow the steps for how to prepare Azure Resources, Account, and register IoT devices to it.
+3. From the docs, follow the steps for how to prepare Azure Resources, Account, and register IoT devices to it.
 5. Next follow the docs to build a new firmware image and import manifest for your board.
 6. Next publish firmware image and manifest to Device Update for IoT Hub.
 7. Finally download and run the project on your device.
@@ -44,7 +44,7 @@ Learn more about [Azure RTOS](/azure/rtos/).
 2. Log into [Azure portal](https://portal.azure.com) and navigate to the IoT Hub.
 3. From 'IoT Devices' on the left navigation pane, find your IoT device and navigate to the Device Twin.
 4. In the Device Twin, delete any existing Device Update tag value by setting them to null.
-5. Add a new Device Update tag value as shown below.
+5. Add a new Device Update tag value to the root JSON object as shown below.
 
 ```JSON
     "tags": {
@@ -112,11 +112,11 @@ Learn more about [Azure RTOS](/azure/rtos/).
 3. Select Refresh to view the latest status details.
 
 
-You have now completed a successful end-to-end image update using Device Update for IoT Hub on a Raspberry Pi 3 B+ device. 
+You have now completed a successful end-to-end image update using Device Update for IoT Hub on an Azure RTOS embedded device. 
 
 ## Cleanup resources
 
-When no longer needed cleanup your device update account, instance, IoT Hub and IoT device. 
+When no longer neededn clean up your device update account, instance, IoT Hub, and IoT device. 
 
 ## Next steps
 

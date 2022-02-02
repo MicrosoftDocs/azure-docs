@@ -55,18 +55,18 @@ Follow the following steps to create [alert rules in Azure Monitor](../azure-mon
 2.	From the Alerts window, select the **Create** dropdown and select **Create new alert rule**.
 3.	From the Scope tab of the Create an Alert Rule page, select **Select scope**. The **Select a Resource** page appears.  
 4.	From the Resource tab, find the **Volumes** resource type.
-5.	From the Condition tab, select **“Add condition**”. From there, find a signal called “**is volume replication healthy**”.
-6.	There you'll see “**Condition of the relationship, 1 or 0**” and the **Configure Signal Logic** window is displayed.
+5.	From the Condition tab, select **Add condition**. From there, find a signal called “**is volume replication healthy**”.
+6.	There you'll see **Condition of the relationship, 1 or 0** and the **Configure Signal Logic** window is displayed.
 7.	To check if the replication is _unhealthy_: 
-    1. **Operator** to `Less than or equal to`.
-    1. Set **Aggregation type** to `Average`. 
-    1. Set **Threshold** value to `0`.
-    1. Set **Unit** to `Count`.
-8.	To check if the replication is healthy: 
-    1. Set **Operator** to `Greater than or equal to`.
-    1. Set **Aggregation** type to `Average`.
-    1. Set **Threshold** value to `1`. 
-    1. Set **Unit** to `Count`.
+    * Set **Operator** to `Less than or equal to`.
+    * Set **Aggregation type** to `Average`. 
+    * Set **Threshold** value to `0`.
+    * Set **Unit** to `Count`.
+8.	To check if the replication is _healthy_: 
+    * Set **Operator** to `Greater than or equal to`.
+    * Set **Aggregation** type to `Average`.
+    * Set **Threshold** value to `1`. 
+    * Set **Unit** to `Count`.
 9.	 Select **Review + create**. The alert rule is ready for use. 
 
 :::image type="content" source="../media/azure-netapp-files/alert-config-signal-logic.png" alt-text="Screenshot of the Azure interface that shows the configure signal logic step with a backdrop of the Create alert rule page." lightbox="../media/azure-netapp-files/alert-config-signal-logic.png":::
