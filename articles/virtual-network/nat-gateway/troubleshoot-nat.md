@@ -70,7 +70,7 @@ NAT gateway is not compatible with basic resources, such as Basic Load Balancer 
 
 ### NAT gateway cannot be attached to a gateway subnet
 
-NAT gateway cannot be deployed in a gateway subnet. Gateway subnets are used by VPN gateway for site-to-site VPN connections between Azure virtual networks and local networks or VPN connections between two Azure virtual networks. See [VPN gateway overview](/azure/vpn-gateway-about-vpngateways) to learn more about how gateway subnets are used.
+NAT gateway cannot be deployed in a gateway subnet. VPN gateway uses gateway subnets for VPN connections between site-to-site Azure virtual networks and local networks or between two Azure virtual networks. See [VPN gateway overview](/azure/vpn-gateway-about-vpngateways) to learn more about how gateway subnets are used.
 
 ### IPv6 coexistence
 
@@ -113,8 +113,8 @@ The table below describes two common scenarios in which outbound connectivity ma
 
 | Scenario | Evidence |Mitigation |
 |---|---|---|
-| You're experiencing contention for SNAT ports and SNAT port exhaustion during periods of high usage. | You run the following [metrics](nat-metrics.md) in Azure Monitor: **Total SNAT Connection**: "Sum" aggregation shows high connection volue. "Failed" connection state shows transient or persistent failures over time. **Dropped Packets**: "Sum" aggregation shows packets dropping consistent with high connection volume.  | Determine if you can add additional public IP addresses or public IP prefixes. This addition will allow for up to 16 IP addresses in total to your NAT gateway. This addition will provide more inventory for available SNAT ports (64,000 per IP address) and allow you to scale your scenario further.|
-| You've already given 16 IP addresses and still are experiencing SNAT port exhaustion. | Attempt to add additional IP address fails. Total number of IP addresses from public IP address resources or public IP prefix resources exceeds a total of 16. | Distribute your application environment across multiple subnets and provide a NAT gateway resource for each subnet. |
+| You're experiencing contention for SNAT ports and SNAT port exhaustion during periods of high usage. | You run the following [metrics](nat-metrics.md) in Azure Monitor: **Total SNAT Connection**: "Sum" aggregation shows high connection volue. "Failed" connection state shows transient or persistent failures over time. **Dropped Packets**: "Sum" aggregation shows packets dropping consistent with high connection volume.  | Determine if you can add more public IP addresses or public IP prefixes. This addition will allow for up to 16 IP addresses in total to your NAT gateway. This addition will provide more inventory for available SNAT ports (64,000 per IP address) and allow you to scale your scenario further.|
+| You've already given 16 IP addresses and still are experiencing SNAT port exhaustion. | Attempt to add more IP addresses fails. Total number of IP addresses from public IP address resources or public IP prefix resources exceeds a total of 16. | Distribute your application environment across multiple subnets and provide a NAT gateway resource for each subnet. |
 
 >[!NOTE]
 >It is important to understand why SNAT exhaustion occurs. Make sure you are using the right patterns for scalable and reliable scenarios.  Adding more SNAT ports to a scenario without understanding the cause of the demand should be a last resort. If you do not understand why your scenario is applying pressure on SNAT port inventory, adding more SNAT ports to the inventory by adding more IP addresses will only delay the same exhaustion failure as your application scales.  You may be masking other inefficiencies and anti-patterns.
@@ -140,7 +140,7 @@ A couple important notes about the NAT gateway and Azure App Services integratio
 
 ### Port 25 cannot be used for regional VNet integration with NAT gateway
 
-Port 25 is an SMTP port that is used to send email. Azure app services regional VNet integration cannot use port 25 by design. This means that in a scenario in which regional VNet Integration is enabled for using NAT gateway to connect an application to an email SMTP server, traffic will be blocked on port 25 despite NAT gateway working with all other ports for outbound traffic. 
+Port 25 is an SMTP port that is used to send email. Azure app services regional VNet integration cannot use port 25 by design. In a scenario where regional VNet integration is enabled for NAT gateway to connect an application to an email SMTP server, traffic will be blocked on port 25 despite NAT gateway working with all other ports for outbound traffic. 
 
 **Work around solution:**
 * Set up port forwarding to a Windows VM to route traffic to Port 25. 
@@ -186,7 +186,7 @@ We don't recommend artificially reducing the TCP connection timeout or tuning th
 
 ## Connection failures with public internet transit
 
-The chances of transient failures increases with a longer path to the destination and more intermediate systems. It's expected that transient failures can increase in frequency over [Azure infrastructure](#connection-failures-due-to-azure-infrastructure). 
+The chances of transient failures increases with a longer path to the destination and more intermediate systems. It's expected that transient failures can increase in frequency over [Azure infrastructure](#connection-failures-in-the-azure-infrastructure). 
 
 Follow the same guidance as preceding [Azure infrastructure](#connection-failures-in-the-azure-infrastructure) section.
 
