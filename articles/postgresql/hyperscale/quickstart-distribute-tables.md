@@ -41,15 +41,15 @@ run:
 
 ```sql
 CREATE TABLE http_request (
-  site_id INT,
-  ingest_time TIMESTAMPTZ DEFAULT now(),
+	site_id INT,
+	ingest_time TIMESTAMPTZ DEFAULT now(),
 
-  url TEXT,
-  request_country TEXT,
-  ip_address TEXT,
+	url TEXT,
+	request_country TEXT,
+	ip_address TEXT,
 
-  status_code INT,
-  response_time_msec INT
+	status_code INT,
+	response_time_msec INT
 );
 ```
 
@@ -77,7 +77,9 @@ We can verify using the `citus_shards` view:
 SELECT table_name, count(*)
   FROM citus_shards
  GROUP BY 1;
+```
 
+```
 ┌──────────────┬───────┐
 │  table_name  │ count │
 ├──────────────┼───────┤
@@ -94,7 +96,8 @@ fake random data:
 INSERT INTO http_request
 SELECT
 	trunc(random()*1000),
-	clock_timestamp() + make_interval(secs => random()*60*24),
+	-- one three hour span
+	clock_timestamp() + make_interval(secs => random()*60*60),
 	concat('http://example.com/', md5(random()::text)),
 	('{China,India,USA,Indonesia}'::text[])[ceil(random()*4)],
 	concat(
@@ -115,7 +118,9 @@ Here's data for the first 5 shards:
 SELECT shardid, table_name, pg_size_pretty(shard_size)
   FROM citus_shards
  LIMIT 5;
+```
 
+```
 ┌─────────┬──────────────┬────────────────┐
 │ shardid │  table_name  │ pg_size_pretty │
 ├─────────┼──────────────┼────────────────┤
