@@ -66,8 +66,8 @@ For differences between the SFTP-SSH connector and the SFTP connector, review th
   > [!IMPORTANT]
   > If you use chunking with SFTP-SSH operations that create files on your SFTP server, 
   > these operations create temporary `.partial` and `.lock` files. These files help 
-  > the create file operations use chunking. Don't remove or change these files. 
-  > Otherwise, the file operations fail. When the operations finish, they delete the temporary files.
+  > the operations use chunking. Don't remove or change these files. Otherwise, 
+  > the file operations fail. When the operations finish, they delete the temporary files.
 
 * SFTP-SSH triggers don't support message chunking. When triggers request file content, they select only files that are 15 MB or smaller. To get files larger than 15 MB, follow this pattern instead:
 
