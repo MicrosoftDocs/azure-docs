@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 07/02/2021
+ms.date: 02/02/2022
 ms.author: anfdocs
 ---
 # Linux NFS read-ahead best practices for Azure NetApp Files
@@ -53,7 +53,7 @@ Read-ahead can be defined either dynamically per NFS mount using the following s
 
 To show the current read-ahead value (the returned value is in KiB), run the following command:  
 
-`$ ./readahead.sh  show <mount-point>`   
+`$ ./readahead.sh set <mount-point>`   
 
 To set a new value for read-ahead, run the following command:   
 
