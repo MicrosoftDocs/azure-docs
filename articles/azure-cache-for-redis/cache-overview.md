@@ -5,7 +5,7 @@ author: flang-msft
 ms.author: franlanglois
 ms.service: cache
 ms.topic: overview
-ms.date: 02/08/2021
+ms.date: 02/02/2022
 
 #Customer intent: As a developer, I want to understand what Azure Cache for Redis is and how it can improve performance in my application.
 ---

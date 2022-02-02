@@ -4,7 +4,7 @@ description: Learn about Azure Cache for Redis high availability features and op
 author: flang-msft
 ms.service: cache
 ms.topic: conceptual
-ms.date: 01/26/2022
+ms.date: 02/02/2022
 ms.author: franlanglois
 
 ---
