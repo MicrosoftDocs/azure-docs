@@ -40,7 +40,7 @@ items:
   items:
   - name: Custom IP address prefix (BYOIP)
     href: custom-ip-address-prefix.md
-  - name: Manage a Azure custom IP address prefix (BYOIP)
+  - name: Manage an Azure custom IP address prefix (BYOIP)
     href: manage-custom-ip-address-prefix.md
   - name: Public IPs
     href: public-ip-addresses.md
