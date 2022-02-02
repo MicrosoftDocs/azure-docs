@@ -1,7 +1,7 @@
 ---
 
-title: Sensitive operations report workbook in  Azure AD | Microsoft Docs
-description: Learn how to use the sensitive operations report workbook.
+title: Authentication prompts analysis workbook in  Azure AD | Microsoft Docs
+description: Learn how to use the authentication prompts analysis workbook.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
