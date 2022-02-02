@@ -43,7 +43,7 @@ We have many open-source projects on GitHub that provide you the source code and
 
 ## Analytic Pipelines
 
-FHIR Analytics Pipelines help you build components and pipelines for rectangularizing and moving FHIR data from Azure FHIR servers namely [Azure Healthcare APIs FHIR Server](https://docs.microsoft.com/azure/healthcare-apis/), [Azure API for FHIR](https://docs.microsoft.com/azure/healthcare-apis/azure-api-for-fhir/), and [FHIR Server for Azure](https://github.com/microsoft/fhir-server) to [Azure Data Lake](https://azure.microsoft.com/solutions/data-lake/) and thereby make it available for analytics with [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics/), [Power BI](https://powerbi.microsoft.com/), and [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/).
+FHIR Analytics Pipelines help you build components and pipelines for rectangularizing and moving FHIR data from Azure FHIR servers namely [Azure Healthcare APIs FHIR Server](./../healthcare-apis/index.yml), [Azure API for FHIR](./../healthcare-apis/azure-api-for-fhir/index.yml), and [FHIR Server for Azure](https://github.com/microsoft/fhir-server) to [Azure Data Lake](https://azure.microsoft.com/solutions/data-lake/) and thereby make it available for analytics with [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics/), [Power BI](https://powerbi.microsoft.com/), and [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/).
 
 The descriptions and capabilities of these two solutions are summarized below:
 
