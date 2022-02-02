@@ -325,7 +325,7 @@ To enable the certificate-based authentication and configure username bindings u
         ]
     }
 
-1. You will get a 204 response and re-run the GET command to make sure the policies are updated correctly.
+1. You will get a `204 No content` response code. Re-run the GET request to make sure the policies are updated correctly.
 1. Test the configuration by signing in with a certificate that satisfies the policy.
  
 ## Next steps 
