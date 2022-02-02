@@ -87,7 +87,7 @@ With these variables defined, you can create a resource group to organize the se
 ```azurecli
 az group create \
   --name $RESOURCE_GROUP \
-  --location "$LOCATION"
+  --location $LOCATION
 ```
 
 # [PowerShell](#tab/powershell)
@@ -95,7 +95,7 @@ az group create \
 ```azurecli
 az group create `
   --name $RESOURCE_GROUP `
-  --location "$LOCATION"
+  --location $LOCATION
 ```
 
 ---
