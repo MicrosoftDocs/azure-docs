@@ -1,6 +1,6 @@
 ---
-title: Azure Payment HSM certification and Compliance
-description: Information on Azure Payment HSM certification and Compliance
+title: Azure Payment HSM certification and compliance
+description: Information on Azure Payment HSM certification and compliance
 services: payment-hsm
 author: msmbaldwin
 
@@ -12,7 +12,7 @@ ms.date: 01/25/2022
 ms.author: mbaldwin
 ---
 
-# Certification and Compliance
+# Certification and compliance
 
 Thales payShield 10K HSMs are certified to FIPS 140-2 Level 3 and PCI HSM v3.
 
@@ -25,5 +25,3 @@ The Azure Payment HSM can be deployed as part of a validated PCI P2PE and PCI PI
 - Learn more about [Azure Payment HSM](overview.md)
 - See some common [deployment scenarios](deployment-scenarios.md)
 - Read the [frequently asked questions](faq.yml)
-
-
