@@ -282,44 +282,48 @@ To enable the certificate-based authentication and configure username bindings u
 
 
    ```http
-   {
-   "@odata.context": https://graph.microsoft-ppe.com/testppebetatestx509certificatestrongauth/$metadata#authenticationMethodConfigurations/$entity,
-      "@odata.type": "#microsoft.graph.x509CertificateAuthenticationMethodConfiguration",
-      "id": "X509Certificate",
-      "state": "disabled",
-      "certificateUserBindings": [{
-                               "x509CertificateField": "PrincipalName",
-                               "userProperty": "onPremisesUserPrincipalName",
-                               "priority": 1
-                  },
-                  {
-                               "x509CertificateField": "RFC822Name",
-                               "userProperty": "userPrincipalName",
-                               "priority": 2
-                  }
-      ],
-      "authenticationModeConfiguration": {
-                  "x509CertificateAuthenticationDefaultMode": "x509CertificateSingleFactor",
-                  "rules": [{
-                                            "x509CertificateRuleType": "issuerSubject",
-                                            "identifier": "CN=ContosoCA,DC=Contoso,DC=org ",
-                                     "x509CertificateAuthenticationMode": "x509CertificateMultiFactor"
-                               },
-                               {
-                                            "x509CertificateRuleType": "policyOID",
-                                            "identifier": "1.2.3.4",
-                                     "x509CertificateAuthenticationMode": "x509CertificateMultiFactor"
-                               }
-                  ]
-      },
-      includeTargets@odata.context: https://graph.microsoft-ppe.com/testppebetatestx509certificatestrongauth/$metadata#policies/authenticationMethodsPolicy/authenticationMethodConfigurations('X509Certificate')/microsoft.graph.x509CertificateAuthenticationMethodConfiguration/includeTargets,
-      "includeTargets": [{
-                  "targetType": "group",
-                  "id": "all_users",
-                  "isRegistrationRequired": false
-      }]
-   }
-   ```
+    PATCH https: //graph.microsoft.com/beta/policies/authenticationMethodsPolicy/authenticationMethodConfigurations/x509Certificate
+    Content-Type: application/json
+    
+    {
+        "@odata.type": "#microsoft.graph.x509CertificateAuthenticationMethodConfiguration",
+        "id": "X509Certificate",
+        "state": "enabled",
+        "certificateUserBindings": [
+            {
+                "x509CertificateField": "PrincipalName",
+                "userProperty": "onPremisesUserPrincipalName",
+                "priority": 1
+            },
+            {
+                "x509CertificateField": "RFC822Name",
+                "userProperty": "userPrincipalName",
+                "priority": 2
+            }
+        ],
+        "authenticationModeConfiguration": {
+            "x509CertificateAuthenticationDefaultMode": "x509CertificateSingleFactor",
+            "rules": [
+                {
+                    "x509CertificateRuleType": "issuerSubject",
+                    "identifier": "CN=ContosoCA,DC=Contoso,DC=org ",
+                    "x509CertificateAuthenticationMode": "x509CertificateMultiFactor"
+                },
+                {
+                    "x509CertificateRuleType": "policyOID",
+                    "identifier": "1.2.3.4",
+                    "x509CertificateAuthenticationMode": "x509CertificateMultiFactor"
+                }
+            ]
+        },
+        "includeTargets": [
+            {
+                "targetType": "group",
+                "id": "all_users",
+                "isRegistrationRequired": false
+            }
+        ]
+    }
 
 1. You will get a 204 response and re-run the GET command to make sure the policies are updated correctly.
 1. Test the configuration by signing in with a certificate that satisfies the policy.
