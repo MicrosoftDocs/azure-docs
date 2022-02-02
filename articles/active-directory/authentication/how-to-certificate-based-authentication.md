@@ -263,7 +263,7 @@ To enable the certificate-based authentication and configure username bindings u
 
 1. Go to [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
 1. Click **Sign into Graph Explorer** and sign in to your tenant.
-1. Follow the steps to [consent to permissions](/graph/graph-explorer/graph-explorer-features.md#consent-to-permissions).
+1. Follow the steps to [consent to the _Policy.ReadWrite.AuthenticationMethod_ delegated permission](/graph/graph-explorer/graph-explorer-features.md#consent-to-permissions).
 1. GET all authentication methods:
 
    ```http
