@@ -33,7 +33,7 @@ In Speech Studio, the following Speech service features are available as project
 
 * **Custom Speech**: Create speech recognition models that are tailored to specific vocabulary sets and styles of speaking. In contrast to the base speech recognition model, Custom Speech models become part of your unique competitive advantage because they're not publicly accessible. To get started with uploading sample audio to create a Custom Speech model, see [Prepare data for Custom Speech](how-to-custom-speech-test-and-train.md).
 
-* **Pronunciation Assessment**: Evaluate speech pronunciation and give speakers feedback on the accuracy and fluency of spoken audio. Speech Studio provides a sandbox for testing this feature quickly, without code. To use the feature with the Speech SDK in your applications, see the [Pronunciation assessment](how-to-pronunciation-assessment.md) article.
+* **Pronunciation assessment**: Evaluate speech pronunciation and give speakers feedback on the accuracy and fluency of spoken audio. Speech Studio provides a sandbox for testing this feature quickly, without code. To use the feature with the Speech SDK in your applications, see the [Pronunciation assessment](how-to-pronunciation-assessment.md) article.
 
 * **Voice Gallery**: Build apps and services that speak naturally. Choose from more than 170 voices in over 70 languages and variants. Bring your scenarios to life with highly expressive and human-like neural voices.
 
