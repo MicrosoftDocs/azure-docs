@@ -20,7 +20,7 @@ ms.custom: ignite-fall-2021, mode-api
 
 [Reference documentation](https://azuresdkdocs.blob.core.windows.net/$web/javascript/azure-ai-form-recognizer/4.0.0-beta.1/index.html) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/formrecognizer/ai-form-recognizer/src) | [Package (NuGet)](https://www.nuget.org/packages/Azure.AI.FormRecognizer) | [Samples](https://github.com/Azure/azure-sdk-for-js/blob/%40azure/ai-form-recognizer_4.0.0-beta.1/sdk/formrecognizer/ai-form-recognizer/README.md)
 
-Get started with Azure Form Recognizer using the JavaScript programming language. Azure Form Recognizer is a cloud-based Azure Applied AI Service that uses machine learning to extract and analyze form fields, text, and tables from your documents. You can easily call Form Recognizer models by integrating our client library SDks into your workflows and applications. We recommend that you use the free service when you're learning the technology. Remember that the number of free pages is limited to 500 per month.
+Get started with Azure Form Recognizer using the JavaScript programming language. Azure Form Recognizer is a cloud-based Azure Applied AI Service that uses machine learning to extract key-value pairs, text, and tables from your documents. You can easily call Form Recognizer models by integrating our client library SDks into your workflows and applications. We recommend that you use the free service when you're learning the technology. Remember that the number of free pages is limited to 500 per month.
 
 To learn more about Form Recognizer features and development options, visit our [Overview](../overview.md#form-recognizer-features-and-development-options) page.
 
@@ -66,7 +66,7 @@ In this quickstart you'll use following features to analyze and extract data and
 1. Specify your project's attributes using the prompts presented in the terminal.
 
     * The most important attributes are name, version number, and entry point.
-    * We recommend keeping `index.js` for the entry point name. Description, test command, github repository, keywords, author, and license information are optional attributes that you can choose to skip for this project.
+    * We recommend keeping `index.js` for the entry point name. Description, test command, GitHub repository, keywords, author, and license information are optional attributes that you can choose to skip for this project.
     * Accept the suggestions in parentheses by selecting **Return** or **Enter**.
     * After completing the prompts, a `package.json` file will be created in your form-recognizer-app directory.
 

@@ -14,11 +14,13 @@ items:
     href: service-limits.md
   - name: What's new
     href: whats-new.md
+  - name: Form Recognizer FAQ
+    href: faq.yml
 - name: Quickstarts
   items:
    - name: Form Recognizer v2.1
      items:
-     - name: Sample Labeling tool
+     - name: Sample-labeling tool
        href: quickstarts/try-sample-label-tool.md
      - name: Client libraries and REST API
        href: quickstarts/get-started-sdk-rest-api.md
@@ -42,19 +44,19 @@ items:
     href:  create-a-form-recognizer-resource.md
   - name: Migrate to Form Recognizer v3.0 (preview)
     href: v3-migration-guide.md
-  - name: Use the SDKs and REST API (v2.1)
+  - name: Use SDKs and the REST API (v2.1)
     href: how-to-guides/try-sdk-rest-api.md
   - name: Generate SAS tokens for Azure Blob containers
     href:  generate-sas-tokens.md
-  - name: Custom models
+  - name: Create custom models
     items:
     - name: Build and train custom models
       items:
       - name: Assemble a training data set
         href: build-training-data-set.md
-      - name:   Deploy the Sample Labeling tool
+      - name:   Deploy the sample-labeling tool
         href: deploy-label-tool.md
-      - name: Train a custom model with the Sample Labeling tool
+      - name: Train a custom model with the sample-labeling tool
         href: label-tool.md
       - name: Use table tags to train your custom model
         href: supervised-table-tags.md
@@ -74,12 +76,12 @@ items:
       href: containers/form-recognizer-container-image-tags.md
     - name: Use container instances
       href: ../../cognitive-services/containers/azure-container-instance-recipe.md
-  - name: Enterprise readiness
+  - name: Configure secure communications
     items:
     - name: Set up Virtual Networks
       href: ../../cognitive-services/cognitive-services-virtual-networks.md?context=/azure/applied-ai-services/form-recognizer/context/context
-    - name: Create and use managed identity
-      href: managed-identity-byos.md
+    - name: Create and use managed identities
+      href: managed-identities.md
     - name: Use customer-managed keys
       href: encrypt-data-at-rest.md
     - name: Use Azure AD authentication

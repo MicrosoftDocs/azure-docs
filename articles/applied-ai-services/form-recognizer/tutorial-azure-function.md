@@ -78,7 +78,7 @@ Open Azure Storage Explorer and upload a sample PDF document to the **Test** con
 
 Stop the script before continuing.
 
-## Add form processing code
+## Add document processing code
 
 Next, you'll add your own code to the Python script to call the Form Recognizer service and parse the uploaded documents using the Form Recognizer [Layout API](concept-layout.md).
 

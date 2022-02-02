@@ -19,7 +19,7 @@ ms.custom: ignite-fall-2021, mode-api
 
 | [Form Recognizer REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument) | [Azure REST API reference](/rest/api/azure/) |
 
-Get started with Azure Form Recognizer using the C# programming language. Azure Form Recognizer is a cloud-based Azure Applied AI Service that uses machine learning to extract and analyze form fields, text, and tables from your documents. You can easily call Form Recognizer models by integrating our client library SDks into your workflows and applications. We recommend that you use the free service when you're learning the technology. Remember that the number of free pages is limited to 500 per month.
+Get started with Azure Form Recognizer using the C# programming language. Azure Form Recognizer is a cloud-based Azure Applied AI Service that uses machine learning to extract key-value pairs, text, and tables from your documents. You can easily call Form Recognizer models by integrating our client library SDks into your workflows and applications. We recommend that you use the free service when you're learning the technology. Remember that the number of free pages is limited to 500 per month.
 
 To learn more about Form Recognizer features and development options, visit our [Overview](../overview.md#form-recognizer-features-and-development-options) page.
 ## Form Recognizer models
@@ -36,7 +36,7 @@ To learn more about Form Recognizer features and development options, visit our 
 
 ## Analyze document
 
-Form Recognizer v3.0 consolidates the analyze document and get analyze result (GET) operations for layout, prebuilt models, and custom models into a single pair of operations by assigning `modelIds` to the POST and GET operations:
+Form Recognizer v3.0 consolidates the analyze document (POST) and get analyze results (GET) operations for layout, prebuilt models, and custom models into a single pair of operations by assigning `modelIds` to the POST and GET operations:
 
 ```http
 POST /documentModels/{modelId}:analyze
@@ -390,7 +390,7 @@ curl -v -X GET "https://{endpoint}/formrecognizer/documentModels/prebuilt-layout
 
 ### Examine the response
 
-You'll receive a `200 (Success)` response with JSON output. The first field, `"status"`, indicates the status of the operation. If the operation is not complete, the value of `"status"` will be `"running"` or `"notStarted"`, and you should call the API again, either manually or through a script. We recommend an interval of one second or more between calls.
+You'll receive a `200 (Success)` response with JSON output. The first field, `"status"`, indicates the status of the operation. If the operation isn't complete, the value of `"status"` will be `"running"` or `"notStarted"`, and you should call the API again, either manually or through a script. We recommend an interval of one second or more between calls.
 
 ## **Try it**: Prebuilt model
 
@@ -402,7 +402,7 @@ This sample demonstrates how to analyze data from certain common document types 
 
 ##### Choose the invoice prebuilt model ID
 
-You are not limited to invoices—there are several prebuilt models to choose from, each of which has its own set of supported fields. The model to use for the analyze operation depends on the type of document to be analyzed. Here are the model IDs for the prebuilt models currently supported by the Form Recognizer service:
+You aren't limited to invoices—there are several prebuilt models to choose from, each of which has its own set of supported fields. The model to use for the analyze operation depends on the type of document to be analyzed. Here are the model IDs for the prebuilt models currently supported by the Form Recognizer service:
 
 * **prebuilt-invoice**: extracts text, selection marks, tables, key-value pairs, and key information from invoices.
 * **prebuilt-businessCard**: extracts text and key information from business cards.
@@ -448,7 +448,7 @@ curl -v -X GET "https://{endpoint}/formrecognizer/documentModels/prebuilt-invoic
 
 ### Examine the response
 
-You'll receive a `200 (Success)` response with JSON output. The first field, `"status"`, indicates the status of the operation. If the operation is not complete, the value of `"status"` will be `"running"` or `"notStarted"`, and you should call the API again, either manually or through a script. We recommend an interval of one second or more between calls.
+You'll receive a `200 (Success)` response with JSON output. The first field, `"status"`, indicates the status of the operation. If the operation isn't complete, the value of `"status"` will be `"running"` or `"notStarted"`, and you should call the API again, either manually or through a script. We recommend an interval of one second or more between calls.
 
 ### Improve results
 

@@ -16,7 +16,7 @@ ms.custom: ignite-fall-2021
 
 # Form Recognizer models
 
- Azure Form Recognizer prebuilt models enable you to add intelligent form processing to your apps and flows without having to train and build your own models. Prebuilt models use optical character recognition (OCR) combined with deep learning models to identify and extract predefined text and data fields common to specific form and document types. Form Recognizer extracts analyzes form and document data then  returns an organized, structured JSON response. Form Recognizer v2.1 supports invoice, receipt, ID document, and business card models.
+ Azure Form Recognizer prebuilt models enable you to add intelligent document processing to your apps and flows without having to train and build your own models. Prebuilt models use optical character recognition (OCR) combined with deep learning models to identify and extract predefined text and data fields common to specific form and document types. Form Recognizer extracts analyzes form and document data then  returns an organized, structured JSON response. Form Recognizer v2.1 supports invoice, receipt, ID document, and business card models.
 
 ## Model overview
 
@@ -34,7 +34,7 @@ ms.custom: ignite-fall-2021
 
 :::image type="content" source="media/studio/general-document.png" alt-text="Screenshot: Studio general document icon.":::
 
-* The general document API supports most form types and will analyze your documents and associate values to keys and entries to tables that it discovers. It is ideal for extracting common key-value pairs from documents. You can use the general document model as an alternative to [training a custom model without labels](compose-custom-models.md#train-without-labels).
+* The general document API supports most form types and will analyze your documents and associate values to keys and entries to tables that it discovers. It's ideal for extracting common key-value pairs from documents. You can use the general document model as an alternative to [training a custom model without labels](compose-custom-models.md#train-without-labels).
 
 * The general document is a pre-trained model and can be directly invoked via the REST API.
 
@@ -90,7 +90,7 @@ The receipt model analyzes and extracts key information from sales receipts. The
 
 :::image type="content" source="media/studio/id-document.png" alt-text="Screenshot: Studio identity document icon.":::
 
-The ID document model analyzes and extracts key information from U.S. Driver's Licenses (all 50 states and District of Columbia) and international passport biographical pages (excluding visa and other travel documents). The API analyzes identity documents and extracts key information such as first name, last name, address, and date of birth.
+The ID document model analyzes and extracts key information from U.S. Driver's Licenses (all 50 states and District of Columbia) and biographical pages for international passports (excluding visa and other travel documents). The API analyzes identity documents and extracts key information such as first name, last name, address, and date of birth.
 
 ***Sample U.S. Driver's License processed with [Form Recognizer Sample Labeling tool](https://fott-2-1.azurewebsites.net/)***:
 
@@ -128,7 +128,7 @@ The custom model analyzes and extracts data from forms and documents specific to
 ## Data extraction
 
  | **Model**   | **Text extraction** |**Key-Value pairs** |**Fields**|**Selection Marks**   | **Tables**   |**Entities** |
-  | --- | :---: |:---:| :---: | :---: |:---: |:---: |
+  | --- |: ---: |:---:|: ---: |: ---: |:---: |:---: |
   |🆕General document  | ✓  |  ✓ || ✓  | ✓  | ✓  |
   | Layout  | ✓  |   || ✓  | ✓  |   |
   | Invoice  | ✓ | ✓  |✓| ✓  | ✓ ||
@@ -171,4 +171,4 @@ Learn how to use Form Recognizer v3.0 in your applications by following our [**F
 
 * [Learn how to process your own forms and documents](quickstarts/try-sample-label-tool.md) with our [Form Recognizer sample tool](https://fott-2-1.azurewebsites.net/)
 
-* Complete a [Form Recognizer quickstart](quickstarts/try-sdk-rest-api.md) and get started creating a form processing app in the development language of your choice.
+* Complete a [Form Recognizer quickstart](quickstarts/try-sdk-rest-api.md) and get started creating a document processing app in the development language of your choice.

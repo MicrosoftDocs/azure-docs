@@ -45263,6 +45263,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/applied-ai-services/form-recognizer/managed-identity-byos.md",
+      "redirect_url": "/azure/applied-ai-services/form-recognizer/managed-identities",
+      "redirect_document_id": false
+    },
+    {
     "source_path_from_root": "/articles/azure/virtual-desktop/azure-advisor.md",
     "redirect_url": "/azure/advisor/advisor-overview",
     "redirect_document_id": false
