@@ -141,7 +141,7 @@ ___
 
 ### <code>associate</code>
 <code><b>reassociate(<i>&lt;value1&gt;</i> : map, <i>&lt;value2&gt;</i> : binaryFunction) => map</b></code><br/><br/>
-Creates a map of key/values. All the keys & values should be of the same type. If no items are specified, it is defaulted to a map of string to string type.Same as a ```[ -> ]``` creation operator. Keys and values should alternate with each other.
+Creates a map of key/values. All the keys & values should be of the same type. If no items are specified, it's defaulted to a map of string to string type.Same as a ```[ -> ]``` creation operator. Keys and values should alternate with each other.
 *	``associate('fruit', 'apple', 'vegetable', 'carrot' )=> ['fruit' -> 'apple', 'vegetable' -> 'carrot']``
 ___
 
@@ -150,7 +150,7 @@ ___
 
 ### <code>at</code>
 <code><b>at(<i>&lt;value1&gt;</i> : array/map, <i>&lt;value2&gt;</i> : integer/key type) => array</b></code><br/><br/>
-Finds the element at an array index. The index is 1-based. Out of bounds index results in a null value. Finds a value in a map given a key. If the key is not found it returns null.
+Finds the element at an array index. The index is 1-based. Out of bounds index results in a null value. Finds a value in a map given a key. If the key is not found, it returns null.
 *	``at(['apples', 'pears'], 1) => 'apples'``
 *	``at(['fruit' -> 'apples', 'vegetable' -> 'carrot'], 'fruit') => 'apples'``
 ___
@@ -160,7 +160,7 @@ ___
 
 ### <code>atan</code>
 <code><b>atan(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
-Calculates a inverse tangent value.  
+Calculates an inverse tangent value.  
 * ``atan(0) -> 0.0``  
 ___
 
@@ -248,7 +248,7 @@ ___
 
 ### <code>blake2b</code>
 <code><b>blake2b(<i>&lt;value1&gt;</i> : integer, <i>&lt;value2&gt;</i> : any, ...) => string</b></code><br/><br/>
-Calculates the Blake2 digest of set of column of varying primitive datatypes given a bit length which can only be multiples of 8 between 8 & 512. It can be used to calculate a fingerprint for a row  
+Calculates the Blake2 digest of set of column of varying primitive datatypes given a bit length, which can only be multiples of 8 between 8 & 512. It can be used to calculate a fingerprint for a row  
 * ``blake2b(256, 'gunchus', 8.2, 'bojjus', true, toDate('2010-4-4'))``
 * ``'c9521a5080d8da30dffb430c50ce253c345cc4c4effc315dab2162dac974711d'``
 ___
@@ -258,7 +258,7 @@ ___
 
 ### <code>blake2bBinary</code>
 <code><b>blake2bBinary(<i>&lt;value1&gt;</i> : integer, <i>&lt;value2&gt;</i> : any, ...) => binary</b></code><br/><br/>
-Calculates the Blake2 digest of set of column of varying primitive datatypes given a bit length which can only be multiples of 8 between 8 & 512. It can be used to calculate a fingerprint for a row  
+Calculates the Blake2 digest of set of column of varying primitive datatypes given a bit length, which can only be multiples of 8 between 8 & 512. It can be used to calculate a fingerprint for a row  
 * ``blake2bBinary(256, 'gunchus', 8.2, 'bojjus', true, toDate('2010-4-4'))``
 * ``unHex('c9521a5080d8da30dffb430c50ce253c345cc4c4effc315dab2162dac974711d')``
 ___
@@ -268,7 +268,7 @@ ___
 
 ### <code>byItem</code>
 <code><b>byItem(<i>&lt;parent column&gt;</i> : any, <i>&lt;column name&gt;</i> : string) => any</b></code><br/><br/>
-Find a sub item within a structure or array of structure If there are multiple matches, the first match is returned. If no match it returns a NULL value. The returned value has to be type converted by one of the type conversion actions(? date, ? string ...).  Column names known at design time should be addressed just by their name. Computed inputs are not supported but you can use parameter substitutions  
+Find a sub item within a structure or array of structure If there are multiple matches, the first match is returned. If no match it returns a NULL value. The returned value has to be type converted by one of the type conversion actions(? date, ? string ...).  Column names known at design time should be addressed just by their name. Computed inputs aren't supported but you can use parameter substitutions  
 * ``byItem( byName('customer'), 'orderItems') ? (itemName as string, itemQty as integer)``
 * ``byItem( byItem( byName('customer'), 'orderItems'), 'itemName') ? string``
 ___
@@ -278,7 +278,7 @@ ___
 
 ### <code>byName</code>
 <code><b>byName(<i>&lt;column name&gt;</i> : string, [<i>&lt;stream name&gt;</i> : string]) => any</b></code><br/><br/>
-Selects a column value by name in the stream. You can pass a optional stream name as the second argument. If there are multiple matches, the first match is returned. If no match it returns a NULL value. The returned value has to be type converted by one of the type conversion functions(TO_DATE, TO_STRING ...).  Column names known at design time should be addressed just by their name. Computed inputs are not supported but you can use parameter substitutions.  
+Selects a column value by name in the stream. You can pass an optional stream name as the second argument. If there are multiple matches, the first match is returned. If no match it returns a NULL value. The returned value has to be type converted by one of the type conversion functions(TO_DATE, TO_STRING ...).  Column names known at design time should be addressed just by their name. Computed inputs aren't supported but you can use parameter substitutions.  
 * ``toString(byName('parent'))``  
 * ``toLong(byName('income'))``  
 * ``toBoolean(byName('foster'))``  
@@ -292,7 +292,7 @@ ___
 
 ### <code>byNames</code>
 <code><b>byNames(<i>&lt;column names&gt;</i> : array, [<i>&lt;stream name&gt;</i> : string]) => any</b></code><br/><br/>
-Select an array of columns by name in the stream. You can pass a optional stream name as the second argument. If there are multiple matches, the first match is returned. If there are no matches for a column, the entire output is a NULL value. The returned value requires a type conversion functions (toDate, toString, ...).  Column names known at design time should be addressed just by their name. Computed inputs are not supported but you can use parameter substitutions.
+Select an array of columns by name in the stream. You can pass an optional stream name as the second argument. If there are multiple matches, the first match is returned. If there are no matches for a column, the entire output is a NULL value. The returned value requires a type conversion function (toDate, toString, ...).  Column names known at design time should be addressed just by their name. Computed inputs aren't supported but you can use parameter substitutions.
 * ``toString(byNames(['parent', 'child']))``
 * ``byNames(['parent']) ? string``
 * ``toLong(byNames(['income']))``
@@ -309,7 +309,7 @@ ___
 
 ### <code>byOrigin</code>
 <code><b>byOrigin(<i>&lt;column name&gt;</i> : string, [<i>&lt;origin stream name&gt;</i> : string]) => any</b></code><br/><br/>
-Selects a column value by name in the origin stream. The second argument is the origin stream name. If there are multiple matches, the first match is returned. If no match it returns a NULL value. The returned value has to be type converted by one of the type conversion functions(TO_DATE, TO_STRING ...). Column names known at design time should be addressed just by their name. Computed inputs are not supported but you can use parameter substitutions.  
+Selects a column value by name in the origin stream. The second argument is the origin stream name. If there are multiple matches, the first match is returned. If no match it returns a NULL value. The returned value has to be type converted by one of the type conversion functions(TO_DATE, TO_STRING ...). Column names known at design time should be addressed just by their name. Computed inputs aren't supported but you can use parameter substitutions.  
 * ``toString(byOrigin('ancestor', 'ancestorStream'))``
 ___
 
@@ -318,7 +318,7 @@ ___
 
 ### <code>byOrigins</code>
 <code><b>byOrigins(<i>&lt;column names&gt;</i> : array, [<i>&lt;origin stream name&gt;</i> : string]) => any</b></code><br/><br/>
-Selects an array of columns by name in the stream. The second argument is the stream where it originated from. If there are multiple matches, the first match is returned. If no match it returns a NULL value. The returned value has to be type converted by one of the type conversion functions(TO_DATE, TO_STRING ...) Column names known at design time should be addressed just by their name. Computed inputs are not supported but you can use parameter substitutions.
+Selects an array of columns by name in the stream. The second argument is the stream where it originated from. If there are multiple matches, the first match is returned. If no match it returns a NULL value. The returned value has to be type converted by one of the type conversion functions(TO_DATE, TO_STRING ...) Column names known at design time should be addressed just by their name. Computed inputs aren't supported but you can use parameter substitutions.
 * ``toString(byOrigins(['ancestor1', 'ancestor2'], 'ancestorStream'))``
 ___
 
@@ -327,7 +327,7 @@ ___
 
 ### <code>byPath</code>
 <code><b>byPath(<i>&lt;value1&gt;</i> : string, [<i>&lt;streamName&gt;</i> : string]) => any</b></code><br/><br/>
-Finds a hierarchical path by name in the stream. You can pass an optional stream name as the second argument. If no such path is found it returns null. Column names/paths known at design time should be addressed just by their name or dot notation path. Computed inputs are not supported but you can use parameter substitutions.  
+Finds a hierarchical path by name in the stream. You can pass an optional stream name as the second argument. If no such path is found, it returns null. Column names/paths known at design time should be addressed just by their name or dot notation path. Computed inputs aren't supported but you can use parameter substitutions.  
 * ``byPath('grandpa.parent.child') => column`` 
 ___
 
@@ -336,7 +336,7 @@ ___
 
 ### <code>byPosition</code>
 <code><b>byPosition(<i>&lt;position&gt;</i> : integer) => any</b></code><br/><br/>
-Selects a column value by its relative position(1 based) in the stream. If the position is out of bounds it returns a NULL value. The returned value has to be type converted by one of the type conversion functions(TO_DATE, TO_STRING ...) Computed inputs are not supported but you can use parameter substitutions.  
+Selects a column value by its relative position(1 based) in the stream. If the position is out of bounds, it returns a NULL value. The returned value has to be type converted by one of the type conversion functions(TO_DATE, TO_STRING ...) Computed inputs aren't supported but you can use parameter substitutions.  
 * ``toString(byPosition(1))``  
 * ``toDecimal(byPosition(2), 10, 2)``  
 * ``toBoolean(byName(4))``  
@@ -566,7 +566,7 @@ ___
 
 ### <code>crc32</code>
 <code><b>crc32(<i>&lt;value1&gt;</i> : any, ...) => long</b></code><br/><br/>
-Calculates the CRC32 hash of set of column of varying primitive datatypes given a bit length which can only be of values 0(256), 224, 256, 384, 512. It can be used to calculate a fingerprint for a row.  
+Calculates the CRC32 hash of set of column of varying primitive datatypes given a bit length, which can only be of values 0(256), 224, 256, 384, 512. It can be used to calculate a fingerprint for a row.  
 * ``crc32(256, 'gunchus', 8.2, 'bojjus', true, toDate('2010-4-4')) -> 3630253689L``  
 ___
 
@@ -604,7 +604,7 @@ ___
 
 ### <code>currentUTC</code>
 <code><b>currentUTC([<i>&lt;value1&gt;</i> : string]) => timestamp</b></code><br/><br/>
-Gets the current timestamp as UTC. If you want your current time to be interpreted in a different timezone than your cluster time zone, you can pass an optional timezone in the form of 'GMT', 'PST', 'UTC', 'America/Cayman'. It is defaulted to the current timezone. Refer Java's `SimpleDateFormat` class for available formats. [https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html). To convert the UTC time to a different timezone use `fromUTC()`.  
+Gets the current timestamp as UTC. If you want your current time to be interpreted in a different timezone than your cluster time zone, you can pass an optional timezone in the form of 'GMT', 'PST', 'UTC', 'America/Cayman'. It's defaulted to the current timezone. Refer Java's `SimpleDateFormat` class for available formats. [https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html). To convert the UTC time to a different timezone use `fromUTC()`.  
 * ``currentUTC() == toTimestamp('2050-12-12 19:18:12') -> false``  
 * ``currentUTC() != toTimestamp('2050-12-12 19:18:12') -> true``  
 * ``fromUTC(currentUTC(), 'Asia/Seoul') != toTimestamp('2050-12-12 19:18:12') -> true``  
@@ -660,7 +660,7 @@ ___
 
 ### <code>denseRank</code>
 <code><b>denseRank() => integer</b></code><br/><br/>
-Computes the rank of a value in a group of values specified in a window's order by clause. The result is one plus the number of rows preceding or equal to the current row in the ordering of the partition. The values will not produce gaps in the sequence. Dense Rank works even when data is not sorted and looks for change in values.  
+Computes the rank of a value in a group of values specified in a window's order by clause. The result is one plus the number of rows preceding or equal to the current row in the ordering of the partition. The values won't produce gaps in the sequence. Dense Rank works even when data isn't sorted and looks for change in values.  
 * ``denseRank()``  
 ___
 
@@ -757,7 +757,7 @@ ___
 
 ### <code>expr</code>
 <code><b>expr(<i>&lt;expr&gt;</i> : string) => any</b></code><br/><br/>
-Results in a expression from a string. This is the same as writing this expression in a non-literal form. This can be used to pass parameters as string representations.
+Results in an expression from a string. This is the same as writing this expression in a non-literal form. This can be used to pass parameters as string representations.
 *    expr('price * discount') => any
 ___
 
@@ -775,7 +775,7 @@ ___
 
 ### <code>false</code>
 <code><b>false() => boolean</b></code><br/><br/>
-Always returns a false value. Use the function `syntax(false())` if there is a column named 'false'.  
+Always returns a false value. Use the function `syntax(false())` if there's a column named 'false'.  
 * ``(10 + 20 > 30) -> false``  
 * ``(10 + 20 > 30) -> false()``
 ___
@@ -785,7 +785,7 @@ ___
 
 ### <code>filter</code>
 <code><b>filter(<i>&lt;value1&gt;</i> : array, <i>&lt;value2&gt;</i> : unaryfunction) => array</b></code><br/><br/>
-Filters elements out of the array that do not meet the provided predicate. Filter expects a reference to one element in the predicate function as #item.  
+Filters elements out of the array that don't meet the provided predicate. Filter expects a reference to one element in the predicate function as #item.  
 * ``filter([1, 2, 3, 4], #item > 2) -> [3, 4]``  
 * ``filter(['a', 'b', 'c', 'd'], #item == 'a' || #item == 'b') -> ['a', 'b']``  
 ___
@@ -832,7 +832,7 @@ ___
 
 ### <code>first</code>
 <code><b>first(<i>&lt;value1&gt;</i> : any, [<i>&lt;value2&gt;</i> : boolean]) => any</b></code><br/><br/>
-Gets the first value of a column group. If the second parameter ignoreNulls is omitted, it is assumed false.  
+Gets the first value of a column group. If the second parameter ignoreNulls is omitted, it's assumed false.  
 * ``first(sales)``  
 * ``first(sales, false)``  
 ___
@@ -872,7 +872,7 @@ ___
 
 ### <code>fromUTC</code>
 <code><b>fromUTC(<i>&lt;value1&gt;</i> : timestamp, [<i>&lt;value2&gt;</i> : string]) => timestamp</b></code><br/><br/>
-Converts to the timestamp from UTC. You can optionally pass the timezone in the form of 'GMT', 'PST', 'UTC', 'America/Cayman'. It is defaulted to the current timezone. Refer Java's `SimpleDateFormat` class for available formats. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html.  
+Converts to the timestamp from UTC. You can optionally pass the timezone in the form of 'GMT', 'PST', 'UTC', 'America/Cayman'. It's defaulted to the current timezone. Refer Java's `SimpleDateFormat` class for available formats. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html.  
 * ``fromUTC(currentTimestamp()) == toTimestamp('2050-12-12 19:18:12') -> false``  
 * ``fromUTC(currentTimestamp(), 'Asia/Seoul') != toTimestamp('2050-12-12 19:18:12') -> true``  
 ___
@@ -915,7 +915,7 @@ ___
 
 ### <code>hasColumn</code>
 <code><b>hasColumn(<i>&lt;column name&gt;</i> : string, [<i>&lt;stream name&gt;</i> : string]) => boolean</b></code><br/><br/>
-Checks for a column value by name in the stream. You can pass a optional stream name as the second argument. Column names known at design time should be addressed just by their name. Computed inputs are not supported but you can use parameter substitutions.  
+Checks for a column value by name in the stream. You can pass a optional stream name as the second argument. Column names known at design time should be addressed just by their name. Computed inputs aren't supported but you can use parameter substitutions.  
 * ``hasColumn('parent')``  
 ___
 
@@ -936,7 +936,7 @@ ___
 
 ### <code>hasPath</code>
 <code><b>hasPath(<i>&lt;value1&gt;</i> : string, [<i>&lt;streamName&gt;</i> : string]) => boolean</b></code><br/><br/>
-Checks if a certain hierarchical path exists by name in the stream. You can pass an optional stream name as the second argument. Column names/paths known at design time should be addressed just by their name or dot notation path. Computed inputs are not supported but you can use parameter substitutions.  
+Checks if a certain hierarchical path exists by name in the stream. You can pass an optional stream name as the second argument. Column names/paths known at design time should be addressed just by their name or dot notation path. Computed inputs aren't supported but you can use parameter substitutions.  
 * ``hasPath('grandpa.parent.child') => boolean``
 ___  
 
@@ -973,7 +973,7 @@ ___
 
 ### <code>iif</code>
 <code><b>iif(<i>&lt;condition&gt;</i> : boolean, <i>&lt;true_expression&gt;</i> : any, [<i>&lt;false_expression&gt;</i> : any]) => any</b></code><br/><br/>
-Based on a condition applies one value or the other. If other is unspecified it is considered NULL. Both the values must be compatible(numeric, string...).  
+Based on a condition applies one value or the other. If other is unspecified, it's considered NULL. Both the values must be compatible(numeric, string...).  
 * ``iif(10 + 20 == 30, 'dumbo', 'gumbo') -> 'dumbo'``  
 * ``iif(10 > 30, 'dumbo', 'gumbo') -> 'gumbo'``  
 * ``iif(month(toDate('2018-12-01')) == 12, 345.12, 102.67) -> 345.12``  
@@ -984,7 +984,7 @@ ___
 
 ### <code>iifNull</code>
 <code><b>iifNull(<i>&lt;value1&gt;</i> : any, [<i>&lt;value2&gt;</i> : any], ...) => any</b></code><br/><br/>
-Checks if the first parameter is null. If not null, the first parameter is returned. If null, the second parameter is returned. If three parameters are specified, the behavior is the same as iif(isNull(value1), value2, value3) and the third parameter is returned if the first value is not null.  
+Checks if the first parameter is null. If not null, the first parameter is returned. If null, the second parameter is returned. If three parameters are specified, the behavior is the same as iif(isNull(value1), value2, value3) and the third parameter is returned if the first value isn't null.  
 * ``iifNull(10, 20) -> 10``  
 * ``iifNull(null, 20, 40) -> 20``  
 * ``iifNull('azure', 'data', 'factory') -> 'factory'``  
@@ -1095,7 +1095,7 @@ ___
 
 ### <code>isDistinct</code>
 <code><b>isDistinct(<i>&lt;value1&gt;</i> : any , <i>&lt;value1&gt;</i> : any) => boolean</b></code><br/><br/>
-Finds if a column or set of columns is distinct. It does not count null as a distinct value
+Finds if a column or set of columns is distinct. It doesn't count null as a distinct value
 *    ``isDistinct(custId, custName) => boolean``
 ___
 
@@ -1105,7 +1105,7 @@ ___
 
 ### <code>isDouble</code>
 <code><b>isDouble (<i>\<value1\></i> : string, [&lt;format&gt;: string]) => boolean</b></code><br/><br/>
-Checks of the string value is a double value given an optional format according to the rules of ``toDouble()``
+Checks if the string value is a double value given an optional format according to the rules of ``toDouble()``
 * ``isDouble('123') -> true``
 * ``isDouble('$123.45' -> '$###.00') -> true``
 * ``isDouble('icecream') -> false``
@@ -1155,7 +1155,7 @@ ___
 
 ### <code>isInteger</code>
 <code><b>isInteger (<i>\<value1\></i> : string, [&lt;format&gt;: string]) => boolean</b></code><br/><br/>
-Checks of the string value is a integer value given an optional format according to the rules of ``toInteger()``
+Checks if the string value is an integer value given an optional format according to the rules of ``toInteger()``
 * ``isInteger('123') -> true``
 * ``isInteger('$123' -> '$###') -> true``
 * ``isInteger('microsoft') -> false``
@@ -1166,7 +1166,7 @@ ___
 
 ### <code>isLong</code>
 <code><b>isLong (<i>\<value1\></i> : string, [&lt;format&gt;: string]) => boolean</b></code><br/><br/>
-Checks of the string value is a long value given an optional format according to the rules of ``toLong()``
+Checks if the string value is a long value given an optional format according to the rules of ``toLong()``
 * ``isLong('123') -> true``
 * ``isLong('$123' -> '$###') -> true``
 * ``isLong('gunchus') -> false``
@@ -1187,7 +1187,7 @@ ___
 
 ### <code>isNan</code>
 <code><b>isNan (<i>\<value1\></i> : integral) => boolean</b></code><br/><br/>
-Check if this is not a number.
+Check if this isn't a number.
 * ``isNan(10.2) => false``
 ___
 
@@ -1206,7 +1206,7 @@ ___
 
 ### <code>isShort</code>
 <code><b>isShort (<i>\<value1\></i> : string, [&lt;format&gt;: string]) => boolean</b></code><br/><br/>
-Checks of the string value is a short value given an optional format according to the rules of ``toShort()``
+Checks if the string value is a short value given an optional format according to the rules of ``toShort()``
 * ``isShort('123') -> true``
 * ``isShort('$123' -> '$###') -> true``
 * ``isShort('microsoft') -> false``
@@ -1284,7 +1284,7 @@ ___
 
 ### <code>lag</code>
 <code><b>lag(<i>&lt;value&gt;</i> : any, [<i>&lt;number of rows to look before&gt;</i> : number], [<i>&lt;default value&gt;</i> : any]) => any</b></code><br/><br/>
-Gets the value of the first parameter evaluated n rows before the current row. The second parameter is the number of rows to look back and the default value is 1. If there are not as many rows a value of null is returned unless a default value is specified.  
+Gets the value of the first parameter evaluated n rows before the current row. The second parameter is the number of rows to look back and the default value is 1. If there aren't as many rows a value of null is returned unless a default value is specified.  
 * ``lag(amount, 2)``  
 * ``lag(amount, 2000, 100)``  
 ___
@@ -1294,7 +1294,7 @@ ___
 
 ### <code>last</code>
 <code><b>last(<i>&lt;value1&gt;</i> : any, [<i>&lt;value2&gt;</i> : boolean]) => any</b></code><br/><br/>
-Gets the last value of a column group. If the second parameter ignoreNulls is omitted, it is assumed false.  
+Gets the last value of a column group. If the second parameter ignoreNulls is omitted, it's assumed false.  
 * ``last(sales)``  
 * ``last(sales, false)``  
 ___
@@ -1313,7 +1313,7 @@ ___
 
 ### <code>lead</code>
 <code><b>lead(<i>&lt;value&gt;</i> : any, [<i>&lt;number of rows to look after&gt;</i> : number], [<i>&lt;default value&gt;</i> : any]) => any</b></code><br/><br/>
-Gets the value of the first parameter evaluated n rows after the current row. The second parameter is the number of rows to look forward and the default value is 1. If there are not as many rows a value of null is returned unless a default value is specified.  
+Gets the value of the first parameter evaluated n rows after the current row. The second parameter is the number of rows to look forward and the default value is 1. If there aren't as many rows a value of null is returned unless a default value is specified.  
 * ``lead(amount, 2)``  
 * ``lead(amount, 2000, 100)``  
 ___
@@ -1384,7 +1384,7 @@ ___
 <code><b>like(<i>&lt;string&gt;</i> : string, <i>&lt;pattern match&gt;</i> : string) => boolean</b></code><br/><br/>
 The pattern is a string that is matched literally. The exceptions are the following special symbols:  _ matches any one character in the input (similar to . in ```posix``` regular expressions)
   % matches zero or more characters in the input (similar to .* in ```posix``` regular expressions).
-  The escape character is ''. If an escape character precedes a special symbol or another escape character, the following character is matched literally. It is invalid to escape any other character.  
+  The escape character is ''. If an escape character precedes a special symbol or another escape character, the following character is matched literally. It's invalid to escape any other character.  
 * ``like('icecream', 'ice%') -> true``  
 ___
 
@@ -1393,7 +1393,7 @@ ___
 
 ### <code>locate</code>
 <code><b>locate(<i>&lt;substring to find&gt;</i> : string, <i>&lt;string&gt;</i> : string, [<i>&lt;from index - 1-based&gt;</i> : integral]) => integer</b></code><br/><br/>
-Finds the position(1 based) of the substring within a string starting a certain position. If the position is omitted it is considered from the beginning of the string. 0 is returned if not found.  
+Finds the position(1 based) of the substring within a string starting a certain position. If the position is omitted, it's considered from the beginning of the string. 0 is returned if not found.  
 * ``locate('mbo', 'dumbo') -> 3``  
 * ``locate('o', 'microsoft', 6) -> 7``  
 * ``locate('bad', 'good') -> 0``  
@@ -1440,7 +1440,7 @@ ___
 
 ### <code>lpad</code>
 <code><b>lpad(<i>&lt;string to pad&gt;</i> : string, <i>&lt;final padded length&gt;</i> : integral, <i>&lt;padding&gt;</i> : string) => string</b></code><br/><br/>
-Left pads the string by the supplied padding until it is of a certain length. If the string is equal to or greater than the length, then it is trimmed to the length.  
+Left pads the string by the supplied padding until it is of a certain length. If the string is equal to or greater than the length, then it's trimmed to the length.  
 * ``lpad('dumbo', 10, '-') -> '-----dumbo'``  
 * ``lpad('dumbo', 4, '-') -> 'dumb'``  
 
@@ -1526,7 +1526,7 @@ ___
 
 ### <code>md5</code>
 <code><b>md5(<i>&lt;value1&gt;</i> : any, ...) => string</b></code><br/><br/>
-Calculates the MD5 digest of set of column of varying primitive datatypes and returns a 32 character hex string. It can be used to calculate a fingerprint for a row.  
+Calculates the MD5 digest of set of column of varying primitive datatypes and returns a 32-character hex string. It can be used to calculate a fingerprint for a row.  
 * ``md5(5, 'gunchus', 8.2, 'bojjus', true, toDate('2010-4-4')) -> '4ce8a880bd621a1ffad0bca905e1bc5a'``  
 ___
 
@@ -1650,7 +1650,7 @@ ___
 
 ### <code>monthsBetween</code>
 <code><b>monthsBetween(<i>&lt;from date/timestamp&gt;</i> : datetime, <i>&lt;to date/timestamp&gt;</i> : datetime, [<i>&lt;roundoff&gt;</i> : boolean], [<i>&lt;time zone&gt;</i> : string]) => double</b></code><br/><br/>
-Gets the number of months between two dates. You can round off the calculation.You can pass an optional timezone in the form of 'GMT', 'PST', 'UTC', 'America/Cayman'. The local timezone is used as the default. Refer Java's `SimpleDateFormat` class for available formats. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html.  
+Gets the number of months between two dates. You can round off the calculation. You can pass an optional timezone in the form of 'GMT', 'PST', 'UTC', 'America/Cayman'. The local timezone is used as the default. Refer Java's `SimpleDateFormat` class for available formats. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html.  
 * ``monthsBetween(toTimestamp('1997-02-28 10:30:00'), toDate('1996-10-30')) -> 3.94959677``  
 ___
 
@@ -1716,7 +1716,7 @@ ___
 
 ### <code>notNull</code>
 <code><b>notNull(<i>&lt;value1&gt;</i> : any) => boolean</b></code><br/><br/>
-Checks if the value is not NULL.  
+Checks if the value isn't NULL.  
 * ``notNull(NULL()) -> false``  
 * ``notNull('') -> true``  
 ___
@@ -1726,7 +1726,7 @@ ___
 
 ### <code>nTile</code>
 <code><b>nTile([<i>&lt;value1&gt;</i> : integer]) => integer</b></code><br/><br/>
-The ```NTile``` function divides the rows for each window partition into `n` buckets ranging from 1 to at most `n`. Bucket values will differ by at most 1. If the number of rows in the partition does not divide evenly into the number of buckets, then the remainder values are distributed one per bucket, starting with the first bucket. The ```NTile``` function is useful for the calculation of ```tertiles```, quartiles, deciles, and other common summary statistics. The function calculates two variables during initialization: The size of a regular bucket will have one extra row added to it. Both variables are based on the size of the current partition. During the calculation process the function keeps track of the current row number, the current bucket number, and the row number at which the bucket will change (bucketThreshold). When the current row number reaches bucket threshold, the bucket value is increased by one and the threshold is increased by the bucket size (plus one extra if the current bucket is padded).  
+The ```NTile``` function divides the rows for each window partition into `n` buckets ranging from 1 to at most `n`. Bucket values will differ by at most 1. If the number of rows in the partition doesn't divide evenly into the number of buckets, then the remainder values are distributed one per bucket, starting with the first bucket. The ```NTile``` function is useful for the calculation of ```tertiles```, quartiles, deciles, and other common summary statistics. The function calculates two variables during initialization: The size of a regular bucket will have one extra row added to it. Both variables are based on the size of the current partition. During the calculation process the function keeps track of the current row number, the current bucket number, and the row number at which the bucket will change (bucketThreshold). When the current row number reaches bucket threshold, the bucket value is increased by one and the threshold is increased by the bucket size (plus one extra if the current bucket is padded).  
 * ``nTile()``  
 * ``nTile(numOfBuckets)``  
 ___
@@ -1736,7 +1736,7 @@ ___
 
 ### <code>null</code>
 <code><b>null() => null</b></code><br/><br/>
-Returns a NULL value. Use the function `syntax(null())` if there is a column named 'null'. Any operation that uses will result in a NULL.  
+Returns a NULL value. Use the function `syntax(null())` if there's a column named 'null'. Any operation that uses will result in a NULL.  
 * ``isNull('dumbo' + null) -> true``  
 * ``isNull(10 * null) -> true``  
 * ``isNull('') -> false``  
@@ -1759,7 +1759,7 @@ ___
 
 ### <code>originColumns</code>
 <code><b>originColumns(<i>&lt;streamName&gt;</i> : string) => any</b></code><br/><br/>
-Gets all output columns for a origin stream where columns were created. Must be enclosed in another function.
+Gets all output columns for an origin stream where columns were created. Must be enclosed in another function.
 * ``array(toString(originColumns('source1')))``
 ___  
 
@@ -1823,7 +1823,7 @@ ___
 
 ### <code>random</code>
 <code><b>random(<i>&lt;value1&gt;</i> : integral) => long</b></code><br/><br/>
-Returns a random number given an optional seed within a partition. The seed should be a fixed value and is used in conjunction with the partitionId to produce random values  
+Returns a random number given an optional seed within a partition. The seed should be a fixed value and is used with the partitionId to produce random values  
 * ``random(1) == 1 -> false``
 ___
 
@@ -1832,7 +1832,7 @@ ___
 
 ### <code>rank</code>
 <code><b>rank() => integer</b></code><br/><br/>
-Computes the rank of a value in a group of values specified in a window's order by clause. The result is one plus the number of rows preceding or equal to the current row in the ordering of the partition. The values will produce gaps in the sequence. Rank works even when data is not sorted and looks for change in values.  
+Computes the rank of a value in a group of values specified in a window's order by clause. The result is one plus the number of rows preceding or equal to the current row in the ordering of the partition. The values will produce gaps in the sequence. Rank works even when data isn't sorted and looks for change in values.  
 * ``rank()``  
 ___
 
@@ -1902,7 +1902,7 @@ ___
 
 ### <code>replace</code>
 <code><b>replace(<i>&lt;string&gt;</i> : string, <i>&lt;substring to find&gt;</i> : string, [<i>&lt;substring to replace&gt;</i> : string]) => string</b></code><br/><br/>
-Replace all occurrences of a substring with another substring in the given string. If the last parameter is omitted, it is default to empty string.  
+Replace all occurrences of a substring with another substring in the given string. If the last parameter is omitted, it's default to empty string.  
 * ``replace('doggie dog', 'dog', 'cat') -> 'catgie cat'``  
 * ``replace('doggie dog', 'dog', '') -> 'gie '``  
 * ``replace('doggie dog', 'dog') -> 'gie '``  
@@ -1942,7 +1942,7 @@ ___
 
 ### <code>round</code>
 <code><b>round(<i>&lt;number&gt;</i> : number, [<i>&lt;scale to round&gt;</i> : number], [<i>&lt;rounding option&gt;</i> : integral]) => double</b></code><br/><br/>
-Rounds a number given an optional scale and an optional rounding mode. If the scale is omitted, it is defaulted to 0. If the mode is omitted, it is defaulted to ROUND_HALF_UP(5). The values for rounding include
+Rounds a number given an optional scale and an optional rounding mode. If the scale is omitted, it's defaulted to 0. If the mode is omitted, it's defaulted to ROUND_HALF_UP(5). The values for rounding include
 1 - ROUND_UP
 2 - ROUND_DOWN
 3 - ROUND_CEILING
@@ -1970,7 +1970,7 @@ Assigns a sequential row numbering for rows in a window starting with 1.
 
 ### <code>rpad</code>
 <code><b>rpad(<i>&lt;string to pad&gt;</i> : string, <i>&lt;final padded length&gt;</i> : integral, <i>&lt;padding&gt;</i> : string) => string</b></code><br/><br/>
-Right pads the string by the supplied padding until it is of a certain length. If the string is equal to or greater than the length, then it is trimmed to the length.  
+Right pads the string by the supplied padding until it is of a certain length. If the string is equal to or greater than the length, then it's trimmed to the length.  
 * ``rpad('dumbo', 10, '-') -> 'dumbo-----'``  
 * ``rpad('dumbo', 4, '-') -> 'dumb'``  
 * ``rpad('dumbo', 8, '<>') -> 'dumbo<><'``  
@@ -2018,7 +2018,7 @@ ___
 
 ### <code>sha1</code>
 <code><b>sha1(<i>&lt;value1&gt;</i> : any, ...) => string</b></code><br/><br/>
-Calculates the SHA-1 digest of set of column of varying primitive datatypes and returns a 40 character hex string. It can be used to calculate a fingerprint for a row.  
+Calculates the SHA-1 digest of set of column of varying primitive datatypes and returns a 40-character hex string. It can be used to calculate a fingerprint for a row.  
 * ``sha1(5, 'gunchus', 8.2, 'bojjus', true, toDate('2010-4-4')) -> '46d3b478e8ec4e1f3b453ac3d8e59d5854e282bb'``  
 ___
 
@@ -2027,7 +2027,7 @@ ___
 
 ### <code>sha2</code>
 <code><b>sha2(<i>&lt;value1&gt;</i> : integer, <i>&lt;value2&gt;</i> : any, ...) => string</b></code><br/><br/>
-Calculates the SHA-2 digest of set of column of varying primitive datatypes given a bit length which can only be of values 0(256), 224, 256, 384, 512. It can be used to calculate a fingerprint for a row.  
+Calculates the SHA-2 digest of set of column of varying primitive datatypes given a bit length, which can only be of values 0(256), 224, 256, 384, 512. It can be used to calculate a fingerprint for a row.  
 * ``sha2(256, 'gunchus', 8.2, 'bojjus', true, toDate('2010-4-4')) -> 'afe8a553b1761c67d76f8c31ceef7f71b66a1ee6f4e6d3b5478bf68b47d06bd3'``  
 ___
 
@@ -2082,7 +2082,7 @@ ___
 
 ### <code>slice</code>
 <code><b>slice(<i>&lt;array to slice&gt;</i> : array, <i>&lt;from 1-based index&gt;</i> : integral, [<i>&lt;number of items&gt;</i> : integral]) => array</b></code><br/><br/>
-Extracts a subset of an array from a position. Position is 1 based. If the length is omitted, it is defaulted to end of the string.  
+Extracts a subset of an array from a position. Position is 1 based. If the length is omitted, it's defaulted to end of the string.  
 * ``slice([10, 20, 30, 40], 1, 2) -> [10, 20]``  
 * ``slice([10, 20, 30, 40], 2) -> [20, 30, 40]``  
 * ``slice([10, 20, 30, 40], 2)[1] -> 20``  
@@ -2220,7 +2220,7 @@ ___
 
 ### <code>substring</code>
 <code><b>substring(<i>&lt;string to subset&gt;</i> : string, <i>&lt;from 1-based index&gt;</i> : integral, [<i>&lt;number of characters&gt;</i> : integral]) => string</b></code><br/><br/>
-Extracts a substring of a certain length from a position. Position is 1 based. If the length is omitted, it is defaulted to end of the string.  
+Extracts a substring of a certain length from a position. Position is 1 based. If the length is omitted, it's defaulted to end of the string.  
 * ``substring('Cat in the hat', 5, 2) -> 'in'``  
 * ``substring('Cat in the hat', 5, 100) -> 'in the hat'``  
 * ``substring('Cat in the hat', 5) -> 'in the hat'``  
@@ -2342,7 +2342,7 @@ ___
 
 ### <code>toDecimal</code>
 <code><b>toDecimal(<i>&lt;value&gt;</i> : any, [<i>&lt;precision&gt;</i> : integral], [<i>&lt;scale&gt;</i> : integral], [<i>&lt;format&gt;</i> : string], [<i>&lt;locale&gt;</i> : string]) => decimal(10,0)</b></code><br/><br/>
-Converts any numeric or string to a decimal value. If precision and scale are not specified, it is defaulted to (10,2).An optional Java decimal format can be used for the conversion. An optional locale format in the form of BCP47 language like en-US, de, zh-CN.  
+Converts any numeric or string to a decimal value. If precision and scale aren't specified, it's defaulted to (10,2). An optional Java decimal format can be used for the conversion. An optional locale format in the form of BCP47 language like en-US, de, zh-CN.  
 * ``toDecimal(123.45) -> 123.45``  
 * ``toDecimal('123.45', 8, 4) -> 123.4500``  
 * ``toDecimal('$123.45', 8, 4,'$###.00') -> 123.4500``  
@@ -2438,7 +2438,7 @@ ___
 
 ### <code>toUTC</code>
 <code><b>toUTC(<i>&lt;value1&gt;</i> : timestamp, [<i>&lt;value2&gt;</i> : string]) => timestamp</b></code><br/><br/>
-Converts the timestamp to UTC. You can pass an optional timezone in the form of 'GMT', 'PST', 'UTC', 'America/Cayman'. It is defaulted to the current timezone. Refer Java's `SimpleDateFormat` class for available formats. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html.  
+Converts the timestamp to UTC. You can pass an optional timezone in the form of 'GMT', 'PST', 'UTC', 'America/Cayman'. It's defaulted to the current timezone. Refer Java's `SimpleDateFormat` class for available formats. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html.  
 * ``toUTC(currentTimestamp()) == toTimestamp('2050-12-12 19:18:12') -> false``  
 * ``toUTC(currentTimestamp(), 'Asia/Seoul') != toTimestamp('2050-12-12 19:18:12') -> true``  
 
@@ -2468,7 +2468,7 @@ ___
 
 ### <code>true</code>
 <code><b>true() => boolean</b></code><br/><br/>
-Always returns a true value. Use the function `syntax(true())` if there is a column named 'true'.  
+Always returns a true value. Use the function `syntax(true())` if there's a column named 'true'.  
 * ``(10 + 20 == 30) -> true``  
 * ``(10 + 20 == 30) -> true()``  
 ___
@@ -2508,7 +2508,7 @@ ___
 
 ### <code>unhex</code>
 <code><b>unhex(<i>\<value1\></i>: string) => binary</b></code><br/><br/>
-Unhexes a binary value from its string representation. This can be used in conjunction with sha2, md5 to convert from string to binary representation
+Unhexes a binary value from its string representation. This can be used with sha2, md5 to convert from string to binary representation
 *    ``unhex('1fadbe') -> toBinary([toByte(0x1f), toByte(0xad), toByte(0xbe)])``
 *    ``unhex(md5(5, 'gunchus', 8.2, 'bojjus', true, toDate('2010-4-4'))) -> toBinary([toByte(0x4c),toByte(0xe8),toByte(0xa8),toByte(0x80),toByte(0xbd),toByte(0x62),toByte(0x1a),toByte(0x1f),toByte(0xfa),toByte(0xd0),toByte(0xbc),toByte(0xa9),toByte(0x05),toByte(0xe1),toByte(0xbc),toByte(0x5a)])``
 
