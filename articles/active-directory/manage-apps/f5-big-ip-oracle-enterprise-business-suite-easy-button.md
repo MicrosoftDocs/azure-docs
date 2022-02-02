@@ -200,7 +200,7 @@ The **Service Provider** settings define the SAML SP properties for the APM inst
 
 This section defines all properties that you would normally use to manually configure a new BIG-IP SAML application within your Azure AD tenant. The Easy Button wizard provides a set of pre-defined application templates for Oracle PeopleSoft, Oracle E-business Suite, Oracle JD Edwards, SAP ERP as well as generic SHA template for any other apps. In this example, select **Oracle E-Business Suite > Add**. This adds the template for the Oracle E-business Suite
 
-![Screenshot for Azure configuration add BIG-IP application](./media/5-big-ip-oracle/azure-configuration-add-big-ip-application.png)
+![Screenshot for Azure configuration add BIG-IP application](./media/f5-big-ip-oracle/azure-configuration-add-big-ip-application.png)
 
 #### Azure Configuration
 
