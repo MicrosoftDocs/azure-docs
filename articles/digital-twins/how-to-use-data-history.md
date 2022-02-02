@@ -34,25 +34,24 @@ It also contains a sample twin graph and telemetry scenario that you can use to 
 
 ### Set up local variables for CLI session
 
-This article provides CLI commands that you can use to create the data history resources. In order to make it easy to copy and run those commands later, you can set up local variables in your CLI session now, and then refer to those variables later in the CLI commands when creating your resources. Update the placeholders (identified with `<...>` brackets) in the commands below, and run these commands to create the variables. These values will be used later when creating the new resources.
+This article provides CLI commands that you can use to create the data history resources. In order to make it easy to copy and run those commands later, you can set up local variables in your CLI session now, and then refer to those variables later in the CLI commands when creating your resources. Update the placeholders (identified with `<...>` brackets) in the commands below, and run these commands to create the variables (if you're using Azure Cloud Shell, run them in the Bash environment). These values will be used later when creating the new resources.
 
 ```azurecli-interactive
 # General Setup
-$location = "<your-resource-region>"
-$resourcegroup = "<your-resource-group-name>"
+location="<your-resource-region>"
+resourcegroup="<your-resource-group-name>"
 
 # Azure Digital Twins Setup
-$dtname = "<name-for-your-digital-twins-instance>"
-$connectionname = "<name-for-your-data-history-connection>"
+dtname="<name-for-your-digital-twins-instance>"
+connectionname="<name-for-your-data-history-connection>"
 
 # Event Hub Setup
-$eventhubnamespace = "<name-for-your-event-hub-namespace>"
-$eventhub = "<name-for-your-event-hub>"
-
+eventhubnamespace="<name-for-your-event-hub-namespace>"
+eventhub="<name-for-your-event-hub>"
 
 # ADX Setup
-$clustername = "<name-for-your-cluster>"
-$databasename = "<name-for-your-database>"
+clustername="<name-for-your-cluster>"
+databasename="<name-for-your-database>"
 ```
 
 ## Create an Azure Digital Twins instance with a managed identity
