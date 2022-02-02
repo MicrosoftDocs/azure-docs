@@ -21,10 +21,8 @@ See below for information about changes to Speech services and resources.
 
 * Speech SDK 1.20.0 released January 2022. Updates include extended programming language support for DialogServiceConnector, Unity on Linux, enhancements to IntentRecognizer, added support for Python 3.10, and a fix to remove a 10-second delay while stopping a speech recognizer (when using a PushAudioInputStream, and no new audio is pushed in after StopContinuousRecognition is called).
 * Speech CLI 1.20.0 released January 2022. Updates include microphone input for Speaker recognition and expanded support for Intent recognition.
-* Speaker Recognition service is generally available (GA). With [Speaker Recognition](./speaker-recognition-overview.md) you can accurately verify and identify speakers by their unique voice characteristics.
-* Custom Neural Voice extended to support [49 locales](./language-support.md#custom-neural-voice).
-* Prebuilt Neural Voice added new [languages and variants](./language-support.md#prebuilt-neural-voices).
-* Commitment Tiers added to [pricing options](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
+* TTS Service January 2022, added 10 new languages and variants for Neural text-to-speech and new voices in preview for en-GB, fr-FR and de-DE.
+* Containers v3.0.0 released January 2022, with support for using containers in disconnected environments.
 
 ## Release notes
 
