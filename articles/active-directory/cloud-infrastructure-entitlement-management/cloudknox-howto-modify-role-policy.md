@@ -17,7 +17,7 @@ ms.author: v-ydequadros
 This article describes how you can use the JEP Controller in Microsoft CloudKnox Permissions Management to modify roles/policies for the Amazon Web Services (AWS), Microsoft Azure, or Google Cloud Platform (GCP) authorization systems. 
 
 > [!NOTE]
-> To view the **JEP Controller** tab, your must have **Viewer**, **Controller**, or **Administrator** permissions. To make changes on this tab, you must have **Controller** or **Administrator** permissions. If you don’t have these permissions, contact your system administrator.
+> To view the **JEP Controller** tab, you must have **Viewer**, **Controller**, or **Administrator** permissions. To make changes on this tab, you must have **Controller** or **Administrator** permissions. If you don’t have these permissions, contact your system administrator.
 
 > [!NOTE]
 > Microsoft Azure uses the term *role* for what other Cloud providers call *policy*. CloudKnox automatically makes this terminology change when you select the authorization system type. In the user documentation, we use *role/policy* to refer to both.
@@ -33,3 +33,11 @@ This article describes how you can use the JEP Controller in Microsoft CloudKnox
 
 1. Review the edits on the **Preview** screen, and then select **Submit**.
 1. Refresh the **Role/Policies** tab to see the role/policy you modified.
+
+
+## Next steps
+
+- For information on how to view roles/policies, see [View information about roles/policies in the JEP Controller](cloudknox-howto-view-role-policy.md).
+- For information on how to create roles/policies, see [Create a role/policy in the JEP Controller](cloudknox-howto-create-role-policy.md).
+- For information on how to clone roles/policies, see [Clone a role/policy in the JEP Controller](cloudknox-howto-clone-role-policy.md).
+- For information on how to delete roles/policies, see [Delete a role/policy in the JEP Controller](cloudknox-howto-delete-role-policy.md).

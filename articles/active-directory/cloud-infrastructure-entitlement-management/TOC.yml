@@ -128,7 +128,7 @@
     - name: View how users access information
       expanded: true
       items:
-      - name: View information on how users access information 
+      - name: View how users access information 
         href: cloudknox-ui-audit-trail.md
       - name: Create a custom query
         href: cloudknox-howto-create-custom-queries.md
