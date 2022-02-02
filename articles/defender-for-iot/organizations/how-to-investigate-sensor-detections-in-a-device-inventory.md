@@ -265,7 +265,7 @@ You can filter the inventory to display devices that are inactive:
 1. Select **Last Activity** in the column field.
 1. Choose the time period in the **Filter** field.
 
-    :::image type="content" source="media/how-to-inventory-sensor/save-filter.png" alt-text="Saved Device inventory filter":::
+    :::image type="content" source="media/how-to-inventory-sensor/save-filter.png" alt-text="Last activity filter in Inventory":::
 
 ### Delete inactive devices
 
