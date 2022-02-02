@@ -298,7 +298,10 @@ Follow these steps:
 	 Install-Module -Name Az.RecoveryServices -Repository PSGallery -Force -AllowClobber
      ```
 
-- **Step 3**: Delete all the backup items and ultimately the entire vault recursively. For more information, see [PowerShell script to delete a Recovery Services vault](./scripts/delete-recovery-services-vault.md).
+- **Step 3**: Delete all the backup items and ultimately the entire vault recursively. To do this, you can save the acript as _.ps1_ file on your machine and run it in PowerShell window.
+
+  >[!Note]
+  >To download and run the vault deletion script, see the [PowerShell](./scripts/delete-recovery-services-vault.md) article.
 
   **Run the script in the PowerShell console**
 
@@ -309,9 +312,6 @@ Follow these steps:
   1. Unregister servers and storage accounts
   1. Delete Disaster Recovery items
   1. Remove private endpoints
-
->[!Note]
->To delete all the backup items and ultimately the entire vault recursively, see [PowerShell script to delete a Recovery Services vault](./scripts/delete-recovery-services-vault.md).
 
 To delete an individual backup items or write your own script, use the following PowerShell commands:
 
