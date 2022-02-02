@@ -161,11 +161,11 @@
         href: cloudknox-report-create-custom-report.md
       - name: Generate and download the Permissions analytics report
         href: cloudknox-product-permissions-analytics-reports.md
-  - name: Troubleshooting
+  - name: Troubleshoot
     expanded: true
     items:
-    - name: Troubleshooting
-      href: cloudknox-troubleshooting.md
+    - name: Troubleshoot issues
+      href: cloudknox-troubleshoot.md
   #- name: Training material
     #expanded: true
     #items:
