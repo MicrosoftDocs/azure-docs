@@ -103,12 +103,12 @@ Take advantage of the filters for more granular views of the data:
 
 ![Filter](./media/workbook-authentication-prompts-analysis/filters.png)
 
-Filtering for a specific user that has a lot of authentication requests or only showing applications with sign-in failures can also lead to interesting findings to continue to remediate. 
+Filtering for a specific user that has many authentication requests or only showing applications with sign-in failures can also lead to interesting findings to continue to remediate. 
 
 ## Best practices
 
 
-If data is not showing up or seems to be showing up incorrectly, please confirm that you have set the **Log Analytics Workspace** and **Subscriptions** on the proper resources.
+If data isn't showing up or seems to be showing up incorrectly, please confirm that you have set the **Log Analytics Workspace** and **Subscriptions** on the proper resources.
 
 
 ![Set workspace and subscriptions](./media/workbook-authentication-prompts-analysis/workspace-and-subscriptions.png)
