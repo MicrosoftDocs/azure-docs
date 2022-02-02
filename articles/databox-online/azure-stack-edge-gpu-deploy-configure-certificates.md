@@ -139,11 +139,11 @@ Follow these steps to upload your own certificates including the signing chain.
 
     ![Screenshot of the Add Certificate pane in the local web UI of an Azure Stack Edge device. The Certificates menu item, Plus Add Certificate button, and Add Certificate pane are highlighted.](./media/azure-stack-edge-gpu-deploy-configure-certificates/add-certificate-1.png)
 
-2. If you didn't include all certificates in the certificate path when you exported certificates, upload the **Signing Chain** certificate first, and then select **Validate & add**. If you included all certificates in your export, you can skip this step. For more information, see [Export certificates as .pfx format with private key]azure-stack-edge-gpu-prepare-certificates-device-upload.md#export-certificates-as-pfx-format-with-private-key).
+2. Skip this step if you included all certificates in the certificate path when you [exported certificates in .pfx format](azure-stack-edge-gpu-prepare-certificates-device-upload.md#export-certificates-as-pfx-format-with-private-key). If you didn't include all certificates in your export, upload the signing chain, and then select **Validate & add**. You need to do this before you upload your other certificates.
 
     ![Screenshot of the Add Certificate pane for a Signing Chain certificate in the local web UI of an Azure Stack Edge device. The certificate type, certificate entries, and Validate And Add button are highlighted.](./media/azure-stack-edge-gpu-deploy-configure-certificates/add-certificate-2.png)
 
-3. Now you can upload other certificates. For example, you can upload the Azure Resource Manager and Blob storage endpoint certificates.
+3. Upload other certificates. For example, you can upload the Azure Resource Manager and Blob storage endpoint certificates.
 
     ![Screenshot of the Add Certificate pane for endpoints for an Azure Stack Edge device. The certificate type and certificate entries are highlighted.](./media/azure-stack-edge-gpu-deploy-configure-certificates/add-certificate-3.png)
 
