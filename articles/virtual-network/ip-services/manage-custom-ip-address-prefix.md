@@ -34,9 +34,9 @@ For information on how to onboard a custom IP prefix, see the guides for creatio
 
 ## Create a public IP prefix from a custom IP prefix
 
-When a custom IP prefix is in **Provisioned** or **Commissioned** state, a linked public IP prefix can be created, either as a subset of the custom IP prefix range or the entire range. 
+When a custom IP prefix is in **Provisioned** or **Commissioned** state, a linked public IP prefix can be created. Either as a subset of the custom IP prefix range or the entire range. 
 
-Use following CLI and PowerShell commands to create public IP prefixes with the **--custom-ip-prefix-name (CLI)** and **-CustomIpPrefix (PowerShell)** parameters that point to an existing custom IP prefix. 
+Use the following CLI and PowerShell commands to create public IP prefixes with the `--custom-ip-prefix-name` (CLI) and `-CustomIpPrefix` (PowerShell) parameters that point to an existing custom IP prefix. 
 
 |Tool|Command|
 |---|---|
@@ -121,7 +121,7 @@ For permissions to manage public IP address prefixes, your account must be assig
 
 ## Troubleshooting/FAQs
 
-This section provides answers for common questions about custom IP prefix resources and the onboarding/removal processes.
+This section provides answers for common questions about custom IP prefix resources and the provisioning and removal processes.
 
 ### After creating a new custom IP prefix, the provisioning failed within 24 hours
 
@@ -129,7 +129,7 @@ A quick failure of provisioning is likely due to a prefix validation error. This
 
 ### My custom IP prefix has been in "Provisioning" status for a long time
 
-Provisioning and deprovisioning a custom IP prefix during the preview period is an asynchronous operation that takes an estimated 4-6 weeks. The provision of a non-Microsoft (BYOIP) range goes through a number of internal safety checks which deploys on a region by region basis. Contact Microsoft Support if the range has been in Provisioning for longer than this time, or transitions to **ProvisioningFailed** state after 24 hours. The **ProvisioningFailed* state indicates its's no longer a validation error.
+Provisioning and deprovisioning a custom IP prefix during the preview period is an asynchronous operation that takes an estimated 4-6 weeks. The provision of a non-Microsoft (BYOIP) range goes through a number of internal safety checks which deploys on a region by region basis. Contact Microsoft Support if the range has been in Provisioning for longer than this time, or transitions to **ProvisioningFailed** state after 24 hours. The **ProvisioningFailed** state indicates its's no longer a validation error.
 
 ### After updating a custom IP prefix to advertise, it transitions to a "CommissioningFailed" status
 
