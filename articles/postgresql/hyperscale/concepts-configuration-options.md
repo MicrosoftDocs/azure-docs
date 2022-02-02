@@ -7,7 +7,7 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.custom: references_regions
-ms.date: 12/17/2021
+ms.date: 01/12/2022
 ---
 
 # Azure Database for PostgreSQL – Hyperscale (Citus) configuration options
@@ -121,6 +121,8 @@ Hyperscale (Citus) server groups are available in the following Azure regions:
 	* East US
 	* East US 2
 	* North Central US
+	* West Central US
+	* West US
 	* West US 2
 * Asia Pacific:
 	* Australia East

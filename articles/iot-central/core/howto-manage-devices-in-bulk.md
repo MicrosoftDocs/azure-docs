@@ -15,7 +15,7 @@ You can use Azure IoT Central to manage your connected devices at scale through 
 
 ## Create and run a job
 
-The following example shows you how to create and run a job to set the light threshold for a group of logistic gateway devices. You use the job wizard to create and run jobs. You can save a job to run later.
+The following example shows you how to create and run a job to set the light threshold for a group of devices. You use the job wizard to create and run jobs. You can save a job to run later.
 
 1. On the left pane, select **Jobs**.
 

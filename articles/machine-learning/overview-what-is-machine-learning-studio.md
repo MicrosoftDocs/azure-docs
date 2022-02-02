@@ -101,7 +101,7 @@ Visit the [studio](https://ml.azure.com), or explore the different authoring opt
 Start with [Quickstart: Get started with Azure Machine Learning](quickstart-create-resources.md).  Then use these resources to create your first experiment with your preferred method:
 
   + [Run a "Hello world!" Python script (part 1 of 3)](tutorial-1st-experiment-hello-world.md)
-  + [Use a Jupyter notebook to train image classification models](tutorial-train-models-with-aml.md)
+  + [Use a Jupyter notebook to train image classification models](tutorial-train-deploy-notebook.md)
   + [Use automated machine learning to train & deploy models](tutorial-first-experiment-automated-ml.md)  
   + [Use the designer to train & deploy models](tutorial-designer-automobile-price-train-score.md)
   + [Use studio in a secured virtual network](how-to-enable-studio-virtual-network.md)

@@ -9,7 +9,7 @@ manager: guillasi
 ms.service: applied-ai-services
 ms.subservice: immersive-reader
 ms.topic: how-to
-ms.date: 07/22/2019
+ms.date: 11/11/2021
 ms.author: rwaller
 ---
 
@@ -117,7 +117,7 @@ The script is designed to be flexible. It will first look for existing Immersive
         Start-Sleep -Seconds 5
 
         Write-Host "Granting service principal access to the newly created Immersive Reader resource"
-        $accessResult = az role assignment create --assignee $principalId --scope $resourceId --role "Cognitive Services User"
+        $accessResult = az role assignment create --assignee $principalId --scope $resourceId --role "Cognitive Services Immersive Reader User"
         if (-not $accessResult) {
             throw "Error: Failed to grant service principal access"
         }

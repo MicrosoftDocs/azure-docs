@@ -75,7 +75,7 @@ The minimum size of the subnet in which API Management can be deployed is /29, w
     * Two IP addresses per unit of Premium SKU, or 
     * One IP address for the Developer SKU. 
 
-* Each instance reserves an extra IP address for the external load balancer. When deploying into an [internal VNet](./api-management-using-with-internal-vnet.md), the instance requires an extra IP address for the internal load balancer.
+* When deploying into an [internal VNet](./api-management-using-with-internal-vnet.md), the instance requires an extra IP address for the internal load balancer.
 
 ## Routing
 

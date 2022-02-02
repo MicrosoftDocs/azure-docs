@@ -28,13 +28,11 @@ landingContent:
           - text: Whitepapers
             url: ./whitepapers.md
           - text: Pricing
-            url: https://azure.microsoft.com/pricing/details/data-factory/
+            url: ./pricing.md
           - text: Understanding pricing through examples
             url: ./pricing-concepts.md
-          - text: Recent feature updates
-            url: https://azure.microsoft.com/updates/?tag=data-factory
           - text: ADF Blog
-            url: https://techcommunity.microsoft.com/t5/Azure-Data-Factory/bg-p/AzureDataFactoryBlog
+            url: ./blog.md
           - text: Request a feature
             url: /answers/topics/azure-data-factory.html
   - title: Get started

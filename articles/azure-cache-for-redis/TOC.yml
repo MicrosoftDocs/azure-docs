@@ -106,6 +106,8 @@
       href: cache-how-to-version.md
     - name: Distribute your cache with clustering
       href: cache-how-to-premium-clustering.md
+    - name: Managed identity with Azure Cache for Redis
+      href: cache-managed-identity.md
     - name: Persist your cache with Redis data persistence
       href: cache-how-to-premium-persistence.md
     - name: Add more replicas
@@ -172,8 +174,6 @@
       href: cache-how-to-monitor.md#operations-and-alerts
     - name: Monitor with diagnostic logs
       href: cache-monitor-diagnostic-settings.md
-    - name: Monitoring FAQs
-      href: cache-monitor-troubleshoot-faq.yml
   - name: Scale
     items:
     - name: Update to a different size and tier
@@ -182,12 +182,14 @@
       href: cache-how-to-premium-clustering.md
   - name: Diagnose and troubleshoot
     items:
+    - name: Troubleshoot connectivity issues
+      href: cache-troubleshoot-connectivity.md
+    - name: Troubleshoot latency and timeouts
+      href: cache-troubleshoot-timeouts.md
+    - name: Troubleshoot client 
+      href: cache-troubleshoot-client.md
     - name: Troubleshoot Redis server
       href: cache-troubleshoot-server.md
-    - name: Troubleshoot Redis client
-      href: cache-troubleshoot-client.md
-    - name: Troubleshoot timeouts
-      href: cache-troubleshoot-timeouts.md
     - name: Troubleshoot data loss
       href: cache-troubleshoot-data-loss.md
     - name: Troubleshooting FAQs

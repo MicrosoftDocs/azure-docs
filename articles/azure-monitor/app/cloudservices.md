@@ -265,9 +265,6 @@ If you have a client mobile app, use [App Center](../app/mobile-center-quickstar
 ## Exception "method not found" on running in Azure cloud services
 Did you build for .NET 4.6? .NET 4.6 is not automatically supported in Azure cloud services roles. [Install .NET 4.6 on each role](../../cloud-services/cloud-services-dotnet-install-dotnet.md) before running your app.
 
-## Video
-
-> [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 
 ## Next steps
 * [Configure sending Azure Diagnostics to Application Insights](../agents/diagnostics-extension-to-application-insights.md)

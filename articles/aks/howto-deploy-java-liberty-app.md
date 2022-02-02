@@ -37,7 +37,7 @@ For more details on Open Liberty, see [the Open Liberty project page](https://op
 
 An Azure resource group is a logical group in which Azure resources are deployed and managed.  
 
-Create a resource group called *java-liberty-project* using the [az group create](/cli/azure/group#az_group_create) command  in the *eastus* location. This resource group will be used later for creating the Azure Container Registry (ACR) instance and the AKS cluster. 
+Create a resource group called *java-liberty-project* using the [az group create](/cli/azure/group#az_group_create) command in the *eastus* location. This resource group will be used later for creating the Azure Container Registry (ACR) instance and the AKS cluster. 
 
 ```azurecli-interactive
 RESOURCE_GROUP_NAME=java-liberty-project
@@ -123,6 +123,27 @@ NAME                                STATUS   ROLES   AGE     VERSION
 aks-nodepool1-xxxxxxxx-yyyyyyyyyy   Ready    agent   76s     v1.18.10
 ```
 
+## Create an Azure SQL Database
+
+The steps in this section guide you through creating an Azure SQL Database single database for use with your app. If your application doesn't require a database, you can skip this section.
+
+1. Create a single database in Azure SQL Database by following the steps in: [Quickstart: Create an Azure SQL Database single database](../azure-sql/database/single-database-create-quickstart.md). Return to this document after creating and configuring the database server.
+    > [!NOTE]
+    >
+    > * At the **Basics** step, write down **Database name**, ***Server name**.database.windows.net*, **Server admin login** and **Password**.
+    > * At the **Networking** step, set **Connectivity method** to **Public endpoint**, **Allow Azure services and resources to access this server** to **Yes**, and **Add current client IP address** to **Yes**.
+    >
+    >   ![Screenshot of configuring SQL database networking](./media/howto-deploy-java-liberty-app/create-sql-database-networking.png)
+
+2. Once your database is created, open **your SQL server** > **Firewalls and virtual networks**. Set **Minimal TLS Version** to **> 1.0** and select **Save**.
+
+    ![Screenshot of configuring SQL database minimum TLS version](./media/howto-deploy-java-liberty-app/sql-database-minimum-TLS-version.png)
+
+3. Open **your SQL database** > **Connection strings** > Select **JDBC**. Write down the **Port number** following sql server address. For example, **1433** is the port number in the example below.
+
+   ![Screenshot of getting SQL server jdbc connection string](./media/howto-deploy-java-liberty-app/sql-server-jdbc-connection-string.png)
+
+
 ## Install Open Liberty Operator
 
 After creating and connecting to the cluster, install the [Open Liberty Operator](https://github.com/OpenLiberty/open-liberty-operator/tree/main/deploy/releases/0.8.0#option-2-install-using-kustomize) by running the following commands.
@@ -140,9 +161,121 @@ wget https://raw.githubusercontent.com/OpenLiberty/open-liberty-operator/main/de
 kubectl apply -k overlays/watch-all-namespaces
 ```
 
-## Build application image
+## Configure and build the application image
 
 To deploy and run your Liberty application on the AKS cluster, containerize your application as a Docker image using [Open Liberty container images](https://github.com/OpenLiberty/ci.docker) or [WebSphere Liberty container images](https://github.com/WASdev/ci.docker).
+
+# [with DB connection](#tab/with-sql)
+
+Follow the steps in this section to deploy the sample application on the Jakarta EE runtime. These steps use Maven and the `liberty-maven-plugin`. To learn more about the `liberty-maven-plugin`, see [Building a web application with Maven](https://openliberty.io/guides/maven-intro.html).
+
+### Check out the application
+
+Clone the sample code for this guide. The sample is on [GitHub](https://github.com/Azure-Samples/open-liberty-on-aks). 
+There are three samples in the repository. We will use *javaee-app-db-using-actions/mssql*. Here is the file structure of the application.
+
+```
+javaee-app-db-using-actions/mssql
+├─ src/main/
+│  ├─ aks/
+│  │  ├─ db-secret.yaml
+│  │  ├─ openlibertyapplication.yaml
+│  ├─ docker/
+│  │  ├─ Dockerfile
+│  │  ├─ Dockerfile-local
+│  │  ├─ Dockerfile-wlp
+│  │  ├─ Dockerfile-wlp-local
+│  ├─ liberty/config/
+│  │  ├─ server.xml
+│  ├─ java/
+│  ├─ resources/
+│  ├─ webapp/
+├─ pom.xml
+```
+
+The directories *java*, *resources*, and *webapp* contain the source code of the sample application. The code declares and uses a data source named `jdbc/JavaEECafeDB`.
+
+In the *aks* directory, we placed two deployment files. *db-secret.xml* is used to create [Kubernetes Secrets](https://kubernetes.io/docs/concepts/configuration/secret/) with DB connection credentials. The file *openlibertyapplication.yaml* is used to deploy the application image.
+
+In the *docker* directory, we place four Dockerfiles. *Dockerfile-local* is used for local debugging, and *Dockerfile* is used to build the image for an AKS deployment. These two files work with Open Liberty. *Dockerfile-wlp-local* and *Dockerfile-wlp* are also used for local debugging and to build the image for an AKS deployment respectively, but instead work with WebSphere Liberty.
+
+In the *liberty/config* directory, the *server.xml* is used to configure the DB connection for the Open Liberty and WebSphere Liberty cluster.
+
+### Build project
+
+Now that you have gathered the necessary properties, you can build the application. The POM file for the project reads many properties from the environment.
+
+```bash
+cd <path-to-your-repo>/javaee-app-db-using-actions/mssql
+
+# The following variables will be used for deployment file generation
+export LOGIN_SERVER=${LOGIN_SERVER}
+export REGISTRY_NAME=${REGISTRY_NAME}
+export USER_NAME=${USER_NAME}
+export PASSWORD=${PASSWORD}
+export DB_SERVER_NAME=<Server name>.database.windows.net
+export DB_PORT_NUMBER=1433
+export DB_NAME=<Database name>
+export DB_USER=<Server admin login>@<Database name>
+export DB_PASSWORD=<Server admin password>
+export PULL_SECRET=acr-secret
+export NAMESPACE=${OPERATOR_NAMESPACE}
+
+mvn clean install
+```
+### Test your project locally
+Use the `liberty:devc` command to run and test the project locally before dealing with any Azure complexity. For more information on `liberty:devc`, see the [Liberty Plugin documentation](https://github.com/OpenLiberty/ci.maven/blob/main/docs/dev.md#devc-container-mode).
+In the sample application, we've prepared *Dockerfile-local* and *Dockerfile-wlp-local* for use with `liberty:devc`.
+
+1. Start your local docker environment if you haven't done so already. The instructions for doing this vary depending on the host operating system.
+
+1. Start the application in `liberty:devc` mode
+
+  ```bash
+  cd <path-to-your-repo>/javaee-app-db-using-actions/mssql
+
+  # If you are running with Open Liberty
+  mvn liberty:devc -Ddb.server.name=${DB_SERVER_NAME} -Ddb.port.number=${DB_PORT_NUMBER} -Ddb.name=${DB_NAME} -Ddb.user=${DB_USER} -Ddb.password=${DB_PASSWORD} -Ddockerfile=target/Dockerfile-local
+  
+  # If you are running with WebSphere Liberty
+  mvn liberty:devc -Ddb.server.name=${DB_SERVER_NAME} -Ddb.port.number=${DB_PORT_NUMBER} -Ddb.name=${DB_NAME} -Ddb.user=${DB_USER} -Ddb.password=${DB_PASSWORD} -Ddockerfile=target/Dockerfile-wlp-local
+  ```
+
+1. Verify the application works as expected. You should see a message similar to `[INFO] [AUDIT] CWWKZ0003I: The application javaee-cafe updated in 1.930 seconds.` in the command output if successful. Go to `http://localhost:9080/` in your browser to verify the application is accessible and all functions are working.
+
+1. Press `Ctrl+C` to stop `liberty:devc` mode.
+
+### Build image for AKS deployment
+
+After successfully running the app in the Liberty Docker container, you can run the `docker build` command to build the image.
+
+```bash
+cd <path-to-your-repo>/javaee-app-db-using-actions/mssql
+
+# Fetch maven artifactId as image name, maven build version as image version
+IMAGE_NAME=$(mvn -q -Dexec.executable=echo -Dexec.args='${project.artifactId}' --non-recursive exec:exec)
+IMAGE_VERSION=$(mvn -q -Dexec.executable=echo -Dexec.args='${project.version}' --non-recursive exec:exec)
+
+cd <path-to-your-repo>/javaee-app-db-using-actions/mssql/target
+
+# If you are running with Open Liberty
+docker build -t ${IMAGE_NAME}:${IMAGE_VERSION} --pull --file=Dockerfile .
+
+# If you are running with WebSphere Liberty
+docker build -t ${IMAGE_NAME}:${IMAGE_VERSION} --pull --file=Dockerfile-wlp .
+```
+
+### Upload image to ACR
+
+Now, we upload the built image to the ACR created in the previous steps.
+
+```bash
+docker tag ${IMAGE_NAME}:${IMAGE_VERSION} ${LOGIN_SERVER}/${IMAGE_NAME}:${IMAGE_VERSION}
+docker login -u ${USER_NAME} -p ${PASSWORD} ${LOGIN_SERVER}
+docker push ${LOGIN_SERVER}/${IMAGE_NAME}:${IMAGE_VERSION}
+```
+
+# [without DB connection](#tab/without-sql)
 
 1. Clone the sample code for this guide. The sample is on [GitHub](https://github.com/Azure-Samples/open-liberty-on-aks).
 1. Change directory to `javaee-app-simple-cluster` of your local clone.
@@ -170,7 +303,58 @@ To deploy and run your Liberty application on the AKS cluster, containerize your
      az acr build -t ${artifactId}:${version} -r $REGISTRY_NAME --file=Dockerfile-wlp .
      ```
 
+---
+
 ## Deploy application on the AKS cluster
+
+The steps in this section deploy the application.
+
+# [with DB connection](#tab/with-sql)
+
+Follow steps below to deploy the Liberty application on the AKS cluster.
+
+1. Create a pull secret so that the AKS cluster is authenticated to pull image from the ACR instance.
+
+   ```bash
+   kubectl create secret docker-registry ${PULL_SECRET} \
+      --docker-server=${LOGIN_SERVER} \
+      --docker-username=${USER_NAME} \
+      --docker-password=${PASSWORD}
+   ```
+1. Retrieve the value for `artifactId` defined in `pom.xml`.
+
+   ```bash
+   cd <path-to-your-repo>/javaee-app-db-using-actions/mssql
+   artifactId=$(mvn -q -Dexec.executable=echo -Dexec.args='${project.artifactId}' --non-recursive exec:exec)
+   ```
+
+1. Apply the DB secret and deployment file by running the following command:
+
+   ```bash
+   cd <path-to-your-repo>/javaee-app-db-using-actions/mssql/target
+   
+   # Apply DB secret
+   kubectl apply -f <path-to-your-repo>/javaee-app-db-using-actions/mssql/target/db-secret.yaml
+
+   # Apply deployment file
+   kubectl apply -f <path-to-your-repo>/javaee-app-db-using-actions/mssql/target/openlibertyapplication.yaml
+
+   # Check if OpenLibertyApplication instance is created
+   kubectl get openlibertyapplication ${artifactId}-cluster
+
+   NAME                        IMAGE                                                   EXPOSED   RECONCILED   AGE
+   javaee-cafe-cluster         youruniqueacrname.azurecr.io/javaee-cafe:1.0.25         True         59s
+
+   # Check if deployment created by Operator is ready
+   kubectl get deployment ${artifactId}-cluster --watch
+
+   NAME                        READY   UP-TO-DATE   AVAILABLE   AGE
+   javaee-cafe-cluster         0/3     3            0           20s
+   ```
+
+1. Wait until you see `3/3` under the `READY` column and `3` under the `AVAILABLE` column, then use `CTRL-C` to stop the `kubectl` watch process.
+
+# [without DB connection](#tab/without-sql)
 
 Follow steps below to deploy the Liberty application on the AKS cluster.
 
@@ -207,6 +391,8 @@ Follow steps below to deploy the Liberty application on the AKS cluster.
 
 1. Wait until you see `3/3` under the `READY` column and `3` under the `AVAILABLE` column, use `CTRL-C` to stop the `kubectl` watch process.
 
+---
+
 ### Test the application
 
 When the application runs, a Kubernetes load balancer service exposes the application front end to the internet. This process can take a while to complete.
@@ -231,7 +417,7 @@ Open a web browser to the external IP address of your service (`52.152.189.57` f
 
 ## Clean up the resources
 
-To avoid Azure charges, you should clean up unnecessary resources.  When the cluster is no longer needed, use the [az group delete](/cli/azure/group#az_group_delete) command to remove the resource group, container service, container registry, and all related resources.
+To avoid Azure charges, you should clean up unnecessary resources. When the cluster is no longer needed, use the [az group delete](/cli/azure/group#az_group_delete) command to remove the resource group, container service, container registry, and all related resources.
 
 ```azurecli-interactive
 az group delete --name $RESOURCE_GROUP_NAME --yes --no-wait

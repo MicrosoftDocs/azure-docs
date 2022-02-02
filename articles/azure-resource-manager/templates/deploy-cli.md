@@ -17,6 +17,8 @@ The deployment commands changed in Azure CLI version 2.2.0. The examples in this
 
 If you don't have Azure CLI installed, you can use Azure Cloud Shell. For more information, see [Deploy ARM templates from Azure Cloud Shell](deploy-cloud-shell.md).
 
+[!INCLUDE [permissions](../../../includes/template-deploy-permissions.md)]
+
 ## Deployment scope
 
 You can target your Azure deployment template to a resource group, subscription, management group, or tenant. Depending on the scope of the deployment, you use different commands.

@@ -343,6 +343,90 @@ In this function, the value of the `name` query parameter is obtained from the `
 
 Likewise, you can set the `status_code` and `headers` for the response message in the returned [HttpResponse] object.
 
+## Web frameworks
+
+You can leverage WSGI and ASGI-compatible frameworks such as Flask and FastAPI with your HTTP-triggered Python functions. This section shows how to modify your functions to support these frameworks.
+
+First, the function.json file must be updated to include a `route` in the HTTP trigger, as shown in the following example:
+
+```json
+{
+  "scriptFile": "__init__.py",
+  "bindings": [
+    {
+      "route": "test",
+      "authLevel": "anonymous",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": [
+        "get",
+        "post"
+      ]
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "$return"
+    }
+  ]
+}
+```
+
+The host.json file must also be updated to include an HTTP `routePrefix`, as shown in the following example.
+
+```json
+{
+  "version": "2.0",
+  "logging": {
+    "applicationInsights": {
+      "samplingSettings": {
+        "isEnabled": true,
+        "excludedTypes": "Request"
+      }
+    },
+    "extensions": { "http": { "routePrefix": "" }}
+  },
+  "extensionBundle": {
+    "id": "Microsoft.Azure.Functions.ExtensionBundle",
+    "version": "[2.*, 3.0.0)"
+  }
+}
+```
+
+Update the Python code file `init.py`, depending on the interface used by your framework. The following example shows either an ASGI hander approach or a WSGI wrapper approach for Flask:
+
+# [ASGI](#tab/asgi)
+
+```python
+app=Flask("Test")
+
+@app.route("/api/HandleApproach")
+def test():
+  return "Hello!"
+
+def main(req: func.HttpRequest, context) -> func.HttpResponse:
+  logging.info('Python HTTP trigger function processed a request.')
+  return func.AsgiMiddleware(app).handle(req, context)
+```
+
+# [WSGI](#tab/wsgi)
+
+```python
+app=Flask("Test")
+
+@app.route("/api/WrapperApproach")
+def test():
+  return "Hello!"
+
+def main(req: func.HttpRequest, context) -> func.HttpResponse:
+  logging.info('Python HTTP trigger function processed a request.')
+  return func.WsgiMiddleware(app).handle(req, context)
+```
+
+---
+
+
 ## Scaling and Performance
 
 For scaling and performance best practices for Python function apps, see the [Python scale and performance article](python-scale-performance-reference.md).
@@ -846,11 +930,17 @@ An extension that inherits from [FuncExtensionBase](https://github.com/Azure/azu
 
 CORS is fully supported for Python function apps.
 
+## Async
+
+By default, a host instance for Python can process only one function invocation at a time. This is because Python is a single-threaded runtime. For a function app that processes a large number of I/O events or is being I/O bound, you can significantly improve performance by running functions asynchronously. For more information, see [Improve throughout performance of Python apps in Azure Functions](python-scale-performance-reference.md#async).
+
 ## <a name="shared-memory"></a>Shared memory (preview)
 
-Functions lets your Python worker use shared memory to improve throughput. When your function app is hitting bottlenecks, you can enable shared memory by adding an application setting named [FUNCTIONS_WORKER_SHARED_MEMORY_DATA_TRANSFER_ENABLED](functions-app-settings.md#functions_worker_shared_memory_data_transfer_enabled) with a value of `1`. With shared memory enabled, you can then use the [DOCKER_SHM_SIZE](functions-app-settings.md#docker_shm_size) setting to set the shared memory to something like `268435456`, which is equivalent to 256 MB. 
+To improve throughput, Functions lets your out-of-process Python language worker share memory with the Functions host process. When your function app is hitting bottlenecks, you can enable shared memory by adding an application setting named [FUNCTIONS_WORKER_SHARED_MEMORY_DATA_TRANSFER_ENABLED](functions-app-settings.md#functions_worker_shared_memory_data_transfer_enabled) with a value of `1`. With shared memory enabled, you can then use the [DOCKER_SHM_SIZE](functions-app-settings.md#docker_shm_size) setting to set the shared memory to something like `268435456`, which is equivalent to 256 MB.
 
-This functionality is available only for function apps running in Premium and Dedicated (App Service) plans.
+For example, you might enable shared memory to reduce bottlenecks when using Blob storage bindings to transfer payloads larger than 1 MB.
+
+This functionality is available only for function apps running in Premium and Dedicated (App Service) plans. To learn more, see [Shared memory](https://github.com/Azure/azure-functions-python-worker/wiki/Shared-Memory). 
 
 ## Known issues and FAQ
 

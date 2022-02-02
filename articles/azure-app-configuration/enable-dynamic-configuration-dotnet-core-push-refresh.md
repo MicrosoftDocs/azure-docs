@@ -24,17 +24,17 @@ The App Configuration .NET Core client library supports updating configuration o
 
 1. Poll Model: This is the default behavior that uses polling to detect changes in configuration. Once the cached value of a setting expires, the next call to `TryRefreshAsync` or `RefreshAsync` sends a request to the server to check if the configuration has changed, and pulls the updated configuration if needed.
 
-1. Push Model: This uses [App Configuration events](./concept-app-configuration-event.md) to detect changes in configuration. Once App Configuration is set up to send key value change events to Azure Event Grid, the application can use these events to optimize the total number of requests needed to keep the configuration updated. Applications can choose to subscribe to these either directly from Event Grid, or though one of the [supported event handlers](../event-grid/event-handlers.md) such as a webhook, an Azure function or a Service Bus topic.
+1. Push Model: This uses [App Configuration events](./concept-app-configuration-event.md) to detect changes in configuration. Once App Configuration is set up to send key value change events to Azure Event Grid, the application can use these events to optimize the total number of requests needed to keep the configuration updated. Applications can choose to subscribe to these either directly from Event Grid, or through one of the [supported event handlers](../event-grid/event-handlers.md) such as a webhook, an Azure function, or a Service Bus topic.
 
-Applications can choose to subscribe to these events either directly from Event Grid, or through a web hook, or by forwarding events to Azure Service Bus. The Azure Service Bus SDK provides an API to register a message handler that simplifies this process for applications that either do not have an HTTP endpoint or do not wish to poll the event grid for changes continuously.
+Applications can choose to subscribe to these events either directly from Event Grid, or through a web hook, or by forwarding events to Azure Service Bus. The Azure Service Bus SDK provides an API to register a message handler that simplifies this process for applications that either don't have an HTTP endpoint or don't wish to poll the event grid for changes continuously.
 
 This tutorial shows how you can implement dynamic configuration updates in your code using push refresh. It builds on the app introduced in the quickstarts. Before you continue, finish [Create a .NET Core app with App Configuration](./quickstart-dotnet-core-app.md) first.
 
 You can use any code editor to do the steps in this tutorial. [Visual Studio Code](https://code.visualstudio.com/) is an excellent option that's available on the Windows, macOS, and Linux platforms.
 
 In this tutorial, you learn how to:
-
 > [!div class="checklist"]
+>
 > * Set up a subscription to send configuration change events from App Configuration to a Service Bus topic
 > * Set up your .NET Core app to update its configuration in response to changes in App Configuration.
 > * Consume the latest configuration in your application.
@@ -47,7 +47,7 @@ To do this tutorial, install the [.NET Core SDK](https://dotnet.microsoft.com/do
 
 ## Set up Azure Service Bus topic and subscription
 
-This tutorial uses the Service Bus integration for Event Grid to simplify the detection of configuration changes for applications that do not wish to poll App Configuration for changes continuously. The Azure Service Bus SDK provides an API to register a message handler that can be used to update configuration when changes are detected in App Configuration. Follow steps in the [Quickstart: Use the Azure portal to create a Service Bus topic and subscription](../service-bus-messaging/service-bus-quickstart-topics-subscriptions-portal.md) to create a service bus namespace, topic and subscription.
+This tutorial uses the Service Bus integration for Event Grid to simplify the detection of configuration changes for applications that don't wish to poll App Configuration for changes continuously. The Azure Service Bus SDK provides an API to register a message handler that can be used to update configuration when changes are detected in App Configuration. Follow steps in the [Quickstart: Use the Azure portal to create a Service Bus topic and subscription](../service-bus-messaging/service-bus-quickstart-topics-subscriptions-portal.md) to create a service bus namespace, topic, and subscription.
 
 Once the resources are created, add the following environment variables. These will be used to register an event handler for configuration changes in the application code.
 
@@ -168,7 +168,7 @@ namespace TestConsole
 }
 ```
 
-The [SetDirty](/dotnet/api/microsoft.extensions.configuration.azureappconfiguration.iconfigurationrefresher.setdirty) method is used to set the cached value for key-values registered for refresh as dirty. This ensures that the next call to `RefreshAsync` or `TryRefreshAsync` re-validates the cached values with App Configuration and updates them if needed.
+The [SetDirty](/dotnet/api/microsoft.extensions.configuration.azureappconfiguration.iconfigurationrefresher.setdirty) method is used to set the cached value for key-values registered for refresh as dirty. This ensures that the next call to `RefreshAsync` or `TryRefreshAsync` revalidates the cached values with App Configuration and updates them if needed.
 
 A random delay is added before the cached value is marked as dirty to reduce potential throttling in case multiple instances refresh at the same time. The default maximum delay before the cached value is marked as dirty is 30 seconds, but can be overridden by passing an optional `TimeSpan` parameter to the `SetDirty` method.
 
@@ -177,34 +177,52 @@ A random delay is added before the cached value is marked as dirty to reduce pot
 
 ## Build and run the app locally
 
-1. Set an environment variable named **AppConfigurationConnectionString**, and set it to the access key to your App Configuration store. If you use the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
+1. Set an environment variable named **AppConfigurationConnectionString**, and set it to the access key to your App Configuration store.
+
+    ### [Windows command prompt](#tab/windowscommandprompt)
+
+    To build and run the app locally using the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
 
     ```console
-     setx AppConfigurationConnectionString "connection-string-of-your-app-configuration-store"
+    setx AppConfigurationConnectionString "connection-string-of-your-app-configuration-store"
     ```
+
+    ### [PowerShell](#tab/powershell)
 
     If you use Windows PowerShell, run the following command:
 
     ```powershell
-     $Env:AppConfigurationConnectionString = "connection-string-of-your-app-configuration-store"
+    $Env:AppConfigurationConnectionString = "connection-string-of-your-app-configuration-store"
     ```
 
-    If you use macOS or Linux, run the following command:
+    ### [macOS](#tab/unix)
+
+    If you use macOS, run the following command:
 
     ```console
-     export AppConfigurationConnectionString='connection-string-of-your-app-configuration-store'
+    export AppConfigurationConnectionString='connection-string-of-your-app-configuration-store'
     ```
+
+    ### [Linux](#tab/linux)
+
+    If you use Linux, run the following command:
+
+    ```console
+    export AppConfigurationConnectionString='connection-string-of-your-app-configuration-store'
+    ```
+
+    ---
 
 1. Run the following command to build the console app:
 
     ```console
-     dotnet build
+    dotnet build
     ```
 
 1. After the build successfully completes, run the following command to run the app locally:
 
     ```console
-     dotnet run
+    dotnet run
     ```
 
     ![Push refresh run before update](./media/dotnet-core-app-pushrefresh-initial.png)

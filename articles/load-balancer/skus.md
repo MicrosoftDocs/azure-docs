@@ -14,7 +14,7 @@ ms.author: allensu
 ---
 # Azure Load Balancer SKUs
 
-Azure Load Balancer has two SKUs.
+Azure Load Balancer has three SKUs.
 
 ## <a name="skus"></a> SKU comparison
 Azure Load Balancer has 3 SKUs - Basic, Standard, and Gateway. Each SKU is catered towards a specific scenario and have differences in scale, features, and pricing. 
@@ -22,8 +22,9 @@ Azure Load Balancer has 3 SKUs - Basic, Standard, and Gateway. Each SKU is cater
 To compare and understand the differences between Basic and Standard SKU, see the following table. For more information, see [Azure Standard Load Balancer overview](./load-balancer-overview.md). For information on Gateway SKU - catered for third-party network virtual appliances (NVAs) currently in preview, see [Gateway Load Balancer overview](gateway-overview.md)
 
 >[!NOTE]
-> Microsoft recommends Standard load balancer.
-Standalone VMs, availability sets, and virtual machine scale sets can be connected to only one SKU, never both. Load balancer and the public IP address SKU must match when you use them with public IP addresses. Load balancer and public IP SKUs aren't mutable.
+> Microsoft recommends Standard load balancer. See [Upgrade from Basic to Standard Load Balancer](upgrade-basic-standard.md) for a guided instruction on upgrading SKUs along with an upgrade script.
+> 
+> Standalone VMs, availability sets, and virtual machine scale sets can be connected to only one SKU, never both. Load balancer and the public IP address SKU must match when you use them with public IP addresses. Load balancer and public IP SKUs aren't mutable.
 
 | | Standard Load Balancer | Basic Load Balancer |
 | --- | --- | --- |
@@ -53,7 +54,6 @@ For more information, see [Load balancer limits](../azure-resource-manager/manag
 
 ## Limitations
 
-- You can [upgrade Load Balancer SKUs](upgrade-basic-standard.md).
 - A standalone virtual machine resource, availability set resource, or virtual machine scale set resource can reference one SKU, never both.
 - [Move operations](../azure-resource-manager/management/move-resource-group-and-subscription.md):
   - Resource group move operations (within same subscription) **are supported** for Standard Load Balancer and Standard Public IP. 

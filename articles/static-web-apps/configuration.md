@@ -316,6 +316,24 @@ In addition to IP address blocks, you can also specify [service tags](../virtual
 * [Default authentication providers](authentication-authorization.md#login), don't require settings in the configuration file. 
 * [Custom authentication providers](authentication-custom.md) use the `auth` section of the settings file.
 
+## Disable cache for authenticated paths
+
+If you have enabled [enterprise-grade edge](enterprise-edge.md), or set up [manual integration with Azure Front Door](front-door-manual.md), you may want to disable caching for your secured routes.
+
+To disable Azure Front Door caching for secured routes, add `"Cache-Control": "no-store"` to the route header definition.
+
+For example:
+
+```json
+{
+    "route": "/members",
+    "allowedRoles": ["authenticated, members"],
+    "headers": {
+        "Cache-Control": "no-store"
+    }
+}
+```
+
 ## Forwarding gateway
 
 The `forwardingGateway` section configures how a static web app is accessed from a forwarding gateway such as a CDN or Azure Front Door.
@@ -357,7 +375,7 @@ For example, the following configuration shows how you can add a unique identifi
 
 - Key/value pairs can be any set of arbitrary strings
 - Keys are case insensitive
-- Values are case sensitive
+- Values are case-sensitive
 
 ## Example configuration file
 

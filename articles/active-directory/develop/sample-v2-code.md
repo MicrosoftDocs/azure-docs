@@ -72,7 +72,7 @@ The following samples show how to protect a web API with the Microsoft identity 
 
 ## Desktop
 
-The following samples show public client desktop applications that access the Microsoft Graph API, or your own web API in the name of the user. Apart from the _Desktop (Console) with Workspace Application Manager (WAM)_ sample, all these client applications use the Microsoft Authentication Library (MSAL).
+The following samples show public client desktop applications that access the Microsoft Graph API, or your own web API in the name of the user. Apart from the _Desktop (Console) with Web Authentication Manager (WAM)_ sample, all these client applications use the Microsoft Authentication Library (MSAL).
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Language/<br/>Platform | Code sample(s) <br/> on GitHub | Auth<br/> libraries | Auth flow |  

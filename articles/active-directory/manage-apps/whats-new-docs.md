@@ -1,7 +1,7 @@
 ---
 title: "What's new in Azure Active Directory application management"
 description: "New and updated documentation for the Azure Active Directory application management."
-ms.date: 12/02/2021
+ms.date: 01/07/2022
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: reference
@@ -15,6 +15,41 @@ reviewer: napuri
 # Azure Active Directory application management: What's new
 
 Welcome to what's new in Azure Active Directory application management documentation. This article lists new docs that have been added and those that have had significant updates in the last three months. To learn what's new with the application management service, see [What's new in Azure Active Directory](../fundamentals/whats-new.md).
+
+## December 2021
+
+### New articles
+
+- [Tutorial: Configure F5 BIG-IP Easy Button for Kerberos SSO](f5-big-ip-kerberos-easy-button.md)
+- [Configure risk-based step-up consent using PowerShell](configure-risk-based-step-up-consent.md)
+- [Grant consent on behalf of a single user by using PowerShell](grant-consent-single-user.md)
+- [Overview of enterprise application ownership in Azure Active Directory](overview-assign-app-owners.md)
+- [Azure Active Directory admin consent workflow frequently asked questions](admin-consent-workflow-faq.md)
+- [Review and take action on admin consent requests](review-admin-consent-requests.md)
+- [Overview of the Azure Active Directory application gallery](overview-application-gallery.md)
+
+### Updated articles
+
+- [Plan Azure Active Directory My Apps configuration](my-apps-deployment-plan.md)
+- [Tutorial: Configure F5 BIG-IP Access Policy Manager for Kerberos authentication](f5-big-ip-kerberos-advanced.md)
+- [Applications listed in Enterprise applications](application-list.md)
+- [Quickstart: View enterprise applications](view-applications-portal.md)
+- [Secure hybrid access: Secure legacy apps with Azure Active Directory](secure-hybrid-access.md)
+- [Secure hybrid access with Azure Active Directory partner integrations](secure-hybrid-access-integrations.md)
+- [Create collections on the My Apps portal](access-panel-collections.md)
+- [Restrict access to a tenant](tenant-restrictions.md)
+- [Reasons why applications appear in my all applications list](application-types.md)
+- [Grant tenant-wide admin consent to an application](grant-admin-consent.md)
+- [Quickstart: Enable single sign-on for an enterprise application](add-application-portal-setup-sso.md)
+- [What is single sign-on in Azure Active Directory?](what-is-single-sign-on.md)
+- [Configure how users consent to applications](configure-user-consent.md)
+- [Consent and permissions overview](consent-and-permissions-overview.md)
+- [Manage consent to applications and evaluate consent requests](manage-consent-requests.md)
+- [Remove user access to applications](methods-for-removing-user-access.md)
+- [Azure Active Directory application management: What's new](whats-new-docs.md)
+- [Assign enterprise application owners](assign-app-owners.md)
+- [Integrate Azure AD with F5 BIG-IP for form-based authentication single sign-on](f5-big-ip-forms-advanced.md)
+- [Configure the admin consent workflow](configure-admin-consent-workflow.md)
 
 ## November 2021
 

@@ -24,7 +24,7 @@ This article assumes:
 
 ## Create a speech configuration
 
-To call the Speech service using the Speech SDK, you need to create a [`SpeechConfig`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig). This class includes information about your subscription, like your speech key and associated location/region, endpoint, host, or authorization token. Create a [`SpeechConfig`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig) using your speech key and location/region. See the [Find keys and location/region](../../../overview.md#find-keys-and-locationregion) page to find your speech key-location/region pair.
+To call the Speech service with the Speech SDK, create a [`SpeechConfig`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig). This class includes information about your subscription, like your speech key and associated location/region, endpoint, host, or authorization token. Create a [`SpeechConfig`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig) with your speech key and location/region. See the [Find keys and location/region](../../../overview.md#find-keys-and-locationregion) page to find your speech key-location/region pair.
 
 ```Python
 speech_config = speechsdk.SpeechConfig(subscription="<paste-your-speech-key-here>", region="<paste-your-speech-location/region-here>")
@@ -41,7 +41,7 @@ There are a few other ways that you can initialize a [`SpeechConfig`](/python/ap
 
 ## Recognize from microphone
 
-To recognize speech using your device microphone, simply create a `SpeechRecognizer` without passing an `AudioConfig`, and pass your `speech_config`.
+To recognize speech using your device microphone, create a `SpeechRecognizer` without passing an `AudioConfig`, and pass your `speech_config`.
 
 ```Python
 import azure.cognitiveservices.speech as speechsdk
@@ -57,7 +57,7 @@ def from_mic():
 from_mic()
 ```
 
-If you want to use a *specific* audio input device, you need to specify the device ID in an `AudioConfig`, and pass it to the `SpeechRecognizer` constructor's `audio_config` param. Learn [how to get the device ID](../../../how-to-select-audio-input-devices.md) for your audio input device.
+If you want to use a *specific* audio input device, you specify the device ID in an `AudioConfig`, and pass it to the `SpeechRecognizer` constructor's `audio_config` param. Learn [how to get the device ID](../../../how-to-select-audio-input-devices.md) for your audio input device.
 
 ## Recognize from file
 
@@ -79,7 +79,7 @@ from_file()
 
 ## Error handling
 
-The previous examples simply get the recognized text from `result.text`, but to handle errors and other responses, you'll need to write some code to handle the result. The following code evaluates the [`result.reason`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.resultreason) property and:
+The previous examples simply get the recognized text from `result.text`, but to handle errors and other responses, you'll write some code to handle the result. The following code evaluates the [`result.reason`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.resultreason) property and:
 
 * Prints the recognition result: `speechsdk.ResultReason.RecognizedSpeech`
 * If there is no recognition match, inform the user: `speechsdk.ResultReason.NoMatch`
@@ -110,7 +110,7 @@ audio_config = speechsdk.audio.AudioConfig(filename=weatherfilename)
 speech_recognizer = speechsdk.SpeechRecognizer(speech_config=speech_config, audio_config=audio_config)
 ```
 
-Next, let's create a variable to manage the state of speech recognition. To start, we'll set this to `False`, since at the start of recognition we can safely assume that it's not finished.
+Next, let's create a variable to manage the state of speech recognition. To start, set this to `False`, since at the start of recognition you can assume that it's not finished.
 
 ```Python
 done = False
@@ -133,10 +133,10 @@ def stop_cb(evt):
 This code sample shows how to connect callbacks to events sent from the [`SpeechRecognizer`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.recognizer#start-continuous-recognition--).
 
 * [`recognizing`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.recognizer#recognizing): Signal for events containing intermediate recognition results.
-* [`recognized`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.recognizer#recognized): Signal for events containing final recognition results (indicating a successful recognition attempt).
+* [`recognized`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.recognizer#recognized): Signal for events containing final recognition results (indicates a successful recognition attempt).
 * [`session_started`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.recognizer#session-started): Signal for events indicating the start of a recognition session (operation).
 * [`session_stopped`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.recognizer#session-stopped): Signal for events indicating the end of a recognition session (operation).
-* [`canceled`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.recognizer#canceled): Signal for events containing canceled recognition results (indicating a recognition attempt that was canceled as a result or a direct cancellation request or, alternatively, a transport or protocol failure).
+* [`canceled`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.recognizer#canceled): Signal for events containing canceled recognition results (indicates a recognition attempt that was canceled as a result or a direct cancellation request or, alternatively, a transport or protocol failure).
 
 ```Python
 speech_recognizer.recognizing.connect(lambda evt: print('RECOGNIZING: {}'.format(evt)))
@@ -149,7 +149,7 @@ speech_recognizer.session_stopped.connect(stop_cb)
 speech_recognizer.canceled.connect(stop_cb)
 ```
 
-With everything set up, we can call [start_continuous_recognition()](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.recognizer#session-stopped).
+With everything set up, call [start_continuous_recognition()](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.recognizer#session-stopped).
 
 ```Python
 speech_recognizer.start_continuous_recognition()
@@ -159,7 +159,7 @@ while not done:
 
 ### Dictation mode
 
-When using continuous recognition, you can enable dictation processing by using the corresponding "enable dictation" function. This mode will cause the speech config instance to interpret word descriptions of sentence structures such as punctuation. For example, the utterance "Do you live in town question mark" would be interpreted as the text "Do you live in town?".
+When using continuous recognition, you can enable dictation processing by using the corresponding "enable dictation" function. This mode causes the speech config instance to interpret word descriptions of sentence structures such as punctuation. For example, the utterance "Do you live in town question mark" would be interpreted as the text "Do you live in town?".
 
 To enable dictation mode, use the [`enable_dictation()`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig#enable-dictation--) method on your [`SpeechConfig`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig).
 
@@ -177,39 +177,3 @@ speech_config.speech_recognition_language="de-DE"
 
 [`speech_recognition_language`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig#speech-recognition-language) is a parameter that takes a string as an argument. You can provide any value in the list of supported [locales/languages](../../../language-support.md).
 
-## Improve recognition accuracy
-
-Phrase Lists are used to identify known phrases in audio data, like a person's name or a specific location. By providing a list of phrases, you improve the accuracy of speech recognition.
-
-As an example, if you have a command "Move to" and a possible destination of "Ward" that may be spoken, you can add an entry of "Move to Ward". Adding a phrase will increase the probability that when the audio is recognized that "Move to Ward" will be recognized instead of "Move toward"
-
-Single words or complete phrases can be added to a Phrase List. During recognition, an entry in a phrase list is used to boost recognition of the words and phrases in the list even when the entries appear in the middle of the utterance. 
-
-> [!IMPORTANT]
-> The Phrase List feature is available in the following languages: en-US, de-DE, en-AU, en-CA, en-GB, en-IN, es-ES, fr-FR, it-IT, ja-JP, pt-BR, zh-CN
->
-> The Phrase List feature should be used with no more than a few hundred phrases. If you have a larger list or for languages that are not currently supported, [training a custom model](../../../custom-speech-overview.md) will likely be the better choice to improve accuracy.
->
-> The Phrase List feature is not supported with custom endpoints. Do not use it with custom endpoints. Instead, train a custom model that includes the phrases.
-
-To use a phrase list, first create a [`PhraseListGrammar`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.phraselistgrammar) object, then add specific words and phrases with [`addPhrase`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.phraselistgrammar#addphrase-phrase--str-).
-
-Any changes to [`PhraseListGrammar`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.phraselistgrammar) take effect on the next recognition or after a reconnection to the Speech service.
-
-```Python
-phrase_list_grammar = speechsdk.PhraseListGrammar.from_recognizer(reco)
-phrase_list_grammar.addPhrase("Supercalifragilisticexpialidocious")
-```
-
-If you need to clear your phrase list: 
-
-```Python
-phrase_list_grammar.clear()
-```
-
-### Other options to improve recognition accuracy
-
-Phrase lists are only one option to improve recognition accuracy. You can also: 
-
-* [Improve accuracy with Custom Speech](../../../custom-speech-overview.md)
-* [Improve accuracy with tenant models](../../../tutorial-tenant-model.md)

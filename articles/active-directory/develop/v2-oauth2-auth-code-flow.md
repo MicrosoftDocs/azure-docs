@@ -40,7 +40,7 @@ The `spa` redirect type is backwards compatible with the implicit flow. Apps cur
 
 If you attempt to use the authorization code flow and see this error:
 
-`access to XMLHttpRequest at 'https://login.microsoftonline.com/common/v2.0/oauth2/token' from origin 'yourApp.com' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.`
+`access to XMLHttpRequest at 'https://login.microsoftonline.com/common/oauth2/v2.0/token' from origin 'yourApp.com' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.`
 
 Then, visit your app registration and update the redirect URI for your app to type `spa`.
 

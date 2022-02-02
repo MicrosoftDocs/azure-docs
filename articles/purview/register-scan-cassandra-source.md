@@ -1,12 +1,12 @@
 ---
 title: Connect to and manage Cassandra
-description: This guide describes how to connect to Cassandra in Azure Purview, and use Purview's features to scan and manage your Cassandra source.
+description: This guide describes how to connect to Cassandra in Azure Purview, and use Azure Purview's features to scan and manage your Cassandra source.
 author: linda33wj
 ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 12/28/2021
+ms.date: 01/20/2022
 ms.custom: template-how-to, ignite-fall-2021
 ---
 
@@ -18,11 +18,11 @@ This article outlines how to register Cassandra, and how to authenticate and int
 
 |**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|
 |---|---|---|---|---|---|---|
-| [Yes](#register) | [Yes](#scan)| No | No | No | No| [Yes](how-to-lineage-cassandra.md)|
+| [Yes](#register) | [Yes](#scan)| No | [Yes](#scan) | No | No| [Yes](#lineage)|
 
 The supported Cassandra server versions are 3.*x* or 4.*x*.
 
-When scanning Cassandra source, Purview supports:
+When scanning Cassandra source, Azure Purview supports:
 
 - Extracting technical metadata including:
 
@@ -33,13 +33,15 @@ When scanning Cassandra source, Purview supports:
 
 - Fetching static lineage on assets relationships among tables and materialized views.
 
+When setting up scan, you can choose to scan an entire Cassandra instance, or scope the scan to a subset of keyspaces matching the given name(s) or name pattern(s).
+
 ## Prerequisites
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* An active [Purview resource](create-catalog-portal.md).
+* An active [Azure Purview resource](create-catalog-portal.md).
 
-* You will need to be a Data Source Administrator and Data Reader to register a source and manage it in the Purview Studio. See our [Azure Purview Permissions page](catalog-permissions.md) for details.
+* You will need to be a Data Source Administrator and Data Reader to register a source and manage it in the Azure Purview Studio. See our [Azure Purview Permissions page](catalog-permissions.md) for details.
 
 * Set up the latest [self-hosted integration runtime](https://www.microsoft.com/download/details.aspx?id=39717).
   For more information, see [the create and configure a self-hosted integration runtime guide](manage-integration-runtimes.md).
@@ -50,13 +52,13 @@ When scanning Cassandra source, Purview supports:
 
 ## Register
 
-This section describes how to register Cassandra in Azure Purview using the [Purview Studio](https://web.purview.azure.com/).
+This section describes how to register Cassandra in Azure Purview using the [Azure Purview Studio](https://web.purview.azure.com/).
 
 ### Steps to register
 
 To register a new Cassandra server in your data catalog:
 
-1. Go to your Purview account.
+1. Go to your Azure Purview account.
 1. Select **Data Map** on the left pane.
 1. Select **Register**.
 1. On the **Register sources** screen, select **Cassandra**, and then select **Continue**:
@@ -105,7 +107,7 @@ To create and run a new scan:
         * In the **User name** box, provide the name of the user you're making the connection for. 
         * In the key vault's secret, save the password of the Cassandra user you're making the connection for.
 
-        For more information, see [Credentials for source authentication in Purview](manage-credentials.md).
+        For more information, see [Credentials for source authentication in Azure Purview](manage-credentials.md).
 
     1. **Keyspaces**: Specify a list of Cassandra keyspaces to import. Multiple keyspaces must be separated with semicolons. For example, keyspace1; keyspace2. When the list is empty, all available keyspaces are imported.
 
@@ -139,9 +141,17 @@ To create and run a new scan:
 
 [!INCLUDE [create and manage scans](includes/view-and-manage-scans.md)]
 
+## Lineage
+
+After scanning your Cassandra source, you can [browse data catalog](how-to-browse-catalog.md) or [search data catalog](how-to-search-catalog.md) to view the asset details. 
+
+Go to the asset -> lineage tab, you can see the asset relationship when applicable. Refer to the [supported capabilities](#supported-capabilities) section on the supported Cassandra lineage scenarios. For more information about lineage in general, see [data lineage](concept-data-lineage.md) and [lineage user guide](catalog-lineage-user-guide.md).
+
+:::image type="content" source="media/register-scan-cassandra-source/lineage.png" alt-text="Cassandra lineage view" border="true":::
+
 ## Next steps
 
-Now that you have registered your source, follow the below guides to learn more about Purview and your data.
+Now that you have registered your source, follow the below guides to learn more about Azure Purview and your data.
 
 - [Data insights in Azure Purview](concept-insights.md)
 - [Lineage in Azure Purview](catalog-lineage-user-guide.md)

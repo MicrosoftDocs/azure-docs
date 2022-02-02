@@ -44,6 +44,7 @@ To filter telemetry, you write a telemetry processor and register it with `Telem
     ```csharp
     using Microsoft.ApplicationInsights.Channel;
     using Microsoft.ApplicationInsights.Extensibility;
+    using Microsoft.ApplicationInsights.DataContracts;
 
     public class SuccessfulDependencyFilter : ITelemetryProcessor
     {

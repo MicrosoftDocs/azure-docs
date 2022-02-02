@@ -73,7 +73,7 @@ Having already set up [data collection from your CEF sources](connect-common-eve
 1. You must run the following command on those machines to disable the synchronization of the agent with the Syslog configuration in Microsoft Sentinel. This ensures that the configuration change you made in the previous step does not get overwritten.
 
     ```c
-    sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/OMS_MetaConfigHelper.py --disable
+    sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/OMS_MetaConfigHelper.py --disable'
     ```
 
 ## Configure your device's logging settings
@@ -84,7 +84,7 @@ All connectors listed in the gallery will display any specific instructions on t
 
 If the instructions on your data connector's page in Microsoft Sentinel indicate that the Kusto functions are deployed as [Advanced SIEM Information Model (ASIM)](normalization.md) parsers, make sure that you have the ASIM parsers deployed to your workspace.
 
-Use the link in the data connector page to deploy your parsers, or follow the instructions from the [Microsoft Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Parsers/ASim).
+Use the link in the data connector page to deploy your parsers, or follow the instructions from the [Microsoft Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/ASIM).
 
 For more information, see [Advanced SIEM Information Model (ASIM) parsers](normalization-about-parsers.md).
 

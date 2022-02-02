@@ -75,7 +75,7 @@ In this tutorial, you learn how to:
     ```
    b. Run command to install specific function extension package.
     ```bash
-    func extensions install --package Microsoft.Azure.WebJobs.Extensions.WebPubSub --version 1.0.0
+    func extensions install --package Microsoft.Azure.WebJobs.Extensions.WebPubSub --version 1.1.0
     ```
 
 3. Create an `index` function to read and host a static web page for clients.
@@ -204,6 +204,10 @@ In this tutorial, you learn how to:
             return connection;
         }
         ```
+   - Add below `using` statements in header to resolve required dependencies.
+        ```c#
+        using Microsoft.Azure.WebJobs.Extensions.WebPubSub;
+        ```
 
 5. Create a `notification` function to generate notifications with `TimerTrigger`.
    ```bash
@@ -265,6 +269,11 @@ In this tutorial, you learn how to:
             return value.ToString("0.000");
         }
         ``` 
+   - Add below `using` statements in header to resolve required dependencies.
+        ```c#
+        using Microsoft.Azure.WebJobs.Extensions.WebPubSub;
+        using Microsoft.Azure.WebPubSub.Common;
+        ```
 
 6. Add the client single page `index.html` in the project root folder and copy content as below.
     ```html
@@ -310,14 +319,14 @@ In this tutorial, you learn how to:
 
     :::image type="content" source="media/quickstart-serverless/copy-connection-string.png" alt-text="Screenshot of copying the Web PubSub connection string.":::
 
-    Run command below in the function folder to set the service connection string. Replace `<connection-string`> with your value as needed.
+    Run command below in the function folder to set the service connection string. Replace `<connection-string>` with your value as needed.
 
     ```bash
     func settings add WebPubSubConnectionString "<connection-string>"
     ```
 
     > [!NOTE]
-    > `TimerTrigger` used in the sample has dependency on Azure Storage, but you can use local storage emulator when the Function is running locally. If you got some error like `There was an error performing a read operation on the Blob Storage Secret Repository. Please ensure the 'AzureWebJobsStorage' connection string is valid.` You need to download and enable [Storage Emulator](../storage/common/storage-use-emulator.md).
+    > `TimerTrigger` used in the sample has dependency on Azure Storage, but you can use local storage emulator when the Function is running locally. If you got some error like `There was an error performing a read operation on the Blob Storage Secret Repository. Please ensure the 'AzureWebJobsStorage' connection string is valid.`, you'll need to download and enable [Storage Emulator](../storage/common/storage-use-emulator.md).
 
     Now you're able to run your local function by command below.
 
