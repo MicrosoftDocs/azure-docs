@@ -8,7 +8,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: troubleshooting
-ms.date: 07/30/2021
+ms.date: 02/02/2022
 ms.author: danlep 
 ms.custom: devx-track-azurepowershell
 ---
@@ -19,7 +19,7 @@ ms.custom: devx-track-azurepowershell
 
 You have the following options:
 
-* For certain cases, you can [add custom HTML](#how-do-i-add-custom-html-to-my-developer-portal-) to customize the portal.
+* For certain situations, you can [add custom HTML](#how-do-i-add-custom-html-to-my-developer-portal) to add functionality to the portal.
 
 * Open a feature request in the [GitHub repository](https://github.com/Azure/api-management-developer-portal).
 
@@ -198,7 +198,7 @@ You can generate *user-specific tokens* (including admin tokens) using the [Get 
 
 ## How do I add custom HTML to my developer portal?
 
-The managed developer portal includes a **Custom HTML code** widget that enables you to insert HTML code for small portal customizations. The portal renders the custom widget in an inline frame (iframe). For example, add custom HTML to embed a video or to add a form.
+The managed developer portal includes a **Custom HTML code** widget that enables you to insert HTML code for small portal customizations. The portal renders the custom widget in an inline frame (iFrame). For example, use custom HTML to embed a video or to add a form.
   
 1. In the administrative interface for the developer portal, go to the page or section where you want to insert the widget. 
 1. Select the grey "plus" (**+**) icon that appears when you hover the pointer over the page.
