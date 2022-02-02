@@ -16,7 +16,7 @@ In this quickstart, you create an IoT Central rule that sends an email when some
 
 ## Prerequisites
 
-Before you begin, you should complete the previous quickstart [1. Connect your first device](./quick-deploy-iot-central.md). It provides instructions on how to create and use an Azure IoT Central application to connect the **IoT Plug and Play** smartphone app to your IoT Central application.
+Before you begin, you should complete the previous quickstart [Connect your first device](./quick-deploy-iot-central.md). It shows you how to create an Azure IoT Central application and connect the **IoT Plug and Play** smartphone app to it.
 
 ## Create a telemetry-based rule
 
