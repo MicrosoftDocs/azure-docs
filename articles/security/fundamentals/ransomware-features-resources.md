@@ -99,7 +99,6 @@ Key Features:
 - Azure comes with Locally Redundant Storage (LRS), where data is stored locally, as well as Geo Redundant Storage (GRS) in a second region
 - All data stored on Azure is protected by an advanced encryption process, and all Microsoft's data centers have two-tier authentication, proxy card access readers, biometric scanners
 - Azure has more certifications than any other public cloud provider on the market, including ISO 27001, HIPAA, FedRAMP, SOC 1, SOC 2, and many international specifications
-- Guaranteed: - Microsoft offers 99.5-99.9% uptime on their services. 
 
 ## Additional resources
 
