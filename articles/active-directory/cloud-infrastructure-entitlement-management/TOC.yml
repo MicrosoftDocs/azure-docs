@@ -161,11 +161,11 @@
         href: cloudknox-report-create-custom-report.md
       - name: Generate and download the Permissions analytics report
         href: cloudknox-product-permissions-analytics-reports.md
-  #- name: Troubleshooting
-    #expanded: true
-    #items:
-    #- name: Troubleshooting
-      #href: cloudknox-troubleshooting.md
+  - name: Troubleshooting
+    expanded: true
+    items:
+    - name: Troubleshooting
+      href: cloudknox-troubleshooting.md
   #- name: Training material
     #expanded: true
     #items:
@@ -178,18 +178,5 @@
       href: cloudknox-faqs.md
     - name: Glossary
       href: cloudknox-multi-cloud-glossary.md
-  #- name: Concepts
-    #expanded: true
-    #items: 
-  #- name: How-to guides
-    #expanded: true
-    #items:
-    #- name: Configure provisioning for a gallery app
-      #href: configure-automatic-user-provisioning-portal.md
-    #- name: Troubleshoot application provisioning
-      #items:
-  #- name: Reference
-    #items:
-  #- name: Resources
-    #items:
+
 
