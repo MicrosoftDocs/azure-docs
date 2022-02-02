@@ -40,7 +40,7 @@ This article describes how you can view alerts and alert triggers in CloudKnox P
     - **Alerts**: Displays the name of the alert trigger.
     - **# of users subscribed**: Displays how many users are subscribed to a specific alert trigger. 
 
-        -Select the number in this column to view which users are subscribed to the alert trigger.
+        - Select the number in this column to view which users are subscribed to the alert trigger.
 
     - **Created by**: Displays the email address of the user who created the alert trigger.
     - **Modified by**: Displays the email address of the user who last modified the alert trigger.

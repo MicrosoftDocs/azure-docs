@@ -18,7 +18,7 @@ This article describes how you can create and view permission analytics triggers
 
 ## View permission analytics triggers
 
-1. In the CloudKnox home page, select **Activity triggers** (the bell icon).`
+1. In the CloudKnox home page, select **Activity triggers** (the bell icon).
 1. Select **Permission analytics**, and then select the **Alerts** subtab.
 
     The **Alerts** subtab displays the following information:
@@ -49,7 +49,7 @@ This article describes how you can create and view permission analytics triggers
 
 ## Create a permission analytics trigger
 
-1. In the CloudKnox home page, select **Activity triggers** (the bell icon).`
+1. In the CloudKnox home page, select **Activity triggers** (the bell icon).
 1. Select **Permission analytics**, select the **Alerts** subtab, and then select **Create Permission Analytics Trigger**.
 1. In the **Alert name** box,  enter a name for the alert.
 1. Select the **Authorization system**.
@@ -66,7 +66,7 @@ This article describes how you can create and view permission analytics triggers
 
 ## View permission analytics alert triggers
 
-1. In the CloudKnox home page, select **Activity triggers** (the bell icon).`
+1. In the CloudKnox home page, select **Activity triggers** (the bell icon).
 1. Select **Permission analytics**, and then select the **Alert triggers** subtab.
 
     The **Alert triggers** subtab displays the following information:
