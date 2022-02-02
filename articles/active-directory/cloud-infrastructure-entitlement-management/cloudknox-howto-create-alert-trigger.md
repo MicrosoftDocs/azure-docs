@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/17/2022
+ms.date: 02/02/2022
 ms.author: v-ydequadros
 ---
 
@@ -31,4 +31,9 @@ This topic describes how you can create an alert trigger in Microsoft CloudKnox 
 
 
 
-<!---## Next steps--->
+## Next steps
+
+
+- For an overview on activity alerts and triggers, see [View information about activity alerts and triggers](cloudknox-ui-triggers.md).
+- For information on now to Create and save product alerts, see [Create and save product alerts](cloudknox-product-alerts.md). 
+

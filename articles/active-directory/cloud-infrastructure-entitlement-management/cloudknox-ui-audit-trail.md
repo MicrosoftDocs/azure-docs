@@ -1,6 +1,6 @@
 ---
-title: View information on how users access information in an authorization system in Microsoft CloudKnox Permissions Management
-description: How to view how users access information in an authorization system in Microsoft CloudKnox Permissions Management.
+title: Use queries to see how users access information in an authorization system in Microsoft CloudKnox Permissions Management
+description: How to use queries to see how users access information in an authorization system in Microsoft CloudKnox Permissions Management.
 services: active-directory
 author: Yvonne-deQ
 manager: karenh444
@@ -8,11 +8,11 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: overview
-ms.date: 01/31/2022
+ms.date: 02/02/2022
 ms.author: v-ydequadros
 ---
 
-# View information on how users access information
+# Use queries to see how users access information
 
 The **Audit trail** dashboard in Microsoft CloudKnox Permissions Management (CloudKnox) provides an overview of queries a CloudKnox user has created to review how users access their authorization systems and accounts. 
 

@@ -1,6 +1,6 @@
 ---
-title: Microsoft CloudKnox Permissions Management - The Account Settings dashboard
-description: How to view personal and organization information in the Account Settings dashboard in Microsoft CloudKnox Permissions Management.
+title: View personal and organization information in Microsoft CloudKnox Permissions Management 
+description: How to view personal and organization information in the Account settings dashboard in Microsoft CloudKnox Permissions Management.
 services: active-directory
 author: Yvonne-deQ
 manager: karenh444
@@ -8,22 +8,22 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: overview
-ms.date: 01/17/2022
+ms.date: 02/02/2022
 ms.author: v-ydequadros
 ---
 
-# The Account Settings dashboard
+# View personal and organization information
 
-This topic describes how to use the **Account Settings** dashboard in Microsoft CloudKnox Permissions Management (CloudKnox) to view personal and organization information.
+This topic describes how to use the **Account settings** dashboard in Microsoft CloudKnox Permissions Management (CloudKnox) to view personal and organization information.
 
-**To display the Account Settings dashboard**:
+**To display the Account settings dashboard**:
 
-- In the upper right of the CloudKnox dashboard, select **User** (your initials) in the upper right of the screen, and then select **Account Settings**.
+- In the upper right of the CloudKnox dashboard, select **User** (your initials) in the upper right of the screen, and then select **Account settings**.
 
 
 ## Personal Information
 
-The **Account Settings** dashboard displays the following personal information:
+The **Account settings** dashboard displays the following personal information:
 
 - Your **First Name**
 - Your **Last Name**
@@ -41,7 +41,7 @@ The **Account Settings** dashboard displays the following personal information:
 
 ## Current Organization Information
 
-The **Account Settings** dashboard displays the following   information about your current organization:
+The **Account settings** dashboard displays the following   information about your current organization:
 
 - The organization **Name**
  - Your **Title.**
@@ -53,13 +53,13 @@ The **Account Settings** dashboard displays the following   information about yo
 
 ## Organization Preferences
 
-The **Account Settings** dashboard displays the following information about your organization's preferences:
+The **Account settings** dashboard displays the following information about your organization's preferences:
 
 - **User Session Timeout (min)** - The time duration until the session times out (60 minutes).
 
 ## Organizations Information
 
-The **Account Settings** dashboard displays the following information about your organization:
+The **Account settings** dashboard displays the following information about your organization:
 
 - **Current Organization** - Select your current organization from the drop-down list.
 - **Primary Organization** - Select your primary organization from the drop-down list.
@@ -72,4 +72,6 @@ The **Account Settings** dashboard displays the following information about your
 
 - From the **Primary Organization** drop-down list, select the organization you want. 
 
-<!---## Next steps--->
+## Next steps
+
+- For an overview on how to set personal information and preferences, see [Set personal information and preferences](cloudknox-product-account-settings.md)

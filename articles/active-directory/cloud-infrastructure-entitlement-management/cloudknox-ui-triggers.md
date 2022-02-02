@@ -1,5 +1,5 @@
 ---
-title: Microsoft CloudKnox Permissions Management - The Activity Triggers dashboard
+title: View information about activity alerts and triggers in Microsoft CloudKnox Permissions Management
 description: How to view information about activity alerts and triggers in the Activity Triggers dashboard in Microsoft CloudKnox Permissions Management.
 services: active-directory
 author: Yvonne-deQ
@@ -8,11 +8,11 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: overview
-ms.date: 01/17/2022
+ms.date: 02/02/2022
 ms.author: v-ydequadros
 ---
 
-# The Activity Triggers dashboard
+# View information about activity alerts and triggers
 
 This topic describes how to use the **Activity Triggers** dashboard in Microsoft CloudKnox Permissions Management (CloudKnox) to view information about activity alerts and triggers.
 
@@ -74,4 +74,7 @@ The **Rule-Based Anomaly** tab and the **Statistical Anomaly** tab both have one
 
 
 
-<!---## Next steps--->
+## Next steps
+
+- For information on how to create alerts and triggers, see [Create an alert trigger](cloudknox-howto-create-alert-trigger.md).
+- For information on now to Create and save product alerts, see [Create and save product alerts](cloudknox-product-alerts.md). 

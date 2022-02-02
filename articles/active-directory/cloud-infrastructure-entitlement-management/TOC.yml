@@ -61,15 +61,15 @@
     - name: Manage organizational and personal information
       expanded: true
       items:
-      - name: The Account Settings dashboard — Overview
+      - name: View personal and organization information
         href: cloudknox-ui-account-settings.md
       - name: Set personal information and preferences
         href: cloudknox-product-account-settings.md
     - name: View information about identities, resources, and tasks
       expanded: true
       items:
-      - name: The Usage Analytics dashboard — Overview
-        href: cloudknox-ui-usage-analytics.md
+      # - name: The Usage Analytics dashboard — Overview
+        # href: cloudknox-ui-usage-analytics.md
       # - name: The Usage Analytics explorers - Overview
         # href: cloudknox-usage-analytics-explorers.md
       - name: View information in the Usage analytics dashboard
@@ -128,7 +128,7 @@
     - name: View how users access information
       expanded: true
       items:
-      - name: View how users access information 
+      - name: Use queries to see how users access information 
         href: cloudknox-ui-audit-trail.md
       - name: Create a custom query
         href: cloudknox-howto-create-custom-queries.md
@@ -144,7 +144,7 @@
     - name: Set activity alerts and triggers 
       expanded: true
       items: 
-      - name: The Activity Triggers dashboard — Overview
+      - name: View information about activity alerts and triggers
         href: cloudknox-ui-triggers.md
       - name: Create an alert trigger
         href: cloudknox-howto-create-alert-trigger.md

@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/17/2022
+ms.date: 02/22/2022
 ms.author: v-ydequadros
 ---
 
@@ -446,4 +446,7 @@ Statistical anomalies detect outliers in an identities behavior, and recent acti
     1. Under the **Status** section, select the **Activated & Deactivated** dropdown menu.
     2. Select the appropriate option, and then select **Apply** to filter the results.
 
-<!---## Next steps--->
+## Next steps
+
+- For an overview on activity alerts and triggers, see [View information about activity alerts and triggers](cloudknox-ui-triggers.md).
+- For information on how to create alerts and triggers, see [Create an alert trigger](cloudknox-howto-create-alert-trigger.md).

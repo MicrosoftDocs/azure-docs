@@ -6,7 +6,7 @@ manager: karenh444
 ms.service: active-directory
 ms.topic: overview
 author: Yvonne-deQ
-ms.date: 01/27/2022
+ms.date: 02/02/2022
 ms.author: v-ydequadros
 ---
 
@@ -66,6 +66,6 @@ If you're part of multiple organizations:
 
 2. Select **Change password**.
 
-<!---## Next steps-->
+## Next steps
 
-
+- For an overview on how to view personal and organization information, see [View personal and organization information](cloudknox-ui-account-settings.md)

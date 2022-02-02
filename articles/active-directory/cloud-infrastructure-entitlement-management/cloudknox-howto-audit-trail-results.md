@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/31/2022
+ms.date: 02/02/2022
 ms.author: v-ydequadros
 ---
 
@@ -59,6 +59,6 @@ This article describes how you can generate an on-demand report from a query in 
 
 ## Next steps
 
-- For information on how to view how users access information, see [View information on how users access information](cloudknox-ui-audit-trail.md).
+- For information on how to view how users access information, see [Use queries to see how users access information](cloudknox-ui-audit-trail.md).
 - For information on how to filter and view user activity, see [Filter and query user activity](cloudknox-product-audit-trail.md).
 - For information on how to create a query,see [Create a custom query](cloudknox-howto-create-custom-queries.md).
