@@ -50,7 +50,7 @@ Before you configure and set up your Azure Stack Edge Pro device with GPU, make 
 
         Select a certificate to view the details of the status.
 
-        ![Screenshot of Certificate Details for a certificate on the Certificates page of an Azure Stack Edge device. The selected certificate and certificate details are highlighted.](./media/azure-stack-edge-gpu-deploy-configure-certificates/generate-certificate-1a.png)  
+        ![Screenshot of Certificate Details for a certificate on the Certificates page of an Azure Stack Edge device. The selected certificate and certificate details are highlighted.](./media/azure-stack-edge-gpu-deploy-configure-certificates/generate-certificate-1-a.png)  
 
         This is because the certificates do not reflect the updated device name and DNS domain (that are used in subject name and subject alternative). To successfully activate your device, choose one of the following options: 
     
@@ -94,11 +94,11 @@ Use these steps to regenerate and download the Azure Stack Edge Pro GPU device c
 
     - You can select a specific certificate name, and view the certificate details. 
 
-        ![Screenshot showing the Certificate Details pane on the Certificates page of an Azure Stack Edge device. The selected certificate is highlighted.](./media/azure-stack-edge-gpu-deploy-configure-certificates/generate-certificate-6a.png)
+        ![Screenshot showing the Certificate Details pane on the Certificates page of an Azure Stack Edge device. The selected certificate is highlighted.](./media/azure-stack-edge-gpu-deploy-configure-certificates/generate-certificate-6-a.png)
 
     - The **Download** column is now populated. This column has links to download the regenerated certificates. 
 
-        ![Screenshot of the Certificates page on an Azure Stack Edge device. The download links for generated certificates are highlighted.](./media/azure-stack-edge-gpu-deploy-configure-certificates/generate-certificate-6b.png)
+        ![Screenshot of the Certificates page on an Azure Stack Edge device. The download links for generated certificates are highlighted.](./media/azure-stack-edge-gpu-deploy-configure-certificates/generate-certificate-6-b.png)
 
 
 4. Select the download link for a certificate and when prompted, save the certificate. 
