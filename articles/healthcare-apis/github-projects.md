@@ -10,7 +10,7 @@ ms.author: ginle
 ---
 # GitHub Projects
 
-*We have many open-source projects* on GitHub that provide you the source code and instructions to deploy services for various uses. You're always welcome to visit our GitHub repositories to learn and experiment with our features and products. 
+We have many open-source projects on GitHub that provide you the source code and instructions to deploy services for various uses. You're always welcome to visit our GitHub repositories to learn and experiment with our features and products. 
 
 ## Healthcare APIs samples
 
