@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: tutorial
-ms.date: 01/21/2022
+ms.date: 02/02/2022
 ms.author: aahi
 ms.custom: 
 ---
@@ -45,13 +45,13 @@ In this tutorial, you will learn how to:
 
 4. If you’ve created your resource using the steps in [Create a project](../how-to/create-project.md#azure-resources), the **Connect storage** step will be completed already. If not, you need to assign [roles for your storage account](../how-to/create-project.md#roles-for-your-storage-account) before connecting it to your resource.
 
-5. Select your project type. For this tutorial, we will create a multi-label classification project where you can assign multiple classes to the same file. Then click **Next**. See [project types](../glossary.md#project-types) in the FAQ for more information.
+5. Select your project type. For this tutorial, we'll create a multi-label classification project where you can assign multiple classes to the same file. Then click **Next**. See [project types](../glossary.md#project-types) in the FAQ for more information.
 
 6. Enter project information, including a name, description, and the language of the files in your project. You won’t be able to change the name of your project later.
     >[!TIP]
     > Your dataset doesn't have to be entirely in the same language. You can have multiple files, each with different supported languages. If your dataset contains files of different languages or if you expect different languages during runtime, select **enable multi-lingual dataset** when you enter the basic information for your project.
 
-7. Select the container where you’ve uploaded your data. For this tutorial we will use the tags file you downloaded from the sample data.
+7. Select the container where you’ve uploaded your data. For this tutorial we'll use the tags file you downloaded from the sample data.
 
 8. Review the data you entered and select **Create Project**.
 
@@ -71,7 +71,7 @@ After training is completed, you can [view the model's evaluation details](../ho
 
 1. Select **Deploy model** from the left side menu.
 
-2. Select the model you want to deploy and from the top menu click on **Deploy model**. If you deploy your model through Language Studio, you `deployment-name` will be `prod`.
+2. Select the model you want to deploy and from the top menu click on **Deploy model**. If you deploy your model through Language Studio, your `deployment-name` will be `prod`.
 
 ## Use CogSvc language utilities tool for Cognitive search integration
  

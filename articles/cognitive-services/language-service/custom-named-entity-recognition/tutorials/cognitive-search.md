@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: tutorial
-ms.date: 01/25/2022
+ms.date: 02/02/2022
 ms.author: aahi
 ms.custom: language-service-custom-ner, ignite-fall-2021
 ---
@@ -50,23 +50,13 @@ In this tutorial, you learn how to:
 
 7. Review the data you entered and select **Create Project**.
 
-## Train your model
-
-1. Select **Train** from the left side menu.
-
-2. To train a new model, select **Train a new model** and type in the model name in the text box below.
-
-    :::image type="content" source="../media/train-model.png" alt-text="Create a new model" lightbox="../media/train-model.png":::
-
-3. Select the **Train** button at the bottom of the page.
-
-After training is completed, you can [view the model's evaluation details](../how-to/view-model-evaluation.md) and [improve the model](../how-to/improve-model.md)
+[!INCLUDE [Train a model using Language Studio](../train-model-language-studio.md)]
 
 ## Deploy your model
 
 1. Select **Deploy model** from the left side menu.
 
-2. Select the model you want to deploy and from the top menu click on **Deploy model**. If you deploy your model through Language Studio, you `deployment-name` will be `prod`.
+2. Select the model you want to deploy and from the top menu click on **Deploy model**. If you deploy your model through Language Studio, your `deployment-name` will be `prod`.
 
 ## Use CogSvc language utilities tool for Cognitive search integration
  
