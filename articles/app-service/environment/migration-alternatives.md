@@ -1,12 +1,12 @@
 ---
-title: Alternative methods for migrating to App Service Environment v3
-description: Migrate to App Service Environment v3 Without Using the Migration Feature
+title: Migrate to App Service Environment v3
+description: How to migrate your applications to App Service Environment v3
 author: seligj95
 ms.topic: article
-ms.date: 1/28/2022
+ms.date: 2/2/2022
 ms.author: jordanselig
 ---
-# Migrate to App Service Environment v3 without using the migration feature
+# Migrate to App Service Environment v3
 
 > [!NOTE]
 > The App Service Environment v3 [migration feature](migrate.md) is now available for a set of supported environment configurations. Consider that feature which provides an automated migration path to [App Service Environment v3](overview.md).
