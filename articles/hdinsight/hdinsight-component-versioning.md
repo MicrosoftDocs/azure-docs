@@ -68,6 +68,12 @@ Basic support does not include the following:
 
 Microsoft does not encourage creating analytics pipelines or solutions on clusters in basic support. We recommend migrating existing clusters to the most recent fully supported version. 
 
+## HDInsight 3.6 to 4.0 Migration Guides
+- [Migrate Apache Spark 2.1 and 2.2 workloads to 2.3 and 2.4](spark/migrate-versions.md).
+- [Migrate Azure HDInsight 3.6 Hive workloads to HDInsight 4.0](interactive-query/apache-hive-migrate-workloads.md).
+- [Migrate Apache Kafka workloads to Azure HDInsight 4.0](kafka/migrate-versions.md).
+- [Migrate an Apache HBase cluster to a new version](hbase/apache-hbase-migrate-new-version.md).
+
 ## Release notes
 
 For additional release notes on the latest versions of HDInsight, see [HDInsight release notes](hdinsight-release-notes.md).
