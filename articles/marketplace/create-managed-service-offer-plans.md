@@ -7,7 +7,7 @@ ms.reviewer: brwrigh
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 02/02/22
+ms.date: 02/02/2022
 ---
 
 # Create plans for a Managed Service offer
