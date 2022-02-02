@@ -208,7 +208,7 @@ Azure IoT Edge can be run in virtual machines. Using a virtual machine as an IoT
 
 <center>
 
-![Azure IoT Edge in a VM](./media/support/edge-on-vm.png)
+![Azure IoT Edge in a VM](./media/support/edge-on-vm-linux.png)
 
 </center>
 
