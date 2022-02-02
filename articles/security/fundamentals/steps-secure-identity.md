@@ -190,6 +190,8 @@ Microsoft Azure services and features provide you with configurable security aud
 1.	Risky sign-in reports will surface user sign-in activities you should investigate, the legitimate owner may not have performed the sign-in.
 1.	Risky user reports will surface user accounts that may have been compromised, such as leaked credential that was detected or the user signed in from different locations causing an impossible travel event.
 
+:::image type="content" source="media/steps-secure-identity/identity-protection-overview.png" alt-text="Overview charts of activity in Identity Protection in the Azure portal." lightbox="media/steps-secure-identity/identity-protection-overview.png":::
+
 ### Audit apps and consented permissions
 
 Users can be tricked into navigating to a compromised web site or apps that will gain access to their profile information and user data, such as their email. A malicious actor can use the consented permissions it received to encrypt their mailbox content and demand a ransom to regain your mailbox data. [Administrators should review and audit](/office365/securitycompliance/detect-and-remediate-illicit-consent-grants) the permissions given by users. In addition to auditing the permissions given by users, you can [locate risky or unwanted OAuth applications](/cloud-app-security/investigate-risky-oauth) in premium environments.
