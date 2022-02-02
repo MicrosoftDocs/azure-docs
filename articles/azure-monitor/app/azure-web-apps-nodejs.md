@@ -14,7 +14,7 @@ Monitoring of your Node.js web applications running on [Azure App Services](../.
 ## Enable Application Insights
 
 The easiest way to enable application monitoring for Node.js applications running on Azure App Services is through Azure portal.
-Turning on application monitoring in Azure portal will automatically instrument your application with application insights, and doesn't require any code changes.
+Turning on application monitoring in Azure portal will automatically instrument your application with Application insights, and doesn't require any code changes.
 
 > [!NOTE]
 > If both agent-based monitoring and manual SDK-based instrumentation is detected, only the manual instrumentation settings will be honored. This is to prevent duplicate data from being sent. To learn more about this, check out the [troubleshooting section](#troubleshooting) below.
