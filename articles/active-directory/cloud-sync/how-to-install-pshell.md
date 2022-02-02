@@ -40,8 +40,9 @@ The Windows server must have TLS 1.2 enabled before you install the Azure AD Con
  7. For the purposes of these instructions, the agent was downloaded to the C:\temp folder.
  8. Install ProvisioningAgent in quiet mode.
        ```
-       $installerProcess = Start-Process c:\temp\AADConnectProvisioningAgent.Installer.exe /quiet -NoNewWindow -PassThru 
-       $installerProcess.WaitForExit()  
+      $installerProcess = Start-Process 'c:\temp\AADConnectProvisioningAgentSetup.exe' /quiet -NoNewWindow -PassThru 
+      $installerProcess.WaitForExit()
+
        ```
  9. Import the Provisioning Agent PS module.
        ```
