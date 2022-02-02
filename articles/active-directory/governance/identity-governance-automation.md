@@ -55,11 +55,8 @@ To generate a self-signed certificate,
 
 1. Display the thumbprint of the certificate.
 
-```powershell
- $cert | ft Thumbprint
-```
-
-1. Record the thumbprint that was displayed, the password to protect the private key in the `.pfx` file, and the location of the `.pfx` and `.crt` files.
+   ```powershell
+    $cert | ft Thumbprint
 
 1. After you have exported the files, you can remove the certificate and key pair from your local user certificate store.  In subsequent steps you will remove the `.pfx` and `.crt` files as well, once the certificate and private key have been uploaded to the Azure Automation and Azure AD services.
 
