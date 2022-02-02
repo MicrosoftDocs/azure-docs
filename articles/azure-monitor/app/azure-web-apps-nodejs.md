@@ -76,7 +76,7 @@ Below is our step-by-step troubleshooting guide for extension/agent based monito
 
     - Confirm that the `Application Insights Extension Status` is `Pre-Installed Site Extension, version 2.8.x.xxxx, is running.` 
 
-         If it is not running, follow the [enable Application Insights monitoring instructions](#enable-agent-based-monitoring).
+         If it is not running, follow the [enable Application Insights monitoring instructions](#enable-application-insights).
 
     - Navigate to *D:\local\Temp\status.json* and open *status.json*.
 
