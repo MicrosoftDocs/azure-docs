@@ -296,7 +296,7 @@ On Linux, the function app must have its `kind` set to `functionapp,linux`, and 
 }
 ```
 
-The [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](functions-app-settings.md#website_contentazurefileconnectionstring) and [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare) settings aren't supported on Linux Consumption plan.
+The [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](functions-app-settings.md#website_contentazurefileconnectionstring) and [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare) settings aren't supported on a Linux Consumption plan.
 
 <a name="premium"></a>
 ## Deploy on Premium plan
