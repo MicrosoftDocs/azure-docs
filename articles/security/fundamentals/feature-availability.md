@@ -258,8 +258,6 @@ The following tables display the current Microsoft Sentinel feature availability
 | - [Microsoft Defender for Cloud](../../sentinel/connect-azure-security-center.md) | GA | GA |
 | - [Microsoft Defender for IoT](../../sentinel/data-connectors-reference.md#microsoft-defender-for-iot) | Public Preview | Not Available |
 | - [Microsoft Insider Risk Management](../../sentinel/sentinel-solutions-catalog.md#domain-solutions) | Public Preview | Not Available |
-| - [Microsoft Power BI](../../sentinel/data-connectors-reference.md#microsoft-power-bi-preview) | Public Preview | Not Available |
-| - [Microsoft Project](../../sentinel/data-connectors-reference.md#microsoft-project-preview) | Public Preview | Not Available |
 | **Windows connectors** |  |  |
 | - [Windows Firewall](../../sentinel/data-connectors-reference.md#windows-firewall) | GA | GA |
 | - [Windows Security Events](/azure/sentinel/connect-windows-security-events) | GA | GA |
@@ -421,6 +419,14 @@ Office 365 GCC is paired with Azure Active Directory (Azure AD) in Azure. Office
 | - Office 365 GCC High | - | Not Available |
 | - Office 365 DoD | - | Not Available |
 | **[Microsoft Defender for Office 365](../../sentinel/data-connectors-reference.md#microsoft-defender-for-office-365)** |  |  |
+| - Office 365 GCC | Public Preview | - |
+| - Office 365 GCC High | - | Not Available |
+| - Office 365 DoD | - | Not Available |
+| - [Microsoft Power BI](../../sentinel/data-connectors-reference.md#microsoft-power-bi-preview) | |  |
+| - Office 365 GCC | Public Preview | - |
+| - Office 365 GCC High | - | Not Available |
+| - Office 365 DoD | - | Not Available |
+| - [Microsoft Project](../../sentinel/data-connectors-reference.md#microsoft-project-preview) |  |  |
 | - Office 365 GCC | Public Preview | - |
 | - Office 365 GCC High | - | Not Available |
 | - Office 365 DoD | - | Not Available |
