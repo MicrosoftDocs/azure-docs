@@ -86,9 +86,11 @@ sections:
 
            A confidence score indicates probability by measuring the degree of statistical certainty that the extracted result has been detected correctly.
 
-           The confidence value range is a number between 0 (low) and 100 (high).
+           The confidence value range is a percentage between 0% (low) and 100% (high).
 
-           It's best to target a score of 80 or higher. For more sensitive cases, like financial or medical records, a score of 100 is recommended.
+           It's best to target a score of 80% or higher. For more sensitive cases, like financial or medical records, a score of close to 100% is recommended and you may also require human review.
+
+           See [Interpret and improve accuracy and confidence scores](concept-accuracy-confidence.md#confidence-scores)
 
       - question: |
           How can I improve confidence scores?
@@ -105,6 +107,8 @@ sections:
             - Use forms with different values in each field.
 
             - For custom models, use a larger set of training documents. Tagging more documents teaches your model to recognize fields with greater accuracy.
+
+            See [Interpret and improve accuracy and confidence scores](concept-accuracy-confidence.md#confidence-scores)
 
       - question: |
           What is a bounding box?
