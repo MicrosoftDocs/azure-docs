@@ -109,7 +109,7 @@ sections:
       - question: |
           Why are certain ports restricted for HTTP health probes?
         answer: |
-          The following ports are restriced for HTTP health probes: 19, 21, 25, 70, 110, 119, 143, 220, 993. These ports are blocked for security reasons by WinHTTP, meaning that Load Balancer health probes are unable to use these ports. Please see [What's New in WinHTTP 5.1](/windows/win32/winhttp/what-s-new-in-winhttp-5-1#changes-to-default-settings) for more details.
+          The following ports are restricted for HTTP health probes: 19, 21, 25, 70, 110, 119, 143, 220, 993. These ports are blocked for security reasons by WinHTTP, meaning that Load Balancer health probes are unable to use these ports. Please see [What's New in WinHTTP 5.1](/windows/win32/winhttp/what-s-new-in-winhttp-5-1#changes-to-default-settings) for more details.
 
 additionalContent: |
 
