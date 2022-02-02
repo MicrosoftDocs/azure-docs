@@ -101,7 +101,7 @@ There are many methods to configure BIG-IP for this scenario, including two temp
 
 Before a client or service can access Microsoft Graph, it must be trusted by the [Microsoft identity platform](../develop/quickstart-register-app.md). 
 
-A BIG-IP must also be registered as a client in Azure AD, before t is allowed to establish a trust in between each SAML SP instance of a BIG-IP published application, and Azure AD as the SAML IdP.
+A BIG-IP must also be registered as a client in Azure AD, before it is allowed to establish a trust in between each SAML SP instance of a BIG-IP published application, and Azure AD as the SAML IdP.
 
 1. Sign in to the [Azure AD portal](https://portal.azure.com/) with Application Administrative rights
 
@@ -109,13 +109,13 @@ A BIG-IP must also be registered as a client in Azure AD, before t is allowed to
 
 3. Under Manage, select **App registrations > New registration**
 
-4. Enter a display name for your application. For example, *F5 BIG-IP Easy Button
+4. Enter a display name for your application. For example, F5 BIG-IP Easy Button
 
 5. Specify who can use the application > **Accounts in this organizational directory only**
 
 6. Select **Register** to complete the initial app registration
 
-7. Navigate to** API permissions** and authorize the following Microsoft Graph permissions:
+7. Navigate to **API permissions** and authorize the following Microsoft Graph permissions:
 
    * Application.Read.All
    * Application.ReadWrite.All
@@ -148,7 +148,7 @@ Initiate **Easy Button** configuration to set up a SAML Service Provider (SP) an
 
 3. Follow the sequence of steps required to publish your application.
 
-   ![Configuration steps flow](./media/f5-big-ip-easy-button-ldap/config-steps-flow.png)
+   ![Configuration steps flow](./media/f5-big-ip-easy-button-ldap/config-steps-flow.png#lightbox)
 
 ### Configuration Properties
 
@@ -315,14 +315,14 @@ The **Application Pool tab** details the services behind a BIG-IP, represented a
 
 The **Easy Button wizard** supports Kerberos, OAuth Bearer, and HTTP authorization headers for SSO to published applications. As the PeopleSoft application expects headers, enable **HTTP Headers** and enter the following properties.
 
-•**Header Operation:** replace
-•**Header Name:** USER_NAME
-•**Header Value:** %{session.sso.token.last.username}
+* **Header Operation:** replace
+* **Header Name:** USER_NAME
+* **Header Value:** %{session.sso.token.last.username}
 
  
-•**Header Operation:** replace
-•**Header Name:** USER_ORCLGUID
-•**Header Value:** %{session.ldap.last.attr.orclguid}
+* **Header Operation:** replace
+* **Header Name:** USER_ORCLGUID
+* **Header Value:** %{session.ldap.last.attr.orclguid}
 
  ![ Screenshot for SSO and HTTP headers](./media/f5-big-ip-easy-button-oracle-ebs/sso-and-http-headers.png)
 
@@ -349,7 +349,7 @@ For increased security, organizations using this pattern could also consider blo
 
 ## Advanced deployment
 
-There may be cases where the Guided Configuration templates lack the flexibility to achieve more specific requirements. For those scenarios, see [Advanced Configuration for kerberos-based SSO](./f5-big-ip-kerberos-advanced.md).Alternatively, the BIG-IP gives the option to disable **Guided Configuration’s strict management mode**. This allows you to manually tweak your configurations, even though bulk of your configurations are automated through the wizard-based templates.
+There may be cases where the Guided Configuration templates lack the flexibility to achieve more specific requirements. For those scenarios, see [Advanced Configuration for kerberos-based SSO](./f5-big-ip-kerberos-advanced.md). Alternatively, the BIG-IP gives the option to disable **Guided Configuration’s strict management mode**. This allows you to manually tweak your configurations, even though bulk of your configurations are automated through the wizard-based templates.
 
 You can navigate to **Access > Guided Configuration** and select the **small padlock icon** on the far right of the row for your applications’ configs. 
 
