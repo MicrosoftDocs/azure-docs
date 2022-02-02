@@ -30,19 +30,24 @@ The Windows Guest Agent Package is broken into two parts:
 To boot a VM you must have the PA installed on the VM, however the WinGA does not need to be installed. At VM deploy time, you can select not to install the WinGA. The following example shows how to select the *provisionVmAgent* option with an Azure Resource Manager template:
 
 ```json
-"resources": [{
-"name": "[parameters('virtualMachineName')]",
-"type": "Microsoft.Compute/virtualMachines",
-"apiVersion": "2016-04-30-preview",
-"location": "[parameters('location')]",
-"dependsOn": ["[concat('Microsoft.Network/networkInterfaces/', parameters('networkInterfaceName'))]"],
-"properties": {
-    "osProfile": {
-    "computerName": "[parameters('virtualMachineName')]",
-    "adminUsername": "[parameters('adminUsername')]",
-    "adminPassword": "[parameters('adminPassword')]",
-    "windowsConfiguration": {
-        "provisionVmAgent": "false"
+{
+	"resources": [{
+		"name": ["parameters('virtualMachineName')"],
+		"type": "Microsoft.Compute/virtualMachines",
+		"apiVersion": "2016-04-30-preview",
+		"location": ["parameters('location')"],
+		"dependsOn": ["[concat('Microsoft.Network/networkInterfaces/', parameters('networkInterfaceName'))]"],
+		"properties": {
+			"osProfile": {
+				"computerName": ["parameters('virtualMachineName')"],
+				"adminUsername": ["parameters('adminUsername')"],
+				"adminPassword": ["parameters('adminPassword')"],
+				"windowsConfiguration": {
+					"provisionVmAgent": "false"
+				}
+			}
+		}
+	}]
 }
 ```
 
