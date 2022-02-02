@@ -157,10 +157,8 @@ about 25k to 35k per shard.
 
 ## Next steps
 
-* [Run queries](quickstart-run-queries.md) on the distributed tables you
-  created in this quickstart.
-* Learn more about [sharding data](tutorial-shard.md).
-* Run other [useful diagnostic queries](howto-useful-diagnostic-queries.md)
-  to learn about distributed tables.
-* Compare Hyperscale (Citus) [server group
-  tiers](concepts-server-group.md#tiers).
+Now we have a table sharded and loaded with data. Next, let's try running
+queries across the data in these shards.
+
+> [!div class="nextstepaction"]
+> [Run distributed queries](quickstart-run-queries.md)

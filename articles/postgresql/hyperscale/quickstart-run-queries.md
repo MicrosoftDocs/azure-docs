@@ -86,7 +86,16 @@ LIMIT 10;
 
 ## Next steps
 
-- See a more detailed [illustration](tutorial-shard.md) of distributed query execution.
-- Learn how to speed up the per-minute `http_request` aggregation from this
+This is the end of the quickstart. You have successfully created a scalable
+Hyperscale (Citus) server group, created a table, sharded it, loaded data,
+and run distributed queries.
+
+Here are good resources to begin to deepen your knowledge.
+
+* See a more detailed [illustration](tutorial-shard.md) of distributed query
+  execution.
+* Discover [useful diagnostic queries](howto-useful-diagnostic-queries.md) to
+  inspect distributed tables.
+* Learn how to speed up the per-minute `http_request` aggregation from this
   example with "roll-ups" in the [real-time
   dashboard](tutorial-design-database-realtime.md) tutorial.

@@ -29,4 +29,7 @@ you can connect to it to run queries.
 
 **Next steps**
 
-* [Connect to your server group](quickstart-connect-psql.md) with psql.
+With your server group created, it's time to connect with a SQL client.
+
+> [!div class="nextstepaction"]
+> [Connect to your server group](quickstart-connect-psql.md)

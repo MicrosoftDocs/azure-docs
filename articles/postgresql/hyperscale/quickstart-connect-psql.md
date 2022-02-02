@@ -44,5 +44,8 @@ When you create your Azure Database for PostgreSQL server, a default database na
 
 ## Next steps
 
-* [Troubleshoot connection problems](howto-troubleshoot-common-connection-issues.md).
-* Learn to [create and distribute tables](quickstart-distribute-tables.md).
+Now that you've connected to the server group, the next step is to create
+tables and shard them for horizontal scaling.
+
+> [!div class="nextstepaction"]
+> [Create and distribute tables](quickstart-distribute-tables.md)
