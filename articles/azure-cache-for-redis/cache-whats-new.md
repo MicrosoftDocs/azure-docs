@@ -17,9 +17,7 @@ ms.date: 02/02/2022
 
 Active geo-replication for Azure Cache for Redis Enterprise is now generally available (GA).
 
-Active geo-replication is a powerful tool that enables Azure Cache for Redis clusters to be linked together for seamless active-active replication of data. Your applications can write to one Redis cluster and your data is automatically copied to the other linked clusters, and vice versa. Please, read the [complete announcement](https://aka.ms/ActiveGeoGA).
-
-For more information on how to set-up active geo-replication in the Enterprise tier, see < [Configure active geo-replication for Enterprise Azure Cache for Redis instances](cache-how-to-active-geo-replication.md).
+Active geo-replication is a powerful tool that enables Azure Cache for Redis clusters to be linked together for seamless active-active replication of data. Your applications can write to one Redis cluster and your data is automatically copied to the other linked clusters, and vice versa. For more information, see this [post](https://aka.ms/ActiveGeoGA) in the *Azure Developer Community Blog*.
 
 ## January 2022
 
