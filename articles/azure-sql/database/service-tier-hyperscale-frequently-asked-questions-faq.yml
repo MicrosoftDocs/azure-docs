@@ -176,7 +176,7 @@ sections:
       - question: |
           What is the size of the transaction log with Hyperscale?
         answer: |
-          The transaction log on hyperscale is practically infinite with the restriction that a single transaction cannot generate more than 1TB of log. You do not need to worry about running out of log space on a system that has a high log throughput. However, log generation rate might be throttled for continuous aggressively writing workloads. The peak sustained log generation rate is 100 MB/s.
+          The transaction log on hyperscale is practically infinite, with the restriction that a single transaction cannot generate more than 1TB of log. You do not need to worry about running out of log space on a system that has a high log throughput. However, log generation rate might be throttled for continuous aggressively writing workloads. The peak sustained log generation rate is 100 MB/s.
 
       - question: |
           Does my `tempdb` scale as my database grows?
