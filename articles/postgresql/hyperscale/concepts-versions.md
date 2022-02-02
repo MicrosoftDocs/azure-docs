@@ -15,30 +15,31 @@ ms.date: 10/01/2021
 
 The version of PostgreSQL running in a Hyperscale (Citus) server group is
 customizable during creation. Hyperscale (Citus) currently supports the
-following major versions:
+following major [PostgreSQL
+versions](https://www.postgresql.org/docs/release/):
 
 ### PostgreSQL version 14
 
-The current minor release is 14.0. Refer to the [PostgreSQL
-documentation](https://www.postgresql.org/docs/14/release-14.html) to
+The current minor release is 14.1. Refer to the [PostgreSQL
+documentation](https://www.postgresql.org/docs/14/release-14-1.html) to
 learn more about improvements and fixes in this minor release.
 
 ### PostgreSQL version 13
 
-The current minor release is 13.4. Refer to the [PostgreSQL
-documentation](https://www.postgresql.org/docs/13/release-13-4.html) to
+The current minor release is 13.5. Refer to the [PostgreSQL
+documentation](https://www.postgresql.org/docs/13/release-13-5.html) to
 learn more about improvements and fixes in this minor release.
 
 ### PostgreSQL version 12
 
-The current minor release is 12.8. Refer to the [PostgreSQL
-documentation](https://www.postgresql.org/docs/12/release-12-8.html) to
+The current minor release is 12.9. Refer to the [PostgreSQL
+documentation](https://www.postgresql.org/docs/12/release-12-9.html) to
 learn more about improvements and fixes in this minor release.
 
 ### PostgreSQL version 11
 
-The current minor release is 11.13. Refer to the [PostgreSQL
-documentation](https://www.postgresql.org/docs/11/release-11-13.html) to
+The current minor release is 11.14. Refer to the [PostgreSQL
+documentation](https://www.postgresql.org/docs/11/release-11-14.html) to
 learn more about improvements and fixes in this minor release.
 
 ### PostgreSQL version 10 and older

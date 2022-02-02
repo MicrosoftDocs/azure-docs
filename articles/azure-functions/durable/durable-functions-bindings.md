@@ -93,9 +93,9 @@ module.exports = df.orchestrator(function*(context) {
 import azure.durable_functions as df
 
 def orchestrator_function(context: df.DurableOrchestrationContext):
-    input_ = context.get_input()
+    input = context.get_input()
     # Do some work
-    return f"Hello {name}!"
+    return f"Hello {input['name']}!"
 
 main = df.Orchestrator.create(orchestrator_function)
 ```
@@ -149,8 +149,8 @@ module.exports = df.orchestrator(function*(context) {
 import azure.durable_functions as df
 
 def orchestrator_function(context: df.DurableOrchestrationContext):
-    input_ = context.get_input()
-    result = yield context.call_activity('SayHello', name)
+    input = context.get_input()
+    result = yield context.call_activity('SayHello', input['name'])
     return result
 
 main = df.Orchestrator.create(orchestrator_function)

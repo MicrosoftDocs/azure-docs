@@ -2,7 +2,7 @@
 title: Important changes coming to Microsoft Defender for Cloud
 description: Upcoming changes to Microsoft Defender for Cloud that you might need to be aware of and for which you might need to plan 
 ms.topic: overview
-ms.date: 01/06/2022
+ms.date: 01/23/2022
 ---
 # Important upcoming changes to Microsoft Defender for Cloud
 
@@ -26,7 +26,8 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 | [Deprecating the recommendation to use service principals to protect your subscriptions](#deprecating-the-recommendation-to-use-service-principals-to-protect-your-subscriptions)   | February 2022             |
 | [Deprecating the recommendations to install the network traffic data collection agent](#deprecating-the-recommendations-to-install-the-network-traffic-data-collection-agent)       | February 2022             |
 | [Changes to recommendations for managing endpoint protection solutions](#changes-to-recommendations-for-managing-endpoint-protection-solutions)                                     | March 2022                |
-|                                                                                                                                                                                     |                           |
+| [AWS recommendations to GA](#aws-recommendations-to-ga)                                                                                                                                                                                    | March 2022                          |
+| [Relocation of custom recommendations](#relocation-of-custom-recommendations)                                                                                                                                                                                    | March 2022                          |
 
 ### Deprecating a preview alert: ARM.MCAS_ActivityFromAnonymousIPAddresses
 
@@ -150,7 +151,31 @@ Learn more:
 - [Defender for Cloud's supported endpoint protection solutions](supported-machines-endpoint-solutions-clouds.md#endpoint-supported)
 - [How these recommendations assess the status of your deployed solutions](endpoint-protection-recommendations-technical.md)
 
+### AWS recommendations to GA
 
+**Estimated date for change:** March 2022
+
+There are currently AWS recommendations in the preview stage. These recommendations come from the AWS Foundational Security Best Practices standard which is assigned by default. All of the recommendations will become Generally Available (GA) in March 2022.
+
+When these recommendations go live, their impact will be included in the calculations of your secure score. Expect changes to your secure score.
+
+**To find these recommendations**:
+
+1. Navigate to **Environment settings** > **`AWS connector`** > **Standards (preview)**.
+1. Right click on **AWS Foundational Security Best Practices (preview)**, and select **view assessments**.
+
+:::image type="content" source="media/release-notes/aws-foundational.png" alt-text="Screenshot showing the location of the AWS Foundational Security Best Practices (preview).":::
+
+### Relocation of custom recommendations
+
+**Estimated date for change:** March 2022
+
+Custom recommendation are those created by a user, and have no impact on the secure score. Therefore, the custom recommendations are being relocated from the Secure score recommendations tab to the All recommendations tab.
+
+When the move occurs, the custom recommendations will be found via a new "recommendation type" filter.
+
+Learn more: 
+- [Create custom security initiatives and policies](custom-security-policies.md).
 
 ## Next steps
 

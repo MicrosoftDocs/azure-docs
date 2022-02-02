@@ -1,13 +1,13 @@
 ---
 title: Performance tips for Azure Cosmos DB Java SDK v4
 description: Learn client configuration options to improve Azure Cosmos database performance for Java SDK v4
-author: anfeldma-ms
+author: rothja
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: how-to
 ms.date: 08/26/2021
-ms.author: anfeldma
+ms.author: jroth
 ms.custom: devx-track-java, contperf-fy21q2
 ---
 
@@ -232,7 +232,7 @@ For a variety of reasons, you may want or need to add logging in a thread which 
 
 * ***Configure an async logger***
 
-The latency of a synchronous logger necessarily factors into the overall latency calculation of your request-generating thread. An async logger such as [log4j2](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Flogging.apache.org%2Flog4j%2Flog4j-2.3%2Fmanual%2Fasync.html&data=02%7C01%7CCosmosDBPerformanceInternal%40service.microsoft.com%7C36fd15dea8384bfe9b6b08d7c0cf2113%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637189868158267433&sdata=%2B9xfJ%2BWE%2F0CyKRPu9AmXkUrT3d3uNA9GdmwvalV3EOg%3D&reserved=0) is recommended to decouple logging overhead from your high-performance application threads.
+The latency of a synchronous logger necessarily factors into the overall latency calculation of your request-generating thread. An async logger such as [log4j2](https://logging.apache.org/log4j/log4j-2.3/manual/async.html) is recommended to decouple logging overhead from your high-performance application threads.
 
 * ***Disable netty's logging***
 

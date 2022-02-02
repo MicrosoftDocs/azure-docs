@@ -54,7 +54,7 @@ This command restarts the app after deploying the ZIP package.
 The following example uses the `--src-url` parameter to specify the URL of an Azure Storage account that the site should pull the ZIP from.
 
 ```azurecli-interactive
-az webapp deploy --resource-group <grou-name> --name <app-name> --src-url "https://storagesample.blob.core.windows.net/sample-container/myapp.zip?sv=2021-10-01&sb&sig=slk22f3UrS823n4kSh8Skjpa7Naj4CG3
+az webapp deploy --resource-group <group-name> --name <app-name> --src-url "https://storagesample.blob.core.windows.net/sample-container/myapp.zip?sv=2021-10-01&sb&sig=slk22f3UrS823n4kSh8Skjpa7Naj4CG3
 ```
 
 # [Azure PowerShell](#tab/powershell)
@@ -124,7 +124,7 @@ az webapp deploy --resource-group <group-name> --name <app-name> --src-path ./<p
 The following example uses the `--src-url` parameter to specify the URL of an Azure Storage account that the web app should pull the ZIP from.
 
 ```azurecli-interactive
-az webapp deploy --resource-group <grou-name> --name <app-name> --src-url "https://storagesample.blob.core.windows.net/sample-container/myapp.war?sv=2021-10-01&sb&sig=slk22f3UrS823n4kSh8Skjpa7Naj4CG3
+az webapp deploy --resource-group <group-name> --name <app-name> --src-url "https://storagesample.blob.core.windows.net/sample-container/myapp.war?sv=2021-10-01&sb&sig=slk22f3UrS823n4kSh8Skjpa7Naj4CG3
 ```
 
 The CLI command uses the [Kudu publish API](#kudu-publish-api-reference) to deploy the package and can be fully customized.

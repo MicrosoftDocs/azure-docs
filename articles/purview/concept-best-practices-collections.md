@@ -42,7 +42,7 @@ Consider deploying collections in Azure Purview to fulfill the following require
 
 - Consider security and access management as part of your design decision-making process when you build collections in Azure Purview. 
 
-- Each collection has a name attribute and a friendly name attribute. If you use Azure [Purview Studio](https://web.purview.azure.com/resource/) to deploy a collection, the system automatically assigns a random six-letter name to the collection to avoid duplication. To reduce complexity, avoid using duplicated friendly names across your collections, especially in the same level.  
+- Each collection has a name attribute and a friendly name attribute. If you use [Azure Purview Studio](https://web.purview.azure.com/resource/) to deploy a collection, the system automatically assigns a random six-letter name to the collection to avoid duplication. To reduce complexity, avoid using duplicated friendly names across your collections, especially in the same level.  
 
 - When you can, avoid duplicating your organizational structure into a deeply nested collection hierarchy. If you can't avoid doing so, be sure to use different names for every collection in the hierarchy to make the collections easy to distinguish.
 

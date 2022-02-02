@@ -1,6 +1,6 @@
 ---
 title: Set up the Azure Percept DK device
-description: Set up you Azure Percept DK and connect it to Azure IoT Hub
+description: Set up your Azure Percept DK and connect it to Azure IoT Hub
 author: nkhuyent
 ms.author: wendyowen
 ms.service: azure-percept
@@ -157,7 +157,6 @@ To verify if your Azure account is an “owner” or “contributor” within th
 1. Enter a device name for your dev kit and select **Next**.
     > [!NOTE]
     > You **cannot** reuse an existing IoT Edge device name when going through the **Create New Device** flow.  If you wish to reuse the same name and deploy the default Percept modules, you must first delete the existing cloud-side device instance from the Azure IoT Hub before proceeding.
-
 
 1. The device modules will now be deployed to your device. – this can take a few minutes.
 

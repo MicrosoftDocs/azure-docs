@@ -130,8 +130,8 @@ For more information, see [Trusted launch](trusted-launch.md).
 ## Creating a generation 2 VM
 
 ### Azure Resource Manager Template
-To create a simple Windows Generation 2 VM, see [Create a Windows virtual machine from a Resource Manager template](https://docs.microsoft.com/azure/virtual-machines/windows/ps-template)
-To create a simple Linux Generation 2 VM, see [How to create a Linux virtual machine with Azure Resource Manager templates](https://docs.microsoft.com/azure/virtual-machines/linux/create-ssh-secured-vm-from-template)
+To create a simple Windows Generation 2 VM, see [Create a Windows virtual machine from a Resource Manager template](./windows/ps-template.md)
+To create a simple Linux Generation 2 VM, see [How to create a Linux virtual machine with Azure Resource Manager templates](./linux/create-ssh-secured-vm-from-template.md)
 
 ### Marketplace image
 

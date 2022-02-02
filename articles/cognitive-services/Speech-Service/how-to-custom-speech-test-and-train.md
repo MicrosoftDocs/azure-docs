@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/09/2021
+ms.date: 01/23/2022
 ms.author: eur
 ms.custom: ignite-fall-2021
 ---
@@ -21,17 +21,17 @@ When you're testing the accuracy of Microsoft speech recognition or training you
 
 Text and audio that you use to test and train a custom model need to include samples from a diverse set of speakers and scenarios that you want your model to recognize. Consider these factors when you're gathering data for custom model testing and training:
 
-* Your text and speech audio data needs to cover the kinds of verbal statements that your users will make when they're interacting with your model. For example, a model that raises and lowers the temperature needs training on statements that people might make to request such changes.
-* Your data needs to include all speech variances that you want your model to recognize. Many factors can vary speech, including accents, dialects, language-mixing, age, gender, voice pitch, stress level, and time of day.
-* You must include samples from different environments (indoor, outdoor, road noise) where your model will be used.
-* You must gather audio by using hardware devices that the production system will use. If your model needs to identify speech recorded on recording devices of varying quality, the audio data that you provide to train your model must also represent these diverse scenarios.
-* You can add more data to your model later, but take care to keep the dataset diverse and representative of your project needs.
-* Including data that's *not* within your custom model's recognition needs can harm recognition quality overall. Include only data that your model needs to transcribe.
+* Include text and audio data to cover the kinds of verbal statements that your users will make when they're interacting with your model. For example, a model that raises and lowers the temperature needs training on statements that people might make to request such changes.
+* Include all speech variances that you want your model to recognize. Many factors can vary speech, including accents, dialects, language-mixing, age, gender, voice pitch, stress level, and time of day.
+* Include samples from different environments, for example, indoor, outdoor, and road noise, where your model will be used.
+* Record audio with hardware devices that the production system will use. If your model needs to identify speech recorded on devices of varying quality, the audio data that you provide to train your model must also represent these diverse scenarios.
+* Keep the dataset diverse and representative of your project needs. You can add more data to your model later. 
+* Only include data that your model needs to transcribe. Including data that isn't within your custom model's recognition needs can harm recognition quality overall. 
 
 A model that's trained on a subset of scenarios can perform well in only those scenarios. Carefully choose data that represents the full scope of scenarios that you need your custom model to recognize.
 
 > [!TIP]
-> Start with small sets of sample data that match the language and acoustics that your model will encounter. For example, record a small but representative sample of audio on the same hardware and in the same acoustic environment that your model will find in production scenarios. Small datasets of representative data can expose problems before you invest in gathering larger datasets for training.
+> Start with small sets of sample data that match the language, acoustics, and hardware where your model will be used. Small datasets of representative data can expose problems before you invest in gathering larger datasets for training.
 >
 > To quickly get started, consider using sample data. For sample Custom Speech data, see <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/sampledata/customspeech" target="_target">this GitHub repository</a>.
 
@@ -89,9 +89,6 @@ To upload your data:
 1. After you create a project, go to the **Speech datasets** tab. Select **Upload data** to start the wizard and create your first dataset. 
 1. Select a speech data type for your dataset, and upload your data.
 
-   > [!NOTE]
-   > If your dataset file size exceeds 128 MB, you can upload it by using the **Azure Blob or shared location** option. You can also use [Speech-to-text REST API v3.0](rest-speech-to-text.md#speech-to-text-rest-api-v30) to upload a dataset of [any allowed size](speech-services-quotas-and-limits.md#model-customization). See [the next section](#upload-data-by-using-speech-to-text-rest-api-v30) for details.
-
 1. Specify whether the dataset will be used for **Training** or **Testing**. 
 
    There are many types of data that can be uploaded and used for **Training** or **Testing**. Each dataset that you upload must be correctly formatted before uploading, and it must meet the requirements for the data type that you choose. Requirements are listed in the following sections.
@@ -103,7 +100,7 @@ To upload your data:
 
 ### Upload data by using Speech-to-text REST API v3.0
 
-You can use [Speech-to-text REST API v3.0](rest-speech-to-text.md#speech-to-text-rest-api-v30) to automate any operations related to your custom models. In particular, you can use the REST API to upload a dataset. This is particularly useful when your dataset file exceeds 128 MB, because you can't upload files that large by using the **Local file** option in Speech Studio. (You can also use the **Azure Blob or shared location** option in Speech Studio for the same purpose, as described in the previous section.)
+You can use [Speech-to-text REST API v3.0](rest-speech-to-text.md#speech-to-text-rest-api-v30) to automate any operations related to your custom models. In particular, you can use the REST API to upload a dataset.
 
 To create and upload a dataset, use a [Create Dataset](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CreateDataset) request.
 
@@ -160,9 +157,7 @@ The transcriptions for all WAV files are contained in a single plain-text file. 
 
 For example:
 
-<!-- The following example contains tabs. Don't accidentally convert these into spaces. -->
-
-```input
+```tsv
 speech01.wav	speech recognition is awesome
 speech02.wav	the quick brown fox jumped all over the place
 speech03.wav	the lazy dog was not amused
@@ -336,4 +331,3 @@ Use <a href="http://sox.sourceforge.net" target="_blank" rel="noopener">SoX</a> 
 * [Inspect your data](how-to-custom-speech-inspect-data.md)
 * [Evaluate your data](how-to-custom-speech-evaluate-data.md)
 * [Train a custom model](how-to-custom-speech-train-model.md)
-* [Deploy a model](./how-to-custom-speech-train-model.md)

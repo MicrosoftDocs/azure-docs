@@ -14,6 +14,16 @@ items:
     href: https://aka.ms/unifiedLanguagePricing
   - name: Language Studio quickstart
     href: language-studio.md
+  - name: Samples
+    items:
+    - name: C#
+      href: https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics/samples
+    - name: Java
+      href: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/textanalytics/azure-ai-textanalytics/src/samples
+    - name: JavaScript
+      href: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/textanalytics/ai-text-analytics/samples/v5
+    - name: Python
+      href: https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/textanalytics/azure-ai-textanalytics/samples
 - name: Responsible use of AI
   items: 
   - name: Transparency note for Azure Cognitive Service for Language
@@ -271,6 +281,8 @@ items:
         href: concepts/configure-containers.md
       - name: Use container instances
         href: ../containers/azure-container-instance-recipe.md?context=/azure/cognitive-services/language-service/context/context
+      - name: Use containers in disconnected environments
+        href: ../containers/disconnected-containers.md
       - name: Cognitive Services containers documentation
         href: ../containers/index.yml
   - name: Reference
@@ -335,6 +347,8 @@ items:
         href: concepts/configure-containers.md
       - name: Use container instances
         href: ../containers/azure-container-instance-recipe.md?context=/azure/cognitive-services/language-service/context/context
+      - name: Use containers in disconnected environments
+        href: ../containers/disconnected-containers.md
       - name: Cognitive Services containers documentation
         href: ../containers/index.yml
   - name: Tutorials
@@ -517,6 +531,8 @@ items:
       href: question-answering/how-to/migrate-qnamaker.md
     - name: Getting started with question answering
       href: question-answering/how-to/create-test-deploy.md
+    - name: Export/import/refresh
+      href: question-answering/how-to/export-import-refresh.md
     - name: Encrypt data at rest
       href: question-answering/how-to/encrypt-data-at-rest.md
     - name: Migrate knowledge base
@@ -571,18 +587,24 @@ items:
       href: question-answering/tutorials/multiple-domains.md
   - name: Reference
     items: 
+    - name: General
+      items:
+      - name: Markdown format
+        href: question-answering/reference/markdown-format.md
+      - name: Format guidelines
+        href: question-answering/reference/document-format-guidelines.md
     - name: REST API
       items:
       - name: Prebuilt
         items:
         - name: Runtime API
-          href: https://docs.microsoft.com/rest/api/cognitiveservices/questionanswering/question-answering/get-answers-from-text
+          href: /rest/api/cognitiveservices/questionanswering/question-answering/get-answers-from-text
       - name: Custom
         items:
           - name: Authoring API
-            href: https://docs.microsoft.com/rest/api/cognitiveservices/questionanswering/question-answering-projects
+            href: /rest/api/cognitiveservices/questionanswering/question-answering-projects
           - name: Runtime API 
-            href: https://docs.microsoft.com/rest/api/cognitiveservices/questionanswering/question-answering/get-answers
+            href: /rest/api/cognitiveservices/questionanswering/question-answering/get-answers
 - name: Sentiment analysis and Opinion mining
   items:
   - name: Overview
@@ -614,6 +636,8 @@ items:
         href: concepts/configure-containers.md
       - name: Use container instances
         href: ../containers/azure-container-instance-recipe.md?context=/azure/cognitive-services/language-service/context/context
+      - name: Use containers in disconnected environments
+        href: ../containers/disconnected-containers.md
       - name: Cognitive Services containers documentation
         href: ../containers/index.yml
   - name: Tutorials
@@ -621,7 +645,7 @@ items:
     - name: Sentiment Analysis on streaming data using Azure Databricks
       href: /azure/databricks/scenarios/databricks-sentiment-analysis-cognitive-services?context=/azure/cognitive-services/language-service/context/context
     - name: Use Flask to translate text, analyze sentiment, and synthesize speech
-      href: /azure/cognitive-services/translator/tutorial-build-flask-app-translation-synthesis?context=/azure/cognitive-services/language-service/context/context
+      href: /learn/modules/python-flask-build-ai-web-app/
   - name: Reference
     items:
     - name: REST API

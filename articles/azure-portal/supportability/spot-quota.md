@@ -1,7 +1,7 @@
 ---
 title: Increase spot vCPU quotas
 description: Learn how to request increases for spot vCPU quotas in the Azure portal.
-ms.date: 11/15/2021
+ms.date: 1/26/2022
 ms.topic: how-to
 ---
 
@@ -57,9 +57,9 @@ To request a spot vCPU quota increase from **Help + support**, create a new supp
 
    :::image type="content" source="media/resource-manager-core-quotas-request/new-per-vm-quota-request.png" alt-text="Screenshot showing a support request to increase a VM-family vCPU quota in the Azure portal.":::
 
-From there, follow the steps as described above to complete your spot quota increase request.
+From there, follow the steps described in [Create a support request](how-to-create-azure-support-request.md#create-a-support-request).
 
 ## Next steps
 
 - Learn more about [Azure spot virtual machines](../../virtual-machines/spot-vms.md).
-- Learn about [Azure subscription and service limits, quotas, and constraints](/azure/azure-resource-manager/management/azure-subscription-service-limits).
+- Learn about [Azure subscription and service limits, quotas, and constraints](../../azure-resource-manager/management/azure-subscription-service-limits.md).

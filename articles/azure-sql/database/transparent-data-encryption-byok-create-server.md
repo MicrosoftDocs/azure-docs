@@ -17,12 +17,12 @@ ms.date: 12/16/2021
 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-This how-to guide outlines the steps to create an Azure SQL logical [server](logical-servers.md) configured with transparent data encryption (TDE) with customer-managed keys (CMK) using a [user-assigned managed identity](/azure/active-directory/managed-identities-azure-resources/overview#managed-identity-types) to access [Azure Key Vault](/azure/key-vault/general/quick-create-portal). 
+This how-to guide outlines the steps to create an Azure SQL logical [server](logical-servers.md) configured with transparent data encryption (TDE) with customer-managed keys (CMK) using a [user-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) to access [Azure Key Vault](../../key-vault/general/quick-create-portal.md). 
 
 ## Prerequisites
 
-- This how-to guide assumes that you've already created an [Azure Key Vault](/azure/key-vault/general/quick-create-portal) and imported a key into it to use as the TDE protector for Azure SQL Database. For more information, see [transparent data encryption with BYOK support](transparent-data-encryption-byok-overview.md).
-- You must have created a [user-assigned managed identity](/azure/active-directory/managed-identities-azure-resources/overview#managed-identity-types) and provided it the required TDE permissions (*Get, Wrap Key, Unwrap Key*) on the above key vault. For creating a user-assigned managed identity, see [Create a user-assigned managed identity](/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal).
+- This how-to guide assumes that you've already created an [Azure Key Vault](../../key-vault/general/quick-create-portal.md) and imported a key into it to use as the TDE protector for Azure SQL Database. For more information, see [transparent data encryption with BYOK support](transparent-data-encryption-byok-overview.md).
+- You must have created a [user-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) and provided it the required TDE permissions (*Get, Wrap Key, Unwrap Key*) on the above key vault. For creating a user-assigned managed identity, see [Create a user-assigned managed identity](/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal).
 - You must have Azure PowerShell installed and running.
 - [Recommended but optional] Create the key material for the TDE protector in a hardware security module (HSM) or local key store first, and import the key material to Azure Key Vault. Follow the [instructions for using a hardware security module (HSM) and Key Vault](../../key-vault/general/overview.md) to learn more.
 

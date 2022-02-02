@@ -73,6 +73,7 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJub25jZSI6Il…
     "name": "Mikah Ollenburg", // names all require the “profile” scope.
     "family_name": " Ollenburg",
     "given_name": "Mikah",
+    "picture": "https://graph.microsoft.com/v1.0/me/photo/$value",
     "email": "mikoll@contoso.com" //requires the “email” scope.
 }
 ```

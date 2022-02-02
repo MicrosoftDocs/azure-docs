@@ -4,6 +4,8 @@
   items:
   - name: About application gateways
     href: overview.md
+  - name: Application Gateway v2
+    href: overview-v2.md
 - name: Quickstarts
   expanded: true
   items:

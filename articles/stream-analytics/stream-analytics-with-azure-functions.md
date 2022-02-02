@@ -52,11 +52,11 @@ Follow the [Real-time fraud detection](stream-analytics-real-time-fraud-detectio
 
 1. See the [Create a function app](../azure-functions/functions-get-started.md) section of the Functions documentation. This sample was built on:
 
-   - Azure Functions runtime [version 4](/azure/azure-functions/functions-versions?tabs=in-process%2Cv4&pivots=programming-language-csharp)
+   - Azure Functions runtime [version 4](../azure-functions/functions-versions.md?pivots=programming-language-csharp&tabs=in-process%2cv4)
    - [.NET 6.0](/dotnet/core/whats-new/dotnet-6)
    - StackExchange.Redis [2.2.8](https://www.nuget.org/packages/StackExchange.Redis/)
 
-2. Create a default HttpTrigger function app in **Visual Studio Code** by following this [tutorial](/azure/azure-functions/create-first-function-vs-code-csharp?tabs=in-process). The following information will be used: language: `C#`, runtime: `.NET 6` (under function v4), template:  `HTTP trigger`.
+2. Create a default HttpTrigger function app in **Visual Studio Code** by following this [tutorial](../azure-functions/create-first-function-vs-code-csharp.md?tabs=in-process). The following information will be used: language: `C#`, runtime: `.NET 6` (under function v4), template:  `HTTP trigger`.
 
 3. Install the Redis client library by running the following command in a terminal located in the project folder:
 
@@ -143,9 +143,9 @@ Follow the [Real-time fraud detection](stream-analytics-real-time-fraud-detectio
 
    When Stream Analytics receives the "HTTP Request Entity Too Large" exception from the function, it reduces the size of the batches it sends to functions. The following code ensures that Stream Analytics doesn't send oversized batches. Make sure that the maximum batch count and size values used in the function are consistent with the values entered in the Stream Analytics portal.
 
-5. The function can now be [published](/azure/azure-functions/create-first-function-vs-code-csharp#publish-the-project-to-azure) to Azure.
+5. The function can now be [published](../azure-functions/create-first-function-vs-code-csharp.md#publish-the-project-to-azure) to Azure.
 
-6. Open the function on the Azure Portal, and set [application settings](/azure/azure-functions/functions-how-to-use-azure-function-app-settings?tabs=portal#settings) for `RedisConnectionString` and `RedisDatabaseIndex`.
+6. Open the function on the Azure Portal, and set [application settings](../azure-functions/functions-how-to-use-azure-function-app-settings.md?tabs=portal#settings) for `RedisConnectionString` and `RedisDatabaseIndex`.
 
 ## Update the Stream Analytics job with the function as output
 

@@ -79,8 +79,7 @@ You can review the current text of the 50105 error and more on the error lookup 
 
 **Change**
 
-For single tenant applications, a request to add/update AppId URI (identifierUris) will validate that domain in the value of URI is part of the verified domain list in the customer tenant or the value uses the default scheme (`api://{appId}`) provided by AAD.
-This could prevent applications from adding an AppId URI if the domain isn't in the verified domain list or value does not use the default scheme.
+For single tenant applications, adding or updating the AppId URI validates that the domain in the HTTPS scheme URI is listed in the verified domain list in the customer tenant or that the value uses the default scheme (`api://{appId}`) provided by Azure AD.  This could prevent applications from adding an AppId URI if the domain isn't in the verified domain list or the value does not use the default scheme.
 To find more information on verified domains, refer to the [custom domains documentation](../../active-directory/fundamentals/add-custom-domain.md).
 
 The change does not affect existing applications using unverified domains in their AppID URI. It validates only new applications or when an existing application updates an identifier URIs or adds a new one to the identifierUri collection. The new restrictions apply only to URIs added to an app's identifierUris collection after 10/15/2021. AppId URIs already in an application's identifierUris collection when the restriction takes affect on 10/15/2021 will continue to function even if you add new URIs to that collection.
@@ -154,7 +153,7 @@ Azure AD will no longer double-encode this parameter, allowing apps to correctly
 
 **Protocol impacted**: All flows
 
-On 1 June 2018, the official Azure Active Directory (AAD) Authority for Azure Government changed from `https://login-us.microsoftonline.com` to `https://login.microsoftonline.us`. This change also applied to Microsoft 365 GCC High and DoD, which Azure Government AAD also services. If you own an application within a US Government tenant, you must update your application to sign users in on the `.us` endpoint.  
+On 1 June 2018, the official Azure Active Directory (Azure AD) Authority for Azure Government changed from `https://login-us.microsoftonline.com` to `https://login.microsoftonline.us`. This change also applied to Microsoft 365 GCC High and DoD, which Azure Government Azure AD also services. If you own an application within a US Government tenant, you must update your application to sign users in on the `.us` endpoint.  
 
 Starting May 5th, Azure AD will begin enforcing the endpoint change, blocking government users from signing into apps hosted in US Government tenants using the public endpoint (`microsoftonline.com`).  Impacted apps will begin seeing an error `AADSTS900439` - `USGClientNotSupportedOnPublicEndpoint`. This error indicates that the app is attempting to sign in a US Government user on the public cloud endpoint. If your app is in a public cloud tenant and intended to support US Government users, you will need to [update your app to support them explicitly](./authentication-national-cloud.md). This may require creating a new app registration in the US Government cloud. 
 
