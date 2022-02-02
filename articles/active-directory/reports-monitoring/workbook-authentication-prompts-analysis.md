@@ -23,7 +23,6 @@ ms.collection: M365-identity-device-management
 
 As an IT Pro, you want the right information about authentication prompts in your environment so that you can detect unexpected prompts and investigate further. Providing you with this type of information is the goal of the **authentication prompts analysis workbook**. 
 
-
 This article provides you with an overview of this workbook.
 
 
