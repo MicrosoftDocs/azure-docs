@@ -1,6 +1,6 @@
 ---
 title: Understand access and permissions
-description: This article gives an overview permissions, access control, and collections in Azure Purview. Role-based access control (RBAC) is managed within Azure Purview itself, so this guide will cover the basics to secure your information.
+description: This article gives an overview permission, access control, and collections in Azure Purview. Role-based access control (RBAC) is managed within Azure Purview itself, so this guide will cover the basics to secure your information.
 author: viseshag
 ms.author: viseshag
 ms.service: purview
@@ -14,7 +14,7 @@ Azure Purview uses **Collections** to organize and manage access across its sour
 
 ## Collections
 
-A collection is a tool Azure Purview uses to group assets, sources, and other artifacts into a hierarchy for discoverability and to manage access control. All access to Azure Purview's resources are managed from collections in the Azure Purview account itself.
+A collection is a tool Azure Purview uses to group assets, sources, and other artifacts into a hierarchy for discoverability and to manage access control. All accesses to Azure Purview's resources are managed from collections in the Azure Purview account itself.
 
 > [!NOTE]
 > As of November 8th, 2021, ***Insights*** is accessible to Data Curators. Data Readers do not have access to Insights.
@@ -56,7 +56,7 @@ All other users can only access information within the Azure Purview account if 
 
 Users can only be added to a collection by a collection admin, or through permissions inheritance. The permissions of a parent collection are automatically inherited by its subcollections. However, you can choose to [restrict permission inheritance](how-to-create-and-manage-collections.md#restrict-inheritance) on any collection. If you do this, its subcollections will no longer inherit permissions from the parent and will need to be added directly, though collection admins that are automatically inherited from a parent collection can't be removed.
 
-You can assign Azure Purview roles to users, security groups and service principals from your Azure Active Directory which is associated with your purview account's subscription.
+You can assign Azure Purview roles to users, security groups and service principals from your Azure Active Directory that is associated with your purview account's subscription.
 
 ## Assign permissions to your users
 

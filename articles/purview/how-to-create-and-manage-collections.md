@@ -38,7 +38,7 @@ In order to create and manage collections in Azure Purview, you will need to be 
 
     :::image type="content" source="./media/how-to-create-and-manage-collections/role-assignments.png" alt-text="Screenshot of Azure Purview studio window, opened to the Data Map, with the role assignments tab highlighted." border="true":::
 
-1. To create a collection, you'll need to be in the collection admin list under role assignments. If you created the Azure Purview resource, you should be listed as a collection admin under the root collection already. If not, you'll need to contact the collection admin to grant you permission.
+1. To create a collection, you'll need to be in the collection admin list under role assignments. If you created the Azure Purview resource, you should be listed as a collection admin under the root collection already. If not, you'll need to contact the collection admin to grant your permission.
 
     :::image type="content" source="./media/how-to-create-and-manage-collections/collection-admins.png" alt-text="Screenshot of Azure Purview studio window, opened to the Data Map, with the collection admin section highlighted." border="true":::
 
@@ -54,7 +54,7 @@ You'll need to be a collection admin in order to create a collection. If you are
 
 1. Select **+ Add a collection**. Again, note that only [collection admins](#check-permissions) can manage collections.
 
-    :::image type="content" source="./media/how-to-create-and-manage-collections/select-add-a-collection.png" alt-text="Screenshot of Azure Purview studio window, showing the new collection window, with the add a collection buttons highlighted." border="true":::
+    :::image type="content" source="./media/how-to-create-and-manage-collections/select-add-a-collection.png" alt-text="Screenshot of Azure Purview studio window, showing the new collection window, with the 'Add a collection' button highlighted." border="true":::
 
 1. In the right panel, enter the collection name and description. If needed you can also add users or groups as collection admins to the new collection.
 1. Select **Create**.
@@ -109,7 +109,7 @@ You'll need to be a collection admin in order to delete a collection. If you are
 
 ## Add roles and restrict access through collections
 
-Since permissions are managed through collections in Azure Purview, it is important to understand the roles and what permissions they will give your users. A user granted permissions on a collection will have access to sources and assets associated with that collection, as well as inherit permissions to subcollections. Inheritance [can be restricted](#restrict-inheritance), but is allowed by default.
+Since permissions are managed through collections in Azure Purview, it is important to understand the roles and what permissions they will give your users. A user granted permissions on a collection will have access to sources and assets associated with that collection, and inherit permissions to subcollections. Inheritance [can be restricted](#restrict-inheritance), but is allowed by default.
 
 The following guide will discuss the roles, how to manage them, and permissions inheritance.
 
@@ -135,7 +135,7 @@ All assigned roles apply to sources, assets, and other objects within the collec
 
 1. Type in the textbox to search for users you want to add to the role member. Select **X** to remove members you don't want to add.
 
-    :::image type="content" source="./media/how-to-create-and-manage-collections/search-user-permissions.png" alt-text="Screenshot of Azure Purview studio collection collection admin window with the search bar highlighted." border="true":::
+    :::image type="content" source="./media/how-to-create-and-manage-collections/search-user-permissions.png" alt-text="Screenshot of Azure Purview studio collection admin window with the search bar highlighted." border="true":::
 
 1. Select **OK** to save your changes, and you will see the new users reflected in the role assignments list.
 
@@ -167,11 +167,11 @@ Once you restrict inheritance, you will need to add users directly to the restri
     
 ## Register source to a collection
 
-1. Select **Register** or register icon on collection node to register a data source. Note that only data source admin can register sources.
+1. Select **Register** or register icon on collection node to register a data source. Only a data source admin can register sources.
 
     :::image type="content" source="./media/how-to-create-and-manage-collections/register-by-collection.png" alt-text="Screenshot of the data map Azure Purview studio window with the register button highlighted both at the top of the page and under a collection."border="true":::
 
-1. Fill in the data source name, and other source information.  It lists all the collections which you have scan permission on the bottom of the form. You can select one collection. All assets under this source will belong to the collection you select.
+1. Fill in the data source name, and other source information.  It lists all the collections where you have scan permission on the bottom of the form. You can select one collection. All assets under this source will belong to the collection you select.
 
     :::image type="content" source="./media/how-to-create-and-manage-collections/register-source.png" alt-text="Screenshot of the source registration window."border="true":::
 
@@ -184,7 +184,7 @@ Once you restrict inheritance, you will need to add users directly to the restri
     :::image type="content" source="./media/how-to-create-and-manage-collections/new-scan.png" alt-text="Screenshot of a source Azure Purview studio window with the new scan button highlighted."border="true":::
 
 1. Similarly, at the bottom of the form, you can select a collection, and all assets scanned will be included in the collection.
-Note that the collections listed here are restricted to subcollections of the data source collection.
+The collections listed here are restricted to subcollections of the data source collection.
 
     :::image type="content" source="./media/how-to-create-and-manage-collections/scan-under-collection.png" alt-text="Screenshot of a new scan window with the collection dropdown highlighted."border="true":::
 
@@ -201,8 +201,8 @@ Assets and sources are also associated with collections. During a scan, if the s
     :::image type="content" source="./media/how-to-create-and-manage-collections/collection-path.png" alt-text="Screenshot of Azure Purview studio asset window, with the collection path highlighted." border="true":::
 
 1. Permissions in asset details page:
-    1. Please check the collection based permission model by following the [add roles and restricting access on collections guide above](#add-roles-and-restrict-access-through-collections).
-    1. If you don't have read permission on a collection, the assets under that collection will not be listed in search results. If you get the direct URL of one asset and open it, you will see the no access page. In this case please contact your Azure Purview admin to grant you the access. You can select the **Refresh** button to check the permission again.
+    1. Check the collection-based permission model by following the [add roles and restricting access on collections guide above](#add-roles-and-restrict-access-through-collections).
+    1. If you don't have read permission on a collection, the assets under that collection will not be listed in search results. If you get the direct URL of one asset and open it, you will see the no access page. Contact your Azure Purview admin to grant you the access. You can select the **Refresh** button to check the permission again.
 
         :::image type="content" source="./media/how-to-create-and-manage-collections/no-access.png" alt-text="Screenshot of Azure Purview studio asset window where the user has no permissions, and has no access to information or options." border="true":::
 
@@ -221,7 +221,7 @@ Assets and sources are also associated with collections. During a scan, if the s
     :::image type="content" source="./media/how-to-create-and-manage-collections/move-asset.png" alt-text="Screenshot of Azure Purview studio asset window with the collection path highlighted and the ellipsis button next to collection path selected." border="true":::
 
 1. Select the **Move to another collection** button.
-1. In the right side panel, choose the target collection you want move to. Note that you can only see the collections where you have write permissions. The asset can also only be added to the subcollections of the data source collection.
+1. In the right side panel, choose the target collection you want move to. You can only see the collections where you have write permissions. The asset can also only be added to the subcollections of the data source collection.
 
     :::image type="content" source="./media/how-to-create-and-manage-collections/move-select-collection.png" alt-text="Screenshot of Azure Purview studio pop-up window with the select a collection dropdown menu highlighted." border="true":::
 
@@ -261,7 +261,7 @@ Assets and sources are also associated with collections. During a scan, if the s
 
     :::image type="content" source="./media/how-to-create-and-manage-collections/by-collection-view.png" alt-text="Screenshot of the asset Azure Purview studio window with the by collection tab selected."border="true":::
 
-1. On the next page, the search results of the assets under selected collection will be show up. You can narrow the results by selecting the facet filters. Or you can see the assets under other collections by selecting the sub/related collection names.
+1. On the next page, the search results of the assets under selected collection will be shown. You can narrow the results by selecting the facet filters. Or you can see the assets under other collections by selecting the sub/related collection names.
 
     :::image type="content" source="./media/how-to-create-and-manage-collections/search-results-by-collection.png" alt-text="Screenshot of the catalog Azure Purview studio window with the by collection tab selected."border="true":::
 
