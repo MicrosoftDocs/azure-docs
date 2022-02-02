@@ -241,8 +241,27 @@ items:
         href: concepts-data-flow-expression-builder.md
         displayName: regex, regular expressions
       - name: Expression language
-        href: data-flow-expression-functions.md
+        href: data-transformation-functions.md
         displayName: regex, regular expressions
+        items:
+          - name: Aggregate functions
+            href: data-flow-aggregate-functions.md
+          - name: Array functions
+            href: data-flow-array-functions.md
+          - name: Cached lookup functions
+            href: data-flow-cached-lookup-functions.md
+          - name: Conversion functions
+            href: data-flow-conversion-functions.md
+          - name: Expression functions
+            href: data-flow-expression-functions.md
+          - name: Map functions
+            href: data-flow-map-functions.md
+          - name: Metafunctions
+            href: data-flow-metafunctions.md
+          - name: Window functions
+            href: data-flow-window-functions.md
+          - name: Alphabetical usage details for all functions
+            href: data-flow-expressions-usage.md
     - name: Prepare data with Power Query data wrangling
       items:
       - name: Data wrangling overview

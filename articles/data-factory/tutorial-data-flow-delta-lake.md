@@ -122,4 +122,4 @@ You will generate two data flows in this tutorial. The fist data flow is a simpl
 
 ## Next steps
 
-Learn more about the [data flow expression language](data-flow-expression-functions.md).
+Learn more about the [data flow expression language](data-transformation-functions.md).
