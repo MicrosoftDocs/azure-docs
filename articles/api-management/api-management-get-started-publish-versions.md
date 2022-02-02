@@ -95,7 +95,7 @@ You can interact directly with version sets by using the Azure CLI:
 To see all your version sets, run the [az apim api versionset list](/cli/azure/apim/api/versionset#az_apim_api_versionset_list) command:
 
 ```azurecli
-az apim api versionset list --resource-group apim-hello-word-resource-group \
+az apim api versionset list --resource-group apim-hello-world-resource-group \
     --service-name apim-hello-world --output table
 ```
 
@@ -104,7 +104,7 @@ When the Azure portal creates a version set for you, it assigns an alphanumeric 
 To see details about a version set, run the [az apim api versionset show](/cli/azure/apim/api/versionset#az_apim_api_versionset_show) command:
 
 ```azurecli
-az apim api versionset show --resource-group apim-hello-word-resource-group \
+az apim api versionset show --resource-group apim-hello-world-resource-group \
     --service-name apim-hello-world --version-set-id 00000000000000000000000
 ```
 
