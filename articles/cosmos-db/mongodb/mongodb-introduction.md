@@ -82,7 +82,7 @@ Trying to do capacity planning for a migration to Azure Cosmos DB? You can use i
 * Connect to a Cosmos account using [Robo 3T](connect-using-robomongo.md).
 * Learn how to [Configure read preferences for globally distributed apps](tutorial-global-distribution-mongodb.md).
 * Find the solutions to commonly found errors in our [Troubleshooting guide](error-codes-solutions.md)
-* Configure near real time analytics with Azure Synapse Link(../../configure-synapse-link.md)
+* Configure near real time analytics with [Azure Synapse Link for Azure Cosmos DB](../configure-synapse-link.md)
 
 
 <sup>Note: This article describes a feature of Azure Cosmos DB that provides wire protocol compatibility with MongoDB databases. Microsoft does not run MongoDB databases to provide this service. Azure Cosmos DB is not affiliated with MongoDB, Inc.</sup>
