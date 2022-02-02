@@ -81,9 +81,9 @@ Microsoft Defender for Cloud provides security alerts and advanced threat protec
 
 This alert is an example of a detected Petya ransomware alert:
 
-:::image type="content" source="./media/ransomware/ransomware12.png" alt-text="Example of a detected Petya ransomware alert":::
+:::image type="content" source="./media/ransomware/ransomware-12.png" alt-text="Example of a detected Petya ransomware alert":::
 
-### Azure Native Backup Solution Protects Your Data 
+### Azure native backup solution protects Your data
 
 One important way that organizations can help protect against losses in a ransomware attack is to have a backup of business-critical information in case other defenses fail. Since ransomware attackers have invested heavily into neutralizing backup applications and operating system features like volume shadow copy, it is critical to have backups that are inaccessible to a malicious attacker. With a flexible business continuity and disaster recovery solution, industry-leading data protection and security tools, Azure cloud offers secure services to protect your data:
 
@@ -99,7 +99,7 @@ Key Features:
 - Azure comes with Locally Redundant Storage (LRS), where data is stored locally, as well as Geo Redundant Storage (GRS) in a second region
 - All data stored on Azure is protected by an advanced encryption process, and all Microsoft's data centers have two-tier authentication, proxy card access readers, biometric scanners
 - Azure has more certifications than any other public cloud provider on the market, including ISO 27001, HIPAA, FedRAMP, SOC 1, SOC 2, and many international specifications
-- Guaranteed: - Microsoft offers 99.5-99.9% uptime on their services. Read the [full SLA](https://azure.microsoft.com/support/legal/sla/summary) for more details.
+- Guaranteed: - Microsoft offers 99.5-99.9% uptime on their services. 
 
 ## Additional resources
 

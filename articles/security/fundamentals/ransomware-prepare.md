@@ -16,7 +16,7 @@ ms.date: 01/10/2022
 
 A good place to start is to adopt the [Azure Security Benchmark](/security/benchmark/azure/) to secure the Azure environment. The Azure Security Benchmark is the Azure security control framework, based on industry-based security control frameworks such as NIST SP800-53, CIS Controls v7.1.
 
-:::image type="content" source="./media/ransomware/ransomware13.png" alt-text="Screenshot of the NS-1: Establish Network Segmentation Boundaries security control":::
+:::image type="content" source="./media/ransomware/ransomware-13.png" alt-text="Screenshot of the NS-1: Establish Network Segmentation Boundaries security control":::
 
 The Azure Security Benchmark provides organizations guidance on how to configure Azure and Azure Services and implement the security controls. Organizations can use [Microsoft Defender for Cloud](../../defender-for-cloud/index.yml) to monitor their live Azure environment status with all the Azure Security Benchmark controls.
 
@@ -68,14 +68,14 @@ Plan for the worst-case scenario and expect that it will happen (at all levels o
 - Limits damage for the worst-case scenario – While restoring all systems from backups is highly disruptive to business, this is more effective and efficient than trying to recovery using (low quality) attacker-provided decryption tools after paying to get the key. Note: Paying is an uncertain path – You have no formal or legal guarantee that the key works on all files, the tools work will work effectively, or that the attacker (who may be an amateur affiliate using a professional's toolkit) will act in good faith.
 - Limit the financial return for attackers – If an organization can restore business operations without paying the attackers, the attack has effectively failed and resulted in zero return on investment (ROI) for the attackers. This makes it less likely that they will target the organization in the future (and deprives them of additional funding to attack others). 
 
-Note: The attackers may still attempt to extort the organization through data disclosure or abusing/selling the stolen data, but this gives them less leverage than if they have the only access path to your data and systems. 
+The attackers may still attempt to extort the organization through data disclosure or abusing/selling the stolen data, but this gives them less leverage than if they have the only access path to your data and systems.
 
 To realize this, organizations should ensure they:
 - Register Risk - Add ransomware to risk register as high likelihood and high impact scenario. Track mitigation status via Enterprise Risk Management (ERM) assessment cycle.
 - Define and Backup Critical Business Assets – Define systems required for critical business operations and automatically back them up on a regular schedule (including correct backup of critical dependencies like Active Directory)
 Protect backups against deliberate erasure and encryption with offline storage, immutable storage, and/or out of band steps (MFA or PIN) before modifying/erasing online backups.
 - Test 'Recover from Zero' Scenario – test to ensure your business continuity / disaster recovery (BC/DR) can rapidly bring critical business operations online from zero functionality (all systems down). Conduct practice exercise(s) to validate cross-team processes and technical procedures, including out-of-band employee and customer communications (assume all email/chat/etc. is down).  
-  - IMPORTANT: Protect (or print) supporting documents and systems required for recovery including restoration procedure documents, CMDBs, network diagrams, SolarWinds instances, etc. Attackers destroy these regularly.
+  It is critical to protect (or print) supporting documents and systems required for recovery including restoration procedure documents, CMDBs, network diagrams, SolarWinds instances, etc. Attackers destroy these regularly.
 - Reduce on-premises exposure – by moving data to cloud services with automatic backup & self-service rollback.
 
 ## Promote awareness and ensure there is no knowledge gap
@@ -142,7 +142,7 @@ Ensure your organization undertakes a number of activities roughly following the
 1. **Remediation / Recovery**:  This stage covers the steps that may be taken to remediate or recover from damage that was caused by the incident before it was contained and mitigated.
 1. **Post-Incident Activity**:  This stage covers the activities that should be performed once the incident has been closed.  This can include capturing the final narrative associated with the incident as well as identifying lessons learned.
 
-:::image type="content" source="./media/ransomware/ransomware17.png" alt-text="Flowchart of an incident handling process":::
+:::image type="content" source="./media/ransomware/ransomware-17.png" alt-text="Flowchart of an incident handling process":::
 
 ## Prepare for a quick recovery
 

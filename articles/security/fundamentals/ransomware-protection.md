@@ -46,7 +46,7 @@ Ransomware will typically exploit the weaknesses or vulnerabilities in your orga
 
 Any business or organization that operates an IT system with data in it can be attacked.   Although individuals can be targeted in a ransomware attack,  most attacks are targeted at businesses. While the Colonial ransomware attack of May 2021 drew considerable public attention, our Detection and Response team (DART)'s ransomware engagement data shows that the energy sector represents one of the most targeted sectors, along with the financial, healthcare, and entertainment sectors.  And despite continued promises not to attack hospitals or healthcare companies during a pandemic, healthcare remains the number one target of human operated ransomware.
 
-:::image type="content" source="./media/ransomware/ransomware1.png" alt-text="Pie chart illustrating industries that are targeted by ransomware":::
+:::image type="content" source="./media/ransomware/ransomware-1.png" alt-text="Pie chart illustrating industries that are targeted by ransomware":::
 
 ## How your assets are targeted
 
@@ -57,7 +57,7 @@ When attacking cloud infrastructure, adversaries often attack multiple resources
 1. During the lateral movement stage, attackers discover what resources they have access to and what the scope of that access is. Successful attacks on instances give attackers access to databases and other sensitive information. The attacker then searches for additional credentials. Our Microsoft Defender for Cloud data shows that without a security tool to quickly notify you of the attack, it takes organizations on average 101 days to discover a breach. Meanwhile, in just 24-48 hours after a breach, the attacker will usually have complete control of the network. 
 1. The actions an attacker takes after lateral movement are largely dependent on the resources they were able to gain access to during the lateral movement phase. Attackers can take actions that cause data exfiltration, data loss or launch other attacks. For enterprises, the average financial impact of data loss is now reaching $1.23 million.
 
-:::image type="content" source="./media/ransomware/ransomware2.png" alt-text="Flowcharting showing how cloud infrastructure is attacked: Exposure, Access, Lateral movement, and Actions":::
+:::image type="content" source="./media/ransomware/ransomware-2.png" alt-text="Flowcharting showing how cloud infrastructure is attacked: Exposure, Access, Lateral movement, and Actions":::
 
 ## Why attacks succeed
 
@@ -77,7 +77,7 @@ There are several reasons why ransomware attacks succeed. Businesses that are vu
 
 Attackers use different techniques, such as Remote Desktop Protocol (RDP) brute force attack to exploit vulnerabilities.
 
-:::image type="content" source="./media/ransomware/ransomware3.png" alt-text="Swimlane diagram illustrating the different techniques used by attackers":::
+:::image type="content" source="./media/ransomware/ransomware-3.png" alt-text="Swimlane diagram illustrating the different techniques used by attackers":::
 
 ## Should you pay?
 
@@ -98,7 +98,7 @@ The impact of a ransomware attack on any organization is difficult to quantify a
 
 Colonial Pipeline paid about $4.4 Million in ransom to have their data released.  This doesn't include the cost of downtime, lost productive, lost sales and the cost of restoring services. More broadly, a significant impact is the "knock-on effect" of impacting high numbers of businesses and organizations of all kinds including towns and cities in their local areas. The financial impact is also staggering. According to Microsoft, the global cost associated with ransomware recovery is projected to exceed $20 billion in 2021. 
 
-:::image type="content" source="./media/ransomware/ransomware4.png" alt-text="Bar chart showing impact to business":::
+:::image type="content" source="./media/ransomware/ransomware-4.png" alt-text="Bar chart showing impact to business":::
 
 ## Next steps
 
