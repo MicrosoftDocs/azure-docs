@@ -13,7 +13,7 @@ ms.author: vikancha
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
-The NVadsA10v5-series virtual machines are powered by [Nvidia A10](https://www.nvidia.com/en-us/data-center/products/a10-gpu/) GPUs and AMD EPYC 74F3V(Milan) CPUs with a base frequency of 3.25GHz, all-cores peak frequency of 4.0GHz. With NVadsA10v5-series Azure is introducing virtual machines with partial Nvidia GPUs. Pick the right sized virtual machine for GPU accelerated graphics applications and virtual desktops starting at 1/6th of a GPU with 4 GiB frame buffer to a full A10 GPU with 24 GiB frame buffer.
+The NVadsA10v5-series virtual machines are powered by [Nvidia A10](https://www.nvidia.com/en-us/data-center/products/a10-gpu/) GPUs and AMD EPYC 74F3V(Milan) CPUs with a base frequency of 3.4GHz, all-cores peak frequency of 4.0GHz. With NVadsA10v5-series Azure is introducing virtual machines with partial Nvidia GPUs. Pick the right sized virtual machine for GPU accelerated graphics applications and virtual desktops starting at 1/6th of a GPU with 4 GiB frame buffer to a full A10 GPU with 24 GiB frame buffer.
 
 <br>
 
