@@ -113,23 +113,13 @@ Follow these instructions to provision the Device Update agent on [IoT Edge enab
 	
 1. You are now ready to start the Device Update agent on your IoT Edge device. 
 
-### On device without Iot Edge installed IoT Linux devices
+### On Iot Linux devices without IoT Edge installed
 
 Follow these instructions to provision the Device Update agent on your IoT Linux devices.
 
-1. Install the IoT Identity Service and add the latest version to your IoT device. 
-    1. Log onto the machine or IoT device.
-    1. Open a terminal window.
-    1.	Install the latest [IoT Identity Service](https://github.com/Azure/iot-identity-service/blob/main/docs-dev/packaging.md#installing-and-configuring-the-package) on your IoT device using this command:
-    > [!Note]
-    > The IoT Identity service registers module identities with IoT Hub by using symmetric keys currently.
+1. Install the IoT Identity Service and add the latest version to your IoT device by following instrucions in [Installing the Azure IoT Identity Service](https://azure.github.io/iot-identity-service/installation.html#install-from-packagesmicrosoftcom).
 
-    ```shell
-   	sudo apt-get install aziot-identity-service
-    ```
-
-2. Follow the configuration instruction here.[Note: Link to https://azure.github.io/iot-identity-service/configuration.html]
-   
+2. Configure the IoT Identity Service by following the instructions in [Configuring the Azure IoT Identity Service](https://azure.github.io/iot-identity-service/configuration.html). 
     
 3. Finally install the Device Update agent. We provide sample images in [Assets here](https://github.com/Azure/iot-hub-device-update/releases), the swUpdate file is the base image that you can flash onto a Raspberry Pi B3+ board, and the .gz file is the update you would import through Device Update for IoT Hub. See example of [how to flash the image to your IoT Hub device](./device-update-raspberry-pi.md#flash-sd-card-with-image).
 
@@ -140,7 +130,7 @@ Follow these instructions to provision the Device Update agent on your IoT Linux
     ```
    Change the connectionType to "AIS" for agents who will be using the IoT Identity Service for provisioning. The ConnectionData field must be a empty string
 
-1. You are now ready to start the Device Update agent on your IoT device. 
+5. You are now ready to start the Device Update agent on your IoT device. 
 
 ### Other IoT devices
 
