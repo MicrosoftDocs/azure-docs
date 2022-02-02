@@ -184,12 +184,11 @@ Start by navigating to your Azure Digital Twins instance in the Azure portal (yo
 
     Select **Create a connection**. This will begin the process of creating a data history connection.
 
-2. If you **don't** have a [managed identity enabled for your Azure Digital Twins instance](how-to-route-with-managed-identity.md), you'll be asked to turn on Identity for the instance as the first step for the data history connection.
+2. **(SOME USERS)** If you **don't** already have a [managed identity enabled for your Azure Digital Twins instance](how-to-route-with-managed-identity.md), you'll see this page first, asking you to turn on Identity for the instance as the first step for the data history connection.
+
     :::image type="content"  source="media/how-to-use-data-history/authentication.png" alt-text="Screenshot of the Azure portal showing the first step in the data history connection setup, Authentication." lightbox="media/how-to-use-data-history/authentication.png":::
 
-    Select **Next** after setting this up.
-
-    If you **do** have a managed identity enabled, your setup will go straight to the next page as the first step.
+    If you **do** already have a managed identity enabled, your setup will **skip this step** and you'll see the next page immediately.
 
 3. On the **Send** page, enter the details of the [Event Hubs resources](#create-an-event-hubs-namespace-and-event-hub) that you created earlier.
     :::image type="content"  source="media/how-to-use-data-history/send.png" alt-text="Screenshot of the Azure portal showing the Send step in the data history connection setup." lightbox="media/how-to-use-data-history/send.png":::
