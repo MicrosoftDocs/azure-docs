@@ -5,11 +5,19 @@ author: flang-msft
 ms.author: franlanglois
 ms.service: cache
 ms.topic: reference
-ms.date: 01/21/2022
+ms.date: 02/02/2022
 
 ---
 
 # What's New in Azure Cache for Redis
+
+## February 2022
+
+### Active geo-replication is generally available (GA)
+
+Azure Cache for Redis now supports active geo-replication in our Enterprise offering of Azure Cache for Redis.
+
+Active geo-replication is a powerful tool that enables Azure Cache for Redis clusters to be linked together for seamless active-active replication of data. Your applications can write to one Redis cluster and your data is automatically copied to the other linked clusters, and vice versa. Data is quickly duplicated with strong eventual consistency between clusters.
 
 ## January 2022
 
