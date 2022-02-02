@@ -1,6 +1,6 @@
 ---
-title: Create and view permission analytics triggers in Microsoft CloudKnox Permissions Management 
-description: How to create and view permission analytics triggers in the Permission analytics tab in Microsoft CloudKnox Permissions Management.
+title: Create and view permission analytics triggers in CloudKnox Permissions Management 
+description: How to create and view permission analytics triggers in the Permission analytics tab in CloudKnox Permissions Management.
 services: active-directory
 author: Yvonne-deQ
 manager: karenh444
@@ -14,7 +14,7 @@ ms.author: v-ydequadros
 
 # Create and view permission analytics triggers 
 
-This article describes how you can create and view permission analytics triggers in Microsoft CloudKnox Permissions Management (CloudKnox).
+This article describes how you can create and view permission analytics triggers in CloudKnox Permissions Management (CloudKnox).
 
 ## View permission analytics triggers
 

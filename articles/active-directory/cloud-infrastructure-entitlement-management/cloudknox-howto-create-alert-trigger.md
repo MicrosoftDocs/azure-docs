@@ -1,6 +1,6 @@
 ---
-title:Create and view an alert in Microsoft CloudKnox Permissions Management 
-description: How to create and view an alert in Microsoft CloudKnox Permissions Management.
+title: Create and view an alert in CloudKnox Permissions Management 
+description: How to create and view an alert in CloudKnox Permissions Management.
 services: active-directory
 author: Yvonne-deQ
 manager: karenh444
@@ -14,7 +14,7 @@ ms.author: v-ydequadros
 
 # Create and view an alert
 
-This article describes how you can create an alert in Microsoft CloudKnox Permissions Management (CloudKnox).
+This article describes how you can create an alert in CloudKnox Permissions Management (CloudKnox).
 
 ## Create an alert
 

@@ -1,6 +1,6 @@
 ---
-title: View alerts and alert triggers in Microsoft CloudKnox Permissions Management
-description: How to view alerts and alert triggers in Microsoft CloudKnox Permissions Management.
+title: View alerts and alert triggers in CloudKnox Permissions Management
+description: How to view alerts and alert triggers in CloudKnox Permissions Management.
 services: active-directory
 author: Yvonne-deQ
 manager: karenh444
@@ -14,7 +14,7 @@ ms.author: v-ydequadros
 
 # View alerts and alert triggers
 
-This article describes how you can view alerts and alert triggers in Microsoft CloudKnox Permissions Management (CloudKnox).
+This article describes how you can view alerts and alert triggers in CloudKnox Permissions Management (CloudKnox).
 
 ## View alerts
 

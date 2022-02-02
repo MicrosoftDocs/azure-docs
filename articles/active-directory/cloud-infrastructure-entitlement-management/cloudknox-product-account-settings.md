@@ -1,6 +1,6 @@
 ---
-title: Microsoft CloudKnox Permissions Management - Set personal and organization information
-description: How to set personal and organization information in the Account Settings dashboard in CloudKnox Permissions Management.
+title: CloudKnox Permissions Management - Set personal and organization information
+description: How to set personal and organization information in the Account settings dashboard in CloudKnox Permissions Management.
 services: active-directory
 manager: karenh444
 ms.service: active-directory
@@ -12,7 +12,7 @@ ms.author: v-ydequadros
 
 # Set personal and organization information
 
-The **Account settings** dashboard in Microsoft CloudKnox Permissions Management (CloudKnox) allows you to set personal information, passwords, and account preferences.
+The **Account settings** dashboard in CloudKnox Permissions Management (CloudKnox) allows you to set personal information, passwords, and account preferences.
 
 ## Set personal information
 

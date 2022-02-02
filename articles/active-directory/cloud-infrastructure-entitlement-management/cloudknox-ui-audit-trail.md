@@ -1,6 +1,6 @@
 ---
-title: Use queries to see how users access information in an authorization system in Microsoft CloudKnox Permissions Management
-description: How to use queries to see how users access information in an authorization system in Microsoft CloudKnox Permissions Management.
+title: Use queries to see how users access information in an authorization system in CloudKnox Permissions Management
+description: How to use queries to see how users access information in an authorization system in CloudKnox Permissions Management.
 services: active-directory
 author: Yvonne-deQ
 manager: karenh444
@@ -14,7 +14,7 @@ ms.author: v-ydequadros
 
 # Use queries to see how users access information
 
-The **Audit trail** dashboard in Microsoft CloudKnox Permissions Management (CloudKnox) provides an overview of queries a CloudKnox user has created to review how users access their authorization systems and accounts. 
+The **Audit trail** dashboard in CloudKnox Permissions Management (CloudKnox) provides an overview of queries a CloudKnox user has created to review how users access their authorization systems and accounts. 
 
 This article provides an overview of the components of the **Audit trail** dashboard.
 
@@ -27,10 +27,10 @@ This article provides an overview of the components of the **Audit trail** dashb
 
 1. The following options display at the top of the **Audit trail** dashboard: 
 
-    - A tab for each existing query — Select the tab to see details about the query.
-    - **New query** tab — Select the tab to create a new query.
-    - **New tab (+)** — Select the tab to add a **New query** tab.
-    - **Saved queries** — Select to view a list of saved queries.
+    - A tab for each existing query. Select the tab to see details about the query.
+    - **New query**: Select the tab to create a new query.
+    - **New tab (+)**: Select the tab to add a **New query** tab.
+    - **Saved queries**: Select to view a list of saved queries.
 
 1. To return to the main page, select **Back to Audit trail**.
 
@@ -39,9 +39,9 @@ This article provides an overview of the components of the **Audit trail** dashb
 
 The **New query** tab displays the following options:
 
-- **Authorization systems type**— A list of your authorization systems: Amazon Web Services (**AWS**), Microsoft Azure (**Azure**), or Google Cloud Platform (**GCP**).
+- **Authorization systems type**: A list of your authorization systems: Amazon Web Services (**AWS**), Microsoft Azure (**Azure**), or Google Cloud Platform (**GCP**).
 
-- **Authorization system**— A **List** of accounts and **Folders** in the authorization system.
+- **Authorization system**: A **List** of accounts and **Folders** in the authorization system.
  
     - To display a **List** of accounts and **Folders** that you can include in your query:
 

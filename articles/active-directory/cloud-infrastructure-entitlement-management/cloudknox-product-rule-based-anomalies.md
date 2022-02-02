@@ -1,6 +1,6 @@
 ---
-title: Create and view rule-based anomalies and anomaly triggers in Microsoft CloudKnox Permissions Management 
-description: How to create and view rule-based anomalies and anomaly triggers in Microsoft CloudKnox Permissions Management.
+title: Create and view rule-based anomalies and anomaly triggers in CloudKnox Permissions Management 
+description: How to create and view rule-based anomalies and anomaly triggers in CloudKnox Permissions Management.
 services: active-directory
 author: Yvonne-deQ
 manager: karenh444
@@ -14,7 +14,7 @@ ms.author: v-ydequadros
 
 # Create and view rule-based anomaly alerts and anomaly triggers 
 
-Rule-based anomalies identify recent activity in Microsoft CloudKnox Permissions Management (CloudKnox) that is determined to be unusual based on explicit rules defined in the activity trigger. The goal of rule-based anomaly is high precision detection.
+Rule-based anomalies identify recent activity in CloudKnox Permissions Management (CloudKnox) that is determined to be unusual based on explicit rules defined in the activity trigger. The goal of rule-based anomaly is high precision detection.
 
 ## View rule-based anomaly alerts
 

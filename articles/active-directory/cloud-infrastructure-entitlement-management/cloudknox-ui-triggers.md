@@ -1,6 +1,6 @@
 ---
-title: View information about activity triggers in Microsoft CloudKnox Permissions Management
-description: How to view information about activity triggers in the Activity triggers dashboard in Microsoft CloudKnox Permissions Management.
+title: View information about activity triggers in CloudKnox Permissions Management
+description: How to view information about activity triggers in the Activity triggers dashboard in CloudKnox Permissions Management.
 services: active-directory
 author: Yvonne-deQ
 manager: karenh444
@@ -14,7 +14,7 @@ ms.author: v-ydequadros
 
 # View information about activity triggers
 
-This article describes how to use the **Activity triggers** dashboard in Microsoft CloudKnox Permissions Management (CloudKnox) to view information about activity alerts and triggers.
+This article describes how to use the **Activity triggers** dashboard in CloudKnox Permissions Management (CloudKnox) to view information about activity alerts and triggers.
 
 ## Display the Activity triggers dashboard
 
@@ -34,7 +34,7 @@ This article describes how to use the **Activity triggers** dashboard in Microso
 
 ## The Alerts subtab
 
-The **Alerts** subtab in the **Activity**, **Rule-based anomaly**, **Statistical anomaly**, and **Permission analytics** tabs displays the following information:
+The **Alerts** subtab in the **Activity**, **Rule-based anomaly**, **Statistical anomaly**, and **Permission analytics** tab displays the following information:
 
 - **Alert Name**: You can display **All** triggers or specific triggers.
 - **Date**: You can select **Last 24 hours**, **Last 2 Days**, **Last week**, or **Custom range.**
@@ -51,7 +51,7 @@ The **Rule-based anomaly** tab and the **Statistical anomaly** tab both have one
 
 ## The Alert triggers subtab
 
-The **Alert triggers** subtab in the **Activity**, **Rule-based anomaly**, **Statistical anomaly**, and **Permission analytics** tabs displays the following information:
+The **Alert triggers** subtab in the **Activity**, **Rule-based anomaly**, **Statistical anomaly**, and **Permission analytics** tab displays the following information:
 
 - **Status**: Select the alert status you want to display: **All**, **Activated**, or **Deactivated**.
 - **Apply**: Select this option to activate your settings. 

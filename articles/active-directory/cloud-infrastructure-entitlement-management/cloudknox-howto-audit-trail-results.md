@@ -1,6 +1,6 @@
 ---
-title: Generate an on-demand report from a query in Microsoft CloudKnox Permissions Management 
-description: How to generate an on-demand report from a query in Microsoft CloudKnox Permissions Management.
+title: Generate an on-demand report from a query in CloudKnox Permissions Management 
+description: How to generate an on-demand report from a query in CloudKnox Permissions Management.
 services: active-directory
 author: Yvonne-deQ
 manager: karenh444
@@ -14,7 +14,7 @@ ms.author: v-ydequadros
 
 # Generate an on-demand report from a query
 
-This article describes how you can generate an on-demand report from a query in the Audit trail dashboard in Microsoft CloudKnox Permissions Management (CloudKnox).
+This article describes how you can generate an on-demand report from a query in the Audit trail dashboard in CloudKnox Permissions Management (CloudKnox).
 
 - Run on-demand.
 - Schedule and run as often as you want.

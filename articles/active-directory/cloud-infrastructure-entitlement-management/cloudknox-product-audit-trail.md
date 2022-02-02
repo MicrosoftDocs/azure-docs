@@ -1,6 +1,6 @@
 ---
-title: Filter and query user activity in Microsoft CloudKnox Permissions Management 
-description: How to filter and query user activity in Microsoft CloudKnox Permissions Management.
+title: Filter and query user activity in CloudKnox Permissions Management 
+description: How to filter and query user activity in CloudKnox Permissions Management.
 services: active-directory
 author: Yvonne-deQ
 manager: karenh444
@@ -14,7 +14,7 @@ ms.author: v-ydequadros
 
 # Filter and query user activity
 
-The **Audit trail** dashboard in Microsoft CloudKnox Permissions Management (CloudKnox) details all user activity performed in your authorization system. It captures all high risk activity in a centralized location, and allows system administrators to query the logs. 
+The **Audit trail** dashboard in CloudKnox Permissions Management (CloudKnox) details all user activity performed in your authorization system. It captures all high risk activity in a centralized location, and allows system administrators to query the logs. 
 
 The **Audit trail** dashboard enables you to: 
 

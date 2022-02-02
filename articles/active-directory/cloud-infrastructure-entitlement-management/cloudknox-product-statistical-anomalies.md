@@ -1,6 +1,6 @@
 ---
-title: Find outliers in an identity's behavior in Microsoft CloudKnox Permissions Management
-description: How to find outliers in an identity's behavior in the Statistical Anomaly tab in Microsoft CloudKnox Permissions Management.
+title: Find outliers in an identity's behavior in CloudKnox Permissions Management
+description: How to find outliers in an identity's behavior in the Statistical Anomaly tab in CloudKnox Permissions Management.
 services: active-directory
 author: Yvonne-deQ
 manager: karenh444
