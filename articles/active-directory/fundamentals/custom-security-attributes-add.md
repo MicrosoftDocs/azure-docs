@@ -388,9 +388,7 @@ POST https://graph.microsoft.com/beta/directory/customSecurityAttributeDefinitio
 - Attribute set: `Engineering`
 - Attribute: `Project`
 - Attribute data type: Collection of Strings
-- Predefined value: `Alpine`
-- Predefined value: `Baker`
-- Predefined value: `Cascade`
+- Predefined values: `Alpine`, `Baker`, `Cascade`
 
 ```http
 POST https://graph.microsoft.com/beta/directory/customSecurityAttributeDefinitions
@@ -441,9 +439,7 @@ PATCH https://graph.microsoft.com/beta/directory/customSecurityAttributeDefiniti
 - New predefined value: `Skagit`
 
 > [!NOTE]
-> For this request, you must add the following to the header:<br/>
-> Key: odata-version<br/>
-> Value: 4.01
+> For this request, you must add the **OData-Version** header and assign it the value `4.01`.
 
 ```http
 PATCH https://graph.microsoft.com/beta/directory/customSecurityAttributeDefinitions/Engineering_Project
