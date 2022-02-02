@@ -103,7 +103,7 @@ First you need to authenticate to your Azure Active Directory. In this tutorial,
     from azure.core.exceptions import HttpResponseError
     ```
 
-2.	As said previously, you need to specify the following information in the code: 
+2.	Specify the following information in the code: 
     * Client ID (or Application ID)
     * Tenant ID (or Directory ID)
     * Client secret
