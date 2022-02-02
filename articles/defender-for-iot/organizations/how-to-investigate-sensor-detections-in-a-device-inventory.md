@@ -287,10 +287,10 @@ You can export device inventory information to .csv file.
 
 **To export:**
 
-- Select Export file from the Device Inventory page. The report is generated and downloaded.
+- Select **Export file** from the Device Inventory page. The report is generated and downloaded.
 
 ## See also
 
 [Investigate all enterprise sensor detections in a device inventory](how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md)
 
-[Work with site map views](how-to-gain-insight-into-global-regional-and-local-threats.md#work-with-site-map-views)
+[Manage your IoT devices with the device inventory](../device-builders/how-to-manage-device-inventory-on-the-cloud.md#manage-your-iot-devices-with-the-device-inventory)
