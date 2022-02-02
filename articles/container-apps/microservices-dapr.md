@@ -322,9 +322,9 @@ Using the properties you sourced from the steps above, create a config file name
   # should be securely stored. For more information, see
   # https://docs.dapr.io/operations/components/component-secrets
   - name: accountName
-    secretRef: storageaccountnamesecret
+    secretRef: storageAccountName
   - name: accountKey
-    secretRef: storageaccountkeysecret
+    secretRef: storageAccountKey
   - name: containerName
     value: <YOUR_STORAGE_CONTAINER_NAME>
 ```
@@ -354,7 +354,7 @@ az containerapp create \
   --enable-dapr \
   --dapr-app-port 3000 \
   --dapr-app-id nodeapp \
- --secrets "storageaccountnamesecret=${STORAGE_ACCOUNT},storageaccountkeysecret=${STORAGE_ACCOUNT_KEY}" \
+  --secrets "storageAccountName=${STORAGE_ACCOUNT},storageAccountKey=${STORAGE_ACCOUNT_KEY}" \
   --dapr-components ./components.yaml
 ```
 
@@ -373,7 +373,7 @@ az containerapp create `
   --enable-dapr `
   --dapr-app-port 3000 `
   --dapr-app-id nodeapp `
-  --secrets "storageaccountnamesecret=${STORAGE_ACCOUNT},storageaccountkeysecret=${STORAGE_ACCOUNT_KEY}" `
+  --secrets "storageAccountName=${STORAGE_ACCOUNT},storageAccountKey=${STORAGE_ACCOUNT_KEY}" `
   --dapr-components ./components.yaml
 ```
 
