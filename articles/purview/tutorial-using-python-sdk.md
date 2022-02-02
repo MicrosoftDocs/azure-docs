@@ -89,7 +89,7 @@ Get the following information from your service principal and secret, they will 
 
 ## Instantiate a Scanning and a Catalog client 
 In this section, you learn how to instantiate:
-*    A scanning client useful to deal with scan-related tasks like registering data sources, creating and managing scan rules, triggering a scan, etc. 
+*    A scanning client useful to registering data sources, creating and managing scan rules, triggering a scan, etc. 
 *    A catalog client useful to interact with the catalog through searching, browsing the discovered assets, identifying the sensitivity of your data, etc.
 
 First you need to authenticate to your Azure Active Directory. In this tutorial, you will use the [client secret you created](https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal#option-2-create-a-new-application-secret).
@@ -241,7 +241,7 @@ Scanning a data source is done in three steps:
 
 In this tutorial, you will use the default scan rules for Blob Storage containers. However, you can easily create custom scan rules programmatically with the Azure Purview Scanning Client.
 
-Now let us scan the data source you registered above.
+Now let's scan the data source you registered above.
 
 1. Add an import statement to generate [unique identifier](https://en.wikipedia.org/wiki/Universally_unique_identifier):
     ```python
