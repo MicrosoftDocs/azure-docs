@@ -1,12 +1,12 @@
 ---
 title: Connect to SFTP server with SSH
-description: Automate tasks that monitor, create, manage, send, and receive files for an SFTP server by using SSH and Azure Logic Apps
+description: Automate tasks that monitor, create, manage, send, and receive files for an SFTP server by using SSH and Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
-ms.reviewer: estfan, logicappspm, azla
-ms.topic: conceptual
-ms.date: 01/12/2022
+ms.reviewer: estfan, azla
+ms.topic: how-to
+ms.date: 02/01/2022
 tags: connectors
 ---
 
@@ -63,6 +63,12 @@ For differences between the SFTP-SSH connector and the SFTP connector, review th
   | **Update file** | No | Not applicable |
   ||||
 
+  > [!IMPORTANT]
+  > If you use chunking with SFTP-SSH operations that create files on your SFTP server, 
+  > these operations create temporary `.partial` and `.lock` files. These files help 
+  > the create file operations use chunking. Don't remove or change these files. 
+  > Otherwise, the file operations fail. When the operations finish, they delete the temporary files.
+
 * SFTP-SSH triggers don't support message chunking. When requesting file content, triggers select only files that are 15 MB or smaller. To get files larger than 15 MB, follow this pattern instead:
 
   1. Use an SFTP-SSH trigger that returns only file properties. These triggers have names that include the description, **(properties only)**.
@@ -85,16 +91,16 @@ The following list describes key SFTP-SSH capabilities that differ from the SFTP
 
 ## Prerequisites
 
-* An Azure subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/).
+* An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 * Your SFTP server address and account credentials, so your workflow can access your SFTP account. You also need access to an SSH private key and the SSH private key password. To upload large files using chunking, you need both read and write access for the root folder on your SFTP server. Otherwise, you get a "401 Unauthorized" error.
 
   The SFTP-SSH connector supports both private key authentication and password authentication. However, the SFTP-SSH connector supports *only* these private key formats, encryption algorithms, fingerprints, and key exchange algorithms:
 
   * **Private key formats**: RSA (Rivest Shamir Adleman) and DSA (Digital Signature Algorithm) keys in both OpenSSH and ssh.com formats. If your private key is in PuTTY (.ppk) file format, first [convert the key to the OpenSSH (.pem) file format](#convert-to-openssh).
-  * **Encryption algorithms**: DES-EDE3-CBC, DES-EDE3-CFB, DES-CBC, AES-128-CBC, AES-192-CBC, and AES-256-CBC
+  * **Encryption algorithms**: Review [Encryption Method - SSH.NET](https://github.com/sshnet/SSH.NET#encryption-method).
   * **Fingerprint**: MD5
-  * **Key exchange algorithms**: curve25519-sha256, curve25519-sha256@libssh.org, ecdh-sha2-nistp256, ecdh-sha2-nistp384, ecdh-sha2-nistp521, diffie-hellman-group-exchange-sha256, diffie-hellman-group-exchange-sha1, diffie-hellman-group16-sha512, diffie-hellman-group14-sha256, diffie-hellman-group14-sha1, and diffie-hellman-group1-sha1
+  * **Key exchange algorithms**: Review [Key Exchange Method - SSH.NET](https://github.com/sshnet/SSH.NET#key-exchange-method).
 
   After you add an SFTP-SSH trigger or action to your workflow, you have to provide connection information for your SFTP server. When you provide your SSH private key for this connection, ***don't manually enter or edit the key***, which might cause the connection to fail. Instead, make sure that you ***copy the key*** from your SSH private key file, and ***paste*** that key into the connection details. For more information, see the [Connect to SFTP with SSH](#connect) section later this article.
 
