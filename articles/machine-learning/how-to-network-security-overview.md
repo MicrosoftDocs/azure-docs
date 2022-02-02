@@ -32,7 +32,7 @@ Secure Azure Machine Learning workspace resources and compute environments using
 
 ## Prerequisites
 
-This article assumes that you have familiarity with the following articles:
+This article assumes that you have familiarity with the following topics:
 + [Azure Virtual Networks](../virtual-network/virtual-networks-overview.md)
 + [IP networking](../virtual-network/ip-services/public-ip-addresses.md)
 + [Azure Machine Learning workspace with private endpoint](how-to-configure-private-link.md)
