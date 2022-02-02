@@ -113,7 +113,7 @@ Follow these instructions to provision the Device Update agent on [IoT Edge enab
 	
 1. You are now ready to start the Device Update agent on your IoT Edge device. 
 
-### On non-Edge IoT Linux devices
+### On device without Iot Edge installed IoT Linux devices
 
 Follow these instructions to provision the Device Update agent on your IoT Linux devices.
 
@@ -127,46 +127,18 @@ Follow these instructions to provision the Device Update agent on your IoT Linux
     ```shell
    	sudo apt-get install aziot-identity-service
     ```
-        
-1. Provisioning IoT Identity service to get the IoT device information.
 
-    Create a custom copy of the configuration template so we can add the provisioning information. In a terminal, enter the following command:
-      
-    ```shell
-    sudo cp /etc/aziot/config.toml.template /etc/aziot/config.toml 
-    ```
+2. Follow the configuration instruction here.[Note: Link to https://azure.github.io/iot-identity-service/configuration.html]
    
-1. Next edit the configuration file to include the connection string of the device you wish to act as the provisioner for this device or machine. 
+    
+3. Finally install the Device Update agent. We provide sample images in [Assets here](https://github.com/Azure/iot-hub-device-update/releases), the swUpdate file is the base image that you can flash onto a Raspberry Pi B3+ board, and the .gz file is the update you would import through Device Update for IoT Hub. See example of [how to flash the image to your IoT Hub device](./device-update-raspberry-pi.md#flash-sd-card-with-image).
 
-    The connection string is obtained from the IoT Device propoerties. Please see [Add Device to IoT Hub](device-update-simulator.md#add-device-to-azure-iot-hub) for more information. 
-
-    Once you have the connection string, enter the below command in the terminal.
+4. After you've installed the device update agent, you will need to edit the configuration file for Device Update by running the command below. 
 
     ```shell
-    sudo nano /etc/aziot/config.toml
+   	sudo nano /etc/adu/du-config.json
     ```
-   
-1. You should see a message like the following example:
-
-    :::image type="content" source="media/understand-device-update/config.png" alt-text="Diagram of IoT Identity Service config file." lightbox="media/understand-device-update/config.png":::
-
-    1. In the same nano window, find the block with “Manual provisioning with connection string”.
-    1. In the window, delete the “#” symbol ahead of 'provisioning'
-    1. In the window, delete the “#” symbol ahead of 'source' 
-    1. In the window, delete the “#” symbol ahead of 'connection_string'
-    1. In the window, delete the string within the quotes to the right of 'connection_string' and then add your connection string there 
-    1. Save your changes to the file with 'Ctrl+X' and then 'Y' and hit the 'enter' key to save your changes. 
-    
-1. Now apply and restart the IoT Identity service with the command below. You should now see a “Done!” printout that means you have successfully configured the IoT Identity Service.
-
-    > [!Note]
-    > The IoT Identity service registers module identities with IoT Hub by using symmetric keys currently.
-    
-    ```shell
-    sudo aziotctl config apply
-    ```
-    
-1. Finally install the Device Update agent. We provide sample images in [Assets here](https://github.com/Azure/iot-hub-device-update/releases), the swUpdate file is the base image that you can flash onto a Raspberry Pi B3+ board, and the .gz file is the update you would import through Device Update for IoT Hub. See example of [how to flash the image to your IoT Hub device](./device-update-raspberry-pi.md#flash-sd-card-with-image).
+   Change the connectionType to "AIS" for agents who will be using the IoT Identity Service for provisioning. The ConnectionData field must be a empty string
 
 1. You are now ready to start the Device Update agent on your IoT device. 
 
