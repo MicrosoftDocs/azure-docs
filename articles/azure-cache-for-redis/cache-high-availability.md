@@ -51,7 +51,7 @@ Azure Cache for Redis distributes nodes in a zone redundant cache in a round-rob
 
 A zone redundant cache provides automatic failover. When the current primary node is unavailable, one of the replicas will take over. Your application may experience higher cache response time if the new primary node is located in a different AZ. AZs are geographically separated. Switching from one AZ to another alters the physical distance between where your application and cache are hosted. This change impacts round-trip network latencies from your application to the cache. The extra latency is expected to fall within an acceptable range for most applications. We recommend you test your application to ensure it does well with a zone-redundant cache.
 
-### Enterprise tiers
+### Enterprise tier
 
 A cache in either Enterprise tier runs on a Redis Enterprise cluster. It always requires an odd number of server nodes to form a quorum. By default, it has three nodes, each hosted on a dedicated VM. An Enterprise cache has two same-sized *data nodes* and one smaller *quorum node*. An Enterprise Flash cache has three same-sized data nodes. The Enterprise cluster divides Redis data into partitions internally. Each partition has a *primary* and at least one *replica*. Each data node holds one or more partitions. The Enterprise cluster ensures that the primary and replica(s) of any partition are never collocated on the same data node. Partitions replicate data asynchronously from primaries to their corresponding replicas.
 
@@ -74,7 +74,7 @@ An application accesses the cache through separate endpoints for the primary and
 
 Geo-replication doesn't provide automatic failover because of concerns over added network roundtrip time between regions if the rest of your application remains in the primary region. You'll need to manage and start the failover by unlinking the secondary cache. Unlinking promotes it to be the new primary instance.
 
-### Enterprise tiers geo-replication
+### Enterprise tier geo-replication
 
 The Enterprise tiers support a more advanced form of geo-replication. We call it [active geo-replication](cache-how-to-active-geo-replication.md). Using conflict-free replicated data types, the Redis Enterprise software supports writes to multiple cache instances and takes care of merging of changes and resolving conflicts. You can join two or more Enterprise tier cache instances in different Azure regions to form an active geo-replicated cache.
 
