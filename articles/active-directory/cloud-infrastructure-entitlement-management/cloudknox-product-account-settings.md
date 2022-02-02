@@ -1,6 +1,6 @@
 ---
-title: Microsoft CloudKnox Permissions Management - Set personal information and preferences
-description: How to set personal information, passwords, and account preferences in the Account Settings dashboard in CloudKnox Permissions Management.
+title: Microsoft CloudKnox Permissions Management - Set personal and organization information
+description: How to set personal and organization information in the Account Settings dashboard in CloudKnox Permissions Management.
 services: active-directory
 manager: karenh444
 ms.service: active-directory
@@ -10,62 +10,32 @@ ms.date: 02/02/2022
 ms.author: v-ydequadros
 ---
 
-# Set personal information and preferences
+# Set personal and organization information
 
 The **Account settings** dashboard in Microsoft CloudKnox Permissions Management (CloudKnox) allows you to set personal information, passwords, and account preferences.
 
-## Display the Account settings dashboard
-
-- In the CloudKnox home page, select the down arrow to the right of the **User** (your initials) menu, and then select **Account settings**.
-
 ## Set personal information
 
+1. In the CloudKnox home page, select the down arrow to the right of the **User** (your initials) menu, and then select **Account settings**.
 1. On the **Account settings** dashboard, under **Personal information**, select **Edit**.
 
-2. In the **First name** and **Last name** boxes, enter the user's name. 
+1. In the **First name** and **Last name** boxes, enter the user's name. 
 
-     The **Email** field can't be modified because the CloudKnox account is linked to the email address used to register on the application.
+     The **Email** field can't be modified because the account is linked to the email address that was used to register on CloudKnox.
 
-## Set company information
+## Set current organization information
 
-1. On the **Account settings** dashboard, under **Company information**, select **Edit**.
+1. In the CloudKnox home page, select the down arrow to the right of the **User** (your initials) menu, and then select **Account settings**.
+1. On the **Account settings** dashboard, under **Current organization information**, select **Edit**.
 
-2. In the **Company** box, enter the name of the company. 
+1. In the **Name** box, enter the name of the organization. 
 
-     The company name appears in the top-left part of the application.
+     The organization name appears in the CloudKnox title bar.
 
-3. In the **Title** box, enter the user's title.
+1. In the **Tenant ID** box, enter the tenant identification number.
 
-## Set account preferences
-
-1. On the **Account settings** dashboard, under **Account preferences**, select **Edit**.
-
-2. In the box next to **User session timeout (min)**, enter the number of minutes before you want a user session to time out.
-
-## View information about your organizations
-
-The **Organizations information** page displays the following information:
-
-- **Name** - The organization name.
-- **Title** - The user's title, if applicable.
-- **Current** - A check mark displays here to indicate the user is current.
-- **Primary** - A check mark displays here to indicate the user belongs to the primary organization.
-
-If you're part of multiple organizations:
-
-- You can switch to a particular organization. You'll be asked to sign in into that organization when you make the change.
-- You can assign another organization as the primary organization. Next time you sign in, you'll sign in to your primary organization.
-
-## Change the password for your account 
-
-1. On the **Account settings** page, under **Change password**, enter the following details:
-
-      - **Current password**
-      - **New password**
-      - **Confirm password**
-
-2. Select **Change password**.
+1. In **User session timeout (min)** box, enter the number of minutes before you want a user session to time out.
 
 ## Next steps
 
-- For an overview on how to view personal and organization information, see [View personal and organization information](cloudknox-ui-account-settings.md)
+- For information about how to manage user information, see [Manage users with the User management dashboard](cloudknox-ui-user-management.md).
