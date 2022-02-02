@@ -131,7 +131,7 @@ The SDK supports various customization options, including:
 
   - Text for function codes. 
 
-  - Full localization text for alerts, events, and protocol parameters. For more information, see [Create mapping files (JSON)](#create-mapping-files-json).
+  - Full localization text for alerts, events, and protocol parameters.
 
   :::image type="content" source="media/references-horizon-sdk/localization.png" alt-text="View fully localized alerts.":::
 
