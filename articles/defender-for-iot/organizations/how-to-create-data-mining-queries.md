@@ -33,7 +33,6 @@ Find these reports in Analyze** > **Data Mining*. Reports are available for user
 
 ## Create a report
 
-
 1. In Defender for IoT, **Data mining**.
 1. Select **Create report**.
 1. In the **Create new report** dialog, specify a report name and optional description.
@@ -49,15 +48,6 @@ Reports are dynamically updated each time you open them. For example:
 ## Managing reports
 
 Reports can be viewed in the **Data Mining** page, You can refresh a report, edit report parameters, and export to a CSV file or PDF. You can also take a snapshot of a report.
-
-#
-#### Customize the CVE list
-
-You can manually customize the CVE list as follows:
-
-  - Include/exclude CVEs
-
-  - Change the CVE score
 
 
 ## View reports in on-premises management console

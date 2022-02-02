@@ -2,7 +2,7 @@
 title: Track sensor activity in Defender for IoT
 description: Track sensor activity in the event timeline.
 ms.date: 02/01/2022
-ms.topic: articleg
+ms.topic: how-to
 ---
 
 # Track sensor activity
