@@ -253,12 +253,13 @@ To connect the device to Azure, you'll modify a configuration file for Azure IoT
 
     |Constant name|Value|
     |-------------|-----|
-    |`DEVICE_ID`| {*Your deviceID value*}|
+    |`ENDPOINT`| "global.azure-devices-provisioning.net"|
+    |`REGISTRATION_ID`| {*Use your DEVICE_ID value*}|
     |`ID_SCOPE`| {*Your idScope value*}|
     |`DEVICE_SYMMETRIC_KEY`| {*Your primaryKey value*}|
 
      > [!NOTE]
-    > The `DEVICE_ID`, `ID_SCOPE`, and `DEVICE_SYMMETRIC_KEY` values are set in a `#ifndef ENABLE_DPS_SAMPLE` statement. Make sure you set the values in the `#else` statement, which will be used when the `ENABLE_DPS_SAMPLE` value is defined.
+    > The `ENDPOINT`, `DEVICE_ID`, `ID_SCOPE`, and `DEVICE_SYMMETRIC_KEY` values are set in a `#ifndef ENABLE_DPS_SAMPLE` statement. Make sure you set the values in the `#else` statement, which will be used when the `ENABLE_DPS_SAMPLE` value is defined.
 
 1. Save the file.
 
