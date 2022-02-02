@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 02/02/2021
+ms.date: 02/02/2022
 ms.author: curtand
 ms.reviewer: shaunliu
 ms.custom: pim

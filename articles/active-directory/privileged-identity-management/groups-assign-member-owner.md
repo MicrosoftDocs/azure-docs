@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 11/09/2021
+ms.date: 02/02/2022
 ms.author: curtand
 ms.reviewer: shaunliu
 ms.custom: pim
