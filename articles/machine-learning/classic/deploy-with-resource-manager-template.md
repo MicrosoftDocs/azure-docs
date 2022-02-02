@@ -99,7 +99,7 @@ Connect-AzAccount
 ```
 This step needs to be repeated for each session. Once authenticated, your subscription information should be displayed.
 
-![Azure Account](/articles/marketplace/media/test-drive/azure-subscriptions.png)
+![Azure Account](/azure/marketplace/media/test-drive/azure-subscriptions.png)
 
 Now that we have access to Azure, we can create the resource group.
 
@@ -137,7 +137,7 @@ Another way to retrieve tokens of existing workspace is to use the Invoke-AzReso
 # List the primary and secondary tokens of all workspaces
 Get-AzResource |? { $_.ResourceType -Like "*MachineLearning/workspaces*"} |ForEach-Object { Invoke-AzResourceAction -ResourceId $_.ResourceId -Action listworkspacekeys -Force}
 ```
-After the workspace is provisioned, you can also automate many Machine Learning Studio (classic) tasks using the [PowerShell Module for Machine Learning Studio (classic)](https://aka.ms/amlps).
+After the workspace is provisioned, you can also automate many Machine Learning Studio (classic) tasks using the [PowerShell Module for Machine Learning Studio (classic)](/previous-versions/azure/machine-learning/classic/powershell-module).
 
 ## Next steps
 

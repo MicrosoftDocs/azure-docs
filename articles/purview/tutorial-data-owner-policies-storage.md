@@ -55,14 +55,18 @@ Execute the steps in the [data-owner policy authoring tutorial](how-to-data-owne
 ![Image shows a sample data owner policy giving access to an Azure Storage account.](./media/tutorial-data-owner-policies-storage/data-owner-policy-example-storage.png)
 
 
-## Additional information
 >[!Important]
 > - Publish is a background operation. It can take up to **2 hours** for the changes to be reflected in Storage account(s).
 
+
+## Additional information
 - Policy statements set below container level on a Storage account are supported. If no access has been provided at Storage account level or container level, then the App that will execute the access will need to provide a fully qualified name (i.e., a direct absolute path) to the data object. The following documents show examples of how to do that:
   - [*abfs* for ADLS Gen2](../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md#access-files-from-the-cluster)
   - [*az storage blob download* for Blob Storage](../storage/blobs/storage-quickstart-blobs-cli.md#download-a-blob)
- - Creating a policy at Storage account level will enable the Subjects to access system containers e.g., *$logs*. If this is undesired, first scan the data source and then create the policy at container or sub-container level.
+- Creating a policy at Storage account level will enable the Subjects to access system containers e.g., *$logs*.  If this is undesired, first scan the data source(s) and then create finer-grained policies for each (i.e., at container or sub-container level).
+
+
+### Limits
 - The limit for Azure Purview policies that can be enforced by Storage accounts is 100MB per subscription, which roughly equates to 5000 policies.
 
 ### Known issues
@@ -70,7 +74,6 @@ Execute the steps in the [data-owner policy authoring tutorial](how-to-data-owne
 > [!Warning]
 > **Known issues** related to Policy creation
 > - Do not create policy statements based on Azure Purview resource sets. Even if displayed in Azure Purview policy authoring UI, they are not yet enforced. Learn more about [resource sets](concept-resource-sets.md).
-> - Once subscription gets disabled for *Data use governance* any underlying assets that are enabled for *Data use governance* will be disabled, which is the right behavior. However, policy statements based on those assets will still be allowed after that.
 
 ### Policy action mapping
 

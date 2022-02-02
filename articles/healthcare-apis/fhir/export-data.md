@@ -75,4 +75,4 @@ In this article, you've learned how to export FHIR resources using the $export c
 >[Export de-identified data](de-identified-export.md)
 
 >[!div class="nextstepaction"]
->[Export to Synapse](move-to-synapse.md)
+>[Copy data from the FHIR service to Azure Synapse Analytics](copy-to-synapse.md)

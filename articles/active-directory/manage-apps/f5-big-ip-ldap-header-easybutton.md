@@ -19,7 +19,7 @@ In this article, you'll learn to implement Secure Hybrid Access (SHA) with singl
 
 Enabling BIG-IP published services for Azure Active Directory (Azure AD) SSO provides many benefits, including:
 
-* Improved Zero Trust governance through Azure AD pre-authentication and authorization
+* Improved Zero Trust governance through Azure AD pre-authentication and [Conditional Access](/conditional-access/overview)
 
 * Full SSO between Azure AD and BIG-IP published services
 
