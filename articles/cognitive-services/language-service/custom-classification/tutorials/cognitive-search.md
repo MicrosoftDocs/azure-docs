@@ -57,7 +57,7 @@ In this tutorial, you will learn how to:
 
 ## Train your model
 
-[!INCLUDE [Train a model using Language Studio](../train-model-language-studio.md)]
+[!INCLUDE [Train a model using Language Studio](../includes/train-model-language-studio.md)]
 
 ## Deploy your model
 
