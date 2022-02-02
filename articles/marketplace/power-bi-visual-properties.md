@@ -16,7 +16,7 @@ This page lets you define the [categories](./categories.md) used to group your o
 
 ## Categories
 
-Select up to three **[Categories](./categories.md)** for grouping your offer into the appropriate marketplace search areas. This table shows the categories that are available for Power Bi Visuals.
+Select up to three **[Categories](./categories.md)** for grouping your offer into the appropriate marketplace search areas. This table shows the categories that are available for Power BI Visuals.
 
 | Category | Description |
 | ------------ | ------------- |
