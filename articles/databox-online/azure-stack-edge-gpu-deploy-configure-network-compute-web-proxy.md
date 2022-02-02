@@ -190,11 +190,11 @@ To configure the network for a 2-node device, follow these steps on the first no
 
 1. In the **Network** page, configure the IP addresses for your network interfaces. On your physical device, there are six network interfaces. PORT 1 and PORT 2 are 1-Gbps network interfaces. PORT 3, PORT 4, PORT 5, and PORT 6 are all 25-Gbps network interfaces that can also serve as 10-Gbps network interfaces. PORT 1 is automatically configured as a management-only port, and PORT 2 to PORT 6 are all data ports. For a new device, the **Network settings** page is as shown below.
     
-    ![Local web UI "Network settings" page for a new device](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/configure-network-interface-1.png)
+    ![Local web UI "Advanced networking" page for a new device 1](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/configure-network-interface-1.png)
 
     To change the network settings, select a port and in the right pane that appears, modify the IP address, subnet, gateway, primary DNS, and secondary DNS. You can configure your network interface as IPv4.
 
-    ![Local web UI "Network settings" page for a new device](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/configure-network-settings-1.png)
+    ![Local web UI "Advanced networking" page for a new device 2](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/configure-network-settings-1.png)
 
     As you configure the network settings, keep in mind:
 
@@ -383,6 +383,9 @@ For clients connecting via NFS protocol to the two-node device, follow these ste
 ### Configure virtual switches and compute IPs
 
 After the cluster is formed and configured, you'll now create new virtual switches or assign intent to the existing virtual switches that are created based on the selected network topology.
+
+> [!IMPORTANT]
+> On a two-node cluster, compute should only be configured on a virtual switch 
 
 1. In the  local UI, go to **Advanced networking** page. 
 1. In the **Virtual switch** section, you'll assign compute intent to a virtual switch. You can select an existing virtual switch or select **Add virtual switch** to create a new switch. 
