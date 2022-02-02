@@ -17,6 +17,38 @@ In this article, learn about Azure Machine Learning Python SDK releases.  For th
 
 __RSS feed__: Get notified when this page is updated by copying and pasting the following URL into your feed reader:
 `https://docs.microsoft.com/api/search/rss?search=%22Azure+machine+learning+release+notes%22&locale=en-us`
+
+## 2022-01-24 
+
+### Azure Machine Learning SDK for Python v1.38.0 
+  + **azureml-automl-core**
+    + Tabnet Regressor and Tabnet Classifier support in AutoML
+    + Saving data transformer in parent run outputs, which can be reused to produce same featurized dataset which was used during the experiment run
+    + Supporting getting primary metrics for Forecasting task in get_primary_metrics API.
+    + Renamed second optional parameter in v2 scoring scripts as GlobalParameters
+  + **azureml-automl-dnn-vision**
+    + Added the scoring metrics in the metrics UI
+  + **azureml-automl-runtime**
+    + Bug fix for cases where the algorithm name for NimbusML models may show up as empty strings, either on the ML Studio, or on the console outputs.
+  + **azureml-core**
+    + Added parameter blobfuse_enabled in azureml.core.webservice.aks.AksWebservice.deploy_configuration. When this parameter is true, models and scoring files will be downloaded with blobfuse instead of the blob storage API.
+  + **azureml-interpret**
+    + Updated azureml-interpret to interpret-community 0.24.0
+    + In azureml-interpret update scoring explainer to support latest version of lightgbm with sparse TreeExplainer
+    + Update azureml-interpret to interpret-community 0.23.*
+  + **azureml-pipeline-core**
+    + Add note in pipelinedata, recommend user to use pipeline output dataset instead.
+  + **azureml-pipeline-steps**
+    + Add `environment_variables` to ParallelRunConfig, runtime environment variables can be passed by this parameter and will be set on the process where the user script is executed.
+  + **azureml-train-automl-client**
+    + Tabnet Regressor and Tabnet Classifier support in AutoML
+  + **azureml-train-automl-runtime**
+    + Saving data transformer in parent run outputs, which can be reused to produce same featurized dataset which was used during the experiment run
+  + **azureml-train-core**
+    + Enable support for early termination for Bayesian Optimization in Hyperdrive
+    + Bayesian and GridParameterSampling objects can now pass on properties
+
+
 ## 2021-12-13
 
 ### Azure Machine Learning SDK for Python v1.37.0

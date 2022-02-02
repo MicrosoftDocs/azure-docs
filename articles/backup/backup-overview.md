@@ -46,7 +46,7 @@ Azure Backup delivers these key benefits:
 
 ## How Azure Backup protects from ransomware?
 
-Azure Backup helps protect your critical business systems and backup data against a ransomware attack by implementing preventive measures and providing tools that protect your organization from every step that attackers take to infiltrate your systems. It provides security to your backup environment, both when your data is in transit and at rest. [Learn more](/azure/security/fundamentals/backup-plan-to-protect-against-ransomware)
+Azure Backup helps protect your critical business systems and backup data against a ransomware attack by implementing preventive measures and providing tools that protect your organization from every step that attackers take to infiltrate your systems. It provides security to your backup environment, both when your data is in transit and at rest. [Learn more](../security/fundamentals/backup-plan-to-protect-against-ransomware.md)
 
 ## Next steps
 

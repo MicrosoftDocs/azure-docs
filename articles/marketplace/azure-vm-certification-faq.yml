@@ -323,7 +323,7 @@ sections:
           3. Resubmit your certification request.
           
           >[!NOTE]
-          >If you are publishing a locked-down VM image which has disabled or restricted ssh, please enable to checkbox 'Remote desktop or SSH disabled' in the 'Technical configuration' page of Partner Center. This will inform Certification team that this is by design and perform the right validations on the image without failing it for restricted access.
+          >If you are publishing a locked-down VM image that has disabled or restricted ssh, please enable to checkbox 'Remote desktop or SSH disabled' in the 'Technical configuration' page of Partner Center. This will inform Certification team that this is by design and perform the right validations on the image without failing it for restricted access.
           
           ![Locked-down checkbox](./media/create-vm/vm-certification-issues-solutions-26.png)
       - question: |
@@ -342,50 +342,51 @@ sections:
           |
           
       - question: |
-          VM images must have 1MB free space
+          VM images must have 1 MB of free space
         answer: |
-          >[!NOTE]
-          >As of **30 September, 2021**, if you are publishing images to Azure (with **GPT partition**), **ensure the first 2048 sectors (1 MB) of the OS disk is empty**. Otherwise, your publishing will fail. This requirement is to allow Azure to add important bits to the image (example include bits to improve boot time for customers, billing and other details).
+          If you are publishing your image to Azure (with **GPT partition**), we *highly recommend* that you keep the first 2,048 sectors (1 MB) of the OS disk empty. This requirement is to allow Azure to add important metadata to the image (examples include metadata to improve boot time for customers, billing, and other details). Note that this is a recommendation for best practice if you are already using [an approved base image](azure-vm-create-using-approved-base.md) and your image has a valid billing tag. However, if your image does not have a valid billing tag, your publishing might fail if the first 1 MB of the OS disk isn't empty.
 
-          If you are [building your own image](azure-vm-create-using-own-image.md), ensure the first 2048 sectors (1 MB) of the OS disk is empty. Otherwise, your publishing will fail. This requirement is applicable to the OS disk only (not data disks). If you are building your image [from an approved base](azure-vm-create-using-approved-base.md), you can skip this requirement.
-          
-          ### How to keep 1 MB free space at the start on an empty VHD (2048 sectors, each sector of 512 bytes)
+          If you are building your own image that does not have any valid billing tag, ensure the first 2,048 sectors (1 MB) of the OS disk are empty. Otherwise, your publishing will fail. This requirement is applicable to the OS disk only (not data disks). If you are building your image from an approved base, it will already have first 1 MB empty. Hence, you won't need to work on it separately. 
 
-          These steps apply to Linux only.
+          To keep the first 1 MB free in your OS disk, complete the steps in the next section. 
+  
+          ### How to keep 1 MB of free space at the start on an empty VHD (2,048 sectors, each sector 512 bytes)
+
+          These steps apply only to Linux.
           
-          1. Create any kind of Linux VM, such as Ubuntu, Cent OS, or other. Fill the required fields and select **Next: Disks >**.
+          1. Create any kind of Linux VM, such as Ubuntu, CentOS, or other. Fill the required fields, and then select **Next: Disks**.
           
-             ![Screenshot that shows the Create a virtual machine page with the 'Next: Disks command' button highlighted.](./media/create-vm/vm-certification-issues-solutions-15.png)
+              ![Screenshot that shows the Create a virtual machine page with the Next: Disks command button highlighted.](./media/create-vm/vm-certification-issues-solutions-15.png)
           
-          1. Create an unmanaged disk for your VM.
+           1. Create an unmanaged disk for your VM. Either use the default values or specify any value for fields like **OS disk size**, **OS disk type**, and **Encryption type**.
+
+              ![Screenshot image of the Data disks page in the Create a virtual machine flow.](./media/create-vm/disks-pane.png)
           
-             Either use the default values or specify any value for fields like NIC, NSG, and public IP.
+           1. After you create the VM, in the left pane, select **Disks**.
           
-             ![Screenshot image of the 'Data disks' page in the Create a virtual machine flow.](./media/create-vm/vm-certification-issues-solutions-16.png)
+               ![Screenshot showing how to select disks for a V M.](./media/create-vm/vm-certification-issues-solutions-17.png)
           
-          1. After you create the VM, select **Disks** in the left pane.
+           1. Attach your VHD as data disk to your VM for creating a partition table.
           
-             ![Screenshot showing how to select disks for a VM.](./media/create-vm/vm-certification-issues-solutions-17.png)
+              1. Select **Attach existing disks**:
+
+                 ![Screenshot showing how to add a data disk to your V H D.](./media/create-vm/existing-data-disk.png)
+
+                 ![Screenshot showing how to select the data disk for your V H D.](./media/create-vm/source-data-disk.png)
           
-          1. Attach your VHD as data disk to your VM for creating a partition table.
+              1. Find your VHD storage account.
+              1. Select **Container**, and then select your VHD.
+              1. Select **OK**.
           
-             1. Select **Add DataDisk** > **Existing Blob**.
+                 ![Screenshot of the attach unmanaged disk page.](./media/create-vm/vm-certification-issues-solutions-19.png)
           
-                ![Screenshot showing how to add a data disk to your VHD.](./media/create-vm/vm-certification-issues-solutions-18.png)
-          
-             1. Find your VHD storage account.
-             1. Select **Container** and then select your VHD.
-             1. Select **OK**.
-          
-                ![Screenshot of the attach unmanaged disk page.](./media/create-vm/vm-certification-issues-solutions-19.png)
-          
-                Your VHD will be added as data disk LUN 0.
+                 Your VHD will be added as data disk LUN 0.
           
              1. Restart the VM.
           
           1. After you restart the VM, log in to the VM using Putty or another client and run the `sudo  -i` command to gain root access.
           
-             ![Putty client command line screenshot showing the sudo -i command.](./media/create-vm/vm-certification-issues-solutions-20.png)
+              ![Putty client command-line screenshot showing the sudo -i command.](./media/create-vm/vm-certification-issues-solutions-20.png)
           
           1. Create a partition on your VHD.
           
@@ -393,76 +394,27 @@ sections:
              1. To view the existing partition list from your VHD, enter `p`.
              1. Enter `d` to delete all existing partitions available in your VHD. You can skip this step, if it's not required.
           
-                ![Putty client command line screenshot showing the commands for deleting existing partitions.](./media/create-vm/vm-certification-issues-solutions-21.png)
+                 ![Putty client command-line screenshot showing the commands for deleting existing partitions.](./media/create-vm/vm-certification-issues-solutions-21.png)
           
              1. Enter `n` to create new partition and select `p` for (primary partition).
           
              1. Enter 2048 as _first sector_ value. You can leave _last sector_ as the default value.
           
                 >[!IMPORTANT]
-                >Any existing data will be erased till 2048 sectors (each sector of 512 bytes). Backup of the VHD before you create a new partition.
+                >Any existing data will be erased until 2048 sectors (each sector of 512 bytes). Back up the VHD before you create a new partition.
           
-                ![Putty client command line screenshot showing the commands and output for erased data.](./media/create-vm/vm-certification-issues-solutions-22.png)
+                ![Putty client command-line screenshot showing the commands and output for erased data.](./media/create-vm/vm-certification-issues-solutions-22.png)
           
              1. Type `w` to confirm the creation of partition.
           
-                ![Putty client command line screenshot showing the commands for creating a partition.](./media/create-vm/vm-certification-issues-solutions-23.png)
+                 ![Putty client command-line screenshot showing the commands for creating a partition.](./media/create-vm/vm-certification-issues-solutions-23.png)
           
              1. You can verify the partition table by running the command `n fdisk /dev/sdb` and typing `p`. You'll see that partition is created with 2048 offset value.
           
-                ![Putty client command line screenshot showing the commands for creating the 2048 offset.](./media/create-vm/vm-certification-issues-solutions-24.png)
+                 ![Putty client command-line screenshot showing the commands for creating the 2048 offset.](./media/create-vm/vm-certification-issues-solutions-24.png)
           
           1. Detach the VHD from VM and delete the VM.
-          
-          ### How to keep 1 MB free space by moving existing data on VHD (2048 sectors, each sector of 512 bytes)
-
-          These steps apply to Linux only.
-          
-          1. Create any kind of Linux VM, such as Ubuntu, Cent OS, or other. Fill the required fields and select **Next: Disks >**.
-          
-             ![Screenshot that shows the Create a virtual machine page with the 'Next: Disks command' button highlighted.](./media/create-vm/vm-certification-issues-solutions-15.png)
-          
-          1. Create an unmanaged disk for your VM.
-          
-             ![Screenshot image of the 'Data disks' page in the Create a virtual machine flow.](./media/create-vm/vm-certification-issues-solutions-16.png)
-          
-             Either use the default values or specify any value for fields like NIC, NSG, and public IP.
-          
-          1. After you create the VM, select **Disks** in the left pane.
-          
-             ![Screenshot showing how to select disks for a VM.](./media/create-vm/vm-certification-issues-solutions-17.png)
-          
-          1. Attach your VHD as data disk to your VM for creating a partition table.
-          
-             1. Attach your VHD as data disk to your VM for creating a partition table.
-          
-             1. Select **Add DataDisk** > **Existing Blob**.
-          
-                ![Screenshot showing how to add a data disk to your VHD.](./media/create-vm/vm-certification-issues-solutions-18.png)
-          
-             1. Find your VHD storage account.
-             1. Select **Container** and then select your VHD.
-             1. Select **OK**.
-          
-                ![Screenshot of the attach unmanaged disk page.](./media/create-vm/vm-certification-issues-solutions-19.png)
-          
-                Your VHD will be added as data disk LUN 0.
-          
-             1. Restart the VM.
-          
-          1. Log in to the VM with Putty or another client and run `sudo  -i` command to gain root access.
-          
-             ![Putty client command line screenshot showing log in and the sudo -i command.](./media/create-vm/vm-certification-issues-solutions-20.png)
-          
-          1. Run the command `echo '+1M,' | sfdisk --move-data /dev/sdc -N 1`.
-          
-             ![Putty client command line screenshot showing the execution of the commands.](./media/create-vm/vm-certification-issues-solutions-25.png)
-          
-             >[!NOTE]
-             >This command may take some time to complete because it depends upon the size of the disk.
-          
-          1. Detach the VHD from VM and delete the VM.
-          
+        
           
       - question: |
           Default credentials
@@ -612,10 +564,10 @@ sections:
           1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
           1. On the Home page, select the **Marketplace offers** tile.
           1. In the **Offer alias** column, select the offer.
-          4. Select the **Plan overview** tab, and then select the appropriate plan.
-          5. On the **Technical configuration** tab, under **VM Images**, next to the VM image you want to remove, select **Remove VM Image**.
-          6. In the dialog box, select **Continue**.
-          7. Select **Save draft**.
+          1. Select the **Plan overview** tab, and then select the appropriate plan.
+          1. On the **Technical configuration** tab, under **VM Images**, next to the VM image you want to remove, select **Remove VM Image**.
+          1. In the dialog box, select **Continue**.
+          1. Select **Save draft**.
 
           Next, republish the offer.
           
@@ -631,13 +583,13 @@ sections:
 
           ### Locked down (or) SSH disabled offer
 
-          Images which are published with either SSH disabled(for Linux) or RDP disabled (for Windows) are treated as Locked down VMs. There are special business scenarios due to which Publishers only allow restricted access to no/a few users.
+          Images that are published with either SSH disabled(for Linux) or RDP disabled (for Windows) are treated as Locked down VMs. There are special business scenarios due to which Publishers only allow restricted access to no/a few users.
           
           During validation checks, Locked down VMs might not allow execution of certain certification commands.
           
           ### Custom templates
 
-          In general, all the images which are published under single VM offers will follow standard ARM template for deployment. However, there are scenarios where publisher might requires customization while deploying VMs (e.g. multiple NIC(s) to be configured).
+          In general, all the images that are published under single VM offers will follow standard ARM template for deployment. However, there are scenarios where publisher might require customization while deploying VMs (for example, multiple NIC(s) to be configured).
               
           Depending on the below scenarios (non-exhaustive), publishers will use custom templates for deploying the VM:
           

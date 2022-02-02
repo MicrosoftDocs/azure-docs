@@ -6,7 +6,7 @@ ms.author: makromer
 ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
-ms.date: 05/10/2021
+ms.date: 01/19/2022
 ---
 
 # Parse transformation in mapping data flow
@@ -15,7 +15,7 @@ ms.date: 05/10/2021
 
 [!INCLUDE[data-flow-preamble](includes/data-flow-preamble.md)]
 
-Use the Parse transformation to parse columns in your data that are in document form. The current supported types of embedded documents that can be parsed are JSON, XML, and delimited text.
+Use the Parse transformation to parse text columns in your data that are strings in document form. The current supported types of embedded documents that can be parsed are JSON, XML, and delimited text.
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWykdO]
 
@@ -27,7 +27,7 @@ In the parse transformation configuration panel, you will first pick the type of
 
 ### Column
 
-Similar to derived columns and aggregates, this is where you will either modify an exiting column by selecting it from the drop-down picker. Or you can type in the name of a new column here. ADF will store the parsed source data in this column. In most cases, you will want to define a new column that parses the incoming embedded document field.
+Similar to derived columns and aggregates, this is where you will either modify an exiting column by selecting it from the drop-down picker. Or you can type in the name of a new column here. ADF will store the parsed source data in this column. In most cases, you will want to define a new column that parses the incoming embedded document string field.
 
 ### Expression
 

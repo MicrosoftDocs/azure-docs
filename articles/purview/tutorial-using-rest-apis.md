@@ -1,6 +1,6 @@
 ---
-title: "How to use REST APIs for Purview Data Planes"
-description: This tutorial describes how to use the Azure Purview REST APIs to access the contents of your Purview.
+title: "How to use REST APIs for Azure Purview Data Planes"
+description: This tutorial describes how to use the Azure Purview REST APIs to access the contents of your Azure Purview.
 author: nayenama
 ms.author: nayenama
 ms.service: purview
@@ -8,18 +8,18 @@ ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 09/17/2021
 
-# Customer intent: I can call the Data plane REST APIs to perform CRUD operations on Purview account.
+# Customer intent: I can call the Data plane REST APIs to perform CRUD operations on Azure Purview account.
 ---
 
 # Tutorial: Use the REST APIs
 
-In this tutorial, you learn how to use the Azure Purview REST APIs. Anyone who wants to submit data to an Azure Purview, include Purview as part of an automated process, or build their own user experience on the Purview can use the REST APIs to do so.
+In this tutorial, you learn how to use the Azure Purview REST APIs. Anyone who wants to submit data to an Azure Purview, include Azure Purview as part of an automated process, or build their own user experience on the Azure Purview can use the REST APIs to do so.
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
 
 ## Prerequisites
 
-* To get started, you must have an existing Azure Purview account. If you don't have a catalog, see the [quickstart for creating a Azure Purview account](create-catalog-portal.md).
+* To get started, you must have an existing Azure Purview account. If you don't have a catalog, see the [quickstart for creating an Azure Purview account](create-catalog-portal.md).
 
 ## Create a service principal (application)
 
@@ -59,19 +59,19 @@ its password. Here's how:
 
 Once service principal is created, you need to assign Data plane roles of your purview account to the service principal created above. The below steps need to be followed to assign role to establish trust between the service principal and purview account.
 
-1. Navigate to your [Purview Studio](https://web.purview.azure.com/resource/).
+1. Navigate to your [Azure Purview Studio](https://web.purview.azure.com/resource/).
 1. Select the Data Map in the left menu.
 1. Select Collections.
-1. Select the root collection in the collections menu. This will be the top collection in the list, and will have the same name as your Purview account.
+1. Select the root collection in the collections menu. This will be the top collection in the list, and will have the same name as your Azure Purview account.
 1. Select the Role assignments tab.
-1. Assign the following roles to service principal created above to access various data planes in Purview.
+1. Assign the following roles to service principal created above to access various data planes in Azure Purview.
     1. 'Data Curator' role to access Catalog Data plane.
     1. 'Data Source Administrator' role to access Scanning Data plane. 
     1. 'Collection Admin' role to access Account Data Plane.
     1. 'Collection Admin' role to access Metadata policy Data Plane.
 
 > [!Note]
-> Only 'Collection Admin' can assign data plane roles in Purview [Access Control in Azure Purview](./catalog-permissions.md).
+> Only 'Collection Admin' can assign data plane roles in Azure Purview [Access Control in Azure Purview](./catalog-permissions.md).
 
 ## Get token
 You can send a POST request to the following URL to get access token.
@@ -80,7 +80,7 @@ https://login.microsoftonline.com/{your-tenant-id}/oauth2/token
 
 The following parameters needs to be passed to the above URL.
 
-- **client_id**:  client ID of the application registered in Azure Active directory and is assigned to a data plane role for the Purview account.
+- **client_id**:  client ID of the application registered in Azure Active directory and is assigned to a data plane role for the Azure Purview account.
 - **client_secret**: client secret created for the above application.
 - **grant_type**: This should be ‘client_credentials’.
 - **resource**: This should be ‘https://purview.azure.net’
@@ -105,4 +105,4 @@ Use the access token above to call the Data plane APIs.
 
 > [!div class="nextstepaction"]
 > [Manage data sources](manage-data-sources.md)
-> [Purview Data Plane REST APIs](/rest/api/purview/)
+> [Azure Purview Data Plane REST APIs](/rest/api/purview/)

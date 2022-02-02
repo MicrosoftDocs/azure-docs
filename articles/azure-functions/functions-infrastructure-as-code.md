@@ -138,7 +138,7 @@ A function app must include these application settings:
 | AzureWebJobsStorage          | A connection string to a storage account that the Functions runtime uses for internal queueing | See [Storage account](#storage)       |
 | FUNCTIONS_EXTENSION_VERSION  | The version of the Azure Functions runtime                                                | `~3`                                  |
 | FUNCTIONS_WORKER_RUNTIME     | The language stack to be used for functions in this app                                   | `dotnet`, `node`, `java`, `python`, or `powershell` |
-| WEBSITE_NODE_DEFAULT_VERSION | Only needed if using the `node` language stack, specifies the [version](/azure/azure-functions/functions-reference-node#node-version) to use              | `~14`                             |
+| WEBSITE_NODE_DEFAULT_VERSION | Only needed if using the `node` language stack, specifies the [version](./functions-reference-node.md#node-version) to use              | `~14`                             |
 
 These properties are specified in the `appSettings` collection in the `siteConfig` property:
 

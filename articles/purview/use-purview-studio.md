@@ -8,21 +8,21 @@ ms.topic: conceptual
 ms.date: 09/27/2021
 ---
 
-# Use Purview Studio
+# Use Azure Purview Studio
 
 This article gives an overview of some of the main features of Azure Purview.
 
 ## Prerequisites
 
-* An Active Purview account is already created in Azure portal and the user has permissions to access [Purview Studio](https://web.purview.azure.com/resource/).
+* An Active Azure Purview account is already created in Azure portal and the user has permissions to access [Azure Purview Studio](https://web.purview.azure.com/resource/).
 
-## Launch Purview account
+## Launch Azure Purview account
 
-* To launch your Purview account, go to Purview accounts in Azure portal, select the account you want to launch and launch the account.
+* To launch your Azure Purview account, go to Azure Purview accounts in Azure portal, select the account you want to launch and launch the account.
 
-  :::image type="content" source="./media/use-purview-studio/open-purview-studio.png" alt-text="Screenshot of Purview window in Azure portal, with Purview Studio button highlighted." border="true":::
+  :::image type="content" source="./media/use-purview-studio/open-purview-studio.png" alt-text="Screenshot of Azure Purview window in Azure portal, with Azure Purview Studio button highlighted." border="true":::
 
-* Another way to launch Purview account is to go to `https://web.purview.azure.com`, select **Azure Active Directory** and an account name to launch the account.
+* Another way to launch Azure Purview account is to go to `https://web.purview.azure.com`, select **Azure Active Directory** and an account name to launch the account.
 
 ## Home page
 
@@ -55,12 +55,12 @@ The following list summarizes the main features of **Home page**. Each number in
 
 5. The left navigation bar helps you locate the main pages of the application.   
 6. The **Recently accessed** tab shows a list of recently accessed data assets. For information about accessing assets, see [Search the Data Catalog](how-to-search-catalog.md) and [Browse by asset type](how-to-browse-catalog.md).  **My items** tab is a list of data assets owned by the logged-on user.
-7. **Links** contains links to region status, documentation, pricing, overview, and Purview status
+7. **Links** contains links to region status, documentation, pricing, overview, and Azure Purview status
 8. The top navigation bar contains information about release notes/updates, change purview account, notifications, help, and feedback sections.
 
 ## Knowledge center
 
-Knowledge center is where you can find all the videos and tutorials related to Purview.
+Knowledge center is where you can find all the videos and tutorials related to Azure Purview.
 
 ## Guided tours
 

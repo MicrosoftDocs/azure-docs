@@ -114,6 +114,7 @@ SFTP support is available in the following regions:
 - Germany West Central
 - East Asia
 - France Central
+- West Europe
 
 ## Pricing and billing
 

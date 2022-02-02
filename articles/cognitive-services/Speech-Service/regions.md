@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 01/08/2022
+ms.date: 01/16/2022
 ms.author: eur
 ms.custom: references_regions, ignite-fall-2021
 ---
@@ -42,7 +42,7 @@ If you plan to train a custom model with audio data, use one of the [regions wit
 
 ### Intent recognition
 
-Available regions for **intent recognition** via the Speech SDK are the following:
+Available regions for **intent recognition** via the Speech SDK are in the following table.
 
 | Global region | Region           | Region identifier |
 | ------------- | ---------------- | -------------------- |
@@ -63,7 +63,7 @@ This is a subset of the publishing regions supported by the [Language Understand
 
 ### Voice assistants
 
-The [Speech SDK](speech-sdk.md) supports **voice assistant** capabilities through [Direct Line Speech](./direct-line-speech.md) in these regions:
+The [Speech SDK](speech-sdk.md) supports **voice assistant** capabilities through [Direct Line Speech](./direct-line-speech.md) for regions in the following table.
 
 | Global region | Region           | Region identifier    |
 | ------------- | ---------------- | -------------------- |
@@ -81,7 +81,7 @@ The [Speech SDK](speech-sdk.md) supports **voice assistant** capabilities throug
 
 ### Speaker Recognition
 
-Available regions for **Speaker Recognition** are the following:
+Available regions for **Speaker Recognition** are in the following table.
 
 | Geography | Region           | Region identifier |
 | ------------- | ---------------- | -------------------- |
@@ -98,6 +98,35 @@ Available regions for **Speaker Recognition** are the following:
 | Europe     | North Europe   | `northeurope` |
 | Europe     | West Europe   | `westeurope` |
 | Europe     | UK South   | `uksouth` |
+
+### Keyword recognition
+
+Available regions for **Keyword recognition** are in the following table.
+
+| Region | Custom Keyword (Basic models) | Custom Keyword (Advanced models) | Keyword Verification |
+| ------ | ----------------------------- | -------------------------------- | -------------------- |
+| West US | Yes | No | Yes |
+| West US 2 | Yes | Yes | Yes |
+| East US | Yes | Yes | Yes |
+| East US 2 | Yes | Yes | Yes |
+| West Central US | Yes | No | Yes |
+| South Central US | Yes | Yes | Yes |
+| West Europe | Yes | Yes | Yes |
+| North Europe | Yes | Yes | Yes |
+| UK South | Yes | Yes | No |
+| East Asia | Yes | No | Yes |
+| Southeast Asia | Yes | Yes | Yes |
+| Central India | Yes | Yes | Yes |
+| Japan East | Yes | No | Yes |
+| Japan West | Yes | No | No |
+| Australia East | Yes | Yes | No |
+| Brazil South | Yes | No | No |
+| Canada Central | Yes | No | No |
+| Korea Central | Yes | No | No |
+| France Central | Yes | No | No |
+| North Central US | Yes | Yes | No |
+| Central US | Yes | No | No |
+| South Africa North | Yes | No | No |
 
 ## REST APIs
 

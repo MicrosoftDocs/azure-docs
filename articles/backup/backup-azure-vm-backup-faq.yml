@@ -205,10 +205,12 @@ sections:
     questions:
       - question: What happens if I modify a backup policy?
         answer: |
-          The VM is backed up using the schedule and retention settings in the modified or new policy.
+          The VM is backed up using the schedule and retention settings in the modified policy.
 
           - If retention is extended, existing recovery points are marked and kept in accordance with the new policy.
           - If retention is reduced, recovery points are marked for pruning in the next cleanup job, and subsequently deleted.
+          
+          However, recovery points are specific to retention range frequency. For example, adding or modifying a yearly retention policy does not affect the retention of preexisting monthly recovery points. 
 
       - question: How do I move a VM backed up by Azure Backup to a different resource group?
         answer: |
@@ -265,7 +267,7 @@ sections:
           
       - question: How to modify retention period for Stopped backups?
         answer: |
-          Retention of stopped backups cannot be modified since they do not have any policy attached to it. However, you can [resume protection](/azure/backup/backup-azure-manage-vms#resume-protection-of-a-vm) and assign a policy.
+          Retention of stopped backups cannot be modified since they do not have any policy attached to it. However, you can [resume protection](./backup-azure-manage-vms.md#resume-protection-of-a-vm) and assign a policy.
           
       - question: How long are the stopped backups retained?
         answer: |
@@ -292,4 +294,3 @@ sections:
 
 
       
-        

@@ -80,7 +80,7 @@ To perform this migration, you must be added as a coadministrator for the subscr
 5. Check the status of your registration. Registration can take a few minutes to complete. 
 
     ```powershell
-    Get-AzProviderFeature -FeatureName CloudServices -ProviderNamespace Microsoft.Compute 
+    Get-AzResourceProvider -ProviderNamespace Microsoft.ClassicInfrastructureMigrate 
     ```
 
 ## How is migration for Cloud Services (classic) different from Virtual Machines (classic)?

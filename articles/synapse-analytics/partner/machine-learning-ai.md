@@ -1,13 +1,13 @@
 ---
 title: Machine learning and AI partners 
 description: Lists of third-party machine learning and artificial intelligence partners with solutions that support Azure Synapse Analytics.
-author: periclesrocha
+author: gillharmeet
 manager: charlesf
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: machine-learning
 ms.date: 06/22/2020
-ms.author: procha
+ms.author: harmeetgill
 ms.reviewer: charlesf
 ms.custom: seo-lt-2019
 ---

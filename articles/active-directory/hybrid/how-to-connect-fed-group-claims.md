@@ -141,7 +141,7 @@ Some applications might require the groups in a different format to how they are
  - **Regex Pattern**:  Use a regular expression (regex) to parse text strings according to the pattern you will set in this field. If the pattern you outline in a regex pattern evaluates to true, then we will run the regex replacement pattern you will outline below.  
  - **Regex replacement pattern**:  Here, outline in regular expressions (regex) notation how you would like to replace your string if your regex pattern outlined above evaluates to true. Use capture groups to match subexpressions in this replace regular expression. 
 
-For more information about regex replace and capture groups, see [The Regular Expression Engine - The Captured Group](https://docs.microsoft.com/dotnet/standard/base-types/the-regular-expression-object-model?WT.mc_id=Portal-fx#the-captured-group).
+For more information about regex replace and capture groups, see [The Regular Expression Engine - The Captured Group](/dotnet/standard/base-types/the-regular-expression-object-model?WT.mc_id=Portal-fx#the-captured-group).
 
 >[!NOTE]
 > As per the Azure AD documentation a restricted claim cannot be modified using policy. The data source cannot be changed, and no transformation is applied when generating these claims. The "Groups" claim is still a restricted claim, hence you need to customize the groups by changing the name, if you select a restricted name for the name of your custom group claim then the claim will be ignored at runtime. 

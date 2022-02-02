@@ -41,7 +41,7 @@ There are several prerequisites to consider before trying to enable Azure Automa
 - VMs must be in a supported region (see below)
 - User must have correct permissions (see below)
 - Automanage does not support Sandbox subscriptions at this time
-- Automanage does not support Windows 10 at this time
+- Automanage does not support Windows client images at this time
 
 ### Supported regions
 Automanage only supports VMs located in the following regions:
@@ -91,7 +91,18 @@ For the complete list of participating Azure services, as well as their supporte
 
 In the Azure portal, you can enable Automanage on an existing virtual machine. For concise steps to this process, check out the [Automanage for virtual machines quickstart](quick-create-virtual-machines-portal.md).
 
-If it is your first time enabling Automanage for your VM, you can search in the Azure portal for **Automanage – Azure machine best practices**. Click **Enable on existing VM**, select the [configuration profile](#configuration-profile) you wish to use and then select the machines you would like to onboard. Click **Enable**, and you're done.
+If it is your first time enabling Automanage for your VM, you can search in the Azure portal for **Automanage – Azure machine best practices**. Click **Enable on existing VM**, select the [configuration profile](#configuration-profile) you wish to use and then select the machines you would like to onboard. 
+
+In the Machine selection pane in the portal, you will notice the **Eligibility** column. You can click **Show ineligible machines** to see machines ineligible for Automanage. Currently, machines can be ineligible for the following reasons:
+- Machine is not using one of the supported images: [Windows Server versions](automanage-windows-server.md#supported-windows-server-versions) and [Linux distros](automanage-linux.md#supported-linux-distributions-and-versions)
+- Machine is not located in a supported [region](#supported-regions)
+- Machine's log analytics workspace is not located in a supported [region](#supported-regions)
+- User does not have permissions to the log analytics workspace's subscription. Check out the [required permissions](#required-rbac-permissions)
+- The Automanage resource provider is not registered on the subscription. Check out [how to register a Resource Provider](/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider-1) with the Automanage resource provider: *Microsoft.Automanage*
+- Machine does not have necessary VM agents installed which the Automanage service requires. Check out the [Windows agent installation](/azure/virtual-machines/extensions/agent-windows) and the [Linux agent installation](/azure/virtual-machines/extensions/agent-linux)
+- Arc machine is not connected. Learn more about the [Arc agent status](/azure/azure-arc/servers/overview#agent-status) and [how to connect](/azure/azure-arc/servers/agent-overview#connected-machine-agent-technical-overview)
+
+Once you have selected your eligible machines, Click **Enable**, and you're done.
 
 The only time you might need to interact with this machine to manage these services is in the event we attempted to remediate your VM, but failed to do so. If we successfully remediate your VM, we will bring it back into compliance without even alerting you. For more details, see [Status of VMs](#status-of-vms).
 
@@ -143,8 +154,9 @@ The **Status** column can display the following states:
 - *Conformant* - the VM is configured and no drift is detected
 - *Not conformant* - the VM has drifted and we were unable to remediate or the machine is powered off and Automanage will attempt to onboard or remediate the VM when it is next running
 - *Needs upgrade* - the VM is onboarded to an earlier version of Automanage and needs to be [upgraded](automanage-upgrade.md) to the latest version
+- *Error* - the Automanage service is unable to monitor one or more resources
 
-If you see the **Status** as *Not conformant*, you can troubleshoot by clicking on the status in the portal and using the troubleshooting links provided
+If you see the **Status** as *Not conformant* or *Error*, you can troubleshoot by clicking on the status in the portal and using the troubleshooting links provided
 
 
 ## Disabling Automanage for VMs

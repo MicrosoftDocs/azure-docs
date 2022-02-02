@@ -1007,6 +1007,8 @@
           href: cassandra/manage-data-python.md
         - name: Golang
           href: cassandra/manage-data-go.md
+        - name: CQLSH
+          href: cassandra/manage-data-cqlsh.md
     - name: Tutorials
       items:
         - name: 1 - Create and manage data

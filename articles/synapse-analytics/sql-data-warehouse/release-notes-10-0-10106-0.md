@@ -5,7 +5,7 @@ services: synapse-analytics
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw 
-ms.date: 4/30/2020
+ms.date: 1/13/2022
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: sngun
@@ -17,6 +17,9 @@ tags: azure-synapse
 # Dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics release notes
 
 This article summarizes the new features and improvements in the recent releases of [dedicated SQL pool (formerly SQL DW)](sql-data-warehouse-overview-what-is.md) in Azure Synapse Analytics. The article also lists notable content updates that aren't directly related to the release but published in the same time frame. For improvements to other Azure services, see [Service updates](https://azure.microsoft.com/updates).
+
+> [!NOTE]
+> For the newest release updates on Azure Synapse Analytics, including dedicated SQL pools, please refer to the [Azure Synapse Analytics blog](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/bg-p/AzureSynapseAnalyticsBlog/label-name/Monthly%20Update), [What's new in Azure Synapse Analytics?](../whats-new.md), or the Synapse Studio homepage in the Azure portal.
 
 ## Check your dedicated SQL pool (formerly SQL DW) version
 
@@ -219,7 +222,7 @@ For tooling improvements, make sure you have the correct version installed speci
 
 ## Next steps
 
-- [create a dedicated SQL pool(formerly SQL DW)](create-data-warehouse-portal.md)
+- [Create a dedicated SQL pool(formerly SQL DW)](create-data-warehouse-portal.md)
 
 ## More information
 

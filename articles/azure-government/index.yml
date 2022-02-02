@@ -28,10 +28,6 @@ landingContent:
   # Card
   - title: Get started
     linkLists:
-      - linkListType: video
-        links:
-          - text: Start using Azure Government
-            url: https://channel9.msdn.com/Shows/Azure-Friday/Azure-Government
       - linkListType: quickstart
         links:
           - text: Connect using portal

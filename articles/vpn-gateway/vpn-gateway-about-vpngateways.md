@@ -6,7 +6,7 @@ author: cherylmc
 # Customer intent: As someone with a basic network background, but is new to Azure, I want to understand the capabilities of Azure VPN Gateway so that I can securely connect to my Azure virtual networks.
 ms.service: vpn-gateway
 ms.topic: overview
-ms.date: 07/08/2021
+ms.date: 01/12/2022
 ms.author: cherylmc
 ms.custom: contperf-fy21q1, e2e-hybrid
 ---
@@ -29,13 +29,17 @@ When you create a VPN gateway, gateway VMs are deployed to the gateway subnet an
 
 A VPN gateway connection relies on multiple resources that are configured with specific settings. Most of the resources can be configured separately, although some resources must be configured in a certain order.
 
-### <a name="diagrams"></a>Design
+### <a name="connectivity"></a> Connectivity
 
-It's important to know that there are different configurations available for VPN gateway connections. You need to determine which configuration best fits your needs. For example, Point-to-Site, Site-to-Site, and coexisting ExpressRoute/Site-to-Site connections all have different instructions and configuration requirements. For information about design and to view connection topology diagrams, see [Design](design.md).
+Because you can create multiple connection configurations using VPN Gateway, you need to determine which configuration best fits your needs. Point-to-Site, Site-to-Site, and coexisting ExpressRoute/Site-to-Site connections all have different instructions and configuration requirements. For connection diagrams and corresponding links to configuration steps, see [VPN Gateway design](design.md).
+
+* [Site-to-Site VPN connections](design.md#s2smulti)
+* [Point-to-Site VPN connections](design.md#P2S)
+* [VNet-to-VNet VPN connections](design.md#V2V)
 
 ### <a name="planningtable"></a>Planning table
 
-The following table can help you decide the best connectivity option for your solution.
+The following table can help you decide the best connectivity option for your solution. Note that ExpressRoute is not a part of VPN Gateway, but is included in the table.
 
 [!INCLUDE [cross-premises](../../includes/vpn-gateway-cross-premises-include.md)]
 
@@ -60,7 +64,7 @@ When you create a virtual network gateway, you specify the gateway SKU that you 
 
 ## <a name="availability"></a>Availability Zones
 
-VPN gateways can be deployed in Azure Availability Zones. This brings resiliency, scalability, and higher availability to virtual network gateways. Deploying gateways in Azure Availability Zones physically and logically separates gateways within a region, while protecting your on-premises network connectivity to Azure from zone-level failures. see [About zone-redundant virtual network gateways in Azure Availability Zones](about-zone-redundant-vnet-gateways.md).
+VPN gateways can be deployed in Azure Availability Zones. This brings resiliency, scalability, and higher availability to virtual network gateways. Deploying gateways in Azure Availability Zones physically and logically separates gateways within a region, while protecting your on-premises network connectivity to Azure from zone-level failures. See [About zone-redundant virtual network gateways in Azure Availability Zones](about-zone-redundant-vnet-gateways.md).
 
 ## <a name="pricing"></a>Pricing
 
