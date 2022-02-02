@@ -254,7 +254,7 @@ In November 2021, we have added following 32 new applications in our App gallery
 
 You can also find the documentation of all the applications [here](../saas-apps/tutorial-list.md).
 
-For listing your application in the Azure AD app gallery, read the details [here](../develop/v2-howto-app-gallery-listing.md).
+For listing your application in the Azure AD app gallery, read the details [here](../manage-apps/v2-howto-app-gallery-listing.md).
 
 ---
 

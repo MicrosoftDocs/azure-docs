@@ -4,7 +4,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
-ms.date: 01/13/2022
+ms.date: 01/25/2022
 ms.author: aahi
 ms.custom: language-service-custom-classification, ignite-fall-2021
 ---
@@ -36,19 +36,13 @@ Before you can use custom text classification, you will need to create an Azure 
     | Name | Any name |
     | Performance | Standard |
     | Account kind| Storage (general purpose v1) |
-    | Replication | Locally-redundant storage (LRS)
+    | Replication | Locally redundant storage (LRS)
     |Location | Any location closest to you, for best latency.        |
 
 
 ## Upload sample data to blob container
 
-After you have created an Azure storage account and linked it to your Language resource, you will need to upload the example files to the root directory of your container for this quickstart. These files will later be used to train your model.
-
-1. [Download the sample movie summary data](https://go.microsoft.com/fwlink/?linkid=2175083) for this quickstart from GitHub.
-
-2. Go to your Azure storage account in the [Azure portal](https://ms.portal.azure.com). Navigate to your account, and upload the sample data to it.
-
-The provided sample dataset contains around 200 movie summaries that belong to one or more of the following classes: "Mystery", "Drama", "Thriller", "Comedy", "Action".
+[!INCLUDE [Uploading sample data for custom classification](blob-storage-upload.md)]
 
 ## Create a custom classification project
 
@@ -64,7 +58,7 @@ The provided sample dataset contains around 200 movie summaries that belong to o
 
 4. If you have created your resource using the steps above, the **Connect storage** step will be completed already. If not, you need to assign [roles for your storage account](../../how-to/create-project.md#roles-for-your-storage-account) before connecting it to your resource
 
-5. Select your project type. For this quickstart, we will create a multi label classification project where you can assign multiple classes to the same file. Then click **Next**. Learn more about [project types](../../glossary.md#project-types)
+5. Select your project type. For this quickstart, we will create a multilabel classification project where you can assign multiple classes to the same file. Then click **Next**. Learn more about [project types](../../glossary.md#project-types)
 
 6. Enter project information, including a name, description, and the language of the files in your project. You will not be able to change the name of your project later.
     >[!TIP]
@@ -91,7 +85,7 @@ To start training your model:
 3. Click on the **Train** button at the bottom of the page.
 
     > [!NOTE]
-    > * While training, the data will be spilt into 2 sets: 80% for training and 20% for testing. You can learn more about data splitting [here](../../how-to/train-model.md#data-splits)
+    > * While training, the data will be spilt into 2 sets: 80% for training and 20% for testing. You can learn more about data splitting [here](../../how-to/train-model.md#data-split)
     > * Training can take up to a few hours.
 
 ## Deploy your model

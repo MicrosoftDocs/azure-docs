@@ -10,6 +10,7 @@ ms.subservice: develop
 ms.topic: portal
 ms.workload: identity
 ms.date: 11/22/2021
+ROBOTS: NOINDEX
 ms.author: abpati
 ms.custom: aaddev, devx-track-python, "scenarios:getting-started", "languages:Python", mode-api
 ---

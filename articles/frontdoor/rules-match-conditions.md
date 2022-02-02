@@ -5,13 +5,24 @@ services: frontdoor
 author: duongau
 ms.service: frontdoor
 ms.topic: conceptual
-ms.date: 11/09/2021
+ms.date: 01/16/2022
 ms.author: yuajia
+zone_pivot_groups: front-door-tiers
 ---
 
 # Azure Front Door rules match conditions
 
-In Azure Front Door [Rules Engine](front-door-rules-engine.md) and Azure Front Door Standard/Premium [Rule Set](standard-premium/concept-rule-set.md), a rule consists of none or some match conditions and an action. This article provides detailed descriptions of match conditions you can use in Azure Front Door Rule Set or Rules Engine.
+::: zone pivot="front-door-standard-premium"
+
+In Azure Front Door Standard/Premium [rule sets](standard-premium/concept-rule-set.md), a rule consists of none or some match conditions and an action. This article provides detailed descriptions of match conditions you can use in Azure Front Door rule sets.
+
+::: zone-end
+
+::: zone pivot="front-door-classic"
+
+In Azure Front Door [rules engines](front-door-rules-engine.md), a rule consists of none or some match conditions and an action. This article provides detailed descriptions of match conditions you can use in Azure Front Door rules engines.
+
+::: zone-end
 
 The first part of a rule is a match condition or set of match conditions. A rule can consist of up to 10 match conditions. A match condition identifies specific types of requests for which defined actions are done. If you use multiple match conditions, the match conditions are grouped together by using AND logic. For all match conditions that support multiple values, OR logic is used.
 
@@ -23,14 +34,18 @@ You can use a match condition to:
 * Filter requests from request file name and file extension.
 * Filter requests from request URL, protocol, path, query string, post args, etc.
 
+::: zone pivot="front-door-standard-premium"
+
 > [!IMPORTANT]
 > Azure Front Door Standard/Premium (Preview) is currently in public preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
+::: zone-end
+
 ## Device type
 
-Use the **device type** match condition to identify requests that have been made from a mobile device or desktop device.  
+Use the **device type** match condition to identify requests that have been made from a mobile device or desktop device.
 
 ### Properties
 
@@ -81,6 +96,125 @@ In this example, we match all requests that have been detected as coming from a 
 
 ---
 
+::: zone pivot="front-door-standard-premium"
+## HTTP version
+
+Use the **HTTP version** match condition to identify requests that have been made by using a specific version of the HTTP protocol.
+
+> [!NOTE]
+> The **request cookies** match condition is only available on Azure Front Door Standard/Premium.
+
+### Properties
+
+| Property | Supported values |
+|-------|------------------|
+| Operator | <ul><li>In the Azure portal: `Equal`, `Not Equal`</li><li>In ARM templates: `Equal`; use the `negateCondition` property to specify _Not Equal_ |
+| Value | `2.0`, `1.1`, `1.0`, `0.9` |
+
+### Example
+
+In this example, we match all requests that have been sent by using the HTTP 2.0 protocol.
+
+# [Portal](#tab/portal)
+
+:::image type="content" source="./media/rules-match-conditions/http-version.png" alt-text="Portal screenshot showing HTTP version match condition.":::
+
+# [JSON](#tab/json)
+
+```json
+{
+  "name": "HttpVersion",
+  "parameters": {
+    "operator": "Equal",
+    "negateCondition": false,
+    "matchValues": [
+      "2.0"
+    ],
+    "@odata.type": "#Microsoft.Azure.Cdn.Models.DeliveryRuleHttpVersionConditionParameters"
+  }
+}
+```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+{
+  name: 'HttpVersion'
+  parameters: {
+    operator: 'Equal'
+    negateCondition: false
+    matchValues: [
+      '2.0'
+    ]
+    '@odata.type': '#Microsoft.Azure.Cdn.Models.DeliveryRuleHttpVersionConditionParameters'
+  }
+}
+```
+
+---
+
+## Request cookies
+
+Use the **request cookies** match condition to identify requests that have include a specific cookie.
+
+> [!NOTE]
+> The **request cookies** match condition is only available on Azure Front Door Standard/Premium.
+
+### Properties
+
+| Property | Supported values |
+|-------|------------------|
+| Cookie name | A string value representing the name of the cookie. |
+| Operator | Any operator from the [standard operator list](#operator-list). |
+| Value | One or more string or integer values representing the value of the request header to match. If multiple values are specified, they're evaluated using OR logic. |
+| Case transform | Any transform from the [standard string transforms list](#string-transform-list). |
+
+### Example
+
+In this example, we match all requests that have include a cookie named `deploymentStampId` with a value of `1`.
+
+# [Portal](#tab/portal)
+
+:::image type="content" source="./media/rules-match-conditions/cookies.png" alt-text="Portal screenshot showing request cookies match condition.":::
+
+# [JSON](#tab/json)
+
+```json
+{
+  "name": "Cookies",
+  "parameters": {
+    "selector": "deploymentStampId",
+    "operator": "Equal",
+    "negateCondition": false,
+    "matchValues": [
+      "1"
+    ],
+    "transforms": [],
+    "@odata.type": "#Microsoft.Azure.Cdn.Models.DeliveryRuleCookiesConditionParameters"
+  }
+}
+```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+{
+  name: 'Cookies'
+  parameters: {
+    selector: 'deploymentStampId'
+    operator: 'Equal'
+    negateCondition: false
+    matchValues: [
+      '1'
+    ]
+    '@odata.type': '#Microsoft.Azure.Cdn.Models.DeliveryRuleCookiesConditionParameters'
+  }
+}
+```
+
+---
+::: zone-end
+
 ## Post args
 
 Use the **post args** match condition to identify requests based on the arguments provided within a POST request's body. A single match condition matches a single argument from the POST request's body. You can specify multiple values to match, which will be combined using OR logic.
@@ -95,7 +229,7 @@ Use the **post args** match condition to identify requests based on the argument
 | Post args | A string value representing the name of the POST argument. |
 | Operator | Any operator from the [standard operator list](#operator-list). |
 | Value | One or more string or integer values representing the value of the POST argument to match. If multiple values are specified, they're evaluated using OR logic. |
-| Case transform | `Lowercase`, `Uppercase` |
+| Case transform | Any transform from the [standard string transforms list](#string-transform-list). |
 
 ### Example
 
@@ -161,7 +295,7 @@ Use the **query string** match condition to identify requests that contain a spe
 |-|-|
 | Operator | Any operator from the [standard operator list](#operator-list). |
 | Query string | One or more string or integer values representing the value of the query string to match. Don't include the `?` at the start of the query string. If multiple values are specified, they're evaluated using OR logic. |
-| Case transform | `Lowercase`, `Uppercase` |
+| Case transform | Any transform from the [standard string transforms list](#string-transform-list). |
 
 ### Example
 
@@ -279,7 +413,7 @@ The **request body** match condition identifies requests based on specific text 
 |-|-|
 | Operator | Any operator from the [standard operator list](#operator-list). |
 | Value | One or more string or integer values representing the value of the request body text to match. If multiple values are specified, they're evaluated using OR logic. |
-| Case transform | `Lowercase`, `Uppercase` |
+| Case transform | Any transform from the [standard string transforms list](#string-transform-list). |
 
 ### Example
 
@@ -339,7 +473,7 @@ The **request file name** match condition identifies requests that include the s
 |-|-|
 | Operator | Any operator from the [standard operator list](#operator-list). |
 | Value | One or more string or integer values representing the value of the request file name to match. If multiple values are specified, they're evaluated using OR logic. |
-| Case transform | `Lowercase`, `Uppercase` |
+| Case transform | Any transform from the [standard string transforms list](#string-transform-list). |
 
 ### Example
 
@@ -402,7 +536,7 @@ The **request file extension** match condition identifies requests that include 
 |-|-|
 | Operator | Any operator from the [standard operator list](#operator-list). |
 | Value | One or more string or integer values representing the value of the request file extension to match. Don't include a leading period. If multiple values are specified, they're evaluated using OR logic. |
-| Case transform | `Lowercase`, `Uppercase` |
+| Case transform | Any transform from the [standard string transforms list](#string-transform-list). |
 
 ### Example
 
@@ -464,7 +598,7 @@ The **request header** match condition identifies requests that include a specif
 | Header name | A string value representing the name of the POST argument. |
 | Operator | Any operator from the [standard operator list](#operator-list). |
 | Value | One or more string or integer values representing the value of the request header to match. If multiple values are specified, they're evaluated using OR logic. |
-| Case transform | `Lowercase`, `Uppercase` |
+| Case transform | Any transform from the [standard string transforms list](#string-transform-list). |
 
 ### Example
 
@@ -570,7 +704,7 @@ The **request path** match condition identifies requests that include the specif
 |-|-|
 | Operator | Any operator from the [standard operator list](#operator-list). |
 | Value | One or more string or integer values representing the value of the request path to match. Don't include the leading slash. If multiple values are specified, they're evaluated using OR logic. |
-| Case transform | `Lowercase`, `Uppercase` |
+| Case transform | Any transform from the [standard string transforms list](#string-transform-list). |
 
 ### Example
 
@@ -689,7 +823,7 @@ Identifies requests that match the specified URL. The entire URL is evaluated, i
 |-|-|
 | Operator | Any operator from the [standard operator list](#operator-list). |
 | Value | One or more string or integer values representing the value of the request URL to match. If multiple values are specified, they're evaluated using OR logic. |
-| Case transform | `Lowercase`, `Uppercase` |
+| Case transform | Any transform from the [standard string transforms list](#string-transform-list). |
 
 ### Example
 
@@ -784,16 +918,33 @@ Regular expressions don't support the following operations:
 * Callouts and embedded code.
 * Atomic grouping and possessive quantifiers.
 
+## String transform list
+
+For rules that can transform strings, the following transforms are valid:
+
+| Transform | Description | ARM template support |
+|-|-|-|
+| To lowercase | Converts the string to the lowercase representation. | `Lowercase` |
+| To uppercase | Converts the string to the uppercase representation. | `Uppercase` |
+| Trim | Trims leading and trailing whitespace from the string. | `Trim` |
+| Remove nulls | Removes null values from the string. | `RemoveNulls` |
+| URL encode | URL-encodes the string. | `UrlEncode` |
+| URL decode | URL-decodes the string. | `UrlDecode` |
+
 ## Next steps
 
-Azure Front Door:
+::: zone pivot="front-door-classic"
 
 * Learn more about Azure Front Door [Rules Engine](front-door-rules-engine.md)
 * Learn how to [configure your first Rules Engine](front-door-tutorial-rules-engine.md). 
 * Learn more about [Rules Engine actions](front-door-rules-engine-actions.md)
 
-Azure Front Door Standard/Premium:
+::: zone-end
+
+::: zone pivot="front-door-standard-premium"
 
 * Learn more about Azure Front Door Standard/Premium [Rule Set](standard-premium/concept-rule-set.md).
 * Learn how to [configure your first Rule Set](standard-premium/how-to-configure-rule-set.md).
 * Learn more about [Rule Set actions](standard-premium/concept-rule-set-actions.md).
+
+::: zone-end

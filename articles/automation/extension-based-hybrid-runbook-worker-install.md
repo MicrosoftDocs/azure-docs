@@ -101,7 +101,12 @@ If you use a firewall to restrict access to the Internet, you must configure the
 |Global URL |*.azure-automation.net|
 |Global URL of US Gov Virginia |*.azure-automation.us|
 
+### CPU quota limit 
+There is a CPU quota limit of 5% while configuring extension-based Linux Hybrid Runbook worker. There is no such limit for Windows Hybrid Runbook Worker.
+
 ## Create hybrid worker group 
+
+You can create a Hybrid Worker Group via the Azure Portal. Currently, creating through the ARM template is not supported.
 
 Perform the following steps to create a hybrid worker group in the Azure portal.
 
@@ -503,6 +508,15 @@ Review the parameters used in this template.
 |osVersion| The OS for the new Windows VM. The default value is `2019-Datacenter`.|
 |dnsNameForPublicIP| The DNS name for the public IP. |
 
+
+## Manage Role permissions for Hybrid Worker Groups
+You can create custom Azure Automation roles and grant following permissions to Hybrid Worker Groups. To learn more about how to create Azure Automation custom roles, see [Azure custom roles](/azure/role-based-access-control/custom-roles).
+
+**Actions** | **Description**
+--- | ---
+Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups/read | Reads a Hybrid Runbook Worker Group.
+Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups/write | Creates a Hybrid Runbook Worker Group.
+Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups/delete | Deletes a Hybrid Runbook Worker Group.
 
 ## Next steps
 

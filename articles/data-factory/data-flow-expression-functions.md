@@ -1176,9 +1176,10 @@ ___
 <a name="fromBase64" ></a>
 
 ### <code>fromBase64</code>
-<code><b>fromBase64(<i>&lt;value1&gt;</i> : string) => string</b></code><br/><br/>
-Decodes the given base64-encoded string.
+<code><b>fromBase64(<i>&lt;value1&gt;</i> : string, <i>&lt;encoding type&gt;</i> : string) => string</b></code><br/><br/>
+Decodes the given base64-encoded string. You can optionally pass the encoding type.
 * ``fromBase64('Z3VuY2h1cw==') -> 'gunchus'``  
+*	``fromBase64('SGVsbG8gV29ybGQ=', 'Windows-1252') -> 'Hello World'``
 ___
 
 
@@ -2601,11 +2602,12 @@ ___
 <a name="toBase64" ></a>
 
 ### <code>toBase64</code>
-<code><b>toBase64(<i>&lt;value1&gt;</i> : string) => string</b></code><br/><br/>
-Encodes the given string in base64.  
-* ``toBase64('bojjus') -> 'Ym9qanVz'``  
-___
+<code><b>toBase64(<i>&lt;value1&gt;</i> : string, <i>&lt;encoding type&gt;</i> : string]) => string</b></code><br/><br/>
+Encodes the given string in base64. You can optionally pass the encoding type  
+* ``toBase64('bojjus') -> 'Ym9qanVz'``
+* ``toBase64('± 25000, € 5.000,- |', 'Windows-1252') -> 'sSAyNTAwMCwggCA1LjAwMCwtIHw='``
 
+___
 
 <a name="toBinary" ></a>
 
@@ -2722,8 +2724,8 @@ ___
 <a name="toString" ></a>
 
 ### <code>toString</code>
-<code><b>toString(<i>&lt;value&gt;</i> : any, [<i>&lt;number format/date format&gt;</i> : string]) => string</b></code><br/><br/>
-Converts a primitive datatype to a string. For numbers and date a format can be specified. If unspecified the system default is picked.Java decimal format is used for numbers. Refer to Java SimpleDateFormat for all possible date formats; the default format is yyyy-MM-dd.  
+<code><b>toString(<i>&lt;value&gt;</i> : any, [<i>&lt;number format/date format&gt;</i> : string], [<i>&lt;date locale&gt;</i> : string]) => string</b></code><br/><br/>
+Converts a primitive datatype to a string. For numbers and date a format can be specified. If unspecified the system default is picked.Java decimal format is used for numbers. Refer to Java SimpleDateFormat for all possible date formats; the default format is yyyy-MM-dd. For date or timestamp a locale can be optionally specified.
 * ``toString(10) -> '10'``  
 * ``toString('engineer') -> 'engineer'``  
 * ``toString(123456.789, '##,###.##') -> '123,456.79'``  
@@ -2732,8 +2734,8 @@ Converts a primitive datatype to a string. For numbers and date a format can be 
 * ``toString(toDate('2018-12-31')) -> '2018-12-31'``  
 * ``isNull(toString(toDate('2018-12-31', 'MM/dd/yy'))) -> true``  
 * ``toString(4 == 20) -> 'false'``  
-___
-
+*	``toString(toDate('12/31/18', 'MM/dd/yy', 'es-ES'), 'MM/dd/yy', 'de-DE')``
+  ___
 
 <a name="toTimestamp" ></a>
 

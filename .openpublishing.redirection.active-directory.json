@@ -32,7 +32,7 @@
         },
         {
             "source_path_from_root": "/articles/active-directory/develop/registration-config-multi-tenant-application-add-to-gallery-how-to.md",
-            "redirect_url": "/azure/active-directory/develop/v2-howto-app-gallery-listing",
+            "redirect_url": "/azure/active-directory/manage-apps/v2-howto-app-gallery-listing",
             "redirect_document_id": false
         },
         {
@@ -740,6 +740,111 @@
             "redirect_url": "/visualstudio/azure/vs-active-directory-webapi-what-happened",
             "redirect_document_id": false
         },
+        {
+            "source_path_from_root": "/articles/active-directory/develop/quickstart-v2-javascript-auth-code-angular.md",
+            "redirect_url": "/azure/active-directory/develop/single-page-app-quickstart?pivots=devlang-angular",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory/develop/quickstart-v2-javascript-auth-code.md",
+            "redirect_url": "/azure/active-directory/develop/single-page-app-quickstart?pivots=devlang-javascript",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory/develop/quickstart-v2-javascript-auth-code-react.md",
+            "redirect_url": "/azure/active-directory/develop/single-page-app-quickstart?pivots=devlang-react",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory/develop/quickstart-v2-aspnet-webapp.md",
+            "redirect_url": "/azure/active-directory/develop/web-app-quickstart?pivots=devlang-aspnet",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory/develop/quickstart-v2-aspnet-core-webapp.md",
+            "redirect_url": "/azure/active-directory/develop/web-app-quickstart?pivots=devlang-aspnet-core",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory/develop/quickstart-v2-aspnet-core-webapp-calls-graph.md",
+            "redirect_url": "/azure/active-directory/develop/web-app-quickstart?pivots=devlang-aspnet-core",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory/develop/quickstart-v2-nodejs-webapp-msal.md",
+            "redirect_url": "/azure/active-directory/develop/web-app-quickstart?pivots=devlang-nodejs-msal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory/develop/quickstart-v2-nodejs-webapp.md",
+            "redirect_url": "/azure/active-directory/develop/web-app-quickstart?pivots=devlang-nodejs-passport",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory/develop/quickstart-v2-java-webapp.md",
+            "redirect_url": "/azure/active-directory/develop/web-app-quickstart?pivots=devlang-java",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory/develop/quickstart-v2-python-webapp.md",
+            "redirect_url": "/azure/active-directory/develop/web-app-quickstart?pivots=devlang-python",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory/develop/quickstart-v2-dotnet-native-aspnet.md",
+            "redirect_url": "/azure/active-directory/develop/web-api-quickstart?pivots=devlang-aspnet",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory/develop/quickstart-v2-aspnet-core-web-api.md",
+            "redirect_url": "/azure/active-directory/develop/web-api-quickstart?pivots=devlang-aspnet-core",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory/develop/quickstart-v2-android.md",
+            "redirect_url": "/azure/active-directory/develop/mobile-app-quickstart?pivots=devlang-android",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory/develop/quickstart-v2-ios.md",
+            "redirect_url": "/azure/active-directory/develop/mobile-app-quickstart?pivots=devlang-ios",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory/develop/quickstart-v2-uwp.md",
+            "redirect_url": "/azure/active-directory/develop/desktop-app-quickstart?pivots=devlang-uwp",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory/develop/quickstart-v2-windows-desktop.md",
+            "redirect_url": "/azure/active-directory/develop/desktop-app-quickstart?pivots=devlang-windows-desktop",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory/develop/quickstart-v2-nodejs-desktop.md",
+            "redirect_url": "/azure/active-directory/develop/desktop-app-quickstart?pivots=devlang-nodejs-electron",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory/develop/quickstart-v2-netcore-daemon.md",
+            "redirect_url": "/azure/active-directory/develop/console-app-quickstart?pivots=devlang-dotnet-core",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory/develop/quickstart-v2-python-daemon.md",
+            "redirect_url": "/azure/active-directory/develop/console-app-quickstart?pivots=devlang-python",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory/develop/quickstart-v2-nodejs-console.md",
+            "redirect_url": "/azure/active-directory/develop/console-app-quickstart?pivots=devlang-nodejs",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory/develop/quickstart-v2-java-daemon.md",
+            "redirect_url": "/azure/active-directory/develop/console-app-quickstart?pivots=devlang-java",
+            "redirect_document_id": false
+        },     
         {
             "source_path_from_root": "/articles/active-directory/active-directory-application-proxy-connectors.md",
             "redirect_url": "/azure/active-directory/active-directory-application-proxy-connectors-azure-portal",
@@ -3171,33 +3276,38 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/active-directory/develop/v2-howto-app-gallery-listing.md",
+            "redirect_url": "/azure/active-directory/manage-apps/v2-howto-app-gallery-listing",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/active-directory/azuread-dev/howto-app-gallery-listing.md",
-            "redirect_url": "/azure/active-directory/develop/v2-howto-app-gallery-listing",
+            "redirect_url": "/azure/active-directory/manage-apps/v2-howto-app-gallery-listing",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/active-directory/develop/howto-app-gallery-listing.md",
-            "redirect_url": "/azure/active-directory/develop/v2-howto-app-gallery-listing",
+            "redirect_url": "/azure/active-directory/manage-apps/v2-howto-app-gallery-listing",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/active-directory/manage-apps/isv-choose-multi-tenant-federation.md",
-            "redirect_url": "/azure/active-directory/develop/v2-howto-app-gallery-listing",
+            "redirect_url": "/azure/active-directory/manage-apps/v2-howto-app-gallery-listing",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/active-directory/manage-apps/isv-create-sso-documentation.md",
-            "redirect_url": "/azure/active-directory/develop/v2-howto-app-gallery-listing",
+            "redirect_url": "/azure/active-directory/manage-apps/v2-howto-app-gallery-listing",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/active-directory/manage-apps/isv-sso-content.md",
-            "redirect_url": "/azure/active-directory/develop/v2-howto-app-gallery-listing",
+            "redirect_url": "/azure/active-directory/manage-apps/v2-howto-app-gallery-listing",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/active-directory/manage-apps/isv-tenant-multi-tenant-app.md",
-            "redirect_url": "/azure/active-directory/develop/v2-howto-app-gallery-listing",
+            "redirect_url": "/azure/active-directory/manage-apps/v2-howto-app-gallery-listing",
             "redirect_document_id": false
         },
         {
@@ -7078,6 +7188,21 @@
         {
             "source_path_from_root": "/articles/active-directory/active-directory-reporting-azure-portal.md",
             "redirect_url": "/azure/active-directory/reports-monitoring/overview-reports",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory/hybrid/how-to-connect-fed-hybrid-azure-ad-join-post-config-tasks.md",
+            "redirect_url": "/azure/active-directory/devices/howto-hybrid-azure-ad-join",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/active-directory/devices/hybrid-azuread-join-federated-domains.md",
+            "redirect_url": "/azure/active-directory/devices/howto-hybrid-azure-ad-join",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory/devices/hybrid-azuread-join-managed-domains.md",
+            "redirect_url": "/azure/active-directory/devices/howto-hybrid-azure-ad-join",
             "redirect_document_id": false
         },
         {

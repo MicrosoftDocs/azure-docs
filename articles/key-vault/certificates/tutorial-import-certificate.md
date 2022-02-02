@@ -149,5 +149,5 @@ When no longer needed, delete the resource group, which deletes the Key Vault an
 In this tutorial, you created a Key Vault and imported a certificate in it. To learn more about Key Vault and how to integrate it with your applications, continue on to the articles below.
 
 - Read more about [Managing certificate creation in Azure Key Vault](./create-certificate-scenarios.md)
-- See examples of [Importing Certificates Using REST APIs](/rest/api/keyvault/importcertificate/importcertificate)
+- See examples of [Importing Certificates Using REST APIs](/rest/api/keyvault/certificates/import-certificate/import-certificate)
 - Review the [Key Vault security overview](../general/security-features.md)

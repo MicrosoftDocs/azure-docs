@@ -8,8 +8,8 @@ ms.subservice: backup-restore
 ms.custom:
 ms.devlang: 
 ms.topic: conceptual
-author: rothja
-ms.author: jroth
+author: SudhirRaparla 
+ms.author: nvraparl 
 ms.reviewer: kendralittle, mathoma, danil
 ms.date: 01/10/2022
 ---
