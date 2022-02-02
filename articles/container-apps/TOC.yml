@@ -70,11 +70,11 @@
       href: azure-resource-manager-api-spec.md
 - name: Resources
   items:
-    - name: "Video: Build and deliver apps with Container Apps"
-      href: https://www.youtube.com/watch?v=b3dopSTnSRg
     - name: Pricing
       href: https://azure.microsoft.com/pricing/details/container-apps/
     - name: Quotas
       href: quotas.md
     - name: Frequently asked questions
       href: https://github.com/microsoft/azure-container-apps/wiki/FAQs
+    - name: "Video: Build and deliver apps with Container Apps"
+      href: https://www.youtube.com/watch?v=b3dopSTnSRg
