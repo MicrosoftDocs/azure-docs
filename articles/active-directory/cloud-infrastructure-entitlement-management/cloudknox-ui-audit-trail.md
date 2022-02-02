@@ -46,7 +46,7 @@ This article provides an overview of the components of the **Audit trail** dashb
 
         - To display a **List** of accounts and **Folders** in the authorization system, select the down arrow, and then select **Apply**.
 
-1. To add an **Audit trail Condition**, select **Conditions** (the eye icon), select the conditions you want to add, and then select **Close**.
+1. To add an **Audit trail condition**, select **Conditions** (the eye icon), select the conditions you want to add, and then select **Close**.
     
 1. To edit existing parameters, select **Edit** (the pencil icon).
 
