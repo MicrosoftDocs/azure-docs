@@ -29,7 +29,7 @@ The NVadsA10v5-series virtual machines are powered by [Nvidia A10](https://www.n
 [Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): Not Supported <br>
 <br>
 
-| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | GPU | GPU memory: GiB | Max data disks | Max NICs / Expected network bandwidth (MBps) |
+| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | GPU partition | GPU memory: GiB | Max data disks | Max NICs / Expected network bandwidth (MBps) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_NV6ads_A10_v5 |6 |55 |180 | 1/6 | 4 | 4 | 2 / 5000 |
 | Standard_NV12ads_A10_v5 |12 |110 |360 | 1/3 | 6 | 4 | 2 / 10000 |
