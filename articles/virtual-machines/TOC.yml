@@ -416,6 +416,8 @@
         href: vm-applications-how-to.md
   - name: Images
     items:
+    - name: Endorsed Linux distributions
+      href: ./linux/endorsed-distros.md
     - name: Find Azure Marketplace images
       items:
       - name: CLI
@@ -692,8 +694,6 @@
     items:
     - name: Linux
       items:
-      - name: Endorsed distributions
-        href: ./linux/endorsed-distros.md
       - name: CLI
         displayName: Create VM, Create
         href: ./linux/create-cli-complete.md

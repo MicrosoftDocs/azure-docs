@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 01/25/2022
+ms.date: 01/28/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -59,9 +59,7 @@ Exchange Online, SharePoint Online, Teams, and MS Graph can synchronize key Cond
 This process enables the scenario where users lose access to organizational files, email, calendar, or tasks from Microsoft 365 client apps or SharePoint Online immediately after network location changes.
 
 > [!NOTE]
-> Not all client app and resource provider combinations are supported. See table below. The first column of this table refers to web applications launched via web browser (i.e. PowerPoint launched in web browser) while the remaining four columns refer to native applications running on each platform described. Additionally, references to "Office" encompass Word, Excel, and PowerPoint.
-
-Token lifetimes for Office web apps are reduced to 1 hour when a Conditional Access policy is set.
+> Not all client app and resource provider combinations are supported. See the following tables. The first column of this table refers to web applications launched via web browser (i.e. PowerPoint launched in web browser) while the remaining four columns refer to native applications running on each platform described. Additionally, references to "Office" encompass Word, Excel, and PowerPoint.
 
 | | Outlook Web | Outlook Win32 | Outlook iOS | Outlook Android | Outlook Mac |
 | :--- | :---: | :---: | :---: | :---: | :---: |
@@ -70,7 +68,7 @@ Token lifetimes for Office web apps are reduced to 1 hour when a Conditional Acc
 
 | | Office web apps | Office Win32 apps | Office for iOS | Office for Android | Office for Mac |
 | :--- | :---: | :---: | :---: | :---: | :---: |
-| **SharePoint Online** | Not Supported | Supported | Supported | Supported | Supported |
+| **SharePoint Online** | Not Supported \* | Supported | Supported | Supported | Supported |
 | **Exchange Online** | Not Supported | Supported | Supported | Supported | Supported |
 
 | | OneDrive web | OneDrive Win32 | OneDrive iOS | OneDrive Android | OneDrive Mac |
@@ -79,9 +77,11 @@ Token lifetimes for Office web apps are reduced to 1 hour when a Conditional Acc
 
 | | Teams web | Teams Win32 | Teams iOS | Teams Android | Teams Mac |
 | :--- | :---: | :---: | :---: | :---: | :---: |
-| **Teams Service** | Supported | Supported | Supported | Supported | Supported |
-| **SharePoint Online** | Supported | Supported | Supported | Supported | Supported |
-| **Exchange Online** | Supported | Supported | Supported | Supported | Supported |
+| **Teams Service** | Partially supported | Partially supported | Partially supported | Partially supported | Partially supported |
+| **SharePoint Online** | Partially supported | Partially supported | Partially supported | Partially supported | Partially supported |
+| **Exchange Online** | Partially supported | Partially supported | Partially supported | Partially supported | Partially supported |
+
+> \* Token lifetimes for Office web apps are reduced to 1 hour when a Conditional Access policy is set.
 
 ## Client Capabilities
 
@@ -201,7 +201,7 @@ For an explanation of the office update channels, see [Overview of update channe
 
 ### Coauthoring in Office apps
 
-When multiple users are collaborating on a document at the same time, their access to the document may not be immediately revoked by CAE based on user revocation or policy change events. In this case, the user loses access completely after: 
+When multiple users are collaborating on a document at the same time, their access to the document may not be immediately revoked by CAE based on policy change events. In this case, the user loses access completely after:
 
 - Closing the document
 - Closing the Office app

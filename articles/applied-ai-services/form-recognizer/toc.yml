@@ -130,15 +130,13 @@ items:
   items:
   - name: Use Form Recognizer with Azure Logic Apps
     href: tutorial-logic-apps.md
-  - name: "Create Form Recognizer and AI Builder workflows"
+  - name: "Create Form Recognizer workflows with AI Builder"
     expanded: true
     items:
     - name:  Custom
       href: /ai-builder/create-form-processing-model?toc=/azure/applied-ai-services/form-recognizer/toc.json&bc=/azure/applied-ai-services/form-recognizer/breadcrumb/toc.json
     - name:  Invoice
       href: /ai-builder/flow-invoice-processing?toc=/azure/applied-ai-services/form-recognizer/toc.json&bc=/azure/applied-ai-services/form-recognizer/breadcrumb/toc.json
-    - name: Receipt processing workflow
-      href: /ai-builder/flow-receipt-processing?toc=/azure/applied-ai-services/form-recognizer/toc.json&bc=/azure/applied-ai-services/form-recognizer/breadcrumb/toc.json
     - name: Receipt
       href: /ai-builder/flow-receipt-processing?toc=/azure/applied-ai-services/form-recognizer/toc.json&bc=/azure/applied-ai-services/form-recognizer/breadcrumb/toc.json
     - name: ID document
