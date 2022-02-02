@@ -6,7 +6,7 @@ author: ginalee-dotcom
 ms.custom: references_regions
 ms.service: healthcare-apis
 ms.topic: reference
-ms.date: 01/28/2022
+ms.date: 02/02/2022
 ms.author: ginle
 ---
 
@@ -34,7 +34,7 @@ Azure Healthcare APIs enables you to:
 No, unfortunately we do not offer migration capabilities at this time. 
 
 ### What is the pricing of Azure Healthcare APIs?
-During the public preview phase, Azure Healthcare APIs is available for you to use at no charge
+At this time, Azure Healthcare APIs is available for you to use at no charge. Pricing information will be coming soon.
 
 ### What regions are Healthcare APIs available?
 Please refer to the [Products by region](https://azure.microsoft.com/global-infrastructure/services/?products=azure-api-for-fhir) page for the most current information. 

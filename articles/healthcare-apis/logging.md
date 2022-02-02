@@ -5,7 +5,7 @@ services: healthcare-apis
 author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.topic: tutorial
-ms.date: 01/31/2022
+ms.date: 02/02/2022
 ms.author: ginle
 ---
 
@@ -19,7 +19,7 @@ While activity logs are available for each Azure resource from the Azure portal,
 - AuditLogs provide auditing trails for healthcare services. For example, a caller's IP address and resource URL are logged when a user or application accesses the FHIR service. Each service emits required properties and optionally implements additional properties.
 - DiagnosticLogs provides insight into the operation of the service, for example, log level (information, warning or error) and log message.
 
-Currently, Healthcare APIs only supports AuditLogs for public preview. Diagnostic Logs will be available when the service is generally available.
+At this time, Healthcare APIs only supports AuditLogs. Diagnostic Logs will be coming soon.
 
 Below is one example of the AuditLog.
 
