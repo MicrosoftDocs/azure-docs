@@ -13,7 +13,7 @@ ms.custom: "seo-lt-2019, devx-track-azurepowershell"
 ms.topic: conceptual
 ms.date: 02/08/2021
 ---
-
+# Custom roles for SQL Server to Azure SQL Managed Instance online migrations Not Working Due to Missing Action ""Microsoft.DataMigration/services/*"
 # Custom roles for SQL Server to Azure SQL Managed Instance online migrations
 
 Azure Database Migration Service uses an APP ID to interact with Azure Services. The APP ID requires either the Contributor role at the Subscription level (which many Corporate security departments won't allow) or creation of custom roles that grant the specific permissions that Azure Database Migration Service requires. Since there's a limit of 2,000 custom roles in Azure Active Directory, you may want to combine all permissions required specifically by the APP ID into one or two custom roles, and then grant the APP ID the custom role on specific objects or resource groups (vs. at the subscription level). If the number of custom roles isn't a concern, you can split the custom roles by resource type, to create three custom roles in total as described below.
@@ -46,7 +46,7 @@ We currently recommend creating a minimum of two custom roles for the APP ID, on
         "Microsoft.Sql/managedInstances/databases/delete",
         "Microsoft.Sql/managedInstances/metrics/read",
         "Microsoft.DataMigration/locations/*",
-        "Microsoft.DataMigration/services/*"
+        "Microsoft.DataMigration/services/*" #This Custome Role Action isn't available, It has been deprecated.
   ],
   "NotActions": [
   ],
