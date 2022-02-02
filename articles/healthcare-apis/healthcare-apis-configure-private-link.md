@@ -1,5 +1,5 @@
 ---
-title: Private link for Azure Healthcare APIs
+title: Private Link for Azure Healthcare APIs
 description: This article describes how to set up a private endpoint for Azure Healthcare APIs
 services: healthcare-apis
 author: stevewohl
