@@ -612,19 +612,7 @@ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
 
 The Federal Information Processing Standard (FIPS) 140-2 is a US government standard that defines minimum security requirements for cryptographic modules in information technology products and systems. AKS allows you to create Linux-based node pools with FIPS 140-2 enabled. Deployments running on FIPS-enabled node pools can use those cryptographic modules to provide increased security and help meet security controls as part of FedRAMP compliance. For more details on FIPS 140-2, see [Federal Information Processing Standard (FIPS) 140-2][fips].
 
-FIPS-enabled node pools are currently in preview.
-
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
-
-You will need the *aks-preview* Azure CLI extension version *0.5.11* or later. Install the *aks-preview* Azure CLI extension by using the [az extension add][az-extension-add] command. Or install any available updates by using the [az extension update][az-extension-update] command.
-
-```azurecli-interactive
-# Install the aks-preview extension
-az extension add --name aks-preview
-
-# Update the extension to make sure you have the latest version installed
-az extension update --name aks-preview
-```
+### Prerequisites
 
 You need the Azure CLI version 2.32.0 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 

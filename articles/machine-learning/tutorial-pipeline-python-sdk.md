@@ -137,7 +137,7 @@ if not found:
 
 ### Create a dataset for the Azure-stored data
 
-Fashion-MNIST] is a dataset of fashion images divided into 10 classes. Each image is a 28x28 grayscale image and there are 60,000 training and 10,000 test images. As an image classification problem, Fashion-MNIST is harder than the classic MNIST handwritten digit database. It's distributed in the same compressed binary form as the original [handwritten digit database](http://yann.lecun.com/exdb/mnist/) .
+Fashion-MNIST is a dataset of fashion images divided into 10 classes. Each image is a 28x28 grayscale image and there are 60,000 training and 10,000 test images. As an image classification problem, Fashion-MNIST is harder than the classic MNIST handwritten digit database. It's distributed in the same compressed binary form as the original [handwritten digit database](http://yann.lecun.com/exdb/mnist/) .
 
 To create a `Dataset` that references the Web-based data, run:
 
@@ -274,7 +274,7 @@ Most of this code should be familiar to ML developers:
 * The number of training epochs will be 10
 * The model has three convolutional layers, with max pooling and dropout, followed by a dense layer and softmax head
 * The model is fitted for 10 epochs and then evaluated
-* The model architecture is written to "outputs/model/model.json" and the weights to `outputs/model/model.h5`
+* The model architecture is written to `outputs/model/model.json` and the weights to `outputs/model/model.h5`
 
 Some of the code, though, is specific to Azure Machine Learning. `run = Run.get_context()` retrieves a [`Run`](/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py&preserve-view=True) object, which contains the current service context. The `train.py` source uses this `run` object to retrieve the input dataset via its name (an alternative to the code in `prepare.py` that retrieved the dataset via the `argv` array of script arguments). 
 

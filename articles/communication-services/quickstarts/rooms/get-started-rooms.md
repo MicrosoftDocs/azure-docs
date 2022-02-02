@@ -20,11 +20,11 @@ zone_pivot_groups: acs-csharp-java
 This quickstart will help you get started with Azure Communication Services Rooms. A `room` is a server-managed communications space for a known, fixed set of participants to collaborate for a pre-determined duration. The [rooms conceptual documentation](../../concepts/rooms/room-concept.md) covers more details and potential use cases for `rooms`.
 
 ::: zone pivot="programming-language-csharp"
-[!INCLUDE [Send SMS with .NET SDK](./includes/rooms-quickstart-net.md)]
+[!INCLUDE [Use rooms with .NET SDK](./includes/rooms-quickstart-net.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
-[!INCLUDE [Send SMS with Java SDK](./includes/rooms-quickstart-java.md)]
+[!INCLUDE [Use rooms with Java SDK](./includes/rooms-quickstart-java.md)]
 ::: zone-end
 
 ## Object model

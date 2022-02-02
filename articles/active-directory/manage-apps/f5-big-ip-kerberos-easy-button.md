@@ -19,23 +19,23 @@ In this article, you'll learn to implement Secure Hybrid Access (SHA) with singl
 
 Integrating a BIG-IP with Azure Active Directory (Azure AD) provides many benefits, including:
 
-* Improved Zero Trust governance through Azure AD pre-authentication and authorization
+* Improved Zero Trust governance through Azure AD pre-authentication and [Conditional Access](/conditional-access/overview)
 
 * Full SSO between Azure AD and BIG-IP published services
 
-* Manage identities and access from a single control plane, [The Azure portal](https://portal.azure.com/)
+* Manage identities and access from a single control plane, the [Azure portal](https://portal.azure.com/)
 
 To learn about all of the benefits, see the article on [F5 BIG-IP and Azure AD integration](./f5-aad-integration.md) and [what is application access and single sign-on with Azure AD](/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## Scenario description
 
-For this scenario, you will configure a critical line of business (LOB) application for **Kerberos authentication**, also known as **Integrated Windows Authentication (IWA)**.
+For this scenario, we have an application using **Kerberos authentication**, also known as **Integrated Windows Authentication (IWA)**, to gate access to protected content.
 
-Ideally, Azure AD should manage the application, but being legacy, it does not support any form of modern authentication protocols. Modernization would take considerable effort, introducing inevitable costs, and risk of potential downtime.
+Being legacy, the application lacks modern protocols to support a direct integration with Azure AD. Modernizing the app would be ideal, but is costly, requires careful planning, and introduces risk of potential impact.
 
-Instead, a BIG-IP Virtual Edition (VE) deployed between the public internet and the internal Azure VNet application is connected and will be used to gate inbound access to the application, along with Azure AD for its extensive choice of authentication and authorization capabilities.
+One option would be to consider using [Azure AD Application Proxy](/azure/active-directory/app-proxy/application-proxy), as it provides the protocol transitioning required to bridge the legacy application to the modern identity control plane. Or for our scenario, we'll achieve this using F5's BIG-IP Application Delivery Controller (ADC).
 
-Having a BIG-IP in front of the application enables us to overlay the service with Azure AD pre-authentication and header-based SSO. It significantly improves the overall security posture of the application, and allows the business to continue operating at pace, without interruption.
+Having a BIG-IP in front of the application enables us to overlay the service with Azure AD pre-authentication and header-based SSO, significantly improving the overall security posture of the application for remote and local access.
 
 ## Scenario architecture
 
@@ -47,7 +47,7 @@ The SHA solution for this scenario is made up of the following:
 
 **KDC:** Key Distribution Center (KDC) role on a Domain Controller (DC), issuing Kerberos tickets.
 
-**BIG-IP:** Reverse proxy functionality enables publishing backend applications. The APM then overlays published applications with SAML Service Provider (SP) and SSO functionality.
+**BIG-IP:** Reverse proxy and SAML service provider (SP) to the application, delegating authentication to the SAML IdP before performing header-based SSO to the PeopleSoft service.
 
 SHA for this scenario supports both SP and IdP initiated flows. The following image illustrates the SP initiated flow.
 
@@ -118,23 +118,14 @@ Before a client or service can access Microsoft Graph, it must be trusted by the
 7. Navigate to **API permissions** and authorize the following Microsoft Graph permissions:
 
    * Application.Read.All
-
    * Application.ReadWrite.All
-
    * Application.ReadWrite.OwnedBy
-
    * Directory.Read.All
-
    * Group.Read.All
-
    * IdentityRiskyUser.Read.All
-
    * Policy.Read.All
-
    * Policy.ReadWrite.ApplicationConfiguration
-
    * Policy.ReadWrite.ConditionalAccess
-
    * User.Read.All
 
 8. Grant admin consent for your organization
@@ -153,13 +144,13 @@ Next, step through the Easy Button configurations, and complete the trust to sta
 
 3. Select **PKCS 12 (IIS)** and import your certificate along with its private key
 
-   Once provisioned, the certificate can be used for every application published through Easy Button. You can also choose to upload a separate certificate for individual applications.
+Once provisioned, the certificate can be used for every application published through Easy Button. You can also choose to upload a separate certificate for individual applications.
 
    ![Screenshot for Configure Easy Button- Import SSL certificates and keys](./media/f5-big-ip-kerberos-easy-button/config-easy-button.png)
 
 4. Navigate to **Access > Guided Configuration > Microsoft Integration and select Azure AD Application**
 
-   You can now access the Easy Button functionality that provides quick configuration steps to set up the APM as a SAML Service Provider (SP) and Azure AD as an Identity Provider (IdP) for your application.
+You can now access the Easy Button functionality that provides quick configuration steps to set up the APM as a SAML Service Provider (SP) and Azure AD as an Identity Provider (IdP) for your application.
 
    ![Screenshot for Configure Easy Button- Install the template](./media/f5-big-ip-kerberos-easy-button/easy-button-template.png)
 
@@ -179,11 +170,11 @@ These are general and service account properties. Consider this section to be th
 
 Some of these are global settings so can be re-used for publishing more applications, further reducing deployment time and effort.
 
-1. Enter **Configuration Name.** A unique name that enables an admin to easily distinguish between Easy Button configurations for published applications
+1. Provide a unique **Configuration Name** so admins can easily distinguish between Easy Button configurations
 
 2. Enable **Single Sign-On (SSO) & HTTP Headers**
 
-3. Enter the **Tenant Id, Client ID,** and **Client Secret** from your registered application
+3. Enter the **Tenant Id, Client ID,** and **Client Secret** you noted down during tenant registration
 
    ![Screenshot for Configuration General and Service Account properties](./media/f5-big-ip-kerberos-easy-button/azure-configuration-properties.png)
 
@@ -249,7 +240,7 @@ As our AD infrastructure is based on a .com domain suffix used both, internally 
 
 #### Additional User Attributes
 
-In the **Additional User Attributes tab**, you can enable session augmentation required by various distributed systems such as Oracle, SAP, and other JAVA based implementations requiring attributes stored in other directories. Attributes fetched from an LDAP source can then be injected as additional SSO headers to further control access based on roles, Partner IDs, etc.![Graphical user interface, text, application, email
+The **Additional User Attributes** tab can support a variety of distributed systems requiring attributes stored in other directories, for session augmentation. Attributes fetched from an LDAP source can then be injected as additional SSO headers to further control access based on roles, Partner IDs, etc.
 
 ![Screenshot for additional user attributes](./media/f5-big-ip-kerberos-easy-button/additional-user-attributes.png)
 
@@ -260,9 +251,9 @@ In the **Additional User Attributes tab**, you can enable session augmentation r
 
 You can further protect the published application with policies returned from your Azure AD tenant. These policies are enforced after the first-factor authentication has been completed and uses signals from conditions like device platform, location, user or group membership, or application to determine access.
 
-The **Available Policies** list, by default, displays a list of policies that target selected apps.
+The **Available Policies** by default, lists all CA policies defined without user based actions.
 
-The **Selected Policies** list, by default, displays all policies targeting All cloud apps. These policies cannot be deselected or moved to the Available Policies list. They are included by default but can be excluded if necessary.
+The **Selected Policies**, by default, displays all policies targeting All cloud apps. These policies cannot be deselected or moved to the Available Policies list.
 
 To select a policy to be applied to the application being published:
 
@@ -270,7 +261,7 @@ To select a policy to be applied to the application being published:
 
 2. Select the right arrow and move it to the **Selected Policies** list
 
-   Selected policies should either have an **Include** or **Exclude** option checked. If both options are checked, the selected policy is not enforced. **Exclude** all policies while testing. You can go back and enable them later.
+Selected policies should either have an **Include** or **Exclude** option checked. If both options are checked, the selected policy is not enforced. Excluding all policies may ease testing, you can go back and enable them later.
 
   ![Screenshot for CA policies](./media/f5-big-ip-kerberos-easy-button/conditional-access-policy.png)
 
@@ -293,7 +284,7 @@ A virtual server is a BIG-IP data plane object represented by a virtual IP addre
 
 ### Pool Properties
 
-The **Application Pool tab** details the services behind a BIG-IP that are represented as a pool, containing one or more application servers.
+The **Application Pool tab** details the services behind a BIG-IP, represented as a pool containing one or more application servers.
 
 1. Choose from **Select a Pool.** Create a new pool or select an existing one
 
@@ -420,7 +411,7 @@ For more information, see [Kerberos Constrained Delegation across domains](/prev
 
 ## Next steps
 
-From a browser, **connect** to the application’s external URL or select the **application’s icon** in the [Microsoft MyApps portal](https://myapps.microsoft.com/). After authenticating against Azure AD, you’ll be redirected to the BIG-IP virtual server for the application and automatically signed in through SSO.
+From a browser, **connect** to the application’s external URL or select the **application’s icon** in the [Microsoft MyApps portal](https://myapps.microsoft.com/). After authenticating to Azure AD, you’ll be redirected to the BIG-IP virtual server for the application and automatically signed in through SSO.
 
 ![Screenshot for App views](./media/f5-big-ip-kerberos-easy-button/app-view.png)
 

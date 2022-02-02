@@ -15,7 +15,7 @@ ms.custom: references_regions
 zone_pivot_groups: programming-languages-speech-services-nomore-variant
 ---
 
-# Get facial pose events
+# Get facial pose events for lip-sync
 
 > [!NOTE]
 > At this time, viseme events are available only for English (US) [neural voices](language-support.md#text-to-speech).

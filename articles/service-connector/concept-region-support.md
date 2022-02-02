@@ -3,7 +3,7 @@ title: Service Connector Region Support
 description: Service Connector region availability and region support list
 author: shizn
 ms.author: xshi
-ms.service: serviceconnector
+ms.service: service-connector
 ms.topic: conceptual
 ms.date: 10/29/2021
 ms.custom: ignite-fall-2021, references_regions

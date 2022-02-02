@@ -31,7 +31,7 @@ Daemon applications use application permissions rather than delegated permission
 
 The authority specified in the application configuration should be tenanted (specifying a tenant ID or a domain name associated with your organization).
 
-Even if want to provide a multitenant tool, you should use a tenant ID or domain name, and **not** `common` or `organizations` with this flow, because the service cannot reliably infer which tenant should be used.
+Even if you want to provide a multitenant tool, you should use a tenant ID or domain name, and **not** `common` or `organizations` with this flow, because the service cannot reliably infer which tenant should be used.
 
 ## Configure and instantiate the application
 
