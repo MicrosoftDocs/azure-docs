@@ -78,7 +78,7 @@ In many environments, the most used apps are business productivity apps. Anythin
 
 ![Authentication prompts by application](./media/workbook-authentication-prompts-analysis/authentication-prompts-by-application.png)
 
-The prompts by application list-view shows additional information that help with investigations. This includes timestamps, and request IDs.
+The prompts by application list-view shows additional information such as timestamps, and request IDs that help with investigations.
 
 Additionally, you get a summary of the average and median prompts count for your tenant. 
 
