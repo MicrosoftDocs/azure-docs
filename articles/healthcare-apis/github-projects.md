@@ -5,12 +5,12 @@ services: healthcare-apis
 author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.topic: reference
-ms.date: 01/31/2022
+ms.date: 02/02/2022
 ms.author: ginle
 ---
 # GitHub Projects
 
-We have many open-source projects on GitHub that provide you the source code and instructions to deploy services for various uses. You’re always welcome to visit our GitHub repositories to learn and experiment with our features and products. 
+We have many open-source projects on GitHub that provide you the source code and instructions to deploy services for various uses. You're always welcome to visit our GitHub repositories to learn and experiment with our features and products. 
 
 ## Healthcare APIs samples
 
