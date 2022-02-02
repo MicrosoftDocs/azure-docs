@@ -8,18 +8,26 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/14/2022
+ms.date: 02/01/2022
 ms.custom: references_regions
 ---
 # AI enrichment in Azure Cognitive Search
 
-In Azure Cognitive Search, AI enrichment refers to a pipeline process that adds machine learning to [indexer-based indexing](search-indexer-overview.md). Steps in the pipeline create information where none previously existed. For example, steps in the pipeline can extract information from images, detect sentiment or key phrases from chunks of text, and recognize entities. These processes transform unsearchable content into searchable text, for full text search and knowledge mining scenarios.
+*AI enrichment* is the application of machine learning models over raw content, where analysis and inference are used to create searchable content and structure where none previously existed. Because Azure Cognitive Search is a full text search solution, the purpose of AI enrichment is to improve the utility of your content in search-related scenarios:
 
-[**Azure Blob Storage**](../storage/blobs/storage-blobs-overview.md) is a frequently used input, but any supported data source can provide the initial content. A [**skillset**](cognitive-search-working-with-skillsets.md), attached to an indexer, adds the AI processing. The indexer extracts content and sets up the pipeline. The skillset performs enrichment steps over blob, image, and raw text inputs. Output is always a [**search index**](search-what-is-an-index.md), and optionally a [**knowledge store**](knowledge-store-concept-intro.md).
++ Machine translation and language detection support multi-lingual search
++ Entity recognition finds people, places, and other entities in large chunks of text
++ Key phrase extraction identifies and then aggregates important terms
++ Optical Character Recognition (OCR) extracts text from binary files
++ Image analysis tags and describes images in searchable text fields
+
+AI enrichment is an extension of an [**indexer**](search-indexer-overview.md) pipeline.
+
+[**Blobs in Azure Storage**](../storage/blobs/storage-blobs-overview.md) are the most common data input, but any supported data source can provide the initial content. A [**skillset**](cognitive-search-working-with-skillsets.md), attached to an indexer, adds the AI processing. The indexer extracts content and sets up the pipeline. The skillset performs the enrichment steps. Output is always a [**search index**](search-what-is-an-index.md), and optionally a [**knowledge store**](knowledge-store-concept-intro.md).
 
 ![Enrichment pipeline diagram](./media/cognitive-search-intro/cogsearch-architecture.png "enrichment pipeline overview")
 
-Skillsets are composed of [*built-in skills*](cognitive-search-predefined-skills.md) from Cognitive Search or [*custom skills*](cognitive-search-create-custom-skill-example.md) for external processing that you provide. Custom skills are not always complex. For example, if you have an existing package that provides pattern matching or a document classification model, you can wrap it in a custom skill. 
+Skillsets are composed of [*built-in skills*](cognitive-search-predefined-skills.md) from Cognitive Search or [*custom skills*](cognitive-search-create-custom-skill-example.md) for external processing that you provide. Custom skills aren’t always complex. For example, if you have an existing package that provides pattern matching or a document classification model, you can wrap it in a custom skill. 
 
 Built-in skills fall into these categories:
 
@@ -59,7 +67,9 @@ A [skillset](cognitive-search-defining-skillset.md) that's assembled using built
 
 + Unstructured or semi-structured documents containing content that has inherent meaning or context that is hidden in the larger document. 
 
-  Blobs in particular often contain a large body of content that is packed into a single "field". By attaching image and natural language processing skills to an indexer, you can create information that is extant in the raw content, but not otherwise surfaced as distinct fields. Some ready-to-use built-in cognitive skills that can help: [Key Phrase Extraction](cognitive-search-skill-keyphrases.md) and [Entity Recognition](cognitive-search-skill-entity-recognition-v3.md) (people, organizations, and locations to name a few).
+  Blobs in particular often contain a large body of content that is packed into a single "field". By attaching image and natural language processing skills to an indexer, you can create information that is extant in the raw content, but not otherwise surfaced as distinct fields. 
+
+  Some ready-to-use built-in cognitive skills that can help: [Key Phrase Extraction](cognitive-search-skill-keyphrases.md) and [Entity Recognition](cognitive-search-skill-entity-recognition-v3.md) (people, organizations, and locations to name a few).
 
   Additionally, built-in skills can also be used restructure content through text split, merge, and shape operations.
 
@@ -68,7 +78,7 @@ A [skillset](cognitive-search-defining-skillset.md) that's assembled using built
 Custom skills can support more complex scenarios, such as recognizing forms, or custom entity detection using a model that you provide and wrap in the [custom skill web interface](cognitive-search-custom-skill-interface.md). Several examples of custom skills include:
 
 + [Forms Recognizer](../applied-ai-services/form-recognizer/overview.md)
-+ Integration of the [Bing Entity Search API](./cognitive-search-create-custom-skill-example.md)
++ [Bing Entity Search API](./cognitive-search-create-custom-skill-example.md)
 + [Custom entity recognition](https://github.com/Microsoft/SkillsExtractorCognitiveSearch)
 
 ## Enrichment steps <a name="enrichment-steps"></a>
@@ -87,7 +97,7 @@ This step assembles all of the initial or raw content that will undergo AI enric
 
 ### Step 2: Skillset enrichment phase
 
-A skillset defines the atomic operations that are performed on each document. For example, for text and images extracted from a PDF, a skillset might apply entity recognition, language detection, or key phrase extraction to produce new fields in your index that are not available natively in the source. 
+A skillset defines the atomic operations that are performed on each document. For example, for text and images extracted from a PDF, a skillset might apply entity recognition, language detection, or key phrase extraction to produce new fields in your index that aren’t available natively in the source. 
 
 ![Enrichment phase](./media/cognitive-search-intro/enrichment-phase-blowup.png "enrichment phase")
 
@@ -145,7 +155,7 @@ In Azure Storage, a [knowledge store](knowledge-store-concept-intro.md) can assu
 
 1. Run queries to evaluate results and modify code to update skillsets, schema, or indexer configuration.
 
-To repeat any of the above steps, [reset the indexer](search-howto-reindex.md) before you run it. Or, delete and recreate the objects on each run (recommended if you are using the free tier). You should also [enable enrichment caching](cognitive-search-incremental-indexing-conceptual.md) to reuse existing enrichments wherever possible.
+To repeat any of the above steps, [reset the indexer](search-howto-reindex.md) before you run it. Or, delete and recreate the objects on each run (recommended if you’re using the free tier). You should also [enable enrichment caching](cognitive-search-incremental-indexing-conceptual.md) to reuse existing enrichments wherever possible.
 
 ## Next steps
 
