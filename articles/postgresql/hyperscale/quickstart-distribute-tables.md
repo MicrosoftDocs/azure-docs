@@ -132,6 +132,29 @@ SELECT shardid, table_name, pg_size_pretty(shard_size)
 └─────────┴──────────────┴────────────────┘
 ```
 
+To see the exact number of rows in each shard, we can use the
+`run_command_on_shards()` utility function:
+
+```sql
+SELECT run_command_on_shards('http_request', 'SELECT count(*) FROM %s')
+ LIMIT 5;
+```
+
+```
+┌───────────────────────┐
+│ run_command_on_shards │
+├───────────────────────┤
+│ (102136,t,24882)      │
+│ (102137,t,34323)      │
+│ (102138,t,29826)      │
+│ (102139,t,32109)      │
+│ (102140,t,30772)      │
+└───────────────────────┘
+```
+
+From the above, we can see that the million rows we inserted are divided into
+about 25k to 35k per shard.
+
 ## Next steps
 
 * [Run queries](quickstart-run-queries.md) on the distributed tables you
