@@ -78,6 +78,8 @@ Once your resource and storage container are configured, create a new conversati
 
 7. Review the data you entered and select **Create Project**.
 
+## Train your model
+
 [!INCLUDE [Train a model using Language Studio](../train-model-language-studio.md)]
 
 ## Deploy your model

@@ -50,6 +50,8 @@ In this tutorial, you learn how to:
 
 7. Review the data you entered and select **Create Project**.
 
+## Train your model
+
 [!INCLUDE [Train a model using Language Studio](../includes/train-model-language-studio.md)]
 
 ## Deploy your model
