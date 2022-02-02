@@ -40,12 +40,12 @@ landingContent:
   # Card
   - title: View risk metrics in your authorization system
     linkLists:
-    - linkListType: overview
-      links:
-        - text: View key statistics and data about your authorization system
-          url: cloudknox-ui-dashboard.md
+      - linkListType: overview
+        links:
+          - text: View key statistics and data about your authorization system
+            url: cloudknox-ui-dashboard.md
   # Card
-   - title: Configure settings for data collection
+  - title: Configure settings for data collection
     linkLists:
       - linkListType: overview
         links:
