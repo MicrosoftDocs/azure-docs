@@ -9,12 +9,12 @@ ms.custom: "devx-track-js"
 
 # Application Monitoring for Azure App Service and Node.js
 
-Monitoring of your Node.js web applications running on [Azure App Services](../../app-service/index.yml) does not require any modifications to the code. This article will walk you through enabling Azure Monitor application insights monitoring as well as provide preliminary guidance for automating the process for large-scale deployments.
+Monitoring of your Node.js web applications running on [Azure App Services](../../app-service/index.yml) does not require any modifications to the code. This article will walk you through enabling Azure Monitor Application Insights monitoring as well as provide preliminary guidance for automating the process for large-scale deployments.
 
 ## Enable Application Insights
 
 The easiest way to enable application monitoring for Node.js applications running on Azure App Services is through Azure portal.
-Turning on application monitoring in Azure portal will automatically instrument your application with Application insights, and doesn't require any code changes.
+Turning on application monitoring in Azure portal will automatically instrument your application with Application Insights, and doesn't require any code changes.
 
 > [!NOTE]
 > If both agent-based monitoring and manual SDK-based instrumentation is detected, only the manual instrumentation settings will be honored. This is to prevent duplicate data from being sent. To learn more about this, check out the [troubleshooting section](#troubleshooting) below.

@@ -9,12 +9,12 @@ ms.custom: "devx-track-java"
 
 # Application Monitoring for Azure App Service and Java
 
-Monitoring of your Java web applications running on [Azure App Services](../../app-service/index.yml) does not require any modifications to the code. This article will walk you through enabling Azure Monitor application insights monitoring as well as provide preliminary guidance for automating the process for large-scale deployments.
+Monitoring of your Java web applications running on [Azure App Services](../../app-service/index.yml) does not require any modifications to the code. This article will walk you through enabling Azure Monitor Application Insights monitoring as well as provide preliminary guidance for automating the process for large-scale deployments.
 
 ## Enable Application Insights
 
 The recommended way to enable application monitoring for Java applications running on Azure App Services is through Azure portal.
-Turning on application monitoring in Azure portal will automatically instrument your application with Application insights, and doesn't require any code changes.
+Turning on application monitoring in Azure portal will automatically instrument your application with Application Insights, and doesn't require any code changes.
 You can apply additional configurations, and then based on your specific scenario you [add your own custom telemetry](./java-in-process-agent.md#modify-telemetry) if needed.
 
 ### Auto-instrumentation through Azure portal
