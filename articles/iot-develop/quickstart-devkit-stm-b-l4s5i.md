@@ -104,17 +104,17 @@ To connect the STM DevKit to Azure, you'll modify a configuration file for Wi-Fi
 
     |Constant name|Value|
     |-------------|-----|
-    |`WIFI_SSID` |{*Your Wi-Fi SSID*}|
-    |`WIFI_PASSWORD` |{*Your Wi-Fi password*}|
-    |`WIFI_MODE` |{*One of the enumerated Wi-Fi mode values in the file*}|
+    |`WIFI_SSID` |{*Use your Wi-Fi SSID*}|
+    |`WIFI_PASSWORD` |{*Use your Wi-Fi password*}|
+    |`WIFI_MODE` |{*Use one of the enumerated Wi-Fi mode values in the file*}|
 
 1. Set the Azure IoT device information constants to the values that you saved after you created Azure resources.
 
     |Constant name|Value|
     |-------------|-----|
-    |`IOT_DPS_ID_SCOPE` |{*Your ID scope value*}|
-    |`IOT_DPS_REGISTRATION_ID` |{*Your Device ID value*}|
-    |`IOT_DEVICE_SAS_KEY` |{*Your Primary key value*}|
+    |`IOT_DPS_ID_SCOPE` |{*Use your ID scope value*}|
+    |`IOT_DPS_REGISTRATION_ID` |{*Use your Device ID value*}|
+    |`IOT_DEVICE_SAS_KEY` |{*Use your Primary key value*}|
 
 1. Save and close the file.
 
@@ -253,10 +253,10 @@ To connect the device to Azure, you'll modify a configuration file for Azure IoT
 
     |Constant name|Value|
     |-------------|-----|
-    |`ENDPOINT`| "global.azure-devices-provisioning.net"|
-    |`REGISTRATION_ID`| {*Use your DEVICE_ID value*}|
-    |`ID_SCOPE`| {*Your idScope value*}|
-    |`DEVICE_SYMMETRIC_KEY`| {*Your primaryKey value*}|
+    |`ENDPOINT`| {*Use this value: "global.azure-devices-provisioning.net"*}|
+    |`REGISTRATION_ID`| {*Use your Device ID value*}|
+    |`ID_SCOPE`| {*Use your ID scope value*}|
+    |`DEVICE_SYMMETRIC_KEY`| {*Use your Primary key value*}|
 
      > [!NOTE]
     > The `ENDPOINT`, `DEVICE_ID`, `ID_SCOPE`, and `DEVICE_SYMMETRIC_KEY` values are set in a `#ifndef ENABLE_DPS_SAMPLE` statement. Make sure you set the values in the `#else` statement, which will be used when the `ENABLE_DPS_SAMPLE` value is defined.
@@ -268,8 +268,8 @@ To connect the device to Azure, you'll modify a configuration file for Azure IoT
 
     |Symbol name|Value|
     |-----------|-----|
-    |`WIFI_SSID` |{*Your Wi-Fi SSID*}|
-    |`WIFI_PASSWORD` |{*Your Wi-Fi password*}|
+    |`WIFI_SSID` |{*Use your Wi-Fi SSID*}|
+    |`WIFI_PASSWORD` |{*Use your Wi-Fi password*}|
 
      :::image type="content" source="media/quickstart-devkit-stm-b-l4s5i/options-for-node-sample.png" alt-text="Options for node sample":::
 
@@ -313,24 +313,26 @@ ES-WIFI Firmware:
 ES-WIFI MAC Address: C4:7F:51:7:D7:73
 wifi connect try 1 times
 ES-WIFI Connected.
-> ES-WIFI IP Address: 10.0.0.226
+> ES-WIFI IP Address: 10.0.0.228
 > ES-WIFI Gateway Address: 10.0.0.1
 > ES-WIFI DNS1 Address: 75.75.75.75
 > ES-WIFI DNS2 Address: 75.75.76.76
-IP address: 10.0.0.226
+IP address: 10.0.0.228
 Mask: 255.255.255.0
 Gateway: 10.0.0.1
 DNS Server address: 1.1.1.1
 SNTP Time Sync...0.pool.ntp.org
 SNTP Time Sync successfully.
+[INFO] Azure IoT Security Module has been enabled, status=0
+Start Provisioning Client...
+Registered Device Successfully.
+IoTHub Host Name: iotc-14c961cd-1779-4d1c-8739-5d2b9afa5b84.azure-devices.net; Device ID: mydevice.
 Connected to IoTHub.
 Telemetry message send: {"Message ID":0}.
+[INFO] Azure IoT Security Module message is empty
 Receive twin properties :{"desired":{"$version":1},"reported":{"$version":1}}
 Telemetry message send: {"Message ID":1}.
 Telemetry message send: {"Message ID":2}.
-Telemetry message send: {"Message ID":3}.
-Telemetry message send: {"Message ID":4}.
-Telemetry message send: {"Message ID":5}.
 ```
 
 Keep the terminal open to monitor device output in the following steps.
