@@ -5,14 +5,11 @@ author: stevewohl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 07/10/2021
+ms.date: 02/02/2022
 ms.author: aersoy
 ---
 
 # Overview of the DICOM service
-
-> [!IMPORTANT]
-> Azure Healthcare APIs is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 This article describes the concepts of DICOM, Medical Imaging, and the DICOM service.
 
