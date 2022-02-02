@@ -1,6 +1,6 @@
 ---
-title: Microsoft CloudKnox Permissions Management - Define and manage users, roles, and access levels
-description: How to define and manage users, roles, and access levels in Microsoft CloudKnox Permissions Management User Management.
+title: Define and manage users, roles, and access levels in Microsoft CloudKnox Permissions Management
+description: How to define and manage users, roles, and access levels in Microsoft CloudKnox Permissions Management User management dashboard.
 services: active-directory
 author: Yvonne-deQ
 manager: karenh444
@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/17/2022
+ms.date: 02/01/2022
 ms.author: v-ydequadros
 ---
 
 # Define and manage users, roles, and access levels
 
-In Microsoft CloudKnox Permissions Management (CloudKnox), a key component of the  interface is the User Management dashboard. This topic describes how system administrators can define and manage users, their roles, and their access levels in the system.
+In Microsoft CloudKnox Permissions Management (CloudKnox), a key component of the  interface is the User management dashboard. This topic describes how system administrators can define and manage users, their roles, and their access levels in the system.
 
-## The User Management dashboard
+## The User management dashboard
 
-The CloudKnox User Management dashboard provides a high-level overview of:
+The CloudKnox User management dashboard provides a high-level overview of:
 
 - Registered and invited users.
 - Permissions allowed for each user within a given system.
@@ -26,23 +26,6 @@ The CloudKnox User Management dashboard provides a high-level overview of:
 
 It also provides the functionality to invite or delete a user, edit, view, and customize permissions settings.
 
-### Components of the User Management dashboard
-The CloudKnox User Management system includes the following components:
-
-- **CloudKnox Administrator** - The person(s) who manages the CloudKnox application.
-- **Users** - The consumers who interact with the CloudKnox application through their organization. The CloudKnox administrator must assign appropriate permissions to the users to allow them to use CloudKnox.
-- **Permissions** - A delegation of authority given to users by a CloudKnox administrator system so they can perform specific actions within the application or system.
-- **Roles** - A grouping of privileges that a CloudKnox administrator can assign to one or more users or groups who perform the same or similar functions. CloudKnox supports the following roles:
-- **Viewer**: Allows view access only, excluding privileges on-demand (POD).
-
-    > [!NOTE]
-    > POD allows the organization to grant users elevated rights in individual applications while still maintaining least privileges
-
-- **Controller** - Allows create, update, and delete capabilities across various functions, including users, permissions, roles, sentry, and authorization systems; and excluding POD.
-- **Approver** - Allowed to approve JEP POD for various authorization systems.
-- **Requestor** - Allowed to request permissions for various authorization systems.
-- **Groups** - A group of users who interact with the CloudKnox application through their organization. The organization must create the groups.
-- **Authorization Systems** - The system that specifies access privileges to resources by users or groups. These groups include Amazon Web Services (AWS) accounts, Google Cloud Platform (GCP) projects, Microsoft Azure subscriptions, and vCenter deployments.
 
 ## Manage users for customers without SAML integration
 
@@ -101,42 +84,7 @@ Inviting a user to CloudKnox adds the user to the system and allows system admin
 
     The following message displays in green at the top of the screen: **New User Has Been Invited Successfully**.
 
-### The Invited tab
 
-1. To view the invited user, select the **Invited** tab. The system administrator can view the following details:
-
-    - **Email Address** - Displays the email address of the invited user.
-    - **Permissions** - Displays each service account and if the user has permissions as a **Viewer**, **Controller**, **Approver**, or **Requestor**.
-    - **Invited By** - Displays the email address of the person who sent the invitation.
-    - **Sent** - Displays the date the invitation was sent to the user.
-2. To make changes to the following, select the ellipses **(...)** in the far right column:
-
-    - **View Permissions** - Displays a list of the accounts for which the user has permissions.
-    - **Edit Permissions** - System administrators can edit which permissions a user has.
-    - **Delete User** - System administrators can delete a user.
-    - **Reinvite** - System administrators can reinvite a user if the user didn't receive the email invitation.
-
-    When a user registers with CloudKnox, their name moves from the **Invited** tab to the **Registered** tab.
-
-### The Registered tab
-
-1. The **Registered** tab provides a high-level overview of user details to system administrators:
-    - The **Name/Email Address** column lists the name and email address of the user.
-    - The **Permissions** column lists each authorization system, and each type of permission.
-
-      If a user has all permissions for all authorization systems,  **Admin for All Authorization Types** displays across all columns.
-
-      If a user has only some permissions, numbers display in each column they have permissions for. For example, if the number "3" is listed in the **Viewer** column, the user has viewer permission for three accounts within that authorization system.
-    - The **Joined On** column displays when the user registered for CloudKnox.
-    - The **Recent Activity** column displays the date when a user last performed an activity.
-    - **Search** allows a system administrator to search for a user by name and all users who match the criteria are displayed.
-    - The **Filters** option allows a system administrator to filter by specific details. When the filter option is selected, the **Authorization System** box displays. 
-
-2. To display all authorization system accounts, select **All**. Then select the appropriate boxes for the accounts that need to be viewed.
-3. To make changes to the following, select the ellipses **(...)** in the far right column:
-    - **View Permissions** - Displays a list of accounts for which the user has permissions.
-    - **Edit Permissions** - System administrators can edit a user's permissions.
-    - **Delete User** - System administrators can delete a user.
 
 ## Manage users for customers with SAML integration
 
@@ -146,7 +94,7 @@ Follow this process to invite users if the customer has enabled SAML integration
 
 Creating a permission directly in CloudKnox allows system administrators to assign permissions to specific users. The following steps help you to create a permission.
 
-- On the right side of the screen, select the down caret icon next to **User**, and then select **User Management**.
+- On the right side of the screen, select the down caret icon next to **User**, and then select **User management**.
 
 - For **Users**:
     1. To create permissions for a specific user, select the **Users** tab, and then select **Permission.**
@@ -318,10 +266,8 @@ Creating a permission directly in CloudKnox allows system administrators to assi
     - **Delete** - System administrators can delete permissions from a group.
 
 
+## Next steps
 
-<!---## Next steps--->
+- For information about how to view user management information, see [Manage users with the User management dashboard](cloudknox-ui-user-management.md).
+- For information about how to create group-based permissions, see [Create group-based permissions](cloudknox-howto-create-group-based-permissions.md).
 
-<!---For information about how to view a system report, see [View a system report](cloudknox-report-view-system-report.html).--->
-<!---For information about how to create and view a custom report, see [Create and view a custom report](cloudknox-report-create-custom-report.html).--->
-<!---For a list of available system reports, see [List of system reports](cloudknox-all-reports.html).--->
-<!---For a detailed overview of available system reports, see [Overview of available system reports}(cloudknox-product-reports.html).--->

@@ -1,6 +1,6 @@
 ---
-title: Microsoft CloudKnox Permissions Management - Create a new rule 
-description: How to create a new rule in the Microsoft CloudKnox Permissions Management Autopilot dashboard.
+title: Create a rule in the Autopilot dashboard in Microsoft CloudKnox Permissions Management 
+description: How to create a rule in the Autopilot dashboard in Microsoft CloudKnox Permissions Management.
 services: active-directory
 author: Yvonne-deQ
 manager: karenh444
@@ -8,76 +8,105 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/17/2022
+ms.date: 02/01/2022
 ms.author: v-ydequadros
 ---
 
-# Create a new rule 
+# Create a rule in the Autopilot dashboard
  
-This topic describes how to create a new rule in the Microsoft CloudKnox Permissions Management (CloudKnox) **Autopilot** dashboard.
+This article describes how to create a rule in the Microsoft CloudKnox Permissions Management (CloudKnox) **Autopilot** dashboard.
+
+> [!NOTE]
+> Only users with **Administrator** permissions can view and make changes on the Autopilot tab. If you don’t have these permissions, contact your system administrator.
 
 ## Create a rule for Amazon Web Services (AWS) 
 
 1. In CloudKnox, select the **Autopilot** tab.
+1. Select **New rule**.
+1. In the **Rule name** box, enter a name for your rule, and then select **Next**.
+1. Select **AWS**, and then select **Next**. 
+1. Select **All** or the account names that you want.
+1. From the **Folders** dropdown, select a folder, and then select **Apply**.
 
-   CloudKnox displays the rule options available to you.
-1. Select **New Rule**.
-1. In the **Rule Name** box, enter a name for your rule.
-1. Select **AWS**, and then select **Next**.
-1. Select the **Authorization Systems** tab.
-1. From the **Folders** drop-down list, select a folder.
+     To change your folder settings, select **Reset**.
 
-    Select **Reset** to change your folder selection.
-1. Select the account you want to use.
 1. In the **Configure** tab, select the following parameters for your rule:
 
-    - **Role Created On Is** - Select the duration in days.
-    - **Role Last Used On Is** - Select the duration in days when the role was last used.
-    - **Cross Account Role** - Select **True** or **False**.
-1. In the **Mode** tab, select **On-Demand** if you want recommendations to be generated and applied manually.
-1. Select **Save**
-    The table in the **New Rule** tab displays a list of rules you have created.
+    - **Role created on is**: Select the duration in days.
+    - **Role last used on is**: Select the duration in days when the role was last used.
+    - **Cross account role**: Select **True** or **False**.
 
-## Create a rule for Microsoft Azure (Azure) 
+1. In the **Mode** tab, if you want recommendations to be generated and applied manually, select **On-demand**.
+1. Select **Save**
+
+    The following information displays in the **Autopilot rules** table:
+
+    - **Rule Name**: The name of the rule.
+    - **State**: The status of the rule: idle (not being use) or active (being used).
+    - **Rule Type**: The type of rule being applied. 
+    - **Mode**: The status of the mode: on-demand or not.
+    - **Last Generated**: The date and time the rule was last generated.
+    - **Created By**: The email address of the user who created the rule.
+    - **Last Modified**: The date and time the rule was last modified.
+    - **Subscription**: Provides an **On** or **Off** subscription that allows you to receive email notifications when recommendations have been generated, applied, or unapplied.
+
+## Create a rule for Microsoft Azure 
 
 1. In CloudKnox, select the **Autopilot** tab.
-
-   CloudKnox displays the rule options available to you.
-1. Select **New Rule**.
-1. In the **Rule Name** box, enter a name for your rule.
+1. Select **New rule**.
 1. Select **Azure**, and then select **Next**.
-1. Select the **Authorization Systems** tab.
-1. From the **Folders** drop-down list, select a folder.
+1. In the **Rule name** box, enter a name for your rule, and then select **Next**.
+1. Select **All** or the account names that you want.
+1. From the **Folders** dropdown, select a folder, and then select **Apply**.
 
-    Select **Reset** to change your folder selection.
-1. Select the account you want to use.
-1. In the **Configure** tab, select a duration in days for how long your rule has not been used.
-1. In the **Mode** tab, select **On-Demand** if you want recommendations to be generated and applied manually.
+     To change your folder settings, select **Reset**.
+
+1. In the **Configure** tab, select a duration in days for how long your rule hasn't been used.
+1. In the **Mode** tab, if you want recommendations to be generated and applied manually, select **On-demand**.
 1. Select **Save**
-    The table in the **New Rule** tab displays a list of rules you have created.
+
+    The following information displays in the **Autopilot rules** table:
+
+    - **Rule Name**: The name of the rule.
+    - **State**: The status of the rule: idle (not being use) or active (being used).
+    - **Rule Type**: The type of rule being applied. 
+    - **Mode**: The status of the mode: on-demand or not.
+    - **Last Generated**: The date and time the rule was last generated.
+    - **Created By**: The email address of the user who created the rule.
+    - **Last Modified**: The date and time the rule was last modified.
+    - **Subscription**: Provides an **On** or **Off** subscription that allows you to receive email notifications when recommendations have been generated, applied, or unapplied.
 
 ## Create a rule for Google Cloud Platform (GCP) 
 
 1. In CloudKnox, select the **Autopilot** tab.
-
-   CloudKnox displays the rule options available to you.
-1. Select **New Rule**.
-1. In the **Rule Name** box, enter a name for your rule.
+1. Select **New rule**.
 1. Select **GCP**, and then select **Next**.
-1. Select the **Authorization Systems** tab.
-1. From the **Folders** drop-down list, select a folder.
+1. In the **Rule name** box, enter a name for your rule, and then select **Next**.
+1. Select **All** or the account names that you want.
+1. From the **Folders** dropdown, select a folder, and then select **Apply**.
 
-    Select **Reset** to change your folder selection.
-1. Select the account you want to use.
-1. In the **Configure** tab, select the following parameters for your rule:
+     To change your folder settings, select **Reset**.
 
-    - **Cross Project** - Select **True** or **False**.
-    - **Unused** - Select a duration in days for how long your rule has not been used.
-1. In the **Mode** tab, select **On-Demand** if you want recommendations to be generated and applied manually.
+1. The **Configure** tab displays the following options:
+
+    - **Cross project**: Select **True** or **False**.
+    - **Unused**: Select a duration in days for how long your rule hasn't been used.
+
+1. In the **Mode** tab, if you want recommendations to be generated and applied manually, select **On-demand**.
 1. Select **Save**
-    The table in the **New Rule** tab displays a list of rules you have created.
+
+    The following information displays in the **Autopilot rules** table:
+
+    - **Rule Name**: The name of the rule.
+    - **State**: The status of the rule: idle (not being use) or active (being used).
+    - **Rule Type**: The type of rule being applied. 
+    - **Mode**: The status of the mode: on-demand or not.
+    - **Last Generated**: The date and time the rule was last generated.
+    - **Created By**: The email address of the user who created the rule.
+    - **Last Modified**: The date and time the rule was last modified.
+    - **Subscription**: Provides an **On** or **Off** subscription that allows you to receive email notifications when recommendations have been generated, applied, or unapplied.
 
 
+## Next steps
 
-
-<!---## Next steps--->
+- For more information about viewing rules, see [View roles in the Autopilot dashboard](cloudknox-ui-autopilot.md).

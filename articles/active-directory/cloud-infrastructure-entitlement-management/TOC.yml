@@ -1,8 +1,10 @@
-  - name: Microsoft CloudKnox Permissions Management
+  - name: CloudKnox Permissions Management
     href: index.yml
   #- name: Overview
     #expanded: true
     #items:
+      #- name: Overview
+      #href: cloudknox-overview.md
   - name: Onboard CloudKnox on the Azure AD tenant
     expanded: true
     items:
@@ -95,29 +97,38 @@
       items:
       - name: View information about active and completed activities
         href: cloudknox-ui-tasks.md
-    - name: Manage roles/policies and user permission requests
+    - name: Manage roles/policies and permission requests
       expanded: true
       items:
-      - name: The JEP Controller dashboard — Overview
+      - name: View existing roles/policies and requests for permission
         href: cloudknox-ui-jep-controller.md
-      - name: Manage permissions with the JEP Controller
-        href: cloudknox-product-jep-controller.md
-      - name: Attach and detach permissions
-        href: cloudknox-howto-attach-detach-permissions.md
-      - name: Create and view a role/policy
+      - name: View information about roles/policies
+        href: cloudknox-howto-view-role-policy.md
+      - name: Create a role/policy
         href: cloudknox-howto-create-role-policy.md
-      - name: Create or approve a request for privileges 
+      - name: Clone a role/policy
+        href: cloudknox-howto-clone-role-policy.md
+      - name: Modify a role/policy
+        href: cloudknox-howto-modify-role-policy.md
+      - name: Delete a role/policy
+        href: cloudknox-howto-delete-role-policy.md
+      - name: Attach and detach permissions for identities
+        href: cloudknox-howto-attach-detach-permissions.md
+      - name: Create or approve a request for permissions 
         href: cloudknox-howto-create-approve-privilege-request.md
-      - name: Manage permissions with the JEP Controller
-        href: cloudknox-ui-user-management.md
-      - name: Define and manage users, roles, and access levels
-        href: cloudknox-product-define-permission-levels.md
-      - name: Create group-based permissions
-        href: cloudknox-howto-create-group-based-permissions.md
-    - name: View information about access information
+    - name: Manage users, roles, and their access levels
       expanded: true
       items:
-      - name: View information on how users access information 
+      - name: Manage users and groups
+        href: cloudknox-ui-user-management.md
+      # - name: Define and manage users, roles, and access levels
+        # href: cloudknox-product-define-permission-levels.md
+      - name: Select group-based permissions settings
+        href: cloudknox-howto-create-group-based-permissions.md
+    - name: View how users access information
+      expanded: true
+      items:
+      - name: View how users access information 
         href: cloudknox-ui-audit-trail.md
       - name: Create a custom query
         href: cloudknox-howto-create-custom-queries.md
@@ -142,12 +153,10 @@
     - name: Manage rules for authorization systems
       expanded: true
       items:
-      - name: The Autopilot dashboard — Overview
-        href: cloudknox-ui-autopilot.md
-      - name: Manage users with the Autopilot dashboard
-        href: cloudknox-product-autopilot.md
       - name: Create a rule
         href: cloudknox-howto-create-rule.md 
+      - name: View rules in the Autopilot dashboard
+        href: cloudknox-ui-autopilot.md
     - name: Create and view reports 
       expanded: true
       items: 
