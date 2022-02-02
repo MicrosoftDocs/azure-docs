@@ -89,7 +89,7 @@ Get the following information from your service principal and secret, they will 
 
 ## Instantiate a Scanning and a Catalog client 
 In this section, you learn how to instantiate:
-*    A scanning client useful to deal with scan-related tasks like registering data sources, creating and managing scan rules, triggering a scan, etc. 
+*    A scanning client useful to registering data sources, creating and managing scan rules, triggering a scan, etc. 
 *    A catalog client useful to interact with the catalog through searching, browsing the discovered assets, identifying the sensitivity of your data, etc.
 
 First you need to authenticate to your Azure Active Directory. In this tutorial, you will use the [client secret you created](https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal#option-2-create-a-new-application-secret).
