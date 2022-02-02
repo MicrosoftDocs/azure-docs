@@ -64,7 +64,7 @@ To add a Speech service resource to your Azure account by using the free or paid
 
    1. Give a unique name for your new resource. The name helps you distinguish among multiple subscriptions tied to the same service.
    1. Choose the Azure subscription that the new resource is associated with to determine how the fees are billed. Here's the introduction for [how to create an Azure subscription](../../cost-management-billing/manage/create-subscription.md#create-a-subscription-in-the-azure-portal) in the Azure portal.
-   1. Choose the [region](regions.md) where the resource will be used. Azure is a global cloud platform that's generally available in many regions worldwide. To get the best performance, select a region that’s closest to you or where your application runs. The Speech service availabilities vary among different regions. Make sure that you create your resource in a supported region. For more information, see [region support for Speech services](./regions.md#speech-to-text-text-to-speech-and-translation).
+   1. Choose the [region](regions.md) where the resource will be used. Azure is a global cloud platform that's generally available in many regions worldwide. To get the best performance, select a region that's closest to you or where your application runs. The Speech service availabilities vary among different regions. Make sure that you create your resource in a supported region. For more information, see [region support for Speech services](./regions.md#speech-to-text-text-to-speech-and-translation).
    1. Choose either a free (F0) or paid (S0) pricing tier. For complete information about pricing and usage quotas for each tier, select **View full pricing details** or see [Speech services pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/). For limits on resources, see [Azure Cognitive Services limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-cognitive-services-limits).
    1. Create a new resource group for this Speech subscription or assign the subscription to an existing resource group. Resource groups help you keep your various Azure subscriptions organized.
    1. Select **Create**. This action takes you to the deployment overview and displays deployment progress messages.  
@@ -102,7 +102,7 @@ After you've had a chance to get started with the Speech service, try our tutori
 
 - [Tutorial: Recognize intents from speech with the Speech SDK and LUIS, C#](how-to-recognize-intents-from-speech-csharp.md)
 - [Tutorial: Voice enable your bot with the Speech SDK, C#](tutorial-voice-enable-your-bot-speech-sdk.md)
-- [Tutorial: Build a Flask app to translate text, analyze sentiment, and synthesize translated text to speech, REST](../translator/tutorial-build-flask-app-translation-synthesis.md?bc=%2fazure%2fcognitive-services%2fspeech-service%2fbreadcrumb%2ftoc.json%252c%2fen-us%2fazure%2fbread%2ftoc.json&toc=%2fazure%2fcognitive-services%2fspeech-service%2ftoc.json%252c%2fen-us%2fazure%2fcognitive-services%2fspeech-service%2ftoc.json)
+- [Tutorial: Build a Flask app to translate text, analyze sentiment, and synthesize translated text to speech, REST](/learn/modules/python-flask-build-ai-web-app/)
 
 ## Get sample code
 
