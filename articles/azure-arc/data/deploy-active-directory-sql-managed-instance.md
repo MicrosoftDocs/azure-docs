@@ -218,7 +218,7 @@ spec:
       keytabSecret: <Keytab secret name>
   services:
     primary:
-      type: NodePort
+      type: LoadBalancer
       dnsName: <Endpoint DNS name>
       port: <Endpoint port number>
   storage:
