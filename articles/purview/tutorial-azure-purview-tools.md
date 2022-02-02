@@ -30,7 +30,7 @@ This article lists several open-source tools and utilities (command-line, python
 
 - *Azure Purview Adopters*: Adopters who have migrated from starting up and exploring Azure Purview and are smoothly using Azure Purview for more than a few months.
 
-- *Azure Purview Long-Term Regular Users*: Long-term users who have been using Azure Purview for more than one year and are now confident and comfortable using most advanced Azure Purview use cases on the Azure portal and Azure Purview Studio; furthermore they have near perfect knowledge and awareness of the Azure Purview REST APIs and the additional use cases supported via Azure Purview APIs.
+- *Azure Purview Long-Term Regular Users*: Long-term users who have been using Azure Purview for more than one year and are now confident and comfortable using most advanced Azure Purview use cases on the Azure portal and Azure Purview Studio; furthermore they have near perfect knowledge and awareness of the Azure Purview REST APIs and the other use cases supported via Azure Purview APIs.
 
 
 ## Azure Purview open-source tools and utilities list
@@ -43,7 +43,7 @@ This article lists several open-source tools and utilities (command-line, python
 1. [Purview-Starter-Kit](https://aka.ms/PurviewKickstart)
 
     - **Recommended customer journey stages**: *Learners, Innovators, Enthusiasts*
-    - **Description**: PowerShell script to perform initial set up of Azure Purview account. Useful for anyone looking to set up several fresh new Azure Purview account(s) in less than 5 minutes!
+    - **Description**: PowerShell script to perform initial setup of Azure Purview account. Useful for anyone looking to set up several fresh new Azure Purview account(s) in less than 5 minutes!
 
 1. [Azure Purview Lab](https://aka.ms/purviewlab)
 
@@ -65,10 +65,10 @@ This article lists several open-source tools and utilities (command-line, python
     - **Recommended customer journey stages**: *Innovators, Enthusiasts, Adopters, Long-Term Regular Users*
     - **Description**: A python package to work with Azure Purview and Apache Atlas API. Supports bulk loading, custom lineage, and more from a Pythonic set of classes and Excel templates. The package supports programmatic interaction and an Excel template for low-code uploads.
 
-1. [Azure Purview EventHub Notifications Reader](https://github.com/Azure/Azure-Purview-API-PowerShell/blob/main/purview_atlas_eventhub_sample.py)
+1. [Azure Purview Event Hubs Notifications Reader](https://github.com/Azure/Azure-Purview-API-PowerShell/blob/main/purview_atlas_eventhub_sample.py)
 
     - **Recommended customer journey stages**: *Innovators, Enthusiasts, Adopters, Long-Term Regular Users*
-    - **Description**: This tool demonstrates how to read Azure Purview's EventHub and catch real-time Kafka notifications from the EventHub in Atlas Notifications (https://atlas.apache.org/2.0.0/Notifications.html) format. Further, it generates an excel sheet CSV of the entities and assets on the fly that are discovered live during a scan, and any other notifications of interest that Azure Purview generates.
+    - **Description**: This tool demonstrates how to read Azure Purview's Event Hubs and catch real-time Kafka notifications from the Event Hubs in Atlas Notifications (https://atlas.apache.org/2.0.0/Notifications.html) format. Further, it generates an excel sheet CSV of the entities and assets on the fly that are discovered live during a scan, and any other notifications of interest that Azure Purview generates.
 
 
 ## Feedback and disclaimer
