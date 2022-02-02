@@ -4,9 +4,9 @@ description: Learn about deployment considerations and strategy for successful i
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 07/22/2021
-ms.author: BaSelden
-author: BarbaraSelden
+ms.date: 02/02/2022
+ms.author: v-nisba
+author: NishthaBabith-V
 manager: martinco
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
