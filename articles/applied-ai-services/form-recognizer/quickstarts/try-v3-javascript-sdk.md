@@ -66,7 +66,7 @@ In this quickstart you'll use following features to analyze and extract data and
 1. Specify your project's attributes using the prompts presented in the terminal.
 
     * The most important attributes are name, version number, and entry point.
-    * We recommend keeping `index.js` for the entry point name. Description, test command, github repository, keywords, author, and license information are optional attributes that you can choose to skip for this project.
+    * We recommend keeping `index.js` for the entry point name. Description, test command, GitHub repository, keywords, author, and license information are optional attributes that you can choose to skip for this project.
     * Accept the suggestions in parentheses by selecting **Return** or **Enter**.
     * After completing the prompts, a `package.json` file will be created in your form-recognizer-app directory.
 
