@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 06/22/2021
+ms.date: 02/01/2022
 ---
 
 # Start translation
@@ -102,6 +102,9 @@ Destination for the finished translated documents.
 
 The following are examples of batch requests.
 
+> [!NOTE]
+> In the following examples, limited access has been granted to the contents of an Azure Storage container a [using shared access signature(SAS)](/azure/storage/common/storage-sas-overview) token.
+
 **Translating all documents in a container**
 
 ```json
@@ -122,9 +125,7 @@ The following are examples of batch requests.
 }
 ```
 
-**Translating all documents in a container applying glossaries**
-
-Ensure you have created glossary URL & SAS token for the specific blob/document (not for the container)
+**Translating all documents in a storage container applying glossaries**
 
 ```json
 {
@@ -154,7 +155,7 @@ Ensure you have created glossary URL & SAS token for the specific blob/document 
 
 **Translating specific folder in a container**
 
-Ensure you have specified the folder name (case sensitive) as prefix in filter – though the SAS token is still for the container.
+Make sure you have specified the folder name (case sensitive) as prefix in the filter.
 
 ```json
 {
@@ -180,7 +181,7 @@ Ensure you have specified the folder name (case sensitive) as prefix in filter �
 **Translating specific document in a container**
 
 * Ensure you have specified "storageType": "File"
-* Ensure you have created source URL & SAS token for the specific blob/document (not for the container)
+* Ensure you have created source URL & SAS token for the specific blob/document.
 * Ensure you have specified the target filename as part of the target URL – though the SAS token is still for the container.
 * Sample request below shows a single document getting translated into two target languages
 
