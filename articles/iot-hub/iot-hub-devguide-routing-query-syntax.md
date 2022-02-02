@@ -210,7 +210,7 @@ Message routing enables you to query on [Device Twin](iot-hub-devguide-device-tw
 ```
 
 > [!NOTE]
-> Modules do not inherit twin tags from their corresponding devices. Twin queries for messages originating from device modules (for example from IoT Ege modules) query against the module twin and not the corresponding device twin.
+> Modules do not inherit twin tags from their corresponding devices. Twin queries for messages originating from device modules (for example from IoT Edge modules) query against the module twin and not the corresponding device twin.
 
 ### Query expressions
 
