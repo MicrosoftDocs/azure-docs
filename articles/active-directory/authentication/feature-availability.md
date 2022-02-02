@@ -34,7 +34,7 @@ This topic covers Azure AD feature availability in Azure Government.
 | Service-level agreement | &#x2705; | 
 
 
-## Applications Access
+## Applications access
 
 | Feature | Availability |
 |---------|:------------:|
