@@ -137,10 +137,9 @@ Use the given JSON file to create an Azure Resource Manager template (ARM templa
 ```
 ---
 
-
 ## Enable CMK with system-assigned identity 
 
-System-assigned identity is restricted to one per resource and is tied to the lifecycle of the resource.  You can grant permissions to the managed identity by using Azure Role-Based Access Control (RBAC). The managed identity is authenticated with Azure AD, so you don't have to store any credentials in code.
+System-assigned identity is restricted to one per resource and is tied to the lifecycle of the resource. You can grant permissions to the managed identity by using Azure Role-Based Access Control (RBAC). The managed identity is authenticated with Azure AD, so you don't have to store any credentials in code.
 
 >[!IMPORTANT]
 > Ensure that Key Vault is in the same region as the Azure VMware Solution private cloud.
@@ -272,6 +271,7 @@ Use the given JSON file to create an Azure Resource Manager template (ARM templa
 }
 ```
 ---
+
 ## Customer-managed key version lifecycle
 
 Change the customer-managed key (CMK) by creating a new version of the key. The creation of a new version won't interrupt the virtual machine (VM) workflow.
@@ -290,16 +290,9 @@ A customer can enable CMK encryption for a specified CMK key version to supply t
 
 If a customer wants to change from customer-managed key (CMK) to Microsoft managed key (MMK), it won't interrupt VM workload. To make the change from CMK to MMK, use the following steps.
 
-1. From your Azure VMware Solution private cloud, under **Manage**, select **Encryption**.
-
+1. Select **Encryption**, located under **Manage** from your Azure VMware Solution private cloud.
 2. Select **Microsoft-managed keys (MMK)**.
-
-<!--    :::image type="content" source="media/configure-customer-managed-key-encryption-at-rest/change-customer-managed-keys-to-microsoft-managed-keys1.png" alt-text="Screenshot of the Microsoft-managed keys option.":::   -->  
-
 3. Select **Save**.
-
-<!--    :::image type="content" source="media/configure-customer-managed-key-encryption-at-rest/change-customer-managed-keys-to-microsoft-managed-keys2.png" alt-text="Screenshot of the MMK option selected with the Save button in focus.":::    --> 
-
   
 ## Restore permission
 
