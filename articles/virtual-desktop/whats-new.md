@@ -3,7 +3,7 @@ title: What's new in Azure Virtual Desktop? - Azure
 description: New features and product updates for Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: overview
-ms.date: 02/02/2022
+ms.date: 02/03/2022
 ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: femila
@@ -90,7 +90,7 @@ The PowerShell commands that migrate metadata from Azure Virtual Desktop (classi
 
 ### Increased application group limit
 
-We've increased number of Azure Virtual Desktop application groups you can have on each Azure Active Directory (Azure AD) tenant 200 to 500. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/increase-in-avd-application-group-limit-to-500/m-p/3094678).
+We've increased number of Azure Virtual Desktop application groups you can have on each Azure Active Directory (Azure AD) tenant from 200 to 500. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/increase-in-avd-application-group-limit-to-500/m-p/3094678).
 
 ### Updates to required URLs
 
