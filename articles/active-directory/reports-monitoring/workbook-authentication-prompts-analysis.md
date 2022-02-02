@@ -32,7 +32,7 @@ This article provides you with an overview of this workbook.
 
 Have you recently asked yourself: “why are my users getting so many prompts?”
 
-Have you recently heard about complains from your users about getting too many authentication prompts?
+Have you recently heard of complains from your users about getting too many authentication prompts?
 
 Over prompting users impacts your user's productivity and often leads users getting phished for MFA. To be clear, MFA is essential! We are not talking about if you should require MFA but how frequently you should prompt your users.
 
@@ -91,8 +91,7 @@ This workbook also helps track impactful ways to improve your users’ experienc
 
 ![Recommendations for reducing prompts](./media/workbook-authentication-prompts-analysis/recommendations-for-reducing-prompts.png)
 
-
-  
+ 
 
 
 ## Filters
