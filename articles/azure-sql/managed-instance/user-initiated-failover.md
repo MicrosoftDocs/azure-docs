@@ -19,7 +19,7 @@ ms.date: 02/27/2021
 This article explains how to manually failover a primary node on SQL Managed Instance General Purpose (GP) and Business Critical (BC) service tiers, and how to manually failover a secondary read-only replica node on the BC service tier only. 
 
 > [!NOTE]
-> This article is not related with cross-region failovers on [auto-failover groups](../database/auto-failover-group-overview.md#limitations-of-failover-groups).
+> This article is not related with cross-region failovers on [auto-failover groups](../database/auto-failover-group-overview.md).
 
 ## When to use manual failover
 
