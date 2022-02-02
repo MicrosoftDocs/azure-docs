@@ -34,7 +34,7 @@ WE strongly recommended to update to generally available versions listed as foll
 | January 2021 | <ul><li>Syslog RFC compliance for Linux</li><li>Fixed issue for Linux perf counters not flowing on restart</li><ul> | Not available yet | 1.15.2.0<sup>Hotfix</sup> |
 
 <sup>Hotfix</sup> Do not use AMA Linux versions v1.10.7, v1.15.1 and AMA Windows v1.1.3.1. Please use hotfixed versions listed above.  
-gg<sup>1</sup> Known issue: No data collected from Linux Arc-enabled servers  
+<sup>1</sup> Known issue: No data collected from Linux Arc-enabled servers  
 <sup>2</sup> Known issue: Linux performance counters data stops flowing on restarting/rebooting the machine(s)
 
 
