@@ -4,7 +4,7 @@ When you create a Language resource in the Azure portal, you specify a region fo
 
 You can use the export and import APIs to clone your project from one resource to another, which can exist in any supported geographical region.
 
-## Business scenarios
+## Business scenario
 
 If your app or business depends on the use of a custom text classification model, we recommend you to clone your project into another supported region. If a regional outage occurs, you can then access your model in the region where it was cloned. 
 
