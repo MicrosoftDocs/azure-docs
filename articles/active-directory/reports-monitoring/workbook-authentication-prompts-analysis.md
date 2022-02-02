@@ -43,7 +43,7 @@ Typically, this scenario is caused by:
 - Over aggressive prompts policies 
 - Cyber-attacks 
  
-The Authentication prompts analysis workbook identifies various types of authentication prompts based on different pivots including users, applications, operating system, processes and more.
+The authentication prompts analysis workbook identifies various types of authentication prompts. The types are  based on different pivots including users, applications, operating system, processes and more.
 
 You can use this workbook in the following scenarios:
 
