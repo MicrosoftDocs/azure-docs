@@ -51,7 +51,7 @@ The secure hybrid access solution for this scenario is made up of several compon
 
 SHA for this scenario supports both SP and IdP initiated flows. The following image illustrates the SP initiated flow.
 
-![Secure hybrid access - SP initiated flow](./media/f5-big-ip-easy-button-oracle/sp-initiated-flow.png)
+![Secure hybrid access - SP initiated flow](./media/f5-big-ip-oracle/sp-initiated-flow.png)
 
 | Steps| Description |
 | -------- |-------|
@@ -164,7 +164,7 @@ Some of these are global settings so can be re-used for publishing more applicat
 
 4. Before you select **Next**, confirm that BIG-IP can successfully connect to your tenant.
 
-   ![ Screenshot for Configuration General and Service Account properties](./media/f5-big-ip-easy-button-oracle/configuration-general-and-service-account-properties.png)
+   ![ Screenshot for Configuration General and Service Account properties](./media/f5-big-ip-oracle/configuration-general-and-service-account-properties.png)
 
 ### Service Provider
 
@@ -174,19 +174,19 @@ The **Service Provider** settings define the SAML SP properties for the APM inst
 
 2. Enter **Entity ID**. This is the identifier Azure AD will use to identify the SAML SP requesting a token
 
-   ![Screenshot for Service Provider settings](./media/f5-big-ip-easy-button-oracle/service-provider-settings.png)
+   ![Screenshot for Service Provider settings](./media/f5-big-ip-oracle/service-provider-settings.png)
 
    Next, under optional **Security Settings** specify whether Azure AD should encrypt issued SAML assertions. Encrypting assertions between Azure AD and the BIG-IP APM provides  assurance that the content tokens can’t be intercepted, and personal or corporate data be compromised.
 
 3. From the **Assertion Decryption Private Key** list, select **Create New**
 
-   ![Screenshot for Configure Easy Button- Create New import](./media/f5-big-ip-easy-button-oracle/configure-security-create-new.png)
+   ![Screenshot for Configure Easy Button- Create New import](./media/f5-big-ip-oracle/configure-security-create-new.png)
 
 4. Select **OK**. This opens the **Import SSL Certificate and Keys** dialog in a new tab 
 
 5. Select **PKCS 12 (IIS)** to import your certificate and private key. Once provisioned close the browser tab to return to the main tab.
 
-   ![Screenshot for Configure Easy Button- Import new cert](./media/f5-big-ip-easy-button-oracle/import-ssl-certificates-and-keys.png)
+   ![Screenshot for Configure Easy Button- Import new cert](./media/f5-big-ip-oracle/import-ssl-certificates-and-keys.png)
 
 6. Check **Enable Encrypted Assertion**
 
@@ -200,7 +200,7 @@ The **Service Provider** settings define the SAML SP properties for the APM inst
 
 This section defines all properties that you would normally use to manually configure a new BIG-IP SAML application within your Azure AD tenant. The Easy Button wizard provides a set of pre-defined application templates for Oracle PeopleSoft, Oracle E-business Suite, Oracle JD Edwards, SAP ERP as well as generic SHA template for any other apps. In this example, select **Oracle E-Business Suite > Add**. This adds the template for the Oracle E-business Suite
 
-![Screenshot for Azure configuration add BIG-IP application](./media/f5-big-ip-easy-button-oracle/azure-configuration-add-big-ip-application.png)
+![Screenshot for Azure configuration add BIG-IP application](./media/5-big-ip-oracle/azure-configuration-add-big-ip-application.png)
 
 #### Azure Configuration
 
@@ -208,7 +208,7 @@ This section defines all properties that you would normally use to manually conf
 
 2. In the **Sign On URL (optional)** enter the public FQDN of the EBS application being secured, along with the default path for the Oracle EBS homepage
 
-    ![Screenshot for Azure configuration add display info](./media/f5-big-ip-easy-button-oracle/azure-configuration-add-display-info.png)
+    ![Screenshot for Azure configuration add display info](./media/f5-big-ip-oracle/azure-configuration-add-display-info.png)
 
 3. Select the refresh icon next to the **Signing Key** and **Signing Certificate** to locate the certificate you imported earlier
 
@@ -248,17 +248,17 @@ The **Additional User Attributes** tab can support a variety of distributed syst
 
 7. Set the **Admin DN** to the exact distinguished name for the account the APM will use to authenticate for LDAP queries, along with its password
 
-   ![Screenshot for additional user attributes](./media/f5-big-ip-easy-button-oracle/additional-user-attributes.png)
+   ![Screenshot for additional user attributes](./media/f5-big-ip-oracle/additional-user-attributes.png)
 
 8. Leave all default **LDAP Schema Attributes**
 
-   ![Screenshot for LDAP schema attributes](./media/f5-big-ip-easy-button-oracle/ldap-schema-attributes.png)
+   ![Screenshot for LDAP schema attributes](./media/f5-big-ip-oracle/ldap-schema-attributes.png)
 
 9. Under **LDAP Query Properties**, set the **Search Dn** to the base node of the LDAP server from which to search for user objects 
 
 10. Add the name of the user object attribute that must be returned from the LDAP directory. For EBS, the default is **orclguid**
 
-    ![Screenshot for LDAP query properties.png](./media/f5-big-ip-easy-button-oracle/ldap-query-properties.png)
+    ![Screenshot for LDAP query properties.png](./media/f5-big-ip-oracle/ldap-query-properties.png)
 
 #### Conditional Access Policy
 
@@ -305,11 +305,11 @@ The **Application Pool tab** details the services behind a BIG-IP, represented a
 
 3. Update the **Pool Servers**. Select an existing node or specify an IP and port for the servers hosting the Oracle EBS application.
 
-   ![Screenshot for Application pool](./media/f5-big-ip-easy-button-oracle/application-pool.png)
+   ![Screenshot for Application pool](./media/f5-big-ip-oracle/application-pool.png)
 
 4.The **Access Gate Pool** specifies the servers Oracle EBS uses for mapping an SSO authenticated user to an Oracle E-Business Suite session. Update **Pool Servers** with the IP and port for of the Oracle application servers hosting the application
 
-   ![Screenshot for AccessGate pool](./media/f5-big-ip-easy-button-oracle/accessgate-pool.png)
+   ![Screenshot for AccessGate pool](./media/f5-big-ip-oracle/accessgate-pool.png)
 
 #### Single Sign-On & HTTP Headers
 
@@ -324,7 +324,7 @@ The **Easy Button wizard** supports Kerberos, OAuth Bearer, and HTTP authorizati
 * **Header Name:** USER_ORCLGUID
 * **Header Value:** %{session.ldap.last.attr.orclguid}
 
- ![ Screenshot for SSO and HTTP headers](./media/f5-big-ip-easy-button-oracle/sso-and-http-headers.png)
+ ![ Screenshot for SSO and HTTP headers](./media/f5-big-ip-oracle/sso-and-http-headers.png)
 
 >[!NOTE] 
 >APM session variables defined within curly brackets are CASE sensitive. If you enter OrclGUID when the Azure AD attribute name is being defined as orclguid, it will cause an attribute mapping failure.
@@ -353,7 +353,7 @@ There may be cases where the Guided Configuration templates lack the flexibility
 
 You can navigate to **Access > Guided Configuration** and select the **small padlock icon** on the far right of the row for your applications’ configs. 
 
-![Screenshot for Configure Easy Button - Strict Management](./media/f5-big-ip-easy-button-oracle/strict-mode-padlock.png)
+![Screenshot for Configure Easy Button - Strict Management](./media/f5-big-ip-oracle/strict-mode-padlock.png)
 
 At that point, changes via the wizard UI are no longer possible, but all BIG-IP objects associated with the published instance of the application will be unlocked for direct management.
 
