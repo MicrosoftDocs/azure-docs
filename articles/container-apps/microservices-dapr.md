@@ -342,7 +342,8 @@ Remove-AzResourceGroup -Name $RESOURCE_GROUP -Force
 ---
 
 This command deletes the resource group that includes all of the resources created in this tutorial.
- [!NOTE]
+
+> [!NOTE]
 > Since `pythonapp` continuously makes calls to `nodeapp` with messages that get persisted into your configured state store, it is important to complete these cleanup steps to avoid ongoing billable operations.
 
 > [!TIP]
