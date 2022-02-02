@@ -47,7 +47,7 @@ In this tutorial, you learn about:
 > [!div class="checklist"]
 > * Prerequisites
 > * Select device setup type
-> * Configure network on both nodes
+> * Configure network and network topology on both nodes
 > * Get authentication token for prepared node
 > * Configure cluster witness and add prepared node
 > * Configure virtual IP settings for Azure Consistent Services and NFS
@@ -176,9 +176,9 @@ Follow these steps to enable compute and configure compute network.
     ![Local web UI "Prepare a node" on "Get started" page](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/setup-type-prepare-node-1m.png) 
 
 
-## Configure network
+## Configure network, topology
 
-You'll configure network on both nodes. These steps can be done in parallel. The cabling on both nodes should be identical and should conform with the network topology you choose.
+You'll configure network as well as network topology on both the nodes. These steps can be done in parallel. The cabling on both nodes should be identical and should conform with the network topology you choose.
 
 ### Configure network on first node
 
@@ -194,7 +194,7 @@ To configure the network for a 2-node device, follow these steps on the first no
 
     To change the network settings, select a port and in the right pane that appears, modify the IP address, subnet, gateway, primary DNS, and secondary DNS. You can configure your network interface as IPv4.
 
-    ![Local web UI "Advanced networking" page for a new device 2](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/configure-network-settings-1.png)
+    ![Local web UI "Advanced networking" page for a new device 2](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/configure-network-settings-1m.png)
 
     As you configure the network settings, keep in mind:
 
@@ -224,7 +224,7 @@ To configure the network for a 2-node device, follow these steps on the first no
 
     The network topology setting takes a few minutes to apply and you see a notification when the settings are successfully applied.
 
-1. Once the network topology is applied, the **Advanced networking** page updates. For example, if you selected network topology that uses switches and NIC teaming, you will see that on a device node, a virtual switch **vSwitch1** is created at Port 2 and another virtual switch, **vSwitch2** is created on Port 3 and Port 4. Port 3 and Port 4 are teamed and then on the teamed network interface, two virtual network interfaces are created, **vPort3** and **vPort4**. The same is true for the second device node. The teamed network interfaces are then connected via switches.
+1. Once the network topology is applied, the **Network** page updates. For example, if you selected network topology that uses switches and NIC teaming, you will see that on a device node, a virtual switch **vSwitch1** is created at Port 2 and another virtual switch, **vSwitch2** is created on Port 3 and Port 4. Port 3 and Port 4 are teamed and then on the teamed network interface, two virtual network interfaces are created, **vPort3** and **vPort4**. The same is true for the second device node. The teamed network interfaces are then connected via switches.
 
     ![Local web UI "Network" page updated](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/network-settings-updated-1.png)
 
@@ -276,6 +276,7 @@ A cluster witness can be:
 - **Cloud witness** if you use an Azure Storage account to provide a vote on cluster quorum. A cloud witness uses Azure Blob Storage to read or write a blob file and then uses it to arbitrate in split-brain resolution. 
 
     Use cloud witness when you have internet access. For more information on cloud witness, see [Deploy a cloud witness for Failover cluster](/windows-server/failover-clustering/deploy-cloud-witness).
+
 - **File share witness** if you use a local SMB file share to provide a vote in the cluster quorum. Use a file share witness if all the servers in a cluster have spotty internet connectivity or can't use disk witness as there aren't any shared drives. 
 
     Use file share witness if you're in an IT environment with other machines and file shares. For more information on file share witness, see [Deploy a file share witness for Failover cluster](/windows-server/failover-clustering/file-share-witness).
@@ -424,25 +425,26 @@ After the cluster is formed and configured, you'll now create new virtual switch
     ![Configure compute page in Advanced networking in local UI 3](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/configure-compute-network-3.png)
 
 
-TO delete a virtual switch, you can select the **Delete virtual switch** option. When a virtual switch is deleted, the associated virtual networks will also be deleted.
+To delete a virtual switch, under the **Virtual network** section, select **Delete virtual switch**. When a virtual switch is deleted, the associated virtual networks will also be deleted.
 
-Only one virtual switch can be assigned for compute.
+> [!IMPORTANT]
+> Only one virtual switch can be assigned for compute.
 
 ### Configure virtual network
 
 You can add or delete virtual networks associated with your virtual switches. To add a virtual switch, follow these steps:
 
 1. In the local UI on the **Advanced networking** page, under the **Virtual network** section, select **Add virtual network**.
-1. In the Add virtual network blade, input the following information:
+1. In the **Add virtual network** blade, input the following information:
 
     1. Select a virtual switch for which you want to create a virtual network.
-    1. Provide a name for your virtual network.
-    1. Enter a VLAN ID as a unique number in 1-4094 range.
-    1. Specify the subnet mask and gateway for your virtual LAN network as per the physical network configuration.
+    1. Provide a **Name** for your virtual network.
+    1. Enter a **VLAN ID** as a unique number in 1-4094 range.
+    1. Specify the **Subnet mask** and **Gateway** for your virtual LAN network as per the physical network configuration.
     1. Select **Apply**.
 
 
-To delete a virtual network, select Delete virtual network. 
+To delete a virtual network, under the **Virtual network** section, select **Delete virtual network**. 
 
 ::: zone-end
   
