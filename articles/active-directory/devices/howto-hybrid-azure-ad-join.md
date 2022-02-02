@@ -121,7 +121,7 @@ With Windows 10 1803 or newer, if instantaneous hybrid Azure AD join for a feder
 
 Organizations can test hybrid Azure AD join on a subset of their environment before a full rollout. The steps to complete a targeted deployment can be found in the article [Hybrid Azure AD join targeted deployment](hybrid-azuread-join-control.md). Organizations should include a sample of users from varying roles and profiles in this pilot group. A targeted rollout will help identify any issues your plan may not have addressed before you enable for the entire organization.
 
-Some organizations may not be able to use Azure AD Connect to configure AD FS, the steps to configure the claims manually can be found in the article [Configure hybrid Azure Active Directory join manually](hybrid-azuread-join-manual.md).
+Some organizations may not be able to use Azure AD Connect to configure AD FS. The steps to configure the claims manually can be found in the article [Configure hybrid Azure Active Directory join manually](hybrid-azuread-join-manual.md).
 
 ### Government cloud
 

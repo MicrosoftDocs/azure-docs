@@ -3,7 +3,7 @@ title: How to migrate App Service Environment v2 to App Service Environment v3
 description: Learn how to migrate your App Service Environment v2 to App Service Environment v3
 author: seligj95
 ms.topic: tutorial
-ms.date: 1/28/2022
+ms.date: 2/01/2022
 ms.author: jordanselig
 zone_pivot_groups: app-service-cli-portal
 ---
@@ -21,7 +21,7 @@ Ensure you understand how migrating to an App Service Environment v3 will affect
 
 ::: zone pivot="experience-azcli"
 
-When using the Azure CLI to carry out the migration, you should follow the below steps in order and as written since you'll be making Azure REST API calls. The recommended way for making these calls is by using the [Azure CLI](/cli/azure/). For information about other methods, see [Getting Started with Azure REST](/rest/api/azure/).
+The recommended experience for migration is using the [Azure portal](how-to-migrate.md?pivots=experience-azp). If you decide to use the Azure CLI to carry out the migration, you should follow the below steps in order and as written since you'll be making Azure REST API calls. The recommended way for making these API calls is by using the [Azure CLI](/cli/azure/). For information about other methods, see [Getting Started with Azure REST](/rest/api/azure/).
 
 For this guide, [install the Azure CLI](/cli/azure/install-azure-cli) or use the [Azure Cloud Shell](https://shell.azure.com/).
 

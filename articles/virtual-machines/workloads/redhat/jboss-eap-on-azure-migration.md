@@ -1,8 +1,9 @@
 ---
 title: JBoss EAP to Azure virtual machines virtual machine scale sets migration guide
 description: This guide provides information on how to migrate your enterprise Java applications from another application server to JBoss EAP and from traditional on-premises server to Azure RHEL VM and virtual machine scale sets.
-author: theresa-nguyen
-ms.author: bicnguy
+author: m-reza-rahman
+ms.author: rezar
+ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-jboss-eap, devx-track-javaee-jboss-eap-vms
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: redhat
