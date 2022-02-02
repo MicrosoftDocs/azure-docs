@@ -86,7 +86,7 @@ Additionally, you get a summary of the average and median prompts count for your
 ![Prompts by application](./media/workbook-authentication-prompts-analysis/prompts-by-authentication-method.png)
 
 
-This workbook also helps track impactful ways to improve your users’ experience and reduce prompts as well as the relative percentage.  
+This workbook also helps track impactful ways to improve your users’ experience and reduce prompts and the relative percentage.  
 
 
 ![Recommendations for reducing prompts](./media/workbook-authentication-prompts-analysis/recommendations-for-reducing-prompts.png)
