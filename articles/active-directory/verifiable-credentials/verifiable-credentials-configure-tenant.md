@@ -31,7 +31,7 @@ The following diagram illustrates the Azure AD Verifiable Credentials architectu
 
 ![Diagram that illustrates the Azure AD Verifiable Credentials architecture.](media/verifiable-credentials-configure-tenant/verifiable-credentials-architecture.png)
 
-Click [here](https://www.youtube.com/watch?v=8jqjHjQo-3c) for a video walk-through of the complete setup of the Azure AD Verifiable Credential service including all pre-requisites like Azure AD and an Azure Subscription
+See a [video walkthrough](https://www.youtube.com/watch?v=8jqjHjQo-3c) of setting up the Azure AD Verifiable Credential service, including all prerequisites, like Azure AD and an Azure subscription.
 
 ## Prerequisites
 
