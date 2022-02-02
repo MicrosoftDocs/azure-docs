@@ -42,7 +42,7 @@ Azure offers several options for storing and managing your keys in the cloud, in
 
 ### Pricing 
 
-The Azure Key Vault Standard and Premium tiers are billed on a transactional basis, with an additional monthly per-key charge for premium hardware-backed keys. Managed HSM, Dedicated HSM, and Payments HSM do not charge on a transactional basis, instead they are always-in-use devices that are billed at a fixed hourly rate. For detailed pricing information, see [Key Vault pricing](https://azure.microsoft.com/pricing/details/key-vault), [Dedicated HSM pricing](https://azure.microsoft.com/pricing/details/azure-dedicated-hsm), and [Payment HSM pricing](https://azure.microsoft.com/pricing/details/payment-hsm).
+The Azure Key Vault Standard and Premium tiers are billed on a transactional basis, with an additional monthly per-key charge for premium hardware-backed keys. Managed HSM, Dedicated HSM, and Payments HSM do not charge on a transactional basis; instead they are always-in-use devices that are billed at a fixed hourly rate. For detailed pricing information, see [Key Vault pricing](https://azure.microsoft.com/pricing/details/key-vault), [Dedicated HSM pricing](https://azure.microsoft.com/pricing/details/azure-dedicated-hsm), and [Payment HSM pricing](https://azure.microsoft.com/pricing/details/payment-hsm).
 
 ### Service Limits 
 
