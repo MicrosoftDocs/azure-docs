@@ -3,8 +3,8 @@ title: Edit and manage logic apps by using Visual Studio with Cloud Explorer
 description: Edit, update, manage, add to source control, and deploy logic apps by using Visual Studio with Cloud Explorer
 services: logic-apps
 ms.suite: integration
-ms.reviewer: estfan, jonfan, logicappspm
-ms.topic: conceptual
+ms.reviewer: estfan, azla
+ms.topic: how-to
 ms.custom: mvc
 ms.date: 01/28/2022
 ---
