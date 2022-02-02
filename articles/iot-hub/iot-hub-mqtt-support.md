@@ -294,7 +294,7 @@ The following is a list of IoT Hub implementation-specific behaviors:
 
 * IoT Hub only supports one active MQTT connection per device. Any new MQTT connection on behalf of the same device ID causes IoT Hub to drop the existing connection and **400027 ConnectionForcefullyClosedOnNewConnection** will be logged into IoT Hub Logs
 
-* To [route messages based on message properties](iot-hub-devguide-routing-query-syntax.md#message-routing-query-based-on-message-properties), you must first add properties 'contentType' (`ct`) and 'contentEncoding' (`ce`) to your messages. For example:
+* To [route messages based on message body](iot-hub-devguide-routing-query-syntax.md#message-routing-query-based-on-message-properties), you must first add properties 'contentType' (`ct`) and 'contentEncoding' (`ce`) to your messages and set the 'contentType' property be `application/JSON`. For example:
 
     ```devices/{device_id}/messages/events/$.ct=application%2Fjson&$.ce=utf-8```
 
