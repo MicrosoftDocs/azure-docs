@@ -34,10 +34,10 @@ ms.custom: [amqp, mqtt]
 | Digital twin commands | Successful commands are charged in 4-KB chunks, and responses are charged in 4-KB chunks as additional messages. Commands to disconnected devices are charged as messages in 4-KB chunks. For example, a command with a 4-KB body that results in a response with no body from the device is charged as two messages. A command with a 6-KB body that results in a 1-KB response from the device is charged as two messages for the command plus another message for the response. |
 | Jobs operations <br/> (create, update, list, delete) | Not charged. |
 | Jobs per-device operations | Jobs operations (such as twin updates, and methods) are charged as normal. For example, a job resulting in 1000 method calls with 1-KB requests and empty-body responses is charged 1000 messages. |
-| Configuration operations <br/> (create, update, list, delete, test query) | Not charged. |
-| Configuration per-device operations | Configuration operations are charged as messages in 4-KB chunks. For example, an apply configuration operation with a 6-KB body and an empty-body response is charged as two messages. |
+| Configuration operations <br/> (create, update, list, delete, test query) | Not charged. <br/><br/> [Create or update](/rest/api/iothub/service/configuration/create-or-update) <br/> [Delete](/rest/api/iothub/service/configuration/delete) <br/> [Get](/rest/api/iothub/service/configuration/get) <br/> [Get Configurations](/rest/api/iothub/service/configuration/get-configurations) <br/> [Test Queries](test-queries) |
+| Configuration per-device operations | Configuration operations are charged as messages in 4-KB chunks. For example, an apply configuration operation with a 6-KB body and an empty-body response is charged as two messages. <br/><br/> [Apply on Edge Device](/rest/api/iothub/service/configuration/apply-on-edge-device)(*Configuration Service Apply*) |
 | Keep-alive messages | When using AMQP or MQTT protocols, messages exchanged to establish the connection and messages exchanged in the negotiation are not charged. |
-| Device streams (preview) | Device stream operations are charged as messages in 4-KB chunks. PRODUCT TEAM PLEASE PROVIDE AN EXAMPLE PER THE OTHER OPERATION CATEGORIES. |
+| Device streams (preview) | Device streams is in preview and operations are not charged. <br/><br/> *Device Streams* <br/> *Device Streams Module* |
 
 > [!NOTE]
 > All sizes are computed considering the payload size in bytes (protocol framing is ignored). For messages, which have properties and body, the size is computed in a protocol-agnostic way. For more information, see [IoT Hub message format](iot-hub-devguide-messages-construct.md).
