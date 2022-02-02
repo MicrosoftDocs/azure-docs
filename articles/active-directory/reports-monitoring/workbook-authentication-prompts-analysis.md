@@ -35,11 +35,13 @@ Have you recently asked yourself: â€œwhy are my users getting so many prompts?â€
 
 Have you recently heard about complains from your users about getting too many authentication prompts?
 
-Over prompting users:
+Over prompting users impacts your user's productivity and often leads users getting phished for MFA. To be clear, MFA is essential! We are not talking about if you should require MFA but how frequently you should prompt your users.
 
-- Impacts their productivity and often leads users getting phished for MFA. To be clear, MFA is essential! We are not talking about if you should require MFA but how frequently you should prompt your users.
+Typically, this scenario is caused by:
 
-- Can be caused by a misconfigured application, an over aggressive prompts policy or worst case, a cyber-attack. 
+- Misconfigured applications
+- Over aggressive prompts policies 
+- Cyber-attacks 
  
 The Authentication prompts analysis workbook identifies various types of authentication prompts based on different pivots including users, applications, operating system, processes and more.
 
