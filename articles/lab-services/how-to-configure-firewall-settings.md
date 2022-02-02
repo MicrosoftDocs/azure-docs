@@ -1,17 +1,17 @@
 ---
 title: Firewall settings for Azure Lab Services
-description: Learn how to determine the public IP address and port number range of virtual machines in a lab so information can be added to firewall rules.
+description: Learn how to determine the public IP address of VMs in a lab so information can be added to firewall rules.
 author: emaher
 ms.author: enewman
-ms.date: 06/26/2020
+ms.date: 02/01/2022
 ms.topic: how-to
 ---
 
 # Firewall settings for Azure Lab Services
 
-Each organization or school will set up their own network in a way that best fits their needs.  Sometimes that includes setting firewall rules that block Remote Desktop Protocol (rdp) or Secure Shell (ssh) connections to machines outside their own network.  Because Azure Lab Services runs in the public cloud, some extra configuration maybe needed to allow students to access their VM when connecting from the campus network.
+Each organization or school will configure their own network in a way that best fits their needs.  Sometimes that includes setting firewall rules that block Remote Desktop Protocol (RDP) or Secure Shell (SSH) connections to machines outside their own network.  Because Azure Lab Services runs in the public cloud, some extra configuration maybe needed to allow students to access their VM when connecting from the campus network.
 
-Each lab uses single public IP address and multiple ports.  All VMs, both the template VM and student VMs, will use this public IP address.  The public IP address won’t change for the life of lab.  However, each VM will have a different port number.  The port numbers range is 49152 - 65535.  The combination of public IP address and port number is used to connect instructor and students to the correct VM.  This article will cover how to find the specific public IP address used by a lab.  That information can be used to update inbound and outbound firewall rules so students can access their VMs.
+Each lab uses single public IP address and multiple ports.  All VMs, both the template VM and student VMs, will use this public IP address.  The public IP address won’t change for the life of lab.  Each VM will have a different port number.  The port numbers range is 49152 - 65535.  The combination of public IP address and port number is used to connect educators and students to the correct VM.  This article will cover how to find the specific public IP address used by a lab.  That information can be used to update inbound and outbound firewall rules so students can access their VMs.
 
 >[!IMPORTANT]
 >Each lab will have a different public IP address.
@@ -23,8 +23,7 @@ Each lab uses single public IP address and multiple ports.  All VMs, both the te
 
 The public IP addresses for each lab are listed in the **All labs** page of the Lab Services lab account.  For directions how to find the **All labs** page, see [View labs in a lab account](manage-labs-1.md#view-labs-in-a-lab-account).  
 
-> [!div class="mx-imgBorder"]
-> ![All labs page](./media/how-to-configure-firewall-settings/all-labs-properties.png)
+:::image type="content" source="./media/how-to-configure-firewall-settings/all-labs-properties.png" alt-text="Screenshot of the all labs page of a lab account.":::
 
 >[!NOTE]
 >You won’t see the public IP address if the template machine for your lab isn’t published yet.
@@ -35,7 +34,5 @@ Now we know the public IP address for the lab.  Inbound and outbound rules can b
 
 ## Next steps
 
-See the following articles:
-
-- [As an admin, enable labs to connect your vnet](how-to-connect-vnet-injection.md)
-- [As an admin, attach a shared image gallery to a lab plan](how-to-attach-detach-shared-image-gallery.md)
+- As an admin, [enable labs to connect your vnet](how-to-connect-vnet-injection.md).
+- As an educator, work with your admin to [create a lab with a shared resource](how-to-create-a-lab-with-shared-resource.md).
