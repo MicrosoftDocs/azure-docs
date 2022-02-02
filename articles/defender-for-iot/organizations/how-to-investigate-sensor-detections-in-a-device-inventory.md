@@ -5,9 +5,13 @@ ms.date: 02/02/2022
 ms.topic: how-to
 ---
 
-# Investigate sensor detections in a device inventory
+# Investigate sensor detections in an inventory
 
-The device inventory displays an extensive range of device attributes that a sensor detects. Options are available to:
+The device inventory displays an extensive range of device attributes that a sensor detects. 
+
+:::image type="content" source="media/how-to-inventory-sensor/inventory-sensor.png" alt-text="The Device inventory main screen":::
+
+Options are available to:
 
  - Easily filter the information.
 
@@ -16,10 +20,27 @@ The device inventory displays an extensive range of device attributes that a sen
  - Import Windows registry details.
 
  - Create groups for display in the device map.
+ 
+## What is an Inventory device?
 
-## View device attributes in the Device inventory
+The Defender for IoT Device inventory displays an extensive range of asset attributes that are detected by sensors monitoring the organizations networks and managed endpoints.
 
-The following attributes appear in the Device inventory table.
+Defender for IoT will identify and classify devices as a single unique network device in the inventory for:
+
+1. Standalone IT/OT/IoT devices (w/ 1 or multiple NICs)
+1. Devices composed of multiple backplane components (including all racks/slots/modules)
+1. Devices acting as network infrastructure such as Switch/Router (w/ multiple NICs). 
+
+Public internet IP addresses, multicast groups, and broadcast groups are not considered inventory devices.
+Devices that have been inactive for more than 60 days are classified as inactive Inventory devices.
+
+## View device attributes in the inventory
+
+This section describes device details available from the inventory and describes how to view contextual information about each device.
+
+**To view the device inventory:**
+
+1. In the console left pane, select **Device inventory**.  The following attributes appear in the inventory.
 
 | Parameter | Description |
 |--|--|
@@ -39,56 +60,21 @@ The following attributes appear in the Device inventory table.
 | Groups | The groups that this device participates in. |
 | Last Activity | The last activity that the device performed. |
 | Discovered | When this device was first seen in the network. |
-| **PLC mode (preview)** | The PLC operating mode includes the Key state (physical) and run state (logical). Possible **Key** states include, Run, Program, Remote, Stop, Invalid, Programming Disabled.Possible Run. The possible **Run** states are Run, Program, Stop, Paused, Exception, Halted, Trapped, Idle, Offline. if both states are the same, only oe state is presented. |
+| PLC mode (preview) | The PLC operating mode includes the Key state (physical) and run state (logical). Possible **Key** states include, Run, Program, Remote, Stop, Invalid, Programming Disabled.Possible Run. The possible **Run** states are Run, Program, Stop, Paused, Exception, Halted, Trapped, Idle, Offline. if both states are the same, only oe state is presented. |
 
-## What is an Inventory device?
+**To hide and display columns:**
 
-The Defender for IoT Device inventory displays an extensive range of asset attributes that are detected by sensors monitoring the organizations networks and managed endpoints.
+1. Select **Edit Columns** and select a column you need or delete a column.
+1. Select **Save**.
 
-Defender for IoT will identify and classify devices as a single unique network device in the inventory for:
 
-1. Standalone IT/OT/IoT devices (w/ 1 or multiple NICs)
-1. Devices composed of multiple backplane components (including all racks/slots/modules)
-1. Devices acting as network infrastructure such as Switch/Router (w/ multiple NICs). 
+**To view additional details:**
 
-Public internet IP addresses, multicast groups, and broadcast groups are not considered inventory devices.
-Devices that have been inactive for more than 60 days are classified as inactive Inventory devices.
+1. Select an alert from the inventory and the select **View full details** in the dialog box that opens.
+1. Navigate to additional information such as firmware details, alerts related to the device, or a timeline of events associated with the device.
 
-**To view the device inventory:**
 
-1. In the left pane, select **Devices**. The **Devices** pane opens on the right.
-
-2. In the **Devices** pane, select :::image type="icon" source="media/how-to-work-with-asset-inventory-information/device-pane-icon.png" border="false":::.
-
-To hide and display columns, customize the device inventory table:
-
-1. On the upper-right menu of the device inventory, select :::image type="icon" source="media/how-to-work-with-asset-inventory-information/settings-icon.png" border="false":::.
-
-    :::image type="content" source="media/how-to-work-with-asset-inventory-information/device-inventory-settings-screens-v2.png" alt-text="Device inventory settings screen.":::
-
-2. In the **Device Inventory Settings** window, select the columns that you want to display in the device inventory table.
-
-3. Change the location of the columns in the table by using arrows.
-
-4. Select **Save**. The **Device Inventory Settings** window closes, and the new settings appear in the table.
-
-### Create temporary device inventory filters
-
-You can set a filter that defines what information the table displays. For example, you can decide that you want to view only the PLC device's information.
-
-:::image type="content" source="media/how-to-work-with-asset-inventory-information/devices-learning-v2.png" alt-text="Devices learning.":::
-
-The filter is not saved when you leave the inventory.
-
-### Save device inventory filters
-
-You can save a filter or a combination of filters that you need and reapply them in the device inventory. Create broader filters based on a certain device type, or more narrow filters based on a specific type and a specific protocol.
-
-The filters that you save are also saved as device map groups. This feature provides an additional level of granularity in viewing network devices on the map.
-
-**To create filters:**
-
-1. In the column that you want to filter, select :::image type="icon" source="media/how-to-work-with-asset-inventory-information/filter-icon.png" border="false":::.
+## Filter the inventory
 
 2. In the **Filter** dialog box, select the filter type:
 
@@ -96,13 +82,8 @@ The filters that you save are also saved as device map groups. This feature prov
 
    - **Contains**: The value that's contained among other values in the column. For example, if you filter the protocol column according to **Contains** and `value=ICMP`, the column will present devices that use the ICMP protocol as a part of the list of protocols that the device uses.
 
-3. To organize the column information according to alphabetical order, select :::image type="icon" source="media/how-to-work-with-asset-inventory-information/alphabetical-order-icon.png" border="false":::. Arrange the order by selecting the :::image type="icon" source="media/how-to-work-with-asset-inventory-information/alphabetical-a-z-order-icon.png" border="false"::: and :::image type="icon" source="media/how-to-work-with-asset-inventory-information/alphabetical-z-a-order-icon.png" border="false"::: arrows.
 
-4. To save a new filter, define the filter and select **Save As**.
-
-5. To change the filter definitions, change the definitions and select **Save Changes**.
-
-To view filters:
+**To view filters:**
 
 - Open the left pane and view the filters that you've saved:
 
