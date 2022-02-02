@@ -270,7 +270,7 @@ To enable the certificate-based authentication and configure username bindings u
    GET  https://graph.microsoft.com/beta/policies/authenticationmethodspolicy
    ```
 
-1. GET X509Certificate authentication method:
+1. GET the configuration for the x509Certificate authentication method:
 
    ```http
    GET https://graph.microsoft.com/beta/policies/authenticationmethodspolicy/authenticationMetHodConfigurations/X509Certificate
