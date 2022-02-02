@@ -11,9 +11,9 @@ ms.custom: mode-api
 ---
 # Quickstart: Create an Azure Purview account using .NET SDK
 
-In this quickstart you'll use the [.NET SDK](/dotnet/api/overview/azure/purviewresourceprovider) to create an Azure Purview account.
+In this quickstart, you'll use the [.NET SDK](/dotnet/api/overview/azure/purviewresourceprovider) to create an Azure Purview account.
 
-Azure Purview is a data governance service that helps you manage and govern your data landscape. By connecting to data across your on-premises, multi-cloud, and software-as-a-service (SaaS) sources, Azure Purview creates an up-to-date map of your information. It identifies and classifies sensitive data, and provides end to end linage. Data consumers are able to discover data across your organization, and data administrators are able to audit, secure, and ensure right use of your data.
+Azure Purview is a data governance service that helps you manage and govern your data landscape. By connecting to data across your on-premises, multi-cloud, and software-as-a-service (SaaS) sources, Azure Purview creates an up-to-date map of your information. It identifies and classifies sensitive data, and provides end-to-end linage. Data consumers are able to discover data across your organization, and data administrators are able to audit, secure, and ensure right use of your data.
 
 For more information about Azure Purview, [see our overview page](overview.md). For more information about deploying Azure Purview across your organization, [see our deployment best practices](deployment-best-practices.md).
 

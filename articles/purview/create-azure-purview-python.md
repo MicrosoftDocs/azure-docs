@@ -12,9 +12,9 @@ ms.custom: mode-api
 
 # Quickstart: Create an Azure Purview account using Python
 
-In this quickstart, you will create an Azure Purview account programatically using Python. [Python reference for Azure Purview](/python/api/azure-mgmt-purview/) is available, but this article will take you through all the steps needed to create an account with Python.
+In this quickstart, you’ll create an Azure Purview account programatically using Python. [Python reference for Azure Purview](/python/api/azure-mgmt-purview/) is available, but this article will take you through all the steps needed to create an account with Python.
 
-Azure Purview is a data governance service that helps you manage and govern your data landscape. By connecting to data across your on-premises, multi-cloud, and software-as-a-service (SaaS) sources, Azure Purview creates an up-to-date map of your information. It identifies and classifies sensitive data, and provides end to end linage. Data consumers are able to discover data across your organization, and data administrators are able to audit, secure, and ensure right use of your data.
+Azure Purview is a data governance service that helps you manage and govern your data landscape. By connecting to data across your on-premises, multi-cloud, and software-as-a-service (SaaS) sources, Azure Purview creates an up-to-date map of your information. It identifies and classifies sensitive data, and provides end-to-end linage. Data consumers are able to discover data across your organization, and data administrators are able to audit, secure, and ensure right use of your data.
 
 For more information about Azure Purview, [see our overview page](overview.md). For more information about deploying Azure Purview across your organization, [see our deployment best practices](deployment-best-practices.md).
 
@@ -59,7 +59,7 @@ For more information about Azure Purview, [see our overview page](overview.md). 
 	import time
     ```
 
-2. Add the following code to the **Main** method that creates an instance of PurviewManagementClient class. You'll use this object to create a purview accounts, delete purview accounts, check name availability, and other resource provider operations.
+2. Add the following code to the **Main** method that creates an instance of PurviewManagementClient class. You'll use this object to create a purview account, delete purview accounts, check name availability, and other resource provider operations.
 
     ```python
     def main():
@@ -121,7 +121,7 @@ For more information about Azure Purview, [see our overview page](overview.md). 
 
 ## Full script
 
-Here is the full Python code:
+Here’s the full Python code:
 
 ```python
 	
@@ -176,8 +176,8 @@ main()
 
 ## Run the code
 
-Build and start the application. The console prints the progress of Azure Purview account creation. Wait until it is completed.
-Here is the sample output:
+Build and start the application. The console prints the progress of Azure Purview account creation. Wait until it’s completed.
+Here’s the sample output:
 
 ```console
 location: southcentralus  Azure Purview Account Name:  purviewpython7  Id:  /subscriptions/8c2c7b23-848d-40fe-b817-690d79ad9dfd/resourceGroups/Demo_Catalog/providers/Microsoft.Purview/accounts/purviewpython7  tags:  None
