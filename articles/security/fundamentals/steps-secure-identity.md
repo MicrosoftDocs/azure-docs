@@ -50,7 +50,7 @@ All set? Let's get started on the checklist.
 
 ## Step 1 - Strengthen your credentials
 
-Although other types of attacks are emerging, including consent phishing and attacks on nonhuman identities, password-based attacks on user identities are still the most prevalent vector of identity compromise. Well-established spear phishing and password spray campaigns by advisories continue to be successful against organizations that haven’t yet implemented multi-factor authentication (MFA) or other protections against this common tactic. 
+Although other types of attacks are emerging, including consent phishing and attacks on nonhuman identities, password-based attacks on user identities are still the most prevalent vector of identity compromise. Well-established spear phishing and password spray campaigns by adversaries continue to be successful against organizations that haven’t yet implemented multi-factor authentication (MFA) or other protections against this common tactic. 
 
 As an organization you need to make sure that your identities are validated and secured with MFA everywhere. In 2020, the [FBI IC3 Report](https://www.ic3.gov/Media/PDF/AnnualReport/2020_IC3Report.pdf) identified phishing as the top crime type for victim complaints. The number of reports doubled compared to the previous year. Phishing poses a significant threat to both businesses and individuals, and credential phishing was used in many of the most damaging attacks last year. Azure Active Directory (Azure AD) Multi-Factor Authentication (MFA) helps safeguard access to data and applications, providing another layer of security by using a second form of authentication. Organizations can enable multi-factor authentication with Conditional Access to make the solution fit their specific needs. Take a look at this deployment guide to see how you how to [plan, implement, and roll-out Azure AD MFA](../../active-directory/authentication/concept-mfa-howitworks.md).
 
@@ -75,7 +75,7 @@ Passwords are never stored in clear text or encrypted with a reversible algorith
 
 ### Implement AD FS extranet smart lockout
 
-Smart lockout helps lock out bad actors that try to guess your users' passwords or use brute-force methods to get in. Smart lockout can recognize sign-ins that come from valid users and treat them differently than ones of attackers and other unknown sources. Attackers get locked out, while your users continue to access their accounts and be productive. Organizations, which configure applications to authenticate directly to Azure AD benefit from Azure AD smart lockout. Federated deployments that use AD FS 2016 and AD FS 2019 can enable similar benefits using AD FS Extranet Lockout and Extranet Smart Lockout. 
+Smart lockout helps lock out bad actors that try to guess your users' passwords or use brute-force methods to get in. Smart lockout can recognize sign-ins that come from valid users and treat them differently than ones of attackers and other unknown sources. Attackers get locked out, while your users continue to access their accounts and be productive. Organizations, which configure applications to authenticate directly to Azure AD benefit from Azure AD smart lockout. Federated deployments that use AD FS 2016 and AD FS 2019 can enable similar benefits using [AD FS Extranet Lockout and Extranet Smart Lockout](/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-smart-lockout-protection.md). 
 
 ## Step 2 - Reduce your attack surface area
 
@@ -97,6 +97,8 @@ We recommend the following four actions:
 1.	Block legacy authentication if you use AD FS.
 1.	Block Legacy Authentication with Exchange Server 2019.
 1.	Disable legacy authentication in Exchange Online.
+
+For more information, see the article [Blocking legacy authentication protocols in Azure AD](../../active-directory/fundamentals/concept-fundamentals-block-legacy-authentication.md).
 
 ### Block invalid authentication entry points
 
@@ -128,6 +130,8 @@ Azure AD built-in and custom roles operate on concepts similar to roles found in
 
 Both systems contain similarly used role definitions and role assignments. However, Azure AD role permissions can't be used in Azure custom roles and vice versa. As part of deploying your privileged account process, follow the best practice to create at least two emergency accounts to make sure you still have access to Azure AD if you lock yourself out.
 
+For more information, see the article [Plan a Privileged Identity Management deployment](../../active-directory/privileged-identity-management/pim-deployment-plan.md).
+
 ### Restrict user consent operations
 
 It’s important to understand the various Azure AD application consent experiences, the types of permissions and consent, and their implications on your organization’s security posture. While allowing users to consent by themselves does allow users to easily acquire useful applications that integrate with Microsoft 365, Azure, and other services, it can represent a risk if not used and monitored carefully.
@@ -136,9 +140,13 @@ Microsoft recommends restricting user consent to allow end-user consent only for
 
 Make sure users can request admin approval for new applications to reduce user friction, minimize support volume, and prevent users from signing up for applications using non-Azure AD credentials. Once you regulate your consent operations, administrators should audit app and consent permissions regularly.
 
+For more information, see the article [Azure Active Directory consent framework(../../active-directory/develop/consent-framework.md).
+
 ## Step 3 - Automate threat response
 
 Azure Active Directory has many capabilities that automatically intercept attacks, to remove the latency between detection and response. You can reduce the costs and risks, when you reduce the time criminals use to embed themselves into your environment. Here are the concrete steps you can take.
+
+For more information, see the article [How To: Configure and enable risk policies](../../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md).
 
 ### Implement sign-in risk policy
 
