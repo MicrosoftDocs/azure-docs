@@ -37,8 +37,8 @@ You can use the Azure attribute-based access control (Azure ABAC) preview to pla
 
 >[!Note]
 >When a role is assigned, the assignment:
->- Can't be made for a duration of less than five minutes period 
->- Can't be removed within five minutes of it being assigned.
+>- Can't be assign for a duration of less than five minutes
+>- Can't be removed within five minutes of it being assigned
 
 ## Assign a role
 
