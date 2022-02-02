@@ -269,15 +269,13 @@ To roll back the deployment:
 
 Before deploying, ensure that you have done the following:
 
-1. Created and begun executing your [communication plan](#plan-communications).
-
 1. Determined the appropriate [configuration settings](#plan-configuration).
 
-1. Identified the users and groups for the [pilot](#plan-a-pilot) and production environments.
+2. Identified the users and groups for the [pilot](#plan-a-pilot) and production environments.
 
-1. [Determined configuration settings](#plan-configuration) for registration and self-service.
+3. [Determined configuration settings](#plan-configuration) for registration and self-service.
 
-1. [Configured password writeback](#password-writeback) if you have a hybrid environment.
+4. [Configured password writeback](#password-writeback) if you have a hybrid environment.
 
 
 **You're now ready to deploy SSPR!**
