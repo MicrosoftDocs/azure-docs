@@ -2,7 +2,7 @@
 title: Track sensor activity in Defender for IoT
 description: Track sensor activity in the event timeline.
 ms.date: 02/01/2022
-ms.topic: article
+ms.topic: articleg
 ---
 
 # Track sensor activity
@@ -13,7 +13,7 @@ The event timeline provides a chronological view of events. Use the timeline dur
 
 ## Before you start
 
-You need to have Administrator or Security Analyst permissions to perform the procedures described in this article
+You need to have Administrator or Security Analyst permissions to perform the procedures described in this article.
 
 ## View the event timeline
 

@@ -142,21 +142,21 @@ Export logs as follows:
 1. In **File Name**, type the name you want to use for the log export. The default is the current date.
 1. You can export all data, all system data to investigate system state, or select specific logs.
 
-    | Export category | Description |
-    |---|---|
-    | **Core Application Logs** | Select this option to export data about the core application configuration and operation. |
-    | **Communication with CM logs** | Select this option if there are continuous problems or interruptions of connection with the management console. |  | **SNMP Logs** | Select this option to receive SNMP health check information. |
-    | **System Sanity Output** | Select this option to check system performance. |
-    | **Dissection Logs** | Select this option to check protocol logs. |
-    | **Database Logs** | Select this option to export logs from the system database. Investigating system logs helps identify system problems. |
-    | **Operating System Logs** | Select this option to get information about the operating system state. |
-    | **OS Kernel Dumps** | Select this option to export your kernel memory dump. A kernel memory dump contains all the memory that the kernel is using at the time of the problem that occurred in this kernel. The size of the dump file is smaller than the complete memory dump. Typically, the dump file is around one-third the size of the physical memory on the system. |
-    | **Configuration** | Select this option to export information about all the configurable parameters to make sure everything was configured correctly.
-    | **Web Application Logs** | Select this option to get information about all the requests sent from the application's web interface. |
-    | **Forwarding logs** | Select this option for investigation of the forwarding rules. |
-    | **Installation/Upgrade logs** | Select this option for investigation of the installation and upgrade configuration parameters. |
-    | **Dissection Statistics** | Select this option to allow advanced inspection of protocol statistics. |
-    | **Profiling Service Log** | Select this option to allow advanced inspection of protocol statistics. |
+    **Export category** | **Description** 
+    --- | ---
+    **Core Application Logs** | Select this option to export data about the core application configuration and operation.
+    **Communication with CM logs** | Select this option if there are continuous problems or interruptions of connection with the management console.  **SNMP Logs** | Select this option to receive SNMP health check information.
+    **System Sanity Output** | Select this option to check system performance.
+    **Dissection Logs** | Select this option to check protocol logs.
+    **Database Logs** | Select this option to export logs from the system database. Investigating system logs helps identify system problems. 
+    **Operating System Logs** | Select this option to get information about the operating system state.
+    **OS Kernel Dumps** | Select this option to export your kernel memory dump. A kernel memory dump contains all the memory that the kernel is using at the time of the problem that occurred in this kernel. The size of the dump file is smaller than the complete memory dump. Typically, the dump file is around one-third the size of the physical memory on the system.
+    **Configuration** | Select this option to export information about all the configurable parameters to make sure everything was configured correctly.
+    **Web Application Logs** | Select this option to get information about all the requests sent from the application's web interface.
+    **Forwarding logs** | Select this option for investigation of the forwarding rules.
+    **Installation/Upgrade logs** | Select this option for investigation of the installation and upgrade configuration parameters.
+    **Dissection Statistics** | Select this option to allow advanced inspection of protocol statistics.
+    **Profiling Service Log** | Select this option to allow advanced inspection of protocol statistics.
 
 1. Select **Export**.
 
