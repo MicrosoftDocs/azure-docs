@@ -6,10 +6,10 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/13/2021
+ms.date: 02/02/2022
 
-ms.author: baselden
-author: barbaraselden
+ms.author: v-nisba
+author: NishthaBabith-V
 manager: martinco
 ms.reviewer: rhicock
 
@@ -111,9 +111,9 @@ Before deploying SSPR, you may opt to determine the number and the average cost 
 
 #### Enable combined registration for SSPR and MFA
 
-Microsoft recommends that organizations enable the combined registration experience for SSPR and multi-factor authentication. When you enable this combined registration experience, users need only select their registration information once to enable both features.
+We recommend that organizations use the [combined registration experience for Azure AD Multi-Factor Authentication and self-service password reset (SSPR)](howto-registration-mfa-sspr-combined.md). SSPR allows users to reset their password in a secure way using the same methods they use for Azure AD MFA. Combined registration is a single step for end users. To make sure you understand the functionality and end-user experience, see the [Combined security information registration concepts](concept-registration-mfa-sspr-combined.md).
 
-The combined registration experience does not require organizations to enable both SSPR and Azure AD Multi-Factor Authentication. Combined registration provides organizations a better user experience. For more information, see [Combined security information registration](concept-registration-mfa-sspr-combined.md)
+It's critical to inform users about upcoming changes, registration requirements, and any necessary user actions. We provide [communication templates](https://www.microsoft.com/download/details.aspx?id=56768) and [end-user documentation](https://support.microsoft.com/account-billing/set-up-your-security-info-from-a-sign-in-prompt-28180870-c256-4ebf-8bd7-5335571bf9a8) to help draft your communications. Base your training on the [user documentation](https://support.microsoft.com/account-billing/set-up-security-info-from-a-sign-in-page-28180870-c256-4ebf-8bd7-5335571bf9a8) to prepare your users for the new experience and help to ensure a successful rollout.
 
 ## Plan the deployment project
 
@@ -131,11 +131,6 @@ When technology projects fail, they typically do so due to mismatched expectatio
 | Level 1 helpdesk| Password administrator |
 | Level 2 helpdesk| User administrator |
 | SSPR administrator| Global administrator |
-
-
-### Plan communications
-
-Communication is critical to the success of any new service. You should proactively communicate with your users how their experience will change, when it will change, and how to gain support if they experience issues. Review the [Self-service password reset rollout materials on the Microsoft download center](https://www.microsoft.com/download/details.aspx?id=56768) for ideas on how to plan your end-user communication strategy.
 
 ### Plan a pilot
 
