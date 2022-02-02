@@ -25,5 +25,5 @@ To start training your model:
 3. Click on the **Train** button at the bottom of the page.
 
     > [!NOTE]
-    > * While training, the data will be spilt into 2 sets: 80% for training and 20% for testing. See [how to train a model](../how-to/train-model.m4d#data-split) for more information.
+    > * While training, the data will be spilt into 2 sets: 80% for training and 20% for testing. See [how to train a model](../how-to/train-model.md#data-split) for more information.
     > * Training can take up to a few hours.
