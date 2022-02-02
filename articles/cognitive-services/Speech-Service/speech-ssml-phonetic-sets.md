@@ -1,7 +1,7 @@
 ---
 title: Speech phonetic alphabets - Speech service
 titleSuffix: Azure Cognitive Services
-description: Speech service phonetic alphabet and International Phonetic Alphabet (IPA) examples.
+description: This article presents Speech service phonetic alphabet and International Phonetic Alphabet (IPA) examples.
 services: cognitive-services
 author: jiajzhan
 manager: junwg
@@ -14,11 +14,11 @@ ms.author: jiajzhan
 
 # SSML phonetic alphabets
 
-Phonetic alphabets are used with the [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md) to improve pronunciation of Text-to-speech voices. See [Use phonemes to improve pronunciation](speech-synthesis-markup.md#use-phonemes-to-improve-pronunciation) to learn when and how to use each alphabet.
+Phonetic alphabets are used with the [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md) to improve the pronunciation of text-to-speech voices. To learn when and how to use each alphabet, see [Use phonemes to improve pronunciation](speech-synthesis-markup.md#use-phonemes-to-improve-pronunciation).
 
 ## Speech service phonetic alphabet
 
-For some locales, the Speech service defines its own phonetic alphabets that typically map to the [International Phonetic Alphabet (IPA)](https://en.wikipedia.org/wiki/International_Phonetic_Alphabet). The 7 locales that support `sapi` are: `en-US`, `fr-FR`, `de-DE`, `es-ES`, `ja-JP`, `zh-CN`, and `zh-TW`.
+For some locales, Speech service defines its own phonetic alphabets, which ordinarily map to the [International Phonetic Alphabet (IPA)](https://en.wikipedia.org/wiki/International_Phonetic_Alphabet). The seven locales that support the Microsoft Speech API (SAPI, or `sapi`) are en-US, fr-FR, de-DE, es-ES, ja-JP, zh-CN, and zh-TW.
 
 You set `sapi` or `ipa` as the `alphabet` in [SSML](speech-synthesis-markup.md#use-phonemes-to-improve-pronunciation). 
 
@@ -26,21 +26,21 @@ You set `sapi` or `ipa` as the `alphabet` in [SSML](speech-synthesis-markup.md#u
 
 #### English suprasegmentals
 
-|Example 1 (Onset for consonant, word initial for vowel)|Example 2 (Intervocalic for consonant, word medial nucleus for vowel)|Example 3 (Coda for consonant, word final for vowel)|Comments|
+|Example&nbsp;1 (onset for consonant, word-initial for vowel)|Example&nbsp;2 (intervocalic for consonant, word-medial nucleus for vowel)|Example&nbsp;3 (coda for consonant, word-final for vowel)|Comments|
 |--|--|--|--|
-| burger  /b er **1** r - g ax r/ | falafel  /f ax - l aa **1** - f ax  l/ | guitar  /g ih - t aa **1** r/ | Speech service phone set put stress after the vowel of the stressed  syllable |
-| inopportune /ih **2** - n aa - p ax r - t uw 1 n/ | dissimilarity  /d ih - s ih **2**- m ax -  l eh 1 - r ax - t iy/ | workforce /w er 1 r k - f ao **2** r s/ | Speech service phone set put stress after the vowel of the sub-stressed  syllable |
+| burger  /b er **1** r - g ax r/ | falafel  /f ax - l aa **1** - f ax  l/ | guitar  /g ih - t aa **1** r/ | The Speech service phone set puts stress after the vowel of the stressed syllable. |
+| inopportune /ih **2** - n aa - p ax r - t uw 1 n/ | dissimilarity  /d ih - s ih **2**- m ax -  l eh 1 - r ax - t iy/ | workforce /w er 1 r k - f ao **2** r s/ | The Speech service phone set puts stress after the vowel of the sub-stressed syllable. |
 
 #### English vowels
 
-| `sapi` | `ipa` | Example 1     | Example 2 | Example 3                   |
+| `sapi` | `ipa` | Example&nbsp;1     | Example&nbsp;2 | Example&nbsp;3                   |
 |--------|-------|---------------|-----------|-----------------------------|
 | iy     | `i`   | **ea**t       | f**ee**l  | vall**ey**                  |
 | ih     | `ɪ`   | **i**f        | f**i**ll  |                             |
 | ey     | `eɪ`  | **a**te       | g**a**te  | d**ay**                     |
-| eh     | `ɛ`   | **e**very     | p**e**t   | m**eh** (rare word finally) |
-| ae     | `æ`   | **a**ctive    | c**a**t   | n**ah** (rare word finally) |
-| aa     | `ɑ`   | **o**bstinate | p**o**ppy | r**ah** (rare word finally) |
+| eh     | `ɛ`   | **e**very     | p**e**t   | m**eh** (rare word-final) |
+| ae     | `æ`   | **a**ctive    | c**a**t   | n**ah** (rare word-final) |
+| aa     | `ɑ`   | **o**bstinate | p**o**ppy | r**ah** (rare word-final) |
 | ao     | `ɔ`   | **o**range    | c**au**se | Ut**ah**                    |
 | uh     | `ʊ`   | b**oo**k      |           |                             |
 | ow     | `oʊ`  | **o**ld       | cl**o**ne | g**o**                      |
@@ -54,7 +54,7 @@ You set `sapi` or `ipa` as the `alphabet` in [SSML](speech-synthesis-markup.md#u
 
 #### English R-colored vowels
 
-| `sapi` | `ipa` | Example 1    | Example 2      | Example 3  |
+| `sapi` | `ipa` | Example&nbsp;1    | Example&nbsp;2      | Example&nbsp;3  |
 |--------|-------|--------------|----------------|------------|
 | ih r   | `ɪɹ`  | **ear**s     | t**ir**amisu   | n**ear**   |
 | eh r   | `ɛɹ`  | **air**plane | app**ar**ently | sc**ar**e  |
@@ -66,16 +66,16 @@ You set `sapi` or `ipa` as the `alphabet` in [SSML](speech-synthesis-markup.md#u
 | er r   | `ɝ`   | **ear**th    | b**ir**d       | f**ur**    |
 | ax r   | `ɚ`   |              | all**er**gy    | supp**er** |
 
-#### English Semivowels
+#### English semivowels
 
-| `sapi` | `ipa` | Example 1           | Example 2  | Example 3 |
+| `sapi` | `ipa` | Example&nbsp;1           | Example&nbsp;2  | Example&nbsp;3 |
 |--------|-------|---------------------|------------|-----------|
 | w      | `w`   | **w**ith, s**ue**de | al**w**ays |           |
 | y      | `j`   | **y**ard, f**e**w   | on**i**on  |           |
 
 #### English aspirated oral stops
 
-| `sapi` | `ipa` | Example 1 | Example 2   | Example 3  |
+| `sapi` | `ipa` | Example&nbsp;1 | Example&nbsp;2   | Example&nbsp;3  |
 |--------|-------|-----------|-------------|------------|
 | p      | `p`   | **p**ut   | ha**pp**en  | fla**p**   |
 | b      | `b`   | **b**ig   | num**b**er  | cra**b**   |
@@ -84,9 +84,9 @@ You set `sapi` or `ipa` as the `alphabet` in [SSML](speech-synthesis-markup.md#u
 | k      | `k`   | **c**ut   | sla**ck**er | Ira**q**   |
 | g      | `g`   | **g**o    | a**g**o     | dra**g**   |
 
-#### English Nasal stops
+#### English nasal stops
 
-| `sapi` | `ipa` | Example 1        | Example 2  | Example 3   |
+| `sapi` | `ipa` | Example&nbsp;1        | Example&nbsp;2  | Example&nbsp;3   |
 |--------|-------|------------------|------------|-------------|
 | m      | `m`   | **m**at, smash   | ca**m**era | roo**m**    |
 | n      | `n`   | **n**o, s**n**ow | te**n**t   | chicke**n** |
@@ -94,7 +94,7 @@ You set `sapi` or `ipa` as the `alphabet` in [SSML](speech-synthesis-markup.md#u
 
 #### English fricatives
 
-| `sapi` | `ipa` | Example 1   | Example 2        | Example 3  |
+| `sapi` | `ipa` | Example&nbsp;1   | Example&nbsp;2        | Example&nbsp;3  |
 |--------|-------|-------------|------------------|------------|
 | f      | `f`   | **f**ork    | le**f**t         | hal**f**   |
 | v      | `v`   | **v**alue   | e**v**ent        | lo**v**e   |
@@ -108,14 +108,14 @@ You set `sapi` or `ipa` as the `alphabet` in [SSML](speech-synthesis-markup.md#u
 
 #### English affricates
 
-| `sapi` | `ipa` | Example 1 | Example 2    | Example 3  |
+| `sapi` | `ipa` | Example&nbsp;1 | Example&nbsp;2    | Example&nbsp;3  |
 |--------|-------|-----------|--------------|------------|
 | ch     | `tʃ`  | **ch**in  | fu**t**ure   | atta**ch** |
 | jh     | `dʒ`  | **j**oy   | ori**g**inal | oran**g**e |
 
 #### English approximants
 
-| `sapi` | `ipa` | Example 1          | Example 2  | Example 3 |
+| `sapi` | `ipa` | Example&nbsp;1          | Example&nbsp;2  | Example&nbsp;3 |
 |--------|-------|--------------------|------------|-----------|
 | l      | `l`   | **l**id, g**l**ad  | pa**l**ace | chi**ll** |
 | r      | `ɹ`   | **r**ed, b**r**ing | bo**rr**ow | ta**r**   |
@@ -124,18 +124,18 @@ You set `sapi` or `ipa` as the `alphabet` in [SSML](speech-synthesis-markup.md#u
 
 #### French suprasegmentals
 
-The Speech service phone set puts stress after the vowel of the stressed syllable, however; the `fr-FR` Speech service phone set doesn't support the IPA substress 'ˌ'. If the IPA substress is needed, you should use the IPA directly.
+The Speech service phone set puts stress after the vowel of the stressed syllable. However, the `fr-FR` Speech service phone set doesn't support the IPA substress 'ˌ'. If the IPA substress is needed, you should use the IPA directly.
 
 #### French vowels
 
-| `sapi` | `ipa` | Example 1     | Example 2       | Example 3 |
+| `sapi` | `ipa` | Example&nbsp;1     | Example&nbsp;2       | Example&nbsp;3 |
 |--------|-------|---------------|-----------------|-----------|
 | a      | `a`   | **a**rbre     | p**a**tte       | ir**a**   |
 | aa     | `ɑ`   |               | p**â**te        | p**a**s   |
 | aa ~   | `ɑ̃`  | **en**fant    | enf**en**t      | t**em**ps |
 | ax     | `ə`   |               | p**e**tite      | l**e**    |
 | eh     | `ɛ`   | **e**lle      | p**e**rdu       | ét**ai**t |
-| eu     | `ø`   | **œu**fs      | cr**eu**ser     | qu**eu**  |
+| eu     | `ø`   | **œu**fs      | cr**eu**ser     | qu**eu**e  |
 | ey     | `e`   | ému           | crétin          | ôté       |
 | eh ~   | `ɛ̃`  | **im**portant | p**ein**ture    | mat**in** |
 | iy     | `i`   | **i**dée      | pet**i**te      | am**i**   |
@@ -149,13 +149,13 @@ The Speech service phone set puts stress after the vowel of the stressed syllabl
 
 #### French consonants
 
-| `sapi` | `ipa` | Example 1   | Example 2     | Example 3                        |
+| `sapi` | `ipa` | Example&nbsp;1   | Example&nbsp;2     | Example&nbsp;3                        |
 |--------|-------|-------------|---------------|----------------------------------|
 | b      | `b`   | **b**ête    | ha**b**ille   | ro**b**e                         |
 | d      | `d`   | **d**ire    | ron**d**eur   | chau**d**e                       |
 | f      | `f`   | **f**emme   | su**ff**ixe   | bo**f**                          |
 | g      | `g`   | **g**auche  | é**g**ale     | ba**gu**e                        |
-| ng     | `ŋ`   |             |               | [<sup>1</sup>](#fr-1)park**ing** |
+| ng     | `ŋ`   |             |               | park**ing**[<sup>1</sup>](#fr-1) |
 | hy     | `ɥ`   | h**u**ile   | n**u**ire     |                                  |
 | k      | `k`   | **c**arte   | é**c**aille   | be**c**                          |
 | l      | `l`   | **l**ong    | é**l**ire     | ba**l**                          |
@@ -177,7 +177,7 @@ The Speech service phone set puts stress after the vowel of the stressed syllabl
 |        | `z‿`  |             |               | di**x**                          |
 
 <a id="fr-1"></a>
-**1** *Only for some foreign words.*
+**1** *Only for some foreign words*.
 
 > [!TIP]
 > The `fr-FR` Speech service phone set doesn't support the following French liasions, `n‿`, `t‿`, and `z‿`. If they are needed, you should consider using the IPA directly.
@@ -186,21 +186,21 @@ The Speech service phone set puts stress after the vowel of the stressed syllabl
 
 #### German suprasegmentals
 
-| Example 1 (Onset for consonant, word initial for vowel) | Example 2 (Intervocalic for consonant, word medial nucleus for vowel) | Example 3 (Coda for consonant, word final for vowel) | Comments |
+| Example&nbsp;1 (Onset for consonant, word-initial for vowel) | Example&nbsp;2 (Intervocalic for consonant, word-medial nucleus for vowel) | Example&nbsp;3 (Coda for consonant, word-final for vowel) | Comments |
 |--|--|--|--|
 | anders /a **1** n - d ax r s/ | Multiplikationszeichen /m uh l - t iy - p l iy - k a - ts y ow **1** n s - ts ay - c n/ | Biologie /b iy - ow - l ow - g iy **1**/ | Speech service phone set put stress after the vowel of the stressed  syllable |
-| Allgemeinwissen /a **2** l - g ax - m ay 1 n - v ih - s n/ | Abfallentsorgungsfirma /a 1 p - f a l - ^ eh n t - z oh **2** ax r - g uh ng s - f ih ax r - m  a/ | Computertomographie /k oh m - p y uw 1 - t ax r - t ow - m ow - g r a - f iy **2**/ | Speech service phone set put stress after the vowel of the sub-stressed syllable |
+| Allgemeinwissen /a **2** l - g ax - m ay 1 n - v ih - s n/ | Abfallentsorgungsfirma /a 1 p - f a l - ^ eh n t - z oh **2** ax r - g uh ng s - f ih ax r - m  a/ | Computertomographie /k oh m - p y uw 1 - t ax r - t ow - m ow - g r a - f iy **2**/ | The Speech service phone set puts stress after the vowel of the sub-stressed syllable |
 
 #### German vowels
 
-| `sapi` | `ipa`     | Example 1                             | Example 2     | Example 3                          |
+| `sapi` | `ipa`     | Example&nbsp;1                             | Example&nbsp;2     | Example&nbsp;3                          |
 |--------|-----------|---------------------------------------|---------------|------------------------------------|
 | a:     | `aː`      | **A**ber                              | Maßst**a**b   | Schem**a**                         |
 | a      | `a`       | **A**bfall                            | B**a**ch      | Agath**a**                         |
 | oh     | `ɔ`       | **O**sten                             | Pf**o**sten   |                                    |
-| eh:    | `ɛː`      | **Ä**hnlichkeit                       | B**ä**r       | [<sup>1</sup>](#de-v-1)Fasci**ae** |
+| eh:    | `ɛː`      | **Ä**hnlichkeit                       | B**ä**r       | Fasci**ae**[<sup>1</sup>](#de-v-1) |
 | eh     | `ɛ`       | **ä**ndern                            | Proz**e**nt   | Amygdal**ae**                      |
-| ax     | `ə`       | [<sup>2</sup>](#de-v-2)'v**e**rstauen | Aach**e**n    | Frag**e**                          |
+| ax     | `ə`       | 'v**e**rstauen[<sup>2</sup>](#de-v-2) | Aach**e**n    | Frag**e**                          |
 | iy     | `iː`      | **I**ran                              | abb**ie**gt   | Relativitätstheor**ie**            |
 | ih     | `ɪ`       | **I**nnung                            | s**i**ngen    | Wood**y**                          |
 | eu     | `øː`      | **Ö**sen                              | abl**ö**sten  | Malm**ö**                          |
@@ -213,13 +213,13 @@ The Speech service phone set puts stress after the vowel of the stressed syllabl
 | uy     | `ʏ`       | **ü**ppig                             | S**y**stem    |                                    |
 
 <a id="de-v-1"></a>
-**1** *Only in words of foreign origin, such as: Fasci**ae**.*<br>
+**1** *Only in words of foreign origin, such as Fasci**ae***.<br>
 <a id="de-v-2"></a>
-**2** *Word-intially only in  words of foreign origin such as **A**ppointment. Syllable-initially in: 'v**e**rstauen.*
+**2** *Word-initial only in words of foreign origin, such as **A**ppointment. Syllable-initial in 'v**e**rstauen*.
 
 #### German diphthong
 
-| `sapi` | `ipa`       | Example 1    | Example 2          | Example 3 |
+| `sapi` | `ipa`       | Example&nbsp;1    | Example&nbsp;2          | Example&nbsp;3 |
 |--------|-------------|--------------|--------------------|-----------|
 | ay     | `ai`        | **ei**nsam   | Unabhängigk**ei**t | Abt**ei** |
 | aw     | `au`        | **au**ßen    | abb**au**st        | St**au**  |
@@ -227,79 +227,79 @@ The Speech service phone set puts stress after the vowel of the stressed syllabl
 
 #### German semivowels
 
-| `sapi` | `ipa` | Example 1 | Example 2    | Example 3  |
+| `sapi` | `ipa` | Example&nbsp;1 | Example&nbsp;2    | Example&nbsp;3  |
 |--------|-------|-----------|--------------|------------|
 | ax r   | `ɐ`   |           | abänd**er**n | lock**er** |
 
 #### German consonants
 
-| `sapi` | `ipa` | Example 1 | Example 2 | Example 3 |
+| `sapi` | `ipa` | Example&nbsp;1 | Example&nbsp;2 | Example&nbsp;3 |
 |--|--|--|--|--|
-| b | `b` | **B**ank | | [<sup>1</sup>](#de-c-1)Pu**b** | 
-| c | `ç` | **Ch**emie | mögli**ch**st | [<sup>2</sup>](#de-c-2)i**ch** |
-| d | `d` | **d**anken | [<sup>3</sup>](#de-c-3)Len**d**l | [<sup>4</sup>](#de-c-4)Clau**d**e | 
-| jh | `ʤ` | **J**eff | gemana**g**t | [<sup>5</sup>](#de-c-5)Chan**g**e |
+| b | `b` | **B**ank | | Pu**b**[<sup>1</sup>](#de-c-1) | 
+| c | `ç` | **Ch**emie | mögli**ch**st | i**ch**[<sup>2</sup>](#de-c-2) |
+| d | `d` | **d**anken | Len**d**l[<sup>3</sup>](#de-c-3) | Clau**d**e[<sup>4</sup>](#de-c-4) | 
+| jh | `ʤ` | **J**eff | gemana**g**t | Chan**g**e[<sup>5</sup>](#de-c-5) |
 | f | `f` | **F**ahrtdauer | angri**ff**slustig | abbruchrei**f** |  
-| g | `g` | **g**ut |  [<sup>6</sup>](#de-c-6)Gre**g** |  |
+| g | `g` | **g**ut |  Gre**g**[<sup>6</sup>](#de-c-6) |  |
 | h | `h` | **H**ausanbau |  |  | 
 | y | `j` | **J**od | Reakt**i**on | hu**i** | 
 | k | `k` | **K**oma | Aspe**k**t | Flec**k** | 
 | l | `l` | **l**au | ähne**l**n | zuvie**l** | 
 | m | `m` | **M**ut | A**m**t | Leh**m** | 
 | n | `n` | **n**un | u**n**d | Huh**n** | 
-| ng | `ŋ` | [<sup>7</sup>](#de-c-7)**Ng**uyen | Schwa**nk** | R**ing** | 
+| ng | `ŋ` | **Ng**uyen[<sup>7</sup>](#de-c-7) | Schwa**nk** | R**ing** | 
 | p | `p` | **P**artner | abru**p**t | Ti**p** | 
 | pf | `pf` | **Pf**erd | dam**pf**t | To**pf** |
 | r | `ʀ`, `r`, `ʁ` | **R**eise | knu**rr**t | Haa**r** | 
-| s | `s` | [<sup>8</sup>](#de-c-8)**S**taccato | bi**s**t | mie**s** | 
+| s | `s` | **S**taccato[<sup>8</sup>](#de-c-8) | bi**s**t | mie**s** | 
 | sh | `ʃ` | **Sch**ule | mi**sch**t | lappi**sch** | 
 | t | `t` | **T**raum | S**t**raße | Mu**t** | 
 | ts | `ts` | **Z**ug | Ar**z**t | Wit**z** | 
 | ch | `tʃ` | **Tsch**echien | aufgepu**tsch**t | bundesdeu**tsch** | 
-| v | `v` | **w**inken | Q**u**alle | [<sup>9</sup>](#de-c-9)Gr**oo**ve | 
-| x | [<sup>10</sup>](#de-c-10)`x`,[<sup>11</sup>](#de-c-11)`ç` | [<sup>12</sup>](#de-c-12)Ba**ch**erach | Ma**ch**t mögli**ch**st | Schma**ch** 'i**ch** |
+| v | `v` | **w**inken | Q**u**alle | Gr**oo**ve[<sup>9</sup>](#de-c-9) | 
+| x | `x`[<sup>10</sup>](#de-c-10), `ç`[<sup>11</sup>](#de-c-11) | Ba**ch**erach[<sup>12</sup>](#de-c-12) | Ma**ch**t mögli**ch**st | Schma**ch** 'i**ch** |
 | z | `z` | **s**uper |  |  | 
 | zh | `ʒ` | **G**enre | B**re**ezinski | Edvi**g**e |
 
 <a id="de-c-1"></a>
-**1** *Only in words of foreign origin, such as: Pu**b**.*<br>
+**1** *Only in words of foreign origin, such as Pu**b***.<br>
 <a id="de-c-2"></a>
-**2** *Soft "ch" after "e" and "i"*<br>
+**2** *Soft "ch" after "e" and "i"*.<br>
 <a id="de-c-3"></a>
-**3** *Only in words of foreign origin, such as: Len**d**l.*<br>
+**3** *Only in words of foreign origin, such as Len**d**l*.<br>
 <a id="de-c-4"></a>
-**4** *Only in words of foreign origin such as: Clau**d**e.*<br>
+**4** *Only in words of foreign origin, such as Clau**d**e*.<br>
 <a id="de-c-5"></a>
-**5** *Only in words of foreign origin such as: Chan**g**e.*<br>
+**5** *Only in words of foreign origin, such as Chan**g**e*.<br>
 <a id="de-c-6"></a>
-**6** *Word-terminally only in words of foreign origin such as Gre**g**.*<br>
+**6** *Word-terminally only in words of foreign origin, such as Gre**g***.<br>
 <a id="de-c-7"></a>
-**7** *Only in words of  foreign origin such as: **Ng**uyen.*<br>
+**7** *Only in words of  foreign origin, such as **Ng**uyen*.<br>
 <a id="de-c-8"></a>
-**8** *Only in words of foreign origin such as: **S**taccato.*<br>
+**8** *Only in words of foreign origin, such as **S**taccato*.<br>
 <a id="de-c-9"></a>
-**9** *Only in words of foreign origin, such as: Gr**oo**ve.*<br>
+**9** *Only in words of foreign origin, such as Gr**oo**ve*.<br>
 <a id="de-c-10"></a>
-**10** *The IPA `x` is a hard "ch" after all non-front vowels (a, aa, oh, ow, uh, uw and the diphthong  aw).*<br>
+**10** *The IPA `x` is a hard "ch" after all non-front vowels (a, aa, oh, ow, uh, uw, and the diphthong aw)*.<br>
 <a id="de-c-11"></a>
-**11** *The IPA `ç` is a soft 'ch' after front vowels (ih, iy, eh, ae, uy, ue, oe, eu also  in diphthongs ay, oy) and consonants*<br>
+**11** *The IPA `ç` is a soft "ch" after front vowels (ih, iy, eh, ae, uy, ue, oe, eu, and diphthongs ay, oy) and consonants*.<br>
 <a id="de-c-12"></a>
-**12** *Word-initially only in words of foreign origin, such as: **J**uan. Syllable-initially also in words like: Ba**ch**erach.*<br>
+**12** *Word-initial only in words of foreign origin, such as **J**uan. Syllable-initial also in words such as Ba**ch**erach*.<br>
 
 #### German oral consonants
 
-| `sapi` | `ipa` | Example 1                                  |
+| `sapi` | `ipa` | Example                                  |
 |--------|-------|--------------------------------------------|
 | ^      | `ʔ`   | beachtlich     /b ax - ^ a 1 x t - l ih c/ |
 
 > [!NOTE]
-> We need to add a [gs\] phone between two distinct vowels, except the two vowels are a genuine diphthong. This oral consonant is a glottal stop, for more information, see [glottal stop](http://en.wikipedia.org/wiki/Glottal_stop).
+> We need to add a [gs\] phone between two distinct vowels, except when the two vowels are a genuine diphthong. This oral consonant is a glottal stop. For more information, see [glottal stop](http://en.wikipedia.org/wiki/Glottal_stop).
 
 ### [es-ES](#tab/es-ES)
 
 #### Spanish vowels
 
-| `sapi` | `ipa` | Example 1    | Example 2     | Example 3    |
+| `sapi` | `ipa` | Example&nbsp;1    | Example&nbsp;2     | Example&nbsp;3    |
 |--------|-------|--------------|---------------|--------------|
 | a      | `a`   | **a**lto     | c**a**ntar    | cas**a**     |
 | i      | `i`   | **i**bérica  | av**i**spa    | tax**i**     |
@@ -309,7 +309,7 @@ The Speech service phone set puts stress after the vowel of the stressed syllabl
 
 #### Spanish consonants
 
-| `sapi` | `ipa`      | Example 1  | Example 2      | Example 3      |
+| `sapi` | `ipa`      | Example&nbsp;1  | Example&nbsp;2      | Example&nbsp;3      |
 |--------|------------|------------|----------------|----------------|
 | b      | `b`        | **b**aobab |                | am**b**        |
 |        | `β`        |            | bao**b**ab     | baoba**b**     |
@@ -337,7 +337,7 @@ The Speech service phone set puts stress after the vowel of the stressed syllabl
 | x      | `x`        | **j**ota   | a**j**o        | relo**j**      |
 
 > [!TIP]
-> The `es-ES` Speech service phone set doesn't support the following Spanish IPA, `β`, `ð`, and `ɣ`. If they are needed, you should consider using the IPA directly.
+> The `es-ES` Speech service phone set doesn't support the following Spanish IPA: `β`, `ð`, and `ɣ`. If they're needed, consider using the IPA directly.
 
 ### [zh-CN](#tab/zh-CN)
 
@@ -367,7 +367,7 @@ The Speech service phone set for `zh-TW` is based on the native phone [Bopomofo]
 
 #### Tone
 
-| Speech service tone | Bopomofo tone | Example (word) | Speech service phones | Bopomofo | Pinyin （拼音） |
+| Speech service tone | Bopomofo tone | Example (word) | Speech service phones | Bopomofo | Pinyin (拼音） |
 |---------------------|---------------|----------------|-----------------------|----------|-------------|
 | ˉ                   | empty         | 偵              | ㄓㄣˉ                   | ㄓㄣ       | zhēn        |
 | ˊ                   | ˊ             | 察              | ㄔㄚˊ                   | ㄔㄚˊ      | chá         |
@@ -375,7 +375,7 @@ The Speech service phone set for `zh-TW` is based on the native phone [Bopomofo]
 | ˋ                   | ˋ             | 望              | ㄨㄤˋ                   | ㄨㄤˋ      | wàng        |
 | ˙                   | ˙             | 影子             | 一ㄥˇ  ㄗ˙               | 一ㄥˇ  ㄗ˙  | yǐng  zi    |
 
-#### Example
+#### Examples
 
 | Character | `sapi`   |
 |-----------|----------|
@@ -394,7 +394,7 @@ The Speech service phone set for `ja-JP` is based on the native phone [Kana](htt
 | `ˈ`    | `ˈ` mainstress |
 | `+`    | `ˌ` substress  |
 
-#### Example
+#### Examples
 
 | Character | `sapi`  | `ipa`       |
 |-----------|---------|-------------|
@@ -407,11 +407,11 @@ The Speech service phone set for `ja-JP` is based on the native phone [Kana](htt
 
 ## International Phonetic Alphabet
 
-For the locales below, the Speech service uses the [International Phonetic Alphabet (IPA)](https://en.wikipedia.org/wiki/International_Phonetic_Alphabet).
+For the following locales, Speech service uses the [International Phonetic Alphabet (IPA)](https://en.wikipedia.org/wiki/International_Phonetic_Alphabet).
 
 You set `ipa` as the `alphabet` in [SSML](speech-synthesis-markup.md#use-phonemes-to-improve-pronunciation). 
 
-These locales all use the same IPA stress and syllables described here.
+These locales all use the IPA stress and syllable symbols that are listed here:
 
 |`ipa` | Symbol         | 
 |-------|-------------------|
@@ -420,11 +420,11 @@ These locales all use the same IPA stress and syllables described here.
 | `.`   | Syllable boundary  | 
 
 
-Select a tab for the IPA phonemes specific to each locale.
+Select a tab to view the IPA phonemes that are specific to each locale.
 
 ### [ca-ES](#tab/ca-ES)
 
-| `ipa` | Example 1         | Example 2        | Example 3      |
+| `ipa` | Example&nbsp;1         | Example&nbsp;2        | Example&nbsp;3      |
 |-------|-------------------|------------------|----------------|
 | `a`   | **a**men          | am**a**ro        | est**à**       |
 | `ɔ`   | **o**dre          | ofert**o**ri     | microt**ò**    |
@@ -467,7 +467,7 @@ Select a tab for the IPA phonemes specific to each locale.
 
 #### Vowels
 
-| `ipa` | Example 1     | Example 2       | Example 3   |
+| `ipa` | Example&nbsp;1     | Example&nbsp;2       | Example&nbsp;3   |
 |-------|---------------|-----------------|-------------|
 | `ɑː`  |               | f**a**st        | br**a**     |
 | `æ`   |               | f**a**t         |             |
@@ -492,7 +492,7 @@ Select a tab for the IPA phonemes specific to each locale.
 
 #### Consonants
 
-| `ipa` | Example 1     | Example 2       | Example 3   |
+| `ipa` | Example&nbsp;1     | Example&nbsp;2       | Example&nbsp;3   |
 |-------|---------------|-----------------|-------------|
 | `b `  | **b**ike      | ri**bb**on      | ri**b**     |
 | `tʃ ` | **ch**allenge | na**t**ure      | ri**ch**    |
@@ -523,7 +523,7 @@ Select a tab for the IPA phonemes specific to each locale.
 
 #### Vowels
 
-| `ipa` | Example 1  | Example 2      | Example 3|
+| `ipa` | Example&nbsp;1  | Example&nbsp;2      | Example&nbsp;3|
 |-------|------------|----------------|----------|
 | `ɑ`   | **a**zúcar | tom**a**te     | rop**a** |
 | `e`   | **e**so    | rem**e**ro     | am**é**  |
@@ -533,7 +533,7 @@ Select a tab for the IPA phonemes specific to each locale.
 
 #### Consonants
 
-| `ipa` | Example 1  | Example 2      | Example 3|
+| `ipa` | Example&nbsp;1  | Example&nbsp;2      | Example&nbsp;3|
 |-------|------------|----------------|----------|
 | `b`   | **b**ote   |                |          |
 | `β`   | ór**b**ita | envol**v**ente |          |
@@ -564,7 +564,7 @@ Select a tab for the IPA phonemes specific to each locale.
 
 #### Vowels
 
-| `ipa` | Example 1     | Example 2                | Example 3       |
+| `ipa` | Example&nbsp;1     | Example&nbsp;2                | Example&nbsp;3       |
 |-------|---------------|--------------------------|-----------------|
 | `a`   | **a**mo       | s**a**no                 | scort**a**      |
 | `ai`  | **ai**cs      | abb**ai**no              | m**ai**         |
@@ -585,7 +585,7 @@ Select a tab for the IPA phonemes specific to each locale.
 
 #### Consonants
 
-| `ipa` | Example 1     | Example 2                | Example 3       |
+| `ipa` | Example&nbsp;1     | Example&nbsp;2   | Example&nbsp;3       |
 |-------|---------------|--------------------------|-----------------|
 | `b`   | **b**ene      | e**b**anista             | Euroclu**b**    |
 | `bː`  |               | go**bb**a                |                 |
@@ -632,9 +632,9 @@ Select a tab for the IPA phonemes specific to each locale.
 
 ### [pt-BR](#tab/pt-BR)
 
-#### VOWELS
+#### Vowels
 
-| `ipa` | Example 1       | Example 2           | Example 3       |
+| `ipa` | Example&nbsp;1       | Example&nbsp;2           | Example&nbsp;3       |
 |-------|-----------------|---------------------|-----------------|
 | `i`   | **i**lha        | f**i**car           | com**i**        |
 | `ĩ`  | **in**tacto     | p**in**tar          | aberd**een**    |
@@ -652,7 +652,7 @@ Select a tab for the IPA phonemes specific to each locale.
 
 #### Consonants
 
-| `ipa` | Example 1       | Example 2           | Example 3       |
+| `ipa` | Example&nbsp;1       | Example&nbsp;2           | Example&nbsp;3       |
 |-------|-----------------|---------------------|-----------------|
 | `w̃`  |                 |                     | atualizaçã**o** |
 | `w`   | **w**ashington  | ág**u**a            | uso**u**        |
@@ -683,7 +683,7 @@ Select a tab for the IPA phonemes specific to each locale.
 
 ### [pt-PT](#tab/pt-PT)
 
-| `ipa` | Example 1         | Example 2             | Example 3     |
+| `ipa` | Example&nbsp;1         | Example&nbsp;2   | Example&nbsp;3     |
 |-------|-------------------|-----------------------|---------------|
 | `a`   | **á**bdito        | consul**a**r          | medir**á**    |
 | `ɐ`   | **a**bacaxi       | dom**a**ção           | long**a**     |
@@ -738,9 +738,9 @@ Select a tab for the IPA phonemes specific to each locale.
 
 ### [ru-RU](#tab/ru-RU)
 
-#### VOWELS
+#### Vowels
 
-| `ipa` | Example 1     | Example 2         | Example 3      |
+| `ipa` | Example&nbsp;1     | Example&nbsp;2         | Example&nbsp;3      |
 |-------|---------------|-------------------|----------------|
 | `a`   | **а**дрес     | р**а**дость       | бед**а**       |
 | `ʌ`   | **о**блаков   | з**а**стенчивость | внучк**а**     |
@@ -752,9 +752,9 @@ Select a tab for the IPA phonemes specific to each locale.
 | `ɔ`   | **о**крик     | м**о**т           | весл**о**      |
 | `u`   | **у**жин      | к**у**ст          | пойд**у**      |
 
-#### CONSONANT
+#### Consonants
 
-| `ipa` | Example 1     | Example 2         | Example 3      |
+| `ipa` | Example&nbsp;1     | Example&nbsp;2         | Example&nbsp;3      |
 |-------|---------------|-------------------|----------------|
 | `p`   | **п**рофессор | по**п**лавок      | укро**п**      |
 | `pʲ`  | **П**етербург | осле**п**ительно  | сте**пь**      |
