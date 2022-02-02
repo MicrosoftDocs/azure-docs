@@ -125,7 +125,7 @@ This section provides answers for common questions about custom IP prefix resour
 
 ### After you create a new custom IP prefix, the provisioning failed within 24 hours
 
-A quick failure of provisioning is likely due to a prefix validation error. A prefix validation error indicates we're unable to verify your ownership of the range. Verify Microsoft permission to advertise the range, and or the association of the range with the specific subscription. The error message given should indicate the specific problem encountered, so you can fix the required input. For example, the Route Origin Authorization, the signed message on the prefix records, and other aspects of the submission. You should delete the custom IP prefix resource and create a new one.
+A quick failure of provisioning is likely due to a prefix validation error. A prefix validation error indicates we're unable to verify your ownership of the range. A validation error can also indicate that we can't verify Microsoft permission to advertise the range, and or the association of the range with the specific subscription. The error message given should indicate the specific problem encountered, so you can fix the required input. For example, the Route Origin Authorization, the signed message on the prefix records, and other aspects of the submission. You should delete the custom IP prefix resource and create a new one.
 
 ### My custom IP prefix has been in "Provisioning" status for a long time
 
