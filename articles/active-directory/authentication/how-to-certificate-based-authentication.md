@@ -259,7 +259,7 @@ Let's walk through a scenario where we will validate strong authentication by cr
 To enable the certificate-based authentication and configure username bindings using Graph API, complete the following steps.
 
 >[!NOTE]
->The following steps will not work in US Government. US Government tenants with MS Graph will need to use the postman tool.
+>The following steps use Graph Explorer which is not available in the US Government cloud. US Government cloud tenants can use Postman to test the Microsoft Graph queries.
 
 1. Go to [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
 1. Click **Sign into Graph Explorer** and sign in to your tenant.
