@@ -12,7 +12,7 @@ If your app or business depends on the use of a custom NER model, we recommend y
 
 ##  Prerequisites
 
-1. Two Azure Language resources in different Azure regions. Follow the instructions mentioned [here](./how-to/create-project.md#azure-resources) to create your resources and link it to Azure storage account. It is recomeneded that you link both your Languge resources to the same storage account. 
+1. Two Azure Language resources in different Azure regions. Follow the instructions mentioned [here](../how-to/create-project.md#azure-resources) to create your resources and link it to Azure storage account. It is recomeneded that you link both your Languge resources to the same storage account. 
 
 ## Get your resource keys endpoint
 
@@ -235,7 +235,7 @@ Use the response body you got from the previous export step. It will have a form
 
 Now you have cloned your project from one resource to another. 
 
-Follow these instructions to [train your model](./how-to/train-model?tabs=portal#azure-resources.md) and [deploy it](./how-to/call-api.md).
+Follow these instructions to [train your model](../how-to/train-model?tabs=portal#azure-resources.md) and [deploy it](../how-to/call-api.md).
 
 ![**Note**] use the same deployment name as your primary model for easier maintenace of both projects.
 
