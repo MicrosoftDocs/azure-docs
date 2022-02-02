@@ -244,6 +244,14 @@ The following tables display the current Microsoft Sentinel feature availability
 | - [Anomalous Windows File Share Access Detection](../../sentinel/fusion.md)  | Public Preview | Not Available |
 | - [Anomalous RDP Login Detection](../../sentinel/data-connectors-reference.md#configure-the-security-events--windows-security-events-connector-for-anomalous-rdp-login-detection)<br>Built-in ML detection | Public Preview | Not Available |
 | - [Anomalous SSH login detection](../../sentinel/connect-syslog.md#configure-the-syslog-connector-for-anomalous-ssh-login-detection)<br>Built-in ML detection | Public Preview | Not Available |
+  | **Domain solution content**<sup>[2](#footnote2)</sup> | | |
+| - [Apache Log4j Vulnerability Detection](../../sentinel/sentinel-solutions-catalog.md#domain-solutions)	| Public Preview | Public Preview |
+| - [Cybersecurity Maturity Model Certification (CMMC)(../../sentinel/sentinel-solutions-catalog.md#domain-solutions)	| Public Preview | Public Preview |
+| - [IoT/OT Threat Monitoring with Defender for IoT(../../sentinel/sentinel-solutions-catalog.md#domain-solutions)	| Public Preview | Public Preview |
+| - [Maturity Model for Event Log Management M2131](../../sentinel/sentinel-solutions-catalog.md#domain-solutions	| Public Preview | Public Preview |
+| - [Microsoft Insider Risk Management (IRM)](../../sentinel/sentinel-solutions-catalog.md#domain-solutions	| Public Preview | Public Preview |
+| - [Microsoft Sentinel Deception](../../sentinel/sentinel-solutions-catalog.md#domain-solutions	| Public Preview | Public Preview |
+| - [Zero Trust (TIC3.0)(../../sentinel/sentinel-solutions-catalog.md#domain-solutions)	| Public Preview | Public Preview |
 | **Azure service connectors** |  |  |
 | - [Azure Activity Logs](../../sentinel/data-connectors-reference.md#azure-activity) | GA | GA |
 | - [Azure Active Directory](../../sentinel/connect-azure-active-directory.md) | GA | GA |
@@ -375,6 +383,7 @@ The following tables display the current Microsoft Sentinel feature availability
 | | | |
 
 <sup><a name="footnote1"></a>1</sup> SSH and RDP detections are not supported for sovereign clouds because the Databricks ML platform is not available.
+<sup><a name="footnote2"></a>2</sup> The Microsoft Sentinel content hub is not available for Azure government. Instead, access available solution content from the other areas of Microsft Sentinel, such as the **Workbooks*, **Analytics**, or **Automation** pages. 
 
 ### Microsoft 365 data connectors
 
