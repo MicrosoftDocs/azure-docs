@@ -272,6 +272,7 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
     .WithAuthority(new Uri(config.Authority))
     .Build();
 ```
+
 # [Java](#tab/java)
 
 In MSAL Java, there are two builders to instantiate the confidential client application with certificates:
@@ -306,6 +307,7 @@ ConfidentialClientApplication cca =
 ```
 
 # [Node.js](#tab/nodejs)
+
 ```JavaScript
 
 const config = {
@@ -319,10 +321,11 @@ const config = {
     }
 };
 
-// Create msal application object
+// Create an MSAL application object
 const cca = new msal.ConfidentialClientApplication(config);
 ```
-For more details, see [Using certificate credentials with MSAL Node](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-node/docs/certificate-credentials.md)
+
+For details, see [Use certificate credentials with MSAL Node](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-node/docs/certificate-credentials.md).
 
 # [Python](#tab/python)
 
@@ -390,6 +393,7 @@ ConfidentialClientApplication cca =
 ```
 
 # [Node.js](#tab/nodejs)
+
 ```JavaScript
 const clientConfig = {
     auth: {
@@ -400,7 +404,8 @@ const clientConfig = {
 };
 const cca = new msal.ConfidentialClientApplication(clientConfig);
 ```
-For more details, see [Initializing the ConfidentialClientApplication object](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-node/docs/initialize-confidential-client-application.md)
+
+For details, see [Initialize the ConfidentialClientApplication object](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-node/docs/initialize-confidential-client-application.md).
 
 # [Python](#tab/python)
 
