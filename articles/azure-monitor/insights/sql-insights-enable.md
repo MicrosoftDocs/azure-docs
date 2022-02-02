@@ -219,7 +219,7 @@ Enter the connection string in the form:
 
 ```
 "sqlManagedInstanceConnections": [
-   "Server= mysqlserver.database.windows.net;Port=1433;User Id=$username;Password=$password;" 
+   "Server= mysqlserver.dns_zone.database.windows.net;Port=1433;User Id=$username;Password=$password;" 
 ] 
 ```
 Get the details from the **Connection strings** menu item for the managed instance. If using managed instance [public endpoint](../../azure-sql/managed-instance/public-endpoint-configure.md), replace port 1433 with 3342.
