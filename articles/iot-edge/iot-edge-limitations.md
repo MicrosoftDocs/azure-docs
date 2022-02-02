@@ -66,4 +66,5 @@ IoT Hub has the following limitations for IoT Edge automatic deployments:
 * 100 deployments (including layered deployments per paid SKU hub)
 * 10 deployments per free SKU hub
 
+## Next steps
 For more information, see [IoT Hub other limits](../iot-hub/iot-hub-devguide-quotas-throttling.md#other-limits).
