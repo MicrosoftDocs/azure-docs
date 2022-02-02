@@ -49,7 +49,7 @@ Microsoft will provide support for hardware issues, networking issues, and provi
 
 Support through engineering escalation is only available during business hours: Monday - Friday, 9 AM - 5 PM PST.
 
-Thales only provides application-level support,  such as client software, HSM configuration, and backup.
+Thales provides application-level support, such as client software, HSM configuration, and backup.
 
 Customers are responsible for applying payShield security patches and upgrading payShield firmware for their provisioned HSMs. Thales payShield10K versions prior to 1.4a 1.8.3. aren't supported
 
