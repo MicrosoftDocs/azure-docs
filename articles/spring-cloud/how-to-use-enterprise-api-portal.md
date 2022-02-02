@@ -56,9 +56,6 @@ To access the API portal, use the following steps to assign a public endpoint:
 1. Select **API portal**.
 1. Select **Overview** to view the running state and resources allocated to the API portal.
 1. Select **Yes** next to *Assign endpoint* to assign a public endpoint. A URL will be generated within a few minutes.
-
-   :::image type="content" source="media/enterprise/how-to-use-enterprise-api-portal/api-portal-overview.png" alt-text="Azure portal screenshot showing Azure Spring Cloud API portal page with 'Assign endpoint' highlighted.":::
-
 1. Save the URL for use later.
 
 You can also use the Azure CLI to assign a public endpoint with the following command:
@@ -74,7 +71,7 @@ az spring-cloud api-portal update --assign-endpoint
 
 Select the `endpoint URL` to go to API portal. You'll see all the routes configured in Spring Cloud Gateway.
 
-:::image type="content" source="media/enterprise/getting-started-enterprise/api-portal.png" alt-text="Screenshot of the API portal showing configured routes.":::
+:::image type="content" source="media/enterprise/how-to-use-enterprise-api-portal/api-portal.png" alt-text="Screenshot of the API portal showing configured routes.":::
 
 ## Try APIs using the API portal
 
@@ -84,7 +81,7 @@ Select the `endpoint URL` to go to API portal. You'll see all the routes configu
 1. Select the API you would like to try.
 1. Select **EXECUTE** and the response will be shown.
 
-   :::image type="content" source="media/enterprise/getting-started-enterprise/api-portal-tryout.png" alt-text="Screenshot of the API portal.":::
+   :::image type="content" source="media/enterprise/how-to-use-enterprise-api-portal/api-portal-tryout.png" alt-text="Screenshot of the API portal.":::
 
 ## Next steps
 
