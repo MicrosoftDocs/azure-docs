@@ -42,6 +42,8 @@ landingContent:
             url: how-to-model-partition-example.md 
           - text: Service quotas
             url: concepts-limits.md 
+          - text: Analytics with Azure Synapse Link
+            url: synapse-link.md
       - linkListType: quickstart
         links:
           - text: Create an Azure Cosmos account
