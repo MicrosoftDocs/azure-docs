@@ -42,12 +42,14 @@ The studio offers multiple authoring experiences depending on the type project a
   Use the designer to train and deploy machine learning models without writing any code. Drag and drop datasets and components to create ML pipelines. Try out the [designer tutorial](tutorial-designer-automobile-price-train-score.md).
 
     ![Azure Machine Learning designer example](media/concept-designer/designer-drag-and-drop.gif)
+    
+    ::: image type= "content" source ="" alt-text="Azure Machine Learning designer example":::
 
 + **Automated machine learning UI**
 
   Learn how to create [automated ML experiments](tutorial-first-experiment-automated-ml.md) with an easy-to-use interface. 
 
-  ![AutoML in the Azure Machine Learning studio navigation pane](./media/overview-what-is-azure-ml-studio/azure-machine-learning-automated-ml-ui.jpg)
+   :::image type="content" source="./media/overview-what-is-azure-ml-studio/azure-machine-learning-automated-ml-ui.jpg" alt-text="AutoML in the Azure Machine Learning studio navigation pane." lightbox = "./media/overview-what-is-azure-ml-studio/azure-machine-learning-automated-ml-ui.jpg":::
 
 + **Data labeling**
 
