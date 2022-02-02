@@ -32,7 +32,7 @@ Secure Azure Machine Learning workspace resources and compute environments using
 
 ## Prerequisites
 
-This article assumes that you have familiarity with the following topics:
+This article assumes that you have familiarity with the following articles:
 + [Azure Virtual Networks](../virtual-network/virtual-networks-overview.md)
 + [IP networking](../virtual-network/ip-services/public-ip-addresses.md)
 + [Azure Machine Learning workspace with private endpoint](how-to-configure-private-link.md)
@@ -137,8 +137,9 @@ In this section, you learn how Azure Machine Learning securely communicates betw
 
 1. Azure Batch service receives the job from the workspace. It then submits the training job to the compute environment through the public load balancer for the compute resource. 
 
-1. The compute resource receives the job and begins training. The compute resource accesses secure storage accounts to download training files and upload output.
+1. The compute resource receives the job and begins training. The compute resource uses information stored in key vault to access storage accounts to download training files and upload output.
 
+:::image type="content" source="./media/how-to-network-security-overview/secure-training-job-submission.svg" alt-text="Diagram showing the secure training job submission workflow.":::
 ### Limitations
 
 - Azure Compute Instance and Azure Compute Clusters must be in the same VNet, region, and subscription as the workspace and its associated resources. 
@@ -207,6 +208,26 @@ For more information on firewall settings, see [Use workspace behind a Firewall]
 If you need to use a custom DNS solution for your virtual network, you must add host records for your workspace.
 
 For more information on the required domain names and IP addresses, see [how to use a workspace with a custom DNS server](how-to-custom-dns.md).
+
+## Microsoft Sentinel
+
+Microsoft Sentinel is a security solution that can integrate with Azure Machine Learning. For example, using Jupyter notebooks provided through Azure Machine Learning. For more information, see [Use Jupyter notebooks to hunt for security threats](/azure/sentinel/notebooks).
+
+### Public access
+
+Microsoft Sentinel can automatically create a workspace for you if you are OK with a public endpoint. In this configuration, the security operations center (SOC) analysts and system administrators connect to notebooks in your workspace through Sentinel.
+
+For information on this process, see [Create an Azure ML workspace from Microsoft Sentinel](/azure/sentinel/notebooks?tabs=public-endpoint#create-an-azure-ml-workspace-from-microsoft-sentinel)
+
+:::image type="content" source="./media/how-to-network-security-overview/common-public-endpoint-deployment.svg" alt-text="Diagram showing Microsoft Sentinel public connection.":::
+
+### Private endpoint
+
+If you want to secure your workspace and associated resources in a VNet, you must create the Azure Machine Learning workspace first. You must also create a virtual machine 'jump box' in the same VNet as your workspace, and enable Azure Bastion connectivity to it. Similar to the public configuration, SOC analysts and administrators can connect using Microsoft Sentinel, but some operations must be performed using Azure Bastion to connect to the VM.
+
+For more information on this configuration, see [Create an Azure ML workspace from Microsoft Sentinel](/azure/sentinel/notebooks?tabs=private-endpoint#create-an-azure-ml-workspace-from-microsoft-sentinel)
+
+:::image type="content" source="./media/how-to-network-security-overview/private-endpoint-deploy-bastion.svg" alt-text="Daigram showing Microsoft Sentinel connection through a VNet.":::
 
 ## Next steps
 
