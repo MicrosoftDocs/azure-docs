@@ -1638,3 +1638,12 @@ groups:
     title: Front Door
   - id: front-door-standard-premium
     title: Standard/Premium
+# Owner: wiassaf
+- id: azure-sql-deployment-option-single-elastic
+  title: Azure SQL deployment option, single or elastic
+  prompt: Select an Azure SQL deployment option
+  pivots:
+  - id: azure-sql-single-db
+    title: Azure SQL Database, single database
+  - id: azure-sql-elastic-pool
+    title: Azure SQL Database, elastic pool

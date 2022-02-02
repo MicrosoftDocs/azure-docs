@@ -2,7 +2,7 @@
 title: Bicep modules
 description: Describes how to define a module in a Bicep file, and how to use module scopes.
 ms.topic: conceptual
-ms.date: 11/19/2021
+ms.date: 02/01/2022
 ---
 
 # Bicep modules
@@ -12,7 +12,11 @@ Bicep enables you to organize deployments into modules. A module is just a Bicep
 To share modules with other people in your organization, create a [template spec](../templates/template-specs.md) or [private registry](private-module-registry.md). Template specs and modules in the registry are only available to users with the correct permissions.
 
 > [!TIP]
-> The choice between template specs and private registries is mostly a matter of preference. If you're deploying templates or Bicep files without other project artifacts, template specs are an easier option. If you're deploying project artifacts with the templates or Bicep files, you can integrate the private registry with your development work and then more easily deploy all of it from the registry.
+> The choice between module registry and template specs is mostly a matter of preference. There are a few things to consider when you choose between the two:
+>
+> - Module registry is only supported by Bicep. If you are not yet using Bicep, use template specs.
+> - Content in the Bicep module registry can only be deployed from another Bicep file. Template specs can be deployed directly from the API, Azure PowerShell, Azure CLI, and the Azure portal. You can even use [`UiFormDefinition`](../templates/template-specs-create-portal-forms.md) to customize the portal deployment experience.
+> - Bicep has some limited capabilities for embedding other project artifacts (including non-Bicep and non-ARM-template files. For example, PowerShell scripts, CLI scripts and other binaries) by using the [`loadTextContent`](./bicep-functions-files.md#loadtextcontent) and [`loadFileAsBase64`](./bicep-functions-files.md#loadfileasbase64) functions. Template specs can't package these artifacts.
 
 Bicep modules are converted into a single Azure Resource Manager template with [nested templates](../templates/linked-templates.md#nested-template).
 
