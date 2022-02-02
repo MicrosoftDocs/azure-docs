@@ -3,7 +3,7 @@ title: Device Update for Azure IoT Hub tutorial using the Raspberry Pi 3 B+ Refe
 description: Get started with Device Update for Azure IoT Hub using the Raspberry Pi 3 B+ Reference Yocto Image.
 author: ValOlson
 ms.author: valls
-ms.date: 2/11/2021
+ms.date: 1/26/2022
 ms.topic: tutorial
 ms.service: iot-hub-device-update
 ---
@@ -84,33 +84,117 @@ Now, the device needs to be added to the Azure IoT Hub.  From within Azure
 IoT Hub, a connection string will be generated for the device.
 
 1. From the Azure portal, launch the Azure IoT Hub.
-2. Create a new device.
-3. On the left-hand side of the page, navigate to 'IoT Devices' >
-   Select "New".
-4. Provide a name for the device under 'Device ID'--Ensure that "Autogenerate
-   keys" is checkbox is selected.
-5. Select 'Save'.
-6. Now you will be returned to the 'Devices' page and the device you created should be in the list. 
-7. Get the device connection string:
+
+3. Create a new device.
+
+5. On the left-hand side of the page, navigate to 'IoT Devices' > Select "New".
+
+7. Provide a name for the device under 'Device ID'--Ensure that "Autogenerate keys" is checkbox is selected.
+
+9. Select 'Save'. Now you will be returned to the 'Devices' page and the device you created should be in the list.
+ 
+13. Get the device connection string:
 	- Option 1 Using Device Update agent with a module identity: From the same 'Devices' page click on '+ Add Module Identity' on the top. Create a new Device Update module with the name 'IoTHubDeviceUpdate', choose other options as it applies to your use case and then click 'Save'. Click on the newly created 'Module' and in the module view, select the 'Copy' icon next to 'Primary Connection String'.
+
 	- Option 2 Using Device Update agent with the device identity: In the device view, select the 'Copy' icon next to 'Primary Connection
    String'.
+   
 8. Paste the copied characters somewhere for later use in the steps below.
    **This copied string is your device connection string**.
 
-## Provision connection string on SD card
+## Prepare On-Device Configurations for Device Update for IotHub
 
+There are two configuration files that are required to be on the device for Device Update for IotHub to properly be configured. The first is the `du-config.json` file which must exist at `/adu/du-config.json`. The second is the `du-diagnostics-config.json` which must exist at `/adu/du-diagnostics-config.json`. 
+
+Here are two examples for the `du-config.json` and the `du-diagnostics-config.json` files:
+
+### Example du-config.json 
+```JSON
+   {
+      "schemaVersion": "1.0",
+      "aduShellTrustedUsers": [
+         "adu",
+         "do"
+      ],
+      "manufacturer": "fabrikam",
+      "model": "vacuum",
+      "agents": [
+         {
+         "name": "main",
+         "runas": "adu",
+         "connectionSource": {
+            "connectionType": "string",
+            "connectionData": "HostName=example-connection-string.azure-devices.net;DeviceId=example-device;SharedAccessKey=M5oK/rOP12aB5678YMWv5vFWHFGJFwE8YU6u0uTnrmU="
+         },
+         "manufacturer": "fabrikam",
+         "model": "vacuum"
+         }
+      ]
+   }  
+```
+
+### Example du-diagnostics-config.json 
+```JSON
+   {
+      "logComponents":[
+         {
+               "componentName":"adu",
+               "logPath":"/adu/logs/"
+         },
+         {
+               "componentName":"do",
+               "logPath":"/var/log/deliveryoptimization-agent/"
+         }
+      ],
+      "maxKilobytesToUploadPerLogPath":50
+   }
+```
+
+## Instructions for Configuring the Device Update Agent on the RaspberryPi
 1. Make sure that the Raspberry Pi3 is connected to the network.
-2. In PowerShell, use the below command to ssh into the device
-   ```markdown
-   ssh raspberrypi3 -l root
-      ```
-4. Enter login as 'root', and password should be left as empty.
-5. After you successfully ssh into the device, run 
- ```markdown
-	/etc/adu/du-config.json
-   ```
-   and add your connection string within the double quotes.
+
+2. Follow the instruction below to add the configuration details: 
+
+   1. First ssh into the machine using the following command in the PowerShell window
+   
+	   ```shell
+	      ssh raspberrypi3 -l root
+	   ```
+   1. Once logged into the device you can create/open the du-config.json file for editing using
+   
+	   ```bash
+	      nano /adu/du-config.json
+	   ```
+   2. After running the command you should see an open editor with the file. If you have never created the file it will be empty. Now copy the above example du-config.json contents and substitute the configurations required for your device. You will also need to replace the example connection string with the one for the device you created in the steps above.
+  
+   4. Once you have completed your changes press `Ctrl+X` to exit the editor and then enter `y` to confirm you want to save the changes. 
+  
+   6. Now we need to create the du-diagnostics-config.json file using similar commands. Start by creating/openning the du-diagnostics-config.json file for editing using:
+	   ```bash
+	      nano /adu/du-diagnostics-config.json
+	   ```
+   5. Copy the above example du-diagnostics-config.json contents and substitute any configurations which differ from the default build. Please note the example du-diagnostics-config.json file represents the default log locations for Device Update for IotHub. You will only need to change these if your implementation differs. 
+  
+   7. Once you have completed your changes press `Ctrl+X` to exit the editor and then enter `y` to confirm you want to save the changes.
+ 
+   9. Now use the following command to show the files located in the `/adu/` directory. You should see both of your configuration files.du-diagnostics-config.json file for editing using:
+
+	   ```bash
+	      ls -la /adu/
+	   ```
+ 
+3. You will need to restart the Device Update system daemon to make sure that the configurations have been applied. You can do so using the following command within the terminal logged into the raspberrypi.
+
+```markdown
+   systemctl start adu-agent
+```
+
+4. You now need to check that the agent is live using the following command:  
+  
+```markdown
+   systemctl status adu-agent
+```
+   You should see the status come back as alive and green. 
 
 ## Connect the device in Device Update IoT Hub
 
