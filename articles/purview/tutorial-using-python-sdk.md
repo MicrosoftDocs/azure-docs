@@ -240,7 +240,7 @@ Scanning a data source is done in three steps:
 
 In this tutorial, you will use the default scan rules for Blob Storage containers. However, you can easily create custom scan rules programmatically with the Purview Scanning Client.
 
-Now let us scan the data source you registered above.
+Now let's scan the data source you registered above.
 
 1. Add an import statement to generate [unique identifier](https://en.wikipedia.org/wiki/Universally_unique_identifier):
     ```python
