@@ -44,28 +44,6 @@ Recall that `http_request` is a distributed table, meaning its data is divided
 between multiple shards. Hyperscale (Citus) automatically runs the count on all
 the shards in parallel, and combines the results.
 
-Using the Postgres EXPLAIN command, we can see that Citus runs a query for each
-shard (32 total), and aggregates the results:
-
-```sql
-EXPLAIN SELECT count(*) FROM http_request;
-```
-
-```
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                                            QUERY PLAN                                            │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ Aggregate  (cost=250.00..250.02 rows=1 width=8)                                                  │
-│   ->  Custom Scan (Citus Adaptive)  (cost=0.00..0.00 rows=100000 width=8)                        │
-│     Task Count: 32                                                                               │
-│     Tasks Shown: One of 32                                                                       │
-│     ->  Task                                                                                     │
-│       Node: host=private-c.quickstart.postgres.database.azure.com port=5432 dbname=citus         │
-│       ->  Aggregate  (cost=721.60..721.61 rows=1 width=8)                                        │
-│         ->  Seq Scan on http_request_102136 http_request  (cost=0.00..658.88 rows=25088 width=0) │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
-
 ## More complicated queries
 
 Hyperscale (Citus) uses an advanced query planner to transform arbitrary SQL
