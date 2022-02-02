@@ -83,7 +83,7 @@ To try out message enrichments, see the [message enrichments tutorial](tutorial-
 
 * Message enrichments don't apply to digital twin change events.
 
-* Modules do not inherit twin tags from their corresponding devices. Enrichments for messages originating from device modules (for example from IoT Ege modules) must use the twin tags that are set on the module twin.
+* Modules do not inherit twin tags from their corresponding devices. Enrichments for messages originating from device modules (for example from IoT Edge modules) must use the twin tags that are set on the module twin.
 
 ## Pricing
 
