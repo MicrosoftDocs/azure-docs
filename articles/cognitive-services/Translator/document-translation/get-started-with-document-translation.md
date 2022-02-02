@@ -369,7 +369,6 @@ Operation-Location   | https://<<span>NAME-OF-YOUR-RESOURCE>.cognitiveservices.a
         }
 
     }
-}
 ```
 
 ### [Node.js](#tab/javascript)
