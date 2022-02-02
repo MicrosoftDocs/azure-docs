@@ -41,7 +41,7 @@ The studio offers multiple authoring experiences depending on the type project a
 
   Use the designer to train and deploy machine learning models without writing any code. Drag and drop datasets and components to create ML pipelines. Try out the [designer tutorial](tutorial-designer-automobile-price-train-score.md).
 
-    :::image type="content" source="(media/concept-designer/designer-drag-and-drop.gif" alt-text="Azure Machine Learning designer example.":::
+    :::image type="content" source="media/concept-designer/designer-drag-and-drop.gif" alt-text="Azure Machine Learning designer example.":::
 
 + **Automated machine learning UI**
 
