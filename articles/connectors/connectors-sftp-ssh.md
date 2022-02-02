@@ -6,7 +6,7 @@ ms.suite: integration
 author: divyaswarnkar
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 02/01/2022
+ms.date: 02/02/2022
 tags: connectors
 ---
 
@@ -36,6 +36,7 @@ For differences between the SFTP-SSH connector and the SFTP connector, review th
   * OpenText GXS
   * Globalscape
   * SFTP for Azure Blob Storage
+  * FileMage Gateway
 
 * SFTP-SSH actions that support [chunking](../logic-apps/logic-apps-handle-large-messages.md) can handle files up to 1 GB, while SFTP-SSH actions that don't support chunking can handle files up to 50 MB. The default chunk size is 15 MB. However, this size can dynamically change, starting from 5 MB and gradually increasing to the 50-MB maximum. Dynamic sizing is based on factors such as network latency, server response time, and so on.
 
