@@ -54,7 +54,7 @@ You'll need an Azure subscription before you begin. If you don't have one, creat
 
    Set **Clustering policy** to **Enterprise** for a non-clustered cache. For more information on choosing **Clustering policy**, see [Clustering Policy](#clustering-policy).
 
-   :::image type="content" source="media/cache-create/enterprise-tier-advanced.png" alt-text="Screenshot that shows the Enterprise tier Advanced tab.":::
+   :::image type="content" source="media/cache-create/cache-clustering-policy.png" alt-text="Screenshot that shows the Enterprise tier Advanced tab.":::
 
    > [!NOTE]
    > Redis Enterprise supports two clustering policies. Use the **Enterprise** policy to access your cache using the regular Redis API, and **OSS** the OSS Cluster API.
