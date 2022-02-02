@@ -49,7 +49,15 @@ The OSM AKS add-on has the following limitations:
 * [Iptables redirection][ip-tables-redirection] for port IP address and port range exclusion must be enabled using `kubectl patch` after installation. For more details, see [iptables redirection][ip-tables-redirection].
 * Pods that are onboarded to the mesh that need access to IMDS, Azure DNS, or the Kubernetes API server must have their IP addresses to the global list of excluded outbound IP ranges using [Global outbound IP range exclusions][global-exclusion].
 
+## Next steps
+
+After enabling the OSM add-on using the [Azure CLI][osm-azure-cli] or a [Bicep template][osm-bicep], you can:
+* [Deploy a sample application][osm-deploy-sample-app]
+* [Onboard an existing application][osm-onboard-app]
+
+[ip-tables-redirection]: https://release-v1-0.docs.openservicemesh.io/docs/guides/traffic_management/iptables_redirection/
+[global-exclusion]: https://release-v1-0.docs.openservicemesh.io/docs/guides/traffic_management/iptables_redirection/#global-outbound-ip-range-exclusions
 [osm-azure-cli]: open-service-mesh-deploy-addon-az-cli.md
 [osm-bicep]: open-service-mesh-deploy-addon-bicep.md
-[ip-tables-redirection]: https://docs.openservicemesh.io/docs/guides/traffic_management/iptables_redirection/
-[global-exclusion]: https://docs.openservicemesh.io/docs/guides/traffic_management/iptables_redirection/#global-outbound-ip-range-exclusions
+[osm-deploy-sample-app]: https://release-v1-0.docs.openservicemesh.io/docs/getting_started/install_apps/
+[osm-onboard-app]: https://release-v1-0.docs.openservicemesh.io/docs/guides/app_onboarding/
