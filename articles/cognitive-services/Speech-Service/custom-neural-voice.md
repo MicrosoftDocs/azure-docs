@@ -51,7 +51,7 @@ The following articles help you start using this feature:
 | Voice talent  | Individuals or target speakers whose voices are recorded and used to create voice models. These voice models are intended to sound like the voice talent’s voice.|
 | Standard text-to-speech  | The standard, or "traditional," method of text-to-speech. This method breaks down spoken language into phonetic snippets so that they can be remixed and matched by using classical programming or statistical methods.|
 | Neural text-to-speech    | This method synthesizes speech by using deep neural networks. These networks have "learned" the way phonetics are combined in natural human speech, rather than using procedural programming or statistical methods. In addition to the recordings of a target voice talent, neural text-to-speech uses a source library or base model that is built with voice recordings from many different speakers.          |
-| Training data | A custom neural voice training dataset that includes the audio recordings of the voice talent, and the associated text transcriptions.|
+| Training data | A Custom Neural Voice training dataset that includes the audio recordings of the voice talent, and the associated text transcriptions.|
 | Persona       | A persona describes who you want this voice to be. A good persona design will inform all voice creation. This might include choosing an available voice model already created, or starting from scratch by casting and recording a new voice talent.|
 | Script        | A script is a text file that contains the utterances to be spoken by your voice talent. (The term *utterances* encompasses both full sentences and shorter phrases.)|
 

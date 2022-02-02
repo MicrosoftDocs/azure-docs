@@ -87,18 +87,18 @@ In the following tables, the parameters without the **Adjustable** row aren't ad
 | Max text length | N/A | 10000 paragraphs |
 | Start time | N/A | 10 tasks or 10000 characters accumulated |
 
-#### Custom neural voice
+#### Custom Neural Voice
 
 | Quota | Free (F0)<sup>3</sup> | Standard (S0) |
 |--|--|--|
 | Max number of transactions per second (TPS) per Speech service resource | See [General](#general) | See [General](#general) |
-| Max number of datasets per Speech resource | 10 | 500 |
-| Max number of simultaneous dataset uploads per Speech resource | 2 | 5 |
+| Max number of datasets per Speech service resource | 10 | 500 |
+| Max number of simultaneous dataset uploads per Speech service resource | 2 | 5 |
 | Max data file size for data import per dataset | 2 GB | 2 GB |
 | Upload of long audios or audios without script | No | Yes |
-| Max number of simultaneous model trainings per Speech resource | N/A | 3 |
-| Max number of custom endpoints per Speech resource | N/A | 50 |
-| *Concurrent request limit for custom neural voice* |  |  |
+| Max number of simultaneous model trainings per Speech service resource | N/A | 3 |
+| Max number of custom endpoints per Speech service resource | N/A | 50 |
+| *Concurrent request limit for Custom Neural Voice* |  |  |
 | Default value | N/A | 10 |
 | Adjustable | N/A | Yes<sup>5</sup> |
 
@@ -199,7 +199,7 @@ Generally, it's a very good idea to test the workload and the workload patterns 
 
 ### Text-to-speech: increase concurrent request limit for custom neural voices
 
-By default, the number of concurrent requests for custom neural voice endpoints is limited to 10. For the standard pricing tier, you can increase this amount. Before submitting the request, ensure that you're familiar with the material discussed earlier in this article, such as the best practices to mitigate throttling.
+By default, the number of concurrent requests for Custom Neural Voice endpoints is limited to 10. For the standard pricing tier, you can increase this amount. Before submitting the request, ensure that you're familiar with the material discussed earlier in this article, such as the best practices to mitigate throttling.
 
 Increasing the limit of concurrent requests doesn't directly affect your costs. Speech service uses a payment model that requires that you pay only for what you use. The limit defines how high the service can scale before it starts throttle your requests.
 
