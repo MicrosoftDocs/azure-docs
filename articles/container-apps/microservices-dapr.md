@@ -326,10 +326,10 @@ Using the properties you sourced from the steps above, create a config file name
   - name: accountKey
     secretRef: storage-account-key
   - name: containerName
-    value: <YOUR_STORAGE_CONTAINER_NAME>
+    value: mycontainer
 ```
 
-To use this file, make sure to replace the placeholder values between the `<>` brackets with your own values.
+To use this file, make sure to replace the value of `containerName` with your own value if you have changed `STORAGE_ACCOUNT_CONTAINER` variable from its original value, `mycontainer`.
 
 > [!NOTE]
 > Container Apps does not currently support the native [Dapr components schema](https://docs.dapr.io/operations/components/component-schema/). The above example uses the supported schema.
