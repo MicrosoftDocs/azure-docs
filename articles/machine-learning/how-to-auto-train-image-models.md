@@ -69,6 +69,8 @@ If your training data is in a different format (like, pascal VOC or COCO), you c
 > [!Warning]
 > Creation of TabularDatasets is only supported using the SDK to create datasets from data in JSONL format for this capability. Creating the dataset via UI is not supported at this time.
 
+> [!Note]
+> The training dataset needs to have at least 10 images in order to be able to submit an AutoML run. 
 
 ### JSONL schema samples
 
