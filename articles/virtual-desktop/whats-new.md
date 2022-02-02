@@ -82,7 +82,7 @@ Here's what changed in January 2022:
 
 ### FSLogix version 2201 public preview
 
-FSLogix version 2201 is now in public preview. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/the-fslogix-2201-public-preview-is-now-available/td-p/3070794) or [the FSLogix release notes](https://docs.microsoft.com/fslogix/whats-new#fslogix-2201-public-preview-29804843478).
+FSLogix version 2201 is now in public preview. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/the-fslogix-2201-public-preview-is-now-available/td-p/3070794) or [the FSLogix release notes](/fslogix/whats-new#fslogix-2201-public-preview-29804843478).
 
 ### Migration tool now generally available
 
