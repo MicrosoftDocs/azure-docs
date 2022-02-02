@@ -73,17 +73,19 @@ This workbook breaks down authentication prompts by:
 
 
 
-In many environments, the most used apps are business productivity apps. Anything that isn’t expected should be investigated. The charts below show authentication prompts by application as well as the average, median and additional information that help with investigations including timestamp, and request id.
+In many environments, the most used apps are business productivity apps. Anything that isn’t expected should be investigated. The charts below show authentication prompts by application.
 
 
 
 ![Authentication prompts by application](./media/workbook-authentication-prompts-analysis/authentication-prompts-by-application.png)
 
+The related list-view shows the average, median and additional information that help with investigations including timestamp, and request ID.
+
 
 ![Prompts by application](./media/workbook-authentication-prompts-analysis/prompts-by-authentication-method.png)
 
 
-The workbook also helps track impactful ways to improve your users’ experience and reduce prompts as well as the relative percentage.  
+This workbook also helps track impactful ways to improve your users’ experience and reduce prompts as well as the relative percentage.  
 
 
 ![Recommendations for reducing prompts](./media/workbook-authentication-prompts-analysis/recommendations-for-reducing-prompts.png)
