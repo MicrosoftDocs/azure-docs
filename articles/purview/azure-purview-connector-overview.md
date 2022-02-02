@@ -107,7 +107,7 @@ Currently, nested data is only supported for JSON content.
 
 For all [system supported file types](#file-types-supported-for-scanning), if there is nested JSON content in a column, then the scanner parses the nested JSON data and surfaces it within the schema tab of the asset.
 
-Nested data, or nested schema parsing, is not supported in SQL. A column with nested data will be reported and classified as is, and sub-data will not be parsed.
+Nested data, or nested schema parsing, is not supported in SQL. A column with nested data will be reported and classified as is, and subdata will not be parsed.
 
 ## Sampling within a file
 
@@ -121,7 +121,7 @@ For all structured file formats, Azure Purview scanner samples files in the foll
 - For structured file types, it samples the top 128 rows in each column or the first 1 MB, whichever is lower.
 - For document file formats, it samples the first 20 MB of each file.
     - If a document file is larger than 20 MB, then it is not subject to a deep scan (subject to classification). In that case, Azure Purview captures only basic meta data like file name and fully qualified name.
-- For **tabular data sources(SQL, CosmosDB)**, it samples the top 128 rows. 
+- For **tabular data sources(SQL, CosmosDB)**, it samples the top 128 rows.
 
 ## Resource set file sampling
 
