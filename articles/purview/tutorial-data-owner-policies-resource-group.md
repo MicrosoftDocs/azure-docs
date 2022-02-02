@@ -1,7 +1,7 @@
 ---
 title: Resource group and subscription access provisioning by data owner
 description: Step-by-step guide showing how a data owner can create access policies to resource groups or subscriptions.
-author: VladR
+author: inward-eye
 ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
