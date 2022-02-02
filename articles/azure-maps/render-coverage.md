@@ -112,7 +112,7 @@ However, Maps doesn't have the same level of information and accuracy for all re
 | Finland            |    ✓     |
 | France             |    ✓     |
 | Germany            |    ✓     |
-| Gibralter          |    ✓     |
+| Gibraltar          |    ✓     |
 | Greece             |    ✓     |
 | Hungary            |    ✓     |
 | Iceland            |    ✓     |
