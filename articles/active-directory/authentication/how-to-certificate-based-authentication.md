@@ -276,11 +276,9 @@ To enable the certificate-based authentication and configure username bindings u
    GET https://graph.microsoft.com/beta/policies/authenticationmethodspolicy/authenticationMetHodConfigurations/X509Certificate
    ```
 
-1. To update policy run a PATCH command.
-
-   PATCH X509Certificate strong auth with sample authentication rules with certificate user bindings and certificate rules:
+1. By default, the x509Certificate authentication method is disabled. To allow users to sign in with a certificate, you must enable the authentication method and configure the authentication and username binding policies through an update operation. To update policy, run a PATCH request.
     
-    Request body:
+    #### Request body:
 
 
    ```http
