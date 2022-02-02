@@ -156,7 +156,10 @@ For more information, see [Optimize reauthentication prompts and understand sess
 A major step in every MFA deployment is getting users registered to use MFA. Authentication methods such as Voice and SMS allow pre-registration, while others like the Authenticator App require user interaction. Administrators must determine how users will register their methods. 
 
 ### Combined registration for SSPR and Azure AD MFA
-We recommend using the [combined registration experience](howto-registration-mfa-sspr-combined.md) for Azure AD MFA and [Azure AD self-service password reset (SSPR)](concept-sspr-howitworks.md). SSPR allows users to reset their password in a secure way using the same methods they use for Azure AD MFA. Combined registration is a single step for end users.
+
+We recommend that organizations use the [combined registration experience for Azure AD Multi-Factor Authentication and self-service password reset (SSPR)](howto-registration-mfa-sspr-combined.md). SSPR allows users to reset their password in a secure way using the same methods they use for Azure AD MFA. Combined registration is a single step for end users. To make sure you understand the functionality and end-user experience, see the [Combined security information registration concepts](concept-registration-mfa-sspr-combined.md).
+
+It's critical to inform users about upcoming changes, registration requirements, and any necessary user actions. We provide [communication templates](https://aka.ms/mfatemplates) and [end-user documentation](https://support.microsoft.com/account-billing/set-up-your-security-info-from-a-sign-in-prompt-28180870-c256-4ebf-8bd7-5335571bf9a8) to help draft your communications. Base your training on the [user documentation](https://support.microsoft.com/account-billing/set-up-security-info-from-a-sign-in-page-28180870-c256-4ebf-8bd7-5335571bf9a8) to prepare your users for the new experience and help to ensure a successful rollout.
 
 ### Registration with Identity Protection
 Azure AD Identity Protection contributes both a registration policy for and automated risk detection and remediation policies to the Azure AD MFA story. Policies can be created to force password changes when there is a threat of compromised identity or require MFA when a sign-in is deemed risky.
@@ -172,15 +175,13 @@ You can further secure the process by also requiring a [Temporary Access Pass](h
 If you have users registered for MFA using SMS or voice calls, you may want to move them to more secure methods such as the Microsoft Authenticator app. Microsoft now offers a public preview of functionality that allows you to prompt users to set up the Microsoft Authenticator app during sign-in. You can set these prompts by group, controlling who is prompted, enabling targeted campaigns to move users to the more secure method. 
 
 ### Plan recovery scenarios 
+
 As mentioned before, ensure users are registered for more than one MFA method, so that if one is unavailable, they have a backup. 
 If the user does not have a backup method available, you can: 
 
 - Provide them a Temporary Access Pass so that they can manage their own authentication methods. You can also provide a Temporary Access Pass to enable temporary access to resources. 
 - Update their methods as an administrator. To do so, select the user in the Azure portal, then select Authentication methods and update their methods.
 User communications
-
-It's critical to inform users about upcoming changes, Azure AD MFA registration requirements, and any necessary user actions. 
-We provide [communication templates](https://aka.ms/mfatemplates) and [end-user documentation](https://support.microsoft.com/account-billing/set-up-your-security-info-from-a-sign-in-prompt-28180870-c256-4ebf-8bd7-5335571bf9a8) to help draft your communications. Send users to [https://myprofile.microsoft.com](https://myprofile.microsoft.com/) to register by selecting the **Security Info** link on that page.
 
 ## Plan integration with on-premises systems
 
