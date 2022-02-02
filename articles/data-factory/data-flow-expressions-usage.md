@@ -32,6 +32,8 @@ The following articles provide details about usage of all expressions and functi
 
 Following is an alphabetical listing of all functions available in mapping data flows.
 
+## A
+
 <a name="abs" ></a>
 
 ### <code>abs</code>
@@ -191,6 +193,7 @@ Based on a criteria gets the average of values of a column.
 * ``avgIf(region == 'West', sales)``  
 ___
 
+## B
 
 <a name="between" ></a>
 
@@ -344,6 +347,7 @@ Selects a column value by its relative position(1 based) in the stream. If the p
 * ``toString(byPosition(1234))``  
 ___
 
+## C
 
 <a name="case" ></a>
 
@@ -610,6 +614,7 @@ Gets the current timestamp as UTC. If you want your current time to be interpret
 * ``fromUTC(currentUTC(), 'Asia/Seoul') != toTimestamp('2050-12-12 19:18:12') -> true``  
 ___
 
+## D
 
 <a name="dayOfMonth" ></a>
 
@@ -703,6 +708,7 @@ Removes as many characters from the right of the string. If the drop requested e
 *	dropRight('cake', 10) => ''
 ___
 
+## E
 
 <a name="endsWith" ></a>
 
@@ -761,6 +767,7 @@ Results in an expression from a string. This is the same as writing this express
 *    expr('price * discount') => any
 ___
 
+## F
 
 <a name="factorial" ></a>
 
@@ -877,6 +884,7 @@ Converts to the timestamp from UTC. You can optionally pass the timezone in the 
 * ``fromUTC(currentTimestamp(), 'Asia/Seoul') != toTimestamp('2050-12-12 19:18:12') -> true``  
 ___
 
+## G
 
 <a name="greater" ></a>
 
@@ -910,6 +918,7 @@ Returns the greatest value among the list of values as input skipping null value
 * ``greatest(toTimestamp('2019-02-03 05:19:28.871', 'yyyy-MM-dd HH:mm:ss.SSS'), toTimestamp('2019-02-05 08:21:34.890', 'yyyy-MM-dd HH:mm:ss.SSS')) -> toTimestamp('2019-02-05 08:21:34.890', 'yyyy-MM-dd HH:mm:ss.SSS')``  
 ___
 
+## H
 
 <a name="hasColumn" ></a>
 
@@ -968,6 +977,7 @@ Duration in milliseconds for number of hours.
 * ``hours(2) -> 7200000L``  
 ___
 
+## I
 
 <a name="iif" ></a>
 
@@ -1243,6 +1253,7 @@ Checks if the row is marked for insert. For transformations taking more than one
 * ``isUpsert(1)``  
 ___
 
+## J
 
 <a name="jaroWinkler" ></a>
 
@@ -1252,6 +1263,7 @@ Gets the JaroWinkler distance between two strings.
 * ``jaroWinkler('frog', 'frog') => 1.0``  
 ___
 
+## K
 
 <a name="keyValues" ></a>
 
@@ -1279,6 +1291,7 @@ Based on a criteria, gets the kurtosis of a column.
 * ``kurtosisIf(region == 'West', sales)``  
 ___
 
+## L
 
 <a name="lag" ></a>
 
@@ -1456,6 +1469,7 @@ Left trims a string of leading characters. If second parameter is unspecified, i
 * ``ltrim('!--!du!mbo!', '-!') -> 'du!mbo!'``  
 ___
 
+## M
 
 <a name="map" ></a>
 
@@ -1664,6 +1678,7 @@ Multiplies pair of numbers. Same as the * operator.
 * ``20 * 10 -> 200``  
 ___
 
+## N
 
 <a name="negate" ></a>
 
@@ -1744,6 +1759,7 @@ Returns a NULL value. Use the function `syntax(null())` if there's a column name
 * ``isNull(10/0) -> true``  
 ___
 
+## O
 
 <a name="or" ></a>
 
@@ -1781,7 +1797,7 @@ Returns the entire output row set of the results of the cache sink
 * ``cacheSink#outputs()``
 ___
 
-
+## P
 
 <a name="partitionId" ></a>
 
@@ -1809,6 +1825,7 @@ Raises one number to the power of another.
 * ``power(10, 2) -> 100``  
 ___
 
+## R
 
 <a name="radians" ></a>
 
@@ -1986,6 +2003,7 @@ Right trims a string of trailing characters. If second parameter is unspecified,
 * ``rtrim('!--!du!mbo!', '-!') -> '!--!du!mbo'``  
 ___
 
+## S
 
 <a name="second" ></a>
 
@@ -2265,6 +2283,7 @@ Based on criteria gets the aggregate sum of a numeric column. The condition can 
 * ``sumIf(true, sales)``  
 ___
 
+## T
 
 <a name="tan" ></a>
 
@@ -2483,6 +2502,7 @@ Matches the type of the column. Can only be used in pattern expressions.number m
 * ``typeMatch('date', 'datetime')``  
 ___
 
+## U
 
 <a name="unescape" ></a>
 
@@ -2541,6 +2561,7 @@ Returns the generated UUID.
 * ``uuid()``  
 ___
 
+## V
 
 <a name="variance" ></a>
 
@@ -2593,8 +2614,9 @@ ___
 <code><b>varianceSampleIf(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : number) => double</b></code><br/><br/>
 Based on a criteria, gets the unbiased variance of a column.  
 * ``varianceSampleIf(region == 'West', sales)``  
+___
 
-
+## W
 
 <a name="weekOfYear" ></a>
 
@@ -2613,6 +2635,7 @@ Duration in milliseconds for number of weeks.
 * ``weeks(2) -> 1209600000L``  
 ___
 
+## X
 
 <a name="xor" ></a>
 
@@ -2624,6 +2647,7 @@ Logical XOR operator. Same as ^ operator.
 * ``true ^ false -> true``  
 ___
 
+## Y
 
 <a name="year" ></a>
 
