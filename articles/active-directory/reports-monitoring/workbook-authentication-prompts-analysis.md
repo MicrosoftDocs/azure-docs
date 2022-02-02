@@ -12,7 +12,7 @@ ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/05/2021
+ms.date: 02/02/2022
 ms.author: markvi
 ms.reviewer: sarbar 
 
@@ -96,9 +96,9 @@ The workbook also helps track impactful ways to improve your users’ experience
 Take advantage of the filters for more granular views of the data: 
 
 
-![Set filters](./media/workbook-authentication-prompts-analysis/set-filter.png)
+![Filter](./media/workbook-authentication-prompts-analysis/filters.png)
 
-
+Filtering for a specific user that has a lot of authentication requests or only showing applications with sign-in failures can also lead to interesting findings to continue to remediate. 
 
 ## Best practices
 
@@ -106,7 +106,7 @@ Take advantage of the filters for more granular views of the data:
 If data is not showing up or seems to be showing up incorrectly, please confirm that you have set the **Log Analytics Workspace** and **Subscriptions** on the proper resources.
 
 
-![Filters](./media/workbook-authentication-prompts-analysis/filters.png)
+![Set workspace and subscriptions](./media/workbook-authentication-prompts-analysis/workspace-and-subscriptions.png)
 
 If the visuals are taking too much time to load, try reducing the Time filter to 24 hours or less.
 
