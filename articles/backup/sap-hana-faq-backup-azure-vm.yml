@@ -4,7 +4,7 @@ metadata:
   description: This article provides answers to common questions about backing up SAP HANA databases using the Azure Backup service.
   ms.topic: article
   ms.service: backup
-  ms.date: 02/01/2022
+  ms.date: 02/02/2022
   author: v-amallick
   ms.author: v-amallick
     
@@ -71,7 +71,7 @@ sections:
           Yes, a full backup and a log backup can run parallelly. This instance occurs in one of the following ways:
 
           - **Full backup is in progress and a log backup is triggered**: The log backup should succeed irrespective of an ongoing full backup. Unless, the full backup triggered was a remedial full to handle any LSN chain break.
-          - **Log backup is in progress, and a full backup is triggered**: Both backups should run parallelly and su
+          - **Log backup is in progress, and a full backup is triggered**: Both backups should run parallelly and succeed.
 
       - question: |
           Are future databases automatically added for backup?
