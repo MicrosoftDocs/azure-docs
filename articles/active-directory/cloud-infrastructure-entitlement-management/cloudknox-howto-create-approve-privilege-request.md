@@ -22,7 +22,7 @@ The JEP Controller has two privilege on demand (POD) workflows you can use:
 
 
 > [!NOTE]
-> To view the **JEP Controller** tab, your role must be **Viewer**, **Controller**, or **Administrator**. To make changes on this tab, you must be a **Controller** or **Administrator**. If you don’t have access, contact your system administrator.
+> To view the **JEP Controller** tab, your must have **Viewer**, **Controller**, or **Administrator** permissions. To make changes on this tab, you must have **Controller** or **Administrator** permissions. If you don’t have these permissions, contact your system administrator.
 
 ## Create a request for permissions using the POD workflow
 

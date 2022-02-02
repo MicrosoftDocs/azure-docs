@@ -1,8 +1,10 @@
-  - name: Microsoft CloudKnox Permissions Management
+  - name: CloudKnox Permissions Management
     href: index.yml
   #- name: Overview
     #expanded: true
     #items:
+      #- name: Overview
+      #href: cloudknox-overview.md
   - name: Onboard CloudKnox on the Azure AD tenant
     expanded: true
     items:
@@ -101,28 +103,29 @@
       - name: View existing roles/policies and requests for permission
         href: cloudknox-ui-jep-controller.md
       - name: View information about roles/policies
-        href: howto-view-role-policy.md
+        href: cloudknox-howto-view-role-policy.md
       - name: Create a role/policy
-        href: howto-create-role-policy.md
+        href: cloudknox-howto-create-role-policy.md
       - name: Clone a role/policy
-        href: howto-clone-role-policy.md
+        href: cloudknox-howto-clone-role-policy.md
       - name: Modify a role/policy
-        href: howto-modify-role-policy.md
+        href: cloudknox-howto-modify-role-policy.md
       - name: Delete a role/policy
-        href: howto-delete-role-policy.md
+        href: cloudknox-howto-delete-role-policy.md
       - name: Attach and detach permissions for identities
         href: cloudknox-howto-attach-detach-permissions.md
       - name: Create or approve a request for permissions 
         href: cloudknox-howto-create-approve-privilege-request.md
-      # - name: Manage permissions with the JEP Controller
-        # href: cloudknox-product-jep-controller.md
-      - name: Manage users with the User management dashboard
+    - name: Manage users, roles, and their access levels
+      expanded: true
+      items:
+      - name: Manage users and groups
         href: cloudknox-ui-user-management.md
-      - name: Define and manage users, roles, and access levels
-        href: cloudknox-product-define-permission-levels.md
-      - name: Create group-based permissions
+      # - name: Define and manage users, roles, and access levels
+        # href: cloudknox-product-define-permission-levels.md
+      - name: Select group-based permissions settings
         href: cloudknox-howto-create-group-based-permissions.md
-    - name: View information about access information
+    - name: View how users access information
       expanded: true
       items:
       - name: View information on how users access information 

@@ -1,6 +1,6 @@
 ---
-title: Manage users with the User management dashboard in Microsoft CloudKnox Permissions Management
-description: How to manage users in the User management dashboard in Microsoft CloudKnox Permissions Management.
+title: Manage users and groups with the User management dashboard in Microsoft CloudKnox Permissions Management
+description: How to manage users and groups in the User management dashboard in Microsoft CloudKnox Permissions Management.
 services: active-directory
 author: Yvonne-deQ
 manager: karenh444
@@ -12,72 +12,73 @@ ms.date: 02/01/2022
 ms.author: v-ydequadros
 ---
 
-# Manage users with the User management dashboard
+# Manage users and groups with the User management dashboard
 
-This topic describes how to use the Microsoft CloudKnox Permissions Management (CloudKnox) **User Management** dashboard to view user management information.
+This article describes how to use the Microsoft CloudKnox Permissions Management (CloudKnox) **User management** dashboard to view and manage users and groups.
 
-**To display the User Management dashboard**:
+**To display the User management dashboard**:
 
-- In the upper right of the CloudKnox dashboard, select **User** (your initials) in the upper right of the screen, and then select **User Management.**
+- In the upper right of the CloudKnox home page, select **User** (your initials) in the upper right of the screen, and then select **User management.**
 
-    The **User Management** dashboard has two tabs:
+    The **User management** dashboard has two tabs:
 
-    - **Registered** - Displays **User** information for registered users.
-    - **Invited** - Displays **User** information for users who have been invited but aren't registered.
+    - **Users**: Displays information about registered users.
+    - **Groups**: Displays information about groups.
 
-## The Registered tab
+## Manage users
  
-The **Registered** tab displays the following information for registered users:
+Use the **Users** tab to display the following information about users:
 
-- **User Name** and **Email Address** - The registered user's name and email address.
-- **Permissions** - The **Authorization systems** and the type of permissions granted to the user: **Viewer**, **Controller**, **Approver**, and **Requestor**. 
-
-    Registered users can also have **All** three permissions.
-- **Joined On** - The date the user registered on the system.
-- **Recent Activity** - The date the user last used their permissions to access the system.
-- The ellipses **(...)** (**View Permissions**) menu - Select the ellipses to open the **View User Permission** box.
+- **User name** and **Email address**: The user's name and email address.
+- **Joined on**: The date the user registered on the system.
+- **Recent activity**: The date the user last used their permissions to access the system.
+- The ellipses **(...)** (**View Permissions**) menu - Select the ellipses to open the **View user permission** box.
     - To view details about the user's permissions, select one of the following options:
-        - **Admin for all Authorization System Types** provides **View**, **Control**, and **Approve** permissions for all Authorization System types.
-        - **Admin for selected Authorization System Types** provides **View**, **Control**, and **Approve** permissions for selected Authorization System types.
+        - **Admin for all authorization system types** provides **View**, **Control**, and **Approve** permissions for all authorization system types.
+        - **Admin for selected authorization system types** provides **View**, **Control**, and **Approve** permissions for selected authorization system types.
         - **Custom** provides **View**, **Control**, and **Approve** permissions for the authorization system types you select.
-
-    <!---Add link- For more information about user permissions, see Grant permissions to a user.--->
 
 You can also select the following options:
 
-- **Reload** - Select this option to refresh the information displayed in the **User** table.
-- **Search** - Enter a name or email address to search for a specific user.
-- **Filters** - Select the authorization systems and accounts you want to view. 
+- **Reload**: Select this option to refresh the information displayed in the **User** table.
+- **Search**: Enter a name or email address to search for a specific user.
 
-## The Invited tab
+## Manage groups
  
-The **Invited** tab displays the following information for users who have been invited but aren't registered yet:
+Use the **Groups** tab to display the following information about groups:
 
-- **User Email Address** - Displays the registered user's name and email address.
-- **Permissions** - The **Authorization systems** and the type of permissions the user has been granted: **Viewer**, **Controller**, **Approver**, and **Requestor**. 
+- **Group name**: Displays the registered user's name and email address.
+- **Permissions**: 
+    - The **Authorization systems** and the type of permissions the user has been granted: **Admin for all authorization system types**, **Admin for selected authorization system types**, or **Custom**.
+    - Information about the **Viewer**, **Controller**, **Approver**, and **Requestor**.
+- **Modified by**: The email address of the user who modified the group.
+- **Modified on**: The date the user last modified the group.
 
-    Invited users can also have **All** three permissions.
-- **Invited By** - The email address of the user who invited the new user.
-- **Joined On** - The date the user registered on the system.
-- **Recent Activity** - The date the new user was invited.
-- The ellipses **(...)** (**View Permissions**) menu - Select the ellipses to open the **View User Permission** box.
-    - The user's permissions details requested are:
-        - **Admin for all Authorization System Types** provides **View**, **Control**, and **Approve** permissions for all Authorization System types.
-        - **Admin for selected Authorization System Types** provides **View**, **Control**, and **Approve** permissions for selected Authorization System types.
-        - **Custom** provides **View**, **Control**, and **Approve** permissions for the authorization system types you select.
+- The ellipses **(...)** menu - Select the ellipses to:
 
-    <!---Add link- For more information about user permissions, see Grant permissions to a user.--->
+    - **View permissions**:  To view details about the group's permissions, select one of the following options:
+        - **Admin for all authorization system types** provides **View**, **Control**, and **Approve** permissions for all authorization system types.
+        - **Admin for selected authorization system types** provides **View**, **Control**, and **Approve** permissions for selected authorization system types.
+        - **Custom** provides **View**, **Control**, and **Approve** permissions for specific authorization system types that you select.
+
+    - **Edit permissions**: Select this option to modify the group's permissions.
+    - **Delete**: Select this option to delete the group's permissions.
+
+        The **Delete permission** box asks you to confirm that you want to delete the group. 
+        - Select **Delete** if you want to delete the group, **Cancel** to discard your changes.
+
+
 You can also select the following options:
 
-- **Reload** - Select this option to refresh the information displayed in the **User** table.
-- **Search** - Enter a name or email address to search for a specific user.
-- **Filters** - Select the authorization systems and accounts you want to display. 
+- **Reload**: Select this option to refresh the information displayed in the **User** table.
+- **Search**: Enter a name or email address to search for a specific user.
+- **Filters**: Select the authorization systems and accounts you want to display. 
+- **Create permission**: Create a group and set up its permissions. For more information, see [Create group-based permissions](cloudknox-howto-create-group-based-permissions.md)
 
 
-<!---## Next steps--->
+## Next steps
 
-<!---For information about how to create group-based permissions, see [Create group-based permissions](cloudknox-howto-create-group-based-permissions.html).--->
-<!---For information about how to request privileges on-demand (POD), adjust permissions, and remediate excessive permissions, see [Manage permissions with the JEP Controller](cloudknox-product-jep-controller.html).--->
-<!---For information about how to create group-based permissions, see [Attach and detach permissions in the JEP Controller](cloudknox-howto-attach-detach-permissions.html).--->
-<!---For information about how to create and view the Permissions Analytics report, see [The Permissions Analytics report](cloudknox-product-permissions-analytics-reports).--->
-<!---For information about how to view user management information, see [The User Management dashboard](cloudknox-ui-user-management.html).--->
+- For information about how to select group-based permissions settings, see [Select group-based permissions settings](cloudknox-howto-create-group-based-permissions.md).
+<!--- - For information on how to define and manage users, roles, and access levels, see [Define and manage users, roles, and access levels](cloudknox-product-define-permission-levels.md)--->
+
+

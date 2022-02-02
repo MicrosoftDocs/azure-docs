@@ -19,7 +19,7 @@ The Just Enough Permissions (JEP) Controller dashboard in Microsoft CloudKnox Pe
 This article provides an overview of the components of the **JEP Controller** dashboard.
 
 > [!NOTE]
-> To view the **JEP Controller** tab, your role must be **Viewer**, **Controller**, or **Administrator**. To make changes on this tab, you must be a **Controller** or **Administrator**. If you don’t have access, contact your system administrator.
+> To view the **JEP Controller** tab, your must have **Viewer**, **Controller**, or **Administrator** permissions. To make changes on this tab, you must have **Controller** or **Administrator** permissions. If you don’t have these permissions, contact your system administrator.
 
 > [!NOTE]
 > Microsoft Azure uses the term *role* for what other Cloud providers call *policy*. CloudKnox automatically makes this terminology change when you select the authorization system type. In the user documentation, we use *role/policy* to refer to both.

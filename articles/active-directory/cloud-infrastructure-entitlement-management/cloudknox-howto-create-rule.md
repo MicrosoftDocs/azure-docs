@@ -17,7 +17,7 @@ ms.author: v-ydequadros
 This article describes how to create a rule in the Microsoft CloudKnox Permissions Management (CloudKnox) **Autopilot** dashboard.
 
 > [!NOTE]
-> Only users with the **Administrator** role can view and make changes on this tab.
+> Only users with **Administrator** permissions can view and make changes on the Autopilot tab. If you don’t have these permissions, contact your system administrator.
 
 ## Create a rule for Amazon Web Services (AWS) 
 

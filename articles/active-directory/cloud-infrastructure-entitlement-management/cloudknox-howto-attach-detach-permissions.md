@@ -17,7 +17,7 @@ ms.author: v-ydequadros
 This article describes how you can attach and detach permissions for users, roles, and resources manually or allow Microsoft CloudKnox Permissions Management (CloudKnox) to do it for you using the Just Enough Permissions (JEP) Controller. You can create and approve requests for the Amazon Web Services (AWS), Microsoft Azure, or Google Cloud Platform (GCP) authorization systems.
 
 > [!NOTE]
-> To view the **JEP Controller** tab, your role must be **Viewer**, **Controller**, or **Administrator**. To make changes on this tab, you must be a **Controller** or **Administrator**. If you don’t have access, contact your system administrator.
+> To view the **JEP Controller** tab, your must have **Viewer**, **Controller**, or **Administrator** permissions. To make changes on this tab, you must have **Controller** or **Administrator** permissions. If you don’t have these permissions, contact your system administrator.
 
 ## Attach permissions manually
 

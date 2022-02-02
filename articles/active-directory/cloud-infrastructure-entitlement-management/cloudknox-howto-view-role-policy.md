@@ -17,7 +17,7 @@ ms.author: v-ydequadros
 The **Roles/Policies** in the Just Enough Permissions (JEP) Controller in Microsoft CloudKnox Permissions Management (CloudKnox) enables system administrators to view, adjust, and remediate excessive permissions based on a user's activity data. You can use the JEP Controller to view information about roles and policies in the Amazon Web Services (AWS), Microsoft Azure, or Google Cloud Platform (GCP) authorization systems. 
 
 > [!NOTE]
-> To view the **JEP Controller** tab, your role must be **Viewer**, **Controller**, or **Administrator**. To make changes on this tab, you must be a **Controller** or **Administrator**. If you don’t have access, contact your system administrator.
+> To view the **JEP Controller** tab, your must have **Viewer**, **Controller**, or **Administrator** permissions. To make changes on this tab, you must have **Controller** or **Administrator** permissions. If you don’t have these permissions, contact your system administrator.
 
 > [!NOTE]
 > Microsoft Azure uses the term *role* for what other Cloud providers call *policy*. CloudKnox automatically makes this terminology change when you select the authorization system type. In the user documentation, we use *role/policy* to refer to both.
@@ -29,7 +29,7 @@ The **Roles/Policies** in the Just Enough Permissions (JEP) Controller in Micros
 
     The **Roles/Policy list** appears, displaying: 
 
-    - **Role/Policy name**: The name of the role/policy. If the role/policy is not currently being used, a red **i** icon displays to the right of the name.
+    - **Role/Policy name**: The name of the role/policy. If the role/policy isn't currently being used, a red **i** icon displays to the right of the name.
     - **Policy type**: The type of role/policy, **Custom**, **System**, or **CloudKnox only**.
     - **Actions**: The type of action you can perform on the role/policy, **Clone**, **Modify**, or **Delete**
 
@@ -43,7 +43,7 @@ The **Roles/Policies** in the Just Enough Permissions (JEP) Controller in Micros
     The **Tasks** list appears, displaying:
     - A list of **Tasks**.
     - The **Users**, **Groups** and **Roles** the task is **Directly assigned to**.
-    - The **Group members** and **Role identities** the task is **Indirectly assessible by**.
+    - The **Group members** and **Role identities** the task is **Indirectly assessable by**.
 
 1. To close the role/policy details, select the arrow to the left of the role/policy name.
 
@@ -54,11 +54,11 @@ The **Roles/Policies** in the Just Enough Permissions (JEP) Controller in Micros
 
     - **Authorization system type**: Select **AWS**, **Azure**, or **GCP**.
     - **Authorization system**: Select the accounts you want.
-    - **Role/Policy pype**: Select from the following options:
+    - **Role/Policy type**: Select from the following options:
 
          - **All** - All managed roles/policies.
-         - **Custom** - A customer managed role/policy. 
-         - **System**: A cloud service provider managed role/policy. 
+         - **Custom** - A customer-managed role/policy. 
+         - **System**: A cloud service provider-managed role/policy. 
          - **CloudKnox only** - A role/policy created by CloudKnox.
 
     - **Role/Policy status**: Select **All**, **Assigned**, or **Unassigned**.
