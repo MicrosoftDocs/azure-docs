@@ -22,7 +22,7 @@ ms.collection: M365-identity-device-management
 This topic covers Azure AD feature availability in Azure Government.
 
 
-## Authentication, single sign-on and multifactor authentication (MFA)
+## Authentication, single sign-on, and MFA
 
 | Feature | Availability |
 |---------|:------------:|
