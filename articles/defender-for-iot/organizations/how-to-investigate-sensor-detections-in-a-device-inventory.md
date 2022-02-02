@@ -7,13 +7,13 @@ ms.topic: how-to
 
 # Investigate sensor detections in an inventory
 
-The device inventory displays an extensive range of device attributes that a sensor detects. 
+The device inventory displays an extensive range of device attributes that your sensor detects. Use the inventory to gain insight and full visibility into the devices on your network. 
 
 :::image type="content" source="media/how-to-inventory-sensor/inventory-sensor.png" alt-text="The Device inventory main screen":::
 
 Options are available to:
 
- - Easily filter the information.
+ - Customize and filter the inventory.
 
  - Export information to a CSV file.
 
@@ -31,12 +31,12 @@ Defender for IoT will identify and classify devices as a single unique network d
 1. Devices composed of multiple backplane components (including all racks/slots/modules)
 1. Devices acting as network infrastructure such as Switch/Router (w/ multiple NICs). 
 
-Public internet IP addresses, multicast groups, and broadcast groups are not considered inventory devices.
+Public internet IP addresses, multicast groups, and broadcast groups are'nt considered inventory devices.
 Devices that have been inactive for more than 60 days are classified as inactive Inventory devices.
 
 ## View device attributes in the inventory
 
-This section describes device details available from the inventory and describes how to view contextual information about each device.
+This section describes device details available from the inventory and describes how to work with inventory filters and view contextual information about each device.
 
 **To view the device inventory:**
 
@@ -49,7 +49,7 @@ This section describes device details available from the inventory and describes
 | Vendor | The name of the device's vendor, as defined in the MAC address. |
 | Operating System | The OS of the device, if detected. |
 | Firmware version | The device's firmware, if detected. |
-| IP Address | The IP address of the device where defined. |
+| IP Address | The IP address of the device were defined. |
 | VLAN | The VLAN of the device. For details about instructing the sensor to discover VLANs, see [Define VLAN names](how-to-manage-the-on-premises-management-console.md#define-vlan-names).(how-to-define-management-console-network-settings.md#define-vlan-names). |
 | MAC Address | The MAC address of the device. |
 | Protocols | The protocols that the device uses. |
@@ -67,34 +67,73 @@ This section describes device details available from the inventory and describes
 1. Select **Edit Columns** and select a column you need or delete a column.
 1. Select **Save**.
 
-
 **To view additional details:**
 
 1. Select an alert from the inventory and the select **View full details** in the dialog box that opens.
-1. Navigate to additional information such as firmware details, alerts related to the device, or a timeline of events associated with the device.
-
+1. Navigate to additional information such as firmware details, and view contextual information such alerts related to the device, or a timeline of events associated with the device.
 
 ## Filter the inventory
 
-2. In the **Filter** dialog box, select the filter type:
+Customize the inventory to view devices important to you. An option is also available to save inventory filters.
 
-   - **Equals**: The exact value according to which you want to filter the column. For example, if you filter the protocol column according to **Equals** and `value=ICMP`, the column will present devices that use the ICMP protocol only.
+**To create filters:**
 
-   - **Contains**: The value that's contained among other values in the column. For example, if you filter the protocol column according to **Contains** and `value=ICMP`, the column will present devices that use the ICMP protocol as a part of the list of protocols that the device uses.
+1. Select **Add filter** from the Device inventory page.
+1. Select a category from the Column field.
+1. Select an operator.
+- **Equals**: The exact value according to which you want to filter the column. For example, if you filter the protocol column according to **Equals** and `value=ICMP`, the column will present devices that use the ICMP protocol only.
 
+- **Contains**: The value that's contained among other values in the column. For example, if you filter the protocol column according to **Contains** and `value=ICMP`, the column will present devices that use the ICMP protocol as a part of the list of protocols that the device uses.
 
-**To view filters:**
+1. Select a filter value.
 
-- Open the left pane and view the filters that you've saved:
+### Save device inventory filters
 
-  :::image type="content" source="media/how-to-work-with-asset-inventory-information/filters-from-left-pane-v2.png" alt-text="View the filters from the left-side pane.":::
+You can save a filter or a combination of filters that you need and view them in the device inventory when needed. Create broader filters based on a certain device type, or more narrow filters based on a specific protocol.
+
+The filters that you save are also saved as Device map groups. This feature provides an additional level of granularity in viewing network devices on the map.
+
+**To save and view filters:**
+
+1. Use the **Add filter** option to filter the table.
+1. Select **Save Filter**.
+1. Add a filter name in the dialog box tat opens and select **Submit**.
+1. Select the double arrow >> on the left side of the page.
+The filters you create appear in the **Saved Views** pane.
+
+    :::image type="content" source="media/how-to-inventory-sensor/save-views.png" alt-text="Saved Device inventory filter":::
+
 
 ### View filtered information as a map group
 
-When you switch to the map view, the filtered devices are highlighted and filtered. The filter group that you saved appears in the side menu under the **Device Inventory Filters** group.
+You can view devices is saved filters in the Device map.
 
-:::image type="content" source="media/how-to-work-with-asset-inventory-information/filters-in-the-map-view-v2.png" alt-text="View filters when in the map view.":::
+**To view devices in the map:**
 
+1. After creating and saving an Inventory filter, navigate to the Device map.
+1. In the map page, open the Groups pane on the left.
+1. Scroll down to the **Asset Inventory Filters** group.  The groups you saved from the Inventory appear.
+
+
+### Update device properties
+
+Certain device properties can be updated manually. Information manually entered will override information discovered by Defender for IoT.
+
+**To update properties:**
+
+1. Select a device from the inventory. 
+1. Select **View full details**.
+1. Select **Edit properties.**
+1. Update any of the following:
+
+    - Authorized status
+    - Device name
+    - Device type
+    - OS
+    - Purdue layer
+    - Description
+1. Select **Save**.
+ 
 ## Learn Windows registry details
 
 In addition to learning OT devices, you can discover Microsoft Windows workstations, and servers. These devices are also displayed in Device Inventory. After you learn devices, you can enrich the Device Inventory with detailed Windows information, such as:
@@ -115,9 +154,7 @@ Two options are available for retrieving this information:
 
 - Local surveying by distributing and running a script on the device. Working with local scripts bypasses the risks of running WMI polling on an endpoint. It's also useful for regulated networks with waterfalls and one-way elements.
 
-This article describes how to locally survey the Windows endpoint registry with a script. This information will be used for generating alerts, notifications, data mining reports, risk assessments, and attack vector reports.
-
-:::image type="content" source="media/how-to-work-with-asset-inventory-information/data-mining-screen.png" alt-text="Data mining screenshot.":::
+This section describes how to locally survey the Windows endpoint registry with a script. This information will be used for generating alerts, notifications, data mining reports, risk assessments, and attack vector reports.
 
 You can survey the following Windows operating systems:
 
@@ -191,15 +228,13 @@ Don't update file names.
 
 **To import:**
 
-1. Select **Import Settings** from the **Import Windows Configuration** dialog box.
+1. Select **System Settings** > **Import Settings**> **Windows Information**.
 
-   :::image type="content" source="media/how-to-work-with-asset-inventory-information/import-windows-configuration-v2.png" alt-text="Import your Windows configurations.":::
-
-2. Select **Add**, and then select all the files (Ctrl+A).
+2. Select **Import File**, and then select all the files (Ctrl+A).
 
 3. Select **Close**. The device registry information is imported. If there's a problem uploading one of the files, you'll be informed which file upload failed.
 
-   :::image type="content" source="media/how-to-work-with-asset-inventory-information/add-new-file.png" alt-text="Upload of added files was successful.":::
+    :::image type="content" source="media/how-to-work-with-asset-inventory-information/add-new-file.png" alt-text="Upload of added files was successful.":::
 
 ## View and delete inactive devices from the inventory
 
@@ -224,11 +259,13 @@ You can filter the inventory to display devices that are inactive:
 - 30 days or more
 - 90 days or more
 
-**To filter the inventory:**
+**To filter:**
   
-1. Select the **Last Seen** filter icon in the Inventory.
-1. Select a filter option.
-1. Select **Apply**.
+1. Select **Add filter**.
+1. Select **Last Activity** in the column field.
+1. Choose the time period in the **Filter** field.
+
+    :::image type="content" source="media/how-to-inventory-sensor/save-filter.png" alt-text="Saved Device inventory filter":::
 
 ### Delete inactive devices
 
@@ -236,7 +273,7 @@ Devices you delete from the Inventory are removed from the map and won't be calc
 
 You will be prompted to record a reason for deleting devices. This information, as well as the time/date and number of devices deleted, appears in the Event timeline.
 
-**To delete devices from the inventory:**
+**To delete inactive devices:**
   
 1. Select the **Last Seen** filter icon in the Inventory.
 1. Select a filter option.
@@ -246,11 +283,11 @@ You will be prompted to record a reason for deleting devices. This information, 
 
 ## Export device inventory information
 
-You can export device inventory information to an Excel file.
+You can export device inventory information to .csv file.
 
-To export a CSV file:
+**To export:**
 
-- On the upper-right menu of the device inventory, select :::image type="icon" source="media/how-to-work-with-asset-inventory-information/csv-excel-export-icon.png" border="false":::. The CSV report is generated and downloaded.
+- Select Export file from the Device Inventory page. The report is generated and downloaded.
 
 ## See also
 
