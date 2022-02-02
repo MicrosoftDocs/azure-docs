@@ -6,24 +6,23 @@ services: virtual-network
 author: asudbring
 ms.service: virtual-network
 ms.subservice: ip-services
-ms.topic: how-to
+ms.topic: conceptual
 ms.date: 02/01/2022
 ms.author: allensu
 ---
-
 # Manage a custom IP address prefix (BYOIP) Preview
 
 A custom IP address prefix is a contiguous range of IP addresses owned by an external customer (not Microsoft) and provisioned to a subscription.  For more information, see [Custom IP address prefix overview](custom-ip-address-prefix.md). 
 
 This article explains how to:
 
-* Create public IP prefixes from provisioned custom IP prefixes.
+* Create public IP prefixes from provisioned custom IP prefixes
 
-* View information about a custom IP prefix.
+* View information about a custom IP prefix
 
-* Decommission a custom IP prefix.
+* Decommission a custom IP prefix
 
-* Deprovision/delete a custom IP prefix.
+* Deprovision/delete a custom IP prefix
 
 <!--Commenting these until all files are in the branch
 For information on how to onboard a custom IP prefix, see the guides for creation of a custom IP prefix using [PowerShell](create-custom-ip-address-prefix-powershell.md) or [CLI](create-custom-ip-address-prefix-cli.md).
