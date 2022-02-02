@@ -121,5 +121,5 @@ After your offer is published, you can [publish an updated version of your offer
 
 ## Next steps
 
-- Exit plan setup and continue with optional [Co-sell with Microsoft](./co-sell-overview.md), or
+- Exit plan setup and continue with optional [Co-sell with Microsoft](/partner-center/co-sell-overview?context=/azure/marketplace/context/context), or
 - [Review and publish your offer](review-publish-offer.md)
