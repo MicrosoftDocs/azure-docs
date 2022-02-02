@@ -35,7 +35,13 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Create a server group
-            url: quickstart-create-basic-tier.md
+            url: quickstart-create-portal.md
+          - text: Connect with psql
+            url: quickstart-connect-psql.md
+          - text: Model and load data
+            url: quickstart-distribute-tables.md
+          - text: Run queries
+            url: quickstart-run-queries.md
       - linkListType: video
         links:
           - text: How Citus distributes PostgreSQL
