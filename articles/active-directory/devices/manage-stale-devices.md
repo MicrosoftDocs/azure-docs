@@ -158,7 +158,7 @@ Get-AzureADDevice -All:$true | Where {$_.ApproximateLastLogonTimeStamp -le $dt} 
 
 ### Delete devices
 
-> [CAUTION]
+> [!CAUTION]
 > The `Remove-AzureADDevice` cmdlet does not provide a warning. Running this command will delete devices without prompting. **There is no way to recover deleted devices**.
 
 Using the same 90 day example we can pipe the output to delete the devices that have a logon time stamp over 90 days old.
