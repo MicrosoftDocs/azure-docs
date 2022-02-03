@@ -36,8 +36,8 @@ Depending on the session management provider chosen for a given technical profil
 - Prevent or enforce user interface interruptions during subsequent logons (SSO).
 - Remember the chosen identity provider during subsequent logons (SSO).
 - Reduce the number of read operations into the directory during subsequent logons (SSO).
-- Track the social identity provider sessions to perform identity provider sign out.
-- Track logged in relying party applications for single sign out.
+- Track the social identity provider sessions to perform identity provider sign-out.
+- Track logged in relying party applications for single sign-out.
 
 ## Session providers
 
@@ -164,13 +164,13 @@ For example, the `SM-AAD`session management technical profile uses the `DefaultS
 - **Fresh logon**
   - `signInName` will be written into the session cookie, because the session management technical profile (SM-AAD) is configured with `signInName` to be persisted, and the technical profile referencing SM-AAD contains an `OutputClaim` for `signInName`. This behavior is applicable to all claims that meet this pattern.
 - **Subsequent logons**
-  - The technical profile is skipped and the user won’t see the sign in page.
-  - The claim bag will contain the `signInName` value from the session cookie, which was persisted at fresh sign in, and any other claims that met the pattern to be persisted into the session cookie.
+  - The technical profile is skipped and the user won’t see the sign-in page.
+  - The claim bag will contain the `signInName` value from the session cookie, which was persisted at fresh sign-in, and any other claims that met the pattern to be persisted into the session cookie.
   - The session management technical profile returns the `objectIdFromSession` claim because `Output` claims of the session provider are processed during subsequent logons (single sign-on). In this case, the `objectIdFromSession` claim being present in the claim bag, indicates that the user's claims are coming from the session cookie due to single sign-on.
 
 ## ExternalLoginSSOSessionProvider
 
-The `ExternalLoginSSOSessionProvider` session provider is used to skip the "identity provider selection" screen and sign out from a federated identity provider. It’s typically referenced in a technical profile configured for a federated identity provider, such as Facebook, or Azure Active Directory.
+The `ExternalLoginSSOSessionProvider` session provider is used to skip the "identity provider selection" screen and sign-out from a federated identity provider. It’s typically referenced in a technical profile configured for a federated identity provider, such as Facebook, or Azure Active Directory.
 
 - **Fresh logon**
   - The `PersistedClaims` element will write claims into the session cookie. Persisted claims can’t be rewritten.
@@ -204,9 +204,9 @@ To configure the external session provider, add a reference to the `SM-SocialLog
 
 ## OAuthSSOSessionProvider
 
-The `OAuthSSOSessionProvider` session provider is used for managing the Azure AD B2C sessions between the OAuth2 or OpenId Connect relying party and Azure AD B2C. Azure AD B2C supports [Single sign out](session-behavior.md#single-sign out), also known as *Single Log-Out (SLO)*. When a user signs out through the [Azure AD B2C sign out endpoint](openid-connect.md#send-a-sign-out-request), Azure AD B2C will clear the user's session cookie from the browser. However, the user might still be signed in to other applications that use Azure AD B2C for authentication.
+The `OAuthSSOSessionProvider` session provider is used for managing the Azure AD B2C sessions between the OAuth2 or OpenId Connect relying party and Azure AD B2C. Azure AD B2C supports [Single sign-out](session-behavior.md#single-sign-out), also known as *Single Log-Out (SLO)*. When a user signs out through the [Azure AD B2C sign-out endpoint](openid-connect.md#send-a-sign-out-request), Azure AD B2C will clear the user's session cookie from the browser. However, the user might still be signed in to other applications that use Azure AD B2C for authentication.
 
-This type of session provider allows Azure AD B2C to track all OAuth2 or OpenId Connect applications the user logged into. During the sign out of one application, Azure AD B2C will attempt to call the `logout` endpoints of all other known logged in applications. This functionality is built in to the session provider. There are no persisted or output claims available to be configured. The following `SM-jwt-issuer` technical profile is type of `OAuthSSOSessionProvider` session provider.
+This type of session provider allows Azure AD B2C to track all OAuth2 or OpenId Connect applications the user logged into. During the sign-out of one application, Azure AD B2C will attempt to call the `logout` endpoints of all other known logged in applications. This functionality is built in to the session provider. There are no persisted or output claims available to be configured. The following `SM-jwt-issuer` technical profile is type of `OAuthSSOSessionProvider` session provider.
 
 ```xml
 <TechnicalProfile Id="SM-jwt-issuer">
@@ -255,7 +255,7 @@ To use the `SM-Saml-idp` session management technical profile, add a reference t
 
 ### SAML service provider session management
 
-When referencing a `SamlSSOSessionProvider` session provider to manage a SAML relying party session, the `RegisterServiceProviders` must set to `true`. SAML session sign out requires the `SessionIndex` and `NameID` to complete.
+When referencing a `SamlSSOSessionProvider` session provider to manage a SAML relying party session, the `RegisterServiceProviders` must set to `true`. SAML session sign-out requires the `SessionIndex` and `NameID` to complete.
 
 The following `SM-Saml-issuer` technical profile is type of `SamlSSOSessionProvider` session provider:
 
