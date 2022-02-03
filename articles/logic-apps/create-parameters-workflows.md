@@ -20,7 +20,11 @@ This article introduces how to create, use, and edit parameters for multi-tenant
 
 * A Consumption or Standard logic app workflow
 
-  If you don't have a logic app workflow yet, review [create your logic app (Standard) in the Azure portal](create-single-tenant-workflows-azure-portal.md) or [in Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md).
+  If you don't have a logic app workflow yet, review the following documentation:
+
+  * [Create your Consumption logic app workflow in the Azure portal] or in Visual Studio.
+
+  * [Create your Standard logic app in the Azure portal](create-single-tenant-workflows-azure-portal.md) or [in Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md).
 
 <a name="parameters-introduction"></a>
 
