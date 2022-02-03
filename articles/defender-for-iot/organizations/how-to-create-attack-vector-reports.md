@@ -47,12 +47,12 @@ This section describes how to create Attack Vector reports.
 
 3. Select **Save**.
 1. Select the report that is saved from the Attack vector page and review:
-- network attack paths and insights
-- a risk score
--  source and target devices
--  a graphical representation of attack vectors
+    - network attack paths and insights
+    - a risk score
+    - source and target devices
+    -  a graphical representation of attack vectors
 
-   :::image type="content" source="media/how-to-generate-reports/sample-attack-vectors.png" alt-text="Attack vectors.":::
+   :::image type="content" source="media/how-to-generate-reports/sample-attack-vectors.png" alt-text="Screen shot of Attack vectors report.":::
 
 
 ## See also

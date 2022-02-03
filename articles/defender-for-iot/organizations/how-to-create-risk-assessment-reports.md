@@ -90,11 +90,8 @@ Create a risk assessment report based on detections made by sensors that are man
 **To create a report:**
 
 1. Select **Risk Assessment** on the side menu.
-
 2. Select a sensor from the **Select sensor** drop-down list.
-
 3. Select **Generate Report**.
-
 4. Select **Download** from the **Archived Reports** section.
 
 **To import a company logo:**
