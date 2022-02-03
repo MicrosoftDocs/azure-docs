@@ -7,13 +7,11 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 11/07/2021
+ms.date: 01/28/2022
 ms.author: alkohli
 ---
 
 # Clustering on your Azure Stack Edge Pro GPU device
-
-[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 This article provides a brief overview of clustering on your Azure Stack Edge device. 
 
@@ -21,7 +19,7 @@ This article provides a brief overview of clustering on your Azure Stack Edge de
 
 Azure Stack Edge can be set up as a single standalone device or a two-node cluster. A two-node cluster consists of two independent Azure Stack Edge devices that are connected by physical cables and by software. These nodes when clustered work together as in a Windows failover cluster, provide high availability for applications and services that are running on the cluster. 
 
-If one of the clustered nodes fails, the other node begins to provide service (the process is known as failover). The clustered roles are also proactively monitored to make sure that they are working properly. If they are not working, they are restarted or moved to the second node.
+If one of the clustered nodes fails, the other node begins to provide service (the process is known as failover). The clustered roles are also proactively monitored to make sure that they’re working properly. If they aren’t working, they’re restarted or moved to the second node.
 
 Azure Stack Edge uses Windows Server Failover Clustering for its two-node cluster. For more information, see [Failover clustering in Windows Server](/windows-server/failover-clustering/failover-clustering-overview).
 
@@ -76,7 +74,7 @@ Based on the use-case and workloads, you can select how the two Azure Stack Edge
     Each of ports 3 and 4 of the two nodes of your device are connected via an external switch. The Port 3 and Port 4 are teamed on each node and a virtual switch and two virtual NICs are created that allow for port-level redundancy for storage and cluster traffic. These ports can be used for workload traffic as well.
 
  
-1. **Using switches and without NIC teaming** - Use this option when you need an extra dedicated port for workload traffic and port-level redundancy is not required for storage and cluster traffic. 
+1. **Using switches and without NIC teaming** - Use this option when you need an extra dedicated port for workload traffic and port-level redundancy isn’t required for storage and cluster traffic. 
 
     Port 3 on each node is connected via an external switch. If Port 3 fails, the cluster may go offline. Separate virtual switches are created on Port 3 and Port 4. 
 
@@ -99,13 +97,13 @@ Before you configure clustering on your device, you must cable the devices as pe
 1. Assign compute or management intents to the virtual switches created on the network interfaces. You may also configure Kubernetes node IPs and Kubernetes service IPs here for the network interface enabled for compute.
 1. Optionally configure web proxy, set up device settings, configure certificates and then finally, activate the device.
 
-For more information, see the 2-node device deployment tutorials starting with [Get deployment configuration checklist](azure-stack-edge-gpu-deploy-checklist.md).
+For more information, see the two-node device deployment tutorials starting with [Get deployment configuration checklist](azure-stack-edge-gpu-deploy-checklist.md).
 
 ## Clustering workloads
 
 On your two-node cluster, you can deploy non-containerized workloads or containerized workloads.
 
-- **Non-containerized workloads such as VMs**: The two-node cluster will ensure high availability of the virtual machines that are deployed on the device cluster. <!--Your two-node device actively manages capacity to ensure successful failover of the deployed VMs.--> Live migration of VMs is not supported.
+- **Non-containerized workloads such as VMs**: The two-node cluster will ensure high availability of the virtual machines that are deployed on the device cluster. <!--Your two-node device actively manages capacity to ensure successful failover of the deployed VMs.--> Live migration of VMs isn’t supported.
 
 - **Containerized workloads such as Kubernetes or IoT Edge**: The Kubernetes cluster deployed on top of the device cluster consists of one Kubernetes master VM and two Kubernetes worker VMs. Each Kubernetes node has a worker VM that is pinned to each Azure Stack Edge node. Failover results in the failover of Kubernetes master VM (if needed) and Kubernetes-based rebalancing of pods on the surviving worker VM.
  
@@ -116,13 +114,13 @@ On your two-node cluster, you can deploy non-containerized workloads or containe
 
 You can manage the Azure Stack Edge cluster via the PowerShell interface of the device, or through the local UI. Some typical management tasks are:
 
-- Add a node
-- Unprepare a node
-- Configure cloud witness
-- Set up a local witness
-- Remove the cluster
+- [Add a node](azure-stack-edge-placeholder.md)
+- [Unprepare a node](azure-stack-edge-placeholder.md)
+- [Configure cloud witness](azure-stack-edge-placeholder.md)
+- [Set up a local witness](azure-stack-edge-placeholder.md)
+- [Configure virtual IP settings](azure-stack-edge-placeholder.md)
+- [Remove the cluster](azure-stack-edge-placeholder.md)
 - Update the cluster
-- Configure virtual IP settings for the cluster
 
 
 <!--## Cluster upgrades
