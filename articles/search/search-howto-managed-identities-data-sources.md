@@ -1,5 +1,5 @@
 ---
-title: Set up a connection to a data source using a managed identity
+title: Use a managed identity for indexer connections
 titleSuffix: Azure Cognitive Search
 description: Learn how to set up an indexer connection to a data source using a managed identity
 
