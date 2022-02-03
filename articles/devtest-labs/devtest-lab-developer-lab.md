@@ -1,123 +1,55 @@
----
-title: Use Azure DevTest Labs for developers
-description: Learn about Azure DevTest Labs features that can be used to meet developer requirements and the detailed steps that you can follow to set up a lab.
-ms.topic: conceptual
-ms.date: 12/10/2021
----
+### Create labs
 
-# Use Azure DevTest Labs for developers
-Azure DevTest Labs can be used to implement many key scenarios, but one of the primary scenarios involves using DevTest Labs to host development machines for developers. In this scenario, DevTest Labs provides these benefits:
+Labs are the starting point in DevTest Labs. Once you create a lab, you can add users, set policies to control costs, and define images for VMs that users can create quickly. To learn how to create a lab in the Azure portal, see [Create a lab in Azure DevTest Labs](devtest-lab-create-lab.md). 
 
-- Developers can quickly provision their development machines on demand.
-- Developers can easily customize their development machines whenever needed.
-- Administrators can control costs by ensuring that:
-  - Developers cannot get more VMs than they need for development.
-  - VMs are shut down when not in use. 
+### Create VMs
 
-![Use DevTest Labs for training](./media/devtest-lab-developer-lab/devtest-lab-developer-lab.png)
+You can create lab VMs in minutes by choosing from a wide variety of ready-made Azure Marketplace images. To learn about making selected Markeplace images available for lab users, see [Configure Azure Marketplace images](devtest-lab-configure-marketplace-images.md).
 
-In this article, you learn about various Azure DevTest Labs features that can be used to meet developer requirements and the detailed steps that you can follow to set up a lab.
+You can also install all needed software on a VM, save the VM as a custom image, and make the image available for your lab users to create VMs. For more information, see [Create a custom image](devtest-lab-create-custom-image-from-vm-using-portal.md).
 
-## Implementing developer environments with Azure DevTest Labs
-1. **Create the lab** 
-   
-    Labs are the starting point in Azure DevTest Labs. Once you create a lab, you can perform tasks such as adding users (developers) to the lab, setting policies to control costs, defining VM images that can create quickly, and more.  
-   
-    Learn more by clicking on the links in the following table:
-   
-   | Task | What you learn |
-   | --- | --- |
-   | [Create a lab in Azure DevTest Labs](devtest-lab-create-lab.md) |Learn how to create a lab in Azure DevTest Labs in the Azure portal. |
-2. **Create VMs in minutes using ready-made marketplace images and custom images** 
-   
-    You can pick ready-made images from a wide variety of images in the Azure Marketplace and make them available in the lab. If the ready-made images don't meet your requirements, you can create a custom image by creating a lab VM using a ready-made image from Azure Marketplace, installing all the software that you need, and saving the VM as a custom image in the lab.
+If you use custom VM images, you can use an image factory to create and distribute your images. An image factory is a configuration-as-code solution that regularly builds and distributes your configured images automatically. This saves the time required to manually configure the system after a VM has been created with the base OS.
 
-    If you will be using custom images, consider using an image factory to create and distribute your images. An image factory is a configuration-as-code solution that regularly builds and distributes your configured images automatically. This saves the time required to manually configure the system after a VM has been created with the base OS.
-  
-    Learn more by clicking on the links in the following table:
-   
-   | Task | What you learn |
-   | --- | --- |
-   | [Configure Azure Marketplace images](devtest-lab-configure-marketplace-images.md) |Learn how you can allow Azure Marketplace images, making available for selection only the images you want for the developers.|
-   | [Create a custom image](devtest-lab-create-template.md) |Create a custom image by pre-installing the software you need so that developers can quickly create a VM using the custom image.|
+### Use reusable formulas for VMs
 
-3. **Create reusable templates for developer machines** 
-   
-    A formula in Azure DevTest Labs is a list of default property values used to create a VM. You can create a formula in the lab by picking an image, a VM size (a combination of CPU and RAM), and a virtual network. Each developer can see the formula in the lab and use it to create a VM. 
-   
-    Learn more by clicking on the links in the following table:
-   
-   | Task | What you learn |
-   | --- | --- |
-   | [Manage DevTest Labs formulas to create VMs](devtest-lab-manage-formulas.md) |Learn how you can create a formula by picking up an image, VM size (combination of CPU and RAM), and a virtual network.|
+A DevTest Labs formula is a list of default property values for VMs. You can create a formula in the lab by picking an image, a VM size for CPU and RAM, and a virtual network. Lab users can see the formula and use it to create a VM. For more information, see [Manage DevTest Labs formulas](devtest-lab-manage-formulas.md).
 
-4. **Create artifacts to enable flexible VM customization**
+### Use artifacts for flexible VM customization.
 
-   Artifacts are used to deploy and configure your application after a VM is provisioned. Artifacts can be:
+You can add artifacts to deploy and configure lab VMs. Artifacts can be:
 
-   - Tools that you want to install on the VM - such as agents, Fiddler, and Visual Studio.
-   - Actions that you want to run on the VM - such as cloning a repo.
-   - Applications that you want to test.
+- Tools that you want to install on the VM, like agents, Fiddler, or Visual Studio.
+- Actions that you want to run on the VM, like cloning a repo.
+- Applications that you want to test.
 
-   Many artifacts are already available out-of-the-box. You can create your own custom artifacts if you want more customization for your specific needs.
+Many artifacts are available out-of-the-box. You can also create custom artifacts if you want more customization. You store the artifacts in a private Git repo you connect to your lab. For more information, see [Create custom artifacts for DevTest Labs](devtest-lab-artifact-author.md) and [Add an artifact repository to a lab](add-artifact-repository.md)
 
-   Learn more by clicking on the links in the following table:
-   
-   | Task | What you learn |
-   | --- | --- |
-   | [Create custom artifacts for your DevTest Labs VM](devtest-lab-artifact-author.md) |Create your own custom artifacts for the virtual machines in your lab.|
-   | [Add a Git repository to store custom artifacts and Azure Resource Manager templates for use in Azure DevTest Labs](devtest-lab-add-artifact-repo.md) |Learn how to store your custom artifacts in your own private Git repo.|
+### Use policies to control costs.
 
-5. **Control costs**
-   
-    Azure DevTest Labs allows you to set a policy in the lab to specify the maximum number of VMs that can be created by a developer in the lab. 
-   
-    If your developer team has a set work schedule and you want to stop all the VMs at a particular time of the day and then automatically restart them the following day, you can easily accomplish that by setting auto-shutdown and auto-start policies in the lab. 
-   
-    Finally, when app development is complete, you can delete all the VMs at once by running a single PowerShell script. 
-   
-    Learn more by clicking on the links in the following table:
-   
-   | Task | What you learn |
-   | --- | --- |
-   | [Define lab policies](devtest-lab-set-lab-policy.md) |Control costs by setting policies in the lab. |
-   | [Delete all the lab VMs using a PowerShell script](./devtest-lab-faq.yml) |Delete all the labs in one operation when development is complete.|
+In DevTest Labs, you can set lab policies to control:
 
-1. **Add a virtual network to a VM** 
-   
-    DevTest Labs creates a new virtual network (VNET) whenever a lab is created. If you have configured your own VNET – for example, by using ExpressRoute or site-to-site VPN – you can add this VNET to your lab's virtual network settings so that it is available when creating VMs.
+- The maximum number of lab VMs a user can create.
+- Auto-shutdown and auto-start policies to stop and restart all VMs at a particular times of day.
 
-    In addition, there is an Active Directory domain join artifact available that will join a VM to a domain when the VM is being created. 
-    
-    > [!Important]
-    > Only Domain join is supported. 
-   
-    Learn more by clicking on the links in the following table:
-   
-   | Task | What you learn |
-   | --- | --- |
-   | [Configure a virtual network in Azure DevTest Labs](devtest-lab-configure-vnet.md) |Learn how to configure a virtual network in Azure DevTest Labs using the Azure portal.|
+For more information, see [Define lab policies](devtest-lab-set-lab-policy.md).
 
-6. **Share the lab with each developer**
-   
-    Labs can be directly accessed using a link that you share with your developers. They don't even have to have an Azure account, as long as they have a [Microsoft account](./devtest-lab-faq.yml). Developers cannot see VMs created by other developers.  
-   
-    Learn more by clicking on the links in the following table:
-   
-   | Task | What you learn |
-   | --- | --- |
-   | [Add a developer to a lab in Azure DevTest Labs](devtest-lab-add-devtest-user.md) |Use the Azure portal to add developers to your lab.|
-   | [Add developers to the lab using a PowerShell script](devtest-lab-add-devtest-user.md#add-an-external-user-to-a-lab-using-powershell) |Use PowerShell to automate adding developers to your lab. |
-   | [Get a link to the lab](./devtest-lab-faq.yml) |Learn how developers can directly access a lab via a hyperlink.|
+### Delete lab VMs
 
-7. **Automate lab creation for more teams** 
-   
-    You can automate lab creation, including custom settings, by creating a Resource Manager template and using it to create identical labs again and again. 
-   
-    Learn more by clicking on the links in the following table:
-   
-   | Task | What you learn |
-   | --- | --- |
-   | [Create a lab using a Resource Manager template](./devtest-lab-faq.yml) |Create labs in Azure DevTest Labs using Resource Manager templates. |
+When development is complete, you can delete all lab VMs at once by running a single PowerShell script. For more information, see [Delete all the lab VMs using a PowerShell script](./devtest-lab-faq.yml#how-do-i-automate-the-process-of-deleting-all-the-vms-in-my-lab-).
 
-[!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
+### Add a virtual network to a lab
+
+DevTest Labs creates each lab in a new virtual network. If you have another virtual network you configured by using Azure ExpressRoute or site-to-site VPN, you can add it to your lab. The virtual network is then available for creating lab VMs. For more information, see [Configure a virtual network in Azure DevTest Labs](devtest-lab-configure-vnet.md). 
+
+You can also add an Active Directory domain join artifact to join a VM to a domain when the VM is created.
+
+### Add users to labs
+
+Users can access a lab by using a link that you share. For more information, see [Get a link to the lab](./devtest-lab-faq.yml#how-do-i-share-a-direct-link-to-my-lab-).
+
+You can add users to a lab by using the Azure portal or a PowerShell script. For more information, see [Add lab owners, contributors, and users in Azure DevTest Labs](devtest-lab-add-devtest-user.md). Lab users don't need an Azure account, as long as they have a [Microsoft account](./devtest-lab-faq.yml). Lab users can't see VMs that other users create.
+
+### Automate lab and environment creation
+
+You can automate lab creation, including custom settings, by using a reusable Azure Resource Manager (ARM) template. For more information, see [Create a lab by using a Resource Manager template](./devtest-lab-faq.yml#how-do-i-create-a-lab-from-a-resource-manager-template-).
+
