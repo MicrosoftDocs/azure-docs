@@ -14,6 +14,10 @@ ms.author: v-ydequadros
 
 # Generate an on-demand report from a query
 
+> [!IMPORTANT]
+> CloudKnox Permissions Management (CloudKnox) is currently in PREVIEW.
+> Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
+
 This article describes how you can generate an on-demand report from a query in the Audit trail dashboard in CloudKnox Permissions Management (CloudKnox).
 
 - Run on-demand.

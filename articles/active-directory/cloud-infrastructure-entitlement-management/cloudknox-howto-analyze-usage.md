@@ -1,6 +1,6 @@
 ---
-title: Microsoft CloudKnox Permissions Management - Analyze usage for an identity, a task, or an authorization system
-description: How to analyze usage for an identity, a task, or an authorization system in Microsoft CloudKnox Permissions Management.
+title: CloudKnox Permissions Management - Analyze usage for an identity, a task, or an authorization system
+description: How to analyze usage for an identity, a task, or an authorization system in CloudKnox Permissions Management.
 services: active-directory
 author: Yvonne-deQ
 manager: karenh444
@@ -8,13 +8,17 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/17/2022
+ms.date: 02/02/2022
 ms.author: v-ydequadros
 ---
 
 # Analyze usage for an identity, a task, or an authorization system
 
-This topic describes how you can use the Usage Analytics dashboard to analyze usage for an authorization system, a task, or an identity type (user) in Microsoft CloudKnox Permissions Management (CloudKnox).
+> [!IMPORTANT]
+> CloudKnox Permissions Management (CloudKnox) is currently in PREVIEW.
+> Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
+
+This article describes how you can use the Usage Analytics dashboard to analyze usage for an authorization system, a task, or an identity type (user) in CloudKnox Permissions Management (CloudKnox).
 
 ## Analyze usage for an authorization system
 

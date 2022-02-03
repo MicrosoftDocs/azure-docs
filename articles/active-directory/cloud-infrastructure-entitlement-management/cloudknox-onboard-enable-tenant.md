@@ -1,6 +1,6 @@
 ---
-title:  Enable Microsoft CloudKnox Permissions Management on your Azure Active Directory (Azure AD) tenant
-description: How to enable Microsoft CloudKnox Permissions Management on your Azure Active Directory (Azure AD) tenant.
+title:  Enable CloudKnox Permissions Management on your Azure Active Directory (Azure AD) tenant
+description: How to enable CloudKnox Permissions Management on your Azure Active Directory (Azure AD) tenant.
 services: active-directory
 author: Yvonne-deQ
 manager: karenh444
@@ -8,13 +8,17 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/28/2022
+ms.date: 02/02/2022
 ms.author: v-ydequadros
 ---
 
 # Enable CloudKnox on your Azure Active Directory tenant
 
-This article describes how to enable Microsoft CloudKnox Permissions Management (CloudKnox) on your Azure Active Directory (Azure AD) tenant.
+> [!IMPORTANT]
+> CloudKnox Permissions Management (CloudKnox) is currently in PREVIEW.
+> Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
+
+This article describes how to enable CloudKnox Permissions Management (CloudKnox) on your Azure Active Directory (Azure AD) tenant.
 > [!NOTE] 
 > To complete this task, you must have Global Administrator permissions.
 

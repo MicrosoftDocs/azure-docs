@@ -1,6 +1,6 @@
 ---
-title: View analytic information about serverless functions in Microsoft CloudKnox Permissions Management - Amazon Web Services (AWS only)
-description: How to view analytic information about serverless functions in Microsoft CloudKnox Permissions Management - for Amazon Web Services (AWS only).
+title: View analytic information about serverless functions in CloudKnox Permissions Management - Amazon Web Services (AWS only)
+description: How to view analytic information about serverless functions in CloudKnox Permissions Management - for Amazon Web Services (AWS only).
 services: active-directory
 author: Yvonne-deQ
 manager: karenh444
@@ -8,13 +8,17 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/28/2022
+ms.date: 02/02/2022
 ms.author: v-ydequadros
 ---
 
 # View analytic information about serverless functions - Amazon Web Services (AWS only)
 
-The **Usage Analytics** dashboard in Microsoft CloudKnox Permissions Management (CloudKnox) provides details about identities, resources, and tasks that you can use make informed decisions about granting permissions, and reducing risk on unused permissions.
+> [!IMPORTANT]
+> CloudKnox Permissions Management (CloudKnox) is currently in PREVIEW.
+> Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
+
+The **Usage Analytics** dashboard in CloudKnox Permissions Management (CloudKnox) provides details about identities, resources, and tasks that you can use make informed decisions about granting permissions, and reducing risk on unused permissions.
 
 - **Users**: Tracks assigned permissions and usage of various identities.
 - **Groups**: Tracks assigned permissions and usage of the group and the group members.
@@ -35,11 +39,11 @@ When you select **Serverless functions**, the **Usage Analytics** dashboard prov
 
 The following components make up the **Serverless functions** dashboard:
 
-- **Authorization system type** - Select the authorization you want to use: Amazon Web Services (AWS), Microsoft Azure, or Google Cloud Platform (GCP).
-- **Authorization system** - Select from a **List** of accounts and **Folders***.
-- **Search** - Enter criteria to find specific tasks.
-- **Apply** - Select to display the criteria you've selected.
-- **Reset filter** - Select to discard your changes.
+- **Authorization system type**: Select the authorization you want to use: Amazon Web Services (AWS), Microsoft Azure, or Google Cloud Platform (GCP).
+- **Authorization system**: Select from a **List** of accounts and **Folders***.
+- **Search**: Enter criteria to find specific tasks.
+- **Apply**: Select to display the criteria you've selected.
+- **Reset filter**: Select to discard your changes.
 
 
 ## View the results of your query
@@ -49,12 +53,12 @@ The **Serverless functions** table displays the results of your query.
 - **Function name**: Provides the name of the serverless function. 
     - To view details about a serverless function, select the down arrow to the left of the function name. 
 - A **Function type** icon displays to the left of the function name to describe the type of serverless function, for example **Lambda function**.
-- The **Permission creep index (PCI)** - Provides the following information:
-    - **Index** - A numeric value assigned to the PCI.
-    - **Since** - How many days the PCI value has been at the displayed level.
+- The **Permission creep index (PCI)**: Provides the following information:
+    - **Index**: A numeric value assigned to the PCI.
+    - **Since**: How many days the PCI value has been at the displayed level.
 - **Tasks** Displays the number of **Granted** and **Executed** tasks.
-- **Resources** - The number of resources used.
-- **Last activity on** - The date the function was last accessed.
+- **Resources**: The number of resources used.
+- **Last activity on**: The date the function was last accessed.
 - Select the ellipses **(...)** and select **Tags** to add a tag.
 
 ## Add a tag to a serverless function

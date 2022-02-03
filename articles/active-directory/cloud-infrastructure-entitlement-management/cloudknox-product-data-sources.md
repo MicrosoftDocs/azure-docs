@@ -1,6 +1,6 @@
 ---
-title: Microsoft CloudKnox Permissions Management - View and configure settings for data collection from your authorization system
-description: How to view and configure settings for collecting data from your authorization system in Microsoft CloudKnox Permissions Management.
+title: View and configure settings for data collection from your authorization system in CloudKnox Permissions Management
+description: How to view and configure settings for collecting data from your authorization system in CloudKnox Permissions Management.
 services: active-directory
 author: Yvonne-deQ
 manager: karenh444
@@ -8,13 +8,21 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/27/2022
+ms.date: 02/02/2022
 ms.author: v-ydequadros
 ---
 
 # View and configure settings for data collection 
 
-You can use the **Data collectors** dashboard in Microsoft CloudKnox Permissions Management (CloudKnox) to view and configure settings for collecting data from your authorization system and its associated accounts. It also provides information about data types, including entitlements and benchmarks.
+> [!IMPORTANT]
+> CloudKnox Permissions Management (CloudKnox) is currently in PREVIEW.
+> Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
+
+> [!IMPORTANT]
+> CloudKnox Permissions Management (CloudKnox) is currently in PREVIEW.
+> Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
+
+You can use the **Data collectors** dashboard in CloudKnox Permissions Management (CloudKnox) to view and configure settings for collecting data from your authorization system and its associated accounts. It also provides information about data types, including entitlements and benchmarks.
 
 ## Access and view data sources
 
@@ -30,9 +38,9 @@ You can use the **Data collectors** dashboard in Microsoft CloudKnox Permissions
 
     1. Enter the following information:
 
-        - **Uploaded on** - Select **All** accounts, **Online** accounts, or **Offline** accounts.
-        - **Transformed on** - Select **All** accounts, **Online** accounts, or **Offline** accounts.
-        - **Search** - Enter an ID or IP address to find a specific account.
+        - **Uploaded on**: Select **All** accounts, **Online** accounts, or **Offline** accounts.
+        - **Transformed on**: Select **All** accounts, **Online** accounts, or **Offline** accounts.
+        - **Search**: Enter an ID or IP address to find a specific account.
 
     1. Select **Apply** to display the results.
 
@@ -41,16 +49,16 @@ You can use the **Data collectors** dashboard in Microsoft CloudKnox Permissions
 1. The following information displays:
 
     - The name of your authorization system.
-    - **ID** - The unique identification number for the account.
-    - **Data types** - Displays the two data types that are collected:
-         - **Entitlements** - The permissions of all identities and resources for all the configured authentication systems.
-         - **Benchmarks** - The results of security best practices tests.
-    - **Recently uploaded on** - Displays whether the entitlement and benchmark data are being collected. 
+    - **ID**: The unique identification number for the account.
+    - **Data types**: Displays the two data types that are collected:
+         - **Entitlements**: The permissions of all identities and resources for all the configured authentication systems.
+         - **Benchmarks**: The results of security best practices tests.
+    - **Recently uploaded on**: Displays whether the entitlement and benchmark data are being collected. 
 
         The status displays *ONLINE* if the data collection has no errors and *OFFLINE* if there are errors.
-    - **Recently transformed on** - Displays whether the entitlement and benchmark data are being processed.
+    - **Recently transformed on**: Displays whether the entitlement and benchmark data are being processed.
 
-        The status displays *ONLINE* if the data processing has no errors and *OFFLINE* if there are errors. - **IP address** - Displays the specific internet protocol (IP) address or domain name system (DNS) name for the account.
+        The status displays *ONLINE* if the data processing has no errors and *OFFLINE* if there are errors. - **IP address**: Displays the specific internet protocol (IP) address or domain name system (DNS) name for the account.
     - The **Tenant ID** and **Tenant name**
 
 ## Configure data collection settings

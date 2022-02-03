@@ -1,18 +1,22 @@
 ---
-title: The Microsoft CloudKnox Permissions Management - View roles and identities that can access account information from an external account
-description: How to view information about identities that can access accounts from an external account in Microsoft CloudKnox Permissions Management.
+title: The CloudKnox Permissions Management - View roles and identities that can access account information from an external account
+description: How to view information about identities that can access accounts from an external account in CloudKnox Permissions Management.
 services: active-directory
 manager: karenh444
 ms.service: active-directory
 ms.topic: how-to
 author: Yvonne-deQ
-ms.date: 01/26/2022
+ms.date: 02/02/2022
 ms.author: v-ydequadros
 ---
 
 # View roles and identities that can access account information from an external account
 
-You can  view information about users, groups, and resources that can access account information from an external account in Microsoft CloudKnox Permissions Management (CloudKnox). 
+> [!IMPORTANT]
+> CloudKnox Permissions Management (CloudKnox) is currently in PREVIEW.
+> Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
+
+You can  view information about users, groups, and resources that can access account information from an external account in CloudKnox Permissions Management (CloudKnox). 
 
 ## Display information about users, groups, or tasks
 
@@ -48,8 +52,8 @@ You can  view information about users, groups, and resources that can access acc
 
     The following details display:
 
-     - **Policies** - A list of all the policies attached to the role.
-     - **Trusted entities** - The identities from external accounts that can assume this role.
+     - **Policies**: A list of all the policies attached to the role.
+     - **Trusted entities**: The identities from external accounts that can assume this role.
 
 1. To view all the identities from various accounts that can assume this role, select the down arrow to the left of the role name.
 
@@ -57,7 +61,7 @@ You can  view information about users, groups, and resources that can access acc
 
      If CloudKnox is monitoring the external account, it lists specific identities from the accounts that can assume this role. Otherwise, it lists the identities declared in the **Trusted entity** section.
 
-     - **Connecting roles** - Lists the following roles for each account:
+     - **Connecting roles**: Lists the following roles for each account:
 
          - *Direct roles* that are trusted by the account role.
          - *Intermediary roles* that aren't directly trusted by the account role but are assumable by identities through role-chaining.
@@ -72,7 +76,7 @@ You can  view information about users, groups, and resources that can access acc
 
      When you select the down arrow and expand details, a search box is displayed. Enter your criteria in this box to search for specific roles.
 
-     - **Identities with access** - Lists the identities that come from external accounts:
+     - **Identities with access**: Lists the identities that come from external accounts:
 
         - To view all the identities from that account can access the specified account, select the down arrow to the left of the account name.
         - To view the **Role summary** for EC2 instances and Lambda functions, select the "eye" icon to the right of the identity name. 

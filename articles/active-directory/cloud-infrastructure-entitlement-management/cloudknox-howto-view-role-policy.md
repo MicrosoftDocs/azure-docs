@@ -1,6 +1,6 @@
 ---
-title: View information about roles/policies in the JEP Controller in Microsoft CloudKnox Permissions Management
-description: How to view and filter information about roles/policies in the JEP Controller in Microsoft CloudKnox Permissions Management.
+title: View information about roles/policies in the JEP Controller in CloudKnox Permissions Management
+description: How to view and filter information about roles/policies in the JEP Controller in CloudKnox Permissions Management.
 services: active-directory
 author: Yvonne-deQ
 manager: karenh444
@@ -8,13 +8,17 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/01/2022
+ms.date: 02/02/2022
 ms.author: v-ydequadros
 ---
 
 # View information about roles/policies in the JEP Controller
 
-The **Roles/Policies** in the Just Enough Permissions (JEP) Controller in Microsoft CloudKnox Permissions Management (CloudKnox) enables system administrators to view, adjust, and remediate excessive permissions based on a user's activity data. You can use the JEP Controller to view information about roles and policies in the Amazon Web Services (AWS), Microsoft Azure, or Google Cloud Platform (GCP) authorization systems. 
+> [!IMPORTANT]
+> CloudKnox Permissions Management (CloudKnox) is currently in PREVIEW.
+> Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
+
+The **Roles/Policies** in the Just Enough Permissions (JEP) Controller in CloudKnox Permissions Management (CloudKnox) enables system administrators to view, adjust, and remediate excessive permissions based on a user's activity data. You can use the JEP Controller to view information about roles and policies in the Amazon Web Services (AWS), Microsoft Azure, or Google Cloud Platform (GCP) authorization systems. 
 
 > [!NOTE]
 > To view the **JEP Controller** tab, you must have **Viewer**, **Controller**, or **Administrator** permissions. To make changes on this tab, you must have **Controller** or **Administrator** permissions. If you don’t have these permissions, contact your system administrator.
@@ -56,13 +60,13 @@ The **Roles/Policies** in the Just Enough Permissions (JEP) Controller in Micros
     - **Authorization system**: Select the accounts you want.
     - **Role/Policy type**: Select from the following options:
 
-         - **All** - All managed roles/policies.
-         - **Custom** - A customer-managed role/policy. 
+         - **All**: All managed roles/policies.
+         - **Custom**: A customer-managed role/policy. 
          - **System**: A cloud service provider-managed role/policy. 
-         - **CloudKnox only** - A role/policy created by CloudKnox.
+         - **CloudKnox only**: A role/policy created by CloudKnox.
 
     - **Role/Policy status**: Select **All**, **Assigned**, or **Unassigned**.
-    - **Role/Policy usage** - Select **All** or **Unused**.
+    - **Role/Policy usage**: Select **All** or **Unused**.
 1. Select **Apply**.
 
     To discard your changes, select **Reset filter**.

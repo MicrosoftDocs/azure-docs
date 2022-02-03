@@ -1,6 +1,6 @@
 ---
-title: Define and manage users, roles, and access levels in Microsoft CloudKnox Permissions Management
-description: How to define and manage users, roles, and access levels in Microsoft CloudKnox Permissions Management User management dashboard.
+title: Define and manage users, roles, and access levels in CloudKnox Permissions Management
+description: How to define and manage users, roles, and access levels in CloudKnox Permissions Management User management dashboard.
 services: active-directory
 author: Yvonne-deQ
 manager: karenh444
@@ -8,13 +8,17 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/01/2022
+ms.date: 02/02/2022
 ms.author: v-ydequadros
 ---
 
 # Define and manage users, roles, and access levels
 
-In Microsoft CloudKnox Permissions Management (CloudKnox), a key component of the  interface is the User management dashboard. This topic describes how system administrators can define and manage users, their roles, and their access levels in the system.
+> [!IMPORTANT]
+> CloudKnox Permissions Management (CloudKnox) is currently in PREVIEW.
+> Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
+
+In CloudKnox Permissions Management (CloudKnox), a key component of the  interface is the User management dashboard. This topic describes how system administrators can define and manage users, their roles, and their access levels in the system.
 
 ## The User management dashboard
 
@@ -40,7 +44,7 @@ Inviting a user to CloudKnox adds the user to the system and allows system admin
 3. From the **Set User Permission** window, in the **User** text box, enter the user's email address.
 4. Under **Permission**, select the applicable option. 
 
-    - **Admin for All Authorization System Types** - **View**, **Control**, and **Approve** permissions for all Authorization System Types.
+    - **Admin for All Authorization System Types**: **View**, **Control**, and **Approve** permissions for all Authorization System Types.
 
         1. Select **Next**.
         2. Select **Requestor for User** for each authorization system, if applicable.  
@@ -51,7 +55,7 @@ Inviting a user to CloudKnox adds the user to the system and allows system admin
              For example, a user may have various roles in different authorization systems, so they can select the **Add** icon and the **Users** icon to request access for all their accounts. 
         4. On the **Add Users** screen, enter the user's name or ID in the **User Search** box and select all applicable users. Then select **Add**.
     
-    - **Admin for Selected Authorization System Types** - **View**, **Control**, and **Approve** permissions for selected Authorization System Types.
+    - **Admin for Selected Authorization System Types**: **View**, **Control**, and **Approve** permissions for selected Authorization System Types.
     
         1. Select **Viewer**, **Controller**, or **Approver** for the appropriate authorization system(s).  
         2. Select **Next**.
@@ -63,7 +67,7 @@ Inviting a user to CloudKnox adds the user to the system and allows system admin
              For example, a user may have various roles in different authorization systems, so they can select **Add**, and then select **Users** to request access for all their accounts.
         5. On the **Add Users** screen, enter the user's name or ID in the **User Search** box and select all applicable users. Then select **Add**.
     
-    - **Custom** - **View**, **Control**, and **Approve** permissions for specific accounts in **Auth System Types**.
+    - **Custom**: **View**, **Control**, and **Approve** permissions for specific accounts in **Auth System Types**.
     
         1. Select **Next**.
 
@@ -100,7 +104,7 @@ Creating a permission directly in CloudKnox allows system administrators to assi
     1. To create permissions for a specific user, select the **Users** tab, and then select **Permission.**
     2. From the **Set User Permission** window, enter the user's email address in the **User** text box.
     3. Under **Permission**, select the applicable button. Then expand menu to view instructions for each option. 
-        - **Admin for All Authorization System Types** - **View**, **Control**, and **Approve** permissions for all Authorization System Types.
+        - **Admin for All Authorization System Types**: **View**, **Control**, and **Approve** permissions for all Authorization System Types.
             1. Select **Next**.
             2. Check **Requestor for User** for each authorization system, if applicable.
 
@@ -112,7 +116,7 @@ Creating a permission directly in CloudKnox allows system administrators to assi
 
             4. On the **Add Users** screen, enter the user's name or ID in the **User Search** box and select all applicable users. Then select **Add**.
 
-        - **Admin for Selected Authorization System Types** - **View**, **Control**, and **Approve** permissions for selected Authorization System Types.
+        - **Admin for Selected Authorization System Types**: **View**, **Control**, and **Approve** permissions for selected Authorization System Types.
             1. Check **Viewer**, **Controller**, or **Approver** for the appropriate authorization system(s).  
             2. Select **Next**.
             3. Check **Requestor for User** for each authorization system, if applicable.
@@ -123,7 +127,7 @@ Creating a permission directly in CloudKnox allows system administrators to assi
 
                  For example, a user may have various roles in different authorization systems, so they can select **Add**, and then select **Users** to request access for all their accounts.
             5. On the **Add Users** screen, enter the user's name or ID in the **User Search** box and select all applicable users. Then select **Add**.
-        - **Custom** - **View**, **Control**, and **Approve** permissions for specific accounts in **Auth System Types**.
+        - **Custom**: **View**, **Control**, and **Approve** permissions for specific accounts in **Auth System Types**.
 
             1. Select **Next**.
 
@@ -151,15 +155,15 @@ Creating a permission directly in CloudKnox allows system administrators to assi
 ### The Pending tab
 
 1. To view the created permission, select the **Pending** tab. The system administrator can view the following details:
-    - **Email Address** - Displays the email address of the invited user.
-    - **Permissions** - Displays each service account and if the user has permissions as a **Viewer**, **Controller**, **Approver**, or **Requestor**.
-     - **Invited By** - Displays the email address of the person who sent the invitation.
-    - **Sent** - Displays the date the invitation was sent to the user.
+    - **Email Address**: Displays the email address of the invited user.
+    - **Permissions**: Displays each service account and if the user has permissions as a **Viewer**, **Controller**, **Approver**, or **Requestor**.
+     - **Invited By**: Displays the email address of the person who sent the invitation.
+    - **Sent**: Displays the date the invitation was sent to the user.
 2. To make changes to the following, select the ellipses **(...)** in the far right column.
-    - **View Permissions** - Displays a list of accounts for which the user has permissions.
-    - **Edit Permissions** - System administrators can edit a user's permissions.
-    - **Delete** - System administrators can delete a permission
-    - **Reinvite** - System administrator can reinvite the permission if the user didn't receive the email invite
+    - **View Permissions**: Displays a list of accounts for which the user has permissions.
+    - **Edit Permissions**: System administrators can edit a user's permissions.
+    - **Delete**: System administrators can delete a permission
+    - **Reinvite**: System administrator can reinvite the permission if the user didn't receive the email invite
 
        When a user registers with CloudKnox, they move from the **Pending** tab to the **Registered** tab.
 
@@ -179,9 +183,9 @@ Creating a permission directly in CloudKnox allows system administrators to assi
 
           To display all authorization system accounts,Select **All**. Then select the appropriate boxes for the accounts that need to be viewed.
     2. To make the changes to the following changes, select the ellipses **(...)** in the far right column:
-        - **View Permissions** - Displays a list of accounts for which the user has permissions.
-        - **Edit Permissions** - System administrators can edit the accounts for which a user has permissions.
-        - **Remove Permissions** - System administrators can remove permissions from a user.
+        - **View Permissions**: Displays a list of accounts for which the user has permissions.
+        - **Edit Permissions**: System administrators can edit the accounts for which a user has permissions.
+        - **Remove Permissions**: System administrators can remove permissions from a user.
 
 - For **Groups**:
     1. To create permissions for a specific user, select the **Groups** tab, and then select **Permission**.
@@ -192,7 +196,7 @@ Creating a permission directly in CloudKnox allows system administrators to assi
          Some users may be part of multiple groups. In this case, the user's overall permissions is a union of the permissions assigned the various groups the user is a member of.
     3. Under **Permission**, select the applicable button and expand the menu to view instructions for each option. 
 
-        - **Admin for All Authorization System Types** - **View**, **Control**, and **Approve** permissions for all Authorization System Types.
+        - **Admin for All Authorization System Types**: **View**, **Control**, and **Approve** permissions for all Authorization System Types.
             1. Select **Next**.
             2. Check **Requestor for User** for each authorization system, if applicable.
 
@@ -203,7 +207,7 @@ Creating a permission directly in CloudKnox allows system administrators to assi
 
             4. On the **Add Users** screen, enter the user's name or ID in the **User Search** box and select all applicable users. Then select **Add**.
 
-        - **Admin for Selected Authorization System Types** - **View**, **Control**, and **Approve** permissions for selected Authorization System Types.
+        - **Admin for Selected Authorization System Types**: **View**, **Control**, and **Approve** permissions for selected Authorization System Types.
             1. Check **Viewer**, **Controller**, or **Approver** for the appropriate authorization system(s).  
             2. Select **Next**.
             3. Check **Requestor for User** for each authorization system, if applicable.
@@ -215,7 +219,7 @@ Creating a permission directly in CloudKnox allows system administrators to assi
 
             5. On the **Add Users** screen, enter the user's name or ID in the **User Search** box and select all applicable users. Then select **Add**.
        
-        - **Custom** - **View**, **Control**, and **Approve** permissions for specific accounts in Auth System Types.
+        - **Custom**: **View**, **Control**, and **Approve** permissions for specific accounts in Auth System Types.
             1. Select **Next**.   
 
                The default view displays the **List** section.
@@ -260,10 +264,10 @@ Creating a permission directly in CloudKnox allows system administrators to assi
         To display all authorization system accounts, select **All**. Then select the appropriate boxes for the accounts that need to be viewed.
         
 2. To make changes to the following, select the ellipses **(...)** in the far right column:
-    - **View Permissions** - Displays a list of the accounts for which the group has permissions.
-    - **Edit Permissions** - System administrators can edit a group's permissions.
-    - **Duplicate** - System administrators can duplicate permissions from one group to another.
-    - **Delete** - System administrators can delete permissions from a group.
+    - **View Permissions**: Displays a list of the accounts for which the group has permissions.
+    - **Edit Permissions**: System administrators can edit a group's permissions.
+    - **Duplicate**: System administrators can duplicate permissions from one group to another.
+    - **Delete**: System administrators can delete permissions from a group.
 
 
 ## Next steps

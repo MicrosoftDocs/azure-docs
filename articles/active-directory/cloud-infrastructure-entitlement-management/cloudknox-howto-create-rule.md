@@ -1,6 +1,6 @@
 ---
-title: Create a rule in the Autopilot dashboard in Microsoft CloudKnox Permissions Management 
-description: How to create a rule in the Autopilot dashboard in Microsoft CloudKnox Permissions Management.
+title: Create a rule in the Autopilot dashboard in CloudKnox Permissions Management 
+description: How to create a rule in the Autopilot dashboard in CloudKnox Permissions Management.
 services: active-directory
 author: Yvonne-deQ
 manager: karenh444
@@ -13,8 +13,12 @@ ms.author: v-ydequadros
 ---
 
 # Create a rule in the Autopilot dashboard
+
+> [!IMPORTANT]
+> CloudKnox Permissions Management (CloudKnox) is currently in PREVIEW.
+> Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
  
-This article describes how to create a rule in the Microsoft CloudKnox Permissions Management (CloudKnox) **Autopilot** dashboard.
+This article describes how to create a rule in the CloudKnox Permissions Management (CloudKnox) **Autopilot** dashboard.
 
 > [!NOTE]
 > Only users with **Administrator** permissions can view and make changes on the Autopilot tab. If you don’t have these permissions, contact your system administrator.

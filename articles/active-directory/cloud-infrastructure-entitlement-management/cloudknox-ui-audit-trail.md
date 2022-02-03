@@ -14,6 +14,10 @@ ms.author: v-ydequadros
 
 # Use queries to see how users access information
 
+> [!IMPORTANT]
+> CloudKnox Permissions Management (CloudKnox) is currently in PREVIEW.
+> Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
+
 The **Audit trail** dashboard in CloudKnox Permissions Management (CloudKnox) provides an overview of queries a CloudKnox user has created to review how users access their authorization systems and accounts. 
 
 This article provides an overview of the components of the **Audit trail** dashboard.
