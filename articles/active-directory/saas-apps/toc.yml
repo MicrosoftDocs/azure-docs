@@ -63,7 +63,7 @@
         href: adobe-creative-cloud-tutorial.md
       - name: Adobe Experience Manager
         href: adobeexperiencemanager-tutorial.md
-      - name: Adobe Identity Management
+      - name: Adobe Identity Management (SAML)
         href: adobe-identity-management-tutorial.md
       - name: Adobe Sign
         href: adobe-echosign-tutorial.md
@@ -725,7 +725,7 @@
         href: easysso-for-jira-tutorial.md
       - name: EthicsPoint Incident Management (EPIM)
         href: ethicspoint-incident-management-tutorial.md
-      - name: Euromonitor Passport
+      - name: Euromonitor International
         href: euromonitor-passport-tutorial.md
       - name: EverBridge
         href: everbridge-tutorial.md
@@ -1284,7 +1284,7 @@
         href: linkedinsalesnavigator-tutorial.md
       - name: LiquidFiles
         href: liquidfiles-tutorial.md
-      - name: Litmos
+      - name: SAP Litmos
         href: litmos-tutorial.md
       - name: LockPath Keylight
         href: keylight-tutorial.md
@@ -1356,7 +1356,7 @@
         href: mihcm-tutorial.md  
       - name: Mimecast Admin Console
         href: mimecast-admin-console-tutorial.md
-      - name: Mimecast Personal Portal
+      - name: Mimecast
         href: mimecast-personal-portal-tutorial.md
       - name: Mindflash
         href: mindflash-tutorial.md
@@ -1512,6 +1512,8 @@
         href: opal-tutorial.md
       - name: OpenAthens
         href: openathens-tutorial.md
+      - name: OpenID Connect OAuth
+        href: openidoauth-tutorial.md
       - name: OpenText Directory Services
         href: opentext-directory-services-tutorial.md
       - name: OpsGenie
