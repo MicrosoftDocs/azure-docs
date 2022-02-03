@@ -35,7 +35,7 @@ Run `kubectl patch` to set `desiredVersion` to `auto`.
 kubectl patch sqlmi <sqlmi-name> --namespace <namespace> --type merge --patch '{"spec": {"update": {"desiredVersion": "auto"}}}'
 ```
 
-## How to enable with CLI
+## Enable with CLI
 
 To set the `--desired-version` to `auto`, use the following command:
 
