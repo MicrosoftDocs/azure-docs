@@ -85,7 +85,7 @@ However, as you continue data exploration, you might want to create some utility
    CREATE LOGIN data_explorer WITH PASSWORD = 'My Very Strong Password 1234!';
    ```
 
-   Next create a database user in `DataExplorationDB` for the above login and grant the `ADMINISTER DATABASE BULK OPERATIONS` permission.
+   Next create a database user in 'DataExplorationDB' for the above login and grant the `ADMINISTER DATABASE BULK OPERATIONS` permission.
 
    ```sql
    CREATE USER data_explorer FOR LOGIN data_explorer;
