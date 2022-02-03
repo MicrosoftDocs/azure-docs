@@ -38,16 +38,36 @@ In this article, learn how to securely integrate with Azure Machine Learning fro
     > [!IMPORTANT]
     > The steps in this article assume that you can connect to the Azure Machine Learning studio of your workspace, but does not provide details on how to connect. Depending on your VNet configuration, you might be connecting through a jump box (VM), Azure VPN Gateway, or Azure ExpressRoute.
 
-* An Azure Synapse workspace in a virtual network. For more information, see [Azure Synapse Analytics Managed Virtual Network](/azure/synapse-analytics/security/synapse-workspace-managed-vnet).
+* An Azure Synapse workspace in a __managed__ virtual network, using a __managed__ private endpoint. For more information, see [Azure Synapse Analytics Managed Virtual Network](/azure/synapse-analytics/security/synapse-workspace-managed-vnet).
 
     > [!WARNING]
     > The Azure Machine Learning integration is not currently supported in Synapse Workspaces with data exfiltration protection. When configuring your Azure Synapse workspace, do __not__ enable data exfiltration protection. For more information, see [Azure Synapse Analytics Managed Virtual Network](/azure/synapse-analytics/security/synapse-workspace-managed-vnet).
 
     > [!NOTE]
-    > The steps in this article assume that the Azure Synapse workspace is in a different resource group and virtual network than the Azure Machine Learning workspace.
+    > The steps in this article make the following assumptions:
+    > * The Azure Synapse workspace is in a different resource group than the Azure Machine Learning workspace.
+    > * The Azure Synapse workspace uses a __managed virtual network__. The managed virtual network secures the connectivity between Azure Synapse and Azure Machine Learning. It does __not__ restrict access to the Azure Synapse workspace. You will access the workspace over the public internet.
+
+## Understanding the network communication
+
+In this configuration, Azure Synapse uses a __managed__ private endpoint and virtual network. The managed virtual network and private endpoint secures the internal communications from Azure Synapse to Azure Machine Learning by restricting network traffic to the virtual network. It does __not__ restrict communication between your client and the Azure Synapse workspace.
+
+Azure Machine Learning doesn't provide managed private endpoints or virtual networks, and instead uses a __user-managed__ private endpoint and virtual network. In this configuration, both internal and client/service communication is limited to the virtual network. For example, if you wanted to directly access the Azure Machine Learning studio, you would use one of the following options:
+
+* Create an Azure Virtual Machine inside the virtual network and use Azure Bastion to connect to it. Then connect to Azure Machine Learning from the VM.
+* Create a VPN gateway or use ExpressRoute to connect clients to the virtual network.
+
+Since the Azure Synapse workspace is publicly accessible, you can connect to it without having to create things like a VPN gateway. The Synapse workspace securely connects to Azure Machine Learning over the virtual network. Azure Machine Learning and its resources are secured within the virtual network.
+
+For more information, see the following articles:
+
+* [Azure Synapse Analytics Managed Virtual Network](/azure/synapse-analytics/security/synapse-workspace-managed-vnet)
+* [Secure Azure Machine Learning workspace resources using virtual networks](how-to-network-security-overview.md).
 
 ## Configure Azure Synapse
 
+> [!IMPORTANT]
+> If you have not already 
 1. From Azure Synapse Studio, [Create a new Azure Machine Learning linked service](/azure/synapse-analytics/machine-learning/quickstart-integrate-azure-machine-learning).
 1. After creating and publishing the linked service, select __Manage__,  __Managed private endpoints__, and then __+ New__ in Azure Synapse Studio.
 
@@ -95,18 +115,6 @@ To verify that the integration between Azure Synapse and Azure Machine Learning 
 
     > [!TIP]
     > It may take several minutes for the Azure Machine Learning workspace to update the credentials cache. Until it has been updated, you may receive errors when trying to access the Azure Machine Learning workspace from Synapse.
-
-<!-- 1. From the left of the page, select __Overview__ and then select __Launch studio__.
-1. From the Azure Machine Learning studio, select __Linked Services__ and then select __Add Integration__.
-
-    :::image type="content" source="./media/how-to-private-endpoint-integration-synapse/machine-learning-add-integration.png" alt-text="{alt-text}":::
-
-1. Provide a friendly name for the linked Azure Synapse workspace, select the Azure subscription that contains the Synapse workspace, and then select the Synapse workspace.
-
-    :::image type="content" source="./media/how-to-private-endpoint-integration-synapse/link-workspace.png" alt-text="{alt-text}":::
-
-1. Select __Next__, and then select the Spark pool. Enter a name for the compute resource, and then select __Next__.
-1. Select __Create__. -->
 
 ## Verify connectivity
 
