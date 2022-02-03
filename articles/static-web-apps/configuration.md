@@ -5,7 +5,7 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: conceptual
-ms.date: 12/30/2021
+ms.date: 02/03/2022
 ms.author: cshoe
 ---
 
@@ -137,9 +137,12 @@ Common uses cases for wildcard routes include:
 - Enforcing authentication and authorization rules
 - Implementing specialized caching rules
 
-### Securing routes with roles
+### <a name="securing-routes-with-roles"></a>Securing routes with roles
 
 Routes are secured by adding one or more role names into a rule's `allowedRoles` array. See the [example configuration file](#example-configuration-file) for usage examples.
+
+> [!IMPORTANT]
+> Routing rules can only secure HTTP requests to routes that are served from Static Web Apps. Many front-end frameworks use client-side routing that modify routes in the browser without issuing requests to Static Web Apps. Routing rules don't secure client-side routes. Clients should call [HTTP APIs](apis.md) to retrieve sensitive data. Ensure the APIs validate a [user's identity](user-information.md) before returning the data.
 
 By default, every user belongs to the built-in `anonymous` role, and all logged-in users are members of the `authenticated` role. Optionally, users are associated to custom roles via [invitations](./authentication-authorization.md).
 
@@ -316,7 +319,9 @@ In addition to IP address blocks, you can also specify [service tags](../virtual
 * [Default authentication providers](authentication-authorization.md#login), don't require settings in the configuration file. 
 * [Custom authentication providers](authentication-custom.md) use the `auth` section of the settings file.
 
-## Disable cache for authenticated paths
+For details on how to secure routes, see [Securing routes with roles](#securing-routes-with-roles).
+
+### Disable cache for authenticated paths
 
 If you have enabled [enterprise-grade edge](enterprise-edge.md), or set up [manual integration with Azure Front Door](front-door-manual.md), you may want to disable caching for your secured routes.
 
