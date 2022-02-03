@@ -226,7 +226,8 @@ Keep Termite open to monitor device output in the following steps.
 
 * IAR Embedded Workbench for ARM (IAR EW). You can download and install a [14-day free trial of IAR EW for ARM](https://www.iar.com/products/architectures/arm/iar-embedded-workbench-for-arm/).
 
-* Download the [Azure_RTOS_6.1_STM32F746G-DISCO_IAR_Samples_2021_11_03.zip](https://github.com/azure-rtos/samples/releases/download/v6.1_rel/Azure_RTOS_6.1_STM32F746G-DISCO_IAR_Samples_2021_11_03.zip) file and extract it to a working directory. Choose a directory with a short path to avoid compiler errors when you build.
+* Download the STMicroelectronics B-L4S5I-IOT01A IAR sample from [Azure RTOS samples](https://github.com/azure-rtos/samples/), and unzip it to a working directory. Choose a directory with a short path to avoid compiler errors when you build.
+
 
 [!INCLUDE [iot-develop-embedded-create-central-app-with-device](../../includes/iot-develop-embedded-create-central-app-with-device.md)]
 
@@ -288,7 +289,7 @@ In IAR, select **Project > Batch Build** and choose **build_all** and select **M
     > [!NOTE]
     > For detailed setup information about the STM DevKit, see the instructions on the packaging, or see [B-L4S5I-IOT01A Resources](https://www.st.com/en/evaluation-tools/b-l4s5i-iot01a.html#resource).
 
-1. In IAR, press the green **Download and Debug** button in the toolbar to download the program and run it. Then press *Go*.
+1. In IAR, press the green **Download and Debug** button in the toolbar to download the program and run it. Then press ***Go***.
 1. Check the Terminal I/O to verify that messages have been successfully sent to the Azure IoT hub.
 
     As the project runs, the demo displays the status information to the Terminal IO window (**View > Terminal I/O**). The demo also publishes the message to IoT Hub every few seconds. 
@@ -379,7 +380,7 @@ To call a method in IoT Central portal:
 
 You can view the device information from IoT Central.
 
-Select **About** tab from the device page.
+Select the **About** tab from the device page.
 
 :::image type="content" source="media/quickstart-devkit-stm-b-l4s5i/iot-central-device-about-iar.png" alt-text="Screenshot of device information in IoT Central":::
 
@@ -425,7 +426,7 @@ To call a method in IoT Central portal:
 
 You can view the device information from IoT Central.
 
-Select **About** tab from the device page.
+Select the **About** tab from the device page.
 
 :::image type="content" source="media/quickstart-devkit-stm-b-l4s5i/iot-central-device-about.png" alt-text="Screenshot of device information in IoT Central":::
 
