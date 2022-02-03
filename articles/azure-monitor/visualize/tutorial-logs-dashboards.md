@@ -69,7 +69,7 @@ Perf
 
 Save the query by selecting the **Save** button from the top of the page.
 
-![Save query](media/tutorial-logs-dashboards/save-query.png)
+:::image type="content" source media/tutorial-logs-dashboards/save-query.png " alt-text="A screenshot that shows how to save a query and pin it to a dashboard.":::
 
 In the **Save Query** control panel, provide a name such as *Azure VMs - Processor Utilization* and a category such as *Dashboards* and then click **Save**.  This way you can create a library of common queries that you can use and modify.  Finally, pin this to the shared dashboard created earlier by selecting the **Pin to dashboard** button from the top right corner of the page and then selecting the dashboard name.
 
