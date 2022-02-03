@@ -21,7 +21,7 @@ The Azure Monitor agent replaces the following legacy agents that are currently 
 In addition to consolidating this functionality into a single agent, the Azure Monitor agent provides the following benefits over the existing agents:
 
 - **Scope of monitoring:** Centrally configure collection for different sets of data from different sets of VMs.
-- **Linux multi-homing:** Send data from Linux VMs to multiple workspaces.
+- **Linux multi-homing:** Send data from Windows and Linux VMs to multiple Log Analytics workspaces (i.e. "multi-homing") and/or other [supported destinations](#data-sources-and-destinations).
 - **Windows event filtering:** Use XPATH queries to filter which Windows events are collected.
 - **Improved extension management:** The Azure Monitor agent uses a new method of handling extensibility that's more transparent and controllable than management packs and Linux plug-ins in the current Log Analytics agents.
 
@@ -67,6 +67,20 @@ Azure Monitor agent is available in all public regions that support Log Analytic
 ## Supported operating systems
 For a list of the Windows and Linux operating system versions that are currently supported by the Azure Monitor agent, see [Supported operating systems](agents-overview.md#supported-operating-systems).
 
+## Data sources and destinations
+The following table lists the types of data you can currently collect with the Azure Monitor agent by using data collection rules and where you can send that data. For a list of insights, solutions, and other solutions that use the Azure Monitor agent to collect other kinds of data, see [What is monitored by Azure Monitor?](../monitor-reference.md).
+
+The Azure Monitor agent sends data to Azure Monitor Metrics (preview) or a Log Analytics workspace supporting Azure Monitor Logs.
+
+| Data source | Destinations | Description |
+|:---|:---|:---|
+| Performance        | Azure Monitor Metrics (preview)<sup>1</sup> - Insights.virtualmachine namespace<br>Log Analytics workspace - [Perf](/azure/azure-monitor/reference/tables/perf) table | Numerical values measuring performance of different aspects of operating system and workloads |
+| Windows event logs | Log Analytics workspace - [Event](/azure/azure-monitor/reference/tables/Event) table | Information sent to the Windows event logging system |
+| Syslog             | Log Analytics workspace - [Syslog](/azure/azure-monitor/reference/tables/syslog)<sup>2</sup> table | Information sent to the Linux event logging system |
+
+<sup>1</sup> [Click here](../essentials/metrics-custom-overview.md#quotas-and-limits) to review other limitations of using Azure Monitor Metrics. On Linux, using Azure Monitor Metrics as the only destination is supported in v1.10.9.0 or higher. 
+<sup>2</sup> Azure Monitor Linux Agent v1.15.2 or higher supports syslog RFC formats including Cisco Meraki, Cisco ASA, Cisco FTD, Sophos XG, Juniper Networks, Corelight Zeek, CipherTrust, NXLog, McAfee and CEF (Common Event Format).
+
 ## Supported services and features
 The following table shows the current support for the Azure Monitor agent with other Azure services.
 
@@ -101,18 +115,6 @@ As such, ensure you're not collecting the same data from both agents. If you are
 ## Costs
 There's no cost for the Azure Monitor agent, but you might incur charges for the data ingested. For details on Log Analytics data collection and retention and for customer metrics, see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
 
-## Data sources and destinations
-The following table lists the types of data you can currently collect with the Azure Monitor agent by using data collection rules and where you can send that data. For a list of insights, solutions, and other solutions that use the Azure Monitor agent to collect other kinds of data, see [What is monitored by Azure Monitor?](../monitor-reference.md).
-
-The Azure Monitor agent sends data to Azure Monitor Metrics (preview) or a Log Analytics workspace supporting Azure Monitor Logs.
-
-| Data source | Destinations | Description |
-|:---|:---|:---|
-| Performance        | Azure Monitor Metrics (preview)<sup>1</sup><br>Log Analytics workspace | Numerical values measuring performance of different aspects of operating system and workloads |
-| Windows event logs | Log Analytics workspace | Information sent to the Windows event logging system |
-| Syslog             | Log Analytics workspace | Information sent to the Linux event logging system |
-
-<sup>1</sup> [Click here](../essentials/metrics-custom-overview.md#quotas-and-limits) to review other limitations of using Azure Monitor Metrics. On Linux, using Azure Monitor Metrics as the only destination is supported in v.1.10.9.0 or higher. 
 
 ## Security
 The Azure Monitor agent doesn't require any keys but instead requires a [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#system-assigned-managed-identity). You must have a system-assigned managed identity enabled on each virtual machine before you deploy the agent.

@@ -15,9 +15,9 @@ items:
     - name: Create an account - PowerShell/CLI
       href: create-catalog-powershell.md
     - name: Create an account - .NET SDK
-      href: create-purview-dotnet.md
+      href: create-azure-purview-dotnet.md
     - name: Create an account - Python
-      href: create-purview-python.md
+      href: create-azure-purview-python.md
   - name: Create a collection - Azure portal
     href: quickstart-create-collection.md
   - name: Share and receive data
@@ -45,14 +45,16 @@ items:
 - name: Concepts
   items:
   - name: Use Azure Purview Studio
-    href: use-purview-studio.md
+    href: use-azure-purview-studio.md
   - name: Best practices and guidelines
     items:
       - name: Accounts architecture best practices
         href: concept-best-practices-accounts.md
       - name: Accounts - Default Azure Purview account 
         href: concept-default-purview-account.md
-      - name: Automation best practices
+      - name: Asset lifecycle best practices
+        href: concept-best-practices-asset-lifecycle.md
+      - name: Automation best practices 
         href: concept-best-practices-automation.md
       - name: Backup, recovery and migration best practices
         href: concept-best-practices-migration.md
@@ -108,7 +110,7 @@ items:
   - name: Manage sources
     items: 
     - name: Supported sources
-      href: purview-connector-overview.md
+      href: azure-purview-connector-overview.md
     - name: Manage data sources
       href: manage-data-sources.md
     - name: Manage credentials
@@ -285,7 +287,7 @@ items:
       - name: Private endpoint FAQ
         href: catalog-private-link-faqs.md
     - name: Azure policy exceptions
-      href: create-purview-portal-faq.md
+      href: create-azure-purview-portal-faq.md
     - name: Conditional access
       href: catalog-conditional-access.md
   - name: Data owner policies
@@ -303,7 +305,7 @@ items:
 - name: Reference
   items:
     - name: Azure Purview product glossary
-      href: reference-purview-glossary.md
+      href: reference-azure-purview-glossary.md
     - name: Supported browsers
       href: supported-browsers.md
     - name: Supported classifications
@@ -321,7 +323,7 @@ items:
     - name: REST
       href: /rest/api/purview/
     - name: Azure Purview open-source tools utilities
-      href: tutorial-purview-tools.md
+      href: tutorial-azure-purview-tools.md
     - name: ABAP function deployment guide
       href: abap-functions-deployment-guide.md
     - name: Frequently asked questions (FAQ)

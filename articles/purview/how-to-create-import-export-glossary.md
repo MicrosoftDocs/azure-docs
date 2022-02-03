@@ -96,4 +96,4 @@ You should be able to export terms from glossary as long as the selected terms b
 
 ## Next steps
 
-* For more information about glossary terms, see the [glossary reference](reference-purview-glossary.md)
+* For more information about glossary terms, see the [glossary reference](reference-azure-purview-glossary.md)
