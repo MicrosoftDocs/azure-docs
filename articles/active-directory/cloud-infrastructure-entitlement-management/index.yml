@@ -22,11 +22,11 @@ landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
   # Card
-  - title: Overview of CloudKnox Permissions Management 
+  - title: CloudKnox Permissions Management Overview
     linkLists:
       - linkListType: overview
         links:
-          - text: Overview
+          - text: Get an overview of CloudKnox
             url: cloudknox-overview.md
   # Card
   - title: Onboard CloudKnox Permissions Management 
