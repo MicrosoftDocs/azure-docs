@@ -31,7 +31,7 @@ For more information, see [Module twin size](../iot-hub/iot-hub-devguide-module-
 ### Number of nested hierarchy layers
 An IoT Edge device has a limit of five layers of IoT Edge devices linked as children below it.
 
-For more information, see [Parent and child relationships](iot-edge-as-gateway.md#parent-and-child-relationships).
+For more information, see [Parent and child relationships](iot-edge-as-gateway.md#cloud-identities).
 
 ### Number of modules in a deployment
 IoT Hub has the following restrictions for IoT Edge automatic deployments:
