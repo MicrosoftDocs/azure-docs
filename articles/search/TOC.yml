@@ -225,11 +225,17 @@
         href: troubleshoot-shared-private-link-resources.md
     - name: Outbound connections
       items:
+<<<<<<< HEAD
       - name: Connect through an IP firewall
         href: search-indexer-howto-access-ip-restricted.md
       - name: Connect using a managed identity
         href: how-to-create-managed-identity.md
       - name: Indexer access to Azure Storage using the trusted service exception
+=======
+      - name: Connect over an IP range
+        href: search-indexer-howto-access-ip-restricted.md
+      - name: Connect as a trusted service
+>>>>>>> b23fd58a5270a67af272dbe0a0d636360360cd43
         href: search-indexer-howto-access-trusted-service-exception.md
       - name: Connect through private endpoints
         href: search-indexer-howto-access-private.md
