@@ -69,6 +69,8 @@ This section contains examples of what events message data would look like for e
   }
 }
 ```
+---
+
 ### FhirResourceUpdated event
 
 # [Event Grid event schema](#tab/event-grid-event-schema)
@@ -109,6 +111,7 @@ This section contains examples of what events message data would look like for e
   }
 }
 ```
+---
 
 ### FhirResourceDelete event
 
@@ -150,6 +153,7 @@ This section contains examples of what events message data would look like for e
   }
 }
 ```
+---
 
 ## Next steps
 
