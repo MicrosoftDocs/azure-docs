@@ -52,7 +52,9 @@ This article outlines how to register a Power BI tenant, and how to authenticate
 
   - Set up the latest [self-hosted integration runtime](https://www.microsoft.com/download/details.aspx?id=39717). The minimum required version is 5.14.8055.1. For more information, see[the create and configure a self-hosted integration runtime guide](manage-integration-runtimes.md).
   
-  - Ensure [JDK 11](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) is installed on the virtual machine where the self-hosted integration runtime is installed.
+  - Ensure [JDK 8 or later](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html), is installed on the virtual machine where the self-hosted integration runtime is installed.
+
+- To register a cross-tenant Power BI tenant, you may need to use additional tool such as _Postman_ which can be downloaded from [postman.com](https://www.postman.com). 
 
 ## Same tenant
 
@@ -181,7 +183,14 @@ To create and run a new scan, do the following:
 
 #### Scan same tenant using Self-hosted IR and Delegated Auth
 
-This scenario can be used when Azure Purview and Power PI tenant or both, are configured to use private endpoint and deny public access. To create and run a new scan, do the following:
+This scenario can be used when Azure Purview and Power PI tenant or both, are configured to use private endpoint and deny public access. Additionally, this option is also applicable if Azure Purview and Power PI tenant are configured to allow public access.
+
+> [!Note]
+> Additional configuration may be required for your Power BI tenant and Azure Purview account, if you are planning to scan Power BI tenant through private network where either Azure Purview account, Power BI tenant or both are configured with private endpoint with public access denied. 
+> For more information related to Power BI network, see [How to configure private endpoints for accessing Power BI](/power-bi/admin/service-security-private-links.md).
+> For more information about Azure Purview network settings, see [Use private endpoints for your Azure Purview account](catalog-private-link.md).
+
+To create and run a new scan, do the following:
 
 1. Create a user account in Azure Active Directory tenant and assign the user to Azure Active Directory role, **Power BI Administrator**. Take note of username and login to change the password.
 
@@ -221,13 +230,11 @@ This scenario can be used when Azure Purview and Power PI tenant or both, are co
     > [!Note]
     > Switching the configuration of a scan to include or exclude a personal workspace will trigger a full scan of PowerBI source.
 
-13. Select **Azure AutoResolveIntegrationRuntime** from the drop-down list. 
+13. Select your self-hosted integration runtime from the drop-down list. 
 
-    :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-scan-cross-tenant.png" alt-text="Image showing Power BI scan setup using Azure IR for cross tenant.":::
+    :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-scan-shir.png" alt-text="Image showing Power BI scan setup using SHIR for same tenant.":::
 
 14. For the **Credential**, select **Delegated auth** and click **+ New** to create a new credential.
-
-    :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-scan-shir.png" alt-text="Image showing Power BI scan setup using SHIR.":::
 
 15. Create a new credential and provide required parameters:
     
@@ -263,7 +270,7 @@ This scenario can be used when Azure Purview and Power PI tenant or both, are co
 
 ### Register cross-tenant
 
-In a cross-tenant scenario, you can use Azure Purview REST API using a tool such as [Postman](), to register your Power BI tenants. Once you register a Power BI tenant, you can configure a scan, browse, and search assets of remote tenant using Azure Purview Studio through the UI experience. 
+In a cross-tenant scenario, you can use Azure Purview REST API using a tool such as [Postman](https://www.postman.com/), to register your Power BI tenants. Once you register a Power BI tenant, you can configure a scan, browse, and search assets of remote tenant using Azure Purview Studio through the UI experience. 
 
 1. Follow [these steps](tutorial-using-rest-apis.md) to and obtain a valid token from your REST API connection.
    
@@ -306,7 +313,9 @@ In a cross-tenant scenario, you can use Azure Purview REST API using a tool such
 
 #### Scan cross-tenant using Delegated Auth 
 
-Delegated auth is the only supported option for cross-tenant scan option, however, you can use either Azure runtime or a self-hosted integration runtime to run a scan. To create and run a new scan using Azure runtime, perform the following steps:
+Delegated auth is the only supported option for cross-tenant scan option, however, you can use either Azure runtime or a self-hosted integration runtime to run a scan. 
+
+To create and run a new scan using Azure runtime, perform the following steps:
 
 1. Create a user account in Azure Active Directory tenant where Power BI tenant is located and assign the user to Azure Active Directory role, **Power BI Administrator**. Take note of username and login to change the password.
 
