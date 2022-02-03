@@ -10,7 +10,7 @@ ms.service: iot-hub-device-update
 
 # Device Update for IoT Hub Error Codes
 
-This document provides a table of error codes for various Device Update components. This is meant to be used as a reference for users who want to try parsing their own error codes to diagnose and troubleshoot issues.
+This document provides a table of error codes for various Device Update components. It is meant to be used as a reference for users who want to parse their own error codes to diagnose and troubleshoot issues.
 
 There are two primary client-side components that may throw error codes: the Device Update agent, and the Delivery Optimization agent. Error codes also come from the Device Update content service.
 
