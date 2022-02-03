@@ -151,7 +151,7 @@ func main() {
     mySecretName  := "quickstart-secret"
     mySecretValue := "createdWithGO"
     keyVaultName  := os.Getenv("KEY_VAULT_NAME")
-        keyVaultUrl := fmt.Sprintf("https://%s.vault.azure.net/", keyVaultName)
+    keyVaultUrl := fmt.Sprintf("https://%s.vault.azure.net/", keyVaultName)
 
 	//Create a credential using the NewDefaultAzureCredential type.
 	cred, err := azidentity.NewDefaultAzureCredential(nil)
