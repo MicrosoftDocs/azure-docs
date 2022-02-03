@@ -98,6 +98,8 @@ put logfile.txt
 
 ## Supported algorithms
 
+You can use any SFTP client to securely connect and then transfer files. Connecting clients must use one the algorithms listed below. 
+
 | Host key | Key exchange | Ciphers/encryption | Integrity/MAC | Public key |
 |----------|--------------|--------------------|---------------|------------|
 | rsa-sha2-256 | ecdh-sha2-nistp384 | aes128-gcm@openssh.com | hmac-sha2-256 | ssh-rsa |
