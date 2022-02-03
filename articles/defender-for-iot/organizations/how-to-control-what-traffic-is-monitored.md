@@ -246,8 +246,7 @@ Configure a firewall rule that opens outgoing traffic from the sensor to the sca
 
       - **By specific times**: Set the scan schedule according to specific times and select **Save Scan**.
 
-
-8. Select **Save**. The **Edit Scan Ranges Configuration** dialog box closes, and the number of ranges appears in the **Scan Ranges** pane.
+8. Select **Save**. The dialog box closes.
 
 **To perform a manual scan:**
 
