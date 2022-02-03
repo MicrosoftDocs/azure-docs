@@ -12,7 +12,9 @@ ms.date: 02/03/2022
 
 In Azure Logic Apps, you can abstract values that might change in workflows across development, test, and production environments by defining *parameters*. When you use parameters rather than environment-specific variables, you can initially focus more on designing your workflows, and insert your environment-specific variables later.
 
-This article introduces how to create, use, and edit parameters for multi-tenant Consumption logic app workflows and for single-tenant Standard logic app workflows. You'll also learn how to manage environment variables. For more information about the differences between logic app (single-tenant-overview-compare.md).
+This article introduces how to create, use, and edit parameters for multi-tenant Consumption logic app workflows and for single-tenant Standard logic app workflows. You'll also learn how to manage environment variables.
+
+For more information about multi-tenant and single-tenant Azure Logic Apps, review [Single-tenant versus multi-tenant and integration service environment for Azure Logic Apps](single-tenant-overview-compare.md).
 
 ## Prerequisites
 
@@ -20,17 +22,17 @@ This article introduces how to create, use, and edit parameters for multi-tenant
 
 * A Consumption or Standard logic app workflow
 
-  If you don't have a logic app workflow yet, review the following documentation:
+  If you don't have a logic app workflow yet, review [Create your first Consumption logic app workflow using the Azure portal](quickstart-create-first-logic-app-workflow.md) or [Create your first Standard logic app workflow using the Azure portal](create-single-tenant-workflows-azure-portal.md).
 
-  * [Create your Consumption logic app workflow in the Azure portal] or in Visual Studio.
-
-  * [Create your Standard logic app in the Azure portal](create-single-tenant-workflows-azure-portal.md) or [in Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md).
+    > [!NOTE]
+    > Currently, you can create parameters for Consumption logic app workflows only by using the Azure portal. 
+    > You can create parameters for Standard logic app workflows only by using the Azure portal or Visual Studio Code.
 
 <a name="parameters-introduction"></a>
 
-## Parameter differences between multi-tenant versus single-tenant
+## Parameters for Consumption versus Standard logic app workflows
 
-In both multi-tenant and single-tenant Azure Logic Apps, you can define parameters while using workflow designer. After you define the parameter, you can reference that parameter from any workflow or connection that's in the *same* logic app resource.
+For both Consumption and Standard logic app workflows, you can define parameters using the designer. After you define the parameter, you can reference that parameter from any workflow or connection that's in the *same* logic app resource.
 
 In multi-tenant Consumption logic app workflows, after you create and use parameters in the designer, you define and set the environment variables in your Azure Resource Manager template (ARM template) and template parameters files. In this scenario, you have to define and set the parameters *at deployment*, which means that even if you only have to change one variable, you have to redeploy your logic app's ARM template.
 
