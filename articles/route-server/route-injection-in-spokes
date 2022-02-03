@@ -19,7 +19,7 @@ Azure Route Server offers a centralized point where Network Virtual Appliances (
 
 The following diagram depicts a simple hub and spoke design with a hub VNet and two spokes. In the hub a Network Virtual Appliance and a Route Server has been deployed. Typically, route tables would have to be configured in every spoke (usually containing a default route for 0.0.0.0/0), that send all traffic from the spokes through this NVA to get it inspected for security purposes.
 
-:::image type="content" source="./media/senarios/route-injection.png" alt-text="Diagram of Route Server in a dual-homed topology.":::
+:::image type="content" source="./media/senarios/route-injection.png" alt-text="Basic hub and spoke topology.":::
 
 However, if the NVA advertises via BGP to the Route Server network prefixes, these will appear as effective routes in any virtual machine deployed in the hub or in any spoke. For spokes to "learn" the Route Server routes, they need to be peered with the hub VNet with the setting "Use Remote Gateway". 
 
