@@ -13458,16 +13458,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/connectors/connectors-overview.md",
-      "redirect_url": "/azure/connectors/apis-list",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/connectors/index.md",
-      "redirect_url": "/azure/connectors/apis-list",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/jenkins/azure-container-agents-plugin-run-container-as-an-agent.md",
       "redirect_url": "/azure/container-instances/container-instances-jenkins",
       "redirect_document_id": false
@@ -18915,7 +18905,7 @@
     {
       "source_path_from_root": "/articles/app-service-logic/app-service-logic-what-are-logic-apps.md",
       "redirect_url": "/azure/logic-apps/logic-apps-overview",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/app-service-logic/app-service-logic-pricing.md",
@@ -18925,7 +18915,7 @@
     {
       "source_path_from_root": "/articles/app-service-logic/app-service-logic-scenario-error-and-exception-handling.md",
       "redirect_url": "/azure/logic-apps/logic-apps-scenario-error-and-exception-handling",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/app-service-logic/app-service-logic-scenario-function-sb-trigger.md",
@@ -18980,16 +18970,26 @@
     {
       "source_path_from_root": "/articles/app-service-logic/app-service-logic-use-file-connector.md",
       "redirect_url": "/azure/logic-apps/logic-apps-using-file-connector",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/app-service-logic/app-service-logic-enterprise-connector-sap-connector.md",
       "redirect_url": "/azure/logic-apps/logic-apps-using-sap-connector",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/app-service-logic/app-service-logic-manage-from-vs.md",
       "redirect_url": "/azure/logic-apps/manage-logic-apps-with-visual-studio",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/connectors/index.md",
+      "redirect_url": "/azure/connectors/apis-list",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/connectors/connectors-overview.md",
+      "redirect_url": "/azure/connectors/apis-list",
       "redirect_document_id": true
     },
     {
@@ -19000,7 +19000,7 @@
     {
       "source_path_from_root": "/articles/app-service-logic/app-service-logic-create-a-logic-app.md",
       "redirect_url": "/azure/logic-apps/quickstart-create-first-logic-app-workflow",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/logic-apps/logic-apps-what-are-logic-apps.md",
@@ -19300,7 +19300,7 @@
     {
       "source_path_from_root": "/articles/logic-apps/parameterize-workflow-app.md",
       "redirect_url": "/connectors/logic-apps/create-parameters-workflows",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/machine-learning/service/index.yml",
