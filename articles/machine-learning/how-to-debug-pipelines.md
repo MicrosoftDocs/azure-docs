@@ -253,7 +253,7 @@ You can also find the log files for specific runs in the pipeline run detail pag
 
 1. Select a component in the preview pane.
 1. In the right pane of the component, go to the  **Outputs + logs** tab.
-1. Expand the right pane to view the **70_driver_log.txt** file in browser, or select the file to download the logs locally.
+1. Expand the right pane to view the **std_log.txt** file in browser, or select the file to download the logs locally.
 
 > [!IMPORTANT]
 > To update a pipeline from the pipeline run details page, you must **clone** the pipeline run to a new pipeline draft. A pipeline run is a snapshot of the pipeline. It's similar to a log file, and cannot be altered. 

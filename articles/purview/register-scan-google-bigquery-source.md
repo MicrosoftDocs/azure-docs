@@ -14,8 +14,7 @@ ms.custom: template-how-to, ignite-fall-2021
 
 This article outlines how to register Google BigQuery projects, and how to authenticate and interact with Google BigQuery in Azure Purview. For more information about Azure Purview, read the [introductory article](overview.md).
 
-> [!IMPORTANT]
-> Google BigQuery as a source is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
 ## Supported capabilities
 
@@ -33,6 +32,8 @@ When scanning Google BigQuery source, Azure Purview supports:
     - Views including the columns
 
 - Fetching static lineage on assets relationships among tables and views.
+
+When setting up scan, you can choose to scan an entire Google BigQuery project, or scope the scan to a subset of datasets matching the given name(s) or name pattern(s).
 
 >[!NOTE]
 > Currently, Azure Purview only supports scanning Google BigQuery datasets in US multi-regional location. If the specified dataset is in other location e.g. us-east1 or EU, you will observe scan completes but no assets shown up in Azure Purview.

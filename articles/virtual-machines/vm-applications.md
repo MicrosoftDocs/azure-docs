@@ -202,7 +202,7 @@ Most 3rd party applications in Windows are available as .exe or .msi installers.
 
 Installer executables typically launch a user interface (UI) and require someone to click through the UI. If the installer supports a silent mode parameter, it should be included in your installation string. 
 
-Cmd.exe also expects executable files to have the extension .exe, so you need to rename the file to have te .exe extension.  
+Cmd.exe also expects executable files to have the extension .exe, so you need to rename the file to have the .exe extension.  
 
 If I wanted to create a VM application package for myApp.exe, which ships as an executable, my VM Application is called 'myApp', so I write the command assuming that the application package is in the current directory:
 

@@ -1,6 +1,6 @@
 ---
 title: Tutorial - Azure IoT water quality monitoring | Microsoft Docs
-description: This tutorial shows you how to deploy and use the water quality monitoring application application template for IoT Central.
+description: This tutorial shows you how to deploy and use the water quality monitoring application template for IoT Central.
 author: miriambrus
 ms.author: miriamb
 ms.date: 12/23/2021
@@ -13,8 +13,11 @@ manager: abjork
 
 # Tutorial: Deploy and walk through the water quality monitoring application
 
-Use the IoT Central *water quality monitoring* application template and the guidance in this article to develop an end-to-end water quality monitoring solution.
+Traditional water quality monitoring relies on manual sampling techniques and field laboratory analysis, which is time consuming and costly. By remotely monitoring water quality in real-time, water quality issues can be managed before citizens are affected. Moreover, with advanced analytics, water utilities, and environmental agencies can act on early warnings on potential water quality issues and plan on water treatment in advance.  
 
+The water quality monitoring app is an IoT Central app template to help you kickstart your IoT solution development and enable water utilities to digitally monitor water quality in smart cities.
+
+Use the IoT Central *water quality monitoring* application template and the guidance in this article to develop an end-to-end water quality monitoring solution.
 
 ![Water quality monitoring architecture](./media/tutorial-waterqualitymonitoring/concepts-water-quality-monitoring-architecture1.png)
 
@@ -22,11 +25,11 @@ Use the IoT Central *water quality monitoring* application template and the guid
 
 Water management solutions use smart water devices such as flow meters, water quality monitors, smart valves, leak detectors.
 
-Devices in smart water solutions may connect through low-power wide area networks (LPWAN) or through a third-party network operator. For these types of devices, use the [Azure IoT Central Device Bridge](../core/howto-build-iotc-device-bridge.md) to send your device data to your IoT application in Azure IoT Central. You can also use device gateways that are IP capable and that can connect directly to IoT Central.
+Devices in smart water solutions may connect through low-power wide area networks (LPWAN) or through a third-party network operator. For these types of devices, use the [Azure IoT Central Device Bridge](../core/howto-build-iotc-device-bridge.md) to send your device data to your IoT application in Azure IoT Central. You can also use an IP capable device gateway that connects directly to your IoT Central application.
 
 ### IoT Central
 
-Azure IoT Central is an IoT App platform that helps you quickly build and deploy an IoT solution. You can brand, customize, and integrate your solution with third-party services.
+When you build an IoT solution, Azure IoT Central simplifies the build process and helps to reduce the burden and costs of IoT management, operations, and development. You can brand, customize, and integrate your solution with third-party services.
 
 When you connect your smart water devices to IoT Central, the application provides device command and control, monitoring and alerting, a user interface with built-in RBAC, configurable dashboards, and extensibility options.
 
@@ -138,7 +141,7 @@ Practice customizing the following device template settings:
 #### Add a cloud property
 
 1. From the device template menu, select **Cloud properties**.
-1. To add a new cloud property, select **+ Add Cloud Property**. In Azure IoT Central, you can add a property that is relevant to a device but not expected to be sent by the device. One example of such a property is an alert threshold specific to installation area, asset information, or maintenance information.
+1. To add a new cloud property, select **+ Add Cloud Property**. In Azure IoT Central, you can add a property that is relevant to a device but that doesn't come from the device. One example of such a property is an alert threshold specific to installation area, asset information, or maintenance information.
 1. Enter **Installation area** as the **Display name** and choose **String** as the **Schema**.
 1. Select **Save**.
 
@@ -171,7 +174,7 @@ The water quality monitoring application you created from the application templa
 
     :::image type="content" source="media/tutorial-waterqualitymonitoring/water-quality-monitor-device1.png" alt-text="Select device 1":::
 
-1. On the **Cloud Properties** tab, change the **Acidity (pH) threshold** value from **8** to **9** and select **Save**.
+1. On the **Cloud Properties** tab, change the **Acidity (pH) threshold** value to **9** and select **Save**.
 1. Explore the **Device Properties** tab and the **Device Dashboard** tab.
 
 > [!NOTE]

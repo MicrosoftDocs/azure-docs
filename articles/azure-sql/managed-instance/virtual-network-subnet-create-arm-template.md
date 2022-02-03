@@ -30,8 +30,10 @@ Azure SQL Managed Instance must be deployed within an Azure [virtual network](..
 >
 > If you plan to use an existing virtual network, you need to modify that network configuration to accommodate SQL Managed Instance. For more information, see [Modify an existing virtual network for SQL Managed Instance](vnet-existing-add-subnet.md).
 >
-> After a managed instance is created, moving the managed instance or virtual network to another resource group or subscription is not supported.  Moving the managed instance to another subnet also is not supported.
->
+> After a managed instance is created, moving the managed instance or virtual network to another resource group or subscription is not supported. 
+ 
+> [!IMPORTANT]
+> You can [move the instance to another subnet inside the Vnet](vnet-subnet-move-instance.md).
 
 ## Create a virtual network
 
@@ -41,7 +43,7 @@ The easiest way to create and configure a virtual network is to use an Azure Res
 
 2. Select the **Deploy to Azure** button:
 
-   [![Image showing a button labeled "Deploy to Azure".](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.sql%2Fsql-managed-instance-azure-environment%2Fazuredeploy.json)
+   [![Image showing a button labeled "Deploy to Azure".](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.sql%2Fsql-managed-instance-azure-environment%2Fazuredeploy.json)
 
    This button opens a form that you can use to configure the network environment where you can deploy SQL Managed Instance.
 

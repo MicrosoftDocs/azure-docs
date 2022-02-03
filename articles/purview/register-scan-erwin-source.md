@@ -14,8 +14,7 @@ ms.custom: template-how-to, ignite-fall-2021
 
 This article outlines how to register erwin Mart servers, and how to authenticate and interact with erwin Mart Servers in Azure Purview. For more information about Azure Purview, read the [introductory article](overview.md).
 
-> [!IMPORTANT]
-> erwin Mart server as a source is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
 ## Supported capabilities
 
@@ -49,6 +48,8 @@ When scanning erwin Mart source, Azure Purview supports:
     - User defined properties
 
 - Fetching static lineage on assets relationships among entities, views and stored procedures.
+
+When setting up scan, you can choose to scan an entire erwin Mart server, or scope the scan to a list of models matching the given name(s).
 
 ## Prerequisites
 
@@ -137,8 +138,6 @@ To create and run a new scan, do the following:
 
         > [!Note]
         > This parameter is only applicable for erwin Mart version 9.1 or later.
-
-    1. **Browse mode** - Select the mode for browsing erwin Mart. Possible options are "Libraries and Models" or "Libraries only".
 
     1. **Models** - Scope your scan by providing a semicolon separated list of erwin model locator strings. For example, mart://Mart/Samples/eMovies;mart://Mart/Erwin_Tutorial/AP_Physical
 

@@ -14,8 +14,7 @@ ms.custom: template-how-to #Required; leave this attribute/value as-is.
 
 This article outlines how to register MySQL, and how to authenticate and interact with MySQL in Azure Purview. For more information about Azure Purview, read the [introductory article](overview.md).
 
-> [!IMPORTANT]
-> MySQL as a source is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
 ## Supported capabilities
 
@@ -35,6 +34,8 @@ When scanning MySQL source, Azure Purview supports:
     - Views including the columns
 
 - Fetching static lineage on assets relationships among tables and views.
+
+When setting up scan, you can choose to scan an entire MySQL server, or scope the scan to a subset of databases matching the given name(s) or name pattern(s).
 
 ## Prerequisites
 
@@ -117,7 +118,7 @@ To create and run a new scan, do the following:
         * Provide the user name used to connect to the database server in the User name input field.
         * Store the user password used to connect to the database server in the secret key.
 
-    1. **Database**: List subset of schemas to import expressed as a semicolon separated list. For example, `schema1; schema2`. All user schemas are imported if that list is empty. All system schemas (for example, SysAdmin) and objects are ignored by default. When the list is empty, all available schemas are imported.
+    1. **Database**: List subset of databases to import expressed as a semicolon separated list. For example, `database1; database2`. All user databases are imported if the list is empty. All system databases (for example, SysAdmin) are ignored by default.
 
         Acceptable schema name patterns using SQL LIKE expressions syntax include using %. For example: `A%; %B; %C%; D`
         * Start with A or

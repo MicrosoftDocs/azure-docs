@@ -12,6 +12,10 @@ Auto-instrumentation allows you to enable application monitoring with Applicatio
 
 Application Insights is integrated with various resource providers and works on different environments. In essence, all you have to do is enable and - in some cases - configure the agent, which will collect the telemetry automatically. In no time, you'll see the metrics, requests, and dependencies in your Application Insights resource, which will allow you to spot the source of potential problems before they occur, and analyze the root cause with end-to-end transaction view.
 
+> [!NOTE] 
+> Auto-instrumentation used to be known as "codeless attach" before October 2021.
+
+
 ## Supported environments, languages, and resource providers
 
 As we're adding new integrations, the auto-instrumentation capability matrix becomes complex. The table below shows you the current state of the matter as far as support for various resource providers, languages, and environments go.
@@ -46,7 +50,7 @@ For [Python](./opencensus-python.md), use the SDK.
 
 ## Azure Functions
 
-The basic monitoring for Azure Functions is enabled by default to collects log, performance, error data, and HTTP requests. For Java applications, you can enable richer monitoring with distributed tracing and get the end-to-end transaction details. This functionality for Java is in public preview for Windows and you can [enable it in Azure portal](./monitor-functions.md).
+The basic monitoring for Azure Functions is enabled by default to collect log, performance, error data, and HTTP requests. For Java applications, you can enable richer monitoring with distributed tracing and get the end-to-end transaction details. This functionality for Java is in public preview for Windows and you can [enable it in Azure portal](./monitor-functions.md).
 
 ## Azure Spring Cloud
 

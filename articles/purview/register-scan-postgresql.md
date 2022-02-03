@@ -14,8 +14,7 @@ ms.custom: template-how-to #Required; leave this attribute/value as-is.
 
 This article outlines how to register PostgreSQL, and how to authenticate and interact with PostgreSQL in Azure Purview. For more information about Azure Purview, read the [introductory article](overview.md).
 
-> [!IMPORTANT]
-> PostgreSQL as a source is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
 ## Supported capabilities
 
@@ -36,6 +35,8 @@ When scanning PostgreSQL source, Azure Purview supports:
     - Views including the columns
     
 - Fetching static lineage on assets relationships among tables and views.
+
+When setting up scan, you can choose to scan an entire PostgreSQL database, or scope the scan to a subset of schemas matching the given name(s) or name pattern(s).
 
 ## Prerequisites
 
@@ -121,7 +122,7 @@ To create and run a new scan, do the following:
 
     1. **Database**： Specify the name of the database instance to import.
 
-    1. **Schema**: List subset of schemas to import expressed as a semicolon separated list. For example, `schema1; schema2`. All user schemas are imported if that list is empty. All system schemas (for example, SysAdmin) and objects are ignored by default. When the list is empty, all available schemas are imported.
+    1. **Schema**: List subset of schemas to import expressed as a semicolon separated list. For example, `schema1; schema2`. All user schemas are imported if that list is empty. All system schemas (for example, SysAdmin) and objects are ignored by default.
         
         Acceptable schema name patterns using SQL LIKE expressions syntax include using %. For example: `A%; %B; %C%; D`
         * Start with A or

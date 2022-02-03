@@ -18,9 +18,9 @@ This article outlines how to register Hive Metastore databases, and how to authe
 
 |**Metadata extraction**|  **Full scan**  |**Incremental scan**|**Scoped scan**|**Classification**|**Access policy**|**Lineage**|
 |---|---|---|---|---|---|---|
-| [Yes](#register)| [Yes](#scan)| No | [Yes](#scan) | No | No| [Yes**](#lineage) |
+| [Yes](#register)| [Yes](#scan)| No | [Yes](#scan) | No | No| [Yes*](#lineage) |
 
-\** Lineage is supported if the dataset is used as a source or sink in the [Azure Data Factory Copy activity](how-to-link-azure-data-factory.md).
+\* *Besides the lineage on assets within the data source, lineage is also supported if dataset is used as a source/sink in [Data Factory](how-to-link-azure-data-factory.md) or [Synapse pipeline](how-to-lineage-azure-synapse-analytics.md).*
 
  The supported Hive versions are 2.x to 3.x. The supported platforms are Apache Hadoop, Cloudera, Hortonworks, and Azure Databricks (versions 8.0 and later).
 
@@ -35,6 +35,8 @@ When scanning Hive metastore source, Azure Purview supports:
    - Processes
 
 - Fetching static lineage on assets relationships among tables and views.
+
+When setting up scan, you can choose to scan an entire Hive metastore database, or scope the scan to a subset of schemas matching the given name(s) or name pattern(s).
 
 ## Prerequisites
 
@@ -159,7 +161,7 @@ Use the following steps to scan Hive Metastore databases to automatically identi
 
         All user schemas are imported if that list is empty. All system schemas (for example, SysAdmin) and objects are ignored by default.
 
-        When the list is empty, all available schemas are imported. Acceptable schema name patterns that use SQL `LIKE` expression syntax include the percent sign (%). For example, `A%; %B; %C%; D` means:
+        Acceptable schema name patterns that use SQL `LIKE` expression syntax include the percent sign (%). For example, `A%; %B; %C%; D` means:
 
         * Start with A or
         * End with B or

@@ -1106,7 +1106,9 @@ To confirm that the datasource was added to the JBoss server, SSH into your weba
 
 ## Choosing a Java runtime version
 
-App Service allows users to choose the major version of the JVM, such as Java 8 or Java 11, and the minor version, such as 1.8.0_232 or 11.0.5. You can also choose to have the minor version automatically updated as new minor versions become available. In most cases, production sites should use pinned minor JVM versions. This will prevent unnanticipated outages during a minor version auto-update. All Java web apps use 64-bit JVMs, this is not configurable.
+App Service allows users to choose the major version of the JVM, such as Java 8 or Java 11, and the patch version, such as 1.8.0_232 or 11.0.5. You can also choose to have the patch version automatically updated as new minor versions become available. In most cases, production sites should use pinned patch JVM versions. This will prevent unnanticipated outages during a patch version auto-update. All Java web apps use 64-bit JVMs, this is not configurable.
+
+If you are using Tomcat, you can choose to pin the patch version of Tomcat. On Windows, you can pin the patch versions of the JVM and Tomcat independently. On Linux, you can pin the patch version of Tomcat; the patch version of the JVM will also be pinned but is not separately configurable.
 
 If you choose to pin the minor version, you will need to periodically update the JVM minor version on the site. To ensure that your application runs on the newer minor version, create a staging slot and increment the minor version on the staging site. Once you have confirmed the application runs correctly on the new minor version, you can swap the staging and production slots.
 
