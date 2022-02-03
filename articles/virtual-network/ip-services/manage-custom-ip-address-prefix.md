@@ -119,7 +119,7 @@ For permissions to manage public IP address prefixes, your account must be assig
 | Microsoft.Network/customIPPrefixes/delete                         | Delete a custom IP address prefix                              |
 | Microsoft.Network/customIPPrefixes/join/action                    | Create a public IP prefix from a custom IP address prefix      |
 
-## Troubleshooting/FAQs
+## Troubleshooting and FAQs
 
 This section provides answers for common questions about custom IP prefix resources and the provisioning and removal processes.
 
