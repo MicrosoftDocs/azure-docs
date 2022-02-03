@@ -82,6 +82,9 @@ az containerapp create `
 
 ---
 
+> [!NOTE]
+> Make sure the value for the `--image` parameter is in lower case.
+
 By setting `--ingress` to `external`, you make the container app available to public requests.
 
 ## Verify deployment
