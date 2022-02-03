@@ -329,7 +329,7 @@ NSString *detectedLanguage = [languageDetectionResult language];
 
 ::: zone pivot="programming-language-javascript"
 
-```Javascript
+```JavaScript
 var autoDetectConfig = SpeechSDK.AutoDetectSourceLanguageConfig.fromLanguages(["en-US", "de-DE"]);
 var speechRecognizer = SpeechSDK.SpeechRecognizer.FromConfig(speechConfig, autoDetectConfig, audioConfig);
 speechRecognizer.recognizeOnceAsync((result: SpeechSDK.SpeechRecognitionResult) => {
@@ -422,7 +422,7 @@ SPXAutoDetectSourceLanguageConfiguration* autoDetectSourceLanguageConfig = \
 
 ::: zone pivot="programming-language-javascript"
 
-```Javascript
+```JavaScript
 var enLanguageConfig = SpeechSDK.SourceLanguageConfig.fromLanguage("en-US");
 var frLanguageConfig = SpeechSDK.SourceLanguageConfig.fromLanguage("fr-FR", "The Endpoint Id for custom model of fr-FR");
 var autoDetectConfig = SpeechSDK.AutoDetectSourceLanguageConfig.fromSourceLanguageConfigs([enLanguageConfig, frLanguageConfig]);
