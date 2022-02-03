@@ -124,7 +124,9 @@ If you already have a working App Service certificate, you can:
 
 Start an App Service certificate order in the <a href="https://portal.azure.com/#create/Microsoft.SSL" target="_blank">App Service Certificate create page</a>.
 
-![Start App Service certificate purchase](./media/configure-ssl-certificate/purchase-app-service-cert.png)
+> [!NOTE] All prices shown are for examples only.
+
+:::image type="content" source="./media/configure-ssl-certificate/purchase-app-service-cert.png" alt-text="Start App Service certificate purchase":::
 
 Use the following table to help you configure the certificate. When finished, click **Create**.
 
