@@ -113,7 +113,7 @@ This section contains examples of what events message data would look like for e
 ```
 ---
 
-### FhirResourceDelete event
+### FhirResourceDeleted event
 
 # [Event Grid event schema](#tab/event-grid-event-schema)
 
