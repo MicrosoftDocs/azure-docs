@@ -54,7 +54,7 @@ Executions are metered and billed, regardless whether the workflow runs successf
 
 Triggers and actions follow [Consumption plan rates](https://azure.microsoft.com/pricing/details/logic-apps/), which differ based on whether these operations are ["built-in"](../connectors/built-in.md) or ["managed" (Standard or Enterprise)](../connectors/managed.md). Triggers and actions also make storage transactions, which use the [Consumption plan data rate](https://azure.microsoft.com/pricing/details/logic-apps/).
 
-> [!TIP]
+> [!NOTE]
 > As a monthly bonus, the Consumption plan includes *several thousand* built-in executions free of charge. 
 > For specific information, review the [Consumption plan rates](https://azure.microsoft.com/pricing/details/logic-apps/).
 
@@ -282,11 +282,42 @@ When you change the underlying workflow for an automation task, your changes aff
 
 1. To disable the workflow so that the task doesn't continue running, see [Manage logic apps in the Azure portal](../logic-apps/manage-logic-apps-with-azure-portal.md).
 
-<a name="export-template"></a>
+<a name="create-automation-template"></a>
 
-## Export a recurring workflow to an automation task template
+## Create automation task template from workflow
 
-You can export any Consumption logic app workflow that starts with a recurring trigger to use as an automation task template.
+You can create your own automation task template by using any Consumption logic app workflow that starts with a recurring trigger. For this task, you'll need the following other items:
+
+* A [GitHub](https://github.com) account
+
+* Your own fork of the [Azure automation task templates GitHub repository](https://github.com/Azure/automation-task-template/tree/master/templates).
+
+  For more information about forks and creating a fork, review the following GitHub documentation:
+
+  * [About forks](https://docs.github.com/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)
+  * [Fork a repo](https://docs.github.com/get-started/quickstart/fork-a-repo)
+
+* A working branch in your work where you can add your automation task template.
+
+  For more information about branches and creating a branch, review the following documentation:
+
+  * [About branches](https://docs.github.com/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches)
+  * [Create and delete branches](https://docs.github.com/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository)
+
+* Fiddler or your favorite web debugging tool. For example, a free trial is available for [Fiddler Everywhere](https://www.telerik.com/fiddler/fiddler-everywhere).
+
+To create the template and make the template available for use in Azure, here are the high-level steps:
+
+1. [Export the workflow](#export-workflow) to an automation task template.
+1. [Upload your template](#upload-template) to your working branch in your GitHub fork.
+1. [Test your template](#test-template) by using Fiddler or your own web debugging tool.
+1. [Create a pull request (PR) from your working branch](#create-pull-request) against the default branch in the Azure automation task templates GitHub repository.
+
+After the Azure Logic Apps team reviews and approves your PR for merging to the default branch, your template is live and available to all Azure customers.
+
+<a name="export-workflow"></a>
+
+### Export workflow to automation task template
 
 1. In the [Azure portal](https://portal.azure.com), open the logic app workflow that you want to export. Make sure that the workflow starts with a recurring trigger.
 
@@ -300,18 +331,71 @@ You can export any Consumption logic app workflow that starts with a recurring t
 
    | Property | Required | Value | Description |
    |----------|----------|-------|-------------|
-   | **Template Name** | Yes | <*template-name*> | The name to use for the new automation task template |
+   | **Template Name** | Yes | <*template-name*> | The name to use for the new automation task template. <p><p>**Important**: Make sure that you use a concise and easy-to-understand name, for example, **Save new queued message as blob**. |
    | **Template Description** | Yes | <*template-description*> | A description for the template's task or purpose |
    | **Supported Resource Types** | No | Empty or <*supported-Azure-resource-type-list*> | The first-class Azure resource types where you want to make the template available. To include all first-class Azure resource types, leave this property empty. To specify multiple resource types, separate each name with a comma and use the following syntax: <p><p>**Microsoft.<*service-provider*>/<*entity*>** <p><p>For example, to make the template available for Azure virtual machines, specify **Microsoft.Compute/virtualmachines**. For more information, review [Resource providers for Azure services](../azure-resource-manager/management/azure-services-resource-providers.md). |
    | **Unsupported Resource Types** | No | Empty or <*unsupported-Azure-resource-type-list*> | If any, the Azure resource types where you specifically don't want to make the template available. To specify multiple resource types, separate each name with a comma and use the following syntax: <p><p>**Microsoft.<*service-provider*>/<*entity*>** <p><p>For example, to make the template unavailable for Azure virtual machines, specify **Microsoft.Compute/virtualmachines**. For more information, review [Resource providers for Azure services](../azure-resource-manager/management/azure-services-resource-providers.md). |
-   | **Configure Parameters** | No | Varies | Available only when the source workflow includes defined [parameters](logic-apps-parameterize-workflow-app.md). For each parameter, you can select whether the value is provided by the resource or yourself. <p><p>- If you select **From Resource**, you can select a **Source Parameter** value: <p>-- **Resource Name** <br>-- **Resource Type** <br>-- **Resource Id** <br>-- **Subscription Id** <br>-- **Resource Group** <br>-- **Resource Location**. <p><p>- If you select **User Provided**, you can select a **Template** value: <p>-- **Default** <br>-- **Interval** <br>-- **Frequency** <br>-- **Timezone** |
+   | **Configure Parameters** | No | Varies | If your workflow includes defined [parameters](logic-apps-parameterize-workflow-app.md), you can specify the source for those parameter values. For each parameter, select whether the value is provided by the resource or the template user. <p><p>- If you select **From Resource**, you can select a **Source Parameter** value: <p>-- **Resource Name** <br>-- **Resource Type** <br>-- **Resource Id** <br>-- **Subscription Id** <br>-- **Resource Group** <br>-- **Resource Location**. <p><p>- If you select **User Provided**, you can select a **Template** value: <p>-- **Default** <br>-- **Interval** <br>-- **Frequency** <br>-- **Timezone** |
    |||||
 
-   The following example shows the properties for a custom automation template that works only on an Azure virtual machine resource:
+   The following example shows the properties for a custom automation task template that works only on an Azure virtual machine resource:
 
    ![Screenshot showing the 'Export to Automation Task' pane with example properties for an automation task template.](./media/create-automation-tasks-azure-resources/export-template-properties.png)
 
-1. When you're done, select **Download Template**, which prompts you to open or save the template as a workflow definition file with the .json extension.
+1. When you're done, select **Download Template**. When you're prompted, save the template as a workflow definition file with the .json extension. For template naming consistency, use only lowercase and the following syntax:
+
+   **<*action*>-<*resource*>**
+
+   For example, based on the earlier example template name, you might name the file as **save-queue-message-blob.json**.
+
+<a name="upload-template"></a>
+
+### Upload template to GitHub
+
+1. Go to [GitHub](https://github.com) and sign in with your GitHub account.
+
+1. Go to the [Azure automation task templates GitHub repository](https://github.com/Azure/automation-task-template/tree/master/templates), which takes you to the default branch in the repository.
+
+1. From the branch list, switch to your working branch.
+
+1. Above the files list, select **Add file** > **Upload files**.
+
+1. Either drag your workflow definition file to the specified area on the page, or select **choose your files**.
+
+1. Under **Commit changes**, enter a concise but descriptive title for your pull request. You provide more information in the description box.
+
+1. Select **Create a new branch for this commit and start a pull request**. At the prompt, provide a name for your working branch, for example:
+
+   `<your-GitHub-alias>-<automation-task-name>-template`
+
+1. When you're ready, select **Propose changes**.
+
+<a name="test-template"></a>
+
+### Test your template
+
+The following steps use Fiddler and the following Fiddler script:
+
+1. To test the Automation Task template from your forked github repository that holds your template, use Fiddler 
+
+1. In the Fiddler, find the `onBeforeRequest()` function and add the following code, making sure to replace the following placeholders with your specific information:
+
+   * `<template-name>`
+   * `<GitHub-username>`
+   * `<working-branch>`
+
+```
+if (oSession.url == "raw.githubusercontent.com/azure/automation-task-template/master/templates/manifest.json") { oSession.url = "raw.githubusercontent.com//automation-task-template//templates/manifest.json"; }
+
+    if (oSession.url == "raw.githubusercontent.com/azure/automation-task-template/master/templates/<template-name>") {
+        oSession.url = "raw.githubusercontent.com/<GitHub-username>/automation-task-template/<working-branch>/templates/<template-name>";
+     }
+```
+
+<a name="create-pull-request"></a>
+
+### Create your pull request
+
 
 ## Provide feedback
 
