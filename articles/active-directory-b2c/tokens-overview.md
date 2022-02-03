@@ -8,7 +8,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/1/2021
+ms.date: 02/03/2022
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: b2c-support
@@ -18,7 +18,7 @@ ms.custom: b2c-support
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure Active Directory B2C (Azure AD B2C) emits several types of security tokens as it processes each [authentication flow](application-types.md). This article describes the format, security characteristics, and contents of each type of token.
+Azure Active Directory B2C (Azure AD B2C) emits different types of security tokens as it processes each [authentication flow](application-types.md). This article describes the format, security characteristics, and contents of each type of token.
 
 ## Token types
 
@@ -27,8 +27,19 @@ Azure AD B2C supports the [OAuth 2.0 and OpenID Connect protocols](protocols-ove
 The following tokens are used in communication with Azure AD B2C:
 
 - **ID token** - A JWT that contains claims that you can use to identify users in your application. This token is securely sent in HTTP requests for communication between two components of the same application or service. You can use the claims in an ID token as you see fit. They are commonly used to display account information or to make access control decisions in an application. ID tokens are signed, but they are not encrypted. When your application or API receives an ID token, it must validate the signature to prove that the token is authentic. Your application or API must also validate a few claims in the token to prove that it's valid. Depending on the scenario requirements, the claims validated by an application can vary, but your application must perform some common claim validations in every scenario.
+
 - **Access token** -  A JWT that contains claims that you can use to identify the granted permissions to your APIs. Access tokens are signed, but they aren't encrypted. Access tokens are used to provide access to APIs and resource servers.  When your API receives an access token, it must validate the signature to prove that the token is authentic. Your API must also validate a few claims in the token to prove that it is valid. Depending on the scenario requirements, the claims validated by an application can vary, but your application must perform some common claim validations in every scenario.
+
 - **Refresh token** - Refresh tokens are used to acquire new ID tokens and access tokens in an OAuth 2.0 flow. They provide your application with long-term access to resources on behalf of users without requiring interaction with those users. Refresh tokens are opaque to your application. They are issued by Azure AD B2C and can be inspected and interpreted only by Azure AD B2C. They are long-lived, but your application shouldn't be written with the expectation that a refresh token will last for a specific period of time. Refresh tokens can be invalidated at any moment for a variety of reasons. The only way for your application to know if a refresh token is valid is to attempt to redeem it by making a token request to Azure AD B2C. When you redeem a refresh token for a new token, you receive a new refresh token in the token response. Save the new refresh token. It replaces the refresh token that you previously used in the request. This action helps guarantee that your refresh tokens remain valid for as long as possible. Note that single-page applications using the authorization code flow with PKCE always have a refresh token lifetime of 24 hours. [Learn more about the security implications of refresh tokens in the browser](../active-directory/develop/reference-third-party-cookies-spas.md#security-implications-of-refresh-tokens-in-the-browser).
+
+### Cross-Site Request Forgery token
+
+Azure AD B2C uses the [Synchronizer Token strategy](https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html#synchronizer-token-pattern) to prevent Cross-Site Request Forgery (CSRF) attacks. When Azure AD B2C generates a CSRF token, it puts the token in a cookie as `x-ms-cpim-csrf`, and in the query string parameter of the URL of the page sent to the browser as `csrf_token`. When Azure AD B2C receives an incoming request from the browser, it confirms that both the query string parameter and cookie versions of the token exist, and that they exactly match, as well as verify elements of the contents of the token to confirm against expected values for the in progress authentication.
+
+The client sends a GET request to Azure AD B2C service with the `csrf_token` in the URL query string. It's an expected behavior, and it's required to load the contents of the next page that's displayed to the user. Although the loading of the contents of the next page is not a state changing operation for the user, Azure AD B2C sends and validates the CSRF token as an additional layer of security. It ensures that the request to load the next page is the result of an in progress authentication. 
+
+> [!NOTE]
+> Some security scanners can sometimes flag CSRF token in request that are in the encoding format of a token. The scanner may believe it's a user security credential. Rest assured, the `csrf_token` token is solely an added layer of security, and we've our own defenses against exposing user credentials. 
 
 ## Endpoints
 
