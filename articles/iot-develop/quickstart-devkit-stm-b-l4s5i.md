@@ -346,7 +346,7 @@ To view the device status in IoT Central portal:
 1. Confirm that the **Device status** is updated to **Provisioned**.
 1. Confirm that the **Device template** is updated to **Thermostat**.
 
-    :::image type="content" source="media/quickstart-devkit-stm-b-l4s5i/iot-central-device-view-status.png" alt-text="Screenshot of device status in IoT Central":::
+    :::image type="content" source="media/quickstart-devkit-stm-b-l4s5i/iot-central-device-view-status-iar.png" alt-text="Screenshot of device status in IoT Central":::
 
 ## View telemetry
 
@@ -358,7 +358,7 @@ To view telemetry in IoT Central portal:
 1. Select the device from the device list.
 1. View the telemetry as the device sends messages to the cloud in the **Overview** tab.
 
-    :::image type="content" source="media/quickstart-devkit-stm-b-l4s5i/iot-central-device-telemetry.png" alt-text="Screenshot of device telemetry in IoT Central":::
+    :::image type="content" source="media/quickstart-devkit-stm-b-l4s5i/iot-central-device-telemetry-iar.png" alt-text="Screenshot of device telemetry in IoT Central":::
 
     > [!NOTE]
     > You can also monitor telemetry from the device by using the Termite app.
@@ -372,7 +372,7 @@ To call a method in IoT Central portal:
 1. Select the **Command** tab from the device page.
 1. In the **Since** field, use the date picker and time selectors to set a time, then select **Run**.
 
-    :::image type="content" source="media/quickstart-devkit-stm-b-l4s5i/iot-central-invoke-method.png" alt-text="Screenshot of calling a direct method on a device in IoT Central":::
+    :::image type="content" source="media/quickstart-devkit-stm-b-l4s5i/iot-central-invoke-method-iar.png" alt-text="Screenshot of calling a direct method on a device in IoT Central":::
 
 ## View device information
 
@@ -380,7 +380,7 @@ You can view the device information from IoT Central.
 
 Select **About** tab from the device page.
 
-:::image type="content" source="media/quickstart-devkit-stm-b-l4s5i/iot-central-device-about.png" alt-text="Screenshot of device information in IoT Central":::
+:::image type="content" source="media/quickstart-devkit-stm-b-l4s5i/iot-central-device-about-iar.png" alt-text="Screenshot of device information in IoT Central":::
 
 :::zone-end
 
