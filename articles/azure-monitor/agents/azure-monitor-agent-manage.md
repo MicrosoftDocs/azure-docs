@@ -28,13 +28,14 @@ WE strongly recommended to update to generally available versions listed as foll
 |:---|:---|:---|:---|:---|
 | June 2021 | General availability announced. <ul><li>All features except metrics destination now generally available</li><li>Production quality, security and compliance</li><li>Availability in all public regions</li><li>Performance and scale improvements for higher EPS</li></ul> [Learn more](https://azure.microsoft.com/updates/azure-monitor-agent-and-data-collection-rules-now-generally-available/) | 1.0.12.0 | 1.9.1.0 |
 | July 2021 | <ul><li>Support for direct proxies</li><li>Support for Log Analytics gateway</li></ul> [Learn more](https://azure.microsoft.com/updates/general-availability-azure-monitor-agent-and-data-collection-rules-now-support-direct-proxies-and-log-analytics-gateway/) | 1.1.1.0 | 1.10.5.0 |
-| August 2021 | Fixed issue allowing Azure Monitor Metrics as the only destination | 1.1.2.0 | 1.10.9.0<sup>1</sup> |
-| September 2021 | <ul><li>Fixed issue causing data loss on restarting the agent</li><li>Addressed regression introduced in 1.1.3.1<sup>2</sup> for Arc Windows servers</li></ul> | 1.1.3.2 | 1.12.2.0 <sup>2</sup> |  
-| December 2021 | Fixed issues impacting Linux Arc-enabled servers | N/A | 1.14.7.0<sup>3</sup> |
+| August 2021 | Fixed issue allowing Azure Monitor Metrics as the only destination | 1.1.2.0 | 1.10.9.0<sup>Hotfix</sup> |
+| September 2021 | <ul><li>Fixed issue causing data loss on restarting the agent</li><li>Fixed issue for Arc Windows servers</li></ul> | 1.1.3.2<sup>Hotfix</sup> | 1.12.2.0 <sup>1</sup> |  
+| December 2021 | <ul><li>Fixed issues impacting Linux Arc-enabled servers</li><li>'Heartbeat' table > 'Category' column reports "Azure Monitor Agent" in Log Analytics for Windows</li></ul>  | 1.1.4.0 | 1.14.7.0<sup>2</sup> |
+| January 2021 | <ul><li>Syslog RFC compliance for Linux</li><li>Fixed issue for Linux perf counters not flowing on restart</li><ul> | Not available yet | 1.15.2.0<sup>Hotfix</sup> |
 
-<sup>1</sup> Do not use AMA Linux version 1.10.7.0  
-<sup>2</sup> Known regression where it's not working on Arc-enabled servers  
-<sup>3</sup> Bug identified wherein Linux performance counters data stops flowing on restarting/rebooting the machine(s). Fix underway and will be available in next monthly version update.
+<sup>Hotfix</sup> Do not use AMA Linux versions v1.10.7, v1.15.1 and AMA Windows v1.1.3.1. Please use hotfixed versions listed above.  
+<sup>1</sup> Known issue: No data collected from Linux Arc-enabled servers  
+<sup>2</sup> Known issue: Linux performance counters data stops flowing on restarting/rebooting the machine(s)
 
 
 ## Prerequisites
@@ -59,7 +60,7 @@ To uninstall the Azure Monitor agent using the Azure portal, navigate to your vi
 
 ### Update
 To perform a **one time update** of the agent, you must first uninstall the existing agent version and then install the new version as described above.  
-
+The **recommendation** is to enable automatic update of the agent by enabling the [Automatic Extension Upgrade](../../virtual-machines/automatic-extension-upgrade.md) feature. Navigate to your virtual machine or scale set, select the **Extensions** tab and click on **AzureMonitorWindowsAgent** or **AzureMonitorLinuxAgent**. In the dialog that pops up, click **Enable automatic upgrade**.
 
 ## Using Resource Manager template
 
@@ -111,7 +112,18 @@ Remove-AzVMExtension -Name AMALinux -ResourceGroupName <resource-group-name> -VM
 ---
 
 ### Update on Azure virtual machines
-To perform a **one time update** of the agent, you must first uninstall the existing agent version and then install the new version as described above.   
+To perform a **one time update** of the agent, you must first uninstall the existing agent version and then install the new version as described above.  
+The **recommendation** is to enable automatic update of the agent by enabling the [Automatic Extension Upgrade](../../virtual-machines/automatic-extension-upgrade.md) feature, using the following PowerShell commands.
+# [Windows](#tab/PowerShellWindows)
+```powershell
+Set-AzVMExtension -ExtensionName AMAWindows -ResourceGroupName <resource-group-name> -VMName <virtual-machine-name> -Publisher Microsoft.Azure.Monitor -ExtensionType AzureMonitorWindowsAgent -TypeHandlerVersion <version-number> -Location <location> -EnableAutomaticUpgrade $true
+```
+# [Linux](#tab/PowerShellLinux)
+```powershell
+Set-AzVMExtension -ExtensionName AMALinux -ResourceGroupName <resource-group-name> -VMName <virtual-machine-name> -Publisher Microsoft.Azure.Monitor -ExtensionType AzureMonitorLinuxAgent -TypeHandlerVersion <version-number> -Location <location> -EnableAutomaticUpgrade $true
+```
+--- 
+   
 
 ### Install on Azure Arc-enabled servers
 Use the following PowerShell commands to install the Azure Monitor agent on Azure Arc-enabled servers.
@@ -192,7 +204,18 @@ az vm extension delete --resource-group <resource-group-name> --vm-name <virtual
 ---
 
 ### Update on Azure virtual machines
-To perform a **one time update** of the agent, you must first uninstall the existing agent version and then install the new version as described above. 
+To perform a **one time update** of the agent, you must first uninstall the existing agent version and then install the new version as described above.  
+The **recommendation** is to enable automatic update of the agent by enabling the [Automatic Extension Upgrade](../../virtual-machines/automatic-extension-upgrade.md) feature, using the following CLI commands.
+# [Windows](#tab/CLIWindows)
+```azurecli
+az vm extension set -name AzureMonitorWindowsAgent --publisher Microsoft.Azure.Monitor --vm-name <virtual-machine-name> --resource-group <resource-group-name> --enable-auto-upgrade true
+```
+# [Linux](#tab/CLILinux)
+```azurecli
+az vm extension set -name AzureMonitorLinuxAgent --publisher Microsoft.Azure.Monitor --vm-name <virtual-machine-name> --resource-group <resource-group-name> --enable-auto-upgrade true
+```
+---
+
 
 ### Install on Azure Arc-enabled servers
 Use the following CLI commands to install the Azure Monitor agent onAzure Azure Arc-enabled servers.
