@@ -571,6 +571,8 @@ To run your app on Linux, you must also set property `"reserved": true` for the 
 
 For function app on a Dedicated plan, you will need to set the `serverFarmId` property on the app so that it points to the resource ID of the plan. You should ensure that the function app has a `dependsOn` setting for the plan as well.
 
+On App Service plan, you should enable the `"alwaysOn": true` setting under site config so that your function app runs correctly. On an App Service plan, the functions runtime goes idle after a few minutes of inactivity, so only HTTP triggers will "wake up" your functions.
+
 The [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](functions-app-settings.md#website_contentazurefileconnectionstring) and [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare) settings aren't supported on Dedicated plan.
 
 For a sample Azure Resource Manager template, see [Azure Function App Hosted on Dedicated Plan](https://github.com/Azure-Samples/function-app-arm-templates/tree/main/function-app-dedicated-plan).
@@ -594,6 +596,7 @@ The settings required by a function app running in Dedicated plan differ between
   "properties": {
     "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
     "siteConfig": {
+      "alwaysOn": true,
       "appSettings": [
         {
           "name": "APPINSIGHTS_INSTRUMENTATIONKEY",
@@ -641,6 +644,7 @@ The function app must have set `"kind": "functionapp,linux"`, and it must have s
     "reserved": true,
     "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
     "siteConfig": {
+      "alwaysOn": true,
       "linuxFxVersion": "node|14",
       "appSettings": [
         {
