@@ -22,7 +22,7 @@ ms.custom: aaddev, identityplatformtop40, "scenarios:getting-started", "language
 > [!Note]
 > Welcome! This probably isn't the page you were expecting. We're currently working on a fix, but for now, please use the link below - it should take you to the right article:
 > 
-> [Node.js - Passport web app quickstart](web-app-quickstart?pivots=devlang-nodejs-passport)
+> [Node.js - Passport web app quickstart](web-app-quickstart.md?pivots=devlang-nodejs-passport)
 > 
 > We apologize for the inconvenience and appreciate your patience while we work to get this resolved.
 

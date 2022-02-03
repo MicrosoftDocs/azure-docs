@@ -22,7 +22,7 @@ ms.custom: aaddev, devx-track-python, "scenarios:getting-started", "languages:Py
 > [!Note]
 > Welcome! This probably isn't the page you were expecting. We're currently working on a fix, but for now, please use the link below - it should take you to the right article:
 > 
-> [Python web app quickstart](web-app-quickstart?pivots=devlang-python)
+> [Python web app quickstart](web-app-quickstart.md?pivots=devlang-python)
 > 
 > We apologize for the inconvenience and appreciate your patience while we work to get this resolved.
 

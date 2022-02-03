@@ -22,7 +22,7 @@ ms.custom: devx-track-csharp, aaddev, identityplatformtop40, "scenarios:getting-
 > [!Note]
 > Welcome! This probably isn't the page you were expecting. We're currently working on a fix, but for now, please use the link below - it should take you to the right article:
 > 
-> [ASP.NET web app quickstart](web-app-quickstart?pivots=devlang-aspnet)
+> [ASP.NET web app quickstart](web-app-quickstart.md?pivots=devlang-aspnet)
 > 
 > We apologize for the inconvenience and appreciate your patience while we work to get this resolved.
 

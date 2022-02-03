@@ -20,7 +20,7 @@ ms.custom: aaddev, "scenarios:getting-started", "languages:Java", devx-track-jav
 > [!Note]
 > Welcome! This probably isn't the page you were expecting. We're currently working on a fix, but for now, please use the link below - it should take you to the right article:
 > 
-> [Java web app quickstart](web-app-quickstart?pivots=devlang-java)
+> [Java web app quickstart](web-app-quickstart.md?pivots=devlang-java)
 > 
 > We apologize for the inconvenience and appreciate your patience while we work to get this resolved.
 
