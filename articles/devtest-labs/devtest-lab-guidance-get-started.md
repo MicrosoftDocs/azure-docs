@@ -2,19 +2,19 @@
 title: Popular scenarios for using Azure DevTest Labs
 description: This article describes primary Azure DevTest Labs scenarios, and how an organization can begin exploring DevTest Labs.
 ms.topic: conceptual
-ms.date: 01/31/2022
+ms.date: 02/03/2022
 ms.reviewer: christianreddington,anthdela,juselph
 ---
 
 # Azure DevTest Labs scenarios
 
-You can configure Azure DevTest Labs for many different scenarios. This article discusses DevTest Labs features and deployment procedures for popular development, test, and training scenarios. Here are some common DevTest Labs scenarios:
+This article discusses how to use Azure DevTest Labs for several different development, test, and training scenarios. Here are some popular DevTest Labs scenarios:
 
 - Developers need many, sometimes different virtual machines (VMs) and environments as they iterate on apps.
 - Testers use many identical or different VMs and environments for performance testing and sandboxed investigations.
 - Teachers and trainers periodically need new classroom, lab, and hackathon VMs and environments.
 
-The following sections describe how DevTest Labs supports these scenarios while helping lab owners and administrators control lab costs and access.
+The following sections describe DevTest Labs supports these scenarios, while helping lab owners and administrators control lab access and costs.
 
 ## Lab creation
 
@@ -32,7 +32,7 @@ You can automate lab creation, including custom settings, by using a reusable *A
 
 ## Development and test VMs
 
-Developers and testers might need many identical machines, or different machines for different projects and tasks. DevTest Labs users can create, configure, and access virtual machines (VMs) on demand to meet their needs. Common development and test VM images ensure consistency across teams.
+Developers and testers might need many identical machines, or different machines for different projects and tasks. DevTest Labs users can create, configure, and access VMs on demand to meet their needs. Common development and test VM images ensure consistency across teams.
 
 In DevTest Labs, developers and testers can:
 
@@ -43,11 +43,11 @@ In DevTest Labs, developers and testers can:
 
 ### Create VMs
 
-Lab users can create lab VMs in minutes by choosing from a wide variety of ready-made Azure Marketplace images. To learn about making selected Markeplace images available for lab users, see [Configure Azure Marketplace images](devtest-lab-configure-marketplace-images.md).
+Lab users can create lab VMs in minutes by choosing from a wide variety of ready-made Azure Marketplace images. To learn about making selected Marketplace images available for lab users, see [Configure Azure Marketplace images](devtest-lab-configure-marketplace-images.md).
 
 Lab owners can also install all needed software on a VM, save the VM as a *custom image*, and make the image available to lab users for creating VMs. For more information, see [Create a custom image](devtest-lab-create-custom-image-from-vm-using-portal.md).
 
-You can use an *image factory* to automatically build and distribute custom images on a regular basis. This configuration-as-code solution eliminates the need to manually maintain the images by keeping the base OS and components up to date. For more information, see [Create a custom image factory in Azure DevTest Labs](image-factory-create.md).
+You can use an *image factory* to automatically build and distribute custom images on a regular basis. This configuration-as-code solution eliminates the need to manually maintain VM images, by keeping the base OS and components up to date. For more information, see [Create a custom image factory](image-factory-create.md).
 
 ### Use reusable formulas for VMs
 
@@ -61,7 +61,7 @@ Lab users can add *artifacts* to configure their lab VMs. Artifacts can be:
 - Actions to run on the VM, like cloning a repo.
 - Applications to test.
 
-Many artifacts are available out-of-the-box. If you need more customization, you can create *custom artifacts*. You store the artifacts in a private Git repo you connect to your lab, so all lab users can add the artifacts to VMs. For more information, see [Create custom artifacts for DevTest Labs](devtest-lab-artifact-author.md) and [Add an artifact repository to a lab](add-artifact-repository.md).
+Many artifacts are available out-of-the-box. If you need more customization, you can create *custom artifacts*. You store the artifacts in a private Git repo you connect to your lab, so all lab users can add the artifacts to their VMs. For more information, see [Create custom artifacts for DevTest Labs](devtest-lab-artifact-author.md) and [Add an artifact repository to a lab](add-artifact-repository.md).
 
 ## Multi-VM environments
 
@@ -79,50 +79,48 @@ For more information, see [Use ARM templates to create DevTest Labs environments
 
 ## Classroom, training, and hackathon labs
 
-DevTest Labs is perfect for transient activities like workshops, hands-on labs, training, or hackathons. In this scenario:
+DevTest Labs is well-suited for transient activities like workshops, hands-on labs, training, or hackathons. In these scenarios:
 
 - Training leaders or lab owners can use custom templates to create identical, isolated VMs or environments.
-- Trainees can [access the lab by using a URL](/azure/devtest-labs/devtest-lab-faq#how-do-i-share-a-direct-link-to-my-lab).
+- Trainees can [access the lab by using a URL](./devtest-lab-faq.yml#how-do-i-share-a-direct-link-to-my-lab-).
 - Trainees can claim already-created, preconfigured machines with a single action.
-- Lab owners can control lab costs and lifespan by configuring policies, setting VM expiration dates, and deleting VMs or labs.
+- Lab owners can control lab costs and lifespan by configuring policies, setting VM expiration dates, and deleting VMs and labs when the activity finishes.
 
 ## Lab policies and administration
 
-Lab owners and administrators can:
-- Use configuration and policies to manage labs.
-- Link labs to public and private artifact and template repositories.
-- Connect labs to Azure DevOps to enable DevOps scenarios.
+To support DevTest Labs scenarios, lab owners and administrators can:
 
-For more information, see [Define lab policies](devtest-lab-set-lab-policy.md).
+- Use [configuration and policies](devtest-lab-set-lab-policy.md) to manage labs.
+- Link labs to public and private artifact and template repositories.
+- [Integrate with Azure DevOps](devtest-lab-dev-ops.md) to enable DevOps scenarios.
 
 ### Add a virtual network to a lab
 
-DevTest Labs creates each lab in a new virtual network. You can add another virtual network configured by using Azure ExpressRoute or site-to-site VPN to your lab. That virtual network is then available for creating lab VMs. For more information, see [Configure a virtual network in Azure DevTest Labs](devtest-lab-configure-vnet.md). 
+DevTest Labs creates each lab in a new virtual network. If you have another virtual network configured with Azure ExpressRoute or site-to-site VPN, you can add it to your lab. That virtual network is then available for creating lab VMs. For more information, see [Configure a virtual network in Azure DevTest Labs](devtest-lab-configure-vnet.md). 
 
 You can also add an Active Directory domain join artifact to join VMs to an Active Directory domain at creation. This artifact applies only to domains.
 
 ### Add users to labs
 
-
-Owners can add users to a lab by using the Azure portal or a PowerShell script. For more information, see [Add lab owners, contributors, and users in Azure DevTest Labs](devtest-lab-add-devtest-user.md). Lab users don't need an Azure account, as long as they have a [Microsoft account](./devtest-lab-faq.yml).
+Owners can add users to labs by using the Azure portal or a PowerShell script. For more information, see [Add lab owners, contributors, and users in Azure DevTest Labs](devtest-lab-add-devtest-user.md). Lab users don't need an Azure account, as long as they have a Microsoft account.
 
 Lab users can access the lab by using a link. For more information about how to get and share the link to the lab, see [Get a link to the lab](./devtest-lab-faq.yml#how-do-i-share-a-direct-link-to-my-lab-).
 
-Lab users can't see VMs that other users create.
+A lab user can view all lab resources, such as VMs, policies, and virtual networks. However, a lab user can't modify policies, or access VMs that other users create.
 
 ### Give users Contributor rights to resources
 
 By default, DevTest Labs creates environments in their own resource groups, and DevTest Labs users get only read access to those environments. With read-only access, users can't add or change resources in their environments. But developers often need to investigate different technologies or infrastructure designs.
 
-Lab owners can allow users more control by giving them contributor rights to the environments they create. Contributors can add or change Azure resources as necessary in their development or test environments. For more information, see [Configure environment user rights](devtest-lab-create-environment-from-arm#configure-environment-user-rights).
+Lab owners can allow users more control by giving them Contributor rights to the environments they create. Contributors can add or change Azure resources as necessary in their development or test environments. For more information, see [Configure environment user rights](devtest-lab-create-environment-from-arm.md#configure-environment-user-rights).
 
 ### Configure policies to control costs
 
 To monitor and control costs, lab administrators and owners can:
 
-- Set policies to [limit the number of VMs per user](devtest-lab-set-lab-policy.md#set-virtual-machines-per-user).
+- [Limit the number of VMs each user can create or claim](devtest-lab-set-lab-policy.md#set-virtual-machines-per-user).
 - Configure [auto-shutdown](devtest-lab-set-lab-policy.md#set-auto-shutdown) and auto-start policies to stop and restart all VMs at particular times of day. VM auto-shutdown doesn't apply to PaaS resources in environments.
-- Allow only certain [VM instance sizes](devtest-lab-set-lab-policy.md#set-allowed-virtual-machine-sizes) in the lab.
+- Allow only certain [VM sizes](devtest-lab-set-lab-policy.md#set-allowed-virtual-machine-sizes) in the lab.
 - [Manage cost targets and notifications](devtest-lab-configure-cost-management.md) for the lab.
 - Use the [cost by resource](devtest-lab-configure-cost-management.md#view-cost-by-resource) page to track costs of environments.
 
@@ -130,13 +128,13 @@ To monitor and control costs, lab administrators and owners can:
 
 Lab owners can also manage costs by deleting labs and VMs when they're no longer needed.
 
-- Set [expiration dates](devtest-lab-add-vm.md#create-and-add-virtual-machines) on VMs.
-- [Delete labs](devtest-lab-delete-lab-vm.md#delete-a-lab) and all [related resources](/azure/devtest-labs/devtest-lab-faq#how-do-i-automate-the-process-of-deleting-all-the-vms-in-my-lab).
+- Set [expiration dates](devtest-lab-set-lab-policy.md#set-expiration-date) on VMs.
+- [Delete labs](devtest-lab-delete-lab-vm.md#delete-a-lab) and all related resources.
 - [Delete all lab VMs by running a single PowerShell script](./devtest-lab-faq.yml#how-do-i-automate-the-process-of-deleting-all-the-vms-in-my-lab-).
 
 ## Proof of concept and scaled deployments
 
-To start exploring DevTest Labs, organizations can use proof of concept and scaled deployments.
+To start exploring DevTest Labs, organizations can use [proof of concept](deliver-proof-concept.md) and [scaled deployments](devtest-lab-guidance-scale.md).
 
 - Proof of concept uses a concentrated effort from a single team to establish organizational value.
 - A scaled deployment uses weeks or months of reviewing and planning to deploy DevTest Labs to an enterprise with hundreds or thousands of developers.
@@ -155,4 +153,4 @@ For a successful proof of concept:
 - [DevTest Labs concepts](devtest-lab-concepts.md)
 - [DevTest Labs FAQ](devtest-lab-faq.yml)
 
-[!INCLUDE devtest-lab-try-it-out]
+[!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]

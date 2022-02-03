@@ -16270,7 +16270,7 @@
     {
       "source_path_from_root": "/articles/lab-services/devtest-lab-developer-lab.md",
       "redirect_url": "/azure/devtest-labs/devtest-lab-guidance-get-started",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/devtest-labs/devtest-lab-developer-lab.md",
@@ -16410,12 +16410,12 @@
     {
       "source_path_from_root": "/articles/lab-services/devtest-lab-test-env.md",
       "redirect_url": "/azure/devtest-labs/devtest-lab-guidance-get-started",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/lab-services/devtest-lab-training-lab.md",
       "redirect_url": "/azure/devtest-labs/devtest-lab-guidance-get-started",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/devtest-labs/devtest-lab-test-env.md",
