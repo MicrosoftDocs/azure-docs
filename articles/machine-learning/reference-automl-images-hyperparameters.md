@@ -25,11 +25,12 @@ This table summarizes hyperparameters specific to the `yolov5` algorithm.
 | Parameter name       | Description           | Default  |
 | ------------- |-------------|----|
 | `validation_metric_type` | Metric computation method to use for validation metrics.  <br> Must be `none`, `coco`, `voc`, or `coco_voc`. | `voc` |
+| `validation_iou_threshold` | IOU threshold for box matching when computing validation metrics.  <br>Must be a float in the range [0.1, 1]. | 0.5 |
 | `img_size` | Image size for train and validation. <br> Must be a positive integer. <br> <br> *Note: training run may get into CUDA OOM if the size is too big*. | 640 |
 | `model_size` | Model size. <br> Must be `small`, `medium`, `large`, or `xlarge`. <br><br> *Note: training run may get into CUDA OOM if the model size is too big*.  | `medium` |
 | `multi_scale` | Enable multi-scale image by varying image size by +/- 50% <br> Must be 0 or 1. <br> <br> *Note: training run may get into CUDA OOM if no sufficient GPU memory*. | 0 |
 | `box_score_thresh` | During inference, only return proposals with a score greater than `box_score_thresh`. The score is the multiplication of the objectness score and classification probability. <br> Must be a float in the range [0, 1]. | 0.1 |
-| `box_iou_thresh` | IoU threshold used during inference in non-maximum suppression post processing. <br> Must be a float in the range [0, 1]. | 0.5 |
+| `nms_iou_thresh` | IoU threshold used during inference in non-maximum suppression post processing. <br> Must be a float in the range [0, 1]. | 0.5 |
 
 
 ## Model agnostic hyperparameters
@@ -87,6 +88,7 @@ The following hyperparameters are for object detection and instance segmentation
 | Parameter name       | Description           | Default  |
 | ------------- |-------------|-----|
 | `validation_metric_type` | Metric computation method to use for validation metrics.  <br> Must be `none`, `coco`, `voc`, or `coco_voc`. | `voc` |
+| `validation_iou_threshold` | IOU threshold for box matching when computing validation metrics.  <br>Must be a float in the range [0.1, 1]. | 0.5 |
 | `min_size` | Minimum size of the image to be rescaled before feeding it to the backbone. <br> Must be a positive integer. <br> <br> *Note: training run may get into CUDA OOM if the size is too big*.| 600 |
 | `max_size` | Maximum size of the image to be rescaled before feeding it to the backbone. <br> Must be a positive integer.<br> <br> *Note: training run may get into CUDA OOM if the size is too big*. | 1333 |
 | `box_score_thresh` | During inference, only return proposals with a classification score greater than `box_score_thresh`. <br> Must be a float in the range [0, 1].| 0.3 |
