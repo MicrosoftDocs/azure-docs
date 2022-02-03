@@ -7,4 +7,4 @@ ms.topic: include
 ms.author: eur
 ---
 
-The Speech command line interface (CLI) does support intent recognition, but we haven't yet added it to this guide. Please select another programming language to learn about the concepts, or see [Speech CLI overview](../../../spx-overview.md) for more about the CLI. 
+The Speech command line interface (CLI) does support intent recognition, but we haven't yet included a guide here. Please select another programming language to learn about the concepts, or see [Speech CLI overview](../../../spx-overview.md) for more about the CLI. 
