@@ -253,18 +253,18 @@ rmdir /S /Q C:\\myapp
 
 During the preview, the VM application extension always returns a success regardless of whether any VM app failed while being installed/updated/removed. The VM Application extension will only report the extension status as failure when there is a problem with the extension or the underlying infrastructure. To know whether a particular VM application was successfully added to the VM instance, please check the message of the VMApplication extension.
 
-To learn more about getting the status of VM extensions, see [Virtual machine extensions and features for Windows](extensions/features-windows.md#view-extension-status).
+To learn more about getting the status of VM extensions, see [Virtual machine extensions and features for Linux](extensions/features-linux.md#view-extension-status) and [Virtual machine extensions and features for Windows](extensions/features-windows.md#view-extension-status).
 
 To get status of VM extensions, use [Get-AzVM](/powershell/module/az.compute/get-azvm):
 
 ```azurepowershell-interactive
-Get-AzVM -name <VMSS name> -ResourceGroupName <resource group name> -InstanceView | convertto-json  
+Get-AzVM -name <VM name> -ResourceGroupName <resource group name> -Status | convertto-json -Depth 10    
 ```
 
 To get status of VMSS extensions, use [Get-AzVMSS](/powershell/module/az.compute/get-azvmss):
 
 ```azurepowershell-interactive
-Get-AzVmss -name <VMSS name> -ResourceGroupName <resource group name> -InstanceView | convertto-json  
+Get-AzVmss -name <VMSS name> -ResourceGroupName <resource group name> -Status | convertto-json -Depth 10  
 ```
 
 ## Error messages

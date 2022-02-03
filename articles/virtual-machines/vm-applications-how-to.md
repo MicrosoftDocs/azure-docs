@@ -140,6 +140,7 @@ $applicationName = myApp
 New-AzGalleryApplication `
   -ResourceGroupName $rgName `
   -GalleryName $galleryName `
+  -Location "East US" `
   -Name $applicationName `
   -SupportedOSType Linux `
   -Description "Backend Linux application for finance."
@@ -166,20 +167,24 @@ New-AzGalleryApplicationVersion `
 To add the application to an existing VM, get the application version and use that to get the VM application version ID. Use the ID to add the application to the VM configuration.
 
 ```azurepowershell-interactive
-$vm = Get-AzVM -ResourceGroupName $rgname -Name myVM
-$vmapp = Get-AzGalleryApplicationVersion `
-   -ResourceGroupName $rgname `
-   -GalleryName $galleryname `
-   -ApplicationName $applicationname `
-   -Version $version
-
-$vm = Add-AzVmGalleryApplication `
-   -VM $vm `
-   -Id $vmapp.Id
-
-Update-AzVm -ResourceGroupName $rgname -VM $vm
+$vmname = "myVM"
+$vm = Get-AzVM -ResourceGroupName $rgname -Name $vmname
+$appversion = Get-AzGalleryApplicationVersion `
+   -GalleryApplicationName `
+   $applicationname -GalleryName `
+   $galleryname -Name $version `
+   -ResourceGroupName $rgname
+$packageid = $appversion.Id
+$app = New-AzVmGalleryApplication -PackageReferenceId $packageid
+Add-AzVmGalleryApplication -VM $vmname -GalleryApplication $app
+Update-AzVM -ResourceGroupName $rgname -VM $vmname
 ```
+ 
+Verify the application succeeded:
 
+```powershell-interactive
+Get-AzVM -ResourceGroupName $rgname -VMName $vmname -Status
+```
 
 ### [REST](#tab/rest2)
 
