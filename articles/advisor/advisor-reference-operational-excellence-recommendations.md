@@ -34,7 +34,7 @@ Learn more about [Api Management - HostnameCertRotationFail (Hostname certificat
 
 SSL/TLS renegotiation attempt blocked. Renegotiation happens when a client certificate is requested over an already established connection. When it is blocked, reading 'context.Request.Certificate' in policy expressions will return 'null'. To support client certificate authentication scenarios, enable 'Negotiate client certificate' on listed hostnames. For browser-based clients, enabling this option might result in a certificate prompt being presented to the client.
 
-Learn more about [Api Management - TlsRenegotiationBlocked (SSL/TLS renegotiation blocked)](https://docs.microsoft.com/azure/api-management/api-management-howto-mutual-certificates-for-clients).
+Learn more about [Api Management - TlsRenegotiationBlocked (SSL/TLS renegotiation blocked)](/azure/api-management/api-management-howto-mutual-certificates-for-clients).
 
 ## Cache
 
@@ -50,7 +50,7 @@ Learn more about [Redis Cache Server - RedisCacheMemoryFragmentation (Availabili
 
 Enable backups for your virtual machines and secure your data
 
-Learn more about [Virtual machine (classic) - EnableBackup (Enable Backups on your Virtual Machines)](https://docs.microsoft.com/azure/backup/backup-overview).
+Learn more about [Virtual machine (classic) - EnableBackup (Enable Backups on your Virtual Machines)](/azure/backup/backup-overview).
 
 ## Compute
 
@@ -112,7 +112,7 @@ Learn more about [Virtual machine - CheckPointPlatformServicingKnownIssueA (Chec
 
 In order for a session host to deploy and register to WVD properly, you need to add a set of URLs to allowed list in case your virtual machine runs in restricted environment. After visiting "Learn More" link, you will be able to see the minimum list of URLs you need to unblock to have a successful deployment and functional session host. For specific URL(s) missing from allowed list, you may also search Application event log for event 3702.
 
-Learn more about [Virtual machine - SessionHostNeedsAssistanceForUrlCheck (Access to mandatory URLs missing for your Windows Virtual Desktop environment)](https://docs.microsoft.com/azure/virtual-desktop/safe-url-list).
+Learn more about [Virtual machine - SessionHostNeedsAssistanceForUrlCheck (Access to mandatory URLs missing for your Windows Virtual Desktop environment)](/azure/virtual-desktop/safe-url-list).
 
 ## ContainerService
 
@@ -150,7 +150,7 @@ Learn more about [IoT hub - UpgradeDeviceClientSdk (Upgrade device client SDK to
 
 We noticed that your Azure Cosmos container is configured with the Lazy indexing mode, which may impact the freshness of query results. We recommend switching to Consistent mode.
 
-Learn more about [Cosmos DB account - CosmosDBLazyIndexing (Configure Consistent indexing mode on your Azure Cosmos container)](https://docs.microsoft.com/azure/cosmos-db/how-to-manage-indexing-policy).
+Learn more about [Cosmos DB account - CosmosDBLazyIndexing (Configure Consistent indexing mode on your Azure Cosmos container)](/azure/cosmos-db/how-to-manage-indexing-policy).
 
 ### Configure your Azure Cosmos DB containers with a partition key
 
@@ -162,13 +162,13 @@ Learn more about [Cosmos DB account - CosmosDbPartitionedCollections (Configure 
 
 Your Azure Cosmos DB account is using an old version of the Java SDK. We recommend upgrading to the latest version from Maven for latest fixes, performance improvements, and new feature capabilities.
 
-Learn more about [Cosmos DB account - CosmosDbUpgradeJavaSdk (Upgrade your Azure Cosmos DB Java SDK to the latest version from Maven)](https://docs.microsoft.com/azure/cosmos-db/sql-api-sdk-java-v4).
+Learn more about [Cosmos DB account - CosmosDbUpgradeJavaSdk (Upgrade your Azure Cosmos DB Java SDK to the latest version from Maven)](/azure/cosmos-db/sql-api-sdk-java-v4).
 
 ### Upgrade your Azure Cosmos DB .NET SDK to the latest version from Nuget
 
 Your Azure Cosmos DB account is using an old version of the .NET SDK. We recommend upgrading to the latest version from Nuget for latest fixes, performance improvements, and new feature capabilities.
 
-Learn more about [Cosmos DB account - CosmosDbUpgradeDotNetSdk (Upgrade your Azure Cosmos DB .NET SDK to the latest version from Nuget)](https://docs.microsoft.com/azure/cosmos-db/sql-api-sdk-dotnet-standard).
+Learn more about [Cosmos DB account - CosmosDbUpgradeDotNetSdk (Upgrade your Azure Cosmos DB .NET SDK to the latest version from Nuget)](/azure/cosmos-db/sql-api-sdk-dotnet-standard).
 
 ### Upgrade your Azure Cosmos DB Spark Connector to the latest version from Maven
 
@@ -180,85 +180,85 @@ Learn more about [Cosmos DB account - CosmosDbUpgradeSparkConnector (Upgrade you
 
 Your Azure Cosmos DB account is using an old version of the Node.js SDK. We recommend upgrading to the latest version from npm for latest fixes, performance improvements, and new feature capabilities.
 
-Learn more about [Cosmos DB account - CosmosDbUpgradeNodeJsSdk (Upgrade your Azure Cosmos DB Node.js SDK to the latest version from npm)](https://docs.microsoft.com/azure/cosmos-db/sql-api-sdk-node).
+Learn more about [Cosmos DB account - CosmosDbUpgradeNodeJsSdk (Upgrade your Azure Cosmos DB Node.js SDK to the latest version from npm)](/azure/cosmos-db/sql-api-sdk-node).
 
 ### Upgrade your Azure Cosmos DB Python SDK to the latest version from PyPI
 
 Your Azure Cosmos DB account is using an old version of the Python SDK. We recommend upgrading to the latest version from PyPI for latest fixes, performance improvements, and new feature capabilities.
 
-Learn more about [Cosmos DB account - CosmosDbUpgradePythonSdk (Upgrade your Azure Cosmos DB Python SDK to the latest version from PyPI)](https://docs.microsoft.com/azure/cosmos-db/sql-api-sdk-python).
+Learn more about [Cosmos DB account - CosmosDbUpgradePythonSdk (Upgrade your Azure Cosmos DB Python SDK to the latest version from PyPI)](/azure/cosmos-db/sql-api-sdk-python).
 
 ### Upgrade your old Azure Cosmos DB SDK to the latest version
 
 Your Azure Cosmos DB account is using an old version of the SDK. We recommend upgrading to the latest version for the latest fixes, performance improvements, and new feature capabilities.
 
-Learn more about [Cosmos DB account - CosmosDBUpgradeOldSDK (Upgrade your old Azure Cosmos DB SDK to the latest version)](https://docs.microsoft.com/azure/cosmos-db/).
+Learn more about [Cosmos DB account - CosmosDBUpgradeOldSDK (Upgrade your old Azure Cosmos DB SDK to the latest version)](/azure/cosmos-db/).
 
 ### Upgrade your outdated Azure Cosmos DB SDK to the latest version
 
 Your Azure Cosmos DB account is using an outdated version of the SDK. We recommend upgrading to the latest version for the latest fixes, performance improvements, and new feature capabilities.
 
-Learn more about [Cosmos DB account - CosmosDBUpgradeOutdatedSDK (Upgrade your outdated Azure Cosmos DB SDK to the latest version)](https://docs.microsoft.com/azure/cosmos-db/).
+Learn more about [Cosmos DB account - CosmosDBUpgradeOutdatedSDK (Upgrade your outdated Azure Cosmos DB SDK to the latest version)](/azure/cosmos-db/).
 
 ### Configure your Azure Cosmos DB containers with a partition key
 
 Your Azure Cosmos DB non-partitioned collections are approaching their provisioned storage quota. Please migrate these collections to new collections with a partition key definition so that they can automatically be scaled out by the service.
 
-Learn more about [Cosmos DB account - CosmosDBFixedCollections (Configure your Azure Cosmos DB containers with a partition key)](https://docs.microsoft.com/azure/cosmos-db/partitioning-overview#choose-partitionkey).
+Learn more about [Cosmos DB account - CosmosDBFixedCollections (Configure your Azure Cosmos DB containers with a partition key)](/azure/cosmos-db/partitioning-overview#choose-partitionkey).
 
 ### Upgrade your Azure Cosmos DB API for MongoDB account to v4.0 to save on query/storage costs and utilize new features
 
 Your Azure Cosmos DB API for MongoDB account is eligible to upgrade to version 4.0. Upgrading to v4.0 can reduce your storage costs by up to 55% and your query costs by up to 45% by leveraging a new storage format. Numerous additional features such as multi-document transactions are also included in v4.0.
 
-Learn more about [Cosmos DB account - CosmosDBMongoSelfServeUpgrade (Upgrade your Azure Cosmos DB API for MongoDB account to v4.0 to save on query/storage costs and utilize new features)](https://docs.microsoft.com/azure/cosmos-db/mongodb-version-upgrade).
+Learn more about [Cosmos DB account - CosmosDBMongoSelfServeUpgrade (Upgrade your Azure Cosmos DB API for MongoDB account to v4.0 to save on query/storage costs and utilize new features)](/azure/cosmos-db/mongodb-version-upgrade).
 
 ### Add a second region to your production workloads on Azure Cosmos DB
 
 Based on their names and configuration, we have detected the Azure Cosmos DB accounts below as being potentially used for production workloads. These accounts currently run in a single Azure region. You can increase their availability by configuring them to span at least two Azure regions. NOTE: Additional regions will incur extra costs.
 
-Learn more about [Cosmos DB account - CosmosDBSingleRegionProdAccounts (Add a second region to your production workloads on Azure Cosmos DB)](https://docs.microsoft.com/azure/cosmos-db/high-availability).
+Learn more about [Cosmos DB account - CosmosDBSingleRegionProdAccounts (Add a second region to your production workloads on Azure Cosmos DB)](/azure/cosmos-db/high-availability).
 
 ### Enable Server Side Retry (SSR) on your Azure Cosmos DB's API for MongoDB account
 
 We observed your account is throwing a TooManyRequests error with the 16500 error code. Enabling Server Side Retry (SSR) can help mitigate this issue for you.
 
-Learn more about [Cosmos DB account - CosmosDBMongoServerSideRetries (Enable Server Side Retry (SSR) on your Azure Cosmos DB's API for MongoDB account)](https://docs.microsoft.com/azure/cosmos-db/prevent-rate-limiting-errors).
+Learn more about [Cosmos DB account - CosmosDBMongoServerSideRetries (Enable Server Side Retry (SSR) on your Azure Cosmos DB's API for MongoDB account)](/azure/cosmos-db/prevent-rate-limiting-errors).
 
 ### Migrate your Azure Cosmos DB API for MongoDB account to v4.0 to save on query/storage costs and utilize new features
 
 Migrate your database account to a new database account to take advantage of Azure Cosmos DB's API for MongoDB v4.0. Upgrading to v4.0 can reduce your storage costs by up to 55% and your query costs by up to 45% by leveraging a new storage format. Numerous additional features such as multi-document transactions are also included in v4.0. When upgrading, you must also migrate the data in your existing account to a new account created using version 4.0. Azure Data Factory or Studio 3T can assist you in migrating your data.
 
-Learn more about [Cosmos DB account - CosmosDBMongoMigrationUpgrade (Migrate your Azure Cosmos DB API for MongoDB account to v4.0 to save on query/storage costs and utilize new features)](https://docs.microsoft.com/azure/cosmos-db/mongodb-feature-support-40).
+Learn more about [Cosmos DB account - CosmosDBMongoMigrationUpgrade (Migrate your Azure Cosmos DB API for MongoDB account to v4.0 to save on query/storage costs and utilize new features)](/azure/cosmos-db/mongodb-feature-support-40).
 
 ### Your Cosmos DB account is unable to access its linked Azure Key Vault hosting your encryption key
 
 It appears that your key vault's configuration is preventing your Cosmos DB account from contacting the key vault to access your managed encryption keys. If you've recently performed a key rotation, make sure that the previous key or key version remains enabled and available until Cosmos DB has completed the rotation. The previous key or key version can be disabled after 24 hours, or after the Azure Key Vault audit logs don't show activity from Azure Cosmos DB on that key or key version anymore.
 
-Learn more about [Cosmos DB account - CosmosDBKeyVaultWrap (Your Cosmos DB account is unable to access its linked Azure Key Vault hosting your encryption key)](https://docs.microsoft.com/azure/cosmos-db/how-to-setup-cmk).
+Learn more about [Cosmos DB account - CosmosDBKeyVaultWrap (Your Cosmos DB account is unable to access its linked Azure Key Vault hosting your encryption key)](/azure/cosmos-db/how-to-setup-cmk).
 
 ### Avoid being rate limited from metadata operations
 
 We found a high number of metadata operations on your account. Your data in Cosmos DB, including metadata about your databases and collections is distributed across partitions. Metadata operations have a system-reserved request unit (RU) limit. Avoid being rate limited from metadata operations by using static Cosmos DB client instances in your code and caching the names of databases and collections.
 
-Learn more about [Cosmos DB account - CosmosDBHighMetadataOperations (Avoid being rate limited from metadata operations)](https://docs.microsoft.com/azure/cosmos-db/performance-tips).
+Learn more about [Cosmos DB account - CosmosDBHighMetadataOperations (Avoid being rate limited from metadata operations)](/azure/cosmos-db/performance-tips).
 
 ### Use the new 3.6+ endpoint to connect to your upgraded Azure Cosmos DB's API for MongoDB account
 
 We observed some of your applications are connecting to your upgraded Azure Cosmos DB's API for MongoDB account using the legacy 3.2 endpoint - [accountname].documents.azure.com. Use the new endpoint - [accountname].mongo.cosmos.azure.com (or its equivalent in sovereign, government, or restricted clouds).
 
-Learn more about [Cosmos DB account - CosmosDBMongoNudge36AwayFrom32 (Use the new 3.6+ endpoint to connect to your upgraded Azure Cosmos DB's API for MongoDB account)](https://docs.microsoft.com/azure/cosmos-db/mongodb-feature-support-40).
+Learn more about [Cosmos DB account - CosmosDBMongoNudge36AwayFrom32 (Use the new 3.6+ endpoint to connect to your upgraded Azure Cosmos DB's API for MongoDB account)](/azure/cosmos-db/mongodb-feature-support-40).
 
 ### Upgrade to 2.6.14 version of the Async Java SDK v2 to avoid a critical issue or upgrade to Java SDK v4 as Async Java SDK v2 is being deprecated
 
-There is a critical bug in version 2.6.13 and lower of the Azure Cosmos DB Async Java SDK v2 causing errors when a Global logical sequence number (LSN) greater than the Max Integer value is reached. This happens transparent to you by the service after a large volume of transactions occur in the lifetime of an Azure Cosmos DB container. Note: This is a critical hotfix for the Async Java SDK v2, however it is still highly recommended you migrate to the [Java SDK v4](https://docs.microsoft.com/azure/cosmos-db/sql/sql-api-sdk-java-v4).
+There is a critical bug in version 2.6.13 and lower of the Azure Cosmos DB Async Java SDK v2 causing errors when a Global logical sequence number (LSN) greater than the Max Integer value is reached. This happens transparent to you by the service after a large volume of transactions occur in the lifetime of an Azure Cosmos DB container. Note: This is a critical hotfix for the Async Java SDK v2, however it is still highly recommended you migrate to the [Java SDK v4](/azure/cosmos-db/sql/sql-api-sdk-java-v4).
 
-Learn more about [Cosmos DB account - CosmosDBMaxGlobalLSNReachedV2 (Upgrade to 2.6.14 version of the Async Java SDK v2 to avoid a critical issue or upgrade to Java SDK v4 as Async Java SDK v2 is being deprecated)](https://docs.microsoft.com/azure/cosmos-db/sql/sql-api-sdk-async-java).
+Learn more about [Cosmos DB account - CosmosDBMaxGlobalLSNReachedV2 (Upgrade to 2.6.14 version of the Async Java SDK v2 to avoid a critical issue or upgrade to Java SDK v4 as Async Java SDK v2 is being deprecated)](/azure/cosmos-db/sql/sql-api-sdk-async-java).
 
 ### Upgrade to the current recommended version of the Java SDK v4 to avoid a critical issue
 
 There is a critical bug in version 4.15 and lower of the Azure Cosmos DB Java SDK v4 causing errors when a Global logical sequence number (LSN) greater than the Max Integer value is reached. This happens transparent to you by the service after a large volume of transactions occur in the lifetime of an Azure Cosmos DB container.
 
-Learn more about [Cosmos DB account - CosmosDBMaxGlobalLSNReachedV4 (Upgrade to the current recommended version of the Java SDK v4 to avoid a critical issue)](https://docs.microsoft.com/azure/cosmos-db/sql/sql-api-sdk-java-v4).
+Learn more about [Cosmos DB account - CosmosDBMaxGlobalLSNReachedV4 (Upgrade to the current recommended version of the Java SDK v4 to avoid a critical issue)](/azure/cosmos-db/sql/sql-api-sdk-java-v4).
 
 ## FLUIDRELAY
 
@@ -292,31 +292,31 @@ Learn more about [HDInsight cluster - SparkVersionRetirement (Deprecation of Old
 
 Starting from mid November 2020, you may have noticed HDInsight cluster VMs getting rebooted on a regular basis. This could be caused by: 1. Clamav is enabled on your cluster and it could consume large amount of memory. Under certain conditions this could trigger node reboot. 2. Microsoft is updating Azure services in a phased manner to use TLS certificates from a different set of Certificate Authorities (CAs). When a new CA certificate is available, HDInsight detects and adds the certificate to the JDK trust store and schedules a reboot in a staggered manner. HDInsight is deploying fixes and applying patch for all running clusters for both issues. To apply the fix immediately and avoid unexpected VMs rebooting, you can run below script actions on all cluster nodes as a persistent script action. HDInsight will post another notice after the fix and patching complete. See recommended actions below to download required scripts.
 
-Learn more about [HDInsight cluster - PreventVMReboot (Prevent HDInsight cluster VMs from rebooting periodically.)](https://docs.microsoft.com/azure/security/fundamentals/tls-certificate-changes).
+Learn more about [HDInsight cluster - PreventVMReboot (Prevent HDInsight cluster VMs from rebooting periodically.)](/azure/security/fundamentals/tls-certificate-changes).
 
 ### Enable critical updates to be applied to your HDInsight clusters
 
 HDInsight service is applying an important certificate related update to your cluster. However, one or more policies in your subscription are preventing HDInsight service from creating or modifying network resources (Load balancer, Network Interface and Public IP address) associated with your clusters and applying this update. Please take actions to allow HDInsight service to create or modify network resources (Load balancer, Network interface and Public IP address) associated with your clusters before Jan 13, 2021 05:00 PM UTC. The HDInsight team will be performing updates between Jan 13, 2021 05:00 PM UTC and Jan 16, 2021 05:00 PM UTC. Failure to apply this update may result in your clusters becoming unhealthy and unusable.
 
-Learn more about [HDInsight cluster - GCSCertRotation (Enable critical updates to be applied to your HDInsight clusters)](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters).
+Learn more about [HDInsight cluster - GCSCertRotation (Enable critical updates to be applied to your HDInsight clusters)](/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters).
 
 ### Drop and recreate your HDInsight clusters to apply critical updates
 
 The HDInsight service has attempted to apply a critical certificate update on all your running clusters. However, due to some custom configuration changes, we are unable to apply the certificate updates on some of your clusters.
 
-Learn more about [HDInsight cluster - GCSCertRotationRound2 (Drop and recreate your HDInsight clusters to apply critical updates)](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters).
+Learn more about [HDInsight cluster - GCSCertRotationRound2 (Drop and recreate your HDInsight clusters to apply critical updates)](/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters).
 
 ### Drop and recreate your HDInsight clusters to apply critical updates
 
 The HDInsight service has attempted to apply a critical certificate update on all your running clusters. However, due to some custom configuration changes, we are unable to apply the certificate updates on some of your clusters. Please drop and recreate your cluster before Jan 25th, 2021 to prevent the cluster from becoming unhealthy and unusable.
 
-Learn more about [HDInsight cluster - GCSCertRotationR3DropRecreate (Drop and recreate your HDInsight clusters to apply critical updates)](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters).
+Learn more about [HDInsight cluster - GCSCertRotationR3DropRecreate (Drop and recreate your HDInsight clusters to apply critical updates)](/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters).
 
 ### Apply critical updates to your HDInsight clusters
 
 The HDInsight service has attempted to apply a critical certificate update on all your running clusters. However, one or more policies in your subscription are preventing HDInsight service from creating or modifying network resources (Load balancer, Network Interface and Public IP address) associated with your clusters and applying this update. Please remove or update your policy assignment to allow HDInsight service to create or modify network resources (Load balancer, Network interface and Public IP address) associated with your clusters before Jan 21, 2021 05:00 PM UTC. The HDInsight team will be performing updates between Jan 21, 2021 05:00 PM UTC and Jan 23, 2021 05:00 PM UTC. To verify the policy update, you can try to create network resources (Load balancer, Network interface and Public IP address) in the same resource group and Subnet where your cluster is in. Failure to apply this update may result in your clusters becoming unhealthy and unusable. You can also drop and recreate your cluster before Jan 25th, 2021 to prevent the cluster from becoming unhealthy and unusable. The HDInsight service will send another notification if we failed to apply the update to your clusters.
 
-Learn more about [HDInsight cluster - GCSCertRotationR3PlanPatch (Apply critical updates to your HDInsight clusters)](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters).
+Learn more about [HDInsight cluster - GCSCertRotationR3PlanPatch (Apply critical updates to your HDInsight clusters)](/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters).
 
 ### Action required: Migrate your A8–A11 HDInsight cluster before 1 March 2021
 
@@ -330,7 +330,7 @@ Learn more about [HDInsight cluster - VMDeprecation (Action required: Migrate yo
 
 The Azure Connected Machine agent is updated regularly with bug fixes, stability enhancements, and new functionality. Upgrade your agent to the latest version for the best Azure Arc experience.
 
-Learn more about [Machine - Azure Arc - ArcServerAgentVersion (Upgrade to the latest version of the Azure Connected Machine agent)](https://docs.microsoft.com/azure/azure-arc/servers/manage-agent).
+Learn more about [Machine - Azure Arc - ArcServerAgentVersion (Upgrade to the latest version of the Azure Connected Machine agent)](/azure/azure-arc/servers/manage-agent).
 
 ## KUBERNETES
 
@@ -384,13 +384,13 @@ Learn more about [Traffic Manager profile - ProximityProfile (Add or move one en
 
 We have detected that your ExpressRoute gateway only has 1 ExpressRoute circuit associated to it. Connect 1 or more additional circuits to your gateway to ensure peering location redundancy and resiliency
 
-Learn more about [Virtual network gateway - ExpressRouteGatewayRedundancy (Implement multiple ExpressRoute circuits in your Virtual Network for cross premises resiliency)](https://docs.microsoft.com/azure/expressroute/designing-for-high-availability-with-expressroute).
+Learn more about [Virtual network gateway - ExpressRouteGatewayRedundancy (Implement multiple ExpressRoute circuits in your Virtual Network for cross premises resiliency)](/azure/expressroute/designing-for-high-availability-with-expressroute).
 
 ### Implement ExpressRoute Monitor on Network Performance Monitor for end-to-end monitoring of your ExpressRoute circuit
 
 We have detected that your ExpressRoute circuit is not currently being monitored by ExpressRoute Monitor on Network Performance Monitor. ExpressRoute monitor provides end-to-end monitoring capabilities including: Loss, latency, and performance from on-premises to Azure and Azure to on-premises
 
-Learn more about [ExpressRoute circuit - ExpressRouteGatewayE2EMonitoring (Implement ExpressRoute Monitor on Network Performance Monitor for end-to-end monitoring of your ExpressRoute circuit)](https://docs.microsoft.com/azure/expressroute/how-to-npm).
+Learn more about [ExpressRoute circuit - ExpressRouteGatewayE2EMonitoring (Implement ExpressRoute Monitor on Network Performance Monitor for end-to-end monitoring of your ExpressRoute circuit)](/azure/expressroute/how-to-npm).
 
 ### Avoid hostname override to ensure site integrity
 
@@ -402,7 +402,7 @@ Learn more about [Application gateway - AppGatewayHostOverride (Avoid hostname o
 
 You appear to have ExpressRoute circuits peered in at least two different locations. Connect them to each other using ExpressRoute Global Reach to allow traffic to continue flowing between your on-premises network and Azure environments in the event of one circuit losing connectivity. You can establish Global Reach connections between circuits in different peering locations within the same metro or across metros.
 
-Learn more about [ExpressRoute circuit - UseGlobalReachForDR (Use ExpressRoute Global Reach to improve your design for disaster recovery)](https://docs.microsoft.com/azure/expressroute/about-upgrade-circuit-bandwidth).
+Learn more about [ExpressRoute circuit - UseGlobalReachForDR (Use ExpressRoute Global Reach to improve your design for disaster recovery)](/azure/expressroute/about-upgrade-circuit-bandwidth).
 
 ### Azure WAF RuleSet CRS 3.1/3.2 has been updated with log4j2 vulnerability rule
 
@@ -437,13 +437,13 @@ Learn more about [Virtual network gateway - ActiveActiveGatewaySingleTunnel (Con
 
 Soft delete for helps you retain your backup data in the Recovery Services vault for an additional duration after deletion, giving you an opportunity to retrieve it before it is permanently deleted.
 
-Learn more about [Recovery Services vault - AB-SoftDeleteRsv (Enable soft delete for your Recovery Services vaults)](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud).
+Learn more about [Recovery Services vault - AB-SoftDeleteRsv (Enable soft delete for your Recovery Services vaults)](/azure/backup/backup-azure-security-feature-cloud).
 
 ### Enable Cross Region Restore for your recovery Services Vault
 
 Enabling cross region restore for your geo-redundant vaults
 
-Learn more about [Recovery Services vault - Enable CRR (Enable Cross Region Restore for your recovery Services Vault)](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#cross-region-restore).
+Learn more about [Recovery Services vault - Enable CRR (Enable Cross Region Restore for your recovery Services Vault)](/azure/backup/backup-azure-arm-restore-vms#cross-region-restore).
 
 ## Search
 
