@@ -225,11 +225,11 @@
         href: troubleshoot-shared-private-link-resources.md
     - name: Outbound security (indexers)  
       items:
-      - name: Data access over an IP range
+      - name: Connect over an IP range
         href: search-indexer-howto-access-ip-restricted.md
-      - name: Data access using a system identity
+      - name: Connect as a trusted service
         href: search-indexer-howto-access-trusted-service-exception.md
-      - name: Data access through private endpoints
+      - name: Connect through private endpoints
         href: search-indexer-howto-access-private.md
     - name: Document-level security
       items:
