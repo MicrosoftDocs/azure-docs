@@ -25,15 +25,13 @@ If the VM is configured with Accelerated Networking, a second network interface 
 
 Different Azure hosts use different models of Mellanox physical NIC, so Linux automatically determines whether to use the “mlx4” or “mlx5” driver. Placement of the VM on an Azure host is controlled by the Azure infrastructure. With no customer option to specify which physical NIC that a VM deployment uses, the VMs must include both drivers. If a VM is stopped/deallocated and then restarted, it might be redeployed on hardware with a different model of Mellanox physical NIC. Therefore, it might use the other Mellanox driver. 
 
-FreeBSD provides the same support for Accelerated Networking as Linux when running in Azure. 
-
-**The remainder of this article describes Linux and uses Linux examples, but the same functionality is available in FreeBSD. 
+FreeBSD provides the same support for Accelerated Networking as Linux when running in Azure. The remainder of this article describes Linux and uses Linux examples, but the same functionality is available in FreeBSD. 
 
 ### Bonding
 
-The synthetic network interface and VF interface are automatically paired and act as a single interface in most aspects that are seen by applications. The bonding is done by the netvsc driver. Depending on the Linux distro, udev rules and scripts might help naming of the VF interface and in network configuration. If the VM is configured with multiple virtual NICs, the Azure host provides a serial number. It's used to allow Linux to do the proper pairing of synthetic and VF interfaces for each virtual NIC. 
+The synthetic network interface and VF interface are automatically paired and act as a single interface in most aspects that are seen by applications. The bonding is done by the netvsc driver. Depending on the Linux distro, udev rules and scripts might help in naming the VF interface and in network configuration. If the VM is configured with multiple virtual NICs, the Azure host provides a unique serial number for each one. It's used to allow Linux to do the proper pairing of synthetic and VF interfaces for each virtual NIC. 
  
-The synthetic and VF interfaces both have the same MAC address. Together they constitute a single NIC from the standpoint of other network entities that send or receive packets via the virtual NIC in the VM. Other entities don't take any special action because of the existence of both the synthetic interface and the VF interface. 
+The synthetic and VF interfaces both have the same MAC address. Together they constitute a single NIC from the standpoint of other network entities that exchange packets with the virtual NIC in the VM. Other entities don't take any special action because of the existence of both the synthetic interface and the VF interface. 
 
 Both interfaces are visible via the “ifconfig” or “ip addr” command in Linux.  Here's example “ifconfig” output in Ubuntu 18.04: 
 
@@ -129,7 +127,7 @@ The VMbus virtual PCI driver has been registered. This driver provides core PCI 
 [    7.041264] pci cf63:00:02.0: BAR 0: assigned [mem 0xfe0000000-0xfe00fffff 64bit pref] 
 ```
 
-The PCI device with the specified GUID (assigned by the Azure host) has been detected. It's assigned a PCI domain ID (0xcf63 in this case) based on the GUID. The PCI domain ID must be unique across all PCI devices available in the VM. This uniqueness requirement includes other Mellanox VF interfaces, GPUs, NVMe devices, etc., depending on the Azure VM configuration.
+The PCI device with the listed GUID (assigned by the Azure host) has been detected. It's assigned a PCI domain ID (0xcf63 in this case) based on the GUID. The PCI domain ID must be unique across all PCI devices available in the VM. This uniqueness requirement spans other Mellanox VF interfaces, GPUs, NVMe devices, etc., that may be present in the VM.
 
 ```output
 [    7.128515] mlx5_core cf63:00:02.0: firmware version: 14.25.8362 
@@ -165,7 +163,7 @@ The Mellanox VF interface is now up and active.
 [    9.654979] hv_netvsc 000d3af5-76bd-000d-3af5-76bd000d3af5 eth0: Data path switched from VF: enP53091s1np0 
 ```
 
-These messages indicate that the data path for the bonded pair has switched to use the VF interface. Then about 1.6 seconds later, it switches back to the synthetic interface. Such switches might occur two or three times during the boot process and are normal behavior as the configuration gets fully initialized. 
+These messages indicate that the data path for the bonded pair has switched to use the VF interface. Then about 1.6 seconds later, it switches back to the synthetic interface. Such switches might occur two or three times during the boot process and are normal behavior as the configuration gets initialized. 
 
 ```output
 [    9.909128] mlx5_core cf63:00:02.0 enP53091s1np0: Link up 
