@@ -222,7 +222,7 @@ Before you can enable the user-assigned identity on your **Logic App (Consumptio
    | **Name** | Yes | <*user-assigned-identity-name*> | The name to give your user-assigned identity. This example uses `Fabrikam-user-assigned-identity`. |
    |||||
 
-   After validating the information, Azure creates your managed identity. Now you can add the user-assigned identity to your logic app resource.
+   After Azure validates the information, Azure creates your managed identity. Now you can add the user-assigned identity to your logic app resource.
 
 ## Add user-assigned identity to logic app in the Azure portal
 
@@ -574,7 +574,7 @@ To use a managed identity for authentication, some Azure resources, such as Azur
 
 1. Skip the optional **Application** step, select **Next**, and finish creating the access policy.
 
-In the next section about using a managed identity to authenticate access for a trigger or action, the example continues with the steps from an an earlier section where you set up access for a managed identity using RBAC and doesn't use Azure Key Vault as the example, However, the general steps to use a managed identity for authentication are the same.
+In the next section about using a managed identity to authenticate access for a trigger or action, the example continues with the steps from an earlier section where you set up access for a managed identity using RBAC and doesn't use Azure Key Vault as the example. However, the general steps to use a managed identity for authentication are the same.
 
 <a name="authenticate-access-with-identity"></a>
 
@@ -845,7 +845,7 @@ The Azure Resource Manager managed connector has an action, **Read a resource**,
 
 1. When you're ready, select **Create**.
 
-1. After successfully creating the connection, the designer can fetch any dynamic values, content, or schema by using managed identity authentication.
+1. After the designer successfully creates the connection, the designer can fetch any dynamic values, content, or schema by using managed identity authentication.
 
 1. Continue building the workflow the way that you want.
 
@@ -870,7 +870,7 @@ The Azure Resource Manager managed connector has an action, **Read a resource**,
 
 1. When you're ready, select **Create**.
 
-1. After successfully creating the connection, the designer can fetch any dynamic values, content, or schema by using managed identity authentication.
+1. After the designer successfully creates the connection, the designer can fetch any dynamic values, content, or schema by using managed identity authentication.
 
 1. Continue building the workflow the way that you want.
 
