@@ -21,6 +21,8 @@ One or more workspaces can be created in a resource group from the Azure portal,
  
 A workspace can't be deleted unless all child service instances within the workspace have been deleted. This feature helps prevent any accidental deletion of service instances. However, when a workspace resource group is deleted, all the workspaces and child service instances within the workspace resource group get deleted. 
 
+Workspace names can be re-used in the same Azure subscription, but not in a different Azure subscription, after deletion. However, when the move operation is supported and enabled, workspaces and its child resources can be moved from one subscription to another subscription if certain requirements are met. One requirement is that the two subscriptions must be part of the same Azure Active Directory (Azure AD) tenant. Another requirement is that the Private Link configuration is not enabled. Names for FHIR services, DICOM services and IoT connectors can be re-used in the same or different subscription after deletion if there is no collision with the URLs of any existing services.
+
 ## Workspace and Azure region selection 
  
 When you create a workspace, it must be configured for an Azure region, which can be the same as or different from the resource group. The region cannot be changed after the workspace is created. Within each workspace, all Healthcare APIs services (FHIR service, DICOM service, and IoT Connector service) must be created in the region of the workspace and cannot be moved to a different workspace. 

@@ -37,7 +37,7 @@ See the [Scala API reference](https://synapsesql.blob.core.windows.net/docs/1.0.
 
   ```scala
   import com.microsoft.spark.sqlanalytics.utils.Constants
-  import com.microsoft.spark.sqlanalytics.SqlAnalyticsConnector._
+  import org.apache.spark.sql.SqlAnalyticsConnector._
 
   val df = spark.read.
     option(Constants.SERVER, "servername.database.windows.net").
@@ -50,7 +50,7 @@ See the [Scala API reference](https://synapsesql.blob.core.windows.net/docs/1.0.
 
   ```scala
   import com.microsoft.spark.sqlanalytics.utils.Constants
-  import com.microsoft.spark.sqlanalytics.SqlAnalyticsConnector._
+  import org.apache.spark.sql.SqlAnalyticsConnector._
 
   val df = spark.sql("select * from tmpview")
 
@@ -63,7 +63,7 @@ See the [Scala API reference](https://synapsesql.blob.core.windows.net/docs/1.0.
 
   ```scala
   import com.microsoft.spark.sqlanalytics.utils.Constants
-  import com.microsoft.spark.sqlanalytics.SqlAnalyticsConnector._
+  import org.apache.spark.sql.SqlAnalyticsConnector._
 
   val df = spark.read.
     option(Constants.SERVER, "servername.database.windows.net").
@@ -85,7 +85,7 @@ See the [Scala API reference](https://synapsesql.blob.core.windows.net/docs/1.0.
   ```scala
   %%spark
   import com.microsoft.spark.sqlanalytics.utils.Constants
-  import com.microsoft.spark.sqlanalytics.SqlAnalyticsConnector._
+  import org.apache.spark.sql.SqlAnalyticsConnector._
 
   val df = spark.sqlContext.sql("select * from tempview")
 
