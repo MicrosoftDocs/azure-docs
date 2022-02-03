@@ -941,6 +941,15 @@ groups:
     title: C#
   - id: programming-language-python
     title: Python
+# Owner: jordanselig
+- id: app-service-cli-portal
+  title: Experience
+  prompt: Choose an experience
+  pivots:
+  - id: experience-azp
+    title: Azure Portal
+  - id: experience-azcli
+    title: Azure CLI
 # Owner: msangapu
 - id: app-service-vscode-cli-portal
   title: Development environment
@@ -1366,10 +1375,6 @@ groups:
     title: Python
   - id: programming-language-java
     title: Java
-  - id: programming-language-go
-    title: Go
-  - id: programming-language-ruby
-    title: Ruby
     # Owner: mbullwin
 - id: custom-qna-quickstart
   title: Programming languages
@@ -1615,3 +1620,39 @@ groups:
     title: Private container registry
   - id: container-apps-public-registry
     title: Public container registry
+# Owner: cshoe
+- id: azure-cli-or-portal
+  title: Interaction type
+  prompt: Select how you want to interact with Azure
+  pivots:
+  - id: azure-portal
+    title: Azure portal
+  - id: azure-cli
+    title: Azure CLI
+# Owner: duau
+- id: front-door-tiers
+  title: Front Door tiers
+  prompt: Select the Azure Front Door tier
+  pivots:
+  - id: front-door-classic
+    title: Front Door
+  - id: front-door-standard-premium
+    title: Standard/Premium
+# Owner: wiassaf
+- id: azure-sql-deployment-option-single-elastic
+  title: Azure SQL deployment option, single or elastic
+  prompt: Select an Azure SQL deployment option
+  pivots:
+  - id: azure-sql-single-db
+    title: Azure SQL Database, single database
+  - id: azure-sql-elastic-pool
+    title: Azure SQL Database, elastic pool
+# Owner: karler
+- id: spring-cloud-tier-selection
+  title: Azure Spring Cloud tier
+  prompt: Select an Azure Spring Cloud tier
+  pivots:
+  - id: sc-standard-tier
+    title: Basic/Standard tier
+  - id: sc-enterprise-tier
+    title: Enterprise tier

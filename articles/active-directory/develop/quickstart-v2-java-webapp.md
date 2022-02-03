@@ -10,6 +10,7 @@ ms.subservice: develop
 ms.topic: portal
 ms.workload: identity
 ms.date: 11/22/2021
+ROBOTS: NOINDEX
 ms.author: marsma
 ms.custom: aaddev, "scenarios:getting-started", "languages:Java", devx-track-java, mode-api
 ---

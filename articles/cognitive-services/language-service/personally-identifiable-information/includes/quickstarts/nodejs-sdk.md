@@ -4,7 +4,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
-ms.date: 11/02/2021
+ms.date: 02/02/2022
 ms.author: aahi
 ms.custom: devx-track-js, ignite-fall-2021
 ---
@@ -43,7 +43,7 @@ npm init
 Install the NPM package:
 
 ```console
-nnpm install @azure/ai-text-analytics@5.1.0
+npm install @azure/ai-text-analytics@5.1.0
 ```
 
 ## Code example

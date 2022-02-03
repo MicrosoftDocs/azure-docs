@@ -195,9 +195,6 @@ Language| Locale code |
 
 This technology is currently available for US driver licenses and the biographical page from international passports (excluding visa and other travel documents).
 
-> [!div class="nextstepaction"]
-> [Try Form Recognizer](https://aka.ms/fott-2.1-ga)
-
 ## General Document
 
 Language| Locale code |

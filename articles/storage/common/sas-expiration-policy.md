@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/14/2021
+ms.date: 01/28/2022
 ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: common
@@ -101,15 +101,37 @@ The SAS expiration period appears in the console output.
 
 ---
 
-## Query logs for policy violations
+## Check for SAS expiration policy violations
 
-To log the creation of a SAS that is valid over a longer interval than the SAS expiration policy recommends, first create a diagnostic setting that sends logs to an Azure Log Analytics workspace. For more information, see [Send logs to Azure Log Analytics](../blobs/monitor-blob-storage.md#send-logs-to-azure-log-analytics).
+You can monitor your storage accounts with Azure Policy to ensure that storage accounts in your subscription have configured SAS expiration policies. Azure Storage provides a built-in policy for ensuring that accounts have this setting configured. For more information about the built-in policy, see **Storage accounts should have shared access signature (SAS) policies configured** in [List of built-in policy definitions](../../governance/policy/samples/built-in-policies.md#storage).
 
-Next, use an Azure Monitor log query to determine whether a SAS has expired. Create a new query in your Log Analytics workspace, add the following query text, and press **Run**.
+### Assign the built-in policy for a resource scope
 
-```kusto
-StorageBlobLogs | where SasExpiryStatus startswith "Policy Violated" 
-```
+Follow these steps to assign the built-in policy to the appropriate scope in the Azure portal:
+
+1. In the Azure portal, search for *Policy* to display the Azure Policy dashboard.
+1. In the **Authoring** section, select **Assignments**.
+1. Choose **Assign policy**.
+1. On the **Basics** tab of the **Assign policy** page, in the **Scope** section, specify the scope for the policy assignment. Select the **More** button to choose the subscription and optional resource group.
+1. For the **Policy definition** field, select the **More** button, and enter *storage account keys* in the **Search** field. Select the policy definition named **Storage account keys should not be expired**.
+
+    :::image type="content" source="media/sas-expiration-policy/policy-definition-select-portal.png" alt-text="Screenshot showing how to select the built-in policy to monitor validity intervals for shared access signatures for your storage accounts":::
+
+1. Select **Review + create** to assign the policy definition to the specified scope.
+
+    :::image type="content" source="media/sas-expiration-policy/policy-assignment-create.png" alt-text="Screenshot showing how to create the policy assignment":::
+
+### Monitor compliance with the key expiration policy
+
+To monitor your storage accounts for compliance with the key expiration policy, follow these steps:
+
+1. On the Azure Policy dashboard, locate the built-in policy definition for the scope that you specified in the policy assignment. You can search for *Storage accounts should have shared access signature (SAS) policies configured* in the **Search** box to filter for the built-in policy.
+1. Select the policy name with the desired scope.
+1. On the **Policy assignment** page for the built-in policy, select **View compliance**. Any storage accounts in the specified subscription and resource group that do not meet the policy requirements appear in the compliance report.
+
+    :::image type="content" source="media/sas-expiration-policy/policy-compliance-report-portal-inline.png" alt-text="Screenshot showing how to view the compliance report for the SAS expiration built-in policy" lightbox="media/sas-expiration-policy/policy-compliance-report-portal-expanded.png":::
+
+To bring a storage account into compliance, configure a SAS expiration policy for that account, as described in [Create a SAS expiration policy](#create-a-sas-expiration-policy).
 
 ## See also
 
