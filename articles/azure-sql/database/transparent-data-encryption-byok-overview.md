@@ -83,7 +83,7 @@ Auditors can use Azure Monitor to review key vault AuditEvent logs, if logging i
     - When configuring the TDE Protector on an existing server or during server creation, Azure SQL validates that the key vault being used has soft-delete and purge protection turned on. If soft-delete and purge protection are not enabled on the key vault, the TDE Protector setup fails with an error. In this case, soft-delete and purge protection must first be enabled on the key vault and then the TDE Protector setup can be done.  
 
 > [!IMPORTANT]
-> Both Soft-delete and Purge protection must be enabled on the key vault(s) for servers being configured with customer-managed TDE, as well as existing servers using customer-managed TDE.
+> Both Soft-delete and Purge protection must be enabled on the key vault(s) when configuring customer-managed TDE on a new or existing server or managed instance.
 
 - Grant the server or managed instance access to the key vault (*get*, *wrapKey*, *unwrapKey*) using its Azure Active Directory identity. The server identity can be a system-assigned managed identity or a user-assigned managed identity assigned to the server. When using the Azure portal, the Azure AD identity gets automatically created when the server is created. When using PowerShell or Azure CLI, the Azure AD identity must be explicitly created and should be verified. See [Configure TDE with BYOK](transparent-data-encryption-byok-configure.md) and [Configure TDE with BYOK for SQL Managed Instance](../managed-instance/scripts/transparent-data-encryption-byok-powershell.md) for detailed step-by-step instructions when using PowerShell.
     - Depending on the permission model of the key vault (access policy or Azure RBAC), key vault access can be granted either by creating an access policy on the key vault, or by creating a new Azure RBAC role assignment with the role [Key Vault Crypto Service Encryption User](../../key-vault/general/rbac-guide.md#azure-built-in-roles-for-key-vault-data-plane-operations).
@@ -229,7 +229,7 @@ The Azure Policy can be applied to the whole Azure subscription, or just within 
 For more information on Azure Policy, see [What is Azure Policy?](../../governance/policy/overview.md) and [Azure Policy definition structure](../../governance/policy/concepts/definition-structure.md).
 
 The following two built-in policies are supported for customer-managed TDE in Azure Policy:
-- SQL server should use customer-managed keys to encrypt data at rest
+- SQL servers should use customer-managed keys to encrypt data at rest
 - SQL managed instances should use customer-managed keys to encrypt data at rest
 
 The customer-managed TDE policy can be managed by going to the [Azure portal](https://portal.azure.com), and searching for the **Policy** service. Under **Definitions**, search for customer-managed key.
