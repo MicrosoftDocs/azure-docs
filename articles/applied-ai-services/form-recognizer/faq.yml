@@ -9,7 +9,7 @@ metadata:
   ms.service: applied-ai-services
   ms.subservice: forms-recognizer
   ms.topic: conceptual
-  ms.date: 02/15/2022
+  ms.date: 02/02/2022
   ms.author: lajanuar
 
 title: Form Recognizer frequently asked questions
@@ -79,6 +79,15 @@ sections:
           Form Recognizer uses OCR to detect and extract information from forms and documents supported by AI to provide more structure and information to the text extraction.
 
           Learn more about [Form Recognizer and Applied AI Services](/azure/applied-ai-services/what-are-applied-ai-services).
+
+      - question: |
+           What is the accuracy score and how is it calculated?
+        answer: |   
+           The output of a `build` (v3.0) or `train` (v2.1) custom model operation includes the estimated accuracy score. This score represents the model's ability to accurately predict the labeled value on a visually similar document. 
+           
+           Accuracy is measured within a percentage value range between 0% (low) and 100% (high).
+
+           See [Interpret and improve accuracy and confidence scores](concept-accuracy-confidence.md#accuracy-scores)
 
       - question: |
            What is the confidence score and how is it calculated?

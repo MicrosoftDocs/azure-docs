@@ -7,58 +7,68 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 01/31/2022
+ms.date: 02/02/2022
 ms.author: vikurpad
 ---
 > [!NOTE]
-> **Custom document models do not provide accuracy scores during training** 
-> The accuracy scores in this document only apply to custom form models. 
-> Confidence scores for key-value pair fields apply to custom document and custom form models. 
+> **Custom document models do not provide accuracy scores during training**
+> The accuracy scores in this document only apply to custom form models.
+> Confidence scores for key-value pair fields apply to custom document and custom form models.
 > Confidence scores for structured fields like tables are currently not available.
 
 # Interpret and improve accuracy and confidence scores
 
 Custom models generate an estimated accuracy score when trained. Documents analyzed with a Custom model produce a confidence score for extracted fields. In this document you will learn to  interpret accuracy and confidence scores and the best practices for using these scores to improve accuracy and confidence results.
 
-## Estimated accuracy scores
+## Accuracy scores
 
-The output of a model train operation includes the estimated accuracy score. This score represents the model's ability to accurately predict the labeled value on a visually similar form. The estimated accuracy is calculated by running a few different combinations of the training data to predict the labeled values. 
+The output of a `build` (v3.0) or `train` (v2.1) custom model operation includes the estimated accuracy score. This score represents the model's ability to accurately predict the labeled value on a visually similar document.
+The accuracy value range is a percentage between 0% (low) and 100% (high). The estimated accuracy is calculated by running a few different combinations of the training data to predict the labeled values.
 
 **Form Recognizer Studio** </br>
 **Trained custom model (invoice)**
 
 :::image type="content" source="media/accuracy-confidence/accuracy-studio-results.png" alt-text="Trained custom model accuracy scores":::
 
-
 ## Confidence scores
 
-When analyzing a document, Form Recognizer returns an estimated confidence for predicted words, key-value pairs, selection marks, regions, and signatures. Currently, not all document fields return confidence. 
+When analyzing a document, Form Recognizer returns an estimated confidence for predicted words, key-value pairs, selection marks, regions, and signatures. Currently, not all document fields return a confidence score.
 
-Confidence indicates an estimated probability between 0 and 1 that the prediction is correct.  For example, a confidence value of 0.95 (95%) indicates that the prediction is likely correct 19 out of 20 times.  For scenarios where accuracy is critical, confidence may be used to determine whether to automatically accept the prediction or mark it for human review.
+Confidence indicates an estimated probability between 0 and 1 that the prediction is correct.  For example, a confidence value of 0.95 (95%) indicates that the prediction is likely correct 19 out of 20 times.  For scenarios where accuracy is critical, confidence may be used to determine whether to automatically accept the prediction or flag it for human review.
 
 **Form Recognizer Studio** </br>
 **Analyzed invoice prebuilt-invoice model**
 
 :::image type="content" source="media/accuracy-confidence/confidence-scores.png" alt-text="confidence scores from Form Recognizer Studio":::
 
-## Interpreting accuracy and confidence scores
+## Interpret accuracy and confidence scores
+
+The following table demonstrates how to interpret both the accuracy and confidence scores to measure your custom model's performance.
 
 | Accuracy | Confidence | Result |
 |--|--|--|
-| High| High | The model is performing well on the labeled keys and document formats. You have a balanced training dataset |
-| High | Low | The analyzed document appears different from the training dataset. A case where the model would benefit from retraining with at least five labeled documents like this. It could also point to a format variation between the training dataset and the analyzed document. In this case consider adding a new model. |
-| Low | High | The probability of this happening is extremely low. For low accuracy scores, add additional labeled data or split visually distinct documents into multiple models |
-| Low | Low| For low accuracy scores, add additional labeled data or split visually distinct documents into multiple models|
+| High| High | <ul><li>The model is performing well with the labeled keys and document formats. </li><li>You have a balanced training dataset</li></ul> |
+| High | Low | <ul><li>The analyzed document appears different from the training dataset.</li><li>In this the model would benefit from retraining with at least five more labeled documents. </li><li>These results could also indicate a format variation between the training dataset and the analyzed document. </br>Consider adding a new model.</li></ul>  |
+| Low | High | <ul><li>The likelihood of this result is extremely low.</li><li>For low accuracy scores, add additional labeled data or split visually distinct documents into multiple models.</li></ul> |
+| Low | Low| <ul><li>Add additional labeled data.</li><li>Split visually distinct documents into multiple models.</li></ul>|
 
+## Ensure high model accuracy
 
-## Best practices for ensuring accuracy for custom form models
+The accuracy of your model is affected by changes in the visual structure of your documents. Reported accuracy scores can be inconsistent when the analyzed documents differ from documents used in training. Keep in mind that a document set can look similar when viewed by humans but appear dissimilar to an AI model. Below, is a list of the best practices for training models with the highest accuracy. Following these guidelines should produce a model with higher accuracy and confidence scores during analysis and reduce the number of documents flagged for human review.
 
-Accuracy of the model is affected by changes in the visual structure of documents. As best practices to train a model with the highest accuracy:
+* Ensure that all variations of the document are included in the training dataset.
 
-* Ensure that all variations of the document are included in the training dataset
-* Variations include different formats, for example, digital and scanned PDFs. If you expect the model to analyze both types of documents, add at least five samples of each type to the training dataset
-* Split visually distinct document types to train different models. As a general rule, if you remove all user entered values and the documents look similar, you need to add more training data to the existing model. If the documents are dissimilar, split your training data into different folders and train a model for each variation. You can then compose the different variations into a single model
-* Ensure you don't have any extraneous labels
-* For Signature and region labeling, don't include any of the surrounding texts
+* Variations include different formats, for example, digital versus scanned PDFs. If you expect the model to analyze both types of documents, add at least five samples of each type to the training dataset.
 
-Following these guidelines should produce a model with higher accuracy resulting in higher confidence scores during analysis. Resulting in a smaller number of documents flagged for human review.
+* Separate visually-distinct document types to train different models.
+  * As a general rule, if you remove all user entered values and the documents look similar, you need to add more training data to the existing model.
+  * If the documents are dissimilar, split your training data into different folders and train a model for each variation. You can then [compose](compose-custom-models.md##create-a-composed-model) the different variations into a single model.
+
+* Make sure that you don't have any extraneous labels.
+
+* For signature and region labeling, don't include any of the surrounding text.
+
+## Next step
+
+> [!div class="nextstepaction"]
+> [Learn to create custom models ](quickstarts/try-v3-form-recognizer-studio.md#getting-started)
