@@ -339,14 +339,12 @@ Telemetry message send: {"temperature":22}.
 
 Keep the terminal open to monitor device output in the following steps.
 
-make changes for IAR EWARM
-
 ## Verify the device status
 
 To view the device status in IoT Central portal:
 1. From the application dashboard, select **Devices** on the side navigation menu.
 1. Confirm that the **Device status** is updated to **Provisioned**.
-1. Confirm that the **Device template** is updated to **Getting Started Guide**.
+1. Confirm that the **Device template** is updated to **Thermostat**.
 
     :::image type="content" source="media/quickstart-devkit-stm-b-l4s5i/iot-central-device-view-status.png" alt-text="Screenshot of device status in IoT Central":::
 
@@ -372,11 +370,9 @@ You can also use IoT Central to call a direct method that you have implemented o
 To call a method in IoT Central portal:
 
 1. Select the **Command** tab from the device page.
-1. In the **State** dropdown, select **True**, and then select **Run**.  The LED light should turn on.
+1. In the **Since** field, use the date picker and time selectors to set a time, then select **Run**.
 
     :::image type="content" source="media/quickstart-devkit-stm-b-l4s5i/iot-central-invoke-method.png" alt-text="Screenshot of calling a direct method on a device in IoT Central":::
-
-1. In the **State** dropdown, select **False**, and then select **Run**. The LED light should turn off.
 
 ## View device information
 
@@ -423,8 +419,6 @@ To call a method in IoT Central portal:
 1. In the **State** dropdown, select **True**, and then select **Run**.  The LED light should turn on.
 
     :::image type="content" source="media/quickstart-devkit-stm-b-l4s5i/iot-central-invoke-method.png" alt-text="Screenshot of calling a direct method on a device in IoT Central":::
-
-1. In the **State** dropdown, select **False**, and then select **Run**. The LED light should turn off.
 
 ## View device information
 
