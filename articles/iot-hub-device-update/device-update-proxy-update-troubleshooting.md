@@ -10,7 +10,7 @@ ms.service: iot-hub-device-update
 
 # Device Update for IoT troubleshooting guide for importing proxy updates
 
-This document provides troubleshooting steps and a table of error messages that you may encounter when importing proxy updates into Device Update for IoT Hub.
+This document provides troubleshooting steps and a table of error messages that you may encounter when importing [proxy updates](device-update-proxy-updates.md) into Device Update for IoT Hub.
 
 
 ## Error messages
