@@ -41,6 +41,10 @@ If you have a hybrid environment, with both Azure AD and on-premises AD, it is l
 >
 > FIDO2 security key based passwordless authentication with Windows 10 requires additional configuration to enable on-premises SSO from an Azure AD joined device. For more information, see [Enable passwordless security key sign-in to on-premises resources with Azure Active Directory](../authentication/howto-authentication-passwordless-security-key-on-premises.md). 
 
+Applications running on your AAD only joined device may authenticate users. They need to be using the implicit UPN or the NT4 type syntax with the domain FQDN name as the domain part, e.g. user@contoso.corp.com or contoso.corp.com\user.
+
+If applications use the NETBIOS or legacy name like contoso\user, the error the application gets would be NT error STATUS_BAD_VALIDATION_CLASS - 0xc00000a7 or Windows error ERROR_BAD_VALIDATION_CLASS - 1348 “The validation information class requested was invalid.” This happens even if you can resolve the legacy domain name.
+
 During an access attempt to a resource requesting Kerberos or NTLM in the user's on-premises environment, the device:
 
 1. Sends the on-premises domain information and user credentials to the located DC to get the user authenticated.
