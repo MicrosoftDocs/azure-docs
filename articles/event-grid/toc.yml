@@ -130,6 +130,8 @@
         href: event-schema-blob-storage.md
       - name: Azure Cache for Redis
         href: event-schema-azure-cache.md
+      - name: Azure Healthcare APIs
+        href: event-schema-azure-healthcare-apis.md
       - name: Azure Communication Services
         items:
         - name: Overview
