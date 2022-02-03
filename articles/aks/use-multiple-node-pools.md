@@ -348,6 +348,35 @@ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
 
 It takes a few minutes to delete the nodes and the node pool.
 
+## Associate Capacity Reservation Group to Nodepools
+
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+
+As your application workloads demands, you may associate nodepools to capacity reservation groups created prior. This ensures guaranteed capacity is allocated for your nodepools.  
+
+For more information on the capacity reservation groups please refer to [Capacity Reservation Groups ][Capacity Reservation Groups]
+
+Associating a nodepool with an existing capacity reservation group can be done as below:
+
+```azurecli-interactive
+az aks nodepool add -g MyRG --cluster-name MyMC -n myAP --capacityReservationGroup myCRG
+```
+Associating a system nodepool with an existing capacity reservation group can be done as below:
+
+```azurecli-interactive
+az aks create -g MyRG --cluster-name MyMC --capacityReservationGroup myCRG
+```
+Deleting a nodepool command will implicitly dissociate a nodepool from any associated capacity reservation group, before that nodepool is deleted.
+
+```azurecli-interactive
+az aks nodepool delete -g MyRG --cluster-name MyMC -n myAP
+```
+Deleting a cluster command implicitly dissociates all nodepools in a cluster from their associated capacity reservation groups.
+
+```azurecli-interactive
+az aks delete -g MyRG --cluster-name MyMC
+```
+
 ## Specify a VM size for a node pool
 
 In the previous examples to create a node pool, a default VM size was used for the nodes created in the cluster. A more common scenario is for you to create node pools with different VM sizes and capabilities. For example, you may create a node pool that contains nodes with large amounts of CPU or memory, or a node pool that provides GPU support. In the next step, you [use taints and tolerations](#setting-nodepool-taints) to tell the Kubernetes scheduler how to limit access to pods that can run on these nodes.
@@ -892,6 +921,7 @@ Use [proximity placement groups][reduce-latency-ppg] to reduce latency for your 
 [kubectl-describe]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe
 [kubernetes-labels]: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/
 [kubernetes-label-syntax]: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#syntax-and-character-set
+[Capacity Reservation Groups]:/azure/virtual-machines/capacity-reservation-associate-virtual-machine-scale-set
 
 <!-- INTERNAL LINKS -->
 [aks-windows]: windows-container-cli.md
