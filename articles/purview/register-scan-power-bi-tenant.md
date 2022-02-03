@@ -64,7 +64,7 @@ This article outlines how to register a Power BI tenant, and how to authenticate
 ### Authenticate to Power BI Tenant
 
 > [!Note]
-> Follow steps in this section only if you wish to use **Managed Identity** as authentication option.
+> Follow steps in this section, only if you are planning to use **Managed Identity** as authentication option.
 
 In Azure Active Directory Tenant, where Power BI tenant is located:
 
@@ -119,7 +119,7 @@ In Azure Active Directory Tenant, where Power BI tenant is located:
     > [!Note]
     > You can remove the security group from your developer settings, but the metadata previously extracted won't be removed from the Azure Purview account. You can delete it separately, if you wish.
 
-### Register 
+### Register same tenant
 
 This section describes how to register a Power BI tenant in Azure Purview for same-tenant scenario.
 
@@ -141,7 +141,7 @@ This section describes how to register a Power BI tenant in Azure Purview for sa
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-datasource-registered.png" alt-text="Image showing the registered Power BI data source.":::
 
-### Scan 
+### Scan same tenant
 
 #### Scan same tenant using Azure IR and Managed Identity
 
@@ -171,13 +171,13 @@ To create and run a new scan, do the following:
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-test-connection-status-report.png" alt-text="Screenshot of test connection status report page.":::
 
-4. Set up a scan trigger. Your options are **Once**, **Every 7 days**, and **Every 30 days**.
+4. Set up a scan trigger. Your options are **Recurring**, and **Once**.
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/scan-trigger.png" alt-text="Screenshot of the Azure Purview scan scheduler.":::
 
 5. On **Review new scan**, select **Save and Run** to launch your scan.
 
-    :::image type="content" source="media/setup-power-bi-scan-catalog-portal/save-run-power-bi-scan.png" alt-text="Screenshot of save and run Power BI source.":::
+    :::image type="content" source="media/setup-power-bi-scan-catalog-portal/save-run-power-bi-scan-msi.png" alt-text="Screenshot of save and run Power BI source using Managed Identity.":::
 
 #### Scan same tenant using Self-hosted IR and Delegated Auth
 
@@ -236,7 +236,7 @@ This scenario can be used when Azure Purview and Power PI tenant or both, are co
    **User name**: Provide the username of Power BI Administrator you created earlier.
    **Password**: Select the appropriate Key vault connection and the **Secret name** where the Power BI account password was saved earlier.
 
-    :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-scan-delegated-auth.png" alt-text="Image showing Power BI scan setup using Delegated Auth.":::
+   :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-scan-delegated-auth.png" alt-text="Image showing Power BI scan setup using Delegated Auth.":::
 
 16. Select **Test Connection** before continuing to next steps. If **Test Connection** failed, select **View Report** to see the detailed status and troubleshoot the problem
     1. Access - Failed status means the user authentication failed. Scans using managed identity will always pass because no user authentication required.
@@ -258,49 +258,48 @@ This scenario can be used when Azure Purview and Power PI tenant or both, are co
 ### Authentication options 
 - Delegated Authentication
 
-### Register 
+### Register cross-tenant
 
 In a cross-tenant scenario, you can use Azure Purview REST API using a tool such as [Postman](), to register your Power BI tenants. Once you register a Power BI tenant, you can configure a scan, browse, and search assets of remote tenant using Azure Purview Studio through the UI experience. 
 
 1. Follow [these steps](tutorial-using-rest-apis.md) to and obtain a valid token from your REST API connection.
    
-2. Use [Data Sources - Create Or Update](scanningdataplane/data-sources/create-or-update.md#powerbidatasource) operation to register a new Power BI tenant.
+2. Use [Data Sources - Create Or Update](/rest/api/purview/scanningdataplane/data-sources/create-or-update) operation to register a new Power BI tenant.
 
-**Request URL:**
-    `PUT` `{Endpoint}/datasources/{dataSourceName}?api-version=2018-12-01-preview`
+    **Request URL:**
+        `PUT` `{Endpoint}/datasources/{dataSourceName}?api-version=2018-12-01-preview`
 
-**Request URL example:**
-    `https://purview02.purview.azure.com/scan/datasources/PowerBI-TenantB?api-version=2018-12-01-preview`
- 
- **Request Body example:**
+    **Request URL example:**
+        `https://purview02.purview.azure.com/scan/datasources/PowerBI-TenantB?api-version=2018-12-01-preview`
+    
+    **Request Body example:**
 
-```
-    {
-    "kind": "PowerBI",
-    "name": "PowerBI-TenantB",
-    "properties": {
-        "tenant": "12345678-abcd-abcd-1234-abcd12345678",
+    ```json
+        {
         "kind": "PowerBI",
         "name": "PowerBI-TenantB",
-        "collection": { 
-                "referenceName": "Contoso-Collection", 
-                "type": "CollectionReference" 
-            }
-    }
-    }
-    
-```
+            "properties": {
+                "tenant": "12345678-abcd-abcd-1234-abcd12345678",
+                "kind": "PowerBI",
+                "name": "PowerBI-TenantB",
+                "collection": { 
+                        "referenceName": "Contoso-Collection", 
+                        "type": "CollectionReference" 
+                 }
+            }
+        }  
+    ```
 
-> [!Note]
-> Update the required such as name, tenant, Azure Purview account name and Collection referenceName.
+    > [!Note]
+    > Update the required such as name, tenant, Azure Purview account name and Collection referenceName.
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-register-cross-tenant.png" alt-text="Image showing how to register a cross-tenant Power BI data source using Postman.":::
+   
+1. Login to [Azure Purview Studio](https://web.purview.azure.com) and from **Data Map** verify if Power BI tenant is registered in Azure Purview.
 
-3. Login to [Azure Purview Studio](https://web.purview.azure.com) and from **Data Map** verify if Power BI tenant is registered in Azure Purview.
+    :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-register-cross-tenant-validate.png" alt-text="Image showing a cross-tenant Power BI tenant is registered as a data source.":::
 
-    :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-register-cross-tenant-validate.png" alt-text="Image showing  a cross-tenant Power BI tenant is registered as a data source.":::
-
-### Scan 
+### Scan cross-tenant
 
 #### Scan cross-tenant using Delegated Auth 
 
@@ -362,12 +361,15 @@ In the Azure Purview Studio, navigate to the **Data map** in the left menu.
 
 15. Create a new credential and provide required parameters:
     
-   **Name**: Provide a unique name for credential.
-   **Client ID**: Use Service Principal Client ID (App ID) you created earlier.
-   **User name**: Provide the username of Power BI Administrator you created earlier.
-   **Password**: Select the appropriate Key vault connection and the **Secret name** where the Power BI account password was saved earlier.
+   - **Name**: Provide a unique name for credential.
 
-    :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-scan-delegated-auth.png" alt-text="Image showing Power BI scan setup using Delegated Auth.":::
+   - **Client ID**: Use Service Principal Client ID (App ID) you created earlier.
+   
+   - **User name**: Provide the username of Power BI Administrator you created earlier.
+   
+   - **Password**: Select the appropriate Key vault connection and the **Secret name** where the Power BI account password was saved earlier.
+
+        :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-scan-delegated-auth.png" alt-text="Image showing Power BI scan setup using Delegated Auth.":::
 
 16. Select **Test Connection** before continuing to next steps. If **Test Connection** failed, select **View Report** to see the detailed status and troubleshoot the problem
     1. Access - Failed status means the user authentication failed. Scans using managed identity will always pass because no user authentication required.
