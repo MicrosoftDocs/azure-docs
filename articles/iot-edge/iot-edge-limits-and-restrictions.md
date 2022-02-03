@@ -1,6 +1,6 @@
 ---
 title: Limits and Restrictions | Microsoft Docs 
-description: Description of the limitations when using IoT Edge.
+description: Description of the limits and restrictions when using IoT Edge.
 author: raisalitch
 ms.author: ralitchf
 ms.date: 01/28/2022
