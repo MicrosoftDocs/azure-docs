@@ -1,17 +1,14 @@
 ---
 # Mandatory fields. See more on aka.ms/skyeye/meta.
 title: Configure autoscale of an Azure API Management instance | Microsoft Docs
-description: This topic describes how to set up autoscale behavior for an Azure API Management instance.
+description: This article describes how to set up autoscale behavior for an Azure API Management instance.
 services: api-management
 documentationcenter: ''
 author: dlepow
-manager: anneta
-editor: ''
 
 ms.service: api-management
-ms.workload: integration
-ms.topic: article
-ms.date: 06/20/2018
+ms.topic: how-to
+ms.date: 02/02/2022
 ms.author: danlep
 ---
 
@@ -39,11 +36,11 @@ To follow the steps from this article, you must:
 
 Certain limitations and consequences of scaling decisions need to be considered before configuring autoscale behavior.
 
-+ Autoscale can be enabled only for **Standard** and **Premium** tiers of Azure API Management service.
-+ Pricing tiers also specify the maximum number of units for a service instance.
++ The pricing tier of your API Management instance determines the [maximum number of units](upgrade-and-scale.md#upgrade-and-scale) you may set in autoscale rules. The **Standard tier** can be scaled to 4 units. You can add any number of units to the **Premium** tier.
 + Scaling process will take at least 20 minutes.
-+ If the service is locked by another operation, scaling request will fail and retry automatically.
-+ In case of a service with multi-regional deployments, only units in the **Primary location** can be scaled. Units in other locations can't be scaled.
++ If the service is locked by another operation, the scaling request will fail and retry automatically.
++ If your service instance is deployed in multiple regions (locations), only units in the **Primary location** can be scaled. Units in other locations can't be scaled.
++ If your service instance is configured with [availability zones](zone-redundancy.md) in the **Primary location**, be aware of the number of zones when configuring autoscaling. The counts (API Management units) in autoscale rules and limits must be a multiple of the number of zones. 
 
 ## Enable and configure autoscale for Azure API Management service
 
