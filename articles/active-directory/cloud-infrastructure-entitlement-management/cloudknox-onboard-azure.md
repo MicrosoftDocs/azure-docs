@@ -1,5 +1,5 @@
 ---
-title:  Onboard  a Microsoft Azure subscription in CloudKnox Permissions Management - 
+title:  Onboard a Microsoft Azure subscription in CloudKnox Permissions Management - 
 description: How to a Microsoft Azure subscription on CloudKnox Permissions Management.
 services: active-directory
 author: Yvonne-deQ
