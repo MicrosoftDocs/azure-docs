@@ -22,7 +22,7 @@ ms.custom: aaddev, "scenarios:getting-started", "languages:JavaScript", devx-tra
 > [!Note]
 > Welcome! This probably isn't the page you were expecting. We're currently working on a fix, but for now, please use the link below - it should take you to the right article:
 > 
-> [JavaScript single-page app quickstart](single-page-app-quickstart.md?pivots=devlang-javascript")
+> [JavaScript single-page app quickstart](single-page-app-quickstart.md?pivots=devlang-javascript)
 > 
 > We apologize for the inconvenience and appreciate your patience while we work to get this resolved.
 

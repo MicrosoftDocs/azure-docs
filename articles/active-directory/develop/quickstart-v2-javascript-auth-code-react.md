@@ -15,18 +15,18 @@ ms.author: jamesmantu
 ms.custom: aaddev, "scenarios:getting-started", "languages:JavaScript", devx-track-js, mode-other
 #Customer intent: As an app developer, I want to learn how to login, logout, conditionally render components to authenticated users, and acquire an access token for a protected resource such as Microsoft Graph by using the Microsoft identity platform so that my JavaScript React app can sign in users of personal accounts, work accounts, and school accounts.
 ---
+> # Quickstart: Sign in and get an access token in a React SPA using the auth code flow
+
 
 > [!div renderon="docs"]
 > [!Note]
 > Welcome! This probably isn't the page you were expecting. We're currently working on a fix, but for now, please use the link below - it should take you to the right article:
 > 
-> [React single-page app quickstart](single-page-app-quickstart.md?pivots=devlang-react")
+> [React single-page app quickstart](single-page-app-quickstart.md?pivots=devlang-react)
 > 
 > We apologize for the inconvenience and appreciate your patience while we work to get this resolved.
 
 > [!div renderon="portal" class="sxs-lookup"]
-> # Quickstart: Sign in and get an access token in a React SPA using the auth code flow
-> 
 > In this quickstart, you download and run a code sample that demonstrates how a JavaScript React single-page application (SPA) can sign in users and call Microsoft Graph using the authorization code flow. The code sample demonstrates how to get an access token to call the Microsoft Graph API or any web API.
 > 
 > See [How the sample works](#how-the-sample-works) for an illustration.
