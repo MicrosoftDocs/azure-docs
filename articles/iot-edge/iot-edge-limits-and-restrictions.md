@@ -36,6 +36,7 @@ For more information, see [Parent and child relationships](iot-edge-as-gateway.m
 ### Number of modules in a deployment
 IoT Hub has the following restrictions for IoT Edge automatic deployments:
 * 50 modules per deployment
+    * This limit is superseded by the IoT Hub 32-kb module twin size limit. For more information, see [Be mindful of twin size limits when using custom modules](production-checklist.md#be-mindful-of-twin-size-limits-when-using-custom-modules).
 * 100 deployments (including layered deployments per paid SKU hub)
 * 10 deployments per free SKU hub
 
