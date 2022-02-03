@@ -1,17 +1,28 @@
 ---
-title: "Adding Ingestion-time Transformation to Azure Monitor Logs"
+title: Tutorial: Tutorial: Add ingestion-time transformation to Azure Monitor Logs
 description: This article describes how to add a custom transformation to data flowing through Azure Monitor Logs using table management features of Log Analytics workspace.
 ms.subservice: logs
 ms.topic: tutorial
-author: ivkhrul
-ms.author: ivkhrul
+author: bwren
+ms.author: bwren
 ms.date: 01/19/2022
 ---
 
-# Adding Ingestion-time Transformation to Azure Monitor Logs
-This tutorial will guide you through the process of configuring [ingestion-time transformation](ingestion-time-transformations.md) for Azure Monitor Logs. Ingestion-time transformation is enabled for most [standard log types](ingestion-time-transformations-supported-tables.md). It allows you to control what data and in what shape gets ingested into your Workspace. Unsing ingestion-time transformation you can add data filtering, parsing and extraction before the data gets stored in the corresponding table.
+# Tutorial: Add ingestion-time transformation to Azure Monitor Logs
+[Ingestion-time transformations](ingestion-time-transformations.md) allow you to manipulate incoming data before it's stored in a Log Analytics workspace. You can add data filtering, parsing and extraction and control the structure of the data that gets ingested. 
 
-## Before we start
+In this tutorial, you learn to:
+
+> [!div class="checklist"]
+> * Create a metric alert rule from metrics explorer
+> * Configure the alert threshold
+> * 
+
+
+This tutorial will guide you through the process of configuring [ingestion-time transformation](ingestion-time-transformations.md) for Azure Monitor Logs. 
+
+
+## Prerequisites
 An Azure Monitor Logs Workspace to which you have at least contributor rights will be required. Additionally, in the same subscription, permissions to create Data Collection Rule objects will be required.
 For the demonstration purposes we are going to work with `LAQueryLogs` table, but the same principles can be applied to virtually any Azure log.  
 

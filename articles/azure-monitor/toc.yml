@@ -376,9 +376,9 @@ items:
     - name: Ingestion time transformationa
       items:
       - name: Overview
-        href: ingestion-time-transformation.md
+        href: logs/ingestion-time-transformation.md
       - name: Tutorial
-        href: tutorial-ingestion-time-transformation.md
+        href: logs/tutorial-ingestion-time-transformation.md
     - name: Data export
       items:
       - name: Workspace data export
