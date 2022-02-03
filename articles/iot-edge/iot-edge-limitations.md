@@ -11,11 +11,13 @@ services: iot-edge
 
 # IoT Edge Limitations
 
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+
 This article explains the limitations when using IoT Edge.
 
 ## Device Limitations
 ### Number of children in gateway hierarchy
-IoT Edge gateway hierarchies have a default limit of up to 100 children. This limit can be changed by setting the **MaxConnectedClients** environment variable in the parent device's edgeHub module.
+IoT Edge gateway hierarchies have a default limit of up to 100 connected child devices. This limit can be changed by setting the **MaxConnectedClients** environment variable in the parent device's edgeHub module.
 
 For more information, see [Create a gateway hierarchy](how-to-connect-downstream-iot-edge-device.md#create-a-gateway-hierarchy).
 
