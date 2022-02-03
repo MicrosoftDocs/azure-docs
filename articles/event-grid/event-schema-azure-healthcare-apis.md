@@ -31,6 +31,8 @@ This section contains examples of what events message data would look like for e
 
 ### FhirResourceCreated event
 
+# [Event Grid event schema](#tab/event-grid-event-schema)
+
 ```json
 {
   "id": "e4c7f556-d72c-e7f7-1069-1e82ac76ab41",
@@ -48,9 +50,7 @@ This section contains examples of what events message data would look like for e
   "eventTime": "2021-09-08T01:14:04.5613214Z"
 }
 ```
-Cloud event example:
-
-- Microsoft.HealthcareApis.FhirResourceCreated
+# [CloudEvent schema](#tab/cloud-event-schema)
 
 ```json
 {
@@ -71,6 +71,8 @@ Cloud event example:
 ```
 ### FhirResourceUpdated event
 
+# [Event Grid event schema](#tab/event-grid-event-schema)
+
 ```json
 {
   "id": "634bd421-8467-f23c-b8cb-f6a31e41c32a",
@@ -88,9 +90,7 @@ Cloud event example:
   "eventTime": "2021-09-08T01:29:12.0618739Z"
 }
 ```
-Cloud event example:
-
-- Microsoft.HealthcareApis.FhirResourceUpdated
+# [CloudEvent schema](#tab/cloud-event-schema)
 
 ```json
 {
@@ -112,6 +112,8 @@ Cloud event example:
 
 ### FhirResourceDelete event
 
+# [Event Grid event schema](#tab/event-grid-event-schema)
+
 ```json
 {
   "id": "ef289b93-3159-b833-3a44-dc6b86ed1a8a",
@@ -129,10 +131,7 @@ Cloud event example:
   "eventTime": "2021-09-08T01:31:58.5175837Z"
 }
 ```
-
-Cloud event example:
-
-- Microsoft.HealthcareApis.FhirResourceDeleted
+# [CloudEvent schema](#tab/cloud-event-schema)
 
 ```json
 {
