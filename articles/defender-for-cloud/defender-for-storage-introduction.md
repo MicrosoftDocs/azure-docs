@@ -156,4 +156,4 @@ In this article, you learned about Microsoft Defender for Storage.
 
 - [The full list of Microsoft Defender for Storage alerts](alerts-reference.md#alerts-azurestorage)
 - [Stream alerts to a SIEM, SOAR, or IT Service Management solution](export-to-siem.md)
-- [Save Storage telemetry for investigation](/azure-monitor/essentials/diagnostic-settings.md)
+- [Save Storage telemetry for investigation](/azure/azure-monitor/essentials/diagnostic-settings)

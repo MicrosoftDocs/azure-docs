@@ -7,7 +7,7 @@ manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw 
-ms.date: 02/04/2020
+ms.date: 01/24/2022
 ms.author: rortloff
 ms.reviewer: sngun
 ms.custom: azure-synapse
@@ -33,9 +33,6 @@ Not all statements are classified as they do not require resources or need impor
 
 Classification for dedicated SQL pool is achieved today by assigning users to a role that has a corresponding resource class assigned to it using [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true). The ability to characterize requests beyond a login to a resource class is limited with this capability. A richer method for classification is now available with the [CREATE WORKLOAD CLASSIFIER](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) syntax.  With this syntax, dedicated SQL pool users can assign importance and how much system resources are assigned to a request via the `workload_group` parameter.
 
-> [!NOTE]
-> Classification is evaluated on a per request basis. Multiple requests in a single session can be classified differently.
-
 ## Classification weighting
 
 As part of the classification process, weighting is in place to determine which workload group is assigned.  The weighting goes as follows:
@@ -51,6 +48,10 @@ As part of the classification process, weighting is in place to determine which 
 The `membername` parameter is mandatory.  However, if the membername specified is a database user instead of a database role, the weighting for user is higher and thus that classifier is chosen.
 
 If a user is a member of multiple roles with different resource classes assigned or matched in multiple classifiers, the user is given the highest resource class assignment.  This behavior is consistent with existing resource class assignment behavior.
+
+> [!NOTE]
+> Classifying managed identities (MI) behavior differs between the dedicated SQL pool in Azure Synapse workspaces and the standalone dedicated SQL pool (formerly SQL DW). While the standalone dedicated SQL pool MI maintains the assigned identity, Azure Synapse workspaces adds MI to the **dbo** role. This cannot be changed. The dbo role, by default, is classified to smallrc. Creating a classifier for the dbo role allows for assigning requests to a workload group other than smallrc. If dbo alone is too generic for classification and has broader impacts, consider using label, session or time-based classification in conjunction with the dbo role classification.
+
 
 ## System classifiers
 

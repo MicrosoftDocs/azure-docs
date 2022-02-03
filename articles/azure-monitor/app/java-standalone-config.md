@@ -30,21 +30,21 @@ Connection string and role name are the most common settings needed to get start
 }
 ```
 
-The connection string is required, and the role name is important any time you are sending data
+The connection string is required, and the role name is important anytime you are sending data
 from different applications to the same Application Insights resource.
 
 You will find more details and additional configuration options below.
 
 ## Configuration file path
 
-By default, Application Insights Java 3.x expects the configuration file to be named `applicationinsights.json`, and to be located in the same directory as `applicationinsights-agent-3.2.4.jar`.
+By default, Application Insights Java 3.x expects the configuration file to be named `applicationinsights.json`, and to be located in the same directory as `applicationinsights-agent-3.2.5.jar`.
 
 You can specify your own configuration file path using either
 
 * `APPLICATIONINSIGHTS_CONFIGURATION_FILE` environment variable, or
 * `applicationinsights.configuration.file` Java system property
 
-If you specify a relative path, it will be resolved relative to the directory where `applicationinsights-agent-3.2.4.jar` is located.
+If you specify a relative path, it will be resolved relative to the directory where `applicationinsights-agent-3.2.5.jar` is located.
 
 Alternatively, instead of using a configuration file, you can specify the entire _content_ of the json configuration
 via the environment variable `APPLICATIONINSIGHTS_CONFIGURATION_CONTENT`.
@@ -228,6 +228,18 @@ Instrumentation key overrides allow you to override the [default instrumentation
 }
 ```
 
+## Autocollect InProc dependencies (preview)
+
+Starting from 3.2.0, if you want to capture controller "InProc" dependencies, please use the following configuration:
+
+```json
+{
+  "preview": {
+    "captureControllerSpans": true
+  }
+}
+```
+
 ## Telemetry processors (preview)
 
 It allows you to configure rules that will be applied to request, dependency and trace telemetry, for example:
@@ -314,7 +326,7 @@ To disable auto-collection of Micrometer metrics (including Spring Boot Actuator
 
 ## HTTP headers
 
-Starting from 3.2.5-BETA, you can capture request and response headers on your server (request) telemetry:
+Starting from 3.2.5, you can capture request and response headers on your server (request) telemetry:
 
 ```json
 {
@@ -360,7 +372,7 @@ Again, the header names are case-insensitive, and the examples above will be cap
 
 By default, http server requests that result in 4xx response codes are captured as errors.
 
-Starting from version 3.2.5-BETA, you can change this behavior to capture them as success if you prefer:
+Starting from version 3.2.5, you can change this behavior to capture them as success if you prefer:
 
 ```json
 {
@@ -453,12 +465,16 @@ Starting from version 3.2.0, the following preview instrumentations can be enabl
       "akka": { 
         "enabled": true
       },
+      "vertx": {
+        "enabled": true
+      }
     }
   }
 }
 ```
 > [!NOTE]
 > Akka instrumentation is available starting from version 3.2.2
+> Vertx HTTP Library instrumentation is available starting from version 3.2.5
 
 ## Metric interval
 
@@ -502,7 +518,7 @@ If you are using the heartbeat metric to trigger alerts, you can increase the fr
 
 ## Authentication (preview)
 > [!NOTE]
-> Authentication feature is available starting from version 3.2.0-BETA
+> Authentication feature is available starting from version 3.2.0
 
 It allows you to configure agent to generate [token credentials](/java/api/overview/azure/identity-readme#credentials) that are required for Azure Active Directory Authentication.
 For more information, check out the [Authentication](./azure-ad-authentication.md) documentation.
@@ -525,7 +541,7 @@ you can configure Application Insights Java 3.x to use an HTTP proxy:
 Application Insights Java 3.x also respects the global `https.proxyHost` and `https.proxyPort` system properties
 if those are set (and `http.nonProxyHosts` if needed).
 
-Starting from 3.2.5-BETA, authenticated proxies are supported. You can add `"user"` and `"password"` under `"proxy"` in
+Starting from 3.2.5, authenticated proxies are supported. You can add `"user"` and `"password"` under `"proxy"` in
 the json above (or if you are using the system properties above, you can add `https.proxyUser` and `https.proxyPassword`
 system properties).
 
@@ -557,7 +573,7 @@ and the console, corresponding to this configuration:
 `level` can be one of `OFF`, `ERROR`, `WARN`, `INFO`, `DEBUG`, or `TRACE`.
 
 `path` can be an absolute or relative path. Relative paths are resolved against the directory where
-`applicationinsights-agent-3.2.4.jar` is located.
+`applicationinsights-agent-3.2.5.jar` is located.
 
 `maxSizeMb` is the max size of the log file before it rolls over.
 

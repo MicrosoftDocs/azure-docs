@@ -43,6 +43,7 @@ Learn about important updates in the commercial marketplace program of Partner C
 
 | Category | Description | Date |
 | ------------ | ------------- | ------------- |
+| Payouts | Updated the payment schedule on [Payout schedules and processes](/partner-center/payout-policy-details), including terminology and graphics. | 2022-01-19 |
 | Offers | Added a new article, [Troubleshooting Private Plans in the commercial marketplace](azure-private-plan-troubleshooting.md). | 2021-12-13 |
 | Offers | We have updated the names of [Dynamics 365](/marketplace-dynamics-365#licensing-options) offer types: <br><br> - Dynamics 365 for Customer Engagement &amp; PowerApps is now **Dynamics 365 apps on Dataverse and Power Apps** <br> - Dynamics 365 for operations is now **Dynamics 365 Operations Apps** <br> - Dynamics 365 business central is now **Dynamics 365 Business Central** | 2021-12-03 |
 | Policy | We’ve created an [FAQ topic](/legal/marketplace/mpa-faq) to answer publisher questions about the Microsoft Publisher Agreement. | 2021-09-27 |

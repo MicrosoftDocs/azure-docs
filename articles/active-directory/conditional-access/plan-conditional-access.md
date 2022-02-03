@@ -1,15 +1,15 @@
 ---
-title: Plan an Azure Active Directory Conditional Access Deployment
+title: Plan an Azure Active Directory Conditional Access deployment
 description: Learn how to design Conditional Access policies and effectively deploy in your organization.
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 10/16/2020
+ms.date: 1/19/2022
 
-ms.author: baselden
-author: BarbaraSelden
+ms.author: v-nisba
+author: NishthaBabith-V
 manager: martinco
 ms.reviewer: joflore
 
@@ -19,35 +19,13 @@ ms.collection: M365-identity-device-management
 
 Planning your Conditional Access deployment is critical to achieving your organization's access strategy for apps and resources.
 
-In a mobile-first, cloud-first world, your users access your organization's resources from anywhere using a variety of devices and apps. As a result, focusing on who can access a resource is no longer enough. You also need to consider where the user is, the device being used, the resource being accessed, and more. 
+[Azure Active Directory (Azure AD) Conditional Access](overview.md) analyses signals such as user, device, and location to automate decisions and enforce organizational access policies for resources. Conditional Access policies allow you to build conditions that manage security controls that can block access, require multifactor authentication, or restrict the user’s session when needed and stay out of the user’s way when not.
 
-Azure Active Directory (Azure AD) Conditional Access analyses signals such as user, device, and location to automate decisions and enforce organizational access policies for resource. You can use Conditional Access policies to apply access controls like Multi-Factor Authentication (MFA). Conditional Access policies allow you to prompt users for MFA when needed for security, and stay out of users’ way when not needed.
+With this evaluation and enforcement, Conditional Access defines the basis of [Microsoft’s Zero Trust security posture management](https://www.microsoft.com/security/business/zero-trust).
 
 ![Conditional Access overview](./media/plan-conditional-access/conditional-access-overview-how-it-works.png)
 
-Microsoft provides standard conditional policies called [security defaults](../fundamentals/concept-fundamentals-security-defaults.md) that ensure a basic level of security. However, your organization may need more flexibility than security defaults offer. You can use Conditional Access to customize security defaults with more granularity and to configure new policies that meet your requirements.
-
-## Learn
-
-Before you begin, make sure you understand how [Conditional Access](overview.md) works and when you should use it.
-
-### Benefits
-
-The benefits of deploying Conditional Access are:
-
-* Increase productivity. Only interrupt users with a sign-in condition like MFA when one or more signals warrants it. Conditional Access policies allow you to control when users are prompted for MFA, when access is blocked, and when they must use a trusted device.
-
-* Manage risk. Automating risk assessment with policy conditions means risky sign-ins are at once identified and remediated or blocked. Coupling Conditional Access with [Identity Protection](../identity-protection/overview-identity-protection.md), which detects anomalies and suspicious events, allows you to target when access to resources is blocked or gated. 
-
-* Address compliance and governance. Conditional Access enables you to audit access to applications, present terms of use for consent, and restrict access based on compliance policies.
-
-* Manage cost. Moving access policies to Azure AD reduces the reliance on custom or on-premises solutions for Conditional Access, and their infrastructure costs.
-
-### License requirements
-
-See [Conditional Access license requirements](overview.md).
-
-If additional features are required, you might also need related licenses. For more information, see [Azure Active Directory pricing](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
+Microsoft provides [security defaults](../fundamentals/concept-fundamentals-security-defaults.md) that ensure a basic level of security enabled in tenants that do not have Azure AD Premium. With Conditional Access, you can create policies that provide the same protection as security defaults, but with granularity. Conditional Access and security defaults are not meant to be combined as creating Conditional Access policies will prevent you from enabling security defaults.
 
 ### Prerequisites
 
@@ -55,96 +33,33 @@ If additional features are required, you might also need related licenses. For m
 
 * An account with Conditional Access administrator privileges.
 
-* A non-administrator user with a password you know, such as testuser. If you need to create a user, see [Quickstart: Add new users to Azure Active Directory](../fundamentals/add-users-azure-active-directory.md).
+* A test user (non-administrator) that allows you to verify policies work as expected before you impact real users. If you need to create a user, see [Quickstart: Add new users to Azure Active Directory](../fundamentals/add-users-azure-active-directory.md).
 
 * A group that the non-administrator user is a member of. If you need to create a group, see [Create a group and add members in Azure Active Directory](../fundamentals/active-directory-groups-create-azure-portal.md).
 
-### Training resources
-
-The following resources may be useful as you learn about Conditional Access:
-
-
-#### Videos
-
-* [What is Conditional Access?](https://youtu.be/ffMAw2IVO7A)
-* [How to deploy Conditional Access?](https://youtu.be/c_izIRNJNuk)
-* [How to roll out Conditional Access policies to end users?](https://youtu.be/0_Fze7Zpyvc)
-* [How to include or exclude users from Conditional Access policies](https://youtu.be/5DsW1hB3Jqs)
-* [Conditional Access with device controls](https://youtu.be/NcONUf-jeS4)
-* [Conditional Access with Azure AD MFA](https://youtu.be/Tbc-SU97G-w)
-* [Conditional Access in Enterprise Mobility + Security](https://youtu.be/A7IrxAH87wc)
-
-
-#### Online courses on PluralSight
-
-* [Design Identity Management in Microsoft Azure](https://www.pluralsight.com/courses/microsoft-azure-identity-management-design)
-* [Design Authentication for Microsoft Azure](https://www.pluralsight.com/courses/microsoft-azure-authentication-design)
-* [Design Authorization for Microsoft Azure](https://www.pluralsight.com/courses/microsoft-azure-authorization-design)
-
-## Plan the deployment project
-
-Consider your organizational needs while you determine the strategy for this deployment in your environment.
-
-### Engage the right stakeholders
-
-When technology projects fail, they typically do so due to mismatched expectations on impact, outcomes, and responsibilities. To avoid these pitfalls, [ensure that you're engaging the right stakeholders](../fundamentals/active-directory-deployment-plans.md) and that project roles are clear.
-
-### Plan communications
-
-Communication is critical to the success of any new service. Proactively communicate with your users how their experience will change, when it will change, and how to gain support if they experience issues.
-
-### Plan a pilot
-
-When new policies are ready for your environment, deploy them in phases in the production environment. First apply a policy to a small set of users in a test environment and verify if the policy behaves as expected. See [Best practices for a pilot](../fundamentals/active-directory-deployment-plans.md).
-
-> [!NOTE]
-> For rolling out new policies not specific to administrators, exclude all administrators. This ensures that administrators can still access the policy and make changes or revoke it if there's a significant impact. Always validate the policy with smaller user groups before you apply to all users.
-
 ## Understand Conditional Access policy components
-Conditional Access policies are if-then statements: If an assignment is met, then apply these access controls.
 
-When configuring Conditional Access policies, conditions are called *assignments*. Conditional Access policies allow you to enforce access controls on your organization’s apps based on certain assignments.
+Policies answer questions about who should access your resources, what resources they should access, and under what conditions. Policies can be designed to grant access, limit access with session controls, or to block access. You [build a Conditional Access policy](concept-conditional-access-policies.md)  by defining the if-then statements: **If an assignment is met, then apply the access controls**.
 
+### Ask the right questions
 
-For more information, see [Building a Conditional Access policy](concept-conditional-access-policies.md).
+Here are some common questions about [Assignments and Access Controls](concept-conditional-access-cloud-apps.md). Document the answers to questions for each policy before building it out.
 
-![create policy screen](media/plan-conditional-access/create-policy.png)
+**Users or workload identities**
 
-[Assignments](concept-conditional-access-policies.md#assignments) define the
+* Which users, groups, directory roles and workload identities will be included in or excluded from the policy?
 
-* [Users and groups](concept-conditional-access-users-groups.md) to be affected by the policy
+* What emergency access accounts or groups should be excluded from policy?
 
-* [Cloud apps or actions](concept-conditional-access-cloud-apps.md) to which the policy will apply 
+**Cloud apps or actions**
 
-* [Conditions](concept-conditional-access-conditions.md) under which the policy will apply.
+Will this policy apply to any application, user action, or authentication context? If yes-
 
-[Access controls](concept-conditional-access-policies.md) settings determine how to enforce a policy:
+*	What application(s) will the policy apply to?
+*	What user actions will be subject to this policy?
+*	What authentication contexts does this policy will be applied to?
 
-* [Grant or Block](concept-conditional-access-grant.md) access to cloud apps.
-
-* [Session controls](concept-conditional-access-session.md) enable limited experiences within specific cloud apps.
-
-### Ask the right questions to build your policies
-
-Policies answer questions about who should access your resources, what resources they should access, and under what conditions. Policies can be designed to grant access, or to block access. Be sure to ask the right questions about what your policy is trying to achieve. 
-
-Document the answers to questions for each policy before building it out. 
-
-#### Common questions about Assignments
-
-[Users and Groups](concept-conditional-access-users-groups.md)
-
-* Which users and groups will be included in or excluded from the policy?
-
-* Does this policy include all users, specific group of users, directory roles, or external users?
-
-[Cloud apps or actions](concept-conditional-access-cloud-apps.md)
-
-* What application(s) will the policy apply to?
-
-* What user actions will be subject to this policy?
-
-[Conditions](concept-conditional-access-conditions.md)
+**Conditions**
 
 * Which device platforms will be included in or excluded from the policy?
 
@@ -152,15 +67,13 @@ Document the answers to questions for each policy before building it out.
 
 * What locations will be included in or excluded from the policy?
 
-* What client app types (browser, mobile, desktop clients, apps with legacy authentication methods) will be included in or excluded from the policy?
+* What client app types will be included in or excluded from the policy?
 
-* Do you have policies that would drive excluding Azure AD Joined devices or Hybrid Azure AD joined devices from policies? 
+* Do you have policies that would drive excluding Azure AD joined devices or Hybrid Azure AD joined devices from policies? 
 
 * If using [Identity Protection](../identity-protection/concept-identity-protection-risks.md), do you want to incorporate sign-in risk protection?
 
-#### Common questions about access controls
-
-[Grant or Block ](concept-conditional-access-grant.md) 
+**Grant or Block** 
 
 Do you want to grant access to resources by requiring one or more of the following?
 
@@ -174,53 +87,60 @@ Do you want to grant access to resources by requiring one or more of the followi
 
 * Require app protection policy
 
-[Session control](concept-conditional-access-session.md)
+* Require password change
+
+* Use Terms of Use 
+
+**Session control**
 
 Do you want to enforce any of the following access controls on cloud apps?
 
-* Use app enforced permissions
+* Use app enforced restrictions
 
-* Use Conditional Access App Control
+* Use Conditional Access App control
 
 * Enforce sign-in frequency
 
 * Use persistent browser sessions
 
+* Customize continuous access evaluation
+
 ### Access token issuance
 
-It’s important to understand how access tokens are issued. 
+[Access tokens](../develop/access-tokens.md) grant or deny access based on whether the user making a request has been authorized and authenticated. If the requestor can prove they're who they claim to be, they can access the protected resources or functionality. 
 
 ![Access token issuance diagram](media/plan-conditional-access/CA-policy-token-issuance.png)
 
-> [!NOTE]
-> If no assignment is required, and no Conditional Access policy is in effect, that the default behavior is to issue an access token. 
+**Access tokens are by default issued if a Conditional Access policy condition does not trigger an access control**. 
 
-For example, consider a policy where:
+This doesn’t prevent the app to have separate authorization to block access. For example, consider a policy where: 
+  
+  * IF user is in finance team, THEN force MFA to access their payroll app.
 
-IF user is in Group 1, THEN force MFA to access App 1.
+  * IF a user not in finance team attempts to access the payroll app, the user will be issued an access token. 
 
-If a user not in Group 1 attempts to access the app no “if’ condition is met, and a token is issued. To exclude users outside of Group 1 requires a separate policy to block all other users.
+  * To ensure users outside of finance group cannot access the payroll app, a separate policy should be created to block all other users. If all users except for finance team and emergency access accounts group, accessing payroll app, then block access.
 
 ## Follow best practices
 
-The Conditional Access framework provides you with a great configuration flexibility. However, great flexibility also means you should carefully review each configuration policy before releasing it to avoid undesirable results.
-
-### Apply Conditional Access policies to every app
-
-Access tokens are by default issued if a Conditional Access policy condition does not trigger an access control. Ensure that every app has at least one conditional access policy applied
-
-> [!IMPORTANT]
-> Be very careful in using block and all apps in a single policy. This could lock admins out of the Azure Administration Portal, and exclusions cannot be configured for important end-points such as Microsoft Graph.
-
-### Minimize the number of Conditional Access policies
-
-Creating a policy for each app isn't efficient and leads to complex administration. There can be a maximum of 195 Conditional Access in each Azure AD tenant. We recommend that you analyze your apps and group them into policies that have the same access requirements. For example, if all Microsoft 365 apps or all HR apps have the same requirements for the same users, create a single policy and include all of these apps instead of adding a policy for each app.
+Conditional Access provides you with great configuration flexibility. However, great flexibility also means you should carefully review each configuration policy before releasing it to avoid undesirable results.
 
 ### Set up emergency access accounts
 
-If you misconfigure a policy, it can lock the organizations out of the Azure portal. Mitigate the impact of accidental administrator lock out by creating two or more [emergency access accounts](../roles/security-emergency-access.md) in your organization.
+**If you misconfigure a policy, it can lock the organizations out of the Azure portal**. 
 
-* Create a user account dedicated to policy administration and excluded from all your policies.
+Mitigate the impact of accidental administrator lock out by creating two or more [emergency access accounts](../roles/security-emergency-access.md) in your organization. Create a user account dedicated to policy administration and excluded from all your policies.
+
+### Apply Conditional Access policies to every app
+
+**Ensure that every app has at least one conditional access policy applied**. From a security perspective it is better to create a policy that encompasses All cloud apps and then exclude applications that you do not want the policy to apply to. This ensures you do not need to update Conditional Access policies every time you onboard a new application.
+
+> [!IMPORTANT]
+> Be very careful in using block and all apps in a single policy. This could lock admins out of the Azure portal, and exclusions cannot be configured for important endpoints such as Microsoft Graph.
+
+### Minimize the number of Conditional Access policies
+
+Creating a policy for each app isn’t efficient and leads to difficult administration. Conditional Access will only apply to the first 195 policies per user. We recommend that you **analyze your apps and group them into applications that have the same resource requirements for the same users**. For example, if all Microsoft 365 apps or all HR apps have the same requirements for the same users, create a single policy and include all the apps to which it applies.
 
 ### Set up report-only mode
 
@@ -230,17 +150,17 @@ It can be difficult to predict the number and names of users affected by common 
 * requiring MFA
 * implementing sign-in risk policies
 
-[Report-only mode ](concept-conditional-access-report-only.md) allows administrators to evaluate the impact of Conditional Access policies before enabling them in their environment.
-
-Learn how to [configure report-only mode on a Conditional Access policy](howto-conditional-access-insights-reporting.md).
+[Report-only mode ](concept-conditional-access-report-only.md) allows administrators to evaluate the impact of Conditional Access policies before enabling them in their environment. **First configure your policies in report-only mode and let it run for an interval before enforcing it in your environment**. 
 
 ### Plan for disruption
 
-If you rely on a single access control, such as MFA or a network location, to secure your IT systems, you are susceptible to access failures if that single access control becomes unavailable or misconfigured. To reduce the risk of lockout during unforeseen disruptions, [plan strategies](../authentication/concept-resilient-controls.md) to adopt for your organization.
+If you rely on a single access control, such as MFA or a network location, to secure your IT systems, you are susceptible to access failures if that single access control becomes unavailable or misconfigured. 
+
+**To reduce the risk of lockout during unforeseen disruptions, [plan strategies](../authentication/concept-resilient-controls.md) to adopt for your organization**.
 
 ### Set naming standards for your policies
 
-The naming standard helps you to find policies and understand their purpose without opening them in the Azure admin portal. We recommend that you name your policy to show:
+**A naming standard helps you to find policies and understand their purpose without opening them in the Azure admin portal**. We recommend that you name your policy to show:
 
 * A Sequence Number
 
@@ -263,6 +183,7 @@ A descriptive name helps you to keep an overview of your Conditional Access impl
 #### Naming standards for emergency access controls
 
 In addition to your active policies, implement disabled policies that act as secondary [resilient access controls in outage or emergency scenarios](../authentication/concept-resilient-controls.md). Your naming standard for the contingency policies should include:
+
 * ENABLE IN EMERGENCY at the beginning to make the name stand out among the other policies.
 
 * The name of disruption it should apply to.
@@ -273,145 +194,54 @@ In addition to your active policies, implement disabled policies that act as sec
 
 The following name indicates that this policy is the first of four policies to enable if there's an MFA disruption:
 
-EM01 - ENABLE IN EMERGENCY: MFA Disruption [1/4] - Exchange SharePoint: Require hybrid Azure AD join For VIP users.
+* EM01 - ENABLE IN EMERGENCY: MFA Disruption [1/4] - Exchange SharePoint: Require hybrid Azure AD join For VIP users.
 
-### Exclude countries from which you never expect a sign-in.
+### Block countries from which you never expect a sign-in.
 
-Azure active directory allows you to create [named locations](location-condition.md). Create a named location that includes all of the countries from which you would never expect a sign-in to occur. Then create a policy for All apps that blocks sign in from that named location. **Be sure to exempt your administrators from this policy**.
+Azure active directory allows you to create [named locations](location-condition.md). Create the list of countries that are allowed, and then create a network block policy with these "allowed countries" as an exclusion. This is less overhead for customers who are mainly based in smaller geographic locations.**Be sure to exempt your emergency access accounts from this policy**.
 
-### Plan your policy deployment
+## Deploy Conditional Access policy
 
-When new policies are ready for your environment, make sure that you review each policy before releasing it to avoid undesirable results.
+When new policies are ready, deploy your conditional access policies in phases.
 
-## Common policies
+### Build your Conditional Access policy
 
-When planning your Conditional Access policy solution, assess whether you need to create policies to achieve the following outcomes.
+Refer to common [Conditional Access policies](concept-conditional-access-policy-common.md) for a head start. A convenient way will be to use the Conditional Access template that comes with Microsoft recommendations. Make sure you exclude your emergency access accounts.
 
-* [Require MFA](#require-mfa)
-* [Respond to potentially compromised accounts](#respond-to-potentially-compromised-accounts)
-* [Require managed devices](#require-managed-devices)
-* [Require approved client applications](#require-approved-client-apps)
-* [Block access](#block-access)
+### Evaluate the policy impact
 
-### Require MFA
+Before you see the impact of your Conditional Access policy in your production environment, we recommend that you use the following two tools to run the simulation. 
 
-Common use cases to require MFA access:
+#### Set up report-only mode
 
-* [By admins](howto-conditional-access-policy-admin-mfa.md)
+By default, each policy is created in report-only mode, we recommended organizations test and monitor usage, to ensure intended result, before turning each policy on.
 
-* [To specific apps](../authentication/tutorial-enable-azure-mfa.md)
+[Enable the policy in report-only mode](howto-conditional-access-insights-reporting.md). Once you save the policy in report-only mode, you can see the impact on real-time sign-ins in the sign-in logs. From the sign-in logs, select an event and navigate to the Report-only tab to see the result of each report-only policy.
 
-* [For all users](howto-conditional-access-policy-all-users-mfa.md)
+You can view the aggregate impact of your Conditional Access policies in the Insights and Reporting workbook. To access the workbook, you need an Azure Monitor subscription and you will need to [stream your sign-in logs to a log analytics workspace](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)  .
 
-* [From network locations, you don't trust](untrusted-networks.md)
+#### Simulate sign-ins using the What If tool
 
-* [For Azure Management](howto-conditional-access-policy-azure-management.md)
-
-### Respond to potentially compromised accounts
-
-With Conditional Access policies, you can implement automated responses to sign-ins by potentially compromised identities. The probability that an account is compromised is expressed in the form of risk levels. There are two risk levels calculated by Identity Protection: sign-in risk and user risk. The following three default policies that can be enabled.
-
-* [Require all users to register for MFA](howto-conditional-access-policy-risk.md)
-
-* [Require a password change for users that are high-risk](howto-conditional-access-policy-risk-user.md)
-
-* [Require MFA for users with medium or high sign-in risk](howto-conditional-access-policy-risk.md)
-
-### Require managed devices
-
-The proliferation of supported devices to access your cloud resources helps to improve the productivity of your users. You probably don't want certain resources in your environment to be accessed by devices with an unknown protection level. For those resources, [require that users can only access them using a managed device](require-managed-devices.md).
-
-### Require approved client apps
-
-Employees use their mobile devices for both personal and work tasks. For BYOD scenarios you must decide whether to manage the entire device or just the data on it. If managing only data and access, you can [require approved cloud apps](app-based-conditional-access.md) that can protect your corporate data. for example, you can require email only be accessed via Outlook mobile, and not via a generic mail program.
-
-### Block access
-
-The option to [block all access](howto-conditional-access-policy-block-access.md) is powerful. It can be used, for example, when you are migrating an app to Azure AD, but are not ready for anyone to sign-in to it yet. Block access: 
-
-* Overrides all other assignments for a user
-
-* Has the power to block your entire organization from signing on to your tenant
-
-> [!IMPORTANT]
-> If you create a policy to block access for all users, be sure to exclude emergency access accounts, and consider excluding all administrators, from the policy.
-
-Other common scenarios where you can block access for your users are:
-
-* [Block certain network locations](howto-conditional-access-policy-location.md) to access your cloud apps. You can use this policy to block certain countries where you know traffic shouldn't come from.
-
-* Azure AD supports legacy authentication. However, legacy authentication doesn't support MFA and many environments require it to address identity security. In this case, you can [block apps using legacy authentication ](block-legacy-authentication.md) from accessing your tenant resources.
-
-## Build and test policies
-
-At each stage of your deployment ensure that you're evaluating that results are as expected. 
-
-When new policies are ready, deploy them in phases in the production environment:
-
-* Provide internal change communication to end users.
-
-* Start with a small set of users and verify that the policy behaves as expected.
-
-* When you expand a policy to include more users, continue to exclude all administrators. Excluding administrators ensures that someone still has access to a policy if a change is required.
-
-* Apply a policy to all users only after it's thoroughly tested. Ensure you have at least one administrator account to which a policy doesn't apply.
-
-### Create test users
-
-Create a set of test users that reflect the users in your production environment. Creating test users allows you to verify policies work as expected before you impact real users and potentially disrupt their access to apps and resources.
-
-Some organizations have test tenants for this purpose. However, it can be difficult to recreate all conditions and apps in a test tenant to fully test the outcome of a policy.
-
-### Create a test plan
-
-The test plan is important to have a comparison between the expected results and the actual results. You should always have an expectation before testing something. The following table outlines example test cases. Adjust the scenarios and expected results based on how your Conditional Access policies are configured.
-
-| Policy| Scenario| Expected Result |
-| - | - | - |
-| [Require MFA when not at work](untrusted-networks.md)| Authorized user signs into App while on a trusted location / work| User is not prompted to MFA |
-| [Require MFA when not at work](untrusted-networks.md)| Authorized user signs into App while not on a trusted location / work| User is prompted to MFA and can sign in successfully |
-| [Require MFA (for admin)](../fundamentals/concept-fundamentals-security-defaults.md)| Global Admin signs into App| Admin is prompted to MFA |
-| [Risky sign-ins](../identity-protection/howto-identity-protection-configure-risk-policies.md)| User signs into App using an unapproved browser| Admin is prompted to MFA |
-| [Device management](require-managed-devices.md)| Authorized user attempts to sign in from an authorized device| Access Granted |
-| [Device management](require-managed-devices.md)| Authorized user attempts to sign in from an unauthorized device| Access blocked |
-| [Password change for risky users](../identity-protection/howto-identity-protection-configure-risk-policies.md)| Authorized user attempts to sign in with compromised credentials (high risk sign in)| User is prompted to change password or access is blocked based on your policy |
-
-
-### Configure the test policy
-
-In the [Azure portal](https://portal.azure.com/), you configure Conditional Access policies under Azure Active Directory > Security > Conditional Access.
-
-If you want to learn more about how to create Conditional Access policies, see this example: [Conditional Access policy to prompt for MFA when a user signs in to the Azure portal](../authentication/tutorial-enable-azure-mfa.md?bc=%2fazure%2factive-directory%2fconditional-access%2fbreadcrumb%2ftoc.json&toc=%2fazure%2factive-directory%2fconditional-access%2ftoc.json). This quickstart helps you to:
-
-* Become familiar with the user interface
-
-* Get a first impression of how Conditional Access works
-
-### Enable the policy in report-only mode
-
-To assess the impact of your policy, start by enabling the policy in [report-only mode](concept-conditional-access-report-only.md). Report-only policies are evaluated during sign-in but grant controls and session controls aren't enforced. Once you save the policy in report-only mode, you can see the impact on real-time sign-ins in the sign-in logs. From the sign-in logs, select an event and navigate to the Report-only tab to see the result of each report-only policy.
-
-
-![report only mode ](media/plan-conditional-access/report-only-mode.png)
-
-Selecting the policy, you can also see how the assignments and access controls of the policy were evaluated using the Policy details screen. In order for a policy to apply to a sign-in, each of the configured assignments must be satisfied. 
-
-### Understand the impact of your policies using the Insights and Reporting workbook
-
-You can view the aggregate impact of your Conditional Access policies in the Insights and Reporting workbook. To access the workbook, you need an Azure Monitor subscription and you will need to [stream your Sign-in logs to a Log Analytics workspace](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md). 
-
-### Simulate sign-ins using the what-if tool
-
-Another way to validate your Conditional Access policy is by using the [what-if tool](troubleshoot-conditional-access-what-if.md), which simulates which policies would apply to a user signing in under hypothetical circumstances. Select the sign-in attributes you want to test (such as user, application, device platform, and location) and see which policies would apply.
+Another way to validate your Conditional Access policy is by using the [What If tool](troubleshoot-conditional-access-what-if.md), which simulates which policies would apply to a user signing in under hypothetical circumstances. Select the sign-in attributes you want to test (such as user, application, device platform, and location) and see which policies would apply.
 
 > [!NOTE] 
 > While a simulated run gives you a good idea of the impact a Conditional Access policy has, it does not replace an actual test run.
 
 ### Test your policy
 
-Perform each test in your test plan with test users.
-
 **Ensure you test the exclusion criteria of a policy**. For example, you may exclude a user or group from a policy that requires MFA. Test if the excluded users are prompted for MFA, because the combination of other policies might require MFA for those users.
+
+Perform each test in your test plan with test users. The test plan is important to have a comparison between the expected results and the actual results. The following table outlines example test cases. Adjust the scenarios and expected results based on how your Conditional Access policies are configured.
+
+| Policy| Scenario| Expected Result |
+| - | - | - |
+| [Risky sign-ins](../identity-protection/howto-identity-protection-configure-risk-policies.md)| User signs into App using an unapproved browser| Calculates a risk score based on the probability that the sign-in wasn't performed by the user. Requires user to self-remediate using MFA  |
+| [Device management](require-managed-devices.md)| Authorized user attempts to sign in from an authorized device| Access granted |
+| [Device management](require-managed-devices.md)| Authorized user attempts to sign in from an unauthorized device| Access blocked |
+| [Password change for risky users](../identity-protection/howto-identity-protection-configure-risk-policies.md)| Authorized user attempts to sign in with compromised credentials (high risk sign in)| User is prompted to change password or access is blocked based on your policy |
+
+### Deploy in production
+After confirming impact using **report-only mode**, an administrator can move the **Enable policy** toggle from **Report-only** to **On**.
 
 ### Roll back policies
 
@@ -419,41 +249,22 @@ In case you need to roll back your newly implemented policies, use one or more o
 
 * **Disable the policy.** Disabling a policy makes sure it does not apply when a user tries to sign in. You can always come back and enable the policy when you would like to use it.
 
-![enable policy image](media/plan-conditional-access/enable-policy.png)
+ ![enable policy image](media/plan-conditional-access/enable-policy.png)
 
 * **Exclude a user or group from a policy.** If a user is unable to access the app, you can choose to exclude the user from the policy.
 
-![exclude users and groups](media/plan-conditional-access/exclude-users-groups.png)
+ ![exclude users and groups](media/plan-conditional-access/exclude-users-groups.png)
 
 > [!NOTE]
 >  This option should be used sparingly, only in situations where the user is trusted. The user should be added back into the policy or group as soon as possible.
 
 * **Delete the policy.** If the policy is no longer required, [delete](../authentication/tutorial-enable-azure-mfa.md?bc=%2fazure%2factive-directory%2fconditional-access%2fbreadcrumb%2ftoc.json&toc=%2fazure%2factive-directory%2fconditional-access%2ftoc.json) it.
 
-## Manage access to cloud apps
-
-Use the following Manage options to control and manage your Conditional Access policies:
-
-![Screenshot shows the MANAGE options for C A policies, including Named locations, Custom controls, Terms of use, V P N connectivity, and the selected Classic policies.](media/plan-conditional-access/manage-access.png)
-
-
-### Named locations
-
-The location condition of a Conditional Access policy enables you to tie access controls settings to the network locations of your users. With [Named Locations](location-condition.md), you can create logical groupings of IP address ranges or countries and regions.
-
-### Custom controls
-
-[Custom controls](controls.md) redirect your users to a compatible service to satisfy authentication requirements outside of Azure AD. To satisfy this control, a user's browser is redirected to the external service, performs any required authentication, and is then redirected back to Azure AD. Azure AD verifies the response and, if the user was successfully authenticated or validated, the user continues in the Conditional Access flow.
-
-### Terms of use
-
-Before accessing certain cloud apps in your environment, you can get consent from the users by them accepting your Terms of use (ToU). Follow this [Quickstart to create Terms of Use](require-tou.md).
-
-## Troubleshoot Conditional Access
+## Troubleshoot Conditional Access policy
 
 When a user is having an issue with a Conditional Access policy, collect the following information to facilitate troubleshooting.
 
-* User principle Name
+* User Principle Name
 
 * User display name
 

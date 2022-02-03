@@ -502,8 +502,9 @@ Content-type: application/json
 
 {
   "properties": {
-    "billingType": "Workspaces",
-    }  
+    "billingType": "Workspaces"
+    },
+    "location": "region"
 }
 ```
 

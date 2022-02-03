@@ -29,7 +29,7 @@ This section shows you how to download the auto-instrumentation jar file.
 
 #### Download the jar file
 
-Download the [applicationinsights-agent-3.2.4.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.2.4/applicationinsights-agent-3.2.4.jar) file.
+Download the [applicationinsights-agent-3.2.5.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.2.5/applicationinsights-agent-3.2.5.jar) file.
 
 > [!WARNING]
 > 
@@ -44,14 +44,14 @@ Download the [applicationinsights-agent-3.2.4.jar](https://github.com/microsoft/
 >    For details, see the [3.1.0 release notes](https://github.com/microsoft/ApplicationInsights-Java/releases/tag/3.1.0).
 >
 > If you're upgrading from 3.1.x:
-> 
+>    -  Starting from 3.2.0, controller "InProc" dependencies are not captured by default. For details on how to enable this, please see the [config options](./java-standalone-config.md#autocollect-inproc-dependencies-preview).
 >    - Database dependency names are now more concise with the full (sanitized) query still present in the `data` field. HTTP dependency names are now more descriptive.
 >    This change can affect custom dashboards or alerts if they relied on the previous values.
 >    For details, see the [3.2.0 release notes](https://github.com/microsoft/ApplicationInsights-Java/releases/tag/3.2.0).
 
 #### Point the JVM to the jar file
 
-Add `-javaagent:path/to/applicationinsights-agent-3.2.4.jar` to your application's JVM args.
+Add `-javaagent:path/to/applicationinsights-agent-3.2.5.jar` to your application's JVM args.
 
 > [!TIP]
 > For help with configuring your application's JVM args, see [Tips for updating your JVM args](./java-standalone-arguments.md).
@@ -66,7 +66,7 @@ Add `-javaagent:path/to/applicationinsights-agent-3.2.4.jar` to your application
         APPLICATIONINSIGHTS_CONNECTION_STRING=InstrumentationKey=...
         ```
 
-   - Or you can create a configuration file named `applicationinsights.json`. Place it in the same directory as `applicationinsights-agent-3.2.4.jar` with the following content:
+   - Or you can create a configuration file named `applicationinsights.json`. Place it in the same directory as `applicationinsights-agent-3.2.5.jar` with the following content:
 
         ```json
         {
@@ -433,6 +433,10 @@ If you want to attach custom dimensions to your logs, use [Log4j 1.2 MDC](https:
 ## Troubleshooting
 
 For help with troubleshooting, see [Troubleshooting](java-standalone-troubleshoot.md).
+
+## Release notes
+
+See the [release notes](https://github.com/microsoft/ApplicationInsights-Java/releases) on GitHub.
 
 ## Support
 

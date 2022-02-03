@@ -14,8 +14,7 @@ ms.custom: template-how-to #Required; leave this attribute/value as-is.
 
 This article outlines how to register Salesforce, and how to authenticate and interact with Salesforce in Azure Purview. For more information about Azure Purview, read the [introductory article](overview.md).
 
-> [!IMPORTANT]
-> Salesforce as a source is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
 ## Supported capabilities
 
@@ -27,6 +26,8 @@ When scanning Salesforce source, Azure Purview supports extracting technical met
 
 - Organization
 - Objects including the fields, foreign keys, and unique_constraints
+
+When setting up scan, you can choose to scan an entire Salesforce organization, or scope the scan to a subset of objects matching the given name(s) or name pattern(s).
 
 ## Prerequisites
 
