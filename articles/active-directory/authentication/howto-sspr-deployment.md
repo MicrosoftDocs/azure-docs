@@ -27,7 +27,7 @@ ms.collection: M365-identity-device-management
 SSPR has the following key capabilities:
 
 * Self-service allows end users to reset their expired or non-expired passwords without contacting an administrator or helpdesk for support.
-* [Password Writeback](./concept-sspr-writeback.md) allows management of on-premises passwords and resolution of account lockout though the cloud.
+* [Password Writeback](./concept-sspr-writeback.md) allows management of on-premises passwords and resolution of account lockout through the cloud.
 * Password management activity reports give administrators insight into password reset and registration activity occurring in their organization.
 
 This deployment guide shows you how to plan and then test an SSPR roll-out.
