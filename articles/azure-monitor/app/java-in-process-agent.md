@@ -434,6 +434,10 @@ If you want to attach custom dimensions to your logs, use [Log4j 1.2 MDC](https:
 
 For help with troubleshooting, see [Troubleshooting](java-standalone-troubleshoot.md).
 
+## Release notes
+
+See the [release notes](https://github.com/microsoft/ApplicationInsights-Java/releases) on GitHub.
+
 ## Support
 
 To get support:
