@@ -43,16 +43,13 @@ Alerts include details of the incident that triggered them, and recommendations 
 
 Threat intelligence security alerts are triggered for: 
 
-- **Potential SQL injection attacks**: 
-
+- **Potential SQL injection attacks**: <br> 
     Due to the structure and capabilities of Cosmos DB queries, many known SQL injection attacks can’t work in Cosmos DB. However, there are some variations of SQL injections that can succeed and may result in exfiltrating data from your Cosmos DB accounts. Defender for Cosmos DB detects both successful and failed attempts, and helps you harden your environment to prevent these threats. 
  
 - **Anomalous database access patterns**: 
-
     For example, access from a TOR exit node, known suspicious IP addresses, unusual applications, and unusual locations. 
  
 - **Suspicious database activity**: 
-
     For example, suspicious key-listing patterns that resemble known malicious lateral movement techniques and suspicious data extraction patterns. 
 
 ## Next steps

@@ -1,6 +1,6 @@
 ---
 title: Enable database protection for your subscription
-description: Learn how to enable Microsoft Defender for Cloud for all of you database types for your entire subscription. 
+description: Learn how to enable Microsoft Defender for Cloud for all of your database types for your entire subscription. 
 ms.topic: quickstart
 ms.date: 02/03/2022
 ---
@@ -29,7 +29,7 @@ You can enable database protection on your subscription, or exclude specific dat
 ## Prerequisites
 
 - You must have Subscription Owner access
-- An Azure account. If you do not already have an Azure account, you can [create your Azure free account today](https://azure.microsoft.com/free/).
+- An Azure account. If you don't already have an Azure account, you can [create your Azure free account today](https://azure.microsoft.com/free/).
 
 ## Enable database protection on your subscription
 
@@ -55,7 +55,7 @@ You can enable database protection on your subscription, or exclude specific dat
 
 ## Next steps
 
-In this article, you learned how to enable Microsoft Defender for for Cloud for all database types on your subscription. Next, read more about each of the resource types.
+In this article, you learned how to enable Microsoft Defender for Cloud for all database types on your subscription. Next, read more about each of the resource types.
 
 > [!div class="nextstepaction"]
 > [Microsoft Defender for Azure SQL](defender-for-sql-introduction.md)
