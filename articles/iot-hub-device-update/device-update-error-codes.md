@@ -38,7 +38,7 @@ the rest of the bits are the **Error Code**.
    +--------------- Facility code (4 bits) 
  ```
 
-Plese refer to [Device Update Agent result codes and extended result codes](https://github.com/Azure/iot-hub-device-update/tree/main/src/content_handlers) or [implement a custom Content Handler](https://github.com/Azure/iot-hub-device-update/tree/main/docs/agent-reference/device-update-agent-extended-result-codes.md) for details.
+Please refer to [Device Update Agent result codes and extended result codes](https://github.com/Azure/iot-hub-device-update/tree/main/src/content_handlers) or [implement a custom Content Handler](https://github.com/Azure/iot-hub-device-update/tree/main/docs/agent-reference/device-update-agent-extended-result-codes.md) for details.
 
 ## Device Update content service
 The following table lists error codes pertaining to the content service component of the Device Update service. The content service component is responsible for handling importing of update content.
