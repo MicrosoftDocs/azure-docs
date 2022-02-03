@@ -198,7 +198,7 @@ You can generate *user-specific tokens* (including admin tokens) using the [Get 
 
 ## How do I add custom HTML to my developer portal?
 
-The managed developer portal includes a **Custom HTML code** widget that enables you to insert HTML code for small portal customizations. The portal renders the custom widget in an inline frame (iFrame). For example, use custom HTML to embed a video or to add a form.
+The managed developer portal includes a **Custom HTML code** widget that enables you to insert HTML code for small portal customizations. For example, use custom HTML to embed a video or to add a form. The portal renders the custom widget in an inline frame (iFrame). 
   
 1. In the administrative interface for the developer portal, go to the page or section where you want to insert the widget. 
 1. Select the grey "plus" (**+**) icon that appears when you hover the pointer over the page.
@@ -214,6 +214,9 @@ The managed developer portal includes a **Custom HTML code** widget that enables
 1. Replace the sample **HTML code** with your custom content.
 1. When configuration is complete, close the window.
 1. Save your changes, and [republish the portal](api-management-howto-developer-portal-customize.md#publish).
+
+> [!NOTE]
+> Microsoft does not support the HTML code you add in the Custom HTML Code widget.
 
 ## Next steps
 
