@@ -35,13 +35,13 @@ The studio offers multiple authoring experiences depending on the type project a
 
   Write and run your own code in managed [Jupyter Notebook servers](how-to-run-jupyter-notebooks.md) that are directly integrated in the studio. 
 
-:::image type="content" source="media/overview-what-is-azure-ml-studio/notebooks.gif" alt-text="Screenshot: write and run code in a notebook" lightbox "media/overview-what-is-azure-ml-studio/notebooks.gif":::
+:::image type="content" source="media/overview-what-is-azure-ml-studio/notebooks.gif" alt-text="Screenshot: write and run code in a notebook.":::
 
 + **Azure Machine Learning designer**
 
   Use the designer to train and deploy machine learning models without writing any code. Drag and drop datasets and components to create ML pipelines. Try out the [designer tutorial](tutorial-designer-automobile-price-train-score.md).
 
-    :::image type="content" source="media/concept-designer/designer-drag-and-drop.gif" alt-text="Azure Machine Learning designer example. lightbox = "media/concept-designer/designer-drag-and-drop.gif":::
+    :::image type="content" source="media/concept-designer/designer-drag-and-drop.gif" alt-text="Azure Machine Learning designer example.":::
 
 + **Automated machine learning UI**
 
