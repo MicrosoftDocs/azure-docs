@@ -27,7 +27,7 @@ you can connect to it to run queries.
 
 [!INCLUDE [azure-postgresql-hyperscale-create-db](../../../includes/azure-postgresql-hyperscale-create-db.md)]
 
-**Next steps**
+## Next steps
 
 With your server group created, it's time to connect with a SQL client.
 
