@@ -40,7 +40,7 @@ In this tutorial, you learn how to:
 ## Prerequisites
 
 * Tutorial: [Use dynamic configuration in a .NET Core app](./enable-dynamic-configuration-dotnet-core.md)
-* Nuget package `Microsoft.Extensions.Configuration.AzureAppConfiguration` version 5.0.0 or later
+* NuGet package `Microsoft.Extensions.Configuration.AzureAppConfiguration` version 5.0.0 or later
 
 ## Set up Azure Service Bus topic and subscription
 
