@@ -304,7 +304,7 @@ Learn more about [Storage Account - StorageAccountScaleTarget (Prevent hitting s
 
 We noticed that one or more of your applications use an older version of the Azure Storage Java v12 SDK to write data to Azure Storage. Unfortunately, the version of the SDK being used has a critical issue that uploads incorrect data during retries (for example, in case of HTTP 500 errors), resulting in an invalid object being written. The issue is fixed in newer releases of the Java v12 SDK.
 
-Learn more about [Storage Account - UpdateStorageJavaSDK (Update to newer releases of the Storage Java v12 SDK for better reliability.)](/azure/developer/java/sdk/?view=azure-java-stable).
+Learn more about [Storage Account - UpdateStorageJavaSDK (Update to newer releases of the Storage Java v12 SDK for better reliability.)](/azure/developer/java/sdk/?view=azure-java-stable&preserve-view=true).
 
 ## Subscriptions
 
