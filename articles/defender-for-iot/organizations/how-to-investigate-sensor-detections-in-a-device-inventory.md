@@ -9,7 +9,7 @@ ms.topic: how-to
 
 The device inventory displays an extensive range of device attributes that your sensor detects. Use the inventory to gain insight and full visibility into the devices on your network. 
 
-:::image type="content" source="media/how-to-inventory-sensor/inventory-sensor.png" alt-text="The Device inventory main screen":::
+:::image type="content" source="media/how-to-inventory-sensor/inventory-sensor.png" alt-text="screen capture shows the Device inventory main screen":::
 
 Options are available to:
 
@@ -21,18 +21,18 @@ Options are available to:
 
  - Create groups for display in the device map.
  
-## What is an Inventory device?
+## What is an inventory device?
 
-The Defender for IoT Device inventory displays an extensive range of asset attributes that are detected by sensors monitoring the organizations networks and managed endpoints.
+The Defender for IoT Device inventory displays an extensive range of asset attributes that are detected by sensors monitoring the organization's networks and managed endpoints.
 
 Defender for IoT will identify and classify devices as a single unique network device in the inventory for:
 
-1. Standalone IT/OT/IoT devices (w/ 1 or multiple NICs)
-1. Devices composed of multiple backplane components (including all racks/slots/modules)
-1. Devices acting as network infrastructure such as Switch/Router (w/ multiple NICs). 
+- Standalone IT/OT/IoT devices (w/ 1 or multiple NICs)
+- Devices composed of multiple backplane components (including all racks/slots/modules)
+- Devices acting as network infrastructure such as Switch/Router (w/ multiple NICs). 
 
-Public internet IP addresses, multicast groups, and broadcast groups are'nt considered inventory devices.
-Devices that have been inactive for more than 60 days are classified as inactive Inventory devices.
+Public internet IP addresses, multicast groups, and broadcast groups aren't considered inventory devices.
+Devices that have been inactive for more than 60 days are classified as inactive inventory devices.
 
 ## View device attributes in the inventory
 
@@ -40,7 +40,7 @@ This section describes device details available from the inventory and describes
 
 **To view the device inventory:**
 
-1. In the console left pane, select **Device inventory**.  The following attributes appear in the inventory.
+- In the console left pane, select **Device inventory**.  The following attributes appear in the inventory.
 
 | Parameter | Description |
 |--|--|
@@ -49,7 +49,7 @@ This section describes device details available from the inventory and describes
 | Vendor | The name of the device's vendor, as defined in the MAC address. |
 | Operating System | The OS of the device, if detected. |
 | Firmware version | The device's firmware, if detected. |
-| IP Address | The IP address of the device were defined. |
+| IP Address | The IP address of the device. |
 | VLAN | The VLAN of the device. For details about instructing the sensor to discover VLANs, see [Define VLAN names](how-to-manage-the-on-premises-management-console.md#define-vlan-names).(how-to-define-management-console-network-settings.md#define-vlan-names). |
 | MAC Address | The MAC address of the device. |
 | Protocols | The protocols that the device uses. |
@@ -79,8 +79,8 @@ Customize the inventory to view devices important to you. An option is also avai
 **To create filters:**
 
 1. Select **Add filter** from the Device inventory page.
-1. Select a category from the Column field.
-1. Select an operator.
+1. Select a category from the **Column** field.
+1. Select an **Operator**.
 - **Equals**: The exact value according to which you want to filter the column. For example, if you filter the protocol column according to **Equals** and `value=ICMP`, the column will present devices that use the ICMP protocol only.
 
 - **Contains**: The value that's contained among other values in the column. For example, if you filter the protocol column according to **Contains** and `value=ICMP`, the column will present devices that use the ICMP protocol as a part of the list of protocols that the device uses.
@@ -97,16 +97,16 @@ The filters that you save are also saved as Device map groups. This feature prov
 
 1. Use the **Add filter** option to filter the table.
 1. Select **Save Filter**.
-1. Add a filter name in the dialog box tat opens and select **Submit**.
+1. Add a filter name in the dialog box that opens and select **Submit**.
 1. Select the double arrow >> on the left side of the page.
 The filters you create appear in the **Saved Views** pane.
 
-    :::image type="content" source="media/how-to-inventory-sensor/save-views.png" alt-text="Saved Device inventory filter":::
+    :::image type="content" source="media/how-to-inventory-sensor/save-views.png" alt-text="Screen capture shows the saved Device inventory filter":::
 
 
 ### View filtered information as a map group
 
-You can view devices is saved filters in the Device map.
+You can display devices from saved filters in the Device map.
 
 **To view devices in the map:**
 
@@ -265,7 +265,7 @@ You can filter the inventory to display devices that are inactive:
 1. Select **Last Activity** in the column field.
 1. Choose the time period in the **Filter** field.
 
-    :::image type="content" source="media/how-to-inventory-sensor/save-filter.png" alt-text="Last activity filter in Inventory":::
+    :::image type="content" source="media/how-to-inventory-sensor/save-filter.png" alt-text="Screen capture shows last activity filter in Inventory":::
 
 ### Delete inactive devices
 
