@@ -166,14 +166,6 @@ Azure Monitor for Networks provides a comprehensive view of health and metrics f
 To learn about how view ExpressRoute circuit metrics, resource logs and alerts, see [ExpressRoute monitoring, metrics, and alerts](../../expressroute/expressroute-monitoring-metrics-alerts.md?toc=%2fazure%2fnetworking%2ftoc.json).
 ### <a name="azuremonitor"></a>Azure Monitor
 Azure Monitor maximizes the availability and performance of your applications by delivering a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments. It helps you understand how your applications are performing and proactively identifies issues affecting them and the resources they depend on. For more information, see [Azure Monitor Overview](../../azure-monitor/overview.md?toc=%2fazure%2fnetworking%2ftoc.json).
-### <a name="vnettap"></a>Virtual Network TAP
-Azure virtual network TAP (Terminal Access Point) allows you to continuously stream your virtual machine network traffic to a network packet collector or analytics tool. The collector or analytics tool is provided by a [network virtual appliance](https://azure.microsoft.com/solutions/network-appliances/) partner.
-
-The following image shows how virtual network TAP works:
-
-:::image type="content" source="./media/networking-overview/virtual-network-tap-architecture.png" alt-text="How virtual network TAP works":::
-
-For more information, see [What is Virtual Network TAP](../../virtual-network/virtual-network-tap-overview.md).
 
 ## Next steps
 
