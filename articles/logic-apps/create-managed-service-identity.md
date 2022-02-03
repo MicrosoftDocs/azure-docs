@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 01/15/2022
+ms.date: 02/03/2022
 ms.custom: devx-track-azurepowershell, subject-rbac-steps, ignite-fall-2021
 ---
 
@@ -476,7 +476,7 @@ When the logic app resource is created, the `identity` object has the following 
 }
 ```
 
-The `principalId` property value is a unique identifier for the identity that's used for Azure AD administration. The `clientId` property value is a unique identifier for the logic app's new identity that's used for specifying which identity to use during runtime calls. For more information about Azure Resource Manager templates and managed identities for Azure Functions, review [ARM template - Azure Functions](../azure-functions/functions-create-first-function-resource-manager.md#review-the-template) [Add a user-assigned identity using an ARM template for Azure Functions](../app-service/overview-managed-identity.md#using-an-azure-resource-manager-template-1).
+The `principalId` property value is a unique identifier for the identity that's used for Azure AD administration. The `clientId` property value is a unique identifier for the logic app's new identity that's used for specifying which identity to use during runtime calls. For more information about Azure Resource Manager templates and managed identities for Azure Functions, review [ARM template - Azure Functions](../azure-functions/functions-create-first-function-resource-manager.md#review-the-template) and [Add a user-assigned identity using an ARM template for Azure Functions](../app-service/overview-managed-identity.md?tabs=arm%2Chttp#add-a-user-assigned-identity).
 
 ---
 
