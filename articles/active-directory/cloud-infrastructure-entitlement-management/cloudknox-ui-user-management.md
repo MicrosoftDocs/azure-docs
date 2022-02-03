@@ -1,6 +1,6 @@
 ---
-title: Manage users and groups with the User management dashboard in Microsoft CloudKnox Permissions Management
-description: How to manage users and groups in the User management dashboard in Microsoft CloudKnox Permissions Management.
+title: Manage users and groups with the User management dashboard in CloudKnox Permissions Management
+description: How to manage users and groups in the User management dashboard in CloudKnox Permissions Management.
 services: active-directory
 author: Yvonne-deQ
 manager: karenh444
@@ -8,13 +8,17 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: overview
-ms.date: 02/01/2022
+ms.date: 02/02/2022
 ms.author: v-ydequadros
 ---
 
 # Manage users and groups with the User management dashboard
 
-This article describes how to use the Microsoft CloudKnox Permissions Management (CloudKnox) **User management** dashboard to view and manage users and groups.
+> [!IMPORTANT]
+> CloudKnox Permissions Management (CloudKnox) is currently in PREVIEW.
+> Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
+
+This article describes how to use the CloudKnox Permissions Management (CloudKnox) **User management** dashboard to view and manage users and groups.
 
 **To display the User management dashboard**:
 

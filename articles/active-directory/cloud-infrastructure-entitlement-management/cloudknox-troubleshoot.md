@@ -14,9 +14,13 @@ ms.author: v-ydequadros
 
 # Troubleshoot issues with CloudKnox Permissions Management
 
+> [!IMPORTANT]
+> CloudKnox Permissions Management (CloudKnox) is currently in PREVIEW.
+> Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
+
 This section answers troubleshoot issues with CloudKnox Permissions Management (CloudKnox).
 
-## One Time Passcode (OTP) email
+## One time passcode (OTP) email
 
 ### The user did not receive the OTP email.
 
@@ -35,4 +39,4 @@ This section answers troubleshoot issues with CloudKnox Permissions Management (
 - Check the CloudKnox-related role that exists in these accounts. 
 - Validate the trust relationship with the OpenID Connect (OIDC) role. 
 
-
+<!---Next steps--->

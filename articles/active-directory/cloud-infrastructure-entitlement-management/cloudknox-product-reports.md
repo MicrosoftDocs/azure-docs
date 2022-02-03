@@ -1,6 +1,6 @@
 ---
-title: View an overview of available system report types in Microsoft CloudKnox Permissions Management 
-description: How to view an overview of available system report types in Microsoft CloudKnox Permissions Management.
+title: View an overview of available system report types in CloudKnox Permissions Management 
+description: How to view an overview of available system report types in CloudKnox Permissions Management.
 services: active-directory
 author: Yvonne-deQ
 manager: karenh444
@@ -8,13 +8,17 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/31/2022
+ms.date: 02/02/2022
 ms.author: v-ydequadros
 ---
 
 # View an overview of available system report types
 
-Microsoft CloudKnox Permissions Management (CloudKnox) has various types of system report types available that capture specific sets of data. These reports allow management to:
+> [!IMPORTANT]
+> CloudKnox Permissions Management (CloudKnox) is currently in PREVIEW.
+> Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
+
+CloudKnox Permissions Management (CloudKnox) has various types of system report types available that capture specific sets of data. These reports allow management to:
 
 - Make timely decisions.
 - Analyze trends and system/user performance.
@@ -24,10 +28,10 @@ Microsoft CloudKnox Permissions Management (CloudKnox) has various types of syst
 
 The reports dashboard provides a table of information with both system reports and custom reports. The **Reports** page defaults to the **System reports** tab, which has the following details:
 
-- **Report Name** - Lists the name of the report.
-- **Category** - Lists the type of report. For example, **Permission**, **Compliance**, and so on.
-- **Authorization System** - Displays which authorizations the custom report applies to.
-- **Format** - Displays the output format the report can be generated in. For example, CSV.
+- **Report Name**: Lists the name of the report.
+- **Category**: Lists the type of report. For example, **Permission**, **Compliance**, and so on.
+- **Authorization System**: Displays which authorizations the custom report applies to.
+- **Format**: Displays the output format the report can be generated in. For example, CSV.
 
     - To download a report, select the menu, select **Download**.
 

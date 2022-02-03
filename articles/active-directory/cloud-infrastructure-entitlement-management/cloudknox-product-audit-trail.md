@@ -14,6 +14,10 @@ ms.author: v-ydequadros
 
 # Filter and query user activity
 
+> [!IMPORTANT]
+> CloudKnox Permissions Management (CloudKnox) is currently in PREVIEW.
+> Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
+
 The **Audit trail** dashboard in CloudKnox Permissions Management (CloudKnox) details all user activity performed in your authorization system. It captures all high risk activity in a centralized location, and allows system administrators to query the logs. 
 
 The **Audit trail** dashboard enables you to: 
@@ -63,9 +67,9 @@ There are several different query parameters you can configure individually or i
     To view query details, select **View** (the eye icon).
 
 1. Select **Operator**, and then select an option:
-    - **In** - Select this option to set a time range from the past day to the past year.
-    - **Is** - Select this option to choose a specific date from the calendar.
-    - **Custom** - Select this option to set a date range from the **From** and **To** calendars.
+    - **In**: Select this option to set a time range from the past day to the past year.
+    - **Is**: Select this option to choose a specific date from the calendar.
+    - **Custom**: Select this option to set a date range from the **From** and **To** calendars.
 
 1. To search on the current selection, select **Search**. 
 
@@ -77,9 +81,9 @@ There are several different query parameters you can configure individually or i
 
 The **Operator** menu displays the following options depending on the identity you select in the first dropdown:
 
-- **Is** / **Is Not** - View a list of all available usernames. You can either select or enter a username in the box.
-- **Contains** / **Not Contains** - Enter text that the **Username** should or shouldn't contain, for example, *CloudKnox*.
-- **In** / **Not In** - View a list all available usernames and select multiple usernames.
+- **Is** / **Is Not**: View a list of all available usernames. You can either select or enter a username in the box.
+- **Contains** / **Not Contains**: Enter text that the **Username** should or shouldn't contain, for example, *CloudKnox*.
+- **In** / **Not In**: View a list all available usernames and select multiple usernames.
 
 ### Create a query with a username
 
@@ -170,7 +174,7 @@ The **Operator** menu displays the following options depending on the identity y
 
 1. From the **Operator** menu, select the required option.
 
-    - **Is** / **Is not** - Allows a user to select in the value field and select **Authorization failure**, **Error**, or **Success**.
+    - **Is** / **Is not**: Allows a user to select in the value field and select **Authorization failure**, **Error**, or **Success**.
 
 1. To add criteria to this section, select **Add**. 
 
@@ -292,26 +296,26 @@ The **Operator** menu displays the following options depending on the identity y
 
 1. To sort each column by ascending or descending value, select the up or down arrows next to the column name.
 
-    - **Identity details** - The name of the identity, for example the name of the role session performing the task.
+    - **Identity details**: The name of the identity, for example the name of the role session performing the task.
 
         - To view the **Raw events summary**, which displays the full details of the event, next to the **Name** column, select **View**.
 
-    - **Resource name** - The name of the resource on which the task is being performed.
+    - **Resource name**: The name of the resource on which the task is being performed.
 
         If the column displays **Multiple**, it means multiple resources are listed in the column. 
 
 1. To view a list of all resources, hover over **Multiple**.
 
-    - **Resource type** - Displays the type of resource, for example, *Key* (encryption key) or *Bucket* (storage).
-    - **Task name** - The name of the task that was performed by the identity.
+    - **Resource type**: Displays the type of resource, for example, *Key* (encryption key) or *Bucket* (storage).
+    - **Task name**: The name of the task that was performed by the identity.
 
          An exclamation mark (**!**) next to the task name indicates that the task failed.
 
-    - **Date** - The date when the task was performed.
+    - **Date**: The date when the task was performed.
 
-    - **IP address** - The IP address from where the user performed the task.
+    - **IP address**: The IP address from where the user performed the task.
 
-    - **Authorization system** - The authorization system name in which the task was performed.
+    - **Authorization system**: The authorization system name in which the task was performed.
 
 1. To download the results in comma-separated values (CSV) file format, select **Download**.
 
@@ -344,21 +348,21 @@ The **Operator** menu displays the following options depending on the identity y
 
 1. View the query information:
 
-      - **Query** - Displays the name of the saved query.
-      - **Query type** - Displays whether the query is a *System* query or a *Custom* query.
-      - **Schedule** - Displays how often a report will be generated. You can schedule a one-time report or a monthly report.
-      - **Next on** - Displays the date and time the next report will be generated.
-      - **Format** - Displays the output format for the report, for example, CSV.
+      - **Query**: Displays the name of the saved query.
+      - **Query type**: Displays whether the query is a *System* query or a *Custom* query.
+      - **Schedule**: Displays how often a report will be generated. You can schedule a one-time report or a monthly report.
+      - **Next on**: Displays the date and time the next report will be generated.
+      - **Format**: Displays the output format for the report, for example, CSV.
 
 1. To view or set schedule details, select the gear icon, select **Create schedule**, and then set the details.
 
    If a schedule has already been created, select the gear icon to open the **Edit schedule** box.
 
-      - **Repeats** - Sets how often the report should repeat.
-      - **Date** - Sets the date when you want to receive the report.
-      - **hh:mm** - Sets the specific time when you want to receive the report.
-      - **Report file format** - Select the output type for the file, for example, CSV.
-      - **Share report with people** - The email address of the user who is creating the schedule is displayed in this field. You can add other email addresses.
+      - **Repeats**: Sets how often the report should repeat.
+      - **Date**: Sets the date when you want to receive the report.
+      - **hh:mm**: Sets the specific time when you want to receive the report.
+      - **Report file format**: Select the output type for the file, for example, CSV.
+      - **Share report with people**: The email address of the user who is creating the schedule is displayed in this field. You can add other email addresses.
 
 1. After selecting your options, select **Schedule**.
 
@@ -370,17 +374,17 @@ The **Operator** menu displays the following options depending on the identity y
 
     System queries have only one option:
 
-    - **Duplicate** - Creates a duplicate of the query and names the file *Copy of XXX*.
+    - **Duplicate**: Creates a duplicate of the query and names the file *Copy of XXX*.
 
     Custom queries have the following options: 
 
-    - **Rename** - Enter the new name of the query and select **Save**.
-    - **Delete** - Delete the saved query.  
+    - **Rename**: Enter the new name of the query and select **Save**.
+    - **Delete**: Delete the saved query.  
 
         The **Delete query** box opens, asking you to confirm that you want to delete the query. Select **Yes** or **No**.
 
-    - **Duplicate** - Creates a duplicate of the query and names it *Copy of XXX*.
-    - **Delete schedule** - Deletes the schedule details for this query.
+    - **Duplicate**: Creates a duplicate of the query and names it *Copy of XXX*.
+    - **Delete schedule**: Deletes the schedule details for this query.
 
         This option isn't available if you haven't yet saved a schedule.
 

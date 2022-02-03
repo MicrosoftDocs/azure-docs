@@ -1,6 +1,6 @@
 ---
-title: Microsoft CloudKnox Permissions Management - View integration information about an authorization system
-description: View integration information about an authorization system in Microsoft CloudKnox Permissions Management.
+title: View integration information about an authorization system in CloudKnox Permissions Management
+description: View integration information about an authorization system in CloudKnox Permissions Management.
 services: active-directory
 author: Yvonne-deQ
 manager: karenh444
@@ -8,13 +8,17 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/17/2022
+ms.date: 02/02/2022
 ms.author: v-ydequadros
 ---
 
 # View integration information about an authorization system 
 
-The **Integrations** dashboard in Microsoft CloudKnox Permissions Management (CloudKnox) allows you to view all your authorization systems in one place, and to ensure all applications are functioning as one. This information helps improve quality and performance as a whole.
+> [!IMPORTANT]
+> CloudKnox Permissions Management (CloudKnox) is currently in PREVIEW.
+> Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
+
+The **Integrations** dashboard in CloudKnox Permissions Management (CloudKnox) allows you to view all your authorization systems in one place, and to ensure all applications are functioning as one. This information helps improve quality and performance as a whole.
 
 ## Display integration information about an authorization system 
 
@@ -30,12 +34,12 @@ Refer to the **Integration** subpages in CloudKnox for information about availab
 
 The following authorization systems may be listed in the **Integrations** dashboard, depending on which systems are integrated into the CloudKnox application.
 
-- **ServiceNow** - Manages digital workflows for enterprise operations, and the CloudKnox integration allows you to request and approve permissions through the ServiceNow ticketing workflow.
-- **Splunk** - Searches, monitors, and analyzes machine-generated data, and the CloudKnox integration enables exporting usage analytics data, alerts, and logs.
-- **HashiCorp Terraform** - CloudKnox enables the generation of least-privilege policies through the Hashi Terraform provider.
-- **CloudKnox API** - The CloudKnox application programming interface (API) provides access to CloudKnox features.
-- **Saviynt** - Enables you to view Identity entitlements and usage inside the Saviynt console.
-- **Securonix** - Enables exporting usage analytics data, alerts, and logs.
+- **ServiceNow**: Manages digital workflows for enterprise operations, and the CloudKnox integration allows you to request and approve permissions through the ServiceNow ticketing workflow.
+- **Splunk**: Searches, monitors, and analyzes machine-generated data, and the CloudKnox integration enables exporting usage analytics data, alerts, and logs.
+- **HashiCorp Terraform**: CloudKnox enables the generation of least-privilege policies through the Hashi Terraform provider.
+- **CloudKnox API**: The CloudKnox application programming interface (API) provides access to CloudKnox features.
+- **Saviynt**: Enables you to view Identity entitlements and usage inside the Saviynt console.
+- **Securonix**: Enables exporting usage analytics data, alerts, and logs.
 
 
 

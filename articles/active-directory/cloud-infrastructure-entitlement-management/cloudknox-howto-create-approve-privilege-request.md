@@ -1,5 +1,5 @@
 ---
-title: Create or approve a request for permissions in the JEP Controller in Microsoft CloudKnox Permissions Management
+title: Create or approve a request for permissions in the JEP Controller in CloudKnox Permissions Management
 description: How to create or approve a request for permissions in the JEP Controller.
 services: active-directory
 author: Yvonne-deQ
@@ -8,13 +8,17 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/01/2022
+ms.date: 02/02/2022
 ms.author: v-ydequadros
 ---
 
 # Create or approve a request for permissions
 
-This article describes how to create or approve a request for permissions in the Just Enough Permissions (JEP) Controller in Microsoft CloudKnox Permissions Management (CloudKnox). You can create and approve requests for the Amazon Web Services (AWS), Microsoft Azure, or Google Cloud Platform (GCP) authorization systems.
+> [!IMPORTANT]
+> CloudKnox Permissions Management (CloudKnox) is currently in PREVIEW.
+> Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
+
+This article describes how to create or approve a request for permissions in the Just Enough Permissions (JEP) Controller in CloudKnox Permissions Management (CloudKnox). You can create and approve requests for the Amazon Web Services (AWS), Microsoft Azure, or Google Cloud Platform (GCP) authorization systems.
 
 The JEP Controller has two privilege on demand (POD) workflows you can use:
 - **New Request** – The workflow used by a user to create a request for permissions for a specified duration.

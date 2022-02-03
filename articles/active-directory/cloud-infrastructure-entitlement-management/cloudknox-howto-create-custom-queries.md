@@ -1,6 +1,6 @@
 ---
-title: Create a custom query in Microsoft CloudKnox Permissions Management  
-description: How to create a custom query in the Audit trail dashboard in Microsoft CloudKnox Permissions Management.
+title: Create a custom query in CloudKnox Permissions Management  
+description: How to create a custom query in the Audit trail dashboard in CloudKnox Permissions Management.
 services: active-directory
 author: Yvonne-deQ
 manager: karenh444
@@ -8,13 +8,17 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/31/2022
+ms.date: 02/02/2022
 ms.author: v-ydequadros
 ---
 
 # Create a custom query 
 
-This article describes how you can use the Audit trail dashboard in Microsoft CloudKnox Permissions Management (CloudKnox) to create custom queries that you can modify, save, and run as often as you want.
+> [!IMPORTANT]
+> CloudKnox Permissions Management (CloudKnox) is currently in PREVIEW.
+> Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
+
+This article describes how you can use the Audit trail dashboard in CloudKnox Permissions Management (CloudKnox) to create custom queries that you can modify, save, and run as often as you want.
 
 ## Open the Audit trail dashboard
 

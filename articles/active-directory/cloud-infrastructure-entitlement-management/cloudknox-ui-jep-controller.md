@@ -1,6 +1,6 @@
 ---
-title: View existing roles/policies and requests for permission in the JEP Controller in Microsoft CloudKnox Permissions Management
-description: How to view existing roles/policies and requests for permission in the JEP Controller in Microsoft CloudKnox Permissions Management.
+title: View existing roles/policies and requests for permission in the JEP Controller in CloudKnox Permissions Management
+description: How to view existing roles/policies and requests for permission in the JEP Controller in CloudKnox Permissions Management.
 services: active-directory
 author: Yvonne-deQ
 manager: karenh444
@@ -8,13 +8,17 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: overview
-ms.date: 02/01/2022
+ms.date: 02/02/2022
 ms.author: v-ydequadros
 ---
 
 # View existing roles/policies and requests for permission
 
-The Just Enough Permissions (JEP) Controller dashboard in Microsoft CloudKnox Permissions Management (CloudKnox) provides an overview of roles/policies, permissions, a list of existing requests for permissions, and requests for permissions you have made.
+> [!IMPORTANT]
+> CloudKnox Permissions Management (CloudKnox) is currently in PREVIEW.
+> Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
+
+The Just Enough Permissions (JEP) Controller dashboard in CloudKnox Permissions Management (CloudKnox) provides an overview of roles/policies, permissions, a list of existing requests for permissions, and requests for permissions you have made.
 
 This article provides an overview of the components of the **JEP Controller** dashboard.
 

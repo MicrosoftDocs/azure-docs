@@ -1,6 +1,6 @@
 ---
-title: View analytic information about groups in Microsoft CloudKnox Permissions Management 
-description: How to view analytic information about groups in Microsoft CloudKnox Permissions Management.
+title: View analytic information about groups in CloudKnox Permissions Management 
+description: How to view analytic information about groups in CloudKnox Permissions Management.
 services: active-directory
 author: Yvonne-deQ
 manager: karenh444
@@ -8,13 +8,17 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/28/2022
+ms.date: 02/02/2022
 ms.author: v-ydequadros
 ---
 
 # View analytic information about groups
 
-The **Usage Analytics** dashboard in Microsoft CloudKnox Permissions Management (CloudKnox) provides details about identities, resources, and tasks that you can use make informed decisions about granting permissions, and reducing risk on unused permissions.
+> [!IMPORTANT]
+> CloudKnox Permissions Management (CloudKnox) is currently in PREVIEW.
+> Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
+
+The **Usage Analytics** dashboard in CloudKnox Permissions Management (CloudKnox) provides details about identities, resources, and tasks that you can use make informed decisions about granting permissions, and reducing risk on unused permissions.
 
 - **Users**: Tracks assigned permissions and usage of various identities.
 - **Groups**: Tracks assigned permissions and usage of the group and the group members.
@@ -35,14 +39,14 @@ When you select **Groups**, the **Usage Analytics** dashboard provides a high-le
 
 The dashboard only lists tasks that are active. The following components make up the **Groups** dashboard:
 
-- **Authorization system type** - Select the authorization you want to use: Amazon Web Services (AWS), Microsoft Azure, or Google Cloud Platform (GCP).
-- **Authorization system** - Select from a **List** of accounts and **Folders**.
-- **Group type** - Select **All**, **ED**, or **Local**.
-- **Group activity status** - Select **All**, **Active**, or **Inactive**.
-- **Tasks** - Select **All**, **High-risk tasks**, or **Delete tasks**
-- **Search** - Enter criteria to find specific tasks.
-- **Apply** - Select to display the criteria you've selected.
-- **Reset filter** - Select to discard your changes.
+- **Authorization system type**: Select the authorization you want to use: Amazon Web Services (AWS), Microsoft Azure, or Google Cloud Platform (GCP).
+- **Authorization system**: Select from a **List** of accounts and **Folders**.
+- **Group type**: Select **All**, **ED**, or **Local**.
+- **Group activity status**: Select **All**, **Active**, or **Inactive**.
+- **Tasks**: Select **All**, **High-risk tasks**, or **Delete tasks**
+- **Search**: Enter criteria to find specific tasks.
+- **Apply**: Select to display the criteria you've selected.
+- **Reset filter**: Select to discard your changes.
 
 
 ## View the results of your query
@@ -53,12 +57,12 @@ The **Groups** table displays the results of your query.
     - To view details about the group, select the down arrow. 
 - A **Group type** icon displays to the left of the group name to describe the type of group (**ED** or **Local**).
 - The **Domain/Account** name.
-- The **Permission creep index (PCI)** - Provides the following information:
-    - **Index** - A numeric value assigned to the PCI.
-    - **Since** - How many days the PCI value has been at the displayed level.
-- **Tasks** Displays the number of **Granted** and **Executed** tasks.
-- **Resources** - The number of resources used.
-- **Users** - The number of users who accessed the group.
+- The **Permission creep index (PCI)**: Provides the following information:
+    - **Index**: A numeric value assigned to the PCI.
+    - **Since**: How many days the PCI value has been at the displayed level.
+- **Tasks**: Displays the number of **Granted** and **Executed** tasks.
+- **Resources**: The number of resources used.
+- **Users**: The number of users who accessed the group.
 - Select the ellipses **(...)** and select **Tags** to add a tag.
 
 ## Add a tag to a group

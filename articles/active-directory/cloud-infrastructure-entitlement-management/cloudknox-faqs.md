@@ -1,6 +1,6 @@
 ---
-title: Microsoft CloudKnox Permissions Management - Frequently asked questions (FAQs) 
-description: Frequently asked questions (FAQs) about Microsoft CloudKnox Permissions Management
+title: CloudKnox Permissions Management - Frequently asked questions (FAQs) 
+description: Frequently asked questions (FAQs) about CloudKnox Permissions Management
 services: active-directory
 author: Yvonne-deQ
 manager: karenh444
@@ -8,15 +8,20 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: faq
-ms.date: 01/17/2022
+ms.date: 02/02/2022
 ms.author: v-ydequadros
 ---
 
 # Frequently asked questions (FAQs)
 
-This section answers frequently asked questions (FAQs) from Microsoft CloudKnox Permissions Management (CloudKnox) users.
+> [!IMPORTANT]
+> CloudKnox Permissions Management (CloudKnox) is currently in PREVIEW.
+> Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
 
-## Is Microsoft CloudKnox just for Azure? What integrations does CloudKnox have with Azure Active Directory (AD), Azure, and other Microsoft services?
+
+This article answers frequently asked questions (FAQs) from CloudKnox Permissions Management (CloudKnox) users.
+
+## Is CloudKnox just for Azure? What integrations does CloudKnox have with Azure Active Directory (AD), Azure, and other Microsoft services?
 
 Microsoft supports CloudKnox's multi-IaaS. Our product uses Azure AD and helps customers manage access and reduce risk across Azure, AWS, Google, and other services.  
 

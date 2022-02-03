@@ -1,6 +1,6 @@
 ---
-title: Microsoft CloudKnox Permissions Management - Set and view configuration settings
-description: How to view the Microsoft CloudKnox Permissions Management API integration settings and create service accounts and roles.
+title: Set and view configuration settings in CloudKnox Permissions Management
+description: How to view the CloudKnox Permissions Management API integration settings and create service accounts and roles.
 services: active-directory
 author: Yvonne-deQ
 manager: karenh444
@@ -8,13 +8,17 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/17/2022
+ms.date: 02/02/2022
 ms.author: v-ydequadros
 ---
 
 # Set and view configuration settings
 
-This topic describes how to view configuration settings, create and delete a service account, and create a role in Microsoft CloudKnox Permissions Management (CloudKnox).
+> [!IMPORTANT]
+> CloudKnox Permissions Management (CloudKnox) is currently in PREVIEW.
+> Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
+
+This topic describes how to view configuration settings, create and delete a service account, and create a role in CloudKnox Permissions Management (CloudKnox).
 
 ## View configuration settings
 
@@ -30,17 +34,17 @@ The **Integrations** dashboard displays the authorization systems available to y
         <!---Add Link: [documentation](https://developer.cloudknox.io/)--->
 
     1. To view information about service accounts, select **Integration**:
-        - **Email** - Lists the email address of the user who created the integration.
-        - **Created By** - Lists the first and last name of the user who created the integration.
-        - **Created On** - Lists the date and time the integration was created.
-        - **Recent Activity** - Lists the date and time the integration was last used, or notes if the integration was never used.
-        - **Service Account ID** - Lists the service account ID.
-        - **Access Key** - Lists the access key code.
+        - **Email**: Lists the email address of the user who created the integration.
+        - **Created By**: Lists the first and last name of the user who created the integration.
+        - **Created On**: Lists the date and time the integration was created.
+        - **Recent Activity**: Lists the date and time the integration was last used, or notes if the integration was never used.
+        - **Service Account ID**: Lists the service account ID.
+        - **Access Key**: Lists the access key code.
 
     1. To view settings information, select **Settings**:
-        - **Roles can create service account** - Lists the type of roles you can create.
-        - **Access Key Rotation Policy** - Lists notifications and actions you can set. 
-        - **Access Key Usage Policy** - Lists notifications and actions you can set.
+        - **Roles can create service account**: Lists the type of roles you can create.
+        - **Access Key Rotation Policy**: Lists notifications and actions you can set. 
+        - **Access Key Usage Policy**: Lists notifications and actions you can set.
 
 ## Create a service account
 
@@ -82,15 +86,15 @@ The **Integrations** dashboard displays the authorization systems available to y
 
 3. In the **Access Key Rotation Policy** column, select options for the following:
 
-    - **How often should the users rotate their access keys?** - Select **30 days**, **60 days**, **90 days**, or **Never**.
-    - **Notification** - Enter a whole number in the blank space within **Notify "X" days before the selected period**, or select **Don't Notify**.
-    - **Action (after the key rotation period ends)** - Select **Disable Action Key** or **No Action**.
+    - **How often should the users rotate their access keys?**: Select **30 days**, **60 days**, **90 days**, or **Never**.
+    - **Notification**: Enter a whole number in the blank space within **Notify "X" days before the selected period**, or select **Don't Notify**.
+    - **Action (after the key rotation period ends)**: Select **Disable Action Key** or **No Action**.
 
 4. In the **Access Key Usage Policy** column, select options for the following:
 
-    - **How often should the users go without using their access keys?** - Select **30 days**, **60 days**, **90 days**, or **Never**.
-    - **Notification** - Enter a whole number in the blank space within **Notify "X" days before the selected period**, or select **Don't Notify**.
-    - **Action (after the key rotation period ends)** - Select **Disable Action Key** or **No Action**.
+    - **How often should the users go without using their access keys?**: Select **30 days**, **60 days**, **90 days**, or **Never**.
+    - **Notification**: Enter a whole number in the blank space within **Notify "X" days before the selected period**, or select **Don't Notify**.
+    - **Action (after the key rotation period ends)**: Select **Disable Action Key** or **No Action**.
 
 5. Click **Save**.
 

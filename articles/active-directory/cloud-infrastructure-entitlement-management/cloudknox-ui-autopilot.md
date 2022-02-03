@@ -1,6 +1,6 @@
 ---
-title: View rules in the Autopilot dashboard in Microsoft CloudKnox Permissions Management
-description: How to view rules in the Autopilot dashboard in Microsoft CloudKnox Permissions Management.
+title: View rules in the Autopilot dashboard in CloudKnox Permissions Management
+description: How to view rules in the Autopilot dashboard in CloudKnox Permissions Management.
 services: active-directory
 author: Yvonne-deQ
 manager: karenh444
@@ -8,13 +8,17 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: overview
-ms.date: 02/01/2022
+ms.date: 02/02/2022
 ms.author: v-ydequadros
 ---
 
 # View rules in the Autopilot dashboard
 
-The **Autopilot** dashboard in Microsoft CloudKnox Permissions Management (CloudKnox) provides a table of information about **Autopilot rules** for administrators.
+> [!IMPORTANT]
+> CloudKnox Permissions Management (CloudKnox) is currently in PREVIEW.
+> Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
+
+The **Autopilot** dashboard in CloudKnox Permissions Management (CloudKnox) provides a table of information about **Autopilot rules** for administrators.
 
 
 > [!NOTE]

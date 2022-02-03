@@ -14,6 +14,10 @@ ms.author: v-ydequadros
 
 # Create and view permission analytics triggers 
 
+> [!IMPORTANT]
+> CloudKnox Permissions Management (CloudKnox) is currently in PREVIEW.
+> Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
+
 This article describes how you can create and view permission analytics triggers in CloudKnox Permissions Management (CloudKnox).
 
 ## View permission analytics triggers
@@ -82,7 +86,7 @@ This article describes how you can create and view permission analytics triggers
 
 1. To view other options available to you, select the ellipses (**...**), and then make a selection from the available options:
 
-      - **Details** - Displays **Authorization System Type**, **Authorization Systems**, **Resources**, **Tasks**, and **Identities** that matched the alert criteria.
+      - **Details** displays **Authorization System Type**, **Authorization Systems**, **Resources**, **Tasks**, and **Identities** that matched the alert criteria.
       - To view the specific matches, select **Resources**, **Tasks**, or **Identities**.
       - The **Activity** section displays details about the **Identity Name**, **Resource Name**, **Task Name**, **Date**, and **IP Address**.
 

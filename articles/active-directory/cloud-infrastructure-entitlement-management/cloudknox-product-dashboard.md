@@ -1,6 +1,6 @@
 ---
-title: View data about the activity in your authorization system in Microsoft CloudKnox Permissions Management
-description: How to view data about the activity in your authorization system in the Dashboard in Microsoft CloudKnox Permissions Management.
+title: View data about the activity in your authorization system in CloudKnox Permissions Management
+description: How to view data about the activity in your authorization system in the Dashboard in CloudKnox Permissions Management.
 services: active-directory
 author: Yvonne-deQ
 manager: karenh444
@@ -8,15 +8,19 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/27/2022
+ms.date: 02/02/2022
 ms.author: v-ydequadros
 ---
 
-<!---Dashboard--->
+
 
 # View data about the activity in your authorization system
 
-The Microsoft CloudKnox Permissions Management (CloudKnox) home page provides an overview of the authorization system and account activity being monitored. You can use this page to view data collected from your Amazon Web Services (AWS), Microsoft Azure, and Google Cloud Platform (GCP) authorization systems.
+> [!IMPORTANT]
+> CloudKnox Permissions Management (CloudKnox) is currently in PREVIEW.
+> Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
+
+The CloudKnox Permissions Management (CloudKnox) home page provides an overview of the authorization system and account activity being monitored. You can use this page to view data collected from your Amazon Web Services (AWS), Microsoft Azure, and Google Cloud Platform (GCP) authorization systems.
 
 ## View data about your authorization system
 
@@ -56,10 +60,10 @@ The **Permission creep index (PCI)** heat map shows the incurred risk of users w
 
 To view specific information about the following, select the number displayed on the heat map:
 
-- **Users** - Displays the total number of users and how many fall into the high, medium, and low categories.
-- **Roles** - Displays the total number of roles and how many fall into the high, medium, and low categories.
-- **Resources** - Displays the total number of resources and how many fall into the high, medium, and low categories.
-- **PCI trend** - Displays a line graph of the PCI trend over the last several weeks.
+- **Users**: Displays the total number of users and how many fall into the high, medium, and low categories.
+- **Roles**: Displays the total number of roles and how many fall into the high, medium, and low categories.
+- **Resources**: Displays the total number of resources and how many fall into the high, medium, and low categories.
+- **PCI trend**: Displays a line graph of the PCI trend over the last several weeks.
 
 ## View identity findings
 

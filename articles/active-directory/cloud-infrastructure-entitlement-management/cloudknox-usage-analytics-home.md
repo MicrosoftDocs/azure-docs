@@ -1,6 +1,6 @@
 ---
-title: Microsoft CloudKnox Permissions Management - View analytic information with the Usage analytics dashboard
-description: How to use the Usage analytics dashboard in Microsoft CloudKnox Permissions Management to view details about users, groups, active resources, active tasks, access keys, and serverless functions.
+title: View analytic information with the Usage analytics dashboard in CloudKnox Permissions Management
+description: How to use the Usage analytics dashboard in CloudKnox Permissions Management to view details about users, groups, active resources, active tasks, access keys, and serverless functions.
 services: active-directory
 author: Yvonne-deQ
 manager: karenh444
@@ -8,13 +8,17 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/29/2022
+ms.date: 02/02/2022
 ms.author: v-ydequadros
 ---
 
 # View analytic information with the Usage analytics dashboard
 
-The **Usage analytics** dashboard in Microsoft CloudKnox Permissions Management (CloudKnox) displays detailed information about: 
+> [!IMPORTANT]
+> CloudKnox Permissions Management (CloudKnox) is currently in PREVIEW.
+> Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
+
+The **Usage analytics**: dashboard in CloudKnox Permissions Management (CloudKnox) displays detailed information about: 
 
 - **Users**: Tracks assigned permissions and usage by users. For more information, see [View analytic information about users](cloudknox-usage-analytics-users.md).
     

@@ -1,6 +1,6 @@
 ---
-title: Generate and view a system report in Microsoft CloudKnox Permissions Management
-description: How to generate and view a system report in the Microsoft CloudKnox Permissions Management.
+title: Generate and view a system report in CloudKnox Permissions Management
+description: How to generate and view a system report in the CloudKnox Permissions Management.
 services: active-directory
 author: Yvonne-deQ
 manager: karenh444
@@ -8,23 +8,27 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/31/2022
+ms.date: 02/02/2022
 ms.author: v-ydequadros
 ---
 
 # Generate and view a system report
 
-This article describes how to generate and view a system report in Microsoft CloudKnox Permissions Management (CloudKnox).
+> [!IMPORTANT]
+> CloudKnox Permissions Management (CloudKnox) is currently in PREVIEW.
+> Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
+
+This article describes how to generate and view a system report in CloudKnox Permissions Management (CloudKnox).
 
 ## Generate a system report  
 
 1. In the CloudKnox home page, select the **Reports** tab, and then select the **Systems reports** subtab.
     The **Systems Reports** subtab displays the following options in the **Reports** table:
 
-    - **Report Name** - The name of the report.
-    - **Category** - The type of report: **Permission** or **Compliance**.
-    - **Authorization System** - The authorization system in which you can view the report: Amazon Web Services (AWS), Microsoft Azure (Azure), and Google Cloud Platform (GCP).
-    - **Format** - The format of the report.
+    - **Report Name**: The name of the report.
+    - **Category**: The type of report: **Permission** or **Compliance**.
+    - **Authorization System**: The authorization system in which you can view the report: Amazon Web Services (AWS), Microsoft Azure (Azure), and Google Cloud Platform (GCP).
+    - **Format**: The format of the report.
 
 1. In the **Report Name** column, find the report you want, and then select the down arrow to the right of the report name to download the report.
 

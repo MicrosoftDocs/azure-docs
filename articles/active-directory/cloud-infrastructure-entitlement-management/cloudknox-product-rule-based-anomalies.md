@@ -14,6 +14,10 @@ ms.author: v-ydequadros
 
 # Create and view rule-based anomaly alerts and anomaly triggers 
 
+> [!IMPORTANT]
+> CloudKnox Permissions Management (CloudKnox) is currently in PREVIEW.
+> Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
+
 Rule-based anomalies identify recent activity in CloudKnox Permissions Management (CloudKnox) that is determined to be unusual based on explicit rules defined in the activity trigger. The goal of rule-based anomaly is high precision detection.
 
 ## View rule-based anomaly alerts
