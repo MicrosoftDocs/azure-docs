@@ -19,7 +19,7 @@ Azure Bastion offers support for file transfer between your target VM and local 
 
 > [!NOTE]
 > * Uploading and downloading files is supported using the native client only. You can't upload and download files using PowerShell or via the Azure portal.
-> * This feature requires the Standard SKU. The Basic SKU does not support using the native client.
+> * This feature requires the Standard SKU. The Basic SKU doesn't support using the native client.
 >
 
 ## Upload and download files - RDP
