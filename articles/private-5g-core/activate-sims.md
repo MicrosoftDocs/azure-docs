@@ -1,5 +1,6 @@
 ---
-title: Activate SIMs for Azure Private 5G Core Preview
+title: Activate SIMs
+titlesuffix: Azure Private 5G Core Preview
 description: This how-to guide shows how to activate SIMs used by User Equipment so they can use your private mobile network. 
 author: djrmetaswitch
 ms.author: drichards
