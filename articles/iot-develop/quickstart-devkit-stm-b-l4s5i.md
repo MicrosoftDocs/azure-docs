@@ -363,6 +363,7 @@ To view telemetry in IoT Central portal:
     > [!NOTE]
     > You can also monitor telemetry from the device by using the Termite app.
 
+
 ## Call a direct method on the device
 
 You can also use IoT Central to call a direct method that you have implemented on your device. Direct methods have a name, and can optionally have a JSON payload, configurable connection, and method timeout. In this section, you call a method that enables you to turn an LED on or off.
