@@ -20,6 +20,7 @@ ms.custom: aaddev, "scenarios:getting-started", "languages:JavaScript", devx-tra
 
 
 > [!div renderon="docs"]
+> [!Note]
 > Welcome! This probably isn't the page you were expecting. We're currently working on a fix, but for now, please use the link below - it should take you to the right article:
 > 
 > [Angular single-page app quickstart](single-page-app-quickstart.md?pivots=devlang-angular")
