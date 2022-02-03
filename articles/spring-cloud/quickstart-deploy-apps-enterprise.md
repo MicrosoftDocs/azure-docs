@@ -19,6 +19,7 @@ This quickstart shows you how to build and deploy applications to Azure Spring C
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - An already provisioned Azure Spring Cloud Enterprise tier instance. For more information, see [Quickstart: Provision an Azure Spring Cloud service using the Enterprise tier](quickstart-provision-service-instance-enterprise.md).
+- [Apache Maven](https://maven.apache.org/download.cgi)
 - [The Azure CLI version 2.0.67 or higher](/cli/azure/install-azure-cli).
 - [!INCLUDE [install-enterprise-extension](includes/install-enterprise-extension.md)]
 
@@ -29,8 +30,8 @@ To create apps on Azure Spring Cloud, follow these steps:
 1. To set the CLI defaults, use the following commands. Be sure to replace the placeholders with your own values.
 
    ```azurecli
-   az account set --subscription=<subscription_id>
-   az configure --defaults group=<resource_group_name> spring-cloud=<service_name>
+   az account set --subscription=<subscription-id>
+   az configure --defaults group=<resource-group-name> spring-cloud=<service-name>
    ```
 
 1. To create the two core applications for PetClinic, `api-gateway` and `customers-service`, use the following commands:
@@ -77,7 +78,7 @@ To build locally, use the following steps:
    az spring-cloud app list --output table
    ```
 
-   This produces output similar to the following example:
+   This command produces output similar to the following example:
 
    ```output
    Name                  Location    ResourceGroup       Public Url                                                 Production Deployment    Provisioning State    CPU    Memory    Running Instance    Registered Instance    Persistent Storage    Bind Service Registry    Bind Application Configuration Service

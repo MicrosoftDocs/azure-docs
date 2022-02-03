@@ -191,48 +191,56 @@ Before deployment using Azure CLI or Maven, complete the examples that [provisio
 
 1. Clone the sample app repository to your Azure Cloud account.  Change the directory, and build the project.
 
-    ```azurecli
-    git clone https://github.com/azure-samples/spring-petclinic-microservices
-    cd spring-petclinic-microservices
-    mvn clean package -DskipTests -Denv=cloud
-    ```
+   ```azurecli
+   git clone https://github.com/azure-samples/spring-petclinic-microservices
+   cd spring-petclinic-microservices
+   mvn clean package -DskipTests -Denv=cloud
+   ```
 
-Compiling the project takes 5 -10 minutes. Once completed, you should have individual JAR files for each service in their respective folders.
+Compiling the project takes 5-10 minutes. Once completed, you should have individual JAR files for each service in their respective folders.
 
 ## Create and deploy apps on Azure Spring Cloud
 
 1. If you didn't run the following commands in the previous quickstarts, set the CLI defaults.
 
-    ```azurecli
-    az configure --defaults group=<resource group name> spring-cloud=<service name>
-    ```
+   ```azurecli
+   az configure --defaults group=<resource-group-name> spring-cloud=<service-name>
+   ```
 
 1. Create the 2 core microservices for PetClinic: API gateway and customers-service.
 
-    ```azurecli
-    az spring-cloud app create --name api-gateway --instance-count 1 --memory 2 --assign-endpoint
-    az spring-cloud app create --name customers-service --instance-count 1 --memory 2
-    ```
+   ```azurecli
+   az spring-cloud app create --name api-gateway --instance-count 1 --memory 2 --assign-endpoint
+   az spring-cloud app create --name customers-service --instance-count 1 --memory 2
+   ```
 
 1. Deploy the JAR files built in the previous step.
 
-    ```azurecli
-    az spring-cloud app deploy --name api-gateway --jar-path spring-petclinic-api-gateway/target/spring-petclinic-api-gateway-2.5.1.jar --jvm-options="-Xms2048m -Xmx2048m"
-    az spring-cloud app deploy --name customers-service --jar-path spring-petclinic-customers-service/target/spring-petclinic-customers-service-2.5.1.jar --jvm-options="-Xms2048m -Xmx2048m"
-    ```
+   ```azurecli
+   az spring-cloud app deploy \
+       --name api-gateway \
+       --jar-path spring-petclinic-api-gateway/target/spring-petclinic-api-gateway-2.5.1.jar \
+       --jvm-options="-Xms2048m -Xmx2048m"
+   az spring-cloud app deploy \
+       --name customers-service \
+       --jar-path spring-petclinic-customers-service/target/spring-petclinic-customers-service-2.5.1.jar \
+       --jvm-options="-Xms2048m -Xmx2048m"
+   ```
 
 1. Query app status after deployments with the following command.
 
-    ```azurecli
-    az spring-cloud app list -o table
-    ```
+   ```azurecli
+   az spring-cloud app list --output table
+   ```
 
-    ```azurecli
-        Name               Location    ResourceGroup    Production Deployment    Public Url                                           Provisioning Status    CPU    Memory    Running Instance    Registered Instance    Persistent Storage
-    -----------------  ----------  ---------------  -----------------------  ---------------------------------------------------  ---------------------  -----  --------  ------------------  ---------------------  --------------------
-    api-gateway        eastus      xxxxxx-sp         default                  https://<service name>-api-gateway.azuremicroservices.io   Succeeded              1      2         1/1                 1/1                    -
-    customers-service  eastus      <service name>         default                                                                       Succeeded              1      2         1/1                 1/1                    -
-    ```
+   This command produces output similar to the following example:
+
+   ```output
+   Name               Location    ResourceGroup    Production Deployment    Public Url                                           Provisioning Status    CPU    Memory    Running Instance    Registered Instance    Persistent Storage
+   -----------------  ----------  ---------------  -----------------------  ---------------------------------------------------  ---------------------  -----  --------  ------------------  ---------------------  --------------------
+   api-gateway        eastus      xxxxxx-sp         default                  https://<service name>-api-gateway.azuremicroservices.io   Succeeded              1      2         1/1                 1/1                    -
+   customers-service  eastus      <service name>         default                                                                       Succeeded              1      2         1/1                 1/1                    -
+   ```
 
 ## Verify the services
 
@@ -262,11 +270,11 @@ az spring-cloud app deploy --name visits-service --jar-path spring-petclinic-vis
 
 1. Clone the sample app repository to your Azure Cloud account.  Change the directory, and build the project.
 
-    ```azurecli
-    git clone https://github.com/azure-samples/spring-petclinic-microservices
-    cd spring-petclinic-microservices
-    mvn clean package -DskipTests -Denv=cloud
-    ```
+   ```azurecli
+   git clone https://github.com/azure-samples/spring-petclinic-microservices
+   cd spring-petclinic-microservices
+   mvn clean package -DskipTests -Denv=cloud
+   ```
 
 Compiling the project takes 5 -10 minutes. Once completed, you should have individual JAR files for each service in their respective folders.
 
@@ -274,42 +282,41 @@ Compiling the project takes 5 -10 minutes. Once completed, you should have indiv
 
 1. Generate configurations by running the following command in the root folder of Pet Clinic containing the parent POM. If you have already signed-in with Azure CLI, the command will automatically pick up the credentials. Otherwise, it will sign you in with prompt instructions. For more information, see our [wiki page](https://github.com/microsoft/azure-maven-plugins/wiki/Authentication).
 
-    ```azurecli
-    mvn com.microsoft.azure:azure-spring-cloud-maven-plugin:1.7.0:config
-    ```
+   ```azurecli
+   mvn com.microsoft.azure:azure-spring-cloud-maven-plugin:1.7.0:config
+   ```
 
-    You will be asked to select:
+   You will be asked to select:
 
-    * **Modules:** Select `api-gateway` and `customers-service`.
-    * **Subscription:** This is your subscription used to create an Azure Spring Cloud instance.
-    * **Service Instance:** This is the name of your Azure Spring Cloud instance.
-    * **Public endpoint:** In the list of provided projects, enter the number that corresponds with `api-gateway`.  This gives it public access.
+   * **Modules:** Select `api-gateway` and `customers-service`.
+   * **Subscription:** This is your subscription used to create an Azure Spring Cloud instance.
+   * **Service Instance:** This is the name of your Azure Spring Cloud instance.
+   * **Public endpoint:** In the list of provided projects, enter the number that corresponds with `api-gateway`.  This gives it public access.
 
 1. Verify the `appName` elements in the POM files are correct:
 
-    ```xml
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>com.microsoft.azure</groupId>
-                <artifactId>azure-spring-cloud-maven-plugin</artifactId>
-                <version>1.7.0</version>
-                <configuration>
-                    <subscriptionId>xxxxxxxxx-xxxx-xxxx-xxxxxxxxxxxx</subscriptionId>
-                    <clusterName>v-spr-cld</clusterName>
-                    <appName>customers-service</appName>
+   ```xml
+   <build>
+       <plugins>
+           <plugin>
+               <groupId>com.microsoft.azure</groupId>
+               <artifactId>azure-spring-cloud-maven-plugin</artifactId>
+               <version>1.7.0</version>
+               <configuration>
+                   <subscriptionId>xxxxxxxxx-xxxx-xxxx-xxxxxxxxxxxx</subscriptionId>
+                   <clusterName>v-spr-cld</clusterName>
+                   <appName>customers-service</appName>
+   ```
 
-    ```
-
-    Please make sure `appName` texts match the following, remove any prefix if needed and save the file:
-    * api-gateway
-    * customers-service
+   Please make sure `appName` texts match the following, remove any prefix if needed and save the file:
+   * api-gateway
+   * customers-service
 
 1. The POM now contains the plugin dependencies and configurations. Deploy the apps using the following command.
 
-    ```azurecli
-    mvn azure-spring-cloud:deploy
-    ```
+   ```azurecli
+   mvn azure-spring-cloud:deploy
+   ```
 
 ## Verify the services
 
@@ -344,7 +351,7 @@ Correct app names in each `pom.xml` for above modules and then run the `deploy` 
 
 1. Select `spring-petclinic-microservices` folder.
 
-    ![Import Project](media/spring-cloud-intellij-howto/import-project-1-pet-clinic.png)
+   ![Import Project](media/spring-cloud-intellij-howto/import-project-1-pet-clinic.png)
 
 ### Deploy api-gateway app to Azure Spring Cloud
 
@@ -352,7 +359,7 @@ In order to deploy to Azure you must sign in with your Azure account with Azure 
 
 1. Right-click your project in IntelliJ project explorer, and select **Azure** -> **Deploy to Azure Spring Cloud**.
 
-    ![Deploy to Azure 1](media/spring-cloud-intellij-howto/deploy-to-azure-1-pet-clinic.png)
+   ![Deploy to Azure 1](media/spring-cloud-intellij-howto/deploy-to-azure-1-pet-clinic.png)
 
 1. In the **Name** field, append *:api-gateway* to the existing **Name**.
 1. In the **Artifact** textbox, select *spring-petclinic-api-gateway-2.5.1*.
@@ -363,13 +370,13 @@ In order to deploy to Azure you must sign in with your Azure account with Azure 
 1. Enter *api-gateway*, then select **OK**.
 1. Specify the memory to 2 GB and JVM options: `-Xms2048m -Xmx2048m`.
 
-    ![Memory JVM options](media/spring-cloud-intellij-howto/memory-jvm-options.png)
+   ![Memory JVM options](media/spring-cloud-intellij-howto/memory-jvm-options.png)
 
 1. In the **Before launch** section of the dialog, double-click *Run Maven Goal*.
 1. In the **Working directory** textbox, navigate to the *spring-petclinic-microservices/gateway* folder.
 1. In the **Command line** textbox, enter *package -DskipTests*. Select **OK**.
 
-    ![Deploy to Azure OK](media/spring-cloud-intellij-howto/deploy-to-azure-spring-cloud-2-pet-clinic.png)
+   ![Deploy to Azure OK](media/spring-cloud-intellij-howto/deploy-to-azure-spring-cloud-2-pet-clinic.png)
 
 1. Start the deployment by selecting the **Run** button at the bottom of the **Deploy Azure Spring Cloud app** dialog. The plug-in will run the command `mvn package` on the `api-gateway` app and deploy the jar generated by the `package` command.
 

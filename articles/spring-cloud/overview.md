@@ -14,7 +14,7 @@ ms.custom: devx-track-java, contperf-fy21q2
 
 **This article applies to:** ✔️ Enterprise tier ✔️ Basic/Standard tier
 
-Azure Spring Cloud makes it easy to deploy Spring Boot applications to Azure without any code changes.  The service manages the infrastructure of Spring Cloud applications so developers can focus on their code.  Azure Spring Cloud provides lifecycle management using comprehensive monitoring and diagnostics, configuration management, service discovery, CI/CD integration, blue-green deployments, and more.
+Azure Spring Cloud makes it easy to deploy Spring Boot applications to Azure without any code changes. The service manages the infrastructure of Spring Cloud applications so developers can focus on their code. Azure Spring Cloud provides lifecycle management using comprehensive monitoring and diagnostics, configuration management, service discovery, CI/CD integration, blue-green deployments, and more.
 
 The following video shows an app composed of Spring Boot applications running on Azure using Azure Spring Cloud.
 
@@ -60,10 +60,10 @@ Azure Spring Cloud Enterprise Tier (preview) is optimized for the needs of enter
    * Build Service: helps you develop and automate containerized software workflows securely and at scale on top of commercial Tanzu buildpacks.
    * Service Registry: a highly available service registry for your services to dynamically discover and call other services.
    * Application Configuration Service: provides centralized configuration with Git integration.
-   * Spring Cloud Gateway: based on the open source Spring Cloud Gateway project, it handles API development team concerns, such as: Single Sign-On (SSO), access control, rate limiting, resiliency, security, and more. It offers commercial-only features on top of the open source foundations, including Simple Single Sign-On (SSO) configuration combined with commercial API route filters to enable authentication and access control, Dynamic API route configuration, and more. 
+   * Spring Cloud Gateway: based on the open source Spring Cloud Gateway project, it handles API development team concerns, such as: Single Sign-On (SSO), access control, rate limiting, resiliency, security, and more. It offers commercial-only features on top of the open source foundations, including Simple Single Sign-On (SSO) configuration combined with commercial API route filters to enable authentication and access control, Dynamic API route configuration, and more.
    * API Portal: enables developers to browse internal and external APIs through a simple interface.
 * Portability and flexibility in workload management:
-   * Tanzu products on demand: you decide which Tanzu products to use for your enterprise tier instances based on your needs. 
+   * Tanzu products on demand: you decide which Tanzu products to use for your enterprise tier instances based on your needs.
    * Build service can be customized to create or configure builders with exclusive Tanzu APM integrations, such as Dynatrace, New Relic, AppDynamics, and more. You can also configure how many dedicated resources will be allocated to run build tasks.
    * Zero code changes to land your workloads into Azure Spring Cloud Enterprise Tier.
 For a detailed comparison of each tier with both pricing and features, see [Azure Spring Cloud pricing](https://azure.microsoft.com/pricing/details/spring-cloud/).
