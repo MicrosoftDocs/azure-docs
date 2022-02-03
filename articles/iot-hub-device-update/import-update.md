@@ -10,7 +10,7 @@ ms.service: iot-hub-device-update
 
 # Import an update to Device Update for IoT Hub
 
-Learn how to obtain a new update and import it into Device Update for IoT Hub.
+Learn how to obtain a new update and import it into Device Update for IoT Hub. If you haven't already, be sure to review the key [import concepts](import-concepts.md) and [how to prepare an update to be imported](create-update.md).
 
 ## Prerequisites
 
