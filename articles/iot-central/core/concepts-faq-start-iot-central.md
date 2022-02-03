@@ -30,7 +30,7 @@ An out-of-the box web UX and API surface area make it simple to monitor device c
 
 Building and operating cloud solutions comprised of numerous interconnected PaaS services requires expertise. That's why IoT Central also offers built-in disaster recovery, multitenancy, global availability, and a predictable cost structure.
 
-:::image type="content" source="media/concepts-faq-start-iot-central/apaas-architecture.png" alt-text="IoT Central aPaaS architecture diagram." border="false":::
+:::image type="content" source="media/concepts-faq-start-iot-central/apaas-architecture.svg" alt-text="IoT Central aPaaS architecture diagram." border="false" lightbox="media/concepts-faq-start-iot-central/apaas-architecture.svg":::
 
 ## Next steps
 
