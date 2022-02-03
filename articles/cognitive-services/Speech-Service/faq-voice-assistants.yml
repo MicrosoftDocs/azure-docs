@@ -28,7 +28,7 @@ sections:
       - question: |
           Should I use Custom Commands or Direct Line Speech? What's the difference?
         answer: |
-          [Custom Commands](custom-commands.md) is a lower-complexity set of tools to easily create and host an assistant that's well-suited to task completion scenarios. [Direct Line Speech](direct-line-speech.md) provides richer, more sophisticated capabilities that can enable robust conversational scenarios. See the [comparison of assistant solutions](voice-assistants.md#choosing-an-assistant-solution) for more information.
+          [Custom Commands](custom-commands.md) is a lower-complexity set of tools to easily create and host an assistant that's well-suited to task completion scenarios. [Direct Line Speech](direct-line-speech.md) provides richer, more sophisticated capabilities that can enable robust conversational scenarios. See the [comparison of assistant solutions](voice-assistants.md#choose-an-assistant-solution) for more information.
           
       - question: |
           How do I get started?

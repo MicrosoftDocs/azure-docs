@@ -148,11 +148,15 @@ To manage custom security attributes in your Azure AD organization, you can also
  
 #### Get all attribute sets
 
+Use the [Get-AzureADMSAttributeSet](/powershell/module/azuread/get-azureadmsattributeset) command without any parameters to get all attribute sets.
+
 ```powershell
 Get-AzureADMSAttributeSet
 ```
 
 #### Get an attribute set
+
+Use the [Get-AzureADMSAttributeSet](/powershell/module/azuread/get-azureadmsattributeset) command to get an attribute set.
 
 - Attribute set: `Engineering`
 
@@ -162,6 +166,8 @@ Get-AzureADMSAttributeSet -Id "Engineering"
  
 #### Add an attribute set
 
+Use the [New-AzureADMSAttributeSet](/powershell/module/azuread/new-azureadmsattributeset) command to add a new attribute set.
+
 - Attribute set: `Engineering`
 
 ```powershell
@@ -169,6 +175,8 @@ New-AzureADMSAttributeSet -Id "Engineering" -Description "Attributes for enginee
 ```
 
 #### Update an attribute set
+
+Use the [Set-AzureADMSAttributeSet](/powershell/module/azuread/set-azureadmsattributeset) command to update an attribute set.
 
 - Attribute set: `Engineering`
 
@@ -179,11 +187,15 @@ Set-AzureADMSAttributeSet -Id "Engineering" -MaxAttributesPerSet 20
 
 #### Get all custom security attributes
 
+Use the [Get-AzureADMSCustomSecurityAttributeDefinition](/powershell/module/azuread/get-azureadmscustomsecurityattributedefinition) command without any parameters to get all custom security attribute definitions.
+
 ```powershell
 Get-AzureADMSCustomSecurityAttributeDefinition
 ```
 
 #### Get a custom security attribute
+
+Use the [Get-AzureADMSCustomSecurityAttributeDefinition](/powershell/module/azuread/get-azureadmscustomsecurityattributedefinition) command to get a custom security attribute definition.
 
 - Attribute set: `Engineering`
 - Attribute: `ProjectDate`
@@ -193,6 +205,8 @@ Get-AzureADMSCustomSecurityAttributeDefinition -Id "Engineering_ProjectDate"
 ```
  
 #### Add a custom security attribute
+
+Use the [New-AzureADMSCustomSecurityAttributeDefinition](/powershell/module/azuread/new-azureadmscustomsecurityattributedefinition) command to add a new custom security attribute definition.
 
 - Attribute set: `Engineering`
 - Attribute: `ProjectDate`
@@ -204,6 +218,8 @@ New-AzureADMSCustomSecurityAttributeDefinition -AttributeSet "Engineering" -Name
  
 #### Update a custom security attribute
 
+Use the [Set-AzureADMSCustomSecurityAttributeDefinition](/powershell/module/azuread/set-azureadmscustomsecurityattributedefinition) command to update a custom security attribute definition.
+
 - Attribute set: `Engineering`
 - Attribute: `ProjectDate`
 
@@ -212,6 +228,8 @@ Set-AzureADMSCustomSecurityAttributeDefinition -Id "Engineering_ProjectDate" -De
 ```
 
 #### Deactivate a custom security attribute
+
+Use the [Set-AzureADMSCustomSecurityAttributeDefinition](/powershell/module/azuread/set-azureadmscustomsecurityattributedefinition) command to deactivate a custom security attribute definition.
 
 - Attribute set: `Engineering`
 - Attribute: `Project`
@@ -222,6 +240,8 @@ Set-AzureADMSCustomSecurityAttributeDefinition -Id "Engineering_Project" -Status
 
 #### Get all predefined values
 
+Use the [Get-AzureADMSCustomSecurityAttributeDefinitionAllowedValue](/powershell/module/azuread/get-azureadmscustomsecurityattributedefinitionallowedvalue) command to get all predefined values for a custom security attribute definition.
+
 - Attribute set: `Engineering`
 - Attribute: `Project`
 
@@ -230,6 +250,8 @@ Get-AzureADMSCustomSecurityAttributeDefinitionAllowedValue -CustomSecurityAttrib
 ```
  
 #### Get a predefined value
+
+Use the [Get-AzureADMSCustomSecurityAttributeDefinitionAllowedValue](/powershell/module/azuread/get-azureadmscustomsecurityattributedefinitionallowedvalue) command to get a predefined value for a custom security attribute definition.
 
 - Attribute set: `Engineering`
 - Attribute: `Project`
@@ -241,6 +263,8 @@ Get-AzureADMSCustomSecurityAttributeDefinitionAllowedValue -CustomSecurityAttrib
  
 #### Add a predefined value
 
+Use the [Add-AzureADMScustomSecurityAttributeDefinitionAllowedValues](/powershell/module/azuread/add-azureadmscustomsecurityattributedefinitionallowedvalues) command to add a predefined value for a custom security attribute definition.
+
 - Attribute set: `Engineering`
 - Attribute: `Project`
 - Predefined value: `Alpine`
@@ -250,6 +274,8 @@ Add-AzureADMScustomSecurityAttributeDefinitionAllowedValues -CustomSecurityAttri
 ```
  
 #### Deactivate a predefined value
+
+Use the [Set-AzureADMSCustomSecurityAttributeDefinitionAllowedValue](/powershell/module/azuread/set-azureadmscustomsecurityattributedefinitionallowedvalue) command to deactivate a predefined value for a custom security attribute definition.
 
 - Attribute set: `Engineering`
 - Attribute: `Project`
@@ -265,11 +291,15 @@ To manage custom security attributes in your Azure AD organization, you can also
 
 #### Get all attribute sets
 
+Use the [List attributeSets](/graph/api/directory-list-attributesets) API to get all attribute sets.
+
 ```http
 GET https://graph.microsoft.com/beta/directory/attributeSets
 ```
 
 #### Get top attribute sets
+
+Use the [List attributeSets](/graph/api/directory-list-attributesets) API to get the top attribute sets.
 
 ```http
 GET https://graph.microsoft.com/beta/directory/attributeSets?$top=10
@@ -277,11 +307,15 @@ GET https://graph.microsoft.com/beta/directory/attributeSets?$top=10
 
 #### Get attribute sets in order
 
+Use the [List attributeSets](/graph/api/directory-list-attributesets) API to get attribute sets in order.
+
 ```http
 GET https://graph.microsoft.com/beta/directory/attributeSets?$orderBy=id
 ```
 
 #### Get an attribute set
+
+Use the [Get attributeSet](/graph/api/attributeset-get) API to get an attribute set.
 
 - Attribute set: `Engineering`
 
@@ -290,6 +324,8 @@ GET https://graph.microsoft.com/beta/directory/attributeSets/Engineering
 ```
 
 #### Add an attribute set
+
+Use the [Create attributeSet](/graph/api/directory-post-attributesets) API to add a new attribute set.
 
 - Attribute set: `Engineering`
 
@@ -304,6 +340,8 @@ POST https://graph.microsoft.com/beta/directory/attributeSets
 
 #### Update an attribute set
 
+Use the [Update attributeSet](/graph/api/attributeset-update) API to update an attribute set.
+
 - Attribute set: `Engineering`
 
 ```http
@@ -316,11 +354,15 @@ PATCH https://graph.microsoft.com/beta/directory/attributeSets/Engineering
 
 #### Get all custom security attributes
 
+Use the [List customSecurityAttributeDefinitions](/graph/api/directory-list-customsecurityattributedefinitions) API to get all custom security attribute definitions.
+
 ```http
 GET https://graph.microsoft.com/beta/directory/customSecurityAttributeDefinitions
 ```
 
 #### Filter custom security attributes
+
+Use the [List customSecurityAttributeDefinitions](/graph/api/directory-list-customsecurityattributedefinitions) API to filter custom security attribute definitions.
 
 - Filter: Attribute name eq 'Project' and status eq 'Available'
 
@@ -336,6 +378,8 @@ GET https://graph.microsoft.com/beta/directory/customSecurityAttributeDefinition
 
 #### Get a custom security attribute
 
+Use the [Get customSecurityAttributeDefinition](/graph/api/customsecurityattributedefinition-get) API to get a custom security attribute definition.
+
 - Attribute set: `Engineering`
 - Attribute: `ProjectDate`
 
@@ -344,6 +388,8 @@ GET https://graph.microsoft.com/beta/directory/customSecurityAttributeDefinition
 ```
 
 #### Add a custom security attribute
+
+Use the [Create customSecurityAttributeDefinition](/graph/api/directory-post-customsecurityattributedefinitions) API to add a new custom security attribute definition.
 
 - Attribute set: `Engineering`
 - Attribute: `ProjectDate`
@@ -364,6 +410,8 @@ POST https://graph.microsoft.com/beta/directory/customSecurityAttributeDefinitio
 ```
 
 #### Add a custom security attribute that supports multiple predefined values
+
+Use the [Create customSecurityAttributeDefinition](/graph/api/directory-post-customsecurityattributedefinitions) API to add a new custom security attribute definition that supports multiple predefined values.
 
 - Attribute set: `Engineering`
 - Attribute: `Project`
@@ -420,6 +468,8 @@ POST https://graph.microsoft.com/beta/directory/customSecurityAttributeDefinitio
 
 #### Update a custom security attribute
 
+Use the [Update customSecurityAttributeDefinition](/graph/api/customsecurityattributedefinition-update) API to update a custom security attribute definition.
+
 - Attribute set: `Engineering`
 - Attribute: `ProjectDate`
 
@@ -459,6 +509,8 @@ PATCH https://graph.microsoft.com/beta/directory/customSecurityAttributeDefiniti
 
 #### Deactivate a custom security attribute
 
+Use the [Update customSecurityAttributeDefinition](/graph/api/customsecurityattributedefinition-update) API to deactivate a custom security attribute definition.
+
 - Attribute set: `Engineering`
 - Attribute: `Project`
 
@@ -469,7 +521,20 @@ PATCH https://graph.microsoft.com/beta/directory/customSecurityAttributeDefiniti
 }
 ```
 
-#### Get the properties of a predefined value
+#### Get all predefined values
+
+Use the [List allowedValues](/graph/api/customsecurityattributedefinition-list-allowedvalues) API to get all predefined values for a custom security attribute definition.
+
+- Attribute set: `Engineering`
+- Attribute: `Project`
+
+```http
+GET https://graph.microsoft.com/beta/directory/customSecurityAttributeDefinitions/Engineering_Project/allowedValues
+```
+
+#### Get a predefined value
+
+Use the [Get allowedValue](/graph/api/allowedvalue-get) API to get a predefined value for a custom security attribute definition.
 
 - Attribute set: `Engineering`
 - Attribute: `Project`
@@ -479,16 +544,9 @@ PATCH https://graph.microsoft.com/beta/directory/customSecurityAttributeDefiniti
 GET https://graph.microsoft.com/beta/directory/customSecurityAttributeDefinitions/Engineering_Project/allowedValues/Alpine
 ```
 
-#### Get all predefined values
-
-- Attribute set: `Engineering`
-- Attribute: `Project`
-
-```http
-GET https://graph.microsoft.com/beta/directory/customSecurityAttributeDefinitions/Engineering_Project/allowedValues
-```
-
 #### Add a predefined value
+
+Use the [Create allowedValue](/graph/api/customsecurityattributedefinition-post-allowedvalues) API to add a predefined value for a custom security attribute definition.
 
 You can add predefined values for custom security attributes that have `usePreDefinedValuesOnly` set to `true`.
 
@@ -505,6 +563,8 @@ POST https://graph.microsoft.com/beta/directory/customSecurityAttributeDefinitio
 ```
 
 #### Deactivate a predefined value
+
+Use the [Update allowedValue](/graph/api/allowedvalue-update) API to deactivate a predefined value for a custom security attribute definition.
 
 - Attribute set: `Engineering`
 - Attribute: `Project`
