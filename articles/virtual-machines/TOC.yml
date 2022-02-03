@@ -161,8 +161,6 @@
         href: av2-series.md
       - name: B-series burstable
         href: sizes-b-series-burstable.md
-      - name: DCasv5 and DCadsv5-series
-        href: dcasv5-dcadsv5-series.md
       - name: DCsv2-series
         href: dcv2-series.md
       - name: DCsv3 and DCdsv3-series
@@ -439,6 +437,8 @@
         href: ./linux/imaging.md
       - name: Linux provisioning
         href: ./linux/provisioning.md
+      - name: Endorsed Linux distributions
+        href: ./linux/endorsed-distros.md
       - name: Linux distribution specific requirements
         items:
         - name: Generic steps
@@ -536,7 +536,7 @@
         - name: Windows
           displayName: Image builder, images, building, PowerShell
           href: ./windows/image-builder-powershell.md
-        - name: Windows Virtual Desktop
+        - name: Azure Virtual Desktop
           href: ./windows/image-builder-virtual-desktop.md
       - name: Security
         items:
@@ -694,8 +694,6 @@
     items:
     - name: Linux
       items:
-      - name: Endorsed distributions
-        href: ./linux/endorsed-distros.md
       - name: CLI
         displayName: Create VM, Create
         href: ./linux/create-cli-complete.md
@@ -869,7 +867,7 @@
     - name: Azure Monitor
       items:
       - name: Azure Monitor agent
-        href: ../azure-monitor/agents/azure-monitor-agent-install.md?context=/azure/virtual-machines/context/context
+        href: ../azure-monitor/agents/azure-monitor-agent-manage.md?context=/azure/virtual-machines/context/context
       - name: Diagnostics extension
         href: ../azure-monitor/agents/diagnostics-extension-overview.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
       - name: Log Analytics
@@ -1741,8 +1739,8 @@
       - name: Overview
         href: ../azure-monitor/agents/azure-monitor-agent-overview.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
         displayname: Azure Monitor agent
-      - name: Install
-        href: ../azure-monitor/agents/azure-monitor-agent-install.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
+      - name: Install and manage
+        href: ../azure-monitor/agents/azure-monitor-agent-manage.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
         displayname: Azure Monitor agent
       - name: Data collection
         href: ../azure-monitor/agents/data-collection-rule-azure-monitor-agent.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext

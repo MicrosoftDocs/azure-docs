@@ -93,12 +93,19 @@ Get the connection information needed to connect to the Azure Database for MySQL
 4. From the server's **Overview** panel, make a note of the **Server name** and **Server admin login name**. If you forget your password, you can also reset the password from this panel.
  :::image type="content" source="./media/connect-nodejs/server-name-azure-database-mysql.png" alt-text="Azure Database for MySQL server name":::
 
-## Running the JavaScript code in Node.js
+## Running the code samples
 
-1. Paste the JavaScript code into text files, and then save it into a project folder with file extension .js (such as C:\nodejsmysql\createtable.js or /home/username/nodejsmysql/createtable.js).
-2. Open the command prompt or bash shell, and then change directory into your project folder `cd nodejsmysql`.
-3. To run the application, enter the node command followed by the file name, such as `node createtable.js`.
-4. On Windows, if the node application is not in your environment variable path, you may need to use the full path to launch the node application, such as `"C:\Program Files\nodejs\node.exe" createtable.js`
+1. Paste the JavaScript code into new text files, and then save it into a project folder with file extension .js (such as C:\nodejsmysql\createtable.js or /home/username/nodejsmysql/createtable.js).
+1. Replace `host`, `user`, `password` and `database` config options in the code with the values that you specified when you created the server and database.
+1. **Obtain SSL certificate**: Download the certificate needed to communicate over SSL with your Azure Database for MySQL server from [https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) and save the certificate file to your local drive.
+
+    **For Microsoft Internet Explorer and Microsoft Edge:** After the download has completed, rename the certificate to BaltimoreCyberTrustRoot.crt.pem.
+
+    See the following links for certificates for servers in sovereign clouds: [Azure Government](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem), [Azure China](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem), and [Azure Germany](https://www.d-trust.net/cgi-bin/D-TRUST_Root_Class_3_CA_2_2009.crt).
+1. In the `ssl` config option, replace the `ca-cert` filename with the path to this local file.
+1. Open the command prompt or bash shell, and then change directory into your project folder `cd nodejsmysql`.
+1. To run the application, enter the node command followed by the file name, such as `node createtable.js`.
+1. On Windows, if the node application is not in your environment variable path, you may need to use the full path to launch the node application, such as `"C:\Program Files\nodejs\node.exe" createtable.js`
 
 ## Connect, create table, and insert data
 
@@ -106,10 +113,9 @@ Use the following code to connect and load the data by using **CREATE TABLE** an
 
 The [mysql.createConnection()](https://github.com/mysqljs/mysql#establishing-connections) method is used to interface with the MySQL server. The [connect()](https://github.com/mysqljs/mysql#establishing-connections) function is used to establish the connection to the server. The [query()](https://github.com/mysqljs/mysql#performing-queries) function is used to execute the SQL query against MySQL database. 
 
-Replace the `host`, `user`, `password`, and `database` parameters with the values that you specified when you created the server and database.
-
 ```javascript
 const mysql = require('mysql');
+const fs = require('fs');
 
 var config =
 {
@@ -118,7 +124,7 @@ var config =
     password: 'your_password',
     database: 'quickstartdb',
     port: 3306,
-    ssl: true
+    ssl: {ca: fs.readFileSync("your_path_to_ca_cert_file_BaltimoreCyberTrustRoot.crt.pem")}
 };
 
 const conn = new mysql.createConnection(config);
@@ -174,10 +180,9 @@ Use the following code to connect and read the data by using a **SELECT** SQL st
 
 The [mysql.createConnection()](https://github.com/mysqljs/mysql#establishing-connections) method is used to interface with the MySQL server. The [connect()](https://github.com/mysqljs/mysql#establishing-connections) method is used to establish the connection to the server. The [query()](https://github.com/mysqljs/mysql#performing-queries) method is used to execute the SQL query against MySQL database. The results array is used to hold the results of the query.
 
-Replace the `host`, `user`, `password`, and `database` parameters with the values that you specified when you created the server and database.
-
 ```javascript
 const mysql = require('mysql');
+const fs = require('fs');
 
 var config =
 {
@@ -186,7 +191,7 @@ var config =
     password: 'your_password',
     database: 'quickstartdb',
     port: 3306,
-    ssl: true
+    ssl: {ca: fs.readFileSync("your_path_to_ca_cert_file_BaltimoreCyberTrustRoot.crt.pem")}
 };
 
 const conn = new mysql.createConnection(config);
@@ -223,14 +228,13 @@ function readData(){
 
 ## Update data
 
-Use the following code to connect and read the data by using an **UPDATE** SQL statement. 
+Use the following code to connect and update data by using an **UPDATE** SQL statement. 
 
 The [mysql.createConnection()](https://github.com/mysqljs/mysql#establishing-connections) method is used to interface with the MySQL server. The [connect()](https://github.com/mysqljs/mysql#establishing-connections) method is used to establish the connection to the server. The [query()](https://github.com/mysqljs/mysql#performing-queries) method is used to execute the SQL query against MySQL database. 
 
-Replace the `host`, `user`, `password`, and `database` parameters with the values that you specified when you created the server and database.
-
 ```javascript
 const mysql = require('mysql');
+const fs = require('fs');
 
 var config =
 {
@@ -239,7 +243,7 @@ var config =
     password: 'your_password',
     database: 'quickstartdb',
     port: 3306,
-    ssl: true
+    ssl: {ca: fs.readFileSync("your_path_to_ca_cert_file_BaltimoreCyberTrustRoot.crt.pem")}
 };
 
 const conn = new mysql.createConnection(config);
@@ -272,14 +276,14 @@ function updateData(){
 
 ## Delete data
 
-Use the following code to connect and read the data by using a **DELETE** SQL statement. 
+Use the following code to connect and delete data by using a **DELETE** SQL statement. 
 
 The [mysql.createConnection()](https://github.com/mysqljs/mysql#establishing-connections) method is used to interface with the MySQL server. The [connect()](https://github.com/mysqljs/mysql#establishing-connections) method is used to establish the connection to the server. The [query()](https://github.com/mysqljs/mysql#performing-queries) method is used to execute the SQL query against MySQL database. 
 
-Replace the `host`, `user`, `password`, and `database` parameters with the values that you specified when you created the server and database.
 
 ```javascript
 const mysql = require('mysql');
+const fs = require('fs');
 
 var config =
 {
@@ -288,7 +292,7 @@ var config =
     password: 'your_password',
     database: 'quickstartdb',
     port: 3306,
-    ssl: true
+    ssl: {ca: fs.readFileSync("your_path_to_ca_cert_file_BaltimoreCyberTrustRoot.crt.pem")}
 };
 
 const conn = new mysql.createConnection(config);

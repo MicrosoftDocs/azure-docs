@@ -4,7 +4,7 @@ description: How to create an Azure HPC Cache instance
 author: ronhogue
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 01/19/2022
+ms.date: 01/26/2022
 ms.author: rohogue 
 ms.custom: devx-track-azurepowershell
 ---
@@ -30,6 +30,9 @@ In **Project Details**, select the subscription and resource group that will hos
 In **Service Details**, set the cache name and these other attributes:
 
 * Location - Select one of the [supported regions](hpc-cache-overview.md#region-availability).
+
+  If that region supports [availability zones](../availability-zones/az-overview.md), select the zone that will host your cache resources. Azure HPC Cache is a zonal service.
+
 * Virtual network - You can select an existing one or create a new virtual network.
 * Subnet - Choose or create a subnet with at least 64 IP addresses (/24). This subnet must be used only for this Azure HPC Cache instance.
 

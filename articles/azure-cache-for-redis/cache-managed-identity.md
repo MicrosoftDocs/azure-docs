@@ -93,7 +93,7 @@ To use managed identity, you must have a premium-tier cache.
 
    :::image type="content" source="media/cache-managed-identity/identity-add.png" alt-text="User assigned identity status is on":::
 
-1. A sidebar pops up to allow you to select any available user-assigned identity to your subscription. Choose an identity and select **Add**. For more information on user assigned managed identities, see [manage user-assigned identity](/azure/active-directory/managed-identities-azure-resources/manage-user-assigned-managed-identities.md).
+1. A sidebar pops up to allow you to select any available user-assigned identity to your subscription. Choose an identity and select **Add**. For more information on user assigned managed identities, see [manage user-assigned identity](/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities).
    >[!Note]
    >You need to [create a user assigned identity](/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp) in advance of this step.
    >

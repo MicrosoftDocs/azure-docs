@@ -28,7 +28,8 @@ Simply select a model and click on deploy model in the Deploy model page.
 
 :::image type="content" source="../media/deploy-model.png" alt-text="A screenshot showing the model deployment page in Language Studio." lightbox="../media/deploy-model.png":::
 
-if you're using the REST API, refer to the [quickstart](../quickstart.md?pivots=rest-api#deploy-your-model) and REST API [reference documentation](https://westus2.dev.cognitive.microsoft.com/docs/services/language-authoring-clu-apis-2021-11-01-preview/operations/Deployments_TriggerDeploymentJob) for more information.
+> [!TIP]
+> If you're using the REST API, see the [quickstart](../quickstart.md?pivots=rest-api#deploy-your-model) and REST API [reference documentation](https://westus2.dev.cognitive.microsoft.com/docs/services/language-authoring-clu-apis-2021-11-01-preview/operations/Deployments_TriggerDeploymentJob) for examples and more information.
 
 **Orchestration workflow projects deployments**
 
@@ -38,7 +39,7 @@ If you're connecting one or more LUIS applications, specify the deployment name,
 * The *slot* deployment type requires you to pick between a production and staging slot.
 * The *version* deployment type requires you to specify the version you have published.
 
-No configurations are required for custom question answering and CLU connections, or unlinked intents.
+No configurations are required for custom question answering and conversational language understanding connections, or unlinked intents.
 
 LUIS projects **must be published** to the slot configured during the Orchestration deployment, and custom question answering KBs must also be published to their Production slots.
 
@@ -52,9 +53,14 @@ You can get the full URL for your endpoint by going to the **Deploy model** page
 
 :::image type="content" source="../media/prediction-url.png" alt-text="Screenshot showing the prediction request and URL" lightbox="../media/prediction-url.png":::
 
-As you construct your requests, refer to the [quickstart](../quickstart.md?pivots=rest-api#query-model) and REST API [reference documentation](https://aka.ms/clu-apis) for more information.
+Add your key to the `Ocp-Apim-Subscription-Key` header value, and replace the query and language parameters.
+ 
+> [!TIP]
+> As you construct your requests, see the [quickstart](../quickstart.md?pivots=rest-api#query-model) and REST API [reference documentation](https://aka.ms/clu-apis) for more information.
 
 ### Use the client libraries (Azure SDK)
+
+You can also use the client libraries provided by the Azure SDK to send requests to your model. 
 
 > [!NOTE]
 > The client library for conversational language understanding is only available for:
@@ -97,7 +103,7 @@ In a conversations project, you'll get predictions for both your intents and ent
 
 ## API response for an orchestration Workflow Project
 
-An orchestration workflow project returns with the response of the top scoring intent, and the response of the service it is connected to.
+Orchestration workflow projects return with the response of the top scoring intent, and the response of the service it is connected to.
 - Within the intent, the *targetKind* parameter lets you determine the type of response that was returned by the orchestrator's top intent (conversation, LUIS, or QnA Maker).
 - You will get the response of the connected service in the *result* parameter. 
 
