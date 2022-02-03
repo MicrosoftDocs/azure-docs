@@ -53,7 +53,7 @@ The secure hybrid access solution for this scenario is made up of:
 
 SHA for this scenario supports both SP and IdP initiated flows. The following image illustrates the SP initiated flow.
 
-![Secure hybrid access - SP initiated flow](./media/f5-big-ip-easy-button-ldap/sp-initiated-flow.png)
+   ![Secure hybrid access - SP initiated flow](./media/f5-big-ip-easy-button-ldap/sp-initiated-flow.png)
 
 | Steps| Description |
 | -------- |-------|
@@ -89,11 +89,11 @@ Prior BIG-IP experience isn't necessary, but you'll need:
 
 - An account with Azure AD application admin [permissions](/azure/active-directory/users-groups-roles/directory-assign-admin-roles#application-administrator)
 
-- A [SSL certificate](./f5-bigip-deployment-guide.md#ssl-profile) for publishing services over HTTPS, or use default certificates while testing
+- An [SSL certificate](./f5-bigip-deployment-guide.md#ssl-profile) for publishing services over HTTPS, or use default certificates while testing
 
 - An existing header-based application or [setup a simple IIS header app](/previous-versions/iis/6.0-sdk/ms525396(v=vs.90)) for testing
 
-- A user directory that supports LDAP, including Windows Active Directory Lightweight Directory Services (AD LDS), OpenLDAP etc.
+- A user directory that supports LDAP, such as Windows Active Directory Lightweight Directory Services (AD LDS), OpenLDAP etc.
 
 ## BIG-IP configuration methods
 
@@ -153,23 +153,23 @@ Next, step through the Easy Button configurations to federate and publish the EB
    
 Once provisioned, the certificate can be used for every application published through Easy Button. You can also choose to upload a separate certificate for individual applications.
 
-    ![Screenshot for Configure Easy Button- Import SSL certificates and keys](./media/f5-big-ip-easy-button-ldap/configure-easy-button.png)
+   ![Screenshot for Configure Easy Button- Import SSL certificates and keys](./media/f5-big-ip-easy-button-ldap/configure-easy-button.png)
 
 4. Navigate to **Access > Guided Configuration > Microsoft Integration** and select  **Azure AD Application**
    
    You can now access the Easy Button functionality that provides quick configuration steps to set up the APM as a SAML Service Provider (SP) and Azure AD as an Identity Provider (IdP) for your application.
 
-    ![Screenshot for Configure Easy Button- Install the template](./media/f5-big-ip-easy-button-ldap/easy-button-template.png)
+   ![Screenshot for Configure Easy Button- Install the template](./media/f5-big-ip-easy-button-ldap/easy-button-template.png)
 
 5. Review the list of configuration steps and select **Next**
 
-    ![Screenshot for Configure Easy Button - List configuration steps](./media/f5-big-ip-easy-button-ldap/config-steps.png)
+   ![Screenshot for Configure Easy Button - List configuration steps](./media/f5-big-ip-easy-button-ldap/config-steps.png)
 
 ## Configuration steps
 
 The **Easy Button** template will display the sequence of steps required to publish your application.
 
-![Configuration steps flow](./media/f5-big-ip-easy-button-ldap/config-steps-flow.png)
+   ![Configuration steps flow](./media/f5-big-ip-easy-button-ldap/config-steps-flow.png)
 
 ### Configuration Properties
 
@@ -185,7 +185,7 @@ Consider the **Azure Service Account Details** be the BIG-IP client application 
 
 5. Confirm the BIG-IP can successfully connect to your tenant, and then select **Next**
 
-![Screenshot for Configuration General and Service Account properties](./media/f5-big-ip-easy-button-ldap/config-properties.png)
+   ![Screenshot for Configuration General and Service Account properties](./media/f5-big-ip-easy-button-ldap/config-properties.png)
 
 ### Service Provider
 
@@ -195,25 +195,25 @@ The Service Provider settings define the SAML SP properties for the APM instance
 
 2. Enter **Entity ID**. This is the identifier Azure AD will use to identify the SAML SP requesting a token
 
-     ![Screenshot for Service Provider settings](./media/f5-big-ip-easy-button-ldap/service-provider.png)
+   ![Screenshot for Service Provider settings](./media/f5-big-ip-easy-button-ldap/service-provider.png)
 
 The optional **Security Settings** specify whether Azure AD should encrypt issued SAML assertions. Encrypting assertions between Azure AD and the BIG-IP APM provides additional assurance that the content tokens can’t be intercepted, and personal or corporate data be compromised.
 
 3.	From the **Assertion Decryption Private Key** list, select **Create New**
  
-     ![Screenshot for Import SSL certificates and keys](./media/f5-big-ip-easy-button-oracle-ebs/configure-security-create-new.png)
+   ![Screenshot for Import SSL certificates and keys](./media/f5-big-ip-easy-button-oracle-ebs/configure-security-create-new.png)
 
 4.	Select **OK**. This opens the **Import SSL Certificate and Keys** dialog in a new tab  
 
 6.	Select **PKCS 12 (IIS) ** to import your certificate and private key. Once provisioned close the browser tab to return to the main tab.
 
-     ![Screenshot for Import SSL certificates and keys](./media/f5-big-ip-easy-button-ldap/import-ssl-certificates-and-keys.png)
+   ![Screenshot for Import SSL certificates and keys](./media/f5-big-ip-easy-button-ldap/import-ssl-certificates-and-keys.png)
 
 6.	Check **Enable Encrypted Assertion**
 7.	If you have enabled encryption, select your certificate from the **Assertion Decryption Private Key** list. This is the private key for the certificate that BIG-IP APM will use to decrypt Azure AD assertions
 8.	If you have enabled encryption, select your certificate from the **Assertion Decryption Certificate** list. This is the certificate that BIG-IP will upload to Azure AD for encrypting the issued SAML assertions.
 
-    ![Screenshot for Service Provider security settings](./media/f5-big-ip-easy-button-ldap/service-provider-security-settings.png)
+   ![Screenshot for Service Provider security settings](./media/f5-big-ip-easy-button-ldap/service-provider-security-settings.png)
 
 ### Azure Active Directory
 
@@ -221,7 +221,7 @@ This section defines all properties that you would normally use to manually conf
 
 The Easy Button wizard provides a set of pre-defined application templates for Oracle PeopleSoft, Oracle E-business Suite, Oracle JD Edwards, SAP ERP, but we’ll use the generic secure hybrid access template by selecting **F5 BIG-IP APM Azure AD Integration > Add**.
 
-![Screenshot for Azure configuration add BIG-IP application](./media/f5-big-ip-easy-button-ldap/azure-config-add-app.png)
+   ![Screenshot for Azure configuration add BIG-IP application](./media/f5-big-ip-easy-button-ldap/azure-config-add-app.png)
 
 #### Azure Configuration
 
@@ -229,7 +229,7 @@ The Easy Button wizard provides a set of pre-defined application templates for O
 
 2. Do not enter anything in the **Sign On URL (optional)** to enable IdP initiated sign-on
 
-    ![Screenshot for Azure configuration add display info](./media/f5-big-ip-easy-button-ldap/azure-configuration-properties.png)
+   ![Screenshot for Azure configuration add display info](./media/f5-big-ip-easy-button-ldap/azure-configuration-properties.png)
 
 3. Select the refresh icon next to the **Signing Key** and **Signing Certificate** to locate the certificate you imported earlier
  
@@ -237,11 +237,11 @@ The Easy Button wizard provides a set of pre-defined application templates for O
 
 6. Enable **Signing Option** (optional). This ensures that BIG-IP only accepts tokens and claims that are signed by Azure AD
 
-    ![Screenshot for Azure configuration - Add signing certificates info](./media/f5-big-ip-easy-button-ldap/azure-configuration-sign-certificates.png)
+   ![Screenshot for Azure configuration - Add signing certificates info](./media/f5-big-ip-easy-button-ldap/azure-configuration-sign-certificates.png)
 
 7. **User and User Groups** are dynamically queried from your Azure AD tenant and used to authorize access to the application. **Add** a user or group that you can use later for testing, otherwise all access will be denied
 
-    ![Screenshot for Azure configuration - Add users and groups](./media/f5-big-ip-easy-button-ldap/azure-configuration-add-user-groups.png)
+   ![Screenshot for Azure configuration - Add users and groups](./media/f5-big-ip-easy-button-ldap/azure-configuration-add-user-groups.png)
 
 #### User Attributes & Claims
 
@@ -253,7 +253,7 @@ For this example, you can include one more attribute:
 
 2. Enter **Source Attribute** as *user.employeeid*
 
-![Screenshot for user attributes and claims](./media/f5-big-ip-easy-button-ldap/user-attributes-claims.png)
+   ![Screenshot for user attributes and claims](./media/f5-big-ip-easy-button-ldap/user-attributes-claims.png)
 
 #### Additional User Attributes
 
@@ -271,13 +271,13 @@ In the **Additional User Attributes tab**, you can enable session augmentation r
 
 6. Enter the **Base Search DN** to the exact distinguished name of the location containing the account the APM will authenticate with for LDAP service queries
 
-    ![Screenshot for additional user attributes](./media/f5-big-ip-easy-button-ldap/additional-user-attributes.png)
+   ![Screenshot for additional user attributes](./media/f5-big-ip-easy-button-ldap/additional-user-attributes.png)
 
 7. Set the **Base Search DN** to the exact distinguished name of the location containing the user account objects that the APM will query via LDAP
 
 8. Set both membership options to **None** and add the name of the user object attribute that must be returned from the LDAP directory. For our scenario, this is **eventroles** 
 
-    ![Screenshot for LDAP query properties](./media/f5-big-ip-easy-button-ldap/user-properties-ldap.png)
+   ![Screenshot for LDAP query properties](./media/f5-big-ip-easy-button-ldap/user-properties-ldap.png)
 
 #### Conditional Access Policy
 
@@ -294,7 +294,7 @@ To select a policy to be applied to the application being published:
 
 Selected policies should either have an **Include** or **Exclude** option checked. If both options are checked, the selected policy is not enforced.
 
-![Screenshot for CA policies](./media/f5-big-ip-kerberos-easy-button/conditional-access-policy.png)
+   ![Screenshot for CA policies](./media/f5-big-ip-kerberos-easy-button/conditional-access-policy.png)
 
 >[!NOTE]
 >The policy list is enumerated only once when first switching to this tab. A refresh button is available to manually force the wizard to query your tenant, but this button is displayed only when the application has been deployed.
@@ -311,7 +311,7 @@ A virtual server is a BIG-IP data plane object represented by a virtual IP addre
 
 4. Select **Client SSL Profile** to enable the virtual server for HTTPS so that client connections are encrypted over TLS. Select the client SSL profile you created as part of the prerequisites or leave the default if testing
 
-    ![Screenshot for Virtual server](./media/f5-big-ip-easy-button-ldap/virtual-server.png)
+   ![Screenshot for Virtual server](./media/f5-big-ip-easy-button-ldap/virtual-server.png)
 
 ### Pool Properties
 
@@ -323,7 +323,7 @@ The **Application Pool tab** details the services behind a BIG-IP that are repre
 
 3. Update **Pool Servers**. Select an existing node or specify an IP and port for the server hosting the header-based application
 
-    ![Screenshot for Application pool](./media/f5-big-ip-easy-button-ldap/application-pool.png)
+   ![Screenshot for Application pool](./media/f5-big-ip-easy-button-oracle-ebs/application-pool.png)
 
 Our backend application sits on HTTP port 80 but obviously switch to 443 if yours is HTTPS.
 
@@ -343,7 +343,7 @@ Enabling SSO allows users to access BIG-IP published services without having to 
   * **Header Name:** eventroles
   * **Header Value:** %{session.ldap.last.attr.eventroles}
 
-![Screenshot for SSO and HTTP headers](./media/f5-big-ip-easy-button-ldap/sso-headers.png)
+   ![Screenshot for SSO and HTTP headers](./media/f5-big-ip-easy-button-ldap/sso-headers.png)
 
 >[!NOTE]
 >APM session variables defined within curly brackets are CASE sensitive. If you enter EventRoles when the Azure AD attribute name is being defined as eventroles, it will cause an attribute mapping failure.
@@ -374,7 +374,7 @@ From a browser, **connect** to the application’s external URL or select the **
 
 This shows the output of the injected headers displayed by our headers-based application.
 
-![Screenshot for App views](./media/f5-big-ip-easy-button-ldap/app-view.png)
+   ![Screenshot for App views](./media/f5-big-ip-easy-button-ldap/app-view.png)
 
 For increased security, organizations using this pattern could also consider blocking all direct access to the application, thereby forcing a strict path through the BIG-IP.
 
@@ -386,7 +386,7 @@ The BIG-IP gives you the option to disable **Guided Configuration’s strict man
 
 You can navigate to **Access > Guided Configuration** and select the **small padlock icon** on the far right of the row for your applications’ configs. 
  
-![Screenshot for Configure Easy Button - Strict Management](./media/f5-big-ip-easy-button-oracle-ebs/disable-strict-mode.png)
+   ![Screenshot for Configure Easy Button - Strict Management](https://docs.microsoft.com/azure/active-directory/manage-apps/media/f5-big-ip-oracle/strict-mode-padlock.png)
 
 At that point, changes via the wizard UI are no longer possible, but all BIG-IP objects associated with the published instance of the application will be unlocked for direct management.
 
@@ -420,12 +420,3 @@ If you don’t see a BIG-IP error page, then the issue is probably more related 
  ```ldapsearch -xLLL -H 'ldap://192.168.0.58' -b "CN=partners,dc=contoso,dc=lds" -s sub -D "CN=f5-apm,CN=partners,DC=contoso,DC=lds" -w 'P@55w0rd!' "(cn=testuser)" ```
 
 For more information, visit this F5 knowledge article [Configuring LDAP remote authentication for Active Directory](https://support.f5.com/csp/article/K11072). There’s also a great BIG-IP reference table to help diagnose LDAP-related issues in this F5 knowledge article on [LDAP Query](https://techdocs.f5.com/kb/en-us/products/big-ip_apm/manuals/product/apm-authentication-single-sign-on-11-5-0/5.html).
-
- 
-## Additional resources
-
-* [The end of passwords, go password-less](https://www.microsoft.com/security/business/identity/passwordless)
-
-* [What is Conditional Access?](../conditional-access/overview.md)
-
-* [Microsoft Zero Trust framework to enable remote work](https://www.microsoft.com/security/blog/2020/04/02/announcing-microsoft-zero-trust-assessment-tool/)
