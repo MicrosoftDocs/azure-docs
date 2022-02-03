@@ -213,7 +213,10 @@ Functions lets you customize the Java virtual machine (JVM) used to run your Jav
 * `-Djava.net.preferIPv4Stack=true`
 * `-jar`
 
-You can provide additional arguments in an app setting named `JAVA_OPTS`. You can add app settings to your function app deployed to Azure in the Azure portal or the Azure CLI.
+You can provide additional arguments in an app setting. You can add app settings to your function app deployed to Azure in the Azure portal or the Azure CLI.
+*  In Windows/Linux dedicated and premium plan, use app setting named `JAVA_OPTS`
+*  In the Windows Consumption plan, use app setting named `languageWorkers:java:arguments`.
+*  In the Linux Consumption plan, use app setting named `languageWorkers__java__arguments`.
 
 > [!IMPORTANT]  
 > In the Consumption plan, you must also add the WEBSITE_USE_PLACEHOLDER setting with a value of 0 for the customization to work. This setting does increase the cold start times for Java functions.
