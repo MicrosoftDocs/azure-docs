@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: conceptual
-ms.date: 11/02/2021
+ms.date: 02/03/2022
 ms.author: aahi
 ms.custom: language-service-custom-ner, references_regions, ignite-fall-2021
 ---
@@ -98,18 +98,31 @@ To use custom NER, you'll need to [create an Azure storage account](../../../../
 
 Next you'll need to assign the [correct roles](#roles-for-your-storage-account) for the storage account to connect it to your Language resource. 
 
-## Roles for your Azure Language resource
+## Required roles for Azure Language resources
 
-You should have the **owner** or **contributor** role assigned on your Azure Language resource.
+To access and use custom NER projects, your account must have at least one of the following roles in your Language resource. If you have contributors who need access to your projects, they will also need at least one of these roles to access the Language resource's managed identity:
+* Owner
+* Contributor
 
-## Enable identity management for your resource
+### Enable managed identities for your Language resource
 
 Your Language resource must have identity management, which can be enabled either using the Azure portal or from Language Studio. To enable it using [Language Studio](https://aka.ms/languageStudio):
 1. Click the settings icon in the top right corner of the screen
 2. Select **Resources**
 3. Select **Managed Identity** for your Azure resource.
 
-## Roles for your storage account
+### Add roles for your Language resource
+
+After you've enabled managed identities for your resource, add the appropriate owner or contributor role assignments for your and your contributor's Azure accounts:
+
+1. Go to your Language resource in the [Azure portal](https://ms.portal.azure.com/).
+2. Select **Access Control (IAM)** in the left navigation menu.
+3. Select **Add** to **Add Role Assignments**, and choose the **Owner** or **Contributor** role. You can search for user names in the **Select** field.
+
+## Required roles for your storage account
+
+> [!NOTE]
+> For information on authorizing access to your Azure blob storage account and data, see [Authorize access to data in Azure storage](/azure/storage/common/authorize-data-access?toc=/azure/storage/blobs/toc.json).
 
 Your Azure blob storage account must have the below roles:
 
