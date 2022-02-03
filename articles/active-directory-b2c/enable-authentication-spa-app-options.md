@@ -25,7 +25,7 @@ To use a custom domain and your tenant ID in the authentication URL, follow the 
 
 The following JavaScript code shows the MSAL configuration object *before* the change: 
 
-```Javascript
+```JavaScript
 const msalConfig = {
     auth: {
       ...
@@ -39,7 +39,7 @@ const msalConfig = {
 
 The following JavaScript code shows the MSAL configuration object *after* the change: 
 
-```Javascript
+```JavaScript
 const msalConfig = {
     auth: {
       ...
