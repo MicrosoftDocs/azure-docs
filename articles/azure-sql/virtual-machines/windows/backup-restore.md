@@ -3,7 +3,7 @@ title: Backup and restore for SQL Server on Azure VMs | Microsoft Docs
 description: Describes backup and restore considerations for SQL Server databases running on Azure Virtual Machines.
 services: virtual-machines-windows
 documentationcenter: na
-author: MashaMSFT
+author: rajeshsetlem
 editor: ''
 tags: azure-resource-management
 ms.assetid: 95a89072-0edf-49b5-88ed-584891c0e066
@@ -14,7 +14,8 @@ ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/04/2018
-ms.author: mikeray
+ms.author: rsetlem
+ms.reviewer: mathoma
 ---
 # Backup and restore for SQL Server on Azure VMs
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]

@@ -12,7 +12,7 @@ When you store images and other artifacts in an Azure container registry, Azure 
 
 Server-side encryption with customer-managed keys is supported through integration with [Azure Key Vault](../key-vault/general/overview.md): 
 
-* You can create your own encryption keys and store them in a key vault, or use Azure Key Vault's APIs to generate keys. 
+* You can create your own encryption keys and store them in a key vault, or use Azure Key Vault APIs to generate keys. 
 * With Azure Key Vault, you can also audit key usage.
 * Azure Container Registry supports automatic rotation of registry encryption keys when a new key version is available in Azure Key Vault. You can also manually rotate registry encryption keys.
 

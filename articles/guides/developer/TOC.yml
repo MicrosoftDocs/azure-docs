@@ -170,8 +170,6 @@
       href: /dotnet/api/
     - name: Java
       href: /java/api/
-    - name: Node.js
-      href: https://azure.github.io/azure-sdk-for-node/
     - name: PHP
       href: https://github.com/Azure/azure-sdk-for-php/blob/master/README.md
     - name: Python

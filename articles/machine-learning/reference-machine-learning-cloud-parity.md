@@ -10,7 +10,7 @@ ms.topic: reference
 ms.reviewer: larryfr
 ms.author: andzha
 author: Anurzeuii
-ms.date: 08/24/2021
+ms.date: 10/21/2021
 ms.custom: references_regions
 ---
 
@@ -191,7 +191,7 @@ The information in the rest of this document provides information on what featur
 | Labeler Portal                                                            | GA               | YES       | N/A        |
 | Labeling using private workforce                                          | GA               | YES       | N/A        |
 | ML assisted labeling (Image classification and object detection)           | Public Preview   | YES       | N/A        |
-| **Responsible ML** |    | | |
+| **Responsible AI** |    | | |
 | Explainability in UI                                                       | Public Preview   | NO        | N/A        |
 | Differential privacy SmartNoise toolkit                                    | OSS              | NO        | N/A        |
 | custom tags in Azure Machine Learning to implement datasheets              | GA               | NO        | N/A        |

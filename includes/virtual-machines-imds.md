@@ -13,8 +13,7 @@ ms.custom: references_regions
 The Azure Instance Metadata Service (IMDS) provides information about currently running virtual machine instances. You can use it to manage and configure your virtual machines.
 This information includes the SKU, storage, network configurations, and upcoming maintenance events. For a complete list of the data available, see the [Endpoint Categories Summary](#endpoint-categories).
 
-IMDS is available for running instances of virtual machines (VMs) and virtual machine scale set instances. All endpoints support VMs created and managed by using [Azure Resource Manager](/rest/api/resources/). Only
-the Attested category and Network portion of the Instance category support VMs created by using the classic deployment model. The Attested endpoint does so only to a limited extent.
+IMDS is available for running instances of virtual machines (VMs) and virtual machine scale set instances. All endpoints support VMs created and managed by using [Azure Resource Manager](/rest/api/resources/). Only the Attested category and Network portion of the Instance category support VMs created by using the classic deployment model. The Attested endpoint does so only to a limited extent.
 
 IMDS is a REST API that's available at a well-known, non-routable IP address (`169.254.169.254`). You can only access it from within the VM. Communication between the VM and IMDS never leaves the host.
 Have your HTTP clients bypass web proxies within the VM when querying IMDS, and treat `169.254.169.254` the same as [`168.63.129.16`](../articles/virtual-network/what-is-ip-address-168-63-129-16.md).
@@ -46,6 +45,8 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http:
 ```bash
 curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance?api-version=2021-02-01" | jq
 ```
+
+The `jq` utility is available in many cases, but not all. If the `jq` utility is missing, use `| python -m json.tool` instead.
 
 ---
 
@@ -340,6 +341,8 @@ Schema breakdown:
 | `azEnvironment` | Azure Environment where the VM is running in | 2018-10-01
 | `customData` | This feature is deprecated and disabled [in IMDS](#frequently-asked-questions). It has been superseded by `userData` | 2019-02-01
 | `evictionPolicy` | Sets how a [Spot VM](../articles/virtual-machines/spot-vms.md) will be evicted. | 2020-12-01
+| `extendedLocation.type` | Type of the extended location of the VM. | 2021-03-01
+| `extendedLocation.name` | Name of the extended location of the VM | 2021-03-01
 | `isHostCompatibilityLayerVm` | Identifies if the VM runs on the Host Compatibility Layer | 2020-06-01
 | `licenseType` | Type of license for [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit). This is only present for AHB-enabled VMs | 2020-09-01
 | `location` | Azure Region the VM is running in | 2017-04-02
@@ -368,6 +371,7 @@ Schema breakdown:
 | `tagsList` | Tags formatted as a JSON array for easier programmatic parsing  | 2019-06-04
 | `userData` | The set of data specified when the VM was created for use during or after provisioning (Base64 encoded)  | 2021-01-01
 | `version` | Version of the VM image | 2017-04-02
+| `virtualMachineScaleSet.id` | the id of the [Virtual Machine Scale Set](../articles/virtual-machine-scale-sets/overview.md) the Virtual Machine is part of (if applicable) | 2021-03-01
 | `vmId` | [Unique identifier](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) for the VM | 2017-04-02
 | `vmScaleSetName` | [Virtual machine scale set Name](../articles/virtual-machine-scale-sets/overview.md) of your virtual machine scale set | 2017-12-01
 | `vmSize` | [VM size](../articles/virtual-machines/sizes.md) | 2017-04-02
@@ -567,6 +571,8 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http:
 curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/compute/tagsList?api-version=2019-06-04" | jq
 ```
 
+The `jq` utility is available in many cases, but not all. If the `jq` utility is missing, use `| python -m json.tool` instead.
+
 ---
 
 **Response**
@@ -644,6 +650,11 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
 ```json
 {
     "azEnvironment": "AZUREPUBLICCLOUD",
+    "extendedLocation": {
+      "type": "edgeZone",
+      "name": "microsoftlosangeles"
+    },
+    "evictionPolicy": "",
     "isHostCompatibilityLayerVm": "true",
     "licenseType":  "Windows_Client",
     "location": "westus",
@@ -663,6 +674,7 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
     },
     "platformFaultDomain": "36",
     "platformUpdateDomain": "42",
+    "priority": "Regular",
     "publicKeys": [{
             "keyData": "ssh-rsa 0",
             "path": "/home/user/.ssh/authorized_keys0"
@@ -695,7 +707,7 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
             "lun": "0",
             "managedDisk": {
               "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/MicrosoftCompute/disks/exampledatadiskname",
-              "storageAccountType": "Standard_LRS"
+              "storageAccountType": "StandardSSD_LRS"
             },
             "name": "exampledatadiskname",
             "opsPerSecondThrottle": "65280",
@@ -726,7 +738,7 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
             },
             "managedDisk": {
                 "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampleosdiskname",
-                "storageAccountType": "Standard_LRS"
+                "storageAccountType": "StandardSSD_LRS"
             },
             "name": "exampleosdiskname",
             "osType": "Windows",
@@ -742,6 +754,9 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
     "subscriptionId": "xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx",
     "tags": "baz:bash;foo:bar",
     "version": "15.05.22",
+    "virtualMachineScaleSet": {
+      "id": "/subscriptions/xxxxxxxx-xxxxx-xxx-xxx-xxxx/resourceGroups/resource-group-name/providers/Microsoft.Compute/virtualMachineScaleSets/virtual-machine-scale-set-name"
+    },
     "vmId": "02aab8a4-74ef-476e-8182-f6d2ba4166a6",
     "vmScaleSetName": "crpteste9vflji9",
     "vmSize": "Standard_A3",
@@ -753,6 +768,11 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
 ```json
 {
     "azEnvironment": "AZUREPUBLICCLOUD",
+    "extendedLocation": {
+      "type": "edgeZone",
+      "name": "microsoftlosangeles"
+    },
+    "evictionPolicy": "",
     "isHostCompatibilityLayerVm": "true",
     "licenseType":  "Windows_Client",
     "location": "westus",
@@ -772,6 +792,7 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
     },
     "platformFaultDomain": "36",
     "platformUpdateDomain": "42",
+    "Priority": "Regular",
     "publicKeys": [{
             "keyData": "ssh-rsa 0",
             "path": "/home/user/.ssh/authorized_keys0"
@@ -804,7 +825,7 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
             "lun": "0",
             "managedDisk": {
               "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampledatadiskname",
-              "storageAccountType": "Standard_LRS"
+              "storageAccountType": "StandardSSD_LRS"
             },
             "name": "exampledatadiskname",
             "opsPerSecondThrottle": "65280",
@@ -835,7 +856,7 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
             },
             "managedDisk": {
                 "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampleosdiskname",
-                "storageAccountType": "Standard_LRS"
+                "storageAccountType": "StandardSSD_LRS"
             },
             "name": "exampleosdiskname",
             "osType": "linux",
@@ -851,6 +872,9 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
     "subscriptionId": "xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx",
     "tags": "baz:bash;foo:bar",
     "version": "15.05.22",
+    "virtualMachineScaleSet": {
+      "id": "/subscriptions/xxxxxxxx-xxxxx-xxx-xxx-xxxx/resourceGroups/resource-group-name/providers/Microsoft.Compute/virtualMachineScaleSets/virtual-machine-scale-set-name"
+    },
     "vmId": "02aab8a4-74ef-476e-8182-f6d2ba4166a6",
     "vmScaleSetName": "crpteste9vflji9",
     "vmSize": "Standard_A3",
@@ -958,6 +982,9 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/ne
 ```
 
 ---
+
+>[!NOTE]
+> * If you are looking to retrieve IMDS information for **Standard** SKU Public IP address, review [Load Balancer Metadata API](https://docs.microsoft.com/azure/load-balancer/howto-load-balancer-imds?tabs=windows) for more infomration.
 
 ## Attested data
 
@@ -1375,7 +1402,7 @@ If you aren't able to get a metadata response after multiple attempts, you can c
 
 ## Product feedback
 
-You can provide product feedback and ideas to our user feedback channel under Virtual Machines > Instance Metadata Service [here](https://feedback.azure.com/forums/216843-virtual-machines?category_id=394627)
+You can provide product feedback and ideas to our user feedback channel under Virtual Machines > Instance Metadata Service [here](https://feedback.azure.com/d365community/forum/ec2f1827-be25-ec11-b6e6-000d3a4f0f1c?c=a60ebac8-c125-ec11-b6e6-000d3a4f0f1c)
 
 ## Next steps
 

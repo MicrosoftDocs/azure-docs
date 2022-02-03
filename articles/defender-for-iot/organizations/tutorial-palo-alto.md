@@ -1,13 +1,13 @@
 ---
-title: Integrate Palo Alto with Azure Defender for IoT
+title: Integrate Palo Alto with Microsoft Defender for IoT
 description: Defender for IoT has integrated its continuous ICS threat monitoring platform with Palo Alto’s next-generation firewalls to enable blocking of critical threats, faster and more efficiently.
-ms.date: 09/29/2021
+ms.date: 11/09/2021
 ms.topic: tutorial
 ---
 
-# Tutorial: Integrate Palo-Alto with Azure Defender for IoT
+# Tutorial: Integrate Palo-Alto with Microsoft Defender for IoT
 
-This tutorial will help you learn how to integrate, and use Palo Alto with Azure Defender for IoT.
+This tutorial will help you learn how to integrate, and use Palo Alto with Microsoft Defender for IoT.
 
 Defender for IoT has integrated its continuous ICS threat monitoring platform with Palo Alto’s next-generation firewalls to enable blocking of critical threats, faster and more efficiently.
 
@@ -33,7 +33,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Configure immediate blocking by a specified Palo Alto firewall
 
-In cases, such as malware-related alerts, you can enable automatic blocking. Defenders for IoT forwarding rules are utilized to send a blocking command directly to a specific Palo Alto firewall.
+In cases, such as malware-related alerts, you can enable automatic blocking. Defender for IoT forwarding rules are utilized to send a blocking command directly to a specific Palo Alto firewall.
 
 When Defender for IoT identifies a critical threat, it sends an alert that includes an option of blocking the infected source. Selecting **Block Source** in the alert’s details activates the forwarding rule, which sends the blocking command to the specified Palo Alto firewall.
 

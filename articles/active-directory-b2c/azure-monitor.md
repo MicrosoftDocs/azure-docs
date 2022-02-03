@@ -3,13 +3,13 @@ title: Monitor Azure AD B2C with Azure Monitor
 titleSuffix: Azure AD B2C
 description: Learn how to log Azure AD B2C events with Azure Monitor by using delegated resource management.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 ms.date: 09/15/2021
 ---
@@ -139,6 +139,9 @@ After you deploy the template, it can take a few minutes (typically no more than
 ## 4. Select your subscription
 
 After you've deployed the template and waited a few minutes for the resource projection to complete, follow these steps to associate your subscription with your Azure AD B2C directory.
+
+> [!NOTE]
+> On the **Portal settings | Directories + subscriptions** page, ensure that your Azure AD B2C and Azure AD tenants are selected under **Current + delegated directories**.
 
 1. Sign out of the Azure portal if you're currently signed in (this allows your session credentials to be refreshed in the next step).
 1. Sign in to the [Azure portal](https://portal.azure.com) with your **Azure AD B2C** administrative account. This account must be a member of the security group you specified in the [Delegate resource management](#3-delegate-resource-management) step.

@@ -72,11 +72,11 @@ You can create a new credential asset using the Azure portal or using Windows Po
 
     ![Create new credential](../media/credentials/credential-create.png)
 
-6. If the multi-factor authentication box is checked, uncheck it.
+6. If the multifactor authentication box is checked, uncheck it.
 7. Click **Create** to save the new credential asset.
 
 > [!NOTE]
-> Azure Automation does not support user accounts that use multi-factor authentication.
+> Azure Automation does not support user accounts that use multifactor authentication.
 
 ### Create a new credential asset with Windows PowerShell
 
@@ -111,7 +111,7 @@ $securePassword = $myCredential.Password
 $password = $myCredential.GetNetworkCredential().Password
 ```
 
-You can also use a credential to authenticate to Azure with [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) after first connecting with a [managed identity](../automation-security-overview.md#managed-identities-preview). This example uses a [system-assigned managed identity](../enable-managed-identity-for-automation.md).
+You can also use a credential to authenticate to Azure with [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) after first connecting with a [managed identity](../automation-security-overview.md#managed-identities). This example uses a [system-assigned managed identity](../enable-managed-identity-for-automation.md).
 
 ```powershell
 # Ensures you do not inherit an AzContext in your runbook

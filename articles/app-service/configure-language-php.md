@@ -59,20 +59,20 @@ az webapp list-runtimes --linux | grep PHP
 
 ::: zone pivot="platform-windows"  
 
-Run the following command in the [Cloud Shell](https://shell.azure.com) to set the PHP version to 7.4:
+Run the following command in the [Cloud Shell](https://shell.azure.com) to set the PHP version to 8.0:
 
 ```azurecli-interactive
-az webapp config set --resource-group <resource-group-name> --name <app-name> --php-version 7.4
+az webapp config set --resource-group <resource-group-name> --name <app-name> --php-version 8.0
 ```
 
 ::: zone-end
 
 ::: zone pivot="platform-linux"
 
-Run the following command in the [Cloud Shell](https://shell.azure.com) to set the PHP version to 7.2:
+Run the following command in the [Cloud Shell](https://shell.azure.com) to set the PHP version to 8.0:
 
 ```azurecli-interactive
-az webapp config set --resource-group <resource-group-name> --name <app-name> --linux-fx-version "PHP|7.2"
+az webapp config set --resource-group <resource-group-name> --name <app-name> --linux-fx-version "PHP|8.0"
 ```
 
 ::: zone-end
@@ -476,7 +476,7 @@ When a working PHP app behaves differently in App Service or has errors, try the
     - Depending on your *composer.json*, different packages may be installed for production mode (`require` vs. `require-dev`).
     - Certain web frameworks may deploy static files differently in production mode.
     - Certain web frameworks may use custom startup scripts when running in production mode.
-- Run your app in App Service in debug mode. For example, in [Laravel](https://meanjs.org/), you can configure your app to output debug messages in production by [setting the `APP_DEBUG` app setting to `true`](configure-common.md#configure-app-settings).
+- Run your app in App Service in debug mode. For example, in [Laravel](https://laravel.com/), you can configure your app to output debug messages in production by [setting the `APP_DEBUG` app setting to `true`](configure-common.md#configure-app-settings).
 
 ::: zone pivot="platform-linux"
 

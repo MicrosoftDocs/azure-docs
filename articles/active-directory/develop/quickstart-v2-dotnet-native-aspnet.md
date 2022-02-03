@@ -5,14 +5,14 @@ description: In this quickstart, learn how to call an ASP.NET web API that's pro
 services: active-directory
 author: jmprieur
 manager: CelesteDG
-
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: quickstart
+ms.topic: portal
 ms.workload: identity
-ms.date: 10/05/2020
+ms.date: 01/11/2022
+ROBOTS: NOINDEX
 ms.author: jmprieur
-ms.custom: "devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET"
+ms.custom: devx-track-csharp, aaddev, identityplatformtop40, "scenarios:getting-started", "languages:ASP.NET", mode-api
 #Customer intent: As an application developer, I want to know how to set up OpenId Connect authentication in a web application that's built by using Node.js with Express.
 ---
 
@@ -45,7 +45,7 @@ You can obtain the sample in either of two ways:
 
 Register your web API in **App registrations** in the Azure portal.
 
-1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant in which you want to register an application.
 1. Find and select **Azure Active Directory**.
 1. Under **Manage**, select **App registrations** > **New registration**.
@@ -129,13 +129,23 @@ Configure your TodoListClient project by adding the Application ID to the *app.c
 
 1. From the TodoListClient project root folder, open the *app.config* file, and then paste the Application ID value in the `ida:ClientId` parameter.
 
-## Run your TodoListClient project
+## Run your projects
+
+Start both projects. If you are using Visual Studio:
+
+1. Right click on the Visual Studio solution and select **Properties**
+
+1. In the **Common Properties** select **Startup Project** and then **Multiple startup projects**. 
+
+1. For both projects choose **Start** as the action
+
+1. Ensure the TodoListService service starts first by moving it to the fist position in the list, using the up arrow.
 
 Sign in to run your TodoListClient project.
 
-1. Press F5 to open your TodoListClient project. The project page opens.
+1. Press F5 to start the projects. The service page opens, as well as the desktop application.
 
-1. At the upper right, select **Sign in**, and then sign in with the same credentials you used to register your application, or sign in as a user in the same directory.
+1. In the TodoListClient, at the upper right, select **Sign in**, and then sign in with the same credentials you used to register your application, or sign in as a user in the same directory.
 
    If you're signing in for the first time, you might be prompted to consent to the TodoListService web API.
 

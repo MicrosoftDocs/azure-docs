@@ -14,7 +14,7 @@ metadata:
   ms.collection: collection
   ms.author: sgilley
   author: sdgilley
-  ms.date: 08/23/2021
+  ms.date: 10/21/2021
   ms.custom: jordan-changes
 
 # highlightedContent section 
@@ -69,15 +69,19 @@ conceptualContent:
     # Card
     - title: Deploy models
       links:
-        - url: how-to-deploy-and-where.md
-          itemType: how-to-guide
-          text: How to deploy a model
+        - url: concept-endpoints.md
+          itemType: concept
+          text: Streamline model deployment with endpoints (preview)
         - url: how-to-deploy-managed-online-endpoints.md
           itemType: how-to-guide
           text: Real-time scoring with a managed endpoint (preview)
         - url: how-to-use-batch-endpoint.md
           itemType: how-to-guide
           text: Batch scoring with managed endpoints (preview)
+        - url: how-to-deploy-and-where.md
+          itemType: how-to-guide
+          text: Options for deploying models without using endpoints
+
     # Card
     - title: Manage the ML lifecycle (MLOps)
       links:

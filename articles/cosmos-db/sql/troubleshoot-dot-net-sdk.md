@@ -1,10 +1,10 @@
 ---
 title: Diagnose and troubleshoot issues when using Azure Cosmos DB .NET SDK
 description: Use features like client-side logging and other third-party tools to identify, diagnose, and troubleshoot Azure Cosmos DB issues when using .NET SDK.
-author: anfeldma-ms
+author: rothja
 ms.service: cosmos-db
 ms.date: 03/05/2021
-ms.author: anfeldma
+ms.author: jroth
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun

@@ -119,20 +119,20 @@ Follow these steps to enable replication:
       By default, a new LRS v1 type storage account will be created by Azure Site Recovery for the first enable replication operation in a vault. For the next operations, same cache storage account will be re-used.
     -  Managed disks
 
-       By default, Standard HDD managed disks are created in Azure. You can customize the type of Managed disks by Selecting **Customize**. Choose the type of disk based on the business requirement. Ensure [appropriate disk type is chosen](../virtual-machines/disks-types.md#disk-comparison) based on the IOPS of the source machine disks. For pricing information, refer to the managed disk pricing document [here](https://azure.microsoft.com/pricing/details/managed-disks/).
+       By default, Standard HDD managed disks are created in Azure. You can customize the type of Managed disks by Selecting **Customize**. Choose the type of disk based on the business requirement. Ensure [appropriate disk type is chosen](../virtual-machines/disks-types.md#disk-type-comparison) based on the IOPS of the source machine disks. For pricing information, refer to the managed disk pricing document [here](https://azure.microsoft.com/pricing/details/managed-disks/).
 
        >[!NOTE]
        > If Mobility Service is installed manually before enabling replication, you can change the type of managed disk, at a disk level. Else, by default, one managed disk type can be chosen at a machine level
 
 10. Create a new replication policy if needed.
 
-     A default replication policy gets created under the vault with 72 hour recovery point retention and 4 hour app consistency frequency.  You can create a new replication policy as per your RPO requirements.
+     A default replication policy gets created under the vault with 3 days recovery point retention and 4 hours app consistency frequency.  You can create a new replication policy as per your RPO requirements.
 
      - Select **Create new**.
 
      - Enter the Name.
 
-     - Enter **Recovery point retention** in hours
+     - Enter **Recovery point retention** in days.
 
      - Select **App-consistent snapshot frequency in hours** as per business requirements
 

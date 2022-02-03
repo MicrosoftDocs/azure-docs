@@ -1,6 +1,8 @@
 ---
 title: Secure hybrid access with Azure AD and Silverfort
 description: In this tutorial, learn how to integrate Silverfort with Azure AD for secure hybrid access 
+titleSuffix: Azure AD
+services: active-directory
 author: gargi-sinha
 manager: martinco
 ms.service: active-directory
@@ -30,7 +32,7 @@ Silverfort can seamlessly connect any type of asset into Azure AD, as if it was 
 
 These **bridged** assets appear as regular applications in Azure AD and can be protected with Conditional Access, single-sign-on (SSO), multifactor authentication, auditing and more.
 
-This solution combines all corporate assets and third party Identity and Access Management (IAM) platforms. For example, Active Directory, Active Directory Federation Services (ADFS), and Remote Authentication Dial-In User Service (RADIUS) on Azure AD, including hybrid and multi-cloud environments.
+This solution combines all corporate assets and third-party Identity and Access Management (IAM) platforms. For example, Active Directory, Active Directory Federation Services (ADFS), and Remote Authentication Dial-In User Service (RADIUS) on Azure AD, including hybrid and multi-cloud environments.
 
 ## Scenario description
 
@@ -97,7 +99,7 @@ To deploy Silverfort in your tenant or infrastructure, [contact Silverfort](http
 
 7. Select appropriate **Authentication** type, and **Protocol**.
 
-8. In the **Users and Groups** field, select the edit icon to configure users that will be affected by the policy. These users's authentication will be bridged to Azure AD.
+8. In the **Users and Groups** field, select the edit icon to configure users that will be affected by the policy. These users' authentication will be bridged to Azure AD.
 
    ![image shows user and groups](./media/silverfort-azure-ad-integration/user-groups.png)
 

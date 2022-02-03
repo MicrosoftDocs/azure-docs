@@ -1,27 +1,20 @@
 ---
 title: Use entity behavior analytics to detect advanced threats | Microsoft Docs
-description:  Enable User and Entity Behavior Analytics in Azure Sentinel, and configure data sources
-services: sentinel
-documentationcenter: na
+description: Enable User and Entity Behavior Analytics in Microsoft Sentinel, and configure data sources
 author: yelevin
-manager: rkarlin
-editor: ''
-
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/25/2021
+ms.date: 11/09/2021
 ms.author: yelevin
-
+ms.custom: ignite-fall-2021
 ---
-# Enable User and Entity Behavior Analytics (UEBA) in Azure Sentinel 
+
+# Enable User and Entity Behavior Analytics (UEBA) in Microsoft Sentinel 
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 > [!IMPORTANT]
 >
-> The UEBA and Entity Pages features are now in **General Availability** in ***all*** Azure Sentinel geographies and regions. 
+> The UEBA and Entity Pages features are now in **General Availability** in ***all*** Microsoft Sentinel geographies and regions. 
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
@@ -34,17 +27,17 @@ To enable or disable this feature (these prerequisites are not required to use t
 - Your user must be assigned the **Global Administrator** or **Security Administrator** roles in Azure AD.
 
 - Your user must be assigned at least one of the following **Azure roles** ([Learn more about Azure RBAC](roles.md)):
-    - **Azure Sentinel Contributor** at the workspace or resource group levels.
+    - **Microsoft Sentinel Contributor** at the workspace or resource group levels.
     - **Log Analytics Contributor** at the resource group or subscription levels.
 
 - Your workspace must not have any Azure resource locks applied to it. [Learn more about Azure resource locking](../azure-resource-manager/management/lock-resources.md).
 
 > [!NOTE]
-> No special license is required to add UEBA functionality to Azure Sentinel, but **additional charges** may apply.
+> No special license is required to add UEBA functionality to Microsoft Sentinel, but **additional charges** may apply.
 
 ## How to enable User and Entity Behavior Analytics
 
-1. From the Azure Sentinel navigation menu, select **Entity behavior**.
+1. From the Microsoft Sentinel navigation menu, select **Entity behavior**.
 
 1. Under the heading **Turn it on**, switch the toggle to **On**.
 
@@ -58,9 +51,9 @@ To enable or disable this feature (these prerequisites are not required to use t
     >
     > Once you have enabled UEBA, you will have the option, when connecting new data sources, to enable them for UEBA directly from the data connector pane if they are UEBA-capable.
 
-1. Select **Go to entity search**. This will take you to the entity search pane, which from now on will be what you see when you choose **Entity behavior** from the main Azure Sentinel menu.
+1. Select **Go to entity search**. This will take you to the entity search pane, which from now on will be what you see when you choose **Entity behavior** from the main Microsoft Sentinel menu.
 
 ## Next steps
-In this document, you learned how to enable and configure User and Entity Behavior Analytics (UEBA) in Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
+In this document, you learned how to enable and configure User and Entity Behavior Analytics (UEBA) in Microsoft Sentinel. To learn more about Microsoft Sentinel, see the following articles:
 - Learn how to [get visibility into your data, and potential threats](get-visibility.md).
-- Get started [detecting threats with Azure Sentinel](detect-threats-built-in.md).
+- Get started [detecting threats with Microsoft Sentinel](detect-threats-built-in.md).

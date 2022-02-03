@@ -3,7 +3,7 @@ title: What is Azure NetApp Files | Microsoft Docs
 description: Learn about Azure NetApp Files, an enterprise-class, high-performance, metered file storage service that supports any workload type and is highly available.
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 
@@ -11,10 +11,9 @@ ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: overview
 ms.date: 10/04/2021
-ms.author: b-juche
+ms.author: anfdocs
 ---
 
 # What is Azure NetApp Files

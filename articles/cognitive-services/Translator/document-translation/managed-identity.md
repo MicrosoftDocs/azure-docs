@@ -43,7 +43,7 @@ To get started, you'll need:
   * In the main window, select **Allow access from Selected networks**.
   :::image type="content" source="../media/managed-identities/firewalls-and-virtual-networks.png" alt-text="Screenshot: Selected networks radio button selected.":::
 
-  * On the selected networks page navigate to the **Exceptions** category and make certain that the  [**Allow Azure services on the trusted services list to access this storage account**](/azure/storage/common/storage-network-security?tabs=azure-portal#manage-exceptions) checkbox is enabled.
+  * On the selected networks page navigate to the **Exceptions** category and make certain that the  [**Allow Azure services on the trusted services list to access this storage account**](../../../storage/common/storage-network-security.md?tabs=azure-portal#manage-exceptions) checkbox is enabled.
 
     :::image type="content" source="../media/managed-identities/allow-trusted-services-checkbox-portal-view.png" alt-text="Screenshot: allow trusted services checkbox, portal view":::
 
@@ -108,4 +108,4 @@ In the following steps, we'll enable a system-assigned managed identity and gran
 > [Managed identities for Azure resources: frequently asked questions](../../../active-directory/managed-identities-azure-resources/managed-identities-faq.md)
 
 > [!div class="nextstepaction"]
->[Use managed identities to acquire an access token](../../../app-service/overview-managed-identity.md?tabs=dotnet#obtain-tokens-for-azure-resources)
+>[Use managed identities to acquire an access token](../../../app-service/overview-managed-identity.md?tabs=dotnet#configure-target-resource)

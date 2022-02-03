@@ -20,7 +20,7 @@ In this article, you'll learn how to create an Azure Firewall using an existing 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- Three standard SKU public IP addresses in your subscription. The IP address can't be associated with any resources. For more information on creating a standard SKU public IP address, see [Create a public IP - Azure portal](../../virtual-network/create-public-ip-portal.md).
+- Three standard SKU public IP addresses in your subscription. The IP address can't be associated with any resources. For more information on creating a standard SKU public IP address, see [Create a public IP - Azure portal](./create-public-ip-portal.md).
     - For the purposes of the examples in this article, name the new public IP addresses **myStandardPublicIP-1**, **myStandardPublicIP-2**, and **myStandardPublicIP-3**.
 
 ## Create Azure Firewall existing public IP
@@ -116,5 +116,5 @@ In this section, you'll add a public IP configuration to the Azure Firewall. For
 
 In this article, you learned how to create an Azure Firewall and use an existing public IP. You changed the public IP of the default IP configuration. Finally, you added a public IP configuration to the firewall.
 
-- To learn more about public IP addresses in Azure, see [Public IP addresses](../../virtual-network/public-ip-addresses.md).
+- To learn more about public IP addresses in Azure, see [Public IP addresses](./public-ip-addresses.md).
 - To learn more about Azure Firewall, see [What is Azure Firewall?](../../firewall/overview.md).

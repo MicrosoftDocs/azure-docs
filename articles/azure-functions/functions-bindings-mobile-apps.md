@@ -4,6 +4,7 @@ description: Understand how to use Azure Mobile Apps bindings in Azure Functions
 author: craigshoemaker
 
 ms.topic: reference
+ms.devlang: csharp, javascript
 ms.custom: devx-track-csharp
 ms.date: 11/21/2017
 ms.author: cshoe

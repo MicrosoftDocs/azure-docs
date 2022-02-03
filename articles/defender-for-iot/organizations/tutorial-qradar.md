@@ -1,16 +1,16 @@
 ---
-title: Integrate Qradar with Azure Defender for IoT
-description: In this tutorial, learn how to integrate Qradar with Azure Defender for IoT.
+title: Integrate Qradar with Microsoft Defender for IoT
+description: In this tutorial, learn how to integrate Qradar with Microsoft Defender for IoT.
 author: ElazarK
 ms.author: v-ekrieg
 ms.topic: tutorial
-ms.date: 09/12/2021
+ms.date: 11/09/2021
 ms.custom: template-tutorial
 ---
 
-# Tutorial: Integrate Qradar with Azure Defender for IoT
+# Tutorial: Integrate Qradar with Microsoft Defender for IoT
 
-This tutorial will help you learn how to integrate, and use QRadar with Azure Defender for IoT.
+This tutorial will help you learn how to integrate, and use QRadar with Microsoft Defender for IoT.
 
 Defender for IoT delivers the only ICS, and IoT cybersecurity platform with patented ICS-aware threat analytics and machine learning.
 
@@ -18,7 +18,7 @@ Defender for IoT has integrated its continuous ICS threat monitoring platform wi
 
 Some of the benefits of the integration include:
 
-- The ability to forward Azure Defender for IoT alerts to IBM QRadar for unified IT, and OT security monitoring, and governance.
+- The ability to forward Microsoft Defender for IoT alerts to IBM QRadar for unified IT, and OT security monitoring, and governance.
 
 - The ability to gain an overview of both IT, and OT environments. Allowing you to detect, and respond to multi-stage attacks that often cross IT, and OT boundaries.
 
@@ -80,7 +80,7 @@ There are no prerequisites of this tutorial.
 
 ## Deploy Defender for IoT platform QID
 
-QID is an event identifier in QRadar. All of Defenders for IoT platform reports are tagged under the same event (Sensor Alert).
+QID is an event identifier in QRadar. All of Defender for IoT platform reports are tagged under the same event (Sensor Alert).
 
 **To deploy Defender for IoT platform QID**:
 
@@ -187,7 +187,7 @@ There are no resources to clean up.
 
 ## Next steps
 
-In this tutorial, you learned how to get started with the QRadar integration. Continue on to learn how to [Integrate ServiceNow with Azure Defender for IoT](tutorial-servicenow.md).
+In this tutorial, you learned how to get started with the QRadar integration. Continue on to learn how to [Integrate ServiceNow with Microsoft Defender for IoT](tutorial-servicenow.md).
 
 > [!div class="nextstepaction"]
-> [Integrate ServiceNow with Azure Defender for IoT](tutorial-servicenow.md)
+> [Integrate ServiceNow with Microsoft Defender for IoT](tutorial-servicenow.md)

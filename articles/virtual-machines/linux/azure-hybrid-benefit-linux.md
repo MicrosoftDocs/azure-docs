@@ -183,12 +183,13 @@ For more information about Red Hat subscription compliance, software updates, an
 
 ### SUSE
 
+To use Azure Hybrid Benefit for your SLES VMs, and for information about moving from SLES PAYG to BYOS or moving from SLES BYOS to PAYG, see [SUSE Linux Enterprise and Azure Hybrid Benefit](https://aka.ms/suse-ahb). 
+
 Customers who use Azure Hybrid Benefit need to move the Cloud Update Infrastructure to one of three options that provide software updates and patches to those VMs:
 - [SUSE Customer Center](https://scc.suse.com)
 - SUSE Manager
 - SUSE Repository Mirroring Tool (RMT) 
 
-To use Azure Hybrid Benefit for your SLES VMs, and for information about moving from SLES PAYG to BYOS or moving from SLES BYOS to PAYG, see [SUSE Linux Enterprise and Azure Hybrid Benefit](https://www.suse.com/c/suse-linux-enterprise-and-azure-hybrid-benefit/). 
 
 ## Azure Hybrid Benefit on Reserved Instances 
 
@@ -232,7 +233,7 @@ A: Yes, Azure Hybrid Benefit on virtual machine scale sets for RHEL and SLES is 
 
 *Q: Can I use Azure Hybrid Benefit on reserved instances for RHEL and SLES?*
 
-A: Yes, Azure Hybrid Benefit on reserved instance for RHEL and SLES is available to all users. You can [learn more about this benefit and how to use it here](#azure-hybrid-benefit-on-reserved-instances).
+A: AHB can be used with reserved instances for Pay-as-you-Go RHEL and SLES. It cannot be used with pre-paid annualized RHEL or SLES subscriptions purchased through Azure.
 
 *Q: Can I use Azure Hybrid Benefit on a virtual machine deployed for SQL Server on RHEL images?*
 

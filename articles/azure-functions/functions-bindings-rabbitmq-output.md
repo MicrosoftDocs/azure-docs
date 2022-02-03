@@ -7,6 +7,7 @@ ms.assetid:
 ms.topic: reference
 ms.date: 12/17/2020
 ms.author: cachai
+ms.devlang: csharp, java, javascript, python
 ms.custom: 
 ---
 
@@ -149,7 +150,7 @@ Here's JavaScript code:
 
 ```javascript
 module.exports = function (context, input) {
-    context.bindings.myQueueItem = input.body;
+    context.bindings.outputMessage = input.body;
     context.done();
 };
 ```

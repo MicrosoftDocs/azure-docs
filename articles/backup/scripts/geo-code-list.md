@@ -147,4 +147,4 @@ This sample XML provides you an insight about the geo-codes mapped with the resp
 
 ## Next steps
 
-[Learn](/azure/backup/private-endpoints) to create and add DNS zones for Azure Backup private endpoints using geo-codes.
+[Learn](../private-endpoints.md) to create and add DNS zones for Azure Backup private endpoints using geo-codes.

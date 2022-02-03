@@ -20,7 +20,7 @@ In order to build a dependency chain and make sure that a trigger is executed on
 
 For a demonstration on how to create dependent pipelines using tumbling window trigger, watch the following video:
 
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Create-dependent-pipelines-in-your-Azure-Data-Factory/player]
+> [!VIDEO https://docs.microsoft.com/Shows/Azure-Friday/Create-dependent-pipelines-in-your-Azure-Data-Factory/player]
 
 ## Create a dependency in the UI
 

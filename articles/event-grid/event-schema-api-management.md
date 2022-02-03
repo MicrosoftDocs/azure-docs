@@ -118,7 +118,7 @@ The following example shows the schema of an API updated event. The schema of ot
   "topic": "/subscriptions/{subscription-id}/resourceGroups/{your-rg}/providers/Microsoft.ApiManagement/service/{your-APIM-instance}",
   "subject": "/apis/myapi;Rev=1",
   "data": {
-    "resourceUri": "/subscriptions/subscription-id}/resourceGroups/{your-rg}/providers/Microsoft.ApiManagement/service/{your-APIM-instance}/apis/myapi;Rev=1"
+    "resourceUri": "/subscriptions/{subscription-id}/resourceGroups/{your-rg}/providers/Microsoft.ApiManagement/service/{your-APIM-instance}/apis/myapi;Rev=1"
   },
   "eventType": "Microsoft.ApiManagement.APIUpdated",
   "dataVersion": "1",

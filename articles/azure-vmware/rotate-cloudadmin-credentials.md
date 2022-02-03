@@ -2,7 +2,7 @@
 title: Rotate the cloudadmin credentials for Azure VMware Solution
 description: Learn how to rotate the vCenter Server credentials for your Azure VMware Solution private cloud. 
 ms.topic: how-to
-ms.date: 08/31/2021
+ms.date: 09/10/2021
 
 #Customer intent: As an Azure service administrator, I want to rotate my cloudadmin credentials so that the HCX Connector has the latest vCenter CloudAdmin credentials.
 
@@ -16,7 +16,7 @@ ms.date: 08/31/2021
 In this article, you'll rotate the cloudadmin credentials (vCenter Server *CloudAdmin* credentials) for your Azure VMware Solution private cloud.  Although the password for this account doesn't expire, you can generate a new one at any time.
 
 >[!CAUTION]
->If you use your cloudadmin user credentials to connect services to vCenter in your private cloud, those connections will stop working once you rotate your password. Those connections will also lock out the cloudadmin account unless you stop those services before rotating the password.
+>If you use your cloudadmin credentials to connect services to vCenter in your private cloud, those connections will stop working once you rotate your password. Those connections will also lock out the cloudadmin account unless you stop those services before rotating the password.
 
 ## Prerequisites
 
@@ -28,13 +28,36 @@ Instead of using the cloudadmin user to connect services to vCenter, we recommen
 
 ## Reset your vCenter credentials
 
-1. From the Azure portal, open an Azure Cloud Shell session.
+### [Portal](#tab/azure-portal)
+ 
+1. In your Azure VMware Solution private cloud, select **Identity**.
+
+1. Select **Generate new password**.
+
+   :::image type="content" source="media/rotate-cloudadmin-credentials/reset-vcenter-credentials-1.png" alt-text="Screenshot showing the vCenter credentials and a way to copy them or generate a new password." lightbox="media/rotate-cloudadmin-credentials/reset-vcenter-credentials-1.png":::
+
+1. Select the confirmation checkbox and then select **Generate password**.
+
+
+### [Azure CLI](#tab/azure-cli)
+
+To begin using Azure CLI:
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+1. In your Azure VMware Solution private cloud, open an Azure Cloud Shell session.
 
 2. Update your vCenter *CloudAdmin* credentials.  Remember to replace **{SubscriptionID}**, **{ResourceGroup}**, and **{PrivateCloudName}** with your private cloud information. 
 
    ```azurecli-interactive
    az resource invoke-action --action rotateVcenterPassword --ids "/subscriptions/{SubscriptionID}/resourceGroups/{ResourceGroup}/providers/Microsoft.AVS/privateClouds/{PrivateCloudName}" --api-version "2020-07-17-preview"
    ```
+
+---
+
+
+
+
  
 ## Update HCX Connector 
 

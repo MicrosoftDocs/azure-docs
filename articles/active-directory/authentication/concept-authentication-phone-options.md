@@ -10,7 +10,7 @@ ms.date: 06/30/2021
 
 ms.author: justinha
 author: justinha
-manager: daveba
+manager: karenhoran
 
 ms.collection: M365-identity-device-management
 
@@ -76,6 +76,9 @@ If you have problems with phone authentication for Azure AD, review the followin
    * Have the user change methods or activate SMS on the device.
 * Faulty telecom providers such as no phone input detected, missing DTMF tones issues, blocked caller ID on multiple devices, or blocked SMS across multiple devices.
    * Microsoft uses multiple telecom providers to route phone calls and SMS messages for authentication. If you see any of the above issues, have a user attempt to use the method at least five times within 5 minutes and have that user's information available when contacting Microsoft support.
+*  Poor signal quality.
+   * Have the user attempt to log in using a wi-fi connection by installing the Microsoft Authenticator app.
+   * Or, use SMS authentication instead of phone (voice) authentication.
 
 ## Next steps
 
@@ -85,7 +88,7 @@ To learn more about SSPR concepts, see [How Azure AD self-service password reset
 
 To learn more about MFA concepts, see [How Azure AD Multi-Factor Authentication works][concept-mfa].
 
-Learn more about configuring authentication methods using the [Microsoft Graph REST API beta](/graph/api/resources/authenticationmethods-overview?view=graph-rest-beta&preserve-view=true).
+Learn more about configuring authentication methods using the [Microsoft Graph REST API](/graph/api/resources/authenticationmethods-overview).
 
 <!-- INTERNAL LINKS -->
 [tutorial-sspr]: tutorial-enable-sspr.md

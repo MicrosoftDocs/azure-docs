@@ -130,6 +130,9 @@ You can set DNS server for each module's *createOptions* in the IoT Edge deploym
 }
 ```
 
+> [!WARNING]
+> If you use this method and specify the wrong DNS address, *edgeAgent* loses connection with IoT Hub and can't receive new deployments to fix the issue. To resolve this issue, you can reinstall the IoT Edge runtime. Before you install a new instance of IoT Edge, be sure to remove any *edgeAgent* containers from the previous installation.
+
 Be sure to set this configuration for the *edgeAgent* and *edgeHub* modules as well.
 
 ## IoT Edge hub fails to start
@@ -389,7 +392,68 @@ Only use one type of deployment mechanism per device, either an automatic deploy
 
 For more information, see [Understand IoT Edge automatic deployments for single devices or at scale](module-deployment-monitoring.md).
 
-<!-- <1.2> -->
+## IoT Edge module reports connectivity errors
+
+**Observed behavior:**
+
+IoT Edge modules that connect directly to cloud services, including the runtime modules, stop working as expected and return errors around connection or networking failures.
+
+**Root cause:**
+
+Containers rely on IP packet forwarding in order to connect to the internet so that they can communicate with cloud services. IP packet forwarding is enabled by default in Docker, but if it gets disabled then any modules that connect to cloud services will not work as expected. For more information, see [Understand container communication](https://apimirror.com/docker~1.12/engine/userguide/networking/default_network/container-communication/index) in the Docker documentation.
+
+**Resolution:**
+
+Use the following steps to enable IP packet forwarding.
+
+<!--1.1-->
+:::moniker range="iotedge-2018-06"
+
+On Windows:
+
+1. Open the **Run** application.
+
+1. Enter `regedit` in the text box and select **Ok**.
+
+1. In the **Registry Editor** window, browse to **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters**.
+
+1. Look for the **IPEnableRouter** parameter.
+
+   1. If the parameter exists, set the value of the parameter to **1**.
+
+   1. If the paramter doesn't exist, add it as a new parameter with the following settings:
+
+      | Setting | Value |
+      | ------- | ----- |
+      | Name    | IPEnableRouter |
+      | Type    | REG_DWORD |
+      | Value   | 1 |
+
+1. Close the registry editor window.
+
+1. Restart your system to apply the changes.
+
+On Linux:
+:::moniker-end
+<!-- end -->
+
+1. Open the **sysctl.conf** file.
+
+   ```bash
+   sudo nano /etc/sysctl.conf
+   ```
+
+1. Add the following line to the file.
+
+   ```input
+   net.ipv4.ip_forward=1
+   ```
+
+1. Save and close the file.
+
+1. Restart the network service and docker service to apply the changes.
+
+<!-- 1.2 -->
 ::: moniker range=">=iotedge-2020-11"
 
 ## IoT Edge behind a gateway cannot perform HTTP requests and start edgeAgent module

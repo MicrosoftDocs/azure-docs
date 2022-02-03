@@ -3,7 +3,7 @@ title: Known issues with System for Cross-Domain Identity Management (SCIM) 2.0 
 description: How to solve common protocol compatibility issues faced when adding a non-gallery application that supports SCIM 2.0 to Azure AD
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: karenhoran
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
@@ -50,14 +50,14 @@ Use the following URL to update PATCH behavior and ensure SCIM compliance. The f
 - Requests to add a single-value string attribute
 - Requests to replace multiple attributes
 - Requests to remove a group member        
-                                                                                     
+
 This behavior is currently only available when using the flag, but will become the default behavior over the next few months. Note this feature flag currently does not work with on-demand provisioning. 
   * **URL (SCIM Compliant):** aadOptscim062020
   * **SCIM RFC references:** 
     * https://tools.ietf.org/html/rfc7644#section-3.5.2    
 
 Below are sample requests to help outline what the sync engine currently sends versus the requests that are sent once the feature flag is enabled. 
-                           
+
 **Requests made to disable users:**
 
 **Without feature flag**
@@ -232,19 +232,19 @@ Below are sample requests to help outline what the sync engine currently sends v
 
 
   * **Downgrade URL:** Once the new SCIM compliant behavior becomes the default on the non-gallery application, you can use the following URL to roll back to the old, non SCIM compliant behavior: AzureAdScimPatch2017
-  
+
 
 
 ## Upgrading from the older customappsso job to the SCIM job
 Following the steps below will delete your existing customappsso job and create a new scim job. 
- 
+
 1. Sign into the Azure portal at https://portal.azure.com.
 2. In the **Azure Active Directory > Enterprise Applications** section of the Azure portal, locate and select your existing SCIM application.
 3. In the **Properties** section of your existing SCIM app, copy the **Object ID**.
 4. In a new web browser window, go to https://developer.microsoft.com/graph/graph-explorer 
    and sign in as the administrator for the Azure AD tenant where your app is added.
 5. In the Graph Explorer, run the command below to locate the ID of your provisioning job. Replace "[object-id]" with the service principal ID (object ID) copied from the third step.
- 
+
    `GET https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs` 
 
    ![Get Jobs](media/application-provisioning-config-problem-scim-compatibility/get-jobs.PNG "Get Jobs") 
@@ -252,21 +252,21 @@ Following the steps below will delete your existing customappsso job and create 
 
 6. In the results, copy the full "ID" string that begins with either "customappsso" or "scim".
 7. Run the command below to retrieve the attribute-mapping configuration, so you can make a backup. Use the same [object-id] as before, and replace [job-id] with the provisioning job ID copied from the last step.
- 
+
    `GET https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs/[job-id]/schema`
- 
+
    ![Get Schema](media/application-provisioning-config-problem-scim-compatibility/get-schema.PNG "Get Schema") 
 
 8. Copy the JSON output from the last step, and save it to a text file. The JSON contains any custom attribute-mappings that you added to your old app, and should be approximately a few thousand lines of JSON.
 9. Run the command below to delete the provisioning job:
- 
+
    `DELETE https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs/[job-id]`
 
 10. Run the command below to create a new provisioning job that has the latest service fixes.
 
  `POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs`
  `{   "templateId": "scim"   }`
-   
+
 11. In the results of the last step, copy the full "ID" string that begins with "scim". Optionally, reapply your old attribute-mappings by running the command below, replacing [new-job-id] with the new job ID you copied, and entering the JSON output from step #7 as the request body.
 
  `POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs/[new-job-id]/schema`
@@ -288,7 +288,7 @@ Following the steps below will delete your existing customappsso job and create 
 
    `POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs`
    `{   templateId: "customappsso"   }`
- 
+
 6. Return to the first web browser window, and select the **Provisioning** tab for your application.
 7. Complete the user provisioning configuration as you normally would.
 

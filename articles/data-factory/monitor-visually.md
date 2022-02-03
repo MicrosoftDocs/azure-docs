@@ -1,8 +1,8 @@
 ---
 title: Visually monitor Azure Data Factory 
 description: Learn how to visually monitor Azure data factories
-author: minhe-msft
-ms.author: hemin
+author: joshuha-msft
+ms.author: joowen
 ms.reviewer: jburchel
 ms.service: data-factory
 ms.subservice: monitoring
@@ -37,6 +37,7 @@ The pipeline run grid contains the following columns:
 | Annotations | Filterable tags associated with a pipeline  |
 | Parameters | Parameters for the pipeline run (name/value pairs) |
 | Error | If the pipeline failed, the run error |
+| Run | **Original**, **Rerun**,  or **Rerun (Latest)** |
 | Run ID | ID of the pipeline run |
 
 You need to manually select the **Refresh** button to refresh the list of pipeline and activity runs. Autorefresh is currently not supported.
@@ -162,7 +163,7 @@ You can raise alerts on supported metrics in Data Factory. Select **Monitor** > 
 
 For a seven-minute introduction and demonstration of this feature, watch the following video:
 
-> [!VIDEO https://channel9.msdn.com/shows/azure-friday/Monitor-your-Azure-Data-Factory-pipelines-proactively-with-alerts/player]
+> [!VIDEO https://docs.microsoft.com/shows/azure-friday/Monitor-your-Azure-Data-Factory-pipelines-proactively-with-alerts/player]
 
 ### Create alerts
 

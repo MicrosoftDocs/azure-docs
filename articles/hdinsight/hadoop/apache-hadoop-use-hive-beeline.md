@@ -3,7 +3,7 @@ title: Use Apache Beeline with Apache Hive - Azure HDInsight
 description: Learn how to use the Beeline client to run Hive queries with Hadoop on HDInsight. Beeline is a utility for working with HiveServer2 over JDBC.
 ms.service: hdinsight
 ms.topic: how-to
-ms.date: 10/28/2020
+ms.date: 11/18/2021
 ms.custom: contperf-fy21q1, contperf-fy21q2
 ---
 # Use the Apache Beeline client with Apache Hive
@@ -12,11 +12,15 @@ This article describes how to use the command-line [Apache Beeline](https://cwik
 
 ## Background
 
-Beeline is a Hive client that is included on the head nodes of your HDInsight cluster. To connect to the Beeline client installed on your HDInsight cluster, or install Beeline locally, see [Connect to or install Apache Beeline](connect-install-beeline.md). Beeline uses JDBC to connect to HiveServer2, a service hosted on your HDInsight cluster. You can also use Beeline to access Hive on HDInsight remotely over the internet. The following examples provide the most common connection strings used to connect to HDInsight from Beeline.
+Beeline is a Hive client that is included on the head nodes of your HDInsight cluster. This article describes how to use this tool through examples using [a Hive query](#run-a-hive-query) and [a HiveQL file](#run-a-hive-query).
+
+To connect to the Beeline client installed on your HDInsight cluster, or install Beeline locally, follow our [guide to connect with, or install Apache Beeline](connect-install-beeline.md). 
+
+Beeline uses JDBC to connect to HiveServer2, a service hosted on your HDInsight cluster. You can also use Beeline to access Hive on HDInsight remotely over the internet. The following examples provide the most common connection strings used to connect to HDInsight from Beeline.
 
 ## Prerequisites for examples
 
-* A Hadoop cluster on HDInsight. See [Get Started with HDInsight on Linux](./apache-hadoop-linux-tutorial-get-started.md).
+* A Hadoop cluster on Azure HDInsight. If you need a cluster, follow our [guide to create an HDInsight cluster](../hdinsight-hadoop-create-linux-clusters-portal.md).
 
 * Notice the URI scheme for your cluster's primary storage. For example,  `wasb://` for Azure Storage, `abfs://` for Azure Data Lake Storage Gen2, or `adl://` for Azure Data Lake Storage Gen1. If secure transfer is enabled for Azure Storage, the URI is `wasbs://`. For more information, see [secure transfer](../../storage/common/storage-require-secure-transfer.md).
 
@@ -24,7 +28,7 @@ Beeline is a Hive client that is included on the head nodes of your HDInsight cl
 
 ## Run a Hive query
 
-This example is based on using the Beeline client from an SSH connection.
+This example is based on using the Beeline client from [an SSH connection](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 1. Open an SSH connection to the cluster with the code below. Replace `sshuser` with the SSH user for your cluster, and replace `CLUSTERNAME` with the name of your cluster. When prompted, enter the password for the SSH user account.
 
@@ -205,5 +209,7 @@ This example is a continuation from the prior example. Use the following steps t
 ## Next steps
 
 * For more general information on Hive in HDInsight, see [Use Apache Hive with Apache Hadoop on HDInsight](hdinsight-use-hive.md)
+
+* You can find the HiveQL language reference in the [language manual](https://cwiki.apache.org/confluence/display/Hive/LanguageManual)
 
 * For more information on other ways you can work with Hadoop on HDInsight, see [Use MapReduce with Apache Hadoop on HDInsight](hdinsight-use-mapreduce.md)

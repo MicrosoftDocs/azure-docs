@@ -292,8 +292,10 @@ It may take up to 15 minutes for the Private Link Scope to accept connections fr
 
 1. Check your on-premises DNS server(s) to verify it is either forwarding to Azure DNS or is configured with appropriate A records in your private link zone. These lookup commands should return private IP addresses in your Azure virtual network. If they resolve public IP addresses, double check your machine or server and network’s DNS configuration.
 
+    ```
     nslookup gbl.his.arc.azure.com
     nslookup agentserviceapi.guestconfiguration.azure.com
+    ```
 
 1. If you are having trouble onboarding a machine or server, confirm that you’ve added the Azure Active Directory and Azure Resource Manager service tags to your local network firewall. The agent needs to communicate with these services over the internet until private endpoints are available for these services.
 

@@ -56,7 +56,7 @@ All users in your tenant must register for multi-factor authentication (MFA) in 
 
 Users with privileged access have increased access to your environment. Because of the power these accounts have, you should treat them with special care. One common method to improve the protection of privileged accounts is to require a stronger form of account verification for sign-in. In Azure AD, you can get a stronger account verification by requiring multi-factor authentication.
 
-After registration with Azure AD Multi-Factor Authentication is finished, the following nine Azure AD administrator roles will be required to do extra authentication every time they sign in:
+After registration with Azure AD Multi-Factor Authentication is finished, the following Azure AD administrator roles will be required to do extra authentication every time they sign in:
 
 - Global administrator
 - Application administrator
@@ -81,7 +81,7 @@ We tend to think that administrator accounts are the only accounts that need ext
 
 After these attackers gain access, they can request access to privileged information for the original account holder. They can even download the entire directory to do a phishing attack on your whole organization. 
 
-One common method to improve protection for all users is to require a stronger form of account verification, such as Multi-Factor Authentication, for everyone. After users complete Multi-Factor Authentication registration, they'll be prompted for another authentication whenever necessary. Users will be prompted primarily when they authenticate using a new device or application, or when doing critical roles and tasks. This functionality protects all applications registered with Azure AD including SaaS applications.
+One common method to improve protection for all users is to require a stronger form of account verification, such as Multi-Factor Authentication, for everyone. After users complete Multi-Factor Authentication registration, they'll be prompted for another authentication whenever necessary. Azure AD decides when a user will be prompted for Multi-Factor Authentication, based on factors such as location, device, role and task. This functionality protects all applications registered with Azure AD including SaaS applications.
 
 ### Blocking legacy authentication
 

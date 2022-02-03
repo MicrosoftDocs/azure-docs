@@ -7,7 +7,7 @@ ms.service: synapse-analytics
 ms.topic: conceptual
 ms.date: 08/11/2021
 ms.author: midesa
-ms.reviewer: jrasnick 
+ms.reviewer: sngun 
 ms.subservice: spark
 ---
 

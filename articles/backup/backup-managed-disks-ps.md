@@ -154,7 +154,7 @@ The user needs to assign few permissions via RBAC to vault (represented by vault
 
 Backup vault uses managed identity to access other Azure resources. To configure backup of managed disks, Backup vault’s managed identity requires a set of permissions on the source disks and resource groups, where snapshots are created and managed.
 
-A system-assigned managed identity is restricted to one per resource and is tied to the lifecycle of this resource. You can grant permissions to the managed identity by using Azure role-based access control (Azure RBAC). Managed identity is a service principal of a special type that may only be used with Azure resources. Learn more about [managed identities](/azure/active-directory/managed-identities-azure-resources/overview).
+A system-assigned managed identity is restricted to one per resource and is tied to the lifecycle of this resource. You can grant permissions to the managed identity by using Azure role-based access control (Azure RBAC). Managed identity is a service principal of a special type that may only be used with Azure resources. Learn more about [managed identities](../active-directory/managed-identities-azure-resources/overview.md).
 
 To configure backup of managed disks, ensure the following prerequisites:
 

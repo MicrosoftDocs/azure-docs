@@ -89,6 +89,7 @@ Log Analytics workspace must be located in one of the following regions:
 - Switzerland West
 - UAE North
 - UK South
+- UK West
 - West Europe region
 - West US
 - West US 2

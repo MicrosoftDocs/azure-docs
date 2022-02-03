@@ -8,7 +8,7 @@ ms.author: lemai
 ms.custom: devx-track-csharp
 ---
 
-# Replacing the Start Node and Stop node APIs with the Node Transition API
+# Replacing the Start Node and Stop Node APIs with the Node Transition API
 
 ## What do the Stop Node and Start Node APIs do?
 

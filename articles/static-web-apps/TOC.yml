@@ -75,6 +75,8 @@
     - name: Enable monitoring
       href: monitor.md
       displayName: Application Insights
+    - name: Enable enterprise-grade edge
+      href: enterprise-edge.md
     - name: Reset deployment tokens
       href: deployment-token-management.md
     - name: Troubleshoot errors
@@ -108,10 +110,14 @@
       href: publish-azure-resource-manager.md
     - name: Add Azure Front Door
       href: front-door-manual.md
+    - name: Set user roles programmatically
+      href: assign-roles-microsoft-graph.md
 - name: Reference
   items:
     - name: Azure CLI
       href: /cli/azure/staticwebapp
+    - name: REST API
+      href: /rest/api/appservice/static-sites
 - name: Resources
   items:
     - name: Build your skills with Microsoft Learn
@@ -128,3 +134,5 @@
       href: https://azure.microsoft.com/pricing/details/app-service/static/
     - name: Quotas
       href: quotas.md
+    - name: Frequently asked questions
+      href: faq.yml

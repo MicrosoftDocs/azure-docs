@@ -2,15 +2,16 @@
 title: Overview of tokens - Azure Active Directory B2C
 description: Learn about the tokens used in Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 10/1/2021
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
+ms.custom: b2c-support
 ---
 
 # Overview of tokens in Azure Active Directory B2C
@@ -133,6 +134,8 @@ https://contoso.b2clogin.com/contoso.onmicrosoft.com/b2c_1_signupsignin1/v2.0/.w
 ```
 
 To determine which policy was used to sign a token (and where to go to request the metadata), you have two options. First, the policy name is included in the `tfp` (default) or `acr` claim (as configured) in the token. You can parse claims out of the body of the JWT by base-64 decoding the body and deserializing the JSON string that results. The `tfp` or `acr` claim is the name of the policy that was used to issue the token. The other option is to encode the policy in the value of the `state` parameter when you issue the request, and then decode it to determine which policy was used. Either method is valid.
+
+Azure AD B2C uses the RS256 algorithm, which is based on the [RFC 3447](https://www.rfc-editor.org/rfc/rfc3447#section-3.1) specification. The public key consists of two components: the RSA modulus (`n`) and the RSA public exponent (`e`). You can programmatically convert `n` and `e` values to a certificate format for token validation.
 
 A description of how to perform signature validation is outside the scope of this document. Many open-source libraries are available to help you validate a token.
 

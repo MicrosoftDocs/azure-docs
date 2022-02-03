@@ -136,7 +136,7 @@ Using MSAL.NET, you catch `MsalUiRequiredException` as described in [AcquireToke
 ```csharp
 catch(MsalUiRequiredException exception)
 {
- try {“try to authenticate interactively”}
+ try {"try to authenticate interactively"}
 }
 ```
 
@@ -156,6 +156,18 @@ catch(AdalException exception)
 ```
 
 For details, see [the recommended pattern to acquire a token in public client applications](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/AcquireTokenSilentAsync-using-a-cached-token#recommended-pattern-to-acquire-a-token) with ADAL.NET.
+
+### Prompt behavior
+
+Prompt behavior in MSAL.NET is equivalent to prompt behavior in ADAL.NET:
+
+|  ADAL.NET | MSAL.NET | Description |
+| ----------- | ----------- | -------------|
+| `PromptBehavior.Auto`| `NoPrompt`| Azure AD chooses the best behavior (signing in users silently if they are signed in with only one account, or displaying the account selector if they are signed in with several accounts). |
+| `PromptBehavior.Always`| `ForceLogin` | Resets the sign-in box and forces the user to reenter their credentials. |
+| `PromptBehavior.RefreshSession`| `Consent`| Forces the user to consent again to all permissions. |
+| `PromptBehavior.Never`| `Never`| Don't use; instead, use the [recommended pattern for public client apps](scenario-desktop-acquire-token.md?tabs=dotnet). |
+| `PromptBehavior.SelectAccount`| `SelectAccount`| Displays the account selector and forces the user to select an account. |
 
 ### Handling claim challenge exceptions
 

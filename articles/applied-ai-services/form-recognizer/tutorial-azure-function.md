@@ -30,7 +30,7 @@ In this tutorial, you learn how to:
 ## Prerequisites
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
-* <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer"  title="Create a Form Recognizer resource"  target="_blank">create a Form Recognizer resource <span class="docon docon-navigate-external x-hidden-focus"></span></a> in the Azure portal to get your Form Recognizer key and endpoint. After it deploys, click **Go to resource**.
+* <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer"  title="Create a Form Recognizer resource"  target="_blank">create a Form Recognizer resource <span class="docon docon-navigate-external x-hidden-focus"></span></a> in the Azure portal to get your Form Recognizer key and endpoint. After it deploys, select **Go to resource**.
   * You'll need the key and endpoint from the resource you create to connect your application to the Form Recognizer API. You'll paste your key and endpoint into the code below later in the quickstart.
   * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 * A local PDF document to analyze. You can download this [sample document](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/sample-layout.pdf) to use.
@@ -191,10 +191,10 @@ The following code parses the returned Form Recognizer response, constructs a .c
 > [!IMPORTANT]
 > You will likely need to edit this code to match the structure of your own form documents.
 
-```Python
-# The code below is how I extract the json format into tabular data 
-    # Please note that you need to adjust the code below to your form structure
-    # It probably won't work out-of-box for your specific form
+```python
+    # The code below extracts the json format into tabular data.
+    # Please note that you need to adjust the code below to your form structure.
+    # It probably won't work out-of-the-box for your specific form.
     pages = results["analyzeResult"]["pageResults"]
 
     def make_page(p):

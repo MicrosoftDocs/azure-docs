@@ -1,15 +1,16 @@
 ---
 title: Speech translation quickstart - Speech service
 titleSuffix: Azure Cognitive Services
-description: Learn how to use the Speech SDK to translate speech. In this quickstart, you learn about object construction, supported audio input formats, and configuration options for speech translation.
+description: Learn how to use the Speech SDK to translate speech, including object construction, supported audio input formats, and configuration options.
 services: cognitive-services
-author: PatrickFarley
+author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 09/01/2020
-ms.author: pafarley
+ms.date: 01/08/2022
+ms.author: eur
+ms.devlang: cpp, csharp, java, javascript, python
 ms.custom: "devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020"
 zone_pivot_groups: programming-languages-set-two-with-js-spx
 keywords: speech translation
@@ -43,5 +44,5 @@ keywords: speech translation
 
 ## Next steps
 
-* [Use codec compressed audio formats](how-to-use-codec-compressed-audio-input-streams.md)
+* Use [codec-compressed audio formats](how-to-use-codec-compressed-audio-input-streams.md).
 * See the [quickstart samples](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart) on GitHub.

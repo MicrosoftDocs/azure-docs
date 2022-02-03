@@ -287,7 +287,7 @@ The `quota` policy enforces a renewable or lifetime call volume and/or bandwidth
 
 ```xml
 <quota calls="number" bandwidth="kilobytes" renewal-period="seconds">
-    <api name="API name" id="API id" calls="number" renewal-period="seconds" />
+    <api name="API name" id="API id" calls="number" renewal-period="seconds">
         <operation name="operation name" id="operation id" calls="number" renewal-period="seconds" />
     </api>
 </quota>
@@ -387,6 +387,9 @@ In the following example, the quota is keyed by the caller IP address.
 | counter-key         | The key to use for the quota policy.                                                                      | Yes                                                              | N/A     |
 | increment-condition | The boolean expression specifying if the request should be counted towards the quota (`true`)             | No                                                               | N/A     |
 | renewal-period      | The time period in seconds after which the quota resets. When it's set to `0` the period is set to infinite.                                                   | Yes                                                              | N/A     |
+
+> [!NOTE]
+> The `counter-key` attribute value must be unique across all the APIs in the API Management if you don't want to share the total between the other APIs.
 
 ### Usage
 

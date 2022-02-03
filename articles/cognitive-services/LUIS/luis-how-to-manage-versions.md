@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
-ms.date: 05/17/2020
+ms.date: 10/25/2021
 
 ---
 
@@ -63,3 +63,10 @@ You can import a `.json` or a `.lu` version of your application.
 * To **delete** a version, select a version from the list, then select **Delete** from the toolbar. Select **Ok**.
 * To **rename** a version, select a version from the list, then select **Rename** from the toolbar. Enter new name and select **Done**.
 * To **export** a version, select a version from the list, then select **Export app** from the toolbar. Choose JSON or LU to export for a backup or to save in source control, choose **Export for container** to [use this app in a LUIS container](luis-container-howto.md).
+
+## See also
+
+See the following links to view the REST APIs for importing and exporting applications:
+
+* [Importing applications](https://westus.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5892283039e2bb0d9c2805f5)
+* [Exporting applications](https://westus.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5890b47c39e2bb052c5b9c40)

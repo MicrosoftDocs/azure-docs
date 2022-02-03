@@ -1,7 +1,7 @@
 ---
 title: Manage NSG Flow logs - Azure PowerShell
 titleSuffix: Azure Network Watcher
-description: This page explains how to manage Network Security Group Flow logs in Azure Network Watcher with PowerShell
+description: This page explains how to manage Network Security Group Flow logs in Azure Network Watcher with Azure PowerShell
 author: damendo
 ms.service: network-watcher
 ms.topic: how-to
@@ -11,7 +11,7 @@ ms.author: damendo
 ms.custom: devx-track-azurepowershell
 ---
 
-# Configuring Network Security Group Flow logs with PowerShell
+# Configuring Network Security Group Flow logs with Azure PowerShell
 
 > [!div class="op_single_selector"]
 > - [Azure portal](network-watcher-nsg-flow-logging-portal.md)

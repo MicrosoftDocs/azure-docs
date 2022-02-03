@@ -53,7 +53,7 @@ Object replication asynchronously copies block blobs in a container according to
 
 Object replication requires that blob versioning is enabled on both the source and destination accounts. When a replicated blob in the source account is modified, a new version of the blob is created in the source account that reflects the previous state of the blob, before modification. The current version in the source account reflects the most recent updates. Both the current version and any previous versions are replicated to the destination account. For more information about how write operations affect blob versions, see [Versioning on write operations](versioning-overview.md#versioning-on-write-operations).
 
-When a blob in the source account is deleted, the current version of the blob becomes a previous version, and there is no longer a previous version. All existing previous versions of the blob are preserved. This state is replicated to the destination account. For more information about how delete operations affect blob versions, see [Versioning on delete operations](versioning-overview.md#versioning-on-delete-operations).
+When a blob in the source account is deleted, the current version of the blob becomes a previous version, and there is no longer a current  version. All existing previous versions of the blob are preserved. This state is replicated to the destination account. For more information about how delete operations affect blob versions, see [Versioning on delete operations](versioning-overview.md#versioning-on-delete-operations).
 
 ### Snapshots
 
@@ -61,7 +61,7 @@ Object replication does not support blob snapshots. Any snapshots on a blob in t
 
 ### Blob tiering
 
-Object replication is supported when the source and destination accounts are in the hot or cool tier. The source and destination accounts may be in different tiers. However, object replication will fail if a blob in either the source or destination account has been moved to the archive tier. For more information on blob tiers, see [Hot, cool, and archive access tiers for blob data](access-tiers-overview.md).
+Object replication is supported when the source and destination accounts are in the hot or cool tier. The source and destination accounts may be in different tiers. However, object replication will fail if a blob in either the source or destination account has been moved to the archive tier. For more information on blob tiers, see [Hot, Cool, and Archive access tiers for blob data](access-tiers-overview.md).
 
 ### Immutable blobs
 
@@ -95,7 +95,7 @@ You can also specify one or more filters as part of a replication rule to filter
 
 The source and destination containers must both exist before you can specify them in a rule. After you create the replication policy, write operations to the destination container are not permitted. Any attempts to write to the destination container fail with error code 409 (Conflict). To write to a destination container for which a replication rule is configured, you must either delete the rule that is configured for that container, or remove the replication policy. Read and delete operations to the destination container are permitted when the replication policy is active.
 
-You can call the [Set Blob Tier](/rest/api/storageservices/set-blob-tier) operation on a blob in the destination container to move it to the archive tier. For more information about the archive tier, see [Hot, cool, and archive access tiers for blob data](access-tiers-overview.md#archive-access-tier).
+You can call the [Set Blob Tier](/rest/api/storageservices/set-blob-tier) operation on a blob in the destination container to move it to the archive tier. For more information about the archive tier, see [Hot, Cool, and Archive access tiers for blob data](access-tiers-overview.md#archive-access-tier).
 
 ## Policy definition file
 
@@ -186,12 +186,12 @@ If the replication status for a blob in the source account indicates failure, th
 
 This table shows how this feature is supported in your account and the impact on support when you enable certain capabilities.
 
-| Storage account type                | Blob Storage (default support)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>
-|-----------------------------|---------------------------------|------------------------------------|--------------------------------------------------|
-| Standard general-purpose v2 | ![Yes](../media/icons/yes-icon.png) |![No](../media/icons/no-icon.png)              | ![No](../media/icons/no-icon.png) |
-| Premium block blobs          | ![Yes](../media/icons/yes-icon.png) |![No](../media/icons/no-icon.png)              | ![No](../media/icons/no-icon.png) |
+| Storage account type | Blob Storage (default support) | Data Lake Storage Gen2 <sup>1</sup> | NFS 3.0 <sup>1</sup> | SFTP <sup>1</sup> |
+|--|--|--|--|--|
+| Standard general-purpose v2 | ![Yes](../media/icons/yes-icon.png) |![No](../media/icons/no-icon.png)              | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
+| Premium block blobs          | ![Yes](../media/icons/yes-icon.png) |![No](../media/icons/no-icon.png)              | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
 
-<sup>1</sup>    Data Lake Storage Gen2 and the Network File System (NFS) 3.0 protocol both require a storage account with a hierarchical namespace enabled.
+<sup>1</sup> Data Lake Storage Gen2, Network File System (NFS) 3.0 protocol, and SSH File Transfer Protocol (SFTP) support all require a storage account with a hierarchical namespace enabled.
 
 ## Billing
 
