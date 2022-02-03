@@ -155,7 +155,7 @@ Resetting an Azure VPN gateway is helpful if you lose cross-premises VPN connect
 
 ### <a name="additional"></a>Additional configuration considerations
 
-S2S configurations can be customized in a variety ways. For more information, see the following articles:
+S2S configurations can be customized in a variety of ways. For more information, see the following articles:
 
 * For information about BGP, see the [BGP Overview](vpn-gateway-bgp-overview.md) and [How to configure BGP](vpn-gateway-bgp-resource-manager-ps.md).
 * For information about forced tunneling, see [About forced tunneling](vpn-gateway-forced-tunneling-rm.md).
