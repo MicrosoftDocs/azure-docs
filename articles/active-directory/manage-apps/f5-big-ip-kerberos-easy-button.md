@@ -51,7 +51,7 @@ The SHA solution for this scenario is made up of the following:
 
 SHA for this scenario supports both SP and IdP initiated flows. The following image illustrates the SP initiated flow.
 
-![Scenario architecture](./media/f5-big-ip-kerberos-easy-button/scenario-architecture.png)
+   ![Scenario architecture](./media/f5-big-ip-kerberos-easy-button/scenario-architecture.png)
 
 | Steps| Description|
 | -------- |-------|
@@ -164,7 +164,7 @@ You can now access the Easy Button functionality that provides quick configurati
 
 The **Easy Button** template will display the sequence of steps required to publish your application.
 
-![Configuration steps flow](./media/f5-big-ip-kerberos-easy-button/config-steps-flow.png)
+   ![Configuration steps flow](./media/f5-big-ip-kerberos-easy-button/config-steps-flow.png)
 
 ### Configuration Properties
 
@@ -196,13 +196,13 @@ The optional **Security Settings** specify whether Azure AD should encrypt issue
 
 3.	From the **Assertion Decryption Private Key** list, select **Create New**
  
-     ![Screenshot for Import SSL certificates and keys](./media/f5-big-ip-easy-button-oracle-ebs/configure-security-create-new.png)
+   ![Screenshot for Import SSL certificates and keys](./media/f5-big-ip-easy-button-oracle-ebs/configure-security-create-new.png)
 
 4.	Select **OK**. This opens the **Import SSL Certificate and Keys** dialog in a new tab  
 
 6.	Select **PKCS 12 (IIS) ** to import your certificate and private key. Once provisioned close the browser tab to return to the main tab.
 
-     ![Screenshot for Import SSL certificates and keys](./media/f5-big-ip-easy-button-ldap/import-ssl-certificates-and-keys.png)
+   ![Screenshot for Import SSL certificates and keys](./media/f5-big-ip-easy-button-ldap/import-ssl-certificates-and-keys.png)
 
 6.	Check **Enable Encrypted Assertion**
 
@@ -218,7 +218,7 @@ This section defines all properties that you would normally use to manually conf
 
 The Easy Button wizard provides a set of pre-defined application templates for Oracle PeopleSoft, Oracle E-business Suite, Oracle JD Edwards, SAP ERP, but you can use the generic SHA template by selecting **F5 BIG-IP APM Azure AD Integration > Add.**
 
-![Screenshot for Azure configuration add BIG-IP application](./media/f5-big-ip-kerberos-easy-button/azure-config-add-app.png)
+   ![Screenshot for Azure configuration add BIG-IP application](./media/f5-big-ip-kerberos-easy-button/azure-config-add-app.png)
 
 #### Azure Configuration
 
@@ -246,13 +246,13 @@ When a user successfully authenticates to Azure AD, it issues a SAML token with 
 
 As our AD infrastructure is based on a .com domain suffix used both, internally and externally, we don’t require any additional attributes to achieve a functional KCD SSO implementation. See the [advanced tutorial](f5-big-ip-kerberos-advanced.md) for cases where you have multiple domains or user’s login using an alternate suffix. 
 
-![Screenshot for user attributes and claims](./media/f5-big-ip-kerberos-easy-button/user-attributes-claims.png)
+   ![Screenshot for user attributes and claims](./media/f5-big-ip-kerberos-easy-button/user-attributes-claims.png)
 
 #### Additional User Attributes
 
 The **Additional User Attributes** tab can support a variety of distributed systems requiring attributes stored in other directories, for session augmentation. Attributes fetched from an LDAP source can then be injected as additional SSO headers to further control access based on roles, Partner IDs, etc.
 
-![Screenshot for additional user attributes](./media/f5-big-ip-kerberos-easy-button/additional-user-attributes.png)
+   ![Screenshot for additional user attributes](./media/f5-big-ip-kerberos-easy-button/additional-user-attributes.png)
 
 >[!NOTE] 
 >This feature has no correlation to Azure AD but is another source of attributes.
@@ -272,7 +272,7 @@ To select a policy to be applied to the application being published:
 
 Selected policies should either have an **Include** or **Exclude** option checked. If both options are checked, the selected policy is not enforced.
 
-![Screenshot for CA policies](./media/f5-big-ip-kerberos-easy-button/conditional-access-policy.png)
+   ![Screenshot for CA policies](./media/f5-big-ip-kerberos-easy-button/conditional-access-policy.png)
 
 >[!NOTE]
 >The policy list is enumerated only once when first switching to this tab. A refresh button is available to manually force the wizard to query your tenant, but this button is displayed only when the application has been deployed.
@@ -289,7 +289,7 @@ A virtual server is a BIG-IP data plane object represented by a virtual IP addre
 
 4. Select **Client SSL Profile** to enable the virtual server for HTTPS so that client connections are encrypted over TLS. Select the client SSL profile you created as part of the prerequisites or leave the default if testing
 
-    ![Screenshot for Virtual server](./media/f5-big-ip-kerberos-easy-button/virtual-server.png)
+   ![Screenshot for Virtual server](./media/f5-big-ip-kerberos-easy-button/virtual-server.png)
 
 ### Pool Properties
 
@@ -301,7 +301,7 @@ The **Application Pool tab** details the services behind a BIG-IP, represented a
 
 3. Update **Pool Servers.** Select an existing server node or specify an IP and port for the backend node hosting the header-based application
 
-   ![Screenshot for Application pool](./media/f5-big-ip-kerberos-easy-button/application-pool.png)
+   ![Screenshot for Application pool](./media/f5-big-ip-easy-button-oracle-ebs/application-pool.png)
 
 Our backend application runs on HTTP port 80. You can switch this to 443 if your application runs on HTTPS.
 
@@ -421,7 +421,7 @@ For more information, see [Kerberos Constrained Delegation across domains](/prev
 
 From a browser, **connect** to the application’s external URL or select the **application’s icon** in the [Microsoft MyApps portal](https://myapps.microsoft.com/). After authenticating to Azure AD, you’ll be redirected to the BIG-IP virtual server for the application and automatically signed in through SSO.
 
-![Screenshot for App views](./media/f5-big-ip-kerberos-easy-button/app-view.png)
+   ![Screenshot for App views](./media/f5-big-ip-kerberos-easy-button/app-view.png)
 
 For increased security, organizations using this pattern could also consider blocking all direct access to the application, thereby forcing a strict path through the BIG-IP.
 
@@ -437,7 +437,7 @@ Alternatively, the BIG-IP gives you the option to disable **Guided Configuration
 
 You can navigate to **Access > Guided Configuration** and select the **small padlock icon** on the far right of the row for your applications’ configs. 
  
-![Screenshot for Configure Easy Button - Strict Management](./media/f5-big-ip-easy-button-oracle-ebs/disable-strict-mode.png)
+   ![Screenshot for Configure Easy Button - Strict Management](https://docs.microsoft.com/azure/active-directory/manage-apps/media/f5-big-ip-oracle/strict-mode-padlock.png)
 
 At that point, changes via the wizard UI are no longer possible, but all BIG-IP objects associated with the published instance of the application will be unlocked for direct management.
 
@@ -481,13 +481,3 @@ If you don’t see a BIG-IP error page, then the issue is probably more related 
 2. Select the link for your active session. The **View Variables** link in this location may also help determine root cause KCD issues, particularly if the BIG-IP APM fails to obtain the right user and domain identifiers.
 
 F5 provides a great BIG-IP specific paper to help diagnose KCD related issues, see the deployment guide on [Configuring Kerberos Constrained Delegation](https://www.f5.com/pdf/deployment-guides/kerberos-constrained-delegation-dg.pdf).
-
-## Additional resources
-
-* [BIG-IP Advanced configuration](https://techdocs.f5.com/kb/en-us/products/big-ip_apm/manuals/product/apm-authentication-single-sign-on-11-5-0/2.html)
-
-* [The end of passwords, go password-less](https://www.microsoft.com/security/business/identity/passwordless)
-
-* [What is Conditional Access?](../conditional-access/overview.md)
-
-* [Microsoft Zero Trust framework to enable remote work](https://www.microsoft.com/security/blog/2020/04/02/announcing-microsoft-zero-trust-assessment-tool/)
