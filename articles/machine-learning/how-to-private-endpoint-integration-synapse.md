@@ -67,7 +67,8 @@ For more information, see the following articles:
 ## Configure Azure Synapse
 
 > [!IMPORTANT]
-> If you have not already 
+> Before following these steps, you need an Azure Synapse workspace that is configured to use a managed virtual network. For more information, see [Azure Synapse Analytics Managed Virtual Network](/azure/synapse-analytics/security/synapse-workspace-managed-vnet).
+
 1. From Azure Synapse Studio, [Create a new Azure Machine Learning linked service](/azure/synapse-analytics/machine-learning/quickstart-integrate-azure-machine-learning).
 1. After creating and publishing the linked service, select __Manage__,  __Managed private endpoints__, and then __+ New__ in Azure Synapse Studio.
 
