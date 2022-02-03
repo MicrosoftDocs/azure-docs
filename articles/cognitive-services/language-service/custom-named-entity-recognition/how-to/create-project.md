@@ -51,7 +51,7 @@ If it's your first time logging in, you'll see a window appear in [Language Stud
 
 To use custom NER, you'll need to [create an Azure storage account](../../../../storage/common/storage-account-create.md) if you don't have one already. 
 
-Next you'll need to assign the [correct roles](#roles-for-your-storage-account) for the storage account to connect it to your Language resource. 
+Next you'll need to assign the [correct roles](#required-roles-for-your-storage-account) for the storage account to connect it to your Language resource. 
 
 # [Azure PowerShell](#tab/powershell)
 
@@ -96,7 +96,7 @@ You can use an existing Language resource to get started with custom NER as long
 
 To use custom NER, you'll need to [create an Azure storage account](../../../../storage/common/storage-account-create.md) if you don't have one already. 
 
-Next you'll need to assign the [correct roles](#roles-for-your-storage-account) for the storage account to connect it to your Language resource. 
+Next you'll need to assign the [correct roles](#required-roles-for-your-storage-account) for the storage account to connect it to your Language resource. 
 
 ## Required roles for Azure Language resources
 
