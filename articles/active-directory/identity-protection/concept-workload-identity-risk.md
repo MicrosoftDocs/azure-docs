@@ -72,7 +72,7 @@ You can also query risky workload identities [using the Microsoft Graph API](/gr
 - servicePrincipalRiskDetections
 
 ### Export risk data 
-Organizations can export data by configurating [diagnostic settings in Azure AD](https://docs.microsoft.com/en-us/azure/active-directory/identity-protection/howto-export-risk-data) to send risk data to a Log Analytics workspace, archive it to a storage account, stream it to an Event Hub, or send it to a partner (e.g., SIEM) solution. 
+Organizations can export data by configurating [diagnostic settings in Azure AD](howto-export-risk-data.md) to send risk data to a Log Analytics workspace, archive it to a storage account, stream it to an Event Hub, or send it to a partner (e.g., SIEM) solution. 
 
 ## Investigate risky workload identities
 
