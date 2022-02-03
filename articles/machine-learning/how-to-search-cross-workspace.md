@@ -8,7 +8,7 @@ ms.author: sagopal
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.date: 1/19/2022
+ms.date: 2/16/2022
 ---
 
 # Search for Azure Machine Learning assets across multiple workspaces (Public Preview)
