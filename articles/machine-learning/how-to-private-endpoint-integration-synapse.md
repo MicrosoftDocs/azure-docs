@@ -10,7 +10,7 @@ ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
 ms.date: 02/03/2022
-ms.custom: devx-track-python, ignite-fall-2021
+
 ---
 
 # How to securely integrate Azure Machine Learning and Azure Synapse
