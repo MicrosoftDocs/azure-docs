@@ -55,7 +55,8 @@ The following publishing regions do not have a backup region:
 * Southeast Asia
 
 > [!Note]
-> Make sure to set 'log=false' for [V3 APIs](https://westus.dev.cognitive.microsoft.com/docs/services/luis-endpoint-api-v3-0/operations/5cb0a91e54c9db63d589f433) to disable active learning by default its value is **false**, to ensure that data does not leave the boudaries of the publishing region. If 'logg=true', data is returned to the authoring region for acive learning even if it is one of the single publishing regions.
+> Make sure to set `log=false` for [V3 APIs](https://westus.dev.cognitive.microsoft.com/docs/services/luis-endpoint-api-v3-0/operations/5cb0a91e54c9db63d589f433) to disable active learning. By default this value is `false`, to ensure that data does not leave the boundaries of the publishing region. If `log=true`, data is returned to the authoring region for active learning even if it is one of the single publishing regions.
+
 
 ## Publishing to Europe
 
