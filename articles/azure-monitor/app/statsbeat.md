@@ -15,6 +15,8 @@ Statsbeat collects essential and non-essential [custom metric](../essentials/met
 
 Statsbeat data is stored in a Microsoft data store.  It doesn't impact customers' overall monitoring volume and cost. 
 
+Statsbeat doesn't support [Azure Private Link](../../automation/how-to/private-link-security.md). 
+
 ## What data does Statsbeat collect?
 
 Statsbeat collects essential and non-essential metrics.
@@ -25,6 +27,35 @@ Statsbeat collects essential and non-essential metrics.
 |---------------------------|-----------------|---------------------------|-----------------|-----------------|
 | Currently Not supported   | Supported       | Currently Not supported   | Supported       | Supported       |
 
+## Supported EU Regions
+
+#### [Java](#tab/java)
+
+Statseat supports the list of regions in EU Data boundary: 
+
+| Geo Name                  | Region Name            |
+|---------------------------|------------------------|
+| Europe                    | North Europe           |
+| Europe                    | West Europe            |
+| France                    | France Central         | 
+| France                    | France South           | 
+| Germany                   | Germany West Central   | 
+| Norway                    | Norway East            | 
+| Norway                    | Norway West            | 
+| Sweden                    | Sweden Central         | 
+| Switzerland               | Switzerland North      |
+| Switzerland               | Switzerland West       | 
+
+
+#### [Node](#tab/node)
+
+N/A
+
+#### [Python](#tab/python)
+
+N/A
+
+---
 
 ### Essential Statsbeat
 
