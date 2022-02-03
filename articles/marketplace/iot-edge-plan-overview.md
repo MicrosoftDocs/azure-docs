@@ -45,5 +45,5 @@ Select **Create** and continue below.
 ## Next steps
 
 - [+ Create new plan](iot-edge-plan-setup.md), or
-- Exit plan setup and continue with optional [Co-sell with Microsoft](./co-sell-overview.md), or
+- Exit plan setup and continue with optional [Co-sell with Microsoft](/partner-center/co-sell-overview?context=/azure/marketplace/context/context), or
 - [Review and publish your offer](review-publish-offer.md)

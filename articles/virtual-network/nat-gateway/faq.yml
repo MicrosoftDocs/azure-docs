@@ -17,15 +17,15 @@ sections:
       - question: What is the maximum number of public IP addresses that can be used by Virtual Network NAT gateway?
         answer: |
           The Virtual Network NAT gateway resource can use up to 16 public IP addresses. The Virtual Network NAT can use any combination of public IP addresses and public IP address prefixes totaling to 16 addresses. The maximum prefix size that can be used by Virtual Network NAT is /28 (16 addresses). Other public IP prefix sizes that can be used by VNet NAT gateway include:
-          /29 (8 addresses)
-          /30 (4 addresses)
+          /29 (8 addresses), 
+          /30 (4 addresses), 
           /31 (2 addresses)  
 
-      - question: Can IPs of an existing Virtual Network NAT gateway be changed? 
+      - question: Can public IPs of an existing Virtual Network NAT gateway be changed? 
         answer: |
           No, an existing IP attached to the Virtual Network NAT can't be changed. A different IP can be attached to Virtual Network NAT by creating a new public IP address.  Associate the new public IP address with the NAT gateway resource.  Disassociate the old IP address.
 
-      - question: If multiple public IP addresses are assigned to a NAT gateway resource, is there a disruption of traffic if one of the IP addresses is removed?
+      - question: If multiple public IP addresses are assigned to a NAT gateway, is traffic flow disrupted when one of the IP addresses is removed?
         answer: |
           No. If the Virtual Network NAT gateway resource has multiple public IPs, it will load balance traffic between the assigned IPs. Removing one of the IPs won't cause any downtime. It's advised that if you decide to remove one of the public IP addresses from the NAT gateway resource, use a maintenance window for the removal.
 
@@ -59,7 +59,7 @@ sections:
           
       - question: Can multiple Virtual Network NAT gateways be attached to a single subnet?
         answer: |
-          No. NAT gateways are defined with a property on a single subnet within a virtual network, and so multiple NAT gateways cannot be attached to a single subnet.
+          No. NAT gateway operates based on the properties of the subnet it is attached to, and so multiple NAT gateways cannot be attached to a single subnet.
 
       - question: How does Virtual Network NAT gateway work with availability zones?   
         answer: |
@@ -71,10 +71,8 @@ sections:
 
       - question: How can I obtain logs for my Virtual Network NAT gateway resource?  
         answer: |
-          Network security groups (NSG) can be configured to outbound traffic sent from a resource in a subnet/virtual network through a virtual network NAT gateway resource. 
-
-          Network security group flow logs can be used to monitor outbound traffic through a Virtual Network NAT gateway resource.  
-
+          Network security groups (NSG) can be used to monitor traffic flow from a resource in a subnet/virtual network using NAT gateway to go outbound.
+          
           Use Azure Security Center and follow the network protection recommendations to help secure your Azure network resources. Enable network security group flow logs and send the logs to an Azure Storage account for auditing. You can also send the flow logs to a Log Analytics workspace and then use Traffic Analytics to provide insights into traffic patterns in your Azure cloud. Some advantages of Traffic Analytics are the ability to visualize network activity, identify hot spots and security threats, understand traffic flow patterns, and pinpoint network misconfigurations.
       
       - question: How do I delete a Virtual Network NAT gateway resource?
@@ -83,7 +81,7 @@ sections:
       
       - question: Can I use Virtual Network NAT gateway with Azure App Services? 
         answer: |
-          Yes. For more information about Virtual Network NAT integration with Azure App Services, see [Virtual Network NAT gateway integration](../../app-service/networking/nat-gateway-integration.md).
+          Yes. NAT gateway can be used with Azure App Services in order to allow applications to direct outbound traffic to the internet from a virtual network. To use this integration between NAT gateway and Azure App Services, regional virtual network integration must be enabled. For guidance on how to enable virtual network integration with NAT gateway, see [Virtual Network NAT gateway integration](../../app-service/networking/nat-gateway-integration.md).
       
       - question: Can I use Virtual Network NAT gateway with Azure Kubernetes Service? 
         answer: |

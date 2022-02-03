@@ -1,13 +1,13 @@
 ---
 title: Automatic VM Guest Patching for Azure VMs
 description: Learn how to automatically patch virtual machines in Azure.
-author: mayanknayar
+author: mimckitt
 ms.service: virtual-machines
 ms.subservice: maintenance
 ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 10/20/2021
-ms.author: manayar
+ms.author: mimckitt
 ms.custom: devx-track-azurepowershell
 
 ---
@@ -69,6 +69,9 @@ As a new rollout is triggered every month, a VM will receive at least one patch 
 
 ## Supported OS images
 Only VMs created from certain OS platform images are currently supported. Custom images are currently not supported.
+
+> [!NOTE]
+> Automatic VM guest patching is only supported on Gen1 images. 
 
 The following platform SKUs are currently supported (and more are added periodically):
 

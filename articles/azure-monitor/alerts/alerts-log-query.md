@@ -60,7 +60,7 @@ workspace('Contoso-workspace1').Perf
 ```
 
 >[!NOTE]
-> [Cross-resource queries](../logs/cross-workspace-query.md) are supported in the new [scheduledQueryRules API](/rest/api/monitor/scheduledqueryrule-2021-02-01-preview/scheduled-query-rules). If you still use the [legacy Log Analytics Alert API](./api-alerts.md) for creating log alerts, you can learn about switching [here](../alerts/alerts-log-api-switch.md).
+> [Cross-resource queries](../logs/cross-workspace-query.md) are supported in the new [scheduledQueryRules API](/rest/api/monitor/scheduledqueryrule-2021-08-01/scheduled-query-rules). If you still use the [legacy Log Analytics Alert API](./api-alerts.md) for creating log alerts, you can learn about switching [here](../alerts/alerts-log-api-switch.md).
 
 ## Examples
 The following examples include log queries that use `search` and `union` and provide steps you can use to modify these queries for use in alert rules.

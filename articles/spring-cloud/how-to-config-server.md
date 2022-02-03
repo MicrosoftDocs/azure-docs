@@ -29,6 +29,8 @@ There are some restrictions when you use Config Server with a Git back end. Some
 ```yaml
 eureka.client.service-url.defaultZone
 eureka.client.tls.keystore
+eureka.instance.preferIpAddress
+eureka.instance.instance-id
 server.port
 spring.cloud.config.tls.keystore
 spring.application.name
