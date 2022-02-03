@@ -33,7 +33,7 @@ The following table lists the data formats supported:
 |delta  |  Yes  |  No  |
 |Spark  |  Yes  | No |
 |Dataverse |  Yes | No  |
-|Azure Cosmos DB data formats (JSON, BSON etc.)  |  No ( Alternatively, [create views](query-cosmos-db-analytical-store.md?tabs=openrowset-credential#create-view)) | No  |
+|Azure Cosmos DB data formats (JSON, BSON etc.)  |  No (Alternatively, [create views](query-cosmos-db-analytical-store.md?tabs=openrowset-credential#create-view)) | No  |
 
 ## Prerequisites
 
