@@ -16,7 +16,7 @@ ms.author: eur
 
 Custom Neural Voice is a text-to-speech feature that lets you create a one-of-a-kind, customized, synthetic voice for your applications. With Custom Neural Voice, you can build a highly natural-sounding voice by providing your audio samples as training data.
 
-Based on the neural text-to-speech technology and the multilingual, multi-speaker, universal model, Custom Neural Voice lets you create synthetic voices that are rich in speaking styles, or adaptable cross languages. The realistic and natural sounding voice of Custom Neural Voice can represent brands, personify machines, and allow users to interact with applications conversationally. See the supported [languages](language-support.md#custom-neural-voice) for Custom Neural Voice.
+Based on the neural text-to-speech technology and the multilingual, multi-speaker, universal model, Custom Neural Voice lets you create synthetic voices that are rich in speaking styles, or adaptable cross languages. The realistic and natural sounding voice of Custom Neural Voice can represent brands, personify machines, and allow users to interact with applications conversationally. See the [supported languages](language-support.md#custom-neural-voice) for Custom Neural Voice.
 
 > [!NOTE]
 > Custom Neural Voice requires registration, and access to it is limited based on eligibility and use criteria. To use this feature, register your use cases by using the [intake form](https://aka.ms/customneural).
@@ -31,7 +31,7 @@ Next, the phoneme sequence goes into the neural acoustic model to predict acoust
 ![Flowchart that shows the components of Custom Neural Voice.](./media/custom-voice/cnv-intro.png)
 
 Neural text-to-speech voice models are trained by using deep neural networks based on
-the recording samples of human voices. For more information, see this [Microsoft blog post](https://techcommunity.microsoft.com/t5/azure-ai/neural-text-to-speech-extends-support-to-15-more-languages-with/ba-p/1505911). To learn more about how a neural vocoder is trained, see this [Microsoft blog post](https://techcommunity.microsoft.com/t5/azure-ai/azure-neural-tts-upgraded-with-hifinet-achieving-higher-audio/ba-p/1847860).
+the recording samples of human voices. For more information, see [this Microsoft blog post](https://techcommunity.microsoft.com/t5/azure-ai/neural-text-to-speech-extends-support-to-15-more-languages-with/ba-p/1505911). To learn more about how a neural vocoder is trained, see [this Microsoft blog post](https://techcommunity.microsoft.com/t5/azure-ai/azure-neural-tts-upgraded-with-hifinet-achieving-higher-audio/ba-p/1847860).
 
 You can adapt the neural text-to-speech engine to fit your needs. To create a custom neural voice, use [Speech Studio](https://speech.microsoft.com/customvoice) to upload the recorded audio and corresponding scripts, train the model, and deploy the voice to a custom endpoint. Custom Neural Voice can use text provided by the user to convert text into speech in real time, or generate audio content offline with text input. You can do this by using the [REST API](./rest-text-to-speech.md), the [Speech SDK](./get-started-text-to-speech.md), or the [web portal](https://speech.microsoft.com/audiocontentcreation).
 
