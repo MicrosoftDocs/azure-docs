@@ -40,7 +40,7 @@ items:
   items:
   - name: Custom IP address prefix (BYOIP)
     href: custom-ip-address-prefix.md
-  - name: Manage an Azure custom IP address prefix (BYOIP)
+  - name: Manage a custom IP address prefix (BYOIP)
     href: manage-custom-ip-address-prefix.md
   - name: Public IPs
     href: public-ip-addresses.md
@@ -66,6 +66,8 @@ items:
       href: /security/benchmark/azure/baselines/public-ip-security-baseline?toc=/azure/virtual-network/ip-services/toc.json
 - name: How-to
   items:
+    - name: Create a custom IP address prefix (BYOIP) - PowerShell
+      href: create-custom-ip-address-prefix-powershell.md
     - name: Configure IP addresses for an Azure network interface
       href: virtual-network-network-interface-addresses.md
     - name: Resource management

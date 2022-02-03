@@ -1,5 +1,5 @@
 ---
-title: Manage an Azure custom IP address prefix (BYOIP) Preview
+title: Manage an Azure Custom IP Address Prefix (BYOIP) Preview
 titleSuffix: Azure Virtual Network
 description: Learn about custom IP address prefixes and how to manage and delete them.
 services: virtual-network
@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.date: 02/01/2022
 ms.author: allensu
 ---
-# Manage a custom IP address prefix (BYOIP) Preview
+# Manage a Custom IP Address Prefix (BYOIP) Preview
 
 A custom IP address prefix is a contiguous range of IP addresses owned by an external customer (not Microsoft) and provisioned to a subscription.  For more information, see [Custom IP address prefix overview](custom-ip-address-prefix.md). 
 
@@ -29,7 +29,7 @@ For information on how to onboard a custom IP prefix, see the guides for creatio
 -->
 
 > [!IMPORTANT]
-> Custom IP address prefix (BYOIP) is currently in PREVIEW.
+> Custom IP Address Prefix (BYOIP) is currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability
 
 ## Create a public IP prefix from a custom IP prefix
@@ -119,7 +119,7 @@ For permissions to manage public IP address prefixes, your account must be assig
 | Microsoft.Network/customIPPrefixes/delete                         | Delete a custom IP address prefix                              |
 | Microsoft.Network/customIPPrefixes/join/action                    | Create a public IP prefix from a custom IP address prefix      |
 
-## Troubleshooting/FAQs
+## Troubleshooting and FAQs
 
 This section provides answers for common questions about custom IP prefix resources and the provisioning and removal processes.
 
