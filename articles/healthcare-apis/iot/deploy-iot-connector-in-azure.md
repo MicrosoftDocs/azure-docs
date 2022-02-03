@@ -5,15 +5,12 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 11/10/2021
+ms.date: 02/02/2022
 ms.author: jasteppe
 ms.custom: mode-api
 ---
 
 # Deploy IoT connector in the Azure portal
-
-> [!IMPORTANT]
-> Azure Healthcare APIs is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 In this quickstart, you'll learn how to deploy IoT connector in the Azure portal. Configuring an IoT connector will enable you to ingest data from Internet of Things (IoT) into your Fast Healthcare Interoperability Resources (FHIR&#174;) service using an Azure Event Hub for device messages.
 
@@ -178,7 +175,7 @@ To ensure that your IoT connector works properly, it must have granted access pe
 
    The Azure Event Hubs Data Receiver role allows the IoT connector that's being assigned this role to receive data from this Event Hub.
 
-   For more information about application roles, see [Authentication & Authorization for the Healthcare APIs (preview)](.././authentication-authorization.md).
+   For more information about application roles, see [Authentication & Authorization for the Healthcare APIs](.././authentication-authorization.md).
 
 5. Select **Assign access to**, and keep the default option selected **User, group, or service principal**.
 
@@ -210,7 +207,7 @@ For more information about authoring access to Event Hubs resources, see [Author
 
    The FHIR Data Writer role provides read and write access that the IoT connector uses to function. Because the IoT connector is deployed as a separate resource, the FHIR service will receive requests from the IoT connector. If the FHIR service doesn’t know who's making the request, or if it doesn't have the assigned role, it will deny the request as unauthorized.
 
-   For more information about application roles, see [Authentication & Authorization for the Healthcare APIs (preview)](.././authentication-authorization.md).
+   For more information about application roles, see [Authentication & Authorization for the Healthcare APIs](.././authentication-authorization.md).
 
 5. In the **Select** field, enter the security principal for your IoT connector.  
 
