@@ -3,7 +3,7 @@ title: 'Tutorial: Deploy Web Application Connected to Azure Storage Blob with Se
 description: Create a web app connected to Azure Storage Blob with Service Connector.
 author: shizn
 ms.author: xshi
-ms.service: serviceconnector
+ms.service: service-connector
 ms.topic: tutorial
 ms.date: 10/28/2021
 ms.custom: ignite-fall-2021

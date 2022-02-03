@@ -29,7 +29,9 @@ landingContent:
             url: create-device-update-account.md
           - text: Provisioning Device Update Agent
             url: device-update-agent-provisioning.md
-          - text: Add an update
+          - text: Create an update
+            url: create-update.md 
+          - text: Import an update
             url: import-update.md
           - text: Create an update group
             url: create-update-group.md
@@ -47,6 +49,8 @@ landingContent:
           url: import-concepts.md
         - text: Understand Device Update groups
           url: device-update-groups.md
+        - text: Understand Device Update deployments
+          url: device-update-deployments.md
         - text: Understand Device Update limits
           url: device-update-limits.md
   - title: Developer guide

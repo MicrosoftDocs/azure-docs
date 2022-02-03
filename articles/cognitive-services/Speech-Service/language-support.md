@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 01/07/2022
+ms.date: 02/02/2022
 ms.author: eur
 ms.custom: references_regions, ignite-fall-2021
 ---
@@ -130,6 +130,25 @@ To improve accuracy, customization is available for some languages and baseline 
 | Thai (Thailand)                   | `th-TH`         | Plain text                                                            |
 | Turkish (Turkey)                  | `tr-TR`         | Plain text                                                            |
 | Vietnamese (Vietnam)              | `vi-VN`         | Plain text                                                            |
+
+### Phrase list
+
+You can use the locales in this table with [phrase list](improve-accuracy-phrase-list.md). 
+
+| Language | Locale |
+|---|---|
+| Chinese (Mandarin, Simplified) | `zh-CN` |
+| English (Australia) | `en-AU` |
+| English (Canada) | `en-CA` |
+| English (India) | `en-IN` |
+| English (United Kingdom)) | `en-GB` |
+| English (United States) | `en-US` |
+| French (France) | `fr-FR` |
+| German (Germany) | `de-DE` |
+| Italian (Italy) | `it-IT` |
+| Japanese (Japan) | `ja-JP` |
+| Portuguese (Brazil) | `pt-BR` |
+| Spanish (Spain) | `es-ES` |
 
 ## Text-to-speech
 
@@ -774,5 +793,4 @@ The following table outlines supported languages for custom keyword and keyword 
 
 ## Next steps
 
-* [Create a free Azure account](https://azure.microsoft.com/free/cognitive-services/)
-* [See how to recognize speech in C#](./get-started-speech-to-text.md?pivots=programming-language-chsarp)
+* [Region support](regions.md)

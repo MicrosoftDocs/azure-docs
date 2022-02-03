@@ -86,7 +86,7 @@ Once the health feature is turned on, the *SentinelHealth* data table is created
 
 The *SentinelHealth* data table is currently supported only for the following data connectors:
 
-- [Amazon Web Services (CloudTrail)](connect-aws.md)
+- [Amazon Web Services (CloudTrail and S3)](connect-aws.md)
 - [Dynamics 365](connect-dynamics-365.md)
 - [Office 365](connect-office-365.md)
 - [Office ATP](connect-microsoft-defender-advanced-threat-protection.md)

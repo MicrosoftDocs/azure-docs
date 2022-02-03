@@ -4,7 +4,7 @@ description: Create a Spring Boot app connected to Apache Kafka on Confluent Clo
 ms.devlang: java
 author: shizn
 ms.author: xshi
-ms.service: serviceconnector
+ms.service: service-connector
 ms.topic: tutorial
 ms.date: 10/28/2021
 ms.custom: ignite-fall-2021

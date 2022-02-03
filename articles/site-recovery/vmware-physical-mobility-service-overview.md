@@ -132,7 +132,7 @@ Setting | Details
 --- | ---
 Syntax | `UnifiedAgent.exe /Role \<Agent/MasterTarget> /InstallLocation \<Install Location> /Platform "VmWare" /Silent`
 Setup logs | `%ProgramData%\ASRSetupLogs\ASRUnifiedAgentInstaller.log`
-`/Role` | Mandatory installation parameter. Specifies whether the Mobility service (Agent) or master target (MasterTarget) should be installed.  Note: in prior versions, the correct switches were Mobility Service (MS)  or master target (MT)
+`/Role` | Mandatory installation parameter. Specifies whether the Mobility service (Agent) or master target (MasterTarget) should be installed.  Note: in prior versions, the correct switches were Mobility Service (MS) or master target (MT)
 `/InstallLocation`| Optional parameter. Specifies the Mobility service installation location (any folder).
 `/Platform` | Mandatory. Specifies the platform on which the Mobility service is installed: <br/> **VMware** for VMware VMs/physical servers. <br/> **Azure** for Azure VMs.<br/><br/> If you're treating Azure VMs as physical machines, specify **VMware**.
 `/Silent`| Optional. Specifies whether to run the installer in silent mode.
