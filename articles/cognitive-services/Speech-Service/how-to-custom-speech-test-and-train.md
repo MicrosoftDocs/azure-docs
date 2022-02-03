@@ -277,21 +277,21 @@ If there are uncommon terms without standard pronunciations that your users will
 > [!NOTE]
 > You can't combine this type of pronunciation file with structured-text training data. For structured-text data, use the phonetic pronunciation capability that's included in the structured-text Markdown format.
 
-Provide pronunciations in a single text file. Include examples of a spoken utterance and a custom pronunciation for each:
-
-```tsv
-3CPO    three    c    p    o
-CNTK    c    n    t    k
-IEEE    i    triple    e
-```
-
-The spoken form is the phonetic sequence spelled out. It can be composed of letters, words, syllables, or a combination of all three.
+The spoken form is the phonetic sequence spelled out. It can be composed of letters, words, syllables, or a combination of all three. This table includes some examples:
 
 | Recognized displayed form | Spoken form |
 |--------------|--------------------------|
 | 3CPO | three c p o |
 | CNTK | c n t k |
 | IEEE | i triple e |
+
+You provide pronunciations in a single text file. Include the spoken utterance and a custom pronunciation for each. Each row in the file should begin with the recognized form, then a tab character, and then the space-delimited phonetic sequence. 
+
+```tsv
+3CPO    three c p o
+CNTK    c n t k
+IEEE    i triple e
+```
 
 Refer to the following table to ensure that your related data file for pronunciations is correctly formatted. The size of pronunciation files should be limited to a few kilobytes.
 
