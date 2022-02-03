@@ -67,6 +67,8 @@
     href: /cli/azure/advisor
   - name: PowerShell
     href: /powershell/module/az.advisor/
+  - name: Operational Excellence
+    href: advisor-reference-operational-excellence-recommendations.md
 - name: Resources
   items:
   - name: Azure Roadmap
