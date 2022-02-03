@@ -433,6 +433,8 @@ POST https://graph.microsoft.com/beta/directory/customSecurityAttributeDefinitio
 
 #### Add a custom security attribute with a list of predefined values
 
+Use the [Create customSecurityAttributeDefinition](/graph/api/directory-post-customsecurityattributedefinitions) API to add a new custom security attribute definition with a list of predefined values.
+
 - Attribute set: `Engineering`
 - Attribute: `Project`
 - Attribute data type: Collection of Strings
@@ -481,6 +483,8 @@ PATCH https://graph.microsoft.com/beta/directory/customSecurityAttributeDefiniti
 ```
 
 #### Update the predefined values for a custom security attribute
+
+Use the [Update customSecurityAttributeDefinition](/graph/api/customsecurityattributedefinition-update) API to update the predefined values for a custom security attribute definition.
 
 - Attribute set: `Engineering`
 - Attribute: `Project`
