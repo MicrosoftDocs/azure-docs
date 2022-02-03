@@ -33,8 +33,6 @@ When an event is triggered, the Event Grid service sends data about that event t
 >
 >For more information, see [Azure Event Grid event schema](/azure/event-grid/event-schema#event-properties)
 
-# [Event Grid event schema](#tab/event-grid-event-schema)
-
 ```json
 {
   "id": "e4c7f556-d72c-e7f7-1069-1e82ac76ab41",
