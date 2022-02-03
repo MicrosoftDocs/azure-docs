@@ -45,7 +45,7 @@ To add CloudKnox to your Azure AD tenant, you must have:
     > [!NOTE] 
     > To complete this step, you must have Azure CLI or Azure PowerShell on your system or an Azure subscription where you can run Cloud Shell.
 
-    1. To create a service principal that points to the CloudKnox application via Cloud Shell:
+    To create a service principal that points to the CloudKnox application via Cloud Shell:
 
     1. Copy the script on the **Welcome** screen:
 
