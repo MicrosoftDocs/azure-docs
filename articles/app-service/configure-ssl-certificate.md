@@ -348,16 +348,18 @@ To replace an expiring certificate, how you update the certificate binding with 
 ### Renew an App Service certificate
 
 > [!NOTE]
-> Beginning on September 23 2021, App Service certificates require domain verification every 395 days.
+> Beginning on September 23 2021, App Service certificates require domain verification every 395 days. The new certificate order remains in "pending issuance" during renew or rekey until you complete the domain verification.
 > 
-> Unlike App Service Managed Certificate, domain re-verification for App Service certificates is *not* automated. Refer to [verify domain ownership](#verify-domain-ownership) for more information on how to verify your App Service certificate.
+> Unlike App Service Managed Certificate, domain re-verification for App Service certificates is *not* automated, and failure to verify domain ownership will result in failed renewals. Refer to [verify domain ownership](#verify-domain-ownership) for more information on how to verify your App Service certificate. 
 
 > [!NOTE]
 > The renewal process requires that [the well-known service principal for App Service has the required permissions on your key vault](deploy-resource-manager-template.md#deploy-web-app-certificate-from-key-vault). This permission is configured for you when you import an App Service Certificate through the portal, and should not be removed from your key vault.
 
-To toggle the automatic renewal setting of your App Service certificate at any time, select the certificate in the [App Service Certificates](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) page, then click **Auto Renew Settings** in the left navigation. By default, App Service Certificates have a one-year validity period.
+By default, App Service certificates have a one-year validity period. Near the time of expiration, App Service certificates, can be renewed in one-year increments automatically or manually. In effect, th renewal process gives you a new App Service certificate with the expiration date extended to one year from the existing certificate's expiration date.
 
-Select **On** or **Off** and click **Save**. Certificates can start automatically renewing 31 days before expiration if you have automatic renewal turned on.
+To toggle the automatic renewal setting of your App Service certificate at any time, select the certificate in the [App Service Certificates](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) page, then click **Auto Renew Settings** in the left navigation.
+
+Select **On** or **Off** and click **Save**. Certificates can start automatically renewing 32 days before expiration if you have automatic renewal turned on.
 
 ![Renew App Service certificate automatically](./media/configure-ssl-certificate/auto-renew-app-service-cert.png)
 
