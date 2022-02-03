@@ -22,7 +22,7 @@ This article describes how to enable Microsoft CloudKnox Permissions Management 
 
 ## Prerequisites
 
-To add CloudKnox to your Azure AD tenant, you must have:
+To enable CloudKnox on your Azure AD tenant, you must have:
 
 - An Azure AD user account. If you don't already have one, [Create a free account](https://azure.microsoft.com/free/).
 - A global administrator role.
