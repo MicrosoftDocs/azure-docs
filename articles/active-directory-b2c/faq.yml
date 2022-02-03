@@ -220,6 +220,16 @@ sections:
         answer: |
           No, Azure AD B2C is a pay-as-you-go Azure service and is not part of Enterprise Mobility Suite.
           
+       - question: |
+          Can I purchase Azure AD Premium P1 and Azure AD Premium P2 licensing for my Azure AD B2C tenant?
+        answer: |
+          No, Azure AD B2C tenants do not support Azure AD Premium P1 or Azure AD Premium P2 licensing.  Azure AD B2C tenants natively support some similar features as Azure AD Premium see [Supported Azure AD features](supported-azure-ad-features.md) but not all of the same features.  Additionally, Azure AD B2C tenants can use [External Identity Premium P1 and P2 billing models](billing.md) but these are not the same as Azure AD Premium P1 and P2 licensing for a standard Azure AD tenant.
+         
+        - question: |
+          Can I use group-based assignment for Azure AD Enterprise Applications in my Azure AD B2C tenant?
+        answer: |
+          No, Azure AD B2C tenants do not support [group-based assignment to Azure AD Enterprise Applications](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/assign-user-or-group-access-portal)
+          
       - question: |
           What Azure AD B2C features are unavailable in Microsoft Azure Government?
         answer: |
