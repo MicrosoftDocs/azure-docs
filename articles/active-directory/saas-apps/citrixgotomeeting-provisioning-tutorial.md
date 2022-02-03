@@ -15,6 +15,9 @@ ms.author: jeedes
 
 The objective of this tutorial is to show you the steps you need to perform in GoToMeeting and Azure AD to automatically provision and de-provision user accounts from Azure AD to GoToMeeting.
 
+> [!WARNING]
+> This GoToMeeting automatic provisioning service is deprecated and support will end soon.  
+
 ## Prerequisites
 
 The scenario outlined in this tutorial assumes that you already have the following items:
