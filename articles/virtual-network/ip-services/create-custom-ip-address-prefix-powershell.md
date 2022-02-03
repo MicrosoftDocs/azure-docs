@@ -13,7 +13,15 @@ ms.author: allensu
 
 # Create a custom IP address prefix (BYOIP) Preview using Azure PowerShell
 
-Use of a custom IP address prefix enables you to bring your own IP ranges to Microsoft and associate it to your Azure subscription. The range would continue to be owned by you, though Microsoft would be permitted to advertise it to the Internet. A custom IP address prefix functions as a regional resource that represents a contiguous block of customer owned IP addresses.  The steps in this article detail the full process to prepare a range for provisioning, provisioning the range for IP allocation, and enabling the range to be advertised by Microsoft.
+Use of a custom IP address prefix enables you to bring your own IP ranges to Microsoft and associate it to your Azure subscription. The range would continue to be owned by you, though Microsoft would be permitted to advertise it to the Internet. A custom IP address prefix functions as a regional resource that represents a contiguous block of customer owned IP addresses. 
+
+The steps in this article detail the full process to:
+
+* Prepare a range to provision
+
+* Provision the range for IP allocation
+
+* Enable the range to be advertised by Microsoft.
 
 > [!IMPORTANT]
 > Custom IP address prefix (BYOIP) is currently in PREVIEW.
@@ -23,8 +31,8 @@ Use of a custom IP address prefix enables you to bring your own IP ranges to Mic
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Azure PowerShell installed locally or Azure Cloud Shell
-- Sign in to Azure PowerShell and ensure you have selected the subscription with which you want to use this feature.  For more information, see [Sign in with Azure Powershell](https://docs.microsoft.com/powershell/azure/authenticate-azureps?view=azps-4.6.0).
-- Ensure your Az.Network module is 4.3.0 or later. To verify this, use the command Get-InstalledModule -Name "Az.Network". If the module requires an update, use the command Update-Module -Name "Az.Network" if required.
+- Sign in to Azure PowerShell and ensure you've selected the subscription with which you want to use this feature.  For more information, see [Sign in with Azure PowerShell](https://docs.microsoft.com/powershell/azure/authenticate-azureps?view=azps-4.6.0).
+- Ensure your Az. Network module is 4.3.0 or later. To verify the installed module, use the command Get-InstalledModule -Name "Az.Network". If the module requires an update, use the command Update-Module -Name "Az. Network" if necessary.
 
 If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 
@@ -37,21 +45,21 @@ In order to utilize the Azure BYOIP feature, you must perform the following step
 
 ### Requirements and prefix readiness
 
-* The address range must be owned by the customer and registered under their name with the [American Registry for Internet Numbers (ARIN)](https://www.arin.net/), the [Réseaux IP Européens Network Coordination Centre (RIPE NCC)](https://www.ripe.net/), or the [Asia Pacific Network Information Centre Regional Internet Registries (APNIC)](https://www.apnic.net/).  If the range is registered under the Latin America and Caribbean Network Information Centre (LACNIC) or the African Network Information Centre (AFRINIC), please contact the [Microsoft Azure BYOIP team](mailto:byoipazure@microsoft.com).
+* The address range must be owned by you and registered under your name with the [American Registry for Internet Numbers (ARIN)](https://www.arin.net/), the [Réseaux IP Européens Network Coordination Centre (RIPE NCC)](https://www.ripe.net/), or the [Asia Pacific Network Information Centre Regional Internet Registries (APNIC)](https://www.apnic.net/). If the range is registered under the Latin America and Caribbean Network Information Centre (LACNIC) or the African Network Information Centre (AFRINIC), contact the [Microsoft Azure BYOIP team](mailto:byoipazure@microsoft.com).
 
 * The address range must be IPv4 and can be no smaller than a /24 so it will be accepted by Internet Service Providers.
 
-* A Route Origin Authorization (ROA) document that authorizes Microsoft to advertise the address range must be filled out by the customer on the appropriate Routing Internet Registry website (ARIN, RIPE, APNIC).  
+* A Route Origin Authorization (ROA) document that authorizes Microsoft to advertise the address range must be filled out by the customer on the appropriate Routing Internet Registry website. ARIN, RIPE, and APNIC.  
     
-    Note that for this ROA:
+    For this ROA:
         
     * The Origin AS must be listed as 8075
     
-    * The validity end date needs to account for the time the customer intends to have the prefix advertised by Microsoft. Some RIRs do not present this as an option and or choose the date for you.
+    * The validity end date needs to account for the time you intend to have the prefix advertised by Microsoft. Some RIRs don't present validity end date as an option and or choose the date for you.
     
     * The prefix length should exactly match the prefixes that can be advertised by Microsoft. For example, if you plan to bring 1.2.3.0/24 and 2.3.4.0/23 to Microsoft, they should both be named.
   
-    * After the ROA is complete and submitted, please allow at least 24 hours for it to become available to Microsoft.
+    * After the ROA is complete and submitted, allow at least 24 hours for it to become available to Microsoft.
 
 ### Certificate readiness
 
@@ -63,16 +71,16 @@ The following steps show the steps required to prepare sample customer range (1.
     
 1. A [self-signed X509 certificate](https://en.wikipedia.org/wiki/Self-signed_certificate) must be created to add to the Whois/RDAP record for the prefix For information on RDAP, see the[ARIN](https://www.arin.net/resources/registry/whois/rdap/), [RIPE](https://www.ripe.net/manage-ips-and-asns/db/registration-data-access-protocol-rdap), and [APNIC](https://www.apnic.net/about-apnic/whois_search/about/rdap/) sites. 
 
-    An example utilizing the OpenSSL toolkit is shown below.  The following commands generate an RSA key pair and create an X509 certificate using the key pair that expires in 6 months:
+    An example utilizing the OpenSSL toolkit is shown below.  The following commands generate an RSA key pair and create an X509 certificate using the key pair that expires in six months:
     
     ```azurepowershell-interactive
     openssl genrsa -out byoipprivate.key 2048
     Set-Content -Path byoippublickey.cer (openssl req -new -x509 -key byoipprivate.key -days 180) -NoNewline
     ```
    
-2. After the certificate is created, update the public comments section of the Whois/RDAP record for the prefix. In order to display for copying, including the BEGIN/END header/footer with dashes, use the command `cat byoippublickey.cer` You should be able to perform this via your Routing Internet Registry.  
+2. After the certificate is created, update the public comments section of the Whois/RDAP record for the prefix. In order to display for copying, including the BEGIN/END header/footer with dashes, use the command `cat byoippublickey.cer` You should be able to perform this procedure via your Routing Internet Registry.  
 
-    Instructions for each registry is below:
+    Instructions for each registry are below:
   
     * [ARIN](https://www.arin.net/resources/registry/manage/netmod/) - edit the "Comments" of the prefix record
     * [RIPE](https://www.ripe.net/manage-ips-and-asns/db/support/updating-the-ripe-database) - edit the "Remarks" of the inetnum record
@@ -82,7 +90,7 @@ The following steps show the steps required to prepare sample customer range (1.
 
     _Comment:-----BEGIN CERTIFICATE-----abcdefghijklmnopqrstuvwxyz1234567890-----END CERTIFICATE----_
      
-3. To create the message that will be passed to Microsoft, you'll first create a string that contains relevant information about your prefix and subscription and then sign this message with the key pair generated in the steps above. Use the format shown below, substituting your subscription ID, prefix to be provisioned, and expiration date matching the Validity Date on the ROA. Ensure the format is in that order. 
+3. To create the message that will be passed to Microsoft, first create a string that contains relevant information about your prefix and subscription and then sign this message with the key pair generated in the steps above. Use the format shown below, substituting your subscription ID, prefix to be provisioned, and expiration date matching the Validity Date on the ROA. Ensure the format is in that order. 
 
     Use the following command to create a signed message that will be passed to Microsoft for verification.  
 
@@ -103,7 +111,7 @@ Register the applicable subscription that the range will be provisioned for with
 Register-AzResourceProvider -ProviderNamespace Microsoft.Network
 Register-AzProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowBringYourOwnIpAddressForThirdParties
 ```
-Please allow at least an hour for the request to be enabled and propagate.  Verify you are registered correctly using the `Get-AzProviderFeature` command.
+Allow at least an hour for the request to be enabled and propagate.  Verify you're registered correctly using the `Get-AzProviderFeature` command.
 
 ## Provisioning steps
 
@@ -127,7 +135,7 @@ New-AzResourceGroup $rg
 
 ### Provision a Custom IP address prefix
 
-The following command creates a custom IP prefix in the specified region and resource group. Specify the exact prefix in CIDR notation as a string to ensure there is no syntax error. For the `-Message` parameter substitute your subscription ID, prefix to be provisioned, and expiration date matching the Validity Date on the ROA. Ensure the format is in that order. 
+The following command creates a custom IP prefix in the specified region and resource group. Specify the exact prefix in CIDR notation as a string to ensure there's no syntax error. For the `-Message` parameter, substitute your subscription ID, prefix to be provisioned, and expiration date matching the Validity Date on the ROA. Ensure the format is in that order. 
 
  ```azurepowershell-interactive
 $prefix =@{
@@ -163,7 +171,7 @@ The **CommissionedState** field should show the range as “Provisioning” init
 > The current estimated time to complete the provisioning process in preview is 4-6 weeks.  
 
 > [!IMPORTANT]
-> After the custom IP prefix is in a "Provisioned" state, a child public IP prefix can be created. These public IP refixes and any public IP addresses can be attached to networking resources. For example, virtual machine network interfaces or load balancer front ends. The IPs won't be advertised and therefore won't be reachable. See [Manage a custom IP prefix](manage-custom-ip-address-prefix.md) for more information on migration of an active prefix.
+> After the custom IP prefix is in a "Provisioned" state, a child public IP prefix can be created. These public IP refixes and any public IP addresses can be attached to networking resources. For example, virtual machine network interfaces or load balancer front ends. The IPs won't be advertised and therefore won't be reachable. For more information on a migration of an active prefix, see [Manage a custom IP prefix](manage-custom-ip-address-prefix.md).
 
 ### Commission the custom IP address prefix
 
@@ -173,7 +181,7 @@ When the custom IP prefix is in “Provisioned” state, the following command u
 Update-AzCustomIpPrefix -ResourceId $myCustomIPPrefix.Id -Commission
 ```
 
-As before, the operation is asynchronous. Utilizing the [Get-AzCustomIpPrefix](/powershell/module/az.network/get-azcustomipprefix) command to get the status can be used again to retrieve the status. The **CommissionedState** field will initially show the prefix as “Commissioning”, followed in the future by “Commissioned”. The advertisement rollout is not binary and the range will be partially advertised while still in "Commissioning".
+As before, the operation is asynchronous. Utilizing the [Get-AzCustomIpPrefix](/powershell/module/az.network/get-azcustomipprefix) command to get the status can be used again to retrieve the status. The **CommissionedState** field will initially show the prefix as “Commissioning”, followed in the future by “Commissioned”. The advertisement rollout isn't binary and the range will be partially advertised while still in "Commissioning".
 
 > [!NOTE]
 > The current estimated time to fully complete the commissioning process is 3-4 hours.
