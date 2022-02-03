@@ -2,6 +2,9 @@ This document describes the steps you need to perform to automatically provision
  
 For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../articles/active-directory/app-provisioning/user-provisioning.md).
 
+>[!IMPORTANT]
+>The default verbosity of the logs is set to `Verbose`. If you are using the SQL connector without Windows Integrated Auth, please set the verbosity to `Error` as described [here](https://docs.microsoft.com/azure/active-directory/app-provisioning/on-premises-ecma-troubleshoot).
+
 ## Prerequisites for provisioning to a SQL Database
 
 ### On-premises prerequisites
