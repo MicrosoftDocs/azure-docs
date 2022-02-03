@@ -15,7 +15,7 @@ ms.date: 02/02/2022
 Within Hyperscale (Citus) servers, there are three types of tables:
 
 * **Distributed Tables** - Distributed across worker nodes (scaled out).
-  Generally large tables should be distributed tables to improve performance.
+  Large tables should be distributed tables to improve performance.
 * **Reference tables** - Replicated to all nodes. Enables joins with
   distributed tables. Typically used for small tables like countries or product
   categories.
@@ -70,7 +70,7 @@ SELECT create_distributed_table('http_request', 'site_id');
 
 [!INCLUDE [azure-postgresql-hyperscale-dist-alert](../../../includes/azure-postgresql-hyperscale-dist-alert.md)]
 
-By default, `create_distributed_table()` splits the table into thirty-two shards.
+By default, `create_distributed_table()` splits the table into 32 shards.
 We can verify using the `citus_shards` view:
 
 ```sql
@@ -111,8 +111,8 @@ SELECT
 FROM generate_series(1, 1000000);
 ```
 
-We can confirm that each shard contains between 3 and 5 MB of data.
-Here's data for the first 5 shards:
+We can confirm that each shard contains between 3 MB and 5 MB of data.
+Here's data for the first five shards:
 
 ```sql
 SELECT shardid, nodename, table_name, pg_size_pretty(shard_size)
@@ -135,7 +135,7 @@ SELECT shardid, nodename, table_name, pg_size_pretty(shard_size)
 The `nodename` column shows the server where the shard is physically placed. If
 you created your server group in the basic tier, all shards are stored together
 on one node, the coordinator.  Otherwise, if the server group is in the
-standard tier, it has multiple worker nodes which store the shards.
+standard tier, it has multiple worker nodes that store the shards.
 
 To see the exact number of rows in each shard, we can use the
 `run_command_on_shards()` utility function:

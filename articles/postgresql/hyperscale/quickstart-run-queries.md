@@ -24,7 +24,7 @@ To follow this quickstart, you'll first need to:
 
 ## Distributed queries
 
-Now it's time for the fun part in our quickstart series -- running queries.
+Now it's time for the fun part in our quickstart series--running queries.
 Let's start with a simple `count (*)` to verify how much data we loaded in
 the previous section.
 
@@ -86,7 +86,7 @@ LIMIT 10;
 
 ## Next steps
 
-This is the end of the quickstart. You have successfully created a scalable
+The quickstart is now complete. You've successfully created a scalable
 Hyperscale (Citus) server group, created a table, sharded it, loaded data,
 and run distributed queries.
 
