@@ -12,7 +12,7 @@ ms.custom: template-how-to, ignite-fall-2021
 
 # Connect to and manage a Power BI tenant in Azure Purview
 
-This article outlines how to register a Power BI tenant, and how to authenticate and interact with the tenant in Azure Purview. For more information about Azure Purview, read the [introductory article](overview.md).
+This article outlines how to register a Power BI tenant, and how to authenticate and interact with the tenant in Azure Purview. For more information about Azure Purview, read the  [introductory article](overview.md).
 
 ## Supported capabilities
 
