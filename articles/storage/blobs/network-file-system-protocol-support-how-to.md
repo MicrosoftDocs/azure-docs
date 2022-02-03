@@ -28,9 +28,9 @@ ms.custom: devx-track-azurepowershell
 
 This article provides guidance on how to mount a container in Blob storage from a Linux-based Azure Virtual Machine (VM) or a Linux system that runs on-premises by using the Network File System (NFS) 3.0 protocol. To learn more about NFS 3.0 protocol support in Blob storage, see [Network File System (NFS) 3.0 protocol support in Azure Blob Storage](network-file-system-protocol-support.md).
 
-## Step 1: Create an Azure Virtual Network 
+## Step 1: Create an Azure virtual network 
 
-Your storage account must be contained within a virtual network. A virtual network enables clients to connect securely to your storage account. To learn more about Azure Virtual Network, and how to create one, see the [Virtual Network documentation](../../virtual-network/index.yml).
+Your storage account must be contained within a virtual network. A virtual network enables clients to connect securely to your storage account. To learn more about Azure Virtual Network, and how to create an instance of a virtual network, see the [Virtual Network documentation](../../virtual-network/index.yml).
 
 > [!NOTE]
 > Clients in the same virtual network can mount containers in your account. You can also mount a container from a client that runs in an on-premises network, but you'll have to first connect your on-premises network to your virtual network. See [Supported network connections](network-file-system-protocol-support.md#supported-network-connections).
@@ -45,7 +45,7 @@ To secure the data in your account, see these recommendations: [Network security
 
 To mount a container by using NFS 3.0, you must create a new storage account. You can't enable existing accounts.
 
-NFS 3.0 protocol is supported for standard general-purpose v2 storage accounts and for premium block blob storage accounts. For more information on these types of storage accounts, see [Storage account overview](../common/storage-account-overview.md).
+The NFS 3.0 protocol is supported for standard general-purpose v2 storage accounts and for premium block blob storage accounts. For more information on these types of storage accounts, see [Storage account overview](../common/storage-account-overview.md).
 
 To configure the account, choose these values:
 
@@ -91,7 +91,7 @@ Create a directory on your Linux system, and then mount the container in the sto
    mkdir -p /mnt/test
    ```
 
-2. Mount the container using the following command:
+2. Mount the container by using the following command:
 
    ```
    mount -o sec=sys,vers=3,nolock,proto=tcp <storage-account-name>.blob.core.windows.net:/<storage-account-name>/<container-name>  /mnt/test
@@ -114,7 +114,7 @@ Create a directory on your Linux system, and then mount the container in the sto
 |`EROFS ("Read-only file system"`) |This error can appear when a client attempts to:<li>Write to a blob or delete a blob that has an active lease.<li>Write to a blob or delete a blob in a container that has an active WORM policy. |
 |`NFS3ERR_IO/EIO ("Input/output error"`) |This error can appear when a client attempts to read, write, or set attributes on blobs that are stored in the archive access tier. |
 |`OperationNotSupportedOnSymLink` error| This error can be returned during a write operation via a blob or Azure Data Lake Storage Gen2 API. Using these APIs to write or delete symbolic links that are created by using NFS 3.0 is not allowed. Make sure to use the NFS 3.0 endpoint to work with symbolic links. |
-|`mount: /mnt/test: bad option;`| Install the NFS helper program using `sudo apt install nfs-common`.|
+|`mount: /mnt/test: bad option;`| Install the NFS helper program by using `sudo apt install nfs-common`.|
 
 ## See also
 
