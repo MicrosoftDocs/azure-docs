@@ -2,7 +2,7 @@
 title: Parameters in templates
 description: Describes how to define parameters in an Azure Resource Manager template (ARM template).
 ms.topic: conceptual
-ms.date: 05/14/2021
+ms.date: 01/19/2022
 ---
 
 # Parameters in ARM templates
@@ -12,6 +12,9 @@ This article describes how to define and use parameters in your Azure Resource M
 Resource Manager resolves parameter values before starting the deployment operations. Wherever the parameter is used in the template, Resource Manager replaces it with the resolved value.
 
 Each parameter must be set to one of the [data types](data-types.md).
+
+> [!TIP]
+> For an improved authoring experience, you can use Bicep rather than JSON to develop templates. For more information about Bicep syntax, see [parameters](../bicep/parameters.md).
 
 ## Minimal declaration
 

@@ -19,12 +19,12 @@ In this article, you’ll learn to implement Secure Hybrid Access (SHA) with sin
 
 Configuring BIG-IP published applications with Azure AD provides many benefits, including:
 
-- Improved Zero trust governance through Azure AD pre-authentication and authorization
+- Improved Zero trust governance through Azure AD pre-authentication and [Conditional Access](/conditional-access/overview)
 
 - Full Single sign-on (SSO) between Azure AD and BIG-IP published
   services.
 
-- Manage identities and access from a single control plane - The [Azure portal](https://azure.microsoft.com/features/azure-portal)
+- Manage identities and access from a single control plane, the [Azure portal](https://azure.microsoft.com/features/azure-portal)
 
 To learn about all of the benefits, see the article on [F5 BIG-IP and Azure AD integration](./f5-aad-integration.md) and [what is application access and single sign-on with Azure AD](/azure/active-directory/active-directory-appssoaccess-whatis).
 
@@ -48,7 +48,7 @@ The secure hybrid access solution for this scenario is made up of:
 - **BIG-IP**: Reverse proxy and SAML service provider (SP) to the application, delegating authentication to the SAML IdP, before
 performing header-based SSO to the backend application.
 
-![Screenshot shows the architecture flow diagram](./media/f5-big-ip-header-advanced/flow-diagram.png)
+![Screenshot shows the architecture flow diagram](./media/f5-big-ip-easy-button-header/sp-initiated-flow.png)
 
 | Step | Description |
 |:-------|:-----------|
@@ -91,20 +91,16 @@ for publishing services over HTTPS or use default certificates while testing
 
 - An existing header-based application or [setup a simple IIS header app](/previous-versions/iis/6.0-sdk/ms525396(v=vs.90)) for testing
 
-## Deployment modes
+## BIG-IP configuration methods
 
-Several methods exist for configuring a BIG-IP for this scenario,
-including two wizard-based options or an advanced configuration.
-
-This tutorial covers the advanced approach, which provides a more flexible way of implementing secure hybrid access by manually creating all BIG-IP configuration objects. You would also use this approach for scenarios not covered by the Guided configuration.
+There are many methods to configure BIG-IP for this scenario, including two template-based options and an advanced configuration. This article covers the advanced approach, which provides a more flexible way of implementing SHA by manually creating all BIG-IP configuration objects. You would also use this approach for scenarios that the guided configuration templates don't cover.
 
 >[!NOTE]
->All example strings or values referenced throughout this article
-should be replaced with those for your actual environment.
+> All example strings or values in this article should be replaced with those for your actual environment.
 
 ## Adding F5 BIG-IP from the Azure AD gallery
 
-Setting up a SAML federation trust between BIG-IP APM and Azure AD is one of the first step in implementing secure hybrid access. It establishes the integration required for BIG-IP to hand off pre-authentication and [conditional
+Setting up a SAML federation trust between BIG-IP APM and Azure AD is one of the first step in implementing SHA. It establishes the integration required for BIG-IP to hand off pre-authentication and [conditional
 access](../conditional-access/overview.md) to Azure AD, before granting access to the published service.
 
 1. Sign-in to the Azure AD portal using an account with application administrative rights.
@@ -396,7 +392,7 @@ If making a change to the app is a no go then consider having the BIG-IP listen 
 
 This last step provides break down of all applied settings before they are committed. Select **Deploy** to commit all settings and verify that the application has appeared in your tenant.
 
-Your application is now published and accessible via Secure Hybrid Access, either directly via its URL or through Microsoft's application portals.
+Your application is now published and accessible via SHA, either directly via its URL or through Microsoft's application portals.
 
 
 ## Next steps
@@ -410,7 +406,7 @@ For increased security, organizations using this pattern could also consider blo
 
 ## Troubleshooting
 
-Failure to access the secure hybrid access protected application could be down to any number of potential factors, including a
+Failure to access the SHA protected application could be down to any number of potential factors, including a
 misconfiguration.
 
 - BIG-IP logs are a great source of information for isolating all sorts of authentication & SSO issues. When troubleshooting you should increase the log verbosity level by heading to **Access Policy** > **Overview** > **Event Logs** > **Settings**. Select the row for your published application then **Edit** > **Access System Logs**. Select **Debug**

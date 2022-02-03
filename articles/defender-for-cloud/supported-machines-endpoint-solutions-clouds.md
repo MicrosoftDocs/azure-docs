@@ -2,7 +2,7 @@
 title: Microsoft Defender for Cloud's features according to OS, machine type, and cloud
 description: Learn about the availability of Microsoft Defender for Cloud features according to OS, machine type, and cloud deployment.
 ms.topic: overview
-ms.date: 12/27/2021
+ms.date: 02/01/2022
 ms.custom: references_regions
 ---
 
@@ -10,13 +10,13 @@ ms.custom: references_regions
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-The two **tabs** below show the features of Microsoft Defender for Cloud that are available for Windows and Linux machines.
+The **tabs** below show the features of Microsoft Defender for Cloud that are available for Windows and Linux machines.
 
 ## Supported features for virtual machines and servers <a name="vm-server-features"></a>
 
 ### [**Windows machines**](#tab/features-windows)
 
-| **Feature**                                                                                                                       | **Azure Virtual Machines**                                                                                      | **Azure Virtual Machine Scale Sets** | **Azure Arc-enabled machines** | **Enhanced security features required** |
+| **Feature**                                                                                                                       | **Azure Virtual Machines**                                                                                      | **Azure Virtual Machine Scale Sets** | **Azure Arc-enabled machines** | **Defender for servers required** |
 |-----------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------:|:------------------------------------:|:------------------------------:|:---------------------------------------:|
 | [Microsoft Defender for Endpoint integration](integration-defender-for-endpoint.md)                                               | ✔</br>(on supported versions)                                                                                  | ✔</br>(on supported versions)        | ✔                             | Yes                                     |
 | [Virtual machine behavioral analytics (and security alerts)](alerts-reference.md)                                                 | ✔                                                                                                              | ✔                                    | ✔                             | Yes                                     |
@@ -40,7 +40,7 @@ The two **tabs** below show the features of Microsoft Defender for Cloud that ar
 
 ### [**Linux machines**](#tab/features-linux)
 
-| **Feature**                                                                                                                       | **Azure Virtual Machines**                                                                                      | **Azure Virtual Machine Scale Sets** | **Azure Arc-enabled machines** | **Enhanced security features required** |
+| **Feature**                                                                                                                       | **Azure Virtual Machines**                                                                                      | **Azure Virtual Machine Scale Sets** | **Azure Arc-enabled machines** | **Defender for servers required** |
 |-----------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------:|:------------------------------------:|:------------------------------:|:---------------------------------------:|
 | [Microsoft Defender for Endpoint integration](integration-defender-for-endpoint.md)                                               | ✔                                                                                                              | -                                    | ✔                             | Yes                                     |
 | [Virtual machine behavioral analytics (and security alerts)](./azure-defender.md)                                                 | ✔</br>(on supported versions)                                                                                  | ✔</br>(on supported versions)        | ✔                             | Yes                                     |
@@ -90,7 +90,7 @@ The two **tabs** below show the features of Microsoft Defender for Cloud that ar
 --- 
 
 > [!TIP]
->To experiment with features that are only available with enhanced security features enabled, you can enroll in a 30-day trial. For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/security-center/).
+>To experiment with features that are only available with enhanced security features enabled, you can enroll in a 30-day trial. For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/).
 
 
 ## Supported endpoint protection solutions <a name="endpoint-supported"></a>

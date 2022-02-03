@@ -65,7 +65,7 @@ You might need to prepare and clean the data in your storage account before load
 
 ### Define the tables
 
-You must first defined the table(s) you are loading to in your dedicated SQL pool when using the COPY statement.
+You must first define the table(s) you are loading to in your dedicated SQL pool when using the COPY statement.
 
 If you are using PolyBase, you need to define external tables in your dedicated SQL pool before loading. PolyBase uses external tables to define and access the data in Azure Storage. An external table is similar to a database view. The external table contains the table schema and points to data that is stored outside the dedicated SQL pool.
 
@@ -110,8 +110,8 @@ Use the following SQL data type mapping when loading Parquet files:
 |                            INT64                             |                DECIMAL                |     decimal      |
 |                            INT64                             |         TIME (MILLIS)                 |       time       |
 |                            INT64                             | TIMESTAMP   (MILLIS)                  |    datetime2     |
-| [Complex   type](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fgithub.com%2Fapache%2Fparquet-format%2Fblob%2Fmaster%2FLogicalTypes.md%23lists&data=02\|01\|kevin%40microsoft.com\|19f74d93f5ca45a6b73c08d7d7f5f111\|72f988bf86f141af91ab2d7cd011db47\|1\|0\|637215323617803168&sdata=6Luk047sK26ijTzfvKMYc%2FNu%2Fz0AlLCX8lKKTI%2F8B5o%3D&reserved=0) |                 LIST                  |   varchar(max)   |
-| [Complex   type](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fgithub.com%2Fapache%2Fparquet-format%2Fblob%2Fmaster%2FLogicalTypes.md%23maps&data=02\|01\|kevin%40microsoft.com\|19f74d93f5ca45a6b73c08d7d7f5f111\|72f988bf86f141af91ab2d7cd011db47\|1\|0\|637215323617803168&sdata=FiThqXxjgmZBVRyigHzfh5V7Z%2BPZHjud2IkUUM43I7o%3D&reserved=0) |                  MAP                  |   varchar(max)   |
+| [Complex   type](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md) |                 LIST                  |   varchar(max)   |
+| [Complex   type](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md |                  MAP                  |   varchar(max)   |
 
 >[!IMPORTANT] 
 >- SQL dedicated pools do not currently support Parquet data types with MICROS and NANOS precision. 

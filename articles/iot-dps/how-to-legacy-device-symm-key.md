@@ -108,7 +108,7 @@ The SDK includes the sample code for the simulated device. This simulated device
 
 3. On **Add Enrollment Group**, enter the following information, and click the **Save** button.
 
-   - **Group name**: Enter **mylegacydevices**.
+   - **Group name**: Enter **mylegacydevices**. The enrollment group name is a case-insensitive string (up to 128 characters long) of alphanumeric characters plus the special characters: `'-'`, `'.'`, `'_'`, `':'`. The last character must be alphanumeric or dash (`'-'`).
 
    - **Attestation Type**: Select **Symmetric Key**.
 
@@ -135,7 +135,7 @@ In this example, we use a combination of a MAC address and serial number forming
 sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6
 ```
 
-Create unique registration IDs for each device. Valid characters are lowercase alphanumeric and dash ('-').
+Create unique registration IDs for each device. The registration ID is a case-insensitive string (up to 128 characters long) of alphanumeric characters plus the special characters: `'-'`, `'.'`, `'_'`, `':'`. The last character must be alphanumeric or dash (`'-'`).
 
 
 ## Derive a device key 

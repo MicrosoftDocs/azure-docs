@@ -114,13 +114,6 @@
     - name: Monitor and tune
       href: tutorial-monitor-and-tune.md
       displayName: monitor, alerts, configure
-  - name: Samples
-    items:
-    - name: Azure CLI
-      href: sample-scripts-azure-cli.md
-    - name: Azure Policy built-ins
-      displayName: samples, policies, definitions
-      href: ./policy-reference.md
   - name: Concepts
     items:
     - name: Servers
@@ -619,15 +612,21 @@
     items:
     - name: Create server group
       items:
-      - name: Basic tier
-        href: hyperscale/quickstart-create-basic-tier.md
-      - name: Standard tier
+      - name: Azure portal
         href: hyperscale/quickstart-create-portal.md
         displayName: portal, create hyperscale
+    - name: Connect
+      items:
+      - name: psql
+        href: hyperscale/quickstart-connect-psql.md
+    - name: Model and load data
+      items:
+      - name: Create and distribute tables
+        href: hyperscale/quickstart-distribute-tables.md
+    - name: Run queries
+      href: hyperscale/quickstart-run-queries.md
   - name: Tutorials
     items:
-      - name: Create a server group
-        href: hyperscale/tutorial-server-group.md
       - name: Model and load data
         items:
         - name: Shard data on worker nodes
@@ -645,8 +644,8 @@
           displayName: hyperscale, tutorial, private
   - name: Concepts
     items:
-    - name: Basic tier
-      href: hyperscale/concepts-tiers.md
+    - name: Server group
+      href: hyperscale/concepts-server-group.md
     - name: Distributed data
       items:
       - name: Nodes and tables
@@ -658,7 +657,7 @@
         href: hyperscale/concepts-choose-distribution-column.md
       - name: Table colocation
         href: hyperscale/concepts-colocation.md
-    - name: Data access and security
+    - name: Security and data access
       items:
       - name: Overview
         href: hyperscale/concepts-security-overview.md
@@ -716,7 +715,7 @@
         href: hyperscale/howto-scale-rebalance.md
       - name: Change compute quotas
         href: hyperscale/howto-compute-quota.md
-    - name: Data access and security
+    - name: Security and data access
       items:
       - name: Public access
         items:
@@ -783,6 +782,24 @@
         href: hyperscale/reference-parameters.md
       - name: System tables
         href: hyperscale/reference-metadata.md
+- name: Samples
+  items:
+  - name: Azure CLI samples
+    items:
+      - name: Samples overview 
+        href: sample-scripts-azure-cli.md
+      - name: Create a server and firewall rule
+        href: ./scripts/sample-create-server-and-firewall-rule.md
+      - name: Create server with vNet rule
+        href: ./scripts/sample-create-server-with-vnet-rule.md
+      - name: Scale a server
+        href: ./scripts/sample-scale-server-up-or-down.md
+      - name: Change server configurations
+        href: ./scripts/sample-change-server-configuration.md
+      - name: Restore a server
+        href: ./scripts/sample-point-in-time-restore.md
+      - name: Manipulate with server logs
+        href: ./scripts/sample-server-logs.md
 - name: Reference
   items:
    - name: Azure CLI

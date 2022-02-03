@@ -11,7 +11,7 @@ ms.reviewer: ylunagaria
 
 ---
 
-# Known issues with SSH File Transfer Protocol (SFTP) support for Azure Blob Storage (preview)
+# Known issues with SSH File Transfer Protocol (SFTP) support in Azure Blob Storage (preview)
 
 This article describes limitations and known issues of SFTP support in Azure Blob Storage.
 
@@ -57,7 +57,7 @@ This article describes limitations and known issues of SFTP support in Azure Blo
 | ecdsa-sha2-nistp384| diffie-hellman-group16-sha512 | aes256-cbc |  | 
 ||| aes192-cbc ||
 
-SFTP support for Azure Blob Storage currently limits its cryptographic algorithm support in accordance to the Microsoft Security Development Lifecycle (SDL). We strongly recommend that customers utilize SDL approved algorithms to securely access their data. More details can be found [here](/security/sdl/cryptographic-recommendations)
+SFTP support in Azure Blob Storage currently limits its cryptographic algorithm support in accordance to the Microsoft Security Development Lifecycle (SDL). We strongly recommend that customers utilize SDL approved algorithms to securely access their data. More details can be found [here](/security/sdl/cryptographic-recommendations)
 
 ## Security
 
@@ -105,7 +105,11 @@ SFTP support for Azure Blob Storage currently limits its cryptographic algorithm
 
 - Symbolic links are not supported.
 
-- PowerShell and Azure CLI and not supported. You can leverage Portal and ARM templates for Public Preview.
+- PowerShell and Azure CLI are not supported. You can leverage Portal and ARM templates for Public Preview.
+
+- `ssh-keyscan` is not supported.
+
+- SSH commands, that are not SFTP, are not supported.
 
 ## Troubleshooting
 

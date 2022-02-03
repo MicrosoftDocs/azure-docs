@@ -22,7 +22,7 @@ Outbound connectivity to the internet can be enabled in the following ways in Az
 | # | Method | Type of port allocation | Production-grade? | Rating |
 | ------------ | ------------ | ------ | ------------ | ------------ |
 | 1 | Using the frontend IP address(es) of a Load Balancer for outbound via Outbound rules | Static, explicit | Yes, but not at scale | OK | 
-| 2 | Associating a NAT gateway to the subnet | Static, explicit | Yes | Best | 
+| 2 | Associating a NAT gateway to the subnet | Dynamic, explicit | Yes | Best | 
 | 3 | Assigning a Public IP to the Virtual Machine | Static, explicit | Yes | OK | 
 | 4 | Using [default outbound access](../virtual-network/ip-services/default-outbound-access.md) | Implicit | No | Worst |
 
@@ -150,3 +150,4 @@ A port is reused for an unlimited number of connections. The port is only reused
 
 *	[Troubleshoot outbound connection failures because of SNAT exhaustion](./troubleshoot-outbound-connection.md)
 *	[Review SNAT metrics](./load-balancer-standard-diagnostics.md#how-do-i-check-my-snat-port-usage-and-allocation) and familiarize yourself with the correct way to filter, split, and view them.
+* Learn how to [migrate your existing outbound connectivity method to NAT gateway](../virtual-network/nat-gateway/tutorial-migrate-outbound-nat.md)

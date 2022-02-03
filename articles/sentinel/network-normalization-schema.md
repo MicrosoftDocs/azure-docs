@@ -28,21 +28,49 @@ The network normalization schema can represent any type of an IP network session
 
 ## Parsers
 
-This section discusses parsers, how to add parsers, and how to filter parser parameters.
+This section discusses parsers, how to add parsers, and how to filter parser parameters. For more information, see [ASIM parsers](normalization-parsers-overview.md) and [Use ASIM parsers](normalization-about-parsers.md).
 
-### Source-agnostic parsers
+### Unifying parsers
 
-To use the source-agnostic parsers that unify all of the out-of-the-box parsers, and ensure that your analysis runs across all the configured sources, use the following KQL functions as the table name in your query:
-
-| Name | Description | Usage instructions |
-| ---- | --- | --- |
-| <a name="imnetworksession"></a>**imNetworkSession** | Aggregative parser that uses *union* to include normalized events from all *network session* sources. |- Update this parser if you want to add or remove sources from source-agnostic analytics. <br><br>- Use this function in your source-agnostic queries.|
-| **ASimNetworkSession** | Similar to the [imNetworkSession](#imnetworksession) function, but without parameter support, so it doesn't force the **Logs** page time picker to use the `custom` value. |- Update these parsers if you want to add or remove sources from source-agnostic analytics.<br><br>- Use this function in your source-agnostic queries if you don't plan to use parameters.|
-| **vimNetworkSession\<vendor\>\<product\>** | Source-specific parsers implement normalization for a specific source. <br><br>Example: `vimNetworkSessionSysmonLinux` |- Add a source-specific parser for a source when there's no out-of-the-box normalizing parser. Update the `im` aggregative parser to include reference to your new parser. <br><br>- Update a source-specific parser to resolve parsing and normalization issues.<br><br>- Use a source-specific parser for source-specific analytics.|
- **ASimNetworkSession\<vendor\>\<product\>>** | Source-specific parsers implement normalization for a specific source. <br><br>Unlike the `vim*` functions, the `ASim*` functions don't support parameters. |- Add a source-specific parser for a source when there's no out-of-the-box normalizing parser. Update the aggregative `ASim` parser to include reference to your new parser.<br><br>- Update a source-specific parser to resolve parsing and normalization issues.<br><br>- Use an `ASim` source-specific parser for interactive queries when not using parameters.|
-| | | |
+To use the unifying parsers that unify all of the out-of-the-box parsers, and ensure that your analysis runs across all the configured sources, use the following KQL functions as the table name in your query. 
 
 Deploy ASIM parsers from the [Microsoft Sentinel GitHub repository](https://aka.ms/DeployASIM).
+
+#### <a name="imnetworksession"></a>imNetworkSession
+
+Aggregative parser that uses *union* to include normalized events from all *network session* sources.
+
+- Update this parser if you want to add or remove sources from source-agnostic analytics. 
+- Use this function in your source-agnostic queries.
+
+#### ASimNetworkSession
+
+Similar to the [imNetworkSession](#imnetworksession) function, but without parameter support, so it doesn't force the **Logs** page time picker to use the `custom` value. 
+
+- Update these parsers if you want to add or remove sources from source-agnostic analytics.
+- Use this function in your source-agnostic queries if you don't plan to use parameters.
+
+#### vimNetworkSession\<vendor\>\<product\>
+
+Source-specific parsers implement normalization for a specific source.
+
+Example: `vimNetworkSessionSysmonLinux`
+
+- Add a source-specific parser for a source when there's no out-of-the-box normalizing parser. Update the `im` aggregative parser to include reference to your new parser.
+- Update a source-specific parser to resolve parsing and normalization issues.
+- Use a source-specific parser for source-specific analytics.
+
+#### ASimNetworkSession\<vendor\>\<product\>
+
+Source-specific parsers implement normalization for a specific source.
+
+Unlike the `vim*` functions, the `ASim*` functions don't support parameters.
+
+- Add a source-specific parser for a source when there's no out-of-the-box normalizing parser. Update the aggregative `ASim` parser to include reference to your new parser.
+- Update a source-specific parser to resolve parsing and normalization issues.
+- Use an `ASim` source-specific parser for interactive queries when not using parameters.
+
+
 
 ### Out-of-the-box, source-specific parsers
 
@@ -50,10 +78,10 @@ Microsoft Sentinel provides the following built-in, product-specific Network Ses
 
 | **Name** | **Description** |
 | --- | --- |
-| **Microsoft 365 Defender for Endpoint** | - Parametrized: vimNetworkSessionMicrosoft365Defender <br> - Regular: ASimNetworkSessionMicrosoft365Defender | 
-| **Microsoft Defender for IoT - Endpoint (MD4IoT)** | - Parametrized: vimNetworkSessionMD4IoT <br> - Regular: ASimNetworkSessionMD4IoT  |
-| **Microsoft Sysmon for Linux** | - Parametrized: vimNetworkSessionSysmonLinux<br> - Regular: ASimNetworkSessionSysmonLinux  |
-| **Windows Events Firewall** | Windows firewall activity as represented by using Windows Events 515x, collected by using either the Log Analytics Agent or the Azure Monitor Agent into either the `Event` table or the `WindowsEvent` table.<br><br> - Parametrized: vimNetworkSessionMicrosoftWindowsEventFirewall <br> -  Regular: ASimNetworkSessionMicrosoftWindowsEventFirewall
+| **Microsoft 365 Defender for Endpoint** | - Parametrized: `vimNetworkSessionMicrosoft365Defender` <br> - Regular: `ASimNetworkSessionMicrosoft365Defender` | 
+| **Microsoft Defender for IoT - Endpoint (MD4IoT)** | - Parametrized: `vimNetworkSessionMD4IoT` <br> - Regular: `ASimNetworkSessionMD4IoT`  |
+| **Microsoft Sysmon for Linux** | - Parametrized: `vimNetworkSessionSysmonLinux`<br> - Regular: `ASimNetworkSessionSysmonLinux`  |
+| **Windows Events Firewall** | Windows firewall activity as represented by using Windows Events 515x, collected by using either the Log Analytics Agent or the Azure Monitor Agent into either the `Event` table or the `WindowsEvent` table.<br><br> - Parametrized: `vimNetworkSessionMicrosoftWindowsEventFirewall` <br> -  Regular: `ASimNetworkSessionMicrosoftWindowsEventFirewall`
 | | |
 
 ### Add your own normalized parsers
@@ -94,13 +122,13 @@ imNetworkSession (hostname_has_any = torProxies)
 
 The Network Session information model is aligned with the [OSSEM Network entity schema](https://github.com/OTRF/OSSEM/blob/master/docs/cdm/entities/network.md).
 
-To conform with industry best practices, the Network Session schema uses the descriptors **Src** and **Dst** to identify the network session source and destination devices, without including the token **Dvc** in the field name.
+To conform with industry best practices, the Network Session schema uses the descriptors `Src` and `Dst` to identify the network session source and destination devices, without including the token `Dvc` in the field name.
 
-So, for example, the source device hostname and IP address are named **SrcHostname** and **SrcIpAddr**, respectively, and not **Src*Dvc*Hostname** and **Src*Dvc*IpAddr**. The prefix **Dvc** is only used for the reporting or intermediary device, as applicable.
+So, for example, the source device hostname and IP address are named `SrcHostname` and `SrcIpAddr`, respectively, and not `Src*Dvc*Hostname` and `Src*Dvc*IpAddr`. The prefix `Dvc` is only used for the reporting or intermediary device, as applicable.
 
-Fields that describe the user and application associated with the source and destination devices also use the **Src** and **Dst** descriptors.
+Fields that describe the user and application associated with the source and destination devices also use the `Src` and `Dst` descriptors.
 
-Other ASIM schemas typically use **Target** instead of **Dst**.
+Other ASIM schemas typically use `Target` instead of `Dst`.
 
 ### Common fields
 
@@ -132,7 +160,7 @@ The following fields are common to all network session activity logging:
 | <a name="dstdomaintype"></a>**DstDomainType** | Recommended | Enumerated | The type of [DstDomain](#dstdomain), if known. Possible values include:<br>- `Windows (contoso\mypc)`<br>- `FQDN (docs.microsoft.com)`<br><br>Required if [DstDomain](#dstdomain) is used. |
 | **DstFQDN** | Optional | String | The destination device hostname, including domain information when available. <br><br>Example: `Contoso\DESKTOP-1282V4D` <br><br>**Note**: This field supports both traditional FQDN format and Windows domain\hostname format. The [DstDomainType](#dstdomaintype) reflects the format used.   |
 | <a name="dstdvcid"></a>**DstDvcId** | Optional | String | The ID of the destination device as reported in the record.<br><br>Example: `ac7e9755-8eae-4ffc-8a02-50ed7a2216c3` |
-| **DstDvcIdType** | Optional | Enumerated | The type of [DstDvcId](#dstdvcid), if known. Possible values include:<br> - `AzureResourceId`<br>- `MDEidIf`<br><br>If multiple IDs are available, use the first one from the preceding list, and store the others in the **DstDvcAzureResourceId** or **DstDvcMDEid** fields, respectively.<br><br>Required if **DstDeviceId** is used.|
+| **DstDvcIdType** | Optional | Enumerated | The type of [DstDvcId](#dstdvcid), if known. Possible values include:<br> - `AzureResourceId`<br>- `MDEid`<br><br>If multiple IDs are available, use the first one from the preceding list, and store the others in the **DstDvcAzureResourceId** or **DstDvcMDEid** fields, respectively.<br><br>Required if **DstDeviceId** is used.|
 | **DstDeviceType** | Optional | Enumerated | The type of the destination device. Possible values include:<br>- `Computer`<br>- `Mobile Device`<br>- `IOT Device`<br>- `Other` |
 | <a name="dstuserid"></a>**DstUserId** | Optional | String | A machine-readable, alphanumeric, unique representation of the destination user. <br><br>Supported formats and types include:<br>- **SID** (Windows): `S-1-5-21-1377283216-344919071-3415362939-500`<br>- **UID** (Linux): `4578`<br>-  **AADID** (Azure Active Directory): `9267d02c-5f76-40a9-a9eb-b686f3ca47aa`<br>-  **OktaId**: `00urjk4znu3BcncfY0h7`<br>-  **AWSId**: `72643944673`<br><br>Store the ID type in the [DstUserIdType](#dstuseridtype) field. If other IDs are available, we recommend that you normalize the field names to **DstUserSid**, **DstUserUid**, **DstUserAADID**, **DstUserOktaId**, and **UserAwsId**, respectively. For more information, see [The User entity](normalization-about-schemas.md#the-user-entity).<br><br>Example: `S-1-12` |
 | <a name="dstuseridtype"></a>**DstUserIdType** | Optional | Enumerated | The type of the ID stored in the [DstUserId](#dstuserid) field. <br><br>Supported values are `SID`, `UIS`, `AADID`, `OktaId`, and `AWSId`. |
@@ -168,7 +196,7 @@ The following fields are common to all network session activity logging:
 | **SrcDvcIdType** | Optional | Enumerated | The type of [SrcDvcId](#srcdvcid), if known. Possible values include:<br> - `AzureResourceId`<br>- `MDEid`<br><br>If multiple IDs are available, use the first one from the preceding list, and store the others in **SrcDvcAzureResourceId** and **SrcDvcMDEid**, respectively.<br><br>**Note**: This field is required if [SrcDvcId](#srcdvcid) is used. |
 | **SrcDeviceType** | Optional | Enumerated | The type of the source device. Possible values include:<br>- `Computer`<br>- `Mobile Device`<br>- `IOT Device`<br>- `Other` |
 | <a name="srcuserid"></a>**SrcUserId** | Optional | String | A machine-readable, alphanumeric, unique representation of the source user. Format and supported types include:<br>-  **SID**  (Windows): `S-1-5-21-1377283216-344919071-3415362939-500`<br>-  **UID**  (Linux): `4578`<br>-  **AADID**  (Azure Active Directory): `9267d02c-5f76-40a9-a9eb-b686f3ca47aa`<br>-  **OktaId**: `00urjk4znu3BcncfY0h7`<br>-  **AWSId**: `72643944673`<br><br>Store the ID type in the [SrcUserIdType](#srcuseridtype) field. If other IDs are available, we recommend that you normalize the field names to **SrcUserSid**, **SrcUserUid**, **SrcUserAadId**, **SrcUserOktaId**, and **UserAwsId**, respectively. For more information, see [The User entity](normalization-about-schemas.md#the-user-entity).<br><br>Example: S-1-12 |
-| <a name="srcuseridtype"></a>**SrcUserIdType** | Optional | Enumerated | The type of the ID stored in the [SrcUserId](#srcuserid) field. Supported values include `SID`, `UIS`, `AADID`, `OktaId`, and `AWSId`. |
+| <a name="srcuseridtype"></a>**SrcUserIdType** | Optional | Enumerated | The type of the ID stored in the [SrcUserId](#srcuserid) field. Supported values include `SID`, `UID`, `AADID`, `OktaId`, and `AWSId`. |
 | <a name="srcusername"></a>**SrcUsername** | Optional | String | The Source username, including domain information when available. Use one of the following formats and in the following order of priority:<br>- **Upn/Email**: `johndow@contoso.com`<br>- **Windows**: `Contoso\johndow`<br>- **DN**: `CN=Jeff Smith,OU=Sales,DC=Fabrikam,DC=COM`<br>- **Simple**: `johndow`. Use the Simple form only if domain information isn't available.<br><br>Store the Username type in the [SrcUsernameType](#srcusernametype) field. If other IDs are available, we recommend that you normalize the field names to **SrcUserUpn**, **SrcUserWindows**, and **SrcUserDn**.<br><br>For more information, see [The User entity](normalization-about-schemas.md#the-user-entity).<br><br>Example: `AlbertE` |
 | <a name="srcusernametype"></a>**SrcUsernameType** | Optional | Enumerated | Specifies the type of the username stored in the [SrcUsername](#srcusername) field. Supported values are `UPN`, `Windows`, `DN`, and `Simple`. For more information, see [The User entity](normalization-about-schemas.md#the-user-entity).<br><br>Example: `Windows` |
 | **SrcUserType** | Optional | Enumerated | The type of Actor. Allowed values are:<br>- `Regular`<br>- `Machine`<br>- `Admin`<br>- `System`<br>- `Application`<br>- `Service Principal`<br>- `Other`<br><br>**Note**: The value might be provided in the source record by using different terms, which should be normalized to these values. Store the original value in the [SrcOriginalUserType](#srcoriginalusertype) field. |
@@ -252,8 +280,9 @@ These are the changes in version 0.2.1 of the schema:
 
 For more information, see:
 
-- [Normalization in Microsoft Sentinel](normalization.md)
-- [Advanced SIEM Information Model schemas](normalization-about-schemas.md)
-- [Advanced SIEM Information Model parsers](normalization-about-parsers.md)
-- [Advanced SIEM Information Model content](normalization-content.md)
+- Watch the [ASIM Webinar](https://www.youtube.com/watch?v=WoGD-JeC7ng) or review the [slides](https://1drv.ms/b/s!AnEPjr8tHcNmjDY1cro08Fk3KUj-?e=murYHG)
+- [Advanced SIEM Information Model (ASIM) overview](normalization.md)
+- [Advanced SIEM Information Model (ASIM) schemas](normalization-about-schemas.md)
+- [Advanced SIEM Information Model (ASIM) parsers](normalization-parsers-overview.md)
+- [Advanced SIEM Information Model (ASIM) content](normalization-content.md)
 

@@ -2,29 +2,29 @@
 author: v-jaswel
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 09/28/2020
+ms.date: 01/08/2022
 ms.author: v-jawe
 ms.custom: references_regions, ignite-fall-2021
 ---
 
-In this quickstart, you learn basic design patterns for Speaker Recognition using the Speech SDK, including:
+In this quickstart, you learn basic design patterns for speaker recognition by using the Speech SDK, including:
 
-* Text-dependent and text-independent verification
-* Speaker identification to identify a voice sample among a group of voices
-* Deleting voice profiles
+* Text-dependent and text-independent verification.
+* Speaker identification to identify a voice sample among a group of voices.
+* Deleting voice profiles.
 
-For a high-level look at Speaker Recognition concepts, see the [overview](../../../speaker-recognition-overview.md) article. See the Reference node on left nav for a list of the supported platforms.
+For a high-level look at speaker recognition concepts, see the [Overview](../../../speaker-recognition-overview.md) article. See the **Reference** node in the left pane for a list of the supported platforms.
 
 ## Prerequisites
 
 This article assumes that you have an Azure account and Speech service subscription. If you don't have an account and subscription, [try the Speech service for free](../../../overview.md#try-the-speech-service-for-free).
 
 > [!IMPORTANT]
-> Microsoft limits access to Speaker Recognition. Apply to use it through the [Azure Cognitive Services Speaker Recognition Limited Access Review](https://aka.ms/azure-speaker-recognition). After approval, you can access the Speaker Recognition APIs. 
+> Microsoft limits access to speaker recognition. Apply to use it through the [Azure Cognitive Services Speaker Recognition Limited Access Review](https://aka.ms/azure-speaker-recognition) form. After approval, you can access the Speaker Recognition APIs.
 
-## Install the Speech SDK
+### Install the Speech SDK
 
-Before you can do anything, you'll need to install the Speech SDK. Depending on your platform, use the following instructions:
+Before you start, you must install the Speech SDK. Depending on your platform, use the following instructions:
 
 * <a href="/azure/cognitive-services/speech-service/quickstarts/setup-platform?pivots=programming-language-csharp&tabs=dotnet" target="_blank">.NET Framework </a>
 * <a href="/azure/cognitive-services/speech-service/quickstarts/setup-platform?pivots=programming-language-csharp&tabs=dotnetcore" target="_blank">.NET Core </a>
@@ -32,9 +32,9 @@ Before you can do anything, you'll need to install the Speech SDK. Depending on 
 * <a href="/azure/cognitive-services/speech-service/quickstarts/setup-platform?pivots=programming-language-csharp&tabs=uwps" target="_blank">UWP </a>
 * <a href="/azure/cognitive-services/speech-service/quickstarts/setup-platform?pivots=programming-language-csharp&tabs=xaml" target="_blank">Xamarin </a>
 
-## Import dependencies
+### Import dependencies
 
-To run the examples in this article, include the following `using` statements at the top of your script.
+To run the examples in this article, include the following `using` statements at the top of your script:
 
 ```csharp
 using System;
@@ -46,7 +46,7 @@ using Microsoft.CognitiveServices.Speech.Audio;
 
 ## Create a speech configuration
 
-To call the Speech service using the Speech SDK, you need to create a [`SpeechConfig`](/dotnet/api/microsoft.cognitiveservices.speech.speechconfig). In this example, you create a [`SpeechConfig`](/dotnet/api/microsoft.cognitiveservices.speech.speechconfig) using a subscription key and region. You also create some basic boilerplate code to use for the rest of this article, which you modify for different customizations.
+To call the Speech service by using the Speech SDK, you need to create a [`SpeechConfig`](/dotnet/api/microsoft.cognitiveservices.speech.speechconfig) instance. In this example, you create a `SpeechConfig` instance by using a subscription key and region. You also create some basic boilerplate code to use for the rest of this article, which you modify for different customizations.
 
 ```csharp
 public class Program 
@@ -64,9 +64,9 @@ public class Program
 
 ## Text-dependent verification
 
-Speaker Verification is the act of confirming that a speaker matches a known, or **enrolled** voice. The first step is to **enroll** a voice profile, so that the service has something to compare future voice samples against. In this example, you enroll the profile using a **text-dependent** strategy, which requires a specific pass-phrase to use for both enrollment and verification. See the [reference docs](/rest/api/speakerrecognition/) for a list of supported pass-phrases.
+Speaker verification is the act of confirming that a speaker matches a known, or *enrolled*, voice. The first step is to enroll a voice profile so that the service has something to compare future voice samples against. In this example, you enroll the profile by using a *text-dependent* strategy, which requires a specific passphrase to use for enrollment and verification. See the [reference docs](/rest/api/speakerrecognition/) for a list of supported passphrases.
 
-Start by creating the following function in your `Program` class to enroll a voice profile.
+Start by creating the following function in your `Program` class to enroll a voice profile:
 
 ```csharp
 public static async Task VerificationEnroll(SpeechConfig config, Dictionary<string, string> profileMapping)
@@ -104,9 +104,9 @@ public static async Task VerificationEnroll(SpeechConfig config, Dictionary<stri
 }
 ```
 
-In this function, `await client.CreateProfileAsync()` is what actually creates the new voice profile. After it is created, you specify how you will input audio samples, using `AudioConfig.FromDefaultMicrophoneInput()` in this example to capture audio from your default input device. Next, you enroll audio samples in a `while` loop that tracks the number of samples remaining, and required, for enrollment. In each iteration, `client.EnrollProfileAsync(profile, audioInput)` will prompt you to speak the pass-phrase into your microphone, and add the sample to the voice profile.
+In this function, `await client.CreateProfileAsync()` is what actually creates the new voice profile. After it's created, you specify how you'll input audio samples by using `AudioConfig.FromDefaultMicrophoneInput()` in this example to capture audio from your default input device. Next, you enroll audio samples in a `while` loop that tracks the number of samples remaining, and that are required, for enrollment. In each iteration, `client.EnrollProfileAsync(profile, audioInput)` prompts you to speak the passphrase into your microphone and adds the sample to the voice profile.
 
-After enrollment is completed, you call `await SpeakerVerify(config, profile, profileMapping)` to verify against the profile you just created. Add another function to define `SpeakerVerify`.
+After enrollment is finished, call `await SpeakerVerify(config, profile, profileMapping)` to verify against the profile you just created. Add another function to define `SpeakerVerify`.
 
 ```csharp
 public static async Task SpeakerVerify(SpeechConfig config, VoiceProfile profile, Dictionary<string, string> profileMapping)
@@ -120,9 +120,9 @@ public static async Task SpeakerVerify(SpeechConfig config, VoiceProfile profile
 }
 ```
 
-In this function, you pass the `VoiceProfile` object you just created to initialize a model to verify against. Next, `await speakerRecognizer.RecognizeOnceAsync(model)` prompts you to speak the pass-phrase again, but this time it will validate it against your voice profile and return a similarity score ranging from 0.0-1.0. The `result` object also returns `Accept` or `Reject`, based on whether or not the pass-phrase matches.
+In this function, you pass the `VoiceProfile` object you just created to initialize a model to verify against. Next, `await speakerRecognizer.RecognizeOnceAsync(model)` prompts you to speak the passphrase again. This time it validates it against your voice profile and returns a similarity score that ranges from 0.0 to 1.0. The `result` object also returns `Accept` or `Reject`, based on whether the passphrase matches.
 
-Next, modify your `Main()` function to call the new functions you created. Additionally, note that you create a `Dictionary<string, string>` to pass by reference through your function calls. The reason for this is that the service does not allow storing a human-readable name with a created `VoiceProfile`, and only stores an ID number for privacy purposes. In the `VerificationEnroll` function, you add to this dictionary an entry with the newly created ID, along with a text name. In application development scenarios where you need to display a human-readable name, **you must store this mapping somewhere, the service cannot store it**.
+Next, modify your `Main()` function to call the new functions you created. Also, note that you create a `Dictionary<string, string>` to pass by reference through your function calls. The reason for this is that the service doesn't allow storing a human-readable name with a created `VoiceProfile`, and it only stores an ID number for privacy purposes. In the `VerificationEnroll` function, you add to this dictionary an entry with the newly created ID, along with a text name. In application development scenarios where you need to display a human-readable name, *you must store this mapping somewhere because the service can't store it*.
 
 ```csharp
 static async Task Main(string[] args)
@@ -139,7 +139,7 @@ static async Task Main(string[] args)
 }
 ```
 
-Run the script, and you are prompted to speak the phrase *My voice is my passport, verify me* three times for enrollment, and one additional time for verification. The result returned is the similarity score, which you can use to create your own custom thresholds for verification.
+Run the script. You're prompted to speak the phrase "My voice is my passport, verify me" three times for enrollment, and one more time for verification. The result returned is the similarity score, which you can use to create your own custom thresholds for verification.
 
 ```shell
 Enrolling profile id 87-2cef-4dff-995b-dcefb64e203f.
@@ -158,11 +158,9 @@ Verified voice profile for speaker Your Name, score is 0.915581
 
 ## Text-independent verification
 
-In contrast to **text-dependent** verification, **text-independent** verification:
+In contrast to *text-dependent* verification, *text-independent* verification doesn't require three audio samples but *does* require 20 seconds of total audio.
 
-* Does not require three audio samples, but *does* require 20-seconds of total audio
-
-Make a couple simple changes to your `VerificationEnroll` function to switch to **text-independent** verification. First, you change the verification type to `VoiceProfileType.TextIndependentVerification`. Next, change the `while` loop to track `result.RemainingEnrollmentsSpeechLength`, which will continue to prompt you to speak until 20 seconds of audio have been captured.
+Make a couple simple changes to your `VerificationEnroll` function to switch to *text-independent* verification. First, you change the verification type to `VoiceProfileType.TextIndependentVerification`. Next, change the `while` loop to track `result.RemainingEnrollmentsSpeechLength`, which will continue to prompt you to speak until 20 seconds of audio have been captured.
 
 ```csharp
 public static async Task VerificationEnroll(SpeechConfig config, Dictionary<string, string> profileMapping)
@@ -200,7 +198,7 @@ public static async Task VerificationEnroll(SpeechConfig config, Dictionary<stri
 }
 ```
 
-Run the program again. Again, the similarity score is returned.
+Run the program again, and the similarity score is returned.
 
 ```shell
 Enrolling profile id 4tt87d4-f2d3-44ae-b5b4-f1a8d4036ee9.
@@ -225,9 +223,9 @@ Verified voice profile for speaker Your Name, score is 0.849409
 
 ## Speaker identification
 
-Speaker Identification is used to determine **who** is speaking from a given group of enrolled voices. The process is very similar to **text-independent verification**, with the main difference being able to verify against multiple voice profiles at once, rather than verifying against a single profile.
+Speaker identification is used to determine *who* is speaking from a given group of enrolled voices. The process is similar to *text-independent verification*. The main difference is the capability to verify against multiple voice profiles at once rather than verifying against a single profile.
 
-Create a function `IdentificationEnroll` to enroll multiple voice profiles. The enrollment process for each profile is the same as the enrollment process for **text-independent verification**, and requires 20 seconds of audio for each profile. This function accepts a list of strings `profileNames`, and will create a new voice profile for each name in the list. The function returns a list of `VoiceProfile` objects, which you use in the next function for identifying a speaker.
+Create a function `IdentificationEnroll` to enroll multiple voice profiles. The enrollment process for each profile is the same as the enrollment process for *text-independent verification*. The process requires 20 seconds of audio for each profile. This function accepts a list of strings `profileNames` and will create a new voice profile for each name in the list. The function returns a list of `VoiceProfile` objects, which you use in the next function for identifying a speaker.
 
 ```csharp
 public static async Task<List<VoiceProfile>> IdentificationEnroll(SpeechConfig config, List<string> profileNames, Dictionary<string, string> profileMapping)
@@ -260,7 +258,7 @@ public static async Task<List<VoiceProfile>> IdentificationEnroll(SpeechConfig c
 }
 ```
 
-Create the following function `SpeakerIdentification` to submit an identification request. The main difference in this function compared to a **speaker verification** request is the use of `SpeakerIdentificationModel.FromProfiles()`, which accepts a list of `VoiceProfile` objects. 
+Create the following function `SpeakerIdentification` to submit an identification request. The main difference in this function compared to a *speaker verification* request is the use of `SpeakerIdentificationModel.FromProfiles()`, which accepts a list of `VoiceProfile` objects.
 
 ```csharp
 public static async Task SpeakerIdentification(SpeechConfig config, List<VoiceProfile> voiceProfiles, Dictionary<string, string> profileMapping) 
@@ -274,7 +272,7 @@ public static async Task SpeakerIdentification(SpeechConfig config, List<VoicePr
 }
 ```
 
-Change your `Main()` function to the following. You create a list of strings `profileNames`, which you pass to your `IdentificationEnroll()` function. This will prompt you to create a new voice profile for each name in this list, so you can add more names to create additional profiles for friends or colleagues.
+Change your `Main()` function to the following. You create a list of strings `profileNames`, which you pass to your `IdentificationEnroll()` function. You're prompted to create a new voice profile for each name in this list, so you can add more names to create more profiles for friends or colleagues.
 
 ```csharp
 static async Task Main(string[] args)
@@ -300,17 +298,17 @@ static async Task Main(string[] args)
 }
 ```
 
-Run the script, and you are prompted to speak to enroll voice samples for the first profile. After the enrollment is completed, you are prompted to repeat this process for each name in the list `profileNames`. After each enrollment is finished, you are prompted to have **anyone** speak, and the service will attempt to identify this person from among your enrolled voice profiles.
+Run the script. You're prompted to speak to enroll voice samples for the first profile. After the enrollment is finished, you're prompted to repeat this process for each name in the `profileNames` list. After each enrollment is finished, you're prompted to have *anyone* speak. The service then attempts to identify this person from among your enrolled voice profiles.
 
-This example returns only the closest match and it's similarity score, but you can get the full response that includes the top five similarity scores by adding `string json = result.Properties.GetProperty(PropertyId.SpeechServiceResponse_JsonResult)` to your `SpeakerIdentification` function.
+This example returns only the closest match and its similarity score. To get the full response that includes the top five similarity scores, add `string json = result.Properties.GetProperty(PropertyId.SpeechServiceResponse_JsonResult)` to your `SpeakerIdentification` function.
 
-## Changing audio input type
+## Change audio input type
 
-The examples in this article use the default device microphone as input for audio samples. However, in scenarios where you need to use audio files instead of microphone input, simply change any instance of `AudioConfig.FromDefaultMicrophoneInput()` to `AudioConfig.FromWavFileInput(path/to/your/file.wav)` to switch to a file input. You can also have mixed inputs, using a microphone for enrollment and files for verification, for example.
+The examples in this article use the default device microphone as input for audio samples. In scenarios where you need to use audio files instead of microphone input, change any instance of `AudioConfig.FromDefaultMicrophoneInput()` to `AudioConfig.FromWavFileInput(path/to/your/file.wav)` to switch to a file input. You can also have mixed inputs by using a microphone for enrollment and files for verification, for example.
 
-## Deleting voice profile enrollments
+## Delete voice profile enrollments
 
-To delete an enrolled profile, use the `DeleteProfileAsync()` function on the `VoiceProfileClient` object. The following example function shows how to delete a voice profile from a known voice profile ID.
+To delete an enrolled profile, use the `DeleteProfileAsync()` function on the `VoiceProfileClient` object. The following example function shows how to delete a voice profile from a known voice profile ID:
 
 ```csharp
 public static async Task DeleteProfile(SpeechConfig config, string profileId) 

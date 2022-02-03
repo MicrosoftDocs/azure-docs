@@ -3,7 +3,7 @@ title: Create custom analytics rules to detect threats with Microsoft Sentinel |
 description: Learn how to create custom analytics rules to detect security threats with Microsoft Sentinel. Take advantage of event grouping, alert grouping, and alert enrichment, and understand AUTO DISABLED.
 author: yelevin
 ms.topic: how-to
-ms.date: 11/09/2021
+ms.date: 01/30/2022
 ms.author: yelevin
 ms.custom: ignite-fall-2021
 ---
@@ -37,7 +37,9 @@ Analytics rules search for specific events or sets of events across your environ
 
 - Provide a unique **Name** and a **Description**.
 
-- In the **Tactics** field, you can choose from among categories of attacks by which to classify the rule. These are based on the tactics of the [MITRE ATT&CK](https://attack.mitre.org/) framework.
+- In the **Tactics and techniques** field, you can choose from among categories of attacks by which to classify the rule. These are based on the tactics and techniques of the [MITRE ATT&CK](https://attack.mitre.org/) framework.
+
+    [Incidents](investigate-cases.md) created from alerts that are detected by rules mapped to MITRE ATT&CK tactics and techniques automatically inherit the rule's mapping.
 
 - Set the alert **Severity** as appropriate.
 
@@ -63,6 +65,12 @@ In the **Set rule logic** tab, you can either write a query directly in the **Ru
     | where ActivityStatus == "Succeeded"
     | make-series dcount(ResourceId)  default=0 on EventSubmissionTimestamp in range(ago(7d), now(), 1d) by Caller
     ```
+
+    > [!IMPORTANT]
+    >
+    > We recommend that your query uses an [Advanced SIEM Information model (ASIM) parser](normalization-about-parsers.md) and not a native table. This will ensure that the query supports any current or future relevant data source rather than a single data source.
+    >
+
 
     > [!NOTE]
     > **Rule query best practices**:

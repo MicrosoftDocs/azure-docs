@@ -8,10 +8,10 @@ ms.subservice: backup-restore
 ms.custom:
 ms.devlang: 
 ms.topic: conceptual
-author: SQLSourabh
-ms.author: sourabha
+author: SudhirRaparla 
+ms.author: nvraparl 
 ms.reviewer: kendralittle, mathoma, danil
-ms.date: 01/07/2021
+ms.date: 01/10/2022
 ---
 # Recover using automated database backups - Azure SQL Database & SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -44,6 +44,9 @@ The recovery time to restore a database by using automated database backups is a
 For a large or very active database, the restore might take several hours. If there is a prolonged outage in a region, it's possible that a high number of geo-restore requests will be initiated for disaster recovery. When there are many requests, the recovery time for individual databases can increase. Most database restores finish in less than 12 hours.
 
 For a single subscription, there are limitations on the number of concurrent restore requests. These limitations apply to any combination of point-in-time restores, geo-restores, and restores from long-term retention backup.
+
+> [!NOTE]
+> Very large restores on Managed Instance lasting for more than 36 hours will be prolonged in case of pending critical system update. In such case current restore operation will be paused, critical system update will be applied, and restore resumed after the update has completed.
 
 | **Deployment option** | **Max # of concurrent requests being processed** | **Max # of concurrent requests being submitted** |
 | :--- | --: | --: |
@@ -138,7 +141,8 @@ For a sample PowerShell script showing how to restore a deleted instance databas
 ## Geo-restore
 
 > [!IMPORTANT]
-> Geo-restore is available only for SQL databases or managed instances configured with geo-redundant [backup storage](automated-backups-overview.md#backup-storage-redundancy).
+> - Geo-restore is available only for SQL databases or managed instances configured with geo-redundant [backup storage](automated-backups-overview.md#backup-storage-redundancy).
+> - Geo-restore can be performed on SQL databases or managed instances residing in the same subscription only.
 
 You can restore a database on any SQL Database server or an instance database on any managed instance in any Azure region from the most recent geo-replicated backups. Geo-restore uses a geo-replicated backup as its source. You can request geo-restore even if the database or datacenter is inaccessible due to an outage.
 

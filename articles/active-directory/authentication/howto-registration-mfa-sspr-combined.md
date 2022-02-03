@@ -31,7 +31,7 @@ To make sure you understand the functionality and effects before you enable the 
 To enable combined registration, complete these steps:
 
 1. Sign in to the Azure portal as a user administrator or global administrator.
-2. Go to **Azure Active Directory** > **User settings** > **Manage user feature preview settings**.
+2. Go to **Azure Active Directory** > **User settings** > **Manage user feature settings**.
 3. Under **Users can use the combined security information registration experience**, choose to enable for a **Selected** group of users or for **All** users.
 
    ![Enable the combined security info experience for users](media/howto-registration-mfa-sspr-combined/enable-the-combined-security-info.png)

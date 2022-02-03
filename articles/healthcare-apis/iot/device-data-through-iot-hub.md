@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: tutorial 
-ms.date: 12/14/2021
+ms.date: 1/20/2022
 ms.author: jasteppe
 ---
 
@@ -23,7 +23,7 @@ This tutorial provides the steps to connect and route device data from IoT Hub t
 
 - An active Azure subscription - [Create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 - FHIR service resource with at least one IoT connector - [Deploy IoT connector using Azure portal](deploy-iot-connector-in-azure.md)
-- Azure IoT Hub resource connected with real or simulated device(s) - [Create an IoT Hub using the Azure portal](/azure/iot-hub/iot-hub-create-through-portal)
+- Azure IoT Hub resource connected with real or simulated device(s) - [Create an IoT Hub using the Azure portal](../../iot-hub/iot-hub-create-through-portal.md)
 
 > [!TIP]
 > If you are using an Azure IoT Hub simulated device application, feel free to pick the application of your choice amongst different supported languages and systems.
@@ -34,17 +34,17 @@ Below is a diagram of the IoT device message flow from IoT Hub into IoT connecto
 
 ##  Create a managed identity for IoT Hub
 
-For this tutorial, we'll be using an IoT Hub with a [user-assigned managed identity](/azure/active-directory/managed-identities-azure-resources/overview).
+For this tutorial, we'll be using an IoT Hub with a [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md) to provide access from the IoT Hub to the IoT connector device message event hub.
 
-The user-assigned managed identity will be used to provide access to your IoT connector device message event hub using [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview). 
+For more information about how to create a system-assigned managed identity with your IoT Hub, see [IoT Hub support for managed identities](../../iot-hub/iot-hub-managed-identity.md#system-assigned-managed-identity). 
 
-Follow these directions to create a user-assigned managed identity with your IoT Hub: [IoT Hub support for managed identities](/azure/iot-hub/iot-hub-managed-identity#user-assigned-managed-identity). 
+For more information on Azure role-based access control, see [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md).
 
 ## Connect IoT Hub with IoT connector
 
 Azure IoT Hub supports a feature called [message routing](../../iot-hub/iot-hub-devguide-messages-d2c.md). Message routing provides the capability to send device data to various Azure services (for example: Event Hubs, Storage Accounts, and Service Buses). IoT connector uses this feature to allow an IoT Hub to connect and send device messages to the IoT connector device message event hub endpoint.
 
-Follow these directions to grant access to the IoT Hub user-assigned managed identity to your IoT connector device message event hub and set up message routing: [Configure message routing with managed identities](/azure/iot-hub/iot-hub-managed-identity#egress-connectivity-from-iot-hub-to-other-azure-resources). 
+Follow these directions to grant access to the IoT Hub user-assigned managed identity to your IoT connector device message event hub and set up message routing: [Configure message routing with managed identities](../../iot-hub/iot-hub-managed-identity.md#egress-connectivity-from-iot-hub-to-other-azure-resources). 
 
 ## Send device message to IoT Hub
 
@@ -70,7 +70,7 @@ This message will get routed to IoT connector, where the message will be transfo
 
 ## View device data in FHIR service
 
-You can view the FHIR Observation resource(s) created by IoT connector on the FHIR service using Postman. For information, see [Access the FHIR service using Postman](./../use-postman.md), and make a `GET` request to `https://your-fhir-server-url/Observation?code=http://loinc.org|8867-4` to view Observation FHIR resources with heart rate value submitted in the above sample message.
+You can view the FHIR Observation resource(s) created by IoT connector on the FHIR service using Postman. For information, see [Access the FHIR service using Postman](./../fhir/use-postman.md), and make a `GET` request to `https://your-fhir-server-url/Observation?code=http://loinc.org|8867-4` to view Observation FHIR resources with heart rate value submitted in the above sample message.
 
 > [!TIP]
 > Ensure that your user has appropriate access to FHIR service data plane. Use [Azure role-based access control (Azure RBAC)](../azure-api-for-fhir/configure-azure-rbac.md) to assign required data plane roles.

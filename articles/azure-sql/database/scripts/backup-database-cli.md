@@ -7,10 +7,10 @@ ms.subservice: backup-restore
 ms.custom: devx-track-azurecli
 ms.devlang: azurecli
 ms.topic: sample
-author: SQLSourabh
-ms.author: sourabha
+author: SudhirRaparla 
+ms.author: nvraparl 
 ms.reviewer: mathoma
-ms.date: 01/05/2022
+ms.date: 01/26/2022 
 ---
 
 # Use CLI to backup an Azure SQL single database to an Azure storage container
@@ -18,6 +18,8 @@ ms.date: 01/05/2022
 [!INCLUDE[appliesto-sqldb](../../includes/appliesto-sqldb.md)]
 
 This Azure CLI example backs up a database in SQL Database to an Azure storage container.  
+
+[!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../../includes/azure-cli-prepare-your-environment.md)]
 

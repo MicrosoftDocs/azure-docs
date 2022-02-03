@@ -73,9 +73,9 @@ For any given indexer run, Azure Cognitive Search determines the best environmen
 
 ## Granting access to indexer IP ranges
 
-If the resource that your indexer pulls data from exists behind a firewall, make sure that the IP ranges in inbound rules include all of the IPs from which an indexer request can originate. As stated above, there are two possible environments in which indexers run and from which access requests can originate. You will need to add the IP addresses of **both** environments for indexer access to work.
+If the resource that your indexer pulls data from exists behind a firewall, you'll need [inbound rules that admit indexer connections](search-indexer-howto-access-ip-restricted.md). Make sure that the IP ranges in inbound rules include all of the IPs from which an indexer request can originate. As stated above, there are two possible environments in which indexers run and from which access requests can originate. You will need to add the IP addresses of **both** environments for indexer access to work.
 
-- To obtain the IP address of the search service specific private environment, use `nslookup` (or `ping`) the fully qualified domain name (FQDN) of your search service. For example, the FQDN of a search service in the public cloud would be `<service-name>.search.windows.net`. This information is available on the Azure portal.
+- To obtain the IP address of the search service private environment, use `nslookup` (or `ping`) the fully qualified domain name (FQDN) of your search service. The FQDN of a search service in the public cloud would be `<service-name>.search.windows.net`.
 
 - To obtain the IP addresses of the multi-tenant environments within which an indexer might run, use the `AzureCognitiveSearch` service tag. [Azure service tags](../virtual-network/service-tags-overview.md) have a published range of IP addresses for each service. You can find these IPs using the [discovery API](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api) or a [downloadable JSON file](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files). In either case, IP ranges are broken down by region. You should specify only those IP ranges assigned to the region in which your search service is provisioned.
 
@@ -84,8 +84,6 @@ For certain data sources, the service tag itself can be used directly instead of
 - [SQL Server on Azure virtual machines](./search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md#restrict-access-to-the-azure-cognitive-search)
 
 - [SQL Managed Instances](./search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md#verify-nsg-rules)
-
-For more information about this connectivity option, see [Indexer connections through an IP firewall](search-indexer-howto-access-ip-restricted.md).
 
 ## Granting access via private endpoints
 
@@ -97,7 +95,7 @@ This functionality is only available in billable search services (Basic and abov
 
 Customers should call the search management operation, [CreateOrUpdate API](/rest/api/searchmanagement/2021-04-01-preview/shared-private-link-resources/create-or-update) on a **shared private link resource**,  in order to create a private endpoint connection to their secure resource (for example, a storage account). Traffic that goes over this (outbound) private endpoint connection will originate only from the virtual network that's in the search service specific "private" indexer execution environment.
 
-Azure Cognitive Search will validate that callers of this API have Azure RBAC permissions to approve private endpoint connection requests to the secure resource. For example, if you request a private endpoint connection to a storage account with read-only permissions, this call will be rejected.
+Azure Cognitive Search will validate that callers of this API have Azure RBAC role permissions to approve private endpoint connection requests to the secure resource. For example, if you request a private endpoint connection to a storage account with read-only permissions, this call will be rejected.
 
 ### Step 2: Approve the private endpoint connection
 

@@ -7,9 +7,10 @@ author: mmacy
 manager: celested
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: quickstart
+ms.topic: portal
 ms.workload: identity
-ms.date: 10/22/2020
+ms.date: 11/22/2021
+ROBOTS: NOINDEX
 ms.author: marsma
 ms.custom: aaddev, "scenarios:getting-started", "languages:js", devx-track-js, mode-api
 #Customer intent: As an application developer, I want to know how to set up authentication in a web application built using Node.js and MSAL Node.
@@ -29,91 +30,22 @@ This quickstart uses the Microsoft Authentication Library for Node.js (MSAL Node
 * [Node.js](https://nodejs.org/en/download/)
 * [Visual Studio Code](https://code.visualstudio.com/download) or another code editor
 
-> [!div renderon="docs"]
-> ## Register and download your quickstart application
->
-> #### Step 1: Register your application
->
-> 1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
-> 1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which you want to register the application.
-> 1. Under **Manage**, select **App registrations** > **New registration**.
-> 1. Enter a **Name** for your application. Users of your app might see this name, and you can change it later.
-> 1. Under **Supported account types**, select **Accounts in any organizational directory and personal Microsoft accounts**.
-> 1. Set the **Redirect URI** value to `http://localhost:3000/redirect`.
-> 1. Select **Register**.
-> 1. On the app **Overview** page, note the **Application (client) ID** value for later use.
-> 1. Under **Manage**, select **Certificates & secrets** > **Client secrets** > **New client secret**.  Leave the description blank and default expiration, and then select **Add**.
-> 1. Note the value of **Client secret** for later use.
+#### Step 1: Configure the application in Azure portal
+For the code sample for this quickstart to work, you need to create a client secret and add the following reply URL: `http://localhost:3000/redirect`.
+> [!div class="nextstepaction"]
+> [Make this change for me]()
 
-> [!div class="sxs-lookup" renderon="portal"]
-> #### Step 1: Configure the application in Azure portal
-> For the code sample for this quickstart to work, you need to create a client secret and add the following reply URL: `http://localhost:3000/redirect`.
-> > [!div renderon="portal" id="makechanges" class="nextstepaction"]
-> > [Make this change for me]()
->
-> > [!div id="appconfigured" class="alert alert-info"]
-> > ![Already configured](media/quickstart-v2-windows-desktop/green-check.png) Your application is configured with these attributes.
+> [!div class="alert alert-info"]
+> ![Already configured](media/quickstart-v2-windows-desktop/green-check.png) Your application is configured with these attributes.
 
 #### Step 2: Download the project
 
-> [!div renderon="docs"]
-> To run the project with a web server by using Node.js, [download the core project files](https://github.com/Azure-Samples/ms-identity-node/archive/main.zip).
+Run the project with a web server by using Node.js.
 
-> [!div renderon="portal" class="sxs-lookup"]
-> Run the project with a web server by using Node.js.
-
-> [!div renderon="portal" class="sxs-lookup" id="autoupdate" class="nextstepaction"]
+> [!div class="nextstepaction"]
 > [Download the code sample](https://github.com/Azure-Samples/ms-identity-node/archive/main.zip)
 
-> [!div renderon="docs"]
-> #### Step 3: Configure your Node app
->
-> Extract the project, open the *ms-identity-node-main* folder, and then open the *index.js* file.
->
-> Set the `clientID` value with the application (client) ID, and then set the `clientSecret` value with the client secret.
->
->```javascript
->const config = {
->    auth: {
->        clientId: "Enter_the_Application_Id_Here",
->        authority: "https://login.microsoftonline.com/common",
->        clientSecret: "Enter_the_Client_Secret_Here"
->    },
->    system: {
->        loggerOptions: {
->            loggerCallback(loglevel, message, containsPii) {
->                console.log(message);
->            },
->            piiLoggingEnabled: false,
->            logLevel: msal.LogLevel.Verbose,
->        }
->    }
->};
-> ```
-
-> [!div renderon="docs"]
->
-> Modify the values in the `config` section:
->
-> - `Enter_the_Application_Id_Here` is the application (client) ID for the application you registered.
->
->    To find the application (client) ID, go to the app registration's **Overview** page in the Azure portal.
-> - `Enter_the_Client_Secret_Here` is the client secret for the application you registered.
->
->    To retrieve or generate a new client secret, under **Manage**, select **Certificates & secrets**.
->
-> The default `authority` value represents the main (global) Azure cloud:
->
-> ```javascript
-> authority: "https://login.microsoftonline.com/common",
-> ```
->
-> [!div class="sxs-lookup" renderon="portal"]
-> #### Step 3: Your app is configured and ready to run
->
-> [!div renderon="docs"]
->
-> #### Step 4: Run the project
+#### Step 3: Your app is configured and ready to run
 
 Run the project by using Node.js.
 

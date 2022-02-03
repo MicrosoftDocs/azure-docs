@@ -6,7 +6,7 @@ ms.date: 01/04/2022
 ms.author: juliako
 ---
 
-# Audio effects detection
+# Audio effects detection (preview)
 
 **Audio effects detection** is one of Azure Video Analyzer for Media AI capabilities. It can detects a various of acoustics events and classify them into different acoustic categories (such as dog barking, crowd reactions, laugher and more).
 

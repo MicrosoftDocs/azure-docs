@@ -21,7 +21,7 @@ The Azure Monitor agent replaces the following legacy agents that are currently 
 In addition to consolidating this functionality into a single agent, the Azure Monitor agent provides the following benefits over the existing agents:
 
 - **Scope of monitoring:** Centrally configure collection for different sets of data from different sets of VMs.
-- **Linux multi-homing:** Send data from Linux VMs to multiple workspaces.
+- **Linux multi-homing:** Send data from Windows and Linux VMs to multiple Log Analytics workspaces (i.e. "multi-homing") and/or other [supported destinations](#data-sources-and-destinations).
 - **Windows event filtering:** Use XPATH queries to filter which Windows events are collected.
 - **Improved extension management:** The Azure Monitor agent uses a new method of handling extensibility that's more transparent and controllable than management packs and Linux plug-ins in the current Log Analytics agents.
 
@@ -29,7 +29,6 @@ In addition to consolidating this functionality into a single agent, the Azure M
 When compared with the existing agents, this new agent doesn't yet have full parity.
 - **Comparison with Log Analytics agents (MMA/OMS):**
 	- Not all Log Analytics solutions are supported today. [View supported features and services](#supported-services-and-features).
-	- No support for Azure Private Links.
 	- No support for collecting file based logs or IIS logs.
 
 - **Comparison with Azure Diagnostics extensions (WAD/LAD):**
@@ -68,20 +67,34 @@ Azure Monitor agent is available in all public regions that support Log Analytic
 ## Supported operating systems
 For a list of the Windows and Linux operating system versions that are currently supported by the Azure Monitor agent, see [Supported operating systems](agents-overview.md#supported-operating-systems).
 
+## Data sources and destinations
+The following table lists the types of data you can currently collect with the Azure Monitor agent by using data collection rules and where you can send that data. For a list of insights, solutions, and other solutions that use the Azure Monitor agent to collect other kinds of data, see [What is monitored by Azure Monitor?](../monitor-reference.md).
+
+The Azure Monitor agent sends data to Azure Monitor Metrics (preview) or a Log Analytics workspace supporting Azure Monitor Logs.
+
+| Data source | Destinations | Description |
+|:---|:---|:---|
+| Performance        | Azure Monitor Metrics (preview)<sup>1</sup> - Insights.virtualmachine namespace<br>Log Analytics workspace - [Perf](/azure/azure-monitor/reference/tables/perf) table | Numerical values measuring performance of different aspects of operating system and workloads |
+| Windows event logs | Log Analytics workspace - [Event](/azure/azure-monitor/reference/tables/Event) table | Information sent to the Windows event logging system |
+| Syslog             | Log Analytics workspace - [Syslog](/azure/azure-monitor/reference/tables/syslog)<sup>2</sup> table | Information sent to the Linux event logging system |
+
+<sup>1</sup> [Click here](../essentials/metrics-custom-overview.md#quotas-and-limits) to review other limitations of using Azure Monitor Metrics. On Linux, using Azure Monitor Metrics as the only destination is supported in v1.10.9.0 or higher. 
+<sup>2</sup> Azure Monitor Linux Agent v1.15.2 or higher supports syslog RFC formats including Cisco Meraki, Cisco ASA, Cisco FTD, Sophos XG, Juniper Networks, Corelight Zeek, CipherTrust, NXLog, McAfee and CEF (Common Event Format).
+
 ## Supported services and features
 The following table shows the current support for the Azure Monitor agent with other Azure services.
 
 | Azure service | Current support | More information |
 |:---|:---|:---|
 | [Microsoft Defender for Cloud](../../security-center/security-center-introduction.md) | Private preview | [Sign-up link](https://aka.ms/AMAgent) |
-| [Microsoft Sentinel](../../sentinel/overview.md) | <ul><li>Windows Forwarding Event (WEF): [Public preview](/azure/sentinel/data-connectors-reference#windows-forwarded-events-preview)</li><li>Windows Security Events: [GA](../../sentinel/connect-windows-security-events.md?tabs=AMA)</li></ul>  | <ul><li>No sign-up needed </li><li>No sign-up needed</li></ul> |
+| [Microsoft Sentinel](../../sentinel/overview.md) | <ul><li>Windows Forwarding Event (WEF): [Public preview](../../sentinel/data-connectors-reference.md#windows-forwarded-events-preview)</li><li>Windows Security Events: [Generally available](../../sentinel/connect-windows-security-events.md?tabs=AMA)</li></ul>  | <ul><li>No sign-up needed </li><li>No sign-up needed</li></ul> |
 
 The following table shows the current support for the Azure Monitor agent with Azure Monitor features.
 
 | Azure Monitor feature | Current support | More information |
 |:---|:---|:---|
 | [VM insights](../vm/vminsights-overview.md) | Private preview  | [Sign-up link](https://aka.ms/amadcr-privatepreviews) |
-| [Connect using private links or AMPLS](../logs/private-link-security.md) | Private preview for AMA | [Sign-up link](https://aka.ms/amadcr-privatepreviews) |
+| [Connect using private links](data-collection-endpoint-overview.md#enable-network-isolation-for-the-azure-monitor-agent) | Public preview | No sign-up needed |
 | [VM insights guest health](../vm/vminsights-health-overview.md) | Public preview | Available only on the new agent |
 | [SQL insights](../insights/sql-insights-overview.md) | Public preview | Available only on the new agent |
 
@@ -102,26 +115,15 @@ As such, ensure you're not collecting the same data from both agents. If you are
 ## Costs
 There's no cost for the Azure Monitor agent, but you might incur charges for the data ingested. For details on Log Analytics data collection and retention and for customer metrics, see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
 
-## Data sources and destinations
-The following table lists the types of data you can currently collect with the Azure Monitor agent by using data collection rules and where you can send that data. For a list of insights, solutions, and other solutions that use the Azure Monitor agent to collect other kinds of data, see [What is monitored by Azure Monitor?](../monitor-reference.md).
-
-The Azure Monitor agent sends data to Azure Monitor Metrics (preview) or a Log Analytics workspace supporting Azure Monitor Logs.
-
-| Data source | Destinations | Description |
-|:---|:---|:---|
-| Performance        | Azure Monitor Metrics (preview)<sup>1</sup><br>Log Analytics workspace | Numerical values measuring performance of different aspects of operating system and workloads |
-| Windows event logs | Log Analytics workspace | Information sent to the Windows event logging system |
-| Syslog             | Log Analytics workspace | Information sent to the Linux event logging system |
-
-<sup>1</sup> [Click here](../essentials/metrics-custom-overview.md#quotas-and-limits) to review other limitations of using Azure Monitor Metrics. On Linux, using Azure Monitor Metrics as the only destination is supported in v.1.10.9.0 or higher. 
 
 ## Security
 The Azure Monitor agent doesn't require any keys but instead requires a [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#system-assigned-managed-identity). You must have a system-assigned managed identity enabled on each virtual machine before you deploy the agent.
 
 ## Networking
-The Azure Monitor agent supports Azure service tags. Both AzureMonitor and AzureResourceManager tags are required. The Azure Monitor agent doesn't yet work with Azure Monitor Private Link Scopes. If the machine connects through a proxy server to communicate over the internet, review the following requirements to understand the network configuration required.
+The Azure Monitor agent supports Azure service tags (both AzureMonitor and AzureResourceManager tags are required). It supports connecting via private links and direct proxies as described below.
 
 ### Proxy configuration
+If the machine connects through a proxy server to communicate over the internet, review requirements below to understand the network configuration required.
 
 The Azure Monitor agent extensions for Windows and Linux can communicate either through a proxy server or a Log Analytics gateway to Azure Monitor by using the HTTPS protocol. Use it for Azure virtual machines, Azure virtual machine scale sets, and Azure Arc for servers. Use the extensions settings for configuration as described in the following steps. Both anonymous and basic authentication by using a username and password are supported.
 
@@ -162,7 +164,10 @@ New-AzConnectedMachineExtension -Name AzureMonitorLinuxAgent -ExtensionType Azur
 
 ---
 
+## Private link configuration
+To configure the agent to use private links for network communications with Azure Monitor, you can use [Azure Monitor Private Links Scopes (AMPLS)](../logs/private-link-security.md) and [data collection endpoints](./data-collection-endpoint-overview.md) to enable required network isolation. [View steps to configure network isolation for the agent](./data-collection-endpoint-overview.md#enable-network-isolation-for-the-azure-monitor-agent)
+
 ## Next steps
 
-- [Install the Azure Monitor agent](azure-monitor-agent-install.md) on Windows and Linux virtual machines.
+- [Install the Azure Monitor agent](azure-monitor-agent-manage.md) on Windows and Linux virtual machines.
 - [Create a data collection rule](data-collection-rule-azure-monitor-agent.md) to collect data from the agent and send it to Azure Monitor.
