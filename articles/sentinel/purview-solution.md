@@ -158,9 +158,6 @@ To drill down in the Azure Purview workbook:
 
 When investigating incidents triggered by the Azure Purview analytics rules, find detailed information on the assets and classifications found in the incident's **Events**.
 
-For example:
-
-
 
 ## Next steps
 
