@@ -69,6 +69,10 @@ items:
     - name: Accepted data tag formats
       href: custom-classification/concepts/data-formats.md
       displayName: Data representation
+  - name: Tutorials
+    items:
+    - name: Enrich a Cognitive Search index 
+      href: custom-classification/tutorials/cognitive-search.md
   - name: Reference
     items:
     - name: Glossary
