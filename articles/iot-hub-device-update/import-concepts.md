@@ -191,5 +191,5 @@ Certain limits are enforced for each Device Update for IoT Hub instance. If you 
 
 ## Next steps
 
-- Try out the [Import How-To guide](./import-update.md), which will walk you through the import process step by step.
+- Try out the [Import How-To guide](./create-update.md), which will walk you through the import process step by step.
 - Review [Import Manifest Schema](./import-schema.md).
