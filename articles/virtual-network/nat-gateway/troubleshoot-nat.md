@@ -107,13 +107,13 @@ Long-lived flows (for example reused TCP connections) should use TCP keepalives 
 
 ### Outbound connectivity not scaled out enough
 
-NAT gateway provides 64,000 SNAT ports to a subnet’s resources for each public IP address attached to it. If the amount of SNAT ports provided by the number of public IP addresses attached to NAT gateway is not enough to make all the outbound connections needed, then NAT gateway outbound connectivity may not be scaled out enough to handle the workload.  
+NAT gateway provides 64,000 SNAT ports to a subnet’s resources for each public IP address attached to it. If the number of SNAT ports provided by the number of public IP addresses attached to NAT gateway is not enough to make all the outbound connections needed, then NAT gateway outbound connectivity may not be scaled out enough to handle the workload.  
 
 The table below describes two common scenarios in which outbound connectivity may not be scaled out enough and how to validate and mitigate these issues: 
 
 | Scenario | Evidence |Mitigation |
 |---|---|---|
-| You're experiencing contention for SNAT ports and SNAT port exhaustion during periods of high usage. | You run the following [metrics](nat-metrics.md) in Azure Monitor: **Total SNAT Connection**: "Sum" aggregation shows high connection volue. "Failed" connection state shows transient or persistent failures over time. **Dropped Packets**: "Sum" aggregation shows packets dropping consistent with high connection volume.  | Determine if you can add more public IP addresses or public IP prefixes. This addition will allow for up to 16 IP addresses in total to your NAT gateway. This addition will provide more inventory for available SNAT ports (64,000 per IP address) and allow you to scale your scenario further.|
+| You're experiencing contention for SNAT ports and SNAT port exhaustion during periods of high usage. | You run the following [metrics](nat-metrics.md) in Azure Monitor: **Total SNAT Connection**: "Sum" aggregation shows high connection volume. "Failed" connection state shows transient or persistent failures over time. **Dropped Packets**: "Sum" aggregation shows packets dropping consistent with high connection volume.  | Determine if you can add more public IP addresses or public IP prefixes. This addition will allow for up to 16 IP addresses in total to your NAT gateway. This addition will provide more inventory for available SNAT ports (64,000 per IP address) and allow you to scale your scenario further.|
 | You've already given 16 IP addresses and still are experiencing SNAT port exhaustion. | Attempt to add more IP addresses fails. Total number of IP addresses from public IP address resources or public IP prefix resources exceeds a total of 16. | Distribute your application environment across multiple subnets and provide a NAT gateway resource for each subnet. |
 
 >[!NOTE]
