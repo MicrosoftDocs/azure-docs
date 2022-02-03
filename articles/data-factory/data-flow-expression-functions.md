@@ -28,8 +28,6 @@ In Data Factory and Synapse pipelines, use the expression language of the mappin
 | [abs](data-flow-expressions-usage.md#abs) | Absolute value of a number.  |
 | [acos](data-flow-expressions-usage.md#acos) | Calculates a cosine inverse value.  |
 | [add](data-flow-expressions-usage.md#add) | Adds a pair of strings or numbers. Adds a date to a number of days. Adds a duration to a timestamp. Appends one array of similar type to another. Same as the + operator.  |
-| [addDays](data-flow-expressions-usage.md#addDays) | Add days to a date or timestamp. Same as the + operator for date.  |
-| [addMonths](data-flow-expressions-usage.md#addMonths) | Add months to a date or timestamp. You can optionally pass a timezone.  |
 | [and](data-flow-expressions-usage.md#and) | Logical AND operator. Same as &&.  |
 | [asin](data-flow-expressions-usage.md#asin) | Calculates an inverse sine value.  |
 | [assertErrorMessages](data-flow-expressions-usage.md#assertErrorMessages) | Returns map of all assert messages. |
@@ -53,13 +51,6 @@ In Data Factory and Synapse pipelines, use the expression language of the mappin
 | [cos](data-flow-expressions-usage.md#cos) | Calculates a cosine value.  |
 | [cosh](data-flow-expressions-usage.md#cosh) | Calculates a hyperbolic cosine of a value.  |
 | [crc32](data-flow-expressions-usage.md#crc32) | Calculates the CRC32 hash of set of column of varying primitive datatypes given a bit length.  The bit length must be of values 0 (256), 224, 256, 384, or 512. It can be used to calculate a fingerprint for a row.  |
-| [currentDate](data-flow-expressions-usage.md#currentDate) | Gets the current date when this job starts to run. You can pass an optional timezone in the form of 'GMT', 'PST', 'UTC', 'America/Cayman'. The local timezone is used as the default. Refer to Java's `SimpleDateFormat` class for available formats. [https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html). |
-| [currentTimestamp](data-flow-expressions-usage.md#currentTimestamp) | Gets the current timestamp when the job starts to run with local time zone.  |
-| [currentUTC](data-flow-expressions-usage.md#currentUTC) | Gets the current timestamp as UTC. If you want your current time to be interpreted in a different timezone than your cluster time zone, you can pass an optional timezone in the form of 'GMT', 'PST', 'UTC', or 'America/Cayman'. It's defaulted to the current timezone. Refer to Java's `SimpleDateFormat` class for available formats. [https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html). To convert the UTC time to a different timezone, use `fromUTC()`.  |
-| [dayOfMonth](data-flow-expressions-usage.md#dayOfMonth) | Gets the day of the month given a date.  |
-| [dayOfWeek](data-flow-expressions-usage.md#dayOfWeek) | Gets the day of the week given a date. 1 - Sunday, 2 - Monday ..., 7 - Saturday.  |
-| [dayOfYear](data-flow-expressions-usage.md#dayOfYear) | Gets the day of the year given a date.  |
-| [days](data-flow-expressions-usage.md#days) | Duration in milliseconds for number of days.  |
 | [degrees](data-flow-expressions-usage.md#degrees) | Converts radians to degrees.  |
 | [divide](data-flow-expressions-usage.md#divide) | Divides pair of numbers. Same as the `/` operator.  |
 | [dropLeft](data-flow-expressions-usage.md#dropLeft) | Removes as many characters from the left of the string. If the drop requested exceeds the length of the string, an empty string is returned.|
@@ -73,14 +64,11 @@ In Data Factory and Synapse pipelines, use the expression language of the mappin
 | [false](data-flow-expressions-usage.md#false) | Always returns a false value. Use the function `syntax(false())` if there's a column named 'false'.  |
 | [floor](data-flow-expressions-usage.md#floor) | Returns the largest integer not greater than the number.  |
 | [fromBase64](data-flow-expressions-usage.md#fromBase64) | Decodes the given base64-encoded string.|
-| [fromUTC](data-flow-expressions-usage.md#fromUTC) | Converts to the timestamp from UTC. You can optionally pass the timezone in the form of 'GMT', 'PST', 'UTC', 'America/Cayman'. It's defaulted to the current timezone. Refer Java's `SimpleDateFormat` class for available formats. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html.  |
 | [greater](data-flow-expressions-usage.md#greater) | Comparison greater operator. Same as > operator.  |
 | [greaterOrEqual](data-flow-expressions-usage.md#greaterOrEqual) | Comparison greater than or equal operator. Same as >= operator.  |
 | [greatest](data-flow-expressions-usage.md#greatest) | Returns the greatest value among the list of values as input skipping null values. Returns null if all inputs are null.  |
 | [hasColumn](data-flow-expressions-usage.md#hasColumn) | Checks for a column value by name in the stream. You can pass an optional stream name as the second argument. Column names known at design time should be addressed just by their name. Computed inputs aren't supported but you can use parameter substitutions.  |
-| [hour](data-flow-expressions-usage.md#hour) | Gets the hour value of a timestamp. You can pass an optional timezone in the form of 'GMT', 'PST', 'UTC', 'America/Cayman'. The local timezone is used as the default. Refer Java's `SimpleDateFormat` class for available formats. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html.  |
 | [hasError](data-flow-expressions-usage.md#hasError) | Checks if the assert with provided ID is marked as error. |
-| [hours](data-flow-expressions-usage.md#hours) | Duration in milliseconds for number of hours.  |
 | [iif](data-flow-expressions-usage.md#iif) | Based on a condition applies one value or the other. If other is unspecified, it's considered NULL. Both the values must be compatible(numeric, string...).  |
 | [iifNull](data-flow-expressions-usage.md#iifNull) | Checks if the first parameter is null. If not null, the first parameter is returned. If null, the second parameter is returned. If three parameters are specified, the behavior is the same as iif(isNull(value1), value2, value3) and the third parameter is returned if the first value isn't null.  |
 | [initCap](data-flow-expressions-usage.md#initCap) | Converts the first letter of every word to uppercase. Words are identified as separated by whitespace.  |
@@ -94,7 +82,6 @@ In Data Factory and Synapse pipelines, use the expression language of the mappin
 | [isUpdate](data-flow-expressions-usage.md#isUpdate) | Checks if the row is marked for update. For transformations taking more than one input stream you can pass the (1-based) index of the stream. The stream index should be either 1 or 2 and the default value is 1.  |
 | [isUpsert](data-flow-expressions-usage.md#isUpsert) | Checks if the row is marked for insert. For transformations taking more than one input stream you can pass the (1-based) index of the stream. The stream index should be either 1 or 2 and the default value is 1.  |
 | [jaroWinkler](data-flow-expressions-usage.md#jaroWinkler) | Gets the JaroWinkler distance between two strings. |
-| [lastDayOfMonth](data-flow-expressions-usage.md#lastDayOfMonth) | Gets the last date of the month given a date.  |
 | [least](data-flow-expressions-usage.md#least) | Comparison lesser than or equal operator. Same as <= operator.  |
 | [left](data-flow-expressions-usage.md#left) | Extracts a substring start at index 1 with number of characters. Same as SUBSTRING(str, 1, n).  |
 | [length](data-flow-expressions-usage.md#length) | Returns the length of the string.  |
@@ -109,14 +96,8 @@ In Data Factory and Synapse pipelines, use the expression language of the mappin
 | [lpad](data-flow-expressions-usage.md#lpad) | Left pads the string by the supplied padding until it is of a certain length. If the string is equal to or greater than the length, then it's trimmed to the length.  |
 | [ltrim](data-flow-expressions-usage.md#ltrim) | Left trims a string of leading characters. If second parameter is unspecified, it trims whitespace. Else it trims any character specified in the second parameter.  |
 | [md5](data-flow-expressions-usage.md#md5) | Calculates the MD5 digest of set of column of varying primitive datatypes and returns a 32-character hex string. It can be used to calculate a fingerprint for a row.  |
-| [millisecond](data-flow-expressions-usage.md#millisecond) | Gets the millisecond value of a date. You can pass an optional timezone in the form of 'GMT', 'PST', 'UTC', 'America/Cayman'. The local timezone is used as the default. Refer Java's `SimpleDateFormat` class for available formats. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html.  |
-| [milliseconds](data-flow-expressions-usage.md#milliseconds) | Duration in milliseconds for number of milliseconds.  |
 | [minus](data-flow-expressions-usage.md#minus) | Subtracts numbers. Subtract number of days from a date. Subtract duration from a timestamp. Subtract two timestamps to get difference in milliseconds. Same as the - operator.  |
-| [minute](data-flow-expressions-usage.md#minute) | Gets the minute value of a timestamp. You can pass an optional timezone in the form of 'GMT', 'PST', 'UTC', 'America/Cayman'. The local timezone is used as the default. Refer Java's `SimpleDateFormat` class for available formats. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html.  |
-| [minutes](data-flow-expressions-usage.md#minutes) | Duration in milliseconds for number of minutes.  |
 | [mod](data-flow-expressions-usage.md#mod) | Modulus of pair of numbers. Same as the % operator.  |
-| [month](data-flow-expressions-usage.md#month) | Gets the month value of a date or timestamp.  |
-| [monthsBetween](data-flow-expressions-usage.md#monthsBetween) | Gets the number of months between two dates. You can round off the calculation. You can pass an optional timezone in the form of 'GMT', 'PST', 'UTC', 'America/Cayman'. The local timezone is used as the default. Refer Java's `SimpleDateFormat` class for available formats. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html.  |
 | [multiply](data-flow-expressions-usage.md#multiply) | Multiplies pair of numbers. Same as the * operator.  |
 | [negate](data-flow-expressions-usage.md#negate) | Negates a number. Turns positive numbers to negative and vice versa.  |
 | [nextSequence](data-flow-expressions-usage.md#nextSequence) | Returns the next unique sequence. The number is consecutive only within a partition and is prefixed by the partitionId.  |
@@ -142,8 +123,6 @@ In Data Factory and Synapse pipelines, use the expression language of the mappin
 | [round](data-flow-expressions-usage.md#round) | Rounds a number given an optional scale and an optional rounding mode. If the scale is omitted, it's defaulted to 0. If the mode is omitted, it's defaulted to ROUND_HALF_UP(5). The values for rounding include|
 | [rpad](data-flow-expressions-usage.md#rpad) | Right pads the string by the supplied padding until it is of a certain length. If the string is equal to or greater than the length, then it's trimmed to the length.  |
 | [rtrim](data-flow-expressions-usage.md#rtrim) | Right trims a string of trailing characters. If second parameter is unspecified, it trims whitespace. Else it trims any character specified in the second parameter.  |
-| [second](data-flow-expressions-usage.md#second) | Gets the second value of a date. You can pass an optional timezone in the form of 'GMT', 'PST', 'UTC', 'America/Cayman'. The local timezone is used as the default. Refer Java's `SimpleDateFormat` class for available formats. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html.  |
-| [seconds](data-flow-expressions-usage.md#seconds) | Duration in milliseconds for number of seconds.  |
 | [sha1](data-flow-expressions-usage.md#sha1) | Calculates the SHA-1 digest of set of column of varying primitive datatypes and returns a 40 character hex string. It can be used to calculate a fingerprint for a row.  |
 | [sha2](data-flow-expressions-usage.md#sha2) | Calculates the SHA-2 digest of set of column of varying primitive datatypes given a bit length, which can only be of values 0(256), 224, 256, 384, 512. It can be used to calculate a fingerprint for a row.  |
 | [sin](data-flow-expressions-usage.md#sin) | Calculates a sine value.  |
@@ -152,8 +131,6 @@ In Data Factory and Synapse pipelines, use the expression language of the mappin
 | [split](data-flow-expressions-usage.md#split) | Splits a string based on a delimiter and returns an array of strings.  |
 | [sqrt](data-flow-expressions-usage.md#sqrt) | Calculates the square root of a number.  |
 | [startsWith](data-flow-expressions-usage.md#startsWith) | Checks if the string starts with the supplied string.  |
-| [subDays](data-flow-expressions-usage.md#subDays) | Subtract days from a date or timestamp. Same as the - operator for date.  |
-| [subMonths](data-flow-expressions-usage.md#subMonths) | Subtract months from a date or timestamp.  |
 | [substring](data-flow-expressions-usage.md#substring) | Extracts a substring of a certain length from a position. Position is 1 based. If the length is omitted, it's defaulted to end of the string.  |
 | [tan](data-flow-expressions-usage.md#tan) | Calculates a tangent value.  |
 | [tanh](data-flow-expressions-usage.md#tanh) | Calculates a hyperbolic tangent value.  |
@@ -164,10 +141,7 @@ In Data Factory and Synapse pipelines, use the expression language of the mappin
 | [unescape](data-flow-expressions-usage.md#unescape) | Unescapes a string according to a format. Literal values for acceptable format are 'json', 'xml', 'ecmascript', 'html', 'java'.|
 | [upper](data-flow-expressions-usage.md#upper) | Uppercases a string.  |
 | [uuid](data-flow-expressions-usage.md#uuid) | Returns the generated UUID.  |
-| [weekOfYear](data-flow-expressions-usage.md#weekOfYear) | Gets the week of the year given a date.  |
-| [weeks](data-flow-expressions-usage.md#weeks) | Duration in milliseconds for number of weeks.  |
 | [xor](data-flow-expressions-usage.md#xor) | Logical XOR operator. Same as ^ operator.  |
-| [year](data-flow-expressions-usage.md#year) | Gets the year value of a date.  |
 |||
 
 ## Next Steps
@@ -176,6 +150,7 @@ In Data Factory and Synapse pipelines, use the expression language of the mappin
 - List of all [array functions](data-flow-array-functions.md).
 - List of all [cached lookup functions](data-flow-cached-lookup-functions.md).
 - List of all [conversion functions](data-flow-conversion-functions.md).
+- List of all [date and time functions](data-flow-date-time-functions.md).
 - List of all [map functions](data-flow-map-functions.md).
 - List of all [metafunctions](data-flow-metafunctions.md).
 - List of all [window functions](data-flow-window-functions.md).

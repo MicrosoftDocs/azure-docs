@@ -59,6 +59,7 @@ Conversion functions are used to convert data and test for data types
 - List of all [aggregate functions](data-flow-aggregate-functions.md).
 - List of all [array functions](data-flow-array-functions.md).
 - List of all [cached lookup functions](data-flow-cached-lookup-functions.md).
+- List of all [date and time functions](data-flow-date-time-functions.md).
 - List of all [expression functions](data-flow-expression-functions.md).
 - List of all [map functions](data-flow-map-functions.md).
 - List of all [metafunctions](data-flow-metafunctions.md).

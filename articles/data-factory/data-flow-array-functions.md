@@ -56,6 +56,7 @@ Array functions perform transformations on data structures that are arrays. Thes
 - List of all [aggregate functions](data-flow-aggregate-functions.md).
 - List of all [cached lookup functions](data-flow-cached-lookup-functions.md).
 - List of all [conversion functions](data-flow-conversion-functions.md).
+- List of all [date and time functions](data-flow-date-time-functions.md).
 - List of all [expression functions](data-flow-expression-functions.md).
 - List of all [map functions](data-flow-map-functions.md).
 - List of all [metafunctions](data-flow-metafunctions.md).

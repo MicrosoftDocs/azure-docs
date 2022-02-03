@@ -23,6 +23,7 @@ The following articles provide details about expressions and functions supported
 - [Array functions](data-flow-array-functions.md)
 - [Cached lookup functions](data-flow-cached-lookup-functions.md)
 - [Conversion functions](data-flow-conversion-functions.md)
+- [Date and time functions](data-flow-date-time-functions.md)
 - [Expression functions](data-flow-expression-functions.md)
 - [Map functions](data-flow-map-functions.md)
 - [Metafunctions](data-flow-metafunctions.md)
