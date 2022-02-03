@@ -26,7 +26,7 @@ Azure Bastion offers support for file transfer between your target VM and local 
 
 This section helps you transfer files between your local Windows computer and your target VM over RDP. Once connected to the target VM, you can transfer files using right-click, then **Copy** and **Paste**.
 
-1. Sign in to your Azure account and select your subscription containing your Bastion resource.
+1. Sign in to your Azure account and select the subscription containing your Bastion resource.
 
     ```azurecli-interactive
     az login
@@ -50,7 +50,7 @@ This section helps you upload files from your local computer to your target VM o
 > File download over SSH is not currently supported.
 >
 
-1. Sign in to your Azure account and select your subscription containing your Bastion resource.
+1. Sign in to your Azure account and select the subscription containing your Bastion resource.
 
     ```azurecli-interactive
     az login
