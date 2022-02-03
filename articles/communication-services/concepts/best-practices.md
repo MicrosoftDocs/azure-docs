@@ -33,7 +33,7 @@ Your application should invoke `call.hangup` when the `onbeforeunload` event is 
 Your application should not connect to calls from multiple browser tabs simultaneously as this can cause undefined behavior due to resource allocation for microphone and camera on the device. Developers are encouraged to always hang up calls when completed in the background before starting a new one.
 
 ### Handle OS muting call when phone call comes in.
-While on an ACS call (for both iOS and Android) if a phone call comes in or Voice assistant is activated, the OS will automatically mute the user's microphone and camera. On Android, the call automatically unmutes and video restarts after the phone call ends. On iOS, it requires user action to "unmute" and "start video" again. You can listen for the notification that the microphone was muted unexpectedly with the quality event of `microphoneMuteUnexpectedly`. Do note in order to be able to rejoin a call properly you will need to used SDK 1.2.3-beta.1 or higher.
+While on an ACS call (for both iOS and Android) if a phone call comes in or Voice assistant is activated, the OS will automatically mute the user's microphone and camera. On Android, the call automatically unmutes and video restarts after the phone call ends. On iOS, it requires user action to "unmute" and "start video" again. You can listen for the notification that the microphone was muted unexpectedly with the quality event of `microphoneMuteUnexpectedly`. Do note in order to be able to rejoin a call properly you will need to use SDK 1.2.3-beta.1 or higher.
 
 ```javascript
 const latestMediaDiagnostic = call.api(SDK.Features.Diagnostics).media.getLatest();
@@ -57,7 +57,7 @@ You can request device permissions using the SDK:
 
 #### Camera being used by another process
 - On Windows Chrome and Windows Edge, if you start/join/accept a call with video on and the camera device is being used by another process other than the browser that the web sdk is running on, then the call will be started with audio only and no video. A cameraStartFailed UFD will be raised because the camera failed to start since it was being used by another process. Same applies to turning video on mid-call. You can turn off the camera in the other process so that that process releases the camera device, and then start video again from the call and video will now turn on for the call and remote participants will start seeing your video. 
-- This is not an issue in MacOS Chrome nor MacOS Safari becuase the OS will let processes/threads share the camera deivce.
+- This is not an issue in MacOS Chrome nor MacOS Safari because the OS will let processes/threads share the camera device.
 - On mobile devices, if a ProcessA requests the camera device and it is being used by ProcessB, then ProcessA will overtake the camera device and ProcessB will stop using the camera device
 - On iOS safari, you cannot have the camera on for multiple call clients within the same tab nor across tabs. When any call client uses the camera, it will overtake the camera from any previous call client that was using it. Previous call client will get a cameraStoppedUnexpectedly UFD.
 
