@@ -41,7 +41,7 @@ If you choose to install and use PowerShell locally, this article requires the A
 
 ## Pre-provisioning steps
 
-In order to utilize the Azure BYOIP feature, you must perform the following steps prior to provisioning of your IP address range:
+In order to utilize the Azure BYOIP feature, you must perform the following steps prior to the provisioning of your IP address range:
 
 ### Requirements and prefix readiness
 
@@ -69,7 +69,7 @@ Execute the following commands in PowerShell with OpenSSL installed.
 
 The following steps show the steps required to prepare sample customer range (1.2.3.0/24) for provisioning.
     
-1. A [self-signed X509 certificate](https://en.wikipedia.org/wiki/Self-signed_certificate) must be created to add to the Whois/RDAP record for the prefix For information on RDAP, see the[ARIN](https://www.arin.net/resources/registry/whois/rdap/), [RIPE](https://www.ripe.net/manage-ips-and-asns/db/registration-data-access-protocol-rdap), and [APNIC](https://www.apnic.net/about-apnic/whois_search/about/rdap/) sites. 
+1. A [self-signed X509 certificate](https://en.wikipedia.org/wiki/Self-signed_certificate) must be created to add to the Whois/RDAP record for the prefix For information on RDAP, see the [ARIN](https://www.arin.net/resources/registry/whois/rdap/), [RIPE](https://www.ripe.net/manage-ips-and-asns/db/registration-data-access-protocol-rdap), and [APNIC](https://www.apnic.net/about-apnic/whois_search/about/rdap/) sites. 
 
     An example utilizing the OpenSSL toolkit is shown below.  The following commands generate an RSA key pair and create an X509 certificate using the key pair that expires in six months:
     
@@ -118,7 +118,7 @@ Allow at least an hour for the request to be enabled and propagate.  Verify you'
 The following steps display the procedure for provisioning a sample customer range (1.2.3.0/24) to the US West region.  
 
 > [!NOTE]
-> No clean up or delete steps are shown on this page, given the nature of the resource.  For information on removing an provisioned custom IP prefix, see [Manage custom IP prefix](manage-custom-ip-address-prefix.md).
+> Clean up or delete steps aren't shown on this page, given the nature of the resource. For information on removing a provisioned custom IP prefix, see [Manage custom IP prefix](manage-custom-ip-address-prefix.md).
 
 ### Create a resource group and specify the prefix and authorization messages
 
@@ -187,7 +187,7 @@ As before, the operation is asynchronous. Utilizing the [Get-AzCustomIpPrefix](/
 > The current estimated time to fully complete the commissioning process is 3-4 hours.
 
 > [!IMPORTANT]
-> As the custom IP prefix transitions to a "Commissioned" state, the range is being advertised with Microsoft from the local Azure region and globally to the Internet by Microsoft's wide area network under Autonomous System Number (ASN) 8075. Advertising this same range to the Internet from for a location other than Microsoft at the same time could potentially create BGP routing instability or traffic loss. For example, a customer on-premises building. Plan any migration of an active range during a maintenance period to avoid impact.
+> As the custom IP prefix transitions to a "Commissioned" state, the range is being advertised with Microsoft from the local Azure region and globally to the Internet by Microsoft's wide area network under Autonomous System Number (ASN) 8075. Advertising this same range to the Internet from a location other than Microsoft at the same time could potentially create BGP routing instability or traffic loss. For example, a customer on-premises building. Plan any migration of an active range during a maintenance period to avoid impact.
 
 <!--Commenting these until all files are in the branch
 ## Next steps
