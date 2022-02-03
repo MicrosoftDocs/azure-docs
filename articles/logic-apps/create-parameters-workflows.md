@@ -3,9 +3,9 @@ title: Create parameters for values in single-tenant workflows
 description: Define parameters for values in workflows that differ across deployment environments for single-tenant Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: azla
+ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 08/09/2021
+ms.date: 02/03/2022
 ---
 
 # Create parameters to use in workflows across environments in single-tenant Azure Logic Apps
