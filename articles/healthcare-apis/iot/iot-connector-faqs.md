@@ -6,22 +6,19 @@ author: msjasteppe
 ms.custom: references_regions
 ms.service: healthcare-apis
 ms.topic: reference
-ms.date: 11/05/2021
+ms.date: 02/03/2022
 ms.author: jasteppe
 ---
 
 # Frequently asked questions about IoT connector
 
-> [!IMPORTANT]
-> Azure Healthcare APIs is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
 Here are some of the frequently asked questions about IoT connector.
 
 ## IoT connector: The basics
 
-### What are the differences between the Azure API for FHIR IoT connector (preview) and the Azure Healthcare APIs IoT connector?
+### What are the differences between the Azure API for FHIR IoT connector and the Azure Healthcare APIs IoT connector?
 
-Azure Healthcare APIs IoT connector is the successor to the Azure API for Fast Healthcare Interoperability Resources (FHIR&#174;) IoT connector (preview). 
+Azure Healthcare APIs IoT connector is the successor to the Azure API for Fast Healthcare Interoperability Resources (FHIR&#174;) IoT connector. 
 
 Several improvements have been introduced including customer-hosted device message ingestion endpoints (for example: an Azure Event Hub), the use of Managed Identities, and Azure Role-Based Access Control (Azure RBAC).
 

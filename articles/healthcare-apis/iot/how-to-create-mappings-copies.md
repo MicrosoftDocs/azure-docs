@@ -6,14 +6,11 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: how-to
-ms.date: 12/10/2021
+ms.date: 02/03/2022
 ms.author: jasteppe
 ---
 
 # How to create copies of Device and FHIR destination mappings
-
-> [!IMPORTANT]
-> Azure Healthcare APIs is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability. 
 
 This article provides steps for creating copies of your IoT connector's Device and Fast Healthcare Interoperability Resources (FHIR&#174;) destination mappings that can be used outside of the Azure portal. These copies can be used for editing, troubleshooting, and archiving.
 

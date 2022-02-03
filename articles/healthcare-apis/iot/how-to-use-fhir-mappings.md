@@ -5,14 +5,11 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 11/22/2021
+ms.date: 02/03/2022
 ms.author: jasteppe
 ---
 
 # How to use the FHIR destination mappings
-
-> [!IMPORTANT]
-> Azure Healthcare APIs is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 This article describes how to configure IoT connector using the Fast Healthcare Interoperability Resources (FHIR&#174;) destination mappings.
 
