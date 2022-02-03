@@ -5,7 +5,7 @@ author: flang-msft
 ms.author: franlanglois
 ms.service: cache
 ms.topic: conceptual
-ms.date: 12/30/2021
+ms.date: 02/02/2022
 
 ---
 
@@ -29,7 +29,7 @@ This section discusses troubleshooting issues caused by conditions on an Azure C
 
 ## High server load
 
-High server load means the Redis server is busy and unable to keep up with requests, leading to timeouts. Check the **Redis Server Load** metric on your cache by selecting **Monitor** from the Resource menu on the left. You can Redis Server Load graph in the working pane.
+High server load means the Redis server is busy and unable to keep up with requests, leading to timeouts. Check the *Server Load* metric on your cache by selecting **Monitoring** from the Resource menu on the left. You see the **Server Load** graph in the working pane under **Insights**. Or, add a metric set to *Server Load* under **Metrics**.
 
 Following are some options to consider for high server load.
 
