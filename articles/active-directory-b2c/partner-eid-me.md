@@ -1,5 +1,5 @@
 ---
-title: Tutorial to configure Azure Active Directory B2C with eID-Me
+title: Configure Azure Active Directory B2C with eID-Me
 titleSuffix: Azure AD B2C
 description: Learn how to integrate Azure AD B2C authentication with eID-Me for identity verification 
 services: active-directory-b2c
@@ -14,7 +14,7 @@ ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 ---
 
-## Tutorial: Configure Bluink's eID-Me with Azure Active Directory B2C for identity verification
+# Configure Bluink's eID-Me with Azure Active Directory B2C for identity verification
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
@@ -22,8 +22,7 @@ zone_pivot_groups: b2c-policy-type
 
 ::: zone-end
 
-In this sample tutorial, we provide guidance on how to integrate Azure Active Directory (AD) B2C authentication with [eID-Me](https://bluink.ca). eID-Me is an identity verification and decentralized digital identity solution for Canadian citizens. With eID-Me, Azure AD B2C tenants can strongly verify the identity of their users, obtain verified identity claims during sign-up and sign-in, and support multi-factor authentication (MFA) and password-free login
-using a secure digital identity. It enables organizations to meet Identity Assurance Level (IAL) 2 and Know Your Customer (KYC) requirements. This solution provides users secure sign-up and sign-in experience while reducing fraud.
+In this sample article, we provide guidance on how to integrate Azure Active Directory (AD) B2C authentication with [eID-Me](https://bluink.ca). eID-Me is an identity verification and decentralized digital identity solution for Canadian citizens. With eID-Me, Azure AD B2C tenants can strongly verify the identity of their users, obtain verified identity claims during sign-up and sign-in, and support multi-factor authentication (MFA) and password-free login using a secure digital identity. It enables organizations to meet Identity Assurance Level (IAL) 2 and Know Your Customer (KYC) requirements. This solution provides users secure sign-up and sign-in experience while reducing fraud.
 
 
 ## Prerequisites
@@ -42,7 +41,7 @@ is linked to your Azure subscription.
 
 ## Scenario description
 
-eID-Me integrates with Azure AD B2C as an OpenID Connect (OIDC) identity provider  enabling tenants to use standard ser flows or implement more complex scenarios via the Identity Experience Framework. The following components comprise the eID-Me solution with Azure AD B2C:
+eID-Me integrates with Azure AD B2C as an OpenID Connect (OIDC) identity provider enabling tenants to use standard user flows or implement more complex scenarios via the Identity Experience Framework. The following components comprise the eID-Me solution with Azure AD B2C:
 
 - **An Azure AD B2C tenant**: Your Azure AD B2C tenant must be configured as a Relying Party in eID-Me. This allows the eID-Me identity provider to trust your Azure AD B2C tenant for sign-up and sign-in user flows and journeys.
 
@@ -52,7 +51,7 @@ eID-Me integrates with Azure AD B2C as an OpenID Connect (OIDC) identity provide
 
 - **Issued eID-Me digital identities**: Before using eID-Me for sign-up or sign-in, users will need to successfully go through the eID-Me identity proofing process. They should have been issued a digital identity to the digital wallet within the app. This process is done from home and usually takes minutes provided the users have valid identity documents.
 
-Once users have an eID-Me digital identity, it can be used for sign-up and sign-in flows for your Azure AD B2C tenant. Verified identity information is requested during sign-up allowing your tenant to make decisions. For sign-in it typically only requests an email address. Both flows invoke a  notification to a user's eID-Me smartphone app and presents a transaction for approval.
+Once users have an eID-Me digital identity, it can be used for sign-up and sign-in flows for your Azure AD B2C tenant. Verified identity information is reque  sted during sign-up allowing your tenant to make decisions. For sign-in it typically only requests an email address. Both flows invoke a notification to a user's eID-Me smartphone app and presents a transaction for approval.
 
 The eID-Me apps also provide strong authentication of the user during any transaction. X509 public key authentication using a private signing key contained within the eID-Me digital identity provides passwordless MFA.
 
@@ -131,9 +130,9 @@ To configure an identity provider, follow these steps:
 
    | Property | Value|
    |:--------------|:---------------|
-   |Name  |Enter Bluinc Passwordless/a name of your choice|
-   |Client ID | Provided by Bluinc |
-   |Client Secret | Provided by Bluinc |
+   |Name  |Enter Bluink Passwordless/a name of your choice|
+   |Client ID | Provided by Bluink |
+   |Client Secret | Provided by Bluink |
    |Scope | OpenID email profile|
    |Response type | Code |
    |Response mode | form post |
@@ -160,7 +159,7 @@ eID-Me is a decentralized digital identity with strong two-factor user authentic
 
 ### Part 5 - Create a user flow policy
 
-You should now see Bluinc as a new OIDC Identity provider listed within your B2C identity providers.  
+You should now see Bluink as a new OIDC Identity provider listed within your B2C identity providers.  
 
 1. In your Azure AD B2C tenant, under **Policies**, select **User flows**.  
 
@@ -170,7 +169,7 @@ You should now see Bluinc as a new OIDC Identity provider listed within your B2C
 
 4. Enter a **Name** for your policy.
 
-5. In the Identity providers section, select your newly created Bluinc Identity provider.  
+5. In the Identity providers section, select your newly created Bluink Identity provider.  
 
 6. Select **None** for Local Accounts to disable email and password-based authentication.
 
@@ -178,7 +177,7 @@ You should now see Bluinc as a new OIDC Identity provider listed within your B2C
 
 8. In the form, enter the Replying URL, such as `https://jwt.ms`.
 
-9. The browser will be redirected to the Bluinc login page. Enter the account name registered during User registration. The user will receive a push notification to their mobile device where the eID-Me application is installed; upon opening the notification, the user will be presented with an authentication challenge
+9. The browser will be redirected to the Bluink login page. Enter the account name registered during User registration. The user will receive a push notification to their mobile device where the eID-Me application is installed; upon opening the notification, the user will be presented with an authentication challenge
 
 10. Once the authentication challenge is accepted, the browser will redirect the user to the replying URL.
 
@@ -186,7 +185,7 @@ You should now see Bluinc as a new OIDC Identity provider listed within your B2C
 
 For additional information, review the following articles:
 
-- [Bluinc and Azure AD B2C integration guide](https://bluink.ca/eid-me/azure-b2c-integration-guide)
+- [Bluink and Azure AD B2C integration guide](https://bluink.ca/eid-me/azure-b2c-integration-guide)
 
 - [Custom policies in Azure AD B2C](./custom-policy-overview.md)
 
@@ -225,11 +224,11 @@ Store the client secret that you previously recorded in your Azure AD B2C tenant
 
 11. Select **Create**.
 
-### Part 3- Configure Bluinc as an Identity provider
+### Part 3- Configure Bluink as an Identity provider
 
-To enable users to sign in using Bluinc decentralized identity, you need to define Bluinc as a claims provider that Azure AD B2C can communicate with through an endpoint. The endpoint provides a set of claims that are used by Azure AD B2C to verify a specific user has authenticated using digital ID available on their device, proving the user’s identity.
+To enable users to sign in using Bluink decentralized identity, you need to define Bluink as a claims provider that Azure AD B2C can communicate with through an endpoint. The endpoint provides a set of claims that are used by Azure AD B2C to verify a specific user has authenticated using digital ID available on their device, proving the user’s identity.
 
-You can define Bluinc as a claims provider by adding it to the **ClaimsProvider** element in the extension file of your policy
+You can define Bluink as a claims provider by adding it to the **ClaimsProvider** element in the extension file of your policy
 
 1. Open the `TrustFrameworksBase.xml`.
 
@@ -745,6 +744,6 @@ For additional information, review the following articles:
 
 - [Get started with custom policies in Azure AD B2C](./tutorial-create-user-flows.md?pivots=b2c-custom-policy)
 
-- [Bluinc and Azure AD B2C integration guide](https://bluink.ca/eid-me/azure-b2c-integration-guide)
+- [Bluink and Azure AD B2C integration guide](https://bluink.ca/eid-me/azure-b2c-integration-guide)
 
 ::: zone-end
