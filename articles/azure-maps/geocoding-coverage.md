@@ -105,7 +105,6 @@ The ability to geocode in a country/region is dependent upon the road data cover
 | Cook Islands                                        |                 |                |              |      ✓     |       ✓        |
 | Fiji                                                |                 |                |      ✓       |      ✓     |       ✓        |
 | French Polynesia                                    |                 |                |       ✓      |      ✓     |       ✓        |
-| French Southern Territories                         |                 |                |              |      ✓     |       ✓        |
 | Heard Island & McDonald Islands                     |                 |                |              |      ✓     |       ✓        |
 | Hong Kong SAR                                       |        ✓        |        ✓      |       ✓      |      ✓     |       ✓        |
 | India                                               |        ✓        |                |       ✓     |      ✓     |       ✓        |
