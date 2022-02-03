@@ -1,7 +1,7 @@
 ---
 title: Control what traffic is monitored
 description: Sensors automatically perform deep packet detection for IT and OT traffic and resolve information about network devices, such as device attributes and network behavior. Several tools are available to control the type of traffic that each sensor detects. 
-ms.date: 11/09/2021
+ms.date: 02/03/2022
 ms.topic: how-to
 ---
 
@@ -79,9 +79,9 @@ In some cases, such as environments that use public ranges as internal ranges, y
 
 11. Select **Save**.
 
-### Importing information 
+### Importing information
 
-To import subnet information, select **Import** and select a CSV file to import. The subnet information is updated with the information that you imported. If you important an empty field, you'll lose your data.
+To import subnet information, select **Import** and select a CSV file to import. The subnet information is updated with the information that you imported. If you import an empty field, you'll lose your data.
 
 ## Detection engines
 
@@ -91,8 +91,6 @@ Self-learning analytics engines eliminate the need for updating signatures or de
 > We recommend that you enable all the security engines.
 
 When an engine detects a deviation, an alert is triggered. You can view and manage alerts from the alert screen or from a partner system.
-
-:::image type="content" source="media/how-to-control-what-traffic-is-monitored/deviation-alert-screen.png" alt-text="Screenshot that shows detection of deviation.":::
 
 The name of the engine that triggered the alert appears under the alert title.
 
@@ -135,9 +133,6 @@ Example scenario:
 
 When you disable a policy engine, information that the engine generates won't be available to the sensor. For example, if you disable the Anomaly engine, you won't receive alerts on network anomalies. If you created a forwarding rule, anomalies that the engine learns won't be sent. To enable or disable a policy engine, select **Enabled** or **Disabled** for the specific engine.
 
-The overall score is displayed in the lower-right corner of the **System Settings** screen. The score indicates the percentage of available protection enabled through the threat protection engines. Each engine is 20 percent of available protection.
-
-:::image type="content" source="media/how-to-control-what-traffic-is-monitored/protection-score-screen.png" alt-text="Screenshot that shows a score.":::
 
 ## Configure DHCP address ranges
 
@@ -157,11 +152,9 @@ The sensor console presents the most current IP address associated with the devi
 
 - The **Device Properties** window indicates if the device was defined as a DHCP device.
 
-To set a DHCP address range:
+**To set a DHCP address range:**
 
-1.  On the side menu, select **DHCP Ranges** from the **System Settings** window.
-
-    :::image type="content" source="media/how-to-control-what-traffic-is-monitored/dhcp-address-range-screen.png" alt-text="Screenshot that shows the selection of DHCP Ranges.":::
+1.  On the side menu, select **System Settings** > **Network monitoring** > **DHCP Ranges**.
 
 2.  Define a new range by setting **From** and **To** values.
 
