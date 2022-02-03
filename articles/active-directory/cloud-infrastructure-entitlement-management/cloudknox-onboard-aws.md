@@ -30,7 +30,7 @@ This article describes how to onboard an Amazon Web Services (AWS) account on Cl
 
 1. On the **Data Collectors** tab, select **AWS**, and then select **Create Configuration**.
 
-1. In **CloudKnox On Boarding - Azure AD OIDC App Creation**, enter the **Azure AD OIDC Azure app name**.
+1. In **CloudKnox On Boarding - Azure AD OIDC App Creation**, enter the **OIDC Azure app name**.
     This app will be used to setup an OIDC connection to your AWS account. OIDC stands for *OpenID Connect*, it is an interoperable authentication protocol based on the OAuth 2.0 family of specifications. The scripts generated will create the app of this specified name in your Azure AD tenant with the right configuration.
 
 1. To create the app registration, copy the script and run it in your Azure command-line app.
@@ -40,7 +40,9 @@ This article describes how to onboard an Amazon Web Services (AWS) account on Cl
 
 1. Open a new browser window and log in to the AWS account where you want to create the OIDC provider.
 
-1. Return to CloudKnox, and in the **CloudKnox On Boarding - AWS OIDC Account Setup & IDP Access** box, enter the **AWS OIDC account ID** where the OIDC provider will be created. You can change the role name to your requirements. 
+1. Return to CloudKnox, and in the **CloudKnox On Boarding - Azure AD OIDC App Creation**, select **Next**.
+
+1. In the **CloudKnox On Boarding - AWS OIDC Account Setup & IDP Access** box, enter the **AWS OIDC account ID** where the OIDC provider will be created. You can change the role name to your requirements. 
 1. Select **Launch Template**. This is a quick link that takes you to the The **AWS CloudFormation create stack** page. 
 
 1. Scroll to the bottom of the page, and in the **Capabilities** box, select **I acknowledge that AWS CloudFormation might create IAM resources with custom names**. Then select **Create stack.**
@@ -73,7 +75,7 @@ This article describes how to onboard an Amazon Web Services (AWS) account on Cl
     
 1. In another browser window and log in to the AWS console of your AWS account used for central logging.
 
-1.  Return to CloudKnox, and in the "**CloudKnox On Boarding - AWS Central Logging Account Details**" select **Launch Template**.
+1.  Return to CloudKnox, and in the "**CloudKnox On Boarding - AWS Central Logging Account Details**" page select **Launch Template**.
 
     The **AWS create stack** page opens, displaying the template.
 
@@ -85,12 +87,15 @@ This article describes how to onboard an Amazon Web Services (AWS) account on Cl
     
 1.  Return to CloudKnox, and in the "**CloudKnox On Boarding - AWS Central Logging Account Details**" select **Next**.
 
-1. In the AWS **Member account role** box, enter a new name. 
-1. In the **Enter your AWS account ID** box, enter your account ID.
+1. In the **CloudKnox On Boarding - AWS Member Account Details** box, enter the **Member Account Role** and the **Member Account Ids**. 
 
-    You can enter up to 10 account IDs. Click the plus icon next to the text box to insert more account IDs. For each of the accounts entered here perform the next 4 steps.
+    You can enter up to 10 account IDs. Click the plus icon next to the text box to insert more account IDs.
+    > [!NOTE]
+    > For each of the accounts entered here perform the next 4 steps.
 
-1. Log into the AWS console of the member account in another browser window. Select **Launch Template**. 
+1. Log into the AWS console of the member account in another browser window. 
+
+1. Return to the **CloudKnox On Boarding - AWS Member Account Details** page, Select **Launch Template**. 
 
     The **AWS CloudFormation create stack** page opens, displaying the template.
 
