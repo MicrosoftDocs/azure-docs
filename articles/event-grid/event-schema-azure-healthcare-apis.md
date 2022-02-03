@@ -19,19 +19,17 @@ These events are triggered when a client creates, updates, or deletes a resource
  |----------|-----------|
  |**FhirResourceCreated** |Triggered when a FHIR resource is created on the FHIR service.|
  |**FhirResourceUpdated** |Triggered when a FHIR resource is updated on the FHIR service.|
- |**FhirResourceDeleted** |Triggered when a FHIR resource is deleted on the FHIR service. Note: Soft delete is the default.|
+ |**FhirResourceDeleted** |Triggered when a FHIR resource is deleted on the FHIR service. Soft delete is the default.|
 
 ## Example event
 When an event is triggered, the Event Grid service sends data about that event to a subscribing endpoint. This section contains an example of what that data would look like for each FHIR resource event.
 
-### FhirResourceCreated event
-
 > [!Note]
-> Events data looks similar to this example except for this change:
+> Events data looks similar to these examples with the `metadataVersion` property set to a value of `1`.
 >
->* The `metadataVersion` key is set to a value of `1`.
->
->For more information, see [Azure Event Grid event schema](/azure/event-grid/event-schema#event-properties)
+>For more information, see [Azure Event Grid event schema event properties](/azure/event-grid/event-schema#event-properties).
+
+### FhirResourceCreated event
 
 ```json
 {
@@ -53,13 +51,6 @@ When an event is triggered, the Event Grid service sends data about that event t
 
 ### FhirResourceUpdated event
 
-> [!Note]
-> Events data looks similar to this example except for this change:
->
->* The `metadataVersion` key is set to a value of `1`.
->
->For more information, see [Azure Event Grid event schema](/azure/event-grid/event-schema#event-properties)
-
 ```json
 {
   "id": "634bd421-8467-f23c-b8cb-f6a31e41c32a",
@@ -79,13 +70,6 @@ When an event is triggered, the Event Grid service sends data about that event t
 ```
 
 ### FhirResourceDelete event
-
-> [!Note]
-> Events data looks similar to this example except for this change:
->
->* The `metadataVersion` key is set to a value of `1`.
->
->For more information, see [Azure Event Grid event schema](/azure/event-grid/event-schema#event-properties)
 
 ```json
 {
