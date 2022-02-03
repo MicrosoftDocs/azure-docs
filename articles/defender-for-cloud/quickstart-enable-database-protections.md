@@ -2,21 +2,22 @@
 title: Enable database protection for your subscription
 description: Learn how to enable Microsoft Defender for Cloud for all of you database types for your entire subscription. 
 ms.topic: quickstart
-ms.date: 02/02/2022
+ms.date: 02/03/2022
 ---
 
 # Quickstart: Microsoft Defender for Cloud database protection
 
 This article explains how to enable Microsoft Defender for Cloud's database (DB) protection for all database types that exist on your subscription.
 
+Workload protections are provided through the Microsoft Defender plans that are specific to the types of resources in your subscriptions.
+
+Microsoft Defender for Cloud database security, allows you to protect your entire database estate, by detecting common attacks, supporting enablement, and threat response for the most popular database types in Azure.
+
 The types of protected databases are: 
 
 - Azure SQL Databases 
-
 - SQL servers on machines 
-
 - Open-source relational databases (OSS RDB) 
-
 - Cosmos DB
 
 Database provides protection to engines, and data types, with different attack surface, and security risks. Security detections are made for the specific attack surface of each DB type.  
@@ -28,7 +29,7 @@ You can enable database protection on your subscription, or exclude specific dat
 ## Prerequisites
 
 - You must have Subscription Owner access
-- 
+- An Azure account. If you do not already have an Azure account, you can [create your Azure free account today](https://azure.microsoft.com/free/).
 
 ## Enable database protection on your subscription
 
@@ -54,9 +55,11 @@ You can enable database protection on your subscription, or exclude specific dat
 
 ## Next steps
 
-In this quickstart article you learned how to enable Microsoft Defender for for Cloud for all database types on your subscription. Next, read more about each of the resource types.
+In this article, you learned how to enable Microsoft Defender for for Cloud for all database types on your subscription. Next, read more about each of the resource types.
 
-- [Microsoft Defender for SQL](defender-for-sql-introduction.md)
+> [!div class="nextstepaction"]
+> [Microsoft Defender for Azure SQL](defender-for-sql-introduction.md)
+
 - [Microsoft Defender for open-source relational databases](defender-for-databases-introduction.md)
 - [Microsoft Defender for Cosmos](concept-defender-for-cosmos.md)
-- [Microsoft Defender for servers](defender-for-servers-introduction.md)
+- [Microsoft Defender for servers](defender-for-sql-usage.md)
