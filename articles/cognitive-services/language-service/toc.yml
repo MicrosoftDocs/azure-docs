@@ -104,7 +104,7 @@ items:
     href: custom-named-entity-recognition/faq.md
   - name: Responsible use of AI
     items: 
-    - name: Transparency note for Custom NER
+    - name: Transparency note for custom NER
       href: /legal/cognitive-services/language-service/cner-transparency-note?context=/azure/cognitive-services/language-service/context/context
       displayName: Transparency note for Custom NER, Custom NER Transparency, Responsible AI, Responsible use of AI
     - name: Integration and responsible use
