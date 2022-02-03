@@ -141,7 +141,7 @@ To disable disaster recovery in supported regions, make sure that **Disaster rec
 
 :::image type="content" source="media/iot-hub-ha-dr/singapore.png" alt-text="Screenshot that shows disaster recovery option for an IoT hub in Singapore region.":::
 
-You can also disable disaster recovery when you create an IoT hub using an [ARM template](/azure/templates/microsoft.devices/iothubs?tabs=bicep#iothubproperties) or [Azure CLI commands](/cli/azure/iot/hub?view=azure-cli-latest).
+You can also disable disaster recovery when you create an IoT hub using an [ARM template](/azure/templates/microsoft.devices/iothubs?tabs=bicep#iothubproperties) or [Azure CLI commands](/cli/azure/iot/hub).
 
 Failover capability will not be available if you disable disaster recovery for an IoT hub.
 
