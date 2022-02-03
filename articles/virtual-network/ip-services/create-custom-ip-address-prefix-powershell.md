@@ -1,5 +1,5 @@
 ---
-title: Create a Custom IP Address Prefix (BYOIP) Preview - Azure PowerShell
+title: Create a custom IP address prefix (BYOIP) Preview - Azure PowerShell
 titleSuffix: Azure Virtual Network
 description: Learn about how to onboard a custom IP address prefix (BYOIP) using Azure PowerShell
 author: asudbring
@@ -11,7 +11,7 @@ ms.author: allensu
 
 ---
 
-# Create a Custom IP Address Prefix (BYOIP) Preview using Azure PowerShell
+# Create a custom IP address prefix (BYOIP) Preview using Azure PowerShell
 
 Use of a custom IP address prefix enables you to bring your own IP ranges to Microsoft and associate it to your Azure subscription. The range would continue to be owned by you, though Microsoft would be permitted to advertise it to the Internet. A custom IP address prefix functions as a regional resource that represents a contiguous block of customer owned IP addresses. 
 
@@ -24,7 +24,7 @@ The steps in this article detail the full process to:
 * Enable the range to be advertised by Microsoft
 
 > [!IMPORTANT]
-> Custom IP Address Prefix (BYOIP) is currently in PREVIEW.
+> Custom IP address prefix (BYOIP) is currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability
 
 ## Prerequisites
@@ -133,7 +133,7 @@ New-AzResourceGroup $rg
 
 ```
 
-### Provision a Custom IP address prefix
+### Provision a custom IP address prefix
 
 The following command creates a custom IP prefix in the specified region and resource group. Specify the exact prefix in CIDR notation as a string to ensure there's no syntax error. For the `-Message` parameter, substitute your subscription ID, prefix to be provisioned, and expiration date matching the Validity Date on the ROA. Ensure the format is in that order. 
 
