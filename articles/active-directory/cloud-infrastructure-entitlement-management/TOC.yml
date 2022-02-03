@@ -61,17 +61,11 @@
     - name: Manage organizational and personal information
       expanded: true
       items:
-      - name: The Account Settings dashboard — Overview
-        href: cloudknox-ui-account-settings.md
-      - name: Set personal information and preferences
+      - name: Set personal and organization information
         href: cloudknox-product-account-settings.md
     - name: View information about identities, resources, and tasks
       expanded: true
       items:
-      - name: The Usage Analytics dashboard — Overview
-        href: cloudknox-ui-usage-analytics.md
-      # - name: The Usage Analytics explorers - Overview
-        # href: cloudknox-usage-analytics-explorers.md
       - name: View information in the Usage analytics dashboard
         href: cloudknox-product-view-information.md
       - name: View analytic information with the Usage Analytics dashboard
@@ -90,8 +84,6 @@
         href: cloudknox-usage-analytics-access-keys.md
       - name: View analytic information about serverless functions
         href: cloudknox-usage-analytics-serverless-functions.md
-      #- name: View roles and identities that can access account information from external accounts
-        #href: cloudknox-product-account-explorer.md
     - name: View information about active and completed activities
       expanded: true
       items:
@@ -128,7 +120,7 @@
     - name: View how users access information
       expanded: true
       items:
-      - name: View how users access information 
+      - name: Use queries to see how users access information 
         href: cloudknox-ui-audit-trail.md
       - name: Create a custom query
         href: cloudknox-howto-create-custom-queries.md
@@ -144,12 +136,18 @@
     - name: Set activity alerts and triggers 
       expanded: true
       items: 
-      - name: The Activity Triggers dashboard — Overview
+      - name: View information about activity triggers
         href: cloudknox-ui-triggers.md
-      - name: Create an alert trigger
+      - name: Create and view an alert
         href: cloudknox-howto-create-alert-trigger.md
-      - name: Create and save product alerts
-        href: cloudknox-product-alerts.md
+      - name: View alerts and alert triggers
+        href: cloudknox-howto-view-alert-trigger.md
+      - name: Create and view rule-based anomalies and anomaly triggers
+        href: cloudknox-product-rule-based-anomalies.md
+      - name: Find outliers in an identity's behavior
+        href: cloudknox-product-statistical-anomalies.md
+      - name: Create and view permission analytics triggers
+        href: cloudknox-product-permission-analytics.md
     - name: Manage rules for authorization systems
       expanded: true
       items:

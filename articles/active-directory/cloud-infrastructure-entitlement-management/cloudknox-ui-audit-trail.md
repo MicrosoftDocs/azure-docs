@@ -1,6 +1,6 @@
 ---
-title: View information on how users access information in an authorization system in Microsoft CloudKnox Permissions Management
-description: How to view how users access information in an authorization system in Microsoft CloudKnox Permissions Management.
+title: Use queries to see how users access information in an authorization system in CloudKnox Permissions Management
+description: How to use queries to see how users access information in an authorization system in CloudKnox Permissions Management.
 services: active-directory
 author: Yvonne-deQ
 manager: karenh444
@@ -8,13 +8,13 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: overview
-ms.date: 01/31/2022
+ms.date: 02/02/2022
 ms.author: v-ydequadros
 ---
 
-# View information on how users access information
+# Use queries to see how users access information
 
-The **Audit trail** dashboard in Microsoft CloudKnox Permissions Management (CloudKnox) provides an overview of queries a CloudKnox user has created to review how users access their authorization systems and accounts. 
+The **Audit trail** dashboard in CloudKnox Permissions Management (CloudKnox) provides an overview of queries a CloudKnox user has created to review how users access their authorization systems and accounts. 
 
 This article provides an overview of the components of the **Audit trail** dashboard.
 
@@ -27,45 +27,40 @@ This article provides an overview of the components of the **Audit trail** dashb
 
 1. The following options display at the top of the **Audit trail** dashboard: 
 
-    - A tab for each existing query — Select the tab to see details about the query.
-    - **New query** tab — Select the tab to create a new query.
-    - **New tab (+)** — Select the tab to add a **New query** tab.
-    - **Saved queries** — Select to view a list of saved queries.
+    - A tab for each existing query. Select the tab to see details about the query.
+    - **New query**: Select the tab to create a new query.
+    - **New tab (+)**: Select the tab to add a **New query** tab.
+    - **Saved queries**: Select to view a list of saved queries.
 
 1. To return to the main page, select **Back to Audit trail**.
 
 
 ## Use a query to view information  
 
-The **New query** tab displays the following options:
+1. In CloudKnox, select the **Audit trail** tab.
+1. The **New query** tab displays the following options:
 
-- **Authorization systems type**— A list of your authorization systems: Amazon Web Services (**AWS**), Microsoft Azure (**Azure**), or Google Cloud Platform (**GCP**).
+    - **Authorization systems type**: A list of your authorization systems: Amazon Web Services (**AWS**), Microsoft Azure (**Azure**), or Google Cloud Platform (**GCP**).
 
-- **Authorization system**— A **List** of accounts and **Folders** in the authorization system.
- 
-    - To display a **List** of accounts and **Folders** that you can include in your query:
+    - **Authorization system**: A **List** of accounts and **Folders** in the authorization system.
 
-    - Select the down arrow to display a **List** of accounts and **Folders** in the authorization system. Then select **Apply**.
+        - To display a **List** of accounts and **Folders** in the authorization system, select the down arrow, and then select **Apply**.
 
-    - Query parameters you can add to a new or existing query.
-
-    - To add or modify the query parameters for your new query:
-
-    - To add an **Audit trail Condition**, select **Conditions** (the eye icon), and then select the conditions you want to add. Then select **Close**.
+1. To add an **Audit trail condition**, select **Conditions** (the eye icon), select the conditions you want to add, and then select **Close**.
     
-    - To edit existing parameters, select **Edit** (the pencil icon).
+1. To edit existing parameters, select **Edit** (the pencil icon).
 
-    - To add the parameter that you created to the query, select **Add**.
+1. To add the parameter that you created to the query, select **Add**.
 
-    - To search for activity data that you can add to the query, select **Search** .
+1. To search for activity data that you can add to the query, select **Search** .
 
-    - To save your query, select **Save**.
+1. To save your query, select **Save**.
 
-    - To save your query under a different name, select **Save As** (the ellipses **(...)** icon).
+1. To save your query under a different name, select **Save As** (the ellipses **(...)** icon).
 
-    - To discard your work and start creating a query again, select **Reset query**.
+1. To discard your work and start creating a query again, select **Reset query**.
 
-    - To delete a query, select the **X** to the right of the query tab.
+1. To delete a query, select the **X** to the right of the query tab.
 
 
 
