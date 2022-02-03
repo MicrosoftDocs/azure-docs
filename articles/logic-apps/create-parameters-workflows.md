@@ -43,7 +43,7 @@ In single-tenant Standard logic app workflows, you can work with environment var
 
 For example, you can use app settings to integrate with Azure Key Vault and [directly reference secure strings](../app-service/app-service-key-vault-references.md), such as connection strings and keys. Similar to ARM templates, where you can define environment variables at deployment time, you can define app settings within your [logic app workflow definition](/azure/templates/microsoft.logic/workflows). You can then capture dynamically generated infrastructure values, such as connection endpoints, storage strings, and more.
 
-However, app settings have size limits and can't be referenced from certain areas in Azure Logic Apps. Parameters offers a wider range of use cases than app settings, such as support for large value sizes and complex objects.
+However, app settings have size limits and can't be referenced from certain areas in Azure Logic Apps. Parameters offer a wider range of use cases than app settings, such as support for large value sizes and complex objects.
 
 For example, if you use Visual Studio Code as your local development tool to run workflows locally, in your logic app project, you can define parameters using the **parameters.json** file. You can then reference any parameter in this parameters file from any workflow in your project's **workflow.json** file or from any connection object in your project's **connections.json** file. The following list describes a couple common use cases:
 
@@ -295,7 +295,7 @@ To add a new setting, follow these steps:
 
 1. When you're ready to create your new *key-value* pair, select **OK**.
 
-   ![Screenshot showing the Azure portal and the configuration pane with the app settings and values for a Standard logic app.](./media/create-parameters-workflows/portal-app-settings-values-standard.png)
+   ![Screenshot showing the Azure portal and the configuration pane with the app settings and values for a Standard logic app.](./media/create-parameters-workflows/app-settings-values-standard.png)
 
 1. When you're done, on the **Configuration** toolbar, select **Save**.
 
