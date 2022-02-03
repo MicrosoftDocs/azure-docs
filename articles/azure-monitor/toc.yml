@@ -97,8 +97,8 @@ items:
       href: essentials/dcr-sample-agent.md
     - name: Custom logs
       href: essentials/dcr-sample-custom-logs.md
-    - name: Default DCR
-      href: essentials/dcr-sample-default.md
+    - name: Workspace transformation
+      href: essentials/dcr-sample-workspace.md
   - name: Azure CLI
     href: cli-samples.md
   - name: Monitor Logs in Azure CLI
@@ -141,8 +141,6 @@ items:
       href: logs/data-ingestion-time.md
   - name: Data collection rules
     href: essentials/data-collection-rule-overview.md
-  - name: Custom logs
-    href: logs/custom-logs-overview.md
   - name: Usage and cost
     items:
     - name: Usage and estimated costs
@@ -375,6 +373,12 @@ items:
               href: logs/api/prefer-options.md
           - name: Errors
             href: logs/api/errors.md
+    - name: Ingestion time transformationa
+      items:
+      - name: Overview
+        href: ingestion-time-transformation.md
+      - name: Tutorial
+        href: tutorial-ingestion-time-transformation.md
     - name: Data export
       items:
       - name: Workspace data export
@@ -1466,7 +1470,7 @@ items:
   - name: Logs
     items:
     - name: Supported tables for transformations
-      href: logs/ingestion-time-transformations-supported tables.md
+      href: logs/ingestion-time-transformations-supported-tables.md
   - name: Platform logs
     items:
     - name: Supported resource log categories
