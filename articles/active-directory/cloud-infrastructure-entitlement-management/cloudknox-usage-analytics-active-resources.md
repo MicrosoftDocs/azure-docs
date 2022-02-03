@@ -50,7 +50,7 @@ The dashboard only lists tasks that are active. The following components make up
 
 The **Active resources** table displays the results of your query.
 
-- **Resource Name**- Provides the name of the task. 
+- **Resource Name**: Provides the name of the task. 
     - To view details about the task, select the down arrow. 
 - **Account**: Provides the name of the account.
 - **Resources type**: The type of resources used, for example, **bucket** or **key**.
