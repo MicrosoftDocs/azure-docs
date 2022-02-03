@@ -1,5 +1,5 @@
 ---
-title: IoT Edge Limitations | Microsoft Docs 
+title: Limits and Restrictions | Microsoft Docs 
 description: Description of the limitations when using IoT Edge.
 author: raisalitch
 ms.author: ralitchf
@@ -9,33 +9,20 @@ ms.service: iot-edge
 services: iot-edge
 ---
 
-# IoT Edge Limitations
+# Limits and Restrictions
 
 [!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
-This article explains the limitations when using IoT Edge.
+This article explains the limits and restrictions when using IoT Edge.
 
-## Device Limitations
+## Limits
 ### Number of children in gateway hierarchy
 IoT Edge gateway hierarchies have a default limit of up to 100 connected child devices. This limit can be changed by setting the **MaxConnectedClients** environment variable in the parent device's edgeHub module.
 
 For more information, see [Create a gateway hierarchy](how-to-connect-downstream-iot-edge-device.md#create-a-gateway-hierarchy).
 
-### Certificates
-IoT Edge certificates have the following limitations:
-* The common name (CN) can't be the same as the "hostname" that will be used in the configuration file on the IoT Edge device.
-* The name used by clients to connect to IoT Edge can't be the same as the common name used in the edge CA certificate.
-
-For more information, see [Certificates for device security](iot-edge-certs.md#production-implications).
-
-### TPM Attestation
-When using TPM attestation with the device provisioning service, you need to use TPM 2.0.
-
-For more information, see [TPM attestation device requirements](how-to-provision-devices-at-scale-linux-tpm.md#device-requirements).
-
-## IoT Service Limitations
 ### Size of desired properties
-IoT Hub enforces the following limitations:
+IoT Hub enforces the following restrictions:
 * An 8-kb size limit on the value of tags.
 * A 32-kb size limit on both the value of `properties/desired` and `properties/reported`.
 
@@ -46,7 +33,25 @@ An IoT Edge device has a limit of five layers of IoT Edge devices linked as chil
 
 For more information, see [Parent and child relationships](iot-edge-as-gateway.md#parent-and-child-relationships).
 
-## Other Limitations
+### Number of modules in a deployment
+IoT Hub has the following restrictions for IoT Edge automatic deployments:
+* 50 modules per deployment
+* 100 deployments (including layered deployments per paid SKU hub)
+* 10 deployments per free SKU hub
+
+## Restrictions
+### Certificates
+IoT Edge certificates have the following restrictions:
+* The common name (CN) can't be the same as the "hostname" that will be used in the configuration file on the IoT Edge device.
+* The name used by clients to connect to IoT Edge can't be the same as the common name used in the edge CA certificate.
+
+For more information, see [Certificates for device security](iot-edge-certs.md#production-implications).
+
+### TPM Attestation
+When using TPM attestation with the device provisioning service, you need to use TPM 2.0.
+
+For more information, see [TPM attestation device requirements](how-to-provision-devices-at-scale-linux-tpm.md#device-requirements).
+
 ### Routing syntax
 IoT Edge and IoT Hub routing syntax is almost identical.
 Supported query syntax:
@@ -60,13 +65,6 @@ Not supported query syntax:
 IoT Hub only supports file upload APIs for device identities, not module identities. Since IoT Edge exclusively uses modules, file upload isn't natively supported in IoT Edge.
 
 For more information on uploading files with IoT Hub, see [Upload files with IoT Hub](../iot-hub/iot-hub-devguide-file-upload.md).
-
-
-### Number of modules in a deployment
-IoT Hub has the following limitations for IoT Edge automatic deployments:
-* 50 modules per deployment
-* 100 deployments (including layered deployments per paid SKU hub)
-* 10 deployments per free SKU hub
 
 ## Next steps
 For more information, see [IoT Hub other limits](../iot-hub/iot-hub-devguide-quotas-throttling.md#other-limits).
