@@ -3,7 +3,7 @@ title: "Azure Arc-enabled data services validation"
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-ms.date: 09/30/2021
+ms.date: 02/05/2022
 ms.topic: conceptual
 author: MikeRayMSFT
 ms.author: mikeray
@@ -30,6 +30,12 @@ To see how all Azure Arc-enabled components are validated, see [Validation progr
 |-----|-----|-----|-----|-----|
 |Cisco Hyperflex on VMware <br/> Cisco IKS ESXi 6.7 U3 |v1.19.5|v1.0.0_2021-07-30|15.0.2148.140| Not validated |
 
+### Docker / Mirantis
+
+|Solution and version | Kubernetes version | Azure Arc-enabled data services version | SQL engine version | PostgreSQL Hyperscale version
+|-----|-----|-----|-----|-----|
+| | | | | |
+
 ### Dell
 
 |Solution and version | Kubernetes version | Azure Arc-enabled data services version | SQL engine version | PostgreSQL Hyperscale version
@@ -39,6 +45,12 @@ To see how all Azure Arc-enabled components are validated, see [Validation progr
 | PowerFlex CSI version 1.4 |1.19.7|v1.0.0_2021-07-30|15.0.2148.140 | Not validated |
 | PowerStore X|1.20.6|v1.0.0_2021-07-30|15.0.2148.140 |postgres 12.3 (Ubuntu 12.3-1) |
 | Powerstore T|1.20.6|v1.0.0_2021-07-30|15.0.2148.140 |postgres 12.3 (Ubuntu 12.3-1)|
+
+### Kubler
+
+|Solution and version | Kubernetes version | Azure Arc-enabled data services version | SQL engine version | PostgreSQL Hyperscale version
+|-----|-----|-----|-----|-----|
+| | | | | |
 
 ### Nutanix
 
@@ -69,6 +81,12 @@ To see how all Azure Arc-enabled components are validated, see [Validation progr
 |Solution and version | Kubernetes version | Azure Arc-enabled data services version | SQL engine version | PostgreSQL Hyperscale version
 |-----|-----|-----|-----|-----|
 | TKGm v1.3.1 | 1.20.5 | v1.0.0_2021-07-30 | 15.0.2148.140|postgres 12.3 (Ubuntu 12.3-1)|
+
+### WindRiver
+
+|Solution and version | Kubernetes version | Azure Arc-enabled data services version | SQL engine version | PostgreSQL Hyperscale version
+|-----|-----|-----|-----|-----|
+| | | | | |
 
 ## Data services validation process
 
