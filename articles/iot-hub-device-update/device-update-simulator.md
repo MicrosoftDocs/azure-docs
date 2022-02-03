@@ -27,6 +27,19 @@ In this tutorial you will learn how to:
 ## Prerequisites
 * If you haven't already done so, create a [Device Update account and instance](create-device-update-account.md), including configuring an IoT Hub.
 
+## Add device to Azure IoT Hub
+
+Once the Device Update agent is running on an IoT device, the device needs to be added to the Azure IoT Hub.  From within Azure IoT Hub, a connection string will be generated for a particular device.
+
+1. From the Azure portal, launch the Device Update IoT Hub.
+2. Create a new device.
+3. On the left-hand side of the page, navigate to 'IoT Devices' > Select "New".
+4. Provide a name for the device under 'Device ID'--Ensure that "Autogenerate keys" is checkbox is selected.
+5. Select 'Save'.
+6. Now, you'll be returned to the 'Devices' page and the device you created should be in the list. Select that device.
+7. In the device view, select the 'Copy' icon next to 'Primary Connection String'.
+8. Paste the copied characters somewhere for later use in the steps below. **This copied string is your device connection string**.
+
 ## Install Device Update agent to test it as a simulator
 
 1. Follow the instructions to [Install the Azure IoT Edge runtime](../iot-edge/how-to-provision-single-device-linux-symmetric.md?view=iotedge-2020-11&preserve-view=true).
@@ -40,20 +53,23 @@ In this tutorial you will learn how to:
    sudo apt-get install deviceupdate-agent deliveryoptimization-plugin-apt 
    ```
    
-1. Enter your IoT device's module (or device, depending on how you [provisioned the device with Device Update](device-update-agent-provisioning.md)) primary connection string in the configuration file by running the command below.
+2. Enter your IoT device's module (or device, depending on how you [provisioned the device with Device Update](device-update-agent-provisioning.md)) primary connection string in the configuration file by running the command below.
 
    ```bash
-   /etc/adu/du-config.json
+   sudo nano /etc/adu/du-config.json
    ```
    
-1. Set up the agent to run as a simulator. Run following command on the IoT device so that the Device Update agent will invoke the simulator handler to process an package update with APT ('microsoft/apt:1')
+3. Set up the agent to run as a simulator. Run following command on the IoT device so that the Device Update agent will invoke the simulator handler to process an package update with APT ('microsoft/apt:1').
 
    ```sh
-   sudo /usr/bin/AducIotAgent --register--content-handler <full path to the handler file> --update-type <update type name>
-   # For example sudo /usr/bin/AducIotAgent --register-content-handler /var/lib/adu/extensions/sources/libmicrosoft_simulator_1.so --update-type 'microsoft/apt:1'
+   sudo /usr/bin/AducIotAgent --register-content-handler /var/lib/adu/extensions/sources/libmicrosoft_simulator_1.so --update-type 'microsoft/apt:1'
    ```
+   
+   To register and invoke the simulator handler the command must follow the below format:
+   
+   sudo /usr/bin/AducIotAgent --register--content-handler <full path to the handler file> --update-type <update type name>
 
-2. Download the sample-du-simulator-data.json from [Release Assets](https://github.com/Azure/iot-hub-device-update/releases). Run the command below to create and edit the du-simulator-data.json in the tmp folder. 
+4. Download the sample-du-simulator-data.json from [Release Assets](https://github.com/Azure/iot-hub-device-update/releases). Run the command below to create and edit the du-simulator-data.json in the tmp folder. 
 
    ```sh
    sudo nano /tmp/du-simulator-data.json
@@ -70,7 +86,7 @@ In this tutorial you will learn how to:
     sudo chmod 1777/tmp
    ```  
    
-1. Restart the Device Update agent by running the command below.
+5. Restart the Device Update agent by running the command below.
 
    ```bash
     sudo systemctl restart adu-agent
@@ -88,42 +104,6 @@ Read the license terms prior to using the agent. Your installation and use const
 # sudo /usr/bin/AducIotAgent --register-content-handler /var/lib/adu/extensions/sources/libmicrosoft_apt_1.so --update-type 'microsoft/a pt:1'
 ```
 
-## Add device to Azure IoT Hub
-
-Once the Device Update agent is running on an IoT device, the device needs to be added to the Azure IoT Hub.  From within Azure IoT Hub, a connection string will be generated for a particular device.
-
-1. From the Azure portal, launch the Device Update IoT Hub.
-2. Create a new device.
-3. On the left-hand side of the page, navigate to 'IoT Devices' > Select "New".
-4. Provide a name for the device under 'Device ID'--Ensure that "Autogenerate keys" is checkbox is selected.
-5. Select 'Save'.
-6. Now, you'll be returned to the 'Devices' page and the device you created should be in the list. Select that device.
-7. In the device view, select the 'Copy' icon next to 'Primary Connection String'.
-8. Paste the copied characters somewhere for later use in the steps below. **This copied string is your device connection string**.
-
-## Add connection string to simulator
-
-Start Device Update agent on your new Software Devices.
-
-1. Start Ubuntu.
-2. Run the Device Update agent and specify the device connection string from the previous section wrapped with apostrophes:
-
-   Replace `<device connection string>` with your connection string
-   ```shell
-   sudo ./AducIotAgentSim-microsoft-swupdate "<device connection string>"
-   ```
-
-   or
-
-   ```shell
-   ./AducIotAgentSim-microsoft-apt -c '<device connection string>'
-   ```
-
-3. Scroll up and look for the string indicating that the device is in "Idle" state. An "Idle" state signifies that the device is ready for service commands:
-
-   ```markdown
-   Agent running. [main]
-   ```
 
 ## Add a tag to your device
 
