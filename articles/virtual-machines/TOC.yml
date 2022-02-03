@@ -416,8 +416,6 @@
         href: vm-applications-how-to.md
   - name: Images
     items:
-    - name: Endorsed Linux distributions
-      href: ./linux/endorsed-distros.md
     - name: Find Azure Marketplace images
       items:
       - name: CLI
@@ -439,6 +437,8 @@
         href: ./linux/imaging.md
       - name: Linux provisioning
         href: ./linux/provisioning.md
+      - name: Endorsed Linux distributions
+        href: ./linux/endorsed-distros.md
       - name: Linux distribution specific requirements
         items:
         - name: Generic steps
