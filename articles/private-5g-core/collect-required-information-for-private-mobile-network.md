@@ -1,7 +1,7 @@
 ---
 title: Collect information for your private mobile network
 titlesuffix: Azure Private 5G Core Preview
-description: Learn about the information you'll need to deploy a private mobile network through Azure Private 5G Core Preview using the Azure portal.
+description: This how-to guide shows how to collect the information you need to deploy a private mobile network through Azure Private 5G Core Preview using the Azure portal.
 author: djrmetaswitch
 ms.author: drichards
 ms.service: private-5g-core
@@ -37,7 +37,7 @@ Each SIM resource represents a physical SIM or eSIM that will be served by the p
 
 As part of creating your private mobile network, you can provision one or more SIMs that will use it. If you decide not to provision SIMs at this point, you can do so after deploying your private mobile network using the instructions in [Provisioning SIMs](provision-sims-azure-portal.md).
 
-If you want to provision SIMs as part of deploying your private mobile network, you must choose one of the following provisioning methods.
+If you want to provision SIMs as part of deploying your private mobile network, you must choose one of the following provisioning methods:
 
 - Manually entering values for each SIM into fields in the Azure portal. This option is best when provisioning a small number of SIMs.
 - Importing a JSON file containing values for one or more SIM resources. This option is best when provisioning a large number of SIMs. The file format required for this JSON file is given in [Provisioning SIM resources through the Azure portal using a JSON file](#provisioning-sim-resources-through-the-azure-portal-using-a-json-file).
@@ -53,7 +53,7 @@ You must then collect each of the values given in the following table for each S
    |The derived operator code (OPc). This is derived from the SIM's Ki and the network's OP (Operator Code) and is used by the packet core to authenticate a user using a standards-based algorithm. This must be a 32-character string, containing hexadecimal characters only. |**Opc**|`operatorKeyCode`|
    |The type of device that is using this SIM. This is an optional, free-form string. You can use it as required to easily identify device types that are using the enterprise's mobile networks. |**Device type**|`deviceType`|
 
-### Provisioning SIM resources through the Azure portal using a JSON file
+### Provision SIM resources through the Azure portal using a JSON file
 
 The following example shows the file format you'll need if you want to provision your SIM resources using a JSON file. It contains the parameters required to provision two SIMs (SIM1 and SIM2).
 
