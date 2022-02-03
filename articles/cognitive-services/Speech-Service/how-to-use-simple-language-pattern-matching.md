@@ -1,5 +1,5 @@
 ---
-title: How to use simple language pattern matching with the C++ Speech SDK
+title: How to recognize intents with simple language pattern matching
 titleSuffix: Azure Cognitive Services
 description: In this guide, you learn how to recognize intents and entities from simple patterns.
 services: cognitive-services
@@ -14,7 +14,7 @@ zone_pivot_groups: programming-languages-set-nine
 ms.custom: devx-track-cpp, devx-track-csharp, mode-other
 ---
 
-# How to use simple language pattern matching with the C++ Speech SDK
+# How to recognize intents with simple language pattern matching
 
 The Cognitive Services [Speech SDK](speech-sdk.md) has a built-in feature to provide **intent recognition** with **simple language pattern matching**. An intent is something the user wants to do: close a window, mark a checkbox, insert some text, etc.
 
