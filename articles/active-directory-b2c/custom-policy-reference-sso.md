@@ -47,10 +47,10 @@ The following table shows which session provider to use depending on the type of
 
 |Session provider  |Applicable technical profile types| Purpose |Write claims|Read claims|
 |---------|---------|---------|---------|---------|
-|[DefaultSSOSessionProvider](#defaultssosessionprovider)  |`Self-asserted`, `Azure Active Directory`, `Azure AD Multi-Factor Authentication`, `Claims transformation`| Skip technical profile execution.| Yes | Yes |
-|[ExternalLoginSSOSessionProvider](#externalloginssosessionprovider) |`OAuth1 identity provider`, `Oauth2 identity provider`, `OpenID Connect identity provider`, `SAML identity provider`| Accelerate identity provider selection page. Performing single-logout.|Yes|Yes|
-|[OAuthSSOSessionProvider](#oauthssosessionprovider) |`JWT token issuer`| Manages session between OAuth2 or OpenId Connect relying party and Azure AD B2C. Performs single-logout. | No | No |
-|[SamlSSOSessionProvider](#samlssosessionprovider) |`SAML token issuer`| Manages session between SAML relying party and Azure AD B2C. Performs single-logout. | No | No |
+|[DefaultSSOSessionProvider](#defaultssosessionprovider)  | [Self-asserted](self-asserted-technical-profile.md), [Azure Active Directory](active-directory-technical-profile.md), [Azure AD Multi-Factor Authentication](multi-factor-auth-technical-profile.md), [Claims transformation](claims-transformation-technical-profile.md)| Skips technical profile execution.| Yes | Yes |
+|[ExternalLoginSSOSessionProvider](#externalloginssosessionprovider) | [OAuth1 identity provider](oauth1-technical-profile.md), [Oauth2 identity provider](oauth2-technical-profile.md), [OpenID Connect identity provider](openid-connect-technical-profile.md), [SAML identity provider](saml-identity-provider-technical-profile.md)| Accelerate identity provider selection page. Performing single-logout.|Yes|Yes|
+|[OAuthSSOSessionProvider](#oauthssosessionprovider) |[JWT token issuer](jwt-issuer-technical-profile.md) | Manages session between OAuth2 or OpenId Connect relying party and Azure AD B2C. Performs single-logout. | No | No |
+|[SamlSSOSessionProvider](#samlssosessionprovider) | [SAML token issuer](saml-issuer-technical-profile.md) | Manages session between SAML relying party and Azure AD B2C. Performs single-logout. | No | No |
 |[NoopSSOSessionProvider](#noopssosessionprovider) |Any| Suppress any technical profile from being part of the session.| No | No |
 
 The following diagram shows the types of session used by Azure AD B2C.
