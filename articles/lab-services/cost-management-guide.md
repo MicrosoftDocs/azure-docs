@@ -49,7 +49,7 @@ Changing the view on **Cost Analysis** page to **Cost by resource** shows the in
 
 In this example, adding the first and second rows (both start with "aaalab / dockerlab") will give you the total cost for the lab "dockerlab" in the "aaalab" lab account or lab plan.
 
-:::image type="content" source="./media/cost-management-guide/cost-analysis.png" alt-text="Screenshot that shows an example cost analysis for a subscription for Azure Lab Services associated costs.":::
+:::image type="content" source="./media/cost-management-guide/cost-analysis.png" alt-text="Screenshot that shows an example cost analysis for a subscription for Azure Lab Services associated costs." lightbox="./media/cost-management-guide/cost-analysis.png":::
 
 If you're using the [January 2022 Update (preview)](lab-services-whats-new.md), the entries in are formatted differently.  The **Resource** column will show entries in the form `{lab name}/{number}` for Azure Lab Services. Some tags are added automatically to each entry when using the January 2022 Update.
 
@@ -59,7 +59,7 @@ If you're using the [January 2022 Update (preview)](lab-services-whats-new.md), 
 | ms-labname | Name of the lab. |
 | ms-labplanid | Full resource ID of the lab plan used when creating the lab. |
 
-:::image type="content" source="./media/cost-management-guide/cost-analysis-2.png" alt-text="Screenshot that shows an example cost analysis for a subscription using January 2022 Update for Azure Lab Services associated costs.":::
+:::image type="content" source="./media/cost-management-guide/cost-analysis-2.png" alt-text="Screenshot that shows an example cost analysis for a subscription using January 2022 Update for Azure Lab Services associated costs." lightbox="./media/cost-management-guide/cost-analysis-2.png":::
 
 To get the cost for the entire lab, don't forget to include external resources.  Azure Compute Gallery related charges are under the `Microsoft.Compute` namespace.  The advanced networking charges are under the `Microsoft.Network` namespace.
 
