@@ -1,0 +1,32 @@
+---
+title: 'Default route injection in spoke VNets '
+description: Learn about how Azure Route Server injects routes in VNets.
+services: route-server
+author: jomore
+ms.service: route-server
+ms.topic: conceptual
+ms.date: 02/03/2022
+ms.author: jomore
+---
+
+# Routes in spoke VNets
+
+One of the most common architectures in Azure is the hub and spoke design, where workloads deployed in a spoke VNet send traffic through shared network devices that exist in a hub VNet. User Defined Routes (UDR) typically need to be configured in the spoke VNets to steer traffic towards security devices in the hub. However, this requires administrators to manage these routes across many spokes. 
+
+Azure Route Server offers a centralized point where Network Virtual Appliances (NVAs) can inject routes that will be programmed for every virtual machine in the spoke, thus eliminating the need for spoke administrators to create route tables. 
+
+## How to set it up
+
+
+:::image type="content" source="./media/senarios/route-injection.png" alt-text="Diagram of Route Server in a dual-homed topology.":::
+
+### How does it work?
+
+> [!IMPORTANT]
+> If VPN or ExpresRoute gateways exist in the same VNet as the Route Server, note that routes learnt by these gateways will be programmed as well in the spoke VNets, overriding the routes injected by the Route Server if they are more specific (longer network masks).
+
+
+## Next steps
+
+* [Learn how Azure Route Server works with ExpressRoute](expressroute-vpn-support.md)
+* [Learn how Azure Route Server works with a network virtual appliance](resource-manager-template-samples.md)
