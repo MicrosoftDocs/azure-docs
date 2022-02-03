@@ -37,30 +37,32 @@ The synthetic and VF interfaces both have the same MAC address. Together they co
 
 Both interfaces are visible via the “ifconfig” or “ip addr” command in Linux.  Here's example “ifconfig” output in Ubuntu 18.04: 
 
-
-    U1804:~$ ifconfig 
-	enP53091s1np0: flags=6211<UP,BROADCAST,RUNNING,SLAVE,MULTICAST>  mtu 1500 
-        ether 00:0d:3a:f5:76:bd  txqueuelen 1000  (Ethernet) 
-        RX packets 365849  bytes 413711297 (413.7 MB) 
-        RX errors 0  dropped 0  overruns 0  frame 0 
-        TX packets 9447684  bytes 2206536829 (2.2 GB) 
-        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0 
+```output
+U1804:~$ ifconfig 
+enP53091s1np0: flags=6211<UP,BROADCAST,RUNNING,SLAVE,MULTICAST>  mtu 1500 
+ether 00:0d:3a:f5:76:bd  txqueuelen 1000  (Ethernet) 
+RX packets 365849  bytes 413711297 (413.7 MB) 
+RX errors 0  dropped 0  overruns 0  frame 0 
+TX packets 9447684  bytes 2206536829 (2.2 GB) 
+TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0 
  
-	eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500 
-        inet 10.1.19.4  netmask 255.255.255.0  broadcast 10.1.19.255 
-        inet6 fe80::20d:3aff:fef5:76bd  prefixlen 64  scopeid 0x20<link> 
-        ether 00:0d:3a:f5:76:bd  txqueuelen 1000  (Ethernet) 
-        RX packets 8714212  bytes 4954919874 (4.9 GB) 
-        RX errors 0  dropped 0  overruns 0  frame 0 
-        TX packets 9103233  bytes 2183731687 (2.1 GB) 
-        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0 
-
+eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500 
+inet 10.1.19.4  netmask 255.255.255.0  broadcast 10.1.19.255 
+inet6 fe80::20d:3aff:fef5:76bd  prefixlen 64  scopeid 0x20<link> 
+ether 00:0d:3a:f5:76:bd  txqueuelen 1000  (Ethernet) 
+RX packets 8714212  bytes 4954919874 (4.9 GB) 
+RX errors 0  dropped 0  overruns 0  frame 0 
+TX packets 9103233  bytes 2183731687 (2.1 GB) 
+TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0 
+```
 
 The synthetic interface always has a name of the form “eth\<n\>”. Depending on the Linux distro, the VF interface might have a name of the form “eth\<n\>”, or a name of a different form because of a udev rule that does renaming.   
  
 Whether a particular interface is the synthetic interface or the VF interface can be determined with the shell command line that shows the device driver used by the interface: 
 
-	$ ethtool -i <interface name> | grep driver 
+```output
+$ ethtool -i <interface name> | grep driver 
+```
 
 If the driver is “hv_netvsc”, it's the synthetic interface. The VF interface has a driver name that contains “mlx”. The VF interface is also identifiable because its flags field includes “SLAVE.” This flag indicates that it's under the control of the synthetic interface that has the same MAC address. Finally, IP addresses are assigned only to the synthetic interface, and the output of ‘ifconfig’ or ‘ip addr’ shows this distinction as well. 
 
@@ -70,27 +72,28 @@ Applications should interact only with the synthetic interface, just like in any
  
 You can verify that packets are flowing over the VF interface from the output of “ethtool -S eth\<n\>”. The output lines that contain “vf” show the traffic over the VF interface. For example: 
 
-
-    U1804:~# ethtool -S eth0 | grep ' vf_' 
-     vf_rx_packets: 111180 
-     vf_rx_bytes: 395460237 
-     vf_tx_packets: 9107646 
-     vf_tx_bytes: 2184786508 
-     vf_tx_dropped: 0 
-
+```output
+U1804:~# ethtool -S eth0 | grep ' vf_' 
+ vf_rx_packets: 111180 
+ vf_rx_bytes: 395460237 
+ vf_tx_packets: 9107646 
+ vf_tx_bytes: 2184786508 
+ vf_tx_dropped: 0 
+```
 
 If these counters are incrementing on successive execution of the “ethtool” command, then network traffic is flowing over the VF interface. 
  
 The existence of the VF interface as a PCI device can be seen with the “lspci” command. For example, on the Generation 1 VM, you might see output similar to this (Generation 2 VMs don’t have the legacy PCI devices): 
 
-	U1804:~# lspci 
-	0000:00:00.0 Host bridge: Intel Corporation 440BX/ZX/DX - 82443BX/ZX/DX Host bridge (AGP disabled) (rev 03) 
-	0000:00:07.0 ISA bridge: Intel Corporation 82371AB/EB/MB PIIX4 ISA (rev 01) 
-	0000:00:07.1 IDE interface: Intel Corporation 82371AB/EB/MB PIIX4 IDE (rev 01) 
-	0000:00:07.3 Bridge: Intel Corporation 82371AB/EB/MB PIIX4 ACPI (rev 02) 
-	0000:00:08.0 VGA compatible controller: Microsoft Corporation Hyper-V virtual VGA 
-	cf63:00:02.0 Ethernet controller: Mellanox Technologies MT27710 Family [ConnectX-4 Lx Virtual Function] (rev 80) 
-
+```output
+U1804:~# lspci 
+0000:00:00.0 Host bridge: Intel Corporation 440BX/ZX/DX - 82443BX/ZX/DX Host bridge (AGP disabled) (rev 03) 
+0000:00:07.0 ISA bridge: Intel Corporation 82371AB/EB/MB PIIX4 ISA (rev 01) 
+0000:00:07.1 IDE interface: Intel Corporation 82371AB/EB/MB PIIX4 IDE (rev 01) 
+0000:00:07.3 Bridge: Intel Corporation 82371AB/EB/MB PIIX4 ACPI (rev 02) 
+0000:00:08.0 VGA compatible controller: Microsoft Corporation Hyper-V virtual VGA 
+cf63:00:02.0 Ethernet controller: Mellanox Technologies MT27710 Family [ConnectX-4 Lx Virtual Function] (rev 80) 
+```
 
 In this example, the last line of output identifies a VF from the Mellanox ConnectX-4 physical NIC. 
  
@@ -102,59 +105,76 @@ During booting, Linux shows many messages related to the initialization and conf
  
 Here's example output from the ‘dmesg’ command, trimmed to just the lines relevant to the VF interface. Depending on the Linux kernel version and distro in your VM, the messages might vary slightly, but the overall flow is the same. 
 
-
-	[    2.327663] hv_vmbus: registering driver hv_netvsc 
-	[    3.918902] hv_netvsc 000d3af5-76bd-000d-3af5-76bd000d3af5 eth0: VF slot 1 added 
+```output
+[    2.327663] hv_vmbus: registering driver hv_netvsc 
+[    3.918902] hv_netvsc 000d3af5-76bd-000d-3af5-76bd000d3af5 eth0: VF slot 1 added 
+```
 
 The netvsc driver for eth0 has been registered. 
 
-	[    6.944883] hv_vmbus: registering driver hv_pci 
+```output
+[    6.944883] hv_vmbus: registering driver hv_pci 
+```
 	
 The VMbus virtual PCI driver has been registered. This driver provides core PCI services in a Linux VM in Azure and must be registered before the VF interface can be detected and configured. 
 
-	[    6.945132] hv_pci e9ac9b28-cf63-4466-9ae3-4b849c3ee03b: PCI VMBus probing: Using version 0x10002 
-	[    6.947953] hv_pci e9ac9b28-cf63-4466-9ae3-4b849c3ee03b: PCI host bridge to bus cf63:00 
-	[    6.947955] pci_bus cf63:00: root bus resource [mem 0xfe0000000-0xfe00fffff window] 
-	[    6.948805] pci cf63:00:02.0: [15b3:1016] type 00 class 0x020000 
-	[    6.957487] pci cf63:00:02.0: reg 0x10: [mem 0xfe0000000-0xfe00fffff 64bit pref] 
-	[    7.035464] pci cf63:00:02.0: enabling Extended Tags 
-	[    7.040811] pci cf63:00:02.0: 0.000 Gb/s available PCIe bandwidth, limited by Unknown x0 link at cf63:00:02.0 (capable of 63.008 Gb/s with 8.0 GT/s PCIe x8 link) 
-	[    7.041264] pci cf63:00:02.0: BAR 0: assigned [mem 0xfe0000000-0xfe00fffff 64bit pref] 
+```output
+[    6.945132] hv_pci e9ac9b28-cf63-4466-9ae3-4b849c3ee03b: PCI VMBus probing: Using version 0x10002 
+[    6.947953] hv_pci e9ac9b28-cf63-4466-9ae3-4b849c3ee03b: PCI host bridge to bus cf63:00 
+[    6.947955] pci_bus cf63:00: root bus resource [mem 0xfe0000000-0xfe00fffff window] 
+[    6.948805] pci cf63:00:02.0: [15b3:1016] type 00 class 0x020000 
+[    6.957487] pci cf63:00:02.0: reg 0x10: [mem 0xfe0000000-0xfe00fffff 64bit pref] 
+[    7.035464] pci cf63:00:02.0: enabling Extended Tags 
+[    7.040811] pci cf63:00:02.0: 0.000 Gb/s available PCIe bandwidth, limited by Unknown x0 link at cf63:00:02.0 (capable of 63.008 Gb/s with 8.0 GT/s PCIe x8 link) 
+[    7.041264] pci cf63:00:02.0: BAR 0: assigned [mem 0xfe0000000-0xfe00fffff 64bit pref] 
+```
 
 The PCI device with the specified GUID (assigned by the Azure host) has been detected. It's assigned a PCI domain ID (0xcf63 in this case) based on the GUID. The PCI domain ID must be unique across all PCI devices available in the VM. This uniqueness requirement includes other Mellanox VF interfaces, GPUs, NVMe devices, etc., depending on the Azure VM configuration.
 
-	[    7.128515] mlx5_core cf63:00:02.0: firmware version: 14.25.8362 
-	[    7.139925] mlx5_core cf63:00:02.0: handle_hca_cap:524:(pid 12): log_max_qp value in current profile is 18, changing it to HCA capability limit (12) 
-	[    7.342391] mlx5_core cf63:00:02.0: MLX5E: StrdRq(0) RqSz(1024) StrdSz(256) RxCqeCmprss(0) 
+```output
+[    7.128515] mlx5_core cf63:00:02.0: firmware version: 14.25.8362 
+[    7.139925] mlx5_core cf63:00:02.0: handle_hca_cap:524:(pid 12): log_max_qp value in current profile is 18, changing it to HCA capability limit (12) 
+[    7.342391] mlx5_core cf63:00:02.0: MLX5E: StrdRq(0) RqSz(1024) StrdSz(256) RxCqeCmprss(0) 
+```
 
 A Mellanox VF that uses the mlx5 driver has been detected, and the mlx5 driver begins its initialization of the device. 
 
-	[    7.465085] hv_netvsc 000d3af5-76bd-000d-3af5-76bd000d3af5 eth0: VF registering: eth1 
-	[    7.465119] mlx5_core cf63:00:02.0 eth1: joined to eth0 
+```output
+[    7.465085] hv_netvsc 000d3af5-76bd-000d-3af5-76bd000d3af5 eth0: VF registering: eth1 
+[    7.465119] mlx5_core cf63:00:02.0 eth1: joined to eth0 
+```
 
 The corresponding synthetic interface that is using the netvsc driver has detected a matching VF. The mlx5 driver recognizes that it has been bonded with the synthetic interface. 
 
-	[    7.466064] mlx5_core cf63:00:02.0 eth1: Disabling LRO, not supported in legacy RQ 
-	[    7.480575] mlx5_core cf63:00:02.0 eth1: Disabling LRO, not supported in legacy RQ 
-	[    7.480651] mlx5_core cf63:00:02.0 enP53091s1np0: renamed from eth1 
+```output
+[    7.466064] mlx5_core cf63:00:02.0 eth1: Disabling LRO, not supported in legacy RQ 
+[    7.480575] mlx5_core cf63:00:02.0 eth1: Disabling LRO, not supported in legacy RQ 
+[    7.480651] mlx5_core cf63:00:02.0 enP53091s1np0: renamed from eth1 
+```
 
 The VF interface initially was named “eth1” by the Linux kernel. A udev rule renamed it to avoid confusion with the names given to the synthetic interfaces. 
 
-	[    8.087962] mlx5_core cf63:00:02.0 enP53091s1np0: Link up 
+```output
+[    8.087962] mlx5_core cf63:00:02.0 enP53091s1np0: Link up 
+```
 
 The Mellanox VF interface is now up and active. 
 
-	[    8.090127] hv_netvsc 000d3af5-76bd-000d-3af5-76bd000d3af5 eth0: Data path switched to VF: enP53091s1np0 
-	[    9.654979] hv_netvsc 000d3af5-76bd-000d-3af5-76bd000d3af5 eth0: Data path switched from VF: enP53091s1np0 
+```output
+[    8.090127] hv_netvsc 000d3af5-76bd-000d-3af5-76bd000d3af5 eth0: Data path switched to VF: enP53091s1np0 
+[    9.654979] hv_netvsc 000d3af5-76bd-000d-3af5-76bd000d3af5 eth0: Data path switched from VF: enP53091s1np0 
+```
 
 These messages indicate that the data path for the bonded pair has switched to use the VF interface. Then about 1.6 seconds later, it switches back to the synthetic interface. Such switches might occur two or three times during the boot process and are normal behavior as the configuration gets fully initialized. 
- 
-	[    9.909128] mlx5_core cf63:00:02.0 enP53091s1np0: Link up 
-	[    9.910595] hv_netvsc 000d3af5-76bd-000d-3af5-76bd000d3af5 eth0: Data path switched to VF: enP53091s1np0 
-	[   11.411194] hv_netvsc 000d3af5-76bd-000d-3af5-76bd000d3af5 eth0: Data path switched from VF: enP53091s1np0 
-	[   11.532147] mlx5_core cf63:00:02.0 enP53091s1np0: Disabling LRO, not supported in legacy RQ 
-	[   11.731892] mlx5_core cf63:00:02.0 enP53091s1np0: Link up 
-	[   11.733216] hv_netvsc 000d3af5-76bd-000d-3af5-76bd000d3af5 eth0: Data path switched to VF: enP53091s1np0 
+
+```output
+[    9.909128] mlx5_core cf63:00:02.0 enP53091s1np0: Link up 
+[    9.910595] hv_netvsc 000d3af5-76bd-000d-3af5-76bd000d3af5 eth0: Data path switched to VF: enP53091s1np0 
+[   11.411194] hv_netvsc 000d3af5-76bd-000d-3af5-76bd000d3af5 eth0: Data path switched from VF: enP53091s1np0 
+[   11.532147] mlx5_core cf63:00:02.0 enP53091s1np0: Disabling LRO, not supported in legacy RQ 
+[   11.731892] mlx5_core cf63:00:02.0 enP53091s1np0: Link up 
+[   11.733216] hv_netvsc 000d3af5-76bd-000d-3af5-76bd000d3af5 eth0: Data path switched to VF: enP53091s1np0 
+```
 
 The final message indicates that the data path has switched to using the VF interface. It's expected during normal operation of the VM. 
 
@@ -165,36 +185,44 @@ When Azure host servicing is performed, all VF interfaces might be temporarily r
  
 The removal and re-add of the VF interface during a servicing event is visible in the “dmesg” output in the VM.  Here's typical output: 
 
-	[   8160.911509] hv_netvsc 000d3af5-76bd-000d-3af5-76bd000d3af5 eth0: Data path switched from VF: enP53091s1np0 
-	[   8160.912120] hv_netvsc 000d3af5-76bd-000d-3af5-76bd000d3af5 eth0: VF unregistering: enP53091s1np0 
-	[   8162.020138] hv_netvsc 000d3af5-76bd-000d-3af5-76bd000d3af5 eth0: VF slot 1 removed 
+```output
+[   8160.911509] hv_netvsc 000d3af5-76bd-000d-3af5-76bd000d3af5 eth0: Data path switched from VF: enP53091s1np0 
+[   8160.912120] hv_netvsc 000d3af5-76bd-000d-3af5-76bd000d3af5 eth0: VF unregistering: enP53091s1np0 
+[   8162.020138] hv_netvsc 000d3af5-76bd-000d-3af5-76bd000d3af5 eth0: VF slot 1 removed 
+```
 
 The data path has been switched away from the VF interface, and the VF interface has been unregistered. At this point, Linux has removed all knowledge of the VF interface and is operating as if Accelerated Networking wasn't enabled.  
 
-	[   8225.557263] hv_netvsc 000d3af5-76bd-000d-3af5-76bd000d3af5 eth0: VF slot 1 added 
-	[   8225.557867] hv_pci e9ac9b28-cf63-4466-9ae3-4b849c3ee03b: PCI VMBus probing: Using version 0x10002 
-	[   8225.566794] hv_pci e9ac9b28-cf63-4466-9ae3-4b849c3ee03b: PCI host bridge to bus cf63:00 
-	[   8225.566797] pci_bus cf63:00: root bus resource [mem 0xfe0000000-0xfe00fffff window] 
-	[   8225.571556] pci cf63:00:02.0: [15b3:1016] type 00 class 0x020000 
-	[   8225.584903] pci cf63:00:02.0: reg 0x10: [mem 0xfe0000000-0xfe00fffff 64bit pref] 
-	[   8225.662860] pci cf63:00:02.0: enabling Extended Tags 
-	[   8225.667831] pci cf63:00:02.0: 0.000 Gb/s available PCIe bandwidth, limited by Unknown x0 link at cf63:00:02.0 (capable of 63.008 Gb/s with 8.0 GT/s PCIe x8 link) 
-	[   8225.667978] pci cf63:00:02.0: BAR 0: assigned [mem 0xfe0000000-0xfe00fffff 64bit pref] 
+```output
+[   8225.557263] hv_netvsc 000d3af5-76bd-000d-3af5-76bd000d3af5 eth0: VF slot 1 added 
+[   8225.557867] hv_pci e9ac9b28-cf63-4466-9ae3-4b849c3ee03b: PCI VMBus probing: Using version 0x10002 
+[   8225.566794] hv_pci e9ac9b28-cf63-4466-9ae3-4b849c3ee03b: PCI host bridge to bus cf63:00 
+[   8225.566797] pci_bus cf63:00: root bus resource [mem 0xfe0000000-0xfe00fffff window] 
+[   8225.571556] pci cf63:00:02.0: [15b3:1016] type 00 class 0x020000 
+[   8225.584903] pci cf63:00:02.0: reg 0x10: [mem 0xfe0000000-0xfe00fffff 64bit pref] 
+[   8225.662860] pci cf63:00:02.0: enabling Extended Tags 
+[   8225.667831] pci cf63:00:02.0: 0.000 Gb/s available PCIe bandwidth, limited by Unknown x0 link at cf63:00:02.0 (capable of 63.008 Gb/s with 8.0 GT/s PCIe x8 link) 
+[   8225.667978] pci cf63:00:02.0: BAR 0: assigned [mem 0xfe0000000-0xfe00fffff 64bit pref] 
+```
 
 When the VF interface is re-added after servicing is complete, a new PCI device with the specified GUID is detected. It's assigned the same PCI domain ID (0xcf63) as before. The handling of the re-add VF interface is like during the initial boot. 
 
-	[   8225.679672] mlx5_core cf63:00:02.0: firmware version: 14.25.8362 
-	[   8225.888476] mlx5_core cf63:00:02.0: MLX5E: StrdRq(0) RqSz(1024) StrdSz(256) RxCqeCmprss(0) 
-	[   8226.021016] hv_netvsc 000d3af5-76bd-000d-3af5-76bd000d3af5 eth0: VF registering: eth1 
-	[   8226.021058] mlx5_core cf63:00:02.0 eth1: joined to eth0 
-	[   8226.021968] mlx5_core cf63:00:02.0 eth1: Disabling LRO, not supported in legacy RQ 
-	[   8226.026631] mlx5_core cf63:00:02.0 eth1: Disabling LRO, not supported in legacy RQ 
-	[   8226.026699] mlx5_core cf63:00:02.0 enP53091s1np0: renamed from eth1 
-	[   8226.265256] mlx5_core cf63:00:02.0 enP53091s1np0: Link up 
+```output
+[   8225.679672] mlx5_core cf63:00:02.0: firmware version: 14.25.8362 
+[   8225.888476] mlx5_core cf63:00:02.0: MLX5E: StrdRq(0) RqSz(1024) StrdSz(256) RxCqeCmprss(0) 
+[   8226.021016] hv_netvsc 000d3af5-76bd-000d-3af5-76bd000d3af5 eth0: VF registering: eth1 
+[   8226.021058] mlx5_core cf63:00:02.0 eth1: joined to eth0 
+[   8226.021968] mlx5_core cf63:00:02.0 eth1: Disabling LRO, not supported in legacy RQ 
+[   8226.026631] mlx5_core cf63:00:02.0 eth1: Disabling LRO, not supported in legacy RQ 
+[   8226.026699] mlx5_core cf63:00:02.0 enP53091s1np0: renamed from eth1 
+[   8226.265256] mlx5_core cf63:00:02.0 enP53091s1np0: Link up 
+```
 
 The mlx5 driver initializes the VF interface, and the interface is now functional. The output is similar to the output during the initial boot. 
 
-	[   8226.267380] hv_netvsc 000d3af5-76bd-000d-3af5-76bd000d3af5 eth0: Data path switched to VF: enP53091s1np0 
+```output
+[   8226.267380] hv_netvsc 000d3af5-76bd-000d-3af5-76bd000d3af5 eth0: Data path switched to VF: enP53091s1np0 
+```
 
 The data path has been switched back to the VF interface. 
 
@@ -202,7 +230,8 @@ The data path has been switched back to the VF interface.
 
 Accelerated Networking can be toggled on a virtual NIC in a running VM with Azure CLI. For example: 
 
-	$ az network nic update --name u1804895 --resource-group testrg --accelerated-network false 
+```output
+$ az network nic update --name u1804895 --resource-group testrg --accelerated-network false 
+```
 
-Disabling Accelerated Networking that is enabled in the guest VM produces a “dmesg” output. It's the same as when the VF interface is removed for Azure host servicing. Enabling Accelerated Networking produces the same “dmesg” output as when the VF interface is readded after Azure host servicing. These Azure CLI commands can be used to simulate Azure host servicing, which can help test applications in your VM don't have to directly interact with the VF interface. 
-
+Disabling Accelerated Networking that is enabled in the guest VM produces a “dmesg” output. It's the same as when the VF interface is removed for Azure host servicing. Enabling Accelerated Networking produces the same “dmesg” output as when the VF interface is readded after Azure host servicing. These Azure CLI commands can be used to simulate Azure host servicing, which can help test applications in your VM don't have to directly interact with the VF interface.
