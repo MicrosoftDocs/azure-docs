@@ -231,10 +231,13 @@ This scenario can be used when Azure Purview and Power PI tenant or both, are co
 
 15. Create a new credential and provide required parameters:
     
-   **Name**: Provide a unique name for credential.
-   **Client ID**: Use Service Principal Client ID (App ID) you created earlier.
-   **User name**: Provide the username of Power BI Administrator you created earlier.
-   **Password**: Select the appropriate Key vault connection and the **Secret name** where the Power BI account password was saved earlier.
+   - **Name**: Provide a unique name for credential.
+  
+   - **Client ID**: Use Service Principal Client ID (App ID) you created earlier.
+
+   - **User name**: Provide the username of Power BI Administrator you created earlier.
+
+   - **Password**: Select the appropriate Key vault connection and the **Secret name** where the Power BI account password was saved earlier.
 
    :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-scan-delegated-auth.png" alt-text="Image showing Power BI scan setup using Delegated Auth.":::
 
