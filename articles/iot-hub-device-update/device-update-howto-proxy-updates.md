@@ -3,7 +3,7 @@ title: Complete a proxy update by using Device Update for Azure IoT Hub | Micros
 description: Get started with Device Update for Azure IoT Hub by using the Device Update binary agent for proxy updates.
 author: valls
 ms.author: valls
-ms.date: 11/12/2021
+ms.date: 1/26/2022
 ms.topic: tutorial
 ms.service: iot-hub-device-update
 ---
@@ -21,6 +21,10 @@ This tutorial uses an Ubuntu Server 18.04 LTS virtual machine (VM) as an example
 1. Register *packages.microsoft.com* in an APT package repository:
 
     ```sh
+    sudo apt-get update
+    
+    sudo apt install curl
+    
     curl https://packages.microsoft.com/config/ubuntu/18.04/multiarch/prod.list > ~/microsoft-prod.list
 
     sudo cp ~/microsoft-prod.list /etc/apt/sources.list.d/
