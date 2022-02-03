@@ -24,10 +24,12 @@ For the Public Preview Refresh release, the Device Update agent needs to be upda
 
 2. Create a new IoT/IoT Edge device on the Azure portal. Copy the primary connection string for the device from the device view for later. For more details, refer the [Add Device to IoT Hub](device-update-simulator.md#add-device-to-azure-iot-hub) section.
  
-3. Then, SSH into your device and remove the old Device Update agent.
+3. Then, SSH into your device and remove any old Device Update agent.
    ```bash
    sudo apt remove deviceupdate-agent 
+   sudo apt remove adu-agent 
    ```
+   
 4. Remove the old configuration file
    ```bash
    rm -f /etc/adu/adu-conf.txt 
