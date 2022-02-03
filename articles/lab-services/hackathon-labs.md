@@ -53,12 +53,9 @@ To use Lab Services for your hackathon, ensure that both lab plan and your lab a
 
     Ensure that your school’s or organization’s firewall settings allow connecting to lab VMs using RDP\SSH. For more information, see the [how-to guide on configuring your network’s firewall settings](how-to-configure-firewall-settings.md).
 
-- **Install RDP\SSH client on participants’ tablets, Macs, PCs, and so on**.
+- **Install RDP/SSH client on participants’ tablets, Macs, PCs, and so on**.
 
-    Hackathon participants must have an RDP and/or SSH client installed on their tablets or laptops that they'll use to connect to lab VMs. You may choose from different RDP or SSH clients, such as:
-
-  - Microsoft’s **Remote Desktop Connection** app for RDP connections. The Remote Desktop Connection app is supported on different kinds of platforms, including Chromebooks and [Mac](https://techcommunity.microsoft.com/t5/azure-lab-services/connecting-to-azure-lab-services-environments-on-your-macos/ba-p/1290162).
-  - [Putty](https://techcommunity.microsoft.com/t5/azure-lab-services/connecting-to-azure-lab-services-environments-on-your-macos/ba-p/1290162) for using SSH to connect to a Linux VM.
+    Hackathon participants must have an RDP and/or SSH client installed on their tablets or laptops that they'll use to connect to lab VMs.  For more information about required software and how to connect to lab VMs, see [Connect to a lab VM](connect-virtual-machine.md).
 
 - **Verify lab virtual machines**.
 
@@ -79,11 +76,9 @@ This section outlines the steps to complete the day of your hackathon.
 
     Provide your participants with the following information so that participants can access their lab VMs.
 
-    - The lab’s registration link.
-    - Credentials that should be used to connect to the machine. This step applies only if your lab uses a Windows-based image and you configured all VMs to use the same password.
-    - Instructions on how participants SSH and\or RDP to their machines.
-
-        For more information, See [how-to guide on sending invitations to users](how-to-configure-student-usage.md#send-invitations-to-users) and [connecting to Linux VMs](how-to-use-remote-desktop-linux-student.md).
+    - The lab’s registration link.  For more information, See [how-to guide on sending invitations to users](how-to-configure-student-usage.md#send-invitations-to-users).
+    - Credentials that should be used to connect to the machine. This step applies only if your lab has configured all VMs to use the same password.
+    - Instructions to connect to their VM. For OS-specific instructions connection to a lab VM, see [Connect to a lab VM](connect-virtual-machine.md).
 
 ## Next steps
 

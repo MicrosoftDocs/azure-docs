@@ -74,7 +74,7 @@ In this step, you create a lab for your class in Azure Lab Services portal.
     > [!NOTE]
     > Template VMs incur **cost** when running, so ensure that the template VM is shutdown when you don’t need it to be running.
 
-If you chose to create a Linux template VM, more setup is required to use a GUI remote desktop. For more information, see [Enable graphical remote desktop for Linux virtual machines](how-to-use-remote-desktop-linux-student.md).
+If you chose to create a Linux template VM, more setup is required to use a GUI remote desktop. For more information, see [Enable graphical remote desktop for Linux virtual machines in Azure Lab Services](how-to-enable-remote-desktop-linux.md).
 
 ## Publish a lab
 

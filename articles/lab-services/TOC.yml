@@ -181,16 +181,20 @@
     items:        
     - name: Access labs
       href: how-to-use-lab.md
-    - name: Connect to Linux VMs
-      href: how-to-use-remote-desktop-linux-student.md                
+    - name: Connect to VM
+      href: connect-virtual-machine.md
+    - name: Connect to a VM from Windows using RDP
+      href: connect-virtual-machine-windows-rdp.md              
     - name: Connect to a VM from Mac using RDP
       href: connect-virtual-machine-mac-remote-desktop.md
     - name: Connect to a VM from Chromebook using RDP
       href: connect-virtual-machine-chromebook-remote-desktop.md
-    - name: Set or reset passwords for virtual machines 
+    - name: Connect to Linux VM using X2Go
+      href: connect-virtual-machine-linux-x2go.md
+    - name: Set or reset passwords for VMs 
       href: how-to-set-virtual-machine-passwords-student.md 
     - name: View support information (student)
-      href: lab-user-support-information.md   
+      href: lab-user-support-information.md
   - name: Use labs within Canvas
     items:
       - name: Create a lab from Canvas

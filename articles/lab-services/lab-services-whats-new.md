@@ -89,7 +89,7 @@ Remember, changes made to the lab settings from the lab plan will apply only to 
 
 Don't forget to assign user permissions on the lab plan and the lab plan’s resource group.  Permission assignments for new labs may also be required if labs are created for instructors instead of by them.
 
-## Next Steps
+## Next steps
 
 - [Create a lab plan](tutorial-setup-lab-plan.md).
 - [Manage your lab plan](how-to-manage-lab-plans.md).

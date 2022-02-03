@@ -2,22 +2,23 @@
 title: How to access a lab in Azure Lab Services | Microsoft Docs
 description: Learn how to register to a lab.  Also learn how to view, start, stop, and connect to all the lab VMs assigned to you. 
 ms.topic: how-to
-ms.date: 01/04/2022
+ms.date: 02/01/2022
 ---
 
 # How to access a lab in Azure Lab Services
 
-Learn how to register to a lab.  Also learn how to view, start, stop, and connect to all the lab VMs assigned to you.
+Learn how to register for a lab.  Also learn how to view, start, stop, and connect to all the lab VMs assigned to you.
 
 ## Register to the lab
 
 1. Navigate to the **registration URL** that you received from the educator. You don't need to use the registration URL after you complete the registration. Instead, use the URL: [https://labs.azure.com](https://labs.azure.com).
 
-    ![Register to the lab](./media/tutorial-connect-vm-in-classroom-lab/register-lab.png)
+    :::image type="content" source="./media/how-to-use-lab/register-lab.png" alt-text="Screenshot of registration link for lab.":::
+
 1. Sign in to the service using your school account to complete the registration.
 
     > [!NOTE]
-    > A Microsoft account is required for using Azure Lab Services unless using Canvas. If you are trying to use your non-Microsoft account such as Yahoo or Google accounts to sign in to the portal, follow instructions to create a Microsoft account that will be linked to your non-Microsoft account. Then, follow the steps to complete the registration process.
+    > A Microsoft account is required for using Azure Lab Services unless using Canvas.  If you are trying to use your non-Microsoft account such as Yahoo or Google accounts to sign in to the portal, follow instructions to create a Microsoft account that will be linked to your non-Microsoft account. Then, follow the steps to complete the registration process.
 1. Once registered, confirm that you see the virtual machine for the lab you have access to.
     :::image type="content" source="./media/tutorial-connect-vm-in-classroom-lab/accessible-vms.png" alt-text="Screenshot of My virtual machines page for Azure Lab Services.":::
 1. Wait until the virtual machine is ready. On the VM tile, notice the following fields:
@@ -40,52 +41,7 @@ Using the [Azure Lab Services portal](https://labs.azure.com/virtualmachines) is
 
 ## Connect to the VM
 
-Select the second button as shown in the following image to **connect** to the lab's VM.
-
-:::image type="content" source="./media/tutorial-connect-vm-in-classroom-lab/connect-vm.png" alt-text="Screenshot of My virtual machines page for Azure Lab Services.  The connect icon button on the VM tile is highlighted.":::
-
-### Connect to a Windows lab VM
-
-If connecting *to a Windows VM*, follow the instructions below based on the type of OS you're using.
-
-| Client OS | Instructions |
-| --------- | ------------ |
-| Windows | Save the **RDP** file. Then open the RDP file to connect to the virtual machine. Use the **user name** and **password** you get from your educator to sign in to the machine. |
-| Mac | [Connect to a VM using RDP on a Mac](connect-virtual-machine-mac-remote-desktop.md). |
-| Chromebook | [Connect to a VM using RDP on a Chromebook](connect-virtual-machine-chromebook-remote-desktop.md). |
-
-### Connect to a Linux lab VM Using RDP
-
-Linux VMs can have RDP enabled and a graphical desktop installed.  For more information, see [Enable remote desktop connection for Linux VMs](how-to-enable-remote-desktop-linux.md#enable-remote-desktop-connection-for-rdp).
-
-To connect *to a Linux VM using RDP*, follow the instructions below based on the type of OS you're using.
-
-| Client OS | Instructions |
-| --------- | ------------ |
-| Windows | Save the **RDP** file. Then open the RDP file to connect to the virtual machine. Use the **user name** and **password** you get from your educator to sign in to the machine. |
-| Mac | [Connect to a VM using RDP on a Mac](connect-virtual-machine-mac-remote-desktop.md). |
-| Chromebook | [Connect to a VM using RDP on a Chromebook](connect-virtual-machine-chromebook-remote-desktop.md). |
-
-### Connect to a Linux lab VM Using X2Go
-
-Linux VMs can have X2Go enabled and a graphical desktop installed.  For more information, see [X2Go Setup](how-to-enable-remote-desktop-linux.md#x2go-setup) and [Using GNOME or MATE graphical desktops](how-to-enable-remote-desktop-linux.md#using-gnome-or-mate-graphical-desktops).  
-
-For more information about connecting *to a Linux VM using X2Go*, see [Connect to a VM using X2Go](how-to-use-remote-desktop-linux-student.md#connect-to-the-student-vm-using-x2go).
-
-### Connect to a Linux lab VM Using SSH
-
-By default Linux VMs have SSH installed. If connecting *to a Linux VM using SSH*, do the following actions:
-
-1. If using Windows client to connect to a Linux VM, first install an ssh client like [PuTTY](https://www.putty.org/) or enable [OpenSSH in Windows](/windows-server/administration/openssh/openssh_install_firstuse).
-1. [Start the VM](how-to-use-lab.md#start-or-stop-the-vm).
-1. Once the VM is running, select **Connect**, which will pop up a dialog box that provides the SSH command string, which will look like the following sample:
-
-    ```bash
-    ssh -p 12345 student@ml-lab-00000000-0000-0000-0000-000000000000.eastus2.cloudapp.azure.com
-    ```
-
-1. Go to your command prompt or terminal, and paste in this command, and then press **ENTER**.
-1. Enter the password to sign in to the lab VM.
+For OS-specific instructions to connect to your lab VM, see [Connect to a lab VM](connect-virtual-machine.md).
 
 ## Progress bar
 

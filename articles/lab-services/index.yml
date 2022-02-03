@@ -71,8 +71,8 @@ landingContent:
         links:
           - text: Access a lab
             url: tutorial-connect-lab-virtual-machine.md
-          - text: Connect to Linux VMs
-            url: how-to-use-remote-desktop-linux-student.md
+          - text: Connect to a lab VM
+            url: connect-virtual-machine.md
           - text: Set or reset passwords
             url: how-to-set-virtual-machine-passwords-student.md
   - title: Explore reference content
