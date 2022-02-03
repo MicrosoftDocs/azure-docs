@@ -33,22 +33,22 @@ DPS also supports [Availability Zones](../availability-zones/az-overview.md). An
 
 You don't need to take any action to use availability zones in supported regions. Your DPS instances are AZ-enabled by default. It's recommended that you leverage Availability Zones by using regions where they are supported.
 
-## Disaster recovery
+## Disaster recovery and Microsoft-initiated failover
 
-DPS leverages [paired regions](/azure/availability-zones/cross-region-replication-azure) to enable automatic failover in rare situations when it is required. When this occurs, DPS instances in an affected region will failover to the corresponding geo-paired region. This design is the default failover mechanism and requires no intervention from the user.
+Microsoft-initiated failover is exercised by Microsoft in rare situations when an entire region goes down to failover all the DPS instances from the affected region to the corresponding [geo-paired region](/azure/availability-zones/cross-region-replication-azure). This process is a default option (there is no way for users to opt out) and requires no intervention from the user. Microsoft reserves the right to make a determination of when this option will be exercised. This mechanism doesn't involve user consent before the user's DPS instance is failed over.
 
 ## Disable disaster recovery
 
-By default, DPS provides automatic failover by replicating data to the [paired region](/azure/availability-zones/cross-region-replication-azure) each DPS instance. For some regions, you can avoid data replication outside of the region by disabling disaster recovery when creating the DPS instance. The following regions support this feature:
+By default, DPS provides automatic failover by replicating data to the [paired region](/azure/availability-zones/cross-region-replication-azure) for a DPS instance. For some regions, you can avoid data replication outside of the region by disabling disaster recovery when creating a DPS instance. The following regions support this feature:
 
-* **Brazil South**; paired region, South US
-* **Southeast Asia (Singapore)**; paired region, East Asia (Hong Kong)
+* **Brazil South**; paired region, South US.
+* **Southeast Asia (Singapore)**; paired region, East Asia (Hong Kong).
 
 To disable disaster recovery in supported regions, make sure that **Disaster recovery enabled** is unselected when you create your DPS instance:
 
 :::image type="content" source="media/iot-dps-ha-dr/singapore.png" alt-text="Screenshot that shows disaster recovery option for an IoT hub in Singapore region.":::
 
-You can also disable disaster recovery when you create a DPS instance using [ARM template property](/azure/templates/microsoft.devices/provisioningservices?tabs=bicep) and [CLI commands](https://docs.microsoft.com/en-us/cli/azure/iot/dps?view=azure-cli-latest).
+You can also disable disaster recovery when you create a DPS instance using an [ARM template](/azure/templates/microsoft.devices/provisioningservices?tabs=bicep) or [Azure CLI commands](https://docs.microsoft.com/cli/azure/iot/dps?view=azure-cli-latest).
 
 You can check whether disaster recovery is disabled from the **Overview** page of your DPS instance in Azure portal:
 
