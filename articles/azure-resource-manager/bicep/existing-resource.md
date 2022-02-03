@@ -1,10 +1,10 @@
 ---
-title: Declare resources in Bicep
-description: Describes how to declare resources to deploy in Bicep.
+title: Reference existing resource in Bicep
+description: Describes how to reference a resource that already exists.
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 11/12/2021
+ms.date: 02/03/2022
 ---
 
 # Existing resources

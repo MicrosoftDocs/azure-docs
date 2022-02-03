@@ -10,7 +10,6 @@
   - name: Frequently asked questions
     href: frequently-asked-questions.yml
 - name: Install
-  expanded: true
   items:
   - name: Install Bicep tools
     href: install.md
@@ -37,10 +36,14 @@
   - name: Microsoft Learn - Bicep
     href: learn-bicep.md
 - name: Concepts
+  expanded: true
   items:
   - name: Bicep file
     href: file.md
     displayName: parameters,variables,resources,outputs,condition,syntax
+  - name: Data types
+    href: data-types.md
+    displayName: supported types,arrays,booleans,integers,objects,strings,secure
   - name: Parameters (param)
     href: parameters.md
     displayName: decorators,secure,objects,constraints
@@ -121,51 +124,20 @@
       href: operators-logical.md
     - name: Numeric operators
       href: operators-numeric.md
-  - name: Data types
-    href: data-types.md
-    displayName: supported types,arrays,booleans,integers,objects,strings,secure
 - name: How to
   items:
   - name: Author
     items:
-    - name: Create private module registry
+    - name: Best practices
+      href: best-practices.md
+    - name: Private module registry
       href: private-module-registry.md
       displayName: module registry,private module registry
-    - name: Add deployment script
+    - name: Deployment script
       href: deployment-script-bicep.md
-    - name: Define template specs
+    - name: Template specs
       href: template-specs.md
-    - name: Apply linter
-      items:
-      - name: Linter
-        href: linter.md
-      - name: Linter rules
-        items:
-        - name: Admin user name not literal
-          href: linter-rule-admin-username-should-not-be-literal.md
-        - name: No hardcoded environment URLs
-          href: linter-rule-no-hardcoded-environment-urls.md
-        - name: No unnecessary dependsOn entries
-          href: linter-rule-no-unnecessary-dependson.md
-        - name: No unused parameters
-          href: linter-rule-no-unused-parameters.md
-        - name: No unused variables
-          href: linter-rule-no-unused-variables.md
-        - name: Outputs should not contain secrets
-          href: linter-rule-outputs-should-not-contain-secrets.md
-        - name: Prefer interpolation
-          href: linter-rule-prefer-interpolation.md
-        - name: Secure parameter default
-          href: linter-rule-secure-parameter-default.md
-        - name: Simplify interpolation
-          href: linter-rule-simplify-interpolation.md
-        - name: Use protectedSettings for commandToExecute secrets
-          href: linter-rule-use-protectedsettings-for-commandtoexecute-secrets.md
-        - name: Use stable VM image
-          href: linter-rule-use-stable-vm-image.md
-    - name: Implement best practices
-      href: best-practices.md
-    - name: Use patterns
+    - name: Patterns
       items:
       - name: Configuration set
         href: patterns-configuration-set.md
@@ -175,36 +147,60 @@
         href: patterns-name-generation.md
       - name: Shared variable file
         href: patterns-shared-variable-file.md
+    - name: Common scenarios
+      items:
+      - name: Access control
+        href: scenarios-rbac.md
+      - name: Secrets
+        href: scenarios-secrets.md
+      - name: Virtual networks
+        href: scenarios-virtual-networks.md
   - name: Provide parameters
     items:
-    - name: Create parameter file
+    - name: Parameter file
       href: parameter-files.md
-    - name: Pass sensitive values
+    - name: Sensitive values
       displayName: key vault
       href: key-vault-parameter.md
-  - name: Use common scenarios
+  - name: Validate file
     items:
-    - name: Access control
-      href: scenarios-rbac.md
-    - name: Secrets
-      href: scenarios-secrets.md
-    - name: Virtual networks
-      href: scenarios-virtual-networks.md
+    - name: Linter
+      href: linter.md
+    - name: Linter rules
+      items:
+      - name: Admin user name not literal
+        href: linter-rule-admin-username-should-not-be-literal.md
+      - name: No hardcoded environment URLs
+        href: linter-rule-no-hardcoded-environment-urls.md
+      - name: No unnecessary dependsOn entries
+        href: linter-rule-no-unnecessary-dependson.md
+      - name: No unused parameters
+        href: linter-rule-no-unused-parameters.md
+      - name: No unused variables
+        href: linter-rule-no-unused-variables.md
+      - name: Outputs should not contain secrets
+        href: linter-rule-outputs-should-not-contain-secrets.md
+      - name: Prefer interpolation
+        href: linter-rule-prefer-interpolation.md
+      - name: Secure parameter default
+        href: linter-rule-secure-parameter-default.md
+      - name: Simplify interpolation
+        href: linter-rule-simplify-interpolation.md
+      - name: Use protectedSettings for commandToExecute secrets
+        href: linter-rule-use-protectedsettings-for-commandtoexecute-secrets.md
+      - name: Use stable VM image
+        href: linter-rule-use-stable-vm-image.md
   - name: Deploy
     items:
-    - name: Predeployment checks
-      items:
-      - name: What-if deployment
-        href: deploy-what-if.md
-        displayName: whatif, what if
-    - name: Deployment commands
-      items:
-      - name: Deploy - CLI
-        href: deploy-cli.md
-      - name: Deploy - PowerShell
-        href: deploy-powershell.md
-      - name: Deploy - Cloud Shell
-        href: deploy-cloud-shell.md
+    - name: What-if check
+      href: deploy-what-if.md
+      displayName: whatif, what if
+    - name: Deploy - CLI
+      href: deploy-cli.md
+    - name: Deploy - PowerShell
+      href: deploy-powershell.md
+    - name: Deploy - Cloud Shell
+      href: deploy-cloud-shell.md
   - name: Configure settings
     items:
     - name: Bicep config file

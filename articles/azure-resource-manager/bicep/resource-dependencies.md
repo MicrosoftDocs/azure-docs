@@ -1,10 +1,10 @@
 ---
-title: Declare resources in Bicep
-description: Describes how to declare resources to deploy in Bicep.
+title: Set resource dependencies in Bicep
+description: Describes how to specify the order resources are deployed.
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 11/12/2021
+ms.date: 02/03/2022
 ---
 
 # Resource dependencies in Bicep
