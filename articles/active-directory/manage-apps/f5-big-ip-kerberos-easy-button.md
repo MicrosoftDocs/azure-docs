@@ -196,13 +196,13 @@ The optional **Security Settings** specify whether Azure AD should encrypt issue
 
 3.	From the **Assertion Decryption Private Key** list, select **Create New**
  
-   ![Screenshot for Import SSL certificates and keys](./media/f5-big-ip-easy-button-oracle-ebs/configure-security-create-new.png)
+   ![Screenshot for Configure Easy Button- Create New import](./media/f5-big-ip-oracle/configure-security-create-new.png)
 
 4.	Select **OK**. This opens the **Import SSL Certificate and Keys** dialog in a new tab  
 
 6.	Select **PKCS 12 (IIS) ** to import your certificate and private key. Once provisioned close the browser tab to return to the main tab.
 
-   ![Screenshot for Import SSL certificates and keys](./media/f5-big-ip-easy-button-ldap/import-ssl-certificates-and-keys.png)
+   ![Screenshot for Configure Easy Button- Import new cert](./media/f5-big-ip-oracle/import-ssl-certificates-and-keys.png)
 
 6.	Check **Enable Encrypted Assertion**
 
@@ -301,7 +301,7 @@ The **Application Pool tab** details the services behind a BIG-IP, represented a
 
 3. Update **Pool Servers.** Select an existing server node or specify an IP and port for the backend node hosting the header-based application
 
-   ![Screenshot for Application pool](./media/f5-big-ip-easy-button-oracle-ebs/application-pool.png)
+   ![Screenshot for Application pool](./media/f5-big-ip-oracle/application-pool.png)
 
 Our backend application runs on HTTP port 80. You can switch this to 443 if your application runs on HTTPS.
 
@@ -431,13 +431,13 @@ SHA also supports [Azure AD B2B guest access](../external-identities/hybrid-clou
 
 ## Advanced deployment
 
-There may be cases where the Guided Configuration templates lacks the flexibility to achieve more specific requirements. For those scenarios, see [Advanced Configuration for kerberos-based SSO](./f5-big-ip-kerberos-advanced).
+There may be cases where the Guided Configuration templates lacks the flexibility to achieve more specific requirements. For those scenarios, see [Advanced Configuration for kerberos-based SSO](./f5-big-ip-kerberos-advanced.md).
 
 Alternatively, the BIG-IP gives you the option to disable **Guided Configuration’s strict management mode**. This allows you to manually tweak your configurations, even though bulk of your configurations are automated through the wizard-based templates.
 
 You can navigate to **Access > Guided Configuration** and select the **small padlock icon** on the far right of the row for your applications’ configs. 
  
-   ![Screenshot for Configure Easy Button - Strict Management](https://docs.microsoft.com/azure/active-directory/manage-apps/media/f5-big-ip-oracle/strict-mode-padlock.png)
+
 
 At that point, changes via the wizard UI are no longer possible, but all BIG-IP objects associated with the published instance of the application will be unlocked for direct management.
 
