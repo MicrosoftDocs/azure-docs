@@ -35,9 +35,6 @@ In this article, learn how to securely integrate with Azure Machine Learning fro
 
     A quick and easy way to build this configuration is to use a [Microsoft Bicep or HashiCorp Terraform template](tutorial-create-secure-workspace-template.md).
 
-    > [!IMPORTANT]
-    > The steps in this article assume that you can connect to the Azure Machine Learning studio of your workspace, but does not provide details on how to connect. Depending on your VNet configuration, you might be connecting through a jump box (VM), Azure VPN Gateway, or Azure ExpressRoute.
-
 * An Azure Synapse workspace in a __managed__ virtual network, using a __managed__ private endpoint. For more information, see [Azure Synapse Analytics Managed Virtual Network](/azure/synapse-analytics/security/synapse-workspace-managed-vnet).
 
     > [!WARNING]
