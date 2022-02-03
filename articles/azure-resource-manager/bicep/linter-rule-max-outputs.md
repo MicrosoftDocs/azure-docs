@@ -1,13 +1,13 @@
 ---
 title: Linter rule - max outputs
-description: Linter rule - max outputs
+description: Linter rule - max outputs.
 ms.topic: conceptual
-ms.date: 11/18/2021
+ms.date: 02/03/2022
 ---
 
-# Linter rule - max variables
+# Linter rule - max outputs
 
-This rule checks if the number of outputs does not exceed the [ARM template limits](../templates/best-practices.md#template-limits).
+This rule checks that the number of outputs does not exceed the [ARM template limits](../templates/best-practices.md#template-limits).
 
 ## Linter rule code
 

@@ -1,13 +1,13 @@
 ---
 title: Linter rule - max resources
-description: Linter rule - max resources
+description: Linter rule - max resources.
 ms.topic: conceptual
-ms.date: 11/18/2021
+ms.date: 02/03/2022
 ---
 
 # Linter rule - max resources
 
-This rule checks if the number of resources does not exceed the [ARM template limits](../templates/best-practices.md#template-limits).
+This rule checks that the number of resources does not exceed the [ARM template limits](../templates/best-practices.md#template-limits).
 
 ## Linter rule code
 

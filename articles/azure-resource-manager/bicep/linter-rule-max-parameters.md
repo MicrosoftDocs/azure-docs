@@ -1,13 +1,13 @@
 ---
 title: Linter rule - max parameters
-description: Linter rule - max parameters
+description: Linter rule - max parameters.
 ms.topic: conceptual
-ms.date: 11/18/2021
+ms.date: 02/03/2022
 ---
 
 # Linter rule - max parameters
 
-This rule checks if the number of parameters does not exceed the [ARM template limits](../templates/best-practices.md#template-limits).
+This rule checks that the number of parameters does not exceed the [ARM template limits](../templates/best-practices.md#template-limits).
 
 ## Linter rule code
 
