@@ -41,7 +41,7 @@ To reduce the risk of bodily injury, electrical shock, fire, and equipment damag
 * When installed into an equipment rack, don’t extend more than one equipment (for example, storage or server) from the rack at one time to prevent the equipment rack from becoming dangerously unstable. 
 
 ![Safety warning](./media/azure-stack-edge-pro-2-safety/icon-safety-warning.png)![Electric shock hazard icon](./media/azure-stack-edge-pro-2-safety/icon-safety-electric-shock.png)![Do not access](./media/azure-stack-edge-pro-2-safety/icon-safety-do-not-access.png)**CAUTION:**
-* Parts enclosed within panels containing this symbol</br>![Do not access 2](./media/azure-stack-edge-pro-2-safety/icon-safety-do-not-access.png) </br>contain no user-serviceable parts. Hazardous voltage, current, and energy levels are present inside. Don’t open. Return to manufacturer for servicing. </br>Open a ticket with [Microsoft Support](https://aka.ms/CONTACT-ASE-SUPPORT). 
+* Parts enclosed within panels containing this symbol ![Do not access 2](./media/azure-stack-edge-pro-2-safety/icon-safety-do-not-access-tiny.png) contain no user-serviceable parts. Hazardous voltage, current, and energy levels are present inside. Don’t open. Return to manufacturer for servicing. </br>Open a ticket with [Microsoft Support](https://aka.ms/CONTACT-ASE-SUPPORT). 
 * The equipment contains coin cell batteries. There’s a risk of explosion if the battery is replaced by an incorrect type. Dispose of used batteries according to the instructions.
 
 ![Safety warning](./media/azure-stack-edge-pro-2-safety/icon-safety-warning.png)![Hot component surface](./media/azure-stack-edge-pro-2-safety/icon-hot-component-surface.png)**CAUTION:**
