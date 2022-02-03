@@ -37,7 +37,7 @@ Before you disconnect your Azure Stack Edge device from the network that allows 
 
 - For IOT Edge / Kubernetes, deploy Kubernetes on your device, enable the Kubernetes components, and deploy compute modules and containers on the device. Then make sure the modules and components are running.<!--1) Is the only available method in a standalone deployment to use an IoT Edge module to run a stateless application? If so, we should state this. In "Deployment types" (https://docs.microsoft.com/en-us/azure/databox-online/azure-stack-edge-gpu-kubernetes-workload-management#deployment-types), the kubectl deployment looks appropriate also. 2) The IoT Edge deployment has three cormponents. Include the first and second (Deploy a stateless app; Deploy a GPU shared workload). How about the third: Develop a C# module to contain the app? 3) Can we make this a higher-level requirement? They need to complete the Kubernetes deployment instructions for the method of choice, and make sure things are running smoothly.-->
 
-## Limited or unavailable features
+## Feature availability
 
 When your Azure Stack Edge deployment is not connected to the Internet, Azure endpoints can't be reached, which affects some Azure Stack Edge features. When you connect the system to the Internet again, you'll be able to communicate with Azure and Azure services again. *Restoring full functionality? Any exceptions?*
 
