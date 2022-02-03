@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 01/31/2022
+ms.date: 02/03/2022
 
 ms.author: justinha
 author: justinha
@@ -30,7 +30,7 @@ The following scenarios are supported:
 - User sign-ins to web browser-based applications on all platforms.
 - User sign-ins on mobile Native browsers.
 - Support for granular authentication rules for multifactor authentication using the certificate issuer Subject and policy OIDs.
-- Certificate-to-user account binding configurations using the certificate SAN principal name and SAN RFC8022 Name.
+- Certificate-to-user account binding configurations using the certificate SAN principal name and SAN RFC822 Name.
 
 ## Unsupported scenarios
 

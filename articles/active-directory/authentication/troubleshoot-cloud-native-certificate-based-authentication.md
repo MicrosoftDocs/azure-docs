@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 01/31/2022
+ms.date: 02/03/2022
 
 ms.author: justinha
 author: justinha
@@ -72,6 +72,13 @@ There is also a known issue when a user who is not in scope for CBA ties to sign
 
 In both cases, the error can be resolved by making sure the user is in scope for cloud-native CBA. For more information, see [Step 4: Enable CBA on the tenant](how-to-certificate-based-authentication.md#step-4-enable-cba-on-the-tenant).
 
+**AADSTS90100: flowtoken parameter is empty or not valid**
+
+After sign-in fails and I retry sign-in with the correct certificate, I get an error:
+
+:::image type="content" border="false" source="./media/troubleshoot-cloud-native-certificate-based-authentication/user-error.png" alt-text="Error message for user who signs in with cloud-native certificate-based authentication in Azure AD.":::
+
+This is a client behavior where the browser keeps using the original certificate selected. When the sign-in fails, close the existing browser session and retry sign-in from a new browser session.
 
 ## User sign-in failed but not much diagnostic information
 
