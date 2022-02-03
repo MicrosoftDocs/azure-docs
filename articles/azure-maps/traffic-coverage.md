@@ -96,7 +96,7 @@ The following tables provide information about what kind of traffic information 
 | Ukraine                |     ✓     |  ✓  |
 | United Kingdom         |     ✓     |  ✓  |
 
-## Middle East and Africa
+## Middle East & Africa
 
 | Country/Region       | Incidents | Flow |
 |----------------------|:---------:|:----:|
