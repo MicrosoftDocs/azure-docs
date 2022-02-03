@@ -122,7 +122,7 @@ pronunciation_score = pronunciation_assessment_result.pronunciation_score
 
 ::: zone pivot="programming-language-javascript"
 
-```Javascript
+```JavaScript
 var pronunciationAssessmentConfig = new SpeechSDK.PronunciationAssessmentConfig("reference text",
     PronunciationAssessmentGradingSystem.HundredMark,
     PronunciationAssessmentGranularity.Word, true);
