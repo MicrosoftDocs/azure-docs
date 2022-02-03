@@ -212,7 +212,7 @@ Currently, the native metrics package performs autocollection of garbage collect
 
 By default, the SDK will send headers understood by other applications/services instrumented with an Application Insights SDK. You can optionally enable sending/receiving of [W3C Trace Context](https://github.com/w3c/trace-context) headers in addition to the existing AI headers, so you will not break correlation with any of your existing legacy services. Enabling W3C headers will allow your app to correlate with other services not instrumented with Application Insights, but do adopt this W3C standard.
 
-```Javascript
+```JavaScript
 const appInsights = require("applicationinsights");
 appInsights
   .setup("<your ikey>")
