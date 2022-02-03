@@ -51,11 +51,9 @@ Be sure you have the following items before you begin this guide:
 [!INCLUDE [Pattern Matching Overview](includes/pattern-matching-overview.md)]
 
 ::: zone pivot="programming-language-csharp"
-[!INCLUDE [Header](includes/how-to/intent-recognition/csharp/header.md)]
 [!INCLUDE [csharp](includes/how-to/intent-recognition/csharp/pattern-matching.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-cpp"
-[!INCLUDE [Header](includes/how-to/intent-recognition/cpp/header.md)]
 [!INCLUDE [cpp](includes/how-to/intent-recognition/cpp/pattern-matching.md)]
 ::: zone-end

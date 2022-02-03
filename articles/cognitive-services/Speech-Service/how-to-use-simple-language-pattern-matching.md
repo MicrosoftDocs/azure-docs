@@ -62,11 +62,9 @@ All other special characters and punctuation will be ignored.
 Intents will be added using calls to the IntentRecognizer->AddIntent() API.
 
 ::: zone pivot="programming-language-csharp"
-[!INCLUDE [Header](includes/quickstarts/intent-recognition/csharp/header.md)]
-[!INCLUDE [csharp](includes/quickstarts/intent-recognition/csharp/simple-pattern-matching.md)]
+[!INCLUDE [csharp](includes/how-to/intent-recognition/csharp/simple-pattern-matching.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-cpp"
-[!INCLUDE [Header](includes/quickstarts/intent-recognition/cpp/header.md)]
-[!INCLUDE [cpp](includes/quickstarts/intent-recognition/cpp/simple-pattern-matching.md)]
+[!INCLUDE [cpp](includes/how-to/intent-recognition/cpp/simple-pattern-matching.md)]
 ::: zone-end
