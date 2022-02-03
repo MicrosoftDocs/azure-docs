@@ -10,7 +10,7 @@ ms.topic: quickstart
 ms.date: 02/02/2022
 ---
 
-# Create and distribute tables
+# Model and load data
 
 Within Hyperscale (Citus) servers, there are three types of tables:
 
