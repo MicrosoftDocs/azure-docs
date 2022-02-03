@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 12/06/2021
+ms.date: 01/31/2022
 ms.author: kenwith
 ms.reviewer: arvinh
 ---
@@ -195,6 +195,19 @@ By default, the Azure AD provisioning service soft deletes or disables users tha
 If one of the above four events occurs and the target application does not support soft deletes, the provisioning service will send a DELETE request to permanently delete the user from the app.
 
 If you see an attribute IsSoftDeleted in your attribute mappings, it is used to determine the state of the user and whether to send an update request with active = false to soft delete the user.
+
+**Deprovisioning events**
+
+The following table describes how you can configure deprovisioning actions with the Azure AD provisioning service. These rules are written with the non-gallery / custom application in mind, but generally apply to applications in the gallery. However, the behavior for gallery applications can differ as they have been optimized to meet the needs of the application. For example, the Azure AD provisioning service may always sende a request to hard delete users in certain applications rather than soft deleting, if the target application doesn't support soft deleting users. 
+
+|Scenario|How to configure in Azure AD|
+|--|--|
+|If a user is unassigned from an app, soft-deleted in Azure AD, or blocked from sign-in, do nothing.|Remove isSoftDeleted from the attribute mappings and / or set the [skip out of scope deletions](https://docs.microsoft.com/azure/active-directory/app-provisioning/skip-out-of-scope-deletions) property to true.|
+|If a user is unassigned from an app, soft-deleted in Azure AD, or blocked from sign-in, set a specific attribute to true / false.|Map isSoftDeleted to the attribute that you would like to set to false.|
+|When a user is disabled in Azure AD, unassigned from an app, soft-deleted in Azure AD, or blocked from sign-in, send a DELETE request to the target application.|This is currently supported for a limited set of gallery applications where the functionality is required. It is not configurable by customers.|
+|When a user is deleted in Azure AD, do nothing in the target application.|Ensure that "Delete" is not selected as one of the target object actions in the [attriubte configuration experience](https://docs.microsoft.com/azure/active-directory/app-provisioning/skip-out-of-scope-deletions).|
+|When a user is deleted in Azure AD, set the value of an attribute in the target application.|Not supported.|
+|When a user is deleted in Azure AD, delete the user in the target application|This is supported. Ensure that Delete is selected as one of the target object actions in the [attribute configuration experience](https://docs.microsoft.com/azure/active-directory/app-provisioning/skip-out-of-scope-deletions).|
 
 **Known limitations**
 
