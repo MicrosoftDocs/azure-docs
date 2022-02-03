@@ -1,6 +1,6 @@
 ---
-title:  Microsoft CloudKnox Permissions Management - Onboard the Amazon Web Services (AWS) authorization system
-description: How to onboard an Amazon Web Services (AWS) account on Microsoft CloudKnox Permissions Management.
+title:  CloudKnox Permissions Management - Onboard the Amazon Web Services (AWS) authorization system
+description: How to onboard an Amazon Web Services (AWS) account on CloudKnox Permissions Management.
 services: active-directory
 author: Yvonne-deQ
 manager: karenh444
