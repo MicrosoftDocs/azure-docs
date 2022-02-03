@@ -114,5 +114,11 @@ landingContent:
         links:
           - text: FAQs
             url: cloudknox-faqs.md
-
+  # Card
+  - title: Troubleshoot
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Troubleshoot
+            url: cloudknox-troubleshoot.md
 
