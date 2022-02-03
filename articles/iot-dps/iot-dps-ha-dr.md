@@ -48,7 +48,7 @@ To disable disaster recovery in supported regions, make sure that **Disaster rec
 
 :::image type="content" source="media/iot-dps-ha-dr/singapore.png" alt-text="Screenshot that shows disaster recovery option for an IoT hub in Singapore region.":::
 
-You can also disable disaster recovery when you create a DPS instance using an [ARM template](/azure/templates/microsoft.devices/provisioningservices?tabs=bicep) or [Azure CLI commands](https://docs.microsoft.com/cli/azure/iot/dps?view=azure-cli-latest).
+You can also disable disaster recovery when you create a DPS instance using an [ARM template](/azure/templates/microsoft.devices/provisioningservices?tabs=bicep) or [Azure CLI commands](/cli/azure/iot/dps).
 
 Failover capability will not be available if you disable disaster recovery for a DPS instance.
 
