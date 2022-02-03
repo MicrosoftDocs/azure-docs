@@ -342,7 +342,7 @@ Before a certificate expires, you should add the renewed certificate into App Se
 To replace an expiring certificate, how you update the certificate binding with the new certificate can adversely affect user experience. For example, your inbound IP address can change when you delete a binding, even if that binding is IP-based. This is especially important when you renew a certificate that's already in an IP-based binding. To avoid a change in your app's IP address, and to avoid downtime for your app due to HTTPS errors, follow these steps in order:
 
 1. [Upload the new certificate](#upload-a-private-certificate).
-2. [Bind the new certificate to the same custom domain](configure-ssl-bindings.md) without deleting the existing (expiring) certificate. This action replaces the binding instead of removing the existing certificate binding.
+2. Bind the new certificate to the same custom domain without deleting the existing (expiring) certificate. This action replaces the binding instead of removing the existing certificate binding. To do this, navigate to the TLS/SSL settings blade of your App Service and select the Add Binding button.
 3. Delete the existing certificate.
 
 ### Renew an App Service certificate
