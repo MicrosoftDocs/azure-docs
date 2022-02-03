@@ -15,12 +15,13 @@ One of the most common architectures in Azure is the hub and spoke design, where
 
 Azure Route Server offers a centralized point where Network Virtual Appliances (NVAs) can inject routes that will be programmed for every virtual machine in the spoke, thus eliminating the need for spoke administrators to create route tables. 
 
-## How to set it up
+## Topology
 
+The following diagram depicts a simple hub and spoke design with a hub VNet and two spokes. In the hub a Network Virtual Appliance and a Route Server has been deployed. Typically, route tables would have to be configured in every spoke (usually containing a default route for 0.0.0.0/0), that send all traffic from the spokes through this NVA to get it inspected for security purposes.
 
 :::image type="content" source="./media/senarios/route-injection.png" alt-text="Diagram of Route Server in a dual-homed topology.":::
 
-### How does it work?
+However, if the NVA advertises via BGP to the Route Server network prefixes, these will appear as effective routes in any virtual machine deployed in the hub or in any spoke. For spokes to "learn" the Route Server routes, they need to be peered with the hub VNet with the setting "Use Remote Gateway". 
 
 > [!IMPORTANT]
 > If VPN or ExpresRoute gateways exist in the same VNet as the Route Server, note that routes learnt by these gateways will be programmed as well in the spoke VNets, overriding the routes injected by the Route Server if they are more specific (longer network masks).
