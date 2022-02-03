@@ -108,9 +108,9 @@ conceptualContent:
         - url: ./conditional-access/howto-conditional-access-policy-all-users-mfa.md
           itemType: how-to-guide
           text:  Require MFA for all users
-        - url: ./conditional-access/location-condition.md
+        - url: ./conditional-access/concept-conditional-access-policy-common.md
           itemType: concept
-          text:  Use location in Conditional Access policy
+          text:  Common Conditional Access policies
       footerLink:
         url: ./conditional-access/index.yml
         text: See more
