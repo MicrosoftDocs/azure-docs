@@ -52,17 +52,20 @@ In this article, learn how to securely integrate with Azure Machine Learning fro
 
 In this configuration, Azure Synapse uses a __managed__ private endpoint and virtual network. The managed virtual network and private endpoint secures the internal communications from Azure Synapse to Azure Machine Learning by restricting network traffic to the virtual network. It does __not__ restrict communication between your client and the Azure Synapse workspace.
 
-Azure Machine Learning doesn't provide managed private endpoints or virtual networks, and instead uses a __user-managed__ private endpoint and virtual network. In this configuration, both internal and client/service communication is limited to the virtual network. For example, if you wanted to directly access the Azure Machine Learning studio, you would use one of the following options:
+Azure Machine Learning doesn't provide managed private endpoints or virtual networks, and instead uses a __user-managed__ private endpoint and virtual network. In this configuration, both internal and client/service communication is restricted to the virtual network. For example, if you wanted to directly access the Azure Machine Learning studio from outside the virtual network, you would use one of the following options:
 
 * Create an Azure Virtual Machine inside the virtual network and use Azure Bastion to connect to it. Then connect to Azure Machine Learning from the VM.
 * Create a VPN gateway or use ExpressRoute to connect clients to the virtual network.
 
 Since the Azure Synapse workspace is publicly accessible, you can connect to it without having to create things like a VPN gateway. The Synapse workspace securely connects to Azure Machine Learning over the virtual network. Azure Machine Learning and its resources are secured within the virtual network.
 
+When adding data sources, you can also secure those behind the virtual network. For example, securely connecting to an Azure Storage Account or Data Lake Store Gen 2 through the virtual network.
+
 For more information, see the following articles:
 
 * [Azure Synapse Analytics Managed Virtual Network](/azure/synapse-analytics/security/synapse-workspace-managed-vnet)
 * [Secure Azure Machine Learning workspace resources using virtual networks](how-to-network-security-overview.md).
+* [Connect to a secure Azure storage account from your Synapse workspace](/azure/synapse-analytics/security/connect-to-a-secure-storage-account).
 
 ## Configure Azure Synapse
 
