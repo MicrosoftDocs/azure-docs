@@ -319,7 +319,7 @@ In addition to IP address blocks, you can also specify [service tags](../virtual
 * [Default authentication providers](authentication-authorization.md#login), don't require settings in the configuration file. 
 * [Custom authentication providers](authentication-custom.md) use the `auth` section of the settings file.
 
-For details on how to secure routes, see [Securing routes with roles](#securing-routes-with-roles).
+For details on how to restrict routes to authenticated users, see [Securing routes with roles](#securing-routes-with-roles).
 
 ### Disable cache for authenticated paths
 
