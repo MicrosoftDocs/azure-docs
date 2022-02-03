@@ -19,7 +19,7 @@ After the learning period is complete and the Learning mode is disabled, the sen
 
 When Smart IT Learning is enabled, the sensor tracks network traffic that generates nondeterministic IT behavior based on specific alert scenarios.
 
-The sensor monitors this traffic for seven days. If it detects the same nondeterministic IT traffic within the seven days, it continues to monitor the traffic for another seven days. When the traffic is not detected for a full seven days, Smart IT Learning is disabled for that scenario. New traffic detected for that scenario will only then generate alerts and notifications.
+The sensor monitors this traffic for seven days. If it detects the same nondeterministic IT traffic within the seven days, it continues to monitor the traffic for another seven days. When the traffic isn't detected for a full seven days, Smart IT Learning is disabled for that scenario. New traffic detected for that scenario will only then generate alerts and notifications.
 
 Working with Smart IT Learning helps you reduce the number of unnecessary alerts and notifications caused by noisy IT scenarios.
 
@@ -27,11 +27,11 @@ If your sensor is controlled by the on-premises management console, you can't di
 
 The learning capabilities (Learning and Smart IT Learning) are enabled by default.
 
-To enable or disable learning:
+**To enable or disable learning:**
 
-- Select **System Settings** and toggle the **Learning** and **Smart IT Learning** options.
+1. Select **System settings** > **Network monitoring** > **Detection Engines and Network Modelling**.
+1. Enable or disable the **Learning** and **Smart IT Learning** options.
 
-:::image type="content" source="media/concept-learning-modes/toggle-options-for-learning-and-smart-it-learning.png" alt-text="System settings toggle screen.":::
 
 ## Configure subnets
 
@@ -53,19 +53,17 @@ In some cases, such as environments that use public ranges as internal ranges, y
 
 - No alerts will be sent about unauthorized internet activity, which reduces notifications and alerts received on external addresses.
 
-To configure subnets:
+**To configure subnets:**
 
 1. On the side menu, select **System Settings**.
 
-2. In the **System Setting** window, select **Subnets**.
+1. Select **Basic**, and then select **Subnets**.
 
-   :::image type="content" source="media/how-to-control-what-traffic-is-monitored/edit-subnets-configuration-screen.png" alt-text="Screenshot that shows the subnet configuration screen."::: 
+3. To add subnets automatically when new devices are discovered, keep the **Auto Subnets Learning** checkbox selected.
 
-3. To add subnets automatically when new devices are discovered, keep **Auto Subnets Learning** selected.
+4. To resolve all subnets as internal subnets, select **Resolve all internet traffic as internal/private**. Public IPs will be treated as private local addresses. No alerts will be sent about unauthorized internet activity.
 
-4. To resolve all subnets as internal subnets, select **Don't Detect Internet Activity**.
-
-5. Select **Add network** and define the following parameters for each subnet:
+5. Select **Add subnet** and define the following parameters for each subnet:
 
     - The subnet IP address.
     - The subnet mask address.
@@ -74,8 +72,6 @@ To configure subnets:
 6. To mark this subnet as an OT subnet, select **ICS Subnet**.
 
 7. To present the subnet separately when you're arranging the map according to the Purdue level, select **Segregated**.
-
-8. To delete a subnet, select :::image type="icon" source="media/how-to-control-what-traffic-is-monitored/delete-icon.png" border="false":::.
 
 9. To delete all subnets, select **Clear All**.
 
@@ -105,7 +101,7 @@ The name of the engine that triggered the alert appears under the alert title.
 A protocol violation occurs when the packet structure or field values don't comply with the protocol specification.
 
 Example scenario:
-*"Illegal MODBUS Operation (Function Code Zero)"* alert. This alert indicates that a primary device sent a request with function code 0 to a secondary device. This action is not allowed according to the protocol specification, and the secondary device might not handle the input correctly.
+*"Illegal MODBUS Operation (Function Code Zero)"* alert. This alert indicates that a primary device sent a request with function code 0 to a secondary device. This action isn't allowed according to the protocol specification, and the secondary device might not handle the input correctly.
 
 ### Policy violation engine
 
@@ -133,7 +129,7 @@ Example scenario:
 The Operational engine detects operational incidents or malfunctioning entities.
 
 Example scenario: 
-*"Device is Suspected to be Disconnected (Unresponsive)"* alert. This alert is raised when a device is not responding to any kind of request for a predefined period. This alert might indicate a device shutdown, disconnection, or malfunction.
+*"Device is Suspected to be Disconnected (Unresponsive)"* alert. This alert is raised when a device isn't responding to any kind of request for a predefined period. This alert might indicate a device shutdown, disconnection, or malfunction.
 
 ### Enable and disable engines
 
