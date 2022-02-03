@@ -46,8 +46,8 @@ The VM application packages use multiple resource types:
 | Resource | Description|
 |----------|------------|
 | **Azure compute gallery** | A gallery is a repository for managing and sharing application packages. Users can share the gallery resource and all the child resources will be shared automatically. The gallery name must be unique per subscription. For example, you may have one gallery to store all your OS images and another gallery to store all your VM applications.|
-| **VM application** | This is the definition of your VM application. This is a *logical* resource that stores the common metadata for all the versions under it. For example, you may have an application definition for Apache Tomcat and have multiple versions within it. |
-| **VM Application version** | This is the deployable resource. You can globally replicate your VM application versions to target regions closer to your VM infrastructure. The VM Application Version must be replicated to a region before it may be deployed on a VM in that region. |
+| **VM application** | The definition of your VM application. It is a *logical* resource that stores the common metadata for all the versions under it. For example, you may have an application definition for Apache Tomcat and have multiple versions within it. |
+| **VM Application version** | The deployable resource. You can globally replicate your VM application versions to target regions closer to your VM infrastructure. The VM Application Version must be replicated to a region before it may be deployed on a VM in that region. |
 
 
 ## Limitations
@@ -261,7 +261,7 @@ To get status of VM extensions, use [Get-AzVM](/powershell/module/az.compute/get
 Get-AzVM -name <VM name> -ResourceGroupName <resource group name> -Status | convertto-json -Depth 10    
 ```
 
-To get status of VMSS extensions, use [Get-AzVMSS](/powershell/module/az.compute/get-azvmss):
+To get status of scale set extensions, use [Get-AzVMSS](/powershell/module/az.compute/get-azvmss):
 
 ```azurepowershell-interactive
 Get-AzVmss -name <VMSS name> -ResourceGroupName <resource group name> -Status | convertto-json -Depth 10  
@@ -273,7 +273,7 @@ Get-AzVmss -name <VMSS name> -ResourceGroupName <resource group name> -Status | 
 |--|--|
 | Current VM Application Version {name} was deprecated at {date}. | You tried to deploy a VM Application version that has already been deprecated. Try using `latest` instead of specifying a specific version. |
 | Current VM Application Version {name} supports OS {OS}, while current OSDisk's OS is {OS}. | You tried to deploy a Linux application to Windows instance or vice versa. |
-| The maximum number of VM applications (max=5, current={count}) has been exceeded. Use fewer applications and retry the request. | We currently only support five VM applications per VM or VMSS. |
+| The maximum number of VM applications (max=5, current={count}) has been exceeded. Use fewer applications and retry the request. | We currently only support five VM applications per VM or scale set. |
 | More than one VMApplication was specified with the same packageReferenceId. | The same application was specified more than once. |
 | Subscription not authorized to access this image. | The subscription does not have access to this application version. |
 | Storage account in the arguments does not exist. | There are no applications for this subscription. |
