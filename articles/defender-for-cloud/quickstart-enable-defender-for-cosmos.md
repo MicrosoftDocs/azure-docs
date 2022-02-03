@@ -15,7 +15,7 @@ Microsoft Defender for Cloud can be configured in the following two ways:
 
 ## Prerequisites
 
-- An Azure account. If you do not already have an Azure account, you can [create your Azure free account today](https://azure.microsoft.com/free/).
+- An Azure account. If you don't already have an Azure account, you can [create your Azure free account today](https://azure.microsoft.com/free/).
 
 ## Enable database protection at the subscription level
 
@@ -61,7 +61,7 @@ When you enable Microsoft Defender for Cloud's enhanced security features on you
 
 ## Enable database protection at the resource level
 
-You can enable Microsoft Defender for Cloud on a specific Cosmos DB account. This can be accomplished through the Azure portal, PowerShell, or the Azure CLI.
+You can enable Microsoft Defender for Cloud on a specific Cosmos DB account through the Azure portal, PowerShell, or the Azure CLI.
 
 **To enable Microsoft Defender for Cloud for a specific Cosmos DB account**:
 
@@ -119,7 +119,7 @@ You can use sample Defender for Cosmos DB alerts to evaluate their value, and ca
 
     :::image type="content" source="media/quickstart-enable-defender-for-cosmos/sample-alerts.png" alt-text="Screenshot showing the order needed to create an alert.":::
 
-After a few minutes, the alerts will appear in the security alerts page. Alerts will also appear anywhere else that you've configured to receive your Microsoft Defender for Cloud security alerts, for example, connected SIEMs, and email notifications. 
+After a few minutes, the alerts will appear in the security alerts page. Alerts will also appear anywhere that you've configured to receive your Microsoft Defender for Cloud security alerts. For example, connected SIEMs, and email notifications. 
 
 ## Next Steps
 
