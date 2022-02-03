@@ -420,10 +420,10 @@
       href: ./linux/endorsed-distros.md
     - name: Find Azure Marketplace images
       items:
-      - name: CLI
+      - name: Use CLI to find images
         displayName: Images, imaging, marketplace, publisher, plan, offer, URN, purchase plan, terms, find
         href: ./linux/cli-ps-findimage.md
-      - name: PowerShell
+      - name: Use PowerShell to find images
         displayName: Images, imaging, marketplace, URN, purchase plan, terms, find
         href: ./windows/cli-ps-findimage.md
       - name: Windows client images
