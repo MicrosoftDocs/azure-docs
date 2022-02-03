@@ -49,10 +49,17 @@ Your application should invoke `call.startVideo(localVideoStream);` to start a v
 You can use the Azure Communication Services SDK to manage your devices and media operations.
 - Your application shouldn't use native browser APIs like `getUserMedia` or `getDisplayMedia` to acquire streams outside of the SDK. If you do, you'll have to manually dispose your media stream(s) before using `DeviceManager` or other device management APIs via the Communication Services SDK.
 
-### Request device permissions
+#### Request device permissions
 You can request device permissions using the SDK:
 - Your application should use `DeviceManager.askDevicePermission` to request access to audio and/or video devices.
 - If the user denies access, `DeviceManager.askDevicePermission` will return 'false' for a given device type (audio or video) on subsequent calls, even after the page is refreshed. In this scenario, your application must detect that the user previously denied access and instruct the user to manually reset or explicitly grant access to a given device type.
+
+
+#### Camera being used by another process
+- On Windows Chrome and Windows Edge, if you start/join/accept a call with video on and the camera device is being used by another process other than the browser that the web sdk is running on, then the call will be started with audio only and no video. A cameraStartFailed UFD will be raised because the camera failed to start since it was being used by another process. Same applies to turning video on mid-call. You can turn off the camera in the other process so that that process releases the camera device, and then start video again from the call and video will now turn on for the call and remote participants will start seeing your video. 
+- This is not an issue in MacOS Chrome nor MacOS Safari becuase the OS will let processes/threads share the camera deivce.
+- On mobile devices, if a ProcessA reqeusts the camera device and it is being used by ProcessB, then ProcessA will overtake the camera device and ProcessB will stop using the camera device
+- On iOS safari, you cannot have the camera on for multiple call clients within the same tab nor across tabs. When any call client uses the camera, it will overtake the camera from any previous call client that was using it.
 
 ## Next steps
 For more information, see the following articles:
