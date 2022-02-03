@@ -59,7 +59,7 @@ sections:
       
       - question: What is the pricing for maintenance window? 
         answer: |
-          Configuring and using maintenance window is free of charge to all eligible Azure subscription types, see [Maintenance window cost](maintenance-window.md#feature-availability).
+          Configuring and using maintenance window is free of charge to all eligible Azure subscription types, see [Maintenance window feature availability](maintenance-window.md#feature-availability).
         
       - question: Would I receive a notification of the maintenance window?
         answer: |
