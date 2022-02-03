@@ -23,7 +23,7 @@ Enabling BIG-IP published services for Azure Active Directory (Azure AD) SSO pro
 
 * Full SSO between Azure AD and BIG-IP published services
 
-* Manage Identities and access from a single control plane, [the Azure portal](https://portal.azure.com/)
+* Manage Identities and access from a single control plane, the [Azure portal](https://portal.azure.com/)
 
 To learn about all the benefits, see the article on [F5 BIG-IP and Azure AD integration](http://f5-aad-integration.md/) and [what is application access and single sign-on with Azure AD](/azure/active-directory/active-directory-appssoaccess-whatis).
 
@@ -70,7 +70,7 @@ Prior BIG-IP experience isn’t necessary, but you need:
 
 * An Azure AD free subscription or above
 
-* An existing BIG-IP or [deploy a BIG-IP Virtual Edition (VE) in Azure](./f5-bigip-deployment-guide.md)
+* An existing BIG-IP or [deploy a BIG-IP Virtual Edition (VE) in Azure](./f5-bigip-deployment-guide)
 
 * Any of the following F5 BIG-IP license SKUs
 
@@ -136,7 +136,7 @@ A BIG-IP must also be registered as a client in Azure AD, before it is allowed t
 
 ## Configure Easy Button
 
-Initiate **Easy Button** configuration to set up a SAML Service Provider (SP) and Azure AD as an Identity Provider (IdP) for your application.
+Initiate the **Easy Button** configuration to set up a SAML Service Provider (SP) and Azure AD as an Identity Provider (IdP) for your application.
 
 1. Navigate to **Access > Guided Configuration > Microsoft Integration** and select **Azure AD Application**.
 
@@ -349,7 +349,7 @@ For increased security, organizations using this pattern could also consider blo
 
 ## Advanced deployment
 
-There may be cases where the Guided Configuration templates lack the flexibility to achieve more specific requirements. For those scenarios, see [Advanced Configuration for kerberos-based SSO](./f5-big-ip-kerberos-advanced.md). Alternatively, the BIG-IP gives the option to disable **Guided Configuration’s strict management mode**. This allows you to manually tweak your configurations, even though bulk of your configurations are automated through the wizard-based templates.
+There may be cases where the Guided Configuration templates lack the flexibility to achieve more specific requirements. For those scenarios, see ![Advanced Configuration for headers-based SSO](./f5-big-ip-header-advanced). Alternatively, the BIG-IP gives the option to disable **Guided Configuration’s strict management mode**. This allows you to manually tweak your configurations, even though bulk of your configurations are automated through the wizard-based templates.
 
 You can navigate to **Access > Guided Configuration** and select the **small padlock icon** on the far right of the row for your applications’ configs. 
 
