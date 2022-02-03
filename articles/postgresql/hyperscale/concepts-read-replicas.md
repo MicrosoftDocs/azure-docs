@@ -94,10 +94,11 @@ another read replica.
 
 ### Replica configuration
 
-A replica is created by using the same compute, storage, and worker node
-settings as the primary. After a replica is created, several settings can be
-changed, including storage and backup retention period. Other settings can't be
-changed in replicas, such as storage size and number of worker nodes.
+Replicas inherit compute, storage, and worker node settings from their
+primaries. You can change some--but not all--settings on a replica.  For
+instance, you can change compute, firewall rules for public access, and private
+endpoints for private access. You can't change the storage size or number of
+worker nodes.
 
 Remember to keep replicas strong enough to keep up changes arriving from the
 primary. For instance, be sure to upscale compute power in replicas if you
