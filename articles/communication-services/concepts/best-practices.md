@@ -59,7 +59,7 @@ You can request device permissions using the SDK:
 - On Windows Chrome and Windows Edge, if you start/join/accept a call with video on and the camera device is being used by another process other than the browser that the web sdk is running on, then the call will be started with audio only and no video. A cameraStartFailed UFD will be raised because the camera failed to start since it was being used by another process. Same applies to turning video on mid-call. You can turn off the camera in the other process so that that process releases the camera device, and then start video again from the call and video will now turn on for the call and remote participants will start seeing your video. 
 - This is not an issue in MacOS Chrome nor MacOS Safari becuase the OS will let processes/threads share the camera deivce.
 - On mobile devices, if a ProcessA reqeusts the camera device and it is being used by ProcessB, then ProcessA will overtake the camera device and ProcessB will stop using the camera device
-- On iOS safari, you cannot have the camera on for multiple call clients within the same tab nor across tabs. When any call client uses the camera, it will overtake the camera from any previous call client that was using it.
+- On iOS safari, you cannot have the camera on for multiple call clients within the same tab nor across tabs. When any call client uses the camera, it will overtake the camera from any previous call client that was using it. Previous call client will get a cameraStoppedUnexpectedly UFD.
 
 ## Next steps
 For more information, see the following articles:
