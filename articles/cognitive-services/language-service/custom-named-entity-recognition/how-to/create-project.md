@@ -24,10 +24,8 @@ Use this article to learn how to prepare the requirements for using custom NER.
 
 ## Prerequisites
 
-An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services).
+* An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services).
 You should have an idea of the [project schema](design-schema.md) you will use for your data.
-
-Use this article to learn how to prepare the requirements for using custom text classification.
 
 ## Azure resources
 
@@ -96,6 +94,9 @@ You can use an existing Language resource to get started with custom NER as long
 
 To use custom NER, you'll need to [create an Azure storage account](../../../../storage/common/storage-account-create.md) if you don't have one already. 
 
+> [!NOTE]
+> Custom NER currently does not currently support Data Lake Storage Gen 2.
+
 Next you'll need to assign the [correct roles](#required-roles-for-your-storage-account) for the storage account to connect it to your Language resource. 
 
 ## Required roles for Azure Language resources
@@ -121,9 +122,6 @@ After you've enabled managed identities for your resource, add the appropriate o
 
 ## Required roles for your storage account
 
-> [!NOTE]
-> For information on authorizing access to your Azure blob storage account and data, see [Authorize access to data in Azure storage](/azure/storage/common/authorize-data-access?toc=/azure/storage/blobs/toc.json).
-
 Your Azure blob storage account must have the below roles:
 
 * Your resource has the **owner** or **contributor** role on the storage account.
@@ -137,6 +135,8 @@ To set proper roles on your storage account:
 3. Select **Add** to **Add Role Assignments**, and choose the **Owner** or **Contributor** role. You can search for user names in the **Select** field.
 
 [!INCLUDE [Storage connection note](../../custom-classification/includes/storage-account-note.md)]
+
+For information on authorizing access to your Azure blob storage account and data, see [Authorize access to data in Azure storage](/azure/storage/common/authorize-data-access?toc=/azure/storage/blobs/toc.json).
 
 ## Prepare training data
 
