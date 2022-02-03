@@ -14,7 +14,7 @@ services: azure-maps
 
 Azure Maps provides rich traffic information in the form of traffic **flow** and **incidents**. This data can be visualized on maps or used to generate smarter routes that factor in real driving conditions.
 
-The following tables provide information about what kind of traffic information you can request from each country or region. If a market is missing in the following tables, it is not currently supported.
+The following tables provide information about what kind of traffic information you can request from each country or region. If a market is missing in the following tables, it isn't currently supported.
 
 ## Americas
 
@@ -118,4 +118,4 @@ The following tables provide information about what kind of traffic information 
 
 ## Additional information
 
-For more information about incorporating Azure Maps traffic data into your mapping applications, see the [Traffic](/rest/api/maps/traffic) REST API reference.
+Use the [Traffic](/rest/api/maps/traffic) REST API to incorporate Azure Maps traffic data into your mapping applications.
