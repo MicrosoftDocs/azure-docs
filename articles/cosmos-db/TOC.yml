@@ -656,7 +656,7 @@
             - name: Secure access to data
               displayName: primary key, resource token, users, roles
               href: secure-access-to-data.md
-            - name: Threat protection with Azure Defender
+            - name: Threat protection with Microsoft Defender
               href: sql/defender-for-cosmos-db.md
         - name: Partial document update
           items:
