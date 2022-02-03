@@ -34,7 +34,7 @@ A custom IP address prefix is a contiguous range of IP addresses owned by an ext
 
 * The number of overall prefixes that can be provisioned is limited to 5 per region.
 
-* There isn't an SLA for provisioning/advertisement of a range during the preview period. 
+* There isn't an SLA for provisioning/advertisement of a range during the preview period.
 
 * Currently, the advertisements of IPs from a custom IP prefix aren't supported with Azure ExpressRoute.
 
