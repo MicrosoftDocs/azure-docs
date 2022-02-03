@@ -169,7 +169,8 @@ This equipment complies with FCC/ISED radiation exposure limits set forth for an
 ### European Union
 
 :::image type="icon" source="media/azure-stack-edge-pro-2-safety/icon-safety-warning.png" border="false":::**WARNING:** 
-* This device is a class A product. In a domestic environment, this product may cause radio interference in which case the user may be required to take adequate measures.
+* This device is a class A product. In a domestic environment, this product may cause radio interference in which case the user may be required to take adequate measures. 
+
 :::image type="content" source="media/azure-stack-edge-pro-2-safety/icon-ce-marking.png" alt-text="CE marking.":::
 
 For Model: DB040-W only
