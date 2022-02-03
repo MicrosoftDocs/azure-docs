@@ -2,7 +2,7 @@
 title: Azure Healthcare APIs as Event Grid source
 description: Describes the properties that are provided for Azure Healthcare APIs events with Azure Event Grid
 ms.topic: conceptual
-ms.date: 02/02/2022
+ms.date: 02/03/2022
 ---
 
 # Azure Healthcare APIs as an Event Grid source
@@ -17,12 +17,12 @@ These events are triggered when a client creates, updates, or deletes a resource
 
  |Event name|Description|
  |----------|-----------|
- |**FhirResourceCreated** |Triggered when a FHIR resource is created on the FHIR service.|
- |**FhirResourceUpdated** |Triggered when a FHIR resource is updated on the FHIR service.|
- |**FhirResourceDeleted** |Triggered when a FHIR resource is deleted on the FHIR service. Soft delete is the default.|
+ |**FhirResourceCreated** |The event emitted after a FHIR resource gets created successfully.|
+ |**FhirResourceUpdated** |The event emitted after a FHIR resource gets updated successfully.|
+ |**FhirResourceDeleted** |The event emitted after a FHIR resource gets soft deleted successfully.|
 
 ## Example event
-When an event is triggered, the Event Grid service sends data about that event to a subscribing endpoint. This section contains an example of what that data would look like for each FHIR resource event.
+This section contains examples of what events message data would look like for each FHIR resource event.
 
 > [!Note]
 > Events data looks similar to these examples with the `metadataVersion` property set to a value of `1`.
@@ -48,7 +48,27 @@ When an event is triggered, the Event Grid service sends data about that event t
   "eventTime": "2021-09-08T01:14:04.5613214Z"
 }
 ```
+Cloud event example:
 
+- Microsoft.HealthcareApis.FhirResourceCreated
+
+```json
+{
+  "id": "d674b9b7-7d1c-9b0a-8c48-139f3eb86c48",
+  "source": "/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.HealthcareApis/workspaces/{workspace-name}",
+  "specversion": "1.0",
+  "type": "Microsoft.HealthcareApis.FhirResourceCreated",
+  "dataschema": "#1",
+  "subject": "{fhir-account}.fhir.azurehealthcareapis.com/Patient/e87ef649-abe1-485c-8c09-549d85dfe30b",
+  "time": "2022-02-03T16:48:09.6223354Z",
+  "data": {
+    "resourceType": "Patient",
+    "resourceFhirAccount": "{fhir-account}.fhir.azurehealthcareapis.com",
+    "resourceFhirId": "e87ef649-abe1-485c-8c09-549d85dfe30b",
+    "resourceVersionId": 1
+  }
+}
+```
 ### FhirResourceUpdated event
 
 ```json
@@ -66,6 +86,27 @@ When an event is triggered, the Event Grid service sends data about that event t
   "dataVersion": "2",
   "metadataVersion": "1",
   "eventTime": "2021-09-08T01:29:12.0618739Z"
+}
+```
+Cloud event example:
+
+- Microsoft.HealthcareApis.FhirResourceUpdated
+
+```json
+{
+  "id": "5e45229e-c663-ea98-72d2-833428f48ad0",
+  "source": "/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.HealthcareApis/workspaces/{workspace-name}",
+  "specversion": "1.0",
+  "type": "Microsoft.HealthcareApis.FhirResourceUpdated",
+  "dataschema": "#2",
+  "subject": "{fhir-account}.fhir.azurehealthcareapis.com/Patient/e87ef649-abe1-485c-8c09-549d85dfe30b",
+  "time": "2022-02-03T16:48:33.5147352Z",
+  "data": {
+    "resourceType": "Patient",
+    "resourceFhirAccount": "{fhir-account}.fhir.azurehealthcareapis.com",
+    "resourceFhirId": "e87ef649-abe1-485c-8c09-549d85dfe30b",
+    "resourceVersionId": 2
+  }
 }
 ```
 
@@ -86,6 +127,28 @@ When an event is triggered, the Event Grid service sends data about that event t
   "dataVersion": "3",
   "metadataVersion": "1",
   "eventTime": "2021-09-08T01:31:58.5175837Z"
+}
+```
+
+Cloud event example:
+
+- Microsoft.HealthcareApis.FhirResourceDeleted
+
+```json
+{
+  "id": "14648a6e-d978-950e-ee9c-f84c70dba8d3",
+  "source": "/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.HealthcareApis/workspaces/{workspace-name}",
+  "specversion": "1.0",
+  "type": "Microsoft.HealthcareApis.FhirResourceDeleted",
+  "dataschema": "#3",
+  "subject": "{fhir-account}.fhir.azurehealthcareapis.com/Patient/e87ef649-abe1-485c-8c09-549d85dfe30b",
+  "time": "2022-02-03T16:48:38.7338799Z",
+  "data": {
+    "resourceType": "Patient",
+    "resourceFhirAccount": "{fhir-account}.fhir.azurehealthcareapis.com",
+    "resourceFhirId": "e87ef649-abe1-485c-8c09-549d85dfe30b",
+    "resourceVersionId": 3
+  }
 }
 ```
 
