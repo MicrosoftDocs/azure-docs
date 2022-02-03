@@ -6,7 +6,7 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
-ms.date: 08/03/2021
+ms.date: 02/03/2022
 ---
 
 # Read replicas in Azure Database for PostgreSQL - Hyperscale (Citus)
