@@ -85,7 +85,7 @@ If you take a closer look at the URL, you can see that it's composed like this: 
 
 For a given pull request, the URL remains the same even if you push new updates. In addition to the URL staying constant, the same pre-production environment is reused for the life of the pull request.
 
-To automate the review process with end-to-end testing, the [Azure Static Web App Deploy GitHub Action](https://github.com/Azure/static-web-apps-deploy) has the `static_web_app_url` output property.
+To automate the review process with end-to-end testing, the [Azure Static Web App Deploy GitHub Action](https://github.com/Azure/static-web-apps-deploy) has the `static_web_app_url` output variable.
 This URL can be referenced in the rest of your workflow to run your tests against the pre-production environment.
 
 ## Publish changes
