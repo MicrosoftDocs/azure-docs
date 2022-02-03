@@ -115,22 +115,27 @@ We can confirm that each shard contains between 3 and 5 MB of data.
 Here's data for the first 5 shards:
 
 ```sql
-SELECT shardid, table_name, pg_size_pretty(shard_size)
+SELECT shardid, nodename, table_name, pg_size_pretty(shard_size)
   FROM citus_shards
  LIMIT 5;
 ```
 
 ```
-┌─────────┬──────────────┬────────────────┐
-│ shardid │  table_name  │ pg_size_pretty │
-├─────────┼──────────────┼────────────────┤
-│  102136 │ http_request │ 3264 kB        │
-│  102137 │ http_request │ 4424 kB        │
-│  102138 │ http_request │ 3920 kB        │
-│  102139 │ http_request │ 4176 kB        │
-│  102140 │ http_request │ 4032 kB        │
-└─────────┴──────────────┴────────────────┘
+┌─────────┬──────────────────────────────────────────────────┬──────────────┬────────────────┐
+│ shardid │                    nodename                      │  table_name  │ pg_size_pretty │
+├─────────┼──────────────────────────────────────────────────┼──────────────┼────────────────┤
+│  102136 │ private-c.quickstart.postgres.database.azure.com │ http_request │ 3240 kB        │
+│  102137 │ private-c.quickstart.postgres.database.azure.com │ http_request │ 4464 kB        │
+│  102138 │ private-c.quickstart.postgres.database.azure.com │ http_request │ 3888 kB        │
+│  102139 │ private-c.quickstart.postgres.database.azure.com │ http_request │ 4176 kB        │
+│  102140 │ private-c.quickstart.postgres.database.azure.com │ http_request │ 4008 kB        │
+└─────────┴──────────────────────────────────────────────────┴──────────────┴────────────────┘
 ```
+
+The `nodename` column shows the server where the shard is physically placed. If
+you created your server group in the basic tier, all shards are stored together
+on one node, the coordinator.  Otherwise, if the server group is in the
+standard tier, it has multiple worker nodes which store the shards.
 
 To see the exact number of rows in each shard, we can use the
 `run_command_on_shards()` utility function:
