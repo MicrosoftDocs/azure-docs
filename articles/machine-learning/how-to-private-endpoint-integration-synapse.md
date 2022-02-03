@@ -130,4 +130,6 @@ To verify that the integration between Azure Synapse and Azure Machine Learning 
 
 ## Next steps
 
-* [Link Azure Synapse Analytics and Azure Machine Learning workspaces](how-to-link-synapse-ml-workspaces.md)
+* [Quickstart: Create a new Azure Machine Learning linked service in Synapse](/azure/synapse-analytics/machine-learning/quickstart-integrate-azure-machine-learning).
+* [Link Azure Synapse Analytics and Azure Machine Learning workspaces](how-to-link-synapse-ml-workspaces.md).
+
