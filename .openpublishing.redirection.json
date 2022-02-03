@@ -13468,26 +13468,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/connectors/connectors-create-api-sharepointonline.md",
-      "redirect_url": "/azure/connectors/connectors-create-api-sharepoint",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/connectors/connectors-create-api-sharepointserver.md",
-      "redirect_url": "/azure/connectors/connectors-create-api-sharepoint",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/connectors/connectors-create-api-excel.md",
-      "redirect_url": "/connectors/excelonlinebusiness",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/app-service-logic/app-service-logic-connector-http.md",
-      "redirect_url": "/azure/connectors/connectors-native-http",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/jenkins/azure-container-agents-plugin-run-container-as-an-agent.md",
       "redirect_url": "/azure/container-instances/container-instances-jenkins",
       "redirect_document_id": false
@@ -31373,73 +31353,93 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/connectors/connectors-create-api-box",
-      "redirect_url": "/connectors/box/",
+      "source_path_from_root": "/articles/app-service-logic/app-service-logic-connector-http.md",
+      "redirect_url": "/azure/connectors/connectors-native-http",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/connectors/connectors-create-api-dropbox",
-      "redirect_url": "/connectors/dropbox/",
+      "source_path_from_root": "/articles/connectors/connectors-create-api-sharepointonline.md",
+      "redirect_url": "/azure/connectors/connectors-create-api-sharepoint",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/connectors/connectors-create-api-facebook",
-      "redirect_url": "/connectors/facebook/",
+      "source_path_from_root": "/articles/connectors/connectors-create-api-sharepointserver.md",
+      "redirect_url": "/azure/connectors/connectors-create-api-sharepoint",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/connectors/connectors-create-api-box.md",
+      "redirect_url": "/connectors/box",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/connectors/connectors-create-api-dropbox.md",
+      "redirect_url": "/connectors/dropbox",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/connectors/connectors-create-api-excel.md",
+      "redirect_url": "/connectors/excelonlinebusiness",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/connectors/connectors-create-api-facebook.md",
+      "redirect_url": "/connectors/facebook",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/connectors/connectors-create-api-googledrive.md",
-      "redirect_url": "/connectors/googledrive/",
+      "redirect_url": "/connectors/googledrive",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/connectors/connectors-create-api-mailchimp",
-      "redirect_url": "/connectors/mailchimp/",
+      "source_path_from_root": "/articles/connectors/connectors-create-api-mailchimp.md",
+      "redirect_url": "/connectors/mailchimp",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/connectors/connectors-create-api-microsofttranslator",
-      "redirect_url": "/connectors/microsofttranslator/",
+      "source_path_from_root": "/articles/connectors/connectors-create-api-microsofttranslator.md",
+      "redirect_url": "/connectors/microsofttranslator",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/connectors/connectors-create-api-office365-users",
-      "redirect_url": "/connectors/office365users/",
+      "source_path_from_root": "/articles/connectors/connectors-create-api-office365-users.md",
+      "redirect_url": "/connectors/office365users",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/connectors/connectors-create-api-office365-video",
-      "redirect_url": "/connectors/office365video/",
+      "source_path_from_root": "/articles/connectors/connectors-create-api-office365-video.md",
+      "redirect_url": "/connectors/office365video",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/connectors/connectors-create-api-projectonline",
-      "redirect_url": "/connectors/projectonline/",
+      "source_path_from_root": "/articles/connectors/connectors-create-api-projectonline.md",
+      "redirect_url": "/connectors/projectonline",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/connectors/connectors-create-api-rss",
-      "redirect_url": "/connectors/rss/",
+      "source_path_from_root": "/articles/connectors/connectors-create-api-rss.md",
+      "redirect_url": "/connectors/rss",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/connectors/connectors-create-api-trello",
-      "redirect_url": "/connectors/trello/",
+      "source_path_from_root": "/articles/connectors/connectors-create-api-trello.md",
+      "redirect_url": "/connectors/trello",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/connectors/connectors-create-api-twitter",
-      "redirect_url": "/connectors/twitter/",
+      "source_path_from_root": "/articles/connectors/connectors-create-api-twitter.md",
+      "redirect_url": "/connectors/twitter",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/connectors/connectors-create-api-yammer",
-      "redirect_url": "/connectors/yammer/",
+      "source_path_from_root": "/articles/connectors/connectors-create-api-yammer.md",
+      "redirect_url": "/connectors/yammer",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/connectors/connectors-create-api-wunderlist.md",
-      "redirect_url": "/connectors/todo/",
+      "redirect_url": "/connectors/todo",
       "redirect_document_id": false
     },
     {
@@ -40773,12 +40773,22 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/aks/open-service-mesh-azure-application-gateway-ingress.md",
+      "redirect_url": "/azure/aks/open-service-mesh-about",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/aks/open-service-mesh-ip-port-exclusion.md",
       "redirect_url": "/azure/aks/open-service-mesh-about",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/aks/open-service-mesh-deploy-new-application.md",
+      "redirect_url": "/azure/aks/open-service-mesh-about",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/aks/open-service-mesh-nginx-ingress.md",
       "redirect_url": "/azure/aks/open-service-mesh-about",
       "redirect_document_id": false
     },
