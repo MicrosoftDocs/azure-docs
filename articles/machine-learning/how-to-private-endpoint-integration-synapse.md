@@ -9,13 +9,16 @@ ms.topic: how-to
 ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
-ms.date: 01/28/2022
+ms.date: 02/03/2022
 ms.custom: devx-track-python, ignite-fall-2021
 ---
 
 # How to securely integrate Azure Machine Learning and Azure Synapse
 
-In this article, learn how to securely integrate with Azure Machine Learning from Azure Synapse.
+In this article, learn how to securely integrate with Azure Machine Learning from Azure Synapse. This integration enables you to use Azure Machine Learning from notebooks in your Azure Synapse workspace. Communication between the two workspaces is secured using an Azure Virtual Network.
+
+> [!TIP]
+> You can also perform integration in the opposite direction, using Azure Synapse spark pool from Azure Machine Learning. For more information, see [Link Azure Synapse and Azure Machine Learning](how-to-link-synapse-ml-workspaces.md).
 
 ## Prerequisites
 
@@ -37,9 +40,11 @@ In this article, learn how to securely integrate with Azure Machine Learning fro
 
 * An Azure Synapse workspace in a virtual network. For more information, see [Azure Synapse Analytics Managed Virtual Network](/azure/synapse-analytics/security/synapse-workspace-managed-vnet).
 
+    > [!WARNING]
+    > The Azure Machine Learning integration is not currently supported in Synapse Workspaces with data exfiltration protection. When configuring your Azure Synapse workspace, do __not__ enable data exfiltration protection. For more information, see [Azure Synapse Analytics Managed Virtual Network](/azure/synapse-analytics/security/synapse-workspace-managed-vnet).
+
     > [!NOTE]
     > The steps in this article assume that the Azure Synapse workspace is in a different resource group and virtual network than the Azure Machine Learning workspace.
-
 
 ## Configure Azure Synapse
 
@@ -56,7 +61,7 @@ In this article, learn how to securely integrate with Azure Machine Learning fro
     
     :::image type="content" source="./media/how-to-private-endpoint-integration-synapse/new-managed-private-endpoint.png" alt-text="Screenshot of the new private endpoint dialog.":::
 
-1. The endpoint will be listed as __Provisioning__ until it has been created. Once created, the __Approval__ column will list a status of __Pending__. You will approve the endpoint in the [Configure Azure Machine Learning](#configure-azure-machine-learning) section.
+1. The endpoint will be listed as __Provisioning__ until it has been created. Once created, the __Approval__ column will list a status of __Pending__. You'll approve the endpoint in the [Configure Azure Machine Learning](#configure-azure-machine-learning) section.
 
     > [!NOTE]
     > In the following screenshot, a managed private endpoint has been created for the Azure Data Lake Storage Gen 2 associated with this Synapse workspace. For information on how to create an Azure Data Lake Storage Gen 2 and enable a private endpoint for it, see [Provision and secure a linked service with Managed VNet](/azure/synapse-analytics/data-integration/linked-service).
@@ -65,11 +70,11 @@ In this article, learn how to securely integrate with Azure Machine Learning fro
 
 ### Create a Spark pool
 
-To verify that the integration between Azure Synapse and Azure Machine Learning is working, you will use an Apache Spark pool. For information on creating one, see [Create a Spark pool](/azure/synapse-analytics/quickstart-create-apache-spark-pool-portal).
+To verify that the integration between Azure Synapse and Azure Machine Learning is working, you'll use an Apache Spark pool. For information on creating one, see [Create a Spark pool](/azure/synapse-analytics/quickstart-create-apache-spark-pool-portal).
 
 ## Configure Azure Machine Learning
 
-1. From the [Azure Portal](https://portal.azure.com), select your __Azure Machine Learning workspace__, and then select __Networking__.
+1. From the [Azure portal](https://portal.azure.com), select your __Azure Machine Learning workspace__, and then select __Networking__.
 1. Select __Private endpoints__, and then select the endpoint you created in the previous steps. It should have a status of __pending__. Select __Approve__ to approve the endpoint connection.
 
     :::image type="content" source="./media/how-to-private-endpoint-integration-synapse/approve-pending-private-endpoint.png" alt-text="Screenshot of the private endpoint approval.":::
@@ -121,4 +126,8 @@ To verify that the integration between Azure Synapse and Azure Machine Learning 
     print(ws.name)
     ```
 
-    This code snippet connects to the linked workspace, and then prints the workspace info. Note that in the printed output, the value displayed is the name of the Azure Machine Learning workspace, not the linked service name that was used in the `getWorkspace()` call.
+    This code snippet connects to the linked workspace, and then prints the workspace info. In the printed output, the value displayed is the name of the Azure Machine Learning workspace, not the linked service name that was used in the `getWorkspace()` call. For more information on using the `ws` object, see the [Workspace](/python/api/azureml-core/azureml.core.workspace.workspace) class reference.
+
+## Next steps
+
+* [Link Azure Synapse Analytics and Azure Machine Learning workspaces](how-to-link-synapse-ml-workspaces.md)
