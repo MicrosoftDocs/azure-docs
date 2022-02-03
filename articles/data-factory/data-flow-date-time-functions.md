@@ -25,6 +25,7 @@ In Data Factory and Synapse pipelines, use date and time functions to express da
 
 | Expression function | Task |
 |-----|-----|
+| [add](data-flow-expressions-usage.md#add) | Adds a pair of strings or numbers. Adds a date to a number of days. Adds a duration to a timestamp. Appends one array of similar type to another. Same as the + operator.  |
 | [addDays](data-flow-expressions-usage.md#addDays) | Add days to a date or timestamp. Same as the + operator for date.  |
 | [addMonths](data-flow-expressions-usage.md#addMonths) | Add months to a date or timestamp. You can optionally pass a timezone.  |
 | [between](data-flow-expressions-usage.md#between) | Checks if the first value is in between two other values inclusively. Numeric, string and datetime values can be compared  |
@@ -41,6 +42,7 @@ In Data Factory and Synapse pipelines, use date and time functions to express da
 | [lastDayOfMonth](data-flow-expressions-usage.md#lastDayOfMonth) | Gets the last date of the month given a date.  |
 | [millisecond](data-flow-expressions-usage.md#millisecond) | Gets the millisecond value of a date. You can pass an optional timezone in the form of 'GMT', 'PST', 'UTC', 'America/Cayman'. The local timezone is used as the default. Refer Java's `SimpleDateFormat` class for available formats. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html.  |
 | [milliseconds](data-flow-expressions-usage.md#milliseconds) | Duration in milliseconds for number of milliseconds.  |
+| [minus](data-flow-expressions-usage.md#minus) | Subtracts numbers. Subtract number of days from a date. Subtract duration from a timestamp. Subtract two timestamps to get difference in milliseconds. Same as the - operator.  |
 | [minute](data-flow-expressions-usage.md#minute) | Gets the minute value of a timestamp. You can pass an optional timezone in the form of 'GMT', 'PST', 'UTC', 'America/Cayman'. The local timezone is used as the default. Refer Java's `SimpleDateFormat` class for available formats. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html.  |
 | [minutes](data-flow-expressions-usage.md#minutes) | Duration in milliseconds for number of minutes.  |
 | [month](data-flow-expressions-usage.md#month) | Gets the month value of a date or timestamp.  |
