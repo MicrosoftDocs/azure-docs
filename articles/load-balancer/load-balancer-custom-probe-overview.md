@@ -230,6 +230,7 @@ Azure Monitor logs are not available for both public and internal Basic Load Bal
 - HTTPS probes do not support mutual authentication with a client certificate.
 - You should assume Health probes will fail when TCP timestamps are enabled.
 - A basic SKU load balancer health probe isn't supported with a virtual machine scale set.
+- HTTP probes do not support probing on the following ports due to security concerns: 19, 21, 25, 70, 110, 119, 143, 220, 993. 
 
 ## Next steps
 
