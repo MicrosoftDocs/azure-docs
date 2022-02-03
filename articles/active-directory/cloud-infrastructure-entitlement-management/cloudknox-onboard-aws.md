@@ -87,7 +87,7 @@ This article describes how to onboard an Amazon Web Services (AWS) account on Cl
     
 1.  Return to CloudKnox, and in the "**CloudKnox On Boarding - AWS Central Logging Account Details**" select **Next**.
 
-1. In the **CloudKnox On Boarding - AWS Member Account Details** box, enter the **Member Account Role** and the **Member Account Ids**. 
+1. In the **CloudKnox On Boarding - AWS Member Account Details** box, enter the **Member Account Role** and the **Member Account IDs**. 
 
     You can enter up to 10 account IDs. Click the plus icon next to the text box to insert more account IDs.
     > [!NOTE]
