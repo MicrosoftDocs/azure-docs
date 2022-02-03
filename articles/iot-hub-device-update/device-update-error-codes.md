@@ -75,7 +75,7 @@ The DO error code can be obtained by examining the exceptions thrown in response
 | 0x80D03805L | DO_E_BLOCKED_BY_NO_NETWORK         | Transient conditions | Download paused due to loss of network connectivity |
 
 ## Device Update content service
-The following table lists error codes pertaining to the content service component of the Device Update service. The content service component is responsible for handling importing of update content.
+The following table lists error codes pertaining to the content service component of the Device Update service. The content service component is responsible for handling importing of update content. Additional troubleshooting information is also available for [importing proxy updates](device-update-proxy-update-troubleshooting.md).
 
 | Error Code                    | String Error                                                               | Next steps                         |
 |-------------------------------|----------------------------------------------------------------------------|------------------------------------|
