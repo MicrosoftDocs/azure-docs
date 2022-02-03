@@ -16,11 +16,11 @@ ms.custom: aaddev, "scenarios:getting-started", "languages:Java", devx-track-jav
 ---
 # Quickstart: Add sign-in with Microsoft to a Java web app
 
+
 > [!div renderon="docs"]
-> [!Note]
-> Welcome! This probably isn't the page you were expecting. We're currently working on a fix, but for now, please use the link below - it should take you to the right article:
-> 
-> [Java web app quickstart](web-app-quickstart.md?pivots=devlang-java)
+> Welcome! This probably isn't the page you were expecting. While we work on a fix, this link should take you to the right article:
+>
+> > [Quickstart: Java web app with user sign-in](web-app-quickstart.md?pivots=devlang-java)
 > 
 > We apologize for the inconvenience and appreciate your patience while we work to get this resolved.
 
