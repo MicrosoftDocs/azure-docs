@@ -106,7 +106,7 @@ Example scenario:
 A policy violation occurs with a deviation from baseline behavior defined in learned or configured settings.
 
 Example scenario:
-*"Unauthorized HTTP User Agent"* alert. This alert indicates that an application that was not learned or approved by policy is used as an HTTP client on a device. This might be a new web browser or application on that device.
+*"Unauthorized HTTP User Agent"* alert. This alert indicates that an application that wasn't learned or approved by policy is used as an HTTP client on a device. This might be a new web browser or application on that device.
 
 ### Malware engine
 
@@ -179,29 +179,29 @@ The host name appears in the device inventory, and device map, and in reports.
 
 You can schedule reverse lookup resolution schedules for specific hourly intervals, such as every 12 hours. Or you can schedule a specific time.
 
-To define DNS servers:
+**To define DNS servers:**
 
-1. Select **System Settings** and then select **DNS Settings**.
+1. Select **System settings**> **Network monitoring**, then select **Reverse DNS Lookup**.
 
 2. Select **Add DNS Server**.
 
-    :::image type="content" source="media/how-to-enrich-asset-information/dns-reverse-lookup-configuration-screen.png" alt-text="Screenshot that shows the selection of Add DNS Server.":::
-
-3. In the **Schedule reverse DNS lookup** field, choose either:
+3. In the **Schedule Reverse lookup** field, choose either:
 
     - Intervals (per hour).
   
     - A specific time. Use European formatting. For example, use **14:30** and not **2:30 PM**.
 
-4. In the **DNS Server Address** field, enter the DNS IP address.
+4. In the **DNS server address** field, enter the DNS IP address.
 
-5. In the **DNS Server Port** field, enter the DNS port.
+5. In the **DNS server port** field, enter the DNS port.
 
-6. Resolve the network IP addresses to device FQDNs. In the **Number of Labels** field, add the number of domain labels to display. Up to 30 characters are displayed from left to right.
+6. Resolve the network IP addresses to device FQDNs. In the **Number of labels** field, add the number of domain labels to display. Up to 30 characters are displayed from left to right.
 
 7. In the **Subnets** field, enter the subnets that you want the DNS server to query.
 
 8. Select the **Enable** toggle if you want to initiate the reverse lookup.
+
+1. Select **Save**.
 
 ### Test the DNS configuration 
 
@@ -212,8 +212,6 @@ By using a test device, verify that the settings you defined work properly:
 2. Select **Test**.
 
 3. Enter an address in **Lookup Address** for the **DNS reverse lookup test for server** dialog box.
-
-    :::image type="content" source="media/how-to-enrich-asset-information/dns-reverse-lookup-test-screen.png" alt-text="Screenshot that shows the Lookup Address area.":::
 
 4. Select **Test**.
 
@@ -236,49 +234,30 @@ You can perform scheduled scans or manual scans. When a scan is finished, you ca
 
 Configure a firewall rule that opens outgoing traffic from the sensor to the scanned subnet by using UDP port 135 and all TCP ports above 1024.
 
-To configure an automatic scan:
+**To configure an automatic scan:**
 
-1. On the side menu, select **System Settings**.
+1. Select **System settings**> **Network monitoring**, then select **Windows Endpoint Monitoring (WMI)**.
 
-2. Select **Windows Endpoint Monitoring** :::image type="icon" source="media/how-to-control-what-traffic-is-monitored/windows-endpoint-monitoring-icon-v2.png" border="false":::.
+1. In the **Edit scan ranges configuration** section, enter the ranges you want to scan and add your username and password.
 
-    :::image type="content" source="media/how-to-control-what-traffic-is-monitored/windows-endpoint-monitoring-screen-v2.png" alt-text="Screenshot that shows the selection of Windows Endpoint Monitoring.":::
-
-3. On the **Scan Schedule** pane, configure options as follows:
+3. Define how you want to run the scan:
 
       - **By fixed intervals (in hours)**: Set the scan schedule according to intervals in hours.
 
       - **By specific times**: Set the scan schedule according to specific times and select **Save Scan**.
 
-    :::image type="content" source="media/how-to-control-what-traffic-is-monitored/schedule-a-scan-screen-v2.png" alt-text="Screenshot that shows the Save Scan button.":::
-
-4. To define the scan range, select **Set scan ranges**.
-
-5. Set the IP address range and add your user and password.
-
-    :::image type="content" source="media/how-to-control-what-traffic-is-monitored/edit-scan-range-screen.png" alt-text="Screenshot that shows adding a user and password.":::
-
-6. To exclude an IP range from a scan, select **Disable** next to the range.
-
-7. To remove a range, select :::image type="icon" source="media/how-to-control-what-traffic-is-monitored/remove-scan-icon.png" border="false"::: next to the range.
 
 8. Select **Save**. The **Edit Scan Ranges Configuration** dialog box closes, and the number of ranges appears in the **Scan Ranges** pane.
 
-To perform a manual scan:
+**To perform a manual scan:**
 
-1. On the side menu, select **System Settings**.
+1. Define the scan ranges.
 
-2. Select **Windows Endpoint Monitoring** :::image type="icon" source="media/how-to-control-what-traffic-is-monitored/windows-endpoint-monitoring-icon-v2.png" border="false":::.
+3. Select **Save** and **Apply changes** and then select **Manually scan**.
 
-    :::image type="content" source="media/how-to-control-what-traffic-is-monitored/windows-endpoint-monitoring-screen-v2.png" alt-text="Screenshot that shows the Windows Endpoint Monitoring setup screen.":::
+**To view scan results:**
 
-3. In the **Actions** pane, select **Start scan**. A status bar appears on the **Actions** pane and shows the progress of the scanning process.
-
-    :::image type="content" source="media/how-to-control-what-traffic-is-monitored/started-scan-screen-v2.png" alt-text="Screenshot that shows the Start scan button.":::
-
-To view scan results:
-
-1. When the scan is finished, on the **Actions** pane, select **View Scan Results**. The CSV file with the scan results is downloaded to your computer.
+1. When the scan is finished, select **View Scan Results**. A .csv file with the scan results is downloaded to your computer.
 
 ## See also
 
