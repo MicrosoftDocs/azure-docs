@@ -56,7 +56,7 @@ Both interfaces are visible via the “ifconfig” or “ip addr” command in L
         TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0 
 
 
-The synthetic interface always has a name of the form “eth<n>”. Depending on the Linux distro, the VF interface might have a name of the form “eth<n>”, or a name of a different form because of a udev rule that does renaming.   
+The synthetic interface always has a name of the form “eth\<n\>”. Depending on the Linux distro, the VF interface might have a name of the form “eth\<n\>”, or a name of a different form because of a udev rule that does renaming.   
  
 Whether a particular interface is the synthetic interface or the VF interface can be determined with the shell command line that shows the device driver used by the interface: 
 
@@ -68,7 +68,7 @@ If the driver is “hv_netvsc”, it's the synthetic interface. The VF interface
 
 Applications should interact only with the synthetic interface, just like in any other networking environment. Outgoing network packets are passed from the netvsc driver to the VF driver and then transmitted through the VF interface. Incoming packets are received and processed on the VF interface before being passed to the synthetic interface. Exceptions are incoming TCP SYN packets and broadcast/multicast packets that are processed by the synthetic interface only. 
  
-You can verify that packets are flowing over the VF interface from the output of “ethtool -S eth<n>”. The output lines that contain “vf” show the traffic over the VF interface. For example: 
+You can verify that packets are flowing over the VF interface from the output of “ethtool -S eth\<n\>”. The output lines that contain “vf” show the traffic over the VF interface. For example: 
 
 
     U1804:~# ethtool -S eth0 | grep ' vf_' 
@@ -94,7 +94,7 @@ The existence of the VF interface as a PCI device can be seen with the “lspci�
 
 In this example, the last line of output identifies a VF from the Mellanox ConnectX-4 physical NIC. 
  
-The “ethtool -l” or “ethtool -L” command (to get and set the number of transmit and receive queues) is an exception to the guidance to interact with the “eth<n>” interface. This command can be used directly against the VF interface to control the number of queues for the VF interface. The number of queues for the VF interface is independent of the number of queues for the synthetic interface.
+The “ethtool -l” or “ethtool -L” command (to get and set the number of transmit and receive queues) is an exception to the guidance to interact with the “eth\<n\>” interface. This command can be used directly against the VF interface to control the number of queues for the VF interface. The number of queues for the VF interface is independent of the number of queues for the synthetic interface.
 
 ### Interpreting Boot-up Messages
 
