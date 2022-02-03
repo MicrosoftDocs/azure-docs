@@ -148,8 +148,8 @@ import (
 
 func main() {
 
-	mySecretName  := "quickstart-secret"
-	mySecretValue := "createdWithGO"
+    mySecretName  := "quickstart-secret"
+    mySecretValue := "createdWithGO"
     keyVaultName  := os.Getenv("KEY_VAULT_NAME")
     keyVaultURL   := "https://"+keyVaultName+".vault.azure.net/"
 
