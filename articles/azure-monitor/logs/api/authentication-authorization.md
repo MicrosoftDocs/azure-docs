@@ -11,11 +11,11 @@ ms.topic: article
 To set up authentication and authorization for the Azure Monitor Log Analytics API:
 
 ## Set Up Authentication
-1. Use [these instructions](../../../active-directory/develop/quickstart-create-new-tenant.md) to set up Azure Active Directory, using these settings at the relevant steps:
+1. [Set up Azure Directory](../../../active-directory/develop/quickstart-register-app.md). During setup, use these settings at the relevant steps:
      - When asked for the API to connect to, select **APIs my organization uses** and then search for "Log Analytics API".
      - For the API permissions, select **Delegated permissions**.
-1. After completing the Active Directory setup, request an authorization token as described in the section below.
-1. (Optional) If you only want to work with sample data in a non-production environment, use an API key for authentication as described below.
+1. After completing the Active Directory setup, [Request an Authorization Token](#request-an-authorization-token).
+1. (Optional) If you only want to work with sample data in a non-production environment, you can just [use an API key](#authenticating-with-an-api-key).
 ## Request an Authorization Token
 
 Before beginning, make sure you have all the values required to make OAuth2 calls successfully. All requests require:
@@ -122,7 +122,7 @@ The main OAuth2 flow supported is through [authorization codes](/azure/active-di
     &resource=https://api.loganalytics.io
 ```
 
-When making a request to the Authorize URL, the client\_id is the Application ID from your Azure AD App, copied from the App's properties menu. The redirect\_uri is the home page/login URL from the same Azure AD App. When a request is successful, this endpoint redirects you to the login page you provided at sign-up with the authorization code appended to the URL. See the following example:
+When making a request to the Authorize URL, the client\_id is the Application ID from your Azure AD App, copied from the App's properties menu. The redirect\_uri is the home page/login URL from the same Azure AD App. When a request is successful, this endpoint redirects you to the sign in page you provided at sign-up with the authorization code appended to the URL. See the following example:
 
 ```
     http://YOUR_REDIRECT_URI/?code=AUTHORIZATION_CODE&session_state=STATE_GUID
@@ -145,7 +145,7 @@ At this point you will have obtained an authorization code, which you need now t
     &client_secret=YOUR_CLIENT_SECRET
 ```
 
-All values are the same as before, with some additions. The authorization code is the same code you received in the previous request after a successful redirect. We now combine it with the key we previously obtained from our Azure AD App, or if you did not save the key you can delete it and create a new one from the keys tab of the Azure AD App menu. The response is a JSON string containing the token with the following schema. Exact values are indicated where they should not be changed. Types are indicated for the token values.
+All values are the same as before, with some additions. The authorization code is the same code you received in the previous request after a successful redirect. The code is combined with the key obtained from the Azure AD App. If you did not save the key, you can delete it and create a new one from the keys tab of the Azure AD App menu. The response is a JSON string containing the token with the following schema. Exact values are indicated where they should not be changed. Types are indicated for the token values.
 
 Response example:
 
