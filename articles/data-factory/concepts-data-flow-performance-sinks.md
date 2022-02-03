@@ -27,7 +27,7 @@ Here is a video walk through of how to use data flows with exits, alter row, and
 
 ### Impact of error row handling to performance
 
-When you enable error row handling ("continue on error") in the sink transformation, the service will take an additional step before writing the compatible rows to your destination table. This additional step will have a small performance penalty that can be in the range of 5% added for this step with an additional small performance hit also added if you set the option to also with the incompatible rows to a log file.
+When you enable error row handling ("continue on error") in the sink transformation, the service will take an additional step before writing the compatible rows to your destination table. This additional step will have a small performance penalty that can be in the range of 5% added for this step with an additional small performance hit also added if you set the option to also write the incompatible rows to a log file.
 
 ### Disabling indexes using a SQL Script
 

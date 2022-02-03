@@ -1,11 +1,9 @@
 ---
-title: Troubleshoot Azure Edge Hardware Center issues via the Azure portal  
+title: Troubleshoot Azure Edge Hardware Center issues via the Azure portal
 description: Describes how to troubleshoot Azure Edge Hardware Center ordering issues.
 services: Azure Edge Hardware Center
 author: alkohli
-
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-edge-hardware-center
 ms.topic: troubleshooting
 ms.date: 01/03/2022
 ms.author: alkohli

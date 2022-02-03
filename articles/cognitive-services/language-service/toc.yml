@@ -69,6 +69,10 @@ items:
     - name: Accepted data tag formats
       href: custom-classification/concepts/data-formats.md
       displayName: Data representation
+  - name: Tutorials
+    items:
+    - name: Enrich a Cognitive Search index 
+      href: custom-classification/tutorials/cognitive-search.md
   - name: Reference
     items:
     - name: Glossary
@@ -102,6 +106,20 @@ items:
     href: custom-named-entity-recognition/language-support.md
   - name: FAQ
     href: custom-named-entity-recognition/faq.md
+  - name: Responsible use of AI
+    items: 
+    - name: Transparency note for custom NER
+      href: /legal/cognitive-services/language-service/cner-transparency-note?context=/azure/cognitive-services/language-service/context/context
+      displayName: Transparency note for Custom NER, Custom NER Transparency, Responsible AI, Responsible use of AI
+    - name: Integration and responsible use
+      href: /legal/cognitive-services/language-service/cner-guidance-integration-responsible-use?context=/azure/cognitive-services/language-service/context/context
+      displayName: Responsible deployment, Responsible use, Responsible integration, AI deployment, AI use
+    - name: Characteristics and limitations
+      href: /legal/cognitive-services/language-service/cner-characteristics-and-limitations?context=/azure/cognitive-services/language-service/context/context
+      displayName: Custom NER characteristics, Custom NER limitations
+    - name: Data, privacy, and security  
+      href: /legal/cognitive-services/language-service/cner-data-privacy-security?context=/azure/cognitive-services/language-service/context/context
+      displayName: Data privacy, logging, data retention
   - name: How-to guides
     items:
     - name: Create projects
@@ -531,6 +549,8 @@ items:
       href: question-answering/how-to/migrate-qnamaker.md
     - name: Getting started with question answering
       href: question-answering/how-to/create-test-deploy.md
+    - name: Export/import/refresh
+      href: question-answering/how-to/export-import-refresh.md
     - name: Encrypt data at rest
       href: question-answering/how-to/encrypt-data-at-rest.md
     - name: Migrate knowledge base
@@ -643,7 +663,7 @@ items:
     - name: Sentiment Analysis on streaming data using Azure Databricks
       href: /azure/databricks/scenarios/databricks-sentiment-analysis-cognitive-services?context=/azure/cognitive-services/language-service/context/context
     - name: Use Flask to translate text, analyze sentiment, and synthesize speech
-      href: ../translator/tutorial-build-flask-app-translation-synthesis.md?context=%2fazure%2fcognitive-services%2flanguage-service%2fcontext%2fcontext
+      href: /learn/modules/python-flask-build-ai-web-app/
   - name: Reference
     items:
     - name: REST API

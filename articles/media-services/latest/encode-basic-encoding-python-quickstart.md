@@ -8,7 +8,7 @@ ms.service: media-services
 ms.workload: 
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 1/24/2022
+ms.date: 01/25/2022
 ms.author: inhenkel
 ms.custom: mode-api
 ---
@@ -26,8 +26,8 @@ This quickstart shows you how to do basic encoding with Python and Azure Media S
 - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 - [Create a resource group](../../azure-resource-manager/management/manage-resource-groups-portal.md#create-resource-groups) to use with this quickstart.
 
-> [!IMPORTANT]
-> When you create the storage account for your media services account, change the storage authentication type to *System authentication*. Otherwise, you will get authentication errors for this example.
+    > [!IMPORTANT]
+    > When you create the storage account for your media services account, change the storage authentication type to *System authentication*. Otherwise, you will get authentication errors for this example.
 
 
 - [Create a Media Services v3 account](account-create-how-to.md).
@@ -40,7 +40,7 @@ Create a fork and clone the sample located in the [Python samples repository](ht
 
 ## Create the .env file
 
-Get the values from your account to create an *.env* file. That is correct, save it with no name, just the extension.  Use *sample.env* as a template then save the *.env* file to the BasicEncoder folder in your local clone.
+Get the values from your account to create a *.env* file. Save it without a name and just the extension.  Use *sample.env* as a template for your *.env* file. Save the *.env* file to the *BasicEncoding* folder in your local clone.
 
 ## Use Python virtual environments
 
@@ -59,7 +59,7 @@ For samples, we recommend you always create and activate a Python virtual enviro
 3. Activate the virtual environment:
 
     ``` bash
-      .venv\scripts\activate
+      . .venv/Scripts/activate
     ```
 
   A virtual environment is a folder within a project that isolates a copy of a specific Python interpreter. Once you activate that environment (which Visual Studio Code does automatically), running `pip install` installs a library into that environment only. When you then run your Python code, it runs in the environment's exact context with specific versions of every library. And when you run `pip freeze`, you get the exact list of those libraries. (In many of the samples, you create a requirements.txt file for the libraries you need, then use `pip install -r requirements.txt`. A requirements file is usually needed when you deploy code to Azure.)
@@ -68,13 +68,13 @@ For samples, we recommend you always create and activate a Python virtual enviro
 
 1. Set up and [configure your local Python dev environment for Azure](/azure/developer/python/configure-local-development-environment).
 
-1. Install the python-dotenv library. This will enable you to load the environment variables quickly and easily.
+1. Install the `python-dotenv` library. This will enable you to load the environment variables quickly and easily.
 
-```bash
-pip install python-dotenv
-```
+    ```bash
+    pip install python-dotenv
+    ```
 
-1. Install the azure-identity library for Python. This module is needed for Azure Active Directory authentication. See the details at [Azure Identity client library for Python](/python/api/overview/azure/identity-readme#environment-variables).
+1. Install the `azure-identity` library for Python. This module is needed for Azure Active Directory authentication. See the details at [Azure Identity client library for Python](/python/api/overview/azure/identity-readme#environment-variables).
 
       ``` bash
       pip install azure-identity
@@ -94,7 +94,7 @@ pip install python-dotenv
       pip install azure-storage-blob
       ```
 
-You can optionally install ALL of the requirements for a given sample by using the "requirements.txt" file in the samples folder.
+You can optionally install ALL of the requirements for a given sample by using the *requirements.txt* file in the samples folder.
 
   ``` bash
   pip install -r requirements.txt
@@ -104,7 +104,7 @@ You can optionally install ALL of the requirements for a given sample by using t
 
 The code below is thoroughly commented.  Use the whole script or use parts of it for your own script.
 
-In this sample, a random number is generated for naming things so you can identify them as a group that was created together when you ran the script. The random number is optional, and can be removed when you're done testing the script.
+In this sample, a random number gets generated for naming things so you can identify them as a group that gets created together when you ran the script. The random number is optional, and can be removed when you're done testing the script.
 
 We're not using the SAS URL for the input asset in this sample.
 
@@ -112,7 +112,7 @@ We're not using the SAS URL for the input asset in this sample.
 
 ## Delete resources
 
-When you're finished with the quickstart, delete the resources created in the resource group.
+Once you successfully complete the quickstart, delete the resources created in the resource group.
 
 ## Next steps
 

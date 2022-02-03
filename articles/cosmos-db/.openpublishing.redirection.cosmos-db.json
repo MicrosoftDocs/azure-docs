@@ -2592,7 +2592,7 @@
   },
   {
     "source_path_from_root": "/articles/cosmos-db/sql-query-operators.md",
-    "redirect_url": "/azure/cosmos-db/sql/sql-query-operators",
+    "redirect_url": "/azure/cosmos-db/sql/sql-query-equality-comparison-operators",
     "redirect_document_id": true
   },
   {
