@@ -10,7 +10,7 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm:
 ms.workload: infrastructure
-ms.date: 02/02/2022
+ms.date: 02/03/2022
 ms.author: kumud 
 ms.custom: devx-track-azurecli
 ---
