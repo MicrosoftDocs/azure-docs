@@ -422,9 +422,6 @@ items:
     - name: Create
       displayName: Data collection rules
       href: essentials/data-collection-rule-create.md
-    - name: Create and associate with agent
-      displayName: Data collection rules
-      href: agents/data-collection-rule-azure-monitor-agent.md
     - name: Transformations
       displayName: Data collection rules
       href: essentials/data-collection-rule-transformations.md
@@ -442,7 +439,7 @@ items:
       - name: Install
         displayName: Azure Monitor agent
         href: agents/azure-monitor-agent-install.md
-      - name: Data collection
+      - name: Configure data collection
         displayName: data collection rule,Azure Monitor agent
         href: agents/data-collection-rule-azure-monitor-agent.md
       - name: Migrate from legacy agents
@@ -1463,6 +1460,10 @@ items:
       href: essentials/metrics-supported-export-diagnostic-settings.md
     - name: Metrics in alerts
       href: alerts/alerts-metric-near-real-time.md
+  - name: Logs
+    items:
+    - name: Supported tables for transformations
+      href: logs/ingestion-time-transformations-supported tables.md
   - name: Platform logs
     items:
     - name: Supported resource log categories

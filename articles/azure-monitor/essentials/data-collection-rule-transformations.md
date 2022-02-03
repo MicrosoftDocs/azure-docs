@@ -8,24 +8,25 @@ ms.date: 01/19/2021
 
 ---
 
-# Data collection rule transformations
-[Data collection rules (DCR)](data-collection-rule-overview.md)  in Azure Monitor allow you to filter and transform data before its stored in a Log Analytics workspace. This article describes how to build transformations in a DCR, including details and limitations of the Kusto Query Language (KQL) used for the transform statement.
+# Data collection rule transformations in Azure Monitor
+[Data collection rules (DCR)](data-collection-rule-overview.md) provide flexible means of shaping and filtering data before it is stored in Log Analytics Workspace. This article describes how to build transformations in a DCR, including details and limitations of the Kusto Query Language (KQL) used for the transform statement.
 
 ## Basic concepts
-Transformations are applied individually to each entry in the source data. The input stream is represented by a virtual table named *source*. The transform specifies a KQL statement that accepts the data from *source* and creates output in the structure of the target table.
+Data transformations are defined using Kusto Query Language (KQL). They may filter out records from the source, manipulate data in existing columns, or add new columns and populate them with data. The transform specifies a KQL statement that is applied individually to each entry in the data source and creates output in the structure of the target table. 
 
+## Transformation structure
+The input stream is represented by a virtual table named `source` with columns matching by the input data stream definition 
 
+Following is a typical example of a transformation. This example includes the following following functionality:
 
-The columns of the table as per input data stream definition in *streamDeclarations* section of the Data Collection Rule.
-
-## Example
-Following is a typical example of a transformation. This example filters the incoming data, adds a new column, and then modifies an existing column. 
+- Filters the incoming data with a [where]() statement
+- Adds a new column using the [extend]() operator
+- Formats the output to match the target table using the [project]() operator
 
 ```kusto
-source   // Transform statements always start with source to retrieve data from the source table.
-| where severity == "Critical" // Filter statements. Any records not matching the filter are discarded.
-| extend Properties = parse_json(properties)  // Parse columns containing JSON
-// Form the output columns that match the structure of the target table.
+source  
+| where severity == "Critical" 
+| extend Properties = parse_json(properties)
 | project
     TimeGenerated = todatetime(["time"]),
     Category = category,
@@ -36,9 +37,7 @@ source   // Transform statements always start with source to retrieve data from 
 
 
 ## KQL limitations
-Since the transformation is applied to each record individually, it can't use any KQL operators that act on multiple records. Only operators that take a single row as input and returns no more than one row are supported.
-
-For example, [summarize](/azure/data-explorer/kusto/query/summarizeoperator) isn't supported since it summarizes multiple records. See [Supported KQL features](#supported-kql-features) for a complete list of supported features.
+Since the transformation is applied to each record individually, it can't use any KQL operators that act on multiple records. Only operators that take a single row as input and returns no more than one row are supported. For example, [summarize](/azure/data-explorer/kusto/query/summarizeoperator) isn't supported since it summarizes multiple records. See [Supported KQL features](#supported-kql-features) for a complete list of supported features.
 
 ### Inline reference table
 The [datatable](/azure/data-explorer/kusto/query/datatableoperator?pivots=azuremonitor) operator that would normally be used in KQL to define an inline query-time table is not supported in the subset of KQL available to use in transformations. Instead, use dynamic literals to work around this limitation.

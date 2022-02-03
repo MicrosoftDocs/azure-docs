@@ -1,5 +1,5 @@
 ---
-title: Direct log ingestion API in Azure Monitor
+title: Send custom logs to Azure Monitor Logs with REST API
 description: Sending log data to Azure Monitor using custom logs API.
 ms.topic: conceptual
 author: bwren
@@ -8,8 +8,8 @@ ms.date: 01/06/2022
 
 ---
 
-# Direct log ingestion API in Azure Monitor
-With direct ingestion, you can send data to a Log Analytics workspace from any REST API client. 
+# Send custom logs to Azure Monitor Logs with REST API
+With the DCR based custom logs API in Azure Monitor, you can send data to a Log Analytics workspace from any REST API client. This article describes the 
 
 > [!NOTE]
 > Logs direct ingestion API replaces the [data collector API](data-collector-api.md).

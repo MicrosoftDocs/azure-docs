@@ -45,6 +45,13 @@ The following table summarizes the differences between the plans.
 | Retention |  Configure retention from 30 days to 750 days. | Retention fixed at 8 days. |
 | Alerts | Supported. | Not supported. |
 
+## Ingestion-time transformations
+[Data collection rules (DCRs)](../essentials/data-collection-rule-overview.md) that define data coming into Azure Monitor can include transformations that allow you to filter and transform data before it's ingested into the workspace. Since all workflows don't yet support DCRs, each workspace can define ingestion-time transformations. This allows you filter or transform data before its stored. 
+
+Ingestion-time transformations are defined for each table in a workspace and apply to all data sent to that table, even if sent from multiple sources. Ingestion-time transformations though only apply to workflows that don't already use a data collection rule. For example, [Azure Monitor agent](../agents/azure-monitor-agent-overview.md) uses a data collection rule to define data collected from virtual machines. This data will not be subject to any ingestion-time transformations defined in the workspace. 
+
+For example, you might have [diagnostic settings](../essentials/diagnostic-settings.md) that send [resource logs](../essentials/resource-logs.md) for different Azure resources to your workspace. You can create a transform for the table that collects the resource logs that filters this data for only records that you want, saving you the ingestion cost for records you don't need. You may also want to extract important data from certain columns and store it in additional columns in the workspace to support simpler queries.
+
 
 ## Data retention and archive
 Data in each table in a [Log Analytics workspace](log-analytics-workspace-overview.md) is retained for a specified period of time after which it's either removed or moved to archive with a reduced retention fee. Set the retention time to balance your requirement for having data available with reducing your cost for data retention.
