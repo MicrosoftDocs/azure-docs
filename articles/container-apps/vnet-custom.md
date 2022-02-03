@@ -32,7 +32,11 @@ As a Container Apps environment is created, you provide resource IDs for two dif
 - **App subnet**: Subnet for user app containers. Subnet that contains IP ranges mapped to applications deployed as containers.
 - **Control plane subnet**: Subnet for [control plane infrastructure](/azure/azure-resource-manager/management/control-plane-and-data-plane) components and user app containers.
 
+::: zone pivot="azure-cli"
+
 If the [platformReservedCidr](#networking-parameters) range is defined, both subnets must not overlap with the IP range defined in `platformReservedCidr`.
+
+::: zone-end
 
 ## Accessibility level
 
@@ -46,7 +50,11 @@ Container Apps environments deployed as external resources are available for pub
 
 When set to internal, the environment has no public endpoint. Internal environments are deployed with a virtual IP (VIP) mapped to an internal IP address. The internal endpoint is an Azure internal load balancer (ILB) and IP addresses are issued from the custom VNET's list of private IP addresses.
 
+::: zone pivot="azure-cli"
+
 To create an internal only environment, provide the `--internal-only` parameter to the `az containerapp env create` command.
+
+::: zone-end
 
 ## Example
 
