@@ -25,6 +25,17 @@ As you create an Azure Container Apps [environment](environment.md), a virtual n
 
 :::image type="content" source="media/networking/azure-container-apps-virtual-network.png" alt-text="Azure Container Apps environments use an existing VNET, or you can provide your own.":::
 
+## Restrictions
+
+Subnet address ranges can't overlap with the following reserved ranges:
+
+- 169.254.0.0/16
+- 172.30.0.0/16
+- 172.31.0.0/16
+- 192.0.2.0/24
+
+Additionally, subnets must have a size between /21 and /12.
+
 ## Subnet types
 
 As a Container Apps environment is created, you provide resource IDs for two different subnets. Both subnets must be defined in the same container apps.
@@ -242,6 +253,9 @@ az containerapp env create `
 
 ---
 
+> [!NOTE]
+> As you call `az conatinerapp create` to create the container app inside your environment, make sure the value for the `--image` parameter is in lower case.
+
 The following table describes the parameters used in for `containerapp env create`.
 
 | Parameter | Description |
@@ -351,7 +365,9 @@ az network private-dns record-set a add-record `
 
 #### Networking parameters
 
-There are three optional networking parameters you can choose to define when calling `containerapp env create`. You must either provide values for all three of these properties, or none of them. If they aren’t provided, the CLI generates the values for you.
+There are three optional networking parameters you can choose to define when calling `containerapp env create`. Use these options when you have a peered VNET with separate address ranges. Explicitly configuring these ranges ensures the addresses used by the Container Apps environment doesn't conflict with other ranges in the network infrastructure.
+
+You must either provide values for all three of these properties, or none of them. If they aren’t provided, the CLI generates the values for you.
 
 | Parameter | Description |
 |---|---|
@@ -388,17 +404,6 @@ az group delete `
 ---
 
 ::: zone-end
-
-## Restrictions
-
-Subnet address ranges can't overlap with the following reserved ranges:
-
-- 169.254.0.0/16
-- 172.30.0.0/16
-- 172.31.0.0/16
-- 192.0.2.0/24
-
-Additionally, subnets must have a size between /21 and /12.
 
 ## Additional resources
 
