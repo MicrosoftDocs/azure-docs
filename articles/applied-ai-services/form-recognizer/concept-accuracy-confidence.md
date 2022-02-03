@@ -18,7 +18,7 @@ ms.author: vikurpad
 
 # Interpret and improve accuracy and confidence scores
 
-Custom models generate an estimated accuracy score when trained. Documents analyzed with a Custom model produce a confidence score for extracted fields. In this document you will learn to  interpret accuracy and confidence scores and the best practices for using these scores to improve accuracy and confidence results.
+Custom models generate an estimated accuracy score when trained. Documents analyzed with a Custom model produce a confidence score for extracted fields. In this document, you'll learn to interpret accuracy and confidence scores and best practices for using those scores to improve accuracy and confidence results.
 
 ## Accuracy scores
 
@@ -32,7 +32,7 @@ The accuracy value range is a percentage between 0% (low) and 100% (high). The e
 
 ## Confidence scores
 
-When analyzing a document, Form Recognizer returns an estimated confidence for predicted words, key-value pairs, selection marks, regions, and signatures. Currently, not all document fields return a confidence score.
+Form Recognizer analysis results return an estimated confidence for predicted words, key-value pairs, selection marks, regions, and signatures. Currently, not all document fields return a confidence score.
 
 Confidence indicates an estimated probability between 0 and 1 that the prediction is correct.  For example, a confidence value of 0.95 (95%) indicates that the prediction is likely correct 19 out of 20 times.  For scenarios where accuracy is critical, confidence may be used to determine whether to automatically accept the prediction or flag it for human review.
 
@@ -48,9 +48,9 @@ The following table demonstrates how to interpret both the accuracy and confiden
 | Accuracy | Confidence | Result |
 |--|--|--|
 | High| High | <ul><li>The model is performing well with the labeled keys and document formats. </li><li>You have a balanced training dataset</li></ul> |
-| High | Low | <ul><li>The analyzed document appears different from the training dataset.</li><li>In this the model would benefit from retraining with at least five more labeled documents. </li><li>These results could also indicate a format variation between the training dataset and the analyzed document. </br>Consider adding a new model.</li></ul>  |
-| Low | High | <ul><li>The likelihood of this result is extremely low.</li><li>For low accuracy scores, add additional labeled data or split visually distinct documents into multiple models.</li></ul> |
-| Low | Low| <ul><li>Add additional labeled data.</li><li>Split visually distinct documents into multiple models.</li></ul>|
+| High | Low | <ul><li>The analyzed document appears different from the training dataset.</li><li>The model would benefit from retraining with at least five more labeled documents. </li><li>These results could also indicate a format variation between the training dataset and the analyzed document. </br>Consider adding a new model.</li></ul>  |
+| Low | High | <ul><li>This result is most unlikely.</li><li>For low accuracy scores, add more labeled data or split visually distinct documents into multiple models.</li></ul> |
+| Low | Low| <ul><li>Add more labeled data.</li><li>Split visually distinct documents into multiple models.</li></ul>|
 
 ## Ensure high model accuracy
 
@@ -60,13 +60,13 @@ The accuracy of your model is affected by changes in the visual structure of you
 
 * Variations include different formats, for example, digital versus scanned PDFs. If you expect the model to analyze both types of documents, add at least five samples of each type to the training dataset.
 
-* Separate visually-distinct document types to train different models.
+* Separate visually distinct document types to train different models.
   * As a general rule, if you remove all user entered values and the documents look similar, you need to add more training data to the existing model.
   * If the documents are dissimilar, split your training data into different folders and train a model for each variation. You can then [compose](compose-custom-models.md##create-a-composed-model) the different variations into a single model.
 
 * Make sure that you don't have any extraneous labels.
 
-* For signature and region labeling, don't include any of the surrounding text.
+* For signature and region labeling, don't include the surrounding text.
 
 ## Next step
 
