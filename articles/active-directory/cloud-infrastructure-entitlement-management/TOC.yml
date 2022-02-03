@@ -3,8 +3,8 @@
   - name: Overview
     expanded: true
     items:
-      - name: Overview
-      href: cloudknox-overview.md
+      - name: What is CloudKnox Permissions Management?
+        href: cloudknox-overview.md
   #- name: Onboard CloudKnox on the Azure AD tenant
     #expanded: true
     #items:
