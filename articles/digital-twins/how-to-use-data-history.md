@@ -49,7 +49,7 @@ connectionname="<name-for-your-data-history-connection>"
 eventhubnamespace="<name-for-your-event-hub-namespace>"
 eventhub="<name-for-your-event-hub>"
 
-# ADX Setup
+# Azure Data Explorer Setup
 clustername="<name-for-your-cluster>"
 databasename="<name-for-your-database>"
 ```
@@ -310,8 +310,8 @@ The results should show the outflow numbers changing over time.
 
 To keep exploring the dairy scenario, you can view [additional sample queries on GitHub](https://github.com/Azure-Samples/azure-digital-twins-getting-started/blob/main/adt-adx-queries/ContosoDairyDataHistoryQueries.kql) that show how you can monitor the performance of the dairy operation based on machine type, factory, maintenance technician, and various combinations of these parameters.
 
-For more information on using the Azure Digital Twins query plugin for Azure Data Explorer, see the [documentation](concepts-data-explorer-plugin.md) and [blog](https://techcommunity.microsoft.com/t5/internet-of-things/adding-context-to-iot-data-just-became-easier/ba-p/2459987).
+For more information on using the Azure Digital Twins query plugin for Azure Data Explorer, see [Querying with the Azure Data Explorer plugin](concepts-data-explorer-plugin.md) and [blog](https://techcommunity.microsoft.com/t5/internet-of-things/adding-context-to-iot-data-just-became-easier/ba-p/2459987).
 
 ## Next steps
 
-After historizing twin data to Azure Data Explorer, you can continue to query the data using the Azure Digital Twins query plugin for Azure Data Explorer. Read more about the plugin here: [Querying with the ADX plugin](concepts-data-explorer-plugin.md).
+After historizing twin data to Azure Data Explorer, you can continue to query the data using the Azure Digital Twins query plugin for Azure Data Explorer. Read more about the plugin here: [Querying with the Azure Data Explorer plugin](concepts-data-explorer-plugin.md).

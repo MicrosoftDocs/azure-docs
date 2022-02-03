@@ -41,9 +41,9 @@
     href: concepts-query-language.md
   - name: Query Units
     href: concepts-query-units.md 
-  - name: Data history (integrating with ADX)
+  - name: Data history (with Azure Data Explorer)
     href: concepts-data-history.md
-  - name: Querying with the ADX plugin
+  - name: Querying with the Azure Data Explorer plugin
     href: concepts-data-explorer-plugin.md
   - name: Developer interfaces
     items:

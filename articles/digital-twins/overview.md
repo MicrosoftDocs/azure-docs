@@ -68,11 +68,11 @@ You can create a new IoT Hub for this purpose with Azure Digital Twins, or conne
 
 You can also drive Azure Digital Twins from other data sources, using REST APIs or connectors to other services like [Logic Apps](../logic-apps/logic-apps-overview.md).
 
-### Output to ADX, TSI, storage, and analytics
+### Output to Azure Data Explorer, TSI, storage, and analytics
 
 The data in your Azure Digital Twins model can be routed to downstream Azure services for more analytics or storage. 
 
-To send digital twin data to [Azure Data Explorer (ADX)](/azure/data-explorer/data-explorer-overview), you can take advantage of Azure Digital Twin's [data history](concepts-data-history.md) feature, which connects an Azure Digital Twins instance to an Azure Data Explorer cluster so that digital twin property updates are automatically historized to Azure Data Explorer. You can then query this data in ADX using the [Azure Digital Twins query plugin for Azure Data Explorer](concepts-data-explorer-plugin.md).
+To send digital twin data to [Azure Data Explorer](/azure/data-explorer/data-explorer-overview), you can take advantage of Azure Digital Twin's [data history](concepts-data-history.md) feature, which connects an Azure Digital Twins instance to an Azure Data Explorer cluster so that digital twin property updates are automatically historized to Azure Data Explorer. You can then query this data in Azure Data Explorer using the [Azure Digital Twins query plugin for Azure Data Explorer](concepts-data-explorer-plugin.md).
 
 To send digital twin data to other Azure services, you can create **event routes**, which utilize [Event Hubs](../event-hubs/event-hubs-about.md), [Event Grid](../event-grid/overview.md), and [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) to send data through custom flows.
 
