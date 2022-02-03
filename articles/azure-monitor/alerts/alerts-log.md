@@ -23,13 +23,24 @@ You can also [create log alert rules using Azure Resource Manager templates](../
 > [This page](alerts-unified-log.md) explains all of the concepts behind each setting used when setting up a log alert rule.
 ## Create a log alert rule in the Azure portal
 > [!NOTE]
-> This article describes creating alert rules using the new alert rule wizard. Please note these changes in the new alert rule experience:
-> - Search results are not included with the triggered alert and its associated notifications. The alert contains a link to the search results in Logs.
-> - The new alert rule wizard does not include the option to customize the triggered alert's email or to include a custom JSON payload.
+> This article describes creating alert rules using the new alert rule wizard. 
+> The new alert rule experience is a little different than the old experience. Please note these changes:
+> - Previously, search results were included in the payloads of the triggered alert and its associated notifications. This was a limited and error prone solution. To get detailed information about the alert:
+>   - Use [dimensions](alerts-unified-log.md#split-by-alert-dimensions). Dimensions provide the column value that fired the alert.
+>    - Use the link in the alert to the search results in Logs.
+>    - Customize your experience using Logic Apps if you need the raw search results.. 
+> - The new alert rule wizard does not support customization of the email or the JSON payload.
+>   - Use custom properties in the [new API](/rest/api/monitor/scheduledqueryrule-2021-08-01/scheduled-query-rules/create-or-update#actions) to add static key:value pairs to the webhook that is sent out.
+>    - For more advanced customizations, use Logic Apps to align Log Alerts with other alert types.
+> - The new alert rule wizard does not support customization of the email subject.
+>     - In most cases, customers use the custom email subject to indicate the resource on which the alert fired. Use the [new API](alerts-unified-log.md#split-by-alert-dimensions) to get the resource id.
+>     - For more advanced customizations, use Logic Apps to align Log Alerts with other alert types.
+
 
 1. In the [portal](https://portal.azure.com/), select the relevant resource.
-1. In the Resource menu, under **Monitoring**, select **Alerts**.
-1. From the top command bar, click **Create**, and then **Alert rule**.
+1. In the Resource menu, under **Monitor**, select **Logs**.
+1. Write a query that will find the log events for which you want to create an alert. You can use the [alert query examples topic](../logs/queries.md) to understand what you can discover or [get started on writing your own query](../logs/log-analytics-tutorial.md). Also, [learn how to create optimized alert queries](alerts-log-query.md).
+1. From the top command bar, Select **+ New Alert rule**.
 
    :::image type="content" source="media/alerts-log/alerts-create-new-alert-rule.png" alt-text="Create new alert rule.":::
 
