@@ -162,9 +162,11 @@ Alternatively, you can uninstall the OSM add-on and the related resources from y
 
 ## Next steps
 
-This article showed you how to install the OSM add-on on an AKS cluster and verify it is installed an running. To deploy a sample application on your OSM mesh, see [Manage a new application with OSM on AKS][osm-sample]
+This article showed you how to install the OSM add-on on an AKS cluster and verify it is installed an running. With the the OSM add-on on your cluster you can [Deploy a sample application][osm-deploy-sample-app] or [Onboard an existing application][osm-onboard-app] to work with your OSM mesh.
 
 [aks-ephemeral]: cluster-configuration.md#ephemeral-os
 [osm-sample]: open-service-mesh-deploy-new-application.md
 [osm-uninstall]: open-service-mesh-uninstall-add-on.md
 [smi]: https://smi-spec.io/
+[osm-deploy-sample-app]: https://release-v1-0.docs.openservicemesh.io/docs/getting_started/install_apps/
+[osm-onboard-app]: https://release-v1-0.docs.openservicemesh.io/docs/guides/app_onboarding/
