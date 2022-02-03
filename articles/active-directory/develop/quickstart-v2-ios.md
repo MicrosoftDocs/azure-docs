@@ -20,10 +20,9 @@ ms.custom: aaddev, identityplatformtop40, "scenarios:getting-started", "language
 # Quickstart: Sign in users and call the Microsoft Graph API from an iOS or macOS app
 
 > [!div renderon="docs"]
-> [!Note]
-> Welcome! This probably isn't the page you were expecting. We're currently working on a fix, but for now, please use the link below - it should take you to the right article:
-> 
-> [iOS and macOS apps quickstart](mobile-app-quickstart.md?pivots=devlang-ios)
+> Welcome! This probably isn't the page you were expecting. While we work on a fix, this link should take you to the right article:
+>
+> > [Quickstart: iOS or macOS app that signs in users and calls a web API](mobile-app-quickstart.md?pivots=devlang-ios)
 > 
 > We apologize for the inconvenience and appreciate your patience while we work to get this resolved.
 

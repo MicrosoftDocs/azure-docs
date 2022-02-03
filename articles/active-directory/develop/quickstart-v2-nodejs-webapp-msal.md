@@ -20,10 +20,9 @@ ms.custom: aaddev, "scenarios:getting-started", "languages:js", devx-track-js, m
 
 
 > [!div renderon="docs"]
-> [!Note]
-> Welcome! This probably isn't the page you were expecting. We're currently working on a fix, but for now, please use the link below - it should take you to the right article:
-> 
-> [Node.js web app quickstart](web-app-quickstart.md?pivots=devlang-nodejs-msal)
+> Welcome! This probably isn't the page you were expecting. While we work on a fix, this link should take you to the right article:
+>
+> > [Quickstart: Node.js web app that signs in users with MSAL Node](web-app-quickstart.md?pivots=devlang-nodejs-msal)
 > 
 > We apologize for the inconvenience and appreciate your patience while we work to get this resolved.
 

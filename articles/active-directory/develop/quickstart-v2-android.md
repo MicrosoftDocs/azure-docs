@@ -19,10 +19,9 @@ ms.custom: aaddev, identityplatformtop40, "scenarios:getting-started", "language
 # Quickstart: Sign in users and call the Microsoft Graph API from an Android app
 
 > [!div renderon="docs"]
-> [!Note]
 > Welcome! This probably isn't the page you were expecting. We're currently working on a fix, but for now, please use the link below - it should take you to the right article:
 > 
-> [Android app quickstart](mobile-app-quickstart.md?pivots=devlang-android)
+> > [Quickstart: Android app with user sign-in](mobile-app-quickstart.md?pivots=devlang-android)
 > 
 > We apologize for the inconvenience and appreciate your patience while we work to get this resolved.
 

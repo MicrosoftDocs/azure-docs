@@ -19,9 +19,8 @@ ms.custom: aaddev, "scenarios:getting-started", "languages:Java", devx-track-jav
 # Quickstart: Acquire a token and call Microsoft Graph API from a Java console app using app's identity
 
 > [!div renderon="docs"]
-> [!Note]
 > Welcome! This probably isn't the page you were expecting. While we work on a fix, this link should take you to the right article:
-> 
+>
 > > [Quickstart: Java daemon that calls a protected API](console-app-quickstart.md?pivots=devlang-java)
 > 
 > We apologize for the inconvenience and appreciate your patience while we work to get this resolved.

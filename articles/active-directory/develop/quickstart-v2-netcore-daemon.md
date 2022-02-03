@@ -21,7 +21,6 @@ ms.custom: devx-track-csharp, aaddev, identityplatformtop40, "scenarios:getting-
 
 
 > [!div renderon="docs"]
-> [!Note]
 > Welcome! This probably isn't the page you were expecting. While we work on a fix, this link should take you to the right article:
 > 
 > > [Quickstart: .NET Core console that calls an API](console-app-quickstart.md?pivots=devlang-dotnet-core)

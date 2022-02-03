@@ -19,10 +19,9 @@ ms.custom: devx-track-csharp, aaddev, "scenarios:getting-started", "languages:as
 # Quickstart: ASP.NET Core web app that signs in users and calls Microsoft Graph on their behalf
 
 > [!div renderon="docs"]
-> [!Note]
-> Welcome! This probably isn't the page you were expecting. We're currently working on a fix, but for now, please use the link below - it should take you to the right article:
-> 
-> [ASP.NET Core web app quickstart](web-app-quickstart.md?pivots=devlang-aspnet-core)
+> Welcome! This probably isn't the page you were expecting. While we work on a fix, this link should take you to the right article:
+>
+> > [Quickstart: ASP.NET Core web app that signs in users and calls a web API](web-app-quickstart.md?pivots=devlang-aspnet-core)
 > 
 > We apologize for the inconvenience and appreciate your patience while we work to get this resolved.
 

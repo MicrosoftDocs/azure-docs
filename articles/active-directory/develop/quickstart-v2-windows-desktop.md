@@ -17,10 +17,9 @@ ms.custom: aaddev, identityplatformtop40, mode-api
 # Quickstart: Acquire a token and call Microsoft Graph API from a Windows desktop app
 
 > [!div renderon="docs"]
-> [!Note]
-> Welcome! This probably isn't the page you were expecting. We're currently working on a fix, but for now, please use the link below - it should take you to the right article:
-> 
-> [Windows Presentation Foundation (WPF) desktop application quickstart](desktop-app-quickstart.md?pivots=devlang-windows-desktop)
+> Welcome! This probably isn't the page you were expecting. While we work on a fix, this link should take you to the right article:
+>
+> > [Quickstart: Windows Presentation Foundation (WPF) desktop app that signs in users and calls a web API](desktop-app-quickstart.md?pivots=devlang-windows-desktop)
 > 
 > We apologize for the inconvenience and appreciate your patience while we work to get this resolved.
 

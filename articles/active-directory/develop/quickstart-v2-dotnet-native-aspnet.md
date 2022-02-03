@@ -19,10 +19,9 @@ ms.custom: devx-track-csharp, aaddev, identityplatformtop40, "scenarios:getting-
 # Quickstart: Call an ASP.NET web API that's protected by Microsoft identity platform
 
 > [!div renderon="docs"]
-> [!Note]
-> Welcome! This probably isn't the page you were expecting. We're currently working on a fix, but for now, please use the link below - it should take you to the right article:
-> 
-> [ASP.NET web API quickstart](web-api-quickstart.md?pivots=devlang-aspnet)
+> Welcome! This probably isn't the page you were expecting. While we work on a fix, this link should take you to the right article:
+>
+> > [Quickstart: Call a protected ASP.NET web API](web-api-quickstart.md?pivots=devlang-aspnet)
 > 
 > We apologize for the inconvenience and appreciate your patience while we work to get this resolved.
 

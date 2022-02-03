@@ -19,10 +19,9 @@ ms.custom: devx-track-csharp, aaddev, identityplatformtop40, "scenarios:getting-
 # Quickstart: ASP.NET web app that signs in Azure AD users
 
 > [!div renderon="docs"]
-> [!Note]
-> Welcome! This probably isn't the page you were expecting. We're currently working on a fix, but for now, please use the link below - it should take you to the right article:
-> 
-> [ASP.NET web app quickstart](web-app-quickstart.md?pivots=devlang-aspnet)
+> Welcome! This probably isn't the page you were expecting. While we work on a fix, this link should take you to the right article:
+>
+> > [Quickstart: ASP.NET web app that signs in users](web-app-quickstart.md?pivots=devlang-aspnet)
 > 
 > We apologize for the inconvenience and appreciate your patience while we work to get this resolved.
 

@@ -19,10 +19,9 @@ ms.custom: aaddev, "scenarios:getting-started", "languages:JavaScript", devx-tra
 # Quickstart: Sign in users and get an access token in a JavaScript SPA using the auth code flow with PKCE
 
 > [!div renderon="docs"]
-> [!Note]
-> Welcome! This probably isn't the page you were expecting. We're currently working on a fix, but for now, please use the link below - it should take you to the right article:
-> 
-> [JavaScript single-page app quickstart](single-page-app-quickstart.md?pivots=devlang-javascript)
+> Welcome! This probably isn't the page you were expecting. While we work on a fix, this link should take you to the right article:
+>
+> > [Quickstart: JavaScript single-page app with user sign-in](single-page-app-quickstart.md?pivots=devlang-javascript)
 > 
 > We apologize for the inconvenience and appreciate your patience while we work to get this resolved.
 

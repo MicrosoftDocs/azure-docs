@@ -18,7 +18,6 @@ ms.custom: mode-api
 # Quickstart: Acquire a token and call Microsoft Graph API from a Node.js console app using app's identity
 
 > [!div renderon="docs"]
-> [!Note]
 > Welcome! This probably isn't the page you were expecting. While we work on a fix, this link should take you to the right article:
 > 
 > > [Quickstart: Node.js console app that calls an API](console-app-quickstart.md?pivots=devlang-nodejs)
