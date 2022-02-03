@@ -78,17 +78,17 @@ ms.custom: aaddev, "scenarios:getting-started", "languages:JavaScript", devx-tra
 > 
 > 1. Select **Login** to start the sign-in process and then call the Microsoft Graph API.
 > 
->     The first time you sign in, you're prompted to provide your consent to allow the application to access your profile and > sign you in. After you're signed in successfully, click the **Profile** button to display your user information on the > page.
+>     The first time you sign in, you're prompted to provide your consent to allow the application to access your profile and sign you in. After you're signed in successfully, click the **Profile** button to display your user information on the page.
 > 
 > ## More information
 > 
 > ### How the sample works
 > 
-> ![Diagram showing the authorization code flow for a single-page application.](media/quickstart-v2-javascript-auth-code/> diagram-01-auth-code-flow.png)
+> ![Diagram showing the authorization code flow for a single-page application.](media/quickstart-v2-javascript-auth-code/diagram-01-auth-code-flow.png)
 > 
 > ### msal.js
 > 
-> The MSAL.js library signs in users and requests the tokens that are used to access an API that's protected by the Microsoft > identity platform.
+> The MSAL.js library signs in users and requests the tokens that are used to access an API that's protected by the Microsoft identity platform.
 > 
 > If you have Node.js installed, you can download the latest version by using the Node.js Package Manager (npm):
 > 
