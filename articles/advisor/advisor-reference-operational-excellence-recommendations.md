@@ -375,14 +375,3 @@ Learn more about [Subscription - OnboardCSPSubscriptionsToLighthouse (Use Azure 
 Deploying an app to a slot first and swapping it into production makes sure that all instances of the slot are warmed up before being swapped into production. This eliminates downtime when you deploy your app. The traffic redirection is seamless, no requests are dropped because of swap operations.
 
 Learn more about [App service - AzureAppService-StagingEnv (Set up staging environments in Azure App Service)](/azure/app-service/deploy-staging-slots).
-
-## Next steps
-
-To learn more about Advisor recommendations, see:
-* [Introduction to Advisor](advisor-overview.md)
-* [Get started](advisor-get-started.md)
-* [Advisor cost recommendations](advisor-cost-recommendations.md)
-* [Advisor performance recommendations](advisor-performance-recommendations.md)
-* [Advisor reliability recommendations](advisor-high-availability-recommendations.md)
-* [Advisor security recommendations](advisor-security-recommendations.md)
-* [Advisor REST API](/rest/api/advisor/)
