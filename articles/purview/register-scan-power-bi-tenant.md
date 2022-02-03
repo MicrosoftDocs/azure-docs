@@ -18,7 +18,7 @@ This article outlines how to register a Power BI tenant, and how to authenticate
 
 |**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|
 |---|---|---|---|---|---|---|
-| [Yes](#register)| [Yes](#scan)| No | No | No | No| [Yes](how-to-lineage-powerbi.md)|
+| [Yes](#register-same-tenant)| [Yes](#scan-same-tenant)| No | No | No | No| [Yes](how-to-lineage-powerbi.md)|
 
 ### Supported scenarios for Power BI scans
 
