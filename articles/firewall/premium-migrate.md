@@ -217,18 +217,17 @@ The minimum Azure PowerShell version requirement is 6.5.0. For more information,
    Set-AzFirewall -AzureFirewall $azfw
    ```
 
-   - Allocate Firewall Premium (multiple public IP addresses)
+- Allocate Firewall Premium (multiple public IP addresses)
 
-     ```azurepowershell
-     $azfw = Get-AzFirewall -Name "FW Name" -ResourceGroupName "RG Name"
-     $azfw.Sku.Tier="Premium"
-     $vnet = Get-AzVirtualNetwork -ResourceGroupName "RG Name" -Name "VNet Name"
-     $publicip1 = Get-AzPublicIpAddress -Name "Public IP1 Name" -ResourceGroupName "RG Name"
-     $publicip2 = Get-AzPublicIpAddress -Name "Public IP2 Name" -ResourceGroupName "RG Name"
-     $azfw.Allocate($vnet,@($publicip1,$publicip2))
-     Set-AzFirewall -AzureFirewall $azfw
-     ```
-
+   ```azurepowershell
+   $azfw = Get-AzFirewall -Name "FW Name" -ResourceGroupName "RG Name"
+   $azfw.Sku.Tier="Premium"
+   $vnet = Get-AzVirtualNetwork -ResourceGroupName "RG Name" -Name "VNet Name"
+   $publicip1 = Get-AzPublicIpAddress -Name "Public IP1 Name" -ResourceGroupName "RG Name"
+   $publicip2 = Get-AzPublicIpAddress -Name "Public IP2 Name" -ResourceGroupName "RG Name"
+   $azfw.Allocate($vnet,@($publicip1,$publicip2))
+   Set-AzFirewall -AzureFirewall $azfw
+   ```
 - Allocate Firewall Premium in Forced Tunnel Mode
 
    ```azurepowershell
