@@ -74,11 +74,13 @@ if err != nil {
     log.Fatalf("failed to obtain a credential: %v", err)
 }
 
-client, err := azsecrets.NewClient("https://<keyVaultName>.vault.azure.net/", cred, nil)
+client, err := azsecrets.NewClient("https://quickstart-kv.vault.azure.net/", cred, nil)
 if err != nil {
     log.Fatalf("failed to create a client: %v", err)
 }
 ```
+
+If you used a different Key Vault name, replace `quickstart-kv` with your vault's name.
 
 ### Create a secret
 
