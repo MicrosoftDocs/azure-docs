@@ -41,8 +41,8 @@ The feature is meant for scenarios where replication lag is acceptable, and is
 meant for offloading queries. It isn't meant for synchronous replication
 scenarios where replica data is expected to be up to date. There will be a
 measurable delay between the primary and the replica. The delay can be minutes
-or even hours depending on the workload and the latency between the primary and
-the replica.  The data on the replica eventually becomes consistent with the
+or even hours, depending on the workload and the latency between primary and
+replica.  The data on the replica eventually becomes consistent with the
 data on the primary. Use this feature for workloads that can accommodate this
 delay. 
 
@@ -66,15 +66,16 @@ portal](howto-read-replicas-portal.md).
 When you create a replica, it doesn't inherit firewall rules the primary
 server group. These rules must be set up independently for the replica.
 
-The replica inherits the admin ("citus") account from the primary server group.
+The replica inherits the admin (`citus`) account from the primary server group.
 All user accounts are replicated to the read replicas. You can only connect to
 a read replica by using the user accounts that are available on the primary
 server.
 
 You can connect to the replica's coordinator node by using its hostname and a
 valid user account, as you would on a regular Hyperscale (Citus) server group.
-For a server named **my replica** with the admin username **citus**, you can
-connect to the coordinator node of the replica by using psql:
+For instance, given a server named **my replica** with the admin username
+**citus**, you can connect to the coordinator node of the replica by using
+psql:
 
 ```bash
 psql -h c.myreplica.postgres.database.azure.com -U citus@myreplica -d postgres
@@ -104,7 +105,7 @@ Remember to keep replicas strong enough to keep up changes arriving from the
 primary. For instance, be sure to upscale compute power in replicas if you
 upscale it on the primary.
 
-Firewall rules and parameter settings are not inherited from the primary server
+Firewall rules and parameter settings aren't inherited from the primary server
 to the replica when the replica is created or afterwards.
 
 ### Regions
