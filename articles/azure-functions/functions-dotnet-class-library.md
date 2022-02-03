@@ -295,7 +295,7 @@ You can't use `out` parameters in async functions. For output bindings, use the 
 
 A function can accept a [CancellationToken](/dotnet/api/system.threading.cancellationtoken) parameter, which enables the operating system to notify your code when the function is about to be terminated. You can use this notification to make sure the function doesn't terminate unexpectedly in a way that leaves data in an inconsistent state.
 
-This is especially the case when you have functions that process messages in batch.  Consider the following version 4 (~4) Service Bus triggered function.  The default template for a Service Bus triggered Azure Function is rendered to accept a single message using this parameter: ```string myQueueItem```.  By changing that single message parameter to an array like: ```Message[] messages```, results in the function receiving a batch of, or multiple, messages per function invocation.
+Consider the case when you have a function that process messages in batch.  The following Service Bus triggered function processes an array of [Message](/dotnet/api/microsoft.azure.servicebus.message) objects, which represents a batch of incoming messages to be processed by a given function invocation:
 
 ```csharp
 using Microsoft.Azure.ServiceBus;
