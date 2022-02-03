@@ -74,7 +74,7 @@ This section describes device details available from the inventory and describes
 
 ## Filter the inventory
 
-Customize the inventory to view devices important to you. An option is also available to save inventory filters.
+Customize the inventory to view devices important to you. An option is also available to save inventory filters for quick access to device information you need.
 
 **To create filters:**
 
