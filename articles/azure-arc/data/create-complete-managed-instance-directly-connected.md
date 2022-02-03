@@ -57,7 +57,7 @@ To quickly create a Kubernetes cluster, use Azure Kubernetes Services (AKS).
     1. Create a resource group, or specify an existing resource group.
     1. Specify a cluster name
     1. Specify a region
-    1. Under **Availability zones**, select **None**.
+    1. Under **Availability zones**, remove all selected zones. You should not specify any zones.
     1. Verify the Kubernetes version. For minimum supported version, see [Plan an Azure Arc-enabled data services deployment](plan-azure-arc-data-services.md).
     1. Under **Node size**, select a node size for your cluster based on the [Sizing guidance](sizing-guidance.md).
     1. For **Scale method**, select **Manual**.
@@ -147,7 +147,8 @@ The next step is to create the data controller in directly connected mode via th
    :::image type="content" source="media/create-complete-managed-instance-directly-connected/custom-location.png" alt-text="Create a new custom location and specify a namespace.":::
 
 1. For **Kubernetes configuration template**, specify *azure-arc-aks-premium-storage* because this example uses an AKS cluster. 
-1. Set a user name and password for the metrics and log services. 
+2. For **Service type**, select **Load balancer**.
+3. Set a user name and password for the metrics and log services. 
 
    The passwords must be at least eight characters long and contain characters from three of the following four categories: Latin uppercase letters, Latin lowercase letters, numbers, and non-alphanumeric characters.
 

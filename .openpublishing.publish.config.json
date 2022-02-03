@@ -812,7 +812,13 @@
       "url": "https://github.com/Azure-Samples/msdocs-python-django-webapp-quickstart",
       "branch": "main",
       "branch_mapping": {}
-    }    
+    },
+    {
+      "path_to_root": "msdocs-nodejs-mongodb-azure-sample-app",
+      "url": "https://github.com/Azure-Samples/msdocs-nodejs-mongodb-azure-sample-app",
+      "branch": "main",
+      "branch_mapping": {}
+    }     
   ],
   "branch_target_mapping": {
     "live": [

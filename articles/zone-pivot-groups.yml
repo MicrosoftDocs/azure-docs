@@ -1659,3 +1659,12 @@ groups:
     title: Azure SQL Database, single database
   - id: azure-sql-elastic-pool
     title: Azure SQL Database, elastic pool
+# Owner: karler
+- id: spring-cloud-tier-selection
+  title: Azure Spring Cloud tier
+  prompt: Select an Azure Spring Cloud tier
+  pivots:
+  - id: sc-standard-tier
+    title: Basic/Standard tier
+  - id: sc-enterprise-tier
+    title: Enterprise tier

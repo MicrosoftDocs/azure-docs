@@ -970,6 +970,25 @@ For usage details, see the following documents:
 * [Migrate to Flux v2 Helm from Flux v1 Helm](https://fluxcd.io/docs/migration/helm-operator-migration/)
 * [Flux Helm controller](https://fluxcd.io/docs/components/helm/)
 
+### Use the GitRepository source for Helm charts
+
+If your Helm charts are stored in the `GitRepository` source that you configure as part of the `fluxConfigurations` resource, you can add an annotation to your HelmRelease yaml to indicate that the configured source should be used as the source of the Helm charts.  The annotation is `clusterconfig.azure.com/use-managed-source: "true"`, and here is a usage example:
+
+```console
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: somename
+  namespace: somenamespace
+  annotations:
+    clusterconfig.azure.com/use-managed-source: "true"
+spec:
+  ...
+```
+
+By using this annotation, the HelmRelease that is deployed will be patched with the reference to the configured source. Note that only GitRepository source is supported for this currently.
+
 ## Migrate from Flux v1
 
 If you've been using Flux v1 in Azure Arc-enabled Kubernetes or AKS clusters and want to migrate to using Flux v2 in the same clusters, you first need to delete the Flux v1 `sourceControlConfigurations` from the clusters.  The `microsoft.flux` cluster extension won't be installed if there are `sourceControlConfigurations` resources installed in the cluster.
