@@ -151,6 +151,7 @@ func main() {
 	mySecretName  := "quickstart-secret"
 	mySecretValue := "createdWithGO"
     keyVaultName  := os.Getenv("KEY_VAULT_NAME")
+    keyVaultURL   := "https://"+keyVaultName+".vault.azure.net/"
 
 	//Create a credential using the NewDefaultAzureCredential type.
 	cred, err := azidentity.NewDefaultAzureCredential(nil)
@@ -159,7 +160,7 @@ func main() {
 	}
 
 	//Establish a connection to the Key Vault client
-	client, err := azsecrets.NewClient("https://"+keyVaultName+".vault.azure.net/", cred, nil)
+	client, err := azsecrets.NewClient(keyVaultURL, cred, nil)
 	if err != nil {
 		log.Fatalf("failed to connect to client: %v", err)
 	}
