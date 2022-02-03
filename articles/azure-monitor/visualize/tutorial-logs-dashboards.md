@@ -75,11 +75,11 @@ In the **Save Query** control panel, provide a name such as *Azure VMs - Process
 
 Now that we have a query pinned to the dashboard, you will notice it has a generic title and comment below it.
 
-![Azure dashboard sample](media/tutorial-logs-dashboards/log-analytics-modify-dashboard-01.png)
+:::image type="content" source="media/tutorial-logs-dashboards/log-analytics-modify-dashboard-01.png" alt-text="Azure dashboard sample.":::
 
  We should rename it to something meaningful that can be easily understood by those viewing it.  Click the edit button to customize the title and subtitle for the tile, and then click **Update**.  A banner will appear asking you to publish changes or discard.  Click **Save a copy**.  
 
-![Completed configuration of sample dashboard](media/tutorial-logs-dashboards/log-analytics-modify-dashboard-02.png)
+:::image type="content" source="media/tutorial-logs-dashboards/log-analytics-modify-dashboard-02.png" alt-text="Completed configuration of sample dashboard.":::
 
 ## Next steps
 In this tutorial, you learned how to create a dashboard in the Azure portal and add a log query to it.  Follow this link to see pre-built Log Analytics script samples.
