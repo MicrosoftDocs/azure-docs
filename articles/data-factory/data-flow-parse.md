@@ -46,7 +46,7 @@ Use the expression builder to set the source for your parsing. This can be as si
 
 ### Output column type
 
-Here is where you will configure the target output schema from the parsing that will be written into a single column.
+Here is where you will configure the target output schema from the parsing that will be written into a single column. The easiest way to set a schema for your output from parsing is to click the 'Detect Type' button on the top right of the expression builder. ADF will attempt to auto-detect the schema from the string field which you are parsing and set it for you in the output expression.
 
 :::image type="content" source="media/data-flow/data-flow-parse-2.png" alt-text="Parse example":::
 
