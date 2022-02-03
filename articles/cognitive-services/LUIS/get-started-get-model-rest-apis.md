@@ -1,5 +1,5 @@
 ---
-title: "How to change your LUIS model using the REST API"
+title: "How to update your LUIS model using the REST API"
 titleSuffix: Azure Cognitive Services
 description: In this article, add example utterances to change a model and train the app.
 services: cognitive-services
