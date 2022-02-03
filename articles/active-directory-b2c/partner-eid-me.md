@@ -25,6 +25,7 @@ zone_pivot_groups: b2c-policy-type
 In this sample tutorial, we provide guidance on how to integrate Azure Active Directory (AD) B2C authentication with [eID-Me](https://bluink.ca). eID-Me is an identity verification and decentralized digital identity solution for Canadian citizens. With eID-Me, Azure AD B2C tenants can strongly verify the identity of their users, obtain verified identity claims during sign-up and sign-in, and support multi-factor authentication (MFA) and password-free login
 using a secure digital identity. It enables organizations to meet Identity Assurance Level (IAL) 2 and Know Your Customer (KYC) requirements. This solution provides users secure sign-up and sign-in experience while reducing fraud.
 
+
 ## Prerequisites
 
 To get started, you'll need:
@@ -86,9 +87,7 @@ The following architecture diagram shows the implementation.
 
 Contact eID-ME and configure a test environment to set up  Azure AD B2C tenants as a Relying Party. Tenants must determine what identity claims they'll need from their consumers as they sign up using eID-Me.
 
-::: zone pivot="b2c-user-flow"
-
-### Part 1 - Configure application in eID-ME
+### Part 1 - Configure an application in eID-ME
 
 To configure your tenant application as a Relying Party in eID-Me the following information should be supplied to Bluink:
 
@@ -105,6 +104,8 @@ Bluink will provide a Client ID and a Client Secret once the Relying Party has b
 
 >[!NOTE]
 >You'll need Client ID and Client secret later to configure the Identity provider in Azure AD B2C.
+
+::: zone pivot="b2c-user-flow"
 
 ### Part 2 - Add a new Identity provider in Azure AD B2C
 
