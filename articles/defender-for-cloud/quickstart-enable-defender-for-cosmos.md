@@ -41,17 +41,11 @@ When you enable Microsoft Defender for Cloud's enhanced security features on you
 
 **To select resource types to protect when you configure your plan**: 
 
-1. Sign in to the [Azure portal](https://portal.azure.com/).
-
-1. Navigate to **Microsoft Defender for Cloud** > **Environment settings**. 
-
-1. Select the relevant subscription. 
-
-1. Locate Databases and toggle the switch to **On**.
-
-    :::image type="content" source="media/quickstart-enable-defender-for-cosmos/protection-type.png" alt-text="Screenshot showing the available protections you can enable.":::
+1. Follow steps 1 - 4 above.
 
 1. Select **Select types**
+
+    :::image type="content" source="media/quickstart-enable-defender-for-cosmos/select-type.png" alt-text="Screenshot showing where the option to select the type is located.":::
 
 1. Toggle the desired resource type switches to **On**.
 
