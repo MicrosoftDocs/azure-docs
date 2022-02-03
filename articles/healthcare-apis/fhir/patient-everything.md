@@ -75,7 +75,7 @@ Right now, [replaces](https://www.hl7.org/fhir/codesystem-link-type.html#link-ty
 As described, [seealso](https://www.hl7.org/fhir/codesystem-link-type.html#link-type-seealso) links reference another patient that's considered equally valid to the original. After the Patient-everything operation is run, if the patient has `seealso` links to other patients, the operation runs Patient-everything on each `seealso` link. This means if a patient links to five other patients with a type `seealso` link, we'll run Patient-everything on each of those five patients.
 
 > [!Note]
-> This is set up to only follow `seealso` links one **layer deep**. It doesn't process a `seealso` link's `seealso` links.
+> This is set up to only follow `seealso` links one layer deep. It doesn't process a `seealso` link's `seealso` links.
 
 [![See also flow diagram.](media/patient-everything/see-also-flow.png)](media/patient-everything/see-also-flow.png#lightbox) 
 

@@ -202,6 +202,10 @@ The following limits apply to [Azure role-based access control (Azure RBAC)](../
 
 [!INCLUDE [signalr-service-limits](../../../includes/signalr-service-limits.md)]
 
+## Azure Virtual Desktop Service limits
+
+[!INCLUDE [azure-virtual-desktop-service-limits](../../../includes/azure-virtual-desktop-limits.md)]
+
 ## Azure VMware Solution limits
 
 [!INCLUDE [azure-vmware-solutions-limits](../../azure-vmware/includes/azure-vmware-solutions-limits.md)]

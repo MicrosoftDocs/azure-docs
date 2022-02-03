@@ -69,6 +69,10 @@ items:
     - name: Accepted data tag formats
       href: custom-classification/concepts/data-formats.md
       displayName: Data representation
+  - name: Tutorials
+    items:
+    - name: Enrich a Cognitive Search index 
+      href: custom-classification/tutorials/cognitive-search.md
   - name: Reference
     items:
     - name: Glossary
@@ -645,7 +649,7 @@ items:
     - name: Sentiment Analysis on streaming data using Azure Databricks
       href: /azure/databricks/scenarios/databricks-sentiment-analysis-cognitive-services?context=/azure/cognitive-services/language-service/context/context
     - name: Use Flask to translate text, analyze sentiment, and synthesize speech
-      href: ../translator/tutorial-build-flask-app-translation-synthesis.md?context=%2fazure%2fcognitive-services%2flanguage-service%2fcontext%2fcontext
+      href: /learn/modules/python-flask-build-ai-web-app/
   - name: Reference
     items:
     - name: REST API

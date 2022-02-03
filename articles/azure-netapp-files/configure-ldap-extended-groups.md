@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 01/14/2022
+ms.date: 01/27/2022
 ms.author: anfdocs
 ---
 # Configure ADDS LDAP with extended groups for NFS volume access
@@ -33,9 +33,8 @@ This article explains the considerations and steps for enabling LDAP with extend
 
 * The following table describes the Time to Live (TTL) settings for the LDAP cache. You need to wait until the cache is refreshed before trying to access a file or directory through a client. Otherwise, an access or permission denied message appears on the client. 
 
-    |     Error condition    |     Resolution    |
-    |-|-|
     | Cache |  Default Timeout |
+    |-|-|
     | Group membership list  | 24-hour TTL  |
     | Unix groups  | 24-hour TTL, 1-minute negative TTL  |
     | Unix users  | 24-hour TTL, 1-minute negative TTL  |
