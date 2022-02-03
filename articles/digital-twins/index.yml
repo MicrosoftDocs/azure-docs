@@ -55,20 +55,21 @@ landingContent:
           - text: Connect an end-to-end solution
             url: tutorial-end-to-end.md
 
-  - title: Develop
+  - title: Industry ontology models
     linkLists:
       - linkListType: concept
         links:
-          - text: Azure Digital Twins CLI command set
-            url: concepts-cli.md
-      - linkListType: how-to-guide
+          - text: What is an ontology?
+            url: concepts-ontologies.md
+      - linkListType: reference
         links:
-          - text: Set up an instance and authentication
-            url: how-to-set-up-instance-portal.md
-      - linkListType: how-to-guide
-        links:
-          - text: Write app authentication code
-            url: how-to-authenticate-client.md
+          - text: RealEstateCore smart building ontology
+            url: https://github.com/Azure/opendigitaltwins-building
+          - text: Smart cities ontology
+            url: https://github.com/Azure/opendigitaltwins-smartcities
+          - text: Energy grid ontology
+            url: https://github.com/Azure/opendigitaltwins-energygrid/
+
             
   - title: Discover the APIs and SDKs
     linkLists:
@@ -115,6 +116,21 @@ landingContent:
         links:
           - text: Custom Swaggers for Logic Apps connector
             url: /samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/ 
+
+  - title: Develop
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Azure Digital Twins CLI command set
+            url: concepts-cli.md
+      - linkListType: how-to-guide
+        links:
+          - text: Set up an instance and authentication
+            url: how-to-set-up-instance-portal.md
+      - linkListType: how-to-guide
+        links:
+          - text: Write app authentication code
+            url: how-to-authenticate-client.md
 
   - title: Scenario-based learning with Microsoft Learn
     linkLists:
