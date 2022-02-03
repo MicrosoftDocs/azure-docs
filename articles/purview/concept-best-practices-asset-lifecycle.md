@@ -53,7 +53,7 @@ The [Data Curator](catalog-permissions.md) role in Azure Purview controls read/w
 
 ## 1. Capture and maintain assets
 
-This process describes the high-level steps and suggested roles to capture and maintain sources in the Azure Purview data catalog.
+This process describes the high-level steps and suggested roles to capture and maintain assets in the Azure Purview data catalog.
 
 :::image type="content" source="media/concept-best-practices/assets-capturing-asset-metadata.png" alt-text="Business Process 1 - Capturing and Maintaining Assets."lightbox="media/concept-best-practices/assets-capturing-asset-metadata.png" border="true":::
 
