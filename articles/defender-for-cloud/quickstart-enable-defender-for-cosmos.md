@@ -59,7 +59,7 @@ When you enable Microsoft Defender for Cloud's enhanced security features on you
 
 1. Select **Confirm**.
 
-## Enable database protection at the  resource level
+## Enable database protection at the resource level
 
 You can enable Microsoft Defender for Cloud on a specific Cosmos DB account. This can be accomplished through the Azure portal, PowerShell, or the Azure CLI.
 
@@ -75,18 +75,17 @@ You can enable Microsoft Defender for Cloud on a specific Cosmos DB account. Thi
 
     :::image type="content" source="media/quickstart-enable-defender-for-cosmos/enable-storage.png" alt-text="Screenshot of the option to enable Microsoft Defender for Storage on your specified Cosmos DB account.":::
 
-**SCREENSHOT SHOWS STORAGE NEEDS TO BE REPLACED** **SCREENSHOT SHOWS STORAGE NEEDS TO BE REPLACED** **SCREENSHOT SHOWS STORAGE NEEDS TO BE REPLACED** **SCREENSHOT SHOWS STORAGE NEEDS TO BE REPLACED** **SCREENSHOT SHOWS STORAGE NEEDS TO BE REPLACED**
 ### [PowerShell](#tab/azure-powershell)
 
 1. Install the [Az.Security](https://www.powershellgallery.com/packages/Az.Security/1.1.1) module.
 
-1. Call the [Enable-AzSecurityAdvancedThreatProtection](/powershell/module/az.security/enable-azsecurityadvancedthreatprotection?view=azps-7.1.0) command.
+1. Call the [Enable-AzSecurityAdvancedThreatProtection](/powershell/module/az.security/enable-azsecurityadvancedthreatprotection) command.
 
     ```powershell
     Enable-AzSecurityAdvancedThreatProtection -ResourceId "/subscriptions/<Your subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.DocumentDb/databaseAccounts/myCosmosDBAccount/" 
     ```
 
-1.  Verify the Microsoft Defender for Cosmos DB setting for your storage account through the PowerShell call [Get-AzSecurityAdvancedThreatProtection](/powershell/module/az.security/get-azsecurityadvancedthreatprotection?view=azps-7.1.0) command.
+1.  Verify the Microsoft Defender for Cosmos DB setting for your storage account through the PowerShell call [Get-AzSecurityAdvancedThreatProtection](/powershell/module/az.security/get-azsecurityadvancedthreatprotection) command.
 
     ```powershell
     Get-AzSecurityAdvancedThreatProtection -ResourceId "/subscriptions/<Your subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.DocumentDb/databaseAccounts/myCosmosDBAccount/" 
