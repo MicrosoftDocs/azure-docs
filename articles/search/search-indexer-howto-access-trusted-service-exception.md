@@ -1,5 +1,5 @@
 ---
-title: Indexer connection as trusted service
+title: Connect as trusted service
 titleSuffix: Azure Cognitive Search
 description: Enable data access by an indexer in Azure Cognitive Search to data stored securely in Azure Storage.
 

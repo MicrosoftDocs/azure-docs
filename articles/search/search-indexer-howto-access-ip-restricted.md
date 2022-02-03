@@ -1,5 +1,5 @@
 ---
-title: Indexer connection through firewalls
+title: Connect through firewalls
 titleSuffix: Azure Cognitive Search
 description: Configure IP firewall rules to allow data access by an Azure Cognitive Search indexer.
 
@@ -91,7 +91,7 @@ Now that you have the necessary IP addresses, you can set up the inbound rule. T
 
 1. Add the IP addresses obtained previously (one for the search service IP, plus all of the IP ranges for the "AzureCognitiveSearch" service tag) in the address range and select **Save**.
 
-   :::image type="content" source="media\search-indexer-howto-secure-access\storage-firewall-ip.png" alt-text="Screenshot of the IP address section of the page." border=true:::
+   :::image type="content" source="media\search-indexer-howto-secure-access\storage-firewall-ip.png" alt-text="Screenshot of the IP address section of the page." border="true":::
 
 It can take five to ten minutes for the firewall rules to be updated, after which indexers should be able to access the data in the storage account.
 

@@ -1,5 +1,5 @@
 ---
-title: Indexer connection through a private endpoint
+title: Connect through a private endpoint
 titleSuffix: Azure Cognitive Search
 description: Configure indexer connections to access content from other Azure resources that are protected through a private endpoint.
 
