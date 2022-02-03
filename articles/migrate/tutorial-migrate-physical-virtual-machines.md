@@ -329,7 +329,8 @@ After you've verified that the test migration works as expected, you can migrate
 3. In **Migrate** > **Shut down virtual machines and perform a planned migration with no data loss**, select **No** > **OK**.
     - If you don't want to shut down the VM, select **No**
 
-    Note: For physical server migration, the recommendation is to bring the virtual machine down externally as part of the migration window (don't let the applications accept any connections) and then initiate the migration (The server needs to be kept running, so remaining changes can be synchronized) before the migration is completed.
+    > [!NOTE]
+    > For physical server migration, the recommendation is to bring the virtual machine down externally as part of the migration window (don't let the applications accept any connections) and then initiate the migration (The server needs to be kept running, so remaining changes can be synchronized) before the migration is completed.
 
 4. A migration job starts for the VM. Track the job in Azure notifications.
 5. After the job finishes, you can view and manage the VM from the **Virtual Machines** page.
