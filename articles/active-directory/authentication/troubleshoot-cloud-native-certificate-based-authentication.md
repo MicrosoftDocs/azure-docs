@@ -31,11 +31,11 @@ An administrator needs to enable CBA for the tenant to make the sign in with cer
 
 If the user is unable to sign in using Certificate-based Authentication, they may see one of the following user-facing errors on the Azure AD sign-in screen.
 
-**ADSTS1001000 - Unable to acquire certificate policy from tenant**
+### ADSTS1001000 - Unable to acquire certificate policy from tenant
 
 This is a server-side error that occurs when the server could not fetch an authentication policy for the user using the SAN Principal Name/SAN RFC822Name field of the user certificate. Make sure that the authentication policy rules are correct, a valid certificate is used, and retry. 
 
-**AADSTS1001003 – User sign-in fails with "Unable To Acquire Value Specified In Binding From Certificate"**
+### AADSTS1001003 – User sign-in fails with "Unable To Acquire Value Specified In Binding From Certificate"
 
 :::image type="content" border="true" source="./media/troubleshoot-cloud-native-certificate-based-authentication/binding.png" alt-text="Screenshot of binding error." :::
 
@@ -43,7 +43,7 @@ This error is returned if the user selects the wrong user certificate from the l
 
 Make sure the certificate is valid and works for the user binding and authentication policy configuration.
 
-**AADSTS50034 - Users sign in fails with "Your account or password is incorrect. If you don't remember your password, reset it now."**
+### AADSTS50034 - Users sign in fails with "Your account or password is incorrect. If you don't remember your password, reset it now."
 
 :::image type="content" border="true" source="./media/troubleshoot-cloud-native-certificate-based-authentication/reset.png" alt-text="Screenshot of password reset error." :::
 
@@ -62,7 +62,7 @@ If the user is a federated user moving to Azure AD and if the user binding confi
 >[!NOTE]
 >There is a known issue that this scenario is not logged into the sign-in logs.
 
-**AADSTS130501 - Users sign in fails with "Sign in was blocked due to User Credential Policy"**
+### AADSTS130501 - Users sign in fails with "Sign in was blocked due to User Credential Policy"
 
 :::image type="content" border="true" source="./media/troubleshoot-cloud-native-certificate-based-authentication/policy-failed.png" alt-text="Screenshot of policy error." :::
 
@@ -72,7 +72,7 @@ There is also a known issue when a user who is not in scope for CBA ties to sign
 
 In both cases, the error can be resolved by making sure the user is in scope for cloud-native CBA. For more information, see [Step 4: Enable CBA on the tenant](how-to-certificate-based-authentication.md#step-4-enable-cba-on-the-tenant).
 
-**AADSTS90100: flowtoken parameter is empty or not valid**
+### AADSTS90100: flowtoken parameter is empty or not valid
 
 After sign-in fails and I retry sign-in with the correct certificate, I get an error:
 
