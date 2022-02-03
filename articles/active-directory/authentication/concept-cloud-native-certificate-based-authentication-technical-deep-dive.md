@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 01/25/2022
+ms.date: 02/03/2022
 
 ms.author: justinha
 author: justinha
@@ -136,6 +136,10 @@ As of now, we don't support online certificate status protocol (OCSP) because of
 >Due to the nature of CRL caching and publishing cycles, it is highly recommended in case of a certificate revocation to also revoke all sessions of the affected user in Azure AD.
 
 There is no way for the administrator to manually force or re-trigger the download of the CRL. 
+
+### How to configure revocation
+
+[!INCLUDE [Configure revocation](../../../includes/active-directory-authentication-configure-revocation.md)]
 
 ## Understanding Sign in logs
 

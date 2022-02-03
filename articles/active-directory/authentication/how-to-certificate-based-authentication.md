@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 01/31/2022
+ms.date: 02/03/2022
 
 ms.author: justinha
 author: justinha
@@ -77,9 +77,6 @@ Only one Certificate Distribution Point (CDP) for a trusted CA is supported. The
 
 [!INCLUDE [Set-AzureAD](../../../includes/active-directory-authentication-set-trusted-azuread.md)]
 
-## Configure revocation
-
-[!INCLUDE [Configure revocation](../../../includes/active-directory-authentication-configure-revocation.md)]
 
 ## Step 2: Configure authentication binding policy 
 
