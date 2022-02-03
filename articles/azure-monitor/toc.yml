@@ -141,8 +141,8 @@ items:
       href: logs/data-ingestion-time.md
   - name: Data collection rules
     href: essentials/data-collection-rule-overview.md
-  - name: Direct ingestion
-    href: logs/direct-ingestion-overview.md
+  - name: Custom logs
+    href: logs/custom-logs-overview.md
   - name: Usage and cost
     items:
     - name: Usage and estimated costs
@@ -388,9 +388,11 @@ items:
     - name: Custom logs
       items: 
       - name: Overview 
-        href: logs/direct-ingestion-overview.md
+        href: logs/custom-logs-overview.md
       - name: Walkthrough 
-        href: logs/direct-ingestion-walkthrough.md        
+        href: logs/custom-logs-walkthrough.md
+      - name: Walkthrough API
+        href: logs/custom-logs-walkthrough-api.md
       - name: Data collector API 
         items:
         - name: Overview
