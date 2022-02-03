@@ -5,7 +5,7 @@ ms.service: virtual-machines
 ms.subservice: gallery
 ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 11/02/2021
+ms.date: 02/03/2022
 ms.reviewer: amjads
 ms.custom: 
 

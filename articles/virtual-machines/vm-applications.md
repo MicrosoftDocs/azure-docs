@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.subservice: gallery
 ms.topic: conceptual
 ms.workload: infrastructure
-ms.date: 11/02/2021
+ms.date: 02/03/2022
 ms.author: cynthn
 ms.reviewer: amjads
 ms.custom: 
