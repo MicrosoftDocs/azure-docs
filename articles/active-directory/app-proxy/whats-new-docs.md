@@ -1,7 +1,7 @@
 ---
 title: "What's new in Azure Active Directory application proxy"
 description: "New and updated documentation for the Azure Active Directory application proxy."
-ms.date: 01/07/2022
+ms.date: 02/03/2022
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.topic: reference
