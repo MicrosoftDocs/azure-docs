@@ -83,6 +83,7 @@ Administrators can exclude specific apps from policy if they wish, including the
 The following key applications are included in the Office 365 client app:
 
    - Microsoft Forms
+   - Microsoft Planner
    - Microsoft Stream
    - Microsoft To-Do
    - Microsoft Teams
