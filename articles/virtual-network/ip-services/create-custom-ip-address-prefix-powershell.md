@@ -55,18 +55,20 @@ In order to utilize the Azure BYOIP feature, you must perform the following step
 
 ### Certificate readiness
 
-* In order to authorize Microsoft to associate a prefix with a customer subscription, a public certificate must be compared against a signed message. Execute the following commands in PowerShell with OpenSSL installed.  
+In order to authorize Microsoft to associate a prefix with a customer subscription, a public certificate must be compared against a signed message. 
+
+Execute the following commands in PowerShell with OpenSSL installed.  
 
 The following steps show the steps required to prepare sample customer range (1.2.3.0/24) for provisioning.
     
 1. A [self-signed X509 certificate](https://en.wikipedia.org/wiki/Self-signed_certificate) must be created to add to the Whois/RDAP record for the prefix For information on RDAP, see the[ARIN](https://www.arin.net/resources/registry/whois/rdap/), [RIPE](https://www.ripe.net/manage-ips-and-asns/db/registration-data-access-protocol-rdap), and [APNIC](https://www.apnic.net/about-apnic/whois_search/about/rdap/) sites. 
 
-An example utilizing the OpenSSL toolkit is shown below.  The following commands generate an RSA key pair and create an X509 certificate using the key pair that expires in 6 months:
+    An example utilizing the OpenSSL toolkit is shown below.  The following commands generate an RSA key pair and create an X509 certificate using the key pair that expires in 6 months:
     
-```azurepowershell-interactive
-openssl genrsa -out byoipprivate.key 2048
-Set-Content -Path byoippublickey.cer (openssl req -new -x509 -key byoipprivate.key -days 180) -NoNewline
-```
+    ```azurepowershell-interactive
+    openssl genrsa -out byoipprivate.key 2048
+    Set-Content -Path byoippublickey.cer (openssl req -new -x509 -key byoipprivate.key -days 180) -NoNewline
+    ```
    
 2. After the certificate is created, update the public comments section of the Whois/RDAP record for the prefix. In order to display for copying, including the BEGIN/END header/footer with dashes, use the command `cat byoippublickey.cer` You should be able to perform this via your Routing Internet Registry.  
 
@@ -82,20 +84,20 @@ Set-Content -Path byoippublickey.cer (openssl req -new -x509 -key byoipprivate.k
      
 3. To create the message that will be passed to Microsoft, you'll first create a string that contains relevant information about your prefix and subscription and then sign this message with the key pair generated in the steps above. Use the format shown below, substituting your subscription ID, prefix to be provisioned, and expiration date matching the Validity Date on the ROA. Ensure the format is in that order. 
 
-Use the following command to create a signed message that will be passed to Microsoft for verification.  
+    Use the following command to create a signed message that will be passed to Microsoft for verification.  
 
-> [!NOTE]
-> If the Validity End date was not included in the original ROA, use a date 1-3 years in the future.
+    > [!NOTE]
+    > If the Validity End date was not included in the original ROA, use a date 1-3 years in the future.
     
-```azurepowershell-interactive
-$byoipauth="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|1.2.3.0/24|yyyymmdd"
-Set-Content -Path byoipauth.txt -Value $byoipauth -NoNewline
-openssl dgst -sha256 -sign byoipprivate.key -keyform PEM -out byoipauthsigned.txt byoipauth.txt
-$byoipauthsigned=(openssl enc -base64 -in byoipauthsigned.txt) -join ''
-```
+    ```azurepowershell-interactive
+    $byoipauth="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|1.2.3.0/24|yyyymmdd"
+    Set-Content -Path byoipauth.txt -Value $byoipauth -NoNewline
+    openssl dgst -sha256 -sign byoipprivate.key -keyform PEM -out byoipauthsigned.txt byoipauth.txt
+    $byoipauthsigned=(openssl enc -base64 -in byoipauthsigned.txt) -join ''
+    ```
 ### Subscription readiness
 
-Register the applicable subscription that the range will be provisioned for with Microsoft.Network and the specific feature flags using the following commands. It may take some time for the request to propagate.
+Register the applicable subscription that the range will be provisioned for with **Microsoft.Network** and the specific feature flags using the following commands. It may take some time for the request to propagate.
 
  ```azurepowershell-interactive
 Register-AzResourceProvider -ProviderNamespace Microsoft.Network
