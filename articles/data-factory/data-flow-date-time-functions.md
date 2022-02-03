@@ -25,7 +25,6 @@ In Data Factory and Synapse pipelines, use date and time functions to express da
 
 | Expression function | Task |
 |-----|-----|
-
 | [addDays](data-flow-expressions-usage.md#addDays) | Add days to a date or timestamp. Same as the + operator for date.  |
 | [addMonths](data-flow-expressions-usage.md#addMonths) | Add months to a date or timestamp. You can optionally pass a timezone.  |
 | [between](data-flow-expressions-usage.md#between) | Checks if the first value is in between two other values inclusively. Numeric, string and datetime values can be compared  |
