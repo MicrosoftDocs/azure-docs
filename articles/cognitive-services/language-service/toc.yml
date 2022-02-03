@@ -105,7 +105,7 @@ items:
   - name: Responsible use of AI
     items: 
     - name: Transparency note for Custom NER
-      href: legal/cognitive-services/language-service/cner-transparency-note?context=/azure/cognitive-services/language-service/context/context
+      href: /legal/cognitive-services/language-service/cner-transparency-note?context=/azure/cognitive-services/language-service/context/context
       displayName: Transparency note for Custom NER, Custom NER Transparency, Responsible AI, Responsible use of AI
     - name: Integration and responsible use
       href: /legal/cognitive-services/language-service/cner-guidance-integration-responsible-use?context=/azure/cognitive-services/language-service/context/context
