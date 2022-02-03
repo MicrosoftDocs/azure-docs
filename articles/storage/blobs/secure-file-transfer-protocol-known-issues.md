@@ -47,18 +47,6 @@ This article describes limitations and known issues of SFTP support in Azure Blo
 
 - When a firewall is configured, connections from non-allowed IPs are not rejected as expected. However, if there is a successful connection for an authenticated user then all data plane operations will be rejected.
 
-## Supported algorithms
-
-| Host key | Key exchange | Ciphers/encryption | Integrity/MAC | Public key |
-|----------|--------------|--------------------|---------------|------------|
-| rsa-sha2-256 | ecdh-sha2-nistp384 | aes128-gcm@openssh.com | hmac-sha2-256 | ssh-rsa |
-| rsa-sha2-512 | ecdh-sha2-nistp256 | aes256-gcm@openssh.com | hmac-sha2-512 | ecdsa-sha2-nistp256 |
-| ecdsa-sha2-nistp256 | diffie-hellman-group14-sha256 | aes128-cbc| | ecdsa-sha2-nistp384 |
-| ecdsa-sha2-nistp384| diffie-hellman-group16-sha512 | aes256-cbc |  | 
-||| aes192-cbc ||
-
-SFTP support in Azure Blob Storage currently limits its cryptographic algorithm support in accordance to the Microsoft Security Development Lifecycle (SDL). We strongly recommend that customers utilize SDL approved algorithms to securely access their data. More details can be found [here](/security/sdl/cryptographic-recommendations)
-
 ## Security
 
 - Host keys are published [here](secure-file-transfer-protocol-host-keys.md). During the public preview, host keys will rotate up to once per month.
