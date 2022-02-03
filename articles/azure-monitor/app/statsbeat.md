@@ -31,7 +31,7 @@ Statsbeat collects essential and non-essential metrics.
 
 #### [Java](#tab/java)
 
-Statseat supports the list of regions in EU Data boundary: 
+Statseat supports EU Data Boundary for Application Insights resources in the following regions:
 
 | Geo Name                  | Region Name            |
 |---------------------------|------------------------|
