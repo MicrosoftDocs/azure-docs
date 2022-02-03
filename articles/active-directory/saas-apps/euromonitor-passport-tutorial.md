@@ -73,7 +73,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Basic SAML Configuration** section, the user does not have to perform any step as the app is already pre-integrated with Azure.
 
-1. If you wish to configure the application in **SP** initiated mode, you need to get the Sign-on URL form the [Euromonitor International support team](mailto:passport.support@euromonitor.com). After you get the Sign-on URL from the Euromonitor International support team, click **Set additional URLs** and perform the following step:
+1. If you wish to configure the application in **SP** initiated mode, you need to get the Sign-on URL from the [Euromonitor International support team](mailto:passport.support@euromonitor.com). After you get the Sign-on URL from the Euromonitor International support team, click **Set additional URLs** and perform the following step:
 
     Paste the obtained Sign-on URL value from the Euromonitor International support team into the Sign-on URL textbox.
 
