@@ -144,7 +144,7 @@ Get-MsolUser -All | Set-MfaState -State Disabled
 
 ## Plan user session lifetime
 
-When planning your Multi-Factor Authentication deployment, it's important to think about how frequently you would like to prompt your users. Asking users for credentials often seems like a sensible thing to do, but it can backfire. If users are trained to enter their credentials without thinking, they can unintentionally supply them to a malicious credential prompt. Azure AD has multiple settings that determine how often you need to reauthenticate. Understand the needs of your business and users and configure settings that provide the best balance for your environment.
+When planning your multifactor authentication deployment, it's important to think about how frequently you would like to prompt your users. Asking users for credentials often seems like a sensible thing to do, but it can backfire. If users are trained to enter their credentials without thinking, they can unintentionally supply them to a malicious credential prompt. Azure AD has multiple settings that determine how often you need to reauthenticate. Understand the needs of your business and users and configure settings that provide the best balance for your environment.
 
 We recommend using devices with Primary Refresh Tokens (PRT) for improved end user experience and reduce the session lifetime with sign in frequency policy only on specific business use cases.
 
@@ -152,7 +152,7 @@ For more information, see [Optimize reauthentication prompts and understand sess
 
 ## Plan user registration
 
-A major step in every Multi-Factor Authentication deployment is getting users registered to use Azure AD Multi-Factor Authentication. Authentication methods such as Voice and SMS allow pre-registration, while others like the Authenticator App require user interaction. Administrators must determine how users will register their methods. 
+A major step in every multifactor authentication deployment is getting users registered to use Azure AD Multi-Factor Authentication. Authentication methods such as Voice and SMS allow pre-registration, while others like the Authenticator App require user interaction. Administrators must determine how users will register their methods. 
 
 ### Combined registration for SSPR and Azure AD MFA
 

@@ -111,7 +111,7 @@ Before deploying SSPR, you may opt to determine the number and the average cost 
 
 #### Enable combined registration for SSPR and MFA
 
-### Combined registration for SSPR and Azure AD MFA
+### Combined registration for SSPR and Azure AD Multi-Factor Authentication
 
 We recommend that organizations use the [combined registration experience for Azure AD Multi-Factor Authentication and self-service password reset (SSPR)](howto-registration-mfa-sspr-combined.md). SSPR allows users to reset their password in a secure way using the same methods they use for Azure AD Multi-Factor Authentication. Combined registration is a single step for end users. To make sure you understand the functionality and end-user experience, see the [Combined security information registration concepts](concept-registration-mfa-sspr-combined.md).
 
