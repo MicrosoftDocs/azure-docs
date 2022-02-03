@@ -65,7 +65,7 @@ To run the application locally:
 
     :::image type="content" source="./media/quickstart-python/run-flask-app-localhost.png" alt-text="Screenshot of the Flask app running locally in a browser":::
 
-Having issues? [Let us know](https://aka.ms/FlaskCLIQuickstartHelp).
+Having issues? [Let us know](https://aka.ms/PythonAppServiceQuickstartFeedback).
 
 ### [Django](#tab/django)
 
@@ -95,7 +95,7 @@ Having issues? [Let us know](https://aka.ms/FlaskCLIQuickstartHelp).
 
     :::image type="content" source="./media/quickstart-python/run-django-app-localhost.png" alt-text="Screenshot of the Django app running locally in a browser":::
 
-Having issues? [Let us know](https://aka.ms/FlaskCLIQuickstartHelp).
+Having issues? [Let us know](https://aka.ms/PythonAppServiceQuickstartFeedback).
 
 ---
 
@@ -136,7 +136,7 @@ To create Azure resources in VS Code, you must have the [Azure Tools extension p
 
 ---
 
-Having issues? [Let us know](https://aka.ms/FlaskCLIQuickstartHelp).
+Having issues? [Let us know](https://aka.ms/PythonAppServiceQuickstartFeedback).
 
 ## 3 - Deploy your application code to Azure
 
@@ -167,7 +167,7 @@ To deploy a web app from VS Code, you must have the [Azure Tools extension pack]
 
 ---
 
-Having issues? Refer first to the [Troubleshooting guide](/azure/app-service/configure-language-python.md#troubleshooting), otherwise, [let us know](https://aka.ms/FlaskCLIQuickstartHelp).
+Having issues? Refer first to the [Troubleshooting guide](/azure/app-service/configure-language-python.md#troubleshooting), otherwise, [let us know](https://aka.ms/PythonAppServiceQuickstartFeedback).
 
 ## 4 - Browse to the app
 
@@ -179,7 +179,7 @@ The Python sample code is running a Linux container in App Service using a built
 
 **Congratulations!** You have deployed your Python app to App Service.
 
-Having issues? Refer first to the [Troubleshooting guide](/azure/app-service/configure-language-python.md#troubleshooting), otherwise, [let us know](https://aka.ms/FlaskCLIQuickstartHelp).
+Having issues? Refer first to the [Troubleshooting guide](/azure/app-service/configure-language-python.md#troubleshooting), otherwise, [let us know](https://aka.ms/PythonAppServiceQuickstartFeedback).
 
 ## 5 - Stream logs
 
@@ -240,8 +240,7 @@ Starting Live Log Stream ---
 
 ---
 
-
-Having issues? Refer first to the [Troubleshooting guide](/azure/app-service/configure-language-python.md#troubleshooting), otherwise, [let us know](https://aka.ms/FlaskCLIQuickstartHelp).
+Having issues? Refer first to the [Troubleshooting guide](/azure/app-service/configure-language-python.md#troubleshooting), otherwise, [let us know](https://aka.ms/PythonAppServiceQuickstartFeedback).
 
 ## Clean up resources
 
@@ -278,7 +277,7 @@ The `--no-wait` argument allows the command to return before the operation is co
 
 ---
 
-Having issues? [Let us know](https://aka.ms/FlaskCLIQuickstartHelp).
+Having issues? [Let us know](https://aka.ms/PythonAppServiceQuickstartFeedback).
 
 ## Next steps
 

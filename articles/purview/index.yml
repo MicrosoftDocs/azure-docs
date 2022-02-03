@@ -25,7 +25,7 @@ landingContent:
       - linkListType: concept
         links:
           - text: Use Azure Purview Studio
-            url: use-purview-studio.md
+            url: use-azure-purview-studio.md
           - text: Understand Azure Purview access control
             url: catalog-permissions.md
           - text: Understand the elastic data map
