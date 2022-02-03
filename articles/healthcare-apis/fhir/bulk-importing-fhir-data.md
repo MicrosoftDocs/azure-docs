@@ -5,14 +5,11 @@ services: healthcare-apis
 author: SteveWohl
 ms.service: healthcare-apis
 ms.topic: tutorial
-ms.date: 01/28/2022
+ms.date: 02/02/2022
 ms.author: zxue
 ---
 
 # Bulk importing data to the FHIR service in Healthcare APIs
-
-> [!IMPORTANT]
-> Azure Healthcare APIs is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 In this article, you'll learn how to bulk import data into the FHIR service in Healthcare APIs. The tools described in this article are freely available at GitHub and can be modified to meet your business needs. Technical support for the tools is available through GitHub and the open-source community.
 

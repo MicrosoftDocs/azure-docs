@@ -5,13 +5,10 @@ author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.topic: tutorial
 ms.author: zxue
-ms.date: 08/06/2021
+ms.date: 02/02/2022
 ---
 
 # Deploy a FHIR service within Azure Healthcare APIs - using ARM template
-
-> [!IMPORTANT]
-> Azure Healthcare APIs is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 In this article, you will learn how to deploy the FHIR service within the Azure Healthcare APIs (hereby called the FHIR service) using the Azure Resource Manager template (ARM template). We provide you two options, using PowerShell or using CLI.
 

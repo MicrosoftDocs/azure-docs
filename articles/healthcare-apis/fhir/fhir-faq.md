@@ -6,15 +6,12 @@ author: caitlinv39
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 12/30/2021
+ms.date: 02/02/2022
 ms.author: cavoeg
 ms.custom: references_regions
 ---
 
 # Frequently asked questions about the FHIR service
-
-> [!IMPORTANT]
-> Azure Healthcare APIs is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 This section covers some of the frequently asked questions about the Azure Healthcare APIs FHIR service (hereby called the FHIR service).
 
@@ -50,7 +47,7 @@ For more information, see [Supported FHIR features](fhir-features-supported.md).
 
 The FHIR service is our implementation of the FHIR specification that sits in the Azure Healthcare APIs, which allows you to have a FHIR service and a DICOM service within a single workspace. The Azure API for FHIR was our initial GA product and is still available as a stand-alone product. The main feature differences are:
 
-* The FHIR service has a limit of 4 TB and is in public preview while the Azure API for FHIR supports more than 4 TB and is GA.
+* The FHIR service has a limit of 4 TB, and Azure API for FHIR supports more than 4 TB.
 * The FHIR service support [transaction bundles](https://www.hl7.org/fhir/http.html#transaction).
 * The Azure API for FHIR has more platform features (such as private link, customer managed keys, and logging) that are not yet available in the FHIR service in the Azure Healthcare APIs. More details will follow on these features by GA.
 

@@ -6,7 +6,7 @@ ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
 ms.custom: references_regions
-ms.date: 01/14/2022
+ms.date: 02/02/2022
 ms.author: cavoeg
 ---
 

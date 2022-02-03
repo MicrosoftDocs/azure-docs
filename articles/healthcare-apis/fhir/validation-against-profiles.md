@@ -5,14 +5,11 @@ author: caitlinv39
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 12/22/2021
+ms.date: 02/02/2022
 ms.author: cavoeg
 ---
 
 # Validate FHIR resources against profiles in Azure Healthcare APIs
-
-> [!IMPORTANT]
-> Azure Healthcare APIs is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 `$validate` is an operation in FHIR that allows you to ensure that a FHIR resource conforms to the base resource requirements or a specified profile. This is a valuable operation to ensure that the data in the FHIR server has the expected attributes and values.
 

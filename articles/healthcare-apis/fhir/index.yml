@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
 title: FHIR service documentation
-summary: FHIR service documentation page for Azure Healthcare APIs (preview). FHIR service is a managed, standards-based, compliant API for clinical health data that enables solutions for actionable analytics and machine learning. 
+summary: FHIR service documentation page for Azure Healthcare APIs. FHIR service is a managed, standards-based, compliant API for clinical health data that enables solutions for actionable analytics and machine learning. 
 
 metadata:
   title: FHIR service documentation 

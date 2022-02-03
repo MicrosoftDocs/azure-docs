@@ -1,5 +1,5 @@
 ---
-title: Exporting de-identified data (preview) for FHIR service
+title: Exporting de-identified data for FHIR service
 description: This article describes how to set up and use de-identified export
 author: ranvijaykumar
 ms.service: healthcare-apis
@@ -8,7 +8,7 @@ ms.topic: reference
 ms.date: 12/06/2021
 ms.author: ranku
 ---
-# Exporting de-identified data (preview)
+# Exporting de-identified data
 
 > [!Note] 
 > Results when using the de-identified export will vary based on factors such as data inputted, and functions selected by the customer. Microsoft is unable to evaluate the de-identified export outputs or determine the acceptability for customer's use cases and compliance needs. The de-identified export is not guaranteed to meet any specific legal, regulatory, or compliance requirements.

@@ -5,14 +5,11 @@ services: healthcare-apis
 author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.topic: tutorial
-ms.date: 01/18/2022
+ms.date: 02/02/2022
 ms.author: zxue
 ---
 
 # Access using Postman
-
-> [!IMPORTANT]
-> Azure Healthcare APIs is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 In this article, we will walk through the steps of accessing the Healthcare APIs FHIR service (hear by called the FHIR service) with [Postman](https://www.getpostman.com/).
 

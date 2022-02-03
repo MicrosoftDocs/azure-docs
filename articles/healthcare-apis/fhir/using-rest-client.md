@@ -5,14 +5,11 @@ services: healthcare-apis
 author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.topic: tutorial
-ms.date: 01/06/2022
+ms.date: 02/02/2022
 ms.author: ginle
 ---
 
-# Accessing the Healthcare APIs (preview) using the REST Client Extension in Visual Studio Code
-
-> [!IMPORTANT]
-> Azure Healthcare APIs is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+# Accessing the Healthcare APIs using the REST Client Extension in Visual Studio Code
 
 In this article, you will learn how to access the Healthcare APIs using [REST Client extension in Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=humao.rest-client).
 

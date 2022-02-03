@@ -1,17 +1,14 @@
 ---
-title:  How to run a reindex job in FHIR service - Azure Healthcare APIs (preview)
+title:  How to run a reindex job in FHIR service - Azure Healthcare APIs
 description: How to run a reindex job to index any search or sort parameters that have not yet been indexed in your database
 author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 08/23/2021
+ms.date: 02/02/2022
 ms.author: cavoeg
 ---
 # Running a reindex job
-
-> [!IMPORTANT]
-> Azure Healthcare APIs is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 There are scenarios where you may have search or sort parameters in the FHIR service in the Azure Healthcare APIs (hereby called the FHIR service) that haven't yet been indexed. This scenario is relevant when you define your own search parameters. Until the search parameter is indexed, it can't be used in search. This article covers an overview of how to run a reindex job to index any search or sort parameters that have not yet been indexed in your database.
 
@@ -88,7 +85,7 @@ Content-Location: https://{{FHIR URL}}/_operations/reindex/560c7c61-2c70-4c54-b8
 ```
 
 > [!NOTE]
-> To check the status of or to cancel a reindex job, you’ll need the reindex ID. This is the ID of the resulting Parameters resource. In the example above, the ID for the reindex job would be `560c7c61-2c70-4c54-b86d-c53a9d29495e`.
+> To check the status of or to cancel a reindex job, you'll need the reindex ID. This is the ID of the resulting Parameters resource. In the example above, the ID for the reindex job would be `560c7c61-2c70-4c54-b86d-c53a9d29495e`.
 
  ## How to check the status of a reindex job
 
@@ -215,7 +212,7 @@ If you want to use any of the parameters above, you can pass them into the Param
 
 ## Next steps
 
-In this article, you’ve learned how to start a reindex job. To learn how to define new search parameters that require the reindex job, see 
+In this article, you've learned how to start a reindex job. To learn how to define new search parameters that require the reindex job, see 
 
 >[!div class="nextstepaction"]
 >[Defining custom search parameters](how-to-do-custom-search.md)

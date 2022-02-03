@@ -6,14 +6,11 @@ author: caitlinv39
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 12/09/2021
+ms.date: 02/02/2022
 ms.author: cavoeg
 ---
 
 # Using Patient-everything in FHIR service
-
-> [!IMPORTANT]
-> Azure Healthcare APIs is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 The [Patient-everything](https://www.hl7.org/fhir/patient-operation-everything.html) operation is used to provide a view of all resources related to a patient. This operation can be useful to give patients' access to their entire record or for a provider or other user to perform a bulk data download related to a patient. According to the FHIR specification, Patient-everything returns all the information related to one or more patients described in the resource or context on which this operation is invoked. In the FHIR service in the Azure Healthcare APIs (hereby called the FHIR service), Patient-everything is available to pull data related to a specific patient.
 
