@@ -76,7 +76,7 @@ All packet core Network Functions are compliant with the 3GPP specifications lis
 
 ## IETF RFCs
 
-The implementation of all of the 3GPP specifications given in [3GPP specifications](#3gpp-specifications) is compliant with the following IETF RFCs.
+The implementation of all of the 3GPP specifications given in [3GPP specifications](#3gpp-specifications) is compliant with the following IETF RFCs:
 
 - IETF RFC 768: User Datagram Protocol
 - IETF RFC 791: Internet Protocol
@@ -99,7 +99,7 @@ The implementation of all of the 3GPP specifications given in [3GPP specificatio
 
 ## ITU-T Recommendations
 
-The implementation of all of the 3GPP specifications given in [3GPP specifications](#3gpp-specifications) is compliant with the following ITU-T Recommendations.
+The implementation of all of the 3GPP specifications given in [3GPP specifications](#3gpp-specifications) is compliant with the following ITU-T Recommendations:
 
 - ITU-T Recommendation E.164: The international public telecommunication numbering plan
 - ITU-T Recommendation E.212: The international identification plan for public networks and subscriptions

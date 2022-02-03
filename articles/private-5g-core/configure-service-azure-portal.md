@@ -44,7 +44,7 @@ In this step, you'll configure basic settings for your new service using the Azu
 
 ## Configure data flow policy rules and data flow templates
 
-Now we'll configure the data flow policy rules you want to use for this service. For each rule, do the following.
+Now we'll configure the data flow policy rules you want to use for this service. For each rule:
 
 1. On the **Basics** configuration tab, select **Add policy rule**.
 
@@ -54,13 +54,13 @@ Now we'll configure the data flow policy rules you want to use for this service.
 
     :::image type="content" source="media\configure-service-azure-portal\add-policy-rule.png" alt-text="Screenshot of the Azure portal showing the Add policy rule fields.":::
 
-1. Do the following for one of the data flow templates you want to apply to this data flow policy rule.
-    - Select **Add data flow template**.
-    - Use the information you collected in [Collect data flow template values](collect-required-information-for-service.md#collect-data-flow-template-values) for your chosen template to fill out the fields in the pop-up.
+1. Do the following for one of the data flow templates you want to apply to this data flow policy rule:
+    1. Select **Add data flow template**.
+    1. Use the information you collected in [Collect data flow template values](collect-required-information-for-service.md#collect-data-flow-template-values) for your chosen template to fill out the fields in the pop-up.
     
         :::image type="content" source="media/configure-service-azure-portal/add-service-data-flow-template.png" alt-text="Screenshot of the Azure portal showing the Add data flow template pop-up.":::
 
-    - Select **Add**.
+    1. Select **Add**.
 1. Repeat the previous step for any other data flow templates you want to apply to this data flow policy rule.
 1. In **Add policy rule** on the right, select **Add**.
 

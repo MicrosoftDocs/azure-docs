@@ -31,13 +31,13 @@ In this tutorial, you'll learn how to:
 
 ## Create a service for protocol filtering
 
-In this step, we'll create a service that filters packets based on their protocol. Specifically, it'll do the following.
+In this step, we'll create a service that filters packets based on their protocol. Specifically, it'll do the following:
 
 * Block ICMP packets flowing away from UEs.
 * Block UDP packets flowing away from UEs on port 11.
 * Allow all other ICMP and UDP traffic in both directions, but no other IP traffic.
 
-Do the following to create the service.
+To create the service:
 
 1. Sign in to the Azure portal at [https://aka.ms/AP5GCPortal](https://aka.ms/AP5GCPortal).
 1. Search for and select the Mobile Network resource representing your private mobile network.
@@ -154,12 +154,12 @@ Do the following to create the service.
 
 ## Create a service for blocking traffic from specific sources
 
-In this step, we'll create a service that blocks traffic from specific sources. Specifically, it'll do the following.
+In this step, we'll create a service that blocks traffic from specific sources. Specifically, it'll do the following:
 
 * Block UDP packets labeled with the remote address 10.204.141.200 and port 12 flowing towards UEs.
 * Block UDP packets labeled with any remote address in the range 10.204.141.0/24 and port 15 flowing in both directions
 
-Do the following to create the service.
+To create the service:
 
 1. Search for and select the Mobile Network resource representing your private mobile network.
 1. In the resource menu, select **Services**.
@@ -241,12 +241,12 @@ Do the following to create the service.
 
 ## Create a service for limiting traffic
 
-In this step, we'll create a service that limits the bandwidth of traffic on matching flows. Specifically, it'll do the following.
+In this step, we'll create a service that limits the bandwidth of traffic on matching flows. Specifically, it'll do the following:
 
 * Limit the Maximum Bit Rate (MBR) for packets flowing away from UEs to 10 Mbps.
 * Limit the Maximum Bit Rate (MBR) for packets flowing towards UEs to 15 Mbps.
 
-Do the following to create the service.
+To create the service:
 
 1. Search for and select the Mobile Network resource representing your private mobile network.
 1. In the resource menu, select **Services**.
@@ -315,7 +315,7 @@ Do the following to create the service.
 In this step, we'll create two SIM policies. The first SIM policy will use the service we created in [Create a service for protocol filtering](#create-a-service-for-protocol-filtering), and the second will use the service we created in [Create a service for blocking traffic from specific sources](#create-a-service-for-blocking-traffic-from-specific-sources). Both SIM policies will use the third service we created in [Create a service for limiting traffic](#create-a-service-for-limiting-traffic).
 
 > [!NOTE]
-> As each SIM policy will have multiple services, there will be packets that match more than one rule across these services. For example, downlink ICMP packets will match on the following rules. 
+> As each SIM policy will have multiple services, there will be packets that match more than one rule across these services. For example, downlink ICMP packets will match on the following rules:
 > - The `rule_allow_other_icmp_and_udp_traffic` rule on the `service_restricted_udp_and_icmp` service.
 > - The `rule_bidirectional_limits` rule on the `service_traffic_limits` service. 
 >

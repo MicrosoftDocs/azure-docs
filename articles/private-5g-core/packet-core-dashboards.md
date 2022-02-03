@@ -21,7 +21,7 @@ We'll go through the common concepts and operations you'll need to understand be
 
 ### Dashboards
 
-You can access the following packet core dashboards.
+You can access the following packet core dashboards:
 
 - The **overview dashboard** displays important Key Performance Indicators (KPIs), including the number of connected devices, throughput, and any alerts firing in the system.
 
@@ -43,7 +43,7 @@ You can access the following packet core dashboards.
 
     :::image type="content" source="media/packet-core-dashboards/packet-core-uplink-downlink-stats-dashboard.png" alt-text="Screenshot of the uplink and downlink statistics dashboard. Panels related to throughput, packet rates, and packet size are shown." lightbox="media/packet-core-dashboards/packet-core-device-session-stats-dashboard.png":::
 
-- You can see detailed breakdowns of the request and response statistics for the packet core instance's interfaces in the **debug** dashboards.
+- The **debug** dashboards show detailed breakdowns of the request and response statistics for the packet core instance's interfaces.
 
     - The **system statistics dashboard** contains low-level detail about pod restarts and 5G interface operations.
     

@@ -17,7 +17,7 @@ Azure Private 5G Core private mobile networks include one or more sites. Each si
 
 - Complete steps 3 - 11 of [Complete the prerequisite tasks for deploying a private mobile network](complete-private-mobile-network-prerequisites.md) for the Azure Stack Edge Pro device in your new site.
 - Ensure you can sign in to the Azure portal using an account with access to the active subscription you used to create your private mobile network. This account must have the built-in Contributor or Owner role at the subscription scope.
-- Collect all of the information in the following sections for your new site.
+- Collect all of the information in the following sections for your new site:
 
     - [Collect site resource values](collect-required-information-for-private-mobile-network.md#collect-site-resource-values)
     - [Collect access network values](collect-required-information-for-private-mobile-network.md#collect-access-network-values)
@@ -45,7 +45,7 @@ In this step, you'll create the site resource representing the physical enterpri
     :::image type="content" source="media/how-to-guide-deploy-a-private-mobile-network-azure-portal/create-site-packet-core-tab.png" alt-text="Screenshot of the Azure portal showing the Packet core configuration tab for a site resource.":::
 
 1. In the **Packet core** section, ensure **Technology type** is set to *5G*, and then leave the **Version** and **Custom location** fields blank unless you've been instructed to do otherwise by your support representative.
-1. Use the information you collected in [Collect access network values](collect-required-information-for-private-mobile-network.md#collect-access-network-values) to fill out the fields in the **Access network** section. Note the following.
+1. Use the information you collected in [Collect access network values](collect-required-information-for-private-mobile-network.md#collect-access-network-values) to fill out the fields in the **Access network** section. Note the following:
 
     - Use the same value for both the **N2 subnet** and **N3 subnet** fields.
     - Use the same value for both the **N2 gateway** and **N3 gateway** fields.
@@ -62,7 +62,7 @@ In this step, you'll create the site resource representing the physical enterpri
 
     :::image type="content" source="media/site-deployment-complete.png" alt-text="Screenshot of the Azure portal showing the confirmation of a successful deployment of a site.":::
 
-1. Select **Go to resource group**, and confirm that it contains the following new resources.
+1. Select **Go to resource group**, and confirm that it contains the following new resources:
 
     - A **mobile network site** resource representing the site as a whole.
     - A **packet core control plane** resource representing the control plane function of the packet core instance in the site.

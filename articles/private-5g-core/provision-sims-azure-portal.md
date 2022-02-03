@@ -18,7 +18,7 @@ SIM resources represent physical SIMs or eSIMs used by User Equipment (UEs) serv
 - Ensure you can sign in to the Azure portal using an account with access to the active subscription you identified in [Complete the prerequisite tasks for deploying a private mobile network](complete-private-mobile-network-prerequisites.md). This account must have the built-in Contributor role at the subscription scope.
 - Identify the name of the Mobile Network resource corresponding to your private mobile network.
 - For each SIM you want to provision, decide whether you want to assign a SIM policy to it. If you do, you must have already created the relevant SIM policies using the instructions in [Configure a SIM policy - Azure portal](configure-sim-policy-azure-portal.md). SIMs can't access your private mobile network unless they have an assigned SIM policy.
-- Decide on the method you'll use to provision SIMs. You can choose from the following.
+- Decide on the method you'll use to provision SIMs. You can choose from the following:
   - Manually entering each provisioning value into fields in the Azure portal. This option is best if you're provisioning a few SIMs.
   - Importing a JSON file containing values for one or more SIM resources. This option is best if you're provisioning a large number of SIMs. You'll need a good JSON editor if you want to use this option.
 
@@ -127,11 +127,11 @@ In this step, you'll assign a SIM policy to your SIMs. SIMs need an assigned SIM
     :::image type="content" source="media/mobile-network-search.png" alt-text="Screenshot of the Azure portal. It shows the results of a search for a Mobile Network resource.":::
 
 1. In the resource menu, select **SIMs**.
-1. You'll see a list of provisioned SIMs in the private mobile network. For each SIM policy you want to assign to one or more SIMs, do the following.
-    - Tick the checkbox next to the name of each SIM to which you assign the SIM policy.
-    - Select **Assign SIM policy**.
-    - In **Assign SIM policy** on the right, select your chosen SIM policy from the **SIM policy** drop-down menu.
-    - Select the **Assign SIM policy** button.
+1. You'll see a list of provisioned SIMs in the private mobile network. For each SIM policy you want to assign to one or more SIMs, do the following:
+    1. Tick the checkbox next to the name of each SIM to which you assign the SIM policy.
+    1. Select **Assign SIM policy**.
+    1. In **Assign SIM policy** on the right, select your chosen SIM policy from the **SIM policy** drop-down menu.
+    1. Select the **Assign SIM policy** button.
     
         :::image type="content" source="media/provision-sims-azure-portal/assign-sim-policy.png" alt-text="Screenshot of the Azure portal. It shows a list of provisioned SIMs and fields to assign a SIM policy." lightbox="media/provision-sims-azure-portal/assign-sim-policy.png":::
 

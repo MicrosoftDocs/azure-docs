@@ -13,7 +13,7 @@ ms.custom: template-how-to
 
 Azure Private 5G Core Preview is an Azure cloud service for deploying and managing private mobile networks for enterprises. Private mobile networks provide high performance, low latency, and secure connectivity for 5G Internet of Things (IoT) devices on an enterprise's premises. In this how-to guide, you'll use the Azure portal to deploy a private mobile network to match your enterprise's requirements.
 
-You'll create the following resources as part of this how-to guide.
+You'll create the following resources as part of this how-to guide:
 
 - The mobile network resource representing your private mobile network as a whole.
 - The site resource representing the physical enterprise location of your Azure Stack Edge device, which will host the packet core instance.
@@ -87,7 +87,7 @@ In this step, you'll create the site resource representing the physical enterpri
     :::image type="content" source="media/how-to-guide-deploy-a-private-mobile-network-azure-portal/create-site-packet-core-tab.png" alt-text="Screenshot of the Azure portal showing the Packet core configuration tab for a site resource.":::
 
 1. In the **Packet core** section, ensure **Technology type** is set to *5G*, and then leave the **Version** and **Custom location** fields blank unless you've been told to do otherwise by your support representative.
-1. Use the information you collected in [Collect access network values](collect-required-information-for-private-mobile-network.md#collect-access-network-values) to fill out the fields in the **Access network** section. Note the following.
+1. Use the information you collected in [Collect access network values](collect-required-information-for-private-mobile-network.md#collect-access-network-values) to fill out the fields in the **Access network** section. Note the following:
 
     - You must use the same value for both the **N2 subnet** and **N3 subnet** fields.
     - You must use the same value for both the **N2 gateway** and **N3 gateway** fields.
@@ -104,7 +104,7 @@ In this step, you'll create the site resource representing the physical enterpri
 
     :::image type="content" source="media/site-deployment-complete.png" alt-text="Screenshot of the Azure portal showing the confirmation of a successful deployment of a site.":::
 
-1. Select **Go to resource group**, and confirm that it contains the following new resources.
+1. Select **Go to resource group**, and confirm that it contains the following new resources:
 
     - A **mobile network site** resource representing the site as a whole.
     - A **packet core control plane** resource representing the control plane function of the packet core instance in the site.

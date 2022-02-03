@@ -15,9 +15,9 @@ Azure Private 5G Core Preview offers a distributed tracing web GUI, which you ca
 
 ## Searching for specific information
 
-The distributed tracing web GUI provides the following search tabs to allow you to search for diagnostics.
+The distributed tracing web GUI provides two search tabs to allow you to search for diagnostics.
 
-If you can't see the **Search** heading, select on the **Search** button in the top-level menu.
+If you can't see the **Search** heading, select the **Search** button in the top-level menu.
 
 - **SUPI** - Allows you to search for activity involving a particular subscriber using their Subscription Permanent Identifier (SUPI). This tab also provides an Errors panel, which allows you to filter the results by error condition. To search for activity for a particular subscriber, enter all of the initial digits of the subscriber's SUPI into the text box on the **SUPI search** panel.
 - **Errors** - Allows you to search for error condition occurrences across all subscribers. To search for occurrences of error conditions across all subscribers, select the **Errors** tab and then use the drop-down menus on the **Error** panel to select an error category and, optionally, a specific error.
@@ -62,7 +62,7 @@ The **Detailed Timeline** view shows the sequence of operations and events that 
 
 Each entry in the list shows summary information for a specific event that occurred during the flow or error. Each entry includes the date and time at which the event occurred and the name of the component on which it occurred. When you select a specific entry in this list, the panel at the bottom of the screen provides more detail about the selected event.
 
-The **Events to be viewed** drop-down list allows you to control the level of events that are included in the list. You can choose from the following levels.
+The **Events to be viewed** drop-down list allows you to control the level of events that are included in the list. You can choose from the following levels:
 
 - **High level events** - the lowest level of detail, with a one-line summary of each event.
 - **High level events and protocol flows** - includes the same information as for **High level events**, but adds details of the contents of network protocol messages involved at each stage.
@@ -89,7 +89,7 @@ You can customize the view by showing or hiding individual columns and giving th
 - The **Show messages within group** option shows any messages between group members as arrows that loop back on themselves to their originating column.
 - The **Set annotation** option allows you to enter a new display name for the column.
 
-You can revert to the default display options using the **Options** menu. You can access this menu by selecting the white cogwheel on a blue background at the top-right-hand corner of the view window. You can take the following actions.
+You can revert to the default display options using the **Options** menu. You can access this menu by selecting the white cogwheel on a blue background at the top-right-hand corner of the view window. You can take the following actions:
 
 - Choose **Colors, styles and annotations -> Revert to default** to clear your custom display names.
 - Choose **Visibility -> Show all** to restore columns you've previously hidden from view. 
@@ -99,7 +99,7 @@ A horizontal line in the diagram shows each individual signaling message flowing
 
 - A double line indicates that the message was logged by both the sending and receiving components.
 - A single line indicates that the message was logged by only one of these components, because the other component doesn't log messages.
-- A line that is half double and half single, with an **X** symbol at the midpoint, indicates one of the following.
+- A line that is half double and half single, with an **X** symbol at the midpoint, indicates one of the following:
   - The message should have been logged by both components but was logged by only one of them. For example, this occurs if a message is logged by the sending component but is then lost in transit and never reaches the receiving component. 
   - The message crossed with another message in the diagram while in transit, and so was received out of order.
   - The messages were logged in the wrong order. This doesn't indicate a problem with your deployment; it can happen because of network latency in communications.

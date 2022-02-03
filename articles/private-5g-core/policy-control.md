@@ -45,9 +45,9 @@ Azure Private 5G Core provides configuration to allow you to determine the QoS F
 
 A **service** is a representation of a set of QoS characteristics that you want to apply to SDFs that match particular properties, such as their destination, or the protocol used. You can also use services to limit or block particular SDFs based on these properties.
 
-Each service includes the following.
+Each service includes:
 
-- A set of QoS characteristics that should be applied on SDFs matching the service. The packet core instance will use these characteristics to create a QoS Flow to bind to matching SDFs. You can specify the following QoS settings on a service.
+- A set of QoS characteristics that should be applied on SDFs matching the service. The packet core instance will use these characteristics to create a QoS Flow to bind to matching SDFs. You can specify the following QoS settings on a service:
 
   - The Maximum Bit Rate (MBR) for uplink traffic (away from the UE) across all matching SDFs.
   - The MBR for downlink traffic (towards the UE) across all matching SDFs.
@@ -56,7 +56,7 @@ Each service includes the following.
   - A preemption capability setting. This setting determines whether the QoS Flow created for this service can preempt another QoS Flow with a lower ARP priority level.
   - A preemption vulnerability setting. This setting determines whether the QoS Flow created for this service can be preempted by another QoS Flow with a higher ARP priority level.
 
-- One or more **data flow policy rules**, which identify the SDFs to which the service should be applied. You can configure each rule with the following to determine when it's applied and the effect it will have.
+- One or more **data flow policy rules**, which identify the SDFs to which the service should be applied. You can configure each rule with the following to determine when it's applied and the effect it will have:
 
   - One or more **data flow templates**, which provide the packet filters that identify the SDFs on which to match. You can match on an SDF's direction, protocol, target IP address and / or target port. The target IP address and port refer to the component on the data network's end of the connection.
   - A traffic control setting, which determines whether the packet core instance should allow or block traffic matching the SDF(s).
@@ -66,10 +66,10 @@ Each service includes the following.
 
 SIM policies let you define different sets of policies and interoperability settings that can each be assigned to a group of SIMs. You'll need to assign a SIM to a SIM policy before the SIM can use the private mobile network.
 
-Each SIM policy includes the following.
+Each SIM policy includes:
 
 - Top-level settings that are applied to every SIM assigned to the SIM policy. These settings include the UE Aggregated Maximum Bit Rate (UE-AMBR) for downloads and uploads, and the RAT/Frequency Priority ID (RFSP ID).
-- A **network scope**, which defines how SIMs assigned to this SIM policy will connect to the data network. You can use the network scope to determine the following settings.
+- A **network scope**, which defines how SIMs assigned to this SIM policy will connect to the data network. You can use the network scope to determine the following settings:
 
   - The services (as described in [Services](#services)) offered to SIMs on this data network.
   - A set of QoS characteristics that will be used to form the default QoS Flow for PDU sessions involving assigned SIMs on this data network.
@@ -78,20 +78,20 @@ You can create multiple SIM policies to offer separate QoS policy settings to di
 
 ## Creating and assigning QoS Flows during PDU session establishment
 
-During PDU session establishment, the packet core instance takes the following steps.
+During PDU session establishment, the packet core instance takes the following steps:
 
 1. Identifies the SIM resource representing the UE involved in the PDU session and its associated SIM policy (as described in [SIM policies](#sim-policies)).
 1. Creates a default QoS Flow for the PDU session using the configured values on the SIM policy.
 1. Identifies whether the SIM policy has any associated services (as described in [Services](#services)). If it does, the packet core instance creates extra QoS Flows using the QoS characteristics defined on these services.
 1. Signals the QoS Flows and any non-default characteristics to the gNodeB.
-1. Sends a set of QoS rules (including SDF definitions taken from associated services) to the UE. The UE uses these rules to take the following steps.
+1. Sends a set of QoS rules (including SDF definitions taken from associated services) to the UE. The UE uses these rules to take the following steps:
 
    - Checks uplink packets against the SDFs.
    - Applies any necessary traffic control.
    - Identifies the QoS Flow to which each SDF should be bound.
    - Marks packets with the appropriate QFI. The QFI ensures packets receive the correct QoS handling between the UE and the packet core instance without further inspection.
 
-1. Inspects downlink packets to check their properties against the data flow templates of the associated services, and then takes the following steps based on this matching.
+1. Inspects downlink packets to check their properties against the data flow templates of the associated services, and then takes the following steps based on this matching:
 
    - Applies any necessary traffic control.
    - Identifies the QoS Flow to which each SDF should be bound.
@@ -104,17 +104,17 @@ Azure Private 5G Core policy control configuration is flexible, allowing you to 
 
 [Tutorial: Create an example set of policy control configuration](tutorial-create-example-set-of-policy-control-configuration.md) provides a step-by-step guide through configuring some example services for common use cases, and applying these services to new SIM policies. Run through this tutorial to familiarize yourself with the process of building policy control configuration.
 
-When you first come to design the policy control configuration for your own private mobile network, we recommend taking the following approach.
+When you first come to design the policy control configuration for your own private mobile network, we recommend taking the following approach:
 
 1. Provision your SIMs as described in [Provision SIMs - Azure portal](provision-sims-azure-portal.md). You don't need to assign a SIM policy to these SIMs at this point.
 1. Identify the SDFs your private mobile network will need to handle.
 1. Learn about each of the available options for a service in [Collect the required information for a service](collect-required-information-for-service.md). Compare these options with the requirements of the SDFs to decide on the services you'll need.
 1. Collect the appropriate policy configuration values you'll need for each service, using the information in [Collect the required information for a service](collect-required-information-for-service.md).
 1. Configure each of your services as described in [Configure a service - Azure portal](configure-service-azure-portal.md).
-1. Group your SIMs according to the services they'll require. For each group, configure a SIM policy and assign it to the correct SIMs by carrying out the following procedures.
+1. Group your SIMs according to the services they'll require. For each group, configure a SIM policy and assign it to the correct SIMs by carrying out the following procedures:
 
-    - [Collect the required information for a SIM policy](collect-required-information-for-sim-policy.md)
-    - [Configure a SIM policy - Azure portal](configure-sim-policy-azure-portal.md)
+    1. [Collect the required information for a SIM policy](collect-required-information-for-sim-policy.md)
+    1. [Configure a SIM policy - Azure portal](configure-sim-policy-azure-portal.md)
 
 1. Optionally, activate the SIMs to allow them to use the private mobile network.
 
