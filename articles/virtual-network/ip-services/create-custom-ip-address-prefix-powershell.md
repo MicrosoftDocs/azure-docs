@@ -21,7 +21,7 @@ The steps in this article detail the full process to:
 
 * Provision the range for IP allocation
 
-* Enable the range to be advertised by Microsoft.
+* Enable the range to be advertised by Microsoft
 
 > [!IMPORTANT]
 > Custom IP Address Prefix (BYOIP) is currently in PREVIEW.
