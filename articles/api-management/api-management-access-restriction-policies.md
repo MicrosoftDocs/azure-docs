@@ -387,7 +387,7 @@ In the following example, the quota is keyed by the caller IP address.
 | counter-key         | The key to use for the quota policy.                                                                      | Yes                                                              | N/A     |
 | increment-condition | The boolean expression specifying if the request should be counted towards the quota (`true`)             | No                                                               | N/A     |
 | renewal-period      | The time period in seconds after which the quota resets. When it's set to `0` the period is set to infinite.                                                   | Yes                                                              | N/A     |
-| first-period-start      | The starting date and time for quota renewal periods, in the format: `yyyy-MM-ddTHH:mm:ss`.   | No                                                              | `0001-01-01T00:00:00`     |
+| first-period-start      | The starting date and time for quota renewal periods, in the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.   | No                                                              | `0001-01-01T00:00:00Z`     |
 
 > [!NOTE]
 > The `counter-key` attribute value must be unique across all the APIs in the API Management if you don't want to share the total between the other APIs.
