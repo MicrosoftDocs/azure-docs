@@ -36,6 +36,9 @@ The Azure Virtual Desktop agent updates at least once per month.
 
 Here's what's changed in the Azure Virtual Desktop Agent:
 
+- Version 1.0.4009.1500: This update was released in January 2022 and includes the following changes.
+    - Added logging to better capture agent update telemetry.
+    - Updated the agent's Azure Instance Metadata Service health check to be Azure Stack HCI-friendly
 - Version 1.0.3855.1400: This update was released December 2021 and has the following changes:
     - Fixes an issue that caused an unhandled exception.
     - This version now supports Azure Stack HCI by retrieving VM metadata from the Azure Arc service.
