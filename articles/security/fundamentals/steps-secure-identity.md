@@ -89,7 +89,7 @@ Credentials are a primary attack vector. The practices in this blog can reduce t
 
 Apps using their own legacy methods to authenticate with Azure AD and access company data, pose another risk for organizations. Examples of apps using legacy authentication are POP3, IMAP4, or SMTP clients. Legacy authentication apps authenticate on behalf of the user and prevent Azure AD from doing advanced security evaluations. The alternative, modern authentication, will reduce your security risk, because it supports multi-factor authentication and Conditional Access. 
 
-We recommend the following four actions:
+We recommend the following actions:
 
 1.	Discover legacy authentication in your organization with Azure AD Sign-In logs and Log Analytic workbooks.
 1. Setup SharePoint Online and Exchange Online to use modern  authentication.
