@@ -327,6 +327,8 @@
         items:
         - name: BlokSec
           href: partner-bloksec.md
+        - name: eID-Me
+          href: partner-eid-me.md
         - name: Haventec
           href: partner-haventec.md
         - name: HYPR
