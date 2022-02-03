@@ -42,7 +42,7 @@ This tutorial uses an Ubuntu Server 18.04 LTS virtual machine (VM) as an example
    sudo apt-get install deviceupdate-agent
    ```
 
-3. Copy the downloaded Debian file to the test VM. If you're using PowerShell on your computer, run the following shell command:
+   Alternatively, copy the downloaded Debian file to the test VM. If you're using PowerShell on your computer, run the following shell command:
 
    ```sh 
      scp <path to the .deb file> tester@<your vm's ip address>:~
@@ -57,7 +57,7 @@ This tutorial uses an Ubuntu Server 18.04 LTS virtual machine (VM) as an example
          sudo apt-get install ./<debian file name from the previous step>
    ```
      
-4. Go to Azure IoT Hub and copy the primary connection string for your IoT device's Device Update module. Replace any default value for the `connectionData` field with the primary connection string in the *du-config.json* file:
+3. Go to Azure IoT Hub and copy the primary connection string for your IoT device's Device Update module. Replace any default value for the `connectionData` field with the primary connection string in the *du-config.json* file:
 
    ```sh
       sudo nano /etc/adu/du-config.json  
@@ -66,7 +66,7 @@ This tutorial uses an Ubuntu Server 18.04 LTS virtual machine (VM) as an example
    > [!NOTE]
    > You can copy the primary connection string for the device instead, but we recommend that you use the string for the Device Update module. For information about setting up the module, see [Device Update Agent provisioning](device-update-agent-provisioning.md). 
        
-5. Ensure that */etc/adu/du-diagnostics-config.json* contains the correct settings for log collection. For example: 
+4. Ensure that */etc/adu/du-diagnostics-config.json* contains the correct settings for log collection. For example: 
 
    ```sh
    {
@@ -84,7 +84,7 @@ This tutorial uses an Ubuntu Server 18.04 LTS virtual machine (VM) as an example
    }
    ```
 
-6. Restart the Device Update agent:
+5. Restart the Device Update agent:
 
    ```sh
    sudo systemctl restart adu-agent
