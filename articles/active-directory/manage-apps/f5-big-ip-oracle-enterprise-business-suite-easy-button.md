@@ -228,7 +228,7 @@ When a user successfully authenticates, Azure AD issues a SAML token with a defa
 
 ![Screenshot for Azure configuration – User attributes & claims](./media/f5-big-ip-easy-button-ldap/user-attributes-claims.png)
 
-You can include additional Azure AD attributes if necessary, but the example PeopleSoft scenario only requires the default attributes.
+You can include additional Azure AD attributes if necessary, but the Oracle EBS scenario only requires the default attributes.
 
 #### Additional User Attributes
 
@@ -313,7 +313,7 @@ The **Application Pool tab** details the services behind a BIG-IP, represented a
 
 #### Single Sign-On & HTTP Headers
 
-The **Easy Button wizard** supports Kerberos, OAuth Bearer, and HTTP authorization headers for SSO to published applications. As the PeopleSoft application expects headers, enable **HTTP Headers** and enter the following properties.
+The **Easy Button wizard** supports Kerberos, OAuth Bearer, and HTTP authorization headers for SSO to published applications. As the Oracle EBS application expects headers, enable **HTTP Headers** and enter the following properties.
 
 * **Header Operation:** replace
 * **Header Name:** USER_NAME
@@ -343,7 +343,7 @@ Select **Deploy** to commit all settings and verify that the application has app
 
 ## Next steps
 
-From a browser, connect to the **PeopleSoft application’s external URL** or select the application’s icon in the [Microsoft MyApps portal](https://myapps.microsoft.com/). After authenticating to Azure AD, you’ll be redirected to the BIG-IP virtual server for the application and automatically signed in through SSO.
+From a browser, connect to the **Oracle EBS application’s external URL** or select the application’s icon in the [Microsoft MyApps portal](https://myapps.microsoft.com/). After authenticating to Azure AD, you’ll be redirected to the BIG-IP virtual server for the application and automatically signed in through SSO.
 
 For increased security, organizations using this pattern could also consider blocking all direct access to the application, thereby forcing a strict path through the BIG-IP.
 
