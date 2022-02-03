@@ -29,7 +29,7 @@ Statsbeat collects essential and non-essential metrics.
 
 ## Supported EU Regions
 
-#### [Java](#tab/java)
+#### [Java](#tab/eu-java)
 
 Statseat supports the list of regions in EU Data boundary: 
 
@@ -47,11 +47,11 @@ Statseat supports the list of regions in EU Data boundary:
 | Switzerland               | Switzerland West       | 
 
 
-#### [Node](#tab/node)
+#### [Node](#tab/eu-node)
 
 N/A
 
-#### [Python](#tab/python)
+#### [Python](#tab/eu-python)
 
 N/A
 
