@@ -263,7 +263,7 @@ To connect the device to Azure, you'll modify a configuration file for Azure IoT
 
 1. Save the file.
 
-1. Select the **sample_azure_iot_embedded_sdk**, right-click on it on in the left **Workspace** pane, and select **Set as active**.
+1. Select the **sample_azure_iot_embedded_sdk_pnp**, right-click on it on in the left **Workspace** pane, and select **Set as active**.
 1. Right-click on the active project, select **Options > C/C++ Compiler > Preprocessor**. Replace the values for your WiFi to be used.
 
     |Symbol name|Value|
@@ -328,16 +328,18 @@ Start Provisioning Client...
 Registered Device Successfully.
 IoTHub Host Name: iotc-14c961cd-1779-4d1c-8739-5d2b9afa5b84.azure-devices.net; Device ID: mydevice.
 Connected to IoTHub.
-Telemetry message send: {"Message ID":0}.
-[INFO] Azure IoT Security Module message is empty
-Receive twin properties :{"desired":{"$version":1},"reported":{"$version":1}}
-Telemetry message send: {"Message ID":1}.
-Telemetry message send: {"Message ID":2}.
+Sent properties request.
+Telemetry message send: {"temperature":22}.
+Received all properties
+Telemetry message send: {"temperature":22}.
+Telemetry message send: {"temperature":22}.
+Telemetry message send: {"temperature":22}.
+Telemetry message send: {"temperature":22}.
 ```
 
 Keep the terminal open to monitor device output in the following steps.
 
-:::zone-end
+make changes for IAR EWARM
 
 ## Verify the device status
 
@@ -383,6 +385,57 @@ You can view the device information from IoT Central.
 Select **About** tab from the device page.
 
 :::image type="content" source="media/quickstart-devkit-stm-b-l4s5i/iot-central-device-about.png" alt-text="Screenshot of device information in IoT Central":::
+
+:::zone-end
+
+:::zone pivot="iot-toolset-cmake"
+## Verify the device status
+
+To view the device status in IoT Central portal:
+1. From the application dashboard, select **Devices** on the side navigation menu.
+1. Confirm that the **Device status** is updated to **Provisioned**.
+1. Confirm that the **Device template** is updated to **Getting Started Guide**.
+
+    :::image type="content" source="media/quickstart-devkit-stm-b-l4s5i/iot-central-device-view-status.png" alt-text="Screenshot of device status in IoT Central":::
+
+## View telemetry
+
+With IoT Central, you can view the flow of telemetry from your device to the cloud.
+
+To view telemetry in IoT Central portal:
+
+1. From the application dashboard, select **Devices** on the side navigation menu.
+1. Select the device from the device list.
+1. View the telemetry as the device sends messages to the cloud in the **Overview** tab.
+
+    :::image type="content" source="media/quickstart-devkit-stm-b-l4s5i/iot-central-device-telemetry.png" alt-text="Screenshot of device telemetry in IoT Central":::
+
+    > [!NOTE]
+    > You can also monitor telemetry from the device by using the Termite app.
+
+## Call a direct method on the device
+
+You can also use IoT Central to call a direct method that you have implemented on your device. Direct methods have a name, and can optionally have a JSON payload, configurable connection, and method timeout. In this section, you call a method that enables you to turn an LED on or off.
+
+To call a method in IoT Central portal:
+
+1. Select the **Command** tab from the device page.
+1. In the **State** dropdown, select **True**, and then select **Run**.  The LED light should turn on.
+
+    :::image type="content" source="media/quickstart-devkit-stm-b-l4s5i/iot-central-invoke-method.png" alt-text="Screenshot of calling a direct method on a device in IoT Central":::
+
+1. In the **State** dropdown, select **False**, and then select **Run**. The LED light should turn off.
+
+## View device information
+
+You can view the device information from IoT Central.
+
+Select **About** tab from the device page.
+
+:::image type="content" source="media/quickstart-devkit-stm-b-l4s5i/iot-central-device-about.png" alt-text="Screenshot of device information in IoT Central":::
+
+:::zone-end
+
 ## Troubleshoot and debug
 
 :::zone pivot="iot-toolset-cmake"
