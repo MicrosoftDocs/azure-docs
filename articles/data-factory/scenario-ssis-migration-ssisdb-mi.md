@@ -18,7 +18,7 @@ This article focuses on the migration of SQL Server Integration Service (SSIS) p
 
 ## Migrate packages in SSIS catalog (SSISDB)
 
-DMS can migrate SSIS packages stored in SSISDB, as described in the article:
+Database Migration Service can migrate SSIS packages stored in SSISDB, as described in the article:
 [Migrate SSIS packages to SQL Managed Instance](../dms/how-to-migrate-ssis-packages-managed-instance.md).
 
 ## SSIS jobs to SQL Managed Instance agent
