@@ -26,7 +26,7 @@ Configuring API Management for zone redundancy is currently supported in the fol
 * Australia East
 * Brazil South
 * Canada Central
-* Central India (*)
+* Central India
 * Central US
 * East US
 * East US 2
