@@ -64,6 +64,7 @@ Make sure the server roles running on the machine are supported by Sysprep. For 
 >
 > If you plan to run Sysprep before uploading your virtual hard disk (VHD) to Azure for the first time, make sure you have [prepared your VM](./windows/prepare-for-upload-vhd-image.md).  
 > 
+> We do not support custom answer file in the sysprep step, hence you should not use the "/unattend:_answerfile_" switch with your sysprep command.
 > 
 
 To generalize your Windows VM, follow these steps:
