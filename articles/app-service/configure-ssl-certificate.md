@@ -124,18 +124,21 @@ If you already have a working App Service certificate, you can:
 
 Start an App Service certificate order in the <a href="https://portal.azure.com/#create/Microsoft.SSL" target="_blank">App Service Certificate create page</a>.
 
-![Start App Service certificate purchase](./media/configure-ssl-certificate/purchase-app-service-cert.png)
+> [!NOTE]
+> All prices shown are for examples only.
+
+:::image type="content" source="./media/configure-ssl-certificate/purchase-app-service-cert.png" alt-text="Start App Service certificate purchase":::
 
 Use the following table to help you configure the certificate. When finished, click **Create**.
 
 | Setting | Description |
 |-|-|
-| Name | A friendly name for your App Service certificate. |
-| Naked Domain Host Name | Specify the root domain here. The issued certificate secures *both* the root domain and the `www` subdomain. In the issued certificate, the Common Name field contains the root domain, and the Subject Alternative Name field contains the `www` domain. To secure any subdomain only, specify the fully qualified domain name of the subdomain here (for example, `mysubdomain.contoso.com`).|
 | Subscription | The subscription that will contain the certificate. |
 | Resource group | The resource group that will contain the certificate. You can use a new resource group or select the same resource group as your App Service app, for example. |
-| Certificate SKU | Determines the type of certificate to create, whether a standard certificate or a [wildcard certificate](https://wikipedia.org/wiki/Wildcard_certificate). |
-| Legal Terms | Click to confirm that you agree with the legal terms. The certificates are obtained from GoDaddy. |
+| SKU | Determines the type of certificate to create, whether a standard certificate or a [wildcard certificate](https://wikipedia.org/wiki/Wildcard_certificate). |
+| Naked Domain Host Name | Specify the root domain here. The issued certificate secures *both* the root domain and the `www` subdomain. In the issued certificate, the Common Name field contains the root domain, and the Subject Alternative Name field contains the `www` domain. To secure any subdomain only, specify the fully qualified domain name of the subdomain here (for example, `mysubdomain.contoso.com`).|
+| Certificate name | A friendly name for your App Service certificate. |
+| Enable auto renewal | Select whether the certificate should be renewed automatically before it expires. Each renewal extends the certificate expiration by one year and the cost is charged to your subscription. |
 
 > [!NOTE]
 > App Service Certificates purchased from Azure are issued by GoDaddy. For some domains, you must explicitly allow GoDaddy as a certificate issuer by creating a [CAA domain record](https://wikipedia.org/wiki/DNS_Certification_Authority_Authorization) with the value: `0 issue godaddy.com`

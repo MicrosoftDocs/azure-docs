@@ -18,7 +18,7 @@ ms.author: jeedes
 This tutorial demonstrates the steps to perform in Cornerstone OnDemand and Azure Active Directory (Azure AD) to configure Azure AD to automatically provision and deprovision users or groups to Cornerstone OnDemand.
 
 > [!NOTE]
-> This Conerstone OnDemand automatic provisioning service is deprecated and support will end soon.
+> This Cornerstone OnDemand automatic provisioning service is deprecated and support will end soon.
 > This tutorial describes a connector that's built on top of the Azure AD user provisioning service. For information on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to software-as-a-service (SaaS) applications with Azure Active Directory](../app-provisioning/user-provisioning.md).
 
 ## Prerequisites
