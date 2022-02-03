@@ -50,6 +50,8 @@ To disable disaster recovery in supported regions, make sure that **Disaster rec
 
 You can also disable disaster recovery when you create a DPS instance using an [ARM template](/azure/templates/microsoft.devices/provisioningservices?tabs=bicep) or [Azure CLI commands](https://docs.microsoft.com/cli/azure/iot/dps?view=azure-cli-latest).
 
+Failover capability will not be available if you disable disaster recovery for a DPS instance.
+
 You can check whether disaster recovery is disabled from the **Overview** page of your DPS instance in Azure portal:
 
 :::image type="content" source="media/iot-dps-ha-dr/disaster-recovery-disabled.png" alt-text="Screenshot that shows disaster recovery disabled for a DPS instance in Singapore region.":::
