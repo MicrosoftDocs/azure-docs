@@ -24,13 +24,12 @@ ms.custom: devx-track-csharp, aaddev, identityplatformtop40, "scenarios:getting-
 > [!Note]
 > Welcome! This probably isn't the page you were expecting. While we work on a fix, this link should take you to the right article:
 > 
-> > [!div class="nextstepaction"]
-> > [Quickstart: .NET Core console that gets an access token and calls an API by using the client credentials flow](console-app-quickstart.md?pivots=devlang-dotnet-core)
+> > [Quickstart: .NET Core console that calls an API](console-app-quickstart.md?pivots=devlang-dotnet-core)
 > 
 > We apologize for the inconvenience and appreciate your patience while we work to get this resolved.
 
 > [!div renderon="portal" class="sxs-lookup"]
-> In this quickstart, you download and run a code sample that demonstrates how a .NET Core console application can get an > access token to call the Microsoft Graph API and display a [list of users](/graph/api/user-list) in the directory. The code > sample also demonstrates how a job or a Windows service can run with an application identity, instead of a user's identity. > The sample console application in this quickstart is also a daemon application, so it's a confidential client application.
+> In this quickstart, you download and run a code sample that demonstrates how a .NET Core console application can get an access token to call the Microsoft Graph API and display a [list of users](/graph/api/user-list) in the directory. The code sample also demonstrates how a job or a Windows service can run with an application identity, instead of a user's identity. The sample console application in this quickstart is also a daemon application, so it's a confidential client application.
 > 
 > ## Prerequisites
 > 
@@ -40,12 +39,12 @@ ms.custom: devx-track-csharp, aaddev, identityplatformtop40, "scenarios:getting-
 > ### Download and configure your quickstart app
 > 
 > #### Step 1: Configure your application in the Azure portal
-> For the code sample in this quickstart to work, create a client secret and add the Graph API's **User.Read.All** > application permission.
+> For the code sample in this quickstart to work, create a client secret and add the Graph API's **User.Read.All** application permission.
 > > [!div class="nextstepaction"]
 > > [Make these changes for me]()
 > 
 > > [!div class="alert alert-info"]
-> > ![Already configured](media/quickstart-v2-netcore-daemon/green-check.png) Your application is configured with these > attributes.
+> > ![Already configured](media/quickstart-v2-netcore-daemon/green-check.png) Your application is configured with these attributes.
 > 
 > #### Step 2: Download your Visual Studio project
 > 
