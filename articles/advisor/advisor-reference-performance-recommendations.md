@@ -672,7 +672,7 @@ Learn more about [Traffic Manager profile - ProfileTTL (Configure DNS Time to Li
 
 You have been using over 90% of your procured circuit bandwidth recently. If you exceed your allocated bandwidth, you will experience an increase in dropped packets sent over ExpressRoute. Upgrade your circuit bandwidth to maintain performance if your bandwidth needs remain this high.
 
-Learn more about [ExpressRoute circuit - UpgradeERCircuitBandwidth (Upgrade your ExpressRoute circuit bandwidth to accommodate your bandwidth needs)](azure/expressroute/about-upgrade-circuit-bandwidth).
+Learn more about [ExpressRoute circuit - UpgradeERCircuitBandwidth (Upgrade your ExpressRoute circuit bandwidth to accommodate your bandwidth needs)](/azure/expressroute/about-upgrade-circuit-bandwidth).
 
 ### Consider increasing the size of your VNet Gateway SKU to address consistently high CPU use
 
@@ -777,8 +777,6 @@ Learn more about [Storage Account - StandardSSDForNonPremVM (Upgrade to Standard
 ### Upgrade your Storage Client Library to the latest version for better reliability and performance
 
 The latest version of Storage Client Library/ SDK contains fixes to issues reported by customers and proactively identified through our QA process. The latest version also carries reliability and performance optimization in addition to new features that can improve your overall experience using Azure Storage.
-
-Learn more about [Storage Account - UpdateStorageSDK (Upgrade your Storage Client Library to the latest version for better reliability and performance)]({recommendedActionLearnMore}).
 
 ### Use premium performance block blob storage
 
