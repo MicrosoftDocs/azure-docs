@@ -15,7 +15,7 @@ You can use an Azure Resource Manager template to deploy a function app. This ar
 For more information about creating templates, see [Authoring Azure Resource Manager templates](../azure-resource-manager/templates/syntax.md).
 
 For sample templates, see:
-- [ARM Templates for Function App Deployment](https://github.com/Azure-Samples/function-app-arm-templates)
+- [ARM templates for function app deployment](https://github.com/Azure-Samples/function-app-arm-templates)
 - [Function app on Consumption plan]
 - [Function app on Azure App Service plan]
 
