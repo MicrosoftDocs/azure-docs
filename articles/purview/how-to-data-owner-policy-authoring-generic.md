@@ -60,6 +60,8 @@ Once you have your resource registered, follow these steps to enable an individu
 > - Moving data sources to a different resource group or subscription is not yet supported. If want to do that, de-register the data source in Azure Purview before moving it and then register it again after that happens.
 > - Once a subscription gets disabled for *Data use governance* any underlying assets that are enabled for *Data use governance* will be disabled, which is the right behavior. However, policy statements based on those assets will still be allowed after that.
 
+Now that you have enabled your resource for access policies, you can [create your access policies](#create-a-new-policy).
+
 ## Create policies for resource groups or subscriptions
 
 A data owner can leverage Azure Purview to enable access to ALL data sources in a subscription or a resource group. This can be achieved through a single policy statement, and will cover all existing data sources, as well as data sources that are created afterwards.
@@ -86,13 +88,14 @@ To create an access policy across a resouce group or subscription, follow these 
 
    :::image type="content" source="./media/tutorial-data-owner-policies-storage/register-data-source-for-policy-storage.png" alt-text="Set Data use governance toggle to enabled at the bottom of the menu.":::
 
-
 1. Enable the resource group or the subscription for access policies in Azure Purview by setting the **Data use governance** toggle to **Enabled**, as shown in the picture.
 
 ![Image shows how to register a resource group or subscription for policy.](./media/tutorial-data-owner-policies-resource-group/register-resource-group-for-policy.png)
 
 >[!IMPORTANT]
 >Make sure you write down the **Name** you use when registering in Azure Purview. You will need it when you publish a policy. The recommended practice is to make the registered name exactly the same as the endpoint name.
+
+Now that you have enabled your resource for access policies, you can [create your access policies](#create-a-new-policy).
 
 ## Disable policies
 
