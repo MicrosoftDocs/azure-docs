@@ -29,17 +29,26 @@ When you create your Azure Database for PostgreSQL server, a default database na
 
    Copy the string. You’ll need to replace "{your\_password}" with the administrative password you chose earlier. The system doesn't store your plaintext password and so can't display it for you in the connection string.
 
-2. Open a terminal window on your local computer.
+2. Open the Azure cloud shell. Select the **Cloud Shell** icon in the Azure portal.
 
-3. At the prompt, connect to your Azure Database for PostgreSQL server with the [psql](https://www.postgresql.org/docs/current/app-psql.html) utility. Pass your connection string in quotes, being sure it contains your password:
-   ```bash
-   psql "host=..."
+   ![cloud shell icon](../media/quickstart-connect-psql/open-cloud-shell.png)
+
+   If prompted, choose an Azure subscription in which to store cloud shell data.
+
+3. In the shell, paste the psql connection string, *substituting your password
+   for the string `{your_password}`*, then press enter. For example:
+
+   ![run psql in cloud
+   shell](../media/quickstart-connect-psql/cloud-shell-run-psql.png)
+
+   When psql successfully connects to the database, you will see a new prompt:
+
    ```
-
-   For example, the following command connects to the coordinator node of the server group **mydemoserver**:
-
-   ```bash
-   psql "host=mydemoserver-c.postgres.database.azure.com port=5432 dbname=citus user=citus password={your_password} sslmode=require"
+   psql (13.0 (Debian 13.0-1.pgdg100+1), server 13.5)
+   SSL connection (protocol: TLSv1.2, cipher: ECDHE-RSA-AES256-GCM-SHA384, bits: 256, compression: off)
+   Type "help" for help.
+   
+   citus=>
    ```
 
 ## Next steps
