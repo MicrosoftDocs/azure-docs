@@ -143,7 +143,6 @@ You can read our blog and visit our web page. You can also get in touch with you
 ## Resources
 
 - [Public Preview announcement blog](https://www.aka.ms/CloudKnox-Public-Preview-Blog)
-- [Product documentation](https://docs.microsoft.com/azure/active-directory/cloud-infrastructure-entitlement-management/)
 - [CloudKnox Permissions Management web page](https://microsoft.com/security/business/identity-access-management/permissions-management)
 
 

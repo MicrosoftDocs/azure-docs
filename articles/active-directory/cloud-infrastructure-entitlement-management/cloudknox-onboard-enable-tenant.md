@@ -65,11 +65,9 @@ To enable CloudKnox in your organization, you must have:
         For information on how to create a service principal through the Azure portal, see [Create an Azure service principal with the Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli). 
 
 
-        For information on the **az** command and how to log in with the no subscriptions flag, see [az login](/cli/azure/reference-index?view=azure-cli-latest#az-login).
-
-        <!---(/cli/azure/reference-index?view=azure-cli-latest#az-login&preserve-view=true)--->
+        For information on the **az** command and how to log in with the no subscriptions flag, see [az login](/cli/azure/reference-index?view=azure-cli-latest#az-login&preserve-view=true).
         
-        For information on how to create a service principal via Azure PowerShell, see [Create an Azure service principal with Azure PowerShell](/powershell/azure/create-azure-service-principal-azureps?view=azps-7.1.0).
+        For information on how to create a service principal via Azure PowerShell, see [Create an Azure service principal with Azure PowerShell](/powershell/azure/create-azure-service-principal-azureps?view=azps-7.1.0&preserve-view=true).
 
     1. After the script runs successfully, the service principal attributes for CloudKnox display. You can confirm the **Cloud Infrastructure Entitlement Management** application displays in the Azure AD portal under **Enterprise applications**.
 
