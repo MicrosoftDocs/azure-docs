@@ -17,9 +17,9 @@ keywords: speaker recognition, voice biometry
 ---
 
 # Get started with speaker recognition
-
+<!---
 [!INCLUDE [Header](includes/quickstarts/common/header-programming-languages-set-twenty-five.md)]
-
+--->
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [C# include](includes/quickstarts/speaker-recognition-basics/csharp.md)]
 ::: zone-end
