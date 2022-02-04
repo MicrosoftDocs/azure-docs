@@ -13,7 +13,7 @@ metadata:
   ms.subservice: ciem
   ms.workload: identity
   ms.topic: landing-page
-  ms.date: 02/03/2022
+  ms.date: 02/04/2022
   ms.author: v-ydequadros
   
   
@@ -24,7 +24,7 @@ landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
   # Card
-  - title: Overview of CloudKnox Permissions Management 
+  - title: What's CloudKnox Permissions Management 
     linkLists:
       - linkListType: overview
         links:
@@ -116,14 +116,12 @@ landingContent:
         links:
           - text: FAQs
             url: cloudknox-faqs.md
+  # Card
+  - title: Troubleshoot
+    linkLists:
+      - linkListType: overview
+        links:
           - text: Troubleshoot
             url: cloudknox-troubleshoot.md
-  # Card
-  # - title: Troubleshoot
-    # linkLists:
-      # - linkListType: overview
-        # links:
-          # - text: Troubleshoot
-            # url: cloudknox-troubleshoot.md
 
 

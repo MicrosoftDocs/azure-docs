@@ -3,7 +3,7 @@
   - name: Overview
     expanded: true
     items:
-      - name: What is CloudKnox Permissions Management?
+      - name: What's CloudKnox Permissions Management?
         href: cloudknox-overview.md
   - name: Onboard CloudKnox
     expanded: true
