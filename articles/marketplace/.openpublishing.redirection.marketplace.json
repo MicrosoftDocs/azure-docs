@@ -1,10 +1,40 @@
 {
     "redirections": [
         {
-            "source_path_from_root": "/articles/azure-resource-manager/managed-application-author-marketplace.md",
-            "redirect_url": "/azure/marketplace/azure-app-offer-setup",
+            "source_path_from_root": "/articles/azure/marketplace/reference-architecture-diagram.md",
+            "redirect_url": "/partner-center/reference-architecture-diagram",
             "redirect_document_id": false
         },
+        {
+            "source_path_from_root": "/articles/azure/marketplace/commercial-marketplace-co-sell-states.md",
+            "redirect_url": "/partner-center/commercial-marketplace-co-sell-location-codes",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure/marketplace/commercial-marketplace-co-sell-countries.md",
+            "redirect_url": "/partner-center/commercial-marketplace-co-sell-location-codes",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure/marketplace/co-sell-status.md",
+            "redirect_url": "/partner-center/co-sell-status",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure/marketplace/co-sell-requirements.md",
+            "redirect_url": "/partner-center/co-sell-requirements",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure/marketplace/co-sell-configure.md",
+            "redirect_url": "/partner-center/co-sell-configure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure/marketplace/co-sell-overview.md",
+            "redirect_url": "/partner-center/co-sell-overview",
+            "redirect_document_id": false
+        },            
         {
             "source_path_from_root": "/articles/azure-resource-manager/managed-application-consume-marketplace.md",
             "redirect_url": "/azure/marketplace/azure-app-offer-setup",
@@ -1186,6 +1216,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/marketplace/support-azure-marketplace.md",
+            "redirect_url": "/azure/marketplace/support",
+            "redirect_document_id": false
+        },        
+        {
             "source_path_from_root": "/articles/marketplace/cloud-partner-portal/saas-app/cpp-saas-fulfillment-apis.md",
             "redirect_url": "/azure/marketplace/partner-center-portal/pc-saas-fulfillment-apis",
             "redirect_document_id": false
@@ -1565,6 +1600,16 @@
             "redirect_url": "/azure/marketplace/publisher-guide-by-offer-type",
             "redirect_document_id": true
         },
+        {
+            "source_path_from_root": "/articles/marketplace/marketplace-managed-apps.md",
+            "redirect_url": "/azure/marketplace/plan-azure-app-managed-app",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/marketplace-solution-templates.md",
+            "redirect_url": "/azure/marketplace/plan-azure-app-solution-template",
+            "redirect_document_id": true
+        },                
         {
             "source_path_from_root": "/articles/marketplace/marketplace-co-sell.md",
             "redirect_url": "/azure/marketplace/co-sell-overview",

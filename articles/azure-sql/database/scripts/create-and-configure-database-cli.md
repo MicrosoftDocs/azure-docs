@@ -10,7 +10,7 @@ ms.topic: sample
 author: WilliamDAssafMSFT 
 ms.author: wiassaf
 ms.reviewer: kendralittle, mathoma
-ms.date: 01/05/2022
+ms.date: 01/26/2022 
 ---
 
 # Use Azure CLI to create a single database and configure a firewall rule
@@ -18,6 +18,8 @@ ms.date: 01/05/2022
 [!INCLUDE[appliesto-sqldb](../../includes/appliesto-sqldb.md)]
 
 This Azure CLI script example creates a single database in Azure SQL Database and configures a server-level firewall rule. After the script has been successfully run, the database can be accessed from all Azure services and the allowed IP address range.
+
+[!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../../includes/azure-cli-prepare-your-environment.md)]
 

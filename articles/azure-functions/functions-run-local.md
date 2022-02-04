@@ -215,7 +215,7 @@ The following considerations apply to project initialization:
 
 + When you don't provide a project name, the current folder is initialized. 
 
-+ If you plan to publish your project to a custom Linux container, use the `--dockerfile` option to make sure that a Dockerfile is generated for your project. To learn more, see [Create a function on Linux using a custom image](functions-create-function-linux-custom-image.md). 
++ If you plan to publish your project to a custom Linux container, use the `--docker` option to make sure that a Dockerfile is generated for your project. To learn more, see [Create a function on Linux using a custom image](functions-create-function-linux-custom-image.md). 
 
 Certain languages may have additional considerations:
 
@@ -491,12 +491,11 @@ When you call an administrator endpoint on your function app in Azure, you must 
 
 ## <a name="publish"></a>Publish to Azure
 
-The Azure Functions Core Tools supports three types of deployment:
+The Azure Functions Core Tools supports two types of deployment:
 
 | Deployment type | Command | Description |
 | ----- | ----- | ----- |
 | Project files | [`func azure functionapp publish`](functions-core-tools-reference.md#func-azure-functionapp-publish) | Deploys function project files directly to your function app using [zip deployment](functions-deployment-technologies.md#zip-deploy). |
-| Custom container | `func deploy` | Deploys your project to a Linux function app as a custom Docker container.  |
 | Kubernetes cluster | `func kubernetes deploy` | Deploys your Linux function app as a custom Docker container to a Kubernetes cluster. | 
 
 ### Before you publish 
@@ -539,33 +538,17 @@ The following considerations apply to this kind of deployment:
 
 ### Kubernetes cluster
 
-Functions also lets you define your Functions project to run in a Docker container. Use the [`--docker` option][func init] of `func init` to generate a Dockerfile for your specific language. This file is then used when creating a container to deploy. 
+Functions also lets you define your Functions project to run in a Docker container. Use the [`--docker` option][func init] of `func init` to generate a Dockerfile for your specific language. This file is then used when creating a container to deploy. To learn how to publish a custom container to Azure without Kubernetes, see [Create a function on Linux using a custom container](functions-create-function-linux-custom-image.md).
 
-Core Tools can be used to deploy your project as a custom container image to a Kubernetes cluster. The command you use depends on the type of scaler used in the cluster.  
+Core Tools can be used to deploy your project as a custom container image to a Kubernetes cluster. 
 
 The following command uses the Dockerfile to generate a container and deploy it to a Kubernetes cluster. 
-
-# [KEDA](#tab/keda)
 
 ```command
 func kubernetes deploy --name <DEPLOYMENT_NAME> --registry <REGISTRY_USERNAME> 
 ```
 
 To learn more, see [Deploying a function app to Kubernetes](functions-kubernetes-keda.md#deploying-a-function-app-to-kubernetes). 
-
-# [Default/KNative](#tab/default)
-
-```command
-func deploy --name <FUNCTION_APP> --platform kubernetes --registry <REGISTRY_USERNAME> 
-```
-
-In the example above, replace `<FUNCTION_APP>` with the name of the function app in Azure and `<REGISTRY_USERNAME>` with your registry account name, such as you Docker username. The container is built locally and pushed to your Docker registry account with an image name based on `<FUNCTION_APP>`. You must have the Docker command line tools installed.
-
-To learn more, see the [`func deploy` command](functions-core-tools-reference.md#func-deploy).
-
----
-
-To learn how to publish a custom container to Azure without Kubernetes, see [Create a function on Linux using a custom container](functions-create-function-linux-custom-image.md).
 
 ## Monitoring functions
 

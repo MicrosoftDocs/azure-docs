@@ -206,7 +206,7 @@ This section shows you how to use Azure CLI to create, start, and monitor a sche
 
 ### Sample Code
 
-1. In your working direactory, create a JSON file named **MyTrigger.json** with the trigger's properties. For this example use the following content:
+1. In your working directory, create a JSON file named **MyTrigger.json** with the trigger's properties. For this example use the following content:
 
     > [!IMPORTANT]
     > Before you save the JSON file, set the value of the **startTime** element to the current UTC time. Set the value of the **endTime** element to one hour past the current UTC time.
@@ -472,7 +472,7 @@ The following table provides a high-level overview of the major schema elements 
 |:--- |:--- |
 | **startTime** | A Date-Time value. For simple schedules, the value of the **startTime** property applies to the first occurrence. For complex schedules, the trigger starts no sooner than the specified **startTime** value. <br> For UTC time zone, format is `'yyyy-MM-ddTHH:mm:ssZ'`, for other time zone, format is `'yyyy-MM-ddTHH:mm:ss'`. |
 | **endTime** | The end date and time for the trigger. The trigger doesn't execute after the specified end date and time. The value for the property can't be in the past. This property is optional.  <br> For UTC time zone, format is `'yyyy-MM-ddTHH:mm:ssZ'`, for other time zone, format is `'yyyy-MM-ddTHH:mm:ss'`. |
-| **timeZone** | The time zone the trigger is created in. This setting impact **startTime**, **endTime**, and **schedule**. See [list of supported time zone](#time-zone-option) |
+| **timeZone** | The time zone the trigger is created in. This setting affects **startTime**, **endTime**, and **schedule**. See [list of supported time zone](#time-zone-option) |
 | **recurrence** | A recurrence object that specifies the recurrence rules for the trigger. The recurrence object supports the **frequency**, **interval**, **endTime**, **count**, and **schedule** elements. When a recurrence object is defined, the **frequency** element is required. The other elements of the recurrence object are optional. |
 | **frequency** | The unit of frequency at which the trigger recurs. The supported values include "minute," "hour," "day," "week," and "month." |
 | **interval** | A positive integer that denotes the interval for the **frequency** value, which determines how often the trigger runs. For example, if the **interval** is 3 and the **frequency** is "week," the trigger recurs every 3 weeks. |
@@ -582,5 +582,5 @@ The examples assume that the **interval** value is 1, and that the **frequency**
 
 ## Next steps
 
-- For detailed information about triggers, see [Pipeline execution and triggers](concepts-pipeline-execution-triggers.md#trigger-execution).
+- For detailed information about triggers, see [Pipeline execution and triggers](concepts-pipeline-execution-triggers.md#trigger-execution-with-json).
 - Learn how to reference trigger metadata in pipeline, see [Reference Trigger Metadata in Pipeline Runs](how-to-use-trigger-parameterization.md)

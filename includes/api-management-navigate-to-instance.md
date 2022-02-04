@@ -13,5 +13,4 @@ ms.author: vlvinogr
 
 1. On the **API Management services** page, select your API Management instance.
 
-    :::image type="content" source="media/api-management-navigate-to-instance/view-apim-3.png" alt-text="Select your API Management instance":::
-
+    :::image type="content" source="media/api-management-navigate-to-instance/view-apim-new.png" alt-text="Select your API Management instance":::

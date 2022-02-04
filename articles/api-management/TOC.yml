@@ -126,6 +126,8 @@
               href: edit-api.md
             - name: Configure Service Fabric backend
               href: how-to-configure-service-fabric-backend.md
+            - name: Import SAP OData metadata
+              href: sap-api.md
       - name: Provision and scale
         items:
             - name: Capacity metric

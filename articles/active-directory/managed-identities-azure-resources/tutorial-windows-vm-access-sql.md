@@ -11,7 +11,7 @@ ms.subservice: msi
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/29/2021
+ms.date: 01/11/2022
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ---
@@ -63,7 +63,7 @@ This section shows how to create a contained user in the database that represent
 - [Universal Authentication with SQL Database and Azure Synapse Analytics (SSMS support for MFA)](../../azure-sql/database/authentication-mfa-ssms-overview.md)
 - [Configure and manage Azure Active Directory authentication with SQL Database or Azure Synapse Analytics](../../azure-sql/database/authentication-aad-configure.md)
 
-SQL DB requires unique AAD display names. With this, the AAD accounts such as users, groups and Service Principals (applications), and VM names enabled for managed identity must be uniquely defined in AAD regarding their display names. SQL DB checks the AAD display name during T-SQL creation of such users and if it is not unique, the command fails requesting to provide a unique AAD display name for a given account.
+SQL DB requires unique Azure AD display names. With this, the Azure AD accounts such as users, groups and Service Principals (applications), and VM names enabled for managed identity must be uniquely defined in AAD regarding their display names. SQL DB checks the Azure AD display name during T-SQL creation of such users and if it is not unique, the command fails requesting to provide a unique Azure AD display name for a given account.
 
 **To create a contained user:**
 
@@ -150,7 +150,7 @@ if (accessToken != null) {
 >[!NOTE]
 >You can use managed identities while working with other programming options using our [SDKs](qs-configure-sdk-windows-vm.md).
 
-Alternatively, a quick way to test the end to end setup without having to write and deploy an app on the VM is using PowerShell.
+Alternatively, a quick way to test the end-to-end setup without having to write and deploy an app on the VM is using PowerShell.
 
 1. In the portal, navigate to **Virtual Machines** and go to your Windows virtual machine and in the **Overview**, click **Connect**.
 2. Enter in your **Username** and **Password** for which you added when you created the Windows VM.
@@ -182,7 +182,7 @@ Alternatively, a quick way to test the end to end setup without having to write 
     $SqlConnection.Open()
     ```
 
-    Next, create and send a query to the server. Remember to replace the value for TABLE.
+    Next, create, and send a query to the server. Remember to replace the value for TABLE.
 
     ```powershell
     $SqlCmd = New-Object System.Data.SqlClient.SqlCommand

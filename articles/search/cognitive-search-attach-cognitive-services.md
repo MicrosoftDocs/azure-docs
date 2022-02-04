@@ -30,7 +30,9 @@ You can use the Azure portal, REST API, or an Azure SDK to attach a billable res
 
 If you leave the property unspecified, execution of billable skills will stop at 20 transactions per indexer invocation and a "Time Out" message will appear in indexer execution history.
 
-### [**Azure portal**](#tab/cogkey-portal)
+### [**Azure portal**](#tab/portal)
+
+1. [Sign in to Azure portal](https://portal.azure.com).
 
 1. Create a [multi-service Cognitive Services resource](../cognitive-services/cognitive-services-apis-create-account.md) in the [same region](#same-region-requirement) as your search service.
 

@@ -1,5 +1,5 @@
 ---
-title: Access Azure resources from managed endpoint
+title: Access Azure resources from an online endpoint
 titleSuffix: Azure Machine Learning
 description: Securely access Azure resources for your machine learning model deployment from an online endpoint with a system-assigned or user-assigned managed identity.
 services: machine-learning
@@ -8,7 +8,7 @@ ms.subservice: core
 ms.author: seramasu
 ms.reviewer: laobri
 author: rsethur
-ms.date: 12/22/2021
+ms.date: 01/11/2022
 ms.topic: how-to
 ms.custom: devplatv2
 
@@ -53,7 +53,7 @@ This guide assumes you don't have a managed identity, a storage account or an on
 
 ## Define configuration YAML file for deployment
 
-To deploy a managed endpoint with the CLI, you need to define the configuration in a YAML file. For more information on the YAML schema, see [online endpoint YAML reference](reference-yaml-endpoint-managed-online.md) document.
+To deploy an online endpoint with the CLI, you need to define the configuration in a YAML file. For more information on the YAML schema, see [online endpoint YAML reference](reference-yaml-endpoint-managed-online.md) document.
 
 The YAML files in the following examples are used to create online endpoints. 
 
@@ -131,7 +131,7 @@ Decide on the name of your user identity name, and export that value as an envir
 ---
 
 ## Create the managed identity 
-To access Azure resources, create a system-assigned or user-assigned managed identity for your endpoint. 
+To access Azure resources, create a system-assigned or user-assigned managed identity for your online endpoint. 
 
 # [System-assigned managed identity](#tab/system-identity)
 
@@ -148,7 +148,7 @@ To create a user-assigned managed identity, use the following:
 ## Create storage account and container
 
 For this example, create a blob storage account and blob container, and then upload the previously created text file to the blob container. 
-This is the storage account and blob container that you'll give the endpoint and managed identity access to. 
+This is the storage account and blob container that you'll give the online endpoint and managed identity access to. 
 
 # [System-assigned managed identity](#tab/system-identity)
 
@@ -189,7 +189,7 @@ Then, upload file in container.
 The following code creates an online endpoint without specifying a deployment. 
 
 # [System-assigned managed identity](#tab/system-identity)
-When you create a managed endpoint, a system-assigned managed identity is created for the endpoint by default.
+When you create an online endpoint, a system-assigned managed identity is created for the endpoint by default.
 
 >[!IMPORTANT]
 > System assigned managed identities are immutable and can't be changed once created.
@@ -219,7 +219,7 @@ If you encounter any issues, see [Troubleshooting online endpoints deployment an
 >[!IMPORTANT] 
 > Online endpoints require Azure Container Registry pull permission, AcrPull permission, to the container registry and Storage Blob Data Reader permission to the default datastore of the workspace.
 
-You can allow the managed endpoint permission to access your storage via its system-assigned managed identity or give permission to the user-assigned managed identity to access the storage account created in the previous section.
+You can allow the online endpoint permission to access your storage via its system-assigned managed identity or give permission to the user-assigned managed identity to access the storage account created in the previous section.
 
 # [System-assigned managed identity](#tab/system-identity)
 
@@ -271,7 +271,7 @@ Refer to the following script to understand how to use your identity token to ac
 
 ## Create a deployment with your configuration
 
-Create a deployment that's associated with the managed endpoint. [Learn more about deploying to online endpoints](how-to-deploy-managed-online-endpoints.md).
+Create a deployment that's associated with the online endpoint. [Learn more about deploying to online endpoints](how-to-deploy-managed-online-endpoints.md).
 
 >[!WARNING]
 > This deployment can take approximately 8-14 minutes depending on whether the underlying environment/image is being built for the first time. Subsequent deployments using the same environment will go quicker.
@@ -325,7 +325,7 @@ When your deployment completes,  the model, the environment, and the endpoint ar
 
 ## Confirm your endpoint deployed successfully
 
-Once your endpoint is deployed, confirm its operation. Details of inferencing vary from model to model. For this guide, the JSON query parameters look like: 
+Once your online endpoint is deployed, confirm its operation. Details of inferencing vary from model to model. For this guide, the JSON query parameters look like: 
 
 :::code language="json" source="~/azureml-examples-main/cli/endpoints/online/model-1/sample-request.json" :::
 
@@ -343,7 +343,7 @@ To call your endpoint, run:
 
 ## Delete the endpoint and storage account
 
-If you don't plan to continue using the deployed endpoint and storage, delete them to reduce costs. When you delete the endpoint, all of its associated deployments are deleted as well.
+If you don't plan to continue using the deployed online endpoint and storage, delete them to reduce costs. When you delete the endpoint, all of its associated deployments are deleted as well.
 
 # [System-assigned managed identity](#tab/system-identity)
  

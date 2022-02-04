@@ -43,6 +43,8 @@
     href: isv-app-license.md
   - name: Private plans
     href: private-plans.md
+  - name: Private plans troubleshooting
+    href: azure-private-plan-troubleshooting.md           
   - name: Plans and pricing
     href: plans-pricing.md
   - name: Standard contract
@@ -76,13 +78,13 @@
     - name: Your marketplace benefits
       href: gtm-your-marketplace-benefits.md 
     - name: Co-sell with Microsoft overview
-      href: co-sell-overview.md
+      href: /partner-center/co-sell-overview?context=/azure/marketplace/context/context
     - name: Configure co-sell
-      href: co-sell-configure.md
+      href: /partner-center/co-sell-configure?context=/azure/marketplace/context/context
     - name: Co-sell requirements
-      href: co-sell-requirements.md
+      href: /partner-center/co-sell-requirements?context=/azure/marketplace/context/context
     - name: Verify co-sell status
-      href: co-sell-status.md
+      href: /partner-center/co-sell-status?context=/azure/marketplace/context/context
     - name: Migrate co-sell solutions from OCP GTM
       href: co-sell-solution-migration.md 
     - name: Resell through CSP Partners
@@ -193,8 +195,6 @@
           href: azure-container-plan-availability.md
         - name: Plan technical configuration
           href: azure-container-plan-technical-configuration.md
-        - name: Private plan troubleshooting
-          href: azure-private-plan-troubleshooting.md           
   - name: Azure virtual machine offer
     items:
     - name: Plan the offer
@@ -323,6 +323,8 @@
           href: iot-edge-plan-availability.md
         - name: Plan technical configuration
           href: iot-edge-plan-technical-configuration.md
+      - name: Pre-certification checklist
+        href: iot-edge-checklist.md
   - name: Managed Service offer
     items:
     - name: Plan the offer
@@ -597,10 +599,8 @@
     href: marketplace-faq-publisher-guide.yml
   - name: Cloud Partner Portal migration FAQ
     href: cloud-partner-portal-migration-faq.yml
-  - name: Business opportunity office hours
-    href: https://aka.ms/marketplaceofficehours
-  - name: Technical and publishing office hours
-    href: https://aka.ms/marketplacepublishingofficehours   
+  - name: Marketplace Office Hours
+    href: https://go.microsoft.com/fwlink/?linkid=2185526
   - name: Partner Center support options
     href: support.md
   - name: Partner Center announcements
@@ -615,16 +615,14 @@
     href: find-tenant-object-id.md
   - name: Supported countries and regions
     href: sell-from-countries.md  
-  - name: Co-sell country and region codes
-    href: commercial-marketplace-co-sell-countries.md 
-  - name: Co-sell state codes
-    href: commercial-marketplace-co-sell-states.md
+  - name: Co-sell country, region, state, and province codes
+    href: /partner-center/commercial-marketplace-co-sell-location-codes?context=/azure/marketplace/context/context
   - name: Categories and subcategories
     href: categories.md  
   - name: Supported HTML tags
     href: supported-html-tags.md
   - name: Reference architecture diagram
-    href: reference-architecture-diagram.md
+    href: /partner-center/reference-architecture-diagram?context=/azure/marketplace/context/context
   - name: Customer documentation
     href: /marketplace/
   - name: Azure Blob

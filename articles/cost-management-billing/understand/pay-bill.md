@@ -34,10 +34,6 @@ On 1 October 2021, automatic payments in India may block some credit card transa
 
 [Learn more about the Reserve Bank of India regulation for recurring payments](https://www.rbi.org.in/Scripts/NotificationUser.aspx?Id=11668&Mode=0)
 
-On 1 January 2022, Microsoft and other online merchants will no longer be storing credit card information. To comply with this regulation Microsoft will be removing all stored card details from Microsoft Azure. To avoid service interruption, you will need to add a payment method and make a one-time payment for all invoices.
-
-[Learn about the Reserve Bank of India regulation for card storage](https://rbi.org.in/scripts/NotificationUser.aspx?Mode=0&Id=12159)
-
 ## Pay by default payment method
 
 The default payment method of your billing profile can either be a credit or debit card, or a check or wire transfer.

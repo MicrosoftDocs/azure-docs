@@ -32,7 +32,7 @@ Set the `redirect_uri` property on config to a simple page, that does not requir
 
 ## Initialization in your main app file
 
-If your app is structured such that there is one central Javascript file that defines the app's initialization, routing, and other stuff, you can conditionally load your app modules based on whether the app is loading in an `iframe` or not. For example:
+If your app is structured such that there is one central JavaScript file that defines the app's initialization, routing, and other stuff, you can conditionally load your app modules based on whether the app is loading in an `iframe` or not. For example:
 
 In AngularJS: app.js
 

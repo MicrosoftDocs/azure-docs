@@ -29,7 +29,7 @@ Azure Automation handles jobs on Hybrid Runbook Workers differently from jobs ru
 Jobs for Hybrid Runbook Workers run under the local **System** account.
 >[!NOTE]
 >  To run PowerShell 7.x on a Windows Hybrid Runbook Worker, see [Installing PowerShell on Windows](/powershell/scripting/install/installing-powershell-on-windows).
->  We support [Hybrid worker extension based](/azure/automation/extension-based-hybrid-runbook-worker-install) and [agent based](/azure/automation/automation-windows-hrw-install) onboarding. 
+>  We support [Hybrid worker extension based](./extension-based-hybrid-runbook-worker-install.md) and [agent based](./automation-windows-hrw-install.md) onboarding. 
 >  For agent based onboarding, ensure the Windows Hybrid Runbook worker version is 7.3.1296.0 or above.
 
 Make sure the path where the *pwsh.exe* executable is located and is added to the PATH environment variable. Restart the Hybrid Runbook Worker after installation completes.
@@ -38,7 +38,7 @@ Make sure the path where the *pwsh.exe* executable is located and is added to th
 
 >[!NOTE]
 > To run PowerShell 7.x on a Linux Hybrid Runbook Worker, see [Installing PowerShell on Linux](/powershell/scripting/install/installing-powershell-on-linux).
->  We support [Hybrid worker extension based](/azure/automation/extension-based-hybrid-runbook-worker-install) and [agent based](/azure/automation/automation-linux-hrw-install) onboarding.
+>  We support [Hybrid worker extension based](./extension-based-hybrid-runbook-worker-install.md) and [agent based](./automation-linux-hrw-install.md) onboarding.
 >  For agent based onboarding, ensure the Linux Hybrid Runbook worker version is 1.7.5.0 or above.
 
 

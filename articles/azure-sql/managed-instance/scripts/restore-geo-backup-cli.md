@@ -7,10 +7,10 @@ ms.subservice: backup-restore
 ms.custom: 
 ms.devlang: azurecli
 ms.topic: sample
-author: SQLSourabh
-ms.author: sourabha
+author: SudhirRaparla 
+ms.author: nvraparl 
 ms.reviewer: mathoma
-ms.date: 01/05/2022
+ms.date: 01/26/2022 
 ---
 
 # Use CLI to restore a Managed Instance database to another geo-region
@@ -20,6 +20,8 @@ ms.date: 01/05/2022
 This Azure CLI script example restores an Azure SQL Managed Instance database from a remote geo-region (geo-restore) to a point in time.
 
 This sample requires an existing pair of managed instances, see [Use Azure CLI to create an Azure SQL Managed Instance](create-configure-managed-instance-cli.md) to create a pair of managed instances in different regions.
+
+[!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../../includes/azure-cli-prepare-your-environment.md)]
 

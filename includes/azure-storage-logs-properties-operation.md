@@ -14,7 +14,7 @@
 |**operationName** | The type of REST operation that was performed. <br> For a complete list of operations, see [Storage Analytics Logged Operations and Status Messages topic](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages). |
 |**operationVersion** | The storage service version that was specified when the request was made. This is equivalent to the value of the **x-ms-version** header. For example: `2017-04-17`.|
 |**schemaVersion** | The schema version of the log. For example: `1.0`.|
-|**statusCode** | The HTTP or [SMB](https://docs.microsoft.com/openspecs/windows_protocols/ms-cifs/8f11e0f3-d545-46cc-97e6-f00569e3e1bc) status code for the request. If the HTTP request is interrupted, this value might be set to `Unknown`. <br> For example: `206` |
+|**statusCode** | The HTTP or [SMB](/openspecs/windows_protocols/ms-cifs/8f11e0f3-d545-46cc-97e6-f00569e3e1bc) status code for the request. If the HTTP request is interrupted, this value might be set to `Unknown`. <br> For example: `206` |
 |**statusText** | The status of the requested operation.  For a complete list of status messages, see [Storage Analytics Logged Operations and Status Messages topic](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages). In version 2017-04-17 and later, the status message `ClientOtherError` isn't used. Instead, this field contains an error code. For example: `SASSuccess`  |
 |**durationMs** | The total time, expressed in milliseconds, to perform the requested operation. This includes the time to read the incoming request, and to send the response to the requester. For example: `12`.|
 |**callerIpAddress** | The IP address of the requester, including the port number. For example: `192.100.0.102:4362`. |

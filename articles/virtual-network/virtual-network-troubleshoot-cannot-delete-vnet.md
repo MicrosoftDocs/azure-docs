@@ -14,6 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
+ms.custom: fasttrack-edit
 
 ---
 
@@ -32,6 +33,7 @@ You might receive errors when you try to delete a virtual network in Microsoft A
 5. [Check whether the virtual network is connected to other resource](#check-whether-the-virtual-network-is-connected-to-other-resource).
 6. [Check whether a virtual machine is still running in the virtual network](#check-whether-a-virtual-machine-is-still-running-in-the-virtual-network).
 7. [Check whether the virtual network is stuck in migration](#check-whether-the-virtual-network-is-stuck-in-migration).
+8. [Check whether the virtual network was used by a web app for VNet integration](#check-whether-the-virtual-network-was-used-by-a-web-app-for-vnet-integration).
 
 ## Troubleshooting steps
 
@@ -101,6 +103,10 @@ If the virtual network is stuck in a migration state, it cannot be deleted. Run 
 ```azurepowershell
 Move-AzureVirtualNetwork -VirtualNetworkName "Name" -Abort
 ```
+
+### Check whether the virtual network was used by a web app for VNet integration
+
+If the virtual network was integrated with a web app in the past, then the web app was deleted without disconnecting the VNet integration, see [Deleting the App Service plan or web app before disconnecting the VNet integration](https://github.com/MicrosoftDocs/azure-docs/blob/046310ca15df6c82612b11971b9481b98125dd64/includes/app-service-web-vnet-troubleshooting.md).
 
 ## Next steps
 
