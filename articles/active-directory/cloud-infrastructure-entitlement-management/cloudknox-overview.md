@@ -19,15 +19,44 @@ ms.author: v-ydequadros
 > CloudKnox Permissions Management (CloudKnox) is currently in PREVIEW.
 > Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
 
-CloudKnox Permissions Management (CloudKnox) is a cloud infrastructure entitlement management (CIEM) solution that provides complete visibility into permissions for all identities (user and workload identities) across all major public cloud platforms (Amazon Web Services (AWS), Microsoft Azure, and Google Cloud Platform (GCP)) from a unified interface. It helps organizations understand what permissions identities have and what resources they're accessing. CloudKnox Permissions Management automatically detects which permissions are unused and risky and allows Security and Identity teams to right-size permissions in just a few clicks. Thanks to high-precision ML-based anomaly detection capabilities, CloudKnox Permissions Management streamlines threat detection and response and allows organizations to maintain a strong security posture.
+## Overview
+
+CloudKnox Permissions Management (CloudKnox) is a cloud infrastructure entitlement management (CIEM) solution that provides comprehensive visibility into permissions assigned to all identities. For example, over-privileged workload and user identities, actions, and resources across multi-cloud infrastructures in Microsoft Azure, Amazon Web Services (AWS), and Google Cloud Platform (GCP). 
+
+CloudKnox  detects, automatically right-sizes, and continuously monitors unused and excessive permissions. 
+
+Organizations have to consider permissions management as a central piece of their Zero Trust security to implement least privilege access across their entire infrastructure: 
+
+- Organizations are increasingly adopting multi-cloud strategy and are struggling with the lack of visibility and the increasing complexity of managing access permissions.
+- With the proliferation of identities and cloud services, the number of high-risk cloud permissions is exploding, expanding the attack surface for organizations.
+- IT security teams are under increased pressure to ensure access to their expanding cloud estate is secure and compliant.
+- The inconsistency of cloud providers’ native access management models makes it even more complex for Security and Identity to manage permissions and enforce least privilege access policies across their entire environment.
+
+:::image type="content" source="media/cloudknox-overview/cloudknox-key-cases.png" alt-text="CloudKnox Permissions Management.":::
+
+## Key use cases
+ 
+CloudKnox  allows customers to address three key use cases: 
+- Discover: customers can assess permission risks by evaluating the gap between permissions granted and permissions used.
+
+    - Cross-cloud permissions discovery: granular and normalized metrics for key cloud platforms: AWS, Azure, and GCP.
+    - Permission Creep Index: an aggregated metric that periodically evaluates the level of risk associated with the number of unused or excessive permissions across your identities and resources. It measures how much damage identities can cause based on the permissions they have. 
+    - Permission usage analytics: multi-dimensional view of permissions risk for all identities, actions, and resources.
+- Remediate: customers can right-size permissions based on usage, grant new permissions on-demand, and automate just-in-time access for cloud resources.
+    - Automated deletion of permissions unused for the past 90 days.
+    - Permissions on-demand: grant identities permissions on-demand for a time-limited period or an as-needed basis.
+- Monitor: customers can detect anomalous activities with ML-powered alerts and generate detailed forensic reports.
+    - Machine Learning-powered anomaly detections
+    - Forensic reports: context-rich reports around identities, actions, and resources to support rapid investigation and remediation.
+
+CloudKnox  deepens Zero Trust security strategies by augmenting the least privilege access principle, allowing customers to: 
+- Get comprehensive visibility: Discover which identity is doing what, where, and when. 
+- Automate least privilege access: Use access analytics to ensure identities have the right permissions, at the right time. 
+- Unify access policies across IaaS platforms: Implement consistent security policies across your cloud infrastructure. 
 
 
 
+## Next steps
 
-
-
-
-
-
-
-<!---## Next steps--->
+- For information on how to onboard CloudKnox in your organization, see [Enable CloudKnox in your organization](cloudknox-onboard-enable-tenant.md).
+- For a list of frequently asked questions (FAQs) about CloudKnox, see [FAQs](cloudknox-faqs.md).

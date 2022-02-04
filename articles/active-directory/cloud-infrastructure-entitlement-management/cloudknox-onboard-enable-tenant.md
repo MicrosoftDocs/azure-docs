@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/03/2022
+ms.date: 02/04/2022
 ms.author: v-ydequadros
 ---
 
@@ -87,7 +87,8 @@ To enable CloudKnox in your organization, you must have:
     - [Onboard a Microsoft Azure subscription](cloudknox-onboard-azure.md)
     - [Onboard a Google Cloud Platform (GCP) project](cloudknox-onboard-gcp.md)
 
-Next steps
+## Next steps
 
-- For an overview on CloudKnox, see [What is CloudKnox Permissions Management?](cloudknox-overview.md).
+- For an overview of CloudKnox, see [What's CloudKnox Permissions Management?](cloudknox-overview.md).
+- For a list of frequently asked questions (FAQs) about CloudKnox, see [FAQs](cloudknox-faqs.md).
 - For information on how to start viewing information about your authorization system in CloudKnox, see [View key statistics and data about your authorization system](cloudknox-ui-dashboard.md).
