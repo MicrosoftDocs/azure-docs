@@ -14,21 +14,43 @@ This article discusses how to use Azure DevTest Labs for several different devel
 - Testers use many identical or different VMs and environments for performance testing and sandboxed investigations.
 - Teachers and trainers periodically need new classroom, lab, and hackathon VMs and environments.
 
-The following sections describe DevTest Labs supports these scenarios, while helping lab owners and administrators control lab access and costs.
+The following sections describe how DevTest Labs supports these scenarios, while helping lab owners and administrators control lab access and costs.
 
 ## Lab creation
 
 Labs are the starting point in DevTest Labs. Once you create a lab, you can:
 
 - Add lab users.
-- Set policies to control lab costs and access.
-- Define images and formulas for VMs and environments that lab users can create quickly.
-- Connect the lab to Azure DevOps to enable automated processes.
+- Use [configuration and policies](devtest-lab-set-lab-policy.md) to manage labs and control costs.
+- Define images and formulas that lab users can use to create VMs and environments quickly.
+- [Integrate with Azure DevOps](devtest-lab-dev-ops.md) to enable DevOps scenarios.
 - Link the lab to public and private Git repositories for access to artifacts and templates.
 
-To learn how to create a lab in the Azure portal, see [Create a lab in Azure DevTest Labs](devtest-lab-create-lab.md).
+To learn how to create a lab in the Azure portal, see [Create a lab in Azure DevTest Labs](devtest-lab-create-lab.md). You can also automate lab creation, including custom settings, by using a reusable *Azure Resource Manager (ARM) template*. For more information, see [Create a lab by using a Resource Manager template](./devtest-lab-faq.yml#how-do-i-create-a-lab-from-a-resource-manager-template-).
 
-You can automate lab creation, including custom settings, by using a reusable *Azure Resource Manager (ARM) template*. For more information, see [Create a lab by using a Resource Manager template](./devtest-lab-faq.yml#how-do-i-create-a-lab-from-a-resource-manager-template-).
+### Add a virtual network to a lab
+
+DevTest Labs creates a new virtual network for each lab. If you have another virtual network configured with Azure ExpressRoute or site-to-site VPN, you can add it to your lab. That virtual network is then available for creating lab VMs. For more information, see [Configure a virtual network in Azure DevTest Labs](devtest-lab-configure-vnet.md).
+
+You can also add an Active Directory domain-join artifact to join VMs to an Active Directory domain at creation. This artifact applies only to domains.
+
+### Add users to labs
+
+Lab owners can add users to labs by using the Azure portal or a PowerShell script. For more information, see [Add lab owners, contributors, and users in Azure DevTest Labs](devtest-lab-add-devtest-user.md). Lab users don't need an Azure account, as long as they have a Microsoft account.
+
+Lab users can access the lab by using a link. For more information about how to get and share the link to the lab, see [Get a link to the lab](./devtest-lab-faq.yml#how-do-i-share-a-direct-link-to-my-lab-).
+
+A lab user can view all lab resources, such as VMs, policies, and virtual networks. Lab users can't modify policies, or access VMs that other users create.
+
+### Configure policies to control costs
+
+To monitor and control costs, lab administrators and owners can:
+
+- [Limit the number of VMs each user can create or claim](devtest-lab-set-lab-policy.md#set-virtual-machines-per-user).
+- Configure [auto-shutdown](devtest-lab-set-lab-policy.md#set-auto-shutdown) and auto-start policies to stop and restart all VMs at particular times of day. VM auto-shutdown doesn't apply to PaaS resources in environments.
+- Allow only certain [VM sizes](devtest-lab-set-lab-policy.md#set-allowed-virtual-machine-sizes) in the lab.
+- [Manage cost targets and notifications](devtest-lab-configure-cost-management.md) for the lab.
+- Use the [cost by resource](devtest-lab-configure-cost-management.md#view-cost-by-resource) page to track costs of environments.
 
 ## Development and test VMs
 
@@ -69,13 +91,19 @@ Many development and test scenarios require multi-VM *environments* equipped wit
 
 With DevTest Labs, teams can easily create, update, or duplicate multi-VM environments. Developers can use fully configured environments to develop and test the latest versions of their apps. DevTest Labs environments ensure consistency across teams.
 
-By using reusable ARM templates, you can:
+By using ARM templates for environments, you can:
 
 - Repeatedly deploy multiple preconfigured VMs in a consistent state.
 - Define infrastructure and configuration for Windows or Linux environments.
 - Provision Azure PaaS resources and track their costs.
 
 For more information, see [Use ARM templates to create DevTest Labs environments](devtest-lab-create-environment-from-arm.md).
+
+### Give users Contributor rights to environment resources
+
+By default, DevTest Labs creates environments in their own resource groups, and DevTest Labs users get only read access to those environments. With read-only access, users can't add or change resources in their environments. But developers often need to investigate different technologies or infrastructure designs.
+
+Lab owners can allow users more control by giving them Contributor rights to the environments they create. Contributors can add or change Azure resources as necessary in their development or test environments. For more information, see [Configure environment user rights](devtest-lab-create-environment-from-arm.md#configure-environment-user-rights).
 
 ## Classroom, training, and hackathon labs
 
@@ -84,49 +112,14 @@ DevTest Labs is well-suited for transient activities like workshops, hands-on la
 - Training leaders or lab owners can use custom templates to create identical, isolated VMs or environments.
 - Trainees can [access the lab by using a URL](./devtest-lab-faq.yml#how-do-i-share-a-direct-link-to-my-lab-).
 - Trainees can claim already-created, preconfigured machines with a single action.
-- Lab owners can control lab costs and lifespan by configuring policies, setting VM expiration dates, and deleting VMs and labs when the activity finishes.
-
-## Lab policies and administration
-
-To support DevTest Labs scenarios, lab owners and administrators can:
-
-- Use [configuration and policies](devtest-lab-set-lab-policy.md) to manage labs.
-- Link labs to public and private artifact and template repositories.
-- [Integrate with Azure DevOps](devtest-lab-dev-ops.md) to enable DevOps scenarios.
-
-### Add a virtual network to a lab
-
-DevTest Labs creates each lab in a new virtual network. If you have another virtual network configured with Azure ExpressRoute or site-to-site VPN, you can add it to your lab. That virtual network is then available for creating lab VMs. For more information, see [Configure a virtual network in Azure DevTest Labs](devtest-lab-configure-vnet.md). 
-
-You can also add an Active Directory domain join artifact to join VMs to an Active Directory domain at creation. This artifact applies only to domains.
-
-### Add users to labs
-
-Owners can add users to labs by using the Azure portal or a PowerShell script. For more information, see [Add lab owners, contributors, and users in Azure DevTest Labs](devtest-lab-add-devtest-user.md). Lab users don't need an Azure account, as long as they have a Microsoft account.
-
-Lab users can access the lab by using a link. For more information about how to get and share the link to the lab, see [Get a link to the lab](./devtest-lab-faq.yml#how-do-i-share-a-direct-link-to-my-lab-).
-
-A lab user can view all lab resources, such as VMs, policies, and virtual networks. However, a lab user can't modify policies, or access VMs that other users create.
-
-### Give users Contributor rights to resources
-
-By default, DevTest Labs creates environments in their own resource groups, and DevTest Labs users get only read access to those environments. With read-only access, users can't add or change resources in their environments. But developers often need to investigate different technologies or infrastructure designs.
-
-Lab owners can allow users more control by giving them Contributor rights to the environments they create. Contributors can add or change Azure resources as necessary in their development or test environments. For more information, see [Configure environment user rights](devtest-lab-create-environment-from-arm.md#configure-environment-user-rights).
-
-### Configure policies to control costs
-
-To monitor and control costs, lab administrators and owners can:
-
-- [Limit the number of VMs each user can create or claim](devtest-lab-set-lab-policy.md#set-virtual-machines-per-user).
-- Configure [auto-shutdown](devtest-lab-set-lab-policy.md#set-auto-shutdown) and auto-start policies to stop and restart all VMs at particular times of day. VM auto-shutdown doesn't apply to PaaS resources in environments.
-- Allow only certain [VM sizes](devtest-lab-set-lab-policy.md#set-allowed-virtual-machine-sizes) in the lab.
-- [Manage cost targets and notifications](devtest-lab-configure-cost-management.md) for the lab.
-- Use the [cost by resource](devtest-lab-configure-cost-management.md#view-cost-by-resource) page to track costs of environments.
+- Lab owners can control lab costs and lifespan by:
+  - Configuring policies.
+  - Setting VM expiration dates.
+  - Deleting VMs and labs when the activity is over.
 
 ### Delete labs and VMs
 
-Lab owners can also manage costs by deleting labs and VMs when they're no longer needed.
+Lab owners can manage costs by deleting labs and VMs when they're no longer needed.
 
 - Set [expiration dates](devtest-lab-set-lab-policy.md#set-expiration-date) on VMs.
 - [Delete labs](devtest-lab-delete-lab-vm.md#delete-a-lab) and all related resources.
