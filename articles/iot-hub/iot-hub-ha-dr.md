@@ -7,6 +7,7 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/04/2022
 ms.author: lizross
+ms.custom: references_regions
 ---
 
 # IoT Hub high availability and disaster recovery
