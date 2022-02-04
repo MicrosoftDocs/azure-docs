@@ -10,6 +10,9 @@ ms.date: 01/16/2022
 ms.custom: template-how-to
 ---
 
+
+<!-- Image alt-text follows two different stlyes (one sentence and two sentence), should we pick one for consistency? -->
+
 # Configure a SIM policy for Azure Private 5G Core Preview - Azure portal
 
 SIM policies allow you to define different sets of policies and interoperability settings that can each be assigned to a group of SIMs. You'll need to assign a SIM policy to a SIM before the User Equipment (UE) using that SIM can access the private mobile network. In this how-to-guide, you'll learn how to configure a SIM policy.
