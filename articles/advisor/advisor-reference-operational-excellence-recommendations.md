@@ -14,7 +14,7 @@ Operational excellence recommendations in Azure Advisor can help you with:
 
 You can get these recommendations on the **Operational Excellence** tab of the Advisor dashboard.
 
-## AppPlatform
+## Spring Cloud
 
 ### Update your outdated Azure Spring Cloud SDK to the latest version
 
@@ -68,7 +68,7 @@ Your pool is using an image with an imminent expiration date. Please recreate th
 
 Learn more about [Batch account - EolImage (Recreate your pool with a new image)](https://aka.ms/batch_expiring_image_learn_more).
 
-## CognitiveServices
+## Cognitive Services
 
 ### Upgrade to the latest version of the Immersive Reader SDK
 
@@ -120,7 +120,7 @@ We have identified that your Virtual Machine might be running a version of softw
 
 Learn more about [Virtual machine - GetCitrixVFRevokeError (Upgrade Citrix load balancers to avoid connectivity issues during NIC maintenance operations.)](https://www.citrix.com/support/).
 
-## ContainerService
+## Kubernetes Service
 
 ### Update cluster's service principal
 
@@ -176,7 +176,7 @@ Deprecated Kubernetes API in 1.22 has been found. Avoid using deprecated APIs.
 
 Learn more about [Kubernetes service - DeprecatedKubernetesAPIIn122IsFound (Deprecated Kubernetes API in 1.22 has been found)](https://aka.ms/aks-deprecated-k8s-api-1.22).
 
-## DesktopVirtualization
+## Desktop Virtualization
 
 ### Permissions missing for start VM on connect
 
@@ -196,7 +196,7 @@ We have determined that too many of your host pools have Validation Environment 
 
 Learn more about [Host Pool - ProductionEnvHostPools (Not enough production environments enabled)](/azure/virtual-desktop/create-host-pools-powershell).
 
-## Azure Cosmos DB
+## Cosmos DB
 
 ### Migrate Azure Cosmos DB attachments to Azure Blob Storage
 
@@ -224,7 +224,7 @@ The alert rule was disabled by Azure Monitor as it was causing service issues. T
 
 Learn more about [Alert Rule - ScheduledQueryRulesRp (Log alert rule was disabled)](https://aka.ms/aa_logalerts_queryrepair).
 
-## KeyVault
+## Key Vault
 
 ### Create a backup of HSM
 
@@ -232,7 +232,7 @@ Create a periodic HSM backup to prevent data loss and have ability to recover th
 
 Learn more about [Managed HSM Service - CreateHSMBackup (Create a backup of HSM)](/azure/key-vault/managed-hsm/best-practices#backup).
 
-## Kusto
+## Data Explorer
 
 ### Reduce the cache policy on your Data Explorer tables
 
@@ -240,7 +240,7 @@ Reduce the table cache policy to match the usage patterns (query lookback period
 
 Learn more about [Data explorer resource - ReduceCacheForAzureDataExplorerTablesOperationalExcellence (Reduce the cache policy on your Data Explorer tables)](https://aka.ms/adxcachepolicy).
 
-## Network
+## Networking
 
 ### Resolve Azure Key Vault issue for your Application Gateway
 
@@ -282,7 +282,7 @@ We noticed that one or more of your applications use an older version of the Azu
 
 Learn more about [Storage Account - UpdateStorageJavaSDK (Update to newer releases of the Storage Java v12 SDK for better reliability.)](/azure/developer/java/sdk/?view=azure-java-stable&preserve-view=true).
 
-## Subscriptions
+## Subscription
 
 ### Set up staging environments in Azure App Service
 
