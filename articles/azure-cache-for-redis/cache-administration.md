@@ -49,7 +49,7 @@ The effect on your client applications varies depending on which nodes you reboo
 * [Can I reboot the cache to clear client connections?](#can-i-reboot-the-cache-to-clear-client-connections)
 * [Will I lose data from my cache if I do a reboot?](#will-i-lose-data-from-my-cache-if-i-do-a-reboot)
 * [Can I reboot my cache using PowerShell, CLI, or other management tools?](#can-i-reboot-my-cache-using-powershell-cli-or-other-management-tools)
-* [Can I reboot my Enterprise cache?]
+* [[Can I reboot my Enterprise cache](#can-i-reboot-my-enterprise-cache)]
 
 ### Which node should I reboot to test my application?
 
