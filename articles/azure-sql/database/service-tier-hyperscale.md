@@ -105,7 +105,7 @@ Azure Storage contains all data files in a database. Page servers keep data file
 
 Backups are file-snapshot based and hence they're nearly instantaneous. Storage and compute separation enables pushing down the backup/restore operation to the storage layer to reduce the processing burden on the primary compute replica. As a result, database backup doesn't impact performance of the primary compute node. Similarly, point in time recovery (PITR) is done by reverting to file snapshots, and as such is not a size of data operation. Restore of a Hyperscale database in the same Azure region is a constant-time operation, and even multiple-terabyte databases can be restored in minutes instead of hours or days. Creation of new databases by restoring an existing backup also takes advantage of this feature: creating database copies for development or testing purposes, even of multi-terabyte databases, is doable in minutes.
 
-For geo-restore of Hyperscale databases, see [Restoring a Hyperscale database to a different region](#restoring-a-hyperscale-database-to-a-different-region).
+For geo-restore of Hyperscale databases, learn how to [restore a Hyperscale database to a different region](administer-hyperscale-database.md#restore-a-hyperscale-database-to-a-different-region).
 
 ## Scale and performance advantages
 
@@ -137,7 +137,6 @@ If you previously migrated an existing Azure SQL Database to the Hyperscale serv
 
 Learn [how to reverse migrate from Hyperscale](administer-hyperscale-database.md#reverse-migrate-from-hyperscale).
 
-
 ## Database high availability in Hyperscale
 
 As in all other service tiers, Hyperscale guarantees data durability for committed transactions regardless of compute replica availability. The extent of downtime due to the primary replica becoming unavailable depends on the type of failover (planned vs. unplanned), and on the presence of at least one high-availability replica. In a planned failover (i.e. a maintenance event), the system either creates the new primary replica before initiating a failover, or uses an existing high-availability replica as the failover target. In an unplanned failover (i.e. a hardware failure on the primary replica), the system uses a high-availability replica as a failover target if one exists, or creates a new primary replica from the pool of available compute capacity. In the latter case, downtime duration is longer due to extra steps required to create the new primary replica.
@@ -146,17 +145,7 @@ For Hyperscale SLA, see [SLA for Azure SQL Database](https://azure.microsoft.com
 
 ## Disaster recovery for Hyperscale databases
 
-Hyperscale supports the ability to restore a database within the same region where it is hosted, or to a different region.
-
-### Restoring a Hyperscale database to a different region
-
-If you need to restore a Hyperscale database in Azure SQL Database to a region other than the one it's currently hosted in, as part of a disaster recovery operation or drill, relocation, or any other reason, the primary method is to do a geo-restore of the database. This involves exactly the same steps as what you would use to restore any other database in SQL Database to a different region:
-
-1. Create a [server](logical-servers.md) in the target region if you don't already have an appropriate server there.  This server should be owned by the same subscription as the original (source) server.
-2. Follow the instructions in the [geo-restore](./recovery-using-backups.md#geo-restore) topic of the page on restoring a database in Azure SQL Database from automatic backups.
-
-> [!NOTE]
-> Because the source and target are in separate regions, the database cannot share snapshot storage with the source database as in non-geo restores, which complete quickly regardless of database size. In the case of a geo-restore of a Hyperscale database, it will be a size-of-data operation, even if the target is in the paired region of the geo-replicated storage. Therefore, a geo-restore will take time proportional to the size of the database being restored. If the target is in the paired region, data transfer will be within a region, which will be significantly faster than a cross-region data transfer, but it will still be a size-of-data operation.
+Hyperscale supports the ability to restore a database within the same region where it is hosted, or [to a different region](administer-hyperscale-database.md#restore-a-hyperscale-database-to-a-different-region).
 
 ## <a name=regions></a>Available regions
 
@@ -194,3 +183,4 @@ Learn more about Hyperscale in the following articles:
 - See [Overview of resource limits on a server](resource-limits-logical-server.md) for information about limits at the server and subscription levels.
 - For purchasing model limits for a single database, see [Azure SQL Database vCore-based purchasing model limits for a single database](resource-limits-vcore-single-databases.md).
 - For a features and comparison list, see [SQL common features](features-comparison.md).
+- Learn [How to administer a Hyperscale database](administer-hyperscale-database.md).
