@@ -87,7 +87,7 @@ GET https://management.azure.com/subscriptions/{subscriptionId}/providers/Micros
 
 This will return a list all soft-deleted services available for undelete under the given subscription, showing the `deletionDate` and `scheduledPurgeDate` for each.
 
-## Recover a deleted instance
+## Recover a soft deleted instance
 
 Use the API Management [Create Or Update](/rest/api/apimanagement/current-ga/api-management-service/create-or-update) operation, substituting `{subscriptionId}`, `{resourceGroup}`, and `{apimServiceName}` with your Azure subscription, resource group name, and API Management name:
 
