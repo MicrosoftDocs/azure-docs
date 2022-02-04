@@ -205,7 +205,7 @@ The Consumption plan is a special type of `serverfarm` resource. You can specify
 
 # [Linux](#tab/Linux)
 
-To run your app on Linux, you must also set property `"reserved": true` for the serverfarms resource:
+To run your app on Linux, you must also set the property `"reserved": true` for the `serverfarms` resource:
 
 ```json
 {
