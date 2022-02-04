@@ -47,7 +47,7 @@ The secure hybrid access solution for this scenario is made up of several compon
 
 SHA for this scenario supports both SP and IdP initiated flows. The following image illustrates the SP initiated flow.
 
-![media - Secure hybrid access - SP initiated flow]
+![Secure hybrid access - SP initiated flow](./media/f5-big-ip-easy-button-oraclejde/sp-initiated-flow.png)
 
 | Steps| Description |
 | -------- |-------|
@@ -158,7 +158,7 @@ Some of these are global settings so can be re-used for publishing more applicat
 
 4. Before you select **Next**, confirm that BIG-IP can successfully connect to your tenant.
 
-   ![ media- Screenshot for Configuration General and Service Account properties]
+   ![ Screenshot for Configuration General and Service Account properties](./media/f5-big-ip-easy-button-oraclejde/configuration-general-and-service-account-properties.png)
    
 ### Service Provider
 
@@ -168,7 +168,7 @@ The **Service Provider** settings define the SAML SP properties for the APM inst
 
 2. Enter **Entity ID**. This is the identifier Azure AD will use to identify the SAML SP requesting a token
 
-   ![Screenshot for Service Provider settings](./media/f5-big-ip-oracle/service-provider-settings.png)
+   Screenshot for Service Provider settings](./media/f5-big-ip-easy-button-oraclejde/service-provider-settings.png)
 
    Next, under optional **Security Settings** specify whether Azure AD should encrypt issued SAML assertions. Encrypting assertions between Azure AD and the BIG-IP APM provides  assurance that the content tokens can’t be intercepted, and personal or corporate data be compromised.
 
@@ -194,7 +194,7 @@ The **Service Provider** settings define the SAML SP properties for the APM inst
 
 This section defines all properties that you would normally use to manually configure a new BIG-IP SAML application within your Azure AD tenant. The Easy Button wizard provides a set of pre-defined application templates for Oracle PeopleSoft, Oracle E-business Suite, Oracle JD Edwards, SAP ERP as well as generic SHA template for any other apps. In this example, select **JD Edwards Protected by F5 BIG-IP > Add**. This adds the template for the Oracle JD Edwards.
 
-![Media Screenshot for Azure configuration add BIG-IP application]
+![ Screenshot for Azure configuration add BIG-IP application](./media/f5-big-ip-easy-button-oraclejde/azure-configuration-add-big-ip-application.png)
 
 #### Azure Configuration
 
@@ -202,7 +202,7 @@ This section defines all properties that you would normally use to manually conf
 
 2. In the **Sign On URL (optional)** enter the public FQDN of the JDE application being secured.
 
-    ![Media - Screenshot for Azure configuration add display info]
+    Screenshot for Azure configuration add display info](./media/f5-big-ip-easy-button-oraclejde/azure-configuration-add-display-info.png)
 
 3. Select the refresh icon next to the **Signing Key** and **Signing Certificate** to locate the certificate you imported earlier
 
@@ -283,7 +283,7 @@ The **Easy Button wizard** supports Kerberos, OAuth Bearer, and HTTP authorizati
 * **Header Name:** JDE_SSO_UID
 * **Header Value:** %{session.sso.token.last.username}
 
- ![Media - Screenshot for SSO and HTTP headers]
+ ![ Screenshot for SSO and HTTP headers](./media/ f5-big-ip-easy-button-oraclejde/sso-and-http-headers.png)
 
 >[!NOTE] 
 >APM session variables defined within curly brackets are CASE sensitive. If you enter OrclGUID when the Azure AD attribute name is being defined as orclguid, it will cause an attribute mapping failure.
