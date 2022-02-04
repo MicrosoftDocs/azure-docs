@@ -3,7 +3,7 @@
   - name: Overview
     expanded: true
     items:
-      - name: What is CloudKnox Permissions Management?
+      - name: What's CloudKnox Permissions Management?
         href: cloudknox-overview.md
   - name: Onboard CloudKnox
     expanded: true
@@ -42,15 +42,30 @@
   - name: How-to guides
     expanded: true
     items:
-    - name: View risk metrics in your authorization system
+    - name: Onboard CloudKnox on the Azure AD tenant
       expanded: true
+      items:
+      - name: Enable CloudKnox on your Azure AD tenant 
+        href: cloudknox-onboard-enable-tenant.md
+      - name: Onboard an AWS account
+        href: cloudknox-onboard-aws.md
+      - name: Onboard an Azure subscription
+        href: cloudknox-onboard-azure.MD
+      - name: Onboard a GCP project
+        href: cloudknox-onboard-gcp.md
+      #- name: Enable or disable the controller
+        #href: cloudknox-onboard-enable-controller.md
+      #- name: Add an account/subscription/project after onboarding
+        #href: cloudknox-onboard-add-account-after-onboarding.md
+    - name: View risk metrics in your authorization system
+      expanded: false
       items:
       - name: View key statistics and data about your authorization system
         href: cloudknox-ui-dashboard.md
       - name: View data about the activity in your authorization system
         href: cloudknox-product-dashboard.md
     - name: Configure settings for data collection
-      expanded: true
+      expanded: false
       items:
       - name: View and configure settings for data collection
         href: cloudknox-product-data-sources.md
@@ -59,12 +74,12 @@
       - name: Display an inventory of created resources and licenses 
         href: cloudknox-product-data-inventory.md
     - name: Manage organizational and personal information
-      expanded: true
+      expanded: false
       items:
       - name: Set personal and organization information
         href: cloudknox-product-account-settings.md
     - name: View information about identities, resources, and tasks
-      expanded: true
+      expanded: false
       items:
       - name: View information in the Usage analytics dashboard
         href: cloudknox-product-view-information.md
@@ -85,12 +100,12 @@
       - name: View analytic information about serverless functions
         href: cloudknox-usage-analytics-serverless-functions.md
     - name: View information about active and completed activities
-      expanded: true
+      expanded: false
       items:
       - name: View information about active and completed activities
         href: cloudknox-ui-tasks.md
     - name: Manage roles/policies and permission requests
-      expanded: true
+      expanded: false
       items:
       - name: View existing roles/policies and requests for permission
         href: cloudknox-ui-jep-controller.md
@@ -109,7 +124,7 @@
       - name: Create or approve a request for permissions 
         href: cloudknox-howto-create-approve-privilege-request.md
     - name: Manage users, roles, and their access levels
-      expanded: true
+      expanded: false
       items:
       - name: Manage users and groups
         href: cloudknox-ui-user-management.md
@@ -118,7 +133,7 @@
       - name: Select group-based permissions settings
         href: cloudknox-howto-create-group-based-permissions.md
     - name: View how users access information
-      expanded: true
+      expanded: false
       items:
       - name: Use queries to see how users access information 
         href: cloudknox-ui-audit-trail.md
@@ -129,12 +144,12 @@
       - name: Filter and query user activity
         href: cloudknox-product-audit-trail.md
     - name: Set up and view authorization systems
-      expanded: true
+      expanded: false
       items:
       - name: View available authorization systems
         href: cloudknox-ui-integrations.md
     - name: Set activity alerts and triggers 
-      expanded: true
+      expanded: false
       items: 
       - name: View information about activity triggers
         href: cloudknox-ui-triggers.md
@@ -149,14 +164,14 @@
       - name: Create and view permission analytics triggers
         href: cloudknox-product-permission-analytics.md
     - name: Manage rules for authorization systems
-      expanded: true
+      expanded: false
       items:
       - name: Create a rule
         href: cloudknox-howto-create-rule.md 
       - name: View rules in the Autopilot dashboard
         href: cloudknox-ui-autopilot.md
     - name: Create and view reports 
-      expanded: true
+      expanded: false
       items: 
       - name: View an overview of available system report types
         href: cloudknox-product-reports.md
@@ -169,17 +184,17 @@
       - name: Generate and download the Permissions analytics report
         href: cloudknox-product-permissions-analytics-reports.md
   - name: Troubleshoot
-    expanded: true
+    expanded: false
     items:
     - name: Troubleshoot issues
       href: cloudknox-troubleshoot.md
   #- name: Training material
-    #expanded: true
+    #expanded: false
     #items:
     #- name: Get started with CloudKnox training videos
       #href: cloudknox-training-videos.md
   - name: Reference
-    expanded: true
+    expanded: false
     items:
     - name: FAQs
       href: cloudknox-faqs.md
