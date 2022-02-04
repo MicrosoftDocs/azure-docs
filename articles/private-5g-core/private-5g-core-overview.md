@@ -106,12 +106,6 @@ Azure Private 5G Core is integrated with the Azure Log Analytics tool, as descri
 
 :::image type="content" source="media/azure-private-5g-core/log-analytics-tool.png" alt-text="Log analytics tool showing a query made on devices registered with the private mobile network.":::
 
-### Distributed tracing
-
-Azure Private 5G Core provides proactive, real-time analysis of all message traffic, including NGAP/NAS messages and HTTP requests and responses. You can use the distributed tracing web GUI to collect detailed traces for signaling flows involving packet core instances. These can be used to diagnose many common configuration, network, and interoperability problems affecting user service.
-
-:::image type="content" source="media/azure-private-5g-core/distributed-tracing-web-gui.png" alt-text="Screenshot of the distributed tracing web GUI displaying details of a successful PDU session establishment.":::
-
 ## Azure services consumed by Azure Private 5G Core
 
 Azure Private 5G Core includes and utilizes the following Azure services.

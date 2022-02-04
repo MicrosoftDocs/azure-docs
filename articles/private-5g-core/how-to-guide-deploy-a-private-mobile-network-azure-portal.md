@@ -26,7 +26,7 @@ You'll create the following resources as part of this how-to guide.
 - Ensure you can sign in to the Azure portal using an account with access to the active subscription you identified in [Complete the prerequisite tasks for deploying a private mobile network](complete-private-mobile-network-prerequisites.md). This account must have the built-in Contributor or Owner role at the subscription scope.
 - Collect all of the information listed in [Collect the required information to deploy a private mobile network - Azure portal](collect-required-information-for-private-mobile-network.md).
 - If you decided when collecting the information in [Collect the required information to deploy a private mobile network - Azure portal](collect-required-information-for-private-mobile-network.md) that you wanted to provision SIMs using a JSON file as part of deploying your private mobile network, you must have prepared this file and made it available on the machine you'll use to access the Azure portal. For more information on the file format, see [Provisioning SIM resources through the Azure portal using a JSON file](collect-required-information-for-private-mobile-network.md#provisioning-sim-resources-through-the-azure-portal-using-a-json-file).
-- Retrieve the name of the resource group you created as part of commissioning the Azure Kubernetes Service on Azure Stack HCI (AKS-HCI) cluster on your Azure Stack Edge Pro device. You did this as part of the steps in [Complete the prerequisite tasks for deploying a private mobile network](complete-private-mobile-network-prerequisites.md).
+- Retrieve the name of the custom location that targets the Azure Kubernetes Service on Azure Stack HCI (AKS-HCI) cluster on the Azure Stack Edge Pro device in the site. You commissioned the AKS-HCI cluster as part of the steps in [Complete the prerequisite tasks for deploying a private mobile network](complete-private-mobile-network-prerequisites.md).
 
 ## Create the mobile network and (optionally) SIM resources
 In this step, you'll create the mobile network resource representing your private mobile network as a whole. You can also provision one or more SIMs.
@@ -70,9 +70,9 @@ In this step, you'll create the mobile network resource representing your privat
 
 1. Once you've confirmed that the correct resources are displayed, select the name of the **Mobile Network** resource and move to the next step.
 
-## Create the site resource
+## Create the Mobile Network Site resource
 
-In this step, you'll create the site resource representing the physical enterprise location of your Azure Stack Edge device, which will host the packet core instance.
+In this step, you'll create the **Mobile Network Site** resource representing the physical enterprise location of your Azure Stack Edge device, which will host the packet core instance.
 
 1. On the **Get started** tab, select **Create sites**.
 
@@ -106,32 +106,14 @@ In this step, you'll create the site resource representing the physical enterpri
 
 1. Select **Go to resource group**, and confirm that it contains the following new resources.
 
-    - A **mobile network site** resource representing the site as a whole.
-    - A **packet core control plane** resource representing the control plane function of the packet core instance in the site.
-    - A **packet core data plane** resource representing the data plane function of the packet core instance in the site.
-    - An **attached data network** resource representing the site's view of the data network.
+    - A **Mobile Network Site** resource representing the site as a whole.
+    - A **Packet Core Control Plane** resource representing the control plane function of the packet core instance in the site.
+    - A **Packet Core Data Plane** resource representing the data plane function of the packet core instance in the site.
+    - An **Attached Data Network** resource representing the site's view of the data network.
 
     :::image type="content" source="media/how-to-guide-deploy-a-private-mobile-network-azure-portal/site-and-related-resources.png" alt-text="Screenshot of the Azure portal showing a resource group containing a site and its related resources." lightbox="media/how-to-guide-deploy-a-private-mobile-network-azure-portal/site-and-related-resources.png":::
 
-1. Once you've confirmed this, keep the resource group displayed in the Azure portal and move to the next step.
-
-## Verify that your Azure Stack Edge Pro cluster resources have been created and that the connection is active
-
-1. Search for and select the resource group you created when commissioning the AKS-HCI cluster.
-1. Check the contents of the resource group to confirm that it contains **Custom Location** and **Kubernetes - Azure Arc** resources. 
-1. Make a note of the name of the **Custom location** resource. You'll need this in the next step.
-1. Select the **Kubernetes - Azure Arc** resource and confirm that the **Status** field is set to **Connected**.
-
-    :::image type="content" source="media/kubernetes-azure-arc-resource.png" alt-text="Screenshot of the Azure portal showing the Status field on a Kubernetes - Azure Arc resource." lightbox="media/kubernetes-azure-arc-resource.png":::
-
-## Configure the custom location
-
-1. In the Azure portal, search for and select the **Mobile network** resource corresponding to your private mobile network.
-1. In the resource menu, select **Sites**.
-1. Select the **Mobile network site** resource corresponding to the site in which the packet core instance is located.
-
-    :::image type="content" source="media/select-site.png" alt-text="Screenshot of the Azure portal showing the available sites in the private mobile network." lightbox="media/select-site.png":::
-
+1. Select the **Mobile Network Site** resource.
 1. Select **Configure a custom location**.
 
     :::image type="content" source="media/configure-a-custom-location.png" alt-text="Screenshot of the Azure portal showing the Configure a custom location option.":::
