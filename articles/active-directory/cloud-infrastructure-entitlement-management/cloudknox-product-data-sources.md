@@ -71,7 +71,7 @@ You can use the **Data collectors** dashboard in CloudKnox Permissions Managemen
 
     When your changes are saved, the following message displays: **Successfully updated configuration.**
     
-## Delete a Data Collector   
+## Delete a data collector   
 
 1. Select the ellipses **(...)** at the end of the row in the table.
 1. Select **Delete Configuration**. 
