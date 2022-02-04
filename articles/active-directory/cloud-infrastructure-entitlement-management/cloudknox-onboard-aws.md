@@ -55,9 +55,9 @@ This article describes how to onboard an Amazon Web Services (AWS) account on Cl
 
     The **AWS Quick create stack** page opens. 
 
-1. To create basic entities, for example the OIDC provider, the assumed role policy, or the role the Internet Data Center (IDC) provider requires to connect to Azure AD Security Token Service (Azure AD STS), scroll to the bottom of the page, and in the **Capabilities** box, select **I acknowledge that AWS CloudFormation might create IAM resources with custom names**. Then select **Create stack.**
+1. To create basic entities, for example the OIDC provider, the assumed role policy, or the role the Internet Data Center (IDC) provider requires to connect to Azure AD. For Azure AD to generate security tokens that are used with AWS, scroll to the bottom of the page, and in the **Capabilities** box, select **I acknowledge that AWS CloudFormation might create IAM resources with custom names**. Then select **Create stack.**
 
-    AWS creates the required IDC entities including the role that the IDC provider needs to connect to Azure AD STS. These entity names are listed on the **Resources** page.
+    AWS creates the required IDC entities including the role that the IDC provider needs to connect to Azure AD. These entity names are listed on the **Resources** page.
 
 1. In the **CloudKnox Data collectors** tab, select **Next**.
 
@@ -91,7 +91,7 @@ This article describes how to onboard an Amazon Web Services (AWS) account on Cl
 
     AWS creates the resources required to create an OIDC connection and lists them in the AWS **Resources** tab. 
 
-    This step completes the sequence of required connections from Azure AD STS to the OIDC connection account and the AWS member account.
+    This step completes the sequence of required connections from Azure AD to the OIDC connection account and the AWS member account.
 
 1. Return to the CloudKnox **Data collectors** tab and select **Next**.
 
