@@ -92,7 +92,7 @@ items:
     items:
     - name: Troubleshoot device updates
       href: troubleshoot-device-update.md
-    - name: Device update error codes
+    - name: Device update error messages
       href: device-update-error-codes.md
     - name: Device update proxy update troubleshooting
       href: device-update-proxy-update-troubleshooting.md
