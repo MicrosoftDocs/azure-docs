@@ -42,7 +42,7 @@ You can  view information about users, groups, and resources that can access acc
 
 ## Export information about users, groups, or tasks
 
-- To export the data in comma-separated values (CSV) file format, in the **User analytics** dashboard, select **Export**.
+- To export the data in comma-separated values (CSV) file format, in the **User analytics** dashboard, Click **Export** and selet **CSV**.
 
 ## View users and roles
 
