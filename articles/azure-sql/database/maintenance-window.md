@@ -9,7 +9,7 @@ author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: kendralittle, mathoma
 ms.custom: references_regions
-ms.date: 12/15/2021
+ms.date: 02/02/2022
 ---
 
 # Maintenance window (Preview)
@@ -26,7 +26,7 @@ Azure periodically performs [planned maintenance](planned-maintenance.md) of SQL
 
 Maintenance window is intended for production workloads that are not resilient to database or instance reconfigurations and cannot absorb short connection interruptions caused by planned maintenance events. By choosing a maintenance window you prefer, you can minimize the impact of planned maintenance as it will be occurring outside of your peak business hours. Resilient workloads and non-production workloads may rely on Azure SQL's default maintenance policy.
 
-The maintenance window can be configured on creation or for existing Azure SQL resources. It can be configured using the Azure portal, PowerShell, CLI, or Azure API.
+The maintenance window is free of charge and can be configured on creation or for existing Azure SQL resources. It can be configured using the Azure portal, PowerShell, CLI, or Azure API.
 
 > [!Important]
 > Configuring maintenance window is a long running asynchronous operation, similar to changing the service tier of the Azure SQL resource. The resource is available during the operation, except a short reconfiguration that happens at the end of the operation and typically lasts up to 8 seconds even in case of interrupted long-running transactions. To minimize the impact of the reconfiguration you should perform the operation outside of the peak hours.
@@ -47,18 +47,20 @@ Once the maintenance window selection is made and service configuration complete
 > [!Important]
 > In very rare circumstances where any postponement of action could cause serious impact, like applying critical security patch, configured maintenance window may be temporarily overriden. 
 
-### Cost and eligibility
-
-Configuring and using maintenance window is free of charge for all eligible [offer types](https://azure.microsoft.com/support/legal/offer-details/): Pay-As-You-Go, Cloud Solution Provider (CSP), Microsoft Enterprise Agreement, or Microsoft Customer Agreement.
-
-> [!Note]
-> An Azure offer is the type of the Azure subscription you have. For example, a subscription with [pay-as-you-go rates](https://azure.microsoft.com/offers/ms-azr-0003p/), [Azure in Open](https://azure.microsoft.com/offers/ms-azr-0111p/), and [Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p/) are all Azure offers. Each offer or plan has different terms and benefits. Your offer or plan is shown on the subscription's Overview. For more information on switching your subscription to a different offer, see [Change your Azure subscription to a different offer](../../cost-management-billing/manage/switch-azure-offer.md).
-
 ## Advance notifications
 
 Maintenance notifications can be configured to alert you on upcoming planned maintenance events for your Azure SQL Database 24 hours in advance, at the time of maintenance, and when the maintenance is complete. For more information, see [Advance Notifications](advance-notifications.md).
 
-## Availability
+## Feature availability
+
+### Supported subscription types
+
+Configuring and using maintenance window is available for the following [offer types](https://azure.microsoft.com/support/legal/offer-details/): Pay-As-You-Go, Cloud Solution Provider (CSP), Microsoft Enterprise Agreement, or Microsoft Customer Agreement.  
+
+Offers restricted to dev/test usage only are not eligible (like Pay-As-You-Go Dev/Test or Enterprise Dev/Test as examples).
+
+> [!Note]
+> An Azure offer is the type of the Azure subscription you have. For example, a subscription with [pay-as-you-go rates](https://azure.microsoft.com/offers/ms-azr-0003p/), [Azure in Open](https://azure.microsoft.com/offers/ms-azr-0111p/), and [Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p/) are all Azure offers. Each offer or plan has different terms and benefits. Your offer or plan is shown on the subscription's Overview. For more information on switching your subscription to a different offer, see [Change your Azure subscription to a different offer](../../cost-management-billing/manage/switch-azure-offer.md).
 
 ### Supported service level objectives
 
