@@ -11,6 +11,8 @@ ms.custom: template-tutorial
 ---
 
 <!-- The title is very long. Can we swap it to "Create a policy control configuration set", or does this lose too much context? -->
+<!-- One of the images (add-a-data-flow-template.png) has a thicker grey outline. -->
+<!-- Some images can be zoomed into, others cannot. -->
 
 # Tutorial: Create an example policy control configuration set for Azure Private 5G Core
 
