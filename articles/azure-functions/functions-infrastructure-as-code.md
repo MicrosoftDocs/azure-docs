@@ -626,7 +626,7 @@ The settings required by a function app running in Dedicated plan differ between
 
 # [Linux](#tab/Linux)
 
-The function app must have set `"kind": "functionapp,linux"`, and it must have set property `"reserved": true`. Linux apps should also include a `linuxFxVersion` property under siteConfig. If you are just deploying code, the value for this is determined by your desired runtime stack in the format of runtime|runtimeVersion. For example: `python|3.7`, `node|14` and `dotnet|3.1`.
+The function app must have set `"kind": "functionapp,linux"`, and it must have set property `"reserved": true`. Linux apps should also include a `linuxFxVersion` property under siteConfig. If you are just deploying code, the value for this is determined by your desired runtime stack in the format of runtime|runtimeVersion. Examples of `linuxFxVersion` property include:  `python|3.7`, `node|14` and `dotnet|3.1`.
 
 ```json
 {
