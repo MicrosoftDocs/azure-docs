@@ -24,19 +24,19 @@ There are two types of schedules.
 
 ## Quota
 
-Quota is the limit of time a student may use their VM outside of class.  Allowing time for homework is done through the use of quota hours.  If no quota is assigned, students can only use their VM during scheduled time or if the educator starts the VM for them.  
+Quota is the limit of time a student may use their VM outside of class.  Allowing time for homework is done by using quota hours.  If no quota is assigned, students can only use their VM during scheduled time or if the educator starts the VM for them.  
 
 Quota hours are counted when the student starts the lab VM themselves.  If an educator manually starts the lab VM for a student, quota hours aren't used for that student.
 
 A lab can use either quota time, [scheduled time](#schedules), or a combination of both.
 
-### Automatic shut-down
+## Automatic shut-down
 
 Anytime a machine is **Running**, costs are being incurred, even if no one is connected to the VM.  You can enable several auto-shutdown features to avoid extra costs when the VMs aren't being used.  The are three auto-shutdown policies available in Azure Lab Services.
 
 - Disconnect idle virtual machines.
-- Shutdown virtual machines when students disconnect from the virtual machine.
-- Shutdown virtual machines when students don't connect a recently started virtual machine.
+- Shut down virtual machines when students disconnect from the virtual machine.
+- Shut down virtual machines when students don't connect a recently started virtual machine.
 
 For more information, see [Configure automatic shutdown of VMs for a lab plan](how-to-configure-auto-shutdown-lab-plans.md).
 
