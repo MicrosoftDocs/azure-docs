@@ -144,7 +144,7 @@
         href: cloudknox-howto-view-alert-trigger.md
       - name: Create and view rule-based anomalies and anomaly triggers
         href: cloudknox-product-rule-based-anomalies.md
-      - name: Find outliers in an identity's behavior
+      - name: Create and view statistical anomalies and anomaly triggers
         href: cloudknox-product-statistical-anomalies.md
       - name: Create and view permission analytics triggers
         href: cloudknox-product-permission-analytics.md
