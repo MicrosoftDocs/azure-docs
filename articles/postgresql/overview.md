@@ -6,12 +6,12 @@ ms.author: sunila
 ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
-ms.date: 11/30/2021
+ms.date: 01/24/2022
 ---
 
 # What is Azure Database for PostgreSQL?
 
-Azure Database for PostgreSQL is a relational database service in the Microsoft cloud based on the [PostgreSQL Community Edition](https://www.postgresql.org/) (available under the GPLv2 license) database engine. Azure Database for PostgreSQL delivers:
+Azure Database for PostgreSQL is a relational database service in the Microsoft cloud based on the [PostgreSQL open source relational database](https://www.postgresql.org/). Azure Database for PostgreSQL delivers:
 
 - Built-in high availability.
 - Data protection using automatic backups and point-in-time-restore for up to 35 days.
@@ -46,12 +46,12 @@ For detailed overview of single server deployment mode, refer [single server ove
 
 ### Azure Database for PostgreSQL - Flexible Server
 
-Azure Database for PostgreSQL Flexible Server is a fully managed database service designed to provide more granular control and flexibility over database management functions and configuration settings. In general, the service provides more flexibility and customizations based on the user requirements. The flexible server architecture allows users to opt for high availability within single availability zone and across multiple availability zones. Flexible Server provide better cost optimization controls with the ability to stop/start server and burstable compute tier, ideal for workloads that do not need full compute capacity continuously. The service currently supports community version of PostgreSQL 11 and 12 with plans to add newer versions soon. The service is currently in public preview, available today in wide variety of Azure regions.
+Azure Database for PostgreSQL Flexible Server is a fully managed database service designed to provide more granular control and flexibility over database management functions and configuration settings. In general, the service provides more flexibility and customizations based on the user requirements. The flexible server architecture allows users to opt for high availability within single availability zone and across multiple availability zones. Flexible Server provides better cost optimization controls with the ability to stop/start server and burstable compute tier, ideal for workloads that don’t need full-compute capacity continuously. The service currently supports community version of PostgreSQL 11 and 12 with plans to add newer versions soon. The service is currently in public preview, available today in wide variety of Azure regions.
 
 Flexible servers are best suited for
 
-- Application developments requiring better control and customizations.
-- Cost optimization controls with ability to stop/start server.
+- Application developments requiring better control and customizations
+- Cost optimization controls with ability to stop/start server
 - Zone redundant high availability
 - Managed maintenance windows
   
@@ -59,13 +59,13 @@ For a detailed overview of flexible server deployment mode, see [flexible server
 
 ### Azure Database for PostgreSQL – Hyperscale (Citus)
 
-The Hyperscale (Citus) option horizontally scales queries across multiple machines using sharding. Its query engine parallelizes incoming SQL queries across these servers for faster responses on large datasets. It serves applications that require greater scale and performance, generally workloads that are approaching -- or already exceed -- 100 GB of data.
+The Hyperscale (Citus) option horizontally scales queries across multiple machines using sharding. Its query engine parallelizes incoming SQL queries across these servers for faster responses on large datasets. It serves applications that require greater scale and performance, generally workloads that are approaching--or already exceed--100 GB of data.
 
 The Hyperscale (Citus) deployment option delivers:
 
 - Horizontal scaling across multiple machines using sharding
 - Query parallelization across these servers for faster responses on large datasets
-- Excellent support for multi-tenant applications, real time operational analytics, and high throughput transactional workloads
+- Excellent support for multi-tenant applications, real-time operational analytics, and high-throughput transactional workloads
   
 Applications built for PostgreSQL can run distributed queries on Hyperscale (Citus) with standard [connection libraries](./concepts-connection-libraries.md) and minimal changes.
 

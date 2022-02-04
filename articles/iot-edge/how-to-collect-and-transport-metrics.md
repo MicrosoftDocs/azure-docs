@@ -11,7 +11,7 @@ ms.service: iot-edge
 services: iot-edge
 ---
 
-# Collect and transport metrics (Preview)
+# Collect and transport metrics
 
 [!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 

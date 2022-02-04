@@ -310,9 +310,6 @@
               - name: Compute cluster
                 displayName: compute target, low priority, managed identity
                 href: how-to-create-attach-compute-cluster.md
-              - name: Upgrade host OS
-                displayName: upgrade compute cluster, upgrade compute instance, upgrade ubuntu
-                href: how-to-compute-cluster-instance-os-upgrade.md
               - name: Azure Arc-enabled machine learning
                 displayName: Azure Arc, Kubernetes, on-premise, multi-cloud
                 href: how-to-attach-arc-kubernetes.md
