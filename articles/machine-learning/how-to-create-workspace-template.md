@@ -449,9 +449,9 @@ To deploy a workspace with existing associated resources you have to set the **v
 
 1. Enable service endpoints for the resources.
 
-    # [Azure CLI](#tab/azcli)
+# [Azure CLI](#tab/azcli)
 
-[!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
+    [!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
 
     ```azurecli
     az network vnet subnet update --resource-group "examplegroup" --vnet-name "examplevnet" --name "examplesubnet" --service-endpoints "Microsoft.Storage"
@@ -471,51 +471,52 @@ To deploy a workspace with existing associated resources you have to set the **v
 
 1. Deploy the workspace
 
-    # [Azure CLI](#tab/azcli)
-
-[!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
-
-    ```azurecli
-    az deployment group create \
-    --name "exampledeployment" \
-    --resource-group "examplegroup" \
-    --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.machinelearningservices/machine-learning-workspace-vnet/azuredeploy.json" \
-    --parameters workspaceName="exampleworkspace" \
-      location="eastus" \
-      vnetOption="existing" \
-      vnetName="examplevnet" \
-      vnetResourceGroupName="examplegroup" \
-      storageAccountBehindVNet="true" \
-      keyVaultBehindVNet="true" \
-      containerRegistryBehindVNet="true" \
-      containerRegistryOption="new" \
-      containerRegistrySku="Premium" \
-      subnetName="examplesubnet" \
-      subnetOption="existing"
-      privateEndpointType="AutoApproval"
-    ```
-
-    # [Azure PowerShell](#tab/azpowershell)
-    ```azurepowershell
-    New-AzResourceGroupDeployment `
-      -Name "exampledeployment" `
-      -ResourceGroupName "examplegroup" `
-      -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.machinelearningservices/machine-learning-workspace-vnet/azuredeploy.json" `
-      -workspaceName "exampleworkspace" `
-      -location "eastus" `
-      -vnetOption "existing" `
-      -vnetName "examplevnet" `
-      -vnetResourceGroupName "examplegroup" `
-      -storageAccountBehindVNet "true"
-      -keyVaultBehindVNet "true" `
-      -containerRegistryBehindVNet "true" `
-      -containerRegistryOption "new" `
-      -containerRegistrySku "Premium" `
-      -subnetName "examplesubnet" `
-      -subnetOption "existing"
-      -privateEndpointType "AutoApproval"
-    ```
-    ---
+  # [Azure CLI](#tab/azcli)
+  
+  [!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
+  
+  ```azurecli
+  az deployment group create \
+  --name "exampledeployment" \
+  --resource-group "examplegroup" \
+  --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.machinelearningservices/machine-learning-workspace-vnet/azuredeploy.json" \
+  --parameters workspaceName="exampleworkspace" \
+    location="eastus" \
+    vnetOption="existing" \
+    vnetName="examplevnet" \
+    vnetResourceGroupName="examplegroup" \
+    storageAccountBehindVNet="true" \
+    keyVaultBehindVNet="true" \
+    containerRegistryBehindVNet="true" \
+    containerRegistryOption="new" \
+    containerRegistrySku="Premium" \
+    subnetName="examplesubnet" \
+    subnetOption="existing"
+    privateEndpointType="AutoApproval"
+  ```
+  
+  # [Azure PowerShell](#tab/azpowershell)
+  
+  ```azurepowershell
+  New-AzResourceGroupDeployment `
+    -Name "exampledeployment" `
+    -ResourceGroupName "examplegroup" `
+    -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.machinelearningservices/machine-learning-workspace-vnet/azuredeploy.json" `
+    -workspaceName "exampleworkspace" `
+    -location "eastus" `
+    -vnetOption "existing" `
+    -vnetName "examplevnet" `
+    -vnetResourceGroupName "examplegroup" `
+    -storageAccountBehindVNet "true"
+    -keyVaultBehindVNet "true" `
+    -containerRegistryBehindVNet "true" `
+    -containerRegistryOption "new" `
+    -containerRegistrySku "Premium" `
+    -subnetName "examplesubnet" `
+    -subnetOption "existing"
+    -privateEndpointType "AutoApproval"
+  ```
+  ---
 
 <!-- Workspaces need a private endpoint when associated resources are behind a virtual network to work properly. To set up a private endpoint for the workspace with an existing virtual network:
 
