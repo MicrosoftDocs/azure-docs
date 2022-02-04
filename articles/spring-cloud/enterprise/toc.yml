@@ -9,44 +9,246 @@
 - name: Quickstarts
   expanded: true
   items:
-    - name: Introduction to the sample app
-      href: quickstart-sample-app-introduction-enterprise.md
-    - name: Provision an Azure Spring Cloud instance
-      href: ../quickstart-provision-service-instance-enterprise.md?toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
-    - name: Set up Application Configuration Service
-      href: ../quickstart-setup-application-configuration-service-enterprise.md?toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
-    - name: Build and deploy applications
-      href: ../quickstart-deploy-apps-enterprise.md?toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
-    - name: Set up Service Registry
-      href: ../quickstart-setup-service-registry-enterprise.md?toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
-    - name: Set up Log Analytics
-      href: ../quickstart-setup-log-analytics.md?toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
-    - name: Use logs, metrics and tracing
-      href: ../quickstart-logs-metrics-tracing.md?toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
-    - name: Integrate with Azure Database for MySQL
-      href: ../quickstart-integrate-azure-database-mysql.md?toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
+    - name: Launch your first app
+      href: ../quickstart.md?toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
+    - name: Build and run apps
+      expanded: true
+      items:
+      - name: Introduction to the sample app
+        href: quickstart-sample-app-introduction-enterprise.md
+      - name: Provision an Azure Spring Cloud instance
+        href: ../quickstart-provision-service-instance-enterprise.md?toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
+      - name: Set up Application Configuration Service
+        href: ../quickstart-setup-application-configuration-service-enterprise.md?toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
+      - name: Build and deploy applications
+        href: ../quickstart-deploy-apps-enterprise.md?toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
+      - name: Set up Service Registry
+        href: ../quickstart-setup-service-registry-enterprise.md?toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
+      - name: Set up Log Analytics
+        href: ../quickstart-setup-log-analytics.md?toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
+      - name: Use logs, metrics and tracing
+        href: ../quickstart-logs-metrics-tracing.md?toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
+      - name: Integrate with Azure Database for MySQL
+        href: ../quickstart-integrate-azure-database-mysql.md?toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
+    - name: Provisioning
+      expanded: true
+      items:
+      - name: Provision using an ARM template
+        href: ../quickstart-deploy-infrastructure-vnet.md?toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
+      - name: Provision using Azure CLI
+        href: ../quickstart-deploy-infrastructure-vnet-azure-cli.md?toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
+      - name: Provision using Terraform
+        href: ../quickstart-deploy-infrastructure-vnet-terraform.md?toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
+      - name: Provision using Bicep
+        href: ../quickstart-deploy-infrastructure-vnet-bicep.md?toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
+- name: Tutorials
+  items:
+    - name: Alerts and action groups
+      href: ../tutorial-alerts-action-groups.md?toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
+    - name: Circuit Breaker Dashboard
+      href: ../tutorial-circuit-breaker.md?toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
+    - name: Custom DNS name
+      href: ../tutorial-custom-domain.md?toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
+    - name: Managed identity to connect Key Vault
+      href: ../tutorial-managed-identities-key-vault.md?toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
+    - name: Managed identity to invoke Azure Functions
+      href: ../tutorial-managed-identities-functions.md?toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
+- name: Concepts
+  items:
+    - name: App and deployment
+      href: ../concept-understand-app-and-deployment.md?toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
+    - name: Blue-green deployment strategies
+      href: ../concepts-blue-green-deployment-strategies.md?toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
+    - name: Quotas and limits
+      href: ../quotas.md?toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
+    - name: Understand app status
+      href: ../concept-app-status.md?toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
+    - name: Metrics
+      href: ../concept-metrics.md?toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
+    - name: Azure Spring Boot Actuator
+      href: ../concept-manage-monitor-app-spring-boot-actuator.md?toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
+- name: Security
+  items:
+    - name: Security controls
+      href: ../concept-security-controls.md?toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
+    - name: Security baseline
+      href: /security/benchmark/azure/baselines/spring-cloud-security-baseline?toc=/azure/spring-cloud/toc.json&bc=/azure/bread/toc.json
+    - name: Azure Policy Security controls
+      href: ../security-controls-policy.md?toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
+    - name: Plan for disaster recovery
+      href: ../disaster-recovery.md?toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
 - name: How-to guides
   expanded: true
   items:
-    - name: Use Application Configuration Service
-      href: ../how-to-enterprise-application-configuration-service.md?toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
-    - name: Use Build Service
-      href: ../how-to-enterprise-build-service.md?toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
-    - name: Use Service Registry
-      href: ../how-to-enterprise-service-registry.md?toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
-    - name: Use API portal
-      href: ../how-to-use-enterprise-api-portal.md?toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
-    - name: Use Spring Cloud Gateway
-      href: ../how-to-use-enterprise-spring-cloud-gateway.md?toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
-    - name: Deploy non-Java enterprise applications
-      href: ../how-to-enterprise-deploy-non-java-apps.md?toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
-    - name: View Enterprise Tier offering
-      href: ../how-to-enterprise-marketplace-offer.md?toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
-    - name: Application Insights using Java In-Process Agent
-      href: ../how-to-application-insights.md?pivots=sc-enterprise-tier&toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
-    - name: Enable system-assigned managed identity
-      href: ../how-to-enable-system-assigned-managed-identity.md?pivots=sc-enterprise-tier&toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
-    - name: Troubleshooting guide
-      href: ../troubleshoot.md?toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
-    - name: Migrate Spring Cloud to Azure Spring Cloud
-      href: /azure/developer/java/migration/migrate-spring-cloud-to-azure-spring-cloud?toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
+    - name: Develop
+      items:
+      - name: Use Application Configuration Service
+        href: ../how-to-enterprise-application-configuration-service.md?toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
+      - name: Use Build Service
+        href: ../how-to-enterprise-build-service.md?toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
+      - name: Use Service Registry
+        href: ../how-to-enterprise-service-registry.md?toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
+      - name: Use API portal
+        href: ../how-to-use-enterprise-api-portal.md?toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
+      - name: Use Spring Cloud Gateway
+        href: ../how-to-use-enterprise-spring-cloud-gateway.md?toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
+    - name: Deploy
+      items:
+        - name: Set up a staging environment
+          href: ../how-to-staging-environment.md?toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
+        - name: Launch Java app from source code
+          href: ../how-to-launch-from-source.md?toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
+        - name: Use IntelliJ to deploy apps
+          href: ../how-to-intellij-deploy-apps.md?toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
+        - name: Use VS Code to deploy apps
+          href: https://code.visualstudio.com/docs/java/java-spring-cloud
+        - name: Deploy Azure Spring Cloud with Azure PowerShell
+          href: ../how-to-deploy-powershell.md?toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
+        - name: Deploy non-Java enterprise applications
+          href: ../how-to-enterprise-deploy-non-java-apps.md?toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
+    - name: Manage
+      items:
+        - name: Start or stop a service
+          href: ../how-to-start-stop-service.md?toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
+        - name: Start, stop, and delete an app
+          href: ../how-to-start-stop-delete.md?toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
+        - name: Use built-in persistent storage
+          href: ../how-to-built-in-persistent-storage.md?toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
+        - name: Use custom persistent storage
+          href: ../how-to-custom-persistent-storage.md?toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
+        - name: Identify outbound public IP addresses
+          href: ../how-to-outbound-public-ip.md?toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
+        - name: Move across regions
+          href: ../how-to-move-across-regions.md?toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
+        - name: View Enterprise Tier offering
+          href: ../how-to-enterprise-marketplace-offer.md?toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
+    - name: Scale
+      items:
+        - name: Manually scale an app
+          href: ../how-to-scale-manual.md?toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
+        - name: Autoscale an app
+          href: ../how-to-setup-autoscale.md?toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
+    - name: Integrate
+      items:
+        - name: Azure Cosmos DB
+          href: ../how-to-bind-cosmos.md?toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
+        - name: Azure Cache for Redis
+          href: ../how-to-bind-redis.md?toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
+        - name: Azure Database for MySQL
+          href: ../how-to-bind-mysql.md?toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
+        - name: Azure SQL Database with Managed identity
+          href: ../connect-managed-identity-to-azure-sql.md?toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
+        - name: Azure Load Balance Solutions
+          href: ../how-to-integrate-azure-load-balancers.md?toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
+    - name: Monitor
+      items:
+        - name: Distributed tracing and App Insights
+          href: ../how-to-distributed-tracing.md?toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
+        - name: Analyze logs and metrics
+          href: ../diagnostic-services.md?toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
+        - name: Stream logs in real time
+          href: ../how-to-log-streaming.md?toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
+        - name: Application Insights using Java In-Process Agent
+          href: ../how-to-application-insights.md?toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
+        - name: Resilience4J Circuit Breaker Metrics
+          href: ../how-to-circuit-breaker-metrics.md?toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
+        - name: Structured application log
+          href: ../structured-app-log.md?toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
+        - name: Use Dynatrace Java OneAgent
+          href: ../how-to-dynatrace-one-agent-monitor.md?toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
+        - name: New Relic Java in-process agent
+          href: ../how-to-new-relic-monitor.md?toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
+        - name: AppDynamics in-process agent
+          href: ../how-to-appdynamics-java-agent-monitor.md?toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
+        - name: Monitor app lifecycle events
+          href: ../monitor-app-lifecycle-events.md?toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
+        - name: Logback with custom persistent storage
+          href: ../how-to-write-log-to-custom-persistent-storage.md?toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
+        - name: Elastic APM Java Agent
+          href: ../how-to-elastic-apm-java-agent-monitor.md?toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
+        - name: Analyze logs with ELK
+          href: ../how-to-elastic-diagnostic-settings.md?toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
+    - name: Network
+      items:
+        - name: Deploy Azure Spring Cloud in a virtual network
+          href: ../how-to-deploy-in-azure-virtual-network.md?toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
+        - name: Access your application in a private network
+          href: ../access-app-virtual-network.md?toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
+        - name: Expose applications to the internet
+          href: ../expose-apps-gateway.md?toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
+        - name: Configure Palo Alto
+          href: ../how-to-configure-palo-alto.md?toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
+        - name: Customer responsibilities running Azure Spring Cloud in VNET
+          href: ../vnet-customer-responsibilities.md?toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
+        - name: Troubleshooting Azure Spring Cloud in virtual networks
+          href: ../troubleshooting-vnet.md?toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
+    - name: Secure
+      items:
+        - name: Enable system-assigned managed identity
+          href: ../how-to-enable-system-assigned-managed-identity.md?toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
+        - name: Create roles and permissions
+          href: ../how-to-permissions.md?toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
+        - name: Use TLS/SSL certificates
+          href: ../how-to-use-tls-certificate.md?toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
+        - name: Enable end-to-end Transport Layer Security
+          href: ../how-to-enable-end-to-end-tls.md?toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
+    - name: Automate
+      items:
+        - name: CI/CD with Azure DevOps
+          href: ../how-to-cicd.md?toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
+        - name: CI/CD with GitHub Actions
+          href: ../how-to-github-actions.md?toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
+        - name: Auth with Key Vault in GitHub Actions
+          href: ../github-actions-key-vault.md?toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
+    - name: Troubleshoot
+      items:
+        - name: Self diagnose and solve problems
+          href: ../how-to-self-diagnose-solve.md?toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
+        - name: Self diagnose running in VNET
+          href: ../how-to-self-diagnose-running-in-vnet.md?toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
+        - name: Troubleshooting guide
+          href: ../troubleshoot.md?toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
+        - name: Capture heap/thread dump and use JFR
+          href: ../how-to-capture-dumps.md?toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
+        - name: Use JVM options for troubleshooting
+          href: ../how-to-dump-jvm-options.md?toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
+    - name: Migrate
+      items:
+        - name: Spring Cloud
+          href: /azure/developer/java/migration/migrate-spring-cloud-to-azure-spring-cloud?toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
+        - name: Spring Boot
+          href: /azure/developer/java/migration/migrate-spring-boot-to-azure-spring-cloud?toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
+        - name: Tomcat
+          href: /azure/developer/java/migration/migrate-tomcat-to-azure-spring-cloud?toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
+- name: Architecture
+  items:
+    - name: Reference architecture
+      href: ../reference-architecture.md?toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
+- name: DevOps deployment
+  items:
+  - name: CI/CD with Azure DevOps
+    href: ../how-to-cicd.md?toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
+  - name: CI/CD with GitHub Actions
+    href: ../how-to-github-actions.md?toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
+  - name: Auth with Key Vault in GitHub Actions
+    href: ../github-actions-key-vault.md?toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
+- name: Reference
+  items:
+  - name: Azure CLI plugin
+    href: /cli/azure/spring-cloud?toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
+  - name: Azure PowerShell
+    href: /powershell/module/az.springcloud?toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
+  - name: Azure Pipelines task
+    href: /azure/devops/pipelines/tasks/deploy/azure-spring-cloud?toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
+  - name: Resources
+    href: ../resources.md?toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
+  - name: Frequently asked questions
+    href: ../faq.md?toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
+  - name: REST API reference
+    href: /rest/api/azurespringcloud/?toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ../policy-reference.md?toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
+  - name: What's New
+    displayName: What's New
+    href: https://azure.microsoft.com/updates/?query=spring
