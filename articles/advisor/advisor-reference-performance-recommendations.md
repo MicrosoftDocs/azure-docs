@@ -9,6 +9,15 @@ ms.date: 02/03/2022
 
 The performance recommendations in Azure Advisor can help improve the speed and responsiveness of your business-critical applications. You can get performance recommendations from Advisor on the **Performance** tab of the Advisor dashboard.
 
+## How to access performance recommendations in Azure Advisor
+
+1. Sign in to the [**Azure portal**](https://portal.azure.com).
+
+1. Search for and select [**Advisor**](https://aka.ms/azureadvisordashboard) from any page.
+
+1. On the **Advisor** dashboard, select the **Performance** tab.
+
+
 ## Attestation
 
 ### Update Attestation API Version
@@ -25,7 +34,7 @@ Your vSAN capacity utilization has reached 75%. The cluster utilization is requi
 
 Learn more about [AVS Private cloud - vSANCapacity (vSAN capacity utilization has crossed critical threshold)](/azure/azure-vmware/concepts-private-clouds-clusters).
 
-## Cache
+## Redis Cache Server
 
 ### Improve your Cache and application performance when running with high network bandwidth
 
@@ -51,7 +60,7 @@ Cache instances perform best when not running under high memory pressure which m
 
 Learn more about [Redis Cache Server - RedisCacheUsedMemory (Improve your Cache and application performance when running with high memory pressure)](https://aka.ms/redis/recommendations/memory).
 
-## CognitiveServices
+## Cognitive Service
 
 ### Upgrade to the latest Cognitive Service Text Analytics API version
 
@@ -77,7 +86,7 @@ Upgrade to the latest SDK version to get the best results in terms of model qual
 
 Learn more about [Cognitive Service - UpgradeToLatestSDKLanguage (Upgrade to the latest Cognitive Service Language SDK version)](https://aka.ms/language-api).
 
-## Communication
+## Communication service
 
 ### Use recommended version of Chat SDK
 
@@ -261,7 +270,7 @@ Ultra disk is available in the same region as your database workload. Ultra disk
 
 Learn more about [Virtual machine - AzureStorageVmUltraDisk (Take advantage of Ultra Disk low latency for your log disks and improve your database workload performance.)](/azure/virtual-machines/disks-enable-ultra-ssd?tabs=azure-portal).
 
-## ContainerService
+## Kubernetes
 
 ### Unsupported Kubernetes version is detected
 
@@ -269,7 +278,7 @@ Unsupported Kubernetes version is detected. Ensure Kubernetes cluster runs with 
 
 Learn more about [Kubernetes service - UnsupportedKubernetesVersionIsDetected (Unsupported Kubernetes version is detected)](https://aka.ms/aks-supported-versions).
 
-## DataFactory
+## Data Factory
 
 ### Review your throttled Data Factory Triggers
 
@@ -277,7 +286,7 @@ A high volume of throttling has been detected in an event-based trigger that run
 
 Learn more about [Data factory trigger - ADFThrottledTriggers (Review your throttled Data Factory Triggers)](https://aka.ms/adf-create-event-trigger).
 
-## DbForMariadb
+## MariaDB
 
 ### Scale the storage limit for MariaDB server
 
@@ -309,7 +318,7 @@ Our internal telemetry shows that the server's audit logs may have been lost ove
 
 Learn more about [MariaDB server - OrcasMariaDBAuditLog (Increase the reliability of audit logs)](https://aka.ms/mariadb-audit-logs).
 
-## DbForMysql
+## MySQL
 
 ### Scale the storage limit for MySQL server
 
@@ -365,7 +374,7 @@ Our internal telemetry indicates that your application connecting to MySQL serve
 
 Learn more about [MySQL server - OrcasMySQLConnectionRedirection (Improve MySQL connection latency)](https://aka.ms/azure_mysql_connection_redirection).
 
-## DbForPostgresql
+## PostgreSQL
 
 ### Scale the storage limit for PostgreSQL server
 
@@ -531,7 +540,7 @@ Consider our new offering Azure Database for PostgreSQL Flexible Server that pro
 
 Learn more about [Azure Database for PostgreSQL flexible server - OrcasPostgreSqlMeruMigration (Migrate your database from SSPG to FSPG)](https://aka.ms/sspg-upgrade).
 
-## DesktopVirtualization
+## Desktop Virtualization
 
 ### Improve user experience and connectivity by deploying VMs closer to user’s location.
 
@@ -545,7 +554,7 @@ Depth first load balancing uses the max session limit to determine the maximum n
 
 Learn more about [Host Pool - ChangeMaxSessionLimitForDepthFirstHostPool (Change the max session limit for your depth first load balanced host pool to improve VM performance )](/azure/virtual-desktop/configure-host-pool-load-balancing).
 
-## documentdb
+## Cosmos DB
 
 ### Configure your Azure Cosmos DB applications to use Direct connectivity in the SDK
 
@@ -619,7 +628,7 @@ The compaction queue in your region servers is more than 2000 suggesting that mo
 
 Learn more about [HDInsight cluster - CompactionQueueCandidate (Consider increasing your compaction threads for compactions to complete faster)](/azure/hdinsight/hbase/apache-hbase-advisor).
 
-## KeyVault
+## Key Vault
 
 ### Update Key Vault SDK Version
 
@@ -634,7 +643,7 @@ New Key Vault Client Libraries are split to keys, secrets, and certificates SDKs
 
 Learn more about [Managed HSM Service - UpgradeKeyVaultMHSMSDK (Update Key Vault SDK Version)](/azure/key-vault/general/client-libraries).
 
-## Kusto
+## Data Exporer
 
 ### Right-size Data Explorer resources for optimal performance.
 
@@ -654,7 +663,7 @@ Reducing the table cache policy will free up unused data from the resource's cac
 
 Learn more about [Data explorer resource - ReduceCacheForAzureDataExplorerTablesToImprovePerformance (Reduce Data Explorer table cache policy for better performance)](https://aka.ms/adxcachepolicy).
 
-## Network
+## Networking
 
 ### Configure DNS Time to Live to 20 seconds
 
@@ -692,7 +701,7 @@ Your Application Gateway has been running on high utilization recently and under
 
 Learn more about [Application gateway - HotAppGateway (Make sure you have enough instances in your Application Gateway to support your traffic)](https://aka.ms/hotappgw).
 
-## Sql
+## SQL
 
 ### Create statistics on table columns
 
