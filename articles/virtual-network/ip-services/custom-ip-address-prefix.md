@@ -50,13 +50,10 @@ A custom IP address prefix is a contiguous range of IP addresses owned by an ext
 
 * All traffic destined to a custom prefix range is charged the [internet egress rate](https://azure.microsoft.com/pricing/details/bandwidth/). Customers sending traffic to a custom IP prefix address are charged internet egress for the source region of their traffic. Egress traffic from a custom IP address prefix range is charged the equivalent rate as an Azure Public IP from the same region.
 
-<!--Commenting these until all files are in the branch
 ## Next steps
 
-- [Onboard](create-custom-ip-address-prefix-powershell.md) a custom IP address prefix using PowerShell
+- [Provision](create-custom-ip-address-prefix-powershell.md) a custom IP address prefix using PowerShell.
 
-- [Onboard](create-custom-ip-address-prefix-cli.md) a custom IP address prefix using CLI
+- [Provision](create-custom-ip-address-prefix-cli.md) a custom IP address prefix using CLI.
 
-- [Manage](manage-custom-ip-address-prefix.md) a custom IP address prefix
-
--->
+- [Manage](manage-custom-ip-address-prefix.md) a custom IP address prefix.

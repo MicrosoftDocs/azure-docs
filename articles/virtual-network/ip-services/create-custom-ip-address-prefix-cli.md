@@ -192,10 +192,7 @@ As before, the operation is asynchronous. Utilizing the [az network custom-ip pr
 > [!IMPORTANT]
 > As the custom IP prefix transitions to a "Commissioned" state, the range is being advertised with Microsoft from the local Azure region and globally to the Internet by Microsoft's wide area network under Autonomous System Number (ASN) 8075. Advertising this same range to the Internet from a location other than Microsoft at the same time could potentially create BGP routing instability or traffic loss. For example, a customer on-premises building. Plan any migration of an active range during a maintenance period to avoid impact.
 
-<!--Commenting these until all files are in the branch
 ## Next steps
 
-- Learn how to [create public IP address prefixes](manage-custom-ip-address-prefix.md) from your onboarded IP address range.
+- Learn how to [create public IP address prefixes](manage-custom-ip-address-prefix.md) from your provisioned IP address range.
 - Learn about scenarios and benefits of using a [custom IP address prefix](custom-ip-address-prefix.md) to bring your IP address ranges to Azure.
-
--->
