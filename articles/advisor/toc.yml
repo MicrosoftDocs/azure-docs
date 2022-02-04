@@ -69,6 +69,8 @@
     href: /powershell/module/az.advisor/
   - name: Operational Excellence
     href: advisor-reference-operational-excellence-recommendations.md
+  - name: Performance
+    href: advisor-reference-performance-recommendations.md
 - name: Resources
   items:
   - name: Azure Roadmap
