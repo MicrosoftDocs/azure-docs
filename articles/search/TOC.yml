@@ -211,12 +211,12 @@
         href: search-security-get-encryption-keys.md
     - name: Inbound security
       items:
-      - name: Key-based authentication
+      - name: Use key authentication
         href: search-security-api-keys.md
-      - name: Azure AD authentication
-        href: search-howto-aad.md
-      - name: Role-based authorization
+      - name: Use Azure roles
         href: search-security-rbac.md
+      - name: Authenticate apps with Azure AD
+        href: search-howto-aad.md
       - name: Configure an IP firewall
         href: service-configure-firewall.md
       - name: Create a private endpoint
