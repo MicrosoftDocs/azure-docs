@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: tutorial
-ms.date: 02/02/2022
+ms.date: 02/04/2022
 ms.author: aahi
 ms.custom: language-service-custom-ner, ignite-fall-2021
 ---
@@ -56,9 +56,9 @@ In this tutorial, you learn how to:
 
 ## Deploy your model
 
-1. Select **Deploy model** from the left side menu.
+[!INCLUDE [Deploy a model using Language Studio](../deploy-model-language-studio.md)]
 
-2. Select the model you want to deploy and from the top menu click on **Deploy model**. If you deploy your model through Language Studio, your `deployment-name` will be `prod`.
+If you deploy your model through Language Studio, your `deployment-name` will be `prod`.
 
 ## Use CogSvc language utilities tool for Cognitive search integration
  

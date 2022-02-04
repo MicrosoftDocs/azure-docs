@@ -5,7 +5,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
-ms.date: 01/24/2022
+ms.date: 02/04/2022
 ms.author: aahi
 ms.custom: ignite-fall-2021
 ---
@@ -88,9 +88,8 @@ Generally after training a model you would review it's [evaluation details](../.
 
 After your model is trained, you can deploy it. Deploying your model lets you start using it to extract named entities, using [Analyze API](https://aka.ms/ct-runtime-swagger).
 
-1. Select **Deploy model** from the left side menu.
+[!INCLUDE [Deploy a model using Language Studio](../deploy-model-language-studio.md)]
 
-2. Select the model you want to deploy, then select **Deploy model**.
 
 ## Test your model
 
