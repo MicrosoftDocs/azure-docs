@@ -9,7 +9,7 @@ ms.service: iot-edge
 services: iot-edge
 ---
 
-# Understand Azure IoT Edge Limits and restrictions
+# Understand Azure IoT Edge limits and restrictions
 
 [!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
