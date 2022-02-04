@@ -831,7 +831,7 @@
     ".openpublishing.redirection.json",
     ".openpublishing.redirection.active-directory.json",
     ".openpublishing.redirection.azure-sql.json",
-    ".openpublishing.redirection.data-factory.json",
+    "articles/data-factory/.openpublishing.redirection.data-factory.json",
     ".openpublishing.redirection.defender-for-cloud.json",
     ".openpublishing.redirection.defender-for-iot.json",
     ".openpublishing.redirection.healthcare-apis.json",
