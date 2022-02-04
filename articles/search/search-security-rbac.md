@@ -16,9 +16,9 @@ ms.custom: subject-rbac-steps, references_regions
 
 Azure provides a global [role-based access control (RBAC) authorization system](../role-based-access-control/role-assignments-portal.md) for all services running on the platform. In Cognitive Search, you can:
 
-+ Use generally available roles for service administration
++ Use generally available roles for service administration.
 
-+ Use new preview roles for data requests, including creating, loading, and querying indexes
++ Use new preview roles for data requests, including creating, loading, and querying indexes.
 
 Per-user access over search results (sometimes referred to as row-level security or document-level security) is not supported. As a workaround, [create security filters](search-security-trimming-for-azure-search.md) that trim results by user identity, removing documents for which the requestor should not have access.
 
@@ -38,13 +38,15 @@ Built-in roles include generally available and preview roles.
 > [!NOTE]
 > Azure resources have the concept of [control plane and data plane](../azure-resource-manager/management/control-plane-and-data-plane.md) categories of operations. In Cognitive Search, "control plane" refers to any operation supported in the [Management REST API](/rest/api/searchmanagement/) or equivalent client libraries. The "data plane" refers to operations against the search service endpoint, such as indexing or queries, or any other operation specified in the [Search REST API](/rest/api/searchservice/) or equivalent client libraries. Most roles apply to just one plane. The exception is Search Service Contributor which supports actions across both.
 
-## Preview limitations
+<a name="preview-limitations"></a>
+
+## Preview capabilities and limitations
+
++ Role-based access control for data plane operations, such as creating an index or querying an index, is currently in public preview and available under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 + There are no regional, tier, or pricing restrictions for using Azure RBAC preview , but your search service must be in the Azure public cloud. The preview isn't available in Azure Government, Azure Germany, or Azure China 21Vianet.
 
-+ This preview capability is available under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) and should not be rolled into a production environment.
-
-+ If a subscription is migrated to a new tenant, the RBAC preview will need to be re-enabled. 
++ If you migrate your Azure subscription to a new tenant, the RBAC preview will need to be re-enabled. 
 
 + Adoption of Azure RBAC might increase the latency of some requests. Each unique combination of service resource (index, indexer, etc.) and service principal used on a request will trigger an authorization check. These authorization checks can add up to 200 milliseconds of latency to a request. 
 

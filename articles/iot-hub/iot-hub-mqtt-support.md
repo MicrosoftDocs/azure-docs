@@ -1,4 +1,4 @@
-﻿---
+---
 title: Understand Azure IoT Hub MQTT support | Microsoft Docs
 description: Support for devices connecting to an IoT Hub device-facing endpoint using the MQTT protocol. Includes information about built-in MQTT support in the Azure IoT device SDKs.
 author: eross-msft
