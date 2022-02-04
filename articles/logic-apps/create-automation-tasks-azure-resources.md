@@ -286,32 +286,32 @@ When you change the underlying workflow for an automation task, your changes aff
 
 ## Create automation task template from workflow
 
-You can create your own automation task template by using any Consumption logic app workflow that starts with a recurring trigger. For this task, you'll need the following other items:
+You can create your own automation task template by using any Consumption logic app workflow that starts with a recurring trigger. For this task, you'll need the following items:
 
 * A [GitHub](https://github.com) account
 
-* Your own fork of the [Azure automation task templates GitHub repository](https://github.com/Azure/automation-task-template/tree/master/templates).
+* Your forked version of the [Azure automation task templates GitHub repository](https://github.com/Azure/automation-task-template/tree/master/templates).
 
   For more information about forks and creating a fork, review the following GitHub documentation:
 
   * [About forks](https://docs.github.com/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)
   * [Fork a repo](https://docs.github.com/get-started/quickstart/fork-a-repo)
 
-* A working branch in your work where you can add your automation task template.
+* A working branch in your forked repository where you'll add your automation task template.
 
   For more information about branches and creating a branch, review the following documentation:
 
   * [About branches](https://docs.github.com/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches)
   * [Create and delete branches](https://docs.github.com/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository)
 
-* Fiddler or your favorite web debugging tool. For example, a free trial is available for [Fiddler Everywhere](https://www.telerik.com/fiddler/fiddler-everywhere).
+* Your choice of a web debugging tool. This example uses Fiddler 4, but you can try the free trial available for [Fiddler Everywhere](https://www.telerik.com/fiddler/fiddler-everywhere).
 
 To create the template and make the template available for use in Azure, here are the high-level steps:
 
 1. [Export the workflow](#export-workflow) to an automation task template.
-1. [Upload your template](#upload-template) to your working branch in your GitHub fork.
-1. [Test your template](#test-template) by using Fiddler or your own web debugging tool.
-1. [Create a pull request (PR) from your working branch](#create-pull-request) against the default branch in the Azure automation task templates GitHub repository.
+1. [Upload your template](#upload-template) to your working branch in your forked repository.
+1. [Test your template](#test-template) by using your web debugging tool or Fiddler.
+1. [Create a pull request (PR) for your working branch](#create-pull-request) against the default branch in the Azure automation task templates GitHub repository.
 
 After the Azure Logic Apps team reviews and approves your PR for merging to the default branch, your template is live and available to all Azure customers.
 
@@ -342,17 +342,17 @@ After the Azure Logic Apps team reviews and approves your PR for merging to the 
 
    ![Screenshot showing the 'Export to Automation Task' pane with example properties for an automation task template.](./media/create-automation-tasks-azure-resources/export-template-properties.png)
 
-1. When you're done, select **Download Template**. When you're prompted, save the template as a workflow definition file with the .json extension. For template naming consistency, use only lowercase and the following syntax:
+1. When you're done, select **Download Template**. When you're prompted, save the template using the **.json** file name extension. For a consisten template name, use only lowercase, hyphens between words, and the following syntax:
 
-   **<*action*>-<*resource*>**
+   **<*action-verb*>-<*Azure-resource*>**
 
-   For example, based on the earlier example template name, you might name the file as **save-queue-message-blob.json**.
+   For example, based on the earlier example template name, you might name the template file as **save-queue-message-to-blob.json**.
 
 <a name="upload-template"></a>
 
 ### Upload template to GitHub
 
-1. Go to [GitHub](https://github.com) and sign in with your GitHub account.
+1. Go to [GitHub](https://github.com), and sign in with your GitHub account.
 
 1. Go to the [Azure automation task templates GitHub repository](https://github.com/Azure/automation-task-template/tree/master/templates), which takes you to the default branch in the repository.
 
@@ -362,6 +362,37 @@ After the Azure Logic Apps team reviews and approves your PR for merging to the 
 
 1. Either drag your workflow definition file to the specified area on the page, or select **choose your files**.
 
+1. After you add your template, in the same folder, open the **manifest.json** file, and add an entry for your **<*template-name*>.json** file.
+
+<a name="test-template"></a>
+
+### Test your template
+
+You can use your favorite web debugging tool to test the template you uploaded to your working directory. This example continues by using Fiddler and FiddlerScript.
+
+1. If you use FiddlerScript, find the `onBeforeRequest()` function, and add the following code to that function:
+
+   ```javascript
+   if (oSession.url == "raw.githubusercontent.com/azure/automation-task-template/master/templates/manifest.json") {
+      oSession.url = "raw.githubusercontent.com/<GitHub-username>/automation-task-template/<working-branch>/templates/manifest.json";
+   }
+   if (oSession.url == "raw.githubusercontent.com/azure/automation-task-template/master/templates/<template-name>") {
+      oSession.url = "raw.githubusercontent.com/<GitHub-username>/automation-task-template/<working-branch>/templates/<template-name>";
+   }
+   ```
+
+   This code gets the **manifest.json** and **<*template-name*>.json** files from your forked repository, rather than from the main Azure GitHub repository.
+
+1. Before you run your test, make sure to close all browser windows, and clear your browser cache in Fiddler.
+
+1. Open a new browser window and go to the [Azure portal](https://portal.azure.com).
+
+1. Go to the Azure resource 
+
+<a name="create-pull-request"></a>
+
+### Create your pull request
+
 1. Under **Commit changes**, enter a concise but descriptive title for your pull request. You provide more information in the description box.
 
 1. Select **Create a new branch for this commit and start a pull request**. At the prompt, provide a name for your working branch, for example:
@@ -369,33 +400,6 @@ After the Azure Logic Apps team reviews and approves your PR for merging to the 
    `<your-GitHub-alias>-<automation-task-name>-template`
 
 1. When you're ready, select **Propose changes**.
-
-<a name="test-template"></a>
-
-### Test your template
-
-The following steps use Fiddler and the following Fiddler script:
-
-1. To test the Automation Task template from your forked github repository that holds your template, use Fiddler 
-
-1. In the Fiddler, find the `onBeforeRequest()` function and add the following code, making sure to replace the following placeholders with your specific information:
-
-   * `<template-name>`
-   * `<GitHub-username>`
-   * `<working-branch>`
-
-```
-if (oSession.url == "raw.githubusercontent.com/azure/automation-task-template/master/templates/manifest.json") { oSession.url = "raw.githubusercontent.com//automation-task-template//templates/manifest.json"; }
-
-    if (oSession.url == "raw.githubusercontent.com/azure/automation-task-template/master/templates/<template-name>") {
-        oSession.url = "raw.githubusercontent.com/<GitHub-username>/automation-task-template/<working-branch>/templates/<template-name>";
-     }
-```
-
-<a name="create-pull-request"></a>
-
-### Create your pull request
-
 
 ## Provide feedback
 
