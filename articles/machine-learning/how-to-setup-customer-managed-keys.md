@@ -43,6 +43,16 @@ In addition to customer-managed keys, Azure Machine Learning also provides a [hb
 ## Prerequisites
 
 * An Azure subscription.
+* An Azure Key Vault instance. The key vault contains the key(s) used to encrypt your services.
+
+    * The key vault instance must enable soft delete and purge protection.
+    * The managed identity for the services secured by a customer-managed key must have the following permissions in key vault:
+
+        * wrapkey
+        * unwrapkey
+        * get
+
+        For example, the managed identity for Azure Cosmos DB would need to have those permissions to the key vault.
 
 ## Limitations
 
@@ -61,8 +71,8 @@ The following resources store metadata for your workspace:
 | Azure Cognitive Search | Stores indices that are used to help query your machine learning content. |
 | Azure Storage Account | Stores other metadata such as Azure Machine Learning pipelines data. |
 
-> [!TIP]
-> The Azure Storage Account for metadata can be different than the default storage account for your workspace.
+> [!IMPORTANT]
+> The Azure Storage Account for metadata _must_ be different than the default storage account for your workspace.
 
 Your Azure Machine Learning workspace reads and writes data using its managed identity. This identity is granted access to the resources using a role assignment (Azure role-based access control) on the data resources. The encryption key you provide is used to encrypt data that is stored on Microsoft-managed resources. It's also used to create indices for Azure Cognitive Search, which are created at runtime.
 
@@ -144,9 +154,11 @@ To enable the `hbi_workspace` flag when creating an Azure Machine Learning works
 
 ## How to rotate keys
 
-[TODO: Waiting on more info for key rotation story. Current info as placeholder for now.]
+[TODO: Waiting on more info for key rotation story. Currently mostly scaffolding.]
 
-* Cosmos DB: If you need to __rotate or revoke__ your key, you can do so at any time. When rotating a key, Cosmos DB will start using the new key (latest version) to encrypt data at rest. When revoking (disabling) a key, Cosmos DB takes care of failing requests. It usually takes an hour for the rotation or revocation to be effective.
+For resources that you manage (bring your own resources), you manage key rotation as normal.
+
+For resources that are Microsoft-managed, ?????
 
 ### Auto-rotation
 
