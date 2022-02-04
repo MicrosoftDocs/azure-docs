@@ -63,8 +63,8 @@ Azure Private 5G Core lets you deploy packet core instances directly on an enter
 Deploying a packet core instance at the enterprise edge ensures complete ownership of all data by the enterprise. It also positions the packet core instance as close as possible to the devices it serves, removing any reliance on cloud connectivity. This allows it to deliver low latency levels through local data processing when combined with application logic in the same location. This provides a number of valuable benefits.
 
 - **Machine to machine automation** - Ultra Reliable Low Latency Connectivity (URLLC) for command and control messages from automated systems (like robots or automated guide vehicles). These messages can be processed in real time to prevent stalling, enabling high productivity.
-- **Massive IoT telemetry** - secure cloud connectivity for data collection from a large density and volume of IoT sensors and devices. Data for health assessment and automated systems can be processed in real time to prevent accidents and ensure on-site safety.
-- **Real-time analytics** - local processing of real-time operational and diagnostics data such as live video feeds can be AI processed at the edge at minimal expense, ensuring vital actions aren't delayed.
+- **Massive IoT telemetry** - Secure cloud connectivity for data collection from a large density and volume of IoT sensors and devices. Data for health assessment and automated systems can be processed in real time to prevent accidents and ensure on-site safety.
+- **Real-time analytics** - Local processing of real-time operational and diagnostics data. For example, live video feeds can be processed at the edge at minimal expense using AI, ensuring vital actions aren't delayed.
 
 :::image type="content" source="media/azure-private-5g-core/enterprise-edge-latency.png" alt-text="Diagram showing low latency levels for services deployed on Azure Stack Edge devices compared to the Azure/Network Edge and Azure Hyperscale Cloud.":::
 
