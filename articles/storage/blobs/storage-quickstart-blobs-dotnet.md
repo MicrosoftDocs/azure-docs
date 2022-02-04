@@ -1,27 +1,28 @@
 ---
 title: "Quickstart: Azure Blob Storage library v12 - .NET"
 description: In this quickstart, you will learn how to use the Azure Blob Storage client library version 12 for .NET to create a container and a blob in Blob (object) storage. Next, you learn how to download the blob to your local computer, and how to list all of the blobs in a container.
-author: normesta
-
-ms.author: normesta
-ms.date: 03/03/2021
+author: stevenmatthew
+ms.author: shaas
+ms.date: 10/06/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.custom: devx-track-csharp
+ms.devlang: csharp
+ms.custom: devx-track-csharp, mode-api
 ---
 
 # Quickstart: Azure Blob Storage client library v12 for .NET
 
 Get started with the Azure Blob Storage client library v12 for .NET. Azure Blob Storage is Microsoft's object storage solution for the cloud. Follow steps to install the package and try out example code for basic tasks. Blob storage is optimized for storing massive amounts of unstructured data.
 
-Use the Azure Blob Storage client library v12 for .NET to:
+The examples in this quickstart show you how to use the Azure Blob Storage client library v12 for .NET to:
 
-- Create a container
-- Upload a blob to Azure Storage
-- List all of the blobs in a container
-- Download the blob to your local computer
-- Delete a container
+- [Get the connection string](#get-the-connection-string)
+- [Create a container](#create-a-container)
+- [Upload a blob to a container](#upload-a-blob-to-a-container)
+- [List blobs in a container](#list-blobs-in-a-container)
+- [Download a blob](#download-a-blob)
+- [Delete a container](#delete-a-container)
 
 Additional resources:
 
@@ -105,14 +106,7 @@ Use the following .NET classes to interact with these resources:
 
 ## Code examples
 
-These example code snippets show you how to perform the following with the Azure Blob Storage client library for .NET:
-
-- [Get the connection string](#get-the-connection-string)
-- [Create a container](#create-a-container)
-- [Upload blobs to a container](#upload-blobs-to-a-container)
-- [List the blobs in a container](#list-the-blobs-in-a-container)
-- [Download blobs](#download-blobs)
-- [Delete a container](#delete-a-container)
+The sample code snippets in the following sections show you how to perform basic data operations with the Azure Blob Storage client library for .NET.
 
 ### Get the connection string
 
@@ -135,7 +129,7 @@ Add this code to the end of the `Main` method:
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/quickstarts/dotnet/BlobQuickstartV12/Program.cs" id="Snippet_CreateContainer":::
 
-### Upload blobs to a container
+### Upload a blob to a container
 
 The following code snippet:
 
@@ -147,7 +141,7 @@ Add this code to the end of the `Main` method:
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/quickstarts/dotnet/BlobQuickstartV12/Program.cs" id="Snippet_UploadBlobs":::
 
-### List the blobs in a container
+### List blobs in a container
 
 List the blobs in the container by calling the [GetBlobsAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobsasync) method. In this case, only one blob has been added to the container, so the listing operation returns just that one blob.
 
@@ -155,7 +149,7 @@ Add this code to the end of the `Main` method:
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/quickstarts/dotnet/BlobQuickstartV12/Program.cs" id="Snippet_ListBlobs":::
 
-### Download blobs
+### Download a blob
 
 Download the previously created blob by calling the [DownloadToAsync](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.downloadtoasync) method. The example code adds a suffix of "DOWNLOADED" to the file name so that you can see both files in local file system.
 

@@ -3,7 +3,7 @@ title: Delete volume replications or volumes for Azure NetApp Files cross-region
 description: Describes how to delete a replication connection that is no longer needed between the source and the destination volumes. 
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 
@@ -11,10 +11,9 @@ ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.date: 11/18/2020
-ms.author: b-juche
+ms.author: anfdocs
 ---
 # Delete volume replications or volumes
 

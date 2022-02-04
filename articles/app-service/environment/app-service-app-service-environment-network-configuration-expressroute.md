@@ -1,12 +1,12 @@
 ---
 title: Configure Azure ExpressRoute v1
 description: Network configuration for App Service Environment for Power Apps with Azure ExpressRoute. This doc is provided only for customers who use the legacy v1 ASE.
-author: stefsch
+author: madsd
 
 ms.assetid: 34b49178-2595-4d32-9b41-110c96dde6bf
 ms.topic: article
 ms.date: 10/14/2016
-ms.author: stefsch
+ms.author: madsd
 ms.custom: seodec18
 ---
 
@@ -147,7 +147,6 @@ To get started with App Service Environment for Power Apps, see [Introduction to
 <!-- Old link -- [UDRHowTo]: https://azure.microsoft.com/documentation/articles/virtual-networks-udr-how-to/ -->
 
 [UDRHowTo]: ../../virtual-network/tutorial-create-route-table-powershell.md
-[HowToCreateAnAppServiceEnvironment]: app-service-web-how-to-create-an-app-service-environment.md 
 [AzureDownloads]: https://azure.microsoft.com/downloads/ 
 [DownloadCenterAddressRanges]: https://www.microsoft.com/download/details.aspx?id=41653 
 [NetworkSecurityGroups]: ../../virtual-network/virtual-network-vnet-plan-design-arm.md

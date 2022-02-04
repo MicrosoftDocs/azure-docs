@@ -4,7 +4,7 @@ description: Troubleshoot common issues in a deployment on Azure File Sync, whic
 author: jeffpatt24
 ms.service: storage
 ms.topic: troubleshooting
-ms.date: 8/24/2021
+ms.date: 11/2/2021
 ms.author: jeffpatt
 ms.subservice: files 
 ms.custom: devx-track-azurepowershell
@@ -16,6 +16,7 @@ Use Azure File Sync to centralize your organization's file shares in Azure Files
 This article is designed to help you troubleshoot and resolve issues that you might encounter with your Azure File Sync deployment. We also describe how to collect important logs from the system if a deeper investigation of the issue is required. If you don't see the answer to your question, you can contact us through the following channels (in escalating order):
 
 - [Microsoft Q&A question page for Azure Files](/answers/products/azure?product=storage).
+- [Azure Community Feedback](https://feedback.azure.com/d365community/forum/a8bb4a47-3525-ec11-b6e6-000d3a4f0f84?c=c860fa6b-3525-ec11-b6e6-000d3a4f0f84).
 - Microsoft Support. To create a new support request, in the Azure portal, on the **Help** tab, select the **Help + support** button, and then select **New support request**.
 
 ## I'm having an issue with Azure File Sync on my server (sync, cloud tiering, etc.). Should I remove and recreate my server endpoint?
@@ -502,6 +503,9 @@ This error occurs because the Azure File Sync agent is not authorized to access 
     ```
 2. [Verify the storage account exists.](#troubleshoot-storage-account)
 3. [Verify the firewall and virtual network settings on the storage account are configured properly (if enabled)](file-sync-deployment-guide.md?tabs=azure-portal#configure-firewall-and-virtual-network-settings)
+
+> [!Note]  
+> Once network connectivity to the Azure File Sync service is restored, sync may not resume immediately. By default, Azure File Sync will initiate a sync session every 30 minutes if no changes are detected within the server endpoint location. To force a sync session, restart the Storage Sync Agent (FileSyncSvc) service or make a change to a file or directory within the server endpoint location.
 
 <a id="-2134364022"></a><a id="storage-unknown-error"></a>**An unknown error occurred while accessing the storage account.**  
 

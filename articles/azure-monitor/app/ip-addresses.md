@@ -192,7 +192,7 @@ East US
 ```
 
 ### Discovery API
-You may also want to [programmatically retrieve](../../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api-public-preview) the current list of service tags together with IP address range details.
+You may also want to [programmatically retrieve](../../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api) the current list of service tags together with IP address range details.
 
 ## Application Insights & Log Analytics APIs
 

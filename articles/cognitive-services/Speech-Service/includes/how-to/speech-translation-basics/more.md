@@ -1,9 +1,9 @@
 ---
-author: PatrickFarley
+author: eric-urban
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/06/2020
-ms.author: pafarley
+ms.author: eur
 ---
 
 ## Additional language and platform support
@@ -21,7 +21,7 @@ If you've clicked this tab, you probably didn't see a basics article in your fav
 | Python      | [Windows, Linux, macOS][python]                                                                                                         |
 | Swift       | [iOS][swift-ios], [macOS][swift-macos]                                                                                                  |
 
-<!-- Links -->
+
 [cpp-quickstarts]: https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/cpp
 [cpp-samples]: https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/cpp/linux
 

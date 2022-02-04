@@ -3,7 +3,7 @@ title: Create a VM from a generalized image in a gallery
 description: Create a VM from a generalized image in a gallery.
 author: cynthn
 ms.service: virtual-machines
-ms.subservice: shared-image-gallery
+ms.subservice: gallery
 ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 08/31/2021
@@ -13,7 +13,7 @@ ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 # Create a VM from a generalized image version
 
-Create a VM from a [generalized image version](./shared-image-galleries.md#generalized-and-specialized-images) stored in a Shared Image Gallery. If you want to create a VM using a specialized image, see [Create a VM from a specialized image](vm-specialized-image-version.md). 
+Create a VM from a [generalized image version](./shared-image-galleries.md#generalized-and-specialized-images) stored in an Azure Compute Gallery (formerly known as Shared Image Gallery). If you want to create a VM using a specialized image, see [Create a VM from a specialized image](vm-specialized-image-version.md). 
 
 
 ### [Portal](#tab/portal)
@@ -165,7 +165,7 @@ $nsgRuleRDP = New-AzNetworkSecurityRuleConfig `
    -SourcePortRange * `
    -DestinationAddressPrefix * `
    -DestinationPortRange 3389 `
-   -Access Allow
+   -Access Deny
 $nsg = New-AzNetworkSecurityGroup `
    -ResourceGroupName $resourceGroup `
    -Location $location `
@@ -251,7 +251,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
           "protocol": "Tcp",
           "sourceAddressPrefix": "*",
           "destinationAddressPrefix": "*",
-          "access": "Allow",
+          "access": "Deny",
           "destinationPortRange": "3389",
           "sourcePortRange": "*",
           "priority": 1000,
@@ -312,7 +312,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
             "osDisk": {
                 "caching": "ReadWrite",
                 "managedDisk": {
-                    "storageAccountType": "Standard_LRS"
+                    "storageAccountType": "StandardSSD_LRS"
                 },
                 "createOption": "FromImage"
             }
@@ -363,7 +363,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
             "osDisk": {
                 "caching": "ReadWrite",
                 "managedDisk": {
-                    "storageAccountType": "Standard_LRS"
+                    "storageAccountType": "StandardSSD_LRS"
                 },
                 "createOption": "FromImage"
             }

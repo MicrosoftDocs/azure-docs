@@ -4,15 +4,15 @@ description: Learn how to view the audit log history for Azure AD roles in Azure
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: daveba
+manager: karenhoran
 editor: ''
-
 ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 09/23/2021
+ms.date: 10/07/2021
 ms.author: curtand
+ms.reviewer: shaunliu
 ms.custom: pim
 
 ms.collection: M365-identity-device-management

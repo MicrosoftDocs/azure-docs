@@ -4,11 +4,11 @@ titleSuffix: Azure Machine Learning
 description: Use an isolated Azure Virtual Network to secure your Azure Machine Learning workspace and associated resources.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: enterprise-readiness
 ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
-ms.date: 09/22/2021
+ms.date: 01/11/2022
 ms.topic: how-to
 ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1, security
 
@@ -28,7 +28,7 @@ In this article, you learn how to secure an Azure Machine Learning workspace and
 > * [Use custom DNS](how-to-custom-dns.md)
 > * [Use a firewall](how-to-access-azureml-behind-firewall.md)
 >
-> For a tutorial on creating a secure workspace, see [Tutorial: Create a secure workspace](tutorial-create-secure-workspace.md).
+> For a tutorial on creating a secure workspace, see [Tutorial: Create a secure workspace](tutorial-create-secure-workspace.md) or [Tutorial: Create a secure workspace using a template](tutorial-create-secure-workspace-template.md).
 
 In this article you learn how to enable the following workspaces resources in a virtual network:
 > [!div class="checklist"]
@@ -52,7 +52,7 @@ In this article you learn how to enable the following workspaces resources in a 
 + To deploy resources into a virtual network or subnet, your user account must have permissions to the following actions in Azure role-based access control (Azure RBAC):
 
     - "Microsoft.Network/virtualNetworks/join/action" on the virtual network resource.
-    - "Microsoft.Network/virtualNetworks/subnet/join/action" on the subnet resource.
+    - "Microsoft.Network/virtualNetworks/subnets/join/action" on the subnet resource.
 
     For more information on Azure RBAC with networking, see the [Networking built-in roles](../role-based-access-control/built-in-roles.md#networking)
 
@@ -60,7 +60,7 @@ In this article you learn how to enable the following workspaces resources in a 
 
 * Your Azure Container Registry must be Premium version. For more information on upgrading, see [Changing SKUs](../container-registry/container-registry-skus.md#changing-tiers).
 
-* Your Azure Container Registry must be in the same virtual network and subnet as the storage account and compute targets used for training or inference.
+* If your Azure Container Registry uses a __private endpoint__, it must be in the same _virtual network_ as the storage account and compute targets used for training or inference. If it uses a __service endpoint__, it must be in the same _virtual network_ and _subnet_ as the storage account and compute targets.
 
 * Your Azure Machine Learning workspace must contain an [Azure Machine Learning compute cluster](how-to-create-attach-compute-cluster.md).
 
@@ -68,7 +68,10 @@ In this article you learn how to enable the following workspaces resources in a 
 
 ### Azure Storage Account
 
-If both the Azure Machine Learning workspace and the Azure Storage Account use a private endpoint to connect to the VNet, both must be within the same subnet.
+* If you plan to use Azure Machine Learning studio and the storage account is also in the VNet, there are extra validation requirements:
+
+    * If the storage account uses a __service endpoint__, the workspace private endpoint and storage service endpoint must be in the same subnet of the VNet.
+    * If the storage account uses a __private endpoint__, the workspace private endpoint and storage service endpoint must be in the same VNet. In this case, they can be in different subnets.
 
 ### Azure Container Registry
 
@@ -79,6 +82,11 @@ When ACR is behind a virtual network, Azure Machine Learning cannot use it to di
 
 > [!WARNING]
 > If your Azure Container Registry uses a private endpoint to communicate with the virtual network, you cannot use a managed identity with an Azure Machine Learning compute cluster. To use a managed identity with a compute cluster, use a service endpoint with the Azure Container Registry for the workspace.
+
+### Azure Monitor
+
+> [!WARNING]
+> Azure Monitor supports using Azure Private Link to connect to a VNet. However, Azure Machine Learning does not support using a private link-enabled Azure Monitor (including Azure Application Insights). Do __not_ configure private link for the Azure Monitor or Azure Application Insights you plan to use with Azure Machine Learning.
 
 ## Required public internet access
 
@@ -101,18 +109,28 @@ Azure Machine Learning supports storage accounts configured to use either a priv
 
 # [Private endpoint](#tab/pe)
 
-> [!TIP]
-> You must configure two private endpoints for your default storage account:
-> * A private endpoint with a **blob** target subresource.
-> * A private endpoint with a **file** target subresource (fileshare).
->
-> If you plan to use [ParallelRunStep](./tutorial-pipeline-batch-scoring-classification.md) in your pipeline, you must also configure private endpoints with **queue** and **table** target subresources. ParallelRunStep uses queue and table for task scheduling and dispatching.
+1. In the Azure portal, select the Azure Storage Account.
+1. Use the information in [Use private endpoints for Azure Storage](../storage/common/storage-private-endpoints.md#creating-a-private-endpoint) to add private endpoints for the following storage sub-resources:
 
-:::image type="content" source="./media/how-to-enable-studio-virtual-network/configure-storage-private-endpoint.png" alt-text="Screenshot showing private endpoint configuration page with blob and file options":::
+    * **Blob**
+    * **File**
+    * **Queue** - Only needed if you plan to use [ParallelRunStep](./tutorial-pipeline-batch-scoring-classification.md) in an Azure Machine Learning pipeline.
+    * **Table** - Only needed if you plan to use [ParallelRunStep](./tutorial-pipeline-batch-scoring-classification.md) in an Azure Machine Learning pipeline.
 
-To configure a private endpoint for a storage account that is **not** the default storage, select the **Target subresource** type that corresponds to the storage account you want to add.
+    :::image type="content" source="./media/how-to-enable-studio-virtual-network/configure-storage-private-endpoint.png" alt-text="Screenshot showing private endpoint configuration page with blob and file options":::
 
-For more information, see [Use private endpoints for Azure Storage](../storage/common/storage-private-endpoints.md)
+    > [!TIP]
+    > When configuring a storage account that is **not** the default storage, select the **Target subresource** type that corresponds to the storage account you want to add.
+
+1. After creating the private endpoints for thee sub-resources, select the __Firewalls and virtual networks__ tab under __Networking__ for the storage account.
+1. Select __Selected networks__, and then under __Resource instances__, select `Microsoft.MachineLearningServices/Workspace` as the __Resource type__. Select your workspace using __Instance name__. For more information, see [Trusted access based on system-assigned managed identity](../storage/common/storage-network-security.md#trusted-access-based-on-system-assigned-managed-identity).
+
+    > [!TIP]
+    > Alternatively, you can select __Allow Azure services on the trusted services list to access this storage account__ to more broadly allow access from trusted services. For more information, see [Configure Azure Storage firewalls and virtual networks](../storage/common/storage-network-security.md#trusted-microsoft-services).
+
+    :::image type="content" source="./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks-no-vnet.png" alt-text="The networking area on the Azure Storage page in the Azure portal when using private endpoint":::
+
+1. Select __Save__ to save the configuration.
 
 > [!TIP]
 > When using a private endpoint, you can also disable public access. For more information, see [disallow public read access](../storage/blobs/anonymous-read-access-configure.md#allow-or-disallow-public-read-access-for-a-storage-account).
@@ -128,16 +146,14 @@ For more information, see [Use private endpoints for Azure Storage](../storage/c
     > [!IMPORTANT]
     > The storage account must be in the same virtual network and subnet as the compute instances or clusters used for training or inference.
 
-1. Under __Resource instances__, select `Microsoft.MachineLearningServices/Workspace` as the __Resource type__ and select your workspace using __Instance name__. For more information, see [Trusted access based on system-assigned managed identity](/azure/storage/common/storage-network-security#trusted-access-based-on-system-assigned-managed-identity).
+1. Under __Resource instances__, select `Microsoft.MachineLearningServices/Workspace` as the __Resource type__ and select your workspace using __Instance name__. For more information, see [Trusted access based on system-assigned managed identity](../storage/common/storage-network-security.md#trusted-access-based-on-system-assigned-managed-identity).
 
-1. Under __Exceptions__, select __Allow Azure services on the trusted services list to access this storage account__.
+    > [!TIP]
+    > Alternatively, you can select __Allow Azure services on the trusted services list to access this storage account__ to more broadly allow access from trusted services. For more information, see [Configure Azure Storage firewalls and virtual networks](../storage/common/storage-network-security.md#trusted-microsoft-services).
 
-    * Resources of some services, **registered in your subscription**, can access the storage account **in the same subscription** for select operations. For example, writing logs or creating backups.
-    * Resources of some services can be granted explicit access to your storage account by __assigning an Azure role__ to its system-assigned managed identity.
+    :::image type="content" source="./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks.png" alt-text="The networking area on the Azure Storage page in the Azure portal":::
 
-    For more information, see [Configure Azure Storage firewalls and virtual networks](../storage/common/storage-network-security.md#trusted-microsoft-services).
-
-:::image type="content" source="./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks.png" alt-text="The networking area on the Azure Storage page in the Azure portal":::
+1. Select __Save__ to save the configuration.
 
 > [!TIP]
 > When using a service endpoint, you can also disable public access. For more information, see [disallow public read access](../storage/blobs/anonymous-read-access-configure.md#allow-or-disallow-public-read-access-for-a-storage-account).
@@ -158,7 +174,7 @@ Azure key vault can be configured to use either a private endpoint or service en
 
 # [Private endpoint](#tab/pe)
 
-For information on using a private endpoint with Azure Key Vault, see [Integrate Key Vault with Azure Private Link](/azure/key-vault/general/private-link-service#establish-a-private-link-connection-to-key-vault-using-the-azure-portal).
+For information on using a private endpoint with Azure Key Vault, see [Integrate Key Vault with Azure Private Link](../key-vault/general/private-link-service.md#establish-a-private-link-connection-to-key-vault-using-the-azure-portal).
 
 
 # [Service endpoint](#tab/se)
@@ -174,7 +190,7 @@ For information on using a private endpoint with Azure Key Vault, see [Integrate
 
     :::image type="content" source="./media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks-page.png" alt-text="The Firewalls and virtual networks section in the Key Vault pane":::
 
-For more information, see [Configure Azure Key Vault network settings](/azure/key-vault/general/how-to-azure-key-vault-network-security).
+For more information, see [Configure Azure Key Vault network settings](../key-vault/general/how-to-azure-key-vault-network-security.md).
 
 ---
 
@@ -209,7 +225,7 @@ Azure Container Registry can be configured to use a private endpoint. Use the fo
 
 1. Create an Azure Machine Learning compute cluster. This is used to build Docker images when ACR is behind a VNet. For more information, see [Create a compute cluster](how-to-create-attach-compute-cluster.md).
 
-1. Use the Azure Machine Learning Python SDK to configure the workspace to build Docker images using the compute instance. The following code snippet demonstrates how to update the workspace to set a build compute. Replace `mycomputecluster` with the name of the cluster to use:
+1. Use the Azure Machine Learning Python SDK to configure the workspace to build Docker images using the compute cluster. The following code snippet demonstrates how to update the workspace to set a build compute. Replace `mycomputecluster` with the name of the cluster to use:
 
     ```python
     from azureml.core import Workspace
@@ -222,7 +238,7 @@ Azure Container Registry can be configured to use a private endpoint. Use the fo
     ```
 
     > [!IMPORTANT]
-    > Your storage account, compute cluster, and Azure Container Registry must all be in the same subnet of the virtual network.
+    > Only AzureML Compute cluster of CPU SKU is supported for the image build on compute.
     
     For more information, see the [update()](/python/api/azureml-core/azureml.core.workspace.workspace#update-friendly-name-none--description-none--tags-none--image-build-compute-none--enable-data-actions-none-) method reference.
 

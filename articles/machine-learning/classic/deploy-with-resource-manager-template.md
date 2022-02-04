@@ -13,7 +13,7 @@ ms.date: 02/05/2018
 ---
 # Deploy Machine Learning Studio (classic) Workspace Using Azure Resource Manager
 
-**APPLIES TO:**  ![Applies to.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic)   ![Does not apply to.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
+**APPLIES TO:**  ![Applies to.](../../../includes/media/azure-stack-edge-applies-to-skus/yes.png)Machine Learning Studio (classic)   ![Does not apply to.](../../../includes/media/azure-stack-edge-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 [!INCLUDE [ML Studio (classic) retirement](../../../includes/machine-learning-studio-classic-deprecation.md)]
 
@@ -99,7 +99,7 @@ Connect-AzAccount
 ```
 This step needs to be repeated for each session. Once authenticated, your subscription information should be displayed.
 
-![Azure Account](./media/deploy-with-resource-manager-template/azuresubscription.png)
+![Azure Account](/azure/marketplace/media/test-drive/azure-subscriptions.png)
 
 Now that we have access to Azure, we can create the resource group.
 
@@ -113,7 +113,9 @@ $rg
 Verify that the resource group is correctly provisioned. **ProvisioningState** should be "Succeeded."
 The resource group name is used by the template to generate the storage account name. The storage account name must be between 3 and 24 characters in length and use numbers and lower-case letters only.
 
-![Resource Group](./media/deploy-with-resource-manager-template/resourcegroupprovisioning.png)
+<!--
+ ![Resource Group](./media/deploy-with-resource-manager-template/resource-groupprovisioning.png)
+-->
 
 * Using the resource group deployment, deploy a new Machine Learning Workspace.
 
@@ -135,13 +137,12 @@ Another way to retrieve tokens of existing workspace is to use the Invoke-AzReso
 # List the primary and secondary tokens of all workspaces
 Get-AzResource |? { $_.ResourceType -Like "*MachineLearning/workspaces*"} |ForEach-Object { Invoke-AzResourceAction -ResourceId $_.ResourceId -Action listworkspacekeys -Force}
 ```
-After the workspace is provisioned, you can also automate many Machine Learning Studio (classic) tasks using the [PowerShell Module for Machine Learning Studio (classic)](https://aka.ms/amlps).
+After the workspace is provisioned, you can also automate many Machine Learning Studio (classic) tasks using the [PowerShell Module for Machine Learning Studio (classic)](/previous-versions/azure/machine-learning/classic/powershell-module).
 
 ## Next steps
 
 * Learn more about [authoring Azure Resource Manager Templates](../../azure-resource-manager/templates/syntax.md).
 * Have a look at the [Azure Quickstart Templates Repository](https://github.com/Azure/azure-quickstart-templates).
-* Watch this video about [Azure Resource Manager](https://channel9.msdn.com/Events/Ignite/2015/C9-39).
 * See the [Resource Manager template reference help](/azure/templates/microsoft.machinelearning/allversions)
 
 <!--Link references-->

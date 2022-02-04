@@ -12,9 +12,8 @@ ms.assetid: d7ac12f7-24b5-4bcd-9e4d-3d76fbd8d297
 ms.service: multiple
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 08/22/2021
+ms.date: 09/17/2021
 ms.author: monicar
 
 ---
@@ -43,8 +42,8 @@ See [Manage the availability of Windows virtual machines](./virtual-machines/ava
 ## <a name="classic-model"></a>Azure classic deployment model
 One of two [deployment models](./azure-resource-manager/management/deployment-models.md) used to deploy resources in Azure (the new model is Azure Resource Manager). Some Azure services support only the Resource Manager deployment model, some support only the classic deployment model, and some support both. The documentation for each Azure service specifies which model(s) they support.
 
-## <a name="cli"></a>Azure command-line interface (CLI)
-A command-line interface that can be used to manage Azure services from Windows, macOS, and Linux.  Some services or service features can be managed only via PowerShell or the CLI. See [Azure CLI](/cli/azure)
+## <a name="cli"></a>Azure CLI
+A command-line interface for managing Azure resources from Windows, macOS, and Linux environments. Some services or service features can be managed only via PowerShell or the CLI. See [Azure CLI](/cli/azure)
 
 ## <a name="powershell"></a>Azure PowerShell
 A command-line interface to manage Azure services via a command line from Windows PCs. Some services or service features can be managed only via PowerShell or the CLI.
@@ -59,7 +58,7 @@ See [Manage the availability of Windows virtual machines](./virtual-machines/ava
 
 ## geo
 A defined boundary for data residency that typically contains two or more regions. The boundaries may be within or beyond national borders and are influenced by tax regulation. Every geo has at least one region. Examples of geos are Asia Pacific and Japan. Also called *geography*.  
-See [Azure Regions](best-practices-availability-paired-regions.md)
+See [Azure Regions](./availability-zones/cross-region-replication-azure.md)
 
 ## geo-replication
 The process of automatically replicating content such as blobs, tables, and queues within a regional pair.  
@@ -89,7 +88,7 @@ The secure web portal used to deploy and manage Azure services.
 
 ## region
 An area within a geo that does not cross national borders and contains one or more datacenters. Pricing, regional services, and offer types are exposed at the region level. A region is typically paired with another region, which can be up to several hundred miles away. Regional pairs can be used as a mechanism for disaster recovery and high availability scenarios. Also referred to as *location*.  
-See [Azure Regions](best-practices-availability-paired-regions.md)
+See [Azure Regions](./availability-zones/cross-region-replication-azure.md)
 
 ## resource
 An item that is part of your Azure solution. Each Azure service enables you to deploy different types of resources, such as databases or virtual machines.   
@@ -129,6 +128,9 @@ See [Microsoft Online Subscription Agreement](https://azure.microsoft.com/suppor
 ## tag
 An indexing term that enables you to categorize resources according to your requirements for managing or billing. When you have a complex collection of resources, you can use tags to visualize those assets in the way that makes the most sense. For example, you could tag resources that serve a similar role in your organization or belong to the same department.  
 See [Using tags to organize your Azure resources](./azure-resource-manager/management/tag-resources.md)
+
+## Tenant
+A tenant is a group of users or an organization that share access with specific privileges to an instance of a product, service, or application. In Azure Active Directory a tenant is an instance of Azure Active Directory that an organization receives when it signs up for a cloud application like Microsoft 365. Each Azure AD tenant is distinct and separate from other Azure AD tenants. Multitenancy refers to an instance of an application shared by multiple organizations, each with separate access to the instance.
 
 ## update domain
 The collection of virtual machines in an availability set that are updated at the same time. Virtual machines in the same update domain are restarted together during planned maintenance. Azure never restarts more than one update domain at a time. Also referred to as an upgrade domain.  

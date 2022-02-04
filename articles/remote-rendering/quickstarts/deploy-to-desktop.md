@@ -5,6 +5,7 @@ author: christophermanthei
 ms.author: chmant
 ms.date: 03/20/2020
 ms.topic: quickstart
+ms.custom: mode-other
 ---
 
 # Quickstart: Deploy Unity sample to Desktop

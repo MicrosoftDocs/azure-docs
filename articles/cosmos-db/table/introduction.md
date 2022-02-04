@@ -1,12 +1,12 @@
 ---
 title: Introduction to the Azure Cosmos DB Table API
 description: Learn how you can use Azure Cosmos DB to store and query massive volumes of key-value data with low latency by using the Azure Tables API.
-author: SnehaGunda
+author: sakash279
+ms.author: akshanka
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.topic: overview
-ms.date: 08/25/2021
-ms.author: sngun
+ms.date: 11/03/2021
 
 ---
 # Introduction to Azure Cosmos DB: Table API
@@ -26,7 +26,7 @@ ms.author: sngun
 > The [serverless capacity mode](../serverless.md) is now available on Azure Cosmos DB's Table API.
 
 > [!IMPORTANT]
-> The .NET Cosmos DB Table Library [Microsoft.Azure.Cosmos.Table](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table) is in maintenance mode and will be deprecated soon. Please upgrade to the new .NET Azure Tables SDK [Azure.Data.Tables](https://www.nuget.org/packages/Azure.Data.Tables/) to continue to get the latest features supported by the Table API.
+> The .NET Azure Tables SDK [Azure.Data.Tables](https://www.nuget.org/packages/Azure.Data.Tables/) offers latest features supported by the Table API. The Azure Tables client library can seamlessly target either Azure Table storage or Azure Cosmos DB table service endpoints with no code changes.
 
 ## Table offerings
 

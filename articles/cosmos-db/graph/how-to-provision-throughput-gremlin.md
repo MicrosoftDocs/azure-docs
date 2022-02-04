@@ -7,7 +7,8 @@ ms.topic: how-to
 ms.date: 10/15/2020
 author: manishmsfte
 ms.author: mansha
-ms.custom: devx-track-js, devx-track-azurecli, devx-track-csharp
+ms.devlang: csharp
+ms.custom: devx-track-azurecli, devx-track-csharp
 ---
 
 # Provision database, container or autoscale throughput on Azure Cosmos DB Gremlin API resources

@@ -17,7 +17,7 @@ In this article, you learn how to register new data sources, manage collections 
 
 Use the following steps to register a new source.
 
-1. Open [Purview Studio](https://web.purview.azure.com/resource/), navigate to the **Data Map**, **Sources**, and select **Register**.
+1. Open [Azure Purview Studio](https://web.purview.azure.com/resource/), navigate to the **Data Map**, **Sources**, and select **Register**.
 
    :::image type="content" source="media/manage-data-sources/purview-studio.png" alt-text="Azure Purview Studio":::
 

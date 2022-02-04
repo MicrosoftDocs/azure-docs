@@ -27,8 +27,6 @@ landingContent:
         links:
           - text: What is Azure Container Registry?
             url: container-registry-intro.md
-          - text: Registries, repositories, and images
-            url: container-registry-concepts.md
   # Card (optional)
   - title: Get started
     linkLists:
@@ -57,6 +55,10 @@ landingContent:
   # Card
   - title: Manage registries
     linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Manage content with client libraries
+            url: quickstart-client-libraries.md
       - linkListType: how-to-guide
         links:
           - text: View repositories and tags
@@ -69,6 +71,8 @@ landingContent:
             url: container-registry-delete.md
       - linkListType: concept
         links:
+          - text: Registries, repositories, and images
+            url: container-registry-concepts.md
           - text: Geo-replication
             url: container-registry-geo-replication.md
           - text: Authentication
@@ -94,3 +98,17 @@ landingContent:
         links:
           - text: Automate image builds     
             url: container-registry-tutorial-quick-task.md
+  - title: Connected registry (Preview)
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: About connected registry
+            url: intro-connected-registry.md
+          - text: Connected registry and IoT Edge
+            url: overview-connected-registry-and-iot-edge.md
+      - linkListType: quickstart
+        links:
+          - text: Create a connected registry - CLI
+            url: quickstart-connected-registry-cli.md
+          - text: Create a connected registry - Portal
+            url: quickstart-connected-registry-portal.md

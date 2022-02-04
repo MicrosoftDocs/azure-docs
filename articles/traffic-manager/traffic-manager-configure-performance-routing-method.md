@@ -4,14 +4,13 @@ description: This article explains how to configure Traffic Manager to route tra
 services: traffic-manager
 manager: twooley
 documentationcenter: ''
-author: duongau
+author: asudbring
 ms.service: traffic-manager
-ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2017
-ms.author: duau
+ms.author: allensu
 ---
 
 # Configure the performance traffic routing method

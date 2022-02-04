@@ -4,11 +4,11 @@ titleSuffix: Azure Machine Learning
 description: Learn how to collect data from an Azure Machine Learning model deployed on an Azure Kubernetes Service (AKS) cluster.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.reviewer: sgilley
 ms.author: copeters
 author: lostmygithubaccount
-ms.date: 07/14/2020
+ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: data4ml
 
@@ -57,7 +57,7 @@ The path to the output data in the blob follows this syntax:
 
 - An Azure Machine Learning workspace, a local directory containing your scripts, and the Azure Machine Learning SDK for Python must be installed. To learn how to install them, see [How to configure a development environment](how-to-configure-environment.md).
 
-- You need a trained machine-learning model to be deployed to AKS. If you don't have a model, see the [Train image classification model](tutorial-train-models-with-aml.md) tutorial.
+- You need a trained machine-learning model to be deployed to AKS. If you don't have a model, see the [Train image classification model](tutorial-train-deploy-notebook.md) tutorial.
 
 - You need an AKS cluster. For information on how to create one and deploy to it, see [How to deploy and where](how-to-deploy-and-where.md).
 

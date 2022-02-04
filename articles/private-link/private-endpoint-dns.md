@@ -5,8 +5,10 @@ services: private-link
 author: asudbring
 ms.service: private-link
 ms.topic: conceptual
-ms.date: 01/14/2021
+ms.date: 01/25/2022
 ms.author: allensu
+ms.custom: fasttrack-edit
+
 ---
 # Azure Private Endpoint DNS configuration
 
@@ -81,8 +83,9 @@ For Azure services, use the recommended zone names as described in the following
 | Azure Cache for Redis (Microsoft.Cache/Redis) / redisCache | privatelink.redis.cache.windows.net | redis.cache.windows.net |
 | Azure Cache for Redis Enterprise (Microsoft.Cache/RedisEnterprise) / redisCache | privatelink.redisenterprise.cache.azure.net | redisenterprise.cache.azure.net |
 | Azure Purview (Microsoft.Purview)| privatelink.purview.azure.com | purview.azure.com |
+| Azure Purview (Microsoft.Purview)| privatelink.purviewstudio.azure.com | purview.azure.com |
 | Azure Digital Twins (Microsoft.DigitalTwins) / digitalTwinsInstances | privatelink.digitaltwins.azure.net | digitaltwins.azure.net |
-
+| Azure HDInsight (Microsoft.HDInsight) | privatelink.azurehdinsight.net | azurehdinsight.net |
 
 <sup>1</sup>To use with IoT Hub's built-in Event Hub compatible endpoint. To learn more, see [private link support for IoT Hub's built-in endpoint](../iot-hub/virtual-network-support.md#built-in-event-hub-compatible-endpoint)
 
@@ -99,6 +102,7 @@ For Azure services, use the recommended zone names as described in the following
 | Azure Database for PostgreSQL - Single server (Microsoft.DBforPostgreSQL/servers) / postgresqlServer | privatelink.postgres.database.chinacloudapi.cn | postgres.database.chinacloudapi.cn |
 | Azure Database for MySQL (Microsoft.DBforMySQL/servers) / mysqlServer | privatelink.mysql.database.chinacloudapi.cn  | mysql.database.chinacloudapi.cn  |
 | Azure Database for MariaDB (Microsoft.DBforMariaDB/servers) / mariadbServer | privatelink.mariadb.database.chinacloudapi.cn | mariadb.database.chinacloudapi.cn |
+| Azure HDInsight (Microsoft.HDInsight) | privatelink.azurehdinsight.cn | azurehdinsight.cn |
 
 ## DNS configuration scenarios
 
@@ -214,6 +218,20 @@ To configure properly, you need the following resources:
 The following diagram shows the DNS resolution for both networks, on-premises and virtual networks. The resolution is using a DNS forwarder. The resolution is made by a private DNS zone [linked to a virtual network](../dns/private-dns-virtual-network-links.md):
 
 :::image type="content" source="media/private-endpoint-dns/hybrid-scenario.png" alt-text="Hybrid scenario":::
+
+## Private DNS zone group
+
+If you choose to integrate your private endpoint with a private DNS zone, a private DNS zone group is also created. The DNS zone group is a strong association between the private DNS zone and the private endpoint that helps auto-updating the private DNS zone when there is an update on the private endpoint.  For example, when you add or remove regions, the private DNS zone is automatically updated. 
+
+Previously, the DNS records for the private endpoint were created via scripting (retrieving certain information about the private endpoint and then adding it on the DNS zone). With the DNS zone group, there is no need to write any additional CLI/Powershell lines for every DNS zone. Also, when you delete the private endpoint, all the DNS records within the DNS zone group will be deleted as well.
+
+A common scenario for DNS zone group is in a hub-and-spoke topology, where it allows the private DNS zones to be created only once in the hub and allows the spokes to register to it, rather than creating differents zones in each spoke. 
+
+> [!NOTE]
+> Each DNS zone group can support up to 5 DNS zones.
+
+> [!NOTE]
+> Adding multiple DNS zone groups to a single Private Endpoint is not supported. 
 
 ## Next steps
 - [Learn about private endpoints](private-endpoint-overview.md)

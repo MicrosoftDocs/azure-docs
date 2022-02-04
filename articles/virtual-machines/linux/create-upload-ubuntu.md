@@ -77,11 +77,11 @@ This article assumes that you have already installed an Ubuntu Linux operating s
 
 6. Ensure that the SSH server is installed and configured to start at boot time.  This is usually the default.
 
-7. Install cloud-init (the provisioning agent) and the Azure Linux Agent (the guest extensions handler). Cloud-init uses `netplan` to configure the system network configuration during provisioning and each subsequent boot.
+7. Install cloud-init (the provisioning agent) and the Azure Linux Agent (the guest extensions handler). Cloud-init uses `netplan` to configure the system network configuration (during provisioning and each subsequent boot) and `gdisk` to partition resource disks.
 
     ```console
     # sudo apt update
-    # sudo apt install cloud-init netplan.io walinuxagent && systemctl stop walinuxagent
+    # sudo apt install cloud-init gdisk netplan.io walinuxagent && systemctl stop walinuxagent
     ```
 
    > [!Note]

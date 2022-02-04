@@ -2,7 +2,7 @@
 title: Set up a lab to teach database management for relational databases | Microsoft Docs
 description: Learn how to set up a lab to teach the management of relational databases. 
 author: emaher
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
 ms.author: enewman
 ---

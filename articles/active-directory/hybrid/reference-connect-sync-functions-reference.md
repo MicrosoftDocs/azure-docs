@@ -4,14 +4,13 @@ description: Reference of declarative provisioning expressions in Azure AD Conne
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: daveba
+manager: karenhoran
 editor: ''
 
 ms.assetid: 4f525ca0-be0e-4a2e-8da1-09b6b567ed5f
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: reference
 ms.date: 07/12/2017
 ms.subservice: hybrid
@@ -1164,7 +1163,7 @@ The format is {source1}:{target1},{source2}:{target2},{sourceN},{targetN} where 
 **Remarks:**
 
 * The function takes each occurrence of defined sources and replaces them with the targets.
-* The source must be exactly one (unicode) character.
+* The source must be exactly one (Unicode) character.
 * The source cannot be empty or longer than one character (parsing error).
 * The target can have multiple characters, for example ö:oe, β:ss.
 * The target can be empty indicating that the character should be removed.

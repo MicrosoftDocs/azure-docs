@@ -12,7 +12,6 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/22/2020
 ms.author: thwimmer
@@ -48,7 +47,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 ## Step 2. Configure Global Relay Identity Sync to support provisioning with Azure AD
 
-Contact your Global Relay Identity Sync representative to receive the Tenant url. This value will be entered in the **Tenant URL** field in the Provisioning tab of your Global Relay Identity Sync application in the Azure portal.
+Contact your Global Relay Identity Sync representative to receive the Tenant URL. This value will be entered in the **Tenant URL** field in the Provisioning tab of your Global Relay Identity Sync application in the Azure portal.
 
 ## Step 3. Add Global Relay Identity Sync from the Azure AD application gallery
 

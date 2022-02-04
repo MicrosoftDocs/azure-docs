@@ -3,14 +3,14 @@ title: Access on-premises APIs with Azure Active Directory Application Proxy
 description: Azure Active Directory's Application Proxy lets native apps securely access APIs and business logic you host on-premises or on cloud VMs.
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: karenhoran
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: how-to
 ms.date: 05/06/2021
 ms.author: kenwith
-ms.reviewer: japere
+ms.reviewer: ashishj
 ms.custom: has-adal-ref
 ---
 # Secure access to on-premises APIs with Azure Active Directory Application Proxy
@@ -133,13 +133,13 @@ You've now registered the AppProxyNativeAppSample app in Azure Active Directory.
 
 The last step is to configure the native app. The following snippet from the *Form1.cs* file in the NativeClient sample app causes the MSAL library to acquire the token for requesting the API call, and attach it as bearer to the app header.
 
-   ```
-   // Acquire Access Token from AAD for Proxy Application
- IPublicClientApplication clientApp = PublicClientApplicationBuilder
-.Create(<App ID of the Native app>)
-.WithDefaultRedirectUri() // will automatically use the default Uri for native app
-.WithAuthority("https://login.microsoftonline.com/{<Tenant ID>}")
-.Build();
+```csharp
+// Acquire Access Token from AAD for Proxy Application
+IPublicClientApplication clientApp = PublicClientApplicationBuilder
+    .Create(<App ID of the Native app>)
+    .WithDefaultRedirectUri() // Will automatically use the default Uri for native app
+    .WithAuthority("https://login.microsoftonline.com/{<Tenant ID>}")
+    .Build();
 
 AuthenticationResult authResult = null;
 var accounts = await clientApp.GetAccountsAsync();
@@ -148,35 +148,35 @@ IAccount account = accounts.FirstOrDefault();
 IEnumerable<string> scopes = new string[] {"<Scope>"};
 
 try
- {
+{
     authResult = await clientApp.AcquireTokenSilent(scopes, account).ExecuteAsync();
- }
-    catch (MsalUiRequiredException ex)
- {
-     authResult = await clientApp.AcquireTokenInteractive(scopes).ExecuteAsync();                
- }
- 
+}
+catch (MsalUiRequiredException ex)
+{
+    authResult = await clientApp.AcquireTokenInteractive(scopes).ExecuteAsync();
+}
+
 if (authResult != null)
- {
-  //Use the Access Token to access the Proxy Application
-  
-  HttpClient httpClient = new HttpClient();
-  HttpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", authResult.AccessToken);
-  HttpResponseMessage response = await httpClient.GetAsync("<Proxy App Url>");
- }
+{
+    // Use the Access Token to access the Proxy Application
+
+    HttpClient httpClient = new HttpClient();
+    HttpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", authResult.AccessToken);
+    HttpResponseMessage response = await httpClient.GetAsync("<Proxy App Url>");
+}
 ```
 
 To configure the native app to connect to Azure Active Directory and call the API App Proxy, update the placeholder values in the *App.config* file of the NativeClient sample app with values from Azure AD:
 
 - Paste the **Directory (tenant) ID** in the `<add key="ida:Tenant" value="" />` field. You can find and copy this value (a GUID) from the **Overview** page of either of your apps.
 
-- Paste the AppProxyNativeAppSample **Application (client) ID** in the `<add key="ida:ClientId" value="" />` field. You can find and copy this value (a GUID) from the AppProxyNativeAppSample **Overview** page.
+- Paste the AppProxyNativeAppSample **Application (client) ID** in the `<add key="ida:ClientId" value="" />` field. You can find and copy this value (a GUID) from the AppProxyNativeAppSample's **Overview** page, in the left navigation under **Manage**.
 
-- Paste the AppProxyNativeAppSample **Redirect URI** in the `<add key="ida:RedirectUri" value="" />` field. You can find and copy this value (a URI) from the AppProxyNativeAppSample **Authentication** page.
+- Paste the AppProxyNativeAppSample **Redirect URI** in the `<add key="ida:RedirectUri" value="" />` field. You can find and copy this value (a URI) from the AppProxyNativeAppSample's **Authentication** page, in the left navigation under **Manage**.
 
-- Paste the SecretAPI **Application ID URI** in the `<add key="todo:TodoListResourceId" value="" />` field. You can find and copy this value (a URI) from the SecretAPI **Expose an API** page.
+- Paste the SecretAPI **Application ID URI** in the `<add key="todo:TodoListResourceId" value="" />` field. You can find and copy this value (a URI) from the SecretAPI's **Expose an API** page, in the left navigation under **Manage**.
 
-- Paste the SecretAPI **Home Page URL** in the `<add key="todo:TodoListBaseAddress" value="" />` field. You can find and copy this value (a URL) from the SecretAPI **Branding** page.
+- Paste the SecretAPI **Home Page URL** in the `<add key="todo:TodoListBaseAddress" value="" />` field. You can find and copy this value (a URL) from the SecretAPI's **Branding** page, in the left navigation under **Manage**.
 
 After you configure the parameters, build and run the native app. When you select the **Sign In** button, the app lets you sign in, and then displays a success screen to confirm that it successfully connected to the SecretAPI.
 

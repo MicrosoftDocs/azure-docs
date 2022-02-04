@@ -1,11 +1,10 @@
 ---
 title: Create Azure SQL Managed Instance - Quickstart
-description: Create an instance of Azure SQL Managed Instance using Azure PowerShell. 
+description: Create an instance of Azure SQL Managed Instance using Azure PowerShell.
 services: sql-managed-instance
 ms.service: sql-managed-instance
 ms.subservice: deployment-configuration
-ms.custom: contperf-fy21q1, devx-track-azurecli, devx-track-azurepowershell
-ms.devlang:
+ms.custom: contperf-fy21q1, devx-track-azurecli, devx-track-azurepowershell, mode-api
 ms.topic: quickstart
 author: MashaMSFT
 ms.author: mathoma
@@ -150,5 +149,3 @@ After your SQL Managed Instance is created, deploy a client VM to connect to you
 > [!div class="nextstepaction"]
 > [Create client VM](connect-vm-instance-configure.md)
 > [Restore database](restore-sample-database-quickstart.md)
-
-

@@ -76,7 +76,7 @@ kubectl delete pod --namespace kube-system -l k8s-app=kube-dns
 ```
 
 > [!Note]
-> The command above is correct. While we're changing `coredns`, the deployment is under the **kube-dns** name.
+> The command above is correct. While we're changing `coredns`, the deployment is under the **kube-dns** label.
 
 ## Custom forward server
 

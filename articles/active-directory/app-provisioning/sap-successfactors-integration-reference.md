@@ -3,12 +3,12 @@ title: Azure Active Directory and SAP SuccessFactors integration reference
 description: Technical deep dive into SAP SuccessFactors-HR driven provisioning for Azure Active Directory.
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: karenhoran
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: reference
 ms.workload: identity
-ms.date: 05/11/2021
+ms.date: 10/11/2021
 ms.author: kenwith
 ms.reviewer: chmutali
 ---
@@ -26,7 +26,7 @@ This article explains how the integration works and how you can customize the pr
 ## Establishing connectivity 
 Azure AD provisioning service uses basic authentication to connect to Employee Central OData API endpoints. When setting up the SuccessFactors provisioning app, use the *Tenant URL* parameter in the *Admin Credentials* section to configure the [API data center URL](https://apps.support.sap.com/sap/support/knowledge/en/2215682). 
 
-To further secure the connectivity between Azure AD provisioning service and SuccessFactors, you can add the Azure AD IP ranges in the SuccessFactors IP allow-list using the steps described below:
+To further secure the connectivity between Azure AD provisioning service and SuccessFactors, you can add the Azure AD IP ranges in the SuccessFactors IP allowlist using the steps described below:
 
 1. Download the [latest IP Ranges](https://www.microsoft.com/download/details.aspx?id=56519) for the Azure Public Cloud 
 1. Open the file and search for tag **AzureActiveDirectory** 
@@ -36,7 +36,7 @@ To further secure the connectivity between Azure AD provisioning service and Suc
 
 1. Copy all IP address ranges listed within the element *addressPrefixes* and use the range to build your IP address restriction list.
 1. Translate the CIDR values to IP ranges.  
-1. Log in to SuccessFactors admin portal to add IP ranges to the allow-list. Refer to SAP [support note 2253200](https://apps.support.sap.com/sap/support/knowledge/en/2253200). You can now [enter IP ranges](https://answers.sap.com/questions/12882263/whitelisting-sap-cloud-platform-ip-address-range-i.html) in this tool. 
+1. Log in to SuccessFactors admin portal to add IP ranges to the allowlist. Refer to SAP [support note 2253200](https://apps.support.sap.com/sap/support/knowledge/en/2253200). You can now [enter IP ranges](https://answers.sap.com/questions/12882263/whitelisting-sap-cloud-platform-ip-address-range-i.html) in this tool. 
 
 ## Supported entities
 For every user in SuccessFactors, Azure AD provisioning service retrieves the following entities. Each entity is expanded using the OData API *$expand* query parameter. Refer to the *Retrieval rule* column below. Some entities are expanded by default, while some entities are expanded only if a specific attribute is present in the mapping. 
@@ -67,6 +67,8 @@ For every user in SuccessFactors, Azure AD provisioning service retrieves the fo
 | 22 | EmployeeClass Picklist                 | employmentNav/jobInfoNav/employeeClassNav | Only if `employeeClass` is mapped |
 | 23 | EmplStatus Picklist                    | employmentNav/jobInfoNav/emplStatusNav | Only if `emplStatus` is mapped |
 | 24 | AssignmentType Picklist                | employmentNav/empGlobalAssignmentNav/assignmentTypeNav | Only if `assignmentType` is mapped |
+| 25 | Position                               | employmentNav/jobInfoNav/positionNav | Only if `positioNav` is mapped |
+| 26 | Manager User                           | employmentNav/jobInfoNav/managerUserNav | Only if `managerUserNav` is mapped |
 
 ## How full sync works
 Based on the attribute-mapping, during full sync Azure AD provisioning service sends the following "GET" OData API query to fetch effective data of all active users. 
@@ -284,6 +286,30 @@ To fetch attributes belonging to both jobs, use the steps listed below:
 1. Save the mapping. 
 1. Restart provisioning. 
 
+### Retrieving position details
+
+The SuccessFactors connector supports expansion of the position object. To expand and retrieve position object attributes such as job level or position names in a specific language, you can use JSONPath expressions as shown below. 
+
+| Attribute Name | JSONPath expression |
+| -------------- | ------------------- |
+| positionJobLevel | $.employmentNav.results[0].jobInfoNav.results[0].positionNav.jobLevel |
+| positionNameFR | $.employmentNav.results[0].jobInfoNav.results[0].positionNav.externalName_fr_FR |
+| positionNameDE | $.employmentNav.results[0].jobInfoNav.results[0].positionNav.externalName_de_DE |
+
+### Provisioning users in the Onboarding module
+Inbound user provisioning from SAP SuccessFactors to on-premises Active Directory and Azure AD now supports advance provisioning of pre-hires present in the SAP SuccessFactors Onboarding 2.0 module. Upon encountering a new hire profile with future start date, the Azure AD provisioning service queries SAP SuccessFactors to get new hires with one of the following status codes: `active`, `inactive`, `active_external`. The status code `active_external` corresponds to pre-hires present in the SAP SuccessFactors Onboarding 2.0 module. For a description of these status codes, refer to [SAP support note 2736579](https://launchpad.support.sap.com/#/notes/0002736579).
+
+The default behavior of the provisioning service is to process pre-hires in the Onboarding module. 
+
+If you want to exclude processing of pre-hires in the Onboarding module, update your provisioning job configuration as follows: 
+1. Open the attribute-mapping blade of your SuccessFactors provisioning app.
+1. Under show advanced options, edit the SuccessFactors attribute list to add a new attribute called `userStatus`.
+1. Set the JSONPath API expression for this attribute as: `$.employmentNav.results[0].userNav.status`
+1. Save the schema to return back to the attribute mapping blade. 
+1. Edit the Source Object scope to apply a scoping filter `userStatus NOT EQUALS active_external`
+1. Save the mapping and validate that the scoping filter works using provisioning on demand. 
+
+
 ## Writeback scenarios
 
 This section covers different write-back scenarios. It recommends configuration approaches based on how email and phone number is setup in SuccessFactors.
@@ -301,6 +327,36 @@ This section covers different write-back scenarios. It recommends configuration 
 * If there is no mapping for phone number in the write-back attribute-mapping, then only email is included in the write-back.
 * During new hire onboarding in Employee Central, business email and phone number may not be available. If setting business email and business phone as primary is mandatory during onboarding, you can set a dummy value  for business phone and email during new hire creation, which will eventually be updated by the write-back app.
  
+### Enabling writeback with UserID
+
+The SuccessFactors Writeback app uses the following logic to update the User object attributes: 
+* As a first step, it looks for *userId* attribute in the change set. If it is present, then it uses "UserId" for making the SuccessFactors API call. 
+* If *userId* is not found, then it defaults to using the *personIdExternal* attribute value. 
+
+Usually the *personIdExternal* attribute value in SuccessFactors matches the *userId* attribute value. However, in scenarios such as rehire and worker conversion, an employee in SuccessFactors may have two employment records, one active and one inactive. In such scenarios, to ensure that write-back updates the active user profile, please update the configuration of the SuccessFactors provisioning apps as described below. This configuration ensures that *userId* is always present in the change set visible to the connector and is used in the SuccessFactors API call.
+
+1. Open the SuccessFactors to Azure AD user provisioning app or SuccessFactors to on-premises AD user provisioning app. 
+1. Ensure that an extensionAttribute *(extensionAttribute1-15)* in Azure AD always stores the *userId* of every worker's active employment record. This can be achieved by mapping SuccessFactors *userId* attribute to an extensionAttribute in Azure AD. 
+    > [!div class="mx-imgBorder"]
+    > ![Inbound UserID attribute mapping](./media/sap-successfactors-integration-reference/inbound-userid-attribute-mapping.png)
+1. For guidance regarding JSONPath settings, refer to the section [Handling rehire scenario](#handling-rehire-scenario) to ensure the *userId* value of the active employment record flows into Azure AD. 
+1. Save the mapping. 
+1. Run the provisioning job to ensure that the *userId* values flow into Azure AD. 
+    > [!NOTE]
+    > If you are using SuccessFactors to on-premises Active Directory user provisioning, configure AAD Connect to sync the *userId* attribute value from on-premises Active Directory to Azure AD.   
+1. Open the SuccessFactors Writeback app in the Azure portal. 
+1. Map the desired *extensionAttribute* that contains the userId value to the SuccessFactors *userId* attribute.
+    > [!div class="mx-imgBorder"]
+    > ![Writeback UserID attribute mapping](./media/sap-successfactors-integration-reference/userid-attribute-mapping.png)
+1. Save the mapping. 
+1. Go to *Attribute mapping -> Advanced -> Review Schema* to open the JSON schema editor.
+1. Download a copy of the schema as backup. 
+1. In the schema editor, hit Ctrl-F and search for the JSON node containing the userId mapping, where it is mapped to a source Azure AD attribute. 
+1. Update the flowBehavior attribute from "FlowWhenChanged" to "FlowAlways" as shown below. 
+    > [!div class="mx-imgBorder"]
+    > ![Mapping flow behavior update](./media/sap-successfactors-integration-reference/mapping-flow-behavior-update.png)
+1. Save the mapping and test the write-back scenario with provisioning-on-demand. 
+
 ### Unsupported scenarios for phone and email write-back
 
 * In Employee Central, during onboarding personal email and personal phone is set as primary. The write-back app cannot switch this setting and set business email and business phone as primary.

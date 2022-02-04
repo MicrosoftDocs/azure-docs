@@ -6,7 +6,7 @@ author: cherylmc
 ms.author: cherylmc
 ms.service: vpn-gateway
 ms.topic: tutorial
-ms.date: 07/21/2021
+ms.date: 02/02/2022
 
 ---
 
@@ -31,7 +31,7 @@ In this tutorial, you learn how to:
 * An Azure account with an active subscription. If you don't have one, [create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 * Make sure you have a compatible VPN device and someone who is able to configure it. For more information about compatible VPN devices and device configuration, see [About VPN Devices](vpn-gateway-about-vpn-devices.md).
 * Verify that you have an externally facing public IPv4 address for your VPN device.
-* If you are unfamiliar with the IP address ranges located in your on-premises network configuration, you need to coordinate with someone who can provide those details for you. When you create this configuration, you must specify the IP address range prefixes that Azure will route to your on-premises location. None of the subnets of your on-premises network can over lap with the virtual network subnets that you want to connect to.
+* If you're unfamiliar with the IP address ranges located in your on-premises network configuration, you need to coordinate with someone who can provide those details for you. When you create this configuration, you must specify the IP address range prefixes that Azure will route to your on-premises location. None of the subnets of your on-premises network can over lap with the virtual network subnets that you want to connect to.
 
 ## <a name="CreatVNet"></a>Create a virtual network
 
@@ -86,11 +86,11 @@ You can view the gateway public IP address on the **Overview** page for your gat
 
 :::image type="content" source="./media/tutorial-create-gateway-portal/address.png" alt-text="Overview page":::
 
-To see additional information about the public IP address object, click the name/IP address link next to **Public IP address**.
+To see additional information about the public IP address object, select the name/IP address link next to **Public IP address**.
 
 ## <a name="LocalNetworkGateway"></a>Create a local network gateway
 
-The local network gateway is a specific object that represents your on-premises location (the site) for routing purposes. You give the site a name by which Azure can refer to it, then specify the IP address of the on-premises VPN device to which you will create a connection. You also specify the IP address prefixes that will be routed through the VPN gateway to the VPN device. The address prefixes you specify are the prefixes located on your on-premises network. If your on-premises network changes or you need to change the public IP address for the VPN device, you can easily update the values later.
+The local network gateway is a specific object that represents your on-premises location (the site) for routing purposes. You give the site a name by which Azure can refer to it, then specify the IP address of the on-premises VPN device to which you'll create a connection. You also specify the IP address prefixes that will be routed through the VPN gateway to the VPN device. The address prefixes you specify are the prefixes located on your on-premises network. If your on-premises network changes or you need to change the public IP address for the VPN device, you can easily update the values later.
 
 Create a local network gateway using the following values:
 
@@ -133,28 +133,28 @@ Create a connection using the following values:
 
 ### <a name="addconnect"></a>Add additional connections to the gateway
 
-You can add additional connections, provided that none of the address spaces overlap between connections.
+You can add additional connections if none of the address spaces overlap between connections.
 
 1. To add an additional connection, navigate to the VPN gateway, then select **Connections** to open the Connections page.
 1. Select **+Add** to add your connection. Adjust the connection type to reflect either VNet-to-VNet (if connecting to another VNet gateway), or Site-to-site.
-1. If you are connecting using Site-to-site and you have not already created a local network gateway for the site you want to connect to, you can create a new one.
+1. If you're connecting using Site-to-site and you haven't already created a local network gateway for the site you want to connect to, you can create a new one.
 1. Specify the shared key that you want to use, then select **OK** to create the connection.
 
 ### <a name="resize"></a>Resize a gateway SKU
 
-There are specific rules regarding resizing vs. changing a gateway SKU. In this section, we will resize the SKU. For more information, see [Gateway settings - resizing and changing SKUs](vpn-gateway-about-vpn-gateway-settings.md#resizechange).
+There are specific rules regarding resizing vs. changing a gateway SKU. In this section, we'll resize the SKU. For more information, see [Gateway settings - resizing and changing SKUs](vpn-gateway-about-vpn-gateway-settings.md#resizechange).
 
 [!INCLUDE [resize a gateway](../../includes/vpn-gateway-resize-gw-portal-include.md)]
 
 ### <a name="reset"></a>Reset a gateway
 
-Resetting an Azure VPN gateway is helpful if you lose cross-premises VPN connectivity on one or more Site-to-Site VPN tunnels. In this situation, your on-premises VPN devices are all working correctly, but are not able to establish IPsec tunnels with the Azure VPN gateways.
+Resetting an Azure VPN gateway is helpful if you lose cross-premises VPN connectivity on one or more Site-to-Site VPN tunnels. In this situation, your on-premises VPN devices are all working correctly, but aren't able to establish IPsec tunnels with the Azure VPN gateways.
 
 [!INCLUDE [reset a gateway](../../includes/vpn-gateway-reset-gw-portal-include.md)]
 
 ### <a name="additional"></a>Additional configuration considerations
 
-S2S configurations can be customized in a variety of ways. For more information, see the following articles:
+S2S configurations can be customized in a variety ways. For more information, see the following articles:
 
 * For information about BGP, see the [BGP Overview](vpn-gateway-bgp-overview.md) and [How to configure BGP](vpn-gateway-bgp-resource-manager-ps.md).
 * For information about forced tunneling, see [About forced tunneling](vpn-gateway-forced-tunneling-rm.md).
@@ -175,7 +175,7 @@ these resources using the following steps:
 
 ## Next steps
 
-Once you have configured a S2S connection, you can add a P2S connection to the same gateway.
+Once you've configured a S2S connection, you can add a P2S connection to the same gateway.
 
 > [!div class="nextstepaction"]
 > [Point-to-Site VPN connections](vpn-gateway-howto-point-to-site-resource-manager-portal.md)

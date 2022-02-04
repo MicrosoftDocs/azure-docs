@@ -1,17 +1,17 @@
 ---
-title: "include file"
-description: "include file"
+title: "Include file"
+description: "Include file"
 author: danielstocker
 ms.service: azure-quantum
 ms.topic: "include"
-ms.date: 01/08/2021
+ms.date: 10/27/2021
 ms.author: dasto
 ---
 
 ### Provider Limits & Quota
 
 The Azure Quantum Service supports both first and third-party service providers. 
-Third-party providers own their limits and quotas. Users can view offers and limits in the Azure portal when configuring third-party providers in the provider blade. 
+Third-party providers own their limits and quotas. Users can view offers and limits in the Azure portal when configuring third-party providers. 
 
 You can find the published quota limits for Microsoft's first party Optimization Solutions provider below. 
 
@@ -19,22 +19,24 @@ You can find the published quota limits for Microsoft's first party Optimization
 
 | Resource | Limit |
 | --- | --- |
-| CPU-based concurrent jobs | up to 5 concurrent jobs |
-| FPGA-based concurrent jobs | up to 2 concurrent jobs |
+| CPU-based concurrent jobs | up to 5<sup>1</sup> concurrent jobs |
+| FPGA-based concurrent jobs | up to 2<sup>1</sup> concurrent jobs |
 | CPU-based solver hours | 20 hours per month  |
 | FPGA-based solver hours | 1 hour per month  |
 
-If you are using the Learn & Develop SKU, you **cannot** request an increase on your quota limits. Instead you should switch to the Performance at Scale SKU.
+While on the Learn & Develop SKU, you **cannot** request an increase on your quota limits. Instead you should switch to the Performance at Scale SKU.
 
 #### Performance at Scale SKU
 
 | Resource | Default Limit | Maximum Limit |
 | --- | --- | --- |
-| CPU-based concurrent jobs | up to 100 concurrent jobs | same as default limit |
-| FPGA-based concurrent jobs | up to 10 concurrent jobs | same as default limit |
+| CPU-based concurrent jobs | up to 100<sup>1</sup> concurrent jobs | same as default limit |
+| FPGA-based concurrent jobs | up to 10<sup>1</sup> concurrent jobs | same as default limit |
 | Solver hours | 1,000 hours per month  | up to 50,000 hours per month |
 
-If you need to request a limit increase, please reach out to Azure Support. 
+Reach out to Azure Support to request a limit increase.
 
 For more information, please review the [Azure Quantum pricing page](https://aka.ms/AQ/Pricing).
-For information on third-party offerings, please review the relevant provider page in the Azure portal.
+Review the relevant provider pricing pages in the Azure portal for details on third-party offerings.
+
+<sup>1</sup> Describes the number of jobs that can be queued at the same time.

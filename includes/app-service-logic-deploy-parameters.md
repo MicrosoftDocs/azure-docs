@@ -16,8 +16,6 @@ Each parameter value is used by the template to define the resources that you wa
 
 When you define parameters:
 
-* To specify the permitted values that a user can provide during deployment, 
-use the **allowedValues** field.
+* To specify the permitted values that a user can provide during deployment, use the **allowedValues** field.
 
-* To assign default values to parameter when no values are provided during deployment, 
-use the **defaultValue** field. 
+* To assign default values to parameter when no values are provided during deployment, use the **defaultValue** field. 

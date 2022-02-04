@@ -4,7 +4,7 @@ title: Azure Arc-enabled data services # < 60 chars
 summary: Run Azure data services on-premises, at the edge, and in multi-cloud environments using Kubernetes on the infrastructure of your choice. # < 160 chars
  
 metadata:
-  title: Azure Arc–enabled data services # Required; page title displayed in search results. Include the brand. < 60 chars.
+  title: Azure Arc-enabled data services # Required; page title displayed in search results. Include the brand. < 60 chars.
   description: Run Azure data services on-premises, at the edge, and in multi-cloud environments using Kubernetes on the infrastructure of your choice. # Required; article description that is displayed in search results. < 160 chars.
   ms.service: azure-arc #Required; service per approved list. service slug assigned to your service by ACOM.
   ms.subservice: azure-arc-data # Optional; Remove if no subservice is used.
@@ -37,25 +37,15 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Create data controller
-            url: create-data-controller.md
+          - text: Plan your deployment
+            url: plan-azure-arc-data-services.md
           - text: Install client tools
             url: install-client-tools.md
-
+          - text: Create - Directly connected
+            url: create-complete-managed-instance-directly-connected.md
+          - text: Create - Indirectly connected
+            url: create-complete-managed-instance-indirectly-connected.md
   # Card (optional)
-  - title: Azure Arc-enabled PostgreSQL Hyperscale (preview)
-    linkLists:
-      - linkListType: quickstart
-        links:
-          - text: Create
-            url: create-postgresql-hyperscale-server-group.md
-          - text: Connect
-            url: get-connection-endpoints-and-connection-strings-postgres-hyperscale.md
-          - text: Migrate
-            url: migrate-postgresql-data-into-postgresql-hyperscale-server-group.md
-          - text: Restore
-            url: restore-adventureworks-sample-db-into-postgresql-hyperscale-server-group.md
-
   # Card (optional)
   - title: Azure Arc-enabled SQL Managed Instance
     linkLists:
@@ -69,7 +59,6 @@ landingContent:
             url: migrate-to-managed-instance.md
           - text: Restore
             url: restore-adventureworks-sample-db.md
-
  # Card
   - title: Proof of concept
     linkLists:
@@ -77,3 +66,17 @@ landingContent:
        links:
           - text: Jumpstart
             url: https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_data/
+ # Card
+  - title: Azure Arc-enabled PostgreSQL Hyperscale (preview)
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Create
+            url: create-postgresql-hyperscale-server-group.md
+          - text: Connect
+            url: get-connection-endpoints-and-connection-strings-postgres-hyperscale.md
+          - text: Migrate
+            url: migrate-postgresql-data-into-postgresql-hyperscale-server-group.md
+          - text: Restore
+            url: restore-adventureworks-sample-db-into-postgresql-hyperscale-server-group.md
+

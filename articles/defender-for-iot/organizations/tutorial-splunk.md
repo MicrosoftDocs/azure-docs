@@ -1,16 +1,16 @@
 ---
-title: Integrate Splunk with Azure Defender for IoT
-description: In this tutorial, learn how to integrate Splunk with Azure Defender for IoT.
+title: Integrate Splunk with Microsoft Defender for IoT
+description: In this tutorial, learn how to integrate Splunk with Microsoft Defender for IoT.
 author: ElazarK
 ms.author: v-ekrieg
 ms.topic: tutorial
-ms.date: 09/12/2021
+ms.date: 11/09/2021
 ms.custom: template-tutorial
 ---
 
-# Tutorial: Integrate Splunk with Azure Defender for IoT
+# Tutorial: Integrate Splunk with Microsoft Defender for IoT
 
-This tutorial will help you learn how to integrate, and use Splunk with Azure Defender for IoT.
+This tutorial will help you learn how to integrate, and use Splunk with Microsoft Defender for IoT.
 
 Defender for IoT mitigates IIoT, ICS, and SCADA risk with patented, ICS-aware self-learning engines that deliver immediate insights about ICS devices, vulnerabilities, and threats in less than an image hour and without relying on agents, rules or signatures, specialized skills, or prior knowledge of the environment.
 
@@ -21,7 +21,7 @@ The application provides SOC analysts with multidimensional visibility into the 
 The Splunk application can be installed locally or run on a cloud. The Splunk integration along with Defender for IoT supports both deployments.
 
 > [!Note]
-> References to CyberX refer to Azure Defender for IoT.
+> References to CyberX refer to Microsoft Defender for IoT.
 
 In this tutorial, you learn how to:
 
@@ -126,7 +126,7 @@ There are no resources to clean up.
 
 ## Next steps
 
-In this tutorial, you learned how to get started with the Splunk integration. Continue on to learn how to [Integrate ServiceNow with Azure Defender for IoT](tutorial-servicenow.md).
+In this tutorial, you learned how to get started with the Splunk integration. Continue on to learn how to [Integrate ServiceNow with Microsoft Defender for IoT](tutorial-servicenow.md).
 
 > [!div class="nextstepaction"]
-> [Integrate ServiceNow with Azure Defender for IoT](tutorial-servicenow.md)
+> [Integrate ServiceNow with Microsoft Defender for IoT](tutorial-servicenow.md)

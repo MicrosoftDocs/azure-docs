@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: reference
 author: WilliamDAssafMSFT
 ms.author: wiassaf
-ms.reviewer: 
+ms.reviewer: kendralittle, mathoma
 ms.date: 07/23/2021
 ---
 # Extended events in Azure SQL Database 

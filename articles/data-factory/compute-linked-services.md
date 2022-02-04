@@ -15,6 +15,8 @@ ms.custom: devx-track-azurepowershell, synapse
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
+[!INCLUDE[ML Studio (classic) retirement](../../includes/machine-learning-studio-classic-deprecation.md)] 
+
 This article explains different compute environments that you can use to process or transform data. It also provides details about different configurations (on-demand vs. bring your own) supported when configuring linked services linking these compute environments.
 
 The following table provides a list of supported compute environments and the activities that can run on them. 
@@ -23,7 +25,7 @@ The following table provides a list of supported compute environments and the ac
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | [On-demand HDInsight cluster](#azure-hdinsight-on-demand-linked-service) or [your own HDInsight cluster](#azure-hdinsight-linked-service) | [Hive](transform-data-using-hadoop-hive.md), [Pig](transform-data-using-hadoop-pig.md), [Spark](transform-data-using-spark.md), [MapReduce](transform-data-using-hadoop-map-reduce.md), [Hadoop Streaming](transform-data-using-hadoop-streaming.md) |
 | [Azure Batch](#azure-batch-linked-service)                   | [Custom](transform-data-using-dotnet-custom-activity.md)     |
-| [ML Studio (classic)](#azure-machine-learning-studio-classic-linked-service) | [ML Studio (classic) activities: Batch Execution and Update Resource](transform-data-using-machine-learning.md) |
+| [ML Studio (classic)](#machine-learning-studio-classic-linked-service) | [ML Studio (classic) activities: Batch Execution and Update Resource](transform-data-using-machine-learning.md) |
 | [Azure Machine Learning](#azure-machine-learning-linked-service) | [Azure Machine Learning Execute Pipeline](transform-data-machine-learning-service.md) |
 | [Azure Data Lake Analytics](#azure-data-lake-analytics-linked-service) | [Data Lake Analytics U-SQL](transform-data-using-data-lake-analytics.md) |
 | [Azure SQL](#azure-sql-database-linked-service), [Azure Synapse Analytics](#azure-synapse-analytics-linked-service), [SQL Server](#sql-server-linked-service) | [Stored Procedure](transform-data-using-stored-procedure.md) |
@@ -365,8 +367,11 @@ See following articles if you are new to Azure Batch service:
 | linkedServiceName | Name of the Azure Storage linked service associated with this Azure Batch linked service. This linked service is used for staging files required to run the activity. | Yes      |
 | connectVia        | The Integration Runtime to be used to dispatch the activities to this linked service. You can use Azure Integration Runtime or Self-hosted Integration Runtime. If not specified, it uses the default Azure Integration Runtime. | No       |
 
-## Azure Machine Learning Studio (classic) linked service
-You create an Azure Machine Learning Studio (classic) linked service to register a Machine Learning Studio (classic) batch scoring endpoint to a data factory or Synapse workspace.
+## Machine Learning Studio (classic) linked service
+
+[!INCLUDE[ML Studio (classic) retirement](../../includes/machine-learning-studio-classic-deprecation.md)] 
+
+You create an Machine Learning Studio (classic) linked service to register a Machine Learning Studio (classic) batch scoring endpoint to a data factory or Synapse workspace.
 
 ### Example
 

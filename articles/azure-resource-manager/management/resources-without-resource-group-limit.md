@@ -2,7 +2,7 @@
 title: Resources without 800 count limit
 description: Lists the Azure resource types that can have more than 800 instances in a resource group.
 ms.topic: conceptual
-ms.date: 07/13/2021
+ms.date: 10/20/2021
 ---
 
 # Resources not limited to 800 instances per resource group
@@ -11,7 +11,7 @@ By default, you can deploy up to 800 instances of a resource type in each resour
 
 For some resource types, you need to contact support to have the 800 instance limit removed. Those resource types are noted in this article.
 
-Some resources have a limit on the number instances per region. This limit is different than the 800 instances per resource group. To check your instances per region, use the Azure portal. Select your subscription and **Usage + quotas** in the left pane. For more information, see [Check resource usage against limits](../../networking/check-usage-against-limits.md). 
+Some resources have a limit on the number instances per region. This limit is different than the 800 instances per resource group. To check your instances per region, use the Azure portal. Select your subscription and **Usage + quotas** in the left pane. For more information, see [Check resource usage against limits](../../networking/check-usage-against-limits.md).
 
 ## Microsoft.AlertsManagement
 
@@ -43,6 +43,7 @@ Some resources have a limit on the number instances per region. This limit is di
 * snapshots
 * virtualMachineScaleSets - By default, limited to 800 instances. That limit can be increased by contacting support.
 * virtualMachines
+* virtualMachines/extensions - Supports an unlimited number of VM extension instances.
 
 ## Microsoft.ContainerInstance
 
@@ -108,8 +109,8 @@ Some resources have a limit on the number instances per region. This limit is di
 
 ## Microsoft.HybridCompute
 
-* machines - supports up to 5,000 instances
-* machines/extensions - supports an unlimited number of VM extension instances
+* machines - Supports up to 5,000 instances.
+* machines/extensions - Supports an unlimited number of VM extension instances.
 
 ## microsoft.insights
 
@@ -132,6 +133,7 @@ Some resources have a limit on the number instances per region. This limit is di
 * netAppAccounts/capacityPools/volumes
 * netAppAccounts/capacityPools/volumes/mountTargets
 * netAppAccounts/capacityPools/volumes/snapshots
+* netAppAccounts/capacityPools/volumes/subvolumes
 * netAppAccounts/snapshotPolicies
 * netAppAccounts/volumeGroups
 

@@ -2,14 +2,18 @@
 title: Data sources and content types - QnA Maker
 description: Learn how to import question and answer pairs from data sources and supported content types, which include many standard structured documents such as PDF, DOCX, and TXT - QnA Maker.
 ms.service: cognitive-services
+ms.author: mbullwin
+author: mrbullwinkle
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 10/13/2020
+ms.date: 01/11/2022
 ---
 
 # Importing from data sources
 
 A knowledge base consists of question and answer pairs brought in by public URLs and files.
+
+[!INCLUDE [Custom question answering](../includes/new-version.md)]
 
 ## Data source locations
 
@@ -64,7 +68,7 @@ If you are unsure how to represent your QnA pair in the `.tsv` file:
 You can also create a knowledge base based on unstructured content imported via a file. Currently this functionality is available only via document upload for documents that are in any of the supported file formats.
 
 > [!IMPORTANT]
-> The support for unstructured content via file upload is available only in Custom question answering (preview release)
+> The support for unstructured content via file upload is available only in [question answering](../../language-service/question-answering/overview.md).
 
 ## Content types of documents you can add to a knowledge base
 Content types include many standard structured documents such as PDF, DOC, and TXT.

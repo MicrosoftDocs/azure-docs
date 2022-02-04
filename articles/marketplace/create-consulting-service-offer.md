@@ -1,6 +1,6 @@
 ---
-title: How to create a consulting service offer in the Microsoft commercial marketplace 
-description: Learn how to create a new consulting service offer for Microsoft AppSource or Azure Marketplace using the commercial marketplace program in Microsoft Partner Center. 
+title: Create a consulting service offer for the commercial marketplace
+description: Create a consulting service offer for Microsoft AppSource or Azure Marketplace using Partner Center. 
 author: Microsoft-BradleyWright
 ms.author: brwrigh
 ms.reviewer: anbene
@@ -10,19 +10,15 @@ ms.topic: how-to
 ms.date: 09/27/2021
 ---
 
-# How to create a consulting service offer in the commercial marketplace
+# Create a consulting service offer
 
-This article explains how to create a consulting service offer for the Microsoft commercial marketplace using Partner Center.
+This article explains how to create a consulting service offer for the commercial marketplace using Partner Center.
 
 ## Before you begin
 
-To publish a consulting service offer, you must meet certain eligibility requirements to demonstrate expertise in your field. If you haven’t already done so, read [Plan a consulting service offer for the commercial marketplace](./plan-consulting-service-offer.md). It describes the prerequisites for a consulting service, and the assets you’ll need when you create the offer with Partner Center.
+To publish a consulting service offer, you must meet certain eligibility requirements to demonstrate expertise in your field. If you haven’t already done so, read [Plan a consulting service offer](./plan-consulting-service-offer.md). It describes the prerequisites and  assets you’ll need on hand to create a consulting service offer in Partner Center.
 
-## Create a new consulting service offer
-
-[!INCLUDE [Workspaces view note](./includes/preview-interface.md)]
-
-#### [Workspaces view](#tab/workspaces-view)
+## Create a consulting service offer
 
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
 1. On the Home page, select the **Marketplace offers** tile.
@@ -41,25 +37,6 @@ To publish a consulting service offer, you must meet certain eligibility require
 
 1. Enter an **Offer alias**. This is the name used for the offer in Partner Center. It isn't visible in the online stores and is different from the offer name shown to customers.
 1. To generate the offer and continue, select **Create**.
-
-#### [Current view](#tab/current-view)
-
-1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
-1. In the left-navigation menu, select **Commercial Marketplace** > **Overview**.
-1. On the Overview tab, select **+ New offer** > **Consulting service**.
-
-    ![Illustrates the left-navigation menu.](./media/new-offer-consulting-service.png)
-
-1. In the **New offer** dialog box, enter an **Offer ID**. This ID is visible in the URL of the commercial marketplace listing. For example, if you enter test-offer-1 in this box, the offer web address will be `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
-
-    * Each offer in your account must have a unique offer ID.
-    * Use only lowercase letters and numbers. The offer ID can include hyphens and underscores, but no spaces, and is limited to 50 characters.
-    * The offer ID can't be changed after you select **Create**.
-
-1. Enter an **Offer alias**. This is the name used for the offer in Partner Center. It isn't visible in the online stores and is different from the offer name shown to customers.
-1. To generate the offer and continue, select **Create**.
-
----
 
 ## Configure lead management
 

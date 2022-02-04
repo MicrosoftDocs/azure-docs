@@ -1,12 +1,12 @@
 ---
 title: Tutorial - Configure message routing for Azure IoT Hub using the Azure CLI
 description: Tutorial - Configure message routing for Azure IoT Hub using the Azure CLI. Depending on properties in the message, route to either a storage account or a Service Bus queue.
-author: robinsh
+author: eross-msft
 ms.service: iot-hub
 services: iot-hub
 ms.topic: tutorial
 ms.date: 8/20/2021
-ms.author: robinsh
+ms.author: lizross
 ms.custom: mvc, devx-track-azurecli
 #Customer intent: As a developer, I want to be able to route messages sent to my IoT hub to different destinations based on properties stored in the message. I want to be able to set up the resource and the routing using the Azure CLI.
 ---
@@ -21,7 +21,7 @@ ms.custom: mvc, devx-track-azurecli
 
 For the second part of this tutorial, you download and run a Visual Studio application to send messages to the IoT Hub. There is a folder in the download that contains the Azure Resource Manager template and parameters file, as well as the Azure CLI and PowerShell scripts.
 
-If you want to view the finished script, download the [Azure IoT C# Samples](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip). Unzip the master.zip file. The Azure CLI script is in /iot-hub/Tutorials/Routing/SimulatedDevice/resources/ as **iothub_routing_cli.azcli**.
+If you want to view the finished script, download the [Azure IoT C# Samples](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/main.zip). Unzip the main.zip file. The Azure CLI script is in /iot-hub/Tutorials/Routing/SimulatedDevice/resources/ as **iothub_routing_cli.azcli**.
 
 ## Use the Azure CLI to create your resources
 

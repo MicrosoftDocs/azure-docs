@@ -10,7 +10,8 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviwer: vanto
 ms.date: 07/14/2021
---- 
+---
+
 # Plan for Intel SGX enclaves and attestation in Azure SQL Database
 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]

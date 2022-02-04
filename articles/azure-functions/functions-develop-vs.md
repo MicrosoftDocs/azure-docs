@@ -1,6 +1,7 @@
 ---
 title: Develop Azure Functions using Visual Studio  
 description: Learn how to develop and test Azure Functions by using Azure Functions Tools for Visual Studio 2019.
+ms.devlang: csharp
 ms.custom: "vs-azure, devx-track-csharp"
 ms.topic: conceptual
 ms.date: 12/10/2020
@@ -80,18 +81,6 @@ For more information, see [Functions class library project](functions-dotnet-cla
 Visual Studio doesn't automatically upload the settings in local.settings.json when you publish the project. To make sure that these settings also exist in your function app in Azure, upload them after you publish your project. For more information, see [Function app settings](#function-app-settings). The values in a `ConnectionStrings` collection are never published.
 
 Your code can also read the function app settings values as environment variables. For more information, see [Environment variables](functions-dotnet-class-library.md#environment-variables).
-
-## Configure your build output settings
-
-When building an Azure Functions project, the build tools optimize the output so that only one copy of any assemblies that are shared with the functions runtime are preserved. The result is an optimized build that saves as much space as possible. However, when you move to a more recent version of any of your project assemblies, the build tools might not know that these assemblies must be preserved. To make sure that these assemblies are preserved during the optimization process, you can specify them using `FunctionsPreservedDependencies` elements in the project (.csproj) file:
-
-```xml
-  <ItemGroup>
-    <FunctionsPreservedDependencies Include="Microsoft.AspNetCore.Http.dll" />
-    <FunctionsPreservedDependencies Include="Microsoft.AspNetCore.Http.Extensions.dll" />
-    <FunctionsPreservedDependencies Include="Microsoft.AspNetCore.Http.Features.dll" />
-  </ItemGroup>
-```
 
 ## Configure the project for local development
 
@@ -179,6 +168,7 @@ As with triggers, input and output bindings are added to your function as bindin
         }
     }
     ```
+
    The connection to Queue storage is obtained from the `AzureWebJobsStorage` setting. For more information, see the reference article for the specific binding. 
 
 [!INCLUDE [Supported triggers and bindings](../../includes/functions-bindings.md)]

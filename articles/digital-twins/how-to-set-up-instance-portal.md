@@ -22,9 +22,7 @@ ms.custom: contperf-fy21q2, subject-rbac-steps
 
 This article covers the steps to **set up a new Azure Digital Twins instance**, including creating the instance and setting up authentication. After completing this article, you'll have an Azure Digital Twins instance ready to start programming against.
 
-This version of this article goes through these steps manually, one by one, using the Azure portal. The Azure portal is a web-based, unified console that provides an alternative to command-line tools. Setup can also be completed by using the following alternate instructions:
-* [Set up an instance and authentication (CLI)](how-to-set-up-instance-cli.md)
-* [Set up an instance and authentication (PowerShell)](how-to-set-up-instance-powershell.md)
+This version of this article goes through these steps manually, one by one, using the Azure portal. The Azure portal is a web-based, unified console that provides an alternative to command-line tools.
 
 [!INCLUDE [digital-twins-setup-steps.md](../../includes/digital-twins-setup-steps.md)]
 
@@ -51,7 +49,7 @@ This version of this article goes through these steps manually, one by one, usin
 Here are the additional options you can configure during setup, using the other tabs in the **Create Resource** process.
 
 * **Networking**: In this tab, you can enable private endpoints with [Azure Private Link](../private-link/private-link-overview.md) to eliminate public network exposure to your instance. For instructions, see [Enable private access with Private Link (preview)](./how-to-enable-private-link.md?tabs=portal#add-a-private-endpoint-during-instance-creation).
-* **Advanced**: In this tab, you can enable a system-managed identity for your instance that can be used when forwarding events to [endpoints](concepts-route-events.md). For more information about using system-managed identities with Azure Digital Twins, see [Security for Azure Digital Twins solutions](concepts-security.md#managed-identity-for-accessing-other-resources).
+* **Advanced**: In this tab, you can enable a system-managed identity for your instance that can be used when forwarding events along [event routes](concepts-route-events.md). For more information about using system-managed identities with Azure Digital Twins, see [Security for Azure Digital Twins solutions](concepts-security.md#managed-identity-for-accessing-other-resources).
 * **Tags**: In this tab, you can add tags to your instance to help you organize it among your Azure resources. For more about Azure resource tags, see [Tag resources, resource groups, and subscriptions for logical organization](../azure-resource-manager/management/tag-resources.md).
 
 ### Verify success and collect important values
@@ -113,7 +111,7 @@ You can also assign the **Azure Digital Twins Data Owner** role using the access
     | --- | --- |
     | Role | [Azure Digital Twins Data Owner](../role-based-access-control/built-in-roles.md#azure-digital-twins-data-owner) |
     | Assign access to | User, group, or service principal |
-    | Members | Search for the name or email address of the user to assign. |
+    | Members | Search for the name or email address of the user to assign |
     
     ![Add role assignment page](../../includes/role-based-access-control/media/add-role-assignment-page.png)
 
@@ -128,7 +126,7 @@ You now have an Azure Digital Twins instance ready to go, and have assigned perm
 ## Next steps
 
 Test out individual REST API calls on your instance using the Azure Digital Twins CLI commands: 
-* [az dt reference](/cli/azure/dt?view=azure-cli-latest&preserve-view=true)
+* [az dt reference](/cli/azure/dt)
 * [Azure Digital Twins CLI command set](concepts-cli.md)
 
 Or, see how to connect a client application to your instance with authentication code:
