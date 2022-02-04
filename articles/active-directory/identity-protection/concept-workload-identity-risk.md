@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # Securing workload identities with Identity Protection
 
-Azure AD Identity Protection has historically protected users in detecting, investigating, and remediating identity-based risks. We're now extending these capabilities to workload identities to protect applications, service principals, and Managed Identities against such risks.
+Azure AD Identity Protection has historically protected users in detecting, investigating, and remediating identity-based risks. We're now extending these capabilities to workload identities to protect applications, service principals, and Managed Identities.
 
 A workload identity is an identity that allows an application or service principal access to resources, sometimes in the context of a user. These workload identities differ from traditional user accounts as they:
 
@@ -50,8 +50,7 @@ We detect risk on workload identities across sign-in behavior and offline indica
 | Detection name | Detection type | Description |
 | --- | --- | --- |
 | Azure AD threat intelligence | Offline | This risk detection indicates some activity that is consistent with known attack patterns based on Microsoft's internal and external threat intelligence sources. |
-| Suspicious Sign-ins | Offline | This risk detection indicates sign-in properties or patterns that are unusual for this service principal. <br><br> The detection learns the baselines sign-in behavior for workload identities in your tenant in between 2 and 60 days, and fires if one or more of the following unfamiliar properties appear during a later sign-in: IP address / ASN, target resource, user agent, hosting/non-hosting IP change, IP country, credential type. <br><br> Because of the programmatic nature of workload identity sign-ins, we provide a timestamp for the suspicious activity instead of flagging a specific sign-in event. <br><br> We mark accounts at high risk when the Suspicious Sign-ins detection fires because this detection can indicate account takeover for the subject application. <br><br>  Sign-ins that are initiated after an authorized configuration change may trigger this detection. |
-| Leaked Credentials | Offline | This risk detection indicates that the account's valid credentials have been leaked. This leak can occur when someone checks in the credentials in public code artifact on GitHub, or when the credentials are leaked through a data breach. <br><br> When the Microsoft leaked credentials service acquires credentials from GitHub, the dark web, paste sites, or other sources, they're checked against Azure AD identities’ current valid credentials to find valid matches. For more information about leaked credentials, see [Common questions](). |
+| Suspicious Sign-ins | Offline | This risk detection indicates sign-in properties or patterns that are unusual for this service principal. <br><br> The detection learns the baselines sign-in behavior for workload identities in your tenant in between 2 and 60 days, and fires if one or more of the following unfamiliar properties appear during a later sign-in: IP address / ASN, target resource, user agent, hosting/non-hosting IP change, IP country, credential type. <br><br> Because of the programmatic nature of workload identity sign-ins, we provide a timestamp for the suspicious activity instead of flagging a specific sign-in event. <br><br>  Sign-ins that are initiated after an authorized configuration change may trigger this detection. |
 | Admin confirmed account compromised | Offline | This detection indicates an admin has selected 'Confirm compromised' in the Risky Workload Identities UI or using riskyServicePrincipals API. To see which admin has confirmed this account compromised, check the account’s risk history (via UI or API). |
 
 ## Identify risky workload identities
@@ -71,6 +70,9 @@ You can also query risky workload identities [using the Microsoft Graph API](/gr
 
 - riskyServicePrincipals
 - servicePrincipalRiskDetections
+
+### Export risk data 
+Organizations can export data by configurating [diagnostic settings in Azure AD](howto-export-risk-data.md) to send risk data to a Log Analytics workspace, archive it to a storage account, stream it to an Event Hub, or send it to a partner (e.g., SIEM) solution. 
 
 ## Investigate risky workload identities
 
@@ -101,31 +103,6 @@ The [Azure AD Toolkit](https://github.com/microsoft/AzureADToolkit) is a PowerSh
 ## Configure a risk-based Conditional Access policy
 
 Using [Conditional Access for workload identities](../conditional-access/workload-identity.md) you can block access for specific accounts you choose when Identity Protection marks them “at risk”. Policy can be applied to single tenant service principals that have been registered in your tenant. Third-party SaaS and multi-tenanted apps are out of scope. Managed identities aren't covered by policy.
-
-## Simulating risk detections
-
-Completing the following leaked credential detection simulation requires:
-
- - A public GitHub repository
- - A test application with no permissions and no roles assigned to it 
-
-To simulate a leaked credential, do the following steps:
-
-1.	Browse to **Azure AD** > **Enterprise Apps** > **your test app** > **Properties**. 
-   1. Confirm the app’s service principal isn't enabled for sign-in. The radio button on “Enabled for users to sign-in?” should read “No.”
-1.	Browse to **Azure AD** > **App Registrations** > **your test app** 
-   1. Make note of the Application (client) ID and the Directory (tenant) ID. 
-   1. Browse to **Certificates and Secrets** > **New client secret** to add a test secret to the application. Make note the secret value.
-1.	Browse to GitHub and create a public repository. 
-1.	Commit the three values above in the following format:
-
-      ```text
-      "AadClientId": "[guid]",
-      "AadSecret": "[secret]",
-      "AadTenantId": "[guid]",
-      ```
-
-1.	The detection should appear in Identity Protection within 48 hours.
 
 ## Next steps
 
