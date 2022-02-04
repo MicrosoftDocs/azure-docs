@@ -9,8 +9,6 @@ ms.date: 02/04/2022
 
 Azure Advisor helps you optimize and reduce your overall Azure spend by identifying idle and underutilized resources. You can get cost recommendations from the **Cost** tab on the Advisor dashboard.
 
-## How to access cost recommendations in Azure Advisor
-
 1. Sign in to the [**Azure portal**](https://portal.azure.com).
 
 1. Search for and select [**Advisor**](https://aka.ms/azureadvisordashboard) from any page.
