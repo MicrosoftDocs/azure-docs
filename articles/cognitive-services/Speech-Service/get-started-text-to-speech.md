@@ -18,8 +18,6 @@ keywords: text to speech
 
 # Get started with text-to-speech
 
-[!INCLUDE [Header](includes/quickstarts/common/header-programming-languages-speech-services.md)]
-
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [C# include](includes/quickstarts/text-to-speech-basics/csharp.md)]
 ::: zone-end

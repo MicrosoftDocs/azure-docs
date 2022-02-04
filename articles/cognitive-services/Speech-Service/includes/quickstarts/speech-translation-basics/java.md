@@ -7,6 +7,8 @@ ms.custom: devx-track-java
 ms.author: eur
 ---
 
+[!INCLUDE [Header](../common/java.md)]
+
 [!INCLUDE [Introduction](intro.md)]
 
 ## Prerequisites

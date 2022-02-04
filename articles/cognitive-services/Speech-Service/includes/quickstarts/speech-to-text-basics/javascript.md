@@ -7,6 +7,8 @@ ms.author: eur
 ms.custom: devx-track-js
 ---
 
+[!INCLUDE [Header](../common/javascript.md)]
+
 [!INCLUDE [Introduction](intro.md)]
 
 > [!NOTE]

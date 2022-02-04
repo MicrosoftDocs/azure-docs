@@ -7,6 +7,8 @@ ms.topic: include
 ms.author: eur
 ---
 
+[!INCLUDE [Header](../common/java.md)]
+
 [!INCLUDE [Introduction](intro.md)]
 
 ## Prerequisites

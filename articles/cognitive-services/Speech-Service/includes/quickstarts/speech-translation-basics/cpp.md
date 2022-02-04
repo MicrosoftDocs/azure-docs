@@ -6,6 +6,8 @@ ms.date: 04/13/2020
 ms.author: eur
 ---
 
+[!INCLUDE [Header](../common/cpp.md)]
+
 [!INCLUDE [Introduction](intro.md)]
 
 ## Prerequisites

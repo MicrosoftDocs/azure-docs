@@ -6,6 +6,8 @@ ms.date: 01/16/2022
 ms.author: eur
 ---
 
+[!INCLUDE [Header](../common/python.md)]
+
 [!INCLUDE [Introduction](intro.md)]
 
 ## Prerequisites

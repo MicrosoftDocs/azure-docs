@@ -18,8 +18,6 @@ keywords: speech translation
 
 # Get started with speech translation
 
-[!INCLUDE [Header](includes/quickstarts/common/header-programming-languages-speech-services.md)]
-
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [C# include](includes/quickstarts/speech-translation-basics/csharp.md)]
 ::: zone-end

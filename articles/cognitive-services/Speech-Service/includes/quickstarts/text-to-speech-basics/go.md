@@ -6,6 +6,8 @@ ms.date: 07/02/2021
 ms.author: yulili
 ---
 
+[!INCLUDE [Header](../common/go.md)]
+
 [!INCLUDE [Introduction](intro.md)]
 
 ## Prerequisites

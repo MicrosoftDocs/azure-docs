@@ -7,6 +7,8 @@ ms.author: eur
 ms.custom: devx-track-csharp
 ---
 
+[!INCLUDE [Header](../common/csharp.md)]
+
 [!INCLUDE [Introduction](intro.md)]
 
 ## Prerequisites

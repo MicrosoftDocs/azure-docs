@@ -6,6 +6,8 @@ ms.date: 09/15/2020
 ms.author: eur
 ---
 
+[!INCLUDE [Header](../common/go.md)]
+
 [!INCLUDE [Introduction](intro.md)]
 
 ## Prerequisites
