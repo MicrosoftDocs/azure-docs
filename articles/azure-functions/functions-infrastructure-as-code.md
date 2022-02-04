@@ -569,7 +569,7 @@ To run your app on Linux, you must also set property `"reserved": true` for the 
 
 ### Create a function app
 
-For function app on a Dedicated plan, you will need to set the `serverFarmId` property on the app so that it points to the resource ID of the plan. You should ensure that the function app has a `dependsOn` setting for the plan as well.
+For function app on a Dedicated plan, you must set the `serverFarmId` property on the app so that it points to the resource ID of the plan. Make sure that the function app has a `dependsOn` setting that also references the plan.
 
 On App Service plan, you should enable the `"alwaysOn": true` setting under site config so that your function app runs correctly. On an App Service plan, the functions runtime goes idle after a few minutes of inactivity, so only HTTP triggers will "wake up" your functions.
 
