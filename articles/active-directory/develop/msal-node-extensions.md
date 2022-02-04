@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 01/27/2022
+ms.date: 02/04/2022
 ms.reviewer: j-mantu, samuelkubai, Dickson-Mwendia
 ms.author: henrymbugua
 #Customer intent: As an application developer, I want to learn how to use the Microsoft Authentication Extensions for Node to perform cross-platform token cache serialization and persistence.
@@ -89,11 +89,11 @@ The following table provides an explanation for all the arguments for the persis
 
 | Field Name              | Description                                                                                         | Required For           |
 | ----------------------- | --------------------------------------------------------------------------------------------------- | ---------------------- |
-| cachePath               | This is the path to the lock file the library uses to synchronize the reads and the writes          | Windows, Mac, and Linux |
+| cachePath               | The path to the lock file the library uses to synchronize the reads and the writes          | Windows, Mac, and Linux |
 | dataProtectionScope     | Specifies the scope of the data protection on Windows either the current user or the local machine. | Windows                |
-| serviceName             | This specifies the service name to be used on Mac and/or Linux                                      | Mac and Linux          |
-| accountName             | This specifies the account name to be used on Mac and/or Linux                                      | Mac and Linux          |
-| usePlaintextFileOnLinux | This is a flag to default to plain text on linux if LibSecret fails. Defaults to `false`            | Linux                  |
+| serviceName             | Specifies the service name to be used on Mac and/or Linux                                      | Mac and Linux          |
+| accountName             | Specifies the account name to be used on Mac and/or Linux                                      | Mac and Linux          |
+| usePlaintextFileOnLinux | The flag to default to plain text on linux if LibSecret fails. Defaults to `false`            | Linux                  |
 
 ## Next steps
 
