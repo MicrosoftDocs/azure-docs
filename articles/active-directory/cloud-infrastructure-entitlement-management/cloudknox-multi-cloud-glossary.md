@@ -25,8 +25,6 @@ This glossary provides a list of some of the commonly used multi-cloud terms at 
 | ACL                  | Access control list. A list associated with files or resources that contain information about which users or groups have permission to access those resources or modify those files.    |
 | ARN                  | Azure Resource Notification    |
 | ASIM                  | Azure Sentinel Information Model    |
-| AFB                   | Acronym Fly By                  | 
-| Azure AD STS          | Azure AD Security Token Service    |
 | Cloud security        | Cloud security is a form of cybersecurity that protects data stored online on cloud computing platforms from theft, leakage, and deletion. Methods of providing cloud security include firewalls, penetration testing, obfuscation, tokenization, virtual private networks (VPN), and avoiding public internet connections.     |
 | CASB                  | Cloud Access Security Broker                   | 
 | Cloud storage         | Cloud storage is a service model in which data is maintained, managed, backed up remotely. It's available to users over a network.                |
@@ -43,16 +41,11 @@ This glossary provides a list of some of the commonly used multi-cloud terms at 
 | hybrid cloud storage    | A private or public cloud used to store an organization's data.    |
 | ICM 	                | Incident Case Management 	                | 
 | IDS	                | Intrusion Detection Service	                | 
-| IGAM	                | Identity Governance and Access Management      |
 | ITSM 	                | Information Technology Security Management     |
 | JIT	                | Just in Time    |
-| MISE 	                | Microsoft Identity Service Essentials |
-| Multi-cloud	        | Multi-cloud is a phrase often said in the “tech world”, and it’s here to stay, at least for the foreseeable future. Embracing and learning the multi-cloud lingo is beneficial for practitioners, c-levels, and everyone in-between.      |
 | Multi-tenant	        | Multi-tenancy means that a single instance of the software and its supporting infrastructure serves multiple customers. Each customer shares the software application and also shares a single database.	                |
-| OIDC	                | OpenID Connect. An authentication protocol that verifies user identity when a user is trying to access a protected HTTPs end point. OIDC is an evolutionary development of ideas implemented earlier in OAuth and OpenID.
-| PAM	                | Privileged Access Management     |
+| OIDC	                | OpenID Connect. An authentication protocol that verifies user identity when a user is trying to access a protected HTTPs end point. OIDC is an evolutionary development of ideas implemented earlier in OAuth. |
 | Permission	        | Rights and privileges. Details given by users or network administrators that define access rights to files on a network.              |
-| PIM	                | Privileged Identity management     |  
 | POD	                | Permissions on Demand     |
 | Permissions creep index (PCI)	| A number from 0 to 100 that represents the incurred risk of users with access to high-risk privileges. PCI is a function of users who have access to high-risk privileges but aren't actively using them.    |
 | Public Cloud	        | Computing services offered by third-party providers over the public Internet, making them available to anyone who wants to use or purchase them. They may be free or sold on-demand, allowing customers to pay only per usage for the CPU cycles, storage, or bandwidth they consume.                |
@@ -60,7 +53,6 @@ This glossary provides a list of some of the commonly used multi-cloud terms at 
 | SCIM	                | System for Cross–domain Identity Management |
 | SCI–M 	            | Security Compliance Identity and Management    |
 | SIEM	                | Security Information and Event Management (SIEM).     |
-| SCP	                | SAP Cloud Platform. A platform as a service developed by SAP SE for creating new applications or extending existing applications in a secure cloud computing environment managed by SAP.|
 | Tenant	            | A dedicated instance of the services and organization data stored within a specific default location.                  |
 | UUID		            | Universally unique identifier. A 128-bit label used for information in computer systems. The term globally unique identifier (GUID) is also used.|
 

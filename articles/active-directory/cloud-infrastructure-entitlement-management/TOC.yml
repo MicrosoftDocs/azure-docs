@@ -1,14 +1,14 @@
   - name: CloudKnox Permissions Management
     href: index.yml
-  #- name: Overview
-    #expanded: true
-    #items:
-      #- name: Overview
-      #href: cloudknox-overview.md
-  - name: Onboard CloudKnox on the Azure AD tenant
+  - name: Overview
     expanded: true
     items:
-    - name: Enable CloudKnox on your Azure AD tenant 
+      - name: What is CloudKnox Permissions Management?
+        href: cloudknox-overview.md
+  - name: Onboard CloudKnox
+    expanded: true
+    items:
+    - name: Enable CloudKnox in your organization
       href: cloudknox-onboard-enable-tenant.md
     - name: Onboard an AWS account
       href: cloudknox-onboard-aws.md

@@ -60,7 +60,7 @@ This article describes how to onboard an Amazon Web Services (AWS) account on Cl
 
     1.  Return to CloudKnox, and in the "**CloudKnox On Boarding - AWS Master Account Details**" select **Launch Template**.
 
-        The **AWS create stack** page opens, displaying the template.
+        The **AWS CloudFormation create stack** page opens, displaying the template.
 
     1. Review the information in the template, make changes, if necessary, then scroll to the bottom of the page.
 
@@ -79,7 +79,7 @@ This article describes how to onboard an Amazon Web Services (AWS) account on Cl
 
     1.  Return to CloudKnox, and in the "**CloudKnox On Boarding - AWS Central Logging Account Details**" page select **Launch Template**.
 
-        The **AWS create stack** page opens, displaying the template.
+        The **AWS CloudFormation create stack** page opens, displaying the template.
 
     1. Review the information in the template, make changes, if necessary, then scroll to the bottom of the page.
 
