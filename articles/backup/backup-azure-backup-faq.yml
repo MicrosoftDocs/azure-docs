@@ -20,6 +20,8 @@ sections:
         answer: |
           Yes. You can create up to 500 Recovery Services vaults, per supported region of Azure Backup, per subscription. If you need additional vaults, create an additional subscription.
 
+[!INCLUDE [Test](../includes/backup-create-rs-vault.md)
+
       - question: |
           Are there limits on the number of servers/machines that can be registered against each vault?
         answer: |
