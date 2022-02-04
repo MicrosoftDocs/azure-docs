@@ -23,7 +23,7 @@ Enabling BIG-IP published services for Azure Active Directory (Azure AD) SSO pro
 
 * Full SSO between Azure AD and BIG-IP published services
 
-* Manage Identities and access from a single control plane, [the Azure portal](https://portal.azure.com/)
+* Manage Identities and access from a single control plane, the [Azure portal](https://portal.azure.com/)
 
 To learn about all the benefits, see the article on [F5 BIG-IP and Azure AD integration](http://f5-aad-integration.md/) and [what is application access and single sign-on with Azure AD](/azure/active-directory/active-directory-appssoaccess-whatis).
 
@@ -136,7 +136,7 @@ A BIG-IP must also be registered as a client in Azure AD, before it is allowed t
 
 ## Configure Easy Button
 
-Initiate **Easy Button** configuration to set up a SAML Service Provider (SP) and Azure AD as an Identity Provider (IdP) for your application.
+Initiate the **Easy Button** configuration to set up a SAML Service Provider (SP) and Azure AD as an Identity Provider (IdP) for your application.
 
 1. Navigate to **Access > Guided Configuration > Microsoft Integration** and select **Azure AD Application**.
 
@@ -228,7 +228,7 @@ When a user successfully authenticates, Azure AD issues a SAML token with a defa
 
 ![Screenshot for Azure configuration – User attributes & claims](./media/f5-big-ip-easy-button-ldap/user-attributes-claims.png)
 
-You can include additional Azure AD attributes if necessary, but the example PeopleSoft scenario only requires the default attributes.
+You can include additional Azure AD attributes if necessary, but the Oracle EBS scenario only requires the default attributes.
 
 #### Additional User Attributes
 
@@ -313,7 +313,7 @@ The **Application Pool tab** details the services behind a BIG-IP, represented a
 
 #### Single Sign-On & HTTP Headers
 
-The **Easy Button wizard** supports Kerberos, OAuth Bearer, and HTTP authorization headers for SSO to published applications. As the PeopleSoft application expects headers, enable **HTTP Headers** and enter the following properties.
+The **Easy Button wizard** supports Kerberos, OAuth Bearer, and HTTP authorization headers for SSO to published applications. As the Oracle EBS application expects headers, enable **HTTP Headers** and enter the following properties.
 
 * **Header Operation:** replace
 * **Header Name:** USER_NAME
@@ -343,13 +343,13 @@ Select **Deploy** to commit all settings and verify that the application has app
 
 ## Next steps
 
-From a browser, connect to the **PeopleSoft application’s external URL** or select the application’s icon in the [Microsoft MyApps portal](https://myapps.microsoft.com/). After authenticating to Azure AD, you’ll be redirected to the BIG-IP virtual server for the application and automatically signed in through SSO.
+From a browser, connect to the **Oracle EBS application’s external URL** or select the application’s icon in the [Microsoft MyApps portal](https://myapps.microsoft.com/). After authenticating to Azure AD, you’ll be redirected to the BIG-IP virtual server for the application and automatically signed in through SSO.
 
 For increased security, organizations using this pattern could also consider blocking all direct access to the application, thereby forcing a strict path through the BIG-IP.
 
 ## Advanced deployment
 
-There may be cases where the Guided Configuration templates lack the flexibility to achieve more specific requirements. For those scenarios, see [Advanced Configuration for kerberos-based SSO](./f5-big-ip-kerberos-advanced.md). Alternatively, the BIG-IP gives the option to disable **Guided Configuration’s strict management mode**. This allows you to manually tweak your configurations, even though bulk of your configurations are automated through the wizard-based templates.
+There may be cases where the Guided Configuration templates lack the flexibility to achieve more specific requirements. For those scenarios, see [Advanced Configuration for headers-based SSO](./f5-big-ip-header-advanced.md). Alternatively, the BIG-IP gives the option to disable **Guided Configuration’s strict management mode**. This allows you to manually tweak your configurations, even though bulk of your configurations are automated through the wizard-based templates.
 
 You can navigate to **Access > Guided Configuration** and select the **small padlock icon** on the far right of the row for your applications’ configs. 
 
