@@ -66,9 +66,9 @@ CloudKnox currently doesn’t support hybrid environments.
 
 CloudKnox supports user identities (for example, employees, customers, external partners) and workload identities (for example, virtual machines, containers, web apps, serverless functions).
 
-## Is CloudKnox General Data Protection Regulation (GDPR) compliant?
+<!---## Is CloudKnox General Data Protection Regulation (GDPR) compliant?
 
-CloudKnox is currently not GDPR compliant.
+CloudKnox is currently not GDPR compliant.--->
 
 ## Is CloudKnox available in Government Cloud?
 
@@ -132,9 +132,9 @@ It depends on each customer and how many AWS accounts, GCP projects, and Azure s
 
 Once fully onboarded with data collection set up, customers can access permissions usage insights within hours. Our machine-learning engine refreshes the Permission Creep Index every hour so that customers can start their risk assessment right away.
 
-## Is CloudKnox collecting and storing sensitive Personally Identifiable Information (PII) data?
+## Is CloudKnox collecting and storing sensitive personal data?
 
-No, CloudKnox doesn’t have access to PII data.
+No, CloudKnox doesn’t have access to sensitive personal data.
 
 ## Where can I find more information about CloudKnox? 
 

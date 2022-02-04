@@ -19,6 +19,8 @@ ms.author: v-ydequadros
 > CloudKnox Permissions Management (CloudKnox) is currently in PREVIEW.
 > Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
 
+## Overview
+
 CloudKnox Permissions Management (CloudKnox) is a cloud infrastructure entitlement management (CIEM) solution that provides comprehensive visibility into permissions assigned to all identities. For example, over-privileged workload and user identities, actions, and resources across multi-cloud infrastructures in Microsoft Azure, Amazon Web Services (AWS), and Google Cloud Platform (GCP). 
 
 CloudKnox  detects, automatically right-sizes, and continuously monitors unused and excessive permissions. 
@@ -31,6 +33,8 @@ Organizations have to consider permissions management as a central piece of thei
 - The inconsistency of cloud providers’ native access management models makes it even more complex for Security and Identity to manage permissions and enforce least privilege access policies across their entire environment.
 
 :::image type="content" source="media/cloudknox-overview/cloudknox-key-cases.png" alt-text="CloudKnox Permissions Management.":::
+
+## Key use cases
  
 CloudKnox  allows customers to address three key use cases: 
 - Discover: customers can assess permission risks by evaluating the gap between permissions granted and permissions used.
