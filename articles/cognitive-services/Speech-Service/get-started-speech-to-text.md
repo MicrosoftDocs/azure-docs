@@ -40,7 +40,7 @@ keywords: speech to text, speech to text software
 [!INCLUDE [JavaScript Basics include](includes/quickstarts/speech-to-text-basics/javascript.md)]
 ::: zone-end
 
-::: zone pivot="programming-languages-objectivec"
+::: zone pivot="programming-language-objectivec"
 [!INCLUDE [ObjectiveC/Swift Basics include](includes/quickstarts/speech-to-text-basics/objectivec.md)]
 ::: zone-end
 
@@ -52,7 +52,7 @@ keywords: speech to text, speech to text software
 [!INCLUDE [REST include](includes/quickstarts/speech-to-text-basics/rest.md)]
 ::: zone-end
 
-::: zone pivot="programmer-tool-cli"
+::: zone pivot="programming-language-cli"
 [!INCLUDE [CLI include](includes/quickstarts/speech-to-text-basics/cli.md)]
 ::: zone-end
 
