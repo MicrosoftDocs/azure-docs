@@ -67,14 +67,16 @@
     href: /cli/azure/advisor
   - name: PowerShell
     href: /powershell/module/az.advisor/
-  - name: Operational Excellence
-    href: advisor-reference-operational-excellence-recommendations.md
-  - name: Performance
-    href: advisor-reference-performance-recommendations.md
-  - name: Reliability
-    href: advisor-reference-reliability-recommendations.md
-  - name: Cost
-    href: advisor-reference-cost-recommendations.md
+  - name: Recommendations
+    items:
+    - name: Operational Excellence
+      href: advisor-reference-operational-excellence-recommendations.md
+    - name: Performance
+      href: advisor-reference-performance-recommendations.md
+    - name: Reliability
+      href: advisor-reference-reliability-recommendations.md
+    - name: Cost
+      href: advisor-reference-cost-recommendations.md
 - name: Resources
   items:
   - name: Azure Roadmap
