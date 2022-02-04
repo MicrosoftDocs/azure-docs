@@ -10,7 +10,6 @@ manager: pathuff
 
 ms.assetid: 
 ms.service: azure-government
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government

@@ -1,11 +1,11 @@
 ---
 title: Get the latest restorable timestamp for Azure Cosmos DB accounts with continuous backup mode
 description: Learn how to get the latest restorable timestamp for accounts enabled with continuous backup mode. It explains how to get the latest restorable time for SQL containers and MongoDB collections using Azure PowerShell and Azure CLI.
-author: SnehaGunda
+author: kanshiG
+ms.author: govindk
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.date: 11/18/2021
-ms.author: sngun
 ms.topic: how-to
 ms.reviewer: sngun
 ---

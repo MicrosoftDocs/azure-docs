@@ -62,14 +62,17 @@
           href: tutorial-custom-container.md
         - name: Multi-container app
           href: tutorial-multi-container-app.md
-    - name: Secretless back end connectivity
-      items:
-        - name: Access SQL DB with managed identity
-          href: tutorial-connect-msi-sql-database.md
-        - name: Access services without managed identity support
-          href: tutorial-connect-msi-key-vault.md
     - name: Authenticate users
       href: tutorial-auth-aad.md
+    - name: Securely connect to Azure resources
+      items:
+        - name: Overview
+          href: tutorial-connect-overview.md
+        - name: Managed identity with SQL DB
+          href: tutorial-connect-msi-sql-database.md
+        - name: Key vault with Cognitive Services
+          href: tutorial-connect-msi-key-vault.md
+
     - name: Secure app accesses storage, and Microsoft Graph
       items:
         - name: Overview
@@ -307,10 +310,15 @@
           href: manage-disaster-recovery.md
         - name: Enable on Azure Arc
           href: manage-create-arc-environment.md
+
+    - name: Networking
+      items:
         - name: Enable VNet integration
           href: configure-vnet-integration-enable.md
         - name: Configure VNet integration routing
           href: configure-vnet-integration-routing.md
+        - name: Control outbound traffic with Azure Firewall
+          href: network-secure-outbound-traffic-azure-firewall.md
 
     - name: Move app
       items:
@@ -328,9 +336,9 @@
           href: webjobs-sdk-get-started.md
         - name: Use WebJobs SDK
           href: webjobs-sdk-how-to.md
-    - name: High availability
+    - name: Zone redundancy
       items:
-        - name: Configuring high availability
+        - name: Configuring zone redundancy
           href: how-to-zone-redundancy.md
     - name: Automate provisioning
       items:
@@ -386,7 +394,7 @@
         - name: Reference Architectures
           href: /azure/architecture/reference-architectures/app-service-web-app/basic-web-app
         - name: Deployment Scripts
-          href: /azure/automation/automation-runbook-gallery
+          href: ../automation/automation-runbook-gallery.md
     - name: Troubleshooting
       items:
         - name: Troubleshoot intermittent outbound connection errors

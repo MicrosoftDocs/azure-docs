@@ -4,7 +4,7 @@ description: Understanding the data independence of your Azure Active Directory 
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: KarenH444
+manager: karenhoran
 ms.service: active-directory
 ms.subservice: enterprise-users
 ms.topic: overview

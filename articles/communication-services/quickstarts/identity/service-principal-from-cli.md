@@ -10,7 +10,7 @@ ms.topic: quickstart
 ms.date: 06/30/2021
 ms.author: jbeauregardb
 ms.reviewer: mikben
-ms.custom: mode-other
+ms.custom: mode-api
 ---
 
 # Quickstart: Authenticate using Azure Active Directory (Azure CLI)

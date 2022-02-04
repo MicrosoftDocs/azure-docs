@@ -1,241 +1,101 @@
 ---
 title: Import and Export data between serverless Apache Spark pools and SQL pools
-description: This article provides information on how to use the custom connector for moving data between dedicated SQL pools and serverless Apache Spark pools.
-services: synapse-analytics 
-author: rothja 
+description: This article introduces the Synapse Dedicated SQL Pool Connector API for moving data between dedicated SQL pools and serverless Apache Spark pools.
+services: synapse-analytics
+author: kevxmsft
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: spark
-ms.date: 11/19/2020 
-ms.author: jroth
-ms.reviewer: euang
----
-# Introduction
+ms.date: 01/27/2022
+ms.author: kevx
+ms.reviewer: kalyankadiyala-Microsoft
+--- 
+# Azure Synapse Dedicated SQL Pool connector for Apache Spark
 
-The Azure Synapse Apache Spark to Synapse SQL connector is designed to efficiently transfer data between serverless Apache Spark pools and dedicated SQL pools in Azure Synapse. The Azure Synapse Apache Spark to Synapse SQL connector works on dedicated SQL pools only, it doesn't work with serverless SQL pool.
+The Synapse Dedicated SQL Pool Connector is an API that efficiently moves data between [Apache Spark runtime](../../synapse-analytics/spark/apache-spark-overview.md) and [Dedicated SQL pool](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) in Azure Synapse Analytics. This connector is available in `Scala`.
 
-> [!WARNING]
-> The **sqlanalytics()** function name has been changed to **synapsesql()**. The sqlanalytics function will continue to work but will be deprecated.  Please change any reference from **sqlanalytics()** to **synapsesql()** to prevent any disruption in the future.
+It uses Azure Storage and [PolyBase](/sql/relational-databases/polybase/polybase-guide) to transfer data in parallel and at scale.
 
-## Design
+## Authentication
 
-Transferring data between Spark pools and SQL pools can be done using JDBC. However, given two distributed systems such as Spark and SQL pools, JDBC tends to be a bottleneck with serial data transfer.
+Authentication works automatically with the signed in Azure Active Directory user after the following prerequisites.
 
-The Azure Synapse Apache Spark pool to Synapse SQL connector is a data source implementation for Apache Spark. It uses the Azure Data Lake Storage Gen2 and Polybase in dedicated SQL pools to efficiently transfer data between the Spark cluster and the Synapse dedicated SQL instance.
+* Add the user to [db_exporter role](/sql/relational-databases/security/authentication-access/database-level-roles#special-roles-for--and-azure-synapse) using system-stored procedure [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql).
+* Add the user to [Storage Blob Data Contributor role](/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor) on the storage account.
 
-![Connector Architecture](./media/synapse-spark-sqlpool-import-export/arch1.png)
+The connector also supports password-based [SQL authentication](/azure/azure-sql/database/logins-create-manage#authentication-and-authorization) after the following prerequisites.
+  * Add the user to [db_exporter role](/sql/relational-databases/security/authentication-access/database-level-roles#special-roles-for--and-azure-synapse) using system-stored procedure [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql).
+  * Create an [external data source](/sql/t-sql/statements/create-external-data-source-transact-sql), whose [database scoped credential](/sql/t-sql/statements/create-database-scoped-credential-transact-sql) secret is the access key to an Azure Storage Account. The API requires the name of this external data source.
 
-## Authentication in Azure Synapse Analytics
+## API reference
 
-Authentication between systems is made seamless in Azure Synapse Analytics. The Token Service connects with Azure Active Directory to obtain security tokens for use when accessing the storage account or the data warehouse server.
+See the [Scala API reference](https://synapsesql.blob.core.windows.net/docs/1.0.0/scaladocs/com/microsoft/spark/sqlanalytics/index.html).
 
-For this reason, there's no need to create credentials or specify them in the connector API as long as Azure AD-Auth is configured at the storage account and the data warehouse server. If not, SQL Auth can be specified. Find more details in the [Usage](#usage) section.
+## Example usage
 
-## Constraints
+* Create and show a `DataFrame` representing a database table in the dedicated SQL pool.
 
-- This connector works only in Scala.
-- For pySpark, see details in the [Use Python](#use-pyspark-with-the-connector) section.
-- This Connector does not support querying SQL Views.
+  ```scala
+  import com.microsoft.spark.sqlanalytics.utils.Constants
+  import org.apache.spark.sql.SqlAnalyticsConnector._
 
-## Prerequisites
+  val df = spark.read.
+    option(Constants.SERVER, "servername.database.windows.net").
+    synapsesql("databaseName.schemaName.tablename")
 
-- Must be a member of **db_exporter** role in the database/SQL pool you want to transfer data to/from.
-- Must be a member of Storage Blob Data Contributor role on the default storage account.
+  df.show
+  ```
 
-To create users, connect to the SQL pool database, and follow these examples:
+* Save the content of a `DataFrame` to a database table in the dedicated SQL pool. The table type can be internal (i.e. managed) or external.
 
-```sql
---SQL User
-CREATE USER Mary FROM LOGIN Mary;
+  ```scala
+  import com.microsoft.spark.sqlanalytics.utils.Constants
+  import org.apache.spark.sql.SqlAnalyticsConnector._
 
---Azure Active Directory User
-CREATE USER [mike@contoso.com] FROM EXTERNAL PROVIDER;
-```
+  val df = spark.sql("select * from tmpview")
 
-To assign a role:
+  df.write.
+    option(Constants.SERVER, "servername.database.windows.net").
+    synapsesql("databaseName.schemaName.tablename", Constants.INTERNAL)
+  ```
 
-```sql
---SQL User
-EXEC sp_addrolemember 'db_exporter', 'Mary';
+* Use the connector API with SQL authentication with option keys `Constants.USER` and `Constants.PASSWORD`. It also requires option key `Constants.DATA_SOURCE`, specifying an external data source.
 
---Azure Active Directory User
-EXEC sp_addrolemember 'db_exporter',[mike@contoso.com]
-```
+  ```scala
+  import com.microsoft.spark.sqlanalytics.utils.Constants
+  import org.apache.spark.sql.SqlAnalyticsConnector._
 
-## Usage
+  val df = spark.read.
+    option(Constants.SERVER, "servername.database.windows.net").
+    option(Constants.USER, "username").
+    option(Constants.PASSWORD, "password").
+    option(Constants.DATA_SOURCE, "datasource").
+    synapsesql("databaseName.schemaName.tablename")
 
-The import statements aren't required, they're pre-imported for the notebook experience.
+  df.show
+  ```
 
-### Transfer data to or from a dedicated SQL pool attached within the workspace
+* We can use the `Scala` connector API to interact with content from a `DataFrame` in `PySpark` by using [DataFrame.createOrReplaceTempView](https://spark.apache.org/docs/latest/api/python/reference/api/pyspark.sql.DataFrame.createOrReplaceTempView.html#pyspark.sql.DataFrame.createOrReplaceTempView) or [DataFrame.createOrReplaceGlobalTempView](https://spark.apache.org/docs/latest/api/python/reference/api/pyspark.sql.DataFrame.createOrReplaceGlobalTempView.html#pyspark.sql.DataFrame.createOrReplaceGlobalTempView).
 
-> [!NOTE]
-> **Imports not needed in notebook experience**
+  ```py
+  %%pyspark
+  df.createOrReplaceTempView("tempview")
+  ```
 
-```scala
- import com.microsoft.spark.sqlanalytics.utils.Constants
- import org.apache.spark.sql.SqlAnalyticsConnector._
-```
+  ```scala
+  %%spark
+  import com.microsoft.spark.sqlanalytics.utils.Constants
+  import org.apache.spark.sql.SqlAnalyticsConnector._
 
-#### Read API
+  val df = spark.sqlContext.sql("select * from tempview")
 
-```scala
-val df = spark.read.synapsesql("<DBName>.<Schema>.<TableName>")
-```
-
-The above API will work for both Internal (Managed) as well as External Tables in the SQL pool.
-
-#### Write API
-
-```scala
-df.write.synapsesql("<DBName>.<Schema>.<TableName>", <TableType>)
-```
-
-The write API creates the table in the dedicated SQL pool and then invokes Polybase to load the data.  The table must not exist in the dedicated SQL pool or an error will be returned stating that "There is already an object named..."
-
-TableType values
-
-- Constants.INTERNAL - Managed table in dedicated SQL pool
-- Constants.EXTERNAL - External table in dedicated SQL pool
-
-SQL pool-managed table
-
-```scala
-df.write.synapsesql("<DBName>.<Schema>.<TableName>", Constants.INTERNAL)
-```
-
-SQL pool external table
-
-To write to a dedicated SQL pool external table, an EXTERNAL DATA SOURCE and an EXTERNAL FILE FORMAT must exist on the dedicated SQL pool.  For more information, read [creating an external data source](/sql/t-sql/statements/create-external-data-source-transact-sql?view=azure-sqldw-latest&preserve-view=true) and [external file formats](/sql/t-sql/statements/create-external-file-format-transact-sql?view=azure-sqldw-latest&preserve-view=true) in dedicated SQL pool.  Below are examples for creating an external data source and external file formats in dedicated SQL pool.
-
-```sql
---For an external table, you need to pre-create the data source and file format in dedicated SQL pool using SQL queries:
-CREATE EXTERNAL DATA SOURCE <DataSourceName>
-WITH
-  ( LOCATION = 'abfss://...' ,
-    TYPE = HADOOP
-  ) ;
-
-CREATE EXTERNAL FILE FORMAT <FileFormatName>
-WITH (  
-    FORMAT_TYPE = PARQUET,  
-    DATA_COMPRESSION = 'org.apache.hadoop.io.compress.SnappyCodec'  
-);
-```
-
-An EXTERNAL CREDENTIAL object is not necessary when using Azure Active Directory pass-through authentication to the storage account.  Ensure you are a member of the "Storage Blob Data Contributor" role on the storage account.
-
-```scala
-
-df.write.
-    option(Constants.DATA_SOURCE, <DataSourceName>).
-    option(Constants.FILE_FORMAT, <FileFormatName>).
-    synapsesql("<DBName>.<Schema>.<TableName>", Constants.EXTERNAL)
-
-```
-
-### Transfer data to or from a dedicated SQL pool or database outside the workspace
-
-> [!NOTE]
-> Imports not needed in notebook experience
-
-```scala
- import com.microsoft.spark.sqlanalytics.utils.Constants
- import org.apache.spark.sql.SqlAnalyticsConnector._
-```
-
-#### Read API
-
-```scala
-val df = spark.read.
-option(Constants.SERVER, "samplews.database.windows.net").
-synapsesql("<DBName>.<Schema>.<TableName>")
-```
-
-#### Write API
-
-```scala
-df.write.
-option(Constants.SERVER, "samplews.database.windows.net").
-synapsesql("<DBName>.<Schema>.<TableName>", <TableType>)
-```
-
-### Use SQL Auth instead of Azure AD
-
-#### Read API
-
-Currently the connector doesn't support token-based auth to a dedicated SQL pool that is outside of the workspace. You'll need to use SQL Auth.
-
-```scala
-val df = spark.read.
-option(Constants.SERVER, "samplews.database.windows.net").
-option(Constants.USER, <SQLServer Login UserName>).
-option(Constants.PASSWORD, <SQLServer Login Password>).
-synapsesql("<DBName>.<Schema>.<TableName>")
-```
-
-#### Write API
-
-```scala
-df.write.
-option(Constants.SERVER, "samplews.database.windows.net").
-option(Constants.USER, <SQLServer Login UserName>).
-option(Constants.PASSWORD, <SQLServer Login Password>).
-synapsesql("<DBName>.<Schema>.<TableName>", <TableType>)
-```
-
-### Use PySpark with the connector
-
-> [!NOTE]
-> This example is given with only the notebook experience kept in mind.
-
-Assume you have a dataframe "pyspark_df" that you want to write into the DW.
-
-Create a temp table using the dataframe in PySpark:
-
-```py
-pyspark_df.createOrReplaceTempView("pysparkdftemptable")
-```
-
-Run a Scala cell in the PySpark notebook using magics:
-
-```scala
-%%spark
-val scala_df = spark.sqlContext.sql ("select * from pysparkdftemptable")
-
-scala_df.write.synapsesql("sqlpool.dbo.PySparkTable", Constants.INTERNAL)
-```
-
-Similarly, in the read scenario, read the data using Scala and write it into a temp table, and use Spark SQL in PySpark to query the temp table into a dataframe.
-
-## Allow other users to use the Azure Synapse Apache Spark to Synapse SQL connector in your workspace
-
-You need to be Storage Blob Data Owner on the ADLS Gen2 storage account connected to the workspace to alter missing permissions for others. Ensure the user has access to the workspace and permissions to run notebooks.
-
-### Option 1
-
-- Make the user a Storage Blob Data Contributor/Owner
-
-### Option 2
-
-- Specify the following ACLs on the folder structure:
-
-| Folder | / | synapse | workspaces  | \<workspacename> | sparkpools | \<sparkpoolname>  | sparkpoolinstances  |
-|--|--|--|--|--|--|--|--|
-| Access Permissions | --X | --X | --X | --X | --X | --X | -WX |
-| Default Permissions | ---| ---| ---| ---| ---| ---| ---|
-
-- You should be able to ACL all folders from "synapse" and downward from Azure portal. To ACL the root "/" folder, please follow the instructions below.
-
-- Connect to the storage account connected with the workspace from Storage Explorer using Azure AD
-- Select your Account and give the ADLS Gen2 URL and default file system for the workspace
-- Once you can see the storage account listed, right-click on the listing workspace and select "Manage Access"
-- Add the User to the / folder with "Execute" Access Permission. Select "Ok"
-
-> [!IMPORTANT]
-> Make sure you don't select "Default" if you don't intend to.
-
+  df.write.
+    option(Constants.SERVER, "servername.database.windows.net").
+    synapsesql("databaseName.schemaName.tablename")
+  ```
 
 ## Next steps
 
 - [Create a dedicated SQL pool using the Azure portal](../../synapse-analytics/quickstart-create-apache-spark-pool-portal.md)
-- [Create a new Apache Spark pool using the Azure portal](../../synapse-analytics/quickstart-create-apache-spark-pool-portal.md) 
+- [Create a new Apache Spark pool using the Azure portal](../../synapse-analytics/quickstart-create-apache-spark-pool-portal.md)
+- [Create, develop, and maintain Synapse notebooks in Azure Synapse Analytics](../../synapse-analytics/spark/apache-spark-development-using-notebooks.md)

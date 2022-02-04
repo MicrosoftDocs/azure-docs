@@ -82,3 +82,7 @@ In this document, you learned about Microsoft Sentinel solutions and how to find
 
 - Learn more about [Microsoft Sentinel solutions](sentinel-solutions.md).
 - See the full [Microsoft Sentinel solutions catalog](sentinel-solutions-catalog.md).
+
+Many solutions include data connectors that you'll need to configure so that you can start ingesting your data into Microsoft Sentinel. Each data connector will have it's own set of requirements, detailed on the data connector page in Microsoft Sentinel. 
+
+For more information, see [Connect your data source](data-connectors-reference.md).

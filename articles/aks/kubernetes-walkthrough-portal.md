@@ -5,7 +5,7 @@ description: Learn how to quickly create a Kubernetes cluster, deploy an applica
 services: container-service
 ms.topic: quickstart
 ms.date: 07/01/2021
-ms.custom: mvc, seo-javascript-october2019, contperf-fy21q3, mode-portal
+ms.custom: mvc, seo-javascript-october2019, contperf-fy21q3, mode-ui
 #Customer intent: As a developer or cluster operator, I want to quickly create an AKS cluster and deploy an application so that I can see how to run and monitor applications using the managed Kubernetes service in Azure.
 ---
 
@@ -57,7 +57,7 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
 
 6. On the **Authentication** page, configure the following options:
     - Create a new cluster identity by either:
-        * Leaving the **Authentication** field with **System-assinged managed identity**, or
+        * Leaving the **Authentication** field with **System-assigned managed identity**, or
         * Choosing **Service Principal** to use a service principal. 
             * Select *(new) default service principal* to create a default service principal, or
             * Select *Configure service principal* to use an existing one. You will need to provide the existing principal's SPN client ID and secret.

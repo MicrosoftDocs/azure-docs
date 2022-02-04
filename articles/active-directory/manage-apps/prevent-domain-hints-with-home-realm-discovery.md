@@ -12,7 +12,7 @@ ms.topic: how-to
 ms.date: 02/12/2021
 ms.author: davidmu
 ms.reviewer: hirsin
-#customer intent: As an admin I want to disable auto-acceleration to federated IDP during sign in using Home Realm Discovery policy
+#customer intent: As an admin, I want to disable auto-acceleration to federated IDP during sign in using Home Realm Discovery policy
 ---
 
 # Disable auto-acceleration sign-in

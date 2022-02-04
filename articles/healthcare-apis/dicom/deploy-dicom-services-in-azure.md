@@ -7,7 +7,7 @@ ms.subservice: fhir
 ms.topic: quickstart
 ms.date: 08/04/2021
 ms.author: aersoy
-ms.custom: mode-portal
+ms.custom: mode-api
 ---
 
 # Deploy DICOM service using the Azure portal

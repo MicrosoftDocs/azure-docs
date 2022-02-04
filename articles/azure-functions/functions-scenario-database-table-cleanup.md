@@ -5,7 +5,7 @@ ms.assetid: 076f5f95-f8d2-42c7-b7fd-6798856ba0bb
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 10/04/2021
-
+ms.devlang: csharp
 ---
 
 # Use Azure Functions to connect to an Azure SQL Database

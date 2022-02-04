@@ -55,8 +55,8 @@
       href: How-To/manage-knowledge-bases.md
     - name: Add chit-chat
       href: How-to/chit-chat-knowledge-base.md
-    - name: Migrate to new knowledge base
-      href: Tutorials/migrate-knowledge-base.md
+    - name: Export/import knowledge base
+      href: Tutorials/export-knowledge-base.md
       displayName: metadata, pair
     - name: Test Knowledge base
       href: How-To/test-knowledge-base.md

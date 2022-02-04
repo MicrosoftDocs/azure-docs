@@ -38,7 +38,7 @@ In the following example, we explore a `FrontdoorWebApplicationFirewallLog` log 
 
 ```kusto
 AzureDiagnostics
-| where Category == 'FrontDoorWebApplicationFirewallLog'
+| where Category == 'FrontdoorWebApplicationFirewallLog'
 | where TimeGenerated > ago(1d)
 | where action_s == 'Block'
 

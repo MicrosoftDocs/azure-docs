@@ -20,9 +20,6 @@ This article explains architecture of various components that direct network tra
 
 This article does *not* apply to **Azure SQL Managed Instance**. Refer to [Connectivity architecture for a managed instance](../managed-instance/connectivity-architecture-overview.md).
 
-> [!div class="nextstepaction"]
-> [Survey to improve Azure SQL!](https://aka.ms/AzureSQLSurveyNov2021)
-
 ## Connectivity architecture
 
 The following diagram provides a high-level overview of the connectivity architecture.

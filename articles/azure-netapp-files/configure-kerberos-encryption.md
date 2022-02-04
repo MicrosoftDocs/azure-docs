@@ -11,10 +11,9 @@ ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
-ms.date: 07/15/2021
-ms.author: b-hchen
+ms.date: 01/10/2022
+ms.author: anfdocs
 ---
 # Configure NFSv4.1 Kerberos encryption for Azure NetApp Files
 
@@ -28,6 +27,7 @@ The following requirements apply to NFSv4.1 client encryption:
 * DNS A/PTR record creation for both the client and Azure NetApp Files NFS server IP addresses
 * A Linux client: This article provides guidance for RHEL and Ubuntu clients.  Other clients will work with similar configuration steps. 
 * NTP server access: You can use one of the commonly used Active Directory Domain Controller (AD DC) domain controllers.
+* To leverage Domain or LDAP user authentication, ensure that NFSv4.1 volumes are enabled for LDAP. See [Configure ADDS LDAP with extended groups](configure-ldap-extended-groups.md).
 * Ensure that User Principal Names for user accounts do *not* end with a `$` symbol (for example, user$@REALM.COM). <!-- Not using 'contoso.com' in this example; per Mark, A customers REALM namespace may be different from their AD domain name space. -->   
     For [Group managed service accounts](/windows-server/security/group-managed-service-accounts/getting-started-with-group-managed-service-accounts) (gMSA), you need to remove the trailing `$` from the User Principal Name before the account can be used with the Azure NetApp Files Kerberos feature.
 
@@ -119,3 +119,4 @@ You should understand the security options available for NFSv4.1 volumes, the te
 * [Create an NFS volume for Azure NetApp Files](azure-netapp-files-create-volumes.md)
 * [Create an Active Directory connection](create-active-directory-connections.md)
 * [Configure an NFS client for Azure NetApp Files](configure-nfs-clients.md) 
+* [Configure ADDS LDAP with extended groups for NFS volume access](configure-ldap-extended-groups.md)

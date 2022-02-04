@@ -10,6 +10,10 @@ ms.author: rogarana
 ms.custom: include file
 ---
 
+Ultra disks can't be used as OS disks, they can only be created as empty data disks. Ultra disks also can't be used with some features and functionality, including disk snapshots, disk export, changing disk type, VM images, availability sets, Azure Dedicated Hosts, or Azure disk encryption. Azure Backup and Azure Site Recovery do not support ultra disks. In addition, only un-cached reads and un-cached writes are supported.
+
+Ultra disks support a 4k physical sector size by default. A 512E sector size is available as a generally available offering with no sign-up required. While most applications are compatible with 4k sector sizes, some require 512 byte sector sizes. Oracle Database, for example, requires release 12.2 or later in order to support 4k native disks. For older versions of Oracle DB, 512 byte sector size is required.
+
 The only infrastructure redundancy options currently available to ultra disks are availability zones. VMs using any other redundancy options cannot attach an ultra disk.
 
 The following table outlines the regions ultra disks are available in, as well as their corresponding availability options.
@@ -33,7 +37,3 @@ Not every VM size is available in every supported region with ultra disks. The f
 | Storage optimized|[LSv2-series](../articles/virtual-machines/lsv2-series.md)|High disk throughput and IO ideal for Big Data, SQL, NoSQL databases, data warehousing and large transactional databases.|
 | GPU optimized|[NCv2-series](../articles/virtual-machines/ncv2-series.md), [NCv3-series](../articles/virtual-machines/ncv3-series.md), [NCasT4_v3-series](../articles/virtual-machines/nct4-v3-series.md), [ND-series](../articles/virtual-machines/nd-series.md), [NDv2-series](../articles/virtual-machines/ndv2-series.md), [NVv3-series](../articles/virtual-machines/nvv3-series.md), [NVv4-series](../articles/virtual-machines/nvv4-series.md)| Specialized virtual machines targeted for heavy graphic rendering and video editing, as well as model training and inferencing (ND) with deep learning. Available with single or multiple GPUs.|
 | <nobr>Performance optimized</nobr> |[HB-series](../articles/virtual-machines/hb-series.md), [HC-series](../articles/virtual-machines/hc-series.md), [HBv2-series](../articles/virtual-machines/hbv2-series.md)|The fastest and most powerful CPU virtual machines with optional high-throughput network interfaces (RDMA).|
-
-Ultra disks cannot be used with some features and functionality, including disk snapshots, disk export, changing disk type, VM images, availability sets, Azure Dedicated Hosts, or Azure disk encryption. Azure Backup and Azure Site Recovery do not support ultra disks. In addition, only un-cached reads and un-cached writes are supported.
-
-Ultra disks support a 4k physical sector size by default. A 512E sector size is available as a generally available offering with no sign-up required. While most applications are compatible with 4k sector sizes, some require 512 byte sector sizes. Oracle Database, for example, requires release 12.2 or later in order to support 4k native disks. For older versions of Oracle DB, 512 byte sector size is required.

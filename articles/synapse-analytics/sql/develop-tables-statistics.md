@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.subservice: sql
 ms.date: 04/19/2020
 ms.author: fipopovi
-ms.reviewer: jrasnick
+ms.reviewer: sngun
 ms.custom: 
 ---
 # Statistics in Synapse SQL

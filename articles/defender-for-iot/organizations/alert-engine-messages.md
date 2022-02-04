@@ -1,24 +1,31 @@
 ---
 title: Alert types and descriptions
 description: Review Defender for IoT Alert descriptions.
-ms.date: 11/09/2021
+ms.date: 12/13/2021
 ms.topic: how-to
 ---
 
 # Alert types and descriptions
 
-This article provides information on the alert types, descriptions, and severity that may be generated from the Defender for IoT engines. This information can be used to help map alerts into playbooks, define forwarding rules, exclusion rules, and custom alerts as well as define the appropriate rules within a SIEM. Alerts appear in the Alerts window, which allows you to manage the alert event. 
+This article provides information on the alert types, descriptions, and severity that may be generated from the Defender for IoT engines. This information can be used to help map alerts into playbooks, define Forwarding rules, Exclusion rules, and custom alerts as well as define the appropriate rules within a SIEM. Alerts appear in the Alerts window, which allows you to manage the alert event.
+
+> [!NOTE]
+> This article contains references to the term *slave*, a term that Microsoft no longer uses. When the term is removed from the software, it will be removed from this article.
+
+ ### Alert news
+
+New alerts may be added and existing alerts may be updated or disabled. Certain disabled alerts can be re-enabled from the Support page of the sensor console. Alerts tht can be re-enabled are marked with an asterisk (*) in the tables below.
+
+You may have configured newly disabled alerts in your Forwarding rules. If this is the case, you may need to update related Defender for IoT Exclusion rules, or update SIEM rules and playbooks where relevant.  
+
+See  [What's new in Microsoft Defender for IoT?](release-notes.md#whats-new-in-microsoft-defender-for-iot) for detailed information about changes made to alerts.
 
 ## Policy engine alerts
 
 Policy engine alerts describe detected deviations from learned baseline behavior.
 
->[!NOTE]
-> This article contains references to the term *slave*, a term that Microsoft no longer uses. When the term is removed from the software, we’ll remove it from this article.
-
 | Title  | Description | Severity |
 |--|--|--|
-| Abnormal usage of MAC Addresses | A new source device was detected on the network but has not been authorized. | Minor |
 | Beckhoff Software Changed | Firmware was updated on a source device. This may be authorized activity, for example a planned maintenance procedure. | Major |
 | Database Login Failed | A failed login attempt was detected from a source device to a destination server. This might be the result of human error, but could also indicate a malicious attempt to compromise the server or data on it. | Major |
 | Emerson ROC Firmware Version Changed | Firmware was updated on a source device. This may be authorized activity, for example a planned maintenance procedure. | Major |
@@ -31,7 +38,7 @@ Policy engine alerts describe detected deviations from learned baseline behavior
 | Function Code Raised Unauthorized Exception | A source device (slave) returned an exception to a destination device (master). | Major |
 | GOOSE Message Type Settings | Message (identified by protocol ID) settings were changed on a source device. | Warning |
 | Honeywell Firmware Version Changed | Firmware was updated on a source device. This may be authorized activity, for example a planned maintenance procedure. | Major |
-| Illegal HTTP Communication | New traffic parameters were detected. This parameter combination has not been authorized as learned traffic on your network. The following combination is unauthorized. | Major |
+| * Illegal HTTP Communication | New traffic parameters were detected. This parameter combination has not been authorized as learned traffic on your network. The following combination is unauthorized. | Major |
 | Internet Access Detected | A source device defined as part of your network is communicating with Internet addresses. The source is not authorized to communicate with Internet addresses. | Major |
 | Mitsubishi Firmware Version Changed | Firmware was updated on a source device. This may be authorized activity, for example a planned maintenance procedure. | Major |
 | Modbus Address Range Violation | A master device requested access to a new slave memory address. | Major |
@@ -52,13 +59,12 @@ Policy engine alerts describe detected deviations from learned baseline behavior
 | New Activity Detected - Unauthorized DeltaV Message Type | New traffic parameters were detected. This parameter combination has not been authorized as learned traffic on your network. The following combination is unauthorized. | Major |
 | New Activity Detected - Unauthorized DeltaV ROC Operation | New traffic parameters were detected. This parameter combination has not been authorized as learned traffic on your network. The following combination is unauthorized. | Major |
 | New Activity Detected - Unauthorized RPC Message Type | New traffic parameters were detected. This parameter combination has not been authorized as learned traffic on your network. The following combination is unauthorized. | Major |
-| New Activity Detected - Unauthorized RPC Procedure Invocation | New traffic parameters were detected. This parameter combination has not been authorized as learned traffic on your network. The following combination is unauthorized. | Major |
 | New Activity Detected - Using AMS Protocol Command | New traffic parameters were detected. This parameter combination has not been authorized as learned traffic on your network. The following combination is unauthorized. | Major |
 | New Activity Detected - Using Siemens SICAM Command | New traffic parameters were detected. This parameter combination has not been authorized as learned traffic on your network. The following combination is unauthorized. | Major |
 | New Activity Detected - Using Suitelink Protocol command | New traffic parameters were detected. This parameter combination has not been authorized as learned traffic on your network. The following combination is unauthorized. | Major |
 | New Activity Detected - Using Suitelink Protocol sessions | New traffic parameters were detected. This parameter combination has not been authorized as learned traffic on your network. The following combination is unauthorized. | Major |
 | New Activity Detected - Using Yokogawa VNetIP Command | New traffic parameters were detected. This parameter combination has not been authorized as learned traffic on your network. The following combination is unauthorized. | Major |
-| New Asset Detected | A new source device was detected on the network but has not been authorized. | Major |
+| New Asset Detected | A new source device was detected on the network but has not been authorized. (Note that this alert applies to devices discovered in OT subnets. New devices discoverd in IT subnets do not trigger an alert.) | Major |
 | New LLDP Device Configuration | A new source device was detected on the network but has not been authorized. | Major |
 | Omron FINS Unauthorized Command | New traffic parameters were detected. This parameter combination has not been authorized as learned traffic on your network. The following combination is unauthorized. | Major |
 | S7 Plus PLC Firmware Changed | Firmware was updated on a source device. This may be authorized activity, for example a planned maintenance procedure. | Major |
@@ -79,9 +85,8 @@ Policy engine alerts describe detected deviations from learned baseline behavior
 | Unauthorized GE SRTP Protocol Command | New traffic parameters were detected. This parameter combination has not been authorized as learned traffic on your network. The following combination is unauthorized. | Major |
 | Unauthorized GE SRTP System Memory Operation | New traffic parameters were detected. This parameter combination has not been authorized as learned traffic on your network. The following combination is unauthorized. | Major |
 | Unauthorized HTTP Activity | New traffic parameters were detected. This parameter combination has not been authorized as learned traffic on your network. The following combination is unauthorized. | Major |
-| Unauthorized HTTP Server | An unauthorized application was detected on a source device. The application has not been authorized as a learned application on your network. | Major |
-| Unauthorized HTTP SOAP Action | New traffic parameters were detected. This parameter combination has not been authorized as learned traffic on your network. The following combination is unauthorized. | Major |
-| Unauthorized HTTP User Agent | An unauthorized application was detected on a source device. The application has not been authorized as a learned application on your network. | Major |
+| * Unauthorized HTTP SOAP Action | New traffic parameters were detected. This parameter combination has not been authorized as learned traffic on your network. The following combination is unauthorized. | Major |
+| * Unauthorized HTTP User Agent | An unauthorized application was detected on a source device. The application has not been authorized as a learned application on your network. | Major |
 | Unauthorized Internet Connectivity Detected | A source device defined as part of your network is communicating with Internet addresses. The source is not authorized to communicate with Internet addresses. | Critical |
 | Unauthorized Mitsubishi MELSEC Command | New traffic parameters were detected. This parameter combination has not been authorized as learned traffic on your network. The following combination is unauthorized. | Major |
 | Unauthorized MMS Program Access | A source device attempted to access a resource on another device. An access attempt to this resource between these two devices has not been authorized as learned traffic on your network. | Major |
@@ -120,8 +125,8 @@ Anomaly engine alerts describe detected anomalies in network activity.
 | Title | Description | Severity |
 |--|--|--|
 | Abnormal Exception Pattern in Slave | An excessive number of errors were detected on a source device. This may be the result of an operational issue. | Minor |
-| Abnormal HTTP Header Length | The source device sent an abnormal message. This may indicate an attempt to attack the destination device. | Critical |
-| Abnormal Number of Parameters in HTTP Header | The source device sent an abnormal message. This may indicate an attempt to attack the destination device. | Critical |
+| * Abnormal HTTP Header Length | The source device sent an abnormal message. This may indicate an attempt to attack the destination device. | Critical |
+| * Abnormal Number of Parameters in HTTP Header | The source device sent an abnormal message. This may indicate an attempt to attack the destination device. | Critical |
 | Abnormal Periodic Behavior In Communication Channel | A change in the frequency of communication between the source and destination devices was detected. | Minor |
 | Abnormal Termination of Applications | An excessive number of stop commands were detected on a source device. This may be the result of an operational issue or an attempt to manipulate the device. | Major |
 | Abnormal Traffic Bandwidth | Abnormal bandwidth was detected on a channel. Bandwidth appears to be significantly lower/higher than previously detected. For details, work with the Total Bandwidth widget. | Warning |
@@ -135,7 +140,7 @@ Anomaly engine alerts describe detected anomalies in network activity.
 | Excessive Restart Rate of an Outstation | An excessive number of restart commands were detected on a source device. This may be the result of an operational issue or an attempt to manipulate the device. | Major |
 | Excessive SMB login attempts | A source device was seen performing excessive login attempts to a destination server. This may be a brute force attack. The server may be compromised by a malicious actor. | Critical |
 | ICMP Flooding | An abnormal quantity of packets was detected in the network. This could indicate an attack, for example, an ARP spoofing or ICMP flooding attack. | Warning |
-| Illegal HTTP Header Content | The source device initiated an invalid request. | Critical |
+|* Illegal HTTP Header Content | The source device initiated an invalid request. | Critical |
 | Inactive Communication Channel | A communication channel between two devices was inactive during a period in which activity is usually seen. This might indicate that the program generating this traffic was changed, or the program might be unavailable. It is recommended to review the configuration of installed program and verify it is configured properly. | Warning |
 | Long Duration Address Scan Detected | A source device was detected scanning network devices. This device has not been authorized as a network scanning device. | Critical |
 | Password Guessing Attempt Detected | A source device was seen performing excessive login attempts to a destination server. This may be a brute force attack. The server may be compromised by a malicious actor. | Critical |
@@ -232,7 +237,7 @@ Operational engine alerts describe detected operational incidents, or malfunctio
 | GOOSE Control Block Requires Further Configuration | A source device sent a GOOSE message indicating that the device needs commissioning. This means the GOOSE control block requires further configuration and GOOSE messages are partially or completely non-operational. | Major |
 | GOOSE Dataset Configuration was Changed | A message (identified by protocol ID) dataset was changed on a source device. This means the device will report a different dataset for this message. | Warning |
 | Honeywell Controller Unexpected Status | A Honeywell Controller sent an unexpected diagnostic message indicating a status change. | Warning |
-| HTTP Client Error | The source device initiated an invalid request. | Warning |
+|*  HTTP Client Error | The source device initiated an invalid request. | Warning |
 | Illegal IP Address | System detected traffic between a source device and IP address which is an invalid address. This may indicate wrong configuration or an attempt to generate illegal traffic. | Minor |
 | Master-Slave Authentication Error | The authentication process between a DNP3 source device (master) and a destination device (outstation) failed. | Minor |
 | MMS Service Request Failed | A server returned an error code. This indicates a server error or an invalid request by a client. | Major |
@@ -245,12 +250,14 @@ Operational engine alerts describe detected operational incidents, or malfunctio
 | Outstation's Corrupted Configuration Detected | This DNP3 source device (outstation) reported a corrupted configuration. | Major |
 | Profinet DCP Command Failed | A server returned an error code. This indicates a server error or an invalid request by a client. | Major |
 | Profinet Device Factory Reset | A source device sent a factory reset command to a Profinet destination device. The reset command clears Profinet device configurations and stops its operation. | Warning |
-| RPC Operation Failed | A server returned an error code. This indicates a server error or an invalid request by a client. | Major |
+| * RPC Operation Failed | A server returned an error code. This indicates a server error or an invalid request by a client. | Major |
 | Sampled Values Message Dataset Configuration was Changed | A message (identified by protocol ID) dataset was changed on a source device. This means the device will report a different dataset for this message. | Warning |
 | Slave Device Unrecoverable Failure | An unrecoverable condition error was detected on a source device. This kind of error usually indicates a hardware failure or failure to perform a specific command. | Major |
 | Suspicion of Hardware Problems in Outstation | An unrecoverable condition error was detected on a source device. This kind of error usually indicates a hardware failure or failure to perform a specific command. | Major |
 | Suspicion of Unresponsive MODBUS Device | A source device did not respond to a command sent to it. It may have been disconnected when the command was sent. | Minor |
 | Traffic Detected on Sensor Interface | A sensor resumed detecting network traffic on a network interface. | Warning |
+
+\* The alert is disabled by default, but can be enabled again. To enable the alert, navigate to the Support page, find the alert and select **Enable**.You need administrative level permissions to access the Support page.
 
 ## Next steps
 

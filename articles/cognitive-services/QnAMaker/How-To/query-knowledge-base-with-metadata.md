@@ -8,7 +8,7 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.custom: devx-track-js, devx-track-csharp, ignite-fall-2021
+ms.custom: ignite-fall-2021
 ---
 
 # Filter Responses with Metadata

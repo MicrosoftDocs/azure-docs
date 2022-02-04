@@ -5,7 +5,6 @@ services: virtual-network
 documentationcenter: na
 author: RDhillon
 ms.service: virtual-network
-ms.devlang: NA
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services

@@ -308,16 +308,46 @@ items:
           href: logs/azure-data-explorer-monitor-cross-service-query.md
         - name: Query Azure Data Explorer from Azure Monitor
           href: logs/azure-monitor-data-explorer-proxy.md
-    - name: Data export
-      items:
-      - name: Workspace data export
-        href: logs/logs-data-export.md
-      - name: Export with Logic Apps
-        href: logs/logs-export-logic-app.md
-      - name: Query data with Azure Data Explorer
-        href: logs/azure-data-explorer-query-storage.md
-      - name: Send to Excel
-        href: logs/log-excel.md
+      - name: API
+        items:
+        - name: Overview
+          href: logs/api/overview.md
+        - name: Using the API
+          items:
+          - name: Set up authentication and authorization
+            href: logs/api/authentication-authorization.md
+          - name: Access the API
+            href: logs/api/access-api.md
+          - name: Request format
+            href: logs/api/request-format.md
+          - name: Response format
+            href: logs/api/response-format.md
+          - name: API options
+            items:
+            - name: Batch queries
+              href: logs/api/batch-queries.md
+            - name: Cross-resource queries
+              href: logs/api/cross-workspace-queries.md
+            - name: Azure resource queries
+              href: logs/api/azure-resource-queries.md
+            - name: Response caching
+              href: logs/api/cache.md
+            - name: Server timeouts
+              href: logs/api/timeouts.md
+            - name: Prefer headers
+              href: logs/api/prefer-options.md
+          - name: Errors
+            href: logs/api/errors.md
+      - name: Data export
+        items:
+        - name: Workspace data export
+          href: logs/logs-data-export.md
+        - name: Export with Logic Apps
+          href: logs/logs-export-logic-app.md
+        - name: Query data with Azure Data Explorer
+          href: logs/azure-data-explorer-query-storage.md
+        - name: Send to Excel
+          href: logs/log-excel.md
   - name: Platform logs
     items:
     - name: Overview
@@ -334,6 +364,8 @@ items:
     items:
     - name: Data collection rules
       href: agents/data-collection-rule-overview.md
+    - name: Data collection endpoint
+      href: agents/data-collection-endpoint-overview.md
     - name: Log data ingestion time
       displayName: latency
       href: logs/data-ingestion-time.md
@@ -384,15 +416,15 @@ items:
     - name: Overview
       href: agents/agents-overview.md
     - name: FAQ
-      href: ./faq.yml
+      href: /azure/azure-monitor/faq#agents
     - name: Azure Monitor Agent
       items:
       - name: Overview
         displayName: Azure Monitor agent
         href: agents/azure-monitor-agent-overview.md
-      - name: Install
+      - name: Install and manage
         displayName: Azure Monitor agent
-        href: agents/azure-monitor-agent-install.md
+        href: agents/azure-monitor-agent-manage.md
       - name: Data collection
         displayName: data collection rule,Azure Monitor agent
         href: agents/data-collection-rule-azure-monitor-agent.md
@@ -401,7 +433,7 @@ items:
         href: agents/azure-monitor-agent-migration.md
       - name: FAQ
         displayName: Azure Monitor agent FAQ
-        href: ./faq.yml
+        href: /azure/azure-monitor/faq#azure-monitor-agent
     - name: Log Analytics agent
       items:
       - name: Overview
@@ -521,6 +553,8 @@ items:
       items:  
       - name: Manage log alerts
         href: alerts/alerts-log.md
+      - name: Edit log alerts created in previous versions
+        href: alerts/alerts-manage-alerts-previous-version.md
       - name: Optimizing alert queries
         href: alerts/alerts-log-query.md
       - name: Using Resource Manager template
@@ -554,6 +588,10 @@ items:
         href: alerts/alerts-common-schema.md
       - name: Common alert schema definition
         href: alerts/alerts-common-schema-definitions.md
+      - name: Common alert schema definition for Test action group
+        href: alerts/alerts-common-schema-test-action-definitions.md
+      - name: Non-common alert schema definition
+        href: alerts/alerts-non-common-schema-definitions.md        
       - name: Integrate the common alert schema with Logic Apps
         href: alerts/alerts-common-schema-integrations.md
       - name: SMS alert behavior
@@ -652,7 +690,7 @@ items:
       href: app/app-insights-overview.md
     - name: FAQ
 
-      href: ./faq.yml
+      href: /azure/azure-monitor/faq#application-insights
     - name: Application Insights SDKs
       items:
       - name: .NET
@@ -806,7 +844,7 @@ items:
       - name: Python
         href: app/opentelemetry-enable.md?tabs=python
       - name: FAQ
-        href: ./faq.yml
+        href: /azure/azure-monitor/faq#open-telemetry
     - name: Create a resource (classic)
       href: app/create-new-resource.md
     - name: Create a resource (workspace-based)
@@ -973,7 +1011,7 @@ items:
         displayName: adaptive sampling, fixed rate sample, fixed sampling, ingestion sampling
         href: app/sampling.md
       - name: TelemetryChannels
-        dispayname: in memory, server telemetry channel, channel, inmemory, servertelemetry 
+        displayName: in memory, server telemetry channel, channel, inmemory, servertelemetry 
         href: app/telemetry-channels.md
       - name: TelemetryProcessors
         displayName: processors, filtering, telemetry filtering, telemetry processor
@@ -1048,7 +1086,7 @@ items:
     - name: General Availability FAQ
       href: vm/vminsights-ga-release-faq.yml
     - name: FAQ
-      href: ./faq.yml
+      href: /azure/azure-monitor/faq#vm-insights
     - name: Configure workspace
       href: vm/vminsights-configure-workspace.md
     - name: Install agents
@@ -1100,7 +1138,7 @@ items:
     - name: Overview
       href: containers/container-insights-overview.md
     - name: FAQ
-      href: ./faq.yml
+      href: /azure/azure-monitor/faq#container-insights
     - name: Enable monitoring
       items:
       - name: Enable monitoring overview 
@@ -1131,6 +1169,7 @@ items:
         href: containers/container-insights-update-metrics.md
       - name: Migration from Azure Red Hat OpenShift v4.x to Azure Arc enabled cluster
         href: containers/container-insights-transition-hybrid.md
+
     - name: Monitor
       items:
       - name: Monitor performance
@@ -1198,7 +1237,7 @@ items:
       - name: Overview
         href: insights/sql-insights-overview.md
       - name: FAQ
-        href: ./faq.yml
+        href: /azure/azure-monitor/faq#sql-insights-preview
       - name: Enable
         href: insights/sql-insights-enable.md
       - name: Alerts

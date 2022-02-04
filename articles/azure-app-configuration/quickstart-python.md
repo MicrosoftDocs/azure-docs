@@ -4,6 +4,7 @@ description: In this quickstart, create a Python app with Azure App Configuratio
 services: azure-app-configuration
 author: drewbatgit
 ms.service: azure-app-configuration
+ms.devlang: python
 ms.topic: quickstart
 ms.custom: devx-track-python, mode-other
 ms.date: 9/17/2020

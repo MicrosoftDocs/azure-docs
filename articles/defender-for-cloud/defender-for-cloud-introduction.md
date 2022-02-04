@@ -3,7 +3,7 @@ title: Microsoft Defender for Cloud - an introduction
 description: Use Microsoft Defender for Cloud to protect your Azure, hybrid, and multi-cloud resources and workloads.
 ms.topic: overview
 ms.custom: mvc
-ms.date: 11/09/2021
+ms.date: 12/12/2021
 ---
 # What is Microsoft Defender for Cloud?
 
@@ -128,11 +128,10 @@ Defender for Cloud provides:
 The **Defender plans** page of Microsoft Defender for Cloud offers the following plans for comprehensive defenses for the compute, data, and service layers of your environment:
 
 - [Microsoft Defender for servers](defender-for-servers-introduction.md)
-- [Microsoft Defender for App Service](defender-for-app-service-introduction.md)
 - [Microsoft Defender for Storage](defender-for-storage-introduction.md)
 - [Microsoft Defender for SQL](defender-for-sql-introduction.md)
-- [Microsoft Defender for Kubernetes](defender-for-kubernetes-introduction.md)
-- [Microsoft Defender for container registries](defender-for-container-registries-introduction.md)
+- [Microsoft Defender for Containers](defender-for-containers-introduction.md)
+- [Microsoft Defender for App Service](defender-for-app-service-introduction.md)
 - [Microsoft Defender for Key Vault](defender-for-key-vault-introduction.md)
 - [Microsoft Defender for Resource Manager](defender-for-resource-manager-introduction.md)
 - [Microsoft Defender for DNS](defender-for-dns-introduction.md)
@@ -147,7 +146,7 @@ Use the advanced protection tiles in the [workload protections dashboard](worklo
 
 - To get started with Defender for Cloud, you need a subscription to Microsoft Azure. If you don't have a subscription, [sign up for a free trial](https://azure.microsoft.com/free/).
 
-- Defender for Cloud's free plan is enabled on all your current Azure subscriptions when you visit the Defender for Cloud pages in the Azure portal for the first time, or if enabled programmatically via the REST API. To take advantage of advanced security management and threat detection capabilities, you must enable the enhanced security features. These features are free for the first 30 days. [Learn more about the pricing](https://azure.microsoft.com/pricing/details/security-center/).
+- Defender for Cloud's free plan is enabled on all your current Azure subscriptions when you visit the Defender for Cloud pages in the Azure portal for the first time, or if enabled programmatically via the REST API. To take advantage of advanced security management and threat detection capabilities, you must enable the enhanced security features. These features are free for the first 30 days. [Learn more about the pricing](https://azure.microsoft.com/pricing/details/defender-for-cloud/).
 
 - If you're ready to enable enhanced security features now, [Quickstart: Enable enhanced security features](enable-enhanced-security.md) walks you through the steps.
 
