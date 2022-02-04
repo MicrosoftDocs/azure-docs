@@ -1,5 +1,6 @@
 ---
-title: Configure a SIM policy for Azure Private 5G Core Preview
+title: Configure a SIM policy
+titlesuffix: Azure Private 5G Core Preview
 description: With this how-to guide, learn how to configure a SIM policy for Azure Private 5G Core Preview through the Azure portal. 
 author: djrmetaswitch
 ms.author: drichards
@@ -8,6 +9,9 @@ ms.topic: how-to
 ms.date: 01/16/2022
 ms.custom: template-how-to
 ---
+
+
+<!-- Image alt-text follows two different stlyes (one sentence and two sentence), should we pick one for consistency? -->
 
 # Configure a SIM policy for Azure Private 5G Core Preview - Azure portal
 
@@ -22,7 +26,7 @@ SIM policies allow you to define different sets of policies and interoperability
 
 ## Configure the SIM policy
 
-1. Sign in to the Azure portal at [https://aka.ms/AP5GCPortal](https://aka.ms/AP5GCPortal).
+1. Sign in to the [Azure portal](https://aka.ms/AP5GCPortal).
 1. Search for and select the Mobile Network resource representing the private mobile network for which you want to configure a SIM policy.
 
     :::image type="content" source="media/mobile-network-search.png" alt-text="Screenshot of the Azure portal. It shows the results of a search for a Mobile Network resource.":::

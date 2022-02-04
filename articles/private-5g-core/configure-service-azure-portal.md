@@ -10,6 +10,8 @@ ms.date: 01/16/2022
 ms.custom: template-how-to
 ---
 
+<!-- Image alt-text follows two different stlyes (one sentence and two sentence), should we pick one for consistency? One of the images includes "+", but I've seen some guidance to describe the sign e.g. plus (+). Not sure if that works here. -->
+
 # Configure a service for Azure Private 5G Core Preview - Azure portal
 
 Services are representations of a particular set of QoS information that you want to offer to UEs. For example, you may want to configure a service that provides higher bandwidth limits for particular traffic. You can also use services to block particular traffic types or traffic from specific sources. 
@@ -27,7 +29,7 @@ In this how-to guide, we'll configure a service using the Azure portal.
 
 In this step, you'll configure basic settings for your new service using the Azure portal.
 
-1. Sign in to the Azure portal at [https://aka.ms/AP5GCPortal](https://aka.ms/AP5GCPortal).
+1. Sign in to the [Azure portal](https://aka.ms/AP5GCPortal).
 1. Search for and select the Mobile Network resource representing the private mobile network for which you want to configure a service.
 :::image type="content" source="media/mobile-network-search.png" alt-text="Screenshot of the Azure portal. It shows the results of a search for a Mobile Network resource.":::
 1. In the resource menu, select **Services**.

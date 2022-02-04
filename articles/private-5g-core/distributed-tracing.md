@@ -1,5 +1,6 @@
 ---
-title: Distributed tracing for Azure Private 5G Core Preview
+title: Distributed tracing
+titlesuffix: Azure Private 5G Core Preview 
 description: Information on the distributed tracing web GUI, which provides detailed traces for signaling flows involving packet core instances.
 author: djrmetaswitch
 ms.author: drichards
@@ -22,7 +23,7 @@ If you can't see the **Search** heading, select the **Search** button in the top
 - **SUPI** - Allows you to search for activity involving a particular subscriber using their Subscription Permanent Identifier (SUPI). This tab also provides an Errors panel, which allows you to filter the results by error condition. To search for activity for a particular subscriber, enter all of the initial digits of the subscriber's SUPI into the text box on the **SUPI search** panel.
 - **Errors** - Allows you to search for error condition occurrences across all subscribers. To search for occurrences of error conditions across all subscribers, select the **Errors** tab and then use the drop-down menus on the **Error** panel to select an error category and, optionally, a specific error.
 
-  :::image type="content" source="media\distributed-tracing\distributed-tracing-search-display.png" alt-text="Screenshot of the Search display in the distributed tracing web GUI, showing the SUPI and Errors tabs.":::
+  :::image type="content" source="media\distributed-tracing\distributed-tracing-search-display.png" alt-text="Screenshot of the Search display in the distributed tracing web G U I, showing the S U P I and Errors tabs.":::
 
 Both tabs also provide a **Date/time range** panel that allows you to specify a custom time window in which to search for diagnostics data. You can specify this time window in several ways.
 
@@ -37,7 +38,7 @@ Long search ranges result in slower searches, so it's recommended that you keep 
 
 Once you’ve entered your chosen search parameters, select **Search** to begin your search. The following image shows an example of the results returned for a search on a particular SUPI.
 
-:::image type="content" source="media\distributed-tracing\distributed-tracing-search-results.png" alt-text="Screenshot of search results on a specific SUPI in the distributed tracing web GUI. It shows matching Successful PDU Session Establishment records.":::
+:::image type="content" source="media\distributed-tracing\distributed-tracing-search-results.png" alt-text="Screenshot of search results on a specific S U P I in the distributed tracing web G U I. It shows matching Successful P D U Session Establishment records.":::
 
 You can view more information on any result by clicking on it.
 
@@ -52,13 +53,13 @@ When you select on a specific result, the display shows the following tabs conta
 
 The **Summary** view displays a description of the flow or error.
 
-:::image type="content" source="media\distributed-tracing\distributed-tracing-summary-view.png" alt-text="Screenshot of the Summary view of the distributed tracing web GUI, providing detailed information on a Successful PDU Session Establishment record.":::
+:::image type="content" source="media\distributed-tracing\distributed-tracing-summary-view.png" alt-text="Screenshot of the Summary view of the distributed tracing web G U I, providing detailed information on a Successful P D U Session Establishment record.":::
 
 ### Detailed Timeline view
 
 The **Detailed Timeline** view shows the sequence of operations and events that occurred during the flow or error.
 
-:::image type="content" source="media\distributed-tracing\distributed-tracing-detailed-timeline.png" alt-text="Screenshot of the Detailed Timeline view of the distributed tracing web GUI. It shows messages sent between Network Functions and other components.":::
+:::image type="content" source="media\distributed-tracing\distributed-tracing-detailed-timeline.png" alt-text="Screenshot of the Detailed Timeline view of the distributed tracing web G U I. It shows messages sent between Network Functions and other components.":::
 
 Each entry in the list shows summary information for a specific event that occurred during the flow or error. Each entry includes the date and time at which the event occurred and the name of the component on which it occurred. When you select a specific entry in this list, the panel at the bottom of the screen provides more detail about the selected event.
 
@@ -73,7 +74,7 @@ The **Events to be viewed** drop-down list allows you to control the level of ev
 
 The **Call Flow** view shows the sequence of messages flowing between components during the course of the flow or error.
 
-:::image type="content" source="media\distributed-tracing\distributed-tracing-call-flow.png" alt-text="Screenshot of the Call Flow view of the distributed tracing web GUI. It shows the messages exchanged during a Successful PDU Session Establishment." lightbox="media\distributed-tracing\distributed-tracing-call-flow.png":::
+:::image type="content" source="media\distributed-tracing\distributed-tracing-call-flow.png" alt-text="Screenshot of the Call Flow view of the distributed tracing web G U I. It shows the messages exchanged during a Successful P D U Session Establishment." lightbox="media\distributed-tracing\distributed-tracing-call-flow.png":::
 
 The vertical lines in the diagram show the network components involved in the flow.
 

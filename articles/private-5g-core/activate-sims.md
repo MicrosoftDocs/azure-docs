@@ -12,7 +12,7 @@ ms.custom: template-how-to
 
 # Activate SIMs for Azure Private 5G Core Preview
 
-SIM resources represent physical or eSIMs used by User Equipment (UE). Activating a SIM resource allows the UE using the corresponding physical or eSIM to access your private mobile network. In this how-to guide, you'll learn how to activate the SIMs you've provisioned. 
+SIM resources represent physical or eSIMs used by user equipment (UE). Activating a SIM resource allows the UE to use the corresponding physical or eSIM to access your private mobile network. In this how-to guide, you'll learn how to activate the SIMs you've provisioned. 
 
 ## Prerequisites
 
@@ -22,10 +22,10 @@ SIM resources represent physical or eSIMs used by User Equipment (UE). Activatin
 
 ## Activate your chosen SIMs
 
-1. Sign in to the Azure portal at [https://aka.ms/AP5GCPortal](https://aka.ms/AP5GCPortal).
+1. Sign in to the [Azure portal](https://aka.ms/AP5GCPortal).
 1. Search for and select the Mobile Network resource representing the private mobile network for which you want to activate SIMs.
 
-    :::image type="content" source="media/mobile-network-search.png" alt-text="Screenshot of the Azure portal. It shows the results of a search for a Mobile Network resource.":::
+    :::image type="content" source="media/mobile-network-search.png" alt-text="Screenshot of the Azure portal. It shows the results of a search for a mobile network resource.":::
 
 1. In the resource menu, select **SIMs**.
 1. You're shown a list of provisioned SIMs in the private mobile network. Tick the checkbox next to the name of each SIM you want to activate.

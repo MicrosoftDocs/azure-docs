@@ -1,5 +1,6 @@
 ---
-title: Security for Azure Private 5G Core Preview
+title: Security
+titlesuffix: Azure Private 5G Core Preview
 description: An overview of security features provided by Azure Private 5G Core.
 author: richardwhiuk
 ms.author: rwhitehouse
@@ -29,7 +30,7 @@ Azure Private 5G Core packet core instances are deployed on Azure Stack Edge dev
 
 ## Write-only SIM credentials
 
-Azure Private 5G Core provides write-only access to SIM credentials. SIM credentials are the secrets that allow UEs (User Equipment) access to the network.
+Azure Private 5G Core provides write-only access to SIM credentials. SIM credentials are the secrets that allow UEs (user equipment) access to the network.
 
 As these credentials are highly sensitive, Azure Private 5G Core won't allow users of the service read access to the credentials, except as required by law. Sufficiently privileged users may overwrite the credentials, or revoke them.
 

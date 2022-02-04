@@ -10,9 +10,13 @@ ms.date: 01/16/2022
 ms.custom: template-tutorial
 ---
 
+<!-- The title is very long. Can we swap it to "Create a policy control configuration set", or does this lose too much context? -->
+<!-- One of the images (add-a-data-flow-template.png) has a thicker grey outline. -->
+<!-- Some images can be zoomed into, others cannot. -->
+
 # Tutorial: Create an example policy control configuration set for Azure Private 5G Core
 
-Azure Private 5G Core Preview provides flexible traffic handling. You can customize how your packet core instance applies Quality of Service (QoS) characteristics to traffic to meet its needs. You can also block or limit certain flows. The following tutorial takes you through the steps of creating services and SIM policies for common use cases, and then provisioning SIMs to use the new policy control configuration.
+Azure Private 5G Core Preview provides flexible traffic handling. You can customize how your packet core instance applies quality of service (QoS) characteristics to traffic to meet its needs. You can also block or limit certain flows. The following tutorial takes you through the steps of creating services and SIM policies for common use cases, and then provisioning SIMs to use the new policy control configuration.
 
 In this tutorial, you'll learn how to:
 
@@ -39,7 +43,7 @@ In this step, we'll create a service that filters packets based on their protoco
 
 To create the service:
 
-1. Sign in to the Azure portal at [https://aka.ms/AP5GCPortal](https://aka.ms/AP5GCPortal).
+1. Sign in to the [Azure portal](https://aka.ms/AP5GCPortal).
 1. Search for and select the Mobile Network resource representing your private mobile network.
 
     :::image type="content" source="media/mobile-network-search.png" alt-text="Screenshot of the Azure portal showing the results for a search for a Mobile Network resource.":::
@@ -52,7 +56,7 @@ To create the service:
 
     :::image type="content" source="media/configure-service-azure-portal/create-command-bar-option.png" alt-text="Screenshot of the Azure portal showing the Create option in the command bar.":::
 
-1. We'll now enter values to define the QoS characteristics that will be applied to Service Data Flows that match this service. On the **Basics** tab, fill out the fields as follows.
+1. We'll now enter values to define the QoS characteristics that will be applied to service data flows that match this service. On the **Basics** tab, fill out the fields as follows.
 
     |Field  |Value  |
     |---------|---------|
@@ -164,7 +168,7 @@ To create the service:
 1. Search for and select the Mobile Network resource representing your private mobile network.
 1. In the resource menu, select **Services**.
 1. In the command bar, select **Create**.
-1. We'll now enter values to define the QoS characteristics that will be applied to Service Data Flows that match this service. On the **Basics** tab, fill out the fields as follows.
+1. We'll now enter values to define the QoS characteristics that will be applied to service data flows that match this service. On the **Basics** tab, fill out the fields as follows.
 
     |Field  |Value  |
     |---------|---------|
@@ -251,7 +255,7 @@ To create the service:
 1. Search for and select the Mobile Network resource representing your private mobile network.
 1. In the resource menu, select **Services**.
 1. In the command bar, select **Create**.
-1. We'll now enter values to define the QoS characteristics that will be applied to Service Data Flows that match this service. We'll use the **Maximum Bit Rate (MBR) - Uplink** and **Maximum Bit Rate (MBR) - Downlink** fields to set our bandwidth limits. On the **Basics** tab, fill out the fields as follows.
+1. We'll now enter values to define the QoS characteristics that will be applied to service data flows that match this service. We'll use the **Maximum Bit Rate (MBR) - Uplink** and **Maximum Bit Rate (MBR) - Downlink** fields to set our bandwidth limits. On the **Basics** tab, fill out the fields as follows.
 
     |Field  |Value  |
     |---------|---------|

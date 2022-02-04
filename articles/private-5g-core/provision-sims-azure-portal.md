@@ -1,5 +1,6 @@
 ---
-title: Provision SIMs for Azure Private 5G Core Preview
+title: Provision SIMs using Azure portal
+titlesuffix: Azure Private 5G Core Preview
 description: In this how-to guide, learn how to provision new SIMs for an existing private mobile network using the Azure portal. 
 author: djrmetaswitch
 ms.author: drichards
@@ -11,7 +12,7 @@ ms.custom: template-how-to
 
 # Provision SIMs for Azure Private 5G Core Preview - Azure portal
 
-SIM resources represent physical SIMs or eSIMs used by User Equipment (UEs) served by the private mobile network. In this how-to guide, we'll provision new SIMs for an existing private mobile network.
+SIM resources represent physical SIMs or eSIMs used by user equipment (UEs) served by the private mobile network. In this how-to guide, we'll provision new SIMs for an existing private mobile network.
 
 ## Prerequisites
 
@@ -67,7 +68,7 @@ Prepare the JSON file using the information you collected for your SIMs in [Coll
 
 You'll now begin the SIM provisioning process through the Azure portal.
 
-1. Sign in to the Azure portal at [https://aka.ms/AP5GCPortal](https://aka.ms/AP5GCPortal).
+1. Sign in to the [Azure portal](https://aka.ms/AP5GCPortal).
 1. Search for and select the Mobile Network resource representing the private mobile network for which you want to provision SIMs.
 
     :::image type="content" source="media/mobile-network-search.png" alt-text="Screenshot of the Azure portal. It shows the results of a search for a Mobile Network resource.":::
