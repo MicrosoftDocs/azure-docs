@@ -1,5 +1,5 @@
 ---
-title: What is CloudKnox Permissions Management?
+title: What's CloudKnox Permissions Management?
 description: An introduction to CloudKnox Permissions Management.
 services: active-directory
 author: Yvonne-deQ
@@ -8,11 +8,11 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: overview
-ms.date: 02/03/2022
+ms.date: 02/04/2022
 ms.author: v-ydequadros
 ---
 
-# What is CloudKnox Permissions Management?
+# What's CloudKnox Permissions Management?
 
 
 > [!IMPORTANT]
