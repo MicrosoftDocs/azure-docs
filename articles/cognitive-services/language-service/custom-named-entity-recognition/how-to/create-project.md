@@ -101,9 +101,9 @@ Next you'll need to assign the [correct roles](#required-roles-for-your-storage-
 
 ## Required roles for Azure Language resources
 
-To access and use custom NER projects, your account must have at least one of the following roles in your Language resource. If you have contributors who need access to your projects, they will also need at least one of these roles to access the Language resource's managed identity:
-* Owner
-* Contributor
+To access and use custom NER projects, your account must have one of the following roles in your Language resource. If you have contributors who need access to your projects, they will also need one of these roles to access the Language resource's managed identity:
+* *owner*
+* *contributor*
 
 ### Enable managed identities for your Language resource
 
@@ -112,27 +112,29 @@ Your Language resource must have identity management, which can be enabled eithe
 2. Select **Resources**
 3. Select **Managed Identity** for your Azure resource.
 
-### Add roles for your Language resource
+### Add roles to your Language resource
 
 After you've enabled managed identities for your resource, add the appropriate owner or contributor role assignments for your and your contributor's Azure accounts:
 
 1. Go to your Language resource in the [Azure portal](https://ms.portal.azure.com/).
 2. Select **Access Control (IAM)** in the left navigation menu.
-3. Select **Add** to **Add Role Assignments**, and choose the **Owner** or **Contributor** role. You can search for user names in the **Select** field.
+3. Select **Add** then **Add Role Assignments**, and choose the **Owner** or **Contributor** role. You can search for user names in the **Select** field.
 
 ## Required roles for your storage account
 
-Your Azure blob storage account must have the below roles:
+Your Language resource must have the below roles assigned within your Azure blob storage account:
 
-* Your resource has the **owner** or **contributor** role on the storage account.
-* Your resource has the **Storage blob data owner** or **Storage blob data contributor** role on the storage account.
-* Your resource has the **Reader** role on the storage account.
+* *owner* or *contributor*
+* *storage blob data owner* or *storage blob data contributor*
+* *reader*
+
+### Add roles to your storage account
 
 To set proper roles on your storage account:
 
 1. Go to your storage account page in the [Azure portal](https://ms.portal.azure.com/).
 2. Select **Access Control (IAM)** in the left navigation menu.
-3. Select **Add** to **Add Role Assignments**, and choose the **Owner** or **Contributor** role. You can search for user names in the **Select** field.
+3. Select **Add** then **Add Role Assignments**, and choose the appropriate role for your Language resource. You can search for your resource in the **Select** field. Repeat this for all roles. 
 
 [!INCLUDE [Storage connection note](../../custom-classification/includes/storage-account-note.md)]
 
