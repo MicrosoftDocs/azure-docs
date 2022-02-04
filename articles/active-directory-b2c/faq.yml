@@ -131,7 +131,7 @@ sections:
       - question: |
           Should I use Azure AD B2C or B2B to manage external identities?
         answer: |
-          Read [Compare B2B collaboration and B2C in Azure AD](../active-directory/external-identities/compare-with-b2c.md) to learn more about applying the appropriate features to your external identity scenarios.
+          Read [Compare solutions for External Identities](../active-directory/external-identities/external-identities-overview.md) to learn more about applying the appropriate features to your external identity scenarios.
           
       - question: |
           What reporting and auditing features does Azure AD B2C provide? Are they the same as in Azure AD Premium?
