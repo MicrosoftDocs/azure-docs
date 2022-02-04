@@ -26,7 +26,7 @@ This article describes how to generate and view a system report in CloudKnox Per
     The **Systems Reports** subtab displays the following options in the **Reports** table:
 
     - **Report Name**: The name of the report.
-    - **Category**: The type of report: **Permission** or **Compliance**.
+    - **Category**: The type of report: **Permission**.
     - **Authorization System**: The authorization system in which you can view the report: Amazon Web Services (AWS), Microsoft Azure (Azure), and Google Cloud Platform (GCP).
     - **Format**: The format of the report.
 
