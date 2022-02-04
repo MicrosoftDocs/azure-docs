@@ -20,7 +20,7 @@ ms.collection: M365-identity-device-management
 
 # Cross-tenant access activity workbook
 
-As an IT administrator, you want insights into how your users are collaborating with other organizations. The cross-tenant access activity workbook helps you understand which external users are accessing resources in your organization, and which organizations’ resources your users are accessing. This workbook combines all our organization’s inbound and outbound collaboration into a single view.
+As an IT administrator, you want insights into how your users are collaborating with other organizations. The cross-tenant access activity workbook helps you understand which external users are accessing resources in your organization, and which organizations’ resources your users are accessing. This workbook combines all your organization’s inbound and outbound collaboration into a single view.
 
 This article provides you with an overview of this workbook.
 
