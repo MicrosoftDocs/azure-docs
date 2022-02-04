@@ -20,7 +20,7 @@ Customer-managed keys are used with the following services that Azure Machine Le
 | Service | What it’s used for |
 | ----- | ----- |
 | Azure Cosmos DB | Stores metadata for Azure Machine Learning |
-| Azure Search | Stores workspace metadata for Azure Machine Learning |
+| Azure Cognitive Search | Stores workspace metadata for Azure Machine Learning |
 | Azure Storage Account | Stores workspace metadata for Azure Machine Learning | 
 | Azure Container Instance | Hosting trained models as inference endpoints |
 | Azure Kubernetes Service | Hosting trained models as inference endpoints |
@@ -51,7 +51,7 @@ The following resources store metadata for your workspace:
 | Service | How it’s used |
 | ----- | ----- |
 | Azure Cosmos DB | Stores run history data. |
-| Azure Search | Stores indices that are used to help query your machine learning content. |
+| Azure Cognitive Search | Stores indices that are used to help query your machine learning content. |
 | Azure Storage Account | Stores additional metadata such as Azure Machine Learning pipelines data. |
 
 > [!TIP]
