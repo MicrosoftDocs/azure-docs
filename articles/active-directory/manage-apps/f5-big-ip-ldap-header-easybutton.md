@@ -151,7 +151,8 @@ Next, step through the Easy Button configurations to federate and publish the EB
 2. Navigate to **System > Certificate Management > Traffic Certificate Management  SSL Certificate List > Import**
 3. Select **PKCS 12 (IIS)** and import your certificate along with its private key
    
-Once provisioned, the certificate can be used for every application published through Easy Button. You can also choose to upload a separate certificate for individual applications.
+   Once provisioned, the certificate can be used for every application published through Easy Button. You can also choose to upload a separate certificate for individual applications.
+
 
    ![Screenshot for Configure Easy Button- Import SSL certificates and keys](./media/f5-big-ip-easy-button-ldap/configure-easy-button.png)
 
@@ -197,23 +198,30 @@ The Service Provider settings define the SAML SP properties for the APM instance
 
    ![Screenshot for Service Provider settings](./media/f5-big-ip-easy-button-ldap/service-provider.png)
 
-The optional **Security Settings** specify whether Azure AD should encrypt issued SAML assertions. Encrypting assertions between Azure AD and the BIG-IP APM provides additional assurance that the content tokens can’t be intercepted, and personal or corporate data be compromised.
+   The optional **Security Settings** specify whether Azure AD should encrypt issued SAML assertions. Encrypting assertions between Azure AD and the BIG-IP APM provides additional assurance that the content tokens can’t be intercepted, and personal or corporate data be compromised.
 
-3.	From the **Assertion Decryption Private Key** list, select **Create New**
+
+3. From the **Assertion Decryption Private Key** list, select **Create New**
+
  
    ![Screenshot for Configure Easy Button- Create New import](./media/f5-big-ip-oracle/configure-security-create-new.png)
 
-4.	Select **OK**. This opens the **Import SSL Certificate and Keys** dialog in a new tab  
+4. Select **OK**. This opens the **Import SSL Certificate and Keys** dialog in a new tab  
 
-6.	Select **PKCS 12 (IIS) ** to import your certificate and private key. Once provisioned close the browser tab to return to the main tab.
+
+6. Select **PKCS 12 (IIS)** to import your certificate and private key. Once provisioned close the browser tab to return to the main tab.
+
 
    ![Screenshot for Configure Easy Button- Import new cert](./media/f5-big-ip-oracle/import-ssl-certificates-and-keys.png)
 
-6.	Check **Enable Encrypted Assertion**
+6. Check **Enable Encrypted Assertion**.
 
-8.	If you have enabled encryption, select your certificate from the **Assertion Decryption Private Key** list. This is the private key for the certificate that BIG-IP APM will use to decrypt Azure AD assertions
 
-9.	If you have enabled encryption, select your certificate from the **Assertion Decryption Certificate** list. This is the certificate that BIG-IP will upload to Azure AD for encrypting the issued SAML assertions.
+8. If you have enabled encryption, select your certificate from the **Assertion Decryption Private Key** list. This is the private key for the certificate that BIG-IP APM will use to decrypt Azure AD assertions.
+
+
+9. If you have enabled encryption, select your certificate from the **Assertion Decryption Certificate** list. This is the certificate that BIG-IP will upload to Azure AD for encrypting the issued SAML assertions.
+
 
    ![Screenshot for Service Provider security settings](./media/f5-big-ip-easy-button-ldap/service-provider-security-settings.png)
 
@@ -291,8 +299,9 @@ The **Selected Policies** view, by default, displays all policies targeting All 
 
 To select a policy to be applied to the application being published:
 
-1.	Select the desired policy in the **Available Policies** list
-2.	Select the right arrow and move it to the **Selected Policies** list
+1. Select the desired policy in the **Available Policies** list.
+2. Select the right arrow and move it to the **Selected Policies** list.
+
 
 Selected policies should either have an **Include** or **Exclude** option checked. If both options are checked, the selected policy is not enforced.
 
@@ -391,7 +400,9 @@ You can navigate to **Access > Guided Configuration** and select the **small pad
 
 At that point, changes via the wizard UI are no longer possible, but all BIG-IP objects associated with the published instance of the application will be unlocked for direct management.
 
-[!NOTE] Re-enabling strict mode and deploying a configuration will overwrite any settings performed outside of the Guided Configuration UI, therefore we recommend the advanced configuration method for production services.
+> [!NOTE]
+> Re-enabling strict mode and deploying a configuration overwrites any settings performed outside of the Guided Configuration UI. We recommend the advanced configuration method for production services.
+
 
 ## Troubleshooting
 
