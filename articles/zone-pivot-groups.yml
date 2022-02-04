@@ -1569,8 +1569,6 @@ groups:
     title: CMake
   - id: iot-toolset-iar-ewarm
     title: IAR EWARM
-  - id: iot-toolset-stm32cube
-    title: STM32Cube IDE
 # Owner: v-amallick
 - id: backup-client-powershelltier-clitier-portaltier
   title: Clients
