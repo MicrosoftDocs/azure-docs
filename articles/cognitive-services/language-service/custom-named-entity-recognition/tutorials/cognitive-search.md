@@ -44,7 +44,7 @@ Select the container where you’ve uploaded your data. For this tutorial we’l
 
 ## Deploy your model
 
-[!INCLUDE [Deploy a model using Language Studio](../deploy-model-language-studio.md)]
+[!INCLUDE [Deploy a model using Language Studio](../includes/deploy-model-language-studio.md)]
 
 If you deploy your model through Language Studio, your `deployment-name` will be `prod`.
 

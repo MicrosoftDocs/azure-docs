@@ -32,7 +32,7 @@ See the [application development lifecycle](../overview.md#application-developme
 
 Go to your project in [Language studio](https://aka.ms/custom-extraction).
 
-[!INCLUDE [Deploy a model using Language Studio](../deploy-model-language-studio.md)]
+[!INCLUDE [Deploy a model using Language Studio](../includes/deploy-model-language-studio.md)]
 
 If you deploy your model through the Language Studio, your `deployment-name` is `prod`.
 
