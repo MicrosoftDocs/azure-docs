@@ -10,6 +10,7 @@ ms.subservice: develop
 ms.topic: portal
 ms.workload: identity
 ms.date: 01/14/2022
+ROBOTS: NOINDEX
 ms.author: marsma
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev, identityplatformtop40, "scenarios:getting-started", "languages:iOS", mode-api

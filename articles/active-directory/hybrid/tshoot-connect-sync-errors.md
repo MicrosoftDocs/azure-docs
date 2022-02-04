@@ -10,17 +10,21 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: troubleshooting
-ms.date: 10/29/2018
+ms.date: 01/21/2022
 ms.subservice: hybrid
 ms.author: billmath
+ms.custom: contperf-fy21q3-portal
 
 ms.collection: M365-identity-device-management
 ---
-# Troubleshoot errors during synchronization
+# Understanding errors during Azure AD synchronization
 
 Errors can occur when identity data is synced from Windows Server Active Directory to Azure Active Directory (Azure AD). This article provides an overview of different types of sync errors, some of the possible scenarios that cause those errors, and potential ways to fix the errors. This article includes common error types and might not cover all possible errors.
 
  This article assumes you're familiar with the underlying [design concepts of Azure AD and Azure AD Connect](plan-connect-design-concepts.md).
+
+>[!IMPORTANT]
+>This article attempts to address the most common synchronization errors.  Unfortunately, covering every scenario in one document is not possible.  For more information including in-depth troubleshooting steps, see [End-to-end troubleshooting of Azure AD Connect objects and attributes](https://docs.microsoft.com/troubleshoot/azure/active-directory/troubleshoot-aad-connect-objects-attributes) and the [User Provisioning and Synchronization](https://docs.microsoft.com/troubleshoot/azure/active-directory/welcome-azure-ad) section under the Azure AD troubleshooting documentation.
 
 With the latest version of Azure AD Connect \(August 2016 or higher\), a Synchronization Errors Report is available in the [Azure portal](https://aka.ms/aadconnecthealth) as part of Azure AD Connect Health for sync.
 
@@ -295,3 +299,5 @@ To resolve this issue:
 
 * [Locate Active Directory objects in Active Directory Administrative Center](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd560661(v=ws.10))
 * [Query Azure AD for an object by using Azure AD PowerShell](/previous-versions/azure/jj151815(v=azure.100))
+* [End-to-end troubleshooting of Azure AD Connect objects and attributes](https://docs.microsoft.com/troubleshoot/azure/active-directory/troubleshoot-aad-connect-objects-attributes)
+* [Azure AD Troubleshooting](https://docs.microsoft.com/troubleshoot/azure/active-directory/welcome-azure-ad) 

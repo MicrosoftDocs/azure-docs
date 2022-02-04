@@ -157,7 +157,7 @@ To ensure you securely connect to your Azure storage service, Azure Machine Lear
 
 ### Virtual network
 
-If your data storage account is in a **virtual network**, additional configuration steps are required to ensure Azure Machine Learning has access to your data. See [Network isolation & privacy](how-to-enable-studio-virtual-network.md) to ensure the appropriate configuration steps are applied when you create and register your datastore.  
+If your data storage account is in a **virtual network**, additional configuration steps are required to ensure Azure Machine Learning has access to your data. See [Use Azure Machine Learning studio in a virtual network](how-to-enable-studio-virtual-network.md) to ensure the appropriate configuration steps are applied when you create and register your datastore.  
 
 ### Access validation
 

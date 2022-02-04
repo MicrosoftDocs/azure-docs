@@ -108,4 +108,4 @@ In the following steps, we'll enable a system-assigned managed identity and gran
 > [Managed identities for Azure resources: frequently asked questions](../../../active-directory/managed-identities-azure-resources/managed-identities-faq.md)
 
 > [!div class="nextstepaction"]
->[Use managed identities to acquire an access token](../../../app-service/overview-managed-identity.md?tabs=dotnet#obtain-tokens-for-azure-resources)
+>[Use managed identities to acquire an access token](../../../app-service/overview-managed-identity.md?tabs=dotnet#configure-target-resource)

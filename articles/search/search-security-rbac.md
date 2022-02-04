@@ -94,9 +94,7 @@ In this step, configure your search service to recognize an **authorization** he
 
 ### [**Azure portal**](#tab/config-svc-portal)
 
-1. Open the [Azure portal](https://ms.portal.azure.com).
-
-1. Navigate to your search service.
+1. [Sign in to Azure portal](https://portal.azure.com) and open the search service page.
 
 1. Select **Keys** in the left navigation pane.
 

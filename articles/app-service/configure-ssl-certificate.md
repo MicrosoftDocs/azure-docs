@@ -58,17 +58,28 @@ To secure a custom domain in a TLS binding, the certificate has additional requi
 > [!NOTE]
 > Before creating a free managed certificate, make sure you have [fulfilled the prerequisites](#prerequisites) for your app.
 
-The free App Service managed certificate is a turn-key solution for securing your custom DNS name in App Service. It's a TLS/SSL server certificate that's fully managed by App Service and renewed continuously and automatically in six-month increments, 45 days before expiration. You create the certificate and bind it to a custom domain, and let App Service do the rest.
+The free App Service managed certificate is a turn-key solution for securing your custom DNS name in App Service. It's a TLS/SSL server certificate that's fully managed by App Service and renewed continuously and automatically in six-month increments, 45 days before expiration, as long as the prerequisites set-up remain the same without any action required from you. All the associated bindings will be updated with the renewed certificate. You create the certificate and bind it to a custom domain, and let App Service do the rest.
 
 The free certificate comes with the following limitations:
 
 - Does not support wildcard certificates.
-- Does not support usage as a client certificate by certificate thumbprint (removal of certificate thumbprint is planned).
+- Does not support usage as a client certificate by using certificate thumbprint (removal of certificate thumbprint is planned).
+- Does not support private DNS.
 - Is not exportable.
-- Is not supported on App Service not publicly accessible.
 - Is not supported on App Service Environment (ASE).
+- Only supports alphanumeric characters, dashes (-), and periods (.).
+
+# [Apex domain](#tab/apex)
+- Must have an A record pointing to your web app's IP address.
+- Is not supported on apps that are not publicly accessible.
 - Is not supported with root domains that are integrated with Traffic Manager.
-- If a certificate is for a CNAME-mapped domain, the CNAME must be mapped directly to `<app-name>.azurewebsites.net`.
+- All the above must be met for successful certificate issuances and renewals.
+
+# [Subdomain](#tab/subdomain)
+- Must have CNAME mapped _directly_ to `<app-name>.azurewebsites.net`. Mapping to an intermediate CNAME value will block certificate issuance and renewal.
+- All the above must be met for successful certificate issuance and renewals.
+
+-----
 
 > [!NOTE]
 > The free certificate is issued by DigiCert. For some domains, you must explicitly allow DigiCert as a certificate issuer by creating a [CAA domain record](https://wikipedia.org/wiki/DNS_Certification_Authority_Authorization) with the value: `0 issue digicert.com`.
@@ -113,18 +124,21 @@ If you already have a working App Service certificate, you can:
 
 Start an App Service certificate order in the <a href="https://portal.azure.com/#create/Microsoft.SSL" target="_blank">App Service Certificate create page</a>.
 
-![Start App Service certificate purchase](./media/configure-ssl-certificate/purchase-app-service-cert.png)
+> [!NOTE]
+> All prices shown are for examples only.
+
+:::image type="content" source="./media/configure-ssl-certificate/purchase-app-service-cert.png" alt-text="Start App Service certificate purchase":::
 
 Use the following table to help you configure the certificate. When finished, click **Create**.
 
 | Setting | Description |
 |-|-|
-| Name | A friendly name for your App Service certificate. |
-| Naked Domain Host Name | Specify the root domain here. The issued certificate secures *both* the root domain and the `www` subdomain. In the issued certificate, the Common Name field contains the root domain, and the Subject Alternative Name field contains the `www` domain. To secure any subdomain only, specify the fully qualified domain name of the subdomain here (for example, `mysubdomain.contoso.com`).|
 | Subscription | The subscription that will contain the certificate. |
 | Resource group | The resource group that will contain the certificate. You can use a new resource group or select the same resource group as your App Service app, for example. |
-| Certificate SKU | Determines the type of certificate to create, whether a standard certificate or a [wildcard certificate](https://wikipedia.org/wiki/Wildcard_certificate). |
-| Legal Terms | Click to confirm that you agree with the legal terms. The certificates are obtained from GoDaddy. |
+| SKU | Determines the type of certificate to create, whether a standard certificate or a [wildcard certificate](https://wikipedia.org/wiki/Wildcard_certificate). |
+| Naked Domain Host Name | Specify the root domain here. The issued certificate secures *both* the root domain and the `www` subdomain. In the issued certificate, the Common Name field contains the root domain, and the Subject Alternative Name field contains the `www` domain. To secure any subdomain only, specify the fully qualified domain name of the subdomain here (for example, `mysubdomain.contoso.com`).|
+| Certificate name | A friendly name for your App Service certificate. |
+| Enable auto renewal | Select whether the certificate should be renewed automatically before it expires. Each renewal extends the certificate expiration by one year and the cost is charged to your subscription. |
 
 > [!NOTE]
 > App Service Certificates purchased from Azure are issued by GoDaddy. For some domains, you must explicitly allow GoDaddy as a certificate issuer by creating a [CAA domain record](https://wikipedia.org/wiki/DNS_Certification_Authority_Authorization) with the value: `0 issue godaddy.com`
@@ -328,22 +342,24 @@ Before a certificate expires, you should add the renewed certificate into App Se
 To replace an expiring certificate, how you update the certificate binding with the new certificate can adversely affect user experience. For example, your inbound IP address can change when you delete a binding, even if that binding is IP-based. This is especially important when you renew a certificate that's already in an IP-based binding. To avoid a change in your app's IP address, and to avoid downtime for your app due to HTTPS errors, follow these steps in order:
 
 1. [Upload the new certificate](#upload-a-private-certificate).
-2. [Bind the new certificate to the same custom domain](configure-ssl-bindings.md) without deleting the existing (expiring) certificate. This action replaces the binding instead of removing the existing certificate binding.
+2. Bind the new certificate to the same custom domain without deleting the existing (expiring) certificate. This action replaces the binding instead of removing the existing certificate binding. To do this, navigate to the TLS/SSL settings blade of your App Service and select the Add Binding button.
 3. Delete the existing certificate.
 
 ### Renew an App Service certificate
 
 > [!NOTE]
-> Beginning on September 23 2021, App Service certificates require domain verification every 395 days.
+> Beginning September 23 2021, App Service certificates require domain verification during renew or rekey if you haven't verified domain in the last 395 days. The new certificate order remains in "pending issuance" during renew or rekey until you complete the domain verification.
 > 
-> Unlike App Service Managed Certificate, domain re-verification for App Service certificates is *not* automated. Refer to [verify domain ownership](#verify-domain-ownership) for more information on how to verify your App Service certificate.
+> Unlike App Service Managed Certificate, domain re-verification for App Service certificates is *not* automated, and failure to verify domain ownership will result in failed renewals. Refer to [verify domain ownership](#verify-domain-ownership) for more information on how to verify your App Service certificate. 
 
 > [!NOTE]
 > The renewal process requires that [the well-known service principal for App Service has the required permissions on your key vault](deploy-resource-manager-template.md#deploy-web-app-certificate-from-key-vault). This permission is configured for you when you import an App Service Certificate through the portal, and should not be removed from your key vault.
 
-To toggle the automatic renewal setting of your App Service certificate at any time, select the certificate in the [App Service Certificates](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) page, then click **Auto Renew Settings** in the left navigation. By default, App Service Certificates have a one-year validity period.
+By default, App Service certificates have a one-year validity period. Near the time of expiration, App Service certificates, can be renewed in one-year increments automatically or manually. In effect, th renewal process gives you a new App Service certificate with the expiration date extended to one year from the existing certificate's expiration date.
 
-Select **On** or **Off** and click **Save**. Certificates can start automatically renewing 31 days before expiration if you have automatic renewal turned on.
+To toggle the automatic renewal setting of your App Service certificate at any time, select the certificate in the [App Service Certificates](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) page, then click **Auto Renew Settings** in the left navigation.
+
+Select **On** or **Off** and click **Save**. Certificates can start automatically renewing 32 days before expiration if you have automatic renewal turned on.
 
 ![Renew App Service certificate automatically](./media/configure-ssl-certificate/auto-renew-app-service-cert.png)
 
@@ -384,7 +400,7 @@ Click **Rekey** to start the process. This process can take 1-10 minutes to comp
 
 Rekeying your certificate rolls the certificate with a new certificate issued from the certificate authority.
 
-You may be required to [re-verify domain ownership](#verify-domain-ownership).
+You may be required to [reverify domain ownership](#verify-domain-ownership).
 
 Once the rekey operation is complete, click **Sync**. The sync operation automatically updates the hostname bindings for the certificate in App Service without causing any downtime to your apps.
 
@@ -394,6 +410,9 @@ Once the rekey operation is complete, click **Sync**. The sync operation automat
 ### Export certificate
 
 Because an App Service Certificate is a [Key Vault secret](../key-vault/general/about-keys-secrets-certificates.md), you can export a PFX copy of it and use it for other Azure services or outside of Azure.
+
+> [!NOTE]
+> The exported certificate is an unmanaged artifact. For example, it isn't synced when the App Service Certificate is [renewed](#renew-an-app-service-certificate). You must export the renewed certificate and install it where you need it.
 
 To export the App Service Certificate as a PFX file, run the following commands in the [Cloud Shell](https://shell.azure.com). You can also run it locally if you [installed Azure CLI](/cli/azure/install-azure-cli). Replace the placeholders with the names you used when you [created the App Service certificate](#start-certificate-order).
 
@@ -416,7 +435,7 @@ The downloaded *appservicecertificate.pfx* file is a raw PKCS12 file that contai
 
 ### Delete certificate 
 
-Deletion of an App Service certificate is final and irreversible. Deletion of a App Service Certificate resource results in the certificate being revoked. Any binding in App Service with this certificate becomes invalid. To prevent accidental deletion, Azure puts a lock on the certificate. To delete an App Service certificate, you must first remove the delete lock on the certificate.
+Deletion of an App Service certificate is final and irreversible. Deletion of an App Service Certificate resource results in the certificate being revoked. Any binding in App Service with this certificate becomes invalid. To prevent accidental deletion, Azure puts a lock on the certificate. To delete an App Service certificate, you must first remove the delete lock on the certificate.
 
 Select the certificate in the [App Service Certificates](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) page, then select **Locks** in the left navigation.
 

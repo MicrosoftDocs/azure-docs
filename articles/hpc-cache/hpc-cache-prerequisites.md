@@ -4,7 +4,7 @@ description: Prerequisites for using Azure HPC Cache
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 01/13/2022
+ms.date: 01/19/2022
 ms.author: rohogue
 ---
 
@@ -12,7 +12,7 @@ ms.author: rohogue
 
 Before creating a new Azure HPC Cache, make sure your environment meets these requirements.
 
-## Video overviews
+<!-- ## Video overviews
 
 Watch these videos for a quick overview of the system's components and what they need to work together.
 
@@ -26,7 +26,7 @@ Watch these videos for a quick overview of the system's components and what they
 
   [![video thumbnail image: Azure HPC Cache: Prerequisites (click to visit video page)](media/video-3-prerequisites.png)](https://azure.microsoft.com/resources/videos/hpc-cache-prerequisites/)
 
-Read the rest of this article for specific recommendations.
+Read the rest of this article for specific recommendations. -->
 
 ## Azure subscription
 
