@@ -44,6 +44,13 @@ In addition to customer-managed keys, Azure Machine Learning also provides a [hb
 
 * An Azure subscription.
 
+## Limitations
+
+* The customer-managed key for resources the workspace depends on can’t be updated after workspace creation.
+* Resources managed by Microsoft in your subscription, can’t transfer ownership to you, or vice versa.
+* Sharing dependent resources for storing encrypted data between workspaces isn’t recommended.
+* When bringing your own Azure Cosmos DB, serverless capacity mode configurations aren't supported. Use the provisioned throughput capacity mode instead.
+
 ## How workspace metadata is stored
 
 The following resources store metadata for your workspace:
@@ -52,12 +59,14 @@ The following resources store metadata for your workspace:
 | ----- | ----- |
 | Azure Cosmos DB | Stores run history data. |
 | Azure Cognitive Search | Stores indices that are used to help query your machine learning content. |
-| Azure Storage Account | Stores additional metadata such as Azure Machine Learning pipelines data. |
+| Azure Storage Account | Stores other metadata such as Azure Machine Learning pipelines data. |
 
 > [!TIP]
 > The Azure Storage Account for metadata can be different than the default storage account for your workspace.
 
-Azure Machine Learning reads and writes data using the workspace managed identity. An Azure role-based access control (Azure RBAC) role is used to grant the managed identity access to these resources.
+Your Azure Machine Learning workspace reads and writes data using its managed identity. This identity is granted access to the resources using a role assignment (Azure role-based access control) on the data resources. The encryption key you provide is used to encrypt data that is stored on Microsoft-managed resources. It's also used to create indices for Azure Cognitive Search, which are created at runtime.
+
+:::image type="content" source="{source}" alt-text="{alt-text}":::
 
 ### Customer-managed keys
 
@@ -68,7 +77,7 @@ When you __use a customer-managed key__, these resources are _in your Azure subs
 > [!IMPORTANT]
 > When using a customer-managed key, the costs for your subscription will be higher because these resources are in your subscription. To estimate the cost, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/).
 
-## Bring your own resources
+## Bring your own resources (preview)
 
 When you create a workspace using a customer-managed key, there are two options:
 
@@ -77,7 +86,7 @@ When you create a workspace using a customer-managed key, there are two options:
 
 __When you allow Microsoft to create and manage resources__, a separate resource group is created in your Azure subscription. Data stored in these services is encrypted using the key you provide. 
 
-__Bringing your own resources__ allows for enhanced configuration, but you’re responsible for managing the resources that you bring.
+__Bringing your own resources__ allows for enhanced configuration of the resources in compliance with your organization's IT and security requirements. But you’re responsible for managing the resources that you bring.
 
 > [!TIP]
 > You can have a mix of resources that you bring and those that Microsoft manages. For example, you can select an existing Azure Cosmos DB and use Microsoft-managed for the Storage Account and Search services.
@@ -88,9 +97,11 @@ Use cases for choosing to manage your own data resources include:
 * Use naming conventions aligned with your organization's standards.
 * Customize resource configurations to comply with your organizations IT policies.
 
-### Using Microsoft-managed resources
+[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
-If you use a customer-managed key and allow Microsoft to manage the resources, a new Azure resource group. This is in addition to the resource group for your workspace. This resource group will contain the Microsoft-managed resources that your key is used with. The resource group will be named using the formula of `<Azure Machine Learning workspace resource group name><GUID>`.
+## Using Microsoft-managed resources
+
+If you use a customer-managed key and allow Microsoft to manage resources, a new Azure resource group is created. This is in addition to the resource group for your workspace. This resource group will contain the Microsoft-managed resources that your key is used with. The resource group will be named using the formula of `<Azure Machine Learning workspace resource group name><GUID>`.
 
 > [!TIP]
 > * If you use a mix of bring your own and Microsoft-managed resources, only the Microsoft-managed resources will be in this resource group.
