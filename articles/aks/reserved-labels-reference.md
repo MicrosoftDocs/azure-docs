@@ -7,6 +7,7 @@ ms.topic: reference
 # Reserved labels for Azure Kubernetes Service
 
 Since [Release 2021-08-19][aks-release-2021-gh], AKS has stopped the ability to make changes to AKS reserved system labels. Attempted change of these labels will result in an error message.
+
 ## Reserved system labels
 
 The following lists of labels are reserved for use by AKS. Virtual node usage specifies if these labels could be a supported system feature on virtual nodes. 
