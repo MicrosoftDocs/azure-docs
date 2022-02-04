@@ -1,5 +1,6 @@
 ---
 title: Tutorial - Create an example policy control configuration set
+<!-- This title is very long. Can we swap it to "Create a policy control configuration set", or does this lose too much context? -->
 titlesuffix: Azure Private 5G Core Preview
 description: In this tutorial, you'll create an example policy control configuration set with traffic handling for common scenarios. 
 author: djrmetaswitch
