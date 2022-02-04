@@ -26,6 +26,8 @@ landingContent:
         links:  
           - text: "What is Azure Machine Learning?"       
             url: overview-what-is-azure-machine-learning.md
+          - text: "What is Azure Machine Learning studio?"
+            url:  overview-what-is-machine-learning-studio
           - text:  Architecture & terms
             url: concept-azure-machine-learning-architecture.md 
   # Card
@@ -102,7 +104,7 @@ landingContent:
           url: /rest/api/azureml/
         - text: V2 CLI (preview)
           url: /cli/azure/ml/
-        - text: Algorithm & module reference 
+        - text: Algorithm & component reference 
           url: ./algorithm-module-reference/module-reference.md
   # Card
   - title: Resources
