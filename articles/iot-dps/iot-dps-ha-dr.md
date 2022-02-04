@@ -5,7 +5,7 @@ author: JimacoMS4
 ms.service: iot-dps
 services: iot-dps
 ms.topic: conceptual
-ms.date: 02/03/2022
+ms.date: 02/04/2022
 ms.author: v-jbrannian
 ---
 
