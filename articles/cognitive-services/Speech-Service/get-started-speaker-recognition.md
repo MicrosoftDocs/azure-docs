@@ -18,20 +18,22 @@ keywords: speaker recognition, voice biometry
 
 # Get started with speaker recognition
 
+[!INCLUDE [Header](includes/quickstarts/common/header-programming-languages-set-twenty-five.md)]
+
 ::: zone pivot="programming-language-csharp"
-[!INCLUDE [C# Basics include](includes/how-to/speaker-recognition-basics/speaker-recognition-basics-csharp.md)]
+[!INCLUDE [C# include](includes/quickstarts/speaker-recognition-basics/csharp.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-cpp"
-[!INCLUDE [C++ Basics include](includes/how-to/speaker-recognition-basics/speaker-recognition-basics-cpp.md)]
+[!INCLUDE [C++ include](includes/quickstarts/speaker-recognition-basics/cpp.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript"
-[!INCLUDE [JavaScript Basics include](includes/how-to/speaker-recognition-basics/speaker-recognition-basics-javascript.md)]
+[!INCLUDE [JavaScript include](includes/quickstarts/speaker-recognition-basics/javascript.md)]
 ::: zone-end
 
-::: zone pivot="programming-language-curl"
-[!INCLUDE [Curl Basics include](includes/how-to/speaker-recognition-basics/speaker-recognition-basics-curl.md)]
+::: zone pivot="programming-language-rest"
+[!INCLUDE [REST include](includes/quickstarts/speaker-recognition-basics/rest.md)]
 ::: zone-end
 
 ## Next steps

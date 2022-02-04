@@ -1348,10 +1348,12 @@ groups:
   pivots:
   - id: programming-language-csharp
     title: C#
+  - id: programming-language-objectivec
+    title: Objective-C
+  - id: programming-language-swift
+    title: Swift
   - id: programming-language-python
     title: Python
-  - id: programming-languages-objectivec-swift
-    title: Objective-C/Swift
 # Owner: mimart
 - id: b2c-policy-type
   title: Azure AD B2C policy type

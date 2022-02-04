@@ -18,7 +18,7 @@ keywords: intent recognition
 
 # Get started with intent recognition
 
-[!INCLUDE [Header](includes/quickstarts/common/see-also-reference.md)]
+[!INCLUDE [Header](includes/quickstarts/common/header-programming-languages-speech-services.md)]
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [C# include](includes/quickstarts/intent-recognition/csharp.md)]

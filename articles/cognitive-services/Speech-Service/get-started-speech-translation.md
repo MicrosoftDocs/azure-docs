@@ -12,35 +12,54 @@ ms.date: 01/08/2022
 ms.author: eur
 ms.devlang: cpp, csharp, java, javascript, python
 ms.custom: "devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020"
-zone_pivot_groups: programming-languages-set-two-with-js-spx
+zone_pivot_groups: programming-languages-speech-services
 keywords: speech translation
 ---
 
 # Get started with speech translation
 
+[!INCLUDE [Header](includes/quickstarts/common/header-programming-languages-speech-services.md)]
+
 ::: zone pivot="programming-language-csharp"
-[!INCLUDE [C# Basics include](includes/how-to/speech-translation-basics/speech-translation-basics-csharp.md)]
+[!INCLUDE [C# include](includes/quickstarts/speech-translation-basics/csharp.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-cpp"
-[!INCLUDE [C++ Basics include](includes/how-to/speech-translation-basics/speech-translation-basics-cpp.md)]
+[!INCLUDE [C++ include](includes/quickstarts/speech-translation-basics/cpp.md)]
+::: zone-end
+
+::: zone pivot="programming-language-go"
+[!INCLUDE [Go include](includes/quickstarts/speech-translation-basics/go.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
-[!INCLUDE [Java Basics include](includes/how-to/speech-translation-basics/speech-translation-basics-java.md)]
+[!INCLUDE [Java include](includes/quickstarts/speech-translation-basics/java.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript"
-[!INCLUDE [JavaScript Basics include](includes/how-to/speech-translation-basics/speech-translation-basics-javascript.md)]
+[!INCLUDE [JavaScript include](includes/quickstarts/speech-translation-basics/javascript.md)]
+::: zone-end
+
+::: zone pivot="programming-language-objectivec"
+[!INCLUDE [ObjectiveC include](includes/quickstarts/speech-translation-basics/objectivec.md)]
+::: zone-end
+
+::: zone pivot="programming-language-swift"
+[!INCLUDE [Swift include](includes/quickstarts/speech-translation-basics/swift.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
-[!INCLUDE [Python Basics include](includes/how-to/speech-translation-basics/speech-translation-basics-python.md)]
+[!INCLUDE [Python include](./includes/quickstarts/speech-translation-basics/python.md)]
 ::: zone-end
 
-::: zone pivot="programmer-tool-spx"
-[!INCLUDE [Speech CLI Basics include](includes/how-to/speech-translation-basics/speech-translation-basics-cli.md)]
+::: zone pivot="programming-language-rest"
+[!INCLUDE [REST include](includes/quickstarts/speech-translation-basics/rest.md)]
 ::: zone-end
+
+::: zone pivot="programming-language-cli"
+[!INCLUDE [CLI include](includes/quickstarts/speech-translation-basics/cli.md)]
+::: zone-end
+
 
 ## Next steps
 
