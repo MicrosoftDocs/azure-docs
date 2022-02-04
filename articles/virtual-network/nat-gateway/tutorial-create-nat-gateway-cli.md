@@ -13,11 +13,12 @@ ms.custom: template-tutorial, devx-track-azurecli
 
 # Tutorial: Create a NAT gateway using the Azure CLI
 
-This tutorial shows you how to use Azure Virtual Network NAT service. You'll create a NAT gateway to provide outbound connectivity for a virtual machine in Azure. 
+This tutorial shows you how to use Azure Virtual Network NAT service. You'll create a NAT gateway to provide outbound connectivity for a virtual machine in Azure.
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
+>
 > * Create a virtual network.
 > * Create a virtual machine.
 > * Create a NAT gateway and associate with the virtual network.
@@ -27,7 +28,7 @@ In this tutorial, you learn how to:
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
-- This quickstart requires version 2.0.28 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
+[!INCLUDE [cli-launch-cloud-shell-sign-in.md](../../../includes/cli-launch-cloud-shell-sign-in.md)]
 
 ## Create a resource group
 
