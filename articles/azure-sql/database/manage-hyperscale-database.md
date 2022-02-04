@@ -39,6 +39,8 @@ To migrate an existing database in Azure SQL Database to the Hyperscale service 
 
 Select the tab for your preferred tool to migrate your database:
 
+[TODO: consider adding steps to adjust vCores and replica count to PowerShell, AzureCLI, TSQL examples]
+
 # [Portal](#tab/azure-portal)
 
 TODO: Add screenshot
@@ -53,7 +55,7 @@ TODO: Add screenshot
 1. Select the **High-AvailabilitySecondaryReplicas** slider if you wish to change the number of replicas under the Hyperscale service tier. 
 1. Select **Apply**.
 
-[TODO: consider adding steps to adjust vCores and replica count to PowerShell, AzureCLI, TSQL examples]
+You can [monitor operations for a Hyperscale database](#monitor-operations-for-a-hyperscale-database) while the operation is ongoing.
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -164,7 +166,7 @@ To reverse migrate an existing Hyperscale database in Azure SQL Database to the 
 
 If you wish to perform a further migration to another service tier, identify your eventual target service objective as well and ensure that your database's allocated size is small enough to fit in that service objective.
 
-Select the tab for your preferred tool to migrate your database:
+Select the tab for your preferred tool to reverse migrate your database:
 
 # [Portal](#tab/azure-portal)
 
@@ -233,7 +235,7 @@ $databaseName = "mySampleDatabase"
 $serviceObjective = "GP_Gen5_4"
 $computeModel = "Provisioned"
 
-Set-AzSqlDatabase -ResourceGroupName $resourceGroupName -ServerName $serverName -DatabaseName $databaseName -Edition "Hyperscale" -compute-model $computeModel  -RequestedServiceObjectiveName $serviceObjective
+Set-AzSqlDatabase -ResourceGroupName $resourceGroupName -ServerName $serverName -DatabaseName $databaseName -Edition "GeneralPurpose" -computemodel $computeModel  -RequestedServiceObjectiveName $serviceObjective
 
 ```
 
@@ -265,30 +267,65 @@ You can [monitor operations for a Hyperscale database](#monitor-operations-for-a
 
 ## Monitor operations for a Hyperscale database
 
-You can programmatically monitor the status of ongoing or recently completed operations for an Azure SQL Database using PowerShell, the Azure CLI, or Transact-SQL. Operations include migrations and restores.
+You can monitor the status of ongoing or recently completed operations for an Azure SQL Database using the Azure portal, the Azure CLI, PowerShell, or Transact-SQL.
 
-TODO: add Azure CLI. Consider adding Portal and change to tabs.
+Select the tab for your preferred tool to monitor operations.
 
-### PowerShell
+# [Portal](#tab/azure-portal)
 
-The [Get-AzSqlDatabaseActivity](/powershell/module/az.sql/get-azsqldatabaseactivity) cmdlet returns recent or ongoing operations for a database. 
+The Azure portal shows a notification for a database in Azure SQL Database when an operation such as a migration, reverse migration, or restore is in progress.
 
-From a PowerShell command prompt, set the `$resourceGroupName`, `$serverName`, and `$databaseName`, and then run the following command:
+TODO: Add screenshot
+
+1. Navigate to the database in the Azure portal.
+1. In the left navigation bar, select **Overview**.
+1. Review the **Notifications** section at the bottom of the right pane. If operations are ongoing, a notification box will appear.
+1. Select the notification box to view details.
+1. The **Ongoing operations** pane will open. Review the details of the ongoing operations.
+
+
+# [Azure CLI](#tab/azure-cli)
+
+<!---
+TODO: find or create an article to link to for CLI setup so that it's also easy to link to from other examples and doesn't need to be repeated everywhere.
+
+[!INCLUDE [azure-cli-prepare-your-environment-h3.md](../../../includes/azure-cli-prepare-your-environment-h3.md)]
+
+[!INCLUDE [cli-launch-cloud-shell-sign-in.md](../../../includes/cli-launch-cloud-shell-sign-in.md)]
+--> 
+This code sample calls [az sql db op list](/cli/azure/sql/db/op#az-sql-db-op-list) to return recent or ongoing operations for a database in Azure SQL Database.
+
+Replace `resourceGroupName`, `serverName`, `databaseName`, and `serviceObjective` with the appropriate values before running the following code sample:
+
+```azurecli-interactive
+resourceGroupName="myResourceGroup"
+serverName="server01"
+databaseName="mySampleDatabase"
+
+az sql db op list -g $resourceGroupName -s $serverName --database $databaseName
+
+```
+
+# [PowerShell](#tab/azure-powershell)
+
+The [Get-AzSqlDatabaseActivity](/powershell/module/az.sql/get-azsqldatabaseactivity) cmdlet returns recent or ongoing operations for a database in Azure SQL Database.
+
+Set the `$resourceGroupName`, `$serverName`, and `$databaseName` parameters to the appropriate values for your database before running the sample code:
 
 ```powershell-interactive
 $resourceGroupName = "myResourceGroup"
-$databaseName = "mySampleDatabase"
 $serverName = "server01"
+$databaseName = "mySampleDatabase"
 
-Get-AzSqlDatabaseActivity -ResourceGroupName $resourceGroupName `
-    -ServerName $serverName -DatabaseName $databaseName
+Get-AzSqlDatabaseActivity -ResourceGroupName $resourceGroupName -ServerName $serverName -DatabaseName $databaseName
+
 ```
 
-### Transact-SQL
+# [Transact-SQL](#tab/t-sql)
 
 The [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) Dynamic Management View returns information about operations performed on databases in a Azure SQL Database server.
 
-This code sample returns all entires in `sys.dm_operation_status` for the specified database, sorted by which operations began most recently:
+This code sample returns all entires in `sys.dm_operation_status` for the specified database, sorted by which operations began most recently. Replace the database name with the appropriate value before running the code sample.
 
 ```sql
 SELECT * 
@@ -297,6 +334,8 @@ WHERE major_resource_id = 'mySampleDatabase'
 ORDER BY start_time DESC;
 GO
 ```
+
+---
 
 ## Review databases in the Hyperscale service tier
 
