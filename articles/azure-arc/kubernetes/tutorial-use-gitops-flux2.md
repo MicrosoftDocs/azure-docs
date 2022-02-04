@@ -807,20 +807,20 @@ If you use a `bucket` source instead of a `git` source, here are the bucket-spec
 | `--bucket-insecure` | Boolean | Communicate with a `bucket` without TLS.  If not provided, assumed false; if provided, assumed true. |
 
 ### Local secret for authentication with source
-You can use a local Kubernetes secret for authentication with the `git` or `bucket` source.  The local secret must contain all of the authentication parameters needed for the source.
+You can use a local Kubernetes secret for authentication with a `git` or `bucket` source.  The local secret must contain all of the authentication parameters needed for the source and must be created in the same namespace as the Flux configuration.
 
 | Parameter | Format | Notes |
 | ------------- | ------------- | ------------- |
 | `--local-auth-ref` `--local-ref`  | String | Local reference to a Kubernetes secret in the Flux configuration namespace to use for authentication with the source. |
 
-For HTTPS authentication, you create a secret (in the same namespace where the Flux configuration will be) with the username and password/key:
+For HTTPS authentication, you create a secret with the `username` and `password`:
 
 ```console
 kubectl create ns flux-config
 kubectl create secret generic -n flux-config my-custom-secret --from-literal=username=<my-username> --from-literal=password=<my-password-or-key>
 ```
 
-For SSH authentication, you create a secret (in the same namespace where the Flux configuration will be) with both the `identity` and `known_hosts` fields:
+For SSH authentication, you create a secret with the `identity` and `known_hosts` fields:
 
 ```console
 kubectl create ns flux-config
@@ -832,7 +832,7 @@ For both cases, when you create the Flux configuration, use `--local-auth-ref my
 ```console
 az k8s-configuration flux create -g <cluster_resource_group> -c <cluster_name> -n <config_name> -t connectedClusters --scope cluster --namespace flux-config -u <git-repo-url> --kustomization name=kustomization1 --local-auth-ref my-custom-secret
 ```
-Learn more using a local secret with these authentication methods:
+Learn more about using a local Kubernetes secret with these authentication methods:
 * [Git repository HTTPS authentication](https://fluxcd.io/docs/components/source/gitrepositories/#https-authentication)
 * [Git repository HTTPS self-signed certificates](https://fluxcd.io/docs/components/source/gitrepositories/#https-self-signed-certificates)
 * [Git repository SSH authentication](https://fluxcd.io/docs/components/source/gitrepositories/#ssh-authentication)
