@@ -27,7 +27,7 @@ An indexer drives skillset execution. You need an [indexer](search-howto-create-
 > [!TIP]
 > Enable [enrichment caching](cognitive-search-incremental-indexing-conceptual.md) to reuse the content you've already processed and lower the cost of development.
 
-## Skillset definition
+## Add a skillset definition
 
 Start with the basic structure. In the [Create Skillset REST API](/rest/api/searchservice/create-skillset), the body of the request is authored in JSON and has the following sections:
 
@@ -36,7 +36,7 @@ Start with the basic structure. In the [Create Skillset REST API](/rest/api/sear
    "name":"skillset-template",
    "description":"A description makes the skillset self-documenting (comments aren't allowed in JSON itself)",
    "skills":[
-      
+       
    ],
    "cognitiveServices":{
       "@odata.type":"#Microsoft.Azure.Search.CognitiveServicesByKey",
@@ -69,9 +69,7 @@ After the name and description, a skillset has four main properties:
 
 ## Insert a skills array
 
-Inside the skillset definition, the skills array specifies which skills to execute. All skills have a type, context, inputs, and outputs.
-
-The following example shows two unrelated, [built-in skills](cognitive-search-predefined-skills.md). Notice that each skill has a type, context, inputs, and outputs. 
+Inside the skillset definition, the skills array specifies which skills to execute. All skills have a type, context, inputs, and outputs. The following example shows two unrelated, [built-in skills](cognitive-search-predefined-skills.md). Notice that each skill has a type, context, inputs, and outputs. 
 
 ```json
 "skills":[
@@ -142,7 +140,7 @@ Each skill is unique in terms of its input values and the parameters that it tak
 
 Common parameters include "odata.type", "inputs", and "outputs". The other parameters, namely "categories" and "defaultLanguageCode", are examples of parameters that are specific to Entity Recognition. 
 
-+ **"odata.type"** uniquely identifies each skill. You can find the type in the [skill reference documentation](cognitive-search-predefined-skills.md).
++ **"odata.type"** uniquely identifies each skill. You can find the type in the [skill reference documentation](cognitive-search-predefined-skills.md). 
 
 + **"context"** is a node in an enrichment tree and it represents the level at which operations take place. All skills have this property. If the "context" field isn't explicitly set, the default context is `"/document"`. In the example, the context is the whole document, which means that the entity recognition skill is called once per document.
 
@@ -156,7 +154,7 @@ Outputs exist only during processing. To chain this output to the input of a dow
 
 Outputs from the one skill can conflict with outputs from a different skill. If you have multiple skills that return the same output, use the `"targetName"` for name disambiguation in enrichment node paths.
 
-Some situations call for referencing each element of an array separately. For example, suppose you want to pass *each element* of `"/document/orgs"` separately to another skill. To do so, add an asterisk to the path: `"/document/orgs/*"` 
+Some situations call for referencing each element of an array separately. For example, suppose you want to pass *each element* of `"/document/orgs"` separately to another skill. To do so, add an asterisk to the path: `"/document/orgs/*"`.
 
 The second skill for sentiment analysis follows the same pattern as the first enricher. It takes `"/document/content"` as input, and returns a sentiment score for each content instance. Since you didn't set the "context" field explicitly, the output (mySentiment) is now a child of `"/document"`.
 
@@ -190,10 +188,10 @@ The second skill for sentiment analysis follows the same pattern as the first en
 
 1. Set the skill's input source to the node that's providing the data to be processed. For text-based skills, it's a field in the document or row that provides text. For image-based skills, the node providing the input is normalized images.
 
-    | Input example | Description |
+    | Source example | Description |
     |-----------------|-------------|
     | "source": "/document/content"  | For blobs, the source is usually the blob's content property. |
-    | "source": "/document/<some-verbose-text-field>" | For text-based skills, such as entity recognition or key phrase extraction, the origin should be a field that contains sufficient text to be analyzed, such as "description" or "summary". |
+    | "source": "/document/some-named-field" | For text-based skills, such as entity recognition or key phrase extraction, the origin should be a field that contains sufficient text to be analyzed, such as a "description" or "summary". |
     | "source": "/document/normalized_images/*" | For image content, the source is image that's been normalized during document cracking. |
 
 If the skill iterates over an array, both context and input source should include `/*` in the correct positions. 
