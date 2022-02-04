@@ -156,9 +156,7 @@
       href: language-packs.md
     - name: Windows 11 Enterprise images
       href: windows-11-language-packs.md
-  - name: Use Azure Advisor
-    href: azure-advisor.md
-  - name: Resolve recommendations
+  - name: Resolve Azure Advisor recommendations
     href: azure-advisor-recommendations.md
   - name: Use Azure Monitor for Azure Virtual Desktop
     href: azure-monitor.md
@@ -242,6 +240,8 @@
         href: azure-stack-hci-faq.yml
   - name: Tag Azure Virtual Desktop resources
     href: tag-virtual-desktop-resources.md
+  - name: Compare Azure Virtual Desktop with Windows 365
+    href: compare-virtual-desktop-windows-365.md
 - name: Troubleshoot
   items:
   - name: Troubleshooting overview, feedback, and support

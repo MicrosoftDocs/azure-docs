@@ -18,6 +18,10 @@ Azure Automation stores and manages runbooks and then delivers them to one or mo
 
 After you successfully deploy a runbook worker, review [Run runbooks on a Hybrid Runbook Worker](automation-hrw-run-runbooks.md) to learn how to configure your runbooks to automate processes in your on-premises datacenter or other cloud environment.
 
+
+> [!NOTE]
+> A hybrid worker can co-exist with both platforms: **Agent based (V1)** and **Extension based (V2)**. If you install Extension based (V2)on a hybrid worker already running Agent based (V1), then you would see two entries of the Hybrid Runbook Worker in the group. One with Platform Extension based (V2) and the other Agent based (V1). [**Learn more**](#install-extension-based-v2-on-existing-agent-based-v1-hybrid-worker).
+
 ## Prerequisites
 
 ### Machine minimum requirements
@@ -57,6 +61,36 @@ After you successfully deploy a runbook worker, review [Run runbooks on a Hybrid
 
 If you use a proxy server for communication between Azure Automation and machines running the extension-base Hybrid Runbook Worker, ensure that the appropriate resources are accessible. The timeout for requests from the Hybrid Runbook Worker and Automation services is 30 seconds. After three attempts, a request fails.
 
+> [!NOTE]
+> You can set up the proxy settings either by PowerShell cmdlets or API.
+
+**Proxy server settings**
+# [Windows](#tab/windows) 
+ 
+```azurepowershell
+$settings = @{
+    "AutomationAccountURL"  = "<registrationurl>/<subscription-id>";    
+    "ProxySettings" = @{
+        "ProxyServer" = "<ipaddress>:<port>";
+        "UserName"="test";
+    }
+};
+$protectedsettings = @{
+"ProxyPassword" = "password";
+};
+```
+
+# [Linux](#tab/linux)
+```
+$protectedsettings = @{
+      "Proxy_URL"="http://username:password@<IP Address>"
+};
+$settings = @{
+    "AutomationAccountURL"  = "<registration-url>/<subscription-id>";    
+};
+```
+---
+
 ### Firewall use
 
 If you use a firewall to restrict access to the Internet, you must configure the firewall to permit access. The following port and URLs are required for the Hybrid Runbook Worker, and for [Automation State Configuration](./automation-dsc-overview.md) to communicate with Azure Automation.
@@ -66,9 +100,13 @@ If you use a firewall to restrict access to the Internet, you must configure the
 |Port | 443 for outbound internet access|
 |Global URL |*.azure-automation.net|
 |Global URL of US Gov Virginia |*.azure-automation.us|
-|Agent service |`https://<workspaceId>.agentsvc.azure-automation.net`|
+
+### CPU quota limit 
+There is a CPU quota limit of 5% while configuring extension-based Linux Hybrid Runbook worker. There is no such limit for Windows Hybrid Runbook Worker.
 
 ## Create hybrid worker group 
+
+You can create a Hybrid Worker Group via the Azure Portal. Currently, creating through the ARM template is not supported.
 
 Perform the following steps to create a hybrid worker group in the Azure portal.
 
@@ -122,6 +160,19 @@ You can also add machines to an existing hybrid worker group.
 1. Select **Add** to add the machine to the group. Once added, you can see the machine type as Azure virtual machine or Arc-enabled server. The **Platform** field shows the worker as **Agent based (V1)** or **Extension based (V2)**.
 
    :::image type="content" source="./media/extension-based-hybrid-runbook-worker-install/hybrid-worker-group-platform.png" alt-text="Platform field showing agent or extension based.":::
+
+## Install Extension-based (V2) on existing Agent-based (V1) Hybrid Worker
+
+A hybrid worker can co-exist with both platforms: **Agent based (V1)** and **Extension based (V2)**. To install Extension based (V2) on a hybrid worker that already has an Agent based (V1): 
+
+  1.  Under **Process Automation**, select **Hybrid Workers groups** and then your existing hybrid worker group to go to the **Hybrid Worker Group** page.
+  1.  Under **Hybrid worker group**, select **Hybrid Workers**.
+  1.  Select **+ Add** to go to the **Add machines as hybrid worker** page.
+  1.  Select the checkbox next to existing Agent based (V1) Hybrid worker.
+  1.  Select **Add** to add the machine to the group. </br>
+
+The **Platform** column shows the same worker as both **Agent based (V1)** and **Extension based (V2)**. Delete the Agent based (V1) Hybrid Worker after you are sure on the working of Extension based (V2) worker.
+
 
 ## Delete a Hybrid Runbook Worker
 
@@ -458,8 +509,17 @@ Review the parameters used in this template.
 |dnsNameForPublicIP| The DNS name for the public IP. |
 
 
+## Manage Role permissions for Hybrid Worker Groups
+You can create custom Azure Automation roles and grant following permissions to Hybrid Worker Groups. To learn more about how to create Azure Automation custom roles, see [Azure custom roles](/azure/role-based-access-control/custom-roles).
+
+**Actions** | **Description**
+--- | ---
+Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups/read | Reads a Hybrid Runbook Worker Group.
+Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups/write | Creates a Hybrid Runbook Worker Group.
+Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups/delete | Deletes a Hybrid Runbook Worker Group.
+
 ## Next steps
 
 * To learn how to configure your runbooks to automate processes in your on-premises datacenter or other cloud environment, see [Run runbooks on a Hybrid Runbook Worker](automation-hrw-run-runbooks.md).
 
-* To learn how to troubleshoot your Hybrid Runbook Workers, see [Troubleshoot Hybrid Runbook Worker issues](troubleshoot/hybrid-runbook-worker.md#general).
+* To learn how to troubleshoot your Hybrid Runbook Workers, see [Troubleshoot Hybrid Runbook Worker issues](troubleshoot/extension-based-hybrid-runbook-worker.md).

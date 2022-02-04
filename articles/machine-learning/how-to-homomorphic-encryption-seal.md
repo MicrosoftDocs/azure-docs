@@ -2,8 +2,8 @@
 title: Deploy an encrypted inferencing service (preview)
 titleSuffix: Azure Machine Learning
 description: Learn how to use Microsoft SEAL to deploy an encrypted prediction service for image classification
-author: luisquintanilla
-ms.author: luquinta 
+author: ssalgadodev
+ms.author: ssalgado 
 ms.date: 10/21/2021
 services: machine-learning
 ms.service: machine-learning
@@ -32,7 +32,7 @@ The encryption method used in this sample is [homomorphic encryption](https://gi
 
 ## Prerequisites
 
-This guide assumes that you have an image classification model registered in Azure Machine Learning. If not, register the model using a [pretrained model](https://github.com/Azure/MachineLearningNotebooks/raw/master/tutorials/image-classification-mnist-data/sklearn_mnist_model.pkl) or create your own by completing the [train an image classification model with Azure Machine Learning tutorial](tutorial-train-models-with-aml.md).
+This guide assumes that you have an image classification model registered in Azure Machine Learning. If not, register the model using a [pretrained model](https://github.com/Azure/MachineLearningNotebooks/raw/master/tutorials/image-classification-mnist-data/sklearn_mnist_model.pkl) or create your own by completing the [train an image classification model with Azure Machine Learning tutorial](tutorial-train-deploy-notebook.md).
 
 ## Configure local environment
 

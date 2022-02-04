@@ -17,8 +17,8 @@ In this article, you'll learn about the rich set of Azure data stores that Azure
 
 The following table explains the data stores that Azure Data Share supports. 
 
-| Data store | Sharing based on full snapshots | Sharing based on incremental snapshots | Sharing in place 
-|:--- |:--- |:--- |:--- |:--- |:--- |:--- |
+| Data store | Sharing based on full snapshots | Sharing based on incremental snapshots | Sharing in place |
+|:--- |:--- |:--- |:--- |
 | Azure Blob Storage |✓ |✓ | |
 | Azure Data Lake Storage Gen1 |✓ |✓ | |
 | Azure Data Lake Storage Gen2 |✓ |✓ ||
@@ -50,6 +50,8 @@ When file systems, containers, or folders are shared in snapshot-based sharing, 
 
 An incremental snapshot is based on the last-modified time of the files. Existing files that have the same name as files in the received data are overwritten in a snapshot. Files that are deleted from the source aren't deleted on the target. 
 
+If a snapshot is interrupted and fails, for example, due to a cancel action, networking issue, or disaster, the next incremental snapshot copies files that have a last-modified time greater than the time of the last successful snapshot.
+
 For more information, see [Share and receive data from Azure Blob Storage and Azure Data Lake Storage](how-to-share-from-storage.md).
 
 ## Share from a SQL-based source
@@ -58,6 +60,8 @@ Azure Data Share supports the sharing of both tables and views from Azure SQL Da
 Data consumers can choose to accept the data into Azure Data Lake Storage Gen2 or Azure Blob Storage as a CSV file or parquet file. They can also accept data as tables into Azure SQL Database and Azure Synapse Analytics.
 
 When consumers accept data into Azure Data Lake Storage Gen2 or Azure Blob Storage, full snapshots overwrite the contents of the target file if the file already exists. When data is received into a table and the target table doesn't already exist, Azure Data Share creates an SQL table by using the source schema. If a target table already exists and it has the same name, it's dropped and overwritten with the latest full snapshot. Incremental snapshots aren't currently supported.
+
+If a snapshot is interrupted and fails, for example, due to a cancel action, networking issue, or disaster, the next snapshot copies the entire table or view again.
 
 For more information, see [Share and receive data from Azure SQL Database and Azure Synapse Analytics](how-to-share-from-sql.md).
 

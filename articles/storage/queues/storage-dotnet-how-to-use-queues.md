@@ -8,6 +8,7 @@ ms.date: 10/08/2020
 ms.topic: how-to
 ms.service: storage
 ms.subservice: queues
+ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
 

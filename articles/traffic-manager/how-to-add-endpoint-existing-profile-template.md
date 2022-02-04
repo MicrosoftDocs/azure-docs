@@ -34,7 +34,7 @@ The template used in this quickstart is from [Azure Quickstart Templates](https:
 
 One Azure resource is defined in the template:
 
-* [**Microsoft.Network/trafficManagerProfiles/ExternalEndpoints**](/azure/templates/microsoft.network/trafficmanagerprofiles/externalendpoints)
+* [**Microsoft.Network/trafficManagerProfiles/ExternalEndpoints**](/azure/templates/microsoft.network/trafficmanagerprofiles)
 
 To find more templates that are related to Azure Traffic Manager, see [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Network&pageNumber=1&sort=Popular).
 

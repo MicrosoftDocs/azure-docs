@@ -22,7 +22,7 @@ For more information about Azure Database for PostgreSQL please visit the: [What
 To learn more about how to create an Azure Database for PostgreSQL server by using the Azure portal please visit: 
 *    [Quick start for Azure Database for PostgreSQL – Single server](../postgresql/quickstart-create-server-database-portal.md)
 *    [Quick start for Azure Database for PostgreSQL – Flexible server](../postgresql/flexible-server/quickstart-create-server-portal.md)
-*    [Quick start for Azure Database for PostgreSQL – Hyperscale (Citus)](../postgresql/quickstart-create-hyperscale-portal.md)
+*    [Quick start for Azure Database for PostgreSQL – Hyperscale (Citus)](../postgresql/hyperscale/quickstart-create-portal.md)
 
 
 > [!NOTE] 

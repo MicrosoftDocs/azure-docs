@@ -11,6 +11,7 @@ ms.subservice: custom-vision
 ms.topic: tutorial
 ms.date: 11/23/2020
 ms.author: pafarley
+ms.devlang: csharp
 ---
 
 # Tutorial: Use Custom Vision with an IoT device to report visual states

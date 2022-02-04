@@ -3,6 +3,7 @@ title: Disaster recovery for custom topics in Azure Event Grid
 description: This tutorial will walk you through how to set up your eventing architecture to recover if the Event Grid service becomes unhealthy in a region.
 ms.topic: tutorial
 ms.date: 04/22/2021
+ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
 

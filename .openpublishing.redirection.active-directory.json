@@ -32,7 +32,7 @@
         },
         {
             "source_path_from_root": "/articles/active-directory/develop/registration-config-multi-tenant-application-add-to-gallery-how-to.md",
-            "redirect_url": "/azure/active-directory/develop/v2-howto-app-gallery-listing",
+            "redirect_url": "/azure/active-directory/manage-apps/v2-howto-app-gallery-listing",
             "redirect_document_id": false
         },
         {
@@ -708,6 +708,36 @@
         {
             "source_path_from_root": "/articles/active-directory/develop/active-directory-devquickstarts-webapp-java.md",
             "redirect_url": "https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory/develop/vs-active-directory-add-connected-service.md",
+            "redirect_url": "/visualstudio/azure/vs-active-directory-add-connected-service",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory/develop/vs-active-directory-dotnet-what-happened.md",
+            "redirect_url": "/visualstudio/azure/vs-active-directory-dotnet-what-happened",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory/develop/vs-active-directory-dotnet-getting-started.md",
+            "redirect_url": "/visualstudio/azure/vs-active-directory-dotnet-getting-started",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory/develop/vs-active-directory-error.md",
+            "redirect_url": "/visualstudio/azure/vs-active-directory-error",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory/develop/vs-active-directory-webapi-getting-started.md",
+            "redirect_url": "/visualstudio/azure/vs-active-directory-webapi-getting-started",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory/develop/vs-active-directory-webapi-what-happened.md",
+            "redirect_url": "/visualstudio/azure/vs-active-directory-webapi-what-happened",
             "redirect_document_id": false
         },
         {
@@ -3141,33 +3171,38 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/active-directory/develop/v2-howto-app-gallery-listing.md",
+            "redirect_url": "/azure/active-directory/manage-apps/v2-howto-app-gallery-listing",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/active-directory/azuread-dev/howto-app-gallery-listing.md",
-            "redirect_url": "/azure/active-directory/develop/v2-howto-app-gallery-listing",
+            "redirect_url": "/azure/active-directory/manage-apps/v2-howto-app-gallery-listing",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/active-directory/develop/howto-app-gallery-listing.md",
-            "redirect_url": "/azure/active-directory/develop/v2-howto-app-gallery-listing",
+            "redirect_url": "/azure/active-directory/manage-apps/v2-howto-app-gallery-listing",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/active-directory/manage-apps/isv-choose-multi-tenant-federation.md",
-            "redirect_url": "/azure/active-directory/develop/v2-howto-app-gallery-listing",
+            "redirect_url": "/azure/active-directory/manage-apps/v2-howto-app-gallery-listing",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/active-directory/manage-apps/isv-create-sso-documentation.md",
-            "redirect_url": "/azure/active-directory/develop/v2-howto-app-gallery-listing",
+            "redirect_url": "/azure/active-directory/manage-apps/v2-howto-app-gallery-listing",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/active-directory/manage-apps/isv-sso-content.md",
-            "redirect_url": "/azure/active-directory/develop/v2-howto-app-gallery-listing",
+            "redirect_url": "/azure/active-directory/manage-apps/v2-howto-app-gallery-listing",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/active-directory/manage-apps/isv-tenant-multi-tenant-app.md",
-            "redirect_url": "/azure/active-directory/develop/v2-howto-app-gallery-listing",
+            "redirect_url": "/azure/active-directory/manage-apps/v2-howto-app-gallery-listing",
             "redirect_document_id": false
         },
         {
@@ -4275,17 +4310,17 @@
             "redirect_url": "/azure/active-directory/governance/self-access-review",
             "redirect_document_id": false
         },
-{
+        {
             "source_path_from_root": "/azure/active-directory/governance/entitlement-management-access-reviews-self-review.md",
             "redirect_url": "/azure/active-directory/governance/self-access-review",
             "redirect_document_id": false
         },
-{
+        {
             "source_path_from_root": "/azure/active-directory/governance/manage-guest-access-with-access-reviews.md",
             "redirect_url": "/azure/active-directory/governance/manage-access-review",
             "redirect_document_id": false
         },
-{
+        {
             "source_path_from_root": "/azure/active-directory/governance/manage-user-access-with-access-reviews.md",
             "redirect_url": "/azure/active-directory/governance/manage-access-review",
             "redirect_document_id": false
@@ -7051,6 +7086,21 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/active-directory/hybrid/how-to-connect-fed-hybrid-azure-ad-join-post-config-tasks.md",
+            "redirect_url": "/azure/active-directory/devices/howto-hybrid-azure-ad-join",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/active-directory/devices/hybrid-azuread-join-federated-domains.md",
+            "redirect_url": "/azure/active-directory/devices/howto-hybrid-azure-ad-join",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory/devices/hybrid-azuread-join-managed-domains.md",
+            "redirect_url": "/azure/active-directory/devices/howto-hybrid-azure-ad-join",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/active-directory/reporting-azure-monitor-diagnostics-azure-storage-account.md",
             "redirect_url": "/azure/active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account",
             "redirect_document_id": false
@@ -7167,13 +7217,23 @@
         },
         {
             "source_path_from_root": "/articles/active-directory/users-groups-roles/roles-admin-units-add-manage-groups.md",
-            "redirect_url": "/azure/active-directory/roles/admin-units-add-manage-groups",
-            "redirect_document_id": true
+            "redirect_url": "/azure/active-directory/roles/admin-units-members-add",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory/roles/admin-units-add-manage-groups.md",
+            "redirect_url": "/azure/active-directory/roles/admin-units-members-add",
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/active-directory/users-groups-roles/roles-admin-units-add-manage-users.md",
-            "redirect_url": "/azure/active-directory/roles/admin-units-add-manage-users",
+            "redirect_url": "/azure/active-directory/roles/admin-units-members-add",
             "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/active-directory/roles/admin-units-add-manage-users.md",
+            "redirect_url": "/azure/active-directory/roles/admin-units-members-add",
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/active-directory/users-groups-roles/roles-admin-units-assign-roles.md",
@@ -10635,8 +10695,18 @@
             "source_path": "articles/active-directory/manage-apps/application-types.md",
             "redirect_url": "/azure/active-directory/manage-apps/application-list",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/reports-monitoring/reference-basic-info-identifiers.md",
+            "redirect_url": "/azure/active-directory/reports-monitoring/reference-basic-info-sign-in-logs",
+            "redirect_document_id": false
         }
- 
+        ,
+        {
+            "source_path": "articles/active-directory/managed-identities-azure-resources/services-support-managed-identities.md",
+            "redirect_url": "/azure/active-directory/managed-identities-azure-resources/managed-identities-status",
+            "redirect_document_id": false
+        }
          
     ]
 }

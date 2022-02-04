@@ -8,7 +8,6 @@ author: asudbring
 manager: KumudD
 ms.assetid: 
 ms.service: load-balancer
-ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
@@ -426,9 +425,6 @@ $lbip = @{
     SubnetId = $vnet.subnets[0].Id
 }
 $feip = New-AzLoadBalancerFrontendIpConfig @lbip
-
-## Create load balancer frontend configuration and place in variable. ##
-$feip = New-AzLoadBalancerFrontendIpConfig -Name 'myFrontEnd' -PublicIpAddress $publicIp
 
 ## Create backend address pool configuration and place in variable. ##
 $bepool = New-AzLoadBalancerBackendAddressPoolConfig -Name 'myBackEndPool'

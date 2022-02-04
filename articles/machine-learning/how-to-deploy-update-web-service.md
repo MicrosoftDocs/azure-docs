@@ -88,7 +88,7 @@ az ml service update -n myservice --model-metadata-file modelinfo.json
 >
 > To update the service to use a new entry script or environment, create an [inference configuration file](./reference-azure-machine-learning-cli.md#inference-configuration-schema) and specify it with the `ic` parameter.
 
-For more information, see the [az ml service update](/cli/azure/ml(v1)/service?view=azure-cli-latest#az_ml_v1__service_update&preserve-view=true) documentation.
+For more information, see the [az ml service update](/cli/azure/ml(v1)/service#az_ml_v1__service_update) documentation.
 
 ## Next steps
 

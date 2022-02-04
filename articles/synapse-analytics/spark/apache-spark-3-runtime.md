@@ -28,7 +28,8 @@ Azure Synapse Analytics supports multiple runtimes for Apache Spark. This docume
 | Apache Spark | 3.1 |
 | Operating System | Ubuntu 18.04 |
 | Java | 1.8.0_282 |
-| Scala | 2.12  |
+| Scala | 2.12.10  |
+| Hadoop | 3.1.1  |
 | .NET Core | 3.1 |
 | .NET | 2.0.0 |
 | Delta Lake | 1.0 |
@@ -50,9 +51,13 @@ SparkCustomEvents_3.1.2-1.0.0.jar
 
 TokenLibrary-assembly-1.0.jar
 
+VegasConnector-1.0.25.1_2.12.jar
+
 accessors-smart-1.2.jar
 
 activation-1.1.1.jar
+
+adal4j-1.6.3.jar
 
 aircompressor-0.10.jar
 
@@ -88,15 +93,17 @@ avro-mapred-1.8.2-hadoop2.jar
 
 aws-java-sdk-bundle-1.11.375.jar
 
-azure-eventhubs-3.2.2.jar
+azure-eventhubs-3.3.0.jar
 
-azure-eventhubs-spark_2.12-2.3.18.jar
+azure-eventhubs-spark_2.12-2.3.21.jar
 
 azure-keyvault-core-1.0.0.jar
 
 azure-storage-7.0.1.jar
 
-azure-synapse-ml-pandas_2.12-0.1.1.jar
+azure-synapse-ml-pandas_2.12-1.0.0.jar
+
+azure-synapse-ml-predict_2.12-1.0.jar
 
 bcpkix-jdk15on-1.60.jar
 
@@ -156,6 +163,8 @@ commons-net-3.1.jar
 
 commons-pool-1.5.4.jar
 
+commons-pool2-2.6.2.jar
+
 commons-text-1.6.jar
 
 compress-lzf-1.0.3.jar
@@ -164,7 +173,9 @@ config-1.3.4.jar
 
 core-1.1.2.jar
 
-cosmos-analytics-spark-connector_3-1_2-12-assembly-3.0.3.jar
+cosmos-analytics-spark-connector_3-1_2-12-assembly-3.0.4.jar
+
+cudf-21.10.0-cuda11.jar
 
 curator-client-2.12.0.jar
 
@@ -178,7 +189,7 @@ datanucleus-core-4.1.6.jar
 
 datanucleus-rdbms-4.1.19.jar
 
-delta-core_2.12-1.0.0.0.jar
+delta-core_2.12-1.0.0.2b.jar
 
 derby-10.12.1.1.jar
 
@@ -206,39 +217,39 @@ guice-4.0.jar
 
 guice-servlet-4.0.jar
 
-hadoop-annotations-3.1.3.5.0-43944377.jar
+hadoop-annotations-3.1.1.5.0-50849917.jar
 
-hadoop-auth-3.1.3.5.0-43944377.jar
+hadoop-auth-3.1.1.5.0-50849917.jar
 
-hadoop-aws-3.1.3.5.0-43944377.jar
+hadoop-aws-3.1.1.5.0-50849917.jar
 
-hadoop-azure-3.1.3.5.0-43944377.jar
+hadoop-azure-3.1.1.5.0-50849917.jar
 
-hadoop-client-3.1.3.5.0-43944377.jar
+hadoop-client-3.1.1.5.0-50849917.jar
 
-hadoop-common-3.1.3.5.0-43944377.jar
+hadoop-common-3.1.1.5.0-50849917.jar
 
-hadoop-hdfs-client-3.1.3.5.0-43944377.jar
+hadoop-hdfs-client-3.1.1.5.0-50849917.jar
 
-hadoop-mapreduce-client-common-3.1.3.5.0-43944377.jar
+hadoop-mapreduce-client-common-3.1.1.5.0-50849917.jar
 
-hadoop-mapreduce-client-core-3.1.3.5.0-43944377.jar
+hadoop-mapreduce-client-core-3.1.1.5.0-50849917.jar
 
-hadoop-mapreduce-client-jobclient-3.1.3.5.0-43944377.jar
+hadoop-mapreduce-client-jobclient-3.1.1.5.0-50849917.jar
 
-hadoop-openstack-3.1.3.5.0-43944377.jar
+hadoop-openstack-3.1.1.5.0-50849917.jar
 
-hadoop-yarn-api-3.1.3.5.0-43944377.jar
+hadoop-yarn-api-3.1.1.5.0-50849917.jar
 
-hadoop-yarn-client-3.1.3.5.0-43944377.jar
+hadoop-yarn-client-3.1.1.5.0-50849917.jar
 
-hadoop-yarn-common-3.1.3.5.0-43944377.jar
+hadoop-yarn-common-3.1.1.5.0-50849917.jar
 
-hadoop-yarn-registry-3.1.3.5.0-43944377.jar
+hadoop-yarn-registry-3.1.1.5.0-50849917.jar
 
-hadoop-yarn-server-common-3.1.3.5.0-43944377.jar
+hadoop-yarn-server-common-3.1.1.5.0-50849917.jar
 
-hadoop-yarn-server-web-proxy-3.1.3.5.0-43944377.jar
+hadoop-yarn-server-web-proxy-3.1.1.5.0-50849917.jar
 
 hdinsight-spark-metrics_3_1_2-1.0.0.jar
 
@@ -336,6 +347,8 @@ janino-3.0.16.jar
 
 javassist-3.25.0-GA.jar
 
+javatuples-1.2.jar
+
 javax.inject-1.jar
 
 javax.jdo-3.2.0-m3.jar
@@ -408,6 +421,8 @@ jta-1.1.jar
 
 jul-to-slf4j-1.7.30.jar
 
+kafka-clients-2.4.1.5.0-50849917.jar
+
 kerb-admin-1.0.1.jar
 
 kerb-client-1.0.1.jar
@@ -450,6 +465,8 @@ libfb303-0.9.3.jar
 
 libthrift-0.12.0.jar
 
+libvegasjni.so
+
 lightgbmlib-3.2.110.jar
 
 listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar
@@ -482,19 +499,19 @@ microsoft-spark.jar
 
 minlog-1.3.0.jar
 
-mmlspark-1.0.0-rc3-150-8eda1df8-SNAPSHOT.jar
+mmlspark-1.0.0-rc3-179-327be83c-SNAPSHOT.jar
 
-mmlspark-cognitive-1.0.0-rc3-150-8eda1df8-SNAPSHOT.jar
+mmlspark-cognitive-1.0.0-rc3-179-327be83c-SNAPSHOT.jar
 
-mmlspark-core-1.0.0-rc3-150-8eda1df8-SNAPSHOT.jar
+mmlspark-core-1.0.0-rc3-179-327be83c-SNAPSHOT.jar
 
-mmlspark-deep-learning-1.0.0-rc3-150-8eda1df8-SNAPSHOT.jar
+mmlspark-deep-learning-1.0.0-rc3-179-327be83c-SNAPSHOT.jar
 
-mmlspark-lightgbm-1.0.0-rc3-150-8eda1df8-SNAPSHOT.jar
+mmlspark-lightgbm-1.0.0-rc3-179-327be83c-SNAPSHOT.jar
 
-mmlspark-opencv-1.0.0-rc3-150-8eda1df8-SNAPSHOT.jar
+mmlspark-opencv-1.0.0-rc3-179-327be83c-SNAPSHOT.jar
 
-mmlspark-vw-1.0.0-rc3-150-8eda1df8-SNAPSHOT.jar
+mmlspark-vw-1.0.0-rc3-179-327be83c-SNAPSHOT.jar
 
 mssql-jdbc-8.4.1.jre8.jar
 
@@ -504,13 +521,15 @@ netty-all-4.1.51.Final.jar
 
 nimbus-jose-jwt-4.41.1.jar
 
-notebook-utils-3.0.0-20210820.5.jar
+notebook-utils-3.0.0-20211110.6.jar
 
 objenesis-2.6.jar
 
 okhttp-2.7.5.jar
 
 okio-1.14.0.jar
+
+onnxruntime_gpu-1.8.1.jar
 
 opencsv-2.3.jar
 
@@ -546,13 +565,15 @@ postgresql-42.2.9.jar
 
 protobuf-java-2.5.0.jar
 
-proton-j-0.33.4.jar
+proton-j-0.33.8.jar
 
 py4j-0.10.9.jar
 
 pyrolite-4.30.jar
 
-qpid-proton-j-extensions-1.2.3.jar
+qpid-proton-j-extensions-1.2.4.jar
+
+rapids-4-spark_2.12-21.10.0.jar
 
 re2j-1.1.jar
 
@@ -586,57 +607,69 @@ spark-3.1-rpc-history-server-app-listener_2.12-1.0.0.jar
 
 spark-3.1-rpc-history-server-core_2.12-1.0.0.jar
 
-spark-avro_2.12-3.1.2.5.0-43944377.jar
+spark-avro_2.12-3.1.2.5.0-50849917.jar
 
-spark-catalyst_2.12-3.1.2.5.0-43944377.jar
+spark-catalyst_2.12-3.1.2.5.0-50849917.jar
 
-spark-core_2.12-3.1.2.5.0-43944377.jar
+spark-cdm-connector-assembly-1.19.2.jar
 
-spark-enhancement_2.12-3.1.2.5.0-43944377.jar
+spark-core_2.12-3.1.2.5.0-50849917.jar
+
+spark-enhancement_2.12-3.1.2.5.0-50849917.jar
 
 spark-enhancementui_2.12-1.1.0.jar
 
-spark-graphx_2.12-3.1.2.5.0-43944377.jar
+spark-graphx_2.12-3.1.2.5.0-50849917.jar
 
-spark-hadoop-cloud_2.12-3.1.2.5.0-43944377.jar
+spark-hadoop-cloud_2.12-3.1.2.5.0-50849917.jar
 
-spark-hive-thriftserver_2.12-3.1.2.5.0-43944377.jar
+spark-hive-thriftserver_2.12-3.1.2.5.0-50849917.jar
 
-spark-hive_2.12-3.1.2.5.0-43944377.jar
+spark-hive_2.12-3.1.2.5.0-50849917.jar
 
 spark-kusto-synapse-connector_3.1_2.12-1.0.0.jar
 
-spark-kvstore_2.12-3.1.2.5.0-43944377.jar
+spark-kvstore_2.12-3.1.2.5.0-50849917.jar
 
-spark-launcher_2.12-3.1.2.5.0-43944377.jar
+spark-launcher_2.12-3.1.2.5.0-50849917.jar
 
-spark-microsoft-telemetry_2.12-3.1.2.5.0-43944377.jar
+spark-microsoft-telemetry_2.12-3.1.2.5.0-50849917.jar
 
-spark-microsoft-tools_2.12-3.1.2.5.0-43944377.jar
+spark-microsoft-tools_2.12-3.1.2.5.0-50849917.jar
 
-spark-mllib-local_2.12-3.1.2.5.0-43944377.jar
+spark-mllib-local_2.12-3.1.2.5.0-50849917.jar
 
-spark-mllib_2.12-3.1.2.5.0-43944377.jar
+spark-mllib_2.12-3.1.2.5.0-50849917.jar
 
-spark-network-common_2.12-3.1.2.5.0-43944377.jar
+spark-mssql-connector-1.2.0.jar
 
-spark-network-shuffle_2.12-3.1.2.5.0-43944377.jar
+spark-network-common_2.12-3.1.2.5.0-50849917.jar
 
-spark-repl_2.12-3.1.2.5.0-43944377.jar
+spark-network-shuffle_2.12-3.1.2.5.0-50849917.jar
 
-spark-sketch_2.12-3.1.2.5.0-43944377.jar
+spark-repl_2.12-3.1.2.5.0-50849917.jar
 
-spark-sql_2.12-3.1.2.5.0-43944377.jar
+spark-sketch_2.12-3.1.2.5.0-50849917.jar
 
-spark-streaming_2.12-3.1.2.5.0-43944377.jar
+spark-sql-kafka-0-10_2.12-3.1.2.5.0-50849917.jar
 
-spark-tags_2.12-3.1.2.5.0-43944377.jar
+spark-sql_2.12-3.1.2.5.0-50849917.jar
 
-spark-unsafe_2.12-3.1.2.5.0-43944377.jar
+spark-streaming-kafka-0-10-assembly_2.12-3.1.2.5.0-50849917.jar
 
-spark-yarn_2.12-3.1.2.5.0-43944377.jar
+spark-streaming-kafka-0-10_2.12-3.1.2.5.0-50849917.jar
 
-spark_diagnostic_cli-1.0.7_spark-3.1.2.jar
+spark-streaming_2.12-3.1.2.5.0-50849917.jar
+
+spark-tags_2.12-3.1.2.5.0-50849917.jar
+
+spark-token-provider-kafka-0-10_2.12-3.1.2.5.0-50849917.jar
+
+spark-unsafe_2.12-3.1.2.5.0-50849917.jar
+
+spark-yarn_2.12-3.1.2.5.0-50849917.jar
+
+spark_diagnostic_cli-1.0.10_spark-3.1.2.jar
 
 spire-macros_2.12-0.17.0-M1.jar
 
@@ -648,7 +681,7 @@ spire_2.12-0.17.0-M1.jar
 
 spray-json_2.12-1.3.2.jar
 
-sqlanalyticsconnector_3.1.2-1.0.0.jar
+sqlanalyticsconnector_3.1.2-1.0.1.jar
 
 stax-api-1.0.1.jar
 
@@ -660,7 +693,9 @@ structuredstreamforspark_2.12-3.0.1-2.1.3.jar
 
 super-csv-2.2.0.jar
 
-synapse-spark-telemetry_2.12-0.0.4.jar
+synapse-spark-telemetry_2.12-0.0.6.jar
+
+synfs-3.0.0-20211110.6.jar
 
 threeten-extra-1.5.0.jar
 
@@ -682,7 +717,7 @@ xbean-asm7-shaded-4.15.jar
 
 xz-1.5.jar
 
-zookeeper-3.4.8.5.0-43944377.jar
+zookeeper-3.4.6.5.0-50849917.jar
 
 zstd-jni-1.4.8-1.jar
 

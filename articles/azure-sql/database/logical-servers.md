@@ -129,7 +129,7 @@ To create and manage servers, databases, and firewalls with the [Azure CLI](/cli
 |[az sql server firewall-rule delete](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_delete)|Deletes a firewall rule|
 
 > [!TIP]
-> For an Azure CLI quickstart, see [Create a database in Azure SQL Database using the Azure CLI](az-cli-script-samples-content-guide.md). For Azure CLI example scripts, see [Use the CLI to create a database in Azure SQL Database and configure a firewall rule](scripts/create-and-configure-database-cli.md) and [Use the CLI to monitor and scale a database in Azure SQL Database](scripts/monitor-and-scale-database-cli.md).
+> For an Azure CLI quickstart, see [Create a database in Azure SQL Database using the Azure CLI](az-cli-script-samples-content-guide.md). For Azure CLI example scripts, see [Use the CLI to create a database in Azure SQL Database and configure a firewall rule](scripts/create-and-configure-database-cli.md) and [Use Azure CLI to monitor and scale a database in Azure SQL Database](scripts/monitor-and-scale-database-cli.md).
 >
 
 ## Manage servers, databases, and firewalls using Transact-SQL
@@ -187,4 +187,4 @@ To create and manage servers, databases, and firewalls, use these REST API reque
 ## Next steps
 
 - To learn about migrating a SQL Server database to Azure SQL Database, see [Migrate to Azure SQL Database](migrate-to-database-from-sql-server.md).
-- For information about supported features, see [Features](features-comparison.md).
+- - For information about supported features, see [Features](features-comparison.md).

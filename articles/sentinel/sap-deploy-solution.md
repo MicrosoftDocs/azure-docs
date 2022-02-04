@@ -84,8 +84,8 @@ This procedure describes how to ensure that your SAP system has the correct prer
 
 1. Download and install one of the following SAP change requests from the [Microsoft Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP/CR):
 
-    - **SAP version 750 or later**: Install the SAP change request *NPLK900170*
-    - **SAP version 740**: Install the SAP change request *NPLK900169*
+    - **SAP version 750 or later**: Install the SAP change request *NPLK900180*
+    - **SAP version 740**: Install the SAP change request *NPLK900179*
 
     When you're performing this step, be sure to use binary mode to transfer the files to the SAP system, and use the **STMS_IMPORT** SAP transaction code.
 
@@ -125,9 +125,15 @@ This procedure describes how to use the Azure CLI to deploy an Ubuntu server 18.
 > You can also deploy the data connector on RHEL version 7.7 or later or on SUSE version 15 or later. Note that any OS and patch levels must be completely up to date.
 >
 
-To deploy and prepare your Ubuntu VM, do the following:
+**To deploy and prepare your Ubuntu VM, do the following**:
 
-1. Use the following command as an example. Be sure to insert the values for your resource group and VM name.
+1. Make sure that you have enough disk space for the Docker container runtime environment so that you'll have enough space for your operation agent logs. 
+
+    For example, in Ubuntu, you can mount a disk to the `/var/lib/docker` directory before installing the container, as by default you may have little space allocated to the `/var` directory.
+
+    For more information, see [Recommended virtual machine sizing](sap-solution-detailed-requirements.md#recommended-virtual-machine-sizing).
+
+1. Use the following command as an example for deploying your VM, inserting the values for your resource group and VM name where indicated.
 
     ```azurecli
     az vm create  --resource-group [resource group name]   --name [VM Name] --image UbuntuLTS  --admin-username azureuser --data-disk-sizes-gb 10 – --size Standard_DS2 --generate-ssh-keys  --assign-identity

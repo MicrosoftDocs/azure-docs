@@ -4,7 +4,7 @@ description: Troubleshoot why you're not seeing data from your devices in IoT Ce
 services: iot-central
 author: dominicbetts
 ms.author: dobett
-ms.date: 08/13/2020
+ms.date: 12/21/2021
 ms.topic: troubleshooting
 ms.service: iot-central
 ms.custom: device-developer, devx-track-azurecli

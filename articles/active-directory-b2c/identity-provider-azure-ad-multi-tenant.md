@@ -100,7 +100,7 @@ To enable users to sign in using an Azure AD account, you need to define Azure A
 
 You can define Azure AD as a claims provider by adding Azure AD to the **ClaimsProvider** element in the extension file of your policy.
 
-1. Open the *SocialAndLocalAccounts/**TrustFrameworkExtensions.xml*** file.
+1. Open the *SocialAndLocalAccounts/**TrustFrameworkExtensions.xml*** file (see the files you've used in the prerequisites).
 1. Find the **ClaimsProviders** element. If it does not exist, add it under the root element.
 1. Add a new **ClaimsProvider** as follows:
 

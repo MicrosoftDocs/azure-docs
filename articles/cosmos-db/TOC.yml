@@ -282,12 +282,20 @@
             - name: Constants
               displayName: object, number,array
               href: sql/sql-query-constants.md
-            - name: Operators
-              displayName: operators, operator, logical operators, equality, comparison
-              href: sql/sql-query-operators.md
             - name: Scalar expressions
               displayName: scalar expressions, scalar
               href: sql/sql-query-scalar-expressions.md
+            - name: Operators
+              items:
+                - name: Equality and comparison operators
+                  displayName: equality, comparison, operators
+                  href: sql/sql-query-equality-comparison-operators.md
+                - name: Logical operators
+                  displayName: logical, and, or, operators
+                  href: sql/sql-query-logical-operators.md
+                - name: Ternary and coalesce operators
+                  displayName: ternary, coalesce, operators
+                  href: sql/sql-query-ternary-coalesce-operators.md
             - name: Functions
               items:
                 - name: User-defined functions
@@ -648,8 +656,8 @@
             - name: Secure access to data
               displayName: primary key, resource token, users, roles
               href: secure-access-to-data.md
-            - name: Advanced threat protection
-              href: sql/advanced-threat-protection.md
+            - name: Threat protection with Microsoft Defender
+              href: sql/defender-for-cosmos-db.md
         - name: Partial document update
           items:
             - name: Partial document update overview
@@ -999,6 +1007,8 @@
           href: cassandra/manage-data-python.md
         - name: Golang
           href: cassandra/manage-data-go.md
+        - name: CQLSH
+          href: cassandra/manage-data-cqlsh.md
     - name: Tutorials
       items:
         - name: 1 - Create and manage data
@@ -1056,6 +1066,8 @@
           href: cassandra/access-data-spring-data-app.md
         - name: Troubleshoot common issues
           href: cassandra/troubleshoot-common-issues.md
+        - name: Troubleshoot NoHostAvailableException
+          href: cassandra/troubleshoot-nohostavailable-exception.md
         - name: Monitor using Diagnostics Logs
           href: cassandra/diagnostic-queries-cassandra.md
         - name: Cassandra and Spark

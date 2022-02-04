@@ -525,7 +525,7 @@ Your App Service app now can pull the container image securely from your private
     az webapp deployment container config --enable-cd true --name <app-name> --resource-group myResourceGroup --query CI_CD_URL --output tsv
     ```
 
-    `CI_CD_URL` is a URL that App Service generates for you. Your registry should this URL to notify App Service that an image push occurred. It doesn't actually create the webhook for you.
+    `CI_CD_URL` is a URL that App Service generates for you. Your registry should use this URL to notify App Service that an image push occurred. It doesn't actually create the webhook for you.
 
 1. Create a webhook in your container registry using the CI_CD_URL you got from the last step.
 
@@ -571,10 +571,10 @@ In this section, you make a change to the web app code, rebuild the image, and t
     docker build --tag appsvc-tutorial-custom-image .
     ```
 
-1. Update the version number in the image's tag to v1.0.1:
+1. Update the image's tag to latest:
 
     ```bash
-    docker tag appsvc-tutorial-custom-image <registry-name>.azurecr.io/appsvc-tutorial-custom-image:v1.0.1
+    docker tag appsvc-tutorial-custom-image <registry-name>.azurecr.io/appsvc-tutorial-custom-image:latest
     ```
 
     Replace `<registry-name>` with the name of your registry.
@@ -582,7 +582,7 @@ In this section, you make a change to the web app code, rebuild the image, and t
 1. Push the image to the registry:
 
     ```bash
-    docker push <registry-name>.azurecr.io/appsvc-tutorial-custom-image:v1.0.1
+    docker push <registry-name>.azurecr.io/appsvc-tutorial-custom-image:latest
     ```
 
 1. Once the image push is complete, the webhook notifies App Service about the push, and App Service tries to pull in the updated image. Wait a few minutes, and then verify that the update has been deployed by browsing to `https://<app-name>.azurewebsites.net`.

@@ -225,6 +225,6 @@ Stream Analytics guarantees exactly once event processing and at least once deli
 * [Understand outputs from Azure Stream Analytics](stream-analytics-define-outputs.md)
 * [Azure Stream Analytics output to Azure SQL Database](sql-database-output.md)
 * [Increase throughput performance to Azure SQL Database from Azure Stream Analytics](stream-analytics-sql-output-perf.md)
-* [Use managed identities to access Azure SQL Database or Azure Synapse Analytics from an Azure Stream Analytics job](/sql-database-output-managed-identity.md)
+* [Use managed identities to access Azure SQL Database or Azure Synapse Analytics from an Azure Stream Analytics job](./sql-database-output-managed-identity.md)
 * [Update or merge records in Azure SQL Database with Azure Functions](sql-database-upsert.md)
 * [Quickstart: Create a Stream Analytics job by using the Azure portal](stream-analytics-quick-create-portal.md)

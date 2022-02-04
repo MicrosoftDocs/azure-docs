@@ -18,6 +18,20 @@ The Azure Databricks Notebook Activity in a [pipeline](concepts-pipelines-activi
 
 You can create a Databricks notebook with an ARM template using JSON, or directly through the Azure Data Factory Studio user interface.  For a step-by-step walkthrough of how to create a Databricks notebook activity using the user interface, reference the tutorial [Run a Databricks notebook with the Databricks Notebook Activity in Azure Data Factory](transform-data-using-databricks-notebook.md).
 
+## Add a Notebook activity for Azure Databricks to a pipeline with UI
+
+To use a Notebook activity for Azure Databricks in a pipeline, complete the following steps:
+
+1. Search for _Notebook_ in the pipeline Activities pane, and drag a Notebook activity to the pipeline canvas.
+1. Select the new Notebook activity on the canvas if it is not already selected.
+1. Select the  **Azure Databricks** tab to select or create a new Azure Databricks linked service that will execute the Notebook activity.
+
+   :::image type="content" source="media/transform-data-databricks-notebook/notebook-activity.png" alt-text="Shows the UI for a Notebook activity.":::
+
+1. Select the **Settings** tab and specify the notebook path to be executed on Azure Databricks, optional base parameters to be passed to the notebook, and any additional libraries to be installed on the cluster to execute the job.
+
+   :::image type="content" source="media/transform-data-databricks-notebook/notebook-settings.png" alt-text="Shows the UI for the Settings tab for a Notebook activity.":::
+
 ## Databricks Notebook activity definition
 
 Here is the sample JSON definition of a Databricks Notebook Activity:

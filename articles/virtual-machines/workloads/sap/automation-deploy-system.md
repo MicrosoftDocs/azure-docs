@@ -65,7 +65,7 @@ location="westeurope"
 network_name="SAP01"
 
 # sid is a mandatory field that defines the SAP Application SID
-sid="RH7"
+sid="S15"
 
 app_tier_vm_sizing="Production"
 app_tier_use_DHCP=true
@@ -128,7 +128,7 @@ You can copy the sample configuration files to start testing the deployment auto
 ```bash
 cd ~/Azure_SAP_Automated_Deployment
 
-cp -R sap-automation/deploy/samples/WORKSPACES WORKSPACES
+cp -Rp sap-automation/deploy/samples/WORKSPACES WORKSPACES
 
 ```
 
@@ -165,7 +165,7 @@ New-SAPSystem -Parameterfile DEV-WEEU-SAP01-X01.tfvars
 
 ### Output files
 
-The deployment will create a Ansible hosts file (`SID_hosts.yaml`) and an Ansible parameter file (`sap-parameters.yaml`) that are required input for thee Ansible playbooks.
+The deployment will create a Ansible hosts file (`SID_hosts.yaml`) and an Ansible parameter file (`sap-parameters.yaml`) that are required input for the Ansible playbooks.
 ## Next steps
 
 > [!div class="nextstepaction"]

@@ -89,8 +89,9 @@ Follow these steps to add a custom domain to your Azure AD B2C tenant:
     > You can manage your custom domain with any publicly available DNS service, such as GoDaddy. If you don't have a DNS server, you can use  [Azure DNS zone](../dns/dns-getstarted-portal.md), or [App Service domains](../app-service/manage-custom-dns-buy-domain.md).
 
 1. [Verify your custom domain name](../active-directory/fundamentals/add-custom-domain.md#verify-your-custom-domain-name). Verify each subdomain, or hostname you plan to use. For example, to be able to sign-in with *login.contoso.com* and *account.contoso.com*, you need to verify both subdomains and not the top-level domain *contoso.com*. 
-
-    After the domain is verified, **delete** the DNS TXT record you created.
+    
+    > [!IMPORTANT]
+    > After the domain is verified, **delete** the DNS TXT record you created.
 
     
 ## Step 2. Create a new Azure Front Door instance

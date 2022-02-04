@@ -4,7 +4,7 @@ description: Learn how to configure Azure AD role settings in Azure AD Privilege
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: KarenH444
+manager: karenhoran
 editor: ''
 
 ms.service: active-directory

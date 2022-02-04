@@ -3,7 +3,7 @@ title: Configure the 'Stay signed in?' prompt for Azure Active Directory account
 description: Learn about keep me signed in (KMSI), which displays the Stay signed in? prompt, how to configure it in the Azure Active Directory portal, and how to troubleshoot sign-in issues.
 services: active-directory
 author: CelesteDG
-manager: daveba
+manager: karenhoran
 ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity

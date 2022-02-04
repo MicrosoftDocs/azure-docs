@@ -2,13 +2,16 @@
 title: Deploy resources to resource groups
 description: Describes how to deploy resources in an Azure Resource Manager template. It shows how to target more than one resource group.
 ms.topic: conceptual
-ms.date: 10/01/2021
+ms.date: 01/19/2022
 ms.custom: devx-track-azurepowershell
 ---
 
 # Resource group deployments with ARM templates
 
 This article describes how to scope your deployment to a resource group. You use an Azure Resource Manager template (ARM template) for the deployment. The article also shows how to expand the scope beyond the resource group in the deployment operation.
+
+> [!TIP]
+> For an improved authoring experience, you can use Bicep rather than JSON to develop templates. For more information about Bicep syntax, see [resource group deployments](../bicep/deploy-to-resource-group.md).
 
 ## Supported resources
 

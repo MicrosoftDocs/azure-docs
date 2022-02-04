@@ -8,7 +8,7 @@ ms.topic: quickstart
 ms.subservice: sql
 ms.date: 10/16/2020
 ms.author: wiassaf
-ms.reviewer: jrasnick
+ms.reviewer: sngun
 ms.custom: mode-ui
 ---
 

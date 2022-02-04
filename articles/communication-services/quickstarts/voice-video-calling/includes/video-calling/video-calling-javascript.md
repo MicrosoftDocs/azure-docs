@@ -182,7 +182,7 @@ startCallButton.onclick = async () => {
 /**
  * Accepting an incoming call with video
  * Add an event listener to accept a call when the `acceptCallButton` is clicked:
- * After subscrigin to the `CallAgent.on('incomingCall')` event, you can accept the incoming call.
+ * After subscribing to the `CallAgent.on('incomingCall')` event, you can accept the incoming call.
  * You can pass the local video stream which you want to use to accept the call with.
  */
 acceptCallButton.onclick = async () => {

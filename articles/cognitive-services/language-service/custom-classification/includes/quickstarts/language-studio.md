@@ -4,7 +4,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
-ms.date: 11/02/2021
+ms.date: 02/02/2022
 ms.author: aahi
 ms.custom: language-service-custom-classification, ignite-fall-2021
 ---
@@ -36,19 +36,13 @@ Before you can use custom text classification, you will need to create an Azure 
     | Name | Any name |
     | Performance | Standard |
     | Account kind| Storage (general purpose v1) |
-    | Replication | Locally-redundant storage (LRS)
+    | Replication | Locally redundant storage (LRS)
     |Location | Any location closest to you, for best latency.        |
 
 
 ## Upload sample data to blob container
 
-After you have created an Azure storage account and linked it to your Language resource, you will need to upload the example files for this quickstart. These files will later be used to train your model.
-
-1. [Download sample data](https://go.microsoft.com/fwlink/?linkid=2175083) for this quickstart from GitHub.
-
-2. Go to your Azure storage account in the [Azure portal](https://ms.portal.azure.com). Navigate to your account, and upload the sample data to it.
-
-The provided sample dataset contains around 200 movie summaries that belong to one or more of the following classes: "Mystery", "Drama", "Thriller", "Comedy", "Action".
+[!INCLUDE [Uploading sample data for custom classification](blob-storage-upload.md)]
 
 ## Create a custom classification project
 
@@ -61,45 +55,24 @@ The provided sample dataset contains around 200 movie summaries that belong to o
 3. Select **Create new project** from the top menu in your projects page. Creating a project will let you tag data, train, evaluate, improve, and deploy your models. 
 
     :::image type="content" source="../../media/create-project.png" alt-text="A screenshot of the project creation page." lightbox="../../media/create-project.png":::
-<!--
-4. If you have created your resource using the steps above, the **Connect storage** step will be completed already. You only need to do this step once for each resource you use and it is irreversible. If you connect a storage account to your resource, you cannot disconnect it later.
 
-    :::image type="content" source="../../../custom-named-entity-recognition/media/connect-storage.png" alt-text="A screenshot showing the storage connection screen." lightbox="../../../custom-named-entity-recognition/media/connect-storage.png":::
--->
 4. If you have created your resource using the steps above, the **Connect storage** step will be completed already. If not, you need to assign [roles for your storage account](../../how-to/create-project.md#roles-for-your-storage-account) before connecting it to your resource
 
-5. Enter project information, including a name, description, and the language of the files in your project. You will not be able to change the name of your project later.
+5. Select your project type. For this quickstart, we will create a multilabel classification project where you can assign multiple classes to the same file. Then click **Next**. Learn more about [project types](../../glossary.md#project-types)
+
+6. Enter project information, including a name, description, and the language of the files in your project. You will not be able to change the name of your project later.
     >[!TIP]
     > Your dataset doesn't have to be entirely in the same language. You can have multiple files, each with different supported languages. If your dataset contains files of different languages or if you expect different languages during runtime, select **enable multi-lingual dataset** when you enter the basic information for your project.
-
-6. Select your project type. For this quickstart, we will create a multi label classification project where you can assign multiple classes to the same file. Then click **Next**. Learn more about [project types](../../glossary.md#project-types)
 
 7. Select the container where you have uploaded your data. For this quickstart, we will use the existing tags file available in the container. Then click **Next**.
 
 8. Review the data you entered and select **Create Project**.
-    
+
 ## Train your model
 
-Typically after you create a project, you would import your data and begin [tagging the entities](../../how-to/tag-data.md) within it to train the classification model. For this quickstart, you will use the example tagged data file you downloaded earlier, and stored in your Azure storage account.
-
-A model is the machine learning object that will be trained to classify text. Your model will learn from the example data, and be able to classify technical support tickets afterwards.
-
-To start training your model:
-
-1. Select **Train** from the left side menu.
-
-2. Select **Train a new model** and type in the model name in the text box below.
-
-    :::image type="content" source="../../media/train-model.png" alt-text="A screenshot showing the model selection page for training" lightbox="../../media/train-model.png":::
-
-3. Click on the **Train** button at the bottom of the page.
-
-    > [!NOTE]
-    > * While training, the data will be spilt into 2 sets: 80% for training and 20% for testing. You can learn more about data splitting [here](../../how-to/train-model.md#data-splits)
-    > * Training can take up to a few hours.
+[!INCLUDE [Train a model using Language Studio](../train-model-language-studio.md)]
 
 ## Deploy your model
-
 
 Generally after training a model you would review it's [evaluation details](../../how-to/view-model-evaluation.md) and [make improvements](../../how-to/improve-model.md) if necessary. In this quickstart, you will just deploy your model, and make it available for you to try.
 

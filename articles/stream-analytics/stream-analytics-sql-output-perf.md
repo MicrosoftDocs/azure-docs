@@ -54,7 +54,7 @@ In summary, with the partitioned output feature in Azure Stream Analytics for SQ
 
 * [Understand outputs from Azure Stream Analytics](stream-analytics-define-outputs.md)
 * [Azure Stream Analytics output to Azure SQL Database](sql-database-output.md)
-* [Use managed identities to access Azure SQL Database or Azure Synapse Analytics from an Azure Stream Analytics job](/sql-database-output-managed-identity.md)
+* [Use managed identities to access Azure SQL Database or Azure Synapse Analytics from an Azure Stream Analytics job](./sql-database-output-managed-identity.md)
 * [Use reference data from a SQL Database for an Azure Stream Analytics job](sql-reference-data.md)
 * [Update or merge records in Azure SQL Database with Azure Functions](sql-database-upsert.md)
 * [Quickstart: Create a Stream Analytics job by using the Azure portal](stream-analytics-quick-create-portal.md)

@@ -26,10 +26,10 @@ Common scenarios include the following:
 
 + Slice search results based on content in the index. Given a schema with hotel location, categories, and amenities, you might create a filter to explicitly match on criteria (in Seattle, on the water, with a view). 
 
-+ Implement a search experience comes with a filter depedency:
++ Implement a search experience comes with a filter dependency:
 
   + [Faceted navigation](search-faceted-navigation.md) uses a filter to pass back the facet category selected by the user.
-  + Geo-search uses a filter to pass coordinates of the current location in "find near me" apps. 
+  + [Geospatial search](search-query-odata-geo-spatial-functions.md) uses a filter to pass coordinates of the current location in "find near me" apps and functions that match within an area or by distance.
   + [Security filters](search-security-trimming-for-azure-search.md) pass security identifiers as filter criteria, where a match in the index serves as a proxy for access rights to the document.
 
 + Do a "numbers search". Numeric fields are retrievable and can appear in search results, but they are not searchable (subject to full text search) individually. If you need selection criteria based on numeric data, use a filter.
@@ -48,7 +48,7 @@ You can specify one filter for each **search** operation, but the filter itself 
 
 One of the limits on a filter expression is the maximum size limit of the request. The entire request, inclusive of the filter, can be a maximum of 16 MB for POST, or 8 KB for GET. There is also a limit on the number of clauses in your filter expression. A good rule of thumb is that if you have hundreds of clauses, you are at risk of running into the limit. We recommend designing your application in such a way that it does not generate filters of unbounded size.
 
-The following examples represents prototypical filter definitions in several APIs.
+The following examples represent prototypical filter definitions in several APIs.
 
 ```http
 POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2020-06-30

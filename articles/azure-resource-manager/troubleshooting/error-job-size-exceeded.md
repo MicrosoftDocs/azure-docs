@@ -1,13 +1,13 @@
 ---
 title: Job size exceeded error
-description: Describes how to troubleshoot errors when job size or template are too large.
+description: Describes how to troubleshoot errors when job size or template are too large for deployments using a Bicep file or Azure Resource Manager template (ARM template).
 ms.topic: troubleshooting
-ms.date: 11/22/2021
+ms.date: 12/20/2021
 ---
 
 # Resolve errors for job size exceeded
 
-This article describes how to resolve the `JobSizeExceededException` and `DeploymentJobSizeExceededException` errors. The errors are possible when you deploy an Azure Resource Manager template (ARM template) or Bicep file.
+This article describes how to resolve the `JobSizeExceededException` and `DeploymentJobSizeExceededException` errors. The errors can occur when you deploy a Bicep file or Azure Resource Manager template (ARM template).
 
 ## Symptom
 

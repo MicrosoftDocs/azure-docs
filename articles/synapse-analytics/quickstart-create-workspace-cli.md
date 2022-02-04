@@ -8,7 +8,7 @@ ms.topic: quickstart
 ms.subservice: workspace
 ms.date: 08/25/2020
 ms.author: wiassaf
-ms.reviewer: jrasnick
+ms.reviewer: sngun
 ms.custom: mode-api
 ---
 

@@ -1,16 +1,16 @@
 ---
 title: Azure Government authorized reseller list
-description: Comprehensive list of Azure Government cloud solution providers, resellers, and distributors.
+description: Comprehensive list of Azure Government Cloud Solution Providers, resellers, and distributors.
 services: azure-government
 cloud: gov
 ms.service: azure-government
 ms.topic: article
-ms.date: 10/05/2021
+ms.date: 01/19/2022
 ---
 
 # Azure Government authorized reseller list
 
-Since the launch of [Azure Government services in the Cloud Solution Provider (CSP) program)](https://azure.microsoft.com/blog/announcing-microsoft-azure-government-services-in-the-cloud-solution-provider-program/), we have worked with the partner community to bring them the benefits of this channel, enable them to resell Azure Government, and help them grow their business while providing the cloud services their customers need.
+Since the launch of [Azure Government services in the Cloud Solution Provider (CSP) program)](https://azure.microsoft.com/blog/announcing-microsoft-azure-government-services-in-the-cloud-solution-provider-program/), we've worked with the partner community to bring them the benefits of this channel. Our goal is to enable the partner community to resell Azure Government and help them grow their business while providing customers with cloud services they need.
 
 Below you can find a list of all the authorized Cloud Solution Providers (CSPs), Agreement for Online Services for Government (AOS-G), and Licensing Solution Providers (LSP) that can transact Azure Government. Updates to this list will be made as new partners are onboarded. 
 
@@ -82,6 +82,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[Casserly Consulting](https://www.casserlyconsulting.com)|
 |[Carahsoft Technology Corporation](https://www.carahsoft.com/)|
 |[Castalia Systems](https://www.castaliasystems.com)|
+|[cb20](https://cb20.com/)|
 |[CB5 Solutions](https://www.cbfive.com/)|
 |[cBEYONData](https://cbeyondata.com/)|
 |[CBTS](https://www.cbts.com/)|
@@ -101,7 +102,6 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[CodeLynx, LLC](http://www.codelynx.com/)|
 |[Columbus US, Inc.](https://www.columbusglobal.com)|
 |[Competitive Innovations, LLC](https://www.cillc.com)|
-|[Computer Professionals International](http://www.comproinc.com/)|
 |[Computer Solutions Inc.](http://cs-inc.co/)|
 |[Computex Technology Solutions](http://www.computex-inc.com/)|
 |[ConvergeOne](https://www.convergeone.com)|

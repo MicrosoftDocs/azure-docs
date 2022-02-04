@@ -5,6 +5,7 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 09/10/2020
 ms.author: azfuncdf
+ms.devlang: csharp, javascript, python
 ---
 
 # Singleton orchestrators in Durable Functions (Azure Functions)

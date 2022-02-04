@@ -8,18 +8,18 @@ ms.author: eur
 
 :::row:::
     :::column span="3":::
-        When developing for iOS, the following Speech SDKs are available. The Objective-C/Swift Speech SDK is available natively as an iOS CocoaPod package. Alternatively, the .NET Speech SDK could be used with Xamarin.iOS and Unity application frameworks.
+        When you develop for iOS, the following Speech SDKs are available. The Objective-C/Swift Speech SDK is available natively as an iOS CocoaPod package. Alternatively, the .NET Speech SDK could be used with Xamarin.iOS and Unity application frameworks.
     :::column-end:::
     :::column:::
         <br>
         <div class="icon is-large">
-            <img alt="iOS" src="https://docs.microsoft.com/media/logos/logo_ios.svg" width="60px">
+            <img alt="iOS" src="/media/logos/logo_ios.svg" width="60px">
         </div>
     :::column-end:::
 :::row-end:::
 
 > [!TIP]
-> For details using the Objective-C Speech SDK with Swift, see <a href="https://developer.apple.com/documentation/swift/imported_c_and_objective-c_apis/importing_objective-c_into_swift" target="_blank">Importing Objective-C into Swift </a>.
+> For details on using the Objective-C Speech SDK with Swift, see <a href="https://developer.apple.com/documentation/swift/imported_c_and_objective-c_apis/importing_objective-c_into_swift" target="_blank">Importing Objective-C into Swift</a>.
 
 ### System requirements
 
@@ -30,12 +30,12 @@ ms.author: eur
 
 :::row:::
     :::column span="3":::
-        The iOS CocoaPod package is available for download and use with the <a href="https://apps.apple.com/us/app/xcode/id497799835" target="_blank">Xcode 9.4.1 (or later) </a> integrated development environment (IDE). First, <a href="https://aka.ms/csspeech/iosbinary" target="_blank">download the binary CocoaPod </a>. Extract the pod in the same directory for its intended use, create a *Podfile* and list the `pod` as a `target`.
+        The iOS CocoaPod package is available for download and use with the <a href="https://apps.apple.com/us/app/xcode/id497799835" target="_blank">Xcode 9.4.1 (or later) </a> integrated development environment (IDE). First, <a href="https://aka.ms/csspeech/iosbinary" target="_blank">download the binary CocoaPod</a>. Extract the pod in the same directory for its intended use, create a *Podfile*, and list the `pod` as a `target`.
     :::column-end:::
     :::column:::
         <br>
         <div class="icon is-large">
-            <img alt="Xcode" src="https://docs.microsoft.com/media/logos/logo_xcode.svg" width="60px">
+            <img alt="Xcode" src="/media/logos/logo_xcode.svg" width="60px">
         </div>
     :::column-end:::
 :::row-end:::
@@ -53,14 +53,14 @@ end
 
 :::row:::
     :::column span="3":::
-        Xamarin.iOS exposes the complete iOS SDK for .NET developers. Build fully native iOS apps using C# in Visual Studio. For more information, see <a href="/xamarin/ios/" target="_blank">Xamarin.iOS </a>.
+        Xamarin.iOS exposes the complete iOS SDK for .NET developers. Build fully native iOS apps by using C# in Visual Studio. For more information, see <a href="/xamarin/ios/" target="_blank">Xamarin.iOS</a>.
     :::column-end:::
     :::column:::
         <br>
         <div class="icon is-large">
-            <img alt="Xamarin" src="https://docs.microsoft.com/media/logos/logo_xamarin.svg" width="60px">
+            <img alt="Xamarin" src="/media/logos/logo_xamarin.svg" width="60px">
             &nbsp; ❤️ &nbsp;
-            <img alt="iOS" src="https://docs.microsoft.com/media/logos/logo_ios.svg" width="60px">
+            <img alt="iOS" src="/media/logos/logo_ios.svg" width="60px">
         </div>
     :::column-end:::
 :::row-end:::
