@@ -37,15 +37,13 @@ Fragmentation and memory pressure can cause availability incidents during a fail
 
 Learn more about [Redis Cache Server - RedisCacheMemoryFragmentation (Availability may be impacted from high memory fragmentation. Increase fragmentation memory reservation to avoid potential impact.)](https://aka.ms/redis/recommendations/memory-policies).
 
-## Classic Compute
+## Compute
 
 ### Enable Backups on your Virtual Machines
 
 Enable backups for your virtual machines and secure your data
 
 Learn more about [Virtual machine (classic) - EnableBackup (Enable Backups on your Virtual Machines)](/azure/backup/backup-overview).
-
-## Compute
 
 ### Upgrade the standard disks attached to your premium-capable VM to premium disks
 
