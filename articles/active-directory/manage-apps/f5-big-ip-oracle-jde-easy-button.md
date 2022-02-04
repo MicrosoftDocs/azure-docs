@@ -198,7 +198,7 @@ This section defines all properties that you would normally use to manually conf
 
 #### Azure Configuration
 
-1. Enter **Display Name** of app that the BIG-IP creates in your Azure AD tenant, and the icon that the users see on [MyApps portal](https://myapplications.microsoft.com/)
+1. Enter **Display Name** of app that the BIG-IP creates in your Azure AD tenant, and the icon that the users see on MyApps portal
 
 2. In the **Sign On URL (optional)** enter the public FQDN of the JDE application being secured.
 
