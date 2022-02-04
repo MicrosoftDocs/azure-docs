@@ -54,11 +54,11 @@ The following table demonstrates how to interpret both the accuracy and confiden
 
 ## Ensure high model accuracy
 
-The accuracy of your model is affected by changes in the visual structure of your documents. Reported accuracy scores can be inconsistent when the analyzed documents differ from documents used in training. Keep in mind that a document set can look similar when viewed by humans but appear dissimilar to an AI model. Below, is a list of the best practices for training models with the highest accuracy. Following these guidelines should produce a model with higher accuracy and confidence scores during analysis and reduce the number of documents flagged for human review.
+The accuracy of your model is affected by variances in the visual structure of your documents. Reported accuracy scores can be inconsistent when the analyzed documents differ from documents used in training. Keep in mind that a document set can look similar when viewed by humans but appear dissimilar to an AI model. Below, is a list of the best practices for training models with the highest accuracy. Following these guidelines should produce a model with higher accuracy and confidence scores during analysis and reduce the number of documents flagged for human review.
 
-* Ensure that all variations of the document are included in the training dataset.
+* Ensure that all variations of a document are included in the training dataset. Variations include different formats, for example, digital versus scanned PDFs.
 
-* Variations include different formats, for example, digital versus scanned PDFs. If you expect the model to analyze both types of documents, add at least five samples of each type to the training dataset.
+* If you expect the model to analyze both types of PDF documents, add at least five samples of each type to the training dataset.
 
 * Separate visually distinct document types to train different models.
   * As a general rule, if you remove all user entered values and the documents look similar, you need to add more training data to the existing model.

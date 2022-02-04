@@ -90,6 +90,21 @@ sections:
            See [Interpret and improve accuracy and confidence scores](concept-accuracy-confidence.md#accuracy-scores)
 
       - question: |
+          How can I improve accuracy scores?
+        answer: |
+          The accuracy of a model is influenced by variances in the visual structure of your documents. 
+
+          - Ensure that all variations of a document are included in the training dataset. Variations include different formats, for example, digital versus scanned PDFs.
+
+          - Separate visually distinct document types and train different models.
+
+          - Make sure that you don't have extraneous labels.
+
+          - For signature and region labeling, don't include the surrounding text.
+
+          See [[Interpret and improve accuracy and confidence scores](concept-accuracy-confidence.md#ensure-high-model-accuracy)]
+
+      - question: |
            What is the confidence score and how is it calculated?
         answer: |
 
@@ -189,7 +204,7 @@ sections:
             - Form Recognizer extracts data from form and document images and returns a structured output from JPEG, PNG, BMP, TIFF, and PDF (text-embedded or scanned) file formats.
             - For PDF and TIFF, up to 2000 pages can be processed (with a free tier subscription, only the first two pages are processed).
             - Your file size must be less than 50 MB.
-            - Image dimensions must be between 50 x 50 pixels and 10000 x 10000 pixels.
+            - Image dimensions must be between 50 x 50 pixels and 10000 x 10,000 pixels.
             - PDF dimensions can be a maximum of 17 x 17 inches (corresponding to Legal or A3 paper size) or smaller.
             - The total allowable size of training data is 500 pages or less.
 
