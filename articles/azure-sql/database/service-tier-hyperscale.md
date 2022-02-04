@@ -105,7 +105,7 @@ Azure Storage contains all data files in a database. Page servers keep data file
 
 Backups are file-snapshot based and hence they're nearly instantaneous. Storage and compute separation enables pushing down the backup/restore operation to the storage layer to reduce the processing burden on the primary compute replica. As a result, database backup doesn't impact performance of the primary compute node. Similarly, point in time recovery (PITR) is done by reverting to file snapshots, and as such is not a size of data operation. Restore of a Hyperscale database in the same Azure region is a constant-time operation, and even multiple-terabyte databases can be restored in minutes instead of hours or days. Creation of new databases by restoring an existing backup also takes advantage of this feature: creating database copies for development or testing purposes, even of multi-terabyte databases, is doable in minutes.
 
-For geo-restore of Hyperscale databases, learn how to [restore a Hyperscale database to a different region](administer-hyperscale-database.md#restore-a-hyperscale-database-to-a-different-region).
+For geo-restore of Hyperscale databases, learn how to [restore a Hyperscale database to a different region](manage-hyperscale-database.md#restore-a-hyperscale-database-to-a-different-region).
 
 ## Scale and performance advantages
 
@@ -129,13 +129,13 @@ This will create a Hyperscale database on Gen5 hardware with four cores.
 
 You can migrate your existing databases in Azure SQL Database to Hyperscale using the [Azure portal](https://portal.azure.com), [T-SQL](/sql/t-sql/statements/alter-database-transact-sql), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqldatabase), or [CLI](/cli/azure/sql/db#az_sql_db_update). Migrating an existing database in Azure SQL Database to the Hyperscale tier is a size of data operation.
 
-Learn [how to migrate an existing database to Hyperscale](administer-hyperscale-database.md#migrate-an-existing-database-to-hyperscale).
+Learn [how to migrate an existing database to Hyperscale](manage-hyperscale-database.md#migrate-an-existing-database-to-hyperscale).
 
 ## Reverse migrate a Hyperscale database back to the General Purpose service tier
 
 If you previously migrated an existing Azure SQL Database to the Hyperscale service tier, you can reverse migrate a Hyperscale database to the General Purpose service tier within 45 days of the original migration to Hyperscale. If you wish to migrate the database to another service tier, such as Business Critical, first reverse migrate to the General Purpose service tier, then perform a further migration.
 
-Learn [how to reverse migrate from Hyperscale](administer-hyperscale-database.md#reverse-migrate-from-hyperscale).
+Learn [how to reverse migrate from Hyperscale](manage-hyperscale-database.md#reverse-migrate-from-hyperscale).
 
 ## Database high availability in Hyperscale
 
@@ -145,7 +145,7 @@ For Hyperscale SLA, see [SLA for Azure SQL Database](https://azure.microsoft.com
 
 ## Disaster recovery for Hyperscale databases
 
-Hyperscale supports the ability to restore a database within the same region where it is hosted, or [to a different region](administer-hyperscale-database.md#restore-a-hyperscale-database-to-a-different-region).
+Hyperscale supports the ability to restore a database within the same region where it is hosted, or [to a different region](manage-hyperscale-database.md#restore-a-hyperscale-database-to-a-different-region).
 
 ## <a name=regions></a>Available regions
 
@@ -183,4 +183,4 @@ Learn more about Hyperscale in the following articles:
 - See [Overview of resource limits on a server](resource-limits-logical-server.md) for information about limits at the server and subscription levels.
 - For purchasing model limits for a single database, see [Azure SQL Database vCore-based purchasing model limits for a single database](resource-limits-vcore-single-databases.md).
 - For a features and comparison list, see [SQL common features](features-comparison.md).
-- Learn [How to administer a Hyperscale database](administer-hyperscale-database.md).
+- Learn [How to manage a Hyperscale database](manage-hyperscale-database.md).

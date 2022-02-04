@@ -241,14 +241,14 @@ sections:
           
           The time required to move an existing database to Hyperscale consists of the time to copy data, and the time to replay the changes made in the source database while copying data. The data copy time is proportional to data size. The time to replay changes will be shorter if the move is done during a period of low write activity.
 
-          Get sample code to migrate existing Azure SQL Databases to Hyperscale in the Azure portal, Azure CLI, PowerShell, and Transact-SQL in [Migrate an existing database to Hyperscale](administer-hyperscale-database.md#migrate-an-existing-database-to-hyperscale).
+          Get sample code to migrate existing Azure SQL Databases to Hyperscale in the Azure portal, Azure CLI, PowerShell, and Transact-SQL in [Migrate an existing database to Hyperscale](manage-hyperscale-database.md#migrate-an-existing-database-to-hyperscale).
             
       - question: |
           Can I move my Hyperscale databases to other service tiers?
         answer: |
           If you previously migrated an existing Azure SQL Database to the Hyperscale service tier, you can reverse migrate a Hyperscale database to the General Purpose service tier within 45 days of the original migration to Hyperscale.  If you wish to migrate the database to another service tier, such as Business Critical, first reverse migrate to the General Purpose service tier, then perform a further migration. 
           
-          Learn [how to reverse migrate from Hyperscale](administer-hyperscale-database.md#reverse-migrate-from-hyperscale).
+          Learn [how to reverse migrate from Hyperscale](manage-hyperscale-database.md#reverse-migrate-from-hyperscale).
 
       - question: |
           Do I lose any functionality or capabilities after migration to the Hyperscale service tier?

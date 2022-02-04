@@ -1,6 +1,6 @@
 ---
-title: How to administer a Hyperscale database
-description: How to administer a Hyperscale database, including migrating to Hyperscale, restoring to a different region, and reverse migration.
+title: How to manage a Hyperscale database
+description: How to manage a Hyperscale database, including migrating to Hyperscale, restoring to a different region, and reverse migration.
 services: sql-database
 ms.service: sql-database
 ms.subservice: service-overview
@@ -11,7 +11,7 @@ ms.reviewer: kendralittle, mathoma
 ms.date: 2/17/2022
 ---
 
-# How to administer a Hyperscale database
+# How to manage a Hyperscale database
 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
