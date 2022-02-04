@@ -29,7 +29,7 @@ The following capabilities make up External Identities:
 
 Depending on how you want to interact with external organizations and the types of resources you need to share, you can use a combination of these capabilities.
 
-![External Identities overview diagram](media/external-identities-overview/external-identities-overview.png)
+![External Identities overview diagram](media/external-identities-overview/external-identities-b2b-overview.png)
 
 ## B2B collaboration
 
