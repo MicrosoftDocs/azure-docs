@@ -334,3 +334,7 @@ Deploying an app to a slot first and swapping it into production makes sure that
 
 Learn more about [App service - AzureAppService-StagingEnv (Set up staging environments in Azure App Service)](/azure/app-service/deploy-staging-slots).
 
+
+## Next steps
+
+Learn more about [Operational Excellence - Microsoft Azure Well Architected Framework](/azure/architecture/framework/devops/overview)
