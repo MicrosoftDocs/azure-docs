@@ -201,7 +201,7 @@ Proxy support for metaconfigurations is controlled by the [Local Configuration M
    DscMetaConfigs @Params
    ```
 
-1. Fill in the registration key and URL for your Automation account, as well as the names of the machines to enable. All other parameters are optional. To find the registration key and registration URL for your Automation account, see [Use DSC metaconfiguration to register hybrid machines](#Use-dsc-metaconfiguration-to-register-hybrid-machines).
+1. Fill in the registration key and URL for your Automation account, as well as the names of the machines to enable. All other parameters are optional. To find the registration key and registration URL for your Automation account, see [Use DSC metaconfiguration to register hybrid machines](#use-dsc-metaconfiguration-to-register-hybrid-machines).
 
 1. If you want the machines to report DSC status information to Azure Automation State Configuration, but not pull configuration or PowerShell modules, set the `ReportOnly` parameter to true.
 
@@ -267,7 +267,7 @@ You can enable Linux servers running on-premises or in other cloud environments 
 
      `/opt/microsoft/dsc/Scripts/Register.py <Automation account registration key> <Automation account registration URL>`
 
-   - To find the registration key and registration URL for your Automation account, see [Use DSC metaconfiguration to register hybrid machines](#Use-dsc-metaconfiguration-to-register-hybrid-machines).
+   - To find the registration key and registration URL for your Automation account, see [Use DSC metaconfiguration to register hybrid machines](#use-dsc-metaconfiguration-to-register-hybrid-machines).
 
 3. If the PowerShell DSC Local Configuration Manager (LCM) defaults don't match your use case, or you want to enable machines that only report to Azure Automation State Configuration, follow steps 4-7. Otherwise, proceed directly to step 7.
 
