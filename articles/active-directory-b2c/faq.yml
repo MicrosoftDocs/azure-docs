@@ -223,7 +223,7 @@ sections:
        - question: |
           Can I purchase Azure AD Premium P1 and Azure AD Premium P2 licensing for my Azure AD B2C tenant?
         answer: |
-          No, Azure AD B2C tenants do not support Azure AD Premium P1 or Azure AD Premium P2 licensing.  Azure AD B2C tenants natively support some similar features as Azure AD Premium see [Supported Azure AD features](supported-azure-ad-features.md) but not all of the same features.  Additionally, Azure AD B2C tenants can use [External Identity Premium P1 and P2 billing models](billing.md) but these are not the same as Azure AD Premium P1 and P2 licensing for a standard Azure AD tenant.
+          No, Azure AD B2C tenants don't use Azure AD Premium P1 or Azure AD Premium P2 licensing.  Azure AD B2C uses [Azure AD B2C Premium P1 or P2](billing.md#change-your-azure-ad-pricing-tier) license, which is different from Azure AD Premium P1 or P2 license for a standard Azure AD tenant. Azure AD B2C tenants natively support some similar features as Azure AD Premium as explained in [Supported Azure AD features](supported-azure-ad-features.md). 
          
         - question: |
           Can I use group-based assignment for Azure AD Enterprise Applications in my Azure AD B2C tenant?
