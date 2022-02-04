@@ -17,9 +17,6 @@ ms.date: 02/02/2022
 To follow this quickstart, you'll first need to:
 
 * [Create a server group](quickstart-create-portal.md) in the Azure portal.
-* [Download](https://www.postgresql.org/download/) and install the
-  [psql](https://www.postgresql.org/docs/current/app-psql.html) PostgreSQL
-  client on your machine.
 
 ## Connect
 
