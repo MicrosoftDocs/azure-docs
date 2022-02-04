@@ -11,9 +11,6 @@ ms.custom: devx-track-js
 
 [!INCLUDE [Introduction](intro.md)]
 
-> [!NOTE]
-> Go to the [React sample](https://github.com/Azure-Samples/AzureSpeechReactSample) on GitHub to learn how to use the Speech SDK in a browser-based JavaScript environment. The React sample shows design patterns for the exchange and management of authentication tokens. It also shows the capture of audio from a microphone or file for speech-to-text conversions.
-
 ## Prerequisites
 
 [!INCLUDE [Prerequisites](../common/azure-prerequisites.md)]
@@ -49,9 +46,9 @@ You can initialize `SpeechConfig` in a few other ways:
 > [!NOTE]
 > Regardless of whether you're performing speech recognition, speech synthesis, translation, or intent recognition, you'll always create a configuration.
 
-## Recognize speech from a microphone (browser only)
+## Recognize speech from a microphone
 
-Recognizing speech from a microphone is *not supported in Node.js*. It's supported only in a browser-based JavaScript environment. For more information, see the [React sample](https://github.com/Azure-Samples/AzureSpeechReactSample) and the [implementation of speech-to-text from a microphone](https://github.com/Azure-Samples/AzureSpeechReactSample/blob/main/src/App.js#L29) on GitHub.
+Recognizing speech from a microphone is *not supported in Node.js*. It's supported only in a browser-based JavaScript environment. For more information, see the [React sample](https://github.com/Azure-Samples/AzureSpeechReactSample) and the [implementation of speech-to-text from a microphone](https://github.com/Azure-Samples/AzureSpeechReactSample/blob/main/src/App.js#L29) on GitHub. The React sample shows design patterns for the exchange and management of authentication tokens. It also shows the capture of audio from a microphone or file for speech-to-text conversions.
 
 > [!NOTE]
 > If you want to use a *specific* audio input device, you need to specify the device ID in `AudioConfig`. Learn [how to get the device ID](../../../how-to-select-audio-input-devices.md) for your audio input device.
