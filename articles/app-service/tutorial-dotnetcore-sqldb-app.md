@@ -1,11 +1,11 @@
 ---
-title: Tutorial: Deploy an ASP.NET Core and Azure SQL Database app to Azure App Service
+title: Deploy an ASP.NET Core and Azure SQL Database app to Azure App Service
 description: Learn how to deploy an ASP.NET Core web app to Azure App Service and connect to an Azure SQL Database.
+ms.topic: tutorial
+ms.date: 02/04/2022
 author: alexwolfmsft
 ms.author: alexwolf
 ms.devlang: csharp
-ms.topic: tutorial
-ms.date: 02/04/2022
 ms.custom: "devx-track-csharp, mvc, cli-validate, seodec18, devx-track-azurecli"
 ---
 
@@ -24,7 +24,7 @@ git clone https://github.com/Azure-Samples/msdocs-app-service-sql-db-dotnetcore.
 cd msdocs-app-service-sql-db-dotnetcore
 ```
 
-:::image type="content" source="media/azure-app-in-browser.png" alt-text="This is an architecture diagram about how the solution works in Azure":::
+:::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/azure-app-in-browser.png" alt-text="This is an architecture diagram about how the solution works in Azure":::
 
 ## 2 - Create the App Service
 
