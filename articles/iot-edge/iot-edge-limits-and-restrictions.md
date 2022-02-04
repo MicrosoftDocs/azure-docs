@@ -48,7 +48,7 @@ IoT Edge certificates have the following restrictions:
 
 For more information, see [Certificates for device security](iot-edge-certs.md#production-implications).
 
-### TPM Attestation
+### TPM attestation
 When using TPM attestation with the device provisioning service, you need to use TPM 2.0.
 
 For more information, see [TPM attestation device requirements](how-to-provision-devices-at-scale-linux-tpm.md#device-requirements).
