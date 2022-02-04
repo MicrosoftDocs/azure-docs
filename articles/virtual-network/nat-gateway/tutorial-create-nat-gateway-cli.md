@@ -92,7 +92,7 @@ Configure the source subnet in virtual network to use a specific NAT gateway res
 
 All outbound traffic to Internet destinations is now using the NAT gateway.  It's not necessary to configure a UDR.
 
-## Virtual machine
+## Create virtual machine
 
 Create a virtual machine to test the NAT gateway to verify the public IP address of the outbound connection.
 
@@ -105,39 +105,39 @@ Wait for the virtual machine creation to complete before moving on to the next s
 ## Test NAT gateway
 
 In this section, we'll test the NAT gateway. We'll first discover the public IP of the NAT gateway. We'll then connect to the test virtual machine and verify the outbound connection through the NAT gateway.
-    
+
 1. Sign in to the [Azure portal](https://portal.azure.com)
 
 1. Find the public IP address for the NAT gateway on the **Overview** screen. Select **All services** in the left-hand menu, select **All resources**, and then select **myPublicIP**.
 
-2. Make note of the public IP address:
+1. Make note of the public IP address:
 
-    :::image type="content" source="./media/tutorial-create-nat-gateway-portal/find-public-ip.png" alt-text="Discover public IP address of NAT gateway" border="true":::
+  :::image type="content" source="./media/tutorial-create-nat-gateway-portal/find-public-ip.png" alt-text="Discover public IP address of NAT gateway" border="true":::
 
-3. Select **All services** in the left-hand menu, select **All resources**, and then from the resources list, select **myVM** that is located in the **myResourceGroupNAT** resource group.
+1. Select **All services** in the left-hand menu, select **All resources**, and then from the resources list, select **myVM** that is located in the **myResourceGroupNAT** resource group.
 
-4. On the **Overview** page, select **Connect**, then **Bastion**.
+1. On the **Overview** page, select **Connect**, then **Bastion**.
 
-5. Select the blue **Use Bastion** button.
+1. Select the blue **Use Bastion** button.
 
-6. Enter the username and password entered during VM creation.
+1. Enter the username and password entered during VM creation.
 
-7. Open **Internet Explorer** on **myTestVM**.
+1. Open **Internet Explorer** on **myTestVM**.
 
-8. Enter **https://whatsmyip.com** in the address bar.
+1. Enter **https://whatsmyip.com** in the address bar.
 
-9. Verify the IP address displayed matches the NAT gateway address you noted in the previous step:
+1. Verify the IP address displayed matches the NAT gateway address you noted in the previous step:
 
     :::image type="content" source="./media/tutorial-create-nat-gateway-portal/my-ip.png" alt-text="Internet Explorer showing external outbound IP" border="true":::
 
 ## Clean up resources
 
 If you're not going to continue to use this application, delete
-the virtual network, virtual machine, and NAT gateway with the following steps:
+the virtual network, virtual machine, and NAT gateway with the following CLI command:
 
-```azurecli-interactive 
+```azurecli-interactive
   az group delete \
-    --name myResourceGroupNAT
+    --name $resourceGroup
 ```
 
 ## Next steps
