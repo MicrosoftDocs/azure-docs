@@ -37,15 +37,15 @@ To enable CloudKnox in your organization, you must have:
 
 ## Enable CloudKnox on your Azure AD tenant
 
-1. Open your browser and enter `https://aka.ms/ciem-prod`.
-1. If you are not already authenticated, log in as a global administrator to your Azure AD tenant.
-1. In the Azure AD portal, on the **Features highlights** section, select the **CloudKnox Permissions Management** tile.
+1. In your browser:
+    1. Go to [Azure services](https://portal.azure.com) and use your credentials to sign in to [Azure Active Directory](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview). 
+       If you are not already authenticated, log in as a global administrator to your Azure AD tenant.
+    1. In the Azure AD portal, select **Features highlights**, and then select **CloudKnox Permissions Management**.
 
-    If you're asked to select an account to log in, select that same global administrator account in that tenant.
 
-    The **Welcome to CloudKnox Permissions Management** screen appears. 
+    1. If you're asked to select an account to log in, log in as a global administrator to specified tenant.
 
-    This screen provides information on how to enable CloudKnox on your tenant.
+        The **Welcome to CloudKnox Permissions Management** screen appears, displaying information on how to enable CloudKnox on your tenant.
 
 1. To provide access to the CloudKnox application, create a service principal.
 
@@ -91,6 +91,4 @@ To enable CloudKnox in your organization, you must have:
 
 - For an overview of CloudKnox, see [What's CloudKnox Permissions Management?](cloudknox-overview.md).
 - For a list of frequently asked questions (FAQs) about CloudKnox, see [FAQs](cloudknox-faqs.md).
-
-<!--- - For information on how to enable or disable the controller, see [Enable or disable the controller](cloudknox-onboard-enable-controller.md).
-- For information on how to add an account/subscription/project after onboarding, see [Add an account/subscription/project after onboarding is complete](cloudknox-onboard-add-account-after-onboarding.md)--->
+- For information on how to start viewing information about your authorization system in CloudKnox, see [View key statistics and data about your authorization system](cloudknox-ui-dashboard.md).
