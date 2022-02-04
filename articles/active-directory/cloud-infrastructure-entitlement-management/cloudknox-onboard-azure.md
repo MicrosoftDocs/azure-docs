@@ -26,7 +26,7 @@ This article describes how to onboard a Microsoft Azure subscription or subscrip
 ## Prerequisites
 
 To add CloudKnox to your Azure AD tenant:
-- You must have an Azure AD user account, Azure CLI on your system, or an Azure subscription. If you don't already have one, [create a free account](https://azure.microsoft.com/free/). permissions, such as User Access Administrator or Owner
+- You must have an Azure AD user account, Azure CLI on your system, or an Azure subscription. If you don't already have one, [create a free account](https://azure.microsoft.com/free/).
 - You must have **Microsoft.Authorization/roleAssignments/write** permission at the subscription or management group scope to perform the tasks in Step 3. If not, you can ask someone who does to perform these tasks.
 
 ## Onboard an Azure subscription
