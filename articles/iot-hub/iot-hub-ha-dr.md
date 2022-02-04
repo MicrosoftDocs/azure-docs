@@ -5,7 +5,7 @@ author: eross-msft
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 02/03/2022
+ms.date: 02/04/2022
 ms.author: lizross
 ---
 
