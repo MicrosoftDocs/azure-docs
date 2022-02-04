@@ -1,6 +1,6 @@
 ---
 title: Mount Azure Blob Storage by using the NFS 3.0 protocol | Microsoft Docs
-description: Learn how to mount a container in Blob storage from an Azure Virtual Machine (VM) or a client that runs on-premises by using the NFS 3.0 protocol.
+description: Learn how to mount a container in Blob Storage from an Azure virtual machine (VM) or a client that runs on-premises by using the NFS 3.0 protocol.
 author: normesta
 ms.subservice: blobs
 ms.service: storage
@@ -13,11 +13,11 @@ ms.custom: devx-track-azurepowershell
 
 # Mount Blob Storage by using the Network File System (NFS) 3.0 protocol
 
-This article provides guidance on how to mount a container in Blob storage from a Linux-based Azure Virtual Machine (VM) or a Linux system that runs on-premises by using the Network File System (NFS) 3.0 protocol. To learn more about NFS 3.0 protocol support in Blob storage, see [Network File System (NFS) 3.0 protocol support in Azure Blob Storage](network-file-system-protocol-support.md).
+This article provides guidance on how to mount a container in Azure Blob Storage from a Linux-based Azure virtual machine (VM) or a Linux system that runs on-premises by using the Network File System (NFS) 3.0 protocol. To learn more about NFS 3.0 protocol support in Blob Storage, see [Network File System (NFS) 3.0 protocol support in Azure Blob Storage](network-file-system-protocol-support.md).
 
 ## Step 1: Create an Azure virtual network 
 
-Your storage account must be contained within a virtual network. A virtual network enables clients to connect securely to your storage account. To learn more about Azure Virtual Network, and how to create an instance of a virtual network, see the [Virtual Network documentation](../../virtual-network/index.yml).
+Your storage account must be contained within a virtual network. A virtual network enables clients to connect securely to your storage account. To learn more about Azure Virtual Network, and how to create a virtual network, see the [Virtual Network documentation](../../virtual-network/index.yml).
 
 > [!NOTE]
 > Clients in the same virtual network can mount containers in your account. You can also mount a container from a client that runs in an on-premises network, but you'll have to first connect your on-premises network to your virtual network. See [Supported network connections](network-file-system-protocol-support.md#supported-network-connections).
@@ -72,7 +72,7 @@ The following image shows the squash options as they appear in the Azure portal.
 
 Create a directory on your Linux system, and then mount the container in the storage account.
 
-1. On your Linux system, create a directory.
+1. On your Linux system, create a directory:
 
    ```
    mkdir -p /mnt/test
@@ -88,11 +88,9 @@ Create a directory on your Linux system, and then mount the container in the sto
 
    - Replace the `<container-name>` placeholder with the name of your container.
 
----
-
 ## Resolve common errors
 
-|Error | Cause / resolution|
+|Error | Cause/resolution|
 |---|---|
 |`Access denied by server while mounting`|Ensure that your client is running within a supported subnet. See [Supported network locations](network-file-system-protocol-support.md#supported-network-connections).|
 |`No such file or directory`| Make sure to type, rather than copy and paste, the mount command and its parameters directly into the terminal. If you copy and paste any part of this command into the terminal from another application, hidden characters in the pasted information might cause this error to appear. This error also might appear if the account isn't enabled for NFS 3.0.|
