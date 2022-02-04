@@ -43,7 +43,7 @@
       href: ./scripts/virtual-network-cli-sample-ipv6-dual-stack.md
     - name: Configure IPv4 + IPv6 dual stack virtual network with Standard Load Balancer
       href: ./scripts/virtual-network-cli-sample-ipv6-dual-stack-standard-load-balancer.md
-    - name: Tutorial: Create and test a NAT gateway - Azure CLI
+    - name: Create and test a NAT gateway - Azure CLI
       href: ../virtual-network/nat-gateway/tutorial-create-nat-gateway-cli.md
   - name: Azure PowerShell
     href: powershell-samples.md
