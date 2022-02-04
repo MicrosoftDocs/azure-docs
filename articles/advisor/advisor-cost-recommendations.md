@@ -81,7 +81,7 @@ We are constantly working on improving these recommendations. Feel free to share
 ## Next steps
 
 To learn more about Advisor recommendations, see:
-* [Advisor cost recommendations (all)](advisor-reference-cost-recommendations.md)
+* [Advisor cost recommendations (full list)](advisor-reference-cost-recommendations.md)
 * [Introduction to Advisor](advisor-overview.md)
 * [Advisor score](azure-advisor-score.md)
 * [Get started with Advisor](advisor-get-started.md)
