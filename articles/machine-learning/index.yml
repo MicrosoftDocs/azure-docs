@@ -48,6 +48,8 @@ landingContent:
         links:            
           - text: Run training code in the cloud (v2 CLI preview)
             url: how-to-train-cli.md
+          - text: Train and deploy a model in Jupyter notebook
+            url:  tutorial-train-deploy-notebook.md
           - text: Tune hyperparameters for model training
             url: how-to-tune-hyperparameters.md
           - text: Build pipelines from reuseable components
