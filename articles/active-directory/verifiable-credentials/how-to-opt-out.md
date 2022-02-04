@@ -31,11 +31,11 @@ In this article:
 
 - Complete verifiable credentials onboarding.
 
-## When do you need to opt-out?
+## When do you need to opt out?
 
-Opting out is a one-way operation, after you opt-out your Azure Active Directory Verifiable Credentials environment will be reset. During the Public Preview opting out could be a way to:
-- Uptake new service capabilities that are not compatible with the current set of capabilities
-- You need/want to reset the setup of your service
+Opting out is a one-way operation, after you opt-out your Azure Active Directory Verifiable Credentials environment will be reset. During the Public Preview opting out may be required to:
+- Enable new service capabilities.
+- Reset the setup of your service
 
 ## What happens to your data when you opt-out?
 
@@ -46,11 +46,11 @@ When you complete opting out of the Azure Active Directory Verifiable Credential
 - The tenant identifier will be deleted from our database.
 - All of the verifiable credentials contracts will be deleted from our database.
 
-Once an opt-out takes place, you will not be able to recover your DID or conduct any operations on your DID. This step is a one-way operation, and you need to opt in again, which results in a new environment being created.
+Once an opt-out takes place, you won't be able to recover your DID or conduct any operations on your DID. This step is a one-way operation, and you need to opt in again, which results in a new environment being created.
 
 ## Effect on existing verifiable credentials
 
-All verifiable credentials already issued will continue to exist. They will not be cryptographically invalidated as your DID will remain resolvable through ION.
+All verifiable credentials already issued will continue to exist. They won't be cryptographically invalidated as your DID will remain resolvable through ION.
 However, when relying parties call the status API, they will always receive back a failure message.  
 
 ## How to opt-out from the Azure Active Directory Verifiable Credentials Public Preview?
