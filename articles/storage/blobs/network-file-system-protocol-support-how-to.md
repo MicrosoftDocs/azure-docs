@@ -61,7 +61,7 @@ Create a container in your storage account by using any of these tools or SDKs:
 ||[REST](/rest/api/storageservices/create-container)|
 
 > [!NOTE]
-> By default, the root squash option of a new container is **no root squash**. But you can change that to **root squash** or **all squash**. For information about these squash options, see your operating system documentation.
+> By default, the root squash option of a new container is **No Root Squash**. But you can change that to **Root Squash** or **All Squash**. For information about these squash options, see your operating system documentation.
 
 The following image shows the squash options as they appear in the Azure portal.
 
