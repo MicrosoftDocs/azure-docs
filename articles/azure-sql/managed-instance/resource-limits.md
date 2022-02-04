@@ -11,15 +11,19 @@ ms.topic: reference
 author: vladai78
 ms.author: vladiv
 ms.reviewer: mathoma, vladiv, sachinp, wiassaf
-ms.date: 01/18/2022
+ms.date: 02/02/2022
 ---
 # Overview of Azure SQL Managed Instance resource limits
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
+> [!div class="op_single_selector"]
+> * [Azure SQL Database](../database/resource-limits-logical-server.md)
+> * [Azure SQL Managed Instance](resource-limits.md)
+
 This article provides an overview of the technical characteristics and resource limits for Azure SQL Managed Instance, and provides information about how to request an increase to these limits.
 
 > [!NOTE]
-> For differences in supported features and T-SQL statements see [Feature differences](../database/features-comparison.md) and [T-SQL statement support](transact-sql-tsql-differences-sql-server.md). For general differences between service tiers for Azure SQL Database and SQL Managed Instance see [Service tier comparison](../database/service-tiers-general-purpose-business-critical.md#service-tier-comparison).
+> For differences in supported features and T-SQL statements see [Feature differences](../database/features-comparison.md) and [T-SQL statement support](transact-sql-tsql-differences-sql-server.md). For general differences between service tiers for Azure SQL Database and SQL Managed Instance review [General Purpose](../database/service-tier-general-purpose.md) and [Business Critical](../database/service-tier-business-critical.md) service tiers. 
 
 ## Hardware generation characteristics
 
@@ -41,6 +45,10 @@ Hardware generations have different characteristics, as described in the followi
 | **Max instance reserved storage**\* | **General Purpose:** up to 16 TB<br/> **Business Critical:** up to 4 TB | **General Purpose:** up to 16 TB<br/> **Business Critical:** up to 5.5 TB | **General Purpose:** up to 16 TB <br/> **Business Critical:** up to 16 TB |
 
 \* Dependent on [the number of vCores](#service-tier-characteristics).
+
+>[!NOTE]
+> If your business requires storage sizes greater than the available resource limits for Azure SQL Managed Instance, consider the Azure SQL Database [Hyperscale service tier](../database/service-tier-hyperscale.md).
+
 
 ### Regional support for premium-series hardware generations (preview)
 
@@ -86,10 +94,10 @@ The amount of in-memory OLTP space in [Business Critical](../database/service-ti
 
 ## Service tier characteristics
 
-SQL Managed Instance has two service tiers: [General Purpose](../database/service-tier-general-purpose.md) and [Business Critical](../database/service-tier-business-critical.md). These tiers provide [different capabilities](../database/service-tiers-general-purpose-business-critical.md), as described in the table below.
+SQL Managed Instance has two service tiers: [General Purpose](../database/service-tier-general-purpose.md) and [Business Critical](../database/service-tier-business-critical.md). 
 
 > [!Important]
-> Business Critical service-tier provides an additional built-in copy of the SQL Managed Instance (secondary replica) that can be used for read-only workload. If you can separate read-write queries and read-only/analytic/reporting queries, you are getting twice the vCores and memory for the same price. The secondary replica might lag a few seconds behind the primary instance, so it is designed to offload reporting/analytic workloads that don't need exact current state of data. In the table below, **read-only queries** are the queries that are executed on secondary replica.
+> The Business Critical service tier provides an additional built-in copy of the SQL Managed Instance (secondary replica) that can be used for read-only workload. If you can separate read-write queries and read-only/analytic/reporting queries, you are getting twice the vCores and memory for the same price. The secondary replica might lag a few seconds behind the primary instance, so it is designed to offload reporting/analytic workloads that don't need exact current state of data. In the table below, **read-only queries** are the queries that are executed on secondary replica.
 
 | **Feature** | **General Purpose** | **Business Critical** |
 | --- | --- | --- |
@@ -122,6 +130,32 @@ A few additional considerations:
 - Max instance IOPS depend on the file layout and distribution of workload. As an example, if you create 7 x 1 TB files with max 5 K IOPS each and seven small files (smaller than 128 GB) with 500 IOPS each, you can get 38500 IOPS per instance (7x5000+7x500) if your workload can use all files. Note that some IOPS are also used for auto-backups.
 
 Find more information about the [resource limits in SQL Managed Instance pools in this article](instance-pools-overview.md#resource-limitations).
+
+### Data and log storage
+
+The following factors affect the amount of storage used for data and log files, and apply to General Purpose and Business Critical tiers. 
+
+- Each compute size supports a maximum data size, with a default of 16 GB. For more information on resource limits in Azure SQL Managed Instance, see [resource-limits.md].
+- When you configure maximum data size, an additional 30 percent of storage is automatically added for log files.
+- You can select any maximum data size between 1 GB and the supported storage size maximum, in 1 GB increments.
+- In the General Purpose service tier, `tempdb` uses local SSD storage, and this storage cost is included in the vCore price.
+- In the Business Critical service tier, `tempdb` shares local SSD storage with data and log files, and `tempdb` storage cost is included in the vCore price.
+- The maximum storage size for a SQL Managed Instance must be specified in multiples of 32 GB.
+
+> [!IMPORTANT]
+> In the General Purpose and Business Critical tiers, you are charged for the maximum storage size configured for a managed instance. 
+
+To monitor total consumed instance storage size for SQL Managed Instance, use the *storage_space_used_mb* [metric](../../azure-monitor/essentials/metrics-supported.md#microsoftsqlmanagedinstances). To monitor the current allocated and used storage size of individual data and log files in a database using T-SQL, use the [sys.database_files](/sql/relational-databases/system-catalog-views/sys-database-files-transact-sql) view and the [FILEPROPERTY(... , 'SpaceUsed')](/sql/t-sql/functions/fileproperty-transact-sql) function.
+
+> [!TIP]
+> Under some circumstances, you may need to shrink a database to reclaim unused space. For more information, see [Manage file space in Azure SQL Database](../database/file-space-manage.md).
+
+### Backups and storage
+
+Storage for database backups is allocated to support the [point-in-time restore (PITR)](../database/recovery-using-backups.md) and [long-term retention (LTR)](../database/long-term-retention-overview.md) capabilities of SQL Managed Instance. This storage is separate from data and log file storage, and is billed separately.
+
+- **PITR**: In General Purpose and Business Critical tiers, individual database backups are copied to [read-access geo-redundant (RA-GRS) storage](../../storage/common/geo-redundant-design.md) automatically. The storage size increases dynamically as new backups are created. The storage is used by full, differential, and transaction log backups. The storage consumption depends on the rate of change of the database and the retention period configured for backups. You can configure a separate retention period for each database between  0 to 35 days for SQL Managed Instance. A backup storage amount equal to the configured maximum data size is provided at no extra charge.
+- **LTR**: You also have the option to configure long-term retention of full backups for up to 10 years. If you set up an LTR policy, these backups are stored in RA-GRS storage automatically, but you can control how often the backups are copied. To meet different compliance requirements, you can select different retention periods for weekly, monthly, and/or yearly backups. The configuration you choose determines how much storage will be used for LTR backups. For more information, see [Long-term backup retention](../database/long-term-retention-overview.md).
 
 ### File IO characteristics in General Purpose tier
 

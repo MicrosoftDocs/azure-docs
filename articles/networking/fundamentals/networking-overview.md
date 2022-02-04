@@ -70,14 +70,6 @@ For more information, see [What is virtual network NAT gateway?](../../virtual-n
 ### <a name="azurepeeringservice"></a> Azure Peering Service
 Azure Peering service enhances customer connectivity to Microsoft cloud services such as Microsoft 365, Dynamics 365, software as a service (SaaS) services, Azure, or any Microsoft services accessible via the public internet. For more information, see [What is Azure Peering Service?](../../peering-service/about.md).
 
-### <a name="edge-zones"></a>Azure Edge Zones
-
-Azure Edge Zone is a family of offerings from Microsoft Azure that enables data processing close to the user. You can deploy VMs, containers, and other selected Azure services into Edge Zones to address the low latency and high throughput requirements of applications.
-
-### <a name="orbital"></a>Azure Orbital
-
-Azure Orbital is a fully managed cloud-based ground station as a service that lets you communicate with your spacecraft or satellite constellations, downlink and uplink data, process your data in the cloud, chain services with Azure services in unique scenarios, and generate products for your customers. This system is built on top of the Azure global infrastructure and low-latency global fiber network.
-
 ## <a name="protect"></a>Application protection services
 
 This section describes networking services in Azure that help protect your network resources - Protect your applications  using any or a combination of these networking services in Azure - DDoS protection, Private Link, Firewall, Web Application Firewall, Network Security Groups, and Virtual Network Service Endpoints.

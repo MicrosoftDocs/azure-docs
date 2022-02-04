@@ -64,7 +64,9 @@ The retention period begins a few minutes after you enable point-in-time restore
 The retention period for point-in-time restore must be at least one day less than the retention period specified for soft delete. For example, if the soft delete retention period is set to 7 days, then the point-in-time restore retention period may be between 1 and 6 days.
 
 > [!IMPORTANT]
-> The time that it takes to restore a set of data is based on the number of write and delete operations made during the restore period. For example, an account with one million objects with 3,000 objects added per day and 1,000 objects deleted per day will require approximately two hours to restore to a point 30 days in the past. A retention period and restoration more than 90 days in the past would not be recommended for an account with this rate of change.
+> Enabling blob versioning as a pre-requisite for point-in-time restore may result in multiple versions for a blob. These versions continue to exist after the retention period for point-in-time restore. For example, you set the retention period for point-in-time restore to 7 days, then versions older than 7 days continue to exist. To optimize costs by deleting or tiering older versions use [Lifecycle Management](/azure/storage/blobs/lifecycle-management-overview).
+
+The time that it takes to restore a set of data is based on the number of write and delete operations made during the restore period. For example, an account with one million blobs with 3,000 blobs added per day and 1,000 blobs deleted per day will require approximately two hours to restore to a point 30 days in the past. A retention period and restoration more than 90 days in the past would not be recommended for an account with this rate of change.
 
 ### Permissions for point-in-time restore
 
@@ -105,7 +107,7 @@ There is no charge to enable point-in-time restore. However, enabling point-in-t
 
 Billing for point-in-time restore depends on the amount of data processed to perform the restore operation. The amount of data processed is based on the number of changes that occurred between the restore point and the present moment. For example, assuming a relatively constant rate of change to block blob data in a storage account, a restore operation that goes back in time 1 day would cost 1/10th of a restore that goes back in time 10 days.
 
-To estimate the cost of a restore operation, review the change feed log to estimate the amount of data that was modified during the restore period. For example, if the retention period for change feed is 30 days, and the size of the change feed is 10 MB, then restoring to a point 10 days earlier would cost approximately one-third of the price listed for an LRS account in that region. Restoring to a point that is 27 days earlier would cost approximately nine-tenths of the price listed.
+In addition to charges for the changefeed data processed, point-in-time restores also incur charges for any transactions involved in performing the restore.
 
 For more information about pricing for point-in-time restore, see [Block blob pricing](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
