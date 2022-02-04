@@ -36,7 +36,7 @@ The WAF protects against the following web vulnerabilities:
 - Bots, crawlers, and scanners
 - Common application misconfigurations (for example, Apache and IIS)
 
-### OWASP CRS 3.2 (public preview)
+### OWASP CRS 3.2 (preview)
 
 CRS 3.2 includes 14 rule groups, as shown in the following table. Each group contains multiple rules, which can be disabled.
 
