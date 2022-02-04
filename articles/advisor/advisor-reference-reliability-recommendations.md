@@ -7,7 +7,15 @@ ms.date: 02/04/2022
 
 # Reliability recommendations
 
-Azure Advisor helps you ensure and improve the continuity of your business-critical applications. You can get reliability recommendations on the **Reliability** tab of the [Azure Advisor](https://aka.ms/azureadvisordashboard).
+Azure Advisor helps you ensure and improve the continuity of your business-critical applications. You can get reliability recommendations on the **Reliability** tab on the Advisor dashboard. 
+
+## How to access cost recommendations in Azure Advisor
+
+1. Sign in to the [**Azure portal**](https://portal.azure.com).
+
+1. Search for and select [**Advisor**](https://aka.ms/azureadvisordashboard) from any page.
+
+1. On the **Advisor** dashboard, select the **Reliability** tab.
 
 ## FarmBeats
 
