@@ -10,6 +10,8 @@ ms.date: 01/16/2022
 ms.custom: template-how-to
 ---
 
+<!-- Image alt-text follows two different stlyes (one sentence and two sentence), should we pick one for consistency? One of the images includes "+", but I've seen some guidance to describe the sign e.g. plus (+). Not sure if that works here. -->
+
 # Configure a service for Azure Private 5G Core Preview - Azure portal
 
 Services are representations of a particular set of QoS information that you want to offer to UEs. For example, you may want to configure a service that provides higher bandwidth limits for particular traffic. You can also use services to block particular traffic types or traffic from specific sources. 
