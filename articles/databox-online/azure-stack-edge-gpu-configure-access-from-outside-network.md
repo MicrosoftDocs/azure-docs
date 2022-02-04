@@ -11,7 +11,7 @@ ms.date: 02/04/2022
 ms.author: alkohli
 # Customer intent: As an IT admin, I and my staff need to be able to access our Azure Stack Edge device from an outside network. 
 ---
-# Configure access to Azure Stack Edge Pro GPU device from outside network
+# Access Azure Stack Edge Pro GPU device from outside network
 
 This article describes how to configure your network to enable access to an Azure Stack Edge Pro GPU device from an outside network.
 
