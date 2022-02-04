@@ -6,13 +6,11 @@ ms.date: 10/09/2020
 ms.author: v-jawe
 ---
 
-In this quickstart, you learn how to convert speech to text by using the Speech service and cURL.
-
-For a high-level look at speech-to-text concepts, see the [overview](../../../speech-to-text.md) article.
+[!INCLUDE [Introduction](intro.md)]
 
 ## Prerequisites
 
-This article assumes that you have an Azure account and a Speech service subscription. If you don't have an account and a subscription, [try the Speech service for free](../../../overview.md#try-the-speech-service-for-free).
+[!INCLUDE [Prerequisites](../common/azure-prerequisites.md)]
 
 ## Convert speech to text
 

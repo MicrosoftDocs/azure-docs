@@ -12,50 +12,48 @@ ms.date: 01/08/2022
 ms.author: eur
 ms.devlang: cpp, csharp, golang, java, javascript, objective-c, python
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020, mode-other
-zone_pivot_groups: programming-languages-set-twenty-three
+zone_pivot_groups: programming-languages-speech-services
 keywords: speech to text, speech to text software
 ---
 
 # Get started with speech-to-text
 
+[!INCLUDE [Header](includes/quickstarts/common/see-also-reference.md)]
+
 ::: zone pivot="programming-language-csharp"
-[!INCLUDE [C# Basics include](includes/how-to/speech-to-text-basics/speech-to-text-basics-csharp.md)]
+[!INCLUDE [C# Basics include](includes/quickstarts/speech-to-text-basics/csharp.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-cpp"
-[!INCLUDE [C++ Basics include](includes/how-to/speech-to-text-basics/speech-to-text-basics-cpp.md)]
+[!INCLUDE [C++ Basics include](includes/quickstarts/speech-to-text-basics/cpp.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-go"
-[!INCLUDE [Go include](includes/how-to/speech-to-text-basics/speech-to-text-basics-go.md)]
+[!INCLUDE [Go include](includes/quickstarts/speech-to-text-basics/go.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
-[!INCLUDE [Java Basics include](includes/how-to/speech-to-text-basics/speech-to-text-basics-java.md)]
+[!INCLUDE [Java Basics include](includes/quickstarts/speech-to-text-basics/java.md)]
 ::: zone-end
 
-::: zone pivot="programming-language-nodejs"
-[!INCLUDE [JavaScript Basics include](includes/how-to/speech-to-text-basics/speech-to-text-basics-javascript.md)]
+::: zone pivot="programming-language-javascript"
+[!INCLUDE [JavaScript Basics include](includes/quickstarts/speech-to-text-basics/javascript.md)]
 ::: zone-end
 
-::: zone pivot="programming-language-browserjs"
-[!INCLUDE [JavaScript Basics include](includes/how-to/speech-to-text-basics/speech-to-text-basics-browser-js.md)]
-::: zone-end
-
-::: zone pivot="programming-languages-objectivec-swift"
-[!INCLUDE [ObjectiveC/Swift Basics include](includes/how-to/speech-to-text-basics/speech-to-text-basics-objectivec-swift.md)]
+::: zone pivot="programming-languages-objectivec"
+[!INCLUDE [ObjectiveC/Swift Basics include](includes/quickstarts/speech-to-text-basics/objectivec.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
-[!INCLUDE [Python Basics include](./includes/how-to/speech-to-text-basics/speech-to-text-basics-python.md)]
+[!INCLUDE [Python Basics include](./includes/quickstarts/speech-to-text-basics/python.md)]
 ::: zone-end
 
-::: zone pivot="programming-language-curl"
-[!INCLUDE [REST include](includes/how-to/speech-to-text-basics/speech-to-text-basics-curl.md)]
+::: zone pivot="programming-language-rest"
+[!INCLUDE [REST include](includes/quickstarts/speech-to-text-basics/rest.md)]
 ::: zone-end
 
-::: zone pivot="programmer-tool-spx"
-[!INCLUDE [CLI include](includes/how-to/speech-to-text-basics/speech-to-text-basics-cli.md)]
+::: zone pivot="programmer-tool-cli"
+[!INCLUDE [CLI include](includes/quickstarts/speech-to-text-basics/cli.md)]
 ::: zone-end
 
 ## Next steps

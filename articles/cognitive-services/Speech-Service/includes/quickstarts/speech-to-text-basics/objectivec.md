@@ -6,11 +6,11 @@ ms.date: 9/22/2020
 ms.author: eric-urban
 ---
 
-You can transcribe speech into text by using the Speech SDK for Swift and Objective-C.
+[!INCLUDE [Introduction](intro.md)]
 
 ## Prerequisites
 
-The following samples assume that you have an Azure account and a Speech service subscription. If you don't have an account and a subscription, [try the Speech service for free](../../../overview.md#try-the-speech-service-for-free).
+[!INCLUDE [Prerequisites](../common/azure-prerequisites.md)]
 
 ## Install Speech SDK and samples
 

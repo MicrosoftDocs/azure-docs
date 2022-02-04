@@ -6,7 +6,11 @@ ms.date: 09/08/2020
 ms.author: eur
 ---
 
-One of the core features of the Speech service is the ability to recognize and transcribe human speech (often called speech-to-text). In this quickstart, you learn how to use the Speech CLI in your apps and products to perform high-quality speech-to-text conversion.
+[!INCLUDE [Introduction](intro.md)]
+
+## Prerequisites
+
+[!INCLUDE [Prerequisites](../common/azure-prerequisites.md)]
 
 [!INCLUDE [SPX Setup](../../spx-setup.md)]
 

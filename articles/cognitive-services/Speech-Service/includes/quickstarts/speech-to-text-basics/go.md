@@ -6,15 +6,11 @@ ms.date: 09/15/2020
 ms.author: eur
 ---
 
-One of the core features of the Speech service is the ability to recognize and transcribe human speech (often called speech-to-text). In this quickstart, you learn how to use the Speech SDK in your apps and products to perform high-quality speech-to-text conversion.
-
-## Skip to samples on GitHub
-
-If you want to skip straight to sample code, see the [Go quickstart samples](https://github.com/microsoft/cognitive-services-speech-sdk-go/tree/master/samples/recognizer) on GitHub.
+[!INCLUDE [Introduction](intro.md)]
 
 ## Prerequisites
 
-This article assumes that you have an Azure account and a Speech service subscription. If you don't have an account and a subscription, [try the Speech service for free](../../../overview.md#try-the-speech-service-for-free).
+[!INCLUDE [Prerequisites](../common/azure-prerequisites.md)]
 
 ### Install the Speech SDK
 
