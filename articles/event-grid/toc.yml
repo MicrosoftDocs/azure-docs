@@ -130,8 +130,6 @@
         href: event-schema-blob-storage.md
       - name: Azure Cache for Redis
         href: event-schema-azure-cache.md
-      - name: Azure Healthcare APIs
-        href: event-schema-azure-healthcare-apis.md
       - name: Azure Communication Services
         items:
         - name: Overview
@@ -150,6 +148,8 @@
         href: event-schema-event-hubs.md
       - name: Azure FarmBeats
         href: event-schema-farmbeats.md
+      - name: Azure Healthcare APIs
+        href: event-schema-azure-healthcare-apis.md
       - name: Azure IoT Hub
         href: event-schema-iot-hub.md
       - name: Azure Key Vault
