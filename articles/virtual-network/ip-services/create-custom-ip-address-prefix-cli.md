@@ -105,8 +105,13 @@ The following steps show the steps required to prepare sample customer range (1.
 Register the applicable subscription that the range will be provisioned for with **Microsoft.Network** and the specific feature flags using the following commands. It may take some time for the request to propagate and for the registration to show on the second command.
 
 ```azurecli-interactive
-az feature registration create --namespace Microsoft.Network --name AllowBringYourOwnIpAddressForThirdParties 
-az feature registration show --provider-namespace Microsoft.Network --name AllowBringYourOwnIpAddressForThirdParties 
+az feature registration create \
+     --namespace Microsoft.Network \
+    --name AllowBringYourOwnIpAddressForThirdParties 
+
+az feature registration show \
+    --provider-namespace Microsoft.Network \
+    --name AllowBringYourOwnIpAddressForThirdParties 
 ```
 The output of this command should show this feature as having a state of "Registered".
 
