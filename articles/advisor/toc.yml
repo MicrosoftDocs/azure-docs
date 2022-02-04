@@ -73,6 +73,8 @@
     href: advisor-reference-performance-recommendations.md
   - name: Reliability
     href: advisor-reference-reliability-recommendations.md
+  - name: Cost
+    href: advisor-reference-cost-recommendations.md
 - name: Resources
   items:
   - name: Azure Roadmap
