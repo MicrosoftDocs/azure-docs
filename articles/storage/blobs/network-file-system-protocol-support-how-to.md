@@ -30,7 +30,7 @@ To secure the data in your account, see these recommendations: [Network security
 
 ## Step 3: Create and configure a storage account
 
-To mount a container by using NFS 3.0, you must create a new storage account. You can't enable existing accounts.
+To mount a container by using NFS 3.0, you must create a storage account. You can't enable existing accounts.
 
 The NFS 3.0 protocol is supported for standard general-purpose v2 storage accounts and for premium block blob storage accounts. For more information on these types of storage accounts, see [Storage account overview](../common/storage-account-overview.md).
 
