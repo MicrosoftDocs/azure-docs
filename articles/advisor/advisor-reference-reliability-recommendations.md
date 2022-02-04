@@ -356,7 +356,7 @@ Learn more about [Virtual network gateway - VNetGatewayActiveActive (Enable Acti
 
 ### Enable soft delete for your Recovery Services vaults
 
-Soft delete for helps you retain your backup data in the Recovery Services vault for an additional duration after deletion, giving you an opportunity to retrieve it before it is permanently deleted.
+Soft delete helps you retain your backup data in the Recovery Services vault for an additional duration after deletion, giving you an opportunity to retrieve it before it is permanently deleted.
 
 Learn more about [Recovery Services vault - AB-SoftDeleteRsv (Enable soft delete for your Recovery Services vaults)](/azure/backup/backup-azure-security-feature-cloud).
 
@@ -396,7 +396,7 @@ Learn more about [Storage Account - StorageSoftDelete (Enable Soft Delete to pro
 
 ### Use Managed Disks for storage accounts reaching capacity limit
 
-We have identified that you are using Premium SSD Unmanaged Disks in Storage account(s) that are about to reach Premium Storage capacity limit. To avoid failures when this limit is reached, we recommend you migrate to Managed Disks that does not have account capacity limit. This migration can be done through the portal in less than 5 minutes.
+We have identified that you are using Premium SSD Unmanaged Disks in Storage account(s) that are about to reach Premium Storage capacity limit. To avoid failures when the limit is reached, we recommend migrating to Managed Disks that do not have account capacity limit. This migration can be done through the portal in less than 5 minutes.
 
 Learn more about [Storage Account - StoragePremiumBlobQuotaLimit (Use Managed Disks for storage accounts reaching capacity limit)](https://aka.ms/premium_blob_quota).
 
