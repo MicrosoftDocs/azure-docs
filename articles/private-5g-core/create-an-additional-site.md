@@ -1,6 +1,7 @@
 ---
-title: Create an additional site for Azure Private 5G Core Preview
-description: Learn how to create an additional site in your private mobile network. 
+title: Create an additional site
+titlesuffix: Azure Private 5G Core Preview
+description: This how-to guide shows how to create an additional site in your private mobile network. 
 author: djrmetaswitch
 ms.author: drichards
 ms.service: private-5g-core
