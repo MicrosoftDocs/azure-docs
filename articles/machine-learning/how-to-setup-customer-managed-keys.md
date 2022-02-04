@@ -66,7 +66,7 @@ The following resources store metadata for your workspace:
 
 Your Azure Machine Learning workspace reads and writes data using its managed identity. This identity is granted access to the resources using a role assignment (Azure role-based access control) on the data resources. The encryption key you provide is used to encrypt data that is stored on Microsoft-managed resources. It's also used to create indices for Azure Cognitive Search, which are created at runtime.
 
-:::image type="content" source="{source}" alt-text="{alt-text}":::
+<!-- :::image type="content" source="{source}" alt-text="{alt-text}"::: -->
 
 ### Customer-managed keys
 
