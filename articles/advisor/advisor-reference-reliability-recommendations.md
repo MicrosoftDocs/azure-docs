@@ -67,7 +67,7 @@ Learn more about [Virtual machine - UpgradeVMToManagedDisksWithoutAdditionalCost
 
 ### Update your outbound connectivity protocol to Service Tags for Azure Site Recovery
 
-Using IP Address based whitelisting has been identified as a vulnerable way to control outbound connectivity for firewalls. It is advised to use Service Tags as an alternative for controlling connectivity. We highly recommend the use of Service Tags, to allow connectivity to Azure Site Recovery services for the machines.
+Using IP Address based filtering has been identified as a vulnerable way to control outbound connectivity for firewalls. It is advised to use Service Tags as an alternative for controlling connectivity. We highly recommend the use of Service Tags, to allow connectivity to Azure Site Recovery services for the machines.
 
 Learn more about [Virtual machine - ASRUpdateOutboundConnectivityProtocolToServiceTags (Update your outbound connectivity protocol to Service Tags for Azure Site Recovery)](https://aka.ms/azure-site-recovery-using-service-tags).
 
@@ -189,7 +189,7 @@ Learn more about [Cosmos DB account - CosmosDBMongoNudge36AwayFrom32 (Use the ne
 
 ### Upgrade to 2.6.14 version of the Async Java SDK v2 to avoid a critical issue or upgrade to Java SDK v4 as Async Java SDK v2 is being deprecated
 
-There is a critical bug in version 2.6.13 and lower of the Azure Cosmos DB Async Java SDK v2 causing errors when a Global logical sequence number (LSN) greater than the Max Integer value is reached. This happens transparent to you by the service after a large volume of transactions occur in the lifetime of an Azure Cosmos DB container. Note: This is a critical hotfix for the Async Java SDK v2, however it is still highly recommended you migrate to the [Java SDK v4](https://docs.microsoft.com/azure/cosmos-db/sql/sql-api-sdk-java-v4).
+There is a critical bug in version 2.6.13 and lower of the Azure Cosmos DB Async Java SDK v2 causing errors when a Global logical sequence number (LSN) greater than the Max Integer value is reached. This happens transparent to you by the service after a large volume of transactions occur in the lifetime of an Azure Cosmos DB container. Note: This is a critical hotfix for the Async Java SDK v2, however it is still highly recommended you migrate to the [Java SDK v4](/azure/cosmos-db/sql/sql-api-sdk-java-v4).
 
 Learn more about [Cosmos DB account - CosmosDBMaxGlobalLSNReachedV2 (Upgrade to 2.6.14 version of the Async Java SDK v2 to avoid a critical issue or upgrade to Java SDK v4 as Async Java SDK v2 is being deprecated)](/azure/cosmos-db/sql/sql-api-sdk-async-java).
 
@@ -335,7 +335,7 @@ Learn more about [ExpressRoute circuit - UseGlobalReachForDR (Use ExpressRoute G
 
 In response to log4j2 vulnerability (CVE-2021-44228), Azure Web Application Firewall (WAF) RuleSet CRS 3.1/3.2 has been updated on your Application Gateway to help provide additional protection from this vulnerability. The rules are available under Rule 944240 and no action is needed to enable this.
 
-Learn more about [Application gateway - AppGwLog4JCVEPatchNotification (Azure WAF RuleSet CRS 3.1/3.2 has been updated with log4j2 vulnerability rule)](aka.ms/log4jcve).
+Learn more about [Application gateway - AppGwLog4JCVEPatchNotification (Azure WAF RuleSet CRS 3.1/3.2 has been updated with log4j2 vulnerability rule)](https://aka.ms/log4jcve).
 
 ### Additional protection to mitigate Log4j2 vulnerability (CVE-2021-44228)
 
