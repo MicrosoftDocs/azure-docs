@@ -1,7 +1,7 @@
 ---
 title: Modify the packet core instance in an existing site
 titlesuffix: Azure Private 5G Core Preview
-description: Learn how to make changes to the packet core instance in an existing Azure Private 5G Core site.  
+description: This how-to guide shows how to make changes to the packet core instance in an existing Azure Private 5G Core site.  
 author: djrmetaswitch
 ms.author: drichards
 ms.service: private-5g-core
