@@ -122,8 +122,8 @@ After you've enabled managed identities for your resource, add the appropriate o
 
 Your Language resource must have the below roles assigned within your Azure blob storage account:
 
-* *owner* or *contributor*
-* *storage blob data owner* or *storage blob data contributor*
+* *owner* or *contributor*, and
+* *storage blob data owner* or *storage blob data contributor*, and
 * *reader*
 
 ### Add roles to your storage account
