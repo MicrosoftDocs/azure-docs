@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 01/07/2022
+ms.date: 02/02/2022
 ms.author: eur
 ms.custom: references_regions, ignite-fall-2021
 ---
@@ -793,5 +793,4 @@ The following table outlines supported languages for custom keyword and keyword 
 
 ## Next steps
 
-* [Create a free Azure account](https://azure.microsoft.com/free/cognitive-services/)
-* [See how to recognize speech in C#](./get-started-speech-to-text.md?pivots=programming-language-chsarp)
+* [Region support](regions.md)

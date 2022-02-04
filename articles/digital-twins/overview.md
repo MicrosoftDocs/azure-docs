@@ -46,7 +46,7 @@ Models are defined in a JSON-like language called [Digital Twins Definition Lang
 * Models define semantic **relationships** between your entities so that you can connect your twins into a graph that reflects their interactions. You can think of the models as nouns in a description of your world, and the relationships as verbs.
 * You can also specialize twins using model inheritance. One model can inherit from another.
 
-DTDL is used for data models throughout other Azure IoT services, including [IoT Plug and Play](../iot-develop/overview-iot-plug-and-play.md) and [Time Series Insights (TSI)](../time-series-insights/overview-what-is-tsi.md). This type of commonality helps you keep your Azure Digital Twins solution connected and compatible with other parts of the Azure ecosystem.
+DTDL is used for data models throughout other Azure IoT services, including [IoT Plug and Play](../iot-develop/overview-iot-plug-and-play.md) and [Time Series Insights](../time-series-insights/overview-what-is-tsi.md). This type of commonality helps you keep your Azure Digital Twins solution connected and compatible with other parts of the Azure ecosystem.
 
 ### Live execution environment
 
@@ -68,7 +68,7 @@ You can create a new IoT Hub for this purpose with Azure Digital Twins, or conne
 
 You can also drive Azure Digital Twins from other data sources, using REST APIs or connectors to other services like [Logic Apps](../logic-apps/logic-apps-overview.md).
 
-### Output to Azure Data Explorer, TSI, storage, and analytics
+### Output to Azure Data Explorer, Time Series Insights, storage, and analytics
 
 The data in your Azure Digital Twins model can be routed to downstream Azure services for more analytics or storage. 
 
@@ -77,7 +77,7 @@ To send digital twin data to [Azure Data Explorer](/azure/data-explorer/data-exp
 To send digital twin data to other Azure services, you can create **event routes**, which utilize [Event Hubs](../event-hubs/event-hubs-about.md), [Event Grid](../event-grid/overview.md), and [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) to send data through custom flows.
 
 Here are some things you can do with event routes in Azure Digital Twins:
-* [Connect Azure Digital Twins to Time Series Insights (TSI)](how-to-integrate-time-series-insights.md) to track time series history of each twin
+* [Connect Azure Digital Twins to Time Series Insights](how-to-integrate-time-series-insights.md) to track time series history of each twin
 * Align a Time Series Model in Time Series Insights with a source in Azure Digital Twins
 * Store Azure Digital Twins data in [Azure Data Lake](../storage/blobs/data-lake-storage-introduction.md)
 * Analyze Azure Digital Twins data with [Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md), or other Microsoft data analytics tools
