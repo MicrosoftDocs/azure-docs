@@ -17,14 +17,6 @@ Azure Advisor helps you optimize and reduce your overall Azure spend by identify
 
 1. On the **Advisor** dashboard, select the **Cost** tab.
 
-## Capacity
-
-### Configure automatic renewal for your expiring reservation
-
-Reserved instances listed below are expiring soon or recently expired. Your resources will continue to operate normally, however, you will be billed at the on-demand rates going forward. To optimize your costs, configure automatic renewal for these reservations or purchase a replacement manually.
-
-Learn more about [Reservation - ReservedInstancePurchaseNew (Configure automatic renewal for your expiring reservation)](https://aka.ms/reservedinstances).
-
 ## Compute
 
 ### Use Standard Storage to store Managed Disks snapshots
@@ -164,6 +156,12 @@ Large classic log data is detected on your storage accounts. You are billed on c
 Learn more about [Storage Account - XstoreLargeClassicLog (Revisit retention policy for classic log data in storage accounts)]( /azure/storage/common/manage-storage-analytics-logs#modify-retention-policy).
 
 ## Reserved Instances
+
+### Configure automatic renewal for your expiring reservation
+
+Reserved instances listed below are expiring soon or recently expired. Your resources will continue to operate normally, however, you will be billed at the on-demand rates going forward. To optimize your costs, configure automatic renewal for these reservations or purchase a replacement manually.
+
+Learn more about [Reservation - ReservedInstancePurchaseNew (Configure automatic renewal for your expiring reservation)](https://aka.ms/reservedinstances).
 
 ### Buy virtual machine reserved instances to save money over pay-as-you-go costs
 
