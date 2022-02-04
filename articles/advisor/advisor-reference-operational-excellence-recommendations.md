@@ -14,6 +14,15 @@ Operational excellence recommendations in Azure Advisor can help you with:
 
 You can get these recommendations on the **Operational Excellence** tab of the Advisor dashboard.
 
+## How to access operational excellence recommendations in Azure Advisor
+
+1. Sign in to the [**Azure portal**](https://portal.azure.com).
+
+1. Search for and select [**Advisor**](https://aka.ms/azureadvisordashboard) from any page.
+
+1. On the **Advisor** dashboard, select the **Operational Excellence** tab.
+
+
 ## Spring Cloud
 
 ### Update your outdated Azure Spring Cloud SDK to the latest version
@@ -68,7 +77,7 @@ Your pool is using an image with an imminent expiration date. Please recreate th
 
 Learn more about [Batch account - EolImage (Recreate your pool with a new image)](https://aka.ms/batch_expiring_image_learn_more).
 
-## Cognitive Services
+## Cognitive Service
 
 ### Upgrade to the latest version of the Immersive Reader SDK
 
@@ -120,7 +129,7 @@ We have identified that your Virtual Machine might be running a version of softw
 
 Learn more about [Virtual machine - GetCitrixVFRevokeError (Upgrade Citrix load balancers to avoid connectivity issues during NIC maintenance operations.)](https://www.citrix.com/support/).
 
-## Kubernetes Service
+## Kubernetes
 
 ### Update cluster's service principal
 
