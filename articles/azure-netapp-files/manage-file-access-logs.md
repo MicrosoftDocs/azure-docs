@@ -49,9 +49,9 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
     * Send to Log Analytics workspace
     * Archive to a storage account
     * Stream to an event hub
-    * Send to a partner solution
-    [!IMPORTANT]
-    The **Send to Log Analytics workspace** and **Send to a partner solution** destination options are not supported. No error message will display if you select these destination options. 
+    * Send to a partner solution 
+    > [!IMPORTANT]
+    > The **Send to Log Analytics workspace** and **Send to a partner solution** destination options are not supported. No error message will display if you select these destination options. 
 5. Save the settings
 
 ## Disable file access logs
