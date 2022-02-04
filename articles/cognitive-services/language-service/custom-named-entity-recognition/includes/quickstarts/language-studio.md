@@ -48,7 +48,7 @@ Before you can use custom NER, you’ll need to create an Azure Language resourc
 
 Once your resource and storage container are configured, create a new conversational NER project. A project is a work area for building your custom AI models based on your data. Your project can only be accessed by you and others who have contributor access to the Azure resource being used.
 
-[!INCLUDE [Create custom NER project](../includes/create-project.md)]
+[!INCLUDE [Create custom NER project](../create-project.md)]
 
 Be sure to select the container where you’ve uploaded your data. For this quickstart, we’ll use the existing tags file available in the container. Then click **Next**. Review the data you entered and select **Create Project**.
 
