@@ -132,7 +132,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting t
 
     ![Screenshot that shows the Integrations in general settings.](./media/cloud-academy-sso-tutorial/general-settings.png)
 
-    a. In the **SSO URL(Location)** box, paste the login URL value that you copied from the Azure portal.
+    a. In the **SSO URL(Location)** box, paste the login URL value that you copied from the Azure portal, from point 7 of [Configure Azure AD SSO](#configure-azure-ad-sso).
 
     c. Open the downloaded Base64 certificate from the Azure portal in Notepad. Paste its contents into the **Certificate** box.
 
@@ -142,13 +142,32 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting t
 
     ![Screenshot that shows the Integrations in additional settings.](./media/cloud-academy-sso-tutorial/additional-settings.png)
 
-    a. In the **SAML Attributes Mapping** section, fill the required fields with the source attribute values.
+    a. In the **SAML Attributes Mapping** section, fill the required fields with the source attribute values:
+    
+    
+    `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier`
+    `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`
+    `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`
+    `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`
 
     b. In the **Security Settings** section, select the **Authentication Requests Signed?** check box to set this value to **True**.
 
-    c. In the **Extra Settings(Optional)** section, fill the **Logout URL** box with the logout URL value that you copied from the Azure portal.
+    c. In the **Extra Settings(Optional)** section, fill the **Logout URL** box with the logout URL value that you copied from the Azure portal, from point 7 of [Configure Azure AD SSO](#configure-azure-ad-sso).
 
 1. Click **Save and Test**.
+2. After this operation, a pop-up will appear with the service provider information, from there you have to download the XML file:
+![Screenshot that show download configuration](./media/cloud-academy-sso-tutorial/setup-provider-info.png)
+3. Now that you have the XML file of the service provider, go back on the application that you've created on Azure Portal, inside the **single sign-on** section, and upload the MetaData file:
+![Screenshot that show upload metadata section on Azure application](./media/cloud-academy-sso-tutorial/upload-metadata.png)
+4. Now that you've updated the service provider metadata, you can go back on the SSO panel of your Cloud Academy company site and proceed with the test and activation. Click on **continue** from the service provider popup:
+![Screenshot that show service provider popup](./media/cloud-academy-sso-tutorial/continue-sso-activation.png)
+5. Click on **Test SSO connection** to start the test flow:
+![Screenshot that show Test SSO connection](./media/cloud-academy-sso-tutorial/test-sso-connection.png)
+> [!NOTE]
+>  If you are logged in Cloud Academy as your test user created previously, proceed with test flow, otherwise copy/paste Subdomain URL on Incognito browser tab and then log in as your test user.
+6. If everything is ok, you can finally activate the SSO integration for the whole company:
+![Screenshot that show SSO activation](./media/cloud-academy-sso-tutorial/test-succesfull.png)
+
 
 > [!NOTE]
 > For more information on how to configure the Cloud Academy, see [Setting Up Single Sign-On](https://support.cloudacademy.com/hc/articles/360043908452-Setting-Up-Single-Sign-On).
