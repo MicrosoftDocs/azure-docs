@@ -1,13 +1,9 @@
 ---
-title: "Quickstart: See also resources for Go - Speech service"
-titleSuffix: Azure Cognitive Services
-services: cognitive-services
 author: eric-urban
-manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
+ms.date: 02/04/2022
 ms.topic: include
-ms.date: 01/25/2022
 ms.author: eur
 zone_pivot_groups: programming-languages-set-twenty-five
 ---

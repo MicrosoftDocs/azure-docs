@@ -6,4 +6,4 @@ ms.date: 10/09/2020
 ms.author: v-jawe
 ---
 
-You can use the REST API for speech translation, but we haven't yet included a guide here. Please select another programming language to learn about the concepts. 
+You can use the REST API for speech translation, but we haven't yet included a guide here. Please select another programming language to get started and learn about the concepts. 
