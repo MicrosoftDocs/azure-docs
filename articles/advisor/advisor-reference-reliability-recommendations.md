@@ -7,7 +7,7 @@ ms.date: 02/04/2022
 
 # Reliability recommendations
 
-## AgFoodPlatform
+## FarmBeats
 
 ### Upgrade to the latest FarmBeats API version
 
@@ -88,14 +88,6 @@ Learn more about [Virtual machine - CheckPointPlatformServicingKnownIssueA (Chec
 In order for a session host to deploy and register to WVD properly, you need to add a set of URLs to allowed list in case your virtual machine runs in restricted environment. After visiting "Learn More" link, you will be able to see the minimum list of URLs you need to unblock to have a successful deployment and functional session host. For specific URL(s) missing from allowed list, you may also search Application event log for event 3702.
 
 Learn more about [Virtual machine - SessionHostNeedsAssistanceForUrlCheck (Access to mandatory URLs missing for your Windows Virtual Desktop environment)](/azure/virtual-desktop/safe-url-list).
-
-## ContainerService
-
-### Pod Disruption Budgets Recommended
-
-Pod Disruption Budgets Recommended. Improve service high availability.
-
-Learn more about [Kubernetes service - PodDisruptionBudgetsRecommended (Pod Disruption Budgets Recommended)](https://aka.ms/aks-pdb).
 
 ## PostgreSQL
 
@@ -261,6 +253,12 @@ Learn more about [Machine - Azure Arc - ArcServerAgentVersion (Upgrade to the la
 
 ## Kubernetes
 
+### Pod Disruption Budgets Recommended
+
+Pod Disruption Budgets Recommended. Improve service high availability.
+
+Learn more about [Kubernetes service - PodDisruptionBudgetsRecommended (Pod Disruption Budgets Recommended)](https://aka.ms/aks-pdb).
+
 ### Upgrade to the latest agent version of Azure Arc-enabled Kubernetes
 
 Upgrade to the latest agent version for the best Azure Arc enabled Kubernetes experience, improved stability and new functionality.
@@ -275,7 +273,7 @@ Please be advised that your media account is about to hit its quota limits. Plea
 
 Learn more about [Media Service - AccountQuotaLimit (Increase Media Services quotas or limits to ensure continuity of service.)](https://aka.ms/ams-quota-recommendation/).
 
-## Network
+## Networking
 
 ### Upgrade your SKU or add more instances to ensure fault tolerance
 
