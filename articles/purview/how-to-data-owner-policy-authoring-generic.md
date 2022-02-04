@@ -32,13 +32,12 @@ Currently these are the supported sources:
 ## Create policies for individual sources
 
 To create an access policy for a resource, the resource will first need to be registered in Azure Purview.
+Once you have your resource registered, follow the rest of the steps steps to enable an individual resource for access policy.
 
-Follow the **Prerequisites** and **Register** sections of the source pages for your resources:
+1. Follow the **Prerequisites** and **Register** sections of the source pages for your resources:
 
-- [Register and scan Azure Storage Blob - Azure Purview](register-scan-azure-blob-storage-source.md)
-- [Register and scan Azure Data Lake Storage (ADLS) Gen2 - Azure Purview](register-scan-adls-gen2.md)
-
-Once you have your resource registered, follow these steps to enable an individual resource for access policy.
+  - [Register and scan Azure Storage Blob - Azure Purview](register-scan-azure-blob-storage-source.md)
+  - [Register and scan Azure Data Lake Storage (ADLS) Gen2 - Azure Purview](register-scan-adls-gen2.md)
 
 1. Go to the [Azure Purview Studio](https://web.purview.azure.com/resource/).
 
@@ -197,7 +196,7 @@ The steps to publish a policy are as follows
 >[!Note]
 > After making changes to a policy, there is no need to publish it again for it to take effect if the data source(s) continues to be the same.
 
-### Data use governance best practices
+## Data use governance best practices
 
 - We highly encourage registering data sources for *Data use governance* and managing all associated access policies in a single Azure Purview account.
 - Should you have multiple Azure Purview accounts, be aware that **all** data sources belonging to a subscription must be registered for *Data use governance* in a single Azure Purview account. That Azure Purview account can be in any subscription in the tenant. The *Data use governance* toggle will become greyed out when there are invalid configurations. Some examples of valid and invalid configurations follow in the diagram below:
