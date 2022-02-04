@@ -35,7 +35,7 @@ In this article:
 
 Opting out is a one-way operation, after you opt-out your Azure Active Directory Verifiable Credentials environment will be reset. During the Public Preview opting out may be required to:
 - Enable new service capabilities.
-- Reset the setup of your service
+- Reset your service configuration.
 
 ## What happens to your data when you opt-out?
 
