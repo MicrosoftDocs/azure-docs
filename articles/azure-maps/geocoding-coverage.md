@@ -42,13 +42,13 @@ The ability to geocode in a country/region is dependent upon the road data cover
 | Canada                                              |        ✓        |        ✓      |       ✓      |      ✓     |          ✓         |
 | Cayman Islands                                      |                 |                |       ✓      |      ✓     |          ✓         |
 | Chile                                               |       ✓         |        ✓      |       ✓      |      ✓     |          ✓         |
-| Clipperton Island                                   |                 |                |              |      ✓     |          ✓         |
+| Clipperton Island                                   |                 |                |              |      ✓     |          ✓         |
 | Colombia                                            |        ✓        |        ✓      |       ✓      |      ✓     |          ✓         |
 | Costa Rica                                          |                 |                |       ✓      |      ✓     |          ✓         |
 | Cuba                                                |                 |                |       ✓      |      ✓     |          ✓         |
 | Curaçao                                             |                 |                |              |      ✓     |          ✓         |
 | Dominica                                            |                 |                |       ✓      |      ✓     |          ✓         |
-| Dominican Republic                                  |                 |                |       ✓      |      ✓     |          ✓         |
+| Dominican Republic                                  |                 |                |       ✓      |      ✓     |          ✓         |
 | Ecuador                                             |        ✓        |        ✓      |       ✓      |      ✓     |          ✓         |
 | El Salvador                                         |                 |                |       ✓      |      ✓     |          ✓         |
 | Falkland Islands                                    |                 |                |              |      ✓     |          ✓         |
@@ -80,11 +80,10 @@ The ability to geocode in a country/region is dependent upon the road data cover
 | South Georgia & the South Sandwich Islands          |                 |                |              |      ✓     |           ✓        |
 | Suriname                                            |                 |                |       ✓      |      ✓     |          ✓         |
 | Trinidad & Tobago                                   |                 |                |       ✓      |      ✓     |          ✓         |
-| Turks & Caicos Islands                              |                 |                |              |      ✓     |           ✓        |
+| Turks & Caicos Islands                              |                 |                |              |      ✓     |           ✓        |
+| U.S. Outlying Islands                               |                 |                |              |      ✓     |           ✓        |
 | U.S. Virgin Islands                                 |                 |        ✓       |       ✓     |      ✓     |           ✓        |
-| United States Minor Outlying Islands                |                 |                |              |      ✓     |           ✓        |
-| United States of America                            |        ✓        |        ✓      |       ✓      |      ✓     |           ✓        |
-| United States Minor Outlying Islands                |                 |                |              |      ✓     |           ✓        |
+| United States                                       |        ✓        |        ✓      |       ✓      |      ✓     |           ✓        |
 | Uruguay                                             |        ✓        |        ✓      |       ✓      |      ✓     |           ✓        |
 | Venezuela                                           |                 |                |       ✓      |      ✓     |           ✓        |
 
@@ -105,7 +104,7 @@ The ability to geocode in a country/region is dependent upon the road data cover
 | Cook Islands                                        |                 |                |              |      ✓     |       ✓        |
 | Fiji                                                |                 |                |      ✓       |      ✓     |       ✓        |
 | French Polynesia                                    |                 |                |       ✓      |      ✓     |       ✓        |
-| French Southern Territories                         |                 |                |              |      ✓     |       ✓        |
+| French Southern Territories                         |                 |                |              |      ✓     |       ✓        |
 | Heard Island & McDonald Islands                     |                 |                |              |      ✓     |       ✓        |
 | Hong Kong SAR                                       |        ✓        |        ✓      |       ✓      |      ✓     |       ✓        |
 | India                                               |        ✓        |                |       ✓     |      ✓     |       ✓        |
@@ -135,7 +134,7 @@ The ability to geocode in a country/region is dependent upon the road data cover
 | Samoa                                               |                 |                |              |      ✓     |       ✓        |
 | Singapore                                           |        ✓        |        ✓      |       ✓      |      ✓     |       ✓        |
 | Solomon Islands                                     |                 |                |              |      ✓     |       ✓        |
-| South Korea                                         |                 |                |              |      ✓     |       ✓        |
+| South Korea                                         |                 |                |              |      ✓     |       ✓        |
 | Sri Lanka                                           |                 |                |              |      ✓     |       ✓        |
 | Taiwan                                              |        ✓        |        ✓      |       ✓      |      ✓     |       ✓        |
 | Thailand                                            |        ✓        |                |       ✓     |      ✓     |       ✓        |
@@ -177,7 +176,7 @@ The ability to geocode in a country/region is dependent upon the road data cover
 | Hungary                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Iceland                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Ireland                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
-| Isle Of Man                                         |                 |        ✓       |       ✓      |      ✓     |           ✓        |
+| Isle of Man                                         |                 |        ✓       |       ✓      |      ✓     |           ✓        |
 | Italy                                               |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Jan Mayen                                           |                 |                |               |      ✓     |          ✓         |
 | Jersey                                              |                 |        ✓       |       ✓      |      ✓     |          ✓         |
@@ -233,8 +232,8 @@ The ability to geocode in a country/region is dependent upon the road data cover
 | Central African Republic                            |                |              |       ✓      |      ✓     |        ✓          |
 | Chad                                                |                |              |              |      ✓     |        ✓          |
 | Congo                                               |                |              |              |      ✓     |        ✓          |
+| Congo (DRC)                                         |                |              |       ✓      |      ✓     |        ✓          |
 | Côte d'Ivoire                                       |                |              |       ✓      |      ✓     |        ✓          |
-| Democratic Republic of the Congo                    |                |              |       ✓      |      ✓     |        ✓          |
 | Djibouti                                            |                |              |       ✓      |      ✓     |        ✓          |
 | Egypt                                               |        ✓       |        ✓    |       ✓      |      ✓     |        ✓          |
 | Equatorial Guinea                                   |                |              |              |      ✓     |        ✓          |
@@ -258,7 +257,6 @@ The ability to geocode in a country/region is dependent upon the road data cover
 | Libya                                               |                |              |              |      ✓     |        ✓          |
 | Madagascar                                          |                |              |       ✓      |      ✓     |        ✓          |
 | Malawi                                              |                |              |       ✓      |      ✓     |        ✓          |
-| Maldives                                            |                |              |              |      ✓     |        ✓          |
 | Mali                                                |                |              |              |      ✓     |        ✓          |
 | Mauritania                                          |                |              |              |      ✓     |        ✓          |
 | Mauritius                                           |                |              |       ✓      |      ✓     |        ✓          |
