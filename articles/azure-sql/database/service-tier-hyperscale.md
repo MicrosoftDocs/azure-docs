@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: kendralittle, mathoma
-ms.date: 1/14/2022
+ms.date: 2/2/2022
 ---
 
 # Hyperscale service tier
@@ -73,13 +73,43 @@ Hyperscale service tier is only available in [vCore model](service-tiers-vcore.m
 
 For more information about Hyperscale pricing, see [Azure SQL Database Pricing](https://azure.microsoft.com/pricing/details/sql-database/single/)
 
+## Compare resource limits
+
+<!---
+vCore resource limits are listed in the following articles, please be sure to update all of them: 
+/database/resource-limits-vcore-single-databases.md
+/database/resource-limits-vcore-elastic-pools.md
+/database/resource-limits-logical-server.md
+/database/service-tier-general-purpose.md
+/database/service-tier-business-critical.md
+/database/service-tier-hyperscale.md
+/managed-instance/resource-limits.md
+--->
+
+The vCore-based service tiers are differentiated based on database availability and storage type, performance, and maximum storage size, as described in the following table: 
+
+||  **General Purpose** |  **Hyperscale** | **Business Critical** |
+|:---:|:---:|:---:|:---:|
+| **Best for** |Offers budget oriented balanced compute and storage options.|Most business workloads. Autoscaling storage size up to 100 TB,fast vertical and horizontal compute scaling, fast database restore.|OLTP applications with high transaction rate and low IO latency. Offers highest resilience to failures and fast failovers using multiple synchronously updated replicas.|
+| **Resource type** |SQL Database / SQL Managed Instance | Single database | SQL Database / SQL Managed Instance |
+| **Compute size** | 1 to 80 vCores | 1 to 80  vCores<sup>1</sup>| 1 to 80 vCores |
+| **Storage type** | Premium remote storage (per instance) | De-coupled storage with local SSD cache (per instance) | Super-fast local SSDstorage (per instance) |
+| **Storage size**<sup>1</sup> | 5 GB – 4 TB | Up to 100 TB | 5 GB – 4 TB |
+| **IOPS** | 500 IOPS per vCore with 7000 maximum IOPS | Hyperscale is a multi-tiered architecture with caching at multiplelevels. Effective IOPS will depend on the workload. | 5000 IOPS with 200,000 maximum IOPS|
+|**Availability**| 1 replica, no Read Scale-out, zone-redundant HA (preview), no local cache | Multiple replicas, up to 4 Read Scale-out, partiallocal cache | 3 replicas, 1 Read Scale-out, zone-redundant HA, full local storage |
+|**Backups** | A choice of geo-redundant, zone-redundant <sup>2</sup> , or locally-redundant<sup>2</sup> backup storage, 1-35 day retention (default 7 days) | A choice of geo-redundant, zone-redundant <sup>3</sup>, or locally-redundant<sup>3</sup> backup storage, 7 day retention. | A choice of geo-redundant,zone-redundant<sup>2</sup>, or locally-redundant<sup>2</sup> backup storage, 1-35 day retention (default 7 days) |
+
+<sup>1</sup> Elastic pools are not supported in the Hyperscale service tier   
+<sup>2</sup> In preview   
+<sup>3</sup> In preview, for new Hyperscale databases only   
+
 ## Distributed functions architecture
 
 Unlike traditional database engines that have centralized all of the data management functions in one location/process (even so called distributed databases in production today have multiple copies of a monolithic data engine), a Hyperscale database separates the query processing engine, where the semantics of various data engines diverge, from the components that provide long-term storage and durability for the data. In this way, the storage capacity can be smoothly scaled out as far as needed (initial target is 100 TB). High-availability and named replicas share the same storage components so no data copy is required to spin up a new replica.
 
 The following diagram illustrates the different types of nodes in a Hyperscale database:
 
-![architecture](./media/service-tier-hyperscale/hyperscale-architecture.png)
+![architecture](./media/service-tier-Hyperscale/Hyperscale-architecture.png)
 
 A Hyperscale database contains the following different types of components:
 
@@ -95,7 +125,7 @@ Page servers are systems representing a scaled-out storage engine.  Each page se
 
 ### Log service
 
-The log service accepts transaction log records from the primary compute replica, persists them in a durable cache, and forwards the log records to the rest of compute replicas (so they can update their caches) as well as the relevant page server(s), so that the data can be updated there. In this way, all data changes from the primary compute replica are propagated through the log service to all the secondary compute replicas and page servers. Finally, transaction log records are pushed out to long-term storage in Azure Storage, which is a virtually infinite storage repository. This mechanism removes the need for frequent log truncation. The log service also has local memory and SSD caches to speed up access to log records. The log on hyperscale is practically infinite with the restriction that a single transaction cannot generate more than 1TB of log.
+The log service accepts transaction log records from the primary compute replica, persists them in a durable cache, and forwards the log records to the rest of compute replicas (so they can update their caches) as well as the relevant page server(s), so that the data can be updated there. In this way, all data changes from the primary compute replica are propagated through the log service to all the secondary compute replicas and page servers. Finally, transaction log records are pushed out to long-term storage in Azure Storage, which is a virtually infinite storage repository. This mechanism removes the need for frequent log truncation. The log service also has local memory and SSD caches to speed up access to log records. The log on hyperscale is practically infinite, with the restriction that a single transaction cannot generate more than 1TB of log. Additionally , if using [Change Data Capture](/sql/relational-databases/track-changes/about-change-data-capture-sql-server), at most 1TB of log can be generated since the start of the  oldest active transaction. It is recommended to avoid unnecessarily large transactions to stay below this limit.
 
 ### Azure storage
 
@@ -187,6 +217,7 @@ These are the current limitations to the Hyperscale service tier as of GA.  We'r
 | Shrink Database | DBCC SHRINKDATABASE or DBCC SHRINKFILE isn't currently supported for Hyperscale databases. |
 | Database integrity check | DBCC CHECKDB isn't currently supported for Hyperscale databases. DBCC CHECKTABLE ('TableName') WITH TABLOCK  and DBCC CHECKFILEGROUP WITH TABLOCK may be used as a workaround. See [Data Integrity in Azure SQL Database](https://azure.microsoft.com/blog/data-integrity-in-azure-sql-database/) for details on data integrity management in Azure SQL Database. |
 | Elastic Jobs | Using a Hyperscale database as the Job database is not supported. However, elastic jobs can target Hyperscale databases in the same way as any other Azure SQL database. |
+|Data Sync| Using a Hyperscale database as a Hub or Sync Metadata database is not supported. However, a Hyperscale database can be a member database in a Data Sync topology. |
 
 ## Next steps
 
