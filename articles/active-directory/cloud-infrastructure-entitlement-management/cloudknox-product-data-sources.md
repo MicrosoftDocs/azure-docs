@@ -19,13 +19,13 @@ ms.author: v-ydequadros
 > Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
 
 
-You can use the **Data collectors** dashboard in CloudKnox Permissions Management (CloudKnox) to view and configure settings for collecting data from your authorization system and its associated accounts. It also provides information about data types, including entitlements and benchmarks.
+You can use the **Data collectors** dashboard in CloudKnox Permissions Management (CloudKnox) to view and configure settings for collecting data from your authorization systems. It also provides information about the status of the data collection.
 
 ## Access and view data sources
 
 1. To access your data sources, at the top of the CloudKnox page, select **Settings** (the gear icon). Then select the **Data collectors** tab.
 
-1. On the **Data collectors** dashboard, select your authorization system: 
+1. On the **Data collectors** dashboard, select your authorization system type: 
 
     - **AWS** for Amazon Web Services.
     - **Azure** for Microsoft Azure.
@@ -45,43 +45,24 @@ You can use the **Data collectors** dashboard in CloudKnox Permissions Managemen
 
 1. The following information displays:
 
-    - The name of your authorization system.
-    - **ID**: The unique identification number for the account.
-    - **Data types**: Displays the two data types that are collected:
-         - **Entitlements**: The permissions of all identities and resources for all the configured authentication systems.
-         - **Benchmarks**: The results of security best practices tests.
-    - **Recently uploaded on**: Displays whether the entitlement and benchmark data are being collected. 
+    - **ID**: The unique identification number for the data collector.
+    - **Data types**: Displays the data types that are collected:
+         - **Entitlements**: The permissions of all identities and resources for all the configured authorization systems.
+    - **Recently uploaded on**: Displays whether the entitlement data is being collected. 
 
         The status displays *ONLINE* if the data collection has no errors and *OFFLINE* if there are errors.
-    - **Recently transformed on**: Displays whether the entitlement and benchmark data are being processed.
+    - **Recently transformed on**: Displays whether the entitlement data is being processed.
 
-        The status displays *ONLINE* if the data processing has no errors and *OFFLINE* if there are errors. - **IP address**: Displays the specific internet protocol (IP) address or domain name system (DNS) name for the account.
-    - The **Tenant ID** and **Tenant name**
+        The status displays *ONLINE* if the data processing has no errors and *OFFLINE* if there are errors. 
+    - The **Tenant ID** 
+    - The **Tenant name**
 
-## Configure data collection settings
-
-1. Select the ellipses **(...)** at the end of the row in the table.
-1. To configure CloudKnox to collect data, select **Configure**.
-     
-     The **Sentry appliance configuration** box displays.
-
-1. To configure data collection settings, select the displayed URL.
-1. To link the appliance to CloudKnox, use the displayed **REGISTERED EMAIL** address and **PIN** combination.
-1. Return to the **Sentry appliance configuration** box and select **Close**.
-
-## Start collecting data from an authorization system   
+## Modify a data collector   
 
 1. Select the ellipses **(...)** at the end of the row in the table.
-1. Select **Collect Data**.
+1. Select **Edit Configuration**. 
 
-    A message displays to confirm data collection has started. 
-
-## Modify information about your authorization system   
-
-1. Select the ellipses **(...)** at the end of the row in the table.
-1. To change the information displayed, select **Edit**. 
-
-    The **Onboarding - Summary** box displays.
+    The **M-CIEM On Boarding - Summary** box displays.
 
 1. Select **Edit** for each field you want to change. 
 1. Select **Verify now & save**.
@@ -89,15 +70,36 @@ You can use the **Data collectors** dashboard in CloudKnox Permissions Managemen
     To verify your changes later, select **Save & verify later**.
 
     When your changes are saved, the following message displays: **Successfully updated configuration.**
+    
+## Delete a data collector   
+
+1. Select the ellipses **(...)** at the end of the row in the table.
+1. Select **Delete Configuration**. 
+
+    The **M-CIEM On Boarding - Summary** box displays.
+
+1. Enter the OTP code. 
+1. Select **Delete**.
+
+    The following message displays: **Successfully deleted configuration.**
+
+## Start collecting data from an authorization system   
+
+1. Select the **Authorization Systems** tab and select your authorization system type.
+1. Select the ellipses **(...)** at the end of the row in the table.
+1. Select **Collect Data**.
+
+    A message displays to confirm data collection has started. 
 
 ## Stop collecting data from an authorization system   
 
 1. Select the ellipses **(...)** at the end of the row in the table.
-1. To delete your authorization system, select **Delete configuration**. 
+1. To delete your authorization system, select **Delete**. 
 
-    The **Onboarding - Summary** box displays.
+    The **Validate OTP To Delete Authorization System** box displays.
 
-1. Select **Delete**. 
+1. Enter the OTP code
+1. Select **Verify**.
 
 ## Next steps
 
