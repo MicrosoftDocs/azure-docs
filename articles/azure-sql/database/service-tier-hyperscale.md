@@ -129,7 +129,7 @@ This will create a Hyperscale database on Gen5 hardware with four cores.
 
 You can migrate your existing databases in Azure SQL Database to Hyperscale using the [Azure portal](https://portal.azure.com), [T-SQL](/sql/t-sql/statements/alter-database-transact-sql), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqldatabase), or [CLI](/cli/azure/sql/db#az_sql_db_update). Migrating an existing database in Azure SQL Database to the Hyperscale tier is a size of data operation.
 
-Learn [how to migrate an existing database to Hyperscale](administer-hyperscale-database.md#migrate-an-existing-database-to-Hyperscale).
+Learn [how to migrate an existing database to Hyperscale](administer-hyperscale-database.md#migrate-an-existing-database-to-hyperscale).
 
 ## Reverse migrate a Hyperscale database back to the General Purpose service tier
 

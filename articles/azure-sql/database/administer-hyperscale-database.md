@@ -21,6 +21,8 @@ Learn how to create a new Hyperscale database in [Quickstart: Create a Hyperscal
 
 ## Migrate an existing database to Hyperscale
 
+You can migrate databases to Hyperscale using the Azure portal, the Azure CLI, PowerShell, or Transact-SQL.
+
 ### Prerequisites
 
 To move a database that is a part of a [geo-replication](active-geo-replication-overview.md) relationship, either as the primary or as a secondary, to Hyperscale, you need to stop replication. Databases in a [failover group](auto-failover-group-overview.md) must be removed from the group first.
@@ -37,7 +39,7 @@ You will only experience a short period of downtime, generally a few minutes, du
 
 To migrate an existing database to the Hyperscale service tier, first identify your target service objective. Review [resource limits for single databases](resource-limits-vcore-single-databases.md#hyperscale---provisioned-compute---gen4) if you are not sure which service objective is right for your database.
 
-You can migrate databases to Hyperscale using the Azure portal, the Azure CLI, PowerShell, or Transact-SQL.
+Select the tab for your preferred tool to migrate your database:
 
 # [Portal](#tab/azure-portal)
 
@@ -45,9 +47,14 @@ TODO: add portal steps and screenshots.
 
 # [Azure CLI](#tab/azure-cli)
 
+<!---
+TODO: find or create an article to link to for CLI setup so that it's also easy to link to from other examples and doesn't need to be repeated everywhere.
+
 [!INCLUDE [azure-cli-prepare-your-environment-h3.md](../../../includes/azure-cli-prepare-your-environment-h3.md)]
 
 [!INCLUDE [cli-launch-cloud-shell-sign-in.md](../../../includes/cli-launch-cloud-shell-sign-in.md)]
+--> 
+
 
 This sample code calls [az sql db update](/cli/azure/sql/db#az_sql_db_update) to migrate a database into the Hyperscale service tier. You must specify both the edition and service objective.
 
@@ -59,6 +66,7 @@ serverName="server01"
 databaseName="mySampleDatabase"
 
 az sql db update -g $resourceGroupName -s $serverName -n $databaseName --edition Hyperscale --service-objective HS_Gen5_4
+
 ```
 
 You can [monitor operations for a Hyperscale database](#monitor-operations-for-a-hyperscale-database) while the operation is ongoing.
@@ -71,11 +79,11 @@ Replace `$resourceGroupName`, `$serverName`, and `$databaseName` with the approp
 
 ```powershell-interactive
 $resourceGroupName = "myResourceGroup"
-$databaseName = "mySampleDatabase"
 $serverName = "server01"
+$databaseName = "mySampleDatabase"
 
-Set-AzSqlDatabase -ResourceGroupName $resourceGroupName -DatabaseName $databaseName `
-    -ServerName $serverName -Edition "Hyperscale" -RequestedServiceObjectiveName "HS_Gen5_4"
+Set-AzSqlDatabase -ResourceGroupName $resourceGroupName -ServerName $serverName -DatabaseName $databaseName -Edition "Hyperscale" -RequestedServiceObjectiveName "HS_Gen5_4"
+
 ```
 
 You can [monitor operations for a Hyperscale database](#monitor-operations-for-a-hyperscale-database) while the operation is ongoing.
