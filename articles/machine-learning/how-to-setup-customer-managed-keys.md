@@ -77,7 +77,7 @@ When you __use a customer-managed key__, these resources are _in your Azure subs
 > [!IMPORTANT]
 > When using a customer-managed key, the costs for your subscription will be higher because these resources are in your subscription. To estimate the cost, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/).
 
-## Bring your own resources (preview)
+### Bring your own resources (preview)
 
 When you create a workspace using a customer-managed key, there are two options:
 
@@ -99,7 +99,7 @@ Use cases for choosing to manage your own data resources include:
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
-## Using Microsoft-managed resources
+### Using Microsoft-managed resources
 
 If you use a customer-managed key and allow Microsoft to manage resources, a new Azure resource group is created. This is in addition to the resource group for your workspace. This resource group will contain the Microsoft-managed resources that your key is used with. The resource group will be named using the formula of `<Azure Machine Learning workspace resource group name><GUID>`.
 
@@ -114,7 +114,6 @@ If you use a customer-managed key and allow Microsoft to manage resources, a new
 > [!WARNING]
 > __Don't delete the resource group__ that contains this Azure Cosmos DB instance, or any of the resources automatically created in this group. If you need to delete the resource group or Microsoft-managed services in it, you must delete the Azure Machine Learning workspace that uses it. The resource group resources are deleted when the associated workspace is deleted.
 
-
 ## How compute data is stored
 
 TBD: Talk about how compute data is stored when you don't use a customer-managed key.
@@ -125,8 +124,8 @@ Azure Machine Learning uses compute resources to train and deploy machine learni
 | ----- | ----- |
 | Azure Container Instance | Data is encrypted by a Microsoft-managed key or a customer-managed key. |
 | Azure Kubernetes Service | Data is encrypted by a Microsoft-managed key or a customer-managed key. |
-| Azure Machine Learning compute instance | |
-| Azure Machine Learning compute cluster | |
+| Azure Machine Learning compute instance | Local scratch disk is encrypted if the `hbi_workspace` flag is enabled for the workspace. |
+| Azure Machine Learning compute cluster | No |
 
 For more information, see [Encrypt data with a customer-managed key](../container-instances/container-instances-encrypt-data.md).
 
