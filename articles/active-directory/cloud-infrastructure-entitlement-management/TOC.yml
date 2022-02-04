@@ -54,8 +54,6 @@
       items:
       - name: View and configure settings for data collection
         href: cloudknox-product-data-sources.md
-      - name: Add an authorization system for data collection
-        href: cloudknox-product-data-add-authorization-system.md
       - name: Display an inventory of created resources and licenses 
         href: cloudknox-product-data-inventory.md
     - name: Manage organizational and personal information
