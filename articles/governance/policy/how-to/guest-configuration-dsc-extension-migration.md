@@ -94,14 +94,14 @@ before you can create a guest configuration package.
 #### Update deployment templates
 
 If your deployment templates include the DSC extension
-(see [examples](../virtual-machines/extensions/dsc-template)),
+(see [examples](../virtual-machines/extensions/dsc-template.md)),
 there are two changes required.
 
 First, replace the DSC extension with the
-[extension for the guest configuration feature](../virtual-machines/extensions/guest-configuration).
+[extension for the guest configuration feature](../virtual-machines/extensions/guest-configuration.md).
 
 Then, add a
-[guest configuration assignment](../concepts/guest-configuration-assignments)
+[guest configuration assignment](../concepts/guest-configuration-assignments.md)
 that associates the new configuration package (and hash value) with the machine.
 
 #### Older "nx" modules for Linux DSC are not compatible with DSCv3
