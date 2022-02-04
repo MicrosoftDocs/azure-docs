@@ -6,7 +6,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: overview
 author: lgayhardt
-ms.author: lgayhar
+ms.author: lagayhar
 ms.date: 10/21/2021
 adobe-target: true
 ---

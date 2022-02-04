@@ -7,7 +7,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 author: lgayhardt
-ms.author: lgayhar
+ms.author: lagayhar
 ms.reviewer: cgronlun
 ms.date: 10/21/2021
 ---
