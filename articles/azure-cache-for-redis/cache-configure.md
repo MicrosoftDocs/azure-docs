@@ -5,7 +5,7 @@ author: flang-msft
 
 ms.service: cache
 ms.topic: conceptual
-ms.date: 08/22/2017
+ms.date: 02/02/2022
 ms.author: franlanglois 
 ms.custom: devx-track-azurepowershell
 
@@ -27,7 +27,7 @@ Azure Cache for Redis settings are viewed and configured on the **Azure Cache fo
 
 ![Azure Cache for Redis Settings](./media/cache-configure/redis-cache-settings.png)
 
-You can view and configure the following settings using the **Resource Menu**.
+You can view and configure the following settings using the **Resource Menu**. The settings that you see depend on the tier of your cache. For example, you don't see **Reboot** using the Enterprise tier.
 
 * [Overview](#overview)
 * [Activity log](#activity-log)
@@ -265,7 +265,7 @@ Select **Firewall** to view and configure firewall rules for cache.
 
 ![Firewall](./media/cache-configure/redis-firewall-rules.png)
 
-You can specify firewall rules with a start and end IP address range. When firewall rules are configured, only client connections from the specified IP address ranges can connect to the cache. When a firewall rule is saved, there is a short delay before the rule is effective. This delay is typically less than one minute.
+You can specify firewall rules with a start and end IP address range. When firewall rules are configured, only client connections from the specified IP address ranges can connect to the cache. When a firewall rule is saved, there's a short delay before the rule is effective. This delay is typically less than one minute.
 
 > [!IMPORTANT]
 > Connections from Azure Cache for Redis monitoring systems are always permitted, even if firewall rules are configured.
@@ -311,7 +311,7 @@ Export allows you to export the data stored in Azure Cache for Redis to Redis co
 
 ### Reboot
 
-The **Reboot** on the left allows you to reboot the nodes of your cache. This reboot capability enables you to test your application for resiliency if there is a failure of a cache node.
+The **Reboot** on the left allows you to reboot the nodes of your cache. This reboot capability enables you to test your application for resiliency if there's a failure of a cache node.
 
 ![Reboot](./media/cache-configure/redis-cache-reboot.png)
 
@@ -322,7 +322,7 @@ If you have a premium cache with clustering enabled, you can select which shards
 To reboot one or more nodes of your cache, select the desired nodes and select **Reboot**. If you have a premium cache with clustering enabled, select the shard(s) to reboot and then select **Reboot**. After a few minutes, the selected node(s) reboot, and are back online a few minutes later.
 
 > [!IMPORTANT]
-> Reboot is now available for all pricing tiers. For more information and instructions, see [Azure Cache for Redis administration - Reboot](cache-administration.md#reboot).
+> Reboot is available for Standard and Premium tiers. It is not available for the Enterprise tier. For more information and instructions, see [Azure Cache for Redis administration - Reboot](cache-administration.md#reboot).
 >
 >
 
@@ -397,7 +397,7 @@ New Azure Cache for Redis instances are configured with the following default Re
 | `maxmemory-samples` |3 |To save memory, LRU and minimal TTL algorithms are approximated algorithms instead of precise algorithms. By default Redis checks three keys and picks the one that was used less recently. |
 | `lua-time-limit` |5,000 |Max execution time of a Lua script in milliseconds. If the maximum execution time is reached, Redis logs that a script is still in execution after the maximum allowed time, and starts to reply to queries with an error. |
 | `lua-event-limit` |500 |Max size of script event queue. |
-| `client-output-buffer-limit` `normalclient-output-buffer-limit` `pubsub` |0 0 032mb 8mb 60 |The client output buffer limits can be used to force disconnection of clients that are not reading data from the server fast enough for some reason. A common reason is that a Pub/Sub client can't consume messages as fast as the publisher can produce them. For more information, see [https://redis.io/topics/clients](https://redis.io/topics/clients). |
+| `client-output-buffer-limit` `normalclient-output-buffer-limit` `pubsub` |0 0 032mb 8 mb 60 |The client output buffer limits can be used to force disconnection of clients that aren't reading data from the server fast enough for some reason. A common reason is that a Pub/Sub client can't consume messages as fast as the publisher can produce them. For more information, see [https://redis.io/topics/clients](https://redis.io/topics/clients). |
 
 <a name="databases"></a>
 
@@ -416,7 +416,7 @@ New Azure Cache for Redis instances are configured with the following default Re
   * P2 (13 GB - 130 GB) - up to 32 databases
   * P3 (26 GB - 260 GB) - up to 48 databases
   * P4 (53 GB - 530 GB) - up to 64 databases
-  * All premium caches with Redis cluster enabled - Redis cluster only supports use of database 0 so the `databases` limit for any premium cache with Redis cluster enabled is effectively 1 and the [Select](https://redis.io/commands/select) command is not allowed. For more information, see [Do I need to make any changes to my client application to use clustering?](cache-how-to-premium-clustering.md#do-i-need-to-make-any-changes-to-my-client-application-to-use-clustering)
+  * All premium caches with Redis cluster enabled - Redis cluster only supports use of database 0 so the `databases` limit for any premium cache with Redis cluster enabled is effectively 1 and the [Select](https://redis.io/commands/select) command isn't allowed. For more information, see [Do I need to make any changes to my client application to use clustering?](cache-how-to-premium-clustering.md#do-i-need-to-make-any-changes-to-my-client-application-to-use-clustering)
 
 For more information about databases, see [What are Redis databases?](cache-development-faq.yml#what-are-redis-databases-)
 

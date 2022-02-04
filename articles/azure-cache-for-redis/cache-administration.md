@@ -19,6 +19,11 @@ This article describes how to do administration tasks such as [rebooting](#reboo
 
 On the left, **Reboot** allows you to reboot one or more nodes of your cache. This reboot capability enables you to test your application for resiliency if there's a failure of a cache node.
 
+> [!IMPORTANT]
+> Reboot is available for Standard and Premium tiers. It is not available for the Enterprise tier. 
+>
+>
+
 :::image type="content" source="media/cache-administration/cache-administration-reboot-2.png" alt-text="Screenshot that highlights the Reboot menu option":::
 
 Select the nodes to reboot and select **Reboot**.
@@ -44,6 +49,7 @@ The effect on your client applications varies depending on which nodes you reboo
 * [Can I reboot the cache to clear client connections?](#can-i-reboot-the-cache-to-clear-client-connections)
 * [Will I lose data from my cache if I do a reboot?](#will-i-lose-data-from-my-cache-if-i-do-a-reboot)
 * [Can I reboot my cache using PowerShell, CLI, or other management tools?](#can-i-reboot-my-cache-using-powershell-cli-or-other-management-tools)
+* [Can I reboot my Enterprise cache?]
 
 ### Which node should I reboot to test my application?
 
@@ -67,6 +73,10 @@ If you reboot just one of the nodes, data isn't typically lost, but it still mig
 ### Can I reboot my cache using PowerShell, CLI, or other management tools?
 
 Yes, for PowerShell instructions see [To reboot an Azure Cache for Redis](cache-how-to-manage-redis-cache-powershell.md#to-reboot-an-azure-cache-for-redis).
+
+### Can I reboot my Enterprise cache?
+
+No. Reboot is only available for Standard and Premium tiers. It isn't available for the Enterprise tier. The settings that you see on the Resource menu under **Administration** depend on the tier of your cache. You don't see **Reboot** using cache from the Enterprise tier.
 
 ## Schedule updates
 
