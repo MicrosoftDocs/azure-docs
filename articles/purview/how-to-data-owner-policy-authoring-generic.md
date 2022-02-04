@@ -52,7 +52,7 @@ Once you have your resource registered, follow these steps to enable an individu
 
 1. Enable the data source for access policies in Azure Purview by setting the **Data use governance** toggle to **Enabled**, as shown in the image below.
 
-    :::image type="content" source="./media/tutorial-data-owner-policies-storage/register-data-source-for-policy-storage.png" alt-text="Set Data use governance toggle to enabled at the bottom of the menu.":::
+    :::image type="content" source="./media/tutorial-data-owner-policies-storage/register-data-source-for-policy-storage.png" alt-text="Set Data use governance toggle to **Enabled** at the bottom of the menu.":::
 
 > [!WARNING]
 > **Known issues** related to source registration:
@@ -60,15 +60,15 @@ Once you have your resource registered, follow these steps to enable an individu
 > - Moving data sources to a different resource group or subscription is not yet supported. If want to do that, de-register the data source in Azure Purview before moving it and then register it again after that happens.
 > - Once a subscription gets disabled for *Data use governance* any underlying assets that are enabled for *Data use governance* will be disabled, which is the right behavior. However, policy statements based on those assets will still be allowed after that.
 
-Now that you have enabled your resource for access policies, you can [create your access policies](#create-a-new-policy).
+Now that you've enabled your resource for access policies, you can [create your access policies](#create-a-new-policy).
 
 ## Create policies for resource groups or subscriptions
 
-A data owner can leverage Azure Purview to enable access to ALL data sources in a subscription or a resource group. This can be achieved through a single policy statement, and will cover all existing data sources, as well as data sources that are created afterwards.
+A data owner can use Azure Purview to enable access to ALL data sources in a subscription or a resource group. This can be achieved through a single policy statement, and will cover all existing data sources, and data sources that are created afterwards.
 
-To create a policy for a resource group, Azure Purview will need permissions to list resources in a subsciption or group, then the subscription or group will need to be registered as a source.
+To create a policy for a resource group, Azure Purview will need permissions to list resources in a subscription or group, then the subscription or group will need to be registered as a source.
 
-To create an access policy across a resouce group or subscription, follow these instructions:
+To create an access policy across a resource group or subscription, follow these instructions:
 
 [!INCLUDE [Permissions to list resources](./includes/authentication-to-enumerate-resources.md)]
 
@@ -86,7 +86,7 @@ To create an access policy across a resouce group or subscription, follow these 
 
 1. Enable the data source for access policies in Azure Purview by setting the **Data use governance** toggle to **Enabled**, as shown in the image below.
 
-   :::image type="content" source="./media/tutorial-data-owner-policies-storage/register-data-source-for-policy-storage.png" alt-text="Set Data use governance toggle to enabled at the bottom of the menu.":::
+   :::image type="content" source="./media/tutorial-data-owner-policies-storage/register-data-source-for-policy-storage.png" alt-text="Set Data use governance toggle to 'Enabled' at the bottom of the menu.":::
 
 1. Enable the resource group or the subscription for access policies in Azure Purview by setting the **Data use governance** toggle to **Enabled**, as shown in the picture.
 
@@ -95,13 +95,13 @@ To create an access policy across a resouce group or subscription, follow these 
 >[!IMPORTANT]
 >Make sure you write down the **Name** you use when registering in Azure Purview. You will need it when you publish a policy. The recommended practice is to make the registered name exactly the same as the endpoint name.
 
-Now that you have enabled your resource for access policies, you can [create your access policies](#create-a-new-policy).
+Now that you've enabled your resource for access policies, you can [create your access policies](#create-a-new-policy).
 
 ## Disable policies
 
 To disable access policies for a source, resource group, or subscription, a user needs to either be a data source **Owner** or an Azure Purview **Data source admin**. Once you have those permissions follow these steps:
 
-1. Remove the source from any currently existing access policies. If the source is listed in any current policies, you wil not be able to disable it.
+1. Remove the source from any currently existing access policies. If the source is listed in any current policies, you won't be able to disable it.
 
 1. Then, to disable the source, select the **Data map** tab in the left menu.
 
@@ -146,7 +146,7 @@ This section describes the steps to create a new policy in Azure Purview.
 
     :::image type="content" source="./media/access-policies-common/select-data-source-type.png" alt-text="Data owner can select a Data Resource when editing a policy statement.":::
 
-1. Select the **Continue** button and transverse the hierarchy to select and underlying data-object (e.g. folder, file, etc).  Select **Recursive** to apply the policy from that point in the hierarchy down to any child data-objects. Then select the **Add** button. This will take you back to the policy editor.
+1. Select the **Continue** button and transverse the hierarchy to select and underlying data-object (for example: folder, file, etc.).  Select **Recursive** to apply the policy from that point in the hierarchy down to any child data-objects. Then select the **Add** button. This will take you back to the policy editor.
 
     :::image type="content" source="./media/access-policies-common/select-asset.png" alt-text="Data owner can select the asset when creating or editing a policy statement.":::
 
