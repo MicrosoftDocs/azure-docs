@@ -123,11 +123,11 @@ A comma-delimited list of beta features to enable. Beta features enabled by thes
 
 ## AzureWebJobsSecretStorageType
 
-Specifies the repository or provider to use for key storage. Currently, the supported repositories are blob storage ("Blob") and the local file system ("Files"). The default is blob in version 2 and file system in version 1.
+Specifies the repository or provider to use for key storage. See [Security concepts](security-concepts.md) and [Secret Repositories](security-concepts.md#secret-repositories) for information on the supported repositories. The default is file system in version 1 and blob in later versions.
 
 |Key|Sample value|
 |---|------------|
-|AzureWebJobsSecretStorageType|Files|
+|AzureWebJobsSecretStorageType|blob|
 
 ## AzureWebJobsStorage
 
