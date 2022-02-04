@@ -10,8 +10,6 @@ ms.author: aahi
 ms.custom: ignite-fall-2021
 ---
 
-Once your resource and storage container are configured, create a new custom NER project. A project is a work area for building your custom AI models based on your data. Your project can only be accessed by you and others who have contributor access to the Azure resource being used.
-
 1. Sign into the [Language Studio portal](https://aka.ms/languageStudio). A window will appear to let you select your subscription and Language resource. Select the resource you created in the above step. 
 
 2. Find the **Entity extraction** section, and select **Custom named entity recognition** from the available services.
@@ -19,7 +17,7 @@ Once your resource and storage container are configured, create a new custom NER
 3. Select **Create new project** from the top menu in your projects page. Creating a project will let you tag data, train, evaluate, improve, and deploy your models. 
 
     >[!NOTE]
-    > If your dataset contains files of different languages or if you expect different languages during runtime, you can enable the multi-lingual option.
+    > Your dataset doesn't have to be entirely in the same language. You can have multiple files, each with different supported languages. If your dataset contains files of different languages or if you expect different languages during runtime, you can enable the multi-lingual option.
     
     :::image type="content" source="../media/create-project.png" alt-text="A screenshot of the project creation page." lightbox="../media/create-project.png":::
 
@@ -37,5 +35,3 @@ Once your resource and storage container are configured, create a new custom NER
 <!--If you're using a preexisting resource, see [creating Azure resources](../concepts/use-azure-resources.md). When you are done, select **Next**.--> 
 
 5. Enter the project information, including a name, description, and the language of the files in your project. You will not be able to change the name of your project later. 
-
-6. Review the data you entered and select **Create Project**.
