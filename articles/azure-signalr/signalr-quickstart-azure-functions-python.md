@@ -1,8 +1,8 @@
 ---
 title: Azure SignalR Service serverless quickstart - Python
 description: A quickstart for using Azure SignalR Service and Azure Functions to create an App showing GitHub star count using Python.
-author: anthonychu
-ms.author: antchu
+author: vicancy
+author: lianwei
 ms.date: 06/09/2021
 ms.topic: quickstart
 ms.service: signalr

@@ -1,12 +1,12 @@
 ---
 title: Create SignalR Service with App Service using Azure CLI
 description: Use Azure CLI to create SignalR Service with App Service. Learn all CLI commands for Azure SignalR Service.
-author: sffamily
+author: vicancy
 ms.service: signalr
 ms.devlang: azurecli
 ms.topic: sample
 ms.date: 11/13/2018
-ms.author: zhshang
+author: lianwei
 ms.custom: mvc, devx-track-azurecli
 ---
 

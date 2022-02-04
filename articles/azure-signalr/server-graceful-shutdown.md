@@ -1,9 +1,9 @@
 ---
 title: Stop your app server gracefully.
 description: This article provides information about gracefully shutdown SignalR app server
-author: terencefan
+author: vicancy
 
-ms.author: tefa
+author: lianwei
 ms.date: 08/16/2021
 ms.service: signalr
 ms.topic: conceptual

@@ -1,9 +1,9 @@
 ---
 title: Authorize request to SignalR resources with Azure AD from managed identities
 description: This article provides information about authorizing request to SignalR resources with Azure AD from managed identities
-author: terencefan
+author: vicancy
 
-ms.author: tefa
+author: lianwei
 ms.date: 09/06/2021
 ms.service: signalr
 ms.topic: conceptual

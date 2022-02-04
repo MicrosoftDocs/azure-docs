@@ -1,11 +1,11 @@
 ---
 title: Upstream settings in Azure SignalR Service
 description: Get an introduction of upstream settings and protocols of upstream messages.
-author: chenyl
+author: vicancy
 ms.service: signalr
 ms.topic: conceptual
 ms.date: 06/11/2020
-ms.author: chenyl
+author: lianwei
 ---
 
 # Upstream settings

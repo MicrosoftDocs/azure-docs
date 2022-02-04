@@ -1,8 +1,8 @@
 ---
 title: Use JavaScript to create a chat room with Azure Functions and SignalR Service
 description: A quickstart for using Azure SignalR Service and Azure Functions to create an App showing GitHub star count using JavaScript.
-author: sffamily
-ms.author: zhshang
+author: vicancy
+author: lianwei
 ms.date: 06/09/2021
 ms.topic: quickstart
 ms.service: signalr
