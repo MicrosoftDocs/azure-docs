@@ -16,14 +16,9 @@ ms.custom: subject-rbac-steps, references_regions
 
 Azure provides a global [role-based access control (RBAC) authorization system](../role-based-access-control/role-assignments-portal.md) for all services running on the platform. In Cognitive Search, you can:
 
-+ Use generally available roles for service administration.
++ Use generally available roles for service administration
 
-+ Use new preview roles for data requests, including creating, loading, and querying indexes.
-
-> [!NOTE]
-> Search Service Contributor is a "generally available" role that has "preview" capabilities. It's the only role that supports a true hybrid of service and content management tasks, allowing all operations on a given search service. To get the preview capabilities of content management on this role, [**sign up for the preview**](#step-1-preview-sign-up).
-
-There are no regional, tier, or pricing restrictions for using Azure RBAC on Azure Cognitive Search, but your search service must be in the Azure public cloud.
++ Use new preview roles for data requests, including creating, loading, and querying indexes
 
 Per-user access over search results (sometimes referred to as row-level security or document-level security) is not supported. As a workaround, you can create [security filters](search-security-trimming-for-azure-search.md) that trim results by user identity, removing documents for which the requestor should not have access.
 
@@ -45,7 +40,7 @@ Built-in roles include generally available and preview roles, whose assigned mem
 
 ## Preview limitations
 
-+ The Azure RBAC preview is currently only available in Azure public cloud regions and isn't available in Azure Government, Azure Germany, or Azure China 21Vianet.
++ There are no regional, tier, or pricing restrictions for using Azure RBAC preview , but your search service must be in the Azure public cloud. The preview isn't available in Azure Government, Azure Germany, or Azure China 21Vianet.
 
 + This preview capability is available under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) and should not be rolled into a production environment.
 
@@ -54,6 +49,8 @@ Built-in roles include generally available and preview roles, whose assigned mem
 + Adoption of Azure RBAC might increase the latency of some requests. Each unique combination of service resource (index, indexer, etc.) and service principal used on a request will trigger an authorization check. These authorization checks can add up to 200 milliseconds of latency to a request. 
 
 + In rare cases where requests originate from a high number of different service principals, all targeting different service resources (indexes, indexers, etc.), it's possible for the authorization checks to result in throttling. Throttling would only happen if hundreds of unique combinations of search service resource and service principal were used within a second.
+
+<a name="#step-1-preview-sign-up"></a>
 
 ## Preview sign-up
 
@@ -73,6 +70,8 @@ You can also sign up for the preview using Azure Feature Exposure Control (AFEC)
 
 > [!NOTE]
 > Once you add the preview to your subscription, all services in the subscription will be permanently enrolled in the preview. If you don't want RBAC on a given service, you can disable RBAC for data plane operations as described in a later section.
+
+<a name="#step-2-preview-configuration"></a>
 
 ## Enable RBAC preview for data plane operations
 
@@ -124,14 +123,14 @@ If you are using Postman or another web testing tool, see the Tip below for help
    }
     ```
 
-1. [Assign roles](#assign-roles) on the service and verify they are working correctly against the data plane.
+1. [Assign roles](#step-3-assign-roles) on the service and verify they are working correctly against the data plane.
 
 > [!TIP]
 > Management REST API calls are authenticated through Azure Active Directory. For guidance on setting up a security principle and a request, see this blog post [Azure REST APIs with Postman (2021)](https://blog.jongallant.com/2021/02/azure-rest-apis-postman-2021/). The previous example was tested using the instructions and Postman collection provided in the blog post.
 
 ---
 
-<a name="assign-roles"></a>
+<a name="#step-3-assign-roles"></a>
 
 ## Assign roles
 
