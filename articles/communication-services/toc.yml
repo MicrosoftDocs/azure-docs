@@ -102,7 +102,7 @@ items:
     - name: Authenticating services
       href: concepts/authentication.md
     - name: Credentials best practices
-      href: concepts/identity-best-practices.md
+      href: concepts/credentials-best-practices.md
   - name: Chat
     items:
       - name: Chat SDK overview

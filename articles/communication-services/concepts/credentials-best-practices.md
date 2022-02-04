@@ -1,5 +1,5 @@
 ---
-title: Azure Communication Services - Identity best practices
+title: Azure Communication Services - Credentials best practices
 description: Learn more about the best practices for managing User Access Tokens in SDKs
 author: petrsvihlik
 manager: soricos
@@ -9,11 +9,12 @@ ms.author: petrsvihlik
 ms.date: 01/30/2022
 ms.topic: conceptual
 ms.service: azure-communication-services
+#Customer intent: As a developer, I want learn how to correctly handle Credential objects so that I can build applications that run efficiently.
 ---
 
-# Best practices: Managing credentials in Azure Communication Services SDKs
+# Credentials in Communication SDKs
 
-This article provides information about best practices related to managing [User Access Tokens](./authentication.md#user-access-tokens).
+This article provides information about best practices related to managing [User Access Tokens](./authentication.md#user-access-tokens) in Azure Communication Services SDKs. Following this guidance will help you optimize the resources used by your application and reduce the number of roundtrips to the Azure Communication Identity API.
 
 ## Communication Token Credential
 
@@ -269,3 +270,17 @@ tokenCredential.dispose()
 ```
 
 ---
+
+## Next steps
+
+In this article, you learned how to:
+
+> [!div class="checklist"]
+> * Correctly initialize and dispose of a Credential object
+> * Implement a token refresher callback
+> * Optimize your token refreshing logic
+
+To learn more, you may want to explore the following quickstart guides:
+
+* [Create and manage access tokens](../quickstarts/access-tokens.md)
+* [Manage access tokens for Teams users](../quickstarts/manage-teams-identity.md)
