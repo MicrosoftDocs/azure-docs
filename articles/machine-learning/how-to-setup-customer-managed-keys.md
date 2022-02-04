@@ -126,6 +126,7 @@ Azure Machine Learning uses compute resources to train and deploy machine learni
 | Azure Kubernetes Service | Data is encrypted by a Microsoft-managed key or a customer-managed key. |
 | Azure Machine Learning compute instance | Local scratch disk is encrypted if the `hbi_workspace` flag is enabled for the workspace. |
 | Azure Machine Learning compute cluster | No |
+| Managed online endpoints/batch | [Is this planned/wanted by customers?] |
 
 For more information, see [Encrypt data with a customer-managed key](../container-instances/container-instances-encrypt-data.md).
 
@@ -143,7 +144,11 @@ To enable the `hbi_workspace` flag when creating an Azure Machine Learning works
 
 ## How to rotate keys
 
+[TODO: Waiting on more info for key rotation story. Current info as placeholder for now.]
+
 * Cosmos DB: If you need to __rotate or revoke__ your key, you can do so at any time. When rotating a key, Cosmos DB will start using the new key (latest version) to encrypt data at rest. When revoking (disabling) a key, Cosmos DB takes care of failing requests. It usually takes an hour for the rotation or revocation to be effective.
+
+### Auto-rotation
 
 ## Next Steps
 
