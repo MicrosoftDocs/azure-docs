@@ -158,7 +158,7 @@ Some of these are global settings so can be re-used for publishing more applicat
 
 4. Before you select **Next**, confirm that BIG-IP can successfully connect to your tenant.
 
-   ![ Screenshot for Configuration General and Service Account properties](./media/f5-big-ip-easy-button-oraclejde/configuration-general-and-service-account-properties.png)
+   ![Screenshot for Configuration General and Service Account properties](./media/f5-big-ip-easy-button-oraclejde/configuration-general-and-service-account-properties.png)
    
 ### Service Provider
 
@@ -273,7 +273,7 @@ The **Application Pool tab** details the services behind a BIG-IP, represented a
 
 3. Update the **Pool Servers**. Select an existing node or specify an IP and port for the servers hosting the Oracle JDE application.
 
-   ![Screenshot for Application pool](./media f5-big-ip-easy-button-ldap/application-pool.png)
+   ![Screenshot for Application pool](./media/f5-big-ip-easy-button-ldap/application-pool.png)
 
 #### Single Sign-On & HTTP Headers
 
@@ -283,7 +283,7 @@ The **Easy Button wizard** supports Kerberos, OAuth Bearer, and HTTP authorizati
 * **Header Name:** JDE_SSO_UID
 * **Header Value:** %{session.sso.token.last.username}
 
- ![ Screenshot for SSO and HTTP headers](./media/ f5-big-ip-easy-button-oraclejde/sso-and-http-headers.png)
+ ![Screenshot for SSO and HTTP headers](./media/f5-big-ip-easy-button-oraclejde/sso-and-http-headers.png)
 
 >[!NOTE] 
 >APM session variables defined within curly brackets are CASE sensitive. If you enter OrclGUID when the Azure AD attribute name is being defined as orclguid, it will cause an attribute mapping failure.
@@ -308,7 +308,7 @@ For increased security, organizations using this pattern could also consider blo
 
 ## Advanced deployment
 
-There may be cases where the Guided Configuration templates lack the flexibility to achieve more specific requirements. For those scenarios, see ![Advanced Configuration for headers-based SSO](./f5-big-ip-header-advanced.md). Alternatively, the BIG-IP gives the option to disable **Guided Configuration’s strict management mode**. This allows you to manually tweak your configurations, even though bulk of your configurations are automated through the wizard-based templates.
+There may be cases where the Guided Configuration templates lack the flexibility to achieve more specific requirements. For those scenarios, see [Advanced Configuration for headers-based SSO](./f5-big-ip-header-advanced.md). Alternatively, the BIG-IP gives the option to disable **Guided Configuration’s strict management mode**. This allows you to manually tweak your configurations, even though bulk of your configurations are automated through the wizard-based templates.
 
 You can navigate to **Access > Guided Configuration** and select the **small padlock icon** on the far right of the row for your applications’ configs. 
 
