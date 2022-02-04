@@ -460,7 +460,7 @@ The settings required by a function app running in Premium plan differ between W
 }
 ```
 > [!IMPORTANT]
-> Do not need to set the [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare) setting as it's generated for you when the site is first created.
+> You don't need to set the [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare) setting because it's generated for you when the site is first created.
 
 # [Linux](#tab/Linux)
 
