@@ -24,9 +24,7 @@ This article explains how to:
 
 * Deprovision/delete a custom IP prefix
 
-<!--Commenting these until all files are in the branch
-For information on how to onboard a custom IP prefix, see the guides for creation of a custom IP prefix using [PowerShell](create-custom-ip-address-prefix-powershell.md) or [CLI](create-custom-ip-address-prefix-cli.md).
--->
+For information on provisioning a IP address, [Create a custom IP address prefix (BYOIP) Preview - Azure PowerShell](create-custom-ip-address-prefix-powershell.md) or [Create a custom IP address prefix (BYOIP) Preview - Azure CLI](create-custom-ip-address-prefix-cli.md).
 
 > [!IMPORTANT]
 > Custom IP address prefix (BYOIP) is currently in PREVIEW.
