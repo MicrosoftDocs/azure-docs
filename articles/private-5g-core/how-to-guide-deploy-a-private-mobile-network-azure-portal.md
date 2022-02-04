@@ -1,6 +1,7 @@
 ---
-title: Deploy a private mobile network - Azure portal
-description: Learn how to deploy a private mobile network through Azure Private 5G Core Preview using the Azure portal 
+title: Deploy a private mobile network
+titlesuffix: Azure Private 5G Core Preview
+description: This how-to guide shows how to deploy a private mobile network through Azure Private 5G Core Preview using the Azure portal 
 author: djrmetaswitch
 ms.author: drichards
 ms.service: private-5g-core
