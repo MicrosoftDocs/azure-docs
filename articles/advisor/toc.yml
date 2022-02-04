@@ -29,16 +29,10 @@
     href: ./resource-graph-samples.md
 - name: How-to guides
   items:
-  - name: Reliability
-    href: advisor-high-availability-recommendations.md
   - name: Security
     href: advisor-security-recommendations.md
-  - name: Performance efficiency
-    href: advisor-performance-recommendations.md
-  - name: Cost optimization
+  - name: Optimize costs
     href: advisor-cost-recommendations.md
-  - name: Operational excellence
-    href: advisor-operational-excellence-recommendations.md
   - name: Configure recommendations
     href: view-recommendations.md
   - name: Permissions and blocked actions
@@ -69,14 +63,14 @@
     href: /powershell/module/az.advisor/
   - name: Recommendations
     items:
+    - name: Cost
+      href: advisor-reference-cost-recommendations.md
     - name: Operational Excellence
       href: advisor-reference-operational-excellence-recommendations.md
     - name: Performance
       href: advisor-reference-performance-recommendations.md
     - name: Reliability
       href: advisor-reference-reliability-recommendations.md
-    - name: Cost
-      href: advisor-reference-cost-recommendations.md
 - name: Resources
   items:
   - name: Azure Roadmap
