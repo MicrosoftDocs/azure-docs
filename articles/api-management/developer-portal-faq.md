@@ -8,7 +8,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: troubleshooting
-ms.date: 02/02/2022
+ms.date: 02/04/2022
 ms.author: danlep 
 ms.custom: devx-track-azurepowershell
 ---
@@ -198,11 +198,12 @@ You can generate *user-specific tokens* (including admin tokens) using the [Get 
 
 ## How do I add custom HTML to my developer portal?
 
-The managed developer portal includes a **Custom HTML code** widget that enables you to insert HTML code for small portal customizations. For example, use custom HTML to embed a video or to add a form. The portal renders the custom widget in an inline frame (iFrame). 
+The managed developer portal includes a **Custom HTML code** widget that enables you to insert HTML code for small portal customizations. For example, use custom HTML to embed a video or to add a form. The portal renders the custom widget in an inline frame (iframe). 
   
 1. In the administrative interface for the developer portal, go to the page or section where you want to insert the widget. 
 1. Select the grey "plus" (**+**) icon that appears when you hover the pointer over the page.
 1. In the **Add widget** window, select **Custom HTML code**.
+    
     :::image type="content" source="media/developer-portal-faq/add-custom-html-code-widget.png" alt-text="Add widget for custom HTML code":::
 1. Select the "pencil" icon to customize the widget.
 1. Enter a **Width** and **Height** (in pixels) for the widget.
