@@ -1,6 +1,6 @@
 ---
 description: In this tutorial, you learn how to use the Calling composite on Android
-author: pprystinka
+author: pavelprystinka
 
 ms.author: pprystinka
 ms.date: 10/10/2021
