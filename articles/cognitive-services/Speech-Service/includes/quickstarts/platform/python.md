@@ -25,7 +25,7 @@ Before you install the Python Speech SDK, make sure you have the following prere
 
 - On Linux, see the [system requirements and setup instructions](~/articles/cognitive-services/speech-service/speech-sdk.md#get-the-speech-sdk).
 
-- Install a version of [Python from 3.6 to 3.9](https://www.python.org/downloads/). The minimum Python version on macOS is 3.7. Select **Add Python to your PATH** during the installation process on Windows. To check your installation, open a terminal and run the command `python --version`. If it's installed properly, you'll get a response like `Python 3.8.8`.
+- Install a version of [Python from 3.7 to 3.10](https://www.python.org/downloads/). The minimum Python version on macOS is 3.7. Select **Add Python to your PATH** during the installation process on Windows. To check your installation, open a terminal and run the command `python --version`. If it's installed properly, you'll get a response like "Python 3.8.8".
 
 > [!IMPORTANT]
 > Make sure that packages of the same platform (x64 or x86) are installed. For example, if you install the x64 redistributable package, then you need to install the x64 package for Python. 

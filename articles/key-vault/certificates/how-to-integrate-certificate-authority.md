@@ -168,7 +168,7 @@ Error message: "Please perform a merge to complete this certificate request."
    
 Merge the CSR signed by the certificate authority to complete the request. For information about merging a CSR, see [Create and merge a CSR](./create-certificate-signing-request.md).
 
-For more information, see [Certificate operations in the Key Vault REST API reference](/rest/api/keyvault). For information on establishing permissions, see [Vaults - Create or update](/rest/api/keyvault/vaults/createorupdate) and [Vaults - Update access policy](/rest/api/keyvault/vaults/updateaccesspolicy).
+For more information, see [Certificate operations in the Key Vault REST API reference](/rest/api/keyvault). For information on establishing permissions, see [Vaults - Create or update](/rest/api/keyvault/keyvault/vaults/create-or-update) and [Vaults - Update access policy](/rest/api/keyvault/keyvault/vaults/update-access-policy).
 
 ## Frequently asked questions
 

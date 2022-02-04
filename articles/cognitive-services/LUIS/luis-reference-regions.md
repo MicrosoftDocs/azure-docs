@@ -19,8 +19,6 @@ LUIS authoring regions are supported by the LUIS portal. To publish a LUIS app t
 
 ## LUIS Authoring regions
 
-[!INCLUDE [portal consolidation](includes/portal-consolidation.md)]
-
 LUIS has the following authoring regions available:
 	
 * Australia east
@@ -49,6 +47,17 @@ The authoring region app can only be published to a corresponding publish region
 > [!NOTE]
 > LUIS apps created on https://www.luis.ai can now be published to all endpoints including the [European](#publishing-to-europe) and [Australian](#publishing-to-australia) regions.
 
+## Single data residency
+
+The following publishing regions do not have a backup region:
+
+* Brazil South
+* Southeast Asia
+
+> [!Note]
+> Make sure to set `log=false` for [V3 APIs](https://westus.dev.cognitive.microsoft.com/docs/services/luis-endpoint-api-v3-0/operations/5cb0a91e54c9db63d589f433) to disable active learning. By default this value is `false`, to ensure that data does not leave the boundaries of the publishing region. If `log=true`, data is returned to the authoring region for active learning even if it is one of the single publishing regions.
+
+
 ## Publishing to Europe
 
  Global region | Authoring API region | Publishing & querying region<br>`API region name`   |  Endpoint URL format   |
@@ -75,6 +84,7 @@ The authoring region app can only be published to a corresponding publish region
 | Asia | `westus`<br>[www.luis.ai][www.luis.ai]| East Asia<br>`eastasia`     |  `https://eastasia.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY` |
 | Asia | `westus`<br>[www.luis.ai][www.luis.ai]| Japan East<br>`japaneast`     |   `https://japaneast.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY` |
 | Asia | `westus`<br>[www.luis.ai][www.luis.ai]| Japan West<br>`japanwest`     |   `https://japanwest.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY` |
+| Asia | `westus`<br>[www.luis.ai][www.luis.ai]| Jio India West<br>`jioindiawest`     |   `https://jioindiawest.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY` |
 | Asia | `westus`<br>[www.luis.ai][www.luis.ai]| Korea Central<br>`koreacentral`     |   `https://koreacentral.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY` |
 | Asia | `westus`<br>[www.luis.ai][www.luis.ai]| Southeast Asia<br>`southeastasia`     |   `https://southeastasia.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY` |
 | Asia | `westus`<br>[www.luis.ai][www.luis.ai]| North UAE<br>`northuae`     |   `https://northuae.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY` |
@@ -102,7 +112,7 @@ Authoring regions have [paired fail-over regions](../../availability-zones/cross
 
 ## Next steps
 
-> [!div class="nextstepaction"]
+
 > [Prebuilt entities reference](./luis-reference-prebuilt-entities.md)
 
  [www.luis.ai]: https://www.luis.ai
