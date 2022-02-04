@@ -49,7 +49,7 @@ Learn more about [Disk - DeleteOrDowngradeUnattachedDisks (You have disks which 
 
 ### Right-size underutilized MariaDB servers
 
-Our internal telemetry shows that the MariaDB database server resources has been underutilized for an extended period of time over the last 7 days. Low resource utilization results in unwanted expenditure which can be fixed without significant performance impact. To reduce your costs and efficiently manage your resources, we recommend reducing the compute size (vCores) by half.
+Our internal telemetry shows that the MariaDB database server resources have been underutilized for an extended period of time over the last 7 days. Low resource utilization results in unwanted expenditure which can be fixed without significant performance impact. To reduce your costs and efficiently manage your resources, we recommend reducing the compute size (vCores) by half.
 
 Learn more about [MariaDB server - OrcasMariaDbCpuRightSize (Right-size underutilized MariaDB servers)](https://aka.ms/mariadbpricing).
 
@@ -57,7 +57,7 @@ Learn more about [MariaDB server - OrcasMariaDbCpuRightSize (Right-size underuti
 
 ### Right-size underutilized MySQL servers
 
-Our internal telemetry shows that the MySQL database server resources has been underutilized for an extended period of time over the last 7 days. Low resource utilization results in unwanted expenditure which can be fixed without significant performance impact. To reduce your costs and efficiently manage your resources, we recommend reducing the compute size (vCores) by half.
+Our internal telemetry shows that the MySQL database server resources have been underutilized for an extended period of time over the last 7 days. Low resource utilization results in unwanted expenditure which can be fixed without significant performance impact. To reduce your costs and efficiently manage your resources, we recommend reducing the compute size (vCores) by half.
 
 Learn more about [MySQL server - OrcasMySQLCpuRightSize (Right-size underutilized MySQL servers)](https://aka.ms/mysqlpricing).
 
@@ -65,7 +65,7 @@ Learn more about [MySQL server - OrcasMySQLCpuRightSize (Right-size underutilize
 
 ### Right-size underutilized PostgreSQL servers
 
-Our internal telemetry shows that the PostgreSQL database server resources has been underutilized for an extended period of time over the last 7 days. Low resource utilization results in unwanted expenditure which can be fixed without significant performance impact. To reduce your costs and efficiently manage your resources, we recommend reducing the compute size (vCores) by half.
+Our internal telemetry shows that the PostgreSQL database server resources have been underutilized for an extended period of time over the last 7 days. Low resource utilization results in unwanted expenditure which can be fixed without significant performance impact. To reduce your costs and efficiently manage your resources, we recommend reducing the compute size (vCores) by half.
 
 Learn more about [PostgreSQL server - OrcasPostgreSqlCpuRightSize (Right-size underutilized PostgreSQL servers)](https://aka.ms/postgresqlpricing).
 
@@ -143,7 +143,7 @@ Learn more about [ExpressRoute circuit - ExpressRouteCircuit (Delete ExpressRout
 
 ### Repurpose or delete idle virtual network gateways
 
-We noticed that your virtual network gateway has been idle for over 90 days. This gateway is being billed hourly. You may want to reconfigure this gateway, or delete it if you do not intend to use it any more.
+We noticed that your virtual network gateway has been idle for over 90 days. This gateway is being billed hourly. You may want to reconfigure this gateway, or delete it if you do not intend to use it anymore.
 
 Learn more about [Virtual network gateway - IdleVNetGateway (Repurpose or delete idle virtual network gateways)](https://aka.ms/aa_idlevpngateway_learnmore).
 
@@ -191,25 +191,25 @@ Learn more about [Subscription - AppServiceReservedCapacity (Consider App Servic
 
 ### Consider Database for MariaDB reserved instance to save over your pay-as-you-go costs
 
-We analyzed you Azure Database for MariaDB usage pattern over last 30 days and recommend reserved instance purchase that maximizes your savings. With reserved instance you can pre-purchase MariaDB hourly usage and save over your compute costs. Reserved instance is a billing benefit and will automatically apply to new or existing deployments. Saving estimates are calculated for individual subscriptions and the usage pattern over last 30 days. Shared scope recommendations are available in reservation purchase experience and can increase savings further.
+We analyzed your Azure Database for MariaDB usage pattern over last 30 days and recommend reserved instance purchase that maximizes your savings. With reserved instance you can pre-purchase MariaDB hourly usage and save over your compute costs. Reserved instance is a billing benefit and will automatically apply to new or existing deployments. Saving estimates are calculated for individual subscriptions and the usage pattern over last 30 days. Shared scope recommendations are available in reservation purchase experience and can increase savings further.
 
 Learn more about [Subscription - MariaDBSQLReservedCapacity (Consider Database for MariaDB reserved instance to save over your pay-as-you-go costs)](https://aka.ms/rirecommendations).
 
 ### Consider Database for MySQL reserved instance to save over your pay-as-you-go costs
 
-We analyzed you MySQL Database usage pattern over last 30 days and recommend reserved instance purchase that maximizes your savings. With reserved instance you can pre-purchase MySQL hourly usage and save over your compute costs. Reserved instance is a billing benefit and will automatically apply to new or existing deployments. Saving estimates are calculated for individual subscriptions and the usage pattern over last 30 days. Shared scope recommendations are available in reservation purchase experience and can increase savings further.
+We analyzed your MySQL Database usage pattern over last 30 days and recommend reserved instance purchase that maximizes your savings. With reserved instance you can pre-purchase MySQL hourly usage and save over your compute costs. Reserved instance is a billing benefit and will automatically apply to new or existing deployments. Saving estimates are calculated for individual subscriptions and the usage pattern over last 30 days. Shared scope recommendations are available in reservation purchase experience and can increase savings further.
 
 Learn more about [Subscription - MySQLReservedCapacity (Consider Database for MySQL reserved instance to save over your pay-as-you-go costs)](https://aka.ms/rirecommendations).
 
 ### Consider Database for PostgreSQL reserved instance to save over your pay-as-you-go costs
 
-We analyzed you Database for PostgreSQL usage pattern over last 30 days and recommend reserved instance purchase that maximizes your savings. With reserved instance you can pre-purchase PostgresSQL Database hourly usage and save over your on-demand costs. Reserved instance is a billing benefit and will automatically apply to new or existing deployments. Saving estimates are calculated for individual subscriptions and the usage pattern over last 30 days. Shared scope recommendations are available in reservation purchase experience and can increase savings further.
+We analyzed your Database for PostgreSQL usage pattern over last 30 days and recommend reserved instance purchase that maximizes your savings. With reserved instance you can pre-purchase PostgresSQL Database hourly usage and save over your on-demand costs. Reserved instance is a billing benefit and will automatically apply to new or existing deployments. Saving estimates are calculated for individual subscriptions and the usage pattern over last 30 days. Shared scope recommendations are available in reservation purchase experience and can increase savings further.
 
 Learn more about [Subscription - PostgreSQLReservedCapacity (Consider Database for PostgreSQL reserved instance to save over your pay-as-you-go costs)](https://aka.ms/rirecommendations).
 
 ### Consider Cache for Redis reserved instance to save over your pay-as-you-go costs
 
-We analyzed you Cache for Redis usage pattern over last 30 days and calculated reserved instance purchase that maximizes your savings. With reserved instance you can pre-purchase Cache for Redis hourly usage and save over your current on-demand costs. Reserved instance is a billing benefit and will automatically apply to new or existing deployments. Saving estimates are calculated for individual subscriptions and the usage pattern observed over last 30 days. Shared scope recommendations are available in reservation purchase experience and can increase savings further.
+We analyzed your Cache for Redis usage pattern over last 30 days and calculated reserved instance purchase that maximizes your savings. With reserved instance you can pre-purchase Cache for Redis hourly usage and save over your current on-demand costs. Reserved instance is a billing benefit and will automatically apply to new or existing deployments. Saving estimates are calculated for individual subscriptions and the usage pattern observed over last 30 days. Shared scope recommendations are available in reservation purchase experience and can increase savings further.
 
 Learn more about [Subscription - RedisCacheReservedCapacity (Consider Cache for Redis reserved instance to save over your pay-as-you-go costs)](https://aka.ms/rirecommendations).
 
@@ -219,15 +219,15 @@ We analyze you Azure Synapse Analytics usage pattern over last 30 days and recom
 
 Learn more about [Subscription - SQLDWReservedCapacity (Consider Azure Synapse Analytics (formerly SQL DW) reserved instance to save over your pay-as-you-go costs)](https://aka.ms/rirecommendations).
 
-### (Preview) Consider Blob storage reserved instance to save on Blob v2 and and Datalake storage Gen2 costs
+### (Preview) Consider Blob storage reserved instance to save on Blob v2 and Datalake storage Gen2 costs
 
-We analyzed you Azure Blob and Datalake storage usage over last 30 days and calculated reserved instance purchase that would maximize your savings. With reserved instance you can pre-purchase hourly usage and save over your current on-demand costs. Blob storage reserved instance applies only to data stored on Azure Blob (GPv2) and Azure Data Lake Storage (Gen 2). Reserved instance is a billing benefit and will automatically apply to new or existing deployments. Saving estimates are calculated for individual subscriptions and the usage pattern observed over last 30 days. Shared scope recommendations are available in reservation purchase experience and can increase savings further.
+We analyzed your Azure Blob and Datalake storage usage over last 30 days and calculated reserved instance purchase that would maximize your savings. With reserved instance you can pre-purchase hourly usage and save over your current on-demand costs. Blob storage reserved instance applies only to data stored on Azure Blob (GPv2) and Azure Data Lake Storage (Gen 2). Reserved instance is a billing benefit and will automatically apply to new or existing deployments. Saving estimates are calculated for individual subscriptions and the usage pattern observed over last 30 days. Shared scope recommendations are available in reservation purchase experience and can increase savings further.
 
-Learn more about [Subscription - BlobReservedCapacity ((Preview) Consider Blob storage reserved instance to save on Blob v2 and and Datalake storage Gen2 costs)](https://aka.ms/rirecommendations).
+Learn more about [Subscription - BlobReservedCapacity ((Preview) Consider Blob storage reserved instance to save on Blob v2 and Datalake storage Gen2 costs)](https://aka.ms/rirecommendations).
 
 ### (Preview) Consider Azure Data explorer reserved capacity to save over your pay-as-you-go costs
 
-We analyzed you Azure Data Explorer usage pattern over last 30 days and recommend reserved capacity purchase that maximizes your savings. With reserved capacity you can pre-purchase Data Explorer hourly usage and get savings over your on-demand costs. Reserved capacity is a billing benefit and will automatically apply to new or existing deployments. Saving estimates are calculated for individual subscriptions using 3-year reservation pricing and last 30 day's usage pattern. Shared scope recommendations are available in reservation purchase experience and can increase savings further.
+We analyzed your Azure Data Explorer usage pattern over last 30 days and recommend reserved capacity purchase that maximizes your savings. With reserved capacity you can pre-purchase Data Explorer hourly usage and get savings over your on-demand costs. Reserved capacity is a billing benefit and will automatically apply to new or existing deployments. Saving estimates are calculated for individual subscriptions using 3-year reservation pricing and last 30 day's usage pattern. Shared scope recommendations are available in reservation purchase experience and can increase savings further.
 
 Learn more about [Subscription - DataExplorerReservedCapacity ((Preview) Consider Azure Data explorer reserved capacity to save over your pay-as-you-go costs)](https://aka.ms/rirecommendations).
 
@@ -311,7 +311,7 @@ Learn more about [Subscription - VMwareCloudSimpleReservedCapacity (Consider VMw
 
 ### Use Virtual Machines with Ephemeral OS Disk enabled to save cost and get better performance
 
-With Ephemeral OS Disk, Customers get these benefits: Save on storage cost for OS disk. Get lower read/write latency to OS disk. Faster VM Reimage operation by resetting OS (and Temporary disk) to its original state. It is more preferrable to use Ephemeral OS Disk for short-lived IaaS VMs or VMs with stateless workloads
+With Ephemeral OS Disk, Customers get these benefits: Save on storage cost for OS disk. Get lower read/write latency to OS disk. Faster VM Reimage operation by resetting OS (and Temporary disk) to its original state. It is more preferable to use Ephemeral OS Disk for short-lived IaaS VMs or VMs with stateless workloads
 
 Learn more about [Subscription - EphemeralOsDisk (Use Virtual Machines with Ephemeral OS Disk enabled to save cost and get better performance)](/azure/virtual-machines/windows/ephemeral-os-disks).
 
