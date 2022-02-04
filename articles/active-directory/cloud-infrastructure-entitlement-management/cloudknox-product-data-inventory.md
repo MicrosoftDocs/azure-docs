@@ -66,4 +66,3 @@ You can use the **Inventory** dashboard in CloudKnox Permissions Management (Clo
 ## Next steps
 
 - For information about viewing and configuring settings for collecting data from your authorization system and its associated accounts, see [View and configure settings for data collection](cloudknox-product-data-sources.md).
-- For information about adding an authorization system for data collection, see [Add an authorization system for data collection](cloudknox-product-data-add-authorization-system.md).

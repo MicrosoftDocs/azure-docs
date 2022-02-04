@@ -103,5 +103,4 @@ You can use the **Data collectors** dashboard in CloudKnox Permissions Managemen
 
 ## Next steps
 
-- For information about adding an authorization system for data collection, see [Add an authorization system for data collection](cloudknox-product-data-add-authorization-system.md)
 - For information about viewing an inventory of created resources and licensing information for your authorization system, see [Display an inventory of  created resources and licenses for your authorization system](cloudknox-product-data-inventory.md)
