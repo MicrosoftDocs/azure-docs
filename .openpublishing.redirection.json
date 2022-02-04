@@ -29838,6 +29838,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/virtual-machine-scale-sets/scripts/cli-sample-manage-scale-set.md",
+      "redirect_url": "/azure/virtual-machine-scale-sets/scripts/cli-sample-attach-disks",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/azure-stack/azure-stack-connected-deployment.md",
       "redirect_url": "/azure-stack/operator/azure-stack-connected-deployment",
       "redirect_document_id": false
