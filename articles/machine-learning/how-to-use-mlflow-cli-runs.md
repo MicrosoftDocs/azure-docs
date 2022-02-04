@@ -57,20 +57,25 @@ The following code uses `mlflow` and the [`subprocess`](https://docs.python.org/
 
 ```Python
 import mlflow
-import subprocess
 
-#Get MLfLow URI through the Azure ML CLI (v2) and convert to string
-MLFLOW_TRACKING_URI = subprocess.run(["az", "ml", "workspace", "show", "--query", "mlflow_tracking_uri", "-o", "tsv"], stdout=subprocess.PIPE, text=True)
+## Construct AzureML MLFLOW TRACKING URI
+def get_azureml_mlflow_tracking_uri(region, subscription_id, resource_group, workspace):
+    return "azureml://{}.api.azureml.ms/mlflow/v1.0/subscriptions/{}/resourceGroups/{}/providers/Microsoft.MachineLearningServices/workspaces/{}".format(region, subscription_id, resource_group, workspace)
 
-MLFLOW_TRACKING_URI = str(MLFLOW_TRACKING_URI.stdout).strip()
+region='<REGION>' ## example: westus
+subscription_id = '<SUBSCRIPTION_ID>' ## example: 11111111-1111-1111-1111-111111111111
+resource_group = '<RESOURCE_GROUP>' ## example: myresourcegroup
+workspace = '<AML_WORKSPACE_NAME>' ## example: myworkspacename
+
+MLFLOW_TRACKING_URI = get_azureml_mlflow_tracking_uri(region, subscription_id, resource_group, workspace)
 
 ## Set the MLFLOW TRACKING URI
 mlflow.set_tracking_uri(MLFLOW_TRACKING_URI)
 
 ## Make sure the MLflow URI looks something like this: 
-## azureml://westus.api.azureml.ms/mlflow/v1.0/subscriptions/<Sub-ID>/resourceGroups/<RG>/providers/Microsoft.MachineLearningServices/workspaces/<WS>
+## azureml://<REGION>.api.azureml.ms/mlflow/v1.0/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.MachineLearningServices/workspaces/<AML_WORKSPACE_NAME>
 
-print("MLFlow Tracking URI:",MLFLOW_TRACKING_URI)
+print("MLFlow Tracking URI:", MLFLOW_TRACKING_URI)
 ```
 
 # [Terminal](#tab/terminal)

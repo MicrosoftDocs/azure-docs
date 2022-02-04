@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 01/23/2022
+ms.date: 02/02/2022
 ms.author: eur
 ms.custom: ignite-fall-2021
 ---
@@ -272,25 +272,28 @@ The following table specifies the limits and other properties for the Markdown f
 
 ## Pronunciation data for training
 
-If there are uncommon terms without standard pronunciations that your users will encounter or use, you can provide a custom pronunciation file to improve recognition. For a list of languages that support custom pronunciation, see **Pronunciation** in the **Customizations** column in [the Speech-to-text table](language-support.md#speech-to-text).
-
-> [!IMPORTANT]
-> We don't recommend that you use custom pronunciation files to alter the pronunciation of common words.
+If there are uncommon terms without standard pronunciations that your users will encounter or use, you can provide a custom pronunciation file to improve recognition. Don't use custom pronunciation files to alter the pronunciation of common words. For a list of languages that support custom pronunciation, see **Pronunciation** in the **Customizations** column in [the Speech-to-text table](language-support.md#speech-to-text).
 
 > [!NOTE]
 > You can't combine this type of pronunciation file with structured-text training data. For structured-text data, use the phonetic pronunciation capability that's included in the structured-text Markdown format.
 
-Provide pronunciations in a single text file. This file includes examples of a spoken utterance and a custom pronunciation for each:
+The spoken form is the phonetic sequence spelled out. It can be composed of letters, words, syllables, or a combination of all three. This table includes some examples:
 
-| Recognized/displayed form | Spoken form |
+| Recognized displayed form | Spoken form |
 |--------------|--------------------------|
 | 3CPO | three c p o |
 | CNTK | c n t k |
 | IEEE | i triple e |
 
-The spoken form is the phonetic sequence spelled out. It can be composed of letters, words, syllables, or a combination of all three.
+You provide pronunciations in a single text file. Include the spoken utterance and a custom pronunciation for each. Each row in the file should begin with the recognized form, then a tab character, and then the space-delimited phonetic sequence. 
 
-Use the following table to ensure that your related data file for pronunciations is correctly formatted. Pronunciation files are small and should be only a few kilobytes in size.
+```tsv
+3CPO    three c p o
+CNTK    c n t k
+IEEE    i triple e
+```
+
+Refer to the following table to ensure that your related data file for pronunciations is correctly formatted. The size of pronunciation files should be limited to a few kilobytes.
 
 | Property | Value |
 |----------|-------|
