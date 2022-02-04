@@ -12,13 +12,13 @@ Lock down inbound traffic to your Azure Virtual Machines with Microsoft Defender
 
 For a full explanation about how JIT works and the underlying logic, see [Just-in-time explained](just-in-time-access-overview.md).
 
+For a full explanation of the privilege requirements, see [What permissions are needed to configure and use JIT?](just-in-time-access-overview.md#what-permissions-are-needed-to-configure-and-use-jit).
+
 This page teaches you how to include JIT in your security program. You'll learn how to: 
 
 - **Enable JIT on your VMs** - You can enable JIT with your own custom options for one or more VMs using Defender for Cloud, PowerShell, or the REST API. Alternatively, you can enable JIT with default, hard-coded parameters, from Azure virtual machines. When enabled, JIT locks down inbound traffic to your Azure VMs by creating a rule in your network security group.
 - **Request access to a VM that has JIT enabled** - The goal of JIT is to ensure that even though your inbound traffic is locked down, Defender for Cloud still provides easy access to connect to VMs when needed. You can request access to a JIT-enabled VM from Defender for Cloud, Azure virtual machines, PowerShell, or the REST API.
 - **Audit the activity** - To ensure your VMs are secured appropriately, review the accesses to your JIT-enabled VMs as part of your regular security checks.   
-
-
 
 ## Availability
 

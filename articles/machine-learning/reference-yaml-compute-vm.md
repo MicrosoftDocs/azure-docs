@@ -19,6 +19,8 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
+[!INCLUDE [schema note](../../includes/machine-learning-preview-old-json-schema-note.md)]
+
 ## YAML syntax
 
 | Key | Type | Description | Allowed values | Default value |

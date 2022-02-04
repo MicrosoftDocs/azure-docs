@@ -30,7 +30,7 @@ To approve requests, a reviewer must be a global administrator, cloud applicatio
 To configure the admin consent workflow, you need:
 
 - An Azure account. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- One of the following roles: Global Administrator, Cloud Application Administrator, Application Administrator, or owner of the service principal.
+- One of the following roles: Global Administrator or owner of the service principal.
 
 ## Enable the admin consent workflow
 

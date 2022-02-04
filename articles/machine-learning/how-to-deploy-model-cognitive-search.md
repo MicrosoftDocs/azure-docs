@@ -6,9 +6,8 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.author: cgronlun
-author: cjgronlund
-ms.reviewer: larryfr
+ms.author: ssalgado
+author: ssalgadodev
 ms.date: 03/11/2021
 ms.custom: deploy
 ---
