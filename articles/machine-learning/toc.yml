@@ -721,6 +721,9 @@
         - name: Manage resources VS Code
           displayName: vscode,resources
           href: how-to-manage-resources-vscode.md
+        - name: Search across workspaces
+          displayName: search, global, assets
+          href: how-to-search-cross-workspace.md
 - name: Troubleshoot & debug
   items:
     - name: VS Code interactive debugging
