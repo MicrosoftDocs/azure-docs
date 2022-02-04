@@ -23,7 +23,7 @@ To deploy a VM from the Azure Compute Gallery (formerly know as Shared Image Gal
 1. Select **Review + create**. Once validation is passed, select **Create**.
 
 > [!NOTE]
-> To create a VM from a vhd file, follow the instructions in [Prepare an Azure Resource Manager template](#connect-the-certification-tool-to-a-vm-image) or [Deploy an Azure VM using PowerShell](#how-to-use-powershell-to-consume-the-self-test-api).
+> To create a VM from a vhd file, follow the instructions below under [Connect the certification tool to a VM image](#connect-the-certification-tool-to-a-vm-image) or [Using PowerShell to consume the Self-Test API](#using-powershell-to-consume-the-self-test-api).
 
 Complete these steps before submitting your VM offer:
 
