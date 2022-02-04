@@ -107,6 +107,8 @@ The `error` field has several possible values - review the protocol documentatio
 | AADSTS50015 | ViralUserLegalAgeConsentRequiredState - The user requires legal age group consent. |
 | AADSTS50017 | CertificateValidationFailed - Certification validation failed, reasons for the following reasons:<ul><li>Cannot find issuing certificate in trusted certificates list</li><li>Unable to find expected CrlSegment</li><li>Cannot find issuing certificate in trusted certificates list</li><li>Delta CRL distribution point is configured without a corresponding CRL distribution point</li><li>Unable to retrieve valid CRL segments because of a timeout issue</li><li>Unable to download CRL</li></ul>Contact the tenant admin. |
 | AADSTS50020 | UserUnauthorized - Users are unauthorized to call this endpoint. |
+| AADSTS500212 | NotAllowedByOutboundPolicyTenant - The user's administrator has set an outbound access policy that does not allow access to the resource tenant. |
+| AADSTS500213 | NotAllowedByInboundPolicyTenant - The resource tenant's cross-tenant access policy does not allow this user to access this tenant. |
 | AADSTS50027 | InvalidJwtToken - Invalid JWT token because of the following reasons:<ul><li>doesn't contain nonce claim, sub claim</li><li>subject identifier mismatch</li><li>duplicate claim in idToken claims</li><li>unexpected issuer</li><li>unexpected audience</li><li>not within its valid time range </li><li>token format is not proper</li><li>External ID token from issuer failed signature verification.</li></ul> |
 | AADSTS50029 | Invalid URI - domain name contains invalid characters. Contact the tenant admin. |
 | AADSTS50032 | WeakRsaKey - Indicates the erroneous user attempt to use a weak RSA key. |
