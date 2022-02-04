@@ -92,12 +92,10 @@ You can use an existing Language resource to get started with custom NER as long
 |Pricing tier     | Make sure your existing resource is in the Standard (**S**) pricing tier. Only this pricing tier is supported. If your resource doesn't use this pricing  tier, you will need to create a new resource.        |
 |Managed identity     | Make sure that the resource-managed identity setting is enabled. Otherwise, read the next section. |
 
-To use custom NER, you'll need to [create an Azure storage account](../../../../storage/common/storage-account-create.md) if you don't have one already. 
+To use custom NER, you'll need to [create an Azure storage account](../../../../storage/common/storage-account-create.md) if you don't have one already, and assign the [correct roles](#required-roles-for-your-storage-account) to connect it to your Language resource. 
 
 > [!NOTE]
 > Custom NER currently does not currently support Data Lake Storage Gen 2.
-
-Next you'll need to assign the [correct roles](#required-roles-for-your-storage-account) for the storage account to connect it to your Language resource. 
 
 ## Required roles for Azure Language resources
 
@@ -114,7 +112,7 @@ Your Language resource must have identity management, which can be enabled eithe
 
 ### Add roles to your Language resource
 
-After you've enabled managed identities for your resource, add the appropriate owner or contributor role assignments for your and your contributor's Azure accounts:
+After you've enabled managed identities for your resource, add the appropriate owner or contributor role assignments for your account, and your contributors' Azure accounts:
 
 1. Go to your Language resource in the [Azure portal](https://ms.portal.azure.com/).
 2. Select **Access Control (IAM)** in the left navigation menu.
