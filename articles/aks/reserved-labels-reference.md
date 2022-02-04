@@ -72,4 +72,4 @@ The following lists of labels are planned for deprecated. Customers should chang
 [kubernetes-labels-selectors]: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/
 
 <!-- LINKS - internal -->
-[create-or-update-os-sku]: /rest/api/aks/agent-pools/create-or-update#ossku 
+[create-or-update-os-sku]: /rest/api/aks/agent-pools/create-or-update#ossku
