@@ -24,8 +24,8 @@ The [MSAL for Node](tutorial-v2-nodejs-webapp-msal.md) supports an in-memory cac
 
 The Microsoft Authentication Extensions for Node support the following platforms:
 
-- Windows - Data protection API (DPAPI) is used for protection.
-- MAC - The MAC Keychain is used.
+- Windows - Data Protection API (DPAPI) is used for protection.
+- MAC - The MAC KeyChain is used.
 - Linux - LibSecret is used for storing to "Secret Service".
 
 ## Installation
