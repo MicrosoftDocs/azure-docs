@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/02/2022
+ms.date: 02/03/2022
 ms.author: v-ydequadros
 ---
 
@@ -33,15 +33,14 @@ To enable CloudKnox on your Azure AD tenant, you must have:
 
 ## Enable CloudKnox on your Azure AD tenant
 
-1. Open your browser and enter `aka.ms/ciem-prod`.
-1. Log in as a global administrator to your Azure AD tenant.
-1. In the Azure AD portal, on the **Features highlights** section, select the **CloudKnox Permissions Management** tile.
+1. In your browser:
+    1. Go to [Azure services](https://portal.azure.com) and use your credentials to sign in to [Azure Active Directory](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview). 
 
-    If you're asked to select an account to log in, log in as a global administrator to specified tenant.
+    1. In the Azure AD portal, select **Features highlights**, and then select **CloudKnox Permissions Management**.
 
-    The **Welcome to CloudKnox Permissions Management** screen appears. 
+    1. If you're asked to select an account to log in, log in as a global administrator to specified tenant.
 
-    This screen provides information on how to enable CloudKnox on your tenant.
+        The **Welcome to CloudKnox Permissions Management** screen appears, displaying information on how to enable CloudKnox on your tenant.
 
 1. To provide access to the CloudKnox application, create a service principal.
 
@@ -61,11 +60,9 @@ To enable CloudKnox on your Azure AD tenant, you must have:
         For information on how to create a service principal through the Azure portal, see [Create an Azure service principal with the Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli). 
 
 
-        For information on the **az** command and how to log in with the no subscriptions flag, see [az login](/cli/azure/reference-index?view=azure-cli-latest#az-login).
-
-        <!---(/cli/azure/reference-index?view=azure-cli-latest#az-login&preserve-view=true)--->
+        For information on the **az** command and how to log in with the no subscriptions flag, see [az login](/cli/azure/reference-index?view=azure-cli-latest#az-login&preserve-view=true).
         
-        For information on how to create a service principal via Azure PowerShell, see [Create an Azure service principal with Azure PowerShell](/powershell/azure/create-azure-service-principal-azureps?view=azps-7.1.0).
+        For information on how to create a service principal via Azure PowerShell, see [Create an Azure service principal with Azure PowerShell](/powershell/azure/create-azure-service-principal-azureps?view=azps-7.1.0&preserve-view=true).
 
     1. After the script runs successfully, the service principal attributes for CloudKnox display. Confirm the **Cloud Infrastructure Entitlement Management** application displays in the Azure AD portal under **Enterprise applications**.
 
@@ -85,10 +82,7 @@ To enable CloudKnox on your Azure AD tenant, you must have:
     - [Onboard a Microsoft Azure subscription](cloudknox-onboard-azure.md)
     - [Onboard a Google Cloud Platform (GCP) project](cloudknox-onboard-gcp.md)
 
-<!---Next steps--->
+Next steps
 
-<!---https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli
-https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-login--->
-
-<!--- - For information on how to enable or disable the controller, see [Enable or disable the controller](cloudknox-onboard-enable-controller.md).
-- For information on how to add an account/subscription/project after onboarding, see [Add an account/subscription/project after onboarding is complete](cloudknox-onboard-add-account-after-onboarding.md)--->
+- For an overview on CloudKnox, see [What is CloudKnox Permissions Management?](cloudknox-overview.md).
+- For information on how to start viewing information about your authorization system in CloudKnox, see [View key statistics and data about your authorization system](cloudknox-ui-dashboard.md).
