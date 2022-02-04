@@ -75,7 +75,7 @@ The packet core dashboards use the following types of panel. For all panels, you
     - The value displayed on a gauge single stat panel is shown in green at normal operational levels, amber when approaching a threshold, and red when the threshold has been breached. 
     - The entirety of a count single stat panel will turn red if a threshold is breached.
 
-    :::image type="content" source="media/packet-core-dashboards/packet-core-single-stat-panels.png" alt-text="Screenshot of two single stat panels in the packet core dashboards. The first panel is a simple count of throughput. The second panel is a gauge displaying CPU utilization.":::
+    :::image type="content" source="media/packet-core-dashboards/packet-core-single-stat-panels.png" alt-text="Screenshot of two single stat panels in the packet core dashboards. The first panel is a simple count of throughput. The second panel is a gauge displaying C P U utilization.":::
 
     - **Table** panels display statistics or alerts in a table.
 
