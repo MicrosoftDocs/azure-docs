@@ -85,7 +85,7 @@ POST https://graph.microsoft.com/v1.0/groups
         "Unified"
     ],
     "isAssignableToRole": true,
-    "mailEnabled": false,
+    "mailEnabled": true,
     "mailNickname": "contosohelpdeskadministrators",
     "securityEnabled": true
 }
