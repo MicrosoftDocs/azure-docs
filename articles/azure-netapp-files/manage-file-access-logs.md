@@ -13,25 +13,26 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 12/15/2021
+ms.date: 02/03/2022
 ms.author: anfdocs
 ---
 # Manage file access logs in Azure NetApp Files
 
 File access logs provide file access logging for individual volumes, capturing file system operations on selected volumes. Standard file system operations will be captured in the logs. File access logs are provided on top of the platform logging captured in [Azure Activity Logs](../azure-monitor/essentials/activity-log.md). This article describes how to manage file access logs using Azure NetApp Files. 
 
+File access logs supports SMB, NFSv4.1, and dual protocols.
+
 ## Considerations
 
-* File access logs supports SMB and NFSv4.1 protocols. 
 * Once file access logs are enabled on a volume, they can take a maximum of five minutes to become visible. 
 * File access logs occasionally create duplicate logs that must be manually filtered. 
 * Deleting any diagnostic settings configured for ANFFileAccess causes any file access logs for any volumes with that setting to be disabled. 
-* Before enabling file access logs on a volume, either ACLs or Audit ACEs need to be set on a file or directory. This needs to be done after mounting a volume.  
+* Before enabling file access logs on a volume, either ACLs or Audit ACEs need to be set on a file or directory. ACLs or Audit ACEs must be set after mounting a volume.  
 * File access logs provide no explicit or implicit expectations or guarantees around logging for auditing and compliance purposes. 
 
 ## Register the feature
 
-The file access logs feature is currently in preview. If you are using this feature for the first time, you need to register the feature first. 
+The file access logs feature is currently in preview. If you're using this feature for the first time, you need to register the feature first. 
 1. Register the feature:<br>`Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFFileAccessLogs`
 2. Check the status:<br>`Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFFileAccessLogs`
 
@@ -49,6 +50,8 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
     * Archive to a storage account
     * Stream to an event hub
     * Send to a partner solution
+    [!IMPORTANT]
+    The **Send to Log Analytics workspace** and **Send to a partner solution** destination options are not supported. No error message will display if you select these destination options. 
 5. Save the settings
 
 ## Disable file access logs
