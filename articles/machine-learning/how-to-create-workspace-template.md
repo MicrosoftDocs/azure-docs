@@ -187,15 +187,15 @@ __To get the values__ for the `cmk_keyvault` (ID of the Key Vault) and the `reso
 1. To get the Key Vault ID, use the following command:	
 
     # [Azure CLI](#tab/azcli)	
-
-[!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
-
+    
+    [!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
+    
     ```azurecli	
     az keyvault show --name <keyvault-name> --query 'id' --output tsv	
     ```	
-
+    
     # [Azure PowerShell](#tab/azpowershell)	
-
+    
     ```azurepowershell	
     Get-AzureRMKeyVault -VaultName '<keyvault-name>'	
     ```	
@@ -206,21 +206,21 @@ __To get the values__ for the `cmk_keyvault` (ID of the Key Vault) and the `reso
 1. To get the value for the URI for the customer managed key, use the following command:	
 
     # [Azure CLI](#tab/azcli)	
-
-[!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
-
+    
+    [!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
+    
     ```azurecli	
     az keyvault key show --vault-name <keyvault-name> --name <key-name> --query 'key.kid' --output tsv	
     ```	
-
+    
     # [Azure PowerShell](#tab/azpowershell)	
-
+    
     ```azurepowershell	
     Get-AzureKeyVaultKey -VaultName '<keyvault-name>' -KeyName '<key-name>'	
     ```	
     ---	
 
-    This command returns a value similar to `https://mykeyvault.vault.azure.net/keys/mykey/{guid}`.	
+  This command returns a value similar to `https://mykeyvault.vault.azure.net/keys/mykey/{guid}`.	
 
 > [!IMPORTANT]	
 > Once a workspace has been created, you cannot change the settings for confidential data, encryption, key vault ID, or key identifiers. To change these values, you must create a new workspace using the new values.
