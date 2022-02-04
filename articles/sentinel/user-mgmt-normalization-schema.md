@@ -47,7 +47,7 @@ Some activities such as UserCreated, GroupCreated, UserModified, and GroupModifi
 | Field               | Class       | Type       |  Description        |
 |---------------------|-------------|------------|--------------------|
 | **EventType** | Mandatory | Enumerated | Describes the operation reported by the record.<br><br> For User Management activity, the supported values are:<br> - UserCreated<br> - UserDeleted<br> - UserModified<br> - UserLocked<br> - UserUnlocked<br> - UserDisabled<br> - UserEnabled<br> - PasswordChanged<br> - PasswordReset<br> - GroupCreated<br> - GroupDeleted<br> - GroupModified<br> - UserAddedToGroup<br> - UserRemovedFromGroup<br> - GroupEnumerated<br> - UserRead<br> - GroupRead<br> |
-| **EventSubType** | Optional | Enumerated | The following sub-types are supported:<br> - `UserRead`: Password, Hash<br> - `UserCreated`, `GroupCreated`, `UserModified`, `GroupModified`: for details, see [UpdatedPropertyName](#updatedproperyname) |
+| <a name="eventsubtype"></a>**EventSubType** | Optional | Enumerated | The following sub-types are supported:<br> - `UserRead`: Password, Hash<br> - `UserCreated`, `GroupCreated`, `UserModified`, `GroupModified`: for details, see [UpdatedPropertyName](#updatedpropertyname) |
 | **EventResult** | Mandatory | Enumerated | While failure is possible, most systems report only successful user management events, for which the expected value is `Success` |
 | **EventResultDetails** | Optional | Enumerated | The valid values are `NotAuthorized` and `Other`. |
 | **EventSeverity** | Mandatory | Enumerated | While any valid severity value is allowed, the severity of user management events is typically **Informational**. | 
@@ -60,8 +60,9 @@ Some activities such as UserCreated, GroupCreated, UserModified, and GroupModifi
 
 | Field | Class | Type | Description |
 |-------|-------|------|-------------|
-| <a name="updatedproperyname"></a>**UpdatedPropertyName** | Alias | | Alias to [EventSubType](#eventsubtype) when the Event Type is `UserCreated`, `GroupCreated`, `UserModified`, or `GroupModified`.<br><br>The supported values are:<br> - MultipleProperties<br><br>Use `MultipleProperties` when the activity updates multiple properties. For the previous and new property values, use the fields `Previous<PropertyName>` and `New<PropertyName>`, where `<PropertyName>` is one of the supported values for **UpdatedPropertyName**. |
+| <a name="updatedpropertyname"></a>**UpdatedPropertyName** | Alias | | Alias to [EventSubType](#eventsubtype) when the Event Type is `UserCreated`, `GroupCreated`, `UserModified`, or `GroupModified`.<br><br>The supported values are:<br> - MultipleProperties<br><br>Use `MultipleProperties` when the activity updates multiple properties. For the previous and new property values, use the fields `Previous<PropertyName>` and `New<PropertyName>`, where `<PropertyName>` is one of the supported values for **UpdatedPropertyName**. |
 | <a name="previouspropertyvalue"></a>**PreviousPropertyValue** | Optional | String | The previous value stored in the property designated . |
+| <a name="newpropertyvalue"></a>**NewPropertyValue** | Optional | String | The new value stored in the property designated . |
 |||||
 
 ### Target user fields
