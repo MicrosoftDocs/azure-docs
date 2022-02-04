@@ -345,7 +345,7 @@ If making a change to the app is a no go, then consider having the BIG-IP listen
 
 ## Summary
 
-This last step provides a breakdown of your configurations. Select **Deploy** to commit all settings and verify that the application now exists in your tenants list of ‘Enterprise applications.
+This last step provides a breakdown of your configurations. Select **Deploy** to commit all settings and verify that the application now exists in your tenants list of Enterprise applications.
 
 ## Active Directory KCD configurations
 
