@@ -94,13 +94,11 @@ Create a directory on your Linux system, and then mount the container in the sto
 
 |Error | Cause / resolution|
 |---|---|
-
 |`Access denied by server while mounting`|Ensure that your client is running within a supported subnet. See [Supported network locations](network-file-system-protocol-support.md#supported-network-connections).|
 |`No such file or directory`| Make sure to type, rather than copy and paste, the mount command and its parameters directly into the terminal. If you copy and paste any part of this command into the terminal from another application, hidden characters in the pasted information might cause this error to appear. This error also might appear if the account isn't enabled for NFS 3.0.|
 |`Permission denied`| The default mode of a newly created NFS 3.0 container is 0750. Non-root users don't have access to the volume. If access from non-root users is required, root users must change the mode to 0755. Sample command: `sudo chmod 0755 /mnt/<newcontainer>`|
 |`EINVAL ("Invalid argument"`) |This error can appear when a client attempts to:<li>Write to a blob that was created from a blob endpoint.<li>Delete a blob that has a snapshot or is in a container that has an active WORM (write once, read many) policy.|
 |`EROFS ("Read-only file system"`) |This error can appear when a client attempts to:<li>Write to a blob or delete a blob that has an active lease.<li>Write to a blob or delete a blob in a container that has an active WORM policy. |
-
 |`NFS3ERR_IO/EIO ("Input/output error"`) |This error can appear when a client attempts to read, write, or set attributes on blobs that are stored in the archive access tier. |
 |`OperationNotSupportedOnSymLink` error| This error can be returned during a write operation via a Blob Storage or Azure Data Lake Storage Gen2 API. Using these APIs to write or delete symbolic links that are created by using NFS 3.0 is not allowed. Make sure to use the NFS 3.0 endpoint to work with symbolic links. |
 |`mount: /mnt/test: bad option;`| Install the NFS helper program by using `sudo apt install nfs-common`.|
