@@ -50,7 +50,7 @@ Built-in roles include generally available and preview roles, whose assigned mem
 
 + In rare cases where requests originate from a high number of different service principals, all targeting different service resources (indexes, indexers, etc.), it's possible for the authorization checks to result in throttling. Throttling would only happen if hundreds of unique combinations of search service resource and service principal were used within a second.
 
-<a name="#step-1-preview-sign-up"></a>
+<a name="step-1-preview-sign-up"></a>
 
 ## Preview sign-up
 
@@ -71,7 +71,7 @@ You can also sign up for the preview using Azure Feature Exposure Control (AFEC)
 > [!NOTE]
 > Once you add the preview to your subscription, all services in the subscription will be permanently enrolled in the preview. If you don't want RBAC on a given service, you can disable RBAC for data plane operations as described in a later section.
 
-<a name="#step-2-preview-configuration"></a>
+<a name="step-2-preview-configuration"></a>
 
 ## Enable RBAC preview for data plane operations
 
@@ -130,7 +130,7 @@ If you are using Postman or another web testing tool, see the Tip below for help
 
 ---
 
-<a name="#step-3-assign-roles"></a>
+<a name="step-3-assign-roles"></a>
 
 ## Assign roles
 
