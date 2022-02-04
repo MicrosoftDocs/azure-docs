@@ -141,7 +141,7 @@ In this section, you can get the registration link from the portal and send it b
 
 ## View registered users
 
-1. Go to the [Azure Lab Services portal](https://labs.azure.com).
+1. Go to the [Azure Lab Services website](https://labs.azure.com).
 1. Select **Sign in**, and then enter your credentials. Azure Lab Services supports organizational accounts and Microsoft accounts.
 1. On the **My labs** page, select the lab whose usage you want to track.
 1. In the left pane, select **Users**, or select the **Users** tile.  The **Users** pane displays a list of students who have registered with your lab.  

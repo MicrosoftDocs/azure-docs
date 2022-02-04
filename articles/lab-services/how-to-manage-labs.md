@@ -16,7 +16,7 @@ This article describes how to create and delete labs. It also shows you how to v
 
 ## View all labs
 
-1. Navigate to [Azure Lab Services portal](https://labs.azure.com).
+1. Navigate to [Azure Lab Services website](https://labs.azure.com).
 1. Select **Sign in**. Select or enter a **user ID** that is a member of the **Lab Creator** role in the lab plan, and enter password. Azure Lab Services supports organizational accounts and Microsoft accounts.
 
     [!INCLUDE [Select a tenant](./includes/multi-tenant-support.md)]

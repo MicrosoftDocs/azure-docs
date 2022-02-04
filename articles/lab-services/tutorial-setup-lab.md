@@ -33,7 +33,7 @@ Here's the typical workflow when using Azure Lab Services:
 
 In this step, you create a lab for your class in Azure Lab Services portal.
 
-1. Navigate to [Azure Lab Services portal](https://labs.azure.com).
+1. Navigate to [Azure Lab Services website](https://labs.azure.com).
 2. Select **Sign in** and enter your credentials. Azure Lab Services supports organizational accounts and Microsoft accounts.
 3. Select **New lab**.  
     <br>:::image type="content" source="./media/tutorial-setup-lab/new-lab-button.png" alt-text="Screenshot of Azure Lab Services portal.  New lab button is highlighted.":::
