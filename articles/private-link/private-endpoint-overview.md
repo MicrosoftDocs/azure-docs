@@ -45,7 +45,7 @@ Some key details about private endpoints:
  
 - Network connections can only be initiated by clients connecting to the private endpoint. Service providers don't have routing configuration to create connections into service consumers. Connections can only be established in a single direction.
 
-- When creating a private endpoint, a read-only network interface is created for the lifecycle of the resource. The interface is assigned a dynamic private IP address from the subnet that maps to the private link resource. The value of the private IP address remains unchanged for the entire lifecycle of the private endpoint.
+- When creating a private endpoint, a read-only network interface resource is **automatically created** for the lifecycle of the private endpoint. The interface is assigned a dynamic private IP address from the subnet that maps to the private link resource. The value of the private IP address remains unchanged for the entire lifecycle of the private endpoint.
  
 - The private endpoint must be deployed in the same region and subscription as the virtual network. 
  
