@@ -22,7 +22,7 @@ Each packet core instance is a cloud-native implementation of the 3GPP standards
 - A portfolio of service-based architecture elements. 
 - Management components for network monitoring.
 
-You can also deploy packet core instances in 4G mode to support Private LTE use cases. For example, you can use the 4G Citizens Broadband Radio Service (CBRS) spectrum. 4G mode uses the same cloud-native components as 5G mode (such as the UPF). This is in contrast to other solutions that need to revert to a legacy 4G stack.
+You can also deploy packet core instances in 4G mode to support Private Long-Term Evolution (LTE) use cases. For example, you can use the 4G Citizens Broadband Radio Service (CBRS) spectrum. 4G mode uses the same cloud-native components as 5G mode (such as the UPF). This is in contrast to other solutions that need to revert to a legacy 4G stack.
 
 Each packet core instance is standards-compliant and compatible with several Radio Access Network (RAN) partners in the Azure private multi-access edge compute (MEC) ecosystem. For more information, see [What is Azure private multi-access edge compute?](/azure/private-multi-access-edge-compute-mec/overview).
 
