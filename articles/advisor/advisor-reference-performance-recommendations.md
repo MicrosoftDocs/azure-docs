@@ -1,11 +1,11 @@
 ---
-title: Performance recomemndations
-description: Full list of availble performance recomemndations in Advisor.
+title: Performance recommendations
+description: Full list of available performance recommendations in Advisor.
 ms.topic: article
 ms.date: 02/03/2022
 ---
 
-# Performance recomemndations
+# Performance recommendations
 
 The performance recommendations in Azure Advisor can help improve the speed and responsiveness of your business-critical applications. You can get performance recommendations from Advisor on the **Performance** tab of the Advisor dashboard.
 
@@ -55,7 +55,7 @@ Learn more about [Redis Cache Server - RedisCacheUsedMemory (Improve your Cache 
 
 ### Upgrade to the latest Cognitive Service Text Analytics API version
 
-Upgrade to the latest API version to get the best results in terms of model quality, performance and service availability. Also there are new features are available as new endpoints starting from V3.0 such as PII recognition, Entity recognition and entity linking available as separate endpoints. In terms of changes in preview endpoints we have Opinion Mining in SA endpoint, redacted text property in PII endpoint
+Upgrade to the latest API version to get the best results in terms of model quality, performance and service availability. Also there are new features available as new endpoints starting from V3.0 such as PII recognition, entity recognition and entity linking available as separate endpoints. In terms of changes in preview endpoints we have opinion mining in SA endpoint, redacted text property in PII endpoint
 
 Learn more about [Cognitive Service - UpgradeToLatestAPI (Upgrade to the latest Cognitive Service Text Analytics API version)](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-call-api).
 
@@ -133,7 +133,7 @@ Learn more about [Communication service - UpgradeTurnSdk (Use recommended versio
 
 We have determined that your VMs are located in a region different or far from where your users are connecting from, using Windows Virtual Desktop (WVD). This may lead to prolonged connection response times and will impact overall user experience on WVD.
 
-Learn more about [Virtual machine - RegionProximitySessionHosts (Improve user experience and connectivity by deploying VMs closer to user’s location.)](https://docs.microsoft.com/azure/virtual-desktop/connection-latency).
+Learn more about [Virtual machine - RegionProximitySessionHosts (Improve user experience and connectivity by deploying VMs closer to user’s location.)](/azure/virtual-desktop/connection-latency).
 
 ### Consider increasing the size of your NVA to address persistent high CPU
 
@@ -169,43 +169,43 @@ Learn more about [Virtual machine - MixedDiskTypeToSSDPublic (Use SSD Disks for 
 
 We have identified that your Virtual Machine might be running a version of Barracuda Networks NextGen Firewall Image that is running older drivers for Accelerated Networking, which may cause the product to revert to using the standard, synthetic network interface which does not use Accelerated Networking. It is recommended that you upgrade to a newer version of the image that addresses this issue and enable Accelerated Networking. Contact Barracuda Networks for further instructions on how to upgrade your Network Virtual Appliance Image.
 
-Learn more about [Virtual machine - BarracudaNVAAccelNet (Barracuda Networks NextGen Firewall may experience high CPU utilization, reduced throughput and high latency.)](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli#enable-accelerated-networking-on-existing-vms).
+Learn more about [Virtual machine - BarracudaNVAAccelNet (Barracuda Networks NextGen Firewall may experience high CPU utilization, reduced throughput and high latency.)](/azure/virtual-network/create-vm-accelerated-networking-cli#enable-accelerated-networking-on-existing-vms).
 
 ### Arista Networks vEOS Router may experience high CPU utilization, reduced throughput and high latency.
 
 We have identified that your Virtual Machine might be running a version of Arista Networks vEOS Router Image that is running older drivers for Accelerated Networking, which may cause the product to revert to using the standard, synthetic network interface which does not use Accelerated Networking. It is recommended that you upgrade to a newer version of the image that addresses this issue and enable Accelerated Networking. Contact Arista Networks for further instructions on how to upgrade your Network Virtual Appliance Image.
 
-Learn more about [Virtual machine - AristaNVAAccelNet (Arista Networks vEOS Router may experience high CPU utilization, reduced throughput and high latency.)](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli#enable-accelerated-networking-on-existing-vms).
+Learn more about [Virtual machine - AristaNVAAccelNet (Arista Networks vEOS Router may experience high CPU utilization, reduced throughput and high latency.)](/azure/virtual-network/create-vm-accelerated-networking-cli#enable-accelerated-networking-on-existing-vms).
 
 ### Cisco Cloud Services Router 1000V may experience high CPU utilization, reduced throughput and high latency.
 
 We have identified that your Virtual Machine might be running a version of Cisco Cloud Services Router 1000V Image that is running older drivers for Accelerated Networking, which may cause the product to revert to using the standard, synthetic network interface which does not use Accelerated Networking. It is recommended that you upgrade to a newer version of the image that addresses this issue and enable Accelerated Networking. Contact Cisco for further instructions on how to upgrade your Network Virtual Appliance Image.
 
-Learn more about [Virtual machine - CiscoCSRNVAAccelNet (Cisco Cloud Services Router 1000V may experience high CPU utilization, reduced throughput and high latency.)](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli#enable-accelerated-networking-on-existing-vms).
+Learn more about [Virtual machine - CiscoCSRNVAAccelNet (Cisco Cloud Services Router 1000V may experience high CPU utilization, reduced throughput and high latency.)](/azure/virtual-network/create-vm-accelerated-networking-cli#enable-accelerated-networking-on-existing-vms).
 
 ### Palo Alto Networks VM-Series Firewall may experience high CPU utilization, reduced throughput and high latency.
 
 We have identified that your Virtual Machine might be running a version of Palo Alto Networks VM-Series Firewall Image that is running older drivers for Accelerated Networking, which may cause the product to revert to using the standard, synthetic network interface which does not use Accelerated Networking. It is recommended that you upgrade to a newer version of the image that addresses this issue and enable Accelerated Networking. Contact Palo Alto Networks for further instructions on how to upgrade your Network Virtual Appliance Image.
 
-Learn more about [Virtual machine - PaloAltoNVAAccelNet (Palo Alto Networks VM-Series Firewall may experience high CPU utilization, reduced throughput and high latency.)](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli#enable-accelerated-networking-on-existing-vms).
+Learn more about [Virtual machine - PaloAltoNVAAccelNet (Palo Alto Networks VM-Series Firewall may experience high CPU utilization, reduced throughput and high latency.)](/azure/virtual-network/create-vm-accelerated-networking-cli#enable-accelerated-networking-on-existing-vms).
 
 ### NetApp Cloud Volumes ONTAP may experience high CPU utilization, reduced throughput and high latency.
 
 We have identified that your Virtual Machine might be running a version of NetApp Cloud Volumes ONTAP Image that is running older drivers for Accelerated Networking, which may cause the product to revert to using the standard, synthetic network interface which does not use Accelerated Networking. It is recommended that you upgrade to a newer version of the image that addresses this issue and enable Accelerated Networking. Contact NetApp for further instructions on how to upgrade your Network Virtual Appliance Image.
 
-Learn more about [Virtual machine - NetAppNVAAccelNet (NetApp Cloud Volumes ONTAP may experience high CPU utilization, reduced throughput and high latency.)](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli#enable-accelerated-networking-on-existing-vms).
+Learn more about [Virtual machine - NetAppNVAAccelNet (NetApp Cloud Volumes ONTAP may experience high CPU utilization, reduced throughput and high latency.)](/azure/virtual-network/create-vm-accelerated-networking-cli#enable-accelerated-networking-on-existing-vms).
 
 ### Match production Virtual Machines with Production Disk for consistent performance and better latency
 
 Production virtual machines need production disks if you want to get the best performance. We see that you are running a production level virtual machine, however, you are using a low performing disk with standard HDD. Upgrading your disks that are attached to your production disks, either Standard SSD or Premium SSD, will benefit you with a more consistent experience and improvements in latency.
 
-Learn more about [Virtual machine - MatchProdVMProdDisks (Match production Virtual Machines with Production Disk for consistent performance and better latency)](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#disk-comparison).
+Learn more about [Virtual machine - MatchProdVMProdDisks (Match production Virtual Machines with Production Disk for consistent performance and better latency)](/azure/virtual-machines/windows/disks-types#disk-comparison).
 
 ### Update to the latest version of your Arista VEOS product for Accelerated Networking support.
 
 We have identified that your Virtual Machine might be running a version of software image that is running older drivers for Accelerated Networking (AN). It has a synthetic network interface which, either, is not AN capable or is not compatible with all Azure hardware. It is recommended that you upgrade to the latest version of the image that addresses this issue and enable Accelerated Networking. Contact your vendor for further instructions on how to upgrade your Network Virtual Appliance Image.
 
-Learn more about [Virtual machine - AristaVeosANUpgradeRecommendation (Update to the latest version of your Arista VEOS product for Accelerated Networking support.)](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli#enable-accelerated-networking-on-existing-vms).
+Learn more about [Virtual machine - AristaVeosANUpgradeRecommendation (Update to the latest version of your Arista VEOS product for Accelerated Networking support.)](/azure/virtual-network/create-vm-accelerated-networking-cli#enable-accelerated-networking-on-existing-vms).
 
 ### Update to the latest version of your Barracuda NG Firewall product for Accelerated Networking support.
 
@@ -245,15 +245,15 @@ Learn more about [Virtual machine - CheckPointCGANUpgradeRecommendation (Update 
 
 ### Accelerated Networking may require stopping and starting the VM
 
-We have detected that Accelerated Networking is not engaged on a VM resources in your existing deployment even though the feature has been requested. In rare cases like this, it may be necessary to stop and start your VM, at your convenience, to re-engage AccelNet.
+We have detected that Accelerated Networking is not engaged on VM resources in your existing deployment even though the feature has been requested. In rare cases like this, it may be necessary to stop and start your VM, at your convenience, to re-engage AccelNet.
 
-Learn more about [Virtual machine - AccelNetDisengaged (Accelerated Networking may require stopping and starting the VM)](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli#enable-accelerated-networking-on-existing-vms).
+Learn more about [Virtual machine - AccelNetDisengaged (Accelerated Networking may require stopping and starting the VM)](/azure/virtual-network/create-vm-accelerated-networking-cli#enable-accelerated-networking-on-existing-vms).
 
 ### NVA may see traffic loss due to hitting the maximum number of flows.
 
 Packet loss has been observed for this Virtual Machine due to hitting or exceeding the maximum number of flows for a VM instance of this size on Azure
 
-Learn more about [Virtual machine - NvaMaxFlowLimit (NVA may see traffic loss due to hitting the maximum number of flows.)](https://docs.microsoft.com/azure/virtual-network/virtual-machine-network-throughput).
+Learn more about [Virtual machine - NvaMaxFlowLimit (NVA may see traffic loss due to hitting the maximum number of flows.)](/azure/virtual-network/virtual-machine-network-throughput).
 
 ### Take advantage of Ultra Disk low latency for your log disks and improve your database workload performance.
 
@@ -293,15 +293,15 @@ Learn more about [MariaDB server - OrcasMariaDbCpuOverlaod (Increase the MariaDB
 
 ### Scale the MariaDB server to higher SKU
 
-Our internal telemetry shows that the server may be unable to support the connection requests because of the maximum supported connections for the given SKU. This may result in a large number of failed connections requests which adversly affect the the performance. To improve performance, we recommend to move to higher memory SKU by increasing vCore or switching to Memory-Optimized SKUs.
+Our internal telemetry shows that the server may be unable to support the connection requests because of the maximum supported connections for the given SKU. This may result in a large number of failed connections requests which adversely affect the performance. To improve performance, we recommend moving to higher memory SKU by increasing vCore or switching to Memory-Optimized SKUs.
 
 Learn more about [MariaDB server - OrcasMariaDbConcurrentConnection (Scale the MariaDB server to higher SKU)](https://aka.ms/mariadbconnectionlimits).
 
-### Move your MariaDB server to Memory Optimzed SKU
+### Move your MariaDB server to Memory Optimized SKU
 
 Our internal telemetry shows that there is high churn in the buffer pool for this server which can result in slower query performance and increased IOPS. To improve performance,  review your workload queries to identify opportunities to minimize memory consumed.  If no such opportunity found, then we recommend moving to higher SKU with more memory or increase storage size to get more IOPS.
 
-Learn more about [MariaDB server - OrcasMariaDbMemoryCache (Move your MariaDB server to Memory Optimzed SKU)](https://aka.ms/mariadbpricing).
+Learn more about [MariaDB server - OrcasMariaDbMemoryCache (Move your MariaDB server to Memory Optimized SKU)](https://aka.ms/mariadbpricing).
 
 ### Increase the reliability of audit logs
 
@@ -319,7 +319,7 @@ Learn more about [MySQL server - OrcasMySQLStorageLimit (Scale the storage limit
 
 ### Scale the MySQL server to higher SKU
 
-Our internal telemetry shows that the server may be unable to support the connection requests because of the maximum supported connections for the given SKU. This may result in a large number of failed connections requests which adversly affect the the performance. To improve performance, we recommend to move to higher memory SKU by increasing vCore or switching to Memory-Optimized SKUs.
+Our internal telemetry shows that the server may be unable to support the connection requests because of the maximum supported connections for the given SKU. This may result in a large number of failed connections requests which adversely affect the performance. To improve performance, we recommend moving to a higher memory SKU by increasing vCore or switching to Memory-Optimized SKUs.
 
 Learn more about [MySQL server - OrcasMySQLConcurrentConnection (Scale the MySQL server to higher SKU)](https://aka.ms/mysqlconnectionlimits).
 
@@ -375,7 +375,7 @@ Learn more about [PostgreSQL server - OrcasPostgreSqlStorageLimit (Scale the sto
 
 ### Increase the work_mem to avoid excessive disk spilling from sort and hash
 
-Our internal telemetry shows that the configuration work_mem is too small for your PostgreSQL server which is resulting in disk spilling and degraded query performance. To improve this, we recommend to increase the work_mem limit for the server which will help to reduce the scenarios when the sort or hash happens on disk, thereby improving the overall query performance.
+Our internal telemetry shows that the configuration work_mem is too small for your PostgreSQL server which is resulting in disk spilling and degraded query performance. To improve this, we recommend increasing the work_mem limit for the server which will help to reduce the scenarios when the sort or hash happens on disk, thereby improving the overall query performance.
 
 Learn more about [PostgreSQL server - OrcasPostgreSqlWorkMem (Increase the work_mem to avoid excessive disk spilling from sort and hash)](https://aka.ms/runtimeconfiguration).
 
@@ -393,7 +393,7 @@ Learn more about [Hyperscale (Citus) server group - OrcasPostgreSqlCitusRebalanc
 
 ### Scale the PostgreSQL server to higher SKU
 
-Our internal telemetry shows that the server may be unable to support the connection requests because of the maximum supported connections for the given SKU. This may result in a large number of failed connections requests which adversly affect the the performance. To improve performance, we recommend to move to higher memory SKU by increasing vCore or switching to Memory-Optimized SKUs.
+Our internal telemetry shows that the server may be unable to support the connection requests because of the maximum supported connections for the given SKU. This may result in a large number of failed connections requests which adversely affect the performance. To improve performance, we recommend moving to higher memory SKU by increasing vCore or switching to Memory-Optimized SKUs.
 
 Learn more about [PostgreSQL server - OrcasPostgreSqlConcurrentConnection (Scale the PostgreSQL server to higher SKU)](https://aka.ms/postgresqlconnectionlimits).
 
@@ -489,7 +489,7 @@ Learn more about [Azure Database for PostgreSQL flexible server - OrcasMeruMeruL
 
 ### Increase the work_mem to avoid excessive disk spilling from sort and hash
 
-Our internal telemetry shows that the configuration work_mem is too small for your PostgreSQL server which is resulting in disk spilling and degraded query performance. To improve this, we recommend to increase the work_mem limit for the server which will help to reduce the scenarios when the sort or hash happens on disk, thereby improving the overall query performance.
+Our internal telemetry shows that the configuration work_mem is too small for your PostgreSQL server which is resulting in disk spilling and degraded query performance. To improve this, we recommend increasing the work_mem limit for the server which will help to reduce the scenarios when the sort or hash happens on disk, thereby improving the overall query performance.
 
 Learn more about [Azure Database for PostgreSQL flexible server - OrcasMeruMeruWorkMem (Increase the work_mem to avoid excessive disk spilling from sort and hash)](https://aka.ms/runtimeconfiguration).
 
@@ -519,7 +519,7 @@ Learn more about [Azure Database for PostgreSQL flexible server - OrcasMeruMeruQ
 
 ### Optimize PostgreSQL performance by enabling PGBouncer
 
-Our Internal telemetry indiceates that you can improve PostgreSQL performance by enabling PGBouncer
+Our Internal telemetry indicates that you can improve PostgreSQL performance by enabling PGBouncer
 
 Learn more about [Azure Database for PostgreSQL flexible server - OrcasMeruOrcasPostgreSQLConnectionPooling (Optimize PostgreSQL performance by enabling PGBouncer)](/azure/postgresql/flexible-server/concepts-pgbouncer).
 
@@ -567,13 +567,13 @@ Learn more about [Cosmos DB account - CosmosDBGatewayMode (Configure your Azure 
 
 You are using the query page size of 100 for queries for your Azure Cosmos container. We recommend using a page size of -1 for faster scans.
 
-Learn more about [Cosmos DB account - CosmosDBQueryPageSize (Configure your Azure Cosmos DB query page size (MaxItemCount) to -1)](https://docs.microsoft.com/azure/cosmos-db/sql-api-query-metrics#max-item-count).
+Learn more about [Cosmos DB account - CosmosDBQueryPageSize (Configure your Azure Cosmos DB query page size (MaxItemCount) to -1)](/azure/cosmos-db/sql-api-query-metrics#max-item-count).
 
 ### Add composite indexes to your Azure Cosmos DB container
 
 Your Azure Cosmos DB containers are running ORDER BY queries incurring high Request Unit (RU) charges. It is recommended to add composite indexes to your containers' indexing policy to improve the RU consumption and decrease the latency of these queries.
 
-Learn more about [Cosmos DB account - CosmosDBOrderByHighRUCharge (Add composite indexes to your Azure Cosmos DB container)](https://docs.microsoft.com/azure/cosmos-db/index-policy#composite-indexes).
+Learn more about [Cosmos DB account - CosmosDBOrderByHighRUCharge (Add composite indexes to your Azure Cosmos DB container)](/azure/cosmos-db/index-policy#composite-indexes).
 
 ### Optimize your Azure Cosmos DB indexing policy to only index what's needed
 
@@ -619,13 +619,13 @@ Learn more about [HDInsight cluster - RegionCountCandidate (Check your region co
 
 ### Consider increasing the flusher threads
 
-The flush queue size in your region servers are more than 100 or there are updates getting blocked frequently. Tuning of the flush handler is recommended.
+The flush queue size in your region servers is more than 100 or there are updates getting blocked frequently. Tuning of the flush handler is recommended.
 
 Learn more about [HDInsight cluster - FlushQueueCandidate (Consider increasing the flusher threads)](/azure/hdinsight/hbase/apache-hbase-advisor).
 
 ### Consider increasing your compaction threads for compactions to complete faster
 
-The compaction queue in your region servers are more than 2000 suggesting that more data requires compaction. Slower compactions can impact read performance as the number of files to read are more. More files without compaction can also impact the heap usage related to how files interact with Azure file system.
+The compaction queue in your region servers is more than 2000 suggesting that more data requires compaction. Slower compactions can impact read performance as the number of files to read are more. More files without compaction can also impact the heap usage related to how files interact with Azure file system.
 
 Learn more about [HDInsight cluster - CompactionQueueCandidate (Consider increasing your compaction threads for compactions to complete faster)](/azure/hdinsight/hbase/apache-hbase-advisor).
 
@@ -686,7 +686,7 @@ Learn more about [ExpressRoute circuit - UpgradeERCircuitBandwidth (Upgrade your
 
 ### Consider increasing the size of your VNet Gateway SKU to address consistently high CPU use
 
-Under high traffic load, the VPN gateway may drop packets due to high CPU. You should consider upgrading your VPN Gateway SKU since your VPN has consistently been running at .
+Under high traffic load, the VPN gateway may drop packets due to high CPU.
 
 Learn more about [Virtual network gateway - HighCPUVNetGateway (Consider increasing the size of your VNet Gateway SKU to address consistently high CPU use)](https://aka.ms/HighCPUP2SVNetGateway).
 
