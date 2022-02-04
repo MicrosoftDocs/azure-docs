@@ -178,7 +178,7 @@ The second skill for sentiment analysis follows the same pattern as the first en
 
 ## Set context and input source
 
-1. Set the skill's context property. Context determines the level at which operations take place, and where outputs are produced in the enrichment tree. It's usually one of the following examples:
+1. Set the skill's [context property](cognitive-search-working-with-skillsets.md#context). Context determines the level at which operations take place, and where outputs are produced in the enrichment tree. It's usually one of the following examples:
 
     | Context example | Description |
     |-----------------|-------------|
