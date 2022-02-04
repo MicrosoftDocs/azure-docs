@@ -107,7 +107,7 @@ Register the applicable subscription that the range will be provisioned for with
 ```azurecli-interactive
 az feature registration create \
      --namespace Microsoft.Network \
-    --name AllowBringYourOwnIpAddressForThirdParties 
+     --name AllowBringYourOwnIpAddressForThirdParties 
 
 az feature registration show \
     --provider-namespace Microsoft.Network \
