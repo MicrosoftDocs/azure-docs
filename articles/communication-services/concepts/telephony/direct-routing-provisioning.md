@@ -25,8 +25,6 @@ For information about whether Azure Communication Services direct routing is the
 1. In the left navigation, select Direct routing under Voice Calling - PSTN and then select Configure from the Session Border Controller tab.
 1. Enter a fully qualified domain name and signaling port for the SBC.
  
-If you are using Office 365, make sure the domain part of the SBC’s FQDN is different from the domain you registered in Office 365 admin portal under Domains. 
-- For example, if `contoso.com` is a registered domain in O365, you cannot use `sbc.contoso.com` for Communication Services. But you can use an upper-level domain if one does not exist in O365: you can create an `acs.contoso.com` domain and use FQDN `sbc.acs.contoso.com` as an SBC name.
 - SBC certificate must match the name; wildcard certificates are supported.
 - The *.onmicrosoft.com domain cannot be used for the FQDN of the SBC.
 For the full list of requirements, refer to [Azure direct routing infrastructure requirements](./direct-routing-infrastructure.md).
