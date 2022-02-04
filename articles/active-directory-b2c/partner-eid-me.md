@@ -744,6 +744,8 @@ For additional information, review the following articles:
 
 - [Get started with custom policies in Azure AD B2C](./tutorial-create-user-flows.md?pivots=b2c-custom-policy)
 
+- [Sample code to integrate Azure AD B2C with eID-Me](https://github.com/bluink-stephen/eID-Me_Azure_AD_B2C)
+
 - [Bluink and Azure AD B2C integration guide](https://bluink.ca/eid-me/azure-b2c-integration-guide)
 
 ::: zone-end
