@@ -88,6 +88,8 @@ For more information on the classes, methods, and parameters used in this exampl
 
 # [Azure CLI](#tab/azure-cli)
 
+[!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
+
 ```azurecli-interactive
 az ml computetarget create computeinstance  -n instance -s "STANDARD_D3_V2" -v
 ```
@@ -460,6 +462,8 @@ In the examples below, the name of the compute instance is **instance**
     ```
 
 # [Azure CLI](#tab/azure-cli)
+
+[!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
 
 In the examples below, the name of the compute instance is **instance**
 

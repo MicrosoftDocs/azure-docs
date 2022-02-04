@@ -63,7 +63,6 @@ Compute clusters can run jobs securely in a [virtual network environment](how-to
 > [!TIP]
 > Clusters can generally scale up to 100 nodes as long as you have enough quota for the number of cores required. By default clusters are setup with inter-node communication enabled between the nodes of the cluster to support MPI jobs for example. However you can scale your clusters to 1000s of nodes by simply [raising a support ticket](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest), and requesting to allow list your subscription, or workspace, or a specific cluster for disabling inter-node communication.
 
-
 ## Create
 
 **Time estimate**: Approximately 5 minutes.
@@ -93,6 +92,7 @@ You can also configure several advanced properties when you create Azure Machine
 
 # [Azure CLI](#tab/azure-cli)
 
+[!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
 
 ```azurecli-interactive
 az ml computetarget create amlcompute -n cpu --min-nodes 1 --max-nodes 1 -s STANDARD_D3_V2 --location westus2
@@ -124,6 +124,8 @@ compute_config = AmlCompute.provisioning_configuration(vm_size='STANDARD_D2_V2',
 ```
     
 # [Azure CLI](#tab/azure-cli)
+
+[!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
 
 Set the `vm-priority`:
     
@@ -187,6 +189,9 @@ In the studio, choose **Low Priority** when you create a VM.
         ```
 
 # [Azure CLI](#tab/azure-cli)
+
+[!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
+
 
 * Create a new managed compute cluster with managed identity
 

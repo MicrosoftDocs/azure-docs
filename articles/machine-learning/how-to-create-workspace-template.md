@@ -85,6 +85,8 @@ See the [Azure portal](#use-the-azure-portal) section if you prefer using the gr
 
 # [Azure CLI](#tab/azcli)
 
+[!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
+
 ```azurecli
 az group create --name "examplegroup" --location "eastus"
 ```
@@ -100,6 +102,8 @@ New-AzResourceGroup -Name "examplegroup" -Location "eastus"
 Once your resource group is successfully created, deploy the template with the following command:
 
 # [Azure CLI](#tab/azcli)
+
+[!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
 
 ```azurecli
 az deployment group create \
@@ -128,6 +132,8 @@ By default, all of the resources created as part of the template are new. Howeve
 > If you want to use an existing Azure Storage account, it cannot be a premium account (Premium_LRS and Premium_GRS). It also cannot have a hierarchical namespace (used with Azure Data Lake Storage Gen2). Neither premium storage or hierarchical namespace are supported with the default storage account of the workspace. Neither premium storage or hierarchical namespaces are supported with the _default_ storage account of the workspace. You can use premium storage or hierarchical namespace with _non-default_ storage accounts.
 
 # [Azure CLI](#tab/azcli)
+
+[!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
 
 ```azurecli
 az deployment group create \
@@ -182,6 +188,8 @@ __To get the values__ for the `cmk_keyvault` (ID of the Key Vault) and the `reso
 
     # [Azure CLI](#tab/azcli)	
 
+[!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
+
     ```azurecli	
     az keyvault show --name <keyvault-name> --query 'id' --output tsv	
     ```	
@@ -198,6 +206,8 @@ __To get the values__ for the `cmk_keyvault` (ID of the Key Vault) and the `reso
 1. To get the value for the URI for the customer managed key, use the following command:	
 
     # [Azure CLI](#tab/azcli)	
+
+[!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
 
     ```azurecli	
     az keyvault key show --vault-name <keyvault-name> --name <key-name> --query 'key.kid' --output tsv	
@@ -222,6 +232,8 @@ To enable use of Customer Managed Keys, set the following parameters when deploy
 * **resource_cmk_uri** to the `resource_cmk_uri` value obtained in previous steps.
 
 # [Azure CLI](#tab/azcli)
+
+[!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
 
 ```azurecli
 az deployment group create \
@@ -280,6 +292,8 @@ If your associated resources are not behind a virtual network, you can set the *
 
 # [Azure CLI](#tab/azcli)
 
+[!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
+
 ```azurecli
 az deployment group create \
     --name "exampledeployment" \
@@ -309,6 +323,8 @@ New-AzResourceGroupDeployment `
 To deploy a resource behind a new virtual network, set the **vnetOption** to **new** along with the virtual network settings for the respective resource. The deployment below shows how to deploy a workspace with the storage account resource behind a new virtual network.
 
 # [Azure CLI](#tab/azcli)
+
+[!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
 
 ```azurecli
 az deployment group create \
@@ -343,6 +359,8 @@ New-AzResourceGroupDeployment `
 Alternatively, you can deploy multiple or all dependent resources behind a virtual network.
 
 # [Azure CLI](#tab/azcli)
+
+[!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
 
 ```azurecli
 az deployment group create \
@@ -389,6 +407,8 @@ New-AzResourceGroupDeployment `
 
 # [Azure CLI](#tab/azcli)
 
+[!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
+
 ```azurecli
 az deployment group create \
     --name "exampledeployment" \
@@ -431,6 +451,8 @@ To deploy a workspace with existing associated resources you have to set the **v
 
     # [Azure CLI](#tab/azcli)
 
+[!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
+
     ```azurecli
     az network vnet subnet update --resource-group "examplegroup" --vnet-name "examplevnet" --name "examplesubnet" --service-endpoints "Microsoft.Storage"
     az network vnet subnet update --resource-group "examplegroup" --vnet-name "examplevnet" --name "examplesubnet" --service-endpoints "Microsoft.KeyVault"
@@ -450,6 +472,8 @@ To deploy a workspace with existing associated resources you have to set the **v
 1. Deploy the workspace
 
     # [Azure CLI](#tab/azcli)
+
+[!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
 
     ```azurecli
     az deployment group create \
@@ -499,6 +523,8 @@ To deploy a workspace with existing associated resources you have to set the **v
 > The deployment is only valid in regions which support private endpoints.
 
 # [Azure CLI](#tab/azcli)
+
+[!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
 
 ```azurecli
 az deployment group create \
