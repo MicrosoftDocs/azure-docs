@@ -15,11 +15,15 @@ Azure App Configuration supports data import and export operations. Use these op
 
 This article provides a guide for importing and exporting data with App Configuration. If you’d like to set up an ongoing sync with your GitHub repo, take a look at our [GitHub Action](./concept-github-action.md).
 
+You can import or export data by using either the [Azure portal](https://portal.azure.com) or the [Azure CLI](./scripts/cli-import.md).
+
 ## Import data
 
 Import brings configuration data into an App Configuration store from an existing source. Use the import function to migrate data into an App Configuration store or aggregate data from multiple sources. App Configuration supports importing from a JSON, YAML, or properties file.
 
-Import data by using either the [Azure portal](https://portal.azure.com) or the [Azure CLI](./scripts/cli-import.md). From the Azure portal, follow these steps:
+# [Azure portal](#tab/azure-portal/importdata)
+
+From the Azure portal, follow these steps:
 
 1. Browse to your App Configuration store, and select **Import/Export** from the **Operations** menu.
 
@@ -29,7 +33,7 @@ Import data by using either the [Azure portal](https://portal.azure.com) or the 
 
 1. Select the **Folder** icon, and browse to the file to import.
 
-    ![Import file](./media/import-file.png)
+    :::image type="content" source="./media/import-file2.png" alt-text="Import file":::
 
 1. Select a **Separator**, and optionally enter a **Prefix** to use for imported key names.
 
@@ -37,11 +41,42 @@ Import data by using either the [Azure portal](https://portal.azure.com) or the 
 
 1. Select **Apply** to finish the import.
 
-    ![Import file finished](./media/import-file-complete.png)
+    :::image type="content" source="./media/import-file-complete2.png" alt-text="Import file":::
+
+# [Azure CLI](#tab/azure-cli/importdata)
+
+```console
+az appconfig kv import --source {appconfig, appservice, file}
+                       [--appservice-account]
+                       [--auth-mode {key, login}]
+                       [--connection-string]
+                       [--content-type]
+                       [--depth]
+                       [--endpoint]
+                       [--format {json, properties, yaml}]
+                       [--label]
+                       [--name]
+                       [--path]
+                       [--prefix]
+                       [--preserve-labels {false, true}]
+                       [--profile {appconfig/default, appconfig/kvset}]
+                       [--separator]
+                       [--skip-features {false, true}]
+                       [--src-auth-mode {key, login}]
+                       [--src-connection-string]
+                       [--src-endpoint]
+                       [--src-key]
+                       [--src-label]
+                       [--src-name]
+                       [--subscription]
+                       [--yes]
+```
 
 ## Export data
 
 Export writes configuration data stored in App Configuration to another destination. Use the export function, for example, to save data in an App Configuration store to a file that's embedded with your application code during deployment.
+
+# [Azure portal](#tab/azure-portal/exportdata)
 
 Export data by using either the [Azure portal](https://portal.azure.com) or the [Azure CLI](./scripts/cli-export.md). From the Azure portal, follow these steps:
 
@@ -56,6 +91,8 @@ Export data by using either the [Azure portal](https://portal.azure.com) or the 
 1. Select **Apply** to finish the export.
 
     ![Export file finished](./media/export-file-complete.png)
+
+# [Azure CLI](#tab/azure-cli/exportdata)
 
 ## Next steps
 
