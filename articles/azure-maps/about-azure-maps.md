@@ -3,7 +3,6 @@ title: Overview for Microsoft Azure Maps
 description: Learn about services and capabilities in Microsoft Azure Maps and how to use them in your applications.
 author: stevemunk
 ms.author: v-munksteve
-manager: jokebeck
 ms.date: 11/29/2021
 ms.topic: overview
 ms.service: azure-maps
@@ -33,7 +32,7 @@ The following video explains Azure Maps in depth:
 
 </br>
 
-> [!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Azure-Maps/player?format=ny]
+> [!VIDEO https://docs.microsoft.com/Shows/Internet-of-Things-Show/Azure-Maps/player?format=ny]
 
 ## Map controls
 

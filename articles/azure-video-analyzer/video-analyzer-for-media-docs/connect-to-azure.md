@@ -12,16 +12,13 @@ ms.custom: ignite-fall-2021
 When creating an Azure Video Analyzer for Media (formerly Video Indexer) account, you can choose a free trial account (where you get a certain number of free indexing minutes) or a paid option (where you're not limited by the quota). With a free trial, Video Analyzer for Media provides up to 600 minutes of free indexing to users and up to 2400 minutes of free indexing to users that subscribe to the Video Analyzer API on the [developer portal](https://aka.ms/avam-dev-portal). With the paid options, Azure Video Analyzer for Media offers two types of accounts: classic accounts(General Availability), and ARM-based accounts(Public Preview). Main difference between the two is account management platform. While classic accounts is built on the API Management, ARM-based accounts management is built on Azure, enables to apply access control to all services with role-based access control (Azure RBAC) natively.
 
 * You can create a Video Analyzer for Media **classic** account through our [API](https://aka.ms/avam-dev-portal).
-
 * You can create a Video Analyzer for Media **ARM-based** account through one of the following:
 
   1.  [Video Analyzer for Media portal](https://aka.ms/vi-portal-link)
-
   2.  [Azure portal](https://ms.portal.azure.com/#home)
-
   3.  [QuickStart ARM template](https://github.com/Azure-Samples/media-services-video-indexer/tree/master/ARM-Samples/Create-Account)
 
-### To read more on how to create a **new ARM-Based** Video Analyzer for Media account, read this [article](create-video-analyzer-for-media-account.md)
+To read more on how to create a **new ARM-Based** Video Analyzer for Media account, read this [article](create-video-analyzer-for-media-account.md)
 
 ## How to create classic accounts
 This article shows how to create a Video Analyzer for Media classic account. The topic provides steps for connecting to Azure using the automatic (default) flow. It also shows how to connect to Azure manually (advanced).

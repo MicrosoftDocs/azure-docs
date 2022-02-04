@@ -4,6 +4,7 @@ description: Learn how to configure the Python container in which web apps are r
 ms.topic: quickstart
 ms.date: 06/11/2021
 ms.reviewer: astay; kraigb
+ms.devlang: python
 ms.custom: mvc, seodec18, devx-track-python, devx-track-azurecli, mode-other
 ---
 

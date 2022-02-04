@@ -424,7 +424,7 @@ The Power BI real-time streaming feature lets you view data in a dashboard that'
 To use IoT Central with Power BI Streaming, set up a webhook export that sends request bodies in a specific format. This example assumes you have a Power BI Streaming dataset with the following schema:
 
 ```json
-[
+
   {
     "bloodPressureDiastolic": 161438124,
     "bloodPressureSystolic": -966387879,
@@ -435,7 +435,7 @@ To use IoT Central with Power BI Streaming, set up a webhook export that sends r
     "respiratoryRate": 1582211310,
     "timestamp": "1909-10-10T07:11:56.078161042Z"
   }
-]
+
 ```
 
 To create the webhook export destination, you need the REST API URL endpoint for your Power BI streaming dataset.
@@ -510,7 +510,7 @@ The following JQ query transforms the input message to a format suitable for the
 ```jq
 import "iotc" as iotc;
 if .device.templateId == "dtmi:hpzy1kfcbt2:umua7dplmbd" then 
-    [{
+    {
         deviceId: .device.id,
         timestamp: .enqueuedTime,
         deviceName: .device.name,
@@ -519,7 +519,7 @@ if .device.templateId == "dtmi:hpzy1kfcbt2:umua7dplmbd" then
         heartRate: .telemetry | iotc::find(.name == "HeartRate").value,
         heartRateVariability: .telemetry | iotc::find(.name == "HeartRateVariability").value,
         respiratoryRate: .telemetry | iotc::find(.name == "RespiratoryRate").value
-    }]
+    }
 else
     empty
 end

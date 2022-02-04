@@ -76,6 +76,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "azure_cli_scripts",
+      "url": "https://github.com/Azure-Samples/azure-cli-samples",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "powershell_scripts",
       "url": "https://github.com/Azure/azure-docs-powershell-samples",
       "branch": "master",
@@ -782,7 +788,25 @@
       "url": "https://github.com/Azure/azure-docs-bicep-samples/",
       "branch": "main",
       "branch_mapping": {}
-    }
+    },
+    {
+      "path_to_root": "msdocs-python-flask-webapp-quickstart",
+      "url": "https://github.com/Azure-Samples/msdocs-python-flask-webapp-quickstart",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "msdocs-python-django-webapp-quickstart",
+      "url": "https://github.com/Azure-Samples/msdocs-python-django-webapp-quickstart",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "msdocs-nodejs-mongodb-azure-sample-app",
+      "url": "https://github.com/Azure-Samples/msdocs-nodejs-mongodb-azure-sample-app",
+      "branch": "main",
+      "branch_mapping": {}
+    }     
   ],
   "branch_target_mapping": {
     "live": [
@@ -807,7 +831,7 @@
     ".openpublishing.redirection.json",
     ".openpublishing.redirection.active-directory.json",
     ".openpublishing.redirection.azure-sql.json",
-    ".openpublishing.redirection.data-factory.json",
+    "articles/data-factory/.openpublishing.redirection.data-factory.json",
     ".openpublishing.redirection.defender-for-cloud.json",
     ".openpublishing.redirection.defender-for-iot.json",
     ".openpublishing.redirection.healthcare-apis.json",
@@ -818,7 +842,9 @@
     ".openpublishing.redirection.sql-database.json",
     ".openpublishing.redirection.synapse-analytics.json",
     ".openpublishing.redirection.azure-web-pubsub.json",
+    ".openpublishing.redirection.azure-monitor.json",
     ".openpublishing.redirection.azure-percept.json",
+    ".openpublishing.redirection.azure-productivity.json",
     "articles/azure-fluid-relay/.openpublishing.redirection.fluid-relay.json",
     "articles/azure-netapp-files/.openpublishing.redirection.azure-netapp-files.json",   
     "articles/azure-relay/.openpublishing.redirection.relay.json",
@@ -835,8 +861,11 @@
     "articles/iot-accelerators/.openpublishing.redirection.iot-accelerators.json",
     "articles/iot-develop/.openpublishing.redirection.iot-develop.json",
     "articles/iot-edge/.openpublishing.redirection.iot-edge.json",
+    "articles/mariadb/.openpublishing.redirection.mariadb.json",
     "articles/marketplace/.openpublishing.redirection.marketplace.json",
+    "articles/mysql/.openpublishing.redirection.mysql.json",
     "articles/object-anchors/.openpublishing.redirection.object-anchors.json",
+    "articles/postgresql/.openpublishing.redirection.postgresql.json",
     "articles/purview/.openpublishing.redirection.purview.json",
     "articles/service-bus-messaging/.openpublishing.redirection.service-bus-messaging.json",
     "articles/stream-analytics/.openpublishing.redirection.stream-analytics.json",

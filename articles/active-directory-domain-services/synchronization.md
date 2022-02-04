@@ -3,7 +3,7 @@ title: How synchronization works in Azure AD Domain Services | Microsoft Docs
 description: Learn how the synchronization process works for objects and credentials from an Azure AD tenant or on-premises Active Directory Domain Services environment to an Azure Active Directory Domain Services managed domain.
 services: active-directory-ds
 author: justinha
-manager: daveba
+manager: karenhoran
 
 ms.assetid: 57cbf436-fc1d-4bab-b991-7d25b6e987ef
 ms.service: active-directory
@@ -20,13 +20,14 @@ Objects and credentials in an Azure Active Directory Domain Services (Azure AD D
 
 In a hybrid environment, objects and credentials from an on-premises AD DS domain can be synchronized to Azure AD using Azure AD Connect. Once those objects are successfully synchronized to Azure AD, the automatic background sync then makes those objects and credentials available to applications using the managed domain.
 
-If on-prem AD DS and Azure AD are configured for federated authentication using ADFS then there is no (current/valid) password hash available in Azure DS. Azure AD user accounts created before fed auth was implemented might have an old password hash but this likely doesn't match a hash of their on-prem password. Hence Azure AD DS won't be able to validate the users credentials.
+If on-premises AD DS and Azure AD are configured for federated authentication using ADFS without password hash sync, or if third-party identity protection products and Azure AD are configured for federated authentication without password hash sync, no (current/valid) password hash is available in Azure DS. Azure AD user accounts created before fed auth was implemented might have an old password hash, but this likely doesn't match a hash of their on-premises password. Hence, Azure AD DS won't be able to validate a user's credentials.
 
 The following diagram illustrates how synchronization works between Azure AD DS, Azure AD, and an optional on-premises AD DS environment:
 
 ![Synchronization overview for an Azure AD Domain Services managed domain](./media/active-directory-domain-services-design-guide/sync-topology.png)
 
 ## Synchronization from Azure AD to Azure AD DS
+
 
 User accounts, group memberships, and credential hashes are synchronized one way from Azure AD to Azure AD DS. This synchronization process is automatic. You don't need to configure, monitor, or manage this synchronization process. The initial synchronization may take a few hours to a couple of days, depending on the number of objects in the Azure AD directory. After the initial synchronization is complete, changes that are made in Azure AD, such as password or attribute changes, are then automatically synchronized to Azure AD DS.
 

@@ -31,6 +31,7 @@ Choose the log category and metric category you want to monitor.
 | **ApplicationConsole** | Console log of all customer applications. |
 | **SystemLogs** | Currently, only [Spring Cloud Config Server](https://cloud.spring.io/spring-cloud-config/reference/html/#_spring_cloud_config_server) logs in this category. |
 | **IngressLogs** | [Ingress logs](#show-ingress-log-entries-containing-a-specific-host) of all customer's applications, only access logs. |
+| **BuildLogs** | [Build logs](#show-build-log-entries-for-a-specific-app) of all customer's applications for each build stage. |
 
 ## Metrics
 
@@ -196,6 +197,26 @@ To review log entries for a specific `requestId` value *\<request_ID>*, run the 
 AppPlatformIngressLogs
 | where TimeGenerated > ago(1h) and ReqId == "<request_ID>" 
 | project TimeGenerated, RemoteIP, Host, Request, Status, BodyBytesSent, RequestTime, ReqId, RequestHeaders
+| sort by TimeGenerated
+```
+
+### Show build log entries for a specific app
+
+To review log entries for a specific app during the build process, run the following query:
+
+```sql
+AppPlatformBuildLogs
+| where TimeGenerated > ago(1h) and PodName contains "<app-name>"
+| sort by TimeGenerated
+```
+
+### Show build log entries for a specific app in a specific build stage
+
+To review log entries for a specific app in a specific build stage, run the following query. Replace the *`<app-name>`* placeholder with your application name. Replace the *`<build-stage>`* placeholder with one of the following values, which represent the stages of the build process: `prepare`, `detect`, `restore`, `analyze`, `build`, `export`, or `completion`.
+
+```sql
+AppPlatformBuildLogs
+| where TimeGenerated > ago(1h) and PodName contains "<app-name>" and ContainerName == "<build-stage>"
 | sort by TimeGenerated
 ```
 

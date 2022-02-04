@@ -257,38 +257,24 @@ This warning doesn't impact notebook functionality.
 
 ### Authenticate to your Microsoft Sentinel workspace from your notebook
 
-Authenticate to your Microsoft Sentinel workspace using [device authorization](../active-directory/develop/v2-oauth2-device-code.md) with your Azure credentials.
+In Azure ML notebooks, the authentication defaults to using the credentials you used to authenticate to the Azure ML workspace.
 
-Device authorization adds another factor to the authentication by generating a one-time device code that you supply as part of the authentication process.
+**Authenticate by using managed identity**
 
-**To authenticate using device authorization**:
-
-1. Run the following code cell to generate and display a device code:
+Run the following code to authenticate to your Sentinel workspace.
 
    ```python
-   # Get the Microsoft Sentinel workspace details from msticpyconfig
-   # Loading WorkspaceConfig with no parameters uses the details
-   # of your Default workspace
-   # If you want to connect to a specific workspace use this syntax:
-   #    ws_config = WorkspaceConfig(workspace="WorkspaceName")
-   # ('WorkspaceName' should be one of the workspaces defined in msticpyconfig.yaml)
+   # Get the default Microsoft Sentinel workspace details from msticpyconfig.yaml
+
    ws_config = WorkspaceConfig()
 
-   # Connect to Microsoft Sentinel with your QueryProvider and config details
+   # Connect to Microsoft Sentinel with our QueryProvider and config details
    qry_prov.connect(ws_config)
    ```
 
-    For example:
+Output similar to the following is displayed in your notebook:
 
-    :::image type="content" source="media/notebook-get-started/device-authorization.png" alt-text="Screenshot showing a device authorization code.":::
-
-1. Select and copy the indicated code to your clipboard. Then, go to [https://microsoft.com/devicelogin](https://microsoft.com/devicelogin) and paste the code in where prompted.
-
-1. When you see the confirmation message that you've signed in, close the browser tab return to your notebook in Microsoft Sentinel.
-
-   Output similar to the following is displayed in your notebook:
-
-   :::image type="content" source="media/notebook-get-started/authorization-complete.png" alt-text="Screenshot showing that the device authorization process is complete.":::
+   :::image type="content" source="media/notebook-get-started/authorization-connected-workspace.png" alt-text="Screenshot that shows authentication to Azure that ends with a connected message.":::
 
 **Cache your sign-in token using Azure CLI**
 

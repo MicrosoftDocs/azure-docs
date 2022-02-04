@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: conceptual
 author: WilliamDAssafMSFT
 ms.author: wiassaf
-ms.reviewer: mathoma
+ms.reviewer: mathoma, kendralittle
 ms.date: 10/18/2021
 ---
 # Optimize performance by using in-memory technologies in Azure SQL Database and Azure SQL Managed Instance

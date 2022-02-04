@@ -4,7 +4,6 @@ titleSuffix: Microsoft Azure Maps
 description: In this article, you will learn how to manage Azure Maps Power BI visual within your organization.
 author: stevemunk
 ms.author: v-munksteve
-manager: jokebeck
 ms.date: 11/29/2021
 ms.topic: conceptual
 ms.service: azure-maps

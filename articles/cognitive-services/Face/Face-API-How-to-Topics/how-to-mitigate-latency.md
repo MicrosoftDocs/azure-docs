@@ -9,6 +9,7 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 1/5/2021
 ms.author: pafarley
+ms.devlang: csharp
 ---
 
 # How to: mitigate latency when using the Face service

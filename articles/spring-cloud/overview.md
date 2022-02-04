@@ -7,7 +7,7 @@ ms.topic: overview
 ms.date: 03/09/2021
 ms.author: karler
 ms.custom: devx-track-java, contperf-fy21q2
-customer intent: As an Azure Cloud user, I want to deploy, run, and monitor Spring Boot microservices.
+#Customer intent: As an Azure Cloud user, I want to deploy, run, and monitor Spring Boot microservices.
 ---
 
 # What is Azure Spring Cloud?

@@ -10,7 +10,7 @@ ms.date: 11/02/2021
 
 ms.author: justinha
 author: justinha
-manager: daveba
+manager: karenhoran
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ---
@@ -39,20 +39,26 @@ The following table details the different ways to get Azure AD Multi-Factor Auth
 
 The following table provides a list of the features that are available in the various versions of Azure AD Multi-Factor Authentication. Plan out your needs for securing user authentication, then determine which approach meets those requirements. For example, although Azure AD Free provides security defaults that provide Azure AD Multi-Factor Authentication, only the mobile authenticator app can be used for the authentication prompt, not a phone call or SMS. This approach may be a limitation if you can't ensure the mobile authentication app is installed on a user's personal device. See [Azure AD Free tier](#azure-ad-free-tier) later in this topic for more details. 
 
-| Feature | Azure AD Free - Security defaults (enabled for all users) | Azure AD Free - Global Administrators only | Office 365 | Azure AD Premium P1 or P2 |
-| --- |:---:|:---:|:---:|:---:|
-| Protect Azure AD tenant admin accounts with MFA | ● | ● (*Azure AD Global Administrator* accounts only) | ● | ● |
-| Mobile app as a second factor | ● | ● | ● | ● |
-| Phone call as a second factor | | ● | ● | ● |
-| SMS as a second factor | | ● | ● | ● |
-| Admin control over verification methods | | ● | ● | ● |
-| Fraud alert | | | | ● |
-| MFA Reports | | | | ● |
-| Custom greetings for phone calls | | | | ● |
-| Custom caller ID for phone calls | | | | ● |
-| Trusted IPs | | | | ● |
-| Remember MFA for trusted devices | | ● | ● | ● |
-| MFA for on-premises applications | | | | ● |
+| Feature | Azure AD Free - Security defaults (enabled for all users) | Azure AD Free - Global Administrators only | Office 365 | Azure AD Premium P1 | Azure AD Premium P2 | 
+| --- |:---:|:---:|:---:|:---:|:---:|
+| Protect Azure AD tenant admin accounts with MFA | ● | ● (*Azure AD Global Administrator* accounts only) | ● | ● | ● |
+| Mobile app as a second factor | ● | ● | ● | ● | ● |
+| Phone call as a second factor | | ● | ● | ● | ● |
+| SMS as a second factor | | ● | ● | ● | ● |
+| Admin control over verification methods | | ● | ● | ● | ● |
+| Fraud alert | | | | ● | ● |
+| MFA Reports | | | | ● | ● |
+| Custom greetings for phone calls | | | | ● | ● |
+| Custom caller ID for phone calls | | | | ● | ● |
+| Trusted IPs | | | | ● | ● |
+| Remember MFA for trusted devices | | ● | ● | ● | ● |
+| MFA for on-premises applications | | | | ● | ● |
+| Conditional access | | | | ● | ● |
+| Risk-based conditional access | | | | | ● |
+| Identity Protection (Risky sign-ins, risky users) | | | | | ● |
+| Access Reviews | | | | | ● |
+| Entitlements Management | | | | | ● |
+| Privileged Identity Management (PIM), just-in-time access | | | | | ● |
 
 ## Compare multi-factor authentication policies
 
@@ -105,5 +111,6 @@ If you don't want to enable Azure AD Multi-Factor Authentication for all users, 
 
 * For more information on costs, see [Azure AD pricing](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 * [What is Conditional Access](../conditional-access/overview.md)
+* [What is Identity Protection?](../identity-protection/overview-identity-protection.md)
 * MFA can also be [enabled on a per-user basis](howto-mfa-userstates.md)
 

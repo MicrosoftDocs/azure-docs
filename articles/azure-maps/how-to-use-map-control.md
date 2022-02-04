@@ -4,7 +4,6 @@ titleSuffix: Microsoft Azure Maps
 description: Learn how to add and localize maps to web and mobile applications by using the Map Control client-side JavaScript library in Azure Maps. 
 author: stevemunk
 ms.author: v-munksteve
-manager: jokebeck
 ms.date: 11/29/2021
 ms.topic: how-to
 ms.service: azure-maps
@@ -52,7 +51,7 @@ You can embed a map in a web page by using the Map Control client-side JavaScrip
      ```
 
     > [!NOTE]
-    > Typescript definitions can be imported into your application by adding the following code:
+    > TypeScript definitions can be imported into your application by adding the following code:
     >
     > ```javascript
     > import * as atlas from 'azure-maps-control';

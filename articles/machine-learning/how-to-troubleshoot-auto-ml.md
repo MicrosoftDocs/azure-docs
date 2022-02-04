@@ -190,6 +190,10 @@ If this pattern is expected in your time series, you can switch your primary met
     1. Select the `Branch` button
     1. Navigate to the `Tags` tab
     1. Select the version
+    
+## Experiment throttling
+
+If you have over 100 automated ML experiments, this may cause new automated ML experiments to have long run times. 
 
 ## Next steps
 

@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: conceptual
 author: WilliamDAssafMSFT
 ms.author: wiassaf
-ms.reviewer: mathoma
+ms.reviewer: kendralittle, mathoma
 ms.date: 04/09/2021
 ---
 # Scale single database resources in Azure SQL Database

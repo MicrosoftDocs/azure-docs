@@ -81,6 +81,8 @@
       href: traffic-manager-create-rum-visual-studio.md
     - name: Using web pages
       href: traffic-manager-create-rum-web-pages.md
+  - name: Add an endpoint to an existing profile - ARM Template
+    href: how-to-add-endpoint-existing-profile-template.md
   - name: Manage endpoints
     href: traffic-manager-manage-endpoints.md
   - name: Manage profiles

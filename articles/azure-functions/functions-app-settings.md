@@ -145,6 +145,18 @@ Path to the compiler used for TypeScript. Allows you to override the default if 
 |---|------------|
 |AzureWebJobs_TypeScriptPath|`%HOME%\typescript`|
 
+## DOCKER_SHM_SIZE
+
+Sets the shared memory size (in bytes) when the Python worker is using shared memory. To learn more, see [Shared memory](functions-reference-python.md#shared-memory).
+
+|Key|Sample value|
+|---|------------|
+|DOCKER_SHM_SIZE|`268435456`|
+
+The value above sets a shared memory size of ~256 MB. 
+
+Requires that [FUNCTIONS\_WORKER\_SHARED\_MEMORY\_DATA\_TRANSFER\_ENABLED](#functions_worker_shared_memory_data_transfer_enabled) be set to `1`.
+
 ## FUNCTION\_APP\_EDIT\_MODE
 
 Dictates whether editing in the Azure portal is enabled. Valid values are "readwrite" and "readonly".
@@ -200,6 +212,16 @@ Valid values:
 | `node` | [JavaScript](functions-reference-node.md)<br/>[TypeScript](functions-reference-node.md#typescript) |
 | `powershell` | [PowerShell](functions-reference-powershell.md) |
 | `python` | [Python](functions-reference-python.md) |
+
+## FUNCTIONS\_WORKER\_SHARED\_MEMORY\_DATA\_TRANSFER\_ENABLED
+
+This setting enables the Python worker to use shared memory to improve throughput. Enable shared memory when your Python function app is hitting memory bottlenecks. 
+
+|Key|Sample value|
+|---|------------|
+|FUNCTIONS_WORKER_SHARED_MEMORY_DATA_TRANSFER_ENABLED|`1`|
+
+With this setting enabled, you can use the [DOCKER_SHM_SIZE](#docker_shm_size) setting to set the shared memory size. To learn more, see [Shared memory](functions-reference-python.md#shared-memory).
 
 ## MDMaxBackgroundUpgradePeriod
 
@@ -258,6 +280,12 @@ The configuration is specific to Python function apps. It defines the prioritiza
 |---|-----|-----------|
 |PYTHON\_ISOLATE\_WORKER\_DEPENDENCIES|`0`| Prioritize loading the Python libraries from internal Python worker's dependencies. Third-party libraries defined in requirements.txt may be shadowed. |
 |PYTHON\_ISOLATE\_WORKER\_DEPENDENCIES|`1`| Prioritize loading the Python libraries from application's package defined in requirements.txt. This prevents your libraries from colliding with internal Python worker's libraries. |
+
+## PYTHON_ENABLE_DEBUG_LOGGING
+Enables debug-level logging in a Python function app. A value of `1` enables debug-level logging. Without this setting or with a value of `0`, only information and higher level logs are sent from the Python worker to the Functions host. Use this setting when debugging or tracing your Python function executions.
+
+When debugging Python functions, make sure to also set a debug or trace [logging level](functions-host-json.md#logging) in the host.json file, as needed. To learn more, see [How to configure monitoring for Azure Functions](configure-monitoring.md).
+
 
 ## PYTHON\_ENABLE\_WORKER\_EXTENSIONS
 

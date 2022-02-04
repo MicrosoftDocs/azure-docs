@@ -7,7 +7,7 @@ ms.service: machine-learning
 ms.subservice: mlops
 ms.author: larryfr
 author: blackmist
-ms.date: 10/21/2021
+ms.date: 01/04/2022
 ms.topic: how-to
 ms.custom: devx-track-python, data4ml
 ---
@@ -25,6 +25,9 @@ In this article, you learn how to collect data from models deployed to web servi
 The [enable-app-insights-in-production-service.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/enable-app-insights-in-production-service/enable-app-insights-in-production-service.ipynb) notebook demonstrates concepts in this article.
  
 [!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-clone-for-examples.md)]
+
+> [!IMPORTANT]
+> The information in this article relies on the Azure Application Insights instance that was created with your workspace. If you deleted this Application Insights instance, there is no way to re-create it other than deleting and recreating the workspace.
  
 ## Prerequisites
 
@@ -32,7 +35,7 @@ The [enable-app-insights-in-production-service.ipynb](https://github.com/Azure/M
 
 * An Azure Machine Learning workspace, a local directory that contains your scripts, and the Azure Machine Learning SDK for Python installed. To learn more, see [How to configure a development environment](how-to-configure-environment.md).
 
-* A trained machine learning model. To learn more, see the [Train image classification model](tutorial-train-models-with-aml.md) tutorial.
+* A trained machine learning model. To learn more, see the [Train image classification model](tutorial-train-deploy-notebook.md) tutorial.
 
 <a name="python"></a>
 

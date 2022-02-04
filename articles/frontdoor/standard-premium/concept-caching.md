@@ -60,6 +60,10 @@ The following order of headers is used to determine how long an item will be sto
 
 Cache-Control response headers that indicate that the response won't be cached such as Cache-Control: private, Cache-Control: no-cache, and Cache-Control: no-store are honored.  If no Cache-Control is present, the default behavior is that Front Door will cache the resource for X amount of time. Where X gets randomly picked between 1 to 3 days.
 
+> [!NOTE]
+> Cache expiration can't be greater than **366 days**.
+> 
+
 ## Request headers
 
 The following request headers won't be forwarded to an origin when using caching.

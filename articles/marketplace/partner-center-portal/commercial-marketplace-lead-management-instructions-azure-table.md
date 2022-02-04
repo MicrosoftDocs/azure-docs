@@ -102,7 +102,7 @@ The example creates a flow that automatically sends an email notification when a
 
       ![Azure Table Storage window](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-storage.png)
 
-   After you select **Create**, the **Get entities** window appears. Here, select **Show advanced options**, and provide information for the following boxes:
+1. After you select **Create**, the **Get entities** window appears. Here, select **Show advanced options**, and provide information for the following boxes:
 
    * **Table**: Select the name of your table (from [Create a table](#create-a-table-in-your-storage-account)). The following image shows the prompt when `marketplaceleads` table is selected for this example.
 
@@ -116,7 +116,7 @@ The example creates a flow that automatically sends an email notification when a
 
 1. In the **Choose an operation** window, select **Actions**. Then select **Condition Control**.
 
-    ![Choose an action window](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-choose-an-action.png)
+    ![Choose an action window](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-choose-an-operation.png)
 
 1. In the **Condition** window, select **Choose a value**. Then select **Expression** in the pop-up window.
 

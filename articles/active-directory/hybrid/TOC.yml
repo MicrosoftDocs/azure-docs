@@ -4,6 +4,8 @@
   items:
   - name: What is hybrid identity?
     href: whatis-hybrid-identity.md
+  - name: What is inter-directory provisioning?
+    href: what-is-inter-directory-provisioning.md  
     maintainContext: true
 - name: Tutorials
   expanded: true
@@ -242,8 +244,6 @@
       href: how-to-connect-fed-sha256-guidance.md
     - name: Use a SAML 2.0 server as your Idp
       href: how-to-connect-fed-saml-idp.md
-    - name: Post configuration tasks for Hybrid Azure AD join
-      href: how-to-connect-fed-hybrid-azure-ad-join-post-config-tasks.md
     - name: Emergency rotation of AD FS certificates
       href: how-to-connect-emergency-ad-fs-certificate-rotation.md
     - name: Monitor changes to federation configuration

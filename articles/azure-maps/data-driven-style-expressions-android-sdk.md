@@ -7,7 +7,6 @@ ms.date: 2/26/2021
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: cpendle
 zone_pivot_groups: azure-maps-android
 ---
 
@@ -208,7 +207,7 @@ This video provides an overview of data-driven styling in Azure Maps.
 
 </br>
 
->[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Data-Driven-Styling-with-Azure-Maps/player?format=ny]
+>[!VIDEO https://docs.microsoft.com/Shows/Internet-of-Things-Show/Data-Driven-Styling-with-Azure-Maps/player?format=ny]
 
 ## Data expressions
 

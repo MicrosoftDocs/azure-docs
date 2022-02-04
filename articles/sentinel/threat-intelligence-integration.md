@@ -57,7 +57,7 @@ To connect to TAXII threat intelligence feeds, follow the instructions to [conne
 ### ThreatConnect
 
 - [Learn more about STIX and TAXII @ThreatConnect](https://threatconnect.com/stix-taxii/)
-- [TAXII Services documentation @ThreatConnect](https://docs.threatconnect.com/en/latest/rest_api/v2/taxii/taxii.html)
+- [TAXII Services documentation @ThreatConnect](https://docs.threatconnect.com/en/latest/rest_api/taxii/taxii_2.1.html)
 
 ### Sectrio
 

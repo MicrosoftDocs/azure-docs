@@ -64,7 +64,7 @@ Supported cloud-based storage services in Azure that can be registered as datast
 + Azure Database for MySQL
 
 >[!TIP]
-> The generally available functionality for creating datastores requires credential-based authentication for accessing storage services, like a service principal or shared access signature (SAS) token. These credentials can be accessed by users who have *Reader* access to the workspace. <br><br>If this is a concern,  [create a datastore that uses identity-based data access to storage services](how-to-identity-based-data-access.md).
+> You can create datastores with credential-based authentication for accessing storage services, like a service principal or shared access signature (SAS) token. These credentials can be accessed by users who have *Reader* access to the workspace. <br><br>If this is a concern,  [create a datastore that uses identity-based data access] to connect to storage services(how-to-identity-based-data-access.md).
 
 <a name="datasets"></a>
 ## Reference data in storage with datasets

@@ -1,10 +1,10 @@
 ---
 title: Get started with Enterprise IoT
-description: In this tutorial, you will learn how to onboard to Microsoft Defender for IoT with an EIoT deployment
+description: In this tutorial, you will learn how to onboard to Microsoft Defender for IoT with an Enterprise IoT deployment
 author: ElazarK
 ms.author: v-ekrieg
 ms.topic: tutorial
-ms.date: 12/05/2021
+ms.date: 12/12/2021
 ms.custom: template-tutorial
 ---
 
@@ -19,10 +19,10 @@ In this tutorial, you learn how to:
 > [!div class="checklist"]
 > * Set up a server or Virtual Machine (VM)
 > * Prepare your environment
-> * Register an Enterprise IoT sensor
+> * Set up an Enterprise IoT sensor
 > * Install the sensor
 > * Validate your setup
-> * View your enterprise IoT devices in the EIoT device inventory
+> * View your enterprise IoT devices in the Enterprise IoT device inventory
 
 ## Prerequisites
 
@@ -30,9 +30,9 @@ An Azure subscription is required for this tutorial.
 
 If you don't already have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-If you already have a subscription that is onboarded for Azure Defender for IoT for OT environments, you will need to create a new subscription. TO learn how to onboard a subscription, see [Onboard a subscription](how-to-manage-subscriptions.md#onboard-a-subscription).
+If you already have a subscription that is onboarded for Azure Defender for IoT for OT environments, you will need to create a new subscription. To learn how to onboard a subscription, see [Onboard a subscription](how-to-manage-subscriptions.md#onboard-a-subscription).
 
-There is a minimum security level needed to access different parts of Azure Defender for Iot. You must have a level of Security Owner, or a Subscription contributor of the subscription to onboard a subscription, and commit to a pricing. Security Reader level permissions to access the Defender for IoT user interface.
+There is a minimum security level needed to access different parts of Azure Defender for IoT. You must have a level of Security Owner, or a Subscription contributor of the subscription to onboard a subscription, and commit to a pricing. Security Reader level permissions to access the Defender for IoT user interface.
 
 The following table describes user access permissions to Azure Defender for IoT portal tools:
 
@@ -56,7 +56,7 @@ Before you deploy your Enterprise IoT sensor, you will need to configure your se
 
     * 250 GB HDD
 
-    * 2 Network Adapters
+    * Two Network Adapters
 
     * OS: Ubuntu 18.04
 
@@ -111,8 +111,7 @@ You can also download, and add the [Azure public IP ranges](https://www.microsof
 
 A sensor is needed to discover, and continuously monitor Enterprise IoT devices. The sensor will use the Enterprise IoT network, and endpoint sensors to gain comprehensive visibility.
 
-**To set up an Enterprise sensor**:
-
+**To set up an Enterprise IoT sensor**:
 
 1. Navigate to the [Azure portal](https://portal.azure.com#home).
 
@@ -136,7 +135,7 @@ A sensor is needed to discover, and continuously monitor Enterprise IoT devices.
 
 1. Save the command provided to you.
 
-    :::image type="content" source="media/tutorial-get-started-eiot/successful-registration.png" alt-text="Screenshot of the successful registration of an EIoT sensor.":::
+    :::image type="content" source="media/tutorial-get-started-eiot/successful-registration.png" alt-text="Screenshot of the successful registration of an Enterprise IoT sensor.":::
 
 ## Install the sensor
 
@@ -144,9 +143,9 @@ Run the command that you received, and saved when you registered the Enterprise 
 
 **To install the sensor**:
 
-1. Sign in to the sensor's CLI using a terminal, such as PUTTY, or MobaXterm. 
-    
-1. Run the command that you saved from the Register an EIoT sensor.
+1. Sign in to the sensor's CLI using a terminal, such as PUTTY, or MobaXterm.
+
+1. Run the command that you saved from the [Set up an Enterprise IoT sensor](#set-up-an-enterprise-iot-sensor).
 
 1. When the command is complete, the installation wizard will appear.
 
@@ -212,7 +211,7 @@ The installation will now finish.
 
     Ensure that packets are being sent to the Event Hub.
 
-## View your enterprise IoT devices in the EIoT device inventory
+## View your enterprise IoT devices in the Enterprise IoT device inventory
 
 Once you have validated your setup, the device inventory will start to populate with all of your devices after 15 minutes.
 
@@ -224,7 +223,7 @@ Once you have validated your setup, the device inventory will start to populate 
 
 1. From the left side toolbar, select **Device inventory**.
 
-The device inventory is where you will be able to view all of your device systems, and network information. To learn more about the device inventory see [Manage your IoT devices with the device inventory for organizations](how-to-manage-device-inventory-for-organizations.md#manage-your-iot-devices-with-the-device-inventory-for-organizations). 
+The device inventory is where you will be able to view all of your device systems, and network information. Learn more about the device inventory see [Manage your IoT devices with the device inventory for organizations](how-to-manage-device-inventory-for-organizations.md#manage-your-iot-devices-with-the-device-inventory-for-organizations).
 
 ## Remove the sensor (optional)
 

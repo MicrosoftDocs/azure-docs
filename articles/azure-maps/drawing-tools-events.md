@@ -7,7 +7,6 @@ ms.date: 12/05/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: cpendle
 ---
 
 # Drawing tool events

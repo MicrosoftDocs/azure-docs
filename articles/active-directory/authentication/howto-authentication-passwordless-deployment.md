@@ -10,7 +10,7 @@ ms.date: 05/28/2021
 
 ms.author: baselden
 author: BarbaraSelden
-manager: daveba
+manager: martinco
 ms.reviewer: dawoo
 
 ms.collection: M365-identity-device-management

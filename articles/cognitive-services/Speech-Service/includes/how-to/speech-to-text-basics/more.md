@@ -21,7 +21,7 @@ If you've clicked this tab, you probably didn't see a basics article in your fav
 | Python      | [Windows, Linux, macOS][python]                                                                                                         |
 | Swift       | [iOS][swift-ios], [macOS][swift-macos]                                                                                                  |
 
-<!-- Links -->
+
 [cpp-quickstarts]: https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/cpp
 [cpp-samples]: https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/cpp/linux
 

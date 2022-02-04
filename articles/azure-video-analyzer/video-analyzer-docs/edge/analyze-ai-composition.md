@@ -28,7 +28,7 @@ After completing the steps in this guide, you'll be able to run a simulated live
     > You will need an Azure subscription with permissions for creating service principals (owner role provides this). If you do not have the right permissions, please reach out to your account administrator to grant you the right permissions.
 * [Visual Studio Code](https://code.visualstudio.com/) on your development machine. Make sure you have the [Azure IoT Tools extension](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
 * Make sure the network that your development machine is connected to permits Advanced Message Queueing Protocol (AMQP) over port 5671 for outbound traffic. This setup enables Azure IoT Tools to communicate with Azure IoT Hub.
-* Complete the [Analyze live video by using your own gRPC model](analyze-live-video-use-your-model-grpc.md) quickstart. Please do not skip this as this is a strict requirement for the how to guide.
+* Complete [Quickstart: Analyze a live video feed from a (simulated) IP camera using your own gRPC model](analyze-live-video-use-your-model-grpc.md). Do not skip this step as this is a strict requirement for the how to guide.
 
 > [!TIP]
 > You might be prompted to install Docker while you're installing the Azure IoT Tools extension. Feel free to ignore the prompt.

@@ -7,7 +7,6 @@ ms.date: 07/29/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: cpendle
 ms.custom: codepen, devx-track-js
 ---
 
@@ -17,7 +16,7 @@ When visualizing many data points on the map, data points may overlap over each 
 
 </br>
 
->[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Clustering-point-data-in-Azure-Maps/player?format=ny]
+>[!VIDEO https://docs.microsoft.com/Shows/Internet-of-Things-Show/Clustering-point-data-in-Azure-Maps/player?format=ny]
 
 ## Enabling clustering on a data source
 

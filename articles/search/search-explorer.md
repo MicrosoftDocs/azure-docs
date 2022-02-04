@@ -8,7 +8,7 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 12/01/2021
-ms.custom: mode-other
+ms.custom: mode-ui
 ---
 
 # Quickstart: Use Search explorer to run queries in the portal

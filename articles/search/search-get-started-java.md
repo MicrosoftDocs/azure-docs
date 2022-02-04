@@ -9,7 +9,7 @@ ms.devlang: java
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 03/04/2021
-ms.custom: devx-track-java, mode-other
+ms.custom: devx-track-java, mode-api
 ---
 
 # Quickstart: Create an Azure Cognitive Search index in Java

@@ -5,12 +5,12 @@ services: active-directory
 keywords: what is Azure AD Connect, install Active Directory, required components for Azure AD
 documentationcenter: ''
 author: billmath
-manager: daveba
+manager: karenhoran
 ms.assetid: 6d42fb79-d9cf-48da-8445-f482c4c536af
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/10/2020
+ms.date: 01/21/2022
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -347,7 +347,7 @@ When you select the domain that you want to federate, Azure AD Connect provides 
 
 ## Configuring federation with PingFederate
 You can configure PingFederate with Azure AD Connect in just a few clicks. The following prerequisites are required:
-- PingFederate 8.4 or later.  For more information, see [PingFederate integration with Azure Active Directory and Microsoft 365](https://docs.pingidentity.com/bundle/O365IG20_sm_integrationGuide/page/O365IG_c_integrationGuide.html).
+- PingFederate 8.4 or later.  For more information, see [PingFederate integration with Azure Active Directory and Microsoft 365](https://docs.pingidentity.com/bundle/pingfederate-azuread-office365-integration/).
 - A TLS/SSL certificate for the federation service name that you intend to use (for example, sts.contoso.com).
 
 ### Verify the domain

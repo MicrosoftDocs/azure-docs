@@ -39,7 +39,7 @@ To use the control plane APIs:
   - [Python](https://pypi.org/project/azure-mgmt-digitaltwins/) ([source](https://github.com/Azure/azure-sdk-for-python/tree/release/v3/sdk/digitaltwins/azure-mgmt-digitaltwins))
   - [Go](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/services/digitaltwins/mgmt) ([source](https://github.com/Azure/azure-sdk-for-go/tree/master/services/digitaltwins/mgmt))
 
-You can also exercise control plane APIs by interacting with Azure Digital Twins through the [Azure portal](https://portal.azure.com) and [CLI](/cli/azure/dt?view=azure-cli-latest&preserve-view=true).
+You can also exercise control plane APIs by interacting with Azure Digital Twins through the [Azure portal](https://portal.azure.com) and [CLI](/cli/azure/dt).
 
 ## Overview: data plane APIs
 
@@ -73,7 +73,7 @@ To use the data plane APIs:
    - You can view the [SDK reference documentation](/python/api/azure-digitaltwins-core/azure.digitaltwins.core?view=azure-python&preserve-view=true).
    - You can find the SDK source in GitHub: [Azure Azure Digital Twins Core client library for Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/digitaltwins/azure-digitaltwins-core)
 
-You can also exercise date plane APIs by interacting with Azure Digital Twins through the [CLI](/cli/azure/dt?view=azure-cli-latest&preserve-view=true).
+You can also exercise date plane APIs by interacting with Azure Digital Twins through the [CLI](/cli/azure/dt).
 
 ## .NET (C#) SDK (data plane)
 

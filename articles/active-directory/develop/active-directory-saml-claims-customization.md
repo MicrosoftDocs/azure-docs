@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/20/2021
+ms.date: 12/21/2021
 ms.author: kenwith
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
@@ -111,7 +111,8 @@ To apply a transformation to a user attribute:
 
 1. In **Manage claim**, select *Transformation* as the claim source to open the **Manage transformation** page.
 2. Select the function from the transformation dropdown. Depending on the function selected, you will have to provide parameters and a constant value to evaluate in the transformation. Refer to the table below for more information about the available functions.
-3. To apply multiple transformation, click on **Add transformation**.You can apply a maximum of two transformation to a claim. For example, you could first extract the email prefix of the `user.mail`. Then, make the string upper case.
+3. (preview) `Treat source as multivalued` is a checkbox indicating if the transform should be applied to all values or just the first. By default, transformations will only be applied to the first element in a multi value claim, by checking this box it ensures it is applied to all. This checkbox will only be enabled for multi valued attributes, for example `user.proxyaddresses`.
+4. To apply multiple transformation, click on **Add transformation**. You can apply a maximum of two transformation to a claim. For example, you could first extract the email prefix of the `user.mail`. Then, make the string upper case.
 
    ![Multiple claims transformation](./media/active-directory-saml-claims-customization/sso-saml-multiple-claims-transformation.png)
 
@@ -135,6 +136,8 @@ You can use the following functions to transform claims.
 | **ExtractNumeric() - Suffix** | Returns the suffix numerical part of the string.<br/>For example, if the input's value is "BSimon_123", then it returns "123". |
 | **IfEmpty()** | Outputs an attribute or constant if the input is null or empty.<br/>For example, if you want to output an attribute stored in an extensionattribute if the employee ID for a given user is empty. To do this, you would configure the following values:<br/>Parameter 1(input): user.employeeid<br/>Parameter 2 (output): user.extensionattribute1<br/>Parameter 3 (output if there's no match): user.employeeid |
 | **IfNotEmpty()** | Outputs an attribute or constant if the input is not null or empty.<br/>For example, if you want to output an attribute stored in an extensionattribute if the employee ID for a given user is not empty. To do this, you would configure the following values:<br/>Parameter 1(input): user.employeeid<br/>Parameter 2 (output): user.extensionattribute1 |
+| **Substring() – Fixed Length** (Preview)| Extracts parts of a string claim type, beginning at the character at the specified position, and returns the specified number of characters.<br/>SourceClaim - The claim source which the transform should be executed.<br/>StartIndex - The zero-based starting character position of a substring in this instance.<br/>Length - The length in characters of the substring.<br/>For example:<br/>sourceClaim – PleaseExtractThisNow<br/>StartIndex – 6<br/>Length – 11<br/>Output: ExtractThis
+| **Substring() – EndOfString** (Preview) | Extracts parts of a string claim type, beginning at the character at the specified position, and returns the rest of the claim from the specified start index. <br/>SourceClaim - The claim source which the transform should be executed.<br/>StartIndex - The zero-based starting character position of a substring in this instance.<br/>For example:<br/>sourceClaim – PleaseExtractThisNow<br/>StartIndex – 6<br/>Output: ExtractThisNow
 
 If you need additional transformations, submit your idea in the [feedback forum in Azure AD](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789) under the *SaaS application* category.
 

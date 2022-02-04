@@ -14,7 +14,7 @@ ms.topic: conceptual
 
 Managing hundreds or thousands of servers can be a challenge.
 Customers have provided feedback that the most difficult aspect is actually managing
-[configuration data](/powershell/scripting/dsc/configurations/configdata).
+[configuration data](/powershell/dsc/configurations/configdata).
 Organizing information across logical constructs like location, type, and environment.
 
 > [!NOTE]
@@ -45,7 +45,7 @@ from each file in to single view of a server or server role.
 
 Once the data files have been generated,
 you can use them with
-[DSC Configuration scripts](/powershell/scripting/dsc/configurations/write-compile-apply-configuration)
+[DSC Configuration scripts](/powershell/dsc/configurations/write-compile-apply-configuration)
 to generate MOF files
 and
 [upload the MOF files to Azure Automation](./tutorial-configure-servers-desired-state.md#create-and-upload-a-configuration-to-azure-automation).
@@ -62,6 +62,6 @@ to view the
 
 ## Next steps
 
-- To understand PowerShell DSC, see [Windows PowerShell Desired State Configuration overview](/powershell/scripting/dsc/overview/overview).
-- Find out about PowerShell DSC resources in [DSC Resources](/powershell/scripting/dsc/resources/resources).
-- For details of Local Configuration Manager configuration, see [Configuring the Local Configuration Manager](/powershell/scripting/dsc/managing-nodes/metaconfig).
+- To understand PowerShell DSC, see [Windows PowerShell Desired State Configuration overview](/powershell/dsc/overview).
+- Find out about PowerShell DSC resources in [DSC Resources](/powershell/dsc/resources/resources).
+- For details of Local Configuration Manager configuration, see [Configuring the Local Configuration Manager](/powershell/dsc/managing-nodes/metaconfig).

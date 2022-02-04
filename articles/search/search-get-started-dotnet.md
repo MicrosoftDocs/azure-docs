@@ -6,10 +6,10 @@ manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
-ms.devlang: dotnet
+ms.devlang: csharp
 ms.topic: quickstart
 ms.date: 06/11/2021
-ms.custom: devx-track-csharp, mode-other
+ms.custom: devx-track-csharp, mode-api
 ---
 # Quickstart: Create a search index using the Azure.Search.Documents client library
 

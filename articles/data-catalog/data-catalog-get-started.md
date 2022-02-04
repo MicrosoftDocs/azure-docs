@@ -6,10 +6,10 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: quickstart
 ms.date: 05/26/2020
-# Customer intent: As a user, I want to access my company's data all in one place so I can easily build reports or presentations from it.
-ms.custom: mode-other
+ms.custom: mode-ui
+#Customer intent: As a user, I want to access my company's data all in one place so I can easily build reports or presentations from it.
 ---
-# Quickstart: Create an Azure Data Catalog
+# Quickstart: Create an Azure Data Catalog via the Azure portal
 
 [!INCLUDE [Azure Purview redirect](../../includes/data-catalog-use-purview.md)]
 

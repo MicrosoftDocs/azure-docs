@@ -7,7 +7,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 12/06/2021
+ms.date: 12/10/2021
 ms.author: banders
 ---
 
@@ -26,11 +26,13 @@ The supported payment methods for Microsoft Azure are credit cards and check/wir
 
 With a Microsoft Customer Agreement, your payment methods are associated with billing profiles. Learn how to [check access to a Microsoft Customer Agreement](#check-the-type-of-your-account).
 
->[!NOTE]
-> When you create a new subscription, you can specify a new credit card. When you do so, no other subscriptions get associated with the new credit card. However, if you later make any of the following changes, *all subscriptions* will use the payment method you select.
-  >- Make a payment method active with the **Set active** option
-  >- Use the **Replace** payment option for any subscription
-  >- Change the default payment method
+When you create a new subscription, you can specify a new credit card. When you do so, no other subscriptions get associated with the new credit card. However, if you later make any of the following changes, *all subscriptions* will use the payment method you select.
+  - Make a payment method active with the **Set active** option
+  - Use the **Replace** payment option for any subscription
+  - Change the default payment method
+
+> [!NOTE]
+> The Reserve Bank of India has new regulations, [Tokenisation – Card Transactions: Permitting Card-on-File Tokenisation (CoFT) Services](https://rbi.org.in/Scripts/BS_CircularIndexDisplay.aspx?Id=12159), for storing credit card information that may affect credit card users in India. To summarize, customers in India can't store credit card information in Azure for recurring charges. Instead, they must enter their credit card information each time they want to pay for Azure services. For more information, see [Reserve Bank of India](../understand/pay-bill.md#reserve-bank-of-india).
 
 <a id="addcard"></a>
 
