@@ -13,13 +13,13 @@ ms.date: 02/03/2022
 With API Management soft-delete, you can recover and restore a recently deleted API Management instance.
 
 > [!IMPORTANT]
-> Currently, when you use the Azure portal, Azure PowerShell, Azure CLI, or another Azure tool using API version `2020-06-01-preview` or later to delete an API Management instance, it is automatically soft-deleted. There isn't an option to hard-delete an instance using those tools.
-> Recovering a soft-deleted instance currently requires the REST API (version `2020-06-01-preview` or later) or the Azure SDK for .NET, Go, or Python.
-> Unless you recover or purge a soft-deleted instance within 48 hours, it's automatically hard-deleted and becomes unrecoverable.
+> Currently, when you use the Azure portal or REST API version `2020-06-01-preview` or later to delete an API Management instance, it is automatically soft-deleted.
+> Azure PowerShell and Azure CLI currently do not use the `2020-06-01-preview` or later version. Deleting an instance using those tools will result in hard-delete behavior.
+> Recovering a soft-deleted instance currently requires the REST API or the Azure SDK.
 
 ## Supporting interfaces
 
-The soft-delete feature is enabled through [REST API](/rest/api/apimanagement/current-ga/api-management-service/restore) version `2020-06-01-preview` or later .
+Operations on a soft-deleted instance are enabled through [REST API](/rest/api/apimanagement/current-ga/api-management-service/restore) version `2020-06-01-preview` or later or the Azure SDK for .NET, Go, or Python.
 
 > [!TIP]
 > Refer to [Azure REST API Reference](/rest/api/azure/) for tips and tools for calling Azure REST APIs.
@@ -35,16 +35,18 @@ The soft-delete feature is enabled through [REST API](/rest/api/apimanagement/cu
 
 ## Soft-delete behavior
 
-You can use any API version to create your API Management instance. When you use the Azure portal, Azure PowerShell, Azure CLI, or another Azure tool using API version `2020-06-01-preview` or later to delete an API Management instance, it is automatically soft-deleted. 
+You can use any API version to create your API Management instance. When you use the Azure portal, Azure PowerShell, Azure CLI, or another Azure tool using API version `2020-06-01-preview` or later to delete an API Management instance, it's automatically soft-deleted. 
 
-Upon soft-deleting an API Management instance, the service will exist in a deleted state, making it inaccessible to any API Management operations. 
+Upon soft-deleting an API Management instance, the service will exist in a deleted state, making it inaccessible to any API Management operations.
 
-* While in this state, the API Management instance can only be listed, recovered, or purged (permanently deleted).
+In the soft-deleted state: 
+
+* The API Management instance can only be listed, recovered, or purged (permanently deleted).
 * Azure will schedule the hard-deletion of the underlying data corresponding to the API Management instance after the predetermined (48 hour) retention interval. 
-* The DNS record corresponding to the instance is retained for the duration of the retention interval. 
-* You can't reuse the name of an API Management instance that has been soft-deleted until the retention period has passed.
+* The DNS record corresponding to the instance is retained during the retention interval. 
+* You can't reuse the name of an API Management instance that has been soft-deleted.
 
-If your API Management instance isn't recovered within 48 hours, it is hard deleted (unrecoverable). You can also choose to [purge](#purge-a-soft-deleted-apim-instance) (permanently delete) your API Management instance, forgoing the soft-delete retention period.
+If your API Management instance isn't recovered within 48 hours, it's hard deleted (unrecoverable). You can also choose to [purge](#purge-a-soft-deleted-apim-instance) (permanently delete) your API Management instance, forgoing the soft-delete retention period.
 
 ## List deleted API Management instances
 
