@@ -60,5 +60,7 @@ keywords: intent recognition
 [!INCLUDE [CLI include](includes/quickstarts/intent-recognition/cli.md)]
 ::: zone-end
 
+## Next steps
+
 > [!div class="nextstepaction"]
 > [See more LUIS samples on GitHub](https://github.com/Azure/pizza_luis_bot)
