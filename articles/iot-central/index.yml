@@ -40,6 +40,8 @@ landingContent:
             url: core/concepts-faq-start-iot-central.md
           - text: What does it mean for IoT Central to have high availability, disaster recovery, and elastic scale?
             url: core/concepts-scalability-availability.md
+          - text: What's the difference between aPaaS and PaaS solution offerings?
+            url: ../iot-fundamentals/iot-solution-apaas-paas.md
           - text: How do I move between aPaaS and PaaS solution approaches?
             url: core/concepts-faq-apaas-paas.md
           - text: How do I extend IoT Central if it's missing something I need?
