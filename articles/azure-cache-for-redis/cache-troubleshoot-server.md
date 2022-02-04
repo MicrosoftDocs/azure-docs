@@ -62,12 +62,14 @@ Here are some possible causes of memory pressure:
 - The cache is filled with data near its maximum capacity
 - Redis server is seeing high memory fragmentation
 
-Fragmentation is likely to be caused when a load pattern is storing data with high variation in size. For example, fragmentation might happen when data spread across 1 KB and 1 MB in size. When a 1-KB key is deleted from existing memory, a 1-MB key can’t fit into it causing fragmentation. Similarly, if 1-MB key is deleted and 1.5-MB key is added, it can’t fit into the existing reclaimed memory. This causes unused free memory and results in more fragmentation.
+Fragmentation is likely to be caused when a load pattern is storing data with high variation in size. For example, fragmentation might happen when data is spread across 1 KB and 1 MB in size. When a 1-KB key is deleted from existing memory, a 1-MB key can’t fit into it causing fragmentation. Similarly, if 1-MB key is deleted and 1.5-MB key is added, it can’t fit into the existing reclaimed memory. This causes unused free memory and results in more fragmentation.
 
 If the `used_memory_rss` value is higher than 1.5 times the `used_memory` metric, there's fragmentation in memory. The fragmentation can cause issues when:
-<!-- Is Max Memory visible in the UI or are we talking about `maxmemory-reserved` that I see in the json file-->
-1. Memory usage is close to the Max Memory limit for the cache, or 
+
+1. Memory usage is close to the max memory limit for the cache, or
 2. `UsedMemory_RSS` is higher than the Max Memory limit, potentially resulting in page faulting in memory.
+
+If a cache is fragmented and is running under high memory pressure, the system does a failover to try recovering Resident Set Size (RSS) memory. If the system is functioning normally, that is, the replica is up and reachable, then reboot of the primary node always results in a failover to the replica. For fragmentation, after the failover is initiated and replica has promoted itself, the primary node is recycled.
 
 Redis exposes two stats, `used_memory` and `used_memory_rss`, through the [INFO](https://redis.io/commands/info) command that can help you identify this issue. You can [view these metrics](cache-how-to-monitor.md#view-metrics-with-azure-monitor-metrics-explorer) using the portal.
 
