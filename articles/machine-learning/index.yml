@@ -57,7 +57,7 @@ landingContent:
   # Card
   - title: Deploy models
     linkLists:
-      - linkListType: how-to-guide
+      - linkListType: deploy
         links:
         - text: Streamline model deployment with endpoints (preview)
           url: concept-endpoints.md
