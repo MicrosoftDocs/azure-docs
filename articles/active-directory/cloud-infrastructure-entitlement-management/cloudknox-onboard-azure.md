@@ -39,14 +39,14 @@ To add CloudKnox to your Azure AD tenant:
 
 1. **CloudKnox On Boarding - Azure Subscription Details**
 	1. On the **CloudKnox Onboarding - Azure Subscription Details** page, enter **Subscription IDs** that you want to onboard.
-		> [!NOTE] 
-	    	> To locate the Azure subscription IDs, open the **Subscriptions** page in Azure.
-	    	> You can enter up to 10 subscriptions IDs. Click the plus icon next to the text box to insert more subscriptions.
+	> [!NOTE] 
+	> To locate the Azure subscription IDs, open the **Subscriptions** page in Azure.
+	> You can enter up to 10 subscriptions IDs. Click the plus icon next to the text box to insert more subscriptions.
 
 	1. From the **Scope** drop-down list, select **Subscription** or **Management Group**. The script box displays the role assignment script. 
-		> [!NOTE] 
-	    	> Select **Subscription** if you want to assign permissions separately for each individual subscription. The generated script has to be executed once per subscription.
-	    	> Select **Management Group** if all of your subscriptions are under one management group. The generated script has to be executed once for the management group .
+	> [!NOTE] 
+	> Select **Subscription** if you want to assign permissions separately for each individual subscription. The generated script has to be executed once per subscription.
+	> Select **Management Group** if all of your subscriptions are under one management group. The generated script has to be executed once for the management group .
 	    	
 	1. To give this role assignment to the service principal, copy the script to a file on your system where Azure CLI is installed and execute it once per subscription or just once for the whole management group.
 		<!---Add info on how to do this manually.--->
