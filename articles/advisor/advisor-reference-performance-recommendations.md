@@ -5,7 +5,7 @@ ms.topic: article
 ms.date: 02/03/2022
 ---
 
-# Improve the performance of Azure applications by using Azure Advisor
+# Performance recomemndations
 
 The performance recommendations in Azure Advisor can help improve the speed and responsiveness of your business-critical applications. You can get performance recommendations from Advisor on the **Performance** tab of the Advisor dashboard.
 
@@ -21,7 +21,7 @@ Learn more about [Attestation provider - UpgradeAttestationAPI (Update Attestati
 
 ### vSAN capacity utilization has crossed critical threshold
 
-Your vSAN capacity utilization has reached 75%. The cluster utilization is required to remain below the 75% critical threshold for SLA compliance. Please add new nodes to VSphere cluster to increase capacity or delete VMs to reduce consumption or adjust VM workloads
+Your vSAN capacity utilization has reached 75%. The cluster utilization is required to remain below the 75% critical threshold for SLA compliance. Add new nodes to VSphere cluster to increase capacity or delete VMs to reduce consumption or adjust VM workloads
 
 Learn more about [AVS Private cloud - vSANCapacity (vSAN capacity utilization has crossed critical threshold)](/azure/azure-vmware/concepts-private-clouds-clusters).
 
@@ -55,25 +55,25 @@ Learn more about [Redis Cache Server - RedisCacheUsedMemory (Improve your Cache 
 
 ### Upgrade to the latest Cognitive Service Text Analytics API version
 
-Please upgrade to the latest API version to get the best results in terms of model quality, performance and service availability. Also there are new features are available as new endpoints starting from V3.0 such as PII recognition, Entity recognition and entity linking available as separate endpoints. In terms of changes in preview endpoints we have Opinion Mining in SA endpoint, redacted text property in PII endpoint
+Upgrade to the latest API version to get the best results in terms of model quality, performance and service availability. Also there are new features are available as new endpoints starting from V3.0 such as PII recognition, Entity recognition and entity linking available as separate endpoints. In terms of changes in preview endpoints we have Opinion Mining in SA endpoint, redacted text property in PII endpoint
 
 Learn more about [Cognitive Service - UpgradeToLatestAPI (Upgrade to the latest Cognitive Service Text Analytics API version)](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-call-api).
 
 ### Upgrade to the latest API version of Azure Cognitive Service for Language
 
-Please upgrade to the latest API version to get the best results in terms of model quality, performance and service availability.
+Upgrade to the latest API version to get the best results in terms of model quality, performance and service availability.
 
 Learn more about [Cognitive Service - UpgradeToLatestAPILanguage (Upgrade to the latest API version of Azure Cognitive Service for Language)](https://aka.ms/language-api).
 
 ### Upgrade to the latest Cognitive Service Text Analytics SDK version
 
-Please upgrade to the latest SDK version to get the best results in terms of model quality, performance and service availability. Also there are new features are available as new endpoints starting from V3.0 such as PII recognition, Entity recognition and entity linking available as separate endpoints. In terms of changes in preview endpoints we have Opinion Mining in SA endpoint, redacted text property in PII endpoint
+Upgrade to the latest SDK version to get the best results in terms of model quality, performance and service availability. Also there are new features are available as new endpoints starting from V3.0 such as PII recognition, Entity recognition and entity linking available as separate endpoints. In terms of changes in preview endpoints we have Opinion Mining in SA endpoint, redacted text property in PII endpoint
 
 Learn more about [Cognitive Service - UpgradeToLatestSDK (Upgrade to the latest Cognitive Service Text Analytics SDK version)](/azure/cognitive-services/text-analytics/quickstarts/text-analytics-sdk?tabs=version-3-1&pivots=programming-language-csharp).
 
 ### Upgrade to the latest Cognitive Service Language SDK version
 
-Please upgrade to the latest SDK version to get the best results in terms of model quality, performance and service availability.
+Upgrade to the latest SDK version to get the best results in terms of model quality, performance and service availability.
 
 Learn more about [Cognitive Service - UpgradeToLatestSDKLanguage (Upgrade to the latest Cognitive Service Language SDK version)](https://aka.ms/language-api).
 
@@ -167,31 +167,31 @@ Learn more about [Virtual machine - MixedDiskTypeToSSDPublic (Use SSD Disks for 
 
 ### Barracuda Networks NextGen Firewall may experience high CPU utilization, reduced throughput and high latency.
 
-We have identified that your Virtual Machine might be running a version of Barracuda Networks NextGen Firewall Image that is running older drivers for Accelerated Networking, which may cause the product to revert to using the standard, synthetic network interface which does not use Accelerated Networking. It is recommended that you upgrade to a newer version of the image that addresses this issue and enable Accelerated Networking. Please contact Barracuda Networks for further instructions on how to upgrade your Network Virtual Appliance Image.
+We have identified that your Virtual Machine might be running a version of Barracuda Networks NextGen Firewall Image that is running older drivers for Accelerated Networking, which may cause the product to revert to using the standard, synthetic network interface which does not use Accelerated Networking. It is recommended that you upgrade to a newer version of the image that addresses this issue and enable Accelerated Networking. Contact Barracuda Networks for further instructions on how to upgrade your Network Virtual Appliance Image.
 
 Learn more about [Virtual machine - BarracudaNVAAccelNet (Barracuda Networks NextGen Firewall may experience high CPU utilization, reduced throughput and high latency.)](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli#enable-accelerated-networking-on-existing-vms).
 
 ### Arista Networks vEOS Router may experience high CPU utilization, reduced throughput and high latency.
 
-We have identified that your Virtual Machine might be running a version of Arista Networks vEOS Router Image that is running older drivers for Accelerated Networking, which may cause the product to revert to using the standard, synthetic network interface which does not use Accelerated Networking. It is recommended that you upgrade to a newer version of the image that addresses this issue and enable Accelerated Networking. Please contact Arista Networks for further instructions on how to upgrade your Network Virtual Appliance Image.
+We have identified that your Virtual Machine might be running a version of Arista Networks vEOS Router Image that is running older drivers for Accelerated Networking, which may cause the product to revert to using the standard, synthetic network interface which does not use Accelerated Networking. It is recommended that you upgrade to a newer version of the image that addresses this issue and enable Accelerated Networking. Contact Arista Networks for further instructions on how to upgrade your Network Virtual Appliance Image.
 
 Learn more about [Virtual machine - AristaNVAAccelNet (Arista Networks vEOS Router may experience high CPU utilization, reduced throughput and high latency.)](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli#enable-accelerated-networking-on-existing-vms).
 
 ### Cisco Cloud Services Router 1000V may experience high CPU utilization, reduced throughput and high latency.
 
-We have identified that your Virtual Machine might be running a version of Cisco Cloud Services Router 1000V Image that is running older drivers for Accelerated Networking, which may cause the product to revert to using the standard, synthetic network interface which does not use Accelerated Networking. It is recommended that you upgrade to a newer version of the image that addresses this issue and enable Accelerated Networking. Please contact Cisco for further instructions on how to upgrade your Network Virtual Appliance Image.
+We have identified that your Virtual Machine might be running a version of Cisco Cloud Services Router 1000V Image that is running older drivers for Accelerated Networking, which may cause the product to revert to using the standard, synthetic network interface which does not use Accelerated Networking. It is recommended that you upgrade to a newer version of the image that addresses this issue and enable Accelerated Networking. Contact Cisco for further instructions on how to upgrade your Network Virtual Appliance Image.
 
 Learn more about [Virtual machine - CiscoCSRNVAAccelNet (Cisco Cloud Services Router 1000V may experience high CPU utilization, reduced throughput and high latency.)](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli#enable-accelerated-networking-on-existing-vms).
 
 ### Palo Alto Networks VM-Series Firewall may experience high CPU utilization, reduced throughput and high latency.
 
-We have identified that your Virtual Machine might be running a version of Palo Alto Networks VM-Series Firewall Image that is running older drivers for Accelerated Networking, which may cause the product to revert to using the standard, synthetic network interface which does not use Accelerated Networking. It is recommended that you upgrade to a newer version of the image that addresses this issue and enable Accelerated Networking. Please contact Palo Alto Networks for further instructions on how to upgrade your Network Virtual Appliance Image.
+We have identified that your Virtual Machine might be running a version of Palo Alto Networks VM-Series Firewall Image that is running older drivers for Accelerated Networking, which may cause the product to revert to using the standard, synthetic network interface which does not use Accelerated Networking. It is recommended that you upgrade to a newer version of the image that addresses this issue and enable Accelerated Networking. Contact Palo Alto Networks for further instructions on how to upgrade your Network Virtual Appliance Image.
 
 Learn more about [Virtual machine - PaloAltoNVAAccelNet (Palo Alto Networks VM-Series Firewall may experience high CPU utilization, reduced throughput and high latency.)](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli#enable-accelerated-networking-on-existing-vms).
 
 ### NetApp Cloud Volumes ONTAP may experience high CPU utilization, reduced throughput and high latency.
 
-We have identified that your Virtual Machine might be running a version of NetApp Cloud Volumes ONTAP Image that is running older drivers for Accelerated Networking, which may cause the product to revert to using the standard, synthetic network interface which does not use Accelerated Networking. It is recommended that you upgrade to a newer version of the image that addresses this issue and enable Accelerated Networking. Please contact NetApp for further instructions on how to upgrade your Network Virtual Appliance Image.
+We have identified that your Virtual Machine might be running a version of NetApp Cloud Volumes ONTAP Image that is running older drivers for Accelerated Networking, which may cause the product to revert to using the standard, synthetic network interface which does not use Accelerated Networking. It is recommended that you upgrade to a newer version of the image that addresses this issue and enable Accelerated Networking. Contact NetApp for further instructions on how to upgrade your Network Virtual Appliance Image.
 
 Learn more about [Virtual machine - NetAppNVAAccelNet (NetApp Cloud Volumes ONTAP may experience high CPU utilization, reduced throughput and high latency.)](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli#enable-accelerated-networking-on-existing-vms).
 
@@ -203,43 +203,43 @@ Learn more about [Virtual machine - MatchProdVMProdDisks (Match production Virtu
 
 ### Update to the latest version of your Arista VEOS product for Accelerated Networking support.
 
-We have identified that your Virtual Machine might be running a version of software image that is running older drivers for Accelerated Networking (AN). It has a synthetic network interface which, either, is not AN capable or is not compatible with all Azure hardware. It is recommended that you upgrade to the latest version of the image that addresses this issue and enable Accelerated Networking. Please contact your vendor for further instructions on how to upgrade your Network Virtual Appliance Image.
+We have identified that your Virtual Machine might be running a version of software image that is running older drivers for Accelerated Networking (AN). It has a synthetic network interface which, either, is not AN capable or is not compatible with all Azure hardware. It is recommended that you upgrade to the latest version of the image that addresses this issue and enable Accelerated Networking. Contact your vendor for further instructions on how to upgrade your Network Virtual Appliance Image.
 
 Learn more about [Virtual machine - AristaVeosANUpgradeRecommendation (Update to the latest version of your Arista VEOS product for Accelerated Networking support.)](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli#enable-accelerated-networking-on-existing-vms).
 
 ### Update to the latest version of your Barracuda NG Firewall product for Accelerated Networking support.
 
-We have identified that your Virtual Machine might be running a version of software image that is running older drivers for Accelerated Networking (AN). It has a synthetic network interface which, either, is not AN capable or is not compatible with all Azure hardware. It is recommended that you upgrade to the latest version of the image that addresses this issue and enable Accelerated Networking. Please contact your vendor for further instructions on how to upgrade your Network Virtual Appliance Image.
+We have identified that your Virtual Machine might be running a version of software image that is running older drivers for Accelerated Networking (AN). It has a synthetic network interface which, either, is not AN capable or is not compatible with all Azure hardware. It is recommended that you upgrade to the latest version of the image that addresses this issue and enable Accelerated Networking. Contact your vendor for further instructions on how to upgrade your Network Virtual Appliance Image.
 
 Learn more about [Virtual machine - BarracudaNgANUpgradeRecommendation (Update to the latest version of your Barracuda NG Firewall product for Accelerated Networking support.)](/azure/virtual-network/create-vm-accelerated-networking-cli#enable-accelerated-networking-on-existing-vms).
 
 ### Update to the latest version of your Cisco Cloud Services Router 1000V product for Accelerated Networking support.
 
-We have identified that your Virtual Machine might be running a version of software image that is running older drivers for Accelerated Networking (AN). It has a synthetic network interface which, either, is not AN capable or is not compatible with all Azure hardware. It is recommended that you upgrade to the latest version of the image that addresses this issue and enable Accelerated Networking. Please contact your vendor for further instructions on how to upgrade your Network Virtual Appliance Image.
+We have identified that your Virtual Machine might be running a version of software image that is running older drivers for Accelerated Networking (AN). It has a synthetic network interface which, either, is not AN capable or is not compatible with all Azure hardware. It is recommended that you upgrade to the latest version of the image that addresses this issue and enable Accelerated Networking. Contact your vendor for further instructions on how to upgrade your Network Virtual Appliance Image.
 
 Learn more about [Virtual machine - Cisco1000vANUpgradeRecommendation (Update to the latest version of your Cisco Cloud Services Router 1000V product for Accelerated Networking support.)](/azure/virtual-network/create-vm-accelerated-networking-cli#enable-accelerated-networking-on-existing-vms).
 
 ### Update to the latest version of your F5 BigIp product for Accelerated Networking support.
 
-We have identified that your Virtual Machine might be running a version of software image that is running older drivers for Accelerated Networking (AN). It has a synthetic network interface which, either, is not AN capable or is not compatible with all Azure hardware. It is recommended that you upgrade to the latest version of the image that addresses this issue and enable Accelerated Networking. Please contact your vendor for further instructions on how to upgrade your Network Virtual Appliance Image.
+We have identified that your Virtual Machine might be running a version of software image that is running older drivers for Accelerated Networking (AN). It has a synthetic network interface which, either, is not AN capable or is not compatible with all Azure hardware. It is recommended that you upgrade to the latest version of the image that addresses this issue and enable Accelerated Networking. Contact your vendor for further instructions on how to upgrade your Network Virtual Appliance Image.
 
 Learn more about [Virtual machine - F5BigIpANUpgradeRecommendation (Update to the latest version of your F5 BigIp product for Accelerated Networking support.)](/azure/virtual-network/create-vm-accelerated-networking-cli#enable-accelerated-networking-on-existing-vms).
 
 ### Update to the latest version of your NetApp product for Accelerated Networking support.
 
-We have identified that your Virtual Machine might be running a version of software image that is running older drivers for Accelerated Networking (AN). It has a synthetic network interface which, either, is not AN capable or is not compatible with all Azure hardware. It is recommended that you upgrade to the latest version of the image that addresses this issue and enable Accelerated Networking. Please contact your vendor for further instructions on how to upgrade your Network Virtual Appliance Image.
+We have identified that your Virtual Machine might be running a version of software image that is running older drivers for Accelerated Networking (AN). It has a synthetic network interface which, either, is not AN capable or is not compatible with all Azure hardware. It is recommended that you upgrade to the latest version of the image that addresses this issue and enable Accelerated Networking. Contact your vendor for further instructions on how to upgrade your Network Virtual Appliance Image.
 
 Learn more about [Virtual machine - NetAppANUpgradeRecommendation (Update to the latest version of your NetApp product for Accelerated Networking support.)](/azure/virtual-network/create-vm-accelerated-networking-cli#enable-accelerated-networking-on-existing-vms).
 
 ### Update to the latest version of your Palo Alto Firewall product for Accelerated Networking support.
 
-We have identified that your Virtual Machine might be running a version of software image that is running older drivers for Accelerated Networking (AN). It has a synthetic network interface which, either, is not AN capable or is not compatible with all Azure hardware. It is recommended that you upgrade to the latest version of the image that addresses this issue and enable Accelerated Networking. Please contact your vendor for further instructions on how to upgrade your Network Virtual Appliance Image.
+We have identified that your Virtual Machine might be running a version of software image that is running older drivers for Accelerated Networking (AN). It has a synthetic network interface which, either, is not AN capable or is not compatible with all Azure hardware. It is recommended that you upgrade to the latest version of the image that addresses this issue and enable Accelerated Networking. Contact your vendor for further instructions on how to upgrade your Network Virtual Appliance Image.
 
 Learn more about [Virtual machine - PaloAltoFWANUpgradeRecommendation (Update to the latest version of your Palo Alto Firewall product for Accelerated Networking support.)](/azure/virtual-network/create-vm-accelerated-networking-cli#enable-accelerated-networking-on-existing-vms).
 
 ### Update to the latest version of your Check Point product for Accelerated Networking support.
 
-We have identified that your Virtual Machine (VM) might be running a version of software image that is running older drivers for Accelerated Networking (AN). Your VM has a synthetic network interface that is either not AN capable or is not compatible with all Azure hardware. We recommend that you upgrade to the latest version of the image that addresses this issue and enable Accelerated Networking. Please contact your vendor for further instructions on how to upgrade your Network Virtual Appliance Image.
+We have identified that your Virtual Machine (VM) might be running a version of software image that is running older drivers for Accelerated Networking (AN). Your VM has a synthetic network interface that is either not AN capable or is not compatible with all Azure hardware. We recommend that you upgrade to the latest version of the image that addresses this issue and enable Accelerated Networking. Contact your vendor for further instructions on how to upgrade your Network Virtual Appliance Image.
 
 Learn more about [Virtual machine - CheckPointCGANUpgradeRecommendation (Update to the latest version of your Check Point product for Accelerated Networking support.)](/azure/virtual-network/create-vm-accelerated-networking-cli#enable-accelerated-networking-on-existing-vms).
 
@@ -299,7 +299,7 @@ Learn more about [MariaDB server - OrcasMariaDbConcurrentConnection (Scale the M
 
 ### Move your MariaDB server to Memory Optimzed SKU
 
-Our internal telemetry shows that there is high churn in the buffer pool for this server which can result in slower query performance and increased IOPS. To improve performance, please review your workload queries to identify opportunities to minimize memory consumed.  If no such opportunity found, then we recommend moving to higher SKU with more memory or increase storage size to get more IOPS.
+Our internal telemetry shows that there is high churn in the buffer pool for this server which can result in slower query performance and increased IOPS. To improve performance,  review your workload queries to identify opportunities to minimize memory consumed.  If no such opportunity found, then we recommend moving to higher SKU with more memory or increase storage size to get more IOPS.
 
 Learn more about [MariaDB server - OrcasMariaDbMemoryCache (Move your MariaDB server to Memory Optimzed SKU)](https://aka.ms/mariadbpricing).
 
@@ -331,7 +331,7 @@ Learn more about [MySQL server - OrcasMySQLCpuOverload (Increase the MySQL serve
 
 ### Move your MySQL server to Memory Optimized SKU
 
-Our internal telemetry shows that there is high churn in the buffer pool for this server which can result in slower query performance and increased IOPS. To improve performance, please review your workload queries to identify opportunities to minimize memory consumed.  If no such opportunity found, then we recommend moving to higher SKU with more memory or increase storage size to get more IOPS.
+Our internal telemetry shows that there is high churn in the buffer pool for this server which can result in slower query performance and increased IOPS. To improve performance, review your workload queries to identify opportunities to minimize memory consumed.  If no such opportunity found, then we recommend moving to higher SKU with more memory or increase storage size to get more IOPS.
 
 Learn more about [MySQL server - OrcasMySQLMemoryCache (Move your MySQL server to Memory Optimized SKU)](https://aka.ms/mysqlpricing).
 
@@ -399,7 +399,7 @@ Learn more about [PostgreSQL server - OrcasPostgreSqlConcurrentConnection (Scale
 
 ### Move your PostgreSQL server to Memory Optimized SKU
 
-Our internal telemetry shows that there is high churn in the buffer pool for this server which can result in slower query performance and increased IOPS. To improve performance, please review your workload queries to identify opportunities to minimize memory consumed.  If no such opportunity found, then we recommend moving to higher SKU with more memory or increase storage size to get more IOPS.
+Our internal telemetry shows that there is high churn in the buffer pool for this server which can result in slower query performance and increased IOPS. To improve performance, review your workload queries to identify opportunities to minimize memory consumed.  If no such opportunity found, then we recommend moving to higher SKU with more memory or increase storage size to get more IOPS.
 
 Learn more about [PostgreSQL server - OrcasPostgreSqlMemoryCache (Move your PostgreSQL server to Memory Optimized SKU)](https://aka.ms/postgresqlpricing).
 
@@ -537,7 +537,7 @@ Learn more about [Hyperscale (Citus) server group - MarlinStorageLimitRecommenda
 
 ### Migrate your database from SSPG to FSPG
 
-Please consider our new offering Azure Database for PostgreSQL Flexible Server that provides richer capabilities such as zone resilient HA, predictable performance, maximum control, custom maintenance window, cost optimization controls and simplified developer experience. Learn more.
+Consider our new offering Azure Database for PostgreSQL Flexible Server that provides richer capabilities such as zone resilient HA, predictable performance, maximum control, custom maintenance window, cost optimization controls and simplified developer experience. Learn more.
 
 Learn more about [Azure Database for PostgreSQL flexible server - OrcasPostgreSqlMeruMigration (Migrate your database from SSPG to FSPG)](https://aka.ms/sspg-upgrade).
 
@@ -603,8 +603,6 @@ You are seeing this advisor recommendation because HDInsight team's system log s
 
 These conditions are indicators that your cluster is suffering from high write latencies. This could be due to heavy workload performed on your cluster.
 To improve the performance of your cluster, you may want to consider utilizing the Accelerated Writes feature provided by Azure HDInsight HBase.  The Accelerated Writes feature for HDInsight Apache HBase clusters attaches premium SSD-managed disks to every RegionServer (worker node) instead of using cloud storage. As a result, provides low write-latency and better resiliency for your applications.
-To read more on this feature, please visit link:
-
 Learn more about [HDInsight cluster - AccWriteCandidate (Consider using Accelerated Writes feature in your HBase cluster to improve cluster performance.)](/azure/hdinsight/hbase/apache-hbase-accelerated-writes).
 
 ### More than 75% of your queries are full scan queries.
