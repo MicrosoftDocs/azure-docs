@@ -11,9 +11,9 @@ This article provides the properties and schema for Azure Healthcare APIs events
 
 ## Available event types
 
-### List of events for Azure Healthcare APIs REST APIs
+### List of events for Healthcare REST APIs
 
-These events are triggered when a client creates, updates, or deletes a resource by calling the REST APIs.
+The following Fast Healthcare Interoperability Resources (FHIR&#174;) resource events are triggered when calling the REST APIs.
 
  |Event name|Description|
  |----------|-----------|
@@ -27,7 +27,7 @@ This section contains examples of what events message data would look like for e
 > [!Note]
 > Events data looks similar to these examples with the `metadataVersion` property set to a value of `1`.
 >
->For more information, see [Azure Event Grid event schema event properties](/azure/event-grid/event-schema#event-properties).
+>For more information, see [Azure Event Grid event schema properties](/azure/event-grid/event-schema#event-properties).
 
 ### FhirResourceCreated event
 
