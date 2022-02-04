@@ -86,7 +86,7 @@ The following architecture diagram shows the implementation.
 
 Contact eID-ME and configure a test environment to set up  Azure AD B2C tenants as a Relying Party. Tenants must determine what identity claims they'll need from their consumers as they sign up using eID-Me.
 
-## Integrate with Azure AD B2C
+## Integrate eID-Me with Azure AD B2C
 
 ### Part 1 - Configure an application in eID-ME
 
