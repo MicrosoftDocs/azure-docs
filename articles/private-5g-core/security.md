@@ -1,5 +1,6 @@
 ---
-title: Security for Azure Private 5G Core Preview
+title: Security
+titlesuffix: Azure Private 5G Core Preview
 description: An overview of security features provided by Azure Private 5G Core.
 author: richardwhiuk
 ms.author: rwhitehouse
