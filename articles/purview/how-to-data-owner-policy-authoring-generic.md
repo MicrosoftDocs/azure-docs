@@ -20,6 +20,16 @@ This tutorial describes how a data owner can create, update and publish access p
 
 ## Prerequisites
 
+### Required permissions
+
+To register a data source, resource group, or subscription in Azure Purview with the *Data use Governance* option set (that is, with access policies), a user have **either one of the following** IAM role combinations on that resource:
+
+- IAM *Owner*
+- Both IAM *Contributor* + IAM *User Access Administrator*
+
+Follow this [guide to configure Azure RBAC permissions](../../role-based-access-control/check-access.md)
+
+### Source configuration
 To apply these policies to data sources in your environment, you'll need to configure your sources.
 
 Check the [Azure Purview supported data sources table](azure-purview-connector-overview.md#azure-purview-data-sources) and select the link in the **Access Policy** column for sources where access policies are available.
