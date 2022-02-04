@@ -21,7 +21,7 @@ Azure AD Identity Protection has historically protected users in detecting, inve
 
 A workload identity is an identity that allows an application or service principal access to resources, sometimes in the context of a user. These workload identities differ from traditional user accounts as they:
 
-- Cannot perform multi-factor authentication.
+- Can’t perform multi-factor authentication.
 - Often have no formal lifecycle process.
 - Need to store their credentials or secrets somewhere.
 
@@ -72,7 +72,8 @@ You can also query risky workload identities [using the Microsoft Graph API](/gr
 - servicePrincipalRiskDetections
 
 ### Export risk data 
-Organizations can export data by configurating [diagnostic settings in Azure AD](howto-export-risk-data.md) to send risk data to a Log Analytics workspace, archive it to a storage account, stream it to an Event Hub, or send it to a partner (e.g., SIEM) solution. 
+
+Organizations can export data by configurating [diagnostic settings in Azure AD](howto-export-risk-data.md) to send risk data to a Log Analytics workspace, archive it to a storage account, stream it to an event hub, or send it to a SIEM solution. 
 
 ## Investigate risky workload identities
 
