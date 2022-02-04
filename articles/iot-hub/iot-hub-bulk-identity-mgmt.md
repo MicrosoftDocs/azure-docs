@@ -266,8 +266,8 @@ Use the optional **importMode** property in the import serialization data for ea
 | **DeleteIfMatchETag** |If a device already exists with the specified **ID**, it is deleted only if there is an **ETag** match. If the device does not exist, an error is written to the log file. If there is an ETag mismatch, an error is written to the log file. |
 | **Update** |If a device already exists with the specified **ID**, existing information is overwritten with the provided input data without regard to the **ETag** value. If the device does not exist, an error is written to the log file. |
 | **UpdateIfMatchETag** |If a device already exists with the specified **ID**, existing information is overwritten with the provided input data only if there is an **ETag** match. If the device does not exist or there is an **ETag** mismatch, an error is written to the log file. |
-| **UpdateTwin** |If a twin already exists with the specified **ID**, existing information is overwritten with the provided input data without regard to the **ETag** value. |
-| **UpdateTwinIfMatchETag** |If a twin already exists with the specified **ID**, existing information is overwritten with the provided input data only if there is an **ETag** match. The twin's **ETag**, is processed independently from the device's **ETag**. If there is a mismatch with the existing twin's **ETag**, an error is written to the log file. |
+| **UpdateTwin** |If a twin already exists with the specified **ID**, existing information is overwritten with the provided input data without regard to the twin's **ETag** value. |
+| **UpdateTwinIfMatchETag** |If a twin already exists with the specified **ID**, existing information is overwritten with the provided input data only if there is a match on the twin's **ETag** value. The twin's **ETag**, is processed independently from the device's **ETag**. If there is a mismatch with the existing twin's **ETag**, an error is written to the log file. |
 
 > [!NOTE]
 > If the serialization data does not explicitly define an **importMode** flag for a device, it defaults to **createOrUpdate** during the import operation.
