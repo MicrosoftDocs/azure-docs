@@ -13,7 +13,7 @@ ms.service: azure-communication-services
 zone_pivot_groups: acs-js-csharp
 ---
 
-# How jobs are matched to workers
+# Job Distribution
 
 [!INCLUDE [Private Preview Disclaimer](../../includes/private-preview-include-section.md)]
 
