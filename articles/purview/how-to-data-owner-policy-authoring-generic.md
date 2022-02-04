@@ -26,8 +26,8 @@ Check the [Azure Purview supported data sources table](azure-purview-connector-o
 
 Currently these are the supported sources:
 
-- [Azure Blob Storage](#register-scan-azure-blob-storage-source.md#access-policy)
-- [Azure Data Lake Gen2](#register-scan-adls-gen2.md#access-policy)
+- [Azure Blob Storage](register-scan-azure-blob-storage-source.md#access-policy)
+- [Azure Data Lake Gen2](register-scan-adls-gen2.md#access-policy)
 
 ## Create policies for individual sources
 
