@@ -14,11 +14,11 @@ ms.custom: template-concept
 
 The packet core dashboards provide a flexible way to monitor key statistics relating to your deployment in real time. They also allow you to view information on firing alerts, allowing you to quickly react to emerging issues.
 
-The packet core dashboards are powered by Grafana, an open-source, metric analytics and visualization suite. For more information on Grafana, see [https://grafana.com/docs/](https://grafana.com/docs/).
+The packet core dashboards are powered by Grafana, an open-source, metric analytics and visualization suite. For more information, see the [Grafana documentation](https://grafana.com/docs/).
 
 ## Use the packet core dashboards
 
-We'll go through the common concepts and operations you'll need to understand before you can use the packet core dashboards. If you need more information on using Grafana, see [https://grafana.com/docs/](https://grafana.com/docs/).
+We'll go through the common concepts and operations you'll need to understand before you can use the packet core dashboards. If you need more information on using Grafana, see the [Grafana documentation](https://grafana.com/docs/).
 
 ### Dashboards
 
@@ -97,7 +97,7 @@ You can choose to use the search bar to find a dashboard by name or select from 
 
 ## Adjusting the time range
 
-The **time picker** in the top right-hand corner of each packet core dashboard allows you to adjust the time range for which the dashboard will display statistics. You can use the time picker to retrieve diagnostics for historical problems. You can choose a relative time range (such as the last 15 minutes), or an absolute time range (such as statistics for a particular month). You can also use the Refresh Dashboard icon to configure how regularly the statistics displayed on the dashboard will be updated. For detailed information on using the time range controls, see [https://grafana.com/docs/grafana/latest/dashboards/time-range-controls/](https://grafana.com/docs/grafana/latest/dashboards/time-range-controls/).
+The **time picker** in the top right-hand corner of each packet core dashboard allows you to adjust the time range for which the dashboard will display statistics. You can use the time picker to retrieve diagnostics for historical problems. You can choose a relative time range (such as the last 15 minutes), or an absolute time range (such as statistics for a particular month). You can also use the Refresh Dashboard icon to configure how regularly the statistics displayed on the dashboard will be updated. For detailed information on using the time range controls, see [Time range controls](https://grafana.com/docs/grafana/latest/dashboards/time-range-controls/) in the Grafana documentation.
 
 :::image type="content" source="media/packet-core-dashboards/packet-core-dashboard-time-picker.png" alt-text="Screenshot showing the time picker for the packet core dashboards. There are options for setting a custom time range or choosing one of several commonly used quick ranges.":::
 
