@@ -1,5 +1,5 @@
 ---
-title: Limits and Restrictions | Microsoft Docs 
+title: Limits and restrictions | Microsoft Docs 
 description: Description of the limits and restrictions when using IoT Edge.
 author: raisalitch
 ms.author: ralitchf
@@ -9,7 +9,7 @@ ms.service: iot-edge
 services: iot-edge
 ---
 
-# Limits and Restrictions
+# Limits and restrictions
 
 [!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
