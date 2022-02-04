@@ -40,7 +40,7 @@ In this tutorial, you learn how to:
     
 3. Select **Create new project** from the top menu in your projects page. Creating a project will let you tag data, train, evaluate, improve, and deploy your models. 
 
-4. If you’ve created your resource using the steps above in this [guide](../how-to/create-project.md#azure-resources), the **Connect storage** step will be completed already. If not, you need to assign [roles for your storage account](../how-to/create-project.md#roles-for-your-storage-account) before connecting it to your resource
+4. If you’ve created your resource using the steps above in this [guide](../how-to/create-project.md#azure-resources), the **Connect storage** step will be completed already. If not, you need to assign [roles for your storage account](../how-to/create-project.md#required-roles-for-your-storage-account) before connecting it to your resource
 
 5. Enter project information, including a name, description, and the language of the files in your project. You won’t be able to change the name of your project later.
     >[!TIP]

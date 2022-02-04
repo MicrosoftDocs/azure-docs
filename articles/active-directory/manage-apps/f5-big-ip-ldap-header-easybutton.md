@@ -381,7 +381,7 @@ Your application should now be published and accessible via SHA, either directly
 
 ## Next steps
 
-From a browser, **connect** to the application’s external URL or select the **application’s icon** in the MyApps portal. After authenticating against Azure AD, you’ll be redirected to the BIG-IP virtual server for the application and automatically signed in through SSO.
+From a browser, **connect** to the application’s external URL or select the **application’s icon** in the [Microsoft MyApps portal](https://myapplications.microsoft.com/). After authenticating against Azure AD, you’ll be redirected to the BIG-IP virtual server for the application and automatically signed in through SSO.
 
 This shows the output of the injected headers displayed by our headers-based application.
 
@@ -397,6 +397,7 @@ The BIG-IP gives you the option to disable **Guided Configuration’s strict man
 
 You can navigate to **Access > Guided Configuration** and select the **small padlock icon** on the far right of the row for your applications’ configs. 
 
+   ![Screenshot for Configure Easy Button - Strict Management](./media/f5-big-ip-oracle/strict-mode-padlock.png)
 
 At that point, changes via the wizard UI are no longer possible, but all BIG-IP objects associated with the published instance of the application will be unlocked for direct management.
 
