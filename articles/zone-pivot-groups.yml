@@ -826,6 +826,8 @@ groups:
     title: JavaScript
   - id: programming-language-objectivec
     title: Objective-C
+  - id: programming-language-swift
+    title: Swift
   - id: programming-language-python
     title: Python
   - id: programming-language-cli

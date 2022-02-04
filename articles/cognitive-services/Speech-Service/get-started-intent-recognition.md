@@ -21,39 +21,43 @@ keywords: intent recognition
 [!INCLUDE [Header](includes/quickstarts/common/see-also-reference.md)]
 
 ::: zone pivot="programming-language-csharp"
-[!INCLUDE [csharp](includes/quickstarts/intent-recognition/csharp.md)]
+[!INCLUDE [C# include](includes/quickstarts/intent-recognition/csharp.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-cpp"
-[!INCLUDE [cpp](includes/quickstarts/intent-recognition/cpp.md)]
+[!INCLUDE [C++ include](includes/quickstarts/intent-recognition/cpp.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
-[!INCLUDE [java](includes/quickstarts/intent-recognition/java.md)]
+[!INCLUDE [Java include](includes/quickstarts/intent-recognition/java.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript"
-[!INCLUDE [javascript](includes/quickstarts/intent-recognition/javascript.md)]
+[!INCLUDE [JavaScript include](includes/quickstarts/intent-recognition/javascript.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
-[!INCLUDE [python](includes/quickstarts/intent-recognition/python.md)]
+[!INCLUDE [Python include](includes/quickstarts/intent-recognition/python.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-go"
-[!INCLUDE [csharp](includes/quickstarts/intent-recognition/go.md)]
+[!INCLUDE [Go include](includes/quickstarts/intent-recognition/go.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-objectivec"
-[!INCLUDE [cpp](includes/quickstarts/intent-recognition/objectivec.md)]
+[!INCLUDE [Objective-C include](includes/quickstarts/intent-recognition/objectivec.md)]
+::: zone-end
+
+::: zone pivot="programming-language-swift"
+[!INCLUDE [Swift include](includes/quickstarts/intent-recognition/swift.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-rest"
-[!INCLUDE [cpp](includes/quickstarts/intent-recognition/rest.md)]
+[!INCLUDE [REST include](includes/quickstarts/intent-recognition/rest.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-cli"
-[!INCLUDE [cpp](includes/quickstarts/intent-recognition/cli.md)]
+[!INCLUDE [CLI include](includes/quickstarts/intent-recognition/cli.md)]
 ::: zone-end
 
 > [!div class="nextstepaction"]

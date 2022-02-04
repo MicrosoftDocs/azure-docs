@@ -21,11 +21,11 @@ keywords: speech to text, speech to text software
 [!INCLUDE [Header](includes/quickstarts/common/see-also-reference.md)]
 
 ::: zone pivot="programming-language-csharp"
-[!INCLUDE [C# Basics include](includes/quickstarts/speech-to-text-basics/csharp.md)]
+[!INCLUDE [C# include](includes/quickstarts/speech-to-text-basics/csharp.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-cpp"
-[!INCLUDE [C++ Basics include](includes/quickstarts/speech-to-text-basics/cpp.md)]
+[!INCLUDE [C++ include](includes/quickstarts/speech-to-text-basics/cpp.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-go"
@@ -33,19 +33,23 @@ keywords: speech to text, speech to text software
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
-[!INCLUDE [Java Basics include](includes/quickstarts/speech-to-text-basics/java.md)]
+[!INCLUDE [Java include](includes/quickstarts/speech-to-text-basics/java.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript"
-[!INCLUDE [JavaScript Basics include](includes/quickstarts/speech-to-text-basics/javascript.md)]
+[!INCLUDE [JavaScript include](includes/quickstarts/speech-to-text-basics/javascript.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-objectivec"
-[!INCLUDE [ObjectiveC/Swift Basics include](includes/quickstarts/speech-to-text-basics/objectivec.md)]
+[!INCLUDE [ObjectiveC include](includes/quickstarts/speech-to-text-basics/objectivec.md)]
+::: zone-end
+
+::: zone pivot="programming-language-swift"
+[!INCLUDE [Swift include](includes/quickstarts/speech-to-text-basics/swift.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
-[!INCLUDE [Python Basics include](./includes/quickstarts/speech-to-text-basics/python.md)]
+[!INCLUDE [Python include](./includes/quickstarts/speech-to-text-basics/python.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-rest"
