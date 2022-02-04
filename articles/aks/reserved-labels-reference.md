@@ -9,12 +9,14 @@ ms.topic: reference
 Since [Release 2021-08-19][aks-release-2021-gh], AKS has stopped the ability to make changes to AKS reserved system labels. Attempted change of these labels will result in an error message.
 ## Reserved system labels
 
-The following list of labels are reserved for usage by AKS and are not for customers to change. Virtual node usage indicates whether these system labels could be a supported system feature on virtual nodes. Some of the properties that these system features modify would not be available on the virtual nodes, since they require modifying the host machine.
+The following lists of labels are reserved for use by AKS. Virtual node usage specifies if these labels could be a supported system feature on virtual nodes. 
+
+Some properties that these system features change aren't available on the virtual nodes because they require modifying the host.
 
 | Label | Value | Example/Options | Virtual node usage |
 | ---- | --- | --- | --- |
 | kubernetes.azure.com/agentpool | \<agent pool name> | nodepool1 | Same |
-| kubernetes.io/arch | amd64 | N/A | N/A |
+| kubernetes.io/arch | amd64 | runtime.GOARCH | N/A |
 | kubernetes.io/os | \<OS Type> | Linux/Windows | Same |
 | node.kubernetes.io/instance-type | \<VM size> | Standard_NC6 | Virtual |
 | topology.kubernetes.io/region | \<Azure region> | westus2 | Same |
@@ -38,35 +40,36 @@ The following list of labels are reserved for usage by AKS and are not for custo
 
 ## Reserved prefixes
 
-The following list of prefixes are reserved for usage by AKS and are not to be used for any node. 
+The following lists of prefixes are reserved for usage by AKS and aren't to be used for any node. 
 
 | Prefix |
 | --- |
 | kubernetes.azure.com/ |
 
-## Deprecated label keys
+## Deprecated labels
 
-The following list of labels is planned for deprecation. See [Release Notes][aks-release-notes-gh] for details on when you will no longer be able to utilize these labels for your nodes. 
+The following lists of labels are planned for deprecated. Customers should change any label references to the recommended substitute. 
 
-| Label | Recommended substitute |
-| --- | --- |
-| failure-domain.beta.kubernetes.io/region | topology.kubernetes.io/region |
-| failure-domain.beta.kubernetes.io/zone | topology.kubernetes.io/zone |
-| beta.kubernetes.io/arch | kubernetes.io/arch |
-| beta.kubernetes.io/instance-type | node.kubernetes.io/instance-type |
-| beta.kubernetes.io/os  | kubernetes/io/os |
-| node-role.kubernetes.io/agent | kubernetes.azure.com/role=agent |
-| kubernetes.io/role | kubernetes.azure.com/role=agent |
-| agentpool | kubernetes.azure.com/agentpool |
-| storageprofile | kubernetes.azure.com/storageprofile |
-| storagetier | kubernetes.azure.com/storagetier |
-| accelerator | kubernetes.azure.com/accelerator |
+| Label | Recommended substitute | Maintainer |
+| --- | --- | --- |
+| failure-domain.beta.kubernetes.io/region | topology.kubernetes.io/region | [Kubernetes][kubernetes-labels-selectors]
+| failure-domain.beta.kubernetes.io/zone | topology.kubernetes.io/zone | [Kubernetes][kubernetes-labels-selectors]
+| beta.kubernetes.io/arch | kubernetes.io/arch | [Kubernetes][kubernetes-labels-selectors]
+| beta.kubernetes.io/instance-type | node.kubernetes.io/instance-type | [Kubernetes][kubernetes-labels-selectors]
+| beta.kubernetes.io/os  | kubernetes/io/os | [Kubernetes][kubernetes-labels-selectors]
+| node-role.kubernetes.io/agent | kubernetes.azure.com/role=agent | Azure Kubernetes Service
+| kubernetes.io/role | kubernetes.azure.com/role=agent | Azure Kubernetes Service
+| Agentpool* | kubernetes.azure.com/agentpool | Azure Kubernetes Service
+| Storageprofile* | kubernetes.azure.com/storageprofile | Azure Kubernetes Service
+| Storagetier* | kubernetes.azure.com/storagetier | Azure Kubernetes Service
+| Accelerator* | kubernetes.azure.com/accelerator | Azure Kubernetes Service
 
-<!-- LINKS -->
+*Newly deprecated. See [Release Notes][aks-release-notes-gh] for details on when these labels will no longer be maintained.
 
-<!-- EXTERNAL -->
+<!-- LINKS - external -->
 [aks-release-2021-gh]: https://github.com/Azure/AKS/releases/tag/2021-08-19
 [aks-release-notes-gh]: https://github.com/Azure/AKS/releases
+[kubernetes-labels-selectors]: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/
 
-<!-- INTERNAL -->
-[create-or-update-os-sku]: https://docs.microsoft.com/en-us/rest/api/aks/agent-pools/create-or-update#ossku 
+<!-- LINKS - internal -->
+[create-or-update-os-sku]: /rest/api/aks/agent-pools/create-or-update#ossku 
