@@ -34,7 +34,7 @@ The following functions are only available in window transformations.
 | [rowNumber](data-flow-expressions-usage.md#rowNumber) | Assigns a sequential row numbering for rows in a window starting with 1.  |
 |||
 
-## Next Steps
+## Next steps
 
 - List of all [aggregate functions](data-flow-aggregate-functions.md).
 - List of all [array functions](data-flow-array-functions.md).

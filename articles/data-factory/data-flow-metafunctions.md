@@ -25,7 +25,7 @@ Metafunctions primarily function on metadata in your data flow
 
 | Metafunction  | Task |
 |----|----|
-| [byItem](data-flow-expressions-usage.md#byItem) | Find a sub item within a structure or array of structure If there are multiple matches, the first match is returned. If no match it returns a NULL value. The returned value has to be type converted by one of the type conversion actions(? date, ? string ...).  Column names known at design time should be addressed just by their name. Computed inputs aren't supported but you can use parameter substitutions  |
+| [byItem](data-flow-expressions-usage.md#byItem) | Find a sub item within a structure or array of structure. If there are multiple matches, the first match is returned. If no match it returns a NULL value. The returned value has to be type converted by one of the type conversion actions(? date, ? string ...).  Column names known at design time should be addressed just by their name. Computed inputs aren't supported but you can use parameter substitutions  |
 | [byOrigin](data-flow-expressions-usage.md#byOrigin) | Selects a column value by name in the origin stream. The second argument is the origin stream name. If there are multiple matches, the first match is returned. If no match it returns a NULL value. The returned value has to be type converted by one of the type conversion functions(TO_DATE, TO_STRING ...). Column names known at design time should be addressed just by their name. Computed inputs aren't supported but you can use parameter substitutions.  |
 | [byOrigins](data-flow-expressions-usage.md#byOrigins) | Selects an array of columns by name in the stream. The second argument is the stream where it originated from. If there are multiple matches, the first match is returned. If no match it returns a NULL value. The returned value has to be type converted by one of the type conversion functions(TO_DATE, TO_STRING ...) Column names known at design time should be addressed just by their name. Computed inputs aren't supported but you can use parameter substitutions.|
 | [byName](data-flow-expressions-usage.md#byName) | Selects a column value by name in the stream. You can pass an optional stream name as the second argument. If there are multiple matches, the first match is returned. If no match it returns a NULL value. The returned value has to be type converted by one of the type conversion functions(TO_DATE, TO_STRING ...).  Column names known at design time should be addressed just by their name. Computed inputs aren't supported but you can use parameter substitutions.  |
@@ -38,7 +38,7 @@ Metafunctions primarily function on metadata in your data flow
 | [unhex](data-flow-expressions-usage.md#unhex) | Unhexes a binary value from its string representation. This can be used with sha2, md5 to convert from string to binary representation|
 |||
 
-## Next Steps
+## Next steps
 
 - List of all [aggregate functions](data-flow-aggregate-functions.md).
 - List of all [array functions](data-flow-array-functions.md).

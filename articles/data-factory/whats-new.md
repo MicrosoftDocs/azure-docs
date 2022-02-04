@@ -33,7 +33,7 @@ This page is updated monthly, so revisit it regularly.
   
 <tr><td>Map Data public preview</td><td>The Map Data preview enables business users to define column mapping and transformations to load Synapse Lake Databases<br><a href="../synapse-analytics/database-designer/overview-map-data.md">Learn more</a></td></tr>
   
-<tr><td>Multiple output destinations from Power Query</td><td>You can now map multiple output desintations from Power Query in Azure Data Factory for flexible ETL patterns for citizen data integrators.<br><a href="control-flow-power-query-activity.md#sink">Learn more</a></td></tr>
+<tr><td>Multiple output destinations from Power Query</td><td>You can now map multiple output destinations from Power Query in Azure Data Factory for flexible ETL patterns for citizen data integrators.<br><a href="control-flow-power-query-activity.md#sink">Learn more</a></td></tr>
   
 <tr><td>External Call transformation support</td><td>Extend the functionality of Mapping Data Flows by using the External Call transformation.  You can now add your own custom code as a REST endpoint or call a curated third party service row-by-row.<br><a href="data-flow-external-call.md">Learn more</a></td></tr>
   
