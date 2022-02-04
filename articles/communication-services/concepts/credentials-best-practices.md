@@ -14,7 +14,7 @@ ms.service: azure-communication-services
 
 # Credentials in Communication SDKs
 
-This article provides information about best practices related to managing [User Access Tokens](./authentication.md#user-access-tokens) in Azure Communication Services SDKs. Following this guidance will help you optimize the resources used by your application and reduce the number of roundtrips to the Azure Communication Identity API.
+This article provides best practices for managing [User Access Tokens](./authentication.md#user-access-tokens) in Azure Communication Services SDKs. Following this guidance will help you optimize the resources used by your application and reduce the number of roundtrips to the Azure Communication Identity API.
 
 ## Communication Token Credential
 
@@ -155,7 +155,7 @@ const refreshAadToken = async function (abortSignal, username) {
 
 ## Initial token
 
-To further optimize your code, you can fetch the token at the application's startup and pass it to the Credential directly. This will skip the first call to the refresher callback function while preserving all subsequent calls to it.
+To further optimize your code, you can fetch the token at the application's startup and pass it to the Credential directly. Providing an initial token will skip the first call to the refresher callback function while preserving all subsequent calls to it.
 
 ```javascript
 const tokenCredential = new AzureCommunicationTokenCredential({
@@ -223,7 +223,7 @@ const publicClientApplication = new PublicClientApplication({
 ## Cancel refreshing
 
 For the Communication clients to be able to cancel ongoing refresh tasks, it's necessary to pass a cancellation object to the refresher callback.
-*Please note that this pattern applies only to JavaScript and .NET.*
+*Note that this pattern applies only to JavaScript and .NET.*
 
 ```javascript
 var controller = new AbortController();
