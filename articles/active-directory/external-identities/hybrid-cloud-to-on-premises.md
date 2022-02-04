@@ -68,9 +68,9 @@ You can manage the on-premises B2B user objects through lifecycle management pol
 - You can set up multi-factor authentication (MFA) policies for the Guest user so that MFA is used during Application Proxy authentication. For more information, see [Conditional Access for B2B collaboration users](conditional-access.md).
 - Any sponsorships, access reviews, account verifications, etc. that are performed on the cloud B2B user applies to the on-premises users. For example, if the cloud user is deleted through your lifecycle management policies, the on-premises user is also deleted by MIM Sync or through Azure AD Connect sync. For more information, see [Manage guest access with Azure AD access reviews](../governance/manage-guest-access-with-access-reviews.md).
 
-### Create B2B guest user objects through a B2B script
+### Create B2B guest user objects through an Azure AD B2B script
 
-A sample script that creates shadow AD accounts synced from Azure AD B2B accounts can be found [here](https://github.com/Azure-Samples/B2B-to-AD-Sync). These shadow accounts can then be used for on-prem apps that leverage KCD.
+You can use an [Azure AD B2B sample script](https://github.com/Azure-Samples/B2B-to-AD-Sync) to create shadow Azure AD accounts synced from Azure AD B2B accounts. You can then use the shadow accounts for on-premises apps that use KCD.
 
 ### Create B2B guest user objects through MIM
 
