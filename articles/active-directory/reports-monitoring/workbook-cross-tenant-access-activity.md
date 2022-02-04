@@ -31,7 +31,7 @@ This article provides you with an overview of this workbook.
 
 Tenant administrators who are making changes to policies governing cross-tenant access can use this workbook to visualize and review existing access activity patterns before making policy changes. For example, you can identify the apps your users are accessing in external organizations so that you don't inadvertently block critical business processes. Understanding how external users access resources in your tenant (inbound access) and how users in your tenant access resources in external tenants (outbound access) will help ensure you have the right cross-tenant policies in place.
 
-For more information, see [Overview: Cross-tenant access with Azure AD External Identities (Preview)](../external-identities/cross-tenant-access-overview.md).
+For more information, see the [Azure AD External Identities documentation](../external-identities/index.yml).
 
 ## Sections
 
