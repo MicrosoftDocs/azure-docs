@@ -27,7 +27,7 @@ landingContent:
           - text: "What is Azure Machine Learning?"       
             url: overview-what-is-azure-machine-learning.md
           - text: "What is Azure Machine Learning studio?"
-            url:  overview-what-is-machine-learning-studio
+            url:  overview-what-is-machine-learning-studio.md
           - text:  Architecture & terms
             url: concept-azure-machine-learning-architecture.md 
   # Card
