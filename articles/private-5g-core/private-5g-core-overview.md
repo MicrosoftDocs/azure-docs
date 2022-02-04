@@ -26,7 +26,7 @@ You can also deploy packet core instances in 4G mode to support Private Long-Ter
 
 Each packet core instance is standards-compliant and compatible with several Radio Access Network (RAN) partners in the Azure private multi-access edge compute (MEC) ecosystem. For more information, see [What is Azure private multi-access edge compute?](/azure/private-multi-access-edge-compute-mec/overview).
 
-Azure Private 5G Core allows you to use Azure easily carry out the following tasks: 
+Azure Private 5G Core allows you to use Azure to easily carry out the following tasks: 
 
 - Deliver and automate the lifecycle of packet core instances on Azure Stack Edge devices. 
 - Manage configuration. 
