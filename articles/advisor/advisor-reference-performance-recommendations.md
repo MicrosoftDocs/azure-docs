@@ -449,31 +449,21 @@ Learn more about [PostgreSQL server - OrcasPostgreSqlFlexibleServerStorageLimit 
 
 Optimize logging settings by setting LoggingCollector to -1
 
-Learn more about [PostgreSQL server - OrcasPostgreSqlLogMinDuration (Optimize logging settings by setting LoggingCollector to -1)](N/A).
-
 ### Optimize logging settings by setting LogDuration to OFF
 
 Optimize logging settings by setting LogDuration to OFF
-
-Learn more about [PostgreSQL server - OrcasPostgreSqlLogDuration (Optimize logging settings by setting LogDuration to OFF)](N/A).
 
 ### Optimize logging settings by setting LogStatement to NONE
 
 Optimize logging settings by setting LogStatement to NONE
 
-Learn more about [PostgreSQL server - OrcasPostgreSqlLogStatement (Optimize logging settings by setting LogStatement to NONE)](N/A).
-
 ### Optimize logging settings by setting ReplaceParameter to OFF
 
 Optimize logging settings by setting ReplaceParameter to OFF
 
-Learn more about [PostgreSQL server - OrcasPostgreSqlReplaceParameter (Optimize logging settings by setting ReplaceParameter to OFF)](N/A).
-
 ### Optimize logging settings by setting LoggingCollector to OFF
 
 Optimize logging settings by setting LoggingCollector to OFF
-
-Learn more about [PostgreSQL server - OrcasPostgreSqlLoggingCollector (Optimize logging settings by setting LoggingCollector to OFF)](N/A).
 
 ### Increase the storage limit for Hyperscale (Citus) server group
 
