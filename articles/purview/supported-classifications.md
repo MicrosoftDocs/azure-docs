@@ -19,6 +19,9 @@ Azure Purview classifies data by [RegEx](https://wikipedia.org/wiki/Regular_expr
 > [!Note]
 > Azure Purview can classify both structured (CSV, TSV, JSON, SQL Table etc.) as well as unstructured data (DOC, PDF, TXT etc.). However, there are certain classifications that are only applicable to structured data. Here is the list of classifications that Azure Purview doesn't apply on unstructured data - City Name, Country Name, Date Of Birth, Email, Ethnic Group, GeoLocation, Person Name, U.S. Phone Number, U.S. States, U.S. ZipCode
 
+> [!Note]
+> **Minimum match threshold**: It is the minimum percentage of data value matches in a column that must be found by the scanner for the classification to be applied. For system classification minimum match threshold value is set at 60% and cannot be changed. For custom classification, this value is configurable.
+
 ## Bloom Filter based classifications
 
 ## City, Country, and Place

@@ -2,7 +2,7 @@
 title: Container security with Microsoft Defender for Cloud
 description: Learn about Microsoft Defender for Containers
 ms.topic: overview
-ms.date: 01/17/2022
+ms.date: 01/23/2022
 ---
 # Overview of Microsoft Defender for Containers
 
@@ -166,9 +166,9 @@ Defender for Cloud filters and classifies findings from the scanner. When an ima
 
 Defender for Containers expands on the registry scanning features of the Defender for container registries plan by introducing the **preview feature** of run-time visibility of vulnerabilities powered by the Defender profile.
 
-The new recommendation, **Vulnerabilities in running images should be remediated (powered by Qualys)** groups running images that have vulnerabilities and provides details about the issues discovered and how to remediate them.
+The new recommendation, **Running container images should have vulnerability findings resolved** groups running images that have vulnerabilities and provides details about the issues discovered and how to remediate them.
 
-:::image type="content" source="media/defender-for-containers/running-image-vulnerabilities-recommendation.png" alt-text="test":::
+:::image type="content" source="media/defender-for-containers/running-image-vulnerabilities-recommendation.png" alt-text="Screenshot showing where the recommendation is viewable" lightbox="media/defender-for-containers/running-image-vulnerabilities-recommendation-expanded.png":::
 
 ## Run-time protection for Kubernetes nodes and clusters
 

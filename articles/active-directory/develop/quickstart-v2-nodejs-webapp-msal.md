@@ -10,6 +10,7 @@ ms.subservice: develop
 ms.topic: portal
 ms.workload: identity
 ms.date: 11/22/2021
+ROBOTS: NOINDEX
 ms.author: marsma
 ms.custom: aaddev, "scenarios:getting-started", "languages:js", devx-track-js, mode-api
 #Customer intent: As an application developer, I want to know how to set up authentication in a web application built using Node.js and MSAL Node.

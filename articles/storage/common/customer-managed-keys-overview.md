@@ -6,7 +6,7 @@ services: storage
 author: tamram
 
 ms.service: storage
-ms.date: 01/13/2022
+ms.date: 01/24/2022
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
@@ -35,13 +35,13 @@ The following diagram shows how Azure Storage uses Azure AD and a key vault or m
 
 The following list explains the numbered steps in the diagram:
 
-1. An Azure Key Vault admin grants permissions to encryption keys to either a user-assigned managed identity, or to the system-assigned managed identity that's associated with the storage account.
+1. An Azure Key Vault admin grants permissions to encryption keys to a managed identity. The managed identity may be either a user-assigned managed identity that you create and manage, or a system-assigned managed identity that is associated with the storage account.
 1. An Azure Storage admin configures encryption with a customer-managed key for the storage account.
 1. Azure Storage uses the managed identity to which the Azure Key Vault admin granted permissions in step 1 to authenticate access to Azure Key Vault via Azure AD.
 1. Azure Storage wraps the account encryption key with the customer-managed key in Azure Key Vault.
 1. For read/write operations, Azure Storage sends requests to Azure Key Vault to unwrap the account encryption key to perform encryption and decryption operations.
 
-The managed identity that's associated with the storage account must have these permissions at a minimum to access a  customer-managed key in Azure Key Vault:
+The managed identity that is associated with the storage account must have these permissions at a minimum to access a  customer-managed key in Azure Key Vault:
 
 - *wrapkey*
 - *unwrapkey*
@@ -63,9 +63,14 @@ Data in Blob storage and Azure Files is always protected by customer-managed key
 
 When you configure a customer-managed key, Azure Storage wraps the root data encryption key for the account with the customer-managed key in the associated key vault or managed HSM. Enabling customer-managed keys does not impact performance, and takes effect immediately.
 
-When you enable or disable customer managed keys, or when you modify the key or the key version, the protection of the root encryption key changes, but the data in your Azure Storage account does not need to be re-encrypted.
+When you enable or disable customer-managed keys, or when you modify the key or the key version, the protection of the root encryption key changes, but the data in your Azure Storage account does not need to be re-encrypted.
 
-You can enable customer-managed keys on existing storage accounts or on new accounts when you create them. When you enable customer-managed keys while creating an account, only user-assigned managed identities are available. To use a system-assigned managed identity, you must first create the account and then enable customer-managed keys, because the system-assigned managed identity can exist only after the account is created. For more information on system-assigned versus user-assigned managed identities, see [Managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md).
+You can enable customer-managed keys on both new and existing storage accounts. When you enable customer-managed keys, you must specify a managed identity to be used to authorize access to the key vault that contains the key. The managed identity may be either a user-assigned or system-assigned managed identity:
+
+- When you configure customer-managed keys at the time that you create a storage account, you must use a user-assigned managed identity.
+- When you configure customer-managed keys on an existing storage account, you can use either a user-assigned managed identity or a system-assigned managed identity.
+
+To learn more about system-assigned versus user-assigned managed identities, see [Managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md).
 
 You can switch between customer-managed keys and Microsoft-managed keys at any time. For more information about Microsoft-managed keys, see [About encryption key management](storage-service-encryption.md#about-encryption-key-management).
 

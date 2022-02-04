@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: how-to
-ms.date: 10/14/2021
+ms.date: 01/25/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -41,7 +41,7 @@ From there, you can go to **All devices** to:
 - Configure your device identity settings.
 - Enable or disable enterprise state roaming.
 - Review device-related audit logs.
-- Download devices (preview).
+- Download devices.
 
 [![Screenshot that shows the All devices view in the Azure portal.](./media/device-management-azure-portal/all-devices-azure-portal.png)](./media/device-management-azure-portal/all-devices-azure-portal.png#lightbox)
 
@@ -128,9 +128,9 @@ To enable the preview filtering functionality in the **All devices** view:
 
 You can now add filters to your **All devices** view.
 
-## Download devices (preview)
+## Download devices
 
-Cloud Device Administrators, Intune Administrators, and Global Administrators can use the **Download devices (preview)** option to export a CSV file that lists devices. You can apply filters to determine which devices to list. If you don't apply any filters, all devices will be listed. An export task might run for as long as an hour, depending on your selections.
+Global readers, Cloud Device Administrators, Intune Administrators, and Global Administrators can use the **Download devices** option to export a CSV file that lists devices. You can apply filters to determine which devices to list. If you don't apply any filters, all devices will be listed. An export task might run for as long as an hour, depending on your selections. If the export task exceeds 1 hour, it fails, and no file is output.
 
 The exported list includes these device identity attributes:
 

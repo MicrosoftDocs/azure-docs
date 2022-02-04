@@ -12,8 +12,6 @@ ms.date: 11/24/2021
 ms.author: mbaldwin
 ---
 # Configure key auto-rotation in Azure Key Vault (preview)
-> [!WARNING]
-> This feature is currently disabled due to an issue with the service. 
 
 ## Overview
 
