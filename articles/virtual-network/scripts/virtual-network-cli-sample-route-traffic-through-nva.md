@@ -34,8 +34,6 @@ This script sample creates a virtual network with front-end and back-end subnets
 
 :::code language="azurecli" source="~/azure_cli_scripts/virtual-network/route-traffic-through-nva/route-traffic-through-nva.sh" range="4-108":::
 
-[!code-azurecli-interactive[main](../../../cli_scripts/virtual-network/route-traffic-through-nva/route-traffic-through-nva.sh "Route traffic through a network virtual appliance")]
-
 ## Clean up deployment
 
 [!INCLUDE [cli-clean-up-resources.md](../../../includes/cli-clean-up-resources.md)]
