@@ -26,12 +26,6 @@ Learn more about [Spring Cloud Service - SpringCloudUpgradeOutdatedSDK (Update y
 
 We have identified API calls from outdated Azure Spring Cloud API for resources under this subscription. We recommend switching to the latest Spring Cloud API version. You need to update your existing code to use the latest API version. Also, you need to upgrade your Azure SDK and Azure CLI to the latest version. This ensures you receive the latest features and performance improvements.
 
-Learn more about [Spring Cloud Service - UpgradeSpringCloudAPI (Update Azure Spring Cloud API Version)](/azure/spring-cloud).
-
-### Update Azure Spring Cloud API Version
-
-We have identified API calls from outdated Azure Spring Cloud API for resources under this subscription. We recommend switching to the latest Spring Cloud API version. You need to update your existing code to use the latest API version. Also, you need to upgrade your Azure SDK and Azure CLI to the latest version. This ensures you receive the latest features and performance improvements.
-
 Learn more about [Spring Cloud Service - UpgradeAzureSpringCloudAPI (Update Azure Spring Cloud API Version)](/azure/spring-cloud).
 
 ## Automation
@@ -202,7 +196,7 @@ We have determined that too many of your host pools have Validation Environment 
 
 Learn more about [Host Pool - ProductionEnvHostPools (Not enough production environments enabled)](/azure/virtual-desktop/create-host-pools-powershell).
 
-## Documentdb
+## Azure Cosmos DB
 
 ### Migrate Azure Cosmos DB attachments to Azure Blob Storage
 
@@ -260,24 +254,6 @@ We've detected that your Application Gateway subnet does not have enough capacit
 
 Learn more about [Application gateway - AppgwRestrictedSubnetSpace (Application Gateway does not have enough capacity to scale out)](https://aka.ms/application-gateway-faq).
 
-### Application gateway subnet has an NSG associated to it
-
-We've detected that there is an NSG associated to Application Gateway subnet. Please ensure that the NSG is not blocking your traffic and is setup as per instructions mentioned in our documentation.
-
-Learn more about [Application gateway - AppGwAdvisorRecommendationForNSG (Application gateway subnet has an NSG associated to it)](https://aka.ms/network-security-groups-setup).
-
-### Application gateway has a custom DNS on the vnet
-
-We've detected that there is a custom dns setup on Application Gateway vnet. Please ensure that all of backend domain names are resolvable to avoid any datapath impact.
-
-Learn more about [Application gateway - AppGwAdvisorRecommendationForCustomDNS (Application gateway has a custom DNS on the vnet)](https://aka.ms/custom-dns-setup-application-gateway).
-
-### Application gateway has both custom DNS and azure DNS servers on the Vnet
-
-We've detected that Application Gateway vnet has both custom DNS and Azure DNS servers on the vnet. We recommend to remove Azure DNS server from the list. Please checkout our documentation to know more about the issue.
-
-Learn more about [Application gateway - AppGwAdvisorRecommendationForAsymmetricDnsList (Application gateway has both custom DNS and azure DNS servers on the Vnet)](https://aka.ms/custom-dns-setup-application-gateway).
-
 ### Enable Traffic Analytics to view insights into traffic patterns across Azure resources
 
 Traffic Analytics is a cloud-based solution that provides visibility into user and application activity in Azure. Traffic analytics analyzes Network Watcher network security group (NSG) flow logs to provide insights into traffic flow. With traffic analytics, you can view top talkers across Azure and non Azure deployments, investigate open ports, protocols and malicious flows in your environment and optimize your network deployment for performance. You can process flow logs at 10 mins and 60 mins processing intervals, giving you faster analytics on your traffic.
@@ -304,7 +280,7 @@ Learn more about [Storage Account - StorageAccountScaleTarget (Prevent hitting s
 
 We noticed that one or more of your applications use an older version of the Azure Storage Java v12 SDK to write data to Azure Storage. Unfortunately, the version of the SDK being used has a critical issue that uploads incorrect data during retries (for example, in case of HTTP 500 errors), resulting in an invalid object being written. The issue is fixed in newer releases of the Java v12 SDK.
 
-Learn more about [Storage Account - UpdateStorageJavaSDK (Update to newer releases of the Storage Java v12 SDK for better reliability.)](/azure/developer/java/sdk/?view=azure-java-stable&preserve-view=true).
+Learn more about [Storage Account - UpdateStorageJavaSDK (Update to newer releases of the Storage Java v12 SDK for better reliability.)](/azure/developer/java/sdk/?view=azure-java-stable).
 
 ## Subscriptions
 
@@ -313,18 +289,6 @@ Learn more about [Storage Account - UpdateStorageJavaSDK (Update to newer releas
 Deploying an app to a slot first and swapping it into production makes sure that all instances of the slot are warmed up before being swapped into production. This eliminates downtime when you deploy your app. The traffic redirection is seamless, no requests are dropped because of swap operations.
 
 Learn more about [Subscription - AzureApplicationService (Set up staging environments in Azure App Service)](/azure/app-service/deploy-staging-slots).
-
-### Create an Azure service health alert
-
-Service health alerts help you stay notified when Azure service issues affect you. Create a service health alert for the regions and services that you care about.
-
-Learn more about [Subscription - ServiceHealthAlert (Create an Azure service health alert)](https://aka.ms/aa_servicehealthalert_action).
-
-### Upgrade to a support plan that includes technical support
-
-We recommend upgrading your support plan to include technical support. Explore the range of Azure support options and choose the plan that best fits, whether you're a developer just starting your cloud journey or a large organization deploying business-critical, strategic applications.
-
-Learn more about [Subscription - SupportPlan (Upgrade to a support plan that includes technical support)](https://aka.ms/azuresupport).
 
 ### Enforce 'Add or replace a tag on resources' using Azure Policy
 
@@ -356,12 +320,6 @@ Azure Policy is a service in Azure that you use to create, assign, and manage po
 
 Learn more about [Subscription - InheritTagPolicy (Enforce 'Inherit a tag from the resource group' using Azure Policy)](/azure/governance/policy/overview).
 
-### Create an Azure Resource Health alert
-
-Resource Health alerts keeps you informed about the current and historical health status of your Azure resources. Azure Resource Health alerts can notify you in near real-time when these resources have a change in their health status.
-
-Learn more about [Subscription - ResourceHealthAlert (Create an Azure Resource Health alert)](/azure/service-health/resource-health-alert-arm-template-guide).
-
 ### Use Azure Lighthouse to simply and securely manage customer subscriptions at scale
 
 Using Azure Lighthouse improves security and reduces unnecessary access to your customer tenants by enabling more granular permissions for your users. It also allows for greater scalability, as your users can work across multiple customer subscriptions using a single login in your tenant.
@@ -375,3 +333,4 @@ Learn more about [Subscription - OnboardCSPSubscriptionsToLighthouse (Use Azure 
 Deploying an app to a slot first and swapping it into production makes sure that all instances of the slot are warmed up before being swapped into production. This eliminates downtime when you deploy your app. The traffic redirection is seamless, no requests are dropped because of swap operations.
 
 Learn more about [App service - AzureAppService-StagingEnv (Set up staging environments in Azure App Service)](/azure/app-service/deploy-staging-slots).
+
