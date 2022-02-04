@@ -231,7 +231,7 @@ To run your app on Linux, you must also set the property `"reserved": true` for 
 
 ### Create a function app
 
-If you do explicitly define your Consumption plan, you will need to set the `serverFarmId` property on the app so that it points to the resource ID of the plan. You should ensure that the function app has a `dependsOn` setting for the plan as well.
+When you define your Consumption plan, you must set the `serverFarmId` property on the app so that it points to the resource ID of the plan. Make sure that the function app has a `dependsOn` setting that also references the plan.
 
 The settings required by a function app running in Consumption plan differ between Windows and Linux.
 
