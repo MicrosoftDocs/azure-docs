@@ -267,7 +267,7 @@ groups:
 - id: programming-languages-set-twenty-five
 # Owner: erhopf
   title: Programming languages
-  prompt: Choose a programming language or CLI
+  prompt: Choose a programming language
   pivots:
   - id: programming-language-csharp
     title: C#
@@ -275,7 +275,7 @@ groups:
     title: C++
   - id: programming-language-javascript
     title: JavaScript
-  - id: programming-language-curl
+  - id: programming-language-rest
     title: REST
 - id: programming-languages-cs-cpp-py
 # Owner: lajanuar
