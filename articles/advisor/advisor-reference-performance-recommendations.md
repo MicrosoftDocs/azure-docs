@@ -67,7 +67,7 @@ Learn more about [Cognitive Service - UpgradeToLatestAPILanguage (Upgrade to the
 
 ### Upgrade to the latest Cognitive Service Text Analytics SDK version
 
-Upgrade to the latest SDK version to get the best results in terms of model quality, performance and service availability. Also there are new features are available as new endpoints starting from V3.0 such as PII recognition, Entity recognition and entity linking available as separate endpoints. In terms of changes in preview endpoints we have Opinion Mining in SA endpoint, redacted text property in PII endpoint
+Upgrade to the latest SDK version to get the best results in terms of model quality, performance and service availability. Also there are new features available as new endpoints starting from V3.0 such as PII recognition, Entity recognition and entity linking available as separate endpoints. In terms of changes in preview endpoints we have Opinion Mining in SA endpoint, redacted text property in PII endpoint
 
 Learn more about [Cognitive Service - UpgradeToLatestSDK (Upgrade to the latest Cognitive Service Text Analytics SDK version)](/azure/cognitive-services/text-analytics/quickstarts/text-analytics-sdk?tabs=version-3-1&pivots=programming-language-csharp).
 
