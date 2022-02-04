@@ -64,6 +64,18 @@ A Reader can view all the resources in an Automation account but can't make any 
 |---------|---------|
 |Microsoft.Automation/automationAccounts/read|View all resources in an Automation account. |
 
+**Issue description** </br>
+Built-in Reader role for the Automation Account cannot use the API – ```GET /automationAccounts/agentRegistrationInformation``` to get the Automation Account keys. This is a high privilege operation that could pose a risk of a malicious actor trying to exploit the automation account keys to perform operations beyond their privilege level.
+
+**Fix** </br>
+To strengthen the security & avoid any risk due to the potential elevation of privilege at the Automation account level, the built-in Reader would not have access to Automation account keys through the API call - ```GET /automationAccounts/agentRegistrationInformation```. 
+
+**Action Required**</br>
+Customers can use the built-in roles like Owner, Contributor or Automation Contributor if they need to access the Automation Account keys. These roles, by default, will have the listKeys permission. As a best practice, we recommend creating a custom role with limited permissions needed to access the Automation account keys. For a custom role, you need to add 
+```Microsoft.Automation/automationAccounts/listKeys/action``` permission to the role definition.
+If you would like to learn about creating a custom role in the Azure portal, see [Azure custom roles](/azure/role-based-access-control/custom-roles).
+
+
 ### Automation Contributor
 
 An Automation Contributor can manage all resources in the Automation account except access. The following table shows the permissions granted for the role:
