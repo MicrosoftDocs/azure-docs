@@ -14,9 +14,9 @@ This article shows how to set up a zone-redundant container registry or replica 
 
 Zone redundancy is a **preview** feature of the Premium container registry service tier. For information about registry service tiers and limits, see [Azure Container Registry service tiers](container-registry-skus.md).
 
-## Preview limitations
+## Regional Support
 
-* Currently supported in the following regions: 
+* ACR Availability Zones are supported in the following regions: 
   
     |Americas  |Europe  |Africa  |Asia Pacific  |
     |---------|---------|---------|---------|
