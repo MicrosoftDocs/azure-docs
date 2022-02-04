@@ -38,7 +38,7 @@ Labs virtual machines (VMs) are managed and hosted for you within a subscription
 
 A subscription contains one or more resource groups. Resource groups are used to create logical groupings of Azure resources that are used together within the same solution.  
 
-When you create a lab plan, you must configure the resource group that contains the lab plan. Name your resource group carefully.  Labs are grouped by resource group name in the [Azure Lab Services portal](https://labs.azure.com).
+When you create a lab plan, you must configure the resource group that contains the lab plan. Name your resource group carefully.  Labs are grouped by resource group name in the [Azure Lab Services website](https://labs.azure.com).
 
 A resource group is also required when you create an [Azure Compute Gallery](#azure-compute-gallery). You can place your lab plan and compute gallery in the same resource group or in two separate resource groups. You might want to take this second approach if you plan to share the compute gallery across various solutions.
 

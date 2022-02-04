@@ -14,7 +14,7 @@
         href: quick-create-lab-plan-portal.md
     - name: Create a lab (educator)
       items:
-      - name: Azure Lab Services portal
+      - name: Azure Lab Services website
         href: quick-create-lab-portal.md
 - name: Tutorials
   items:

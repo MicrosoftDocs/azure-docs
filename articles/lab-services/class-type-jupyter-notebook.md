@@ -131,7 +131,7 @@ If you’ve provided students with Linux VMs, students can Access Jupyter Notebo
 
 Some students may want to connect directly from their local computer directly to the Jupyter server inside their lab VMs. The SSH protocol enables port forwarding between the local computer and a remote server (in our case, the student’s lab VM), so that an application running on a certain port on the server is **tunneled** to the mapping port on the local computer. Students should follow these steps to SSH tunnel to the Jupyter server on their lab VMs:
 
-1. In the [Azure Lab Services portal](https://labs.azure.com), make sure that the Linux VM that you want to connect is started.
+1. In the [Azure Lab Services website](https://labs.azure.com), make sure that the Linux VM that you want to connect is started.
 2. Once the VM is running, select **Connect**, which will show a window that provides the SSH command string, which will look like the following string:
 
     ```shell
