@@ -9,8 +9,6 @@ ms.date: 02/03/2022
 
 The performance recommendations in Azure Advisor can help improve the speed and responsiveness of your business-critical applications. You can get performance recommendations from Advisor on the **Performance** tab of the Advisor dashboard.
 
-## How to access performance recommendations in Azure Advisor
-
 1. Sign in to the [**Azure portal**](https://portal.azure.com).
 
 1. Search for and select [**Advisor**](https://aka.ms/azureadvisordashboard) from any page.
