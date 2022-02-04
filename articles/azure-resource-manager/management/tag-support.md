@@ -2,7 +2,7 @@
 title: Tag support for resources
 description: Shows which Azure resource types support tags. Provides details for all Azure services.
 ms.topic: conceptual
-ms.date: 11/30/2021
+ms.date: 02/04/2022
 ---
 
 # Tag support for Azure resources
@@ -53,6 +53,7 @@ Jump to a resource provider namespace:
 > - [Microsoft.Cdn](#microsoftcdn)
 > - [Microsoft.CertificateRegistration](#microsoftcertificateregistration)
 > - [Microsoft.ChangeAnalysis](#microsoftchangeanalysis)
+> - [Microsoft.Chaos](#microsoftchaos)
 > - [Microsoft.ClassicCompute](#microsoftclassiccompute)
 > - [Microsoft.ClassicInfrastructureMigrate](#microsoftclassicinfrastructuremigrate)
 > - [Microsoft.ClassicNetwork](#microsoftclassicnetwork)
@@ -63,6 +64,7 @@ Jump to a resource provider namespace:
 > - [Microsoft.CognitiveServices](#microsoftcognitiveservices)
 > - [Microsoft.Commerce](#microsoftcommerce)
 > - [Microsoft.Compute](#microsoftcompute)
+> - [Microsoft.Communication](#microsoftcommunication)
 > - [Microsoft.ConfidentialLedger](#microsoftconfidentialledger)
 > - [Microsoft.ConnectedCache](#microsoftconnectedcache)
 > - [Microsoft.ConnectedVehicle](#microsoftconnectedvehicle)
@@ -132,6 +134,7 @@ Jump to a resource provider namespace:
 > - [Microsoft.Insights](#microsoftinsights)
 > - [Microsoft.Intune](#microsoftintune)
 > - [Microsoft.IoTCentral](#microsoftiotcentral)
+> - [Microsoft.IoTFirmwareDefense](#microsoftiotfirmwaredefense)
 > - [Microsoft.IoTSecurity](#microsoftiotsecurity)
 > - [Microsoft.IoTSpaces](#microsoftiotspaces)
 > - [Microsoft.KeyVault](#microsoftkeyvault)
@@ -188,6 +191,7 @@ Jump to a resource provider namespace:
 > - [Microsoft.ResourceHealth](#microsoftresourcehealth)
 > - [Microsoft.Resources](#microsoftresources)
 > - [Microsoft.SaaS](#microsoftsaas)
+> - [Microsoft.Scheduler](#microsoftscheduler)
 > - [Microsoft.Scom](#microsoftscom)
 > - [Microsoft.ScVmm](#microsoftscvmm)
 > - [Microsoft.Search](#microsoftsearch)
@@ -296,6 +300,7 @@ Jump to a resource provider namespace:
 > | alertsSummary | No | No |
 > | alertsSummaryList | No | No |
 > | migrateFromSmartDetection | No | No |
+> | prometheusRuleGroups | Yes | Yes |
 > | resourceHealthAlertRules | Yes | Yes |
 > | smartDetectorAlertRules | Yes | Yes |
 > | smartGroups | No | No |
@@ -353,6 +358,7 @@ Jump to a resource provider namespace:
 > | configurationStores | Yes | No |
 > | configurationStores / eventGridFilters | No | No |
 > | configurationStores / keyValues | No | No |
+> | deletedConfigurationStores | No | No |
 
 ## Microsoft.AppPlatform
 
@@ -526,6 +532,10 @@ Jump to a resource provider namespace:
 > | ------------- | ----------- | ----------- |
 > | accounts | No | No |
 > | accounts / devices | No | No |
+> | accounts / devices / sensors | No | No |
+> | accounts / solutioninstances | No | No |
+> | accounts / solutions | No | No |
+> | accounts / targets | No | No |
 
 ## Microsoft.AzureSphere
 
@@ -557,15 +567,15 @@ Jump to a resource provider namespace:
 > | Resource type | Supports tags | Tag in cost report |
 > | ------------- | ----------- | ----------- |
 > | clusters | No | No |
-> | clusters / arcsettings | No | No |
-> | clusters / arcsettings / extensions | No | No |
-> | galleryImages | No | No |
-> | networkInterfaces | No | No |
-> | virtualHardDisks | No | No |
+> | clusters / arcSettings | No | No |
+> | clusters / arcSettings / extensions | No | No |
+> | galleryimages | No | No |
+> | networkinterfaces | No | No |
+> | virtualharddisks | No | No |
 > | virtualmachines | No | No |
 > | virtualmachines / extensions | No | No |
 > | virtualmachines / hybrididentitymetadata | No | No |
-> | virtualNetworks | No | No |
+> | virtualnetworks | No | No |
 
 ## Microsoft.BackupSolutions
 
@@ -720,6 +730,7 @@ Jump to a resource provider namespace:
 > | savingsPlanOrderAliases | No | No |
 > | savingsPlanOrders | No | No |
 > | savingsPlanOrders / savingsPlans | No | No |
+> | savingsPlans | No | No |
 > | validate | No | No |
 
 ## Microsoft.Blockchain
@@ -865,6 +876,19 @@ Jump to a resource provider namespace:
 > | profile | No | No |
 > | resourceChanges | No | No |
 
+## Microsoft.Chaos
+
+> [!div class="mx-tableFixed"]
+> | Resource type | Supports tags | Tag in cost report |
+> | ------------- | ----------- | ----------- |
+> | artifactSetDefinitions | No | No |
+> | artifactSetSnapshots | No | No |
+> | chaosExperiments | Yes | Yes |
+> | chaosProviderConfigurations | No | No |
+> | chaosTargets | No | No |
+> | experiments | Yes | Yes |
+> | targets | No | No |
+
 ## Microsoft.ClassicCompute
 
 > [!div class="mx-tableFixed"]
@@ -968,6 +992,7 @@ Jump to a resource provider namespace:
 > | Resource type | Supports tags | Tag in cost report |
 > | ------------- | ----------- | ----------- |
 > | accounts | Yes | Yes |
+> | accounts / networkSecurityPerimeterAssociationProxies | No | No |
 > | accounts / privateEndpointConnectionProxies | No | No |
 > | accounts / privateEndpointConnections | No | No |
 > | accounts / privateLinkResources | No | No |
@@ -1027,6 +1052,17 @@ Jump to a resource provider namespace:
 
 > [!NOTE]
 > You can't add a tag to a virtual machine that has been marked as generalized. You mark a virtual machine as generalized with [Set-AzVm -Generalized](/powershell/module/Az.Compute/Set-AzVM) or [az vm generalize](/cli/azure/vm#az-vm-generalize).
+
+## Microsoft.Communication
+
+> [!div class="mx-tableFixed"]
+> | Resource type | Supports tags | Tag in cost report |
+> | ------------- | ----------- | ----------- |
+> | CommunicationServices | No | No |
+> | CommunicationServices / eventGridFilters | No | No |
+> | EmailServices | No | No |
+> | EmailServices / Domains | No | No |
+> | registeredSubscriptions | No | No |
 
 ## Microsoft.ConfidentialLedger
 
@@ -1570,6 +1606,7 @@ Jump to a resource provider namespace:
 > | domains / topics | No | No |
 > | eventSubscriptions | No | No |
 > | extensionTopics | No | No |
+> | partnerDestinations | Yes | Yes |
 > | partnerNamespaces | Yes | Yes |
 > | partnerNamespaces / channels | No | No |
 > | partnerNamespaces / eventChannels | No | No |
@@ -1761,6 +1798,10 @@ Jump to a resource provider namespace:
 > | Resource type | Supports tags | Tag in cost report |
 > | ------------- | ----------- | ----------- |
 > | instances | No | No |
+> | instances / chambers | No | No |
+> | instances / chambers / accessProfiles | No | No |
+> | instances / chambers / workloads | No | No |
+> | instances / consortiums | No | No |
 
 ## Microsoft.HybridCompute
 
@@ -1789,6 +1830,8 @@ Jump to a resource provider namespace:
 > | Resource type | Supports tags | Tag in cost report |
 > | ------------- | ----------- | ----------- |
 > | provisionedClusters | No | No |
+> | provisionedClusters / agentPools | No | No |
+> | provisionedClusters / hybridIdentityMetadata | No | No |
 
 ## Microsoft.HybridData
 
@@ -1868,6 +1911,14 @@ Jump to a resource provider namespace:
 > | appTemplates | No | No |
 > | IoTApps | Yes | Yes |
 
+## Microsoft.IoTFirmwareDefense
+
+> [!div class="mx-tableFixed"]
+> | Resource type | Supports tags | Tag in cost report |
+> | ------------- | ----------- | ----------- |
+> | firmwareGroups | No | No |
+> | firmwareGroups / firmwares | No | No |
+
 ## Microsoft.IoTSecurity
 
 > [!div class="mx-tableFixed"]
@@ -1918,6 +1969,7 @@ Jump to a resource provider namespace:
 > | ------------- | ----------- | ----------- |
 > | extensions | No | No |
 > | fluxConfigurations | No | No |
+> | namespaces | No | No |
 > | sourceControlConfigurations | No | No |
 
 ## Microsoft.Kusto
@@ -2082,6 +2134,7 @@ Jump to a resource provider namespace:
 > | privateStores / collections / offers | No | No |
 > | privateStores / collections / transferOffers | No | No |
 > | privateStores / collectionsToSubscriptionsMapping | No | No |
+> | privateStores / fetchAllSubscriptionsInTenant | No | No |
 > | privateStores / offers | No | No |
 > | privateStores / offers / acknowledgeNotification | No | No |
 > | privateStores / queryApprovedPlans | No | No |
@@ -2488,6 +2541,7 @@ Jump to a resource provider namespace:
 > | Resource type | Supports tags | Tag in cost report |
 > | ------------- | ----------- | ----------- |
 > | accounts | Yes | Yes |
+> | accounts / kafkaConfigurations | No | No |
 > | deletedAccounts | No | No |
 > | getDefaultAccount | No | No |
 > | removeDefaultAccount | No | No |
@@ -2606,6 +2660,13 @@ Jump to a resource provider namespace:
 > | resources | Yes | Yes |
 > | saasresources | No | No |
 
+## Microsoft.Scheduler
+
+> [!div class="mx-tableFixed"]
+> | Resource type | Supports tags | Tag in cost report |
+> | ------------- | ----------- | ----------- |
+> | jobcollections | Yes | Yes |
+
 ## Microsoft.Scom
 
 > [!div class="mx-tableFixed"]
@@ -2648,7 +2709,9 @@ Jump to a resource provider namespace:
 > | applicationWhitelistings | No | No |
 > | assessmentMetadata | No | No |
 > | assessments | No | No |
+> | assessments / governanceAssignments | No | No |
 > | assignments | Yes | Yes |
+> | attackPaths | No | No |
 > | autoDismissAlertsRules | No | No |
 > | automations | Yes | Yes |
 > | AutoProvisioningSettings | No | No |
@@ -2658,9 +2721,11 @@ Jump to a resource provider namespace:
 > | customAssessmentAutomations | Yes | Yes |
 > | customEntityStoreAssignments | Yes | Yes |
 > | dataCollectionAgents | No | No |
+> | dataScanners | Yes | Yes |
 > | deviceSecurityGroups | No | No |
 > | discoveredSecuritySolutions | No | No |
 > | externalSecuritySolutions | No | No |
+> | governanceRules | No | No |
 > | InformationProtectionPolicies | No | No |
 > | ingestionSettings | No | No |
 > | insights | No | No |
@@ -2802,6 +2867,7 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Supports tags | Tag in cost report |
 > | ------------- | ----------- | ----------- |
+> | dryruns | No | No |
 > | linkers | No | No |
 
 ## Microsoft.Services
@@ -2901,6 +2967,12 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Supports tags | Tag in cost report |
 > | ------------- | ----------- | ----------- |
+> | dataMovers | Yes | Yes |
+> | dataMovers / agents | No | No |
+> | dataMovers / endpoints | No | No |
+> | dataMovers / projects | No | No |
+> | dataMovers / projects / jobDefinitions | No | No |
+> | dataMovers / projects / jobDefinitions / jobRuns | No | No |
 > | deletedAccounts | No | No |
 > | storageAccounts | Yes | Yes |
 > | storageAccounts / blobServices | No | No |
