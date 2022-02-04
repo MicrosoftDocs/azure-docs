@@ -7,6 +7,8 @@ ms.date: 02/04/2022
 
 # Reliability recommendations
 
+Azure Advisor helps you ensure and improve the continuity of your business-critical applications. You can get reliability recommendations on the **Reliability** tab of the [Azure Advisor](https://aka.ms/azureadvisordashboard).
+
 ## FarmBeats
 
 ### Upgrade to the latest FarmBeats API version
