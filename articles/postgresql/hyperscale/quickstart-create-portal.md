@@ -42,7 +42,7 @@ To follow this quickstart, you'll first need to:
    | Subscription      | The Azure subscription that you want to use for your server. If you have multiple subscriptions, choose the subscription in which you'd like to be billed for the resource. |
    | Resource group    | A new resource group name or an existing one from your subscription. |
    | Server group name | A unique name that identifies your Hyperscale server group. The domain name postgres.database.azure.com is appended to the server group name you provide. The server can contain only lowercase letters, numbers, and the hyphen (-) character. It must contain fewer than 40 characters. |
-   | Location          | The location that is closest to your users. |
+   | Location          | The location that is closest to you.        |
    | Admin username    | Currently required to be the value `citus`, and can't be changed. |
    | Password          | A new password for the server admin account. It must contain between 8 and 128 characters. Your password must contain characters from three of the following categories: English uppercase letters, English lowercase letters, numbers (0 through 9), and non-alphanumeric characters (!, $, #, %, etc.). |
    | Version           | The latest PostgreSQL major version, unless you have specific requirements. |
@@ -63,11 +63,8 @@ To follow this quickstart, you'll first need to:
 8. Select **Review + create** and then **Create** to create the server.
    Provisioning takes a few minutes.
 9. The page will redirect to monitor deployment. When the live status changes
-   from **Your deployment is underway** to **Your deployment is complete**,
-   select the **Outputs** menu item on the left of the page.
-10. The outputs page will contain a coordinator hostname with a button next to
-   it to copy the value to the clipboard. Record this information for later
-   use.
+   from **Deployment is in progress** to **Your deployment is complete**.
+   After this transition, select **Go to resource**.
 
 ## Next steps
 
