@@ -102,7 +102,7 @@ Create a directory on your Linux system, and then mount the container in the sto
 |`EROFS ("Read-only file system"`) |This error can appear when a client attempts to:<li>Write to a blob or delete a blob that has an active lease.<li>Write to a blob or delete a blob in a container that has an active WORM policy. |
 
 |`NFS3ERR_IO/EIO ("Input/output error"`) |This error can appear when a client attempts to read, write, or set attributes on blobs that are stored in the archive access tier. |
-|`OperationNotSupportedOnSymLink` error| This error can be returned during a write operation via a blob or Azure Data Lake Storage Gen2 API. Using these APIs to write or delete symbolic links that are created by using NFS 3.0 is not allowed. Make sure to use the NFS 3.0 endpoint to work with symbolic links. |
+|`OperationNotSupportedOnSymLink` error| This error can be returned during a write operation via a Blob Storage or Azure Data Lake Storage Gen2 API. Using these APIs to write or delete symbolic links that are created by using NFS 3.0 is not allowed. Make sure to use the NFS 3.0 endpoint to work with symbolic links. |
 |`mount: /mnt/test: bad option;`| Install the NFS helper program by using `sudo apt install nfs-common`.|
 
 ## See also
