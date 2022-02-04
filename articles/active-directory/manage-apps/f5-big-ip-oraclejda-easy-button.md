@@ -159,4 +159,196 @@ Some of these are global settings so can be re-used for publishing more applicat
 4. Before you select **Next**, confirm that BIG-IP can successfully connect to your tenant.
 
    ![ media- Screenshot for Configuration General and Service Account properties]
+   
+### Service Provider
+
+The **Service Provider** settings define the SAML SP properties for the APM instance representing the application protected through SHA.
+
+1. Enter **Host**. This is the public FQDN of the application being secured. You need a corresponding DNS record for clients to resolve this address, but using a localhost record is fine during testing
+
+2. Enter **Entity ID**. This is the identifier Azure AD will use to identify the SAML SP requesting a token
+
+   ![Screenshot for Service Provider settings](./media/f5-big-ip-oracle/service-provider-settings.png)
+
+   Next, under optional **Security Settings** specify whether Azure AD should encrypt issued SAML assertions. Encrypting assertions between Azure AD and the BIG-IP APM provides  assurance that the content tokens can’t be intercepted, and personal or corporate data be compromised.
+
+3. From the **Assertion Decryption Private Key** list, select **Create New**
+
+   ![Screenshot for Configure Easy Button- Create New import](./media/f5-big-ip-oracle/configure-security-create-new.png)
+
+4. Select **OK**. This opens the **Import SSL Certificate and Keys** dialog in a new tab 
+
+5. Select **PKCS 12 (IIS)** to import your certificate and private key. Once provisioned close the browser tab to return to the main tab.
+
+   ![Screenshot for Configure Easy Button- Import new cert](./media/f5-big-ip-oracle/import-ssl-certificates-and-keys.png)
+
+6. Check **Enable Encrypted Assertion**
+
+7. If you have enabled encryption, select your certificate from the **Assertion Decryption Private Key** list. This is the private key for the certificate that BIG-IP APM uses to decrypt Azure AD assertions
+
+8. If you have enabled encryption, select your certificate from the **Assertion Decryption Certificate** list. This is the certificate that BIG-IP uploads to Azure AD for encrypting the issued SAML assertions.
+
+   ![Screenshot for Service Provider security settings](./media/f5-big-ip-easy-button-ldap/service-provider-security-settings.png)
+
+### Azure Active Directory
+
+This section defines all properties that you would normally use to manually configure a new BIG-IP SAML application within your Azure AD tenant. The Easy Button wizard provides a set of pre-defined application templates for Oracle PeopleSoft, Oracle E-business Suite, Oracle JD Edwards, SAP ERP as well as generic SHA template for any other apps. In this example, select **JD Edwards Protected by F5 BIG-IP > Add**. This adds the template for the Oracle JD Edwards.
+
+![Media Screenshot for Azure configuration add BIG-IP application]
+
+#### Azure Configuration
+
+1. Enter **Display Name** of app that the BIG-IP creates in your Azure AD tenant, and the icon that the users see on [MyApps portal](https://myapplications.microsoft.com/)
+
+2. In the **Sign On URL (optional)** enter the public FQDN of the JDE application being secured.
+
+    ![Media - Screenshot for Azure configuration add display info]
+
+3. Select the refresh icon next to the **Signing Key** and **Signing Certificate** to locate the certificate you imported earlier
+
+4. Enter the certificate’s password in **Signing Key Passphrase**
+
+5. Enable **Signing Option** (optional). This ensures that BIG-IP only accepts tokens and claims that are signed by Azure AD
+
+    ![Screenshot for Azure configuration - Add signing certificates info](./media/f5-big-ip-easy-button-ldap/azure-configuration-sign-certificates.png)
+
+6. **User and User Groups** are used to authorize access to the application. They are dynamically added from the tenant. **Add** a user or group that you can use later for testing, otherwise all access will be denied
+
+    ![Screenshot for Azure configuration - Add users and groups](./media/f5-big-ip-easy-button-ldap/azure-configuration-add-user-groups.png)
+
+#### User Attributes & Claims
+
+When a user successfully authenticates, Azure AD issues a SAML token with a default set of claims and attributes uniquely identifying the user. The **User Attributes & Claims** tab shows the default claims to issue for the new application. It also lets you configure more claims.
+
+![Screenshot for Azure configuration – User attributes & claims](./media/f5-big-ip-easy-button-ldap/user-attributes-claims.png)
+
+You can include additional Azure AD attributes if necessary, but the Oracle JDE scenario only requires the default attributes.
+
+#### Additional User Attributes
+
+The **Additional User Attributes** tab can support a variety of distributed systems requiring attributes stored in other directories for session augmentation. We do not require these attributes in this configuration. 
+
+#### Conditional Access Policy
+
+Conditional Access policies are enforced post Azure AD pre-authentication, to control access based on device, application, location, and risk signals.
+
+The **Available Policies** view, by default, will list all Conditional Access policies that do not include user-based actions.
+
+The **Selected Policies** view, by default, displays all policies targeting All cloud apps. These policies cannot be deselected or moved to the Available Policies list as they are enforced at a tenant level.
+
+To select a policy to be applied to the application being published:
+
+1. Select the desired policy in the **Available Policies** list
+
+2. Select the right arrow and move it to the **Selected Policies** list
+
+   The selected policies should either have an **Include** or **Exclude** option checked. If both options are checked, the policy is not enforced.
+
+   ![Screenshot for CA policies](./media/f5-big-ip-easy-button-ldap/conditional-access-policy.png)
+
+> [!NOTE]
+> The policy list is enumerated only once when first switching to this tab. A refresh button is available to manually force the wizard to query your tenant, but this button is displayed only when the application has been deployed.
+
+### Virtual Server Properties
+
+A virtual server is a BIG-IP data plane object represented by a virtual IP address listening for client requests to the application. Any received traffic is processed and evaluated against the APM profile associated with the virtual server, before being directed according to the policy results and settings.
+
+1. Enter **Destination Address**. This is any available IPv4/IPv6 address that the BIG-IP can use to receive client traffic. A corresponding record should also exist in DNS, enabling clients to resolve the external URL of your BIG-IP published application to this IP.
+
+2. Enter **Service Port** as *443* for HTTPS
+
+3. Check **Enable Redirect Port** and then enter **Redirect Port**. It redirects incoming HTTP client traffic to HTTPS
+
+4. Select **Client SSL Profile** to enable the virtual server for HTTPS so that client connections are encrypted over TLS. Select the client SSL profile you created as part of the prerequisites or leave the default if testing
+
+   ![Screenshot for Virtual server](./media/f5-big-ip-easy-button-ldap/virtual-server.png)
+
+### Pool Properties
+
+The **Application Pool tab** details the services behind a BIG-IP, represented as a pool containing one or more application servers.
+
+1. Choose from **Select a Pool**. Create a new pool or select an existing one
+
+2. Choose the **Load Balancing Method** as *Round Robin*
+
+3. Update the **Pool Servers**. Select an existing node or specify an IP and port for the servers hosting the Oracle JDE application.
+
+   ![Screenshot for Application pool](./media f5-big-ip-easy-button-ldap/application-pool.png)
+
+#### Single Sign-On & HTTP Headers
+
+The **Easy Button wizard** supports Kerberos, OAuth Bearer, and HTTP authorization headers for SSO to published applications. As the Oracle JDE application expects headers, enable **HTTP Headers** and enter the following properties.
+
+* **Header Operation:** replace
+* **Header Name:** JDE_SSO_UID
+* **Header Value:** %{session.sso.token.last.username}
+
+ ![Media - Screenshot for SSO and HTTP headers]
+
+>[!NOTE] 
+>APM session variables defined within curly brackets are CASE sensitive. If you enter OrclGUID when the Azure AD attribute name is being defined as orclguid, it will cause an attribute mapping failure.
+
+### Session Management
+
+The BIG-IPs session management settings are used to define the conditions under which user sessions are terminated or allowed to continue, limits for users and IP addresses, and corresponding user info. Consult [F5 documentation](https://support.f5.com/csp/article/K18390492) for details on these settings.
+
+What isn’t covered however is Single Log-Out (SLO) functionality, which ensures all sessions between the IdP, the BIG-IP, and the user agent are terminated as users sign off. When the Easy Button deploys a SAML application to your Azure AD tenant, it also populates the Logout Url with the APM’s SLO endpoint. That way IdP initiated sign-outs from the [Azure AD MyApps portal](https://myapplications.microsoft.com/) also terminate the session between the BIG-IP and a client.
+
+During deployment, the SAML federation metadata for the published application is imported from your tenant, providing the APM the SAML logout endpoint for Azure AD. This helps SP initiated sign outs terminate the session between a client and Azure AD. 
+
+## Summary
+
+Select **Deploy** to commit all settings and verify that the application has appeared in your tenant. This last step provides breakdown of all applied settings before they’re committed. Your application should now be published and accessible via SHA, either directly via its URL or through Microsoft’s application portals.
+
+## Next steps
+
+From a browser, connect to the **Oracle JDE application’s external URL** or select the application’s icon in the [Microsoft MyApps portal](https://myapps.microsoft.com/). After authenticating to Azure AD, you’ll be redirected to the BIG-IP virtual server for the application and automatically signed in through SSO.
+
+For increased security, organizations using this pattern could also consider blocking all direct access to the application, thereby forcing a strict path through the BIG-IP.
+
+## Advanced deployment
+
+There may be cases where the Guided Configuration templates lack the flexibility to achieve more specific requirements. For those scenarios, see ![Advanced Configuration for headers-based SSO](./f5-big-ip-header-advanced.md). Alternatively, the BIG-IP gives the option to disable **Guided Configuration’s strict management mode**. This allows you to manually tweak your configurations, even though bulk of your configurations are automated through the wizard-based templates.
+
+You can navigate to **Access > Guided Configuration** and select the **small padlock icon** on the far right of the row for your applications’ configs. 
+
+![Screenshot for Configure Easy Button - Strict Management](./media/f5-big-ip-oracle/strict-mode-padlock.png)
+
+At that point, changes via the wizard UI are no longer possible, but all BIG-IP objects associated with the published instance of the application will be unlocked for direct management.
+
+> [!NOTE] 
+> Re-enabling strict mode and deploying a configuration will overwrite any settings performed outside of the Guided Configuration UI, therefore we recommend the advanced configuration method for production services.
+
+## Troubleshooting
+
+There can be many factors leading to failure to access a published application. BIG-IP logging can help quickly isolate all sorts of issues with connectivity, policy violations, or misconfigured variable mappings. 
+
+Start troubleshooting by increasing the log verbosity level.
+
+1. Navigate to **Access Policy > Overview > Event Logs > Settings**
+
+2. Select the row for your published application then **Edit > Access System Logs**
+
+3. Select **Debug** from the SSO list then **OK**
+
+Reproduce your issue, then inspect the logs, but remember to switch this back when finished as verbose mode generates lots of data. If you see a BIG-IP branded error immediately after successful Azure AD pre-authentication, it’s possible the issue relates to SSO from Azure AD to the BIG-IP.
+
+1. Navigate to **Access > Overview > Access reports**
+
+2. Run the report for the last hour to see logs provide any clues. The **View session** variables link for your session will also help understand if the APM is receiving the expected claims from Azure AD
+
+If you don’t see a BIG-IP error page, then the issue is probably more related to the backend request or SSO from the BIG-IP to the application.
+
+1. In which case you should head to **Access Policy > Overview > Active Sessions** and select the link for your active session
+
+2. The **View Variables** link in this location may also help root cause SSO issues, particularly if the BIG-IP APM fails to obtain the right attributes
+
+See [BIG-IP APM variable assign examples](https://devcentral.f5.com/s/articles/apm-variable-assign-examples-1107) and [F5 BIG-IP session variables reference](https://techdocs.f5.com/en-us/bigip-15-0-0/big-ip-access-policy-manager-visual-policy-editor/session-variables.html) for more info.
+
+The following command from a bash shell validates the APM service account used for LDAP queries and can successfully authenticate and query a user object:
+
+```ldapsearch -xLLL -H 'ldap://192.168.0.58' -b "CN=oraclef5,dc=contoso,dc=lds" -s sub -D "CN=f5-apm,CN=partners,DC=contoso,DC=lds" -w 'P@55w0rd!' "(cn=testuser)" ```
+
+For more information, visit this F5 knowledge article [Configuring LDAP remote authentication for Active Directory](https://support.f5.com/csp/article/K11072). There’s also a great BIG-IP reference table to help diagnose LDAP-related issues in this [F5 knowledge article on LDAP Query](https://techdocs.f5.com/en-us/bigip-16-1-0/big-ip-access-policy-manager-authentication-methods/ldap-query.html).
+
 
