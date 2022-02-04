@@ -4,8 +4,8 @@ title: Cross-tenant access activity workbook in Azure AD | Microsoft Docs
 description: Learn how to use the cross-tenant access activity workbook.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
-manager: karenho
+author: msmimart
+manager: celestedg
 editor: ''
 
 ms.service: active-directory
@@ -13,8 +13,7 @@ ms.topic: reference
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 02/04/2022
-ms.author: markvi
-ms.reviewer: sarbar 
+ms.author: mimart
 
 ms.collection: M365-identity-device-management
 ---
@@ -30,7 +29,9 @@ This article provides you with an overview of this workbook.
 
 ![Image showing this workbook is found under the Usage category](./media/workbook-cross-tenant-access-activity/workbook-category.png)
 
-Tenant administrators who are making changes to policies governing cross-tenant access can use this workbook to visualize and review existing access activity patterns before making policy changes. Understanding how external users access resources in your tenant (inbound access) and how users in your tenant access resources in external tenants (outbound access) will help ensure you have the right cross-tenant policies in place.
+Tenant administrators who are making changes to policies governing cross-tenant access can use this workbook to visualize and review existing access activity patterns before making policy changes. For example, you can identify the apps your users are accessing in external organizations so that you don't inadvertently block critical business processes. Understanding how external users access resources in your tenant (inbound access) and how users in your tenant access resources in external tenants (outbound access) will help ensure you have the right cross-tenant policies in place.
+
+For more information, see [Overview: Cross-tenant access with Azure AD External Identities (Preview)](../external-identities/cross-tenant-access-overview.md).
 
 ## Sections
 
