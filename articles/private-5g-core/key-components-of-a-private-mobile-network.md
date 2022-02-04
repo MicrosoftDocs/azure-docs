@@ -14,7 +14,7 @@ ms.custom: template-concept
 
 This article introduces the key components of a private mobile network deployed through Azure Private 5G Core Preview.
 
-:::image type="content" source="media/key-components-of-a-private-mobile-network/private-mobile-network-components.png" alt-text="Diagram displaying the key components of a private mobile network, including SIMs, sites and policy control":::
+:::image type="content" source="media/key-components-of-a-private-mobile-network/private-mobile-network-components.png" alt-text="Diagram displaying the key components of a private mobile network, including SIMs, sites and policy control.":::
 
 ## SIMs
 
