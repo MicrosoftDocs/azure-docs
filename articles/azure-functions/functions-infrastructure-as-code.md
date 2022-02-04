@@ -524,7 +524,7 @@ For a sample Azure Resource Manager template, see [Function app on Azure App Ser
 
 ### Create an App Service plan
 
-An App Service plan is defined by a "serverfarm" resource. You can specify the SKU as following:
+An App Service plan is defined by a "serverfarm" resource. You can specify the SKU as follows:
 
 # [Windows](#tab/Windows)
 
