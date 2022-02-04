@@ -179,7 +179,7 @@ For a sample Azure Resource Manager template, see [Function app on Consumption p
 
 A Consumption plan doesn't need to be defined. One will automatically be created or selected on a per-region basis when you create the function app resource itself.
 
-The Consumption plan is a special type of "serverfarm" resource. You can specify it by using the `Dynamic` value for the `computeMode` and `sku` properties as following:
+The Consumption plan is a special type of `serverfarm` resource. You can specify it by using the `Dynamic` value for the `computeMode` and `sku` properties, as follows:
 
 # [Windows](#tab/Windows)
 
