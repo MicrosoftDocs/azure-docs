@@ -71,6 +71,8 @@
     href: advisor-reference-operational-excellence-recommendations.md
   - name: Performance
     href: advisor-reference-performance-recommendations.md
+  - name: Reliability
+    href: advisor-reference-reliability-recommendations.md
 - name: Resources
   items:
   - name: Azure Roadmap
