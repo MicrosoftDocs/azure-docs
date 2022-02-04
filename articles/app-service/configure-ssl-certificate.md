@@ -342,13 +342,13 @@ Before a certificate expires, you should add the renewed certificate into App Se
 To replace an expiring certificate, how you update the certificate binding with the new certificate can adversely affect user experience. For example, your inbound IP address can change when you delete a binding, even if that binding is IP-based. This is especially important when you renew a certificate that's already in an IP-based binding. To avoid a change in your app's IP address, and to avoid downtime for your app due to HTTPS errors, follow these steps in order:
 
 1. [Upload the new certificate](#upload-a-private-certificate).
-2. [Bind the new certificate to the same custom domain](configure-ssl-bindings.md) without deleting the existing (expiring) certificate. This action replaces the binding instead of removing the existing certificate binding.
+2. Bind the new certificate to the same custom domain without deleting the existing (expiring) certificate. This action replaces the binding instead of removing the existing certificate binding. To do this, navigate to the TLS/SSL settings blade of your App Service and select the Add Binding button.
 3. Delete the existing certificate.
 
 ### Renew an App Service certificate
 
 > [!NOTE]
-> Beginning on September 23 2021, App Service certificates require domain verification every 395 days. The new certificate order remains in "pending issuance" during renew or rekey until you complete the domain verification.
+> Beginning September 23 2021, App Service certificates require domain verification during renew or rekey if you haven't verified domain in the last 395 days. The new certificate order remains in "pending issuance" during renew or rekey until you complete the domain verification.
 > 
 > Unlike App Service Managed Certificate, domain re-verification for App Service certificates is *not* automated, and failure to verify domain ownership will result in failed renewals. Refer to [verify domain ownership](#verify-domain-ownership) for more information on how to verify your App Service certificate. 
 
