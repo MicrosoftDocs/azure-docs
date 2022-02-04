@@ -807,7 +807,7 @@ If you use a `bucket` source instead of a `git` source, here are the bucket-spec
 | `--bucket-insecure` | Boolean | Communicate with a `bucket` without TLS.  If not provided, assumed false; if provided, assumed true. |
 
 ### Local secret for authentication with source
-You can use a local Kubernetes secret for authentication with the `git` or `bucket` source.
+You can use a local Kubernetes secret for authentication with the `git` or `bucket` source.  The local secret must contain all of the authentication parameters needed for the source.
 
 | Parameter | Format | Notes |
 | ------------- | ------------- | ------------- |
@@ -832,6 +832,11 @@ For both cases, when you create the Flux configuration, use `--local-auth-ref my
 ```console
 az k8s-configuration flux create -g <cluster_resource_group> -c <cluster_name> -n <config_name> -t connectedClusters --scope cluster --namespace flux-config -u <git-repo-url> --kustomization name=kustomization1 --local-auth-ref my-custom-secret
 ```
+Learn more using a local secret with these authentication methods:
+* [Git repository HTTPS authentication](https://fluxcd.io/docs/components/source/gitrepositories/#https-authentication)
+* [Git repository HTTPS self-signed certificates](https://fluxcd.io/docs/components/source/gitrepositories/#https-self-signed-certificates)
+* [Git repository SSH authentication](https://fluxcd.io/docs/components/source/gitrepositories/#ssh-authentication)
+* [Bucket static authentication](https://fluxcd.io/docs/components/source/buckets/#static-authentication)
 
 >[!NOTE]
 >If you need Flux to access the source through your proxy, you'll need to update the Azure Arc agents with the proxy settings. For more information, see [Connect using an outbound proxy server](./quickstart-connect-cluster.md?tabs=azure-cli#4a-connect-using-an-outbound-proxy-server).
