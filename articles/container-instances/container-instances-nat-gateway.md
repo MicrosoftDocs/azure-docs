@@ -9,7 +9,7 @@ ms.date: 02/04/2021
 
 Setting up a [container group](container-instances-container-groups.md) with an external-facing IP address allows external clients to use the IP address to access a container in the group. For example, a browser can access a web app running in a container. However, currently a container group uses a different IP address for outbound traffic. This egress IP address isn't exposed programmatically, which makes container group monitoring and configuration of client firewall rules more complex.
 
-This article provides steps to configure a container group in a [virtual network](container-instances-virtual-network-concepts.md) integrated with [NAT Gateway](../virtual-network/nat-gateway/nat-gateway.md). By configuring a NAT Gateway to SNAT a subnet address range delegated to ACI, you can identify outbound traffic from your container groups. The container group egress traffic will use the public IP address of the NAT Gateway. A single NAT Gateway can be used by multiple container groups deployed in the virtual network's subnet delegated to Azure Container Instances.
+This article provides steps to configure a container group in a [virtual network](container-instances-virtual-network-concepts.md) integrated with [NAT Gateway](../virtual-network/nat-gateway/nat-gateway.md). By configuring a NAT Gateway to SNAT a subnet address range delegated to Azure Container Instances (ACI), you can identify outbound traffic from your container groups. The container group egress traffic will use the public IP address of the NAT Gateway. A single NAT Gateway can be used by multiple container groups deployed in the virtual network's subnet delegated to ACI.
 
 In this article you use the Azure CLI to create the resources for this scenario:
 
@@ -19,7 +19,7 @@ In this article you use the Azure CLI to create the resources for this scenario:
 You then validate egress from example container groups through the NAT Gateway.
 
 > [!NOTE]
-> Azure Container Instances recommends using NAT Gateway for containerized workoads that have static egress but not static ingress requirements. For ACI architecture that supports both static ingress and egress, please see the following tutorial: [Use Azure Firewall for ingress and egress](container-instances-egress-ip-address.md)
+> The ACI service recommends using NAT Gateway for containerized workoads that have static egress but not static ingress requirements. For ACI architecture that supports both static ingress and egress, please see the following tutorial: [Use Azure Firewall for ingress and egress](container-instances-egress-ip-address.md)
 
 ## Deploy ACI in a virtual network
 
