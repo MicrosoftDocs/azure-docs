@@ -22358,6 +22358,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/role-based-access-control/conditional-access-azure-management.md",
+      "redirect_url": "/azure/active-directory/conditional-access/concept-conditional-access-cloud-apps",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/scheduler/get-started-portal.md",
       "redirect_url": "/azure/scheduler/migrate-from-scheduler-to-logic-apps",
       "redirect_document_id": ""
