@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/16/2021
+ms.date: 02/04/2022
 ms.collection: M365-identity-device-management
 ---
 
@@ -167,16 +167,20 @@ Azure AD provides built-in roles to work with custom security attributes. The At
 > [!IMPORTANT]
 > By default, [Global Administrator](../roles/permissions-reference.md#global-administrator) and other administrator roles do not have permissions to read, define, or assign custom security attributes.
 
+## Graph Explorer
+
+If you use the Microsoft Graph API, you can use [Graph Explorer](/graph/graph-explorer/graph-explorer-overview) to more easily try the Microsoft Graph APIs for custom security attributes. For more information, see [Overview of custom security attributes using the Microsoft Graph API](/graph/api/resources/custom-security-attributes-overview).
+
+![Screenshot that shows a Microsoft Graph API call for custom security attributes.](./media/custom-security-attributes-overview/graph-explorer-success.png)
+
 ## Known issues
 
 Here are some of the known issues with custom security attributes:
 
-- You can only add the predefined values after you add the custom security attribute by using the **Edit attribute** page.
 - Users with attribute set-level role assignments can see other attribute sets and custom security attribute definitions.
 - Global Administrators can read audit logs for custom security attribute definitions and assignments.
 - If you have an Azure AD Premium P2 license, you can't add eligible role assignments at attribute set scope.
 - If you have an Azure AD Premium P2 license, the **Assigned roles** page for a user does not list permanent role assignments at attribute set scope. The role assignments exist, but aren't listed.
-- If you use the Microsoft Graph API, delegated and application permissions are available to both read and write (*CustomSecAttributeAssignment.ReadWrite.All* and *CustomSecAttributeDefinition.ReadWrite.All*). However, read-only permissions currently are not available.
 
 Depending on whether you have an Azure AD Premium P1 or P2 license, here are the role assignment tasks that are currently supported for custom security attribute roles:
 

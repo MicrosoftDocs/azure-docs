@@ -51,7 +51,8 @@
         href: azure-stack-edge-gpu-technical-specifications-compliance.md
       - name: Power cord specifications
         href: azure-stack-edge-technical-specifications-power-cords-regional.md
-
+    - name: FAQ - Billing model
+      href: azure-stack-edge-gpu-faq-billing-model.yml
 - name: Azure Stack Edge Pro R
   items:
   - name: Overview
@@ -152,7 +153,7 @@
 
 - name: Shared features - Pro GPU, Pro R, Mini R
   items:
-    - name: Local Azure Resource Manager (Preview)
+    - name: Local Azure Resource Manager
       items:
       - name: What is local Azure Resource Manager?
         href: azure-stack-edge-gpu-local-resource-manager-overview.md 
@@ -184,7 +185,7 @@
       - name: Troubleshoot certificate errors
         href: azure-stack-edge-gpu-certificate-troubleshooting.md 
 
-    - name: Virtual machines (Preview)
+    - name: Virtual machines
       items:
       - name: What are VMs?
         href: azure-stack-edge-gpu-virtual-machine-overview.md
@@ -208,7 +209,7 @@
           href: azure-stack-edge-gpu-create-virtual-machine-marketplace-image.md 
       - name: Deploy
         items:
-        - name: VMs - Azure portal
+        - name: VMs - Azure portal (Preview)
           href: azure-stack-edge-gpu-deploy-virtual-machine-portal.md 
         - name: VMs - templates
           href: azure-stack-edge-gpu-deploy-virtual-machine-templates.md

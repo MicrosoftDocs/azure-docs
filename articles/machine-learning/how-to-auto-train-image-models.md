@@ -6,10 +6,9 @@ services: machine-learning
 author: swatig007
 ms.author: swatig
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: automl
 ms.topic: how-to
-ms.custom: automl
-ms.date: 10/06/2021
+ms.date: 01/18/2022
 
 # Customer intent: I'm a data scientist with ML knowledge in the computer vision space, looking to build ML models using image data in Azure Machine Learning with full control of the model algorithm, hyperparameters, and training and deployment environments.
 
@@ -51,7 +50,8 @@ image classification multi-label | `ImageTask.IMAGE_CLASSIFICATION_MULTILABEL`
 image object detection | `ImageTask.IMAGE_OBJECT_DETECTION`
 image instance segmentation| `ImageTask.IMAGE_INSTANCE_SEGMENTATION`
 
-This task type is a required parameter and is passed in using the `task` parameter in the `AutoMLImageConfig`. 
+This task type is a required parameter and is passed in using the `task` parameter in the [`AutoMLImageConfig`](/python/api/azureml-train-automl-client/azureml.train.automl.automlimageconfig.automlimageconfig). 
+
 For example:
 
 ```python
@@ -162,8 +162,6 @@ training_dataset = training_dataset.register(workspace=ws, name=training_dataset
 
 Automated ML does not impose any constraints on training or validation data size for computer vision tasks. Maximum dataset size is only limited by the storage layer behind the dataset (i.e. blob store). There is no minimum number of images or labels. However, we recommend to start with a minimum of 10-15 samples per label to ensure the output model is sufficiently trained. The higher the total number of labels/classes, the more samples you need per label.
 
-
-
 Training data is a required and is passed in using the `training_data` parameter. You can optionally specify another TabularDataset as a validation dataset to be used for your model with the `validation_data` parameter of the AutoMLImageConfig. If no validation dataset is specified, 20% of your training data will be used for validation by default, unless you pass `split_ratio` argument with a different value.
 
 For example:
@@ -188,94 +186,20 @@ automl_image_config = AutoMLImageConfig(compute_target=compute_target)
 
 With support for computer vision tasks, you can control the model algorithm and sweep hyperparameters. These model algorithms and hyperparameters are passed in as the parameter space for the sweep.
 
-The model algorithm is required and is passed in via `model_name` parameter. You can either specify a single `model_name` or choose between multiple. In addition to controlling the model algorithm, you can also tune hyperparameters used for model training. While many of the hyperparameters exposed are model-agnostic, there are instances where hyperparameters are task-specific or model-specific.
+The model algorithm is required and is passed in via `model_name` parameter. You can either specify a single `model_name` or choose between multiple. 
 
 ### Supported model algorithms
 
-The following table summarizes the supported models for each computer vision task. 
+The following table summarizes the supported models for each computer vision task.
 
 Task |  Model algorithms | String literal syntax<br> ***`default_model`\**** denoted with \*
 ---|----------|----------
 Image classification<br> (multi-class and multi-label)| **MobileNet**: Light-weighted models for mobile applications <br> **ResNet**: Residual networks<br> **ResNeSt**: Split attention networks<br> **SE-ResNeXt50**: Squeeze-and-Excitation networks<br> **ViT**: Vision transformer networks| `mobilenetv2`   <br>`resnet18` <br>`resnet34` <br> `resnet50`  <br> `resnet101` <br> `resnet152`    <br> `resnest50` <br> `resnest101`  <br> `seresnext`  <br> `vits16r224` (small) <br> ***`vitb16r224`\**** (base) <br>`vitl16r224` (large)|
-Object detection | **YOLOv5**: One stage object detection model   <br>  **Faster RCNN ResNet FPN**: Two stage object detection models  <br> **RetinaNet ResNet FPN**: address class imbalance with Focal Loss <br> <br>*Note: Refer to [`model_size` hyperparameter](#model-specific-hyperparameters) for YOLOv5 model sizes.*| ***`yolov5`\**** <br> `fasterrcnn_resnet18_fpn` <br> `fasterrcnn_resnet34_fpn` <br> `fasterrcnn_resnet50_fpn` <br> `fasterrcnn_resnet101_fpn` <br> `fasterrcnn_resnet152_fpn` <br> `retinanet_resnet50_fpn` 
+Object detection | **YOLOv5**: One stage object detection model   <br>  **Faster RCNN ResNet FPN**: Two stage object detection models  <br> **RetinaNet ResNet FPN**: address class imbalance with Focal Loss <br> <br>*Note: Refer to [`model_size` hyperparameter](reference-automl-images-hyperparameters.md#model-specific-hyperparameters) for YOLOv5 model sizes.*| ***`yolov5`\**** <br> `fasterrcnn_resnet18_fpn` <br> `fasterrcnn_resnet34_fpn` <br> `fasterrcnn_resnet50_fpn` <br> `fasterrcnn_resnet101_fpn` <br> `fasterrcnn_resnet152_fpn` <br> `retinanet_resnet50_fpn` 
 Instance segmentation | **MaskRCNN ResNet FPN**| `maskrcnn_resnet18_fpn` <br> `maskrcnn_resnet34_fpn` <br> ***`maskrcnn_resnet50_fpn`\****  <br> `maskrcnn_resnet101_fpn` <br> `maskrcnn_resnet152_fpn` <br>`maskrcnn_resnet50_fpn`
 
 
-### Model agnostic hyperparameters
-
-The following table describes the hyperparameters that are model agnostic.
-
-| Parameter name | Description | Default|
-| ------------ | ------------- | ------------ |
-| `number_of_epochs` | Number of training epochs. <br>Must be a positive integer. |  15 <br> (except `yolov5`: 30) |
-| `training_batch_size` | Training batch size.<br> Must be a positive integer.  | Multi-class/multi-label: 78 <br>(except *vit-variants*: <br> `vits16r224`: 128 <br>`vitb16r224`: 48 <br>`vitl16r224`:10)<br><br>Object detection: 2 <br>(except `yolov5`: 16) <br><br> Instance segmentation: 2  <br> <br> *Note: The defaults are largest batch size that can be used on 12 GiB GPU memory*.|
-| `validation_batch_size` | Validation batch size.<br> Must be a positive integer. | Multi-class/multi-label: 78 <br>(except *vit-variants*: <br> `vits16r224`: 128 <br>`vitb16r224`: 48 <br>`vitl16r224`:10)<br><br>Object detection: 1 <br>(except `yolov5`: 16) <br><br> Instance segmentation: 1  <br> <br> *Note: The defaults are largest batch size that can be used on 12 GiB GPU memory*.|
-| `grad_accumulation_step` | Gradient accumulation means running a configured number of `grad_accumulation_step` without updating the model weights while accumulating the gradients of those steps, and then using the accumulated gradients to compute the weight updates. <br> Must be a positive integer. | 1 |
-| `early_stopping` | Enable early stopping logic during training. <br> Must be 0 or 1.| 1 |
-| `early_stopping_patience` | Minimum number of epochs or validation evaluations with<br>no primary metric improvement before the run is stopped.<br> Must be a positive integer. | 5 |
-| `early_stopping_delay` | Minimum number of epochs or validation evaluations to wait<br>before primary metric improvement is tracked for early stopping.<br> Must be a positive integer. | 5 |
-| `learning_rate` | Initial learning rate. <br>Must be a float in the range [0, 1]. | Multi-class: 0.01 <br>(except *vit-variants*: <br> `vits16r224`: 0.0125<br>`vitb16r224`: 0.0125<br>`vitl16r224`: 0.001) <br><br> Multi-label: 0.035 <br>(except *vit-variants*:<br>`vits16r224`: 0.025<br>`vitb16r224`: 0.025 <br>`vitl16r224`: 0.002) <br><br> Object detection: 0.005 <br>(except `yolov5`: 0.01) <br><br> Instance segmentation: 0.005  |
-| `lr_scheduler` | Type of learning rate scheduler. <br> Must be `warmup_cosine` or `step`. | `warmup_cosine` |
-| `step_lr_gamma` | Value of gamma when learning rate scheduler is `step`.<br> Must be a float in the range [0, 1]. | 0.5 |
-| `step_lr_step_size` | Value of step size when learning rate scheduler is `step`.<br> Must be a positive integer. | 5 |
-| `warmup_cosine_lr_cycles` | Value of cosine cycle when learning rate scheduler is `warmup_cosine`. <br> Must be a float in the range [0, 1]. | 0.45 |
-| `warmup_cosine_lr_warmup_epochs` | Value of warmup epochs when learning rate scheduler is `warmup_cosine`. <br> Must be a positive integer. | 2 |
-| `optimizer` | Type of optimizer. <br> Must be either `sgd`, `adam`, `adamw`.  | `sgd` |
-| `momentum` | Value of momentum when optimizer is `sgd`. <br> Must be a float in the range [0, 1]. | 0.9 |
-| `weight_decay` | Value of weight decay when optimizer is `sgd`, `adam`, or `adamw`. <br> Must be a float in the range [0, 1]. | 1e-4 |
-|`nesterov`| Enable `nesterov` when optimizer is `sgd`. <br> Must be 0 or 1.| 1 |
-|`beta1` | Value of `beta1` when optimizer is `adam` or `adamw`. <br> Must be a float in the range [0, 1]. | 0.9 |
-|`beta2` | Value of `beta2` when optimizer is `adam` or `adamw`.<br> Must be a float in the range [0, 1]. | 0.999 |
-|`amsgrad` | Enable `amsgrad` when optimizer is `adam` or `adamw`.<br> Must be 0 or 1. | 0 |
-|`evaluation_frequency`| Frequency to evaluate validation dataset to get metric scores. <br> Must be a positive integer. | 1 |
-|`split_ratio`| If validation data is not defined, this specifies the split ratio for splitting train data into random train and validation subsets. <br> Must be a float in the range [0, 1].| 0.2 |
-|`checkpoint_frequency`| Frequency to store model checkpoints. <br> Must be a positive integer. | Checkpoint at epoch with best primary metric on validation.|
-|`layers_to_freeze`| How many layers to freeze for your model. For instance, passing 2 as value for `seresnext` means freezing layer0 and layer1 referring to the below supported model layer info. <br> Must be a positive integer. <br><br>`'resnet': [('conv1.', 'bn1.'), 'layer1.', 'layer2.', 'layer3.', 'layer4.'],`<br>`'mobilenetv2': ['features.0.', 'features.1.', 'features.2.', 'features.3.', 'features.4.', 'features.5.', 'features.6.', 'features.7.', 'features.8.', 'features.9.', 'features.10.', 'features.11.', 'features.12.', 'features.13.', 'features.14.', 'features.15.', 'features.16.', 'features.17.', 'features.18.'],`<br>`'seresnext': ['layer0.', 'layer1.', 'layer2.', 'layer3.', 'layer4.'],`<br>`'vit': ['patch_embed', 'blocks.0.', 'blocks.1.', 'blocks.2.', 'blocks.3.', 'blocks.4.', 'blocks.5.', 'blocks.6.','blocks.7.', 'blocks.8.', 'blocks.9.', 'blocks.10.', 'blocks.11.'],`<br>`'yolov5_backbone': ['model.0.', 'model.1.', 'model.2.', 'model.3.', 'model.4.','model.5.', 'model.6.', 'model.7.', 'model.8.', 'model.9.'],`<br>`'resnet_backbone': ['backbone.body.conv1.', 'backbone.body.layer1.', 'backbone.body.layer2.','backbone.body.layer3.', 'backbone.body.layer4.']` | no default  |
-
-
-### Task-specific hyperparameters
-
-The following table summarizes hyperparmeters for image classification (multi-class and multi-label) tasks.
-
-
-| Parameter name       | Description           | Default  |
-| ------------- |-------------|-----|
-| `weighted_loss` | 0 for no weighted loss.<br>1 for weighted loss with sqrt.(class_weights) <br> 2 for weighted loss with class_weights. <br> Must be 0 or 1 or 2. | 0 |
-| `valid_resize_size` | Image size to which to resize before cropping for validation dataset. <br> Must be a positive integer. <br> <br> *Notes: <li> `seresnext` doesn't take an arbitrary size. <li> Training run may get into CUDA OOM if the size is too big*.  | 256  |
-| `valid_crop_size` | Image crop size that's input to your neural network for validation dataset.  <br> Must be a positive integer. <br> <br> *Notes: <li> `seresnext` doesn't take an arbitrary size. <li> *ViT-variants* should have the same `valid_crop_size` and `train_crop_size`. <li> Training run may get into CUDA OOM if the size is too big*. | 224 |
-| `train_crop_size` | Image crop size that's input to your neural network for train dataset.  <br> Must be a positive integer. <br> <br> *Notes: <li> `seresnext` doesn't take an arbitrary size. <li> *ViT-variants* should have the same `valid_crop_size` and `train_crop_size`. <li> Training run may get into CUDA OOM if the size is too big*. | 224 |
-
-
-The following hyperparameters are for object detection and instance segmentation tasks.
-
-> [!Warning]
-> These parameters are not supported with the `yolov5` algorithm.
-
-| Parameter name       | Description           | Default  |
-| ------------- |-------------|-----|
-| `validation_metric_type` | Metric computation method to use for validation metrics.  <br> Must be `none`, `coco`, `voc`, or `coco_voc`. | `voc` |
-| `min_size` | Minimum size of the image to be rescaled before feeding it to the backbone. <br> Must be a positive integer. <br> <br> *Note: training run may get into CUDA OOM if the size is too big*.| 600 |
-| `max_size` | Maximum size of the image to be rescaled before feeding it to the backbone. <br> Must be a positive integer.<br> <br> *Note: training run may get into CUDA OOM if the size is too big*. | 1333 |
-| `box_score_thresh` | During inference, only return proposals with a classification score greater than `box_score_thresh`. <br> Must be a float in the range [0, 1].| 0.3 |
-| `box_nms_thresh` | Non-maximum suppression (NMS) threshold for the prediction head. Used during inference.  <br>Must be a float in the range [0, 1]. | 0.5 |
-| `box_detections_per_img` | Maximum number of detections per image, for all classes. <br> Must be a positive integer.| 100 |
-| `tile_grid_size` | The grid size to use for tiling each image. <br>*Note: tile_grid_size must not be None to enable [small object detection](how-to-use-automl-small-object-detect.md) logic*<br> A tuple of two integers passed as a string. Example: --tile_grid_size "(3, 2)" | No Default |
-| `tile_overlap_ratio` | Overlap ratio between adjacent tiles in each dimension. <br> Must be float in the range of [0, 1) | 0.25 |
-| `tile_predictions_nms_thresh` | The IOU threshold to use to perform NMS while merging predictions from tiles and image. Used in validation/ inference. <br> Must be float in the range of [0, 1] | 0.25 |
-
-### Model-specific hyperparameters
-
-This table summarizes hyperparameters specific to the `yolov5` algorithm.
-
-| Parameter name       | Description           | Default  |
-| ------------- |-------------|----|
-| `validation_metric_type` | Metric computation method to use for validation metrics.  <br> Must be `none`, `coco`, `voc`, or `coco_voc`. | `voc` |
-| `img_size` | Image size for train and validation. <br> Must be a positive integer. <br> <br> *Note: training run may get into CUDA OOM if the size is too big*. | 640 |
-| `model_size` | Model size. <br> Must be `small`, `medium`, `large`, or `xlarge`. <br><br> *Note: training run may get into CUDA OOM if the model size is too big*.  | `medium` |
-| `multi_scale` | Enable multi-scale image by varying image size by +/- 50% <br> Must be 0 or 1. <br> <br> *Note: training run may get into CUDA OOM if no sufficient GPU memory*. | 0 |
-| `box_score_thresh` | During inference, only return proposals with a score greater than `box_score_thresh`. The score is the multiplication of the objectness score and classification probability. <br> Must be a float in the range [0, 1]. | 0.1 |
-| `box_iou_thresh` | IoU threshold used during inference in non-maximum suppression post processing. <br> Must be a float in the range [0, 1]. | 0.5 |
-
+In addition to controlling the model algorithm, you can also tune hyperparameters used for model training. While many of the hyperparameters exposed are model-agnostic, there are instances where hyperparameters are task-specific or model-specific. [Learn more about the available hyperparameters for these instances](reference-automl-images-hyperparameters.md). 
 
 ### Data augmentation 
 
@@ -321,6 +245,7 @@ The primary metric used for model optimization and hyperparameter tuning depends
 
 You can optionally specify the maximum time budget for your AutoML Vision experiment using `experiment_timeout_hours` - the amount of time in hours before the experiment terminates. If none specified, default experiment timeout is seven days (maximum 60 days).
 
+
 ## Sweeping hyperparameters for your model
 
 When training computer vision models, model performance depends heavily on the hyperparameter values selected. Often, you might want to tune the hyperparameters to get optimal performance.
@@ -328,8 +253,11 @@ With support for computer vision tasks in automated ML, you can sweep hyperparam
 
 ### Define the parameter search space
 
-You can define the model algorithms and hyperparameters to sweep in the parameter space. See [Configure model algorithms and hyperparameters](#configure-model-algorithms-and-hyperparameters) for the list of supported model algorithms and hyperparameters for each task type. See [details on supported distributions for discrete and continuous hyperparameters](how-to-tune-hyperparameters.md#define-the-search-space).
+You can define the model algorithms and hyperparameters to sweep in the parameter space. 
 
+* See [Configure model algorithms and hyperparameters](#configure-model-algorithms-and-hyperparameters) for the list of supported model algorithms for each task type. 
+* See [Hyperparameters for computer vision tasks](reference-automl-images-hyperparameters.md)  hyperparameters for each computer vision task type. 
+* See [details on supported distributions for discrete and continuous hyperparameters](how-to-tune-hyperparameters.md#define-the-search-space).
 
 ### Sampling methods for the sweep
 
@@ -339,8 +267,8 @@ When sweeping hyperparameters, you need to specify the sampling method to use fo
 * [Grid sampling](how-to-tune-hyperparameters.md#grid-sampling) 
 * [Bayesian sampling](how-to-tune-hyperparameters.md#bayesian-sampling) 
     
-It should be noted that currently only random sampling supports conditional hyperparameter spaces
-
+> [!NOTE]
+> Currently only random sampling supports conditional hyperparameter spaces.
 
 ### Early termination policies
 
@@ -375,6 +303,69 @@ arguments = ["--early_stopping", 1, "--evaluation_frequency", 2]
 automl_image_config = AutoMLImageConfig(arguments=arguments)
 ```
 
+##  Incremental training (optional)
+
+Once the training run is done, you have the option to further train the model by loading the trained model checkpoint. You can either use the same dataset or a different one for incremental training. 
+
+There are two available options for incremental training. You can, 
+
+* Pass the run ID that you want to load the checkpoint from.
+* Pass the checkpoints through a FileDataset.
+
+### Pass the checkpoint via run ID
+To find the run ID from the desired model, you can use the following code. 
+
+```python
+# find a run id to get a model checkpoint from
+target_checkpoint_run = automl_image_run.get_best_child()
+```
+
+To pass a checkpoint via the run ID, you need to use the `checkpoint_run_id` parameter.
+
+```python
+automl_image_config = AutoMLImageConfig(task='image-object-detection',
+                                        compute_target=compute_target,
+                                        training_data=training_dataset,
+                                        validation_data=validation_dataset,
+                                        checkpoint_run_id= target_checkpoint_run.id,
+                                        primary_metric='mean_average_precision',
+                                        **tuning_settings)
+
+automl_image_run = experiment.submit(automl_image_config)
+automl_image_run.wait_for_completion(wait_post_processing=True)
+```
+
+### Pass the checkpoint via FileDataset
+To pass a checkpoint via a FileDataset, you need to use the `checkpoint_dataset_id` and `checkpoint_filename` parameters. 
+
+```python
+# download the checkpoint from the previous run
+model_name = "outputs/model.pt"
+model_local = "checkpoints/model_yolo.pt"
+target_checkpoint_run.download_file(name=model_name, output_file_path=model_local)
+
+# upload the checkpoint to the blob store
+ds.upload(src_dir="checkpoints", target_path='checkpoints')
+
+# create a FileDatset for the checkpoint and register it with your workspace
+ds_path = ds.path('checkpoints/model_yolo.pt')
+checkpoint_yolo = Dataset.File.from_files(path=ds_path)
+checkpoint_yolo = checkpoint_yolo.register(workspace=ws, name='yolo_checkpoint')
+
+automl_image_config = AutoMLImageConfig(task='image-object-detection',
+                                        compute_target=compute_target,
+                                        training_data=training_dataset,
+                                        validation_data=validation_dataset,
+                                        checkpoint_dataset_id= checkpoint_yolo.id,
+                                        checkpoint_filename='model_yolo.pt',
+                                        primary_metric='mean_average_precision',
+                                        **tuning_settings)
+
+automl_image_run = experiment.submit(automl_image_config)
+automl_image_run.wait_for_completion(wait_post_processing=True)
+
+```
+
 ## Submit the run
 
 When you have your `AutoMLImageConfig` object ready, you can submit the experiment.
@@ -384,9 +375,10 @@ ws = Workspace.from_config()
 experiment = Experiment(ws, "Tutorial-automl-image-object-detection")
 automl_image_run = experiment.submit(automl_image_config)
 ```
+
 ## Outputs and evaluation metrics
 
-The automl training runs generates output model files, evaluation metrics, logs and deployment artifacts like the scoring file and the environment file which can be viewed from the outputs and logs and metrics tab of the child runs.
+The automated ML training runs generates output model files, evaluation metrics, logs and deployment artifacts like the scoring file and the environment file which can be viewed from the outputs and logs and metrics tab of the child runs.
 
 > [!TIP]
 > Check how to navigate to the run results from the  [View run results](how-to-understand-automated-ml.md#view-run-results) section.
@@ -502,7 +494,7 @@ Each of the tasks (and some models) have a set of parameters in the `model_setti
 |Object detection, instance segmentation| `min_size`<br>`max_size`<br>`box_score_thresh`<br>`box_nms_thresh`<br>`box_detections_per_img` | 600<br>1333<br>0.3<br>0.5<br>100 |
 |Object detection using `yolov5`| `img_size`<br>`model_size`<br>`box_score_thresh`<br>`box_iou_thresh` | 640<br>medium<br>0.1<br>0.5 |
 
-For a detailed description on these parameters, please refer to the above section on [task specific hyperparameters](#task-specific-hyperparameters).
+For a detailed description on task specific hyperparameters, please refer to [Hyperparameters for computer vision tasks in automated machine learning](reference-automl-images-hyperparameters.md).
     
 If you want to use tiling, and want to control tiling behavior, the following parameters are available: `tile_grid_size`, `tile_overlap_ratio` and `tile_predictions_nms_thresh`. For more details on these parameters please check [Train a small object detection model using AutoML](how-to-use-automl-small-object-detect.md).
 

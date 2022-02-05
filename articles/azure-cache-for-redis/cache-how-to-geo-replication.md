@@ -27,6 +27,7 @@ To configure geo-replication between two caches, the following prerequisites mus
 - Both caches are in the same Azure subscription.
 - The secondary linked cache is either the same cache size or a larger cache size than the primary linked cache.
 - Both caches are created and in a running state.
+- Neither cache can have more than one replica.
 
 > [!NOTE]
 > Data transfer between Azure regions will be charged at standard [bandwidth rates](https://azure.microsoft.com/pricing/details/bandwidth/).
@@ -83,6 +84,9 @@ After geo-replication is configured, the following restrictions apply to your li
     :::image type="content" source="media/cache-how-to-geo-replication/cache-geo-location-link-successful.png" alt-text="Cache status":::
 
     The primary linked cache remains available for use during the linking process. The secondary linked cache isn't available until the linking process completes.
+
+[!NOTE]
+> Geo-replication can be enabled for this cache if you scale it to 'Premium' pricing tier and disable data persistence. This feature is not available at this time when using extra replicas.
 
 ## Remove a geo-replication link
 

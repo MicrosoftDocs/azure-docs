@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 06/15/2021
+ms.date: 02/03/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -108,12 +108,21 @@ The Microsoft Azure Management application includes multiple services.
    - Classic deployment model APIs
    - Azure PowerShell
    - Azure CLI
-   - Visual Studio subscriptions administrator portal
    - Azure DevOps
    - Azure Data Factory portal
+   - Azure Event Hubs
+   - Azure Service Bus
+   - [Azure SQL Database](../../azure-sql/database/conditional-access-configure.md)
+   - SQL Managed Instance
+   - Azure Synapse
+   - Visual Studio subscriptions administrator portal
 
 > [!NOTE]
-> The Microsoft Azure Management application applies to Azure PowerShell, which calls the Azure Resource Manager API. It does not apply to Azure AD PowerShell, which calls Microsoft Graph.
+> The Microsoft Azure Management application applies to [Azure PowerShell](/powershell/azure/what-is-azure-powershell), which calls the [Azure Resource Manager API](../../azure-resource-manager/management/overview.md). It does not apply to [Azure AD PowerShell](/powershell/azure/active-directory/overview), which calls the [Microsoft Graph API](/graph/overview).
+
+For more information on how to set up a sample policy for Microsoft Azure Management, see [Conditional Access: Require MFA for Azure management](howto-conditional-access-policy-azure-management.md).
+
+For Azure Government, you should target the Azure Government Cloud Management API application.
 
 ### Other applications
 
@@ -126,7 +135,7 @@ Administrators can add any Azure AD registered application to Conditional Access
 - Applications that use [password based single sign-on](../manage-apps/configure-password-single-sign-on-non-gallery-applications.md)
 
 > [!NOTE]
-> Since Conditional Access policy sets the requirements for accessing a service you are not able to apply it to a client (public/native) application. Other words the policy is not set directly on a client (public/native) application, but is applied when a client calls a service. For example, a policy set on SharePoint service applies to the clients calling SharePoint. A policy set on Exchange applies to the attempt to access the email using Outlook client. That is why client (public/native) applications are not available for selection in the Cloud Apps picker and Conditional Access option is not available in the application settings for the client (public/native) application registered in your tenant. 
+> Since Conditional Access policy sets the requirements for accessing a service you are not able to apply it to a client (public/native) application. In other words, the policy is not set directly on a client (public/native) application, but is applied when a client calls a service. For example, a policy set on SharePoint service applies to the clients calling SharePoint. A policy set on Exchange applies to the attempt to access the email using Outlook client. That is why client (public/native) applications are not available for selection in the Cloud Apps picker and Conditional Access option is not available in the application settings for the client (public/native) application registered in your tenant. 
 
 Some applications do not appear in the picker at all. The only way to include these applications in a Conditional Access policy is to include **All apps**. 
 

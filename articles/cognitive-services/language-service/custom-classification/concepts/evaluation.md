@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: overview
-ms.date: 11/02/2021
+ms.date: 01/24/2022
 ms.author: aahi
 ms.custom: language-service-custom-classification, ignite-fall-2021
 ---
 
 # Evaluation metrics
 
-Your [dataset is split](../how-to/train-model.md#data-splits) into two parts: a set for training, and a set for testing. The training set while building the model and the testing set is used as a blind set to evaluate model performance after training is completed.
+Your [dataset is split](../how-to/train-model.md#data-split) into two parts: a set for training, and a set for testing. The training set while building the model and the testing set is used as a blind set to evaluate model performance after training is completed.
 
 Model evaluation is triggered after training is completed successfully. The evaluation process starts by using the trained model to predict user defined classes for files in the test set, and compares them with the provided data tags (which establishes a baseline of truth). The results are returned so you can review the model’s performance. For evaluation, custom text classification uses the following metrics:
 

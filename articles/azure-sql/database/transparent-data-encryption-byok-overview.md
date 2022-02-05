@@ -75,18 +75,27 @@ Auditors can use Azure Monitor to review key vault AuditEvent logs, if logging i
 ### Requirements for configuring AKV
 
 - Key vault and SQL Database/managed instance must belong to the same Azure Active Directory tenant. Cross-tenant key vault and server interactions aren't supported. To move resources afterwards, TDE with AKV will have to be reconfigured. Learn more about [moving resources](../../azure-resource-manager/management/move-resource-group-and-subscription.md).
-
-- [Soft-delete](../../key-vault/general/soft-delete-overview.md) and [Purge protection](../../key-vault/general/soft-delete-overview.md#purge-protection) features must be enabled on the key vault to protect from data loss due to accidental key (or key vault) deletion. 
-    - Soft-deleted resources are retained for 90 days, unless recovered or purged by the customer. The *recover* and *purge* actions have their own permissions associated in a key vault access policy. The Soft-delete feature can be enabled using the Azure portal, [PowerShell](../../key-vault/general/key-vault-recovery.md?tabs=azure-powershell) or [Azure CLI](../../key-vault/general/key-vault-recovery.md?tabs=azure-cli).
-    - Purge protection can be turned on using [Azure CLI](../../key-vault/general/key-vault-recovery.md?tabs=azure-cli) or [PowerShell](../../key-vault/general/key-vault-recovery.md?tabs=azure-powershell). When purge protection is enabled, a vault or an object in the deleted state cannot be purged until the retention period has passed. The default retention period is 90 days, but is configurable from 7 to 90 days through the Azure portal.   
-
-> [!IMPORTANT]
-> Both Soft-delete and Purge protection must be enabled on the key vault(s) for servers being configured with customer-managed TDE, as well as existing servers using customer-managed TDE.
-
+- [Soft-delete](../../key-vault/general/soft-delete-overview.md) and [purge protection](../../key-vault/general/soft-delete-overview.md#purge-protection) features must be enabled on the key vault to protect from data loss due to accidental key (or key vault) deletion. 
 - Grant the server or managed instance access to the key vault (*get*, *wrapKey*, *unwrapKey*) using its Azure Active Directory identity. The server identity can be a system-assigned managed identity or a user-assigned managed identity assigned to the server. When using the Azure portal, the Azure AD identity gets automatically created when the server is created. When using PowerShell or Azure CLI, the Azure AD identity must be explicitly created and should be verified. See [Configure TDE with BYOK](transparent-data-encryption-byok-configure.md) and [Configure TDE with BYOK for SQL Managed Instance](../managed-instance/scripts/transparent-data-encryption-byok-powershell.md) for detailed step-by-step instructions when using PowerShell.
-    - Depending on the permission model of the key vault (access policy or Azure RBAC), key vault access can be granted either by creating an access policy on the key vault, or by creating a new Azure RBAC role assignment with the role [Key Vault Crypto Service Encryption User](/azure/key-vault/general/rbac-guide#azure-built-in-roles-for-key-vault-data-plane-operations).
+    - Depending on the permission model of the key vault (access policy or Azure RBAC), key vault access can be granted either by creating an access policy on the key vault, or by creating a new Azure RBAC role assignment with the role [Key Vault Crypto Service Encryption User](../../key-vault/general/rbac-guide.md#azure-built-in-roles-for-key-vault-data-plane-operations).
 
 - When using firewall with AKV, you must enable option *Allow trusted Microsoft services to bypass the firewall*.
+
+### Enable soft-delete and purge protection for AKV
+
+> [!IMPORTANT]
+> Both **soft-delete** and **purge protection** must be enabled on the key vault when configuring customer-managed TDE on a new or existing server or managed instance.
+
+[Soft-delete](../../key-vault/general/soft-delete-overview.md) and [purge protection](../../key-vault/general/soft-delete-overview.md#purge-protection) are important features of Azure Key Vault that allow recovery of deleted vaults and deleted key vault objects, reducing the risk of a user accidentally or maliciously deleting a key or a key vault.
+
+- Soft-deleted resources are retained for 90 days, unless recovered or purged by the customer. The *recover* and *purge* actions have their own permissions associated in a key vault access policy. The soft-delete feature is on by default for new key vaults and can also be enabled using the Azure portal, [PowerShell](../../key-vault/general/key-vault-recovery.md?tabs=azure-powershell) or [Azure CLI](../../key-vault/general/key-vault-recovery.md?tabs=azure-cli).
+
+- Purge protection can be turned on using [Azure CLI](../../key-vault/general/key-vault-recovery.md?tabs=azure-cli) or [PowerShell](../../key-vault/general/key-vault-recovery.md?tabs=azure-powershell). When purge protection is enabled, a vault or an object in the deleted state cannot be purged until the retention period has passed. The default retention period is 90 days, but is configurable from 7 to 90 days through the Azure portal.
+
+- Azure SQL requires soft-delete and purge protection to be enabled on the key vault containing the encryption key being used as the TDE Protector for the server or managed instance. This helps prevent the scenario of accidental or malicious key vault or key deletion that can lead to the database going into *Inaccessible* state.
+
+- When configuring the TDE Protector on an existing server or during server creation, Azure SQL validates that the key vault being used has soft-delete and purge protection turned on. If soft-delete and purge protection are not enabled on the key vault, the TDE Protector setup fails with an error. In this case, soft-delete and purge protection must first be enabled on the key vault and then the TDE Protector setup should be performed.
+
 
 ### Requirements for configuring TDE protector
 
@@ -227,7 +236,7 @@ The Azure Policy can be applied to the whole Azure subscription, or just within 
 For more information on Azure Policy, see [What is Azure Policy?](../../governance/policy/overview.md) and [Azure Policy definition structure](../../governance/policy/concepts/definition-structure.md).
 
 The following two built-in policies are supported for customer-managed TDE in Azure Policy:
-- SQL server should use customer-managed keys to encrypt data at rest
+- SQL servers should use customer-managed keys to encrypt data at rest
 - SQL managed instances should use customer-managed keys to encrypt data at rest
 
 The customer-managed TDE policy can be managed by going to the [Azure portal](https://portal.azure.com), and searching for the **Policy** service. Under **Definitions**, search for customer-managed key.

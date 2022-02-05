@@ -45,7 +45,7 @@ Now, let us follow the process step by step into building the JavaScript client:
 
 You can install Azure Batch SDK for JavaScript using the npm install command.
 
-`npm install azure-batch`
+`npm install @azure/batch`
 
 This command installs the latest version of azure-batch JavaScript SDK.
 
@@ -79,21 +79,15 @@ Following code snippet first imports the azure-batch JavaScript module and then 
 ```javascript
 // Initializing Azure Batch variables
 
-var batch = require('azure-batch');
+import { BatchServiceClient, BatchSharedKeyCredentials } from "@azure/batch";
 
-var accountName = '<azure-batch-account-name>';
+// Replace values below with Batch Account details 
+const batchAccountName = '<batch-account-name>';
+const batchAccountKey = '<batch-account-key>';
+const batchEndpoint = '<batch-account-url>';
 
-var accountKey = '<account-key-downloaded>';
-
-var accountUrl = '<account-url>'
-
-// Create Batch credentials object using account name and account key
-
-var credentials = new batch.SharedKeyCredentials(accountName,accountKey);
-
-// Create Batch service client
-
-var batch_client = new batch.ServiceClient(credentials,accountUrl);
+const credentials = new BatchSharedKeyCredentials(batchAccountName, batchAccountKey);
+const batchClient = new BatchServiceClient(credentials, batchEndpoint);
 
 ```
 
@@ -120,16 +114,22 @@ The following code snippet creates the configuration parameter objects.
 
 ```javascript
 // Creating Image reference configuration for Ubuntu Linux VM
-var imgRef = {publisher:"Canonical",offer:"UbuntuServer",sku:"14.04.2-LTS",version:"latest"}
-
+const imgRef = {
+    publisher: "Canonical",
+    offer: "UbuntuServer",
+    sku: "18.04-LTS",
+    version: "latest"
+}
 // Creating the VM configuration object with the SKUID
-var vmconfig = {imageReference:imgRef,nodeAgentSKUId:"batch.node.ubuntu 14.04"}
+const vmConfig = {
+    imageReference: imgRef,
+    nodeAgentSKUId: "batch.node.ubuntu 18.04"
+};
+// Number of VMs to create in a pool
+const numVms = 4;
 
-// Setting the VM size to Standard F4
-var vmSize = "STANDARD_F4"
-
-//Setting number of VMs in the pool to 4
-var numVMs = 4
+// Setting the VM size
+const vmSize = "STANDARD_D1_V2";
 ```
 
 > [!TIP]
@@ -141,10 +141,20 @@ The following code snippet creates an Azure Batch pool.
 
 ```javascript
 // Create a unique Azure Batch pool ID
-var poolid = "pool" + customerDetails.customerid;
-var poolConfig = {id:poolid, displayName:poolid,vmSize:vmSize,virtualMachineConfiguration:vmconfig,targetDedicatedComputeNodes:numVms,enableAutoScale:false };
-// Creating the Pool for the specific customer
-var pool = batch_client.pool.add(poolConfig,function(error,result){
+const now = new Date();
+const poolId = `processcsv_${now.getFullYear()}${now.getMonth()}${now.getDay()}${now.getHours()}${now.getSeconds()}`;
+
+const poolConfig = {
+    id: poolId,
+    displayName: "Processing csv files",
+    vmSize: vmSize,
+    virtualMachineConfiguration: vmConfig,
+    targetDedicatedNodes: numVms,
+    enableAutoScale: false
+};
+
+// Creating the Pool
+var pool = batchClient.pool.add(poolConfig, function (error, result){
     if(error!=null){console.log(error.response)};
 });
 ```
@@ -152,7 +162,7 @@ var pool = batch_client.pool.add(poolConfig,function(error,result){
 You can check the status of the pool created and ensure that the state is in "active" before going ahead with submission of a Job to that pool.
 
 ```javascript
-var cloudPool = batch_client.pool.get(poolid,function(error,result,request,response){
+var cloudPool = batchClient.pool.get(poolId,function(error,result,request,response){
         if(error == null)
         {
 
@@ -179,61 +189,36 @@ var cloudPool = batch_client.pool.get(poolid,function(error,result,request,respo
 Following is a sample result object returned by the pool.get function.
 
 ```
-{ id: 'processcsv_201721152',
-  displayName: 'processcsv_201721152',
-  url: 'https://<batch-account-name>.centralus.batch.azure.com/pools/processcsv_201721152',
-  eTag: '<eTag>',
-  lastModified: 2017-03-27T10:28:02.398Z,
-  creationTime: 2017-03-27T10:28:02.398Z,
+{
+  id: 'processcsv_2022002321',
+  displayName: 'Processing csv files',
+  url: 'https://<batch-account-name>.westus.batch.azure.com/pools/processcsv_2022002321',
+  eTag: '0x8D9D4088BC56FA1',
+  lastModified: 2022-01-10T07:12:21.943Z,
+  creationTime: 2022-01-10T07:12:21.943Z,
   state: 'active',
-  stateTransitionTime: 2017-03-27T10:28:02.398Z,
-  allocationState: 'resizing',
-  allocationStateTransitionTime: 2017-03-27T10:28:02.398Z,
-  vmSize: 'standard_a1',
-  virtualMachineConfiguration:
-   { imageReference:
-      { publisher: 'Canonical',
-        offer: 'UbuntuServer',
-        sku: '14.04.2-LTS',
-        version: 'latest' },
-     nodeAgentSKUId: 'batch.node.ubuntu 14.04' },
-  resizeTimeout:
-   { [Number: 900000]
-     _milliseconds: 900000,
-     _days: 0,
-     _months: 0,
-     _data:
-      { milliseconds: 0,
-        seconds: 0,
-        minutes: 15,
-        hours: 0,
-        days: 0,
-        months: 0,
-        years: 0 },
-     _locale:
-      Locale {
-        _calendar: [Object],
-        _longDateFormat: [Object],
-        _invalidDate: 'Invalid date',
-        ordinal: [Function: ordinal],
-        _ordinalParse: /\d{1,2}(th|st|nd|rd)/,
-        _relativeTime: [Object],
-        _months: [Object],
-        _monthsShort: [Object],
-        _week: [Object],
-        _weekdays: [Object],
-        _weekdaysMin: [Object],
-        _weekdaysShort: [Object],
-        _meridiemParse: /[ap]\.?m?\.?/i,
-        _abbr: 'en',
-        _config: [Object],
-        _ordinalParseLenient: /\d{1,2}(th|st|nd|rd)|\d{1,2}/ } },
-  currentDedicated: 0,
-  targetDedicated: 4,
+  stateTransitionTime: 2022-01-10T07:12:21.943Z,
+  allocationState: 'steady',
+  allocationStateTransitionTime: 2022-01-10T07:13:35.103Z,
+  vmSize: 'standard_d1_v2',
+  virtualMachineConfiguration: {
+    imageReference: {
+      publisher: 'Canonical',
+      offer: 'UbuntuServer',
+      sku: '18.04-LTS',
+      version: 'latest'
+    },
+    nodeAgentSKUId: 'batch.node.ubuntu 18.04'
+  },
+  resizeTimeout: 'PT15M',
+  currentDedicatedNodes: 4,
+  currentLowPriorityNodes: 0,
+  targetDedicatedNodes: 4,
+  targetLowPriorityNodes: 0,
   enableAutoScale: false,
   enableInterNodeCommunication: false,
   taskSlotsPerNode: 1,
-  taskSchedulingPolicy: { nodeFillType: 'Spread' } }
+  taskSchedulingPolicy: { nodeFillType: 'Spread' }}
 ```
 
 ### Step 4: Submit an Azure Batch job
@@ -243,26 +228,26 @@ An Azure Batch job is a logical group of similar tasks. In our scenario, it is "
 These tasks would run in parallel and deployed across multiple nodes, orchestrated by the Azure Batch service.
 
 > [!TIP]
-> You can use the taskSlotsPerNode property to specify maximum number of tasks that can run concurrently on a single node.
+> You can use the [taskSlotsPerNode](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/batch/arm-batch/src/models/index.ts#L1190-L1191) property to specify maximum number of tasks that can run concurrently on a single node.
 
 #### Preparation task
 
 The VM nodes created are blank Ubuntu nodes. Often, you need to install a set of programs as prerequisites.
 Typically, for Linux nodes you can have a shell script that installs the prerequisites before the actual tasks run. However it could be any programmable executable.
 
-The [shell script](https://github.com/shwetams/azure-batchclient-sample-nodejs/blob/master/startup_prereq.sh) in this example installs Python-pip and the Azure Storage SDK for Python.
+The [shell script](https://github.com/Azure-Samples/azure-batch-samples/blob/master/JavaScript/Node.js/startup_prereq.sh) in this example installs Python-pip and the Azure Storage Blob SDK for Python.
 
 You can upload the script on an Azure Storage Account and generate a SAS URI to access the script. This process can also be automated using the Azure Storage JavaScript SDK.
 
 > [!TIP]
-> A preparation task for a job runs only on the VM nodes where the specific task needs to run. If you want prerequisites to be installed on all nodes irrespective of the tasks that run on it, you can use the startTask property while adding a pool. You can use the following preparation task definition for reference.
+> A preparation task for a job runs only on the VM nodes where the specific task needs to run. If you want prerequisites to be installed on all nodes irrespective of the tasks that run on it, you can use the [startTask](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/batch/batch/src/models/index.ts#L1432) property while adding a pool. You can use the following preparation task definition for reference.
 
-A preparation task is specified during the submission of Azure Batch job. Following are the preparation task configuration parameters:
+A preparation task is specified during the submission of Azure Batch job. Following are some configurable preparation task parameters:
 
 - **ID**: A unique identifier for the preparation task
 - **commandLine**: Command line to execute the task executable
 - **resourceFiles**: Array of objects that provide details of files needed to be downloaded for this task to run.  Following are its options
-  - blobSource: The SAS URI of the file
+  - httpUrl: The URL of the file to download
   - filePath: Local path to download and save the file
   - fileMode: Only applicable for Linux nodes, fileMode is in octal format with a default value of 0770
 - **waitForSuccess**: If set to true, the task does not run on preparation task failures
@@ -271,64 +256,71 @@ A preparation task is specified during the submission of Azure Batch job. Follow
 Following code snippet shows the preparation task script configuration sample:
 
 ```javascript
-var job_prep_task_config = {id:"installprereq",commandLine:"sudo sh startup_prereq.sh > startup.log",resourceFiles:[{'blobSource':'Blob SAS URI','filePath':'startup_prereq.sh'}],waitForSuccess:true,runElevated:true}
+var jobPrepTaskConfig = {id:"installprereq",commandLine:"sudo sh startup_prereq.sh > startup.log",resourceFiles: [{ 'httpUrl': 'Blob sh url', 'filePath': 'startup_prereq.sh' }],waitForSuccess:true,runElevated:true, userIdentity: {autoUser: {elevationLevel: "admin", scope: "pool"}}}
 ```
 
 If there are no prerequisites to be installed for your tasks to run, you can skip the preparation tasks. Following code creates a job with display name "process csv files."
 
  ```javascript
- // Setting up Batch pool configuration
- var pool_config = {poolId:poolid}
- // Setting up Job configuration along with preparation task
- var jobId = "processcsvjob"
- var job_config = {id:jobId,displayName:"process csv files",jobPreparationTask:job_prep_task_config,poolInfo:pool_config}
+ // Setting Batch Pool ID
+const poolInfo = { poolId: poolId };
+// Batch job configuration object
+const jobId = "processcsvjob";
+const jobConfig = {
+    id: jobId,
+    displayName: "process csv files",
+    jobPreparationTask: jobPrepTaskConfig,
+    poolInfo: poolInfo
+};
  // Adding Azure batch job to the pool
- var job = batch_client.job.add(job_config,function(error,result){
-     if(error != null)
-     {
-         console.log("Error submitting job : " + error.response);
-     }});
+ const job = batchClient.job.add(jobConfig, function (error, result) {
+        if (error !== null) {
+            console.log("An error occurred while creating the job...");
+            console.log(error.response);
+        }
+    });
 ```
 
 ### Step 5: Submit Azure Batch tasks for a job
 
 Now that our process csv job is created, let us create tasks for that job. Assuming we have four containers, we have to create four tasks, one for each container.
 
-If we look at the [Python script](https://github.com/shwetams/azure-batchclient-sample-nodejs/blob/master/processcsv.py), it accepts two parameters:
+If we look at the [Python script](https://github.com/Azure-Samples/azure-batch-samples/blob/master/JavaScript/Node.js/processcsv.py), it accepts two parameters:
 
 - container name: The Storage container to download files from
 - pattern: An optional parameter of file name pattern
 
-Assuming we have four containers "con1", "con2", "con3","con4" following code shows submitting for tasks to the Azure batch job "process csv" we created earlier.
+Assuming we have four containers "con1", "con2", "con3","con4" following code shows submitting four tasks to the Azure batch job "process csv" we created earlier.
 
 ```javascript
 // storing container names in an array
-var container_list = ["con1","con2","con3","con4"]
-    container_list.forEach(function(val,index){
+const containerList = ["con1", "con2", "con3", "con4"];      //Replace with list of blob containers within storage account
+containerList.forEach(function (val, index) {
+    console.log("Submitting task for container : " + val);
+    const containerName = val;
+    const taskID = containerName + "_process";
+    // Task configuration object
+    const taskConfig = {
+        id: taskID,
+        displayName: 'process csv in ' + containerName,
+        commandLine: 'python processcsv.py --container ' + containerName,
+        resourceFiles: [{ 'httpUrl': 'Blob script url', 'filePath': 'processcsv.py' }]
+    };
 
-           var container_name = val;
-           var taskID = container_name + "_process";
-           var task_config = {id:taskID,displayName:'process csv in ' + container_name,commandLine:'python processcsv.py --container ' + container_name,resourceFiles:[{'blobSource':'<blob SAS URI>','filePath':'processcsv.py'}]}
-           var task = batch_client.task.add(poolid,task_config,function(error,result){
-                if(error != null)
-                {
-                    console.log(error.response);
-                }
-                else
-                {
-                    console.log("Task for container : " + container_name + "submitted successfully");
-                }
-
-
-
-           });
-
+    const task = batchClient.task.add(jobId, taskConfig, function (error, result) {
+        if (error !== null) {
+            console.log("Error occured while creating task for container " + containerName + ". Details : " + error.response);
+        }
+        else {
+            console.log("Task for container : " + containerName + " submitted successfully");
+        }
     });
+});
 ```
 
 The code adds multiple tasks to the pool. And each of the tasks is executed on a node in the pool of VMs created. If the number of tasks exceeds the number of VMs in a pool or the taskSlotsPerNode property, the tasks wait until a node is made available. This orchestration is handled by Azure Batch automatically.
 
-The portal has detailed views on the tasks and job statuses. You can also use the list and get functions in the Azure JavaScript SDK..
+The portal has detailed views on the tasks and job statuses. You can also use the list and get functions in the Azure JavaScript SDK. Details are provided in the documentation [link](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/batch/batch/src/operations/job.ts#L114-L149).
 
 ## Next steps
 

@@ -54,6 +54,8 @@
             href: flexible-server/connect-java.md
           - name: .NET
             href: flexible-server/connect-csharp.md
+          - name: Node.js
+            href: flexible-server/connect-nodejs.md
           - name: Connect to server in VNET
             href: flexible-server/quickstart-create-connect-server-vnet.md
       - name: Connect using TLS/SSL

@@ -13,27 +13,26 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Onboard to Defender for IoT agent-based solution
-    displayName: IoT Hub, existing, enable
+  - name: Enable Microsoft Defender for IoT on Azure IoT Hub
+    displayName: IoT Hub, existing, enable, enable, onboard
     href: quickstart-onboard-iot-hub.md
-  - name: Install Defender for IoT micro agent (Preview)
-    displayName: package, authentication, methods, certificate, authenticate, version
-    href: quickstart-standalone-agent-binary-installation.md
-  - name: Create a Defender for IoT micro agent module twin (Preview)
-    href: quickstart-create-micro-agent-module-twin.md
-  - name: Configure Defender-IoT-micro-agent for Azure RTOS
-    href: quickstart-azure-rtos-security-module.md
-  - name: Add Azure resources to your IoT solution
-    displayName: resources, monitored, resource
-    href: quickstart-configure-your-solution.md
-  - name: Investigate security recommendations
-    href: quickstart-investigate-security-recommendations.md
-  - name: Investigate security alerts
-    href: quickstart-investigate-security-alerts.md
 - name: Tutorials
   items:
-  - name: Configure a micro agent twin
-    href: tutorial-configure-micro-agent-twin.md
+  - name: Add a resource group to your IoT solution
+    displayName: resources, monitored, resource
+    href: tutorial-configure-your-solution.md
+  - name: Create a DefenderforIoTMicroAgent module twin (Preview)
+    href: tutorial-create-micro-agent-module-twin.md
+  - name: Install the Microsoft Defender for IoT micro agent (Preview)
+    displayName: package, authentication, methods, certificate, authenticate, version
+    href: tutorial-standalone-agent-binary-installation.md
+  - name: Configure Microsoft Defender for IoT agent-based solution
+    displayName: data, collection, geolocation, log analytics, raw events
+    href: tutorial-configure-agent-based-solution.md
+  - name: Investigate security recommendations
+    href: tutorial-investigate-security-recommendations.md
+  - name: Investigate security alerts
+    href: tutorial-investigate-security-alerts.md
 - name: Concepts
   items:
   - name: Agent portfolio overview and OS support (Preview)                     
@@ -72,11 +71,10 @@
   - name: Connect to Microsoft Sentinel
     displayName: log analytics, service notes
     href: how-to-configure-with-sentinel.md
-  - name: Configure Microsoft Defender for IoT agent-based solution
-    displayName: data, collection, geolocation, log analytics, raw events
-    href: how-to-configure-agent-based-solution.md
   - name: Investigate CIS benchmark recommendation
     href: how-to-investigate-cis-benchmark.md
+  - name: Configure a micro agent twin
+    href: how-to-configure-micro-agent-twin.md
   - name: Create custom alerts
     displayName: security group
     href: quickstart-create-custom-alerts.md

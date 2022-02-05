@@ -42,7 +42,7 @@ landingContent:
       - linkListType: learn
         links:
           - text: Access using Postman
-            url: ./../use-postman.md
+            url: ./../fhir/use-postman.md
   - title: FHIR Search Capabilities
     linkLists:
       - linkListType: overview
@@ -83,7 +83,7 @@ landingContent:
         links:
           - text: Export data
             url: export-data.md
-          - text: Export data to Synapse
-            url: move-to-synapse.md
+          - text: Copy data to Synapse
+            url: copy-to-synapse.md
           - text: Convert data
             url: convert-data.md

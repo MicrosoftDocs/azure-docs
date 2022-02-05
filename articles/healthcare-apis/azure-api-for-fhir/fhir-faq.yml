@@ -74,7 +74,7 @@ sections:
       - question: |
           Where can I see what is releasing in Azure API for FHIR?
         answer: |
-          The [release notes](https://docs.microsoft.com/azure/healthcare-apis/azure-api-for-fhir/release-notes) page provides an overview of everything that has shipped to the managed service in the previous month. 
+          The [release notes](./release-notes.md) page provides an overview of everything that has shipped to the managed service in the previous month. 
           
           For more information about what's releasing in Azure API for FHIR, see [releases](https://github.com/microsoft/fhir-server/releases) of the open-source FHIR Server. We have worked to tag items with Azure-API-for-FHIR if they will release to the managed service and are usually available two weeks after they are on the release page in open-source. We have also included instructions on [how to test the build](https://github.com/microsoft/fhir-server/blob/master/docs/Testing-Releases.md) if you'd like to test in your own environment. 
           
@@ -115,7 +115,7 @@ sections:
       - question: |
           Are extensions supported on Azure API for FHIR?
         answer: |
-          We allow you to load any valid FHIR JSON data into the server. If you want to store the structure definition that defines the extension, you can save this as a structure definition resource. To search on extensions, you'll need to [define your own search parameters](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Fhealthcare-apis%2Ffhir%2Fhow-to-do-custom-search&data=04%7C01%7Cv-stevewohl%40microsoft.com%7Cc6a08c7f0c86433f248c08d925377d85%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637581742517376233%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C1000&sdata=Ws%2FVQ2N33sMagzs393hmR67M9dNaL6WCLXyxXtor6PM%3D&reserved=0). 
+          We allow you to load any valid FHIR JSON data into the server. If you want to store the structure definition that defines the extension, you can save this as a structure definition resource. To search on extensions, you'll need to [define your own search parameters](/azure/healthcare-apis/fhir/how-to-do-custom-search). 
 
       - question: |
           What is the limit on the size of a resource I can upload?

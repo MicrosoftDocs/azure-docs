@@ -214,7 +214,7 @@ To configure Static Web Apps to use an API function as the role assignment funct
 
 After defining the `rolesSource` property in your app's configuration, add an [API function](apis.md) in your static web app at the path you specified. You can use a managed function app or a bring your own function app.
 
-Each time a user successfully authenticates with an identity provider, the specified function is called. The function is passed a JSON object in the request body that contains the user's information from the provider. For some identity providers, the user information also includes an `accessToken` that the function can use to make API calls using the user's identity.
+Each time a user successfully authenticates with an identity provider, the specified function is called via the POST method. The function is passed a JSON object in the request body that contains the user's information from the provider. For some identity providers, the user information also includes an `accessToken` that the function can use to make API calls using the user's identity.
 
 This is an example payload from Azure Active Directory:
 
