@@ -37,8 +37,9 @@ This article describes how to create one or more access reviews for group member
 
 For more information, see [License requirements](access-reviews-overview.md#license-requirements).
 
-## Create one or more access reviews
+## Create a single-stage access review
 
+### Scope
 1. Sign in to the Azure portal and open the [Identity Governance](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/) page.
 
 1. On the left menu, select **Access reviews**.
@@ -62,8 +63,8 @@ For more information, see [License requirements](access-reviews-overview.md#lice
 
    ![Screenshot that shows the interface that appears if you selected applications instead of groups.](./media/create-access-review/select-application-detailed.png)
 
-    > [!NOTE]
-    > Selecting multiple groups or applications results in the creation of multiple access reviews. For example, if you select five groups to review, the result is five separate access reviews.
+   > [!NOTE]
+   > Selecting multiple groups or applications results in the creation of multiple access reviews. For example, if you select five groups to review, the result is five separate access reviews.
 
 1. Now you can select a scope for the review. Your options are:
 
@@ -74,6 +75,10 @@ For more information, see [License requirements](access-reviews-overview.md#lice
     > If you selected **All Microsoft 365 groups with guest users**, your only option is to review **Guest users only**.
 
 1. Select **Next: Reviews**.
+
+### Next: Reviews
+ 
+1. You can create a single-stage or multi-stage review. For a single stage review continue to step 4. To create a multi-stage access review (preview), follow the steps in [Create a multi-stage access review (preview)](#create-a-multi-stage-access-review-preview)
 
 1. In the **Specify reviewers** section, in the **Select reviewers** box, select either one or more people to do the access reviews. You can choose from:
 
@@ -95,6 +100,8 @@ For more information, see [License requirements](access-reviews-overview.md#lice
      ![Screenshot that shows choosing how often the review should happen.](./media/create-access-review/frequency.png)
 
 1. Select **Next: Settings**.
+
+### Next: Settings
 
 1. In the **Upon completion settings** section, you can specify what happens after the review finishes.
 
@@ -141,9 +148,55 @@ For more information, see [License requirements](access-reviews-overview.md#lice
 
    ![Screenshot that shows the Review + Create tab.](./media/create-access-review/create-review.png)
 
+### Next: Review + Create
+
 1. Name the access review. Optionally, give the review a description. The name and description are shown to the reviewers.
 
 1. Review the information and select **Create**.
+
+## Create a multi-stage access review (preview)
+
+1. After you have selected the resource and scope of your review, move on to the **Reviews** tab. 
+
+1. Click the checkbox next to **(Preview) Multi-stage review**.
+
+1. Under **First stage review**, select the reviewers from the dropdown menu next to **Select reviewers**. 
+
+1. If you select **Group owner(s)** or **Managers of Users**, you have the option to add a fallback reviewer. To add a fallback, click **Select fallback reviewers** and add the users you want to be fallback reviewers.
+ 
+    ![Screenshot that shows multi-stage review enabled and multi-stage review settings.](./media/create-access-review/create-multi-stage-review.png)
+
+1. Add the duration for the first stage. To ad the duration, enter a number in the field next to **Stage duration (in days)**. This is the number of days you wish for the first stage to last.
+ 
+1. Under **Second stage review**, select the reviewers from the dropdown menu next to **Select reviewers**. 
+
+1. Add any fallback reviewers if necessary.
+
+1. Add the duration for the second stage.
+ 
+1. By default, you will see two stages when you create a multi-stage review. However, you can add up to three stages. If you want to add a third stage, click **+ Add a stage** and complete the required fields.  
+
+1. You can decide to allow 2nd and 3rd stage reviewers to the see decisions made in the previous stage(s).If you want to allow them to see the decisions made prior, click the box next to **Show previous stage(s) decisions to later stage reviewers** under **Reveal review results**. Leave the box unchecked to disable this setting if you’d like your reviewers to review independently. 
+
+    ![Screenshot that shows duration and show previous stages setting enabled for multi-stage review.](./media/create-access-review/reveal-multi-stage-results-and-duration.png)
+
+1. The duration will be set to the sum of the duration day(s) you specified in each stage.
+
+1. Specify the **Review recurrence**, the **Start date**, and **End date** for the review. 
+
+1. To specify which reviewees will continue from stage to stage, select one of the following options next to **Specify reviewees to go to next stage** :
+     ![Screenshot that shows specify reviewees setting and options for multi-stage review.](./media/create-access-review/next-stage-reviewees-setting.png)
+
+    1. **Approved reviewees** - Only reviewees that were approved move on to the next stage(s).
+    1. **Denied reviewees** - Only reviewees that were denied move on to the next stage(s).
+    1. **Not reviewed reviewees** - Only reviewees that haven't been reviewed will move on to the next stage(s).
+    1. **Reviewees marked as "Don't Know"** - Only reviewees marked as "Don't know" move on to the next stage(s).
+    1.  **All**: everyone moves on to the next stage if you’d like all stages of reviewers to make a decision. 
+    
+    This setting allows you to limit reviewees continuing to the next stage to reduce the burden on reviewers in the later stages. Or, this setting allows for escalation scenarios that a user may have been denied by a reviewer. 
+
+1. Continue on to the **settings tab** and finish the rest of the settings and create the review. Follow the instructions in [Next: Settings](#next-settings).
+
 
 ## Allow group owners to create and manage access reviews of their groups (preview)
 
