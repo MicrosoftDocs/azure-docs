@@ -11,13 +11,11 @@ ms.date: 02/03/2022
 ms.author: vikurpad
 ---
 
-# Interpret and improve accuracy and confidence
+# Interpret and improve accuracy and confidence for custom models
 
 > [!NOTE]
-> **Custom document models do not provide accuracy scores during training**
-> The accuracy scores in this document only apply to custom form models.
-> Confidence scores for key-value pair fields apply to custom document and custom form models.
-> Confidence scores for structured fields like tables are currently not available.
+> * **Custom models do not provide accuracy scores during training**.
+> * Confidence scores for structured fields such as tables are currently unavailable.
 
 Custom models generate an estimated accuracy score when trained. Documents analyzed with a Custom model produce a confidence score for extracted fields. In this document, you'll learn to interpret accuracy and confidence scores and best practices for using those scores to improve accuracy and confidence results.
 
