@@ -80,6 +80,8 @@ This section provides information about how to run your function app from a pack
 
 ### Considerations for deploying from a URL
 
+<a name="troubleshooting"></a>
+
 + When running a function app on Windows, the app setting `WEBSITE_RUN_FROM_PACKAGE = <URL>` gives worse cold-start performance and isn't recommended.
 + When you specify a URL, you must also [manually sync triggers](functions-deployment-technologies.md#trigger-syncing) after you publish an updated package. 
 + The Functions runtime must have permissions to access the package URL.
