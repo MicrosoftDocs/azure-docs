@@ -2,7 +2,7 @@
 title: Delete an Azure Lab Services lab from Teams
 description: Learn how to delete an Azure Lab Services lab from Teams. 
 ms.topic: how-to
-ms.date: 01/06/2022
+ms.date: 02/05/2022
 ---
 
 # Delete labs within Teams
@@ -29,8 +29,8 @@ If the *tab* is deleted in Teams, users can still access the lab VMs on the [Azu
 
 ## Next steps
 
-* [Use Azure Lab Services within Teams overview](lab-services-within-teams-overview.md)
-* [Manage lab user lists within Teams](how-to-manage-user-lists-within-teams.md)
-* [Manage lab's VM pool within Teams](how-to-manage-vm-pool-within-teams.md)
-* [Create and manage lab schedules within Teams](how-to-create-schedules-within-teams.md)
-* [Access a VM within Teams – Student view](how-to-access-vm-for-students-within-teams.md)
+- As an educator, [create a lab within Teams](how-to-get-started-create-lab-within-teams.md).
+- As an educator, [manage the VM pool within Teams](how-to-manage-vm-pool-within-teams.md).
+- As an educator, [create and manage schedules within Teams](how-to-create-schedules-within-teams.md).
+- As an educator, [manage lab user lists from Teams](how-to-manage-user-lists-within-teams.md).
+- As student, [access a VM within Teams](how-to-access-vm-for-students-within-teams.md)

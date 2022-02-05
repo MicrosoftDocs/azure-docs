@@ -2,22 +2,20 @@
 title:  Access a VM (student view) in Azure Lab from Teams
 description: Learn how to access a VM (student view) in Azure Lab from Teams. 
 ms.topic: how-to
-ms.date: 01/06/2022
+ms.date: 02/05/2022
 ---
 
 # Access a VM (student view) in Azure Lab from Teams
 
-When a lab is created within Teams, users can view and access all the VMs provisioned by the team owner. Once the lab is published and VMs are created, users will be automatically registered to the lab and assigned a VM on their first login to Azure Lab Services. Users can view and access the VM's assigned to them by selecting the tab containing **Azure Lab Services** app.
+When a lab is created within Teams, users can view and access all the VMs provisioned by the team owner. Once the lab is published and VMs are created, users will be automatically registered to the lab and assigned a VM when they first log into Azure Lab Services. Users can view and access the VMs assigned to them by selecting the tab containing **Azure Lab Services** app.
 
-> [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/how-to-access-vm-for-students-within-teams/published-lab.png" alt-text="Not published Azure Lab Services lab.":::
+:::image type="content" source="./media/how-to-access-vm-for-students-within-teams/published-lab.png" alt-text="Screenshot of lab in Teams after it's published.":::
 
-If the lab is yet to be published or a sync is yet to be triggered after they are added to the team, similar messaging will be shown to the students.
+Students see a message if the lab hasn't been published yet.  Lab is also seen as unable if sync is yet to be triggered after they're added to the team.
 
-> [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/how-to-access-vm-for-students-within-teams/not-published-lab.png" alt-text="Published Azure Lab Services lab.":::
+:::image type="content" source="./media/how-to-access-vm-for-students-within-teams/not-published-lab.png" alt-text="Screenshot of lab before it's published." lightbox="./media/how-to-access-vm-for-students-within-teams/not-published-lab.png":::
 
 ## Next steps
 
-- [Start the VM](tutorial-connect-lab-virtual-machine.md#start-the-vm)
-- [Connect to the VM](tutorial-connect-lab-virtual-machine.md#connect-to-the-vm)
+- As a student, [start the VM](tutorial-connect-lab-virtual-machine.md#start-the-vm).
+- As a student, [connect to a lab VM](connect-virtual-machine.md).
