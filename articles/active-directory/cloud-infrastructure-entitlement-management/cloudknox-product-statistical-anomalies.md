@@ -20,7 +20,7 @@ ms.author: v-ydequadros
 
 Statistical anomalies can detect outliers in an identity's behavior if recent activity is determined to be unusual based on models defined in an activity trigger. The goal of this anomaly trigger is a high recall rate.
 
-## View outliers in an identity's behavior
+## View statistical anomalies in an identity's behavior
 
 1. In the CloudKnox home page, select **Activity triggers** (the bell icon).
 1. Select **Statistical anomaly**, and then select the **Alerts** subtab.
@@ -113,5 +113,5 @@ Statistical anomalies can detect outliers in an identity's behavior if recent ac
 ## Next steps
 
 - For information on activity alerts and alert triggers, see [Create and view activity alerts and alert triggers](cloudknox-howto-create-alert-trigger.md). 
-- For information on rule-based anomalies and anomaly triggers, see [Create and view rule-based anomalies and anomaly triggers](cloudknox-product-rule-based-anomalies.md)
-- For information on permission analytics triggers, see [Create and view permission analytics triggers](cloudknox-product-permission-analytics.md)
+- For information on rule-based anomalies and anomaly triggers, see [Create and view rule-based anomalies and anomaly triggers](cloudknox-product-rule-based-anomalies.md).
+- For information on permission analytics triggers, see [Create and view permission analytics triggers](cloudknox-product-permission-analytics.md).

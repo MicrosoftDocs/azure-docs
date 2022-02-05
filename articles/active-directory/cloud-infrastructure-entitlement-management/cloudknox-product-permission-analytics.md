@@ -96,5 +96,5 @@ This article describes how you can create and view permission analytics triggers
 ## Next steps
 
 - For information on activity alerts and alert triggers, see [Create and view activity alerts and alert triggers](cloudknox-howto-create-alert-trigger.md). 
-- For information on rule-based anomalies and anomaly triggers, see [Create and view rule-based anomalies and anomaly triggers](cloudknox-product-rule-based-anomalies.md)
-- For information on finding outliers in identity's behavior, see [Create and view statistical anomalies and anomaly triggers](cloudknox-product-statistical-anomalies.md)
+- For information on rule-based anomalies and anomaly triggers, see [Create and view rule-based anomalies and anomaly triggers](cloudknox-product-rule-based-anomalies.md).
+- For information on finding outliers in identity's behavior, see [Create and view statistical anomalies and anomaly triggers](cloudknox-product-statistical-anomalies.md).

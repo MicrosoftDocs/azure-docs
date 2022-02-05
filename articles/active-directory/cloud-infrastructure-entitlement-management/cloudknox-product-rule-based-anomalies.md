@@ -118,5 +118,5 @@ Rule-based anomalies identify recent activity in CloudKnox Permissions Managemen
 ## Next steps
 
 - For information on activity alerts and alert triggers, see [Create and view activity alerts and alert triggers](cloudknox-howto-create-alert-trigger.md). 
-- For information on finding outliers in identity's behavior, see [Create and view statistical anomalies and anomaly triggers](cloudknox-product-statistical-anomalies.md)
-- For information on permission analytics triggers, see [Create and view permission analytics triggers](cloudknox-product-permission-analytics.md)
+- For information on finding outliers in identity's behavior, see [Create and view statistical anomalies and anomaly triggers](cloudknox-product-statistical-anomalies.md).
+- For information on permission analytics triggers, see [Create and view permission analytics triggers](cloudknox-product-permission-analytics.md).
