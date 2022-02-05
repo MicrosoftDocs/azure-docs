@@ -160,7 +160,7 @@ done
 
 Users that have many thousands of objects within their storage account can quickly locate specific containers based on their metadata. To read the metadata, you'll use the `az storage container metadata show` command. To update metadata, you'll need to call the `az storage container metadata update` command. The method only accepts space-separated key-value pairs. For more information, see the [az storage container metadata](/cli/azure/storage/container/metadata) documentation.
 
-The first example below updates and subsequently retrieves a named container's metadata. The second example iterates the list of containers matching the `-prefix` value. Containers with names containing even numbers have their metadata set with values contained in the *metadata* variable.
+The first example below updates and then retrieves a named container's metadata. The second example iterates the list of containers matching the `-prefix` value. Containers with names containing even numbers have their metadata set with values contained in the *metadata* variable.
 
 ```azurecli-interactive
 #!/bin/bash
@@ -251,7 +251,7 @@ do
 done
 ```
 
-If you have container soft delete enabled for your storage account, then it's possible to retrieve containers that have been deleted. If your storage account's soft delete data protection option is enabled, the `--include-deleted` parameter will return containers deleted within the associated retention period. The `--include-deleted` parameter can only be used in conjunction with the `--prefix` parameter when returning a list of containers. To learn more about soft delete, refer to the [Soft delete for containers](soft-delete-container-overview.md) article.
+If you have container soft delete enabled for your storage account, then it's possible to retrieve containers that have been deleted. If your storage account's soft delete data protection option is enabled, the `--include-deleted` parameter will return containers deleted within the associated retention period. The `--include-deleted` parameter can only be used to return containers when used with the `--prefix` parameter. To learn more about soft delete, refer to the [Soft delete for containers](soft-delete-container-overview.md) article.
 
 Use the following example to retrieve a list of containers deleted within the storage account's associated retention period.
 
@@ -326,11 +326,11 @@ Azure Storage supports three types of shared access signatures: user delegation,
 > [!CAUTION]
 > Any client that possesses a valid SAS can access data in your storage account as permitted by that SAS. It's important to protect a SAS from malicious or unintended use. Use discretion in distributing a SAS, and have a plan in place for revoking a compromised SAS.
 
-The following example illustrates the process of configuring a service SAS for a specific container using the `az storage container generate-sas` command. Because it is generating a service SAS, the example first retrieves the storage account key to pass as the `--account-key` value.
+The following example illustrates the process of configuring a service SAS for a specific container using the `az storage container generate-sas` command. Because it's generating a service SAS, the example first retrieves the storage account key to pass as the `--account-key` value.
 
 The example will configure the SAS with start and expiry times and a protocol. It will also specify the **delete**, **read**, **write**, and **list** permissions in the SAS using the `--permissions` parameter. You can reference the full table of permissions in the [Create a service SAS](/rest/api/storageservices/create-service-sas) article.
 
-Copy and paste the Blob SAS token value in a secure location. It'll only be displayed once and cannot be retrieved once Bash is closed. To construct the SAS URL, append the SAS token (URI) to the URL for the storage service.
+Copy and paste the Blob SAS token value in a secure location. It will only be displayed once and can’t be retrieved once Bash is closed. To construct the SAS URL, append the SAS token (URI) to the URL for the storage service.
 
 ```azurecli-interactive
 #!/bin/bash
