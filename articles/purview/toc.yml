@@ -314,6 +314,8 @@ items:
       href: /rest/api/purview/
     - name: Azure Purview open-source tools utilities
       href: tutorial-azure-purview-tools.md
+    - name: Azure Purview Audit Events and Diagnostics Logs
+      href: tutorial-purview-audit-logs-diagnostics.md
     - name: ABAP function deployment guide
       href: abap-functions-deployment-guide.md
     - name: Frequently asked questions (FAQ)
