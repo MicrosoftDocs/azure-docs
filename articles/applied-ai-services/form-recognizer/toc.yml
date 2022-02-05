@@ -128,7 +128,7 @@ items:
     href: concept-business-card.md
   - name: Custom model
     href: concept-custom.md
-  - name: Interpret and improve accuracy and confidence
+  - name: Accuracy and confidence
     href: concept-accuracy-confidence.md
 - name: Tutorials
   items:
