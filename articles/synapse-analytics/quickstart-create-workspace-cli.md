@@ -6,7 +6,7 @@ author: WilliamDAssafMSFT
 ms.service: synapse-analytics
 ms.topic: quickstart
 ms.subservice: workspace
-ms.date: 08/25/2020
+ms.date: 02/04/2022
 ms.author: wiassaf
 ms.reviewer: sngun
 ms.custom: mode-api

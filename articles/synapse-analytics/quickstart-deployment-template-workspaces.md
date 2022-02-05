@@ -8,7 +8,7 @@ ms.topic: quickstart
 ms.custom: subject-armqs, mode-arm
 author: WilliamDAssafMSFT
 ms.author: wiassaf
-ms.date: 01/28/2022
+ms.date: 02/04/2022
 ---
 
 # Quickstart: Create an Azure Synapse workspace using an ARM template
@@ -69,5 +69,5 @@ To learn more about Azure Synapse Analytics and Azure Resource Manager,
 - Learn more about [Azure Resource Manager](../azure-resource-manager/management/overview.md)
 - [Create and deploy your first ARM template](../azure-resource-manager/templates/template-tutorial-create-first-template.md)
 
-Next, you can [create SQL pools](quickstart-create-sql-pool-studio.md) or [create Apache Spark pools] (quickstart-create-apache-spark-pool-studio.md) to start analyzing and exploring your data.
+Next, you can [create SQL pools](quickstart-create-sql-pool-studio.md) or [create Apache Spark pools](quickstart-create-apache-spark-pool-studio.md) to start analyzing and exploring your data.
 
