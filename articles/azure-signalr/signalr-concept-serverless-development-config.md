@@ -5,7 +5,7 @@ author: vicancy
 ms.service: signalr
 ms.topic: conceptual
 ms.date: 03/01/2019
-author: lianwei
+ms.author: lianwei
 ms.devlang: csharp, javascript
 ms.custom: "devx-track-js, devx-track-csharp"
 ---

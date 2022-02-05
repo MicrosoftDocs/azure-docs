@@ -7,7 +7,7 @@ ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: devx-track-csharp, mode-other
 ms.date: 09/28/2020
-author: lianwei
+ms.author: lianwei
 ---
 
 # Quickstart: Create a chat room with ASP.NET and SignalR Service

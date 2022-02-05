@@ -7,7 +7,7 @@ author: vicancy
 ms.service: signalr
 ms.topic: conceptual
 ms.date: 05/06/2020
-author: lianwei
+ms.author: lianwei
 ---
 
 # Configure network access control

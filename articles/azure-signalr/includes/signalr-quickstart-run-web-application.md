@@ -5,7 +5,7 @@ author: vicancy
 ms.service: signalr
 ms.topic: include
 ms.date: 03/04/2019
-author: lianwei
+ms.author: lianwei
 ms.custom: include file
 ---
 ## Run the web application

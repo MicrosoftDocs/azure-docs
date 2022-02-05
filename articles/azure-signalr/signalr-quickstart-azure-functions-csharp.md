@@ -7,7 +7,7 @@ ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: devx-track-csharp, mode-other
 ms.date: 06/09/2021
-author: lianwei
+ms.author: lianwei
 ---
 
 # Quickstart: Create an App showing GitHub star count with Azure Functions and SignalR Service via C#

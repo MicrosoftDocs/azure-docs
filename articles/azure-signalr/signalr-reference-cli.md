@@ -5,7 +5,7 @@ author: vicancy
 ms.service: signalr
 ms.topic: reference
 ms.date: 11/13/2019
-author: lianwei
+ms.author: lianwei
 ---
 # Azure CLI reference
 

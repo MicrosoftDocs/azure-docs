@@ -5,7 +5,7 @@ author: vicancy
 ms.service: signalr
 ms.topic: quickstart
 ms.date: 11/13/2019
-author: lianwei
+ms.author: lianwei
 ms.custom: mode-api
 ---
 # Quickstart: Broadcast real-time messages from console app

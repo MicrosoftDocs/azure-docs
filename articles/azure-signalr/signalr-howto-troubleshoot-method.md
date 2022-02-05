@@ -5,7 +5,7 @@ author: vicancy
 ms.service: signalr
 ms.topic: conceptual
 ms.date: 11/17/2020
-author: lianwei
+ms.author: lianwei
 ---
 
 # How to troubleshoot connectivity and message delivery issues

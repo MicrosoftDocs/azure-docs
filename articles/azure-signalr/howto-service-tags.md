@@ -7,7 +7,7 @@ author: vicancy
 ms.service: signalr
 ms.topic: article
 ms.date: 05/06/2020
-author: lianwei
+ms.author: lianwei
 ---
 
 # Use service tags for Azure SignalR Service

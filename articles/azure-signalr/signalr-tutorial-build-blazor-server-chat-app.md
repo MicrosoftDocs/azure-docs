@@ -5,7 +5,7 @@ author: vicancy
 ms.service: signalr
 ms.topic: tutorial
 ms.date: 09/09/2020
-author: lianwei
+ms.author: lianwei
 ms.devlang: csharp
 ---
 

@@ -5,7 +5,7 @@ author: vicancy
 ms.service: signalr
 ms.topic: tutorial
 ms.date: 03/01/2019
-author: lianwei
+ms.author: lianwei
 ms.devlang: javascript
 ms.custom: devx-track-js
 ---

@@ -5,7 +5,7 @@ author: vicancy
 ms.service: signalr
 ms.topic: conceptual
 ms.date: 08/05/2020
-author: lianwei
+ms.author: lianwei
 ---
 # Messages and connections in Azure SignalR Service
 

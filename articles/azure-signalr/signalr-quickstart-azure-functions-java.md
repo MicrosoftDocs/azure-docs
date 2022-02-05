@@ -2,7 +2,7 @@
 title: Use Java to create a chat room with Azure Functions and SignalR Service
 description: A quickstart for using Azure SignalR Service and Azure Functions to create an App showing GitHub star count using Java.
 author: vicancy
-author: lianwei
+ms.author: lianwei
 ms.date: 06/09/2021
 ms.topic: quickstart
 ms.service: signalr

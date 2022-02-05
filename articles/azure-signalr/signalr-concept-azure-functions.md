@@ -5,7 +5,7 @@ author: vicancy
 ms.service: signalr
 ms.topic: conceptual
 ms.date: 11/13/2019
-author: lianwei
+ms.author: lianwei
 ---
 # Build real-time Apps with Azure Functions and Azure SignalR Service
 

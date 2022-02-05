@@ -2,8 +2,7 @@
 title: Authorize request to SignalR resources with Azure AD from Azure applications
 description: This article provides information about authorizing request to SignalR resources with Azure AD from Azure applications
 author: vicancy
-
-author: lianwei
+ms.author: lianwei
 ms.date: 09/06/2021
 ms.service: signalr
 ms.topic: conceptual

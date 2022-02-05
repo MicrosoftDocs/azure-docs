@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.devlang: csharp
 ms.custom: devx-track-csharp
 ms.date: 03/01/2019
-author: lianwei
+ms.author: lianwei
 ---
 # Scale ASP.NET Core SignalR applications with Azure SignalR Service
 

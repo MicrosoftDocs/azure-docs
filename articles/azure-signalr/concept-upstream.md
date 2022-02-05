@@ -5,7 +5,7 @@ author: vicancy
 ms.service: signalr
 ms.topic: conceptual
 ms.date: 06/11/2020
-author: lianwei
+ms.author: lianwei
 ---
 
 # Upstream settings

@@ -5,7 +5,7 @@ author: vicancy
 ms.service: signalr
 ms.topic: conceptual
 ms.date: 11/13/2019
-author: lianwei
+ms.author: lianwei
 ---
 # Performance guide for Azure SignalR Service
 

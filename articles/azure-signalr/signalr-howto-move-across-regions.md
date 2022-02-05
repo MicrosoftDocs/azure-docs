@@ -5,7 +5,7 @@ author: vicancy
 ms.service: signalr
 ms.topic: how-to
 ms.date: 12/22/2021
-author: lianwei 
+ms.author: lianwei 
 ms.custom: subject-moving-resources
 ---
 

@@ -6,7 +6,7 @@ ms.service: signalr
 ms.devlang: azurecli
 ms.topic: sample
 ms.date: 04/22/2018
-author: lianwei
+ms.author: lianwei
 ms.custom: mvc, devx-track-azurecli
 ---
 

@@ -5,7 +5,7 @@ author: vicancy
 ms.service: signalr
 ms.topic: conceptual
 ms.date: 11/06/2020
-author: lianwei
+ms.author: lianwei
 ms.devlang: csharp
 ---
 # Troubleshooting guide for Azure SignalR Service common issues

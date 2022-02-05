@@ -5,7 +5,7 @@ author: vicancy
 ms.service: signalr
 ms.topic: conceptual
 ms.date: 12/17/2019
-author: lianwei
+ms.author: lianwei
 ---
 
 # Resource logs for Azure SignalR Service

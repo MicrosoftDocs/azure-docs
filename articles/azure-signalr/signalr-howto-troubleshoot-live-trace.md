@@ -2,7 +2,7 @@
 title: How to use live trace tool for Azure SignalR service
 description: Learn how to use live trace tool for Azure SignalR service
 author: vicancy
-author: lianwei
+ms.author: lianwei
 ms.service: signalr
 ms.topic: conceptual 
 ms.date: 06/30/2021

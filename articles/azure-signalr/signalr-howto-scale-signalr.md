@@ -5,7 +5,7 @@ author: vicancy
 ms.service: signalr
 ms.topic: conceptual
 ms.date: 9/9/2020
-author: lianwei 
+ms.author: lianwei 
 ms.custom: devx-track-azurecli
 ---
 # How to scale an Azure SignalR Service instance?

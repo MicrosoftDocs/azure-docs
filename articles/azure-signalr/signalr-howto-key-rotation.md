@@ -5,7 +5,7 @@ author: vicancy
 ms.service: signalr
 ms.topic: conceptual
 ms.date: 03/01/2019
-author: lianwei
+ms.author: lianwei
 ---
 # How to rotate access key for Azure SignalR Service
 

@@ -7,7 +7,7 @@ author: vicancy
 ms.service: signalr
 ms.topic: article
 ms.date: 07/08/2021
-author: lianwei
+ms.author: lianwei
 ---
 
 # Secure Azure SignalR outbound traffic through Shared Private Endpoints

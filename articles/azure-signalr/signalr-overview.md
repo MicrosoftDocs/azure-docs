@@ -6,7 +6,7 @@ ms.service: signalr
 ms.topic: overview
 ms.custom: devx-track-dotnet 
 ms.date: 11/13/2019
-author: lianwei
+ms.author: lianwei
 ---
 
 # What is Azure SignalR Service?

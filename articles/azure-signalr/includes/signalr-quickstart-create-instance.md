@@ -5,7 +5,7 @@ author: vicancy
 ms.service: signalr
 ms.topic: include
 ms.date: 09/14/2018
-author: lianwei
+ms.author: lianwei
 ms.custom: include file
 ---
 ## Create an Azure SignalR Service instance

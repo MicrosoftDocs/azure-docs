@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.devlang: csharp
 ms.custom: devx-track-csharp
 ms.date: 03/27/2019
-author: lianwei
+ms.author: lianwei
 ---
 # How to scale SignalR Service with multiple instances?
 The latest SignalR Service SDK supports multiple endpoints for SignalR Service instances. You can use this feature to scale the concurrent connections, or use it for cross-region messaging.
