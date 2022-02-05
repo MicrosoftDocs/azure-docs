@@ -181,7 +181,7 @@ A Consumption plan doesn't need to be defined. One will automatically be created
 
 The Consumption plan is a special type of `serverfarm` resource. You can specify it by using the `Dynamic` value for the `computeMode` and `sku` properties, as follows:
 
-# [Windows](#tab/Windows)
+# [Windows](#tab/windows)
 
 ```json
 {
@@ -203,7 +203,7 @@ The Consumption plan is a special type of `serverfarm` resource. You can specify
 }
 ```
 
-# [Linux](#tab/Linux)
+# [Linux](#tab/linux)
 
 To run your app on Linux, you must also set the property `"reserved": true` for the `serverfarms` resource:
 
@@ -235,7 +235,7 @@ When you define your Consumption plan, you must set the `serverFarmId` property 
 
 The settings required by a function app running in Consumption plan differ between Windows and Linux.
 
-# [Windows](#tab/Windows)
+# [Windows](#tab/windows)
 
 On Windows, a Consumption plan requires another two other settings in the site configuration: [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](functions-app-settings.md#website_contentazurefileconnectionstring) and [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare). This property configures the storage account where the function app code and configuration are stored.
 
@@ -294,7 +294,7 @@ For a sample Azure Resource Manager template, see [Azure Function App Hosted on 
 > [!IMPORTANT]
 > Do not need to set the [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare) setting in a deployment slot. This setting is generated for you when the app is created in the deployment slot.
 
-# [Linux](#tab/Linux)
+# [Linux](#tab/linux)
 
 The function app must have set `"kind": "functionapp,linux"`, and it must have set property `"reserved": true`. Linux apps should also include a `linuxFxVersion` property under siteConfig. If you are just deploying code, the value for this is determined by your desired runtime stack in the format of runtime|runtimeVersion. For example: `python|3.7`, `node|14` and `dotnet|3.1`.
 
@@ -352,7 +352,7 @@ The Premium plan offers the same scaling as the Consumption plan but includes de
 
 A Premium plan is a special type of "serverfarm" resource. You can specify it by using either `EP1`, `EP2`, or `EP3` for the `Name` property value in the `sku` as following:
 
-# [Windows](#tab/Windows)
+# [Windows](#tab/windows)
 
 ```json
 {
@@ -373,7 +373,7 @@ A Premium plan is a special type of "serverfarm" resource. You can specify it by
 }
 ```
 
-# [Linux](#tab/Linux)
+# [Linux](#tab/linux)
 
 To run your app on Linux, you must also set property `"reserved": true` for the serverfarms resource:
 
@@ -408,7 +408,7 @@ For a sample Azure Resource Manager template, see [Azure Function App Hosted on 
 
 The settings required by a function app running in Premium plan differ between Windows and Linux.
 
-# [Windows](#tab/Windows)
+# [Windows](#tab/windows)
 
 ```json
 {
@@ -462,7 +462,7 @@ The settings required by a function app running in Premium plan differ between W
 > [!IMPORTANT]
 > You don't need to set the [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare) setting because it's generated for you when the site is first created.
 
-# [Linux](#tab/Linux)
+# [Linux](#tab/linux)
 
 The function app must have set `"kind": "functionapp,linux"`, and it must have set property `"reserved": true`. Linux apps should also include a `linuxFxVersion` property under siteConfig. If you are just deploying code, the value for this is determined by your desired runtime stack in the format of runtime|runtimeVersion. For example: `python|3.7`, `node|14` and `dotnet|3.1`.
 
@@ -526,7 +526,7 @@ For a sample Azure Resource Manager template, see [Function app on Azure App Ser
 
 An App Service plan is defined by a "serverfarm" resource. You can specify the SKU as follows:
 
-# [Windows](#tab/Windows)
+# [Windows](#tab/windows)
 
 ```json
 {
@@ -544,7 +544,7 @@ An App Service plan is defined by a "serverfarm" resource. You can specify the S
 }
 ```
 
-# [Linux](#tab/Linux)
+# [Linux](#tab/linux)
 
 To run your app on Linux, you must also set property `"reserved": true` for the serverfarms resource:
 
@@ -566,6 +566,7 @@ To run your app on Linux, you must also set property `"reserved": true` for the 
   }
 }
 ```
+---
 
 ### Create a function app
 
@@ -579,7 +580,7 @@ For a sample Azure Resource Manager template, see [Azure Function App Hosted on 
 
 The settings required by a function app running in Dedicated plan differ between Windows and Linux.
 
-# [Windows](#tab/Windows)
+# [Windows](#tab/windows)
 
 ```json
 {
@@ -624,7 +625,7 @@ The settings required by a function app running in Dedicated plan differ between
 }
 ```
 
-# [Linux](#tab/Linux)
+# [Linux](#tab/linux)
 
 The function app must have set `"kind": "functionapp,linux"`, and it must have set property `"reserved": true`. Linux apps should also include a `linuxFxVersion` property under siteConfig. If you are just deploying code, the value for this is determined by your desired runtime stack in the format of runtime|runtimeVersion. Examples of `linuxFxVersion` property include:  `python|3.7`, `node|14` and `dotnet|3.1`.
 
