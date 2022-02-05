@@ -11,7 +11,7 @@ ms.date: 02/03/2022
 ms.author: vikurpad
 ---
 
-# Interpret and improve accuracy and confidence scores
+# Interpret and improve accuracy and confidence
 
 > [!NOTE]
 > **Custom document models do not provide accuracy scores during training**
