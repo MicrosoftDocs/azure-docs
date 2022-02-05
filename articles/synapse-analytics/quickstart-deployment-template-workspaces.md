@@ -25,7 +25,7 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-To create an Azure Synapse workspace, a user must have **Azure Contributor** role and **User Access Administrator** permissions, or the **Owner** role in the subscription. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+To create an Azure Synapse workspace, a user must have **Azure Contributor** role and **User Access Administrator** permissions, or the **Owner** role in the subscription. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md). 
 
 ## Review the template
 
@@ -56,6 +56,11 @@ The template defines two resources:
    - **Review and Create**: Select.
    - **Create**: Select.
 
+1. Once deployed, additional permissions are required. 
+- In the Azure portal, assign other users of the workspace to the **Contributor** role in the workspace. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md). 
+- Assign other users the appropriate **[Synapse RBAC roles](security/synapse-workspace-synapse-rbac-roles.md)** using Synapse Studio.
+- A member of the **Owner** role of the Azure Storage account must assign the **Storage Blob Data Contributor** role to the Azure Synapse workspace MSI and other users.
+
 ## Next steps
 
 To learn more about Azure Synapse Analytics and Azure Resource Manager,
@@ -63,3 +68,6 @@ To learn more about Azure Synapse Analytics and Azure Resource Manager,
 - Read an [Overview of Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md)
 - Learn more about [Azure Resource Manager](../azure-resource-manager/management/overview.md)
 - [Create and deploy your first ARM template](../azure-resource-manager/templates/template-tutorial-create-first-template.md)
+
+Next, you can [create SQL pools](quickstart-create-sql-pool-studio.md) or [create Apache Spark pools] (quickstart-create-apache-spark-pool-studio.md) to start analyzing and exploring your data.
+
