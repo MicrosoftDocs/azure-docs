@@ -48,7 +48,7 @@ The following diagram illustrates that with MLflow Tracking, you track an experi
 * [Create an Azure Machine Learning Workspace](how-to-manage-workspace.md).
     * See which [access permissions you need to perform your MLflow operations with your workspace](how-to-assign-roles.md#mlflow-operations).
 
-## Track runs from your local machine
+## Track local runs
 
 MLflow Tracking with Azure Machine Learning lets you store the logged metrics and artifacts runs that were executed on your local machine into your Azure Machine Learning workspace. 
 
