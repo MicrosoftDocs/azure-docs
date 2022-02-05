@@ -34,38 +34,14 @@ Check the version of the security daemon running on your device by using the com
 
 On Linux x64 devices, use apt-get or your appropriate package manager to update the security daemon to the latest version.
 
-Get the latest repository configuration from Microsoft:
-
-* **Ubuntu Server 18.04**:
-
-   ```bash
-   curl https://packages.microsoft.com/config/ubuntu/18.04/multiarch/prod.list > ./microsoft-prod.list
-   ```
-
-* **Raspberry Pi OS Stretch**:
-
-   ```bash
-   curl https://packages.microsoft.com/config/debian/stretch/multiarch/prod.list > ./microsoft-prod.list
-   ```
-
-Copy the generated list.
-
-   ```bash
-   sudo cp ./microsoft-prod.list /etc/apt/sources.list.d/
-   ```
-
-Install Microsoft GPG public key.
-
-   ```bash
-   curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-   sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
-   ```
-
 Update apt.
 
    ```bash
    sudo apt-get update
    ```
+
+   > [!NOTE]
+   > For instructions to get the latest repository configuration from Microsoft see the preliminary steps to [Install IoT Edge](how-to-provision-single-device-linux-symmetric.md#install-iot-edge).
 
 <!-- 1.1 -->
 :::moniker range="iotedge-2018-06"
@@ -295,52 +271,25 @@ Before automating any update processes, validate that it works on test machines.
 
 When you're ready, follow these steps to update IoT Edge on your devices:
 
-1. Get the latest repository configuration from Microsoft:
-
-   * **Ubuntu Server 18.04**:
-
-     ```bash
-     curl https://packages.microsoft.com/config/ubuntu/18.04/multiarch/prod.list > ./microsoft-prod.list
-     ```
-
-   * **Raspberry Pi OS Stretch**:
-
-     ```bash
-     curl https://packages.microsoft.com/config/debian/stretch/multiarch/prod.list > ./microsoft-prod.list
-     ```
-
-2. Copy the generated list.
-
-   ```bash
-   sudo cp ./microsoft-prod.list /etc/apt/sources.list.d/
-   ```
-
-3. Install Microsoft GPG public key.
-
-   ```bash
-   curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-   sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
-   ```
-
-4. Update apt.
+1. Update apt.
 
    ```bash
    sudo apt-get update
    ```
 
-5. Uninstall the previous version of IoT Edge, leaving your configuration files in place.
+1. Uninstall the previous version of IoT Edge, leaving your configuration files in place.
 
    ```bash
    sudo apt-get remove iotedge
    ```
 
-6. Install the most recent version of IoT Edge, along with the IoT identity service.
+1. Install the most recent version of IoT Edge, along with the IoT identity service.
 
    ```bash
    sudo apt-get install aziot-edge
    ```
 
-7. Import your old config.yaml file into its new format, and apply the configuration info.
+1. Import your old config.yaml file into its new format, and apply the configuration info.
 
    ```bash
    sudo iotedge config import

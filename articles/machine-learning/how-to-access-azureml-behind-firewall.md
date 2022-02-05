@@ -237,6 +237,8 @@ The hosts in the following tables are owned by Microsoft, and provide services r
 | ----- | ----- | ----- | ----- |
 | Azure Machine Learning studio | ml.azure.com | TCP | 443 |
 | API |\*.azureml.ms | TCP | 443 |
+| API | \*.azureml.net | TCP | 443 |
+| Model management | \*.modelmanagement.azureml.net | TCP | 443 |
 | Integrated notebook | \*.notebooks.azure.net | TCP | 443 |
 | Integrated notebook | \<storage\>.file.core.windows.net | TCP | 443, 445 |
 | Integrated notebook | \<storage\>.dfs.core.windows.net | TCP | 443 |
@@ -250,6 +252,7 @@ The hosts in the following tables are owned by Microsoft, and provide services r
 | ----- | ----- | ----- | ----- |
 | Azure Machine Learning studio | ml.azure.us | TCP | 443 |
 | API | \*.ml.azure.us | TCP | 443 |
+| Model management | \*.modelmanagement.azureml.us | TCP | 443 |
 | Integrated notebook | \*.notebooks.usgovcloudapi.net | TCP | 443 |
 | Integrated notebook | \<storage\>.file.core.usgovcloudapi.net | TCP | 443, 445 |
 | Integrated notebook | \<storage\>.dfs.core.usgovcloudapi.net | TCP | 443 |
@@ -263,6 +266,8 @@ The hosts in the following tables are owned by Microsoft, and provide services r
 | ----- | ----- | ----- | ----- |
 | Azure Machine Learning studio | studio.ml.azure.cn | TCP | 443 |
 | API | \*.ml.azure.cn | TCP | 443 |
+| API | \*.azureml.cn | TCP | 443 |
+| Model management | \*.modelmanagement.ml.azure.cn | TCP | 443 |
 | Integrated notebook | \*.notebooks.chinacloudapi.cn | TCP | 443 |
 | Integrated notebook | \<storage\>.file.core.chinacloudapi.cn | TCP | 443, 445 |
 | Integrated notebook | \<storage\>.dfs.core.chinacloudapi.cn | TCP | 443 |
@@ -349,7 +354,7 @@ To support logging of metrics and other monitoring information to Azure Monitor 
 * **dc.applicationinsights.azure.com**
 * **dc.applicationinsights.microsoft.com**
 * **dc.services.visualstudio.com**
-* **.in.applicationinsights.azure.com**
+* ***.in.applicationinsights.azure.com**
 
 For a list of IP addresses for these hosts, see [IP addresses used by Azure Monitor](../azure-monitor/app/ip-addresses.md).
 

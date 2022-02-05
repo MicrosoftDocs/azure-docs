@@ -43,7 +43,7 @@ As a solution architect/developer, **you should consider using Service Bus queue
 * Your queue size won't grow larger than 80 GB.
 * You want to use the AMQP 1.0 standards-based messaging protocol. For more information about AMQP, see [Service Bus AMQP Overview](service-bus-amqp-overview.md).
 * You envision an eventual migration from queue-based point-to-point communication to a publish-subscribe messaging pattern. This pattern enables integration of additional receivers (subscribers). Each receiver receives independent copies of either some or all messages sent to the queue. 
-* Your messaging solution needs to support the "At-Most-Once" delivery guarantee without the need for you to build the additional infrastructure components.
+* Your messaging solution needs to support the "At-Most-Once" and the "At-Least-Once" delivery guarantees without the need for you to build the additional infrastructure components.
 * Your solution needs to publish and consume batches of messages.
 
 ## Compare Storage queues and Service Bus queues

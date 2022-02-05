@@ -1,46 +1,49 @@
 ---
 title: How to use language identification
 titleSuffix: Azure Cognitive Services
-description: Language identification can be used with speech recognition to determine the language being spoken in speech audio being recognized.
+description: In this article, you learn how to use language identification with speech recognition to determine what language is being spoken in speech audio.
 services: cognitive-services
 author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/21/2021
+ms.date: 01/23/2022
 ms.author: eur
 zone_pivot_groups: programming-languages-speech-services-nomore-variant
 ms.devlang: cpp, csharp, java, javascript, objective-c, python
 
 ---
 
-# How to use language identification
+# Use language identification
 
-Language identification is used to determine the language being spoken in audio passed to the Speech SDK when compared against a list of provided languages. The value returned by language identification is then used to select the language model for speech to text, providing you with a more accurate transcription. 
+You can use language identification to determine which language, from a list of languages, is being spoken in audio that's passed to the Speech SDK. The value that's returned by language identification is then used to select the language model for speech-to-text, which gives you a more accurate transcription. 
 
-Language identification can also be used while doing [speech translation](./get-started-speech-translation.md?pivots=programming-language-csharp&tabs=script%2cwindowsinstall#multi-lingual-translation-with-language-identification), or by doing [standalone identification](./language-identification.md). 
+You can also use language identification for [speech translation](./get-started-speech-translation.md?pivots=programming-language-csharp&tabs=script%2cwindowsinstall#multi-lingual-translation-with-language-identification) or for [standalone identification](./language-identification.md). 
 
-To see which languages are available, see [Language support](language-support.md).
+For a list of available languages, see [Language support](language-support.md).
 
 ## Prerequisites
 
-This article assumes you have an Azure subscription and speech resource, and also assumes knowledge of speech recognition basics. [Complete the quickstart](get-started-speech-to-text.md) if you haven't already.
+* An Azure subscription and speech resource.
+* Knowledge of speech recognition basics. If you haven't already done so, [complete the speech-to-text quickstart](get-started-speech-to-text.md).
 
 ## Language identification with speech-to-text
 
-Language identification currently has a limit of **four languages** for at-start recognition, and **10 languages** for continuous recognition. Keep this limitation in mind when constructing your `AutoDetectSourceLanguageConfig` object. In the samples below, you use `AutoDetectSourceLanguageConfig` to define a list of possible languages that you want to identify, and then reference those languages when running speech recognition.
+Language identification currently has a limit of *four languages* for at-start recognition, and *10 languages* for continuous recognition. Keep this limitation in mind as you construct your `AutoDetectSourceLanguageConfig` object. 
+
+In the following samples, you use `AutoDetectSourceLanguageConfig` to define a list of possible languages that you want to identify, and then reference those languages when you run speech recognition.
 
 > [!IMPORTANT]
-> Continuous language identification is only supported in C#, C++, and Python.
+> Continuous language identification is supported only in C#, C++, and Python.
 
 ::: zone pivot="programming-language-csharp"
 
-The following example runs at-start recognition, prioritizing `Latency`. This property can also be set to `Accuracy` depending on the priority for your use-case. `Latency` is the best option to use if you need a low-latency result (e.g. for live streaming scenarios), but don't know the language in the audio sample. 
+The following example runs at-start recognition, prioritizing `Latency`. You can also set this property to `Accuracy`, depending on the priority for your use case. `Latency` is your best option if you need a low-latency result (for example, for live streaming) but don't know which language is used in the audio sample. 
 
-`Accuracy` should be used in scenarios where the audio quality may be poor, and more latency is acceptable. For example, a voicemail could have background noise, or some silence at the beginning, and allowing the engine more time will improve recognition results.
+You should use `Accuracy` in scenarios where the audio quality is poor and more latency is acceptable. For example, a voicemail message might have background noise or some silence at the beginning, and allowing the engine more time will improve recognition results.
 
-In either case, at-start recognition as shown below should **not be used** for scenarios where the language may be changing within the same audio sample. See below for continuous recognition for these types of scenarios.
+In either case, at-start recognition, as shown in the following code, should *not* be used for scenarios where one language changes to another within a single audio sample. (For *continuous recognition* for these types of scenarios, see the second C# code example.)
 
 ```csharp
 using Microsoft.CognitiveServices.Speech;
@@ -67,7 +70,7 @@ using (var recognizer = new SpeechRecognizer(
 }
 ```
 
-The following example shows continuous speech recognition set up for a multilingual scenario. This example only uses `en-US` and `ja-JP` in the language config, but you can use up to **ten languages** for this design pattern. Each time speech is detected, the source language is identified and the audio is also converted to text output. This example uses `Latency` mode, which prioritizes response time.
+The following example shows continuous speech recognition set up for a multilingual scenario. This example uses only `en-US` and `ja-JP` in the language configuration, but you can use up to ten languages for this design pattern. Each time speech is detected, the source language is identified and the audio is converted to text output. This example uses `Latency` mode, which prioritizes response time.
 
 ```csharp
 using Microsoft.CognitiveServices.Speech;
@@ -154,17 +157,17 @@ using (var audioInput = AudioConfig.FromWavFileInput(@"path-to-your-audio-file.w
 ```
 
 > [!NOTE]
-> `Latency` and `Accuracy` modes, and multilingual continuous recognition, are currently only supported in C#, C++, and Python.
+> `Latency` and `Accuracy` modes, and multilingual continuous recognition, are currently supported only in C#, C++, and Python.
  
 ::: zone-end
 
 ::: zone pivot="programming-language-cpp"
 
-The following example runs at-start recognition, prioritizing `Latency`. This property can also be set to `Accuracy` depending on the priority for your use-case. `Latency` is the best option to use if you need a low-latency result (e.g. for a live streaming case), but don't know the language in the audio sample. 
+The following example runs at-start recognition, prioritizing `Latency`. You can also set this property to `Accuracy`, depending on the priority for your use case. `Latency` is your best option if you need a low-latency result (for example, for live streaming) but don't know which language is used in the audio sample.
 
-`Accuracy` should be used in scenarios where the audio quality may be poor, and more latency is acceptable. For example, a voicemail could have background noise, or some silence at the beginning, and allowing the engine more time will improve recognition results.
+You should use `Accuracy` in scenarios where the audio quality is poor and more latency is acceptable. For example, a voicemail message might have background noise or some silence at the beginning, and allowing the engine more time will improve recognition results.
 
-In either case, at-start recognition as shown below should **not be used** for scenarios where the language may be changing within the same audio sample. See below for continuous recognition for these types of scenarios.
+In either case, at-start recognition, as shown in the following code, should *not* be used for scenarios where one language changes to another within a single audio sample. (For *continuous recognition* for these types of scenarios, see the second C++ code example.)
 
 ```cpp
 using namespace std;
@@ -188,7 +191,7 @@ auto autoDetectSourceLanguageResult =
 auto detectedLanguage = autoDetectSourceLanguageResult->Language;
 ```
 
-The following example shows continuous speech recognition set up for a multilingual scenario. This example only uses `en-US` and `ja-JP` in the language config, but you can use up to **ten languages** for this design pattern. Each time speech is detected, the source language is identified and the audio is also converted to text output. This example uses `Latency` mode, which prioritizes response time.
+The following example shows continuous speech recognition set up for a multilingual scenario. This example uses only `en-US` and `ja-JP` in the language configuration, but you can use up to ten languages for this design pattern. Each time speech is detected, the source language is identified and the audio is converted to text output. This example uses `Latency` mode, which prioritizes response time.
 
 ```cpp
 using namespace std;
@@ -261,7 +264,7 @@ recognizer->StopContinuousRecognitionAsync().get();
 ```
 
 > [!NOTE]
-> `Latency` and `Accuracy` modes, and multilingual continuous recognition, are currently only supported in C#, C++, and Python.
+> `Latency` and `Accuracy` modes, and multilingual continuous recognition, are currently supported only in C#, C++, and Python.
 
 ::: zone-end
 
@@ -339,11 +342,11 @@ speechRecognizer.recognizeOnceAsync((result: SpeechSDK.SpeechRecognitionResult) 
 ::: zone-end
 
 
-## Use language detection with a custom Speech-to-Text model
+## Use language detection with a custom speech-to-text model
 
-In addition to language identification using Speech service base models, you can also specify a custom model for enhanced recognition. If a custom model isn't provided, the service will use the default language model.
+In addition to using language identification with Speech service base models, you can specify a custom model for enhanced recognition. If a custom model isn't provided, the service uses the default language model.
 
-The snippets below illustrate how to specify a custom model in your call to the Speech service. If the detected language is `en-US`, then the default model is used. If the detected language is `fr-FR`, then the endpoint for the custom model is used:
+The following code snippets illustrate how to specify a custom model in your call to the Speech service. If the detected language is `en-US`, the default model is used. If the detected language is `fr-FR`, the endpoint for the custom model is used, as shown here:
 
 ::: zone pivot="programming-language-csharp"
 
@@ -431,21 +434,21 @@ var autoDetectConfig = SpeechSDK.AutoDetectSourceLanguageConfig.fromSourceLangua
 ## Next steps
 
 ::: zone pivot="programming-language-csharp"
-* See the [sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/csharp/sharedcontent/console/speech_recognition_samples.cs#L741) on GitHub for language identification
+* See the [sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/csharp/sharedcontent/console/speech_recognition_samples.cs#L741) on GitHub for language identification.
 ::: zone-end
 
 ::: zone pivot="programming-language-cpp"
-* See the [sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/cpp/windows/console/samples/speech_recognition_samples.cpp#L507) on GitHub for language identification
+* See the [sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/cpp/windows/console/samples/speech_recognition_samples.cpp#L507) on GitHub for language identification.
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
-* See the [sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/java/jre/console/src/com/microsoft/cognitiveservices/speech/samples/console/SpeechRecognitionSamples.java#L521) on GitHub for language identification
+* See the [sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/java/jre/console/src/com/microsoft/cognitiveservices/speech/samples/console/SpeechRecognitionSamples.java#L521) on GitHub for language identification.
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
-* See the [sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/python/console/speech_sample.py#L458) on GitHub for language identification
+* See the [sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/python/console/speech_sample.py#L458) on GitHub for language identification.
 ::: zone-end
 
 ::: zone pivot="programming-language-objectivec"
-* See the [sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/objective-c/ios/speech-samples/speech-samples/ViewController.m#L525) on GitHub for language identification
+* See the [sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/objective-c/ios/speech-samples/speech-samples/ViewController.m#L525) on GitHub for language identification.
 ::: zone-end

@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/09/2021
+ms.date: 02/02/2022
 ms.author: eur
 ms.custom: ignite-fall-2021
 ---
@@ -21,17 +21,17 @@ When you're testing the accuracy of Microsoft speech recognition or training you
 
 Text and audio that you use to test and train a custom model need to include samples from a diverse set of speakers and scenarios that you want your model to recognize. Consider these factors when you're gathering data for custom model testing and training:
 
-* Your text and speech audio data needs to cover the kinds of verbal statements that your users will make when they're interacting with your model. For example, a model that raises and lowers the temperature needs training on statements that people might make to request such changes.
-* Your data needs to include all speech variances that you want your model to recognize. Many factors can vary speech, including accents, dialects, language-mixing, age, gender, voice pitch, stress level, and time of day.
-* You must include samples from different environments (indoor, outdoor, road noise) where your model will be used.
-* You must gather audio by using hardware devices that the production system will use. If your model needs to identify speech recorded on recording devices of varying quality, the audio data that you provide to train your model must also represent these diverse scenarios.
-* You can add more data to your model later, but take care to keep the dataset diverse and representative of your project needs.
-* Including data that's *not* within your custom model's recognition needs can harm recognition quality overall. Include only data that your model needs to transcribe.
+* Include text and audio data to cover the kinds of verbal statements that your users will make when they're interacting with your model. For example, a model that raises and lowers the temperature needs training on statements that people might make to request such changes.
+* Include all speech variances that you want your model to recognize. Many factors can vary speech, including accents, dialects, language-mixing, age, gender, voice pitch, stress level, and time of day.
+* Include samples from different environments, for example, indoor, outdoor, and road noise, where your model will be used.
+* Record audio with hardware devices that the production system will use. If your model needs to identify speech recorded on devices of varying quality, the audio data that you provide to train your model must also represent these diverse scenarios.
+* Keep the dataset diverse and representative of your project needs. You can add more data to your model later. 
+* Only include data that your model needs to transcribe. Including data that isn't within your custom model's recognition needs can harm recognition quality overall. 
 
 A model that's trained on a subset of scenarios can perform well in only those scenarios. Carefully choose data that represents the full scope of scenarios that you need your custom model to recognize.
 
 > [!TIP]
-> Start with small sets of sample data that match the language and acoustics that your model will encounter. For example, record a small but representative sample of audio on the same hardware and in the same acoustic environment that your model will find in production scenarios. Small datasets of representative data can expose problems before you invest in gathering larger datasets for training.
+> Start with small sets of sample data that match the language, acoustics, and hardware where your model will be used. Small datasets of representative data can expose problems before you invest in gathering larger datasets for training.
 >
 > To quickly get started, consider using sample data. For sample Custom Speech data, see <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/sampledata/customspeech" target="_target">this GitHub repository</a>.
 
@@ -272,25 +272,28 @@ The following table specifies the limits and other properties for the Markdown f
 
 ## Pronunciation data for training
 
-If there are uncommon terms without standard pronunciations that your users will encounter or use, you can provide a custom pronunciation file to improve recognition. For a list of languages that support custom pronunciation, see **Pronunciation** in the **Customizations** column in [the Speech-to-text table](language-support.md#speech-to-text).
-
-> [!IMPORTANT]
-> We don't recommend that you use custom pronunciation files to alter the pronunciation of common words.
+If there are uncommon terms without standard pronunciations that your users will encounter or use, you can provide a custom pronunciation file to improve recognition. Don't use custom pronunciation files to alter the pronunciation of common words. For a list of languages that support custom pronunciation, see **Pronunciation** in the **Customizations** column in [the Speech-to-text table](language-support.md#speech-to-text).
 
 > [!NOTE]
 > You can't combine this type of pronunciation file with structured-text training data. For structured-text data, use the phonetic pronunciation capability that's included in the structured-text Markdown format.
 
-Provide pronunciations in a single text file. This file includes examples of a spoken utterance and a custom pronunciation for each:
+The spoken form is the phonetic sequence spelled out. It can be composed of letters, words, syllables, or a combination of all three. This table includes some examples:
 
-| Recognized/displayed form | Spoken form |
+| Recognized displayed form | Spoken form |
 |--------------|--------------------------|
 | 3CPO | three c p o |
 | CNTK | c n t k |
 | IEEE | i triple e |
 
-The spoken form is the phonetic sequence spelled out. It can be composed of letters, words, syllables, or a combination of all three.
+You provide pronunciations in a single text file. Include the spoken utterance and a custom pronunciation for each. Each row in the file should begin with the recognized form, then a tab character, and then the space-delimited phonetic sequence. 
 
-Use the following table to ensure that your related data file for pronunciations is correctly formatted. Pronunciation files are small and should be only a few kilobytes in size.
+```tsv
+3CPO    three c p o
+CNTK    c n t k
+IEEE    i triple e
+```
+
+Refer to the following table to ensure that your related data file for pronunciations is correctly formatted. The size of pronunciation files should be limited to a few kilobytes.
 
 | Property | Value |
 |----------|-------|
@@ -331,4 +334,3 @@ Use <a href="http://sox.sourceforge.net" target="_blank" rel="noopener">SoX</a> 
 * [Inspect your data](how-to-custom-speech-inspect-data.md)
 * [Evaluate your data](how-to-custom-speech-evaluate-data.md)
 * [Train a custom model](how-to-custom-speech-train-model.md)
-* [Deploy a model](./how-to-custom-speech-train-model.md)

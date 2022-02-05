@@ -1,5 +1,5 @@
 ---
-title: Indexer access to Azure Storage using trusted service exception
+title: Connect as trusted service
 titleSuffix: Azure Cognitive Search
 description: Enable data access by an indexer in Azure Cognitive Search to data stored securely in Azure Storage.
 
@@ -7,11 +7,11 @@ manager: nitinme
 author: arv100kri
 ms.author: arjagann
 ms.service: cognitive-search
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/11/2021
 ---
 
-# Indexer access to Azure Storage using the trusted service exception (Azure Cognitive Search)
+# Make indexer connections to Azure Storage as a trusted service
 
 Indexers in an Azure Cognitive Search service that access data in Azure Storage accounts can make use of the [trusted service exception](../storage/common/storage-network-security.md#exceptions) capability to securely access data. This mechanism offers customers who are unable to grant [indexer access using IP firewall rules](search-indexer-howto-access-ip-restricted.md) a simple, secure, and free alternative for accessing data in storage accounts.
 
