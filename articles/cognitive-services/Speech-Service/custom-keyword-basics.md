@@ -17,8 +17,6 @@ zone_pivot_groups: keyword-quickstart
 
 # Get started with Custom Keyword
 
-[!INCLUDE [Header](includes/quickstarts/common/header-keyword-quickstart.md)]
-
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [C# include](includes/quickstarts/keyword-recognition/csharp.md)]
 ::: zone-end
