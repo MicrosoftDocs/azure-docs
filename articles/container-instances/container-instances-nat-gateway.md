@@ -55,7 +55,7 @@ az container create \
 > [!TIP]
 > Adjust the value of `--subnet address-prefix` for the IP address space you need in your subnet. The smallest supported subnet is /29, which provides eight IP addresses. Some IP addresses are reserved for use by Azure.
 
-## Deploy NAT Gateway in network
+## Create a public IP address
 
 In the following sections, use the Azure CLI to deploy an Azure NAT gateway in the virtual network. For background, see [Tutorial: Create a NAT Gateway using Azure CLI](../virtual-network/nat-gateway/tutorial-create-nat-gateway-cli.md).
 
@@ -77,6 +77,8 @@ NG_PUBLIC_IP="$(az network public-ip show \
   --resource-group $RESOURCE_GROUP_NAME \
   --query ipAddress --output tsv)"
 ```
+
+## CDeploy a NAT Gateway into a virtual network
 
 Use the following [az network nat gateway create][az-network-nat-gateway-create] to create a NAT Gateway that uses the public IP you created in the previous step.
 
