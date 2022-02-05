@@ -30,8 +30,8 @@ To enable your function app to run from a package, add a `WEBSITE_RUN_FROM_PACKA
 
 | Value  | Description  |
 |---------|---------|
-| **`1`**  | Indicates that the function app runs from a package file deployed in the `d:\home\data\SitePackages` folder of your function app.  |
-|**`<URL>`**  | Sets a URL that is the location of the specific package file you want to run. Required for functions apps running on Linux in a Consumption plan.  |
+| **`1`**  | Indicates that the function app runs from a local package file deployed in the `d:\home\data\SitePackages` folder of your function app.  |
+|**`<URL>`**  | Sets a URL that is the remote location of the specific package file you want to run. Required for functions apps running on Linux in a Consumption plan.  |
 
 The following table indicates the recommended `WEBSITE_RUN_FROM_PACKAGE` options for deployment to a specific operating system and hosting plan:
 
@@ -51,16 +51,19 @@ The following table indicates the recommended `WEBSITE_RUN_FROM_PACKAGE` options
 + You can't use local cache when running from a deployment package. 
 + Don't enable the `SCM_DO_BUILD_DURING_DEPLOYMENT=true` deployment customization option. Package file contents must be able to run when deployed, and this requested build step is ignored during deployment.
 
-> [!CAUTION]
-> When running a function app on **Linux with Consumption plan** (a.k.a. Dynamic plan), the app setting `WEBSITE_RUN_FROM_PACKAGE` to `1` is NOT supported. When deploying your function app to Linux with Consumption plan, you should set `WEBSITE_RUN_FROM_PACKAGE` to `<URL>` location of a specific package file you want to run.
-
 ### Adding the WEBSITE_RUN_FROM_PACKAGE setting
 
 [!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
 
 ## Using WEBSITE_RUN_FROM_PACKAGE = 1
 
-This is the recommended option for deployment on Windows and Linux, except for Linux with Consumption plan (a.k.a. Dynamic plan). If not [deploying with zip deploy](#integration-with-zip-deployment), this option requires the folder to also have a file named `packagename.txt`. This file contains only the name of the package file in folder, without any whitespace. 
+This section provides information about how to run your function app from a local package file. 
+
+### Considerations for deploying from an on-site package
+
++ Using an on-site package is the recommended option for running from the deployment package, except on Linux hosted in a Consumption plan. 
++ [Zip deployment](#integration-with-zip-deployment) is the recommended way to upload a deployment package to your site. 
++ When not using zip deployment, make sure the `d:\home\data\SitePackages` folder has a file named `packagename.txt`. This file contains only the name, without any whitespace, of the package file in this folder that's currently running. 
 
 ### Integration with zip deployment
 
@@ -73,7 +76,7 @@ With the `WEBSITE_RUN_FROM_PACKAGE` app setting value of `1`, the zip deployment
 
 ## Using WEBSITE_RUN_FROM_PACKAGE = URL
 
-This section provides information about how to run your function app from a package deployed to a URL endpoint. This is the only supported option for running from a package on Linux in a Consumption plan.
+This section provides information about how to run your function app from a package deployed to a URL endpoint. This option is the only one supported for running from a package on Linux hosted in a Consumption plan.
 
 ### Considerations for deploying from a URL
 
@@ -82,7 +85,7 @@ This section provides information about how to run your function app from a pack
 + The Functions runtime must have permissions to access the package URL.
 + You shouldn't deploy your package to Azure Blob Storage as a public blob. Instead, use a private container with a [Shared Access Signature (SAS)](../vs-azure-tools-storage-manage-with-storage-explorer.md#generate-a-sas-in-storage-explorer) or [use a managed identity](#fetch-a-package-from-azure-blob-storage-using-a-managed-identity) to enable the Functions runtime to access the package. 
 + When running on a Premium plan, make sure to [eliminate cold starts](functions-premium-plan.md#eliminate-cold-starts).
-+ When running on a Dedicated plan, make sure you have [Always On](dedicated-plan.md#always-on) enabled.
++ When running on a Dedicated plan, make sure you've enabled [Always On](dedicated-plan.md#always-on).
 + You can use the [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) to upload package files to blob containers in your storage account.
 
 ### Manually uploading a package to Blob Storage
@@ -101,7 +104,7 @@ To deploy a zipped package when using the URL option, you must create a .zip com
 
 1. Select the container you created, select **Upload**, browse to the location of the .zip file you created with your project, and select **Upload**.
 
-1. After the upload completes, choose your uploaded blob file, and copy the URL. You may need to generate a SAS URL if you are not [using an identity](#fetch-a-package-from-azure-blob-storage-using-a-managed-identity)
+1. After the upload completes, choose your uploaded blob file, and copy the URL. You may need to generate a SAS URL if you aren't [using an identity](#fetch-a-package-from-azure-blob-storage-using-a-managed-identity)
 
 1. Search for your function app or browse for it in the **Function App** page. 
 
