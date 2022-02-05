@@ -385,9 +385,9 @@ You can use your favorite web debugging tool to test the template you uploaded t
 
 1. Before you run your test, make sure to close all browser windows, and clear your browser cache in Fiddler.
 
-1. Open a new browser window and go to the [Azure portal](https://portal.azure.com).
+1. Open a new browser window, and sign in to the [Azure portal](https://portal.azure.com).
 
-1. Go to the Azure resource 
+1. Open the Azure resource where you expect to find your automation task.
 
 <a name="create-pull-request"></a>
 
