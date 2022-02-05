@@ -6,7 +6,7 @@ manager: karenhoran
 ms.service: active-directory
 ms.subservice: verifiable-credentials
 ms.topic: conceptual
-ms.date: 04/01/2021
+ms.date: 02/05/2022
 ms.author: barclayn
 # Customer intent: As a developer I am looking for information on how to enable my users to control their own information 
 ---
@@ -75,7 +75,56 @@ Yes! The following repositories are the open-sourced components of our services.
 
 An Azure AD P2 license is required to use the preview of Verifiable Credentials. This is a temporary requirement, as we expect pricing for this service to be billed based on usage. 
 
+## European customer data
 
+Starting February 15th 2022, the Azure Active Directory Verifiable Credentials service can store and handle data operations for European instances of Azure Active Directory in the European region. If you configured your Azure AD Verifiable Credentials service before March 31st, 2022, you may be required to take action.
+
+Please review the following information to avoid potential service interruptions.
+
+### What is changing in the Azure AD Verifiable Credentials Service?
+
+Since the Azure AD Verifiable Credentials service's Public Preview rollout, the service has been available in our Azure North America region. Now, the service is also available in our Azure European region. Customers with Azure AD tenants setup in Europe will have Verifiable Credentials data located and processed in our Azure Europe region.
+
+Customers with Azure AD tenants setup in Europe who start using the Azure AD Verifiable Credentials service after February 15th, 2022, will automatically have their data processed in Europe and do not need to take any further actions.  
+
+Customers with Azure AD tenants setup in Europe that started using the Azure AD Verifiable Credentials service before February 15th, 2022, are encouraged to re-onboard the service on their tenants (see below to understand how to re-onboard).  
+
+>[!IMPORTANT]
+> On March 31st, 2022, all Azure Active Directory Verifiable credentials deployments in subscriptions with Azure Active Directory instances in the European region will have their verifiable credential deployments opt-out and opt back in. All service configuration will get reset. You should schedule and manage your [opt-out](how-to-opt-out.md) and service reconfiguration to avoid unscheduled service disruptions.
+
+
+### How can I check my Azure AD Tenant's region?
+
+On March 31st, 2022, we will use the following information to determine the region where should your Azure AD tenant have Verifiable Credentials data processed. 
+
+1. In the [Azure portal](https://portal.azure.com), go to Azure Active Directory for the subscription you use for your Azure Active Directory Verifiable credentials deployment.
+1. Under Manage, select Properties
+    1. :::image type="content" source="media/verifiable-credentials-faq/region.png" alt-text="settings delete and opt out":::
+1. See the value for Country or Region. If the value is a country or a region in Europe, your Azure AD Verifiable Credentials service will be setup in Europe.
+
+### My tenant is in Europe, and I've been using the Azure AD Verifiable Credentials service before March 31st, 2022. What should I do?
+
+Customers with Azure AD tenants setup in Europe that started using the Azure AD Verifiable Credentials service before March 31st, 2022, are encouraged to schedule and manage the re-onboard process for each of  their tenants (see below to understand how to re-onboard).  
+
+### How to re-onboard your Azure AD Tenant?
+
+Re-onboarding requires you to opt-out and opt back into the Azure Active Directory Verifiable Credentials service.
+
+1. Follow the [opt-out](how-to-opt-out.md) instructions.
+1. Go over the Azure Active Directory Verifiable credentials [deployment steps](verifiable-credentials-configure-tenant.md).
+    1. Create a new Azure Key vault in a European region.
+1. Finish [setting up](verifiable-credentials-configure-tenant.md#set-up-verifiable-credentials) your verifiable credentials service. You need to recreate your credentials. If your deployment issues credentials create a new storage account in the European region. You can re-use your configuration and rules files.
+
+### Are there any changes to the way that we use the Request API as a result of this move?
+
+Applications that leverage the Azure Active Directory Verifiable Credentials service must use the Request API endpoint that corresponds to their Azure AD tenant's region.  
+
+| Tenant region | Request API endpoint POST |
+|------------|-------------------|
+| Europe | https://beta.eu.did.msidentity.com/v1.0/{tenantID}/verifiablecredentials/request |
+| Non-EU | https://beta.did.msidentity.com/v1.0/{tenantID}/verifiablecredentials/request  |
+
+To confirm which endpoint you should use, we recommend checking your Azure AD tenant's region as described above. If the Azure AD tenant is in the EU, you should use the Europe endpoint.  
 ## Next steps
 
 - [How to customize your Azure Active Directory Verifiable Credentials](credential-design.md)
