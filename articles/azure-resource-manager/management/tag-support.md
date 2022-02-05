@@ -1013,6 +1013,8 @@ Jump to a resource provider namespace:
 > | Resource type | Supports tags | Tag in cost report |
 > | ------------- | ----------- | ----------- |
 > | availabilitySets | Yes | Yes |
+> | capacityReservationGroups | Yes | Yes |
+> | capacityReservationGroups / capacityReservations | Yes | Yes |
 > | cloudServices | Yes | Yes |
 > | cloudServices / networkInterfaces | No | No |
 > | cloudServices / publicIPAddresses | No | No |
@@ -1033,6 +1035,7 @@ Jump to a resource provider namespace:
 > | proximityPlacementGroups | Yes | Yes |
 > | restorePointCollections | Yes | Yes |
 > | restorePointCollections / restorePoints | No | No |
+> | restorePointCollections / restorePoints / diskRestorePoints | No | No |
 > | sharedVMExtensions | Yes | Yes |
 > | sharedVMExtensions / versions | No | No |
 > | sharedVMImages | Yes | Yes |
@@ -1048,6 +1051,7 @@ Jump to a resource provider namespace:
 > | virtualMachineScaleSets / networkInterfaces | No | No |
 > | virtualMachineScaleSets / publicIPAddresses | Yes | No |
 > | virtualMachineScaleSets / virtualMachines | No | No |
+> | virtualMachineScaleSets / virtualMachines / extensions | No | No |
 > | virtualMachineScaleSets / virtualMachines / networkInterfaces | No | No |
 
 > [!NOTE]
@@ -2289,6 +2293,7 @@ Jump to a resource provider namespace:
 > | bastionHosts | Yes | No |
 > | bgpServiceCommunities | No | No |
 > | connections | Yes | Yes |
+> | customIpPrefixes | Yes | Yes |
 > | ddosCustomPolicies | Yes | Yes |
 > | ddosProtectionPlans | Yes | Yes |
 > | dnsOperationStatuses | No | No |
@@ -2305,6 +2310,7 @@ Jump to a resource provider namespace:
 > | dnszones / SOA | No | No |
 > | dnszones / SRV | No | No |
 > | dnszones / TXT | No | No |
+> | dscpConfigurations | Yes | Yes |
 > | expressRouteCircuits | Yes | Yes |
 > | expressRouteCrossConnections | Yes | Yes |
 > | expressRouteGateways | Yes | Yes |
@@ -2316,14 +2322,17 @@ Jump to a resource provider namespace:
 > | frontdoorWebApplicationFirewallPolicies | Yes, but limited (see [note below](#network-limitations)) | Yes |
 > | getDnsResourceReference | No | No |
 > | internalNotify | No | No |
+> | ipAllocations | Yes | Yes |
 > | ipGroups | Yes, see [note below](#network-limitations) | Yes |
 > | loadBalancers | Yes | Yes |
 > | localNetworkGateways | Yes | Yes |
 > | natGateways | Yes | Yes |
 > | networkIntentPolicies | Yes | Yes |
 > | networkInterfaces | Yes | Yes |
+> | networkManagers | Yes | Yes |
 > | networkProfiles | Yes | Yes |
 > | networkSecurityGroups | Yes | Yes |
+> | networkVirtualAppliances | Yes | Yes |
 > | networkWatchers | Yes | Yes |
 > | networkWatchers / connectionMonitors | Yes | No |
 > | networkWatchers / flowLogs | Yes | No |
@@ -2348,6 +2357,7 @@ Jump to a resource provider namespace:
 > | publicIPPrefixes | Yes | Yes |
 > | routeFilters | Yes | Yes |
 > | routeTables | Yes | Yes |
+> | securityPartnerProviders | Yes | Yes |
 > | serviceEndpointPolicies | Yes | Yes |
 > | trafficManagerGeographicHierarchies | No | No |
 > | trafficmanagerprofiles | Yes, see [note below](#network-limitations) | Yes |
@@ -2360,6 +2370,7 @@ Jump to a resource provider namespace:
 > | virtualNetworkTaps | Yes | Yes |
 > | virtualWans | Yes | No |
 > | vpnGateways | Yes | Yes |
+> | vpnServerConfigurations | Yes | Yes |
 > | vpnSites | Yes | Yes |
 > | webApplicationFirewallPolicies | Yes | Yes |
 
@@ -2924,10 +2935,13 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Supports tags | Tag in cost report |
 > | ------------- | ----------- | ----------- |
+> | instancePools | Yes | Yes |
 > | longtermRetentionManagedInstance / longtermRetentionDatabase / longtermRetentionBackup | No | No |
 > | longtermRetentionServer / longtermRetentionDatabase / longtermRetentionBackup | No | No |
 > | managedInstances | Yes | Yes |
+> | managedInstances / administrators | No | No |
 > | managedInstances / databases | No | No |
+> | managedInstances / databases / backupLongTermRetentionPolicies | No | No |
 > | managedInstances / databases / backupShortTermRetentionPolicies | No | No |
 > | managedInstances / databases / schemas / tables / columns / sensitivityLabels | No | No |
 > | managedInstances / databases / vulnerabilityAssessments | No | No |
@@ -2935,17 +2949,38 @@ Jump to a resource provider namespace:
 > | managedInstances / encryptionProtector | No | No |
 > | managedInstances / keys | No | No |
 > | managedInstances / restorableDroppedDatabases / backupShortTermRetentionPolicies | No | No |
+> | managedInstances / sqlAgent | No | No |
 > | managedInstances / vulnerabilityAssessments | No | No |
 > | servers | Yes | Yes |
 > | servers / administrators | No | No |
+> | servers / advisors | No | No |
+> | servers / auditingSettings | No | No |
 > | servers / communicationLinks | No | No |
 > | servers / databases | Yes (see [note below](#sqlnote)) | Yes |
+> | servers / databases / advisors | No | No |
+> | servers / databases / auditingSettings | No | No |
+> | servers / databases / backupLongTermRetentionPolicies | No | No |
+> | servers / databases / backupShortTermRetentionPolicies | No | No |
+> | servers / databases / dataMaskingPolicies | No | No |
+> | servers / databases / extensions | No | No |
+> | servers / databases / securityAlertPolicies | No | No |
+> | servers / databases / syncGroups | No | No |
+> | servers / databases / syncGroups / syncMembers | No | No |
+> | servers / databases / transparentDataEncryption | No | No |
+> | servers / databases / workloadGroups | No | No |
+> | servers / elasticpools | Yes | Yes |
 > | servers / encryptionProtector | No | No |
+> | servers / failoverGroups | No | No |
 > | servers / firewallRules | No | No |
+> | servers / jobAgents | Yes | Yes |
+> | servers / jobAgents / jobs | No | No |
+> | servers / jobAgents / jobs / steps | No | No |
+> | servers / jobAgents / jobs / executions | No | No |
 > | servers / keys | No | No |
 > | servers / restorableDroppedDatabases | No | No |
 > | servers / serviceobjectives | No | No |
 > | servers / tdeCertificates | No | No |
+> | servers / virtualNetworkRules | No | No |
 > | virtualClusters | No | No |
 
 <a id="sqlnote"></a>
