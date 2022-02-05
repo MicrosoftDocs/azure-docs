@@ -1,9 +1,9 @@
 ---
-title: Group Chat Hero Sample
+title: Chat Hero Sample
 titleSuffix: An Azure Communication Services sample overview
 description: Overview of chat hero sample using Azure Communication Services to enable developers to learn more about the inner workings of the sample and learn how to modify it.
 author: ddematheu2
-manager: nimag
+manager: chpalm
 services: azure-communication-services
 
 ms.author: dademath
@@ -13,7 +13,7 @@ ms.service: azure-communication-services
 ms.subservice: chat
 ---
 
-# Get started with the group chat hero sample
+# Get started with the chat hero sample
 
 > [!IMPORTANT]
 > [This sample is available **on GitHub**.](https://github.com/Azure-Samples/communication-services-web-chat-hero)
