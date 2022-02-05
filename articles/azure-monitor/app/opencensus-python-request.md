@@ -145,11 +145,12 @@ OpenCensus doesn't have an extension for FastAPI. To write your own FastAPI midd
 
     HTTP_URL = COMMON_ATTRIBUTES['HTTP_URL']
     HTTP_STATUS_CODE = COMMON_ATTRIBUTES['HTTP_STATUS_CODE']
+    
+    tracer = Tracer(exporter=AzureExporter(connection_string=f'InstrumentationKey={APPINSIGHTS_INSTRUMENTATIONKEY}'),sampler=ProbabilitySampler(1.0))
 
     # fastapi middleware for opencensus
     @app.middleware("http")
-    async def middlewareOpencensus(request: Request, call_next):
-        tracer = Tracer(exporter=AzureExporter(connection_string=f'InstrumentationKey={APPINSIGHTS_INSTRUMENTATIONKEY}'),sampler=ProbabilitySampler(1.0))
+    async def middlewareOpencensus(request: Request, call_next):        
         with tracer.span("main") as span:
             span.span_kind = SpanKind.SERVER
 
