@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/02/2022
+ms.date: 02/04/2022
 ms.author: v-ydequadros
 ---
 
@@ -117,7 +117,6 @@ Rule-based anomalies identify recent activity in CloudKnox Permissions Managemen
 
 ## Next steps
 
-- For information on how to create and view an alert, see [Create an alert](cloudknox-howto-create-alert-trigger.md). 
-- For information on alerts and alert triggers, see [View alerts and alert triggers](cloudknox-howto-view-alert-trigger.md). 
-- For information on finding outliers in identity's behavior, see [Find outliers in an identity's behavior](cloudknox-product-statistical-anomalies.md)
+- For information on activity alerts and alert triggers, see [Create and view activity alerts and alert triggers](cloudknox-howto-create-alert-trigger.md). 
+- For information on finding outliers in identity's behavior, see [Create and view statistical anomalies and anomaly triggers](cloudknox-product-statistical-anomalies.md)
 - For information on permission analytics triggers, see [Create and view permission analytics triggers](cloudknox-product-permission-analytics.md)

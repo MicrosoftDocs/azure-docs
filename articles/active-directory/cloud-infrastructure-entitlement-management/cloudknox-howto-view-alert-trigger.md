@@ -8,12 +8,13 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/02/2022
+ms.date: 02/04/2022
 ms.author: v-ydequadros
 ---
 
 # View alerts and alert triggers
 
+<!--- Combined cloudknox-howto-view-alert-trigger.md and cloudknox-howto-create-alert-trigger.mdper tech review suggestion from Sriharsha Addepalli --->
 > [!IMPORTANT]
 > CloudKnox Permissions Management (CloudKnox) is currently in PREVIEW.
 > Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.

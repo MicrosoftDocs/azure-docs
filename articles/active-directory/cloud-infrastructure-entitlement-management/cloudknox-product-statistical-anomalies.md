@@ -1,6 +1,6 @@
 ---
-title: Find outliers in an identity's behavior in CloudKnox Permissions Management
-description: How to find outliers in an identity's behavior in the Statistical Anomaly tab in CloudKnox Permissions Management.
+title: Create and view statistical anomalies and anomaly triggers in CloudKnox Permissions Management
+description: How to create and view statistical anomalies and anomaly triggers in the Statistical Anomaly tab in CloudKnox Permissions Management.
 services: active-directory
 author: Yvonne-deQ
 manager: karenh444
@@ -8,11 +8,11 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/22/2022
+ms.date: 02/04/2022
 ms.author: v-ydequadros
 ---
 
-# Find outliers in an identity's behavior
+# Create and view statistical anomalies and anomaly triggers
 
 > [!IMPORTANT]
 > CloudKnox Permissions Management (CloudKnox) is currently in PREVIEW.
@@ -112,7 +112,6 @@ Statistical anomalies can detect outliers in an identity's behavior if recent ac
 
 ## Next steps
 
-- For information on how to create and view an alert, see [Create an alert](cloudknox-howto-create-alert-trigger.md). 
-- For information on alerts and alert triggers, see [View alerts and alert triggers](cloudknox-howto-view-alert-trigger.md). 
+- For information on activity alerts and alert triggers, see [Create and view activity alerts and alert triggers](cloudknox-howto-create-alert-trigger.md). 
 - For information on rule-based anomalies and anomaly triggers, see [Create and view rule-based anomalies and anomaly triggers](cloudknox-product-rule-based-anomalies.md)
 - For information on permission analytics triggers, see [Create and view permission analytics triggers](cloudknox-product-permission-analytics.md)

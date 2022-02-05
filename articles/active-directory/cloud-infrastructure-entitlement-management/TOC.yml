@@ -151,10 +151,10 @@
       items: 
       - name: View information about activity triggers
         href: cloudknox-ui-triggers.md
-      - name: Create and view an alert
+      - name: Create and view activity alerts and alert triggers
         href: cloudknox-howto-create-alert-trigger.md
-      - name: View alerts and alert triggers
-        href: cloudknox-howto-view-alert-trigger.md
+      # - name: View alerts and alert triggers
+        # href: cloudknox-howto-view-alert-trigger.md
       - name: Create and view rule-based anomalies and anomaly triggers
         href: cloudknox-product-rule-based-anomalies.md
       - name: Create and view statistical anomalies and anomaly triggers
