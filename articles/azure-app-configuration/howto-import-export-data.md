@@ -5,7 +5,7 @@ services: azure-app-configuration
 author: AlexandraKemperMS
 ms.service: azure-app-configuration
 ms.topic: conceptual
-ms.date: 02/05/2022
+ms.date: 02/04/2022
 ms.author: alkemper
 ---
 
