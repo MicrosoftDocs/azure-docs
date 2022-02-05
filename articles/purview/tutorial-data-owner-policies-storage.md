@@ -1,12 +1,12 @@
 ---
 title: Access provisioning by data owner to Azure Storage datasets
 description: Step-by-step guide showing how data owners can create access policies to datasets in Azure Storage
-author: ePpnqeqR
+author: inward-eye
 ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: tutorial
-ms.date: 1/28/2022
+ms.date: 2/2/2022
 ms.custom:
 ---
 
@@ -55,15 +55,16 @@ Execute the steps in the [data-owner policy authoring tutorial](how-to-data-owne
 ![Image shows a sample data owner policy giving access to an Azure Storage account.](./media/tutorial-data-owner-policies-storage/data-owner-policy-example-storage.png)
 
 
-## Additional information
-
 >[!Important]
 > - Publish is a background operation. It can take up to **2 hours** for the changes to be reflected in Storage account(s).
 
+
+## Additional information
 - Policy statements set below container level on a Storage account are supported. If no access has been provided at Storage account level or container level, then the App that will execute the access will need to provide a fully qualified name (i.e., a direct absolute path) to the data object. The following documents show examples of how to do that:
   - [*abfs* for ADLS Gen2](../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md#access-files-from-the-cluster)
   - [*az storage blob download* for Blob Storage](../storage/blobs/storage-quickstart-blobs-cli.md#download-a-blob)
- - Creating a policy at Storage account level will enable the Subjects to access system containers e.g., *$logs*. If this is undesired, first scan the data source and then create the policy at container or sub-container level.
+- Creating a policy at Storage account level will enable the Subjects to access system containers e.g., *$logs*.  If this is undesired, first scan the data source(s) and then create finer-grained policies for each (i.e., at container or sub-container level).
+
 
 ### Limits
 - The limit for Azure Purview policies that can be enforced by Storage accounts is 100MB per subscription, which roughly equates to 5000 policies.

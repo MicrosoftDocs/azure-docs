@@ -1,12 +1,12 @@
 ---
 title: Resource group and subscription access provisioning by data owner
 description: Step-by-step guide showing how a data owner can create access policies to resource groups or subscriptions.
-author: ePpnqeqR
+author: inward-eye
 ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: tutorial
-ms.date: 1/28/2022
+ms.date: 2/3/2022
 ms.custom:
 ---
 
@@ -51,10 +51,11 @@ Execute the steps in the [data-owner policy authoring tutorial](how-to-data-owne
 
 ![Image shows a sample data owner policy giving access to a resource group.](./media/tutorial-data-owner-policies-resource-group/data-owner-policy-example-resource-group.png)
 
-## Additional information
-
 >[!Important]
-> - Publish is a background operation. It can take up to **2 hours** for the changes to be reflected in the data source.
+> - Publish is a background operation. It can take up to **2 hours** for the changes to be reflected in Storage account(s).
+
+## Additional information
+- Creating a policy at subscription or resource group level will enable the Subjects to access Azure Storage system containers e.g., *$logs*. If this is undesired, first scan the data source and then create finer-grained policies for each (i.e., at container or sub-container level).
 
 ### Limits
 The limit for Azure Purview policies that can be enforced by Storage accounts is 100MB per subscription, which roughly equates to 5000 policies.
@@ -62,6 +63,6 @@ The limit for Azure Purview policies that can be enforced by Storage accounts is
 ## Next steps
 Check blog, demo and related tutorials
 
-* [What's New in Azure Purview at Microsoft Ignite 2021](https://techcommunity.microsoft.com/t5/azure-purview/what-s-new-in-azure-purview-at-microsoft-ignite-2021/ba-p/2915954)
+* [Blog: resource group-level governance can significantly reduce effort](https://techcommunity.microsoft.com/t5/azure-purview-blog/data-policy-features-resource-group-level-governance-can/ba-p/3096314)
 * [Demo of data owner access policies for Azure Storage](https://www.youtube.com/watch?v=CFE8ltT19Ss)
-* [Enable Azure Purview data owner policies on an Azure Storage account](./tutorial-data-owner-policies-storage.md)
+* [Fine-grain data owner policies on an Azure Storage account](./tutorial-data-owner-policies-storage.md)
