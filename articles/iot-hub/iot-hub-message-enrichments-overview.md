@@ -83,6 +83,8 @@ To try out message enrichments, see the [message enrichments tutorial](tutorial-
 
 * Message enrichments don't apply to digital twin change events.
 
+* Modules do not inherit twin tags from their corresponding devices. Enrichments for messages originating from device modules (for example from IoT Edge modules) must use the twin tags that are set on the module twin.
+
 ## Pricing
 
 Message enrichments are available for no additional charge. Currently, you are charged when you send a message to an IoT Hub. You are only charged once for that message, even if the message goes to multiple endpoints.

@@ -177,7 +177,6 @@ If you use the Microsoft Graph API, you can use [Graph Explorer](/graph/graph-ex
 
 Here are some of the known issues with custom security attributes:
 
-- You can only add the predefined values after you add the custom security attribute by using the **Edit attribute** page.
 - Users with attribute set-level role assignments can see other attribute sets and custom security attribute definitions.
 - Global Administrators can read audit logs for custom security attribute definitions and assignments.
 - If you have an Azure AD Premium P2 license, you can't add eligible role assignments at attribute set scope.
