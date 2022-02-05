@@ -102,10 +102,16 @@ Check to see that the guest users you added exist in the directory either in the
 
 ### View guest users with PowerShell
 
+Sign in using the `Connect-MgGraph` command to sign in with the required scopes. This requires the [Microsoft.Graph.Users PowerShell Module](https://docs.microsoft.com/en-us/powershell/module/microsoft.graph.users/?view=graph-powershell-beta). You'll need to sign in with an admin account to consent to the required scopes.
+
+```powershell
+Connect-MgGraph -Scopes "User.Read.All"
+```
+
 Run the following command:
 
 ```powershell
- Get-AzureADUser -Filter "UserType eq 'Guest'"
+ Get-MgUser -Filter "UserType eq 'Guest'"
 ```
 
 You should see the users that you invited listed, with a user principal name (UPN) in the format *emailaddress*#EXT#\@*domain*. For example, *lstokes_fabrikam.com#EXT#\@contoso.onmicrosoft.com*, where contoso.onmicrosoft.com is the organization from which you sent the invitations.
@@ -117,10 +123,10 @@ When no longer needed, you can delete the test user accounts in the directory in
 Or you can run the following PowerShell command to delete a user account:
 
 ```powershell
- Remove-AzureADUser -ObjectId "<UPN>"
+ Remove-MgUser -UserId "<UPN>"
 ```
 
-For example: `Remove-AzureADUser -ObjectId "lstokes_fabrikam.com#EXT#@contoso.onmicrosoft.com"`
+For example: `Remove-MgUser -UserId "lstokes_fabrikam.com#EXT#@contoso.onmicrosoft.com"`
 
 ## Next steps
 
