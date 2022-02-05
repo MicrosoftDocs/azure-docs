@@ -1,16 +1,16 @@
 ---
-title: CloudKnox Permissions Management - Set personal and organization information
-description: How to set personal and organization information in the Account settings dashboard in CloudKnox Permissions Management.
+title: View personal and organization information in CloudKnox Permissions Management
+description: How to view personal and organization information in the Account settings dashboard in CloudKnox Permissions Management.
 services: active-directory
 manager: karenh444
 ms.service: active-directory
 ms.topic: overview
 author: Yvonne-deQ
-ms.date: 02/02/2022
+ms.date: 02/04/2022
 ms.author: v-ydequadros
 ---
 
-# Set personal and organization information
+# View personal and organization information
 
 > [!IMPORTANT]
 > CloudKnox Permissions Management (CloudKnox) is currently in PREVIEW.
@@ -18,7 +18,7 @@ ms.author: v-ydequadros
 
 The **Account settings** dashboard in CloudKnox Permissions Management (CloudKnox) allows you to set personal information, passwords, and account preferences.
 
-## Set personal information
+## View personal information
 
 1. In the CloudKnox home page, select the down arrow to the right of the **User** (your initials) menu, and then select **Account settings**.
 1. On the **Account settings** dashboard, under **Personal information**, select **Edit**.
@@ -27,7 +27,7 @@ The **Account settings** dashboard in CloudKnox Permissions Management (CloudKno
 
      The **Email** field can't be modified because the account is linked to the email address that was used to register on CloudKnox.
 
-## Set current organization information
+## View current organization information
 
 1. In the CloudKnox home page, select the down arrow to the right of the **User** (your initials) menu, and then select **Account settings**.
 1. On the **Account settings** dashboard, under **Current organization information**, select **Edit**.
@@ -42,4 +42,6 @@ The **Account settings** dashboard in CloudKnox Permissions Management (CloudKno
 
 ## Next steps
 
-- For information about how to manage user information, see [Manage users with the User management dashboard](cloudknox-ui-user-management.md).
+- For information about how to manage user information, see [Manage users and groups with the User management dashboard](cloudknox-ui-user-management.md).
+- For information about how to view information about active and completed tasks, see [View information about active and completed tasks](cloudknox-ui-tasks.md).
+- For information about how to select group-based permissions settings, see [Select group-based permissions settings](cloudknox-howto-create-group-based-permissions.md).
