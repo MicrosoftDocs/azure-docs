@@ -1,24 +1,22 @@
 ---
 title: Set resource dependencies in Bicep
 description: Describes how to specify the order resources are deployed.
-author: mumian
-ms.author: jgao
 ms.topic: conceptual
-ms.date: 02/03/2022
+ms.date: 02/04/2022
 ---
 
 # Resource dependencies in Bicep
 
-When deploying resources, you may need to make sure some resources exist before other resources. For example, you need a logical SQL server before deploying a database. You establish this relationship by marking one resource as dependent on the other resource. Order of resource deployment can be influenced in two ways: [implicit dependency](#implicit-dependency) and [explicit dependency](#explicit-dependency)
+When deploying resources, you may need to make sure some resources are deployed before other resources. For example, you need a logical SQL server before deploying a database. You establish this relationship by marking one resource as dependent on the other resource. The order of resource deployment is determined in two ways: [implicit dependency](#implicit-dependency) and [explicit dependency](#explicit-dependency)
 
 Azure Resource Manager evaluates the dependencies between resources, and deploys them in their dependent order. When resources aren't dependent on each other, Resource Manager deploys them in parallel. You only need to define dependencies for resources that are deployed in the same Bicep file.
 
 ## Implicit dependency
 
-An implicit dependency is created when one resource declaration references another resource in the same deployment. For example, *dnsZone* is referenced by the second resource definition in the following example:
+An implicit dependency is created when one resource declaration references another resource in the same deployment. In the following example, `otherResource` gets a property from  `exampleDnsZone`. The resource named `otherResource` is implicitly dependent on `exampleDnsZone`.
 
 ```bicep
-resource dnsZone 'Microsoft.Network/dnszones@2018-05-01' = {
+resource exampleDnsZone 'Microsoft.Network/dnszones@2018-05-01' = {
   name: 'myZone'
   location: 'global'
 }
@@ -27,7 +25,7 @@ resource otherResource 'Microsoft.Example/examples@2020-06-01' = {
   name: 'exampleResource'
   properties: {
     // get read-only DNS zone property
-    nameServers: dnsZone.properties.nameServers
+    nameServers: exampleDnsZone.properties.nameServers
   }
 }
 ```
@@ -39,7 +37,7 @@ resource myParent 'My.Rp/parentType@2020-01-01' = {
   name: 'myParent'
   location: 'West US'
 
-  // depends on 'myParent' implicitly
+  // implicit dependency on 'myParent'
   resource myChild 'childType' = {
     name: 'myChild'
   }
@@ -77,10 +75,10 @@ Even though explicit dependencies are sometimes required, the need for them is r
 
 ## Visualize dependencies
 
-Visual Studio Code provides a tool for visualizing the dependencies. Open a Bicep file in Visual Studio Code, and then select the visualizer button on the upper left corner.  The following screenshot shows the dependencies of a virtual machine.
+Visual Studio Code provides a tool for visualizing the dependencies. Open a Bicep file in Visual Studio Code, and select the visualizer button on the upper left corner.  The following screenshot shows the dependencies of a virtual machine.
 
-:::image type="content" source="./media/resource-declaration/bicep-resource-visualizer.png" alt-text="Screenshot of Visual Studio Code Bicep resource visualizer":::
+:::image type="content" source="./media/resource-dependencies/bicep-resource-visualizer.png" alt-text="Screenshot of Visual Studio Code Bicep resource visualizer":::
 
 ## Next steps
 
-- To conditionally deploy a resource, see [Conditional deployment in Bicep](./conditional-resource-deployment.md).
+For the syntax to deploy a resource, see [Resource declaration in Bicep](resource-declaration.md).

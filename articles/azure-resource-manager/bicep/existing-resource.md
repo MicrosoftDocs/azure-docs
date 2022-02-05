@@ -1,19 +1,19 @@
 ---
 title: Reference existing resource in Bicep
 description: Describes how to reference a resource that already exists.
-author: mumian
-ms.author: jgao
 ms.topic: conceptual
-ms.date: 02/03/2022
+ms.date: 02/04/2022
 ---
 
-# Existing resources
+# Existing resources in Bicep
 
-To reference a resource that's outside of the current Bicep file, use the `existing` keyword in a resource declaration.
+To reference an existing resource that isn't deployed in your current Bicep file, declare the resource with the `existing` keyword. Use the `existing` keyword when you're deploying a resource that needs to get a value from an existing resource. You access the existing resource's properties through its symbolic name.
 
-## Syntax
+The resource isn't redeployed when referenced with the `existing` keyword.
 
-When using the `existing` keyword, provide the `name` of the resource. The following example gets an existing storage account in the same resource group as the current deployment.
+## Same scope
+
+The following example gets an existing storage account in the same resource group as the current deployment. Notice that you provide only the name of the existing resource. The properties are available through the symbolic name.
 
 ```bicep
 resource stg 'Microsoft.Storage/storageAccounts@2019-06-01' existing = {
@@ -23,7 +23,9 @@ resource stg 'Microsoft.Storage/storageAccounts@2019-06-01' existing = {
 output blobEndpoint string = stg.properties.primaryEndpoints.blob
 ```
 
-Optionally, you can set the `scope` property to access a resource in a different scope. The following example references an existing storage account in a different resource group.
+## Different scope
+
+Set the `scope` property to access a resource in a different scope. The following example references an existing storage account in a different resource group.
 
 ```bicep
 resource stg 'Microsoft.Storage/storageAccounts@2019-06-01' existing = {
@@ -34,12 +36,12 @@ resource stg 'Microsoft.Storage/storageAccounts@2019-06-01' existing = {
 output blobEndpoint string = stg.properties.primaryEndpoints.blob
 ```
 
-If you attempt to reference a resource that doesn't exist, you get the `NotFound` error and your deployment fails.
-
 For more information about setting the scope, see [Scope functions for Bicep](bicep-functions-scope.md).
 
-The preceding examples don't deploy the storage account. Instead, you can access properties on the existing resource by using the symbolic name.
+## Troubleshooting
+
+If you attempt to reference a resource that doesn't exist, you get the `NotFound` error and your deployment fails. Check the name and scope of the resource you're trying to reference.
 
 ## Next steps
 
-- To conditionally deploy a resource, see [Conditional deployment in Bicep](./conditional-resource-deployment.md).
+For the syntax to deploy a resource, see [Resource declaration in Bicep](resource-declaration.md).
