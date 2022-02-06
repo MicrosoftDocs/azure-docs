@@ -107,9 +107,9 @@ To exclude specific storage accounts from Microsoft Defender for Storage when th
 ---
 
 
-## Exclude an Azure DataBricks Storage account
+## Exclude an Azure Databricks Storage account
 
- Microsoft Defender for Storage can exclude exclude specific storage accounts of a DataBricks workspace as long as the plan is enabled on a subscription. 
+ Microsoft Defender for Storage can exclude specific storage accounts of a DataBricks workspace as long as the plan is enabled on a subscription. 
 
 **To exclude an active DataBricks workspace**: 
 
@@ -117,13 +117,13 @@ To exclude specific storage accounts from Microsoft Defender for Storage when th
 
 1. Navigate to **Azure DataBricks** > **`Your DataBricks workspace`** > **Tags**.
 
-1. In the Name field enter `AzDefenderPlanAutoEnable`.
+1. In the Name field, enter `AzDefenderPlanAutoEnable`.
 
-1. In the Value field enter `off`.
+1. In the Value field, enter `off`.
 
 1. Select **Apply**.
 
-    :::image type="content" source="media/defender-for-storage-exclude/workspace-exclude.png" alt-text="Screenshot showing the location, and how to apply the tag to your Azure DataBricks account.":::
+    :::image type="content" source="media/defender-for-storage-exclude/workspace-exclude.png" alt-text="Screenshot showing the location, and how to apply the tag to your Azure Databricks account.":::
 
 1. Navigate to **Microsoft Defender for Cloud** > **Environment settings** > **`Your subscription`**.
 
@@ -144,11 +144,11 @@ The tags will be inherited by the Storage account of the DataBricks workspace an
 
 ## Prevent Microsoft Defender for Storage from being auto-enabled on a new DataBricks workspace storage account 
 
-When you create a new DataBricks workspace,you have the ability to add a tag that will prevent your Microsoft Defender for Storage account from auto-enabling on a new DataBricks workspace storage account.
+When you create a new DataBricks workspace, you have the ability to add a tag that will prevent your Microsoft Defender for Storage account from enabling automatically.
 
 **To prevent auto-enabling on a new DataBricks workspace storage account**:
 
- 1. Follow [these steps](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal?tabs=azure-portal) to create a new Azure DataBricks workspace.
+ 1. Follow [these steps](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal?tabs=azure-portal) to create a new Azure Databricks workspace.
  
  1. In the Tags tab, enter a tag named `AzDefenderPlanAutoEnable`.
  
@@ -156,9 +156,9 @@ When you create a new DataBricks workspace,you have the ability to add a tag tha
  
     :::image type="content" source="media/defender-for-storage-exclude/tag-off.png" alt-text="Screenshot that shows how to create a tag in the DataBricks workspace.":::
 
-1. Continue following the instructions to create your new Azure DataBricks workspace.
+1. Continue following the instructions to create your new Azure Databricks workspace.
  
-The tag will be inherited by the Storage account of the DataBricks workspace, and will prevent Defender for Storage from turning on automatically.
+The Microsoft Defender for Storage account will inherit the tag of the DataBricks workspace, which will prevent Defender for Storage from turning on automatically.
 
 ## Next steps
 
