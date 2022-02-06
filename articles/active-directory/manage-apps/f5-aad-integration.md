@@ -164,7 +164,7 @@ Refer to the following guided configuration tutorials using Easy Button template
 
 - [F5 BIG-IP Easy Button for SSO to header-based and LDAP applications](f5-big-ip-ldap-header-easybutton.md)
 
-- [F5 BIG-IP Easy Button for SSO to Oracle EBS applications](f5-big-ip-oracle-enterprise-business-suite-easy-button.md) 
+- [F5 BIG-IP Easy Button for SSO to Oracle EBS (Enterprise Business Suite)](f5-big-ip-oracle-enterprise-business-suite-easy-button.md) 
 
 ## Additional resources
 
