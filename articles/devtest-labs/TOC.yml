@@ -73,7 +73,7 @@
       href: configure-lab-remote-desktop-gateway.md
     - name: Post announcement in a lab
       href: devtest-lab-announcements.md
-    - name: Enable browser connection on VMs
+    - name: Connect via browser on VMs with Bastion
       href: enable-browser-connection-lab-virtual-machines.md
     - name: Configure cost management
       href: devtest-lab-configure-cost-management.md
