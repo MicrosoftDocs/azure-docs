@@ -1,5 +1,5 @@
 ---
-title: title: Microsoft Sentinel user management normalization schema reference (Public Preview) | Microsoft Docs
+title: Microsoft Sentinel user management normalization schema reference (Public Preview) | Microsoft Docs
 description: his article describes the Microsoft Sentinel user management normalization schema.
 author: oshezaf
 ms.topic: reference
