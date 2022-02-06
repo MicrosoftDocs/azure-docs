@@ -9,7 +9,7 @@ metadata:
   ms.service: applied-ai-services
   ms.subservice: forms-recognizer
   ms.topic: conceptual
-  ms.date: 02/15/2022
+  ms.date: 02/02/2022
   ms.author: lajanuar
 
 title: Form Recognizer frequently asked questions
@@ -81,14 +81,40 @@ sections:
           Learn more about [Form Recognizer and Applied AI Services](/azure/applied-ai-services/what-are-applied-ai-services).
 
       - question: |
+           What is the accuracy score and how is it calculated?
+        answer: |   
+           The output of a `build` (v3.0) or `train` (v2.1) custom model operation includes the estimated accuracy score. This score represents the model's ability to accurately predict the labeled value on a visually similar document. 
+           
+           Accuracy is measured within a percentage value range between 0% (low) and 100% (high).
+
+           See [Interpret and improve accuracy and confidence scores](concept-accuracy-confidence.md#accuracy-scores)
+
+      - question: |
+          How can I improve accuracy scores?
+        answer: |
+          The accuracy of a model is influenced by variances in the visual structure of your documents. 
+
+          - Ensure that all variations of a document are included in the training dataset. Variations include different formats, for example, digital versus scanned PDFs.
+
+          - Separate visually distinct document types and train different models.
+
+          - Make sure that you don't have extraneous labels.
+
+          - For signature and region labeling, don't include the surrounding text.
+
+          See [[Interpret and improve accuracy and confidence scores](concept-accuracy-confidence.md#ensure-high-model-accuracy)]
+
+      - question: |
            What is the confidence score and how is it calculated?
         answer: |
 
            A confidence score indicates probability by measuring the degree of statistical certainty that the extracted result has been detected correctly.
 
-           The confidence value range is a number between 0 (low) and 100 (high).
+           The confidence value range is a percentage between 0% (low) and 100% (high).
 
-           It's best to target a score of 80 or higher. For more sensitive cases, like financial or medical records, a score of 100 is recommended.
+           It's best to target a score of 80% or higher. For more sensitive cases, like financial or medical records, a score of close to 100% is recommended and you may also require human review.
+
+           See [Interpret and improve accuracy and confidence scores](concept-accuracy-confidence.md#confidence-scores)
 
       - question: |
           How can I improve confidence scores?
@@ -105,6 +131,8 @@ sections:
             - Use forms with different values in each field.
 
             - For custom models, use a larger set of training documents. Tagging more documents teaches your model to recognize fields with greater accuracy.
+
+            See [Interpret and improve accuracy and confidence scores](concept-accuracy-confidence.md#confidence-scores)
 
       - question: |
           What is a bounding box?
@@ -176,7 +204,7 @@ sections:
             - Form Recognizer extracts data from form and document images and returns a structured output from JPEG, PNG, BMP, TIFF, and PDF (text-embedded or scanned) file formats.
             - For PDF and TIFF, up to 2000 pages can be processed (with a free tier subscription, only the first two pages are processed).
             - Your file size must be less than 50 MB.
-            - Image dimensions must be between 50 x 50 pixels and 10000 x 10000 pixels.
+            - Image dimensions must be between 50 x 50 pixels and 10000 x 10,000 pixels.
             - PDF dimensions can be a maximum of 17 x 17 inches (corresponding to Legal or A3 paper size) or smaller.
             - The total allowable size of training data is 500 pages or less.
 

@@ -128,6 +128,8 @@ items:
     href: concept-business-card.md
   - name: Custom model
     href: concept-custom.md
+  - name: "Custom models: accuracy and confidence"
+    href: concept-accuracy-confidence.md
 - name: Tutorials
   items:
   - name: Use Form Recognizer with Azure Logic Apps
