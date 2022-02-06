@@ -1,15 +1,15 @@
 ---
-title: How to migrate App Service Environment v2 to App Service Environment v3
-description: Learn how to migrate your App Service Environment v2 to App Service Environment v3
+title: Use the migration feature to migrate App Service Environment v2 to App Service Environment v3
+description: Learn how to migrate your App Service Environment v2 to App Service Environment v3 using the migration feature
 author: seligj95
 ms.topic: tutorial
-ms.date: 1/28/2022
+ms.date: 2/2/2022
 ms.author: jordanselig
 zone_pivot_groups: app-service-cli-portal
 ---
-# How to migrate App Service Environment v2 to App Service Environment v3
+# Use the migration feature to migrate App Service Environment v2 to App Service Environment v3
 
-An App Service Environment v2 can be migrated to an [App Service Environment v3](overview.md). To learn more about the migration process and to see if your App Service Environment supports migration at this time, see the [Migration to App Service Environment v3 Overview](migrate.md).
+An App Service Environment v2 can be automatically migrated to an [App Service Environment v3](overview.md) using the migration feature. To learn more about the migration process and to see if your App Service Environment supports migration at this time, see the [Migration to App Service Environment v3 Overview](migrate.md).
 
 > [!IMPORTANT]
 > It is recommended to use this feature for dev environments first before migrating any production environments to ensure there are no unexpected issues. Please provide any feedback related to this article or the feature using the buttons at the bottom of the page.
@@ -17,11 +17,11 @@ An App Service Environment v2 can be migrated to an [App Service Environment v3]
 
 ## Prerequisites
 
-Ensure you understand how migrating to an App Service Environment v3 will affect your applications. Review the [migration process](migrate.md#overview-of-the-migration-process) to understand the process timeline and where and when you'll need to get involved. Also review the [FAQs](migrate.md#frequently-asked-questions), which may answer some questions you currently have.
+Ensure you understand how migrating to an App Service Environment v3 will affect your applications. Review the [migration process](migrate.md#overview-of-the-migration-process-using-the-migration-feature) to understand the process timeline and where and when you'll need to get involved. Also review the [FAQs](migrate.md#frequently-asked-questions), which may answer some questions you currently have.
 
 ::: zone pivot="experience-azcli"
 
-When using the Azure CLI to carry out the migration, you should follow the below steps in order and as written since you'll be making Azure REST API calls. The recommended way for making these calls is by using the [Azure CLI](/cli/azure/). For information about other methods, see [Getting Started with Azure REST](/rest/api/azure/).
+The recommended experience for the migration feature is using the [Azure portal](how-to-migrate.md?pivots=experience-azp). If you decide to use the Azure CLI to carry out the migration, you should follow the steps described here in order and as written since you'll be making Azure REST API calls. The recommended way for making these API calls is by using the [Azure CLI](/cli/azure/). For information about other methods, see [Getting Started with Azure REST](/rest/api/azure/).
 
 For this guide, [install the Azure CLI](/cli/azure/install-azure-cli) or use the [Azure Cloud Shell](https://shell.azure.com/).
 
@@ -37,7 +37,7 @@ ASE_ID=$(az appservice ase show --name $ASE_NAME --resource-group $ASE_RG --quer
 
 ## 2. Validate migration is supported
 
-The following command will check whether your App Service Environment is supported for migration. If you receive an error or if your App Service Environment is in an unhealthy or suspended state, you can't migrate at this time. If your environment [won't be supported for migration](migrate.md#supported-scenarios) or you want to migrate to App Service Environment v3 without using the migration feature, see [migration alternatives](migration-alternatives.md).
+The following command will check whether your App Service Environment is supported for migration. If you receive an error or if your App Service Environment is in an unhealthy or suspended state, you can't migrate at this time. If your environment [won't be supported for migration](migrate.md#supported-scenarios) or you want to migrate to App Service Environment v3 without using the migration feature, see the [manual migration options](migration-alternatives.md).
 
 ```azurecli
 az rest --method post --uri "${ASE_ID}/migrate?api-version=2021-02-01&phase=validation"
@@ -109,13 +109,13 @@ az appservice ase show --name $ASE_NAME --resource-group $ASE_RG
 
 From the [Azure portal](https://portal.azure.com), navigate to the **Overview** page for the App Service Environment you'll be migrating. The platform will validate if migration is supported for your App Service Environment. Wait a couple seconds after the page loads for this validation to take place.
 
-If migration is supported for your App Service Environment, there are three ways to access the migration feature. These methods include a banner at the top of the overview page, a new item in the left-hand side menu called **Migration (preview)**, and an info box on the **Configuration** page. Select any of these methods to move on to the next step in the migration process.
+If migration is supported for your App Service Environment, there are three ways to access the migration feature. These methods include a banner at the top of the Overview page, a new item in the left-hand side menu called **Migration (preview)**, and an info box on the **Configuration** page. Select any of these methods to move on to the next step in the migration process.
 
 ![migration access points](./media/migration/portal-overview.png)
 
 ![configuration page view](./media/migration/configuration-migration-support.png)
 
-If you don't see these elements, your App Service Environment isn't supported for migration at this time or your environment is in an unhealthy or suspended state (which blocks migration). If your environment [won't be supported for migration](migrate.md#supported-scenarios) or you want to migrate to App Service Environment v3 without using the migration feature, see [migration alternatives](migration-alternatives.md).
+If you don't see these elements, your App Service Environment isn't supported for migration at this time or your environment is in an unhealthy or suspended state (which blocks migration). If your environment [won't be supported for migration](migrate.md#supported-scenarios) or you want to migrate to App Service Environment v3 without using the migration feature, see the [manual migration options](migration-alternatives.md).
 
 The migration page will guide you through the series of steps to complete the migration.
 

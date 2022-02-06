@@ -1,7 +1,7 @@
 ---
 title: "What's new in Azure Active Directory application provisioning"
 description: "New and updated documentation for the Azure Active Directory application provisioning."
-ms.date: 01/07/2022
+ms.date: 02/03/2022
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: reference
@@ -14,6 +14,14 @@ manager: karenhoran
 # Azure Active Directory application provisioning: What's new
 
 Welcome to what's new in Azure Active Directory application provisioning documentation. This article lists new docs that have been added and those that have had significant updates in the last three months. To learn what's new with the provisioning service, see [What's new in Azure Active Directory](../fundamentals/whats-new.md).
+
+## January 2022
+
+### Updated articles
+
+- [How Azure Active Directory provisioning integrates with SAP SuccessFactors](sap-successfactors-integration-reference.md)
+- [Reference for writing expressions for attribute mappings in Azure Active Directory](functions-for-customizing-application-data.md)
+
 
 ## December 2021
 

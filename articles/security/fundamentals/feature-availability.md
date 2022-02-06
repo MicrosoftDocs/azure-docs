@@ -156,7 +156,7 @@ The following table displays the current Defender for Cloud feature availability
 | <li> [Microsoft Defender for container registries](../../defender-for-cloud/defender-for-container-registries-introduction.md) <sup>[1](#footnote1)</sup> (deprecated)                              | GA             | GA  <sup>[2](#footnote2)</sup> |
 | <li> [Microsoft Defender for container registries scanning of images in CI/CD workflows](../../defender-for-cloud/defender-for-container-registries-cicd.md) <sup>[3](#footnote3)</sup> | Public Preview | Not Available                  |
 | <li> [Microsoft Defender for Kubernetes](../../defender-for-cloud/defender-for-kubernetes-introduction.md) <sup>[4](#footnote4)</sup>  (deprecated)                                                  | GA             | GA                             |
-| <li> [Defender extension for Azure Arc enabled Kubernetes clusters](../../defender-for-cloud/defender-for-kubernetes-azure-arc.md) <sup>[5](#footnote5)</sup>                           | Public Preview | Not Available                  |
+| <li> [Defender extension for Arc-enabled Kubernetes, Servers, or Data services](../../defender-for-cloud/defender-for-kubernetes-azure-arc.md) <sup>[5](#footnote5)</sup>                           | Public Preview | Not Available                  |
 | <li> [Microsoft Defender for Azure SQL database servers](../../defender-for-cloud/defender-for-sql-introduction.md)                                                                     | GA             | GA                             |
 | <li> [Microsoft Defender for SQL servers on machines](../../defender-for-cloud/defender-for-sql-introduction.md)                                                                        | GA             | GA                             |
 | <li> [Microsoft Defender for open-source relational databases](../../defender-for-cloud/defender-for-databases-introduction.md)                                                         | GA             | Not Available                  |
@@ -215,6 +215,7 @@ The following tables display the current Microsoft Sentinel feature availability
 | - [Entity insights](../../sentinel/enable-entity-behavior-analytics.md) | GA | Public Preview |
 |- [SOC incident audit metrics](../../sentinel/manage-soc-with-incident-metrics.md) | GA | GA |
 | - [Incident advanced search](../../sentinel/investigate-cases.md#search-for-incidents) |GA |GA |
+| - [Microsoft 365 Defender incident integration](../../sentinel/microsoft-365-defender-sentinel-integration.md#incident-integration) |Public Preview |Public Preview|
 | - [Microsoft Teams integrations](../../sentinel/collaborate-in-microsoft-teams.md) |Public Preview |Not Available |
 |- [Bring Your Own ML (BYO-ML)](../../sentinel/bring-your-own-ml.md) | Public Preview | Public Preview |
 | **Notebooks** | | |
@@ -244,13 +245,25 @@ The following tables display the current Microsoft Sentinel feature availability
 | - [Anomalous Windows File Share Access Detection](../../sentinel/fusion.md)  | Public Preview | Not Available |
 | - [Anomalous RDP Login Detection](../../sentinel/data-connectors-reference.md#configure-the-security-events--windows-security-events-connector-for-anomalous-rdp-login-detection)<br>Built-in ML detection | Public Preview | Not Available |
 | - [Anomalous SSH login detection](../../sentinel/connect-syslog.md#configure-the-syslog-connector-for-anomalous-ssh-login-detection)<br>Built-in ML detection | Public Preview | Not Available |
+<<<<<<< HEAD
 | **Azure and Microsoft service connectors** |  |  |
+=======
+  | **Domain solution content** | | |
+| - [Apache Log4j Vulnerability Detection](../../sentinel/sentinel-solutions-catalog.md#domain-solutions)	| Public Preview | Not Available |
+| - [Cybersecurity Maturity Model Certification (CMMC)](../../sentinel/sentinel-solutions-catalog.md#domain-solutions)	| Public Preview | Not Available  |
+| - [IoT/OT Threat Monitoring with Defender for IoT](../../sentinel/sentinel-solutions-catalog.md#domain-solutions)	| Public Preview | Not Available |
+| - [Maturity Model for Event Log Management M2131](../../sentinel/sentinel-solutions-catalog.md#domain-solutions)	| Public Preview | Not Available |
+| - [Microsoft Insider Risk Management (IRM)](../../sentinel/sentinel-solutions-catalog.md#domain-solutions)	| Public Preview | Not Available  |
+| - [Microsoft Sentinel Deception](../../sentinel/sentinel-solutions-catalog.md#domain-solutions)	| Public Preview | Not Available  |
+| - [Zero Trust (TIC3.0)](../../sentinel/sentinel-solutions-catalog.md#domain-solutions)	| Public Preview | Not Available  |
+| **Azure service connectors** |  |  |
+>>>>>>> 65f3ac1af21c540dd9b06042e8e7f6436851de34
 | - [Azure Activity Logs](../../sentinel/data-connectors-reference.md#azure-activity) | GA | GA |
 | - [Azure Active Directory](../../sentinel/connect-azure-active-directory.md) | GA | GA |
 | - [Azure ADIP](../../sentinel/data-connectors-reference.md#azure-active-directory-identity-protection) | GA | GA |
 | - [Azure DDoS Protection](../../sentinel/data-connectors-reference.md#azure-ddos-protection) | GA | GA |
 | - [Azure Firewall ](../../sentinel/data-connectors-reference.md#azure-firewall) | GA | GA |
-| - [Azure Information Protection](../../sentinel/data-connectors-reference.md#azure-information-protection) | Public Preview | Not Available |
+| - [Azure Information Protection](../../sentinel/data-connectors-reference.md#azure-information-protection-preview) | Public Preview | Not Available |
 | - [Azure Key Vault ](../../sentinel/data-connectors-reference.md#azure-key-vault) | Public Preview | Not Available |
 | - [Azure Kubernetes Services (AKS)](../../sentinel/data-connectors-reference.md#azure-kubernetes-service-aks) | Public Preview | Not Available |
 | - [Azure SQL Databases](../../sentinel/data-connectors-reference.md#azure-sql-databases) | GA | GA |
