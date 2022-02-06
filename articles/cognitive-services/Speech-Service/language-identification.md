@@ -15,7 +15,7 @@ zone_pivot_groups: programming-languages-speech-services-nomore-variant
 
 # Language identification
 
-Language identification is used to identify languages spoken in audio when compared against a list of [supported languages](language-support.md). 
+Language identification is used to identify languages spoken in audio when compared against a list of [supported languages](language-support.md#language-identification). 
 
 Language identification (LID) use cases include:
 
@@ -80,6 +80,7 @@ SPXAutoDetectSourceLanguageConfiguration* autoDetectSourceLanguageConfig = \
 ```
 ::: zone-end
 
+For more information, see [supported languages](language-support.md#language-identification). 
 
 ### At-start and Continuous language identification
 
@@ -200,33 +201,7 @@ You use standalone language identification when you only need to identify the la
 
 ### [Recognize once](#tab/once)
 
-```csharp
-using Microsoft.CognitiveServices.Speech;
-using Microsoft.CognitiveServices.Speech.Audio;
-
-var speechConfig = SpeechConfig.FromSubscription("YourSubscriptionKey","YourServiceRegion");
-
-speechConfig.SetProperty(PropertyId.SpeechServiceConnection_SingleLanguageIdPriority, "Latency");
-
-var audioConfig = AudioConfig.FromWavFileInput(@"en-us_zh-cn.wav");
-
-var autoDetectSourceLanguageConfig =
-    AutoDetectSourceLanguageConfig.FromLanguages(
-        new string[] { "en-US", "de-DE", "zh-CN" });
-
-using (var recognizer = new SourceLanguageRecognizer(
-    speechConfig, 
-    autoDetectSourceLanguageConfig,
-    audioConfig))
-{
-    var result = await recognizer.RecognizeOnceAsync();
-    if (result.Reason == ResultReason.RecognizedSpeech)
-    {
-        var lang = AutoDetectSourceLanguageResult.FromResult(result).Language;
-        Console.WriteLine($"DETECTED: Language={lang}");
-    }
-}
-```
+:::code language="csharp" source="~/samples-cognitive-services-speech-sdk/samples/csharp/sharedcontent/console/standalone_language_detection_samples.cs" id="languageDetectionInAccuracyWithFile":::
 
 
 ### [Continuous recognition](#tab/continuous)
@@ -243,26 +218,7 @@ See more examples of standalone language identification on [GitHub](https://gith
 
 ### [Recognize once](#tab/once)
 
-```cpp
-using namespace std;
-using namespace Microsoft::CognitiveServices::Speech;
-using namespace Microsoft::CognitiveServices::Speech::Audio;
-
-auto config = SpeechConfig::FromSubscription("YourSubscriptionKey","YourServiceRegion");
-speechConfig->SetProperty(PropertyId::SpeechServiceConnection_SingleLanguageIdPriority, "Latency");
-
-auto autoDetectSourceLanguageConfig = AutoDetectSourceLanguageConfig::FromLanguages({ "en-US", "de-DE", "zh-CN" });
-
-auto recognizer = SourceLanguageRecognizer::FromConfig(config, autoDetectSourceLanguageConfig);
-cout << "Say something...\n";
-
-auto result = recognizer->RecognizeOnceAsync().get();
-if (result->Reason == ResultReason::RecognizedSpeech)
-{
-    auto lidResult = AutoDetectSourceLanguageResult::FromResult(result);
-    cout << "DETECTED: Language="<< lidResult->Language << std::endl;
-}
-```
+:::code language="cpp" source="~/samples-cognitive-services-speech-sdk/samples/cpp/windows/console/samples/standalone_language_detection_samples.cpp" id="StandaloneLanguageDetectionWithMicrophone":::
 
 ### [Continuous recognition](#tab/continuous)
 
@@ -280,29 +236,7 @@ See more examples of standalone language identification on [GitHub](https://gith
 ### [Recognize once](#tab/once)
 
 
-```python
-import azure.cognitiveservices.speech as speechsdk
-
-speech_config = speechsdk.SpeechConfig(subscription=speech_key, region=service_region)
-    
-speech_speech_config.set_property(property_id=speechsdk.PropertyId.SpeechServiceConnection_SingleLanguageIdPriority, value='Latency')
-
-recognizer = speechsdk.SourceLanguageRecognizer(speech_config=speech_config, auto_detect_source_language_config=auto_detect_source_language_config)
-
-result = recognizer.recognize_once()
-
-if result.reason == speechsdk.ResultReason.RecognizedSpeech:
-    print("RECOGNIZED: {}".format(result))
-    detectedSrcLang = result.properties[speechsdk.PropertyId.SpeechServiceConnection_AutoDetectSourceLanguageResult]
-    print("Detected Language: {}".format(detectedSrcLang))
-elif result.reason == speechsdk.ResultReason.NoMatch:
-    print("No speech could be recognized")
-elif result.reason == speechsdk.ResultReason.Canceled:
-    cancellation_details = result.cancellation_details
-    print("Speech Recognition canceled: {}".format(cancellation_details.reason))
-    if cancellation_details.reason == speechsdk.CancellationReason.Error:
-        print("Error details: {}".format(cancellation_details.error_details))
-```
+:::code language="python" source="~/samples-cognitive-services-speech-sdk/samples/python/console/speech_language_detection_sample.py" id="SpeechLanguageDetectionWithFile":::
 
 
 ### [Continuous recognition](#tab/continuous)
@@ -362,7 +296,7 @@ using Microsoft.CognitiveServices.Speech;
 using Microsoft.CognitiveServices.Speech.Audio;
 
 var region = "YourServiceRegion";
-// Continuous LID requires the v2 endpoint. In a future SDK release you won't need to set it. 
+// Currently the v2 endpoint is required. In a future SDK release you won't need to set it.
 var endpointString = $"wss://{region}.stt.speech.microsoft.com/speech/universal/v2";
 var endpointUrl = new Uri(endpointString);
 
@@ -475,78 +409,9 @@ auto detectedLanguage = autoDetectSourceLanguageResult->Language;
 
 ### [Continuous recognition](#tab/continuous)
 
+:::code language="cpp" source="~/samples-cognitive-services-speech-sdk/samples/cpp/windows/console/samples/speech_recognition_samples.cpp" id="SpeechContinuousRecognitionAndLanguageIdWithMultiLingualFile":::
 
-```cpp
-using namespace std;
-using namespace Microsoft::CognitiveServices::Speech;
-using namespace Microsoft::CognitiveServices::Speech::Audio;
-
-auto region = "YourServiceRegion";
-// Continuous LID requires the v2 endpoint. In a future SDK release you won't need to set it. 
-auto endpointString = std::format("wss://{}.stt.speech.microsoft.com/speech/universal/v2", region);
-auto config = SpeechConfig::FromEndpoint(endpointString, "YourSubscriptionKey");
-
-speechConfig->SetProperty(PropertyId::SpeechServiceConnection_ContinuousLanguageIdPriority, "Latency");
-auto autoDetectSourceLanguageConfig = AutoDetectSourceLanguageConfig::FromLanguages({ "en-US", "de-DE", "zh-CN" });
-
-auto audioInput = AudioConfig::FromWavFileInput("whatstheweatherlike.wav");
-auto recognizer = SpeechRecognizer::FromConfig(config, autoDetectSourceLanguageConfig, audioInput);
-
-// promise for synchronization of recognition end.
-promise<void> recognitionEnd;
-
-// Subscribes to events.
-recognizer->Recognizing.Connect([](const SpeechRecognitionEventArgs& e)
-    {
-        auto lidResult = AutoDetectSourceLanguageResult::FromResult(e.Result);
-        cout << "Recognizing in " << lidResult->Language << ": Text =" << e.Result->Text << std::endl;
-    });
-
-recognizer->Recognized.Connect([](const SpeechRecognitionEventArgs& e)
-    {
-        if (e.Result->Reason == ResultReason::RecognizedSpeech)
-        {
-            auto lidResult = AutoDetectSourceLanguageResult::FromResult(e.Result);
-            cout << "RECOGNIZED in " << lidResult->Language << ": Text=" << e.Result->Text << "\n"
-                << "  Offset=" << e.Result->Offset() << "\n"
-                << "  Duration=" << e.Result->Duration() << std::endl;
-        }
-        else if (e.Result->Reason == ResultReason::NoMatch)
-        {
-            cout << "NOMATCH: Speech could not be recognized." << std::endl;
-        }
-    });
-
-recognizer->Canceled.Connect([&recognitionEnd](const SpeechRecognitionCanceledEventArgs& e)
-    {
-        cout << "CANCELED: Reason=" << (int)e.Reason << std::endl;
-
-        if (e.Reason == CancellationReason::Error)
-        {
-            cout << "CANCELED: ErrorCode=" << (int)e.ErrorCode << "\n"
-                << "CANCELED: ErrorDetails=" << e.ErrorDetails << "\n"
-                << "CANCELED: Did you update the subscription info?" << std::endl;
-
-            recognitionEnd.set_value(); // Notify to stop recognition.
-        }
-    });
-
-recognizer->SessionStopped.Connect([&recognitionEnd](const SessionEventArgs& e)
-    {
-        cout << "Session stopped.";
-        recognitionEnd.set_value(); // Notify to stop recognition.
-    });
-
-recognizer->StartContinuousRecognitionAsync().get();
-
-// Waits for recognition end.
-recognitionEnd.get_future().get();
-
-// Stops recognition.
-recognizer->StopContinuousRecognitionAsync().get();
-```
-
-See more examples of speech-to-text recognition with language identification on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/csharp/sharedcontent/console/speech_recognition_with_language_id_samples.cs).
+See more examples of speech-to-text recognition with language identification on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/cpp/windows/console/samples/speech_recognition_samples.cpp).
 
 
 ::: zone-end
@@ -601,38 +466,50 @@ detected_language = auto_detect_source_language_result.language
 
 
 ```python
-def speech_recognize_continuous_from_file():
-    """performs continuous speech recognition with input from an audio file"""
-    
-    speech_config = speechsdk.SpeechConfig(subscription=speech_key, region=service_region)
-    audio_config = speechsdk.audio.AudioConfig(filename=weatherfilename)
+import azure.cognitiveservices.speech as speechsdk
+import time
+import json
 
-    speech_recognizer = speechsdk.SpeechRecognizer(speech_config=speech_config, audio_config=audio_config)
+speech_key, service_region = "YourSubscriptionKey","YourServiceRegion"
+weatherfilename="en-us_zh-cn.wav"
 
-    done = False
+# Currently the v2 endpoint is required. In a future SDK release you won't need to set it. 
+endpoint_string = "wss://{}.stt.speech.microsoft.com/speech/universal/v2".format(service_region)
+speech_config = speechsdk.SpeechConfig(subscription=speech_key, endpoint=endpoint_string)
+audio_config = speechsdk.audio.AudioConfig(filename=weatherfilename)
 
-    def stop_cb(evt):
-        """callback that signals to stop continuous recognition upon receiving an event `evt`"""
-        print('CLOSING on {}'.format(evt))
-        nonlocal done
-        done = True
+auto_detect_source_language_config = speechsdk.languageconfig.AutoDetectSourceLanguageConfig(
+    languages=["en-US", "de-DE", "zh-CN"])
 
-    # Connect callbacks to the events fired by the speech recognizer
-    speech_recognizer.recognizing.connect(lambda evt: print('RECOGNIZING: {}'.format(evt)))
-    speech_recognizer.recognized.connect(lambda evt: print('RECOGNIZED: {}'.format(evt)))
-    speech_recognizer.session_started.connect(lambda evt: print('SESSION STARTED: {}'.format(evt)))
-    speech_recognizer.session_stopped.connect(lambda evt: print('SESSION STOPPED {}'.format(evt)))
-    speech_recognizer.canceled.connect(lambda evt: print('CANCELED {}'.format(evt)))
-    # stop continuous recognition on either session stopped or canceled events
-    speech_recognizer.session_stopped.connect(stop_cb)
-    speech_recognizer.canceled.connect(stop_cb)
+speech_recognizer = speechsdk.SpeechRecognizer(
+    speech_config=speech_config, 
+    auto_detect_source_language_config=auto_detect_source_language_config,
+    audio_config=audio_config)
 
-    # Start continuous speech recognition
-    speech_recognizer.start_continuous_recognition()
-    while not done:
-        time.sleep(.5)
+done = False
 
-    speech_recognizer.stop_continuous_recognition()
+def stop_cb(evt):
+    """callback that signals to stop continuous recognition upon receiving an event `evt`"""
+    print('CLOSING on {}'.format(evt))
+    nonlocal done
+    done = True
+
+# Connect callbacks to the events fired by the speech recognizer
+speech_recognizer.recognizing.connect(lambda evt: print('RECOGNIZING: {}'.format(evt)))
+speech_recognizer.recognized.connect(lambda evt: print('RECOGNIZED: {}'.format(evt)))
+speech_recognizer.session_started.connect(lambda evt: print('SESSION STARTED: {}'.format(evt)))
+speech_recognizer.session_stopped.connect(lambda evt: print('SESSION STOPPED {}'.format(evt)))
+speech_recognizer.canceled.connect(lambda evt: print('CANCELED {}'.format(evt)))
+# stop continuous recognition on either session stopped or canceled events
+speech_recognizer.session_stopped.connect(stop_cb)
+speech_recognizer.canceled.connect(stop_cb)
+
+# Start continuous speech recognition
+speech_recognizer.start_continuous_recognition()
+while not done:
+    time.sleep(.5)
+
+speech_recognizer.stop_continuous_recognition()
 ```
 
 See more examples of speech-to-text recognition with language identification on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/python/console/speech_sample.py).
@@ -828,7 +705,7 @@ using Microsoft.CognitiveServices.Speech.Translation;
 public static async Task MultiLingualTranslation()
 {
     var region = "YourServiceRegion";
-    // Continuous LID requires the v2 endpoint. In a future SDK release you won't need to set it. 
+    // Currently the v2 endpoint is required. In a future SDK release you won't need to set it.
     var endpointString = $"wss://{region}.stt.speech.microsoft.com/speech/universal/v2";
     var endpointUrl = new Uri(endpointString);
     
@@ -947,7 +824,7 @@ using namespace Microsoft::CognitiveServices::Speech::Translation;
 void MultiLingualTranslation()
 {
     auto region = "YourServiceRegion";
-    // Continuous LID requires the v2 endpoint. In a future SDK release you won't need to set it. 
+    // Currently the v2 endpoint is required. In a future SDK release you won't need to set it.
     auto endpointString = std::format("wss://{}.stt.speech.microsoft.com/speech/universal/v2", region);
     auto config = SpeechTranslationConfig::FromEndpoint(endpointString, "YourSubscriptionKey");
 
@@ -1039,11 +916,155 @@ See more examples of speech translation with language identification on [GitHub]
 
 ### [Recognize once](#tab/once)
 
-:::code language="python" source="~/samples-cognitive-services-speech-sdk/samples/python/console/translation_sample.py" id="TranslationOnceWithFile":::
+```python
+import azure.cognitiveservices.speech as speechsdk
+import time
+import json
+
+speech_key, service_region = "YourSubscriptionKey","YourServiceRegion"
+weatherfilename="en-us_zh-cn.wav"
+
+# set up translation parameters: source language and target languages
+# Currently the v2 endpoint is required. In a future SDK release you won't need to set it. 
+endpoint_string = "wss://{}.stt.speech.microsoft.com/speech/universal/v2".format(service_region)
+translation_config = speechsdk.translation.SpeechTranslationConfig(
+    subscription=speech_key,
+    endpoint=endpoint_string,
+    speech_recognition_language='en-US',
+    target_languages=('de', 'fr'))
+audio_config = speechsdk.audio.AudioConfig(filename=weatherfilename)
+
+# Set the Priority (optional, default Latency, either Latency or Accuracy is accepted)
+translation_config.set_property(property_id=speechsdk.PropertyId.SpeechServiceConnection_SingleLanguageIdPriority, value='Accuracy')
+
+# Specify the AutoDetectSourceLanguageConfig, which defines the number of possible languages
+auto_detect_source_language_config = speechsdk.languageconfig.AutoDetectSourceLanguageConfig(languages=["en-US", "de-DE", "zh-CN"])
+
+# Creates a translation recognizer using and audio file as input.
+recognizer = speechsdk.translation.TranslationRecognizer(
+    translation_config=translation_config, 
+    audio_config=audio_config,
+    auto_detect_source_language_config=auto_detect_source_language_config)
+
+# Starts translation, and returns after a single utterance is recognized. The end of a
+# single utterance is determined by listening for silence at the end or until a maximum of 15
+# seconds of audio is processed. The task returns the recognition text as result.
+# Note: Since recognize_once() returns only a single utterance, it is suitable only for single
+# shot recognition like command or query.
+# For long-running multi-utterance recognition, use start_continuous_recognition() instead.
+result = recognizer.recognize_once()
+
+# Check the result
+if result.reason == speechsdk.ResultReason.TranslatedSpeech:
+    print("""Recognized: {}
+    German translation: {}
+    French translation: {}""".format(
+        result.text, result.translations['de'], result.translations['fr']))
+elif result.reason == speechsdk.ResultReason.RecognizedSpeech:
+    print("Recognized: {}".format(result.text))
+    detectedSrcLang = result.properties[speechsdk.PropertyId.SpeechServiceConnection_AutoDetectSourceLanguageResult]
+    print("Detected Language: {}".format(detectedSrcLang))
+elif result.reason == speechsdk.ResultReason.NoMatch:
+    print("No speech could be recognized: {}".format(result.no_match_details))
+elif result.reason == speechsdk.ResultReason.Canceled:
+    print("Translation canceled: {}".format(result.cancellation_details.reason))
+    if result.cancellation_details.reason == speechsdk.CancellationReason.Error:
+        print("Error details: {}".format(result.cancellation_details.error_details))
+```
 
 ### [Continuous recognition](#tab/continuous)
 
-:::code language="python" source="~/samples-cognitive-services-speech-sdk/samples/python/console/translation_sample.py" id="TranslationContinuous":::
+```python
+import azure.cognitiveservices.speech as speechsdk
+import time
+import json
+
+speech_key, service_region = "YourSubscriptionKey","YourServiceRegion"
+weatherfilename="en-us_zh-cn.wav"
+
+# Currently the v2 endpoint is required. In a future SDK release you won't need to set it. 
+endpoint_string = "wss://{}.stt.speech.microsoft.com/speech/universal/v2".format(service_region)
+translation_config = speechsdk.translation.SpeechTranslationConfig(
+    subscription=speech_key,
+    endpoint=endpoint_string,
+    speech_recognition_language='en-US',
+    target_languages=('de', 'fr'))
+audio_config = speechsdk.audio.AudioConfig(filename=weatherfilename)
+
+# Set the Priority (optional, default Latency, either Latency or Accuracy is accepted)
+translation_config.set_property(property_id=speechsdk.PropertyId.SpeechServiceConnection_SingleLanguageIdPriority, value='Accuracy')
+
+# Specify the AutoDetectSourceLanguageConfig, which defines the number of possible languages
+auto_detect_source_language_config = speechsdk.languageconfig.AutoDetectSourceLanguageConfig(languages=["en-US", "de-DE", "zh-CN"])
+
+# Creates a translation recognizer using and audio file as input.
+recognizer = speechsdk.translation.TranslationRecognizer(
+    translation_config=translation_config, 
+    audio_config=audio_config,
+    auto_detect_source_language_config=auto_detect_source_language_config)
+
+def result_callback(event_type, evt):
+    """callback to display a translation result"""
+    print("{}: {}\n\tTranslations: {}\n\tResult Json: {}".format(
+        event_type, evt, evt.result.translations.items(), evt.result.json))
+
+done = False
+
+def stop_cb(evt):
+    """callback that signals to stop continuous recognition upon receiving an event `evt`"""
+    print('CLOSING on {}'.format(evt))
+    nonlocal done
+    done = True
+
+# connect callback functions to the events fired by the recognizer
+recognizer.session_started.connect(lambda evt: print('SESSION STARTED: {}'.format(evt)))
+recognizer.session_stopped.connect(lambda evt: print('SESSION STOPPED {}'.format(evt)))
+# event for intermediate results
+recognizer.recognizing.connect(lambda evt: result_callback('RECOGNIZING', evt))
+# event for final result
+recognizer.recognized.connect(lambda evt: result_callback('RECOGNIZED', evt))
+# cancellation event
+recognizer.canceled.connect(lambda evt: print('CANCELED: {} ({})'.format(evt, evt.reason)))
+
+# stop continuous recognition on either session stopped or canceled events
+recognizer.session_stopped.connect(stop_cb)
+recognizer.canceled.connect(stop_cb)
+
+def synthesis_callback(evt):
+    """
+    callback for the synthesis event
+    """
+    print('SYNTHESIZING {}\n\treceived {} bytes of audio. Reason: {}'.format(
+        evt, len(evt.result.audio), evt.result.reason))
+    if evt.result.reason == speechsdk.ResultReason.RecognizedSpeech:
+        print("RECOGNIZED: {}".format(evt.result.properties))
+        if evt.result.properties.get(speechsdk.PropertyId.SpeechServiceConnection_AutoDetectSourceLanguageResult) == None:
+            print("Unable to detect any language")
+        else:
+            detectedSrcLang = evt.result.properties[speechsdk.PropertyId.SpeechServiceConnection_AutoDetectSourceLanguageResult]
+            jsonResult = evt.result.properties[speechsdk.PropertyId.SpeechServiceResponse_JsonResult]
+            detailResult = json.loads(jsonResult)
+            startOffset = detailResult['Offset']
+            duration = detailResult['Duration']
+            if duration >= 0:
+                endOffset = duration + startOffset
+            else:
+                endOffset = 0
+            print("Detected language = " + detectedSrcLang + ", startOffset = " + str(startOffset) + " nanoseconds, endOffset = " + str(endOffset) + " nanoseconds, Duration = " + str(duration) + " nanoseconds.")
+            global language_detected
+            language_detected = True
+
+# connect callback to the synthesis event
+recognizer.synthesizing.connect(synthesis_callback)
+
+# start translation
+recognizer.start_continuous_recognition()
+
+while not done:
+    time.sleep(.5)
+
+recognizer.stop_continuous_recognition()
+```
 
 ---
 
