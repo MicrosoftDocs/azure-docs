@@ -209,7 +209,7 @@ The following tables display the current Microsoft Sentinel feature availability
 
 | Feature | Azure | Azure Government  |
 | ----- | ----- | ---- |
-| **Incidents** | |
+| **Incidents** | | |
 |- [Automation rules](../../sentinel/automate-incident-handling-with-automation-rules.md) | Public Preview | Public Preview |
 | - [Cross-tenant/Cross-workspace incidents view](../../sentinel/multiple-workspace-view.md) |GA | GA |
 | - [Entity insights](../../sentinel/enable-entity-behavior-analytics.md) | GA | Public Preview |
@@ -223,7 +223,7 @@ The following tables display the current Microsoft Sentinel feature availability
 | - [Notebook integration with Azure Synapse](../../sentinel/notebooks-with-synapse.md) | Public Preview | Not Available|
 | **Watchlists** | | |
 |- [Watchlists](../../sentinel/watchlists.md) | GA | GA |
-| **Hunting** | |
+| **Hunting** | | |
 | - [Hunting](../../sentinel/hunting.md) | GA | GA |
 | **Content  and content management** | | |
 | - [Content hub](../../sentinel/sentinel-solutions.md) and [solutions](../../sentinel/sentinel-solutions-catalog.md) | Public preview | Not Available|
