@@ -106,10 +106,9 @@ To exclude specific storage accounts from Microsoft Defender for Storage when th
 
 ---
 
-
 ## Exclude an Azure Databricks Storage account
 
- Microsoft Defender for Storage can exclude specific storage accounts of a Databricks workspace as long as the plan is enabled on a subscription. 
+Microsoft Defender for Storage can exclude specific Databricks workspace storage accounts, when the plan is already enabled on a subscription.
 
 **To exclude an active Databricks workspace**: 
 
