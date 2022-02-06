@@ -108,7 +108,9 @@ To exclude specific storage accounts from Microsoft Defender for Storage when th
 
 ## Exclude an Azure Databricks Storage account
 
-Microsoft Defender for Storage can exclude specific Databricks workspace storage accounts, when the plan is already enabled on a subscription.
+### Exclude an active Databricks workspace
+
+Microsoft Defender for Storage can exclude specific active Databricks workspace storage accounts, when the plan is already enabled on a subscription.
 
 **To exclude an active Databricks workspace**: 
 
@@ -141,7 +143,7 @@ The tags will be inherited by the Storage account of the Databricks workspace an
 > [!Note] 
 > Tags can't be added directly to the Databricks Storage account, or its Managed Resource Group.
 
-## Prevent auto-enabling on a new Databricks workspace storage account 
+### Prevent auto-enabling on a new Databricks workspace storage account 
 
 When you create a new Databricks workspace, you have the ability to add a tag that will prevent your Microsoft Defender for Storage account from enabling automatically.
 
