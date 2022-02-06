@@ -1,6 +1,6 @@
 ---
 title: Azure Hybrid Benefit for BYOS Linux VMs
-description: Learn how Azure Hybrid Benefit can help you save money on your Linux virtual machines running on Azure.
+description: Learn how Azure Hybrid Benefit can help get updates from Azure infrastructure for Linux machines on Azure.
 services: virtual-machines
 documentationcenter: ''
 author: mathapli
@@ -20,7 +20,7 @@ ms.author: mathapli
 >The below article is scoped to Azure Hybrid Benefit for BYOS VMs (AHB BYOS) which caters to conversion of custom on-prem image VMs and RHEL or SLES BYOS VMs. For conversion of RHEL PAYG or SLES PAYG VMs, refer to [Azure Hybrid Benefit for PAYG VMs here](./azure-hybrid-benefit-linux.md). 
 
 >[!NOTE]
->Azure Hybrid Benefit for BYOS VMs is planned for Preview from 30 March 2022. You can [sign up for the preview here.](https://aka.ms/ahb-linux-form) You will receive a mail from Microsoft once your subscriptions are enabled for Preview. 
+>Azure Hybrid Benefit for BYOS VMs is planned for Preview from **30 March 2022**. You can [sign up for the preview here.](https://aka.ms/ahb-linux-form) You will receive a mail from Microsoft once your subscriptions are enabled for Preview. 
 
 
 Azure Hybrid Benefit for BYOS VMs is a licensing benefit that helps you to get software updates and integrated support for Red Hat Enterprise Linux (RHEL) and SUSE Linux Enterprise Server (SLES) virtual machines (VMs) directly from Azure infrastructure. This benefit is available to RHEL and SLES custom on-prem image VMs (VMs generated from o- prem images), and to RHEL and SLES Marketplace bring-your-own-subscription (BYOS) VMs.
