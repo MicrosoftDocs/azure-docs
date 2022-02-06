@@ -25,7 +25,7 @@ Language identification (LID) use cases include:
 
 Note that for speech recognition, the initial latency is higher with language identification. You should only include this optional feature as needed.   
 
-## Setup configurations
+## Configuration options
 
 Whether you use language identification [on its own](#standalone-language-identification), with [speech-to-text](#speech-to-text), or with [speech translation](#speech-translation), there are some common concepts and configuration options. 
 
@@ -254,7 +254,7 @@ See more examples of standalone language identification on [GitHub](https://gith
 
 ## Speech-to-text
 
-You use Speech-to-text recognition when you need to identify the language in an audio source and then transcribe it to text. 
+You use Speech-to-text recognition when you need to identify the language in an audio source and then transcribe it to text. For more information, see [Speech-to-text overview](speech-to-text.md).
 
 > [!NOTE]
 > Speech-to-text recognition with at-start language identification is supported with Speech SDKs in C#, C++, Python, Java, JavaScript, and Objective-C. Speech-to-text recognition with continuous language identification is only supported with Speech SDKs in C#, C++, and Python.
@@ -551,7 +551,7 @@ speechRecognizer.recognizeOnceAsync((result: SpeechSDK.SpeechRecognitionResult) 
 
 ### Using Speech-to-text custom models
 
-The sample below illustrates how to specify a custom model in your call to the Speech service. If the detected language is `en-US`, then the default model is used. If the detected language is `fr-FR`, then the custom model endpoint is used.
+The sample below illustrates how to specify a custom model in your call to the Speech service. If the detected language is `en-US`, then the default model is used. If the detected language is `fr-FR`, then the custom model endpoint is used. For more information, see [Train and deploy a Custom Speech model](show-to-custom-speech-train-model.md).
 
 ::: zone pivot="programming-language-csharp"
 
@@ -638,7 +638,7 @@ var autoDetectSourceLanguageConfig = SpeechSDK.AutoDetectSourceLanguageConfig.fr
 
 ## Speech translation
 
-You use Speech translation when you need to identify the language in an audio source and then translate it to another language. 
+You use Speech translation when you need to identify the language in an audio source and then translate it to another language. For more information, see [Speech translation overview](speech-translation.md).
 
 > [!NOTE]
 > Speech translation with language identification is only supported with Speech SDKs in C#, C++, and Python. 
@@ -649,7 +649,6 @@ You use Speech translation when you need to identify the language in an audio so
 
 ### [Recognize once](#tab/once)
 
-
 ```csharp
 using Microsoft.CognitiveServices.Speech;
 using Microsoft.CognitiveServices.Speech.Audio;
@@ -657,7 +656,12 @@ using Microsoft.CognitiveServices.Speech.Translation;
 
 public static async Task RecognizeOnceSpeechTranslationAsync()
 {
-    var speechTranslationConfig = SpeechTranslationConfig.FromSubscription(key, region);
+    var region = "YourServiceRegion";
+    // Currently the v2 endpoint is required. In a future SDK release you won't need to set it.
+    var endpointString = $"wss://{region}.stt.speech.microsoft.com/speech/universal/v2";
+    var endpointUrl = new Uri(endpointString);
+    
+    var config = SpeechTranslationConfig.FromEndpoint(endpointUrl, "YourSubscriptionKey");
 
     speechTranslationConfig.SetProperty(PropertyId.SpeechServiceConnection_SingleLanguageIdPriority, "Latency");
 
@@ -808,10 +812,71 @@ See more examples of speech translation with language identification on [GitHub]
 
 ::: zone pivot="programming-language-cpp"
 
-
 ### [Recognize once](#tab/once)
 
-:::code language="cpp" source="~/samples-cognitive-services-speech-sdk/samples/cpp/windows/console/samples/translation_samples.cpp" id="TranslationAndLanguageIdWithMicrophone":::
+```cpp
+auto region = "YourServiceRegion";
+// Currently the v2 endpoint is required. In a future SDK release you won't need to set it.
+auto endpointString = std::format("wss://{}.stt.speech.microsoft.com/speech/universal/v2", region);
+auto config = SpeechTranslationConfig::FromEndpoint(endpointString, "YourSubscriptionKey");
+
+// Language Id feature requirement
+// Please refer to language id document for different modes
+config->SetProperty(PropertyId::SpeechServiceConnection_SingleLanguageIdPriority, "Latency");
+auto autoDetectSourceLanguageConfig = AutoDetectSourceLanguageConfig::FromLanguages({ "en-US", "de-DE" });
+
+// Sets source and target languages
+// The source language will be detected by the language detection feature. 
+// However, the SpeechRecognitionLanguage still need to set with a locale string, but it will not be used as the source language.
+// This will be fixed in a future version of Speech SDK.
+auto fromLanguage = "en-US";
+config->SetSpeechRecognitionLanguage(fromLanguage);
+config->AddTargetLanguage("de");
+config->AddTargetLanguage("fr");
+
+// Creates a translation recognizer using microphone as audio input.
+auto recognizer = TranslationRecognizer::FromConfig(config, autoDetectSourceLanguageConfig);
+cout << "Say something...\n";
+
+// Starts translation, and returns after a single utterance is recognized. The end of a
+// single utterance is determined by listening for silence at the end or until a maximum of 15
+// seconds of audio is processed. The task returns the recognized text as well as the translation.
+// Note: Since RecognizeOnceAsync() returns only a single utterance, it is suitable only for single
+// shot recognition like command or query.
+// For long-running multi-utterance recognition, use StartContinuousRecognitionAsync() instead.
+auto result = recognizer->RecognizeOnceAsync().get();
+
+// Checks result.
+if (result->Reason == ResultReason::TranslatedSpeech)
+{
+    cout << "RECOGNIZED: Text=" << result->Text << std::endl;
+
+    for (const auto& it : result->Translations)
+    {
+        cout << "TRANSLATED into '" << it.first.c_str() << "': " << it.second.c_str() << std::endl;
+    }
+}
+else if (result->Reason == ResultReason::RecognizedSpeech)
+{
+    cout << "RECOGNIZED: Text=" << result->Text << " (text could not be translated)" << std::endl;
+}
+else if (result->Reason == ResultReason::NoMatch)
+{
+    cout << "NOMATCH: Speech could not be recognized." << std::endl;
+}
+else if (result->Reason == ResultReason::Canceled)
+{
+    auto cancellation = CancellationDetails::FromResult(result);
+    cout << "CANCELED: Reason=" << (int)cancellation->Reason << std::endl;
+
+    if (cancellation->Reason == CancellationReason::Error)
+    {
+        cout << "CANCELED: ErrorCode=" << (int)cancellation->ErrorCode << std::endl;
+        cout << "CANCELED: ErrorDetails=" << cancellation->ErrorDetails << std::endl;
+        cout << "CANCELED: Did you update the subscription info?" << std::endl;
+    }
+}
+```
 
 ### [Continuous recognition](#tab/continuous)
 
