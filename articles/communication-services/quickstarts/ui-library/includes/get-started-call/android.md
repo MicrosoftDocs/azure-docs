@@ -1,13 +1,3 @@
----
-description: In this tutorial, you learn how to use the Calling composite on Android
-author: pprystinka
-
-ms.author: pprystinka
-ms.date: 10/10/2021
-ms.topic: include
-ms.service: azure-communication-services
----
-
 [!INCLUDE [Public Preview Notice](../../../../includes/public-preview-include.md)]
 
 Azure Communication UI [open source library](https://github.com/Azure/communication-ui-library-android) for Android and the sample application code can be found [here](https://github.com/Azure-Samples/communication-services-android-quickstarts/tree/main/ui-library-quick-start)
@@ -29,7 +19,7 @@ In Android Studio, create a new project and select the `Empty Activity`.
 
 ![Start a new Android Studio Project](../../media/composite-android-new-project.png)
 
-Click the `Next` button and name the project `UILibraryQuickStart`, set language to `Java/Kotlin` and select Minimum SDK "API 23: Android 6.0 (Marshmallow)" or greater.
+Click the `Next` button and name the project `UILibraryQuickStart`, set language to `Java/Kotlin` and select Minimum SDK `API 23: Android 6.0 (Marshmallow)` or greater.
 
 ![Screenshot showing the 'Finish' button selected in Android Studio.](../../media/composite-android-new-project-finish.png)
 
@@ -37,7 +27,7 @@ Click `Finish`.
 
 ## Install the packages
 
-In your app level (**app folder**) `build.gradle`, add the following lines to the dependencies and android sections.
+In your app level (**app folder**) `UILibraryQuickStart/app/build.gradle`, add the following lines to the android and dependencies sections.
 
 ```groovy
 android {

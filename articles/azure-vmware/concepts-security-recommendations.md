@@ -1,6 +1,6 @@
 ---
 title: Concepts - Security recommendations for Azure VMware Solution
-Description: Learn about tips and best practices to help protect Azure VMware Solution deployments from vulnerabilities and malicious actors. 
+description: Learn about tips and best practices to help protect Azure VMware Solution deployments from vulnerabilities and malicious actors. 
 ms.topic: conceptual
 ms.date: 01/10/2022
 ---

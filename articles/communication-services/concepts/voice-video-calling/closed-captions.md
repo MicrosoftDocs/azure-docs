@@ -24,7 +24,7 @@ Here are main scenarios where Closed Captions are useful:
 - **Accessibility**. Scenarios when audio can't be heard, either because of a noisy environment, such as an airport, or because of an environment that must be kept quiet, such as a hospital. 
 - **Inclusivity**. Closed Captioning was developed to aid hearing-impaired people, but it could be useful for a language proficiency as well. 
 
-![closed captions](../media/call-closed-caption.png)
+![closed captions work flow](../media/call-closed-caption.png)
 
 ## When to use Closed Captions
 

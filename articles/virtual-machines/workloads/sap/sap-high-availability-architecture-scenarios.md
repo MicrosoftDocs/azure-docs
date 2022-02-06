@@ -10,7 +10,7 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 02/26/2020
+ms.date: 01/28/2022
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
 ---
@@ -320,7 +320,7 @@ We recommend that you use managed disks because they simplify the deployment and
 
 ## Utilizing Azure infrastructure high availability to achieve *higher availability* of SAP applications
 
-If you decide not to use functionalities such as WSFC or Pacemaker on Linux (currently supported only for SUSE Linux Enterprise Server [SLES] 12 and later), Azure VM restart is utilized. It protects SAP systems against planned and unplanned downtime of the Azure physical server infrastructure and overall underlying Azure platform.
+If you decide not to use functionalities such as WSFC or Pacemaker on Linux (supported for SUSE Linux Enterprise Server [SLES] 12 and later and Red Hat Enterprise Linux [RHEL] 7 and later ), Azure VM restart is utilized. It protects SAP systems against planned and unplanned downtime of the Azure physical server infrastructure and overall underlying Azure platform.
 
 For more information about this approach, see [Utilize Azure infrastructure VM restart to achieve higher availability of the SAP system][sap-higher-availability].
 
