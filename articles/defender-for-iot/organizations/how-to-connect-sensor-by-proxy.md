@@ -66,6 +66,8 @@ For this scenario we will be installing, and configuring the latest version of [
 
 ## Set up a sensor to use Squid
 
+This section describes how to set up a sensor to use Squid.
+
 **To set up a sensor to use Squid**:
 
 1. Sign in to the sensor.
