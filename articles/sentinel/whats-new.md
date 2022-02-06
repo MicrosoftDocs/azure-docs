@@ -31,6 +31,19 @@ If you're looking for items older than six months, you'll find them in the [Arch
 
 ### Data transformation at ingestion time
 
+Microsoft Sentinel supports the ingestion-time data transformation features provided by Log Analytics. Ingestion-time data transformation can save storage space and enhance performance, enrich or tag your data, or hide personal information in your data even before it's stored in your workspace.
+
+Use Log Analytics Data Collection Rules (DCRs) to configure your data transformation for the following types of built-in data connectors:
+
+- AMA-based data connectors
+- MMA-based data connectors,
+- Data connectors that use Diagnostic settings
+- Service-to-service data connectors
+- Logstash-based data connectors
+
+Custom data connectors are currently supported only for direct API-based and Logstash-based data connectors.
+
+For more information, see [Data transformation in Microsoft Sentinel](data-transformation.md) and [Configure ingestion-time data transformation for Microsoft Sentinel](configure-data-transformation.md).
 
 ## January 2022
 

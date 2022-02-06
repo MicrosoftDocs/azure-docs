@@ -1,6 +1,6 @@
 ---
-title: Data transformation in Microsoft Sentinel
-description: Learn about how Azure Monitor's data transformation features can help you stream custom data into Microsoft Sentinel.
+title: Ingestion-time data transformation in Microsoft Sentinel
+description: Learn about how Azure Monitor's ingestion-time data transformation features can help you stream custom data into Microsoft Sentinel.
 author: batamig
 ms.author: bagol
 ms.topic: conceptual
@@ -9,55 +9,110 @@ ms.date: 02/01/2022
 
 # Data transformation in Microsoft Sentinel
 
-The much-anticipated ingestion time transformations capability provided by Log Analytics is an important and generic functionality that opens up for MS Sentinel customers many scenarios like filtering, enrichments etc., that could not have been previously performed.
-Ingestion time transformations consists of two features:
+Azure Monitor's Log Analytics serves as the platform behind the Microsoft Sentinel workspace. All logs streamed into Microsoft Sentinel are stored in Log Analytics by default. From Microsoft Sentinel, you can access the ingested logs and run Kusto Query Language (KQL) queries to investigate threats and monitor your network activity.
 
-## Benefits with ingestion-time transformation for Microsoft Sentinel
+Log Analytics supports ingestion-time data transformation, which provides customers with more control over the ingested data. Instead of relying on pre-configured, hardcoded workflows that create standardized tables, ingestion time-transformation supports the ability to filter and enrich the output tables, even before running any queries. Data collection rules (DCRs) provide extra support for creating customized output tables, including specific column names and types.
 
-Prior to the new features of ingestion time transformations most of the transformations capabilities provided by MS Sentinel were query-time capabilities. There were some connectors-specific transformations that could have been performed in the source like xpath filtering for AMA agent but for most of the connectors the ingestion time behavior was quite fixed. For standard logs the transformations performed during ingestion were defined as pre-configured hardcoded workflows with no room for user changes.  For custom logs the behavior was also determined by the input shape and although the output tables were created on the fly users had no control over the output schema and could not change the automatic behavior. The following diagram illustrates MS Sentinel data flows prior to the new ingestion time transformations features:
- 
+## Use cases and sample scenarios
+
+### Filtering
+
+Ingestion-time transformation provides you with the ability to filter out irrelevant data before it's even stored in your workspace.
+
+You can filter at the record level, or the column level, by removing the content for specific fields. Filtering out irrelevant data can:
+
+- Help to reduce costs, as you reduce storage requirements
+- Improve analytics and enrich your data with extra information, standardized according to your SOC teams' needs
+- Improve performance, as fewer query-time adjustments are needed
+
+You can also use ingestion-time data transformation when working with multiple workspaces. When you configure your data connections, use different filters for each workspace.
+
+### Enrichment and tagging
+
+Ingestion-time transformation also provides the ability to enrich your data with extra columns. Extra columns might include parsed data from other columns, or columns of data taken from static tables, and added to the configured KQL transformation.
+
+For example, add extra information such as owner entities, an expanded event description, or classifications that depend on the user, location, or activity type.
+
+### Obfuscation
+
+Ingestion-time transformations can also be used to mask or remove personal information.. For example, you might use data transformation to mask the last numbers of a social security number or credit card, or you could replace other types of personal data with nonsense or standard text. Mask your personal information at the ingestion time to increase security across your network.
 
 
-MS Sentinel data flows with ingestion time transformations
-With ingestion time transformations MS Sentinel users have much more control over the ingested data. The following diagram describes the new data flows:
- 
-For custom logs users can set the columns' names and types and they can decide if to ingest the data into a custom table or into a standard table. For standard logs customers can now define their own transformations on top of the pre-configured workflows.
-The benefits provided by the new ingestion transformations features are in three areas:
-1)	Cost reduction - using the new feature MS Sentinel can now filter out data which is irrelevant to security analysis and thus, reduce storage costs 
-2)	Improved analytics - by explicitly defining the output schema, by removing irrelevant data and by enriching the data with additional information customers can now standardize the data according to the SOC analysts needs
-3)	Better performance - performing the transformations in the pipeline eliminates the need for performing query time adjustments that were previously required to standardize the ingested data
+## Data transformation flow in Microsoft Sentinel
 
-## Sample scenarios
+The following image shows where ingestion-time data transformation enters the data ingestion flow into Microsoft Sentinel.
 
-Filtering
-Filtering can be performed both in the record level or in the column level by removing the content of specific fields (add an example)
-Enrichments
-users can enrich the data with additional columns. These columns may include parsed data from other columns or data taken from static tables added to the configured KQL transformation (add an example)
-Obfuscation
-Ingestion time transformations can be used to mask or remove personal information such as credit card numbers etc. (add an example)
+Microsoft Sentinel data connectors collect data into the Log Analytics workspace, where it's processed using both hardcoded workflows and DCR-based custom logs, and then stored in both standard and custom tables accessible from Microsoft Sentinel.
 
-## Data connector support in Microsoft Sentinel
+:::image type="content" source="media/data-transformation/data-transformation-architecture.png" alt-text="Diagram of the Microsoft Sentinel data transformation architecture.":::
 
-The DCR based custom logs feature and the ingestion time transformations for standard tables are both based on Data Collection Rules.
-Data Collection Rule  
-A data collection rule determines the data flows of the different input streams. Each data flow includes the following:
-•	Streams – the input streams to be transformed (standard or custom input stream)
-•	The destination workspaces names
-•	The KQL transformation
-•	The output table (for standard input stream it is the same as the input stream)
-There are 2 types of DCRs:
-1)	Native or "Normal" DCR – currently this type is supported for AMA and Custom logs workflows
-2)	Workspace Transform DCR (see below)
-Default (Workspace Transform) Data Collection Rule  
-A special kind of DCR for workflows that have no "Native" DCR support. The default DCR has the following limitations:
-1)	There may be only one DCR per workspace
-2)	There may be one transformation for each input stream (e.g., one transformation for Syslog table etc.)
-3)	Default DCR is applicable only to a list of supported tables (add link to the list of supported tables)
-To learn more about DCR refer to the following link (Add link to the DCR concept document)
-MS Sentinel Data Connectors Support for Ingestion-time transformations
-MS Sentinel support for ingestion time transformations depends on the data connector type. AMA-based connectors, for example support native DCRs which means users of these connectors may configure different DCRs per each agent and per each input stream. Other connectors (e.g., SCUBA based connectors) support only default DCR which means that users of a certain workspace can only define one transformation per each table. Other connectors like connectors that are currently working with custom logs v2 have no DCR support at all.
+## DCR support in Microsoft Sentinel
 
-### Supported data connectors
+In Log Analytics, data collection rules (DCRs) determine the data flow for different input streams. Each data flow includes: the data stream to be transformed (standard or custom), the destination workspace, the KQL transformation, and the output table. For standard input streams, the output table is the same as the input stream.
 
-* Support depends on the specific connector’s tables
-** These connectors are currently using custom logs v1 and they will be gradually migrated to support DCRs
+Support for DCRs in Microsoft Sentinel includeS:
+
+- *Standard* DCRs<!--native? normal?-->, currently supported only for AMA-based connectors and the custom logs workflow.
+
+- *Workspace transformation* DCRs, for workflows that don't currently support standard DCRs.
+
+    Use workspace DCRs to create a default DCR to use across your workspace. One default DCR is supported for each workspace, with one transformation for each input stream. Default DCRs are also supported for specific tables only.
+
+    Default DCRs can be created using the Log Analytics portal, and edited using the Log Analytics API or ARM template.
+
+Microsoft Sentinel's support for ingestion-time transformation depends on the type of data connector you're using.
+
+The following table describes DCR support for Microsoft Sentinel data connector types:
+
+|Data connector type    |DCR support  |
+|------------------|------------------|
+|**AMA standard logs**, such as: <br> - [Windows Security Events via AMA](data-connectors-reference.md#windows-security-events-via-ama)<br>- [Windows Forwarded Events](data-connectors-reference.md#windows-forwarded-events-preview)<br>- [CEF data](connect-common-event-format.md) <br>- [Syslog data](connect-syslog.md)             |  Standard DCRs       |
+|**MMA standard logs**, such as <br>- [Syslog data](connect-syslog.md) <br>- [CommonSecurityLog](connect-azure-windows-microsoft-services.md)            |         |
+|[**Diagnostic settings-based connections**](connect-azure-windows-microsoft-services.md#diagnostic-settings-based-connections)       |  Default DCRs, based on the specific data connector's output tables       |
+|**Built-in, service-to-service data connectors**, such as [Amazon S3](connect-aws.md)            |Default DCRs, based on the specific data connector's output tables        |
+|**Custom, [direct API](connect-rest-api-template.md) or [Logstash](connect-logstash.md)-based data connectors**    |  Standard DCRs      |         |
+|**Built-in, API-based data connectors**, such as: <br>- [Codeless data connectors](create-codeless-connector.md)<br>- [Azure Functions-based data connectors](connect-azure-functions-template.md)           | Not currently supported        |
+|            |         |
+
+## Data transformation support for custom data connectors
+
+If you've created custom data connectors for Microsoft Sentinel, you can still use DCRs for ingestion-time data transformation.
+
+When using DCRs with custom connectors, data is ingested similarly to custom log ingestion, such as with built-in data connectors that use direct API, Azure Functions, or Logstash.
+
+Only the following tables are currently supported for custom log ingestion: **WindowsEvent**, **SecurityEvent**, **CommonSecurityLog**, and **Syslog**
+
+## Known issues
+
+Ingestion-time data transformation currently has the following known issues for Microsoft Sentinel data connectors:
+
+- Data transformations with default DCRs are supported only per table, and not per connector.
+
+    For example, consider a DCR transformation for an MMA-based data connector sending data to a Syslog table. The same DCR is used for all other MMA connectors sending data for Syslog tables.
+
+- While you can create your first default DCR using the Log Analytics portal, you can only edit it via API or ARM template.
+
+    So this means, for example, that if you create a DCR to transform Syslog data for a specific MMA-based data connector, and you'd like to modify it to support another MMA-based data connector, you'll need to use API calls to make that modification.
+
+- The following configurations are supported only via API:
+
+    - Standard DCRs, for AMA-based connectors like [Windows Security Events via AMA](data-connectors-reference.md#windows-security-events-via-ama) and [Windows Forwarded Events](data-connectors-reference.md#windows-forwarded-events-preview), are supported only via API.
+
+    - Data transformation configuration for custom log ingestion to a standard table
+
+- It make take up to 60 minutes for the data transformation configurations to apply.
+
+- KQL syntax: Not all operators are supported. For more information, see TBD.
+
+- Custom logs can currently be sent only to the following tables: **WindowsEvent**, **SecurityEvent**, **CommonSecurityLog**, and **Syslog**
+
+## Next steps
+
+Learn more about ingestion-time data transformation. For more information, see <x>.
+
+Link to LA docs
+
+Learn more about Microsoft Sentinel data connector types. For more information, see:
+
+- [Microsoft Sentinel data connectors](connect-data-sources.md)
+- [Find your Microsoft Sentinel data connector](data-connectors-reference.md)
