@@ -154,7 +154,7 @@ When you create a new DataBricks workspace,you have the ability to add a tag tha
  
  1. Enter the value `off`.
  
-:::image type="content" source="media/defender-for-storage-exclude/tag-off.png" alt-text="Screenshot that shows how to create a tag in the DataBricks workspace.":::
+    :::image type="content" source="media/defender-for-storage-exclude/tag-off.png" alt-text="Screenshot that shows how to create a tag in the DataBricks workspace.":::
 
 1. Continue following the instructions to create your new Azure DataBricks workspace.
  
