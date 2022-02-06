@@ -355,7 +355,7 @@
         - name: ASIM registry event schema
           href: registry-event-normalization-schema.md
         - name: ASIM user management schema
-          href: user-mgmt-normalization-schema.md
+          href: user-management-normalization-schema.md
         - name: ASIM web session schema
           href: web-normalization-schema.md
         - name: Legacy network normalization schema
