@@ -107,8 +107,6 @@
       href: how-to-configure-auto-shutdown-lab-plans.md
     - name: Add a lab creator
       href: add-lab-creator.md
-    - name: Manage VM pool
-      href: how-to-manage-vm-pool.md
     - name: Connect to a virtual network
       href: how-to-connect-vnet-injection.md
     - name: Create a lab with a shared resource
@@ -141,11 +139,13 @@
     items:        
     - name: Create and manage labs
       href: how-to-manage-labs.md
-    - name: Use dashboard
+    - name: Use lab dashboard
       href: use-dashboard.md
-    - name: Set up, customize, and publish templates
+    - name: Customize and publish templates
       href: how-to-create-manage-template.md
-    - name: Set up and manage virtual machine pool 
+    - name: Manage VM pool
+      href: how-to-manage-vm-pool.md
+    - name: Set and reset passwords 
       href: how-to-set-virtual-machine-passwords.md
     - name: Add and manage lab users
       href: how-to-configure-student-usage.md      
@@ -165,7 +165,7 @@
         href: how-to-enable-nested-virtualization-template-vm-ui.md 
       - name: Enable nested virtualization on a template VM using a script
         href: how-to-enable-nested-virtualization-template-vm-using-script.md
-    - name: Set up a lab with GPUs
+    - name: Create a lab with GPUs
       href: how-to-setup-lab-gpu.md
     - name: Prepare a Windows template VM
       href: how-to-prepare-windows-template.md
