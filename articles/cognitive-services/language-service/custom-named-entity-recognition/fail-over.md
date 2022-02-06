@@ -19,7 +19,7 @@ Use the following steps to get the keys and endpoint of your primary and seconda
 * Go to your resource overview page in the [Azure portal](https://ms.portal.azure.com/#home)
 
 * From the menu of the left side of the screen, select **Keys and Endpoint**. Use endpoint for the API requests and you’ll need the key for `Ocp-Apim-Subscription-Key` header.
-:::image type="content" source="./media/azure-portal-resource-credentials.png" alt-text="A screenshot showing the key and endpoint screen for an Azure resource." lightbox="./media/azure-portal-resource-credentials.png":::
+:::image type="content" source="../media/azure-portal-resource-credentials.png" alt-text="A screenshot showing the key and endpoint screen for an Azure resource." lightbox="./media/azure-portal-resource-credentials.png":::
 
 > [!TIP]
 > Keep a note of keys and endpoints for both primary and secondary resources. Use these values to replace the following placeholders:
