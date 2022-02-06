@@ -62,14 +62,17 @@
           href: tutorial-custom-container.md
         - name: Multi-container app
           href: tutorial-multi-container-app.md
-    - name: Secretless back end connectivity
-      items:
-        - name: Access SQL DB with managed identity
-          href: tutorial-connect-msi-sql-database.md
-        - name: Access services without managed identity support
-          href: tutorial-connect-msi-key-vault.md
     - name: Authenticate users
       href: tutorial-auth-aad.md
+    - name: Securely connect to Azure resources
+      items:
+        - name: Overview
+          href: tutorial-connect-overview.md
+        - name: Managed identity with SQL DB
+          href: tutorial-connect-msi-sql-database.md
+        - name: Key vault with Cognitive Services
+          href: tutorial-connect-msi-key-vault.md
+
     - name: Secure app accesses storage, and Microsoft Graph
       items:
         - name: Overview

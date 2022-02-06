@@ -74,9 +74,7 @@ Gateway Load Balancer consists of the following components:
 
 ## Pricing
 
-There's no charge for Gateway Load Balancer during preview. 
-
-For pricing that will be effective during the general availability release, see [Load Balancer pricing](https://azure.microsoft.com/pricing/details/load-balancer/).
+For pricing see [Load Balancer pricing](https://azure.microsoft.com/pricing/details/load-balancer/).
 
 ## Limitations
 

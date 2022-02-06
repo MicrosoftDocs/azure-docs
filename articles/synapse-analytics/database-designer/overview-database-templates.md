@@ -36,7 +36,7 @@ A typical database template addresses the core requirements of a specific indust
 
 ## Available database templates 
 
-Currently, you can choose from 11 database templates in Azure Synapse Studio to start creating your lake database: 
+Currently, you can choose from the following database templates in Azure Synapse Studio to start creating your lake database: 
 
 * **Agriculture** - For companies engaged in growing crops, raising livestock, and dairy production.
 * **Automotive** - For companies manufacturing automobiles, heavy vehicles, tires, and other automotive components.
