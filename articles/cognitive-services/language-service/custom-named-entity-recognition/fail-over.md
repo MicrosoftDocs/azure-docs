@@ -1,20 +1,20 @@
 # Back up and recover your custom NER models
 
-When you create a Language resource in the Azure portal, you specify a region for it to be created in. From then on, your resource and all of the operations related to it take place in the specified Azure server region. It's rare, but not impossible, to encounter a network issue that hits an entire region. If your solution needs to always be available, then you should design it to either fail-over into another region. This require two Azure Language resources in different regions and the ability to sync custom models across regions. 
+When you create a Language resource in the Azure portal, you specify a region for it to be created in. From then on, your resource and all of the operations related to it take place in the specified Azure server region. It's rare, but not impossible, to encounter a network issue that hits an entire region. If your solution needs to always be available, then you should design it to either fail-over into another region. This requires two Azure Language resources in different regions and the ability to sync custom models across regions. 
 
 If your app or business depends on the use of a custom NER model, we recommend that you create a replica of your project into another supported region. So that if a regional outage occurs, you can then access your model in the other fail-over region where tou replicated your project.
 
-Replicating a project means that you export your project metadata and assests and them import them into a new project. This only make a copy of your project settings and tagged data you still need to [train](how-to/train-model?tabs=portal#azure-resources.md) and [deploy](how-to/call-api.md#deploy-your-model) the models to be available for use with [prediction APIs](https://aka.ms/ct-runtime-swagger).
+Replicating a project means that you export your project metadata and assets and them import them into a new project. This only make a copy of your project settings and tagged data you still need to [train](how-to/train-model?tabs=portal#azure-resources.md) and [deploy](how-to/call-api.md#deploy-your-model) the models to be available for use with [prediction APIs](https://aka.ms/ct-runtime-swagger).
 
 In this article, you will learn to how to use the export and import APIs to replicate your project from one resource to another existing in different supported geographical regions, guidance on keeping your projects in sync and changes needed to your runtime consumption.
 
 ##  Prerequisites
 
-1. Two Azure Language resources in different Azure regions. Follow the instructions mentioned [here](how-to/create-project.md#azure-resources) to create your resources and link it to Azure storage account. It is recomeneded that you link both your Languge resources to the same storage account. 
+1. Two Azure Language resources in different Azure regions. Follow the instructions mentioned [here](how-to/create-project.md#azure-resources) to create your resources and link it to Azure storage account. It is recommended that you link both your Language resources to the same storage account. 
 
 ## Get your resource keys endpoint
 
-Use the following steps to get the keys and endpoint of your primary and secondary resuorces. These will be used in the following steps.
+Use the following steps to get the keys and endpoint of your primary and secondary resources. These will be used in the following steps.
 
 * Go to your resource overview page in the [Azure portal](https://ms.portal.azure.com/#home)
 
@@ -29,7 +29,7 @@ Use the following steps to get the keys and endpoint of your primary and seconda
 
 ## Export your primary project assets
 
-Start by exporting the project assests from the project in your primary resource.
+Start by exporting the project assets from the project in your primary resource.
 
 ### Submit export job
 
@@ -115,11 +115,11 @@ Use the following header to authenticate your request.
 }
 ```
 
-Use the url from the `resultUrl` key in the body to view the exported assests from this job.
+Use the url from the `resultUrl` key in the body to view the exported assets from this job.
 
 ### Get export results
 
-Use the following **GET** request to view the resuts of the export job. You can use the URL you received from the previous step, or replace the placeholder values below with your own values. 
+Use the following **GET** request to view the results of the export job. You can use the URL you received from the previous step, or replace the placeholder values below with your own values. 
 
 ```rest
 {YOUR-PRIMARY-ENDPOINT}/language/analyze-text/internal/projects/{PROJECT-NAME}/export/jobs/{JOB-ID}/result?api-version=2021-11-01-preview
@@ -143,7 +143,7 @@ Copy the response body as you will use it as the body for the next import job.
 
 ## Import to a new project 
 
-Now go ahead and import the exported project assests in your new project in the secondary region so you can replicate it.
+Now go ahead and import the exported project assets in your new project in the secondary region so you can replicate it.
 
 ### Submit import job
 
@@ -439,7 +439,7 @@ Repeat the same steps for your replicated project using `{YOUR-SECONDARY-ENDPOIN
 
 ## Next steps
 
-In this article, you have learned how to use the export and import APIs to replicate you project to a secondary Language resource in other region. Next, explore the API reference docs to see what else you can do with authoring APIs.
+In this article, you have learned how to use the export and import APIs to replicate your project to a secondary Language resource in other region. Next, explore the API reference docs to see what else you can do with authoring APIs.
 
 * [Authoring REST API reference ](https://aka.ms/ct-authoring-swagger)
 
