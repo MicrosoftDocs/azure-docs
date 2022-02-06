@@ -86,8 +86,8 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: Create an alert trigger
-            url: cloudknox-howto-create-alert-trigger.md
+          - text: View information about activity triggers
+            url: cloudknox-ui-triggers.md
   # Card
   - title: Manage rules for authorization systems
     linkLists:

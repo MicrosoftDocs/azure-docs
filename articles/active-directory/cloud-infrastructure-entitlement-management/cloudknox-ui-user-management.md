@@ -80,9 +80,9 @@ You can also select the following options:
 - **Create permission**: Create a group and set up its permissions. For more information, see [Create group-based permissions](cloudknox-howto-create-group-based-permissions.md)
 
 
+
 ## Next steps
 
+- For information about how to view information about active and completed tasks, see [View information about active and completed tasks](cloudknox-ui-tasks.md).
+- For information about how to view personal and organization information, see [View personal and organization information](cloudknox-product-account-settings.md).
 - For information about how to select group-based permissions settings, see [Select group-based permissions settings](cloudknox-howto-create-group-based-permissions.md).
-<!--- - For information on how to define and manage users, roles, and access levels, see [Define and manage users, roles, and access levels](cloudknox-product-define-permission-levels.md)--->
-
-

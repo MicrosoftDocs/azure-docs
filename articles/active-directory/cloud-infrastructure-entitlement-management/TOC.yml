@@ -74,7 +74,7 @@
     - name: Manage organizational and personal information
       expanded: false
       items:
-      - name: Set personal and organization information
+      - name: View personal and organization information
         href: cloudknox-product-account-settings.md
     - name: View information about identities, resources, and tasks
       expanded: false
@@ -97,10 +97,10 @@
         href: cloudknox-usage-analytics-access-keys.md
       - name: View analytic information about serverless functions
         href: cloudknox-usage-analytics-serverless-functions.md
-    - name: View information about active and completed activities
+    - name: View active and completed tasks
       expanded: false
       items:
-      - name: View information about active and completed activities
+      - name: View information about active and completed tasks
         href: cloudknox-ui-tasks.md
     - name: Manage roles/policies and permission requests
       expanded: false
@@ -151,10 +151,10 @@
       items: 
       - name: View information about activity triggers
         href: cloudknox-ui-triggers.md
-      - name: Create and view an alert
+      - name: Create and view activity alerts and alert triggers
         href: cloudknox-howto-create-alert-trigger.md
-      - name: View alerts and alert triggers
-        href: cloudknox-howto-view-alert-trigger.md
+      # - name: View alerts and alert triggers
+        # href: cloudknox-howto-view-alert-trigger.md
       - name: Create and view rule-based anomalies and anomaly triggers
         href: cloudknox-product-rule-based-anomalies.md
       - name: Create and view statistical anomalies and anomaly triggers

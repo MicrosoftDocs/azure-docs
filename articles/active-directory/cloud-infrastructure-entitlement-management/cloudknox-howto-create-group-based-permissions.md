@@ -45,8 +45,7 @@ This article describes how you can create  and manage group-based permissions in
 
 ## Next steps
 
-- For information about how to view user management information, see [Manage users with the User management dashboard](cloudknox-ui-user-management.md).
-<!--- - For information on how to define and manage users, roles, and access levels, see [Define and manage users, roles, and access levels](cloudknox-product-define-permission-levels.md)--->
-
-
+- For information about how to manage user information, see [Manage users and groups with the User management dashboard](cloudknox-ui-user-management.md).
+- For information about how to view information about active and completed tasks, see [View information about active and completed tasks](cloudknox-ui-tasks.md).
+- For information about how to view personal and organization information, see [View personal and organization information](cloudknox-product-account-settings.md).
 
