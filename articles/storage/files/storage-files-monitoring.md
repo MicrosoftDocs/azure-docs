@@ -66,9 +66,6 @@ To get the list of SMB and REST operations that are logged, see [Storage logged 
 
 You can create a diagnostic setting by using the Azure portal, PowerShell, the Azure CLI, an Azure Resource Manager template, or Azure Policy.
 
-> [!NOTE]
-> Azure Storage logs in Azure Monitor is in public preview and is available for preview testing in all public and US Government cloud regions. This preview enables logs for blobs (which includes Azure Data Lake Storage Gen2), files, queues,and tables. This feature is available for all storage accounts that are created with the Azure Resource Manager deployment model. See [Storage account overview](../common/storage-account-overview.md).
-
 For general guidance, see [Create diagnostic setting to collect platform logs and metrics in Azure](../../azure-monitor/essentials/diagnostic-settings.md).
 
 ### [Azure portal](#tab/azure-portal)
@@ -77,7 +74,7 @@ For general guidance, see [Create diagnostic setting to collect platform logs an
 
 2. Navigate to your storage account.
 
-3. In the **Monitoring** section, click **Diagnostic settings (preview)**.
+3. In the **Monitoring** section, click **Diagnostic settings**.
 
    > [!div class="mx-imgBorder"]
    > ![portal - Diagnostics logs](media/storage-files-monitoring/diagnostic-logs-settings-pane.png)   
@@ -506,9 +503,6 @@ N/A.
 You can access resource logs either as a blob in a storage account, as event data, or through Log Analytic queries.
 
 To get the list of SMB and REST operations that are logged, see [Storage logged operations and status messages](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) and [Azure Files monitoring data reference](storage-files-monitoring-reference.md).
-
-> [!NOTE]
-> Azure Storage logs in Azure Monitor is in public preview and is available for preview testing in all public and US Government cloud regions. This preview enables logs for blobs (which includes Azure Data Lake Storage Gen2), files, queues, tables, premium storage accounts in general-purpose v1, and general-purpose v2 storage accounts. Classic storage accounts aren't supported.
 
 Log entries are created only if there are requests made against the service endpoint. For example, if a storage account has activity in its file endpoint but not in its table or queue endpoints, only logs that pertain to the Azure File service are created. Azure Storage logs contain detailed information about successful and failed requests to a storage service. This information can be used to monitor individual requests and to diagnose issues with a storage service. Requests are logged on a best-effort basis.
 

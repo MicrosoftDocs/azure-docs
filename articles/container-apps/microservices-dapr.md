@@ -142,19 +142,12 @@ Get the storage account key with the following command:
 STORAGE_ACCOUNT_KEY=`az storage account keys list --resource-group $RESOURCE_GROUP --account-name $STORAGE_ACCOUNT --query '[0].value' --out tsv`
 ```
 
-```bash
-echo $STORAGE_ACCOUNT_KEY
-```
-
 # [PowerShell](#tab/powershell)
 
 ```powershell
 $STORAGE_ACCOUNT_KEY=(Get-AzStorageAccountKey -ResourceGroupName $RESOURCE_GROUP -AccountName $STORAGE_ACCOUNT)| Where-Object -Property KeyName -Contains 'key1' | Select-Object -ExpandProperty Value
 ```
 
-```powershell
-echo $STORAGE_ACCOUNT_KEY
-```
 
 ---
 
@@ -172,19 +165,17 @@ Create a config file named *components.yaml* with the properties that you source
   # should be securely stored. For more information, see
   # https://docs.dapr.io/operations/components/component-secrets
   - name: accountName
-    value: <YOUR_STORAGE_ACCOUNT_NAME>
+    secretRef: storage-account-name
   - name: accountKey
-    value: <YOUR_STORAGE_ACCOUNT_KEY>
+    secretRef: storage-account-key
   - name: containerName
-    value: <YOUR_STORAGE_CONTAINER_NAME>
+    value: mycontainer
 ```
 
-To use this file, make sure to replace the placeholder values between the `<>` brackets with your own values.
+To use this file, make sure to replace the value of `containerName` with your own value if you have changed `STORAGE_ACCOUNT_CONTAINER` variable from its original value, `mycontainer`.
 
 > [!NOTE]
 > Container Apps does not currently support the native [Dapr components schema](https://docs.dapr.io/operations/components/component-schema/). The above example uses the supported schema.
->
-> In a production-grade application, follow [secret management](https://docs.dapr.io/operations/components/component-secrets) instructions to securely manage your secrets.
 
 
 ## Deploy the service application (HTTP web server)
@@ -206,6 +197,7 @@ az containerapp create \
   --enable-dapr \
   --dapr-app-port 3000 \
   --dapr-app-id nodeapp \
+  --secrets "storage-account-name=${STORAGE_ACCOUNT},storage-account-key=${STORAGE_ACCOUNT_KEY}" \
   --dapr-components ./components.yaml
 ```
 
@@ -224,6 +216,7 @@ az containerapp create `
   --enable-dapr `
   --dapr-app-port 3000 `
   --dapr-app-id nodeapp `
+  --secrets "storage-account-name=${STORAGE_ACCOUNT},storage-account-key=${STORAGE_ACCOUNT_KEY}" `
   --dapr-components ./components.yaml
 ```
 
@@ -349,7 +342,8 @@ Remove-AzResourceGroup -Name $RESOURCE_GROUP -Force
 ---
 
 This command deletes the resource group that includes all of the resources created in this tutorial.
- [!NOTE]
+
+> [!NOTE]
 > Since `pythonapp` continuously makes calls to `nodeapp` with messages that get persisted into your configured state store, it is important to complete these cleanup steps to avoid ongoing billable operations.
 
 > [!TIP]

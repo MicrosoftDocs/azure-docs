@@ -1,15 +1,15 @@
 ---
-title: Migration to App Service Environment v3
-description: Overview of the migration process to App Service Environment v3
+title: Migrate to App Service Environment v3 by using the migration feature
+description: Overview of the migration feature for migration to App Service Environment v3
 author: seligj95
 ms.topic: article
-ms.date: 1/28/2022
+ms.date: 2/2/2022
 ms.author: jordanselig
 ms.custom: references_regions
 ---
-# Migration to App Service Environment v3
+# Migration to App Service Environment v3 using the migration feature
 
-App Service can now migrate your App Service Environment v2 to an [App Service Environment v3](overview.md). If you want to migrate an App Service Environment v1 to an App Service Environment v3, see the [migration alternatives documentation](migration-alternatives.md). App Service Environment v3 provides [advantages and feature differences](overview.md#feature-differences) over earlier versions. Make sure to review the [supported features](overview.md#feature-differences) of App Service Environment v3 before migrating to reduce the risk of an unexpected application issue.
+App Service can now automate migration of your App Service Environment v2 to an [App Service Environment v3](overview.md). If you want to migrate an App Service Environment v1 to an App Service Environment v3, see the [manual migration options documentation](migration-alternatives.md). App Service Environment v3 provides [advantages and feature differences](overview.md#feature-differences) over earlier versions. Make sure to review the [supported features](overview.md#feature-differences) of App Service Environment v3 before migrating to reduce the risk of an unexpected application issue.
 
 > [!IMPORTANT]
 > It is recommended to use this feature for dev environments first before migrating any production environments to ensure there are no unexpected issues. Please provide any feedback related to this article or the feature using the buttons at the bottom of the page.
@@ -17,7 +17,7 @@ App Service can now migrate your App Service Environment v2 to an [App Service E
 
 ## Supported scenarios
 
-At this time, App Service Environment migrations to v3 support both [Internal Load Balancer (ILB)](create-ilb-ase.md) and [external (internet facing with public IP)](create-external-ase.md) App Service Environment v2 in the following regions:
+At this time, App Service Environment migrations to v3 using the migration feature support both [Internal Load Balancer (ILB)](create-ilb-ase.md) and [external (internet facing with public IP)](create-external-ase.md) App Service Environment v2 in the following regions:
 
 - West Central US
 - Canada Central
@@ -54,11 +54,11 @@ The following scenarios aren't supported in this version of the feature:
 - [Zone pinned](zone-redundancy.md) App Service Environment v2
 - App Service Environment in a region not listed in the supported regions
 
-The migration feature doesn't plan on supporting App Service Environment v1 within a classic VNet. See [migration alternatives](migration-alternatives.md) if your App Service Environment falls into this category.
+The migration feature doesn't plan on supporting App Service Environment v1 within a classic VNet. See the [manual migration options](migration-alternatives.md) if your App Service Environment falls into this category.
 
 The App Service platform will review your App Service Environment to confirm migration support. If your scenario doesn't pass all validation checks, you won't be able to migrate at this time using the migration feature. If your environment is in an unhealthy or suspended state, you won't be able to migrate until you make the needed updates.
 
-## Overview of the migration process
+## Overview of the migration process using the migration feature
 
 Migration consists of a series of steps that must be followed in order. Key points are given for a subset of the steps. It's important to understand what will happen during these steps and how your environment and apps will be impacted. After reviewing the following information and when you're ready to migrate, follow the [step-by-step guide](how-to-migrate.md).
 
@@ -74,7 +74,7 @@ Once the new IPs are created, you'll have the new default outbound to the intern
 
 ### Delegate your App Service Environment subnet
 
-App Service Environment v3 requires the subnet it's in to have a single delegation of `Microsoft.Web/hostingEnvironments`. If the App Service Environment's subnet isn't delegated or it's delegated to a different resource, migration will fail.
+App Service Environment v3 requires the subnet it's in to have a single delegation of `Microsoft.Web/hostingEnvironments`. Migration will not succeed if the App Service Environment's subnet isn't delegated or it's delegated to a different resource.
 
 ### Migrate to App Service Environment v3
 
@@ -101,15 +101,15 @@ There's no cost to migrate your App Service Environment. You'll stop being charg
 ## Frequently asked questions
 
 - **What if migrating my App Service Environment is not currently supported?**  
-  You won't be able migrate using the migration feature at this time. If you have an unsupported environment and want to migrate immediately, see [migration alternatives](migration-alternatives.md).
+  You won't be able migrate using the migration feature at this time. If you have an unsupported environment and want to migrate immediately, see the [manual migration options](migration-alternatives.md). This doc will be updated as additional regions and supported scenarios become available.
 - **Will I experience downtime during the migration?**  
-  Yes, you should expect about one hour of downtime during the migration step so plan accordingly. If downtime isn't an option for you, see [migration alternatives](migration-alternatives.md).
+  Yes, you should expect about one hour of downtime during the migration step so plan accordingly. If downtime isn't an option for you, see the [manual migration options](migration-alternatives.md).
 - **Will I need to do anything to my apps after the migration to get them running on the new App Service Environment?**  
   No, all of your apps running on the old environment will be automatically migrated to the new environment and run like before. No user input is needed.
 - **What if my App Service Environment has a custom domain suffix?**  
-  You won't be able migrate using the migration feature at this time. If you have an unsupported environment and want to migrate immediately, see [migration alternatives](migration-alternatives.md).
+  You won't be able migrate using the migration feature at this time. If you have an unsupported environment and want to migrate immediately, see the [manual migration options](migration-alternatives.md).
 - **What if my App Service Environment is zone pinned?**  
-  Zone pinned App Service Environment is currently not a supported scenario for migration. When supported, zone pinned App Service Environments will be migrated to zone redundant App Service Environment v3.
+  Zone pinned App Service Environment is currently not a supported scenario for migration using the migration feature. When supported, zone pinned App Service Environments will be migrated to zone redundant App Service Environment v3.
 - **What properties of my App Service Environment will change?**  
   You'll now be on App Service Environment v3 so be sure to review the [features and feature differences](overview.md#feature-differences) compared to previous versions. For ILB App Service Environment, you'll keep the same ILB IP address. For internet facing App Service Environment, the public IP address and the outbound IP address will change. Note for internet facing App Service Environment, previously there was a single IP for both inbound and outbound. For App Service Environment v3, they're separate. For more information, see [App Service Environment v3 networking](networking.md#addresses).
 - **What happens if migration fails or there is an unexpected issue during the migration?**  

@@ -1,13 +1,12 @@
 ---
-title: MLflow Tracking for ML experiments
+title: MLflow Tracking for models
 titleSuffix: Azure Machine Learning
 description:  Set up MLflow Tracking with Azure Machine Learning to log metrics and artifacts from ML models.
 services: machine-learning
-author: cjgronlund
-ms.author: cgronlun
+author: nibaccam
+ms.author: nibaccam
 ms.service: machine-learning
 ms.subservice: mlops
-ms.reviewer: nibaccam
 ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: devx-track-python, mlflow
@@ -65,9 +64,6 @@ ws = Workspace.from_config()
 
 mlflow.set_tracking_uri(ws.get_mlflow_tracking_uri())
 ```
-
->[!NOTE]
->The tracking URI is valid up to an hour or less. If you restart your script after some idle time, use the get_mlflow_tracking_uri API to get a new URI.
 
 Set the MLflow experiment name with `set_experiment()` and start your training run with `start_run()`. Then use `log_metric()` to activate the MLflow logging API and begin logging your training run metrics.
 
