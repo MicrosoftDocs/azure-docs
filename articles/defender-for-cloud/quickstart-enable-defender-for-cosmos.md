@@ -7,11 +7,7 @@ ms.date: 02/06/2022
 
 # Quickstart: Enable Microsoft Defender for Cosmos DB
 
-Microsoft Defender for Cloud can be configured in the following two ways:
-
-- [Subscription level](#enable-database-protection-at-the-subscription-level) - Enables Microsoft Defender for Cloud protection for all database types in your subscription (recommended). 
-
-- [Resource level](#enable-database-protection-at-the-resource-level) - Enables Microsoft Defender for Cloud for a specific Cosmos DB account.
+ Microsoft Defender for Cosmos DB protection is available at both the [Subscription level](#enable-database-protection-at-the-subscription-level), and resource level. You can enable Microsoft Defender for Cloud on your subscription to protect all database types on your subscription including Microsoft Defender for Cosmos DB(recommended). You can also choose to enable Microsoft Defender for Cosmos DB at the [Resource level](#enable-defender-for-cosmos-db-at-the-resource-level) to protect a specific Cosmos DB account.
 
 ## Prerequisites
 
