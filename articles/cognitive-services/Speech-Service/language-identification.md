@@ -551,7 +551,7 @@ speechRecognizer.recognizeOnceAsync((result: SpeechSDK.SpeechRecognitionResult) 
 
 ### Using Speech-to-text custom models
 
-The sample below illustrates how to specify a custom model in your call to the Speech service. If the detected language is `en-US`, then the default model is used. If the detected language is `fr-FR`, then the custom model endpoint is used. For more information, see [Train and deploy a Custom Speech model](show-to-custom-speech-train-model.md).
+The sample below illustrates how to specify a custom model in your call to the Speech service. If the detected language is `en-US`, then the default model is used. If the detected language is `fr-FR`, then the custom model endpoint is used. For more information, see [Train and deploy a Custom Speech model](how-to-custom-speech-train-model.md).
 
 ::: zone pivot="programming-language-csharp"
 
