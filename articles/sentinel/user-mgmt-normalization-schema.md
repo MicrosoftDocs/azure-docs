@@ -1,6 +1,6 @@
 ---
-title: Microsoft Sentinel user management normalization schema reference (preview) | Microsoft Docs
-description: This article displays the Microsoft Sentinel user management normalization schema.
+title: title: Microsoft Sentinel user management normalization schema reference (Public Preview) | Microsoft Docs
+description: his article describes the Microsoft Sentinel user management normalization schema.
 author: oshezaf
 ms.topic: reference
 ms.date: 11/17/2021
@@ -10,7 +10,7 @@ ms.author: ofshezaf
 
 # Microsoft Sentinel user management normalization schema reference (preview)
 
-The Microsoft Sentinel user management normalization schema is used to describe user management activities such as creating a user or a group, changing user attribute, or adding a user to a group. Such events are reported, for example, by operating systems, directory services, identity management systems, and any other system reporting on its local user management activity.
+The Microsoft Sentinel user management normalization schema is used to describe user management activities, such as creating a user or a group, changing user attribute, or adding a user to a group. Such events are reported, for example, by operating systems, directory services, identity management systems, and any other system reporting on its local user management activity.
 
 For more information about normalization in Microsoft Sentinel, see [Normalization and the Advanced SIEM Information Model (ASIM)](normalization.md).
 
@@ -31,8 +31,8 @@ The ASIM user management schema describes user management activities. The activi
 - **Target User** - the user who's account is managed.
 - **Group** the target user is added or removed from, or being modified. 
 
-Some activities such as UserCreated, GroupCreated, UserModified, and GroupModified set or update user properties. The property set or updated is documented in the fields:
-- [EventSubType](#eventsubtype) - the name of the value that was set or updated. [UpdatedPropertyName](#updatedpropertyname) is an alias to EventSubType when [EventSubType](#eventsubtype) refers to one of the relevant event types.
+Some activities, such as **UserCreated**, **GroupCreated**, **UserModified**, and *GroupModified**, set or update user properties. The property set or updated is documented in the following fields:
+- [EventSubType](#eventsubtype) - the name of the value that was set or updated. [UpdatedPropertyName](#updatedpropertyname) is an alias to **EventSubType** when [EventSubType](#eventsubtype) refers to one of the relevant event types.
 - [PreviousPropertyValue](#previouspropertyvalue) - the previous value of the property.
 - [NewPropertyValue](#newpropertyvalue) - the updated value of the property.
 
@@ -46,23 +46,23 @@ Some activities such as UserCreated, GroupCreated, UserModified, and GroupModifi
 
 | Field               | Class       | Type       |  Description        |
 |---------------------|-------------|------------|--------------------|
-| **EventType** | Mandatory | Enumerated | Describes the operation reported by the record.<br><br> For User Management activity, the supported values are:<br> - UserCreated<br> - UserDeleted<br> - UserModified<br> - UserLocked<br> - UserUnlocked<br> - UserDisabled<br> - UserEnabled<br> - PasswordChanged<br> - PasswordReset<br> - GroupCreated<br> - GroupDeleted<br> - GroupModified<br> - UserAddedToGroup<br> - UserRemovedFromGroup<br> - GroupEnumerated<br> - UserRead<br> - GroupRead<br> |
-| <a name="eventsubtype"></a>**EventSubType** | Optional | Enumerated | The following sub-types are supported:<br> - `UserRead`: Password, Hash<br> - `UserCreated`, `GroupCreated`, `UserModified`, `GroupModified`: for details, see [UpdatedPropertyName](#updatedpropertyname) |
-| **EventResult** | Mandatory | Enumerated | While failure is possible, most systems report only successful user management events, for which the expected value is `Success` |
+|| **EventType** | Mandatory | Enumerated | Describes the operation reported by the record.<br><br> For User Management activity, the supported values are:<br> - `UserCreated`<br> - `UserDeleted`<br> - `UserModified`<br> - `UserLocked`<br> - `UserUnlocked`<br> - `UserDisabled`<br> - `UserEnabled<br> - `PasswordChanged`<br> - `PasswordReset`<br> - `GroupCreated`<br> - `GroupDeleted`<br> - `GroupModified`<br> - `UserAddedToGroup`<br> - `UserRemovedFromGroup`<br> - `GroupEnumerated`<br> - `UserRead`<br> - `GroupRead`<br> |
+| <a name="eventsubtype"></a>**EventSubType** | Optional | Enumerated | The following sub-types are supported:<br> - `UserRead`: Password, Hash<br> - `UserCreated`, `GroupCreated`, `UserModified`, `GroupModified`. For more information, see [UpdatedPropertyName](#updatedpropertyname) |
+| **EventResult** | Mandatory | Enumerated | While failure is possible, most systems report only successful user management events. The expected value for successful events is `Success`. |
 | **EventResultDetails** | Optional | Enumerated | The valid values are `NotAuthorized` and `Other`. |
-| **EventSeverity** | Mandatory | Enumerated | While any valid severity value is allowed, the severity of user management events is typically **Informational**. | 
+| **EventSeverity** | Mandatory | Enumerated | While any valid severity value is allowed, the severity of user management events is typically `Informational`. |
 | **EventSchema** | Mandatory | String | The name of the schema documented here is `UserManagement`. |
 | **EventSchemaVersion**  | Mandatory   | String     | The version of the schema. The version of the schema documented here is `0.1.1`.        |
-| **Dvc** fields|        |      | For user management events, device fields refer to the system reporting the event, which is usually the system on which the user is managed.  |
+| **Dvc** fields| | | For user management events, device fields refer to the system reporting the event. This is usually the system on which the user is managed. |
 | | | | |
 
 ### Updated property fields
 
 | Field | Class | Type | Description |
 |-------|-------|------|-------------|
-| <a name="updatedpropertyname"></a>**UpdatedPropertyName** | Alias | | Alias to [EventSubType](#eventsubtype) when the Event Type is `UserCreated`, `GroupCreated`, `UserModified`, or `GroupModified`.<br><br>The supported values are:<br> - MultipleProperties<br><br>Use `MultipleProperties` when the activity updates multiple properties. For the previous and new property values, use the fields `Previous<PropertyName>` and `New<PropertyName>`, where `<PropertyName>` is one of the supported values for **UpdatedPropertyName**. |
-| <a name="previouspropertyvalue"></a>**PreviousPropertyValue** | Optional | String | The previous value stored in the property designated . |
-| <a name="newpropertyvalue"></a>**NewPropertyValue** | Optional | String | The new value stored in the property designated . |
+| <a name="updatedpropertyname"></a>**UpdatedPropertyName** | Alias | | Alias to [EventSubType](#eventsubtype) when the Event Type is `UserCreated`, `GroupCreated`, `UserModified`, or `GroupModified`.<br><br>Supported values are:<br>- `MultipleProperties`: Used when the activity updates multiple properties<br>- `Previous<PropertyName>`, where `<PropertyName>` is one of the supported values for `UpdatedPropertyName`. <br>- `New<PropertyName>`, where `<PropertyName>` is one of the supported values for `UpdatedPropertyName`. |
+| <a name="previouspropertyvalue"></a>**PreviousPropertyValue** | Optional | String | The previous value that was stored in the specified property. |
+| <a name="newpropertyvalue"></a>**NewPropertyValue** | Optional | String | The new value stored in the specified property. |
 |||||
 
 ### Target user fields
@@ -81,9 +81,9 @@ Some activities such as UserCreated, GroupCreated, UserModified, and GroupModifi
 
 | Field | Class | Type | Description |
 |-------|-------|------|-------------|
-| <a name="actoruserid"></a>**ActorUserId** | Optional | String | A machine-readable, alphanumeric, unique representation of the Actor. Format and supported types include:<br>-  **SID**  (Windows): `S-1-5-21-1377283216-344919071-3415362939-500`<br>-  **UID**  (Linux): `4578`<br>-  **AADID**  (Azure Active Directory): `9267d02c-5f76-40a9-a9eb-b686f3ca47aa`<br>-  **OktaId**: `00urjk4znu3BcncfY0h7`<br>-  **AWSId**: `72643944673`<br><br>Store the ID type in the [ActorUserIdType](#actoruseridtype) field. If other IDs are available, we recommend that you normalize the field names to **ActorUserSid**, **ActorUserUid**, **ActorUserAadId**, **ActorUserOktaId**, and **ActorAwsId**, respectively. For more information, see [The User entity](normalization-about-schemas.md#the-user-entity).<br><br>Example: S-1-12 |
+| <a name="actoruserid"></a>**ActorUserId** | Optional | String | A machine-readable, alphanumeric, unique representation of the Actor. <br><br>Supported formats and types include:<br>- **SID** (Windows): `S-1-5-21-1377283216-344919071-3415362939-500`<br>- **UID** (Linux): `4578`<br>- **AADID** (Azure Active Directory): `9267d02c-5f76-40a9-a9eb-b686f3ca47aa`<br>- **OktaId**: `00urjk4znu3BcncfY0h7`<br>- **AWSId**: `72643944673`<br><br>Store the ID type in the [ActorUserIdType](#actoruseridtype) field. If other IDs are available, we recommend that you normalize the field names to **ActorUserSid**, **ActorUserUid**, **ActorUserAadId**, **ActorUserOktaId**, and **ActorAwsId**, respectively. For more information, see [The User entity](normalization-about-schemas.md#the-user-entity).<br><br>Example: S-1-12 |
 | <a name="actoruseridtype"></a>**ActroUserIdType** | Optional | Enumerated | The type of the ID stored in the [ActorUserId](#actoruserid) field. Supported values include `SID`, `UID`, `AADID`, `OktaId`, and `AWSId`. |
-| <a name="actorusername"></a>**ActorUsername** | Mandatory | String | The Actor username, including domain information when available. Use one of the following formats and in the following order of priority:<br>- **Upn/Email**: `johndow@contoso.com`<br>- **Windows**: `Contoso\johndow`<br>- **DN**: `CN=Jeff Smith,OU=Sales,DC=Fabrikam,DC=COM`<br>- **Simple**: `johndow`. Use the Simple form only if domain information isn't available.<br><br>Store the Username type in the [ActorUsernameType](#actorusernametype) field. If other IDs are available, we recommend that you normalize the field names to **ActorUserUpn**, **ActorUserWindows**, and **ActorUserDn**.<br><br>For more information, see [The User entity](normalization-about-schemas.md#the-user-entity).<br><br>Example: `AlbertE` |
+| <a name="actorusername"></a>**ActorUsername** | Mandatory | String | The Actor username, including domain information when available. <br><br>Use one of the following formats and in the following order of priority:<br>- **Upn/Email**: `johndow@contoso.com`<br>- **Windows**: `Contoso\johndow`<br>- **DN**: `CN=Jeff Smith,OU=Sales,DC=Fabrikam,DC=COM`<br>- **Simple**: `johndow`. Use the Simple form only if domain information isn't available.<br><br>Store the Username type in the [ActorUsernameType](#actorusernametype) field. If other IDs are available, we recommend that you normalize the field names to **ActorUserUpn**, **ActorUserWindows**, and **ActorUserDn**.<br><br>For more information, see [The User entity](normalization-about-schemas.md#the-user-entity).<br><br>Example: `AlbertE` |
 | <a name="user"></a>**User** | Alias | | Alias to [ActorUsername](#actorusername). |
 | <a name="actorusernametype"></a>**ActorUsernameType** | Mandatory | Enumerated | Specifies the type of the username stored in the [ActorUsername](#actorusername) field. Supported values are `UPN`, `Windows`, `DN`, and `Simple`. For more information, see [The User entity](normalization-about-schemas.md#the-user-entity).<br><br>Example: `Windows` |
 | **ActorUserType** | Optional | Enumerated | The type of the Actor. Allowed values are:<br>- `Regular`<br>- `Machine`<br>- `Admin`<br>- `System`<br>- `Application`<br>- `Service Principal`<br>- `Other`<br><br>**Note**: The value might be provided in the source record by using different terms, which should be normalized to these values. Store the original value in the [ActorOriginalUserType](#actororiginalusertype) field. |
@@ -130,7 +130,7 @@ Some activities such as UserCreated, GroupCreated, UserModified, and GroupModifi
 |-------|-------|------|-------------|
 | **ActingAppId** | Optional | String | The ID of the application used by the actor to perform the activity, including a process, browser, or service. <br><br>For example: `0x12ae8` |
 | **ActiveAppName** | Optional | String | The name of the application used by the actor to perform the activity, including a process, browser, or service. <br><br>For example: `C:\Windows\System32\svchost.exe` |
-| **ActingAppType** | Optional | Enumerated | The type of acting application. Supported values include: <br> <br>- `Process` <br>- `Browser` <br>- `Resource` <br>- `Other` |
+| **ActingAppType** | Optional | Enumerated | The type of acting application. Supported values include: <br>- `Process` <br>- `Browser` <br>- `Resource` <br>- `Other` |
 | **HttpUserAgent** |	Optional	| String |	When authentication is performed over HTTP or HTTPS, this field's value is the user_agent HTTP header provided by the acting application when performing the authentication.<br><br>For example: `Mozilla/5.0 (iPhone; CPU iPhone OS 12_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/12.0 Mobile/15E148 Safari/604.1` |
 |||||
 
