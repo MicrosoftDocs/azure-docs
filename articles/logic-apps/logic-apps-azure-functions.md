@@ -1,6 +1,6 @@
 ---
 title: Call Azure Functions from logic app workflows
-description: Run your own code in workflows created with Azure Logic Apps by calling an Azure function.
+description: Run your own code in workflows created with Azure Logic Apps by calling Azure Functions.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
