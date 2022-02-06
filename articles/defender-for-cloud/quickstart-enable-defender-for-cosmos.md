@@ -25,7 +25,7 @@ You can enable Microsoft Defender for Cloud protection on your subscription in o
  
 When you enable Microsoft Defender for Cloud's enhanced security features on your subscription, Microsoft Defender for Cosmos DB is automatically enabled for all of your Cosmos DB accounts.  
 
-**To enable Microsoft Defender for Cosmos DB at the subscription level**:
+**To enable database protection at the subscription level**:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
@@ -39,7 +39,7 @@ When you enable Microsoft Defender for Cloud's enhanced security features on you
 
 1. Select **Save**.
 
-**To select resource types to protect when you configure your plan**: 
+**To select specific resource types to protect when you configure your plan**: 
 
 1. Follow steps 1 - 4 above.
 

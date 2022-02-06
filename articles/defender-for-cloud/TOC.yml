@@ -221,7 +221,7 @@
         href: defender-for-databases-usage.md
     - name: Defender for Cosmos DB (Preview)
       items: 
-      - name: Defender for Cosmos DB overview
+      - name: Overview of Defender for Cosmos DB
         href: concept-defender-for-cosmos.md
       - name: Enable Defender for Cosmos DB
         href: quickstart-enable-defender-for-cosmos.md
