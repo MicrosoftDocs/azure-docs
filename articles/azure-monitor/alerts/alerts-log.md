@@ -25,16 +25,16 @@ You can also [create log alert rules using Azure Resource Manager templates](../
 > [!NOTE]
 > This article describes creating alert rules using the new alert rule wizard. 
 > The new alert rule experience is a little different than the old experience. Please note these changes:
-> - Previously, search results were included in the payloads of the triggered alert and its associated notifications. This was a limited and error prone solution. To get detailed information about the alert:
->   - Use [dimensions](alerts-unified-log.md#split-by-alert-dimensions). Dimensions provide the column value that fired the alert.
->    - Use the link in the alert to the search results in Logs.
->    - Customize your experience using Logic Apps if you need the raw search results.. 
-> - The new alert rule wizard does not support customization of the email or the JSON payload.
+> - Previously, search results were included in the payloads of the triggered alert and its associated notifications. This was a limited and error prone solution. To get detailed context information about the alert so that you can decide on the appropriate action :
+>   -The recommended best practice it to use [Dimensions](alerts-unified-log.md#split-by-alert-dimensions). Dimensions provide the column value that fired the alert, giving you context for why the alert fired and how to fix the issue.
+>    - When you need to investigate in the logs, use the link in the alert to the search results in Logs.
+>    -If you need the raw search results or for any other advanced customizations, use Logic Apps.
+> - The new alert rule wizard does not support customization of the JSON payload.
 >   - Use custom properties in the [new API](/rest/api/monitor/scheduledqueryrule-2021-08-01/scheduled-query-rules/create-or-update#actions) to add static key:value pairs to the webhook that is sent out.
->    - For more advanced customizations, use Logic Apps to align Log Alerts with other alert types.
+>    - For more advanced customizations, use Logic Apps.
 > - The new alert rule wizard does not support customization of the email subject.
->     - In most cases, customers use the custom email subject to indicate the resource on which the alert fired. Use the [new API](alerts-unified-log.md#split-by-alert-dimensions) to get the resource id.
->     - For more advanced customizations, use Logic Apps to align Log Alerts with other alert types.
+>     - Customers often use the custom email subject to indicate the resource on which the alert fired, instead of using the Log Analytics workspace. Use the [new API](alerts-unified-log.md#split-by-alert-dimensions) to trigger an alert of the desired resource using the resource id column.
+>     - For more advanced customizations, use Logic Apps.
 
 
 1. In the [portal](https://portal.azure.com/), select the relevant resource.
