@@ -64,18 +64,27 @@ First, create a Conditional Access policy and assign your test group of users as
 1. Search for and select **Azure Active Directory**, then choose **Security** from the menu on the left-hand side.
 
 1. Select **Conditional Access**, select **+ New policy**, and then select **Create new policy**.
+ 
+   :::image type="content" alt-text="A screenshot of the Conditional Access page, where you select 'New policy' and then select 'Create new policy'." source="media/tutorial-enable-azure-mfa/azure-multi-factor-authentication-conditional-access-menu-new-policy.png":::
 
 1. Enter a name for the policy, such as *MFA Pilot*.
 
-1. Under **Assignments**, choose **Users and workload identities**.
+1. Under **Assignments**, select the current value under **Users or workload identities**.
+ 
+   :::image type="content" alt-text="A screenshot of the Conditional Access page, where you select the current value under 'Users or workload identities'." source="media/tutorial-enable-azure-mfa/azure-multi-factor-authentication-conditional-access-menu-users.png":::
 
-1. Under **What does this policy apply to?**, select **Users and groups**.
+1. Under **What does this policy apply to?**, verify that **Users and groups** is selected.
 
-1. Under **Include**, select **Select users and groups**, and then select **Select** to browse the available Azure AD users and groups.
+1. Under **Include**, select **Select users and groups**, and then select **Users and groups**.
+ 
+   :::image type="content" alt-text="A screenshot of the Conditional Access page, where you select 'New policy' and then select 'Create new policy'." source="media/tutorial-enable-azure-mfa/azure-multi-factor-authentication-conditional-access-menu-select-users-groups.png":::
+
+   Since none are assigned yet, the list of users and groups opens automatically. Otherwise, you would need to select the current value under **Select**.
 
 1. Browse for and select your Azure AD group, such as *MFA-Test-Group*, then choose **Select**.
+ 
+   :::image type="content" alt-text="A screenshot of the Conditional Access page, where you select 'New policy' and then select 'Create new policy'." source="media/tutorial-enable-azure-mfa/azure-multi-factor-authentication-conditional-access-select-mfa-test-group.png":::
 
-    [ ![Select your Azure AD group to use with the Conditional Access policy](media/tutorial-enable-azure-mfa/select-group-for-conditional-access-cropped.png) ](media/tutorial-enable-azure-mfa/select-group-for-conditional-access.png#lightbox)
 
 We've selected the group to apply the policy to. In the next section, we configure the conditions under which to apply the policy.
 
@@ -86,30 +95,36 @@ With the Conditional Access policy created and a test group of users assigned, n
 
 For this tutorial, configure the Conditional Access policy to require multi-factor authentication when a user signs in to the Azure portal.
 
-1. Select **Cloud apps or actions**, and then under **Select what this policy applies to**, select **Cloud apps**.
+1. Select the current value under **Cloud apps or actions**, and then under **Select what this policy applies to**, verify that **Cloud apps** is selected.
 
-1. Under **Include**, select **Select apps**. Then click **Select**.
+1. Under **Include**, select **Select apps**.
+ 
+   Since no apps are yet selected, the list of apps opens automatically. Otherwise, you would need to select the current value under **Select**.
 
    > [!TIP]
    > You can choose to apply the Conditional Access policy to *All cloud apps* or *Select apps*. To provide flexibility, you can also exclude certain apps from the policy.
 
-1. Choose **Select**, then browse the list of available sign-in events that can be used.
+1. Browse the list of available sign-in events that can be used. For this tutorial, choose **Microsoft Azure Management** so that the policy applies to sign-in events to the Azure portal. Then choose **Select**.
 
-    For this tutorial, choose **Microsoft Azure Management** so the policy applies to sign-in events to the Azure portal.
+   :::image type="content" alt-text="A screenshot of the Conditional Access page, where you select the app, Microsoft Azure Management, to which the new policy will apply." source="media/tutorial-enable-azure-mfa/azure-multi-factor-authentication-conditional-access-menu-select-apps.png":::
 
-1. To apply the selected apps, choose **Select**.
-
-:::image type="content" alt-text="Select the Microsoft Azure Management app to include in the Conditional Access policy" source="media/tutorial-enable-azure-mfa/select-azure-management-app.png" lightbox="media/tutorial-enable-azure-mfa/select-azure-management-app.png":::
 
 Next, we configure access controls. Access controls let you define the requirements for a user to be granted access. They might be required to use an approved client app or a device that's hybrid-joined to Azure AD. In this tutorial, configure the access controls to require multi-factor authentication during a sign-in event to the Azure portal.
 
-1. Under **Access controls**, choose **Grant**, then select **Grant access**.
+1. Under **Access controls**, choose the current value under **Grant**, then select **Grant access**.
+
+   :::image type="content" alt-text="A screenshot of the Conditional Access page, where you select 'Grant' and then select 'Grant access'." source="media/tutorial-enable-azure-mfa/azure-multi-factor-authentication-conditional-access-menu-grant-access.png":::
 
 1. Select **Require multi-factor authentication**, then choose **Select**.
+
+   :::image type="content" alt-text="A screenshot of the options for granting access, where you select 'Require multi-factor authentication'." source="media/tutorial-enable-azure-mfa/azure-multi-factor-authentication-conditional-access-select-require-multifactor-authentication.png":::
+
 
 Conditional Access policies can be set to *Report-only* if you want to see how the configuration would affect users, or *Off* if you don't want to the use policy right now. Because a test group of users is targeted for this tutorial, let's enable the policy, and then test Azure AD Multi-Factor Authentication.
 
 1. Under **Enable policy**, select **On**.
+
+   :::image type="content" alt-text="A screenshot of the options for granting access, where you select 'Require multi-factor authentication'." source="media/tutorial-enable-azure-mfa/azure-multi-factor-authentication-conditional-access-enable-policy-on.png":::
 
 1. To apply the Conditional Access policy, select **Create**.
 
@@ -121,7 +136,11 @@ Let's see your Conditional Access policy and Azure AD Multi-Factor Authenticatio
 
 1. Sign in with your non-administrator test user, such as *testuser*. Be sure to include `@` and the domain name for the user account.
 
-   There's no prompt for you to complete multi-factor authentication.
+   If this is the first instances of signing in with this account, you will be prompted to change the password.
+
+   :::image type="content" alt-text="A prompt to update your password by entering the current password and then entering the new password two times." source="media/tutorial-enable-azure-mfa/azure-multi-factor-authentication-update-your-password.png":::
+
+   However, there's no prompt for you to configure or use multi-factor authentication.
 
 1. Close the browser window.
 
@@ -133,37 +152,43 @@ Now sign in to the Azure portal. Because the Azure portal was configured in the 
 
    You're required to register for and use Azure AD Multi-Factor Authentication.
 
-   :::image type="content" alt-text="When you have not yet configured multifactor authentication, you are prompted to do so with the message, 'More information required.'" source="media/tutorial-enable-azure-mfa/azure-multi-factor-authentication-browser-prompt-more-info.png":::
+   :::image type="content" alt-text="A prompt that says 'More information required.' This is a prompt to configure a method of multifactor authentication for this user." source="media/tutorial-enable-azure-mfa/azure-multi-factor-authentication-browser-prompt-more-info.png":::
 
-1. Click **Next** to begin the process.
+1. Click **Next** to begin the process. 
 
-   :::image type="content" alt-text="You are prompted to start a process to configure multifactor authentication with the message, 'Additional security verification.' You can choose to configure an authentication phone, an office phone, or a mobile app for authentication." source="media/tutorial-enable-azure-mfa/azure-multi-factor-authentication-browser-prompt-more-info.png":::
+   You can choose to configure an authentication phone, an office phone, or a mobile app for authentication. _Authentication phone_ supports test messages and phone calls, _office phone_ supports calls to numbers that have an extension, and _mobile app_ supports using a mobile app to receive notifications for verification or to generate verification codes.
 
-   After you have completed configuration, close the browser window, and log in again at [https://portal.azure.com](https://portal.azure.com) to test the authentication method that you configured. For example, if you configured a mobile app for authentication, you should see a prompt like the following.
+   :::image type="content" alt-text="A prompt that says, 'Additional security verification.' This is a prompt to configure a method of multifactor authentication for this user. You can choose as the method an authentication phone, an office phone, or a mobile app." source="media/tutorial-enable-azure-mfa/azure-multi-factor-authentication-additional-security-verification-mobile-app.png":::
 
-   ![To sign in, follow the prompts in your browser and then on your registered device for multi-factor authentication.](media/tutorial-enable-azure-mfa/azure-multi-factor-authentication-browser-prompt.png)
+1. Complete the instructions on the screen to configure the method of multifactor authentication that you have selected. 
+
+1. Close the browser window, and log in again at [https://portal.azure.com](https://portal.azure.com) to test the authentication method that you configured. For example, if you configured a mobile app for authentication, you should see a prompt like the following.
+
+   ![To sign in, follow the prompts in your browser and then the prompt on the device that you registered for multifactor authentication.](media/tutorial-enable-azure-mfa/azure-multi-factor-authentication-browser-prompt.png)
 
 1. Close the browser window.
 
 ## Clean up resources
 
-If you no longer want to use the Conditional Access policy to enable Azure AD Multi-Factor Authentication configured as part of this tutorial, delete the policy using the following steps:
+If you no longer want to use the Conditional Access policy that you configured as part of this tutorial to enable Azure AD Multi-Factor Authentication, delete the policy by using the following steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Search for and select **Azure Active Directory**, then choose **Security** from the menu on the left-hand side.
 
-1. Select **Conditional access**, then choose the policy you created, such as *MFA Pilot*.
+1. Select **Conditional access**, then choose the policy that you created, such as *MFA Pilot*.
 
 1. Choose **Delete**, then confirm that you wish to delete the policy.
 
+   :::image type="content" alt-text="To delete the Conditional Access policy that you have opened, click Delete which is located under the name of the policy." source="media/tutorial-enable-azure-mfa/azure-multi-factor-authentication-delete-policy.png":::
+
 ## Next steps
 
-In this tutorial, you enabled Azure AD Multi-Factor Authentication using Conditional Access policies for a selected group of users. You learned how to:
+In this tutorial, you enabled Azure AD Multi-Factor Authentication by using Conditional Access policies for a selected group of users. You learned how to:
 
 > [!div class="checklist"]
-> * Create a Conditional Access policy to enable Azure AD Multi-Factor Authentication for a group of Azure AD users
-> * Configure the policy conditions that prompt for MFA
+> * Create a Conditional Access policy to enable Azure AD Multi-Factor Authentication for a group of Azure AD users.
+> * Configure the policy conditions that prompt for multifactor authentication.
 > * Test configuring and using multifactor authentication as a user.
 
 > [!div class="nextstepaction"]
