@@ -387,7 +387,7 @@ At this point you have replicated your project into another resource which is in
 
 ## Changes in calling the runtime
 
-Within your system, check for the success code returned from the submit task API, if the response code indicates a failure retryb submitting the job through the secondary resource you have. For the second request you use your `{YOUR-SECONDARY-ENDPOINT}` and secondary key, if you have followed the steps above, `{PROJECT-NAME}` and `{DEPLOYMENT-NAME}` would be the same so no changes are reuired to the request body.
+Within your system, check for the success code returned from the submit task API, if the response code indicates a failure retryb submitting the job through the secondary resource you have. For the second request you use your `{YOUR-SECONDARY-ENDPOINT}` and secondary key, if you have followed the steps above, `{PROJECT-NAME}` and `{DEPLOYMENT-NAME}` would be the same so no changes are reuired to the request body. In case you revert to using your secodary resource you might observe slight increase in latency because of the difference in regions where your model is deployed. 
 
 ## Check if your projects are out of sync
 
