@@ -67,7 +67,7 @@ The following table describes DCR support for Microsoft Sentinel data connector 
 |Data connector type    |DCR support  |
 |------------------|------------------|
 |**AMA standard logs**, such as: <br> - [Windows Security Events via AMA](data-connectors-reference.md#windows-security-events-via-ama)<br>- [Windows Forwarded Events](data-connectors-reference.md#windows-forwarded-events-preview)<br>- [CEF data](connect-common-event-format.md) <br>- [Syslog data](connect-syslog.md)             |  Standard DCRs       |
-|**MMA standard logs**, such as <br>- [Syslog data](connect-syslog.md) <br>- [CommonSecurityLog](connect-azure-windows-microsoft-services.md)            |         |
+|**MMA standard logs**, such as <br>- [Syslog data](connect-syslog.md) <br>- [CommonSecurityLog](connect-azure-windows-microsoft-services.md)            |   Default DCRs      |
 |[**Diagnostic settings-based connections**](connect-azure-windows-microsoft-services.md#diagnostic-settings-based-connections)       |  Default DCRs, based on the specific data connector's output tables       |
 |**Built-in, service-to-service data connectors**, such as [Amazon S3](connect-aws.md)            |Default DCRs, based on the specific data connector's output tables        |
 |**Custom, [direct API](connect-rest-api-template.md) or [Logstash](connect-logstash.md)-based data connectors**    |  Standard DCRs      |         |
