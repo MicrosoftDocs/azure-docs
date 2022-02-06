@@ -23,6 +23,9 @@ Standard Functions billing applies to proxy executions. For more information, se
 
 This section shows you how to create a proxy in the Functions portal.
 
+> [!NOTE]  
+> Not all languages and operating system combinations support in-portal editing. If you're unable to create a proxy in the portal, you can instead manually create a _proxies.json_ file in the root of your function app project folder. To learn more about portal editing support, see [Language support details](functions-create-function-app-portal.md#language-support-details). 
+
 1. Open the [Azure portal], and then go to your function app.
 2. In the left pane, select **New proxy**.
 3. Provide a name for your proxy.

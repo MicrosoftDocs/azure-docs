@@ -1157,7 +1157,13 @@ When the [managed identity](../active-directory/managed-identities-azure-resourc
 
 * The **Logic App (Consumption)** resource type can use the system-assigned identity or a *single* manually created user-assigned identity.
 
-* The **Logic App (Standard)** resource type can use only the system-assigned identity, which is automatically enabled. The user-assigned identity is currently unavailable.
+* The **Logic App (Standard)** resource type supports having the [system-assigned managed identity *and* multiple user-assigned managed identities](create-managed-service-identity.md) enabled at the same time, though you still can only select one identity to use at any time.
+
+  > [!NOTE]
+  > By default, the system-assigned identity is already enabled to authenticate connections at run time. 
+  > This identity differs from the authentication credentials or connection string that you use when you 
+  > create a connection. If you disable this identity, connections won't work at run time. To view 
+  > this setting, on your logic app's menu, under **Settings**, select **Identity**.
 
 1. Before your logic app can use a managed identity, follow the steps in [Authenticate access to Azure resources by using managed identities in Azure Logic Apps](../logic-apps/create-managed-service-identity.md). These steps enable the managed identity on your logic app and set up that identity's access to the target Azure resource.
 
@@ -1184,7 +1190,6 @@ When the [managed identity](../active-directory/managed-identities-azure-resourc
          "uri": "@parameters('endpointUrlParam')",
          "authentication": {
             "type": "ManagedServiceIdentity",
-            "identity": "SystemAssigned",
             "audience": "https://management.azure.com/"
          },
       },

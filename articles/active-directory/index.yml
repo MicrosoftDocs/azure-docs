@@ -162,7 +162,7 @@ conceptualContent:
 
     - title: External Identities
       links:
-        - url: ./external-identities/compare-with-b2c.md
+        - url: ./external-identities/external-identities-overview.md
           itemType: overview
           text: What are External Identities in Azure AD?
         - url: ../active-directory-b2c/overview.md
