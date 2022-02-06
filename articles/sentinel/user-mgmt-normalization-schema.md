@@ -3,9 +3,8 @@ title: title: Microsoft Sentinel user management normalization schema reference 
 description: his article describes the Microsoft Sentinel user management normalization schema.
 author: oshezaf
 ms.topic: reference
-ms.date: 11/17/2021
+ms.date: 02/06/2022
 ms.author: ofshezaf
-
 ---
 
 # Microsoft Sentinel user management normalization schema reference (preview)
@@ -46,7 +45,7 @@ Some activities, such as **UserCreated**, **GroupCreated**, **UserModified**, an
 
 | Field               | Class       | Type       |  Description        |
 |---------------------|-------------|------------|--------------------|
-|| **EventType** | Mandatory | Enumerated | Describes the operation reported by the record.<br><br> For User Management activity, the supported values are:<br> - `UserCreated`<br> - `UserDeleted`<br> - `UserModified`<br> - `UserLocked`<br> - `UserUnlocked`<br> - `UserDisabled`<br> - `UserEnabled<br> - `PasswordChanged`<br> - `PasswordReset`<br> - `GroupCreated`<br> - `GroupDeleted`<br> - `GroupModified`<br> - `UserAddedToGroup`<br> - `UserRemovedFromGroup`<br> - `GroupEnumerated`<br> - `UserRead`<br> - `GroupRead`<br> |
+| **EventType** | Mandatory | Enumerated | Describes the operation reported by the record.<br><br> For User Management activity, the supported values are:<br> - `UserCreated`<br> - `UserDeleted`<br> - `UserModified`<br> - `UserLocked`<br> - `UserUnlocked`<br> - `UserDisabled`<br> - `UserEnabled`<br> - `PasswordChanged`<br> - `PasswordReset`<br> - `GroupCreated`<br> - `GroupDeleted`<br> - `GroupModified`<br> - `UserAddedToGroup`<br> - `UserRemovedFromGroup`<br> - `GroupEnumerated`<br> - `UserRead`<br> - `GroupRead`<br> |
 | <a name="eventsubtype"></a>**EventSubType** | Optional | Enumerated | The following sub-types are supported:<br> - `UserRead`: Password, Hash<br> - `UserCreated`, `GroupCreated`, `UserModified`, `GroupModified`. For more information, see [UpdatedPropertyName](#updatedpropertyname) |
 | **EventResult** | Mandatory | Enumerated | While failure is possible, most systems report only successful user management events. The expected value for successful events is `Success`. |
 | **EventResultDetails** | Optional | Enumerated | The valid values are `NotAuthorized` and `Other`. |
