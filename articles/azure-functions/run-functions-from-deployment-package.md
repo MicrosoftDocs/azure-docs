@@ -8,7 +8,7 @@ ms.date: 02/05/2022
 
 # Run your functions from a package file in Azure
 
-In Azure, you can run your functions directly from a deployment package file in your function app. The other option is to deploy your files in the `d:\home\site\wwwroot` directory of your function app.
+In Azure, you can run your functions directly from a deployment package file in your function app. The other option is to deploy your files in the `d:\home\site\wwwroot` (Windows) or `/home/site/wwwroot` (Linux) directory of your function app.
 
 This article describes the benefits of running your functions from a package. It also shows how to enable this functionality in your function app.
 
@@ -30,7 +30,7 @@ To enable your function app to run from a package, add a `WEBSITE_RUN_FROM_PACKA
 
 | Value  | Description  |
 |---------|---------|
-| **`1`**  | Indicates that the function app runs from a local package file deployed in the `d:\home\data\SitePackages` folder of your function app.  |
+| **`1`**  | Indicates that the function app runs from a local package file deployed in the `d:\home\data\SitePackages` (Windows) or `/home/data/SitePackages` (Linux) folder of your function app.  |
 |**`<URL>`**  | Sets a URL that is the remote location of the specific package file you want to run. Required for functions apps running on Linux in a Consumption plan.  |
 
 The following table indicates the recommended `WEBSITE_RUN_FROM_PACKAGE` options for deployment to a specific operating system and hosting plan:
@@ -63,13 +63,13 @@ This section provides information about how to run your function app from a loca
 
 + Using an on-site package is the recommended option for running from the deployment package, except on Linux hosted in a Consumption plan. 
 + [Zip deployment](#integration-with-zip-deployment) is the recommended way to upload a deployment package to your site. 
-+ When not using zip deployment, make sure the `d:\home\data\SitePackages` folder has a file named `packagename.txt`. This file contains only the name, without any whitespace, of the package file in this folder that's currently running. 
++ When not using zip deployment, make sure the `d:\home\data\SitePackages` (Windows) or `/home/data/SitePackages` (Linux) folder has a file named `packagename.txt`. This file contains only the name, without any whitespace, of the package file in this folder that's currently running. 
 
 ### Integration with zip deployment
 
-[Zip deployment][Zip deployment for Azure Functions] is a feature of Azure App Service that lets you deploy your function app project to the `wwwroot` directory. The project is packaged as a .zip deployment file. The same APIs can be used to deploy your package to the `d:\home\data\SitePackages` folder. 
+[Zip deployment][Zip deployment for Azure Functions] is a feature of Azure App Service that lets you deploy your function app project to the `wwwroot` directory. The project is packaged as a .zip deployment file. The same APIs can be used to deploy your package to the `d:\home\data\SitePackages` (Windows) or `/home/data/SitePackages` (Linux) folder. 
 
-With the `WEBSITE_RUN_FROM_PACKAGE` app setting value of `1`, the zip deployment APIs copy your package to the `d:\home\data\SitePackages` folder instead of extracting the files to `d:\home\site\wwwroot`. It also creates the `packagename.txt` file. After a restart, the package is mounted to `wwwroot` as a read-only filesystem. For more information about zip deployment, see [Zip deployment for Azure Functions](deployment-zip-push.md).
+With the `WEBSITE_RUN_FROM_PACKAGE` app setting value of `1`, the zip deployment APIs copy your package to the `d:\home\data\SitePackages` (Windows) or `/home/data/SitePackages` (Linux) folder instead of extracting the files to `d:\home\site\wwwroot` (Windows) or `/home/site/wwwroot` (Linux). It also creates the `packagename.txt` file. After a restart, the package is mounted to `wwwroot` as a read-only filesystem. For more information about zip deployment, see [Zip deployment for Azure Functions](deployment-zip-push.md).
 
 > [!NOTE]
 > When a deployment occurs, a restart of the function app is triggered. Before a restart, all existing function executions are allowed to complete or time out. To learn more, see [Deployment behaviors](functions-deployment-technologies.md#deployment-behaviors).
