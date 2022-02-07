@@ -357,8 +357,8 @@
         },
         {
             "source_path_from_root": "/articles/active-directory/conditional-access-azure-management.md",
-            "redirect_url": "/azure/role-based-access-control/conditional-access-azure-management",
-            "redirect_document_id": true
+            "redirect_url": "/azure/active-directory/conditional-access/concept-conditional-access-cloud-apps",
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/active-directory/role-based-access-control-custom-roles.md",
