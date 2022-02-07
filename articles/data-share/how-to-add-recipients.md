@@ -9,7 +9,7 @@ ms.date: 02/07/2022
 ---
 # How to add a recipient to your share
 
-You can add recipient when you create a new share or to an existing share. From Azure Data Share UI, you can add recipient using the Azure sign in email of the user.  From API, you can use a combination of user/service principal and tenant ID. When a tenant ID is specified, the invitation can only be accepted into this tenant. Also from API, you can create an invitation without sending an email to the recipient. 
+You can add recipient when you create a new share or to an existing share. From Azure Data Share UI, you can add recipient using the Azure sign-in email of the user.  From API, you can use a combination of user/service principal and tenant ID. When a tenant ID is specified, the invitation can only be accepted into this tenant. Also from API, you can create an invitation without sending an email to the recipient. 
 
 ## Add recipient to an existing share
 
