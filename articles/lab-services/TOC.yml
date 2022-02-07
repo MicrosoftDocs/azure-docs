@@ -42,7 +42,7 @@
   items:  
   - name: Use Lab Services for conducting classes
     href: classroom-labs-scenarios.md
-  - name: Use Lab Services for hackathon
+  - name: Use Lab Services for hackathons
     href: hackathon-labs.md
   - name: Use Lab Services within Canvas
     href: lab-services-within-canvas-overview.md
@@ -93,24 +93,24 @@
   items:
   - name: Administrator guide
     href: administrator-guide.md
-  - name: Accelerated lab plan setup guide
+  - name: Lab plan creation guide
     href: lab-plan-setup-guide.md
-  - name: Accelerated lab setup guide
+  - name: Lab creation guide
     href: setup-guide.md
   - name: Create & configure lab plans (admin)
     items:
     - name: Create and manage lab plans
       href: how-to-manage-lab-plans.md
-    - name: Manage labs
-      href: manage-labs.md
-    - name: Configure VM auto-shutdown for a lab plan
-      href: how-to-configure-auto-shutdown-lab-plans.md
     - name: Add a lab creator
       href: add-lab-creator.md
+    - name: Configure auto-shutdown settings
+      href: how-to-configure-auto-shutdown-lab-plans.md
     - name: Connect to a virtual network
       href: how-to-connect-vnet-injection.md
     - name: Create a lab with a shared resource
       href: how-to-create-a-lab-with-shared-resource.md
+    - name: Specify Marketplace images for labs 
+      href: specify-marketplace-images.md
     - name: Use Azure Compute Gallery for custom images
       items:
       - name: Attach or detach a compute gallery
@@ -129,34 +129,32 @@
             href: how-to-bring-custom-linux-image-azure-vm.md
           - name: Bring a custom image from a physical environment
             href: how-to-bring-custom-linux-image-vhd.md
+    - name: Specify support information
+      href: lab-account-owner-support-information.md
+    - name: Manage labs
+      href: manage-labs.md
     - name: Configure firewall settings
       href: how-to-configure-firewall-settings.md
-    - name: Specify Marketplace images for labs 
-      href: specify-marketplace-images.md
-    - name: Specify support information (lab plan owner)
-      href: lab-account-owner-support-information.md
   - name: Create & configure labs (educator)
     items:        
     - name: Create and manage labs
       href: how-to-manage-labs.md
-    - name: Use lab dashboard
-      href: use-dashboard.md
-    - name: Customize and publish templates
-      href: how-to-create-manage-template.md
-    - name: Manage VM pool
-      href: how-to-manage-vm-pool.md
-    - name: Set and reset passwords 
-      href: how-to-set-virtual-machine-passwords.md
-    - name: Add and manage lab users
-      href: how-to-configure-student-usage.md      
-    - name: Create and manage schedules
-      href: how-to-create-schedules.md
     - name: Use a shared image gallery
       href: how-to-use-shared-image-gallery.md            
     - name: Enable remote desktop connection for Linux
       href: how-to-enable-remote-desktop-linux.md
-    - name: Configure auto-shutdown of VMs for a lab
-      href: how-to-enable-shutdown-disconnect.md       
+    - name: Create a lab with GPUs
+      href: how-to-setup-lab-gpu.md
+    - name: Customize and publish templates
+      href: how-to-create-manage-template.md
+    - name: Use lab dashboard
+      href: use-dashboard.md
+    - name: Add and manage lab users
+      href: how-to-configure-student-usage.md      
+    - name: Prepare a Windows template VM
+      href: how-to-prepare-windows-template.md
+    - name: Control Windows shutdown behavior
+      href: how-to-windows-shutdown.md
     - name: Enable nested virtualization on a template VM
       items:
       - name: Enable nested virtualization on a template VM overview
@@ -165,18 +163,20 @@
         href: how-to-enable-nested-virtualization-template-vm-ui.md 
       - name: Enable nested virtualization on a template VM using a script
         href: how-to-enable-nested-virtualization-template-vm-using-script.md
-    - name: Create a lab with GPUs
-      href: how-to-setup-lab-gpu.md
-    - name: Prepare a Windows template VM
-      href: how-to-prepare-windows-template.md
     - name: Use external file storage
       href: how-to-attach-external-storage.md
-    - name: Control Windows shutdown behavior
-      href: how-to-windows-shutdown.md
-    - name: View support information (educator)
-      href: lab-creator-support-information.md
+    - name: Create and manage schedules
+      href: how-to-create-schedules.md
+    - name: Manage virtual machine pool
+      href: how-to-manage-vm-pool.md
     - name: Access student VMs from educator view
       href: instructor-access-virtual-machines.md
+    - name: Set and reset passwords 
+      href: how-to-set-virtual-machine-passwords.md
+    - name: Configure auto-shutdown settings
+      href: how-to-enable-shutdown-disconnect.md       
+    - name: View support information
+      href: lab-creator-support-information.md
   - name: Connect to VMs in labs (student)
     items:        
     - name: Access labs
@@ -231,8 +231,6 @@
         href: how-to-manage-classroom-labs.md        
       - name: Create and manage lab accounts
         href: how-to-manage-lab-accounts.md
-      - name: Manage labs in a lab account
-        href: manage-labs-1.md
       - name: Configure auto-shutdown of VMs for a lab account
         href: how-to-configure-lab-accounts.md
       - name: Allow lab creator to pick lab location
@@ -243,9 +241,11 @@
         href: how-to-attach-detach-shared-image-gallery-1.md
       - name: Add additional owners to a lab
         href: how-to-add-user-lab-owner.md
+      - name: Manage labs in a lab account
+        href: manage-labs-1.md
     - name: Administrator guide
       href: administrator-guide-1.md
-    - name: Accelerated lab account setup guide
+    - name: Lab account creation guide
       href: account-setup-guide.md    
 - name: Reference
   items:
