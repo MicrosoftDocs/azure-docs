@@ -127,7 +127,7 @@ We recommend the following restrictions for guest users.
 
 * **Block access to the Azure portal. You can make rare necessary exceptions**. 
 
-   * Create a Conditional Access policy that includes either All guest and external users and then [implement a policy to block access](../../role-based-access-control/conditional-access-azure-management.md).
+   * Create a Conditional Access policy that includes either All guest and external users and then [implement a policy to block access](../conditional-access/concept-conditional-access-cloud-apps.md).
 
  
 
