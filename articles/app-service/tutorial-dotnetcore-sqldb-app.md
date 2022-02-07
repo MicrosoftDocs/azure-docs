@@ -152,12 +152,12 @@ We're now ready to deploy our .NET app to the App Service.
 | [!INCLUDE [Deploy app service step 4](<./includes/tutorial-dotnetcore-sqldb-app/visual-studio-deploy-app-service-04.md>)] | :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/visual-studio-deploy-app-service-04-240px.png" alt-text="A screenshot showing the dialog to select the App Service instance to deploy to in Visual Studio." lightbox="./media/tutorial-dotnetcore-sqldb-app/visual-studio-deploy-app-service-04.png"::: |
 | [!INCLUDE [Deploy app service step 5](<./includes/tutorial-dotnetcore-sqldb-app/visual-studio-deploy-app-service-05.md>)] | :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/visual-studio-deploy-app-service-05-240px.png" alt-text="A screenshot showing the publishing profile summary dialog in Visual Studio and the location of the publish button used to publish the app." lightbox="./media/tutorial-dotnetcore-sqldb-app/visual-studio-deploy-app-service-05.png"::: |
 
-### [Deploy using VS Code](#tab/visual-studio-code-deploy)
+### [Deploy using Visual Studio Code](#tab/visual-studio-code-deploy)
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
-| [!INCLUDE [Deploy app service step 1](<./includes/tutorial-dotnetcore-sqldb-app/visual-studio-code-deploy-app-service-01.md>)] | :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/visual-studio-code-deploy-01-240px.png" alt-text="A screenshot showing howto install the Azure Account and App Service extensions in VS Code." lightbox="./media/tutorial-dotnetcore-sqldb-app/visual-studio-code-deploy-01.png"::: |
-| [!INCLUDE [Deploy app service step 2](<./includes/tutorial-dotnetcore-sqldb-app/visual-studio-code-deploy-app-service-02.md>)] | :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/visual-studio-code-deploy-02-240px.png" alt-text="A screenshot showing how to use the Azure App Service extension to deploy an app to Azure from VS Code." lightbox="./media/tutorial-dotnetcore-sqldb-app/visual-studio-code-deploy-02.png"::: |
+| [!INCLUDE [Deploy app service step 1](<./includes/tutorial-dotnetcore-sqldb-app/visual-studio-code-deploy-app-service-01.md>)] | :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/visual-studio-code-deploy-01-240px.png" alt-text="A screenshot showing howto install the Azure Account and App Service extensions in Visual Studio Code." lightbox="./media/tutorial-dotnetcore-sqldb-app/visual-studio-code-deploy-01.png"::: |
+| [!INCLUDE [Deploy app service step 2](<./includes/tutorial-dotnetcore-sqldb-app/visual-studio-code-deploy-app-service-02.md>)] | :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/visual-studio-code-deploy-02-240px.png" alt-text="A screenshot showing how to use the Azure App Service extension to deploy an app to Azure from Visual Studio Code." lightbox="./media/tutorial-dotnetcore-sqldb-app/visual-studio-code-deploy-02.png"::: |
 
 ### [Deploy using Local Git](#tab/azure-cli-deploy)
 
@@ -277,7 +277,7 @@ From the main page in Kudu, you can access information about the application-hos
 
 ## 8 - Configure and Stream Application Logs
 
-Azure App Service captures messages logged to the console to assist you in diagnosing issues with your application. The sample app outputs console log messages in each of its endpoints to demonstrate this capability. The contents of the App Service diagnostic logs can be reviewed in the Azure portal, VS Code, or using the Azure CLI.
+Azure App Service captures messages logged to the console to assist you in diagnosing issues with your application. The sample app outputs console log messages in each of its endpoints to demonstrate this capability. The contents of the App Service diagnostic logs can be reviewed in the Azure portal, Visual Studio Code, or using the Azure CLI.
 
 ### [Azure portal](#tab/azure-portal-logs)
 
@@ -286,12 +286,12 @@ Azure App Service captures messages logged to the console to assist you in diagn
 | [!INCLUDE [Stream logs from Azure portal 1](<./includes/tutorial-dotnetcore-sqldb-app/azure-portal-stream-logs-01.md>)] | :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/azure-portal-stream-logs-1-240px.png" alt-text="A screenshot showing how to enable logging for the web app in the Azure portal." lightbox="./media/tutorial-dotnetcore-sqldb-app/azure-portal-stream-logs-1.png"::: |
 | [!INCLUDE [Stream logs from Azure portal 2](<./includes/tutorial-dotnetcore-sqldb-app/azure-portal-stream-logs-02.md>)] | :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/azure-portal-stream-logs-2-240px.png" alt-text="A screenshot showing application logs in the Azure portal." lightbox="./media/tutorial-dotnetcore-sqldb-app/azure-portal-stream-logs-2.png"::: |
 
-### [VS Code](#tab/visual-studio-code-logs)
+### [Visual Studio Code](#tab/visual-studio-code-logs)
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
-| [!INCLUDE [Stream logs from VS Code 1](<./includes/tutorial-dotnetcore-sqldb-app/visual-studio-code-stream-logs-01.md>)] | :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/visual-studio-code-stream-logs-1-240px.png" alt-text="A screenshot showing the menu item used to enable application logging for a web app in VS Code." lightbox="./media/tutorial-dotnetcore-sqldb-app/visual-studio-code-stream-logs-1.png"::: |
-| [!INCLUDE [Stream logs from VS Code 2](<./includes/tutorial-dotnetcore-sqldb-app/visual-studio-code-stream-logs-02.md>)] | :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/visual-studio-code-stream-logs-2-240px.png" alt-text="A screenshot showing the output stream of an application log in VS Code." lightbox="./media/tutorial-dotnetcore-sqldb-app/visual-studio-code-stream-logs-2.png"::: |
+| [!INCLUDE [Stream logs from Visual Studio Code 1](<./includes/tutorial-dotnetcore-sqldb-app/visual-studio-code-stream-logs-01.md>)] | :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/visual-studio-code-stream-logs-1-240px.png" alt-text="A screenshot showing the menu item used to enable application logging for a web app in Visual Studio Code." lightbox="./media/tutorial-dotnetcore-sqldb-app/visual-studio-code-stream-logs-1.png"::: |
+| [!INCLUDE [Stream logs from Visual Studio Code 2](<./includes/tutorial-dotnetcore-sqldb-app/visual-studio-code-stream-logs-02.md>)] | :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/visual-studio-code-stream-logs-2-240px.png" alt-text="A screenshot showing the output stream of an application log in Visual Studio Code." lightbox="./media/tutorial-dotnetcore-sqldb-app/visual-studio-code-stream-logs-2.png"::: |
 
 ### [Azure CLI](#tab/azure-cli-logs)
 
@@ -339,12 +339,12 @@ Follow these steps while signed-in to the Azure portal to delete a resource grou
 | [!INCLUDE [Remove resource group Azure portal 2](<./includes/tutorial-dotnetcore-sqldb-app/azure-portal-clean-resources-2.md>)] | :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/azure-portal-remove-resource-group-2-240px.png" alt-text="A screenshot showing the location of the Delete Resource Group button in the Azure portal." lightbox="./media/tutorial-dotnetcore-sqldb-app/azure-portal-remove-resource-group-2.png"::: |
 | [!INCLUDE [Remove resource group Azure portal 3](<./includes/tutorial-dotnetcore-sqldb-app/azure-portal-clean-resources-3.md>)] | :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/azure-portal-remove-resource-group-3-240px.png" alt-text="A screenshot of the confirmation dialog for deleting a resource group in the Azure portal." lightbox="./media/tutorial-dotnetcore-sqldb-app/azure-portal-remove-resource-group-3.png"::: |
 
-### [VS Code](#tab/visual-studio-code-resources)
+### [Visual Studio Code](#tab/visual-studio-code-resources)
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
-| [!INCLUDE [Remove resource group VS Code 1](<./includes/tutorial-dotnetcore-sqldb-app/visual-studio-code-clean-resources-1.md>)] | :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/visual-studio-code-remove-resource-group-1-240px.png" alt-text="A screenshot showing how to delete a resource group in VS Code using the Azure Tools extension." lightbox="./media/tutorial-dotnetcore-sqldb-app/visual-studio-code-remove-resource-group-1.png"::: |
-| [!INCLUDE [Remove resource group VS Code 2](<./includes/tutorial-dotnetcore-sqldb-app/visual-studio-code-clean-resources-2.md>)] | :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/visual-studio-code-remove-resource-group-2-240px.png" alt-text="A screenshot of the confirmation dialog for deleting a resource group from VS Code." lightbox="./media/tutorial-dotnetcore-sqldb-app/visual-studio-code-remove-resource-group-2.png"::: |
+| [!INCLUDE [Remove resource group Visual Studio Code 1](<./includes/tutorial-dotnetcore-sqldb-app/visual-studio-code-clean-resources-1.md>)] | :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/visual-studio-code-remove-resource-group-1-240px.png" alt-text="A screenshot showing how to delete a resource group in Visual Studio Code using the Azure Tools extension." lightbox="./media/tutorial-dotnetcore-sqldb-app/visual-studio-code-remove-resource-group-1.png"::: |
+| [!INCLUDE [Remove resource group Visual Studio Code 2](<./includes/tutorial-dotnetcore-sqldb-app/visual-studio-code-clean-resources-2.md>)] | :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/visual-studio-code-remove-resource-group-2-240px.png" alt-text="A screenshot of the confirmation dialog for deleting a resource group from Visual Studio Code." lightbox="./media/tutorial-dotnetcore-sqldb-app/visual-studio-code-remove-resource-group-2.png"::: |
 
 ### [Azure CLI](#tab/azure-cli-resources)
 
