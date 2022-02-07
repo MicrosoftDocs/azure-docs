@@ -38,6 +38,7 @@ This article provides guidance on how to configure your NAT gateway to ensure ou
 Check the following configurations to ensure that NAT gateway can be used to direct traffic outbound:
 1. At least one public IP address or one public IP prefix is attached to NAT gateway. At least one public IP address must be associated with the NAT gateway for it to provide outbound connectivity. 
 2. At least one subnet is attached to a NAT gateway. You can attach multiple subnets to a NAT gateway for going outbound, but those subnets must exist within the same virtual network. NAT gateway cannot span beyond a single virtual network. 
+3. No [NSG rules](/azure/virtual-network/network-security-groups-overview#outbound) or [UDRs](#udr-supersedes-nat-gateway-for-going-outbound) are blocking NAT gateway from directing traffic outbound to the internet.
 
 ### How to validate connectivity
 
@@ -82,7 +83,7 @@ Common SNAT exhaustion issues with NAT gateway typically have to do with the con
 * NAT gateway idle timeout timers being set higher than their default value of 4 minutes. 
 * Outbound connectivity on NAT gateway not scaled out enough. 
 
-### Idle timeout timers have been changed to higher value their default values
+### Idle timeout timers have been changed to higher value than their default values
 
 NAT gateway resources have a default TCP idle timeout of 4 minutes.  If this setting is changed to a higher value, NAT gateway will hold on to flows longer and can cause [unnecessary pressure on SNAT port inventory](nat-gateway-resource.md#timers).
 
