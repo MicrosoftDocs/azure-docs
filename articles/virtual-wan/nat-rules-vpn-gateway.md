@@ -167,12 +167,14 @@ This section shows checks to verify that your configuration is set up properly.
    * Use Dynamic NAT Rules if the target address pool is smaller than the original address pool. 
    * As IP/Port combinations are not fixed in a Dynamic NAT Rule, the on-premises BGP Peer IP cannot be part of the pre-NAT (**InternalMapping**) addres range. Please create a specific Static NAT Rule that translates the BGP Peering IP address only. 
       
-      For example:
+      In the following example, the BGP peering IP of the on-premises VPN device is within the **InternalMapping** of the Ingress-Mode Dynamic NAT rule. To configure BGP between the on-premises and Virtual WAN VPN gateway, a Ingress-Mode Static NAT rule that translates the BGP peering IP only is configured. The VPN link's BGP peering IP must also be specified to be the corresponding **translated** address (192.168.0.2). 
       
       * **On-Premises Address Range:** 10.0.0.0/24
       * **On-premises BGP IP:** 10.0.0.1
-      * **Ingress Dynamic NAT Rule:** 192.168.0.1/32
+      * **Ingress Dynamic NAT Rule:** 10.0.0.0/24 -> 192.168.0.1/32
       * **Ingress Static NAT Rule:** 10.0.0.1 -> 192.168.0.2
+      
+      
  
 
 #### Validate DefaultRouteTable, rules, and routes
