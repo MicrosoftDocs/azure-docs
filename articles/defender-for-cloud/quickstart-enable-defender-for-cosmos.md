@@ -2,7 +2,7 @@
 title: Enable Microsoft Defender for Cosmos DB
 description: Learn how to enable Microsoft Defender for Cosmos DB's enhanced security features.
 ms.topic: quickstart
-ms.date: 02/06/2022
+ms.date: 02/07/2022
 ---
 
 # Quickstart: Enable Microsoft Defender for Cosmos DB
