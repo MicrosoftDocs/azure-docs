@@ -12,7 +12,7 @@ ms.custom: template-concept
 
 # Distributed tracing
 
-Azure Private 5G Core Preview offers a distributed tracing web GUI, which you can use to collect detailed traces for signaling flows involving packet core instances. You can use traces to diagnose many common configuration, network, and interoperability problems affecting user service.
+Azure Private 5G Core Preview offers a *distributed tracing web GUI*, which you can use to collect detailed traces for signaling flows involving packet core instances. You can use *traces* to diagnose many common configuration, network, and interoperability problems affecting user service.
 
 ## Searching for specific information
 
@@ -20,21 +20,21 @@ The distributed tracing web GUI provides two search tabs to allow you to search 
 
 If you can't see the **Search** heading, select the **Search** button in the top-level menu.
 
-- **SUPI** - Allows you to search for activity involving a particular subscriber using their Subscription Permanent Identifier (SUPI). This tab also provides an Errors panel, which allows you to filter the results by error condition. To search for activity for a particular subscriber, enter all of the initial digits of the subscriber's SUPI into the text box on the **SUPI search** panel.
+- **SUPI** - Allows you to search for activity involving a particular subscriber using their Subscription Permanent Identifier (SUPI). This tab also provides an **Errors** panel, which allows you to filter the results by error condition. To search for activity for a particular subscriber, enter all of the initial digits of the subscriber's SUPI into the text box on the **SUPI search** panel.
 - **Errors** - Allows you to search for error condition occurrences across all subscribers. To search for occurrences of error conditions across all subscribers, select the **Errors** tab and then use the drop-down menus on the **Error** panel to select an error category and, optionally, a specific error.
 
   :::image type="content" source="media\distributed-tracing\distributed-tracing-search-display.png" alt-text="Screenshot of the Search display in the distributed tracing web G U I, showing the S U P I and Errors tabs.":::
 
 Both tabs also provide a **Date/time range** panel that allows you to specify a custom time window in which to search for diagnostics data. You can specify this time window in several ways.
 
-- Select **Most recent** and choose an option to search for records from the most recent 15 minutes, 30 minutes, 1 hour, or 2 hours.
-- Select **Today**, **Yesterday**, or a specific date, then select an hour-long range on the specified date by clicking on the ribbon.
+- Select **Most recent** and choose an option to search for records from the most recent *15 minutes*, *30 minutes*, *1 hour*, or *2 hours*.
+- Select **Today**, **Yesterday**, or a specific date, then select an hour-long range on the specified date by clicking on the **ribbon**.
 - Select **Custom range**, then specify the dates and times for the start and end of the search period. Custom ranges allow you to specify a search period that spans consecutive days.
 
 Long search ranges result in slower searches, so it's recommended that you keep the search range to an hour or less if possible.
 
 > [!TIP] 
-> You can click the cog icon next to the **Date/time range** heading to customize the date and time format, default search period, and time zone according to your preferences.
+> You can click the **cog icon** next to the **Date/time range** heading to customize the date and time format, default search period, and time zone according to your preferences.
 
 Once you’ve entered your chosen search parameters, select **Search** to begin your search. The following image shows an example of the results returned for a search on a particular SUPI.
 
@@ -90,7 +90,7 @@ You can customize the view by showing or hiding individual columns and giving th
 - The **Show messages within group** option shows any messages between group members as arrows that loop back on themselves to their originating column.
 - The **Set annotation** option allows you to enter a new display name for the column.
 
-You can revert to the default display options using the **Options** menu. You can access this menu by selecting the white cogwheel on a blue background at the top-right-hand corner of the view window. You can take the following actions:
+You can revert to the default display options using the **Options** menu. You can access this menu by selecting the **white cogwheel on a blue background** at the top-right-hand corner of the view window. You can take the following actions:
 
 - Choose **Colors, styles and annotations -> Revert to default** to clear your custom display names.
 - Choose **Visibility -> Show all** to restore columns you've previously hidden from view. 
@@ -98,20 +98,20 @@ You can revert to the default display options using the **Options** menu. You ca
 
 A horizontal line in the diagram shows each individual signaling message flowing between two network components. An arrow indicates the direction of flow from the sending to the receiving component.
 
-- A double line indicates that the message was logged by both the sending and receiving components.
-- A single line indicates that the message was logged by only one of these components, because the other component doesn't log messages.
-- A line that is half double and half single, with an **X** symbol at the midpoint, indicates one of the following:
+- A **double line** indicates that the message was logged by both the sending and receiving components.
+- A **single line** indicates that the message was logged by only one of these components, because the other component doesn't log messages.
+- A line that is **half double and half single**, with an **X** symbol at the midpoint, indicates one of the following:
   - The message should have been logged by both components but was logged by only one of them. For example, this occurs if a message is logged by the sending component but is then lost in transit and never reaches the receiving component. 
   - The message crossed with another message in the diagram while in transit, and so was received out of order.
   - The messages were logged in the wrong order. This doesn't indicate a problem with your deployment; it can happen because of network latency in communications.
 - A retransmitted message appears as a separate line for each retransmission.
-- A looped line that returns to the same column indicates a message between group members.
+- A **looped line** that returns to the same column indicates a message between group members.
 
-Different colors and line styles (dashed, dotted, and so on) for horizontal lines are used to distinguish between different call legs.
+Different colors and line styles (**dashed**, **dotted**, and so on) for horizontal lines are used to distinguish between different call legs.
 
 The messages appear in the diagram in the order in which they occurred. An axis break on all of the vertical lines in the diagram between two consecutive messages indicates a gap of 10 seconds or more occurred between these two messages.
 
-If the call flow diagram is too large to fit in the browser window, you can use the vertical and horizontal scrollbars to move around the display.
+If the call flow diagram is too large to fit in the browser window, you can use the vertical and horizontal **scrollbars** to move around the display.
 
 ## Viewing help information
 
