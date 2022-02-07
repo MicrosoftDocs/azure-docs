@@ -37,10 +37,9 @@ OSM runs an Envoy-based control plane on Kubernetes, can be configured with [SMI
 - Ensure you have met all the common prerequisites for cluster extensions listed [here](extensions.md#prerequisites).
 - Use az k8s-extension CLI version >= v0.4.0
 
-## Install Azure Arc-enabled Open Service Mesh (OSM) on an Azure Arc-enabled Kubernetes cluster
+## Basic Installation of OSM on an Azure Arc-enabled Kubernetes Cluster
 
-## Basic Installation of Open Service Mesh (OSM) on an Azure Arc-enabled Kubernetes Cluster
-The following steps assume that you already have a cluster with supported Kubernetes distribution connected to Azure Arc.
+The following steps assume that you already have a cluster with supported a Kubernetes distribution connected to Azure Arc.
 Ensure that your KUBECONFIG environment variable points to the kubeconfig of the Arc-enabled Kubernetes cluster.
 
 Set the environment variables:
@@ -91,12 +90,14 @@ You should see output similar to the output shown below. It may take 3-5 minutes
 ```
 
 ## Installation with Custom Configurations
-The following sections describe how to further configure OSM during installation.
+The following sections describe further configurations of OSM during installation.
 
-To set custom configurations of OSM, custom values must be passed in during installation.
-This requires creating a JSON file containing custom settings and then passing them into `k8s-extension create` CLI command.
+### Setting values during OSM installation
 
-See sections below to determine the contents of the JSON file you require. 
+To set custom configurations of OSM, applicable values must be passed in during installation.
+This requires creating a JSON file containing the required settings and passing them into `k8s-extension create` CLI command.
+
+Refer to sections below to determine the contents of the JSON file you require. 
 
 Then, set the file path as an environment variable:
    ```azurecli-interactive
@@ -119,7 +120,7 @@ create the OSM extension, passing in the settings file using the `--configuratio
    ```
 
    
-2. Install OSM with custom values.
+2. [Install OSM with custom values](#setting-values-during-osm-installation).
    
 3. Add the privileged [security context constraint](https://docs.openshift.com/container-platform/4.7/authentication/managing-security-context-constraints.html) to each service account for the applications in the mesh.
    ```azurecli-interactive
@@ -150,7 +151,7 @@ Include and update the subsequent `certmanager.issuer` lines if you would like t
 }
 ```
 
-Now, run OSM installation with custom configuration.
+[Now, install OSM with custom values](#setting-values-during-osm-installation).
 
 ### Install OSM with Contour for Ingress
 OSM provides multiple options to expose mesh services externally using ingress. OSM has been tested with [Contour](https://projectcontour.io/), which
@@ -172,7 +173,7 @@ To set required values for configuring Contour, create the following JSON file.
 }
 ```
 
-Now, run OSM installation with custom configuration.
+[Now, install OSM with custom values](#setting-values-during-osm-installation).
 
 ### Install Azure Arc-enabled OSM using ARM template
 
