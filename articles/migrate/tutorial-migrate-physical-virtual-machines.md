@@ -327,7 +327,6 @@ After you've verified that the test migration works as expected, you can migrate
 
 2. In **Replicating machines**, right-click the VM > **Migrate**.
 3. In **Migrate** > **Shut down virtual machines and perform a planned migration with no data loss**, select **No** > **OK**.
-    - If you don't want to shut down the VM, select **No**
 
     > [!NOTE]
     > For minimal data loss, the recommendation is to bring the application down manually as part of the migration window (don't let the applications accept any connections) and then initiate the migration. The server needs to be kept running, so remaining changes can be synchronized before the migration is completed.
