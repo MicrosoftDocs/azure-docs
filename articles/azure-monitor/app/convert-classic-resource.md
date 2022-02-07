@@ -87,6 +87,9 @@ To write queries against the [new workspace-based table structure/schema](apm-ta
 
 When you query directly from the Log Analytics UI within your workspace, you will only see the data that is ingested post migration. To see both your classic Application Insights data + new data ingested after migration in a unified query experience use the Logs (Analytics) query view from within your migrated Application Insights resource.
 
+> [!NOTE]
+> If you rename your Application Insights resource after migrating to workspace-based model, the Application Insights Logs tab will no longer show the telemetry collected before renaming. You will be able to see all data (old and new) on the Logs tab of the associated Log Analytics resource.
+
 ## Programmatic resource migration
 
 ### Azure CLI

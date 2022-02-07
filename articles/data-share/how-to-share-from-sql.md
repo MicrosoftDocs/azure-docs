@@ -16,7 +16,7 @@ ms.date: 02/02/2022
 This article describes sharing data from **Azure SQL Database** and **Azure Synapse Analytics**, but Azure Data Share also allows sharing from these other kinds of resources:
 
 - [Azure Storage](how-to-share-from-storage.md)
-- [Azure Data Explorer](/data-explorer/data-share.md)
+- [Azure Data Explorer](/data-explorer/data-share)
 
 This article will guide you through:
 

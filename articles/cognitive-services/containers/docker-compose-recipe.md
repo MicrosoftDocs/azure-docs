@@ -169,5 +169,4 @@ Open a browser on the host machine and go to **localhost** by using the specifie
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Cognitive Services containers](../cognitive-services-container-support.md)
+[Cognitive Services containers](../cognitive-services-container-support.md)

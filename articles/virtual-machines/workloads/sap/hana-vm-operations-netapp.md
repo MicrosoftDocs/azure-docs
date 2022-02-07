@@ -12,7 +12,7 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/08/2021
+ms.date: 02/07/2022
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
@@ -34,12 +34,12 @@ When considering Azure NetApp Files for the SAP Netweaver and SAP HANA, be aware
 - The minimum volume size is 100 GiB
 - Azure NetApp Files and all virtual machines, where Azure NetApp Files volumes are mounted, must be in the same Azure Virtual Network or in [peered virtual networks](../../../virtual-network/virtual-network-peering-overview.md) in the same region
 - It is important to have the virtual machines deployed in close proximity to the Azure NetApp storage for low latency.  
-- The selected virtual network must have a subnet, delegated to Azure NetApp Files
+- The selected virtual network must have a subnet, delegated to Azure NetApp Files. The subnet requires a minimum of a /28 IP address range. Ideally a /26 would be better if many ANF volumes should be mounted to VMs in the specific VNET
 - Make sure the latency from the database server to the ANF volume is measured and below 1 millisecond
 - The throughput of an Azure NetApp volume is a function of the volume quota and Service level, as documented in [Service level for Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-service-levels.md). When sizing the HANA Azure NetApp volumes, make sure the resulting throughput meets the HANA system requirements. Alternatively consider using a [manual QoS capacity pool](../../../azure-netapp-files/azure-netapp-files-understand-storage-hierarchy.md#manual-qos-type) where volume capacity and throughput can be configured and scaled independently (SAP HANA specific examples are in [this document](../../../azure-netapp-files/azure-netapp-files-understand-storage-hierarchy.md#manual-qos-type)
 - Try to “consolidate” volumes to achieve more performance in a larger Volume for example, use one volume for /sapmnt, /usr/sap/trans, … if possible  
 - Azure NetApp Files offers [export policy](../../../azure-netapp-files/azure-netapp-files-configure-export-policy.md): you can control the allowed clients, the access type (Read&Write, Read Only, etc.). 
-- Azure NetApp Files feature isn't zone aware yet. Currently Azure NetApp Files feature isn't deployed in all Availability zones in an Azure region. Be aware of the potential latency implications in some Azure regions.   
+- Azure NetApp Files feature isn't zone aware yet. Currently Azure NetApp Files feature isn't deployed in all Availability zones in an Azure region. Be aware of the potential latency implications in some Azure regions. Though to achieve proximity, the functionality of [Application Volume Groups](../../../azure-netapp-files/application-volume-group-introduction.md) is in public preview. See also later in this article
 - The User ID for <b>sid</b>adm and the Group ID for `sapsys` on the virtual machines must match the configuration in Azure NetApp Files. 
 
 > [!IMPORTANT]
@@ -119,6 +119,18 @@ Therefore you could consider to deploy similar throughput for the ANF volumes as
 > You can re-size Azure NetApp Files volumes dynamically, without the need to `unmount` the volumes, stop the virtual machines or stop SAP HANA. That allows flexibility to meet your application both expected and unforeseen throughput demands.
 
 Documentation on how to deploy an SAP HANA scale-out configuration with standby node using NFS v4.1 volumes that are hosted in ANF is published in [SAP HANA scale-out with standby node on Azure VMs with Azure NetApp Files on SUSE Linux Enterprise Server](./sap-hana-scale-out-standby-netapp-files-suse.md).
+
+## Deployment through application volume groups for SAP HANA (AVG)
+To deploy ANF volumes with proximity to your VM, a new functionality called application volume groups got developed. The functionality is currently in public preview. There is a series of articles that document the functionality. Best is to start with the article [Understand Azure NetApp Files application volume group for SAP HANA](../../../azure-netapp-files/application-volume-group-introduction.md). As you read the articles, it becomes clear that the usage of AVGs invovles the usage of Azure proximity placement groups as well. Proximity placement groups are used by the new functionality to tie into with the volumes that are getting created. To ensure that over the lifetime of the HANA system, the VM’s will not be moved away from the ANF volumes, we recommend using a combination of Avset/ PPG for each of the zones you deploy into.
+The order of deployment would look like:
+
+- Using the [form](https://aka.ms/HANAPINNING) you need to request a pinning of the empty Avset to a compute HW to ensure that VM’s will not move
+- Assign a PPG to the Avset and start a VM assigned to this Avset
+- Use Azure application volume group to deploy your HANA volumes
+
+The proximity placement group configuration to use AVGs in an optimal way would look like:
+
+![ANF application volume group and ppg architecture](media/hana-vm-operations-netapp/avg-ppg-architecture.png)
 
 
 ## Availability
