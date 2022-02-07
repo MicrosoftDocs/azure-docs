@@ -85,7 +85,7 @@ Once you send your API request, you’ll receive a `202` response indicating suc
 {YOUR-PRIMARY-ENDPOINT}/language/analyze-text/projects/{PROJECT-NAME}/export/jobs/{JOB-ID}?api-version=2021-11-01-preview
 ``` 
 
-`JOB-ID` is used to identify your request, since this operation is asynchronous. You’ll use this URL in the next step to get the training status. 
+`JOB-ID` is used to identify your request, since this operation is asynchronous. You’ll use this URL in the next step to get the export job status. 
 
 ### Get export job status
 
@@ -173,7 +173,6 @@ Use the following URL to create a project and import your tags file. Replace the
 |`{YOUR-SECONDARY-ENDPOINT}`     | The endpoint for authenticating your API request.   | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
 |`{PROJECT-NAME}`     | The name for your project. This value is case-sensitive.  | `myProject` |
 
-
 ### Headers
 
 Use the following header to authenticate your request. 
@@ -218,7 +217,55 @@ Use the response body you got from the previous export step. It will have a form
     }
 }
 ```
-Now you have replicated your project into another resurce in another region. 
+Once you send your API request, you’ll receive a `202` response indicating success. In the response headers, extract the `location` value. It will be formatted like this: 
+
+```rest
+{YOUR-PRIMARY-ENDPOINT}/language/analyze-text/projects/{PROJECT-NAME}/import/jobs/{JOB-ID}?api-version=2021-11-01-preview
+``` 
+
+`JOB-ID` is used to identify your request, since this operation is asynchronous. You’ll use this URL in the next step to get the import status. 
+
+### Get import job status
+
+Use the following **GET** request to query the status of your import job status. You can use the URL you received from the previous step, or replace the placeholder values below with your own values. 
+
+```rest
+{YOUR-PRIMARY-ENDPOINT}/language/analyze-text/projects/{PROJECT-NAME}/import/jobs/{JOB-ID}?api-version=2021-11-01-preview
+```
+
+|Placeholder  |Value  | Example |
+|---------|---------|---------|
+|`{YOUR-PRIMARY-ENDPOINT}`     | The endpoint for authenticating your API request.   | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
+|`{PROJECT-NAME}`     | The name for your project. This value is case-sensitive.  | `myProject` |
+|`{JOB-ID}`     | The ID for locating your export job status. This is in the `location` header value you received in the previous step.  | `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx` |
+
+#### Headers
+
+Use the following header to authenticate your request. 
+
+|Key|Description|Value|
+|--|--|--|
+|`Ocp-Apim-Subscription-Key`| The key to your resource. Used for authenticating your API requests.| `{YOUR-PRIMARY-RESOURCE-KEY}` |
+
+#### Response body
+
+```json
+{
+    "jobId": "string",
+    "createdDateTime": "2021-10-19T23:24:41.572Z",
+    "lastUpdatedDateTime": "2021-10-19T23:24:41.572Z",
+    "expirationDateTime": "2021-10-19T23:24:41.572Z",
+    "status": "unknown",
+    "errors": [
+      {
+        "code": "unknown",
+        "message": "string"
+      }
+    ]
+}
+```
+
+Now you have replicated your project into another resource in another region. 
 
 ## Train your model
 
@@ -365,7 +412,7 @@ At this point you have replicated your project into another resource which is in
 
 ## Changes in calling the runtime
 
-Within your system, check for the success code returned from the submit task API. If you observe a consistent failure in submitting the request, this could indicate an outage in your primary region. Failure once doesn't mean an outage, it may be transient issue. Retry submitting the job through the secondary resource you have created. For the second request use your `{YOUR-SECONDARY-ENDPOINT}` and secondary key, if you have followed the steps above, `{PROJECT-NAME}` and `{DEPLOYMENT-NAME}` would be the same so no changes are required to the request body. 
+Within your system, at the step where you call [runtime prediction API](https://aka.ms/ct-runtime-swagger) check for the response code returned from the submit task API. If you observe a **consistent** failure in submitting the request, this could indicate an outage in your primary region. Failure once doesn't mean an outage, it may be transient issue. Retry submitting the job through the secondary resource you have created. For the second request use your `{YOUR-SECONDARY-ENDPOINT}` and secondary key, if you have followed the steps above, `{PROJECT-NAME}` and `{DEPLOYMENT-NAME}` would be the same so no changes are required to the request body. 
 
 In case you revert to using your secodary resource you will observe slight increase in latency because of the difference in regions where your model is deployed. 
 
