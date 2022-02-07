@@ -3,7 +3,7 @@ title: Availability Zone support for public multi-tenant App Service
 description: Learn how to deploy your App Service so that your apps are zone redundant.
 author: seligj95
 ms.topic: article
-ms.date: 11/16/2021
+ms.date: 2/7/2022
 ms.author: jordanselig
 ms.custom: references_regions
 ---
@@ -43,7 +43,7 @@ Zone redundancy is a property of the App Service plan. The following are the cur
   - Currently if you're running on Pv3, then it is possible that you're already on a footprint that supports zone redundancy. In this scenario, you can create a new App Service plan and specify zone redundancy when creating the new App Service plan.
   - If you aren't using Pv3 or a scale unit that supports zone redundancy, are in an unsupported region, or are unsure, follow the steps below:
     - Create a new resource group in a region that is supported
-        - This ensures the App Service control plane can find a scale unit in the selected region that supports zone redundancy
+      - This ensures the App Service control plane can find a scale unit in the selected region that supports zone redundancy
     - Create a new App Service plan (and app) in a region of your choice using the **new** resource group
     - Ensure the zoneRedundant property (described below) is set to true when creating the new App Service plan
 - Must be created using [Azure Resource Manager (ARM) templates](../azure-resource-manager/templates/overview.md)
@@ -56,9 +56,23 @@ When the App Service platform allocates instances to a zone redundant App Servic
 
 ## How to Deploy a Zone Redundant App Service
 
-Currently, you need to use an ARM template to create a zone redundant App Service. Once created via an ARM template, the App Service plan can be viewed and interacted with via the Azure portal and CLI tooling. An ARM template is only needed for the initial creation of the App Service plan.
+You can create a zone redundant App Service using the Azure portal, Azure CLI, or an ARM template.
 
-The only changes needed in an ARM template to specify a zone redundant App Service are the new ***zoneRedundant*** property (required) and optionally the App Service plan instance count (***capacity***) on the [Microsoft.Web/serverfarms](/azure/templates/microsoft.web/serverfarms?tabs=json) resource. If you don't specify a capacity, the platform defaults to three. The ***zoneRedundant*** property should be set to ***true*** and ***capacity*** should be set based on the workload requirement, but no less than three. A good rule of thumb to choose capacity is to ensure sufficient instances for the application such that losing one zone of instances leaves sufficient capacity to handle expected load.
+To create a zone redundant App Service using the Azure portal, enable the zone redundancy option during the "Create Web App" or "Create App Service Plan" experiences.
+
+![zone redundant enablement using the portal](./media/how-to-zone-redundancy/zone-redundancy-portal.png)
+
+The capacity/number of workers/instance count can be changed once the App Service Plan is created by navigating to the **Scale out (App Service plan)** settings.
+
+![capacity update using the portal](./media/how-to-zone-redundancy/capacity-portal.png)
+
+To enable zone redundancy using the Azure CLI, include the `--zone-redundant` parameter when you create your App Service Plan. You can also include the `--number-of-workers` parameter to specify capacity.
+
+```azurecli
+az appservice plan create --resource-group MyResourceGroup --name MyPlan --zone-redundant --number-of-workers 6
+```
+
+The only changes needed in an ARM template to specify a zone redundant App Service are the ***zoneRedundant*** property (required) and optionally the App Service plan instance count (***capacity***) on the [Microsoft.Web/serverfarms](/azure/templates/microsoft.web/serverfarms?tabs=json) resource. If you don't specify a capacity, the platform defaults to three. The ***zoneRedundant*** property should be set to ***true*** and ***capacity*** should be set based on the workload requirement, but no less than three. A good rule of thumb to choose capacity is to ensure sufficient instances for the application such that losing one zone of instances leaves sufficient capacity to handle expected load.
 
 > [!TIP]
 > To decide instance capacity, you can use the following calculation:
