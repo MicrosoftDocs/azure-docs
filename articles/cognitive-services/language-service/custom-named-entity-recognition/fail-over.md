@@ -19,7 +19,7 @@ When you create a Language resource, you specify a region for it to be created i
 
 If your app or business depends on the use of a custom NER model, we recommend that you create a replica of your project in an additional supported region. If a regional outage occurs, you can then access your model in the other fail-over region where you replicated your project.
 
-Replicating a project means that you export your project metadata and assets, and import them into a new project. This only makes a copy of your project settings and tagged data. You still need to [train](./how-to/train-model.md?tabs=portal#azure-resources) and [deploy](how-to/call-api.md#deploy-your-model) the models to be available for use with [prediction APIs](https://aka.ms/ct-runtime-swagger).
+Replicating a project means that you export your project metadata and assets, and import them into a new project. This only makes a copy of your project settings and tagged data. You still need to [train](./how-to/train-model.md) and [deploy](how-to/call-api.md#deploy-your-model) the models to be available for use with [prediction APIs](https://aka.ms/ct-runtime-swagger).
 
 In this article, you will learn to how to use the export and import APIs to replicate your project from one resource to another existing in different supported geographical regions, guidance on keeping your projects in sync and changes needed to your runtime consumption.
 
@@ -402,11 +402,7 @@ Now you should make changes to your system to handle traffic redirection in case
 
 ## Changes in calling the runtime
 
-<<<<<<< HEAD
-Within your system, check for the success code returned from the API when you submit a task. If you observe a consistent failure in submitting the request, this could indicate an outage in your primary region. Failure once doesn't mean an outage, it may be a transient issue. Retry submitting the job through the secondary resource you have created. For the second request use the endpoint and key for your secondary resource. If you have followed the steps above, your project and deployment names will be the same, so you won't need to make changes to the body of your API requests. 
-=======
 Within your system, at the step where you call [runtime prediction API](https://aka.ms/ct-runtime-swagger) check for the response code returned from the submit task API. If you observe a **consistent** failure in submitting the request, this could indicate an outage in your primary region. Failure once doesn't mean an outage, it may be transient issue. Retry submitting the job through the secondary resource you have created. For the second request use your `{YOUR-SECONDARY-ENDPOINT}` and secondary key, if you have followed the steps above, `{PROJECT-NAME}` and `{DEPLOYMENT-NAME}` would be the same so no changes are required to the request body. 
->>>>>>> d355f25a67390b9636c83b1db3952d6b02542357
 
 If you revert to using your secondary resource, you will observe a slight increase in latency because of the difference in regions where your model is deployed. 
 

@@ -19,7 +19,7 @@ When you create a Language resource in the Azure portal, you specify a region fo
 
 If your app or business depends on the use of a CLU model, we recommend that you create a replica of your project into another supported region. So that if a regional outage occurs, you can then access your model in the other fail-over region where you replicated your project.
 
-Replicating a project means that you export your project metadata and assets and import them into a new project. This only makes a copy of your project settings, intents, entities and utterances. You still need to [train](./how-to/train-model.md?tabs=portal#azure-resources) and [deploy](how-to/call-api.md#deploy-your-model) the models to be available for use with [runtime APIs]((https://aka.ms/clu-apis).
+Replicating a project means that you export your project metadata and assets and import them into a new project. This only makes a copy of your project settings, intents, entities and utterances. You still need to [train](./how-to/train-model.md) and [deploy](how-to/deploy-query-model.md) the models to be available for use with [runtime APIs](https://aka.ms/clu-apis).
 
 
 In this article, you will learn to how to use the export and import APIs to replicate your project from one resource to another existing in different supported geographical regions, guidance on keeping your projects in sync and changes needed to your runtime consumption.
@@ -35,7 +35,7 @@ Use the following steps to get the keys and endpoint of your primary and seconda
 * Go to your resource overview page in the [Azure portal](https://ms.portal.azure.com/#home)
 
 * From the menu of the left side of the screen, select **Keys and Endpoint**. Use endpoint for the API requests and you’ll need the key for `Ocp-Apim-Subscription-Key` header.
-:::image type="content" source="../media/azure-portal-resource-credentials.png" alt-text="A screenshot showing the key and endpoint screen for an Azure resource." lightbox="./media/azure-portal-resource-credentials.png":::
+:::image type="content" source="../media/azure-portal-resource-credentials.png" alt-text="A screenshot showing the key and endpoint screen for an Azure resource." lightbox="../media/azure-portal-resource-credentials.png":::
 
 > [!TIP]
 > Keep a note of keys and endpoints for both primary and secondary resources. Use these values to replace the following placeholders:
