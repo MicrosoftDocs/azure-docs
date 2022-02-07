@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 02/01/2022
+ms.date: 02/07/2022
 ms.author: alkohli
 ---
 # Prepare certificates to upload on your Azure Stack Edge Pro GPU
@@ -75,7 +75,7 @@ Take the following steps to export an SSL certificate with private key on a Wind
 
 6. Choose **Include all certificates in certificate path if possible**, **Export all extended properties** and **Enable certificate privacy**.
 
-   When you include all certificates in your export, you don't need to add the signing chain separately before adding other certificates when you use the local web UI to configure certificates. For more information, see [Bring your own certificates](azure-stack-edge-gpu-deploy-configure-certificates.md#bring-your-own-certificates).
+   When you include all certificates in your export, you don't need to add the signing chain separately before adding this certificate when you configure certificates using the local web UI. For more information, see [Bring your own certificates](azure-stack-edge-gpu-deploy-configure-certificates.md#bring-your-own-certificates).
 
     > [!IMPORTANT]
     > DO NOT select the **Delete Private Key option if export is successful**.
