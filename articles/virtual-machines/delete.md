@@ -21,15 +21,11 @@ Depending on how you delete a VM, it may only delete the VM resource, not the ne
 
 ### [Portal](#tab/portal2)
 
-When you create a VM through the portal using an existing OS disk, the default is to detach the disk when the VM is deleted.
-
-When you create a VM through the portal and use an image, either your own or from an Azure Marketplace image, the default is to delete the OS disk along with the VM.
-
 1. Open the [portal](https://portal.azure.com).
 1. Select **+ Create a resource**.
 1. On the **Create a resource** page, under **Virtual machines**, select **Create**.
 1. Make your choices on the **Basics**, then select **Next : Disks >**. The **Disks** tab will open.
-1. Under **Disk options**, by default the OS disk is set to **Delete with VM**. If you do not want to delete the OS disk, uncheck the box.
+1. Under **Disk options**, by default the OS disk is set to **Delete with VM**. If you do not want to delete the OS disk, uncheck the box. If you're using an existing OS disk, the default is to detach the OS disk when the VM is deleted.
 
     :::image type="content" source="media/delete/delete-disk.png" alt-text="Screenshot checkbox to choose to have the disk deleted when the VM is deleted.":::
 
@@ -41,14 +37,14 @@ When you create a VM through the portal and use an image, either your own or fro
     - If you choose to **Attach an existing disk**, you will be able to choose the disk, LUN, and whether you want to delete the data disk when you delete the VM.
         :::image type="content" source="media/delete/delete-existing-data-disk.png" alt-text="Screenshot showing the checkbox to choose to delete the data disk when the VM is deleted.":::
 
-1. When you are done adding your disk information, select **Next : Networking >**. The **Networking** tab will open.
+1. When you're done adding your disk information, select **Next : Networking >**. The **Networking** tab will open.
 1. Towards the bottom of the page, select **Delete public IP and NIC when VM is deleted**.
 
     :::image type="content" source="media/delete/delete-networking.png" alt-text="Screenshot showing the checkbox to choose to delete the public IP and NIC when the VM is deleted.":::
 
-1. When you are done making selections, select **Review + create**. The **Review + create** page will open.
+1. When you're done making selections, select **Review + create**. The **Review + create** page will open.
 1. You can verify which resources you have chosen to delete when you delete the VM.
-1. When you are satisfied with your selections, and validation passes, select **Create** to deploy the VM. 
+1. When you're satisfied with your selections, and validation passes, select **Create** to deploy the VM. 
 
 ### [CLI](#tab/cli2)
 
