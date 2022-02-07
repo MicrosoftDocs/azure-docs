@@ -788,7 +788,25 @@
       "url": "https://github.com/Azure/azure-docs-bicep-samples/",
       "branch": "main",
       "branch_mapping": {}
-    }
+    },
+    {
+      "path_to_root": "msdocs-python-flask-webapp-quickstart",
+      "url": "https://github.com/Azure-Samples/msdocs-python-flask-webapp-quickstart",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "msdocs-python-django-webapp-quickstart",
+      "url": "https://github.com/Azure-Samples/msdocs-python-django-webapp-quickstart",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "msdocs-nodejs-mongodb-azure-sample-app",
+      "url": "https://github.com/Azure-Samples/msdocs-nodejs-mongodb-azure-sample-app",
+      "branch": "main",
+      "branch_mapping": {}
+    }     
   ],
   "branch_target_mapping": {
     "live": [
@@ -813,7 +831,7 @@
     ".openpublishing.redirection.json",
     ".openpublishing.redirection.active-directory.json",
     ".openpublishing.redirection.azure-sql.json",
-    ".openpublishing.redirection.data-factory.json",
+    "articles/data-factory/.openpublishing.redirection.data-factory.json",
     ".openpublishing.redirection.defender-for-cloud.json",
     ".openpublishing.redirection.defender-for-iot.json",
     ".openpublishing.redirection.healthcare-apis.json",

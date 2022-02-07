@@ -7,7 +7,7 @@ author: anzaman
 
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 02/22/2021
+ms.date: 01/31/2022
 ms.author: alzam 
 ms.custom: devx-track-azurepowershell
 ---
@@ -316,11 +316,27 @@ The following examples of JSON and a JSON schema provide explanations of each pr
 }
 ```
 
-## Packet capture - portal
+## Start packet capture - portal
 
-You can set up packet capture in the Azure portal.
+You can set up packet capture in the Azure portal by navigating to the VPN Gateway Packet Capture blade in the Azure portal and clicking the **Start Packet Capture button**
 
-:::image type="content" source="./media/packet-capture/portal.jpg" alt-text="Screenshot of packet capture in the portal." lightbox="./media/packet-capture/portal.jpg":::
+:::image type="content" source="./media/packet-capture/portal.jpg" alt-text="Screenshot of start packet capture in the portal." lightbox="./media/packet-capture/portal.jpg":::
+
+## Stop packet capture - portal
+
+A valid SAS (or Shared Access Signature) Uri with read/write access is required to complete a packet capture. When a packet capture is stopped, the output of the packet capture is written to the container that is referenced by the SAS Uri. To get the SAS Uri, navigate to the required storage account and generate a SAS token and URL with the correct permissions.
+
+:::image type="content" source="./media/packet-capture/sastoken.jpg" alt-text="Screenshot of SAS Uri Token." lightbox="./media/packet-capture/sastoken.jpg":::
+
+* Copy the Blob SAS URL as it will be needed in the next step.
+
+* Navigate to the VPN Gateway Packet Capture blade in the Azure portal and clicking the **Stop Packet Capture** button
+
+* Paste the SAS URL (from the previous step) in the **Output Sas Uri** text box and click **Stop Packet Capture**.
+
+:::image type="content" source="./media/packet-capture/stopcapture.jpg" alt-text="Screenshot of stop packet capture in the portal." lightbox="./media/packet-capture/stopcapture.jpg":::
+
+* The packet capture (pcap) file will be stored in the specified account
 
 ## Packet capture - PowerShell
 

@@ -5,7 +5,7 @@ ms.topic: include
 ms.date: 03/06/2020
 ms.author: eur
 ---
-One of the core features of the Speech service is the ability to recognize and transcribe human speech (often referred to as speech-to-text). In this quickstart, you learn how to use the Speech SDK in your apps and products to perform high-quality speech-to-text conversion.
+One of the core features of the Speech service is the ability to recognize and transcribe human speech (often called speech-to-text). In this quickstart, you learn how to use the Speech SDK in your apps and products to perform high-quality speech-to-text conversion.
 
 ## Skip to samples on GitHub
 
@@ -13,11 +13,11 @@ If you want to skip straight to sample code, see the [C++ quickstart samples](ht
 
 ## Prerequisites
 
-This article assumes that you have an Azure account and Speech service subscription. If you don't have an account and subscription, [try the Speech service for free](../../../overview.md#try-the-speech-service-for-free).
+This article assumes that you have an Azure account and a Speech service subscription. If you don't have an account and a subscription, [try the Speech service for free](../../../overview.md#try-the-speech-service-for-free).
 
-## Install the Speech SDK
+### Install the Speech SDK
 
-Before you can do anything, you'll need to install the Speech SDK. Depending on your platform, use the following instructions:
+Before you can do anything, you need to install the Speech SDK. Depending on your platform, use the following instructions:
 
 * <a href="/azure/cognitive-services/speech-service/quickstarts/setup-platform?pivots=programming-language-cpp&tabs=linux" target="_blank">Linux </a>
 * <a href="/azure/cognitive-services/speech-service/quickstarts/setup-platform?pivots=programming-language-cpp&tabs=macos" target="_blank">macOS </a>
@@ -25,7 +25,9 @@ Before you can do anything, you'll need to install the Speech SDK. Depending on 
 
 ## Create a speech configuration
 
-To call the Speech service using the Speech SDK, you need to create a [`SpeechConfig`](/cpp/cognitive-services/speech/speechconfig). This class includes information about your subscription, like your key and associated location/region, endpoint, host, or authorization token. Create a [`SpeechConfig`](/cpp/cognitive-services/speech/speechconfig) by using your key and region. See the [Find keys and location/region](../../../overview.md#find-keys-and-locationregion) page to find your key-location/region pair.
+To call the Speech service using the Speech SDK, you need to create a [`SpeechConfig`](/cpp/cognitive-services/speech/speechconfig) instance. This class includes information about your subscription, like your key and associated location/region, endpoint, host, or authorization token. 
+
+Create a `SpeechConfig` instance by using your key and region. For more information, see [Find keys and location/region](../../../overview.md#find-keys-and-locationregion).
 
 ```cpp
 using namespace std;
@@ -34,7 +36,7 @@ using namespace Microsoft::CognitiveServices::Speech;
 auto config = SpeechConfig::FromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
 ```
 
-There are a few other ways that you can initialize a [`SpeechConfig`](/cpp/cognitive-services/speech/speechconfig):
+You can initialize `SpeechConfig` in a few other ways:
 
 * With an endpoint: pass in a Speech service endpoint. A key or authorization token is optional.
 * With a host: pass in a host address. A key or authorization token is optional.
@@ -43,9 +45,9 @@ There are a few other ways that you can initialize a [`SpeechConfig`](/cpp/cogni
 > [!NOTE]
 > Regardless of whether you're performing speech recognition, speech synthesis, translation, or intent recognition, you'll always create a configuration.
 
-## Recognize from microphone
+## Recognize speech from a microphone
 
-To recognize speech using your device microphone, create an `AudioConfig` using `FromDefaultMicrophoneInput()`. Then initialize a [`SpeechRecognizer`](/cpp/cognitive-services/speech/speechrecognizer), passing your `audioConfig` and `config`.
+To recognize speech by using your device microphone, create an [`AudioConfig`](/cpp/cognitive-services/speech/audio-audioconfig) instance by using `FromDefaultMicrophoneInput()`. Then initialize [`SpeechRecognizer`](/cpp/cognitive-services/speech/speechrecognizer) by passing `audioConfig` and `config`.
 
 ```cpp
 using namespace Microsoft::CognitiveServices::Speech::Audio;
@@ -58,11 +60,11 @@ auto result = recognizer->RecognizeOnceAsync().get();
 cout << "RECOGNIZED: Text=" << result->Text << std::endl;
 ```
 
-If you want to use a *specific* audio input device, you need to specify the device ID in the `AudioConfig`. Learn [how to get the device ID](../../../how-to-select-audio-input-devices.md) for your audio input device.
+If you want to use a *specific* audio input device, you need to specify the device ID in `AudioConfig`. Learn [how to get the device ID](../../../how-to-select-audio-input-devices.md) for your audio input device.
 
-## Recognize from file
+## Recognize speech from a file
 
-If you want to recognize speech from an audio file instead of using a microphone, you still need to create an `AudioConfig`. However, when you create the [`AudioConfig`](/cpp/cognitive-services/speech/audio-audioconfig), instead of calling `FromDefaultMicrophoneInput()`, you call `FromWavFileInput()` and pass the file path.
+If you want to recognize speech from an audio file instead of using a microphone, you still need to create an `AudioConfig` instance. But instead of calling `FromDefaultMicrophoneInput()`, you call `FromWavFileInput()` and pass the file path:
 
 ```cpp
 using namespace Microsoft::CognitiveServices::Speech::Audio;
@@ -74,23 +76,23 @@ auto result = recognizer->RecognizeOnceAsync().get();
 cout << "RECOGNIZED: Text=" << result->Text << std::endl;
 ```
 
-## Recognize speech
+## Recognize speech by using the Recognizer class
 
 The [Recognizer class](/cpp/cognitive-services/speech/speechrecognizer) for the Speech SDK for C++ exposes a few methods that you can use for speech recognition.
 
 ### At-start recognition
 
-At-start recognition asynchronously recognizes a single utterance. The end of a single utterance is determined by listening for silence at the end or until a maximum of 15 seconds of audio is processed. Here's an example of asynchronous at-start recognition using [`RecognizeOnceAsync`](/cpp/cognitive-services/speech/speechrecognizer#recognizeonceasync):
+At-start recognition asynchronously recognizes a single utterance. The end of a single utterance is determined by listening for silence at the end or until a maximum of 15 seconds of audio is processed. Here's an example of asynchronous at-start recognition via [`RecognizeOnceAsync`](/cpp/cognitive-services/speech/speechrecognizer#recognizeonceasync):
 
 ```cpp
 auto result = recognizer->RecognizeOnceAsync().get();
 ```
 
-You'll need to write some code to handle the result. This sample evaluates the [`result->Reason`](/cpp/cognitive-services/speech/recognitionresult#reason):
+You need to write some code to handle the result. This sample evaluates [`result->Reason`](/cpp/cognitive-services/speech/recognitionresult#reason) and:
 
-* Prints the recognition result: `ResultReason::RecognizedSpeech`
-* If there is no recognition match, inform the user: `ResultReason::NoMatch`
-* If an error is encountered, print the error message: `ResultReason::Canceled`
+* Prints the recognition result: `ResultReason::RecognizedSpeech`.
+* If there is no recognition match, informs the user: `ResultReason::NoMatch`.
+* If an error is encountered, prints the error message: `ResultReason::Canceled`.
 
 ```cpp
 switch (result->Reason)
@@ -122,25 +124,25 @@ switch (result->Reason)
 
 Continuous recognition is a bit more involved than at-start recognition. It requires you to subscribe to the `Recognizing`, `Recognized`, and `Canceled` events to get the recognition results. To stop recognition, you must call [StopContinuousRecognitionAsync](/cpp/cognitive-services/speech/speechrecognizer#stopcontinuousrecognitionasync). Here's an example of how continuous recognition is performed on an audio input file.
 
-Let's start by defining the input and initializing a [`SpeechRecognizer`](/cpp/cognitive-services/speech/speechrecognizer):
+Start by defining the input and initializing [`SpeechRecognizer`](/cpp/cognitive-services/speech/speechrecognizer):
 
 ```cpp
 auto audioInput = AudioConfig::FromWavFileInput("YourAudioFile.wav");
 auto recognizer = SpeechRecognizer::FromConfig(config, audioInput);
 ```
 
-Next, let's create a variable to manage the state of speech recognition. To start, we'll declare a `promise<void>`, since at the start of recognition we can safely assume that it's not finished.
+Next, create a variable to manage the state of speech recognition. Declare `promise<void>` because at the start of recognition, you can safely assume that it's not finished:
 
 ```cpp
 promise<void> recognitionEnd;
 ```
 
-We'll subscribe to the events sent from the [`SpeechRecognizer`](/cpp/cognitive-services/speech/speechrecognizer).
+Next, subscribe to the events that [`SpeechRecognizer`](/cpp/cognitive-services/speech/speechrecognizer) sends:
 
-* [`Recognizing`](/cpp/cognitive-services/speech/asyncrecognizer#recognizing): Signal for events containing intermediate recognition results.
-* [`Recognized`](/cpp/cognitive-services/speech/asyncrecognizer#recognized): Signal for events containing final recognition results (indicating a successful recognition attempt).
-* [`SessionStopped`](/cpp/cognitive-services/speech/asyncrecognizer#sessionstopped): Signal for events indicating the end of a recognition session (operation).
-* [`Canceled`](/cpp/cognitive-services/speech/asyncrecognizer#canceled): Signal for events containing canceled recognition results (indicating a recognition attempt that was canceled as a result or a direct cancellation request or, alternatively, a transport or protocol failure).
+* [`Recognizing`](/cpp/cognitive-services/speech/asyncrecognizer#recognizing): Signal for events that contain intermediate recognition results.
+* [`Recognized`](/cpp/cognitive-services/speech/asyncrecognizer#recognized): Signal for events that contain final recognition results, which indicate a successful recognition attempt.
+* [`SessionStopped`](/cpp/cognitive-services/speech/asyncrecognizer#sessionstopped): Signal for events that indicate the end of a recognition session (operation).
+* [`Canceled`](/cpp/cognitive-services/speech/asyncrecognizer#canceled): Signal for events that contain canceled recognition results. These results indicate a recognition attempt that was canceled as a result or a direct cancellation request. Alternatively, they indicate a transport or protocol failure.
 
 ```cpp
 recognizer->Recognizing.Connect([](const SpeechRecognitionEventArgs& e)
@@ -181,7 +183,7 @@ recognizer->SessionStopped.Connect([&recognitionEnd](const SessionEventArgs& e)
     });
 ```
 
-With everything set up, we can call [`StopContinuousRecognitionAsync`](/cpp/cognitive-services/speech/speechrecognizer#startcontinuousrecognitionasync).
+With everything set up, call [`StopContinuousRecognitionAsync`](/cpp/cognitive-services/speech/speechrecognizer#startcontinuousrecognitionasync) to start recognizing:
 
 ```cpp
 // Starts continuous recognition. Uses StopContinuousRecognitionAsync() to stop recognition.
@@ -196,57 +198,21 @@ recognizer->StopContinuousRecognitionAsync().get();
 
 ### Dictation mode
 
-When using continuous recognition, you can enable dictation processing by using the corresponding "enable dictation" function. This mode will cause the speech config instance to interpret word descriptions of sentence structures such as punctuation. For example, the utterance "Do you live in town question mark" would be interpreted as the text "Do you live in town?".
+When you're using continuous recognition, you can enable dictation processing by using the corresponding function. This mode will cause the speech configuration instance to interpret word descriptions of sentence structures such as punctuation. For example, the utterance "Do you live in town question mark" would be interpreted as the text "Do you live in town?".
 
-To enable dictation mode, use the [`EnableDictation`](/cpp/cognitive-services/speech/speechconfig#enabledictation) method on your [`SpeechConfig`](/cpp/cognitive-services/speech/speechconfig).
+To enable dictation mode, use the [`EnableDictation`](/cpp/cognitive-services/speech/speechconfig#enabledictation) method on [`SpeechConfig`](/cpp/cognitive-services/speech/speechconfig):
 
 ```cpp
 config->EnableDictation();
 ```
 
-## Change source language
+## Change the source language
 
-A common task for speech recognition is specifying the input (or source) language. Let's take a look at how you would change the input language to German. In your code, find your [`SpeechConfig`](/cpp/cognitive-services/speech/speechconfig), then add this line directly below it.
+A common task for speech recognition is specifying the input (or source) language. The following example shows how you would change the input language to German. In your code, find your [`SpeechConfig`](/cpp/cognitive-services/speech/speechconfig) instance and add this line directly below it:
 
 ```cpp
 config->SetSpeechRecognitionLanguage("de-DE");
 ```
 
-[`SetSpeechRecognitionLanguage`](/cpp/cognitive-services/speech/speechconfig#setspeechrecognitionlanguage) is a parameter that takes a string as an argument. You can provide any value in the list of supported [locales/languages](../../../language-support.md).
+[`SetSpeechRecognitionLanguage`](/cpp/cognitive-services/speech/speechconfig#setspeechrecognitionlanguage) is a parameter that takes a string as an argument. You can provide any value in the [list of supported locales/languages](../../../language-support.md).
 
-## Improve recognition accuracy
-
-Phrase Lists are used to identify known phrases in audio data, like a person's name or a specific location. By providing a list of phrases, you improve the accuracy of speech recognition.
-
-As an example, if you have a command "Move to" and a possible destination of "Ward" that may be spoken, you can add an entry of "Move to Ward". Adding a phrase will increase the probability that when the audio is recognized that "Move to Ward" will be recognized instead of "Move toward"
-
-Single words or complete phrases can be added to a Phrase List. During recognition, an entry in a phrase list is used to boost recognition of the words and phrases in the list even when the entries appear in the middle of the utterance. 
-
-> [!IMPORTANT]
-> The Phrase List feature is available in the following languages: en-US, de-DE, en-AU, en-CA, en-GB, en-IN, es-ES, fr-FR, it-IT, ja-JP, pt-BR, zh-CN
->
-> The Phrase List feature should be used with no more than a few hundred phrases. If you have a larger list or for languages that are not currently supported, [training a custom model](../../../custom-speech-overview.md) will likely be the better choice to improve accuracy.
->
-> The Phrase List feature is not supported with custom endpoints. Do not use it with custom endpoints. Instead, train a custom model that includes the phrases.
-
-To use a phrase list, first create a [`PhraseListGrammar`](/cpp/cognitive-services/speech/phraselistgrammar) object, then add specific words and phrases with [`AddPhrase`](/cpp/cognitive-services/speech/phraselistgrammar#addphrase).
-
-Any changes to [`PhraseListGrammar`](/cpp/cognitive-services/speech/phraselistgrammar) take effect on the next recognition or after a reconnection to the Speech service.
-
-```cpp
-auto phraseListGrammar = PhraseListGrammar::FromRecognizer(recognizer);
-phraseListGrammar->AddPhrase("Supercalifragilisticexpialidocious");
-```
-
-If you need to clear your phrase list: 
-
-```cpp
-phraseListGrammar->Clear();
-```
-
-### Other options to improve recognition accuracy
-
-Phrase lists are only one option to improve recognition accuracy. You can also: 
-
-* [Improve accuracy with Custom Speech](../../../custom-speech-overview.md)
-* [Improve accuracy with tenant models](../../../tutorial-tenant-model.md)
