@@ -76,8 +76,15 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Basic SAML Configuration** section, enter the values for the following fields:
 
-	In the **Sign on URL** text box, type the URL:
+	a. In the **Identifier** text box, type the URL:
+    `https://www.amazingpeopleschools.com/api`
+    
+    b. In the **Reply URL** text box, type the URL:
+    `https://www.amazingpeopleschools.com/api/school_process_saml_login/microsoft_frontend`
+    
+    c. In the **Sign on URL** text box, type the URL:
     `https://uk.amazingpeopleschools.com/?saml=true#/login/`
+    
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
