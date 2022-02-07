@@ -85,7 +85,7 @@ In this step, you'll create the site resource representing the physical enterpri
 
 ## Configure the custom location
 
-1. In the **Azure portal**, search for and select the **Mobile network** resource corresponding to your private mobile network.
+1. In the **Azure portal**, search for and select the **Mobile Network** resource corresponding to your private mobile network.
 1. In the **Resource** menu, select **Sites**.
 1. Select the **Mobile network site** resource matching the site in which the packet core instance is located.
 
