@@ -72,8 +72,6 @@
       href: concept-password-ban-bad-on-premises.md
   - name: Security information registration
     href: concept-registration-mfa-sspr-combined.md
-  - name: Kerberos authentication (Preview)
-    href: how-to-authentication-kerberos.md
   - name: Resilient access controls
     href: concept-resilient-controls.md
 - name: How-to guides
@@ -174,7 +172,7 @@
     href: how-to-mfa-microsoft-managed.md
   - name: Use a Temporary Access Pass (Preview)
     href: howto-authentication-temporary-access-pass.md
-  - name: Use SMS-based authentication
+  - name: Use SMS-based authentication (Preview)
     href: howto-authentication-sms-signin.md
   - name: Supported apps for SMS-based authentication
     href: how-to-authentication-sms-supported-apps.md

@@ -1,6 +1,6 @@
 ---
 title: SMS-based user sign in for Azure Active Directory
-description: Learn how to configure and enable users to sign in to Azure Active Directory using SMS
+description: Learn how to configure and enable users to sign in to Azure Active Directory using SMS (preview)
 
 services: active-directory
 ms.service: active-directory
@@ -15,7 +15,7 @@ ms.reviewer: anjusingh
 ms.collection: M365-identity-device-management
 ---
 
-# Configure and enable users for SMS-based authentication using Azure Active Directory 
+# Configure and enable users for SMS-based authentication using Azure Active Directory (preview)
 
 To simplify and secure sign in to applications and services, Azure Active Directory (Azure AD) provides multiple authentication options. SMS-based authentication lets users sign in without providing, or even knowing, their user name and password. After their account is created by an identity administrator, they can enter their phone number at the sign-in prompt. They receive an authentication code via text message that they can provide to complete the sign in. This authentication method simplifies access to applications and services, especially for Frontline workers.
 
