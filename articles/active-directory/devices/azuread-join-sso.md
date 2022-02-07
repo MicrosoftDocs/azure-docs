@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: conceptual
-ms.date: 10/26/2021
+ms.date: 02/04/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -17,13 +17,15 @@ ms.collection: M365-identity-device-management
 ---
 # How SSO to on-premises resources works on Azure AD joined devices
 
-It is probably not a surprise that an Azure Active Directory (Azure AD) joined device gives you a single sign-on (SSO) experience to your tenant's cloud apps. If your environment has an on-premises Active Directory (AD), you can also get SSO experience on Azure AD joined devices to resources and applications that rely on on-premises AD. 
+It's probably not a surprise that an Azure Active Directory (Azure AD) joined device gives you a single sign-on (SSO) experience to your tenant's cloud apps. If your environment has an on-premises Active Directory (AD), you can also get SSO experience on Azure AD joined devices to resources and applications that rely on on-premises AD. 
 
 This article explains how this works.
 
 ## Prerequisites
 
-On-premises SSO requires line-of-sight communication with your on-premises AD DS domain controllers. If Azure AD joined devices are not connected to your organization's network, a VPN or other network infrastructure is required. 
+- An [Azure AD joined device](concept-azure-ad-join.md).
+- On-premises SSO requires line-of-sight communication with your on-premises AD DS domain controllers. If Azure AD joined devices aren't connected to your organization's network, a VPN or other network infrastructure is required. 
+- Azure AD Connect 
 
 ## How it works 
 
@@ -31,7 +33,7 @@ With an Azure AD joined device, your users already have an SSO experience to the
 
 Azure AD joined devices have no knowledge about your on-premises AD environment because they aren't joined to it. However, you can provide additional information about your on-premises AD to these devices with Azure AD Connect.
 
-If you have a hybrid environment, with both Azure AD and on-premises AD, it is likely that you already have Azure AD Connect or Azure AD Connect cloud sync deployed to synchronize your on-premises identity information to the cloud. As part of the synchronization process, on-premises user and domain information is synchronized to Azure AD. When a user signs in to an Azure AD joined device in a hybrid environment:
+If you have a hybrid environment, with both Azure AD and on-premises AD, it's likely that you already have Azure AD Connect or Azure AD Connect cloud sync deployed to synchronize your on-premises identity information to the cloud. As part of the synchronization process, on-premises user and domain information is synchronized to Azure AD. When a user signs in to an Azure AD joined device in a hybrid environment:
 
 1. Azure AD sends the details of the user's on-premises domain back to the device, along with the [Primary Refresh Token](concept-primary-refresh-token.md)
 1. The local security authority (LSA) service enables Kerberos and NTLM authentication on the device.
@@ -64,7 +66,7 @@ You can use:
  
 ## What you should know
 
-You may have to adjust your [domain-based filtering](../hybrid/how-to-connect-sync-configure-filtering.md#domain-based-filtering) in Azure AD Connect to ensure that the data about the required domains is synchronized.
+You may have to adjust your [domain-based filtering](../hybrid/how-to-connect-sync-configure-filtering.md#domain-based-filtering) in Azure AD Connect to ensure that the data about the required domains is synchronized if you have multiple domains.
 
 Apps and resources that depend on Active Directory machine authentication don't work because Azure AD joined devices don't have a computer object in AD. 
 
