@@ -13,8 +13,6 @@ In this article, you will learn to how to use the export and import APIs to repl
 
 * Two Azure Language resources in different Azure regions, each of them in a different region.
 
-<!-- Add guidance to resurce creation ?? -->
-
 ## Get your resource keys endpoint
 
 Use the following steps to get the keys and endpoint of your primary and secondary resources. These will be used in the following steps.
