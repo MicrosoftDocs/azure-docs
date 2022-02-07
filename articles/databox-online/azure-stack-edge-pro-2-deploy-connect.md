@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 01/21/2022
+ms.date: 02/07/2022
 ms.author: alkohli
 # Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge Pro so I can use it to transfer data to Azure. 
 ---
@@ -72,7 +72,7 @@ In this tutorial, you learned about:
 > * Connect to a physical device
 
 
-To learn how to configure network settings on your Azure Stack Edge Pro device, see:
+To learn how to configure network settings on your Azure Stack Edge Pro 2 device, see:
 
 > [!div class="nextstepaction"]
 > [Configure network](./azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy.md)

@@ -68,87 +68,14 @@ This device is shipped in a single box. Complete the following steps to unpack y
     - One single enclosure Azure Stack Edge Pro 2 device
     - One power cord
     - One packaged bezel
-    - One packaged 4-post rack slide rail
+    - One packaged mounting accessory which could be:
+        - A 4-post rack slide rail, or
+        - A 2-post rack slide, or 
+        - A wall mount.
     - A safety, environmental, and regulatory information booklet
 
 If you didn't receive all of the items listed here, [Contact Microsoft Support](azure-stack-edge-contact-microsoft-support.md). The next step is to rack mount your device.
 
-
-## Rack the device
-
-The device must be installed on a standard 19-inch rack. Use the following procedure to rack mount your device on a standard 19-inch rack.
-
-> [!IMPORTANT]
-> Azure Stack Edge Pro 2 devices must be rack-mounted for proper operation.
-
-
-### Prerequisites
-
-- Before you begin, read the safety instructions in your Safety, Environmental, and Regulatory Information booklet. This booklet was shipped with the device.
-- Begin installing the rails in the allotted space that is closest to the bottom of the rack enclosure.
-- For the tooled rail mounting configuration:
-    -  You need to supply eight screws: #10-32, #12-24, #M5, or #M6. The head diameter of the screws must be less than 10 mm (0.4").
-    -  You need a flat-tipped screwdriver.
-
-### Identify the rail kit contents
-
-Locate the components for installing the rail kit assembly:
-- Two A7 Dell ReadyRails II sliding rail assemblies
-- Two hook and loop straps
-
-    ![Identify rail kit contents](./media/azure-stack-edge-deploy-install/identify-rail-kit-contents.png)
-
-### Install and remove tool-less rails (Square hole or round hole racks)
-
-> [!TIP]
-> This option is tool-less because it does not require tools to install and remove the rails into the unthreaded square or round holes in the racks.
-
-1. Position the left and right rail end pieces labeled **FRONT** facing inward and orient each end piece to seat in the holes on the front side of the vertical rack flanges.
-2. Align each end piece in the bottom and top holes of the desired U spaces.
-3. Engage the back end of the rail until it fully seats on the vertical rack flange and the latch clicks into place. Repeat these steps to position and seat the front-end piece on the vertical rack flange.
-4. To remove the rails, pull the latch release button on the end piece midpoint and unseat each rail.
-
-    ![Install and remove tool-less rails](./media/azure-stack-edge-deploy-install/installing-removing-tool-less-rails.png)
-
-### Install and remove tooled rails (Threaded hole racks)
-
-> [!TIP]
-> This option is tooled because it requires a tool (_a flat-tipped screwdriver_) to install and remove the rails into the threaded round holes in the racks.
-
-1. Remove the pins from the front and rear mounting brackets using a flat-tipped screwdriver.
-2. Pull and rotate the rail latch subassemblies to remove them from the mounting brackets.
-3. Attach the left and right mounting rails to the front vertical rack flanges using two pairs of screws.
-4. Slide the left and right back brackets forward against the rear vertical rack flanges and attach them using two pairs of screws.
-
-    ![Install and remove tooled rails 2](./media/azure-stack-edge-deploy-install/installing-removing-tooled-rails.png)
-
-### Install the system in a rack
-
-1. Pull the inner slide rails out of the rack until they lock into place.
-2. Locate the rear rail standoff on each side of the system and lower them into the rear J-slots on the slide assemblies. Rotate the system downward until all the rail standoffs are seated in the J-slots.
-3. Push the system inward until the lock levers click into place.
-4. Press the slide-release lock buttons on both rails and slide the system into the rack.
-
-    ![Install system in a rack](./media/azure-stack-edge-deploy-install/installing-system-rack.png)
-
-### Remove the system from the rack
-
-1. Locate the lock levers on the sides of the inner rails.
-2. Unlock each lever by rotating it up to its release position.
-3. Grasp the sides of the system firmly and pull it forward until the rail standoffs are at the front of the J-slots. Lift the system up and away from the rack and place it on a level surface.
-
-    ![Remove system from the rack](./media/azure-stack-edge-deploy-install/removing-system-rack.png)
-
-### Engage and release the slam latch
-
-> [!NOTE]
-> For systems not equipped with slam latches, secure the system using screws, as described in step 3 of this procedure.
-
-1. Facing the front, locate the slam latch on either side of the system.
-2. The latches engage automatically as the system is pushed into the rack and are released by pulling up on the latches.
-3. To secure the system for shipment in the rack or for other unstable environments, locate the hard-mount screw under each latch and tighten each screw with a #2 Phillips screwdriver.
-
-    ![Engage and release slam latch](./media/azure-stack-edge-deploy-install/engaging-releasing-slam-latch.png)
 
 
 ### Install the bezel
@@ -212,11 +139,11 @@ Take the following steps to cable your device for power and network.
 
 1. Identify the various ports on the back plane of your device. You may have received one of the following devices from the factory depending on the number of GPUs in your device.
 
-    ![Back plane of a cabled device](./media/azure-stack-edge-gpu-deploy-install/ase-two-pci-slots.png)
+    ![Ports on the back plane of a device](./media/azure-stack-edge-pro-2-deploy-install/backplane-ports-1.png)
 
 2. Locate the disk slots and the power button on the front of the device.
 
-    ![Front plane of a device](./media/azure-stack-edge-gpu-deploy-install/ase-gpu-device-front-plane-labeled.png)
+    ![Disks and power button on the front plane of a device](./media/azure-stack-edge-gpu-deploy-install/ase-gpu-device-front-plane-labeled.png)
 
 3. Connect the power cord to the PSU in the enclosure. 
 4. Attach the power cord to the power distribution unit (PDU). 
@@ -230,6 +157,10 @@ Take the following steps to cable your device for power and network.
 
     - If connecting PORT 2, use the 1-GbE RJ-45 network cable.
     - For the 100-GbE network interfaces, use the QSFP28 passive direct attached cable (tested in-house).
+    
+    The back plane of a cabled device would be as follows: 
+
+    ![Back plane of a cabled device](./media/azure-stack-edge-pro-2-deploy-install/cabled-backplane-1.png)
     <!-- How should we change this ASE Pro2 -- For Network Function Manager deployments, make sure that PORT 5 and PORT 6 are connected. For more information, see [Tutorial: Deploy network functions on Azure Stack Edge (Preview)](../network-function-manager/deploy-functions.md).-->
 
 ## Next steps
