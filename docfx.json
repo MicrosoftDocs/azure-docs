@@ -287,7 +287,7 @@
         "articles/cognitive-services/Translator/**/*.md": "laujan",
         "articles/connectors/*.md": "ecfan",
         "articles/container-instances/**/*.md": "macolso",
-        "articles/container-registry/**/*.md": "dlepow",
+        "articles/container-registry/**/*.md": "tejaswikolli",
         "articles/data-lake-analytics/*.md": "xujxu",
         "articles/defender-for-cloud/*.md": "elazark",
         "articles/defender-for-iot/organizations/*.md": "shhazam-ms",
