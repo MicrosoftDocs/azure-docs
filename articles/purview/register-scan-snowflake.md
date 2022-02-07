@@ -221,9 +221,8 @@ After scanning your Snowflake source, you can [browse data catalog](how-to-brows
 Go to the asset -> lineage tab, you can see the asset relationship when applicable. Refer to the [supported capabilities](#supported-capabilities) section on the supported Snowflake lineage scenarios. For more information about lineage in general, see [data lineage](concept-data-lineage.md) and [lineage user guide](catalog-lineage-user-guide.md).
 
 :::image type="content" source="media/register-scan-snowflake/lineage.png" alt-text="Snowflake lineage view" border="true":::
-
-        > [!Note]
-        > If a view was created by tables from different databases, scan all databases simultaneously using the names in the semicolon (;) list.
+> [!NOTE]
+> If a view was created by tables from different databases, scan all databases simultaneously using the names in the semicolon (;) list.
         
 ## Troubleshooting tips
 
