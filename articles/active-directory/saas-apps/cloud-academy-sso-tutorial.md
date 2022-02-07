@@ -71,12 +71,26 @@ Follow these steps to enable Azure AD SSO in the Azure portal:
 
    ![Screenshot that shows the pencil button for editing the basic SAML configuration.](common/edit-urls.png)
 
-1. In the **Basic SAML Configuration** section, update the **Sign-on URL** text box, type one of the following URLs and save it:
+1. In the **Basic SAML Configuration** section, update the **Identifier** text box, type the following URLs and proceed:
+    
+    | Identifier |
+    |--------------|
+    | `urn:federation:cloudacademy` |
+    
+3. In the **Basic SAML Configuration** section, update the **Reply URL** text box, type one of the following URLs and proceed:
+    
+    | Reply URL |
+    |--------------|
+    | `https://cloudacademy.com/labs/social/complete/saml/` |
+    | `https://app.qa.com/labs/social/complete/saml/` |
+    
+5. In the **Basic SAML Configuration** section, update the **Sign-on URL** text box, type one of the following URLs and save it:
     
     | Sign-on URL |
     |--------------|
     | `https://cloudacademy.com/login/enterprise/` |
     | `https://app.qa.com/login/enterprise/` |
+    
     
 1. Select the pencil button for **SAML Signing Certificate** to edit the settings:
 
@@ -164,7 +178,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting t
 5. Click on **Test SSO connection** to start the test flow:
 ![Screenshot that show Test SSO connection](./media/cloud-academy-sso-tutorial/test-sso-connection.png)
 > [!NOTE]
->  If you are logged in Cloud Academy as your test user created previously, proceed with test flow, otherwise copy/paste Subdomain URL on Incognito browser tab and then log in as your test user.
+>  If you are logged in Cloud Academy as your test user created previously, proceed with test flow.
+>  Otherwise close the popup, scroll up to **General Settings**, copy/paste Subdomain URL on Incognito browser tab and then log in as your test user.
+>  If everiting is ok, you can close Incognito tab, click on **Save and Test**. 
+>  It will re open service provider popup. Now you can click on **continue**, then on **Test SSO connection** again and then on **Test was succesfull** ,because you've already test it on Incognito tab. 
+>  Now you can go to the next point.
 6. If everything is ok, you can finally activate the SSO integration for the whole company:
 ![Screenshot that show SSO activation](./media/cloud-academy-sso-tutorial/test-succesfull.png)
 
