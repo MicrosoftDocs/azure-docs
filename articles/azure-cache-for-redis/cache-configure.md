@@ -322,7 +322,7 @@ If you have a premium cache with clustering enabled, you can select which shards
 To reboot one or more nodes of your cache, select the desired nodes and select **Reboot**. If you have a premium cache with clustering enabled, select the shard(s) to reboot and then select **Reboot**. After a few minutes, the selected node(s) reboot, and are back online a few minutes later.
 
 > [!IMPORTANT]
-> Reboot is not available for the Enterprise tier. Reboot is available for all other tiers. For more information and instructions, see [Azure Cache for Redis administration - Reboot](cache-administration.md#reboot).
+> Reboot is not yet available for the Enterprise tier. Reboot is available for all other tiers. For more information and instructions, see [Azure Cache for Redis administration - Reboot](cache-administration.md#reboot).
 >
 
 ## Monitoring
