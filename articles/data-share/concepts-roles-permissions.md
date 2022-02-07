@@ -5,7 +5,7 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: conceptual
-ms.date: 03/24/2021
+ms.date: 02/07/2022
 ---
 
 # Roles and requirements for Azure Data Share 

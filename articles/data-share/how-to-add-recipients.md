@@ -5,7 +5,7 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: how-to
-ms.date: 12/17/2020
+ms.date: 02/07/2022
 ---
 # How to add a recipient to your share
 
