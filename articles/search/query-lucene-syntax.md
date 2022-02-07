@@ -128,7 +128,7 @@ Note the Lucene query parser supports the use of these symbols with a single ter
 |------------|--------------------------|
 | prefix | Term fragment comes before `*` or `?`.  For example, a query expression of `search=alpha*` returns "alphanumeric" or "alphabetical". Prefix matching is supported in both simple and full syntax. |
 | suffix | Term fragment comes after  `*` or `?`, with a forward slash to delimit the construct. For example, `search=/.*numeric/` returns  "alphanumeric". |
-| infix  | Term fragments enclose `*` or `?`.  For example, `search=non*al`returns "nonnumerical" and "nonsensical". |
+| infix  | Term fragments enclose `*` or `?`.  For example, `search=non*al` returns "nonnumerical" and "nonsensical". |
 
 You can combine operators in one expression. For example, `980?2*` matches on "98072-1222" and "98052-1234", where `?` matches on a single (required) character, and `*` matches on characters of an arbitrary length that follow.
 
