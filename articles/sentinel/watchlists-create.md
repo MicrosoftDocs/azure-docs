@@ -4,7 +4,7 @@ description: Create watchlist in  Microsoft Sentinel for allowlists or blocklist
 author: cwatson-cat
 ms.author: cwatson
 ms.topic: how-to
-ms.date: 1/28/2022
+ms.date: 02/07/2022
 ---
 
 # Create watchlists in Microsoft Sentinel

@@ -5,7 +5,7 @@ author: cwatson-cat
 ms.author: cwatson
 ms.topic: conceptual
 ms.custom: mvc, ignite-fall-2021
-ms.date: 1/04/2022
+ms.date: 02/07/2022
 ---
 
 # Use watchlists in Microsoft Sentinel
@@ -15,6 +15,8 @@ Watchlists in Microsoft Sentinel allow you to correlate data from a data source 
 Use watchlists in your search, detection rules, threat hunting, and response playbooks.
 
 Watchlists are stored in your Microsoft Sentinel workspace as name-value pairs and are cached for optimal query performance and low latency.
+
+The features for watchlist templates and the ability to create a watchlist from a file in Azure Storage are currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## When to use watchlists
 
@@ -40,9 +42,9 @@ Before you create a watchlist, be aware of the following limitations:
 
 ## Options to create watchlists
 
-You can create a watchlist from a local file you created, by using a template (in preview), or by using a file you've uploaded to your Azure Storage account (in preview).
+Create a watchlist in Microsoft Sentinel from a file you upload from a local folder or from a file in your Azure Storage account.
 
-To create a watchlist from a template, download the watchlist templates from Microsoft Sentinel and populate it with your data. Then upload that file when you create the watchlist in Microsoft Sentinel.  
+You have the option to download one of the watchlist templates from Microsoft Sentinel to populate with your data. Then upload that file when you create the watchlist in Microsoft Sentinel.  
 
 To create a watchlist from a file that's between 3.8 MB and 500 MB in size, upload the file to your Azure Storage account. Then create a shared access signature URL for Microsoft Sentinel to retrieve the watchlist data. A shared access signature URL is an URI that contains both the resource URI and shared access signature token of a resource like a csv file in your storage account. Finally, add the watchlist to your workspace in Microsoft Sentinel.
 
