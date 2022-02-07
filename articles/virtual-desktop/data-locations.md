@@ -43,7 +43,7 @@ Azure Resource Manager paths to the objects are considered organizational inform
 The deployment of Virtual Machines for Azure Virtual Desktops, as well as supporting services like Azure NetApp Files, Azure Files, gateways, firewalls, etc can be stored in any Azure region chosen by the customer. A list of services available per region can be found on https://azure.microsoft.com/en-us/global-infrastructure/services/
 For example, while the customer input data must be stored on the above mentioned regions, the VM's and (VM hosted) application data can be stored in any region - even on Azure Stack HCI (https://docs.microsoft.com/en-us/azure/virtual-desktop/azure-stack-hci-overview) for data residency purposes or to ensure closer proximity to VPN/ER connected services.
 
-Customer data, such as app settings and user data, resides in the location the customer chooses and isn't managed by the service.
+Customer data, such as application settings and user data, resides in the location the customer chooses and isn't managed by the service.
 
 ## Diagnostic data
 
