@@ -331,22 +331,28 @@ After the Azure Logic Apps team reviews and approves your PR for merging to the 
 
    | Property | Required | Value | Description |
    |----------|----------|-------|-------------|
-   | **Template Name** | Yes | <*template-name*> | The name to use for the new automation task template. <p><p>**Important**: Make sure that you use a concise and easy-to-understand name, for example, **Save new queued message as blob**. |
+   | **Template Name** | Yes | <*template-name*> | The friendly display name for the automation task template. <p><p>**Important**: Make sure that you use a concise and easy-to-understand name, for example, **List stale virtual machines**. |
    | **Template Description** | Yes | <*template-description*> | A description for the template's task or purpose |
-   | **Supported Resource Types** | No | Empty or <*supported-Azure-resource-type-list*> | The first-class Azure resource types where you want to make the template available. To include all first-class Azure resource types, leave this property empty. To specify multiple resource types, separate each name with a comma and use the following syntax: <p><p>**Microsoft.<*service-provider*>/<*entity*>** <p><p>For example, to make the template available for Azure virtual machines, specify **Microsoft.Compute/virtualmachines**. For more information, review [Resource providers for Azure services](../azure-resource-manager/management/azure-services-resource-providers.md). |
+   | **Supported Resource Types** | No | Empty or <*supported-Azure-resource-type-list*> | The first-class Azure resource types where you want to make the template available. Sub-resource types are currently unsupported. To include all first-class Azure resource types, leave this property empty. To specify multiple resource types, separate each name with a comma and use the following syntax: <p><p>**Microsoft.<*service-provider*>/<*entity*>** <p><p>For example, to make the template available for Azure virtual machines, specify **Microsoft.Compute/virtualmachines**. For more information, review [Resource providers for Azure services](../azure-resource-manager/management/azure-services-resource-providers.md). |
    | **Unsupported Resource Types** | No | Empty or <*unsupported-Azure-resource-type-list*> | If any, the Azure resource types where you specifically don't want to make the template available. To specify multiple resource types, separate each name with a comma and use the following syntax: <p><p>**Microsoft.<*service-provider*>/<*entity*>** <p><p>For example, to make the template unavailable for Azure virtual machines, specify **Microsoft.Compute/virtualmachines**. For more information, review [Resource providers for Azure services](../azure-resource-manager/management/azure-services-resource-providers.md). |
-   | **Configure Parameters** | No | Varies | If your workflow includes cross-environment [parameters](create-parameters-workflows.md), you can specify the source for those parameter values. For each parameter, select whether the value is provided by the resource or the template user. <p><p>- If you select **From Resource**, you can select a **Source Parameter** value: <p>-- **Resource Name** <br>-- **Resource Type** <br>-- **Resource Id** <br>-- **Subscription Id** <br>-- **Resource Group** <br>-- **Resource Location**. <p><p>- If you select **User Provided**, you can select a **Template** value: <p>-- **Default** <br>-- **Interval** <br>-- **Frequency** <br>-- **Timezone** |
+   | **Configure Parameters** | No | Varies | If your workflow includes cross-environment [parameter definitions](create-parameters-workflows.md), you can select whether each parameter value is provided from either the resource itself or the task creator. <p><p>- If you select **From Resource**, select a **Source Parameter** value from one of the following resource properties: <p>-- **Resource Name** <br>-- **Resource Type** <br>-- **Resource Id** <br>-- **Subscription Id** <br>-- **Resource Group** <br>-- **Resource Location**. <p><p>- If you select **User Provided**, select the **Template** format to use for entering parameter value: <p>-- **Default**: The parameter value is not an interval, frequency, or timezone. <br>-- **Interval**: The parameter value is an interval, such as **1** or **12**. <br>-- **Frequency**: The parameter value is a frequency, such as **Hour**, **Day** or **Month**. <br>-- **Timezone**: The parameter value is a timezone, such as **(UTC-08:00) Pacific Time (US & Canada)**. |
    |||||
 
-   The following example shows the properties for a custom automation task template that works only on an Azure virtual machine resource:
+   The following example shows the properties for a sample automation task template that works only on an Azure virtual machine resources:
 
    ![Screenshot showing the 'Export to Automation Task' pane with example properties for an automation task template.](./media/create-automation-tasks-azure-resources/export-template-properties.png)
 
-1. When you're done, select **Download Template**. When you're prompted, save the template using the **.json** file name extension. For a consisten template name, use only lowercase, hyphens between words, and the following syntax:
+   In this example, the task's underlying workflow includes the following parameter definitions and specifies that these parameter values are provided by the task creator:
+
+   * **numberOf**: Specifies the maximum number of time units that a virtual machine can stay idle. This parameter uses the **Default** template, which lets you specify the parameter's information and expected format, which is **None**.
+
+   * **timeUnit**. Specifies the time unit to use for the duration limit. This parameter uses the **Frequency** template, which shows the time units that the task creator can select, for example, **Hour**, **Day**, or **Month**.
+
+1. When you're done, select **Download Template**, and save the template using the **.json** file name extension. For a consistent template name, use only lowercase, hyphens between words, and the following syntax:
 
    **<*action-verb*>-<*Azure-resource*>**
 
-   For example, based on the earlier example template name, you might name the template file as **save-queue-message-to-blob.json**.
+   For example, based on the earlier example template name, you might name the template file as **list-stale-virtual-machines.json**.
 
 <a name="upload-template"></a>
 
@@ -368,9 +374,9 @@ After the Azure Logic Apps team reviews and approves your PR for merging to the 
 
 ### Test your template
 
-You can use your favorite web debugging tool to test the template you uploaded to your working directory. This example continues by using Fiddler and FiddlerScript.
+You can use your favorite web debugging tool to test the template you uploaded to your working directory. This example continues by using Fiddler along with the script included with Fiddler. If you use a different tool, use the equivalent steps and script for your tool.
 
-1. If you use FiddlerScript, find the `onBeforeRequest()` function, and add the following code to that function:
+1. In the Fiddler script, find the `onBeforeRequest()` function, and add the following code to the function:
 
    ```javascript
    if (oSession.url == "raw.githubusercontent.com/azure/automation-task-template/master/templates/manifest.json") {
@@ -383,11 +389,23 @@ You can use your favorite web debugging tool to test the template you uploaded t
 
    This code gets the **manifest.json** and **<*template-name*>.json** files from your forked repository, rather than from the main Azure GitHub repository.
 
+   Continuing with this example, this code might look like the following lines:
+
+   ```javascript
+   if (oSession.url == "raw.githubusercontent.com/azure/automation-task-template/master/templates/manifest.json") {
+      oSession.url = "raw.githubusercontent.com/sophowe/automation-task-template/upload-auto-template/templates/manifest.json";
+   }
+   if (oSession.url == "raw.githubusercontent.com/azure/automation-task-template/master/templates/list-stale-virtual-machines.json") {
+      oSession.url = "raw.githubusercontent.com/sophowe/automation-task-template/upload-auto-template/templates/list-stale-virtual-machines.json";
+   }
+
 1. Before you run your test, make sure to close all browser windows, and clear your browser cache in Fiddler.
 
 1. Open a new browser window, and sign in to the [Azure portal](https://portal.azure.com).
 
-1. Open the Azure resource where you expect to find your automation task.
+1. Open the Azure resource where you expect to find your automation task. Create an automation task with your exported template. Run the task.
+
+If your task runs successfully, continue by creating a pull request from your working branch to the default branch.
 
 <a name="create-pull-request"></a>
 
