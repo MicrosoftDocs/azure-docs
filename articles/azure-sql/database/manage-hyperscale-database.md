@@ -41,7 +41,7 @@ Select the tab for your preferred tool to migrate your database:
 
 # [Portal](#tab/azure-portal)
 
-The Azure portal shows allows you to migrate to the Hyperscale service tier by modifying the pricing tier for your database.
+The Azure portal enables you to migrate to the Hyperscale service tier by modifying the pricing tier for your database.
 
 :::image type="content" source="media/manage-hyperscale-database/service-tier-dropdown-azure-sql-database-azure-portal.png" alt-text="The compute & storage panel of a database in Azure SQL Database. The service tier dropdown is expanded, displaying the option for the Hyperscale service tier." lightbox="media/manage-hyperscale-database/service-tier-dropdown-azure-sql-database-azure-portal.png":::
 
@@ -69,7 +69,8 @@ serverName="server01"
 databaseName="mySampleDatabase"
 serviceObjective="HS_Gen5_4"
 
-az sql db update -g $resourceGroupName -s $serverName -n $databaseName --edition Hyperscale --service-objective $serviceObjective
+az sql db update -g $resourceGroupName -s $serverName -n $databaseName \
+    --edition Hyperscale --service-objective $serviceObjective
 
 ```
 
@@ -87,7 +88,9 @@ $serverName = "server01"
 $databaseName = "mySampleDatabase"
 $serviceObjective = "HS_Gen5_4"
 
-Set-AzSqlDatabase -ResourceGroupName $resourceGroupName -ServerName $serverName -DatabaseName $databaseName -Edition "Hyperscale" -RequestedServiceObjectiveName $serviceObjective
+Set-AzSqlDatabase -ResourceGroupName $resourceGroupName -ServerName $serverName `
+    -DatabaseName $databaseName -Edition "Hyperscale" `
+    -RequestedServiceObjectiveName $serviceObjective
 
 ```
 
@@ -130,7 +133,7 @@ In general, reverse migration is a size-of-data operation. The duration of a rev
 
 ### Prerequisites
 
-Before you initiate a reverse migration from Hyperscale to the General Purpose service tier, you must ensure the following:
+Before you initiate a reverse migration from Hyperscale to the General Purpose service tier, you must ensure:
 
 - Your database does not have Geo Replication enabled.
 - Your database does not have named replicas.
@@ -139,7 +142,7 @@ Before you initiate a reverse migration from Hyperscale to the General Purpose s
 
 ### Backup policies
 
-If any backups exist for your database, you will be [billed for those as the existing guidelines](automated-backups-overview.md?tabs=single-database#backup-storage-costs). Note that databases that leave behind backups in Hyperscale will be billed for the backup snapshots and for a size-of-data blob that must be retained to be able to restore the backup: although the database has been moved to a different tier, Hyperscale backups will treat the database as deleted for backup billing and retention purposes.
+If any backups exist for your database, you will be [billed for those as the existing guidelines](automated-backups-overview.md?tabs=single-database#backup-storage-costs). Databases that leave behind backups in Hyperscale will be billed for the backup snapshots and for a size-of-data blob that must be retained to be able to restore the backup: although the database has been moved to a different tier, Hyperscale backups will treat the database as deleted for backup billing and retention purposes.
 
 Only backups from the current and once-previous tier of your database will be available for restore. If you have moved from the General Purpose service tier to Hyperscale and back to General Purpose, the only backups available are the ones from the current General Purpose incarnation and the immediately previous Hyperscale incarnation. Any previous tiers tried won't have backups available.
 
@@ -163,13 +166,13 @@ Select the tab for your preferred tool to reverse migrate your database:
 
 # [Portal](#tab/azure-portal)
 
-The Azure portal shows allows you to reverse migrate to the General Purpose service tier by modifying the pricing tier for your database.
+The Azure portal enables you to reverse migrate to the General Purpose service tier by modifying the pricing tier for your database.
 
 :::image type="content" source="media/manage-hyperscale-database/service-tier-dropdown-azure-sql-database-azure-portal.png" alt-text="The compute & storage panel of a database in Azure SQL Database. The service tier dropdown is expanded, displaying the option for the Hyperscale service tier." lightbox="media/manage-hyperscale-database/service-tier-dropdown-azure-sql-database-azure-portal.png":::
 
 1. Navigate to the database you wish to migrate in the Azure portal.
 1. In the left navigation bar, select **Compute + storage**.
-1. Select the **Service tier** drop down to expand the options for service tiers.
+1. Select the **Service tier** drop-down to expand the options for service tiers.
 1. Select **General Purpose (Scalable compute and storage options)** from the dropdown menu.
 1. Review the **Hardware Configuration** listed. If desired, select **Change configuration** to select the appropriate hardware configuration for your workload.
 1. Review the option to **Save money**. Select it if you qualify for Azure Hybrid Benefit and wish to use it for this database.
@@ -190,7 +193,9 @@ databaseName="mySampleDatabase"
 serviceObjective="GP_Gen5_4"
 computeModel="Provisioned"
 
-az sql db update -g $resourceGroupName -s $serverName -n $databaseName --edition GeneralPurpose --service-objective $serviceObjective --compute-model $computeModel 
+az sql db update -g $resourceGroupName -s $serverName -n $databaseName \
+    --edition GeneralPurpose --service-objective $serviceObjective \
+    --compute-model $computeModel 
 
 ```
 
@@ -204,7 +209,9 @@ serviceObjective="GP_Gen5_4"
 computeModel="Provisioned"
 maxsize="200GB"
 
-az sql db update -g $resourceGroupName -s $serverName -n $databaseName --edition GeneralPurpose --service-objective $serviceObjective --compute-model $computeModel --max-size $maxsize
+az sql db update -g $resourceGroupName -s $serverName -n $databaseName \
+    --edition GeneralPurpose --service-objective $serviceObjective \
+    --compute-model $computeModel --max-size $maxsize
 
 ```
 
@@ -223,7 +230,9 @@ $databaseName = "mySampleDatabase"
 $serviceObjective = "GP_Gen5_4"
 $computeModel = "Provisioned"
 
-Set-AzSqlDatabase -ResourceGroupName $resourceGroupName -ServerName $serverName -DatabaseName $databaseName -Edition "GeneralPurpose" -computemodel $computeModel  -RequestedServiceObjectiveName $serviceObjective
+Set-AzSqlDatabase -ResourceGroupName $resourceGroupName -ServerName $serverName `
+    -DatabaseName $databaseName -Edition "GeneralPurpose" -computemodel $computeModel `
+    -RequestedServiceObjectiveName $serviceObjective
 
 ```
 
@@ -237,7 +246,9 @@ $serviceObjective = "GP_Gen5_4"
 $computeModel = "Provisioned"
 $maxSizeBytes = "268435456000"
 
-Set-AzSqlDatabase -ResourceGroupName $resourceGroupName -ServerName $serverName -DatabaseName $databaseName -Edition "GeneralPurpose" -computemodel $computeModel  -RequestedServiceObjectiveName $serviceObjective -MaxSizeBytes $maxSizeBytes
+Set-AzSqlDatabase -ResourceGroupName $resourceGroupName -ServerName $serverName `
+    -DatabaseName $databaseName -Edition "GeneralPurpose" -computemodel $computeModel `
+    -RequestedServiceObjectiveName $serviceObjective -MaxSizeBytes $maxSizeBytes
 
 ```
 
@@ -342,7 +353,7 @@ The Azure portal shows a list of all databases on a [logical SQL server](logical
 
 1. Navigate to your [logical SQL server](logical-servers.md) in the Azure portal.
 1. In the left navigation bar, select **Overview**.
-1. Scroll to the list of resources at the bottom of the pane. The window will display any SQL elastic pools and databases which have been created.
+1. Scroll to the list of resources at the bottom of the pane. The window will display SQL elastic pools and databases on the logical SQL server.
 1. Review the **Pricing tier** column to identify databases in the Hyperscale service tier.
 
 # [Azure CLI](#tab/azure-cli)
@@ -390,9 +401,6 @@ GO
 ```
 
 ---
-
-
-
 
 ## Next steps
 
