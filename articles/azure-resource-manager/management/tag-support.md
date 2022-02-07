@@ -1882,13 +1882,21 @@ Jump to a resource provider namespace:
 > | alertrules | Yes | Yes |
 > | autoscalesettings | Yes | Yes |
 > | components | Yes | Yes |
+> | components / analyticsItems | No | No |
+> | components / favorites | No | No |
 > | components / linkedStorageAccounts | No | No |
+> | components / myAnalyticsItems | No | No |
+> | components / pricingPlans | No | No |
 > | components / ProactiveDetectionConfigs | No | No |
+> | dataCollectionEndpoints | No | No |
+> | dataCollectionRuleAssociations | No | No |
+> | dataCollectionRules | Yes | Yes |
 > | diagnosticSettings | No | No |
 > | guestDiagnosticSettings | Yes | Yes |
 > | guestDiagnosticSettingsAssociation | Yes | Yes |
 > | logprofiles | Yes | Yes |
 > | metricAlerts | Yes | Yes |
+> | myWorkbooks | No | No |
 > | privateLinkScopes | Yes | Yes |
 > | privateLinkScopes / privateEndpointConnections | No | No |
 > | privateLinkScopes / scopedResources | No | No |
