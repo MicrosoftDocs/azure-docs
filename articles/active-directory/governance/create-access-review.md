@@ -78,9 +78,9 @@ For more information, see [License requirements](access-reviews-overview.md#lice
 
 ### Next: Reviews
  
-1. You can create a single-stage or multi-stage review. For a single stage review continue to step 4. To create a multi-stage access review (preview), follow the steps in [Create a multi-stage access review (preview)](#create-a-multi-stage-access-review-preview)
+1. You can create a single-stage or multi-stage review. For a single stage review continue here. To create a multi-stage access review (preview), follow the steps in [Create a multi-stage access review (preview)](#create-a-multi-stage-access-review-preview)
 
-1. In the **Specify reviewers** section, in the **Select reviewers** box, select either one or more people to do the access reviews. You can choose from:
+1. In the **Specify reviewers** section, in the **Select reviewers** box, select either one or more people to make decisions in the access reviews. You can choose from:
 
     - **Group owner(s)**: This option is only available when you do a review on a team or group.
     - **Selected user(s) or groups(s)**
@@ -166,9 +166,9 @@ For more information, see [License requirements](access-reviews-overview.md#lice
  
     ![Screenshot that shows multi-stage review enabled and multi-stage review settings.](./media/create-access-review/create-multi-stage-review.png)
 
-1. Add the duration for the first stage. To ad the duration, enter a number in the field next to **Stage duration (in days)**. This is the number of days you wish for the first stage to last.
+1. Add the duration for the first stage. To add the duration, enter a number in the field next to **Stage duration (in days)**. This is the number of days you wish for the first stage to be open to the first stage reviewers to make decisions.
  
-1. Under **Second stage review**, select the reviewers from the dropdown menu next to **Select reviewers**. 
+1. Under **Second stage review**, select the reviewers from the dropdown menu next to **Select reviewers**. These reviewers will be asked to review after the duration of the first stage review ends.
 
 1. Add any fallback reviewers if necessary.
 
