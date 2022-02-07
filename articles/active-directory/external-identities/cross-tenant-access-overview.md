@@ -81,7 +81,7 @@ Several tools are available to help you identify the access your users and partn
 
 ### Cross-tenant sign-in activity PowerShell script
 
-To review user sign-in activity associated with external tenants, you can use the [cross-tenant user sign-in activity](https://aka.ms/cross-tenant-signins-ps) PowerShell script. For example, to view all available sign-in events for inbound activity (external users accessing resources in the local tenant) and outbound activity (local users accessing resources in an external tenant), run the following:
+To review user sign-in activity associated with external tenants, you can use the [cross-tenant user sign-in activity](https://aka.ms/cross-tenant-signins-ps) PowerShell script. For example, to view all available sign-in events for inbound activity (external users accessing resources in the local tenant) and outbound activity (local users accessing resources in an external tenant), run the following command:
 
 ```powershell
 Get-MSIDCrossTenantAccessActivity -SummaryStats -ResolveTenantId
@@ -91,17 +91,17 @@ The output is a summary of all available sign-in events for inbound and outbound
 
 ### Sign-in logs PowerShell script
 
-To determine your users' access to external Azure AD organizations, you can view data from your sign-in logs for the last 30 days by running the following:
+To determine your users' access to external Azure AD organizations, you can use the [Get-MgAuditLogSignIn](/powershell/module/microsoft.graph.reports/get-mgauditlogsignin?view=graph-powershell-beta) cmdlet in the Microsoft Graph PowerShell SDK to view data from your sign-in logs for the last 30 days. For example, run the following command:
 
 ```powershell
-Get-MgAuditLogsSignIn ` 
+Get-MgAuditLogSignIn ` 
 -Filter “ResourceTenantID ne ‘your tenant id’” ` 
 -all:$True| ` 
 group ResourceTenantId,AppDisplayName,UserPrincipalName| ` 
 select count, @{n=’Ext TenantID/App User Pair’;e={$_.name}}] 
 ```
 
-The output is a list of outbound sign-ins initiated by your users to apps in external tenant
+The output is a list of outbound sign-ins initiated by your users to apps in external tenants.
 
 ### Azure Monitor
 
