@@ -268,7 +268,7 @@ The following table lists known discrepancies:
 | Source | Discrepancies |
 | ------ | ------------- |
 | Microsoft DNS Server Collected using the DNS connector and the Log Analytics Agent | The connector doesn't provide the mandatory DnsQuery field for original event ID 264 (Response to a dynamic update). The data is available at the source, but not forwarded by the connector. |
-| Corelight Zeek | Corelight Zeek may not provide the mandatory DnsQuery field. We have observered such behavior in certain cases in which the DNS response code name is `NXDOMAIN`. |
+| Corelight Zeek | Corelight Zeek may not provide the mandatory DnsQuery field. We have observed such behavior in certain cases in which the DNS response code name is `NXDOMAIN`. |
 |||
 
 ## Handling DNS response
