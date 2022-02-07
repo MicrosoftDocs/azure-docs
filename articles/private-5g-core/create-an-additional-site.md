@@ -12,7 +12,7 @@ ms.custom: template-how-to
 
 # Create an additional site - Azure Private 5G Core Preview
 
-Azure Private 5G Core private mobile networks include one or more sites. Each site represents a physical enterprise location (for example, Contoso Corporation's Chicago factory) containing an Azure Stack Edge device that hosts a packet core instance. You may want to add new sites to your private mobile network over time. In this how-to guide, you'll learn how to create an additional site in your private mobile network.
+Azure Private 5G Core private mobile networks include one or more *sites*. Each site represents a physical enterprise location (for example, Contoso Corporation's Chicago factory) containing an Azure Stack Edge device that hosts a packet core instance. You may want to add new sites to your private mobile network over time. In this how-to guide, you'll learn how to create an additional site in your private mobile network.
 
 ## Prerequisites
 
@@ -76,7 +76,7 @@ In this step, you'll create the site resource representing the physical enterpri
 
 ## Verify that your Azure Stack Edge Pro cluster resources have been created and that the connection is active
 
-1. Search for and select the resource group you created when commissioning the AKS-HCI cluster. 
+1. Search for and select the resource group you created when commissioning the **AKS-HCI** cluster. 
 1. Check the contents of the resource group to confirm it contains **Custom Location** and **Kubernetes - Azure Arc** resources. 
 1. Make a note of the name of the **Custom location** resource. You'll need this in the next step.
 1. Select the **Kubernetes - Azure Arc** resource and confirm that the **Status** field is set to **Connected**.
@@ -85,8 +85,8 @@ In this step, you'll create the site resource representing the physical enterpri
 
 ## Configure the custom location
 
-1. In the Azure portal, search for and select the **Mobile network** resource corresponding to your private mobile network.
-1. In the resource menu, select **Sites**.
+1. In the **Azure portal**, search for and select the **Mobile network** resource corresponding to your private mobile network.
+1. In the **Resource** menu, select **Sites**.
 1. Select the **Mobile network site** resource matching the site in which the packet core instance is located.
 
     :::image type="content" source="media/select-site.png" alt-text="Screenshot of the Azure portal showing the available sites in the private mobile network." lightbox="media/select-site.png":::
