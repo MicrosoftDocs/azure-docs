@@ -163,11 +163,12 @@ Get-AzureADDevice -All:$true | Where {$_.ApproximateLastLogonTimeStamp -le $dt} 
 
 Before deleting any devices, back up any BitLocker recovery keys you may need in the future. There's no way to recover BitLocker recovery keys after deleting the associated device.
 
-Using the same 90 day example we can pipe the output to delete the devices that have a logon time stamp over 90 days old.
+Building on the [disable devices example](#disable-devices) we look for disabled devices, now inactive for 120 days, and pipe the output to `Remove-AzureADDevice` to delete those devices.
 
 ```powershell
-$dt = (Get-Date).AddDays(-90)
-Get-AzureADDevice -All:$true | Where {$_.ApproximateLastLogonTimeStamp -le $dt} | Remove-AzureADDevice
+$dt = (Get-Date).AddDays(-120)
+$state = $false
+Get-AzureADDevice -All:$true | Where {($_.ApproximateLastLogonTimeStamp -le $dt) -and ($_.AccountEnabled -le $state)} | Remove-AzureADDevice
 ```
 
 ## What you should know
