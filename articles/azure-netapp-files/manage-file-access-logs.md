@@ -30,6 +30,27 @@ File access logs supports SMB, NFSv4.1, and dual protocols.
 * Before enabling file access logs on a volume, either ACLs or Audit ACEs need to be set on a file or directory. ACLs or Audit ACEs must be set after mounting a volume.  
 * File access logs provide no explicit or implicit expectations or guarantees around logging for auditing and compliance purposes. 
 
+## Recognized events
+
+File access logs captures different file and directory events depending on your protocol. 
+
+**NFS**|**SMB events**
+:-----:|:-----:
+Close | Open object
+Create | Create object
+Get attribute | Delete object
+Link | Get object attributes
+Nverify | Hard link
+Open | Log on/log off
+Open attribute| Open object
+Read | Open object with the intent to delete
+Read directory | Read object
+Remove | Rename object
+Rename| Set object attributes
+Set attribute| Unlink object
+Verify | Write object
+Write | 
+
 ## Register the feature
 
 The file access logs feature is currently in preview. If you're using this feature for the first time, you need to register the feature first. 
@@ -46,12 +67,10 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 3. In the **Diagnostic settings** page, provide a diagnostic setting name, select *ANFFileAccess* and then set the retention period of the logs. 
 :::image type="content" source="../media/azure-netapp-files/logs-diagnostic-settings-enable.jpg" alt-text="Azure Diagnostic settings menu showing how to enable ANF file access logs":::
 4. Select one of the four destinations for the logs:
-    * Send to Log Analytics workspace
     * Archive to a storage account
     * Stream to an event hub
-    * Send to a partner solution 
     > [!IMPORTANT]
-    > The **Send to Log Analytics workspace** and **Send to a partner solution** destination options are not supported. No error message will display if you select these destination options. 
+    > Two additional options are presented in the UI: **Send to Log Analytics workspace** and **Send to a partner solution**. These options are not supported. No error message will display if you select these destination options, and you will not be able to access your logs. 
 5. Save the settings
 
 ## Disable file access logs
