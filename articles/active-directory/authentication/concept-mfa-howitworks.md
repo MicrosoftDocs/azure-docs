@@ -6,7 +6,7 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/07/2022
+ms.date: 02/07/2022
 
 ms.author: justinha
 author: justinha
@@ -31,7 +31,7 @@ Azure AD Multi-Factor Authentication works by requiring two or more of the follo
 
 Azure AD Multi-Factor Authentication can also further secure password reset. When users register themselves for Azure AD Multi-Factor Authentication, they can also register for self-service password reset in one step. Administrators can choose forms of secondary authentication and configure challenges for MFA based on configuration decisions. 
 
-You don't need to change apps and services to use Azure AD Multi-Factor Authentication. The verification prompts are part of the Azure AD sign-in, which automatically requests and processes the MFA challenge when needed.
+You don't need to change apps and services to use Azure AD Multi-Factor Authentication. The verification prompts are part of the Azure AD sign-in, which automatically requests and processes the MFA challenge when needed. The verification prompts use the browser locale settings of the application that requests MFA. 
 
 ![MFA sign-in screen.](media/concept-mfa-howitworks/sign-in-screen.png)
 
