@@ -31,7 +31,10 @@ Azure AD Multi-Factor Authentication works by requiring two or more of the follo
 
 Azure AD Multi-Factor Authentication can also further secure password reset. When users register themselves for Azure AD Multi-Factor Authentication, they can also register for self-service password reset in one step. Administrators can choose forms of secondary authentication and configure challenges for MFA based on configuration decisions. 
 
-You don't need to change apps and services to use Azure AD Multi-Factor Authentication. The verification prompts are part of the Azure AD sign-in, which automatically requests and processes the MFA challenge when needed. The prompt language is determined by browser locale settings. 
+You don't need to change apps and services to use Azure AD Multi-Factor Authentication. The verification prompts are part of the Azure AD sign-in, which automatically requests and processes the MFA challenge when needed. 
+
+>[!NOTE]
+>The prompt language is determined by browser locale settings. If you use custom greetings, but don’t have one for the language identified in the browser locale, English is used by default. Network Policy Server (NPS) will always use English by default, regardless custom greetings. English is also used by default if browser locale can't be identified. 
 
 ![MFA sign-in screen.](media/concept-mfa-howitworks/sign-in-screen.png)
 
