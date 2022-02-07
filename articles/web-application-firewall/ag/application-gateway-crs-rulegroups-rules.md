@@ -46,7 +46,7 @@ CRS 3.2 includes 14 rule groups, as shown in the following table. Each group con
 |Rule group|Description|
 |---|---|
 |**[General](#general-32)**|General group|
-|**[REQUEST-800-KNOWN-CVES](#crs800-32)**|Help detect new and known CVEs|
+|**[KNOWN-CVES](#crs800-32)**|Help detect new and known CVEs|
 |**[REQUEST-911-METHOD-ENFORCEMENT](#crs911-32)**|Lock-down methods (PUT, PATCH)|
 |**[REQUEST-913-SCANNER-DETECTION](#crs913-32)**|Protect against port and environment scanners|
 |**[REQUEST-920-PROTOCOL-ENFORCEMENT](#crs920-32)**|Protect against protocol and encoding issues|
@@ -71,7 +71,7 @@ CRS 3.1 includes 14 rule groups, as shown in the following table. Each group con
 |Rule group|Description|
 |---|---|
 |**[General](#general-31)**|General group|
-|**[REQUEST-800-KNOWN-CVES](#crs800-31)**|Help detect new and known CVEs|
+|**[KNOWN-CVES](#crs800-31)**|Help detect new and known CVEs|
 |**[REQUEST-911-METHOD-ENFORCEMENT](#crs911-31)**|Lock-down methods (PUT, PATCH)|
 |**[REQUEST-913-SCANNER-DETECTION](#crs913-31)**|Protect against port and environment scanners|
 |**[REQUEST-920-PROTOCOL-ENFORCEMENT](#crs920-31)**|Protect against protocol and encoding issues|
@@ -92,7 +92,7 @@ CRS 3.0 includes 13 rule groups, as shown in the following table. Each group con
 |Rule group|Description|
 |---|---|
 |**[General](#general-30)**|General group|
-|**[REQUEST-800-KNOWN-CVES](#crs800-30)**|Help detect new and known CVEs|
+|**[KNOWN-CVES](#crs800-30)**|Help detect new and known CVEs|
 |**[REQUEST-911-METHOD-ENFORCEMENT](#crs911-30)**|Lock-down methods (PUT, PATCH)|
 |**[REQUEST-913-SCANNER-DETECTION](#crs913-30)**|Protect against port and environment scanners|
 |**[REQUEST-920-PROTOCOL-ENFORCEMENT](#crs920-30)**|Protect against protocol and encoding issues|
@@ -133,7 +133,7 @@ The following rule groups and rules are available when using Web Application Fir
 |---|---|
 |200004|Possible Multipart Unmatched Boundary.|
 
-### <a name="crs800-32"></a> REQUEST-800-KNOWN-CVES
+### <a name="crs800-32"></a> KNOWN-CVES
 |RuleId|Description|
 |---|---|
 |800100|Rule to help detect and mitigate log4j vulnerability [CVE-2021-44228](https://www.cve.org/CVERecord?id=CVE-2021-44228), [CVE-2021-45046](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-45046)|
@@ -374,7 +374,7 @@ The following rule groups and rules are available when using Web Application Fir
 |---|---|
 |200004|Possible Multipart Unmatched Boundary.|
 
-### <a name="crs800-31"></a> REQUEST-800-KNOWN-CVES
+### <a name="crs800-31"></a> KNOWN-CVES
 |RuleId|Description|
 |---|---|
 |800100|Rule to help detect and mitigate log4j vulnerability [CVE-2021-44228](https://www.cve.org/CVERecord?id=CVE-2021-44228), [CVE-2021-45046](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-45046)|
@@ -622,7 +622,7 @@ The following rule groups and rules are available when using Web Application Fir
 |---|---|
 |200004|Possible Multipart Unmatched Boundary.|
 
-### <a name="crs800-30"></a> REQUEST-800-KNOWN-CVES
+### <a name="crs800-30"></a> KNOWN-CVES
 |RuleId|Description|
 |---|---|
 |800100|Rule to help detect and mitigate log4j vulnerability [CVE-2021-44228](https://www.cve.org/CVERecord?id=CVE-2021-44228), [CVE-2021-45046](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-45046)|
