@@ -63,7 +63,7 @@ items:
     - name: Deploy a model and classify text
       href: custom-classification/how-to/call-api.md
     - name: Back up and recover your models
-      href: named-entity-recognition/fail-over.md
+      href: custom-classification/fail-over.md
   - name: Concepts
     items:
     - name: Evaluation metrics
@@ -177,7 +177,7 @@ items:
       - name: Deploy a model and get predictions
         href: conversational-language-understanding/how-to/deploy-query-model.md
       - name: Back up and recover your models
-        href: named-entity-recognition/fail-over.md
+        href: conversational-language-understanding/fail-over.md
   - name: Concepts
     items:
       - name: Backwards compatibility

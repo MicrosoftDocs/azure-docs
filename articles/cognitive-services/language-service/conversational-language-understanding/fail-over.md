@@ -1,4 +1,19 @@
-# Back up and recover your CLU models
+---
+title: Back up and recover your conversational language understanding models
+titleSuffix: Azure Cognitive Services
+description: Learn how to save and recover your conversational language understanding models.
+services: cognitive-services
+author: aahill
+manager: nitinme
+ms.service: cognitive-services
+ms.subservice: language-service
+ms.topic: conceptual
+ms.date: 02/07/2022
+ms.author: aahi
+ms.custom: language-service-clu
+---
+
+# Back up and recover your conversational language understanding models
 
 When you create a Language resource in the Azure portal, you specify a region for it to be created in. From then on, your resource and all of the operations related to it take place in the specified Azure server region. It's rare, but not impossible, to encounter a network issue that hits an entire region. If your solution needs to always be available, then you should design it to either fail-over into another region. This requires two Azure Language resources in different regions and the ability to sync your CLU models across regions. 
 
@@ -169,7 +184,7 @@ Use the following header to authenticate your request.
 
 #### Body
 
-Use the response body you got from the previous export step. It be formatted like this:
+Use the response body you got from the previous export step. It 's formatted like this:
 
 ```json
 {
@@ -290,7 +305,7 @@ Now you have replicated your project into another resource in another region.
 
 ## Train your model
 
-After importing your project you would onlyhave copied the project's assets and metadata and assets. You still need to train your model, submitting a training job would incur cost to your account. 
+After importing your project, you only have copied the project's assets and metadata and assets. You still need to train your model, which will incur usage on your account. 
 
 ### Submit training job
 
@@ -428,17 +443,17 @@ Use the following header to authenticate your request.
 |--|--|--|
 |`Ocp-Apim-Subscription-Key`| The key to your resource. Used for authenticating your API requests.| `{YOUR-SECONDARY-RESOURCE-KEY}` |
 
-At this point you have replicated your project into another resource which is in another region, trained and deployed the model. Now you would want to make changes to your system to handle traffic redirection in case of failure.
+At this point you have replicated your project into another resource, which is in another region, trained and deployed the model. Now you would want to make changes to your system to handle traffic redirection in case of failure.
 
 ## Changes in calling the runtime
 
 Within your system, at the step where you call [runtime API](https://aka.ms/clu-apis) check for the response code returned from the submit task API. If you observe a **consistent** failure in submitting the request, this could indicate an outage in your primary region. Failure once doesn't mean an outage, it may be transient issue. Retry submitting the job through the secondary resource you have created. For the second request use your `{YOUR-SECONDARY-ENDPOINT}` and secondary key, if you have followed the steps above, `{PROJECT-NAME}` and `{DEPLOYMENT-NAME}` would be the same so no changes are required to the request body. 
 
-In case you revert to using your secodary resource you will observe slight increase in latency because of the difference in regions where your model is deployed. 
+In case you revert to using your secondary resource you will observe slight increase in latency because of the difference in regions where your model is deployed. 
 
 ## Check if your projects are out of sync
 
-Maintaining the freshness of both projects is an important part of process. You need to frequently check if any updates where made to your primary project so that you rmove them over to your secondary project. This way if your primary region fail and you move into the secondary region you should expect similar model performace since it already contains the latest updates. Setting the frequency of checking if your projects are in sync is an important choice, we recommend that you do this check daily in order to guarantee the freshness of data in your secondary model.
+Maintaining the freshness of both projects is an important part of process. You need to frequently check if any updates were made to your primary project so that you move them over to your secondary project. This way if your primary region fail and you move into the secondary region you should expect similar model performance since it already contains the latest updates. Setting the frequency of checking if your projects are in sync is an important choice, we recommend that you do this check daily in order to guarantee the freshness of data in your secondary model.
 
 ### Get project details
 

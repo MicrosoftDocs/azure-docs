@@ -15,7 +15,7 @@ ms.custom: language-service-custom-ner
 
 # Back up and recover your custom NER models
 
-When you create a Language resource, you specify a region for it to be created in. From then on, your resource and all of the operations related to it take place in the specified Azure server region. It's rare, but not impossible, to encounter a network issue that affects an entire region. If your solution needs to always be available, then you should design it to fail-over into another region. This requires two Azure Language resources in different regions and synchronizing custom models across them. 
+When you create a Language resource, you specify a region for it to be created in. From then on, your resource and all of the operations related to it take place in the specified Azure server region. It's rare, but not impossible, to encounter a network issue that affects an entire region. If your solution needs to always be available, then you should design it to fail over into another region. This requires two Azure Language resources in different regions and synchronizing custom models across them. 
 
 If your app or business depends on the use of a custom NER model, we recommend that you create a replica of your project in an additional supported region. If a regional outage occurs, you can then access your model in the other fail-over region where you replicated your project.
 
@@ -35,7 +35,7 @@ Use the following steps to get the keys and endpoint of your primary and seconda
 
 2. From the menu of the left side of the screen, select **Keys and Endpoint**. Use endpoint for the API requests and you’ll need the key for `Ocp-Apim-Subscription-Key` header.
 
-    :::image type="content" source="../media/azure-portal-resource-credentials.png" alt-text="A screenshot showing the key and endpoint screen for an Azure resource." lightbox="./media/azure-portal-resource-credentials.png":::
+    :::image type="content" source="../media/azure-portal-resource-credentials.png" alt-text="A screenshot showing the key and endpoint screen for an Azure resource." lightbox="../media/azure-portal-resource-credentials.png":::
 
     > [!TIP]
     > Keep a note of the keys and endpoints for both your primary and secondary resources. You will use these values to replace the placeholder values in the following examples.

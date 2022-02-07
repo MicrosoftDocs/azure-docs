@@ -10,7 +10,7 @@ ms.subservice: language-service
 ms.topic: conceptual
 ms.date: 02/07/2022
 ms.author: aahi
-ms.custom: language-service-custom-ner
+ms.custom: language-service-custom-classification
 ---
 
 # Back up and recover your custom text classification models
@@ -19,7 +19,7 @@ When you create a Language resource, you specify a region for it to be created i
 
 If your app or business depends on the use of a custom classification model, we recommend that you create a replica of your project into another supported region. So that if a regional outage occurs, you can then access your model in the other fail-over region where you replicated your project.
 
-Replicating a project means that you export your project metadata and assets and import them into a new project. This only makes a copy of your project settings and tagged data. You still need to [train](./how-to/train-model.md?tabs=portal#azure-resources) and [deploy](how-to/call-api.md#deploy-your-model) the models to be available for use with [prediction APIs](https://aka.ms/ct-runtime-swagger).
+Replicating a project means that you export your project metadata and assets and import them into a new project. This only makes a copy of your project settings and tagged data. You still need to [train](./how-to/train-model.md) and [deploy](how-to/call-api.md#deploy-your-model) the models to be available for use with [prediction APIs](https://aka.ms/ct-runtime-swagger).
 
 In this article, you will learn to how to use the export and import APIs to replicate your project from one resource to another existing in different supported geographical regions, guidance on keeping your projects in sync and changes needed to your runtime consumption.
 
@@ -34,7 +34,7 @@ Use the following steps to get the keys and endpoint of your primary and seconda
 * Go to your resource overview page in the [Azure portal](https://ms.portal.azure.com/#home)
 
 * From the menu of the left side of the screen, select **Keys and Endpoint**. Use endpoint for the API requests and you’ll need the key for `Ocp-Apim-Subscription-Key` header.
-:::image type="content" source="../media/azure-portal-resource-credentials.png" alt-text="A screenshot showing the key and endpoint screen for an Azure resource." lightbox="./media/azure-portal-resource-credentials.png":::
+:::image type="content" source="../media/azure-portal-resource-credentials.png" alt-text="A screenshot showing the key and endpoint screen for an Azure resource." lightbox="../media/azure-portal-resource-credentials.png":::
 
 > [!TIP]
 > Keep a note of keys and endpoints for both primary and secondary resources. Use these values to replace the following placeholders:
@@ -269,7 +269,7 @@ Now you have replicated your project into another resource in another region.
 
 ## Train your model
 
-After importing your project you would onlyhave copied the project's assets and metadata and assets. You still need to train your model, submitting a training job would incur cost to your account. 
+After importing your project, you only have copied the project's assets and metadata and assets. You still need to train your model, which will incur usage on your account. 
 
 ### Submit training job
 
@@ -408,17 +408,17 @@ Use the following header to authenticate your request.
 |--|--|--|
 |`Ocp-Apim-Subscription-Key`| The key to your resource. Used for authenticating your API requests.| `{YOUR-SECONDARY-RESOURCE-KEY}` |
 
-At this point you have replicated your project into another resource which is in another region, trained and deployed the model. Now you would want to make changes to your system to handle traffic redirection in case of failure.
+At this point you have replicated your project into another resource, which is in another region, trained and deployed the model. Now you would want to make changes to your system to handle traffic redirection in case of failure.
 
 ## Changes in calling the runtime
 
 Within your system, at the step where you call [runtime prediction API](https://aka.ms/ct-runtime-swagger) check for the response code returned from the submit task API. If you observe a **consistent** failure in submitting the request, this could indicate an outage in your primary region. Failure once doesn't mean an outage, it may be transient issue. Retry submitting the job through the secondary resource you have created. For the second request use your `{YOUR-SECONDARY-ENDPOINT}` and secondary key, if you have followed the steps above, `{PROJECT-NAME}` and `{DEPLOYMENT-NAME}` would be the same so no changes are required to the request body. 
 
-In case you revert to using your secodary resource you will observe slight increase in latency because of the difference in regions where your model is deployed. 
+In case you revert to using your secondary resource you will observe slight increase in latency because of the difference in regions where your model is deployed. 
 
 ## Check if your projects are out of sync
 
-Maintaining the freshness of both projects is an important part of process. You need to frequently check if any updates where made to your primary project so that you rmove them over to your secondary project. This way if your primary region fail and you move into the secondary region you should expect similar model performace since it already contains the latest updates. Setting the frequency of checking if your projects are in sync is an important choice, we recommend that you do this check daily in order to guarantee the freshness of data in your secondary model.
+Maintaining the freshness of both projects is an important part of process. You need to frequently check if any updates were made to your primary project so that you move them over to your secondary project. This way if your primary region fail and you move into the secondary region you should expect similar model performance since it already contains the latest updates. Setting the frequency of checking if your projects are in sync is an important choice, we recommend that you do this check daily in order to guarantee the freshness of data in your secondary model.
 
 ### Get project details
 
