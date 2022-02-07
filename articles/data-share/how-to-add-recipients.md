@@ -17,7 +17,7 @@ In Azure Data Share, navigate to your sent share and select the **Invitations** 
 
 ![Screenshot shows Add Recipient selected.](./media/how-to/how-to-add-recipients/add-recipient.png)
 
-A panel will pop out on the right side of the page. Select **Add Recipient** and then fill in the email of your new recipient on the blank line. Make sure to use recipient's Azure sign in email (using their email alias won't work). 
+A panel will pop out on the right side of the page. Select **Add Recipient** and then fill in the email of your new recipient on the blank line. Make sure to use recipient's Azure sign-in email (using their email alias won't work). 
 
 ![Screenshot shows the Add Recipient pane where you can Add and send invitation.](./media/how-to/how-to-add-recipients/add-recipient-side.png)
 
