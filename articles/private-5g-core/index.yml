@@ -83,6 +83,10 @@ landingContent:
   # Card
   - title: Monitor your private mobile network
     linkLists:
+      - linkListType: overview
+        links:
+          - text: Cloud monitoring with Azure Log Analytics
+            url: private-5g-core-overview.md#log-analytics-integration
       - linkListType: concept
         links:
           - text: Local monitoring with distributed tracing
