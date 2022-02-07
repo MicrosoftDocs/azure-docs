@@ -15,7 +15,7 @@ A lab owner (educator) can set a password for VMs in the lab on the **Virtual ma
 
 :::image type="content" source="./media/how-to-set-virtual-machine-passwords/virtual-machine-credentials.png" alt-text="Screenshot of windows the enter credentials for template VM.":::
 
-By enabling the **Use same password for all virtual machines** option on this page, an educator chooses to use the same password for all VMs in the lab.  Disabling the **Use same password for all virtual machines** option makes the students set a password for their VMs before logging in for the first time. By default, labs use the same password for all VMs.  (Ubuntu doesn't support use the same password.
+By enabling the **Use same password for all virtual machines** option on this page, an educator chooses to use the same password for all VMs in the lab.  Disabling the **Use same password for all virtual machines** option makes the students set a password for their VMs before logging in for the first time. By default, labs use the same password for all VMs.  (Ubuntu doesn't support use of the same password for all VMs.)
 
 ## Reset password later
 
