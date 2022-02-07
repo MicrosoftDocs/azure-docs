@@ -11,7 +11,7 @@ ms.date: 6/08/2020
 
 # Analyze server dependencies (agentless)
 
-This article describes how to set up agentless dependency analysis using Azure Migrate:Discovery and assessment tool. [Dependency analysis](concepts-dependency-visualization.md) helps you to identify and understand dependencies across servers for assessment and migration to Azure.
+This article describes how to set up agentless dependency analysis using Azure Migrate: Discovery and assessment tool. [Dependency analysis](concepts-dependency-visualization.md) helps you to identify and understand dependencies across servers for assessment and migration to Azure.
 
 > [!IMPORTANT]
 >Agentless dependency analysis is currently available only for servers running in your VMware environment, discovered with the Azure Migrate:Discovery and assessment tool.
@@ -39,7 +39,7 @@ This article describes how to set up agentless dependency analysis using Azure M
 6. As you configure the appliance, you need to specify the following in the appliance configuration manager:
     - The details of the vCenter Server to which you want to connect.
     - vCenter Server credentials scoped to discover the servers in your VMware environment.
-    - Server credentials which can be domain/ Windows(non-domain)/ Linux(non-domain) credentials. [Learn more](add-server-credentials.md) about how to provide credentials and how we handle them.
+    - Server credentials, which can be domain/ Windows(non-domain)/ Linux(non-domain) credentials. [Learn more](add-server-credentials.md) about how to provide credentials and how we handle them.
 
 ## Verify permissions
 
@@ -56,7 +56,7 @@ This article describes how to set up agentless dependency analysis using Azure M
 1. In **Step 3: Provide server credentials to perform software inventory, agentless dependency analysis and discovery of SQL Server instances and databases**, click **Add credentials** to provide multiple server credentials to initiate software inventory.
 1. Click on **Start discovery**, to kick off vCenter Server discovery.
 
- After the vCenter Server discovery is complete, appliance initiates the discovery of installed applications, roles and features (software inventory).During software inventory, the added servers credentials will be iterated against servers and validated for agentless dependency analysis.You can enable agentless dependency analysis for servers from the portal. Only the servers where the validation succeeds can be selected to enable agentless dependency analysis.
+ After the vCenter Server discovery is complete, appliance initiates the discovery of installed applications, roles and features (software inventory).During software inventory, the added servers credentials will be iterated against servers and validated for agentless dependency analysis. You can enable agentless dependency analysis for servers from the portal. Only the servers where the validation succeeds can be selected to enable agentless dependency analysis.
 
 ## Start dependency discovery
 
@@ -131,7 +131,7 @@ Select the servers on which you want to stop dependency discovery.
 1. Choose the **Appliance name** whose discovery you want to review.
 1. Click the **Dependency analysis** drop-down.
 1. Click **Remove servers**.
-1. In the **Remove servers** page, select the server which you want to stop for dependency analysis.
+1. In the **Remove servers** page, select the server, which you want to stop for dependency analysis.
 1. After selecting the servers,click **Remove servers**.
 
 If you want to stop dependency simultaneously on multiple servers, you can use [PowerShell](#start-or-stop-dependency-analysis-using-powershell) to do so.
