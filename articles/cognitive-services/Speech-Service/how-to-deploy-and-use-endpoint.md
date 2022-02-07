@@ -16,7 +16,7 @@ ms.author: caoling
 
 After you've successfully created and tested your voice model, you deploy it in a custom text-to-speech endpoint. Use this endpoint instead of the usual endpoint when you're making text-to-speech requests through the REST API. The subscription that you've used to deploy the model is the only one that can call your custom endpoint.
 
-## Create and use a Custom Neural Voice endpoint
+## Create a Custom Neural Voice endpoint
 
 To create a Custom Neural Voice endpoint:
 
@@ -41,23 +41,26 @@ The custom endpoint is functionally identical to the standard endpoint that's us
 
 [Audio Content Creation](https://speech.microsoft.com/audiocontentcreation) is a tool that allows you to fine-tune audio output by using a friendly UI.
 
-## Copy your voice model to another projects or regions
+## Copy your voice model to another project
 
-You can copy your voice model to another project or other regions. Do the following steps to easily deploy the voice model to a different region or project.
+You can copy your voice model to another project for the same region or another region. Do the following steps to easily deploy the voice model to a different region or project.
 
-1. On the **Train model** tab, select a voice model you want to copy, and select **Copy to project** , as shown below.
+To Copy your voice model to another project:
+
+1. On the **Train model** tab, select a voice model that you want to copy, and then select **Copy to project**.
 
    :::image type="content" source="media/custom-voice/copy-to-project.png" alt-text="Copy to project":::
 
-2. Next, select the target **Region**, **Speech resource**, and **Project**, as shown in the screenshot below. If no speech resource or project is found in the target region, you need to follow the instructions displayed to create one. Select **Submit** to copy the model.
+1. Select the **Region**, **Speech resource**, and **Project** where you want to copy the model. You must have a speech resource and project in the target region, otherwise you need to create them first. 
 
     :::image type="content" source="media/custom-voice/copy-voice-model.png" alt-text="Copy voice model":::
 
-3. Then, after you successfully copy the model, select **View model** under the notification message to go into the target **Train model** page.
-4. Finally, select the newly copied model and **Deploy model**.
+1. Select **Submit** to copy the model.
+1. Select **View model** under the notification message for copy success. 
+1. On the **Train model** page, select the newly copied model and then select **Deploy model**.
 
 > [!NOTE]
-> Custom neural voice training is only available in the three regions: East US, Southeast Asia, and UK South. But you can easily copy a neural voice model from the three regions to other different regions. Check the regions supported for Custom Neural Voice: [regions for Custom Neural Voice](regions.md#text-to-speech).
+> Custom Neural Voice training is only available in the three regions: East US, Southeast Asia, and UK South. But you can easily copy a neural voice model from the three regions to other regions. For more information, see the [regions for Custom Neural Voice](regions.md#text-to-speech).
 
 ## How to suspend and resume endpoint
 
