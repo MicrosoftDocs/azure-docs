@@ -85,7 +85,7 @@ module.exports = df.orchestrator(function*(context) {
 ```
 
 > [!NOTE]
-> The `durable-functions` library takes care of calling the `context.done` method when the generator function exits.
+> The `durable-functions` library takes care of calling the synchronous `context.done` method when the generator function exits.
 
 # [Python](#tab/python)
 

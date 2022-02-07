@@ -149,7 +149,6 @@ module.exports = async function (context, message) {
     context.log('id =', context.bindingData.id);
     context.log('popReceipt =', context.bindingData.popReceipt);
     context.log('dequeueCount =', context.bindingData.dequeueCount);
-    context.done();
 };
 ```
 

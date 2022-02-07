@@ -116,9 +116,8 @@ The [configuration](#input---configuration) section explains these properties.
 Here's the JavaScript code:
 
 ```javascript
-module.exports = function (context, myQueueItem) {    
+module.exports = async function (context, myQueueItem) {    
     context.log(context.bindings.record);
-    context.done();
 };
 ```
 
@@ -258,13 +257,11 @@ The [configuration](#output---configuration) section explains these properties.
 Here's the JavaScript code:
 
 ```javascript
-module.exports = function (context, myQueueItem) {
+module.exports = async function (context, myQueueItem) {
 
     context.bindings.record = {
         text : "I'm running in a Node function! Data: '" + myQueueItem + "'"
     }   
-
-    context.done();
 };
 ```
 

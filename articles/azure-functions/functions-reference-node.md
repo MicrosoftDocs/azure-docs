@@ -64,6 +64,7 @@ module.exports = function(context, myTrigger, myInput, myOtherInput) {
 ```
 
 ### Exporting an async function
+
 When using the [`async function`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/async_function) declaration or plain JavaScript [Promises](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise) in version 2.x of the Functions runtime, you do not need to explicitly call the [`context.done`](#contextdone-method) callback to signal that your function has completed. Your function completes when the exported async function/Promise completes. For functions targeting the version 1.x runtime, you must still call [`context.done`](#contextdone-method) when your code is done executing.
 
 The following example is a simple function that logs that it was triggered and immediately completes execution.

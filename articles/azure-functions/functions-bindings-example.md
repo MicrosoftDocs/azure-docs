@@ -85,7 +85,7 @@ The same *function.json* file can be used with a JavaScript function:
 ```javascript
 // From an incoming queue message that is a JSON object, add fields and write to Table Storage
 // The second parameter to context.done is used as the value for the new row
-module.exports = function (context, order) {
+module.exports = async function (context, order) {
     order.PartitionKey = "Orders";
     order.RowKey = generateRandomId(); 
 

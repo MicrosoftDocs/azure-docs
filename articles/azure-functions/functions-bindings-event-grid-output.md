@@ -282,14 +282,13 @@ module.exports = async function (context, myTimer) {
         data: "event-data",
         eventTime: timeStamp
     };
-    context.done();
 };
 ```
 
 Here's JavaScript code that creates multiple events:
 
 ```javascript
-module.exports = function(context) {
+module.exports = async function(context) {
     var timeStamp = new Date().toISOString();
 
     context.bindings.outputEvent = [];
@@ -310,7 +309,6 @@ module.exports = function(context) {
         data: "event-data",
         eventTime: timeStamp
     });
-    context.done();
 };
 ```
 

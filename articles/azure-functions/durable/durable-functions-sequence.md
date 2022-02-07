@@ -58,7 +58,7 @@ All JavaScript orchestration functions must include the [`durable-functions` mod
 
 1. The orchestrator function is a [generator function](/scripting/javascript/advanced/iterators-and-generators-javascript).
 2. The function is wrapped in a call to the `durable-functions` module's `orchestrator` method (here `df`).
-3. The function must be synchronous. Because the 'orchestrator' method handles calling 'context.done', the function should simply 'return'.
+3. The function must be synchronous. Because the 'orchestrator' method handles the final call to 'context.done', the function should simply 'return'.
 
 The `context` object contains a `df` durable orchestration context object that lets you call other *activity* functions and pass input parameters using its `callActivity` method. The code calls `E1_SayHello` three times in sequence with different parameter values, using `yield` to indicate the execution should wait on the async activity function calls to be returned. The return value of each call is added to the `outputs` array, which is returned at the end of the function.
 

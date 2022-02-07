@@ -205,7 +205,7 @@ The [configuration](#configuration) section explains these properties.
 Here's the JavaScript code:
 
 ```javascript
-module.exports = function (context) {
+module.exports = async function (context) {
 
     context.bindings.tableBinding = [];
 
@@ -216,8 +216,6 @@ module.exports = function (context) {
             Name: "Name " + i
         });
     }
-
-    context.done();
 };
 ```
 
