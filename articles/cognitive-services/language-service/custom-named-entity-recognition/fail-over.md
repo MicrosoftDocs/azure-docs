@@ -23,7 +23,7 @@ In this article, you will learn to how to use the export and import APIs to repl
 
 When you create a Language resource, you specify a region for it to be created in. From then on, your resource and all of the operations related to it take place in the specified Azure server region. It's rare, but not impossible, to encounter a network issue that affects an entire region. If your solution needs to always be available, then you should design it to fail-over into another region. This requires two Azure Language resources in different regions and synchronizing custom models across them. 
 
-If your app or business depends on the use of a custom NER model, we recommend that you create a replica of your project in an additional supported region. If a regional outage occurs, you can then access your model in the other fail-over region where you replicated your project.
+If your app or business depends on the use of a custom model, we recommend that you create a replica of your project in an additional supported region. If a regional outage occurs, you can then access your model in the other fail-over region where you replicated your project.
 
 Replicating a project means that you export your project metadata and assets, and import them into a new project. This only makes a copy of your project settings and tagged data. You still need to train and deploy the models to be available for use with the prediction APIs for the feature you're using.
 
@@ -344,7 +344,7 @@ This is the step where you make your trained model available form consumption vi
 
 ## Submit deploy job 
 
-Create a **PUT** request using the following URL, headers, and JSON body to start deploying a custom NER model.
+Create a **PUT** request using the following URL, headers, and JSON body to start deploying a custom model.
 
 ```rest
 {YOUR-SECONDARY-ENDPOINT}/language/analyze-text/projects/{PROJECT-NAME}/deployments/{DEPLOYMENT-NAME}?api-version=2021-11-01-preview
