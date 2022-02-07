@@ -13,6 +13,8 @@ One of the primary activities of a security team is to search logs for specific 
 
 In Microsoft Sentinel, you can search across long time periods in extremely large datasets by using a search job.  While you can run a search job on any type of log, search jobs are ideally suited to search archived logs. If need to do a full investigation on archived data, you can restore that data into the hot cache to run high performing queries and analytics.
 
+The search job and restore features are currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
 ## Search large datasets
 
 Use a search job when you start an investigation to find specific events in logs within a given time frame. You can search all your logs to find events that match your criteria and filter through the results.
@@ -21,7 +23,9 @@ Search in Microsoft Sentinel is built on top of search jobs. Search jobs are asy
 
 Search results remain in a search results table that has a *_SRCH suffix.
 
-<--! Add screenshot -->
+The following image shows example search criteria for a search job.
+
+:::image type="content" source="media/search-jobs/search-job-criteria.png" alt-text="Screenshot of search page with search criteria of administrator, timerange last 90 days, and table selected.":::
 
 ### Supported log types
 
@@ -52,7 +56,9 @@ When you need to do a full investigation on data stored in archived logs, restor
 
 A restored log table is available in new table that has a *_RST suffix. The restored data is available as long as the underlying source data is available. But you can delete restored tables at any time.
 
-<--! Add screenshot? -->
+The following image shows the restore option on a saved search.
+
+:::image type="content" source="media/restore/search-results-restore.png" alt-text="Screenshot of the restore link on a saved search.":::
 
 ### Limitations of log restore
 
