@@ -2,7 +2,7 @@
 title: Reference table for all security alerts in Microsoft Defender for Cloud
 description: This article lists the security alerts visible in Microsoft Defender for Cloud
 ms.topic: reference
-ms.date: 02/06/2022
+ms.date: 02/07/2022
 ---
 # Security alerts - a reference guide
 
@@ -515,7 +515,7 @@ Microsoft Defender for Containers provides security alerts on the cluster level 
 
 | Alert | Description | MITRE tactics<br>([Learn more](#intentions)) | Severity |
 |--|--|:-:|--|
-| **PREVIEW - Access from a Tor exit node** | This Cosmos DB account was successfully accessed from an IP address known to be an active exit node of Tor, an anonymizing proxy. Authenticated access from a Tor exit node is a likely indication that a threat actor is trying to hide their identity. | Initial Access | High/Medium (high if it was the first time for this IP) |
+| **PREVIEW - Access from a Tor exit node** | This Cosmos DB account was successfully accessed from an IP address known to be an active exit node of Tor, an anonymizing proxy. Authenticated access from a Tor exit node is a likely indication that a threat actor is trying to hide their identity. | Initial Access | High/Medium |
 | **PREVIEW - Access from a suspicious IP** | This Cosmos DB account was successfully accessed from an IP address that was identified as a threat by Microsoft Threat Intelligence. | Initial Access  | Medium |
 | **PREVIEW - Access from an unusual location** | This Cosmos DB account was accessed from a location considered unfamiliar, based on the usual access pattern. <br><br> Either a threat actor has gained access to the account, or a legitimate user has connected from a new or unusual geographic location | Initial Access | Low |
 | **PREVIEW - Unusual volume of data extracted** | An unusually large volume of data has been extracted from this Cosmos DB account. This might indicate that a threat actor exfiltrated data. | Exfiltration | Medium |
