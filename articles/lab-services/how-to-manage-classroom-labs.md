@@ -15,7 +15,7 @@ To set up a lab in a lab account, you must be a member of the **Lab Creator** ro
 
 ## Create a lab
 
-1. Navigate to [Azure Lab Services website](https://labs.azure.com).
+1. Navigate to Lab Services web portal: [https://labs.azure.com](https://labs.azure.com).
 2. Select **Sign in** and enter your credentials. Select or enter a **user ID** that is a member of the **Lab Creator** role in the lab account, and enter password. Azure Lab Services supports organizational accounts and Microsoft accounts.
 3. Select **New lab**.
 
@@ -94,7 +94,7 @@ For information on VM sizes and their cost, see the [Azure Pricing Calculator](h
 
 ## View all labs
 
-1. Navigate to [Azure Lab Services website](https://labs.azure.com).
+1. Navigate to Lab Services web portal: [https://labs.azure.com](https://labs.azure.com).
 1. Select **Sign in**. Select or enter a **user ID** that is a member of the **Lab Creator** role in the lab account, and enter password. Azure Lab Services supports organizational accounts and Microsoft accounts.
 
     [!INCLUDE [Select a tenant](./includes/multi-tenant-support.md)]

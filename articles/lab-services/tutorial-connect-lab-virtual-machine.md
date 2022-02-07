@@ -7,14 +7,14 @@ ms.date: 01/04/2022
 
 # Tutorial: Access a lab in Azure Lab Services
 
-In this tutorial, you, as a student, connect to a virtual machine (VM) in a lab by completing the following actions in the [Azure Lab Services website](https://labs.azure.com):
+In this tutorial, you, as a student, connect to a virtual machine (VM) in a lab by completing the following actions in the Lab Services web portal: [https://labs.azure.com](https://labs.azure.com):
 
 > [!div class="checklist"]
 > * Register to the lab
 > * Start the VM
 > * Connect to the VM
 
-The tutorial applies to the [Azure Lab Services website](https://labs.azure.com) only.  If using Teams, see [Access a VM (student view) in Azure Lab from Teams](how-to-access-vm-for-students-within-teams.md).  If using Canvas, see [Access a VM (student view) in Azure Lab Services from Canvas](how-to-access-vm-for-students-within-canvas.md).
+The tutorial applies to the Lab Services web portal ([https://labs.azure.com](https://labs.azure.com)) only.  If using Teams, see [Access a VM (student view) in Azure Lab from Teams](how-to-access-vm-for-students-within-teams.md).  If using Canvas, see [Access a VM (student view) in Azure Lab Services from Canvas](how-to-access-vm-for-students-within-canvas.md).
 
 ## Register to the lab
 

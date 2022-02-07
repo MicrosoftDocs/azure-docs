@@ -6,7 +6,7 @@ ms.topic: include
 ms.service: lab-services
 ---
 
-To create or edit up a lab in the [Azure Lab Services website](https://labs.azure.com), the instructor must be assigned the **Lab Creator** role on the lab plan.  Assigning **Lab Creator** role on the lab plan's resource group will allow an instructor to use all lab plans in that resource group.
+To create or edit up a lab in the Lab Services web portal ([https://labs.azure.com](https://labs.azure.com)), the instructor must be assigned the **Lab Creator** role on the lab plan.  Assigning **Lab Creator** role on the lab plan's resource group will allow an instructor to use all lab plans in that resource group.
 
 > [!NOTE]
 > Owners of a lab plan can automatically create labs and do not need to be assigned the **Lab Creator** role.

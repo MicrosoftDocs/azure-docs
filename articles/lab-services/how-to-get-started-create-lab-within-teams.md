@@ -20,7 +20,7 @@ Here's the typical workflow when using Azure Lab Services within Teams
 1. Create a lab plan in the Azure portal.  For information, see [Tutorial: Set up a lab plan with Azure Lab Services](tutorial-setup-lab-plan.md).
 1. The lab plan owner [adds educators to the Lab Creator role](tutorial-setup-lab-plan.md#add-a-user-to-the-lab-creator-role) so they can create labs for their classes.
 1. Then, the educators create labs, pre-configures the template VM and publishes the lab to create VMs to everyone on the team.
-1. Once the lab is published, a VM is assigned to everyone on the team membership list on their first sign into Azure Lab Services. Team members select on the tab containing **Azure Lab Services** App within Teams or by accessing the [Azure Lab Services website](https://labs.azure.com). Team members can then use the VM to do the class work and homework.
+1. Once the lab is published, a VM is assigned to everyone on the team membership list on their first sign into Azure Lab Services. Team members select on the tab containing **Azure Lab Services** App within Teams or by accessing the Lab Services web portal: [https://labs.azure.com](https://labs.azure.com). Team members can then use the VM to do the class work and homework.
 
 > [!IMPORTANT]
 > Azure Lab Services can be used within Teams only if the lab plans are created in the same tenant as Teams.
@@ -38,7 +38,7 @@ You, as a Team owner, can add **Azure Lab Services** app directly in your Teams 
     :::image type="content" source="./media/integrate-with-teams/add.png" alt-text="Screenshot of Add a tab in teams.":::
 1. Select a resource group, containing one or more lab plans, that you would like to use for creating labs in this team.
 
-    Azure Lab Services uses single sign-on into the [Azure Lab Services website](https://labs.azure.com) and pulls all the lab plans that you have access to.  The resource groups with lab plans that are in the same tenant as Teams and for which you have **Owner**, **Contributor**, or **Creator** access are displayed.
+    Azure Lab Services uses single sign-on into the Lab Services web portal ([https://labs.azure.com](https://labs.azure.com)) and pulls all the lab plans that you have access to.  The resource groups with lab plans that are in the same tenant as Teams and for which you have **Owner**, **Contributor**, or **Creator** access are displayed.
 
     :::image type="content" source="./media/integrate-with-teams/welcome.png" alt-text="Screenshot of Welcome to Azure Lab Services dialog.":::
 1. Press **Save**. The Azure Lab Services tab is added to the channel.

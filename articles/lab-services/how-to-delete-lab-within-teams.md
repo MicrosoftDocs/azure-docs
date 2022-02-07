@@ -25,7 +25,7 @@ Lab deletion is also triggered when the team is deleted. If the associated team 
 > [!IMPORTANT]
 > Deletion of the tab or uninstalling the app will not result in deletion of the lab.
 
-If the *tab* is deleted in Teams, users can still access the lab VMs on the [Azure Lab Services website](https://labs.azure.com).  When the team is deleted or the lab is explicitly deleted, users can no longer access their VMs through the [Azure Lab Services website](https://labs.azure.com).
+If the *tab* is deleted in Teams, users can still access the lab VMs on the Lab Services web portal: [https://labs.azure.com](https://labs.azure.com).  When the team is deleted or the lab is explicitly deleted, users can no longer access their VMs through the Lab Services web portal: [https://labs.azure.com](https://labs.azure.com).
 
 ## Next steps
 
