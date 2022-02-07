@@ -105,7 +105,8 @@ You must specify both the edition and service objective in the [ALTER DATABASE](
 This example statement migrates a database named `mySampleDatabase` to the Hyperscale service tier with the `HS_Gen5_4` service objective. Replace the database name with the appropriate value before executing the statement.
 
 ```sql
-ALTER DATABASE [mySampleDatabase] MODIFY (EDITION = 'Hyperscale', SERVICE_OBJECTIVE = 'HS_Gen5_4');
+ALTER DATABASE [mySampleDatabase] 
+    MODIFY (EDITION = 'Hyperscale', SERVICE_OBJECTIVE = 'HS_Gen5_4');
 GO
 ```
 
@@ -263,14 +264,16 @@ You must specify both the edition and service objective in the [ALTER DATABASE](
 This example statement migrates a database named `mySampleDatabase` to the General Purpose service tier with the `GP_Gen5_4` service objective. Replace the database name and service objective with the appropriate values before executing the statement.
 
 ```sql
-ALTER DATABASE [mySampleDatabase] MODIFY (EDITION = 'GeneralPurpose', SERVICE_OBJECTIVE = 'GP_Gen5_4');
+ALTER DATABASE [mySampleDatabase] 
+    MODIFY (EDITION = 'GeneralPurpose', SERVICE_OBJECTIVE = 'GP_Gen5_4');
 GO
 ```
 
 You can optionally include the `maxsize` argument. If the `maxsize` value exceeds the valid maximum size for the target service objective, an error will be returned. If the `maxsize` argument is not specified, the operation will default to the maximum size available for the given service objective. The following example specifies `maxsize`:
 
 ```sql
-ALTER DATABASE [mySampleDatabase] MODIFY (EDITION = 'GeneralPurpose', SERVICE_OBJECTIVE = 'GP_Gen4_2', MAXSIZE = 200 GB);
+ALTER DATABASE [mySampleDatabase] 
+    MODIFY (EDITION = 'GeneralPurpose', SERVICE_OBJECTIVE = 'GP_Gen4_2', MAXSIZE = 200 GB);
 GO
 ```
 
