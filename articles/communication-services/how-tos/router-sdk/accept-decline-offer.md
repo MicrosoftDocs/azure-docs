@@ -26,7 +26,7 @@ This guide outlines the steps to observe a Job Router offer, and then to accept 
 
 ## Observe the offer issued event
 
-After you create a job, observe the [offer issued event](../subscribe-events.md#microsoftcommunicationrouterworkerofferissued), which contains the worker ID and the job offer ID:
+After you create a job, observe the [offer issued event](subscribe-events.md#microsoftcommunicationrouterworkerofferissued), which contains the worker ID and the job offer ID:
 
 ```csharp
 var workerId = event.data.workerId;
