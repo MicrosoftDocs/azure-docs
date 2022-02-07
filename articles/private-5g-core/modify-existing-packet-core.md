@@ -60,7 +60,7 @@ In this step, you'll modify configuration for your chosen packet core instance i
 
 ### Change access network configuration
 
-The **Configuration** tab lets you set configuration for the packet core instance's connection to the access network. For information on each of the available fields, see [Collect access network values](collect-required-information-for-private-mobile-network.md#collect-access-network-values).
+The **Configuration** tab lets you set configuration for the packet core instance's connection to the access network. For information on each of the available fields, see [Collect access network values](collect-required-information-for-a-site.md#collect-access-network-values).
 
 :::image type="content" source="media/modify-existing-packet-core/packet-core-configuration-tab.png" alt-text="Screenshot of the Azure portal. The configuration tab for a packet core instance is highlighted."::: 
 
@@ -72,7 +72,7 @@ Select the data network from the list, and then make your changes under **Modify
 
 :::image type="content" source="media/modify-existing-packet-core/packet-core-data-network-tab.png" alt-text="Screenshot of the Azure portal. The data network tab for a packet core instance is shown. The network name and configuration fields are highlighted." lightbox="media/modify-existing-packet-core/packet-core-data-network-tab.png"::: 
 
-For information on each of the available fields, see [Collect data network values](collect-required-information-for-private-mobile-network.md#collect-data-network-values).
+For information on each of the available fields, see [Collect data network values](collect-required-information-for-a-site.md#collect-data-network-values).
 
 Once you have made your changes, select **Modify**.
 
