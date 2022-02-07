@@ -43,7 +43,18 @@ Use Log Analytics Data Collection Rules (DCRs) to configure your data transforma
 
 Custom data connectors are currently supported only for direct API-based and Logstash-based data connectors.
 
-For more information, see [Data transformation in Microsoft Sentinel](data-transformation.md) and [Configure ingestion-time data transformation for Microsoft Sentinel](configure-data-transformation.md).
+For more information, see:
+
+**Before you start**:
+
+- [Data collection rule transformations in Azure Monitor](/azure/azure-monitor/essentials/data-collection-rule-transformations)
+- [Ingestion-time Transformation in Azure Monitor Logs](/azure/azure-monitor/logs/custom-logs-v2-ingestion-time-transform-tut)
+
+**In Microsoft Sentinel**:
+
+- [Find your Microsoft Sentinel data connector](data-connectors-reference.md)
+- [Data transformation in Microsoft Sentinel](data-transformation.md)
+- [Configure ingestion-time data transformation for Microsoft Sentinel](configure-data-transformation.md).
 
 ## January 2022
 

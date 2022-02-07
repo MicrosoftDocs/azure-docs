@@ -13,15 +13,21 @@ This article describes how to configure ingestion-time data transformation for u
 
 Ingestion-time data transformation provides customers with more control over the ingested data. Instead of relying on pre-configured, hardcoded workflows that create standardized tables, ingestion time-transformation supports the ability to filter and enrich the output tables, even before running any queries. Data collection rules (DCRs) provide extra support for creating customized output tables, including specific column names and types.
 
-For more information, see [Data transformation in Microsoft Sentinel](data-transformation.md) and TBD LINKS TO LA DOCS.
-
 Ingestion-time data transformation is configured using Data Collection Rules (DCRs), either in the Log Analytics portal, or via API or ARM template.
 
-## Verify data connector support
+## Prerequisites
 
-Before you start configuring data transformation DCRs in the Log Analytics portal, make sure that your data connectors are supported for data transformation.
+Before you start configuring DCRs for data transformation:
 
-In our [data connector reference](data-connectors-reference.md) article, check the section for your data connector to understand the types of DCRs and data transformation supported.
+- **Learn more about data transformation and DCRs in Azure Monitor and Microsoft Sentinel**. For more information, see:
+
+    - [Data collection rule transformations in Azure Monitor](/azure/azure-monitor/essentials/data-collection-rule-transformations)
+    - [Ingestion-time Transformation in Azure Monitor Logs](/azure/azure-monitor/logs/custom-logs-v2-ingestion-time-transform-tut)
+    - [Data transformation in Microsoft Sentinel](data-transformation.md)
+
+- **Verify data connector support**. Make sure that your data connectors are supported for data transformation.
+
+    In our [data connector reference](data-connectors-reference.md) article, check the section for your data connector to understand the types of DCRs and data transformation supported.
 
 ## Configure your data transformation
 

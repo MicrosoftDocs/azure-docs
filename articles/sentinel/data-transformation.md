@@ -102,7 +102,7 @@ Ingestion-time data transformation currently has the following known issues for 
 
 - It make take up to 60 minutes for the data transformation configurations to apply.
 
-- KQL syntax: Not all operators are supported. For more information, see TBD.
+- KQL syntax: Not all operators are supported. For more information, see [Supported KQL features](/azure/azure-monitor/essentials/data-collection-rule-transformations#supported-kql-features) in the Azure Monitor documentation.
 
 - Custom logs can currently be sent only to the following tables: **WindowsEvent**, **SecurityEvent**, **CommonSecurityLog**, and **Syslog**
 
