@@ -78,49 +78,6 @@ The following example shows the file format you'll need if you want to provision
 ]
 ```
 
-## Collect site resource values
-
-Each site represents a physical enterprise location (for example, Contoso Corporation's Chicago factory) containing an Azure Stack Edge device that hosts a packet core instance. Collect all the values in the following tables for the site you want to deploy in your private mobile network.
-
-   |Value  |Field name in Azure portal  |
-   |---------|---------|
-   |The Azure subscription to use to deploy the site resource. You must use the same subscription for all resources in your private mobile network deployment.                  |**Project details: Subscription**
-   |The Azure resource group to use to deploy the site resource. We recommend that you use the same resource group you chose for the private mobile network under **Project details: Resource group** in [Collect private mobile network resource values](#collect-private-mobile-network-resource-values).                |**Project details: Resource group**|
-   |The name for the site.           |**Instance details: Name**|
-   |The region in which you’re deploying the private mobile network. We recommend that you use the East US region.                         |**Instance details: Region**|
-   |The private mobile network resource representing the network to which you’re adding the site. This must match the private mobile network name you chose under **Instance details: Mobile network name** in [Collect private mobile network resource values](#collect-private-mobile-network-resource-values).    |**Instance details: Mobile network**|
-
-## Collect access network values
-
-Collect all the values in the following table to define the packet core instance's connection to the access network over the N2 and N3 interfaces.
-
-> [!IMPORTANT]
-> Where noted, you must use the same values you used when deploying the Azure Kubernetes Service on Azure Stack HCI (AKS-HCI) cluster on your Azure Stack Edge Pro device. You did this as part of the steps in [Complete the prerequisite tasks for deploying a private mobile network](complete-private-mobile-network-prerequisites.md).
-
-   |Value  |Field name in Azure portal  |
-   |---------|---------|
-   |The IP address for the packet core instance N2 signaling interface. This must match the value you used when deploying the AKS-HCI cluster.                 |**N2 address (signaling)**
-   |The IP address for the packet core instance N3 interface. This must match the value you used when deploying the AKS-HCI cluster.                |**N3 address**|
-   |The network address of the access subnet in Classless Inter-Domain Routing (CIDR) notation. This must match the value you used when deploying the AKS-HCI cluster.          |**N2 subnet** and **N3 subnet**|
-   |The access subnet default gateway. This must match the value you used when deploying the AKS-HCI cluster.                        |**N2 gateway** and **N3 gateway**|
-   |The Tracking Area Codes the packet core instance must support, given as a comma-separated list. For example, *0001,0002*.    |**Tracking area codes**|
-
-## Collect data network values
-
-Collect all the values in the following table to define the packet core instance's connection to the data network over the N6 interface.
-
-> [!IMPORTANT]
-> Where noted, you must use the same values you used when deploying the AKS-HCI cluster on your Azure Stack Edge Pro device. You did this as part of the steps in [Complete the prerequisite tasks for deploying a private mobile network](complete-private-mobile-network-prerequisites.md).
-
-   |Value  |Field name in Azure portal  |
-   |---------|---------|
-   |The name of the data network.                  |**Data network**|
-   |The IP address for the packet core instance N6 interface. This must match the value you used when deploying the AKS-HCI cluster.                      |**N6 address**|
-   |The network address of the data subnet in CIDR notation. This must match the value you used when deploying the AKS-HCI cluster.                  |**N6 subnet**|
-   |The data subnet default gateway. This must match the value you used when deploying the AKS-HCI cluster.                                |**N6 gateway**|
-   |The network address of the subnet from which IP addresses must be allocated to User Equipment (UEs), given in CIDR notation. The following example shows the network address format.<br>`198.51.100.0/24`<br>Note that the UE subnets aren't related to the access subnet.    |**UE IP subnet**|
-   |Whether Network Address and Port Translation (NAPT) should be enabled for this data network. NAPT allows you to translate a large pool of private IP addresses for UEs to a small number of public IP addresses. The translation is performed at the point where traffic enters the core network, maximizing the utility of a limited supply of public IP addresses.    |**NAPT**|
-
 ## Next steps
 
 You can now use the information you've collected to deploy your private mobile network.

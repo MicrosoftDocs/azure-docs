@@ -46,7 +46,9 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Create an additional site
+          - text: Collect the required information for a site
+            url: create-an-additional-site.md
+          - text: Create a site
             url: create-an-additional-site.md
           - text: Modify an existing packet core instance
             url: modify-existing-packet-core.md

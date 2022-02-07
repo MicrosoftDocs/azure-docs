@@ -1,6 +1,6 @@
 ---
-title: Create an additional site for Azure Private 5G Core Preview
-description: Learn how to create an additional site in your private mobile network. 
+title: Create a site for Azure Private 5G Core Preview
+description: Learn how to create a site in an existing private mobile network. 
 author: djrmetaswitch
 ms.author: drichards
 ms.service: private-5g-core
@@ -9,20 +9,16 @@ ms.date: 01/27/2022
 ms.custom: template-how-to 
 ---
 
-# Create an additional site - Azure Private 5G Core Preview
+# Create a site - Azure Private 5G Core Preview
 
-Azure Private 5G Core private mobile networks include one or more sites. Each site represents a physical enterprise location (for example, Contoso Corporation's Chicago factory) containing an Azure Stack Edge device that hosts a packet core instance. You may want to add new sites to your private mobile network over time. In this how-to guide, you'll learn how to create an additional site in your private mobile network.
+Azure Private 5G Core private mobile networks include one or more sites. Each site represents a physical enterprise location (for example, Contoso Corporation's Chicago factory) containing an Azure Stack Edge device that hosts a packet core instance. In this how-to guide, you'll learn how to create a site in your private mobile network.
 
 ## Prerequisites
 
-- Complete steps 3 - 11 of [Complete the prerequisite tasks for deploying a private mobile network](complete-private-mobile-network-prerequisites.md) for the Azure Stack Edge Pro device in your new site.
-- Retrieve the name of the custom location that targets the Azure Kubernetes Service on Azure Stack HCI (AKS-HCI) cluster on the Azure Stack Edge Pro device in the site. You commissioned the AKS-HCI cluster as part of the steps in [Complete the prerequisite tasks for deploying a private mobile network](complete-private-mobile-network-prerequisites.md).
+- Complete the steps in [Allocate subnets and IP addresses](complete-private-mobile-network-prerequisites.md#allocate-subnets-and-ip-addresses) and [Order and set up your Azure Stack Edge Pro device(s)](complete-private-mobile-network-prerequisites.md#order-and-set-up-your-azure-stack-edge-pro-devices) for your new site.
+- Retrieve the name of the custom location that targets the Azure Kubernetes Service on Azure Stack HCI (AKS-HCI) cluster on the Azure Stack Edge Pro device in the site. You commissioned the AKS-HCI cluster as part of the steps in [Order and set up your Azure Stack Edge Pro device(s)](complete-private-mobile-network-prerequisites.md#order-and-set-up-your-azure-stack-edge-pro-devices).
 - Ensure you can sign in to the Azure portal using an account with access to the active subscription you used to create your private mobile network. This account must have the built-in Contributor or Owner role at the subscription scope.
-- Collect all of the information in the following sections for your new site.
-
-    - [Collect site resource values](collect-required-information-for-private-mobile-network.md#collect-site-resource-values)
-    - [Collect access network values](collect-required-information-for-private-mobile-network.md#collect-access-network-values)
-    - [Collect data network values](collect-required-information-for-private-mobile-network.md#collect-data-network-values)
+- Collect all of the information in [Collect the required information for a site](collect-required-information-for-a-site.md).
 
 ## Create the Mobile Network Site resource
 
@@ -79,10 +75,12 @@ In this step, you'll create the **Mobile Network Site** resource representing th
 
 1. On the **Configuration** tab, set **Custom ARC location** to the custom location that targets the AKS-HCI cluster on the Azure Stack Edge Pro device in the site. Ensure you select the correct resource, as this can't be reversed once you've applied it.
 1. Select **Apply**.
-1. Return to the **Mobile network site** resource and confirm that the **Edge custom location** field is now displaying the correct **Custom location** resource.
+1. Return to the **Mobile Network Site** resource and confirm that the **Edge custom location** field is now displaying the correct **Custom location** resource.
 
     :::image type="content" source="media/configured-custom-location.png" alt-text="Screenshot of the Azure portal showing a correctly configured custom location on a site.":::
 
 ## Next steps
+
+If you haven't already done so, you should now design the policy control configuration for your private mobile network. This allows you to customize how your packet core instances apply Quality of Service (QoS) characteristics to traffic. You can also block or limit certain flows.
 
 - [Learn more about designing the policy control configuration for your private mobile network](policy-control.md)
