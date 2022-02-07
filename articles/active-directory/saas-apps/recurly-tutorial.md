@@ -81,11 +81,11 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    ![The Certificate download link](common/certificate-base64-download.png)
 
-6. Recurly expects the **Unique User Identifier (Name ID)** claim to be an email address. In the **Attributes & Claims** section, click **Edit**, click the **Unique User Identifier (Name ID)** claim under the **Required claim**. Perform the following steps:
+6. Your Recurly application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration.
+The following screenshot shows an example of this. The default value of **Unique User Identifier** is **user.userprincipalname** but Recurly expects this to be mapped with the 
+user's email address. For that you can use **user.mail** attribute from the list or use the appropriate attribute value based on your organization configuration.
 
-   a. Set `Name identifier format` to `Email address`.
-
-   b. Set `Source attribute` to `user.mail`.
+   ![image](common/default-attributes.png)
 
 8. Recurly application expects to enable token encryption in order to make SSO work. To activate token encryption, go to the **Azure Active Directory** > **Enterprise applications** and select **Token encryption**.
 
@@ -127,6 +127,11 @@ Follow these steps to configure single sign-on for your **Recurly** site.
 
 1. Log into your Recurly site. Your Recurly account will need have **Admin** access to configure single sign-on.
 2. Navigate to **Admin** > **Users**. Click the **Configure Single Sign on** button on the top right.
+   
+   ![Navigating to Users menu](./media/recurly-tutorial/users-menu.png)
+
+   ![Navigating to SSO Configuration page](./media/recurly-tutorial/configure-sso-button.png)
+
 3. In the **Single Sign-On** section, select the **Enabled** radio button.
 4. Perform the following steps to fill in the fields in the **Identity Provider** section:
 
@@ -140,11 +145,20 @@ Follow these steps to configure single sign-on for your **Recurly** site.
 
    e. Click **Save Changes**.
 
+   The completed configuration should look similar to the following screenshot.
+   
+   ![Completed SSO Configuration](./media/recurly-tutorial/sso-configuration.png)
+
 ### Create Recurly test user
 
 In this section, you will invite a new user to join your site and require them to use SSO to test the configuration.
 
 1. Navigate to **Admin** > **Users**, click **Invite User** and type the email address of the Azure test user that was previously created. Your invitation will default to requiring them to use SSO.
+
+   ![Navigating to Invite User page](./media/recurly-tutorial/invite-user-button.png)
+
+   ![Invite User page](./media/recurly-tutorial/invite-user.png)
+
 2. The test user will receive an email from Recurly inviting them to join your site.
 3. After accepting the invite, the test user will be listed under **Company Users** in your site and will be able to log in using SSO.
 
