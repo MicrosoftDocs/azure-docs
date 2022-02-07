@@ -99,28 +99,36 @@ The following table lists the dimensions of the 2U device enclosure in millimete
 
 |     Enclosure     |     Millimeters     |     Inches     |
 |-------------------|---------------------|----------------|
-|    Height         |    86.99            |    3.425       |
-|    Width          |    482.57          |    19.00     |
-|    Depth       |    430.37        |    16.95      |
+|    Height         |    87.0             |    3.425       |
+|    Width          |    482.6            |    19.00       |
+|    Depth          |    430.5            |    16.95       |
 
 The following table lists the dimensions of the shipping package in millimeters and inches.
 
-|     Package     |     Millimeters     |     Inches     |
+|     Package       |     Millimeters     |     Inches     |
 |-------------------|---------------------|----------------|
-|    Height         |    241.30           |    9.50     |
-|    Width          |    768.35           |    30.25         |
-|    Depth (cables installed)  |    430.37       |    30.25         |
-|    Depth (behind rack mount plane with cables installed)    | 388.81 |    15.31         |
+|    Height         |    241.3            |    9.50        |
+|    Width          |    768.4            |    30.25       |
+|    Depth          |    616.0            |    24.25       |
 
 ### Enclosure weight
 
-The device package weighs 36 lbs. and requires one person to handle it. The weight of the device depends on the configuration of the enclosure.
-
-|     Enclosure                                 |     Weight (lbs)        |
-|-----------------------------------------------|---------------------|
-|    Total weight of the package (includes device, packaged bezel, packaged 4-post King slide, one power cord, box and foam)       |    36.0          |
-|    Weight of the device without bezel and without Wi-Fi                       |    20.5       |
-|Weight of the device with bezel| 21.7|
+| Line # | Hardware                                                                           | Weight lbs |
+|--------|------------------------------------------------------------------------------------|------------|
+| 1      | Model 642GT                                                                        | 21         |
+|        |                                                                                    |            |
+| 2      | Shipping weight, with 4-post mount                                                 | 35.3       |
+| 3      | Model 642GT install handling, 4-post (without bezel and with inner rails attached) | 20.4       |
+|        |                                                                                    |            |
+| 4      | Shipping weight, with 2-post mount                                                 | 32.1       |
+| 5      | Model 642GT install handling, 2-post (without bezel and with inner rails attached) | 20.4       |
+|        |                                                                                    |            |
+| 6      | Shipping weight with wall mount                                                    | 31.1       |
+| 7      | Model 642GT install handling without bezel                                         | 19.8       |
+|        |                                                                                    |            |
+| 8      | 4 post in box                                                                      | 6.28       |
+| 9      | 2 post in box                                                                      | 3.08       |
+| 10     | Wall mount as packaged                                                             | 2.16       |
 
 
 

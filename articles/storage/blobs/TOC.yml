@@ -320,6 +320,8 @@ items:
         href: ../common/storage-account-get-info.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Create and manage containers
       items:
+      - name: Manage containers (CLI)
+        href: blob-containers-cli.md      
       - name: Manage containers (PowerShell)
         href: blob-containers-powershell.md
       - name: Create or delete a container (.NET)

@@ -54,6 +54,6 @@ Building resilient systems on Azure is a shared responsibility. Microsoft is res
 
 - [Regions and availability zones in Azure](az-overview.md)
 - [Azure services that support availability zones](az-region.md)
-- [Resilience in Azure whitepaper](https://azure.microsoft.com/mediahandler/files/resourcefiles/resilience-in-azure-whitepaper/Resilience%20in%20Azure.pdf)
+- [Azure Resiliency whitepaper](https://azure.microsoft.com/resources/resilience-in-azure-whitepaper/)
 - [Azure Well-Architected Framework](https://www.aka.ms/WellArchitected/Framework)
 - [Azure architecture guidance](/azure/architecture/high-availability/building-solutions-for-high-availability)
