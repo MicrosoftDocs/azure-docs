@@ -21,7 +21,7 @@ You can import or export data by using either the [Azure portal](https://portal.
 
 Import brings configuration data into an App Configuration store from an existing source. Use the import function to migrate data into an App Configuration store or aggregate data from multiple sources. App Configuration supports importing from a JSON, YAML, or properties file.
 
-### [Azure portal](#tab/azure-portal/importdata)
+### [Azure portal](#tab/azure-portal)
 
 From the Azure portal, follow these steps:
 
@@ -43,7 +43,7 @@ From the Azure portal, follow these steps:
 
     :::image type="content" source="./media/import-file-complete.png" alt-text="Screenshot of the Azure portal, file import completed":::
 
-### [Azure CLI](#tab/azure-cli/importdata)
+### [Azure CLI](#tab/azure-cli)
 
 From the [Azure CLI](./scripts/cli-import.md), use the following code to import configurations into App Configuration from another place.
 
@@ -74,13 +74,13 @@ az appconfig kv import --source {appconfig, appservice, file}
                        [--yes]
 ```
 
-For more details and examples, go to [az appconfig kv import](https://docs.microsoft.com/en-us/cli/azure/appconfig/kv?view=azure-cli-latest#az-appconfig-kv-import).
+For more details and examples, go to [az appconfig kv import](/cli/azure/appconfig/kv?view=azure-cli-latest#az-appconfig-kv-import&preserve-view=true).
 
 ## Export data
 
 Export writes configuration data stored in App Configuration to another destination. Use the export function, for example, to save data in an App Configuration store to a file that's embedded with your application code during deployment.
 
-### [Azure portal](#tab/azure-portal/exportdata)
+### [Azure portal](#tab/azure-portal)
 
 From the [Azure portal](https://portal.azure.com), follow these steps:
 
@@ -96,7 +96,7 @@ From the [Azure portal](https://portal.azure.com), follow these steps:
 
     :::image type="content" source="./media/export-file-complete.png" alt-text="Screenshot of the Azure portal, exporting a file":::
 
-### [Azure CLI](#tab/azure-cli/exportdata)
+### [Azure CLI](#tab/azure-cli)
 
 From the [Azure CLI](./scripts/cli-export.md), use the following code to export configurations from App Configuration to another place.
 
@@ -128,7 +128,7 @@ az appconfig kv export --destination {appconfig, appservice, file}
                        [--yes]
 ```
 
-For more details and examples, go to [az appconfig kv export](https://docs.microsoft.com/en-us/cli/azure/appconfig/kv?view=azure-cli-latest#az-appconfig-kv-export).
+For more details and examples, go to [az appconfig kv export](/cli/azure/appconfig/kv?view=azure-cli-latest#az-appconfig-kv-export&preserve-view=true).
 
 ## Next steps
 
