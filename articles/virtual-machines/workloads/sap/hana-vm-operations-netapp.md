@@ -46,7 +46,7 @@ When considering Azure NetApp Files for the SAP Netweaver and SAP HANA, be aware
 > For SAP HANA workloads, low latency is critical. Work with your Microsoft representative to ensure that the virtual machines and the Azure NetApp Files volumes are deployed in close proximity.  
 
 > [!IMPORTANT]
-> If there is a mismatch between User ID for <b>sid</b>adm and the Group ID for `sapsys` between the virtual machine and the Azure NetApp configuration, the permissions for files on Azure NetApp volumes, mounted to the VM, would be be displayed as `nobody`. Make sure to specify the correct User ID for <b>sid</b>adm and the Group ID for `sapsys`, when [on-boarding a new system](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxjSlHBUxkJBjmARn57skvdUQlJaV0ZBOE1PUkhOVk40WjZZQVJXRzI2RC4u) to Azure NetApp Files.
+> If there's a mismatch between User ID for <b>sid</b>adm and the Group ID for `sapsys` between the virtual machine and the Azure NetApp configuration, the permissions for files on Azure NetApp volumes, mounted to the VM, would be be displayed as `nobody`. Make sure to specify the correct User ID for <b>sid</b>adm and the Group ID for `sapsys`, when [on-boarding a new system](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxjSlHBUxkJBjmARn57skvdUQlJaV0ZBOE1PUkhOVk40WjZZQVJXRzI2RC4u) to Azure NetApp Files.
 
 
 ## Sizing for HANA database on Azure NetApp Files
@@ -90,7 +90,7 @@ As you design the infrastructure for SAP in Azure you should be aware of some mi
 
 Since all three KPIs are demanded, the **/hana/data** volume needs to be sized toward the larger capacity to fulfill the minimum read requirements. When using manual QoS capacity pools, size and throughput of the volumes can be defined independently. Since both capacity and throughput are taken from the same capacity pool, the pool‘s service level and size must be large enough to deliver the total performance (see example [here](../../../azure-netapp-files/azure-netapp-files-understand-storage-hierarchy.md#manual-qos-type))
 
-For HANA systems, which aren't requiring high bandwidth, the  ANF volume throughput can be lowered by either a  smaller volume size or, in case of manual QoS, adjusting the throughput directly. And in case a HANA system requires more throughput the volume could be adapted by resizing the capacity online. No KPIs are defined for backup volumes. However the backup volume throughput is essential for a well performing environment. Log – and Data volume performance must be designed to the customer expectations.
+For HANA systems, which aren't requiring high bandwidth, the  ANF volume throughput can be lowered by either a  smaller volume size or, using manual QoS, by adjusting the throughput directly. And in case a HANA system requires more throughput the volume could be adapted by resizing the capacity online. No KPIs are defined for backup volumes. However the backup volume throughput is essential for a well performing environment. Log – and Data volume performance must be designed to the customer expectations.
 
 > [!IMPORTANT]
 > Independent of the capacity you deploy on a single NFS volume, the throughput, is expected to plateau in the range of 1.2-1.4 GB/sec bandwidth utilized by a consumer in a single session. This has to do with the underlying architecture of the ANF offer and related Linux session limits around NFS. The performance and throughput numbers as documented in the article [Performance benchmark test results for Azure NetApp Files](../../../azure-netapp-files/performance-benchmarks-linux.md) were conducted against one shared NFS volume with multiple client VMs and as a result with multiple sessions. That scenario is different to the scenario we measure in SAP. Where we measure throughput from a single VM against an NFS volume. Hosted on ANF.
@@ -121,10 +121,10 @@ Therefore you could consider to deploy similar throughput for the ANF volumes as
 Documentation on how to deploy an SAP HANA scale-out configuration with standby node using NFS v4.1 volumes that are hosted in ANF is published in [SAP HANA scale-out with standby node on Azure VMs with Azure NetApp Files on SUSE Linux Enterprise Server](./sap-hana-scale-out-standby-netapp-files-suse.md).
 
 ## Deployment through application volume groups for SAP HANA (AVG)
-To deploy ANF volumes with proximity to your VM, a new functionality called application volume groups got developed. The functionality is currently in public preview. There is a series of articles that document the functionality. Best is to start with the article [Understand Azure NetApp Files application volume group for SAP HANA](../../../azure-netapp-files/application-volume-group-introduction.md). As you read the articles, it becomes clear that the usage of AVGs invovles the usage of Azure proximity placement groups as well. Proximity placement groups are used by the new functionality to tie into with the volumes that are getting created. To ensure that over the lifetime of the HANA system, the VM’s are not going to be moved away from the ANF volumes, we recommend using a combination of Avset/ PPG for each of the zones you deploy into.
+To deploy ANF volumes with proximity to your VM, a new functionality called application volume groups got developed. The functionality is currently in public preview. There is a series of articles that document the functionality. Best is to start with the article [Understand Azure NetApp Files application volume group for SAP HANA](../../../azure-netapp-files/application-volume-group-introduction.md). As you read the articles, it becomes clear that the usage of AVGs invovles the usage of Azure proximity placement groups as well. Proximity placement groups are used by the new functionality to tie into with the volumes that are getting created. To ensure that over the lifetime of the HANA system, the VM’s aren't going to be moved away from the ANF volumes, we recommend using a combination of Avset/ PPG for each of the zones you deploy into.
 The order of deployment would look like:
 
-- Using the [form](https://aka.ms/HANAPINNING) you need to request a pinning of the empty AvSet to a compute HW to ensure that VM’s are not going to move
+- Using the [form](https://aka.ms/HANAPINNING) you need to request a pinning of the empty AvSet to a compute HW to ensure that VM’s aren't going to move
 - Assign a PPG to the Avset and start a VM assigned to this Avset
 - Use Azure application volume group to deploy your HANA volumes
 
@@ -132,7 +132,7 @@ The proximity placement group configuration to use AVGs in an optimal way would 
 
 ![ANF application volume group and ppg architecture](media/hana-vm-operations-netapp/avg-ppg-architecture.png)
 
-The diagram shows that you are going to use an Azure proximity placement group for the DBMS layer. So, that it can get used together with ANF application volume groups. It's best to just include only the VM(s) that run the HANA instance(s) in the proximity placement group. The proximity placement group is necessary, even if only one VM with a single HANA instance is used, for the application volume group to identify the closest proximity of the ANF hardware. And to allocate the NFS volume on ANF as close as possible to the VM(s) that are using the NFS volumes.
+The diagram shows that you're going to use an Azure proximity placement group for the DBMS layer. So, that it can get used together with ANF application volume groups. It's best to just include only the VM(s) that run the HANA instance(s) in the proximity placement group. The proximity placement group is necessary, even if only one VM with a single HANA instance is used, for the application volume group to identify the closest proximity of the ANF hardware. And to allocate the NFS volume on ANF as close as possible to the VM(s) that are using the NFS volumes.
 
 ## Availability
 ANF system updates and upgrades are applied without impacting the customer environment. The defined [SLA is 99.99%](https://azure.microsoft.com/support/legal/sla/netapp/).
@@ -160,7 +160,7 @@ SAP HANA supports:
 Creating storage-based snapshot backups is a simple four-step procedure, 
 1. Creating a HANA (internal) database snapshot - an activity you or tools need to perform 
 1. SAP HANA writes data to the datafiles to create a consistent state on the storage - HANA performs this step as a result of creating a HANA snapshot
-1. Create a snapshot on the **/hana/data** volume on the storage - a step you or tools need to perform. There is no need to perform a snapshot on the **/hana/log** volume
+1. Create a snapshot on the **/hana/data** volume on the storage - a step you or tools need to perform. There's no need to perform a snapshot on the **/hana/log** volume
 1. Delete the HANA (internal) database snapshot and resume normal operation - a step you or tools need to perform
 
 > [!WARNING]
