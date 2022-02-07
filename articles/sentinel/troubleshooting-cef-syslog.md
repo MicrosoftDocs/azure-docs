@@ -20,19 +20,21 @@ Other symptoms of a failed connector deployment include when either the **securi
 
 For more information, see [Connect your external solution using Common Event Format](connect-common-event-format.md) and [Collect data from Linux-based sources using Syslog](connect-syslog.md).
 
-> [!NOTE]
-> The Log Analytics agent for Windows is often referred to as the *Microsoft Monitoring Agent (MMA)*. The Log Analytics agent for Linux is often referred to as the *OMS agent*.
->
+If you've deployed your connector using a method different than the documented procedure and are having issues, we recommend that you purge the deployment and install again as documented.
 
-> [!TIP]
-> When troubleshooting, we recommend that you work through the steps in this article in the order they're presented to check and resolve issues in your Syslog Collector, operating system, or OMS agent.
->
-> If you've deployed your connector using a method different than the documented procedure and are having issues, we recommend that you purge the deployment and install again as documented.
->
+## How to use this article
+
+When information in this article is relevant only for Syslog or only for CEF connectors, we've organized the page into tabs. Make sure that you're using the instructions on the correct tab for your connector type.
+
+For example, if you're troubleshooting a CEF connector, start with [Validate CEF connectivity](#validate-cef-connectivity). If you're troubleshooting a Syslog connector, start below, with [Verify CEF or Syslog prerequisites](#verify-cef-or-syslog-prerequisites).
+
+# [CEF](#tab/cef)
 
 ## Validate CEF connectivity
 
 After you've [deployed your log forwarder](connect-common-event-format.md) and [configured your security solution to send it CEF messages](./connect-common-event-format.md), use the steps in this section to verify connectivity between your security solution and Microsoft Sentinel.
+
+This procedure is relevant only for CEF connections, and is *not* relevant for Syslog connections.
 
 1. Make sure that you have the following prerequisites:
 
@@ -60,7 +62,7 @@ After you've [deployed your log forwarder](connect-common-event-format.md) and [
 
 ### CEF validation script explained
 
-The validation script performs the following checks:
+The CEF validation script performs the following checks:
 
 # [rsyslog daemon](#tab/rsyslog)
 
@@ -249,28 +251,31 @@ The validation script performs the following checks:
     | where DeviceProduct == "MOCK"
     ```
 ---
+---
 
 ## Verify CEF or Syslog prerequisites
 
 Use the following sections to check your CEF or Syslog data connector prerequisites.
 
-### Azure Virtual Machine as a Syslog collector
 
-If you're using an Azure Virtual Machine as a Syslog collector, verify the following:
+# [CEF](#tab/cef)
+### Azure Virtual Machine as a CEF collector
 
-- While you are setting up your Syslog data connector, make sure to turn off your [Microsoft Defender for Cloud auto-provisioning settings](../security-center/security-center-enable-data-collection.md) for the [MMA/OMS agent](connect-windows-security-events.md#connector-options).
+If you're using an Azure Virtual Machine as a CEF collector, verify the following:
 
-    You can turn them back on after your data connector is completely set up.
+# [CEF](#tab/cef)
 
-- Before you deploy the [Common Event Format Data connector python script](./connect-log-forwarder.md), make sure that your Virtual Machine isn't already connected to an existing Syslog workspace. You can find this information on the Log Analytics Workspace Virtual Machine list, where a VM that's connected to a Syslog workspace is listed as **Connected**.
+- Before you deploy the [Common Event Format Data connector python script](./connect-log-forwarder.md), make sure that your Virtual Machine isn't already connected to an existing Log Analytics workspace. You can find this information on the Log Analytics Workspace Virtual Machine list, where a VM that's connected to a Syslog workspace is listed as **Connected**.
 
-- Make sure that Microsoft Sentinel is connected to the correct Syslog workspace, with the **SecurityInsights** solution installed.
+- Make sure that Microsoft Sentinel is connected to the correct Log Analytics workspace, with the **SecurityInsights** solution installed.
 
     For more information, see [Step 1: Deploy the log forwarder](./connect-log-forwarder.md).
 
 - Make sure that your machine is sized correctly with at least the minimum required prerequisites. For more information, see [CEF prerequisites](connect-common-event-format.md#prerequisites).
 
 ### On-premises or a non-Azure Virtual Machine
+
+CEF ONLY
 
 If you are using an on-premises machine or a non-Azure virtual machine for your data connector, make sure that you've run the installation script on a fresh installation of a supported Linux operating system:
 
@@ -282,7 +287,45 @@ If you are using an on-premises machine or a non-Azure virtual machine for your 
 sudo wget -O cef_installer.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_installer.py&&sudo python cef_installer.py <WorkspaceId> <Primary Key>
 ```
 
-### Enable your Syslog facility and log severity collection
+### Enable your CEF facility and log severity collection
+
+The Syslog server, either rsyslog or syslog-ng, forwards any data defined in the relevant configuration file, which is automatically populated by the settings defined in your Log Analytics workspace.
+
+Make sure to add details about the facilities and severity log levels that you want to be ingested into Microsoft Sentinel. The configuration process may take about 20 minutes.
+
+For more information, see [Deployment script explained](./connect-log-forwarder.md#deployment-script-explained) and [Configure Syslog in the Azure portal](../azure-monitor/agents/data-sources-syslog.md).
+
+For example, for an rsyslog server, run the following command to display the current settings for your Syslog forwarding, and review any changes to the configuration file:
+
+```bash
+cat /etc/rsyslog.d/security-config-omsagent.conf
+```
+
+In this case, for rsyslog, output similar to the following should display:
+
+```bash
+if $rawmsg contains "CEF:" or $rawmsg contains "ASA-" then @@127.0.0.1:25226
+```
+
+
+# [Syslog](#tab/syslog)
+
+### Azure Virtual Machine as a Syslog collector
+
+If you're using an Azure Virtual Machine as a Syslog collector, verify the following:
+
+- While you are setting up your Syslog data connector, make sure to turn off your [Microsoft Defender for Cloud auto-provisioning settings](../security-center/security-center-enable-data-collection.md) for the [MMA/OMS agent](connect-windows-security-events.md#connector-options).
+
+    You can turn them back on after your data connector is completely set up.
+
+- Make sure that Microsoft Sentinel is connected to the correct Log Analytics workspace, with the **SecurityInsights** solution installed.
+
+    For more information, see [Step 1: Deploy the log forwarder](./connect-log-forwarder.md).
+
+- Make sure that your machine is sized correctly with at least the minimum required prerequisites. For more information, see [CEF prerequisites](connect-common-event-format.md#prerequisites).
+
+### Enable your Syslog/CEF facility and log severity collection
+
 
 The Syslog server, either rsyslog or syslog-ng, forwards any data defined in the relevant configuration file, which is automatically populated by the settings defined in your Log Analytics workspace.
 
@@ -310,21 +353,12 @@ local4.=alert;local4.=crit;local4.=debug;local4.=emerg;local4.=err;local4.=info;
 syslog.=alert;syslog.=crit;syslog.=debug;syslog.=emerg;syslog.=err;syslog.=info;syslog.=notice;syslog.=warning  @127.0.0.1:25224
 ```
 
+---
 
-**For CEF forwarding, for an rsyslog server**, run the following command to display the current settings for your Syslog forwarding, and review any changes to the configuration file:
-
-```bash
-cat /etc/rsyslog.d/security-config-omsagent.conf
-```
-
-In this case, for rsyslog, output similar to the following should display:
-
-```bash
-if $rawmsg contains "CEF:" or $rawmsg contains "ASA-" then @@127.0.0.1:25226
-```
 
 ## Troubleshoot operating system issues
 
+BOTH 
 This procedure describes how to troubleshoot issues that are certainly derived from the operating system configuration.
 
 **To troubleshoot operating system issues**:
@@ -333,6 +367,7 @@ This procedure describes how to troubleshoot issues that are certainly derived f
 
 1. If your Virtual Machine is in Azure, verify that the network security group (NSG) allows inbound TCP/UDP connectivity from your log client (Sender) on port 514.
 
+SYSLOG ONLY
 1. Verify that packets are arriving to the Syslog Collector. To capture the syslog packets arriving to the Syslog Collector, run:
 
     ```config
@@ -352,8 +387,8 @@ This procedure describes how to troubleshoot issues that are certainly derived f
     ```config
     watch -n 2 -d iptables -nvL
     ```
-
-1. Verify whether the Syslog server is processing the logs. Run:
+BOTH 
+1. Verify whether the Syslog / CEF server is processing the logs. Run:
 
     ```config
     tail -f /var/log/messages or tail -f /var/log/syslog
@@ -367,6 +402,7 @@ This procedure describes how to troubleshoot issues that are certainly derived f
     netstat -anp | grep syslog
     ```
 
+CEF / ASA
     If you have any CEF or ASA logs being sent to your Syslog Collector, you should see an established connection on TCP port 25226.
 
     For example:
@@ -378,6 +414,7 @@ This procedure describes how to troubleshoot issues that are certainly derived f
     If the connection is blocked, you may have a [blocked SELinux connection to the OMS agent](#selinux-blocking-connection-to-the-oms-agent), or a [blocked firewall process](#blocked-firewall-policy). Use the following sets of instructions to determine the issue.
 
 ### SELinux blocking connection to the OMS agent
+BOTH
 
 This procedure describes how to confirm whether SELinux is currently in a `permissive` state, or is blocking a connection to the OMS agent. This procedure is relevant when your operating system is a distribution from RedHat or CentOS.
 
@@ -422,6 +459,8 @@ This procedure describes how to confirm whether SELinux is currently in a `permi
 
 
 ### Blocked firewall policy
+
+BOTH
 
 This procedure describes how to verify whether a firewall policy is blocking the connection from the Rsyslog daemon to the OMS agent, and how to disable it as needed.
 
@@ -493,12 +532,13 @@ In such cases, continue troubleshooting by verifying the following:
 
 - Make sure that you can see logs being written to the local log file, either **/var/log/messages** or **/var/log/syslog**
 
-- Make sure that you can see data packets flowing on port 25224, 25226, or both
+- Make sure that you can see data packets flowing on port (SYSLOG) 25224, (CEF) 25226, or both
 
 - Make sure that your virtual machine has an outbound connection to port 443 via TCP, or can connect to the [Log Analytics endpoints](../azure-monitor/agents/log-analytics-agent.md#network-requirements)
 
-- Make sure that you have access to required URLs from your Syslog collector through your firewall policy. For more information, see [Log Analytics agent firewall requirements](../azure-monitor/agents/log-analytics-agent.md#firewall-requirements).
+- Make sure that you have access to required URLs from your Syslog or CEF collector through your firewall policy. For more information, see [Log Analytics agent firewall requirements](../azure-monitor/agents/log-analytics-agent.md#firewall-requirements).
 
+SYSLOG ONLY
 - Make sure that your Azure Virtual Machine is shown as connected in your workspace's list of virtual machines.
 
 Run the following command to determine if the agent is communicating successfully with Azure, or if the OMS agent is blocked from connecting to the Log Analytics workspace.
