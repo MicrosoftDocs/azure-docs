@@ -328,7 +328,7 @@ If making a change to the app is a no go, then consider having the BIG-IP listen
 
 ## Summary
 
-Select **Deploy** to commit all settings and verify that the application has appeared in your tenant. This last step provides break down of all applied settings before they’re committed.
+This last step provides a breakdown of your configurations. Select **Deploy** to commit all settings and verify that the application now exists in your tenants list of ‘Enterprise applications.
 
 Your application should now be published and accessible via SHA, either directly via its URL or through Microsoft’s application portals. 
 

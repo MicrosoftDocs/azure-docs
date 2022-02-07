@@ -526,6 +526,10 @@ az aks nodepool add \
     --labels dept=IT costcenter=9999 \
     --no-wait
 ```
+
+> [!NOTE]
+> Labels must be a key/value pair and have a [valid syntax][kubernetes-label-syntax].
+
 The following example output from the [az aks nodepool list][az-aks-nodepool-list] command shows that *labelnp* is *Creating* nodes with the specified *nodeLabels*:
 
 ```console
