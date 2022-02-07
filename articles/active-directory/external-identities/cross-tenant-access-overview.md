@@ -54,7 +54,7 @@ You can configure organization-specific settings by adding an organization and m
 ## Important considerations
 
 > [!IMPORTANT]
-> Changing the default inbound or outbound settings to Block access could block existing business-critical access to apps in your organization or partner organizations. Be sure to use the tools described in this article and consult with your business stakeholders to identify the required access.
+> Changing the default inbound or outbound settings to block access could block existing business-critical access to apps in your organization or partner organizations. Be sure to use the tools described in this article and consult with your business stakeholders to identify the required access.
 
 - Cross-tenant access settings are used to manage B2B collaboration with other Azure AD organizations. For non-Azure AD identities (for example, social identities or non-IT managed external accounts), use [external collaboration settings](external-collaboration-settings-configure.md). External collaboration settings include options for restricting guest user access, specifying who can invite guests, and allowing or blocking domains.
 
@@ -105,7 +105,7 @@ The output is a list of outbound sign-ins initiated by your users to apps in ext
 
 ### Azure Monitor
 
-If your organization subscribes to the Azure Monitor service, you can use the **Cross-tenant access activity**  workbook (available in the Monitoring workbooks gallery in the Azure portal) to visually explore inbound and outbound sign-ins for longer time periods.  
+If your organization subscribes to the Azure Monitor service, you can use the [Cross-tenant access activity workbook](/reports-monitoring/workbook-cross-tenant-access-activity.md) (available in the Monitoring workbooks gallery in the Azure portal) to visually explore inbound and outbound sign-ins for longer time periods.
 
 ### Security Information and Event Management (SIEM) Systems
 
