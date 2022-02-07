@@ -64,7 +64,7 @@ To create a single database in the Azure portal, this quickstart starts at the A
 1. For **Firewall rules**, set **Add current client IP address** to **Yes**. Leave **Allow Azure services and resources to access this server** set to **No**.
 1. Select **Next: Security** at the bottom of the page.
 
-    :::image type="content" source="media/hyperscale-database-create-quickstart/azure-sql-database-configure-network.png" alt-text="The service and compute tier configuration page for a new database in Azure SQL Database. The Hyperscale service tier has been selected." lightbox="media/hyperscale-database-create-quickstart/azure-sql-database-configure-network.png":::
+    :::image type="content" source="media/hyperscale-database-create-quickstart/azure-sql-database-configure-network.png" alt-text="The networking configuration page for a new database in Azure SQL Database enables you to configure endpoints and optionally add a firewall rule for your client IP address." lightbox="media/hyperscale-database-create-quickstart/azure-sql-database-configure-network.png":::
 
 1. Optionally, enable [Microsoft Defender for SQL](../database/azure-defender-for-sql.md).
 1. Select **Next: Additional settings** at the bottom of the page.

@@ -143,9 +143,9 @@ With the ability to rapidly spin up/down additional read-only compute nodes, the
 
 ## Create a Hyperscale database
 
-A Hyperscale database can be created using the [Azure portal](https://portal.azure.com), [T-SQL](/sql/t-sql/statements/create-database-transact-sql), [PowerShell](/powershell/module/azurerm.sql/new-azurermsqldatabase), or [CLI](/cli/azure/sql/db#az_sql_db_create). Hyperscale databases are available only using the [vCore-based purchasing model](service-tiers-vcore.md).
+A Hyperscale database can be created using the [Azure portal](https://portal.azure.com), [Transact-SQL](/sql/t-sql/statements/create-database-transact-sql), [PowerShell](/powershell/module/azurerm.sql/new-azurermsqldatabase), or the [Azure CLI](/cli/azure/sql/db#az_sql_db_create). Hyperscale databases are available only using the [vCore-based purchasing model](service-tiers-vcore.md).
 
-The following T-SQL command creates a Hyperscale database. You must specify both the edition and service objective in the `CREATE DATABASE` statement. Refer to the [resource limits](./resource-limits-vcore-single-databases.md#hyperscale---provisioned-compute---gen4) for a list of valid service objectives.
+The following T-SQL command creates a Hyperscale database on Gen5 hardware with four cores. You must specify both the edition and service objective in the `CREATE DATABASE` statement. Refer to the [resource limits](./resource-limits-vcore-single-databases.md#hyperscale---provisioned-compute---gen4) for a list of valid service objectives.
 
 ```sql
 -- Create a Hyperscale Database
@@ -153,7 +153,7 @@ CREATE DATABASE [HyperscaleDB1] (EDITION = 'Hyperscale', SERVICE_OBJECTIVE = 'HS
 GO
 ```
 
-This will create a Hyperscale database on Gen5 hardware with four cores.
+Find examples to create a Hyperscale database in [Quickstart: Create a Hyperscale database in Azure SQL Database](hyperscale-database-create-quickstart.md).
 
 ## Upgrade an existing database to Hyperscale
 
