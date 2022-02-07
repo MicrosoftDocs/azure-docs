@@ -40,7 +40,7 @@ Zone redundancy is a property of the App Service plan. The following are the cur
 - Zone redundancy can only be specified when creating a **new** App Service plan
   - Currently you can't convert a pre-existing App Service plan. See next bullet for details on how to create a new App Service plan that supports zone redundancy.
 - Zone redundancy is only supported in the newer portion of the App Service footprint
-  - Currently if you're running on Pv3, then it is possible that you're already on a footprint that supports zone redundancy. In this scenario, you can create a new App Service plan and specify zone redundancy when creating the new App Service plan.
+  - Currently if you're running on Pv3, then it's possible that you're already on a footprint that supports zone redundancy. In this scenario, you can create a new App Service plan and specify zone redundancy when creating the new App Service plan.
   - If you aren't using Pv3 or a scale unit that supports zone redundancy, are in an unsupported region, or are unsure, follow the steps below:
     - Create a new resource group in a region that is supported
       - This ensures the App Service control plane can find a scale unit in the selected region that supports zone redundancy
