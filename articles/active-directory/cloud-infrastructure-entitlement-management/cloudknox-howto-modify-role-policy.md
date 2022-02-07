@@ -47,4 +47,4 @@ This article describes how you can use the **Remediation** dashboard in CloudKno
 - For information on how to attach and detach permissions for AWS identities, see [Attach and detach policies for AWS identities](cloudknox-howto-attach-detach-permissions.md).
 - For information on how to revoke high-risk and unused tasks or assign read-only status for Azure and GCP identities, see [Revoke high-risk and unused tasks or assign read-only status for Azure and GCP identities](cloudknox-howto-revoke-task-readonly-status.md)
 - For information on how to create or approve a request for permissions, see [Create or approve a request for permissions](cloudknox-howto-create-approve-privilege-request.md).
-- For information on how to view information about roles/policies, see [View information about roles/policies](loudknox-howto-view-role-policy.md)
+- For information on how to view information about roles/policies, see [View information about roles/policies](cloudknox-howto-view-role-policy.md)
