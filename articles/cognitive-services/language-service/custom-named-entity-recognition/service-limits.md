@@ -14,7 +14,7 @@ ms.custom: language-service-custom-ner, references_regions, ignite-fall-2021
 ---
 
 # Custom Named Entity Recognition (NER) service limits
- 
+
 Use this article to learn about the data and service limits when using Custom NER.
 
 ## File limits
