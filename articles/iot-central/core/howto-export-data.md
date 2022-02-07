@@ -4,7 +4,7 @@ description: How to use the new data export to export your IoT data to Azure and
 services: iot-central
 author: dominicbetts
 ms.author: dobett
-ms.date: 10/20/2021
+ms.date: 01/31/2022
 ms.topic: how-to
 ms.service: iot-central
 ms.custom: contperf-fy21q1, contperf-fy21q3
@@ -84,6 +84,53 @@ IoT Central exports data in near real time to a database table in the Azure Data
 
 To query the exported data in the Azure Data Explorer portal, navigate to the database and select **Query**.
 
+### Connection options
+
+Azure Data Explorer destinations let you configure the connection with a *service principal* or a [managed identity](../../active-directory/managed-identities-azure-resources/overview.md).
+
+Managed identities are more secure because:
+
+- You don't store the credentials for your resource in your IoT Central application.
+- The credentials are automatically tied to the lifetime of your IoT Central application.
+- Managed identities automatically rotate their security keys regularly.
+
+IoT Central currently uses [system-assigned managed identities](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types).
+
+When you configure a managed identity, the configuration includes a *scope* and a *role*:
+
+- The scope defines where you can use the managed identity.
+- The role defines what permissions the IoT Central application is granted in the destination service.
+
+This article shows how to create a managed identity using the Azure CLI. You can also use the Azure portal to create a manged identity.
+
+# [Webhook](#tab/webhook)
+
+For webhook destinations, IoT Central exports data in near real time. The data in the message body is in the same format as for Event Hubs and Service Bus.
+
+### Create a webhook destination
+
+You can export data to a publicly available HTTP webhook endpoint. You can create a test webhook endpoint using [RequestBin](https://requestbin.net/). RequestBin throttles request when the request limit is reached:
+
+1. Open [RequestBin](https://requestbin.net/).
+1. Create a new RequestBin and copy the **Bin URL**. You use this URL when you test your data export.
+
+To create the Azure Data Explorer destination in IoT Central on the **Create new destination** page:
+
+1. Enter a **Destination name**.
+
+1. Select **Webhook** as the destination type.
+
+1. Paste the callback URL for your webhook endpoint. You can optionally configure webhook authorization and add custom headers.
+
+    - For **OAuth2.0**, only the client credentials flow is supported. When you save the destination, IoT Central communicates with your OAuth provider to retrieve an authorization token. This token is attached to the `Authorization` header for every message sent to this destination.
+    - For **Authorization token**, you can specify a token value that's directly attached to the `Authorization` header for every message sent to this destination.
+
+1. Select **Save**.
+
+---
+
+# [Service principal](#tab/service-principal/data-explorer)
+
 ### Create an Azure Data Explorer destination
 
 If you don't have an existing Azure Data Explorer database to export to, follow these steps:
@@ -152,31 +199,80 @@ To create the Azure Data Explorer destination in IoT Central on the **Create new
 
     :::image type="content" source="media/howto-export-data/export-destination.png" alt-text="Screenshot of Azure Data Explorer export destination.":::
 
-# [Webhook](#tab/webhook)
+# [Managed identity](#tab/managed-identity/data-explorer)
 
-For webhook destinations, IoT Central exports data in near real time. The data in the message body is in the same format as for Event Hubs and Service Bus.
+### Create an Azure Data Explorer destination
 
-### Create a webhook destination
+If you don't have an existing Azure Data Explorer database to export to, follow these steps. You have two choices to create an Azure Data Explorer database:
 
-You can export data to a publicly available HTTP webhook endpoint. You can create a test webhook endpoint using [RequestBin](https://requestbin.net/). RequestBin throttles request when the request limit is reached:
+- Create a new Azure Data Explorer cluster and database. To learn more, see the [Azure Data Explorer quickstart](/azure/data-explorer/create-cluster-database-portal). Make a note of the cluster URI and the name of the database you create, you need these values in the following steps.
+- Create a new Azure Synapse Data Explorer pool and database. To learn more, see the [Azure Data Explorer quickstart](../../synapse-analytics/get-started-analyze-data-explorer.md). Make a note of the pool URI and the name of the database you create, you need these values in the following steps.
 
-1. Open [RequestBin](https://requestbin.net/).
-1. Create a new RequestBin and copy the **Bin URL**. You use this URL when you test your data export.
+To configure the managed identity that enables your IoT Central application to securely export data to your Azure resource:
+
+1. Create a managed identity for your IoT Central application to use to connect to your database. Use the Azure Cloud Shell to run the following command:
+
+    ```azurecli
+    az iot central app identity assign --name {your IoT Central app name} \
+        --resource-group {resource group name} \
+        --system-assigned
+    ```
+
+    Make a note of the `principalId` and `tenantId` output by the command. You use these values in the following step.
+
+1. Configure the database permissions to allow connections from your IoT Central application. Use the Azure Cloud Shell to run the following command:
+
+    ```azurecli
+    az kusto database-principal-assignment create --cluster-name {name of your cluster} \
+        --database-name {name of your database}    \
+        --resource-group {resource group name} \
+        --principal-assignment-name {name of your IoT Central application} \
+        --principal-id {principal id from the previous step} \
+        --principal-type App --role Admin \
+        --tenant-id {tenant id from the previous step}
+    ```
+
+    > [!TIP]
+    > If you're using Azure Synapse, see [`az synapse kusto database-principal-assignment`](/cli/azure/synapse/kusto/database-principal-assignment).
+
+1. Create a table in your database with a suitable schema for the data you're exporting. The following example query creates a table called `smartvitalspatch`. To learn more, see [Transform data inside your IoT Central application for export](howto-transform-data-internally.md):
+
+    ```kusto
+    .create table smartvitalspatch (
+      EnqueuedTime:datetime,
+      Message:string,
+      Application:string,
+      Device:string,
+      Simulated:boolean,
+      Template:string,
+      Module:string,
+      Component:string,
+      Capability:string,
+      Value:dynamic
+    )
+    ```
+
+1. (Optional) To speed up ingesting data into your Azure Data Explorer database:
+
+    1. Navigate to the **Configurations** page for your Azure Data Explorer cluster. Then enable the **Streaming ingestion** option.
+    1. Run the following query to alter the table policy to enable streaming ingestion:
+
+        ```kusto
+        .alter table smartvitalspatch policy streamingingestion enable
+        ```
 
 To create the Azure Data Explorer destination in IoT Central on the **Create new destination** page:
 
 1. Enter a **Destination name**.
 
-1. Select **Webhook** as the destination type.
+1. Select **Azure Data Explorer** as the destination type.
 
-1. Paste the callback URL for your webhook endpoint. You can optionally configure webhook authorization and add custom headers.
+1. Enter your Azure Data Explorer cluster or pool URL, database name, and table name. Select **System-assigned managed identity** as the authorization type.
 
-    - For **OAuth2.0**, only the client credentials flow is supported. When you save the destination, IoT Central communicates with your OAuth provider to retrieve an authorization token. This token is attached to the `Authorization` header for every message sent to this destination.
-    - For **Authorization token**, you can specify a token value that's directly attached to the `Authorization` header for every message sent to this destination.
+    > [!TIP]
+    > The cluster URL for a standalone Azure Data Explorer looks like `https://<ClusterName>.<AzureRegion>.kusto.windows.net`. The cluster URL for an Azure Synapse Data Explorer pool looks like `https://<DataExplorerPoolName>.<SynapseWorkspaceName>.kusto.azuresynapse.net`.
 
-1. Select **Save**.
-
----
+    :::image type="content" source="media/howto-export-data/export-destination-managed.png" alt-text="Screenshot of Azure Data Explorer export destination.":::
 
 # [Connection string](#tab/connection-string/event-hubs)
 
@@ -196,9 +292,9 @@ If you don't have an existing Event Hubs namespace to export to, follow these st
     - Copy either the primary or secondary connection string. You use this connection string to set up a new destination in IoT Central.
     - Alternatively, you can generate a connection string for the entire Event Hubs namespace:
         1. Go to your Event Hubs namespace in the Azure portal.
-        2. Under **Settings**, select **Shared Access Policies**
+        2. Under **Settings**, select **Shared Access Policies**.
         3. Create a new key or choose an existing key that has **Send** permissions.
-        4. Copy either the primary or secondary connection string
+        4. Copy either the primary or secondary connection string.
 
 To create the Event Hubs destination in IoT Central on the **Create new destination** page:
 
@@ -271,9 +367,9 @@ If you don't have an existing Service Bus namespace to export to, follow these s
     - Copy either the primary or secondary connection string. You use this connection string to set up a new destination in IoT Central.
     - Alternatively, you can generate a connection string for the entire Service Bus namespace:
         1. Go to your Service Bus namespace in the Azure portal.
-        2. Under **Settings**, select **Shared Access Policies**
+        2. Under **Settings**, select **Shared Access Policies**.
         3. Create a new key or choose an existing key that has **Send** permissions.
-        4. Copy either the primary or secondary connection string
+        4. Copy either the primary or secondary connection string.
 
 To create the Service Bus destination in IoT Central on the **Create new destination** page:
 

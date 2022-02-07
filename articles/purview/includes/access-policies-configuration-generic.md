@@ -13,9 +13,9 @@ Execute this step only if the data sources and the Azure Purview account are in 
 
 ### Configure permissions for policy management actions
 
-#### Storage account permissions
-User needs to have **either one of these** role combinations in the data source, resource group or subscription to be able to register it for *Data use Governance* in Azure Purview:
-- IAM *Owner* 
+#### Azure RBAC permissions
+To register a data source, resource group, or subscription in Azure Purview with the *Data use Governance* option set, a user must be **either one of the following** IAM role combinations for that resource:
+- IAM *Owner*
 - Both IAM *Contributor* + IAM *User Access Administrator*
  
 Follow this [guide to configure Azure RBAC permissions](../../role-based-access-control/check-access.md)

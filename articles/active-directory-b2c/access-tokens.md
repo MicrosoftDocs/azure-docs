@@ -79,6 +79,9 @@ client_id=<application-ID>
 &scope=<application-ID-URI>/<scope-name>
 &response_type=code
 ```
+This is the interactive part of the flow, where you take action. You're asked to complete the user flow's workflow. This might involve entering your username and password in a sign in form or any other number of steps. The steps you complete depend on how the user flow is defined.
+
+If you're testing this GET HTTP request, use your browser. 
 
 The response with the authorization code should be similar to this example:
 
@@ -100,8 +103,10 @@ grant_type=authorization_code
 &redirect_uri=https://jwt.ms
 &client_secret=2hMG2-_:y12n10vwH...
 ```
- 
-You should see something similar to the following response:
+
+If you're testing this POST HTTP request, you can use any HTTP client such as [Microsoft PowerShell](/powershell/scripting/overview) or [Postman](https://www.postman.com/).
+
+A successful token response looks like this:
 
 ```json
 {

@@ -437,6 +437,8 @@
         href: ./linux/imaging.md
       - name: Linux provisioning
         href: ./linux/provisioning.md
+      - name: Endorsed Linux distributions
+        href: ./linux/endorsed-distros.md
       - name: Linux distribution specific requirements
         items:
         - name: Generic steps
@@ -692,8 +694,6 @@
     items:
     - name: Linux
       items:
-      - name: Endorsed distributions
-        href: ./linux/endorsed-distros.md
       - name: CLI
         displayName: Create VM, Create
         href: ./linux/create-cli-complete.md
