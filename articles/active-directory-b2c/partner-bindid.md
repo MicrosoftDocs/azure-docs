@@ -1,7 +1,7 @@
 ---
-title: Tutorial to configure Azure Active Directory B2C with BindID
+title: Configure Azure Active Directory B2C with BindID
 titleSuffix: Azure AD B2C
-description: Tutorial to configure Azure Active Directory B2C with BindID for passwordless strong customer authentication
+description: Configure Azure Active Directory B2C with BindID for passwordless strong customer authentication
 services: active-directory-b2c
 author: gargi-sinha
 manager: martinco
