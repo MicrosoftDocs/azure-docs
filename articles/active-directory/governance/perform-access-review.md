@@ -32,10 +32,7 @@ You can review access to groups and applications two ways. You can review either
 
    ![Example email from Microsoft to review access to a group](./media/perform-access-review/access-review-email-preview.png)
 
-1. Click the **Start review** link to open the access review.
-
->[!NOTE]
->If clicking start review takes you to **My Apps** follow the steps listed in the section above titled **My Apps Portal**.
+1. Click the **Start review** link to open the access review.git pu
 
 ### Use My Access 
 
