@@ -64,7 +64,7 @@ This section helps you upload files from your local computer to your target VM o
    az network bastion tunnel --name "<BastionName>" --resource-group "<ResourceGroupName>" --target-resource-id "<VMResourceId>" --resource-port "<TargetVMPort>" --port "<LocalMachinePort>"
     ```
 
-1. Upload files to your local machine to your target VM using the following command:
+1. Open a second command prompt to connect to your target VM through the tunnel. In this second command prompt window, you can upload files from your local machine to your target VM using the following command:
 
     ```azurecli-interactive
     scp -P <LocalMachinePort>  <local machine file path>  <username>@127.0.0.1:<target VM file path>
