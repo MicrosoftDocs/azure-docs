@@ -166,7 +166,7 @@ You configured the Conditional Access policy to require additional authenticatio
 
 1. Select **Next** to begin the process. 
 
-   You can choose to configure an authentication phone, an office phone, or a mobile app for authentication. _Authentication phone_ supports test messages and phone calls, _office phone_ supports calls to numbers that have an extension, and _mobile app_ supports using a mobile app to receive notifications for authentication or to generate authentication codes.
+   You can choose to configure an authentication phone, an office phone, or a mobile app for authentication. _Authentication phone_ supports text messages and phone calls, _office phone_ supports calls to numbers that have an extension, and _mobile app_ supports using a mobile app to receive notifications for authentication or to generate authentication codes.
 
    :::image type="content" alt-text="A prompt that says, 'Additional security verification.' This is a prompt to configure a method of multi-factor authentication for this user. You can choose as the method an authentication phone, an office phone, or a mobile app." source="media/tutorial-enable-azure-mfa/azure-multi-factor-authentication-additional-security-verification-mobile-app.png":::
 
