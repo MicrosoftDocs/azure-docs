@@ -91,7 +91,7 @@ The output is a summary of all available sign-in events for inbound and outbound
 
 ### Sign-in logs PowerShell script
 
-To determine your users' access to external Azure AD organizations, you can use the [Get-MgAuditLogSignIn](/powershell/module/microsoft.graph.reports/get-mgauditlogsignin?view=graph-powershell-beta) cmdlet in the Microsoft Graph PowerShell SDK to view data from your sign-in logs for the last 30 days. For example, run the following command:
+To determine your users' access to external Azure AD organizations, you can use the [Get-MgAuditLogSignIn](https://aka.ms/cross-tenant-log-ps) cmdlet in the Microsoft Graph PowerShell SDK to view data from your sign-in logs for the last 30 days. For example, run the following command:
 
 ```powershell
 Get-MgAuditLogSignIn ` 
