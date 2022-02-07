@@ -1,8 +1,6 @@
 ---
 title: 'Quickstart: Connect an existing Kubernetes cluster to Azure Arc'
 description: "In this quickstart, learn how to connect an Azure Arc-enabled Kubernetes cluster."
-author: mgoedtel
-ms.author: magoedte
 ms.service: azure-arc
 ms.topic: quickstart
 ms.date: 09/09/2021
