@@ -179,7 +179,7 @@ First, the Microsoft identity platform verifies if Britta's user type is **All g
 
 As another example, consider when Britta Simon tries to sign in and the following configuration is used. Azure AD first evaluates all conditions with source `Attribute`. Because Britta's user type is **AAD guests**, `user.mail` is assigned as the source for the claim. Next, Azure AD evaluates the transformations. Because Britta is a guest, `user.extensionattribute1` is now the new source for the claim. Because Britta is in **AAD guests**, `user.othermail` is now the source for this claim. Finally, the claim is emitted with value `user.othermail` for Britta.
 
-![Claims conditional configuration](./media/active-directory-saml-claims-customization/sso-saml-user-conditional-claims2.png)
+![More claims conditional configuration](./media/active-directory-saml-claims-customization/sso-saml-user-conditional-claims2.png)
 
 As a final example, let’s consider what happens if Britta has no `user.othermail` configured or it is empty. In both cases the condition entry is ignored, and the claim will fall back to `user.extensionattribute1` instead.
 
