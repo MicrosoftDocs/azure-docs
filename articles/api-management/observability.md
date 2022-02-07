@@ -36,7 +36,7 @@ The table below summarizes all the observability capabilities supported by API M
 | **[Azure Monitor Logs](api-management-howto-use-azure-monitor.md)** | Reporting, monitoring, and debugging | Minutes | 31 days/5GB (upgrade to extend) | 100% (adjustable) | Logs |<ul><li>Managed<sup>1</sup></li><li>Self-hosted<sup>3</sup></li><li>Azure Arc<sup>3</sup></li></ul> |
 | **[Azure Application Insights](api-management-howto-app-insights.md)** | Reporting, monitoring, and debugging | Seconds | 90 days/5GB (upgrade to extend) | Custom | Logs, metrics | <ul><li>Managed<sup>1</sup></li><li>Self-hosted<sup>1</sup></li><li>Azure Arc<sup>1</sup></li></ul> |
 | **[Logging through Azure Event Hub](api-management-howto-log-event-hubs.md)** | Custom scenarios | Seconds | User managed | Custom | Custom | <ul><li>Managed<sup>1</sup></li><li>Self-hosted<sup>1</sup></li><li>Azure Arc<sup>1</sup></li></ul> |
-| **[OpenTelemetry](how-to-deploy-self-hosted-gateway-kubernetes-opentelemetry.md#introduction-to-opentelemetry)** | Monitoring | 1 minute | User managed | 100% | Metrics | <ul><li>Self-hosted<sup>2</sup></li></ul> |
+| **[OpenTelemetry](how-to-deploy-self-hosted-gateway-kubernetes-opentelemetry.md#introduction-to-opentelemetry)** | Monitoring | Minutes | User managed | 100% | Metrics | <ul><li>Self-hosted<sup>2</sup></li></ul> |
 
 *1. Optional, depending on the configuration of feature in Azure API Management*
 
