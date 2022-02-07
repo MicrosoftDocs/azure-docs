@@ -16,7 +16,6 @@ Azure Private 5G Core Preview is an Azure cloud service for deploying and managi
 You'll create the following resources as part of this how-to guide.
 
 - The mobile network resource representing your private mobile network as a whole.
-- The site resource representing the physical enterprise location of your Azure Stack Edge device, which will host the packet core instance.
 - (Optionally) SIM resources representing the physical SIMs or eSIMs that will be served by the private mobile network.
 
 
