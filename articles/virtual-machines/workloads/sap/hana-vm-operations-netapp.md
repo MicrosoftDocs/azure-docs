@@ -132,6 +132,7 @@ The proximity placement group configuration to use AVGs in an optimal way would 
 
 ![ANF application volume group and ppg architecture](media/hana-vm-operations-netapp/avg-ppg-architecture.png)
 
+The diagram shows that you are going to use an Azure proximity placement group for the DBMS layer. So, that it can get used together with ANF application volume groups. It is best to just include only the VM(s) that run the HANA instance(s) in the proximity placement group. The proximity placement group is necessary, even if only one VM with a single HANA instance is used, for the application volume group to identify the closest proximity of the ANF hardware. And to allocate the NFS volume on ANF as close as possible to the VM(s) that are using the NFS volumes.
 
 ## Availability
 ANF system updates and upgrades are applied without impacting the customer environment. The defined [SLA is 99.99%](https://azure.microsoft.com/support/legal/sla/netapp/).
