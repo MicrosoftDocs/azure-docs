@@ -609,7 +609,7 @@ The following tables provides coverage information for Azure Maps routing.
 | United Arab Emirates                   |                                   |                   |             |
 | Yemen                                  |                ✓                  |                   |             |
 | Zambia                                 |                ✓                  |                   |             |
-| Zimbabwe                               |                ✓                  |
+| Zimbabwe                               |                ✓                  |                   |             |
 
 ## Next steps
 
