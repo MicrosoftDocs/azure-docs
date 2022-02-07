@@ -29,7 +29,6 @@ SIM resources represent physical or eSIMs used by user equipment (UE). Activatin
 
 1. In the **Resource** menu, select **SIMs**.
 1. You're shown a list of provisioned SIMs in the private mobile network. Tick the checkbox next to the name of each SIM you want to activate. 
-<!-- Should we remove the checkbox mention, or is it necessary? -->
 3. In the **Command** bar, select **Activate**.
 4. In the pop-up that appears, select **Activate** to confirm that you want to activate your chosen SIMs.
 5. The activation process can take a few minutes. During this time, the value in the **Activation** status column for each SIM will display as **Activating**. Keep selecting **Refresh** in the command bar until the **Activation** status field for all of the relevant SIMs changes to **Activated**.
