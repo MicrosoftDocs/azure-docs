@@ -65,6 +65,13 @@
           href: ./security-controls-policy.md
         - name: Security Hardening in host OS
           href: security-hardened-vm-host-image.md
+        - name: Compliance
+          items:
+            - name: CIS Baseline overview
+              href: /compliance/regulatory/offering-CIS-Benchmark
+              maintainContext: True
+            - name: CIS Kubernetes benchmark
+              href: cis-kubernetes.md
     - name: Access and identity
       href: concepts-identity.md
     - name: Networking
@@ -75,6 +82,8 @@
       href: concepts-scale.md
     - name: Node auto-repair
       href: node-auto-repair.md
+    - name: Multi-instance GPU Node pool (preview)
+      href: gpu-multi-instance.md
     - name: Service meshes
       href: servicemesh-about.md
     - name: Sustainable software engineering
@@ -429,18 +438,8 @@
           href: open-service-mesh-deploy-addon-bicep.md
         - name: Install the OSM CLI
           href: open-service-mesh-binary.md
-        - name: Manage a new application
-          href: open-service-mesh-deploy-new-application.md          
-        - name: Onboard existing applications
-          href: open-service-mesh-deploy-existing-application.md
-        - name: Configure IP address and port range exclusion
-          href: open-service-mesh-ip-port-exclusion.md
         - name: Configure Azure Monitor
           href: open-service-mesh-azure-monitor.md
-        - name: Integrate with Azure Application Gateway Ingress
-          href: open-service-mesh-azure-application-gateway-ingress.md
-        - name: Integrate with NGINX Ingress Controller
-          href: open-service-mesh-nginx-ingress.md
         - name: Troubleshoot Open Service Mesh
           href: open-service-mesh-troubleshoot.md
         - name: Uninstall the Open Service Mesh AKS add-on

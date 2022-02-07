@@ -10,7 +10,7 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 12/08/2021
+ms.date: 01/30/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ---
@@ -346,6 +346,10 @@ The diagram above displays a simple case. As eluded to in the article [Considera
 
 - Using one large volume, which contains the SQL Server data files. Reason behind this configuration is that in real life there are numerous SAP databases with different sized database files with different I/O workload.
 - Use the D:\drive for tempdb as long as performance is good enough. If the overall workload is limited in performance by tempdb being located on the D:\ drive you might need to consider to move tempdb to separate Azure premium storage or Ultra disk disks as recommended in [this article](../../../azure-sql/virtual-machines/windows/performance-guidelines-best-practices-checklist.md).
+
+SQL Server proportional fill mechanism distributes reads and writes to all datafiles evenly provided all SQL Server data files are the same size and have the same freespace. SAP on SQL Server will deliver the best performance when reads and writes are distributed evenly across all available datafiles. If a database has too few datafiles or datafiles with very different sizes the best method to correct this is an R3load export and import.  An R3load export and import involves downtime and should only be done if there is an obvious performance problem that needs to be resolved 
+If the datafiles are only moderately different sizes, increase all datafiles to the same size and SQL Server will rebalance data over time.  
+SQL Server will automatically grow datafiles evenly if traceflag 1117 is set or if SQL Server 2016 or higher is used 
 
 
 ### Special for M-Series VMs

@@ -1,6 +1,6 @@
 ---
 title: Resource management in Azure SQL Database
-description: This article provides an overview of the resource management in Azure SQL Database. It also provides information regarding what happens when those resource limits are reached.
+description: This article provides an overview of resource management in Azure SQL Database with information about what happens when resource limits are reached.
 services: sql-database
 ms.service: sql-database
 ms.subservice: service-overview
@@ -10,22 +10,35 @@ ms.topic: reference
 author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: kendralittle, mathoma
-ms.date: 10/01/2021
+ms.date: 01/31/2022
 ---
 
 # Resource management in Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
+
+> [!div class="op_single_selector"]
+> * [Azure SQL Database](resource-limits-logical-server.md)
+> * [Azure SQL Managed Instance](../managed-instance/resource-limits.md)
 
 This article provides an overview of resource management in Azure SQL Database. It provides information on what happens when resource limits are reached, and describes  resource governance mechanisms that are used to enforce these limits.
 
 For specific resource limits per pricing tier (also known as service objective) for single databases, refer to either [DTU-based single database resource limits](resource-limits-dtu-single-databases.md) or [vCore-based single database resource limits](resource-limits-vcore-single-databases.md). For elastic pool resource limits, refer to either [DTU-based elastic pool resource limits](resource-limits-dtu-elastic-pools.md) or [vCore-based elastic pool resource limits](resource-limits-vcore-elastic-pools.md).
 
 > [!TIP]
-> For Azure SQL Managed Instance limits, see [resource limits for managed instances](../managed-instance/resource-limits.md).
->
 > For Azure Synapse Analytics dedicated SQL pool limits, see [capacity limits](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md) and [memory and concurrency limits](../../synapse-analytics/sql-data-warehouse/memory-concurrency-limits.md).
 
 ## Logical server limits
+
+<!---
+vCore resource limits are listed in the following articles, please be sure to update all of them: 
+/database/resource-limits-vcore-single-databases.md
+/database/resource-limits-vcore-elastic-pools.md
+/database/resource-limits-logical-server.md
+/database/service-tier-general-purpose.md
+/database/service-tier-business-critical.md
+/database/service-tier-hyperscale.md
+/managed-instance/resource-limits.md
+--->
 
 | Resource | Limit |
 | :--- | :--- |
@@ -69,17 +82,35 @@ When encountering high space utilization, mitigation options include:
 - Shrink a database to reclaim unused space. In elastic pools, shrinking a database provides more storage for other databases in the pool. For more information, see [Manage file space in Azure SQL Database](file-space-manage.md).
 - Check if high space utilization is due to a spike in the size of Persistent Version Store (PVS). PVS is a part of each database, and is used to implement  [Accelerated Database Recovery](../accelerated-database-recovery.md). To determine current PVS size, see [PVS troubleshooting](/sql/relational-databases/accelerated-database-recovery-management#troubleshooting). A common reason for large PVS size is a transaction that is open for a long time (hours), preventing cleanup of older versions in PVS.
 - For large databases in Premium and Business Critical service tiers, you may receive an out-of-space error even though used space in the database is below its maximum data size limit. This may happen if tempdb or transaction log consume a large amount of storage toward the maximum local storage limit. [Fail over](high-availability-sla.md#testing-application-fault-resiliency) the database or elastic pool to reset tempdb to its initial smaller size, or [shrink](file-space-manage.md#shrinking-transaction-log-file) transaction log to reduce local storage consumption.
+### Sessions, workers, and requests
 
-### Sessions and workers (requests)
+Sessions, workers, and requests are defined as follows:
+
+- A session represents a process connected to the database engine.
+- A request is the logical representation of a query or batch. A request is issued by a client connected to a session. Over time, multiple requests may be issued on the same session.
+- A worker thread, also known as a worker or thread, is a logical representation of an operating system thread. A request may have many workers when executed with a parallel query execution plan, or a single worker when executed with a serial (single threaded) execution plan. Workers are also required to support activities outside of requests: for example, a worker is required to process a login request as a session connects.
 
 The maximum numbers of sessions and workers are determined by the service tier and compute size. New requests are rejected when session or worker limits are reached, and clients receive an error message. While the number of connections available can be controlled by the application, the number of concurrent workers is often harder to estimate and control. This is especially true during peak load periods when database resource limits are reached and workers pile up due to longer running queries, large blocking chains, or excessive query parallelism.
 
-When encountering high session or worker utilization, mitigation options include:
+> [!NOTE]
+> The initial offering of Azure SQL Database supported only single threaded queries. At that time, the number of requests was always equivalent to the number of workers. Error message 10928 in Azure SQL Database contains the wording "The request limit for the database is *N* and has been reached" for backwards compatibility purposes.  The limit reached is actually the number of workers. If your max degree of parallelism (MAXDOP) setting is equal to zero or is greater than one, the number of workers may be much higher than the number of requests, and the limit may be reached much sooner than when MAXDOP is equal to one. Learn more about error 10928 in [Resource governance errors](troubleshoot-common-errors-issues.md#resource-governance-errors).
+
+You can mitigate approaching or hitting worker or session limits by:
 
 - Increasing the service tier or compute size of the database or elastic pool. See [Scale single database resources](single-database-scale.md) and [Scale elastic pool resources](elastic-pool-scale.md).
-- Optimizing queries to reduce resource utilization of each query if the cause of increased worker utilization is due to contention for compute resources. For more information, see [Query Tuning/Hinting](performance-guidance.md#query-tuning-and-hinting).
-- Reducing the [MAXDOP](configure-max-degree-of-parallelism.md) (maximum degree of parallelism) setting.
-- Optimizing query workload to reduce the number of occurrences and duration of query blocking. For more information, see [Understand and resolve Azure SQL blocking problems](understand-resolve-blocking.md).
+- Optimizing queries to reduce resource utilization if the cause of increased workers is contention for compute resources. For more information, see [Query Tuning/Hinting](performance-guidance.md#query-tuning-and-hinting).
+- Optimizing the query workload to reduce the number of occurrences and duration of query blocking. For more information, see [Understand and resolve Azure SQL blocking problems](understand-resolve-blocking.md).
+- Reducing the [MAXDOP](configure-max-degree-of-parallelism.md) setting when appropriate.
+ 
+Find worker and session limits for Azure SQL Database by service tier and compute size:
+
+- [Resource limits for single databases using the vCore purchasing model](resource-limits-vcore-single-databases.md)
+- [Resource limits for elastic pools using the vCore purchasing model](resource-limits-vcore-elastic-pools.md)
+- [Resource limits for single databases using the DTU purchasing model](resource-limits-dtu-single-databases.md)
+- [Resources limits for elastic pools using the DTU purchasing model](resource-limits-dtu-elastic-pools.md)
+
+
+Learn more about troubleshooting specific errors for session or worker limits in [Resource governance errors](troubleshoot-common-errors-issues.md#resource-governance-errors).
 
 ### Memory
 
@@ -206,8 +237,16 @@ Because all data is copied to local storage volumes on different machines, movin
 > [!NOTE]
 > Database movement due to insufficient local storage only occurs in the Premium or Business Critical service tiers. It does not occur in the Hyperscale, General Purpose, Standard, and Basic service tiers, because in those tiers data files are not stored in local storage.
 
+## Tempdb sizes
+
+Size limits for tempdb in Azure SQL Database depend on the purchasing and deployment model. 
+
+To learn more, review tempdb size limits for: 
+- vCore purchasing model: [single databases](resource-limits-vcore-single-databases.md), [pooled databases](resource-limits-vcore-elastic-pools.md)
+- DTU purchasing model: [single databases](resource-limits-dtu-single-databases.md#tempdb-sizes),  [pooled databases](resource-limits-dtu-elastic-pools.md#tempdb-sizes). 
+
 ## Next steps
 
 - For information about general Azure limits, see [Azure subscription and service limits, quotas, and constraints](../../azure-resource-manager/management/azure-subscription-service-limits.md).
-- For information about DTUs and eDTUs, see [DTUs and eDTUs](purchasing-models.md#dtu-based-purchasing-model).
-- For information about tempdb size limits, see [TempDB in Azure SQL Database](/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database).
+- For information about DTUs and eDTUs, see [DTUs and eDTUs](purchasing-models.md#dtu-purchasing-model).
+- For information about tempdb size limits, see [single vCore databases](resource-limits-vcore-single-databases.md), [pooled vCore databases](resource-limits-vcore-elastic-pools.md), [single DTU databases](resource-limits-dtu-single-databases.md#tempdb-sizes), and [pooled DTU databases](resource-limits-dtu-elastic-pools.md#tempdb-sizes). 

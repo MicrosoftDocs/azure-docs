@@ -2,7 +2,7 @@
 title: Auto-deploy agents for Microsoft Defender for Cloud | Microsoft Docs
 description: This article describes how to set up auto provisioning of the Log Analytics agent and other agents and extensions used by Microsoft Defender for Cloud
 ms.topic: quickstart
-ms.date: 01/10/2022
+ms.date: 01/17/2022
 ms.custom: mode-other
 ---
 # Configure auto provisioning for agents and extensions from Microsoft Defender for Cloud
@@ -87,7 +87,7 @@ This table shows the availability details for the various components that can be
 | Release state:                                       | • Defender profile is in preview<br> • Azure Policy add-on is generally available (GA) | • Defender extension is in preview<br> • Azure Policy extension for Azure Arc is in preview |
 | Relevant Defender plan:                              | [Microsoft Defender for Containers](defender-for-containers-introduction.md)           | [Microsoft Defender for Containers](defender-for-containers-introduction.md)                |
 | Required roles and permissions (subscription-level): | [Owner](../role-based-access-control/built-in-roles.md#owner)                          | [Owner](../role-based-access-control/built-in-roles.md#owner)                               |
-| Supported destinations:                              | Any [taints](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/) applied to your nodes *might* disrupt the configuration of Defender for Containers                                                                                       | Any Cloud Native Computing Foundation (CNCF) certified Kubernetes clusters             |
+| Supported destinations:                              | Any [taints](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/) applied to your nodes *might* disrupt the configuration of Defender for Containers <br><br> The AKS Defender profile doesn't support AKS clusters that don't have RBAC enabled.                                                                                     | Any Cloud Native Computing Foundation (CNCF) certified Kubernetes clusters             |
 | Policy-based:                                        | :::image type="icon" source="./media/icons/yes-icon.png"::: Yes                        | :::image type="icon" source="./media/icons/yes-icon.png"::: Yes                             |
 | Clouds:                                              | **Defender profile**:<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: Azure Government, Azure China 21Vianet<br>**Azure Policy add-on**:<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Azure Government, Azure China 21Vianet|**Defender extension**:<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: Azure Government, Azure China 21Vianet<br>**Azure Policy extension for Azure Arc**:<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: Azure Government, Azure China 21Vianet|
 

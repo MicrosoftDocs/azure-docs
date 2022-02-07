@@ -184,7 +184,7 @@ The following fields are the options that you can use in the Azure Resource Mana
 1. `level`: Level of the activity in the activity log event that the alert should be generated on. For example: `Critical`, `Error`, `Warning`, `Informational`, or `Verbose`.
 1. `operationName`: The name of the operation in the activity log event. For example: `Microsoft.Resources/deployments/write`.
 1. `resourceGroup`: Name of the resource group for the impacted resource in the activity log event.
-1. `resourceProvider`: For more information, see [Azure resource providers and types](/azure/azure-resource-manager/management/resource-providers-and-types). For a list that maps resource providers to Azure services, see [Resource providers for Azure services](/azure/azure-resource-manager/management/resource-providers-and-types).
+1. `resourceProvider`: For more information, see [Azure resource providers and types](../../azure-resource-manager/management/resource-providers-and-types.md). For a list that maps resource providers to Azure services, see [Resource providers for Azure services](../../azure-resource-manager/management/resource-providers-and-types.md).
 1. `status`: String describing the status of the operation in the activity event. For example: `Started`, `In Progress`, `Succeeded`, `Failed`, `Active`, or `Resolved`.
 1. `subStatus`: Usually, this field is the HTTP status code of the corresponding REST call. But it can also include other strings describing a substatus. Examples of HTTP status codes include `OK` (HTTP Status Code: 200), `No Content` (HTTP Status Code: 204), and `Service Unavailable` (HTTP Status Code: 503), among many others.
 1. `resourceType`: The type of the resource that was affected by the event. For example: `Microsoft.Resources/deployments`.
@@ -207,7 +207,7 @@ For example:
 
 ```
 
-For more information about the activity log fields, see [Azure activity log event schema](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fazure-monitor%2Fplatform%2Factivity-log-schema&data=02%7C01%7CNoga.Lavi%40microsoft.com%7C90b7c2308c0647c0347908d7c9a2918d%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637199572373563632&sdata=6QXLswwZgUHFXCuF%2FgOSowLzA8iOALVgvL3GMVhkYJY%3D&reserved=0).
+For more information about the activity log fields, see [Azure activity log event schema](../essentials/activity-log-schema.md).
 
 > [!NOTE]
 > It might take up to 5 minutes for the new activity log alert rule to become active.

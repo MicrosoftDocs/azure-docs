@@ -8,7 +8,7 @@ metadata:
   ms.topic: landing-page
   author: flang-msft
   ms.author: franlanglois
-  ms.date: 12/16/2019
+  ms.date: 01/14/2022
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -22,20 +22,18 @@ landingContent:
             url: cache-overview.md
       - linkListType: video
         links:
-         # - text: Best practices
-         #   url: https://azure.microsoft.com/resources/videos/azure-redis-cache-best-practices/
-          - text: Improve performance
-            url: https://azure.microsoft.com/resources/videos/increase-performance-through-redis-cluster-in-azure-redis-cache/
-          - text: Security caching
-            url: https://azure.microsoft.com/resources/videos/azure-redis-security-cacheing/
-          - text: Administration options 
-            url: https://azure.microsoft.com/resources/videos/azure-redis-cache-administration-options/
+          - text: Azure Friday - Scale your cloud app 
+            url: https://docs.microsoft.com/en-us/shows/azure-friday/scale-your-cloud-app-with-azure-cache-for-redis
+          - text: Ask the Expert - The latest news
+            url: https://docs.microsoft.com/en-us/shows/ask-the-expert/ask-the-expert-the-latest-in-nosql-data-and-redis-on-azure
       - linkListType: whats-new
         links:
+          - text: Managed identity with Azure Cache for Redis
+            url: cache-managed-identity.md
           - text: Create an Enterprise tier cache
             url: quickstart-create-redis-enterprise.md
-          - text: Frequently asked questions
-            url: cache-faq.yml
+#          - text: Frequently asked questions
+#           url: cache-faq.yml
   - title: 'Quickstarts: Azure Cache for Redis'
     linkLists:
       - linkListType: quickstart

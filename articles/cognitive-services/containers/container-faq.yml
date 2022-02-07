@@ -8,7 +8,7 @@ metadata:
   manager: nitinme
   ms.service: cognitive-services
   ms.topic: conceptual
-  ms.date: 10/28/2021
+  ms.date: 01/11/2022
   ms.author: aahi
     
 title: FAQ for Azure Cognitive Services containers
@@ -169,4 +169,4 @@ sections:
           Containers can be run anywhere in any region, but they need a key and need to call back to Azure for metering. All supported regions for the cloud service are supported for the containers' metering call.
 
 additionalContent: |
-          [!INCLUDE [Containers next steps](includes/containers-next-steps.md)]
+          * [How to use Cognitive Services containers in disconnected environments](disconnected-containers.md)

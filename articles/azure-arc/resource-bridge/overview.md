@@ -115,4 +115,4 @@ URLS:
 
 ## Next steps
 
-To learn more about how Azure Arc-enabled VMware vSphere extends Azure's governance and management capabilities to VMware vSphere infrastructure, see the following [Overview](/azure/azure-arc/vmware-vsphere/overview) article.
+To learn more about how Azure Arc-enabled VMware vSphere extends Azure's governance and management capabilities to VMware vSphere infrastructure, see the following [Overview](../vmware-vsphere/overview.md) article.
