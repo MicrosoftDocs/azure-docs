@@ -222,9 +222,8 @@ Go to the asset -> lineage tab, you can see the asset relationship when applicab
 
 :::image type="content" source="media/register-scan-snowflake/lineage.png" alt-text="Snowflake lineage view" border="true":::
 
-        > [!Note]
-        > To get view lineage, if a view was created by tables from different databases, scan all databases simultaneously using the names in the semicolon (;) list. Scanning each database individually won't get view lineage.
-        
+      > [!Note]
+      > To get view lineage, if a view was created by tables from different databases, scan all databases simultaneously using the names in the semicolon (;) list. Scanning each database individually won't get view lineage.
         
 ## Troubleshooting tips
 
