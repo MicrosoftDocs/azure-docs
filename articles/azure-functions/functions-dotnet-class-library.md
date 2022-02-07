@@ -295,7 +295,7 @@ You can't use `out` parameters in async functions. For output bindings, use the 
 
 A function can accept a [CancellationToken](/dotnet/api/system.threading.cancellationtoken) parameter, which enables the operating system to notify your code when the function is about to be terminated. You can use this notification to make sure the function doesn't terminate unexpectedly in a way that leaves data in an inconsistent state.
 
-Consider the case when you have a function that process messages in batch.  The following Service Bus triggered function processes an array of [Message](/dotnet/api/microsoft.azure.servicebus.message) objects, which represents a batch of incoming messages to be processed by a given function invocation:
+Consider the case when you have a function that processes messages in batches. The following Azure Service Bus-triggered function processes an array of [Message](/dotnet/api/microsoft.azure.servicebus.message) objects, which represents a batch of incoming messages to be processed by a specific function invocation:
 
 ```csharp
 using Microsoft.Azure.ServiceBus;
@@ -335,8 +335,10 @@ namespace ServiceBusCancellationToken
     }
 }
 ```
-As in the previous example, you commonly iterate through an array using a `foreach` loop.  Within this loop and before processing the message, you should check the value of `cancellationToken.IsCancellationRequested` to see if cancellation is pending. In the case where `IsCancellationRequested` is `true`, you may need to take some actions to prepare for a graceful shutdown . For example, you might want to log the status of your code before the shutdown or perhaps write to a persisted store the portion of the message batch which hasn't yet been processed.  If you write this kind of information to a persisted store, then your startup code needs to check the store for any unprocessed message batches written during shutdown. What your code needs to do during graceful shutdown depends on your specific scenario.
-Event Hubs is an other trigger that supports batch processing messages. The following example is a function method definition for an Event Hubs trigger with a cancellation token that accepts an incoming batch as an array of [EventData](/dotnet/api/microsoft.azure.eventhubs.eventdata) objects:
+
+As in the previous example, you commonly iterate through an array using a `foreach` loop. Within this loop and before processing the message, you should check the value of `cancellationToken.IsCancellationRequested` to see if cancellation is pending. In the case where `IsCancellationRequested` is `true`, you might need to take some actions to prepare for a graceful shutdown. For example, you might want to log the status of your code before the shutdown, or perhaps write to a persisted store the portion of the message batch which hasn't yet been processed. If you write this kind of information to a persisted store, your startup code needs to check the store for any unprocessed message batches that were written during shutdown. What your code needs to do during graceful shutdown depends on your specific scenario.
+
+Azure Event Hubs is an other trigger that supports batch processing messages. The following example is a function method definition for an Event Hubs trigger with a cancellation token that accepts an incoming batch as an array of [EventData](/dotnet/api/microsoft.azure.eventhubs.eventdata) objects:
 
 ```csharp
 public async Task Run([EventHubTrigger("csharpguitar", Connection = "EH_CONN")] 
