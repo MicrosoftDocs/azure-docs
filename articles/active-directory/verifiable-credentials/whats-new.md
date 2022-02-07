@@ -23,7 +23,9 @@ As we continue the development of our implementation of the verifiable credentia
 - The Azure Active Directory Verifiable Credentials service can store and handle data operations for European instances of Azure Active Directory in the European region.
 - Azure Active Directory Verifiable Credentials customers can take advantage of enhancements to credential revocation that add a higher degree of privacy through the implementation of the [W3C Status List 2021](https://w3c-ccg.github.io/vc-status-list-2021/) standard.  
 
-All Azure AD verifiable credential deployments must [re-onboard](verifiable-credentials-faq.md?#how-to-re-onboard-your-azure-ad-tenant) the Azure AD Verifiable Credentials service. The re-onboard process will reset all service configuration.
+>[!IMPORTANT]
+> All Azure Active Directory Verifiable Credential service deployments need to go through a redeployment process before March 31st 2022. Any tenants that have not [redeployed](verifiable-credentials-faq.md?#how-to-redeploy-your-azure-ad-tenant) by then will become inaccessible and administrators will have to configure a new service instance before they can continue using the features provided by Azure Active Directory Verifiable Credentials.
+
 ## October 2021
 
 You can now use [Request Service REST API](get-started-request-api.md) to build applications that can issue and verify credentials from any programming language you're using. This new REST API provides an improved abstraction layer and integration to the Azure AD Verifiable Credentials Service.
