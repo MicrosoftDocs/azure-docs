@@ -33,7 +33,7 @@ To complete the steps in this article, you must have the following items:
 
 ## Sign in to Azure
 
-To sign in to Azure using the CLI,, you can type:
+To sign in to Azure using the CLI, you can type:
 
 ```azurecli
 az login
