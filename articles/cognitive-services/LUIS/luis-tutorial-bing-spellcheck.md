@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
-ms.date: 01/12/2021
+ms.date: 01/05/2022
 
 ---
 
@@ -102,4 +102,4 @@ Two solutions are:
 
 
 > [!div class="nextstepaction"]
-> [Learn more about example utterances](./luis-how-to-add-entities.md)
+> [Learn more about example utterances](/how-to/entities.md)
