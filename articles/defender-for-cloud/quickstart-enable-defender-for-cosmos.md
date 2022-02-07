@@ -7,7 +7,7 @@ ms.date: 02/07/2022
 
 # Quickstart: Enable Microsoft Defender for Cosmos DB
 
- Microsoft Defender for Cosmos DB protection is available at both the [Subscription level](#enable-database-protection-at-the-subscription-level), and resource level. You can enable Microsoft Defender for Cloud on your subscription to protect all database types on your subscription including Microsoft Defender for Cosmos DB(recommended). You can also choose to enable Microsoft Defender for Cosmos DB at the [Resource level](#enable-defender-for-cosmos-db-at-the-resource-level) to protect a specific Cosmos DB account.
+ Microsoft Defender for Cosmos DB protection is available at both the [Subscription level](#enable-database-protection-at-the-subscription-level), and resource level. You can enable Microsoft Defender for Cloud on your subscription to protect all database types on your subscription including Microsoft Defender for Cosmos DB(recommended). You can also choose to enable Microsoft Defender for Cosmos DB at the [Resource level](#enable-defender-for-cosmos-db-at-the-resource-level) to protect a specific Azure Cosmos DB account.
 
 ## Prerequisites
 
@@ -17,9 +17,9 @@ ms.date: 02/07/2022
 
 The subscription level enablement, enables Microsoft Defender for Cloud protection for all database types in your subscription (recommended). 
 
-You can enable Microsoft Defender for Cloud protection on your subscription in order to protect all database types, for example, Cosmos DB, Azure SQL Database, Azure SQL servers on machines, and OSS RDBs. You can also select specific resource types to protect when you configure your plan. 
+You can enable Microsoft Defender for Cloud protection on your subscription in order to protect all database types, for example, Azure Cosmos DB, Azure SQL Database, Azure SQL servers on machines, and OSS RDBs. You can also select specific resource types to protect when you configure your plan. 
  
-When you enable Microsoft Defender for Cloud's enhanced security features on your subscription, Microsoft Defender for Cosmos DB is automatically enabled for all of your Cosmos DB accounts.  
+When you enable Microsoft Defender for Cloud's enhanced security features on your subscription, Microsoft Defender for Cosmos DB is automatically enabled for all of your Azure Cosmos DB accounts.  
 
 **To enable database protection at the subscription level**:
 
@@ -51,9 +51,9 @@ When you enable Microsoft Defender for Cloud's enhanced security features on you
 
 ## Enable Defender for Cosmos DB at the resource level
 
-You can enable Microsoft Defender for Cloud on a specific Cosmos DB account through the Azure portal, PowerShell, or the Azure CLI.
+You can enable Microsoft Defender for Cloud on a specific Azure Cosmos DB account through the Azure portal, PowerShell, or the Azure CLI.
 
-**To enable Microsoft Defender for Cloud for a specific Cosmos DB account**:
+**To enable Microsoft Defender for Cloud for a specific Azure Cosmos DB account**:
 
 ### [Azure portal](#tab/azure-portal)
 
@@ -63,7 +63,7 @@ You can enable Microsoft Defender for Cloud on a specific Cosmos DB account thro
 
 1. Select **Enable Microsoft Defender for Storage**.
 
-    :::image type="content" source="media/quickstart-enable-defender-for-cosmos/enable-storage.png" alt-text="Screenshot of the option to enable Microsoft Defender for Storage on your specified Cosmos DB account.":::
+    :::image type="content" source="media/quickstart-enable-defender-for-cosmos/enable-storage.png" alt-text="Screenshot of the option to enable Microsoft Defender for Storage on your specified Azure Cosmos DB account.":::
 
 ### [PowerShell](#tab/azure-powershell)
 
@@ -83,7 +83,7 @@ You can enable Microsoft Defender for Cloud on a specific Cosmos DB account thro
 
 ### [ARM template](#tab/arm-template)
 
-Use an Azure Resource Manager template to deploy an Azure Storage account with Microsoft Defender for Storage enabled. For more information, see [Create a Cosmos DB account with Defender for Cosmos DB enabled](https://azure.microsoft.com/resources/templates/cosmosdb-advanced-threat-protection-create-account/).
+Use an Azure Resource Manager template to deploy an Azure Storage account with Microsoft Defender for Storage enabled. For more information, see [Create an Azure Cosmos DB account with Defender for Cosmos DB enabled](https://azure.microsoft.com/resources/templates/cosmosdb-advanced-threat-protection-create-account/).
 
 ---
 
