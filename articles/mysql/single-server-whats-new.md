@@ -25,7 +25,7 @@ The MySQL client version  8.0.27 or later is now compatible with Azure Database 
  
 **Known Issues**
 
-Customers in Japan received two Maintenance Notification emails for this month. The Email notification send for *05-Feb 2022* was send by mistake and no changes will be done to the service on this date. You can safely ignore them. We apologize for the inconvenience. 
+Customers in Japan,East US received two Maintenance Notification emails for this month. The Email notification send for *05-Feb 2022* was send by mistake and no changes will be done to the service on this date. You can safely ignore them. We apologize for the inconvenience. 
 
 ## December 2021
 
