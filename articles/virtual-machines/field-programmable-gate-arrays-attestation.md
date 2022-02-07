@@ -1,5 +1,5 @@
 ---
-title: Azure FPGFA Attestation Service
+title: Azure FPGA Attestation Service
 description: Attestation service for the NP-series VMs.
 ms.service: virtual-machines
 ms.subservice: vm-sizes-gpu
