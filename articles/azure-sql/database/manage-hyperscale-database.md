@@ -202,7 +202,7 @@ serverName="server01"
 databaseName="mySampleDatabase"
 serviceObjective="GP_Gen5_4"
 computeModel="Provisioned"
-maxsize="1024GB"
+maxsize="200GB"
 
 az sql db update -g $resourceGroupName -s $serverName -n $databaseName --edition GeneralPurpose --service-objective $serviceObjective --compute-model $computeModel --max-size $maxsize
 
@@ -227,6 +227,20 @@ Set-AzSqlDatabase -ResourceGroupName $resourceGroupName -ServerName $serverName 
 
 ```
 
+You can optionally include the `maxsize` argument. If the `maxsize` value exceeds the valid maximum size for the target service objective, an error will be returned. If the `maxsize` argument is not specified, the operation will default to the maximum size available for the given service objective. The following example specifies `maxsize`:
+
+```powershell-interactive
+$resourceGroupName = "myResourceGroup"
+$serverName = "server01"
+$databaseName = "mySampleDatabase"
+$serviceObjective = "GP_Gen5_4"
+$computeModel = "Provisioned"
+$maxSizeBytes = "268435456000"
+
+Set-AzSqlDatabase -ResourceGroupName $resourceGroupName -ServerName $serverName -DatabaseName $databaseName -Edition "GeneralPurpose" -computemodel $computeModel  -RequestedServiceObjectiveName $serviceObjective -MaxSizeBytes $maxSizeBytes
+
+```
+
 You can [monitor operations for a Hyperscale database](#monitor-operations-for-a-hyperscale-database) while the operation is ongoing.
 
 # [Transact-SQL](#tab/t-sql)
@@ -245,7 +259,7 @@ GO
 You can optionally include the `maxsize` argument. If the `maxsize` value exceeds the valid maximum size for the target service objective, an error will be returned. If the `maxsize` argument is not specified, the operation will default to the maximum size available for the given service objective. The following example specifies `maxsize`:
 
 ```sql
-ALTER DATABASE [mySampleDatabase] MODIFY (EDITION = 'GeneralPurpose', SERVICE_OBJECTIVE = 'GP_Gen4_2', MAXSIZE = 1024 GB);
+ALTER DATABASE [mySampleDatabase] MODIFY (EDITION = 'GeneralPurpose', SERVICE_OBJECTIVE = 'GP_Gen4_2', MAXSIZE = 200 GB);
 GO
 ```
 
@@ -320,9 +334,48 @@ GO
 
 ## Review databases in the Hyperscale service tier
 
-TODO: add other options to do this
+# [Portal](#tab/azure-portal)
 
-### Transact SQL
+The Azure portal shows a list of all databases on a [logical SQL server](logical-servers.md). The **Pricing tier** column includes the service tier for each database.
+
+:::image type="content" source="media/manage-hyperscale-database/SQL-database-list-for-SQL-server-azure-sql-database-azure-portal.png" alt-text="The overview panel of a logical SQL server in Azure SQL Database. A list of databases appears at the bottom of the panel." lightbox="SQL-database-list-for-SQL-server-azure-sql-database-azure-portal.png":::
+
+1. Navigate to your [logical SQL server](logical-servers.md) in the Azure portal.
+1. In the left navigation bar, select **Overview**.
+1. Scroll to the list of resources at the bottom of the pane. The window will display any SQL elastic pools and databases which have been created.
+1. Review the **Pricing tier** column to identify databases in the Hyperscale service tier.
+
+# [Azure CLI](#tab/azure-cli)
+
+This code sample calls [az sql db list](/cli/azure/sql/db/op#az-sql-db-list) to list databases on a [logical SQL server](logical-servers.md) with the database service tier, hardware generation, capacity, and maximum size.
+
+Replace `resourceGroupName` and `serverName` with the appropriate values before running the following code sample:
+
+```azurecli-interactive
+resourceGroupName="myResourceGroup"
+serverName="server01"
+
+az sql db list -g $resourceGroupName -s $serverName -o table
+
+```
+
+# [PowerShell](#tab/azure-powershell)
+
+The [Get-AzSqlDatabase](/powershell/module/az.sql/get-azsqldatabase) cmdlet returns a list of databases on a [logical SQL server](logical-servers.md) with the Edition (service tier name).
+
+Set the `$resourceGroupName` and `$serverName` parameters to the appropriate values before running the sample code:
+
+```powershell-interactive
+$resourceGroupName = "myResourceGroup"
+$serverName = "server01"
+
+Get-AzSqlDatabase -ResourceGroupName $resourceGroupName -ServerName $serverName | Format-Table -wrap
+
+```
+
+Review the **Edition** column to identify databases in the Hyperscale service tier.
+
+# [Transact-SQL](#tab/t-sql)
 
 To review the service tiers of all databases on a [logical SQL server](logical-servers.md) with Transact-SQL, first connect to the master database using [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) or [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio).
 
@@ -335,6 +388,10 @@ JOIN sys.databases as d on dso.database_id = d.database_id
 WHERE dso.edition = 'Hyperscale';
 GO
 ```
+
+---
+
+
 
 
 ## Next steps
