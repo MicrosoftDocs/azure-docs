@@ -103,7 +103,7 @@ To download one of the watchlist templates,
 
 If your watchlist is over 3.8 MB and isn't larger than 500 MB  in size, upload your watchlist file to your Azure Storage account. Then create a shared access signature URL for Microsoft Sentinel to retrieve the watchlist data. A shared access signature URL is an URI that contains both the resource URI and shared access signature token of a resource like a csv file in your storage account. Finally, add the watchlist to your workspace in Microsoft Sentinel.
 
-### Upload watchlist file to Azure Storage
+### Upload a watchlist file to Azure Storage
 
 To upload a large watchlist file to your Azure Storage account, use AzCopy or the Azure portal.
 
@@ -114,14 +114,14 @@ To upload a large watchlist file to your Azure Storage account, use AzCopy or th
 
 Upload files and directories to Blob storage by using the AzCopy v10 command-line utility. To learn more, see [Upload files to Azure Blob storage by using AzCopy](../storage/common/storage-use-azcopy-blobs-upload.md).
 
-1. If you don’t already have a storage container, create a new one using this command line:
+1. If you don’t already have a storage container, create one by running the following command.
 
    ```azcopy
    azcopy make 
    https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>
    ```
 
-2. Next, use this command to upload a file
+2. Next, run the following command to upload the file.
 
    ```azcopy
    azcopy copy '<local-file-path>' 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>/<blob-name>'
@@ -129,7 +129,7 @@ Upload files and directories to Blob storage by using the AzCopy v10 command-lin
 
 ### Upload your file in Azure portal
 
-If you don't want to use AzCopy, upload your file by using the Azure portal. Go to your storage account in Azure portal to upload the csv file with your watchlist data.
+If you don't use AzCopy, upload your file by using the Azure portal. Go to your storage account in Azure portal to upload the csv file with your watchlist data.
 
 1. If you don’t already have an existing storage container, [create a container](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container). For the level of public access to the container, we recommend the default which is that the level is set to Private (no anonymous access).
 1. Upload your csv file to the storage account by [uploading a block blob](../storage/blobs/storage-quickstart-blobs-portal.md#upload-a-block-blob).
