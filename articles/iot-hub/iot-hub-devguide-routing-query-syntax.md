@@ -163,10 +163,15 @@ $body.Weather.Temperature = 50 AND processingPath = 'hot'
 ```
 
 > [!NOTE]
-> To filter a twin notification payload based on what changed, run your query on the message body:
+> To filter a twin notification payload based on what changed, run your query on the message body. For example, to filter a desired property change when the `sendFrequency` is bigger than 10:
 >
 > ```sql
-> $body.properties.desired.telemetryConfig.sendFrequency
+> $body.properties.desired.telemetryConfig.sendFrequency > 10
+> ```
+> To filter messages that contains a property change, no matter the value of the property, you can use the `is_defined()` function (when the value is a primitive type):
+>
+> ```sql
+> is_defined($body.properties.desired.telemetryConfig.sendFrequency)
 > ```
 
 > [!NOTE]
