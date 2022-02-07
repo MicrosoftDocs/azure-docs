@@ -127,7 +127,7 @@ In previous versions of DSC, the DSC extension assigned a configuration through 
 Configuration Manager. It's recommended to remove the DSC extension and reset
 LCM.
 
-> NOTE
+> [!IMPORTANT]
 > Removing a configuration in Local Configuration Manager doesn't "roll back"
 > the settings in Linux that were set by the configuration. The
 > action of removing the configuration only causes the LCM to stop managing
