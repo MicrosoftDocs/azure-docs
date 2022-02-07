@@ -13,7 +13,7 @@ metadata:
   ms.subservice: ciem
   ms.workload: identity
   ms.topic: landing-page
-  ms.date: 02/04/2022
+  ms.date: 02/06/2022
   ms.author: v-ydequadros
   
   
@@ -73,7 +73,7 @@ landingContent:
       - linkListType: overview
         links:
           - text: View existing roles/policies and requests for permission
-            url: cloudknox-ui-jep-controller.md
+            url: cloudknox-ui-remediation.md
   # Card
   # - title: View how users access information
     # linkLists:
