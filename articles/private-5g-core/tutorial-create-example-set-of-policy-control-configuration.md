@@ -255,7 +255,7 @@ To create the service:
 1. Search for and select the Mobile Network resource representing your private mobile network.
 1. In the resource menu, select **Services**.
 1. In the command bar, select **Create**.
-1. We'll now enter values to define the QoS characteristics that will be applied to service data flows that match this service. We'll use the **Maximum Bit Rate (MBR) - Uplink** and **Maximum Bit Rate (MBR) - Downlink** fields to set our bandwidth limits. On the **Basics** tab, fill out the fields as follows.
+1. We'll now enter values to define the QoS characteristics that will be applied to SDFs that match this service. We'll use the **Maximum Bit Rate (MBR) - Uplink** and **Maximum Bit Rate (MBR) - Downlink** fields to set our bandwidth limits. On the **Basics** tab, fill out the fields as follows.
 
     |Field  |Value  |
     |---------|---------|
