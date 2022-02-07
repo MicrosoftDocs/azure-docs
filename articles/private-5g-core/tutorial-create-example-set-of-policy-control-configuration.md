@@ -56,7 +56,7 @@ To create the service:
 
     :::image type="content" source="media/configure-service-azure-portal/create-command-bar-option.png" alt-text="Screenshot of the Azure portal showing the Create option in the command bar.":::
 
-1. We'll now enter values to define the QoS characteristics that will be applied to service data flows that match this service. On the **Basics** tab, fill out the fields as follows.
+1. We'll now enter values to define the QoS characteristics that will be applied to service data flows (SDFs) that match this service. On the **Basics** tab, fill out the fields as follows.
 
     |Field  |Value  |
     |---------|---------|
