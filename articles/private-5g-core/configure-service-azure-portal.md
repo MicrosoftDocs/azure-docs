@@ -32,11 +32,11 @@ In this step, you'll configure basic settings for your new service using the Azu
 1. Sign in to the [Azure portal](https://aka.ms/AP5GCPortal).
 1. Search for and select the Mobile Network resource representing the private mobile network for which you want to configure a service.
 :::image type="content" source="media/mobile-network-search.png" alt-text="Screenshot of the Azure portal. It shows the results of a search for a Mobile Network resource.":::
-1. In the resource menu, select **Services**.
+1. In the **Resource** menu, select **Services**.
 
     :::image type="content" source="media/configure-service-azure-portal/services-resource-menu-option.png" alt-text="Screenshot of the Azure portal. It shows the Services option in the resource menu of a Mobile Network resource.":::
 
-1. In the command bar, select **Create**.
+1. In the **Command** bar, select **Create**.
 
     :::image type="content" source="media/configure-service-azure-portal/create-command-bar-option.png" alt-text="Screenshot of the Azure portal. It shows the Create option in the command bar.":::
 
@@ -79,7 +79,7 @@ Now we'll configure the data flow policy rules you want to use for this service.
 We'll now create the service so it can be added to your policy control configuration.
 
 1. On the **Basics** configuration tab, select **Review + create**.
-1. You'll now see the **Review + Create** tab. Azure will attempt to validate the configuration values you've entered. If the configuration values are invalid, the **Create** button at the bottom of the **Review + Create** tab will be grayed out. You'll need to return to the Basics tab and correct any invalid configuration.
+1. You'll now see the **Review + Create** tab. Azure will attempt to validate the configuration values you've entered. If the configuration values are invalid, the **Create** button at the bottom of the **Review + Create** tab will be grayed out. You'll need to return to the **Basics** tab and correct any invalid configuration.
 1. When the configuration is valid, the **Create** button will be blue. Select **Create** to create the service.
 
     :::image type="content" source="media/configure-service-azure-portal/service-review-and-create-tab.png" alt-text="Screenshot of the Azure portal showing the Create button on the Review + create tab for a service.":::
