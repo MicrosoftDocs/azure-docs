@@ -1,6 +1,6 @@
 ---
-title: Microsoft Sentinel SAP solution - Available logs reference | Microsoft Docs
-description: Learn about the SAP logs available from the Microsoft Sentinel SAP solution.
+title: Microsoft Sentinel SAP solution - data reference | Microsoft Docs
+description: Learn about the SAP logs, tables and functions available from the Microsoft Sentinel SAP solution.
 author: batamig
 ms.author: bagol
 ms.topic: reference
@@ -8,7 +8,7 @@ ms.custom: mvc, ignite-fall-2021
 ms.date: 11/09/2021
 ---
 
-# Microsoft Sentinel SAP solution logs reference (public preview)
+# Microsoft Sentinel SAP solution data reference (public preview)
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
@@ -21,8 +21,9 @@ ms.date: 11/09/2021
 This article describes the SAP logs available from the Microsoft Sentinel SAP data connector, including the table names in Microsoft Sentinel, the log purposes, and detailed log schemas. Schema field descriptions are based on the field descriptions in the relevant [SAP documentation](https://help.sap.com/).
 
 This article is intended for advanced SAP users.
+## Logs produced by data connector agent
 
-## ABAP Application log
+### ABAP Application log
 
 - **Name in Microsoft Sentinel**: `ABAPAppLog_CL`
 
@@ -32,7 +33,7 @@ This article is intended for advanced SAP users.
 
     Available by using RFC with a custom service based on standard services of XBP interface. This log is generated per client.
 
-### ABAPAppLog_CL log schema
+#### ABAPAppLog_CL log schema
 
 | Field                 | Description                    |
 | --------------------- | ------------------------------ |
@@ -69,7 +70,7 @@ This article is intended for advanced SAP users.
 
 
 
-## ABAP Change Documents log
+### ABAP Change Documents log
 
 - **Name in Microsoft Sentinel**: `ABAPChangeDocsLog_CL`
 
@@ -83,7 +84,7 @@ This article is intended for advanced SAP users.
 
     Available by using RFC with a custom service based on standard services. This log is generated per client.
 
-### ABAPChangeDocsLog_CL log schema
+#### ABAPChangeDocsLog_CL log schema
 
 
 | Field                    | Description                 |
@@ -117,7 +118,7 @@ This article is intended for advanced SAP users.
 | Version                  | Version          |
 | | |
 
-## ABAP CR log
+### ABAP CR log
 
 - **Name in Microsoft Sentinel**: `ABAPCRLog_CL`
 
@@ -132,7 +133,7 @@ This article is intended for advanced SAP users.
 >
 
 
-### ABAPCRLog_CL log schema
+#### ABAPCRLog_CL log schema
 
 | Field        | Description                       |
 | ------------ | --------------------------------- |
@@ -153,7 +154,7 @@ This article is intended for advanced SAP users.
 | ViewName     | View name                         |
 | | |
 
-## ABAP DB table data log
+### ABAP DB table data log
 
 To have this log sent to Microsoft Sentinel, you must [add it manually to the **systemconfig.ini** file](sap-solution-deploy-alternate.md#define-the-sap-logs-that-are-sent-to-microsoft-sentinel).
 
@@ -165,7 +166,7 @@ To have this log sent to Microsoft Sentinel, you must [add it manually to the **
 
     Available by using RFC with a custom service. This log is generated with data across all clients.
 
-### ABAPTableDataLog_CL log schema
+#### ABAPTableDataLog_CL log schema
 
 | Field            | Description                           |
 | ---------------- | ------------------------------------- |
@@ -187,7 +188,7 @@ To have this log sent to Microsoft Sentinel, you must [add it manually to the **
 | VersionNumber    | Version number                        |
 | | |
 
-## ABAP Gateway log
+### ABAP Gateway log
 
 To have this log sent to Microsoft Sentinel, you must [add it manually to the **systemconfig.ini** file](sap-solution-deploy-alternate.md#define-the-sap-logs-that-are-sent-to-microsoft-sentinel).
 
@@ -198,7 +199,7 @@ To have this log sent to Microsoft Sentinel, you must [add it manually to the **
 
 - **Log purpose**: Monitors Gateway activities. Available by the SAP Control Web Service. This log is generated with data across all clients.
 
-### ABAPOS_GW_CL log schema
+#### ABAPOS_GW_CL log schema
 
 | Field        | Description      |
 | ------------ | ---------------- |
@@ -210,7 +211,7 @@ To have this log sent to Microsoft Sentinel, you must [add it manually to the **
 | SystemNumber | System number    |
 | | |
 
-## ABAP ICM log
+### ABAP ICM log
 
 To have this log sent to Microsoft Sentinel, you must [add it manually to the **systemconfig.ini** file](sap-solution-deploy-alternate.md#define-the-sap-logs-that-are-sent-to-microsoft-sentinel).
 
@@ -223,7 +224,7 @@ To have this log sent to Microsoft Sentinel, you must [add it manually to the **
 
     Available by the SAP Control Web Service. This log is generated with data across all clients.
 
-### ABAPOS_ICM_CL log schema
+#### ABAPOS_ICM_CL log schema
 
 | Field        | Description      |
 | ------------ | ---------------- |
@@ -235,7 +236,7 @@ To have this log sent to Microsoft Sentinel, you must [add it manually to the **
 | SystemNumber | System number    |
 | | |
 
-## ABAP Job log
+### ABAP Job log
 
 - **Name in Microsoft Sentinel**: `ABAPJobLog_CL`
 
@@ -245,7 +246,7 @@ To have this log sent to Microsoft Sentinel, you must [add it manually to the **
 
     Available by using RFC with a custom service based on standard services of XBP interfaces. This log is generated with data across all clients.
 
-### ABAPJobLog_CL log schema
+#### ABAPJobLog_CL log schema
 
 
 | Field               | Description                      |
@@ -279,7 +280,7 @@ To have this log sent to Microsoft Sentinel, you must [add it manually to the **
 | WorkProcessNumber   | Work process Number              |
 | | |
 
-## ABAP Security Audit log
+### ABAP Security Audit log
 
 - **Name in Microsoft Sentinel**: `ABAPAuditLog_CL`
 
@@ -293,7 +294,7 @@ To have this log sent to Microsoft Sentinel, you must [add it manually to the **
 
     Available by using RFC XAL/SAL interfaces. SAL is available starting from version Basis 7.50. This log is generated with data across all clients.
 
-### ABAPAuditLog_CL log schema
+#### ABAPAuditLog_CL log schema
 
 | Field                      | Description                     |
 | -------------------------- | ------------------------------- |
@@ -329,7 +330,7 @@ To have this log sent to Microsoft Sentinel, you must [add it manually to the **
 | Variable4                  | Message variable 4              |
 | | |
 
-## ABAP Spool log
+### ABAP Spool log
 
 - **Name in Microsoft Sentinel**: `ABAPSpoolLog_CL`
 
@@ -339,7 +340,7 @@ To have this log sent to Microsoft Sentinel, you must [add it manually to the **
 
     Available by using RFC with a custom service based on standard tables. This log is generated with data across all clients.
 
-### ABAPSpoolLog_CL log schema
+#### ABAPSpoolLog_CL log schema
 
 | Field                               | Description                                |
 | ----------------------------------- | ------------------------------------------ |
@@ -388,7 +389,7 @@ To have this log sent to Microsoft Sentinel, you must [add it manually to the **
 | ValueAuthCheck                      | Value auth check                           |
 | | |
 
-## APAB Spool Output log
+### APAB Spool Output log
 
 - **Name in Microsoft Sentinel**: `ABAPSpoolOutputLog_CL`
 
@@ -398,7 +399,7 @@ To have this log sent to Microsoft Sentinel, you must [add it manually to the **
 
     Available by using RFC with a custom service based on standard tables. This log is generated with data across all clients.
 
-### ABAPSpoolOutputLog_CL log schema
+#### ABAPSpoolOutputLog_CL log schema
 
 | Field                              | Description                               |
 | ---------------------------------- | ----------------------------------------- |
@@ -439,7 +440,7 @@ To have this log sent to Microsoft Sentinel, you must [add it manually to the **
 | | |
 
 
-## ABAP SysLog
+### ABAP SysLog
 
 To have this log sent to Microsoft Sentinel, you must [add it manually to the **systemconfig.ini** file](sap-solution-deploy-alternate.md#define-the-sap-logs-that-are-sent-to-microsoft-sentinel).
 
@@ -452,7 +453,7 @@ To have this log sent to Microsoft Sentinel, you must [add it manually to the **
 
     Available by the SAP Control Web Service. This log is generated with data across all clients.
 
-### ABAPOS_Syslog_CL log schema
+#### ABAPOS_Syslog_CL log schema
 
 
 | Field            | Description            |
@@ -471,7 +472,7 @@ To have this log sent to Microsoft Sentinel, you must [add it manually to the **
 | | |
 
 
-## ABAP Workflow log
+### ABAP Workflow log
 
 - **Name in Microsoft Sentinel**: `ABAPWorkflowLog_CL`
 
@@ -483,7 +484,7 @@ To have this log sent to Microsoft Sentinel, you must [add it manually to the **
 
     Available by using RFC with a custom service based on standard tables and standard services. This log is generated per client.
 
-### ABAPWorkflowLog_CL log schema
+#### ABAPWorkflowLog_CL log schema
 
 
 | Field               | Description                      |
@@ -526,7 +527,7 @@ To have this log sent to Microsoft Sentinel, you must [add it manually to the **
 
 
 
-## ABAP WorkProcess log
+### ABAP WorkProcess log
 
 To have this log sent to Microsoft Sentinel, you must [add it manually to the **systemconfig.ini** file](sap-solution-deploy-alternate.md#define-the-sap-logs-that-are-sent-to-microsoft-sentinel).
 
@@ -539,7 +540,7 @@ To have this log sent to Microsoft Sentinel, you must [add it manually to the **
 
     Available by the SAP Control Web Service. This log is generated with data across all clients.
 
-### ABAPOS_WP_CL log schema
+#### ABAPOS_WP_CL log schema
 
 
 | Field        | Description         |
@@ -554,7 +555,7 @@ To have this log sent to Microsoft Sentinel, you must [add it manually to the **
 | | |
 
 
-## HANA DB Audit Trail
+### HANA DB Audit Trail
 
 To have this log sent to Microsoft Sentinel, you must [add it manually to the **systemconfig.ini** file](sap-solution-deploy-alternate.md#define-the-sap-logs-that-are-sent-to-microsoft-sentinel).
 
@@ -567,7 +568,7 @@ To have this log sent to Microsoft Sentinel, you must [add it manually to the **
 
     Available by the Sentinel Linux Agent for Syslog. This log is generated with data across all clients.
 
-### Syslog log schema
+#### Syslog log schema
 
 | Field         | Description  |
 | ------------- | ------------ |
@@ -581,7 +582,7 @@ To have this log sent to Microsoft Sentinel, you must [add it manually to the **
 | SyslogMessage | Message, an unparsed audit trail message      |
 | | |
 
-## JAVA files
+### JAVA files
 
 To have this log sent to Microsoft Sentinel, you must [add it manually to the **systemconfig.ini** file](sap-solution-deploy-alternate.md#define-the-sap-logs-that-are-sent-to-microsoft-sentinel).
 
@@ -594,7 +595,7 @@ To have this log sent to Microsoft Sentinel, you must [add it manually to the **
 
     Available by the SAP Control Web Service. This log is generated with data across all clients.
 
-### JavaFilesLogsCL log schema
+#### JavaFilesLogsCL log schema
 
 
 | Field            | Description          |
@@ -624,6 +625,85 @@ To have this log sent to Microsoft Sentinel, you must [add it manually to the **
 | TimeZone         | Timezone             |
 | User             | User                 |
 | | |
+
+## Tables retrieved
+List of tables below is retreived "as-is" from SAP
+| Table name | Table description |
+| ---------------- | -------------------- |
+| USR01 | User master record (runtime data)
+| USR02 | Logon Data (Kernel-Side Use)
+| UST04 | User masters<br>Maps users to profiles|
+| AGR_USERS | Assignment of roles to users|
+|AGR_1251|Authorization data for the activity group|
+|USGRP_USER|Assignment of Users to User Groups|
+|USR21| User Name/Address Key Assignment|
+|ADR6|E-Mail Addresses (Business Address Services)|
+|USRSTAMP|Time Stamp for all Changes to the User|
+|ADCP|Person/Address Assignment (Business Address Services)|
+|USR05|User Master Parameter ID|
+|AGR_PROF|Profile name for role|
+|AGR_FLAGS|Role attributes|
+|DEVACCESS|Table for development user|
+|AGR_DEFINE|Role definition|
+|AGR_AGRS|Roles in Composite Roles|
+|PAHI|History of system, DB and SAP parameter
+||
+
+To have data from the tables listed above to be sent to Sentinel, follow steps listed in [Configuring data connector for User Master Data collection](sap-solution-deploy-alternate.md#Configuring-data-connector-for-User-Master-Data-collection) section
+
+Data retrieved allows to get a clear view of the authorizations structure,  group memberships, and profiles of the users. It also allows to track the process of authorization grants and revokes and identify and govern risks associated with the process.
+
+Tables above are required to enable functionality of functions that identify privileged users, identify which users are assigned to which roles and identify which users have been granted certain authorizations. Mo
+To enable collection of tables
+
+## Functions available
+Deployment of Continuous threat monitoring for SAP solution adds the following functions that can be used in the log analytic queries:
+
+#### SAPUsersAssignments
+
+**Synopsis**: User Assignments to Roles and Profiles
+
+**Returns**:
+|Field|	Description|	Data Source/Notes|
+|-|-|-|
+|User|	SAP User ID|	SAL Only|
+|Email|	SMTP address| USR21 (SMTP_ADDR)|
+|UserType|	User Type| USR02 (USTYP)|
+|Timezone|	Time Zone| USR02 (TZONE)|
+|LockedStatus|	Lock Status| USR02 (UFLAG)|
+|LastSeenDate|	Last Seen Date| USR02 (TRDAT)|
+|LastSeenTime|	Last Seen Time| USR02 (LTIME)|
+|UserGroupAuth|	User group in user master maintenance| USR02 (CLASS)|
+|Profiles|Set of Profiles (Default max Set Size =50)|["Profile 1", "Profile 2",...,"profile 50"]|
+|Roles|	Set of AGR roles (Default max Set Size =50)	|["Role 1", "Role 2",...,"”"Role 50"]|
+|Client|	Client ID	||
+|SystemID	|System ID|	As defined in the connector|
+
+#### SAPUsersGetPrivileged
+
+**Synopsis**: Returns privileged users
+
+**Returns**:
+|Field|	Description|
+|-|-|
+|User|SAP User ID	|
+|Client|	Client ID	|
+|SystemID|	System ID|
+
+#### SAPUsersAuthorizations
+
+**Synopsis**: Lists user Assignments to authorizations
+
+**Returns**:
+
+|Field|	Description	|Notes|
+|-|-|-|
+|User|	SAP User ID||
+|Roles|	Set of roles (Default max Set Size=50)|	["Role 1", "Role 2",...,"Role 50"]|
+|AuthorizationsDetails|	Set of authorizations (Default max Set Size =100|{ {AuthorizationsDeatils1},<br>{AuthorizationsDeatils2}, <br>...,<br>{AuthorizationsDeatils100}}|
+|Client|	Client ID	|
+|SystemID|	System ID|
+
 
 ## Next steps
 

@@ -352,6 +352,31 @@ To ingest SAP Control Web Service logs into Microsoft Sentinel, configure the fo
 |**javatz**     |Enter the time zone configured on your SAP Control Java server, in GMT format. <br>For example: `GMT+3`         |
 |**javaseverity**     |Enter the lowest, inclusive, severity level for which you want to ingest Web Service logs into Microsoft Sentinel.  Values include: <br><br>- **0** = All logs <br>- **1** = Warning <br>- **2** = Error     |
 
+
+### Configuring data connector for User Master Data collection
+It is possible to ingest tables that contain information about users, roles authorizations. Detailed list of collected tables is available [here](sap-solution-log-reference.md#Tables-retrieved)
+To configure User Master Data collection, edit systemconfig.ini file
+
+```python
+[ABAP Table Selector] 
+USR01_FULL = True
+USR02_FULL = True
+USR02_INCREMENTAL = True
+UST04_FULL = True
+AGR_USERS_FULL = True
+AGR_USERS_INCREMENTAL = True
+USR21_FULL = True
+AGR_1251_FULL = True
+ADR6_FULL = True
+AGR_TCODES_FULL = True 
+DEVACCESS_FULL = True
+AGR_DEFINE_FULL = True
+AGR_DEFINE_INCREMENTAL = True
+AGR_PROF_FULL = True
+PAHI_FULL = True
+
+```
+
 ## Next steps
 
 After you have your SAP data connector installed, you can add the SAP-related security content.
