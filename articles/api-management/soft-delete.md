@@ -44,7 +44,6 @@ In the soft-deleted state:
 
 * The API Management instance can only be [listed](#list-deleted-api-management-instances), [recovered](#recover-a-soft-deleted-instance), or [purged](#purge-a-soft-deleted-instance) (permanently deleted).
 * Azure will schedule the permanent deletion of the underlying data corresponding to the API Management instance after the predetermined (48 hour) retention period. 
-* The DNS record corresponding to the instance is retained. 
 * You can't reuse the name of the API Management instance.
 
 If your API Management instance isn't recovered or purged by you within 48 hours, it's automatically deleted permanently. 
