@@ -118,24 +118,6 @@ DPS is available in many regions. The updated list of existing and newly announc
 > [!NOTE]
 > DPS is global and not bound to a location. However, you must specify a region in which the metadata associated with your DPS profile will reside.
 
-## High availability
-
-There is a 99.9% Service Level Agreement for DPS, and you can [read the SLA](https://azure.microsoft.com/support/legal/sla/iot-hub/). The full [Azure SLA](https://azure.microsoft.com/support/legal/sla/) explains the guaranteed availability of Azure as a whole.
-
-DPS also supports [Availability Zones](../availability-zones/az-overview.md). An Availability Zone is a high-availability offering that protects your applications and data from datacenter failures. A region with Availability Zone support is comprised of a minimum of three zones supporting that region. Each zone provides one or more datacenters each in a unique physical location with independent power, cooling, and networking. This provides replication and redundancy within the region. Availability Zone support for DPS is enabled automatically for DPS resources in the following Azure regions:
-
-* Australia East
-* Brazil South
-* Canada Central
-* Central US
-* East US
-* East US 2
-* Japan East
-* North Europe
-* UK South
-* West Europe
-* West US 2
-
 ## Quotas and Limits
 
 Each Azure subscription has default quota limits in place that could impact the scope of your IoT solution. The current limit on a per-subscription basis is 10 Device Provisioning Services per subscription.
