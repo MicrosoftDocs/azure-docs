@@ -17,7 +17,7 @@ Azure VMware Solution blah blah
 
 Anycast is a routing technology used for multi-region application deployments. It essentially consists of advertising exactly the same IP address from different locations, so that packets from the application users are routed to the closest region with the application. NVAs can 
 
-The following diagram describes two simple hub and spoke topologies, each in a different Azure region. A Network Virtual Appliance (NVA) in each region advertises the same route (`9.9.9.9` in this example, but it could be any other prefix that does not overlap with the Azure and on-premises networks) to the Azure Route Server. The routes will be further propagated to the on-premises networks through ExpressRoute. When application users want to access the application, the DNS infrastructure will resolve the DNS name of the application to the anycast IP address (`9.9.9.9` in the diagram), which the on-premises network will route to one of the regions.
+The following diagram describes two simple hub and spoke topologies, each in a different Azure region. A Network Virtual Appliance (NVA) in each region advertises the same route (`a.b.c.d/32` in this example, it could be any prefix that ideally does not overlap with the Azure and on-premises networks) to the Azure Route Server. The routes will be further propagated to the on-premises networks through ExpressRoute. When application users want to access the application, the DNS infrastructure will resolve the DNS name of the application to the anycast IP address (`a.b.c.d` in the diagram), which the on-premises network will route to one of the regions.
 
 
 :::image type="content" source="./media/senarios/anycast.png" alt-text="Diagram of anycast with Route Server.":::
