@@ -137,14 +137,13 @@ Tenant Administrators have until March 31, 2022, to schedule and manage the reco
 
 If you don’t see the “#hub” node in your DID document. You need to reonboard your tenant.
 
-### 
-## How to redeploy your Azure AD Tenant?
+## How do I redeploy the Azure AD Verifiable credentials service?
 
-Reonboarding requires you to opt out and opt back into the Azure Active Directory Verifiable Credentials service.
+Redeployment requires you to opt out and opt back into the Azure Active Directory Verifiable Credentials service.
 
 1. Follow the [opt-out](how-to-opt-out.md) instructions.
 1. Go over the Azure Active Directory Verifiable credentials [deployment steps](verifiable-credentials-configure-tenant.md) to reconfigure the service and get a new DID.
-    1. Create a new Azure Key vault in a European region.
+    1. If you are in the European region we suggest that you create a new Azure Key vault and a new container in a European region.
 1. Finish [setting up](verifiable-credentials-configure-tenant.md#set-up-verifiable-credentials) your verifiable credentials service. You need to recreate your credentials. If your deployment issues credentials create a new storage account in the European region. You can reuse your configuration and rules files.
 ## Next steps
 
