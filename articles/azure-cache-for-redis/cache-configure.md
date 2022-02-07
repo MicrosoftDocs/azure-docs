@@ -27,7 +27,7 @@ Azure Cache for Redis settings are viewed and configured on the **Azure Cache fo
 
 ![Azure Cache for Redis Settings](./media/cache-configure/redis-cache-settings.png)
 
-You can view and configure the following settings using the **Resource Menu**. The settings that you see depend on the tier of your cache. For example, you don't see **Reboot** using the Enterprise tier.
+You can view and configure the following settings using the **Resource Menu**. The settings that you see depend on the tier of your cache. For example, you don't see **Reboot** when using the Enterprise tier.
 
 * [Overview](#overview)
 * [Activity log](#activity-log)
@@ -311,7 +311,7 @@ Export allows you to export the data stored in Azure Cache for Redis to Redis co
 
 ### Reboot
 
-The **Reboot** on the left allows you to reboot the nodes of your cache. This reboot capability enables you to test your application for resiliency if there's a failure of a cache node.
+The **Reboot** item on the left allows you to reboot the nodes of your cache. This reboot capability enables you to test your application for resiliency if there's a failure of a cache node.
 
 ![Reboot](./media/cache-configure/redis-cache-reboot.png)
 
@@ -322,8 +322,7 @@ If you have a premium cache with clustering enabled, you can select which shards
 To reboot one or more nodes of your cache, select the desired nodes and select **Reboot**. If you have a premium cache with clustering enabled, select the shard(s) to reboot and then select **Reboot**. After a few minutes, the selected node(s) reboot, and are back online a few minutes later.
 
 > [!IMPORTANT]
-> Reboot is available for Standard and Premium tiers. It is not available for the Enterprise tier. For more information and instructions, see [Azure Cache for Redis administration - Reboot](cache-administration.md#reboot).
->
+> Reboot is not available for the Enterprise tier. Reboot is available for all other tiers. For more information and instructions, see [Azure Cache for Redis administration - Reboot](cache-administration.md#reboot).
 >
 
 ## Monitoring
