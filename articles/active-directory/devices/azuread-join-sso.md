@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: conceptual
-ms.date: 02/04/2022
+ms.date: 02/07/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -25,7 +25,7 @@ This article explains how this works.
 
 - An [Azure AD joined device](concept-azure-ad-join.md).
 - On-premises SSO requires line-of-sight communication with your on-premises AD DS domain controllers. If Azure AD joined devices aren't connected to your organization's network, a VPN or other network infrastructure is required. 
-- Azure AD Connect 
+- Azure AD Connect: To synchronize default user attributes like SAM Account Name, Domain Name, and UPN. For more information, see the article [Attributes synchronized by Azure AD Connect](../hybrid/reference-connect-sync-attributes-synchronized.md#windows-10).
 
 ## How it works 
 
@@ -38,7 +38,7 @@ If you have a hybrid environment, with both Azure AD and on-premises AD, it's li
 1. Azure AD sends the details of the user's on-premises domain back to the device, along with the [Primary Refresh Token](concept-primary-refresh-token.md)
 1. The local security authority (LSA) service enables Kerberos and NTLM authentication on the device.
 
->[!NOTE]
+> [!NOTE]
 > Windows Hello for Business requires additional configuration to enable on-premises SSO from an Azure AD joined device. For more information, see [Configure Azure AD joined devices for On-premises Single-Sign On using Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-hybrid-aadj-sso-base). 
 >
 > FIDO2 security key based passwordless authentication with Windows 10 requires additional configuration to enable on-premises SSO from an Azure AD joined device. For more information, see [Enable passwordless security key sign-in to on-premises resources with Azure Active Directory](../authentication/howto-authentication-passwordless-security-key-on-premises.md). 

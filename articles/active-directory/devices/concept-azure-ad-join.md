@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: conceptual
-ms.date: 02/04/2022
+ms.date: 02/07/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -25,7 +25,7 @@ Any organization can deploy Azure AD joined devices no matter the size or indust
 | **Primary audience** | Suitable for both cloud-only and hybrid organizations. |
 |   | Applicable to all users in an organization |
 | **Device ownership** | Organization |
-| **Operating Systems** | All Windows 10 and 11 devices except Home editions |
+| **Operating Systems** | All Windows 11 and Windows 10 devices except Home editions |
 |   | [Windows Server 2019 Virtual Machines running in Azure](howto-vm-sign-in-azure-ad-windows.md) (Server core isn't supported) |
 | **Provisioning** | Self-service: Windows Out of Box Experience (OOBE) or Settings |
 |   | Bulk enrollment |
@@ -65,7 +65,7 @@ Azure AD join can be used in various scenarios like:
 - You want to manage a group of users in Azure AD instead of in Active Directory. This scenario can apply, for example, to seasonal workers, contractors, or students.
 - You want to provide joining capabilities to workers who work from home or are in remote branch offices with limited on-premises infrastructure.
 
-You can configure Azure AD join for all Windows 10 devices except for Windows 10 Home.
+You can configure Azure AD join for all Windows 11 and Windows 10 devices except for Home editions.
 
 The goal of Azure AD joined devices is to simplify:
 
