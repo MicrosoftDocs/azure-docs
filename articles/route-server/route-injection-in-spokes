@@ -1,5 +1,5 @@
 ---
-title: 'Default route injection in spoke VNets '
+title: 'Default route injection in spoke VNets'
 description: Learn about how Azure Route Server injects routes in VNets.
 services: route-server
 author: jomore
