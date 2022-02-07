@@ -50,7 +50,7 @@ items:
           href: how-to-specify-source-language.md
         - name: How to use the audio input stream
           href: how-to-use-audio-input-streams.md
-        - name: Stream codec-compressed audio
+        - name: Support compressed input audio
           href: how-to-use-codec-compressed-audio-input-streams.md
           displayName: codec,codecs,compression,compressed,mp3,flac,mulaw,alaw,mp4,mp4a,wav,opus,ogg,pcm,silk
         - name: Select a specific microphone input device
