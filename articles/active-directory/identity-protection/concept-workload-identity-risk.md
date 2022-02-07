@@ -25,7 +25,7 @@ A workload identity is an identity that allows an application or service princip
 - Often have no formal lifecycle process.
 - Need to store their credentials or secrets somewhere.
 
-These differences make workload identities harder to manage and puts them at higher risk for compromise.
+These differences make workload identities harder to manage and put them at higher risk for compromise.
 
 > [!IMPORTANT]
 > In public preview, you can secure workload identities with Identity Protection and Azure Active Directory Premium P2 edition active in your tenant. After general availability, additional licenses might be required.
@@ -40,8 +40,6 @@ To make use of workload identity risk, including the new **Risky workload identi
    - Security administrator
    - Security operator
    - Security reader
-
-Users assigned the Conditional Access administrator role can create policies that use risk as a condition.
 
 ## Workload identity risk detections
 
@@ -100,10 +98,6 @@ Once you determine if the workload identity was compromised, dismiss the account
 1.	Remediate any Azure KeyVault secrets that the Service Principal has access to by rotating them. 
 
 The [Azure AD Toolkit](https://github.com/microsoft/AzureADToolkit) is a PowerShell module that can help you perform some of these actions.
-
-## Configure a risk-based Conditional Access policy
-
-Using [Conditional Access for workload identities](../conditional-access/workload-identity.md) you can block access for specific accounts you choose when Identity Protection marks them “at risk”. Policy can be applied to single tenant service principals that have been registered in your tenant. Third-party SaaS and multi-tenanted apps are out of scope. Managed identities aren't covered by policy.
 
 ## Next steps
 
