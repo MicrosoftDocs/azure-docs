@@ -77,7 +77,7 @@ Use the following steps to generate a heap or thread dump of your app in Azure S
 3. In the **File path** field, specify the mount path of your persistent storage.
 4. Select **Collect**.
 
-![ASC icon start](media/spring-cloud-start-dump.png)
+:::image type="content" source="media/how-to-capture-dumps/spring-cloud-start-dump.png" lightbox="media/how-to-capture-dumps/spring-cloud-start-dump.png" alt-text="Azure portal screenshot of app page with Troubleshooting pane showing.":::
 
 ## Get your diagnostic files
 
