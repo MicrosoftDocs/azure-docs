@@ -27,6 +27,7 @@ Read [Policy control](policy-control.md) and make sure you're familiar with Azur
 SIM policies have top-level settings that are applied to every SIM to which the SIM policy is assigned. These settings include the UE Aggregated Maximum Bit Rate (UE-AMBR) and RAT/Frequency Priority ID (RFSP ID).
 
 Collect each of the values in the table below for your SIM policy.
+<!-- should the bulleted list of options under <unit> be bold rather than their current style? -->
 
 | Value | Azure portal field name |
 |--|--|
@@ -38,10 +39,11 @@ Collect each of the values in the table below for your SIM policy.
 | <p>The Subscriber Profile ID for RAT/Frequency Priority ID (RFSP ID) for this SIM policy, as defined in TS 36.413.</p><p>If you want to set an RFSP ID, you must specify an integer between 1 and 256.</p><p>If you don't specify an RFSP ID, it will default to `null`.</p> | **RFSP index** |
 
 ## Collect information for the network scope
-
+<!-- Should network scope me capitalized bold or italic rather than lowercase bold? -->
 Within each SIM policy, you'll have a **network scope**. The network scope represents the data network to which SIMs assigned to the SIM policy will have access. It allows you to define the QoS policy settings used for the default QoS Flow for PDU sessions involving these SIMs. These settings include the Session Aggregated Maximum Bit Rate (Session-AMBR), 5G QoS Indicator (5QI) value, and Allocation and Retention Policy (ARP) priority level. You can also determine the services that will be offered to SIMs.
 
 Collect each of the values in the table below for the network scope.
+<!-- should the bulleted list of options under <unit> be bold rather than their current style? -->
 
 | Value | Azure portal field name |
 |---------|---------|
