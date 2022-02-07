@@ -28,9 +28,7 @@ Having Azure AD pre-authenticate access to BIG-IP published services provides ma
 
 - Preemptive [Conditional Access](../conditional-access/overview.md) and [Azure AD Multi-Factor Authentication (MFA)](../authentication/concept-mfa-howitworks.md)
 
-- [Identity Protection](../identity-protection/overview-identity-protection.md) - Adaptive control through user and session risk profiling
-
-- [Leaked credential detection](../identity-protection/concept-identity-protection-risks.md)
+- [Identity Protection](../identity-protection/overview-identity-protection.md) - Adaptive protection through user and session risk profiling, plus [Leaked credential detection](../identity-protection/concept-identity-protection-risks.md)
 
 - [Self-service password reset (SSPR)](../authentication/tutorial-enable-sspr.md)
 
@@ -77,7 +75,7 @@ Whether a direct employee, affiliate, or consumer, most users are already acquai
 
 Users now find their BIG-IP published services consolidated in the  [MyApps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510) or [O365 launchpads](https://airhead.io/airbase/launchpads/R3kW-RkDFEedipcU1AFlnA) along with self-service capabilities to a broader set of services, no matter the type of device or location. Users can even continue accessing published services directly via the BIG-IPs proprietary Webtop portal, if preferred. When logging off, SHA ensures a users’ session is terminated at both ends, the BIG-IP and Azure AD, ensuring services remain fully protected from unauthorized access.  
 
-The screenshots provided are from the Azure AD app portal that users access securely to find their BIG-IP published services and for managing their account properties.  
+Users access the Microsoft MyApps portal to easily find their BIG-IP published services and for managing their account properties.  
 
 ![The screenshot shows woodgrove myapps gallery](media/f5-aad-integration/woodgrove-app-gallery.png)
 
@@ -85,7 +83,7 @@ The screenshots provided are from the Azure AD app portal that users access secu
 
 ## Insights and analytics
 
-A BIG-IP’s role is critical to any business, so deployed BIG-IP instances should be monitored to ensure published services are highly available, both at an SHA level and operationally too.
+A BIG-IP’s role is critical to any business, so deployed BIG-IP instances can be monitored to ensure published services are highly available, both at an SHA level and operationally too.
 
 Several options exist for logging events either locally, or remotely through a Security Information and Event Management (SIEM) solution, enabling off-box storage and processing of telemetry. A highly effective solution for monitoring Azure AD and SHA-specific activity, is to use [Azure Monitor](../../azure-monitor/overview.md) and [Microsoft Sentinel](../../sentinel/overview.md), together offering:
 
@@ -97,7 +95,7 @@ Several options exist for logging events either locally, or remotely through a S
 
 ## Prerequisites
 
-Integrating F5 BIG-IP with Azure AD for SHA have the following pre-requisites:
+Integrating an F5 BIG-IP with Azure AD for SHA has the following pre-requisites:
 
 - An F5 BIG-IP instance running on either of the following platforms:
 
@@ -111,13 +109,13 @@ Integrating F5 BIG-IP with Azure AD for SHA have the following pre-requisites:
 
 - An active F5 BIG-IP APM license, through one of the following options:
 
-  - F5 BIG-IP® Best bundle (or)
+  - F5 BIG-IP® Best bundle
 
-    - F5 BIG-IP Access Policy Manager™ standalone license
+  - F5 BIG-IP Access Policy Manager™ standalone license
 
-    - F5 BIG-IP Access Policy Manager™ (APM) add-on license on an existing BIG-IP F5 BIG-IP® Local Traffic Manager™ (LTM)
+  - F5 BIG-IP Access Policy Manager™ (APM) add-on license on an existing BIG-IP F5 BIG-IP® Local Traffic Manager™ (LTM)
 
-    - A 90-day BIG-IP Access Policy Manager™ (APM) [trial license](https://www.f5.com/trial/big-ip-trial.php)
+  - A 90-day BIG-IP Access Policy Manager™ (APM) [trial license](https://www.f5.com/trial/big-ip-trial.php)
 
 - Azure AD licensing through either of the following options:
 
@@ -130,7 +128,7 @@ No previous experience or F5 BIG-IP knowledge is necessary to implement SHA, but
 ## Configuration scenarios
 
 Configuring a BIG-IP for SHA is achieved using any of the many available methods, including several template based options, or a manual configuration.
-The following tutorials provide detailed guidance on implementing some of the more common patterns for BIG-IP and Azure AD SHA, using these methods.  
+The following tutorials provide detailed guidance on implementing some of the more common patterns for BIG-IP and Azure AD secure hybrid access.  
 
 **Advanced configuration**
 
@@ -154,7 +152,7 @@ Refer to the following advanced configuration tutorials for your integration req
 
 The Guided Configuration wizard, available from BIG-IP version 13.1 aims to minimize time and effort implementing common BIG-IP publishing scenarios. Its workflow-based framework provides an intuitive deployment experience tailored to specific access topologies.
 
-The latest version of the Guided Configuration 16.1 now offers an Easy Button feature. With **Easy Button**, admins no longer go back and forth between Azure AD and a BIG-IP to enable services for SHA. The end-to-end deployment and policy management is handled directly between the APM’s Guided Configuration wizard and Microsoft Graph. This rich integration between BIG-IP APM and Azure AD ensures applications can quickly, easily support identity federation, SSO, and Azure AD Conditional Access, without management overhead of having to do so on a per app basis. 
+Version 16.x of the Guided Configuration now offers an Easy Button feature. With **Easy Button**, admins no longer go back and forth between Azure AD and a BIG-IP to enable services for SHA. The end-to-end deployment and policy management is handled directly between the APM’s Guided Configuration wizard and Microsoft Graph. This rich integration between BIG-IP APM and Azure AD ensures applications can quickly, easily support identity federation, SSO, and Azure AD Conditional Access, without management overhead of having to do so on a per app basis. 
 
 Refer to the following guided configuration tutorials using Easy Button templates for your integration requirements:
 
@@ -164,7 +162,9 @@ Refer to the following guided configuration tutorials using Easy Button template
 
 - [F5 BIG-IP Easy Button for SSO to header-based and LDAP applications](f5-big-ip-ldap-header-easybutton.md)
 
-- [F5 BIG-IP Easy Button for SSO to Oracle EBS (Enterprise Business Suite)](f5-big-ip-oracle-enterprise-business-suite-easy-button.md) 
+- [BIG-IP Easy Button for SSO to Oracle EBS (Enterprise Business Suite)](f5-big-ip-oracle-enterprise-business-suite-easy-button.md)
+
+- [BIG-IP Easy Button for SSO to Oracle JD Edwards](f5-big-ip-oracle-jde-easy-button.md)
 
 ## Additional resources
 
@@ -178,16 +178,16 @@ Refer to the following guided configuration tutorials using Easy Button template
 
 ## Next steps
 
-Consider running an SHA Proof of concept (POC) using your existing BIG-IP infrastructure, or by deploying a trial instance. [Deploying a BIG-IP Virtual Edition (VE) VM into Azure](f5-bigip-deployment-guide.md) takes approximately 30 minutes, at which point you'll have:
+Consider running an SHA Proof of concept (POC) using your existing BIG-IP infrastructure, or by [Deploying a BIG-IP Virtual Edition (VE) VM into Azure](f5-bigip-deployment-guide.md) takes approximately 30 minutes, at which point you'll have:
 
-- A fully secured platform to model an SHA proof of concept
+- A fully secured platform to model a SHA proof of concept
 
-- A pre-production instance, fully secured platform to use for testing new BIG-IP system updates and hotfixes
+- A pre-production instance for testing new BIG-IP system updates and hotfixes
 
-At the same time, you should identify one or two applications that can be targeted for publishing via the BIG-IP and protecting with SHA.  
+At the same time, you should identify one or two applications that can be published via the BIG-IP and protected with SHA.
 
 Our recommendation is to start with an application that isn’t yet published via a BIG-IP, so as to avoid potential disruption to production services. The guidelines mentioned in this article will help you get acquainted with the general procedure for creating the various BIG-IP configuration objects and setting up SHA. Once complete you should be able to do the same with any other new services, plus also have enough knowledge to convert existing BIG-IP published services over to SHA with minimal effort.
 
-The below interactive guide walks through the high-level procedure for implementing SHA and seeing the end-user experience.
+The below interactive guide walks through the high-level procedure for implementing SHA using a non Easy Button template, and seeing the end-user experience.
 
 [![The image shows interactive guide cover](media/f5-aad-integration/interactive-guide.png)](https://aka.ms/Secure-Hybrid-Access-F5-Interactive-Guide)
