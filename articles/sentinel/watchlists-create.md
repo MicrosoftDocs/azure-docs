@@ -15,7 +15,7 @@ Upload a watchlist file from a local folder or from your Azure Storage account. 
 
 The features for watchlist templates and the ability to create a watchlist from a file in Azure Storage are currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-Local file uploads are currently limited to files of up to 3.8 MB in size. If you have a watchlist file that's between 3.8 MB and 500 MB in size, upload the file to your Azure Storage account. Before you create a watchlist, review the [limitations of watchlists](watchlists.md).
+Local file uploads are currently limited to files of up to 3.8 MB in size. If you have large watchlist file that's up to 500 MB in size, upload the file to your Azure Storage account. Before you create a watchlist, review the [limitations of watchlists](watchlists.md).
 
 ## Upload a watchlist from a local folder
 
@@ -78,39 +78,18 @@ To create the watchlist from a template you populated,
 1. Select **Next: Review and Create** > **Create**.
 1. Watch for an Azure notification to appear when the watchlist is created.
 
-
-## Download watchlist template (preview)
-
-Download one of the watchlist templates from Microsoft Sentinel to populate with your data. Then upload that file when you create the watchlist in Microsoft Sentinel.
-
-Each built-in watchlist template has its own set of data listed in the CSV file attached to the template. For more information, see [Built-in watchlist schemas](watchlist-schemas.md).
-
-To download one of the watchlist templates,
-
-1. In the Azure portal, go to **Microsoft Sentinel** and select the appropriate workspace.
-1. Under **Configuration**, select **Watchlist**.
-1. Select the tab **Templates (Preview)**.
-1. Select a template from the list to view details of the template in the right pane.
-1. Select the ellipses **...** at the end of the row.
-1. Select **Download Schema**.
-
-    :::image type="content" source="./media/watchlists/create-watchlist-download-schema.png" alt-text="Screenshot of templates tab with download schema selected.":::
-
-1. Populate your local version of the file and save it locally as a CSV file.
-1. Follow the steps to [upload watchlist created from a template (Preview)](#upload-watchlist-created-from-a-template-preview).
-
 ## Create a large watchlist (preview)
 
-If your watchlist is over 3.8 MB and isn't larger than 500 MB  in size, upload your watchlist file to your Azure Storage account. Then create a shared access signature URL for Microsoft Sentinel to retrieve the watchlist data. A shared access signature URL is an URI that contains both the resource URI and shared access signature token of a resource like a csv file in your storage account. Finally, add the watchlist to your workspace in Microsoft Sentinel.
+If you have a large watchlist up to 500 MB in size, upload your watchlist file to your Azure Storage account. Then create a shared access signature URL for Microsoft Sentinel to retrieve the watchlist data. A shared access signature URL is an URI that contains both the resource URI and shared access signature token of a resource like a csv file in your storage account. Finally, add the watchlist to your workspace in Microsoft Sentinel.
 
-### Upload a watchlist file to Azure Storage
+### Step 1: Upload a watchlist file to Azure Storage
 
 To upload a large watchlist file to your Azure Storage account, use AzCopy or the Azure portal.
 
 1. If you don’t already have an Azure Storage account, [create a storage account](../storage/common/storage-account-create.md). The storage account can be in a different resource group or region from your workspace in Microsoft Sentinel.
 1. Use either AzCopy or the Azure portal to upload your csv file with your watchlist data into the storage account.
 
-### Upload your file with AzCopy
+#### Upload your file with AzCopy
 
 Upload files and directories to Blob storage by using the AzCopy v10 command-line utility. To learn more, see [Upload files to Azure Blob storage by using AzCopy](../storage/common/storage-use-azcopy-blobs-upload.md).
 
@@ -127,14 +106,14 @@ Upload files and directories to Blob storage by using the AzCopy v10 command-lin
    azcopy copy '<local-file-path>' 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>/<blob-name>'
    ```
 
-### Upload your file in Azure portal
+#### Upload your file in Azure portal
 
 If you don't use AzCopy, upload your file by using the Azure portal. Go to your storage account in Azure portal to upload the csv file with your watchlist data.
 
 1. If you don’t already have an existing storage container, [create a container](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container). For the level of public access to the container, we recommend the default which is that the level is set to Private (no anonymous access).
 1. Upload your csv file to the storage account by [uploading a block blob](../storage/blobs/storage-quickstart-blobs-portal.md#upload-a-block-blob).
 
-### Create shared access signature URL
+### Step 2: Create shared access signature URL
 
 Create a shared access signature URL for Microsoft Sentinel to retrieve the watchlist data. 
 
@@ -142,7 +121,7 @@ Create a shared access signature URL for Microsoft Sentinel to retrieve the watc
 1. Set the shared access signature token expiry time to be at minimum 6 hours.
 1. Copy the value for **Blob SAS URL**.
 
-### Add the watchlist to a workspace
+### Step 3: Add the watchlist to a workspace
 
 1. In the Azure portal, go to **Microsoft Sentinel** and select the appropriate workspace.
 1. Under **Configuration**, select **Watchlist**.
@@ -169,6 +148,26 @@ Create a shared access signature URL for Microsoft Sentinel to retrieve the watc
 1. Select **Next: Review and Create**.
 1. Review the information, verify that it's correct, wait for the **Validation passed** message.
 1. Select **Create**.
+
+## Download watchlist template (preview)
+
+Download one of the watchlist templates from Microsoft Sentinel to populate with your data. Then upload that file when you create the watchlist in Microsoft Sentinel.
+
+Each built-in watchlist template has its own set of data listed in the CSV file attached to the template. For more information, see [Built-in watchlist schemas](watchlist-schemas.md).
+
+To download one of the watchlist templates,
+
+1. In the Azure portal, go to **Microsoft Sentinel** and select the appropriate workspace.
+1. Under **Configuration**, select **Watchlist**.
+1. Select the tab **Templates (Preview)**.
+1. Select a template from the list to view details of the template in the right pane.
+1. Select the ellipses **...** at the end of the row.
+1. Select **Download Schema**.
+
+    :::image type="content" source="./media/watchlists/create-watchlist-download-schema.png" alt-text="Screenshot of templates tab with download schema selected.":::
+
+1. Populate your local version of the file and save it locally as a CSV file.
+1. Follow the steps to [upload watchlist created from a template (Preview)](#upload-watchlist-created-from-a-template-preview).
 
 ## View watchlist status
 

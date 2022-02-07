@@ -46,7 +46,7 @@ Create a watchlist in Microsoft Sentinel from a file you upload from a local fol
 
 You have the option to download one of the watchlist templates from Microsoft Sentinel to populate with your data. Then upload that file when you create the watchlist in Microsoft Sentinel.  
 
-To create a watchlist from a file that's between 3.8 MB and 500 MB in size, upload the file to your Azure Storage account. Then create a shared access signature URL for Microsoft Sentinel to retrieve the watchlist data. A shared access signature URL is an URI that contains both the resource URI and shared access signature token of a resource like a csv file in your storage account. Finally, add the watchlist to your workspace in Microsoft Sentinel.
+To create a watchlist from a large file that's up to 500 MB in size, upload the file to your Azure Storage account. Then create a shared access signature URL for Microsoft Sentinel to retrieve the watchlist data. A shared access signature URL is an URI that contains both the resource URI and shared access signature token of a resource like a csv file in your storage account. Finally, add the watchlist to your workspace in Microsoft Sentinel.
 
 For more information, see the following articles:
 
