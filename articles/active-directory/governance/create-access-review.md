@@ -168,7 +168,7 @@ For more information, see [License requirements](access-reviews-overview.md#lice
 
 1. Add the duration for the first stage. To add the duration, enter a number in the field next to **Stage duration (in days)**. This is the number of days you wish for the first stage to be open to the first stage reviewers to make decisions.
  
-1. Under **Second stage review**, select the reviewers from the dropdown menu next to **Select reviewers**. 
+1. Under **Second stage review**, select the reviewers from the dropdown menu next to **Select reviewers**. These reviewers will be asked to review after the duration of the first stage review ends.
 
 1. Add any fallback reviewers if necessary.
 
