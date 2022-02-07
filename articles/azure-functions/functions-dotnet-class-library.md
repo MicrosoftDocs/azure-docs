@@ -5,7 +5,7 @@ description: Understand how to use C# to develop and publish code as class libra
 ms.topic: conceptual
 ms.devlang: csharp
 ms.custom: devx-track-csharp
-ms.date: 07/24/2021
+ms.date: 02/08/2022
 
 ---
 # Develop C# class library functions using Azure Functions
@@ -318,6 +318,8 @@ public static class CancellationTokenExample
     }
 }
 ```
+
+[!INCLUDE [functions-test-csharp.md](../../../includes/functions-test-csharp.md)]
 
 ## Logging
 

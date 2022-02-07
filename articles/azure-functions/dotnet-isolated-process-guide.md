@@ -4,7 +4,7 @@ description: Learn how to use a .NET isolated process to run your C# functions i
 
 ms.service: azure-functions
 ms.topic: conceptual 
-ms.date: 06/01/2021
+ms.date: 02/08/2022
 ms.custom: template-concept 
 recommendations: false
 #Customer intent: As a developer, I need to know how to create functions that run in an isolated process so that I can run my function code on current (not LTS) releases of .NET.
@@ -161,6 +161,8 @@ Likewise, the function returns an [HttpResponseData] object, which provides data
 The following code is an HTTP trigger 
 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Http/HttpFunction.cs" id="docsnippet_http_trigger" :::
+
+[!INCLUDE [functions-test-csharp.md](../../../includes/functions-test-csharp.md)]
 
 ## Logging
 

@@ -693,6 +693,124 @@ In version 1.x, setting `languageWorkers:node:arguments` will not work. The debu
 > [!NOTE]
 > You can only configure `languageWorkers:node:arguments` when running the function app locally.
 
+## JavaScript in VS Code
+
+The following example describes how to create a JavaScript Function app in VS Code and run and tests with [Jest](https://jestjs.io). This procedure uses the [VS Code Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) to create Azure Functions.
+
+![Testing Azure Functions with JavaScript in VS Code](./media/functions-test-a-function/azure-functions-test-vs-code-jest.png)
+
+### Setup
+
+To set up your environment, initialize a new Node.js app in an empty folder by running `npm init`.
+
+```bash
+npm init -y
+```
+
+Next, install Jest by running the following command:
+
+```bash
+npm i jest
+```
+
+Now update _package.json_ to replace the existing test command with the following command:
+
+```bash
+"scripts": {
+    "test": "jest"
+}
+```
+
+### Create test modules
+
+With the project initialized, you can create the modules used to run the automated tests. Begin by creating a new folder named *testing* to hold the support modules.
+
+In the *testing* folder add a new file, name it **defaultContext.js**, and add the following code:
+
+```javascript
+module.exports = {
+    log: jest.fn()
+};
+```
+
+This module mocks the *log* function to represent the default execution context.
+
+Next, add a new file, name it **defaultTimer.js**, and add the following code:
+
+```javascript
+module.exports = {
+    IsPastDue: false
+};
+```
+
+This module implements the `IsPastDue` property to stand is as a fake timer instance. Timer configurations like NCRONTAB expressions are not required here as the test harness is simply calling the function directly to test the outcome.
+
+Next, use the VS Code Functions extension to [create a new JavaScript HTTP Function](/azure/developer/javascript/tutorial-vscode-serverless-node-01) and name it *HttpTrigger*. Once the function is created, add a new file in the same folder named **index.test.js**, and add the following code:
+
+```javascript
+const httpFunction = require('./index');
+const context = require('../testing/defaultContext')
+
+test('Http trigger should return known text', async () => {
+
+    const request = {
+        query: { name: 'Bill' }
+    };
+
+    await httpFunction(context, request);
+
+    expect(context.log.mock.calls.length).toBe(1);
+    expect(context.res.body).toEqual('Hello Bill');
+});
+```
+
+The HTTP function from the template returns a string of "Hello" concatenated with the name provided in the query string. This test creates a fake instance of a request and passes it to the HTTP function. The test checks that the *log* method is called once and the returned text equals "Hello Bill".
+
+Next, use the VS Code Functions extension to create a new JavaScript Timer Function and name it *TimerTrigger*. Once the function is created, add a new file in the same folder named **index.test.js**, and add the following code:
+
+```javascript
+const timerFunction = require('./index');
+const context = require('../testing/defaultContext');
+const timer = require('../testing/defaultTimer');
+
+test('Timer trigger should log message', () => {
+    timerFunction(context, timer);
+    expect(context.log.mock.calls.length).toBe(1);
+});
+```
+
+The timer function from the template logs a message at the end of the body of the function. This test ensures the *log* function is called once.
+
+### Run tests
+
+To run the tests, press **CTRL + ~** to open the command window, and run `npm test`:
+
+```bash
+npm test
+```
+
+![Testing Azure Functions with JavaScript in VS Code](./media/functions-test-a-function/azure-functions-test-vs-code-jest.png)
+
+### Debug tests
+
+To debug your tests, add the following configuration to your *launch.json* file:
+
+```json
+{
+  "type": "node",
+  "request": "launch",
+  "name": "Jest Tests",
+  "disableOptimisticBPs": true,
+  "program": "${workspaceRoot}/node_modules/jest/bin/jest.js",
+  "args": [
+      "-i"
+  ],
+  "internalConsoleOptions": "openOnSessionStart"
+}
+```
+
+Next, set a breakpoint in your test and press **F5**.
+
 ## TypeScript
 
 When you target version 2.x or higher of the Functions runtime, both [Azure Functions for Visual Studio Code](./create-first-function-cli-typescript.md) and the [Azure Functions Core Tools](functions-run-local.md) let you create function apps using a template that supports TypeScript function app projects. The template generates `package.json` and `tsconfig.json` project files that make it easier to transpile, run, and publish JavaScript functions from TypeScript code with these tools.
