@@ -14,7 +14,7 @@ ms.custom: template-how-to
 
 # Delete a VM and attached resources
 
-Depending on how you delete a VM, it may only delete the VM resource, not the networking and disk resources. You can change the default settings for what other resource get deleted when delete a VM.
+Depending on how you delete a VM, it may only delete the VM resource, not the networking and disk resources. You can change the default settings for what other resources are deleted when you delete a VM.
 
 
 ## Set delete options when creating a VM
