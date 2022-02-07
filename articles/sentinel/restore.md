@@ -68,4 +68,4 @@ The restored data is available as long as the underlying source data is availabl
 ## Next steps
 
 - [Hunt with bookmarks](bookmarks.md)
-- [Restore](../azure-monitor/logs/azure-monitor-archived-logs#restore)
+- [Restore](../azure-monitor/logs/azure-monitor-archived-logs.md#restore)

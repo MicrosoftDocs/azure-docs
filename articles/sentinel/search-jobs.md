@@ -28,7 +28,7 @@ Go to **Search** in Microsoft Sentinel to enter your search criteria.
 
    :::image type="content" source="media/search-jobs/search-job-criteria.png" alt-text="Screenshot of search page with search criteria of administrator, timerange last 90 days, and table selected.":::
 
-   When the search job starts, a notification and the job status shows on the search page.
+   When the search job starts, a notification and the job status show on the search page.
 
 1. Wait for your search job to complete. Depending on your dataset and search criteria, the search job may take a few minutes or up to 24 hours to complete. If your search job takes longer than 24 hours, it will time out. If that happens, refine your search criteria and try again.
 
@@ -64,4 +64,4 @@ To learn more, see the following topics.
 - [Hunt with bookmarks](bookmarks.md)
 - [Restore archived logs](restore.md)
 - [Archived logs (preview)](../azure-monitor/logs/azure-monitor-archived-logs.md)
-- [Search job](../azure-monitor/logs/azure-monitor-archived-logs#search-job)
+- [Search job](../azure-monitor/logs/azure-monitor-archived-logs.md#search-job)

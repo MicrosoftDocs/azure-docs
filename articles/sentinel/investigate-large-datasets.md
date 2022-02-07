@@ -31,7 +31,7 @@ The following image shows example search criteria for a search job.
 
 Use search to find events in any of the following log types:
 
-- [Analytics logs](../azure-monitor/logs/data-platform-logs.ms)
+- [Analytics logs](../azure-monitor/logs/data-platform-logs.md)
 - [Basic logs (preview)](../azure-monitor/logs/azure-monitor-basic-logs.md)
 
 You can also search analytics or basic log data stored in [archived logs (preview)](../azure-monitor/logs/azure-monitor-archived-logs.md).
@@ -48,7 +48,7 @@ Before you start a search job, be aware of the following limitations:
 - Limited to 100 search results tables per workspace.
 - Limited to 100 search job executions per day per workspace.
 
-To learn more, see [Search job](../azure-monitor/logs/azure-monitor-archived-logs#search-job) in the Azure Monitor documentation.
+To learn more, see [Search job](../azure-monitor/logs/azure-monitor-archived-logs.md#search-job) in the Azure Monitor documentation.
 
 ## Restore historical data from archived logs
 
@@ -68,11 +68,11 @@ Before you start to restore an archived log table, be aware of the following lim
 - Restore up to four archived tables per workspace per week.
 - Limited to two concurrent restore jobs per workspace.
 
-To learn more, see [Restore](../azure-monitor/logs/azure-monitor-archived-logs#restore).
+To learn more, see [Restore](../azure-monitor/logs/azure-monitor-archived-logs.md#restore).
 
 ## Bookmark search results or restored data rows
 
-Similar to the [threat hunting dashboard](hunting.md#use-the-hunting-dashboard), you can bookmark rows that contain information you find interesting so you can attach them to an incident or refer to them later. To learn more, see [Create bookmarks](hunting.md#create-bookmarks).
+Similar to the [threat hunting dashboard](hunting.md#use-the-hunting-dashboard), you bookmark rows that contain information you find interesting so you can attach them to an incident or refer to them later. To learn more, see [Create bookmarks](hunting.md#create-bookmarks).
 
 ## Next steps
 
