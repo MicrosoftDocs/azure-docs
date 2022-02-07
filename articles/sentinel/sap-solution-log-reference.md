@@ -627,29 +627,30 @@ To have this log sent to Microsoft Sentinel, you must [add it manually to the **
 | | |
 
 ## Tables retrieved
-List of tables below is retreived "as-is" from SAP
+List of tables below is retrieved "as-is" from SAP
+
 | Table name | Table description |
 | ---------------- | -------------------- |
-| USR01 | User master record (runtime data)
-| USR02 | Logon Data (Kernel-Side Use)
-| UST04 | User masters<br>Maps users to profiles|
-| AGR_USERS | Assignment of roles to users|
-|AGR_1251|Authorization data for the activity group|
-|USGRP_USER|Assignment of Users to User Groups|
-|USR21| User Name/Address Key Assignment|
-|ADR6|E-Mail Addresses (Business Address Services)|
-|USRSTAMP|Time Stamp for all Changes to the User|
-|ADCP|Person/Address Assignment (Business Address Services)|
-|USR05|User Master Parameter ID|
-|AGR_PROF|Profile name for role|
-|AGR_FLAGS|Role attributes|
-|DEVACCESS|Table for development user|
-|AGR_DEFINE|Role definition|
-|AGR_AGRS|Roles in Composite Roles|
-|PAHI|History of system, DB and SAP parameter
-||
+| USR01 | User master record (runtime data) |
+| USR02 | Logon Data (Kernel-Side Use) |
+| UST04 | User masters<br>Maps users to profiles |
+| AGR_USERS | Assignment of roles to users |
+| AGR_1251 |Authorization data for the activity group |
+| USGRP_USER |Assignment of Users to User Groups |
+| USR21 | User Name/Address Key Assignment |
+| ADR6 | E-Mail Addresses (Business Address Services) |
+| USRSTAMP | Time Stamp for all Changes to the User |
+| ADCP | Person/Address Assignment (Business Address Services) |
+| USR05 | User Master Parameter ID |
+| AGR_PROF | Profile name for role |
+| AGR_FLAGS | Role attributes |
+| DEVACCESS | Table for development user |
+| AGR_DEFINE | Role definition |
+| AGR_AGRS | Roles in Composite Roles |
+| PAHI | History of system, DB and SAP parameter |
+|||
 
-To have data from the tables listed above to be sent to Sentinel, follow steps listed in [Configuring data connector for User Master Data collection](sap-solution-deploy-alternate.md#Configuring-data-connector-for-User-Master-Data-collection) section
+To have data from the tables listed above to be sent to Sentinel, follow steps listed in [Configuring data connector for User Master Data collection](sap-solution-deploy-alternate.md#configuring-data-connector-for-user-master-data-collection) section
 
 Data retrieved allows to get a clear view of the authorizations structure,  group memberships, and profiles of the users. It also allows to track the process of authorization grants and revokes and identify and govern risks associated with the process.
 
@@ -664,26 +665,29 @@ Deployment of Continuous threat monitoring for SAP solution adds the following f
 **Synopsis**: User Assignments to Roles and Profiles
 
 **Returns**:
-|Field|	Description|	Data Source/Notes|
-|-|-|-|
-|User|	SAP User ID|	SAL Only|
-|Email|	SMTP address| USR21 (SMTP_ADDR)|
-|UserType|	User Type| USR02 (USTYP)|
-|Timezone|	Time Zone| USR02 (TZONE)|
-|LockedStatus|	Lock Status| USR02 (UFLAG)|
-|LastSeenDate|	Last Seen Date| USR02 (TRDAT)|
-|LastSeenTime|	Last Seen Time| USR02 (LTIME)|
-|UserGroupAuth|	User group in user master maintenance| USR02 (CLASS)|
-|Profiles|Set of Profiles (Default max Set Size =50)|["Profile 1", "Profile 2",...,"profile 50"]|
-|Roles|	Set of AGR roles (Default max Set Size =50)	|["Role 1", "Role 2",...,"”"Role 50"]|
-|Client|	Client ID	||
-|SystemID	|System ID|	As defined in the connector|
+
+| Field | Description |	Data Source/Notes |
+| - | - | - |
+| User |	SAP User ID|	SAL Only |
+| Email |	SMTP address| USR21 (SMTP_ADDR) |
+| UserType |	User Type| USR02 (USTYP) |
+| Timezone |	Time Zone| USR02 (TZONE) |
+| LockedStatus |	Lock Status| USR02 (UFLAG) |
+| LastSeenDate |	Last Seen Date| USR02 (TRDAT) |
+| LastSeenTime |	Last Seen Time| USR02 (LTIME) |
+| UserGroupAuth |	User group in user master maintenance| USR02 (CLASS) |
+| Profiles |Set of Profiles (Default max Set Size =50)|["Profile 1", "Profile 2",...,"profile 50"] |
+| Roles |	Set of AGR roles (Default max Set Size =50)	|["Role 1", "Role 2",...,"”"Role 50"] |
+| Client |	Client ID	| |
+| SystemID	| System ID | As defined in the connector |
+||||
 
 #### SAPUsersGetPrivileged
 
 **Synopsis**: Returns privileged users
 
 **Returns**:
+
 |Field|	Description|
 |-|-|
 |User|SAP User ID	|

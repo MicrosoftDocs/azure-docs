@@ -354,7 +354,7 @@ To ingest SAP Control Web Service logs into Microsoft Sentinel, configure the fo
 
 
 ### Configuring data connector for User Master Data collection
-It is possible to ingest tables that contain information about users, roles authorizations. Detailed list of collected tables is available [here](sap-solution-log-reference.md#Tables-retrieved)
+It is possible to ingest tables that contain information about users, roles authorizations. Detailed list of collected tables is available [here](sap-solution-log-reference.md#tables-retrieved)
 To configure User Master Data collection, edit systemconfig.ini file
 
 ```python
