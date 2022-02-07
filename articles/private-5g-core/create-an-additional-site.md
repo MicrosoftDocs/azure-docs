@@ -33,7 +33,7 @@ In this step, you'll create the **Mobile Network Site** resource representing th
 
     :::image type="content" source="media/create-sites-button.png" alt-text="Screenshot of the Azure portal showing the Get started tab, with the Create sites button highlighted.":::
 
-1. Use the information you collected in [Collect site resource values](collect-required-information-for-private-mobile-network.md#collect-site-resource-values) to fill out the fields on the **Basics** configuration tab, and then select **Next : Packet core >**.
+1. Use the information you collected in [Collect site resource values](collect-required-information-for-a-site.md#collect-site-resource-values) to fill out the fields on the **Basics** configuration tab, and then select **Next : Packet core >**.
 
     :::image type="content" source="media/how-to-guide-deploy-a-private-mobile-network-azure-portal/create-site-basics-tab.png" alt-text="Screenshot of the Azure portal showing the Basics configuration tab for a site resource.":::
 
@@ -42,12 +42,12 @@ In this step, you'll create the **Mobile Network Site** resource representing th
     :::image type="content" source="media/how-to-guide-deploy-a-private-mobile-network-azure-portal/create-site-packet-core-tab.png" alt-text="Screenshot of the Azure portal showing the Packet core configuration tab for a site resource.":::
 
 1. In the **Packet core** section, ensure **Technology type** is set to *5G*, and then leave the **Version** and **Custom location** fields blank unless you've been instructed to do otherwise by your support representative.
-1. Use the information you collected in [Collect access network values](collect-required-information-for-private-mobile-network.md#collect-access-network-values) to fill out the fields in the **Access network** section. Note the following.
+1. Use the information you collected in [Collect access network values](collect-required-information-for-a-site.md#collect-access-network-values) to fill out the fields in the **Access network** section. Note the following.
 
     - Use the same value for both the **N2 subnet** and **N3 subnet** fields.
     - Use the same value for both the **N2 gateway** and **N3 gateway** fields.
 
-1. Use the information you collected in [Collect data network values](collect-required-information-for-private-mobile-network.md#collect-data-network-values) to fill out the fields in the **Attached data networks** section. Note that you can only connect the packet core instance to a single data network.
+1. Use the information you collected in [Collect data network values](collect-required-information-for-a-site.md#collect-data-network-values) to fill out the fields in the **Attached data networks** section. Note that you can only connect the packet core instance to a single data network.
 1. Select **Review + create**.
 1. Azure will now validate the configuration values you've entered. You should see a message indicating that your values have passed validation.
 
