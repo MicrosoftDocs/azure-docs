@@ -1639,12 +1639,12 @@ groups:
 # Owner: wiassaf
 - id: azure-sql-deployment-option-single-elastic
   title: Azure SQL deployment option, single or elastic
-  prompt: Select an Azure SQL deployment option
+  prompt: "Select an Azure SQL Database deployment option:"
   pivots:
   - id: azure-sql-single-db
-    title: Azure SQL Database, single database
+    title: Single database
   - id: azure-sql-elastic-pool
-    title: Azure SQL Database, elastic pool
+    title: Pooled database (elastic pool)
 # Owner: karler
 - id: spring-cloud-tier-selection
   title: Azure Spring Cloud tier

@@ -26,7 +26,7 @@ This topic teaches you how to configure an [auto-failover group](auto-failover-g
 
 
 <!--
-There is some overlap of content in the following articles, be sure to make changes in all if necessary:
+There is some overlap of content in the following articles, be sure to make changes to all if necessary:
 /azure-sql/auto-failover-group-overview.md
 /azure-sql/database/auto-failover-group-sql-db.md
 /azure-sql/database/auto-failover-group-configure-sql-db.md
@@ -55,7 +55,7 @@ Consider the following prerequisites:
 
 - The secondary managed instance must be empty.
 - The subnet range for the secondary virtual network must not overlap the subnet range of the primary virtual network.
-- The collation and timezone of the secondary managed instance must match that of the primary managed instance.
+- The collation and time zone of the secondary managed instance must match that of the primary managed instance.
 - When connecting the two gateways, the **Shared Key** should be the same for both connections.
 - You will need to either configure [ExpressRoute](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md) or create a gateway for the virtual network of each SQL Managed Instance, connect the two gateways, and then create the failover group. 
 - Deploy both managed instances to [paired regions](../../availability-zones/cross-region-replication-azure.md) for performance reasons. Managed instances residing in geo-paired regions have much better performance compared to unpaired regions. 
@@ -438,4 +438,4 @@ For detailed steps configuring a failover group, see the following tutorials:
 - [Add an elastic pool to a failover group](../database/failover-group-add-elastic-pool-tutorial.md)
 - [Add a managed instance to a failover group](../managed-instance/failover-group-add-instance-tutorial.md)
 
-For an overview of Azure SQL Database high availability options, see [geo-replication](../database/active-geo-replication-overview.md) and [auto-failover groups](../database/auto-failover-group-overview.md).
+For an overview of the feature, see [auto-failover groups](auto-failover-group-overview.md).

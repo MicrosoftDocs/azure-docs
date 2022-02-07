@@ -37,15 +37,12 @@ In addition, auto-failover groups provide read-write and read-only listener end-
 
 When you are using auto-failover groups with automatic failover policy, an outage that impacts databases on a server or managed instance results in an automatic geo-failover. 
 
-
-When configuring a failover group, ensure that authentication and network access on the secondary is set up to function correctly after geo-failover, when the geo-secondary becomes the new primary. For details, see [SQL Database security after disaster recovery](active-geo-replication-security-configure.md).
-
-To achieve full business continuity, adding regional database redundancy is only part of the solution. Recovering an application (service) end-to-end after a catastrophic failure requires recovery of all components that constitute the service and any dependent services. Examples of these components include the client software (for example, a browser with a custom JavaScript), web front ends, storage, and DNS. It is critical that all components are resilient to the same failures and become available within the recovery time objective (RTO) of your application. Therefore, you need to identify all dependent services and understand the guarantees and capabilities they provide. Then, you must take adequate steps to ensure that your service functions during the failover of the services on which it depends. For more information about designing solutions for disaster recovery, see [Designing Cloud Solutions for Disaster Recovery Using active geo-replication](designing-cloud-solutions-for-disaster-recovery.md).
+To achieve full business continuity, adding regional database redundancy is only part of the solution. Recovering an application (service) end-to-end after a catastrophic failure requires recovery of all components that constitute the service and any dependent services. Examples of these components include the client software (for example, a browser with a custom JavaScript), web front ends, storage, and DNS. It is critical that all components are resilient to the same failures and become available within the recovery time objective (RTO) of your application. Therefore, you need to identify all dependent services and understand the guarantees and capabilities they provide. Then, you must take adequate steps to ensure that your service functions during the failover of the services on which it depends. 
 
 ## <a name="terminology-and-capabilities"></a> Terminology and capabilities
 
 <!--
-There is some overlap of content in the following articles, be sure to make changes in all if necessary:
+There is some overlap of content in the following articles, be sure to make changes to all if necessary:
 /azure-sql/auto-failover-group-overview.md
 /azure-sql/database/auto-failover-group-sql-db.md
 /azure-sql/database/auto-failover-group-configure-sql-db.md
@@ -118,7 +115,7 @@ There is some overlap of content in the following articles, be sure to make chan
 ## Permissions
 
 <!--
-There is some overlap of content in the following articles, be sure to make changes in all if necessary:
+There is some overlap of content in the following articles, be sure to make changes to all if necessary:
 /azure-sql/auto-failover-group-overview.md
 /azure-sql/database/auto-failover-group-sql-db.md
 /azure-sql/database/auto-failover-group-configure-sql-db.md
@@ -140,7 +137,10 @@ For information about using point-in-time restore with failover groups, see [Poi
 
 ## Next steps
 
-- For detailed tutorials, see
+- For product specific documentation, see: 
+  - Azure SQL Database: [Auto-failover groups overview](auto-failover-group-sql-db.md), and [Configure auto-failover group](auto-failover-group-configure-sql-db.md)
+  - Azure SQL Managed Instance: [Auto-failover groups overview](../managed-instance/auto-failover-group-sql-mi.md), and [Configure auto-failover group](../managed-instance/auto-failover-group-configure-sql-mi.md)
+- For detailed tutorials, see:
   - [Add SQL Database to a failover group](failover-group-add-single-database-tutorial.md)
   - [Add an elastic pool to a failover group](failover-group-add-elastic-pool-tutorial.md)
   - [Add a SQL Managed Instance to a failover group](../managed-instance/failover-group-add-instance-tutorial.md)

@@ -24,17 +24,18 @@ The auto-failover groups feature allows you to manage the replication and failov
 
 For a general overview of the feature and information that applies to both Azure SQL Database and Azure SQL Managed Instance, review [Auto-failover groups](../database/auto-failover-group-overview.md). 
 
-To get started, review [Configure auto-failover group](auto-failover-group-configure-sql-mi.md). For an end to end experience, see the [Auto-failover group tutorial](failover-group-add-instance-tutorial.md).
-
+To get started, review [Configure auto-failover group](auto-failover-group-configure-sql-mi.md). For an end-to-end experience, see the [Auto-failover group tutorial](failover-group-add-instance-tutorial.md).
 
 
 ## <a name="terminology-and-capabilities"></a> Terminology and capabilities
 
 <!--
-There is some overlap of content in the following three articles, be sure to make changes in all three places if necessary
+There is some overlap of content in the following articles, be sure to make changes to all if necessary:
 /azure-sql/auto-failover-group-overview.md
 /azure-sql/database/auto-failover-group-sql-db.md
+/azure-sql/database/auto-failover-group-configure-sql-db.md
 /azure-sql/managed-instance/auto-failover-group-sql-mi.md
+/azure-sql/managed-instance/auto-failover-group-configure-sql-mi.md
 -->
 
 - **Failover group (FOG)**
@@ -74,7 +75,7 @@ There is some overlap of content in the following three articles, be sure to mak
 ## Permissions
 
 <!--
-There is some overlap of content in the following articles, be sure to make changes in all if necessary:
+There is some overlap of content in the following articles, be sure to make changes to all if necessary:
 /azure-sql/auto-failover-group-overview.md
 /azure-sql/database/auto-failover-group-sql-db.md
 /azure-sql/database/auto-failover-group-configure-sql-db.md
@@ -101,7 +102,7 @@ If your application uses SQL Managed Instance as the data tier, follow the gener
 
 
 > [!IMPORTANT]
-> If you deploy auto-failover groups in a hub-and-spoke network topology cross-region, replication traffic should go directly between the two managed instance subnets rather than be directed through the hub networks.
+> If you deploy auto-failover groups in a hub-and-spoke network topology cross-region, replication traffic should go directly between the two managed instance subnets rather than directed through the hub networks.
 
 
 ## <a name="creating-the-secondary-instance"></a> Creating the geo-secondary instance
@@ -132,21 +133,23 @@ The failover group will manage geo-failover of all databases on the primary mana
 
 ## <a name="using-read-write-listener-for-oltp-workload"></a> Use the read-write listener (primary MI) 
 
-For read-write workloads, use `<fog-name>.zone_id.database.windows.net` as the server name. Connections will be automatically directed to the primary. This name does not change after failover. The geo-failover involves updating the DNS record, so the client connections are redirected to the new primary only after the client DNS cache is refreshed. Because the secondary instance shares the DNS zone with the primary, the client application will be able to reconnect to it using the same server-side SAN certificate.
+For read-write workloads, use `<fog-name>.zone_id.database.windows.net` as the server name. Connections will be automatically directed to the primary. This name does not change after failover. The geo-failover involves updating the DNS record, so the client connections are redirected to the new primary only after the client DNS cache is refreshed. Because the secondary instance shares the DNS zone with the primary, the client application will be able to reconnect to it using the same server-side SAN certificate. The read-write listener and read-only listener cannot be reached via the [public endpoint for managed instance](public-endpoint-configure.md). 
 
 ### <a name="using-read-only-listener-to-connect-to-the-secondary-instance"></a> Use the read-only listener (secondary MI) 
 
 If you have logically isolated read-only workloads that are tolerant to data latency, you can run them on the geo-secondary. To connect directly to the geo-secondary, use `<fog-name>.secondary.<zone_id>.database.windows.net` as the server name.
 
-> [!NOTE]
-> In the Business Critical tier, SQL Managed Instance supports the use of [read-only replicas](../database/read-scale-out.md) to offload read-only query workloads, using the `ApplicationIntent=ReadOnly` parameter in the connection string. When you have configured a geo-replicated secondary, you can use this capability to connect to either a read-only replica in the primary location or in the geo-replicated location.
->
-> - To connect to a read-only replica in the primary location, use `ApplicationIntent=ReadOnly` and `<fog-name>.<zone_id>.database.windows.net`.
-> - To connect to a read-only replica in the secondary location, use `ApplicationIntent=ReadOnly` and `<fog-name>.secondary.<zone_id>.database.windows.net`.
+In the Business Critical tier, SQL Managed Instance supports the use of [read-only replicas](../database/read-scale-out.md) to offload read-only query workloads, using the `ApplicationIntent=ReadOnly` parameter in the connection string. When you have configured a geo-replicated secondary, you can use this capability to connect to either a read-only replica in the primary location or in the geo-replicated location: 
+
+- To connect to a read-only replica in the primary location, use `ApplicationIntent=ReadOnly` and `<fog-name>.<zone_id>.database.windows.net`.   
+- To connect to a read-only replica in the secondary location, use `ApplicationIntent=ReadOnly` and `<fog-name>.secondary.<zone_id>.database.windows.net`.
+
+The read-write listener and read-only listener cannot be reached via [public endpoint for managed instance](public-endpoint-configure.md).
+
 
 ## Potential performance degradation after failover 
 
-A typical Azure application uses multiple Azure services and consists of multiple components. The automatic geo-failover of the failover group is triggered based on the state the Azure SQL components alone. Other Azure services in the primary region may not be affected by the outage and their components may still be available in that region. Once the primary databases switch to the secondary region, the latency between the dependent components may increase. To avoid the impact of higher latency on the application's performance, ensure the redundancy of all the application's components in the secondary region and fail over application components together with the database. At configuration time, follow [network security guidelines](#failover-groups-and-network-security) to ensure connectivity to the database in the secondary region.
+A typical Azure application uses multiple Azure services and consists of multiple components. The automatic geo-failover of the failover group is triggered based on the state the Azure SQL components alone. Other Azure services in the primary region may not be affected by the outage and their components may still be available in that region. Once the primary databases switch to the secondary region, the latency between the dependent components may increase. To avoid the impact of higher latency on the application's performance, ensure the redundancy of all the application's components in the secondary region and fail over application components together with the database. 
 
 ## Potential data loss after failover 
 

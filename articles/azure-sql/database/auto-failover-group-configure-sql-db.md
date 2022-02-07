@@ -26,7 +26,7 @@ This topic teaches you how to configure an [auto-failover group](auto-failover-g
 ## Permissions
 
 <!--
-There is some overlap of content in the following articles, be sure to make changes in all if necessary:
+There is some overlap of content in the following articles, be sure to make changes to all if necessary:
 /azure-sql/auto-failover-group-overview.md
 /azure-sql/database/auto-failover-group-sql-db.md
 /azure-sql/database/auto-failover-group-configure-sql-db.md

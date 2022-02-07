@@ -20,21 +20,21 @@ ms.date: 02/24/2022
 > * [Azure SQL Database](auto-failover-group-sql-db.md)
 > * [Azure SQL Managed Instance](../managed-instance/auto-failover-group-sql-mi.md)
 
-The auto-failover groups feature allows you to manage the replication and failover of all databases in a managed instance to another region. This article focuses on using the Auto-failover group feature with Azure SQL Database, along with some best practices.  
+The auto-failover groups feature allows you to manage the replication and failover of some or all databases on a [logical server](logical-servers.md) to another region. This article focuses on using the Auto-failover group feature with Azure SQL Database and some best practices.  
 
 For a general overview of the feature and information that applies to both Azure SQL Database and Azure SQL Managed Instance, review [Auto-failover groups](auto-failover-group-overview.md). 
 
-To get started, review [Configure auto-failover group](auto-failover-group-configure-sql-db.md). For an end to end experience, see the [Auto-failover group tutorial](failover-group-add-single-database-tutorial.md).
+To get started, review [Configure auto-failover group](auto-failover-group-configure-sql-db.md). For an end-to-end experience, see the [Auto-failover group tutorial](failover-group-add-single-database-tutorial.md).
 
 
 > [!NOTE]
-> Auto-failover groups support geo-replication of all databases in the group to only one secondary server or instance in a different region. If you need to create multiple Azure SQL Database geo-secondary replicas (in the same or different regions) for the same primary replica, use [active geo-replication](active-geo-replication-overview.md).
+> Auto-failover groups support geo-replication of all databases in the group to only one secondary server in a different region. If you need to create multiple Azure SQL Database geo-secondary replicas (in the same or different regions) for the same primary replica, use [active geo-replication](active-geo-replication-overview.md).
 > 
 
 ## <a name="terminology-and-capabilities"></a> Terminology and capabilities
 
 <!--
-There is some overlap of content in the following articles, be sure to make changes in all if necessary:
+There is some overlap of content in the following articles, be sure to make changes to all if necessary:
 /azure-sql/auto-failover-group-overview.md
 /azure-sql/database/auto-failover-group-sql-db.md
 /azure-sql/database/auto-failover-group-configure-sql-db.md
@@ -67,7 +67,7 @@ There is some overlap of content in the following articles, be sure to make chan
   You can put several single databases on the same server into the same failover group. If you add a single database to the failover group, it automatically creates a secondary database using the same edition and compute size on secondary server. You specified that server when the failover group was created. If you add a database that already has a secondary database in the secondary server, that geo-replication link is inherited by the group. When you add a database that already has a secondary database in a server that is not part of the failover group, a new secondary is created in the secondary server.
 
   > [!IMPORTANT]
-  > Make sure that the secondary server doesn't have a database with the same name unless it is an existing secondary database. In failover groups for SQL Managed Instance, all user databases are replicated. You cannot pick a subset of user databases for replication in the failover group.
+  > Make sure that the secondary server doesn't have a database with the same name unless it is an existing secondary database. 
 
 - **Adding databases in elastic pool to failover group**
 
@@ -75,9 +75,9 @@ There is some overlap of content in the following articles, be sure to make chan
   
 - **Initial Seeding**
 
-  When adding databases, elastic pools, or managed instances to a failover group, there is an initial seeding phase before data replication starts. The initial seeding phase is the longest and most expensive operation. Once initial seeding completes, data is synchronized, and then only subsequent data changes are replicated. The time it takes for the initial seeding to complete depends on the size of your data, number of replicated databases, the load on primary databases, and the speed of the link between the primary and secondary. Under normal circumstances, possible seeding speed is up to 500 GB an hour for SQL Database, and up to 360 GB an hour for SQL Managed Instance. Seeding is performed for all databases in parallel.
+  When adding databases or elastic pools to a failover group, there is an initial seeding phase before data replication starts. The initial seeding phase is the longest and most expensive operation. Once initial seeding completes, data is synchronized, and then only subsequent data changes are replicated. The time it takes for the initial seeding to complete depends on the size of your data, number of replicated databases, the load on primary databases, and the speed of the link between the primary and secondary. Under normal circumstances, possible seeding speed is up to 500 GB an hour for SQL Database. Seeding is performed for all databases in parallel.
 
-  - **Failover group read-write listener**
+- **Failover group read-write listener**
 
   A DNS CNAME record that points to the current primary. It is created automatically when the failover group is created and allows the read-write workload to transparently reconnect to the primary when the primary changes after failover. When the failover group is created on a server, the DNS CNAME record for the listener URL is formed as `<fog-name>.database.windows.net`.
 
@@ -113,7 +113,7 @@ The auto-failover group must be configured on the primary server and will connec
 
 ![Diagram shows a typical configuration of a geo-redundant cloud application using multiple databases and auto-failover group.](./media/auto-failover-group-overview/auto-failover-group.png)
 
-When designing a service with business continuity in mind, follow the general guidelines and best practices outlined in this article. 
+When designing a service with business continuity in mind, follow the general guidelines and best practices outlined in this article.  When configuring a failover group, ensure that authentication and network access on the secondary is set up to function correctly after geo-failover, when the geo-secondary becomes the new primary. For details, see [SQL Database security after disaster recovery](active-geo-replication-security-configure.md). For more information about designing solutions for disaster recovery, see [Designing Cloud Solutions for Disaster Recovery Using active geo-replication](designing-cloud-solutions-for-disaster-recovery.md).
 
 ## <a name="using-one-or-several-failover-groups-to-manage-failover-of-multiple-databases"></a> Use multiple failover groups to failover multiple databases
 
@@ -127,11 +127,8 @@ For read-write workloads, use `<fog-name>.database.windows.net` as the server na
 
 If you have logically isolated read-only workloads that are tolerant to data latency, you can run them on the geo-secondary. For read-only sessions, use `<fog-name>.secondary.database.windows.net` as the server name in the connection string. Connections will be automatically directed to the geo-secondary. It is also recommended that you indicate read intent in the connection string by using `ApplicationIntent=ReadOnly`.
 
-> [!NOTE]
-> In Premium, Business Critical, and Hyperscale service tiers, SQL Database supports the use of [read-only replicas](read-scale-out.md) to offload read-only query workloads, using the `ApplicationIntent=ReadOnly` parameter in the connection string. When you have configured a geo-secondary, you can use this capability to connect to either a read-only replica in the primary location or in the geo-replicated location.
->
-> - To connect to a read-only replica in the primary location, use `ApplicationIntent=ReadOnly` and `<fog-name>.database.windows.net`.
-> - To connect to a read-only replica in the secondary location, use `ApplicationIntent=ReadOnly` and `<fog-name>.secondary.database.windows.net`.
+In Premium, Business Critical, and Hyperscale service tiers, SQL Database supports the use of [read-only replicas](read-scale-out.md) to offload read-only query workloads, using the `ApplicationIntent=ReadOnly` parameter in the connection string. When you have configured a geo-secondary, you can use this capability to connect to either a read-only replica in the primary location or in the geo-replicated location: 
+- To connect to a read-only replica in the secondary location, use `ApplicationIntent=ReadOnly` and `<fog-name>.secondary.database.windows.net`.
 
 ## <a name="preparing-for-performance-degradation"></a> Potential performance degradation after failover
 
@@ -183,7 +180,7 @@ The above configuration will ensure that an automatic geo-failover will not bloc
 
 ## <a name="upgrading-or-downgrading-primary-database"></a> Scale primary database
 
-You can scale up or scale down the primary database to a different compute size (within the same service tier) without disconnecting any geo-secondaries. WWhen scaling up, we recommend that you scale up the geo-secondary first, and then scale up the primary. When scaling down, reverse the order: scale down the primary first, and then scale down the secondary. When you scale a database to a different service tier, this recommendation is enforced.
+You can scale up or scale down the primary database to a different compute size (within the same service tier) without disconnecting any geo-secondaries. When scaling up, we recommend that you scale up the geo-secondary first, and then scale up the primary. When scaling down, reverse the order: scale down the primary first, and then scale down the secondary. When you scale a database to a different service tier, this recommendation is enforced.
 
 This sequence is recommended specifically to avoid the problem where the geo-secondary at a lower SKU gets overloaded and must be re-seeded during an upgrade or downgrade process. You could also avoid the problem by making the primary read-only, at the expense of impacting all read-write workloads against the primary.
 
@@ -208,7 +205,7 @@ Due to the high latency of wide area networks, geo-replication uses an asynchron
 
 Be aware of the following limitations:
 
-- Failover groups cannot be created between two servers the same Azure region.
+- Failover groups cannot be created between two servers in the same Azure region.
 - Failover groups cannot be renamed. You will need to delete the group and re-create it with a different name.
 - Database rename is not supported for databases in failover group. You will need to temporarily delete failover group to be able to rename a database, or remove the database from the failover group.
 
