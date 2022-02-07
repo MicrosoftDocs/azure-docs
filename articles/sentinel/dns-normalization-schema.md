@@ -159,7 +159,7 @@ The fields listed in this section are specific to DNS events, although many are 
 | **Field** | **Class** | **Type** | **Notes** |
 | --- | --- | --- | --- |
 | <a name="src"></a>**Src** | Recommended       | String     |    A unique identifier of the source device. <br><br>This field can alias the [SrcDvcId](#srcdvcid), [SrcHostname](#srchostname), or [SrcIpAddr](#srcipaddr) fields. <br><br>Example: `192.168.12.1`       |
-| <a name="srcipaddr"></a>**SrcIpAddr** | Recommended | IP Address | The IP address of the client that snet the DNS request. For a recursive DNS request, this value would typically be the reporting device, and in most cases set to `127.0.0.1`. <br><br>Example: `192.168.12.1` |
+| <a name="srcipaddr"></a>**SrcIpAddr** | Recommended | IP Address | The IP address of the client that sent the DNS request. For a recursive DNS request, this value would typically be the reporting device, and in most cases set to `127.0.0.1`. <br><br>Example: `192.168.12.1` |
 | **SrcPortNumber** | Optional | Integer | Source port of the DNS query.<br><br>Example: `54312` |
 | <a name="ipaddr"></a>**IpAddr** | Alias | | Alias to [SrcIpAddr](#srcipaddr) |
 | **SrcGeoCountry** | Optional | Country | The country associated with the source IP address.<br><br>Example: `USA` |
