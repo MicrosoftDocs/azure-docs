@@ -27,6 +27,7 @@ OSM runs an Envoy-based control plane on Kubernetes, can be configured with [SMI
     - Rancher Kubernetes Engine
     - OpenShift Kubernetes Distribution
     - Amazon Elastic Kubernetes Service
+    - VMware Tanzu Kubernetes Grid
 - Azure Monitor integration with Azure Arc-enabled Open Service Mesh is available with [limited support](https://github.com/microsoft/Docker-Provider/blob/ci_dev/Documentation/OSMPrivatePreview/ReadMe.md).
 
 [!INCLUDE [preview features note](./includes/preview/preview-callout.md)]
@@ -38,11 +39,9 @@ OSM runs an Envoy-based control plane on Kubernetes, can be configured with [SMI
 
 ## Install Azure Arc-enabled Open Service Mesh (OSM) on an Azure Arc-enabled Kubernetes cluster
 
+## Basic Installation of Open Service Mesh (OSM) on an Azure Arc-enabled Kubernetes Cluster
 The following steps assume that you already have a cluster with supported Kubernetes distribution connected to Azure Arc.
-
-### Install a specific version of OSM
-
-Ensure that your KUBECONFIG environment variable points to the kubeconfig of the Kubernetes cluster where you want the OSM extension installed.
+Ensure that your KUBECONFIG environment variable points to the kubeconfig of the Arc-enabled Kubernetes cluster.
 
 Set the environment variables:
 
@@ -52,7 +51,7 @@ export CLUSTER_NAME=<arc-cluster-name>
 export RESOURCE_GROUP=<resource-group-name>
 ```
 
-While Azure Arc-enabled Open Service Mesh is in preview, the `az k8s-extension create` command only accepts `pilot` for the `--release-train` flag. `--auto-upgrade-minor-version` is always set to `false` and a version must be provided. If you have an OpenShift cluster, use the steps in the [section](#install-a-specific-version-of-osm-on-openshift-cluster).
+While Azure Arc-enabled Open Service Mesh is in preview, the `az k8s-extension create` command only accepts `pilot` for the `--release-train` flag. `--auto-upgrade-minor-version` is always set to `false` and a version must be provided. If you are using an OpenShift cluster, use the steps in the [section](#install-a-specific-version-of-osm-on-openshift-cluster).
 
 ```azurecli-interactive
 az k8s-extension create --cluster-name $CLUSTER_NAME --resource-group $RESOURCE_GROUP --cluster-type connectedClusters --extension-type Microsoft.openservicemesh --scope cluster --release-train pilot --name osm --version $VERSION
@@ -91,7 +90,26 @@ You should see output similar to the output shown below. It may take 3-5 minutes
 }
 ```
 
-### Install a specific version of OSM on OpenShift cluster
+## Installation with Custom Configurations
+The following sections describe how to further configure OSM during installation.
+
+To set custom configurations of OSM, custom values must be passed in during installation.
+This requires creating a JSON file containing custom settings and then passing them into `k8s-extension create` CLI command.
+
+See sections below to determine the contents of the JSON file you require. 
+
+Then, set the file path as an environment variable:
+   ```azurecli-interactive
+   export SETTINGS_FILE=<json-file-path>
+   ```
+
+Finally, run the `az k8s-extension create` command to 
+create the OSM extension, passing in the settings file using the `--configuration-settings` flag:
+   ```azurecli-interactive
+   az k8s-extension create --cluster-name $CLUSTER_NAME --resource-group $RESOURCE_GROUP --cluster-type connectedClusters --extension-type Microsoft.openservicemesh --scope cluster --release-train pilot --name osm --version $VERSION --configuration-settings-file $SETTINGS_FILE
+   ```
+
+### Install OSM on an OpenShift cluster
 
 1. Copy and save the following contents into a JSON file. If you have already created a configuration settings file, please add the following line to the existing file to preserve your previous changes.
    ```json
@@ -100,15 +118,8 @@ You should see output similar to the output shown below. It may take 3-5 minutes
    }
    ```
 
-   Set the file path as an environment variable:
-   ```azurecli-interactive
-   export SETTINGS_FILE=<json-file-path>
-   ```
    
-2. Run the `az k8s-extension create` command used to create the OSM extension, and pass in the settings file using configuration settings:
-   ```azurecli-interactive
-   az k8s-extension create --cluster-name $CLUSTER_NAME --resource-group $RESOURCE_GROUP --cluster-type connectedClusters --extension-type Microsoft.openservicemesh --scope cluster --release-train pilot --name osm --version $VERSION --configuration-settings-file $SETTINGS_FILE
-   ```
+2. Install OSM with custom values.
    
 3. Add the privileged [security context constraint](https://docs.openshift.com/container-platform/4.7/authentication/managing-security-context-constraints.html) to each service account for the applications in the mesh.
    ```azurecli-interactive
@@ -118,6 +129,50 @@ You should see output similar to the output shown below. It may take 3-5 minutes
 It may take 3-5 minutes for the actual OSM helm chart to get deployed to the cluster. Until this deployment happens, you will continue to see installState as Pending.
 
 To ensure that the privileged init container setting is not reverted to the default, pass in the "osm.OpenServiceMesh.enablePrivilegedInitContainer" : "true" configuration setting to all subsequent az k8s-extension create commands.
+
+### Install OSM with cert-manager for Certificate Management
+[cert-manager](https://cert-manager.io/) is a provider that can be used for issuing signed certificates to OSM without
+the need for storing private keys in Kubernetes. Refer to OSM's [cert-manager documentation](https://release-v0-11.docs.openservicemesh.io/docs/guides/certificates/)
+and [demo](https://docs.openservicemesh.io/docs/demos/cert-manager_integration/) to learn more. Values to configure cert-manager must be passed in during OSM installation using the Azure CLI.
+
+> [!NOTE]
+> Use the commands provided in the OSM GitHub documentation with caution. Ensure that you use the correct namespace name `arc-osm-system`.
+
+To set cert-manager as the certificate provider, create a JSON file with the following `certificateProvider.kind` value.
+Include and update the subsequent `certmanager.issuer` lines if you would like to change from default values specified in OSM documentation.
+
+```json
+{
+  "osm.osm.certificateProvider.kind" : "cert-manager",
+  "osm.osm.certmanager.issuerName" : "<issuer name>",
+  "osm.osm.certmanager.issuerKind" : "<issuer kind>",
+  "osm.osm.certmanager.issuerGroup" : "<issuer group>"
+}
+```
+
+Now, run OSM installation with custom configuration.
+
+### Install OSM with Contour for Ingress
+OSM provides multiple options to expose mesh services externally using ingress. OSM has been tested with [Contour](https://projectcontour.io/), which
+works with the ingress controller installed outside the mesh and provisioned with a certificate to participate in the mesh.
+Refer to [OSM's ingress documentation](https://docs.openservicemesh.io/docs/guides/traffic_management/ingress/#1-using-contour-ingress-controller-and-gateway)
+and [demo](https://docs.openservicemesh.io/docs/demos/ingress_contour/) to learn more. Values to configure
+Contour must be passed in during OSM installation using the Azure CLI.
+
+> [!NOTE]
+> Use the commands provided in the OSM GitHub documentation with caution. Ensure that you use the correct namespace name `arc-osm-system`.
+
+To set required values for configuring Contour, create the following JSON file.
+```json
+{
+  "osm.osm.osmNamespace" : "arc-osm-system",
+  "osm.contour.enabled" : "true",
+  "osm.contour.configInline.tls.envoy-client-certificate.name" : "osm-contour-envoy-client-cert", 
+  "osm.contour.configInline.tls.envoy-client-certificate.namespace" : "arc-osm-system"
+}
+```
+
+Now, run OSM installation with custom configuration.
 
 ### Install Azure Arc-enabled OSM using ARM template
 
@@ -181,20 +236,18 @@ After connecting your cluster to Azure Arc, create a json file with the followin
 }
 ```
 
-Now set the environment variables:
-
+Set the environment variables:
 ```azurecli-interactive
 export TEMPLATE_FILE_NAME=<template-file-path>
 export DEPLOYMENT_NAME=<desired-deployment-name>
 ```
 
-Finally, run this command to install the OSM extension through az CLI:
-
+Run the command below to install the OSM extension using the az CLI:
 ```azurecli-interactive
 az deployment group create --name $DEPLOYMENT_NAME --resource-group $RESOURCE_GROUP --template-file $TEMPLATE_FILE_NAME
 ```
 
-Now, you should be able to view the OSM resources and use the OSM extension in your cluster.
+You should now be able to view the OSM resources and use the OSM extension in your cluster.
 
 ## Validate the Azure Arc-enabled Open Service Mesh installation
 
@@ -347,67 +400,7 @@ To make changes to the OSM ConfigMap for version v0.8.4, use the following guida
     
     > [!NOTE]
     > To ensure that the ConfigMap changes are not reverted to the default, pass in the same configuration settings to all subsequent az k8s-extension create commands.
-
-## Certificate Management
-[cert-manager](https://cert-manager.io/) is a provider that can be used for issuing signed certificates to OSM without 
-the need for storing private keys in Kubernetes. Refer to OSM's [cert-manager documentation](https://release-v0-11.docs.openservicemesh.io/docs/guides/certificates/) 
-and [demo](https://docs.openservicemesh.io/docs/demos/cert-manager_integration/) to learn more. Values to configure cert-manager must be passed in during OSM installation using the Azure CLI.
-
-> [!NOTE]
-> Use the commands provided in the OSM GitHub documentation with caution. Ensure that you use the correct namespace name `arc-osm-system`.
-
-To set cert-manager as the certificate provider, create a JSON file with the following `certificateProvider.kind` value.
-Include and update the subsequent `certmanager.issuer` lines if you would like to change from default values specified in OSM documentation.
-
-```json
-{
-  "osm.osm.certificateProvider.kind" : "cert-manager",
-  "osm.osm.certmanager.issuerName" : "<issuer name>",
-  "osm.osm.certmanager.issuerKind" : "<issuer kind>",
-  "osm.osm.certmanager.issuerGroup" : "<issuer group>"
-}
-```
-
-Set the file path as an environment variable:
-   ```azurecli-interactive
-   export SETTINGS_FILE=<json-file-path>
-   ```
-
-Run the `az k8s-extension create` command used to create the OSM extension, and pass in the settings file using configuration settings:
-   ```azurecli-interactive
-   az k8s-extension create --cluster-name $CLUSTER_NAME --resource-group $RESOURCE_GROUP --cluster-type connectedClusters --extension-type Microsoft.openservicemesh --scope cluster --release-train pilot --name osm --version $VERSION --configuration-settings-file $SETTINGS_FILE
-   ```
-
-## Ingress
-OSM provides multiple options to expose mesh services externally using ingress. OSM has been tested with [Contour](https://projectcontour.io/), which 
-works with the ingress controller installed outside the mesh and provisioned with a certificate to participate in the mesh.
-Refer to [OSM's ingress documentation](https://docs.openservicemesh.io/docs/guides/traffic_management/ingress/#1-using-contour-ingress-controller-and-gateway) 
-and [demo](https://docs.openservicemesh.io/docs/demos/ingress_contour/) to learn more. Values to configure 
-Contour must be passed in during OSM installation using the Azure CLI.
-
-> [!NOTE]
-> Use the commands provided in the OSM GitHub documentation with caution. Ensure that you use the correct namespace name `arc-osm-system`.
-
-To set required values for configuring Contour, create the following JSON file.
-```json
-{
-  "osm.osm.osmNamespace" : "arc-osm-system",
-  "osm.contour.enabled" : "true",
-  "osm.contour.configInline.tls.envoy-client-certificate.name" : "osm-contour-envoy-client-cert", 
-  "osm.contour.configInline.tls.envoy-client-certificate.namespace" : "arc-osm-system"
-}
-```
-
-Set the file path as an environment variable:
-   ```azurecli-interactive
-   export SETTINGS_FILE=<json-file-path>
-   ```
-
-Run the `az k8s-extension create` command used to create the OSM extension, and pass in the settings file using configuration settings:
-   ```azurecli-interactive
-   az k8s-extension create --cluster-name $CLUSTER_NAME --resource-group $RESOURCE_GROUP --cluster-type connectedClusters --extension-type Microsoft.openservicemesh --scope cluster --release-train pilot --name osm --version $VERSION --configuration-settings-file $SETTINGS_FILE
-   ```
-
+   
 ## Using the Azure Arc-enabled Open Service Mesh
 
 To start using OSM capabilities, you need to first onboard the application namespaces to the service mesh. Download the OSM CLI from [OSM GitHub releases page](https://github.com/openservicemesh/osm/releases/). Once the namespaces are added to the mesh, you can configure the SMI policies to achieve the desired OSM capability.
