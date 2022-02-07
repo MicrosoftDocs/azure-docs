@@ -60,6 +60,34 @@ Currently the only regions that require endpoint modifications are [Azure Govern
 
 For more information about other connection overrides, see [Application Insights documentation](./sdk-connection-string.md?tabs=net#connection-string-with-explicit-endpoint-overrides).
 
+## Enable Azure Active Directory authentication for snapshot ingestion
+
+Application Insights Snapshot Debugger supports Azure AD authentication for snapshot ingestion. This means, for all snapshots of your application to be ingested, your application must be authenticated and provide the required application settings to the Snapshot Debugger agent.
+
+As of today, Snapshot Debugger only supports Azure AD authentication when you reference and configure Azure AD using the Application Insights SDK in your application.
+
+Below you can find all the steps required to enable Azure AD for profiles ingestion:
+1. Create and add the managed identity you want to use to authenticate against your Application Insights resource to your App Service.
+
+   a.  For System-Assigned Managed identity, see the following [documentation](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=portal%2Chttp#add-a-system-assigned-identity)
+
+   b.  For User-Assigned Managed identity, see the following [documentation](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=portal%2Chttp#add-a-user-assigned-identity)
+
+2. Configure and enable Azure AD in your Application Insights resource. For more information, see the following [documentation](https://docs.microsoft.com/azure/azure-monitor/app/azure-ad-authentication?tabs=net#configuring-and-enabling-azure-ad-based-authentication)
+3. Add the following application setting, used to let Snapshot Debugger agent know which managed identity to use:
+
+For System-Assigned Identity:
+
+|App Setting    | Value    |
+|---------------|----------|
+|APPLICATIONINSIGHTS_AUTHENTICATION_STRING         | Authentication=AAD    |
+
+For User-Assigned Identity:
+
+|App Setting    | Value    |
+|---------------|----------|
+|APPLICATIONINSIGHTS_AUTHENTICATION_STRING         | Authentication=AAD;ClientId={Client id of the User-Assigned Identity}    |
+
 ## Disable Snapshot Debugger
 
 Follow the same steps as for **Enable Snapshot Debugger**, but switch both switches for Snapshot Debugger to **Off**.

@@ -257,7 +257,7 @@ sections:
         answer: |
           ### What is the maximum storage size for SQL Managed Instance?
           
-          Storage size for SQL Managed Instance depends on the selected service tier (General Purpose or Business Critical). For storage limitations of these service tiers, see [Service tier characteristics](../database/service-tiers-general-purpose-business-critical.md).
+          Storage size for SQL Managed Instance depends on the selected service tier (General Purpose or Business Critical). For storage limitations of these service tiers, see [Service tier characteristics](../database/service-tiers-sql-database-vcore.md#service-tiers).
           
           ### What is the minimum storage size available for a managed instance?
           

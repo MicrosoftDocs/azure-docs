@@ -174,7 +174,7 @@ The water quality monitoring application you created from the application templa
 
     :::image type="content" source="media/tutorial-waterqualitymonitoring/water-quality-monitor-device1.png" alt-text="Select device 1":::
 
-1. On the **Cloud Properties** tab, change the **Acidity (pH) threshold** value from **8** to **9** and select **Save**.
+1. On the **Cloud Properties** tab, change the **Acidity (pH) threshold** value to **9** and select **Save**.
 1. Explore the **Device Properties** tab and the **Device Dashboard** tab.
 
 > [!NOTE]
