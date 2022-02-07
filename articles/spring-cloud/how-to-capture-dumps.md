@@ -70,7 +70,12 @@ The default value for `duration` is 60 seconds.
 
 ## Generate a dump using the Azure portal
 
-Go to the tab of your target app. Click the troubleshooting button. There will appear a tab on the right side. Choose the app instance and dump type you would like to collect. Fill your target file path(It should be a mount path of your persistent storage). Click the collect button.
+Use the following steps to generate a heap or thread dump of your app in Azure Spring Cloud.
+
+1. In the Azure portal, navigate to your target app, then select **Troubleshooting**.
+2. In the **Troubleshooting** pane, select the app instance and the type of dump you'd like to collect.
+3. In the **File path** field, specify the mount path of your persistent storage.
+4. Select **Collect**.
 
 ![ASC icon start](media/spring-cloud-start-dump.png)
 
