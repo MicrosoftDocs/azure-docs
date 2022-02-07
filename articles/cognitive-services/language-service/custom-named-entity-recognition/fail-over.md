@@ -2,15 +2,15 @@
 
 When you create a Language resource in the Azure portal, you specify a region for it to be created in. From then on, your resource and all of the operations related to it take place in the specified Azure server region. It's rare, but not impossible, to encounter a network issue that hits an entire region. If your solution needs to always be available, then you should design it to either fail-over into another region. This requires two Azure Language resources in different regions and the ability to sync custom models across regions. 
 
-If your app or business depends on the use of a custom NER model, we recommend that you create a replica of your project into another supported region. So that if a regional outage occurs, you can then access your model in the other fail-over region where tou replicated your project.
+If your app or business depends on the use of a custom NER model, we recommend that you create a replica of your project into another supported region. So that if a regional outage occurs, you can then access your model in the other fail-over region where you replicated your project.
 
-Replicating a project means that you export your project metadata and assets and them import them into a new project. This only make a copy of your project settings and tagged data you still need to [train](./how-to/train-model.md?tabs=portal#azure-resources) and [deploy](how-to/call-api.md#deploy-your-model) the models to be available for use with [prediction APIs](https://aka.ms/ct-runtime-swagger).
+Replicating a project means that you export your project metadata and assets and import them into a new project. This only makes a copy of your project settings and tagged data. You still need to [train](./how-to/train-model.md?tabs=portal#azure-resources) and [deploy](how-to/call-api.md#deploy-your-model) the models to be available for use with [prediction APIs](https://aka.ms/ct-runtime-swagger).
 
 In this article, you will learn to how to use the export and import APIs to replicate your project from one resource to another existing in different supported geographical regions, guidance on keeping your projects in sync and changes needed to your runtime consumption.
 
 ##  Prerequisites
 
-1. Two Azure Language resources in different Azure regions. Follow the instructions mentioned [here](./how-to/create-project.md#azure-resources) to create your resources and link it to Azure storage account. It is recommended that you link both your Language resources to the same storage account, this might introduce a bit higher latency in importing and training. 
+* Two Azure Language resources in different Azure regions. Follow the instructions mentioned [here](./how-to/create-project.md#azure-resources) to create your resources and link it to Azure storage account. It is recommended that you link both your Language resources to the same storage account, this might introduce a bit higher latency in importing and training. 
 
 ## Get your resource keys endpoint
 
@@ -25,7 +25,6 @@ Use the following steps to get the keys and endpoint of your primary and seconda
 > Keep a note of keys and endpoints for both primary and secondary resources. Use these values to replace the following placeholders:
 `{YOUR-PRIMARY-ENDPOINT}`, `{YOUR-PRIMARY-RESOURCE-KEY}`, `{YOUR-SECONDARY-ENDPOINT}` and `{YOUR-SECONDARY-RESOURCE-KEY}`.
 > Also take note of your project name, your model name and your deployment name. Use these values to replace the following placeholders:  `{PROJECT-NAME}`, `{MODEL-NAME}` and `{DEPLOYMENT-NAME}`.
-
 
 ## Export your primary project assets
 
@@ -54,7 +53,6 @@ Use the following headers to authenticate your request.
 |--|--|--|
 |`Ocp-Apim-Subscription-Key`| The key to your resource. Used for authenticating your API requests.| `{YOUR-PRIMARY-RESOURCE-KEY}` |
 |`format`| The format you want to use for the exported assets. | `JSON` |
-
 
 #### Body
 
@@ -177,7 +175,7 @@ Use the response body you got from the previous export step. It be formatted lik
 {
     "api-version": "2021-11-01-preview",
     "metadata": {
-        "name": "MyProject",
+        "name": "{PROJECT-NAME}",
         "multiLingual": true,
         "description": "Trying out custom NER",
         "modelType": "Extraction",
@@ -312,7 +310,6 @@ Use the following header to authenticate your request.
 |--|--|--|
 |`Ocp-Apim-Subscription-Key`| The key to your resource. Used for authenticating your API requests.| `{YOUR-SECONDARY-RESOURCE-KEY}` |
 
-
 ## Deploy your model
 
 This is te step where you make your trained model available form consumption via the [runtime prediction API](https://aka.ms/ct-runtime-swagger). 
@@ -387,11 +384,13 @@ At this point you have replicated your project into another resource which is in
 
 ## Changes in calling the runtime
 
-Within your system, check for the success code returned from the submit task API, if the response code indicates a failure retryb submitting the job through the secondary resource you have. For the second request you use your `{YOUR-SECONDARY-ENDPOINT}` and secondary key, if you have followed the steps above, `{PROJECT-NAME}` and `{DEPLOYMENT-NAME}` would be the same so no changes are reuired to the request body. In case you revert to using your secodary resource you will observe slight increase in latency because of the difference in regions where your model is deployed. 
+Within your system, check for the success code returned from the submit task API. If you observe a consistent failure in submitting the request, this could indicate an outage in your primary region. Failure once doesn't mean an outage, it may be transient issue. Retry submitting the job through the secondary resource you have created. For the second request use your `{YOUR-SECONDARY-ENDPOINT}` and secondary key, if you have followed the steps above, `{PROJECT-NAME}` and `{DEPLOYMENT-NAME}` would be the same so no changes are required to the request body. 
+
+In case you revert to using your secodary resource you will observe slight increase in latency because of the difference in regions where your model is deployed. 
 
 ## Check if your projects are out of sync
 
-Maintinag the freshness of both projects is an important part of process. You need to continuosly check if any updates where made to your primary project so that you rmove them over to your secondary project. This way if your primary region fail and you move into the secondary region you should expect similar model performace since it already contains the latest updates. Setting the frequency of checking if your projects are in sync is an important choice, we rorecommend that you do this chec daily in order to guarantee the freshness of data in your secondary model.
+Maintinag the freshness of both projects is an important part of process. You need to continuosly check if any updates where made to your primary project so that you rmove them over to your secondary project. This way if your primary region fail and you move into the secondary region you should expect similar model performace since it already contains the latest updates. Setting the frequency of checking if your projects are in sync is an important choice, we recommend that you do this chec daily in order to guarantee the freshness of data in your secondary model.
 
 ### Get project details
 
@@ -400,7 +399,7 @@ Use the following url to get your project details, one of the keys returned in t
 Use the following **GET** request to get your project details. You can use the URL you received from the previous step, or replace the placeholder values below with your own values. 
 
 ```rest
-{YOUR-PRIMARY-ENDPOINT}/language/analyze-text/projects/{YOUR-PROJECT-NAME}?api-version=2021-11-01-preview
+{YOUR-PRIMARY-ENDPOINT}/language/analyze-text/projects/{PROJECT-NAME}?api-version=2021-11-01-preview
 ```
 
 |Placeholder  |Value  | Example |
@@ -426,7 +425,7 @@ Use the following header to authenticate your request.
         "lastDeployedDateTime": "2021-10-19T23:24:41.572Z",
         "modelType": "Extraction",
         "storageInputContainerName": "YOUR-CONTAINER-NAME",
-        "name": "PROJECT-NAME",
+        "name": "myProject",
         "multiLingual": true,
         "description": "string",
         "language": "en-us",
@@ -435,7 +434,6 @@ Use the following header to authenticate your request.
 ```
 
 Repeat the same steps for your replicated project using `{YOUR-SECONDARY-ENDPOINT}` and `{YOUR-SECONDARY-RESOURCE-KEY}`. Compare the returned `lastModifiedDateTime` from both project. If your primary project was modified sooner than your secondary one, you need to repeat the steps of [exporting](#export-your-primary-project-assets), [importing](#import-to-a-new-project), [training](#train-your-model) and [deploying](#deploy-your-model).
-
 
 ## Next steps
 
