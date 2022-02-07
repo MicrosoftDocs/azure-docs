@@ -377,6 +377,8 @@
         href: https://aka.ms/apimupdates
       - name: Release notes
         href: https://aka.ms/apim/releases
+      - name: Breaking changes
+        href: breaking-changes/overview.md
       - name: Regional availability
         href: https://azure.microsoft.com/global-infrastructure/services/
       - name: Videos
