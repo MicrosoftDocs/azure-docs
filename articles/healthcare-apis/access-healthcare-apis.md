@@ -6,13 +6,13 @@ author: SteveWohl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 01/31/2022
+ms.date: 02/07/2022
 ms.author: zxue
 ---
 
 # Access Healthcare APIs
 
-In this article, you'll learn about the different ways to access the services in your applications. After you've provisioned a FHIR service, DICOM service, or IoT connector, you can then access them in your applications using tools like Postman, cURL, REST Client in Visual Studio Code, and with programming languages such as Python and C#.
+In this article, you will learn about the different ways to access the services in your applications. After you've provisioned a FHIR service, DICOM service, or IoT connector, you can then access them in your applications using tools like Postman, cURL, REST Client in Visual Studio Code, and with programming languages such as Python and C#.
 
 ## Access the FHIR service
 
