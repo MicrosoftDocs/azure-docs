@@ -7,15 +7,12 @@ ms.date: 01/25/2022
 ms.author: yelevin
 ---
 
-# Comment on incidents in Microsoft Sentinel (Public preview)
+# Comment on incidents in Microsoft Sentinel
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 Microsoft Sentinel supports rich-text comments in incidents, enabling you to easily enrich incidents, collaborate with coworkers on investigations, and document your work.
 
-
-> [!IMPORTANT]
-> The incident comments feature is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Overview
 
@@ -41,17 +38,18 @@ There are several considerations to take into account when using incident commen
 
 - **Per comment:** A single comment can contain up to **30,000 characters**. 
 
-- **Per incident:** A single incident can contain up to **100 comments**. But the size limit of an entire incident with all its contents is 64,000 characters. So there is a theoretical limit on the number of large comments an incident can support, even though in practice this limit is not expected to ever be reached.
+- **Per incident:** A single incident can contain up to **100 comments**.  
+
+    > [!NOTE]
+    > The size limit of a single incident record in the *SecurityIncident* table in Log Analytics is 64 KB. If this limit is exceeded, comments (starting with the earliest) will be truncated, which may affect the comments that will appear in [advanced search](investigate-cases.md#search-for-incidents) results.
+    >
+    > The actual incident records in the incidents database will not be affected.
 
 ### Who can edit or delete comments?
 
 - **Editing:** Only the author of a comment has permission to edit it.
 
-- **Deleting:** A comment can be deleted by its author and by anyone else with the [Microsoft Sentinel Contributor](roles.md) role.
-
-### Can I search through comments?
-
-
+- **Deleting:** Only users with the [Microsoft Sentinel Contributor](roles.md) role have permission to delete comments. Even the comment's author must have this role in order to delete it.
 
 ## Next steps
 
