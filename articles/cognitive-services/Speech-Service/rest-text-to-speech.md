@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/01/2021
+ms.date: 01/24/2022
 ms.author: eur
 ms.custom: references_regions
 ---
@@ -245,10 +245,7 @@ ogg-48khz-16bit-mono-opus
 
 ### Request body
 
-The body of each `POST` request is sent as [SSML](speech-synthesis-markup.md). SSML allows you to choose the voice and language of the synthesized speech that the text-to-speech feature returns. For a complete list of supported voices, see [Language and voice support for the Speech service](language-support.md#text-to-speech).
-
-> [!NOTE]
-> If you're using a custom neural voice, the body of a request can be sent as plain text (ASCII or UTF-8).
+If you're using a custom neural voice, the body of a request can be sent as plain text (ASCII or UTF-8). Otherwise, the body of each `POST` request is sent as [SSML](speech-synthesis-markup.md). SSML allows you to choose the voice and language of the synthesized speech that the text-to-speech feature returns. For a complete list of supported voices, see [Language and voice support for the Speech service](language-support.md#text-to-speech).
 
 ### Sample request
 

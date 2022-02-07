@@ -51,11 +51,11 @@ For information on how to handle throttling when these limits are exceeded, see 
 
 #### Backup keys, secrets, certificates
 
-When you back up a key vault object, such as a secret, key, or certificate, the backup operation will download the object as an encrypted blob. This blob can't be decrypted outside of Azure. To get usable data from this blob, you must restore the blob into a key vault within the same Azure subscription and Azure geography
+When you back up a key vault object, such as a secret, key, or certificate, the backup operation will download the object as an encrypted blob. This blob cannot be decrypted outside of Azure. To get usable data from this blob, you must restore the blob into a key vault within the same Azure subscription and Azure geography
 
 | Transactions type | Maximum key vault object versions allowed |
 | --- | --- |
-| Backup individual key, secret, certfiicate |500 |
+| Back up individual key, secret, certificate |500 |
 
 > [!NOTE]
 > Attempting to backup a key, secret, or certificate object with more versions than above limit will result in an error. It is not possible to delete previous versions of a key, secret, or certificate. 
@@ -73,7 +73,7 @@ Key Vault does not restrict the number of versions on a secret, key or certifica
 
 | Resource | Limit |
 | -------- | -----:|
-| Private endpoints per key vault | 64 |
+| Private endpoints per key vault or managed HSM| 64 |
 | Key vaults with private endpoints per subscription | 400 |
 
 ### Resource type: Managed HSM
@@ -85,11 +85,11 @@ This section describes service limits for resource type `managed HSM`.
 |Item|Limits|
 |----|------:|
 Number of HSM instances per subscription per region|5 
-Number of keys per HSM Pool|5000
+Number of keys per HSM instance |5000
 Number of versions per key|100
-Number of custom role definitions per HSM|50
+Number of custom role definitions per HSM instance|50
 Number of role assignments at HSM scope|50
-Number of role assignment at each individual key scope|10
+Number of role assignments at each individual key scope|10
 |||
 
 #### Transaction limits for administrative operations (number of operations per second per HSM instance)
@@ -100,8 +100,8 @@ Full HSM Backup/Restore<br/>(only one concurrent backup or restore operation per
 
 #### Transaction limits for cryptographic operations (number of operations per second per HSM instance)
 
-- Each Managed HSM instance constitutes 3 load balanced HSM partitions. The throughput limits are a function of underlying hardware capacity allocated for each partition. The tables below show maximum throughput with at least one partition available. Actual throughput may be up to 3x higher if all 3 partitions are available.
-- Throughput limits noted assume that one single key is being used to achieve maximum throughput. For example, if a single RSA-2048 key is used the maximum throughput will be 1100 sign operations. If you use 1100 different keys with 1 transaction per second each, they will not be able to achieve the same throughput.
+- Each Managed HSM instance constitutes three load balanced HSM partitions. The throughput limits are a function of underlying hardware capacity allocated for each partition. The tables below show maximum throughput with at least one partition available. Actual throughput may be up to 3x higher if all three partitions are available.
+- Throughput limits noted assume that one single key is being used to achieve maximum throughput. For example, if a single RSA-2048 key is used the maximum throughput will be 1100 sign operations. If you use 1100 different keys with one transaction per second each, they will not be able to achieve the same throughput.
 
 ##### RSA key operations (number of operations per second per HSM instance)
 

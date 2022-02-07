@@ -11,7 +11,7 @@ ms.author: baanders
 
 [Event Grid](../articles/event-grid/overview.md) is an Azure service that helps route and deliver events from Azure Services to other places within Azure. You can create an [Event Grid topic](../articles/event-grid/concepts.md) to collect certain events from a source, and then subscribers can listen on the topic to receive the events as they come through.
 
-In Azure Cloud Shell, run the following command to create an Event Grid topic:
+In the Azure CLI, run the following command to create an Event Grid topic:
 
 ```azurecli-interactive
 az eventgrid topic create --resource-group <your-resource-group> --name <name-for-your-event-grid-topic> --location <region>

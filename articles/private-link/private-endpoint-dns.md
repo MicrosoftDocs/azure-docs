@@ -5,8 +5,10 @@ services: private-link
 author: asudbring
 ms.service: private-link
 ms.topic: conceptual
-ms.date: 01/14/2021
+ms.date: 01/25/2022
 ms.author: allensu
+ms.custom: fasttrack-edit
+
 ---
 # Azure Private Endpoint DNS configuration
 
@@ -38,6 +40,7 @@ For Azure services, use the recommended zone names as described in the following
 |---|---|---|
 | Azure Automation / (Microsoft.Automation/automationAccounts) / Webhook, DSCAndHybridWorker | privatelink.azure-automation.net | azure-automation.net |
 | Azure SQL Database (Microsoft.Sql/servers) / sqlServer | privatelink.database.windows.net | database.windows.net |
+| **Azure SQL Managed Instance** (Microsoft.Sql/managedInstances) | privatelink.{dnsPrefix}.database.windows.net | {instanceName}.{dnsPrefix}.database.windows.net |
 | Azure Synapse Analytics (Microsoft.Synapse/workspaces) / Sql  | privatelink.sql.azuresynapse.net | sql.azuresynapse.net |
 | Azure Synapse Analytics (Microsoft.Synapse/workspaces) / SqlOnDemand  | privatelink.sql.azuresynapse.net | sqlondemand.azuresynapse.net |
 | Azure Synapse Analytics (Microsoft.Synapse/workspaces) / Dev  | privatelink.dev.azuresynapse.net | dev.azuresynapse.net |
@@ -216,6 +219,20 @@ To configure properly, you need the following resources:
 The following diagram shows the DNS resolution for both networks, on-premises and virtual networks. The resolution is using a DNS forwarder. The resolution is made by a private DNS zone [linked to a virtual network](../dns/private-dns-virtual-network-links.md):
 
 :::image type="content" source="media/private-endpoint-dns/hybrid-scenario.png" alt-text="Hybrid scenario":::
+
+## Private DNS zone group
+
+If you choose to integrate your private endpoint with a private DNS zone, a private DNS zone group is also created. The DNS zone group is a strong association between the private DNS zone and the private endpoint that helps auto-updating the private DNS zone when there is an update on the private endpoint.  For example, when you add or remove regions, the private DNS zone is automatically updated. 
+
+Previously, the DNS records for the private endpoint were created via scripting (retrieving certain information about the private endpoint and then adding it on the DNS zone). With the DNS zone group, there is no need to write any additional CLI/Powershell lines for every DNS zone. Also, when you delete the private endpoint, all the DNS records within the DNS zone group will be deleted as well.
+
+A common scenario for DNS zone group is in a hub-and-spoke topology, where it allows the private DNS zones to be created only once in the hub and allows the spokes to register to it, rather than creating differents zones in each spoke. 
+
+> [!NOTE]
+> Each DNS zone group can support up to 5 DNS zones.
+
+> [!NOTE]
+> Adding multiple DNS zone groups to a single Private Endpoint is not supported. 
 
 ## Next steps
 - [Learn about private endpoints](private-endpoint-overview.md)
