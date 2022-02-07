@@ -36,7 +36,12 @@ Some of the pipelines will add files to the Azure Repos and therefore require pu
 
 ### Create configuration root folder
 
-Navigate to the new repository and create a top level folder called 'WORKSPACES', this folder will be the root folder for all the SAP deployment configuration files.
+Navigate to the new repository and create a top level folder called 'WORKSPACES', this folder will be the root folder for all the SAP deployment configuration files. In the dialog enter 'WORKSPACES' as folder name and 'readme.md' as file name. 
+
+Optionally enter some content in the file and save it by clicking the _commit_ button.
+
+> [!NOTE]
+> In order to create the folder using Git you must also create a file. 
 
 ## Set up the Azure Pipelines
 
@@ -160,9 +165,11 @@ The pipelines uses a custom task to perform cleanup activities post deployment. 
 
 ## Variable definitions
 
-The deployment pipelines are configured to use a set of predefined parameter values, these are defined using variable groups.
+The deployment pipelines are configured to use a set of predefined parameter values. I Azure DevOps these can be defined using variable groups.
 
 ### Common variables
+
+There are a set of common variables that are used by all the workload zones. These are stored in their own variable group 'SDAF-General'
 
 Create a new variable group 'SDAF-General' using the Library page in the Pipelines section. Add the following variables:
 
@@ -183,7 +190,9 @@ Save the variables and assign permissions for all pipelines using _Pipeline perm
 
 ### Environment specific variables
 
-For each environment create a variable group, for example 'SDAF-DEV', and add the following variables:
+As each environment may have different deployment credentials you will need to create a variable group per environment, for example 'SDAF-DEV', 'SDAF-QA'. 
+
+Create a new variable group 'SDAF-DEV' using the Library page in the Pipelines section. Add the following variables:
 
 | Variable              | Value                                          |
 | --------------------- | ---------------------------------------------- |
@@ -193,6 +202,8 @@ For each environment create a variable group, for example 'SDAF-DEV', and add th
 | ARM_SUBSCRIPTION_ID   | Target subscription ID                         |
 | ARM_TENANT_ID         | Tenant ID for service principal                |
 | AZURE_CONNECTION_NAME | Previously created connection name             |
+| sap_fqdn              | SAP Fully Qualified Domain Name, for example sap.contoso.net             |
+
 
 Save the variables and assign permissions for all pipelines using _Pipeline permissions_.
 

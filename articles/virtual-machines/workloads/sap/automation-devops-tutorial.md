@@ -121,7 +121,6 @@ Run the pipeline by navigating to the Pipelines section in the [Azure DevOps Por
 
 SAP System configuration name: DEV-WEEU-SAP01-X00
 Bill of Materials name: S41909SPS03_v0010ms
-SAP Fully Qualified Domain Name: sap.contoso.net
 
 Choose the playbooks to execute.
 
