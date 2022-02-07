@@ -18,13 +18,21 @@ ms.author: barclayn
 This article lists the latest features, improvements, and changes in the Azure Active Directory (Azure AD) Verifiable Credentials service.
 ## February 2022
 
-As we continue the development of our implementation of the verifiable credentials service, we are introducing two new features. Starting February 15, 2022:
+We are rolling out a couple of important updates to our service that might require Azure AD Verifiable Credentials service [reconfiguration](verifiable-credentials-faq.md?#how-to-re-onboard-your-azure-ad-tenant) before March 31st 2022:
+- The Azure AD Verifiable Credentials service can store and handle data processing in the Azure European region. [More information](https://aka.ms/vc/EUannouncement)
+- Azure Active Directory Verifiable Credentials customers can take advantage of enhancements to credential revocation that add a higher degree of privacy through the implementation of the [W3C Status List 2021](https://w3c-ccg.github.io/vc-status-list-2021/) standard. [Read more](https://aka.ms/vc/EUannouncement)  
 
-- The Azure Active Directory Verifiable Credentials service can store and handle data operations for European instances of Azure Active Directory in the European region.
-- Azure Active Directory Verifiable Credentials customers can take advantage of enhancements to credential revocation that add a higher degree of privacy through the implementation of the [W3C Status List 2021](https://w3c-ccg.github.io/vc-status-list-2021/) standard.  
+## December 2021
+- We added [Postman collections](https://github.com/Azure-Samples/active-directory-verifiable-credentials/tree/main/Postman) to our samples as a quick start to start using the Request Service REST API.
+- New sample added that demonstrates the integration of [Azure AD Verifiable Credentials with Azure AD B2C](https://github.com/Azure-Samples/active-directory-verifiable-credentials/tree/main/B2C).
+- Fastrack setup sample for setting up the Azure AD Verifiable Credentials services using [powershell and an ARM template](https://github.com/Azure-Samples/active-directory-verifiable-credentials/tree/main/ARM).
+- Sample Verifiable Credential configuration files to show sample cards for [IDToken](https://github.com/Azure-Samples/active-directory-verifiable-credentials/tree/main/CredentialFiles/IDToken), [IDTokenHit](https://github.com/Azure-Samples/active-directory-verifiable-credentials/tree/main/CredentialFiles/IDTokenHint) and [Self-attested](https://github.com/Azure-Samples/active-directory-verifiable-credentials/tree/main/CredentialFiles/IDTokenHint) claims.
 
->[!IMPORTANT]
-> All Azure Active Directory Verifiable Credential service deployments need to go through a redeployment process before March 31st 2022. Any tenants that have not [redeployed](verifiable-credentials-faq.md?#how-to-redeploy-your-azure-ad-tenant) by then will become inaccessible and administrators will have to configure a new service instance before they can continue using the features provided by Azure Active Directory Verifiable Credentials.
+## November 2021
+
+- We made updates to the Request Service REST API for [issuance](issuance-request-api#callback-type#callback-type) and [presentation](presentation-request-api#callback-type)
+Callback types enforcing rules so that URL endpoints for callbacks are reachable.
+- UX updates to the Microsoft Authenticator verifiable credentials experience: Animations on card selection from the wallet.
 
 ## October 2021
 
