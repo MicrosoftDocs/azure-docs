@@ -130,7 +130,7 @@ The order of deployment would look like:
 
 The proximity placement group configuration to use AVGs in an optimal way would look like:
 
-![ANF snapshot backup for SAP HANA](media/hana-vm-operations-netapp/avg-ppg-architecture.png)
+![ANF application volume group and ppg architecture](media/hana-vm-operations-netapp/avg-ppg-architecture.png)
 
 
 ## Availability
