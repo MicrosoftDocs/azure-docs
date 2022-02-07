@@ -71,7 +71,7 @@
     - name: Manage roles/policies and permission requests
       expanded: false
       items:
-      - name: View existing roles/policies and requests for permission
+      - name: View roles/policies and requests for permission in the Remediation dashboard
         href: cloudknox-ui-remediation.md
       - name: View information about roles/policies
         href: cloudknox-howto-view-role-policy.md
@@ -83,8 +83,12 @@
         href: cloudknox-howto-modify-role-policy.md
       - name: Delete a role/policy
         href: cloudknox-howto-delete-role-policy.md
-      - name: Attach and detach permissions for identities
+      - name: Attach and detach policies for AWS identities
         href: cloudknox-howto-attach-detach-permissions.md
+      - name: Add and remove roles and tasks for Azure and GCP identities
+        href: cloudknox-howto-add-remove-role-task.md
+      - name: Revoke access to high-risk and unused tasks or assign read-only status
+        href: cloudknox-howto-revoke-task-readonly-status.md
       - name: Create or approve a request for permissions 
         href: cloudknox-howto-create-approve-privilege-request.md
     - name: Manage users, roles, and their access levels
