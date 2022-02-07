@@ -258,7 +258,6 @@ The role permissions for the Azure Resource Manager vary depending on the type o
 |**Storage account type** | **Role permissions**|
 |--- | ---|
 |Standard type | [Contributor](../role-based-access-control/built-in-roles.md#contributor)<br>[Storage Blob Data Contributor](../role-based-access-control/built-in-roles.md#storage-blob-data-contributor)|
-|Premium type | [Contributor](../role-based-access-control/built-in-roles.md#contributor)<br>[Storage Blob Data Owner](../role-based-access-control/built-in-roles.md#storage-blob-data-owner)
 
 1. Go to the replication/cache storage account selected for replication. In the left pane, select **Access control (IAM)**.
 
