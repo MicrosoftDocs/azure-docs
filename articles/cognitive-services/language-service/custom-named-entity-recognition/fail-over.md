@@ -56,7 +56,7 @@ Use the following headers to authenticate your request.
 
 #### Body
 
-Use the following JSON in your request body specifying that you want to export all the assests.
+Use the following JSON in your request body specifying that you want to export all the assets.
 
 ```json
 {
@@ -390,7 +390,7 @@ In case you revert to using your secodary resource you will observe slight incre
 
 ## Check if your projects are out of sync
 
-Maintinag the freshness of both projects is an important part of process. You need to continuosly check if any updates where made to your primary project so that you rmove them over to your secondary project. This way if your primary region fail and you move into the secondary region you should expect similar model performace since it already contains the latest updates. Setting the frequency of checking if your projects are in sync is an important choice, we recommend that you do this chec daily in order to guarantee the freshness of data in your secondary model.
+Maintaining the freshness of both projects is an important part of process. You need to frequently check if any updates where made to your primary project so that you rmove them over to your secondary project. This way if your primary region fail and you move into the secondary region you should expect similar model performace since it already contains the latest updates. Setting the frequency of checking if your projects are in sync is an important choice, we recommend that you do this check daily in order to guarantee the freshness of data in your secondary model.
 
 ### Get project details
 
@@ -415,7 +415,7 @@ Use the following header to authenticate your request.
 |--|--|--|
 |`Ocp-Apim-Subscription-Key`| The key to your resource. Used for authenticating your API requests.| `{YOUR-PRIMARY-RESOURCE-KEY}` |
 
-#### Resonse body
+#### Response body
 
 ```json
     {
