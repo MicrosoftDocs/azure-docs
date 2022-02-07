@@ -166,7 +166,7 @@ For more information, see [License requirements](access-reviews-overview.md#lice
  
     ![Screenshot that shows multi-stage review enabled and multi-stage review settings.](./media/create-access-review/create-multi-stage-review.png)
 
-1. Add the duration for the first stage. To ad the duration, enter a number in the field next to **Stage duration (in days)**. This is the number of days you wish for the first stage to last.
+1. Add the duration for the first stage. To add the duration, enter a number in the field next to **Stage duration (in days)**. This is the number of days you wish for the first stage to be open to the first stage reviewers to make decisions.
  
 1. Under **Second stage review**, select the reviewers from the dropdown menu next to **Select reviewers**. 
 
