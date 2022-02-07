@@ -20,13 +20,30 @@ Azure Virtual Desktop is currently available for all geographical locations. Adm
 
 This article describes which information the Azure Virtual Desktop service stores. To learn more about the customer data definitions, see [How Microsoft categorizes data for online services](https://www.microsoft.com/trust-center/privacy/customer-data-definitions).
 
-## Customer input
+## Customer input - Azure Virtual Desktop Azure objects
 
-To set up the Azure Virtual Desktop service, the customer must create host pools and other service objects. During configuration, the customer must give information like the host pool name, application group name, and so on. This information is considered customer input. Customer input is stored in the geography associated with the region the object is created in. Azure Resource Manager paths to the objects are considered organizational information, so data residency doesn't apply to them. Data about Azure Resource Manager paths will be stored outside of the chosen geography.
+To set up the Azure Virtual Desktop service, the customer must create host pools and other service objects. During configuration, the customer must give information like the host pool name, application group name, and so on. This information is considered customer input. Customer input is stored in the geography associated with the region the object is created in. The service doesn't directly store any user or app-related information, but it does store customer data like application names and user principal names because they're part of the object setup process. This information is stored in the geography associated with the region the customer created the object in.
 
-## Customer data
+We currently support storing the aforementioned data in the following locations:
 
-The service doesn't directly store any user or app-related information, but it does store customer data like application names and user principal names because they're part of the object setup process. This information is stored in the geography associated with the region the customer created the object in.
+- United States (US) (generally available)
+- Europe (EU) (generally available)
+- United Kingdom (UK) (generally available)
+- Canada (CA) (generally available)
+
+More geographies will be added as the service grows. The stored information is encrypted at rest, and geo-redundant mirrors are maintained within the geography. 
+
+The outlined data is replicated within the Azure geography for disaster recovery purposes.
+
+Azure Resource Manager paths to the objects are considered organizational information, so data residency doesn't apply to them. Data about Azure Resource Manager paths will also be stored outside of the chosen geography.
+
+
+## Customer data - Azure Services
+
+The deployment of Virtual Machines for Azure Virtual Desktops, as well as supporting services like Azure NetApp Files, Azure Files, gateways, firewalls, etc can be stored in any Azure region chosen by the customer. A list of services available per region can be found on https://azure.microsoft.com/en-us/global-infrastructure/services/
+For example, while the customer input data must be stored on the above mentioned regions, the VM's and (VM hosted) application data can be stored in any region - even on Azure Stack HCI (https://docs.microsoft.com/en-us/azure/virtual-desktop/azure-stack-hci-overview) for data residency purposes or to ensure closer proximity to VPN/ER connected services.
+
+Customer data, such as app settings and user data, resides in the location the customer chooses and isn't managed by the service.
 
 ## Diagnostic data
 
@@ -39,13 +56,5 @@ Azure Virtual Desktop gathers service-generated diagnostic data whenever the cus
 
 To keep Azure Virtual Desktop reliable and scalable, we aggregate traffic patterns and usage to check the health and performance of the infrastructure control plane. For example, to understand how to ramp up regional infrastructure capacity as service usage increases, we process service usage log data. We then review the logs for peak times and decide which data centers to add to meet this capacity. We aggregate this information from all locations where the service infrastructure is, then send it to the US region. The data sent to the US region includes scrubbed data, but not customer data.
 
-We currently support storing the aforementioned data in the following locations:
 
-- United States (US) (generally available)
-- Europe (EU) (generally available)
-- United Kingdom (UK) (generally available)
-- Canada (CA) (generally available)
 
-More geographies will be added as the service grows. The stored information is encrypted at rest, and geo-redundant mirrors are maintained within the geography. Customer data, such as app settings and user data, resides in the location the customer chooses and isn't managed by the service.
-
-The outlined data is replicated within the Azure geography for disaster recovery purposes.
