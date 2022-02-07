@@ -39,7 +39,7 @@ To disable multiple images at the same time, select checkboxes before the image 
 ## Enable images at the time of lab creation
 You can enable more images at the time lab creation: 
 
-1. Sign in to the [Azure Lab Services website](https://labs.azure.com) using **lab account owner** credentials
+1. Sign in to the Lab Services web portal ([https://labs.azure.com](https://labs.azure.com)) using **lab account owner** credentials
 2. Select the default virtual machine image or the down arrow. 
 3. Select **Enable more image options**. 
 

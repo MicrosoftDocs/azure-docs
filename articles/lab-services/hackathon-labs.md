@@ -33,7 +33,7 @@ To use Lab Services for your hackathon, ensure that both lab plan and your lab a
     Students are each assigned a virtual machine for the lifetime of the hackathon. They can save their work directly to the machine, but it’s recommended that students back up their work so that they have access to it after the hackathon is over. For example, they should save to an external location, such as OneDrive, GitHub, and so on. To use OneDrive, you may choose to configure it automatically for students on their lab virtual machines. See the [how-to guide to install and configure OneDrive](how-to-prepare-windows-template.md#install-and-configure-onedrive).
 - **Set VM capacity according to number of participants**.
 
-    Ensure that your lab’s virtual machine capacity is set based on the number of participants you expect at your hackathon. When you publish the template virtual machine, it can take several hours to create all of the machines in the lab. That's why we recommend that you do it well in advance to the start of the hackathon. For more information, see the [how-to guide on updating lab capacity](how-to-set-virtual-machine-passwords.md#update-the-lab-capacity).
+    Ensure that your lab’s virtual machine capacity is set based on the number of participants you expect at your hackathon. When you publish the template virtual machine, it can take several hours to create all of the machines in the lab. That's why we recommend that you do it well in advance to the start of the hackathon. For more information, see [Set lab capacity](how-to-manage-vm-pool.md#set-lab-capacity).
 
 - **Decide whether to restrict lab access**.
 

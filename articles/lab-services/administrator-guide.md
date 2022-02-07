@@ -38,7 +38,7 @@ Labs virtual machines (VMs) are managed and hosted for you within a subscription
 
 A subscription contains one or more resource groups. Resource groups are used to create logical groupings of Azure resources that are used together within the same solution.  
 
-When you create a lab plan, you must configure the resource group that contains the lab plan. Name your resource group carefully.  Labs are grouped by resource group name in the [Azure Lab Services website](https://labs.azure.com).
+When you create a lab plan, you must configure the resource group that contains the lab plan. Name your resource group carefully.  Labs are grouped by resource group name in the Lab Services web portal: [https://labs.azure.com](https://labs.azure.com).
 
 A resource group is also required when you create an [Azure Compute Gallery](#azure-compute-gallery). You can place your lab plan and compute gallery in the same resource group or in two separate resource groups. You might want to take this second approach if you plan to share the compute gallery across various solutions.
 
@@ -117,10 +117,10 @@ As you get started with Azure Lab Services, we recommend that you establish nami
 
 | Resource type | Role | Suggested pattern | Examples |
 | ------------- | ---- | ----------------- | -------- |
-| Resource group | Contains one or more lab plans, labs and/or compute galleries. |{org-name}labs-{env}-rg, {dept-name}labs-rg | contosolabs-rg, contosolabs-pilot-rg, contosolabs-prod-rg, mathdept-rg |
-| Lab plan | Template for newly created labs. | {org-name}-{env}-lp, {dept-name}-{env}-lp | contoso-lp, mathdept-lp, cs-pilot-lp |
+| Resource group | Contains one or more lab plans, labs and/or compute galleries. | rg-labs-{org-name}-{env}-{instance}, rg-labs-{dept-name}-{env}-{instance} | rg-labs-contoso-pilot, rg-labs--math-prod-001 |
+| Lab plan | Template for newly created labs. | lp-{org-name}-{env}-{instance}, lp-{dept-name}-{env}-{instance} | lp-contoso, lp-contoso-pilot, lp-math-001 |
 | Lab | Contains one or more student VMs. | {class-name}-{time}-{educator} | CS101-Fall2021, CS101-Fall2021-JohnDoe |
-| Azure Compute Gallery | Contains one or more VM image versions | {org-name}-sig, {dept-name}-sig | contoso-sig, mathdept-sig |
+| Azure Compute Gallery | Contains one or more VM image versions | sig-{org-name}-{env}-{instance}, sig-{dept-name}-{env}-{instance} | sig-contoso-001, sig-math-prod |
 
 In the proceeding table, we used some terms and tokens in the suggested name patterns.  Let's go over those terms in a little more detail.
 
@@ -129,6 +129,7 @@ In the proceeding table, we used some terms and tokens in the suggested name pat
 | {org-name} | Token for organization short name with no spaces. | contoso |
 | {dept-name} | Token for short name of department in organization. | math, bio, cs |
 | {env} | Token for environment name | prod for production, pilot for small test |
+| {instance} | Number to identify instance if multiple resources created. | 001, 123 |
 | {class-name} | Token for short name or code for class being supported. | CS101, Bio101 |
 | {educator} | Alias of educator running the lab. | johndoe |
 | {time} | Token for short name (with no spaces) for time the class is being offered. | Spring2021, Dec2021|

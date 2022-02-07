@@ -26,9 +26,8 @@ Educators can continue to access student VMs directly from the VM Pool tab. And 
 
 See the following articles:
 
-- [Use Azure Lab Services within Teams overview](lab-services-within-teams-overview.md)
-- [Get started and create a Lab Services lab from Teams](how-to-get-started-create-lab-within-teams.md)
-- [Manage Lab Services user lists from Teams](how-to-manage-user-lists-within-teams.md)
-- [Create Lab Services schedules from Teams](how-to-create-schedules-within-teams.md)
-- [Access a VM (student view) in Lab Services from Teams](how-to-access-vm-for-students-within-teams.md)
-
+- As an educator, [Get started and create a Lab Services lab within Teams](how-to-get-started-create-lab-within-teams.md).
+- As an educator, [create and manage schedules within Teams](how-to-create-schedules-within-teams.md).
+- As an educator, [manage lab user lists from Teams](how-to-manage-user-lists-within-teams.md).
+- As an admin or educator, [delete labs within Teams](how-to-delete-lab-within-teams.md)
+- As student, [access a VM within Teams](how-to-access-vm-for-students-within-teams.md)

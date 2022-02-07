@@ -121,18 +121,18 @@ Once you publish the template, each student will have access to a VM that comes 
 
 ### For Windows VMs
 
-If you’ve provided students with Windows VMs, they need to connect to their lab VMs to use Jupyter Notebooks.  To connect to a Windows VM, a student can use a remote desktop connection (RDP). For more information, see [Connect to the VM](how-to-use-lab.md#connect-to-the-vm).
+If you’ve provided students with Windows VMs, they need to connect to their lab VMs to use Jupyter Notebooks.  To connect to a Windows VM, a student can use a remote desktop connection (RDP). For more information, see [Connect to a Windows lab VM](connect-virtual-machine.md#connect-to-a-windows-lab-vm).
 
 ### For Linux VMs
 
-If you’ve provided students with Linux VMs, students can Access Jupyter Notebooks locally after connecting to the VM. For instructions to SSH or connect using X2Go, see [Connect to the VM](how-to-use-lab.md#connect-to-the-vm).
+If you’ve provided students with Linux VMs, students can Access Jupyter Notebooks locally after connecting to the VM. For instructions to SSH or connect using X2Go, see [Connect to a Linux lab VM](connect-virtual-machine.md#connect-to-a-linux-lab-vm).
 
 #### SSH tunnel to Jupyter server on the VM
 
 Some students may want to connect directly from their local computer directly to the Jupyter server inside their lab VMs. The SSH protocol enables port forwarding between the local computer and a remote server (in our case, the student’s lab VM), so that an application running on a certain port on the server is **tunneled** to the mapping port on the local computer. Students should follow these steps to SSH tunnel to the Jupyter server on their lab VMs:
 
-1. In the [Azure Lab Services website](https://labs.azure.com), make sure that the Linux VM that you want to connect is started.
-2. Once the VM is running, select **Connect**, which will show a window that provides the SSH command string, which will look like the following string:
+1. In the Lab Services web portal ([https://labs.azure.com](https://labs.azure.com)), make sure that the Linux VM that you want to connect to is [started](how-to-use-lab.md#start-or-stop-the-vm).
+2. Once the VM is running, [get the SSH connection command](connect-virtual-machine.md#connect-to-a-linux-lab-vm-using-ssh) by selecting **Connect**, which will show a window that provides the SSH command string, which will look like the following string:
 
     ```shell
     ssh -p 12345 student@ml-lab-00000000-0000-0000-0000-000000000000.eastus2.cloudapp.azure.com
