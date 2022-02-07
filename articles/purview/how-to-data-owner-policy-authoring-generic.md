@@ -27,7 +27,7 @@ To register a data source, resource group, or subscription in Azure Purview with
 - IAM *Owner*
 - Both IAM *Contributor* + IAM *User Access Administrator*
 
-Follow this [guide to configure Azure RBAC permissions](../../role-based-access-control/check-access.md)
+Follow this [guide to configure Azure RBAC permissions](../role-based-access-control/check-access.md).
 
 ### Source configuration
 To apply these policies to data sources in your environment, you'll need to configure your sources.
