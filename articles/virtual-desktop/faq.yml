@@ -155,6 +155,8 @@ sections:
         answer: |
           Yes. Azure Virtual Desktop host pools have an option for selecting either availability set or availability zones when you create a VM. These availability options are the same as the ones Azure Compute uses. If you select a zone for the VM you create in a host pool, the setting automatically applies to all VMs you create in that zone. If you'd prefer to spread your host pool VMs across multiple zones, you'll need to follow the directions in [Add virtual machines with the Azure portal](expand-existing-host-pool.md#add-virtual-machines-with-the-azure-portal) to manually select a new zone for each new VM you create.
           
+          Make sure that [your Azure availability zones](../availability-zones/az-overview.md#azure-regions-with-availability-zones) are available in the region where your VMs are located.
+          
       - question: |
          Which availability option is best for me?
         answer: |
