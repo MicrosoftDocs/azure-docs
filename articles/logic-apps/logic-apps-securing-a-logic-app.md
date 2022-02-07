@@ -1190,7 +1190,6 @@ When the [managed identity](../active-directory/managed-identities-azure-resourc
          "uri": "@parameters('endpointUrlParam')",
          "authentication": {
             "type": "ManagedServiceIdentity",
-            "identity": "SystemAssigned",
             "audience": "https://management.azure.com/"
          },
       },
