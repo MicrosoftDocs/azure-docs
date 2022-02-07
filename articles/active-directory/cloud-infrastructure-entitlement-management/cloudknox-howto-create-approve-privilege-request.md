@@ -20,9 +20,9 @@ ms.author: v-ydequadros
 
 This article describes how to create or approve a request for permissions in the **Remediation** dashboard in CloudKnox Permissions Management (CloudKnox). You can create and approve requests for the Amazon Web Services (AWS), Microsoft Azure, or Google Cloud Platform (GCP) authorization systems.
 
-The **Remediation** dashboard has two privilege on demand (POD) workflows you can use:
-- **New Request** – The workflow used by a user to create a request for permissions for a specified duration.
-- **Approver** – The workflow used by an approver to review and approve or reject a user’s request for permissions.
+The **Remediation** dashboard has two privilege-on-demand (POD) workflows you can use:
+- **New Request**: The workflow used by a user to create a request for permissions for a specified duration.
+- **Approver**: The workflow used by an approver to review and approve or reject a user’s request for permissions.
 
 
 > [!NOTE]
@@ -41,7 +41,7 @@ The **Remediation** dashboard has two privilege on demand (POD) workflows you ca
 1. In the **Roles/Tasks** page:
     1. From the **Select an authorization system type** dropdown, select the authorization system type you want to access: **AWS**, **Azure** or **GCP**.
     1. From the **Select an authorization system** dropdown, select the accounts you want to access.
-    1. From the **Identity** dropdown , select the identity on whose behalf you’re requesting access.
+    1. From the **Identity** dropdown, select the identity on whose behalf you’re requesting access.
 
         - If the identity you select is a Security Assertions Markup Language (SAML) user, and since a SAML user accesses the system through assumption of a role, in **Role**, select the user’s role.
 

@@ -41,7 +41,7 @@ This article provides an overview of the components of the **Remediation** dashb
     - **My requests**: Use this subtab to 
     - **Settings**: Use this subtab to select **Request role/policy filters**, **Request settings**, and **Auto-approve** settings.
 
-1. Use the dropdown to select the **Authorization System Type** and **Authorization System**, and then select **Apply**..
+1. Use the dropdown to select the **Authorization System Type** and **Authorization System**, and then select **Apply**.
 
 ## View and create roles/policies 
 
