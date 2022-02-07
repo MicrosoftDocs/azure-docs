@@ -49,7 +49,7 @@ The following table indicates the recommended `WEBSITE_RUN_FROM_PACKAGE` options
 + When you run from a package, the `wwwroot` folder becomes read-only and you'll receive an error when writing files to this directory. Files are also read-only in the Azure portal.
 + The maximum size for a deployment package file is currently 1 GB.
 + You can't use local cache when running from a deployment package. 
-+ Don't enable the `SCM_DO_BUILD_DURING_DEPLOYMENT=true` deployment customization option. Package file contents must be able to run when deployed, and this requested build step is ignored during deployment.
++ If your project needs to use remote build, don't use the `WEBSITE_RUN_FROM_PACKAGE` app setting. Instead add the `SCM_DO_BUILD_DURING_DEPLOYMENT=true` deployment customization app setting. To learn more, see [Remote build](functions-deployment-technologies.md#remote-build).
 
 ### Adding the WEBSITE_RUN_FROM_PACKAGE setting
 
