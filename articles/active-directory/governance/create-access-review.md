@@ -78,7 +78,7 @@ For more information, see [License requirements](access-reviews-overview.md#lice
 
 ### Next: Reviews
  
-1. You can create a single-stage or multi-stage review. For a single stage review continue to step 4. To create a multi-stage access review (preview), follow the steps in [Create a multi-stage access review (preview)](#create-a-multi-stage-access-review-preview)
+1. You can create a single-stage or multi-stage review. For a single stage review continue here. To create a multi-stage access review (preview), follow the steps in [Create a multi-stage access review (preview)](#create-a-multi-stage-access-review-preview)
 
 1. In the **Specify reviewers** section, in the **Select reviewers** box, select either one or more people to do the access reviews. You can choose from:
 
