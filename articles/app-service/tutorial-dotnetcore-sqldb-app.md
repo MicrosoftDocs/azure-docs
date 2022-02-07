@@ -254,8 +254,8 @@ dotnet ef database update
 
 After the migration completes, your Azure SQL database will have the correct schema.
 
-> [!Note]
-> Note: If you receive an error stating `Client with IP address xxx.xxx.xxx.xxx is not allowed to access the server`, that means the IP address you entered into your Azure firewall rule is incorrect. To fix this issue, update the Azure firewall rule with the IP address provided in the error message.
+
+If you receive an error stating `Client with IP address xxx.xxx.xxx.xxx is not allowed to access the server`, that means the IP address you entered into your Azure firewall rule is incorrect. To fix this issue, update the Azure firewall rule with the IP address provided in the error message.
 
 ## 7 - Browse the Deployed Application and File Directory
 
