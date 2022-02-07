@@ -145,6 +145,7 @@ Redeployment requires you to opt out and opt back into the Azure Active Director
 1. Go over the Azure Active Directory Verifiable credentials [deployment steps](verifiable-credentials-configure-tenant.md) to reconfigure the service and get a new DID.
     1. If you are in the European region we suggest that you create a new Azure Key vault and a new container in a European region.
 1. Finish [setting up](verifiable-credentials-configure-tenant.md#set-up-verifiable-credentials) your verifiable credentials service. You need to recreate your credentials. If your deployment issues credentials create a new storage account in the European region. You can reuse your configuration and rules files.
+
 ## Next steps
 
 - [How to customize your Azure Active Directory Verifiable Credentials](credential-design.md)
