@@ -38,7 +38,7 @@ Individuals owning and controlling their identities are able to exchange verifia
 
 ### What is a Verifiable Credential? 
 
-Credentials are a part of our daily lives; driver's licenses are used to assert that we are capable of operating a motor vehicle, university degrees can be used to assert our level of education, and government-issued passports enable us to travel between countries. Verifiable Credentials provides a mechanism to express these sorts of credentials on the Web in a way that is cryptographically secure, privacy respecting, and machine-verifiable. [The W3C Verifiable Credentials spec](https://www.w3.org/TR/vc-data-model//) explains this in further detail.
+Credentials are a part of our daily lives; driver's licenses are used to assert that we're capable of operating a motor vehicle, university degrees can be used to assert our level of education, and government-issued passports enable us to travel between countries. Verifiable Credentials provides a mechanism to express these sorts of credentials on the Web in a way that is cryptographically secure, privacy respecting, and machine-verifiable. [The W3C Verifiable Credentials spec](https://www.w3.org/TR/vc-data-model//) explains this in further detail.
 
 
 ## Conceptual questions
@@ -49,7 +49,7 @@ There are multiple ways of offering a recovery mechanism to users, each with the
 
 ### How can a user trust a request from an issuer or verifier? How do they know a DID is the real DID for an organization?
 
-We have implemented [the Decentralized Identity Foundation's Well Known DID Configuration spec](https://identity.foundation/.well-known/resources/did-configuration/) in order to connect a DID to a highly known existing system, domain names. Each DID created using the  Azure Active Directory Verifiable Credentials has the option of including a root domain name that will be encoded in the DID Document. Follow the article titled [Link your Domain to your Distributed Identifier](how-to-dnsbind.md) to learn more.  
+We implement [the Decentralized Identity Foundation's Well Known DID Configuration spec](https://identity.foundation/.well-known/resources/did-configuration/) in order to connect a DID to a highly known existing system, domain names. Each DID created using the  Azure Active Directory Verifiable Credentials has the option of including a root domain name that will be encoded in the DID Document. Follow the article titled [Link your Domain to your Distributed Identifier](how-to-dnsbind.md) to learn more.  
 
 ### Why does the Verifiable Credential preview use ION as its DID method, and therefore Bitcoin to provide decentralized public key infrastructure?
 
@@ -59,7 +59,7 @@ ION is a decentralized, permissionless, scalable decentralized identifier Layer 
 
 ### Why must I use NodeJS for the Verifiable Credentials preview? Any plans for other programming languages? 
 
-We chose NodeJS because it is a popular platform for application developers. We will be releasing a Rest API that will allow the developers to issue and verify credentials. 
+We chose NodeJS because it's a popular platform for application developers. We'll be releasing a Rest API that will allow the developers to issue and verify credentials. 
 
 ### Is any of the code used in the preview open source?
 
@@ -77,7 +77,7 @@ An Azure AD P2 license is required to use the preview of Verifiable Credentials.
 
 ## European region
 
-Starting February 15, 2022, the Azure Active Directory Verifiable Credentials service can store and handle data operations for European instances of Azure Active Directory in the European region. If you configured your Azure AD Verifiable Credentials service before March 31, 2022, you may be required to take action.
+After the February 15, 2022 update, the Azure Active Directory Verifiable Credentials service can store and handle data operations for European instances of Azure Active Directory in the European region. If you configured your Azure AD Verifiable Credentials service before March 31, 2022, you may be required to take action.
 
 Review the following information to avoid potential service interruptions.
 
@@ -87,7 +87,7 @@ Since the Azure AD Verifiable Credentials service's Public Preview rollout, the 
 
 Customers with Azure AD tenants setup in Europe who start using the Azure AD Verifiable Credentials service after February 15, 2022, will automatically have their data processed in Europe and don't need to take any further actions.  
 
-Customers with Azure AD tenants setup in Europe that started using the Azure AD Verifiable Credentials service before February 15, 2022, are encouraged to re-onboard the service on their tenants (see below to understand how to re-onboard).  
+Customers with Azure AD tenants setup in Europe that started using the Azure AD Verifiable Credentials service before February 15, 2022, are required to reconfigure the service on their tenants before March 31, 2022.  
 
 >[!IMPORTANT]
 > On March 31st, 2022, all Azure Active Directory Verifiable credentials deployments in subscriptions with Azure Active Directory instances in the European region will have their verifiable credential deployments opt-out and opt back in. All service configuration will get reset. You should schedule and manage your [opt-out](how-to-opt-out.md) and service reconfiguration to avoid unscheduled service disruptions.
@@ -95,7 +95,7 @@ Customers with Azure AD tenants setup in Europe that started using the Azure AD 
 
 ### How can I check my Azure AD Tenant's region?
 
-On March 31, 2022, we will use your Azure Active Directory information to determine where your Azure AD tenant should have its Verifiable Credentials data processed.
+On March 31, 2022, we'll use your Azure Active Directory information to determine where your Azure AD tenant should have its Verifiable Credentials data processed.
 
 1. In the [Azure portal](https://portal.azure.com), go to Azure Active Directory for the subscription you use for your Azure Active Directory Verifiable credentials deployment.
 1. Under Manage, select Properties
@@ -104,7 +104,7 @@ On March 31, 2022, we will use your Azure Active Directory information to determ
 
 ### My tenant is in Europe, and I've been using the Azure AD Verifiable Credentials service before March 31, 2022. What should I do?
 
-Customers with Azure AD tenants setup in Europe that started using the Azure AD Verifiable Credentials service before March 31st, 2022, are encouraged to schedule and manage the re-onboard process for each of  their tenants (see below to understand how to re-onboard).  
+Customers with Azure AD tenants setup in Europe that started using the Azure AD Verifiable Credentials service before March 31, 2022, are encouraged to schedule and manage the reonboard process for each of  their tenants (see below to understand how to reonboard).  
 
 ### Are there any changes to the way that we use the Request API as a result of this move?
 
@@ -123,7 +123,7 @@ To confirm which endpoint you should use, we recommend checking your Azure AD te
 
 With the implementation of the [W3C Status List 2021](https://w3c-ccg.github.io/vc-status-list-2021/) each Issuer tenant will have an [Identity Hub](https://identity.foundation/identity-hub/spec/) that may be used by verifiers to verify the status of a credential using a privacy-respecting endpoint. The identity hub endpoint for the tenant is published in the DID document. This feature replaces the current status endpoint.
 
-Tenant Administrators have until March 31st, 2022, to schedule and manage the reconfiguration of the verifiable credential service. On March 31st, 2022 tenants that have not completed the reconfiguration process will be automatically reset and will loose access to any previous configuration. Customers will be required to configure a new instance of the Azure AD Verifiable Credential service.
+Tenant Administrators have until March 31, 2022, to schedule and manage the reconfiguration of the verifiable credential service. On March 31, 2022 tenants that haven't completed the reconfiguration process will be automatically reset and will lose access to any previous configuration. Customers will be required to configure a new instance of the Azure AD Verifiable Credential service.
 
 ### How can I check if my tenant has the new Hub endpoint?
 
@@ -135,16 +135,17 @@ Tenant Administrators have until March 31st, 2022, to schedule and manage the re
 
 :::image type="content" source="media/verifiable-credentials-faq/identity-hub.png" alt-text="Identity hubs":::
 
-If you don’t see the “#hub” node in your DID document. You need to re-onboard your tenant.
+If you don’t see the “#hub” node in your DID document. You need to reonboard your tenant.
 
-## How to re-onboard your Azure AD Tenant?
+### 
+## How to redeploy your Azure AD Tenant?
 
-Re-onboarding requires you to opt-out and opt back into the Azure Active Directory Verifiable Credentials service.
+Reonboarding requires you to opt out and opt back into the Azure Active Directory Verifiable Credentials service.
 
 1. Follow the [opt-out](how-to-opt-out.md) instructions.
 1. Go over the Azure Active Directory Verifiable credentials [deployment steps](verifiable-credentials-configure-tenant.md) to reconfigure the service and get a new DID.
     1. Create a new Azure Key vault in a European region.
-1. Finish [setting up](verifiable-credentials-configure-tenant.md#set-up-verifiable-credentials) your verifiable credentials service. You need to recreate your credentials. If your deployment issues credentials create a new storage account in the European region. You can re-use your configuration and rules files.
+1. Finish [setting up](verifiable-credentials-configure-tenant.md#set-up-verifiable-credentials) your verifiable credentials service. You need to recreate your credentials. If your deployment issues credentials create a new storage account in the European region. You can reuse your configuration and rules files.
 ## Next steps
 
 - [How to customize your Azure Active Directory Verifiable Credentials](credential-design.md)
