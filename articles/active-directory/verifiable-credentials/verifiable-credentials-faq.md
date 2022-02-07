@@ -6,7 +6,7 @@ manager: karenhoran
 ms.service: active-directory
 ms.subservice: verifiable-credentials
 ms.topic: conceptual
-ms.date: 02/05/2022
+ms.date: 02/07/2022
 ms.author: barclayn
 # Customer intent: As a developer I am looking for information on how to enable my users to control their own information 
 ---
@@ -75,7 +75,7 @@ Yes! The following repositories are the open-sourced components of our services.
 
 An Azure AD P2 license is required to use the preview of Verifiable Credentials. This is a temporary requirement, as we expect pricing for this service to be billed based on usage. 
 
-## European customer data
+## European region
 
 Starting February 15, 2022, the Azure Active Directory Verifiable Credentials service can store and handle data operations for European instances of Azure Active Directory in the European region. If you configured your Azure AD Verifiable Credentials service before March 31, 2022, you may be required to take action.
 
@@ -95,7 +95,7 @@ Customers with Azure AD tenants setup in Europe that started using the Azure AD 
 
 ### How can I check my Azure AD Tenant's region?
 
-On March 31, 2022, we will use the following information to determine the region where should your Azure AD tenant has Verifiable Credentials data processed. 
+On March 31, 2022, we will use your Azure Active Directory information to determine where your Azure AD tenant should have its Verifiable Credentials data processed.
 
 1. In the [Azure portal](https://portal.azure.com), go to Azure Active Directory for the subscription you use for your Azure Active Directory Verifiable credentials deployment.
 1. Under Manage, select Properties
@@ -105,15 +105,6 @@ On March 31, 2022, we will use the following information to determine the region
 ### My tenant is in Europe, and I've been using the Azure AD Verifiable Credentials service before March 31, 2022. What should I do?
 
 Customers with Azure AD tenants setup in Europe that started using the Azure AD Verifiable Credentials service before March 31st, 2022, are encouraged to schedule and manage the re-onboard process for each of  their tenants (see below to understand how to re-onboard).  
-
-### How to re-onboard your Azure AD Tenant?
-
-Re-onboarding requires you to opt-out and opt back into the Azure Active Directory Verifiable Credentials service.
-
-1. Follow the [opt-out](how-to-opt-out.md) instructions.
-1. Go over the Azure Active Directory Verifiable credentials [deployment steps](verifiable-credentials-configure-tenant.md).
-    1. Create a new Azure Key vault in a European region.
-1. Finish [setting up](verifiable-credentials-configure-tenant.md#set-up-verifiable-credentials) your verifiable credentials service. You need to recreate your credentials. If your deployment issues credentials create a new storage account in the European region. You can re-use your configuration and rules files.
 
 ### Are there any changes to the way that we use the Request API as a result of this move?
 
@@ -125,6 +116,35 @@ Applications that use the Azure Active Directory Verifiable Credentials service 
 | Non-EU | https://beta.did.msidentity.com/v1.0/{tenantID}/verifiablecredentials/request  |
 
 To confirm which endpoint you should use, we recommend checking your Azure AD tenant's region as described above. If the Azure AD tenant is in the EU, you should use the Europe endpoint.  
+
+## Credential Revocation with Enhanced Privacy
+
+### What are the changes to credential revocation?
+
+With the implementation of the [W3C Status List 2021](https://w3c-ccg.github.io/vc-status-list-2021/) each Issuer tenant will have an [Identity Hub](https://identity.foundation/identity-hub/spec/) that may be used by verifiers to verify the status of a credential using a privacy-respecting endpoint. The identity hub endpoint for the tenant is published in the DID document. This feature replaces the current status endpoint.
+
+Tenant Administrators have until March 31st, 2022, to schedule and manage the reconfiguration of the verifiable credential service. On March 31st, 2022 tenants that have not completed the reconfiguration process will be automatically reset and will loose access to any previous configuration. Customers will be required to configure a new instance of the Azure AD Verifiable Credential service.
+
+### How can I check if my tenant has the new Hub endpoint?
+
+1. In the Azure portal, go to the Verifiable Credentials service.
+1. Navigate to the Organization Settings. 
+1. Copy your organization’s Decentralized Identifier (DID). 
+1. Go to the ION Explorer and paste the DID in the search box 
+1. Inspect your DID document and search for the “#hub” node.
+
+:::image type="content" source="media/verifiable-credentials-faq/identity-hub.png" alt-text="Identity hubs":::
+
+If you don’t see the “#hub” node in your DID document. You need to re-onboard your tenant.
+
+## How to re-onboard your Azure AD Tenant?
+
+Re-onboarding requires you to opt-out and opt back into the Azure Active Directory Verifiable Credentials service.
+
+1. Follow the [opt-out](how-to-opt-out.md) instructions.
+1. Go over the Azure Active Directory Verifiable credentials [deployment steps](verifiable-credentials-configure-tenant.md) to reconfigure the service and get a new DID.
+    1. Create a new Azure Key vault in a European region.
+1. Finish [setting up](verifiable-credentials-configure-tenant.md#set-up-verifiable-credentials) your verifiable credentials service. You need to recreate your credentials. If your deployment issues credentials create a new storage account in the European region. You can re-use your configuration and rules files.
 ## Next steps
 
 - [How to customize your Azure Active Directory Verifiable Credentials](credential-design.md)
