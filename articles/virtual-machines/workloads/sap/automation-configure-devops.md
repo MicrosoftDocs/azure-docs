@@ -173,18 +173,18 @@ There are a set of common variables that are used by all the workload zones. The
 
 Create a new variable group 'SDAF-General' using the Library page in the Pipelines section. Add the following variables:
 
-| Variable                           | Value                                   | Notes               |
-| ---------------------------------- | --------------------------------------- | ------------------- |
-| `ANSIBLE_HOST_KEY_CHECKING`        | false                                   |                     |
-| `ANSIBLE_CALLBACK_WHITELIST`       | profile_tasks                           |                     |
+| Variable                           | Value                                   | Notes                                                            |
+| ---------------------------------- | --------------------------------------- | ---------------------------------------------------------------- |
+| `ANSIBLE_HOST_KEY_CHECKING`        | false                                   |                                                                  |
+| `ANSIBLE_CALLBACK_WHITELIST`       | profile_tasks                           |                                                                  |
 | Deployment_Configuration_Path      | WORKSPACES                              | You can populate this folder with the sample configurations from the samples/WORKSPACES folder.                    |
-| Repository                         | https://github.com/Azure/sap-automation |                     |
-| Branch                             | main                                    |                     |
-| S-Username                         | `<SAP Support user account name>`       |                     |
-| S-Password                         | `<SAP Support user password>`           |                     |
-| `advice.detachedHead`              | false                                   |                     |
-| `skipComponentGovernanceDetection` | true                                    |                     |
-| `tf_version`                       | 1.1.4                                   | Terraform version   |
+| Repository                         | https://github.com/Azure/sap-automation |                                                                  |
+| Branch                             | main                                    |                                                                  |
+| S-Username                         | `<SAP Support user account name>`       |                                                                  |
+| S-Password                         | `<SAP Support user password>`           |  Change variable type to secret by clicking the lock icon        |
+| `advice.detachedHead`              | false                                   |                                                                  |
+| `skipComponentGovernanceDetection` | true                                    |                                                                  |
+| `tf_version`                       | 1.1.4                                   | Terraform version                                                |
 
 Save the variables and assign permissions for all pipelines using _Pipeline permissions_.
 
@@ -194,15 +194,15 @@ As each environment may have different deployment credentials you will need to c
 
 Create a new variable group 'SDAF-DEV' using the Library page in the Pipelines section. Add the following variables:
 
-| Variable              | Value                                          |
-| --------------------- | ---------------------------------------------- |
+| Variable              | Value                                          | Notes                                                    |
+| --------------------- | ---------------------------------------------- | -------------------------------------------------------- |
 | Agent                 | Either 'Azure Pipelines' or the name of the agent pool containing the deployer, for instance 'DEV-WEEU-POOL' Note, this pool will be created in a later step |
-| ARM_CLIENT_ID         | Service principal application id               |
-| ARM_CLIENT_SECRET     | Service principal password                     |
-| ARM_SUBSCRIPTION_ID   | Target subscription ID                         |
-| ARM_TENANT_ID         | Tenant ID for service principal                |
-| AZURE_CONNECTION_NAME | Previously created connection name             |
-| sap_fqdn              | SAP Fully Qualified Domain Name, for example sap.contoso.net             |
+| ARM_CLIENT_ID         | Service principal application id               |                                                          |
+| ARM_CLIENT_SECRET     | Service principal password                     | Change variable type to secret by clicking the lock icon |
+| ARM_SUBSCRIPTION_ID   | Target subscription ID                         |                                                          |
+| ARM_TENANT_ID         | Tenant ID for service principal                |                                                          |
+| AZURE_CONNECTION_NAME | Previously created connection name             |                                                          |
+| sap_fqdn              | SAP Fully Qualified Domain Name, for example sap.contoso.net |                                            |
 
 
 Save the variables and assign permissions for all pipelines using _Pipeline permissions_.
