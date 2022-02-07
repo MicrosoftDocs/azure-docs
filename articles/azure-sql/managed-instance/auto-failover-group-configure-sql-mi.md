@@ -438,4 +438,4 @@ For detailed steps configuring a failover group, see the following tutorials:
 - [Add an elastic pool to a failover group](../database/failover-group-add-elastic-pool-tutorial.md)
 - [Add a managed instance to a failover group](../managed-instance/failover-group-add-instance-tutorial.md)
 
-For an overview of the feature, see [auto-failover groups](auto-failover-group-overview.md).
+For an overview of the feature, see [auto-failover groups](auto-failover-group-sql-mi.md).
