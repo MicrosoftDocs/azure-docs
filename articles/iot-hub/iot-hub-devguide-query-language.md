@@ -5,7 +5,7 @@ author: eross-msft
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 01/31/2022
+ms.date: 05/07/2021
 ms.author: lizross
 ms.custom: devx-track-csharp
 ---
@@ -515,10 +515,6 @@ In routes conditions, the following string functions are supported:
 | STARTS_WITH(x, y) | Returns a Boolean indicating whether the first string expression starts with the second. |
 | ENDS_WITH(x, y) | Returns a Boolean indicating whether the first string expression ends with the second. |
 | CONTAINS(x,y) | Returns a Boolean indicating whether the first string expression contains the second. |
-
-## Limitations
-
-Though Device Twins and message bodies support a wide variety of characters, the IoT Hub query language does not support using the `/` character in the body path, twin path, or property name of queries.
 
 ## Next steps
 

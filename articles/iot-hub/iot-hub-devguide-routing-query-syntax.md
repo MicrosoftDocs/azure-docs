@@ -225,7 +225,10 @@ $body.Weather.Temperature = 50 AND $twin.properties.desired.telemetryConfig.send
 $twin.tags.deploymentLocation.floor = 1 
 ```
 
-Routing query on body or device twin with a period in the payload or property name is not supported.
+## Limitations
+
+Routing queries do not support using `/` or `@` characters in property names, the message body path, or the device/module twin path.
+
 
 ## Next steps
 
