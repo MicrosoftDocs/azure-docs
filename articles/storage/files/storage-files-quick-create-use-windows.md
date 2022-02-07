@@ -1,9 +1,9 @@
 ---
-title: Create and use an Azure file shares on Windows VMs
-description: Create and use an Azure files shares in the Azure portal. Connect it to a Windows VM, connect to the Files share, and upload a file to the Files share.
+title: Tutorial - Create and use an Azure file shares on Windows VMs
+description: This tutorial covers how to create and use an Azure files shares in the Azure portal. Connect it to a Windows VM, connect to the file share, and upload a file to the file share.
 author: roygara
 ms.service: storage
-ms.topic: quickstart
+ms.topic: tutorial
 ms.date: 07/27/2021
 ms.author: rogarana
 ms.subservice: files
@@ -11,11 +11,19 @@ ms.custom: mode-ui
 #Customer intent: As an IT admin new to Azure Files, I want to try out Azure file share so I can determine whether I want to subscribe to the service.
 ---
 
-# Quickstart: Create and manage Azure file shares with Windows virtual machines via the Azure portal
+# Tutorial: Create and manage Azure file shares with Windows virtual machines via the Azure portal
 
-The article demonstrates the basic steps for creating and using an Azure Files share. In this quickstart, the emphasis is on quickly setting up an Azure Files share so you can experience how the service works. If you need more detailed instructions for creating and using Azure file shares in your own environment, see [Use an Azure file share with Windows](storage-how-to-use-files-windows.md).
+Azure Files offers fully managed file shares in the cloud that are accessible via the industry standard [Server Message Block (SMB) protocol](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) or [Network File System (NFS) protocol](https://en.wikipedia.org/wiki/Network_File_System). In this tutorial, you will learn a few ways you can use an Azure file share in a Windows virtual machine (VM).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+> [!div class="checklist"]
+> * Create a storage account
+> * Create a file share
+> * Deploy a VM
+> * Connect to a VM
+> * Mount an Azure file share to your VM
+> * Create and delete a share snapshot
 
 ## Applies to
 | File share type | SMB | NFS |
@@ -24,26 +32,19 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 | Standard file shares (GPv2), GRS/GZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 | Premium file shares (FileStorage), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 
-## Sign in to Azure
-
-Sign in to the [Azure portal](https://portal.azure.com).
-
-## Prepare your environment
-
-In this quickstart, you set up the following items:
-
-- An Azure storage account and an Azure file share
-- A Windows Server 2016 Datacenter VM
+## Getting started
 
 ### Create a storage account
 
-Before you can work with an Azure file share, you have to create an Azure storage account. A general-purpose v2 storage account provides access to all of the Azure Storage services: blobs, files, queues, and tables. The quickstart creates a general-purpose v2 storage account but, the steps to create any type of storage account are similar. A storage account can contain an unlimited number of shares. A share can store an unlimited number of files, up to the capacity limits of the storage account.
+Before you can work with an Azure file share, you have to create an Azure storage account.
+
+First, sign in to the [Azure portal](https://portal.azure.com).
 
 [!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
 
 ### Create an Azure file share
 
-Next, you create a file share.
+Next, create a file share.
 
 1. When the Azure storage account deployment is complete, select **Go to resource**.
 1. Select **File shares** from the storage account pane.
@@ -54,7 +55,7 @@ Next, you create a file share.
 
     ![Select + file share to create a new file share.](./media/storage-files-quick-create-use-windows/create-file-share.png)
 
-1. Name the new file share *qsfileshare*, enter "1" for the **Quota**, leave **Transaction optimized** selected, and select **Create**. The quota can be a maximum of 5 TiB (100 TiB, with large file shares enabled), but you only need 1 GiB for this quickstart.
+1. Name the new file share *qsfileshare*, enter "1" for the **Quota**, leave **Transaction optimized** selected, and select **Create**. The quota can be a maximum of 5 TiB (100 TiB, with large file shares enabled), but you only need 1 GiB for this.
 1. Create a new txt file called *qsTestFile* on your local machine.
 1. Select the new file share, then on the file share location, select **Upload**.
 
@@ -62,13 +63,13 @@ Next, you create a file share.
 
 1. Browse to the location where you created your .txt file > select *qsTestFile.txt* > select **Upload**.
 
-So far, you've created an Azure storage account and a file share with one file in it in Azure. Next you'll create the Azure VM with Windows Server 2016 Datacenter to represent the on-premises server in this quickstart.
-
 ### Deploy a VM
 
-1. Next, expand the menu on the left side of the portal and choose **Create a resource** in the upper left-hand corner of the Azure portal.
+So far, you've created an Azure storage account and a file share with one file in it in Azure. Next, create an Azure VM with Windows Server 2016 Datacenter to represent the on-premises server.
+
+1. Expand the menu on the left side of the portal and select **Create a resource** in the upper left-hand corner of the Azure portal.
 1. Under **Popular services** select **Virtual machine**.
-1. In the **Basics** tab, under **Project details**, select the resource group you created for this quickstart.
+1. In the **Basics** tab, under **Project details**, select the resource group you created earlier.
 
    ![Enter basic information about your VM in the portal blade.](./media/storage-files-quick-create-use-windows/vm-resource-group-and-subscription.png)
 
@@ -82,8 +83,6 @@ So far, you've created an Azure storage account and a file share with one file i
 
 1. Once your VM deployment is complete, select **Go to resource**.
 
-At this point, you've created a new virtual machine and attached a data disk. Now you need to connect to the VM.
-
 ### Connect to your VM
 
 1. Select **Connect** on the virtual machine properties page.
@@ -96,7 +95,7 @@ At this point, you've created a new virtual machine and attached a data disk. No
 
    ![More choices](./media/storage-files-quick-create-use-windows/local-host2.png)
 
-1. You may receive a certificate warning during the sign-in process. select **Yes** or **Continue** to create the connection.
+1. You may receive a certificate warning during the sign-in process. Select **Yes** or **Continue** to create the connection.
 
 ## Map the Azure file share to a Windows drive
 
@@ -109,13 +108,13 @@ At this point, you've created a new virtual machine and attached a data disk. No
 
 ## Create a share snapshot
 
-Now that you've mapped the drive, you can create a snapshot.
+Now that you've mapped the drive, create a snapshot.
 
 1. In the portal, navigate to your file share, select **Snapshots**, then select **+ Add snapshot**.
 
    ![Select snapshots under the operations section, then select add snapshot.](./media/storage-files-quick-create-use-windows/create-snapshot.png)
 
-1. In the VM, open the *qstestfile.txt* and type "this file has been modified" > Save and close the file.
+1. In the VM, open the *qstestfile.txt* and type "this file has been modified". Save and close the file.
 1. Create another snapshot.
 
 ## Browse a share snapshot
