@@ -37,7 +37,7 @@ OSM runs an Envoy-based control plane on Kubernetes, can be configured with [SMI
 - Ensure you have met all the common prerequisites for cluster extensions listed [here](extensions.md#prerequisites).
 - Use az k8s-extension CLI version >= v0.4.0
 
-## Basic Installation of OSM on an Azure Arc-enabled Kubernetes Cluster
+## Basic Installation of Azure Arc-enabled OSM on an Azure Arc-enabled Kubernetes Cluster
 
 The following steps assume that you already have a cluster with supported a Kubernetes distribution connected to Azure Arc.
 Ensure that your KUBECONFIG environment variable points to the kubeconfig of the Arc-enabled Kubernetes cluster.
@@ -89,13 +89,18 @@ You should see output similar to the output shown below. It may take 3-5 minutes
 }
 ```
 
-## Installation with Custom Configurations
-The following sections describe further configurations of OSM during installation.
+## Custom Installations of Azure Arc-enabled OSM
+The following sections describe certain custom installations of Azure Arc-enabled OSM.
 
 ### Setting values during OSM installation
 
-To set custom configurations of OSM, applicable values must be passed in during installation.
-This requires creating a JSON file containing the required settings and passing them into `k8s-extension create` CLI command.
+Setting custom values of OSM requires creating a JSON file containing the required settings and passing them into `k8s-extension create` CLI command. 
+For example, to change the log level of logs emitted by the OSM controller to `info`, the JSON file would be as follows:
+   ```json
+   {
+       "osm.osm.controllerLogLevel": "info"
+   }
+   ```
 
 Refer to sections below to determine the contents of the JSON file you require. 
 
@@ -115,7 +120,7 @@ create the OSM extension, passing in the settings file using the `--configuratio
 1. Copy and save the following contents into a JSON file. If you have already created a configuration settings file, please add the following line to the existing file to preserve your previous changes.
    ```json
    {
-       "osm.OpenServiceMesh.enablePrivilegedInitContainer": "true"
+       "osm.osm.enablePrivilegedInitContainer": "true"
    }
    ```
 
@@ -129,7 +134,7 @@ create the OSM extension, passing in the settings file using the `--configuratio
 
 It may take 3-5 minutes for the actual OSM helm chart to get deployed to the cluster. Until this deployment happens, you will continue to see installState as Pending.
 
-To ensure that the privileged init container setting is not reverted to the default, pass in the "osm.OpenServiceMesh.enablePrivilegedInitContainer" : "true" configuration setting to all subsequent az k8s-extension create commands.
+To ensure that the privileged init container setting is not reverted to the default, pass in the "osm.osm.enablePrivilegedInitContainer" : "true" configuration setting to all subsequent az k8s-extension create commands.
 
 ### Install OSM with cert-manager for Certificate Management
 [cert-manager](https://cert-manager.io/) is a provider that can be used for issuing signed certificates to OSM without
@@ -174,7 +179,7 @@ To set required values for configuring Contour during OSM installation, create t
 
 [Now, install OSM with custom values](#setting-values-during-osm-installation).
 
-### Install Azure Arc-enabled OSM using ARM template
+## Install Azure Arc-enabled OSM using ARM template
 
 After connecting your cluster to Azure Arc, create a json file with the following format, making sure to update the \<cluster-name\> and \<osm-arc-version\> values:
 
@@ -383,7 +388,7 @@ To make changes to the OSM ConfigMap for version v0.8.4, use the following guida
 1. Copy and save the changes you wish to make in a JSON file. In this example, we are going to change the permissive_traffic_policy_mode from true to false. Each time you make a change to `osm-config`, you will have to provide the full list of changes (compared to the default `osm-config`) in a JSON file.
     ```json
     {
-        "osm.OpenServiceMesh.enablePermissiveTrafficPolicy" : "false"
+        "osm.osm.enablePermissiveTrafficPolicy" : "false"
     }
     ```
     
@@ -400,7 +405,6 @@ To make changes to the OSM ConfigMap for version v0.8.4, use the following guida
     
     > [!NOTE]
     > To ensure that the ConfigMap changes are not reverted to the default, pass in the same configuration settings to all subsequent az k8s-extension create commands.
-   
 
 ## Using the Azure Arc-enabled Open Service Mesh
 
