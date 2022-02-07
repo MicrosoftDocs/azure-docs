@@ -116,6 +116,8 @@ The following example helps illustrate the differences. Suppose that there's a s
 
 Some tools and languages impose additional escape character requirements. For JSON, strings that include a forward slash are escaped with a backward slash: "microsoft.com/azure/" becomes `search=/.*microsoft.com\/azure\/.*/` where `search=/.* <string-placeholder>.*/` sets up the regular expression, and `microsoft.com\/azure\/` is the string with an escaped forward slash.
 
+Two common symbols in regex queries are `.` and `*`. A `.` matches any one character and a `*` matches the previous character zero or more times.  For example, `/be./` will match the terms "bee" and "bet" but `/be*/` would match "be", "bee", or "beee" but not "bet". Together, `.*` allow you to match any series of characters so `/be.*/` would match any term that starts with "be" such as "better".
+
 ##  <a name="bkmk_wildcard"></a> Wildcard search
 
 You can use generally recognized syntax for multiple (`*`) or single (`?`) character wildcard searches. Full Lucene syntax supports prefix, infix, and suffix matching. 
@@ -125,15 +127,15 @@ Note the Lucene query parser supports the use of these symbols with a single ter
 | Affix type | Description and examples |
 |------------|--------------------------|
 | prefix | Term fragment comes before `*` or `?`.  For example, a query expression of `search=alpha*` returns "alphanumeric" or "alphabetical". Prefix matching is supported in both simple and full syntax. |
-| suffix | Term fragment comes after  `*` or `?`, with a forward slash to delimit the construct. For example, `search=/.*numeric./` returns  "alphanumeric". |
-| infix  | Term fragments enclose `*` or `?`.  For example, `search=/.non*al./`returns "nonnumerical" and "nonsensical". |
+| suffix | Term fragment comes after  `*` or `?`, with a forward slash to delimit the construct. For example, `search=/.*numeric/` returns  "alphanumeric". |
+| infix  | Term fragments enclose `*` or `?`.  For example, `search=non*al`returns "nonnumerical" and "nonsensical". |
 
 You can combine operators in one expression. For example, `980?2*` matches on "98072-1222" and "98052-1234", where `?` matches on a single (required) character, and `*` matches on characters of an arbitrary length that follow.
 
-Suffix and infix matching requires the regular expression forward slash `/` delimiters. Generally, when writing code, you cannot use a * or ? symbol as the first character of a term, or within a term, without the `/`. In certain tools, such as Postman or Azure portal, escaping is built-in and you can often execute a query without the delimiter.
+Suffix  matching requires the regular expression forward slash `/` delimiters. Generally, you cannot use a `*` or `?` symbol as the first character of a term, without the `/`. It's also important to note that the `*` will behave differently when used outside of regex queries. Outside or the regex forward slash `/` delimeters, the `*` is a wildcard character and will match any series of characters much like `.*` in regex. As an example, `search=/non.*al/` will produce the same result set as `search=non*al`.
 
 > [!NOTE]  
-> As a rule, pattern matching is slow so you might want to explore alternative methods, such as edge n-gram tokenization that creates tokens for sequences of characters in a term. With n-gram tokenization, the index will be larger, but queries might execute faster, depending on the pattern construction and the length of strings you are indexing.
+> As a rule, pattern matching is slow so you might want to explore alternative methods, such as edge n-gram tokenization that creates tokens for sequences of characters in a term. With n-gram tokenization, the index will be larger, but queries might execute faster, depending on the pattern construction and the length of strings you are indexing. For more information, see [Partial term search and patterns with special characters](search-query-partial-matching.md#tune-query-performance).
 >
 
 ### Impact of an analyzer on wildcard queries
