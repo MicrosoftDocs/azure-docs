@@ -7,9 +7,9 @@ ms.topic: how-to
 # Planning a change from Desired State Configuration extension for Linux to guest configuration
 
 Guest configuration is the latest implementation of functionality that has been provided by the
-PowerShell Desired State Configuration (DSC) extension for virtual machines in Azure. When possible,
+PowerShell Desired State Configuration (DSC) extension for Linux virtual machines in Azure. When possible,
 you should plan to move your content and machines to the new service. This article provides guidance
-on developing a migration strategy,
+on developing a migration strategy.
 
 New features in guest configuration:
 
