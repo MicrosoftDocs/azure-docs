@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 12/28/2021
+ms.date: 02/07/2022
 ---
 
 # Copy and transform data in Azure Cosmos DB (SQL API) by using Azure Data Factory
@@ -457,6 +457,9 @@ To copy data from Azure Cosmos DB to tabular sink or reversed, refer to [schema 
 ## Mapping data flow properties
 
 When transforming data in mapping data flow, you can read and write to collections in Cosmos DB. For more information, see the [source transformation](data-flow-source.md) and [sink transformation](data-flow-sink.md) in mapping data flows.
+
+> [!Note]
+> The Azure Cosmos DB serverless account is not supported in the Spark environment, so you can not use it in data flows. You can use it in copy activities.
 
 ### Source transformation
 
