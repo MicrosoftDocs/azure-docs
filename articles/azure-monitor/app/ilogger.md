@@ -150,7 +150,7 @@ namespace WebApplication
                     // or when you need to capture logs during application startup, such as
                     // in Program.cs or Startup.cs itself.
                     builder.AddApplicationInsights(
-                        context.Configuration["APPLICATIONINSIGHTS_CONNECTION_STRING"]);
+                        context.Configuration["APPINSIGHTS_INSTRUMENTATIONKEY"]);
 
                     // Capture all log-level entries from Program
                     builder.AddFilter<ApplicationInsightsLoggerProvider>(
@@ -164,12 +164,8 @@ namespace WebApplication
 }
 ```
 
-In the preceding code, `ApplicationInsightsLoggerProvider` is configured with your `"APPLICATIONINSIGHTS_CONNECTION_STRING"` connection string. Filters are applied, setting the log level to <xref:Microsoft.Extensions.Logging.LogLevel.Trace?displayProperty=nameWithType>.
+In the preceding code, `ApplicationInsightsLoggerProvider` is configured with your `"APPINSIGHTS_INSTRUMENTATIONKEY"` instrumentation key. Filters are applied, setting the log level to <xref:Microsoft.Extensions.Logging.LogLevel.Trace?displayProperty=nameWithType>.
 
-> [!IMPORTANT]
-> We recommend [connection strings](./sdk-connection-string.md?tabs=net) over instrumentation keys. New Azure regions *require* the use of connection strings instead of instrumentation keys. 
->
-> A connection string identifies the resource that you want to associate with your telemetry data. It also allows you to modify the endpoints that your resource will use as a destination for your telemetry. You'll need to copy the connection string and add it to your application's code or to an environment variable.
 
 #### Example Startup.cs
 

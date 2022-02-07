@@ -1,6 +1,6 @@
 ---
-title: Connect to and manage DB2
-description: This guide describes how to connect to DB2 in Azure Purview, and use Azure Purview's features to scan and manage your DB2 source.
+title: Connect to and manage Db2
+description: This guide describes how to connect to Db2 in Azure Purview, and use Azure Purview's features to scan and manage your Db2 source.
 author: linda33wj
 ms.author: jingwang
 ms.service: purview
@@ -10,12 +10,11 @@ ms.date: 01/20/2022
 ms.custom: template-how-to #Required; leave this attribute/value as-is.
 ---
 
-# Connect to and manage DB2 in Azure Purview (Preview)
+# Connect to and manage Db2 in Azure Purview (Preview)
 
-This article outlines how to register DB2, and how to authenticate and interact with DB2 in Azure Purview. For more information about Azure Purview, read the [introductory article](overview.md).
+This article outlines how to register Db2, and how to authenticate and interact with Db2 in Azure Purview. For more information about Azure Purview, read the [introductory article](overview.md).
 
-> [!IMPORTANT]
-> DB2 as a source is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
 ## Supported capabilities
 
@@ -23,9 +22,9 @@ This article outlines how to register DB2, and how to authenticate and interact 
 |---|---|---|---|---|---|---|
 | [Yes](#register)| [Yes](#scan)| No | [Yes](#scan) | No | No| [Yes](#lineage)|
 
-The supported IBM DB2 versions are DB2 for LUW 9.7 to 11.x. DB2 for z/OS (mainframe) and iSeries (AS/400) are not supported now. 
+The supported IBM Db2 versions are Db2 for LUW 9.7 to 11.x. Db2 for z/OS (mainframe) and iSeries (AS/400) are not supported now. 
 
-When scanning IBM DB2 source, Azure Purview supports:
+When scanning IBM Db2 source, Azure Purview supports:
 
 - Extracting technical metadata including:
 
@@ -38,7 +37,7 @@ When scanning IBM DB2 source, Azure Purview supports:
 
 - Fetching static lineage on assets relationships among tables and views.
 
-When setting up scan, you can choose to scan an entire DB2 database, or scope the scan to a subset of schemas matching the given name(s) or name pattern(s).
+When setting up scan, you can choose to scan an entire Db2 database, or scope the scan to a subset of schemas matching the given name(s) or name pattern(s).
 
 ## Prerequisites
 
@@ -54,31 +53,31 @@ When setting up scan, you can choose to scan an entire DB2 database, or scope th
 
 * Ensure Visual C++ Redistributable for Visual Studio 2012 Update 4 is installed on the self-hosted integration runtime machine. If you don't have this update installed, [you can download it here](https://www.microsoft.com/download/details.aspx?id=30679).
 
-* Manually download a DB2 JDBC driver from [here](https://www.ibm.com/support/pages/db2-jdbc-driver-versions-and-downloads) onto your virtual machine where self-hosted integration runtime is running.
+* Manually download a Db2 JDBC driver from [here](https://www.ibm.com/support/pages/db2-jdbc-driver-versions-and-downloads) onto your virtual machine where self-hosted integration runtime is running.
 
     > [!Note]
     > The driver should be accessible to all accounts in the VM. Do not install it in a user account.
 
-* The DB2 user must have the CONNECT permission. Azure Purview connects to the syscat tables in IBM DB2 environment when importing metadata.
+* The Db2 user must have the CONNECT permission. Azure Purview connects to the syscat tables in IBM Db2 environment when importing metadata.
 
 ## Register
 
-This section describes how to register DB2 in Azure Purview using the [Azure Purview Studio](https://web.purview.azure.com/).
+This section describes how to register Db2 in Azure Purview using the [Azure Purview Studio](https://web.purview.azure.com/).
 
 ### Steps to register
 
-To register a new DB2 source in your data catalog, do the following:
+To register a new Db2 source in your data catalog, do the following:
 
 1. Navigate to your Azure Purview account in the [Azure Purview Studio](https://web.purview.azure.com/resource/).
 1. Select **Data Map** on the left navigation.
 1. Select **Register**
-1. On Register sources, select **DB2**. Select **Continue**.
+1. On Register sources, select **Db2**. Select **Continue**.
 
-On the **Register sources (DB2)** screen, do the following:
+On the **Register sources (Db2)** screen, do the following:
 
 1. Enter a **Name** that the data source will be listed within the Catalog.
 
-1. Enter the **Server** name to connect to a DB2 source. This can either be:
+1. Enter the **Server** name to connect to a Db2 source. This can either be:
     * A host name used to connect to the database server. For example: `MyDatabaseServer.com`
     * An IP address. For example: `192.169.1.2`
     * Its fully qualified JDBC connection string. For example:
@@ -87,7 +86,7 @@ On the **Register sources (DB2)** screen, do the following:
         jdbc:db2://COMPUTER_NAME_OR_IP:PORT/DATABASE_NAME
         ```
 
-1. Enter the **Port** used to connect to the database server (446 by default for DB2).
+1. Enter the **Port** used to connect to the database server (446 by default for Db2).
 
 1. Select a collection or create a new one (Optional)
 
@@ -97,11 +96,11 @@ On the **Register sources (DB2)** screen, do the following:
 
 ## Scan
 
-Follow the steps below to scan DB2 to automatically identify assets and classify your data. For more information about scanning in general, see our [introduction to scans and ingestion](concept-scans-and-ingestion.md).
+Follow the steps below to scan Db2 to automatically identify assets and classify your data. For more information about scanning in general, see our [introduction to scans and ingestion](concept-scans-and-ingestion.md).
 
 ### Authentication for a scan
 
-The supported authentication type for a DB2 source is **Basic authentication**.
+The supported authentication type for a Db2 source is **Basic authentication**.
 
 ### Create and run scan
 
@@ -111,7 +110,7 @@ To create and run a new scan, do the following:
 
 1. Navigate to **Sources**.
 
-1. Select the registered DB2 source.
+1. Select the registered Db2 source.
 
 1. Select **+ New scan**.
 
@@ -143,12 +142,12 @@ To create and run a new scan, do the following:
         > [!Note]
         > The driver should be accessible to all accounts in the VM. Please do not install in a user account.
 
-    1. **Maximum memory available**: Maximum memory (in GB) available on customer's VM to be used by scanning processes. This is dependent on the size of DB2 source to be scanned.
+    1. **Maximum memory available**: Maximum memory (in GB) available on customer's VM to be used by scanning processes. This is dependent on the size of Db2 source to be scanned.
 
         > [!Note]
         > As a thumb rule, please provide 1GB memory for every 1000 tables
 
-        :::image type="content" source="media/register-scan-db2/scan.png" alt-text="scan DB2" border="true":::
+        :::image type="content" source="media/register-scan-db2/scan.png" alt-text="scan Db2" border="true":::
 
 1. Select **Continue**.
 
@@ -160,9 +159,9 @@ To create and run a new scan, do the following:
 
 ## Lineage
 
-After scanning your DB2 source, you can [browse data catalog](how-to-browse-catalog.md) or [search data catalog](how-to-search-catalog.md) to view the asset details. 
+After scanning your Db2 source, you can [browse data catalog](how-to-browse-catalog.md) or [search data catalog](how-to-search-catalog.md) to view the asset details. 
 
-Go to the asset -> lineage tab, you can see the asset relationship when applicable. Refer to the [supported capabilities](#supported-capabilities) section on the supported DB2 lineage scenarios. For more information about lineage in general, see [data lineage](concept-data-lineage.md) and [lineage user guide](catalog-lineage-user-guide.md).
+Go to the asset -> lineage tab, you can see the asset relationship when applicable. Refer to the [supported capabilities](#supported-capabilities) section on the supported Db2 lineage scenarios. For more information about lineage in general, see [data lineage](concept-data-lineage.md) and [lineage user guide](catalog-lineage-user-guide.md).
 
 ## Next steps
 

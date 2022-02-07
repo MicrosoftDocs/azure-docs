@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Deploy an existing container image using the Azure CLI'
+title: 'Quickstart: Deploy an existing container image with the Azure CLI'
 description: Deploy an existing container image to Azure Container Apps Preview with the Azure CLI.
 services: container-apps
 author: craigshoemaker
@@ -12,12 +12,18 @@ zone_pivot_groups: container-apps-registry-types
 
 # Quickstart: Deploy an existing container image with the Azure CLI
 
-Azure Container Apps Preview enables you to run microservices and containerized applications on a serverless platform. With Container Apps, you enjoy the benefits of running containers while leaving behind the concerns of manually configuring cloud infrastructure and complex container orchestrators.
+The Azure Container Apps Preview service enables you to run microservices and containerized applications on a serverless platform. With Container Apps, you enjoy the benefits of running containers while you leave behind the concerns of manual cloud infrastructure configuration and complex container orchestrators.
 
 This article demonstrates how to deploy an existing container to Azure Container Apps.
 
 > [!NOTE]
 > Private registry authorization is supported via registry username and password.
+
+## Prerequisites
+
+- An Azure account with an active subscription.
+  - If you don't have one, you [can create one for free](https://azure.microsoft.com/free/).
+- Install the [Azure CLI](/cli/azure/install-azure-cli).
 
 [!INCLUDE [container-apps-create-cli-steps.md](../../includes/container-apps-create-cli-steps.md)]
 
@@ -31,7 +37,7 @@ az containerapp env create \
   --resource-group $RESOURCE_GROUP \
   --logs-workspace-id $LOG_ANALYTICS_WORKSPACE_CLIENT_ID \
   --logs-workspace-key $LOG_ANALYTICS_WORKSPACE_CLIENT_SECRET \
-  --location "$LOCATION"
+  --location $LOCATION
 ```
 
 # [PowerShell](#tab/powershell)
@@ -42,24 +48,24 @@ az containerapp env create `
   --resource-group $RESOURCE_GROUP `
   --logs-workspace-id $LOG_ANALYTICS_WORKSPACE_CLIENT_ID `
   --logs-workspace-key $LOG_ANALYTICS_WORKSPACE_CLIENT_SECRET `
-  --location "$LOCATION"
+  --location $LOCATION
 ```
 
 ---
 
 ## Create a container app
 
-Now that you have an environment created, you can deploy your first container app. Using the `containerapp create` command, deploy a container image to Azure Container Apps.
+Now that you have an environment created, you can deploy your first container app. With the `containerapp create` command, deploy a container image to Azure Container Apps.
 
-The example shown in this article demonstrates how to use a custom container image with common commands. Your container image may need more parameters including the following items:
+The example shown in this article demonstrates how to use a custom container image with common commands. Your container image might need more parameters for the following items:
 
-- Setting the revision mode
-- Defining secrets
-- Defining environment variables
-- Setting container CPU or memory requirements
-- Enabling and configuring Dapr
-- Enabling internal or internal ingress
-- Providing minimum and maximum replica values or scale rules
+- Set the revision mode
+- Define secrets
+- Define environment variables
+- Set container CPU or memory requirements
+- Enable and configure Dapr
+- Enable internal or internal ingress
+- Provide minimum and maximum replica values or scale rules
 
 For details on how to provide values for any of these parameters to the `create` command, run `az containerapp create --help`.
 
@@ -141,13 +147,13 @@ Before you run this command, replace `<REGISTRY_CONTAINER_URL>` with the URL to 
 
 ::: zone-end
 
-If you have enabled ingress on your container app, you can add `--query configuration.ingress.fqdn` to the `create` command to return the app's public URL.
+If you have enabled ingress on your container app, you can add `--query configuration.ingress.fqdn` to the `create` command to return the public URL for the application.
 
 ## Verify deployment
 
-To verify a successful deployment, you can query the Log Analytics workspace. You may need to wait a 5 to 10 minutes for the analytics to arrive for the first time before you are able to query the logs.
+To verify a successful deployment, you can query the Log Analytics workspace. You might have to wait 5–10 minutes after deployment for the analytics to arrive for the first time before you are able to query the logs.
 
-After about 5 to 10 minutes has passed after creating the container app, use the following steps to view logged messages.
+After about 5-10 minutes has passed, use the following steps to view logged messages.
 
 # [Bash](#tab/bash)
 
@@ -160,10 +166,9 @@ az monitor log-analytics query \
 
 # [PowerShell](#tab/powershell)
 
-```azurecli
-az monitor log-analytics query `
-  --workspace $LOG_ANALYTICS_WORKSPACE_CLIENT_ID `
-  --analytics-query "ContainerAppConsoleLogs_CL | where ContainerAppName_s == 'my-container-app' | project ContainerAppName_s, Log_s, TimeGenerated" `
+```powershell
+$queryResults = Invoke-AzOperationalInsightsQuery -WorkspaceId $LOG_ANALYTICS_WORKSPACE_CLIENT_ID -Query "ContainerAppConsoleLogs_CL | where ContainerAppName_s == 'nodeapp' and (Log_s contains 'persisted' or Log_s contains 'order') | project ContainerAppName_s, Log_s, TimeGenerated | take 5"
+$queryResults.Results
   --out table
 ```
 
@@ -171,7 +176,7 @@ az monitor log-analytics query `
 
 ## Clean up resources
 
-If you're not going to continue to use this application, you can delete the Azure Container Apps instance and all the associated services by removing the resource group.
+If you're not going to continue to use this application, run the following command to delete the resource group along with all the resources created in this quickstart.
 
 # [Bash](#tab/bash)
 
@@ -182,9 +187,8 @@ az group delete \
 
 # [PowerShell](#tab/powershell)
 
-```azurecli
-az group delete `
-  --name $RESOURCE_GROUP
+```powershell
+Remove-AzResourceGroup -Name $RESOURCE_GROUP -Force
 ```
 
 ---

@@ -1,10 +1,12 @@
 ### YamlMime:FAQ
 metadata:
-  title: FAQ - Back up SAP HANA databases on Azure VMs
-  description: In this article, discover answers to common questions about backing up SAP HANA databases using the Azure Backup service.
+  title: FAQ — Back up SAP HANA databases on Azure VMs
+  description: This article provides answers to common questions about backing up SAP HANA databases using the Azure Backup service.
   ms.topic: article
   ms.service: backup
-  ms.date: 09/27/2021
+  ms.date: 02/02/2022
+  author: v-amallick
+  ms.author: v-amallick
     
 title: Frequently asked questions – Back up SAP HANA databases on Azure VMs
 summary: This article answers common questions about backing up SAP HANA databases using the Azure Backup service.
@@ -62,6 +64,14 @@ sections:
           What’s the retention period of Auto-heal full backups triggered due to the LSNValidation errors?
         answer: |
           Azure Backup doesn’t set an explicit retention period on the Auto-heal full backups. This backup is retained till the time you retain the dependent Delta (differential or incremental) and Log backups. Once you delete the last dependent backup on this Auto-heal backup, the Auto-heal backup is also deleted.
+
+      - question: | 
+          Can a full backup and a log backup run parallelly?
+        answer: |
+          Yes, a full backup and a log backup can run parallelly. This instance occurs in one of the following ways:
+
+          - **Full backup is in progress and a log backup is triggered**: The log backup should succeed irrespective of an ongoing full backup. Unless, the full backup triggered was a remedial full to handle any LSN chain break.
+          - **Log backup is in progress, and a full backup is triggered**: Both backups should run parallelly and succeed.
 
       - question: |
           Are future databases automatically added for backup?

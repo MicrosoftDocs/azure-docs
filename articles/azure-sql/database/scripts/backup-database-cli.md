@@ -10,7 +10,7 @@ ms.topic: sample
 author: SudhirRaparla 
 ms.author: nvraparl 
 ms.reviewer: mathoma
-ms.date: 01/17/2022
+ms.date: 01/26/2022 
 ---
 
 # Use CLI to backup an Azure SQL single database to an Azure storage container
