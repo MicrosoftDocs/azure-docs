@@ -20,7 +20,7 @@ The distributed tracing web GUI provides two search tabs to allow you to search 
 
 If you can't see the **Search** heading, select the **Search** button in the top-level menu.
 
-- **SUPI** - Allows you to search for activity involving a particular subscriber using their Subscription Permanent Identifier (SUPI). This tab also provides an **Errors** panel, which allows you to filter the results by error condition. To search for activity for a particular subscriber, enter all of the initial digits of the subscriber's SUPI into the text box on the **SUPI search** panel.
+- **SUPI** - Allows you to search for activity involving a particular subscriber using their subscription permanent identifier (SUPI). This tab also provides an **Errors** panel, which allows you to filter the results by error condition. To search for activity for a particular subscriber, enter all of the initial digits of the subscriber's SUPI into the text box on the **SUPI search** panel.
 - **Errors** - Allows you to search for error condition occurrences across all subscribers. To search for occurrences of error conditions across all subscribers, select the **Errors** tab and then use the drop-down menus on the **Error** panel to select an error category and, optionally, a specific error.
 
   :::image type="content" source="media\distributed-tracing\distributed-tracing-search-display.png" alt-text="Screenshot of the Search display in the distributed tracing web G U I, showing the S U P I and Errors tabs.":::
