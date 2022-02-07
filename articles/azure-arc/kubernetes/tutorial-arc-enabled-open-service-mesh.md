@@ -134,13 +134,13 @@ To ensure that the privileged init container setting is not reverted to the defa
 ### Install OSM with cert-manager for Certificate Management
 [cert-manager](https://cert-manager.io/) is a provider that can be used for issuing signed certificates to OSM without
 the need for storing private keys in Kubernetes. Refer to OSM's [cert-manager documentation](https://release-v0-11.docs.openservicemesh.io/docs/guides/certificates/)
-and [demo](https://docs.openservicemesh.io/docs/demos/cert-manager_integration/) to learn more. Values to configure cert-manager must be passed in during OSM installation using the Azure CLI.
-
+and [demo](https://docs.openservicemesh.io/docs/demos/cert-manager_integration/) to learn more.
 > [!NOTE]
 > Use the commands provided in the OSM GitHub documentation with caution. Ensure that you use the correct namespace name `arc-osm-system`.
 
-To set cert-manager as the certificate provider, create a JSON file with the following `certificateProvider.kind` value.
-Include and update the subsequent `certmanager.issuer` lines if you would like to change from default values specified in OSM documentation.
+To install OSM with cert-manager as the certificate provider, create a JSON file with the `certificateProvider.kind` value set to
+cert-manager as shown below. If you would like to change from default cert-manager values specified in OSM documentation,
+also include and update the subsequent `certmanager.issuer` lines.
 
 ```json
 {
@@ -154,16 +154,15 @@ Include and update the subsequent `certmanager.issuer` lines if you would like t
 [Now, install OSM with custom values](#setting-values-during-osm-installation).
 
 ### Install OSM with Contour for Ingress
-OSM provides multiple options to expose mesh services externally using ingress. OSM has been tested with [Contour](https://projectcontour.io/), which
+OSM provides multiple options to expose mesh services externally using ingress. OSM can use [Contour](https://projectcontour.io/), which
 works with the ingress controller installed outside the mesh and provisioned with a certificate to participate in the mesh.
 Refer to [OSM's ingress documentation](https://docs.openservicemesh.io/docs/guides/traffic_management/ingress/#1-using-contour-ingress-controller-and-gateway)
-and [demo](https://docs.openservicemesh.io/docs/demos/ingress_contour/) to learn more. Values to configure
-Contour must be passed in during OSM installation using the Azure CLI.
+and [demo](https://docs.openservicemesh.io/docs/demos/ingress_contour/) to learn more.
 
 > [!NOTE]
 > Use the commands provided in the OSM GitHub documentation with caution. Ensure that you use the correct namespace name `arc-osm-system`.
 
-To set required values for configuring Contour, create the following JSON file.
+To set required values for configuring Contour during OSM installation, create the following JSON file:
 ```json
 {
   "osm.osm.osmNamespace" : "arc-osm-system",
