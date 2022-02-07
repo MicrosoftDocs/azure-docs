@@ -149,7 +149,7 @@ In this section, you can get the registration link from the portal and send it b
     ![List of registered users](./media/tutorial-track-usage/registered-users.png)
 
     > [!NOTE]
-    > If you [republish a lab](how-to-create-manage-template.md#publish-the-template-vm) or [reset student VMs](how-to-set-virtual-machine-passwords.md#reset-vms), the students will remain registered for the labs' VMs.  However, the contents of the VMs will be deleted and the VMs will be recreated with the template VM's image.
+    > If you [republish a lab](how-to-create-manage-template.md#publish-the-template-vm) or [Reset VMs](how-to-manage-vm-pool.md#reset-vms), the students will remain registered for the labs' VMs.  However, the contents of the VMs will be deleted and the VMs will be recreated with the template VM's image.
 
 ## Set quotas for users
 

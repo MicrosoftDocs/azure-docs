@@ -42,7 +42,7 @@ You can select the **Stop all** button to stop all of the VMs.
 
 Individual VMs can be stopped by clicking the state toggle.  The toggle will read **Stopping** as the VM shuts down, and then **Stopped** once the VM has shutdown.  You can also select multiple VMs using the checks to the left of the **Name** column. Once the VMs are checked, select the **Stop** button at the top of the screen.
 
-## Reset VMs (deprecated)
+## Reset VMs
 
 To reset one or more VMs, select them in the list, and then select **Reset** on the toolbar.
 
