@@ -21,7 +21,7 @@ With Azure SQL Database, the default partitioning should work in most cases. The
 
 ### Best practice for deleting rows in sink based on missing rows in source
 
-Here is a video walk through of how to use data flows with exits, alter row, and sink transformations to achieve this common pattern: 
+Here is a video walk through of how to use data flows with exists, alter row, and sink transformations to achieve this common pattern: 
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWMLr5]
 
@@ -70,9 +70,13 @@ When writing files, you have a choice of naming options that each have a perform
 
 Selecting the **Default** option will write the fastest. Each partition will equate to a file with the Spark default name. This is useful if you are just reading from the folder of data.
 
-Setting a naming **Pattern** will rename each partition file to a more user-friendly name. This operation happens after write and is slightly slower than choosing the default. Per partition allows you to name each individual partition manually.
+Setting a naming **Pattern** will rename each partition file to a more user-friendly name. This operation happens after write and is slightly slower than choosing the default.
 
-If a column corresponds to how you wish to output the data, you can select **As data in column**. This reshuffles the data and can impact performance if the columns are not evenly distributed.
+**Per partition** allows you to name each individual partition manually.
+
+If a column corresponds to how you wish to output the data, you can select **Name file as column data**. This reshuffles the data and can impact performance if the columns are not evenly distributed.
+
+If a column corresponds to how you wish to generate folder names, select **Name folder as column data**.
 
 **Output to single file** combines all the data into a single partition. This leads to long write times, especially for large datasets. This option is strongly discouraged unless there is an explicit business reason to use it.
 
