@@ -190,7 +190,7 @@ From the design-time perspective, any runtime component is just an HTML tag with
     ```typescript
     ...
     createModel: async () => {
-        var model = new ConferenceSessionModel();
+        var model = new WidgetModel();
         model.sessionNumber = "107";
             return model;
         }
