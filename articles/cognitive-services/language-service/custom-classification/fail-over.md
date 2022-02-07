@@ -1,6 +1,21 @@
+---
+title: Back up and recover your custom classification models
+titleSuffix: Azure Cognitive Services
+description: Learn how to save and recover your custom classification models.
+services: cognitive-services
+author: aahill
+manager: nitinme
+ms.service: cognitive-services
+ms.subservice: language-service
+ms.topic: conceptual
+ms.date: 02/07/2022
+ms.author: aahi
+ms.custom: language-service-custom-ner
+---
+
 # Back up and recover your custom text classification models
 
-When you create a Language resource in the Azure portal, you specify a region for it to be created in. From then on, your resource and all of the operations related to it take place in the specified Azure server region. It's rare, but not impossible, to encounter a network issue that hits an entire region. If your solution needs to always be available, then you should design it to either fail-over into another region. This requires two Azure Language resources in different regions and the ability to sync custom models across regions. 
+When you create a Language resource, you specify a region for it to be created in. From then on, your resource and all of the operations related to it take place in the specified Azure server region. It's rare, but not impossible, to encounter a network issue that hits an entire region. If your solution needs to always be available, then you should design it to either fail-over into another region. This requires two Azure Language resources in different regions and the ability to sync custom models across regions. 
 
 If your app or business depends on the use of a custom classification model, we recommend that you create a replica of your project into another supported region. So that if a regional outage occurs, you can then access your model in the other fail-over region where you replicated your project.
 
