@@ -14,30 +14,32 @@ ms.author: caoling
 
 # Deploy and use your voice model
 
-After you've successfully created and tested your voice model, you deploy it in a custom Text-to-Speech endpoint. You then use this endpoint in place of the usual endpoint when making Text-to-Speech requests through the REST API. Your custom endpoint can be called only by the subscription that you've used to deploy the model.
+After you've successfully created and tested your voice model, you deploy it in a custom text-to-speech endpoint. Use this endpoint instead of the usual endpoint when you're making text-to-speech requests through the REST API. The subscription that you've used to deploy the model is the only one that can call your custom endpoint.
 
-## Create a custom neural voice endpoint
+## Create and use a Custom Neural Voice endpoint
 
-You can do the following to create a custom neural voice endpoint.
+To create a Custom Neural Voice endpoint:
 
 1. On the **Deploy model** tab, select **Deploy model**. 
-2. Next, select a voice model you want to deploy.
-3. Then, enter a **Name** and **Description** for your endpoint.
-4. Finally, select **Deploy** to create your endpoint.
+1. Enter a **Name** and **Description** for your custom endpoint.
+1. Select a voice model that you want to associate with this endpoint. 
+1. Select **Deploy** to create your endpoint.
 
-After you've clicked the **Deploy** button, in the endpoint table, you'll see an entry for your new endpoint. It may take a few minutes to instantiate a new endpoint. When the status of the deployment is **Succeeded**, the endpoint is ready for use.
+In the endpoint table, you now see an entry for your new endpoint. It might take a few minutes to instantiate a new endpoint. When the status of the deployment is **Succeeded**, the endpoint is ready for use.
 
-You can also update the endpoint to a new model. To change the model, make sure the new model is named the same as the one you want to update.
+You can suspend and resume your endpoint if you don't use it all the time. When an endpoint is reactivated after suspension, the endpoint URL is retained, so you don't need to change your code in your apps. 
+
+You can also update the endpoint to a new model. To change the model, make sure the new model is named the same as the one you want to update. 
 
 > [!NOTE]
 >- Standard subscription (S0) users can create up to 50 endpoints, each with its own custom neural voice.
->- To use your custom neural voice, you must specify the voice model name, use the custom URI directly in an HTTP request, and use the same subscription to pass through the authentication of TTS service.
+>- To use your custom neural voice, you must specify the voice model name, use the custom URI directly in an HTTP request, and use the same subscription to pass through the authentication of the text-to-speech service.
 
-After your endpoint is deployed, the endpoint name appears as a link. Select the endpoint name to display information specific to your endpoint, such as the endpoint key, endpoint URL, and sample code.
+After your endpoint is deployed, the endpoint name appears as a link. Select the link to display information specific to your endpoint, such as the endpoint key, endpoint URL, and sample code.
 
-The custom endpoint is functionally identical to the standard endpoint that's used for Text-to-Speech requests.  For more information, see [Speech SDK](./get-started-text-to-speech.md) or [REST API](rest-text-to-speech.md).
+The custom endpoint is functionally identical to the standard endpoint that's used for text-to-speech requests. For more information, see the [Speech SDK](./get-started-text-to-speech.md) or [REST API](rest-text-to-speech.md).
 
-We also provide an online tool, [Audio Content Creation](https://speech.microsoft.com/audiocontentcreation), that allows you to fine-tune their audio output using a friendly UI.
+[Audio Content Creation](https://speech.microsoft.com/audiocontentcreation) is a tool that allows you to fine-tune audio output by using a friendly UI.
 
 ## Copy your voice model to another projects or regions
 
