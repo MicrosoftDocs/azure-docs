@@ -11,7 +11,7 @@ The **Virtual machine pool** page of a lab allows instructors to set how many VM
 
 - Start and stop all the VMs at once.
 - Start and stop specific VMs.
-- Redeploy a VM.
+- Reset a VM.
 - Connect to a student's VM.
 - Change the lab capacity.
 
@@ -74,7 +74,7 @@ To change the lab capacity (number of VMs in the lab), select **Lab capacity** o
 
 If using [Teams](how-to-manage-vm-pool-within-teams.md) or [Canvas](how-to-manage-vm-pool-within-canvas.md) integration, lab capacity will automatically be updated when Azure Lab Services syncs the user list.
 
-## Export list of virtual machines to a CSV file
+## Export list of VMs
 
 1. Switch to the **Virtual machine pool** tab.
 2. Select **...** (ellipsis) on the toolbar and then select **Export CSV**.
