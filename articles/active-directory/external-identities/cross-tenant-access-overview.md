@@ -5,7 +5,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 01/31/2022
+ms.date: 02/07/2022
 
 ms.author: mimart
 author: msmimart
@@ -79,9 +79,19 @@ You can configure organization-specific settings by adding an organization and m
 
 Several tools are available to help you identify the access your users and partners need before you set inbound and outbound access settings. To ensure you don’t remove access that your users and partners need, you can examine current sign-in behavior. Taking this preliminary step will help prevent loss of desired access for your end users and partner users. However, in some cases these logs are only retained for 30 days, so we strongly recommend you speak with your business stakeholders to ensure required access isn't lost.
 
-### Sign-In Logs
+### Cross-tenant sign-in activity PowerShell script
 
-To determine your users access to external Azure AD organizations in the last 30 days, run the following PowerShell script:
+To review user sign-in activity associated with external tenants, you can use the [cross-tenant user sign-in activity](https://aka.ms/cross-tenant-signins-ps) PowerShell script. For example, to view all available sign-in events for inbound activity (external users accessing resources in the local tenant) and outbound activity (local users accessing resources in an external tenant), run the following:
+
+```powershell
+Get-MSIDCrossTenantAccessActivity -SummaryStats -ResolveTenantId
+```
+
+The output is a summary of all available sign-in events for inbound and outbound activity, listed by external tenant ID and external tenant name.
+
+### Sign-in logs PowerShell script
+
+To determine your users' access to external Azure AD organizations, you can view data from your sign-in logs for the last 30 days by running the following:
 
 ```powershell
 Get-MgAuditLogsSignIn ` 
@@ -91,20 +101,7 @@ group ResourceTenantId,AppDisplayName,UserPrincipalName| `
 select count, @{n=’Ext TenantID/App User Pair’;e={$_.name}}] 
 ```
 
-The output is a list of outbound sign-ins initiated by your users to apps in external tenants, for example:
-
-```powershell
-Count Ext TenantID/App User Pair
------ --------------------------
-    6 45fc4ed2-8f2b-42c1-b98c-b254d552f4a7, ADIbizaUX, a@b.com
-    6 45fc4ed2-8f2b-42c1-b98c-b254d552f4a7, Azure Portal, a@b.com
-    6 45fc4ed2-8f2b-42c1-b98c-b254d552f4a7, Access Panel, a@b.com
-    6 45fc4ed2-8f2b-42c1-b98c-b254d552f4a7, MS-PIM, a@b.com
-    6 45fc4ed2-8f2b-42c1-b98c-b254d552f4a7, AAD ID Gov, a@b.com
-    6 45fc4ed2-8f2b-42c1-b98c-b254d552f4a7, Access Panel, a@b.com
-```
-
-For the most up-to-date PowerShell script, see the [cross-tenant user sign-in activity script](https://aka.ms/cross-tenant-signins-ps).
+The output is a list of outbound sign-ins initiated by your users to apps in external tenant
 
 ### Azure Monitor
 
