@@ -1,5 +1,5 @@
 ---
-title: Tutorial: Tutorial: Add ingestion-time transformation to Azure Monitor Logs
+title: Tutorial: Tutorial - Add ingestion-time transformation to Azure Monitor Logs
 description: This article describes how to add a custom transformation to data flowing through Azure Monitor Logs using table management features of Log Analytics workspace.
 ms.subservice: logs
 ms.topic: tutorial
@@ -14,81 +14,67 @@ ms.date: 01/19/2022
 In this tutorial, you learn to:
 
 > [!div class="checklist"]
-> * Create a metric alert rule from metrics explorer
-> * Configure the alert threshold
-> * 
-
-
-This tutorial will guide you through the process of configuring [ingestion-time transformation](ingestion-time-transformations.md) for Azure Monitor Logs. 
+> * Configure [ingestion-time transformation](ingestion-time-transformations.md) for a table in Azure Monitor Logs
+> * Write a log query for an ingestion-time transform
 
 
 ## Prerequisites
-An Azure Monitor Logs Workspace to which you have at least contributor rights will be required. Additionally, in the same subscription, permissions to create Data Collection Rule objects will be required.
-For the demonstration purposes we are going to work with `LAQueryLogs` table, but the same principles can be applied to virtually any Azure log.  
+To complete this tutorial, you need the following: 
 
-## Overview
-Configuring ingestion-time transformation for a table requires the following steps to be completed:
+- Log Analytics workspace where you have at least contributor rights. 
+- Permissions to create Data Collection Rule objects.
 
-1. (if not previously done) The workspace must be created and subject log should be enabled.
-2. Table schema must be updated with desired additional columns
-3. Data Collection Rule of special  `WorkspaceTransforms` kind shuld be created and linked to the Workspace. This step needs to be performed only once for each given Workspace. 
-4. Ingestion-time transformation should be authored and added to the Data Collection Rule mentioned above.
 
-Luckily, steps 2 through 4 will be performed automatically. All we have to do is to enable the log table and provide ingestion-time transformation in form of KQL statement.
+## Overview of tutorial
+The [LAQueryLogs table](https://docs.microsoft.com/azure/azure-monitor/logs/query-audit#audit-data) is created when you enable [log query auditing](query-audit.md) in a workspace. In this tutorial, we'll add a column to the `LAQueryLogs` table and reduce its storage requirement table by filtering out certain records and removing the contents of a column. You can use this same basic process for any [supported table](ingestion-time-transformations-supported-tables.md) in a Log Analytics workspace.  
 
-For this tutorial, we will be working with the [LAQueryLogs table](https://docs.microsoft.com/azure/azure-monitor/logs/query-audit#audit-data) which captures the details of log queries run in Azure Monitor. We will be adding a transformation which accomplishes two goals: first, we will be reducing the volume of data stored by filtering out any queries run against `LAQueryLogs` table itself and "emptying" some columns we don't plan to use; second, we will be pre-parsing some dynamic columns to simplify future querying.
+This tutorial will use the Azure portal which provides a wizard to walk you through the process of creating an ingestion-time transformation. The following actions are performed when you complete this wizard:
 
-Let's look at the process of adding ingestion-time transformation in detail.
+- Updates the table schema with any additional columns from the query
+- Creates a `WorkspaceTransforms` data collection rule (DCR) and links it to the workspace if a default DCR isn't already linked to the workspace
+- Creats an ingestion-time transformation and adds it to the DCR
 
-## Create Log Analytics Workspace and Enable Query Audit Logs
 
-The creation of a Log Analytics Workspace is well-documented [here](https://docs.microsoft.com/azure/azure-monitor/logs/quick-create-workspace).  
+## Enable query audit logs
+You need to enable [query auditing](query-audit.md) for your workspace to create the `LAQueryLogs` table that we'll be working with. This is not required for ingestion time transformations. It's just to generate the sample data that we'll be working with. 
 
-> [!IMPORTANT]
-> The Private Preview currently only supports Workspaces in the `West US 2`, `East US 2`, and `East US 2 EUAP ("Canary")` Regions!
+From the **Log Analytics workspaces** menu in the Azure portal, select **Diagnostic settings** and then **Add diagnostic setting**.
 
-In this workspace, some data should be flowing to implement the ingestion-time transformation against. Most data types will work. For the purposes of this tutorial, we'll be using query audit logs. We are going to choose our Log Analytics workspace as a destination for it's own query audit logs. Instructions to enable query audit logs for a workspace are available [here](https://docs.microsoft.com/azure/azure-monitor/logs/query-audit). 
+:::image type="content" source="media/tutorial-ingestion-time-transformations/diagnostic-settings.png" lightbox="media/tutorial-ingestion-time-transformations/diagnostic-settings.png" alt-text="Screenshot of diagnostic settings":::
 
-Once query audit logs are enabled, run a couple of queries against any table in your workspace to populate `LAQueryLogs` table with some data.
+Provide a name for the diagnostic setting and select the workspace so that the auditing data is stored in the same workspace. Select the **Audit** category and  then click **Save** to save the diagnostic setting and close the diagnostic setting page.
 
-## Add Ingestion-Time Transformation to the Table
+:::image type="content" source="media/tutorial-ingestion-time-transformations/new-diagnostic-setting.png" lightbox="media/tutorial-ingestion-time-transformations/new-diagnostic-settings.png" alt-text="Screenshot of new diagnostic setting":::
 
-### Initiate ingestion-time transformation creation
+Select **Logs** and then run some queries to populate `LAQuery Logs` with some data. These queries don't need to return data to be added to the audit log.
 
-Within your Workspace, choose "Tables" menu item under Settings category.
+:::image type="content" source="media/tutorial-ingestion-time-transformations/sample-queries.png" lightbox="media/tutorial-ingestion-time-transformations/sample-queries.png" alt-text="Screenshot of sample log queries":::
 
-![Chose Tables menu item under Settings category](./media/custom-logs-v2/navigating_to_tables.png) 
+## Add ingestion-time transformation to the table
+The '`LAQueryLogs` table should now exist in your workspace, so you can create a transformation for it. Select **Tables (preview)** and then locate the `LAQueryLogs` table and select **Create transformation**.
 
-Once "Tables" page opens, locate `LAQueryLogs` table in the list. Select "Create transformation" in the context menu.
+:::image type="content" source="media/tutorial-ingestion-time-transformations/create-transformation.png" lightbox="media/tutorial-ingestion-time-transformations/create-transformation.png" alt-text="Screenshot of creating a new transformation":::
 
-![Chose Create Transformation in the context menu](./media/custom-logs-v2/tables_page.png) 
 
-### Designate default Data Collection Rule (once per Workspace)
+Since this is the first transformation in the workspace, you need to add a new data collection rule (DCR). If you create other transformations, you can store them in this same DCR. Click **Create a new data collection rule**. The **Subscription** and **Resource group** will already be populated for the workspace. Provide a name for the DCR and click **Done**.
 
-Since this is the first transformation, we are adding to a table in a given Workspace, new workspace transformations Data Collection Rule (DCR) needs to be created and set as default for the workspace. 
-Click on "Create a new data collection rule" and provide a name for DCR to be created. When it is done, proceed to the next step.
+:::image type="content" source="media/tutorial-ingestion-time-transformations/new-data-collection-rule.png" lightbox="media/tutorial-ingestion-time-transformations/new-data-collection-rule.png" alt-text="Screenshot of creating a new data collection rule":::
 
-![Create a new data collection rule](./media/custom-logs-v2/default_dcr.png) 
+Click **Next** to view sample data from the table. As you define the transformation, the result will be applied to the sample data allowing you to evaluate the results before applying it to actual data. Click **Transformation editor** to define the transformation.
 
-Note that when default DCR has been already assigned to the Workspace, you don't have to create or specify it every time. The system will locate and select it by default.
+:::image type="content" source="media/tutorial-ingestion-time-transformations/sample-data.png" lightbox="media/tutorial-ingestion-time-transformations/sample-data.png" alt-text="Screenshot of sample data from the log table":::
 
-### Author ingestion-time transformation
+In the transformation editor, you can see the transformation that will be applied to the data prior to its ingestion into the table. The incoming data is represented by a virtual table named `source`, which has the same set of columns as the destination table itself. The transformation initially contains a simple query returning the `source` table with no changes. The transformation just passes through the data from the input stream to the destination table.
 
-Once we have decided how to name default DCR for the Workspace we can work on the transformation logic. The page displays the sample of data obtained from the table we are working with. As we are going to define the transformation, the result of it will be applied to the sample, so that we can evaluate the outcome before we complete the configuration and apply the transformation to real data. Proceed by clicking "Transformation editor" button.
+You're going to modify this transformation to perform the following:
 
-![Schema and transformation](./media/custom-logs-v2/scenario4_step2.png) 
+- Drop rows related to querying the `LAQueryLogs` table itself to save space since these log entries aren't useful.
+- Add a column for the name of the workspace that was queried.
+- Remove data from the `RequestContext` column to save space.
 
-In the transformation editor window we can see the transformation currently applied to the data prior to its ingestion into our table. The stream of data bound to table is represented by the virtual table `source`, which has the same set of columns as the destination table itself. By default, the transformation just passes through the data from the input stream to the destination table.
+The following query will provide these results. 
 
-Let us modify the transformation, so that it accomplishes our goals:
-
-1. We want to drop the rows related to querying the `LAQueryLogs` table itself to save space and declutter logs
-2. We want to have a separate column for the Workspace queried
-3. Once we extract that information, we want to empty RequestContext column, so it does not take up space 
-
-The resulting transformation code will look like the following:
-
-```kusto
+``` kusto
 source
 | where QueryText !contains 'LAQueryLogs'
 | extend Context = parse_json(RequestContext)
@@ -96,32 +82,20 @@ source
 | project-away RequestContext, Context
 ```
 
-Note, that the output of the transformation will inform the changes to the table schema. Additional columns will be added to the table as needed to accommodate the outcome of the transformation. Each custom column to be added to an Azure table must have "_CF" suffix added to its name (e.g. `Workspace_CF`). Removing interim columns from the transformation result (here, `project-away Context` statement) is recommended practice to prevent confusion between custom data to be stored versus dropped.
+> [!NOTE]
+> The output of the transformation will initiate changes to the table schema. Columns will be added to match the transformation output if they don't already exist. Make sure that your output doesn't contain any additional columns that you don't want added to the table. If the output does not include columns that are already in the table, those columns will not be removed, but data will not be added.
 
-It is also worth mentioning, that dropping standard columns from an Azure table (e.g. `project-away RequestContext`) will not remove the column from the table, but will prevent data ingestion into the column.
+Copy the query into the transformation editor and click **Run** to view results from the sample data. You can verify that the new `Workspace_CF` column is in the query.
 
-After we put our transformation into the transformation editor window and press "Run" we can see the result of its application to the sample data in the results pane.
+:::image type="content" source="media/transformation-editor/sample-data.png" lightbox="media/transformation-editor/sample-data.png" alt-text="Screenshot of transformation editor":::
 
-![Transformation editor](./media/custom-logs-v2/transform_editor.png) 
+Click **Apply** to save the transformation and then **Next** to review the configuration. Click **Create** to update the data collection rule with the new transformation.
 
-### Review
-Let us click "Apply" and proceed to the review step.
+:::image type="content" source="media/transformation-editor/save-transformation.png" lightbox="media/transformation-editor/save-transformation.png" alt-text="Screenshot of saving transformation":::
 
-![Transformation editor](./media/custom-logs-v2/scenario4_step3.png)
+## Test transformation
+Allow about 30 minutes for the transformation to take effect, and you can then test it by running a query against the table. Only data sent to the table after the transformation was applied will be affected. 
 
-Once you click "Create", default DCR will be updated with ingestion-time transformation for the table of your choice. If you navigate to logs and query the table immediately after completion of the setup process, you will see custom columns added to the table schema, although allow approximately 30 minutes for your transformation to take effect.
+Run some sample queries to send data to the `LAQueryLogs` table. These can't include queries for `LAQueryLogs` itself since the transformation is filtering these records.
 
-## Known issues and workarounds  
-**Problem**: The DCR object, when viewed via the Azure Portal, does not appear to have properties such as the transform KQL in it, even though provisioning it with those properties was successful  
-**Solution**: The Azure Portal UI for DCRs does not use the latest version of the API. Until the UI is updated to reflect this new API version, please call a GET against the DCR object directly using API version `2021-09-01-preview` or later.  
-
-**Problem**: I sent the data, but I don't see it in my workspace  
-**Solution**: Please give the data some time to arrive, especially if this is the first time data is being sent to a particular table. If data takes longer than ~15min to arrive, contact the support email provided to you as part of onboarding.  
-
-**Problem**: I see the new columns I created showing up in the schema browser, but IntelliSense is not working
-**Solution**: The cache that drives IntelliSense takes some time to update. Please give the system up to a day for these changes to be reflected.  
-
-**Problem**: I added a transformation to a `Dynamic` column, but the transformation doesn't work
-**Solution**: There is currently a bug affecting dynamic columns. A temporary workaround is to explicitly parse dynamic column data using `parse_json()` prior to performing any operations against them.   
-
-
+Notice that the output has the new `Workspace_CF` column, and there are no records for `LAQueryLogs`.
