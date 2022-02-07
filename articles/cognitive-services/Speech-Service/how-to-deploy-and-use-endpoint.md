@@ -62,7 +62,7 @@ To Copy your voice model to another project:
 > [!NOTE]
 > Custom Neural Voice training is only available in the three regions: East US, Southeast Asia, and UK South. But you can easily copy a neural voice model from the three regions to other regions. For more information, see the [regions for Custom Neural Voice](regions.md#text-to-speech).
 
-## How to suspend and resume endpoint
+## Suspend and resume an endpoint
 
 You can **Suspend** and **Resume** your endpoint if you don't use it all the time. With endpoint **Suspend** and **Resume** functions, you can flexibly control the endpoint hosting status and save the hosting costs. The charging will stop once the endpoint is suspended, meanwhile it can’t be used to synthesize speech until you resume it successfully. When an endpoint is reactivated after suspension, the endpoint URL will be kept the same so you don't need to change your code in your apps.
 
@@ -71,9 +71,9 @@ You can suspend and resume endpoint via portal or REST API.
 > [!NOTE]
 > The Suspend or Resume operation will take a while to complete, the Suspend time should be short and the Resume time should be similar to the deployment time.
 
-### Suspend and resume endpoint via portal
+### Suspend and resume an endpoint in Speech Studio
 
-The following section describes how to suspend or resume a custom neural voice endpoint via portal.
+This section describes how to suspend or resume a custom neural voice endpoint in the Speech Studio portal.
 
 #### Suspend endpoint
 
@@ -81,17 +81,17 @@ The following section describes how to suspend or resume a custom neural voice e
 
    :::image type="content" source="media/custom-voice/select-endpoint.png" alt-text="select endpoint":::
 
-2. Select **Suspend** option above or the option displayed on the endpoint details page to suspend the endpoint. 
+1. Select **Suspend** option above or the option displayed on the endpoint details page to suspend the endpoint. 
 
    :::image type="content" source="media/custom-voice/select-suspend.png" alt-text="select suspend":::
 
-3. Select **Submit** to suspend the endpoint.
+1. Select **Submit** to suspend the endpoint.
 
    :::image type="content" source="media/custom-voice/suspend-endpoint.png" alt-text="suspend endpoint":::
 
 #### Endpoint status after suspension
 
-After you successfully suspend the endpoint, the status will become **Suspended** from **Succeeded**, as shown below.
+After you successfully suspend the endpoint, the status will change from **Suspended** to **Succeeded**.
 
 :::image type="content" source="media/custom-voice/status-after-suspension.png" alt-text="status after suspension":::
 
@@ -101,111 +101,47 @@ After you successfully suspend the endpoint, the status will become **Suspended*
 
    :::image type="content" source="media/custom-voice/select-resume.png" alt-text="select resume":::
 
-2. Select **Submit** to resume the endpoint. 
+1. Select **Submit** to resume the endpoint. 
 
    :::image type="content" source="media/custom-voice/resume-endpoint.png" alt-text="resume endpoint":::
 
 ####  Endpoint status after resumption
 
-After you successfully reactivate the endpoint, the status will change back to  **Succeeded**, as shown below.
+After you successfully reactivate the endpoint, the status will change back to  **Succeeded**.
 
 :::image type="content" source="media/custom-voice/status-after-resumption.png" alt-text="status after resumption":::
 
 ### Suspend and resume endpoint via REST API
 
-This section will show you how to suspend or resume a custom neural voice endpoint via REST API.
+This section will show you how to [get](#get-endpoint), [suspend](#suspend-endpoint), or [resume](#resume-endpoint) a custom neural voice endpoint via REST API.
 
-#### Prerequisites
+#### Endpoint configuration
 
 For an existing endpoint you want to suspend or resume, you'll need to prepare:
 
 * The identifier of the endpoint (Deployment ID).
-
 * The Azure region the endpoint is associated with.
-
 * The subscription key the endpoint is associated with (Endpoint key).
 
-Go to **Deploy model** tab on the [Speech Studio](https://aka.ms/custom-voice-portal) to select the endpoint, then you can get the above parameters on the endpoint details page as shown below.
+These details are available on the **Deploy model** tab in [Speech Studio](https://aka.ms/custom-voice-portal).
 
 :::image type="content" source="media/custom-voice/endpoint-parameter-for-rest-api.png" alt-text="Endpoint parameter for rest API":::
 
-#### Suspend endpoint
+#### Request parameters
 
-Suspend the endpoint identified by the given ID, which applies to the endpoint in `Succeeded` status.
+Use settings from the [endpoint configuration](#endpoint-configuration) as request parameters when you call the REST API.
 
-1. Follow the sample request below to call the API, and you'll receive the response with `HTTP 202 Status code`.
-
-   To replace the request parameters, refer to the [Request parameter](#request-parameter).
-
-2. Follow the [Get endpoint](#get-endpoint) steps to track the operation progress. You can poll the get endpoint API in a loop until the status becomes `Disabled`, and the status property will change from `Succeeded` status, to `Disabling`, and finally to `Disabled`.
-
-##### Sample request
-
-HTTP sample
-
-```HTTP
-POST api/texttospeech/v3.0/endpoints/<Endpoint_ID>/suspend HTTP/1.1
-Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY
-Host: <REGION_IDENTIFIER>.customvoice.api.speech.microsoft.com
-Content-Type: application/json
-Content-Length: 0
-```
-
-cURL sample - Run with command-line tool in Linux (and in the Windows Subsystem for Linux).
-
-```Console
-curl -v -X POST "https://<REGION_IDENTIFIER>.customvoice.api.speech.microsoft.com/api/texttospeech/v3.0/endpoints/<Endpoint_ID>/suspend" -H "Ocp-Apim-Subscription-Key: <YOUR_SUBSCRIPTION_KEY >" -H "content-type: application/json" -H "content-length: 0"
-```
-
-##### Sample response
-
-Status code: 202 Accepted
-
-For details, see [Response header](#response-header).
-
-#### Resume endpoint
-
-Resume the endpoint identified by the given ID, which applies to the endpoint in `Disabled` status.
-
-1. Follow the sample request below to call the API, and you'll receive the response with `HTTP 202 Status code`.
-
-   To replace the request parameters, refer to the [Request parameter](#request-parameter).
-
-2. Follow the [Get endpoint](#get-endpoint) steps to track the operation progress. You can poll the API in a loop until the status becomes `Succeeded` or `Disabled`, and the status property will change from `Disabled` status, to `Running`, and finally to `Succeeded` or `Disabled` if failed.
-
-##### Sample request
-
-HTTP sample
-
-```HTTP
-POST api/texttospeech/v3.0/endpoints/<Endpoint_ID>/resume HTTP/1.1
-Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY
-Host: <REGION_IDENTIFIER>.customvoice.api.speech.microsoft.com
-Content-Type: application/json
-Content-Length: 0
-```
-
-cURL sample - Run with command-line tool in Linux (and in the Windows Subsystem for Linux).
-
-```Console
-curl -v -X POST "https://<REGION_IDENTIFIER>.customvoice.api.speech.microsoft.com/api/texttospeech/v3.0/endpoints/<Endpoint_ID>/resume" -H "Ocp-Apim-Subscription-Key: <YOUR_SUBSCRIPTION_KEY >" -H "content-type: application/json" -H "content-length: 0"
-```
-
-##### Sample response
-
-Status code: 202 Accepted
-
-For details, see [Response header](#response-header).
+| Name                        | In     | Required | Type   | Description                                                                    |
+| --------------------------- | ------ | -------- | ------ | ------------------------------------------------------------------------------ |
+| `YourServiceRegion` | Path   | `True` | string | <YourServiceRegion> - The Azure region the endpoint is associated with.        |
+| `YourEndpointId` | Path   | `True` | string | <YourEndpointId> - The identifier of the endpoint.                                |
+| `Ocp-Apim-Subscription-Key` | Header | `True` | string | <YourSubscriptionKey > The subscription key the endpoint is associated with. |
 
 #### Get endpoint
 
-Get the endpoint identified by the given ID, this API allows you to query the details of the endpoint.
+Get the endpoint by endpoint ID. The operation returns details about an endpoint such as model ID, project ID, and status.  
 
-1. Follow the sample request below to call the API.
-
-   To replace the request parameters, refer to the [Request parameter](#request-parameter).
-
-2. Check the status property in response payload to track the progress for Suspend or Resume operation.
+For example, you can check the status property in response payload to track the progress for [suspend](#suspend-endpoint) or [resume](#resume-endpoint) operations.
 
 The definition of status property:
 
@@ -221,25 +157,31 @@ The definition of status property:
 > [!Tip]
 > If the status goes to `Failed` or `Disabled` for Resume, you can check the `properties.error` for the detailed error message.
 
-##### Sample request
+##### Request example
 
-HTTP sample
+For information about endpoint ID, region, and subscription key parameters, see [request parameters](#request-parameters) and [endpoint configuration](#endpoint-configuration).
+
+HTTP example:
 
 ```HTTP
-GET api/texttospeech/v3.0/endpoints/<Endpoint_ID> HTTP/1.1
-Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY
-Host: <REGION_IDENTIFIER>.customvoice.api.speech.microsoft.com
+GET api/texttospeech/v3.0/endpoints/<YourEndpointId> HTTP/1.1
+Ocp-Apim-Subscription-Key: YourSubscriptionKey
+Host: <YourServiceRegion>.customvoice.api.speech.microsoft.com
 ```
 
-cURL sample - Run with command-line tool in Linux (and in the Windows Subsystem for Linux).
+cURL example:
 
 ```Console
-curl -v -X GET "https://<REGION_IDENTIFIER>.customvoice.api.speech.microsoft.com/api/texttospeech/v3.0/endpoints/<Endpoint_ID>" -H "Ocp-Apim-Subscription-Key: <YOUR_SUBSCRIPTION_KEY >"
+curl -v -X GET "https://<YourServiceRegion>.customvoice.api.speech.microsoft.com/api/texttospeech/v3.0/endpoints/<YourEndpointId>" -H "Ocp-Apim-Subscription-Key: <YourSubscriptionKey >"
 ```
 
-##### Sample response
+Response header example:
 
-Status code: 200 OK
+```
+Status code: 202 OK
+```
+
+Response body example:
 
 ```json
 {
@@ -260,15 +202,74 @@ Status code: 200 OK
 }
 ```
 
-#### Request parameter
+#### Suspend endpoint
 
-Replace the parameters with proper data you found at [Prerequisites](#prerequisites) step.
+Suspend the endpoint identified by the given ID, which applies to the endpoint in `Succeeded` status.
 
-| Name                        | In     | Required | Type   | Description                                                                    |
-| --------------------------- | ------ | -------- | ------ | ------------------------------------------------------------------------------ |
-| `Region` | Path   | `True` | string | <REGION_IDENTIFIER> - The Azure region the endpoint is associated with.        |
-| `Endpoint_ID` | Path   | `True` | string | <Endpoint_ID> - The identifier of the endpoint.                                |
-| `Ocp-Apim-Subscription-Key` | Header | `True` | string | <YOUR_SUBSCRIPTION_KEY > The subscription key the endpoint is associated with. |
+Follow the sample request below to call the API, and you'll receive the response with `HTTP 202 Status code`.
+
+Follow the [Get endpoint](#get-endpoint) steps to track the operation progress. You can poll the get endpoint API in a loop until the status becomes `Disabled`, and the status property will change from `Succeeded` status, to `Disabling`, and finally to `Disabled`.
+
+##### Request example
+
+For information about endpoint ID, region, and subscription key parameters, see [request parameters](#request-parameters) and [endpoint configuration](#endpoint-configuration).
+
+HTTP example:
+
+```HTTP
+POST api/texttospeech/v3.0/endpoints/<YourEndpointId>/suspend HTTP/1.1
+Ocp-Apim-Subscription-Key: YourSubscriptionKey
+Host: <YourServiceRegion>.customvoice.api.speech.microsoft.com
+Content-Type: application/json
+Content-Length: 0
+```
+
+cURL example:
+
+```Console
+curl -v -X POST "https://<YourServiceRegion>.customvoice.api.speech.microsoft.com/api/texttospeech/v3.0/endpoints/<YourEndpointId>/suspend" -H "Ocp-Apim-Subscription-Key: <YourSubscriptionKey >" -H "content-type: application/json" -H "content-length: 0"
+```
+
+Response header example:
+
+```
+Status code: 202 Accepted
+```
+
+For more information, see [response header](#response-header).
+
+#### Resume endpoint
+
+Resume the endpoint identified by the given ID, which applies to the endpoint in `Disabled` status.
+
+Follow the sample request below to call the API, and you'll receive the response with `HTTP 202 Status code`.
+
+Follow the [Get endpoint](#get-endpoint) steps to track the operation progress. You can poll the API in a loop until the status becomes `Succeeded` or `Disabled`, and the status property will change from `Disabled` status, to `Running`, and finally to `Succeeded` or `Disabled` if failed.
+
+For information about endpoint ID, region, and subscription key parameters, see [request parameters](#request-parameters) and [endpoint configuration](#endpoint-configuration).
+
+HTTP example:
+
+```HTTP
+POST api/texttospeech/v3.0/endpoints/<YourEndpointId>/resume HTTP/1.1
+Ocp-Apim-Subscription-Key: YourSubscriptionKey
+Host: <YourServiceRegion>.customvoice.api.speech.microsoft.com
+Content-Type: application/json
+Content-Length: 0
+```
+
+cURL example:
+
+```Console
+curl -v -X POST "https://<YourServiceRegion>.customvoice.api.speech.microsoft.com/api/texttospeech/v3.0/endpoints/<YourEndpointId>/resume" -H "Ocp-Apim-Subscription-Key: <YourSubscriptionKey >" -H "content-type: application/json" -H "content-length: 0"
+```
+
+Response header example:
+```
+Status code: 202 Accepted
+```
+
+For more information, see [response header](#response-header).
 
 #### Response header
 
