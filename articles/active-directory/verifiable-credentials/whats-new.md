@@ -18,8 +18,8 @@ ms.author: barclayn
 This article lists the latest features, improvements, and changes in the Azure Active Directory (Azure AD) Verifiable Credentials service.
 ## February 2022
 
-As we continue the development of our implementation of the verifiable credentials service we are introducing two new features. Starting February 15, 2022:
-- The Azure Active Directory Verifiable Credentials service can store and handle data operations for European instances of Azure Active Directory in the European region. All verifiable credentials service deployments configured before March 31, 2022, are required to [re-deploy](verifiable-credentials-faq.md).
+As we continue the development of our implementation of the verifiable credentials service, we are introducing two new features. Starting February 15, 2022:
+- The Azure Active Directory Verifiable Credentials service can store and handle data operations for European instances of Azure Active Directory in the European region. All verifiable credentials service instances configured before March 31, 2022 are required to [redeploy](verifiable-credentials-faq.md).
 - Azure Active Directory Verifiable Credentials customers can take advantage of enhancements to credential revocation that add a higher degree of privacy through the implementation of the [W3C Status List 2021](https://w3c-ccg.github.io/vc-status-list-2021/) standard.  
 
 All Azure AD verifiable credential deployments must re-onboard the Azure AD Verifiable Credentials service. The re-onboard process will reset all service configuration.
