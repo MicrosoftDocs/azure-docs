@@ -5,47 +5,13 @@
     items:
       - name: What's CloudKnox Permissions Management?
         href: cloudknox-overview.md
-  - name: Onboard CloudKnox
-    expanded: true
-    items:
-    - name: Enable CloudKnox in your organization
-      href: cloudknox-onboard-enable-tenant.md
-    - name: Onboard an AWS account
-      href: cloudknox-onboard-aws.md
-    - name: Onboard an Azure subscription
-      href: cloudknox-onboard-azure.MD
-    - name: Onboard a GCP project
-      href: cloudknox-onboard-gcp.md
-    #- name: Enable or disable the controller
-      #href: cloudknox-onboard-enable-controller.md
-    #- name: Add an account/subscription/project after onboarding
-      #href: cloudknox-onboard-add-account-after-onboarding.md
-  #- name: Integration
-    #expanded: true
-    #items:
-    #- name: View integration information about an authorization system
-      #href: cloudknox-product-integrations.md
-    #- name: Set and view configuration settings
-      #href: cloudknox-integration-api.md
-    #- name: Sign up and deploy FortSentry in your organization
-      #href: cloudknox-fortsentry-registration.md
-    #- name: Integration with HashiCorp Terraform
-      #href: cloudknox-hashicorp-terraform.md
-    #- name: Integration with Saviynt
-      #href: cloudknox-saviynt.md
-    #- name: Integration with Securonix
-      #href: cloudknox-securonix.md
-    #- name: Integration with Splunk
-      #href: cloudknox-splunk.md
-    #- name: Integration with ServiceNow
-      #href: cloudknox-servicenow.md
   - name: How-to guides
     expanded: true
     items:
     - name: Onboard CloudKnox on the Azure AD tenant
       expanded: true
       items:
-      - name: Enable CloudKnox on your Azure AD tenant 
+      - name: Enable CloudKnox in your organization 
         href: cloudknox-onboard-enable-tenant.md
       - name: Onboard an AWS account
         href: cloudknox-onboard-aws.md
