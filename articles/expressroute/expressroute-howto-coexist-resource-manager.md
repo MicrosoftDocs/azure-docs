@@ -131,10 +131,10 @@ This procedure walks you through creating a VNet and Site-to-Site and ExpressRou
    ```azurepowershell-interactive
    $azureVpn = New-AzVirtualNetworkGateway -Name "VPNGateway" -ResourceGroupName $resgrp.ResourceGroupName -Location $location -IpConfigurations $gwConfig -GatewayType "Vpn" -VpnType "RouteBased" -GatewaySku "VpnGw1" -Asn $VNetASN
    ```
-      > [!NOTE]
-   > The default ASN of 65515 must be used for coexistance of gateways.  See limits and limitations
-   > 
 
+   > [!NOTE]
+   > For coexisting gateways, you must use the default ASN of 65515. See [limits and limitations](#limits-and-limitations).
+   > 
 
     You can find the BGP peering IP and the AS number that Azure uses for the VPN gateway in $azureVpn.BgpSettings.BgpPeeringAddress and $azureVpn.BgpSettings.Asn. For more information, see [Configure BGP](../vpn-gateway/vpn-gateway-bgp-resource-manager-ps.md) for Azure VPN gateway.
 5. Create a local site VPN gateway entity. This command doesn’t configure your on-premises VPN gateway. Rather, it allows you to provide the local gateway settings, such as the public IP and the on-premises address space, so that the Azure VPN gateway can connect to it.
