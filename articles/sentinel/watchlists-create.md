@@ -73,7 +73,7 @@ To create the watchlist from a template you populated,
 1. Select the appropriate template from the list to view details of the template in the right pane.
 1. Select **Create from template**.
 
-    :::image type="content" source="./media/watchlists-create/create-watchlist-from-template.png" alt-text="Screenshot of the create a watchlist from a built-in template." lightbox="./media/watchlists/create-watchlist-from-template.png":::
+    :::image type="content" source="./media/watchlists-create/create-watchlist-from-template.png" alt-text="Screenshot of the create a watchlist from a built-in template." lightbox="./media/watchlists-create/create-watchlist-from-template.png":::
 
 1. On the **General** tab, notice that the **Name**, **Description**, and **Watchlist Alias** fields are all read-only.
 1. On the **Source** tab, select **Browse for files** and select the file you created from the template.
