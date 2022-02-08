@@ -28,21 +28,10 @@ We are rolling out a couple of important updates to our service that require Azu
 
 ### European region support
 
-After the February 15, 2022 update, the Azure Active Directory Verifiable Credentials service can store and handle data operations for European instances of Azure Active Directory in the European region. If you configured your Azure AD Verifiable Credentials service before March 31, 2022, you may be required to take action.
-
-Review the following information to avoid potential service interruptions.
-
-#### What is changing in the Azure AD Verifiable Credentials Service?
-
-Since the Azure AD Verifiable Credentials service's Public Preview rollout, the service has been available in our Azure North America region. Now, the service is also available in our Azure European region. Customers with Azure AD tenants setup in Europe will have Verifiable Credentials data located and processed in our Azure Europe region.
-
-Customers with Azure AD tenants setup in Europe who start using the Azure AD Verifiable Credentials service after February 15, 2022, will automatically have their data processed in Europe and don't need to take any further actions.  
-
-Customers with Azure AD tenants setup in Europe that started using the Azure AD Verifiable Credentials service before February 15, 2022, are required to reconfigure the service on their tenants before March 31, 2022.  
+Since the Azure AD Verifiable Credentials service's Public Preview rollout, the service has been available in our Azure North America region. Now, the service is also available in our Azure European region. Customers with Azure AD tenants setup in Europe will have Verifiable Credentials data located and processed in our Azure Europe region. Customers with Azure AD tenants setup in Europe who start using the Azure AD Verifiable Credentials service after February 15, 2022, will automatically have their data processed in Europe and don't need to take any further actions. Customers with Azure AD tenants setup in Europe that started using the Azure AD Verifiable Credentials service before February 15, 2022, are required to reconfigure the service on their tenants before March 31, 2022.  
 
 >[!IMPORTANT]
-> On March 31st, 2022, all Azure Active Directory Verifiable credentials deployments in subscriptions with Azure Active Directory instances in the European region will have their verifiable credential deployments opt-out and opt back in. All service configuration will get reset. You should schedule and manage your [opt-out](how-to-opt-out.md) and service reconfiguration to avoid unscheduled service disruptions.
-
+> On March 31st, 2022, all Azure Active Directory Verifiable credentials deployments in subscriptions with Azure Active Directory instances in the European region will have their verifiable credential deployments opt-out and opt back in. All service configuration will get reset. You should schedule and manage your [redeployment](verifiable-credentials-faq.md?#how-do-i-redeploy-the-azure-ad-verifiable-credentials-service) avoid unscheduled disruptions.
 
 #### How can I check my Azure AD Tenant's region?
 
@@ -55,7 +44,7 @@ On March 31, 2022, we'll use your Azure Active Directory information to determin
 
 #### My tenant is in Europe, and I've been using the Azure AD Verifiable Credentials service before March 31, 2022. What should I do?
 
-Customers with Azure AD tenants setup in Europe that started using the Azure AD Verifiable Credentials service before March 31, 2022, are encouraged to schedule and manage the reonboard process for each of  their tenants (see below to understand how to reonboard).  
+Customers with Azure AD tenants setup in Europe that started using the Azure AD Verifiable Credentials service before March 31, 2022, are encouraged to schedule and manage [redeployment]verifiable-credentials-faq.md?#how-do-i-redeploy-the-azure-ad-verifiable-credentials-service) for each of their tenants.  
 
 #### Are there any changes to the way that we use the Request API as a result of this move?
 
