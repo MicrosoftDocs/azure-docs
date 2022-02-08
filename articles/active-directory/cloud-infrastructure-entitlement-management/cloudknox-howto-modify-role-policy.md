@@ -24,7 +24,7 @@ This article describes how you can use the **Remediation** dashboard in CloudKno
 > To view the **Remediation** tab, you must have **Viewer**, **Controller**, or **Administrator** permissions. To make changes on this tab, you must have **Controller** or **Administrator** permissions. If you don’t have these permissions, contact your system administrator.
 
 > [!NOTE]
-> Microsoft Azure uses the term *role* for what other Cloud providers call *policy*. CloudKnox automatically makes this terminology change when you select the authorization system type. In the user documentation, we use *role/policy* to refer to both.
+> Microsoft Azure uses the term *role* for what other cloud providers call *policy*. CloudKnox automatically makes this terminology change when you select the authorization system type. In the user documentation, we use *role/policy* to refer to both.
 
 ## Modify a role/policy
 

@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/07/2022
+ms.date: 02/08/2022
 ms.author: v-ydequadros
 ---
 
@@ -37,9 +37,9 @@ To add CloudKnox to your Azure AD tenant:
 
 1. On the **Data Collectors** dashboard, select **Azure**, and then select **Create Configuration**.
 
-### 1. CloudKnox On Boarding - Azure Subscription Details
+### 1. CloudKnox onboarding - Add Azure subscription details
 
-1. On the **CloudKnox Onboarding - Azure Subscription Details** page, enter **Subscription IDs** that you want to onboard.
+1. On the **CloudKnox Onboarding - Azure Subscription Details** page, enter the **Subscription IDs** that you want to onboard.
 	
    > [!NOTE] 
    > To locate the Azure subscription IDs, open the **Subscriptions** page in Azure.
