@@ -17,8 +17,8 @@ In this quickstart, you create a [logical SQL server](logical-servers.md) and a 
 ## Prerequisites
 
 - An active Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/).
-- The latest version of either [Azure PowerShell](/powershell/azure/install-az-ps) or [Azure CLI](/cli/azure/install-azure-cli-windows).
-- An existing [logical SQL server](logical-servers.md) in Azure is required if you would like to create a Hyperscale database with Transact-SQL.
+- The latest version of either [Azure PowerShell](/powershell/azure/install-az-ps) or [Azure CLI](/cli/azure/install-azure-cli-windows), if you would like to follow the quickstart programmatically. Alternately, you can complete the quickstart in the Azure portal.
+- An existing [logical SQL server](logical-servers.md) in Azure is required if you would like to create a Hyperscale database with Transact-SQL. For this approach, you will need to install [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) or [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio).
 
 ## Create a Hyperscale database
 
@@ -69,7 +69,6 @@ To create a single database in the Azure portal, this quickstart starts at the A
 1. Optionally, enable [Microsoft Defender for SQL](../database/azure-defender-for-sql.md).
 1. Select **Next: Additional settings** at the bottom of the page.
 1. On the **Additional settings** tab, in the **Data source** section, for **Use existing data**, select **Sample**. This creates an AdventureWorksLT sample database so there's some tables and data to query and experiment with, as opposed to an empty blank database.
-
 1. Select **Review + create** at the bottom of the page:
     
     :::image type="content" source="media/hyperscale-database-create-quickstart/azure-sql-create-database-sample-data.png" alt-text="The 'Additional Settings' screen to create a database in Azure SQL Database allows you to select sample data." lightbox="media/hyperscale-database-create-quickstart/azure-sql-create-database-sample-data.png":::
@@ -90,42 +89,74 @@ The Azure CLI code blocks in this section create a resource group, server, singl
 
 The following values are used in subsequent commands to create the database and required resources. Server names need to be globally unique across all of Azure so the $RANDOM function is used to create the server name.
 
-Change the location as appropriate for your environment. Replace `0.0.0.0` with the IP address range to match your specific environment. Use the public IP address of the computer you're using to restrict access to the server to only your IP address.
+Before running the sample code, change the `location` as appropriate for your environment. Replace `0.0.0.0` with the IP address range to match your specific environment. Use the public IP address of the computer you're using to restrict access to the server to only your IP address.
 
 :::code language="azurecli" source="~/azure_cli_scripts/sql-database/create-and-configure-database/create-and-configure-database.sh" range="4-18":::
 
+```azurecli-interactive
+let "randomIdentifier=$RANDOM*$RANDOM"
+location="East US"
+resourceGroupName="myResourceGroup"
+tag="create-and-configure-database"
+serverName="mysqlserver-$randomIdentifier"
+databaseName="mySampleDatabase"
+login="azureuser"
+password="Pa$$w0rD-$randomIdentifier"
+# Specify appropriate IP address values for your environment
+# to limit access to the SQL Database server
+startIp=0.0.0.0
+endIp=0.0.0.0
+
+echo "Using resource group $resourceGroupName with login: $login, password: $password..."
+
+```
+
 ### Create a resource group
 
-Create a resource group with the [az group create](/cli/azure/group) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. The following example creates a resource group named *myResourceGroup* in the *eastus* location:
+Create a resource group with the [az group create](/cli/azure/group) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. The following example creates a resource group in the location specified for the `location` parameter in he prior step:
 
-:::code language="azurecli" source="~/azure_cli_scripts/sql-database/create-and-configure-database/create-and-configure-database.sh" range="19-21":::
+```azurecli-interactive
+echo "Creating $resourceGroupName in $location..."
+az group create --name $resourceGroupName --location "$location" --tag $tag
+
+```
 
 ### Create a server
 
-Create a server with the [az sql server create](/cli/azure/sql/server) command.
+Create a [logical SQL server](logical-servers.md) with the [az sql server create](/cli/azure/sql/server) command.
 
-:::code language="azurecli" source="~/azure_cli_scripts/sql-database/create-and-configure-database/create-and-configure-database.sh" range="22-24":::
+```azurecli-interactive
+
+echo "Creating $serverName in $location..."
+az sql server create --name $serverName --resource-group $resourceGroupName --location "$location" --admin-user $login --admin-password $password
+
+```
 
 ### Configure a server-based firewall rule
 
 Create a firewall rule with the [az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule) command.
 
-:::code language="azurecli" source="~/azure_cli_scripts/sql-database/create-and-configure-database/create-and-configure-database.sh" range="25-27":::
+```azurecli-interactive
+echo "Configuring firewall..."
+az sql server firewall-rule create --resource-group $resourceGroupName --server $serverName -n AllowYourIp --start-ip-address $startIp --end-ip-address $endIp
+
+```
 
 ### Create a single database
 
-Create a database with the [az sql db create](/cli/azure/sql/db) command in the [Hyperscale service tier](service-tier-hyperscale.md).
+Create a database in the [Hyperscale service tier](service-tier-hyperscale.md) with the [az sql db create](/cli/azure/sql/db) command.
 
 ```azurecli
 az sql db create \
-    --resource-group $resourceGroup \
-    --server $server \
-    --name $database \
+    --resource-group $resourceGroupName \
+    --server $serverName \
+    --name $databaseName \
     --sample-name AdventureWorksLT \
     --edition Hyperscale \
     --compute-model Provisioned \
     --family Gen5 \
     --capacity 2
+
 ```
 
 # [PowerShell](#tab/azure-powershell)
@@ -142,14 +173,16 @@ When Cloud Shell opens, verify that **PowerShell** is selected for your environm
 
 ### Set parameter values
 
-The following values are used in subsequent commands to create the database and required resources. Server names need to be globally unique across all of Azure so the Get-Random cmdlet is used to create the server name. Replace the 0.0.0.0 values in the ip address range to match your specific environment.
+The following values are used in subsequent commands to create the database and required resources. Server names need to be globally unique across all of Azure so the Get-Random cmdlet is used to create the server name.
+
+Before running the sample code, change the `location` as appropriate for your environment. Replace `0.0.0.0` with the IP address range to match your specific environment. Use the public IP address of the computer you're using to restrict access to the server to only your IP address.
 
 ```azurepowershell-interactive
    # Set variables for your server and database
    $resourceGroupName = "myResourceGroup"
    $location = "eastus"
    $adminLogin = "azureuser"
-   $password = "Azure1234567!"
+   $password = "Pa$$w0rD-$(Get-Random)"
    $serverName = "mysqlserver-$(Get-Random)"
    $databaseName = "mySampleDatabase"
 
@@ -160,6 +193,7 @@ The following values are used in subsequent commands to create the database and 
    # Show randomized variables
    Write-host "Resource group name is" $resourceGroupName
    Write-host "Server name is" $serverName
+   Write-host "Password is" $password
 
 ```
 
@@ -171,6 +205,7 @@ Create an Azure resource group with [New-AzResourceGroup](/powershell/module/az.
    Write-host "Creating resource group..."
    $resourceGroup = New-AzResourceGroup -Name $resourceGroupName -Location $location -Tag @{Owner="SQLDB-Samples"}
    $resourceGroup
+
 ```
 
 ### Create a server
@@ -185,6 +220,7 @@ Create a server with the [New-AzSqlServer](/powershell/module/az.sql/new-azsqlse
       -SqlAdministratorCredentials $(New-Object -TypeName System.Management.Automation.PSCredential `
       -ArgumentList $adminLogin, $(ConvertTo-SecureString -String $password -AsPlainText -Force))
    $server
+
 ```
 
 ### Create a firewall rule
@@ -197,6 +233,7 @@ Create a server firewall rule with the [New-AzSqlServerFirewallRule](/powershell
       -ServerName $serverName `
       -FirewallRuleName "AllowedIPs" -StartIpAddress $startIp -EndIpAddress $endIp
    $serverFirewallRule
+
 ```
 
 ### Create a single database with PowerShell
@@ -215,6 +252,7 @@ Create a single database with the [New-AzSqlDatabase](/powershell/module/az.sql/
       -MinimumCapacity 2 `
       -SampleName "AdventureWorksLT"
    $database
+
 ```
 
 # [Transact-SQL](#tab/t-sql)
@@ -236,7 +274,7 @@ GO
 
 ## Query the database
 
-Once your database is created, you can use the **Query editor (preview)** in the Azure portal to connect to the database and query data.
+Once your database is created, you can use the **Query editor (preview)** in the Azure portal to connect to the database and query data. If you prefer, you can alternately query the database by [connecting with Azure Data Studio](/sql/azure-data-studio/quickstart-sql-database) or [SQL Server Management Studio (SSMS)](connect-query-ssms.md)
 
 1. In the portal, search for and select **SQL databases**, and then select your database from the list.
 1. On the page for your database, select **Query editor (preview)** in the left menu.
@@ -253,7 +291,7 @@ Once your database is created, you can use the **Query editor (preview)** in the
        ON pc.productcategoryid = p.productcategoryid;
    ```
 
-1. If you created an empty database using the Transact-SQL option above, enter another example query in the **Query editor** pane, such as the following:
+If you created an empty database using [the Transact-SQL sample code](?tabs=t-sql#create-a-hyperscale-database), enter another example query in the **Query editor** pane, such as the following:
 
     ```sql
     CREATE TABLE dbo.TestTable(
@@ -300,8 +338,9 @@ To delete **myResourceGroup** and all its resources using the Azure portal:
 
 Use the following command to remove the resource group and all resources associated with it using the [az group delete](/cli/azure/vm/extension#az_vm_extension_set) command - unless you have an ongoing need for these resources. Some of these resources may take a while to create, and to delete.
 
-```azurecli
+```azurecli-interactive
 az group delete --name $resourceGroup
+
 ```
 
 # [PowerShell](#tab/azure-powershell)
@@ -310,6 +349,7 @@ To delete the resource group and all its resources, run the following PowerShell
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name $resourceGroupName
+
 ```
 
 # [Transact-SQL](#tab/t-sql)
