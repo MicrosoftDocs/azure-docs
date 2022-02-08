@@ -28,19 +28,19 @@ If you can't see the **Search** heading, select the **Search** button in the top
 Both tabs also provide a **Date/time range** panel that allows you to specify a custom time window in which to search for diagnostics data. You can specify this time window in several ways.
 
 - Select **Most recent** and choose an option to search for records from the most recent *15 minutes*, *30 minutes*, *1 hour*, or *2 hours*.
-- Select **Today**, **Yesterday**, or a specific date, then select an hour-long range on the specified date by clicking on the **ribbon**.
+- Select **Today**, **Yesterday**, or a specific date, then select an hour-long range on the specified date by selecting the **ribbon**.
 - Select **Custom range**, then specify the dates and times for the start and end of the search period. Custom ranges allow you to specify a search period that spans consecutive days.
 
 Long search ranges result in slower searches, so it's recommended that you keep the search range to an hour or less if possible.
 
 > [!TIP] 
-> You can click the **cog icon** next to the **Date/time range** heading to customize the date and time format, default search period, and time zone according to your preferences.
+> You can select the **cog icon** next to the **Date/time range** heading to customize the date and time format, default search period, and time zone according to your preferences.
 
 Once you’ve entered your chosen search parameters, select **Search** to begin your search. The following image shows an example of the results returned for a search on a particular SUPI.
 
 :::image type="content" source="media\distributed-tracing\distributed-tracing-search-results.png" alt-text="Screenshot of search results on a specific S U P I in the distributed tracing web G U I. It shows matching Successful P D U Session Establishment records.":::
 
-You can view more information on any result by clicking on it.
+You can view more information on any result by selecting it.
 
 ## Viewing diagnostics details
 
@@ -81,7 +81,7 @@ The vertical lines in the diagram show the network components involved in the fl
 - Black lines indicate packet core Network Functions that have logged sending or receiving messages for this flow.
 - Grey lines indicate other components that don't log messages.
 
-You can customize the view by showing or hiding individual columns and giving them more descriptive display names. To view these options, select on the current column name and then select the **+** (plus) sign that appears to the right of it to open a dropdown menu. Additionally, you can select multiple columns by holding down the Ctrl key as you select on each column; the **+** symbol remains next to the latest column that you selected.
+You can customize the view by showing or hiding individual columns and giving them more descriptive display names. To view these options, select the current column name and then select the **+** (plus) sign that appears to the right of it to open a dropdown menu. Additionally, you can select multiple columns by holding down the Ctrl key as you select each column; the **+** symbol remains next to the latest column that you selected.
 
 - The **Remove this column** option hides the currently select column from view.
 - The **Remove other columns** option hides all columns that don't include messages flowing to or from the selected column.
@@ -115,7 +115,7 @@ If the call flow diagram is too large to fit in the browser window, you can use 
 
 ## Viewing help information
 
-To view help information, select on the **Options** symbol in the top-right corner and choose **Help**. The help information appears in a panel at the bottom of the display. To hide this panel, select on the **X** symbol at the top-right corner of the panel.
+To view help information, select the **Options** symbol in the top-right corner and choose **Help**. The help information appears in a panel at the bottom of the display. To hide this panel, select the **X** symbol at the top-right corner of the panel.
 
 ## Next steps
 
