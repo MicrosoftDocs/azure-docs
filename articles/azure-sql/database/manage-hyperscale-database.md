@@ -130,6 +130,8 @@ Therefore, a geo-restore will take time proportional to the size of the database
 
 After you migrate an existing Azure SQL Database to the Hyperscale service tier, you can reverse migrate a Hyperscale database to the General Purpose service tier. Your migration can target either the serverless or provisioned compute tiers. If you wish to migrate the database to another service tier, such as [Business Critical](service-tier-business-critical.md) or a [DTU based service tier](service-tiers-dtu.md), first reverse migrate to the General Purpose service tier, then perform a further migration. Reverse migration is available within 45 days of the original migration to Hyperscale.
 
+Databases originally created in the Hyperscale service tier are not eligible for Reverse Migration.
+
 In general, reverse migration is a size-of-data operation. The duration of a reverse migration depends mainly on the size of the database and concurrent write activities happening during the migration. You will only experience a short period of downtime, generally a few minutes, during the final cutover to the new target General Purpose tier.
 
 ### Prerequisites
