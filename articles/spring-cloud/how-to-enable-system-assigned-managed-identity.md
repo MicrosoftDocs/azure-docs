@@ -92,7 +92,7 @@ Removing a system-assigned identity will also delete it from Azure AD. Deleting 
 To remove system-assigned managed identity from an app that no longer needs it:
 
 1. Sign in to the portal using an account associated with the Azure subscription that contains the Azure Spring Cloud instance.
-1. Navigate to the desired Virtual Machine and select **Identity**.
+1. Navigate to the desired application and select **Identity**.
 1. Under **System assigned**/**Status**, select **Off** and then select **Save**:
 
 ![Managed identity](/images/enterprise/msi/msi-disable.png)
