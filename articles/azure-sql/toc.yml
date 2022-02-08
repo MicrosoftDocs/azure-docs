@@ -312,6 +312,7 @@
       - name: Serverless
         href: database/serverless-tier-overview.md
       - name: Hyperscale
+        displayName: hyperscale
         items: 
         - name: Overview
           href: database/service-tier-hyperscale.md
@@ -335,6 +336,7 @@
       - name: Azure portal, PowerShell, Az CLI
         href: database/single-database-create-quickstart.md
       - name: Hyperscale
+        displayName: Create Hyperscale database
         href: database/hyperscale-database-create-quickstart.md
       - name: ARM template
         displayName: Resource Manager
@@ -395,6 +397,7 @@
     - name: Scale out
       items: 
       - name: Configure security for named replicas
+        displayName: Configure named replicas for Hyperscale
         href: database/hyperscale-named-replica-security-configure.md
 
   - name: Migration guides
