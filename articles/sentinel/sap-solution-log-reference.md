@@ -692,7 +692,7 @@ The **SAPUsersAssignments** Microsoft Sentinel Function brings together data col
 
 The **SAPUsersGetPrivileged** Microsoft Sentinel Function returns a list of privileged users per client and system ID.
 
-User is considered privileged, if it listed in *SAP - Privileged Users* watchlist, has been assigned to a profile listed in *SAP - Sensitive Profiles* watchlist or has been added to a role listed in *SAP - Sensitive Roles* watchlist
+Users are considered privileged, if listed in *SAP - Privileged Users* watchlist, have been assigned to a profile listed in *SAP - Sensitive Profiles* watchlist or have been added to a role listed in *SAP - Sensitive Roles* watchlist
 
 The **SAPUsersGetPrivileged** Microsoft Sentinel Function returns the following data:
 
