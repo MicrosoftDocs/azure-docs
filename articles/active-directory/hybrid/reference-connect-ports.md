@@ -78,8 +78,8 @@ The following tables describes the ports and protocols that are required for com
 ### Table 6a - Pass-through Authentication with SSO
 | Protocol | Ports | Description |
 | --- | --- | --- |
-|HTTP|80 (TCP)|Used to download CRLs (Certificate Revocation Lists) to verify TLS/SSL certificates. Also needed for the connector auto-update capability to function properly. |
-|HTTPS|443 (TCP)|Used to enable and disable the feature, register connectors, download connector updates, and handle all user sign-in requests. |
+| HTTP |80 (TCP)|Used to download CRLs (Certificate Revocation Lists) to verify TLS/SSL certificates. Also needed for the connector auto-update capability to function properly. |
+| HTTPS |443 (TCP)|Used to enable and disable the feature, register connectors, download connector updates, and handle all user sign-in requests. |
 
 In addition, Azure AD Connect needs to be able to make direct IP connections to the [Azure data center IP ranges](https://www.microsoft.com/download/details.aspx?id=41653).
 
@@ -87,7 +87,7 @@ In addition, Azure AD Connect needs to be able to make direct IP connections to 
 
 | Protocol | Ports | Description |
 | --- | --- | --- |
-|HTTPS|443 (TCP)|Used to enable SSO registration (required only for the SSO registration process).
+| HTTPS |443 (TCP)|Used to enable SSO registration (required only for the SSO registration process).
 
 In addition, Azure AD Connect needs to be able to make direct IP connections to the [Azure data center IP ranges](https://www.microsoft.com/download/details.aspx?id=41653). Again, this is only required for the SSO registration process.
 
@@ -99,9 +99,11 @@ This table describes the following outbound ports and protocols that are require
 
 | Protocol | Ports | Description |
 | --- | --- | --- |
-|HTTPS |443 (TCP) |Used to send health information to Azure AD. |
+| Azure Service Bus |5671 (TCP) | Used to send health information to Azure AD. (recommended but not required in latest versions)|
+| HTTPS |443 (TCP) |Used to send health information to Azure AD. (failback)|
 
-Old Azure AD Connect Health agents required access to Azure Service Bus on port 5671 but it is no longer required. The latest Azure AD Connect Health agent versions only require port 443.
+If 5671 is blocked, the agent falls back to 443, but using 5671 is recommended. This endpoint isn't required in the latest version of the agent.
+The latest Azure AD Connect Health agent versions only require port 443.
 
 ### 7b - Endpoints for Azure AD Connect Health agent for (AD FS/Sync) and Azure AD
 For a list of endpoints, see [the Requirements section for the Azure AD Connect Health agent](how-to-connect-health-agent-install.md#requirements).
