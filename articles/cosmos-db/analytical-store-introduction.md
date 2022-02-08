@@ -149,7 +149,7 @@ The following constraints are applicable on the operational data in Azure Cosmos
 
 * Currently Azure Synapse Spark can't read properties that contain some special characters in their names, listed below. Azure Synapse SQL serverless isn't affected.
   * `:` 
-  * ` ` ` 
+  * ```` 
   * `,` 
   * `;` 
   * `{}`
