@@ -56,7 +56,6 @@ When you create a LUIS app, LUIS automatically generates a authoring key so you 
 
 After you create the LUIS resource in the Azure dashboard, log into the [LUIS portal](https://www.luis.ai/home), choose your application on the **My Apps** page, then switch to the app's **Manage** page. Finally, select **Azure Resources** in the sidebar.
 
-![LUIS portal keys and endpoint settings](media/sdk/luis-keys-endpoints-page.png)
 :::image type="content" source="media/sdk/luis-keys-endpoints-page.png" alt-text="A screenshot of the LUIS portal keys and endpoint settings." lightbox="media/sdk/luis-keys-endpoints-page.png":::
 
 On the **Azure Resources** page:
