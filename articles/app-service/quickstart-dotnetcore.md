@@ -2,7 +2,6 @@
 title: "Quickstart: Deploy an ASP.NET web app"
 description: Learn how to run web apps in Azure App Service by deploying your first ASP.NET app.
 ms.assetid: b1e6bd58-48d1-4007-9d6c-53fd6db061e3
-ms.custom: devdivchpfy22
 ms.topic: quickstart
 ms.date: 02/08/2022
 ms.custom: devx-track-csharp, mvc, devcenter, vs-azure, seodec18, contperf-fy21q1, devdivchpfy22
