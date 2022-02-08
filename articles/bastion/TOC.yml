@@ -25,6 +25,8 @@
     href: configuration-settings.md
   - name: Bastion and VNet peering
     href: vnet-peering.md
+  - name: Work with NSGs
+    href: bastion-nsg.md
   - name: Security
     items:
     - name: Security baseline
@@ -49,7 +51,7 @@
         href: configure-host-scaling.md
       - name: Azure PowerShell
         href: configure-host-scaling-powershell.md
-  - name: Connect to virtual machines
+  - name: Connect to VMs
     items:
     - name: Windows VM
       items:
@@ -77,8 +79,6 @@
       href: bastion-vm-full-screen.md
     - name: Upload or download files - native client
       href: vm-upload-download-native.md
-  - name: Work with NSGs
-    href: bastion-nsg.md
   - name: Monitoring
     items:
     - name: Monitoring Azure Bastion
