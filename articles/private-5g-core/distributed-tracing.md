@@ -90,7 +90,7 @@ You can customize the view by showing or hiding individual columns and giving th
 - The **Show messages within group** option shows any messages between group members as arrows that loop back on themselves to their originating column.
 - The **Set annotation** option allows you to enter a new display name for the column.
 
-You can revert to the default display options using the **Options** menu. You can access this menu by selecting the **white cogwheel on a blue background** at the top-right-hand corner of the view window. You can take the following actions:
+You can revert to the default display options using the **Options** menu. You can access this menu by selecting the **white cogwheel on a blue background** at the upper-right corner of the view window. You can take the following actions:
 
 - Choose **Colors, styles and annotations -> Revert to default** to clear your custom display names.
 - Choose **Visibility -> Show all** to restore columns you've previously hidden from view. 
@@ -115,7 +115,7 @@ If the call flow diagram is too large to fit in the browser window, you can use 
 
 ## Viewing help information
 
-To view help information, select the **Options** symbol in the top-right corner and choose **Help**. The help information appears in a panel at the bottom of the display. To hide this panel, select the **X** symbol at the top-right corner of the panel.
+To view help information, select the **Options** symbol in the upper-right corner and choose **Help**. The help information appears in a panel at the bottom of the display. To hide this panel, select the **X** symbol at the upper-right corner of the panel.
 
 ## Next steps
 
