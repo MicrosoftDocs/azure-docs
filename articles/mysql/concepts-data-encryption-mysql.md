@@ -69,7 +69,7 @@ The following are requirements for configuring the customer-managed key:
 * The key must be in the *Enabled* state.
 * The key must have [soft delete](../key-vault/general/soft-delete-overview.md) with retention period set to **90 days**.This implicitly sets the required key attribute recoveryLevel: “Recoverable”. If the retention is set to < 90 days, the recoveryLevel: "CustomizedRecoverable", which doesn't the requirement so ensure to set the retention period is set to **90 days**.
 * The key must have [purge protection enabled](../key-vault/general/soft-delete-overview.md#purge-protection).
-* If you're [importing an existing key](/rest/api/keyvault/ImportKey/ImportKey) into the key vault, make sure to provide it in the supported file formats (`.pfx`, `.byok`, `.backup`).
+* If you're [importing an existing key](/rest/api/keyvault/keys/import-key/import-key) into the key vault, make sure to provide it in the supported file formats (`.pfx`, `.byok`, `.backup`).
 
 ## Recommendations
 
