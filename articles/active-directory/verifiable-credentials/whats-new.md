@@ -73,7 +73,7 @@ Tenant Administrators have until March 31, 2022, to schedule and manage the reco
 
 :::image type="content" source="media/verifiable-credentials-faq/identity-hub.png" alt-text="Identity hubs":::
 
-If you don’t see the “#hub” node in your DID document. You need to redeploy your tenant.
+If you don’t see the “#hub” node in your DID document, you need to redeploy your tenant.
 
 
 ## December 2021
