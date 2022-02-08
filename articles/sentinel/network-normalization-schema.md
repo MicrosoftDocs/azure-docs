@@ -28,70 +28,36 @@ The network normalization schema can represent any type of an IP network session
 
 ## Parsers
 
-This section discusses parsers, how to add parsers, and how to filter parser parameters. For more information, see [ASIM parsers](normalization-parsers-overview.md) and [Use ASIM parsers](normalization-about-parsers.md).
+For more information about ASIM parsers, see the [ASIM parsers overview](normalization-parsers-overview.md) and [Use ASIM parsers](normalization-about-parsers.md).
 
 ### Unifying parsers
 
-To use the unifying parsers that unify all of the out-of-the-box parsers, and ensure that your analysis runs across all the configured sources, use the following KQL functions as the table name in your query. 
+To use parsers that unify all ASIM out-of-the-box parsers, and ensure that your analysis runs across all the configured sources, use the `_Im_NetworkSession` filtering parser or the `_ASim_NetworkSession` parameter-less parser.
 
-Deploy ASIM parsers from the [Microsoft Sentinel GitHub repository](https://aka.ms/DeployASIM).
+You can also use workspace-deployed `ImNetworkSession` and `ASimNetworkSession` parsers by deploying them from the [Microsoft Sentinel GitHub repository](https://aka.ms/DeployASIM).
 
-#### <a name="imnetworksession"></a>imNetworkSession
-
-Aggregative parser that uses *union* to include normalized events from all *network session* sources.
-
-- Update this parser if you want to add or remove sources from source-agnostic analytics. 
-- Use this function in your source-agnostic queries.
-
-#### ASimNetworkSession
-
-Similar to the [imNetworkSession](#imnetworksession) function, but without parameter support, so it doesn't force the **Logs** page time picker to use the `custom` value. 
-
-- Update these parsers if you want to add or remove sources from source-agnostic analytics.
-- Use this function in your source-agnostic queries if you don't plan to use parameters.
-
-#### vimNetworkSession\<vendor\>\<product\>
-
-Source-specific parsers implement normalization for a specific source.
-
-Example: `vimNetworkSessionSysmonLinux`
-
-- Add a source-specific parser for a source when there's no out-of-the-box normalizing parser. Update the `im` aggregative parser to include reference to your new parser.
-- Update a source-specific parser to resolve parsing and normalization issues.
-- Use a source-specific parser for source-specific analytics.
-
-#### ASimNetworkSession\<vendor\>\<product\>
-
-Source-specific parsers implement normalization for a specific source.
-
-Unlike the `vim*` functions, the `ASim*` functions don't support parameters.
-
-- Add a source-specific parser for a source when there's no out-of-the-box normalizing parser. Update the aggregative `ASim` parser to include reference to your new parser.
-- Update a source-specific parser to resolve parsing and normalization issues.
-- Use an `ASim` source-specific parser for interactive queries when not using parameters.
-
-
+For more information, see [built-in ASIM parsers and workspace-deployed parsers](normalization-parsers-overview.md#built-in-asim-parsers-and-workspace-deployed-parsers).
 
 ### Out-of-the-box, source-specific parsers
 
-Microsoft Sentinel provides the following built-in, product-specific Network Session parsers:
+Microsoft Sentinel provides the following out-of-the-box, product-specific Network Session parsers:
 
-| **Name** | **Description** |
-| --- | --- |
-| **Microsoft 365 Defender for Endpoint** | - Parametrized: `vimNetworkSessionMicrosoft365Defender` <br> - Regular: `ASimNetworkSessionMicrosoft365Defender` | 
-| **Microsoft Defender for IoT - Endpoint (MD4IoT)** | - Parametrized: `vimNetworkSessionMD4IoT` <br> - Regular: `ASimNetworkSessionMD4IoT`  |
-| **Microsoft Sysmon for Linux** | - Parametrized: `vimNetworkSessionSysmonLinux`<br> - Regular: `ASimNetworkSessionSysmonLinux`  |
-| **Windows Events Firewall** | Windows firewall activity as represented by using Windows Events 515x, collected by using either the Log Analytics Agent or the Azure Monitor Agent into either the `Event` table or the `WindowsEvent` table.<br><br> - Parametrized: `vimNetworkSessionMicrosoftWindowsEventFirewall` <br> -  Regular: `ASimNetworkSessionMicrosoftWindowsEventFirewall`
-| | |
+| **Source** | **Built-in parsers** | **Workspace deployed parsers** | 
+| --- | --------------------------- | ------------------------------ | 
+| **Microsoft 365 Defender for Endpoint** | `_ASim_NetworkSession_Microsoft365Defender` (regular)<br><br>`_Im_NetworkSession_Microsoft365Defender` (filtering) | `ASimNetworkSessionMicrosoft365Defender` (regular)<br><br> `vimNetworkSessionMicrosoft365Defender` (filtering) |
+| **Microsoft Defender for IoT - Endpoint** |`_ASim_NetworkSession_MD4IoT` (regular)<br><br>`_Im_NetworkSession_MD4IoT` (filtering) | `ASimNetworkSessionMD4IoT` (regular)<br><br> `vimNetworkSessionMD4IoT` (filtering) |
+| **Sysmon for Linux**  (event 3)<br> Collected using the Log Analytics Agent<br> or the Azure Monitor Agent |`_ASim_NetworkSession_LinuxSysmon` (regular)<br><br>`_Im_NetworkSession_LinuxSysmon` (filtering) | `ASimNetworkSessionLinuxSysmon` (regular)<br><br> `vimNetworkSessionLinuxSysmon` (filtering) |
+| **Windows Firewall**<br>Collected using the Log Analytics Agent (Event table) or Azure Monitor Agent (WindowsEvent table). Supports Windows events 5150 to 5159. |`_ASim_NetworkSession_`<br>`MicrosoftWindowsEventFirewall` (regular)<br><br>`_Im_NetworkSession_`<br>`MicrosoftWindowsEventFirewall` (filtering) | `ASimNetworkSession`<br>`MicrosoftWindowsEventFirewall` (regular)<br><br> `vimNetworkSession`<br>`MicrosoftWindowsEventFirewall` (filtering) |
+| **Palo Alto PanOS** collected using CEF |`_ASim_NetworkSession_PaloAltoCEF` (regular)<br> `_Im_NetworkSession_PaloAltoCEF` (filtering)  | `ASimNetworkSessionPaloAltoCEF` (regular)<br> `vimNetworkSessionPaloAltoCEF` (filtering)  |
+| **Zscaler ZIA** |`_ASim_NetworkSessionZscalerZIA` (regular)<br> `_Im_NetworkSessionZscalerZIA` (filtering)  | `AsimNetworkSessionZscalerZIA` (regular)<br> `vimNetowrkSessionSzcalerZIA` (filtering)  |
+| | | | 
 
 ### Add your own normalized parsers
 
-When you implement custom parsers for the Network Session information model, name your KQL functions by using the following syntax:
+When implementing custom parsers for the Network Session information model, name your KQL functions using the following syntax:
 
 - `vimNetworkSession<vendor><Product>` for parametrized parsers
 - `ASimNetworkSession<vendor><Product>` for regular parsers
-
-Then, add the new parser to `imNetworkSession` or `ASimNetworkSession`, respectively.
 
 ### Filtering parser parameters
 
@@ -115,7 +81,7 @@ For example, to filter only web sessions for a specified list of domain names, u
 
 ```kql
 let torProxies=dynamic(["tor2web.org", "tor2web.com", "torlink.co",...]);
-imNetworkSession (hostname_has_any = torProxies)
+_Im_NetworkSession (hostname_has_any = torProxies)
 ```
 
 ## Schema details
@@ -218,7 +184,7 @@ The following fields are common to all network session activity logging:
 | **SrcGeoLongitude** | Optional | Longitude | The longitude of the geographical coordinate associated with the source IP address.<br><br>Example: `73.211944` |
 | **NetworkApplicationProtocol** | Optional | String | The application layer protocol used by the connection or session. If the [DstPortNumber](#dstportnumber) value is provided, we recommend that you include **NetworkApplicationProtocol** too. If the value isn't available from the source, derive the value from the [DstPortNumber](#dstportnumber) value.<br><br>Example: `FTP` |
 | **NetworkProtocol** | Optional | Enumerated | The IP protocol used by the connection or session as listed in [IANA protocol assignment](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml), which is typically `TCP`, `UDP`, or `ICMP`.<br><br>Example: `TCP` |
-| **NetworkDirection** | Optional | Enumerated | The direction of the connection or session, into or out of the organization. Supported values include `Inbound`, `Outbound`, and `Listen`. The `Listen` value indicates that a device has started accepting network connections but isn't actually, necessarily, connected.|
+| **NetworkDirection** | Optional | Enumerated | The direction of the connection or session, into or out of the organization. Supported values include `Inbound`, `Outbound`, `Listen`, and `Unknown`. The `Listen` value indicates that a device has started accepting network connections but isn't actually, necessarily, connected.|
 | <a name="networkduration"></a>**NetworkDuration** | Optional | Integer | The amount of time, in milliseconds, for the completion of the network session or connection.<br><br>Example: `1500` |
 | **Duration** | Alias | | Alias to [NetworkDuration](#networkduration). |
 | **NetworkIcmpCode** | Optional | Integer | For an ICMP message, the ICMP message type numeric value as described in [RFC 2780](https://datatracker.ietf.org/doc/html/rfc2780) for IPv4 network connections, or in [RFC 4443](https://datatracker.ietf.org/doc/html/rfc4443) for IPv6 network connections. If a [NetworkIcmpType](#networkicmptype) value is provided, this field is mandatory. If the value isn't available from the source, derive the value from the [NetworkIcmpType](#networkicmptype) field instead.<br><br>Example: `34` |

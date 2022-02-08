@@ -424,9 +424,6 @@ az aks nodepool add \
     --no-wait
 ```
 
-> [!NOTE]
-> A taint can only be set for node pools during node pool creation.
-
 The following example output from the [az aks nodepool list][az-aks-nodepool-list] command shows that *taintnp* is *Creating* nodes with the specified *nodeTaints*:
 
 ```console
@@ -531,7 +528,7 @@ az aks nodepool add \
 ```
 
 > [!NOTE]
-> Label can only be set for node pools during node pool creation. Labels must also be a key/value pair and have a [valid syntax][kubernetes-label-syntax].
+> Labels must be a key/value pair and have a [valid syntax][kubernetes-label-syntax].
 
 The following example output from the [az aks nodepool list][az-aks-nodepool-list] command shows that *labelnp* is *Creating* nodes with the specified *nodeLabels*:
 
