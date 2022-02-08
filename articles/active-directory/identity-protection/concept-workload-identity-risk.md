@@ -79,10 +79,10 @@ Identity Protection provides organizations with two reports they can use to inve
 
 Some of the key questions to answer during your investigation include:
 
-1. Do accounts show suspicious sign-in activity?
-1. Have there been unauthorized changes to the credentials?
-1. Have there been suspicious configuration changes to accounts?
-1. Did the account acquire unauthorized application roles?
+- Do accounts show suspicious sign-in activity?
+- Have there been unauthorized changes to the credentials?
+- Have there been suspicious configuration changes to accounts?
+- Did the account acquire unauthorized application roles?
 
 The [Azure Active Directory security operations guide for Applications](../fundamentals/security-operations-applications.md) provides detailed guidance on the above investigation areas.
 
