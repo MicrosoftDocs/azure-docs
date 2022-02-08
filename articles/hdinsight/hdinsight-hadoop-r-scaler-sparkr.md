@@ -22,7 +22,7 @@ The steps in this document assume that you have an intermediate level of knowled
 
 ## The airline and weather datasets
 
-The flight data is available from the [U.S. government archives](https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236). It's also available as a zip from [AirOnTimeCSV.zip](https://packages.revolutionanalytics.com/datasets/AirOnTime87to12/AirOnTimeCSV.zip).
+The flight data is available from the [U.S. government archives](https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236).
 
 The weather data can be downloaded as zip files in raw form, by month, from the [National Oceanic and Atmospheric Administration repository](https://www.ncdc.noaa.gov/orders/qclcd/). For this example, download the data for May 2007 – December 2012. Use the hourly data files and `YYYYMMMstation.txt` file within each of the zips.
 
