@@ -48,7 +48,7 @@ You must properly create the following certificate templates so that AD FS can u
 After you create these certificate templates, you'll need to enable the templates on the certificate authority so AD FS can request them.
 
 > [!NOTE]
-> This solution generates new short-term certificates for every time a user signs in, which can fill up the Certificate Authority database if you have many users. You can avoid overloading your database by [setting up a CA for non-persistent certificate processing](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ff934598(v=ws.10)). If you do this, make sure to only enable "Do not store certificates and requests in the CA database" on the duplicated smartcard logon certificate template. Don't enable "Do not include revocation information in issued certificates," or else the configuration won't work.
+> This solution generates new short-term certificates every time a user signs in, which can fill up the Certificate Authority database if you have many users. You can avoid overloading your database by [setting up a CA for non-persistent certificate processing](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ff934598(v=ws.10)). If you do this, on the duplicated smartcard logon certificate template, make sure you enable only **Do not store certificates and requests in the CA database**. Don't enable **Do not include revocation information in issued certificates** or the configuration won't work.
 
 ### Create the enrollment agent certificate template
 
