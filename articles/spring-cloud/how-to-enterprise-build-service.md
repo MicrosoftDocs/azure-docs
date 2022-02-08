@@ -62,7 +62,7 @@ All the builders configured in a Spring Cloud Service instance are listed in the
 
 :::image type="content" source="media/enterprise/how-to-enterprise-build-service/builder-list.png" alt-text="Azure portal screenshot showing Build Service page with list of configured builders.":::
 
-Select **Add** to create a new builder. The image below shows the resources used to create the customized builder.
+Select **Add** to create a new builder. The image below shows the resources you should use to create the customized builder.
 
 :::image type="content" source="media/enterprise/how-to-enterprise-build-service/builder-create.png" alt-text="Screenshot of 'Add Builder' pane.":::
 
