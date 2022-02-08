@@ -20,7 +20,7 @@ The ID document model combines powerful Optical Character Recognition (OCR) capa
 
 ***Sample U.S. Driver's License processed with Form Recognizer Studio***
 
-:::image type="content" source="media/studio/drivers-license.png" alt-text="sample identification card" lightbox="media/overview-id.jpg":::
+:::image type="content" source="media/studio/analyze-drivers-license.png" alt-text="sample identification card" lightbox="media/overview-id.jpg":::
 
 ## Development options
 
