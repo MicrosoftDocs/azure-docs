@@ -125,55 +125,57 @@ You've now registered the AppProxyNativeAppSample app in Azure Active Directory.
 
 1. On the next **Request API permissions** page, select the check box next to **user_impersonation**, and then select **Add permissions**.
 
-    ![Select an API](./media/application-proxy-secure-api-access/10-secretapi-added.png)
+    ![Select an A P I.](./media/application-proxy-secure-api-access/10-secretapi-added.png)
 
 1. Back on the **API permissions** page, you can select **Grant admin consent for Contoso** to prevent other users from having to individually consent to the app.
 
 ## Configure the native app code
 
-The last step is to configure the native app. The snippet below is based on the [Add the Microsoft Authentication Library to your code (.NET C# sample)](application-proxy-configure-native-client-application.md#step-4-add-the-microsoft-authentication-library-to-your-code-net-c-sample) and has been customized for this example. The code must be added to the *Form1.cs* file in the NativeClient sample app where it will cause the [MSAL library](../develop/reference-v2-libraries.md) to acquire the token for requesting the API call, and attach it as bearer to the header in the request.
+The last step is to configure the native app. The code snippet that's used in the following steps is based on [Add the Microsoft Authentication Library to your code (.NET C# sample)](application-proxy-configure-native-client-application.md#step-4-add-the-microsoft-authentication-library-to-your-code-net-c-sample). The code is customized for this example. The code must be added to the *Form1.cs* file in the NativeClient sample app where it will cause the [MSAL library](../develop/reference-v2-libraries.md) to acquire the token for requesting the API call and attach it as bearer to the header in the request.
 
 > [!NOTE]
-> The sample app uses [Azure Active Directory Authentication Library (ADAL)](../azuread-dev/active-directory-authentication-libraries.md). Read here how to [add MSAL to your project](../develop/tutorial-v2-windows-desktop.md#add-msal-to-your-project). Remember to [add the reference to MSAL](../develop/tutorial-v2-windows-desktop.md#add-the-code-to-initialize-msal) to the class and remove the ADAL reference.
+> The sample app uses [Azure Active Directory Authentication Library (ADAL)](../azuread-dev/active-directory-authentication-libraries.md). Read how to [add MSAL to your project](../develop/tutorial-v2-windows-desktop.md#add-msal-to-your-project). Remember to [add the reference to MSAL](../develop/tutorial-v2-windows-desktop.md#add-the-code-to-initialize-msal) to the class and remove the ADAL reference.
 
-* In *Form1.cs* add the namespace below to the code `using Microsoft.Identity.Client;`
-* Remove the following namespace `using Microsoft.IdentityModel.Clients.ActiveDirectory;`
-* Remove lines 26 and 30, as they are no longer needed.
-* Replace the contents of the `GetTodoList()` method with the following code snippet:
+To configure the native app code:
 
-```csharp
-// Acquire Access Token from AAD for Proxy Application
-var clientApp = PublicClientApplicationBuilder
-    .Create(clientId)
-    .WithDefaultRedirectUri() // Will automatically use the default Uri for native app
-    .WithAuthority(authority)
-    .Build();
-var accounts = await clientApp.GetAccountsAsync();
-var account = accounts.FirstOrDefault();
+1. In *Form1.cs*, add the namespace `using Microsoft.Identity.Client;` to the code.
+1. Remove the namespace `using Microsoft.IdentityModel.Clients.ActiveDirectory;` from the code.
+1. Remove lines 26 and 30 because they are no longer needed.
+1. Replace the contents of the `GetTodoList()` method with the following code snippet:
 
-var scopes = new string[] { todoListResourceId + "/user_impersonation" };
+   ```csharp
+   // Acquire Access Token from Azure AD for Proxy Application
+   var clientApp = PublicClientApplicationBuilder
+       .Create(clientId)
+       .WithDefaultRedirectUri() // Will automatically use the default URI for native app
+       .WithAuthority(authority)
+       .Build();
+   var accounts = await clientApp.GetAccountsAsync();
+   var account = accounts.FirstOrDefault();
 
-AuthenticationResult authResult;
-try
-{
-    authResult = await clientApp.AcquireTokenSilent(scopes, account).ExecuteAsync();
-}
-catch (MsalUiRequiredException ex)
-{
-    authResult = await clientApp.AcquireTokenInteractive(scopes).ExecuteAsync();
-}
+   var scopes = new string[] { todoListResourceId + "/user_impersonation" };
 
-if (authResult != null)
-{
-    // Use the Access Token to access the Proxy Application
-    var httpClient = new HttpClient();
-    httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", authResult.AccessToken);
-    // Call the To Do list service
-    var response = await httpClient.GetAsync(todoListBaseAddress + "/api/values/4");
-    var responseString = await response.Content.ReadAsStringAsync();
-    MessageBox.Show(responseString);
-}
-```
+   AuthenticationResult authResult;
+   try
+   {
+       authResult = await clientApp.AcquireTokenSilent(scopes, account).ExecuteAsync();
+   }
+   catch (MsalUiRequiredException ex)
+   {
+       authResult = await clientApp.AcquireTokenInteractive(scopes).ExecuteAsync();
+   }
+
+   if (authResult != null)
+   {
+       // Use the Access Token to access the Proxy Application
+       var httpClient = new HttpClient();
+       httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", authResult.AccessToken);
+       // Call the To Do list service
+       var response = await httpClient.GetAsync(todoListBaseAddress + "/api/values/4");
+       var responseString = await response.Content.ReadAsStringAsync();
+       MessageBox.Show(responseString);
+   }
+   ```
 
 To configure the native app to connect to Azure Active Directory and call the API App Proxy, update the placeholder values in the *App.config* file of the NativeClient sample app with values from Azure AD:
 
