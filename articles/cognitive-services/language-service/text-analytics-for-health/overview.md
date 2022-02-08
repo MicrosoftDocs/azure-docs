@@ -35,23 +35,23 @@ This documentation contains the following types of articles:
 
 ## Get started with Text anlaytics for health
 
-To use this feature, you submit raw unstructured text for analysis and handle the API output in your application. Analysis is performed as-is, with no additional customization to the model used on your data. There are two ways to use text summarization:
+To use this feature, you submit raw unstructured text for analysis and handle the API output in your application. Analysis is performed as-is, with no additional customization to the model used on your data. There are three ways to use Text Analytics for health:
 
 
 |Development option  |Description  | Links | 
 |---------|---------|---------|
-| Language Studio    | A web-based platform that enables you to try text summarization without needing writing code. | • [Language Studio website](https://language.cognitive.azure.com/tryout/healthAnalysis) <br> • [Quickstart: Use the Language studio](../language-studio.md) |
-| REST API or Client library (Azure SDK)     | Integrate text summarization into your applications using the REST API, or the client library available in a variety of languages. | • [Quickstart: Use Text Analytics for health](quickstart.md)  |
+| Language Studio    | A web-based platform that enables you to try Text Analytics for health without needing writing code. | • [Language Studio website](https://language.cognitive.azure.com/tryout/healthAnalysis) <br> • [Quickstart: Use the Language studio](../language-studio.md) |
+| REST API or Client library (Azure SDK)     | Integrate Text Analytics for health into your applications using the REST API, or the client library available in a variety of languages. | • [Quickstart: Use Text Analytics for health](quickstart.md)  |
 | Docker container | Use the available Docker container to deploy this feature on-premises, letting you bring the service closer to your data for compliance, security, or other operational reasons. | [How to deploy on-premises](how-to/use-containers.md) |
 
 ## Input requirements and service limits
 
-* Text summarization takes raw unstructured text for analysis. See the [data and service limits](how-to/call-api.md#data-limits) in the how-to guide for more information.
-* Text summarization works with a variety of written languages. See [language support](language-support.md) for more information.
+* Text Analytics for health takes raw unstructured text for analysis. See the [data and service limits](how-to/call-api.md#data-limits) in the how-to guide for more information.
+* Text Analytics for health works with a variety of written languages. See [language support](language-support.md) for more information.
 
 ## Reference documentation and code samples
 
-As you use text summarization in your applications, see the following reference documentation and samples for Azure Cognitive Services for Language:
+As you use Text Analytics for health in your applications, see the following reference documentation and samples for Azure Cognitive Services for Language:
 
 |Development option / language  |Reference documentation |Samples  |
 |---------|---------|---------|
