@@ -2,12 +2,11 @@
 title: Azure networking services overview
 description: Learn about networking services in Azure, including connectivity, application protection, application delivery, and network monitoring services.
 services: networking
-documentationcenter: na
 author: KumudD
 ms.service: virtual-network
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 04/07/2021
+ms.date: 02/03/2022
 ms.author: kumud
 
 ---
@@ -41,26 +40,26 @@ ExpressRoute enables you to extend your on-premises networks into the Microsoft 
 :::image type="content" source="./media/networking-overview/expressroute-connection-overview.png" alt-text="Azure ExpressRoute" border="false":::
 
 ### <a name="vpngateway"></a>VPN Gateway
-VPN Gateway helps you create encrypted cross-premises connections to your virtual network from on-premises locations, or create encrypted connections between VNets. There are different configurations available for VPN Gateway connections, such as, site-to-site, point-to-site, or VNet-to-VNet.
+VPN Gateway helps you create encrypted cross-premises connections to your virtual network from on-premises locations or create encrypted connections between VNets. There are different configurations available for VPN Gateway connections, such as site-to-site, point-to-site, and VNet-to-VNet.
 The following diagram illustrates multiple site-to-site VPN connections to the same virtual network.
 
-:::image type="content" source="./media/networking-overview/vpngateway-multisite-connection-diagram.png" alt-text="Site-to-Site Azure VPN Gateway connections":::
+:::image type="content" source="./media/networking-overview/vpngateway-multisite-connection-diagram.png" alt-text="Site-to-Site Azure VPN Gateway connections.":::
 
-For more information about different types of VPN connections, see [VPN Gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md).
+For more information about different types of VPN connections, see [What is VPN Gateway?](../../vpn-gateway/vpn-gateway-about-vpngateways.md).
 
 ### <a name="virtualwan"></a>Virtual WAN
-Azure Virtual WAN is a networking service that provides optimized and automated branch connectivity to, and through, Azure. Azure regions serve as hubs that you can choose to connect your branches to. You can leverage the Azure backbone to also connect branches and enjoy branch-to-VNet connectivity. 
-Azure Virtual WAN brings together many Azure cloud connectivity services such as site-to-site VPN, ExpressRoute, point-to-site user VPN into a single operational interface. Connectivity to Azure VNets is established by using virtual network connections. For more information, see [What is Azure virtual WAN?](../../virtual-wan/virtual-wan-about.md).
+Azure Virtual WAN is a networking service that provides optimized and automated branch connectivity to, and through, Azure. Azure regions serve as hubs that you can choose to connect your branches to. You can leverage the Azure backbone to also connect branches for branch-to-VNet connectivity. 
+Azure Virtual WAN brings together many Azure cloud connectivity services such as site-to-site VPN, ExpressRoute, and point-to-site user VPN into a single operational interface. Connectivity to Azure VNets is established by using virtual network connections. For more information, see [What is Azure Virtual WAN?](../../virtual-wan/virtual-wan-about.md).
 
-:::image type="content" source="./media/networking-overview/virtualwan1.png" alt-text="Virtual WAN diagram":::
+:::image type="content" source="./media/networking-overview/virtualwan1.png" alt-text="Virtual WAN diagram.":::
 
 ### <a name="dns"></a>Azure DNS
 Azure DNS is a hosting service for DNS domains that provides name resolution by using Microsoft Azure infrastructure. By hosting your domains in Azure, you can manage your DNS records by using the same credentials, APIs, tools, and billing as your other Azure services. For more information, see [What is Azure DNS?](../../dns/dns-overview.md).
 
 ### <a name="bastion"></a>Azure Bastion
-The Azure Bastion service is a new fully platform-managed PaaS service that you provision inside your virtual network. It provides secure and seamless RDP/SSH connectivity to your virtual machines directly in the Azure portal over TLS. When you connect via Azure Bastion, your virtual machines do not need a public IP address. For more information, see [What is Azure Bastion?](../../bastion/bastion-overview.md).
+The Azure Bastion service is a fully platform-managed PaaS service that you provision inside your virtual network. It provides secure and seamless RDP/SSH connectivity to your virtual machines directly in the Azure portal over TLS. When you connect via Azure Bastion, your virtual machines do not need a public IP address. For more information, see [What is Azure Bastion?](../../bastion/bastion-overview.md).
 
-:::image type="content" source="./media/networking-overview/architecture.png" alt-text="Azure Bastion architecture":::
+:::image type="content" source="./media/networking-overview/architecture.png" alt-text="Azure Bastion architecture.":::
 
 ### <a name="nat"></a>Virtual network NAT Gateway
 Virtual Network NAT (network address translation) simplifies outbound-only Internet connectivity for virtual networks. When configured on a subnet, all outbound connectivity uses your specified static public IP addresses. Outbound connectivity is possible without load balancer or public IP addresses directly attached to virtual machines. 
@@ -70,14 +69,6 @@ For more information, see [What is virtual network NAT gateway?](../../virtual-n
 
 ### <a name="azurepeeringservice"></a> Azure Peering Service
 Azure Peering service enhances customer connectivity to Microsoft cloud services such as Microsoft 365, Dynamics 365, software as a service (SaaS) services, Azure, or any Microsoft services accessible via the public internet. For more information, see [What is Azure Peering Service?](../../peering-service/about.md).
-
-### <a name="edge-zones"></a>Azure Edge Zones
-
-Azure Edge Zone is a family of offerings from Microsoft Azure that enables data processing close to the user. You can deploy VMs, containers, and other selected Azure services into Edge Zones to address the low latency and high throughput requirements of applications.
-
-### <a name="orbital"></a>Azure Orbital
-
-Azure Orbital is a fully managed cloud-based ground station as a service that lets you communicate with your spacecraft or satellite constellations, downlink and uplink data, process your data in the cloud, chain services with Azure services in unique scenarios, and generate products for your customers. This system is built on top of the Azure global infrastructure and low-latency global fiber network.
 
 ## <a name="protect"></a>Application protection services
 
@@ -167,14 +158,6 @@ Azure Monitor for Networks provides a comprehensive view of health and metrics f
 To learn about how view ExpressRoute circuit metrics, resource logs and alerts, see [ExpressRoute monitoring, metrics, and alerts](../../expressroute/expressroute-monitoring-metrics-alerts.md?toc=%2fazure%2fnetworking%2ftoc.json).
 ### <a name="azuremonitor"></a>Azure Monitor
 Azure Monitor maximizes the availability and performance of your applications by delivering a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments. It helps you understand how your applications are performing and proactively identifies issues affecting them and the resources they depend on. For more information, see [Azure Monitor Overview](../../azure-monitor/overview.md?toc=%2fazure%2fnetworking%2ftoc.json).
-### <a name="vnettap"></a>Virtual Network TAP
-Azure virtual network TAP (Terminal Access Point) allows you to continuously stream your virtual machine network traffic to a network packet collector or analytics tool. The collector or analytics tool is provided by a [network virtual appliance](https://azure.microsoft.com/solutions/network-appliances/) partner.
-
-The following image shows how virtual network TAP works:
-
-:::image type="content" source="./media/networking-overview/virtual-network-tap-architecture.png" alt-text="How virtual network TAP works":::
-
-For more information, see [What is Virtual Network TAP](../../virtual-network/virtual-network-tap-overview.md).
 
 ## Next steps
 
