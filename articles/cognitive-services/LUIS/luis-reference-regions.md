@@ -6,7 +6,7 @@ ms.subservice: language-understanding
 author: aahill
 ms.author: aahi
 ms.topic: reference
-ms.date: 05/27/2021
+ms.date: 02/08/2022
 ms.custom: references_regions
 ---
 
