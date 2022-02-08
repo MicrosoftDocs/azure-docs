@@ -63,7 +63,7 @@ The system receives the request, then compares that prediction with the user's k
 ## Prerequisites
 
 * An [Azure Notebook](https://notebooks.azure.com/) account.
-* An [Azure Personalizer resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer).
+* An [Azure Personalizer resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer).
     * If you have already used the Personalizer resource, make sure to [clear the data](how-to-settings.md#clear-data-for-your-learning-loop) in the Azure portal for the resource.
 * Upload all the files for [this sample](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/tree/master/samples/azurenotebook) into an Azure Notebook project.
 
@@ -76,7 +76,7 @@ File descriptions:
 
 ## Configure Personalizer resource
 
-In the Azure portal, configure your [Personalizer resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer) with the **update model frequency** set to 15 seconds and a **reward wait time** of 15 seconds. These values are found on the **[Configuration](how-to-settings.md#configure-service-settings-in-the-azure-portal)** page.
+In the Azure portal, configure your [Personalizer resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer) with the **update model frequency** set to 15 seconds and a **reward wait time** of 15 seconds. These values are found on the **[Configuration](how-to-settings.md#configure-service-settings-in-the-azure-portal)** page.
 
 |Setting|Value|
 |--|--|
