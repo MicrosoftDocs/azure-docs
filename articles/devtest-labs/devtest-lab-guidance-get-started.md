@@ -33,13 +33,11 @@ The following diagram shows how lab owners can configure policies and provide re
 
 To create a lab in the Azure portal, see [Create a lab in Azure DevTest Labs](devtest-lab-create-lab.md).
 
-You can also automate lab creation, including custom settings, with a reusable *ARM template*. For more information, see [Create a lab by using a Resource Manager template](./devtest-lab-faq.yml#how-do-i-create-a-lab-from-a-resource-manager-template-).
+You can also automate lab creation, including custom settings, with a reusable *Azure Resource Manager (ARM) template*. For more information, see [Create a lab by using a Resource Manager template](./devtest-lab-faq.yml#how-do-i-create-a-lab-from-a-resource-manager-template-).
 
 ### Add a virtual network to a lab
 
 DevTest Labs creates a new virtual network for each lab. If you have another virtual network configured with Azure ExpressRoute or site-to-site VPN, you can add it to your lab. You can then use that virtual network for creating lab VMs. For more information, see [Configure a virtual network in Azure DevTest Labs](devtest-lab-configure-vnet.md).
-
-You can also add an Active Directory domain-join artifact to join VMs to an Active Directory domain at creation. This artifact applies only to domains.
 
 ### Add users to labs
 
@@ -90,13 +88,15 @@ Lab users can add *artifacts* to configure their lab VMs. Artifacts can be:
 
 Many artifacts are available out-of-the-box. You can also create *custom artifacts* if you need more customization. You store custom artifacts in a private Git repo you connect to your lab, so all lab users can add the artifacts to their VMs. For more information, see [Create custom artifacts for DevTest Labs](devtest-lab-artifact-author.md) and [Add an artifact repository to a lab](add-artifact-repository.md).
 
+You can add an Active Directory domain-join artifact to join VMs to an Active Directory domain at creation. This artifact applies only to domains.
+
 ## Multi-VM environments
 
 Many development and test scenarios require multi-VM *environments* equipped with platform-as-a-service (PaaS) resources. Examples include Azure Web Apps, SharePoint farms, and Service Fabric clusters. Creating and managing environments across an enterprise can require significant effort.
 
 With DevTest Labs, teams can easily create, update, or duplicate multi-VM environments. Developers can use fully configured environments to develop and test the latest versions of their apps. DevTest Labs environments ensure consistency across teams.
 
-By using ARM templates for environments, you can:
+By using ARM templates to deploy environments, you can:
 
 - Repeatedly deploy multiple preconfigured VMs in a consistent state.
 - Define infrastructure and configuration for Windows or Linux environments.
