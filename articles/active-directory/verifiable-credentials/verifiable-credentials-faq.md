@@ -94,7 +94,7 @@ Reconfiguration requires that you opt out and opt back into the Azure Active Dir
 1. Navigate to the Organization Settings. 
 1. Copy your organization’s Decentralized Identifier (DID). 
 1. Go to the ION Explorer and paste the DID in the search box 
-1. Inspect your DID document and search for the “#hub” node.
+1. Inspect your DID document and search for the ` “#hub” ` node.
 
 ```json
  "service": [
