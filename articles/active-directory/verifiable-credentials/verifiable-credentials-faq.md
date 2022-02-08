@@ -122,7 +122,7 @@ Reconfiguration requires that you opt out and opt back into the Azure Active Dir
 
 ### If I reconfigure the Azure AD Verifiable Credentials service, do I need to re-link my DID to my domain?
 
-Yes, after reconfiguring your service, your tenant has a new DID use to issue and verify verifiable credentials. You need to [associate your new DID](verifiable-credentials/how-to-dnsbind) with your domain.
+Yes, after reconfiguring your service, your tenant has a new DID use to issue and verify verifiable credentials. You need to [associate your new DID](verifiable-credentials/how-to-dnsbind.md) with your domain.
 
 ### Is it possible to request Microsoft to retrieve "old DIDs"?
 
