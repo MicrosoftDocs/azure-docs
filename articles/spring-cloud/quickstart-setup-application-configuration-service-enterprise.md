@@ -11,7 +11,7 @@ ms.custom: devx-track-java, devx-track-azurecli
 
 # Quickstart: Set up Application Configuration Service
 
-**This article applies to:** ✔️ Enterprise tier ❌ Basic/Standard tier
+**This article applies to:** ❌ Basic/Standard tier ✔️ Enterprise tier
 
 This quickstart shows you how to set up Application Configuration Service for use with Azure Spring Cloud Enterprise tier.
 

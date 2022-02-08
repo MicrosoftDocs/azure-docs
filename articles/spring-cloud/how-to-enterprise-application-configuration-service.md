@@ -12,7 +12,7 @@ ms.custom: devx-track-java
 
 # Use Application Configuration Service
 
-**This article applies to:** ✔️ Enterprise tier ❌ Basic/Standard tier
+**This article applies to:** ❌ Basic/Standard tier ✔️ Enterprise tier
 
 This article shows you how to use Application Configuration Service with Azure Spring Cloud Enterprise Tier.
 

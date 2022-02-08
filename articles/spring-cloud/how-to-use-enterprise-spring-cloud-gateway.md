@@ -12,7 +12,7 @@ ms.custom: devx-track-java, devx-track-azurecli
 
 # Use Spring Cloud Gateway
 
-**This article applies to:** ✔️ Enterprise tier ❌ Basic/Standard tier
+**This article applies to:** ❌ Basic/Standard tier ✔️ Enterprise tier
 
 This article shows you how to use Spring Cloud Gateway with Azure Spring Cloud Enterprise Tier.
 
