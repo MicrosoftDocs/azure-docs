@@ -344,9 +344,11 @@ After the Azure Logic Apps team reviews and approves your PR for merging to the 
 
    In this example, the task's underlying workflow includes the following parameter definitions and specifies that these parameter values are provided by the task creator:
 
-   * **numberOf**: Specifies the maximum number of time units that a virtual machine can stay idle. This parameter uses the **Default** template, which lets you specify the parameter's information and expected format, which is **None**.
-
-   * **timeUnit**. Specifies the time unit to use for the duration limit. This parameter uses the **Frequency** template, which shows the time units that the task creator can select, for example, **Hour**, **Day**, or **Month**.
+   | Parameter | Description |
+   |-----------|-------------|
+   | **numberOf** | Specifies the maximum number of time units that a virtual machine can stay idle. This parameter uses the **Default** template, which lets you specify the parameter's information and expected format, which is **None**. |
+   | **timeUnit** | Specifies the time unit to use for the duration limit. This parameter uses the **Frequency** template, which shows the time units that the task creator can select, for example, **Hour**, **Day**, or **Month**. |
+   |||
 
 1. When you're done, select **Download Template**, and save the template using the **.json** file name extension. For a consistent template name, use only lowercase, hyphens between words, and the following syntax:
 
