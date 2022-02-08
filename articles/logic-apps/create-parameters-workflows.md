@@ -40,7 +40,7 @@ In single-tenant Standard logic app workflows, you can work with environment var
 
 > [!NOTE]
 > In Standard logic app workflows, secure data types, such as `securestring` and `secureobject`, 
-> aren't supported. To a different option, you can use app settings with Azure Key Vault. 
+> aren't supported. However, as an alternative option, you can use app settings with Azure Key Vault. 
 > You can then [directly reference secure strings](../app-service/app-service-key-vault-references.md), 
 > such as connection strings and keys. Similar to ARM templates, where you can define environment 
 > variables at deployment time, you can define app settings within your 
