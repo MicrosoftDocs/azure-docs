@@ -17,7 +17,7 @@ Data transformations are defined using Kusto Query Language (KQL). They may filt
 ## Transformation structure
 The input stream is represented by a virtual table named `source` with columns matching by the input data stream definition 
 
-Following is a typical example of a transformation. This example includes the following following functionality:
+Following is a typical example of a transformation. This example includes the following functionality:
 
 - Filters the incoming data with a [where]() statement
 - Adds a new column using the [extend]() operator
@@ -152,36 +152,36 @@ All [Datetime and Timespan arithmetic operators](/azure/data-explorer/kusto/quer
 #### String operators
 The following [String operators](/azure/data-explorer/kusto/query/datatypes-string-operators) are supported.
 
-– ==
-– !=
-– =~
-– !~
-– contains
-– !contains
-– contains_cs
-– !contains_cs
-– startswith
-– !startswith
-– startswith_cs
-– !startswith_cs
-– endswith
-– !endswith
-– endswith_cs
-– !endswith_cs
-– matches regex
-– in
-– !in
+– `==`
+– `!=`
+– `=~`
+– `!~`
+– `contains`
+– `!contains`
+– `contains_cs`
+– `!contains_cs`
+– `startswith`
+– `!startswith`
+– `startswith_cs`
+– `!startswith_cs`
+– `endswith`
+– `!endswith`
+– `endswith_cs`
+– `!endswith_cs`
+– `matches regex`
+– `in`
+– `!in`
 
 #### Bitwise operators
 
 The following [Bitwise operators](/azure/data-explorer/kusto/query/binoperators) are supported.
 
-– binary_and()
-– binary_or()
-– binary_xor()
-– binary_not()
-– binary_shift_left()
-– binary_shift_right()
+– `binary_and()`
+– `binary_or()`
+– `binary_xor()`
+– `binary_not()`
+– `binary_shift_left()`
+– `binary_shift_right()`
 
 ### Scalar functions
 

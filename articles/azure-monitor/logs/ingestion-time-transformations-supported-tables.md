@@ -8,7 +8,9 @@ ms.author: bwren
 ms.date: 01/27/2022
 ---
 
-The following table is a complete list of all tables in a [Log Analytics workspace](log-analytics-workspace-overview.md) that are eligible for customization through the ingestion-time transformations feature.
+# Supported tables for ingestion-time transformations
+
+The following table is a complete list of all tables in a [Log Analytics workspace](log-analytics-workspace-overview.md) that are eligible for customization through [ingestion-time transformations](ingestion-time-transformations.md).
 
 | Table | Limitations |
 |:---|:---|

@@ -1,5 +1,5 @@
 ---
-title: Tutorial: Tutorial - Send custom logs to Azure Monitor Logs
+title: Tutorial - Send custom logs to Azure Monitor Logs
 description: This article describes how to send custom logs to a Log Analytics workspace in Azure Monitor.
 ms.subservice: logs
 ms.topic: tutorial
