@@ -50,6 +50,7 @@ M-series VM's feature Intel&reg; Hyper-Threading Technology.
 <sup>2</sup> Instance is isolated to hardware dedicated to a single customer.
 
 <sup>3</sup> [Constrained core sizes available](./constrained-vcpu.md).
+
 <sup>4</sup> M-series VMs can [burst](./disk-bursting.md) their disk performance for up to 30 minutes at a time. 
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
