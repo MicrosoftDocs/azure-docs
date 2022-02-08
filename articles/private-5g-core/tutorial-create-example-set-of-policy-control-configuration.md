@@ -60,8 +60,8 @@ To create the service:
     |---------|---------|
     |**Service name**     |`service_restricted_udp_and_icmp`         |
     |**Service precedence**     | `100`        |
-    |**Maximum Bit Rate (MBR) - Uplink**     | `2 Gbps`        |
-    |**Maximum Bit Rate (MBR) - Downlink**     | `2 Gbps`        |
+    |**Maximum bit rate (MBR) - Uplink**     | `2 Gbps`        |
+    |**Maximum bit rate (MBR) - Downlink**     | `2 Gbps`        |
     |**Allocation and Retention Priority level**     | `2`        |
     |**5G QoS Indicator (5QI)**     | `9`        |
     |**Preemption capability**     | Select **May not preempt**.        |
@@ -172,8 +172,8 @@ To create the service:
     |---------|---------|
     |**Service name**     |`service_blocking_udp_from_specific_sources`         |
     |**Service precedence**     | `150`        |
-    |**Maximum Bit Rate (MBR) - Uplink**     | `2 Gbps`        |
-    |**Maximum Bit Rate (MBR) - Downlink**     | `2 Gbps`        |
+    |**Maximum bit rate (MBR) - Uplink**     | `2 Gbps`        |
+    |**Maximum bit rate (MBR) - Downlink**     | `2 Gbps`        |
     |**Allocation and Retention Priority level**     | `2`        |
     |**5G QoS Indicator (5QI)**     | `9`        |
     |**Preemption capability**     | Select **May not preempt**.        |
@@ -245,22 +245,22 @@ To create the service:
 
 In this step, we'll create a service that limits the bandwidth of traffic on matching flows. Specifically, it'll do the following:
 
-* Limit the Maximum Bit Rate (MBR) for packets flowing away from UEs to 10 Mbps.
-* Limit the Maximum Bit Rate (MBR) for packets flowing towards UEs to 15 Mbps.
+* Limit the maximum bit rate (MBR) for packets flowing away from UEs to 10 Mbps.
+* Limit the maximum bit rate (MBR) for packets flowing towards UEs to 15 Mbps.
 
 To create the service:
 
 1. Search for and select the Mobile Network resource representing your private mobile network.
 1. In the **Resource** menu, select **Services**.
 1. In the **Command** bar, select **Create**.
-1. We'll now enter values to define the QoS characteristics that will be applied to SDFs that match this service. We'll use the **Maximum Bit Rate (MBR) - Uplink** and **Maximum Bit Rate (MBR) - Downlink** fields to set our bandwidth limits. On the **Basics** tab, fill out the fields as follows.
+1. We'll now enter values to define the QoS characteristics that will be applied to SDFs that match this service. We'll use the **Maximum bit rate (MBR) - Uplink** and **Maximum bit rate (MBR) - Downlink** fields to set our bandwidth limits. On the **Basics** tab, fill out the fields as follows.
 
     |Field  |Value  |
     |---------|---------|
     |**Service name**     |`service_traffic_limits`         |
     |**Service precedence**     | `253`        |
-    |**Maximum Bit Rate (MBR) - Uplink**     | `10 Mbps`        |
-    |**Maximum Bit Rate (MBR) - Downlink**     | `15 Mbps`        |
+    |**Maximum bit rate (MBR) - Uplink**     | `10 Mbps`        |
+    |**Maximum bit rate (MBR) - Downlink**     | `15 Mbps`        |
     |**Allocation and Retention Priority level**     | `2`        |
     |**5G QoS Indicator (5QI)**     | `9`        |
     |**Preemption capability**     | Select **May not preempt**.        |

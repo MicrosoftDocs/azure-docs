@@ -65,10 +65,10 @@ In this step, you'll create the site resource representing the physical enterpri
 
 1. Select **Go to resource group**, and confirm that it contains the following new resources:
 
-    - A **mobile network site** resource representing the site as a whole.
-    - A **packet core control plane** resource representing the control plane function of the packet core instance in the site.
-    - A **packet core data plane** resource representing the data plane function of the packet core instance in the site.
-    - An **attached data network** resource representing the site's view of the data network.
+    - A **Mobile Network Site** resource representing the site as a whole.
+    - A **Packet Core Control Plane** resource representing the control plane function of the packet core instance in the site.
+    - A **Packet Core Data Plane** resource representing the data plane function of the packet core instance in the site.
+    - An **Attached Data Network** resource representing the site's view of the data network.
 
     :::image type="content" source="media/how-to-guide-deploy-a-private-mobile-network-azure-portal/site-and-related-resources.png" alt-text="Screenshot of the Azure portal showing a resource group containing a site and its related resources." lightbox="media/how-to-guide-deploy-a-private-mobile-network-azure-portal/site-and-related-resources.png":::
 
@@ -87,7 +87,7 @@ In this step, you'll create the site resource representing the physical enterpri
 
 1. In the **Azure portal**, search for and select the **Mobile Network** resource corresponding to your private mobile network.
 1. In the **Resource** menu, select **Sites**.
-1. Select the **Mobile network site** resource matching the site in which the packet core instance is located.
+1. Select the **Mobile Network Site** resource matching the site in which the packet core instance is located.
 
     :::image type="content" source="media/select-site.png" alt-text="Screenshot of the Azure portal showing the available sites in the private mobile network." lightbox="media/select-site.png":::
 
@@ -97,7 +97,7 @@ In this step, you'll create the site resource representing the physical enterpri
 
 1. On the **Configuration** tab, select the **Custom location** resource you identified in [Verify that your Azure Stack Edge Pro cluster resources have been created and that the connection is active](#verify-that-your-azure-stack-edge-pro-cluster-resources-have-been-created-and-that-the-connection-is-active) from the **Custom ARC location** drop-down menu. Ensure you select the correct resource, as this can't be reversed once you've applied it.
 1. Select **Apply**.
-1. Return to the **Mobile network site** resource and confirm that the **Edge custom location** field is now displaying the correct **Custom location** resource.
+1. Return to the **Mobile Network Site** resource and confirm that the **Edge custom location** field is now displaying the correct **Custom location** resource.
 
     :::image type="content" source="media/configured-custom-location.png" alt-text="Screenshot of the Azure portal showing a correctly configured custom location on a site.":::
 

@@ -44,7 +44,7 @@ All packet core network functions are compliant with the 3GPP specifications lis
 - TS 29.281: General Packet Radio System (GPRS) Tunneling Protocol User Plane (GTPv1-U).
 - TS 38.415: NG-RAN; PDU session user plane protocol.
 
-### Non-access-stratum (NAS) protocol / NG Application Protocol (NGAP)
+### Non-access stratum (NAS) protocol / NG Application Protocol (NGAP)
 
 - TS 24.501: Non-Access-Stratum (NAS) protocol for 5G System (5GS); Stage 3.
 - TS 38.410: NG-RAN; NG general aspects and principles (NGAP).
