@@ -26,7 +26,6 @@ The following list is provided as a reference and includes a detailed list of se
 - EnrichmentSvc
 - IC3 Gateway
 - Media Analysis and Transformation Service
-- Media Analysis and Transformation Service
 - Message Recall app
 - Messaging Async Media
 - MessagingAsyncMediaProd
@@ -57,7 +56,6 @@ The following list is provided as a reference and includes a detailed list of se
 - Microsoft To-Do WebApp
 - Microsoft Whiteboard Services
 - O365 Suite UX
-- O365 Suite UX
 - OCPS Checkin Service
 - Office 365 app, corresponding to a migrated siteId.
 - Office 365 Exchange Microservices
@@ -65,7 +63,6 @@ The following list is provided as a reference and includes a detailed list of se
 - Office 365 Search Service
 - Office 365 SharePoint Online
 - Office 365 Yammer
-- Office Delve
 - Office Delve
 - Office Hive
 - Office Hive Azure Government
@@ -89,7 +86,6 @@ The following list is provided as a reference and includes a detailed list of se
 - ProjectWorkManagement_USGov
 - Reply at mention
 - Security & Compliance Center
-- SharePoint Online Web Client Extensibility
 - SharePoint Online Web Client Extensibility
 - SharePoint Online Web Client Extensibility Isolated
 - Skype and Teams Tenant Admin API
