@@ -151,7 +151,7 @@ In directory *liberty/config*, the *server.xml* is used to configure the DB conn
 
 ### Acquire necessary variables from AKS deployment
 
-After the offer is successfully deployed, an AKS cluster with a namespace will be generated automatically. The AKS cluster is configured to connect to the ACR using a pre-created secret under the generated namespace. Before we get started with the application, we need to extract the namespace configured for the AKS.
+After the offer is successfully deployed, an AKS cluster will be generated automatically. The AKS cluster is configured to connect to the ACR. Before we get started with the application, we need to extract the namespace configured for the AKS.
 
 1. Run following command to print the current deployment file, using the `appDeploymentTemplateYamlEncoded` you saved above. The output contains all the variables we need.
 
