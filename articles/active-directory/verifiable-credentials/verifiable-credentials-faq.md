@@ -57,32 +57,37 @@ ION is a decentralized, permissionless, scalable decentralized identifier Layer 
 
 ## Using the preview
 
-### Why must I use NodeJS for the Verifiable Credentials preview? Any plans for other programming languages? 
-
-We chose NodeJS because it's a popular platform for application developers. We'll be releasing a Rest API that will allow the developers to issue and verify credentials. 
-
 ### Is any of the code used in the preview open source?
 
 Yes! The following repositories are the open-sourced components of our services.
 
 1. [SideTree, on GitHub](https://github.com/decentralized-identity/sidetree)
-2. The [VC SDK for Node, on GitHub](https://github.com/microsoft/VerifiableCredentials-Verification-SDK-Typescript)
-3. An [Android SDK for building decentralized identity wallets, on GitHub](https://github.com/microsoft/VerifiableCredential-SDK-Android)
-4. An [iOS SDK for building decentralized identity wallets, on GitHub](https://github.com/microsoft/VerifiableCredential-SDK-iOS)
+1. An [Android SDK for building decentralized identity wallets, on GitHub](https://github.com/microsoft/VerifiableCredential-SDK-Android)
+1. An [iOS SDK for building decentralized identity wallets, on GitHub](https://github.com/microsoft/VerifiableCredential-SDK-iOS)
 
 
-## What are the licensing requirements?
+### What are the licensing requirements?
 
 An Azure AD P2 license is required to use the preview of Verifiable Credentials. This is a temporary requirement, as we expect pricing for this service to be billed based on usage. 
 
-## How do I redeploy the Azure AD Verifiable credentials service?
+### How do I reconfigure the Azure AD Verifiable credentials service?
 
-Redeployment requires you to opt out and opt back into the Azure Active Directory Verifiable Credentials service.
+Reconfiguration requires you to opt out and opt back into the Azure Active Directory Verifiable Credentials service, your existing verifiable credentials configurations will reset and your tenant will obtain a new DID that will use during issuance and presentation.
 
 1. Follow the [opt-out](how-to-opt-out.md) instructions.
-1. Go over the Azure Active Directory Verifiable credentials [deployment steps](verifiable-credentials-configure-tenant.md) to reconfigure the service and get a new DID.
-    1. If you are in the European region we suggest that you create a new Azure Key vault and a new container in a European region.
-1. Finish [setting up](verifiable-credentials-configure-tenant.md#set-up-verifiable-credentials) your verifiable credentials service. You need to recreate your credentials. If your deployment issues credentials create a new storage account in the European region. You can reuse your configuration and rules files.
+1. Go over the Azure Active Directory Verifiable credentials [deployment steps](verifiable-credentials-configure-tenant.md) to reconfigure the service.
+    1. If you are in the European region it's recommended that your Azure Key Vault and container are in the same European region as your Verifiable Credential service otherwise you will have potential performance and latency issues. Create new instances of these services in the same EU region as needed.
+1. Finish [setting up](verifiable-credentials-configure-tenant.md#set-up-verifiable-credentials) your verifiable credentials service. You need to recreate your credentials.
+    1. If you setup your tenant for issuing credentials, it's recommended that your storage account is in the European region as your Verifiable Credentials service.
+    2. You also need to issue new credentials because your tenant now holds a new DID.
+
+### If I reconfigure the Azure AD Verifiable Credentials service, do I need to re-link my DID to my domain?
+
+Yes, after reconfiguring your service, your tenant has a new DID use to issue and verify verifiable credentials. You need to [associate your new DID](verifiable-credentials/how-to-dnsbind) with your domain.
+
+###  Is it possible to request Microsoft to retreive "old DIDs"?
+
+No, at this point is not possible to keep your tenant's DID after you have opt-out of the service.
 
 ## Next steps
 
