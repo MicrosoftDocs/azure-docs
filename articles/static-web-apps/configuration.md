@@ -272,6 +272,9 @@ The following example implements a custom CORS configuration.
 }
 ```
 
+> [!NOTE]
+> Global headers do not affect API responses. Headers in API responses are preserved and returned to the client.
+
 ## Response overrides
 
 The `responseOverrides` section provides an opportunity to define a custom response when the server would otherwise return an error code. See the [example configuration file](#example-configuration-file) for usage examples.
