@@ -21,7 +21,7 @@ ms.author: v-ydequadros
 This article describes how to enable CloudKnox Permissions Management (CloudKnox) in your organization.  Once you've enabled CloudKnox, you can connect it to your Amazon Web Services (AWS), Microsoft Azure, or Google Cloud Platform (GCP) platforms.
 
 > [!NOTE] 
-> To complete this task, you must have Global Administrator permissions.
+> To complete this task, you must have Global Administrator permissions on a user in that tenant.  It is not possible to enable CloudKnox as a user from other tenant who has signed in via B2B or via Azure Lighthouse.
 
 <!---Context: to collect data from your clouds, we need to…  @Mrudula to help fill in context--->
 
@@ -30,7 +30,7 @@ This article describes how to enable CloudKnox Permissions Management (CloudKnox
 To enable CloudKnox in your organization, you must have:
 
 - An Azure AD tenant. If you don't already have one, [create a free account](https://azure.microsoft.com/free/).
-- The global administrator role in that tenant.
+- Eligible or active assignment to the global administrator role on a user in that tenant.
 
 > [!NOTE]
 > During public preview, CloudKnox doesn't perform a license check.
@@ -39,7 +39,7 @@ To enable CloudKnox in your organization, you must have:
 
 1. In your browser:
     1. Go to [Azure services](https://portal.azure.com) and use your credentials to sign in to [Azure Active Directory](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview). 
-    1. If you aren't already authenticated, sign in as a global administrator to your Azure AD tenant.
+    1. If you aren't already authenticated, sign in as a global administrator user, and if needed activate the global administrator role, in your Azure AD tenant.
     1. In the Azure AD portal, select **Features highlights**, and then select **CloudKnox Permissions Management**.
 
     1. If you're asked to select an account to sign in, sign in as a global administrator to specified tenant.
