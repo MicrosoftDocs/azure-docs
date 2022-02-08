@@ -84,13 +84,13 @@ After the device is mounted on a rack, install the bezel on the device. Bezel se
 
 1. Locate two fixed pins on the right side of the bezel, and two spring-loaded pins on the left side of the bezel. 
 2. Insert the bezel in at an angle with fixed pins going into holes in right rack ear.
-3. Push [> shaped latch to the right, move left side of bezel into place, then release the latch until the spring pins engage with holes in left rack ear. 
+3. Push `[>` shaped latch to the right, move left side of bezel into place, then release the latch until the spring pins engage with holes in left rack ear. 
 
-    <!--![Mount the bezel](./media/azure-stack-edge-gpu-deploy-install/mount-bezel.png)-->
+    ![Mount the bezel](./media/azure-stack-edge-pro-2-deploy-install/mount-bezel.png)
 
 4. Lock the bezel in place using the provided security key. 
 
-    <!--![Lock the bezel](./media/azure-stack-edge-gpu-deploy-install/lock-bezel.png)-->
+    ![Lock the bezel](./media/azure-stack-edge-pro-2-deploy-install/lock-bezel.png)
 
 ## Cable the device
 
@@ -103,7 +103,9 @@ Before you start cabling your device, you need the following things:
 - At least one 1-GbE RJ-45 network cable to connect to the PORT 1. There are two 10-GbE network interfaces, one used for initial configuration and one for data, on the device. These network interfaces can also act as 10-GbE interfaces.
 - One 100-GbE QSFP28 passive direct attached cable (tested in-house) for each data network interface PORT 3 and PORT 4 to be configured. At least one data network interface from among PORT 2, PORT 3, and PORT 4 needs to be connected to the Internet (with connectivity to Azure). Here is an example QSFP28 DAC connector: 
 
-    For a full list of supported cables, modules, and switches, see [Connect-X6 DX adapter card compatible firmware](https://docs.mellanox.com/display/ConnectX6DxFirmwarev22271016/Firmware Compatible Products). 
+    ![Example of a QSFP28 DAC connector](./media/azure-stack-edge-pro-2-deploy-install/qsfp28-dac-connector.png)
+
+    For a full list of supported cables, modules, and switches, see [Connect-X6 DX adapter card compatible firmware](https://docs.nvidia.com/networking/display/ConnectX6DxFirmwarev22271016/Firmware+Compatible+Products). 
 - Access to one power distribution unit.
 - At least one 100-GbE network switch to connect a 1-GbE or a 100-GbE network interface to the Internet for data. 
 
@@ -134,10 +136,10 @@ On your Azure Stack Edge Pro 2 device:
     - **Intel Ethernet X722 network adapter** - PORT 1, PORT 2.
     - **Mellanox dual port 100 GbE ConnectX-6 Dx network adapter** - PORT 3, PORT 4.
 
-For a full list of supported cables, switches, and transceivers for these network adapter cards, see:
+<!--For a full list of supported cables, switches, and transceivers for these network adapter cards, see:
 
 - GET THESE URLs.
-- GET THESE URLs.  
+- GET THESE URLs. -->
 
  
 Take the following steps to cable your device for power and network.

@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 01/27/2021
+ms.date: 02/08/2022
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand what Azure Stack Edge Pro GPU is and how it works so I can use it to process and transform data before sending to Azure.
 ---
@@ -57,6 +57,8 @@ Azure Stack Edge Pro 2 has the following capabilities:
 The Azure Stack Edge Pro 2 solution consists of Azure Stack Edge resource, Azure Stack Edge Pro 2 physical device, and a local web UI.
 
 * **Azure Stack Edge Pro 2 physical device** - A 2U compact size device supplied by Microsoft that can be configured to send data to Azure.
+
+    ![Perspective view of Azure Stack Edge Pro 2 physical device](./media/azure-stack-edge-pro-2-overview/azure-stack-edge-pro-2-perspective-view-1.png)
 
     [!INCLUDE [azure-stack-edge-gateway-edge-hardware-center-overview](../../includes/azure-stack-edge-gateway-edge-hardware-center-overview.md)]    
 
