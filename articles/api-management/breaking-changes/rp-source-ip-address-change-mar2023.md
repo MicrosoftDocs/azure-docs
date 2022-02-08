@@ -1,6 +1,6 @@
 ---
 title: Resource Provider source IP address change (March 2023) | Microsoft Docs
-description: Azure API Management is updating the source IP address of the resource provider in certain regions.  If your service is hosted in a VNET, you may need to update network settings to continue managing your service.
+description: Azure API Management is updating the source IP address of the resource provider in certain regions.  If your service is hosted in a Microsoft Azure Virtual Network, you may need to update network settings to continue managing your service.
 services: api-management
 documentationcenter: ''
 author: adrianhall
@@ -31,8 +31,8 @@ This change will have NO effect on the availability of your API Management servi
 Your service is impacted by this change if:
 
 * The API Management service is in one of the seven regions listed in the table above.
-* The API Management service is running inside a virtual network (VNET).
-* The VNET Network Security Group (NSG) or User-defined Routes (UDRs) are configured with explicit source IP addresses.
+* The API Management service is running inside an Azure virtual network.
+* The Network Security Group (NSG) or User-defined Routes (UDRs) for the virtual network are configured with explicit source IP addresses.
 
 ## What is the deadline for the change?
 
@@ -44,14 +44,14 @@ After 31 March 2023, if you prefer not to make changes to your IP addresses, you
 
 Yes, you can.
 
-API Management publishes a _service tag_ that you can use to configure the NSG for your VNET.  The service tag includes information about the source IP addresses that API Management uses to manage your service.  For more information on this topic, read [Configure NSG Rules] in the API Management documentation.
+API Management publishes a _service tag_ that you can use to configure the NSG for your virtual network.  The service tag includes information about the source IP addresses that API Management uses to manage your service.  For more information on this topic, read [Configure NSG Rules] in the API Management documentation.
 
 ## What do I need to do?
 
-Update the NSG security rules that allow the API Management resource provider to communicate with your API Management instance. For detailed instructions on how to manage a NSG, review [Create, change, or delete a network security group] in the Virtual Network documentation.
+Update the NSG security rules that allow the API Management resource provider to communicate with your API Management instance. For detailed instructions on how to manage a NSG, review [Create, change, or delete a network security group] in the Azure Virtual Network documentation.
 
 1. Go to the [Azure portal](https://portal.azure.com) to view your NSGs.  Search for and select **Network security groups**.
-2. Select the name of the NSG associated with the VNET hosting your API Management service.
+2. Select the name of the NSG associated with the virtual network hosting your API Management service.
 3. In the menu bar, choose **Inbound security rules**.
 4. The inbound security rules should already have an entry that mentions a Source address matching the _Old IP Address_ from the table above.  If it doesn't, you're not using explicit source IP address filtering, and can skip this update.
 5. Select **Add**.
@@ -70,15 +70,15 @@ Update the NSG security rules that allow the API Management resource provider to
 
 7. Select **OK**.
 
-In addition, you may have to adjust the network routing for the VNET to accommodate the new control plane IP addresses.  If you've configured a default route (`0.0.0.0/0`) forcing all traffic from the API Management subnet to flow through a firewall instead of directly to the Internet, then additional configuration is required.  
+In addition, you may have to adjust the network routing for the virtual network to accommodate the new control plane IP addresses.  If you've configured a default route (`0.0.0.0/0`) forcing all traffic from the API Management subnet to flow through a firewall instead of directly to the Internet, then additional configuration is required.  
 
 If you configured user-defined routes (UDRs) for control plane IP addresses, the new IP addresses must be routed the same way.  For more details on the changes necessary to handle network routing of management requests, review [Force tunneling traffic] documentation.
 
-Finally, check for any other systems that may impact the communication from the API Management resource provider to your API Management service subnet.  For more information about VNET configuration, review the [Virtual Network] documentation.
+Finally, check for any other systems that may impact the communication from the API Management resource provider to your API Management service subnet.  For more information about virtual network configuration, review the [Virtual Network] documentation.
 
 ## More Information
 
-* [Virtual Network]
+* [Virtual Network](/azure/virtual-network)
 * [API Management VNET Reference](../virtual-network-reference.md)
 * [Microsoft Q&A](/answers/topics/azure-api-management.html)
 
