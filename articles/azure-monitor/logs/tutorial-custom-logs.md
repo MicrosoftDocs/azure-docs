@@ -8,27 +8,27 @@ ms.author: bwren
 ms.date: 01/19/2022
 ---
 
-# Tutorial: Add ingestion-time transformation to Azure Monitor Logs
-[Custom logs]() in Azure Monitor allow you to send custom data to any table in a Log Analytics workspace with a REST API. 
+# Tutorial: Add ingestion-time transformation to Azure Monitor Logs (preview)
+[Custom logs]() in Azure Monitor allow you to send custom data to any table in a Log Analytics workspace with a REST API. This tutorial walks through configuration of a new table and a sample application to send custom logs to Azure Monitor.
 
 In this tutorial, you learn to:
 
 > [!div class="checklist"]
-> * 
-> * 
+> * Create a custom table in a Log Analytics workspace
+> * Create a data collection endpoint to receive data over HTTP
+> * Create a data collection rule that transforms incoming data to match the schema of the target table
+> * Create a sample application to send custom data to Azure Monitor
 
 
 ## Prerequisites
 To complete this tutorial, you need the following: 
 
 - Log Analytics workspace where you have at least contributor rights. 
-- Permissions to create Data Collection Rule objects.
+- Permissions in your subscription to create Data Collection Rule objects.
 
 
 ## Overview of tutorial
-We'll use a PowerShell script to send sample data over HTTP to the API endpoint.
-
-The Data Collection Endpoint uses standard Azure Resource Manager (ARM) authentication. 
+In this tutorial, we'll use a PowerShell script to send Apache access logs over HTTP to the API endpoint. This will require a script to convert this data to JSON format that's required for the Azure Monitor custom logs API. The data will further be converted with a data collection rule that filters out records that shouldn't be ingested and create the columns required for the table that the table will be sent to. Once the configuration is complete, you'll send sample data from the command line and then inspect the results in Log Analytics.
 
 
 ## Configure application
@@ -36,18 +36,23 @@ You need to start by registering an Azure Active Directory application to authen
 
 From the **Azure Active Directory** menu in the Azure portal, select **App registrations** and then **New registration**.
 
+:::image type="content" source="media/tutorial-custom-logs/new-app-registration.png" lightbox="media/tutorial-custom-logs/new-app-registration.png" alt-text="Screenshot for app registration":::
 
 Give the application a name and change the tenancy scope if the default is not appropriate for your environment. A **Redirect URI** isn't required.
 
+:::image type="content" source="media/tutorial-custom-logs/new-app-name.png" lightbox="media/tutorial-custom-logs/new-app-name.png" alt-text="Screenshot for app registration":::
+
 Once registered, you can view the details of the application. Note the **Application (client) ID** and the **Directory (tenant) ID**. You'll need these values later in the process.
 
+:::image type="content" source="media/tutorial-custom-logs/new-app-id.png" lightbox="media/tutorial-custom-logs/new-app-id.png" alt-text="Screenshot for app id":::
 
-You now need to generate an application client secret, which is similar to creating a password to use with a username. Select **Certificates & secrets** and then **New client secret**. Give the secret a name to identify its purpose and select an **Expires** duration. *1 year* is selected here although for a production implementation, you would follow best practices for a secret rotation procedure or use a more secure authentication mode such a certificate. 
+You now need to generate an application client secret, which is similar to creating a password to use with a username. Select **Certificates & secrets** and then **New client secret**. Give the secret a name to identify its purpose and select an **Expires** duration. *1 year* is selected here although for a production implementation, you would follow best practices for a secret rotation procedure or use a more secure authentication mode such a certificate.
+
+:::image type="content" source="media/tutorial-custom-logs/new-app-secret.png" lightbox="media/tutorial-custom-logs/new-app-secret.png" alt-text="Screenshot for new app secret":::
 
 Click **Add** to save the secret and then note the **Value**. Ensure that you record this value since You can't recover it once you navigate away from this page. Use the same security measures as you would for safekeeping a password as it's the functional equivalent.
 
-
-
+:::image type="content" source="media/tutorial-custom-logs/new-app-secret-value.png" lightbox="media/tutorial-custom-logs/new-app-secret-value.png" alt-text="Screenshot for new app secret value":::
 
 ## Prepare PowerShell script
 Copy the following PowerShell script to a new file. Update the values of `$tenantId`, `$appId`, and `$appSecret` with the values you noted for **Directory (tenant) ID**, **Application (client) ID**, and secret **Value**. Save your script with file name *LogGenerator.ps1*.
@@ -164,28 +169,39 @@ A [data collection endpoint (DCE)]() is required to accept the data from the scr
 
 To create a new DCE, go to the **Monitor** menu in the Azure portal. Select **Data Collection Endpoints** and then **Create**.
 
+:::image type="content" source="media/tutorial-custom-logs/new-data-collection-endpoint.png" lightbox="media/tutorial-custom-logs/new-data-collection-endpoint.png" alt-text="Screenshot for new data collection endpoint":::
+
 Provide a name for the DCE and ensure that it's in the same region as your workspace. Click **Create** to create the DCE.
+
+:::image type="content" source="media/tutorial-custom-logs/data-collection-endpoint-details.png" lightbox="media/tutorial-custom-logs/data-collection-endpoint-details.png" alt-text="Screenshot for data collection endpoint details":::
 
 Once the DCE is created, select it so you can view its properties. Note the **Logs ingestion** URI since you'll need this in a later step.
 
+:::image type="content" source="media/tutorial-custom-logs/data-collection-endpoint-uri.png" lightbox="media/tutorial-custom-logs/data-collection-endpoint-uri.png" alt-text="Screenshot for data collection endpoint uri":::
 
 ## Add custom log
 To create the table that the script will send its data to, go to the **Log Analytics workspaces** menu in the Azure portal and select **Tables (preview)**. The tables in the workspace will be displayed. Select **Add custom log** and then **Add DCR-based custom log**.
 
+:::image type="content" source="media/tutorial-custom-logs/new-custom-log.png" lightbox="media/tutorial-custom-logs/new-custom-log.png" alt-text="Screenshot for new DCR-based custom log":::
 
 Click **Create new data collection rule** to create the DCR that will be used to send data to this table. Specify the **Subscription**, **Resource group**, and **Name** for the data collection rule that will contain the custom log configuration. If you have an existing data collection rule, you can choose to use it instead.
 
+:::image type="content" source="media/tutorial-custom-logs/new-data-collection-rule.png" lightbox="media/tutorial-custom-logs/new-data-collection-rule.png" alt-text="Screenshot for new data collection rule":::
 
 Specify a name for the table. This must end in **_CL** and will be the name of the table in the Log Analytics workspace. Click **Next**.
 
+:::image type="content" source="media/tutorial-custom-logs/custom-log-table-name.png" lightbox="media/tutorial-custom-logs/custom-log-table-name.png" alt-text="Screenshot for custom log table name":::
 
 ## Parse and filter sample data
 Instead of directly configuring the schema of the table, we'll upload sample data so that Azure Monitor can determine the schema. The sample is expected to be a JSON file containing one or multiple log records structured in the same way they will be sent in the body of HTTP request of the custom logs API call.
 
 Click **Browse for files** and locate the sample data file. 
 
+:::image type="content" source="media/tutorial-custom-logs/custom-log-v.png" lightbox="media/tutorial-custom-logs/custom-log-browse-files.png" alt-text="Screenshot for custom log browse for files":::
+
 Data from the sample file is displayed with a warning that a `TimeGenerated` is not in the data. All log tables within Azure Monitor Logs are required to have a `TimeGenerated` column populated with the timestamp of logged event. In this sample the timestamp of event is stored in field called `Time`. Open the transformation editor to add this column.
 
+:::image type="content" source="media/tutorial-custom-logs/custom-log-data-preview.png" lightbox="media/tutorial-custom-logs/custom-log-data-preview.png" alt-text="Screenshot for custom log data preview":::
 
 The transformation editor lets you create a transformation for the incoming data stream. This is a [KQL query]() that is run against each incoming record. The results of the query, or in our case transformation, will be stored in the destination table. Since the data is processed against each individual row, a limited number of KQL operators are support. See [Adding Ingestion-time Transformation to Azure Monitor Logs](ingestion-time-transformations.md) for details on writing transformation queries.
 
@@ -195,6 +211,8 @@ Add the following query to the transformation editor to add the `TimeGenerated` 
 source
 | extend TimeGenerated = todatetime(Time)
 ```
+
+:::image type="content" source="media/tutorial-custom-logs/custom-log-query-01.png" lightbox="media/tutorial-custom-logs/custom-log-query-01.png" alt-text="Screenshot for custom log data query 01":::
 
 You can see that the `TimeGenerated` column is now added to the other columns. Most of the interesting data is contained in the `RawData` column though, so we can add to the query to parse this data to make it more useful in the resulting table. The following query extracts the client IP address, HTTP method, address of the page being access, and the response code from each log entry. 
 
@@ -212,13 +230,15 @@ source
   " " *
   ```
 
+  :::image type="content" source="media/tutorial-custom-logs/custom-log-query-02.png" lightbox="media/tutorial-custom-logs/custom-log-query-02.png" alt-text="Screenshot for custom log data query 02":::
+
 This extracts the contents of `RawData` into separate columns  `ClientIP`, `RequestType`, `Resource`, and `ResponseCode`. The query can be optimized more though by removing the `RawData` and `Time` columns since they aren't needed anymore. We can also filter out any records with `ResponseCode` of 200 since we're only interested in collecting data for requests that were not successful. This reduces the volume of data being ingested which reduces its overall cost.
 
 
 ```kusto
 source
 | extend TimeGenerated = todatetime(Time)
-| parse RawData with 
+| parse RawData.value with 
   ClientIP:string
   ' ' *
   ' ' *
@@ -230,6 +250,8 @@ source
 | where ResponseCode != 200
 | project-away Time, RawData
   ```
+
+  :::image type="content" source="media/tutorial-custom-logs/custom-log-query-03.png" lightbox="media/tutorial-custom-logs/custom-log-query-03.png" alt-text="Screenshot for custom log data query 03":::
 
 
 Click **Apply** to save the transformation and view the schema of the table that's about to be created. Click **Next** to proceed.
