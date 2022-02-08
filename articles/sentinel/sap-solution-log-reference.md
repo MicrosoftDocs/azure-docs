@@ -634,7 +634,7 @@ To have this log sent to Microsoft Sentinel, you must [add it manually to the **
 This section lists the data tables that are retrieved directly from the SAP system and ingested into Microsoft Sentinel exactly as they are. To have these tables 
 The following table lists the data tables that are retrieved directly from the SAP system and ingested into Microsoft Sentinel exactly as they are.
 
-To have the data from these tables ingested into Microsoft Sentinel, configure the relevant settings in the **systemconfig.ini** file. For more information, see [Configuring User Master data collection](sap-solution-deploy-alternate.md#configuring-data-connector-for-user-master-data-collection).
+To have the data from these tables ingested into Microsoft Sentinel, configure the relevant settings in the **systemconfig.ini** file. For more information, see [Configuring User Master data collection](sap-solution-deploy-alternate.md#configuring-user-master-data-collection).
 
 The data retrieved from these tables provides a clear view of the authorization structure, group membership, and user profiles. It also allows you to track the process of authorization grants and revokes, and identiy and govern the risks associated with those processes.
 
