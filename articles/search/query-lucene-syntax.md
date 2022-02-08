@@ -136,7 +136,7 @@ Suffix matching requires the regular expression forward slash `/` delimiters. Ge
 
 > [!NOTE]  
 > As a rule, pattern matching is slow so you might want to explore alternative methods, such as edge n-gram tokenization that creates tokens for sequences of characters in a term. With n-gram tokenization, the index will be larger, but queries might execute faster, depending on the pattern construction and the length of strings you are indexing. For more information, see [Partial term search and patterns with special characters](search-query-partial-matching.md#tune-query-performance).
->
+
 
 ### Impact of an analyzer on wildcard queries
 
@@ -168,7 +168,9 @@ Field grouping is similar but scopes the grouping to a single field. For example
 
 ## Query size limits
 
-There is a limit to the size of queries that you can send to Azure Cognitive Search. Specifically, you can have at most 1024 clauses (expressions separated by AND, OR, and so on). There is also a limit of approximately 32 KB on the size of any individual term in a query. If your application generates search queries programmatically, we recommend designing it in such a way that it does not generate queries of unbounded size.  
+There is a limit to the size of queries that you can send to Azure Cognitive Search. Specifically, you can have at most 1024 clauses (expressions separated by AND, OR, and so on) and 100,000 characters in `search`. There is also a limit of approximately 32 KB on the size of any individual term in a query. Limits also exist for the length of prefix search and for the complexity of regex search and wildcard search. If your application generates search queries programmatically, we recommend designing it in such a way that it does not generate queries of unbounded size. 
+
+For more information, see [API request limits](search-limits-quotas-capacity.md#api-request-limits).
 
 ## See also
 
