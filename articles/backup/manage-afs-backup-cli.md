@@ -2,7 +2,7 @@
 title: Manage Azure file share backups with the Azure CLI
 description: Learn how to use the Azure CLI to manage and monitor Azure file shares backed up by Azure Backup.
 ms.topic: conceptual
-ms.date: 06/10/2021
+ms.date: 02/9/2022
 ---
 
 # Manage Azure file share backups with the Azure CLI
@@ -144,6 +144,90 @@ az backup policy create --resource-group azurefiles --vault-name azurefilesvault
   "tags": null,
   "type": "Microsoft.RecoveryServices/vaults/backupPolicies"
 }
+```
+
+**Example to create a backup policy that configures multiple backups a day**
+
+This sample JSON is for the following schedule and retention requirements:
+
+- **Schedule**: Back up _every 4 hours_ starting from _8 am UTC_ for the _next 12 hours_.
+- **Retention**: Daily - _5 days_, Weekly - _Every Sunday for 12 weeks_, Monthly - _First Sunday of every month for 60 months_, and Yearly - _First Sunday of Jan for 10 years_.
+
+```json
+{
+    "properties":{
+        "backupManagementType": "AzureStorage",
+        "workloadType": "AzureFileShare",
+        "schedulePolicy": {
+            "schedulePolicyType": "SimpleSchedulePolicy",
+            "scheduleRunFrequency": "Hourly",
+            "hourlySchedule": {
+                "interval": 4,
+                "scheduleWindowStartTime": "2021-09-29T08:00:00.000Z",
+                "scheduleWindowDuration": 12
+            }
+        },
+        "timeZone": "UTC",
+        "retentionPolicy": {
+            "retentionPolicyType": "LongTermRetentionPolicy",
+            "dailySchedule": {
+                "retentionTimes": null,
+                "retentionDuration": {
+                    "count": 5,
+                    "durationType": "Days"
+                }
+            },
+            "weeklySchedule": {
+                "daysOfTheWeek": [
+                    "Sunday"
+                ],
+                "retentionTimes": null,
+                "retentionDuration": {
+                    "count": 12,
+                    "durationType": "Weeks"
+                }
+            },
+            "monthlySchedule": {
+                "retentionScheduleFormatType": "Weekly",
+                "retentionScheduleDaily": null,
+                "retentionScheduleWeekly": {
+                    "daysOfTheWeek": [
+                        "Sunday"
+                    ],
+                    "weeksOfTheMonth": [
+                        "First"
+                    ]
+                },
+                "retentionTimes": null,
+                "retentionDuration": {
+                    "count": 60,
+                    "durationType": "Months"
+                }
+            },
+            "yearlySchedule": {
+                "retentionScheduleFormatType": "Weekly",
+                "monthsOfYear": [
+                    "January"
+                ],
+                "retentionScheduleDaily": null,
+                "retentionScheduleWeekly": {
+                    "daysOfTheWeek": [
+                        "Sunday"
+                    ],
+                    "weeksOfTheMonth": [
+                        "First"
+                    ]
+                },
+                "retentionTimes": null,
+                "retentionDuration": {
+                    "count": 10,
+                    "durationType": "Years"
+                }
+            }
+        }
+    }
+}
+
 ```
 
 Once the policy is created successfully, the output of the command will display the policy JSON that you have passed as a parameter while executing the command.

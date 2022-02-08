@@ -2,7 +2,7 @@
 title: What's new in Azure Backup
 description: Learn about new features in Azure Backup.
 ms.topic: conceptual
-ms.date: 01/27/2022
+ms.date: 02/08/2022
 author: v-amallick
 ms.service: backup
 ms.author: v-amallick
@@ -16,6 +16,8 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 
 ## Updates summary
 
+- February 2022
+  - [Multiple backups per day for Azure Files is now generally available](#multiple-backups-per-day-for-azure-files-is-now-generally-available)
 - January 2022
   - [Back up Azure Database for PostgreSQL is now generally available](#back-up-azure-database-for-postgresql-is-now-generally-available)
 - October 2021
@@ -35,6 +37,14 @@ You can learn more about the new releases by bookmarking this page or by [subscr
   - [Archive Tier support for Azure Backup (in preview)](#archive-tier-support-for-azure-backup-in-preview)
 - February 2021
   - [Backup for Azure Blobs (in preview)](#backup-for-azure-blobs-in-preview)
+
+## Multiple backups per day for Azure Files is now generally available
+
+Low RPO (Recovery Point Objective) is a key requirement for Azure Files that contains the frequently updated, business-critical data. To ensure minimal data loss in the event of a disaster or unwanted changes to file share content, you may prefer to take backups more frequently than once a day.
+
+Using Azure Backup, you can create a backup policy or modify an existing backup policy to take multiple snapshots in a  day. This capability is now generally available. With this capability, you can also define the duration in which your backup jobs would trigger. This capability empowers you to align your backup schedule with the working hours when there are frequent updates to Azure Files content.
+
+For more information, see [how to configure multiple backups per day via backup policy](./manage-afs-backup.md#create-a-new-policy).
 
 ## Back up Azure Database for PostgreSQL is now generally available
 
