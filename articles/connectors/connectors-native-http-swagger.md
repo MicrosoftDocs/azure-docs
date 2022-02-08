@@ -11,7 +11,7 @@ tags: connectors
 
 # Call REST endpoints by using Azure Logic Apps
 
-With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and the built-in **HTTP + Swagger** operation, you can create automated integration workflows that regularly call any REST endpoint through a [Swagger file](https://swagger.io). The **HTTP + Swagger** trigger and action work the same as the [HTTP trigger and action](connectors-native-http.md) but provide a better experience in the workflow designerby exposing the API structure and outputs described by the Swagger file. To implement a polling trigger, follow the polling pattern that's described in [Create custom APIs to call other APIs, services, and systems from logic app workflows](../logic-apps/logic-apps-create-api-app.md#polling-triggers).
+With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and the built-in **HTTP + Swagger** operation, you can create automated integration workflows that regularly call any REST endpoint through a [Swagger file](https://swagger.io). The **HTTP + Swagger** trigger and action work the same as the [HTTP trigger and action](connectors-native-http.md) but provide a better experience in the workflow designer by exposing the API structure and outputs described by the Swagger file. To implement a polling trigger, follow the polling pattern that's described in [Create custom APIs to call other APIs, services, and systems from logic app workflows](../logic-apps/logic-apps-create-api-app.md#polling-triggers).
 
 ## Prerequisites
 
@@ -30,7 +30,7 @@ With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and the built-in *
   The examples in this topic use the [Cognitive Services Face API](../cognitive-services/face/overview.md), which requires a [Cognitive Services account and access key](../cognitive-services/cognitive-services-apis-create-account.md).
 
   > [!NOTE]
-  > To reference a Swagger file that's not hosted or that doesn't meet the security and cross-origin requirements, you can [upload the Swagger file to a blob container in an Azure storage account](#host-swagger), and enable CORS on that storage account so that you can reference the file.
+  > To reference a Swagger file that's unhosted or that doesn't meet the security and cross-origin requirements, you can [upload the Swagger file to a blob container in an Azure storage account](#host-swagger), and enable CORS on that storage account so that you can reference the file.
 
 * The logic app workflow from where you want to call the target endpoint. To start with the **HTTP + Swagger** trigger, create a blank logic app workflow. To use the HTTP + Swagger action, start your workflow with any trigger that you want. This example uses the **HTTP + Swagger** trigger as the first step. 
 
@@ -38,7 +38,7 @@ With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and the built-in *
 
 ## Add an HTTP + Swagger trigger
 
-This built-in trigger sends an HTTP request to a URL for a Swagger file that describes a REST API and returns a response that contains that file's content.
+This built-in trigger sends an HTTP request to a URL for a Swagger file that describes a REST API. The trigger then returns a response that contains that file's content.
 
 1. Sign in to the [Azure portal](https://portal.azure.com). Open your blank logic app workflow in the designer.
 
@@ -74,7 +74,7 @@ This built-in trigger sends an HTTP request to a URL for a Swagger file that des
 
 ## Add an HTTP + Swagger action
 
-This built-in action makes an HTTP request to the URL for the Swagger file that describes a REST API and returns a response that contains that file's content.
+This built-in action sends an HTTP request to the URL for the Swagger file that describes a REST API. The action then returns a response that contains that file's content.
 
 1. Sign in to the [Azure portal](https://portal.azure.com). Open your logic app workflow in designer.
 
@@ -114,7 +114,7 @@ This built-in action makes an HTTP request to the URL for the Swagger file that 
 
 ## Host Swagger in Azure Storage
 
-You can reference a Swagger file that's not hosted or that doesn't meet the security and cross-origin requirements by uploading that file to blob container in an Azure storage account and enabling CORS on that storage account. To create, set up, and store Swagger files in Azure Storage, follow these steps:
+You can still reference a Swagger file that's not hosted or that doesn't meet the security and cross-origin requirements. Upload the Swagger file to blob container in an Azure storage account and enable CORS on that storage account. To create, set up, and store Swagger files in Azure Storage, follow these steps:
 
 1. [Create an Azure storage account](../storage/common/storage-account-create.md).
 
@@ -141,7 +141,7 @@ You can reference a Swagger file that's not hosted or that doesn't meet the secu
 
 ## Connector reference
 
-Here is more information about the outputs from an **HTTP + Swagger** trigger or action. The **HTTP + Swagger** call returns this information:
+This section provides more information about the outputs from an **HTTP + Swagger** trigger or action. The **HTTP + Swagger** call returns this information:
 
 | Property name | Type | Description |
 |---------------|------|-------------|
