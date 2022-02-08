@@ -667,7 +667,7 @@ This section describes the Microsoft Sentinel Functions that are available in yo
 
 ### SAPUsersAssignments
 
-The **SAPUsersAssignments** Microsoft Sentinel Function brings together data collected from the following SAP Data Sources, to produce a user-centric view of the current user master data, roles and profiles currently assigned.
+The **SAPUsersAssignments** Microsoft Sentinel Function brings together data collected from a number of SAP Data Sources, to produce a user-centric view of the current user master data, roles and profiles currently assigned.
 
  The function summarizes the user assignments to roles and profiles, and returns the following data:
 
@@ -683,7 +683,8 @@ The **SAPUsersAssignments** Microsoft Sentinel Function brings together data col
 | LastSeenTime |	Last seen time| USR02 (LTIME) |
 | UserGroupAuth |	User group in user master maintenance| USR02 (CLASS) |
 | Profiles |Set of profiles (default maximum set size = 50)|`["Profile 1", "Profile 2",...,"profile 50"]` |
-| Roles |	Set of AGR roles (default max set size = 50)	|`["Role 1", "Role 2",...,"”"Role 50"]` |
+| DirectRoles |	Set of Directly assigned roles (default max set size = 50)	|`["Role 1", "Role 2",...,"”"Role 50"]` |
+| ChildRoles |Set of indirectly assigned roles  (default max set size = 50)	|`["Role 1", "Role 2",...,"”"Role 50"]` |
 | Client |	Client ID	| |
 | SystemID	| System ID | As defined in the connector |
 ||||
@@ -693,6 +694,12 @@ The **SAPUsersAssignments** Microsoft Sentinel Function brings together data col
 The **SAPUsersGetPrivileged** Microsoft Sentinel Function returns a list of privileged users per client and system ID.
 
 Users are considered privileged, if listed in *SAP - Privileged Users* watchlist, have been assigned to a profile listed in *SAP - Sensitive Profiles* watchlist or have been added to a role listed in *SAP - Sensitive Roles* watchlist
+
+**Parameters:**
+  - TimeAgo
+      - optional
+      - default vaule: 7 days
+      - Function will only seek User master data from TimeAgo until now()
 
 The **SAPUsersGetPrivileged** Microsoft Sentinel Function returns the following data:
 
@@ -707,6 +714,12 @@ The **SAPUsersGetPrivileged** Microsoft Sentinel Function returns the following 
 
 lists user assignments to authorizations, including the following data:
 The **SAPUsersAuthorizations** Microsoft Sentinel Function brings together data from several tables to produce a user-centric view of the current roles and authorizations assigned.  Only users with active role and authorization assignments are returned.
+
+**Parameters:**
+  - TimeAgo
+      - optional
+      - default vaule: 7 days
+      - Function will only seek User master data from TimeAgo until now()
 
 The **SAPUsersAuthorizations** Microsoft Sentinel Function returns the following data:
 
