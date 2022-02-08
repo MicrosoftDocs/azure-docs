@@ -116,7 +116,7 @@ The following example helps illustrate the differences. Suppose that there's a s
 
 Some tools and languages impose additional escape character requirements. For JSON, strings that include a forward slash are escaped with a backward slash: "microsoft.com/azure/" becomes `search=/.*microsoft.com\/azure\/.*/` where `search=/.* <string-placeholder>.*/` sets up the regular expression, and `microsoft.com\/azure\/` is the string with an escaped forward slash.
 
-Two common symbols in regex queries are `.` and `*`. A `.` matches any one character and a `*` matches the previous character zero or more times.  For example, `/be./` will match the terms "bee" and "bet" but `/be*/` would match "be", "bee", or "beee" but not "bet". Together, `.*` allow you to match any series of characters so `/be.*/` would match any term that starts with "be" such as "better".
+Two common symbols in regex queries are `.` and `*`. A `.` matches any one character and a `*` matches the previous character zero or more times.  For example, `/be./` will match the terms "bee" and "bet" while `/be*/` would match "be", "bee", and "beee" but not "bet". Together, `.*` allow you to match any series of characters so `/be.*/` would match any term that starts with "be" such as "better".
 
 ##  <a name="bkmk_wildcard"></a> Wildcard search
 
@@ -150,7 +150,7 @@ On the other side, the Microsoft analyzers (in this case, the en.microsoft analy
 
 ## Scoring wildcard and regex queries
 
-Azure Cognitive Search uses frequency-based scoring ([TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf)) for text queries. However, for wildcard and regex queries where scope of terms can potentially be broad, the frequency factor is ignored to prevent the ranking from biasing towards matches from rarer terms. All matches are treated equally for wildcard and regex searches.
+Azure Cognitive Search uses frequency-based scoring ([BM25](https://en.wikipedia.org/wiki/Okapi_BM25)) for text queries. However, for wildcard and regex queries where scope of terms can potentially be broad, the frequency factor is ignored to prevent the ranking from biasing towards matches from rarer terms. All matches are treated equally for wildcard and regex searches.
 
 ## Special characters
 
