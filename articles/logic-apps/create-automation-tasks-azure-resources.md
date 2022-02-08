@@ -378,14 +378,20 @@ After the Azure Logic Apps team reviews and approves your PR for merging to the 
 
 You can use your favorite web debugging tool to test the template you uploaded to your working directory. This example continues by using Fiddler with the script that modifies web requests. If you use a different tool, use the equivalent steps and script for your tool.
 
-1. In the Fiddler script, find the `onBeforeRequest()` function, and add the following code to the function:
+1. In the Fiddler script, find the `onBeforeRequest()` function, and add the following code to the function, for example:
 
    ```javascript
-   if (oSession.url == "raw.githubusercontent.com/azure/automation-task-template/master/templates/manifest.json") {
-      oSession.url = "raw.githubusercontent.com/<GitHub-username>/automation-task-template/<working-branch>/templates/manifest.json";
-   }
-   if (oSession.url == "raw.githubusercontent.com/azure/automation-task-template/master/templates/<template-name>") {
-      oSession.url = "raw.githubusercontent.com/<GitHub-username>/automation-task-template/<working-branch>/templates/<template-name>";
+   static function OnBeforeRequest(oSession: Session)
+   {
+      if (oSession.url == "raw.githubusercontent.com/azure/automation-task-template/master/templates/manifest.json") {
+         oSession.url = "raw.githubusercontent.com/<GitHub-username>/automation-task-template/<working-branch>/templates/manifest.json";
+      }
+
+      if (oSession.url == "raw.githubusercontent.com/azure/automation-task-template/master/templates/<template-name>") {
+         oSession.url = "raw.githubusercontent.com/<GitHub-username>/automation-task-template/<working-branch>/templates/<template-name>";
+      }
+
+      {...}
    }
    ```
 
