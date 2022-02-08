@@ -55,10 +55,6 @@ items:
           displayName: codec,codecs,compression,compressed,mp3,flac,mulaw,alaw,mp4,mp4a,wav,opus,ogg,pcm,silk
         - name: Select a specific microphone input device
           href: how-to-select-audio-input-devices.md
-        - name: Language identification
-          href: language-identification.md
-        - name: Use language identification
-          href: how-to-automatic-language-detection.md
         - name: Use the batch transcription API
           href: batch-transcription.md
         - name: Use Pronunciation Assessment
@@ -292,6 +288,8 @@ items:
               href: windows-voice-assistants-faq.yml
 - name: How-to guides
   items:
+    - name: Language identification
+      href: language-identification.md
     - name: Role-based access control in Speech Studio
       href: speech-studio-role-based-access-control.md
     - name: Logs and diagnostics
