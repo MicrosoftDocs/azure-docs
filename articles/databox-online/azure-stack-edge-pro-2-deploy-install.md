@@ -76,11 +76,11 @@ This device is shipped in a single box. Complete the following steps to unpack y
 
 If you didn't receive all of the items listed here, [Contact Microsoft Support](azure-stack-edge-contact-microsoft-support.md). The next step is to rack mount your device.
 
-
+## Rack mount the device
 
 ### Install the bezel
 
-After the device is rackmounted, you can install the bezel on the device.
+After the device is mounted on a rack, install the bezel on the device. Bezel serves as the protective face plate for the device.
 
 1. Locate two fixed pins on the right side of the bezel, and two spring-loaded pins on the left side of the bezel. 
 2. Insert the bezel in at an angle with fixed pins going into holes in right rack ear.
@@ -118,11 +118,16 @@ On your Azure Stack Edge Pro 2 device:
 
     - There are six disk slots in the front of your device.
     - Slot 0 – Slot 3 contain data disks. Slots 4 and 5 are empty.
+
+    ![Disks and power button on the front plane of a device](./media/azure-stack-edge-gpu-deploy-install/ase-gpu-device-front-plane-labeled.png)
+
 - The back plane has four network interfaces:
 
-    - Two 1-Gbps interfaces that can also serve as 10-Gbps interfaces.
-    - Two 100-Gbps interfaces.
+    - Two 1-Gbps interfaces, PORT 1 and PORT 2, that can also serve as 10-Gbps interfaces.
+    - Two 100-Gbps interfaces, PORT 3 and PORT 4.
     - A baseboard management controller (BMC).
+
+    ![Ports on the back plane of a device](./media/azure-stack-edge-pro-2-deploy-install/backplane-ports-1.png)
 
 - The back plane has one network card corresponding to two high-speed ports and two built-in 10/1-GbE ports:
 
@@ -137,23 +142,17 @@ For a full list of supported cables, switches, and transceivers for these networ
  
 Take the following steps to cable your device for power and network.
 
-1. Identify the various ports on the back plane of your device. You may have received one of the following devices from the factory depending on the number of GPUs in your device.
-
-    ![Ports on the back plane of a device](./media/azure-stack-edge-pro-2-deploy-install/backplane-ports-1.png)
-
-2. Locate the disk slots and the power button on the front of the device.
-
-    ![Disks and power button on the front plane of a device](./media/azure-stack-edge-gpu-deploy-install/ase-gpu-device-front-plane-labeled.png)
-
-3. Connect the power cord to the PSU in the enclosure. 
-4. Attach the power cord to the power distribution unit (PDU). 
-5. Press the power button to turn on the device.
-6. Connect the 10/1-GbE network interface PORT 1 to the computer that's used to configure the physical device. PORT 1 serves as the management interface for the initial configuration of the device.
+1. Identify the various ports on the back plane of your device. 
+1. Locate the disk slots and the power button on the front of the device.
+1. Connect the power cord to the PSU in the enclosure. 
+1. Attach the power cord to the power distribution unit (PDU). 
+1. Press the power button to turn on the device.
+1. Connect the 10/1-GbE network interface PORT 1 to the computer that's used to configure the physical device. PORT 1 serves as the management interface for the initial configuration of the device.
     
     > [!NOTE]
     > If connecting the computer directly to your device (without going through a switch), use a crossover cable or a USB Ethernet adapter.
 
-7. Connect one or more of PORT 2, PORT 3, PORT 4 to the datacenter network/internet.
+1. Connect one or more of PORT 2, PORT 3, PORT 4 to the datacenter network/internet.
 
     - If connecting PORT 2, use the 1-GbE RJ-45 network cable.
     - For the 100-GbE network interfaces, use the QSFP28 passive direct attached cable (tested in-house).
@@ -165,7 +164,7 @@ Take the following steps to cable your device for power and network.
 
 ## Next steps
 
-In this tutorial, you learned about Azure Stack Edge Pro 2 articles such as how to:
+In this tutorial, you learned how to:
 
 > [!div class="checklist"]
 > * Unpack the device
