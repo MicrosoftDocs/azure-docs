@@ -236,11 +236,32 @@ You can configure how to sign the SAML request in Azure AD B2C. The [XmlSignatur
 
 #### Option 2: Set the signature algorithm in AD FS 
 
-Alternatively, you can configure the expected the SAML request signature algorithm in AD FS.
+Alternatively, you can configure the expected SAML request signature algorithm in AD FS.
 
 1. In Server Manager, select **Tools**, and then select **AD FS Management**.
 1. Select the **Relying Party Trust** you created earlier.
 1. Select **Properties**, then select **Advance**
 1. Configure the **Secure hash algorithm**, and select **OK** to save the changes.
+
+### The HTTP-Redirect request does not contain the required parameter 'Signature' for a signed request (AADB2C90168)
+
+#### Option 1: Set the ResponsesSigned to false in Azure AD B2C
+
+You can disable the requirement of signed message in Azure AD B2C. The following example configures Azure AD B2C to not require 'Signature' parameter for the signed request.
+
+```xml
+<Metadata>
+  <Item Key="WantsEncryptedAssertions">false</Item>
+  <Item Key="PartnerEntity">https://your-AD-FS-domain/federationmetadata/2007-06/federationmetadata.xml</Item>
+  <Item Key="ResponsesSigned">false</Item>
+</Metadata>
+```
+
+#### Option 2: Set the relying party in AD FS to sign both Message and Assertion
+
+Alternatively, you can configure the relying party in AD FS as mentioned below:
+
+1. Open PowerShell as Administrator and run ```Set-AdfsRelyingPartyTrust -TargetName <RP Name> -SamlResponseSignature MessageAndAssertion``` cmdlet to sign both Message and Assertion.
+2. Run  ```Set-AdfsRelyingPartyTrust -TargetName <RP Name>``` and confirm the **SamlResponseSignature** property is set as **MessageAndAssertion**.
 
 ::: zone-end

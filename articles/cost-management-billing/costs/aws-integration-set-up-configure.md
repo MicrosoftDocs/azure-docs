@@ -130,10 +130,10 @@ The policy JSON should resemble the following example. Replace `bucketname` with
             "Sid": "VisualEditor0",
             "Effect": "Allow",
             "Action": [
-   	    "organizations:ListAccounts",
-            "iam:ListRoles",
-            "ce:*",
-            "cur:DescribeReportDefinitions"
+                "organizations:ListAccounts",
+                "iam:ListRoles",
+                "ce:*",
+                "cur:DescribeReportDefinitions"
             ],
             "Resource": "*"
         },

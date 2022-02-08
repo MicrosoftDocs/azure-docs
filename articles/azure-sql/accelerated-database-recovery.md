@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: conceptual
 author: kfarlee
 ms.author: kfarlee
-ms.reviewer: mathoma, kendralittle
+ms.reviewer: mathoma, kendralittle, nvraparl
 ms.date: 05/19/2020
 ---
 # Accelerated Database Recovery in Azure SQL 

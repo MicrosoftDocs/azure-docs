@@ -1,12 +1,10 @@
 ---
-title: Azure FPGFA Attestation Service
+title: Azure FPGA Attestation Service
 description: Attestation service for the NP-series VMs.
-author: vikancha-MSFT
 ms.service: virtual-machines
 ms.subservice: vm-sizes-gpu
 ms.topic: conceptual
 ms.date: 04/01/2021
-ms.author: vikancha
 ---
 # FPGA attestation for Azure NP-Series VMs (Preview)
 
@@ -48,7 +46,7 @@ Prior to performing any operations with Azure, you must log into Azure and set t
 
 Your netlist file must be uploaded to an Azure storage blob container for access by the attestation service.  
 
-Refer to this page for more information on creating the account, a container, and uploading your netlist as a blob to that container: [https://docs.microsoft.com/en-us/azure/storage/blobs/storage-quickstart-blobs-cli](../storage/blobs/storage-quickstart-blobs-cli.md).  
+Refer to this page for more information on creating the account, a container, and uploading your netlist as a blob to that container: [https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-cli](../storage/blobs/storage-quickstart-blobs-cli.md).  
 
 You can also use the Azure portal for this as well.  
 

@@ -77,6 +77,8 @@ landingContent:
         links:
           - text: Migrate to Virtual WAN
             url: migrate-from-hub-spoke-topology.md
+          - text: Disaster recovery design
+            url: disaster-recovery-design.md
       - linkListType: architecture
         links:
           - text: Global transit network architecture

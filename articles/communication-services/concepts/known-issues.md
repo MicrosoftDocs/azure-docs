@@ -22,9 +22,14 @@ This article provides information about limitations and known issues related to 
 
 The following sections provide information about known issues associated with the Communication Services JavaScript voice and video calling SDKs.
 
+### Some Android devices failing to join calls and meetings.
+
+A number of specific Android devices fail to join calls and meetings. The devices that run into this issue, wont recover and will fail on every attemp. These are mostly Samsung phones with biggest contributors A326U, A125U and A215U models.
+
+- This is a known regression introduced on [Chromium](https://bugs.chromium.org/p/webrtc/issues/detail?id=13223).
+
 ### iOS 15.1 users joining group calls or Microsoft Teams meetings.
 
-* Low volume. Known regression introduced by Apple with the release of iOS 15.1. Related webkit bug [here](https://bugs.webkit.org/show_bug.cgi?id=230902).
 * Sometimes when incoming PSTN is received the tab with the call or meeting will hang. Related webkit bugs [here](https://bugs.webkit.org/show_bug.cgi?id=233707) and [here](https://bugs.webkit.org/show_bug.cgi?id=233708#c0).
 
 ### Device mutes and incoming video stops rendering when certain interruptions occur on iOS Safari.
@@ -38,6 +43,8 @@ This problem can occur if another application or the operating system takes over
 To recover from all these cases, the user must go back to the application to unmute. In the case of video, the user must start the video in order to have the audio and video start flowing after the interruption.
 
 Occasionally, microphone or camera devices won't be released on time, and that can cause issues with the original call. For example, if the user tries to unmute while watching a YouTube video, or if a PSTN call is active simultaneously.
+
+Incoming video streams won't stop rendering if the user is on iOS 15.2+ and is using SDK version 1.4.1-beta.1+, the unmute/start video steps will still be required to re-start outgoing audio and video. 
 
 ### iOS with Safari crashes and refreshes the page if a user tries to switch from front camera to back camera.
 
@@ -155,4 +162,6 @@ The following are known issues in the Communication Services Call Automation API
 
 Up to 100 users can join a group call using the JS web calling SDK. 
 
+##Android API emulators
+When utilizing Android API emulators some crashes are expected.  
 

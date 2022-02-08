@@ -34,13 +34,13 @@ This article provides a summary of the options available, and guidance on what t
 **SDK** | <ul><li><a href="/dotnet/api/overview/azure" target="_blank">.NET</a></li><li><a href="/java/api/overview/azure" target="_blank">Java</a></li><li><a href="/javascript/api/overview/azure" target="_blank">JavaScript</a></li><li><a href="/python/api/overview/azure" target="_blank">Python</a></li></ul> | Custom Development | ✓ | ✓ | ✓ |
 
 ## Resource Management
-[Azure Resource Manager](/azure/azure-resource-manager/management/overview) is a deployment and management service, which enables customers to create, update, and delete resources in Azure. When deploying Azure resources repeatedly, ARM templates can be used to ensure consistency, this approach is referred to as Infrastructure as Code.
+[Azure Resource Manager](../azure-resource-manager/management/overview.md) is a deployment and management service, which enables customers to create, update, and delete resources in Azure. When deploying Azure resources repeatedly, ARM templates can be used to ensure consistency, this approach is referred to as Infrastructure as Code.
 
-To implement infrastructure as code, we can build [ARM templates](/azure/azure-resource-manager/templates/overview) using JSON or [Bicep](/azure/azure-resource-manager/bicep/overview), or open-source alternatives such as [Terraform](/azure/developer/terraform/overview). 
+To implement infrastructure as code, we can build [ARM templates](../azure-resource-manager/templates/overview.md) using JSON or [Bicep](../azure-resource-manager/bicep/overview.md), or open-source alternatives such as [Terraform](/azure/developer/terraform/overview). 
 
 When to use?
 * Scenarios that require repeated Azure Purview deployments, templates ensure Azure Purview along with any other dependent resources are deployed in a consistent manner.
-* When coupled with [deployment scripts](/azure/azure-resource-manager/templates/deployment-script-template), templated solutions can traverse the control and data planes, enabling the deployment of end-to-end solutions. For example, create an Azure Purview account, register sources, trigger scans.
+* When coupled with [deployment scripts](../azure-resource-manager/templates/deployment-script-template.md), templated solutions can traverse the control and data planes, enabling the deployment of end-to-end solutions. For example, create an Azure Purview account, register sources, trigger scans.
 
 ## Command Line
 Azure CLI and Azure PowerShell are command-line tools that enable you to manage Azure resources such as Azure Purview. While the list of commands will grow over time, only a subset of Azure Purview control plane operations is currently available. For an up-to-date list of commands currently available, check out the documentation ([Azure CLI](/cli/azure/purview) | [Azure PowerShell](/powershell/module/az.purview)).
@@ -67,7 +67,7 @@ When to use?
 * Applications or processes that need to publish or consume Apache Atlas events in real time.
 
 ## Streaming (Diagnostic Logs)
-Azure Purview can send platform logs and metrics via "Diagnostic settings" to one or more destinations (Log Analytics Workspace, Storage Account, or Azure Event Hubs). [Available metrics](/azure/purview/how-to-monitor-with-azure-monitor#available-metrics) include `Data Map Capacity Units`, `Data Map Storage Size`, `Scan Canceled`, `Scan Completed`, `Scan Failed`, and `Scan Time Taken`.
+Azure Purview can send platform logs and metrics via "Diagnostic settings" to one or more destinations (Log Analytics Workspace, Storage Account, or Azure Event Hubs). [Available metrics](./how-to-monitor-with-azure-monitor.md#available-metrics) include `Data Map Capacity Units`, `Data Map Storage Size`, `Scan Canceled`, `Scan Completed`, `Scan Failed`, and `Scan Time Taken`.
 
 Once configured, Azure Purview automatically sends these events to the destination as a JSON payload. From there, application subscribers that need to consume and act on these events can do so with the option of orchestrating downstream logic.
 

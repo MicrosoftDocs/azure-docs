@@ -61,7 +61,7 @@
       href: configure-host-scaling.md
     - name: Azure PowerShell
       href: configure-host-scaling-powershell.md
-  - name: Connect to VM via native Windows client
+  - name: Connect to VM via native client
     href: connect-native-client-windows.md
   - name: Connect to a virtual machine scale set
     href: bastion-connect-vm-scale-set.md
@@ -73,9 +73,11 @@
       href: bastion-vm-copy-paste.md
     - name: Full screen view
       href: bastion-vm-full-screen.md
+    - name: Upload or download files - native client
+      href: vm-upload-download-native.md
   - name: Work with NSGs
     href: bastion-nsg.md
-  - name: Health monitoring
+  - name: Monitoring
     items:
     - name: Monitoring Azure Bastion
       href: howto-metrics-monitor-alert.md

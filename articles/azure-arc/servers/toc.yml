@@ -47,6 +47,10 @@
       href: onboard-portal.md
     - name: Connect machines at scale using a service principal
       href: onboard-service-principal.md
+    - name: Connect machines at scale using Configuration Manager script
+      href: onboard-configuration-manager-powershell.md
+    - name: Connect machines at scale using Configuration Manager custom task sequence
+      href: onboard-configuration-manager-custom-task.md 
     - name: Connect machines from Automation Update Management
       href: onboard-update-management-machines.md
     - name: Connect machines to Azure Arc with PowerShell DSC
@@ -88,7 +92,7 @@
     - name: Onboard to Microsoft Sentinel
       href: scenario-onboard-azure-sentinel.md
     - name: Onboard to Microsoft Defender for Cloud
-      href: ../../defender-for-cloud/quickstart-onboard-machines.md
+      href: ../../defender-for-cloud/quickstart-onboard-machines.md?toc=/azure/azure-arc/servers/toc.json&bc=/azure/azure-arc/servers/breadcrumb/toc.json
   - name: Troubleshooting
     items:
     - name: Agent connection issues

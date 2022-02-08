@@ -32,7 +32,7 @@
         },
         {
             "source_path_from_root": "/articles/active-directory/develop/registration-config-multi-tenant-application-add-to-gallery-how-to.md",
-            "redirect_url": "/azure/active-directory/develop/v2-howto-app-gallery-listing",
+            "redirect_url": "/azure/active-directory/manage-apps/v2-howto-app-gallery-listing",
             "redirect_document_id": false
         },
         {
@@ -357,8 +357,8 @@
         },
         {
             "source_path_from_root": "/articles/active-directory/conditional-access-azure-management.md",
-            "redirect_url": "/azure/role-based-access-control/conditional-access-azure-management",
-            "redirect_document_id": true
+            "redirect_url": "/azure/active-directory/conditional-access/concept-conditional-access-cloud-apps",
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/active-directory/role-based-access-control-custom-roles.md",
@@ -756,13 +756,28 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/active-directory/external-identities/delegate-invitations.md",
+            "redirect_url": "/azure/active-directory/external-identities/external-collaboration-settings-configure",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/active-directory/external-identities/conditional-access.md",
+            "redirect_url": "/azure/active-directory/external-identities/authentication-conditional-access",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/active-directory/external-identities/compare-with-b2c.md",
+            "redirect_url": "/azure/active-directory/external-identities/external-identities-overview",
+            "redirect_document_id": true
+        },
+        {
             "source_path_from_root": "/articles/active-directory/external-identities/add-guest-to-role.md",
             "redirect_url": "/azure/active-directory/external-identities/add-users-administrator",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/active-directory/active-directory-b2b-compare-external-identities.md",
-            "redirect_url": "/azure/active-directory/active-directory-b2b-compare-b2c",
+            "redirect_url": "/azure/active-directory/external-identities/external-identities-overview",
             "redirect_document_id": false
         },
         {
@@ -1827,13 +1842,13 @@
         },
         {
             "source_path_from_root": "/articles/active-directory/active-directory-b2b-compare-b2c.md",
-            "redirect_url": "/azure/active-directory/b2b/compare-with-b2c",
-            "redirect_document_id": true
+            "redirect_url": "/azure/active-directory/external-identities/external-identities-overview",
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/active-directory/active-directory-b2b-mfa-instructions.md",
             "redirect_url": "/azure/active-directory/b2b/conditional-access",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/active-directory/active-directory-b2b-configure-saas-apps.md",
@@ -1852,8 +1867,8 @@
         },
         {
             "source_path_from_root": "/articles/active-directory/active-directory-b2b-delegate-invitations.md",
-            "redirect_url": "/azure/active-directory/b2b/delegate-invitations",
-            "redirect_document_id": true
+            "redirect_url": "/azure/active-directory/external-identities/external-collaboration-settings-configure",
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/active-directory/active-directory-b2b-faq.md",
@@ -3171,33 +3186,38 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/active-directory/develop/v2-howto-app-gallery-listing.md",
+            "redirect_url": "/azure/active-directory/manage-apps/v2-howto-app-gallery-listing",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/active-directory/azuread-dev/howto-app-gallery-listing.md",
-            "redirect_url": "/azure/active-directory/develop/v2-howto-app-gallery-listing",
+            "redirect_url": "/azure/active-directory/manage-apps/v2-howto-app-gallery-listing",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/active-directory/develop/howto-app-gallery-listing.md",
-            "redirect_url": "/azure/active-directory/develop/v2-howto-app-gallery-listing",
+            "redirect_url": "/azure/active-directory/manage-apps/v2-howto-app-gallery-listing",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/active-directory/manage-apps/isv-choose-multi-tenant-federation.md",
-            "redirect_url": "/azure/active-directory/develop/v2-howto-app-gallery-listing",
+            "redirect_url": "/azure/active-directory/manage-apps/v2-howto-app-gallery-listing",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/active-directory/manage-apps/isv-create-sso-documentation.md",
-            "redirect_url": "/azure/active-directory/develop/v2-howto-app-gallery-listing",
+            "redirect_url": "/azure/active-directory/manage-apps/v2-howto-app-gallery-listing",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/active-directory/manage-apps/isv-sso-content.md",
-            "redirect_url": "/azure/active-directory/develop/v2-howto-app-gallery-listing",
+            "redirect_url": "/azure/active-directory/manage-apps/v2-howto-app-gallery-listing",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/active-directory/manage-apps/isv-tenant-multi-tenant-app.md",
-            "redirect_url": "/azure/active-directory/develop/v2-howto-app-gallery-listing",
+            "redirect_url": "/azure/active-directory/manage-apps/v2-howto-app-gallery-listing",
             "redirect_document_id": false
         },
         {
@@ -3817,13 +3837,13 @@
         },
         {
             "source_path_from_root": "/articles/active-directory/b2b/compare-with-b2c.md",
-            "redirect_url": "/azure/active-directory/external-identities/compare-with-b2c",
-            "redirect_document_id": true
+            "redirect_url": "/azure/active-directory/external-identities/external-identities-overview",
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/active-directory/b2b/conditional-access.md",
-            "redirect_url": "/azure/active-directory/external-identities/conditional-access",
-            "redirect_document_id": true
+            "redirect_url": "/azure/active-directory/external-identities/authentication-conditional-access",
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/active-directory/b2b/configure-saas-apps.md",
@@ -3842,8 +3862,8 @@
         },
         {
             "source_path_from_root": "/articles/active-directory/b2b/delegate-invitations.md",
-            "redirect_url": "/azure/active-directory/external-identities/delegate-invitations",
-            "redirect_document_id": true
+            "redirect_url": "/azure/active-directory/external-identities/external-collaboration-settings-configure",
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/active-directory/b2b/direct-federation.md",
@@ -7078,6 +7098,21 @@
         {
             "source_path_from_root": "/articles/active-directory/active-directory-reporting-azure-portal.md",
             "redirect_url": "/azure/active-directory/reports-monitoring/overview-reports",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory/hybrid/how-to-connect-fed-hybrid-azure-ad-join-post-config-tasks.md",
+            "redirect_url": "/azure/active-directory/devices/howto-hybrid-azure-ad-join",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/active-directory/devices/hybrid-azuread-join-federated-domains.md",
+            "redirect_url": "/azure/active-directory/devices/howto-hybrid-azure-ad-join",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory/devices/hybrid-azuread-join-managed-domains.md",
+            "redirect_url": "/azure/active-directory/devices/howto-hybrid-azure-ad-join",
             "redirect_document_id": false
         },
         {
@@ -10679,6 +10714,12 @@
         {
             "source_path": "articles/active-directory/reports-monitoring/reference-basic-info-identifiers.md",
             "redirect_url": "/azure/active-directory/reports-monitoring/reference-basic-info-sign-in-logs",
+            "redirect_document_id": false
+        }
+        ,
+        {
+            "source_path": "articles/active-directory/managed-identities-azure-resources/services-support-managed-identities.md",
+            "redirect_url": "/azure/active-directory/managed-identities-azure-resources/managed-identities-status",
             "redirect_document_id": false
         }
          

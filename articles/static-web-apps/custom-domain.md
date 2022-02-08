@@ -17,7 +17,7 @@ Azure Static Web Apps automatically provides a free SSL/TLS certificate for the 
 
 ## Walkthrough Video
 
-> [!VIDEO https://channel9.msdn.com/Shows/5-Things/Configuring-a-custom-domain-with-Azure-Static-Web-Apps/player?format=ny]
+> [!VIDEO https://docs.microsoft.com/Shows/5-Things/Configuring-a-custom-domain-with-Azure-Static-Web-Apps/player?format=ny]
 
 ## Working with subdomains
 
@@ -68,6 +68,9 @@ CNAME record validation is the recommended way to add a custom domain, however, 
 You'll need to configure a CNAME with your domain provider. Azure DNS is recommended, but these steps will work with any domain provider.
 
 # [Azure DNS](#tab/azure-dns)
+
+> [!IMPORTANT]
+> If Azure DNS does not have the *Reader* permission to the static web app, the step to add an ALIAS record in Azure DNS returns an error. You need to grant permission to the Azure DNS application object to read the endpoint to update DNS.
 
 1. Make sure **CNAME** is selected from the _Hostname record type_ dropdown list.
 

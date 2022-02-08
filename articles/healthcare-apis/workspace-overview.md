@@ -5,7 +5,7 @@ author: stevewohl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: overview
-ms.date: 07/12/2021
+ms.date: 2/2/2022
 ms.author: ginle
 ---
 
@@ -23,6 +23,8 @@ You can provision multiple data services within a workspace, and by design, they
 One or more workspaces can be created in a resource group from the Azure portal, or using deployment scripts. A Healthcare APIs workspace, as a parent item in the hierarchical service tree, must be created first before one or more child service instances can be created.   
  
 A workspace can't be deleted unless all child service instances within the workspace have been deleted. This feature helps prevent any accidental deletion of service instances. However, when a workspace resource group is deleted, all the workspaces and child service instances within the workspace resource group get deleted. 
+
+Workspace names can be re-used in the same Azure subscription, but not in a different Azure subscription, after deletion. However, when the move operation is supported and enabled, workspaces and its child resources can be moved from one subscription to another subscription if certain requirements are met. One requirement is that the two subscriptions must be part of the same Azure Active Directory (Azure AD) tenant. Another requirement is that the Private Link configuration is not enabled. Names for FHIR services, DICOM services and IoT connectors can be re-used in the same or different subscription after deletion if there is no collision with the URLs of any existing services.
 
 ## Workspace and Azure region selection 
  
