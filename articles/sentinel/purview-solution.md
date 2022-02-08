@@ -3,7 +3,7 @@ title: Integrate Microsoft Sentinel and Azure Purview  | Microsoft Docs
 description: This tutorial describes how to use the Microsoft Sentinel data connector and solution for Azure Purview to enable data sensitivity insights, create rules to monitor when classifications have been detected, and get an overview about data found by Azure Purview, and where sensitive data resides in your organization.
 author: batamig
 ms.topic: tutorial
-ms.date: 12/20/2021
+ms.date: 02/08/2022
 ms.author: bagol
 ---
 
@@ -158,6 +158,9 @@ To drill down in the Azure Purview workbook:
 
 When investigating incidents triggered by the Azure Purview analytics rules, find detailed information on the assets and classifications found in the incident's **Events**.
 
+For example:
+
+:::image type="content" source="media/purview-solution/purview-incident.png" alt-text="Screenshot of an incident triggered by Purview events.":::
 
 ## Next steps
 
