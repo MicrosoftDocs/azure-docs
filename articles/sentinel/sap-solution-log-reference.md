@@ -1,6 +1,6 @@
 ---
 title: Microsoft Sentinel SAP solution - data reference | Microsoft Docs
-description: Learn about the SAP logs, tables and functions available from the Microsoft Sentinel SAP solution.
+description: Learn about the SAP logs, tables, and functions available from the Microsoft Sentinel SAP solution.
 author: batamig
 ms.author: bagol
 ms.topic: reference
@@ -21,7 +21,10 @@ ms.date: 11/09/2021
 This article describes the SAP logs available from the Microsoft Sentinel SAP data connector, including the table names in Microsoft Sentinel, the log purposes, and detailed log schemas. Schema field descriptions are based on the field descriptions in the relevant [SAP documentation](https://help.sap.com/).
 
 This article is intended for advanced SAP users.
-## Logs produced by data connector agent
+
+## Logs produced by the data connector agent
+
+The following sections describe the logs that are produced by the SAP data connector agent and ingested into Microsoft Sentinel.
 
 ### ABAP Application log
 
@@ -626,85 +629,83 @@ To have this log sent to Microsoft Sentinel, you must [add it manually to the **
 | User             | User                 |
 | | |
 
-## Tables retrieved
-List of tables below is retrieved "as-is" from SAP
+## Tables retrieved directly from SAP systems
+
+This section lists the data tables that are retrieved directly from the SAP system and ingested into Microsoft Sentinel exactly as they are. To have these tables 
+The following table lists the data tables that are retrieved directly from the SAP system and ingested into Microsoft Sentinel exactly as they are.
+
+To have the data from these tables ingested into Microsoft Sentinel, configure the relevant settings in the **systemconfig.ini** file. For more information, see [Configuring User Master data collection](sap-solution-deploy-alternate.md#configuring-data-connector-for-user-master-data-collection).
+
+The data retrieved from these tables provides a clear view of the authorization structure, group membership, and user profiles. It also allows you to track the process of authorization grants and revokes, and identiy and govern the risks associated with those processes.
+
+The tables listed below are required to enable functions that identify privileged users, identify which users are assigned to each role, and have been granted specific authorizations.
 
 | Table name | Table description |
 | ---------------- | -------------------- |
 | USR01 | User master record (runtime data) |
-| USR02 | Logon Data (Kernel-Side Use) |
+| USR02 | Logon data (kernel-side use) |
 | UST04 | User masters<br>Maps users to profiles |
 | AGR_USERS | Assignment of roles to users |
 | AGR_1251 |Authorization data for the activity group |
-| USGRP_USER |Assignment of Users to User Groups |
-| USR21 | User Name/Address Key Assignment |
-| ADR6 | E-Mail Addresses (Business Address Services) |
-| USRSTAMP | Time Stamp for all Changes to the User |
-| ADCP | Person/Address Assignment (Business Address Services) |
-| USR05 | User Master Parameter ID |
+| USGRP_USER |Assignment of users to user groups |
+| USR21 | User name/Address key assignment |
+| ADR6 | Email addresses (business address services) |
+| USRSTAMP | Time stamp for all changes to the user |
+| ADCP | Person/Address assignment (business address services) |
+| USR05 | User master parameter ID |
 | AGR_PROF | Profile name for role |
 | AGR_FLAGS | Role attributes |
 | DEVACCESS | Table for development user |
 | AGR_DEFINE | Role definition |
-| AGR_AGRS | Roles in Composite Roles |
-| PAHI | History of system, DB and SAP parameter |
+| AGR_AGRS | Roles in composite roles |
+| PAHI | History of the system, database, and SAP parameters |
 |||
 
-To have data from the tables listed above to be sent to Sentinel, follow steps listed in [Configuring data connector for User Master Data collection](sap-solution-deploy-alternate.md#configuring-data-connector-for-user-master-data-collection) section
 
-Data retrieved allows to get a clear view of the authorizations structure,  group memberships, and profiles of the users. It also allows to track the process of authorization grants and revokes and identify and govern risks associated with the process.
+## Functions available from the SAP solution
 
-Tables above are required to enable functionality of functions that identify privileged users, identify which users are assigned to which roles and identify which users have been granted certain authorizations. Mo
-To enable collection of tables
+This section describes the Azure Functions that are available in your workspace after you've deployed the Continuous Threat Monitoring for SAP solution.
 
-## Functions available
-Deployment of Continuous threat monitoring for SAP solution adds the following functions that can be used in the log analytic queries:
+### SAPUsersAssignments
 
-#### SAPUsersAssignments
-
-**Synopsis**: User Assignments to Roles and Profiles
-
-**Returns**:
+The **SAPUsersAssignments** Azure Function summarizes the user assignments to roles and profiles, and returns the following data:
 
 | Field | Description |	Data Source/Notes |
 | - | - | - |
-| User |	SAP User ID|	SAL Only |
+| User |	SAP user ID|	SAL only |
 | Email |	SMTP address| USR21 (SMTP_ADDR) |
-| UserType |	User Type| USR02 (USTYP) |
-| Timezone |	Time Zone| USR02 (TZONE) |
-| LockedStatus |	Lock Status| USR02 (UFLAG) |
-| LastSeenDate |	Last Seen Date| USR02 (TRDAT) |
-| LastSeenTime |	Last Seen Time| USR02 (LTIME) |
+| UserType |	User type| USR02 (USTYP) |
+| Timezone |	Time zone| USR02 (TZONE) |
+| LockedStatus |	Lock status| USR02 (UFLAG) |
+| LastSeenDate |	Last seen date| USR02 (TRDAT) |
+| LastSeenTime |	Last seen time| USR02 (LTIME) |
 | UserGroupAuth |	User group in user master maintenance| USR02 (CLASS) |
-| Profiles |Set of Profiles (Default max Set Size =50)|["Profile 1", "Profile 2",...,"profile 50"] |
-| Roles |	Set of AGR roles (Default max Set Size =50)	|["Role 1", "Role 2",...,"”"Role 50"] |
+| Profiles |Set of profiles (default maximum set size = 50)|`["Profile 1", "Profile 2",...,"profile 50"]` |
+| Roles |	Set of AGR roles (default max set size = 50)	|`["Role 1", "Role 2",...,"”"Role 50"]` |
 | Client |	Client ID	| |
 | SystemID	| System ID | As defined in the connector |
 ||||
 
-#### SAPUsersGetPrivileged
+### SAPUsersGetPrivileged
 
-**Synopsis**: Returns privileged users
-
-**Returns**:
+The **SAPUsersGetPrivileged** Azure Function returns a list of privileged users, including the following data:
 
 |Field|	Description|
 |-|-|
-|User|SAP User ID	|
+|User|SAP user ID	|
 |Client|	Client ID	|
 |SystemID|	System ID|
+| | |
 
-#### SAPUsersAuthorizations
+### SAPUsersAuthorizations
 
-**Synopsis**: Lists user Assignments to authorizations
-
-**Returns**:
+The **SAPUsersAuthorizations** Azure Function lists user assignments to authorizations, including the following data:
 
 |Field|	Description	|Notes|
 |-|-|-|
-|User|	SAP User ID||
-|Roles|	Set of roles (Default max Set Size=50)|	["Role 1", "Role 2",...,"Role 50"]|
-|AuthorizationsDetails|	Set of authorizations (Default max Set Size =100|{ {AuthorizationsDeatils1},<br>{AuthorizationsDeatils2}, <br>...,<br>{AuthorizationsDeatils100}}|
+|User|	SAP user ID||
+|Roles|	Set of roles (default max set size = 50)|	`["Role 1", "Role 2",...,"Role 50"]`|
+|AuthorizationsDetails|	Set of authorizations (default max set size = 100|`{ {AuthorizationsDeatils1}`,<br>`{AuthorizationsDeatils2}`, <br>...,<br>`{AuthorizationsDeatils100}}`|
 |Client|	Client ID	|
 |SystemID|	System ID|
 

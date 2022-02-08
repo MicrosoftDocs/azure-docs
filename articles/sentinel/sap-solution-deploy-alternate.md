@@ -353,9 +353,11 @@ To ingest SAP Control Web Service logs into Microsoft Sentinel, configure the fo
 |**javaseverity**     |Enter the lowest, inclusive, severity level for which you want to ingest Web Service logs into Microsoft Sentinel.  Values include: <br><br>- **0** = All logs <br>- **1** = Warning <br>- **2** = Error     |
 
 
-### Configuring data connector for User Master Data collection
-It is possible to ingest tables that contain information about users, roles authorizations. Detailed list of collected tables is available [here](sap-solution-log-reference.md#tables-retrieved)
-To configure User Master Data collection, edit systemconfig.ini file
+### Configuring User Master data collection
+
+To ingest tables directly from your SAP system with details about your users and role authorizations, configure your **systemconfig.ini** file with a `True`/`False` statement for each table. 
+
+For example:
 
 ```python
 [ABAP Table Selector] 
@@ -374,8 +376,9 @@ AGR_DEFINE_FULL = True
 AGR_DEFINE_INCREMENTAL = True
 AGR_PROF_FULL = True
 PAHI_FULL = True
-
 ```
+
+For more information, see [Tables retrieved directly from SAP systems](sap-solution-log-reference.md#tables-retrieved-directly-from-sap-systems).
 
 ## Next steps
 
