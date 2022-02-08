@@ -62,7 +62,7 @@ The **Identities** table displays the results of your query.
 - **Last activity on**: The date the function was last accessed.
 -  The ellipses **(...)**: Select **Tags** to add a tag.
 
-    If you are using AWS, an additional selection is also available from the ellipses menu: **Auto Remediate**. You can use this option to remediate your results automatically.
+    If you're using AWS, another selection is available from the ellipses menu: **Auto Remediate**. You can use this option to remediate your results automatically.
 
 ## Add a tag to a user
 

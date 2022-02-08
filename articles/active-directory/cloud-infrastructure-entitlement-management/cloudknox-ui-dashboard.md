@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: overview
-ms.date: 02/07/2022
+ms.date: 02/08/2022
 ms.author: v-ydequadros
 ---
 
@@ -19,7 +19,7 @@ ms.author: v-ydequadros
 > CloudKnox Permissions Management (CloudKnox) is currently in PREVIEW.
 > Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
 
-CloudKnox Permissions Management (CloudKnox) provides a summary of key statistics and data about your authorization system on a regular basis. This information is available for Amazon Web Services (AWS), Microsoft Azure, and Google Cloud Platform (GCP).
+CloudKnox Permissions Management (CloudKnox) provides a summary of key statistics and data about your authorization system regularly. This information is available for Amazon Web Services (AWS), Microsoft Azure, and Google Cloud Platform (GCP).
 
 ## View metrics related to avoidable risk
 
