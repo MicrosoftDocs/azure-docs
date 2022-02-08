@@ -210,7 +210,7 @@ The following table lists the free data sources you can enable in Microsoft Sent
 
 For data connectors that include both free and paid data types, you can select which data types you want to enable.
 
-![Screenshot showing the Data connector page for Defender for Cloud Apps, with the free Security Alerts selected and the paid MCASShadowITReporting not selected.](media/billing/data-types.png)
+:::image type="content" source="media/billing/data-types.png" alt-text="Screenshot of the Data connector page for Defender for Cloud Apps, with the free security alerts selected and the paid MCASShadowITReporting not selected." lightbox="media/billing/data-types.png":::
 
 For more information about free and paid data sources and connectors, see [Connect data sources](connect-data-sources.md).
 

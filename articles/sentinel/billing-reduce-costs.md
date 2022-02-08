@@ -22,7 +22,7 @@ To see your current Microsoft Sentinel pricing tier, select **Settings** in the 
 
 To change your pricing tier commitment, select one of the other tiers on the pricing page, and then select **Apply**. You must have **Contributor** or **Owner** role in Microsoft Sentinel to change the pricing tier.
 
-![Screenshot showing the Pricing page in Microsoft Sentinel Settings, with Pay-As-You-Go indicated as the current pricing tier.](media/billing/pricing.png)
+:::image type="content" source="media/billing/pricing.png" alt-text="Screenshot of pricing page in Microsoft Sentinel settings, with Pay-As-You-Go selected as current pricing tier.":::
 
 Microsoft Sentinel data ingestion volumes appear under **Security Insights** in some portal Usage Charts.
 
