@@ -52,6 +52,7 @@ For more information, see the following articles:
 
 - [Create watchlists in Microsoft Sentinel](watchlists-create.md)
 - [Built-in watchlist schemas](watchlist-schemas.md)
+- [Azure Storage SAS token](../storage/common/storage-sas-overview.md#sas-token)
 
 ## Watchlists in queries for searches and detection rules
 
