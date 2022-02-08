@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Chart showing the limits of the Azure Digital Twins service.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 09/02/2021
+ms.date: 02/08/2022
 ms.topic: article
 ms.service: digital-twins
 
@@ -36,6 +36,9 @@ To manage the throttling, here are some recommendations for working with limits.
 * **Use retry logic.** The [Azure Digital Twins SDKs](concepts-apis-sdks.md) implement retry logic for failed requests, so if you're working with a provided SDK, this functionality is already built-in. Otherwise, consider implementing retry logic in your own application. The service sends back a `Retry-After` header in the failure response, which you can use to determine how long to wait before retrying.
 * **Use thresholds and notifications to warn about approaching limits.** Some of the service limits for Azure Digital Twins have corresponding [metrics](troubleshoot-metrics.md) that can be used to track usage in these areas. To configure thresholds and set up an alert on any metric when a threshold is approached, see the instructions in [Troubleshooting: Alerts](troubleshoot-alerts.md). To set up notifications for other limits where metrics aren't provided, consider implementing this logic in your own application code.
 * **Deploy at scale across multiple instances.** Avoid having a single point of failure. Instead of one large graph for your entire deployment, consider sectioning out subsets of twins logically (like by region or tenant) across multiple instances. 
+
+>[!NOTE]
+>Azure Digital Twins will automatically scale resources to meet the rate limits described in this article. You may experience throttling before these limits are reached due to internal scaling to adapt to the incoming load. Internal scaling can take anywhere from 5 to 30 minutes, during which time your application may encounter 429 errors.
 
 ## Next steps
 
