@@ -61,29 +61,31 @@ To uptake this feature follow the next steps:
 1. Create new verifiable credentials contracts. In the rules file you must add the ` "credentialStatusConfiguration": "anonymous" ` property to start using the new feature in combination with the Hub endpoint for your credentials:
 
 Sample contract file:
-``` json 
-{
-  "attestations": {
-    "idTokens": [
-      {
-        "id": "https://self-issued.me",
-        "mapping": {
-          "firstName": { "claim": "$.given_name" },
-          "lastName": { "claim": "$.family_name" }
-        },
-        "configuration": "https://self-issued.me",
-        "client_id": "",
-        "redirect_uri": ""
-      }
-    ]
-  },
-  "validityInterval": 2592001,
-"credentialStatusConfiguration": "anonymous",
-  "vc": {
-    "type": [ "VerifiedCredentialExpert" ]
-  }
-} 
-```
+
+  ``` json 
+  {
+    "attestations": {
+      "idTokens": [
+        {
+          "id": "https://self-issued.me",
+          "mapping": {
+            "firstName": { "claim": "$.given_name" },
+            "lastName": { "claim": "$.family_name" }
+          },
+          "configuration": "https://self-issued.me",
+          "client_id": "",
+          "redirect_uri": ""
+        }
+      ]
+    },
+    "validityInterval": 2592001,
+  "credentialStatusConfiguration": "anonymous",
+    "vc": {
+      "type": [ "VerifiedCredentialExpert" ]
+    }
+  } 
+  ```
+
 3. You have to issue new verifiable credentials using your new configuration. All verifiable credentials previously issued will continue to exist as your previous DID will remain resolvable however, they use the previous status endpoint implementation.
 
 >[!IMPORTANT]
