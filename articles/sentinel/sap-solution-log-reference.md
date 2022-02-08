@@ -664,11 +664,14 @@ The tables listed below are required to enable functions that identify privilege
 
 ## Functions available from the SAP solution
 
-This section describes the Azure Functions that are available in your workspace after you've deployed the Continuous Threat Monitoring for SAP solution.
+This section describes the Microsoft Sentinel Functions that are available in your workspace after you've deployed the Continuous Threat Monitoring for SAP solution.
 
 ### SAPUsersAssignments
 
-The **SAPUsersAssignments** Azure Function summarizes the user assignments to roles and profiles, and returns the following data:
+The **SAPUsersAssignments** Microsoft Sentinel Function brings together data collected from the following SAP Data Sources, to produce a user-centric view of the current user master data, roles and profiles currently assigned.
+
+ The function summarizes the user assignments to roles and profiles, and returns the following data:
+
 
 | Field | Description |	Data Source/Notes |
 | - | - | - |
@@ -688,7 +691,14 @@ The **SAPUsersAssignments** Azure Function summarizes the user assignments to ro
 
 ### SAPUsersGetPrivileged
 
-The **SAPUsersGetPrivileged** Azure Function returns a list of privileged users, including the following data:
+The **SAPUsersGetPrivileged** Microsoft Sentinel Function returns a list of privileged users per client and system ID.
+
+It is possible to customize list of users that are considered privileged by using the following watchlists:
+   - SAP - Privileged Users
+   - SAP - Sensitive Profiles
+   - SAP - Sensitive Roles
+
+The **SAPUsersGetPrivileged** Microsoft Sentinel Function returns the following data:
 
 |Field|	Description|
 |-|-|
@@ -699,7 +709,10 @@ The **SAPUsersGetPrivileged** Azure Function returns a list of privileged users,
 
 ### SAPUsersAuthorizations
 
-The **SAPUsersAuthorizations** Azure Function lists user assignments to authorizations, including the following data:
+lists user assignments to authorizations, including the following data:
+The **SAPUsersAuthorizations** Microsoft Sentinel Function brings together data from several tables to produce a user-centric view of the current roles and authorizations assigned.  Only users with active role and authorization assignments are returned.
+
+The **SAPUsersAuthorizations** Microsoft Sentinel Function returns the following data:
 
 |Field|	Description	|Notes|
 |-|-|-|
