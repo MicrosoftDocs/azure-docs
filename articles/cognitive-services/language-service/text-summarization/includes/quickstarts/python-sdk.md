@@ -3,7 +3,7 @@ author: aahill
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
-ms.date: 11/02/2021
+ms.date: 02/08/2022
 ms.author: aahi
 ms.custom: ignite-fall-2021
 ---
@@ -72,7 +72,7 @@ def sample_extractive_summarization(client):
     poller = client.begin_analyze_actions(
         document,
         actions=[
-            ExtractSummaryAction(MaxSentenceCount=4)
+            ExtractSummaryAction(max_sentence_count=4)
         ],
     )
 
