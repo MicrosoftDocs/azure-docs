@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # Apps included in Conditional Access Office 365 app suite
 
-The following is provided as a reference and includes more detailed list of services and applications that are included in the Conditional Access [Office 365](concept-conditional-access-cloud-apps.md#office-365) app.
+The following list is provided as a reference and includes more detailed list of services and applications that are included in the Conditional Access [Office 365](concept-conditional-access-cloud-apps.md#office-365) app.
 
 - Augmentation Loop
 - Call Recorder
@@ -37,7 +37,7 @@ The following is provided as a reference and includes more detailed list of serv
 - Microsoft Flow GCC
 - Microsoft Forms
 - Microsoft Forms Web
-- Microsoft Forms Web in Fairfax
+- Microsoft Forms Web in Azure Government
 - Microsoft Legacy To-Do WebApp (see ICM 257203714)
 - Microsoft Office 365 Portal
 - Microsoft Office client application
@@ -68,13 +68,13 @@ The following is provided as a reference and includes more detailed list of serv
 - Office Delve
 - Office Delve
 - Office Hive
-- Office Hive Fairfax
+- Office Hive Azure Government
 - Office Online
 - Office Services Manager
 - Office Services Manager in USGov
 - Office Shredding Service
 - Office365 Shell WCSS-Client
-- Office365 Shell WCSS-Client in Fairfax
+- Office365 Shell WCSS-Client in Azure Government
 - OfficeClientService
 - OfficeHome
 - OneDrive
