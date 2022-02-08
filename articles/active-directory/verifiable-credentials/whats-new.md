@@ -21,8 +21,8 @@ This article lists the latest features, improvements, and changes in the Azure A
 
 We are rolling out some important updates to our service that are breaking changes and require Azure AD Verifiable Credentials service reconfiguration.
 
-- The Azure AD Verifiable Credentials service can now store and handle data processing in the Azure European region. [More information](whats-new.md?#Azure-AD-Verifiable-Credentials-available-in-Europe)
-- Azure AD Verifiable Credentials customers can take advantage of enhancements to credential revocation that add a higher degree of privacy through the implementation of the [W3C Status List 2021](https://w3c-ccg.github.io/vc-status-list-2021/) standard. [Read more](whats-new.md?#Credential-Revocation-with-Enhanced-Privacy)
+- The Azure AD Verifiable Credentials service can now store and handle data processing in the Azure European region. [More information](whats-new.md?#azure-ad-verifiable-credentials-available-in-europe)
+- Azure AD Verifiable Credentials customers can take advantage of enhancements to credential revocation that add a higher degree of privacy through the implementation of the [W3C Status List 2021](https://w3c-ccg.github.io/vc-status-list-2021/) standard. [Read more](whats-new.md?#credential-revocation-with-enhanced-privacy)
 
 >[!IMPORTANT]
 > All Azure AD Verifiable Credential customers receiving a banner notice in the Azure portal need to go through a service reconfiguration before March 31st 2022. On March 31st 2022 tenants that have not been reconfigured will lose access to any previous configuration and will require to configure a new instance of the Azure AD Verifiable Credential service. Learn more about how to [reconfigure your tenant](verifiable-credentials-faq.md?#how-do-i-reconfigure-the-azure-ad-verifiable-credentials-service).
