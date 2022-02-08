@@ -81,11 +81,28 @@ Reconfiguration requires you to opt out and opt back into the Azure Active Direc
     1. If you setup your tenant for issuing credentials, it's recommended that your storage account is in the European region as your Verifiable Credentials service.
     2. You also need to issue new credentials because your tenant now holds a new DID.
 
+### How can I check my Azure AD Tenant's region?
+
+1. In the [Azure portal](https://portal.azure.com), go to Azure Active Directory for the subscription you use for your Azure Active Directory Verifiable credentials deployment.
+1. Under Manage, select Properties
+    1. :::image type="content" source="media/verifiable-credentials-faq/region.png" alt-text="settings delete and opt out":::
+1. See the value for Country or Region. If the value is a country or a region in Europe, your Azure AD Verifiable Credentials service will be set up in Europe.
+
+### How can I check if my tenant has the new Hub endpoint?
+
+1. In the Azure portal, go to the Verifiable Credentials service.
+1. Navigate to the Organization Settings. 
+1. Copy your organization’s Decentralized Identifier (DID). 
+1. Go to the ION Explorer and paste the DID in the search box 
+1. Inspect your DID document and search for the “#hub” node.
+
+:::image type="content" source="media/verifiable-credentials-faq/identity-hub.png" alt-text="Identity hubs":::
+
 ### If I reconfigure the Azure AD Verifiable Credentials service, do I need to re-link my DID to my domain?
 
 Yes, after reconfiguring your service, your tenant has a new DID use to issue and verify verifiable credentials. You need to [associate your new DID](verifiable-credentials/how-to-dnsbind) with your domain.
 
-###  Is it possible to request Microsoft to retreive "old DIDs"?
+### Is it possible to request Microsoft to retreive "old DIDs"?
 
 No, at this point is not possible to keep your tenant's DID after you have opt-out of the service.
 
