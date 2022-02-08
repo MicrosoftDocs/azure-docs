@@ -50,11 +50,11 @@ To create a single database in the Azure portal, this quickstart starts at the A
 
     :::image type="content" source="media/hyperscale-database-create-quickstart/create-database-select-hyperscale-service-tier.png" alt-text="The service and compute tier configuration page for a new database in Azure SQL Database. The Hyperscale service tier has been selected." lightbox="media/hyperscale-database-create-quickstart/create-database-select-hyperscale-service-tier.png":::
 
-1. Under **Compute Hardware**, select **Change configuration**. Review the available hardware configurations and select the most appropriate configuration for your database. For this example we will select the **Gen5** configuration. 
+1. Under **Compute Hardware**, select **Change configuration**. Review the available hardware configurations and select the most appropriate configuration for your database. For this example, we will select the **Gen5** configuration.
 1. Select **OK** to confirm the hardware generation.
 1. Under **Save money**, review if you qualify to use Azure Hybrid Benefit for this database. If so, select **Yes** and then confirm you have the required license.
-1. Optionally, adjust the **vCores** slider if you would like to increase the number of vCores for your database. For this example we will select 2 vCores.
-1. Optionally, adjust the **High-Availability Secondary Replicas** slider if you would like to create replicas. For this example we will not create replicas.
+1. Optionally, adjust the **vCores** slider if you would like to increase the number of vCores for your database. For this example, we will select 2 vCores.
+1. Optionally, adjust the **High-Availability Secondary Replicas** slider if you would like to create replicas.
 1. Select **Apply**.
 
     :::image type="content" source="media/hyperscale-database-create-quickstart/azure-sql-create-database-basics-tab.png" alt-text="The basics tab in the create database process after the Hyperscale service tier has been selected and configured." lightbox="media/hyperscale-database-create-quickstart/azure-sql-create-database-basics-tab.png":::
@@ -219,11 +219,13 @@ Create a single database with the [New-AzSqlDatabase](/powershell/module/az.sql/
 
 # [Transact-SQL](#tab/t-sql)
 
-To create a Hyperscale database with Transact-SQL, you create or use an existing [logical SQL server](logical-servers.md).
+To create a Hyperscale database with Transact-SQL, you must first [create or identify connection information for an existing logical SQL server](logical-servers.md) in Azure.
 
 Connect to the master database using [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) or [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio).
 
-Run the following Transact-SQL command to create a Hyperscale database with Gen 5 hardware and 2 vCores. You must specify both the edition and service objective in the `CREATE DATABASE` statement. Refer to the [resource limits](./resource-limits-vcore-single-databases.md#hyperscale---provisioned-compute---gen4) for a list of valid service objectives.
+Run the following Transact-SQL command to create a new Hyperscale database with Gen 5 hardware and 2 vCores. You must specify both the edition and service objective in the `CREATE DATABASE` statement. Refer to the [resource limits](./resource-limits-vcore-single-databases.md#hyperscale---provisioned-compute---gen4) for a list of valid service objectives.
+
+Note that this example creates an empty database. If you would like to create a database with sample data, use the Azure portal, Azure CLI, or PowerShell examples in this quickstart.
 
 ```sql
 CREATE DATABASE [mySampleDatabase] (EDITION = 'Hyperscale', SERVICE_OBJECTIVE = 'HS_Gen5_2');
@@ -240,20 +242,25 @@ Once your database is created, you can use the **Query editor (preview)** in the
 1. On the page for your database, select **Query editor (preview)** in the left menu.
 1. Enter your server admin login information, and select **OK**.
 
-   ![Sign in to Query editor](./media/single-database-create-quickstart/query-editor-login.png)
+    :::image type="content" source="media/hyperscale-database-create-quickstart/query-editor-azure-portal-authenticate.png" alt-text="The Query editor (preview) pane in Azure SQL Database gives two options for authentication. In this example, we have filled in Login and Password under SQL server authentication." lightbox="media/hyperscale-database-create-quickstart/query-editor-azure-portal-authenticate.png":::
 
-1. Enter the following query in the **Query editor** pane.
+1. If you created your Hyperscale database from the AdventureWorksLT sample database, enter the following query in the **Query editor** pane.
 
    ```sql
    SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName
    FROM SalesLT.ProductCategory pc
    JOIN SalesLT.Product p
-   ON pc.productcategoryid = p.productcategoryid;
+       ON pc.productcategoryid = p.productcategoryid;
    ```
 
-1. Select **Run**, and then review the query results in the **Results** pane.
+1. If you created an empty database using the Transact-SQL option above, enter another example query in the **Query editor** pane, such as the following:
 
-   ![Query editor results](./media/single-database-create-quickstart/query-editor-results.png)
+    ```sql
+
+
+1. Select **Run**, and then review the query results in the **Results** pane.
+    
+    :::image type="content" source="media/hyperscale-database-create-quickstart/query-editor-azure-portal-run-query.png" alt-text="A view of the Query editor (preview) pane in Azure SQL Database after a query has been run against AdventureWorks sample data." lightbox="media/hyperscale-database-create-quickstart/query-editor-azure-portal-run-query.png":::
 
 1. Close the **Query editor** page, and select **OK** when prompted to discard your unsaved edits.
 
@@ -299,11 +306,10 @@ Run the following Transact-SQL command to drop the database:
 DROP DATABASE [mySampleDatabase];
 GO
 ```
+
 ---
 
-
 ## Next steps
-
 
 [Connect and query](connect-query-content-reference-guide.md) your database using different tools and languages:
 - [Connect and query using SQL Server Management Studio](connect-query-ssms.md)
