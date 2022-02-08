@@ -35,9 +35,6 @@ The Mobile Apps input binding loads a record from a mobile table endpoint and pa
 
 See the language-specific example:
 
-* [C# script (.csx)](#input---c-script-example)
-* JavaScript
-
 # [C# script](#tab/input-csharp-example)
 
 The following example shows a Mobile Apps input binding in a *function.json* file and a [C# script function](functions-reference-csharp.md) that uses the binding. The function is triggered by a queue message that has a record identifier. The function reads the specified record and modifies its `Text` property.
@@ -161,12 +158,6 @@ In C# and F# functions, any changes you make to the input record (input paramete
 Use the Mobile Apps output binding to write a new record to a Mobile Apps table.  
 
 ## Output - example
-
-See the language-specific example:
-
-* [C#](#output---c-example)
-* [C# script (.csx)](#output---c-script-example)
-* [JavaScript](#output---javascript-example)
 
 # [C#](#tab/output-csharp-example)
 
