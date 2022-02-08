@@ -43,7 +43,7 @@ Depending on the scenario, as a device moves between IoT hubs, it may also be ne
 
 ## Reprovisioning policies
 
-Depending on the scenario, a device usually sends a request to a provisioning service instance on reboot. It also supports a method to manually trigger provisioning on demand. The reprovisioning policy on an enrollment entry determines how the device provisioning service instance handles these provisioning requests. The policy also determines whether device state data should be migrated during reprovisioning. The same policies are available for individual enrollments and enrollment groups:
+Depending on the scenario, a device could send a request to a provisioning service instance on reboot. It also supports a method to manually trigger provisioning on demand. The reprovisioning policy on an enrollment entry determines how the device provisioning service instance handles these provisioning requests. The policy also determines whether device state data should be migrated during reprovisioning. The same policies are available for individual enrollments and enrollment groups:
 
 * **Re-provision and migrate data**: This policy is the default for new enrollment entries. This policy takes action when devices associated with the enrollment entry submit a new request (1). Depending on the enrollment entry configuration, the device may be reassigned to another IoT hub. If the device is changing IoT hubs, the device registration with the initial IoT hub will be removed. The updated device state information from that initial IoT hub will be migrated over to the new IoT hub (2). During migration, the device's status will be reported as **Assigning**.
 
@@ -59,6 +59,11 @@ Depending on the scenario, a device usually sends a request to a provisioning se
 
 > [!NOTE]
 > DPS will always call the custom allocation webhook regardless of re-provisioning policy in case there is new [ReturnData](how-to-send-additional-data.md) for the device. If the re-provisioning policy is set to **never re-provision**, the webhook will be called but the device will not change its assigned hub.
+
+>[!TIP]
+>When designing your solution and defining a reprovisioning logic there are a few things to consider, for example, the size of your fleet, how often your devices are expected to be restarted, the [DPS quotas and limits](about-iot-dps.md#quotas-and-limits), expected deployment time for your fleet (phased rollout vs all at once), retry capability implemented on your client code (as described on the [Retry general guidance](/architecture/best-practices/transient-faults) at the Azure Architecture Center), among other considerations.
+> It’s advised not to provision on every reboot of the device, as this could cause some issues when reprovisioning several thousands or millions of devices at once. Instead you should attempt to [get the device registration state](/rest/api/iot-dps/service/device-registration-state/get) and try to connect with that information to IoT Hub, if that fails, then try to reprovision as the IoT Hub information might have changed.  Keep in mind that querying for the registration state will count as a new Device Registration, so you should consider the [Device registration limit]( about-iot-dps.md#quotas-and-limits), so you should also consider implementing an appropiate retry logic, such as exponential back-off with randomization (as described on the [Retry general guidance](/architecture/best-practices/transient-faults)).
+>In some cases, depending on the device capabilities, it’s possible to save the IoT Hub information directly on the device to connect directly to IoT Hub after the first-time provisioning using DPS occurred.  If you choose to do this, make sure you implement a fallback mechanism in case you get specific [errors from Hub occur](../iot-hub/troubleshoot-message-routing.md#common-error-codes), such as 400xxx error. Also, ideally you should support a [method](../iot-hub/iot-hub-devguide-direct-methods.md) to manually trigger provisioning on demand.
 
 ### Managing backwards compatibility
 
