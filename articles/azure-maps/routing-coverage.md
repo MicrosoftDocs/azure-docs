@@ -127,7 +127,7 @@ The following tables provides coverage information for Azure Maps routing.
 | Pakistan                               |                ✓                  |                   |             |
 | Palau                                  |                ✓                  |                   |             |
 | Papua New Guinea                       |                ✓                  |                   |             |
-| Philippines                            |                ✓                  |         ✓         |             |
+| Philippines                            |                ✓                  |         ✓         |      ✓     |
 | Pitcairn Islands                       |                ✓                  |                   |             |
 | Samoa                                  |                ✓                  |                   |             |
 | Singapore                              |                ✓                  |         ✓         |             |
