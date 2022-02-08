@@ -26,13 +26,18 @@ We are rolling out some important updates to our service that are breaking chang
 - Azure AD Verifiable Credentials customers can take advantage of enhancements to credential revocation that add a higher degree of privacy through the implementation of the [W3C Status List 2021](https://w3c-ccg.github.io/vc-status-list-2021/) standard. [Read more](whats-new.md?#credential-revocation-with-enhanced-privacy)
 
 >[!IMPORTANT]
-> All Azure AD Verifiable Credential customers receiving a banner notice in the Azure portal need to go through a service reconfiguration before March 31st 2022. On March 31st 2022 tenants that have not been reconfigured will lose access to any previous configuration and will require to configure a new instance of the Azure AD Verifiable Credential service. Learn more about how to [reconfigure your tenant](verifiable-credentials-faq.md?#how-do-i-reconfigure-the-azure-ad-verifiable-credentials-service).
+> All Azure AD Verifiable Credential customers receiving a banner notice in the Azure portal need to go through a service reconfiguration before March 31st 2022. On March 31st 2022 tenants that have not been reconfigured will lose access to any previous configuration and will be required to configure a new instance of the Azure AD Verifiable Credential service. Learn more about how to [reconfigure your tenant](verifiable-credentials-faq.md?#how-do-i-reconfigure-the-azure-ad-verifiable-credentials-service).
 
 ### Azure AD Verifiable Credentials available in Europe
 
-Since the Azure AD Verifiable Credentials service's Public Preview rollout, the service has been available in our Azure North America region. Now, the service is also available in our Azure European region. Customers with Azure AD tenants setup in Europe will have Verifiable Credentials data located and processed in our Azure Europe region. Customers with Azure AD tenants setup in Europe who start using the Azure AD Verifiable Credentials service after February 15, 2022, will automatically have their data processed in Europe and don't need to take any further actions. Customers with Azure AD tenants setup in Europe that started using the Azure AD Verifiable Credentials service before February 15, 2022, are required to reconfigure the service on their tenants before March 31, 2022.
+Since the beginning of the Azure AD Verifiable Credentials service public preview, the service has only been available in our Azure North America region. Now, the service is also available in our Azure Europe region. 
+
+- Customers with Azure AD European tenants now have their Verifiable Credentials data located and processed in our Azure Europe region.
+- Customers with Azure AD tenants setup in Europe who start using the Azure AD Verifiable Credentials service after February 15, 2022, have their data automatically processed in Europe and don't need to take any further actions.
+- Customers with Azure AD tenants setup in Europe that started using the Azure AD Verifiable Credentials service before February 15, 2022, are required to reconfigure the service on their tenants before March 31, 2022.
 
 Take the following steps to configure the Verifiable Credentials service in Europe:
+
 1. [Check the location](verifiable-credentials-faq.md#how-can-i-check-my-azure-ad-tenants-region) of your Azure Active Directory to make sure is in Europe.
 1. [Reconfigure the Verifiable Credentials service](verifiable-credentials-faq.md?#how-do-i-reconfigure-the-azure-ad-verifiable-credentials-service) in your tenant. 
 
@@ -89,8 +94,7 @@ Sample contract file:
 3. You have to issue new verifiable credentials using your new configuration. All verifiable credentials previously issued will continue to exist as your previous DID will remain resolvable however, they use the previous status endpoint implementation.
 
 >[!IMPORTANT]
-> Reconfiguring the Azure AD Verifiable Credentials service is required so that the new Identity Hub service endpoint can be created for the tenant. Tenants have until March 31st 2022, to schedule and manage the reconfiguration of the Verifiable Vredential service. On March 31st, 2022 tenants that have not been reconfigured will lose access to any previous configuration and will require to configure a new instance of the Azure AD Verifiable Credential service.
-
+> Reconfiguring the Azure AD Verifiable Credentials service is required so that the new Identity Hub service endpoint can be created for your tenant. You have until March 31st 2022, to schedule and manage the reconfiguration of your deployment. On March 31st, 2022 deployments that have not been reconfigured will lose access to any previous Azure AD Verifiable Credentials service configuration. Administrators will need to set up a new service instance.
 
 ## December 2021
 
