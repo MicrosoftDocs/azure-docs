@@ -315,14 +315,16 @@
         displayName: hyperscale
         items: 
         - name: Overview
+          displayName: Hyperscale service tier
           href: database/service-tier-hyperscale.md
         - name: FAQ
-          displayName: Frequently asked questions
+          displayName: Hyperscale frequently asked questions
           href: database/service-tier-hyperscale-frequently-asked-questions-faq.yml
         - name: Replicas
+          displayName: Hyperscale replicas
           href: database/service-tier-hyperscale-replicas.md
         - name: Replicas FAQ
-          displayName: Frequently asked questions
+          displayName: Hyperscale replicas frequently asked questions
           href: database/service-tier-hyperscale-named-replicas-faq.yml
 
     - name: Plan and manage costs 
