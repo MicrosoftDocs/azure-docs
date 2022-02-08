@@ -5,7 +5,7 @@ ms.service: api-management
 author: dlepow
 ms.author: danlep
 ms.topic: how-to
-ms.date: 01/14/2022
+ms.date: 02/07/2022
 
 ---
 
@@ -41,7 +41,6 @@ With a private endpoint and Private Link, you can:
 * Only the API Management instance's Gateway endpoint currently supports Private Link connections. 
 * Each API Management instance currently supports at most 100 Private Link connections.
 * Connections are not supported on the [self-hosted gateway](self-hosted-gateway-overview.md). 
-
 
 ## Prerequisites
 
@@ -232,6 +231,7 @@ To connect to 'Microsoft.ApiManagement/service/my-apim-service', please use the 
 
 ## Next steps
 
+* Use [policy expressions](api-management-policy-expressions.md#ref-context-request) with the `context.request` variable to identify traffic from the private endpoint.
 * Learn more about [private endpoints](../private-link/private-endpoint-overview.md) and [Private Link](../private-link/private-link-overview.md).
 * Learn more about [managing private endpoint connections](../private-link/manage-private-endpoint.md).
 * Use a [Resource Manager template TBD](LINK TBD) to create an API Management instance and a private endpoint with private DNS integration.
