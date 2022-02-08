@@ -4,7 +4,7 @@ description: Learn how to configure customer-managed keys for your Azure Cosmos 
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 10/15/2021
+ms.date: 02/03/2022
 ms.author: thweiss 
 ms.custom: devx-track-azurepowershell
 ---
@@ -32,6 +32,9 @@ You must store customer-managed keys in [Azure Key Vault](../key-vault/general/o
    :::image type="content" source="./media/how-to-setup-cmk/portal-rp-register.png" alt-text="Registering the Microsoft.DocumentDB resource provider":::
 
 ## Configure your Azure Key Vault instance
+
+> [!IMPORTANT]
+> Your Azure Key Vault instance must be accessible through public network access. An instance that is only accessible through [private endpoints](../key-vault/general/private-link-service.md) cannot be used to host your customer-managed keys.
 
 Using customer-managed keys with Azure Cosmos DB requires you to set two properties on the Azure Key Vault instance that you plan to use to host your encryption keys: **Soft Delete** and **Purge Protection**.
 

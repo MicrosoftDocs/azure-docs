@@ -438,12 +438,6 @@
           href: open-service-mesh-deploy-addon-bicep.md
         - name: Install the OSM CLI
           href: open-service-mesh-binary.md
-        - name: Manage a new application
-          href: open-service-mesh-deploy-new-application.md          
-        - name: Onboard existing applications
-          href: open-service-mesh-deploy-existing-application.md
-        - name: Configure IP address and port range exclusion
-          href: open-service-mesh-ip-port-exclusion.md
         - name: Configure Azure Monitor
           href: open-service-mesh-azure-monitor.md
         - name: Troubleshoot Open Service Mesh

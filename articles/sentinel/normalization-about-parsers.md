@@ -47,10 +47,10 @@ The following table lists unifying parsers available:
 | Authentication | | | imAuthentication | ASimAuthentication |
 | Dns | _Im_Dns | _ASim_Dns | imDns | ASimDns |
 | File Event | | |  | imFileEvent |
-| Network Session |  |  | imNetworkSession | ASimNetworkSession |
+| Network Session | _Im_NetworkSession | _ASim_NetworkSession | imNetworkSession | ASimNetworkSession |
 | Process Event | | | | - imProcess<br> - imProcessCreate<br> - imProcessTerminate |
 | Registry Event | | | | imRegistry |
-| Web Session | | | imWebSession | ASimWebSession | 
+| Web Session | _Im_WebSession | _ASim_WebSession | imWebSession | ASimWebSession | 
 | | | | | 
 
 

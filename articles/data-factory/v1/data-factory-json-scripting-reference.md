@@ -5643,7 +5643,7 @@ You can specify the following properties in a .NET custom activity JSON definiti
 
 For detailed information, see [Use custom activities in Data Factory](data-factory-use-custom-activities.md) article.
 
-## Next Steps
+## Next steps
 See the following tutorials:
 
 - [Tutorial: create a pipeline with a copy activity](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
