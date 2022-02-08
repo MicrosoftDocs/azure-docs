@@ -13,13 +13,13 @@ ms.custom: ignite-fall-2021
 
 # Connect to a VM using the native client (Preview)
 
-Azure Bastion lets you connect to target VMs in Azure using a native RDP or SSH client on your local workstation. This feature lets you connect to your target VMs via Bastion using Azure CLI and expands your sign-in options to include local SSH key pair, and Azure Active Directory (Azure AD). This article helps you configure Bastion with the required settings, and then connect to a VM in the VNet. For more information, see the [What is Azure Bastion?](bastion-overview.md).
+This article helps you configure Bastion, and then connect to a VM in the VNet using the native client (SSH or RDP) on your local workstation. This feature lets you connect to your target VMs via Bastion using Azure CLI, and expands your sign-in options to include local SSH key pair and Azure Active Directory (Azure AD). For more information about Azure Bastion, see the [What is Azure Bastion?](bastion-overview.md).
 
 > [!NOTE]
 > This configuration requires the Standard SKU tier for Azure Bastion.
 >
 
-Currently, this feature has the following limitations:
+Currently, this feature has the following limitation:
 
 * Signing in using an SSH private key stored in Azure Key Vault isn’t supported with this feature. Download your private key to a file on your local machine before signing in to your Linux VM using an SSH key pair.
 
