@@ -41,7 +41,7 @@ This script uses the commands outlined in the following table:
 | **Command** | **Notes** |
 |---|---|
 | [az group create](/cli/azure/group#az_group_create) | Creates a resource group in which all resources are stored. |
-| [az postgresql server create](/cli/azure/postgresql/server#az_postgresql_server_create) | Creates a PostgreSQL server that hosts the databases. |
+| [az postgresql server create](/azure/postgresql/quickstart-create-server-database-azure-cli#az_postgresql_server_create) | Creates a PostgreSQL server that hosts the databases. |
 | [az network vnet list-endpoint-services](/cli/cli/azure/network/vnet#az-network-vnet-list-endpoint-services) | List which services support VNET service tunneling in a given region. |
 | [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create) | Creates a virtual network. |
 | [az network vnet subnet create](/cli/azure/network/vnet#az-network-vnet-subnet-create) | Create a subnet and associate an existing NSG and route table. |
