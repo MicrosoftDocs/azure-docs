@@ -39,7 +39,7 @@ For Azure Stack Edge Pro 2 deployment, you need to first prepare your environmen
 |**[3. Connect to Azure Stack Edge Pro 2](azure-stack-edge-pro-2-deploy-connect.md)** |Once the device is installed, connect to its local web UI.  |
 |**[4. Configure network settings for Azure Stack Edge Pro 2](azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy.md)** |Configure network including the compute network and web proxy settings for your device.   |
 |**[5. Configure device settings for Azure Stack Edge Pro 2](azure-stack-edge-pro-2-deploy-set-up-device-update-time.md)** |Assign a device name and DNS domain, configure update server and device time. |
-|**[6. Configure security settings for Azure Stack Edge Pro 2](azure-stack-edge-pro-2-deploy-configure-certificates.md)** |Configure certificates for your device. Use device-generated certificates or bring your own certificates.   |
+|**[6. Configure security settings for Azure Stack Edge Pro 2](azure-stack-edge-placeholder.md)** |Configure certificates for your device. Use device-generated certificates or bring your own certificates.   |
 |**[7. Activate Azure Stack Edge Pro 2](azure-stack-edge-placeholder.md)** |Use the activation key from service to activate the device. The device is ready to set up SMB or NFS shares or connect via REST. |
 |**[8. Configure compute](azure-stack-edge-placeholder.md)** |Configure the compute role on your device. A Kubernetes cluster is also created. |
 |**[9A. Transfer data with Edge shares](./azure-stack-edge-gpu-deploy-add-shares.md)** |Add shares and connect to shares via SMB or NFS. |
