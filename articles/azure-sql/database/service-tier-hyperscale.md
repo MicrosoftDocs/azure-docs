@@ -190,5 +190,5 @@ Learn more about Hyperscale in Azure SQL Database in the following articles:
 - See [Overview of resource limits on a server](resource-limits-logical-server.md) for information about limits at the server and subscription levels.
 - For purchasing model limits for a single database, see [Azure SQL Database vCore-based purchasing model limits for a single database](resource-limits-vcore-single-databases.md).
 - For a features and comparison list, see [SQL common features](features-comparison.md).
-- Learn about the [Hyperscale distributed functions architecture](hyperscale-architecture.md)
+- Learn about the [Hyperscale distributed functions architecture](hyperscale-architecture.md).
 - Learn [How to manage a Hyperscale database](manage-hyperscale-database.md).

@@ -334,6 +334,8 @@
       items:
       - name: Azure portal, PowerShell, Az CLI
         href: database/single-database-create-quickstart.md
+      - name: Hyperscale
+        href: database/hyperscale-database-create-quickstart.md
       - name: ARM template
         displayName: Resource Manager
         href: database/single-database-create-arm-template-quickstart.md
@@ -432,6 +434,8 @@
       href: database/elastic-query-overview.md
     - name: Elastic transactions
       href: database/elastic-transactions-overview.md
+    - name: Hyperscale architecture
+      href: database/hyperscale-architecture.md
 
     - name: Resource management 
       items: 
@@ -591,6 +595,8 @@
         href: database/elastic-pool-manage.md
       - name: Resource management in dense elastic pools
         href: database/elastic-pool-resource-management.md
+      - name: Manage Hyperscale databases
+        href: database/manage-hyperscale-database.md
       - name: Hyperscale performance diagnostics
         href: database/hyperscale-performance-diagnostics.md
       - name: Block T-SQL CRUD
