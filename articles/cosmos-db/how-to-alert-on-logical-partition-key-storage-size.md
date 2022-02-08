@@ -76,7 +76,7 @@ Follow the instructions in [Monitor Azure Cosmos DB data by using diagnostic set
 
         * Select **Maximum** for **Aggregation type**.
 
-        * Select **5 minutes** for the **Aggregation granularity**.
+        * Select your desired **Aggregation granularity** based on your requirements. In our example, we’ll select **1 hour**. This means that the alert will calculate the storage size of the logical partition using the highest storage value in the hour. 
 
    * In the Split by dimensions section:
 
@@ -95,7 +95,11 @@ Follow the instructions in [Monitor Azure Cosmos DB data by using diagnostic set
 
         * Select your desired threshold value. Based on how we’ve written the query, a valid threshold will be a number between 0 and 1 (inclusive). In our example, we want to trigger the alert if a logical partition key reaches 70% of the allowed storage, so we enter **0.7**. You can tune this number based on your requirements.
 
-        * Select your desired **Frequency of evaluation** based on your requirements. In our example, we’ll select **6 hours**. 
+        * Select your desired **Frequency of evaluation** based on your requirements. In our example, we’ll select **1 hour**. Note this value must be less than or equal to the alert evaluation period.
+
+    After completing Step 5, the **Condition** section will look like the example below. 
+
+    :::image type="content" source="media/how-to-alert-on-logical-partition-key-storage-size/alert-signal-logic.png" alt-text="Example configuration for signal logic":::
 
 1. Fill out the **Actions** section:
 
@@ -123,6 +127,25 @@ Follow the instructions in [Monitor Azure Cosmos DB data by using diagnostic set
    * Select **Review + create** and select **Create** to finish creating the alert.
 
 After creating the alert, it will be active within 10 minutes.
+
+## Example alert
+To see your alerts in the Azure portal:
+
+1. Sign into the [Azure portal.](https://portal.azure.com/)
+
+1. Select **Monitor** from the left-hand navigation bar and select **Alerts**.
+
+When the alert is fired, it will include:
+- Database account name
+- Database name
+- Container name
+- Logical partition key
+- Storage in KB of the logical partition key
+- Utilization of the 20 GB limit
+
+For example, in the alert that was fired below, we see the logical partition of "ContosoTenant" has reached .78 of the 20GB logical partition storage limit, with 16GB of data. 
+
+:::image type="content" source="media/how-to-alert-on-logical-partition-key-storage-size/alert-when-logical-partition-key-exceeds-threshold.png" alt-text="Example of an alert that was fired when logical partition key size exceeds 20 GB. Alert shows the logical partition of "ContosoTenant" has reached 0.78 of the 20GB limit (16GB of storage).":::
 
 ## Remediation steps
 When the 20 GB logical partition size limit is reached, you won't be able to write any more data to that logical partition. As a result, it's recommended to re-architect your application with a different partition key as a long-term solution. 
