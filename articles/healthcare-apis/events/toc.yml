@@ -19,8 +19,8 @@ items:
 - name: How-to guides
   expanded: true
   items:
-  - name: Place holder events how-to guide
-    href: events-deploy-in-portal.md 
+  - name: Configure diagnostic settings and event logs
+    href: events-export-logs-and-metrics.md 
 - name: Concepts
   expanded: true
   items:
