@@ -15,9 +15,9 @@ ms.custom: ignite-fall-2021
 > This capability is in preview and is subject to the 
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-To help you manage [Azure resources](../azure-resource-manager/management/overview.md#terminology) more easily, you can create automated management tasks for a specific resource or resource group by using automation task templates, which vary in availability based on the resource type. For example, for an [Azure storage account](../storage/common/storage-account-overview.md), you can set up an automation task that sends the monthly cost for that storage account. For an [Azure virtual machine](https://azure.microsoft.com/services/virtual-machines/), you can create an automation task that turns on or turns off that virtual machine on a predefined schedule.
+To help you manage [Azure resources](../azure-resource-manager/management/overview.md#terminology) more easily, you can create automated management tasks for a specific resource or resource group. These tasks vary in number and availability, based on the resource type. For example, for an [Azure storage account](../storage/common/storage-account-overview.md), you can set up an automation task that sends the monthly cost for that storage account. For an [Azure virtual machine](https://azure.microsoft.com/services/virtual-machines/), you can create an automation task that turns on or turns off that virtual machine on a predefined schedule.
 
-Here are the currently available task templates in this preview:
+You can create an automation task from a specific automation task template. The following table lists the currently supported resource types and available task templates in this preview:
 
 | Resource type | Automation task templates |
 |---------------|---------------------------|
@@ -40,9 +40,9 @@ This article shows you how to complete the following tasks:
 
 ## How do automation tasks differ from Azure Automation?
 
-Automation tasks are more basic and lightweight than [Azure Automation](../automation/automation-intro.md). Currently, you can create an automation task only at the Azure resource level. Behind the scenes, an automation task is actually a logic app resource that runs a workflow and is powered by the [*multi-tenant* Azure Logic Apps service](logic-apps-overview.md). After you create the automation task, you can view and edit the underlying workflow by opening the task in the workflow designer. After a task finishes at least one run, you can review the task's status, workflow run history, inputs, and outputs for each run.
+Automation tasks are more basic and lightweight than [Azure Automation](../automation/automation-intro.md). Currently, you can create an automation task only at the Azure resource level. Behind the scenes, an automation task is actually a logic app resource that runs a workflow. This logic app workflow is powered by the [*multi-tenant* Azure Logic Apps service](logic-apps-overview.md). After you create the automation task, you can view and edit the underlying workflow by opening the task in the workflow designer. After a task finishes at least one run, you can review the run's status, history, inputs, and outputs.
 
-By comparison, Azure Automation is a cloud-based automation and configuration service that supports consistent management across your Azure and non-Azure environments. The service comprises [process automation for orchestrating processes](../automation/automation-intro.md#process-automation) by using [runbooks](../automation/automation-runbook-execution.md), configuration management with [change tracking and inventory](../automation/change-tracking/overview.md), update management, shared capabilities, and heterogeneous features. Automation gives you complete control during deployment, operations, and decommissioning of workloads and resources.
+By comparison, Azure Automation is a cloud-based automation and configuration service that supports consistent management across your Azure and non-Azure environments. The service comprises [process automation for orchestrating processes](../automation/automation-intro.md#process-automation) that uses [runbooks](../automation/automation-runbook-execution.md), configuration management with [change tracking and inventory](../automation/change-tracking/overview.md), update management, shared capabilities, and heterogeneous features. Automation gives you complete control during deployment, operations, and decommissioning of workloads and resources.
 
 <a name="pricing"></a>
 
