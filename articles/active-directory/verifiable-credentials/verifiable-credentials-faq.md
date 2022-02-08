@@ -85,7 +85,7 @@ Reconfiguration requires that you opt out and opt back into the Azure Active Dir
 
 1. In the [Azure portal](https://portal.azure.com), go to Azure Active Directory for the subscription you use for your Azure Active Directory Verifiable credentials deployment.
 1. Under Manage, select Properties
-    1. :::image type="content" source="media/verifiable-credentials-faq/region.png" alt-text="settings delete and opt out":::
+    :::image type="content" source="media/verifiable-credentials-faq/region.png" alt-text="settings delete and opt out":::
 1. See the value for Country or Region. If the value is a country or a region in Europe, your Azure AD Verifiable Credentials service will be set up in Europe.
 
 ### How can I check if my tenant has the new Hub endpoint?
