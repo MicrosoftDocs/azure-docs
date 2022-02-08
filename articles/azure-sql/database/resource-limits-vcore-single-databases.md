@@ -19,7 +19,7 @@ This article provides the detailed resource limits for single databases in Azure
 
 * For DTU purchasing model limits for single databases on a server, see [Overview of resource limits on a server](resource-limits-logical-server.md).
 * For DTU purchasing model resource limits for Azure SQL Database, see [DTU resource limits single databases](resource-limits-dtu-single-databases.md) and [DTU resource limits elastic pools](resource-limits-dtu-elastic-pools.md).
-* For vCore resource limits, see [vCore resource limits - Azure SQL Database](resource-limits-vcore-single-databases.md) and [vCore resource limits - elastic pools](resource-limits-vcore-elastic-pools.md).
+* For elastic pool vCore resource limits, [vCore resource limits - elastic pools](resource-limits-vcore-elastic-pools.md).
 * For more information regarding the different purchasing models, see [Purchasing models and service tiers](purchasing-models.md).
 
 > [!IMPORTANT]
@@ -39,6 +39,17 @@ You can set the service tier, compute size (service objective), and storage amou
 > For scaling guidance and considerations, see [Scale a single database](single-database-scale.md).
 
 ## General purpose - serverless compute - Gen5
+
+<!---
+vCore resource limits are listed in the following articles, please be sure to update all of them: 
+/database/resource-limits-vcore-single-databases.md
+/database/resource-limits-vcore-elastic-pools.md
+/database/resource-limits-logical-server.md
+/database/service-tier-general-purpose.md
+/database/service-tier-business-critical.md
+/database/service-tier-hyperscale.md
+/managed-instance/resource-limits.md
+--->
 
 The [serverless compute tier](serverless-tier-overview.md) is currently available on Gen5 hardware only.
 
@@ -66,7 +77,7 @@ The [serverless compute tier](serverless-tier-overview.md) is currently availabl
 |Read Scale-out|N/A|N/A|N/A|N/A|N/A|
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
 
-<sup>1</sup> Service objectives with smaller max vcore configurations may have insufficient memory for creating and using columnstore indexes.  If encountering performance problems with columnstore, increase the max vcore configuration to increase the max memory available.  
+<sup>1</sup> Service objectives with smaller max vCore configurations may have insufficient memory for creating and using columnstore indexes.  If encountering performance problems with columnstore, increase the max vCore configuration to increase the max memory available.  
 
 <sup>2</sup> For documented max data size values. Reducing max data size reduces max log size proportionally.
 

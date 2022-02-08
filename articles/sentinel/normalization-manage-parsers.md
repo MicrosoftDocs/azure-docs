@@ -27,6 +27,8 @@ You may need to manage the source-specific parsers used by each unifying parser 
 
   - Use a modified version of a built-in parser.
 
+- **Configure a source-specific parser**, for example to define the sources that send information relevant to the parser.
+
 This article guides you through managing your parsers, whether using built-in, unifying ASIM parsers or workspace-deployed unifying parsers. 
 
 > [!IMPORTANT]
@@ -49,7 +51,9 @@ Microsoft Sentinel users cannot edit built-in unifying parsers. Instead, use the
 
     You can deploy initial, empty, unifying custom parsers to your Microsoft Sentinel workspace for all supported schemas, or individually for specific schemas. For more information, see [Deploy initial ASIM empty custom unifying parsers](https://aka.ms/ASimDeployEmptyCustomUnifyingParsers) in the Microsoft Sentinel GitHub repository.
 
-- **To support excluding built-in source-specific parsers**, ASIM uses a watchlist. Deploy the watchlist to your Microsoft Sentinel workspace from the Microsoft Sentinel [GitHub](https://aka.ms/DeployASimExceptionWatchlist) repository.
+- **To support excluding built-in source-specific parsers**, ASIM uses a watchlist. Deploy the watchlist to your Microsoft Sentinel workspace from the Microsoft Sentinel [GitHub](https://aka.ms/DeployASimWatchlists) repository.
+
+- **To define source type for built-in and custom parsers**, ASIM uses a watchlist. Deploy the watchlist to your Microsoft Sentinel workspace from the Microsoft Sentinel [GitHub](https://aka.ms/DeployASimWatchlists) repository.
 
 ### Add a custom parser to a built-in unifying parser
 
@@ -62,6 +66,8 @@ The syntax of the line to add is different for each schema:
 | Schema | Filtering  parser | Parameter&#8209;less&nbsp;parser | 
 | ------ | ---------------------------------------- | --------------------- |
 | DNS    | **Name**: `Im_DnsCustom`<br><br> **Line to add**:<br> `_parser_name_ (starttime, endtime, srcipaddr, domain_has_any, responsecodename, response_has_ipv4, response_has_any_prefix, eventtype)` | **Name**: `ASim_DnsCustom`<br><br> **Line to add**:<br> `_parser_name_` |
+| NetworkSession    | **Name**: `Im_NetworkSessionCustom`<br><br> **Line to add**:<br> `_parser_name_  (starttime, endtime, srcipaddr_has_any_prefix, dstipaddr_has_any_prefix, dstportnumber, hostname_has_any, dvcaction, eventresult)` | **Name**: `ASim_NetworkSessionCustom`<br><br> **Line to add**:<br> `_parser_name_` |
+| WebSession    | **Name**: `Im_WebSessionCustom`<br><br> **Line to add**:<br> `_parser_name_ (starttime, endtime, srcipaddr_has_any_prefix, url_has_any, httpuseragent_has_any, eventresultdetails_in, eventresult)` | **Name**: `ASim_WebSessionCustom`<br><br> **Line to add**:<br> `_parser_name_` |
 | | |
 
 When adding an additional parser to a unifying custom parser that already references parsers, make sure you add a comma at the end of the previous line. 
@@ -167,6 +173,12 @@ For example, the following code shows a DNS filtering unifying parser, having re
      };
   Generic( starttime, endtime, srcipaddr, domain_has_any, responsecodename, response_has_ipv4, response_has_any_prefix, eventtype)
 ```
+
+## Configure the sources relevant to a source-specific parser
+
+Some parsers requires you to update the list of sources that are relevant to the parser. For example, a parser that uses Syslog data, may not be able to determine what Syslog events are relevant to the parser. Such a parser may use the ASimSourceType watchlist to determine which sources send information relevant to the parser. For such parses add a record for each relevant source to the watchlist:
+- Set the `SourceType` field to the parser specific value specified in the parser documentation. 
+- Set the `Source` field to the identifier of the source used in the events. You may need to query the original table, such as Syslog, to determine the correct value.
 
 ## <a name="next-steps"></a>Next steps
 

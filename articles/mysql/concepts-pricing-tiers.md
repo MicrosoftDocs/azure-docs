@@ -5,7 +5,7 @@ author: savjani
 ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 10/14/2020
+ms.date: 02/07/2022
 ---
 
 # Azure Database for MySQL pricing tiers
@@ -30,7 +30,10 @@ To choose a pricing tier, use the following table as a starting point.
 | General Purpose | Most business workloads that require balanced compute and memory with scalable I/O throughput. Examples include servers for hosting web and mobile apps and other enterprise applications.|
 | Memory Optimized | High-performance database workloads that require in-memory performance for faster transaction processing and higher concurrency. Examples include servers for processing real-time data and high-performance transactional or analytical apps.|
 
-After you create a server, the number of vCores, hardware generation, and pricing tier (except to and from Basic) can be changed up or down within seconds. You also can independently adjust the amount of storage up and the backup retention period up or down with no application downtime. You can't change the backup storage type after a server is created. For more information, see the [Scale resources](#scale-resources) section.
+> [!NOTE]
+> Dynamic scaling to and from the Basic pricing tiers is currently not supported. Basic Tier SKUs servers can't be scaled up to General Purpose or Memory Optimized Tiers.
+
+After you create a General Purpose or Memory Optimized server, the number of vCores, hardware generation, and pricing tier can be changed up or down within seconds. You also can independently adjust the amount of storage up and the backup retention period up or down with no application downtime. You can't change the backup storage type after a server is created. For more information, see the [Scale resources](#scale-resources) section.
 
 ## Compute generations and vCores
 
