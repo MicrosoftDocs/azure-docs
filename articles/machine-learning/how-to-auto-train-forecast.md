@@ -228,7 +228,6 @@ automl_config = AutoMLConfig(task='forecasting',
 
 To enable DNN for an AutoML experiment created in the Azure Machine Learning studio, see the [task type settings in the studio UI how-to](how-to-use-automated-ml-for-ml-models.md#create-and-run-experiment).
 
-View the [Beverage Production Forecasting notebook](https://github.com/Azure/azureml-examples/blob/main/python-sdk/tutorials/automl-with-azureml/forecasting-beer-remote/auto-ml-forecasting-beer-remote.ipynb) for a detailed code example using DNNs.
 
 ### Target rolling window aggregation
 
