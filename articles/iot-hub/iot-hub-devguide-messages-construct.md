@@ -159,14 +159,6 @@ The **iothub-connection-auth-method** property contains a JSON serialized object
 }
 ```
 
-## Protocol Specifics
-
-Each IoT Hub protocol implements support for these properties in a slightly different manner. 
-
-### MQTT
-
-Over [MQTT](./iot-hub-mqtt-support.md), message properties are provided via a property bag
-
 ## Next steps
 
 * For information about message size limits in IoT Hub, see [IoT Hub quotas and throttling](iot-hub-devguide-quotas-throttling.md).
