@@ -92,7 +92,7 @@ failed to establish connection to {account name}.documents.azure.com/<unresolved
 ```
 
 #### Solution:
-Open all the [required ports](https://docs.microsoft.com/azure/cosmos-db/how-to-configure-private-endpoints#port-range-when-using-direct-mode) for private endpoints.
+Open all the [required ports](how-to-configure-private-endpoints.md#port-range-when-using-direct-mode) for private endpoints.
 
 
 ### Failure rate is within the Azure Cosmos DB SLA
