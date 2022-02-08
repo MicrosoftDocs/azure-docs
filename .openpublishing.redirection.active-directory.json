@@ -837,12 +837,12 @@
         },
         {
             "source_path_from_root": "/articles/active-directory/active-directory-conditional-access.md",
-            "redirect_url": "/azure/active-directory/active-directory-conditional-access-azure-portal",
+            "redirect_url": "/azure/active-directory/conditional-access/overview",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/active-directory/active-directory-conditional-access-azuread-connected-apps.md",
-            "redirect_url": "/azure/active-directory/active-directory-conditional-access-azure-portal-get-started",
+            "redirect_url": "/azure/active-directory/concept-conditional-access-cloud-apps",
             "redirect_document_id": false
         },
         {
@@ -1972,7 +1972,7 @@
         },
         {
             "source_path_from_root": "/articles/active-directory/active-directory-conditional-access-azure-portal-get-started.md",
-            "redirect_url": "/azure/active-directory/conditional-access/app-based-mfa",
+            "redirect_url": "/azure/active-directory/conditional-access/howto-conditional-access-policy-azure-management",
             "redirect_document_id": true
         },
         {
