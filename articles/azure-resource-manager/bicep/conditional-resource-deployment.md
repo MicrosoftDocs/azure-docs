@@ -42,7 +42,7 @@ module dnsZone 'dnszones.bicep' = if (deployZone) {
 }
 ```
 
-Conditions may be used with dependency declarations. For [explicit dependencies](resource-declaration.md#dependencies), Azure Resource Manager automatically removes it from the required dependencies when the resource isn't deployed. For implicit dependencies, referencing a property of a conditional resource is allowed but may produce a deployment error.
+Conditions may be used with dependency declarations. For [explicit dependencies](resource-dependencies.md), Azure Resource Manager automatically removes it from the required dependencies when the resource isn't deployed. For implicit dependencies, referencing a property of a conditional resource is allowed but may produce a deployment error.
 
 ## New or existing resource
 
