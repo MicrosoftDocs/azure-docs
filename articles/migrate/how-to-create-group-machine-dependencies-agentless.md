@@ -20,7 +20,8 @@ This article describes how to set up agentless dependency analysis using Azure M
 
 - In the dependency analysis view, you currently cannot add or remove a server from a group.
 - A dependency map for a group of servers isn't currently available.
-- In an Azure Migrate project, you can enable dependency data collection concurrently for 1000 servers per appliance. You can analyze more than 1000 servers per project either by enabling dependency analysis concurrently on servers discovered by multiple appliances or by sequencing in batches of 1000 for servers discovered from one appliance.
+- In an Azure Migrate project, you can enable dependency data collection concurrently for 1000 servers per appliance. 
+- You can analyze more than 1000 servers per project either by enabling dependency analysis concurrently on servers discovered by multiple appliances or by sequencing in batches of 1000 for servers discovered from one appliance.
 
 ## Before you start
 
