@@ -15,7 +15,7 @@ ms.date: 2/17/2022
 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-The [Hyperscale service tier](service-tier-hyperscale.md) utilizes an architecture with highly scalable storage and compute performance tiers. This article describes the components that enable customers to quickly scale Hyperscale databases while benefiting from 
+The [Hyperscale service tier](service-tier-hyperscale.md) utilizes an architecture with highly scalable storage and compute performance tiers. This article describes the components that enable customers to quickly scale Hyperscale databases while benefiting from nearly instantaneous backups and highly scalable transaction logging.
 
 ## Hyperscale architecture overview
 

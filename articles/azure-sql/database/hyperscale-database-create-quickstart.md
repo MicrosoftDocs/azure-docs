@@ -12,7 +12,7 @@ ms.date: 2/17/2022
 ---
 # Quickstart: Create a Hyperscale database in Azure SQL Database
 
-In this quickstart, you create a [logical SQL server](logical-servers.md) and a [Hyperscale](service-tier-hyperscale.md) database in Azure SQL Database using the Azure portal, a PowerShell script, or an Azure CLI script. If you would like to use an existing logical SQL server in Azure, you can create a Hyperscale database using Transact-SQL. 
+In this quickstart, you create a [logical SQL server](logical-servers.md) and a [Hyperscale](service-tier-hyperscale.md) database in Azure SQL Database using the Azure portal, a PowerShell script, or an Azure CLI script. If you would like to use an existing logical SQL server in Azure, you can create a Hyperscale database using Transact-SQL.
 
 ## Prerequisites
 
