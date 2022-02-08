@@ -52,7 +52,7 @@ Before you can work with an Azure file share, you have to create an Azure storag
 
 The following image shows the settings on the **Basics** blade for a new storage account:
 
-:::image type="content" source="media/storage-files-quick-create-use-windows/account-create-portal.png" alt-text="Screenshot showing how to create a storage account in the Azure portal." lightbox="media/storage-create-account-portal-include/account-create-portal.png":::
+:::image type="content" source="media/storage-files-quick-create-use-windows/account-create-portal.png" alt-text="Screenshot showing how to create a storage account in the Azure portal." lightbox="media/storage-files-quick-create-use-windows/account-create-portal.png":::
 
 ### Create an Azure file share
 
