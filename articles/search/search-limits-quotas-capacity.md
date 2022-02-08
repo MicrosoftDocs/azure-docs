@@ -146,7 +146,10 @@ Static rate request limits for operations related to a service:
 * Maximum 8 KB URL length
 * Maximum 1000 documents per batch of index uploads, merges, or deletes
 * Maximum 32 fields in $orderby clause
+* Maximum 100,000 characters in a search clause
 * Maximum search term size is 32,766 bytes (32 KB minus 2 bytes) of UTF-8 encoded text
+* Maximum search term size is 1000 characters for [prefix search](query-simple-syntax.md#prefix-queries)
+* [Wildcard search](query-lucene-syntax.md#bkmk_wildcard) and [Regular expression search](query-lucene-syntax.md#bkmk_regex) are limited to a maximum of 1000 states when processed by [Lucene](https://lucene.apache.org/core/7_0_1/core/org/apache/lucene/util/automaton/RegExp.html). 
 
 <sup>1</sup> In Azure Cognitive Search, the body of a request is subject to an upper limit of 16 MB, imposing a practical limit on the contents of individual fields or collections that are not otherwise constrained by theoretical limits (see [Supported data types](/rest/api/searchservice/supported-data-types) for more information about field composition and restrictions).
 
