@@ -115,7 +115,7 @@ The Azure Resource Manager template snippet below shows the new ***zoneRedundant
 > [Learn how to scale up an app in Azure App Service](manage-scale-up.md)
 
 > [!div class="nextstepaction"]
-> [Overview of autoscale in Microsoft Azure](..azure-monitor/autoscale/autoscale-overview.md)
+> [Overview of autoscale in Microsoft Azure](../azure-monitor/autoscale/autoscale-overview.md)
 
 > [!div class="nextstepaction"]
 > [Manage disaster recovery](manage-disaster-recovery.md)
