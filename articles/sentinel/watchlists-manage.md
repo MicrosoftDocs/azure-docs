@@ -20,7 +20,7 @@ Edit a watchlist to edit or add an item to the watchlist.
 1. Select the watchlist you want to edit.
 1. Select **Edit watchlist items** on the details pane.
 
-   :::image type="content" source="./media/watchlists-manage/sentinel-watchlist-edit.png" alt-text="Screenshot that shows how to edit a watchlist." lightbox="./media/watchlists/sentinel-watchlist-edit.png":::
+   :::image type="content" source="./media/watchlists-manage/sentinel-watchlist-edit.png" alt-text="Screenshot that shows how to edit a watchlist." lightbox="./media/watchlists-manage/sentinel-watchlist-edit.png":::
 
 1. To edit an existing watchlist item, 
    1. Select the checkbox of that watchlist item.

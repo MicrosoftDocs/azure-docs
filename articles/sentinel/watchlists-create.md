@@ -32,7 +32,7 @@ If you didn't use a watchlist template to create your file,
 1. Under **Configuration**, select **Watchlist**.
 1. Select **+ Add new**.
 
-    :::image type="content" source="./media/watchlists-create/sentinel-watchlist-new.png" alt-text="Screenshot of add watchlist option on watchlist page." lightbox="./media/watchlists/sentinel-watchlist-new.png":::
+    :::image type="content" source="./media/watchlists-create/sentinel-watchlist-new.png" alt-text="Screenshot of add watchlist option on watchlist page." lightbox="./media/watchlists-create/sentinel-watchlist-new.png":::
 
 1. On the **General** page, provide the name, description, and alias for the watchlist.
 
@@ -51,7 +51,7 @@ If you didn't use a watchlist template to create your file,
 
 1. Select **Next: Review and Create**.
 
-    :::image type="content" source="./media/watchlists-create/sentinel-watchlist-source.png" alt-text="Screenshot of the watchlist source tab." lightbox="./media/watchlists/sentinel-watchlist-source.png":::
+    :::image type="content" source="./media/watchlists-create/sentinel-watchlist-source.png" alt-text="Screenshot of the watchlist source tab." lightbox="./media/watchlists-create/sentinel-watchlist-source.png":::
 
 
 1. Review the information, verify that it's correct, wait for the **Validation passed** message, and then select **Create**.
@@ -60,7 +60,7 @@ If you didn't use a watchlist template to create your file,
 
     A notification appears once the watchlist is created.
 
-    :::image type="content" source="./media/watchlists-create/sentinel-watchlist-complete.png" alt-text="Screenshot of the watchlist successful creation notification." lightbox="./media/watchlists/sentinel-watchlist-complete.png":::
+    :::image type="content" source="./media/watchlists-create/sentinel-watchlist-complete.png" alt-text="Screenshot of the watchlist successful creation notification." lightbox="./media/watchlists-create/sentinel-watchlist-complete.png":::
 
 It might take several minutes for the watchlist to be created and the new data to be available in queries.
 
@@ -133,11 +133,11 @@ Create a shared access signature URL for Microsoft Sentinel to retrieve the watc
 1. Under **Configuration**, select **Watchlist**.
 1. Select **+ Add new**.
 
-    :::image type="content" source="./media/watchlists-create/sentinel-watchlist-new.png" alt-text="Screenshot of the add watchlist on the watchlist page." lightbox="./media/watchlists/sentinel-watchlist-new.png":::
+    :::image type="content" source="./media/watchlists-create/sentinel-watchlist-new.png" alt-text="Screenshot of the add watchlist on the watchlist page." lightbox="./media/watchlists-create/sentinel-watchlist-new.png":::
 
 1. On the **General** page, provide the name, description, and alias for the watchlist.
 
-    :::image type="content" source="./media/watchlists-create/sentinel-watchlist-general.png" alt-text="watchlist general page":::
+    :::image type="content" source="./media/watchlists-create/sentinel-watchlist-general.png" alt-text="Screenshot of the watchlist general tab with name, description, and watchlist alias fields.":::
 
 1. Select **Next: Source**.
 1. Use the information in the following table to upload your watchlist data.
@@ -152,7 +152,7 @@ Create a shared access signature URL for Microsoft Sentinel to retrieve the watc
 
     After you enter all the information, your page will look similar to following image.
 
-    :::image type="content" source="./media/watchlists-create/watchlist-source-azure-storage.png" alt-text="watchlist general page" lightbox="./media/watchlists-create/watchlist-source-azure-storage.png":::
+    :::image type="content" source="./media/watchlists-create/watchlist-source-azure-storage.png" alt-text="Screenshot of the watchlist source page with sample values entered." lightbox="./media/watchlists-create/watchlist-source-azure-storage.png":::
 
 1. Select **Next: Review and Create**.
 1. Review the information, verify that it's correct, wait for the **Validation passed** message.
