@@ -90,7 +90,7 @@ The receipt model analyzes and extracts key information from sales receipts. The
 
 :::image type="content" source="media/studio/id-document.png" alt-text="Screenshot: Studio identity document icon.":::
 
-The ID document model analyzes and extracts key information from U.S. Driver's Licenses (all 50 states and District of Columbia) and biographical pages for international passports (excluding visa and other travel documents). The API analyzes identity documents and extracts key information such as first name, last name, address, and date of birth.
+The ID document model analyzes and extracts key information from U.S. Driver's Licenses (all 50 states and District of Columbia) and biographical pages from international passports (excluding visa and other travel documents). The API analyzes identity documents and extracts key information such as first name, last name, address, and date of birth.
 
 ***Sample U.S. Driver's License processed with [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=idDocument)***:
 
@@ -103,7 +103,7 @@ The ID document model analyzes and extracts key information from U.S. Driver's L
 
 :::image type="content" source="media/studio/business-card.png" alt-text="Screenshot: Studio business card icon.":::
 
-The business card model analyzes and extracts key information from business card images. The API analyzes printed business card images and  extracts key information such as first name, last name, company name, email address, and phone number.
+The business card model analyzes and extracts key information from business card images. The API analyzes printed business card images and extracts key information such as first name, last name, company name, email address, and phone number.
 
 ***Sample business card processed with [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=businessCard)***:
 
@@ -143,7 +143,7 @@ The custom model analyzes and extracts data from forms and documents specific to
 * Supported file formats: JPEG, PNG, BMP, TIFF, and PDF (text-embedded or scanned). Text-embedded PDFs are best to eliminate the possibility of error in character extraction and location.
 * For PDF and TIFF, up to 2000 pages can be processed (with a free tier subscription, only the first two pages are processed).
 * The file size must be less than 50 MB.
-* Image dimensions must be between 50 x 50 pixels and 10000 x 10000 pixels.
+* Image dimensions must be between 50 x 50 pixels and 10000 x 10,000 pixels.
 * PDF dimensions are up to 17 x 17 inches, corresponding to Legal or A3 paper size, or smaller.
 * The total size of the training data is 500 pages or less.
 * If your PDFs are password-locked, you must remove the lock before submission.
