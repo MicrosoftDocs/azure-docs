@@ -7,6 +7,7 @@ ms.service: active-directory
 ms.subservice: verifiable-credentials
 ms.topic: reference
 ms.date: 02/08/2022
+ms.custom: references_regions
 ms.author: barclayn
 
 #Customer intent: As an Azure AD Verifiable Credentials issuer, verifier or developer, I want to know what's new in the product so that I can make full use of the functionality as it becomes available.
