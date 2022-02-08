@@ -26,7 +26,7 @@ The following table shows the networks to which a site will connect. For each ne
 
 | Network | Required IP addresses |
 |--|--|
-| Management network | <ul><li>Network address.</li><li>Default gateway.</li><li>One IP address for the Azure Stack Edge Pro device's management port.</li><li>Three sequential IP addresses for the Azure Kubernetes Service on Azure Stack HCI (AKS-HCI) cluster nodes.</li><li>One IP address for accessing local monitoring tools for the packet core instance. </ul> |
+| Management network | <ul><li>Network address.</li><li>Default gateway.</li><li>One IP address for the Azure Stack Edge Pro device's management port.</li><li>Three sequential IP addresses for the Azure Kubernetes Service on Azure Stack HCI (AKS-HCI) cluster nodes.</li><li>One IP address for accessing local monitoring tools for the packet core instance.</li> </ul> |
 | Access network | <ul><li>Network address.</li><li>Default gateway.</li><li>One IP address for port 5 on the Azure Stack Edge Pro device.</li><li>One IP address for the packet core instance's N2 signaling interface.</li><li>One IP address for the packet core instance's N3 interface.</li></ul> |
 | Data network | <ul><li>Network address.</li><li>Default gateway.</li><li>One IP address for port 6 on the Azure Stack Edge Pro device.</li><li>One IP address for the packet core instance's N6 interface.</li></ul> |
 | User Equipment (UE) IP address pool | <ul><li>Network address.</li><li>IP addresses for each UE that will be served by the private mobile network.</li></ul> |

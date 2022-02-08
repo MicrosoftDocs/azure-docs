@@ -50,8 +50,6 @@ landingContent:
             url: create-an-additional-site.md
           - text: Create a site
             url: create-an-additional-site.md
-          - text: Modify an existing packet core instance
-            url: modify-existing-packet-core.md
   # Card                   
   - title: Customize Quality of Service (QoS) and traffic control
     linkLists:
