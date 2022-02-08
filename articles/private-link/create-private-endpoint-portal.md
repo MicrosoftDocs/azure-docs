@@ -8,7 +8,7 @@ ms.topic: quickstart
 ms.date: 10/20/2020
 ms.author: allensu
 ms.custom: mode-ui
-#Customer intent: As someone with a basic network background who is new to Azure, I want to create a private endpoint on a SQL server so that I can securely connect to it.
+#Customer intent: As someone who has a basic network background but is new to Azure, I want to create a private endpoint on a SQL server so that I can securely connect to it.
 ---
 
 # Quickstart: Create a private endpoint by using the Azure portal
