@@ -38,6 +38,7 @@ This article provides guidance on how to configure your NAT gateway to ensure ou
 Check the following configurations to ensure that NAT gateway can be used to direct traffic outbound:
 1. At least one public IP address or one public IP prefix is attached to NAT gateway. At least one public IP address must be associated with the NAT gateway for it to provide outbound connectivity. 
 2. At least one subnet is attached to a NAT gateway. You can attach multiple subnets to a NAT gateway for going outbound, but those subnets must exist within the same virtual network. NAT gateway cannot span beyond a single virtual network. 
+3. No [NSG rules](/azure/virtual-network/network-security-groups-overview#outbound) or [UDRs](#udr-supersedes-nat-gateway-for-going-outbound) are blocking NAT gateway from directing traffic outbound to the internet.
 
 ### How to validate connectivity
 
@@ -82,7 +83,7 @@ Common SNAT exhaustion issues with NAT gateway typically have to do with the con
 * NAT gateway idle timeout timers being set higher than their default value of 4 minutes. 
 * Outbound connectivity on NAT gateway not scaled out enough. 
 
-### Idle timeout timers have been changed to higher value their default values
+### Idle timeout timers have been changed to higher value than their default values
 
 NAT gateway resources have a default TCP idle timeout of 4 minutes.  If this setting is changed to a higher value, NAT gateway will hold on to flows longer and can cause [unnecessary pressure on SNAT port inventory](nat-gateway-resource.md#timers).
 
@@ -121,26 +122,26 @@ The table below describes two common scenarios in which outbound connectivity ma
 
 ## Connection issues with NAT gateway and integrated services
 
-### Azure App Service regional VNet integration turned off
+### Azure App Service regional Virtual network integration turned off
 
 NAT gateway can be used with Azure app services to allow applications to make outbound calls from a virtual network. To use this integration between Azure app services and NAT gateway, regional virtual network integration must be enabled. See [how regional virtual network integration works](/azure/app-service/overview-vnet-integration#how-regional-virtual-network-integration-works) to learn more.
 
 To use NAT gateway with Azure App services, follow these steps: 
 1. Ensure that your application(s) are integrated with a subnet. 
-2. Ensure that regional virtual network integration is enabled for the subnet that your apps will use for going outbound by turning on **Route All**.
+2. Ensure that regional Virtual network integration is enabled for the subnet that your apps will use for going outbound by turning on **Route All**.
 3. Create a NAT gateway resource. 
 4. Create a new public IP address or attach an existing public IP address in your network to NAT gateway.
-5. Assign NAT gateway to the same subnet being used for VNet integration with your application(s). 
+5. Assign NAT gateway to the same subnet being used for Virtual network integration with your application(s). 
 
-To see step-by-step instructions on how to configure NAT gateway with VNet integration, see [Configuring NAT gateway integration](/azure/app-service/networking/nat-gateway-integration#configuring-nat-gateway-integration)
+To see step-by-step instructions on how to configure NAT gateway with Virtual network integration, see [Configuring NAT gateway integration](/azure/app-service/networking/nat-gateway-integration#configuring-nat-gateway-integration)
 
 A couple important notes about the NAT gateway and Azure App Services integration: 
-* VNet integration does not provide inbound private access to your app from the virtual network. 
-* Because of the nature of how VNet integration operates, the traffic from virtual network integration does not show up in Azure Network Watcher or NSG flow logs. 
+* Virtual network integration does not provide inbound private access to your app from the virtual network. 
+* Because of the nature of how Virtual network integration operates, the traffic from virtual network integration does not show up in Azure Network Watcher or NSG flow logs. 
 
 ### Port 25 cannot be used for regional VNet integration with NAT gateway
 
-Port 25 is an SMTP port that is used to send email. Azure app services regional VNet integration cannot use port 25 by design. In a scenario where regional VNet integration is enabled for NAT gateway to connect an application to an email SMTP server, traffic will be blocked on port 25 despite NAT gateway working with all other ports for outbound traffic. This block on port 25 cannot be removed.
+Port 25 is an SMTP port that is used to send email. Azure app services regional Virtual network integration cannot use port 25 by design. In a scenario where regional Virtual network integration is enabled for NAT gateway to connect an application to an email SMTP server, traffic will be blocked on port 25 despite NAT gateway working with all other ports for outbound traffic. This block on port 25 cannot be removed.
 
 **Work around solution:**
 * Set up port forwarding to a Windows VM to route traffic to Port 25. 
