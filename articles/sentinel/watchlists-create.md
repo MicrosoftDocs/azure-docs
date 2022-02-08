@@ -158,7 +158,7 @@ Create a shared access signature URL for Microsoft Sentinel to retrieve the watc
 1. Review the information, verify that it's correct, wait for the **Validation passed** message.
 1. Select **Create**.
 
-It might take several minutes for the watchlist to be created and the new data to be available in queries.
+It might take up to an hour for a large watchlist to be created and the new data to be available in queries.
 
 ## View watchlist status
 
