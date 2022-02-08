@@ -41,7 +41,7 @@ To use Service Registry, follow these steps:
 
 A list under **App name** shows the apps bound with Service Registry, as shown in the following screenshot:
 
-:::image type="content" source="media/enterprise/getting-started-enterprise/" alt-text="Azure portal screenshot of Azure Spring Cloud with Service Registry page and 'App binding' section showing.":::
+:::image type="content" source="media/enterprise/getting-started-enterprise/service-reg-app-bind.png" alt-text="Azure portal screenshot of Azure Spring Cloud with Service Registry page and 'App binding' section showing.":::
 
 ### [Azure CLI](#tab/azure-cli)
 
