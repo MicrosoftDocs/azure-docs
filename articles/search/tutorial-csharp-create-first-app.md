@@ -58,7 +58,7 @@ This tutorial has been updated to use the Azure.Search.Documents (version 11) pa
 
 ## Prerequisites
 
-* [Create](search-create-service-portal.md) or [find an existing search service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices).
+* [Create](search-create-service-portal.md) or [find an existing search service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices).
 
 * Create the hotels-sample-index using the instructions in [Quickstart: Create a search index](search-get-started-portal.md).
 
