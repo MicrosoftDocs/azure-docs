@@ -1,13 +1,13 @@
 ---
 title: Form Recognizer models
 titleSuffix: Azure Applied AI Services
-description: Concepts encompassing data extraction and analysis using prebuilt models
+description: Concepts encompassing data extraction and analysis using prebuilt models.
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 10/07/2021
+ms.date: 02/07/2022
 ms.author: lajanuar
 recommendations: false
 ms.custom: ignite-fall-2021
@@ -53,9 +53,9 @@ ms.custom: ignite-fall-2021
 
 The Layout API analyzes and extracts text, tables and headers, selection marks, and structure information from forms and documents.
 
-***Sample form processed with [Form Recognizer Sample Labeling tool](https://fott-2-1.azurewebsites.net/)  layout feature***:
+***Sample form processed with [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/layout)  layout feature***:
 
-:::image type="content" source="media/overview-layout.png" alt-text="Screenshot: analyze sample document processed in Form Recognizer studio":::
+:::image type="content" source="media/studio/analyze-layout.png" alt-text="Screenshot: analyze sample document processed in Form Recognizer studio":::
 
 > [!div class="nextstepaction"]
 > [Learn more: layout model](concept-layout.md)
@@ -66,9 +66,9 @@ The Layout API analyzes and extracts text, tables and headers, selection marks, 
 
 The invoice model analyzes and extracts key information from sales invoices. The API analyzes invoices in various formats and extracts key information such as customer name, billing address, due date, and amount due.
 
-***Sample invoice processed with [Form Recognizer Sample Labeling tool](https://fott-2-1.azurewebsites.net/)***:
+***Sample invoice processed with [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=invoice)***:
 
-:::image type="content" source="./media/overview-invoices.jpg" alt-text="sample invoice" lightbox="./media/overview-invoices.jpg":::
+:::image type="content" source="./media/studio/analyze-invoice.png" alt-text="sample invoice" lightbox="./media/overview-invoices.jpg":::
 
 > [!div class="nextstepaction"]
 > [Learn more: invoice model](concept-invoice.md)
@@ -79,9 +79,9 @@ The invoice model analyzes and extracts key information from sales invoices. The
 
 The receipt model analyzes and extracts key information from sales receipts. The API analyzes printed and handwritten receipts and extracts key information such as merchant name, merchant phone number, transaction date, tax, and transaction total. 
 
-***Sample receipt processed with [Form Recognizer Sample Labeling tool](https://fott-2-1.azurewebsites.net/)***:
+***Sample receipt processed with [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=receipt)***:
 
-:::image type="content" source="./media/overview-receipt.jpg" alt-text="sample receipt" lightbox="./media/overview-receipt.jpg":::
+:::image type="content" source="./media/studio/analyze-receipt.png" alt-text="sample receipt" lightbox="./media/overview-receipt.jpg":::
 
 > [!div class="nextstepaction"]
 > [Learn more: receipt model](concept-receipt.md)
@@ -92,9 +92,9 @@ The receipt model analyzes and extracts key information from sales receipts. The
 
 The ID document model analyzes and extracts key information from U.S. Driver's Licenses (all 50 states and District of Columbia) and biographical pages for international passports (excluding visa and other travel documents). The API analyzes identity documents and extracts key information such as first name, last name, address, and date of birth.
 
-***Sample U.S. Driver's License processed with [Form Recognizer Sample Labeling tool](https://fott-2-1.azurewebsites.net/)***:
+***Sample U.S. Driver's License processed with [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=idDocument)***:
 
-:::image type="content" source="./media/id-example-drivers-license.jpg" alt-text="sample identification card" lightbox="./media/overview-id.jpg":::
+:::image type="content" source="./media/studio/analyze-drivers-license.png" alt-text="sample identification card" lightbox="./media/overview-id.jpg":::
 
 > [!div class="nextstepaction"]
 > [Learn more: identity document model](concept-id-document.md)
@@ -105,9 +105,9 @@ The ID document model analyzes and extracts key information from U.S. Driver's L
 
 The business card model analyzes and extracts key information from business card images. The API analyzes printed business card images and  extracts key information such as first name, last name, company name, email address, and phone number.
 
-***Sample business card processed with [Form Recognizer Sample Labeling tool](https://fott-2-1.azurewebsites.net/)***:
+***Sample business card processed with [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=businessCard)***:
 
-:::image type="content" source="./media/overview-business-card.jpg" alt-text="sample business card" lightbox="./media/overview-business-card.jpg":::
+:::image type="content" source="./media/studio/analyze-business-card.png" alt-text="sample business card" lightbox="./media/overview-business-card.jpg":::
 
 > [!div class="nextstepaction"]
 > [Learn more: business card model](concept-business-card.md)
@@ -118,9 +118,9 @@ The business card model analyzes and extracts key information from business card
 
 The custom model analyzes and extracts data from forms and documents specific to your business. The API is a machine-learning program trained to recognize form fields within your distinct content and extract key-value pairs and table data. You only need five examples of the same form type to get started and your custom model can be trained with or without labeled datasets.
 
-***Sample custom form processed with [Form Recognizer Sample Labeling tool](https://fott-2-1.azurewebsites.net/)***:
+***Sample custom form processed with [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/customform/projects)***:
 
-:::image type="content" source="media/analyze.png" alt-text="Screenshot: Form Recognizer tool analyze-a-custom-form window.":::
+:::image type="content" source="media/studio/train-model.png" alt-text="Screenshot: Form Recognizer tool analyze-a-custom-form window.":::
 
 > [!div class="nextstepaction"]
 > [Learn more: custom model](concept-custom.md)
