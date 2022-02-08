@@ -77,7 +77,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `Clarizen`
 
     b. In the **Reply URL** text box, type the URL:
-    `https://.clarizen.com/Clarizen/Pages/Integrations/SAML/SamlResponse.aspx`
+    `https://.clarizen.com/Clarizen/Pages/Integrations/SAML/SamlResponse.aspx` or `https://subdomain.clarizen.com/Pages/Integrations/SAML/SamlResponse.aspx`
 
 4. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
 
