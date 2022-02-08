@@ -38,15 +38,16 @@ This article provides guidance on how to configure your NAT gateway to ensure ou
 Check the following configurations to ensure that NAT gateway can be used to direct traffic outbound:
 1. At least one public IP address or one public IP prefix is attached to NAT gateway. At least one public IP address must be associated with the NAT gateway for it to provide outbound connectivity. 
 2. At least one subnet is attached to a NAT gateway. You can attach multiple subnets to a NAT gateway for going outbound, but those subnets must exist within the same virtual network. NAT gateway cannot span beyond a single virtual network. 
+3. No [NSG rules](/azure/virtual-network/network-security-groups-overview#outbound) or [UDRs](#udr-supersedes-nat-gateway-for-going-outbound) are blocking NAT gateway from directing traffic outbound to the internet.
 
 ### How to validate connectivity
 
 [Virtual Network NAT gateway](/azure/virtual-network/nat-gateway/nat-overview#vnet-nat-basics) supports IPv4 UDP and TCP protocols. ICMP is not supported and is expected to fail. 
 
 To validate end-to-end connectivity of NAT gateway, follow these steps: 
-1. Validate that your [NAT gateway public IP address is being used](/azure/virtual-network/nat-gateway/tutorial-create-nat-gateway-portal#test-nat-gateway)
-2. Conduct TCP connection tests and UDP-specific application layer tests
-3. Look at NSG flow logs to analyze outbound traffic flows from NAT gateway
+1. Validate that your [NAT gateway public IP address is being used](/azure/virtual-network/nat-gateway/tutorial-create-nat-gateway-portal#test-nat-gateway).
+2. Conduct TCP connection tests and UDP-specific application layer tests.
+3. Look at NSG flow logs to analyze outbound traffic flows from NAT gateway.
 
 Refer to the table below for which tools to use to validate NAT gateway connectivity.
 
@@ -56,17 +57,17 @@ Refer to the table below for which tools to use to validate NAT gateway connecti
 | Windows | [PsPing](/sysinternals/downloads/psping) | PowerShell [Invoke-WebRequest](/powershell/module/microsoft.powershell.utility/invoke-webrequest) | application specific |
 
 To analyze outbound traffic from NAT gateway, use NSG flow logs.
-* To learn more about NSG flow logs, see [NSG flow log overview](/azure/network-watcher/network-watcher-nsg-flow-logging-overview)
-* For guides on how to enable NSG flow logs, see [Enabling NSG flow logs](/azure/network-watcher/network-watcher-nsg-flow-logging-overview#enabling-nsg-flow-logs)
-* For guides on how to read NSG flow logs, see [Working with NSG flow logs](/azure/network-watcher/network-watcher-nsg-flow-logging-overview#working-with-flow-logs)
+* To learn more about NSG flow logs, see [NSG flow log overview](/azure/network-watcher/network-watcher-nsg-flow-logging-overview).
+* For guides on how to enable NSG flow logs, see [Enabling NSG flow logs](/azure/network-watcher/network-watcher-nsg-flow-logging-overview#enabling-nsg-flow-logs).
+* For guides on how to read NSG flow logs, see [Working with NSG flow logs](/azure/network-watcher/network-watcher-nsg-flow-logging-overview#working-with-flow-logs).
 
 ## Configuration issues with subnets and virtual networks using NAT gateway
 
 ### Basic SKU resources cannot exist in the same subnet as NAT gateway
 
 NAT gateway is not compatible with basic resources, such as Basic Load Balancer or Basic Public IP. Basic resources must be placed on a subnet not associated with a NAT Gateway. Basic Load Balancer and Basic Public IP can be upgraded to standard to work with NAT gateway. 
-* To upgrade a basic load balancer to standard, see [upgrade from basic public to standard public load balancer](/azure/load-balancer/upgrade-basic-standard)
-* To upgrade a basic public IP to standard, see [upgrade from basic public to standard public IP](/azure/virtual-network/ip-services/public-ip-upgrade-portal)
+* To upgrade a basic load balancer to standard, see [upgrade from basic public to standard public load balancer](/azure/load-balancer/upgrade-basic-standard).
+* To upgrade a basic public IP to standard, see [upgrade from basic public to standard public IP](/azure/virtual-network/ip-services/public-ip-upgrade-portal).
 
 ### NAT gateway cannot be attached to a gateway subnet
 
@@ -79,10 +80,10 @@ NAT gateway cannot be deployed in a gateway subnet. VPN gateway uses gateway sub
 ## SNAT exhaustion due to NAT gateway configuration
 
 Common SNAT exhaustion issues with NAT gateway typically have to do with the configurations on the NAT gateway. Common SNAT exhaustion issues include: 
-* NAT gateway idle timeout timers being set higher than their default value of 4 minutes 
-* Outbound connectivity on NAT gateway not scaled out enough 
+* NAT gateway idle timeout timers being set higher than their default value of 4 minutes. 
+* Outbound connectivity on NAT gateway not scaled out enough. 
 
-### Idle timeout timers have been changed to higher value their default values
+### Idle timeout timers have been changed to higher value than their default values
 
 NAT gateway resources have a default TCP idle timeout of 4 minutes.  If this setting is changed to a higher value, NAT gateway will hold on to flows longer and can cause [unnecessary pressure on SNAT port inventory](nat-gateway-resource.md#timers).
 
@@ -91,11 +92,11 @@ UDP flows (for example DNS lookups) allocate SNAT ports for the duration of the 
 Check the following [NAT gateway metrics](nat-metrics.md) in Azure Monitor to determine if SNAT port exhaustion is happening: 
 
 *Total SNAT Connection*
-* "Sum" aggregation shows high connection volume
-* "Failed" connection state shows transient or persistent failures over time
+* "Sum" aggregation shows high connection volume.
+* "Failed" connection state shows transient or persistent failures over time.
 
 *Dropped Packets*
-* "Sum" aggregation shows packets dropping consistent with high connection volume
+* "Sum" aggregation shows packets dropping consistent with high connection volume.
 
 **Mitigation**
 
@@ -107,7 +108,7 @@ Long-lived flows (for example reused TCP connections) should use TCP keepalives 
 
 ### Outbound connectivity not scaled out enough
 
-NAT gateway provides 64,000 SNAT ports to a subnet’s resources for each public IP address attached to it. If the number of SNAT ports provided by the number of public IP addresses attached to NAT gateway is not enough to make all the outbound connections needed, then NAT gateway outbound connectivity may not be scaled out enough to handle the workload.  
+NAT gateway provides 64,000 SNAT ports to a subnet’s resources for each public IP address attached to it. If outbound connections are dropping because SNAT ports are being exhausted, then NAT gateway may not be scaled out enough to handle the workload. More public IP addresses may need to be added to NAT gateway in order to provide more SNAT ports for outbound connectivity.
 
 The table below describes two common scenarios in which outbound connectivity may not be scaled out enough and how to validate and mitigate these issues: 
 
@@ -121,26 +122,26 @@ The table below describes two common scenarios in which outbound connectivity ma
 
 ## Connection issues with NAT gateway and integrated services
 
-### Azure App Service regional VNet integration turned off
+### Azure App Service regional Virtual network integration turned off
 
 NAT gateway can be used with Azure app services to allow applications to make outbound calls from a virtual network. To use this integration between Azure app services and NAT gateway, regional virtual network integration must be enabled. See [how regional virtual network integration works](/azure/app-service/overview-vnet-integration#how-regional-virtual-network-integration-works) to learn more.
 
 To use NAT gateway with Azure App services, follow these steps: 
-1. Ensure that your application(s) are integrated with a subnet 
-2. Ensure that regional virtual network integration is enabled for the subnet that your apps will use for going outbound by turning on **Route All**
-3. Create a NAT gateway resource 
-4. Create a new public IP address or attach an existing public IP address in your network to NAT gateway  
-5. Assign NAT gateway to the same subnet being used for VNet integration with your application(s) 
+1. Ensure that your application(s) are integrated with a subnet. 
+2. Ensure that regional Virtual network integration is enabled for the subnet that your apps will use for going outbound by turning on **Route All**.
+3. Create a NAT gateway resource. 
+4. Create a new public IP address or attach an existing public IP address in your network to NAT gateway.
+5. Assign NAT gateway to the same subnet being used for Virtual network integration with your application(s). 
 
-To see step-by-step instructions on how to configure NAT gateway with VNet integration, see [Configurating NAT gateway integration](/azure/app-service/networking/nat-gateway-integration#configuring-nat-gateway-integration)
+To see step-by-step instructions on how to configure NAT gateway with Virtual network integration, see [Configuring NAT gateway integration](/azure/app-service/networking/nat-gateway-integration#configuring-nat-gateway-integration)
 
 A couple important notes about the NAT gateway and Azure App Services integration: 
-* VNet integration does not provide inbound private access to your app from the virtual network. 
-* Because of the nature of how VNet integration operates, the traffic from virtual network integration does not show up in Azure Network Watcher or NSG flow logs. 
+* Virtual network integration does not provide inbound private access to your app from the virtual network. 
+* Because of the nature of how Virtual network integration operates, the traffic from virtual network integration does not show up in Azure Network Watcher or NSG flow logs. 
 
 ### Port 25 cannot be used for regional VNet integration with NAT gateway
 
-Port 25 is an SMTP port that is used to send email. Azure app services regional VNet integration cannot use port 25 by design. In a scenario where regional VNet integration is enabled for NAT gateway to connect an application to an email SMTP server, traffic will be blocked on port 25 despite NAT gateway working with all other ports for outbound traffic. 
+Port 25 is an SMTP port that is used to send email. Azure app services regional Virtual network integration cannot use port 25 by design. In a scenario where regional Virtual network integration is enabled for NAT gateway to connect an application to an email SMTP server, traffic will be blocked on port 25 despite NAT gateway working with all other ports for outbound traffic. This block on port 25 cannot be removed.
 
 **Work around solution:**
 * Set up port forwarding to a Windows VM to route traffic to Port 25. 
@@ -167,8 +168,8 @@ UDR >> NAT gateway >> default system
 
 Test and resolve issues with a UDR configured to your virtual network by: 
 1. [Testing that the NAT gateway public IP](/azure/virtual-network/nat-gateway/tutorial-create-nat-gateway-portal#test-nat-gateway) is used for outbound traffic. If a different IP is being used, it could be because of a UDR, follow the remaining steps on how to check for and remove UDRs.
-2. Check for UDRs in the virtual network’s route table, refer to [view route tables](/azure/virtual-network/manage-route-table#view-route-tables)
-3. Remove the UDR from the route table by following [create, change, or delete an Azure route table](/azure/virtual-network/manage-route-table#change-a-route-table)
+2. Check for UDRs in the virtual network’s route table, refer to [view route tables](/azure/virtual-network/manage-route-table#view-route-tables).
+3. Remove the UDR from the route table by following [create, change, or delete an Azure route table](/azure/virtual-network/manage-route-table#change-a-route-table).
 
 Once the UDR is removed from the routing table, the NAT gateway public IP should now take precedence in routing outbound traffic to the internet. 
 
@@ -194,14 +195,14 @@ Follow the same guidance as preceding [Azure infrastructure](#connection-failure
 
 The previous sections apply, along with the internet endpoint that communication is established with. Other factors that can impact connectivity success are:
 
-* Traffic management on destination side, including
-- API rate limiting imposed by the destination side
-- Volumetric DDoS mitigations or transport layer traffic shaping
-* Firewall or other components at the destination 
+* Traffic management on destination side, including,
+- API rate limiting imposed by the destination side.
+- Volumetric DDoS mitigations or transport layer traffic shaping.
+* Firewall or other components at the destination. 
 
 Use NAT gateway [metrics](nat-metrics.md) in Azure monitor to diagnose connection issues: 
-* Look at packet count at the source and the destination (if available) to determine how many connection attempts were made  
-* Look at dropped packets to see how many packets were dropped by NAT gateway 
+* Look at packet count at the source and the destination (if available) to determine how many connection attempts were made.  
+* Look at dropped packets to see how many packets were dropped by NAT gateway. 
 
 What else to check for:
 * Check for [SNAT exhaustion](#snat-exhaustion-due-to-nat-gateway-configuration).
