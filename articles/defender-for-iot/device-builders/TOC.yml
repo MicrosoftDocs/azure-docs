@@ -16,14 +16,6 @@
   - name: Enable Microsoft Defender for IoT on Azure IoT Hub
     displayName: IoT Hub, existing, enable, enable, onboard
     href: quickstart-onboard-iot-hub.md
-  - name: Install Defender for IoT micro agent (Preview)
-    displayName: package, authentication, methods, certificate, authenticate, version
-    href: quickstart-standalone-agent-binary-installation.md
-  - name: Create a Defender for IoT micro agent module twin (Preview)
-    href: quickstart-create-micro-agent-module-twin.md
-  - name: Configure Defender-IoT-micro-agent for Azure RTOS
-    href: quickstart-azure-rtos-security-module.md
-  - name: Configure your Azure Defender for IoT solution
 - name: Tutorials
   items:
   - name: Add a resource group to your IoT solution
@@ -76,13 +68,9 @@
     href: concept-recommendations.md
 - name: How-to guides
   items:
-  - name: Install Defender for IoT micro agent (Preview)
-    displayName: package, authentication, methods, certificate, authenticate, version
-    href: quickstart-standalone-agent-binary-installation.md
   - name: Install Defender for IoT micro agent for Edge (Preview)
     displayName: Edge, micro agent, 
     href: how-to-install-micro-agent-for-edge.md
-  - name: Connect to Azure Sentinel
   - name: Connect to Microsoft Sentinel
     displayName: log analytics, service notes
     href: how-to-configure-with-sentinel.md
