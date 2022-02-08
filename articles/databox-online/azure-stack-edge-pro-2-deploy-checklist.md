@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 11/22/2021
+ms.date: 02/07/2022
 ms.author: alkohli 
 ---
 # Deployment checklist for your Azure Stack Edge Pro 2 device  
