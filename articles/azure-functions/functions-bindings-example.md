@@ -6,7 +6,7 @@ author: craigshoemaker
 ms.topic: reference
 ms.devlang: csharp, javascript
 ms.custom: devx-track-csharp
-ms.date: 02/18/2019
+ms.date: 02/08/2022
 ms.author: cshoe
 ---
 
@@ -48,7 +48,7 @@ To view and edit the contents of *function.json* in the Azure portal, click the 
 > [!NOTE]
 > The value of `connection` is the name of an app setting that contains the connection string, not the connection string itself. Bindings use connection strings stored in app settings to enforce the best practice that *function.json* does not contain service secrets.
 
-## C# script example
+# [C# script](#tab/csharp)
 
 Here's C# script code that works with this trigger and binding. Notice that the name of the parameter that provides the queue message content is `order`; this name is required because the `name` property value in *function.json* is `order` 
 
@@ -78,26 +78,7 @@ public class Person
 }
 ```
 
-## JavaScript example
-
-The same *function.json* file can be used with a JavaScript function:
-
-```javascript
-// From an incoming queue message that is a JSON object, add fields and write to Table Storage
-module.exports = async function (context, order) {
-    order.PartitionKey = "Orders";
-    order.RowKey = generateRandomId(); 
-
-    context.bindings.order = order;
-};
-
-function generateRandomId() {
-    return Math.random().toString(36).substring(2, 15) +
-        Math.random().toString(36).substring(2, 15);
-}
-```
-
-## Class library example
+# [C# class library](#tab/csharp-class-library)
 
 In a class library, the same trigger and binding information &mdash; queue and table names, storage accounts, function parameters for input and output &mdash; is provided by attributes instead of a function.json file. Here's an example:
 
@@ -126,6 +107,29 @@ public class Person
     public string MobileNumber { get; set; }
 }
 ```
+
+# [JavaScript](#tab/javascript)
+
+
+
+The same *function.json* file can be used with a JavaScript function:
+
+```javascript
+// From an incoming queue message that is a JSON object, add fields and write to Table Storage
+module.exports = async function (context, order) {
+    order.PartitionKey = "Orders";
+    order.RowKey = generateRandomId(); 
+
+    context.bindings.order = order;
+};
+
+function generateRandomId() {
+    return Math.random().toString(36).substring(2, 15) +
+        Math.random().toString(36).substring(2, 15);
+}
+```
+
+---
 
 You now have a working function that is triggered by an Azure Queue and outputs data to Azure Table storage.
 

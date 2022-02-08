@@ -3,7 +3,7 @@ title: Function chaining in Durable Functions - Azure
 description: Learn how to run a Durable Functions sample that executes a sequence of functions.
 author: cgillum
 ms.topic: conceptual
-ms.date: 11/29/2019
+ms.date: 02/08/2022
 ms.author: azfuncdf
 ms.devlang: csharp, javascript, python
 ---
@@ -22,7 +22,7 @@ This article explains the following functions in the sample app:
 * `E1_SayHello`: An [activity function](durable-functions-bindings.md#activity-trigger) that prepends a string with "Hello".
 * `HttpStart`: An HTTP triggered [durable client](durable-functions-bindings.md#orchestration-client) function that starts an instance of the orchestrator.
 
-### E1_HelloSequence orchestrator function
+## E1_HelloSequence orchestrator function
 
 # [C#](#tab/csharp)
 
@@ -94,7 +94,7 @@ The `context` object lets you call other *activity* functions and pass input par
 
 ---
 
-### E1_SayHello activity function
+## E1_SayHello activity function
 
 # [C#](#tab/csharp)
 
@@ -148,7 +148,7 @@ Unlike the orchestrator function, an activity function needs no special setup. T
 
 ---
 
-### HttpStart client function
+## HttpStart client function
 
 You can start an instance of orchestrator function using a client function. You will use the `HttpStart` HTTP triggered function to start instances of `E1_HelloSequence`.
 

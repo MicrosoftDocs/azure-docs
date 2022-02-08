@@ -2,7 +2,7 @@
 title: Bindings for Durable Functions - Azure
 description: How to use triggers and bindings for the Durable Functions extension for Azure Functions.
 ms.topic: conceptual
-ms.date: 08/03/2021
+ms.date: 02/08/2022
 ms.author: azfuncdf
 ---
 
