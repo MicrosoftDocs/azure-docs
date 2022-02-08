@@ -10,7 +10,7 @@ ms.date: 01/16/2022
 ms.custom: template-how-to
 ---
 
-<!-- Image alt-text follows two different stlyes (one sentence and two sentence), should we pick one for consistency? One of the images includes "+", but I've seen some guidance to describe the sign e.g. plus (+). Not sure if that works here. -->
+<!-- Image alt-text follows two different stlyes (one sentence and two sentence), should we pick one for consistency?-->
 
 # Configure a service for Azure Private 5G Core Preview - Azure portal
 
@@ -82,7 +82,7 @@ We'll now create the service so it can be added to your policy control configura
 1. You'll now see the **Review + Create** tab. Azure will attempt to validate the configuration values you've entered. If the configuration values are invalid, the **Create** button at the bottom of the **Review + Create** tab will be grayed out. You'll need to return to the **Basics** tab and correct any invalid configuration.
 1. When the configuration is valid, the **Create** button will be blue. Select **Create** to create the service.
 
-    :::image type="content" source="media/configure-service-azure-portal/service-review-and-create-tab.png" alt-text="Screenshot of the Azure portal showing the Create button on the Review + create tab for a service.":::
+    :::image type="content" source="media/configure-service-azure-portal/service-review-and-create-tab.png" alt-text="Screenshot of the Azure portal showing the Create button on the Review and create tab for a service.":::
 
 1. The Azure portal will display the following confirmation screen when the service has been created. Select **Go to resource** to see the new service resource.
 
