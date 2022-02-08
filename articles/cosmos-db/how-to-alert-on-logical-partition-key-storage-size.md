@@ -11,7 +11,7 @@ ms.date: 01/28/2022
 # Create alerts to monitor if storage for a logical partition key is approaching 20 GB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-Azure Cosmos DB enforces a maximum logical partition key size of 20 GB. For example, if you have a container partitioned by **UserId**, the data within the "Alice" logical partition can store up to 20 GB of data. 
+Azure Cosmos DB enforces a maximum logical partition key size of 20 GB. For example, if you have a container/collection partitioned by **UserId**, the data within the "Alice" logical partition can store up to 20 GB of data. 
 
 You can use alerts to monitor if you have any logical partition keys that are approaching the 20 GB logical partition limit. Alerts can send you a notification in the form of an email or execute an action, such as an Azure Function or Logic App, when the condition is triggered.
 
@@ -138,14 +138,14 @@ To see your alerts in the Azure portal:
 When the alert is fired, it will include:
 - Database account name
 - Database name
-- Container name
+- Collection name
 - Logical partition key
 - Storage in KB of the logical partition key
 - Utilization of the 20 GB limit
 
-For example, in the alert that was fired below, we see the logical partition of "ContosoTenant" has reached .78 of the 20GB logical partition storage limit, with 16GB of data. 
+For example, in the alert that was fired below, we see the logical partition of "ContosoTenant" has reached .78 of the 20GB logical partition storage limit, with 16GB of data in a particular database and collection. 
 
-:::image type="content" source="media/how-to-alert-on-logical-partition-key-storage-size/alert-when-logical-partition-key-exceeds-threshold.png" alt-text="Example alert fired when logical partition key size exceed threshold. The logical partition of "ContosoTenant" has reached 0.78 of the 20GB limit, with 16GB of storage.":::
+:::image type="content" source="media/how-to-alert-on-logical-partition-key-storage-size/alert-when-logical-partition-key-exceeds-threshold.png" alt-text="Example alert fired when logical partition key size exceeds threshold":::
 
 ## Remediation steps
 When the 20 GB logical partition size limit is reached, you won't be able to write any more data to that logical partition. As a result, it's recommended to re-architect your application with a different partition key as a long-term solution. 
