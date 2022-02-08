@@ -150,7 +150,7 @@ Create a database in the [Hyperscale service tier](service-tier-hyperscale.md) w
 az sql db create \
     --resource-group $resourceGroupName \
     --server $serverName \
-    --name $databaseName \
+    --name $databaseName \3
     --sample-name AdventureWorksLT \
     --edition Hyperscale \
     --compute-model Provisioned \
@@ -284,14 +284,14 @@ Once your database is created, you can use the **Query editor (preview)** in the
 
 1. If you created your Hyperscale database from the AdventureWorksLT sample database, enter the following query in the **Query editor** pane.
 
-   ```sql
-   SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName
-   FROM SalesLT.ProductCategory pc
-   JOIN SalesLT.Product p
-       ON pc.productcategoryid = p.productcategoryid;
-   ```
+    ```sql
+    SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName
+    FROM SalesLT.ProductCategory pc
+    JOIN SalesLT.Product p
+          ON pc.productcategoryid = p.productcategoryid;
+    ```
 
-If you created an empty database using [the Transact-SQL sample code](?tabs=t-sql#create-a-hyperscale-database), enter another example query in the **Query editor** pane, such as the following:
+    If you created an empty database using [the Transact-SQL sample code](?tabs=t-sql#create-a-hyperscale-database), enter another example query in the **Query editor** pane, such as the following:
 
     ```sql
     CREATE TABLE dbo.TestTable(

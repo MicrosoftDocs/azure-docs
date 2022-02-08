@@ -149,7 +149,7 @@ The [serverless compute tier](serverless-tier-overview.md) is currently availabl
 |Compute generation|Gen4|Gen4|Gen4|Gen4|Gen4|Gen4|
 |vCores|1|2|3|4|5|6|
 |Memory (GB)|7|14|21|28|35|42|
-|[RBPEX](service-tier-hyperscale.md#compute) Size|3X Memory|3X Memory|3X Memory|3X Memory|3X Memory|3X Memory|
+|[RBPEX](hyperscale-architecture.md#compute) Size|3X Memory|3X Memory|3X Memory|3X Memory|3X Memory|3X Memory|
 |Columnstore support|Yes|Yes|Yes|Yes|Yes|Yes|
 |In-memory OLTP storage (GB)|N/A|N/A|N/A|N/A|N/A|N/A|
 |Max data size (TB)|100 |100 |100 |100 |100 |100|
@@ -167,7 +167,7 @@ The [serverless compute tier](serverless-tier-overview.md) is currently availabl
 |Backup storage retention|7 days|7 days|7 days|7 days|7 days|7 days|
 |||
 
-<sup>1</sup> Besides local SSD IO, workloads will use remote [page server](service-tier-hyperscale.md#page-server) IO. Effective IOPS will depend on workload. For details, see [Data IO Governance](resource-limits-logical-server.md#resource-governance), and [Data IO in resource utilization statistics](hyperscale-performance-diagnostics.md#data-io-in-resource-utilization-statistics).
+<sup>1</sup> Besides local SSD IO, workloads will use remote [page server](hyperscale-architecture.md#page-server) IO. Effective IOPS will depend on workload. For details, see [Data IO Governance](resource-limits-logical-server.md#resource-governance), and [Data IO in resource utilization statistics](hyperscale-performance-diagnostics.md#data-io-in-resource-utilization-statistics).
 
 ### Gen4 compute generation (part 2)
 
@@ -176,7 +176,7 @@ The [serverless compute tier](serverless-tier-overview.md) is currently availabl
 |Compute generation|Gen4|Gen4|Gen4|Gen4|Gen4|Gen4|
 |vCores|7|8|9|10|16|24|
 |Memory (GB)|49|56|63|70|112|159.5|
-|[RBPEX](service-tier-hyperscale.md#compute) Size|3X Memory|3X Memory|3X Memory|3X Memory|3X Memory|3X Memory|
+|[RBPEX](hyperscale-architecture.md#compute) Size|3X Memory|3X Memory|3X Memory|3X Memory|3X Memory|3X Memory|
 |Columnstore support|Yes|Yes|Yes|Yes|Yes|Yes|
 |In-memory OLTP storage (GB)|N/A|N/A|N/A|N/A|N/A|N/A|
 |Max data size (TB)|100 |100 |100 |100 |100 |100 |
@@ -194,7 +194,7 @@ The [serverless compute tier](serverless-tier-overview.md) is currently availabl
 |Backup storage retention|7 days|7 days|7 days|7 days|7 days|7 days|
 |||
 
-<sup>1</sup> Besides local SSD IO, workloads will use remote [page server](service-tier-hyperscale.md#page-server) IO. Effective IOPS will depend on workload. For details, see [Data IO Governance](resource-limits-logical-server.md#resource-governance), and [Data IO in resource utilization statistics](hyperscale-performance-diagnostics.md#data-io-in-resource-utilization-statistics).
+<sup>1</sup> Besides local SSD IO, workloads will use remote [page server](hyperscale-architecture.md#page-server) IO. Effective IOPS will depend on workload. For details, see [Data IO Governance](resource-limits-logical-server.md#resource-governance), and [Data IO in resource utilization statistics](hyperscale-performance-diagnostics.md#data-io-in-resource-utilization-statistics).
 
 ## Hyperscale - provisioned compute - Gen5
 
@@ -205,7 +205,7 @@ The [serverless compute tier](serverless-tier-overview.md) is currently availabl
 |Compute generation|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|
 |vCores|2|4|6|8|10|12|14|
 |Memory (GB)|10.4|20.8|31.1|41.5|51.9|62.3|72.7|
-|[RBPEX](service-tier-hyperscale.md#compute) Size|3X Memory|3X Memory|3X Memory|3X Memory|3X Memory|3X Memory|3X Memory|
+|[RBPEX](hyperscale-architecture.md#compute) Size|3X Memory|3X Memory|3X Memory|3X Memory|3X Memory|3X Memory|3X Memory|
 |Columnstore support|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
 |In-memory OLTP storage (GB)|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Max data size (TB)|100 |100 |100 |100 |100 |100 |100|
@@ -223,7 +223,7 @@ The [serverless compute tier](serverless-tier-overview.md) is currently availabl
 |Backup storage retention|7 days|7 days|7 days|7 days|7 days|7 days|7 days|
 |||
 
-<sup>1</sup> Besides local SSD IO, workloads will use remote [page server](service-tier-hyperscale.md#page-server) IO. Effective IOPS will depend on workload. For details, see [Data IO Governance](resource-limits-logical-server.md#resource-governance), and [Data IO in resource utilization statistics](hyperscale-performance-diagnostics.md#data-io-in-resource-utilization-statistics).
+<sup>1</sup> Besides local SSD IO, workloads will use remote [page server](hyperscale-architecture.md#page-server) IO. Effective IOPS will depend on workload. For details, see [Data IO Governance](resource-limits-logical-server.md#resource-governance), and [Data IO in resource utilization statistics](hyperscale-performance-diagnostics.md#data-io-in-resource-utilization-statistics).
 
 ### Gen5 compute generation (part 2)
 
@@ -232,7 +232,7 @@ The [serverless compute tier](serverless-tier-overview.md) is currently availabl
 |Compute generation|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|
 |vCores|16|18|20|24|32|40|80|
 |Memory (GB)|83|93.4|103.8|124.6|166.1|207.6|415.2|
-|[RBPEX](service-tier-hyperscale.md#compute) Size|3X Memory|3X Memory|3X Memory|3X Memory|3X Memory|3X Memory|3X Memory|
+|[RBPEX](hyperscale-architecture.md#compute) Size|3X Memory|3X Memory|3X Memory|3X Memory|3X Memory|3X Memory|3X Memory|
 |Columnstore support|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
 |In-memory OLTP storage (GB)|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Max data size (TB)|100 |100 |100 |100 |100 |100 |100 |
@@ -250,7 +250,7 @@ The [serverless compute tier](serverless-tier-overview.md) is currently availabl
 |Backup storage retention|7 days|7 days|7 days|7 days|7 days|7 days|7 days|
 |||
 
-<sup>1</sup> Besides local SSD IO, workloads will use remote [page server](service-tier-hyperscale.md#page-server) IO. Effective IOPS will depend on workload. For details, see [Data IO Governance](resource-limits-logical-server.md#resource-governance), and [Data IO in resource utilization statistics](hyperscale-performance-diagnostics.md#data-io-in-resource-utilization-statistics).
+<sup>1</sup> Besides local SSD IO, workloads will use remote [page server](hyperscale-architecture.md#page-server) IO. Effective IOPS will depend on workload. For details, see [Data IO Governance](resource-limits-logical-server.md#resource-governance), and [Data IO in resource utilization statistics](hyperscale-performance-diagnostics.md#data-io-in-resource-utilization-statistics).
 
 #### Notes
 
@@ -265,7 +265,7 @@ The [serverless compute tier](serverless-tier-overview.md) is currently availabl
 |Compute generation|DC-series|DC-series|DC-series|DC-series|
 |vCores|2|4|6|8|
 |Memory (GB)|9|18|27|36|
-|[RBPEX](service-tier-hyperscale.md#compute) Size|3X Memory|3X Memory|3X Memory|3X Memory|
+|[RBPEX](hyperscale-architecture.md#compute) Size|3X Memory|3X Memory|3X Memory|3X Memory|
 |Columnstore support|Yes|Yes|Yes|Yes|
 |In-memory OLTP storage (GB)|N/A|N/A|N/A|N/A|
 |Max data size (TB)|100 |100 |100 |100 |
@@ -283,7 +283,7 @@ The [serverless compute tier](serverless-tier-overview.md) is currently availabl
 |Backup storage retention|7 days|7 days|7 days|7 days|
 |||
 
-<sup>1</sup> Besides local SSD IO, workloads will use remote [page server](service-tier-hyperscale.md#page-server) IO. Effective IOPS will depend on workload. For details, see [Data IO Governance](resource-limits-logical-server.md#resource-governance), and [Data IO in resource utilization statistics](hyperscale-performance-diagnostics.md#data-io-in-resource-utilization-statistics).
+<sup>1</sup> Besides local SSD IO, workloads will use remote [page server](hyperscale-architecture.md#page-server) IO. Effective IOPS will depend on workload. For details, see [Data IO Governance](resource-limits-logical-server.md#resource-governance), and [Data IO in resource utilization statistics](hyperscale-performance-diagnostics.md#data-io-in-resource-utilization-statistics).
 
 ### Notes
 
