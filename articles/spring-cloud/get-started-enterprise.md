@@ -38,7 +38,7 @@ Assign a public endpoint for the gateway to access to it, using the following st
 1. Select **Overview** to view the running state and resources allocated to Spring Cloud Gateway.
 1. Select **Yes** next to **Assign endpoint** to assign a public endpoint. A URL will be generated for you after a few minutes.
 
-   :::image type="content" source="media/enterprise/getting-started-enterprise/gateway-overview.png" alt-text="Azure portal screenshot of Azure Spring Cloud overview page with 'Assign endpoint' highlighted.":::
+   :::image type="content" source="media/enterprise/getting-started-enterprise/gateway-overview.png" alt-text="Azure portal screenshot of Azure Spring Cloud Gateway overview page with 'Assign endpoint' highlighted.":::
 
 1. Save the URL for use later.
 
@@ -159,11 +159,16 @@ For more information on monitoring apps with third-party APMs, see [Buildpack Bi
 
 ## Clean up resources
 
-1. Open the [Azure portal](https://ms.portal.azure.com/?AppPlatformExtension=entdf#home), then delete the service instance as in the following screenshot.
+To clean up the resources, open the [Azure portal](https://ms.portal.azure.com/?AppPlatformExtension=entdf#home), then select the service instance to delete. Then follow these steps:
 
-   :::image type="content" source="media/enterprise/getting-started-enterprise/service-instance-delete-instance.png" alt-text="Azure portal screenshot showing Azure Spring Cloud overview page with Delete button highlighted.":::
+1. Select **Overview**, then select **Delete**.
+1. You will be asked to confirm the delete, as shown in the following image:
 
-1. Run the following command to remove the preview version of the Azure CLI extension.
+   :::image type="content" source="media/enterprise/getting-started-enterprise/service-instance-delete-instance.png" alt-text="Azure portal screenshot showing Azure Spring Cloud delete confirmation.":::
+
+1. Type the name of the service instance, then select **Delete**.
+
+1. In the Azure CLI, run the following command to remove the preview version of the Azure CLI extension.
 
    ```azurecli
    az extension remove --name spring-cloud
