@@ -96,7 +96,29 @@ Reconfiguration requires you to opt out and opt back into the Azure Active Direc
 1. Go to the ION Explorer and paste the DID in the search box 
 1. Inspect your DID document and search for the “#hub” node.
 
-:::image type="content" source="media/verifiable-credentials-faq/identity-hub.png" alt-text="Identity hubs":::
+```json
+ "service": [
+      {
+        "id": "#linkeddomains",
+        "type": "LinkedDomains",
+        "serviceEndpoint": {
+          "origins": [
+            "https://contoso.com/"
+          ]
+        }
+      },
+      {
+        "id": "#hub",
+        "type": "IdentityHub",
+        "serviceEndpoint": {
+          "instances": [
+            "https://beta.hub.msidentity.com/v1.0/12345678-0000-0000-0000-000000000000"
+          ],
+          "origins": []
+        }
+      }
+    ],
+```
 
 ### If I reconfigure the Azure AD Verifiable Credentials service, do I need to re-link my DID to my domain?
 
