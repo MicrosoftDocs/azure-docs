@@ -629,7 +629,7 @@ SPXAutoDetectSourceLanguageConfiguration* autoDetectSourceLanguageConfig = \
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript"
-Language detection with a custom endpoint is not supported by the Speech SDK for JavaScript. If you include "fr-FR" as shown here, the custom endpoint will be ignored.
+Language detection with a custom endpoint is not supported by the Speech SDK for JavaScript. For example, if you include "fr-FR" as shown here, the custom endpoint will be ignored.
 
 ```Javascript
 var enLanguageConfig = SpeechSDK.SourceLanguageConfig.fromLanguage("en-US");
