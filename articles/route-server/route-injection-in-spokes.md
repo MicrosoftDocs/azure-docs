@@ -37,6 +37,16 @@ If VPN or ExpresRoute gateways exist in the same VNet as the Route Server and NV
 
 You cannot configure the subnets in the spoke VNets to only learn the routes from the Azure Route Server. Disabling "Virtual network gateway route propagation" in a route table associated to a subnet would prevent both types of routes (routes from the Virtual Network Gateway and routes from the Azure Route Server) to be programmed on NICs in that subnet.
 
+## Traffic symmetry
+
+If multiple NVA instances are used for in an active/active fashion for better resiliency or scalability, traffic symmetry will be a requirement if the NVAs need to keep the state of the connections. This is for example the case of Next Generation Firewalls.
+
+- For connectivity from the VNet virtual machines to the public Internet, the NVA will use Source Network Address Translation (SNAT) so that the traffic will be sourced from the NVA's public IP address, hence achieving traffic symmetry.
+- For inbound traffic from the Internet to workloads running in virtual machines, additional to Destination Network Address Translation (DNAT) the NVAs will require to do some Source Network Address Translation (SNAT), to make sure that the return traffic from the virtual machines lands at the same NVA instance that processed the first packet.
+- For Azure-to-Azure connectivity, since the source virtual machine will take the routing decision independently of the destination, SNAT is required today to achieve traffic symmetry.
+
+Multiple NVA instances can be deployed in an active/passive setup as well, for example if one of them advertises worse routes (with a longer AS path) than the other. In this case, Azure Route Server will only program the preferred route in the VNet virtual machines, and the secondary route will only be used when the primary NVA instance stops advertising over BGP.
+
 ## Next steps
 
 * [Learn how Azure Route Server works with ExpressRoute](expressroute-vpn-support.md)
