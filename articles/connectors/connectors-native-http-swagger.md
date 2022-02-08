@@ -11,7 +11,7 @@ tags: connectors
 
 # Call REST endpoints by using Azure Logic Apps
 
-With [Azure Logic Apps](logic-apps-overview.md) and the built-in **HTTP + Swagger** operation, you can create automated integration workflows that regularly call any REST endpoint through a [Swagger file](https://swagger.io). The **HTTP + Swagger** trigger and action work the same as the [HTTP trigger and action](connectors-native-http.md) but provide a better experience in the workflow designerby exposing the API structure and outputs described by the Swagger file. To implement a polling trigger, follow the polling pattern that's described in [Create custom APIs to call other APIs, services, and systems from logic app workflows](logic-apps-create-api-app.md#polling-triggers).
+With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and the built-in **HTTP + Swagger** operation, you can create automated integration workflows that regularly call any REST endpoint through a [Swagger file](https://swagger.io). The **HTTP + Swagger** trigger and action work the same as the [HTTP trigger and action](connectors-native-http.md) but provide a better experience in the workflow designerby exposing the API structure and outputs described by the Swagger file. To implement a polling trigger, follow the polling pattern that's described in [Create custom APIs to call other APIs, services, and systems from logic app workflows](../logic-apps/logic-apps-create-api-app.md#polling-triggers).
 
 ## Prerequisites
 
@@ -34,7 +34,7 @@ With [Azure Logic Apps](logic-apps-overview.md) and the built-in **HTTP + Swagge
 
 * The logic app workflow from where you want to call the target endpoint. To start with the **HTTP + Swagger** trigger, create a blank logic app workflow. To use the HTTP + Swagger action, start your workflow with any trigger that you want. This example uses the **HTTP + Swagger** trigger as the first step. 
 
-  If you're new to logic app workflows, review [What is Azure Logic Apps?](logic-apps-overview.md) and [how to create your first logic app workflow](quickstart-create-first-logic-app-workflow.md).
+  If you're new to logic app workflows, review [What is Azure Logic Apps?](../logic-apps/logic-apps-overview.md) and [how to create your first logic app workflow](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## Add an HTTP + Swagger trigger
 
@@ -66,7 +66,7 @@ This built-in trigger sends an HTTP request to a URL for a Swagger file that des
 
 1. To add other available parameters, open the **Add new parameter** list, and select the parameters that you want.
 
-   For more information about authentication types available for HTTP + Swagger, see [Add authentication to outbound calls](logic-apps-securing-a-logic-app.md#add-authentication-outbound).
+   For more information about authentication types available for HTTP + Swagger, see [Add authentication to outbound calls](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound).
 
 1. Continue building your workflow with actions that run when the trigger fires.
 
@@ -106,7 +106,7 @@ This built-in action makes an HTTP request to the URL for the Swagger file that 
 
 1. To add other available parameters, open the **Add new parameter** list, and select the parameters that you want.
 
-   For more information about authentication types available for HTTP + Swagger, see [Add authentication to outbound calls](logic-apps-securing-a-logic-app.md#add-authentication-outbound).
+   For more information about authentication types available for HTTP + Swagger, see [Add authentication to outbound calls](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound).
 
 1. When you're finished, remember to save your logic app workflow. On the designer toolbar, select **Save**.
 
