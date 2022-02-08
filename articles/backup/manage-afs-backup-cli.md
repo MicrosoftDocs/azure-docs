@@ -151,7 +151,7 @@ az backup policy create --resource-group azurefiles --vault-name azurefilesvault
 This sample JSON is for the following requirements:
 
 - **Schedule**: Back up _every 4 hours_ starting from _8 AM (UTC)_ for the _next 12 hours_.
-- **Retention**: Daily - _5 days_, Weekly - _Every Sunday for 12 weeks_, Monthly - _First Sunday of every month for 60 months_, and Yearly - _First Sunday of Jan for 10 years_.
+- **Retention**: Daily - _5 days_, Weekly - _Every Sunday for 12 weeks_, Monthly - _First Sunday of every month for 60 months_, and Yearly - _First Sunday of January for 10 years_.
 
 ```json
 {
