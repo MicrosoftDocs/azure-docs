@@ -14,7 +14,7 @@ This article helps you use Azure Pipelines to set up continuous integration (CI)
 > [!NOTE]
 > For special considerations when deploying apps to Azure Government, see **[Deploy apps to Azure Government Cloud](/azure/devops/pipelines/library/government-cloud).**
 
-[Azure Pipelines](/azure/devops/pipelines/get-started/) is used by teams to configure continuous deployment for applications hosted in Azure subscriptions. We can use this service for applications running in Azure Government by defining [service connections](/azure/devops/pipelines/library/service-endpoints) for Azure Government. 
+[Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines) is used by teams to configure continuous deployment for applications hosted in Azure subscriptions. We can use this service for applications running in Azure Government by defining [service connections](/azure/devops/pipelines/library/service-endpoints) for Azure Government. 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
