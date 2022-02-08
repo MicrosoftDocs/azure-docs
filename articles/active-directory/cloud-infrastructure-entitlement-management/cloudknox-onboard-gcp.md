@@ -34,7 +34,7 @@ This article describes how to onboard a Google Cloud Platform (GCP) project on C
 ### 1. Create an Azure AD OIDC app.
 
 1. On **CloudKnox On Boarding - Azure AD OIDC App Creation** page, enter the **OIDC Azure App Name**.
-    This app will be used to setup an OpenID Connect (OIDC) connection to your GCP project. OIDC is an interoperable authentication protocol based on the OAuth 2.0 family of specifications. The scripts generated will create the app of this specified name in your Azure AD tenant with the right configuration.
+    This app will be used to set up an OpenID Connect (OIDC) connection to your GCP project. OIDC is an interoperable authentication protocol based on the OAuth 2.0 family of specifications. The scripts generated will create the app of this specified name in your Azure AD tenant with the right configuration.
         
 1. To create the app registration, copy the script and run it in your Azure command-line app.
 
@@ -65,7 +65,7 @@ This article describes how to onboard a Google Cloud Platform (GCP) project on C
         
 1. You can choose to download and run the script at this point (or you can do that via Google Cloud Shell in the next step).
     
-### 4. Run scripts in cloud shell. (Optional if not already executed.)
+### 4. Run scripts in Cloud Shell. (Optional if not already executed.)
 
 1. In the **CloudKnox Onboarding - GCP Project Ids** box, select **Launch SSH**.
 1. To copy all your scripts into your current directory, in **Open in Cloud Shell**, select **Trust repo**, and then select **Confirm**.
@@ -80,17 +80,17 @@ This article describes how to onboard a Google Cloud Platform (GCP) project on C
 ### 5. Paste the environment vars from the CloudKnox portal.
 
 1. Return to CloudKnox and select **Copy export variables**.
-1. In the GCP Onboarding shell editor, paste the variables you copied and enter.
-1. Execute **gcloud auth login**. 
+1. In the GCP Onboarding shell editor, paste the variables you copied and press enter.
+1. Execute the **gcloud auth login**. 
 1. Follow instructions displayed on the screen to authorize access to your Google account.
-1. Execute **sh mciem-workload-identity-pool.sh** to create the workload identity pool, provider and service account.
-1. Execute **sh mciem-member-projects.sh** to give CloudKnox permissions to read from each of the member projects. 
+1. Execute the **sh mciem-workload-identity-pool.sh** to create the workload identity pool, provider, and service account.
+1. Execute the **sh mciem-member-projects.sh** to give CloudKnox permissions to access each of the member projects. 
 
-    Choose **y** for **Enable controller** if you want to manage permissions via CloudKnox. 
+    Choose **y** for **Enable controller** if you want to manage permissions through CloudKnox. 
 
     If you choose **n**, the projects will onboard in a read-only mode.
 
-1. Optionally,  execute **mciem-enable-gcp-api.sh** to enable all recommended GCP APIs.
+1. Optionally, execute **mciem-enable-gcp-api.sh** to enable all recommended GCP APIs.
 
 1. Return to **CloudKnox Onboarding - GCP Project Ids** box, and then select **Next**.
 

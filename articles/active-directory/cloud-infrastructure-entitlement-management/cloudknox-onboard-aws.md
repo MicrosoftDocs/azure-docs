@@ -34,7 +34,7 @@ This article describes how to onboard an Amazon Web Services (AWS) account on Cl
 
 1. On **CloudKnox Onboarding - Azure AD OIDC App Creation** page, enter the **OIDC Azure app name**.
 
-    This app is used to setup an OpenID Connect (OIDC) connection to your AWS account. OIDC is an interoperable authentication protocol based on the OAuth 2.0 family of specifications. The scripts generated create the app of this specified name in your Azure AD tenant with the right configuration.
+    This app is used to set up an OpenID Connect (OIDC) connection to your AWS account. OIDC is an interoperable authentication protocol based on the OAuth 2.0 family of specifications. The scripts generated create the app of this specified name in your Azure AD tenant with the right configuration.
         
 1. To create the app registration, copy the script and run it in your Azure command-line app.
 
@@ -48,7 +48,7 @@ This article describes how to onboard an Amazon Web Services (AWS) account on Cl
 
 1. In the **CloudKnox Onboarding - AWS OIDC Account Setup** page, enter the **AWS OIDC account ID** where the OIDC provider is created. You can change the role name to your requirements.
 1. Open another browser window and sign in to the AWS account where you want to create the OIDC provider.
-1. Select **Launch Template**. This is a quick link that takes you to the The **AWS CloudFormation create stack** page. 
+1. Select **Launch Template**. This quick link takes you to the **AWS CloudFormation create stack** page. 
 1. Scroll to the bottom of the page, and in the **Capabilities** box, select **I acknowledge that AWS CloudFormation might create IAM resources with custom names**. Then select **Create Stack.**
 
     This AWS CloudFormation stack creates an OIDC Identity Provider (IdP) representing Azure AD STS and an AWS IAM role with a trust policy that allows external identities from Azure AD to assume it via the OIDC IdP. These entities are listed on the **Resources** page.
@@ -57,7 +57,7 @@ This article describes how to onboard an Amazon Web Services (AWS) account on Cl
 
 ### 3. Set up an AWS master account. (Optional)
 
-1. In the **CloudKnox Onboarding - AWS Master Account Details** page, setup the master account connection if your organization has Service Control Policies (SCPs) that govern some or all of the member accounts. 
+1. In the **CloudKnox Onboarding - AWS Master Account Details** page, set up the master account connection if your organization has Service Control Policies (SCPs) that govern some or all of the member accounts. 
 
     Setting up the master account connection also allows CloudKnox to auto detect and onboard any aws member accounts that have the correct CloudKnox role.
 
@@ -79,7 +79,7 @@ This article describes how to onboard an Amazon Web Services (AWS) account on Cl
 
 ### 4. Set up an AWS Central logging account. (Optional but recommended)
 
-1. In the **CloudKnox Onboarding - AWS Central Logging Account Details** page, setup the logging account connection if your organization has a central logging account where logs from some or all of your AWS account are stored.
+1. In the **CloudKnox Onboarding - AWS Central Logging Account Details** page, set up the logging account connection if your organization has a central logging account where logs from some or all of your AWS account are stored.
 
     In the **CloudKnox Onboarding - AWS Central Logging Account Details** box, enter the **Logging Account ID** and **Logging Account Role**.
     

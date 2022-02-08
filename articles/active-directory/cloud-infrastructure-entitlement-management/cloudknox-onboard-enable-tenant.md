@@ -73,7 +73,7 @@ To enable CloudKnox in your organization, you must have:
 
 1. Return to the **Welcome to CloudKnox** screen and select **Enable CloudKnox Permissions Management**.
 
-    This completes enablement of CloudKnox on your tenant and launches the CloudKnox **Data Collectors** settings page.
+    This step completes the enablement of CloudKnox on your tenant and launches the CloudKnox **Data Collectors** dashboard.
 
 ## Configure data collection settings
 

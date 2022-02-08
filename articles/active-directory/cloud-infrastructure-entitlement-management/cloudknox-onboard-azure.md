@@ -18,7 +18,7 @@ ms.author: v-ydequadros
 > CloudKnox Permissions Management (CloudKnox) is currently in PREVIEW.
 > Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
 
-This article describes how to onboard a Microsoft Azure subscription or subscriptions on CloudKnox Permissions Management (CloudKnox). This creates a new authorization system representing the Azure subscription in CloudKnox. 
+This article describes how to onboard a Microsoft Azure subscription or subscriptions on CloudKnox Permissions Management (CloudKnox). Doing this creates a new authorization system representing the Azure subscription in CloudKnox. 
 
 > [!NOTE] 
 > A Global Administrator or a Super Admin (Admin for all authorization system types) can perform the tasks in this article after the Global Administrator has initially completed the steps provided in [Enable CloudKnox on your Azure Active Directory tenant](cloudknox-onboard-enable-tenant.md).
@@ -51,7 +51,7 @@ To add CloudKnox to your Azure AD tenant:
    > Select **Subscription** if you want to assign permissions separately for each individual subscription. The generated script has to be executed once per subscription.
    > Select **Management Group** if all of your subscriptions are under one management group. The generated script has to be executed once for the management group .
 
-1. To give this role assignment to the service principal, copy the script to a file on your system where Azure CLI is installed and execute it once per subscription or just once for the whole management group.
+1. To give this role assignment to the service principal, copy the script to a file on your system where Azure CLI is installed and execute it once for each subscription or once for the whole management group.
 
 	<!---Add info on how to do this manually.--->
 
