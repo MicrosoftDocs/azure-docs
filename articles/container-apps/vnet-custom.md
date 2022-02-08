@@ -348,7 +348,7 @@ az network private-dns zone create `
 ```powershell
 az network private-dns link vnet create `
   --resource-group $RESOURCE_GROUP `
-  --record-set-name $VNET_NAME `
+  --name $VNET_NAME `
   --virtual-network $VNET_ID `
   --zone-name $ENVIRONMENT_DEFAULT_DOMAIN -e true
 ```
@@ -356,7 +356,7 @@ az network private-dns link vnet create `
 ```powershell
 az network private-dns record-set a add-record `
   --resource-group $RESOURCE_GROUP `
-  --name "*" `
+  --record-set-name "*" `
   --ipv4-address $ENVIRONMENT_STATIC_IP `
   --zone-name $ENVIRONMENT_DEFAULT_DOMAIN
 ```
