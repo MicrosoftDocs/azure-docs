@@ -162,12 +162,15 @@ It might take several minutes for the watchlist to be created and the new data t
 
 ## View watchlist status
 
-After you add the watchlist in Microsoft Sentinel, it might take a few minutes for the watchlist to be created and the new data to be available in queries. View the status by selecting the watchlist in your workspace.
+View the status by selecting the watchlist in your workspace.
 
 1. In the Azure portal, go to **Microsoft Sentinel** and select the appropriate workspace.
 1. Under **Configuration**, select **Watchlist**.
 1. On the **My Watchlists** tab, select the watchlist.
 1. On the details page, review the **Status (Preview)**.
+
+    :::image type="content" source="./media/watchlists-create/view-status-uploading.png" alt-text="Screenshot that shows the upload status on the watchlist." lightbox="./media/watchlists-create/view-status-uploading.png":::
+
 1. If the status is **Succeeded**, select **View in Log Analytics** to use the watchlist in a query. It might take several minutes for the watchlist to show in Log Analytics.
 
 ## Download watchlist template (preview)
