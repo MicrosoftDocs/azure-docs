@@ -152,7 +152,7 @@ You can assign data to output bindings in one of the following ways (don't combi
   ```
 
   
-- **_[Recommended for single output]_ Returning a value directly and using the $return binding name.** This only works for async/Promise returning functions. See example in [exporting an async function](#exporting-an-async-function). 
+- **_[Recommended for single output]_ Returning a value directly and using the $return binding name.** This only works for async/Promise returning functions. See example in [exporting an async function](#exporting-a-function). 
 - **Assigning values to `context.bindings`** You can assign values directly to context.bindings.
 
   ```javascript
