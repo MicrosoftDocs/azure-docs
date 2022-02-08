@@ -118,13 +118,13 @@ Here's the output binding in the *function.json* file:
 }
 ```
 
-In JavaScript, the return value goes in the second parameter for `context.done`:
+In JavaScript, the return value goes in the context.body:
 
 ```javascript
 module.exports = function (context, input) {
     var json = JSON.stringify(input);
     context.log('Node.js script processed queue message', json);
-    context.done(null, json);
+    context.bindings = json;
 }
 ```
 # [PowerShell](#tab/PowerShell)

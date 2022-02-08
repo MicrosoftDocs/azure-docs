@@ -53,19 +53,23 @@ JavaScript functions must be exported via [`module.exports`](https://nodejs.org/
 
 By default, the Functions runtime looks for your function in `index.js`, where `index.js` shares the same parent directory as its corresponding `function.json`. In the default case, your exported function should be the only export from its file or the export named `run` or `index`. To configure the file location and export name of your function, read about [configuring your function's entry point](functions-reference-node.md#configure-function-entry-point) below.
 
-Your exported function is passed a number of arguments on execution. The first argument it takes is always a `context` object. If your function is synchronous (doesn't return a Promise), you must pass the `context` object, as calling `context.done` is required for correct use.
+Your exported function is passed a number of arguments on execution. The first argument it takes is always a `context` object. 
+
+# [v1](#tab/v1-export)
+
+If your function is synchronous (doesn't return a Promise), you must pass the `context` object, as calling `context.done` is required for correct use.
 
 ```javascript
 // You should include context, other arguments are optional
-module.exports = function(context, myTrigger, myInput, myOtherInput) {
+module.exports = async function(context, myTrigger, myInput, myOtherInput) {
     // function logic goes here :)
     context.done();
 };
 ```
+# [v2, v3, v4](#tab/v2-v3-v4-export)
 
-### Exporting an async function
 
-When using the [`async function`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/async_function) declaration or plain JavaScript [Promises](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise) in version 2.x of the Functions runtime, you do not need to explicitly call the [`context.done`](#contextdone-method) callback to signal that your function has completed. Your function completes when the exported async function/Promise completes. For functions targeting the version 1.x runtime, you must still call [`context.done`](#contextdone-method) when your code is done executing.
+When using the [`async function`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/async_function) declaration or plain JavaScript [Promises](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise) in version 2.x, 3.x, or 4.x of the Functions runtime, you do not need to explicitly call the [`context.done`](#contextdone-method) callback to signal that your function has completed. Your function completes when the exported async function/Promise completes. 
 
 The following example is a simple function that logs that it was triggered and immediately completes execution.
 
@@ -76,6 +80,10 @@ module.exports = async function (context) {
 ```
 
 When exporting an async function, you can also configure an output binding to take the `return` value. This is recommended if you only have one output binding.
+
+---
+
+### Returning from the function
 
 To assign an output using `return`, change the `name` property to `$return` in `function.json`.
 
@@ -139,7 +147,7 @@ You can assign data to output bindings in one of the following ways (don't combi
   };
   ```
 
-  If you are using a synchronous function, you can return this object using [`context.done`](#contextdone-method) (see example).
+  
 - **_[Recommended for single output]_ Returning a value directly and using the $return binding name.** This only works for async/Promise returning functions. See example in [exporting an async function](#exporting-an-async-function). 
 - **Assigning values to `context.bindings`** You can assign values directly to context.bindings.
 
@@ -173,19 +181,13 @@ Options for `dataType` are: `binary`, `stream`, and `string`.
 
 The runtime uses a `context` object to pass data to and from your function and the runtime. Used to read and set data from bindings and for writing to logs, the `context` object is always the first parameter passed to a function.
 
-For functions featuring synchronous code, the context object includes the `done` callback which you call when the function is done processing.
-
-> [!NOTE]
-> Explicitly calling `done` is unnecessary when writing an [async function](#exporting-an-async-function); the `done` callback is called implicitly.
 
 ```javascript
-module.exports = (context) => {
+module.exports = async function(context){
 
     // function logic goes here
 
     context.log("The function has executed.");
-
-    context.done();
 };
 ```
 
@@ -253,15 +255,12 @@ Returns a named object that contains trigger metadata and function invocation da
 
 ### context.done method
 
-The **context.done** method is used by synchronous functions.
+# [v1](#tab/v1-done)
 
-|Synchronous execution|[Asynchronous](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/async_function) execution<br>(Node 8+, Functions runtime 2+)|
-|--|--|
-|Required: `context.done([err],[propertyBag])` to inform the runtime that your function is complete. The execution times out if it is missing.<br>The `context.done` method allows you to pass back both a user-defined error to the runtime and a JSON object containing output binding data. Properties passed to `context.done` overwrite anything set on the `context.bindings` object.|Not required: `context.done` - it is implicitly called.| 
-
+The **context.done** method is used by 1.x synchronous functions. In 2.x, 3.x, and 4.x, the function should be marked as async even if there is no awaited function call inside the function, and the function doesn't need to call context.done to indicate the end of the function.
 
 ```javascript
-// Synchronous code only
+// 1.x Synchronous code only
 // Even though we set myOutput to have:
 //  -> text: 'hello world', number: 123
 context.bindings.myOutput = { text: 'hello world', number: 123 };
@@ -270,6 +269,19 @@ context.done(null, { myOutput: { text: 'hello there, world', noNumber: true }});
 // the done method overwrites the myOutput binding to be: 
 //  -> text: 'hello there, world', noNumber: true
 ```
+
+# [v2, v3, v4](#tab/v2-v3-v4-done)
+
+In 2.x, 3.x, and 4.x, the function should be marked as async even if there is no awaited function call inside the function, and the function doesn't need to call context.done to indicate the end of the function.
+
+```javascript
+//you don't need an awaited function call inside to use async
+module.exports = async function (context, req) {
+    context.log("you don't need an awaited function call inside to use async")
+};
+```
+
+---
 
 ### context.log method  
 
@@ -353,7 +365,7 @@ Values of **consoleLevel** correspond to the names of the `context.log` methods.
 
 By default, Functions writes output as traces to Application Insights. For more control, you can instead use the [Application Insights Node.js SDK](https://github.com/microsoft/applicationinsights-node.js) to send custom telemetry data to your Application Insights instance. 
 
-# [v2.x+](#tab/v2)
+# [v2.x+](#tab/v2-log-custom-telemetry)
 
 ```javascript
 const appInsights = require("applicationinsights");
@@ -375,7 +387,7 @@ module.exports = async function (context, req) {
 };
 ```
 
-# [v1.x](#tab/v1)
+# [v1.x](#tab/v1-log-custom-telemetry)
 
 ```javascript
 const appInsights = require("applicationinsights");
@@ -471,13 +483,13 @@ When you work with HTTP triggers, you can access the HTTP request and response o
     }
     ``` 
 
-    In an async function, you can return the response object directly:
+    In a 2.x+ function, you can return the response object directly:
 
     ```javascript
     return { status: 201, body: "Insert succeeded." };
     ```
 
-    In a sync function, return the response object using the second argument of `context.done()`:
+    In a 1.x sync function, return the response object using the second argument of `context.done()`:
 
     ```javascript
      // Define a valid response object.
@@ -777,7 +789,7 @@ When writing Azure Functions in JavaScript, you should write code using the `asy
  - Throwing uncaught exceptions that [crash the Node.js process](https://nodejs.org/api/process.html#process_warning_using_uncaughtexception_correctly), potentially affecting the execution of other functions.
  - Unexpected behavior, such as missing logs from context.log, caused by asynchronous calls that are not properly awaited.
 
-In the example below, the asynchronous method `fs.readFile` is invoked with an error-first callback function as its second parameter. This code causes both of the issues mentioned above. An exception that is not explicitly caught in the correct scope crashed the entire process (issue #1). Calling `context.done()` outside of the scope of the callback function means that the function invocation may end before the file is read (issue #2). In this example, calling `context.done()` too early results in missing log entries starting with `Data from file:`.
+In the example below, the asynchronous method `fs.readFile` is invoked with an error-first callback function as its second parameter. This code causes both of the issues mentioned above. An exception that is not explicitly caught in the correct scope crashed the entire process (issue #1). Calling the 1.x `context.done()` outside of the scope of the callback function means that the function invocation may end before the file is read (issue #2). In this example, calling 1.x `context.done()` too early results in missing log entries starting with `Data from file:`.
 
 ```javascript
 // NOT RECOMMENDED PATTERN
