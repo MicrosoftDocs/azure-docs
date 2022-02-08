@@ -2,8 +2,8 @@
 title: Use REST to manage ML resources
 titleSuffix: Azure Machine Learning
 description: How to use REST APIs to create, run, and delete Azure Machine Learning resources, such as a workspace, or register models.
-author: lobrien
-ms.author: laobri
+author: blackmist
+ms.author: larryfr
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core

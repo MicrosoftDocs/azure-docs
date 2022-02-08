@@ -39700,6 +39700,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/cognitive-services/Speech-Service/how-to-automatic-language-detection.md",
+      "redirect_url": "/azure/cognitive-services/Speech-Service/language-identification",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/cognitive-services/entitylinking/GettingStarted.md",
       "redirect_url": "/azure/cognitive-services/text-analytics",
       "redirect_document_id": false
