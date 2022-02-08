@@ -57,7 +57,7 @@ As you're creating private endpoints, consider the following:
 
 - The subscription from the private-link resource must also be registered with the Microsoft network resource provider. For more information, see [Azure Resource Providers](../azure-resource-manager/management/resource-providers-and-types.md).
  
-## Private-link resources 
+## Private-link resource 
 A private-link resource is the destination target of a specified private endpoint. 
 
 The following table lists the available resources that support a private endpoint: 
@@ -115,7 +115,7 @@ When you use private endpoints, traffic is secured to a private-link resource. T
  
 You can completely lock down your workloads to prevent them from accessing public endpoints to connect to a supported Azure service. This control provides an extra network security layer to your resources, and this security provides protection that helps prevent access to other resources that are hosted on the same Azure service. 
  
-## Access private-link resources by using an approval workflow 
+## Access to a private-link resource using approval workflow 
 
 You can connect to a private-link resource by using the following connection approval methods:
 
