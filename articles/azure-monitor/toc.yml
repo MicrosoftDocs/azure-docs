@@ -373,12 +373,12 @@ items:
               href: logs/api/prefer-options.md
           - name: Errors
             href: logs/api/errors.md
-    - name: Ingestion time transformationa
+    - name: Ingestion time transformations
       items:
       - name: Overview
         href: logs/ingestion-time-transformation.md
       - name: Tutorial
-        href: logs/tutorial-ingestion-time-transformation.md
+        href: logs/tutorial-ingestion-time-transformations.md
     - name: Data export
       items:
       - name: Workspace data export
@@ -393,10 +393,10 @@ items:
       items: 
       - name: Overview 
         href: logs/custom-logs-overview.md
-      - name: Walkthrough 
-        href: logs/custom-logs-walkthrough.md
-      - name: Walkthrough API
-        href: logs/custom-logs-walkthrough-api.md
+      - name: Tutorial (portal) 
+        href: logs/tutorial-custom-logs.md
+      - name: Tutorial (API)
+        href: logs/tutorial-custom-logs-api.md
       - name: Data collector API 
         items:
         - name: Overview
@@ -423,14 +423,18 @@ items:
     - name: Diagnostic settings
       displayName: Platform logs, Resource logs, Activity log
       href: essentials/diagnostic-settings.md
-  - name: Data collection rules
+  - name: Data collection
     items:
-    - name: Create
-      displayName: Data collection rules
-      href: essentials/data-collection-rule-create.md
-    - name: Transformations
-      displayName: Data collection rules
-      href: essentials/data-collection-rule-transformations.md
+    - name: Data collection rules
+      items:
+      - name: Create
+        displayName: Data collection rules
+        href: essentials/data-collection-rule-create.md
+      - name: Transformations
+        displayName: Data collection rules
+        href: essentials/data-collection-rule-transformations.md
+      - name: Data collection endpoints
+        href: essentials/data-collection-endpoint-overview.md
   - name: Agents
     items:
     - name: Overview
@@ -444,7 +448,7 @@ items:
         href: agents/azure-monitor-agent-overview.md
       - name: Install and manage
         displayName: Azure Monitor agent
-        href: agents/azure-monitor-agent-install.md
+        href: agents/azure-monitor-agent-manage.md
       - name: Configure data collection
         displayName: data collection rule,Azure Monitor agent
         href: agents/data-collection-rule-azure-monitor-agent.md

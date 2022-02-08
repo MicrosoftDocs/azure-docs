@@ -9,7 +9,7 @@ ms.date: 01/19/2022
 ---
 
 # Tutorial: Add ingestion-time transformation to Azure Monitor Logs (preview)
-[Custom logs]() in Azure Monitor allow you to send custom data to any table in a Log Analytics workspace with a REST API. This tutorial walks through configuration of a new table and a sample application to send custom logs to Azure Monitor.
+[Custom logs](custom-logs-ovewrview.md) in Azure Monitor allow you to send custom data to any table in a Log Analytics workspace with a REST API. This tutorial walks through configuration of a new table and a sample application to send custom logs to Azure Monitor using the Azure portal.
 
 In this tutorial, you learn to:
 
@@ -256,20 +256,54 @@ source
 
 Click **Apply** to save the transformation and view the schema of the table that's about to be created. Click **Next** to proceed.
 
+  :::image type="content" source="media/tutorial-custom-logs/custom-log-final-schema.png" lightbox="media/tutorial-custom-logs/custom-log-final-schema.png" alt-text="Screenshot for custom log final schema":::
+
 Verify the final details and click **Create** to save the custom log.
+
+:::image type="content" source="media/tutorial-custom-logs/custom-log-create.png" lightbox="media/tutorial-custom-logs/custom-log-create.png" alt-text="Screenshot for custom log create":::
+
+## Collect information from data collection rule
+Now that the data collection rule is created, you can collect the immutable ID from it which you'll need for your API call. From **Overview** for the data collection rule, select the **JSON View**.
+
+:::image type="content" source="media/tutorial-custom-logs/data-collection-rule-json-view.png" lightbox="media/tutorial-custom-logs/data-collection-rule-json-view.png" alt-text="Screenshot for data collection rule JSON view":::
+
+Copy the **immutableId** value. 
+
+:::image type="content" source="media/tutorial-custom-logs/data-collection-rule-immutable-id.png" lightbox="media/tutorial-custom-logs/data-collection-rule-immutable-id.png" alt-text="Screenshot for collecting immutable ID from JSON view":::
+
+
 
 
 ## Assign permissions to data collection rule
 Now that the data collection rule has been created, the application needs to be given permission to it. This will allow any application using the correct application ID and application key to send data to the new data collection endpoint, have that data processed with the nee data collection rule, and then stored in the Log Analytics workspace.
 
+From the data collection rule in the Azure portal, select **Access Control (IAM)** amd then **Add role assignment**. 
+
+:::image type="content" source="media/tutorial-custom-logs/add-role-assignment.png" lightbox="media/tutorial-custom-logs/**custom-log-create**.png" alt-text="Screenshot for adding custom role assignment to DCR":::
+
+Select **Monitoring Metrics Publisher** and click **Next**.  You could instead create a custom action with the `Microsoft.Insights/Telemetry/Write` data action. 
+
+:::image type="content" source="media/tutorial-custom-logs/add-role-assignment-select-role.png" lightbox="media/tutorial-custom-logs/custom-log-create-select-role.png" alt-text="Screenshot for selecting role for DCR role assignment":::
+
+Select **User, group, or service principal** for **Assign access to** and click **Select members**. Select the application that you created and click **Select**.
+
+:::image type="content" source="media/tutorial-custom-logs/add-role-assignment-select-members.png" lightbox="media/tutorial-custom-logs/custom-log-create-select-members.png" alt-text="Screenshot for selecting members for DCR role assignment":::
 
 
-From the data collection rule in the Azure portal, select **Access Control (IAM)** amd then **Add role assignment**. Select **Monitoring Metrics Publisher** and click **Next**.  You could instead create a custom action with the `Microsoft.Insights/Telemetry/Write` data action. Select **User, group, or service principal
-** for **Assign access to** and then select the application you created for **Members**. Save the role assignment.
+Click **Review + assign** and verify the details before saving your role assignment.
 
+:::image type="content" source="media/tutorial-custom-logs/add-role-assignment-save.png" lightbox="media/tutorial-custom-logs/custom-log-create-save.png" alt-text="Screenshot for saving DCR role assignment":::
 
-From **Overview** for the data collection rule, select the **JSON View** and then copy the **immutableId**. This is required in the API call.
 
 
 ## Test custom log ingestion
 Allow at least 30 minutes for the configuration to take effect. You may also experience increased latency for the first few entries, but this should normalize.
+
+Run the following command providing the values that you collected for your data collection rule and data collection endpoint. The script will start ingesting data by placing calls to the API at pace of approximately 1 record per second.
+
+```PowerShell
+.\LogGenerator.ps1 -Log "sample_access.log" -Type "API" -Table "ApacheAccess_CL" -DcrImmutableId <immutable ID> -DceUrl <data collection endpoint URL> 
+```
+
+From Log Analytics, query your newly created table to verify that data arrived and if it is transformed properly.
+
