@@ -144,7 +144,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting t
 
     ![Screenshot that shows integrations in general settings.](./media/cloud-academy-sso-tutorial/general-settings.png)
 
-    1. In the **SSO URL(Location)** box, paste the login URL value that you copied from the Azure portal, in step 9 of [Configure Azure AD SSO](#configure-azure-ad-sso).
+    1. In the **SSO URL (Location)** box, paste the login URL value that you copied from the Azure portal, in step 9 of [Configure Azure AD SSO](#configure-azure-ad-sso).
 
     1. Open the downloaded Base64 certificate from the Azure portal in Notepad. Paste its contents into the **Certificate** box.
 
@@ -163,7 +163,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting t
 
     1. In the **Security Settings** section, select the **Authentication Requests Signed?** check box to set this value to **True**.
 
-    1. In the **Extra Settings(Optional)** section, fill the **Logout URL** box with the logout URL value that you copied from the Azure portal, in step 7 of [Configure Azure AD SSO](#configure-azure-ad-sso).
+    1. In the **Extra Settings(Optional)** section, fill the **Logout URL** box with the logout URL value that you copied from the Azure portal, in step 9 of [Configure Azure AD SSO](#configure-azure-ad-sso).
 
 1. Select **Save and Test**.
 
@@ -175,7 +175,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting t
 
     :::image type="content" source="./media/cloud-academy-sso-tutorial/upload-metadata.png" alt-text="Screenshot that shows uploading the metadata in the Azure application.":::
 
-1. Now that you've updated the service provider metadata, you can go back on the SSO panel of your Cloud Academy company site and proceed with the test and activation. In the service provider dialog, select **Continue**:
+1. Now that you've updated the service provider metadata, you can go back to the SSO panel of your Cloud Academy company site and proceed with the test and activation. In the service provider dialog, select **Continue**:
 
    :::image type="content" source="./media/cloud-academy-sso-tutorial/continue-sso-activation.png" alt-text="Screenshot that shows the service provider dialog.":::
 
@@ -184,7 +184,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting t
     :::image type="content" source="./media/cloud-academy-sso-tutorial/test-sso-connection.png" alt-text="Screenshot that shows the Test S S O connection button.":::
 
     > [!NOTE]
-    > If you're signed in to Cloud Academy by using the test user account you created, proceed with the test flow. Otherwise, close the dialog, scroll up to **General Settings**, copy and paste the subdomain URL in a private or incognito browser tab, and then sign in as the test user. If sign-in is successful, you can close the browser tab and select **Save and Test**. A browser tab will reopen the service provider dialog. Select **continue**, and then select **Test SSO connection** again. Finally, select **Test was successful** because you've already tested it sign-in by using a private or incognito tab.
+    > If you're signed in to Cloud Academy by using the test user account you created, proceed with the test flow. Otherwise, close the dialog, scroll up to **General Settings**, copy and paste the subdomain URL in a private or incognito browser tab, and then sign in as the test user. If sign-in is successful, you can close the browser tab and select **Save and Test**. A browser tab will reopen the service provider dialog. Select **continue**, and then select **Test SSO connection** again. Finally, select **Test was successful** because you've already tested sign-in by using a private or incognito tab.
     >
     > Continue to the next step.
 
