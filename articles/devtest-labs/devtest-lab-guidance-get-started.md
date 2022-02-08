@@ -8,13 +8,13 @@ ms.reviewer: christianreddington,anthdela,juselph
 
 # Azure DevTest Labs scenarios
 
-Azure DevTest Labs supports several popular development, test, and training scenarios. DevTest Labs can provide:
+This article discusses how to use Azure DevTest Labs for several different development, test, and training scenarios. Here are some popular DevTest Labs scenarios:
 
-- Claimable virtual machines (VMs), VM images, and VM formulas for developers and testers to use and configure on demand.
-- Reusable Azure Resource Manager (ARM) templates to create multi-VM environments with preinstalled platform-as-a-service (PaaS) resources.
-- Temporary classroom, training, or hackathon labs with preconfigured VMs or environments.
+- Developers need many, sometimes different virtual machines (VMs) and environments as they iterate on apps.
+- Testers use many identical or different VMs and environments for performance testing and sandboxed investigations.
+- Teachers and trainers periodically need new classroom, lab, and hackathon VMs and environments.
 
-The following sections describe how to use DevTest Labs to support common scenarios, while controlling lab access and costs.
+The following sections describe how DevTest Labs supports these scenarios, while helping lab owners and administrators control lab access and costs.
 
 ## Lab creation
 
@@ -26,6 +26,10 @@ Labs are the starting point in DevTest Labs. After you create a lab, you can:
 - Use [configuration and policies](devtest-lab-set-lab-policy.md) to manage the lab and control costs.
 - [Integrate with Azure DevOps](devtest-lab-dev-ops.md) to support DevOps scenarios.
 - Link to public and private Git repositories for access to artifacts and ARM templates.
+
+The following diagram shows how lab owners can configure policies and provide resources for lab users:
+
+![Diagram that shows a lab owner configuring policies and providing resources for lab users.](media/devtest-lab-training-lab/devtest-lab-training.png)
 
 To create a lab in the Azure portal, see [Create a lab in Azure DevTest Labs](devtest-lab-create-lab.md).
 
