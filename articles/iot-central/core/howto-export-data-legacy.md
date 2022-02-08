@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.service: iot-central
 ---
 # Migrate from legacy data export
-The legacy data export feature is deprecated, and we strongly encourage you to migrate to new data export. The legacy data export lacks important capabilities including availability of different data types, filtering, and message transformation. See the following table for a comparison of legacy data export with new data export. 
+The legacy data export feature is schedueld to be retired on 31 March 20234. We strongly encourage you to migrate to new data export. The legacy data export lacks important capabilities including availability of different data types, filtering, and message transformation. See the following table for a comparison of legacy data export with new data export. 
 
 ### Comparison of legacy data export and data export
 
@@ -36,18 +36,37 @@ The default data format varies for data types between legacy data export and new
 
 Telemetry: If you choose to match the legacy data export format for your telemetry in your new data export, you can use the Transform functionality and build a transformation query similar to the following example
 
-Devices: If you are currently using legacy data exports with devices data type then you can use both the Property changes and Device lifecycle events data types in new export to export the same data. 
+```jq
+.telemetry | map({ key: .name, value: .value }) | from_entries
+```
 
+Devices: If you are currently using legacy data exports with devices data type then you can use both the Property changes and Device lifecycle events data types in new export to export the same data. You can achieve a comparable data structure using the following transformation query on both data types  
 
-Device templates: : If you are currently using legacy data exports with device templates data type then you can obtain the same data using the following API call
+```jq
+   approved: .device.approved, 
+   provisioned: .device.provisioned, 
+   simulated: .device.simulated, 
+   cloudProperties: .device.cloudProperties | map({ key: .name, value: .value }) | from_entries, 
+   displayName: .device.name, 
+   id: .device.id, 
+   instanceOf: .device.templateId, 
+   properties: .device.properties.reported | map({ key: .name, value: .value }) | from_entries 
+```
+
+Device templates: : If you are currently using legacy data exports with device templates data type then you can obtain the same data using the [Device Templates -Get API call](https://docs.microsoft.com/en-us/rest/api/iotcentral/1.0dataplane/device-templates/get)
+
+## Destination related considerations 
+In new data export, you can create destination and reuse it across different data exports. When migrating from legacy data exports, we recommend you create destinations in new data exports that store information on your existing legacy data export destinations.  
 
 ## Export IoT data to cloud destinations using data export (legacy)
 
 > [!Note]
-> This article describes the legacy data export features in IoT Central.
+> This article describes the legacy data export features in IoT Central
 >
+> - Legacy data exports are scheduled to be retired on 31 March 2023. Migrate any legacy data exports to new exports
+> 
 > - For information about the latest data export features, see [Export IoT data to cloud destinations using data export](./howto-export-data.md).
-> - To learn about the differences between the preview data export and legacy data export features, see the [comparison table](./howto-export-data.md#comparison-of-legacy-data-export-and-data-export).
+
 
 This article describes how to use the data export feature in Azure IoT Central. This feature lets you export your data continuously to **Azure Event Hubs**, **Azure Service Bus**, or **Azure Blob storage** instances. Data export uses the JSON format and can include telemetry, device information, and device template information. Use the exported data for:
 
