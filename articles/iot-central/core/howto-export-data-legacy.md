@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.service: iot-central
 ---
 # Migrate from legacy data export
-The legacy data export feature is schedueld to be retired on 31 March 20234. We strongly encourage you to migrate to new data export. The legacy data export lacks important capabilities including availability of different data types, filtering, and message transformation. See the following table for a comparison of legacy data export with new data export. 
+The legacy data export feature is schedueld to be retired on 31 March 2023. We strongly encourage you to migrate to new data export. The legacy data export lacks important capabilities including availability of different data types, filtering, and message transformation. See the following table for a comparison of legacy data export with new data export. 
 
 ### Comparison of legacy data export and data export
 
