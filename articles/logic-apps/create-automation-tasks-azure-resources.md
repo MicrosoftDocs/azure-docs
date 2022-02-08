@@ -400,12 +400,18 @@ You can use your favorite web debugging tool to test the template you uploaded t
    So, based on the example, the file redirection code looks like the following version:
 
    ```javascript
-   if (oSession.url == "raw.githubusercontent.com/azure/automation-task-template/master/templates/manifest.json") {
-      oSession.url = "raw.githubusercontent.com/sophowe/automation-task-template/upload-auto-template/templates/manifest.json";
+   static function OnBeforeRequest(oSession: Session)
+   {
+      if (oSession.url == "raw.githubusercontent.com/azure/automation-task-template/master/templates/manifest.json") {
+         oSession.url = "raw.githubusercontent.com/sophowe/automation-task-template/upload-auto-template/templates/manifest.json";
+      }
+
+      if (oSession.url == "raw.githubusercontent.com/azure/automation-task-template/master/templates/list-stale-virtual-machines.json") {
+         oSession.url = "raw.githubusercontent.com/sophowe/automation-task-template/upload-auto-template/templates/list-stale-virtual-machines.json";
+      }
+      {...}
    }
-   if (oSession.url == "raw.githubusercontent.com/azure/automation-task-template/master/templates/list-stale-virtual-machines.json") {
-      oSession.url = "raw.githubusercontent.com/sophowe/automation-task-template/upload-auto-template/templates/list-stale-virtual-machines.json";
-   }
+   ```
 
 1. Before you run your test, make sure to close all browser windows, and clear your browser cache in Fiddler.
 
