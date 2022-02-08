@@ -38,7 +38,7 @@ The following list is provided as a reference and includes a detailed list of se
 - Microsoft Forms
 - Microsoft Forms Web
 - Microsoft Forms Web in Azure Government
-- Microsoft Legacy To-Do WebApp (see ICM 257203714)
+- Microsoft Legacy To-Do WebApp
 - Microsoft Office 365 Portal
 - Microsoft Office client application
 - Microsoft People Cards Service
