@@ -52,21 +52,72 @@ As part of the Azure ecosystem, Azure Spring Cloud allows easy binding to other 
 
 ## Enterprise Tier overview
 
-Azure Spring Cloud Enterprise Tier (preview) is optimized for the needs of enterprise Spring developers through advanced configuration, flexibility, portability, and enterprise-ready VMware Spring Runtime 24x7 support. Developers also benefit from proprietary Tanzu components such as Tanzu Build Service and Spring Cloud Gateway, and access to Spring experts. Via this new tier offering, you can secure the following benefits:
+Based on our learnings, we built a new Azure Spring Cloud tier with commercially supported Spring runtime components to help enterprises customers to ship faster and unlock Spring’s full potential.
 
-* All features available in Azure Spring Cloud standard tier are also offered in enterprise tier with enterprise grade quality. Enterprise Tier will keep feature parity with the standard tier.
-* 24x7 VMware Spring Runtime support. Access to Spring experts and the ability to open support tickets while utilizing Spring libraries with an extended commercial support period.
-* Commercial Tanzu products as managed services:
-  * Build Service: helps you develop and automate containerized software workflows securely and at scale on top of commercial Tanzu buildpacks.
-  * Service Registry: a highly available service registry for your services to dynamically discover and call other services.
-  * Application Configuration Service: provides centralized configuration with Git integration.
-  * Spring Cloud Gateway: based on the open source Spring Cloud Gateway project, it handles API development team concerns, such as: Single Sign-On (SSO), access control, rate limiting, resiliency, security, and more. It offers commercial-only features on top of the open source foundations, including Simple Single Sign-On (SSO) configuration combined with commercial API route filters to enable authentication and access control, Dynamic API route configuration, and more.
-  * API Portal: enables developers to browse internal and external APIs through a simple interface.
-* Portability and flexibility in workload management:
-  * Tanzu products on demand: you decide which Tanzu products to use for your enterprise tier instances based on your needs.
-  * Build service can be customized to create or configure builders with exclusive Tanzu APM integrations, such as Dynatrace, New Relic, AppDynamics, and more. You can also configure how many dedicated resources will be allocated to run build tasks.
-  * Zero code changes to land your workloads into Azure Spring Cloud Enterprise Tier.
-For a detailed comparison of each tier with both pricing and features, see [Azure Spring Cloud pricing](https://azure.microsoft.com/pricing/details/spring-cloud/).
+### Ship faster
+
+#### Deploy and manage Spring and polyglot applications
+
+The [fully managed](how-to-enterprise-build-service.md) Tanzu Build Service in Azure Spring Cloud Enterprise automates container creation, management and governance at enterprise scale using open-source [Cloud Native Buildpacks](https://buildpacks.io/) and commercial [Tanzu Buildpacks](https://docs.pivotal.io/tanzu-buildpacks/). Tanzu Build Service offers a higher-level abstraction for building apps and provides a balance of control that reduces the operational burden on developers and supports enterprise IT operators who manage applications at scale. You can configure what buildpacks to apply and what should not apply and build Spring application and polyglot applications which can run alongside Spring applications on Azure Spring Cloud.
+
+Tanzu Buildpacks makes it easier to [build](how-to-enterprise-deploy-non-java-apps.md) Spring, Java, NodeJS, Python, Go and .NET Core applications and configure application performance monitoring agents such as Application Insights, New Relic, Dynatrace, AppDynamics and Elastic.
+
+#### Effortlessly route client requests to applications
+
+You can easily manage and discover request routes and APIs exposed by applications using the [fully managed](https://docs.microsoft.com/en-us/azure/spring-cloud/how-to-use-enterprise-spring-cloud-gateway) Tanzu Spring Cloud Gateway and Tanzu API Portal.
+
+Tanzu Spring Cloud Gateway effectively routes diverse client requests to applications in Azure Spring Cloud, Azure and or on-premises, and addresses cross-cutting concerns such as security, monitoring and metrics, and resiliency – particularly, you can effortlessly configure:
+
+* Single sign-on integration with your preferred identity provider without any additional code or dependencies
+* Dynamic routing rules to applications without any application redeployment
+* Request throttling without any backing services.
+
+API Portal for VMware Tanzu provides API consumers with the ability to find, view API route details exposed by Tanzu Spring Cloud Gateway and try out API requests.
+
+#### Flexible and Configurable - VMware Tanzu components
+
+With Azure Spring Cloud Enterprise, customers can use the VMware Tanzu components on managed Azure infrastructure. Tanzu Build Service, Tanzu Spring Cloud Gateway, API Portal for VMware Tanzu, Tanzu Application Configuration Service, and Tanzu Service Registry are available during preview. Customers will have the flexibility to select which Tanzu components they want during or after instance creation.
+
+Tanzu components deliver increased value to customers such that you can:
+
+Grow your enterprise grade, application portfolio from a few applications to 1000s with end-to-end observability while delegating operational complexity to Microsoft and VMware
+
+Lift and shift Spring apps across Azure Spring Cloud and any other compute environment
+
+Control your build dependencies, deploy polyglot applications, and deploy Spring Cloud middleware components as needed.
+
+Microsoft and VMware will continue to add more Tanzu components such as Application Live View for Tanzu, Tanzu Application Accelerator, and Spring Cloud Data Flow *.
+
+* The Azure Spring Cloud Enterprise roadmap is not confirmed and is subject to change.
+
+### Unlock Spring’s full potential with Long-Term Support (LTS)
+
+Azure Spring Cloud Enterprise includes VMware Spring Runtime Support entitlement for application development and deployments. This support gives you access to Spring experts, enabling you to unlock the full potential of the Spring ecosystem and develop and deploy applications faster.
+
+Typically, open-source Spring project minor releases are supported a minimum of 12 months from the date of initial release. In Azure Spring Cloud Enterprise, Spring project minor releases will receive commercial support for a minimum of 24 months from the date of initial release through the VMware Spring Runtime Support entitlement. This extended support ensures the security and stability of your Spring application portfolio even after the open-source end-of-life dates.
+
+### Fully integrated into the Azure and the Java ecosystem
+
+Azure Spring Cloud, including Enterprise tier, runs on Azure in a fully managed environment. You get all the benefits of Azure and the Java ecosystem, and the experience is familiar and intuitive:
+
+| Best practice | Ecosystem |
+|---------------|-----------|
+| Create your service instances using a provisioning tool of your choice | Azure Portal, CLI, ARM Template, Bicep or Terraform |
+| Automate environments and application deployments using an automation platform of your choice | GitHub, Azure DevOps, GitLab and Jenkins |
+| Monitor end-to-end using any tool and platform of your choice | Application Insights, Azure Log Analytics, Splunk, Elastic, New Relic, Dynatrace or AppDynamics |
+| Expand the capabilities of your applications on Azure using Spring on Azure integrations to connect and interact with your preferred cloud services | Azure services for data, messaging, eventing, cache, storage, and directories |
+| Securely load application secrets and certificates | Azure Key Vault |
+| Continue to use development tools that you are familiar with | IntelliJ, VS Code, Eclipse, Spring Tool Suite, Maven or Gradle |
+
+After you create your Enterprise service instance and deploy your applications, you can easily monitor with Application Insights or any other application performance management (APM) tools of your choice.
+
+### Get started today
+
+Azure Spring Cloud Enterprise delivers even more productivity, and you can leverage Spring experts to make your projects even more successful.
+
+It is easy to get started. We would love to see you try Enterprise and share your feedback – [start now](quickstart-provision-service-instance-enterprise.md).
+
+You can also learn more about Azure Spring Cloud Enterprise Public Preview [announcement by VMware](https://aka.ms/vmware-azure-spring-cloud-enterprise-tier-public-preview).
 
 ## Documentation overview
 
