@@ -1,4 +1,5 @@
 ---
+---
 title: Overview of access control in Data Lake Storage Gen1 | Microsoft Docs
 description: Learn about the basics of the access control model of Azure Data Lake Storage Gen1, which derives from HDFS.
 
@@ -287,7 +288,7 @@ No, but Default ACLs can be used to set ACLs for child files and folder newly cr
 * [POSIX Access Control Lists on Linux](https://www.linux.com/news/posix-acls-linux)
 * [HDFS permission guide](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html)
 * [POSIX FAQ](https://www.opengroup.org/austin/papers/posix_faq.html)
-* [POSIX 1003.1 2008](https://standards.ieee.org/findstds/standard/1003.1-2008.html)
+* [POSIX 1003.1 2008](https://standards.ieee.org/wp-content/uploads/import/documents/interpretations/1003.1-2008_interp.pdf)
 * [POSIX 1003.1 2013](https://pubs.opengroup.org/onlinepubs/9699919799.2013edition/)
 * [POSIX 1003.1 2016](https://pubs.opengroup.org/onlinepubs/9699919799.2016edition/)
 * [POSIX ACL on Ubuntu](https://help.ubuntu.com/community/FilePermissionsACLs)
