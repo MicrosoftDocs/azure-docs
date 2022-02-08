@@ -2,7 +2,7 @@
   href: index.yml
 - name: Overview
   items:
-  - name: What is a private link?
+  - name: What is Azure Private Link?
     href: private-link-overview.md
 - name: Quickstarts
   items:
