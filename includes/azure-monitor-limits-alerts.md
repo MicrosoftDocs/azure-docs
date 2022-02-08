@@ -24,7 +24,7 @@ Azure Monitor Alerts have several throttling limits to protect against users mak
 
 | Resource | Default limit | Maximum limit |
 | --- | --- | --- |
-| [Alerts - Get Summary](https://docs.microsoft.com/rest/api/monitor/alertsmanagement/alerts/get-summary) | 50 calls per minute per subscription | Same as default | 
-|	[Alerts - Get All](https://docs.microsoft.com/rest/api/monitor/alertsmanagement/alerts/get-all) (not "Get By Id") | 100 calls per minute per subscription | Same as default | 
-|	[All other alerts calls](https://docs.microsoft.com/rest/api/monitor/alertsmanagement/alerts) | 1000 calls per minute per subscription | Same as default | 
+| [Alerts - Get Summary](/rest/api/monitor/alertsmanagement/alerts/get-summary) | 50 calls per minute per subscription | Same as default | 
+|	[Alerts - Get All](/rest/api/monitor/alertsmanagement/alerts/get-all) (not "Get By Id") | 100 calls per minute per subscription | Same as default | 
+|	[All other alerts calls](/rest/api/monitor/alertsmanagement/alerts) | 1000 calls per minute per subscription | Same as default | 
 
