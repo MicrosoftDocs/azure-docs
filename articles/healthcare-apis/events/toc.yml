@@ -19,7 +19,7 @@ items:
 - name: How-to guides
   expanded: true
   items:
-  - name: Configure diagnostic settings and event logs
+  - name: Configure Diagnostic settings for Events diagnostic logs
     href: events-export-logs-and-metrics.md 
 - name: Concepts
   expanded: true
