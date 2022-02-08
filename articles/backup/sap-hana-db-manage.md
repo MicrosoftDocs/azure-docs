@@ -88,24 +88,7 @@ Restores triggered from HANA native clients to restore to another machine are no
 #### Delete
 
 Delete operation from HANA native is **NOT** supported by Azure Backup since the backup policy determines the lifecycle of backups in Azure Recovery services vault.
-
-### Manage or clean-up the HANA catalog for a database with Azure Backup enabled
-
-If you want to edit or clean up the backup catalog, do the following:
-
-1. Wait for any full or log backups for the database to finish. Check the status in SAP HANA Studio/ Cockpit.
-2. For the relevant database:
-    1. Unset the backint parameters. To do this, double-click **systemdb** > **Configuration** > **Select Database** > **Filter (Log)**.
-        * enable_auto_log_backup: No
-        * log_backup_using_backint: False
-        * catalog_backup_using_backint:False
-3. Edit the catalog and remove the older entries
-4. Then reverse the steps. For the same relevant DB mentioned above,
-    1. Re-enable the backint parameters
-        1. catalog_backup_using_backint:True
-        1. log_backup_using_backint: True
-        1. enable_auto_log_backup: Yes
-
+.
 ### Change policy
 
 You can change the underlying policy for an SAP HANA backup item.
