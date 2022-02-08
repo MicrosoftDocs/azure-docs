@@ -38,7 +38,7 @@ See the language-specific example:
 * [C# script (.csx)](#input---c-script-example)
 * JavaScript
 
-### Input - C# script example
+# [C# script](#tab/input-csharp-example)
 
 The following example shows a Mobile Apps input binding in a *function.json* file and a [C# script function](functions-reference-csharp.md) that uses the binding. The function is triggered by a queue message that has a record identifier. The function reads the specified record and modifies its `Text` property.
 
@@ -83,7 +83,7 @@ public static void Run(string myQueueItem, JObject record)
 }
 ```
 
-### Input - JavaScript
+# [JavaScript](#tab/input-javascript-example)
 
 The following example shows a Mobile Apps input binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding. The function is triggered by a queue message that has a record identifier. The function reads the specified record and modifies its `Text` property.
 
@@ -120,6 +120,7 @@ module.exports = async function (context, myQueueItem) {
     context.log(context.bindings.record);
 };
 ```
+---
 
 ## Input - attributes
 
@@ -167,7 +168,7 @@ See the language-specific example:
 * [C# script (.csx)](#output---c-script-example)
 * [JavaScript](#output---javascript-example)
 
-### Output - C# example
+# [C#](#tab/output-csharp-example)
 
 The following example shows a [C# function](functions-dotnet-class-library.md) that is triggered by a queue message and creates a record in a mobile app table.
 
@@ -182,7 +183,8 @@ public static object Run(
 }
 ```
 
-### Output - C# script example
+# [C# script](#tab/output-csharp-script-example)
+
 
 The following example shows a Mobile Apps output binding in a *function.json* file and a [C# script function](functions-reference-csharp.md) that uses the binding. The function is triggered by a queue message and creates a new record with hard-coded value for the `Text` property.
 
@@ -223,7 +225,8 @@ public static void Run(string myQueueItem, out object record)
 }
 ```
 
-### Output - JavaScript example
+# [JavaScript](#tab/output-javascript-example)
+
 
 The following example shows a Mobile Apps output binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding. The function is triggered by a queue message and creates a new record with hard-coded value for the `Text` property.
 
@@ -264,12 +267,15 @@ module.exports = async function (context, myQueueItem) {
     }   
 };
 ```
-
+---
 ## Output - attributes
 
 In [C# class libraries](functions-dotnet-class-library.md), use the [MobileTable](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs) attribute.
 
 For information about attribute properties that you can configure, see [Output - configuration](#output---configuration). Here's a `MobileTable` attribute example in a method signature:
+
+# [C#](#tab/output-attributes-csharp-example)
+
 
 ```csharp
 [FunctionName("MobileAppsOutput")]        
@@ -281,7 +287,7 @@ public static object Run(
     ...
 }
 ```
-
+---
 For a complete example, see [Output - C# example](#output---c-example).
 
 ## Output - configuration
