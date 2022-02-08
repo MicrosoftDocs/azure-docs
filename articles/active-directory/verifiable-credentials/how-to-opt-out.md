@@ -7,7 +7,7 @@ manager: karenhoran
 ms.service: active-directory
 ms.topic: how-to
 ms.subservice: verifiable-credentials
-ms.date: 02/04/2022
+ms.date: 02/08/2022
 ms.author: barclayn
 
 #Customer intent: As an administrator, I am looking for information to help me disable 
@@ -59,12 +59,12 @@ However, when relying parties call the status API, they will always receive back
 2. Choose **Organization Settings** from the left side menu.
 3. Under the section, **Reset your organization**, select **Delete all credentials, and opt out of preview**.
 
-:::image type="content" source="media/how-to-opt-out/settings-reset.png" alt-text="<Section in settings that allows you to reset your organization>":::
+    :::image type="content" source="media/how-to-opt-out/settings-reset.png" alt-text="Section in settings that allows you to reset your organization":::
 
 
 4. Read the warning message and to continue select **Delete and opt out**.
 
-:::image type="content" source="media/how-to-opt-out/delete-and-opt-out.png" alt-text="settings delete and opt out":::
+    :::image type="content" source="media/how-to-opt-out/delete-and-opt-out.png" alt-text="settings delete and opt out":::
 
 ## Next steps
 
