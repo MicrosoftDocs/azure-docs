@@ -192,15 +192,13 @@ SQL Server features and capabilities provide a method of security at the data le
 
 ## Next steps
 
-To learn more, see the other articles in this series:
+To learn more, see the other articles in this best practices series:
 
 - [VM size](performance-guidelines-best-practices-vm-size.md)
 - [Storage](performance-guidelines-best-practices-storage.md)
 - [Security](security-considerations-best-practices.md)
 - [HADR settings](hadr-cluster-best-practices.md)
 - [Collect baseline](performance-guidelines-best-practices-collect-baseline.md)
-
-For security best practices, see [Security considerations for SQL Server on Azure Virtual Machines](security-considerations-best-practices.md).
 
 Consider enabling [SQL Assessment for SQL Server on Azure VMs](sql-assessment-for-sql-vm.md).
 

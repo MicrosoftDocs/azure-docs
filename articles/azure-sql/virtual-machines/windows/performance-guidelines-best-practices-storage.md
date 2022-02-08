@@ -275,7 +275,8 @@ There are specific Azure Monitor metrics that are invaluable for discovering cap
 
 ## Next steps
 
-To learn more about performance best practices, see the other articles in this series:
+To learn more, see the other articles in this best practices series:
+
 - [Quick checklist](performance-guidelines-best-practices-checklist.md)
 - [VM size](performance-guidelines-best-practices-vm-size.md)
 - [Security](security-considerations-best-practices.md)

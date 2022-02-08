@@ -180,16 +180,15 @@ Azure Virtual Machine extensions are trusted Microsoft or 3rd party extensions t
 
 ## Next steps
 
-If you are also interested in best practices around performance, see [Performance Best Practices for SQL Server on Azure Virtual Machines](./performance-guidelines-best-practices-checklist.md).
+Review the security best practices for [SQL Server](/sql/relational-databases/security/) and [Azure VMs](../../../virtual-machines/security-recommendations.md) and then review this article for the best practices that apply to SQL Server on Azure VMs specifically. 
 
 For other topics related to running SQL Server in Azure VMs, see [SQL Server on Azure Virtual Machines overview](sql-server-on-azure-vm-iaas-what-is-overview.md). If you have questions about SQL Server virtual machines, see the [Frequently Asked Questions](frequently-asked-questions-faq.yml).
 
 
-To learn more, see the other articles in this series:
+To learn more, see the other articles in this best practices series:
 
 - [Quick checklist](performance-guidelines-best-practices-checklist.md)
 - [VM size](performance-guidelines-best-practices-vm-size.md)
 - [Storage](performance-guidelines-best-practices-storage.md)
-- [Security](security-considerations-best-practices.md)
 - [HADR settings](hadr-cluster-best-practices.md)
 - [Collect baseline](performance-guidelines-best-practices-collect-baseline.md)
