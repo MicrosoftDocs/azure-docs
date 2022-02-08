@@ -35,7 +35,7 @@ This article describes how you can attach and detach permissions for users, role
     CloudKnox displays a list of users, roles, or groups that match your criteria.
 1. In **Enter a username**, enter or select a user.
 1. In **Enter a group name**, enter or select a group, then select **Apply**.
-1. 1. Make a selection from the results list..
+1. Make a selection from the results list.
 
     The table displays the related **Username** **Domain/Account**, **Source** and **Policy name**.
 

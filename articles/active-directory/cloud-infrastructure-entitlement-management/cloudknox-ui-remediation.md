@@ -116,7 +116,7 @@ Use the **Role/Policy template** subtab to create a template for roles/policies.
 Other options available to you:
 - **Search**: Select this option to search for a specific role/policy.
 - **Reload**: Select this option to refresh the displayed list of roles/policies.
-- 
+
 ## View requests for permission 
 
 Use the **Requests** tab to view a list of **Pending**, **Approved**, and **Processed** requests for permissions your team members have made.
@@ -129,7 +129,7 @@ Other options available to you:
 
 - **Reload**: Select this option to refresh the displayed list of roles/policies.
 - **Search**: Select this option to search for a specific role/policy.
-- **||| Columns**: Select one or more of the following to view more information about the request:
+- **Columns**: Select one or more of the following to view more information about the request:
     - **Submitted by**
     - **On behalf of**
     - **Authorization system**
@@ -154,7 +154,7 @@ The **Pending** table displays the following information:
 - Select an option:
     - **Reload**: Select this option to refresh the displayed list of roles/policies.
     - **Search**: Select this option to search for a specific role/policy.
-    - **||| Columns**: From the dropdown, select the columns you want to display.
+    - **Columns**: From the dropdown, select the columns you want to display.
 
 **To return to the previous view:**
 
@@ -180,7 +180,7 @@ Other options available to you:
 
 - **Reload**: Select this option to refresh the displayed list of roles/policies.
 - **Search**: Select this option to search for a specific role/policy.
-- **||| Columns**: Select one or more of the following to view more information about the request:
+- **Columns**: Select one or more of the following to view more information about the request:
     - **On behalf of**
     - **Authorization system**
     - **Tasks/scope/policies**
@@ -204,7 +204,7 @@ The **Pending** table displays the following information:
 - Select an option:
     - **Reload**: Select this option to refresh the displayed list of roles/policies.
     - **Search**: Select this option to search for a specific role/policy.
-    - **||| Columns**: From the dropdown, select the columns you want to display.
+    - **Columns**: From the dropdown, select the columns you want to display.
 
 
 ### View approved requests
