@@ -63,7 +63,7 @@ Before you configure and set up your Azure Stack Edge Pro device with GPU, make 
     - If you changed the device name or DNS domain, and you do not generate certificates or bring your own certificates, then the **activation will be blocked**.
 
 
-### Generate device certificates
+## Generate device certificates
 
 Follow these steps to generate device certificates.
 
@@ -124,7 +124,7 @@ If using Azure Storage Explorer, you will need to install certificates on your c
 > - You can decide to have a mix of device generated certificates and bring your own certificates as long as other certificate requirements are met. For more information, go to [Certificate requirements](azure-stack-edge-gpu-certificate-requirements.md).
     
 
-### Bring your own certificates
+## Bring your own certificates
 
 You can bring your own certificates. 
 
@@ -141,7 +141,7 @@ Follow these steps to upload your own certificates including the signing chain.
 
 2. You can skip this step if you included all certificates in the certificate path when you [exported certificates in .pfx format](azure-stack-edge-gpu-prepare-certificates-device-upload.md#export-certificates-as-pfx-format-with-private-key). If you didn't include all certificates in your export, upload the signing chain, and then select **Validate & add**. You need to do this before you upload your other certificates.
 
-    In some cases, you may want to bring a signing chain alone for other purposes - for example, to connect to the Azure cloud for activation or to connect to your update server for Windows Server Update Services (WSUS).
+    In some cases, you may want to bring a signing chain alone for other purposes - for example, to connect to your update server for Windows Server Update Services (WSUS).
 
     ![Screenshot of the Add Certificate pane for a Signing Chain certificate in the local web UI of an Azure Stack Edge device. The certificate type, certificate entries, and Validate And Add button are highlighted.](./media/azure-stack-edge-gpu-deploy-configure-certificates/add-certificate-2.png)
 
