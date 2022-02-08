@@ -90,14 +90,14 @@ The vCore-based service tiers are differentiated based on database availability 
 
 ||  **General Purpose** |  **Hyperscale** | **Business Critical** |
 |:---:|:---:|:---:|:---:|
-| **Best for** |Offers budget oriented balanced compute and storage options.|Most business workloads. Autoscaling storage size up to 100 TB,fast vertical and horizontal compute scaling, fast database restore.|OLTP applications with high transaction rate and low IO latency. Offers highest resilience to failures and fast failovers using multiple synchronously updated replicas.|
-| **Resource type** |SQL Database / SQL Managed Instance | Single database | SQL Database / SQL Managed Instance |
+| **Best for** |Offers budget oriented balanced compute and storage options.|Most business workloads. Autoscaling storage size up to 100 TB, fast vertical and horizontal compute scaling, fast database restore.|OLTP applications with high transaction rate and low IO latency. Offers highest resilience to failures and fast failovers using multiple synchronously updated replicas.|
+| **Resource type** |SQL Database / SQL Managed Instance | SQL Database | SQL Database / SQL Managed Instance |
 | **Compute size** | 1 to 80 vCores | 1 to 80  vCores<sup>1</sup>| 1 to 80 vCores |
 | **Storage type** | Premium remote storage (per instance) | De-coupled storage with local SSD cache (per instance) | Super-fast local SSDstorage (per instance) |
 | **Storage size**<sup>1</sup> | 5 GB – 4 TB | Up to 100 TB | 5 GB – 4 TB |
-| **IOPS** | 500 IOPS per vCore with 7000 maximum IOPS | Hyperscale is a multi-tiered architecture with caching at multiplelevels. Effective IOPS will depend on the workload. | 5000 IOPS with 200,000 maximum IOPS|
-|**Availability**| 1 replica, no Read Scale-out, zone-redundant HA (preview), no local cache | Multiple replicas, up to 4 Read Scale-out, partiallocal cache | 3 replicas, 1 Read Scale-out, zone-redundant HA, full local storage |
-|**Backups** | A choice of geo-redundant, zone-redundant <sup>2</sup> , or locally-redundant<sup>2</sup> backup storage, 1-35 day retention (default 7 days) | A choice of geo-redundant, zone-redundant <sup>3</sup>, or locally-redundant<sup>3</sup> backup storage, 7 day retention. | A choice of geo-redundant,zone-redundant<sup>2</sup>, or locally-redundant<sup>2</sup> backup storage, 1-35 day retention (default 7 days) |
+| **IOPS** | 500 IOPS per vCore with 7000 maximum IOPS | Hyperscale is a multi-tiered architecture with caching at multiple levels. Effective IOPS will depend on the workload. | 5000 IOPS with 200,000 maximum IOPS|
+|**Availability**| 1 replica, no Read Scale-out, zone-redundant HA (preview), no local cache | Multiple replicas, up to 4 Read Scale-out, partial local cache | 3 replicas, 1 Read Scale-out, zone-redundant HA, full local storage |
+|**Backups** | A choice of geo-redundant, zone-redundant <sup>2</sup> , or locally-redundant<sup>2</sup> backup storage, 1-35 day retention (default 7 days) | A choice of geo-redundant, zone-redundant <sup>3</sup>, or locally-redundant<sup>3</sup> backup storage, 7 day retention. | A choice of geo-redundant, zone-redundant<sup>2</sup>, or locally-redundant<sup>2</sup> backup storage, 1-35 day retention (default 7 days) |
 
 <sup>1</sup> Elastic pools are not supported in the Hyperscale service tier   
 <sup>2</sup> In preview   
@@ -105,35 +105,17 @@ The vCore-based service tiers are differentiated based on database availability 
 
 ## Distributed functions architecture
 
-Unlike traditional database engines that have centralized all of the data management functions in one location/process (even so called distributed databases in production today have multiple copies of a monolithic data engine), a Hyperscale database separates the query processing engine, where the semantics of various data engines diverge, from the components that provide long-term storage and durability for the data. In this way, the storage capacity can be smoothly scaled out as far as needed (initial target is 100 TB). High-availability and named replicas share the same storage components so no data copy is required to spin up a new replica.
+Hyperscale separates the query processing engine from the components that provide long-term storage and durability for the data. This architecture provides the ability to smoothly scale storage capacity as far as needed (initial target is 100 TB), as well as the ability to scale compute resources rapidly.
 
 The following diagram illustrates the different types of nodes in a Hyperscale database:
 
 ![architecture](./media/service-tier-Hyperscale/Hyperscale-architecture.png)
 
-A Hyperscale database contains the following different types of components:
-
-### Compute
-
-The compute node is where the relational engine lives. This is where language, query, and transaction processing occur. All user interactions with a Hyperscale database happen through these compute nodes. Compute nodes have SSD-based caches (labeled RBPEX - Resilient Buffer Pool Extension in the preceding diagram) to minimize the number of network round trips required to fetch a page of data. There is one primary compute node where all the read-write workloads and transactions are processed. There are one or more secondary compute nodes that act as hot standby nodes for failover purposes, as well as act as read-only compute nodes for offloading read workloads (if this functionality is desired).
-
-The database engine running on Hyperscale compute nodes is the same as in other Azure SQL Database service tiers. When users interact with the database engine on Hyperscale compute nodes, the supported surface area and engine behavior are the same as in other service tiers, with the exception of [known limitations](#known-limitations).
-
-### Page server
-
-Page servers are systems representing a scaled-out storage engine.  Each page server is responsible for a subset of the pages in the database.  Nominally, each page server controls either up to 128 GB or up to 1 TB of data. No data is shared on more than one page server (outside of page server replicas that are kept for redundancy and availability). The job of a page server is to serve database pages out to the compute nodes on demand, and to keep the pages updated as transactions update data. Page servers are kept up to date by playing transaction log records from the log service. Page servers also maintain covering SSD-based caches to enhance performance. Long-term storage of data pages is kept in Azure Storage for additional reliability.
-
-### Log service
-
-The log service accepts transaction log records from the primary compute replica, persists them in a durable cache, and forwards the log records to the rest of compute replicas (so they can update their caches) as well as the relevant page server(s), so that the data can be updated there. In this way, all data changes from the primary compute replica are propagated through the log service to all the secondary compute replicas and page servers. Finally, transaction log records are pushed out to long-term storage in Azure Storage, which is a virtually infinite storage repository. This mechanism removes the need for frequent log truncation. The log service also has local memory and SSD caches to speed up access to log records. The log on hyperscale is practically infinite, with the restriction that a single transaction cannot generate more than 1TB of log. Additionally , if using [Change Data Capture](/sql/relational-databases/track-changes/about-change-data-capture-sql-server), at most 1TB of log can be generated since the start of the  oldest active transaction. It is recommended to avoid unnecessarily large transactions to stay below this limit.
-
-### Azure storage
-
-Azure Storage contains all data files in a database. Page servers keep data files in Azure Storage up to date. This storage is used for backup purposes, as well as for replication between Azure regions. Backups are implemented using storage snapshots of data files. Restore operations using snapshots are fast regardless of data size. A database can be restored to any point in time within its backup retention period.
+Learn more about the [Hyperscale distributed functions architecture](hyperscale-architecture.md).
 
 ## Backup and restore
 
-Backups are file-snapshot based and hence they're nearly instantaneous. Storage and compute separation enables pushing down the backup/restore operation to the storage layer to reduce the processing burden on the primary compute replica. As a result, database backup doesn't impact performance of the primary compute node. Similarly, point in time recovery (PITR) is done by reverting to file snapshots, and as such is not a size of data operation. Restore of a Hyperscale database in the same Azure region is a constant-time operation, and even multiple-terabyte databases can be restored in minutes instead of hours or days. Creation of new databases by restoring an existing backup also takes advantage of this feature: creating database copies for development or testing purposes, even of multi-terabyte databases, is doable in minutes.
+Backups for Hyperscale database are file-snapshot based, and hence they're nearly instantaneous. Storage and compute separation enables pushing down the backup/restore operation to the storage layer to reduce the processing burden on the primary compute replica. As a result, database backup doesn't impact performance of the primary compute node. Similarly, point in time recovery (PITR) is done by reverting to file snapshots, and as such is not a size of data operation. Restore of a Hyperscale database in the same Azure region is a constant-time operation, and even multiple-terabyte databases can be restored in minutes instead of hours or days. Creation of new databases by restoring an existing backup also takes advantage of this feature: creating database copies for development or testing purposes, even of multi-terabyte databases, is doable in minutes.
 
 For geo-restore of Hyperscale databases, learn how to [restore a Hyperscale database to a different region](manage-hyperscale-database.md#restore-a-hyperscale-database-to-a-different-region).
 
@@ -141,27 +123,21 @@ For geo-restore of Hyperscale databases, learn how to [restore a Hyperscale data
 
 With the ability to rapidly spin up/down additional read-only compute nodes, the Hyperscale architecture allows significant read scale capabilities and can also free up the primary compute node for serving more write requests. Also, the compute nodes can be scaled up/down rapidly due to the shared-storage architecture of the Hyperscale architecture.
 
-## Create a Hyperscale database
+## Create and manage Hyperscale databases
+
+### Create a Hyperscale database
 
 A Hyperscale database can be created using the [Azure portal](https://portal.azure.com), [Transact-SQL](/sql/t-sql/statements/create-database-transact-sql), [PowerShell](/powershell/module/azurerm.sql/new-azurermsqldatabase), or the [Azure CLI](/cli/azure/sql/db#az_sql_db_create). Hyperscale databases are available only using the [vCore-based purchasing model](service-tiers-vcore.md).
 
-The following T-SQL command creates a Hyperscale database on Gen5 hardware with four cores. You must specify both the edition and service objective in the `CREATE DATABASE` statement. Refer to the [resource limits](./resource-limits-vcore-single-databases.md#hyperscale---provisioned-compute---gen4) for a list of valid service objectives.
-
-```sql
--- Create a Hyperscale Database
-CREATE DATABASE [HyperscaleDB1] (EDITION = 'Hyperscale', SERVICE_OBJECTIVE = 'HS_Gen5_4');
-GO
-```
-
 Find examples to create a Hyperscale database in [Quickstart: Create a Hyperscale database in Azure SQL Database](hyperscale-database-create-quickstart.md).
 
-## Upgrade an existing database to Hyperscale
+### Upgrade an existing database to Hyperscale
 
 You can migrate your existing databases in Azure SQL Database to Hyperscale using the [Azure portal](https://portal.azure.com), [T-SQL](/sql/t-sql/statements/alter-database-transact-sql), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqldatabase), or [CLI](/cli/azure/sql/db#az_sql_db_update). Migrating an existing database in Azure SQL Database to the Hyperscale tier is a size of data operation.
 
 Learn [how to migrate an existing database to Hyperscale](manage-hyperscale-database.md#migrate-an-existing-database-to-hyperscale).
 
-## Reverse migrate a Hyperscale database back to the General Purpose service tier
+### Reverse migrate a Hyperscale database back to the General Purpose service tier
 
 If you previously migrated an existing Azure SQL Database to the Hyperscale service tier, you can reverse migrate a Hyperscale database to the General Purpose service tier within 45 days of the original migration to Hyperscale. If you wish to migrate the database to another service tier, such as Business Critical, first reverse migrate to the General Purpose service tier, then perform a further migration.
 
@@ -188,7 +164,7 @@ The Azure SQL Database Hyperscale tier is enabled in the vast majority of Azure 
 
 ## Known limitations
 
-These are the current limitations to the Hyperscale service tier as of GA.  We're actively working to remove as many of these limitations as possible.
+These are the current limitations to the Hyperscale service tier.  We're actively working to remove as many of these limitations as possible.
 
 | Issue | Description |
 | :---- | :--------- |
@@ -207,11 +183,12 @@ These are the current limitations to the Hyperscale service tier as of GA.  We'r
 
 ## Next steps
 
-Learn more about Hyperscale in the following articles:
+Learn more about Hyperscale in Azure SQL Database in the following articles:
 
 - For an FAQ on Hyperscale, see [Frequently asked questions about Hyperscale](service-tier-hyperscale-frequently-asked-questions-faq.yml).
 - For information about service tiers, see [Service tiers](purchasing-models.md).
 - See [Overview of resource limits on a server](resource-limits-logical-server.md) for information about limits at the server and subscription levels.
 - For purchasing model limits for a single database, see [Azure SQL Database vCore-based purchasing model limits for a single database](resource-limits-vcore-single-databases.md).
 - For a features and comparison list, see [SQL common features](features-comparison.md).
+- Learn about the [Hyperscale distributed functions architecture](hyperscale-architecture.md)
 - Learn [How to manage a Hyperscale database](manage-hyperscale-database.md).
