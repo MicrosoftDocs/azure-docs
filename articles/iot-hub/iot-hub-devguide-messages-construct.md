@@ -5,14 +5,14 @@ author: ash2017
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 11/19/2021
+ms.date: 2/7/2022
 ms.author: asrastog
 ms.custom: ['Role: Cloud Development', 'Role: IoT Device']
 ---
 
 # Create and read IoT Hub messages
 
-To support seamless interoperability across protocols, IoT Hub defines a common message format for all device-facing protocols. This message format is used for both [device-to-cloud routing](iot-hub-devguide-messages-d2c.md) and [cloud-to-device](iot-hub-devguide-messages-c2d.md) messages. 
+To support seamless interoperability across protocols, IoT Hub defines a common set of messaging features that are available in all device-facing protocols. These can be used in both [device-to-cloud message routing](iot-hub-devguide-messages-d2c.md) and [cloud-to-device messages](iot-hub-devguide-messages-c2d.md). 
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
@@ -24,7 +24,9 @@ An IoT Hub message consists of:
 
 * A set of *application properties*. A dictionary of string properties that the application can define and access, without needing to deserialize the message body. IoT Hub never modifies these properties.
 
-* An opaque binary body.
+* A message body, which can be any type of data.
+
+Each device protocol implements setting properties in different ways.  Please see the related [MQTT](./iot-hub-mqtt-support.md) and [AMQP](./iot-hub-amqp-support.md) developer guides for details.
 
 Property names and values can only contain ASCII alphanumeric characters, plus ``{'!', '#', '$', '%, '&', ''', '*', '+', '-', '.', '^', '_', '`', '|', '~'}`` when you send device-to-cloud messages using the HTTPS protocol or send cloud-to-device messages.
 
@@ -41,6 +43,9 @@ Device-to-cloud messaging with IoT Hub has the following characteristics:
 * You can stamp messages with information that goes into the application properties. For more information, please see [message enrichments](iot-hub-message-enrichments-overview.md).
 
 For more information about how to encode and decode messages sent using different protocols, see [Azure IoT SDKs](iot-hub-devguide-sdks.md).
+
+> [!NOTE]
+> To use your message body in an IoT Hub routing query you must set the content type property of the message to `application/json;charset=utf-8`.
 
 ## System Properties of **D2C** IoT Hub messages
 
@@ -140,6 +145,14 @@ The **iothub-connection-auth-method** property contains a JSON serialized object
   "issuer": "iothub"
 }
 ```
+
+## Protocol Specifics
+
+Each IoT Hub protocol implements support for these properties in a slightly different manner. 
+
+### MQTT
+
+Over [MQTT](./iot-hub-mqtt-support.md), message properties are provided via a property bag
 
 ## Next steps
 
