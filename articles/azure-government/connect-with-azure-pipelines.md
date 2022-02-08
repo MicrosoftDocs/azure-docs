@@ -38,7 +38,7 @@ The following steps will set up a CD process to deploy to this Web App.
 Follow through one of the quickstarts below to set up a Build for your specific type of app: 
 
 - [ASP.NET 4 app](/azure/devops/pipelines/apps/aspnet/build-aspnet-4)
-- [ASP.NET Core app](/azure/devops/pipelines/languages/dotnet-core?tabs=yaml)
+- [ASP.NET Core app](/azure/devops/pipelines/ecosystems/dotnet-core)
 - [Node.js app with Gulp](/azure/devops/pipelines/languages/javascript?tabs=yaml)
 
 ## Generate a service principal 
