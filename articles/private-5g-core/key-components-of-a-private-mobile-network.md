@@ -30,7 +30,7 @@ Each packet core instance connects to a Radio Access Network (RAN) to provide co
 
 ## Policy control
 
-Azure Private 5G Core provides flexible traffic handling through customizable policy control. You can determine exactly how your packet core instance applies Quality of Service (QoS) characteristics to Service Data Flows (SDFs) to meet your deployment's needs. You can also use policy control to block or limit certain flows.
+Azure Private 5G Core provides flexible traffic handling through customizable *policy control*. You can determine exactly how your packet core instance applies Quality of Service (QoS) characteristics to Service Data Flows (SDFs) to meet your deployment's needs. You can also use policy control to block or limit certain flows.
 
 You'll configure two primary types of resource to manage policy control for your private mobile network.
 
