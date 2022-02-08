@@ -130,7 +130,7 @@ In this article, you learned how to:
 
 * Create a NAT gateway and use the public IP address from the virtual machine for the NAT gateway resource.
 
-For more information about NAT gateway and the connectivity benefits it provides, see [Design virtual networks with NAT gateway](nat-gateway-resource.md). Any virtual machine created within this subnet won't require a public IP address and will automatically have outbound connectivity.
+Any virtual machine created within this subnet won't require a public IP address and will automatically have outbound connectivity. For more information about NAT gateway and the connectivity benefits it provides, see [Design virtual networks with NAT gateway](nat-gateway-resource.md). 
 
 Advance to the next article to learn how to migrate default outbound access to Azure Virtual Network NAT:
 > [!div class="nextstepaction"]
