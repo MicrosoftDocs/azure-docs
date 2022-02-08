@@ -186,7 +186,7 @@ The following example configuration blocks anonymous access and redirects all un
     "401": {
       "statusCode": 302,
       "redirect": "/.auth/login/aad"
-    },
+    }
   }
 }
 ```
