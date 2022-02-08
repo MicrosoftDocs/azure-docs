@@ -13,7 +13,7 @@ metadata:
   ms.subservice: ciem
   ms.workload: identity
   ms.topic: landing-page
-  ms.date: 02/06/2022
+  ms.date: 02/07/2022
   ms.author: v-ydequadros
   
   
@@ -110,7 +110,7 @@ landingContent:
           # - text: CloudKnox Permissions Management training videos
             # url: cloudknox-training-videos.md
   # Card
-  - title: FAQs and Troubleshoot
+  - title: FAQs
     linkLists:
       - linkListType: overview
         links:

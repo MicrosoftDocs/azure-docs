@@ -11,7 +11,7 @@
     - name: Onboard CloudKnox on the Azure AD tenant
       expanded: true
       items:
-      - name: Enable CloudKnox on your Azure AD tenant 
+      - name: Enable CloudKnox in your organization 
         href: cloudknox-onboard-enable-tenant.md
       - name: Onboard an AWS account
         href: cloudknox-onboard-aws.md

@@ -1,5 +1,5 @@
 ---
-title:  Onboard a Microsoft Azure subscription in CloudKnox Permissions Management - 
+title:  Onboard a Microsoft Azure subscription in CloudKnox Permissions Management
 description: How to a Microsoft Azure subscription on CloudKnox Permissions Management.
 services: active-directory
 author: Yvonne-deQ
@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/03/2022
+ms.date: 02/07/2022
 ms.author: v-ydequadros
 ---
 
@@ -18,7 +18,7 @@ ms.author: v-ydequadros
 > CloudKnox Permissions Management (CloudKnox) is currently in PREVIEW.
 > Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
 
-This article describes how to onboard a Microsoft Azure subscription or subscriptions on CloudKnox Permissions Management (CloudKnox). This creates a new authorization system representing the Azure subscription in CloudKnox. 
+This article describes how to onboard a Microsoft Azure subscription or subscriptions on CloudKnox Permissions Management (CloudKnox). Doing this creates a new authorization system representing the Azure subscription in CloudKnox. 
 
 > [!NOTE] 
 > A Global Administrator or a Super Admin (Admin for all authorization system types) can perform the tasks in this article after the Global Administrator has initially completed the steps provided in [Enable CloudKnox on your Azure Active Directory tenant](cloudknox-onboard-enable-tenant.md).
@@ -31,30 +31,35 @@ To add CloudKnox to your Azure AD tenant:
 
 ## Onboard an Azure subscription
 
-1. If the **Data Collectors** tab isn't displayed: 
+1. If the **Data Collectors** dashboard isn't displayed when CloudKnox launches: 
 
-    - In the CloudKnox homepage, select **Settings** (the gear icon), and then select the **Data Collectors** tab.
+    - In the CloudKnox home page, select **Settings** (the gear icon), and then select the **Data Collectors** subtab.
 
-1. On the **Data Collectors** tab, select **Azure**, and then select **Create Configuration**.
+1. On the **Data Collectors** dashboard, select **Azure**, and then select **Create Configuration**.
 
-1. **CloudKnox On Boarding - Azure Subscription Details**
-	1. On the **CloudKnox Onboarding - Azure Subscription Details** page, enter **Subscription IDs** that you want to onboard.
+### 1. CloudKnox On Boarding - Azure Subscription Details
+
+1. On the **CloudKnox Onboarding - Azure Subscription Details** page, enter **Subscription IDs** that you want to onboard.
 	
-	   > [!NOTE] 
-	   > To locate the Azure subscription IDs, open the **Subscriptions** page in Azure.
-	   > You can enter up to 10 subscriptions IDs. Click the plus icon next to the text box to insert more subscriptions.
+   > [!NOTE] 
+   > To locate the Azure subscription IDs, open the **Subscriptions** page in Azure.
+   > You can enter up to 10 subscriptions IDs. Click the plus icon next to the text box to insert more subscriptions.
 
-	1. From the **Scope** drop-down list, select **Subscription** or **Management Group**. The script box displays the role assignment script. 
+1. From the **Scope** drop-down list, select **Subscription** or **Management Group**. The script box displays the role assignment script. 
 	
-	   > [!NOTE] 
-	   > Select **Subscription** if you want to assign permissions separately for each individual subscription. The generated script has to be executed once per subscription.
-	   > Select **Management Group** if all of your subscriptions are under one management group. The generated script has to be executed once for the management group .
-	    	
-	1. To give this role assignment to the service principal, copy the script to a file on your system where Azure CLI is installed and execute it once per subscription or just once for the whole management group.
-		<!---Add info on how to do this manually.--->
-	1. Return to **CloudKnox Onboarding - Azure Subscription Details** page, and select **Next**.
+   > [!NOTE] 
+   > Select **Subscription** if you want to assign permissions separately for each individual subscription. The generated script has to be executed once per subscription.
+   > Select **Management Group** if all of your subscriptions are under one management group. The generated script has to be executed once for the management group .
 
-1. In **CloudKnox Onboarding – Summary** page, review the information you’ve added, and then select **Verify Now & Save**.
+1. To give this role assignment to the service principal, copy the script to a file on your system where Azure CLI is installed and execute it once for each subscription or once for the whole management group.
+
+	<!---Add info on how to do this manually.--->
+
+1. Return to **CloudKnox Onboarding - Azure Subscription Details** page, and select **Next**.
+
+### 2. Review and save.
+
+- In **CloudKnox Onboarding – Summary** page, review the information you’ve added, and then select **Verify Now & Save**.
 
     The following message appears: **Successfully Created Configuration.**
 
@@ -62,7 +67,10 @@ To add CloudKnox to your Azure AD tenant:
 
     This step confirms that CloudKnox has started collecting and processing your Azure data.
 
-1. To view your data, select the **Authorization Systems** tab.
+
+### 3. View your data.
+
+- To view your data, select the **Authorization Systems** tab. 
 
     The **Status** column in the table displays **Collecting Data.**
 
@@ -73,5 +81,5 @@ To add CloudKnox to your Azure AD tenant:
 
 - For information on how to onboard an Amazon Web Services (AWS) account, see [Onboard an Amazon Web Services (AWS) account](cloudknox-onboard-aws.md).
 - For information on how to onboard a Google Cloud Platform (GCP) project, see [Onboard a Google Cloud Platform (GCP) project](cloudknox-onboard-gcp.md).
-- For an overview on CloudKnox, see [What is CloudKnox Permissions Management?](cloudknox-overview.md).
+- For an overview on CloudKnox, see [What's CloudKnox Permissions Management?](cloudknox-overview.md)
 - For information on how to start viewing information about your authorization system in CloudKnox, see [View key statistics and data about your authorization system](cloudknox-ui-dashboard.md).
