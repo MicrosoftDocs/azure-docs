@@ -46,7 +46,7 @@ This script uses the commands outlined in the following table:
 | [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create) | Creates a virtual network. |
 | [az network vnet subnet create](/cli/azure/network/vnet#az-network-vnet-subnet-create) | Create a subnet and associate an existing NSG and route table. |
 | [az network vnet subnet show](/cli/azure/network/vnet#az-network-vnet-subnet-show) |Shows details of a subnet. |
-| [az postgresql server vnet-rule create](/azure/postgresql/scripts/sample-create-server-with-vnet-rule#az-postgresql-server-vnet-rule-create) | Create a virtual network rule to allows access to a PostgreSQL server. |
+| [az postgresql server vnet-rule create](/cli/azure/postgres/server?view=azure-cli-latest#az-postgres-server-create) | Create a virtual network rule to allows access to a PostgreSQL server. |
 | [az group delete](/cli/azure/group#az_group_delete) | Deletes a resource group including all nested resources. |
 
 ## Next steps
