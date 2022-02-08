@@ -22,13 +22,13 @@ Once your support representative has confirmed your access, register the Mobile 
 
 ## Allocate subnets and IP addresses
 
-The following table shows the networks to which a packet core instance will connect. For each network, allocate a subnet and then identify the IP addresses in the **Required IP addresses** column. If you're deploying multiple sites, you'll need to collect this information for each site.
+The following table shows the networks to which a site will connect. For each network, allocate a subnet and then identify the IP addresses in the **Required IP addresses** column. If you're deploying multiple sites, you'll need to collect this information for each site.
 
 | Network | Required IP addresses |
 |--|--|
-| Management network | <ul><li>Network address.</li><li>Default gateway.</li><li>Management IP address.</li></ul> |
-| Access network | <ul><li>Network address.</li><li>Default gateway.</li><li>N2 signaling interface IP address for the packet core instance.</li><li>N3 interface IP address for the packet core instance.</li></ul> |
-| Data network | <ul><li>Network address.</li><li>Default gateway.</li><li>N6 interface IP address for the packet core instance.</li></ul> |
+| Management network | <ul><li>Network address.</li><li>Default gateway.</li><li>One IP address for the Azure Stack Edge Pro device's management port.</li><li>Three sequential IP addresses for the Azure Kubernetes Service on Azure Stack HCI (AKS-HCI) cluster nodes.</li><li>One IP address for accessing local monitoring tools for the packet core instance. </ul> |
+| Access network | <ul><li>Network address.</li><li>Default gateway.</li><li>One IP address for port 5 on the Azure Stack Edge Pro device.</li><li>One IP address for the packet core instance's N2 signaling interface.</li><li>One IP address for the packet core instance's N3 interface.</li></ul> |
+| Data network | <ul><li>Network address.</li><li>Default gateway.</li><li>One IP address for port 6 on the Azure Stack Edge Pro device.</li><li>One IP address for the packet core instance's N6 interface.</li></ul> |
 | User Equipment (UE) IP address pool | <ul><li>Network address.</li><li>IP addresses for each UE that will be served by the private mobile network.</li></ul> |
 
 ## Order and set up your Azure Stack Edge Pro device(s)
