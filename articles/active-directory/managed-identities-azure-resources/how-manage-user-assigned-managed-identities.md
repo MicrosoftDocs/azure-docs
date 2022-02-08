@@ -84,7 +84,7 @@ To assign a role to a user-assigned managed identity, your account needs the [Us
 1. A list of the user-assigned managed identities for your subscription is returned. Select the user-assigned managed identity that you want to assign a role.
 1. Select **Access control (IAM)**, and then select **Add role assignment**.
 
-:::image type="content" source="media/how-manage-user-assigned-managed-identities/assign-role-screenshot1.png" alt-text="Screenshot that shows the user-assigned managed identity start.":::
+:::image type="content" source="media/how-manage-user-assigned-managed-identities/assign-role.png" alt-text="Screenshot that shows the user-assigned managed identity start.":::
 
 
 1. In the **Add role assignment** pane, configure the following values, and then select **Save**:
@@ -92,12 +92,10 @@ To assign a role to a user-assigned managed identity, your account needs the [Us
    - **Assign access to**: The resource to assign the user-assigned managed identity.
    - **Select**: The member to assign access.
    
-  ![Screenshot that shows the user-assigned managed identity IAM.](media/how-manage-user-assigned-managed-identities/assign-role-screenshot2.png)
+  ![Screenshot that shows the user-assigned managed identity IAM.](media/how-manage-user-assigned-managed-identities/assign-role-screenshot-02.png)
 
 
 ::: zone-end
-
-
 
 ::: zone pivot="identity-mi-methods-azcli"
 
