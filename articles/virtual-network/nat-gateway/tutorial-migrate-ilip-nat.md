@@ -1,115 +1,137 @@
 ---
-title: #Required; page title is displayed in search results. Include the brand.
-description: #Required; article description that is displayed in search results. 
-author: #Required; your GitHub user alias, with correct capitalization.
-ms.author: #Required; microsoft alias of author; optional team alias.
-ms.service: #Required; service per approved list. slug assigned by ACOM.
-ms.topic: tutorial #Required; leave this attribute/value as-is.
-ms.date: #Required; mm/dd/yyyy format.
-ms.custom: template-tutorial #Required; leave this attribute/value as-is.
+title: 'Tutorial: Migrate a virtual machine public IP address to NAT gateway'
+titleSuffix: Azure Virtual Network NAT
+description: Learn how to migrate your virtual machine public IP to a Virtual Network NAT gateway.
+author: asudbring
+ms.author: allensu
+ms.service: virtual-network
+ms.subservice: nat
+ms.topic: tutorial
+ms.date: 2/07/2022
+ms.custom: template-tutorial 
 ---
 
-<!--
-Remove all the comments in this template before you sign-off or merge to the 
-main branch.
--->
+# Tutorial: Migrate a virtual machine public IP address to Azure Virtual Network NAT
 
-<!--
-This template provides the basic structure of a tutorial article.
-See the [tutorial guidance](contribute-how-to-mvc-tutorial.md) in the contributor guide.
+In this article, you'll learn how to migrate your virtual machine's public IP address to a NAT gateway. You'll learn how to remove the IP address from the virtual machine. You'll reuse the IP address from the virtual machine for the NAT gateway.
 
-To provide feedback on this template contact 
-[the templates workgroup](mailto:templateswg@microsoft.com).
--->
+Azure Virtual Network NAT is the recommended method for outbound connectivity. A NAT gateway is a fully managed and highly resilient Network Address Translation (NAT) service. A NAT gateway doesn't have the same limitations of SNAT port exhaustion as default outbound access. A NAT gateway replaces the need for a public IP address assigned to a virtual machine for outbound connectivity.
 
-<!-- 1. H1 
-Required. Start with "Tutorial: ". Make the first word following "Tutorial: " a 
-verb.
--->
-
-# Tutorial: <do something with X> 
-
-<!-- 2. Introductory paragraph 
-Required. Lead with a light intro that describes, in customer-friendly language, 
-what the customer will learn, or do, or accomplish. Answer the fundamental “why 
-would I want to do this?” question. Keep it short.
--->
-
-[Add your introductory paragraph]
-
-<!-- 3. Tutorial outline 
-Required. Use the format provided in the list below.
--->
+For more information about Azure Virtual Network NAT, see [What is Azure Virtual Network NAT](nat-overview.md)
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * All tutorials include a list summarizing the steps to completion
-> * Each of these bullet points align to a key H2
-> * Use these green checkboxes in a tutorial
-
-<!-- 4. Prerequisites 
-Required. First prerequisite is a link to a free trial account if one exists. If there 
-are no prerequisites, state that no prerequisites are needed for this tutorial.
--->
+> * Remove the public IP address from the virtual machine.
+> * Associate the public IP address from the virtual machine with a NAT gateway.
 
 ## Prerequisites
 
-- <!-- An Azure account with an active subscription. [Create an account for free]
-  (https://azure.microsoft.com/free/?WT.mc_id=A261C142F). -->
-- <!-- prerequisite 2 -->
-- <!-- prerequisite n -->
+* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-<!-- 5. H2s
-Required. Give each H2 a heading that sets expectations for the content that follows. 
-Follow the H2 headings with a sentence about how the section contributes to the whole.
--->
+* An Azure Virtual Machine with a public IP address assigned to it's network interface. For more information on creating a virtual machine with a public IP, see [Quickstart: Create a Windows virtual machine in the Azure portal](../../virtual-machines/windows/quick-create-portal.md).
+    
+    * For the purposes of this article, the example virtual machine is named **myVM**. The example public IP address is named **myPublicIP**.
 
-## [Section 1 heading]
-<!-- Introduction paragraph -->
+> [!NOTE]
+> Removal of the public IP address prevents direct connections to the virtual machine from the internet. RDP or SSH access won't function to the virtual machine after you complete this migration. To securely manage virtual machines in your subscription, use Azure Bastion. For more information on Azure Bastion, see [What is Azure Bastion?](../../bastion/bastion-overview.md).
 
-1. Sign in to the [<service> portal](url).
-1. <!-- Step 2 -->
-1. <!-- Step n -->
+## Remove public IP from virtual machine
 
-## [Section 2 heading]
-<!-- Introduction paragraph -->
-1. <!-- Step 1 -->
-1. <!-- Step 2 -->
-1. <!-- Step n -->
+In this section, you'll learn how to remove the public IP address from the virtual machine.
 
-## [Section n heading]
-<!-- Introduction paragraph -->
-1. <!-- Step 1 -->
-1. <!-- Step 2 -->
-1. <!-- Step n -->
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
-<!-- 6. Clean up resources
-Required. If resources were created during the tutorial. If no resources were created, 
-state that there are no resources to clean up in this section.
--->
+2. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines**.
+
+3. In **Virtual machines**, select **myVM** or your virtual machine.
+
+4. In the **Overview** of **myVM**, select **Public IP address**.
+    
+    :::image type="content" source="./media/tutorial-migrate-ilip-nat/select-public-ip.png" alt-text="Screenshot of virtual machines public IP address.":::
+
+5. In **myPublicIP**, select the **Overview** page in the left-hand column.
+
+6. In **Overview**, select **Dissociate**.
+
+    :::image type="content" source="./media/tutorial-migrate-ilip-nat/remove-public-ip.png" alt-text="Screenshot of virtual machines public IP address overview and removal of IP address.":::
+
+7. Select **Yes** in **Dissociate public IP address**.
+
+### (Optional) Upgrade IP address
+
+The NAT gateway resource in Azure Virtual Network NAT requires a standard SKU public IP address. In this section, you'll upgrade the IP you removed from the virtual machine in the previous section. If the IP address you removed is already a standard SKU public IP, you can proceed to the next section.
+
+1. In the search box at the top of the portal, enter **Public IP**. Select **Public IP addresses**.
+
+2. In **Public IP addresses**, select **myPublicIP** or your basic SKU IP address.
+
+3. In the **Overview** of **myPublicIP**, select the IP address upgrade banner.
+
+    :::image type="content" source="./media/tutorial-migrate-ilip-nat/select-upgrade-banner.png" alt-text="Screenshot of public IP address upgrade banner.":::
+
+4. In **Upgrade to Standard SKU**, select the box next to **I acknowledge**. Select the **Upgrade** button.
+
+    :::image type="content" source="./media/tutorial-migrate-ilip-nat/upgrade-public-ip.png" alt-text="Screenshot of upgrade public IP address selection.":::
+
+5. When the upgrade is complete, proceed to the next section.
+## Create NAT gateway
+
+In this section, you’ll create a NAT gateway with the IP address you previously removed from the virtual machine. You'll assign the NAT gateway to your pre-created subnet within your virtual network. The subnet name for this example is **default**.
+
+1. In the search box at the top of the portal, enter **NAT gateway**. Select **NAT gateways**.
+
+2. In **NAT gateways**, select **+ Create**.
+
+3. In **Create network address translation (NAT) gateway**, enter or select the following information.
+
+    | Setting | Value |
+    | ------- | ----- |
+    | **Project details** |   |
+    | Subscription | Select your subscription. |
+    | Resource group | Select **Create new**. </br> Enter **myResourceGroup**. </br> Select **OK**. |
+    | **Instance details** |   |
+    | NAT gateway name | Enter **myNATgateway**. |
+    | Region | Select the region of your virtual network. In this example, it's **West US 2**. |
+    | Availability zone | Leave the default of **None**. |
+    | Idle timeout (minutes) | Enter **10**. |
+
+4. Select the **Outbound IP** tab, or select **Next: Outbound IP** at the bottom of the page.
+
+5. In **Public IP addresses** in the **Outbound IP** tab, select the IP address from the previous section in **Public IP addresses**. In this example, it's **myPublicIP**.
+
+6. Select the **Subnet** tab, or select **Next: Subnet** at the bottom of the page.
+
+7. In the pull-down box for **Virtual network**, select your virtual network.
+
+8. In **Subnet name**, select the checkbox for your subnet. In this example, it's **default**.
+
+9. Select the **Review + create** tab, or select **Review + create** at the bottom of the page.
+
+10. Select **Create**.
 
 ## Clean up resources
 
-If you're not going to continue to use this application, delete
-<resources> with the following steps:
+If you're not going to continue to use this application, delete the NAT gateway with the following steps:
 
-1. From the left-hand menu...
-1. ...click Delete, type...and then click Delete
+1. From the left-hand menu, select **Resource groups**.
 
-<!-- 7. Next steps
-Required: A single link in the blue box format. Point to the next logical tutorial 
-in a series, or, if there are no other tutorials, to some other cool thing the 
-customer can do. 
--->
+2. Select the **myResourceGroup** resource group.
+
+3. Select **Delete resource group**.
+
+4. Enter **myResourceGroup** and select **Delete**.
 
 ## Next steps
 
-Advance to the next article to learn how to create...
-> [!div class="nextstepaction"]
-> [Next steps button](contribute-how-to-mvc-tutorial.md)
+In this article, you learned how to:
 
-<!--
-Remove all the comments in this template before you sign-off or merge to the 
-main branch.
--->
+* Remove a public IP address from a virtual machine.
+
+* Create a NAT gateway and use the public IP address from the virtual machine for the NAT gateway resource.
+
+For more information about NAT gateway and the connectivity benefits it provides, see [Design virtual networks with NAT gateway](nat-gateway-resource.md). Any virtual machine created within this subnet, won't require a public IP address and will automatically have outbound connectivity.
+
+Advance to the next article to learn how to migrate default outbound access to Azure Virtual Network NAT:
+> [!div class="nextstepaction"]
+> [Migrate outbound access to NAT gateway](tutorial-migrate-outbound-nat.md)
