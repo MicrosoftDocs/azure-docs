@@ -70,7 +70,7 @@ Get-Adfsproperties
 ![AutoCertificateRollover](./media/how-to-connect-fed-o365-certs/autocertrollover.png)
 
 >[!NOTE] 
->If you are using AD FS 2.0, first run Add-Pssnapin Microsoft.Adfs.Powershell.
+>If you are using AD FS 2.0, first run Add-Pssnapin Microsoft.Adfs.PowerShell.
 
 ### Step 2: Confirm that AD FS and Azure AD are in sync
 On your AD FS server, open the MSOnline PowerShell prompt, and connect to Azure AD.
@@ -153,7 +153,7 @@ On the other hand, if **AutoCertificateRollover** is set to **True**, but your f
     PS C:\>Get-ADFSCertificate –CertificateType token-signing
 
    > [!NOTE]
-   > If you are using AD FS 2.0, you should run Add-Pssnapin Microsoft.Adfs.Powershell first.
+   > If you are using AD FS 2.0, you should run Add-Pssnapin Microsoft.Adfs.PowerShell first.
    >
    >
 3. Look at the command output at any certificates listed. If AD FS has generated a new certificate, you should see two certificates in the output: one for which the **IsPrimary** value is **True** and the **NotAfter** date is within 5 days, and one for which **IsPrimary** is **False** and **NotAfter** is about a year in the future.
