@@ -279,7 +279,6 @@ public static object Run(
 }
 ```
 ---
-For a complete example, see [Output - C# example](#output---c-example).
 
 ## Output - configuration
 
