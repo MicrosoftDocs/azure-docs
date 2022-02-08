@@ -459,7 +459,7 @@ To copy data from Azure Cosmos DB to tabular sink or reversed, refer to [schema 
 When transforming data in mapping data flow, you can read and write to collections in Cosmos DB. For more information, see the [source transformation](data-flow-source.md) and [sink transformation](data-flow-sink.md) in mapping data flows.
 
 > [!Note]
-> The Azure Cosmos DB serverless account is not supported in the Spark environment, so you can not use it in data flows. You can use it in copy activities.
+> The Azure Cosmos DB serverless is not supported in mapping data flow.
 
 ### Source transformation
 
