@@ -631,14 +631,13 @@ To have this log sent to Microsoft Sentinel, you must [add it manually to the **
 
 ## Tables retrieved directly from SAP systems
 
-This section lists the data tables that are retrieved directly from the SAP system and ingested into Microsoft Sentinel exactly as they are. To have these tables 
-The following table lists the data tables that are retrieved directly from the SAP system and ingested into Microsoft Sentinel exactly as they are.
+This section lists the data tables that are retrieved directly from the SAP system and ingested into Microsoft Sentinel exactly as they are. 
 
 To have the data from these tables ingested into Microsoft Sentinel, configure the relevant settings in the **systemconfig.ini** file. For more information, see [Configuring User Master data collection](sap-solution-deploy-alternate.md#configuring-user-master-data-collection).
 
 The data retrieved from these tables provides a clear view of the authorization structure, group membership, and user profiles. It also allows you to track the process of authorization grants and revokes, and identiy and govern the risks associated with those processes.
 
-The tables listed below are required to enable functions that identify privileged users, identify which users are assigned to each role, and have been granted specific authorizations.
+The tables listed below are required to enable functions that identify privileged users, map users to roles, groups, and authorizations.
 
 | Table name | Table description |
 | ---------------- | -------------------- |
@@ -693,10 +692,7 @@ The **SAPUsersAssignments** Microsoft Sentinel Function brings together data col
 
 The **SAPUsersGetPrivileged** Microsoft Sentinel Function returns a list of privileged users per client and system ID.
 
-It is possible to customize list of users that are considered privileged by using the following watchlists:
-   - SAP - Privileged Users
-   - SAP - Sensitive Profiles
-   - SAP - Sensitive Roles
+User is considered privileged, if it listed in *SAP - Privileged Users* watchlist, has been assigned to a profile listed in *SAP - Sensitive Profiles* watchlist or has been added to a role listed in *SAP - Sensitive Roles* watchlist
 
 The **SAPUsersGetPrivileged** Microsoft Sentinel Function returns the following data:
 
