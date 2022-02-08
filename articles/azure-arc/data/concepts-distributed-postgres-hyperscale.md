@@ -31,7 +31,7 @@ The key concepts around Azure Arc-enabled PostgreSQL Hyperscale are summarized b
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 ## Nodes and tables
-It is important to know about a following concepts to benefit the most from Azure Arc-enabled Postgres Hyperscale:
+It is important to know about the following concepts to benefit the most from Azure Arc-enabled Postgres Hyperscale:
 - Specialized Postgres nodes in Azure Arc-enabled PostgreSQL Hyperscale: coordinator and workers
 - Types of tables: distributed tables, reference tables and local tables
 - Shards
