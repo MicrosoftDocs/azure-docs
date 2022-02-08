@@ -41,7 +41,7 @@ This quickstart uses the [azidentity](https://pkg.go.dev/github.com/Azure/azure-
     Otherwise, open a browser page at [https://aka.ms/devicelogin](https://aka.ms/devicelogin) and enter the
     authorization code displayed in your terminal.
 
-2. Sign in with your account credentials in the browser.
+1. Sign in with your account credentials in the browser.
 
 ### Create a resource group and key vault instance
 
