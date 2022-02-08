@@ -9,7 +9,7 @@ ms.date: 02/09/2022
 ms.custom: devx-track-java, devx-track-azurecli
 ---
 
-# Quickstart: Provision an Azure Spring Cloud service using the Enterprise tier
+# Quickstart: Provision an Azure Spring Cloud service instance using the Enterprise tier
 
 **This article applies to:** ✔️ Enterprise tier ❌ Basic/Standard tier
 

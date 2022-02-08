@@ -12,6 +12,8 @@ zone_pivot_groups: programming-languages-spring-cloud
 
 # Prepare an application for deployment in Azure Spring Cloud
 
+**This article applies to:** ✔️ Basic/Standard tier ❌ Enterprise tier
+
 ::: zone pivot="programming-language-csharp"
 This article shows how to prepare an existing Steeltoe application for deployment to Azure Spring Cloud. Azure Spring Cloud provides robust services to host, monitor, scale, and update a Steeltoe app.
 

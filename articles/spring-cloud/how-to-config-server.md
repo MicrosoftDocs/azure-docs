@@ -13,6 +13,8 @@ ms.custom: devx-track-java
 
 **This article applies to:** ✔️ Java ✔️ C#
 
+**This article applies to:** ✔️ Basic/Standard tier ❌ Enterprise tier
+
 This article shows you how to connect a Spring Cloud Config Server instance to your Azure Spring Cloud service.
 
 Spring Cloud Config provides server and client-side support for an externalized configuration in a distributed system. The Config Server instance provides a central place to manage external properties for applications across all environments. For more information, see the [Spring Cloud Config Server reference](https://spring.io/projects/spring-cloud-config).

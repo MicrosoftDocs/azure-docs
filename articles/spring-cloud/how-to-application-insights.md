@@ -12,6 +12,8 @@ zone_pivot_groups: spring-cloud-tier-selection
 
 # Use Application Insights Java In-Process Agent in Azure Spring Cloud
 
+**This article applies to:** ✔️ Enterprise tier ✔️ Basic/Standard tier
+
 This article explains how to monitor applications by using the Application Insights Java agent in Azure Spring Cloud.
 
 With this feature you can:

@@ -19,7 +19,7 @@ metadata:
 landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
-  # Card (optional)
+
   - title: About Azure Spring Cloud
     linkLists:
       - linkListType: overview
@@ -31,7 +31,6 @@ landingContent:
           - text: Enterprise tier documentation
             url: enterprise/index.yml
 
-  # Card (optional)
   - title: Get started
     linkLists:
       - linkListType: quickstart
@@ -61,9 +60,7 @@ landingContent:
             url: how-to-staging-environment.md
           - text: Use built-in persistent storage
             url: how-to-built-in-persistent-storage.md
- 
 
-  # Card
   - title: Monitor your application
     linkLists:
       - linkListType: tutorial
@@ -77,7 +74,6 @@ landingContent:
           - text: Understanding Azure Monitor Metrics for Spring Cloud
             url: concept-metrics.md
 
-  # Card
   - title: Bind with other services
     linkLists:
       - linkListType: tutorial
@@ -88,7 +84,40 @@ landingContent:
             url: how-to-bind-mysql.md
           - text: Bind your application to Azure CosmosDB
             url: how-to-bind-cosmos.md
-   # Card
+
+  - title: Use Enterprise tier
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Provision an Enterprise tier Azure Spring Cloud instance
+            url: quickstart-provision-service-instance-enterprise.md
+          - text: Set up Application Configuration Service
+            url: quickstart-setup-application-configuration-service-enterprise.md
+          - text: Build and deploy applications
+            url: quickstart-deploy-apps-enterprise.md
+          - text: Set up Service Registry
+            url: quickstart-setup-service-registry-enterprise.md
+      - linkListType: how-to-guide
+        links:
+          - text: Use Application Configuration Service
+            url: how-to-enterprise-application-configuration-service.md
+          - text: Use Build Service
+            url: how-to-enterprise-build-service.md
+          - text: Use Service Registry
+            url: how-to-enterprise-service-registry.md
+          - text: Use API portal
+            url: how-to-use-enterprise-api-portal.md
+          - text: Use Spring Cloud Gateway
+            url: how-to-use-enterprise-spring-cloud-gateway.md
+          - text: Deploy non-Java enterprise applications
+            url: how-to-enterprise-deploy-non-java-apps.md
+          - text: View Enterprise Tier offering
+            url: how-to-enterprise-marketplace-offer.md
+          - text: Application Insights using Java In-Process Agent
+            url: how-to-application-insights.md?pivots=sc-enterprise-tier
+          - text: Enable system-assigned managed identity
+            url: how-to-enable-system-assigned-managed-identity.md?pivots=sc-enterprise-tier
+
   - title: API reference
     linkLists:
       - linkListType: reference

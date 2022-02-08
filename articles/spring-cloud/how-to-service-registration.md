@@ -12,6 +12,8 @@ zone_pivot_groups: programming-languages-spring-cloud
 
 # Discover and register your Spring Cloud services
 
+**This article applies to:** ✔️ Basic/Standard tier ❌ Enterprise tier
+
 Service Discovery is a key requirement for a microservice-based architecture.  Configuring each client manually takes time and introduces the possibility of human error.  Azure Spring Cloud Service Registry solves this problem.  Once configured, a Service Registry server will control service registration and discovery for your application's microservices. The Service Registry server maintains a registry of the deployed microservices, enables client-side load-balancing, and decouples service providers from clients without relying on DNS.
 
 ::: zone pivot="programming-language-csharp"
