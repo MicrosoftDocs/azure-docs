@@ -7,6 +7,8 @@ ms.date: 01/22/2022
 
 # Create and manage Lab Services schedules within Canvas
 
+[!INCLUDE [preview note](./includes/lab-services-new-update-focused-article.md)]
+
 Schedules allow you to configure a lab such that VMs in the lab automatically start and shut down at a specified time. You can define a one-time schedule or a recurring schedule. 
 
 Here is how schedules affect lab VM:

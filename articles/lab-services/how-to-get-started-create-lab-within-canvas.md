@@ -7,6 +7,8 @@ ms.date: 01/21/2022
 
 # Get started and create an Azure Lab Services lab within Canvas
 
+[!INCLUDE [preview note](./includes/lab-services-new-update-focused-article.md)]
+
 This article shows you how to add the Azure Lab Services app to [Canvas](https://www.instructure.com/canvas). It will also show how to create a lab within the Canvas environment. The Azure Lab Services app will be an inherited app in Canvas.
 
 To use Azure Lab Services in Canvas, two tasks must be completed. The first is to enable the Azure Lab Services app in your school's Canvas instance.  The second is to connect the Canvas instance to a lab plan resource in Azure.
