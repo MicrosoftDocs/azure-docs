@@ -40,7 +40,7 @@ ms.custom: ignite-fall-2021
 
 * The general document model supports named entity recognition (NER) for several entity categories. NER is the ability to identify different entities in text and categorize them into pre-defined classes or types such as: person, location, event, product, and organization. Extracting entities can be useful in scenarios where you want to validate extracted values. The entities are extracted from the entire content.
 
-***Sample document processed in the [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=document)***:
+***Sample document processed using the [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/document)***:
 
 :::image type="content" source="media/studio/general-document-analyze.png" alt-text="Screenshot: general document analysis in the Form Recognizer Studio.":::
 
@@ -53,7 +53,7 @@ ms.custom: ignite-fall-2021
 
 The Layout API analyzes and extracts text, tables and headers, selection marks, and structure information from forms and documents.
 
-***Sample form processed with [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/layout)  layout feature***:
+***Sample form processed using the [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/layout)***:
 
 :::image type="content" source="media/studio/analyze-layout.png" alt-text="Screenshot: analyze sample document processed in Form Recognizer studio":::
 
@@ -66,7 +66,7 @@ The Layout API analyzes and extracts text, tables and headers, selection marks, 
 
 The invoice model analyzes and extracts key information from sales invoices. The API analyzes invoices in various formats and extracts key information such as customer name, billing address, due date, and amount due.
 
-***Sample invoice processed with [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=invoice)***:
+***Sample invoice processed using [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=invoice)***:
 
 :::image type="content" source="./media/studio/analyze-invoice.png" alt-text="sample invoice" lightbox="./media/overview-invoices.jpg":::
 
@@ -79,7 +79,7 @@ The invoice model analyzes and extracts key information from sales invoices. The
 
 The receipt model analyzes and extracts key information from sales receipts. The API analyzes printed and handwritten receipts and extracts key information such as merchant name, merchant phone number, transaction date, tax, and transaction total. 
 
-***Sample receipt processed with [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=receipt)***:
+***Sample receipt processed using [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=receipt)***:
 
 :::image type="content" source="./media/studio/analyze-receipt.png" alt-text="sample receipt" lightbox="./media/overview-receipt.jpg":::
 
@@ -92,7 +92,7 @@ The receipt model analyzes and extracts key information from sales receipts. The
 
 The ID document model analyzes and extracts key information from U.S. Driver's Licenses (all 50 states and District of Columbia) and biographical pages from international passports (excluding visa and other travel documents). The API analyzes identity documents and extracts key information such as first name, last name, address, and date of birth.
 
-***Sample U.S. Driver's License processed with [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=idDocument)***:
+***Sample U.S. Driver's License processed using [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=idDocument)***:
 
 :::image type="content" source="./media/studio/analyze-drivers-license.png" alt-text="sample identification card" lightbox="./media/overview-id.jpg":::
 
@@ -105,7 +105,7 @@ The ID document model analyzes and extracts key information from U.S. Driver's L
 
 The business card model analyzes and extracts key information from business card images. The API analyzes printed business card images and extracts key information such as first name, last name, company name, email address, and phone number.
 
-***Sample business card processed with [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=businessCard)***:
+***Sample business card processed using [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=businessCard)***:
 
 :::image type="content" source="./media/studio/analyze-business-card.png" alt-text="sample business card" lightbox="./media/overview-business-card.jpg":::
 
@@ -118,7 +118,7 @@ The business card model analyzes and extracts key information from business card
 
 The custom model analyzes and extracts data from forms and documents specific to your business. The API is a machine-learning program trained to recognize form fields within your distinct content and extract key-value pairs and table data. You only need five examples of the same form type to get started and your custom model can be trained with or without labeled datasets.
 
-***Sample custom form processed with [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/customform/projects)***:
+***Sample custom form processed using [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/customform/projects)***:
 
 :::image type="content" source="media/studio/train-model.png" alt-text="Screenshot: Form Recognizer tool analyze-a-custom-form window.":::
 
