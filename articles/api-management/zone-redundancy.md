@@ -54,7 +54,7 @@ Configuring API Management for zone redundancy is currently supported in the fol
 * If your API Management instance is deployed in a [virtual network](api-management-using-with-vnet.md), ensure that you set up a virtual network, subnet, and public IP address in any new location where you plan to enable zone redundancy.
 
 > [!NOTE]
-> If you've configured [autoscaling](api-management-howto-autoscale.md) for your API Management instance in the primary location, you might need to adjust your autoscale settings after enabling zone redundancy. The counts (API Management units) in autoscale rules and limits must be a multiple of the number of zones.
+> If you've configured [autoscaling](api-management-howto-autoscale.md) for your API Management instance in the primary location, you might need to adjust your autoscale settings after enabling zone redundancy. The number of API Management units in autoscale rules and limits must be a multiple of the number of zones.
 
 ## Enable zone redundancy - portal
 
