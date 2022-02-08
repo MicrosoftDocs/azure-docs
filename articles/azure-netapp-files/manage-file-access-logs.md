@@ -36,19 +36,19 @@ File access logs captures different file and directory events depending on your 
 
 **NFS**|**SMB events**
 :-----:|:-----:
-Close | Open object
-Create | Create object
-Get attribute | Delete object
-Link | Get object attributes
-Nverify | Hard link
-Open | Log on/log off
-Open attribute| Open object
-Read | Open object with the intent to delete
-Read directory | Read object
-Remove | Rename object
-Rename| Set object attributes
-Set attribute| Unlink object
-Verify | Write object
+Close | Create
+Create | Delete
+Get attributes | Get attributes
+Link |  Hard link
+Nverify | Log on/log off
+Open | Open object
+Open attribute | Open object with the intent to delete
+Read | Proposed central access policy does not grant the same access permissions as the current central access policy
+Read | Read 
+Remove | Rename
+Rename| Set attributes
+Set attribute| Unlink 
+Verify | Write 
 Write | 
 
 ## Register the feature
