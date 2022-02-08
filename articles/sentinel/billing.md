@@ -99,7 +99,7 @@ The costs shown in the following image are for example purposes only. They're no
 
 Microsoft Sentinel and Log Analytics charges appear on your Azure bill as separate line items based on your selected pricing plan. If you exceed your workspace's Commitment Tier usage in a given month, the Azure bill shows one line item for the Commitment Tier with its associated fixed cost, and a separate line item for the ingestion beyond the Commitment Tier, billed at your same Commitment Tier rate.
 
-The following sections show how Microsoft Sentinel and Log Analytics costs appear in the **Service name** and **Meter** columns of your Azure bill depending on your pricing tier.
+The following tabs show how Microsoft Sentinel and Log Analytics costs appear in the **Service name** and **Meter** columns of your Azure bill depending on your pricing tier.
 
 #### [Commitment tier](#tab/commitment-tier)
 
