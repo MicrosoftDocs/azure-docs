@@ -192,7 +192,7 @@ The following example configuration redirects all unauthenticated users to the A
 ```
 
 > [!NOTE]
-> By default, all managed identity providers are enabled. To block an authentication provider, see [Authentication and authorization](authentication-authorization.md#block-an-authorization-provider).
+> By default, all managed identity providers are enabled. To block an authentication provider, see [Authentication and authorization](authentication-authorization.md#block-an-authentication-provider).
 
 ## Fallback routes
 
