@@ -41,12 +41,12 @@ This script uses the commands outlined in the following table:
 | **Command** | **Notes** |
 |---|---|
 | [az group create](/cli/azure/group#az_group_create) | Creates a resource group in which all resources are stored. |
-| [az postgresql server create](/azure/postgresql/quickstart-create-server-database-azure-cli#az_postgresql_server_create) | Creates a PostgreSQL server that hosts the databases. |
+| [az postgresql server create](/cli/azure/postgres/server/vnet-rule?view=azure-cli-latest#az-postgres-server-vnet-rule-create) | Creates a PostgreSQL server that hosts the databases. |
 | [az network vnet list-endpoint-services](/cli/azure/network/vnet#az-network-vnet-list-endpoint-services#az-network-vnet-list-endpoint-services) | List which services support VNET service tunneling in a given region. |
 | [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create) | Creates a virtual network. |
 | [az network vnet subnet create](/cli/azure/network/vnet#az-network-vnet-subnet-create) | Create a subnet and associate an existing NSG and route table. |
 | [az network vnet subnet show](/cli/azure/network/vnet#az-network-vnet-subnet-show) |Shows details of a subnet. |
-| [az postgresql server vnet-rule create](/cli/azure/postgres/server?view=azure-cli-latest#az-postgres-server-create) | Create a virtual network rule to allows access to a PostgreSQL server. |
+| [az postgresql server vnet-rule create](/cli/azure/postgres/server/vnet-rule?view=azure-cli-latest#az-postgres-server-vnet-rule-create) | Create a virtual network rule to allows access to a PostgreSQL server. |
 | [az group delete](/cli/azure/group#az_group_delete) | Deletes a resource group including all nested resources. |
 
 ## Next steps
