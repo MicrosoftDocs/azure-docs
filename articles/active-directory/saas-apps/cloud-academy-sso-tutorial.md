@@ -71,26 +71,38 @@ Follow these steps to enable Azure AD SSO in the Azure portal:
 
    ![Screenshot that shows the pencil button for editing the basic SAML configuration.](common/edit-urls.png)
 
-1. In the **Basic SAML Configuration** section, perform the following steps:
-
-    a. In the **Sign-on URL** text box, type one of the following URLs:
+1. In the **Basic SAML Configuration** section, update the **Identifier** text box, type the following URLs and proceed:
     
-    | Sign-on URL |
+    | Identifier |
     |--------------|
-    | `https://cloudacademy.com/login/enterprise/` |
-    | `https://app.qa.com/login/enterprise/` |
-    |
+    | `urn:federation:cloudacademy` |
     
-    b. In the **Reply URL** text box, type one of the following URLs:
+3. In the **Basic SAML Configuration** section, update the **Reply URL** text box, type one of the following URLs and proceed:
     
     | Reply URL |
     |--------------|
     | `https://cloudacademy.com/labs/social/complete/saml/` |
     | `https://app.qa.com/labs/social/complete/saml/` |
-    |
-1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, select the copy button to copy the **App Federation Metadata Url**. Save the URL.
+    
+5. In the **Basic SAML Configuration** section, update the **Sign-on URL** text box, type one of the following URLs and save it:
+    
+    | Sign-on URL |
+    |--------------|
+    | `https://cloudacademy.com/login/enterprise/` |
+    | `https://app.qa.com/login/enterprise/` |
+    
+    
+1. Select the pencil button for **SAML Signing Certificate** to edit the settings:
 
-	![Screenshot that shows the copy button for the app federation metadata URL.](common/copy-metadataurl.png)
+   ![Screenshot that shows how to edit the ceritificate.](common/edit-certificate.png)
+
+1. Download the **PEM certificate**:
+
+   ![Screenshot that shows how to download the PEM ceritificate.](common/certificate-base64-download.png)
+    
+1. On the **Set up Cloud Academy** section, copy the **Login URL**:
+
+	![Screenshot that shows the copy button for the login URL.](common/copy_configuration_urls.png)
 
 ### Create an Azure AD test user
 
@@ -134,7 +146,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting t
 
     ![Screenshot that shows the Integrations in general settings.](./media/cloud-academy-sso-tutorial/general-settings.png)
 
-    a. In the **SSO URL(Location)** box, paste the login URL value that you copied from the Azure portal.
+    a. In the **SSO URL(Location)** box, paste the login URL value that you copied from the Azure portal, from point 7 of [Configure Azure AD SSO](#configure-azure-ad-sso).
 
     c. Open the downloaded Base64 certificate from the Azure portal in Notepad. Paste its contents into the **Certificate** box.
 
@@ -144,13 +156,36 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting t
 
     ![Screenshot that shows the Integrations in additional settings.](./media/cloud-academy-sso-tutorial/additional-settings.png)
 
-    a. In the **SAML Attributes Mapping** section, fill the required fields with the source attribute values.
+    a. In the **SAML Attributes Mapping** section, fill the required fields with the source attribute values:
+    
+    
+    `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier`
+    `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`
+    `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`
+    `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`
 
     b. In the **Security Settings** section, select the **Authentication Requests Signed?** check box to set this value to **True**.
 
-    c. In the **Extra Settings(Optional)** section, fill the **Logout URL** box with the logout URL value that you copied from the Azure portal.
+    c. In the **Extra Settings(Optional)** section, fill the **Logout URL** box with the logout URL value that you copied from the Azure portal, from point 7 of [Configure Azure AD SSO](#configure-azure-ad-sso).
 
 1. Click **Save and Test**.
+2. After this operation, a pop-up will appear with the service provider information, from there you have to download the XML file:
+![Screenshot that show download configuration](./media/cloud-academy-sso-tutorial/setup-provider-info.png)
+3. Now that you have the XML file of the service provider, go back on the application that you've created on Azure Portal, inside the **single sign-on** section, and upload the MetaData file:
+![Screenshot that show upload metadata section on Azure application](./media/cloud-academy-sso-tutorial/upload-metadata.png)
+4. Now that you've updated the service provider metadata, you can go back on the SSO panel of your Cloud Academy company site and proceed with the test and activation. Click on **continue** from the service provider popup:
+![Screenshot that show service provider popup](./media/cloud-academy-sso-tutorial/continue-sso-activation.png)
+5. Click on **Test SSO connection** to start the test flow:
+![Screenshot that show Test SSO connection](./media/cloud-academy-sso-tutorial/test-sso-connection.png)
+> [!NOTE]
+>  If you are logged in Cloud Academy as your test user created previously, proceed with test flow.
+>  Otherwise close the popup, scroll up to **General Settings**, copy/paste Subdomain URL on Incognito browser tab and then log in as your test user.
+>  If everything is ok, you can close Incognito tab, click on **Save and Test**. 
+>  It will re-open the Service Provider popup. Now you can click on **continue**, then on **Test SSO connection** again and finally on **Test was succesfull**, because you've already test it on Incognito tab. 
+>  Now you can go to the next step.
+6. If everything is ok, you can finally activate the SSO integration for the whole company:
+![Screenshot that show SSO activation](./media/cloud-academy-sso-tutorial/test-succesfull.png)
+
 
 > [!NOTE]
 > For more information on how to configure the Cloud Academy, see [Setting Up Single Sign-On](https://support.cloudacademy.com/hc/articles/360043908452-Setting-Up-Single-Sign-On).
