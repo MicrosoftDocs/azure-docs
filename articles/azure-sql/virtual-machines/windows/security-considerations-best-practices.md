@@ -1,5 +1,5 @@
 ---
-title: Security considerations | Microsoft Docs
+title: "Security: Best practices"
 description: This topic provides general guidance for securing SQL Server running in an Azure virtual machine.
 services: virtual-machines-windows
 documentationcenter: na
@@ -25,13 +25,42 @@ This topic includes overall security guidelines that help establish secure acces
 
 Azure complies with several industry regulations and standards that can enable you to build a compliant solution with SQL Server running in a virtual machine. For information about regulatory compliance with Azure, see [Azure Trust Center](https://azure.microsoft.com/support/trust-center/).
 
-First review the security best practices for [SQL Server](/sql/relational-databases/security/) and [Azure VMs](../../../virtual-machines/security-recommendations.md) and then follow the best practices in this article that apply to SQL Server on Azure VMs specifically. 
+First review the security best practices for [SQL Server](/sql/relational-databases/security/) and [Azure VMs](../../../virtual-machines/security-recommendations.md) and then review this article for the best practices that apply to SQL Server on Azure VMs specifically. 
+
+To learn more about SQL Server VM best practices, see the other articles in this series: [Checklist](performance-guidelines-best-practices-checklist.md), [VM size](performance-guidelines-best-practices-vm-size.md), [HADR configuration](hadr-cluster-best-practices.md), and [Collect baseline](performance-guidelines-best-practices-collect-baseline.md). 
+
+## Checklist
 
 
+Review the following checklist  in this section for a brief overview of the security best practices that the rest of the article covers in greater detail.
+
+SQL Server features and capabilities provide a method of security at the data level and is how you achieve [defense-in-depth](https://azure.microsoft.com/resources/videos/defense-in-depth-security-in-azure/) at the infrastructure level for cloud-based and hybrid solutions. In addition, with Azure security measures, it is possible to encrypt your sensitive data, protect virtual machines from viruses and malware, secure network traffic, identify and detect threats, meet compliance requirements, and provides a single method for administration and reporting for any security need in the hybrid cloud. 
+
+- Use [Azure Security Center](../../../defender-for-cloud/security-center-introduction.md) to evaluate and take action to improve the security posture of your data environment. Capabilities such as [Azure Advanced Threat Protection (ATP)](../../database/threat-detection-overview.md) can be leveraged across your hybrid workloads to improve security evaluation and give the ability to react to risks. Registering your SQL Server VM with the [SQL IaaS Agent extension](sql-agent-extension-manually-register-single-vm.md) surfaces Azure Security Center assessments within the [SQL virtual machine resource](manage-sql-vm-portal.md) of the Azure portal. 
+- Leverage [Microsoft Defender for SQL](../../../defender-for-cloud/defender-for-sql-introduction.md) to discover and mitigate potential database vulnerabilities, as well as detect anomalous activities that could indicate a threat to your SQL Server instance and database layer.
+- [Vulnerability Assessment](../../database/sql-vulnerability-assessment.md) is a part of [Microsoft Defender for SQL](../../../defender-for-cloud/defender-for-sql-introduction.md) that can discover and help remediate potential risks to your SQL Server environment. It provides visibility into your security state, and includes actionable steps to resolve security issues.
+- [Azure Advisor](../../../advisor/advisor-security-recommendations.md) analyzes your resource configuration and usage telemetry and then recommends solutions that can help you improve the cost effectiveness, performance, high availability, and security of your Azure resources.. Leverage Azure Advisor at the virtual machine, resource group, or subscription level to help identify and apply best practices to optimize your Azure deployments. 
+- Use [Azure Disk Encryption](../../../virtual-machines/windows/disk-encryption-windows.md) when your compliance and security needs require you to encrypt the data end-to-end using your encryption keys, including encryption of the ephemeral (locally attached temporary) disk.
+- [Managed Disks are encrypted](../../../virtual-machines/disk-encryption.md) at rest by default using Azure Storage Service Encryption, where the encryption keys are Microsoft-managed keys stored in Azure.
+- For a comparison of the managed disk encryption options review the [managed disk encryption comparison chart](../../../virtual-machines/disk-encryption-overview.md#comparison)
+- Management ports should be closed on your virtual machines - Open remote management ports expose your VM to a high level of risk from internet-based attacks. These attacks attempt to brute force credentials to gain admin access to the machine.
+- Turn on [Just-in-time (JIT) access](../../../defender-for-cloud/security-center-just-in-time.md) for Azure virtual machines
+- Use [Azure Bastion](../../../bastion/bastion-overview.md) over Remote Desktop Protocol (RDP).
+- Lock down ports and only allow the necessary application traffic using [Azure Firewall](../../../firewall/features.md) which is a managed Firewall as a Service (FaaS) that grants/ denies server access based on the originating IP address.
+- Use [Network Security Groups (NSGs)](../../../virtual-network/network-security-groups-overview.md) to filter network traffic to, and from, Azure resources on Azure Virtual Networks
+- Leverage [Application Security Groups](../../../virtual-network/application-security-groups.md) to group servers together with similar port filtering requirements, with similar functions, such as web servers and database servers.
+- For web and application servers leverage [Azure Distributed Denial of Service (DDoS) protection](../../../ddos-protection/ddos-protection-overview.md). DDoS attacks are designed to overwhelm and exhaust network resources, making apps slow or unresponsive. It is common for DDos attacks to target user interfaces. Azure DDoS protection sanitizes unwanted network traffic, before it impacts service availability
+- Leverage VM extensions to help address anti-malware, desired state, threat detection, prevention, and remediation to address threats at the operating system, machine, and network levels:
+   - [Guest Configuration extension](../../../virtual-machines/extensions/guest-configuration.md) performs audit and configuration operations inside virtual machines.
+   - [Network Watcher Agent virtual machine extension for Windows and Linux](../../../virtual-machines/extensions/network-watcher-windows.md) monitors network performance, diagnostic, and analytics service that allows monitoring of Azure networks. 
+   - [Microsoft Antimalware Extension for Windows](../../../virtual-machines/extensions/iaas-antimalware-windows.md) to help identify and remove viruses, spyware, and other malicious software, with configurable alerts.
+   - [Evaluate 3rd party extensions](../../../virtual-machines/extensions/overview.md) such as Symantec Endpoint Protection for Windows VM (../../../virtual-machines/extensions/symantec)
+- Leverage [Azure Policy](../../../governance/policy/overview.md) to create business rules that can be applied to your environment. Azure Policies evaluate Azure resources by comparing the properties of those resources against rules defined in JSON format.
+- Azure Blueprints enables cloud architects and central information technology groups to define a repeatable set of Azure resources that implements and adheres to an organization's standards, patterns, and requirements. [Azure Blueprints are different than Azure Policies](../../../governance/blueprints/overview.md#how-its-different-from-azure-policy.md)
 
 ## Microsoft Defender for SQL 
 
-[Microsoft Defender for SQL](../../../security-center/defender-for-sql-introduction.md) enables Azure Security Center security features such as [vulnerability assessments](../../database/sql-vulnerability-assessment.md) and security alerts. See [enable Microsoft Defender for SQL](../../../security-center/defender-for-sql-usage.md) to learn more. 
+[Microsoft Defender for SQL](../../../defender-for-cloud/defender-for-sql-introduction.md) enables Azure Security Center security features such as [vulnerability assessments](../../database/sql-vulnerability-assessment.md) and security alerts. See [enable Microsoft Defender for SQL](../../../defender-for-cloud/defender-for-sql-usage.md) to learn more. 
 
 Use Azure Defender for SQL to discover and mitigate potential database vulnerabilities, and detect anomalous activities that may indicate a threat to your SQL Server instance and database layer. [Vulnerability Assessments](../../database/sql-vulnerability-assessment.md) are a feature of Microsoft Defender for SQL that can discover and help remediate potential risks to your SQL Server environment. It provides visibility into your security state, and it includes actionable steps to resolve security issues. Registering your SQL Server VM with the [SQL Server IaaS Agent Extension](sql-agent-extension-manually-register-single-vm.md) surfaces Microsoft Defender for SQL recommendations to the [SQL virtual machines resource](manage-sql-vm-portal.md) in the Azure portal.  
 
