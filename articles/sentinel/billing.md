@@ -51,7 +51,7 @@ For example, you can enter the GB of daily data you expect to ingest in Microsof
 
 The costs shown in following image are for example purposes only. They're not intended to reflect actual costs.
 
-:::image type="content" source="media/billing/pricing-calculator.png" alt-text="Sample screenshot showing estimated cost in the Azure pricing calculator." lightbox="media/billing/pricing-calculator.png" :::
+:::image type="content" source="media/billing/pricing-calculator.png" alt-text="Screenshot of sample estimated cost in the Azure pricing calculator for Microsoft Sentinel." lightbox="media/billing/pricing-calculator.png" :::
 
 ## Understand the full billing model for Microsoft Sentinel
 

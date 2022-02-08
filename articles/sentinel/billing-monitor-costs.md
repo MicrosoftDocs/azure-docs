@@ -121,7 +121,7 @@ In Log Analytics, you can enable a daily volume cap that limits the daily ingest
 
 To define a daily volume cap, select **Usage and estimated costs** in the left navigation of your Log Analytics workspace, and then select **Daily cap**. Select **On**, enter a daily volume cap amount, and then select **OK**.
 
-![Screenshot showing the Usage and estimated costs screen and the Daily cap window.](media/billing/daily-cap.png)
+![Screenshot showing the Usage and estimated costs screen and the Daily cap window.](media/billing-monitor-costs/daily-cap.png)
 
 The **Usage and estimated costs** screen also shows your ingested data volume trend in the past 31 days, and the total retained data volume.
 

@@ -22,7 +22,7 @@ To see your current Microsoft Sentinel pricing tier, select **Settings** in the 
 
 To change your pricing tier commitment, select one of the other tiers on the pricing page, and then select **Apply**. You must have **Contributor** or **Owner** role in Microsoft Sentinel to change the pricing tier.
 
-:::image type="content" source="media/billing/pricing.png" alt-text="Screenshot of pricing page in Microsoft Sentinel settings, with Pay-As-You-Go selected as current pricing tier.":::
+:::image type="content" source="media/billing-reduce-costs/pricing.png" alt-text="Screenshot of pricing page in Microsoft Sentinel settings, with Pay-As-You-Go selected as current pricing tier.":::
 
 Microsoft Sentinel data ingestion volumes appear under **Security Insights** in some portal Usage Charts.
 
@@ -86,7 +86,7 @@ Besides for the predefined sets of events that you can select to ingest, such as
 
 The costs shown in the following image are for example purposes only. They're not intended to reflect actual costs.
 
-![Screenshot showing a Cost Management + Billing Cost analysis screen.](media/billing/cost-management.png)
+![Screenshot showing a Cost Management + Billing Cost analysis screen.](media/billing-reduce-costs/cost-management.png)
 
 You could also apply further controls. For example, to view only the costs associated with Microsoft Sentinel, select **Add filter**, select **Service name**, and then select the service names **Sentinel**, **log analytics**, and **azure monitor**.
 
