@@ -39,7 +39,7 @@ Follow through one of the quickstarts below to set up a Build for your specific 
 
 - [ASP.NET 4 app](/azure/devops/pipelines/apps/aspnet/build-aspnet-4)
 - [ASP.NET Core app](/azure/devops/pipelines/ecosystems/dotnet-core)
-- [Node.js app with Gulp](/azure/devops/pipelines/languages/javascript?tabs=yaml)
+- [Node.js app with Gulp](/azure/devops/pipelines/ecosystems/javascript)
 
 ## Generate a service principal 
 
