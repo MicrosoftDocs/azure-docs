@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 02/10/2020
+ms.date: 02/08/2022
 ms.author: eur
 ms.devlang: csharp
 ms.custom: devx-track-csharp
@@ -57,6 +57,7 @@ When you create a LUIS app, LUIS automatically generates a authoring key so you 
 After you create the LUIS resource in the Azure dashboard, log into the [LUIS portal](https://www.luis.ai/home), choose your application on the **My Apps** page, then switch to the app's **Manage** page. Finally, select **Azure Resources** in the sidebar.
 
 ![LUIS portal keys and endpoint settings](media/sdk/luis-keys-endpoints-page.png)
+:::image type="content" source="media/sdk/luis-keys-endpoints-page.png" alt-text="A screenshot of the LUIS portal keys and endpoint settings." lightbox="media/sdk/luis-keys-endpoints-page.png":::
 
 On the **Azure Resources** page:
 
