@@ -49,6 +49,10 @@ The following prerequisites must be met prior to installing the Azure Monitor ag
   - *.ingest.monitor.azure.com
   - *.control.monitor.azure.com
 
+> [!NOTE]
+> This article only pertains to agent installation or management. After you install the agent, you must review the next article to [configure data collection rules and associate them with the machines](./data-collection-rule-azure-monitor-agent.md) with agents installed.  
+> **The Azure Monitor agents cannot function without being associated with data collection rules.**
+
 
 ## Using the Azure portal
 
