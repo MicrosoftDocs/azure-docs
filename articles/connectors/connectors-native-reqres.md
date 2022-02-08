@@ -282,7 +282,8 @@ When you use the Request trigger to handle inbound requests, you can model the r
 1. When you're done, save your logic app. On the designer toolbar, select **Save**.
 
 > [!IMPORTANT]
-> In complex workflows with branches, you may have one or more Response actions. During runtime, at least one Response action needs to be processed.
+> If you have one or more Response actions in a complex workflow with branches, make sure 
+> that the workflow run processes at least one Response action during runtime. 
 > If all Response actions are skipped, the caller will receive `502 Bad Gateway` error, even if the workflow finishes successfully.
 
 ## Next steps
