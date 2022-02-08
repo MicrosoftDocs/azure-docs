@@ -389,7 +389,7 @@ You can use your favorite web debugging tool to test the template you uploaded t
 
    This code gets the **manifest.json** and **<*template-name*>.json** files from your forked repository, rather than from the main Azure GitHub repository.
 
-   Continuing with this example, this code might look like the following lines:
+   So, based on the example, the file redirection code looks like the following version:
 
    ```javascript
    if (oSession.url == "raw.githubusercontent.com/azure/automation-task-template/master/templates/manifest.json") {
