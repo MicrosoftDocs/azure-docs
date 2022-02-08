@@ -9,7 +9,9 @@ ms.date: 08/12/2018
 
 # Zip deployment for Azure Functions
 
-This article describes how to deploy your function app project files to Azure from a .zip (compressed) file. You learn how to do a push deployment, both by using Azure CLI and by using the REST APIs. [Azure Functions Core Tools](functions-run-local.md) also uses these deployment APIs when publishing a local project to Azure.
+This article describes how to deploy your function app project files to Azure from a .zip (compressed) file. You learn how to do a push deployment, both by using Azure CLI and by using the REST APIs. [Azure Functions Core Tools](functions-run-local.md) also uses these deployment APIs when publishing a local project to Azure. 
+
+Zip deployment is also an easy way to run your functions from the deployment package. To learn more, see [Run your functions from a package file in Azure](run-functions-from-deployment-package.md).
 
 Azure Functions has the full range of continuous deployment and integration options that are provided by Azure App Service. For more information, see [Continuous deployment for Azure Functions](functions-continuous-deployment.md).
 
@@ -89,6 +91,6 @@ You can also download a .zip file from a GitHub repository. When you download a 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Continuous deployment for Azure Functions](functions-continuous-deployment.md)
+> [Run your functions from a package file in Azure](run-functions-from-deployment-package.md)
 
 [.zip push deployment reference topic]: https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file
