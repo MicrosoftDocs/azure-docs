@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # Apps included in Conditional Access Office 365 app suite
 
-The following list is provided as a reference and includes more detailed list of services and applications that are included in the Conditional Access [Office 365](concept-conditional-access-cloud-apps.md#office-365) app.
+The following list is provided as a reference and includes a detailed list of services and applications that are included in the Conditional Access [Office 365](concept-conditional-access-cloud-apps.md#office-365) app.
 
 - Augmentation Loop
 - Call Recorder
