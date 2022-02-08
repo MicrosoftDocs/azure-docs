@@ -15,7 +15,7 @@ ms.custom: template-tutorial
 
 In this article, you'll learn how to migrate your virtual machine's public IP address to a NAT gateway. You'll learn how to remove the IP address from the virtual machine. You'll reuse the IP address from the virtual machine for the NAT gateway.
 
-Azure Virtual Network NAT is the recommended method for outbound connectivity. A NAT gateway is a fully managed and highly resilient Network Address Translation (NAT) service. A NAT gateway doesn't have the same limitations of SNAT port exhaustion as default outbound access. A NAT gateway replaces the need for a public IP address assigned to a virtual machine for outbound connectivity.
+Azure Virtual Network NAT is the recommended method for outbound connectivity. A NAT gateway is a fully managed and highly resilient Network Address Translation (NAT) service. A NAT gateway doesn't have the same limitations of SNAT port exhaustion as default outbound access. A NAT gateway replaces the need for a virtual machine to have a public IP address to have outbound connectivity.
 
 For more information about Azure Virtual Network NAT, see [What is Azure Virtual Network NAT](nat-overview.md)
 
@@ -29,7 +29,7 @@ In this tutorial, you learn how to:
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* An Azure Virtual Machine with a public IP address assigned to it's network interface. For more information on creating a virtual machine with a public IP, see [Quickstart: Create a Windows virtual machine in the Azure portal](../../virtual-machines/windows/quick-create-portal.md).
+* An Azure Virtual Machine with a public IP address assigned to its network interface. For more information on creating a virtual machine with a public IP, see [Quickstart: Create a Windows virtual machine in the Azure portal](../../virtual-machines/windows/quick-create-portal.md).
     
     * For the purposes of this article, the example virtual machine is named **myVM**. The example public IP address is named **myPublicIP**.
 
@@ -130,7 +130,7 @@ In this article, you learned how to:
 
 * Create a NAT gateway and use the public IP address from the virtual machine for the NAT gateway resource.
 
-For more information about NAT gateway and the connectivity benefits it provides, see [Design virtual networks with NAT gateway](nat-gateway-resource.md). Any virtual machine created within this subnet, won't require a public IP address and will automatically have outbound connectivity.
+For more information about NAT gateway and the connectivity benefits it provides, see [Design virtual networks with NAT gateway](nat-gateway-resource.md). Any virtual machine created within this subnet won't require a public IP address and will automatically have outbound connectivity.
 
 Advance to the next article to learn how to migrate default outbound access to Azure Virtual Network NAT:
 > [!div class="nextstepaction"]
