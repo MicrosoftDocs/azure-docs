@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 02/03/2022
+ms.date: 02/08/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -82,22 +82,33 @@ Administrators can exclude specific apps from policy if they wish, including the
 
 The following key applications are included in the Office 365 client app:
 
-   - Microsoft Forms
-   - Microsoft Stream
-   - Microsoft To-Do
-   - Microsoft Teams
-   - Exchange Online
-   - SharePoint Online
-   - Microsoft 365 Search Service
-   - Yammer
-   - Office Delve
-   - Office Online
-   - Office.com
-   - OneDrive
-   - Power Automate
-   - Power Apps
-   - Skype for Business Online
-   - Sway
+- Exchange Online
+- Microsoft 365 Search Service
+- Microsoft Forms
+- Microsoft Planner (ProjectWorkManagement)
+- Microsoft Stream
+- Microsoft Teams
+- Microsoft To-Do
+- Microsoft Flow
+- Microsoft Office 365 Portal
+- Microsoft Office client application
+- Microsoft Stream 
+- Microsoft To-Do WebApp
+- Microsoft Whiteboard Services
+- Office Delve
+- Office Online
+- Office.com
+- OneDrive
+- Power Apps
+- Power Automate
+- Security & Compliance Center
+- SharePoint Online
+- Skype for Business Online
+- Skype and Teams Tenant Admin API
+- Sway
+- Yammer
+
+A complete list of all services included can be found in the article [Apps included in Conditional Access Office 365 app suite](reference-office-365-application-contents.md).
 
 ### Microsoft Azure Management
 
@@ -137,7 +148,7 @@ Administrators can add any Azure AD registered application to Conditional Access
 > [!NOTE]
 > Since Conditional Access policy sets the requirements for accessing a service you are not able to apply it to a client (public/native) application. In other words, the policy is not set directly on a client (public/native) application, but is applied when a client calls a service. For example, a policy set on SharePoint service applies to the clients calling SharePoint. A policy set on Exchange applies to the attempt to access the email using Outlook client. That is why client (public/native) applications are not available for selection in the Cloud Apps picker and Conditional Access option is not available in the application settings for the client (public/native) application registered in your tenant. 
 
-Some applications do not appear in the picker at all. The only way to include these applications in a Conditional Access policy is to include **All apps**. 
+Some applications don't appear in the picker at all. The only way to include these applications in a Conditional Access policy is to include **All apps**. 
 
 ## User actions
 
@@ -169,9 +180,9 @@ Authentication contexts are managed in the Azure portal under **Azure Active Dir
 Create new authentication context definitions by selecting **New authentication context** in the Azure portal. Configure the following attributes:
 
 - **Display name** is the name that is used to identify the authentication context in Azure AD and across applications that consume authentication contexts. We recommend names that can be used across resources, like "trusted devices", to reduce the number of authentication contexts needed. Having a reduced set limits the number of redirects and provides a better end to end-user experience.
-- **Description** provides more information about the policies it is used by Azure AD administrators and those applying authentication contexts to resources.
+- **Description** provides more information about the policies it's used by Azure AD administrators and those applying authentication contexts to resources.
 - **Publish to apps** checkbox when checked, advertises the authentication context to apps and makes them available to be assigned. If not checked the authentication context will be unavailable to downstream resources. 
-- **ID** is read-only and used in tokens and apps for request-specific authentication context definitions. It is listed here for troubleshooting and development use cases. 
+- **ID** is read-only and used in tokens and apps for request-specific authentication context definitions. It's listed here for troubleshooting and development use cases. 
 
 #### Add to Conditional Access policy
 

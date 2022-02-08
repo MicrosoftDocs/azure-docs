@@ -50,15 +50,11 @@ items:
           href: how-to-specify-source-language.md
         - name: How to use the audio input stream
           href: how-to-use-audio-input-streams.md
-        - name: Stream codec-compressed audio
+        - name: Support compressed input audio
           href: how-to-use-codec-compressed-audio-input-streams.md
           displayName: codec,codecs,compression,compressed,mp3,flac,mulaw,alaw,mp4,mp4a,wav,opus,ogg,pcm,silk
         - name: Select a specific microphone input device
           href: how-to-select-audio-input-devices.md
-        - name: Language identification
-          href: language-identification.md
-        - name: Use language identification
-          href: how-to-automatic-language-detection.md
         - name: Use the batch transcription API
           href: batch-transcription.md
         - name: Use Pronunciation Assessment
@@ -172,9 +168,9 @@ items:
       href: pattern-matching-overview.md
     - name: How-to guides
       items:
-        - name: 'Recognize speech intents with LUIS, C#'
+        - name: 'Recognize speech intents with LUIS'
           href: how-to-recognize-intents-from-speech-csharp.md
-        - name: 'Recognize speech intents with simple pattern matching, C++'
+        - name: 'Recognize speech intents with simple pattern matching'
           href: how-to-use-simple-language-pattern-matching.md
     - name: LUIS developer resources
       href: ../luis/developer-reference-resource.md
@@ -292,6 +288,8 @@ items:
               href: windows-voice-assistants-faq.yml
 - name: How-to guides
   items:
+    - name: Language identification
+      href: language-identification.md
     - name: Role-based access control in Speech Studio
       href: speech-studio-role-based-access-control.md
     - name: Logs and diagnostics
@@ -457,13 +455,13 @@ items:
             - name: Limited access
               href: /legal/cognitive-services/speech-service/custom-neural-voice/limited-access-custom-neural-voice?context=/azure/cognitive-services/speech-service/context/context
             - name: Responsible deployment of synthetic speech
-              href: concepts-guidelines-responsible-deployment-synthetic.md
+              href: /legal/cognitive-services/speech-service/custom-neural-voice/concepts-guidelines-responsible-deployment-synthetic?context=/azure/cognitive-services/speech-service/context/context
             - name: Disclosure for voice talent
               href: /legal/cognitive-services/speech-service/disclosure-voice-talent?context=/azure/cognitive-services/speech-service/context/context
             - name: Disclosure design guidelines
-              href: concepts-disclosure-guidelines.md
+              href: /legal/cognitive-services/speech-service/custom-neural-voice/concepts-disclosure-guidelines?context=/azure/cognitive-services/speech-service/context/context
             - name: Disclosure design patterns
-              href: concepts-disclosure-patterns.md
+              href: /legal/cognitive-services/speech-service/custom-neural-voice/concepts-disclosure-patterns?context=/azure/cognitive-services/speech-service/context/context
             - name: Code of conduct
               href: /legal/cognitive-services/speech-service/tts-code-of-conduct?context=/azure/cognitive-services/speech-service/context/context
         - name: Data, privacy, and security
