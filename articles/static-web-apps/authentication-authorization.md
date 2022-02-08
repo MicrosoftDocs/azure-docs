@@ -91,11 +91,11 @@ You can use a [route rule](./configuration.md#routes) to map a friendly route li
 
 If you want a user to return to a specific page after logout, provide a URL in `post_logout_redirect_uri` query string parameter.
 
-## Block an authorization provider
+## Block an authentication provider
 
-You may want to restrict your app from using an authorization provider. For instance, your app may want to standardize only on [providers that expose email addresses](#provider-user-details).
+You may want to restrict your app from using an authentication provider. For instance, your app may want to standardize only on [providers that expose email addresses](#provider-user-details).
 
-To block a provider, you can create [route rules](configuration.md#routes) to return a 404 for requests to the blocked provider-specific route. For example, to restrict Twitter as provider, add the following route rule.
+To block a provider, you can create [route rules](configuration.md#routes) to return a 404 status code for requests to the blocked provider-specific route. For example, to restrict Twitter as provider, add the following route rule.
 
 ```json
 {
