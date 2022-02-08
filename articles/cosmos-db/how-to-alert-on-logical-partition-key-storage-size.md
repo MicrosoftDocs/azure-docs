@@ -145,7 +145,7 @@ When the alert is fired, it will include:
 
 For example, in the alert that was fired below, we see the logical partition of "ContosoTenant" has reached .78 of the 20GB logical partition storage limit, with 16GB of data. 
 
-:::image type="content" source="media/how-to-alert-on-logical-partition-key-storage-size/alert-when-logical-partition-key-exceeds-threshold.png" alt-text="Example of an alert that was fired when logical partition key size exceeds 20 GB. Alert shows the logical partition of "ContosoTenant" has reached 0.78 of the 20GB limit (16GB of storage).":::
+:::image type="content" source="media/how-to-alert-on-logical-partition-key-storage-size/alert-when-logical-partition-key-exceeds-threshold.png" alt-text="Example alert fired when logical partition key size exceed threshold. The logical partition of "ContosoTenant" has reached 0.78 of the 20GB limit, with 16GB of storage.":::
 
 ## Remediation steps
 When the 20 GB logical partition size limit is reached, you won't be able to write any more data to that logical partition. As a result, it's recommended to re-architect your application with a different partition key as a long-term solution. 
