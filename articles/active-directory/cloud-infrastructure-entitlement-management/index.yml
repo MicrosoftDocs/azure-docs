@@ -73,7 +73,7 @@ landingContent:
       - linkListType: overview
         links:
           - text: View existing roles/policies and requests for permission
-            url: cloudknox-ui-jep-controller.md
+            url: cloudknox-ui-remediation.md
   # Card
   # - title: View how users access information
     # linkLists:
