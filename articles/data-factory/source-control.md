@@ -285,7 +285,7 @@ It imports the code from live mode into collaboration branch. It considers the c
 <u>*Code flow:*</u> ***Live mode -> Collaboration branch***  
 
 1. Remove your current Git repository
-1. Reconfigure Git with the same settings, but make sure **Import existing Data Factory resources to repository** is selected and choose **New branch**
+1. Reconfigure Git with the same settings, but make sure **Import existing Data Factory resources to repository** is selected and choose **Collaboration branch (same branch)**
 1. Create a pull request to merge the changes to the collaboration branch 
 
 Choose either method appropriately as needed. 
