@@ -46,7 +46,7 @@ To create a user-assigned managed identity, your account needs the [Managed Iden
   
 [!INCLUDE [ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
   
-:::image type="content" source="media/how-manage-user-assigned-managed-identities/create-user-assigned-managed-identity-portal.png" alt-text="Screenshot that shows the Create User Assigned Managed Identity pane.":::
+   :::image type="content" source="media/how-manage-user-assigned-managed-identities/create-user-assigned-managed-identity-portal.png" alt-text="Screenshot that shows the Create User Assigned Managed Identity pane.":::
 
 1. Select **Review + create** to review the changes.
 1. Select **Create**.
@@ -60,7 +60,7 @@ To list or read a user-assigned managed identity, your account needs the [Manage
 1. A list of the user-assigned managed identities for your subscription is returned. To see the details of a user-assigned managed identity, select its name.
 1. You can now view the details about the managed identity as shown in the image below.
 
-:::image type="content" source="media/how-manage-user-assigned-managed-identities/list-user-assigned-managed-identity-portal.png" alt-text="Screenshot that shows the list of user-assigned managed identity.":::
+   :::image type="content" source="media/how-manage-user-assigned-managed-identities/list-user-assigned-managed-identity-portal.png" alt-text="Screenshot that shows the list of user-assigned managed identity.":::
 
 ## Delete a user-assigned managed identity
 
@@ -73,7 +73,7 @@ Deleting a user-assigned identity doesn't remove it from the VM or resource it w
 1. Under the confirmation box, select **Yes**.
 
 
-:::image type="content" source="media/how-manage-user-assigned-managed-identities/delete-user-assigned-managed-identity-portal.png" alt-text="Screenshot that shows the Delete user-assigned managed identities.":::
+   :::image type="content" source="media/how-manage-user-assigned-managed-identities/delete-user-assigned-managed-identity-portal.png" alt-text="Screenshot that shows the Delete user-assigned managed identities.":::
 
 ## Assign a role to a user-assigned managed identity 
 
@@ -84,7 +84,7 @@ To assign a role to a user-assigned managed identity, your account needs the [Us
 1. A list of the user-assigned managed identities for your subscription is returned. Select the user-assigned managed identity that you want to assign a role.
 1. Select **Access control (IAM)**, and then select **Add role assignment**.
 
-:::image type="content" source="media/how-manage-user-assigned-managed-identities/assign-role.png" alt-text="Screenshot that shows the user-assigned managed identity start.":::
+   :::image type="content" source="media/how-manage-user-assigned-managed-identities/assign-role.png" alt-text="Screenshot that shows the user-assigned managed identity start.":::
 
 
 1. In the **Add role assignment** pane, configure the following values, and then select **Save**:
@@ -92,7 +92,7 @@ To assign a role to a user-assigned managed identity, your account needs the [Us
    - **Assign access to**: The resource to assign the user-assigned managed identity.
    - **Select**: The member to assign access.
    
-  ![Screenshot that shows the user-assigned managed identity IAM.](media/how-manage-user-assigned-managed-identities/assign-role-screenshot-02.png)
+   ![Screenshot that shows the user-assigned managed identity IAM.](media/how-manage-user-assigned-managed-identities/assign-role-screenshot-02.png)
 
 
 ::: zone-end
