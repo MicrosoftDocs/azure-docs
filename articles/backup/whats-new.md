@@ -2,7 +2,7 @@
 title: What's new in Azure Backup
 description: Learn about new features in Azure Backup.
 ms.topic: conceptual
-ms.date: 02/08/2022
+ms.date: 02/09/2022
 author: v-amallick
 ms.service: backup
 ms.author: v-amallick

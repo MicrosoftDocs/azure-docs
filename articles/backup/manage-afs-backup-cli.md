@@ -2,7 +2,7 @@
 title: Manage Azure file share backups with the Azure CLI
 description: Learn how to use the Azure CLI to manage and monitor Azure file shares backed up by Azure Backup.
 ms.topic: conceptual
-ms.date: 02/9/2022
+ms.date: 02/09/2022
 ---
 
 # Manage Azure file share backups with the Azure CLI
@@ -148,9 +148,9 @@ az backup policy create --resource-group azurefiles --vault-name azurefilesvault
 
 **Example to create a backup policy that configures multiple backups a day**
 
-This sample JSON is for the following schedule and retention requirements:
+This sample JSON is for the following requirements:
 
-- **Schedule**: Back up _every 4 hours_ starting from _8 am UTC_ for the _next 12 hours_.
+- **Schedule**: Back up _every 4 hours_ starting from _8 AM (UTC)_ for the _next 12 hours_.
 - **Retention**: Daily - _5 days_, Weekly - _Every Sunday for 12 weeks_, Monthly - _First Sunday of every month for 60 months_, and Yearly - _First Sunday of Jan for 10 years_.
 
 ```json
