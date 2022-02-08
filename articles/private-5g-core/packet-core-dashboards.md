@@ -28,11 +28,11 @@ You can access the following packet core dashboards:
 
     :::image type="content" source="media/packet-core-dashboards/packet-core-overview-dashboard.png" alt-text="Screenshot of the packet core Overview dashboard." lightbox="media/packet-core-dashboards/packet-core-overview-dashboard.png":::
 
-    Each panel on the overview dashboard links to another dashboard with detailed statistics about the KPI shown. You can access the link by hovering your cursor over the top-left corner of the panel. You can then select the link in the pop-up.
+    Each panel on the overview dashboard links to another dashboard with detailed statistics about the KPI shown. You can access the link by hovering your cursor over the upper-left corner of the panel. You can then select the link in the pop-up.
     
     :::image type="content" source="media/packet-core-dashboards/packet-core-dashboard-panel-link.png" alt-text="Screenshot of the packet core dashboard. The link to the device and session statistics dashboard is shown.":::
 
-- The **Alerts dashboard** provides descriptions and information on the severity and effect of each currently firing alert. The **Alarm Severity** selector in the top-left hand corner of the alerts dashboard allows you to filter out alerts of certain severity levels.
+- The **Alerts dashboard** provides descriptions and information on the severity and effect of each currently firing alert. The **Alarm Severity** selector in the upper-left hand corner of the alerts dashboard allows you to filter out alerts of certain severity levels.
 
     :::image type="content" source="media/packet-core-dashboards/packet-core-alerts-dashboard.png" alt-text="Screenshot of the packet core Alerts dashboard. Panels related to currently active alerts are shown." lightbox="media/packet-core-dashboards/packet-core-alerts-dashboard.png":::
 
@@ -60,11 +60,11 @@ Each dashboard contains **panels** and **rows**.
 
 Each statistic is displayed in a **panel**. The packet core dashboards use the types of panel described in [Types of panel](#types-of-panel).
 
-Panels are organized into **rows**. Each dashboard has a minimum of one row. You can show and hide individual rows by clicking on the header of the row.
+Panels are organized into **rows**. Each dashboard has a minimum of one row. You can show and hide individual rows by selecting the header of the row.
 
 ### Types of panel
 
-The packet core dashboards use the following types of panel. For all panels, you can select the **i** icon in the top-left corner to display more information about the statistic(s) covered by the panel.
+The packet core dashboards use the following types of panel. For all panels, you can select the **i** icon in the upper-left corner to display more information about the statistic(s) covered by the panel.
 
 - **Graph** panels are used to display multiple statistics and/or recent changes in a statistic. When you move the mouse over a graph panel, hover help shows the value of the statistic at that moment in time.
 
@@ -84,11 +84,11 @@ The packet core dashboards use the following types of panel. For all panels, you
 
 ## Switching between dashboards
 
-You can access the lists of available dashboards and switch between them using the drop-down **dashboard links** on the top right of each dashboard. Dashboards are grouped by the level of information that they provide.
+You can access the lists of available dashboards and switch between them using the drop-down **dashboard links** on the upper right of each dashboard. Dashboards are grouped by the level of information that they provide.
 
 :::image type="content" source="media/packet-core-dashboards/packet-core-dashboard-list.png" alt-text="Screenshot showing the dashboard links available on each packet core dashboard.":::
 
-You can also switch between dashboards by clicking the **dashboard picker**. It's located in the top-left of the screen and displays the name of the dashboard that you currently have open.
+You can also switch between dashboards by selecting the **dashboard picker**. It's located in the upper-left of the screen and displays the name of the dashboard that you currently have open.
 
 :::image type="content" source="media/packet-core-dashboards/packet-core-dashboard-picker.png" alt-text="Screenshot showing the dashboard picker used to switch between packet core dashboards.":::
 
@@ -98,7 +98,7 @@ You can choose to use the search bar to find a dashboard by name or select from 
 
 ## Adjusting the time range
 
-The **Time picker** icon in the top right-hand corner of each packet core dashboard allows you to adjust the time range for which the dashboard will display statistics. You can use the time picker to retrieve diagnostics for historical problems. You can choose a relative time range (such as the last 15 minutes), or an absolute time range (such as statistics for a particular month). 
+The **Time picker** icon in the upper-right corner of each packet core dashboard allows you to adjust the time range for which the dashboard will display statistics. You can use the time picker to retrieve diagnostics for historical problems. You can choose a relative time range (such as the last 15 minutes), or an absolute time range (such as statistics for a particular month). 
 
 You can also use the **Refresh dashboard** icon to immediately update your dashboards. To configure how regularly the statistics displayed on the dashboard will be updated, you can use the down arrow icon next to **Refresh dashboard**. For detailed information on using the time range controls, see [Time range controls](https://grafana.com/docs/grafana/latest/dashboards/time-range-controls/) in the Grafana documentation.
 
