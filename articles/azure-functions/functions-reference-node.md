@@ -77,8 +77,9 @@ When exporting an async function, you can also configure an output binding to ta
 If your function is synchronous (doesn't return a Promise), you must pass the `context` object, as calling `context.done` is required for correct use.
 
 ```javascript
-// You should include context, other arguments are optional
-module.exports = async function(context, myTrigger, myInput, myOtherInput) {
+// You should include `context`
+// Other arguments like `myTrigger` are optional
+module.exports = function(context, myTrigger, myInput, myOtherInput) {
     // function logic goes here :)
     context.done();
 };
@@ -273,15 +274,17 @@ module.exports = async function (context, req) {
 The **context.done** method is used by 1.x synchronous functions. In 2.x, 3.x, and 4.x, the function should be marked as async even if there is no awaited function call inside the function, and the function doesn't need to call context.done to indicate the end of the function.
 
 ```javascript
-// 1.x Synchronous code only
-// Even though we set myOutput to have:
-//  -> text: 'hello world', number: 123
-context.bindings.myOutput = { text: 'hello world', number: 123 };
-
-// If we pass an object to the done function...
-context.done(null, { myOutput: { text: 'hello there, world', noNumber: true }});
-// the done method overwrites the myOutput binding to be: 
-//  -> text: 'hello there, world', noNumber: true
+module.exports = function (context, req) {
+    // 1.x Synchronous code only
+    // Even though we set myOutput to have:
+    //  -> text: 'hello world', number: 123
+    context.bindings.myOutput = { text: 'hello world', number: 123 };
+    
+    // If we pass an object to the done function...
+    context.done(null, { myOutput: { text: 'hello there, world', noNumber: true }});
+    // the done method overwrites the myOutput binding to be: 
+    //  -> text: 'hello there, world', noNumber: true
+}
 ```
 
 
@@ -560,6 +563,7 @@ module.exports = async function(context) {
     // Using our imported underscore.js library
     const matched_names = _
         .where(context.bindings.myInput.names, {first: 'Carla'});
+}
 ```
 
 > [!NOTE]

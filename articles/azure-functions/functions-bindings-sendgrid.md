@@ -197,7 +197,7 @@ module.exports = function (context, input) {
         }]
     };
 
-    context.bindings.message = message;
+    context.bindings = message;
 };
 ```
 
