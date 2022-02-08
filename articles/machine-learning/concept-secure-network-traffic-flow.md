@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
-ms.date: 11/09/2021
+ms.date: 02/08/2022
 ---
 
 # Network traffic flow when using a secured workspace
@@ -61,7 +61,7 @@ This article assumes the following configuration:
 >
 > * __Your storage__: The Azure Storage Account(s) in your Azure subscription are used to store your data and artifacts such as models, training data, training logs, and Python scripts. For example, the _default_ storage account for your workspace is in your subscription. The Azure Machine Learning compute instance and compute clusters access __file__ and __blob__ data in this storage over ports 445 (SMB) and 443 (HTTPS).
 > 
->    When using a compute instance or compute cluster, your storage account is mounted as a file share using the SMB protocol. This is how the compute instance/cluster accesses your data.
+>    When using a __compute instance__ or __compute cluster__, your storage account is mounted as a __file share__ using the SMB protocol. The compute instance and cluster use this file share to store the data, model, Jupyter notebooks, datasets, etc. The compute instance and cluster use the private endpoint when accessing the storage account.
 >
 > * __Microsoft storage__: The Azure Machine Learning compute instance and compute clusters rely on Azure Batch, and access storage located in a Microsoft subscription. This storage is used only for the management of the compute instance/cluster. None of your data is stored here. The compute instance and compute cluster access the __blob__, __table__, and __queue__ data in this storage, using port 443 (HTTPS).
 >
