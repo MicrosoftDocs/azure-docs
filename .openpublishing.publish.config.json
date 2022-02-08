@@ -60,13 +60,13 @@
     {
       "path_to_root": "_themes",
       "url": "https://github.com/Microsoft/templates.docs.msft",
-      "branch": "master",
+      "branch": "main",
       "branch_mapping": {}
     },
     {
       "path_to_root": "_themes.pdf",
       "url": "https://github.com/Microsoft/templates.docs.msft.pdf",
-      "branch": "master",
+      "branch": "main",
       "branch_mapping": {}
     },
     {
@@ -772,10 +772,10 @@
       "branch_mapping": {}
     },
     {
-    "path_to_root": "digital-twins-docs-samples-getting-started",
-    "url": "https://github.com/Azure-Samples/azure-digital-twins-getting-started",
-    "branch": "main",
-    "branch_mapping": {}
+      "path_to_root": "digital-twins-docs-samples-getting-started",
+      "url": "https://github.com/Azure-Samples/azure-digital-twins-getting-started",
+      "branch": "main",
+      "branch_mapping": {}
     },
     {
       "path_to_root": "dotnet-samples",
@@ -806,14 +806,14 @@
       "url": "https://github.com/Azure-Samples/msdocs-nodejs-mongodb-azure-sample-app",
       "branch": "main",
       "branch_mapping": {}
-    }     
+    }
   ],
   "branch_target_mapping": {
     "live": [
       "Publish",
       "PDF"
     ],
-    "master": [
+    "main": [
       "Publish",
       "PDF"
     ]
@@ -846,7 +846,7 @@
     ".openpublishing.redirection.azure-percept.json",
     ".openpublishing.redirection.azure-productivity.json",
     "articles/azure-fluid-relay/.openpublishing.redirection.fluid-relay.json",
-    "articles/azure-netapp-files/.openpublishing.redirection.azure-netapp-files.json",   
+    "articles/azure-netapp-files/.openpublishing.redirection.azure-netapp-files.json",
     "articles/azure-relay/.openpublishing.redirection.relay.json",
     "articles/communication-services/.openpublishing.redirection.communication-services.json",
     "articles/cosmos-db/.openpublishing.redirection.cosmos-db.json",

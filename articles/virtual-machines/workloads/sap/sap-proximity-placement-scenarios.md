@@ -12,7 +12,7 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 11/14/2021
+ms.date: 02/07/2022
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
@@ -90,6 +90,8 @@ Based on many improvements deployed by Microsoft into the Azure regions to reduc
 ![New Proximity placement groups with zones](./media/sap-proximity-placement-scenarios/vm-ppg-zone.png)
 
 The difference to the recommendation given so far is that the database VMs in the two zones are no more a part of the proximity placement groups. The proximity placement groups per zone are now scoped with the deployment of the VM running the SAP ASCS/SCS instances. This also means that for the regions where Availability Zones are collected by multiple datacenters, the ASCS/SCS instance, and the application tier could run under one network spine and the database VMs could run under another network spine. Though with the network improvements made, the network latency between the SAP application tier and the DBMS tier still should be sufficient for sufficiently good performance and throughput. The advantage of this new configuration is that you have more flexibility in resizing VMs or moving to new VM types with either the DBMS layer or/and the application layer of the SAP system. 
+
+For the special case of using Azure NetApp Files (ANF) for the DBMS environment and the ANF related new functionaliy of [Azure application availability groups for SAP HANA](../../../azure-netapp-files/application-volume-group-introduction.md) and its necessity for proximity placement groups, check the document [NFS v4.1 volumes on Azure NetApp Files for SAP HANA](./hana-vm-operations-netapp.md).
 
 
 ### Proximity placement groups with availability set deployments
