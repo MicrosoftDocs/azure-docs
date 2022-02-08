@@ -134,9 +134,12 @@ You've now registered the AppProxyNativeAppSample app in Azure Active Directory.
 The last step is to configure the native app. The snippet below is based on the [Add the Microsoft Authentication Library to your code (.NET C# sample)](application-proxy-configure-native-client-application.md#step-4-add-the-microsoft-authentication-library-to-your-code-net-c-sample) and has been customized for this example. The code must be added to the *Form1.cs* file in the NativeClient sample app where it will cause the [MSAL library](../develop/reference-v2-libraries.md) to acquire the token for requesting the API call, and attach it as bearer to the header in the request.
 
 > [!NOTE]
-> The sample app uses [Azure Active Directory Authentication Library (ADAL)](../azuread-dev/active-directory-authentication-libraries.md). Read here how to [add MSAL to your project](../develop/tutorial-v2-windows-desktop.md#add-msal-to-your-project). Remember to [add the reference to MSAL](../develop/tutorial-v2-windows-desktop.md#add-the-code-to-initialize-msal) to the class and remove the ADAL reference `using Microsoft.IdentityModel.Clients.ActiveDirectory;`.
+> The sample app uses [Azure Active Directory Authentication Library (ADAL)](../azuread-dev/active-directory-authentication-libraries.md). Read here how to [add MSAL to your project](../develop/tutorial-v2-windows-desktop.md#add-msal-to-your-project). Remember to [add the reference to MSAL](../develop/tutorial-v2-windows-desktop.md#add-the-code-to-initialize-msal) to the class and remove the ADAL reference.
 
-In *Form1.cs* remove lines 26 and 30, as they are no longer needed. Replace the contents of the `GetTodoList()` method with the following code snippet:
+* In *Form1.cs* add the namespace below to the code `using Microsoft.Identity.Client;`
+* Remove the following namespace `using Microsoft.IdentityModel.Clients.ActiveDirectory;`
+* Remove lines 26 and 30, as they are no longer needed.
+* Replace the contents of the `GetTodoList()` method with the following code snippet:
 
 ```csharp
 // Acquire Access Token from AAD for Proxy Application
@@ -180,7 +183,7 @@ To configure the native app to connect to Azure Active Directory and call the AP
 
 - *This step is optional as MSAL uses the method PublicClientApplicationBuilder.WithDefaultRedirectUri() to insert the recommended reply URI.* Paste the AppProxyNativeAppSample **Redirect URI** in the `<add key="ida:RedirectUri" value="" />` field. You can find and copy this value (a URI) from the AppProxyNativeAppSample's **Authentication** page, in the left navigation under **Manage**.
 
-- Paste the SecretAPI **Application ID URI** in the `<add key="todo:TodoListResourceId" value="" />` field. You can find and copy this value (a URI) from the SecretAPI's **Expose an API** page, in the left navigation under **Manage**.
+- Paste the SecretAPI **Application ID URI** in the `<add key="todo:TodoListResourceId" value="" />` field. This is the same value as `todo:TodoListBaseAddress` below. You can find and copy this value (a URI) from the SecretAPI's **Expose an API** page, in the left navigation under **Manage**.
 
 - Paste the SecretAPI **Home Page URL** in the `<add key="todo:TodoListBaseAddress" value="" />` field. You can find and copy this value (a URL) from the SecretAPI **Branding & properties** page, in the left navigation under **Manage**.
 
