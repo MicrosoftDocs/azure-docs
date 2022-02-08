@@ -18,13 +18,13 @@ This article introduces the key components of a private mobile network deployed 
 
 ## SIMs
 
-Each SIM resource represents a physical SIM or eSIM. The physical SIMs and eSIMs are used by User Equipment (UEs) that will be served by the private mobile network.
+Each *SIM resource* represents a physical SIM or eSIM. The physical SIMs and eSIMs are used by User Equipment (UEs) that will be served by the private mobile network.
 
 ## Sites
 
-Each site resource represents a physical enterprise location (for example, Contoso Corporation's Chicago factory) containing an Azure Stack Edge device that hosts a packet core instance. The packet core instance is a cloud-native implementation of the 3GPP standards-defined 5G Next Generation Core (5G NGC or 5GC).
+Each *site resource* represents a physical enterprise location (for example, Contoso Corporation's Chicago factory) containing an Azure Stack Edge device that hosts a packet core instance. The *packet core instance* is a cloud-native implementation of the 3GPP standards-defined 5G Next Generation Core (5G NGC or 5GC).
 
-During the deployment of your private mobile network, you'll create a Kubernetes cluster on each Azure Stack Edge device. This serves as the platform for the packet core instance in the site. 
+During the deployment of your private mobile network, you'll create a *Kubernetes cluster* on each Azure Stack Edge device. This serves as the platform for the packet core instance in the site. 
 
 Each packet core instance connects to a Radio Access Network (RAN) to provide coverage for 5G UEs. You'll source your RAN from a third party; it can be managed using Azure.
 
