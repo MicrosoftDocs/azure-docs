@@ -179,18 +179,18 @@ To configure the native app code:
 
 To configure the native app to connect to Azure Active Directory and call the API App Proxy, update the placeholder values in the *App.config* file of the NativeClient sample app with values from Azure AD:
 
-- Paste the **Directory (tenant) ID** in the `<add key="ida:Tenant" value="" />` field. You can find and copy this value (a GUID) from the **Overview** page of either of your apps.
+1. Paste the **Directory (tenant) ID** in the `<add key="ida:Tenant" value="" />` field. You can find and copy this value (a GUID) from the **Overview** page of either of your apps.
 
-- Paste the AppProxyNativeAppSample **Application (client) ID** in the `<add key="ida:ClientId" value="" />` field. You can find and copy this value (a GUID) from the AppProxyNativeAppSample's **Overview** page, in the left navigation under **Manage**.
+1. Paste the AppProxyNativeAppSample **Application (client) ID** in the `<add key="ida:ClientId" value="" />` field. You can find and copy this value (a GUID) from the AppProxyNativeAppSample's **Overview** page, in the left navigation under **Manage**.
 
-- *This step is optional as MSAL uses the method PublicClientApplicationBuilder.WithDefaultRedirectUri() to insert the recommended reply URI.* Paste the AppProxyNativeAppSample **Redirect URI** in the `<add key="ida:RedirectUri" value="" />` field. You can find and copy this value (a URI) from the AppProxyNativeAppSample's **Authentication** page, in the left navigation under **Manage**.
+1. *This step is optional as MSAL uses the method PublicClientApplicationBuilder.WithDefaultRedirectUri() to insert the recommended reply URI.* Paste the AppProxyNativeAppSample **Redirect URI** in the `<add key="ida:RedirectUri" value="" />` field. You can find and copy this value (a URI) from the AppProxyNativeAppSample's **Authentication** page, in the left navigation under **Manage**.
 
-- Paste the SecretAPI **Application ID URI** in the `<add key="todo:TodoListResourceId" value="" />` field. This is the same value as `todo:TodoListBaseAddress` below. You can find and copy this value (a URI) from the SecretAPI's **Expose an API** page, in the left navigation under **Manage**.
+1. Paste the SecretAPI **Application ID URI** in the `<add key="todo:TodoListResourceId" value="" />` field. This is the same value as `todo:TodoListBaseAddress` below. You can find and copy this value (a URI) from the SecretAPI's **Expose an API** page, in the left navigation under **Manage**.
 
-- Paste the SecretAPI **Home Page URL** in the `<add key="todo:TodoListBaseAddress" value="" />` field. You can find and copy this value (a URL) from the SecretAPI **Branding & properties** page, in the left navigation under **Manage**.
+1. Paste the SecretAPI **Home Page URL** in the `<add key="todo:TodoListBaseAddress" value="" />` field. You can find and copy this value (a URL) from the SecretAPI **Branding & properties** page, in the left navigation under **Manage**.
 
 > [!NOTE]
-> If the solution won't build and reports error *invalid Resx file* go to the solution explorer, expand **Properties**, right-click `Resources.resx` and select **View Code**. Comment lines 121 to 123.
+> If the solution doesn't build and reports the error *invalid Resx file*, in Solution Explorer, expand **Properties**, right-click *Resources.resx*, and then select **View Code**. Comment lines 121 to 123.
 
 After you configure the parameters, build and run the native app. When you select the **Sign In** button, the app lets you sign in, and then displays a success screen to confirm that it successfully connected to the SecretAPI.
 
