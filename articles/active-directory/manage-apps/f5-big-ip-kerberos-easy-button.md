@@ -15,11 +15,11 @@ ms.collection: M365-identity-device-management
 
 # Tutorial: Configure F5 BIG-IP Easy Button for Kerberos SSO
 
-In this article, you'll learn to implement Secure Hybrid Access (SHA) with single sign-on (SSO) to Kerberos applications using F5’s BIG-IP Easy Button guided configuration.
+In this article, learn to secure Kerberos-based applications with Azure Active Directory (Azure AD), through F5’s BIG-IP Easy Button guided configuration.
 
 Integrating a BIG-IP with Azure Active Directory (Azure AD) provides many benefits, including:
 
-* Improved Zero Trust governance through Azure AD pre-authentication and [Conditional Access](/conditional-access/overview)
+* [Improved Zero Trust governance](https://www.microsoft.com/security/blog/2020/04/02/announcing-microsoft-zero-trust-assessment-tool/) through Azure AD pre-authentication   and [Conditional Access](/conditional-access/overview)
 
 * Full SSO between Azure AD and BIG-IP published services
 
@@ -31,7 +31,7 @@ To learn about all of the benefits, see the article on [F5 BIG-IP and Azure AD i
 
 For this scenario, we have an application using **Kerberos authentication**, also known as **Integrated Windows Authentication (IWA)**, to gate access to protected content.
 
-Being legacy, the application lacks modern protocols to support a direct integration with Azure AD. Modernizing the app would be ideal, but is costly, requires careful planning, and introduces risk of potential impact.
+Being legacy, the application lacks modern protocols to support a direct integration with Azure AD. Modernizing the app would be ideal, but is costly, requires careful planning, and introduces risk of potential downtime.
 
 One option would be to consider using [Azure AD Application Proxy](/azure/active-directory/app-proxy/application-proxy), as it provides the protocol transitioning required to bridge the legacy application to the modern identity control plane. Or for our scenario, we'll achieve this using F5's BIG-IP Application Delivery Controller (ADC).
 
@@ -437,7 +437,7 @@ Alternatively, the BIG-IP gives you the option to disable **Guided Configuration
 
 You can navigate to **Access > Guided Configuration** and select the **small padlock icon** on the far right of the row for your applications’ configs. 
  
-
+   ![Screenshot for Configure Easy Button - Strict Management](./media/f5-big-ip-oracle/strict-mode-padlock.png)
 
 At that point, changes via the wizard UI are no longer possible, but all BIG-IP objects associated with the published instance of the application will be unlocked for direct management.
 
@@ -455,10 +455,9 @@ Consider the following points while troubleshooting any issue.
 
 * Ensure there are no duplicate SPNs in your environment by executing the following query at the command line: setspn -q HTTP/my_target_SPN
 
->[!NOTE]
->You can refer to our [App Proxy guidance to validate an IIS application ](../app-proxy/application-proxy-back-end-kerberos-constrained-delegation-how-to.md)is configured appropriately for KCD. F5’s article on [how the APM handles Kerberos SSO](https://techdocs.f5.com/en-us/bigip-15-1-0/big-ip-access-policy-manager-single-sign-on-concepts-configuration/kerberos-single-sign-on-method.html) is also a valuable resource.
+You can refer to our [App Proxy guidance](../app-proxy/application-proxy-back-end-kerberos-constrained-delegation-how-to.md) to validate an IIS application is configured appropriately for KCD. F5’s article on [how the APM handles Kerberos SSO](https://techdocs.f5.com/en-us/bigip-15-1-0/big-ip-access-policy-manager-single-sign-on-concepts-configuration/kerberos-single-sign-on-method.html) is also a valuable resource.
 
-### Authentication and SSO issues
+### Log analysis
 
 BIG-IP logs are a great source of information for isolating all sorts of authentication & SSO issues. When troubleshooting you should increase the log verbosity level. 
 
@@ -480,4 +479,4 @@ If you don’t see a BIG-IP error page, then the issue is probably more related 
 
 2. Select the link for your active session. The **View Variables** link in this location may also help determine root cause KCD issues, particularly if the BIG-IP APM fails to obtain the right user and domain identifiers.
 
-F5 provides a great BIG-IP specific paper to help diagnose KCD related issues, see the deployment guide on [Configuring Kerberos Constrained Delegation](https://www.f5.com/pdf/deployment-guides/kerberos-constrained-delegation-dg.pdf).
+See [BIG-IP APM variable assign examples]( https://devcentral.f5.com/s/articles/apm-variable-assign-examples-1107) and [F5 BIG-IP session variables reference]( https://techdocs.f5.com/en-us/bigip-15-0-0/big-ip-access-policy-manager-visual-policy-editor/session-variables.html) for more info.

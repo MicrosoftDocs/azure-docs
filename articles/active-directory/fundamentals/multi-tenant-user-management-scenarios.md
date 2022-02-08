@@ -31,9 +31,9 @@ There are many ways end users can get invited to access resource tenant resource
 
 * [Entitlement Management](../governance/entitlement-management-overview.md): Enables admins or resource owners to tie resources, allowed external organizations, guest user expiration, and access policies together in access packages. Access packages can be published to enable self-service sign-up for resource access by guest users.
 
-* [Azure portal ](../external-identities/add-users-administrator.md) End users given the [Guest Inviter role](../external-identities/delegate-invitations.md) can sign in to the Azure portal and invite guest users from the Users menu in Azure Active Directory.
+* [Azure portal ](../external-identities/add-users-administrator.md) End users given the [Guest Inviter role](../external-identities/external-collaboration-settings-configure.md) can sign in to the Azure portal and invite guest users from the Users menu in Azure Active Directory.
 
-* [Programmatic (PowerShell, Graph API)](../external-identities/customize-invitation-api.md) End users given the [Guest Inviter role](../external-identities/delegate-invitations.md) can invite guest users via PowerShell or Graph API. 
+* [Programmatic (PowerShell, Graph API)](../external-identities/customize-invitation-api.md) End users given the [Guest Inviter role](../external-identities/external-collaboration-settings-configure.md) can invite guest users via PowerShell or Graph API. 
 
 ### Redeem invitations
 

@@ -330,7 +330,7 @@ The above sample value of `1800` sets a timeout of 30 minutes. To learn more, se
 
 ## WEBSITE\_CONTENTAZUREFILECONNECTIONSTRING
 
-Connection string for storage account where the function app code and configuration are stored in event-driven scaling plans running on Windows. For more information, see [Create a function app](functions-infrastructure-as-code.md#windows).
+Connection string for storage account where the function app code and configuration are stored in event-driven scaling plans running on Windows. For more information, see [Create a function app](functions-infrastructure-as-code.md?tabs=windows#create-a-function-app).
 
 |Key|Sample value|
 |---|------------|
@@ -350,7 +350,7 @@ Supported on [Premium](functions-premium-plan.md) and [Dedicated (App Service) p
 
 ## WEBSITE\_CONTENTSHARE
 
-The file path to the function app code and configuration in an event-driven scaling plan on Windows. Used with WEBSITE_CONTENTAZUREFILECONNECTIONSTRING. Default is a unique string that begins with the function app name. See [Create a function app](functions-infrastructure-as-code.md#windows).
+The file path to the function app code and configuration in an event-driven scaling plan on Windows. Used with WEBSITE_CONTENTAZUREFILECONNECTIONSTRING. Default is a unique string that begins with the function app name. See [Create a function app](functions-infrastructure-as-code.md?tabs=windows#create-a-function-app).
 
 |Key|Sample value|
 |---|------------|
@@ -358,7 +358,7 @@ The file path to the function app code and configuration in an event-driven scal
 
 Only used when deploying to a Premium plan or to a Consumption plan running on Windows. Not supported for Consumptions plans running Linux. Changing or removing this setting may cause your function app to not start. To learn more, see [this troubleshooting article](functions-recover-storage-account.md#storage-account-application-settings-were-deleted).
 
-When using an Azure Resource Manager template to create a function app during deployment, don't include WEBSITE_CONTENTSHARE in the template. This slot setting is generated during deployment. To learn more, see [Automate resource deployment for your function app](functions-infrastructure-as-code.md#windows).
+When using an Azure Resource Manager template to create a function app during deployment, don't include WEBSITE_CONTENTSHARE in the template. This slot setting is generated during deployment. To learn more, see [Automate resource deployment for your function app](functions-infrastructure-as-code.md?tabs=windows#create-a-function-app).
 
 ## WEBSITE\_DNS\_SERVER
 

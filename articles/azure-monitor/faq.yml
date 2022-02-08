@@ -978,7 +978,14 @@ sections:
           Is there support for collecting of Kubernetes Audit logs for ARO clusters?
         answer:
           No, Container Insights doesn’t support collection of Kubernetes Audit Logs.
-          
+
+      - question: |
+          Why don’t I see Normal Event Types when I query the KubeEvents table?
+        answer:
+          By default, Normal Event Types are not collected unless *collect_all_kube_events* configmap setting is enabled. If you need the collection of Normal events, enable *collect_all_kube_events setting* in *container-azm-ms-agentconfig* configmap. See [Configure agent data collection for Container insights](containers/container-insights-agent-config.md) for details on configuring the configmap.
+
+
+      
   - name: VM insights
     questions:
       - question: |

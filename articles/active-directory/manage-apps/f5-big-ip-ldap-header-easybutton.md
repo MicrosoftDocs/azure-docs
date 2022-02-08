@@ -15,9 +15,9 @@ ms.collection: M365-identity-device-management
 
 # Tutorial: Configure F5 BIG-IP Easy Button for header-based and LDAP SSO
 
-In this article, you'll learn to implement Secure Hybrid Access (SHA) with single sign-on (SSO) to header-based applications that also require session augmentation through Lightweight Directory Access Protocol (LDAP) sourced attributes using F5’s BIG-IP Easy Button guided configuration.
+In this article, learn to secure header & LDAP based applications using Azure Active Directory (Azure AD), through F5’s BIG-IP Easy Button guided configuration.
 
-Enabling BIG-IP published services for Azure Active Directory (Azure AD) SSO provides many benefits, including:
+Integrating a BIG-IP with Azure Active Directory (Azure AD) provides many benefits, including:
 
 * Improved Zero Trust governance through Azure AD pre-authentication and [Conditional Access](/conditional-access/overview)
 
@@ -29,13 +29,13 @@ To learn about all of the benefits, see the article on [F5 BIG-IP and Azure AD i
 
 ## Scenario description
 
-For this scenario, we have a legacy application using HTTP authorization headers to control access to protected content.
+This scenario looks at the classic legacy application using HTTP authorization headers to control access to protected content.
 
-Being legacy, the application lacks any form of modern protocols to support a direct integration with Azure AD. Modernizing the app is also costly, requires careful planning, and introduces risk of potential impact. 
+Being legacy, the application lacks any form of modern protocols to support a direct integration with Azure AD. Modernizing the app is also costly, requires careful planning, and introduces risk of potential downtime. 
 
 One option would be to consider [Azure AD Application Proxy](/azure/active-directory/app-proxy/application-proxy), to gate remote access to the application.
 
-Another approach is to use an F5 BIG-IP Application Delivery Controller, as it too provides the protocol transitioning required to bridge legacy applications to the modern ID control plane.
+Another approach is to use an F5 BIG-IP Application Delivery Controller (ADC), as it too provides the protocol transitioning required to bridge legacy applications to the modern ID control plane.
 
 Having a BIG-IP in front of the application enables us to overlay the service with Azure AD pre-authentication and header-based SSO, significantly improving the overall security posture of the application for both remote and local access.
 
@@ -375,13 +375,13 @@ If making a change to the app is a no go, then consider having the BIG-IP listen
 
 ## Summary
 
-Select **Deploy** to commit all settings and verify that the application has appeared in your tenant. This last step provides break down of all applied settings before they’re committed.
+This last step provides a breakdown of your configurations. Select **Deploy** to commit all settings and verify that the application now exists in your tenants list of ‘Enterprise applications.
 
 Your application should now be published and accessible via SHA, either directly via its URL or through Microsoft’s application portals. For increased security, organizations using this pattern could also consider blocking all direct access to the application, thereby forcing a strict path through the BIG-IP.
 
 ## Next steps
 
-From a browser, **connect** to the application’s external URL or select the **application’s icon** in the MyApps portal. After authenticating against Azure AD, you’ll be redirected to the BIG-IP virtual server for the application and automatically signed in through SSO.
+From a browser, **connect** to the application’s external URL or select the **application’s icon** in the [Microsoft MyApps portal](https://myapplications.microsoft.com/). After authenticating against Azure AD, you’ll be redirected to the BIG-IP virtual server for the application and automatically signed in through SSO.
 
 This shows the output of the injected headers displayed by our headers-based application.
 
@@ -397,6 +397,7 @@ The BIG-IP gives you the option to disable **Guided Configuration’s strict man
 
 You can navigate to **Access > Guided Configuration** and select the **small padlock icon** on the far right of the row for your applications’ configs. 
 
+   ![Screenshot for Configure Easy Button - Strict Management](./media/f5-big-ip-oracle/strict-mode-padlock.png)
 
 At that point, changes via the wizard UI are no longer possible, but all BIG-IP objects associated with the published instance of the application will be unlocked for direct management.
 
