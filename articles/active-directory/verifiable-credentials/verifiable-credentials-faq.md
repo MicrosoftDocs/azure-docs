@@ -6,7 +6,7 @@ manager: karenhoran
 ms.service: active-directory
 ms.subservice: verifiable-credentials
 ms.topic: conceptual
-ms.date: 02/07/2022
+ms.date: 02/08/2022
 ms.author: barclayn
 # Customer intent: As a developer I am looking for information on how to enable my users to control their own information 
 ---
@@ -72,13 +72,13 @@ An Azure AD P2 license is required to use the preview of Verifiable Credentials.
 
 ### How do I reconfigure the Azure AD Verifiable credentials service?
 
-Reconfiguration requires you to opt out and opt back into the Azure Active Directory Verifiable Credentials service, your existing verifiable credentials configurations will reset and your tenant will obtain a new DID that will use during issuance and presentation.
+Reconfiguration requires that you opt out and opt back into the Azure Active Directory Verifiable Credentials service, your existing verifiable credentials configurations will reset and your tenant will obtain a new DID forAc use during issuance and presentation.
 
 1. Follow the [opt-out](how-to-opt-out.md) instructions.
 1. Go over the Azure Active Directory Verifiable credentials [deployment steps](verifiable-credentials-configure-tenant.md) to reconfigure the service.
-    1. If you are in the European region it's recommended that your Azure Key Vault and container are in the same European region as your Verifiable Credential service otherwise you will have potential performance and latency issues. Create new instances of these services in the same EU region as needed.
+    1. If you are in the European region, it's recommended that your Azure Key Vault and container are in the same European region otherwise you may experience some performance and latency issues. Create new instances of these services in the same EU region as needed.
 1. Finish [setting up](verifiable-credentials-configure-tenant.md#set-up-verifiable-credentials) your verifiable credentials service. You need to recreate your credentials.
-    1. If you setup your tenant for issuing credentials, it's recommended that your storage account is in the European region as your Verifiable Credentials service.
+    1. If your tenant needs to be configured as an issuer, it's recommended that your storage account is in the European region as your Verifiable Credentials service.
     2. You also need to issue new credentials because your tenant now holds a new DID.
 
 ### How can I check my Azure AD Tenant's region?
@@ -124,9 +124,9 @@ Reconfiguration requires you to opt out and opt back into the Azure Active Direc
 
 Yes, after reconfiguring your service, your tenant has a new DID use to issue and verify verifiable credentials. You need to [associate your new DID](verifiable-credentials/how-to-dnsbind) with your domain.
 
-### Is it possible to request Microsoft to retreive "old DIDs"?
+### Is it possible to request Microsoft to retrieve "old DIDs"?
 
-No, at this point is not possible to keep your tenant's DID after you have opt-out of the service.
+No, at this point it is not possible to keep your tenant's DID after you have opt-out of the service.
 
 ## Next steps
 
