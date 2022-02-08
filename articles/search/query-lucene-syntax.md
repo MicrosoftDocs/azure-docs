@@ -136,7 +136,7 @@ Suffix matching requires the regular expression forward slash `/` delimiters. Ge
 
 > [!NOTE]  
 > As a rule, pattern matching is slow so you might want to explore alternative methods, such as edge n-gram tokenization that creates tokens for sequences of characters in a term. With n-gram tokenization, the index will be larger, but queries might execute faster, depending on the pattern construction and the length of strings you are indexing. For more information, see [Partial term search and patterns with special characters](search-query-partial-matching.md#tune-query-performance).
-
+>
 
 ### Impact of an analyzer on wildcard queries
 
