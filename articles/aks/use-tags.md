@@ -41,7 +41,7 @@ When you create or update a cluster with the `--tags` parameter, the following a
 To create a cluster and assign Azure tags, use the `az aks create` with the `--tags` parameter. The following command creates a *myAKSCluster* in the *myResourceGroup* with the tags *dept=IT* and *costcenter=9999*.
 
 > [!NOTE]
-> To set tags on the initial node pool, node resource group, the Virtual Machine Scale Set (VMSS) and each VMSS instance associated the initial node pool, also set the `--nodepool-tags` parameter.
+> To set tags on the initial node pool, node resource group, the virtual machine scale set, and each virtual machine scale set instance associated with the initial node pool, also set the `--nodepool-tags` parameter.
 
 ```azurecli-interactive
 az aks create \
@@ -99,7 +99,7 @@ When you create or update a node pool with the `--tags` parameter, the following
 
 * the node pool
 * the node resource group
-* the VMSS and each VMSS instance associated the node pool
+* the virtual machine scale set and each virtual machine scale set instance associated with the node pool
 
 To create a node pool with an Azure tag, use `az aks nodepool add` with the `--tags` parameter. The following example creates a *tagnodepool* node pool with the tags *abtest=a* and *costcenter=5555* in the *myAKSCluster*.
 
