@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 02/03/2022
+ms.date: 02/08/2022
 
 ms.author: justinha
 author: justinha
@@ -68,7 +68,7 @@ If the user is a federated user moving to Azure AD and if the user binding confi
 
 There is also a known issue when a user who is not in scope for CBA ties to sign in with a certificate to an [Office app](https://office.com) or any portal app, and the sign-in fails with an error:
 
-:::image type="content" border="false" source="./media/troubleshoot-cloud-native-certificate-based-authentication/alt-failed.png" alt-text="Alternative error message for cloud-native certificate-based authentication in Azure AD.":::
+:::image type="content" border="true" source="./media/troubleshoot-cloud-native-certificate-based-authentication/alt-failed.png" alt-text="Alternative error message for cloud-native certificate-based authentication in Azure AD.":::
 
 In both cases, the error can be resolved by making sure the user is in scope for cloud-native CBA. For more information, see [Step 4: Enable CBA on the tenant](how-to-certificate-based-authentication.md#step-4-enable-cba-on-the-tenant).
 
@@ -76,7 +76,7 @@ In both cases, the error can be resolved by making sure the user is in scope for
 
 After sign-in fails and I retry sign-in with the correct certificate, I get an error:
 
-:::image type="content" border="false" source="./media/troubleshoot-cloud-native-certificate-based-authentication/user-error.png" alt-text="Error message for user who signs in with cloud-native certificate-based authentication in Azure AD.":::
+:::image type="content" border="true" source="./media/troubleshoot-cloud-native-certificate-based-authentication/user-error.png" alt-text="Error message for user who signs in with cloud-native certificate-based authentication in Azure AD.":::
 
 This is a client behavior where the browser keeps using the original certificate selected. When the sign-in fails, close the existing browser session and retry sign-in from a new browser session.
 
@@ -86,7 +86,7 @@ There is a known issue when the authentication sometimes fails, the failure scre
 
 For example, if a user certificate is revoked and is part of a Certificate Revocation List, then authentication fails correctly. However, instead of the error message, you might see the following screen:
 
-:::image type="content" border="false" source="./media/troubleshoot-cloud-native-certificate-based-authentication/failed.png" alt-text="Error message for cloud-native certificate-based authentication in Azure AD.":::
+:::image type="content" border="true" source="./media/troubleshoot-cloud-native-certificate-based-authentication/failed.png" alt-text="Error message for cloud-native certificate-based authentication in Azure AD.":::
 
 To get more diagnostic information, look in **Sign-in logs**. If a user authentication fails due to CRL validation for example, sign-in logs show the error information correctly.
 
@@ -100,7 +100,7 @@ The authentication policy is cached. After a policy update, it may take up to an
 
 This is a known issue, and we are working on graceful error handling. This error happens when there is no Certificate Authority (CA) on the tenant. To resolve the error, see [Configure the certificate authorities](how-to-certificate-based-authentication.md#step-1-configure-the-certificate-authorities).
 
-:::image type="content" border="false" source="./media/troubleshoot-cloud-native-certificate-based-authentication/no-ca.png" alt-text="Error message when no CA is set for Azure AD.":::
+:::image type="content" border="true" source="./media/troubleshoot-cloud-native-certificate-based-authentication/no-ca.png" alt-text="Error message when no CA is set for Azure AD.":::
 
 
 ## I see a valid Certificate Revocation List (CRL) endpoint set, but why don't I see any CRL revocation?

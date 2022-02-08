@@ -115,19 +115,19 @@ An admin can configure the CRL distribution point during the setup process of th
 >[!IMPORTANT]
 >If the admin skips the configuration of the CRL, Azure AD will not perform any CRL checks during the certificate-based authentication of the user. This can be helpful for initial troubleshooting but should not be considered for production use.
 
-As of now, we don't support online certificate status protocol (OCSP) because of performance and reliability reasons. Instead of downloading the CRL at every connection by the client browser for OCSP, Azure AD downloads once at the first sign in and caches it, thereby improving the performance and reliability of CRL verification. We also index the cache so the search is must faster every time. Customers must publish CRLs for certificate revocation.
+As of now, we don't support Online Certificate Status Protocol (OCSP) because of performance and reliability reasons. Instead of downloading the CRL at every connection by the client browser for OCSP, Azure AD downloads once at the first sign in and caches it, thereby improving the performance and reliability of CRL verification. We also index the cache so the search is must faster every time. Customers must publish CRLs for certificate revocation.
 
 **Typical flow of the CRL check:**
 
 1. Azure AD will attempt to download the CRL at the first sign-in event of any user with a certificate of the corresponding trusted issuer or certificate authority. 
 1. Azure AD will cache and re-use the CRL for any subsequent usage. It will honor the **Next update date** and, if available, **Next CRL Publish date** (used by Windows Server CAs) in the CRL document.
 1. The user certificate-based authentication will fail if:
-   1. A CRL has been configured for the trusted issuer and Azure AD cannot download the CRL, due to availability, size, or latency constraints.
-   1. The user's certificate is listed as revoked on the CRL.
+   - A CRL has been configured for the trusted issuer and Azure AD cannot download the CRL, due to availability, size, or latency constraints.
+   - The user's certificate is listed as revoked on the CRL.
    
       :::image type="content" border="true" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/user-cert.png" alt-text="Screenshot of the revoked user certificate in the CRL." :::  
 
-   1. Azure AD will attempt to download a new CRL from the distribution point if the cached CRL document is expired. 
+   - Azure AD will attempt to download a new CRL from the distribution point if the cached CRL document is expired. 
 
 >[!NOTE]
 >Azure AD will only check the CRL of the issuing CA but not of the entire PKI trust chain up to the root CA. In case of a CA compromise, the administrator should remove the compromised trusted issuer from the Azure AD tenant configuration. 
