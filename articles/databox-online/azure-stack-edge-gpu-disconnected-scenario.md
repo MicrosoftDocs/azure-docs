@@ -13,11 +13,12 @@ ms.author: alkohli
 
 # Disconnected scenario for Azure Stack Edge Pro R and Azure Stack Edge Mini R
 
+[!INCLUDE [applies-to-azure-stack-edge-pro-r-mini-r-sku](../../includes/azure-stack-edge-applies-to-pro-r-mini-r-sku.md)]
+<!--Veriify SKUs.-->
+
 This article helps you identify areas of consideration when you need to use Azure Stack Edge Pro GPU disconnected from the internet.
 
 Some environments require that your Azure Stack Edge device not be connected to the internet. As a result, Azure Stack Edge becomes a standalone deployment that is disconnected from and does not communicate with Azure and other Azure services. In a disconnected scenario, certain functionality of the device is limited or unusable.
-
-*Is this a shared scenario for Pro GPU, Pro R, Mini R?*
 
 ## Scenarios for disconnected use
 
@@ -33,9 +34,9 @@ Choose this option if:
 
 Before you disconnect your Azure Stack Edge device from the network that allows internet access, make these preparations:
 
-- [Activate your device](azure-stack-edge-gpu-deploy-activate.md). <!--Verify SKUs. Then two linke: Pro R (azure-stack-edge-pro-r-deploy-activate.md) and Mini R (azure-stack-edge-mini-r-deploy-activate).-->
+- [Activate your device](azure-stack-edge-gpu-deploy-activate.md). <!--Verify SKUs. Then two links: Pro R (azure-stack-edge-pro-r-deploy-activate.md) and Mini R (azure-stack-edge-mini-r-deploy-activate).-->
 
-- For an IoT Edge and Kubernetes deployment, complete these tasks:
+- For an IoT Edge and Kubernetes deployment, complete these tasks before you disconnect:
   1. Deploy Kubernetes on your device.
   1. Enable the Kubernetes components.
   1. Deploy compute modules and containers on the device.
@@ -66,6 +67,6 @@ The following table describes the behavior of features and components when the d
  
 ## Next steps
 
-- XXX
-- 
-- XXX
+- [Review use cases for Azure Stack Edge Pro R](azure-stack-edge-pro-r-overview.md#use-cases).
+- [Review use cases for Azure Stack Edge Mini R](azure-stack-edge-mini-r-overview.md#use-cases).
+- [Get pricing](/pricing/details/azure-stack/edge/)
