@@ -52,6 +52,8 @@ To request an access token, make an HTTP POST to the tenant-specific Microsoft i
 https://login.microsoftonline.com/<tenant>/oauth2/v2.0/token
 ```
 
+[!INCLUDE [remind-not-to-relay-token-nonaud](includes/remind-not-to-relay-token-nonaud.md)]
+
 There are two cases depending on whether the client application chooses to be secured by a shared secret or a certificate.
 
 ### First case: Access token request with a shared secret

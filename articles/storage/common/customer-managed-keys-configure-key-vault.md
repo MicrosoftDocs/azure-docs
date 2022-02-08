@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/24/2022
+ms.date: 01/28/2022
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common 
@@ -25,7 +25,7 @@ This article shows how to configure encryption with customer-managed keys stored
 
 ## Configure a key vault
 
-You can use a new or existing key vault to store customer-managed keys. The storage account and the key vault must be in the same region, but they can be in different subscriptions.
+You can use a new or existing key vault to store customer-managed keys. The storage account and the key vault must be in the same region, but they can be in different subscriptions. To learn more about Azure Key Vault, see [Azure Key Vault Overview](../../key-vault/general/overview.md) and [What is Azure Key Vault?](../../key-vault/general/basic-concepts.md).
 
 Using customer-managed keys with Azure Storage encryption requires that both soft delete and purge protection be enabled for the key vault. Soft delete is enabled by default when you create a new key vault and cannot be disabled. You can enable purge protection either when you create the key vault or after it is created.
 
@@ -195,11 +195,11 @@ principalId = $(az storage account show --name <storage-account> --resource-grou
 
 ## Configure the key vault access policy
 
-The next step is to configure the key vault access policy. The key vault access policy grants permissions to the managed identity that will be used to authorize access to the key vault. For more information about assigning the key vault access policy, see [Assign an Azure Key Vault access policy](../../key-vault/general/assign-access-policy.md).
+The next step is to configure the key vault access policy. The key vault access policy grants permissions to the managed identity that will be used to authorize access to the key vault. To learn more about key vault access policies, see [Azure Key Vault Overview](../../key-vault/general/overview.md#securely-store-secrets-and-keys) and [Azure Key Vault security overview](../../key-vault/general/security-features.md#key-vault-authentication-options).
 
 ### [Azure portal](#tab/portal)
 
-When you configure customer-managed keys with the Azure portal, the key vault access policy is configured for you under the covers. 
+To learn how to configure the key vault access policy with the Azure portal, see [Assign an Azure Key Vault access policy](../../key-vault/general/assign-access-policy.md).
 
 ### [PowerShell](#tab/powershell)
 
@@ -212,6 +212,8 @@ Set-AzKeyVaultAccessPolicy `
     -PermissionsToKeys wrapkey,unwrapkey,get
 ```
 
+To learn more about assigning the key vault access policy with PowerShell, see [Assign an Azure Key Vault access policy](../../key-vault/general/assign-access-policy.md).
+
 ### [Azure CLI](#tab/azure-cli)
 
 To configure the key vault access policy with PowerShell, call [az keyvault set-policy](/cli/azure/keyvault#az-keyvault-set-policy), providing the variable for the principal ID that you previously retrieved for the managed identity.
@@ -223,6 +225,8 @@ az keyvault set-policy \
     --object-id $principalId \
     --key-permissions get unwrapKey wrapKey
 ```
+
+To learn more about assigning the key vault access policy with Azure CLI, see [Assign an Azure Key Vault access policy](../../key-vault/general/assign-access-policy.md).
 
 ---
 
