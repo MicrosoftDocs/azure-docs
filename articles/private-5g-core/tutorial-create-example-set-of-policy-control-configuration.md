@@ -9,8 +9,6 @@ ms.topic: tutorial
 ms.date: 01/16/2022
 ms.custom: template-tutorial
 ---
-
-<!-- The title is very long. Can we swap it to "Create a policy control configuration set", or does this lose too much context? -->
 <!-- One of the images (add-a-data-flow-template.png) has a thicker grey outline. -->
 <!-- Some images can be zoomed into, others cannot. -->
 
@@ -48,11 +46,11 @@ To create the service:
 
     :::image type="content" source="media/mobile-network-search.png" alt-text="Screenshot of the Azure portal showing the results for a search for a Mobile Network resource.":::
 
-1. In the resource menu, select **Services**.
+1. In the **Resource** menu, select **Services**.
 
     :::image type="content" source="media/configure-service-azure-portal/services-resource-menu-option.png" alt-text="Screenshot of the Azure portal showing the Services option in the resource menu of a Mobile Network resource.":::
 
-1. In the command bar, select **Create**.
+1. In the **Command** bar, select **Create**.
 
     :::image type="content" source="media/configure-service-azure-portal/create-command-bar-option.png" alt-text="Screenshot of the Azure portal showing the Create option in the command bar.":::
 
@@ -166,8 +164,8 @@ In this step, we'll create a service that blocks traffic from specific sources. 
 To create the service:
 
 1. Search for and select the Mobile Network resource representing your private mobile network.
-1. In the resource menu, select **Services**.
-1. In the command bar, select **Create**.
+1. In the **Resource** menu, select **Services**.
+1. In the **Command** bar, select **Create**.
 1. We'll now enter values to define the QoS characteristics that will be applied to SDFs that match this service. On the **Basics** tab, fill out the fields as follows.
 
     |Field  |Value  |
@@ -253,8 +251,8 @@ In this step, we'll create a service that limits the bandwidth of traffic on mat
 To create the service:
 
 1. Search for and select the Mobile Network resource representing your private mobile network.
-1. In the resource menu, select **Services**.
-1. In the command bar, select **Create**.
+1. In the **Resource** menu, select **Services**.
+1. In the **Command** bar, select **Create**.
 1. We'll now enter values to define the QoS characteristics that will be applied to SDFs that match this service. We'll use the **Maximum Bit Rate (MBR) - Uplink** and **Maximum Bit Rate (MBR) - Downlink** fields to set our bandwidth limits. On the **Basics** tab, fill out the fields as follows.
 
     |Field  |Value  |
@@ -331,11 +329,11 @@ Let's create the SIM policies.
 
     :::image type="content" source="media/mobile-network-search.png" alt-text="Screenshot of the Azure portal showing the results for a search for a Mobile Network resource.":::
 
-1. In the resource menu, select **SIM policies**.
+1. In the **Resource** menu, select **SIM policies**.
 
     :::image type="content" source="media/configure-sim-policy-azure-portal/sim-policies-resource-menu-option.png" alt-text="Screenshot of the Azure portal showing the SIM policies option in the resource menu of a Mobile Network resource.":::
 
-1. In the command bar, select **Create**.
+1. In the **Command** bar, select **Create**.
 1. Under **Create a SIM policy**, fill out the fields as follows.
 
     |Field  |Value  |
@@ -373,8 +371,8 @@ Let's create the SIM policies.
     :::image type="content" source="media/configure-sim-policy-azure-portal/sim-policy-deployment-confirmation.png" alt-text="Screenshot of the Azure portal showing confirmation of the successful deployment of a SIM policy.":::
 
 1. Select **Go to resource group**.
-1. In the resource group that appears, select the **Mobile network** resource representing your private mobile network.
-1. In the resource menu, select **SIM policies**.
+1. In the **Resource group** that appears, select the **Mobile network** resource representing your private mobile network.
+1. In the **Resource** menu, select **SIM policies**.
 
     :::image type="content" source="media/configure-sim-policy-azure-portal/sim-policies-resource-menu-option.png" alt-text="Screenshot of the Azure portal showing the SIM policies option in the resource menu of a Mobile Network resource.":::
 
@@ -391,8 +389,8 @@ Let's create the SIM policies.
     :::image type="content" source="media/tutorial-create-example-set-of-policy-control-configuration/complete-example-sim-policy-1.png" alt-text="Screenshot of the Azure portal showing the first SIM policy resource. Essentials, network scope, and service configuration are highlighted." lightbox="media/tutorial-create-example-set-of-policy-control-configuration/complete-example-sim-policy-1.png":::
 
 1. We'll now create the other SIM policy. Search for and select the Mobile Network resource representing the private mobile network for which you want to configure a service.
-1. In the resource menu, select **SIM policies**.
-1. In the command bar, select **Create**.
+1. In the **Resource** menu, select **SIM policies**.
+1. In the **Command** bar, select **Create**.
 1. Under **Create a SIM policy** on the right, fill out the fields as follows.
 
     |Field  |Value  |
@@ -429,8 +427,8 @@ Let's create the SIM policies.
     :::image type="content" source="media/configure-sim-policy-azure-portal/sim-policy-deployment-confirmation.png" alt-text="Screenshot of the Azure portal showing confirmation of the successful deployment of a SIM policy.":::
 
 1. Select **Go to resource group**.
-1. In the resource group that appears, select the **Mobile network** resource representing your private mobile network.
-1. In the resource menu, select **SIM policies**.
+1. In the **Resource group** that appears, select the **Mobile network** resource representing your private mobile network.
+1. In the **Resource** menu, select **SIM policies**.
 1. Select **sim-policy-2**.
 
     :::image type="content" source="media/tutorial-create-example-set-of-policy-control-configuration/sim-policies-list-example-2.png" alt-text="Screenshot of the Azure portal with a list of configured SIM policies for a private mobile network. The sim-policy-2 resource is highlighted." lightbox="media/tutorial-create-example-set-of-policy-control-configuration/sim-policies-list-example-2.png":::
@@ -473,7 +471,7 @@ In this step, we will provision two SIMs and assign a SIM policy to each one. Th
 
     :::image type="content" source="media/mobile-network-search.png" alt-text="Screenshot of the Azure portal showing the results for a search for a Mobile Network resource.":::
 
-1. In the resource menu, select **Add SIMs**.
+1. In the **Resource** menu, select **Add SIMs**.
 
     :::image type="content" source="media/provision-sims-azure-portal/add-sims.png" alt-text="Screenshot of the Azure portal showing the Add SIMs button on a Mobile Network resource":::
 
@@ -487,8 +485,8 @@ In this step, we will provision two SIMs and assign a SIM policy to each one. Th
 
     :::image type="content" source="media/provision-sims-azure-portal/multiple-sim-resource-deployment.png" alt-text="Screenshot of the Azure portal showing a completed deployment of SIM resources through a J S O N file and the Go to resource button.":::
 
-1. In the resource group that appears, select the **Mobile network** resource representing your private mobile network.
-1. In the resource menu, select **SIMs**.
+1. In the **Resource group** that appears, select the **Mobile network** resource representing your private mobile network.
+1. In the **Resource** menu, select **SIMs**.
 
     :::image type="content" source="media/tutorial-create-example-set-of-policy-control-configuration/sims-resource-menu-option.png" alt-text="Screenshot of the Azure portal. The SIMs option in the resource menu for a private mobile network is highlighted.":::
 
@@ -497,15 +495,15 @@ In this step, we will provision two SIMs and assign a SIM policy to each one. Th
     :::image type="content" source="media/tutorial-create-example-set-of-policy-control-configuration/sims-list.png" alt-text="Screenshot of the Azure portal. It shows the SIMs currently provisioned for the private mobile network." lightbox="media/tutorial-create-example-set-of-policy-control-configuration/sims-list.png":::
 
 1. Tick the checkbox next to **SIM1**.
-1. In the command bar, select **Assign SIM policy**.
+1. In the **Command** bar, select **Assign SIM policy**.
 1. Under **Assign SIM policy** on the right, set the **SIM policy** field to **sim-policy-1**.
 1. Select the **Assign SIM policy** button.
 1. Once the deployment is complete, select **Go to Resource**.
 1. Check the **SIM policy** field in the **Management** section to confirm **sim-policy-1** has been successfully assigned.
 1. Search for and select the Mobile Network resource representing your private mobile network.
-1. In the resource menu, select **SIMs**.
+1. In the **Resource** menu, select **SIMs**.
 1. Tick the checkbox next to **SIM2**.
-1. In the command bar, select **Assign SIM policy**.
+1. In the **Command** bar, select **Assign SIM policy**.
 1. Under **Assign SIM policy** on the right, set the **SIM policy** field to **sim-policy-2**.
 1. Select the **Assign SIM policy** button.
 1. Once the deployment is complete, select **Go to Resource**.
@@ -518,14 +516,14 @@ You have now provisioned two SIMs and assigned each of them a different SIM poli
 You can now delete each of the resources we've created during this tutorial.
 
 1. Search for and select the Mobile Network resource representing your private mobile network.
-1. In the resource menu, select **SIMs**.
-1. Tick the checkboxes next to **SIM1** and **SIM2**, and then select **Delete** from the command bar. 
+1. In the **Resource** menu, select **SIMs**.
+1. Tick the checkboxes next to **SIM1** and **SIM2**, and then select **Delete** from the **Command** bar. 
 1. Select **Delete** to confirm your choice.
-1. Once the SIMs have been deleted, select **SIM policies** from the resource menu.
-1. Tick the checkboxes next to **sim-policy-1** and **sim-policy-2**, and then select **Delete** from the command bar.
+1. Once the SIMs have been deleted, select **SIM policies** from the **Resource** menu.
+1. Tick the checkboxes next to **sim-policy-1** and **sim-policy-2**, and then select **Delete** from the **Command** bar.
 1. Select **Delete** to confirm your choice.
-1. Once the SIM policies have been deleted, select **Services** from the resource menu.
-1. Tick the checkboxes next to **service_unrestricted_udp_and_icmp**, **service_blocking_udp_from_specific_sources**, and **service_traffic_limits**, and then select **Delete** from the command bar.
+1. Once the SIM policies have been deleted, select **Services** from the **Resource** menu.
+1. Tick the checkboxes next to **service_unrestricted_udp_and_icmp**, **service_blocking_udp_from_specific_sources**, and **service_traffic_limits**, and then select **Delete** from the **Command** bar.
 
 ## Next steps
 
