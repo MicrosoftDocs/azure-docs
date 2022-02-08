@@ -59,7 +59,7 @@ This article describes an online migration from MongoDB to Azure Cosmos DB's API
 To complete this tutorial, you need to:
 
 * [Complete the pre-migration](../cosmos-db/mongodb-pre-migration.md) steps such as estimating throughput, choosing a partition key, and the indexing policy.
-* [Create an Azure Cosmos DB's API for MongoDB account](https://ms.portal.azure.com/#create/Microsoft.DocumentDB) and ensure [SSR (server side retry)](../cosmos-db/mongodb/prevent-rate-limiting-errors.md) is enabled.
+* [Create an Azure Cosmos DB's API for MongoDB account](https://portal.azure.com/#create/Microsoft.DocumentDB) and ensure [SSR (server side retry)](../cosmos-db/mongodb/prevent-rate-limiting-errors.md) is enabled.
 
   > [!NOTE]
   > DMS is currently not supported if you are migrating to API for MongoDB account that is provisioned with serverless mode.
