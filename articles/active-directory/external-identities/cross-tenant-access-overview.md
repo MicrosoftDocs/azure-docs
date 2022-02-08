@@ -105,7 +105,7 @@ The output is a list of outbound sign-ins initiated by your users to apps in ext
 
 ### Azure Monitor
 
-If your organization subscribes to the Azure Monitor service, you can use the [Cross-tenant access activity workbook](/reports-monitoring/workbook-cross-tenant-access-activity.md) (available in the Monitoring workbooks gallery in the Azure portal) to visually explore inbound and outbound sign-ins for longer time periods.
+If your organization subscribes to the Azure Monitor service, you can use the [Cross-tenant access activity workbook](../reports-monitoring/workbook-cross-tenant-access-activity.md) (available in the Monitoring workbooks gallery in the Azure portal) to visually explore inbound and outbound sign-ins for longer time periods.
 
 ### Security Information and Event Management (SIEM) Systems
 

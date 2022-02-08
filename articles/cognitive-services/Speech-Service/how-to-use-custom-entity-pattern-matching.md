@@ -1,5 +1,5 @@
 ---
-title: How to use custom entity pattern matching with the Speech SDK
+title:  How to recognize intents with custom entity pattern matching
 titleSuffix: Azure Cognitive Services
 description: In this guide, you learn how to recognize intents and custom entities from simple patterns.
 services: cognitive-services
@@ -15,7 +15,7 @@ zone_pivot_groups: programming-languages-set-nine
 ms.custom: devx-track-cpp, devx-track-csharp, mode-other
 ---
 
-# How to use custom entity pattern matching with the Speech SDK
+# How to recognize intents with custom entity pattern matching
 
 The Cognitive Services [Speech SDK](speech-sdk.md) has a built-in feature to provide **intent recognition** with **simple language pattern matching**. An intent is something the user wants to do: close a window, mark a checkbox, insert some text, etc.
 
@@ -51,11 +51,9 @@ Be sure you have the following items before you begin this guide:
 [!INCLUDE [Pattern Matching Overview](includes/pattern-matching-overview.md)]
 
 ::: zone pivot="programming-language-csharp"
-[!INCLUDE [Header](includes/quickstarts/intent-recognition/csharp/header.md)]
-[!INCLUDE [csharp](includes/quickstarts/intent-recognition/csharp/pattern-matching.md)]
+[!INCLUDE [csharp](includes/how-to/intent-recognition/csharp/pattern-matching.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-cpp"
-[!INCLUDE [Header](includes/quickstarts/intent-recognition/cpp/header.md)]
-[!INCLUDE [cpp](includes/quickstarts/intent-recognition/cpp/pattern-matching.md)]
+[!INCLUDE [cpp](includes/how-to/intent-recognition/cpp/pattern-matching.md)]
 ::: zone-end
