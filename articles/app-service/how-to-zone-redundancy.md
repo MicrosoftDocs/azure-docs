@@ -71,11 +71,11 @@ az appservice plan create --resource-group MyResourceGroup --name MyPlan --zone-
 
 To create a zone redundant App Service using the Azure portal, enable the zone redundancy option during the "Create Web App" or "Create App Service Plan" experiences.
 
-![zone redundant enablement using the portal](./media/how-to-zone-redundancy/zone-redundancy-portal.png)
+:::image type="content" source="./media/how-to-zone-redundancy/zone-redundancy-portal.png" alt-text="Image of zone redundancy enablement using the portal.":::
 
 The capacity/number of workers/instance count can be changed once the App Service Plan is created by navigating to the **Scale out (App Service plan)** settings.
 
-![capacity update using the portal](./media/how-to-zone-redundancy/capacity-portal.png)
+:::image type="content" source="./media/how-to-zone-redundancy/capacity-portal.png" alt-text="Image of a capacity update using the portal.":::
 
 The only changes needed in an Azure Resource Manager template to specify a zone redundant App Service are the ***zoneRedundant*** property (required) and optionally the App Service plan instance count (***capacity***) on the [Microsoft.Web/serverfarms](/azure/templates/microsoft.web/serverfarms?tabs=json) resource. The ***zoneRedundant*** property should be set to ***true*** and ***capacity*** should be set based on the same conditions described previously.
 
