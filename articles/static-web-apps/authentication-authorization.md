@@ -19,11 +19,13 @@ Azure Static Web Apps provides a streamlined authentication experience. By defau
 - Users are assigned custom roles using the built-in [invitations](#invitations) system.
 - Users can be programmatically assigned custom roles at login by an API function.
 - All authentication providers are enabled by default.
-  - To restrict an authentication provider, [block access](#block-an-authorization-provider) with a custom route rule.
+  - To restrict an authentication provider, [block access](#block-an-authorization-provider) with a custom route rule. Configuring a custom provider also disables pre-configured providers.
 - Pre-configured providers include:
-  - Azure Active Directory
+  - Azure Active Directory<sup>1</sup>
   - GitHub
   - Twitter
+
+<sup>1</sup> The preconfigured Azure Active Directory provider allows any Microsoft Account to sign in. To restrict login to a specific Active Directory tenant, configure a [custom Azure Active Directory provider](authentication-custom.md?tabs=aad).
 
 The subjects of authentication and authorization significantly overlap with routing concepts, which are detailed in the [application configuration guide](configuration.md#routes).
 
@@ -312,5 +314,3 @@ See the [Quotas article](quotas.md) for general restrictions and limitations.
 
 > [!div class="nextstepaction"]
 > [Access user authentication and authorization data](user-information.md)
-
-<sup>1</sup> Pending external certification.
