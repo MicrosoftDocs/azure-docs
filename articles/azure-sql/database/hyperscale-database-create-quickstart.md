@@ -69,7 +69,7 @@ To create a single database in the Azure portal, this quickstart starts at the A
 1. Optionally, enable [Microsoft Defender for SQL](../database/azure-defender-for-sql.md).
 1. Select **Next: Additional settings** at the bottom of the page.
 1. On the **Additional settings** tab, in the **Data source** section, for **Use existing data**, select **Sample**. This creates an AdventureWorksLT sample database so there's some tables and data to query and experiment with, as opposed to an empty blank database.
-1. Optionally, set the [maintenance window](../database/maintenance-window.md) so planned maintenance is performed at the best time for your database.
+
 1. Select **Review + create** at the bottom of the page:
     
     :::image type="content" source="media/hyperscale-database-create-quickstart/azure-sql-create-database-sample-data.png" alt-text="The 'Additional Settings' screen to create a database in Azure SQL Database allows you to select sample data." lightbox="media/hyperscale-database-create-quickstart/azure-sql-create-database-sample-data.png":::
@@ -114,7 +114,7 @@ Create a firewall rule with the [az sql server firewall-rule create](/cli/azure/
 
 ### Create a single database
 
-Create a database with the [az sql db create](/cli/azure/sql/db) command in the [serverless compute tier](serverless-tier-overview.md).
+Create a database with the [az sql db create](/cli/azure/sql/db) command in the [Hyperscale service tier](service-tier-hyperscale.md).
 
 ```azurecli
 az sql db create \
@@ -225,7 +225,7 @@ Connect to the master database using [SQL Server Management Studio (SSMS)](/sql/
 
 Run the following Transact-SQL command to create a new Hyperscale database with Gen 5 hardware and 2 vCores. You must specify both the edition and service objective in the `CREATE DATABASE` statement. Refer to the [resource limits](./resource-limits-vcore-single-databases.md#hyperscale---provisioned-compute---gen4) for a list of valid service objectives.
 
-Note that this example creates an empty database. If you would like to create a database with sample data, use the Azure portal, Azure CLI, or PowerShell examples in this quickstart.
+This sample code creates an empty database. If you would like to create a database with sample data, use the Azure portal, Azure CLI, or PowerShell examples in this quickstart.
 
 ```sql
 CREATE DATABASE [mySampleDatabase] (EDITION = 'Hyperscale', SERVICE_OBJECTIVE = 'HS_Gen5_2');
@@ -256,7 +256,25 @@ Once your database is created, you can use the **Query editor (preview)** in the
 1. If you created an empty database using the Transact-SQL option above, enter another example query in the **Query editor** pane, such as the following:
 
     ```sql
-
+    CREATE TABLE dbo.TestTable(
+    	TestTableID int IDENTITY(1,1) NOT NULL,
+    	TestTime datetime NOT NULL,
+    	TestMessage nvarchar(4000) NOT NULL,
+     CONSTRAINT PK_TestTable_TestTableID PRIMARY KEY CLUSTERED (TestTableID ASC)
+    ) 
+    GO
+    
+    ALTER TABLE dbo.TestTable ADD CONSTRAINT DF_TestTable_TestTime  DEFAULT (getdate()) FOR TestTime
+    GO
+    
+    INSERT dbo.TestTable (TestMessage)
+    VALUES (N'This is a test');
+    GO
+    
+    SELECT *
+    FROM dbo.TestTable;
+    GO
+    ```
 
 1. Select **Run**, and then review the query results in the **Results** pane.
     
@@ -280,7 +298,7 @@ To delete **myResourceGroup** and all its resources using the Azure portal:
 
 # [Azure CLI](#tab/azure-cli)
 
-Use the following command to remove the resource group and all resources associated with it using the [az group delete](/cli/azure/vm/extension#az_vm_extension_set) command - unless you have an ongoing need for these resources. Some of these resources may take a while to create, as well as to delete.
+Use the following command to remove the resource group and all resources associated with it using the [az group delete](/cli/azure/vm/extension#az_vm_extension_set) command - unless you have an ongoing need for these resources. Some of these resources may take a while to create, and to delete.
 
 ```azurecli
 az group delete --name $resourceGroup
@@ -296,7 +314,7 @@ Remove-AzResourceGroup -Name $resourceGroupName
 
 # [Transact-SQL](#tab/t-sql)
 
-This option deletes only the Hyperscale database. It does not remove any logical SQL servers or resource groups that you may have created in addition to the database.
+This option deletes only the Hyperscale database. It doesn't remove any logical SQL servers or resource groups that you may have created in addition to the database.
 
 To delete a Hyperscale database with Transact-SQL, connect to the master database using [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) or [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio).
 
