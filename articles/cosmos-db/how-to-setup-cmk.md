@@ -4,7 +4,7 @@ description: Learn how to configure customer-managed keys for your Azure Cosmos 
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 01/24/2022
+ms.date: 02/08/2022
 ms.author: thweiss 
 ms.custom: devx-track-azurepowershell
 ---
@@ -402,7 +402,7 @@ Azure Cosmos DB takes [regular and automatic backups](./online-backup-and-restor
 
 The following conditions are necessary to successfully restore a periodic backup:
 - The encryption key that you used at the time of the backup is required and must be available in Azure Key Vault. This means that no revocation was made and the version of the key that was used at the time of the backup is still enabled.
-- If you [used a system-assigned managed identity in the Azure Key Vault access policy](#to-use-a-system-assigned-managed-identity) of the source account, you must temporarily grant access to the Azure Cosmos DB first-party identity in that access policy as described [here](#add-access-policy) before restoring your data. Once the data is fully restored to the target account, you can remove the first-party identity from the Key Vault access policy and set your desired identity configuration.
+- If you [used a system-assigned managed identity in the Azure Key Vault access policy](#to-use-a-system-assigned-managed-identity) of the source account, you must temporarily grant access to the Azure Cosmos DB first-party identity in that access policy as described [here](#add-access-policy) before restoring your data. This is because a system-assigned managed identity is specific to an account and cannot be re-used in the target account. Once the data is fully restored to the target account, you can set your desired identity configuration and remove the first-party identity from the Key Vault access policy.
 
 ### How do customer-managed keys affect continuous backups?
 
@@ -413,7 +413,7 @@ The following conditions are necessary to successfully perform a point-in-time r
 - You must ensure that the user-assigned managed identity originally used on the source account is still declared in the Key Vault access policy.
 
 > [!IMPORTANT]
-> If you revoke the encryption key before deleting your account, your account's backup may miss the data written after the revocation has been made.
+> If you revoke the encryption key before deleting your account, your account's backup may miss the data written up to 1 hour before the revocation was made.
 
 ### How do I revoke an encryption key?
 
