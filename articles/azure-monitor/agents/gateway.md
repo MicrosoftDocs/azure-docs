@@ -220,8 +220,8 @@ To configure the Azure Monitor agent (installed on the gateway server) to use th
 3. Add the **data ingestion endpoint URL** to the allow list for the gateway  
    `Add-OMSGatewayAllowedHost -Host <workspaceId>.ods.opinsights.azure.com`  
 3. Restart the **OMS Gateway** service to apply the changes  
-   `Stop-Service -Name "OMS Gateway"`  
-   `Start-Service -Name "OMS Gateway"`  
+   `Stop-Service -Name <gateway-name>`  
+   `Start-Service -Name <gateway-name>`  
    
 
 ## Configure the Log Analytics agent and Operations Manager management group
