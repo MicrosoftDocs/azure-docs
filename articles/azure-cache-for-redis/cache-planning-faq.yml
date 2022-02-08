@@ -18,7 +18,7 @@ sections:
       - question: |
           Azure Cache for Redis performance
         answer: |
-          The following table shows the maximum bandwidth values observed while testing various sizes of Standard and Premium caches using `redis-benchmark.exe` from an IaaS VM against the Azure Cache for Redis endpoint. For TLS throughput, redis-benchmark is used with stunnel to connect to the Azure Cache for Redis endpoint.
+          The following table shows the maximum bandwidth values observed while testing various sizes of Standard and Premium caches using `redis-benchmark.exe` from an IaaS VM against the Azure Cache for Redis endpoint. For TLS throughput, redis-benchmark is used with *stunnel* to connect to the Azure Cache for Redis endpoint.
           
           >[!NOTE] 
           >These values are not guaranteed and there is no SLA for these numbers, but should be typical. You should load test your own application to determine the right cache size for your application.
@@ -27,6 +27,7 @@ sections:
           
           From this table, we can draw the following conclusions:
           
+          * Throughput numbers are for GETS.
           * Throughput for the caches that are the same size is higher in the Premium tier as compared to the Standard tier. For example, with a 6 GB Cache, throughput of P1 is 180,000 requests per second (RPS) as compared to 100,000 RPS for C3.
           * With Redis clustering, throughput increases linearly as you increase the number of shards (nodes) in the cluster. For example, if you create a P4 cluster of 10 shards, then the available throughput is 400,000 * 10 = 4 million RPS.
           * Throughput for bigger key sizes is higher in the Premium tier as compared to the Standard Tier.
