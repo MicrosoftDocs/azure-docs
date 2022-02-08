@@ -90,7 +90,7 @@ You can require that users enter a business justification when they activate. To
 
 ## Require ticket information on activation
 
-If your organization uses a ticketing system where you track help desk items or change requests for your enviornment you can check this box to require the elevation request to contain the name of the ticketing system (optional - in case your company uses multiple systems) and the ticket number that prompted the need for role activation.
+If your organization uses a ticketing system to track help desk items or change requests for your enviornment, you can select the **Require ticket information on activation** box to require the elevation request to contain the name of the ticketing system (optional, if your organization uses multiple systems) and the ticket number that prompted the need for role activation.
 
 ## Require approval to activate
 
