@@ -211,9 +211,18 @@ After the load balancer is created, a backend pool needs to be created, which di
 
 ## Configure the Azure Monitor agent to communicate using Log Analytics gateway  
 
-To configure the Azure Monitor agent (installed on the gateway server) to use the gateway to upload data for Windows or Linux, follow the instructions to [setup proxy on the agent](./azure-monitor-agent-overview.md#proxy-configuration) and provide the IP address and port number corresponding to the gateway server. If you have deployed multiple gateway servers behind a load balancer, the agent proxy configuration is the virtual IP address of the load balancer instead.  
-After you complete configuration, restart the **OMS Gateway** service to apply the changes.  
-
+To configure the Azure Monitor agent (installed on the gateway server) to use the gateway to upload data for Windows or Linux:
+1. Follow the instructions to [configure proxy settings on the agent](./azure-monitor-agent-overview.md#proxy-configuration) and provide the IP address and port number corresponding to the gateway server. If you have deployed multiple gateway servers behind a load balancer, the agent proxy configuration is the virtual IP address of the load balancer instead.  
+2. Add the **configuration endpoint URL** to fetch data collection rules to the allow list for the gateway  
+   `Add-OMSGatewayAllowedHost -Host global.handler.control.monitor.azure.com`  
+   `Add-OMSGatewayAllowedHost -Host <machine-region-name>.handler.control.monitor.azure.com`  
+   (If using private links on the agent, you must also add the [dce endpoints](./data-collection-endpoint-overview.md#components-of-a-data-collection-endpoint))  
+3. Add the **data ingestion endpoint URL** to the allow list for the gateway  
+   `Add-OMSGatewayAllowedHost -Host <workspaceId>.ods.opinsights.azure.com`  
+3. Restart the **OMS Gateway** service to apply the changes  
+   `Stop-Service -Name "OMS Gateway"`  
+   `Start-Service -Name "OMS Gateway"`  
+   
 
 ## Configure the Log Analytics agent and Operations Manager management group
 
