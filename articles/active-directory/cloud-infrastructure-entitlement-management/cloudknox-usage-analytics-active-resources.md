@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/02/2022
+ms.date: 02/07/2022
 ms.author: v-ydequadros
 ---
 
@@ -18,7 +18,7 @@ ms.author: v-ydequadros
 > CloudKnox Permissions Management (CloudKnox) is currently in PREVIEW.
 > Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
 
-The **Usage Analytics** dashboard in CloudKnox Permissions Management (CloudKnox) provides details about identities, resources, and tasks that you can use make informed decisions about granting permissions, and reducing risk on unused permissions.
+The **Analytics** dashboard in CloudKnox Permissions Management (CloudKnox) collects detailed information, analyzes, reports on, and visualizes data about all identity types. System administrators can use the information to make informed decisions about granting permissions and reducing risk on unused permissions for: 
 
 - **Users**: Tracks assigned permissions and usage of various identities.
 - **Groups**: Tracks assigned permissions and usage of the group and the group members.
@@ -27,32 +27,32 @@ The **Usage Analytics** dashboard in CloudKnox Permissions Management (CloudKnox
 - **Access keys**: Tracks the permission usage of access keys for a given user.
 - **Serverless functions**: Tracks assigned permissions and usage of the serverless functions.
 
-The **Usage Analytics** dashboard allows system administrators to collect, analyze, report on, and visualize data about all identity types.
-
 This article describes how to view usage analytics about active resources.
 
-## Create a query to view active tasks
+## Create a query to view active resources
 
-- On the main **Usage Analytics** dashboard, select **Active resources** from the  drop-down list at the top of the screen. 
+1. On the main **Analytics** dashboard, select **Active resources** from the  drop-down list at the top of the screen. 
 
-The dashboard only lists tasks that are active. The following components make up the **Active resources** dashboard:
+    The dashboard only lists tasks that are active. The following components make up the **Active resources** dashboard:
+1. From the dropdowns, select:
+    - **Authorization system type**: The authorization you want to use: Amazon Web Services (AWS), Microsoft Azure, or Google Cloud Platform (GCP).
+    - **Authorization system**: The **List** of accounts and **Folders** ou want to include.
+    - **Tasks type**: Select **All** tasks, **High-risk tasks** or, for a list of tasks where users have deleted data, select **Delete tasks**.
+    - **Service resource type**: The service resource type.
+    - **Search**: Enter criteria to find specific tasks.
 
-- **Authorization system type**: Select the authorization you want to use: Amazon Web Services (AWS), Microsoft Azure, or Google Cloud Platform (GCP).
-- **Authorization system**: Select from a **List** of accounts and **Folders**.
-- **Tasks type**: Select **All** tasks, **High-risk tasks** or, for a list of tasks where users have deleted data, select **Delete tasks**.
-- **Service resource type**: Select the service resource type.
-- **Search**: Enter criteria to find specific tasks.
-- **Apply**: Select to display the criteria you've selected.
-- **Reset filter**: Select to discard your changes.
+1. Select **Apply** to display the criteria you've selected.
+
+    Select**Reset filter** to discard your changes.
 
 
 ## View the results of your query
 
-The **Active resources** table displays the results of your query.
+The **Active resources** table displays the results of your query:
 
 - **Resource Name**: Provides the name of the task. 
     - To view details about the task, select the down arrow. 
-- **Account**: Provides the name of the account.
+- **Account**: The name of the account.
 - **Resources type**: The type of resources used, for example, **bucket** or **key**.
 - **Tasks** Displays the number of **Granted** and **Executed** tasks.
 - **Number of users**: The number of users with access and accessed.
@@ -85,7 +85,6 @@ Filters can be applied in one, two, or all three categories depending on the typ
 
 1. From the **Authorization system type** dropdown, select the authorization system you want to use: **AWS**, **Azure**, or **GCP**. 
 1. From the **Authorization system** dropdown, select from a **List** of accounts and **Folders**.
-1. From the **Tasks type** dropdown, select **All** tasks, **High-risk tasks** or, for a list of tasks where users have deleted data, select **Delete tasks**.
 1. Select **Apply** to run your query and display the information you selected.
 
     Select **Reset filter** to discard your changes. 

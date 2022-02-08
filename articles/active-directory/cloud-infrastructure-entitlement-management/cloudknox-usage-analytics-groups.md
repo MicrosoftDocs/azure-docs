@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/02/2022
+ms.date: 02/07/2022
 ms.author: v-ydequadros
 ---
 
@@ -18,7 +18,7 @@ ms.author: v-ydequadros
 > CloudKnox Permissions Management (CloudKnox) is currently in PREVIEW.
 > Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
 
-The **Usage Analytics** dashboard in CloudKnox Permissions Management (CloudKnox) provides details about identities, resources, and tasks that you can use make informed decisions about granting permissions, and reducing risk on unused permissions.
+The **Analytics** dashboard in CloudKnox Permissions Management (CloudKnox) collects detailed information, analyzes, reports on, and visualizes data about all identity types. System administrators can use the information to make informed decisions about granting permissions and reducing risk on unused permissions for: 
 
 - **Users**: Tracks assigned permissions and usage of various identities.
 - **Groups**: Tracks assigned permissions and usage of the group and the group members.
@@ -27,31 +27,29 @@ The **Usage Analytics** dashboard in CloudKnox Permissions Management (CloudKnox
 - **Access keys**: Tracks the permission usage of access keys for a given user.
 - **Serverless functions**: Tracks assigned permissions and usage of the serverless functions.
 
-The **Usage Analytics** dashboard allows system administrators to collect, analyze, report on, and visualize data about all identity types.
+This article describes how to view usage analytics about groups.
 
-This article describes how to view usage analytics about active groups.
+## Create a query to view groups
 
-## Create a query to view active tasks
+When you select **Groups**, the **Analytics** dashboard provides a high-level overview of tasks used by various identities. 
 
-When you select **Groups**, the **Usage Analytics** dashboard provides a high-level overview of tasks used by various identities. 
+1. On the main **Analytics** dashboard, select **Groups** from the  drop-down list at the top of the screen. 
 
-- On the main **Usage Analytics** dashboard, select **Groups** from the  drop-down list at the top of the screen. 
+    The dashboard displays the groups in your system. The following components make up the **Groups** dashboard:
 
-The dashboard only lists tasks that are active. The following components make up the **Groups** dashboard:
-
-- **Authorization system type**: Select the authorization you want to use: Amazon Web Services (AWS), Microsoft Azure, or Google Cloud Platform (GCP).
-- **Authorization system**: Select from a **List** of accounts and **Folders**.
-- **Group type**: Select **All**, **ED**, or **Local**.
-- **Group activity status**: Select **All**, **Active**, or **Inactive**.
-- **Tasks**: Select **All**, **High-risk tasks**, or **Delete tasks**
-- **Search**: Enter criteria to find specific tasks.
-- **Apply**: Select to display the criteria you've selected.
-- **Reset filter**: Select to discard your changes.
+    - **Authorization system type**: Select the authorization you want to use: Amazon Web Services (AWS), Microsoft Azure, or Google Cloud Platform (GCP).
+    - **Authorization system**: Select from a **List** of accounts and **Folders**.
+    - **Group type**: Select **All**, **ED**, or **Local**.
+    - **Group activity status**: Select **All**, **Active**, or **Inactive**.
+    - **Tasks Type**: Select **All**, **High-risk tasks**, or **Delete tasks**
+    - **Search**: Enter criteria to find specific tasks.
+1. To display the criteria you've selected, select **Apply**.
+    - **Reset filter**: Select to discard your changes.
 
 
 ## View the results of your query
 
-The **Groups** table displays the results of your query.
+The **Groups** table displays the results of your query:
 
 - **Group Name**: Provides the name of the group. 
     - To view details about the group, select the down arrow. 
@@ -76,14 +74,14 @@ The **Groups** table displays the results of your query.
 
 ## View detailed information about a group
 
-1. Select the down arrow to the left of the function name.
+1. Select the down arrow to the left of the **Group name**.
 
-    The pane on the left displays a list of **Tasks** organized by **Used** and **Unused** displays.
+    The list of **Tasks** organized by **Unused** and **Used** displays.
 
 1. Select the arrow to the left of the group name to view details about the task.
 1. Select **Information** (**i**) to view when the task was last used.
 1. From the **Tasks** dropdown, select **All tasks**, **High-risk tasks**, and **Delete tasks**.
-1. The pane on the right displays a list of **Users**, **Policies**, and **Tags**.
+1. The list on the right displays **Users**, **Roles/Policies**, and **Tags**.
 
 ## Apply filters to your query  
 
@@ -143,6 +141,7 @@ You can filter user details by type of user, user role, app, or service used, or
 ## Export the results of your query
 
 - To view a report of the results of your query as a comma-separated values (CSV) file, select **Export**, and then select **CSV**. 
+- To view a list of members of the groups in your query, select **Export**, and then select  **Memberships**. 
 
 
 

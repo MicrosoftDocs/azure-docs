@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: overview
-ms.date: 02/02/2022
+ms.date: 02/07/2022
 ms.author: v-ydequadros
 ---
 
@@ -31,7 +31,7 @@ You can view the following information in CloudKnox:
     - The number of users who have been granted high-risk permissions aren't using them.
     - The number of users who contribute to the permission creep index (PCI) and where they appear on the scale.
 
-- The **Usage Analytics** dashboard provides a snapshot of permission metrics within the last 90 days.
+- The [**Analytics** dashboard](cloudknox-ui-usage-analytics.md) provides a snapshot of permission metrics within the last 90 days.
 
 
 ## Components of the CloudKnox Dashboard
@@ -40,13 +40,13 @@ When you launch CloudKnox, select **Dashboard** to display the following informa
 
 - **Authorization system types**: A drop-down list of authorization system types you can access: Amazon Web Services (AWS), Microsoft Azure (Azure), and Google Cloud Platform (GCP).
  
-- **Authorization systems**: Displays a **List** of accounts and **Folders** in the selected authorization system you can access. 
+- **Authorization system**: Displays a **List** of accounts and **Folders** in the selected authorization system you can access. 
 
-    - Select the accounts and filters you want, and then select **Apply**.
+    - To add or remove accounts and folders, from the **Name** list, select or deselect accounts and folders, and then select **Apply**.
 
-- The **Permission creep index (PCI)** graph displays the **# of identities contributing to PCI**.
+- **Permission creep index (PCI)**: The graph displays the **# of identities contributing to PCI**.
 
-    The PCI graph displays one or more bubbles. Each bubble displays the number of identities that are considered high risk. *High-risk* refers to the number of users who have permissions that exceed their normal or required usage.
+    The PCI graph may display one or more bubbles. Each bubble displays the number of identities that are considered high risk. *High-risk* refers to the number of users who have permissions that exceed their normal or required usage.
     - To display a list of the number of identities contributing to the **Low PCI**, **Medium PCI**, and **High PCI**, select the **List** icon in the upper right of the graph.
     - To display the PCI graph again, select the **Graph** icon in the upper right of the list box. 
 
@@ -55,21 +55,21 @@ When you launch CloudKnox, select **Dashboard** to display the following informa
 
         The following message displays: **We'll email you a link to download the file.** 
         - Check your email for the message from the CloudKnox Customer Success Team. The email contains a link to the **PCI history** report in Microsoft Excel format.
-        <!---Ad Link reports@cloudknox.io---> 
         - The email also includes a link to the **Reports** dashboard, where you can configure how and when you want to receive reports automatically.
     - To view all the PCI changes, select **View all**.
 
-- **Identity**: A summary of the **Findings** that includes the number of identities that are:
-    - **Inactive roles**: A list of roles that haven't been accessed in over 90 days.
-    - **Roles that can access secret information**: A list of roles that can access secret information.
-    - **Over-provisioned active roles**: A list of roles that have more permissions than they currently access.
-    - **Resources that can access secret information**: A list of resources that can access secret information.
-    - **Roles with permission escalation**: A list of roles that can increase permissions.
+- **Identity**: A summary of the **Findings** that includes: 
+    - The number of **Inactive** identities that haven't been accessed in over 90 days.
+    - The number of **Super** identities that access data regularly.
+    - The number of identities that can **Access secret information**: A list of roles that can access sensitive or secret information.
+    - **Over-provisioned active** identities that have more permissions than they currently access.
+    - The number of identities **With permission escalation**: A list of roles that can increase permissions.
 
-    To view the list to all findings, select **All findings**.
+    To view the list of all identities, select **All findings**.
 
 - **Resources**: A summary of the **Findings** that includes the number of resources that are:
     - **Open security groups**
+    - **Microsoft managed keys**
     - **Instances with access to S3 buckets**
     - **Unencrypted S3 buckets**
     - **SSE-S3 Encrypted buckets**
@@ -95,11 +95,12 @@ The **Permission creep index**  heat map shows the incurred risk of users with a
 
     The distribution graph displays all the users who contribute to the permission creep. It displays how many users contribute to a particular score. For example, if the score from the PCI chart is 14, the graph shows how many users have a score of 14.
 
-- The PCI Trend graph shows you the historical trend of the PCI score over the last 90 days. To download the **PCI history report**, select the **Download** icon.
+- The **PCI Trend** graph shows you the historical trend of the PCI score over the last 90 days. 
+    - To download the **PCI history report**, select the **Download** icon.
 
 ### View information on the heat map
 
-1. Select the number on the heat map to display:
+1. Select the number on the heat map bubble to display:
 
 - The total number of **Identities** and how many of them are in the high, medium, and low categories.
 - The **PCI trend** over the last several weeks.
@@ -111,9 +112,9 @@ The **Permission creep index**  heat map shows the incurred risk of users with a
 1. The **Resource** section below the heat map on the right side of the page shows all the relevant findings about resources. It includes unencrypted S3 buckets, open security groups, and so on.
 
 
-## The Usage Analytics summary
+## The Analytics summary
 
-You can also view a summary of users and activities section on the [Usage Analytics dashboard](cloudknox-ui-usage-analytics.md). This dashboard provides a snapshot of the following high-risk tasks or actions users have accessed, and displays the total number of users with the high-risk access, how many users are inactive or have unexecuted tasks, and how many users are active or have executed tasks:
+You can also view a summary of users and activities section on the [Analytics dashboard](cloudknox-ui-usage-analytics.md). This dashboard provides a snapshot of the following high-risk tasks or actions users have accessed, and displays the total number of users with the high-risk access, how many users are inactive or have unexecuted tasks, and how many users are active or have executed tasks:
 
 - **Users with access to high-risk tasks**: Displays the total number of users with access to a high risk task (**Total**), how many users have access but haven't used the task (**Inactive**), and how many users are actively using the task (**Active**).
 
@@ -132,6 +133,6 @@ You can also view a summary of users and activities section on the [Usage Analyt
 ## Next steps
 
 - For information on how to view authorization system and account activity data on the CloudKnox Dashboard, see [View data about the activity in your authorization system](cloudknox-product-dashboard.md).
-- For an overview of the Usage Analytics dashboard, see [An overview of the Usage Analytics  dashboard](cloudknox-ui-usage-analytics.md).
+- For an overview of the Analytics dashboard, see [An overview of the Analytics  dashboard](cloudknox-ui-usage-analytics.md).
 
 

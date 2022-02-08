@@ -55,8 +55,6 @@ This article describes how you can use the **Remediation** dashboard in CloudKno
     If you select **Specific Resources**, a list of available resources appears. Find the resources you want to add, and then select **Add**.
 1. In **Request Conditions**, select **JSON** .
 1. In **Effect**, select **Allow** or **Deny**, and then select **Next**.
-
-1. On the **Statements** page, select **Online** or **Controller enabled** if you did not set it in the previous page.
 1. In **Policy name:**, enter a name for your policy.
 1. To add another statement to your policy, select **Add statement**, and then, from the list of **Statements**, select a statement.
 1. Review your **Task**, **Resources**, **Request Conditions**, and **Effect** settings, and then select **Next**.
@@ -145,8 +143,6 @@ This article describes how you can use the **Remediation** dashboard in CloudKno
     - To add a whole category, select a category.
     - To add individual items from a category, select the down arrow on the left of the category name, and then select individual items.
 1. Select **Next**.
-
-1. On the **Statements** page, select **Online** or **Controller enabled** if you did not set it in the previous page.
 1. In **Role name:**, enter a name for your role.
 1. To add another statement to your role, select **Add statement**, and then, from the list of **Statements**, select a statement.
 1. Review your **Task**, **Resources**, **Request Conditions**, and **Effect** settings, and then select **Next**.

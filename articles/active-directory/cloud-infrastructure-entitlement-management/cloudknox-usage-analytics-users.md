@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/02/2022
+ms.date: 02/08/2022
 ms.author: v-ydequadros
 ---
 
-# View analytic information about  users
+# View analytic information about users
 
 > [!IMPORTANT]
 > CloudKnox Permissions Management (CloudKnox) is currently in PREVIEW.
 > Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
 
-The **Usage Analytics** dashboard in CloudKnox Permissions Management (CloudKnox) provides details about identities, resources, and tasks that you can use make informed decisions about granting permissions, and reducing risk on unused permissions.
+The **Analytics** dashboard in CloudKnox Permissions Management (CloudKnox) collects detailed information, analyzes, reports on, and visualizes data about all identity types. System administrators can use the information to make informed decisions about granting permissions and reducing risk on unused permissions for: 
 
 - **Users**: Tracks assigned permissions and usage of various identities.
 - **Groups**: Tracks assigned permissions and usage of the group and the group members.
@@ -27,24 +27,23 @@ The **Usage Analytics** dashboard in CloudKnox Permissions Management (CloudKnox
 - **Access keys**: Tracks the permission usage of access keys for a given user.
 - **Serverless functions**: Tracks assigned permissions and usage of the serverless functions.
 
-The **Usage Analytics** dashboard allows system administrators to collect, analyze, report on, and visualize data about all identity types.
+This article describes how to view usage analytics about users.
 
-This article describes how to view usage analytics about active users.
+## Create a query to view users
 
-## Create a query to view active users
+When you select **Users**, the **Analytics** dashboard provides a high-level overview of tasks used by various identities. 
 
-When you select **Users**, the **Usage Analytics** dashboard provides a high-level overview of tasks used by various identities. 
+1. On the main **Analytics** dashboard, select **Users** from the  drop-down list at the top of the screen. 
 
-- On the main **Usage Analytics** dashboard, select **Users** from the  drop-down list at the top of the screen. 
+    The following components make up the **Users** dashboard:
 
-The following components make up the **Users** dashboard:
+    - **Authorization system type**: Select the authorization you want to use: Amazon Web Services (AWS), Microsoft Azure, or Google Cloud Platform (GCP).
+    - **Authorization system**: Select from a **List** of accounts and **Folders***.
+    - **Identity type**: Select **All** identity types, **User**, **Role/App/Service a/c** or **Resource**.
+    - **Search**: Enter criteria to find specific tasks.
+1. Select **Apply** to display the criteria you've selected.
 
-- **Authorization system type**: Select the authorization you want to use: Amazon Web Services (AWS), Microsoft Azure, or Google Cloud Platform (GCP).
-- **Authorization system**: Select from a **List** of accounts and **Folders***.
-- **Tasks type**: Select **All** tasks, **High-risk tasks** or, for a list of tasks where users have deleted data, select **Delete tasks**.
-- **Search**: Enter criteria to find specific tasks.
-- **Apply**: Select to display the criteria you've selected.
-- **Reset filter**: Select to discard your changes.
+    Select **Reset filter** to discard your changes. 
 
 
 ## View the results of your query
@@ -61,7 +60,9 @@ The **Identities** table displays the results of your query.
 - **Resources**: The number of resources used.
 - **User groups**: The number of users who accessed the group.
 - **Last activity on**: The date the function was last accessed.
-- Select the ellipses **(...)** and select **Tags** to add a tag or **Auto-remediate** to remediate your results automatically.
+-  The ellipses **(...)**: Select **Tags** to add a tag.
+
+    If you are using AWS, an additional selection is also available from the ellipses menu: **Auto Remediate**. You can use this option to remediate your results automatically.
 
 ## Add a tag to a user
 
@@ -72,10 +73,11 @@ The **Identities** table displays the results of your query.
 1. Select the ellipses **(...)** to select **Advanced save** options, and then select **Save**.
 1. To add the tag to the serverless function, select **Add tag**.
 
-## Set the auto-remediate option
+## Set the auto-remediate option (AWS only)
 
-- Select the ellipses **(...)** and select **Auto-remediate**.
+- Select the ellipses **(...)** and select **Auto Remediate**.
 
+    A message displays to confirm that your remediation settings are automatically updated.
 
 ## Apply filters to your query  
 
@@ -150,8 +152,9 @@ You can filter user details by type of user, user role, app, or service used, or
 
 ## Export the results of your query
 
-- To view a report of the results of your query as a comma-separated values (CSV) file, select **Export**, and then select **CSV**. 
-
+- To export a report of the results of your query as a comma-separated values (CSV) file, select **Export**, and then select **CSV**. 
+- To export the data in a detailed comma-separated values (CSV) file format, select **Export** and then select **CSV (Detailed)**.
+- To export a report of user permissions, select **Export** and then select **Permissions**.
 
 
 ## Next steps
