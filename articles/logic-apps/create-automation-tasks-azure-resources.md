@@ -409,6 +409,7 @@ You can use your favorite web debugging tool to test the template you uploaded t
       if (oSession.url == "raw.githubusercontent.com/azure/automation-task-template/master/templates/list-stale-virtual-machines.json") {
          oSession.url = "raw.githubusercontent.com/sophowe/automation-task-template/upload-auto-template/templates/list-stale-virtual-machines.json";
       }
+
       {...}
    }
    ```
