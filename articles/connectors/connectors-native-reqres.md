@@ -284,7 +284,7 @@ When you use the Request trigger to handle inbound requests, you can model the r
 > [!IMPORTANT]
 > If you have one or more Response actions in a complex workflow with branches, make sure 
 > that the workflow run processes at least one Response action during runtime. 
-> If all Response actions are skipped, the caller will receive `502 Bad Gateway` error, even if the workflow finishes successfully.
+> Otherwise, if all Response actions are skipped, the caller receives a **502 Bad Gateway** error, even if the workflow finishes successfully.
 
 ## Next steps
 
