@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 02/03/2022
+ms.date: 02/08/2022
 ---
 
 # Create cross-environment parameters for workflow inputs in Azure Logic Apps
@@ -39,9 +39,13 @@ In multi-tenant Consumption logic app workflows, after you create and use parame
 In single-tenant Standard logic app workflows, you can work with environment variables both at runtime and deployment by using parameters *and* app settings. App settings contain global configuration options for *all the workflows* in the same logic app resource. For more information, review [Edit host and app settings for single-tenant based logic apps](edit-app-settings-host-settings.md).
 
 > [!NOTE]
-> In Standard logic app workflows, secure data types, such as `securestring` and `secureobject`, aren't supported.
-
-For example, you can use app settings to integrate with Azure Key Vault and [directly reference secure strings](../app-service/app-service-key-vault-references.md), such as connection strings and keys. Similar to ARM templates, where you can define environment variables at deployment time, you can define app settings within your [logic app workflow definition](/azure/templates/microsoft.logic/workflows). You can then capture dynamically generated infrastructure values, such as connection endpoints, storage strings, and more.
+> In Standard logic app workflows, secure data types, such as `securestring` and `secureobject`, 
+> aren't supported. To a different option, you can use app settings with Azure Key Vault. 
+> You can then [directly reference secure strings](../app-service/app-service-key-vault-references.md), 
+> such as connection strings and keys. Similar to ARM templates, where you can define environment 
+> variables at deployment time, you can define app settings within your 
+> [logic app workflow definition](/azure/templates/microsoft.logic/workflows). You can then capture 
+> dynamically generated infrastructure values, such as connection endpoints, storage strings, and more.
 
 However, app settings have size limits and can't be referenced from certain areas in Azure Logic Apps. Parameters offer a wider range of use cases than app settings, such as support for large value sizes and complex objects.
 
