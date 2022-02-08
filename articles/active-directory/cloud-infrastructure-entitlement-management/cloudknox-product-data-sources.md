@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/02/2022
+ms.date: 02/07/2022
 ms.author: v-ydequadros
 ---
 
@@ -23,7 +23,7 @@ You can use the **Data collectors** dashboard in CloudKnox Permissions Managemen
 
 ## Access and view data sources
 
-1. To access your data sources, at the top of the CloudKnox page, select **Settings** (the gear icon). Then select the **Data collectors** tab.
+1. To access your data sources, in the CloudKnox home page, select **Settings** (the gear icon). Then select the **Data collectors** tab.
 
 1. On the **Data collectors** dashboard, select your authorization system type: 
 
@@ -37,7 +37,7 @@ You can use the **Data collectors** dashboard in CloudKnox Permissions Managemen
 
         - **Uploaded on**: Select **All** accounts, **Online** accounts, or **Offline** accounts.
         - **Transformed on**: Select **All** accounts, **Online** accounts, or **Offline** accounts.
-        - **Search**: Enter an ID or IP address to find a specific account.
+        - **Search**: Enter an ID or Internet Protocol (IP) address to find a specific account.
 
     1. Select **Apply** to display the results.
 
@@ -54,17 +54,17 @@ You can use the **Data collectors** dashboard in CloudKnox Permissions Managemen
     - **Recently transformed on**: Displays whether the entitlement data is being processed.
 
         The status displays *ONLINE* if the data processing has no errors and *OFFLINE* if there are errors. 
-    - The **Tenant ID** 
-    - The **Tenant name**
+    - The **Tenant ID**.
+    - The **Tenant name**.
 
 ## Modify a data collector   
 
 1. Select the ellipses **(...)** at the end of the row in the table.
 1. Select **Edit Configuration**. 
 
-    The **M-CIEM On Boarding - Summary** box displays.
+    The **M-CIEM Onboarding - Summary** box displays.
 
-1. Select **Edit** for each field you want to change. 
+1. Select **Edit** (the pencil icon) for each field you want to change. 
 1. Select **Verify now & save**.
 
     To verify your changes later, select **Save & verify later**.
@@ -76,16 +76,17 @@ You can use the **Data collectors** dashboard in CloudKnox Permissions Managemen
 1. Select the ellipses **(...)** at the end of the row in the table.
 1. Select **Delete Configuration**. 
 
-    The **M-CIEM On Boarding - Summary** box displays.
-
-1. Enter the OTP code. 
+    The **M-CIEM Onboarding - Summary** box displays.
 1. Select **Delete**.
+1. Check your email for a one time password (OTP) code, and enter it in **Enter OTP**. 
+
+    If you don't receive an OTP, select **Resend OTP**.
 
     The following message displays: **Successfully deleted configuration.**
 
 ## Start collecting data from an authorization system   
 
-1. Select the **Authorization Systems** tab and select your authorization system type.
+1. Select the **Authorization Systems** tab, and then select your authorization system type.
 1. Select the ellipses **(...)** at the end of the row in the table.
 1. Select **Collect Data**.
 
