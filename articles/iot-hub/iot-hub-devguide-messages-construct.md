@@ -45,7 +45,20 @@ Device-to-cloud messaging with IoT Hub has the following characteristics:
 For more information about how to encode and decode messages sent using different protocols, see [Azure IoT SDKs](iot-hub-devguide-sdks.md).
 
 > [!NOTE]
-> To use your message body in an IoT Hub routing query you must set the content type property of the message to `application/json;charset=utf-8`.
+> Each IoT Hub protocol provides a message content type property which is respected when routing data to custom endpoints.  To have your data properly handled at the destination (e.g. JSON being treated as a parsable string instead of Base64 encoded binary data), you must provide the approparite content type and charset for the message.
+>
+
+To use your message body in an IoT Hub routing query you must provide a valid JSON object for the message and set the content type property of the message to `application/json;charset=utf-8`.
+
+A valid, routablem message body may look like the following:
+
+```json
+{
+    "timestamp": "2022-02-08T20:10:46Z",
+    "tag_name": "spindle_speed",
+    "tag_value": 100
+}
+```
 
 ## System Properties of **D2C** IoT Hub messages
 
