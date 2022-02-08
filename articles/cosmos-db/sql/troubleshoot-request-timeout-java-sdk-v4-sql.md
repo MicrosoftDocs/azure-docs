@@ -84,6 +84,17 @@ Large requests or responses can lead to head-of-line blocking on the channel and
 #### Solution:
 The client application that uses the SDK should be scaled up or out.
 
+### Private Endpoint ports closed
+When in Direct mode the full list of ports is required to be open. Not openning all the ports can cause direct call to fail with the following error, but calls to gateway will succeed.
+
+```
+failed to establish connection to {account name}.documents.azure.com/<unresolved>:3044 due to io.netty.channel.ConnectTimeoutException:
+```
+
+#### Solution:
+Open all the [required ports](https://docs.microsoft.com/azure/cosmos-db/how-to-configure-private-endpoints#port-range-when-using-direct-mode) for private endpoints.
+
+
 ### Failure rate is within the Azure Cosmos DB SLA
 The application should be able to handle transient failures and retry when necessary. Any 408 exceptions aren't retried because on create paths it's impossible to know if the service created the item or not. Sending the same item again for create will cause a conflict exception. User applications business logic might have custom logic to handle conflicts, which would break from the ambiguity of an existing item versus conflict from a create retry.
 
