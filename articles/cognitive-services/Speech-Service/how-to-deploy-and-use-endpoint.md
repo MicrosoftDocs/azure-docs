@@ -64,12 +64,12 @@ To Copy your voice model to another project:
 
 ## Suspend and resume an endpoint
 
-You can **Suspend** and **Resume** your endpoint if you don't use it all the time. With endpoint **Suspend** and **Resume** functions, you can flexibly control the endpoint hosting status and save the hosting costs. The charging will stop once the endpoint is suspended, meanwhile it can’t be used to synthesize speech until you resume it successfully. When an endpoint is reactivated after suspension, the endpoint URL will be kept the same so you don't need to change your code in your apps.
+You can suspend or resume an endpoint, to limit spend and conserve resources that are not in use. You will not be charged while the endpoint is suspended. When you resume an endpoint, you can use the same endpoint URL in your application to synthesize speech. 
 
-You can suspend and resume endpoint via portal or REST API.
+You can suspend and resume an endpoint in Speech Studio or via the REST API.
 
 > [!NOTE]
-> The Suspend or Resume operation will take a while to complete, the Suspend time should be short and the Resume time should be similar to the deployment time.
+> The suspend operation will complete almost immediately. The resume operation completes in about the same amount of time as a new deployment. 
 
 ### Suspend and resume an endpoint in Speech Studio
 
