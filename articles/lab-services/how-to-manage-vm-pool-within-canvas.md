@@ -7,6 +7,8 @@ ms.date: 01/21/2022
 
 # Manage a VM pool in Lab Services from Canvas
 
+[!INCLUDE [preview note](./includes/lab-services-new-update-focused-article.md)]
+
 Virtual machine (VM) creation starts as soon as the lab is published. VMs equaling the number of students in the course list will be created.
 
 ## Update VM pool

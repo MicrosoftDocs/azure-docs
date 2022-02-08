@@ -7,6 +7,8 @@ ms.date: 01/22/2022
 
 # Manage Lab Services user lists from Canvas
 
+[!INCLUDE [preview note](./includes/lab-services-new-update-focused-article.md)]
+
 When a [lab is created within Canvas](how-to-get-started-create-lab-within-canvas.md), the lab user list is automatically populated and synced with the course membership. An automatic sync is triggered every 24 hours.  Educators can also manually sync the user list when needed.
 
 ## Sync users

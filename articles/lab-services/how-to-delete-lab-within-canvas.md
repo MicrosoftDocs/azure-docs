@@ -7,6 +7,8 @@ ms.date: 01/22/2022
 
 # Delete labs within Canvas
 
+[!INCLUDE [preview note](./includes/lab-services-new-update-focused-article.md)]
+
 This article shows how to delete a lab from the **Azure Lab Services** app.
 
 ## Prerequisites
