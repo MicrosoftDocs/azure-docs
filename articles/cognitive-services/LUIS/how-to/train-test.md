@@ -112,13 +112,6 @@ You can test the active version of your app with the published [endpoint](/azure
 
 You can view the endpoint JSON returned for the comparison by selecting the **Show JSON view** in the top-right corner of the panel.
 
-## Additional settings in test panel
-
-### LUIS endpoint
-
-If you have several LUIS endpoints, use the  **Additional Settings**  link under **Test's Published** to change the endpoint used for testing. If you are not sure which endpoint to use, select the default  **Starter_Key**.
-
-:::image type="content" source="../media/luis-how-to-interactive-test/additional-settings-v3-settings.png" alt-text="Test panel with Additional Settings link highlighted" lightbox="../media/luis-how-to-interactive-test/additional-settings-v3-settings.png":::
 
 ## Next steps
 
