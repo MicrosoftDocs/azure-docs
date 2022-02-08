@@ -57,7 +57,7 @@ To confirm which endpoint you should use, we recommend checking your Azure AD te
 
 ### Credential Revocation with Enhanced Privacy
 
-The Azure AD Verifiable Credential service supports the [W3C Status List 2021](https://w3c-ccg.github.io/vc-status-list-2021/) standard. Each Issuer tenant will have an [Identity Hub](https://identity.foundation/identity-hub/spec/) endpoint that is used by verifiers to check on the status of a credential using a privacy-respecting mechanism. The identity hub endpoint for the tenant is also published in the DID document. This feature replaces the current status endpoint.
+The Azure AD Verifiable Credential service supports the [W3C Status List 2021](https://w3c-ccg.github.io/vc-status-list-2021/) standard. Each Issuer tenant now has an [Identity Hub](https://identity.foundation/identity-hub/spec/) endpoint used by verifiers to check on the status of a credential using a privacy-respecting mechanism. The identity hub endpoint for the tenant is also published in the DID document. This feature replaces the current status endpoint.
 
 To uptake this feature follow the next steps:
 1. [Check if your tenant has the Hub endpoint](verifiable-credentials-faq.md#how-can-i-check-if-my-tenant-has-the-new-hub-endpoint).
@@ -94,7 +94,7 @@ Sample contract file:
 3. You have to issue new verifiable credentials using your new configuration. All verifiable credentials previously issued will continue to exist as your previous DID will remain resolvable however, they use the previous status endpoint implementation.
 
 >[!IMPORTANT]
-> Reconfiguring the Azure AD Verifiable Credentials service is required so that the new Identity Hub service endpoint can be created for your tenant. You have until March 31st 2022, to schedule and manage the reconfiguration of your deployment. On March 31st, 2022 deployments that have not been reconfigured will lose access to any previous Azure AD Verifiable Credentials service configuration. Administrators will need to set up a new service instance.
+> You have to reconfigure your Azure AD Verifiable Credential service instance to create your new Identity hub endpoint. You have until March 31st 2022, to schedule and manage the reconfiguration of your deployment. On March 31st, 2022 deployments that have not been reconfigured will lose access to any previous Azure AD Verifiable Credentials service configuration. Administrators will need to set up a new service instance.
 
 ## December 2021
 
