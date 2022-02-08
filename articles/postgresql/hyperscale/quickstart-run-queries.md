@@ -29,20 +29,27 @@ Let's start with a simple `count (*)` to verify how much data we loaded in
 the previous section.
 
 ```sql
-SELECT count(*) FROM http_request;
+-- count all rows (across shards)
+
+SELECT count(*) FROM github_users;
 ```
 
 ```
-┌─────────┐
-│  count  │
-├─────────┤
-│ 1000000 │
-└─────────┘
+ count
+-------
+ 10000
+(1 row)
 ```
 
-Recall that `http_request` is a distributed table, meaning its data is divided
+Recall that `github_users` is a distributed table, meaning its data is divided
 between multiple shards. Hyperscale (Citus) automatically runs the count on all
 the shards in parallel, and combines the results.
+
+```sql
+-- find all events for a single user (common transactional/operational query)
+
+SELECT * from github_events where user_id = 85;
+```
 
 ## More complicated queries
 
@@ -54,17 +61,19 @@ Here's an example of a more complicated query, which retrieves minute-by-minute
 statistics for requests at each site:
 
 ```sql
-SELECT
-  site_id,
-  date_trunc('minute', ingest_time) AS minute,
-  COUNT(*) AS req_count,
-  SUM(CASE WHEN (status_code between 200 and 299) THEN 1 ELSE 0 END) AS good_count,
-  SUM(CASE WHEN (status_code between 200 and 299) THEN 0 ELSE 1 END) AS error_count,
-  SUM(response_time_msec) / COUNT(*) AS avg_resp_time
-FROM http_request
-GROUP BY site_id, minute
-ORDER BY minute ASC
-LIMIT 10;
+-- Querying JSONB type. Query is parallelized across nodes.
+-- Find the number of commits to the postgres repo on master per hour 
+
+SELECT repo_name, hour,
+       count(*) OVER (PARTITION BY repo_id) AS repo_events,
+       count(*) OVER (PARTITION BY repo_id, hour) AS hourly_events
+  FROM (
+	SELECT *,
+	       repo->>'name' AS repo_name,
+	       date_trunc('hour', created_at) AS hour
+	  FROM github_events
+  ) evts
+ ORDER BY repo_events DESC;
 ```
 
 ```

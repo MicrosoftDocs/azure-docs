@@ -7,7 +7,7 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.custom: mvc, mode-ui
 ms.topic: quickstart
-ms.date: 02/02/2022
+ms.date: 02/08/2022
 ---
 
 # Model and load data
@@ -40,38 +40,46 @@ Once you've connected via psql, let's create our table. In the psql console,
 run:
 
 ```sql
-CREATE TABLE http_request (
-	site_id INT,
-	ingest_time TIMESTAMPTZ DEFAULT now(),
+CREATE TABLE github_users
+(
+	user_id bigint,
+	url text,
+	login text,
+	avatar_url text,
+	display_login text
+);
 
-	url TEXT,
-	request_country TEXT,
-	ip_address TEXT,
-
-	status_code INT,
-	response_time_msec INT
+CREATE TABLE github_events
+(
+	event_id bigint,
+	event_type text,
+	event_public boolean,
+	repo_id bigint,
+	repo jsonb,
+	user_id bigint,
+	created_at timestamp
 );
 ```
 
 ## Shard tables across worker nodes
 
-Next, we’ll tell Hyperscale (Citus) to shard the `http_request` table. If your
-Hyperscale (Citus) server group is running on the Standard Tier (meaning it has
-worker nodes), then the table shards will be created on workers. If the server
-group is  running on the Basic Tier, then the shards will all be stored on the
-coordinator node.
+Next, we’ll tell Hyperscale (Citus) to shard the tables. If your server group
+is running on the Standard Tier (meaning it has worker nodes), then the table
+shards will be created on workers. If the server group is running on the Basic
+Tier, then the shards will all be stored on the coordinator node.
 
-To shard and distribute the table, call `create_distributed_table()` and
+To shard and distribute the tables, call `create_distributed_table()` and
 specify the table and key to shard it on.
 
 ```sql
-SELECT create_distributed_table('http_request', 'site_id');
+SELECT create_distributed_table('github_users', 'user_id');
+SELECT create_distributed_table('github_events', 'user_id');
 ```
 
 [!INCLUDE [azure-postgresql-hyperscale-dist-alert](../../../includes/azure-postgresql-hyperscale-dist-alert.md)]
 
-By default, `create_distributed_table()` splits the table into 32 shards.
-We can verify using the `citus_shards` view:
+By default, `create_distributed_table()` splits tables into 32 shards.  We can
+verify using the `citus_shards` view:
 
 ```sql
 SELECT table_name, count(*)
@@ -80,85 +88,72 @@ SELECT table_name, count(*)
 ```
 
 ```
-┌──────────────┬───────┐
-│  table_name  │ count │
-├──────────────┼───────┤
-│ http_request │    32 │
-└──────────────┴───────┘
+  table_name   | count
+---------------+-------
+ github_events |    32
+ github_users  |    32
+(2 rows)
 ```
 
 ## Load data into distributed tables
 
-We're ready to load data. For simplicity, let's generate a million rows of
-fake random data:
+We're ready to fill the tables with sample data. For this quickstart, we can
+use random data, modeled loosely on results from the Github API.
 
 ```sql
-INSERT INTO http_request
+-- generate random 10,000 users
+INSERT INTO github_users
 SELECT
-	trunc(random()*1000),
-	-- one three hour span
-	clock_timestamp() + make_interval(secs => random()*60*60),
-	concat('http://example.com/', md5(random()::text)),
-	('{China,India,USA,Indonesia}'::text[])[ceil(random()*4)],
-	concat(
-	  trunc(random()*250 + 2), '.',
-	  trunc(random()*250 + 2), '.',
-	  trunc(random()*250 + 2), '.',
-	  trunc(random()*250 + 2)
-	)::inet,
-	('{200,404}'::int[])[ceil(random()*2)],
-	5+trunc(random()*150)
-FROM generate_series(1, 1000000);
+	id, 
+	'https://api.github.com/users/' || handle,
+	handle,
+	'https://avatars.githubusercontent.com/u/' || id,
+	handle
+FROM (
+	SELECT generate_series(1,10000) id, md5(random()::text) handle
+) AS rnd;
+
+-- generate random 250,000 events
+INSERT INTO github_events
+SELECT
+	id, event_type, public, repo_id,
+	json_build_object(
+		'id', repo_id,
+		'url', 'https://api.github.com/repos/' || display_login || '/' || repo_name,
+		'name', display_login || '/' || repo_name
+	) repo,
+	rnd.user_id, created_at
+FROM (
+	SELECT generate_series(1,250000) id,
+	('{CreateEvent,DeleteEvent,ForkEvent,IssueCommentEvent,IssuesEvent,MemberEvent,PullRequestEvent,PushEvent}'::text[])[ceil(random()*8)] event_type,
+	1=trunc(random()*2) public,
+	trunc(random()*50000) repo_id,
+	trunc(random()*10000) user_id,
+	date_trunc('year', now()) + (trunc(random()*365*24*60*60) * interval '1 second') created_at,
+	md5(random()::text) repo_name
+) rnd
+INNER JOIN github_users u ON (u.user_id = rnd.user_id);
 ```
 
-We can confirm that each shard contains between 3 MB and 5 MB of data.
-Here's data for the first five shards:
+We can confirm the shards now hold data:
 
 ```sql
-SELECT shardid, nodename, table_name, pg_size_pretty(shard_size)
+SELECT table_name, pg_size_pretty(sum(shard_size))
   FROM citus_shards
- LIMIT 5;
+ GROUP BY 1;
 ```
 
 ```
-┌─────────┬──────────────────────────────────────────────────┬──────────────┬────────────────┐
-│ shardid │                    nodename                      │  table_name  │ pg_size_pretty │
-├─────────┼──────────────────────────────────────────────────┼──────────────┼────────────────┤
-│  102136 │ private-c.quickstart.postgres.database.azure.com │ http_request │ 3240 kB        │
-│  102137 │ private-c.quickstart.postgres.database.azure.com │ http_request │ 4464 kB        │
-│  102138 │ private-c.quickstart.postgres.database.azure.com │ http_request │ 3888 kB        │
-│  102139 │ private-c.quickstart.postgres.database.azure.com │ http_request │ 4176 kB        │
-│  102140 │ private-c.quickstart.postgres.database.azure.com │ http_request │ 4008 kB        │
-└─────────┴──────────────────────────────────────────────────┴──────────────┴────────────────┘
+  table_name   | pg_size_pretty
+---------------+----------------
+ github_events | 29 MB
+ github_users  | 2248 kB
+(2 rows)
 ```
 
-The `nodename` column shows the server where the shard is physically placed. If
-you created your server group in the basic tier, all shards are stored together
-on one node, the coordinator.  Otherwise, if the server group is in the
-standard tier, it has multiple worker nodes that store the shards.
-
-To see the exact number of rows in each shard, we can use the
-`run_command_on_shards()` utility function:
-
-```sql
-SELECT run_command_on_shards('http_request', 'SELECT count(*) FROM %s')
- LIMIT 5;
-```
-
-```
-┌───────────────────────┐
-│ run_command_on_shards │
-├───────────────────────┤
-│ (102136,t,24882)      │
-│ (102137,t,34323)      │
-│ (102138,t,29826)      │
-│ (102139,t,32109)      │
-│ (102140,t,30772)      │
-└───────────────────────┘
-```
-
-From the above, we can see that the million rows we inserted are divided into
-about 25k to 35k per shard.
+If you created your server group in the Basic Tier, all shards are stored on
+one node, the coordinator.  Otherwise, if the server group is in the Standard
+Tier, it has multiple worker nodes that store the shards.
 
 ## Next steps
 
