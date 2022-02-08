@@ -818,8 +818,8 @@
     - name: Hyperparameters for AutoML computer vision tasks
       displayName: automl, yolo-5
       href: reference-automl-images-hyperparameters.md
-    - name: Designer module reference
-      displayName: module, reference, algorithm, studio
+    - name: Designer component reference
+      displayName: module, component, reference, algorithm, studio
       href: algorithm-module-reference/module-reference.md
     - name: Monitor data reference
       href: monitor-resource-reference.md
