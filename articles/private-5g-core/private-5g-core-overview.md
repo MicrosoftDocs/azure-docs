@@ -12,11 +12,11 @@ ms.custom: template-overview
 
 # What is Azure Private 5G Core Preview?
 
-Azure Private 5G Core Preview is an Azure cloud service for deploying and managing private mobile networks for enterprises. Private mobile networks provide high performance, low latency, and secure connectivity for 5G Internet of Things (IoT) devices on an enterprise's premises.
+*Azure Private 5G Core Preview* is an Azure cloud service for deploying and managing private mobile networks for enterprises. *Private mobile networks* provide high performance, low latency, and secure connectivity for 5G Internet of Things (IoT) devices on an enterprise's premises.
 
 Azure Private 5G Core enables a single private mobile network distributed across one or more sites around the world. Each site contains a packet core instance deployed on an Azure Stack Edge device.
 
-Each packet core instance is a cloud-native implementation of the 3GPP standards-defined 5G Next Generation Core (5G NGC or 5GC). A packet core instance authenticates end devices and aggregates their data traffic over 5G Standalone wireless and access technologies. Each packet core instance includes the following components:
+Each *packet core instance* is a cloud-native implementation of the 3GPP standards-defined 5G Next Generation Core (5G NGC or 5GC). A packet core instance authenticates end devices and aggregates their data traffic over 5G Standalone wireless and access technologies. Each packet core instance includes the following components:
 
 - A high performance and highly programmable 5G user plane function (UPF).
 - Core control plane functions including policy and subscriber management.
@@ -61,7 +61,7 @@ The following diagram shows the network functions supported by a packet core ins
 Azure Private 5G Core lets you deploy packet core instances directly on an enterprise's premises, using an Azure Stack Edge infrastructure.
 
 Deploying a packet core instance at the enterprise edge ensures complete ownership of all data by the enterprise. It also positions the packet core instance as close as possible to the devices it serves, removing any reliance on cloud connectivity. This allows it to deliver low latency levels through local data processing when combined with application logic in the same location. This provides a number of valuable benefits.
-
+<!-- I think the items in this list should be italic rather than bold unless they are UI elements -->
 - **Machine to machine automation** - Ultra Reliable Low Latency Connectivity (URLLC) for command and control messages from automated systems (like robots or automated guide vehicles). These messages can be processed in real time to prevent stalling, enabling high productivity.
 - **Massive IoT telemetry** - Secure cloud connectivity for data collection from a large density and volume of IoT sensors and devices. Data for health assessment and automated systems can be processed in real time to prevent accidents and ensure on-site safety.
 - **Real-time analytics** - Local processing of real-time operational and diagnostics data. For example, live video feeds can be processed at the edge at minimal expense using AI, ensuring vital actions aren't delayed.
@@ -70,6 +70,7 @@ Deploying a packet core instance at the enterprise edge ensures complete ownersh
 
 Azure Private 5G Core is able to leverage this low latency with the security and high bandwidth offered by private 5G networks. This puts it in the optimal position to support Industry 4.0 use cases, such as the following:
 
+<!-- I think the items in this list should be italic rather than bold unless they are UI elements -->
 - **Manufacturing** - Production-line analytics and warehouse automation with robots.
 - **Public safety** - Mobility and connectivity for emergency workers and disaster recovery operatives.
 - **Energy and utilities** - Backhaul networks for smart meters and network slicing/control.
@@ -121,6 +122,7 @@ Azure Private 5G Core provides proactive, real-time analysis of all message traf
 
 Azure Private 5G Core includes and utilizes the following Azure services:
 
+<!-- I think the items in this list should be italic rather than bold unless they are UI elements -->
 - **Azure Cloud Services** - You can deploy and manage your private mobile network using the cloud, as described in [Native Azure service management](#native-azure-service-management).
 - **Azure Stack Edge** - Each packet core instance must be deployed on an Azure Stack Edge Pro with GPU.
 - **Azure Network Function Manager** - Azure Network Function Manager allows you to deploy a packet core instance to your Azure Stack Edge device using consistent Azure tools and interfaces. For more information, see [Azure Network Function Manager](/azure/network-function-manager/overview).
