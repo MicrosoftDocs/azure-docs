@@ -1,3 +1,12 @@
+---
+author: justinha
+ms.service: active-directory
+ms.topic: include
+ms.date: 02/08/2022
+ms.author: justinha
+---
+... include content ...
+
 To configure your certificate authorities in Azure Active Directory, for each certificate authority, upload the following:
 
 * The public portion of the certificate, in *.cer* format

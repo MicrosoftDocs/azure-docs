@@ -1,3 +1,12 @@
+---
+author: justinha
+ms.service: active-directory
+ms.topic: include
+ms.date: 02/08/2022
+ms.author: justinha
+---
+... include content ...
+
 To remove a trusted certificate authority, use the [Remove-AzureADTrustedCertificateAuthority](/powershell/module/azuread/remove-azureadtrustedcertificateauthority) cmdlet:
 
 ```azurepowershell

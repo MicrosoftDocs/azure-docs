@@ -1,3 +1,12 @@
+---
+author: justinha
+ms.service: active-directory
+ms.topic: include
+ms.date: 02/08/2022
+ms.author: justinha
+---
+... include content ...
+
 
 To create a trusted certificate authority, use the [New-AzureADTrustedCertificateAuthority](/powershell/module/azuread/new-azureadtrustedcertificateauthority) cmdlet and set the **crlDistributionPoint** attribute to a correct value:
 
