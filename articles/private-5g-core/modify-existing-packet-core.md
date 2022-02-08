@@ -12,7 +12,7 @@ ms.custom: template-how-to
 
 # Modify the packet core instance in an existing site
 
-A packet core instance is a cloud native implementation of the 3GPP standards-defined 5G Next Generation Core (5G NGC or 5GC). Each Azure Private 5G Core Preview site hosts a packet core instance.
+A *packet core instance* is a cloud native implementation of the 3GPP standards-defined 5G Next Generation Core (5G NGC or 5GC). Each Azure Private 5G Core Preview site hosts a packet core instance.
 
 In this how-to guide, you'll learn how to make changes to the packet core instance in an existing site. You may want to do this if you need to change the way the packet core instance connects to the access or data networks. You can also change configuration for network address and port translation (NAPT).
 
@@ -36,7 +36,7 @@ In this step, you'll modify configuration for your chosen packet core instance i
 
     :::image type="content" source="media/mobile-network-search.png" alt-text="Screenshot of the Azure portal. It shows the results of a search for a Mobile Network resource.":::
 
-1. In the resource menu, select **Sites**.
+1. In the **Resource** menu, select **Sites**.
 
     :::image type="content" source="media/modify-existing-packet-core/sites-resource-menu-option.png" alt-text="Screenshot of the Azure portal. It shows the sites resource menu option for a Mobile Network resource.":::
 
@@ -44,7 +44,7 @@ In this step, you'll modify configuration for your chosen packet core instance i
 
     :::image type="content" source="media/modify-existing-packet-core/sites-list.png" alt-text="Screenshot of the Azure portal. It shows a list of existing sites in a private mobile network.":::
 
-1. In the resource menu, select **Network functions**.
+1. In the **Resource** menu, select **Network functions**.
 
     :::image type="content" source="media/modify-existing-packet-core/network-functions-resource-menu-option.png" alt-text="Screenshot of the Azure portal. It shows the network functions resource menu option for a site.":::
 
