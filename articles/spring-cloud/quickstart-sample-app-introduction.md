@@ -13,6 +13,9 @@ zone_pivot_groups: programming-languages-spring-cloud
 # Introduction to the sample app
 
 ::: zone pivot="programming-language-csharp"
+
+**This article applies to:** ✔️ Basic/Standard tier ❌ Enterprise tier
+
 This series of quickstarts uses a sample app composed of two microservices to show how to deploy a .NET Core Steeltoe app to the Azure Spring Cloud service. You'll use Azure Spring Cloud capabilities such as service discovery, config server, logs, metrics, and distributed tracing.
 
 ## Functional services
@@ -59,11 +62,12 @@ The instructions in the following quickstarts refer to the source code as needed
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
+
+**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+
 In this quickstart, we use the microservices version of the well-known sample app [PetClinic](https://github.com/spring-petclinic/spring-petclinic-microservices) that will show you how to deploy apps to the Azure Spring Cloud service. The **Pet Clinic** sample demonstrates the microservice architecture pattern and highlights the services breakdown. You will see how services are deployed to Azure with Azure Spring Cloud capabilities, including service discovery, config server, logs, metrics, distributed tracing, and developer-friendly tooling support.
 
 To follow the Azure Spring Cloud deployment examples, you only need the location of the source code, which is provided as needed.
-
-![Architecture of PetClinic](media/build-and-deploy/microservices-architecture-diagram.jpg)
 
 ## Functional services to be deployed
 
@@ -78,8 +82,17 @@ PetClinic is decomposed into 4 core microservices. All of them are independently
 
 There are several common patterns in distributed systems that support core services. Azure Spring Cloud provides tools that enhance Spring Boot applications to implement the following patterns:
 
+### [Basic/Standard tier](#tab/basic-standard-tier)
+
 * **Config service**: Azure Spring Cloud Config is a horizontally scalable centralized configuration service for distributed systems. It uses a pluggable repository that currently supports local storage, Git, and Subversion.
 * **Service discovery**: It allows automatic detection of network locations for service instances, which could have dynamically assigned addresses because of autoscaling, failures, and upgrades.
+
+### [Enterprise tier](#tab/enterprise-tier)
+
+* **Application Configuration Service**: Application Configuration Service is one of the proprietary VMware Tanzu components. It enables the management of Kubernetes-native ConfigMap resources that are populated from properties defined in one or more Git repositories.
+* **Service Registry**: Service Registry is one of the proprietary VMware Tanzu components. It provides your apps with an implementation of the Service Discovery pattern, one of the key tenets of a microservice-based architecture. Your apps can use the Service Registry to dynamically discover and call registered services.
+
+---
 
 ## Database configuration
 
