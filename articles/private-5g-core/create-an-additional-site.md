@@ -16,9 +16,8 @@ Azure Private 5G Core private mobile networks include one or more sites. Each si
 ## Prerequisites
 
 - Complete the steps in [Allocate subnets and IP addresses](complete-private-mobile-network-prerequisites.md#allocate-subnets-and-ip-addresses) and [Order and set up your Azure Stack Edge Pro device(s)](complete-private-mobile-network-prerequisites.md#order-and-set-up-your-azure-stack-edge-pro-devices) for your new site.
-- Retrieve the name of the custom location that targets the Azure Kubernetes Service on Azure Stack HCI (AKS-HCI) cluster on the Azure Stack Edge Pro device in the site. You commissioned the AKS-HCI cluster as part of the steps in [Order and set up your Azure Stack Edge Pro device(s)](complete-private-mobile-network-prerequisites.md#order-and-set-up-your-azure-stack-edge-pro-devices).
-- Ensure you can sign in to the Azure portal using an account with access to the active subscription you used to create your private mobile network. This account must have the built-in Contributor or Owner role at the subscription scope.
 - Collect all of the information in [Collect the required information for a site](collect-required-information-for-a-site.md).
+- Ensure you can sign in to the Azure portal using an account with access to the active subscription you used to create your private mobile network. This account must have the built-in Contributor or Owner role at the subscription scope.
 
 ## Create the Mobile Network Site resource
 
@@ -41,7 +40,12 @@ In this step, you'll create the **Mobile Network Site** resource representing th
 
     :::image type="content" source="media/how-to-guide-deploy-a-private-mobile-network-azure-portal/create-site-packet-core-tab.png" alt-text="Screenshot of the Azure portal showing the Packet core configuration tab for a site resource.":::
 
-1. In the **Packet core** section, ensure **Technology type** is set to *5G*, and then leave the **Version** and **Custom location** fields blank unless you've been instructed to do otherwise by your support representative.
+1. In the **Packet core** section, set the fields as follows.
+
+    - Set **Technology type** to *5G*.
+    - Leave the **Version** field blank unless you've been instructed to do otherwise by your support representative.
+    - Set **Custom location** to the custom location you collected in [Collect custom location information](collect-required-information-for-a-site.md#collect-custom-location-information).
+
 1. Use the information you collected in [Collect access network values](collect-required-information-for-a-site.md#collect-access-network-values) to fill out the fields in the **Access network** section. Note the following.
 
     - Use the same value for both the **N2 subnet** and **N3 subnet** fields.
@@ -69,13 +73,7 @@ In this step, you'll create the **Mobile Network Site** resource representing th
     :::image type="content" source="media/how-to-guide-deploy-a-private-mobile-network-azure-portal/site-and-related-resources.png" alt-text="Screenshot of the Azure portal showing a resource group containing a site and its related resources." lightbox="media/how-to-guide-deploy-a-private-mobile-network-azure-portal/site-and-related-resources.png":::
 
 1. Select the **Mobile Network Site** resource.
-1. Select **Configure a custom location**.
-
-    :::image type="content" source="media/configure-a-custom-location.png" alt-text="Screenshot of the Azure portal showing the Configure a custom location option.":::
-
-1. On the **Configuration** tab, set **Custom ARC location** to the custom location that targets the AKS-HCI cluster on the Azure Stack Edge Pro device in the site. Ensure you select the correct resource, as this can't be reversed once you've applied it.
-1. Select **Apply**.
-1. Return to the **Mobile Network Site** resource and confirm that the **Edge custom location** field is now displaying the correct **Custom location** resource.
+1. Confirm that the **Edge custom location** field is displaying the correct **Custom location** resource.
 
     :::image type="content" source="media/configured-custom-location.png" alt-text="Screenshot of the Azure portal showing a correctly configured custom location on a site.":::
 

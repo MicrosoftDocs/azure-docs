@@ -18,7 +18,6 @@ You'll create the following resources as part of this how-to guide.
 - The mobile network resource representing your private mobile network as a whole.
 - (Optionally) SIM resources representing the physical SIMs or eSIMs that will be served by the private mobile network.
 
-
 ## Prerequisites
 
 - Complete all of the steps in [Complete the prerequisite tasks for deploying a private mobile network](complete-private-mobile-network-prerequisites.md).

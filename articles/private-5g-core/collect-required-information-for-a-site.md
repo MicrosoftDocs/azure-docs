@@ -20,15 +20,20 @@ You must have completed all of the steps in [Allocate subnets and IP addresses](
 
 ## Collect site resource values
 
-Collect all the values in the following tables for the site you want to deploy in your private mobile network.
+Collect all the values in the following table for the site you want to create.
 
    |Value  |Field name in Azure portal  |
    |---------|---------|
-   |The Azure subscription to use to deploy the site resource. You must use the same subscription for all resources in your private mobile network deployment.                  |**Project details: Subscription**
-   |The Azure resource group to use to deploy the site resource. We recommend that you use the same resource group that already contains your private mobile network.                |**Project details: Resource group**|
+   |The Azure subscription to use to create the site resource. You must use the same subscription for all resources in your private mobile network deployment.                  |**Project details: Subscription**|
+   |The Azure resource group in which to create the site resource. We recommend that you use the same resource group that already contains your private mobile network.                |**Project details: Resource group**|
    |The name for the site.           |**Instance details: Name**|
-   |The region in which you’re deploying the site. We recommend that you use the East US region.                         |**Instance details: Region**|
+   |The region in which you’re creating the site. We recommend that you use the East US region.                         |**Instance details: Region**|
    |The private mobile network resource representing the network to which you’re adding the site. |**Instance details: Mobile network**|
+
+## Collect custom location information
+
+Collect the name of the custom location that targets the Azure Kubernetes Service on Azure Stack HCI (AKS-HCI) cluster on the Azure Stack Edge Pro device in the site. You commissioned the AKS-HCI cluster as part of the steps in [Order and set up your Azure Stack Edge Pro device(s)](complete-private-mobile-network-prerequisites.md#order-and-set-up-your-azure-stack-edge-pro-devices).
+
 
 ## Collect access network values
 

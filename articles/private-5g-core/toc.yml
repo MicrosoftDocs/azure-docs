@@ -40,7 +40,7 @@ items:
     items:
     - name: Collect the required information for a site
       href: collect-required-information-for-a-site.md    
-    - name: Create an additional site
+    - name: Create a site
       href: create-an-additional-site.md
     - name: Modify an existing packet core instance
       href: modify-existing-packet-core.md
