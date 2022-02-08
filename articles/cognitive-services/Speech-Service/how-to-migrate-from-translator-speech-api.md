@@ -62,4 +62,3 @@ If you or your organization have applications in development or production that 
 ## See also
 
 * [What is the Speech service](overview.md)
-* [Speech service and Speech SDK documentation](./speech-devices-sdk-quickstart.md?pivots=platform-android)

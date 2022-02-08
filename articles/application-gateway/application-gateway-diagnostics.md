@@ -212,7 +212,11 @@ The access log is generated only if you've enabled it on each Application Gatewa
 |httpVersion     | HTTP version of the request.        |
 |receivedBytes     | Size of packet received, in bytes.        |
 |sentBytes| Size of packet sent, in bytes.|
-|timeTaken| Length of time (in **seconds**) that it takes for a request to be processed and its response to be sent. This is calculated as the interval from the time when Application Gateway receives the first byte of an HTTP request to the time when the response send operation finishes. It's important to note that the Time-Taken field usually includes the time that the request and response packets are traveling over the network. |
+|clientResponseTime| Length of time (in **seconds**) that it takes for the first byte of a client request to be processed and the first byte sent in the response to the client. |
+|timeTaken| Length of time (in **seconds**) that it takes for the first byte of a client request to be processed and its last-byte sent in the response to the client. It's important to note that the Time-Taken field usually includes the time that the request and response packets are traveling over the network. |
+|WAFEvaluationTime| Length of time (in **seconds**) that it takes for the request to be processed by the WAF. |
+|WAFMode| Value can be either Detection or Prevention |
+|transactionId| Unique identifier to correlate the request received from the client |
 |sslEnabled| Whether communication to the back-end pools used TLS. Valid values are on and off.|
 |sslCipher| Cipher suite being used for TLS communication (if TLS is enabled).|
 |sslProtocol| SSL/TLS protocol being used (if TLS is enabled).|
@@ -246,7 +250,10 @@ The access log is generated only if you've enabled it on each Application Gatewa
         "httpVersion": "HTTP\/1.1",
         "receivedBytes": 184,
         "sentBytes": 466,
+        "clientResponseTime": 0,
         "timeTaken": 0.034,
+        "WAFEvaluationTime": "0.000",
+        "WAFMode": "Detection",
         "transactionId": "592d1649f75a8d480a3c4dc6a975309d",
         "sslEnabled": "on",
         "sslCipher": "ECDHE-RSA-AES256-GCM-SHA384",

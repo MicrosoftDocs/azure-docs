@@ -4,7 +4,7 @@ description: Describes the functions to use in a Bicep file to work with strings
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 10/29/2021
+ms.date: 02/07/2022
 ---
 
 # String functions for Bicep
@@ -471,6 +471,13 @@ This function is helpful when you need to create a value in the format of a glob
 
 The returned value isn't a random string, but rather the result of a hash function on the parameters. The returned value is 36 characters long. It isn't globally unique. To create a new GUID that isn't based on that hash value of the parameters, use the [newGuid](#newguid) function.
 
+> [!NOTE]
+> The order of the parameters affects the returned value. For example:
+>
+> `guid('hello', 'world')` and `guid('world', 'hello')`
+>
+> don't return the same value.
+
 The following examples show how to use guid to create a unique value for commonly used levels.
 
 Unique scoped to subscription
@@ -701,7 +708,7 @@ Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
 You can only use this function within an expression for the default value of a parameter. Using this function anywhere else in a Bicep file returns an error. The function isn't allowed in other parts of the Bicep file because it returns a different value each time it's called. Deploying the same Bicep file with the same parameters wouldn't reliably produce the same results.
 
-The newGuid function differs from the [guid](#guid) function because it doesn't take any parameters. When you call guid with the same parameter, it returns the same identifier each time. Use guid when you need to reliably generate the same GUID for a specific environment. Use newGuid when you need a different identifier each time, such as deploying resources to a test environment.
+The newGuid function differs from the [guid](#guid) function because it doesn't take any parameters. When you call guid with the same parameters, it returns the same identifier each time. Use guid when you need to reliably generate the same GUID for a specific environment. Use newGuid when you need a different identifier each time, such as deploying resources to a test environment.
 
 The newGuid function uses the [Guid structure](/dotnet/api/system.guid) in the .NET Framework to generate the globally unique identifier.
 

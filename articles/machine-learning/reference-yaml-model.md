@@ -19,6 +19,8 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
+[!INCLUDE [schema note](../../includes/machine-learning-preview-old-json-schema-note.md)]
+
 ## YAML syntax
 
 | Key | Type | Description | Allowed values |
@@ -43,10 +45,10 @@ Examples are available in the [examples GitHub repository](https://github.com/Az
 
 ## YAML: local file
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/assets/model/local-file.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/assets/model/local-file.yml":::
 
 ## YAML: local folder in MLflow format
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/assets/model/local-mlflow.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/assets/model/local-mlflow.yml":::
 
 - [Install and use the CLI (v2)](how-to-configure-cli.md)

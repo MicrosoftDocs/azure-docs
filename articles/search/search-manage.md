@@ -56,13 +56,13 @@ Service administration is lightweight by design, and is often defined by the tas
 * [Control access to admin operations](search-security-rbac.md) through role-based security
 * [Configure IP firewall rules](service-configure-firewall.md) to restrict access by IP address
 * [Configure a private endpoint](service-create-private-endpoint.md) using Azure Private Link and a private virtual network
-* [Monitor service health](search-monitor-usage.md): storage, query volumes, and latency
+* [Monitor service health and operations](monitor-azure-cognitive-search.md): storage, query volumes, and latency
 
 You can also enumerate all of the objects created on the service: indexes, indexers, data sources, skillsets, and so forth. The portal's overview page shows you all of the content that exists on your service. The vast majority of operations on a search service are content-related.
 
 The same management tasks performed in the portal can also be handled programmatically through the [Management REST APIs](/rest/api/searchmanagement/), [Az.Search PowerShell module](search-manage-powershell.md), [az search Azure CLI module](search-manage-azure-cli.md), and the Azure SDKs for .NET, Python, Java, and JavaScript. Administrative tasks are fully represented across portal and all programmatic interfaces. There is no specific administrative task that is available in only one modality.
 
-Cognitive Search leverages other Azure services for deeper monitoring and management. By itself, the only data stored within the search service is object content (indexes, indexer and data source definitions, and other objects). Metrics reported out to portal pages are pulled from internal logs on a rolling 30-day cycle. For user-controlled log retention and additional events, you will need [Azure Monitor](../azure-monitor/index.yml). For more information about setting up diagnostic logging for a search service, see [Collect and analyze log data](search-monitor-logs.md).
+Cognitive Search leverages other Azure services for deeper monitoring and management. By itself, the only data stored within the search service is object content (indexes, indexer and data source definitions, and other objects). Metrics reported out to portal pages are pulled from internal logs on a rolling 30-day cycle. For user-controlled log retention and additional events, you will need [Azure Monitor](../azure-monitor/index.yml). For more information about setting up diagnostic logging for a search service, see [Collect and analyze log data](monitor-azure-cognitive-search.md).
 
 ## Administrator permissions
 
@@ -75,7 +75,7 @@ In Azure resource, administrative rights are granted through role assignments. I
 
 ## Next steps
 
-* Review [monitoring capabilities](search-monitor-usage.md) available in the portal
+* Review [monitoring capabilities](monitor-azure-cognitive-search.md) available in the portal
 * Automate with [PowerShell](search-manage-powershell.md) or [Azure CLI](search-manage-azure-cli.md)
 * Review [security features](search-security-overview.md) to protect content and operations
-* Enable [diagnostic logging](search-monitor-logs.md) to monitor query and indexing workloads
+* Enable [diagnostic logging](monitor-azure-cognitive-search.md) to monitor query and indexing workloads

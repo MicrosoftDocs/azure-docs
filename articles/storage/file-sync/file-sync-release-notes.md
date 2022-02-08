@@ -5,7 +5,7 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/2/2021
+ms.date: 12/1/2021
 ms.author: wgries
 ms.subservice: files
 ---
@@ -20,13 +20,14 @@ The following Azure File Sync agent versions are supported:
 
 | Milestone | Agent version number | Release date | Status |
 |----|----------------------|--------------|------------------|
-| V14 Release - [KB5001872](https://support.microsoft.com/topic/92290aa1-75de-400f-9442-499c44c92a81)| 14.0.0.0 | October 29, 2021 | Supported - Flighting |
+| V14.1 Release - [KB5001873](https://support.microsoft.com/topic/d06b8723-c4cf-4c64-b7ec-3f6635e044c5)| 14.1.0.0 | December 1, 2021 | Supported |
+| V14 Release - [KB5001872](https://support.microsoft.com/topic/92290aa1-75de-400f-9442-499c44c92a81)| 14.0.0.0 | October 29, 2021 | Supported |
 | V13 Release - [KB4588753](https://support.microsoft.com/topic/632fb833-42ed-4e4d-8abd-746bd01c1064)| 13.0.0.0 | July 12, 2021 | Supported |
-| V12.1 Release - [KB4588751](https://support.microsoft.com/topic/497dc33c-d38b-42ca-8015-01c906b96132)| 12.1.0.0 | May 20, 2021 | Supported |
-| V12 Release - [KB4568585](https://support.microsoft.com/topic/b9605f04-b4af-4ad8-86b0-2c490c535cfd)| 12.0.0.0 | March 26, 2021 | Supported |
-| V11.3 Release - [KB4539953](https://support.microsoft.com/topic/f68974f6-bfdd-44f4-9659-bf2d8a696c26)| 11.3.0.0 | April 7, 2021 | Supported |
-| V11.2 Release - [KB4539952](https://support.microsoft.com/topic/azure-file-sync-agent-v11-2-release-february-2021-c956eaf0-cd8e-4511-98c0-e5a1f2c84048)| 11.2.0.0 | February 2, 2021 | Supported |
-| V11.1 Release - [KB4539951](https://support.microsoft.com/help/4539951)| 11.1.0.0 | November 4, 2020 | Supported |
+| V12.1 Release - [KB4588751](https://support.microsoft.com/topic/497dc33c-d38b-42ca-8015-01c906b96132)| 12.1.0.0 | May 20, 2021 | Supported - Agent version expires on May 23, 2022 |
+| V12 Release - [KB4568585](https://support.microsoft.com/topic/b9605f04-b4af-4ad8-86b0-2c490c535cfd)| 12.0.0.0 | March 26, 2021 | Supported - Agent version expires on May 23, 2022 |
+| V11.3 Release - [KB4539953](https://support.microsoft.com/topic/f68974f6-bfdd-44f4-9659-bf2d8a696c26)| 11.3.0.0 | April 7, 2021 | Supported - Agent version expires on March 28, 2022 |
+| V11.2 Release - [KB4539952](https://support.microsoft.com/topic/azure-file-sync-agent-v11-2-release-february-2021-c956eaf0-cd8e-4511-98c0-e5a1f2c84048)| 11.2.0.0 | February 2, 2021 | Supported - Agent version expires on March 28, 2022 |
+| V11.1 Release - [KB4539951](https://support.microsoft.com/help/4539951)| 11.1.0.0 | November 4, 2020 | Supported - Agent version expires on March 28, 2022 |
 
 ## Unsupported versions
 The following Azure File Sync agent versions have expired and are no longer supported:
@@ -46,18 +47,32 @@ The following Azure File Sync agent versions have expired and are no longer supp
 ### Azure File Sync agent update policy
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
 
+## Agent version 14.1.0.0
+The following release notes are for version 14.1.0.0 of the Azure File Sync agent released December 1, 2021. These notes are in addition to the release notes listed for version 14.0.0.0.
+
+### Improvements and issues that are fixed 
+- Tiered files deleted on Windows Server 2022 are not detected by cloud tiering filter driver
+	- This issue occurs because the DeleteFile API on Windows Server 2022 uses the FILE_DISPOSITION_INFORMATION_EX class to delete files. The v14.1 release adds support for detecting tiered files deleted using the FILE_DISPOSITION_INFORMATION_EX class.
+    
+    > [!Note]  
+    > This issue can also impact Windows 2016 and Windows Server 2019 if a tiered file is deleted using the FILE_DISPOSITION_INFORMATION_EX class.
+
 ## Agent version 14.0.0.0
 The following release notes are for version 14.0.0.0 of the Azure File Sync agent (released October 29, 2021).
 
 ### Improvements and issues that are fixed
+- Reduced transactions when cloud change enumeration job runs 
+	- Azure File Sync has a cloud change enumeration job that runs every 24 hours to detect changes made directly in the Azure file share and sync those changes to servers in your sync groups. We have made improvements to reduce the number of transactions when this job runs.
+
 - Improved server endpoint deprovisioning guidance in the portal
 	- When removing a server endpoint via the portal, we now provide step by step guidance based on the reason behind deleting the server endpoint, so that you can avoid data loss and ensure your data is where it needs to be (server or Azure file share). This feature also includes new PowerShell cmdlets (Get-StorageSyncStatus & New-StorageSyncUploadSession) that you can use on your local server to aid you through the deprovisioning process.
 
 - Invoke-AzStorageSyncChangeDetection cmdlet improvements
-	- Prior to the v14 release, if you made changes directly in the Azure file share, you could use the Invoke-AzStorageSyncChangeDetection cmdlet to detect the changes and sync them to the servers in your sync group. However, the cmdlet would fail to run if the path specified contained more than 10,000 items. We have improved the Invoke-AzStorageSyncChangeDetection cmdlet and the 10,000 item limit no longer applies when scanning the entire share. To learn more, see the [Invoke-AzStorageSyncChangeDetection](https://docs.microsoft.com/powershell/module/az.storagesync/invoke-azstoragesyncchangedetection) documentation.
+	- Prior to the v14 release, if you made changes directly in the Azure file share, you could use the Invoke-AzStorageSyncChangeDetection cmdlet to detect the changes and sync them to the servers in your sync group. However, the cmdlet would fail to run if the path specified contained more than 10,000 items. We have improved the Invoke-AzStorageSyncChangeDetection cmdlet and the 10,000 item limit no longer applies when scanning the entire share. To learn more, see the [Invoke-AzStorageSyncChangeDetection](/powershell/module/az.storagesync/invoke-azstoragesyncchangedetection) documentation.
 
 - Miscellaneous improvements
 	- Azure File Sync is now supported in West US 3 region.
+	- Fixed a bug that caused the FileSyncErrorsReport.ps1 script to not provide the list of all per-item errors.
 	- Reduced transactions when a file consistently fails to upload due to a per-item sync error.
 	- Reliability and telemetry improvements for cloud tiering and sync. 
 

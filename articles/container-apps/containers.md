@@ -1,11 +1,11 @@
 ---
 title: Containers in Azure Container Apps Preview
 description: Learn how containers are managed and configured in Azure Container Apps
-services: app-service
+services: container-apps
 author: craigshoemaker
-ms.service: app-service
+ms.service: container-apps
 ms.topic: conceptual
-ms.date: 09/16/2021
+ms.date: 11/02/2021
 ms.author: cshoe
 ms.custom: ignite-fall-2021
 ---
@@ -26,6 +26,9 @@ Additional features include:
 - There is no required base container image.
 - Changes to the `template` ARM configuration section triggers a new [container app revision](application-lifecycle-management.md).
 - If a container crashes, it automatically restarts.
+
+> [!NOTE]
+> The only supported protocols for a container app's fully qualified domain name (FQDN) are HTTP and HTTPS through ports 80 and 443 respectively.
 
 ## Configuration
 
@@ -64,7 +67,7 @@ The following example configuration shows the options available when setting up 
 | `args` | Start up command arguments. | Entries in the array are joined together to create a parameter list to pass to the startup command. |
 | `env` | An array of key/value pairs that define environment variables. | Use `secretRef` instead of the `value` field to refer to a secret. |
 | `resources.cpu` | The number of CPUs allocated to the container. | Values must adhere to the following rules: the value must be greater than zero and less than 2, and can be any decimal number, with a maximum of one decimal place. For example, `1.1` is valid, but `1.55` is invalid. The default is 0.5 CPU per container. |
-| `resources.memory` | The amount of RAM allocated to the container. | This value is up to `4Gi`. The only allowed united are [gibibytes](https://simple.wikipedia.org/wiki/Gibibyte) (`Gi`). Values must adhere to the following rules: the value must be greater than zero and less than `4Gi`, and can be any decimal number, with a maximum of two decimal places. For example, `1.25Gi` is valid, but `1.555Gi` is invalid. The default is `1Gi` per container.  |
+| `resources.memory` | The amount of RAM allocated to the container. | This value is up to `4Gi`. The only allowed units are [gibibytes](https://simple.wikipedia.org/wiki/Gibibyte) (`Gi`). Values must adhere to the following rules: the value must be greater than zero and less than `4Gi`, and can be any decimal number, with a maximum of two decimal places. For example, `1.25Gi` is valid, but `1.555Gi` is invalid. The default is `1Gi` per container.  |
 
 The total amount of CPUs and memory requested for all the containers in a container app must add up to one of the following combinations.
 

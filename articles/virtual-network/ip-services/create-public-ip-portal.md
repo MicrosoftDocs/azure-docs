@@ -8,7 +8,7 @@ ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: quickstart
 ms.date: 10/01/2021
-ms.custom: template-quickstart #Required; leave this attribute/value as-is.
+ms.custom: template-quickstart, mode-ui
 ---
 
 # Quickstart: Create a public IP address using the Azure portal

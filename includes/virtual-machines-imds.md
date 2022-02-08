@@ -13,8 +13,7 @@ ms.custom: references_regions
 The Azure Instance Metadata Service (IMDS) provides information about currently running virtual machine instances. You can use it to manage and configure your virtual machines.
 This information includes the SKU, storage, network configurations, and upcoming maintenance events. For a complete list of the data available, see the [Endpoint Categories Summary](#endpoint-categories).
 
-IMDS is available for running instances of virtual machines (VMs) and virtual machine scale set instances. All endpoints support VMs created and managed by using [Azure Resource Manager](/rest/api/resources/). Only
-the Attested category and Network portion of the Instance category support VMs created by using the classic deployment model. The Attested endpoint does so only to a limited extent.
+IMDS is available for running instances of virtual machines (VMs) and virtual machine scale set instances. All endpoints support VMs created and managed by using [Azure Resource Manager](/rest/api/resources/). Only the Attested category and Network portion of the Instance category support VMs created by using the classic deployment model. The Attested endpoint does so only to a limited extent.
 
 IMDS is a REST API that's available at a well-known, non-routable IP address (`169.254.169.254`). You can only access it from within the VM. Communication between the VM and IMDS never leaves the host.
 Have your HTTP clients bypass web proxies within the VM when querying IMDS, and treat `169.254.169.254` the same as [`168.63.129.16`](../articles/virtual-network/what-is-ip-address-168-63-129-16.md).
@@ -46,6 +45,8 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http:
 ```bash
 curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance?api-version=2021-02-01" | jq
 ```
+
+The `jq` utility is available in many cases, but not all. If the `jq` utility is missing, use `| python -m json.tool` instead.
 
 ---
 
@@ -570,6 +571,8 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http:
 curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/compute/tagsList?api-version=2019-06-04" | jq
 ```
 
+The `jq` utility is available in many cases, but not all. If the `jq` utility is missing, use `| python -m json.tool` instead.
+
 ---
 
 **Response**
@@ -649,7 +652,7 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
     "azEnvironment": "AZUREPUBLICCLOUD",
     "extendedLocation": {
       "type": "edgeZone",
-      "location": "microsoftlosangeles"
+      "name": "microsoftlosangeles"
     },
     "evictionPolicy": "",
     "isHostCompatibilityLayerVm": "true",
@@ -704,7 +707,7 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
             "lun": "0",
             "managedDisk": {
               "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/MicrosoftCompute/disks/exampledatadiskname",
-              "storageAccountType": "Standard_LRS"
+              "storageAccountType": "StandardSSD_LRS"
             },
             "name": "exampledatadiskname",
             "opsPerSecondThrottle": "65280",
@@ -735,7 +738,7 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
             },
             "managedDisk": {
                 "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampleosdiskname",
-                "storageAccountType": "Standard_LRS"
+                "storageAccountType": "StandardSSD_LRS"
             },
             "name": "exampleosdiskname",
             "osType": "Windows",
@@ -767,7 +770,7 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
     "azEnvironment": "AZUREPUBLICCLOUD",
     "extendedLocation": {
       "type": "edgeZone",
-      "location": "microsoftlosangeles"
+      "name": "microsoftlosangeles"
     },
     "evictionPolicy": "",
     "isHostCompatibilityLayerVm": "true",
@@ -822,7 +825,7 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
             "lun": "0",
             "managedDisk": {
               "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampledatadiskname",
-              "storageAccountType": "Standard_LRS"
+              "storageAccountType": "StandardSSD_LRS"
             },
             "name": "exampledatadiskname",
             "opsPerSecondThrottle": "65280",
@@ -853,7 +856,7 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
             },
             "managedDisk": {
                 "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampleosdiskname",
-                "storageAccountType": "Standard_LRS"
+                "storageAccountType": "StandardSSD_LRS"
             },
             "name": "exampleosdiskname",
             "osType": "linux",
@@ -979,6 +982,9 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/ne
 ```
 
 ---
+
+>[!NOTE]
+> * If you are looking to retrieve IMDS information for **Standard** SKU Public IP address, review [Load Balancer Metadata API](https://docs.microsoft.com/azure/load-balancer/howto-load-balancer-imds?tabs=windows) for more infomration.
 
 ## Attested data
 

@@ -185,7 +185,7 @@ To learn more about Windows Event Logs, see [Windows Event records properties](.
 - If you encounter a problem, check out our [troubleshooting guide](troubleshoot-azure-monitor.md) for help and known issues.
 
 
-You can also set up Azure Advisor to help you figure out how to resolve or prevent common issues. Learn more at [Use Azure Advisor with Azure Virtual Desktop](azure-advisor.md).
+You can also set up Azure Advisor to help you figure out how to resolve or prevent common issues. Learn more at [Introduction to Azure Advisor](../advisor/advisor-overview.md).
 
 If you need help or have any questions, check out our community resources:
 

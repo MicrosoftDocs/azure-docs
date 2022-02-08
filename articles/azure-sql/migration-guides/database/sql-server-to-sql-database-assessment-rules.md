@@ -8,7 +8,7 @@ ms.devlang:
 ms.topic: how-to
 author: rajeshsetlem
 ms.author: rsetlem
-ms.reviewer: mathoma, cawrites
+ms.reviewer: mathoma, kendralittle
 ms.date: 12/15/2020
 ---
 # Assessment rules for SQL Server to Azure SQL Database migration

@@ -1,8 +1,8 @@
 ---
 title: Monitoring Azure IoT Hub
 description: Start here to learn how to monitor Azure IoT Hub 
-author: robinsh
-ms.author: robinsh
+author: eross-msft
+ms.author: lizross
 ms.topic: conceptual 
 ms.service: iot-hub
 ms.custom: subject-monitoring

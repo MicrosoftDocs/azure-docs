@@ -2,14 +2,14 @@
 title: Authenticate against Azure resources with Azure Arc-enabled servers
 description: This article describes Azure Instance Metadata Service support for Azure Arc-enabled servers and how you can authenticate against Azure resources and local using a secret.
 ms.topic: conceptual
-ms.date: 07/16/2021
+ms.date: 11/08/2021
 ---
 
 # Authenticate against Azure resources with Azure Arc-enabled servers
 
-Applications or processes running directly on an Azure Arc-enabled servers can leverage managed identities to access other Azure resources that support Azure Active Directory-based authentication. An application can obtain an [access token](../../active-directory/develop/developer-glossary.md#access-token) representing its identity, which is system-assigned for Azure Arc-enabled servers, and use it as a 'bearer' token to authenticate itself to another service.
+Applications or processes running directly on an Azure Arc-enabled servers can use managed identities to access other Azure resources that support Azure Active Directory-based authentication. An application can obtain an [access token](../../active-directory/develop/developer-glossary.md#access-token) representing its identity, which is system-assigned for Azure Arc-enabled servers, and use it as a 'bearer' token to authenticate itself to another service.
 
-Refer to the [managed identity overview](../../active-directory/managed-identities-azure-resources/overview.md) documentation for a detailed description of managed identities, as well as the distinction between system-assigned and user-assigned identities.
+Refer to the [managed identity overview](../../active-directory/managed-identities-azure-resources/overview.md) documentation for a detailed description of managed identities, and understand the distinction between system-assigned and user-assigned identities.
 
 In this article, we show you how a server can use a system-assigned managed identity to access Azure [Key Vault](../../key-vault/general/overview.md). Serving as a bootstrap, Key Vault makes it possible for your client application to then use a secret to access resources not secured by Azure Active Directory (AD). For example, TLS/SSL certificates used by your IIS web servers can be stored in Azure Key Vault, and securely deploy the certificates to Windows or Linux servers outside of Azure.
 
@@ -36,9 +36,11 @@ The system environment variable **IDENTITY_ENDPOINT** is used to discover the id
 ## Prerequisites
 
 - An understanding of Managed identities.
+- On Windows, you must be a member of the local **Administrators** group or the **Hybrid Agent Extension Applications** group.
+- On Linux, you must be a member of the **himds** group.
 - A server connected and registered with Azure Arc-enabled servers.
-- You are a member of the [Owner group](../../role-based-access-control/built-in-roles.md#owner)** in the subscription or resource group, in order to perform required resource creation and role management steps.
-- An Azure Key Vault to store and retrieve your credential. and assign the Azure Arc identity access to the KeyVault.
+- You are a member of the [Owner group](../../role-based-access-control/built-in-roles.md#owner) in the subscription or resource group, in order to perform required resource creation and role management steps.
+- An Azure Key Vault to store and retrieve your credential, and assign the Azure Arc identity access to the KeyVault.
 
     - If you don't have a Key Vault created, see [Create Key Vault](../../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-nonaad.md#create-a-key-vault-).
     - To configure access by the managed identity used by the server, see [Grant access for Linux](../../active-directory/managed-identities-azure-resources/tutorial-linux-vm-access-nonaad.md#grant-access) or [Grant access for Windows](../../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-nonaad.md#grant-access). For step number 5, you are going to enter the name of the Azure Arc-enabled server. To complete this using PowerShell, see [Assign an access policy using PowerShell](../../key-vault/general/assign-access-policy-powershell.md).

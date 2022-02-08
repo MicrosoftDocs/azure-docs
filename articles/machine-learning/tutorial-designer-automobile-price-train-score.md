@@ -3,8 +3,8 @@ title: 'Tutorial: Designer - train a no-code regression model'
 titleSuffix: Azure Machine Learning
 description: Train a regression model that predicts car prices using the Azure Machine Learning designer.
 
-author: peterclu
-ms.author: peterlu
+author: lgayhardt
+ms.author: lagayhar
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -56,7 +56,7 @@ You need an Azure Machine Learning workspace to use the designer. The workspace 
 
 1. Select **Designer**.
 
-    ![Screenshot of the visual workspace showing how to access the designer](./media/tutorial-designer-automobile-price-train-score/launch-designer.png)
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/launch-designer.png" alt-text="Screenshot of the visual workspace showing how to access the designer.":::
 
 1. Select **Easy-to-use prebuilt components**.
 
@@ -94,13 +94,13 @@ There are several sample datasets included in the designer for you to experiment
 
 1. Select the dataset **Automobile price data (Raw)**, and drag it onto the canvas.
 
-   ![Drag data to canvas](./media/tutorial-designer-automobile-price-train-score/drag-data.gif)
+   :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/drag-data.gif" alt-text="Gif of dragging data to the canvas.":::
 
 ### Visualize the data
 
 You can visualize the data to understand the dataset that you'll use.
 
-1. Right-click the **Automobile price data (Raw)** and select **Visualize** > **Dataset output**.
+1. Right-click the **Automobile price data (Raw)** and select **Preview Data**.
 
 1. Select the different columns in the data window to view information about each one.
 
@@ -124,7 +124,7 @@ When you train a model, you have to do something about the data that's missing. 
     > You create a flow of data through your pipeline when you connect the output port of one component to an input port of another.
     >
 
-    ![Connect components](./media/tutorial-designer-automobile-price-train-score/connect-modules.gif)
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/connect-modules.gif" alt-text="Screenshot of connecting components.":::
 
 1. Select the **Select Columns in Dataset** component.
 
@@ -140,7 +140,7 @@ When you train a model, you have to do something about the data that's missing. 
 
 1. In the lower right, select **Save** to close the column selector.
 
-    ![Exclude a column](./media/tutorial-designer-automobile-price-train-score/exclude-column.png)
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/exclude-column.png" alt-text="Screenshot of select columns with exclude highlighted.":::
 
 1. Select the **Select Columns in Dataset** component. 
 
@@ -173,7 +173,7 @@ Your dataset still has missing values after you remove the **normalized-losses**
 
     Your pipeline should now look something like this:
 
-    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-clean.png" alt-text="Select-column":::
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-clean.png" alt-text="Screenshot of automobilie price data connected to select columns in dataset componet which is connected to clean missing data.":::
 
 ## Train a machine learning model
 
@@ -192,7 +192,7 @@ Splitting data is a common task in machine learning. You will split your data in
 1. Connect the left port of the **Clean Missing Data** component to the **Split Data** component.
 
     > [!IMPORTANT]
-    > Be sure that the left output ports of **Clean Missing Data** connects to **Split Data**. The left port contains the the cleaned data. The right port contains the discarded data.
+    > Be sure that the left output ports of **Clean Missing Data** connects to **Split Data**. The left port contains the cleaned data. The right port contains the discarded data.
 
 1. Select the **Split Data** component.
 
@@ -217,9 +217,9 @@ Train the model by giving it a dataset that includes the price. The algorithm co
 1. Connect the output of the **Linear Regression** component to the left input of the **Train Model** component.
 
 1. Connect the training data output (left port) of the **Split Data** component to the right input of the **Train Model** component.
-    
+
     > [!IMPORTANT]
-    > Be sure that the left output ports of **Split Data** connects to **Train Model**. The left port contains the the training set. The right port contains the test set.
+    > Be sure that the left output ports of **Split Data** connects to **Train Model**. The left port contains the training set. The right port contains the test set.
 
     :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-train-model.png" alt-text="Screenshot showing the correct configuration of the Train Model component. The Linear Regression component connects to left port of Train Model component and the Split Data component connects to right port of Train Model.":::
 
@@ -281,17 +281,17 @@ Now that your pipeline is all setup, you can submit a pipeline run to train your
 
 After the run completes, you can view the results of the pipeline run. First, look at the predictions generated by the regression model.
 
-1. Right-click the **Score Model** component, and select **Visualize** > **Scored dataset** to view its output.
+1. Right-click the **Score Model** component, and select **Preview data** > **Scored dataset** to view its output.
 
     Here you can see the predicted prices and the actual prices from the testing data.
 
-    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/score-result.png" alt-text="Screenshot of the output visualization highlighting the Scored Label column":::
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/score-result.png" alt-text="Screenshot of the output visualization highlighting the Scored Label column.":::
 
 ### Evaluate models
 
 Use the **Evaluate Model** to see how well the trained model performed on the test dataset.
 
-1. Right-click the **Evaluate Model** component and select **Visualize** > **Evaluation results** to view its output.
+1. Right-click the **Evaluate Model** component and select **Preview data** > **Evaluation results** to view its output.
 
 The following statistics are shown for your model:
 

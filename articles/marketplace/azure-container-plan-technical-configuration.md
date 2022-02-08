@@ -25,7 +25,7 @@ Provide the [**Azure resource group name**](../azure-resource-manager/management
 
 Provide the [**Azure container registry name**](../container-registry/container-registry-intro.md) that has your container image. The container registry must be present in the Azure resource group you provided earlier. Provide only the registry name, not the full login server name. Omit **azurecr.io** from the name. You can find the registry name on the [Container Registries page](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.ContainerRegistry%2Fregistries) in the Azure portal.
 
-Provide the [**Admin username for the Azure Container Registry**](../container-registry/container-registry-authentication.md#admin-account) associated with the Azure Container Registry that has your container image. The username and password (next step) are required to ensure your company has access to the registry. To get the admin username and password, set the **admin-enabled** property to **True** using the Azure Command-Line Interface (CLI). You can optionally set **Admin user** to **Enable** in the Azure portal.
+Provide the [**Admin username for the Azure Container Registry**](../container-registry/container-registry-authentication.md#admin-account) associated with the Azure Container Registry that has your container image. The username and password (next step) are required to ensure your company has access to the registry. To get the admin username and password, set the **admin-enabled** property to **True** using the Azure CLI. You can optionally set **Admin user** to **Enable** in the Azure portal.
 
 :::image type="content" source="media/azure-container/azure-create-12-update-container-registry-edit.png" alt-text="Illustrates the Update container registry dialog box.":::
 
@@ -62,6 +62,6 @@ Select **Save draft**, then **← Plan overview**  in the left-nav menu to retur
 -->
 ## Next steps
 
-- To **Co-sell with Microsoft** (optional), select it in the left-nav menu. For details, see [Co-sell partner engagement](./co-sell-overview.md).
+- To **Co-sell with Microsoft** (optional), select it in the left-nav menu. For details, see [Co-sell partner engagement](/partner-center/co-sell-overview?context=/azure/marketplace/context/context).
 - To **Resell through CSPs** (Cloud Solution Partners, also optional), select it in the left-nav menu. For details, see [Resell through CSP Partners](cloud-solution-providers.md).
 - If you're not setting up either of these or you've finished, it's time to [Review and publish your offer](review-publish-offer.md).

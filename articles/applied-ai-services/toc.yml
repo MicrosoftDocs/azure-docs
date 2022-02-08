@@ -20,7 +20,7 @@
   - name: Azure Cognitive Search
     href: ../search/search-get-started-portal.md
   - name: Azure Video Analyzer
-    href: ../azure-video-analyzer/video-analyzer-docs/detect-motion-emit-events-quickstart.md
+    href: ../azure-video-analyzer/video-analyzer-docs/edge/detect-motion-emit-events-quickstart.md
   - name: Azure Bot Service
     href: /composer/quickstart-create-bot
 - name: Resources

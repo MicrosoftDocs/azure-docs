@@ -242,7 +242,7 @@ There could be several reasons that you don't see an invoice:
 
            ![Screenshot that shows selecting switch directory in the portal](./media/download-azure-invoice/select-switch-directory.png)
 
-        3. Select a directory from the **All directories** section.
+        3. Select **Switch** for a directory from the **All directories** section.
 
            ![Screenshot that shows selecting a directory in the portal](./media/download-azure-invoice/select-directory.png)
 

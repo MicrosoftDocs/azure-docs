@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: conceptual
-ms.date: 11/02/2021
+ms.date: 11/29/2021
 ms.author: aahi
 ms.custom: language-service-sentiment-opinion-mining, ignite-fall-2021
 keywords: on-premises, Docker, container, sentiment analysis, natural language processing
@@ -51,25 +51,25 @@ The sentiment analysis container v3 container is available in several languages.
 docker pull mcr.microsoft.com/azure-cognitive-services/textanalytics/sentiment:3.0-en
 ```
 
-To download the container for another language, replace `en` with one of the language codes below. 
+To download the container for another language, replace `3.0-en` with one of the image tags below. 
 
-| Sentiment Analysis Container | Language code |
+| Sentiment Analysis Container | Image tag |
 |--|--|
-| Chinese-Simplified    |   `zh-hans`   |
-| Chinese-Traditional   |   `zh-hant`   |
-| Dutch                 |     `nl`      |
-| English               |     `en`      |
-| French                |     `fr`      |
-| German                |     `de`      |
-| Hindi                 |    `hi`       |
-| Italian               |     `it`      |
-| Japanese              |     `ja`      |
-| Korean                |     `ko`      |
-| Norwegian  (Bokmål)   |     `no`      |
-| Portuguese (Brazil)   |    `pt-BR`    |
-| Portuguese (Portugal) |    `pt-PT`    |
-| Spanish               |     `es`      |
-| Turkish               |     `tr`      |
+| Chinese-Simplified    |   `3.0-zh-hans`   |
+| Chinese-Traditional   |   `3.0-zh-hant`   |
+| Dutch                 |     `3.0-nl`      |
+| English               |     `3.0-en`      |
+| French                |     `3.0-fr`      |
+| German                |     `3.0-de`      |
+| Hindi                 |    `3.0-hi`       |
+| Italian               |     `3.0-it`      |
+| Japanese              |     `3.0-ja`      |
+| Korean                |     `3.0-ko`      |
+| Norwegian  (Bokmål)   |     `3.0-no`      |
+| Portuguese (Brazil)   |    `3.0-pt-BR`    |
+| Portuguese (Portugal) |    `3.0-pt-PT`    |
+| Spanish               |     `3.0-es`      |
+| Turkish               |     `3.0-tr`      |
 
 [!INCLUDE [Tip for using docker list](../../../../../includes/cognitive-services-containers-docker-list-tip.md)]
 
@@ -87,11 +87,11 @@ To run the Sentiment Analysis container, execute the following `docker run` comm
 |-------------|-------|---|
 | **{API_KEY}** | The key for your Language resource. You can find it on your resource's **Key and endpoint** page, on the Azure portal. |`xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`|
 | **{ENDPOINT_URI}** | The endpoint for accessing the API. You can find it on your resource's **Key and endpoint** page, on the Azure portal. | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
-| **{LANGUAGE}** | The language of the container you want to run. Make sure this matches the `docker pull` command you used. Note the hyphen (`-`) used before the language in the example below. | `en` |
+| **{IMAGE_TAG}** | The image tag representing the language of the container you want to run. Make sure this matches the `docker pull` command you used. | `3.0-en` |
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 8g --cpus 1 \
-mcr.microsoft.com/azure-cognitive-services/textanalytics/sentiment-{LANGUAGE} \
+mcr.microsoft.com/azure-cognitive-services/textanalytics/sentiment:{IMAGE_TAG} \
 Eula=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}

@@ -60,7 +60,7 @@ In the output screen, you see the result of the command. The device info is prin
 Use the [az iot hub device-identity create](/cli/azure/iot/hub/device-identity) command to create a new device identity in your IoT hub. For example:
 
    ```azurecli
-   az iot hub device-identity create --device-id [device_id] --hub-name [hub_name] --edge-enabled
+   az iot hub device-identity create --device-id device_id_here --hub-name hub_name_here --edge-enabled
    ```
 
 This command includes three parameters:
@@ -112,7 +112,7 @@ You can also select **Get Device Info** from the right-click menu to see all the
 Use the [az iot hub device-identity list](/cli/azure/iot/hub/device-identity) command to view all devices in your IoT hub. For example:
 
    ```azurecli
-   az iot hub device-identity list --hub-name [hub_name]
+   az iot hub device-identity list --hub-name hub_name_here
    ```
 
 Any device that is registered as an IoT Edge device will have the property **capabilities.iotEdge** set to **true**.

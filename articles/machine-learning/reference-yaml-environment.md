@@ -19,6 +19,8 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
+[!INCLUDE [schema note](../../includes/machine-learning-preview-old-json-schema-note.md)]
+
 ## YAML syntax
 
 | Key | Type | Description | Allowed values | Default value |
@@ -60,15 +62,15 @@ Examples are available in the [examples GitHub repository](https://github.com/Az
 
 ## YAML: local Docker build context
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/assets/environment/docker-context.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/assets/environment/docker-context.yml":::
 
 ## YAML: Docker image
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/assets/environment/docker-image.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/assets/environment/docker-image.yml":::
 
 ## YAML: Docker image plus conda file
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/assets/environment/docker-image-plus-conda.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/assets/environment/docker-image-plus-conda.yml":::
 
 ## Next steps
 

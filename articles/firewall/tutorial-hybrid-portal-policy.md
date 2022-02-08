@@ -7,7 +7,7 @@ ms.service: firewall
 ms.topic: tutorial
 ms.date: 08/26/2021
 ms.author: victorh
-customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
+#Customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
 ---
 
 # Tutorial: Deploy and configure Azure Firewall and policy in a hybrid network using the Azure portal

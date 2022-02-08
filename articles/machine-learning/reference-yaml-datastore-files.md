@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Reference documentation for the CLI (v2) Azure Files datastore YAML schema.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.topic: reference
 
 author: ynpandey
@@ -18,6 +18,8 @@ ms.reviewer: laobri
 The source JSON schema can be found at https://azuremlschemas.azureedge.net/latest/azureFile.schema.json.
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+
+[!INCLUDE [schema note](../../includes/machine-learning-preview-old-json-schema-note.md)]
 
 ## YAML syntax
 
@@ -46,11 +48,11 @@ Examples are available in the [examples GitHub repository](https://github.com/Az
 
 ## YAML: account key
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/resources/datastore/file.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/resources/datastore/file.yml":::
 
 ## YAML: sas token
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/resources/datastore/file-sas.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/resources/datastore/file-sas.yml":::
 
 ## Next steps
 

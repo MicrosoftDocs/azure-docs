@@ -4,11 +4,11 @@ description: In this quickstart, create a Node.js app with Azure App Configurati
 services: azure-app-configuration
 author: drewbatgit
 ms.service: azure-app-configuration
+ms.devlang: javascript
 ms.topic: quickstart
-ms.custom: quickstart
+ms.custom: quickstart, mode-other
 ms.date: 07/12/2021
 ms.author: drewbat
-
 #Customer intent: As a JavaScript developer, I want to manage all my app settings in one place.
 ---
 # Quickstart: Create a JavaScript app with Azure App Configuration
@@ -135,4 +135,4 @@ In this quickstart, you created a new App Configuration store and learned how to
 For additional code samples, visit:
 
 > [!div class="nextstepaction"]
-> [Azure App Configuration client library samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/appconfiguration/azure-appconfiguration/samples)
+> [Azure App Configuration client library samples](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/appconfiguration/app-configuration/samples/v1/javascript)

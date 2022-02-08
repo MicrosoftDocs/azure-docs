@@ -21,6 +21,7 @@ You use JSON to create a policy assignment. The policy assignment contains eleme
 - policy definition
 - non-compliance messages
 - parameters
+- identity
 
 For example, the following JSON shows a policy assignment in _DoNotEnforce_ mode with dynamic
 parameters:
@@ -193,6 +194,25 @@ In this example, the parameters previously defined in the policy definition are 
 `suffix`. This particular policy assignment sets `prefix` to **DeptA** and `suffix` to **-LC**. The
 same policy definition is reusable with a different set of parameters for a different department,
 reducing the duplication and complexity of policy definitions while providing flexibility.
+
+## Identity 
+For policy assignments with effect set to **deployIfNotExisit** or **modify**, it is required to have an identity property to do remediation on non-compliant resources. When using identity, the user must also specify a location for the assignment. 
+
+```json
+# System assigned identity 
+ "identity": {
+    "type": "SystemAssigned"
+  }
+# User assigned identity 
+  "identity": {
+    "type": "UserAssigned",
+    "userAssignedIdentities": {
+      "/subscriptions/SubscriptionID/resourceGroups/testResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/test-identity": {}
+    }
+  },
+```
+
+
 
 ## Next steps
 

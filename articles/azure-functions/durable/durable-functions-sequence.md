@@ -5,6 +5,7 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 11/29/2019
 ms.author: azfuncdf
+ms.devlang: csharp, javascript, python
 ---
 
 # Function chaining in Durable Functions - Hello sequence sample

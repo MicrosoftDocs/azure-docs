@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: conceptual
-ms.date: 11/02/2021
+ms.date: 02/03/2022
 ms.author: aahi
 ms.custom: language-service-custom-ner, references_regions, ignite-fall-2021
 ---
@@ -24,10 +24,8 @@ Use this article to learn how to prepare the requirements for using custom NER.
 
 ## Prerequisites
 
-An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services).
+* An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services).
 You should have an idea of the [project schema](design-schema.md) you will use for your data.
-
-Use this article to learn how to prepare the requirements for using custom text classification.
 
 ## Azure resources
 
@@ -49,9 +47,9 @@ If it's your first time logging in, you'll see a window appear in [Language Stud
 
 :::image type="content" source="../../media/create-new-resource-small.png" alt-text="A screenshot showing the resource creation screen in Language Studio." lightbox="../../media/create-new-resource.png":::
 
-To use custom NER, you'll need to [create an Azure storage account](/azure/storage/common/storage-account-create) if you don't have one already. 
+To use custom NER, you'll need to [create an Azure storage account](../../../../storage/common/storage-account-create.md) if you don't have one already. 
 
-Next you'll need to assign the [correct roles](#roles-for-your-storage-account) for the storage account to connect it to your Language resource. 
+Next you'll need to assign the [correct roles](#required-roles-for-your-storage-account) for the storage account to connect it to your Language resource. 
 
 # [Azure PowerShell](#tab/powershell)
 
@@ -80,7 +78,7 @@ New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName Example
   -TemplateParameterFile <path-to-parameters-file>
 ```
 
-See the ARM template documentation for information on [deploying templates](/azure/azure-resource-manager/templates/deploy-powershell#parameter-files) and [parameter files](/azure/azure-resource-manager/templates/parameter-files?tabs=json).
+See the ARM template documentation for information on [deploying templates](../../../../azure-resource-manager/templates/deploy-powershell.md#parameter-files) and [parameter files](../../../../azure-resource-manager/templates/parameter-files.md?tabs=json).
 
 --- 
 
@@ -94,43 +92,58 @@ You can use an existing Language resource to get started with custom NER as long
 |Pricing tier     | Make sure your existing resource is in the Standard (**S**) pricing tier. Only this pricing tier is supported. If your resource doesn't use this pricing  tier, you will need to create a new resource.        |
 |Managed identity     | Make sure that the resource-managed identity setting is enabled. Otherwise, read the next section. |
 
-To use custom NER, you'll need to [create an Azure storage account](/azure/storage/common/storage-account-create) if you don't have one already. 
+To use custom NER, you'll need to [create an Azure storage account](../../../../storage/common/storage-account-create.md) if you don't have one already, and assign the [correct roles](#required-roles-for-your-storage-account) to connect it to your Language resource. 
 
-Next you'll need to assign the [correct roles](#roles-for-your-storage-account) for the storage account to connect it to your Language resource. 
+> [!NOTE]
+> Custom NER currently does not currently support Data Lake Storage Gen 2.
 
-## Roles for your Azure resource
+## Required roles for Azure Language resources
 
-You should have the owner or contributor role assigned on your Azure resource.
+To access and use custom NER projects, your account must have one of the following roles in your Language resource. If you have contributors who need access to your projects, they will also need one of these roles to access the Language resource's managed identity:
+* *owner*
+* *contributor*
 
-## Enable identity management for your resource
+### Enable managed identities for your Language resource
 
 Your Language resource must have identity management, which can be enabled either using the Azure portal or from Language Studio. To enable it using [Language Studio](https://aka.ms/languageStudio):
 1. Click the settings icon in the top right corner of the screen
 2. Select **Resources**
 3. Select **Managed Identity** for your Azure resource.
 
-## Roles for your storage account
+### Add roles to your Language resource
 
-Your Azure blob storage account must have the below roles:
+After you've enabled managed identities for your resource, add the appropriate owner or contributor role assignments for your account, and your contributors' Azure accounts:
 
-* Your resource has the **owner** or **contributor** role on the storage account.
-* Your resource has the **Storage blob data owner** or **Storage blob data contributor** role on the storage account.
-* Your resource has the **Reader** role on the storage account.
+1. Go to your Language resource in the [Azure portal](https://ms.portal.azure.com/).
+2. Select **Access Control (IAM)** in the left navigation menu.
+3. Select **Add** then **Add Role Assignments**, and choose the **Owner** or **Contributor** role. You can search for user names in the **Select** field.
+
+## Required roles for your storage account
+
+Your Language resource must have the below roles assigned within your Azure blob storage account:
+
+* *owner* or *contributor*, and
+* *storage blob data owner* or *storage blob data contributor*, and
+* *reader*
+
+### Add roles to your storage account
 
 To set proper roles on your storage account:
 
 1. Go to your storage account page in the [Azure portal](https://ms.portal.azure.com/).
 2. Select **Access Control (IAM)** in the left navigation menu.
-3. Select **Add** to **Add Role Assignments**, and choose the **Owner** or **Contributor** role. You can search for user names in the **Select** field.
+3. Select **Add** then **Add Role Assignments**, and choose the appropriate role for your Language resource. You can search for your resource in the **Select** field. Repeat this for all roles. 
 
 [!INCLUDE [Storage connection note](../../custom-classification/includes/storage-account-note.md)]
+
+For information on authorizing access to your Azure blob storage account and data, see [Authorize access to data in Azure storage](/azure/storage/common/authorize-data-access?toc=/azure/storage/blobs/toc.json).
 
 ## Prepare training data
 
 * As a prerequisite for creating a custom NER project, your training data needs to be uploaded to a blob container in your storage account. You can create and upload training files from Azure directly or through using the Azure Storage Explorer tool. Using Azure Storage Explorer tool allows you to upload more data in less time.
 
-  * [Create and upload files from Azure](/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container)
-  * [Create and upload files using Azure Storage Explorer](/azure/vs-azure-tools-storage-explorer-blobs)
+  * [Create and upload files from Azure](../../../../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container)
+  * [Create and upload files using Azure Storage Explorer](../../../../vs-azure-tools-storage-explorer-blobs.md)
 
 * You can only use `.txt`. files for custom NER. If your data is in other format, you can use [Cognitive Services Language Utilities tool](https://aka.ms/CognitiveServicesLanguageUtilities) to parse your file to `.txt` format.
 
@@ -140,9 +153,6 @@ To set proper roles on your storage account:
 > Review [Prepare data and define a schema](../how-to/design-schema.md) for information on data selection and preparation.
 
 ## Create a custom named entity recognition project
-
->[!NOTE]
-> If your dataset contains files of different languages or if you expect different languages during runtime, you can enable the multi-lingual option.
 
 [!INCLUDE [Create custom NER project](../includes/create-project.md)]
 

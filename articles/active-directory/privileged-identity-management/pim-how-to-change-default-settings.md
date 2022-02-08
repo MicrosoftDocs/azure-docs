@@ -4,14 +4,14 @@ description: Learn how to configure Azure AD role settings in Azure AD Privilege
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: KarenH444
+manager: karenhoran
 editor: ''
 
 ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 10/07/2021
+ms.date: 11/12/2021
 ms.author: curtand
 ms.reviewer: shaunliu
 ms.custom: pim
@@ -82,7 +82,7 @@ For more information, see [Multifactor authentication and Privileged Identity Ma
 
 ## Activation maximum duration
 
-Use the **Activation maximum duration** slider to set the maximum time, in hours, that a role stays active before it expires. This value can be from one to 24 hours.
+Use the **Activation maximum duration** slider to set the maximum time, in hours, that an activation request for a role assignment remains active before it expires. This value can be from one to 24 hours.
 
 ## Require justification
 

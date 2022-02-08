@@ -65,8 +65,8 @@ Azure Functions supports two kinds of virtual network integration:
 
 Virtual network integration in Azure Functions uses shared infrastructure with App Service web apps. To learn more about the two types of virtual network integration, see:
 
-* [Regional virtual network Integration](../app-service/overview-vnet-integration.md#regional-vnet-integration)
-* [Gateway-required virtual network Integration](../app-service/overview-vnet-integration.md#gateway-required-vnet-integration)
+* [Regional virtual network Integration](../app-service/overview-vnet-integration.md#regional-virtual-network-integration)
+* [Gateway-required virtual network Integration](../app-service/overview-vnet-integration.md#gateway-required-virtual-network-integration)
 
 To learn how to set up virtual network integration, see [Enable Vnet Integration](#enable-vnet-integration).
 
@@ -138,7 +138,7 @@ When you scale up or down in size, the required address space is doubled for a s
 
 <sup>*</sup>Assumes that you'll need to scale up or down in either size or SKU at some point. 
 
-Since subnet size can't be changed after assignment, use a subnet that's large enough to accommodate whatever scale your app might reach. To avoid any issues with subnet capacity for Functions Premium plans, you should use a /24 with 256 addresses for Windows and a /26 with 64 addresses for Linux. 
+Since subnet size can't be changed after assignment, use a subnet that's large enough to accommodate whatever scale your app might reach. To avoid any issues with subnet capacity for Functions Premium plans, you should use a /24 with 256 addresses for Windows and a /26 with 64 addresses for Linux. When creating subnets in Azure portal as part of integrating with the virtual network, a minimum size of /26 and /24 is required for Windows and Linux respectively.
 
 When you want your apps in another plan to reach a VNet that's already connected to by apps in another plan, select a different subnet than the one being used by the pre-existing VNet Integration.
 

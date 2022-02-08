@@ -3,12 +3,37 @@ title: Apache HBase Master fails to start in Azure HDInsight
 description: Apache HBase Master (HMaster) fails to start in Azure HDInsight
 ms.service: hdinsight
 ms.topic: troubleshooting
-ms.date: 08/14/2019
+ms.date: 11/07/2021
 ---
 
 # Apache HBase Master (HMaster) fails to start in Azure HDInsight
 
 This article describes troubleshooting steps and possible resolutions for issues when interacting with Azure HDInsight clusters.
+
+## Scenario: Master startup cannot progress, in holding-pattern until region comes online
+
+### Issue
+
+HMaster fails to start due to the following warning:
+```output
+hbase:namespace,,<timestamp_region_create>.<encoded_region_name>.is NOT online; state={<encoded_region_name> state=OPEN, ts=<some_timestamp>, server=<server_name>}; ServerCrashProcedures=true. Master startup cannot progress, in holding-pattern until region onlined. 
+```
+
+For example, the parameter values may vary in the actual message:
+```output
+hbase:namespace,,1546588612000.0000010bc582e331e3080d5913a97000. is NOT online; state={0000010bc582e331e3080d5913a97000 state=OPEN, ts=1633935993000, server=<wn fqdn>,16000,1622012792000}; ServerCrashProcedures=false. Master startup cannot progress, in holding-pattern until region onlined.
+```
+
+### Cause
+
+HMaster will check for the WAL directory on the region servers before bringing back the **OPEN** regions online. In this case, if that directory was not present, it was not getting started
+
+### Resolution
+
+1. Create this dummy directory using the command:
+`sudo -u hbase hdfs dfs -mkdir /hbase-wals/WALs/<wn fqdn>,16000,1622012792000`
+
+2. Restart the HMaster service from the Ambari UI.
 
 ## Scenario: Atomic renaming failure
 
@@ -129,16 +154,10 @@ Misconfigured HDFS and HBase settings for a secondary storage account.
 
 ### Resolution
 
-set hbase.rootdir: wasb://@.blob.core.windows.net/hbase and restart services on Ambari.
+`set hbase.rootdir: wasb://@.blob.core.windows.net/hbase` and restart services on Ambari.
 
 ---
 
 ## Next steps
 
-If you didn't see your problem or are unable to solve your issue, visit one of the following channels for more support:
-
-* Get answers from Azure experts through [Azure Community Support](https://azure.microsoft.com/support/community/).
-
-* Connect with [@AzureSupport](https://twitter.com/azuresupport) - the official Microsoft Azure account for improving customer experience. Connecting the Azure community to the right resources: answers, support, and experts.
-
-* If you need more help, you can submit a support request from the [Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Select **Support** from the menu bar or open the **Help + support** hub. For more detailed information, review [How to create an Azure support request](../../azure-portal/supportability/how-to-create-azure-support-request.md). Access to Subscription Management and billing support is included with your Microsoft Azure subscription, and Technical Support is provided through one of the [Azure Support Plans](https://azure.microsoft.com/support/plans/).
+[!INCLUDE [notes](../includes/hdinsight-troubleshooting-next-steps.md)]

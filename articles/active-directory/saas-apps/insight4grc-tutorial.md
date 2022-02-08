@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/30/2021
+ms.date: 01/27/2022
 ms.author: jeedes
 ---
 # Tutorial: Azure AD SSO integration with Insight4GRC
@@ -75,15 +75,15 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 4. On the **Basic SAML Configuration** section, If you wish to configure the application in **IDP** initiated mode, perform the following steps:
 
     a. In the **Identifier** text box, type a URL using the following pattern:
-    `https://<subdomain>.Insight4GRC.com/SAML`
+    `https://<SUBDOMAIN>.Insight4GRC.com/SAML`
 
     b. In the **Reply URL** text box, type a URL using the following pattern:
-    `https://<subdomain>.Insight4GRC.com/Public/SAML/ACS.aspx`
+    `https://<SUBDOMAIN>.Insight4GRC.com/auth/saml/sp/assertion-consumer-service`
 
 5. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
     In the **Sign-on URL** text box, type a URL using the following pattern:
-    `https://<subdomain>.Insight4GRC.com/Public/Login.aspx`
+    `https://<SUBDOMAIN>.Insight4GRC.com`
 
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [Insight4GRC Client support team](mailto:support.ss@rsmuk.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
@@ -145,4 +145,4 @@ You can also use Microsoft My Apps to test the application in any mode. When you
 
 ## Next steps
 
-Once you configure Insight4GRC you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Once you configure Insight4GRC you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).

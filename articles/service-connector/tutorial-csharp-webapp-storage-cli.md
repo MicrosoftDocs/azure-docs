@@ -3,7 +3,7 @@ title: 'Tutorial: Deploy Web Application Connected to Azure Storage Blob with Se
 description: Create a web app connected to Azure Storage Blob with Service Connector.
 author: shizn
 ms.author: xshi
-ms.service: serviceconnector
+ms.service: service-connector
 ms.topic: tutorial
 ms.date: 10/28/2021
 ms.custom: ignite-fall-2021
@@ -21,10 +21,10 @@ Learn how to access Azure Storage for a web app (not a signed-in user) running o
 ## 1. Set up your initial environment
 
 1. Have an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-2. Install the <a href="/cli/azure/install-azure-cli" target="_blank">Azure CLI</a> 2.18.0 or higher, with which you run commands in any shell to provision and configure Azure resources.
+2. Install the <a href="/cli/azure/install-azure-cli" target="_blank">Azure CLI</a> 2.30.0 or higher, with which you run commands in any shell to provision and configure Azure resources.
 
 
-Check that your Azure CLI version is 2.18.0 or higher:
+Check that your Azure CLI version is 2.30.0 or higher:
 
 ```Azure CLI
 az --version

@@ -31,9 +31,9 @@ There are many ways end users can get invited to access resource tenant resource
 
 * [Entitlement Management](../governance/entitlement-management-overview.md): Enables admins or resource owners to tie resources, allowed external organizations, guest user expiration, and access policies together in access packages. Access packages can be published to enable self-service sign-up for resource access by guest users.
 
-* [Azure portal ](../external-identities/add-users-administrator.md) End users given the [Guest Inviter role](../external-identities/delegate-invitations.md) can sign in to the Azure portal and invite guest users from the Users menu in Azure Active Directory.
+* [Azure portal ](../external-identities/add-users-administrator.md) End users given the [Guest Inviter role](../external-identities/external-collaboration-settings-configure.md) can sign in to the Azure portal and invite guest users from the Users menu in Azure Active Directory.
 
-* [Programmatic (PowerShell, Graph API)](../external-identities/customize-invitation-api.md) End users given the [Guest Inviter role](../external-identities/delegate-invitations.md) can invite guest users via PowerShell or Graph API. 
+* [Programmatic (PowerShell, Graph API)](../external-identities/customize-invitation-api.md) End users given the [Guest Inviter role](../external-identities/external-collaboration-settings-configure.md) can invite guest users via PowerShell or Graph API. 
 
 ### Redeem invitations
 
@@ -175,7 +175,7 @@ This will require automatic synchronization and identity management to configure
 
 ### Provision accounts
 
-This advanced deployment uses [Microsoft Identity Manager](/microsoft-identity-manager/microsoft-identity-manager-2016) (MIM) as a synchronization engine. MIM calls the [MS Graph API](/developer.microsoft.com/graph/) and [Exchange Online PowerShell](/powershell/exchange/exchange-online/exchange-online-powershell?view=exchange-ps&preserve-view=true). Alternative implementations can include the cloud hosted [Active Directory Synchronization Services](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) (ADSS) managed service offering from [Microsoft Consulting Services](/industry/services/consulting). There are also non-Microsoft offerings that can be created from scratch with other identity management offerings.
+This advanced deployment uses [Microsoft Identity Manager](/microsoft-identity-manager/microsoft-identity-manager-2016) (MIM) as a synchronization engine. MIM calls the [MS Graph API](https://developer.microsoft.com/graph) and [Exchange Online PowerShell](/powershell/exchange/exchange-online/exchange-online-powershell?view=exchange-ps&preserve-view=true). Alternative implementations can include the cloud hosted [Active Directory Synchronization Services](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) (ADSS) managed service offering from [Microsoft Consulting Services](https://www.microsoft.com/en-us/msservices). There are also non-Microsoft offerings that can be created from scratch with other identity management offerings.
 
 These are complex scenarios and we recommend you work with your partners, Microsoft account team, and any other available resources throughout your planning and execution. 
 
@@ -226,7 +226,7 @@ The mesh topology can be used in as few as two tenants, such as in the scenario 
 
 #### Single resource tenant topology
 
-![Single resource tenant](media/multi-tenant-user-management-scenarios/single-resource-tenant.png)
+![Single resource tenant](media/multi-tenant-user-management-scenarios/single-resource-tenant-scenario.png)
 
 In a single resource tenant topology, users and their attributes are synchronized to the resource tenant (Company A in the illustration above). 
 

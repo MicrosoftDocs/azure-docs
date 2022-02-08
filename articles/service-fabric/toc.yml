@@ -318,6 +318,8 @@
         href: service-fabric-cluster-scaling.md
       - name: Cluster networking patterns
         href: service-fabric-patterns-networking.md
+      - name: Infrastructure Service for Azure clusters
+        href: infrastructure-service-faq.md
     - name: Standalone clusters
       items:
       - name: Overview of standalone clusters
@@ -416,7 +418,7 @@
     - name: Configure managed cluster Availability Zone spanning
       href: how-to-managed-cluster-availability-zones.md
     - name: Enable disk encryption for managed cluster nodes
-      href: how-to-enable-managed-cluster-disk-encryption.md
+      href: how-to-managed-cluster-enable-disk-encryption.md
     - name: Select managed disk types for managed cluster nodes
       href: how-to-managed-cluster-managed-disk.md
     - name: Configure managed cluster upgrade options

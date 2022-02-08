@@ -8,7 +8,7 @@ ms.subservice: enterprise-readiness
 ms.reviewer: jhirono
 ms.author: larryfr
 author: blackmist
-ms.date: 10/21/2021
+ms.date: 02/04/2022
 ms.topic: how-to
 ms.custom: subject-rbac-steps
 ---
@@ -29,10 +29,8 @@ In this tutorial, you accomplish the following tasks:
 > * Create an Azure Machine Learning compute cluster. A compute cluster is used when __training machine learning models in the cloud__. In configurations where Azure Container Registry is behind the VNet, it is also used to build Docker images.
 > * Connect to the jump box and use the Azure Machine Learning studio.
 
-If your environment meets the prerequisites and you're familiar with using ARM templates, the first five steps in this tutorial can also be completed by selecting the 'Deploy to Azure button'. You can continue reading from [Connect to the workspace](#connect-to-the-workspace).
-
-[![Deploy To Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.machinelearningservices%2Fmachine-learning-workspace-vnet%2Fazuredeploy.json)
-[![Deploy To Azure US Gov](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazuregov.svg?sanitize=true)](https://portal.azure.us/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.machinelearningservices%2Fmachine-learning-workspace-vnet%2Fazuredeploy.json)
+> [!TIP]
+> If you're looking for a template (Microsoft Bicep or Hashicorp Terraform) that demonstrates how to create a secure workspace, see [Tutorial - Create a secure workspace using a template](tutorial-create-secure-workspace-template.md).
 
 ## Prerequisites
 
@@ -328,7 +326,18 @@ There are several ways that you can connect to the secured workspace. The steps 
 Use the following steps to create a Data Science Virtual Machine for use as a jump box:
 
 1. In the [Azure portal](https://portal.azure.com), select the portal menu in the upper left corner. From the menu, select __+ Create a resource__ and then enter __Data science virtual machine__. Select the __Data science virtual machine - Windows__ entry, and then select __Create__.
-1. From the __Basics__ tab, select the __subscription__, __resource group__, and __Region__ you previously used for the virtual network. Provide a unique __Virtual machine name__, __Username__, and __Password__. Leave other fields at the default values.
+1. From the __Basics__ tab, select the __subscription__, __resource group__, and __Region__ you previously used for the virtual network. Provide values for the following fields:
+
+    * __Virtual machine name__: A unique name for the VM.
+    * __Username__: The username you will use to login to the VM.
+    * __Password__: The password for the username.
+    * __Security type__: Standard.
+    * __Image__: Data Science Virtual Machine - Windows Server 2019 - Gen1.
+
+        > [!IMPORTANT]
+        > Do not select a Gen2 image.
+
+    You can leave other fields at the default values.
 
     :::image type="content" source="./media/tutorial-create-secure-workspace/create-virtual-machine-basic.png" alt-text="Image of VM basic configuration":::
 
@@ -423,7 +432,10 @@ When Azure Container Registry is behind the virtual network, Azure Machine Learn
 1. To update the workspace to use the compute cluster to build Docker images. Replace `docs-ml-rg` with your resource group. Replace `docs-ml-ws` with your workspace. Replace `cpu-cluster` with the compute cluster to use:
 
     ```azurecli-interactive
-    az ml workspace update -g docs-ml-rg -w docs-ml-ws --image-build-compute cpu-cluster
+    az ml workspace update \
+        -g docs-ml-rg \
+        --name docs-ml-ws \
+        --image-build-compute cpu-cluster
     ```
 
     > [!NOTE]

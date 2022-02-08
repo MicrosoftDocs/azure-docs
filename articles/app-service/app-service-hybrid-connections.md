@@ -38,7 +38,7 @@ There are a number of benefits to the Hybrid Connections capability, including:
 - It normally doesn't require firewall holes. The connections are all outbound over standard web ports.
 - Because the feature is network level, it's agnostic to the language used by your app and the technology used by the endpoint.
 - It can be used to provide access in multiple networks from a single app. 
-- It's supported in GA for Windows apps and Linux apps. It isn't supported for Windows container apps.
+- It's supported in GA for Windows apps and Linux apps. It isn't supported for Windows custom containers.
 
 ### Things you cannot do with Hybrid Connections ###
 
@@ -86,7 +86,7 @@ In addition to the portal experience from within your app, you can create Hybrid
 
 ## Hybrid Connections and App Service plans ##
 
-App Service Hybrid Connections are only available in Basic, Standard, Premium, and Isolated pricing SKUs. There are limits tied to the pricing plan.  
+App Service Hybrid Connections are only available in Basic, Standard, Premium, and Isolated pricing SKUs. Hybrid Connections aren't available for function apps in Consumption plans. There are limits tied to the pricing plan.  
 
 | Pricing plan | Number of Hybrid Connections usable in the plan |
 |----|----|

@@ -1,11 +1,11 @@
 ---
 title: Scaling in Azure Container Apps
 description: Learn how applications scale in and out in Azure Container Apps.
-services: app-service
+services: container-apps
 author: craigshoemaker
-ms.service: app-service
+ms.service: container-apps
 ms.topic: conceptual
-ms.date: 09/16/2021
+ms.date: 11/02/2021
 ms.author: cshoe
 ms.custom: ignite-fall-2021
 ---
@@ -26,6 +26,7 @@ Scaling rules are defined in `resources.properties.template.scale` section of th
 - If you want to ensure that an instance of your application is always running, set `minReplicas` to 1 or higher.
 - Replicas not processing, but that remain in memory are billed in the "idle charge" category.
 - Changes to scaling rules are a [revision-scope](overview.md) change.
+- When using non-HTTP event scale rules, setting the `activeRevisionMode` to `single` is recommended.
 
 > [!IMPORTANT]
 > Replica quantities are a target amount, not a guarantee. Even if you set `maxReplicas` to `1`, there is no assurance of thread safety.
@@ -60,7 +61,7 @@ With an HTTP scaling rule, you have control over the threshold that determines w
             "name": "http-rule",
             "http": {
               "metadata": {
-                  "concurrentRequests": 100
+                  "concurrentRequests": "100"
               }
             }
           }]
@@ -137,7 +138,7 @@ The following example shows how to create a CPU scaling rule.
       "template": {
         ...
         "scale": {
-          "minReplicas": "0",
+          "minReplicas": "1",
           "maxReplicas": "10",
           "rules": [{
             "name": "cpuScalingRule",
@@ -175,7 +176,7 @@ The following example shows how to create a memory scaling rule.
       "template": {
         ...
         "scale": {
-          "minReplicas": "0",
+          "minReplicas": "1",
           "maxReplicas": "10",
           "rules": [{
             "name": "memoryScalingRule",
@@ -197,6 +198,52 @@ The following example shows how to create a memory scaling rule.
 - In this example, the container app scales when memory usage exceeds 50%.
 - At a minimum, a single replica remains in memory for apps that scale based on memory utilization.
 
+## Azure Pipelines
+
+Azure Pipelines scaling allows your container app to scale in or out depending on the number of jobs in the Azure DevOps agent pool. With Azure Pipelines, your app can scale to zero, but you need [at least one agent registered in the pool schedule additional agents](https://keda.sh/blog/2021-05-27-azure-pipelines-scaler/). For more information regarding this scaler, see [KEDA Azure Pipelines scaler](https://keda.sh/docs/2.4/scalers/azure-pipelines/).
+
+The following example shows how to create a memory scaling rule.
+
+```json
+{
+  ...
+  "resources": {
+    ...
+    "properties": {
+      ...
+      "template": {
+        ...
+        "scale": {
+          "minReplicas": "0",
+          "maxReplicas": "10",
+          "rules": [{
+            "name": "azdo-agent-scaler",
+            "custom": {
+              "type": "azure-pipelines",
+              "metadata": {
+                  "poolID": "<pool id>",
+                  "targetPipelinesQueueLength": "1"
+              },
+              "auth": [
+                  {
+                      "secretRef": "<secret reference pat>",
+                      "triggerParameter": "personalAccessToken"
+                  },
+                  {
+                      "secretRef": "<secret reference Azure DevOps url>",
+                      "triggerParameter": "organizationURL"
+                  }
+              ]
+          }
+          }]
+        }
+      }
+    }
+  }
+}
+```
+
+In this example, the container app scales when at least one job is waiting in the pool queue.
 
 ## Considerations
 

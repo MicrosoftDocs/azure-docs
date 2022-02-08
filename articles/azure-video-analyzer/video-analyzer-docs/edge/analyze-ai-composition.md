@@ -3,7 +3,7 @@ title: Analyze live video streams with multiple AI models using AI composition
 description: This article provides guidance on how to analyze live video streams with multiple AI models using AI composition feature of Azure Video Analyzer.
 ms.service: azure-video-analyzer
 ms.topic: how-to
-ms.date: 04/01/2021
+ms.date: 11/04/2021
 ms.custom: ignite-fall-2021
 ---
 
@@ -28,7 +28,7 @@ After completing the steps in this guide, you'll be able to run a simulated live
     > You will need an Azure subscription with permissions for creating service principals (owner role provides this). If you do not have the right permissions, please reach out to your account administrator to grant you the right permissions.
 * [Visual Studio Code](https://code.visualstudio.com/) on your development machine. Make sure you have the [Azure IoT Tools extension](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
 * Make sure the network that your development machine is connected to permits Advanced Message Queueing Protocol (AMQP) over port 5671 for outbound traffic. This setup enables Azure IoT Tools to communicate with Azure IoT Hub.
-* Complete the [Analyze live video by using your own gRPC model](analyze-live-video-use-your-model-grpc.md) quickstart. Please do not skip this as this is a strict requirement for the how to guide.
+* Complete [Quickstart: Analyze a live video feed from a (simulated) IP camera using your own gRPC model](analyze-live-video-use-your-model-grpc.md). Do not skip this step as this is a strict requirement for the how to guide.
 
 > [!TIP]
 > You might be prompted to install Docker while you're installing the Azure IoT Tools extension. Feel free to ignore the prompt.
@@ -39,9 +39,9 @@ After completing the steps in this guide, you'll be able to run a simulated live
 
 Since you have already completed the quickstart specified in the prerequisite section, you will have an edge device already created. This edge device will have the following input folder - /home/localedgeuser/samples/input- that includes certain video files. Log into the IoT Edge device, change to the directory to: /home/localedgeuser/samples/input/ and run the following command to get the input file we will be using for this how to guide.
 
-wget https://lvamedia.blob.core.windows.net/public/co-final.mkv
+wget https://avamedia.blob.core.windows.net/public/co-final.mkv
 
-Additionally, if you like, on your machine that has [VLC media player](https://www.videolan.org/vlc/), select Ctrl+N and then paste a link to [sample video (.mkv)](https://lvamedia.blob.core.windows.net/public/co-final.mkv) to start playback. You see the footage of cars on a freeway.
+Additionally, if you like, on your machine that has [VLC media player](https://www.videolan.org/vlc/), select Ctrl+N and then paste a link to [sample video (.mkv)](https://avamedia.blob.core.windows.net/public/co-final.mkv) to start playback. You see the footage of cars on a freeway.
 
 ## Create and deploy the pipeline
 

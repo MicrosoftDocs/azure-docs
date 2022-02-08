@@ -1,14 +1,13 @@
 ---
 title: Reference for writing expressions for attribute mappings in Azure Active Directory Application Provisioning
 description: Learn how to use expression mappings to transform attribute values into an acceptable format during automated provisioning of SaaS app objects in Azure Active Directory. Includes a reference list of functions.
-services: active-directory
 author: kenwith
-manager: karenh444
+manager: karenhoran
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: reference
-ms.date: 10/27/2021
+ms.date: 11/16/2021
 ms.author: kenwith
 ms.reviewer: arvinh
 ---
@@ -34,7 +33,7 @@ The syntax for Expressions for Attribute Mappings is reminiscent of Visual Basic
 
 ## List of Functions
 
-[Append](#append) &nbsp;&nbsp;&nbsp;&nbsp; [AppRoleAssignmentsComplex](#approleassignmentscomplex) &nbsp;&nbsp;&nbsp;&nbsp; [BitAnd](#bitand) &nbsp;&nbsp;&nbsp;&nbsp; [CBool](#cbool) &nbsp;&nbsp;&nbsp;&nbsp; [CDate](#cdate) &nbsp;&nbsp;&nbsp;&nbsp; [Coalesce](#coalesce) &nbsp;&nbsp;&nbsp;&nbsp; [ConvertToBase64](#converttobase64) &nbsp;&nbsp;&nbsp;&nbsp; [ConvertToUTF8Hex](#converttoutf8hex) &nbsp;&nbsp;&nbsp;&nbsp; [Count](#count) &nbsp;&nbsp;&nbsp;&nbsp; [CStr](#cstr) &nbsp;&nbsp;&nbsp;&nbsp; [DateAdd](#dateadd) &nbsp;&nbsp;&nbsp;&nbsp; [DateDiff](#datediff) &nbsp;&nbsp;&nbsp;&nbsp; [DateFromNum](#datefromnum) &nbsp;[FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Guid](#guid) &nbsp;&nbsp;&nbsp;&nbsp; [IgnoreFlowIfNullOrEmpty](#ignoreflowifnullorempty) &nbsp;&nbsp;&nbsp;&nbsp;[IIF](#iif) &nbsp;&nbsp;&nbsp;&nbsp;[InStr](#instr) &nbsp;&nbsp;&nbsp;&nbsp; [IsNull](#isnull) &nbsp;&nbsp;&nbsp;&nbsp; [IsNullOrEmpty](#isnullorempty) &nbsp;&nbsp;&nbsp;&nbsp; [IsPresent](#ispresent) &nbsp;&nbsp;&nbsp;&nbsp; [IsString](#isstring) &nbsp;&nbsp;&nbsp;&nbsp; [Item](#item) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [Left](#left) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp;&nbsp;&nbsp; [NormalizeDiacritics](#normalizediacritics) &nbsp;&nbsp; &nbsp;&nbsp; [Not](#not) &nbsp;&nbsp;&nbsp;&nbsp; [Now](#now) &nbsp;&nbsp;&nbsp;&nbsp; [NumFromDate](#numfromdate) &nbsp;&nbsp;&nbsp;&nbsp; [PCase](#pcase) &nbsp;&nbsp;&nbsp;&nbsp; [RandomString](#randomstring) &nbsp;&nbsp;&nbsp;&nbsp; [RemoveDuplicates](#removeduplicates) &nbsp;&nbsp;&nbsp;&nbsp; [Replace](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [SelectUniqueValue](#selectuniquevalue)&nbsp;&nbsp;&nbsp;&nbsp; [SingleAppRoleAssignment](#singleapproleassignment)&nbsp;&nbsp;&nbsp;&nbsp; [Split](#split)&nbsp;&nbsp;&nbsp;&nbsp;[StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)&nbsp;&nbsp;&nbsp;&nbsp; [ToLower](#tolower)&nbsp;&nbsp;&nbsp;&nbsp; [ToUpper](#toupper)&nbsp;&nbsp;&nbsp;&nbsp; [Word](#word)
+[Append](#append) &nbsp;&nbsp;&nbsp;&nbsp; [AppRoleAssignmentsComplex](#approleassignmentscomplex) &nbsp;&nbsp;&nbsp;&nbsp; [BitAnd](#bitand) &nbsp;&nbsp;&nbsp;&nbsp; [CBool](#cbool) &nbsp;&nbsp;&nbsp;&nbsp; [CDate](#cdate) &nbsp;&nbsp;&nbsp;&nbsp; [Coalesce](#coalesce) &nbsp;&nbsp;&nbsp;&nbsp; [ConvertToBase64](#converttobase64) &nbsp;&nbsp;&nbsp;&nbsp; [ConvertToUTF8Hex](#converttoutf8hex) &nbsp;&nbsp;&nbsp;&nbsp; [Count](#count) &nbsp;&nbsp;&nbsp;&nbsp; [CStr](#cstr) &nbsp;&nbsp;&nbsp;&nbsp; [DateAdd](#dateadd) &nbsp;&nbsp;&nbsp;&nbsp; [DateDiff](#datediff) &nbsp;&nbsp;&nbsp;&nbsp; [DateFromNum](#datefromnum) &nbsp;[FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Guid](#guid) &nbsp;&nbsp;&nbsp;&nbsp; [IgnoreFlowIfNullOrEmpty](#ignoreflowifnullorempty) &nbsp;&nbsp;&nbsp;&nbsp;[IIF](#iif) &nbsp;&nbsp;&nbsp;&nbsp;[InStr](#instr) &nbsp;&nbsp;&nbsp;&nbsp; [IsNull](#isnull) &nbsp;&nbsp;&nbsp;&nbsp; [IsNullOrEmpty](#isnullorempty) &nbsp;&nbsp;&nbsp;&nbsp; [IsPresent](#ispresent) &nbsp;&nbsp;&nbsp;&nbsp; [IsString](#isstring) &nbsp;&nbsp;&nbsp;&nbsp; [Item](#item) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [Left](#left) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp;&nbsp;&nbsp; [NormalizeDiacritics](#normalizediacritics) &nbsp;&nbsp; &nbsp;&nbsp; [Not](#not) &nbsp;&nbsp;&nbsp;&nbsp; [Now](#now) &nbsp;&nbsp;&nbsp;&nbsp; [NumFromDate](#numfromdate) &nbsp;&nbsp;&nbsp;&nbsp; [PCase](#pcase) &nbsp;&nbsp;&nbsp;&nbsp; [RandomString](#randomstring) &nbsp;&nbsp;&nbsp;&nbsp; [Redact](#redact) &nbsp;&nbsp;&nbsp;&nbsp; [RemoveDuplicates](#removeduplicates) &nbsp;&nbsp;&nbsp;&nbsp; [Replace](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [SelectUniqueValue](#selectuniquevalue)&nbsp;&nbsp;&nbsp;&nbsp; [SingleAppRoleAssignment](#singleapproleassignment)&nbsp;&nbsp;&nbsp;&nbsp; [Split](#split)&nbsp;&nbsp;&nbsp;&nbsp;[StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)&nbsp;&nbsp;&nbsp;&nbsp; [ToLower](#tolower)&nbsp;&nbsp;&nbsp;&nbsp; [ToUpper](#toupper)&nbsp;&nbsp;&nbsp;&nbsp; [Word](#word)
 
 ---
 ### Append
@@ -275,6 +274,8 @@ Returns a date/time string representing a date to which a specified time interva
 | **value** |Required | Number | The number of units you want to add. It can be positive (to get dates in the future) or negative (to get dates in the past). |
 | **dateTime** |Required | DateTime | DateTime representing date to which the interval is added. |
 
+When passing a date string as input use [CDate](#cdate) function to wrap the datetime string. To get system time in UTC use the [Now](#now) function. 
+
 The **interval** string must have one of the following values: 
  * yyyy Year 
  * m Month
@@ -284,30 +285,17 @@ The **interval** string must have one of the following values:
  * n Minute
  * s Second
 
-**Example 1: Add 7 days to hire date**  
+**Example 1: Generate a date value based on incoming StatusHireDate from Workday** <br>
 `DateAdd("d", 7, CDate([StatusHireDate]))`
-* **INPUT** (StatusHireDate): 2012-03-16-07:00
-* **OUTPUT**: 3/23/2012 7:00:00 AM
 
-**Example 2: Get a date ten days prior to hire date**  
-`DateAdd("d", -10, CDate([StatusHireDate]))`
-* **INPUT** (StatusHireDate): 2012-03-16-07:00
-* **OUTPUT**: 3/6/2012 7:00:00 AM
+| Example | interval | value | dateTime (value of variable StatusHireDate) | output |
+| --- | --- | --- | --- | --- |
+| Add 7 days to hire date | "d" | 7 | 2012-03-16-07:00 | 3/23/2012 7:00:00 AM |
+| Get a date ten days prior to hire date | "d" | -10 | 2012-03-16-07:00 | 3/6/2012 7:00:00 AM |
+| Add two weeks to hire date | "ww" | 2 | 2012-03-16-07:00 | 3/30/2012 7:00:00 AM |
+| Add ten months to hire date | "m" | 10 | 2012-03-16-07:00 | 1/16/2013 7:00:00 AM |
+| Add two years to hire date | "yyyy" | 10 | 2012-03-16-07:00 | 3/16/2014 7:00:00 AM |
 
-**Example 3: Add two weeks to hire date**  
-`DateAdd("ww", 2, CDate([StatusHireDate]))`
-* **INPUT** (StatusHireDate): 2012-03-16-07:00
-* **OUTPUT**: 3/30/2012 7:00:00 AM
-
-**Example 4: Add ten months to hire date**  
-`DateAdd("m", 10, CDate([StatusHireDate]))`
-* **INPUT** (StatusHireDate): 2012-03-16-07:00
-* **OUTPUT**: 1/16/2013 7:00:00 AM
-
-**Example 5: Add two years to hire date**  
-`DateAdd("yyyy", 2, CDate([StatusHireDate]))`
-* **INPUT** (StatusHireDate): 2012-03-16-07:00
-* **OUTPUT**: 3/16/2014 7:00:00 AM
 ---
 ### DateDiff
 **Function:**  
@@ -326,6 +314,8 @@ This function uses the *interval* parameter to return a number that indicates th
 | **interval** |Required | String | Interval of time to use for calculating the difference. |
 | **date1** |Required | DateTime | DateTime representing a valid date. |
 | **date2** |Required | DateTime | DateTime representing a valid date. |
+
+When passing a date string as input use [CDate](#cdate) function to wrap the datetime string. To get system time in UTC use the [Now](#now) function. 
 
 The **interval** string must have one of the following values: 
  * yyyy Year 
@@ -465,9 +455,30 @@ The IIF function returns one of a set of possible values based on a specified co
 | **valueIfTrue** |Required |Variable or String | If the condition evaluates to true, the returned value. |
 | **valueIfFalse** |Required |Variable or String |If the condition evaluates to false, the returned value.|
 
-**Example:**
+The following comparison operators can be used in the *condition*: 
+* Equal to (=) and not equal to (<>)  
+* Greater than (>) and greater than equal to (>=) 
+* Less than (<) and less than equal to (<=)
+
+**Example:** Set the target attribute value to source country attribute if country="USA", else set target attribute value to source department attribute.
 `IIF([country]="USA",[country],[department])`
 
+#### Known limitations and workarounds for IIF function
+* The IIF function currently does not support AND and OR logical operators. 
+* To implement AND logic, use nested IIF statement chained along the *trueValue* path. 
+  Example: If country="USA" and state="CA", return value "True", else return "False".
+  `IIF([country]="USA",IIF([state]="CA","True","False"),"False")`
+* To implement OR logic, use nested IIF statement chained along the *falseValue* path. 
+  Example: If country="USA" or state="CA", return value "True", else return "False".
+  `IIF([country]="USA","True",IIF([state]="CA","True","False"))`
+* If the source attribute used within the IIF function is empty or null, the condition check fails. 
+   * Unsupported IIF expression examples: 
+     * `IIF([country]="","Other",[country])`
+     * `IIF(IsNullOrEmpty([country]),"Other",[country])`
+     * `IIF(IsPresent([country]),[country],"Other")`
+   * Recommended workaround: Use the [Switch](#switch) function to check for empty/null values. Example: If country attribute is empty, set value "Other". If it is present, pass the country attribute value to target attribute. 
+     * `Switch([country],[country],"","Other")` 
+<br>   
 ---
 ### InStr
 **Function:** 
@@ -789,7 +800,7 @@ Let's say you are sourcing the attributes *firstName* and *lastName* from SAP Su
 RandomString(Length, MinimumNumbers, MinimumSpecialCharacters , MinimumCapital, MinimumLowerCase, CharactersToAvoid)
 
 **Description:** 
-The RandomString function generates a random string based on the conditions specified. Characters allowed can be identified [here](https://docs.microsoft.com/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements#reference).
+The RandomString function generates a random string based on the conditions specified. Characters allowed can be identified [here](/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements#reference).
 
 **Parameters:** 
 
@@ -812,7 +823,32 @@ Generates a random string with 6 characters. The string contains 3 numbers and 3
 Generates a random string with 10 characters. The string contains at least 2 numbers, 2 special characters, 2 capital letters, 1 lower case letter and excludes the characters "?" and "," (1@!2BaRg53).
 
 ---
+### Redact
+**Function:** 
+Redact()
 
+**Description:** 
+The Redact function replaces the attribute value with the string literal "[Redact]" in the provisioning logs. 
+
+**Parameters:** 
+
+| Name | Required/ Repeating | Type | Notes |
+| --- | --- | --- | --- |
+| **attribute/value** |Required |String|Specify the attribute or constant / string to redact from the logs.|
+
+**Example 1:** Redact an attribute:
+`Redact([userPrincipalName])`
+Removes the userPrincipalName from the provisioning logs.
+
+**Example 2:** Redact a string:
+`Redact("StringToBeRedacted")`
+Removes a constant string from the provisioning logs.
+
+**Example 3:** Redact a random string:
+`Redact(RandomString(6,3,0,0,3))`
+Removes the random string from the provisioning logs.
+
+---
 ### RemoveDuplicates
 **Function:** 
 RemoveDuplicates(attribute)

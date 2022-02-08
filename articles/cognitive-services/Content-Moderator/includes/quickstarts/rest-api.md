@@ -14,7 +14,7 @@ ms.author: pafarley
 
 Get started with the Azure Content Moderator REST API. 
 
-Content Moderator is an AI service that lets you handle content that is potentially offensive, risky, or otherwise undesirable. Use the AI-powered content moderation service to scan text, image, and videos and apply content flags automatically. Then integrate your app with the Review tool, an online moderator environment for a team of human reviewers. Build content filtering software into your app to comply with regulations or maintain the intended environment for your users.
+Content Moderator is an AI service that lets you handle content that is potentially offensive, risky, or otherwise undesirable. Use the AI-powered content moderation service to scan text, image, and videos and apply content flags automatically. Build content filtering software into your app to comply with regulations or maintain the intended environment for your users.
 
 Use the Content Moderator REST API to:
 
@@ -51,9 +51,9 @@ You should see the text moderation results displayed as JSON data in the console
 
 ```json
 {
-  "OriginalText": "Is this a crap email abcdef@abcd.com, phone: 6657789887, IP: 255.255.255.255,\n1 Microsoft Way, Redmond, WA 98052\n",
-  "NormalizedText": "Is this a crap email abide@ abed. com, phone: 6657789887, IP: 255. 255. 255. 255, \n1 Microsoft Way, Redmond, WA 98052",
-  "AutoCorrectedText": "Is this a crap email abide@ abed. com, phone: 6657789887, IP: 255. 255. 255. 255, \n1 Microsoft Way, Redmond, WA 98052",
+  "OriginalText": "Is this a <offensive word> email abcdef@abcd.com, phone: 6657789887, IP: 255.255.255.255,\n1 Microsoft Way, Redmond, WA 98052\n",
+  "NormalizedText": "Is this a <offensive word> email abide@ abed. com, phone: 6657789887, IP: 255. 255. 255. 255, \n1 Microsoft Way, Redmond, WA 98052",
+  "AutoCorrectedText": "Is this a <offensive word> email abide@ abed. com, phone: 6657789887, IP: 255. 255. 255. 255, \n1 Microsoft Way, Redmond, WA 98052",
   "Misrepresentation": null,
   "PII": {
     "Email": [
@@ -106,7 +106,7 @@ You should see the text moderation results displayed as JSON data in the console
       "Index": 10,
       "OriginalIndex": 10,
       "ListId": 0,
-      "Term": "crap"
+      "Term": "<offensive word>"
     }
   ],
   "Status": {

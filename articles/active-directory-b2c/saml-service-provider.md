@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/05/2021
+ms.date: 11/12/2021
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: fasttrack-edit
@@ -327,7 +327,7 @@ The following example shows the `entityID` value in the SAML metadata:
 The `identifierUris` property will accept URLs only on the domain `tenant-name.onmicrosoft.com`.
 
 ```json
-"identifierUris":"https://samltestapp2.azurewebsites.net",
+"identifierUris":"https://tenant-name.onmicrosoft.com",
 ```
 
 #### Share the application's metadata with Azure AD B2C
@@ -427,7 +427,7 @@ The following SAML application scenarios are supported via your own metadata end
 * Specify multiple logout URLs or POST binding for the logout URL in the application or service principal object.
 * Specify a signing key to verify relying party requests in the application or service principal object.
 * Specify a token encryption key in the application or service principal object.
-* Specify IdP-initiated sign-on, where the identity provider is Azure AD B2C.
+* [Specify IdP-initiated sign-on, where the identity provider is Azure AD B2C](saml-service-provider-options.md#configure-idp-initiated-flow).
 
 ## Next steps
 

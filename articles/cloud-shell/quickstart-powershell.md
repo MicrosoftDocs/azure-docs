@@ -222,7 +222,7 @@ Next time when you use PowerShell in Cloud Shell, the `helloworld.ps1` file will
 ## Use custom profile
 
 You can customize your PowerShell environment, by creating PowerShell profile(s) - `profile.ps1` (or `Microsoft.PowerShell_profile.ps1`).
-Save it under `$profile.CurrentUserAllHosts` (or `$profile.CurrentUserAllHosts`), so that it can be loaded in every PowerShell in Cloud Shell session.
+Save it under `$profile.CurrentUserAllHosts` (or `$profile.CurrentUserCurrentHost`), so that it can be loaded in every PowerShell in Cloud Shell session.
 
 For how to create a profile, refer to [About Profiles][profile].
 
@@ -240,7 +240,7 @@ Type `exit` to terminate the session.
 
 [bashqs]: quickstart.md
 [gallery]: https://www.powershellgallery.com/
-[customex]: /azure/virtual-machines/extensions/custom-script-windows
+[customex]: ../virtual-machines/extensions/custom-script-windows.md
 [profile]: /powershell/module/microsoft.powershell.core/about/about_profiles
 [azmount]: ../storage/files/storage-how-to-use-files-windows.md
 [githubtoken]: https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/

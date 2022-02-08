@@ -4,17 +4,16 @@ description: Overview of the sign-in logs in Azure Active Directory.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: karenhoran
 editor: ''
 
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
 ms.service: active-directory
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 07/16/2021
+ms.date: 10/25/2021
 ms.author: markvi
 ms.reviewer: besiler
 
@@ -162,7 +161,7 @@ The **Location** - The location the connection was initiated from:
 
 
 > [!NOTE]
-> Due to privacy commitments, Azure AD does not populate this field this field to the home tenant in the case of a cross-tenant scenario.
+> Due to privacy commitments, Azure AD does not populate this field to the home tenant in the case of a cross-tenant scenario.
 
 
 |Name|Modern authentication|Description|
@@ -279,6 +278,7 @@ On the **Users** page, you get a complete overview of all user sign-ins by click
 The **Authentication Details** tab located within the sign-ins report provides the following information, for each authentication attempt:
 
 - A list of authentication policies applied (such as Conditional Access, per-user MFA, Security Defaults)
+- A list of session lifetime policies applied (such as Sign-in frequency, Remember MFA, Configurable Token lifetime)
 - The sequence of authentication methods used to sign-in
 - Whether or not the authentication attempt was successful
 - Detail about why the authentication attempt succeeded or failed
@@ -286,6 +286,7 @@ The **Authentication Details** tab located within the sign-ins report provides t
 This information allows admins to troubleshoot each step in a user’s sign-in, and track:
 
 - Volume of sign-ins protected by multi-factor authentication 
+- Reason for authentication prompt based on the session lifetime policies
 - Usage and success rates for each authentication method 
 - Usage of passwordless authentication methods (such as Passwordless Phone Sign-in, FIDO2, and Windows Hello for Business) 
 - How frequently authentication requirements are satisfied by token claims (where users are not interactively prompted to enter a password, enter an SMS OTP, and so on)
@@ -329,7 +330,7 @@ The **Sign-ins** option gives you a complete overview of all sign-in events to y
 
 ## Microsoft 365 activity logs
 
-You can view Microsoft 365 activity logs from the [Microsoft 365 admin center](/office365/admin/admin-overview/about-the-admin-center). Consider the point  that, Microsoft 365 activity and Azure AD activity logs share a significant number of the directory resources. Only the Microsoft 365 admin center provides a full view of the Microsoft 365 activity logs. 
+You can view Microsoft 365 activity logs from the [Microsoft 365 admin center](/office365/admin/admin-overview/about-the-admin-center). Consider the point that, Microsoft 365 activity and Azure AD activity logs share a significant number of the directory resources. Only the Microsoft 365 admin center provides a full view of the Microsoft 365 activity logs. 
 
 You can also access the Microsoft 365 activity logs programmatically by using the [Office 365 Management APIs](/office/office-365-management-api/office-365-management-apis-overview).
 

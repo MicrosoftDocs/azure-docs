@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Reference documentation for the CLI (v2) Azure Data Lake Gen2 datastore YAML schema.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mldata
 ms.topic: reference
 
 author: ynpandey
@@ -18,6 +18,8 @@ ms.reviewer: laobri
 The source JSON schema can be found at https://azuremlschemas.azureedge.net/latest/azureDataLakeGen2.schema.json.
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+
+[!INCLUDE [schema note](../../includes/machine-learning-preview-old-json-schema-note.md)]
 
 ## YAML syntax
 
@@ -49,11 +51,11 @@ Examples are available in the [examples GitHub repository](https://github.com/Az
 
 ## YAML: identity-based access
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/resources/datastore/adls-gen2-credless.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/resources/datastore/adls-gen2-credless.yml":::
 
 ## YAML: tenant ID, client ID, client secret
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/resources/datastore/adls-gen2.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/resources/datastore/adls-gen2.yml":::
 
 ## Next steps
 

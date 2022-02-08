@@ -86,6 +86,8 @@ The new VM Extension for SAP uses a managed identity that's assigned to the VM t
 1. Run the following PowerShell cmdlet.
     For a list of available environments, run cmdlet `Get-AzEnvironment`. If you want to use global Azure, your environment is **AzureCloud**. For Azure China 21Vianet, select **AzureChinaCloud**.
 
+    The VM Extension for SAP supports configuring a proxy that the extension should use to connect to external resources, for example the Azure Resource Manager API. Please use parameter -ProxyURI to set the proxy.
+
     ```powershell
     $env = Get-AzEnvironment -Name <name of the environment>
     Connect-AzAccount -Environment $env
@@ -93,7 +95,11 @@ The new VM Extension for SAP uses a managed identity that's assigned to the VM t
 
     Set-AzVMAEMExtension -ResourceGroupName <resource group name> -VMName <virtual machine name> -InstallNewExtension
     ```
- 
+
+1. Restart SAP Host Agent
+
+    Log on to the virtual machine on which you enabled the VM Extension for SAP and restart the SAP Host Agent if it was already installed. SAP Host Agent does not use the VM Extension until it is restarted. It currently cannot detect that an extension was installed after it was started.
+
 ## <a name="fa4428b9-bed6-459a-9dfb-74cc27454481"></a>Configure the Azure VM extension for SAP solutions with Azure CLI
  
 The new VM Extension for SAP uses a managed identity that is assigned to the VM to access monitoring and configuration data of the VM.
@@ -118,10 +124,15 @@ The new VM Extension for SAP uses a managed identity that is assigned to the VM 
   
 1. Enable the new extension:
   
+   The VM Extension for SAP supports configuring a proxy that the extension should use to connect to external resources, for example the Azure Resource Manager API. Please use parameter --proxy-uri to set the proxy.
+
    ```azurecli
    az vm aem set -g <resource-group-name> -n <vm name> --install-new-extension
    ```
  
+ 1. Restart SAP Host Agent
+
+    Log on to the virtual machine on which you enabled the VM Extension for SAP and restart the SAP Host Agent if it was already installed. SAP Host Agent does not use the VM Extension until it is restarted. It currently cannot detect that an extension was installed after it was started.
  
 ## <a name="5774c1db-1d3c-4b34-8448-3afd0b0f18ab"></a>Readiness check
 

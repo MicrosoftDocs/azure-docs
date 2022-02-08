@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 10/25/2021
 ms.author: justinha
 author: justinha
-manager: daveba
+manager: karenhoran
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.custom: ignite-fall-2021

@@ -58,7 +58,7 @@ The responsibilities of the IoT Edge security manager include, but aren't limite
 * Control access to the device hardware root of trust through notary services.
 * Monitor the integrity of IoT Edge operations at runtime.
 * Provision the device identity and manage transition of trust where applicable.
-* Ensure safe operation of client agents for services including Device Update for IoT Hub and Azure Defender for IoT.
+* Ensure safe operation of client agents for services including Device Update for IoT Hub and Microsoft Defender for IoT.
 :::moniker-end
 
 The IoT Edge security manager consists of three components:

@@ -12,14 +12,14 @@ ms.custom: devx-track-java
 
 # How to monitor Spring Boot apps using New Relic Java agent (Preview)
 
-This feature enables monitoring of Spring Boot applications running in Azure Spring Cloud with the New Relic Java agent.
+This feature enables monitoring of Spring Boot applications in Azure Spring Cloud with the New Relic Java agent.
 
 With the New Relic Java agent, you can:
 * Consume the New Relic Java agent.
 * Configure the New Relic Java agent using environment variables.
 * Check all monitoring data from the New Relic dashboard.
 
-The following video describes how to activate and monitor Spring Boot applications running in Azure Spring Cloud using New Relic One.
+The following video describes how to activate and monitor Spring Boot applications in Azure Spring Cloud using New Relic One.
 
 <br>
 

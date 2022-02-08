@@ -4,7 +4,7 @@ description: Learn the best practices and troubleshooting steps for Node.js appl
 author: msangapu-msft
 
 ms.assetid: 387ea217-7910-4468-8987-9a1022a99bef
-ms.devlang: nodejs
+ms.devlang: javascript
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: msangapu

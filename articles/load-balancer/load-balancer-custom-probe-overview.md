@@ -7,7 +7,6 @@ documentationcenter: na
 author: asudbring
 manager: kumudD
 ms.service: load-balancer
-ms.devlang: na
 ms.topic: how-to
 ms.custom: seodec18
 ms.tgt_pltfrm: na
@@ -27,9 +26,6 @@ Health probes support multiple protocols. The availability of a specific health 
 | **[Probe types](#types)** | TCP, HTTP, HTTPS | TCP, HTTP |
 | **[Probe down behavior](#probedown)** | All probes down, all TCP flows continue. | All probes down, all TCP flows expire. | 
 
-
->[!IMPORTANT]
->Review this document in its entirety, including important [design guidance](#design) below to create a reliable service.
 
 >[!IMPORTANT]
 >Load Balancer health probes originate from the IP address 168.63.129.16 and must not be blocked for probes to mark up your instance.  Review [probe source IP address](#probesource) for details. To see this probe traffic within your backend instance, review [this FAQ](./load-balancer-faqs.yml).
@@ -88,7 +84,7 @@ The available protocols depend on the Load Balancer SKU used:
 
 TCP probes initiate a connection by performing a three-way open TCP handshake with the defined port.  TCP probes terminate a connection with a four-way close TCP handshake.
 
-The minimum probe interval is 5 seconds and the minimum number of unhealthy responses is 2.  The total duration of all intervals cannot exceed 120 seconds.
+The minimum probe interval is 5 seconds and cannot exceed 120 seconds.
 
 A TCP probe fails when:
 * The TCP listener on the instance doesn't respond at all during the timeout period.  A probe is marked down based on the number of timed-out probe requests, which were configured to go unanswered before marking down the probe.
@@ -112,7 +108,7 @@ The following illustrates how you could express this kind of probe configuration
 >[!NOTE]
 >HTTPS probe is only available for [Standard Load Balancer](./load-balancer-overview.md).
 
-HTTP and HTTPS probes build on the TCP probe and issue an HTTP GET with the specified path. Both of these probes support relative paths for the HTTP GET. HTTPS probes are the same as HTTP probes with the addition of a Transport Layer Security (TLS, formerly known as SSL) wrapper. The health probe is marked up when the instance responds with an HTTP status 200 within the timeout period.  The health probe attempts to check the configured health probe port every 15 seconds by default. The minimum probe interval is 5 seconds. The total duration of all intervals cannot exceed 120 seconds.
+HTTP and HTTPS probes build on the TCP probe and issue an HTTP GET with the specified path. Both of these probes support relative paths for the HTTP GET. HTTPS probes are the same as HTTP probes with the addition of a Transport Layer Security (TLS, formerly known as SSL) wrapper. The health probe is marked up when the instance responds with an HTTP status 200 within the timeout period.  The health probe attempts to check the configured health probe port every 15 seconds by default. The minimum probe interval is 5 seconds and cannot exceed 120 seconds.
 
 HTTP / HTTPS probes can also be useful to implement your own logic to remove instances from load balancer rotation if the probe port is also the listener for the service itself. For example, you might decide to remove an instance if it's above 90% CPU and return a non-200 HTTP status. 
 
@@ -151,20 +147,6 @@ The following illustrates how you could express this kind of probe configuration
         "numberOfProbes": 1
       },
 ```
-
-### <a name="guestagent"></a>Guest agent probe (Classic only)
-
-Cloud service roles (worker roles and web roles) use a guest agent for probe monitoring by default.  A guest agent probe is a last resort configuration.  Always use a health probe explicitly with a TCP or HTTP probe. A guest agent probe is not as effective as explicitly defined probes for most application scenarios.
-
-A guest agent probe is a check of the guest agent inside the VM. It then listens and responds with an HTTP 200 OK response only when the instance is in the Ready state. (Other states are Busy, Recycling, or Stopping.)
-
-For more information, see [Configure the service definition file (csdef) for health probes](/previous-versions/azure/reference/ee758710(v=azure.100)) or [Get started by creating a public load balancer for cloud services](/previous-versions/azure/load-balancer/load-balancer-get-started-internet-classic-cloud#check-load-balancer-health-status-for-cloud-services).
-
-If the guest agent fails to respond with HTTP 200 OK, the load balancer marks the instance as unresponsive. It then stops sending flows to that instance. The load balancer continues to check the instance. 
-
-If the guest agent responds with an HTTP 200, the load balancer sends new flows to that instance again.
-
-When you use a web role, the website code typically runs in w3wp.exe, which isn't monitored by the Azure fabric or guest agent. Failures in w3wp.exe (for example, HTTP 500 responses) aren't reported to the guest agent. Consequently, the load balancer doesn't take that instance out of rotation.
 
 <a name="health"></a>
 ## <a name="probehealth"></a>Probe up behavior
@@ -248,6 +230,7 @@ Azure Monitor logs are not available for both public and internal Basic Load Bal
 - HTTPS probes do not support mutual authentication with a client certificate.
 - You should assume Health probes will fail when TCP timestamps are enabled.
 - A basic SKU load balancer health probe isn't supported with a virtual machine scale set.
+- HTTP probes do not support probing on the following ports due to security concerns: 19, 21, 25, 70, 110, 119, 143, 220, 993. 
 
 ## Next steps
 

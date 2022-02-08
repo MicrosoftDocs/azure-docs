@@ -97,7 +97,7 @@ Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.
     2. Create a `negotiate` function for clients to get access token.
     
         ```bash
-        func new -n negotiate -t SignalRNegotiateHTTPTrigger
+        func new -n negotiate -t HttpTrigger
         ```
         
         Open `negotiate/function.json` and copy the following json codes:

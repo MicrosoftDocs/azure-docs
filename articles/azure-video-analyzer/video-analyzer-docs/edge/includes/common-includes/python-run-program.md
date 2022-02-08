@@ -2,7 +2,7 @@
 author: russellcooks
 ms.service: azure-video-analyzer
 ms.topic: include
-ms.date: 07/9/2021
+ms.date: 11/04/2021
 ms.author: russellcooks
 ---
 * Navigate to the `TERMINAL` window in VS Code

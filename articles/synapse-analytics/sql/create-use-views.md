@@ -8,7 +8,7 @@ ms.topic: overview
 ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: stefanazaric
-ms.reviewer: jrasnick
+ms.reviewer: sngun
 ms.custom: ignite-fall-2021
 ---
 

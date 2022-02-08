@@ -7,7 +7,7 @@ ms.subservice: security
 ms.topic: reference
 author: DavidTrigano
 ms.author: datrigan
-ms.reviewer: vanto
+ms.reviewer: kendralittle, vanto, mathoma
 ms.custom: sqldbrb=1
 ms.date: 06/03/2020
 ---

@@ -6,7 +6,7 @@ author: ginalee-dotcom
 ms.custom: references_regions
 ms.service: healthcare-apis
 ms.topic: reference
-ms.date: 10/21/2021
+ms.date: 01/14/2022
 ms.author: ginle
 ---
 
@@ -40,24 +40,10 @@ During the public preview phase, Azure Healthcare APIs is available for you to u
 Please refer to the [Products by region](https://azure.microsoft.com/global-infrastructure/services/?products=azure-api-for-fhir) page for the most current information. 
           
 ### What are the subscription quota limits for the Azure Healthcare APIs?
+Please refer to [Healthcare APIs service limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-healthcare-apis) for the most current information.
 
-#### Workspace (logical container):
-* 200 instances per Subscription (not adjustable)
-
-#### DICOM Server:
-* 800 instances per Subscription (not adjustable)
-* 10 DICOM instances per Workspace (not adjustable)
-
-#### FHIR Server:
-* 25 instances per Subscription (not adjustable)
-* 10 FHIR instances per Workspace (not adjustable)
-
-#### IoT connector:
-* 25 IoT connectors per Subscription (adjustable with an Azure support request)
-* 10 IoT connectors per Workspace (adjustable with an Azure support request)
-* One FHIR Destination* per IoT connector (not adjustable)
-
-(* - FHIR Destination is a child resource of IoT connector)
+### What is the backup and recovery policy for the Azure Healthcare APIs?
+Data for the managed service is automatically backed up every 12 hours, and the backups are kept for 7 days. Data can be restored by the support team. Customers can make a request to restore the data, or change the default data backup policy, through a support ticket.
 
 ## More frequently asked questions
 [FAQs about Azure Healthcare APIs FHIR service](./fhir/fhir-faq.md)

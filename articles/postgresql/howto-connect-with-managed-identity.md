@@ -39,7 +39,7 @@ Retrieve the application ID for the system-assigned managed identity, which you'
 
 ```azurecli
 # Get the client ID (application ID) of the system-assigned managed identity
-az ad sp list --display-name obs-locdev-wus2 --query [*].appId --out tsv
+az ad sp list --display-name vm-name --query [*].appId --out tsv
 ```
 
 ## Creating a PostgreSQL user for your Managed Identity
@@ -98,12 +98,10 @@ namespace Driver
 {
     class Script
     {
-        // Obtain connection string information from the portal
-        //
+        // Obtain connection string information from the portal for use in the following variables
         private static string Host = "HOST";
         private static string User = "USER";
         private static string Database = "DATABASE";
-        //private static string ClientId = "CLIENT_ID";
 
         static async Task Main(string[] args)
         {

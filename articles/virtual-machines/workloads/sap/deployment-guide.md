@@ -832,7 +832,9 @@ Set the following parameters:
    sudo service waagent restart
    ```
 
-The proxy settings in \\etc\\waagent.conf also apply to the required VM extensions. If you want to use the Azure repositories, make sure that the traffic to these repositories is not going through your on-premises intranet. If you created user-defined routes to enable forced tunneling, make sure that you add a route that routes traffic to the repositories directly to the Internet, and not through your site-to-site VPN connection.
+If you want to use the Azure repositories, make sure that the traffic to these repositories is not going through your on-premises intranet. If you created user-defined routes to enable forced tunneling, make sure that you add a route that routes traffic to the repositories directly to the Internet, and not through your site-to-site VPN connection.
+
+The VM Extension for SAP also needs to be able to access the internet. Please make sure to install the new VM Extension for SAP and follow the steps in [Configure the Azure VM extension for SAP solutions with Azure CLI](vm-extension-for-sap-new.md#fa4428b9-bed6-459a-9dfb-74cc27454481) in the VM Extension for SAP installation guide to configure the proxy.
 
 * **SLES**
 

@@ -47,8 +47,6 @@ The following things affect how much it costs to run Azure Virtual Desktop for A
 
 We're aware of the following issues affecting the public preview version of Azure Virtual Desktop for Azure Stack HCI:
 
-- Azure Virtual Desktop deployments using [RDP Shortpath](shortpath.md) currently can't connect to session hosts running on Azure Stack HCI.
-
 - Azure Stack HCI host pools don't currently support the following Azure Virtual Desktop features:
     
     - [Azure Monitor for Azure Virtual Desktop](azure-monitor.md)

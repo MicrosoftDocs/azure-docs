@@ -42,7 +42,7 @@ Given the following application registration in the Azure portal:
 
 App1 uses redirect `msauth.com.contoso.app1://auth`.\
 App2 uses `msauth.com.contoso.app2://auth`.\
-App3 uses `msauth.com.contoso.app1://auth`.
+App3 uses `msauth.com.contoso.app3://auth`.
 
 ### Migrating from ADAL to MSAL
 

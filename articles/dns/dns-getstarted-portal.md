@@ -8,7 +8,7 @@ ms.author: rohink
 ms.date: 04/23/2021
 ms.topic: quickstart
 ms.service: dns
-ms.custom: mode-portal
+ms.custom: mode-ui
 #Customer intent: As an administrator or developer, I want to learn how to configure Azure DNS using the Azure portal so I can use Azure DNS for my name resolution.
 ---
 

@@ -52,6 +52,9 @@
   - name: Create and share a query in Azure portal
     displayName: query, portal
     href: ./tutorials/create-share-query.md
+  - name: Automate your queries with Azure Logic Apps
+    displayName: query, resource graph, logic app
+    href: ./tutorials/logic-app-calling-arg.md
 - name: Samples
   items:
   - name: Language examples
