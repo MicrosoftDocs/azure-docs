@@ -175,7 +175,7 @@ The Image Builder Build VM User Assigned Identity:
 * Supports cross subscription scenarios (identity created in one subscription while the image template is created in another subscription under the same tenant)
 * Doesn't support cross tenant scenarios (identity created in one tenant while the image template is created in another tenant)
 
-To learn more, see [How to use managed identities for Azure resources on an Azure VM to acquire an access token](/azure/active-directory/managed-identities-azure-resources/how-to-use-vm-token) and [How to use managed identities for Azure resources on an Azure VM](/active-directory/managed-identities-azure-resources/how-to-use-vm-sign-in).
+To learn more, see [How to use managed identities for Azure resources on an Azure VM to acquire an access token](/azure/active-directory/managed-identities-azure-resources/how-to-use-vm-token) and [How to use managed identities for Azure resources on an Azure VM](/azure/active-directory/managed-identities-azure-resources/how-to-use-vm-sign-in).
 
 ## Properties: source
 
