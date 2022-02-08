@@ -7,7 +7,7 @@ author: mrbullwinkle
 manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: metrics-advisor
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/20/2021
 ms.author: mbullwin
 ---
@@ -68,7 +68,6 @@ If there's an error at this step:
 1. First check if the connection string is valid. 
 2. Then check if there's sufficient permissions and that the ingestion worker IP address is granted access.
 3. Then check if required parameters (@IntervalStart and @IntervalEnd) are used in your query. 
-
 
 ### Schema configuration
 

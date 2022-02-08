@@ -66,13 +66,13 @@ Next, you choose one the options in the following sections.
 
 ### Deploy from Azure Database for PostgreSQL deployment option page
 
-1. Go to the following URL: `https://ms.portal.azure.com/#create/Microsoft.PostgreSQLServer`.
+1. Go to the following URL: `https://portal.azure.com/#create/Microsoft.PostgreSQLServer`.
 1. Select **Azure Arc-enabled PostgreSQL Hyperscale (Preview)** in the lower right of the page.
 1. Fill in the form, like you deploy any other Azure resource.
 
 ### Deploy from the Azure Arc center
 
-1. Go to the following URL: `https://ms.portal.azure.com/#blade/Microsoft_Azure_HybridCompute/AzureArcCenterBlade/overview`.
+1. Go to the following URL: `https://portal.azure.com/#blade/Microsoft_Azure_HybridCompute/AzureArcCenterBlade/overview`.
 1. From the **Deploy Azure services** tile, select **Deploy**. Then, from the **PostgreSQL Hyperscale (Preview)** tile, select **Deploy**. Alternatively, from the left pane, in the **Services** section, select **PostgreSQL Hyperscale (Preview)**. Then select **+ Create** in the upper left of the pane.
 
 ### Important considerations
