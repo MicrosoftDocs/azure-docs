@@ -12,9 +12,9 @@ ms.custom: template-concept
 
 # Packet core dashboards
 
-The packet core dashboards provide a flexible way to monitor key statistics relating to your deployment in real time. They also allow you to view information on firing alerts, allowing you to quickly react to emerging issues.
+The *packet core dashboards* provide a flexible way to monitor key statistics relating to your deployment in real time. They also allow you to view information on firing alerts, allowing you to quickly react to emerging issues.
 
-The packet core dashboards are powered by Grafana, an open-source, metric analytics and visualization suite. For more information, see the [Grafana documentation](https://grafana.com/docs/).
+The packet core dashboards are powered by *Grafana*, an open-source, metric analytics and visualization suite. For more information, see the [Grafana documentation](https://grafana.com/docs/).
 
 ## Use the packet core dashboards
 
@@ -24,7 +24,7 @@ We'll go through the common concepts and operations you'll need to understand be
 
 You can access the following packet core dashboards:
 
-- The **Overview dashboard** displays important key performance indicators (KPIs), including the number of connected devices, throughput, and any alerts firing in the system.
+- The **Overview dashboard** displays important *key performance indicators* (KPIs), including the number of connected devices, throughput, and any alerts firing in the system.
 
     :::image type="content" source="media/packet-core-dashboards/packet-core-overview-dashboard.png" alt-text="Screenshot of the packet core Overview dashboard." lightbox="media/packet-core-dashboards/packet-core-overview-dashboard.png":::
 
@@ -88,7 +88,7 @@ You can access the lists of available dashboards and switch between them using t
 
 :::image type="content" source="media/packet-core-dashboards/packet-core-dashboard-list.png" alt-text="Screenshot showing the dashboard links available on each packet core dashboard.":::
 
-You can also switch between dashboards by clicking the dashboard picker. It's located in the top-left of the screen and displays the name of the dashboard that you currently have open.
+You can also switch between dashboards by clicking the **dashboard picker**. It's located in the top-left of the screen and displays the name of the dashboard that you currently have open.
 
 :::image type="content" source="media/packet-core-dashboards/packet-core-dashboard-picker.png" alt-text="Screenshot showing the dashboard picker used to switch between packet core dashboards.":::
 
