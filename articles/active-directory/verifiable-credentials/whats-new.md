@@ -18,9 +18,13 @@ ms.author: barclayn
 This article lists the latest features, improvements, and changes in the Azure Active Directory (Azure AD) Verifiable Credentials service.
 ## February 2022
 
-We are rolling out a couple of important updates to our service that might require Azure AD Verifiable Credentials service [reconfiguration](verifiable-credentials-faq.md?#how-do-i-redeploy-the-azure-ad-verifiable-credentials-service) before March 31st 2022:
+We are rolling out a couple of important updates to our service that require Azure AD Verifiable Credentials service [reconfiguration](verifiable-credentials-faq.md?#how-do-i-redeploy-the-azure-ad-verifiable-credentials-service):
 - The Azure AD Verifiable Credentials service can store and handle data processing in the Azure European region. [More information](https://aka.ms/vc/EUannouncement)
 - Azure Active Directory Verifiable Credentials customers can take advantage of enhancements to credential revocation that add a higher degree of privacy through the implementation of the [W3C Status List 2021](https://w3c-ccg.github.io/vc-status-list-2021/) standard. [Read more](https://aka.ms/vc/EUannouncement)  
+
+>[!IMPORTANT]
+> All Azure Active Directory Verifiable Credential service deployments need to go through a redeployment process before March 31st 2022. Any tenants that have not [redeployed](verifiable-credentials-faq.md?#how-do-i-redeploy-the-azure-ad-verifiable-credentials-service) by then will become inaccessible and administrators will have to configure a new service instance before they can continue using the features provided by Azure Active Directory Verifiable Credentials.
+
 
 ## December 2021
 - We added [Postman collections](https://github.com/Azure-Samples/active-directory-verifiable-credentials/tree/main/Postman) to our samples as a quick start to start using the Request Service REST API.
