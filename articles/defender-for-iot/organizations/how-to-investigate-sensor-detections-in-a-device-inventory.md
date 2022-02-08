@@ -54,9 +54,9 @@ This section describes device details available from the inventory and describes
 | MAC Address | The MAC address of the device. |
 | Protocols | The protocols that the device uses. |
 | Unacknowledged Alerts | The number of unacknowledged alerts associated with this device. |
-| Is Authorized | The authorization status defined by the user:<br />- **True**: The device has been authorized.<br />- **False**: The device has not been authorized. |
+| Is Authorized | The authorization status defined by the user:<br />- **True**: The device has been authorized.<br />- **False**: The device hasn't been authorized. |
 | Is Known as Scanner | Defined as a network scanning device by the user. |
-| Is Programming device | Defined as an authorized programming device by the user. <br />- **True**: The device performs programming activities for PLCs, RTUs, and controllers, which are relevant to engineering stations. <br />- **False**: The device is not a programming device. |
+| Is Programming device | Defined as an authorized programming device by the user. <br />- **True**: The device performs programming activities for PLCs, RTUs, and controllers, which are relevant to engineering stations. <br />- **False**: The device isn't a programming device. |
 | Groups | The groups that this device participates in. |
 | Last Activity | The last activity that the device performed. |
 | Discovered | When this device was first seen in the network. |
@@ -190,7 +190,7 @@ You can deploy the script once or schedule ongoing queries by using standard aut
 
 ### About the script
 
-- The script is run as a utility and not an installed program. Running the script does not affect the endpoint.
+- The script is run as a utility and not an installed program. Running the script doesn't affect the endpoint.
 
 - The files that the script generates remain on the local drive until you delete them.
 
@@ -246,7 +246,7 @@ Devices may become inactive because of:
 
 Deleting inactive devices helps:
 
-- Defender for IoT create a more accurate representation of current network activity
+- Defender for IoT creates a more accurate representation of current network activity
 - Better evaluate committed devices when managing subscriptions
 - Reduce clutter on your screen
 
@@ -254,7 +254,7 @@ Deleting inactive devices helps:
 
 You can filter the inventory to display devices that are inactive:
 
-- for 7 days or more
+- for seven days or more
 - for 14 days or more
 - 30 days or more
 - 90 days or more
@@ -271,7 +271,7 @@ You can filter the inventory to display devices that are inactive:
 
 Devices you delete from the Inventory are removed from the map and won't be calculated when generating Defender for IoT reports, for example Data Mining, Risk Assessment, and Attack Vector reports.
 
-You will be prompted to record a reason for deleting devices. This information, as well as the time/date and number of devices deleted, appears in the Event timeline.
+You'll be prompted to record a reason for deleting devices. This information, as well as the time/date and number of devices deleted, appears in the Event timeline.
 
 **To delete inactive devices:**
   
