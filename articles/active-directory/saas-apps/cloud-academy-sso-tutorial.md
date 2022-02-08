@@ -180,9 +180,9 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting t
 > [!NOTE]
 >  If you are logged in Cloud Academy as your test user created previously, proceed with test flow.
 >  Otherwise close the popup, scroll up to **General Settings**, copy/paste Subdomain URL on Incognito browser tab and then log in as your test user.
->  If everiting is ok, you can close Incognito tab, click on **Save and Test**. 
->  It will re open service provider popup. Now you can click on **continue**, then on **Test SSO connection** again and then on **Test was succesfull** ,because you've already test it on Incognito tab. 
->  Now you can go to the next point.
+>  If everything is ok, you can close Incognito tab, click on **Save and Test**. 
+>  It will re-open the Service Provider popup. Now you can click on **continue**, then on **Test SSO connection** again and finally on **Test was succesfull**, because you've already test it on Incognito tab. 
+>  Now you can go to the next step.
 6. If everything is ok, you can finally activate the SSO integration for the whole company:
 ![Screenshot that show SSO activation](./media/cloud-academy-sso-tutorial/test-succesfull.png)
 
