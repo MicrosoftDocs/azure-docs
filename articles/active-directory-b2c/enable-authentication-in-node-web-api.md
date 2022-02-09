@@ -188,9 +188,9 @@ npm install @azure/msal-node
     
     **Express routes**:
     - `/`: 
-        - Used to enter the web app, and renders the `signin` page.
+        - It's the entry to the web app, and renders the `signin` page.
     - `/signin`:
-        - Used when the end-user signs in.
+        - Signs in the user.
         - Calls `getAuthCode()` method and passes the `authority` for **Sign in and sign up** user flow/policy, `APP_STATES.LOGIN`, and `apiConfig.webApiScopes` to it.  
         - It causes the end user to be challenged to enter their logins, or if the user doesn't have an account, they can sign up.
         - The final response resulting from this endpoint includes an authorization code from B2C posted back to the `/redirect` endpoint.
@@ -202,8 +202,8 @@ npm install @azure/msal-node
         - Calls the web API. 
         - If the `accessToken` isn't in the session, call the anonymous API endpoint (`http://localhost:5000/public`), otherwise, call the protected API endpoint (`http://localhost:5000/hello`).
     - `/signout`:
-        - Used when a user signs out.
-        - The web app session is cleared and an http call is made to the Azure AD B2c logout endpoint.
+        - Signs out the user.
+        - clears the web app session is and makes an http call to the Azure AD B2c logout endpoint.
 
 
 ## Step 3: Run the web app and API
