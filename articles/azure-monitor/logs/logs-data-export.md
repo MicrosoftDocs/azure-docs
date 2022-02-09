@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
 author: yossi-y
 ms.author: yossiy
-ms.date: 12/01/2021
+ms.date: 02/09/2022
 
 ---
 
@@ -18,7 +18,7 @@ Data in Log Analytics is available for the retention period defined in your work
 *  Integration with Azure services and other tools – export to Event Hubs in near-real-time to send data to your services and tools at it arrives to Azure Monitor.
 *  Keep audit and security data for very long time – export to Storage Account in the workspace's region, or replicate data to other regions using any of the [Azure Storage redundancy options](../../storage/common/storage-redundancy.md#redundancy-in-a-secondary-region) including "GRS" and "GZRS".
 
-When configuring data export rules in Log Analytics workspace, new ingested data to selected tables in rules is exported to your Storage Account or to your Event Hubs as it arrives.
+After configuring data export rules in Log Analytics workspace, new data for tables in rules is exported from Azure Monitor pipeline to your Storage Account or Event Hubs as it arrives.
 
 [![Data export overview](media/logs-data-export/data-export-overview.png "Screenshot of data export flow diagram.")](media/logs-data-export/data-export-overview.png#lightbox)
 
