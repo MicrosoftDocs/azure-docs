@@ -30,7 +30,7 @@ Follow the steps below to install [cert-manager](https://docs.cert-manager.io) o
     #!/bin/bash
 
     # Install the CustomResourceDefinition resources separately
-    kubectl apply -f https://raw.githubusercontent.com/jetstack/cert-manager/release-0.8/deploy/manifests/00-crds.yaml
+    kubectl apply -f https://github.com/jetstack/cert-manager/releases/download/v1.7.0/cert-manager.crds.yaml
 
     # Create the namespace for cert-manager
     kubectl create namespace cert-manager
@@ -49,14 +49,14 @@ Follow the steps below to install [cert-manager](https://docs.cert-manager.io) o
     helm install \
       cert-manager jetstack/cert-manager \
       --namespace cert-manager \
-      --version v1.0.4 \
+      --version v1.7.1 \
       # --set installCRDs=true
 
     # Helm v2
     helm install \
       --name cert-manager \
       --namespace cert-manager \
-      --version v1.0.4 \
+      --version v1.7.1 \
       jetstack/cert-manager \
       # --set installCRDs=true
       
@@ -84,7 +84,7 @@ Follow the steps below to install [cert-manager](https://docs.cert-manager.io) o
     ```bash
     #!/bin/bash
     kubectl apply -f - <<EOF
-    apiVersion: certmanager.k8s.io/v1alpha1
+    apiVersion: cert-manager.io/v1
     kind: ClusterIssuer
     metadata:
     name: letsencrypt-staging
@@ -99,13 +99,17 @@ Follow the steps below to install [cert-manager](https://docs.cert-manager.io) o
         # used to ensure that the verification process is working properly
         # before moving to production
         server: https://acme-staging-v02.api.letsencrypt.org/directory
-        privateKeySecretRef:
         # Secret resource used to store the account's private key.
-        name: example-issuer-account-key
+        privateKeySecretRef:
+         name: example-issuer-account-key
         # Enable the HTTP-01 challenge provider
         # you prove ownership of a domain by ensuring that a particular
         # file is present at the domain
-        http01: {}
+        solvers:
+        - http01:
+            ingress:
+              class: azure/application-gateway
+
     EOF
     ```
 
