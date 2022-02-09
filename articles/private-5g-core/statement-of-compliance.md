@@ -15,7 +15,7 @@ This article provides information on the standards for which Azure Private 5G Co
 
 ## 3GPP specifications
 
-All packet core Network Functions are compliant with the 3GPP specifications listed. Several of the Network Functions can play the role of both the service consumer and service producer to adhere to these standards.
+All packet core Network Functions are compliant with Release 15 of the 3GPP specifications listed. Several of the Network Functions can play the role of both the service consumer and service producer to adhere to these standards.
 
 ### 5G System (5GS)
 
