@@ -719,7 +719,7 @@ The **SAPUsersAuthorizations** Microsoft Sentinel Function brings together data 
   - TimeAgo
       - Optional
       - Default value: 7 days
-      - Function will only seek User master data from TimeAgo until now()
+      - Determines that the function seeks User master data from the time defined by the `TimeAgo` value until the time defined by the `now()` value.
 
 The **SAPUsersAuthorizations** Microsoft Sentinel Function returns the following data:
 
