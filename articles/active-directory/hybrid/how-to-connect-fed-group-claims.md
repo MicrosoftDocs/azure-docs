@@ -78,11 +78,11 @@ To configure Azure AD to emit group names for Active Directory groups:
 
 2. **Configure the application registration in Azure AD to include group claims in tokens**
 
-   You can configure group claims in the **Enterprise Applications** section of the portal, or by using the application manifest in the **Application Registrations** section. To configure group claims in the application manifest, see [Configure the Azure AD application registration for group attributes](#configure-the-Azure-AD-application-registration-for-group-attributes) later in this article.
+   You can configure group claims in the **Enterprise Applications** section of the portal, or by using the application manifest in the **Application Registrations** section. To configure group claims in the application manifest, see [Configure the Azure AD application registration for group attributes](#configure-Azure-AD-application-registration-for-group-attributes) later in this article.
 
-## Add group claims to tokens for SAML applications by using SSO configuration
+## Add group claims to tokens for SAML applications using SSO configuration
 
-To configure group claims for a gallery or non-gallery SAML application:
+To configure group claims for a gallery or non-gallery SAML application via single sign-on (SSO):
 
 1. Open **Enterprise Applications**, select the application in the list, select **Single Sign On configuration**, and then select **User Attributes & Claims**.
 
@@ -92,7 +92,7 @@ To configure group claims for a gallery or non-gallery SAML application:
 
 1. Use the options to select which groups should be included in the token.
 
-   ![Screenshot that shows the Group Claims window, with the option for security groups selected.](media/how-to-connect-fed-group-claims/group-claims-ui-2.png)
+   ![Screenshot that shows the Group Claims window with group options.](media/how-to-connect-fed-group-claims/group-claims-ui-2.png)
 
    | Selection | Description |
    |----------|-------------|
