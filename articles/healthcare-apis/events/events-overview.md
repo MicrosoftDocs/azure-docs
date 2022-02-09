@@ -22,9 +22,11 @@ The Events feature enables you to receive event notification messages from Azure
 > [!IMPORTANT]
 > Events currently supports only the following FHIR resource operations:
 >
-> **FhirResourceCreated** - The event emitted after a FHIR resource gets created successfully.
-> **FhirResourceCreated** - The event emitted after a FHIR resource gets created successfully.
-> **FhirResourceDeleted** - The event emitted after a FHIR resource gets soft deleted successfully.
+> - **FhirResourceCreated** - The event emitted after a FHIR resource gets created successfully.
+>
+> - **FhirResourceCreated** - The event emitted after a FHIR resource gets created successfully.
+>
+> - **FhirResourceDeleted** - The event emitted after a FHIR resource gets soft deleted successfully.
 > 
 > For more information about the FHIR service delete types, see [FHIR Rest API capabilities for Azure Healthcare APIs FHIR service](../../healthcare-apis/fhir/fhir-rest-api-capabilities.md)
 
