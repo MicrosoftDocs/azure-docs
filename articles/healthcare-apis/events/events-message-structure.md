@@ -14,8 +14,8 @@ ms.author: jasteppe
 
 In this article, you'll learn about the Events message structure, required and non-required elements, and you'll be provided with samples of Events message payloads.
 
->  [!Important]
->  Events currently supports only the following FHIR resource operations:
+> [!Important]
+> Events currently supports only the following FHIR resource operations:
 >
 >  **FhirResourceCreated** - The event emitted after a FHIR resource gets created successfully.
 >  **FhirResourceCreated** - The event emitted after a FHIR resource gets created successfully.
