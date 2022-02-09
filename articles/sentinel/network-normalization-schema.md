@@ -12,6 +12,8 @@ ms.author: ofshezaf
 
 The Microsoft Sentinel Network Session normalization schema is used to describe an IP network activity. Network connections and network sessions are included. Such events are reported, for example, by operating systems, routers, firewalls, intrusion prevention systems, and web security gateways.
 
+The network normalization schema can represent any type of an IP network session but is designed to provide support for common source types, such as Netflow, firewalls, and intrusion prevention systems.
+
 For more information about normalization in Microsoft Sentinel, see [Normalization and the Advanced SIEM Information Model (ASIM)](normalization.md).
 
 This article describes version 0.2.x of the network normalization schema. [Version 0.1](normalization-schema-v1.md) was released before ASIM was available and doesn't align with ASIM in several places. For more information, see [Differences between network normalization schema versions](normalization-schema-v1.md#changes).
@@ -21,10 +23,6 @@ This article describes version 0.2.x of the network normalization schema. [Versi
 >
 > The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
-
-## Schema overview
-
-The network normalization schema can represent any type of an IP network session but is designed to provide support for common source types, such as Netflow, firewalls, and intrusion prevention systems.
 
 ## Parsers
 
@@ -45,7 +43,7 @@ Microsoft Sentinel provides the following out-of-the-box, product-specific Netwo
 | **Source** | **Built-in parsers** | **Workspace deployed parsers** | 
 | --- | --------------------------- | ------------------------------ | 
 | **AWS VPC** collected using the AWS S3 connector |`_ASim_NetworkSession_AWSVPC` (regular)<br> `_Im_NetworkSession_AWSVPC` (filtering)  | `ASimNetworkSessionAWSVPC` (regular)<br> `vimNetworkSessionAWSVPC` (filtering)  |
-| **Azure Monitor VMConnection** collected as part of the Azure Monitor [VM Insights solution](https://docs.microsoft.com//azure/azure-monitor/vm/vminsights-overview) |`_ASim_NetworkSession_VMConnection` (regular)<br> `_Im_NetworkSession_VMConnection` (filtering)  | `ASimNetworkSessionVMConnection` (regular)<br> `vimNetworkSessionVMConnection` (filtering)  |
+| **Azure Monitor VMConnection** collected as part of the Azure Monitor [VM Insights solution](../azure-monitor/vm/vminsights-overview.md) |`_ASim_NetworkSession_VMConnection` (regular)<br> `_Im_NetworkSession_VMConnection` (filtering)  | `ASimNetworkSessionVMConnection` (regular)<br> `vimNetworkSessionVMConnection` (filtering)  |
 | **Microsoft 365 Defender for Endpoint** | `_ASim_NetworkSession_Microsoft365Defender` (regular)<br><br>`_Im_NetworkSession_Microsoft365Defender` (filtering) | `ASimNetworkSessionMicrosoft365Defender` (regular)<br><br> `vimNetworkSessionMicrosoft365Defender` (filtering) |
 | **Microsoft Defender for IoT - Endpoint** |`_ASim_NetworkSession_MD4IoT` (regular)<br><br>`_Im_NetworkSession_MD4IoT` (filtering) | `ASimNetworkSessionMD4IoT` (regular)<br><br> `vimNetworkSessionMD4IoT` (filtering) |
 | **Palo Alto PanOS** collected using CEF |`_ASim_NetworkSession_PaloAltoCEF` (regular)<br> `_Im_NetworkSession_PaloAltoCEF` (filtering)  | `ASimNetworkSessionPaloAltoCEF` (regular)<br> `vimNetworkSessionPaloAltoCEF` (filtering)  |
@@ -89,7 +87,7 @@ _Im_NetworkSession (hostname_has_any = torProxies)
 ```
 
 > [!TIP]
-> To pass a literal list to parameters that expect a dynamic value, explicitly use a [dynamic literal](https://docs.microsoft.com/azure/data-explorer/kusto/query/scalar-data-types/dynamic#dynamic-literals). For example: `dynamic(['192.168.','10.'])`.
+> To pass a literal list to parameters that expect a dynamic value, explicitly use a [dynamic literal](../data-explorer/kusto/query/scalar-data-types/dynamic#dynamic-literals.md). For example: `dynamic(['192.168.','10.'])`.
 >
 
 ## Schema overview
@@ -232,7 +230,7 @@ The descriptor 'Dvc' is used for the reporting device, which is the local system
 | <a name="srcusername"></a>**SrcUsername** | Optional | String | The source username, including domain information when available. For the supported format for different ID types, refer to [the User entity](normalization-about-schemas.md#the-user-entity). Use the simple form only if domain information isn't available.<br><br>Store the Username type in the [SrcUsernameType](#srcusernametype) field. If other username formats are available, store them in the fields `SrcUsername<UsernameType>`.<br><br>Example: `AlbertE` |
 | <a name="srcusernametype"></a>**SrcUsernameType** | Optional | UsernameType | Specifies the type of the username stored in the [SrcUsername](#srcusername) field. For a list of allowed values and further information refer to [UsernameType](normalization-about-schemas.md#usernametype) in the [Schema Overview article](normalization-about-schemas.md).<br><br>Example: `Windows` |
 | **SrcUserType** | Optional | UserType | The type of source user. For a list of allowed values and further information refer to [UserType](normalization-about-schemas.md#usertype) in the [Schema Overview article](normalization-about-schemas.md). <br><br>**Note**: The value might be provided in the source record by using different terms, which should be normalized to these values. Store the original value in the [SrcOriginalUserType](#srcoriginalusertype) field. |
-| <a name="scroriginalusertype"></a>**SrcOriginalUserType** | Optional | String | The original destination user type, if provided by the source. |
+| <a name="srcoriginalusertype"></a>**SrcOriginalUserType** | Optional | String | The original destination user type, if provided by the source. |
 | | | | |
 
 ### Source application fields
