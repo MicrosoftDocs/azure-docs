@@ -40,7 +40,7 @@ You can create private endpoints for a variety of Azure services, such as Azure 
 
 An Azure resource group is a logical container where Azure resources are deployed and managed.
 
-Create a resource group with [az group create](/cli/azure/group#az_group_create):
+First, create a resource group by using [az group create](/cli/azure/group#az_group_create):
 
 ```azurecli-interactive
 az group create \
@@ -50,11 +50,9 @@ az group create \
 
 ## Create a virtual network and bastion host
 
-In this section, you create a virtual network, subnet, and bastion host. 
+Next, create a virtual network, subnet, and bastion host. You'll use the bastion host to connect securely to the VM for testing the private endpoint.
 
-You'll use the bastion host to connect securely to the VM for testing the private endpoint.
-
-1. Create a virtual network by using [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create).
+1. Create a virtual network by using [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create):
 
     * Name: **myVNet**
     * Address prefix: **10.0.0.0/16**
@@ -73,7 +71,7 @@ You'll use the bastion host to connect securely to the VM for testing the privat
         --subnet-prefixes 10.0.0.0/24
     ```
 
-1. Update the subnet to disable private-endpoint network policies for the private endpoint with [az network vnet subnet update](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update):
+1. Update the subnet to disable private-endpoint network policies for the private endpoint by using [az network vnet subnet update](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update):
 
     ```azurecli-interactive
     az network vnet subnet update \
@@ -83,7 +81,7 @@ You'll use the bastion host to connect securely to the VM for testing the privat
         --disable-private-endpoint-network-policies true
     ```
 
-1. Use [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create) to create a public IP address for the bastion host:
+1. Create a public IP address for the bastion host by using [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create):
 
     * Standard zone-redundant public IP address name: **myBastionIP**
     * Resource group: **CreatePrivateEndpointQS-rg**
@@ -95,7 +93,7 @@ You'll use the bastion host to connect securely to the VM for testing the privat
         --sku Standard
     ```
 
-1. Use [az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create) to create a bastion subnet:
+1. Create a bastion subnet by using [az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create):
 
     * Name: **AzureBastionSubnet**
     * Address prefix: **10.0.1.0/24**
@@ -110,7 +108,7 @@ You'll use the bastion host to connect securely to the VM for testing the privat
         --address-prefixes 10.0.1.0/24
     ```
 
-1. Use [az network bastion create](/cli/azure/network/bastion#az_network_bastion_create) to create a bastion host:
+1. Create a bastion host by using [az network bastion create](/cli/azure/network/bastion#az_network_bastion_create):
 
     * Name: **myBastionHost**
     * Resource group: **CreatePrivateEndpointQS-rg**
@@ -133,7 +131,9 @@ It can take a few minutes for the Azure Bastion host to deploy.
 
 Next, create a VM that you can use to test the private endpoint.
 
-1. Create a VM with [az vm create](/cli/azure/vm#az_vm_create). At the prompt, provide a password to be used as the credentials for the VM:
+1. Create the VM by using [az vm create](/cli/azure/vm#az_vm_create). 
+
+1. At the prompt, provide a password to be used as the credentials for the VM:
 
     * Name: **myVM**
     * Resource group: **CreatePrivateEndpointQS-rg**
@@ -156,11 +156,11 @@ Next, create a VM that you can use to test the private endpoint.
 
 ## Create a private endpoint
 
-Next, you create the private endpoint.
+Next, create the private endpoint.
 
-1. Use [az webapp list](/cli/azure/webapp#az_webapp_list) to place the resource ID of the web app that you created earlier into a shell variable.
+1. Place the resource ID of the web app that you created earlier into a shell variable by using [az webapp list](/cli/azure/webapp#az_webapp_list).
 
-1. Use [az network private-endpoint create](/cli/azure/network/private-endpoint#az_network_private_endpoint_create) to create the endpoint and connection:
+1. Create the endpoint and connection by using [az network private-endpoint create](/cli/azure/network/private-endpoint#az_network_private_endpoint_create):
 
     * Name: **myPrivateEndpoint**
     * Resource group: **CreatePrivateEndpointQS-rg**
@@ -186,11 +186,11 @@ Next, you create the private endpoint.
 
 ## Configure the private DNS zone
 
-Next, you create and configure the private DNS zone by using [az network private-dns zone create](/cli/azure/network/private-dns/zone#az_network_private_dns_zone_create).  
+Next, create and configure the private DNS zone by using [az network private-dns zone create](/cli/azure/network/private-dns/zone#az_network_private_dns_zone_create).  
 
-1. Use [az network private-dns link vnet create](/cli/azure/network/private-dns/link/vnet#az_network_private_dns_link_vnet_create) to create the virtual network link to the DNS zone.
+1. Create the virtual network link to the DNS zone by using [az network private-dns link vnet create](/cli/azure/network/private-dns/link/vnet#az_network_private_dns_link_vnet_create).
 
-1. Create a DNS zone group with [az network private-endpoint dns-zone-group create](/cli/azure/network/private-endpoint/dns-zone-group#az_network_private_endpoint_dns_zone_group_create).
+1. Create a DNS zone group by using [az network private-endpoint dns-zone-group create](/cli/azure/network/private-endpoint/dns-zone-group#az_network_private_endpoint_dns_zone_group_create).
 
     * Zone name: **privatelink.azurewebsites.net**
     * Virtual network: **myVNet**
@@ -239,7 +239,7 @@ Finally, use the VM that you created earlier to connect to the SQL server across
 
 1. After you've connected, open PowerShell on the server.
 
-1. Enter `nslookup <your-webapp-name>.azurewebsites.net`. Replace **\<your-webapp-name>** with the name of the web app that you created earlier.  You'll receive a message that's similar to the following:
+1. Enter `nslookup <your-webapp-name>.azurewebsites.net`, replacing *\<your-webapp-name>* with the name of the web app that you created earlier. You'll receive a message that's similar to the following:
 
     ```powershell
     Server:  UnKnown
@@ -253,15 +253,15 @@ Finally, use the VM that you created earlier to connect to the SQL server across
 
     A private IP address of *10.0.0.5* is returned for the web app name. This address is in the subnet of the virtual network that you created earlier.
 
-1. In the bastion connection to **myVM**, open your web browser.
+1. In the bastion connection to *myVM**, open your web browser.
 
-1. Enter the URL of your web app, **https://\<your-webapp-name>.azurewebsites.net**.
+1. Enter the URL of your web app, *https://\<your-webapp-name>.azurewebsites.net*.
 
    If your web app hasn't been deployed, you'll get the following default web app page:
 
     :::image type="content" source="./media/create-private-endpoint-portal/web-app-default-page.png" alt-text="Screenshot of the default web app page on a browser." border="true":::
 
-1. Close the connection to **myVM**.
+1. Close the connection to *myVM*.
 
 ## Clean up resources 
 
