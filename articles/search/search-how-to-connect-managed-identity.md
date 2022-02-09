@@ -24,7 +24,7 @@ You can configure an Azure Cognitive Search service to connect to other Azure re
 
 ## Prerequisites
 
-+ Azure Cognitive Search at the Basic tier or above. Managed identity support is not available on the Free tier.
++ A search service at the Basic tier or above.
 
 ## Create a system managed identity
 
@@ -49,27 +49,45 @@ A system-assigned managed identity is unique to your search service and bound to
 > [!IMPORTANT]
 >This feature is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). The REST API version 2021-04-30-Preview and [Management REST API 2021-04-01-Preview](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update) provide this feature.
 
-1. [Sign into the Azure portal](https://portal.azure.com/)
+1. [Sign in to Azure portal](https://portal.azure.com/)
 
 1. Select **+ Create a resource**.
 
 1. In the "Search services and marketplace" search bar, search for "User Assigned Managed Identity" and then select **Create**.
 
-1. Give the identity a descriptive name.
+   :::image type="content" source="media/search-managed-identities/user-assigned-managed-identity.png" alt-text="Screenshot of the user assigned managed identity tile in Azure marketplace.":::
 
-1. Assign the user-assigned managed identity to the search service. This can be done using the [2021-04-01-preview management API](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update).
+1. Select the subscription, resource group, and region. Give the identity a descriptive name.
+
+1. Select **Create** and wait for the resource to finish deploying.
+
+### Assign a user managed identity (preview) to Search
+
+#### [**Azure portal**](#tab/portal)
+
+1. In your search service page, under **Settings**, select **Identity**.
+
+1. On the **User assigned** tab, select **Add**.
+
+1. Choose the subscription and user-assigned managed resource that you created in the previous step.
+
+1. Select **Save**.
+
+#### [**REST API**](#tab/rest)
+
+If you're using the Management REST API instead of the portal, be sure to use the [2021-04-01-preview management API](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update).
 
 The identity property takes a type and one or more fully-qualified user-assigned identities:
 
-* **type** is the type of identity. Valid values are "SystemAssigned", "UserAssigned", or "SystemAssigned, UserAssigned" for both. A value of "None" will clear any previously assigned identities from the search service.
++ "type" is the type of identity. Valid values are "SystemAssigned", "UserAssigned", or "SystemAssigned, UserAssigned" for both. A value of "None" will clear any previously assigned identities from the search service.
 
-* **userAssignedIdentities** includes the details of the user assigned managed identity. The format is:
++ "userAssignedIdentities" includes the details of the user assigned managed identity. The format is:
 
   ```bash
     /subscriptions/<your-subscription-ID>/resourcegroups/<your-resource-group-name>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<your-managed-identity-name>
   ```
 
-Example of a user-assigned managed identity assignment:
+##### Example of a user-assigned managed identity assignment
 
 ```http
 PUT https://management.azure.com/subscriptions/[subscription ID]/resourceGroups/[resource group name]/providers/Microsoft.Search/searchServices/[search service name]?api-version=2021-04-01-preview
@@ -94,6 +112,8 @@ Content-Type: application/json
 } 
 ```
 
+---
+
 ## Allow firewall access
 
 If your Azure resource is behind a firewall, make sure there is an exception for connections from a trusted service. A search service with a managed identity will be on the trusted service list. 
@@ -116,7 +136,11 @@ The following steps are for Azure Storage. If your resource is Cosmos DB or Azur
 
 ## Assign a role
 
-A managed identity must be paired with an Azure role that determines permissions on the Azure resource. For Azure Key Vault and indexer data retrieval, the role must grant data reader rights. For AI enrichment, the search service submits data for processing or storage on the Azure resource. Write permissions are required for AI enrichment. 
+A managed identity must be paired with an Azure role that determines permissions on the Azure resource. 
+
++ For Azure Key Vault and indexer data retrieval, the role must grant data reader rights. 
+
++ For AI enrichment, the search service submits data for processing or storage on the Azure resource. Write permissions are required for AI enrichment. 
 
 The following steps are for Azure Storage. If your resource is Cosmos DB or Azure SQL, the steps will be similar.
 
