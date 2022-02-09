@@ -38,7 +38,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 Before you can work with an Azure file share, you have to create an Azure storage account.
 
-1. sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. On the Azure portal menu, select **All services**. In the list of resources, type **Storage Accounts**. As you begin typing, the list filters based on your input. Select **Storage Accounts**.
 1. On the **Storage Accounts** window that appears, choose **+ New**.
 1. On the **Basics** blade, select the subscription in which to create the storage account.
@@ -61,29 +61,29 @@ Next, create a file share.
 1. When the Azure storage account deployment is complete, select **Go to resource**.
 1. Select **File shares** from the storage account pane.
 
-    ![Select File shares.](./media/storage-files-quick-create-use-windows/click-files.png)
+    ![Screenshot, File shares selected.](./media/storage-files-quick-create-use-windows/click-files.png)
 
 1. Select **+ File Share**.
 
-    ![Select + file share to create a new file share.](./media/storage-files-quick-create-use-windows/create-file-share.png)
+    ![Screenshot, + file share selected to create a new file share.](./media/storage-files-quick-create-use-windows/create-file-share.png)
 
 1. Name the new file share *qsfileshare*, enter "1" for the **Quota**, leave **Transaction optimized** selected, and select **Create**. The quota can be a maximum of 5 TiB (100 TiB, with large file shares enabled), but you only need 1 GiB for this.
 1. Create a new txt file called *qsTestFile* on your local machine.
 1. Select the new file share, then on the file share location, select **Upload**.
 
-    ![Upload a file.](./media/storage-files-quick-create-use-windows/create-file-share-portal5.png)
+    ![Screenshot of file upload.](./media/storage-files-quick-create-use-windows/create-file-share-portal5.png)
 
 1. Browse to the location where you created your .txt file > select *qsTestFile.txt* > select **Upload**.
 
 ### Deploy a VM
 
-So far, you've created an Azure storage account and a file share with one file in it in Azure. Next, create an Azure VM with Windows Server 2016 Datacenter to represent the on-premises server.
+So far, you've created an Azure storage account and a file share with one file in it. Next, create an Azure VM with Windows Server 2016 Datacenter to represent the on-premises server.
 
 1. Expand the menu on the left side of the portal and select **Create a resource** in the upper left-hand corner of the Azure portal.
 1. Under **Popular services** select **Virtual machine**.
 1. In the **Basics** tab, under **Project details**, select the resource group you created earlier.
 
-   ![Enter basic information about your VM in the portal blade.](./media/storage-files-quick-create-use-windows/vm-resource-group-and-subscription.png)
+   ![Screenshot of Basic tab, basic VM information filled out.](./media/storage-files-quick-create-use-windows/vm-resource-group-and-subscription.png)
 
 1. Under **Instance details**, name the VM *qsVM*.
 1. For **Image** select **Windows Server 2016 Datacenter - Gen2**.
@@ -99,13 +99,13 @@ So far, you've created an Azure storage account and a file share with one file i
 
 1. Select **Connect** on the virtual machine properties page.
 
-   ![Connect to an Azure VM from the portal](./media/storage-files-quick-create-use-windows/connect-vm.png)
+   ![Screenshot of VM tab, +Connect highlighted.](./media/storage-files-quick-create-use-windows/connect-vm.png)
 
 1. In the **Connect to virtual machine** page, keep the default options to connect by **IP address** over **port number** *3389* and select **Download RDP file**.
 1. Open the downloaded RDP file and select **Connect** when prompted.
 1. In the **Windows Security** window, select **More choices** and then **Use a different account**. Type the username as *localhost\username*, where &lt;username&gt; is the VM admin username you created for the virtual machine. Enter the password you created for the virtual machine, and then select **OK**.
 
-   ![More choices](./media/storage-files-quick-create-use-windows/local-host2.png)
+   ![Screenshot of VM login prompt, More choices highlighted.](./media/storage-files-quick-create-use-windows/local-host2.png)
 
 1. You may receive a certificate warning during the sign-in process. Select **Yes** or **Continue** to create the connection.
 
@@ -124,7 +124,7 @@ Now that you've mapped the drive, create a snapshot.
 
 1. In the portal, navigate to your file share, select **Snapshots**, then select **+ Add snapshot**.
 
-   ![Select snapshots under the operations section, then select add snapshot.](./media/storage-files-quick-create-use-windows/create-snapshot.png)
+   ![Screenshot of storage account snapshots tab.](./media/storage-files-quick-create-use-windows/create-snapshot.png)
 
 1. In the VM, open the *qstestfile.txt* and type "this file has been modified". Save and close the file.
 1. Create another snapshot.
@@ -132,17 +132,17 @@ Now that you've mapped the drive, create a snapshot.
 ## Browse a share snapshot
 
 1. On your file share, select **Snapshots**.
-1. On the **Snapshots** blade, select the first snapshot in the list.
+1. On the **Snapshots** tab, select the first snapshot in the list.
 
-   ![Selected snapshot in the list of time stamps](./media/storage-files-quick-create-use-windows/snapshot-list.png)
+   ![Snapshots tab, first snapshot highlighted.](./media/storage-files-quick-create-use-windows/snapshot-list.png)
 
 1. Open that snapshot, and select *qsTestFile.txt*.
 
 ## Restore from a snapshot
 
-1. From the file share snapshot blade, right-click the *qsTestFile*, and select the **Restore** button.
+1. From the file share snapshot tab, right-click the *qsTestFile*, and select the **Restore** button.
 
-    :::image type="content" source="media/storage-files-quick-create-use-windows/restore-share-snapshot.png" alt-text="Screenshot of the snapshot blade, qstestfile is selected, restore is highlighted.":::
+    :::image type="content" source="media/storage-files-quick-create-use-windows/restore-share-snapshot.png" alt-text="Screenshot of the snapshot tab, qstestfile is selected, restore is highlighted.":::
 
 1. Select **Overwrite original file**.
 
@@ -163,23 +163,23 @@ Just like with on-premises VSS snapshots, you can view the snapshots from your m
 
 1. In File Explorer, locate the mounted share.
 
-   ![Mounted share in File Explorer](./media/storage-files-quick-create-use-windows/snapshot-windows-mount.png)
+   ![Screenshot of a mounted share in File Explorer.](./media/storage-files-quick-create-use-windows/snapshot-windows-mount.png)
 
 1. Select *qsTestFile.txt* and > right-click and select **Properties** from the menu.
 
-   ![Right-click menu for a selected directory](./media/storage-files-quick-create-use-windows/snapshot-windows-previous-versions.png)
+   ![Screenshot of the right-click menu for a selected directory.](./media/storage-files-quick-create-use-windows/snapshot-windows-previous-versions.png)
 
 1. Select **Previous Versions** to see the list of share snapshots for this directory.
 
 1. Select **Open** to open the snapshot.
 
-   ![Previous Versions tab](./media/storage-files-quick-create-use-windows/snapshot-windows-list.png)
+   ![Screenshot of previous Versions tab.](./media/storage-files-quick-create-use-windows/snapshot-windows-list.png)
 
 ## Restore from a previous version
 
 1. Select **Restore**. This action copies the contents of the entire directory recursively to the original location at the time the share snapshot was created.
 
-   ![Restore button in warning message](./media/storage-files-quick-create-use-windows/snapshot-windows-restore.png)
+   ![Screenshot of previous versions, restore button in warning message is highlighted.](./media/storage-files-quick-create-use-windows/snapshot-windows-restore.png)
     
     > [!NOTE]
     > If your file has not changed, you will not see a previous version for that file because that file is the same version as the snapshot. This is consistent with how this works on a Windows file server.
