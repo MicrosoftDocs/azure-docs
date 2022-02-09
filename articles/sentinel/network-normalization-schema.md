@@ -43,7 +43,7 @@ Microsoft Sentinel provides the following out-of-the-box, product-specific Netwo
 | **Source** | **Built-in parsers** | **Workspace deployed parsers** | 
 | --- | --------------------------- | ------------------------------ | 
 | **AWS VPC** collected using the AWS S3 connector |`_ASim_NetworkSession_AWSVPC` (regular)<br> `_Im_NetworkSession_AWSVPC` (filtering)  | `ASimNetworkSessionAWSVPC` (regular)<br> `vimNetworkSessionAWSVPC` (filtering)  |
-| **Azure Monitor VMConnection** collected as part of the Azure Monitor [VM Insights solution](../azure-monitor/vm/vminsights-overview.md) |`_ASim_NetworkSession_VMConnection` (regular)<br> `_Im_NetworkSession_VMConnection` (filtering)  | `ASimNetworkSessionVMConnection` (regular)<br> `vimNetworkSessionVMConnection` (filtering)  |
+| **Azure Monitor VMConnection** collected as part of the Azure Monitor [VM Insights solution](/azure/azure-monitor/vm/vminsights-overview.md) |`_ASim_NetworkSession_VMConnection` (regular)<br> `_Im_NetworkSession_VMConnection` (filtering)  | `ASimNetworkSessionVMConnection` (regular)<br> `vimNetworkSessionVMConnection` (filtering)  |
 | **Microsoft 365 Defender for Endpoint** | `_ASim_NetworkSession_Microsoft365Defender` (regular)<br><br>`_Im_NetworkSession_Microsoft365Defender` (filtering) | `ASimNetworkSessionMicrosoft365Defender` (regular)<br><br> `vimNetworkSessionMicrosoft365Defender` (filtering) |
 | **Microsoft Defender for IoT - Endpoint** |`_ASim_NetworkSession_MD4IoT` (regular)<br><br>`_Im_NetworkSession_MD4IoT` (filtering) | `ASimNetworkSessionMD4IoT` (regular)<br><br> `vimNetworkSessionMD4IoT` (filtering) |
 | **Palo Alto PanOS** collected using CEF |`_ASim_NetworkSession_PaloAltoCEF` (regular)<br> `_Im_NetworkSession_PaloAltoCEF` (filtering)  | `ASimNetworkSessionPaloAltoCEF` (regular)<br> `vimNetworkSessionPaloAltoCEF` (filtering)  |
@@ -87,7 +87,7 @@ _Im_NetworkSession (hostname_has_any = torProxies)
 ```
 
 > [!TIP]
-> To pass a literal list to parameters that expect a dynamic value, explicitly use a [dynamic literal](../data-explorer/kusto/query/scalar-data-types/dynamic#dynamic-literals.md). For example: `dynamic(['192.168.','10.'])`.
+> To pass a literal list to parameters that expect a dynamic value, explicitly use a [dynamic literal](/azure/data-explorer/kusto/query/scalar-data-types/dynamic#dynamic-literals.md). For example: `dynamic(['192.168.','10.'])`.
 >
 
 ## Schema overview
