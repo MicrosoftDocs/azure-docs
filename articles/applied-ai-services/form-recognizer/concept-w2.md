@@ -29,7 +29,7 @@ Each W-2 Form consists of more than 14 boxes, both numbered and lettered, that d
 
 ***Sample W-2 form processed using Form Recognizer Studio***
 
-:::image type="content" source="media/studio/w-2.png" alt-text="sample w-2 form" lightbox="media/overview-w2-studio.png":::
+:::image type="content" source="media/studio/w-2.png" alt-text="Screenshot of sample w-2 form processed in the Form Recognizer Studio.":::
 
 ## Development options
 
@@ -60,11 +60,10 @@ See how data, including employee, employer, wage, and tax information is extract
 
 1. Select the **Analyze** button:
 
-    :::image type="content" source="media/studio/w2-analyze.png" alt-text="Screenshot: analyze W-2 menu.":::
+    :::image type="content" source="media/studio/w2-analyze.png" alt-text="Screenshot: analyze W-2 window in the Form Recognizer Studio.":::
 
     > [!div class="nextstepaction"]
     > [Try Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=tax.us.w2)
-
 
 ## Input requirements
 
