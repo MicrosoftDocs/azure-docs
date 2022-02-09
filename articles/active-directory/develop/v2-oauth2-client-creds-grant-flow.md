@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/24/2022
+ms.date: 02/09/2022
 ms.author: hirsin
 ms.reviewer: marsma
 ms.custom: aaddev, identityplatformtop40
@@ -207,7 +207,7 @@ scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
 | --- | --- | --- |
 | `client_assertion` | Required | An assertion (a JWT, or JSON web token) that your application gets from another identity provider outside of Microsoft identity platform, like  Kubernetes. The specifics of this JWT must be registered on your application as a [federated identity credential](workload-identity-federation-create-trust.md). Read about [workload identity federation](workload-identity-federation.md) to learn how to setup and use assertions generated from other identity providers.|
 
-Everything in the request is the same as the certificate-based flow above, with one crucial exception - the source of the `client_assertion`. In this flow, your application does not create the JWT assertion itself.  Instead, your app uses a JWT created by another identity provider.  This is called "[workload identity federation](workload-identity-federation.md)", where your apps identity in another identity platform is used to acquire tokens inside the Microsoft identity platform.  This is best suited for cross-cloud scenarios, such as hosting your compute outside Azure but accessing APIs protected by Microsoft identity platform. 
+Everything in the request is the same as the certificate-based flow above, with one crucial exception - the source of the `client_assertion`. In this flow, your application does not create the JWT assertion itself.  Instead, your app uses a JWT created by another identity provider.  This is called "[workload identity federation](workload-identity-federation.md)", where your apps identity in another identity platform is used to acquire tokens inside the Microsoft identity platform.  This is best suited for cross-cloud scenarios, such as hosting your compute outside Azure but accessing APIs protected by Microsoft identity platform.  For information about the required format of JWTs created by other identity providers, read about the [assertion format](active-directory-certificate-credentials.md#assertion-format).
 
 ### Successful response
 
