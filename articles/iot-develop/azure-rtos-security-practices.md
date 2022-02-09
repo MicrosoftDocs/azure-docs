@@ -1,8 +1,8 @@
 ---
 title: Azure RTOS Security Guidance for Embedded Devices
 description: Learn best practices for developing secure applications on embedded devices with Azure RTOS.
-author: JimacoMS4
-ms.author: v-jbrannian
+author: edlamie80
+ms.author: v-edlamie
 ms.service: iot-develop
 ms.topic: conceptual
 ms.date: 11/11/2021
@@ -10,7 +10,7 @@ ms.date: 11/11/2021
 
 # Guidelines to develop secure embedded applications with Azure RTOS
 
-This article provides guidance that you can use to help you implement security measures on devices that you build using Azure RTOS. Azure RTOS is middleware. It incorporates many features that can help you build secure devices. However, the security of your devices will depend heavily on your choice of hardware and your implementation of secure firmware. The measures in this topic are primarily meant for devices that connect directly to the internet 
+This article provides guidance to help you implement security measures on devices that you build using Azure RTOS. Azure RTOS is middleware. It incorporates many features that can help you build secure devices. However, the security of your devices will depend heavily on your choice of hardware and your implementation of secure firmware. The measures in this topic are primarily meant for devices that connect directly to the internet 
 
 Microsoft recommends an approach based on the principle of zero-trust when designing IoT devices. We highly recommend reading the [Zero Trust: Cyber security for IoT](https://azure.microsoft.com/mediahandler/files/resourcefiles/zero-trust-cybersecurity-for-the-internet-of-things/Zero%20Trust%20Security%20Whitepaper_4.30_3pm.pdf) whitepaper as a prerequisite to this article. This brief paper outlines several categories to consider when implementing security across an IoT ecosystem with an emphasis on device security. For devices, these categories are:
 
@@ -18,7 +18,7 @@ Microsoft recommends an approach based on the principle of zero-trust when desig
 
   - *Hardware root of trust (RoT)* A strong, hardware-based identity. This identity should be immutable and backed by hardware isolation and protection mechanisms.
 
-  - *Password-less authentication* often achieved using X.509 certificates and asymmetric cryptography, where private keys are secured and isolated in hardware. Password-less authentication should be used both for the device identity often used in onboarding and/or attestation scenarios, as well as the device's operational identity with other cloud services.
+  - *Password-less authentication* is often achieved using X.509 certificates and asymmetric cryptography, where private keys are secured and isolated in hardware. Password-less authentication should be used both for the device identity often used in onboarding and/or attestation scenarios, as well as the device's operational identity with other cloud services.
 
   - *Renewable credentials* The device's operational identity should be secured using renewable, relatively short-lived credentials. X.509 certificates backed by a secure PKI with a renewal period appropriate for the device's security posture provide a good mechanism.
 
@@ -33,7 +33,7 @@ Microsoft recommends an approach based on the principle of zero-trust when desig
 
 ## Embedded Security Components - Cryptography
 
-Cryptography is a foundation of security in networked devices. While there exist some cases where cryptography may not be necessary for security, networking protocols like TLS rely on cryptography to protect and authenticate information traveling over a network or the public Internet. A secure IoT device that connects to a server or cloud service using TLS or similar protocols requires strong cryptography with protection for keys and secrets based in hardware. Most other security mechanisms provided by those protocols are built on cryptographic concepts, so having proper cryptographic support is the single most critical consideration in developing a secure connected IoT device.
+Cryptography is a foundation of security in networked devices. There may exist some cases where cryptography may not be necessary for security. However, networking protocols such as TLS rely on cryptography to protect and authenticate information traveling over a network or the public Internet. A secure IoT device that connects to a server or cloud service using TLS or similar protocols requires strong cryptography with protection for keys and secrets based in hardware. Most other security mechanisms provided by those protocols are built on cryptographic concepts. Therefore, having proper cryptographic support is the single most critical consideration in developing a secure connected IoT device.
 
 ### True random hardware-based entropy source
 
@@ -73,12 +73,12 @@ An invalid time will disrupt all TLS communication, possibly rendering the devic
 
 ### Use approved cryptographic routines with strong key sizes
 
-There are a wide variety of cryptographic routines available today. When designing your application, research the cryptographic routines that you'll need and choose the strongest (largest) keys possible. Look to NIST or other organizations that provide guidance on appropriate cryptography for different applications.
+There are a wide variety of cryptographic routines available today. When you design an application, research the cryptographic routines that you'll need and choose the strongest (largest) keys possible. Look to NIST or other organizations that provide guidance on appropriate cryptography for different applications.
 
 - Choose key sizes that are appropriate for your application. RSA is still acceptable in some organizations but only if the key is 2048 bits or larger. For AES, minimum key sizes of 128 bits are often required.
 - Choose modern, widely accepted algorithms and choose cipher modes that provide the highest level of security available for your application.
 - Avoid using algorithms that are considered obsolete like DES and MDS.
-- Consider the lifetime of your application and adjust your choices to account for continued reduction in the security of current routines and key sizes.
+- Consider the lifetime of your application, and adjust your choices to account for continued reduction in the security of current routines and key sizes.
 - Consider making key sizes and algorithms updatable to adjust to changing security requirements.
 - Constant-time cryptography should be used whenever possible to mitigate timing attack vulnerabilities.
 
@@ -90,7 +90,7 @@ There are a wide variety of cryptographic routines available today. When designi
 
 ### Hardware-based cryptography acceleration
 
-Use of hardware cryptographic peripherals can speed up your application and provide additional security against timing attacks. Timing attacks exploit the duration of a cryptographic operation to derive information about a secret key. By performing cryptographic operations in constant time regardless of the key or data properties, hardware cryptographic peripherals prevent this kind of attack. Every platform will likely be different as there is no accepted standard for cryptographic hardware (other than the accepted cryptographic algorithms like AES and RSA).
+Use of hardware cryptographic peripherals can speed up your application and provide additional security against timing attacks. Timing attacks exploit the duration of a cryptographic operation to derive information about a secret key. By performing cryptographic operations in constant time regardless of the key or data properties, hardware cryptographic peripherals prevent this kind of attack. Every platform will likely be different as there's no accepted standard for cryptographic hardware (other than the accepted cryptographic algorithms like AES and RSA).
 
 > [!IMPORTANT]
 > Hardware cryptographic acceleration doesn't necessarily equate to enhanced security. For example:
@@ -110,7 +110,7 @@ Combining hardware cryptography acceleration that implements secure cipher modes
 
 ## Embedded Security Components – Device Identity
 
-In IoT systems, the notion that each endpoint represents a unique physical device challenges some of the assumptions that are built into the modern Internet. As a result, a secure IoT device must be able to uniquely identify itself or an attacker could imitate a valid device for the purposes of stealing data, sending fraudulent information, or tampering with device functionality. Therefore, it is imperative that each IoT device that connects to a cloud service has a way to identify itself that is not easily bypassed.
+In IoT systems, the notion that each endpoint represents a unique physical device challenges some of the assumptions that are built into the modern Internet. As a result, a secure IoT device must be able to uniquely identify itself or an attacker could imitate a valid device for the purposes of stealing data, sending fraudulent information, or tampering with device functionality. Therefore, you should make certain that each IoT device that connects to a cloud service has a way to identify itself that is not easily bypassed.
 
 ### Unique verifiable device identifier
 
@@ -129,7 +129,7 @@ While the device ID can be used for client authentication with a cloud service o
 > [!NOTE]
 > This recommendation is very closely related to the “Attestation” recommendation below, with slightly different semantics.
 
-**Hardware**: A device ID must be tied to the hardware and must not be easily replicated. This requires hardware-based cryptographic features such as those found in an HSM. Some MCU devices may provide similar functionality.
+**Hardware**: A device ID must be tied to the hardware and must not be easily replicated. You should require hardware-based cryptographic features such as those found in an HSM. Some MCU devices may provide similar functionality.
 
 **Azure RTOS**: No specific Azure RTOS features use device IDs. However, communication to cloud services via TLS may require an X.509 certificate that is tied to the device ID.
 
@@ -139,7 +139,7 @@ While the device ID can be used for client authentication with a cloud service o
 
 If your device utilizes a certificate from a Public Key Infrastructure (PKI), your application will need the ability to update those certificates periodically (both for the device and any trusted certificates used for verifying servers). The more frequent the update, the more secure your application will be.
 
-**Hardware**:  All certificate private keys should be tied to your device. Ideally, the key should be generated internally by the hardware and never exposed to your application. This would require the ability to generate X.509 certificate requests on the device.
+**Hardware**:  All certificate private keys should be tied to your device. Ideally, the key should be generated internally by the hardware and never exposed to your application. You should mandate the ability to generate X.509 certificate requests on the device.
 
 **Azure RTOS**: Azure RTOS TLS provides basic X.509 certificate support. Certificate Revocation Lists (CRLs) and policy parsing are supported but require manual management in your application without a supporting SDK.
 
