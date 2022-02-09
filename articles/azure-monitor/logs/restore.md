@@ -12,7 +12,7 @@ ms.date: 01/19/2022
 The restore operation makes a specific time range of data in a table available for high-performance queries. This article describes how to restore data, query that data, and then dismiss the data when you're done.
 
 ## When to restore logs
-Use the restore operation to query data in [Archived Logs](data-retention-archive.md). You can also use the restore operation to run powerful queries within a specific time range on any table when the log queries you run on the table source table cannot complete within the log query timeout of 10 minutes.
+Use the restore operation to query data in [Archived Logs](data-retention-archive.md). You can also use the restore operation to run powerful queries within a specific time range on any Analytics table when the log queries you run on the table source table cannot complete within the log query timeout of 10 minutes.
 
 > [!NOTE]
 > Restore is one method for accessing archived data. Use restore to run queries against a set of data within a particular time range. Use [Search jobs](search-jobs.md) to access data based on specific criteria.
