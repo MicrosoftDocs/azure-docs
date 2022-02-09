@@ -2514,7 +2514,7 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
-|PEBytesIn|Yes|Bytes In|Count|Total|Total number of Bytes Out|No Dimensions|
+|PEBytesIn|Yes|Bytes In|Count|Total|Total number of Bytes In|No Dimensions|
 |PEBytesOut|Yes|Bytes Out|Count|Total|Total number of Bytes Out|No Dimensions|
 
 
@@ -2522,7 +2522,7 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
-|PLSBytesIn|Yes|Bytes In|Count|Total|Total number of Bytes Out|PrivateLinkServiceId|
+|PLSBytesIn|Yes|Bytes In|Count|Total|Total number of Bytes In|PrivateLinkServiceId|
 |PLSBytesOut|Yes|Bytes Out|Count|Total|Total number of Bytes Out|PrivateLinkServiceId|
 |PLSNatPortsUsage|Yes|Nat Ports Usage|Percent|Average|Nat Ports Usage|PrivateLinkServiceId, PrivateLinkServiceIPAddress|
 
