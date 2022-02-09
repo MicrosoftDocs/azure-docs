@@ -14,7 +14,7 @@ items:
 
   # Consolidated version
   - name: Build and run apps - version A
-    expanded: true
+    expanded: false
     items:
     - name: Introduction to the sample app
       href: quickstart-sample-app-introduction.md
@@ -42,7 +42,7 @@ items:
 
   # Consolidated, nested version
   - name: Build and run apps - version B
-    expanded: true
+    expanded: false
     items:
     - name: Introduction to the sample app
       href: quickstart-sample-app-introduction.md
