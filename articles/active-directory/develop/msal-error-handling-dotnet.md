@@ -139,6 +139,8 @@ To handle the claim challenge, you'll need to use the `.WithClaim()` method of t
 
 [!INCLUDE [Active directory error handling retries](../../../includes/active-directory-develop-error-handling-retries.md)]
 
+MsalClientException in MSAL.NET also exposes a property `IsRetryable` which is set to `true` if retry should be for the operation.
+
 ### HTTP error codes 500-600
 
 MSAL.NET implements a simple retry-once mechanism for errors with HTTP error codes 500-600.
