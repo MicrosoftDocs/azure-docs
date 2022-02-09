@@ -1,6 +1,6 @@
 ---
 title: Device Update for Azure IoT Hub tutorial using the Raspberry Pi 3 B+ Reference Yocto Image | Microsoft Docs
-description: Get started with Device Update for Azure IoT Hub using the Raspberry Pi 3 B+ Reference Yocto Image.
+description: Get started with Device Update for Azure IoT Hub by using the Raspberry Pi 3 B+ Reference Yocto Image.
 author: ValOlson
 ms.author: valls
 ms.date: 1/26/2022
@@ -8,107 +8,107 @@ ms.topic: tutorial
 ms.service: iot-hub-device-update
 ---
 
-# Device Update for Azure IoT Hub tutorial using the Raspberry Pi 3 B+ Reference Image
+# Tutorial: Device Update for Azure IoT Hub by using the Raspberry Pi 3 B+ Reference Image
 
 Device Update for IoT Hub supports image-based, package-based, and script-based updates.
 
-Image updates provide a higher level of confidence in the end-state of the device. It is typically easier to replicate the results of an image-update between a pre-production environment and a production environment, since it doesn’t pose the same challenges as packages and their dependencies. Due to their atomic nature, one can also adopt an A/B failover model easily.
+Image updates provide a higher level of confidence in the end-state of the device. It's typically easier to replicate the results of an image-update between a pre-production environment and a production environment, because it doesn't pose the same challenges as packages and their dependencies. Because of their atomic nature, you can also adopt an A/B failover model easily.
 
-This tutorial walks you through the steps to complete an end-to-end image-based update using Device Update for IoT Hub on a Raspberry Pi 3 B+ board. 
+This tutorial shows you how to complete an end-to-end image-based update by using Device Update for Azure IoT Hub on a Raspberry Pi 3 B+ board.
 
-In this tutorial you will learn how to:
+In this tutorial, you'll learn how to:
 > [!div class="checklist"]
-> * Download image
-> * Add a tag to your IoT device
-> * Import an update
-> * Create a device group
-> * Deploy an image update
-> * Monitor the update deployment
-Note: Image updates in this tutorial have been validated on the Raspberry Pi B3 board.
+> * Download an image.
+> * Add a tag to your IoT device.
+> * Import an update.
+> * Create a device group.
+> * Deploy an image update.
+> * Monitor the update deployment.
+
+> [NOTE!] 
+> Image updates in this tutorial have been validated on the Raspberry Pi B3 board.
 
 ## Prerequisites
-* If you haven't already done so, create a [Device Update account and instance](create-device-update-account.md), including configuring an IoT Hub.
 
-## Download image
+If you haven't already done so, create a [Device Update account and instance](create-device-update-account.md)and configure an IoT hub.
 
-We provide sample images in "Assets" on the [Device Update GitHub releases page](https://github.com/Azure/iot-hub-device-update/releases). The .gz file is the base image that you can flash onto a Raspberry Pi B3+ board, and the swUpdate file is the update you would import through Device Update for IoT Hub. 
+## Download the image
 
-## Flash SD card with image
+We provide sample images in "Assets" on the [Device Update GitHub releases page](https://github.com/Azure/iot-hub-device-update/releases). The .gz file is the base image that you can flash onto a Raspberry Pi B3+ board. The swUpdate file is the update you would import through Device Update for IoT Hub.
 
-Using your favorite OS flashing tool, install the Device Update base image
-(adu-base-image) on the SD card that will be used in the Raspberry Pi 3 B+
-device.
+## Flash an SD card with the image
 
-### Using bmaptool to flash SD card
+Using your favorite OS flashing tool, install the Device Update base image (adu-base-image) on the SD card that will be used in the Raspberry Pi 3 B+ device.
 
-1. If you have not already, install the `bmaptool` utility.
+### Use bmaptool to flash the SD card
+
+1. Install the `bmaptool` utility, if you haven't done so already.
 
    ```shell
    sudo apt-get install bmap-tools
    ```
 
-2. Locate the path for the SD card in `/dev`. The path should look something
-   like `/dev/sd*` or `/dev/mmcblk*`. You can use the `dmesg` utility to help
-   locate the correct path.
+1. Locate the path for the SD card in `/dev`. The path should look something like `/dev/sd*` or `/dev/mmcblk*`. You can use the `dmesg` utility to help locate the correct path.
 
-3. You will need to unmount all mounted partitions before flashing.
+1. Unmount all mounted partitions before flashing.
 
    ```shell
    sudo umount /dev/<device>
    ```
 
-4. Make sure you have write permissions to the device.
+1. Make sure you have write permissions to the device.
 
    ```shell
    sudo chmod a+rw /dev/<device>
    ```
 
-5. Optional. For faster flashing, download the bimap file along with the image
-   file and place them in the same directory.
+1. Optional: For faster flashing, download the bimap file along with the image file and place them in the same directory.
 
-6. Flash the SD card.
+1. Flash the SD card.
 
    ```shell
    sudo bmaptool copy <path to image> /dev/<device>
    ```
-   
-Device Update for Azure IoT Hub software is subject to the following license terms:
+
+Device Update for IoT Hub software is subject to the following license terms:
+
    * [Device update for IoT Hub license](https://github.com/Azure/iot-hub-device-update/blob/main/LICENSE.md)
    * [Delivery optimization client license](https://github.com/microsoft/do-client/blob/main/LICENSE)
-   
-Read the license terms prior to using the agent. Your installation and use constitutes your acceptance of these terms. If you do not agree with the license terms, do not use the Device Update for IoT Hub agent.
 
-## Create device or module in IoT Hub and get connection string
+Read the license terms before you use the agent. Your installation and use constitutes your acceptance of these terms. If you don't agree with the license terms, don't use the Device Update for IoT Hub agent.
 
-Now, the device needs to be added to the Azure IoT Hub.  From within Azure
-IoT Hub, a connection string will be generated for the device.
+## Create a device or module in IoT Hub and get a connection string
 
-1. From the Azure portal, launch the Azure IoT Hub.
+Now, add the device to IoT Hub. From within IoT Hub, a connection string is generated for the device.
 
-3. Create a new device.
+1. From the Azure portal, start IoT Hub.
 
-5. On the left-hand side of the page, navigate to 'IoT Devices' > Select "New".
+1. Create a new device.
 
-7. Provide a name for the device under 'Device ID'--Ensure that "Autogenerate keys" is checkbox is selected.
+1. On the left pane, select **IoT Devices**. Then select **New**.
 
-9. Select 'Save'. Now you will be returned to the 'Devices' page and the device you created should be in the list.
- 
-13. Get the device connection string:
-	- Option 1 Using Device Update agent with a module identity: From the same 'Devices' page click on '+ Add Module Identity' on the top. Create a new Device Update module with the name 'IoTHubDeviceUpdate', choose other options as it applies to your use case and then click 'Save'. Click on the newly created 'Module' and in the module view, select the 'Copy' icon next to 'Primary Connection String'.
+1. Provide a name for the device under **Device ID**. Ensure that the **Autogenerate keys** checkbox is selected.
 
-	- Option 2 Using Device Update agent with the device identity: In the device view, select the 'Copy' icon next to 'Primary Connection
-   String'.
-   
-8. Paste the copied characters somewhere for later use in the steps below.
+1. Select **Save**. On the **Devices** page, the device you created should be in the list.
+
+1. Get the device connection string by using one of two options:
+
+   - Option 1: Use the Device Update agent with a module identity: On the same **Devices** page, select  **Add Module Identity** at the top. Create a new Device Update module with the name **IoTHubDeviceUpdate**. Choose other options as they apply to your use case and then select **Save**. Select the newly created module. In the module view, select the **Copy** icon next to **Primary Connection String**.
+
+   - Option 2: Use the Device Update agent with the device identity: In the device view, select the **Copy** icon next to **Primary Connection String**.
+
+1. Paste the copied characters somewhere for later use in the following steps:
+
    **This copied string is your device connection string**.
 
-## Prepare On-Device Configurations for Device Update for IotHub
+## Prepare on-device configurations for Device Update for IoT Hub
 
-There are two configuration files that are required to be on the device for Device Update for IotHub to properly be configured. The first is the `du-config.json` file which must exist at `/adu/du-config.json`. The second is the `du-diagnostics-config.json` which must exist at `/adu/du-diagnostics-config.json`. 
+Two configuration files are required to be on the device for Device Update for IoT Hub to be configured properly. The first is the `du-config.json` file, which must exist at `/adu/du-config.json`. The second is the `du-diagnostics-config.json` file, which must exist at `/adu/du-diagnostics-config.json`.
 
 Here are two examples for the `du-config.json` and the `du-diagnostics-config.json` files:
 
-### Example du-config.json 
+### Example du-config.json
+
 ```JSON
    {
       "schemaVersion": "1.0",
@@ -133,7 +133,8 @@ Here are two examples for the `du-config.json` and the `du-diagnostics-config.js
    }  
 ```
 
-### Example du-diagnostics-config.json 
+### Example du-diagnostics-config.json
+
 ```JSON
    {
       "logComponents":[
@@ -150,17 +151,18 @@ Here are two examples for the `du-config.json` and the `du-diagnostics-config.js
    }
 ```
 
-## Instructions for Configuring the Device Update Agent on the RaspberryPi
+## Configure the Device Update agent on Raspberry Pi
+
 1. Make sure that the Raspberry Pi3 is connected to the network.
 
-2. Follow the instruction below to add the configuration details: 
+2. Follow these instructions to add the configuration details:
 
-   1. First ssh into the machine using the following command in the PowerShell window
+   1. First ssh in to the machine by using the following command in the PowerShell window:
    
 	   ```shell
 	      ssh raspberrypi3 -l root
 	   ```
-   1. Once logged into the device you can create/open the du-config.json file for editing using
+   1. After you sign in to the device, you can create or open the du-config.json file for editing by using:
    
 	   ```bash
 	      nano /adu/du-config.json
