@@ -147,7 +147,7 @@ The search job also lets you retrieve data matching particular criteria from Arc
 To trigger a search job, run the [az monitor log-analytics workspace table update](/cli/azure/monitor/log-analytics/workspace/table#az_monitor_log_analytics_workspace_table_update) command, specifying the name of the new search results table and the search parameters:
 
 ```azurecli
-z monitor log-analytics workspace table update –subscription ContosoSID --resource-group ContosoRG  --workspace-name ContosoWorkspace \
+az monitor log-analytics workspace table update –subscription ContosoSID --resource-group ContosoRG  --workspace-name ContosoWorkspace \
    --name HeartbeatByIp_SRCH --search 'Heartbeat | where ComputerIP has "00.000.00.000"' --limit 1500 \ 
    --start-search-time "2022-01-01T00:00:00.000Z" --end-search-time "2022-01-08T00:00:00.000Z"
 ```
@@ -157,7 +157,7 @@ The search job has a timeout of 60 minutes.
 For long operations, pass the `--no-wait` flag: 
 
 ```azurecli 
-z monitor log-analytics workspace table update –subscription ContosoSID --resource-group ContosoRG  --workspace-name ContosoWorkspace \
+az monitor log-analytics workspace table update –subscription ContosoSID --resource-group ContosoRG  --workspace-name ContosoWorkspace \
    --name HeartbeatByIp_SRCH --search 'Heartbeat | where ComputerIP has "00.000.00.000"' --limit 1500 \ 
    --start-search-time "2022-01-01T00:00:00.000Z" --end-search-time "2022-01-08T00:00:00.000Z” --no-wait
 ```
