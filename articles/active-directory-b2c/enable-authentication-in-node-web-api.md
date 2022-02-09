@@ -63,23 +63,23 @@ Take note of the following code snippets in the `index.js`file:
 
 - Imports the passport Azure AD library
         
-:::code language="JavaScript" source="~/active-directory-b2c-javascript-nodejs-webapi/index.js" id="ms_docref_import_azuread_lib":::
+    :::code language="JavaScript" source="~/active-directory-b2c-javascript-nodejs-webapi/index.js" id="ms_docref_import_azuread_lib":::
         
 - Sets the Azure AD B2C options 
           
-:::code language="JavaScript" source="~/active-directory-b2c-javascript-nodejs-webapi/index.js" id="ms_docref_azureadb2c_options":::
+    :::code language="JavaScript" source="~/active-directory-b2c-javascript-nodejs-webapi/index.js" id="ms_docref_azureadb2c_options":::
 
 - Instantiate the passport Azure AD library with the Azure AD B2C options
            
-:::code language="JavaScript" source="~/active-directory-b2c-javascript-nodejs-webapi/index.js" id="ms_docref_init_azuread_lib":::
+    :::code language="JavaScript" source="~/active-directory-b2c-javascript-nodejs-webapi/index.js" id="ms_docref_init_azuread_lib":::
 
 - The protected API endpoint. It serves requests that include a valid Azure AD B2C-issued access token. This endpoint returns the value of the `name` claim within the access token. 
 
-:::code language="JavaScript" source="~/active-directory-b2c-javascript-nodejs-webapi/index.js" id="ms_docref_protected_api_endpoint":::
+    :::code language="JavaScript" source="~/active-directory-b2c-javascript-nodejs-webapi/index.js" id="ms_docref_protected_api_endpoint":::
         
 - The anonymous API endpoint. The web app can call it without presenting an access token. Use it to debug your web API with anonymous calls.
 
-:::code language="JavaScript" source="~/active-directory-b2c-javascript-nodejs-webapi/index.js" id="ms_docref_anonymous_api_endpoint":::
+    :::code language="JavaScript" source="~/active-directory-b2c-javascript-nodejs-webapi/index.js" id="ms_docref_anonymous_api_endpoint":::
 
 ### Step 1.4: Configure the web API 
 
@@ -87,7 +87,7 @@ Add configurations to a configuration file. The file contains information about 
 
 1. Under the project root folder, create a `config.json` file, and then add to it the following JSON object:
 
- :::code language="json" source="~/active-directory-b2c-javascript-nodejs-webapi/config.json":::
+    :::code language="json" source="~/active-directory-b2c-javascript-nodejs-webapi/config.json":::
 
 1. In the `config.json` file, update the following properties:
 
@@ -145,7 +145,7 @@ npm install @azure/msal-node
     
     :::code language="html" source="~/active-directory-b2c-msal-node-sign-in-sign-out-webapp/call-protected-api/views/layouts/main.hbs":::
 
-  The `main.hbs` file is in the `layout` folder and it should contain any HTML code that is required throughout your application. It implements UI built with the Bootstrap 5 CSS Framework. Any UI that changes from page to page, such as `signin.hbs`, is placed in the placeholder shown as `{{{body}}}`.
+      The `main.hbs` file is in the `layout` folder and it should contain any HTML code that is required throughout your application. It implements UI built with the Bootstrap 5 CSS Framework. Any UI that changes from page to page, such as `signin.hbs`, is placed in the placeholder shown as `{{{body}}}`.
 1.  In the `signin.hbs` file, add the following code:
 
     :::code language="html" source="~/active-directory-b2c-msal-node-sign-in-sign-out-webapp/call-protected-api/views/signin.hbs":::
@@ -197,7 +197,7 @@ npm install @azure/msal-node
         - The final response resulting from this endpoint includes an authorization code from B2C posted back to the `/redirect` endpoint.
     - `/redirect`:
         - It's the endpoint set as **Redirect URI** for the web app in Azure portal.
-        - It uses the `state` query parameter in Azure AD B2C's request to it, to differentiate between requests, which are made from the web app.
+        - It uses the `state` query parameter in Azure AD B2C's response, to differentiate between requests that are made from the web app.
         - If the app state is `APP_STATES.LOGIN`, the authorization code acquired is used to retrieve a token using the `acquireTokenByCode()` method. When requesting for a token using `acquireTokenByCode` method, you use the same scopes used while acquiring the authorization code. The acquired token includes an `accessToken`, `idToken`, and `idTokenClaims`. After you acquire the `accessToken`, you put it in a session for later use in to call the web API. 
     - `/api`:
         - Calls the web API. 
