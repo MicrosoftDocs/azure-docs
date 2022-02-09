@@ -89,22 +89,22 @@ The following key applications are included in the Office 365 client app:
 - Microsoft Stream
 - Microsoft Teams
 - Microsoft To-Do
-- Microsoft Flow
-- Microsoft Office 365 Portal
-- Microsoft Office client application
-- Microsoft Stream 
-- Microsoft To-Do WebApp
-- Microsoft Whiteboard Services
+- Microsoft Flow
+- Microsoft Office 365 Portal
+- Microsoft Office client application
+- Microsoft Stream 
+- Microsoft To-Do WebApp
+- Microsoft Whiteboard Services
 - Office Delve
 - Office Online
 - Office.com
 - OneDrive
 - Power Apps
 - Power Automate
-- Security & Compliance Center
+- Security & Compliance Center
 - SharePoint Online
 - Skype for Business Online
-- Skype and Teams Tenant Admin API
+- Skype and Teams Tenant Admin API
 - Sway
 - Yammer
 
