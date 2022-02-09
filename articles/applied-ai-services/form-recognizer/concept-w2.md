@@ -96,7 +96,7 @@ See how data, including employee, employer, wage, and tax information is extract
 | Employer.Address | c | String | Employer's address (with city). | 123 Example Street Sample City, CA |
 | Employer.ZipCode | c | String | Employer's zip code. | 12345 |
 | ControlNumber | d | String | A code identifying the unique W-2 in the records of employer. | R3D1 |
-| Employee.Name | e | String | Full name of the employee. | Nikita V Bilyk |
+| Employee.Name | e | String | Full name of the employee. | Henry Ross|
 | Employee.Address | f | String | Employee's address (with city). | 123 Example Street Sample City, CA |
 | Employee.ZipCode | f | String | Employee's zip code. | 12345 |
 | WagesTipsAndOtherCompensation | 1 | Number | A summary of your pay, including wages, tips and other compensation. | 50000 |
