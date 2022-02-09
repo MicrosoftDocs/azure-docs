@@ -1,6 +1,6 @@
 ---
 author: craigshoemaker
-ms.service: app-service
+ms.service: container-apps
 ms.topic: include
 ms.date: 01/26/2022
 ms.author: cshoe
@@ -87,7 +87,7 @@ With these variables defined, you can create a resource group to organize the se
 ```azurecli
 az group create \
   --name $RESOURCE_GROUP \
-  --location "$LOCATION"
+  --location $LOCATION
 ```
 
 # [PowerShell](#tab/powershell)
@@ -95,7 +95,7 @@ az group create \
 ```azurecli
 az group create `
   --name $RESOURCE_GROUP `
-  --location "$LOCATION"
+  --location $LOCATION
 ```
 
 ---

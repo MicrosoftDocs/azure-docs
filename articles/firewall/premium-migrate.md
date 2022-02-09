@@ -5,7 +5,7 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: how-to
-ms.date: 01/31/2022
+ms.date: 02/03/2022
 ms.author: victorh 
 ms.custom: devx-track-azurepowershell
 ---
@@ -206,7 +206,7 @@ The minimum Azure PowerShell version requirement is 6.5.0. For more information,
    ```
 
 
-- Allocate Firewall Premium
+- Allocate Firewall Premium (single public IP address)
 
    ```azurepowershell
    $azfw = Get-AzFirewall -Name "<firewall-name>" -ResourceGroupName "<resource-group-name>"
@@ -217,6 +217,17 @@ The minimum Azure PowerShell version requirement is 6.5.0. For more information,
    Set-AzFirewall -AzureFirewall $azfw
    ```
 
+- Allocate Firewall Premium (multiple public IP addresses)
+
+   ```azurepowershell
+   $azfw = Get-AzFirewall -Name "FW Name" -ResourceGroupName "RG Name"
+   $azfw.Sku.Tier="Premium"
+   $vnet = Get-AzVirtualNetwork -ResourceGroupName "RG Name" -Name "VNet Name"
+   $publicip1 = Get-AzPublicIpAddress -Name "Public IP1 Name" -ResourceGroupName "RG Name"
+   $publicip2 = Get-AzPublicIpAddress -Name "Public IP2 Name" -ResourceGroupName "RG Name"
+   $azfw.Allocate($vnet,@($publicip1,$publicip2))
+   Set-AzFirewall -AzureFirewall $azfw
+   ```
 - Allocate Firewall Premium in Forced Tunnel Mode
 
    ```azurepowershell
