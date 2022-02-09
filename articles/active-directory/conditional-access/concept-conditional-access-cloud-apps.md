@@ -82,23 +82,33 @@ Administrators can exclude specific apps from policy if they wish, including the
 
 The following key applications are included in the Office 365 client app:
 
-   - Microsoft Forms
-   - Microsoft Planner
-   - Microsoft Stream
-   - Microsoft To-Do
-   - Microsoft Teams
-   - Exchange Online
-   - SharePoint Online
-   - Microsoft 365 Search Service
-   - Yammer
-   - Office Delve
-   - Office Online
-   - Office.com
-   - OneDrive
-   - Power Automate
-   - Power Apps
-   - Skype for Business Online
-   - Sway
+- Exchange Online
+- Microsoft 365 Search Service
+- Microsoft Forms
+- Microsoft Planner (ProjectWorkManagement)
+- Microsoft Stream
+- Microsoft Teams
+- Microsoft To-Do
+- Microsoft Flow
+- Microsoft Office 365 Portal
+- Microsoft Office client application
+- Microsoft Stream 
+- Microsoft To-Do WebApp
+- Microsoft Whiteboard Services
+- Office Delve
+- Office Online
+- Office.com
+- OneDrive
+- Power Apps
+- Power Automate
+- Security & Compliance Center
+- SharePoint Online
+- Skype for Business Online
+- Skype and Teams Tenant Admin API
+- Sway
+- Yammer
+
+A complete list of all services included can be found in the article [Apps included in Conditional Access Office 365 app suite](reference-office-365-application-contents.md).
 
 ### Microsoft Azure Management
 
