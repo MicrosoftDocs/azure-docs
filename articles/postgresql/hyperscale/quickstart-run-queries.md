@@ -49,7 +49,7 @@ the shards in parallel, and combines the results.
 -- Find all events for a single user.
 -- (A common transactional/operational query)
 
-SELECT * from github_events where user_id = 973676;
+SELECT * FROM github_events WHERE user_id = 973676;
 ```
 
 The output of `SELECT *` is very large. You can press space to page through it,
@@ -68,6 +68,7 @@ handle semi-structured data.
 ```sql
 -- Querying JSONB type. Query is parallelized across nodes.
 -- Find the number of commits on the master branch per hour 
+
 SELECT date_trunc('hour', created_at) AS hour,
        sum((payload->>'distinct_size')::int) AS num_commits
 FROM   github_events

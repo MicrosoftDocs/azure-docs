@@ -25,7 +25,7 @@ When you create your Hyperscale (Citus) server group, a default database named *
 1. Obtain the connection string. In the server group page, select the
    **Connection strings** menu item.
 
-   ![cloud shell icon](../media/quickstart-connect-psql/get-connection-string.png)
+   ![get connection string](../media/quickstart-connect-psql/get-connection-string.png)
 
    Find the string marked **psql**. It will be of the form, `psql
    "host=c.servergroup.postgres.database.azure.com port=5432 dbname=citus
