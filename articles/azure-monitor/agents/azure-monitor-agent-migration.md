@@ -4,7 +4,7 @@ description: This article provides guidance for migrating from the existing lega
 ms.topic: conceptual
 author: shseth
 ms.author: shseth
-ms.date: 7/12/2021 
+ms.date: 02/09/2022 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 
 ---
@@ -34,54 +34,44 @@ You migration plan to the Azure Monitor agent should include the following consi
 |---------|---------|
 | **Preview status** | Some features of Azure Monitor and other services are supported with the AMA in Public Preview. For more information, see [Supported services and features](/azure/azure-monitor/agents/azure-monitor-agent-overview#supported-services-and-features) for a current status. |
 |**Environment requirements**     | Verify that your environment is currently supported by the AMA. For more information, see [Supported operating systems](/azure/azure-monitor/agents/agents-overview#supported-operating-systems).         |
-|**Current and new feature requirements**     | While the AMA provides several new features, such as filtering, scoping, and multi-homing, it is not yet at parity with the legacy Log Analytics agent.As you plan your migration, make sure that the features your organization requires are already supported by the AMA. You may decide to continue using the Log Analytics agent for now, and migrate at a later date, or run both agents side by side. <br><br>The following features are not currently supported: <br><br>- VM insights<br>- Networking scenarios including private link and AMPLS. <br>- Support for collecting custom log files or IIS log files.<br>- Support for Event Hubs and Storage accounts as destinations. <br>- Hybrid Runbook workers|
+|**Current and new feature requirements**     | While the AMA provides [several new features](#current-capabilities), such as filtering, scoping, and multi-homing, it is not yet at parity with the legacy Log Analytics agent.As you plan your migration, make sure that the features your organization requires are already supported by the AMA. You may decide to continue using the Log Analytics agent for now, and migrate at a later date, or run both agents side by side. <br><br>The following features are not currently supported: <br><br>- VM insights<br>- Networking scenarios including private link and AMPLS<br>- Support for collecting custom log files or IIS log files<br>- Support for Event Hubs and Storage accounts as destinations<br>- Hybrid Runbook workers|
 |<a name="capacity-planning"></a>**Capacity planning**     | The AMA currently has a limit of 5,000 Events Per Second (EPS). Verify whether this limit works for your organization, especially if you are using your servers as log forwarders, such as for Windows forwarded events or Syslog events.|
 
 ## Gap analysis between agents
-The following tables show gap analyses for the log types that currently rely on agent-based data collection. This will be updated as support for AMA grows towards parity with the Log Analytics agent. Links are provided for any logs where collection is supported and whether a Microsoft Sentinel data collector is available.
+The following tables show gap analyses for the log types that are currently collected by each agent. This will be updated as support for AMA grows towards parity with the Log Analytics agent. For a general comparison of Azure Monitor agents, see [Overview of Azure Monitor agents](../agents/azure-monitor-agent-overview.md).
 
-> [!NOTE]
-> For a general comparison of Azure Monitor agents, see [Overview of Azure Monitor agents](../agents/azure-monitor-agent-overview.md)
+
+> [!IMPORTANT]
+> If you use Microsoft Sentinel, see [Gap analysis for Microsoft Sentinel](../../sentinel/ama-migrate.md#gap-analysis-between-agents) for a comparison of the additional data collected by Microsoft Sentinel.
+
 
 ### Windows logs
 
 |Log type / Support  |Azure Monitor agent support |Log Analytics agent support  |
 |---------|---------|---------|
-|**Security Events**     |  [Windows Security Events data connector](../../sentinel/data-connectors-reference.md#windows-security-events-via-ama)  (Public preview)     |  [Windows Security Events data connector (Legacy)](../../sentinel/data-connectors-reference.md#security-events-via-legacy-agent-windows)       |
-|**Filtering by security event ID**     |   [Windows Security Events data connector (AMA)](../../sentinel/data-connectors-reference.md#windows-security-events-via-ama)  (Public preview)    |     -     |
-|**Filtering by event ID**     | Collection        |   -       |
-|**Windows Event Forwarding**     |  [Windows Forwarded Events](../../sentinel/data-connectors-reference.md#windows-forwarded-events-preview) (Public Preview)       |     -     |
-|**Windows Firewall Logs**     |  -        |  [Windows Firewall data connector](../../sentinel/data-connectors-reference.md#windows-firewall)       |
-|**Performance counters**     |   Collection      |  Collection       |
-|**Windows Event Logs**     |  Collection       | Collection        |
-|**Custom logs**     |   -       |    Collection     |
-|**IIS logs**     |    -      |    Collection     |
-|**Multi-homing**     |  Collection       |   Collection      |
-|**Application and service logs**     |    -      |    Collection     |
-|**Sysmon**     |    -      |      Collection   |
-|**DNS logs**     |   -       | Collection        |
-| | | |
+| **Security Events** | Yes | No |
+| **Performance counters** | Yes | Yes |
+| **Windows Event Logs** | Yes | Yes |
+| **Filtering by event ID** | Yes | No |
+| **Custom logs** | No | Yes |
+| **IIS logs** | No | Yes |
+| **Application and service logs** | Yes | Yes |
+| **DNS logs** | No | Yes |
+| **Multi-homing** | Yes | Yes |
 
 ### Linux logs
 
 |Log type / Support  |Azure Monitor agent support |Log Analytics agent support  |
 |---------|---------|---------|
-|**Syslog**     |  Collection      |   [Syslog data connector](../../sentinel/connect-syslog.md)      |
-|**Common Event Format (CEF)**     |  Collection       |  [CEF data connector](../../sentinel/connect-common-event-format.md)       |
-|**Sysmon**     |   -       |  Collection       |
-|**Custom logs**     |   -       |  Collection       |
-|**Multi-homing**     |   Collection      |     -     |
-| | | |
+| **Syslog** | Yes | Yes |
+| **Custom logs** | No | Yes |
+| **Multi-homing** | Yes | No |
 
 
 ## Test migration by using the Azure portal
 To ensure safe deployment during migration, you should begin testing with a few resources in your nonproduction environment that are running the existing Log Analytics agent. After you can validate the data collected on these test resources, roll out to production by following the same steps.
 
-See [create new data collection rules](./data-collection-rule-azure-monitor-agent.md#create-rule-and-association-in-azure-portal) to start collecting some of the existing data types. When you use the portal GUI, it performs the following steps on all the target resources for you:
-	- Enables system-assigned managed identity
-	- Installs the Azure Monitor agent extension
-	- Creates and deploys data collection rule associations
-1. Validate data is flowing as expected via the Azure Monitor agent. Check the **Heartbeat** table for new agent version values. Ensure it matches data flowing through the existing Log Analytics agent.
+See [create new data collection rules](./data-collection-rule-azure-monitor-agent.md#create-rule-and-association-in-azure-portal) to start collecting some of the existing data types. Once you validate data is flowing as expected with the Azure Monitor agent, check the [Heartbeat](/azure/azure-monitor/reference/tables/heartbeat) table to verify new agent version values. Ensure it matches data flowing through the existing Log Analytics agent.
 
 
 ## At-scale migration using Azure Policy
@@ -105,7 +95,7 @@ This section provides basic guidance for migrating a large set of agents using s
 	- **Microsoft Sentinel-specific events:** [Windows agent-based connections](data-collection-rule-overview.md)
 
 
-2. [Create new data collection rules](../essentials/data-collection-rule-overview.md#create-a-dcr) to duplicate your data collection with the Log Analytics agent. You may might find it more manageable to have separate data collection rules for Windows versus Linux sources. You may also separate data collection rules for individual teams with different data collection needs.
+2. [Create new data collection rules](../agents/data-collection-rule-overview.md#create-a-dcr) to duplicate your data collection with the Log Analytics agent. You may might find it more manageable to have separate data collection rules for Windows versus Linux sources. You may also separate data collection rules for individual teams with different data collection needs.
 
 3. Use a resource manager template to [enable system-assigned managed identity](../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md#system-assigned-managed-identity) on target resources since this is required for Azure Monitor agent.
 
@@ -125,5 +115,5 @@ This section provides basic guidance for migrating a large set of agents using s
 For more information, see:
 
 - [Overview of the Azure Monitor agents](agents-overview.md)
-- [AMA migration for Microsoft Sentinel](../../sentinel/ama-migration.md)
+- [AMA migration for Microsoft Sentinel](../../sentinel/ama-migrate.md)
 - [Frequently asked questions for AMA migration](/azure/azure-monitor/faq#azure-monitor-agent)
