@@ -21,10 +21,10 @@ sections:
         answer: |
           Azure Virtual Desktop for Azure Stack HCI supports the following x64 operating system images:
             
-            - Windows 11 Enterprise multi-session (preview)
-            - Windows 11 Enterprise (preview)
-            - Windows 10 Enterprise multi-session
-            - Windows 10 Enterprise
+            - Windows 11 Enterprise multi-session
+            - Windows 11 Enterprise
+            - Windows 10 Enterprise multi-session, version 21H2
+            - Windows 10 Enterprise, version 21H2
             - Windows Server 2022
             - Windows Server 2019
           
