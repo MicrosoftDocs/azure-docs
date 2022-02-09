@@ -669,7 +669,7 @@ This section describes the Microsoft Sentinel Functions that are available in yo
 
 The **SAPUsersAssignments** function gathers data from multiple SAP data sources and creates a user-centric view of the current user master data, roles, and profiles currently assigned.
 
- The function summarizes the user assignments to roles and profiles, and returns the following data:
+ This function summarizes the user assignments to roles and profiles, and returns the following data:
 
 
 | Field | Description |	Data Source/Notes |
