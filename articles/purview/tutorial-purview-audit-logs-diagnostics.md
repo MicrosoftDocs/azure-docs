@@ -26,18 +26,39 @@ As an Azure Purview administrator or Azure Purview data source admin, I want to 
 ### Connect Purview Account to Diagnostics Event-Hub
 
 2. Now that the Event-Hub is deployed and created, connect Azure Purview diagnostics audit logging to this Event-Hub.
-- Go To your Purview Account home page (where the overview information is displayed, not the Purview Studio home page.) Instructions as shown in the screenshot below.
+- Go To your Purview Account home page (where the overview information is displayed, not the Purview Studio home page.) and follow instructions as shown in the image below.
+
+:::image type="content" source="./media/tutorial-purview-audit-logs-diagnostics/A.png" alt-text="Configure Azure Purview Diagnostic Settings screen." lightbox="./media/tutorial-purview-audit-logs-diagnostics/A.png":::
+
 - Click "Monitoring" -> "Diagnostic Settings" in the left navigation menu.
+
+:::image type="content" source="./media/tutorial-purview-audit-logs-diagnostics/A.png" alt-text="Configure Azure Purview Diagnostic Settings screen." lightbox="./media/tutorial-purview-audit-logs-diagnostics/A.png":::
+
 - Click "Add Diagnostic Settings" or "Edit Setting". Adding more than one row of diagnostic setting in the context of Purview is not recommended. In other words, if you already have a dignostic setting row added, do not click "Add Diagnostic"; click "Edit" instead.
+
+:::image type="content" source="./media/tutorial-purview-audit-logs-diagnostics/A.png" alt-text="Configure Azure Purview Diagnostic Settings screen." lightbox="./media/tutorial-purview-audit-logs-diagnostics/A.png":::
+
 - Supply the name of the Event-Hub Namespace and the Event-Hub where you would like the audit and diagnostics to be captured and streamed. Click Save.
+
+:::image type="content" source="./media/tutorial-purview-audit-logs-diagnostics/A.png" alt-text="Configure Azure Purview Diagnostic Settings screen." lightbox="./media/tutorial-purview-audit-logs-diagnostics/A.png":::
+
 - Navigate to the Event-Hub Namespace and then consequently the Event-Hub and click "Capture Data". Modify and save the settings as below.
+
+:::image type="content" source="./media/tutorial-purview-audit-logs-diagnostics/A.png" alt-text="Configure Azure Purview Diagnostic Settings screen." lightbox="./media/tutorial-purview-audit-logs-diagnostics/A.png":::
+
 - This completes the configuration steps. Purview will start streaming all its audit diagnostics data to this eventhub and you can now proceed to read, extract and perform additional analytics and operations on the captured data.
 
 ### Reading Captured Events
 
 3. Analyzing and making sense of the captured Audit and Diagnostics log data from Purview.
 - Navigate to "Process Data" on the Event-Hub page left pane navigation menu to see a preview of the captured Purview audit logs and diagnostics.
+
+:::image type="content" source="./media/tutorial-purview-audit-logs-diagnostics/A.png" alt-text="Configure Azure Purview Diagnostic Settings screen." lightbox="./media/tutorial-purview-audit-logs-diagnostics/A.png":::
+
 - Switch between "Table" and "Raw" view of the JSON output. Click "Download Sample Data" to download and analyse the results carefully.
+
+:::image type="content" source="./media/tutorial-purview-audit-logs-diagnostics/A.png" alt-text="Configure Azure Purview Diagnostic Settings screen." lightbox="./media/tutorial-purview-audit-logs-diagnostics/A.png":::
+
 - Lastly, you can use scripts to extract and perform additional analytics and operations, and build additional utilities and custom code to extract business value out of the captured audit and diagnostics. You can even use these audit logs and transform them to Excel, any database, Dataverse or Synapse, for analytics and reporting using PowerBI. While you can use any programming/scripting language to read the event hub, here is a readymade [Python-based script](https://github.com/Azure/Azure-Purview-API-PowerShell/blob/main/purview_atlas_eventhub_sample.py) and Python tutorial on how to [Capture Event Hubs data in Azure Storage and read it by using Python (azure-eventhub)](../event-hubs/event-hubs-capture-python.md) 
 
 ## Next steps
