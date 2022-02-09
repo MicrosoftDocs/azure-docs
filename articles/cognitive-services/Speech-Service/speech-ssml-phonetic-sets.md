@@ -16,11 +16,19 @@ ms.author: jiajzhan
 
 Phonetic alphabets are used with the [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md) to improve the pronunciation of text-to-speech voices. To learn when and how to use each alphabet, see [Use phonemes to improve pronunciation](speech-synthesis-markup.md#use-phonemes-to-improve-pronunciation).
 
-## Speech service phonetic alphabet
+Speech service support the [International Phonetic Alphabet (IPA)](https://en.wikipedia.org/wiki/International_Phonetic_Alphabet). You could set `ipa` as the `alphabet` in [SSML](speech-synthesis-markup.md#use-phonemes-to-improve-pronunciation). 
 
-For some locales, Speech service defines its own phonetic alphabets, which ordinarily map to the [International Phonetic Alphabet (IPA)](https://en.wikipedia.org/wiki/International_Phonetic_Alphabet). The seven locales that support the Microsoft Speech API (SAPI, or `sapi`) are en-US, fr-FR, de-DE, es-ES, ja-JP, zh-CN, and zh-TW.
+IPA stress and syllable symbols that are listed here:
 
-You set `sapi` or `ipa` as the `alphabet` in [SSML](speech-synthesis-markup.md#use-phonemes-to-improve-pronunciation). 
+|`ipa` | Symbol         | 
+|-------|-------------------|
+| `ˈ`   | Primary stress     | 
+| `ˌ`   | Secondary stress   | 
+| `.`   | Syllable boundary  | 
+
+Besides for some locale, Speech service defines its own phonetic alphabets, which ordinarily map to the [International Phonetic Alphabet (IPA)](https://en.wikipedia.org/wiki/International_Phonetic_Alphabet). The seven locales that support the Microsoft Speech API (SAPI, or `sapi`) are en-US, fr-FR, de-DE, es-ES, ja-JP, zh-CN, and zh-TW. So for these locales, you could set `sapi` or `ipa` as the `alphabet` in [SSML](speech-synthesis-markup.md#use-phonemes-to-improve-pronunciation).
+
+Select a tab to view the phonemes that are specific to each locale.
 
 ### [en-US](#tab/en-US)
 
@@ -402,26 +410,6 @@ The Speech service phone set for `ja-JP` is based on the native phone [Kana](htt
 | 所有者       | ショュ'ウ?ャ | ɕjojɯˈwɯɕja |
 | 最適化       | サィテキカ+  | sajitecikaˌ |
 
-
-***
-
-## International Phonetic Alphabet
-
-For the following locales, Speech service uses the [International Phonetic Alphabet (IPA)](https://en.wikipedia.org/wiki/International_Phonetic_Alphabet).
-
-You set `ipa` as the `alphabet` in [SSML](speech-synthesis-markup.md#use-phonemes-to-improve-pronunciation). 
-
-These locales all use the IPA stress and syllable symbols that are listed here:
-
-|`ipa` | Symbol         | 
-|-------|-------------------|
-| `ˈ`   | Primary stress     | 
-| `ˌ`   | Secondary stress   | 
-| `.`   | Syllable boundary  | 
-
-
-Select a tab to view the IPA phonemes that are specific to each locale.
-
 ### [ca-ES](#tab/ca-ES)
 
 | `ipa` | Example&nbsp;1         | Example&nbsp;2        | Example&nbsp;3      |
@@ -792,6 +780,5 @@ Select a tab to view the IPA phonemes that are specific to each locale.
 | `r`   | **р**адость   | со**р**ока        | дво**р**       |
 | `rʲ`  | **р**ябина    | набе**р**ежная    | две**рь**      |
 | `j`   | **е**сть      | ма**я**к          | игрушечны**й** |
-
 ***
 
