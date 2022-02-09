@@ -21,7 +21,7 @@ You must have completed all of the steps in [Complete the prerequisite tasks for
 ## Collect private mobile network resource values
 
 Collect all of the following values for the resource that will represent your private mobile network.
-
+<!-- The first two value entries read strangely to me. Not sure how to tweak it without changing the tense. -->
    |Value  |Field name in Azure portal  |
    |---------|---------|
    |The Azure subscription to use to deploy the private mobile network resource. You must use the same subscription for all resources in your private mobile network deployment. This is the subscription you identified in [Complete the prerequisite tasks for deploying a private mobile network](complete-private-mobile-network-prerequisites.md).                 |**Project details: Subscription**
