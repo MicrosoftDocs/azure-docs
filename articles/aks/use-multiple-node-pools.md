@@ -356,7 +356,7 @@ As your application workloads demands, you may associate node pools to capacity 
 
 For more information on the capacity reservation groups, please refer to [Capacity Reservation Groups][capacity-reservation-groups].
 
-Associating a node pool with an existing capacity reservation group can be done using [az aks nodepool add][az-aks-nodepool-add] command and specifying a capacity reservation group with the --capacityReservationGroup flag:" The capacity reservation group should already exist , otherwise the node pool will be added to the cluster with a warning and no capacity reservation group gets associated. 
+Associating a node pool with an existing capacity reservation group can be done using [az aks nodepool add][az-aks-nodepool-add] command and specifying a capacity reservation group with the --capacityReservationGroup flag" The capacity reservation group should already exist , otherwise the node pool will be added to the cluster with a warning and no capacity reservation group gets associated. 
 
 ```azurecli-interactive
 az aks nodepool add -g MyRG --cluster-name MyMC -n myAP --capacityReservationGroup myCRG
