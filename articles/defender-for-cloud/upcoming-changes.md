@@ -2,7 +2,7 @@
 title: Important changes coming to Microsoft Defender for Cloud
 description: Upcoming changes to Microsoft Defender for Cloud that you might need to be aware of and for which you might need to plan 
 ms.topic: overview
-ms.date: 01/23/2022
+ms.date: 02/09/2022
 ---
 # Important upcoming changes to Microsoft Defender for Cloud
 
@@ -18,17 +18,18 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 
 ## Planned changes
 
-| Planned change                                                                                                                                                                      | Estimated date for change |
-|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------|
-| [Deprecating a preview alert: ARM.MCAS_ActivityFromAnonymousIPAddresses](#deprecating-a-preview-alert-armmcas_activityfromanonymousipaddresses)                                     | January 2022              |
-| [Legacy implementation of ISO 27001 is being replaced with new ISO 27001:2013](#legacy-implementation-of-iso-27001-is-being-replaced-with-new-iso-270012013)                        | January 2022              |
-| [Multiple changes to identity recommendations](#multiple-changes-to-identity-recommendations)                                                                                       | February 2022             |
-| [Deprecating the recommendation to use service principals to protect your subscriptions](#deprecating-the-recommendation-to-use-service-principals-to-protect-your-subscriptions)   | February 2022             |
-| [Deprecating the recommendations to install the network traffic data collection agent](#deprecating-the-recommendations-to-install-the-network-traffic-data-collection-agent)       | February 2022             |
-| [Changes to recommendations for managing endpoint protection solutions](#changes-to-recommendations-for-managing-endpoint-protection-solutions)                                     | March 2022                |
-| [AWS recommendations to GA](#aws-recommendations-to-ga)                                                                                                                                                                                    | March 2022                          |
-| [Relocation of custom recommendations](#relocation-of-custom-recommendations)                                                                                                                                                                                    | March 2022                          |
-
+| Planned change | Estimated date for change |
+|--|--|
+| [Deprecating a preview alert: ARM.MCAS_ActivityFromAnonymousIPAddresses](#deprecating-a-preview-alert-armmcas_activityfromanonymousipaddresses) | January 2022 |
+| [Legacy implementation of ISO 27001 is being replaced with new ISO 27001:2013](#legacy-implementation-of-iso-27001-is-being-replaced-with-new-iso-270012013) | January 2022 |
+| [Multiple changes to identity recommendations](#multiple-changes-to-identity-recommendations) | February 2022 |
+| [Deprecating the recommendation to use service principals to protect your subscriptions](#deprecating-the-recommendation-to-use-service-principals-to-protect-your-subscriptions) | February 2022 |
+| [Deprecating the recommendations to install the network traffic data collection agent](#deprecating-the-recommendations-to-install-the-network-traffic-data-collection-agent) | February 2022 |
+| [Changes to recommendations for managing endpoint protection solutions](#changes-to-recommendations-for-managing-endpoint-protection-solutions) | March 2022 |
+| [AWS recommendations to GA](#aws-recommendations-to-ga) | March 2022 |
+| [Relocation of custom recommendations](#relocation-of-custom-recommendations) | March 2022 |
+| [Deprecate Microsoft Defender for IoT Device assessments](#deprecate-microsoft-defender-for-iot-device-assessments) | March 2022 |
+| [Deprecate Microsoft Defender for IoT Device alerts](#deprecate-microsoft-defender-for-iot-device-alerts) | March 2022 |
 ### Deprecating a preview alert: ARM.MCAS_ActivityFromAnonymousIPAddresses
 
 **Estimated date for change:** January 2022 
@@ -176,6 +177,106 @@ When the move occurs, the custom recommendations will be found via a new "recomm
 
 Learn more: 
 - [Create custom security initiatives and policies](custom-security-policies.md).
+
+### Deprecate Microsoft Defender for IoT Device assessments
+
+**Estimated date for change:** March 2022 
+
+Microsoft Defender for IoT device recommendations will no longer be visible in Microsoft Defender for Cloud. These recommendations will still be available on the Microsoft Defender for IoT's Recommendations page, and in Sentinel.
+
+The following recommendation types will be deprecated:
+
+| Recommendation | Description|
+|--|--|
+| 1a36f14a-8bd8-45f5-abe5-eef88d76ab5b: IoT Devices | Open Ports On Device |
+| ba975338-f956-41e7-a9f2-7614832d382d: IoT Devices | Permissive firewall rule in the input chain was found |
+| beb62be3-5e78-49bd-ac5f-099250ef3c7c: IoT Devices | Permissive firewall policy in one of the chains was found |
+| d5a8d84a-9ad0-42e2-80e0-d38e3d46028a: IoT Devices | Permissive firewall rule in the output chain was found |
+| 5f65e47f-7a00-4bf3-acae-90ee441ee876: IoT Devices | Operating system baseline validation failure |
+|a9a59ebb-5d6f-42f5-92a1-036fd0fd1879: IoT Devices | Agent sending underutilized messages |
+| 2acc27c6-5fdb-405e-9080-cb66b850c8f5: IoT Devices | TLS cipher suite upgrade needed |
+|d74d2738-2485-4103-9919-69c7e63776ec: IoT Devices | Auditd process stopped sending events |
+
+### Deprecate Microsoft Defender for IoT Device alerts
+
+**Estimated date for change:** March 2022 
+
+Microsoft Defender for IoT device alerts will no longer be visible in Microsoft Defender for Cloud. These alerts will still be available on the Microsoft Defender for IoT's Alert page, and in Sentinel.
+
+| Alert types | |  |  |
+|--|--|--|--|
+|IoT.Devices_ARPHostScanDetection|IoT.Devices_ASDUWhiteList|IoT.Devices_AccessingHtaccessFile|IoT.Devices_AddressRange|
+|IoT.Devices_AgentDroppedEvents|IoT.Devices_AgentFailedToParseConfiguration|IoT.Devices_ApipaAddressDetection|IoT.Devices_AuthenticationErrorDetect|
+|IoT.Devices_BackupDetection|IoT.Devices_BadMessageTypes|IoT.Devices_BinaryCommandLine|IoT.Devices_BlackEnergyMalware|
+|IoT.Devices_BlackListExceptionCommand|IoT.Devices_BruteForceDetectionByLoginFailures|IoT.Devices_Bruteforce|IoT.Devices_BruteforceFail|
+|IoT.Devices_BruteforceSuccess|IoT.Devices_BufferOverflowFunction|IoT.Devices_CertExpired|IoT.Devices_CertPrintMismatch|
+|IoT.Devices_ChannelBandwidthWhitelist|IoT.Devices_ChannelBasedBruteforceDetection|IoT.Devices_ClearHistoryFile|IoT.Devices_ClientServerProgramWhiteList|
+|IoT.Devices_ClientServerServiceTypeWhiteList|IoT.Devices_ColdRestartDetect|IoT.Devices_CommissioningRequirementDetection|IoT.Devices_CommonBots|
+|IoT.Devices_ConfickerMalware|IoT.Devices_ConfigCorruptDetect|IoT.Devices_ConfigurationChangeDetect|IoT.Devices_CredentialAccessTools|
+|IoT.Devices_CryptoMiner|IoT.Devices_CryptoMinerContainer|IoT.Devices_CustomActiveConnectionsNotInAllowedRange|IoT.Devices_CustomAmqpC2DMessagesNotInAllowedRange|
+|IoT.Devices_CustomAmqpC2DRejectedMessagesNotInAllowedRange|IoT.Devices_CustomAmqpD2CMessagesNotInAllowedRange|IoT.Devices_CustomConnectionToIpNotAllowed|IoT.Devices_CustomDirectMethodInvokesNotInAllowedRange|
+|IoT.Devices_CustomFailedLocalLoginsNotInAllowedRange|IoT.Devices_CustomFileUploadsNotInAllowedRange|IoT.Devices_CustomHttpC2DMessagesNotInAllowedRange|IoT.Devices_CustomHttpC2DRejectedMessagesNotInAllowedRange|
+|IoT.Devices_CustomHttpD2CMessagesNotInAllowedRange|IoT.Devices_CustomLocalUserNotAllowed|IoT.Devices_CustomMqttC2DMessagesNotInAllowedRange|IoT.Devices_CustomMqttC2DRejectedMessagesNotInAllowedRange|
+|IoT.Devices_CustomMqttD2CMessagesNotInAllowedRange|IoT.Devices_CustomProcessNotAllowed|IoT.Devices_CustomProtocolAlertHigh|IoT.Devices_CustomProtocolAlertLow|
+|IoT.Devices_CustomProtocolAlertMedium|IoT.Devices_CustomQueuePurgesNotInAllowedRange|IoT.Devices_CustomTwinUpdatesNotInAllowedRange|IoT.Devices_CustomUnauthorizedOperationsNotInAllowedRange|
+|IoT.Devices_DNSConfickerDetection|IoT.Devices_DarkCometMalware|IoT.Devices_DeprecatedSaveConfigDetect|IoT.Devices_DeviceFirmwareDetection|
+|IoT.Devices_DeviceSilent|IoT.Devices_DeviceTroubleDetect|IoT.Devices_DisableAuditdLogging|IoT.Devices_DisableFirewall|
+|IoT.Devices_DisconnectionSuspection|IoT.Devices_DownloadFileThenRun|IoT.Devices_DuquMalware|IoT.Devices_ENAPBadControlStatus|
+|IoT.Devices_ENAPFirmwareWhiteList|IoT.Devices_EgressData|IoT.Devices_EicarTest|IoT.Devices_EmersonROCFirmwareVersionChanged|
+|IoT.Devices_EmersonROCOperationsWhitelist|IoT.Devices_EndpointFilesWhitelist|IoT.Devices_ErrorResponseDetection|IoT.Devices_ErrorStatusDetection|
+|IoT.Devices_EventBufferOverflowDetect|IoT.Devices_ExceptionDetection|IoT.Devices_ExcessiveARPMessaging|IoT.Devices_ExcessiveChannelMalformedDetection|
+|IoT.Devices_ExcessiveColdRestart|IoT.Devices_ExcessiveDeviceRestart|IoT.Devices_ExcessiveExceptionsRate|IoT.Devices_ExcessiveICMPMessaging|
+|IoT.Devices_ExcessiveStopAppl|IoT.Devices_ExecuteFileWithTrailingSpace|IoT.Devices_ExpiredSASToken|IoT.Devices_ExposedDocker|
+|IoT.Devices_ExternalAddressesChannelDetection|IoT.Devices_FTPAuthenticationFailure|IoT.Devices_FailedLocalLogin|IoT.Devices_FairwareMalware|
+|IoT.Devices_FirmwareUpdateDetection|IoT.Devices_FlameMalware|IoT.Devices_FuncCodeNotSupportedDetect|IoT.Devices_FunctionCodesRangeCheck|
+|IoT.Devices_FunctionCodesWhiteListValidation|IoT.Devices_FutureUseReservedBits|IoT.Devices_GooseConfValidation|IoT.Devices_GooseSettingsWhiteList|
+|IoT.Devices_HavexMalware|IoT.Devices_HorizonFirmwareScenario|IoT.Devices_HorizonWhitelistScenario_AMSIndexGroup|IoT.Devices_HorizonWhitelistScenario_AMSIndexOffset|
+|IoT.Devices_HorizonWhitelistScenario_AMSProtocolCommand|IoT.Devices_HorizonWhitelistScenario_ASTMEndpoint|IoT.Devices_HorizonWhitelistScenario_ASTMSenderID|IoT.Devices_HorizonWhitelistScenario_CIPClass|
+|IoT.Devices_HorizonWhitelistScenario_CIPClassService|IoT.Devices_HorizonWhitelistScenario_CIPPCCCCCommand|IoT.Devices_HorizonWhitelistScenario_CIPSymbol|IoT.Devices_HorizonWhitelistScenario_DeltaVMessageType|
+|IoT.Devices_HorizonWhitelistScenario_DeltaVRemoteOperationsControllerOperation|IoT.Devices_HorizonWhitelistScenario_EtherNetIPIO|IoT.Devices_HorizonWhitelistScenario_EtherNetIPProtocolCommand|IoT.Devices_HorizonWhitelistScenario_FoxboroIA|
+|IoT.Devices_HorizonWhitelistScenario_GESRTPFileAccess|IoT.Devices_HorizonWhitelistScenario_GESRTPProtocolCommand|IoT.Devices_HorizonWhitelistScenario_GESRTPSystemMemoryOperation|IoT.Devices_HorizonWhitelistScenario_GSMMessageCode|
+|IoT.Devices_HorizonWhitelistScenario_HL7SendersInformation|IoT.Devices_HorizonWhitelistScenario_LonTalkCommandCodes|IoT.Devices_HorizonWhitelistScenario_LonTalkNetworkVariable|IoT.Devices_HorizonWhitelistScenario_MQIsdpPublishInformation|
+|IoT.Devices_HorizonWhitelistScenario_MQIsdpSubscriptionInformation|IoT.Devices_HorizonWhitelistScenario_MitsubishiMELSECCommand|IoT.Devices_HorizonWhitelistScenario_OmronFINSCommand|IoT.Devices_HorizonWhitelistScenario_OvationDataRequest|
+|IoT.Devices_HorizonWhitelistScenario_ProfinetFrameType|IoT.Devices_HorizonWhitelistScenario_RPCMessageType|IoT.Devices_HorizonWhitelistScenario_RPCProcedureInvocation|IoT.Devices_HorizonWhitelistScenario_SICAMCommand|
+|IoT.Devices_HorizonWhitelistScenario_SuitelinkProtocolCommand|IoT.Devices_HorizonWhitelistScenario_SuitelinkProtocolSessions|IoT.Devices_HorizonWhitelistScenario_YokogawaVNetIPCommand|IoT.Devices_HostScansDetection|
+|IoT.Devices_HttpAgentsWhitelist|IoT.Devices_HttpClientErrors|IoT.Devices_HttpHeaderDataValidation|IoT.Devices_HttpHeaderParametersCountWhitelist|
+|IoT.Devices_HttpHeadersLengthWhitelist|IoT.Devices_HttpServersWhitelist|IoT.Devices_HttpUriSOAPWhitelist|IoT.Devices_HttpUriWhitelist|
+|IoT.Devices_HttpWhiteListValidation|IoT.Devices_HwAddressWhitelist|IoT.Devices_IINWhiteList|IoT.Devices_IlegalSMBTransactionCommandSequence|
+|IoT.Devices_IllegalASDUType|IoT.Devices_IllegalCOT|IoT.Devices_IllegalCommonAddress|IoT.Devices_IllegalDataAddressDetection|
+|IoT.Devices_IllegalDataValueDetection|IoT.Devices_IllegalFunctionDetection|IoT.Devices_IllegalInformationObjectAddress|IoT.Devices_IllegalMessage|
+|IoT.Devices_IllegalProtocolValue|IoT.Devices_IllegalSMBDetection|IoT.Devices_IllegalSMBParameterCount|IoT.Devices_IntegrityPollWhiteList|
+|IoT.Devices_InternetConnectionValidation|IoT.Devices_InvalidIpValidation|IoT.Devices_InvalidSASToken|IoT.Devices_KaraganyMalware|
+|IoT.Devices_KnownAttackTools|IoT.Devices_KnownServicesDetection|IoT.Devices_LightsoutMalware|IoT.Devices_LinuxBackdoor|
+|IoT.Devices_LinuxReconnaissance|IoT.Devices_LocalUserAddedToGroupChange|IoT.Devices_LocalUserDeletedFromGroupChange|IoT.Devices_LocalUserWasDeleted|
+|IoT.Devices_LongHostScansDetection|IoT.Devices_MMSServiceRequestFailed|IoT.Devices_MMSVMDPhysicalStatusError|IoT.Devices_MalewareDetected|
+|IoT.Devices_MaliciousIpDetection|IoT.Devices_MaliciousNameQueriesDetection|IoT.Devices_MasterRequestConfirmation|IoT.Devices_MasterToSlaveWhiteList|
+|IoT.Devices_MelsecFirmwareWhitelist|IoT.Devices_MisleadingFunctionCode|IoT.Devices_ModbusFirmwareChangesDetection|IoT.Devices_MultipleLoginFailuresDetection|
+|IoT.Devices_NewCountryForExisitingDevice|IoT.Devices_NewIpForExistingDevice|IoT.Devices_NewLocalUser|IoT.Devices_NoBandwidthChannel|
+|IoT.Devices_NonUnicastTrafficDetection|IoT.Devices_OPCEndPointsWhiteList|IoT.Devices_OPCUAHighSeverityEventDetection|IoT.Devices_OPCUARequestTypeWhiteList|
+|IoT.Devices_OPCUAServiceRequestFailedDetection|IoT.Devices_ObjectServiceWhiteList|IoT.Devices_ObjectUnknownDetect|IoT.Devices_ObsoleteInitialDataCodeDetection|
+|IoT.Devices_OperatingSystemProcessesPortsDetection|IoT.Devices_OperatingSystemServicesDetection|IoT.Devices_OracleOraDetection|IoT.Devices_OutgoingSMBConnection|
+|IoT.Devices_OverrideLinuxFiles|IoT.Devices_PLCAddressScan|IoT.Devices_PLCConfigurationChange|IoT.Devices_PLCConfigurationRead|
+|IoT.Devices_PLCProgrammUpload|IoT.Devices_PLCResetDetection|IoT.Devices_PLCStopDetection|IoT.Devices_PLCUpdateValidation|
+|IoT.Devices_PMUConfigurationChange|IoT.Devices_ParamterErrorDetect|IoT.Devices_PasswordGuessAttemptDetection|IoT.Devices_PeriodicProcessesScenario|
+|IoT.Devices_PoisonIvyMalware|IoT.Devices_PortForwarding|IoT.Devices_PortScansDetection|IoT.Devices_PortTrafficConfiguration|
+|IoT.Devices_PossibleMalware|IoT.Devices_PrivilegedContainer|IoT.Devices_ProfinetDCPFailureCode|IoT.Devices_ProfinetDeviceFactoryReset|
+|IoT.Devices_PropertiesChangeDetection|IoT.Devices_ProtocolAddressWhitelist|IoT.Devices_ProtocolOutstationViolation|IoT.Devices_PsExecDetection|
+|IoT.Devices_RPCFaultRejectDetection|IoT.Devices_Ransomware|IoT.Devices_ReadHistoryFile|IoT.Devices_ReginMalware|
+|IoT.Devices_RemoteLogin|IoT.Devices_RemovelOfSystemLogs|IoT.Devices_ReservedFunctionCode|IoT.Devices_ResponsiveInternetConnectionValidation|
+|IoT.Devices_ReverseShell|IoT.Devices_RouteWhitelist|IoT.Devices_RuleEngineAlertsCreator|IoT.Devices_S7CommpOpcodeFuncClassWhiteList|
+|IoT.Devices_S7FunctionWhitelist|IoT.Devices_S7PlusConfigurationOperationsWhiteList|IoT.Devices_S7PlusFirmwareChangesDetection|IoT.Devices_S7PlusProgramOperationsWhiteList|
+|IoT.Devices_S7ReadVarWhitelist|IoT.Devices_S7StopPLCDetection|IoT.Devices_S7SubFuncWhitelist|IoT.Devices_SBusSAIAWhiteList|
+|IoT.Devices_SMBLoginAccountWhiteList|IoT.Devices_SNMPDataVariableWhiteList|IoT.Devices_SQLCommandsWhitelist|IoT.Devices_SQLUsersWhitelist|
+|IoT.Devices_SVConfValidation|IoT.Devices_SVSettingsWhiteList|IoT.Devices_ScriptInterpreterMismatch|IoT.Devices_ServiceResponseErrorStatusDetection|
+|IoT.Devices_SprayAttack|IoT.Devices_StopPLCDetection|IoT.Devices_StuxnetMalware|IoT.Devices_SucessfulLocalLogin|
+|IoT.Devices_SuitelinkTagNameWhiteList|IoT.Devices_SuspiciousCompilation|IoT.Devices_SuspiciousNohup|IoT.Devices_SuspiciousProcess|
+|IoT.Devices_SuspiciousTraffic|IoT.Devices_SuspiciousUseradd|IoT.Devices_SvcctlDetection|IoT.Devices_SynFloodDetection|
+|IoT.Devices_TiConnection|IoT.Devices_ToshibaUnauthorizedCommand|IoT.Devices_TotalBandwidthAnamolyDetection|IoT.Devices_TotalflowApplicationWhitelist|
+|IoT.Devices_TotalflowFileWhitelist|IoT.Devices_TotalflowFirmwareChangeDetection|IoT.Devices_TrafficResumedDetection|IoT.Devices_TrafficStoppedDetection|
+|IoT.Devices_TwinCATFirmwareChangesDetection|IoT.Devices_UnauthorizedDeviceDetection|IoT.Devices_UnauthorizedQueriesDetection|IoT.Devices_UnexpectedTextLengthDetection|
+|IoT.Devices_UnitySubfunctionWhitelist|IoT.Devices_UnrecoverableCommand|IoT.Devices_UnresponsiveCommand|IoT.Devices_UserDefinedAlert|
+|IoT.Devices_ValidRequestsFunctionCodeRange|IoT.Devices_WannacryMalwareDetection|IoT.Devices_WebShell|IoT.Devices_WhiteListViolations|
+|IoT.Devices_WhitelistCustomProtocolAlert|IoT.Devices_ZeroPortUsageDetection| | |
 
 ## Next steps
 
