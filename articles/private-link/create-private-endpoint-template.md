@@ -31,7 +31,7 @@ You need an Azure account with an active subscription. If you don't already have
 
 This template creates a private endpoint for an instance of Azure SQL Database.
 
-The template that's used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/private-endpoint-sql/).
+The template that this quickstart uses is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/private-endpoint-sql/).
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.sql/private-endpoint-sql/azuredeploy.json":::
 
@@ -78,7 +78,7 @@ Connect to the VM _myVm{uniqueid}_ from the internet by doing the following:
 
 1. Open the downloaded RDP file.
 
-   a. If prompted, select **Connect**.  
+   a. If you're prompted, select **Connect**.  
    b. Enter the username and password that you specified when you created the VM.
 
       > [!NOTE]
@@ -86,7 +86,7 @@ Connect to the VM _myVm{uniqueid}_ from the internet by doing the following:
 
 1. Select **OK**.
 
-   You might receive a certificate warning during the sign-in process. If you receive a certificate warning, select **Yes** or **Continue**.
+   You might receive a certificate warning during the sign-in process. If you do, select **Yes** or **Continue**.
 
 1. After the VM desktop appears, minimize it to go back to your local desktop.
 
@@ -137,4 +137,4 @@ Remove-AzResourceGroup -Name <your resource group name>
 
 For more information about the services that support private endpoints, see:
 > [!div class="nextstepaction"]
-> [Private Link availability](private-link-overview.md#availability)
+> [What is Azure Private Link?](private-link-overview.md#availability)
