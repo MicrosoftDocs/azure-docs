@@ -51,9 +51,6 @@ Trusts are also be configured to handle additional trust relationships in one of
 
 In some cases, trust relationships are automatically established when domains are created. Other times, you must choose a type of trust and explicitly establish the appropriate relationships. The specific types of trusts used and the structure of those trust relationships depend on how the AD DS directory is organized and whether different versions of Windows coexist on the network.
 
-   > [!NOTE]
-   > Only *resource* forests can create trusts. If the forest type is *User*, you can't create trusts. There's currently no way to change the forest type of a managed domain. You need to delete and recreate the managed domain as a resource forest.
-
 ## Trusts between two forests
 
 You can extend domain trusts within a single forest to another forest by manually creating a one-way or two-way forest trust. A forest trust is a transitive trust that exists only between a forest root domain and a second forest root domain.
@@ -66,6 +63,9 @@ The transitivity of forest trusts is limited to the two forest partners. The for
 ![Diagram of forest trust from Azure AD DS to on-premises AD DS](./media/concepts-resource-forest/resource-forest-trust-relationship.png)
 
 You can create different domain and forest trust configurations depending on the AD DS structure of the organization. Azure AD DS only supports a one-way forest trust. In this configuration, resources in the managed domain can trust all domains in an on-premises forest.
+
+   > [!NOTE]
+   > Only *resource* forests can create trusts. If the forest type is *User*, you can't create trusts. There's currently no way to change the forest type of a managed domain. You need to delete and recreate the managed domain as a resource forest.
 
 ## Supporting technology for trusts
 
