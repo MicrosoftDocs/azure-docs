@@ -36,6 +36,8 @@ C# script is used primarily when creating C# functions in the Azure portal.
 
 ---
 
+The following 
+
 # [Functions 2.x+](#tab/functionsv2/in-process)
 
 The following example shows a [C# function](functions-dotnet-class-library.md) that is invoked when there are inserts or updates in the specified database and collection.
