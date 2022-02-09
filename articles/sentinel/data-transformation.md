@@ -11,7 +11,7 @@ ms.date: 02/01/2022
 
 Azure Monitor's Log Analytics serves as the platform behind the Microsoft Sentinel workspace. All logs streamed into Microsoft Sentinel are stored in Log Analytics by default. From Microsoft Sentinel, you can access the ingested logs and run Kusto Query Language (KQL) queries to investigate threats and monitor your network activity.
 
-Log Analytics supports ingestion-time data transformation, which provides customers with more control over the ingested data. Instead of relying on pre-configured, hardcoded workflows that create standardized tables, ingestion time-transformation supports the ability to filter and enrich the output tables, even before running any queries. Data collection rules (DCRs) provide extra support for creating customized output tables, including specific column names and types.
+Log Analytics supports ingestion-time data transformation, which provides customers with more control over the ingested data. Ingestion-time transformation provides the ability to filter and enrich standard tables even before data is stored in your workspace. Data collection rules (DCRs) provide extra support for creating customized output tables, including specific column names and types.
 
 ## Use cases and sample scenarios
 
@@ -42,7 +42,7 @@ Ingestion-time transformations can also be used to mask or remove personal infor
 
 The following image shows where ingestion-time data transformation enters the data ingestion flow into Microsoft Sentinel.
 
-Microsoft Sentinel data connectors collect data into the Log Analytics workspace, where it's processed using both hardcoded workflows and DCR-based custom logs, and then stored in both standard and custom tables accessible from Microsoft Sentinel.
+Microsoft Sentinel data connectors collect data into the Log Analytics workspace, where it's processed using either hardcoded workflows or DCR-based custom logs, and then stored in both standard and custom tables accessible from Microsoft Sentinel.
 
 :::image type="content" source="media/data-transformation/data-transformation-architecture.png" alt-text="Diagram of the Microsoft Sentinel data transformation architecture.":::
 
