@@ -18,7 +18,7 @@ IoT Central lets you upload media and other files from connected devices to clou
 
 You must be an administrator in your IoT Central application to configure file uploads.
 
-You need an Azure storage account and container to store the uploaded files. If you don't have an existing storage account and container to use, create a [new storage account in the Azure portal](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM).
+You need an Azure storage account and container to store the uploaded files. If you don't have an existing storage account and container to use, create a [new storage account in the Azure portal](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM).
 
 ## Configure device file uploads
 

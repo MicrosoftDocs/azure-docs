@@ -65,7 +65,7 @@ The first option is to authenticate using the `Ocp-Apim-Subscription-Key` header
 
 #### Authenticating with a global resource
 
-When you use a [global translator resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation), you need to include one header to call the Translator.
+When you use a [global translator resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation), you need to include one header to call the Translator.
 
 |Headers|Description|
 |:-----|:----|
@@ -83,7 +83,7 @@ curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-versio
 
 #### Authenticating with a regional resource
 
-When you use a [regional translator resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation).
+When you use a [regional translator resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation).
 There are two headers that you need to call the Translator.
 
 |Headers|Description|
@@ -226,7 +226,7 @@ The Translator service is now available with Virtual Network (VNET) capabilities
 
 Once you turn on this capability, you must use the custom endpoint to call the Translator. You can't use the global translator endpoint ("api.cognitive.microsofttranslator.com") and you can't authenticate with an access token.
 
-You can find the custom endpoint after you create a [translator resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) and allow access from selected networks and private endpoints.
+You can find the custom endpoint after you create a [translator resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) and allow access from selected networks and private endpoints.
 
 |Headers|Description|
 |:-----|:----|

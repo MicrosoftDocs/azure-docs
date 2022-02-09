@@ -38,7 +38,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Sign up for Content Moderator services
 
-Before you can use Content Moderator services through the REST API or the SDK, you'll need an API subscription key. Subscribe to Content Moderator service in the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator) to obtain it.
+Before you can use Content Moderator services through the REST API or the SDK, you'll need an API subscription key. Subscribe to Content Moderator service in the [Azure portal](https://portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator) to obtain it.
 
 ## Create your Visual Studio project
 
