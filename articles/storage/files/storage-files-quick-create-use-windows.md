@@ -97,6 +97,8 @@ So far, you've created an Azure storage account and a file share with one file i
 
 ### Connect to your VM
 
+Now that you've created the VM, connect to it so you can mount your file share.
+
 1. Select **Connect** on the virtual machine properties page.
 
    ![Screenshot of VM tab, +Connect highlighted.](./media/storage-files-quick-create-use-windows/connect-vm.png)
@@ -109,7 +111,7 @@ So far, you've created an Azure storage account and a file share with one file i
 
 1. You may receive a certificate warning during the sign-in process. Select **Yes** or **Continue** to create the connection.
 
-## Map the Azure file share to a Windows drive
+### Map the Azure file share to a Windows drive
 
 1. In the Azure portal, navigate to the *qsfileshare* fileshare and select **Connect**.
 1. Select a drive letter then copy the contents of the second box and paste it in **Notepad**.
