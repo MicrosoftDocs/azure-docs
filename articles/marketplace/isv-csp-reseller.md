@@ -13,7 +13,7 @@ robots: noindex
 # ISV to Cloud Reseller private offers
 
 > [!IMPORTANT]
-> This feature is currently in public preview.
+> This feature is currently in public preview. 
 
 ## Overview
 
