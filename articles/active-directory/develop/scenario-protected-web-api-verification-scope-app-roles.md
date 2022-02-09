@@ -290,7 +290,7 @@ MyController : ApiController
 
 [Role-based authorization in ASP.NET Core](/aspnet/core/security/authorization/roles) lists several approaches to implement role based authorization. Developers can choose one among them which suits to their respective scenarios.
 
-Additionally, please refer web app incremental tutorial on [authorization by roles and groups](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/5-WebApp-AuthZ) for working samples.
+For working samples, see the web app incremental tutorial on [authorization by roles and groups](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/5-WebApp-AuthZ).
 
 ### [ASP.NET Classic](#tab/aspnet)
 
@@ -333,7 +333,7 @@ For a full version of `ValidateAppRole` for ASP.NET Core, see [_RolesRequiredHtt
 
 ### Verify app roles in APIs called on behalf of users
 
-Users can also use roles claims in user assignment patterns, as shown in [How to: Add app roles in your application and receive them in the token](howto-add-app-roles-in-azure-ad-apps.md). If the roles are assignable to both, checking roles will let apps sign in as users and users to sign in as apps. We recommend that you declare different roles for users and apps to prevent this confusion.
+Users can also use roles claims in user assignment patterns, as shown in [How to add app roles in your application and receive them in the token](howto-add-app-roles-in-azure-ad-apps.md). If the roles are assignable to both, checking roles will let apps sign in as users and users sign in as apps. We recommend that you declare different roles for users and apps to prevent this confusion.
 
 If you have defined app roles with user/group, then roles claim can also be verified in the API along with scopes. The verification logic of the app roles in this scenario remains same as if API is called by the daemon apps since there is no differentiation in the role claim for user/group and application. 
 
