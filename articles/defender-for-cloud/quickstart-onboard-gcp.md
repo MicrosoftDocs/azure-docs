@@ -2,7 +2,8 @@
 title: Connect your GCP account to Microsoft Defender for Cloud
 description: Monitoring your GCP resources from Microsoft Defender for Cloud
 ms.topic: quickstart
-ms.date: 11/09/2021
+ms.date: 02/09/2022
+zone_pivot_groups: connect-gcp-accounts
 ms.custom: mode-other
 ---
 
@@ -206,6 +207,7 @@ When the connector is successfully created and GCP Security Command Center has b
 - Security recommendations for your GCP resources will appear in the Defender for Cloud portal and the regulatory compliance dashboard 5-10 minutes after onboard completes:
     :::image type="content" source="./media/quickstart-onboard-gcp/gcp-resources-in-recommendations.png" alt-text="GCP resources and recommendations in Defender for Cloud's recommendations page":::
 
+::: zone-end
 
 ## Monitoring your GCP resources
 
