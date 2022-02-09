@@ -137,7 +137,7 @@ The definition of status property:
 
 ##### Request example
 
-For information about endpoint ID, region, and subscription key parameters, see [request parameters](#request-parameters) and [application settings](#application-settings).
+For information about endpoint ID, region, and subscription key parameters, see [request parameters](#request-parameters).
 
 HTTP example:
 
@@ -190,7 +190,7 @@ Follow the [Get endpoint](#get-endpoint) steps to track the operation progress. 
 
 ##### Request example
 
-For information about endpoint ID, region, and subscription key parameters, see [request parameters](#request-parameters) and [application settings](#application-settings).
+For information about endpoint ID, region, and subscription key parameters, see [request parameters](#request-parameters).
 
 HTTP example:
 
@@ -224,7 +224,7 @@ Follow the sample request below to call the API, and you'll receive the response
 
 Follow the [Get endpoint](#get-endpoint) steps to track the operation progress. You can poll the API in a loop until the status becomes `Succeeded` or `Disabled`, and the status property will change from `Disabled` status, to `Running`, and finally to `Succeeded` or `Disabled` if failed.
 
-For information about endpoint ID, region, and subscription key parameters, see [request parameters](#request-parameters) and [application settings](#application-settings).
+For information about endpoint ID, region, and subscription key parameters, see [request parameters](#request-parameters).
 
 HTTP example:
 
