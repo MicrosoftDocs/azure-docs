@@ -72,11 +72,6 @@ In this step, you'll create the **Mobile Network Site** resource representing th
 
     :::image type="content" source="media/how-to-guide-deploy-a-private-mobile-network-azure-portal/site-and-related-resources.png" alt-text="Screenshot of the Azure portal showing a resource group containing a site and its related resources." lightbox="media/how-to-guide-deploy-a-private-mobile-network-azure-portal/site-and-related-resources.png":::
 
-1. Select the **Mobile Network Site** resource.
-1. Confirm that the **Edge custom location** field is displaying the correct **Custom location** resource.
-
-    :::image type="content" source="media/configured-custom-location.png" alt-text="Screenshot of the Azure portal showing a correctly configured custom location on a site.":::
-
 ## Next steps
 
 If you haven't already done so, you should now design the policy control configuration for your private mobile network. This allows you to customize how your packet core instances apply Quality of Service (QoS) characteristics to traffic. You can also block or limit certain flows.
