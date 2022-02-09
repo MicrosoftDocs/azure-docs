@@ -8,7 +8,7 @@ ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
 ms.date: 02/09/2022
-ms.author: alkohli"
+ms.author: alkohli
 ---
 
 # System requirements for Azure Stack Edge Pro 2
