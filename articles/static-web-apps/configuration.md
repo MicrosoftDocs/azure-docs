@@ -186,7 +186,7 @@ The following example configuration blocks anonymous access and redirects all un
     "401": {
       "statusCode": 302,
       "redirect": "/.auth/login/aad"
-    },
+    }
   }
 }
 ```
@@ -271,6 +271,9 @@ The following example implements a custom CORS configuration.
   }
 }
 ```
+
+> [!NOTE]
+> Global headers do not affect API responses. Headers in API responses are preserved and returned to the client.
 
 ## Response overrides
 
