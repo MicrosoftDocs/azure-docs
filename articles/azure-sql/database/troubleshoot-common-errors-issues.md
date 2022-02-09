@@ -448,7 +448,7 @@ SELECT name, is_read_only
 FROM sys.databases;
 ```
 
-You can modify the read-only status for a database in Azure SQL Database using the  [ALTER DATABASE Transact-SQL](/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current). You can’t currently set a database in a managed instance to read-only.
+You can modify the read-only status for a database in Azure SQL Database using the  [ALTER DATABASE Transact-SQL](/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current&preserve-view=true). You can’t currently set a database in a managed instance to read-only.
 
 #### You may be connected to a read-only replica
 
