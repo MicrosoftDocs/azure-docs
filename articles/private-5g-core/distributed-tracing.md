@@ -81,7 +81,7 @@ The vertical lines in the diagram show the network components involved in the fl
 - Black lines indicate packet core Network Functions that have logged sending or receiving messages for this flow.
 - Grey lines indicate other components that don't log messages.
 
-You can customize the view by showing or hiding individual columns and giving them more descriptive display names. To view these options, select the current column name and then select the **+** (plus) sign that appears to the right of it to open a dropdown menu. Additionally, you can select multiple columns by holding down the Ctrl key as you select each column; the **+** symbol remains next to the latest column that you selected.
+You can customize the view by showing or hiding individual columns and giving them more descriptive display names. To view these options, select the current column name and then select the **+** (plus) sign that appears to the right of it to open a dropdown menu. Additionally, you can select multiple columns by holding down the Ctrl key as you select each column; the **+** (plus) sign remains next to the latest column that you selected.
 
 - The **Remove this column** option hides the currently select column from view.
 - The **Remove other columns** option hides all columns that don't include messages flowing to or from the selected column.
