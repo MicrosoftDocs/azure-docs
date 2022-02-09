@@ -23,7 +23,7 @@ Learn how to configure a micro agent twin.
 
 **To view and update the micro agent twin configuration**:
 
-1. Navigate to the [Azure portal](https://ms.portal.azure.com).
+1. Navigate to the [Azure portal](https://portal.azure.com).
 
 1. Search for, and select **IoT Hub**.
 
