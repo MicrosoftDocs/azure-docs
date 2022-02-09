@@ -569,7 +569,7 @@ To install and use Hybrid Worker extension using REST API, follow these steps. T
 
    ```json
    {
-  `"properties": {"vmResourceId": "{VmResourceId}"}`
+   "properties": {"vmResourceId": "{VmResourceId}"}
    }
 
    ```
@@ -580,8 +580,7 @@ To install and use Hybrid Worker extension using REST API, follow these steps. T
    GET https://westcentralus.management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/hybridRunbookWorkerGroups/{hybridRunbookWorkerGroupName}/hybridRunbookWorkers/{hybridRunbookWorkerId}?api-version=2021-06-22
 
    ```
-
-
+    
 1. Follow the steps [here]( /azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#enable-system-assigned-managed-identity-on-an-existing-vm) to enable the System-assigned managed identity on the VM.
 
 1. Get the automation account details using this API call.
@@ -603,7 +602,7 @@ To install and use Hybrid Worker extension using REST API, follow these steps. T
     Set-AzVMExtension -ResourceGroupName <VMResourceGroupName> -Location <VMLocation> -VMName <VMName> -Name "HybridWorkerExtension" -Publisher "Microsoft.Azure.Automation.HybridWorker" -ExtensionType <HybridWorkerForWindows/HybridWorkerForLinux> -TypeHandlerVersion 0.1 -Settings $settings
     ``` 
 
-  For ARC VMs, use the below cmdlet for enabling the extension.
+    For ARC VMs, use the below cmdlet for enabling the extension.
 
    ```azurepowershell-interactive
     New-AzConnectedMachineExtension -ResourceGroupName <VMResourceGroupName> -Location <VMLocation> -VMName <VMName> -Name "HybridWorkerExtension" -Publisher "Microsoft.Azure.Automation.HybridWorker" -ExtensionType <HybridWorkerForWindows/HybridWorkerForLinux> -TypeHandlerVersion 0.1 -Settings $settings 
