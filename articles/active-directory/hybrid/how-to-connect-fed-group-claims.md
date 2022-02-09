@@ -1,5 +1,5 @@
 ---
-title: Configure group claims for applications with Azure Active Directory | Microsoft Docs
+title: Configure group claims for applications by using Azure Active Directory | Microsoft Docs
 description: Get information on how to configure group claims for use with Azure AD.
 services: active-directory
 documentationcenter: ''
@@ -14,7 +14,7 @@ ms.author: billmath
 author: billmath
 ---
 
-# Configure group claims for applications with Azure Active Directory
+# Configure group claims for applications by using Azure Active Directory
 
 Azure Active Directory (Azure AD) can provide a user's group membership information in tokens for use within applications. This feature supports two main patterns:
 
@@ -78,7 +78,7 @@ To configure Azure AD to emit group names for Active Directory groups:
 
 2. **Configure the application registration in Azure AD to include group claims in tokens**
 
-   You can configure group claims in the **Enterprise Applications** section of the portal, or by using the application manifest in the **Application Registrations** section. To configure group claims in the application manifest, see [Configure the Azure AD application registration for group attributes](#configure-azure-ad-application-registration-for-group-attributes) later in this article.
+   You can configure group claims in the **Enterprise Applications** section of the portal, or by using the application manifest in the **Application Registrations** section. To configure group claims in the application manifest, see [Configure the Azure AD application registration for group attributes](#configure-the-azure-ad-application-registration-for-group-attributes) later in this article.
 
 ## Add group claims to tokens for SAML applications using SSO configuration
 
@@ -167,7 +167,7 @@ After you add a group claim configuration to the **User Attributes & Claims** co
 
 ![Screenshot of the area for user attributes and claims, with the name of a group claim highlighted.](media/how-to-connect-fed-group-claims/group-claims-ui-7.png)
 
-## Configure Azure AD application registration for group attributes
+## Configure the Azure AD application registration for group attributes
 
 You can also configure group claims in the [optional claims](../../active-directory/develop/active-directory-optional-claims.md) section of the [application manifest](../../active-directory/develop/reference-app-manifest.md).
 
@@ -179,11 +179,11 @@ You can also configure group claims in the [optional claims](../../active-direct
 
    | Selection | Description |
    |----------|-------------|
-   | **All** | Emits security groups, distribution lists, and roles. |
-   | **SecurityGroup** | Emits security groups that the user is a member of in the group claim. |
-   | **DirectoryRole** | If the user is assigned directory roles, they're emitted as a `wids` claim. (A group claim won't be emitted.) |
-   | **ApplicationGroup** | Emits only the groups that are explicitly assigned to the application and that the user is a member of. |
-   | **None** | No groups are returned. (It's not case-sensitive, so **none** also works. It can be set directly in the application manifest.) |
+   | `All` | Emits security groups, distribution lists, and roles. |
+   | `SecurityGroup` | Emits security groups that the user is a member of in the group claim. |
+   | `DirectoryRole` | If the user is assigned directory roles, they're emitted as a `wids` claim. (A group claim won't be emitted.) |
+   | `ApplicationGroup` | Emits only the groups that are explicitly assigned to the application and that the user is a member of. |
+   | `None` | No groups are returned. (It's not case-sensitive, so `none` also works. It can be set directly in the application manifest.) |
 
    For example:
 
@@ -217,10 +217,10 @@ You can also configure group claims in the [optional claims](../../active-direct
 
    | Optional claims schema | Value |
    |----------|-------------|
-   | **name** | Must be `"groups"`. |
-   | **source** | Not used. Omit or specify `null`. |
-   | **essential** | Not used. Omit or specify `false`. |
-   | **additionalProperties** | List of additional properties. Valid options are `"sam_account_name"`, `"dns_domain_and_sam_account_name"`, `"netbios_domain_and_sam_account_name"`, and `"emit_as_roles"`. |
+   | `name` | Must be `"groups"`. |
+   | `source` | Not used. Omit or specify `null`. |
+   | `essential` | Not used. Omit or specify `false`. |
+   | `additionalProperties` | List of additional properties. Valid options are `"sam_account_name"`, `"dns_domain_and_sam_account_name"`, `"netbios_domain_and_sam_account_name"`, and `"emit_as_roles"`. |
 
    In `additionalProperties`, only one of `"sam_account_name"`, `"dns_domain_and_sam_account_name"`, or `"netbios_domain_and_sam_account_name"` is required. If more than one is present, the first is used and any others are ignored.
 
