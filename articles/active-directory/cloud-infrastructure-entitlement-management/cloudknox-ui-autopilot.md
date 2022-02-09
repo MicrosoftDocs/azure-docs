@@ -28,7 +28,7 @@ The **Autopilot** dashboard in CloudKnox Permissions Management (CloudKnox) prov
 
 1. In the CloudKnox home page, select the **Autopilot** tab.
 1. In the **Autopilot** dashboard, from the **Authorization system types** dropdown, select the authorization system types you want: Amazon Web Services (**AWS**), Microsoft **Azure**, or Google Cloud Platform (**GCP**).
-1. From the **Authorization system**dropdown, in the **List** and **Folders** box, select the account and folder names that you want.
+1. From the **Authorization system** dropdown, in the **List** and **Folders** box, select the account and folder names that you want.
 1. Select **Apply**. 
 
     The following information displays in the **Autopilot rules** table:

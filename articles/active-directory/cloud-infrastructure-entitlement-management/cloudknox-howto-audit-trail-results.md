@@ -20,9 +20,9 @@ ms.author: v-ydequadros
 
 This article describes how you can generate an on-demand report from a query in the **Audit** dashboard in CloudKnox Permissions Management (CloudKnox). You can:
 
-- Run a the report on-demand.
-- Schedule and run the report as often as you want.
-- Share the report with other members of your team and management.
+- Run a report on-demand.
+- Schedule and run a report as often as you want.
+- Share a report with other members of your team and management.
 
 ## Generate a custom report on-demand
 

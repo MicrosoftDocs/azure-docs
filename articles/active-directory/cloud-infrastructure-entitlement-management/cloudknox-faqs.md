@@ -28,7 +28,7 @@ CloudKnox is a cloud infrastructure entitlement management (CIEM) solution that 
 
 ## What are the prerequisites to use CloudKnox?
 
-CloudKnox supports data collection from AWS, GCP, and/or Microsoft Azure. For data collection and analysis, customers are required to have an Azure Active Directory (Azure AD) account to use CloudKnox, however, an Azure subscription or Azure AD P1 or P2 license are not required to use CloudKnox for AWS or GCP.
+CloudKnox supports data collection from AWS, GCP, and/or Microsoft Azure. For data collection and analysis, customers are required to have an Azure Active Directory (Azure AD) account to use CloudKnox, however, an Azure subscription or Azure AD P1 or P2 license aren't required to use CloudKnox for AWS or GCP.
 
 ## Can a customer use CloudKnox if they have other identities with access to their IaaS platform that aren’t yet in Azure AD (for example, if part of their business has Okta or AWS Identity & Access Management (IAM))?
 
@@ -48,7 +48,7 @@ Yes, non-Azure customers can use our solution. CloudKnox is a multi-cloud soluti
 
 ## If I’m already using Azure AD  Privileged Identity Management (PIM) for Azure, what value does CloudKnox provide?
 
-CloudKnox complements Azure AD PIM. Azure AD PIM provides just-in-time access for admin roles in Azure (as well as Microsoft Online Services and apps which use groups), while CloudKnox allows multi-cloud discovery, remediation, and monitoring of privileged access across Azure, AWS, and GCP. 
+CloudKnox complements Azure AD PIM. Azure AD PIM provides just-in-time access for admin roles in Azure (as well as Microsoft Online Services and apps that use groups), while CloudKnox allows multi-cloud discovery, remediation, and monitoring of privileged access across Azure, AWS, and GCP. 
 
 ## What languages does CloudKnox support?
 
@@ -80,11 +80,11 @@ No, CloudKnox is currently not available in sovereign Clouds.
 
 ## How does CloudKnox collect insights about permissions usage?
 
-CloudKnox has a data collector which collects access permissions assigned to various identities, activity logs, and resources metadata. This gathers full visibility into permissions granted to all identities to access the resources and details on usage of granted permissions.
+CloudKnox has a data collector that collects access permissions assigned to various identities, activity logs, and resources metadata. This gathers full visibility into permissions granted to all identities to access the resources and details on usage of granted permissions.
 
 ## How does CloudKnox evaluate cloud permissions risk?
 
-CloudKnox offers granular visibility into all identities and their permissions granted versus used, across cloud infrastructures to uncover any action performed by any identity on any resource. This is not limited to just user identities, but also workload identities such as virtual machines, access keys, containers, and scripts. The dashboard gives an overview of permission profile to locate the riskiest identities and resources.
+CloudKnox offers granular visibility into all identities and their permissions granted versus used, across cloud infrastructures to uncover any action performed by any identity on any resource. This isn't limited to just user identities, but also workload identities such as virtual machines, access keys, containers, and scripts. The dashboard gives an overview of permission profile to locate the riskiest identities and resources.
 
 ## What is the Permissions Creep Index?
 
@@ -100,7 +100,7 @@ For any break-glass or one-off scenarios where an identity needs to perform a sp
 
 ## What is the difference between permissions on-demand and just-in-time access?
 
-Just-in-time (JIT) access is a method used to enforce the principle of least privilege to ensure identities are given the minimum level of permissions to perform the task at hand. Permissions on-demand is a type of JIT access that allows the temporary elevation of permissions, enabling identities to access resources on a by-request, timed basis. 
+Just-in-time (JIT) access is a method used to enforce the principle of least privilege to ensure identities are given the minimum level of permissions to perform the task at hand. Permissions on-demand are a type of JIT access that allows the temporary elevation of permissions, enabling identities to access resources on a by-request, timed basis. 
 
 ## How can customers monitor permissions usage with CloudKnox?
 

@@ -27,7 +27,7 @@ This article describes how to generate and view rule recommendations in the Clou
 
 1. In the CloudKnox home page, select the **Autopilot** tab.
 1. In the **Autopilot** dashboard, from the **Authorization system types** dropdown, select Amazon Web Services (**AWS**), Microsoft **Azure**, or Google Cloud Platform (**GCP**).
-1. From the **Authorization system**dropdown, in the **List** and **Folders** box, select the account and folder names that you want, and then select **Apply**.  
+1. From the **Authorization system** dropdown, in the **List** and **Folders** box, select the account and folder names that you want, and then select **Apply**.  
 1. In the **Autopilot** dashboard, select a rule.
 1. In the far right of the row, select the ellipses **(...)**.
 1. To generate recommendations for each user and the authorization system, select **Generate recommendations**. 
@@ -40,7 +40,7 @@ This article describes how to generate and view rule recommendations in the Clou
 
 1. In the CloudKnox home page, select the **Autopilot** tab.
 1. In the **Autopilot** dashboard, from the **Authorization system types** dropdown, select Amazon Web Services (**AWS**), Microsoft **Azure**, or Google Cloud Platform (**GCP**).
-1. From the **Authorization system**dropdown, in the **List** and **Folders** box, select the account and folder names that you want, and then select **Apply**.  
+1. From the **Authorization system** dropdown, in the **List** and **Folders** box, select the account and folder names that you want, and then select **Apply**.  
 1. In the **Autopilot** dashboard, select a rule.
 1. In the far right of the row, select the ellipses **(...)**
 
@@ -54,7 +54,7 @@ This article describes how to generate and view rule recommendations in the Clou
 
 1. In the CloudKnox home page, select the **Autopilot** tab.
 1. In the **Autopilot** dashboard, from the **Authorization system types** dropdown, select Amazon Web Services (**AWS**), Microsoft **Azure**, or Google Cloud Platform (**GCP**).
-1. From the **Authorization system**dropdown, in the **List** and **Folders** box, select the account and folder names that you want, and then select **Apply**.  
+1. From the **Authorization system** dropdown, in the **List** and **Folders** box, select the account and folder names that you want, and then select **Apply**.  
 1. In the **Autopilot** dashboard, select a rule.
 1. In the far right of the row, select the ellipses **(...)**
 
@@ -69,7 +69,7 @@ This article describes how to generate and view rule recommendations in the Clou
 
 1. In the CloudKnox home page, select the **Autopilot** tab.
 1. In the **Autopilot** dashboard, from the **Authorization system types** dropdown, select Amazon Web Services (**AWS**), Microsoft **Azure**, or Google Cloud Platform (**GCP**).
-1. From the **Authorization system**dropdown, in the **List** and **Folders** box, select the account and folder names that you want, and then select **Apply**.  
+1. From the **Authorization system** dropdown, in the **List** and **Folders** box, select the account and folder names that you want, and then select **Apply**.  
 1. In the **Autopilot** dashboard, select a rule.
 1. In the far right of the row, select the ellipses **(...)**
 
@@ -79,10 +79,6 @@ This article describes how to generate and view rule recommendations in the Clou
 
 1. To remove a recommendation, select the **Unapply recommendations** subtab, and then select a recommendation.
 1. Select **Close** to close the **Recommendations** subtab.
-
-
-
-
 
 
 ## Next steps

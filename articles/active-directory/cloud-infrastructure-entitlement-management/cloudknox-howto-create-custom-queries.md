@@ -38,7 +38,7 @@ This article describes how you can use the **Audit** dashboard in CloudKnox Perm
 1. To add more parameters to the same query, select **Add** (the plus sign), and from the first box, select **And** or **Or**. 
 
     Repeat this step for the second and third box to complete entering the parameters.
-1. To change your query as you are creating it, select **Edit** (the pencil icon), and then change the query parameters.
+1. To change your query as you're creating it, select **Edit** (the pencil icon), and then change the query parameters.
 1. To change the parameter options, select the down arrow in each box to display a dropdown of available selections. Then select the option you want.
 1. To discard your selections, select **Reset query** for the parameter you want to change, and then make your selections again.
 1. When you’re ready to run your query, select **Search**.

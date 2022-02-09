@@ -27,10 +27,11 @@ This article describes how to create a rule in the CloudKnox Permissions Managem
 
 1. In the CloudKnox home page, select the **Autopilot** tab.
 1. In the **Autopilot** dashboard, from the **Authorization system types** dropdown, select Amazon Web Services (**AWS**), Microsoft **Azure**, or Google Cloud Platform (**GCP**).
-1. From the **Authorization system**dropdown, in the **List** and **Folders** box, select the account and folder names that you want, and then select **Apply**.  
+1. From the **Authorization system** dropdown, in the **List** and **Folders** box, select the account and folder names that you want, and then select **Apply**.  
 1. In the **Autopilot** dashboard, select **New rule**.
 1. In the **Rule name** box, enter a name for your rule.
 1. Select **AWS**, **Azure**, **GCP**, and then select **Next**.
+
 1. Select **Authorization systems**, and then select **All** or the account names that you want.
 1. From the **Folders** dropdown, select a folder, and then select **Apply**.
 
@@ -57,8 +58,8 @@ This article describes how to create a rule in the CloudKnox Permissions Managem
     - **Mode**: The status of the mode: on-demand or not.
     - **Last Generated**: The date and time the rule was last generated.
     - **Created By**: The email address of the user who created the rule.
-    - **Last Modified**: The date and time the rule was last modified.
-    - **Subscription**: Provides an **On** or **Off** subscription that allows you to receive email notifications when recommendations have been generated, applied, or unapplied.
+    - **Last Modified On**: The date and time the rule was last modified.
+    - **Subscription**: Provides an **On** or **Off** switch that allows you to receive email notifications when recommendations have been generated, applied, or unapplied.
 
 
 

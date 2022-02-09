@@ -22,7 +22,7 @@ This section answers troubleshoot issues with CloudKnox Permissions Management (
 
 ## One time passcode (OTP) email
 
-### The user did not receive the OTP email.
+### The user didn't receive the OTP email.
 
 - Check your junk or Spam mail folder for the email.  
 
