@@ -509,6 +509,63 @@ Review the parameters used in this template.
 |dnsNameForPublicIP| The DNS name for the public IP. |
 
 
+## Install Hybrid worker extension using REST API
+
+### Prerequisites
+
+- You would require an Azure VM or Arc-enabled server. You can follow the steps [here](/azure/azure-arc/servers/onboard-portal) create an Arc connected machine.
+
+
+**Install and use Hybrid Worker extension using REST API**
+
+Follow these steps to install and use Hybrid Worker extension using REST API. The WestCentral US region is considered in this example.
+
+PUT https://westcentralus.management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/hybridRunbookWorkerGroups/{hybridRunbookWorkerGroupName}?api-version=2021-06-22
+
+The request body should contain the following information:
+{
+}
+
+Response of PUT confirms if the Hybrid worker group is created or not. To reconfirm, you have to make another GET call on Hybrid worker group as follows:
+
+GET https://westcentralus.management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/hybridRunbookWorkerGroups/{hybridRunbookWorkerGroupName}?api-version=2021-06-22
+
+
+Connect a VM to the above created Hybrid Worker Group by making the below API call. Before making the call, generate a new GUID to be used as the hybridRunbookWorkerId
+
+PUT https://westcentralus.management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/hybridRunbookWorkerGroups/{hybridRunbookWorkerGroupName}/hybridRunbookWorkers/{hybridRunbookWorkerId}?api-version=2021-06-22
+
+The request body should contain the following information:
+{
+  `"properties": {"vmResourceId": "{VmResourceId}"}`
+}
+
+Response of PUT call confirms if the Hybrid worker is created or not. To reconfirm, you would have to make another GET call on Hybrid worker as follows.
+
+GET https://westcentralus.management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/hybridRunbookWorkerGroups/{hybridRunbookWorkerGroupName}/hybridRunbookWorkers/{hybridRunbookWorkerId}?api-version=2021-06-22
+
+**Enable the System-assigned managed identity on the VM**
+
+Follow these steps to enable the System-assigned managed identity on the VM [here]( /azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#enable-system-assigned-managed-identity-on-an-existing-vm)
+
+1. Get the automation account details using the below API call
+
+    GET https://westcentralus.management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}?api-version=2021-06-22
+
+1. The API call will provide the value with the key: `AutomationHybridServiceUrl`. Use the URL in the next step to enable extension on the VM.
+
+1. Install the Hybrid Worker Extension  on the VM by running the following PowerShell cmdlet 
+  ``` (Required module: Az.Compute). Use the "properties.automationHybridServiceUrl" provided by the above API call.
+$settings = @{
+"AutomationAccountURL" = <AutomationHybridServiceUrl>;
+};
+Set-AzVMExtension -ResourceGroupName <VMResourceGroupName> -Location <VMLocation> -VMName <VMName> -Name "HybridWorkerExtension" -Publisher "Microsoft.Azure.Automation.HybridWorker" -ExtensionType <HybridWorkerForWindows/HybridWorkerForLinux> -TypeHandlerVersion 0.1 -Settings $settings
+    ```
+
+
+
+
+
 ## Manage Role permissions for Hybrid Worker Groups
 You can create custom Azure Automation roles and grant following permissions to Hybrid Worker Groups. To learn more about how to create Azure Automation custom roles, see [Azure custom roles](/azure/role-based-access-control/custom-roles).
 
