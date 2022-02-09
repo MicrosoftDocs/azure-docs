@@ -11,13 +11,13 @@ This article lists significant changes to Azure Monitor documentation.
 
 ## January, 2022
 
-## Agents
+### Agents
 
 **Updated articles**
 
 - [Manage the Azure Monitor agent](agents/azure-monitor-agent-manage.md)
 
-## Alerts
+### Alerts
 
 **New articles**
 
@@ -29,7 +29,7 @@ This article lists significant changes to Azure Monitor documentation.
 - [Upgrade legacy rules management to the current Log Alerts API from legacy Log Analytics Alert API](alerts/alerts-log-api-switch.md)
 - [Log alerts in Azure Monitor](alerts/alerts-unified-log.md)
 
-## Application Insights
+### Application Insights
 
 **Updated articles**
 
@@ -38,7 +38,7 @@ This article lists significant changes to Azure Monitor documentation.
 - [Configuration options - Azure Monitor Application Insights for Java](app/java-standalone-config.md)
 - [Troubleshooting SDK load failure for JavaScript web apps](app/javascript-sdk-load-failure.md)
 
-## Logs
+### Logs
 
 **Updated articles**
 
@@ -48,20 +48,20 @@ This article lists significant changes to Azure Monitor documentation.
 
 ## December, 2021
 
-## General
+### General
 
 **Updated articles**
 
 - [What is monitored by Azure Monitor?](monitor-reference.md)
 
-## Agents
+### Agents
 
 **Updated articles**
 
 - [Install Log Analytics agent on Windows computers](agents/agent-windows.md)
 - [Log Analytics agent overview](agents/log-analytics-agent.md)
 
-## Alerts
+### Alerts
 
 **New articles**
 
@@ -76,7 +76,7 @@ This article lists significant changes to Azure Monitor documentation.
 - [Create, view, and manage activity log alerts by using Azure Monitor](alerts/alerts-activity-log.md)
 - [Create, view, and manage metric alerts using Azure Monitor](alerts/alerts-metric.md)
 
-## Application Insights
+### Application Insights
 
 **New articles**
 
@@ -89,7 +89,7 @@ This article lists significant changes to Azure Monitor documentation.
 - [Set up Azure Monitor for your Python application](app/opencensus-python.md)
 - [Click Analytics Auto-collection plugin for Application Insights JavaScript SDK](app/javascript-click-analytics-plugin.md)
 
-## Logs
+### Logs
 
 **New articles**
 
@@ -111,7 +111,7 @@ This article lists significant changes to Azure Monitor documentation.
 - [Log Analytics workspace data export in Azure Monitor (preview)](logs/logs-data-export.md)
 - [Resource Manager template samples for Log Analytics workspaces in Azure Monitor](logs/resource-manager-workspace.md)
 
-## Virtual Machines
+### Virtual Machines
 
 **Updated articles**
 
