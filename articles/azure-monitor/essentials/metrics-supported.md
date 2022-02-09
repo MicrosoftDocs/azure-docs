@@ -2983,7 +2983,7 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |OutboundTraffic|Yes|Outbound Traffic|Bytes|Total|The outbound traffic of service|No Dimensions|
 |SystemErrors|Yes|System Errors|Percent|Maximum|The percentage of system errors|No Dimensions|
 |UserErrors|Yes|User Errors|Percent|Maximum|The percentage of user errors|No Dimensions|
-
+|ConnectionQuotaUtilization|Yes|Connection Quota Utilization (Platform)|Percent|Average|The percentage of connection connected relative to connection quota|No Dimensions|
 
 ## Microsoft.SignalRService/WebPubSub
 
