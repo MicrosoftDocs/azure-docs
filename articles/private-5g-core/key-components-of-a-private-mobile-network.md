@@ -30,7 +30,7 @@ The following diagram shows the key resources you'll use to manage your private 
 
 :::image type="content" source="media/key-components-of-a-private-mobile-network/private-5g-core-resources.png" alt-text="Diagram displaying the resources used to manage a private mobile network":::
 
-- The **mobile network** represents the private mobile network as a whole.
+- The **mobile network** resource represents the private mobile network as a whole.
 - Each **SIM** resource represents a physical SIM or eSIM. The physical SIMs and eSIMs are used by UEs that will be served by the private mobile network.
 - **SIM policy** resources are a key component of Azure Private 5G Core's customizable policy control, which allows you to provide flexible traffic handling. You can determine exactly how your packet core instance applies Quality of Service (QoS) characteristics to Service Data Flows (SDFs) to meet your deployment's needs. You can also use policy control to block or limit certain flows.
 
