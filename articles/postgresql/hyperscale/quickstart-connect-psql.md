@@ -22,9 +22,21 @@ To follow this quickstart, you'll first need to:
 
 When you create your Azure Database for PostgreSQL server, a default database named **citus** is created. To connect to your database server, you need a connection string and the admin password.
 
-1. Obtain the connection string. In the server group page, select the **Connection strings** menu item. (It's under **Settings**.) Find the string marked **psql**. It will be of the form, `psql "host=hostname.postgres.database.azure.com port=5432 dbname=citus user=citus password={your_password} sslmode=require"`
+1. Obtain the connection string. In the server group page, select the
+   **Connection strings** menu item.
 
-   Copy the string. You’ll need to replace "{your\_password}" with the administrative password you chose earlier. The system doesn't store your plaintext password and so can't display it for you in the connection string.
+   ![cloud shell icon](../media/quickstart-connect-psql/open-cloud-shell.png)
+
+   Find the string marked **psql**. It will be of the form, `psql
+   "host=c.servergroup.postgres.database.azure.com port=5432 dbname=citus
+   user=citus password={your_password} sslmode=require"`
+
+   * Copy the string.
+   * Replace "{your\_password}" with the administrative password you chose earlier.
+   * Notice the hostname starts with a `c.`, for instance
+     `c.demo.postgres.database.azure.com`. This prefix indicates the
+     coordinator node of the server group.
+   * The default dbname and username is `citus` and can't be changed.
 
 2. Open the Azure cloud shell. Select the **Cloud Shell** icon in the Azure portal.
 
