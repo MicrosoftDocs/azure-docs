@@ -5,7 +5,7 @@ author: StefArroyo
 ms.author: esarroyo 
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 07/16/2020
+ms.date: 02/08/2022
 ---
 
 # Create alerts for Azure Cosmos DB using Azure Monitor
@@ -19,13 +19,18 @@ You can receive an alert based on the metrics, activity log events, or Log Analy
 
 * **Activity log events** – This alert triggers when a certain event occurs. For example, when the keys of your Azure Cosmos account are accessed or refreshed.
 
-* **Log Analytics** – This alert triggers when the value of a specified property in the results of a Log Analytics query crosses a threshold you assign. For example, you can write a Log Analytics query to monitor if the storage for a logical partition key is reaching the 20 GB logical partition key storage limit in Azure Cosmos DB. 
+* **Log Analytics** – This alert triggers when the value of a specified property in the results of a Log Analytics query crosses a threshold you assign. For example, you can write a Log Analytics query to [monitor if the storage for a logical partition key is reaching the 20 GB logical partition key storage limit](how-to-alert-on-logical-partition-key-storage-size.md) in Azure Cosmos DB. 
 
 You can set up alerts from the Azure Cosmos DB pane or the Azure Monitor service in the Azure portal. Both the interfaces offer the same options. This article shows you how to set up alerts for Azure Cosmos DB using Azure Monitor.
 
 ## Create an alert rule
 
 This section shows how to create an alert when you receive an HTTP status code 429, which is received when the requests are rate limited. For examples, you may want to receive an alert when there are 100 or more rate limited requests. This article shows you how to configure an alert for such scenario by using the HTTP status code. You can use the similar steps to configure other types of alerts as well, you just need to choose a different condition based on your requirement.
+
+> [!TIP]
+> The scenario of alerting based on number of 429s exceeding a threshold is used here for illustration purposes. It does not mean that there is anything inherently wrong with seeing 429s on your database or container. In general, if you see 1-5% of requests with 429s in a production workload and your overall application latency is within your requirements, this is a normal and healthy sign that you are fully using the throughput (RU/s) you've provisioned. [Learn more about how to interpret and debug 429 exceptions](sql/troubleshoot-request-rate-too-large.md).
+
+ [Diagnose and troubleshoot Azure Cosmos DB request rate too large (429) exceptions]
 
 1. Sign into the [Azure portal.](https://portal.azure.com/)
 

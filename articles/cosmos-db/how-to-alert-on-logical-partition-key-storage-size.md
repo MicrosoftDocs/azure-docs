@@ -5,7 +5,7 @@ author: deborahc
 ms.author: dech 
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 01/28/2022
+ms.date: 02/08/2022
 ---
 
 # Create alerts to monitor if storage for a logical partition key is approaching 20 GB
@@ -143,14 +143,14 @@ When the alert is fired, it will include:
 - Storage in KB of the logical partition key
 - Utilization of the 20 GB limit
 
-For example, in the alert that was fired below, we see the logical partition of "ContosoTenant" has reached .78 of the 20GB logical partition storage limit, with 16GB of data in a particular database and collection. 
+For example, in the alert that was fired below, we see the logical partition of "ContosoTenant" has reached 0.78 of the 20GB logical partition storage limit, with 16GB of data in a particular database and collection. 
 
 :::image type="content" source="media/how-to-alert-on-logical-partition-key-storage-size/alert-when-logical-partition-key-exceeds-threshold.png" alt-text="Example alert fired when logical partition key size exceeds threshold":::
 
 ## Remediation steps
-When the 20 GB logical partition size limit is reached, you won't be able to write any more data to that logical partition. As a result, it's recommended to re-architect your application with a different partition key as a long-term solution. 
+When the 20 GB logical partition size limit is reached, you won't be able to write any more data to that logical partition. As a result, it's recommended to rearchitect your application with a different partition key as a long-term solution. 
 
-To help give time for this, you can request a temporary increase in the logical partition key limit for your existing application.  [File an Azure support ticket](create-support-request-quota-increase.md) and select quota type **Temporary increase in container's logical partition key size.** Note this is intended as a temporary mitigation and not recommended as a long-term solution, as SLA guarantees are not honored when the limit is increased. To remove the configuration, file a support ticket and select quota type **Restore container’s logical partition key size to default (20 GB)**. This can be done after you have either deleted data to fit the 20 GB logical partition limit or have re-architected your application with a different partition key.
+To help give time for this, you can request a temporary increase in the logical partition key limit for your existing application.  [File an Azure support ticket](create-support-request-quota-increase.md) and select quota type **Temporary increase in container's logical partition key size.** Note this is intended as a temporary mitigation and not recommended as a long-term solution, as SLA guarantees are not honored when the limit is increased. To remove the configuration, file a support ticket and select quota type **Restore container’s logical partition key size to default (20 GB)**. This can be done after you have either deleted data to fit the 20 GB logical partition limit or have rearchitected your application with a different partition key.
 
 To learn about best practices for managing workloads that have partition keys requiring higher limits for storage or throughput, see [Create a synthetic partition key](synthetic-partition-keys.md).
 
@@ -158,4 +158,5 @@ To learn about best practices for managing workloads that have partition keys re
 * How to [create alerts for Azure Cosmos DB using Azure Monitor](create-alerts.md).
 * How to [monitor normalized RU/s metric](monitor-normalized-request-units.md) in Azure Cosmos container.
 * How to [monitor throughput or request unit usage](monitor-request-unit-usage.md) of an operation in Azure Cosmos DB.
+* How to [interpret and debut 429 exceptions](sql/troubleshoot-request-rate-too-large.md) in Azure Cosmos container.
 
