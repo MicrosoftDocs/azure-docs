@@ -1,6 +1,6 @@
 ---
-title: Tutorial - Send custom logs to Azure Monitor Logs
-description: This article describes how to send custom logs to a Log Analytics workspace in Azure Monitor.
+title: Tutorial - Send custom logs to Azure Monitor Logs using resource manager templates
+description: Tutorial on how to send custom logs to a Log Analytics workspace in Azure Monitor using resource manager templates.
 ms.subservice: logs
 ms.topic: tutorial
 author: bwren
@@ -8,8 +8,8 @@ ms.author: bwren
 ms.date: 01/19/2022
 ---
 
-# Tutorial: Add ingestion-time transformation to Azure Monitor Logs
-[Custom logs](custom-logs-ovewrview.md) in Azure Monitor allow you to send custom data to any table in a Log Analytics workspace with a REST API. This tutorial walks through configuration of a new table and a sample application to send custom logs to Azure Monitor using resource manager templates.
+# Tutorial: Add ingestion-time transformation to Azure Monitor Logs using resource manager templates
+[Custom logs](custom-logs-overview.md) in Azure Monitor allow you to send custom data to any table in a Log Analytics workspace with a REST API. This tutorial walks through configuration of a new table and a sample application to send custom logs to Azure Monitor using resource manager templates.
 
 In this tutorial, you learn to:
 
@@ -42,7 +42,7 @@ From the **Azure Active Directory** menu in the Azure portal, select **App regis
 
 Give the application a name and change the tenancy scope if the default is not appropriate for your environment. A **Redirect URI** isn't required.
 
-:::image type="content" source="media/tutorial-custom-logs/new-app-name.png" lightbox="media/tutorial-custom-logs/new-app-name.png" alt-text="Screenshot for app registration":::
+:::image type="content" source="media/tutorial-custom-logs/new-app-name.png" lightbox="media/tutorial-custom-logs/new-app-name.png" alt-text="Screenshot for app details":::
 
 Once registered, you can view the details of the application. Note the **Application (client) ID** and the **Directory (tenant) ID**. You'll need these values later in the process.
 
@@ -60,7 +60,7 @@ Click **Add** to save the secret and then note the **Value**. Ensure that you re
 ## Collect workspace information
 Navigate to your workspace in the **Log Analytics workspaces** menu in the Azure Portal. From the **Properties** page, copy the **Resource ID** and save it for later use.
 
-:::image type="content" source="media/tutorial-custom-logs-api/workspace-resource-id.png" lightbox="media/tutorial-custom-logs/workspace-resource-id.png" alt-text="Screenshot for workspace resource ID":::
+:::image type="content" source="media/tutorial-custom-logs-api/workspace-resource-id.png" lightbox="media/tutorial-custom-logs-api/workspace-resource-id.png" alt-text="Screenshot for workspace resource ID":::
 
 ## Create new table in Log Analytics workspace
 The custom table must be created before you can send data to it. The table for this tutorial will include three columns, as described in the resource manager template below. The  `name`, `type`, and `description` properties are mandatory for each column. ; The properties `isHidden` and `isDefaultDisplay` both default to `false` if not explicitly specified. Possible data types are `string`, `int`, `long`, `real`, `boolean`, `dateTime`, `guid`, and `dynamic`.
@@ -259,20 +259,20 @@ Now that the data collection rule has been created, the application needs to be 
 
 From the data collection rule in the Azure portal, select **Access Control (IAM)** amd then **Add role assignment**. 
 
-:::image type="content" source="media/tutorial-custom-logs/add-role-assignment.png" lightbox="media/tutorial-custom-logs/**custom-log-create**.png" alt-text="Screenshot for adding custom role assignment to DCR":::
+:::image type="content" source="media/tutorial-custom-logs/add-role-assignment.png" lightbox="media/tutorial-custom-logs/custom-log-create.png" alt-text="Screenshot for adding custom role assignment to DCR":::
 
 Select **Monitoring Metrics Publisher** and click **Next**.  You could instead create a custom action with the `Microsoft.Insights/Telemetry/Write` data action. 
 
-:::image type="content" source="media/tutorial-custom-logs/add-role-assignment-select-role.png" lightbox="media/tutorial-custom-logs/custom-log-create-select-role.png" alt-text="Screenshot for selecting role for DCR role assignment":::
+:::image type="content" source="media/tutorial-custom-logs/add-role-assignment-select-role.png" lightbox="media/tutorial-custom-logs/add-role-assignment-select-role.png" alt-text="Screenshot for selecting role for DCR role assignment":::
 
 Select **User, group, or service principal** for **Assign access to** and click **Select members**. Select the application that you created and click **Select**.
 
-:::image type="content" source="media/tutorial-custom-logs/add-role-assignment-select-members.png" lightbox="media/tutorial-custom-logs/custom-log-create-select-members.png" alt-text="Screenshot for selecting members for DCR role assignment":::
+:::image type="content" source="media/tutorial-custom-logs/add-role-assignment-select-member.png" lightbox="media/tutorial-custom-logs/custom-log-create-select-member.png" alt-text="Screenshot for selecting members for DCR role assignment":::
 
 
 Click **Review + assign** and verify the details before saving your role assignment.
 
-:::image type="content" source="media/tutorial-custom-logs/add-role-assignment-save.png" lightbox="media/tutorial-custom-logs/custom-log-create-save.png" alt-text="Screenshot for saving DCR role assignment":::
+:::image type="content" source="media/tutorial-custom-logs/add-role-assignment-save.png" lightbox="media/tutorial-custom-logs/add-role-assignment-save.png" alt-text="Screenshot for saving DCR role assignment":::
 
 ## Test custom log ingestion
 Ingestion is a straightforward POST call to the Data Collection Endpoint via HTTP. Details are as follows:

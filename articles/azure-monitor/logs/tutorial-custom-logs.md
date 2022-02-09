@@ -1,6 +1,6 @@
 ---
 title: Tutorial - Send custom logs to Azure Monitor Logs
-description: This article describes how to send custom logs to a Log Analytics workspace in Azure Monitor.
+description: Tutorial on how to send custom logs to a Log Analytics workspace in Azure Monitor using the Azure portal.
 ms.subservice: logs
 ms.topic: tutorial
 author: bwren
@@ -40,7 +40,7 @@ From the **Azure Active Directory** menu in the Azure portal, select **App regis
 
 Give the application a name and change the tenancy scope if the default is not appropriate for your environment. A **Redirect URI** isn't required.
 
-:::image type="content" source="media/tutorial-custom-logs/new-app-name.png" lightbox="media/tutorial-custom-logs/new-app-name.png" alt-text="Screenshot for app registration":::
+:::image type="content" source="media/tutorial-custom-logs/new-app-name.png" lightbox="media/tutorial-custom-logs/new-app-name.png" alt-text="Screenshot for app details":::
 
 Once registered, you can view the details of the application. Note the **Application (client) ID** and the **Directory (tenant) ID**. You'll need these values later in the process.
 
@@ -197,7 +197,7 @@ Instead of directly configuring the schema of the table, we'll upload sample dat
 
 Click **Browse for files** and locate the sample data file. 
 
-:::image type="content" source="media/tutorial-custom-logs/custom-log-v.png" lightbox="media/tutorial-custom-logs/custom-log-browse-files.png" alt-text="Screenshot for custom log browse for files":::
+:::image type="content" source="media/tutorial-custom-logs/custom-log-browse-files.png" lightbox="media/tutorial-custom-logs/custom-log-browse-files.png" alt-text="Screenshot for custom log browse for files":::
 
 Data from the sample file is displayed with a warning that a `TimeGenerated` is not in the data. All log tables within Azure Monitor Logs are required to have a `TimeGenerated` column populated with the timestamp of logged event. In this sample the timestamp of event is stored in field called `Time`. Open the transformation editor to add this column.
 
@@ -279,20 +279,20 @@ Now that the data collection rule has been created, the application needs to be 
 
 From the data collection rule in the Azure portal, select **Access Control (IAM)** amd then **Add role assignment**. 
 
-:::image type="content" source="media/tutorial-custom-logs/add-role-assignment.png" lightbox="media/tutorial-custom-logs/**custom-log-create**.png" alt-text="Screenshot for adding custom role assignment to DCR":::
+:::image type="content" source="media/tutorial-custom-logs/add-role-assignment.png" lightbox="media/tutorial-custom-logs/custom-log-create.png" alt-text="Screenshot for adding custom role assignment to DCR":::
 
 Select **Monitoring Metrics Publisher** and click **Next**.  You could instead create a custom action with the `Microsoft.Insights/Telemetry/Write` data action. 
 
-:::image type="content" source="media/tutorial-custom-logs/add-role-assignment-select-role.png" lightbox="media/tutorial-custom-logs/custom-log-create-select-role.png" alt-text="Screenshot for selecting role for DCR role assignment":::
+:::image type="content" source="media/tutorial-custom-logs/add-role-assignment-select-role.png" lightbox="media/tutorial-custom-logs/add-role-assignment-select-role.png" alt-text="Screenshot for selecting role for DCR role assignment":::
 
 Select **User, group, or service principal** for **Assign access to** and click **Select members**. Select the application that you created and click **Select**.
 
-:::image type="content" source="media/tutorial-custom-logs/add-role-assignment-select-members.png" lightbox="media/tutorial-custom-logs/custom-log-create-select-members.png" alt-text="Screenshot for selecting members for DCR role assignment":::
+:::image type="content" source="media/tutorial-custom-logs/s.png" lightbox="media/tutorial-custom-logs/custom-log-create-select-member.png" alt-text="Screenshot for selecting members for DCR role assignment":::
 
 
 Click **Review + assign** and verify the details before saving your role assignment.
 
-:::image type="content" source="media/tutorial-custom-logs/add-role-assignment-save.png" lightbox="media/tutorial-custom-logs/custom-log-create-save.png" alt-text="Screenshot for saving DCR role assignment":::
+:::image type="content" source="media/tutorial-custom-logs/add-role-assignment-save.png" lightbox="media/tutorial-custom-logs/add-role-assignment-save.png" alt-text="Screenshot for saving DCR role assignment":::
 
 
 

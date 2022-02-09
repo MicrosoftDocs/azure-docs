@@ -21,7 +21,7 @@ The payload of your API call includes the source data formatted in JSON. Your ca
 :::image type="content" source="media/direct-ingestion/direct-ingestion-overview.png" alt-text="Overview diagram for direct ingestion" lightbox="media/direct-ingestion/direct-ingestion-overview.png":::
 
 ## Authentication
-Authentication for direct log ingestion is performed at the data collection endpoint which uses standard Azure Resource Manager authentication. A common strategy is to use an Application ID and Application Key as described in [Direct log ingestion walkthrough](direct-ingestion-walkthrough.md).
+Authentication for direct log ingestion is performed at the data collection endpoint which uses standard Azure Resource Manager authentication. A common strategy is to use an Application ID and Application Key as described in [Tutorial: Add ingestion-time transformation to Azure Monitor Logs (preview)](tutorial-custom-logs.md).
 
 ## Tables
 The target table must exist before you can send data to it. Direct ingestion can send data to a custom table that you create or an existing table provided by Microsoft. If the table doesn't already exist, you can create it and edit its columns in the Azure portal from **Tables (preview)** in the **Log Analytics workspaces menu**. You can also a REST API call to send the configuration of the table.

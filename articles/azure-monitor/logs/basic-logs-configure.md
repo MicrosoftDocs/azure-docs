@@ -20,7 +20,7 @@ You configure particular tables your Log Analytics workspace to use Basic Logs. 
 
 The following tables can currently be configured as Basic Logs.
 
-- All custom logs created with [direct ingestion](direct-ingestion-overview.md). Basic Logs is not supported for tables created with [Data Collector API](data-collector-api.md).
+- All [custom logs](custom-logs-overview.md) created with direct ingestion. Basic Logs is not supported for tables created with [Data Collector API](data-collector-api.md).
 -	[ContainerLog](/azure/azure-monitor/reference/tables/containerlog) and [ContainerLogV2](/azure/azure-monitor/reference/tables/containerlogv2), which are tables used by [Container Insights](../containers/container-insights-overview.md) and include cases verbose text-based log records.
 - [AppTraces](/azure/azure-monitor/reference/tables/apptraces), which contains freeform log records for application traces in Application Insights.
 

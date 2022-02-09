@@ -1,10 +1,10 @@
 ---
-title: "Adding Ingestion-time Transformation to Azure Monitor Logs"
-description: This article describes how to add a custom transformation to data flowing through Azure Monitor Logs using table management features of Log Analytics workspace.
+title: Overview of ingestion-time transformations in Azure Monitor Logs
+description: This article describes ingestion-time transformations which allow you to filter and transform data before it's stored in a Log Analytics workspace in Azure Monitor.
 ms.subservice: logs
 ms.topic: tutorial
-author: ivkhrul
-ms.author: ivkhrul
+author: bwren
+ms.author: bwren
 ms.date: 01/19/2022
 ---
 
