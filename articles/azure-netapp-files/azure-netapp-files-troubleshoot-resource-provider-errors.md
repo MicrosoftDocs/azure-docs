@@ -32,7 +32,7 @@ Azure Resource Provider for Azure NetApp Files isn't registered successfully.
 * Solution:   
 Complete all the steps described in [Register the NetApp Resource Provider](azure-netapp-files-register.md).
 
-***BareMetalTenantId can't be changed.***  
+***BareMetalTenantId cannot be changed.***  
 
 This error occurs when you try to update or patch a volume and the `BaremetalTenantId` property has a changed value.
 
@@ -41,7 +41,7 @@ You're trying to update a volume and the `BaremetalTenantId` property has a diff
 * Solution:   
 Don’t include `BaremetalTenantId` in the patch and update (put) request. Alternatively, make sure `BaremetalTenantId` is the same in the request.
 
-***ServiceLevel can't be changed.***  
+***ServiceLevel cannot be changed.***  
 
 This error occurs when you try to update or patch a capacity pool with a different service level when the capacity pool already has volumes in it.
 
@@ -52,7 +52,7 @@ Delete all volumes from the capacity pool, then change the service level.
 * Workaround:   
 Create another capacity pool, then create the volumes again in the new capacity pool.
 
-***PoolId can't be changed***  
+***PoolId cannot be changed***  
 
 This error occurs when you try to update or patch a capacity pool with a changed `PoolId` property.
 
@@ -61,7 +61,7 @@ You're trying to update a capacity pool `PoolId` property. The `PoolId` property
 * Solution:   
 Don’t include `PoolId` in the patch and update (put) request.  Alternatively, make sure `PoolId` is the same in the request.
 
-***CreationToken can't be changed.***
+***CreationToken cannot be changed.***
 
 This error occurs when you try to change the file path (`CreationToken`) after the volume has been created. File path (`CreationToken`) must be set when the volume is created, and it can't be changed later.
 
@@ -81,7 +81,7 @@ The file path is empty.  When you create a volume by using the API, a creation t
 * Solution:   
 Enter at least one character as the file path (`CreationToken`).
 
-***Domain name can't be changed.***
+***Domain name cannot be changed.***
 
 This error occurs when you try to change the domain name in Active Directory.
 
@@ -125,7 +125,7 @@ Remove characters that are not alphabetical letters, numbers, or hyphens ("-") f
 * Workaround:   
 You can replace an underscore with a hyphen or use capitalization instead of spaces to indicate the beginning of new words.  For example, use "NewVolume" instead of "new volume".
 
-***FileSystemId can't be changed.***
+***FileSystemId cannot be changed.***
 
 This error occurs when you try to change `FileSystemId`.  Changing `FileSystemdId` isn't a supported operation. 
 
@@ -182,7 +182,7 @@ The input validation request has failed for at least one of the properties.
 * Solution:   
 Make sure to set all required and nonconflicting properties in the request, specially, the property from the error message.
 
-***MountTargets can't be changed.***
+***MountTargets cannot be changed.***
 
 This error occurs when a user is trying to update or patch the volume MountTargets property.
 
@@ -309,7 +309,7 @@ The operation isn't available for the subscription or resource.
 * Solution:   
 Make sure that the operation is entered correctly and that it is available for the resource and subscription that you're using.
 
-***OwnerId can't be changed***
+***OwnerId cannot be changed***
 
 This error occurs when you try to change the `OwnerId` property of the volume. Changing the `OwnerId` isn't a supported operation. 
 
@@ -327,7 +327,7 @@ The capacity pool where the volume is being created isn't found.
 * Solution:   
 Most likely the pool was not fully created or was already deleted at the time of the volume creation.
 
-***Patch operation isn't supported for this resource type.***
+***Patch operation is not supported for this resource type.***
 
 This error occurs when you try to change the mount target or snapshot.
 
@@ -377,7 +377,7 @@ Set a valid string in `protocolType`.
 * Workaround:   
 Set `protocolType` as null.
 
-***Protocol types can't be changed***
+***Protocol types cannot be changed***
 
 This error occurs when you try to update or patch `ProtocolType` for a volume.  Changing ProtocolType isn't a supported operation.
 
@@ -441,7 +441,7 @@ Use a shorter server name. The maximum length is 10 characters.
 * Workaround:   
 None.  See the solution above. 
 
-***SubnetId can't be changed.***
+***SubnetId cannot be changed.***
 
 This error occurs when you try to change the `subnetId` after the volume has been created.  `SubnetId` must be set when the volume is created and can't be changed later.
 
@@ -507,7 +507,7 @@ Make sure that all property names are spelled correctly and that the properties 
 * Workaround:   
 Reduce the number of properties defined in the request to eliminate the property that is causing the error.
 
-***Update operation isn't supported for this resource type.***
+***Update operation is not supported for this resource type.***
 
 Only volumes can be updated. This error occurs when you try to perform an unsupported update operation, for example, updating a snapshot.
 
@@ -518,7 +518,7 @@ None. The resource that you're trying to update doesn't support the update opera
 * Workaround:   
 For a volume, create a new resource with the update in place and migrate the data.
 
-***Volume can't be created in a pool that isn't in state succeeded.***
+***Volume cannot be created in a pool that isn't in state succeeded.***
 
 This error occurs when you try to create a volume in a pool that isn't in the succeeded state. Most likely, the create operation for the capacity pool failed for some reason.
 
@@ -529,7 +529,7 @@ Check that the capacity pool is created successfully, and that it isn't in a fai
 * Workaround:   
 Create a new capacity pool and create the volume in the new pool.
 
-***Volume is being created and can't be deleted at the moment.***
+***Volume is being created and cannot be deleted at the moment.***
 
 This error occurs when you try to delete a volume that is still being created.
 
@@ -540,7 +540,7 @@ Wait until the volume creation is finished, and then retry the deletion.
 * Workaround:   
 See the solution above.
 
-***Volume is being deleted and can't be deleted at the moment.***
+***Volume is being deleted and cannot be deleted at the moment.***
 
 This error occurs when you try to delete a volume when it is already being deleted.
 
@@ -551,7 +551,7 @@ Wait until the current delete operation is finished.
 * Workaround:   
 See the solution above.
 
-***Volume is being updated and can't be deleted at the moment.***
+***Volume is being updated and cannot be deleted at the moment.***
 
 This error occurs when you try to delete a volume that is being updated.
 
