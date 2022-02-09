@@ -139,9 +139,10 @@ az monitor log-analytics workspace table update –subscription ContosoSID --res
 
 For more information about data retention, see [Configure data retention and archive in Azure Monitor Logs](data-retention-archive.md).
 
-## Trigger a search job
+## Run a search job
 
-A search job lets you retrieve data matching particular criteria from Archived Logs and Basic Logs.
+Search jobs are asynchronous queries that fetch records into a new search table within your workspace for further analytics. The search job uses parallel processing and can run for hours across extremely large datasets. 
+The search job also lets you retrieve data matching particular criteria from Archived Logs and Basic Logs.
 
 To trigger a search job, run the [az monitor log-analytics workspace table update](/cli/azure/monitor/log-analytics/workspace/table#az_monitor_log_analytics_workspace_table_update) command, specifying the name of the new search results table and the search parameters:
 
@@ -168,6 +169,7 @@ az monitor log-analytics workspace table show –subscription ContosoSID --resou
    --name HeartbeatByIp_SRCH  --output table 
 ```
 
+For more information, see [Search jobs in Azure Monitor](search-jobs.md).
 ## Manage a linked service
 
 Linked services define a relation from the workspace to another Azure resource. Azure Monitor Logs and Azure resources use this connection in their operations. Example uses of linked services, including an automation account and a workspace association to customer-managed keys.
