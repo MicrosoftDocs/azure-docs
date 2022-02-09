@@ -595,13 +595,13 @@ To install and use Hybrid Worker extension using REST API, follow these steps. T
 
 1. Install the Hybrid Worker Extension  on the VM by running the following PowerShell cmdlet 
   `(Required module: Az.Compute)`. Use the *properties.automationHybridServiceUrl* provided by the above API call.
+    ```azurepowershell-interactive
 
-   ```azurepowershell-interactive
-   $settings = @{
-  "AutomationAccountURL" = <AutomationHybridServiceUrl>;
-   };
-   Set-AzVMExtension -ResourceGroupName <VMResourceGroupName> -Location <VMLocation> -VMName <VMName> -Name "HybridWorkerExtension" -Publisher "Microsoft.Azure.Automation.HybridWorker" -ExtensionType <HybridWorkerForWindows/HybridWorkerForLinux> -TypeHandlerVersion 0.1 -Settings $settings
-   ```
+    $settings = @{
+    "AutomationAccountURL" = <AutomationHybridServiceUrl>;
+    };
+    Set-AzVMExtension -ResourceGroupName <VMResourceGroupName> -Location <VMLocation> -VMName <VMName> -Name "HybridWorkerExtension" -Publisher "Microsoft.Azure.Automation.HybridWorker" -ExtensionType <HybridWorkerForWindows/HybridWorkerForLinux> -TypeHandlerVersion 0.1 -Settings $settings
+    ``` 
 
   For ARC VMs, use the below cmdlet for enabling the extension.
 
