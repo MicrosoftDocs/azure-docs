@@ -8,13 +8,13 @@ manager: qiliao123
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: how-to
-ms.date: 1/20/2022
+ms.date: 02/09/2022
 ms.author: caoling
 ---
 
 # Deploy and use your voice model
 
-After you've successfully created and tested your voice model, you deploy it in a custom text-to-speech endpoint. Use this endpoint instead of the usual endpoint when you're making text-to-speech requests through the REST API. The subscription that you've used to deploy the model is the only one that can call your custom endpoint.
+After you've successfully created and trained your voice model, you deploy it to a custom text-to-speech endpoint. Use the custom model endpoint instead of the usual endpoint when you're making text-to-speech requests through the REST API. The subscription that you've used to deploy the model is the only one that can call your custom endpoint.
 
 ## Create a custom neural voice endpoint
 
@@ -126,7 +126,7 @@ The possible ``status` property values are:
 > [!Tip]
 > If the status is `Failed` or `Disabled`, check `properties.error` for a detailed error message. However, there won't be error details if the status is `Disabled` due to a successful suspend operation. 
 
-##### Request example
+##### Get endpoint example
 
 For information about endpoint ID, region, and subscription key parameters, see [request parameters](#request-parameters).
 
@@ -179,7 +179,7 @@ You suspend an endpoint with its unique deployment ID. The endpoint status must 
 
 Use the [get endpoint](#get-endpoint) operation to poll and track the status progression from `Succeeded`, to `Disabling`, and finally to `Disabled`. 
 
-##### Request example
+##### Suspend endpoint example
 
 For information about endpoint ID, region, and subscription key parameters, see [request parameters](#request-parameters).
 
@@ -205,7 +205,7 @@ Response header example:
 Status code: 202 Accepted
 ```
 
-For more information, see [response header](#response-header).
+For more information, see [response headers](#response-headers).
 
 #### Resume endpoint
 
@@ -214,6 +214,8 @@ When you resume an endpoint, you can use the same endpoint URL that you used bef
 You resume an endpoint with its unique deployment ID. The endpoint status must be `Disabled` before you can resume it.
 
 Use the [get endpoint](#get-endpoint) operation to poll and track the status progression from `Disabled`, to `Running`, and finally to `Succeeded`. If the resume operation failed, the endpoint status will be `Disabled`. 
+
+##### Resume endpoint example
 
 For information about endpoint ID, region, and subscription key parameters, see [request parameters](#request-parameters).
 
@@ -238,20 +240,21 @@ Response header example:
 Status code: 202 Accepted
 ```
 
-For more information, see [response header](#response-header).
+For more information, see [response headers](#response-headers).
 
+##### Parameters and response codes
 
-#### Request parameters
+##### Request parameters
 
 You use these request parameters with calls to the REST API. See [application settings](#application-settings) for information about where to get your region, endpoint ID, and subscription key in Speech Studio.
 
 | Name                        | Location     | Required | Type   | Description                                                                    |
 | --------------------------- | ------ | -------- | ------ | ------------------------------------------------------------------------------ |
-| `YourServiceRegion` | Path   | `True` | string | The Azure region the endpoint is associated with.        |
-| `YourEndpointId` | Path   | `True` | string | The identifier of the endpoint.                                |
+| `YourServiceRegion` | Path   | `True` | string | The Azure region the endpoint is associated with. |
+| `YourEndpointId` | Path   | `True` | string | The identifier of the endpoint. |
 | `Ocp-Apim-Subscription-Key` | Header | `True` | string | The subscription key the endpoint is associated with. |
 
-#### Response header
+#### Response headers
 
 Status code: 202 Accepted
 
@@ -260,7 +263,7 @@ Status code: 202 Accepted
 | `Location` | string | The location of the endpoint that can be used as the full URL to get endpoint. |
 | `Retry-After` | string | The total seconds of recommended interval to retry to get endpoint status.       |
 
-#### HTTP status codes
+##### HTTP status codes
 
 The HTTP status code for each response indicates success or common errors.
 
