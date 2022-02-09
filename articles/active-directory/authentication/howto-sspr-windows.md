@@ -86,7 +86,7 @@ Deploying the configuration change to enable SSPR from the login screen using In
 1. Under *Configuration settings*, select **Add** and provide the following OMA-URI setting to enable the reset password link:
       - Provide a meaningful name to explain what the setting is doing, such as *Add SSPR link*.
       - Optionally provide a meaningful description of the setting.
-      - **OMA-URI** set to `./Vendor/MSFT/Policy/Config/Authentication/AllowAadPasswordReset`
+      - **OMA-URI** set to `./Device/Vendor/MSFT/Policy/Config/Authentication/AllowAadPasswordReset`
       - **Data type** set to **Integer**
       - **Value** set to **1**
 
