@@ -23,17 +23,17 @@ These examples require:
 
 ### [Azure CLI](#tab/azure-cli)
 
-* **Owner**, **Azure account administrator**, or **Azure co-adminstrator** role on the **Azure subscription**
+* **Owner**, **Azure account administrator**, or **Azure co-administrator** role on the **Azure subscription**
 * Azure CLI version 2.7.0 or later
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
-* **Owner**, **Azure account administrator**, or **Azure co-adminstrator** role on the **Azure subscription**
+* **Owner**, **Azure account administrator**, or **Azure co-administrator** role on the **Azure subscription**
 * Azure PowerShell version 5.9.0 or later
 
 ---
 
-To avoid needing an **Owner**, **Azure account administrator**, or **Azure co-adminstrator** role, you can use an existing managed identity to authenticate ACR from AKS. For more information, see [Use an Azure managed identity to authenticate to an Azure container registry](../container-registry/container-registry-authentication-managed-identity.md).
+To avoid needing an **Owner**, **Azure account administrator**, or **Azure co-administrator** role, you can use an existing managed identity to authenticate ACR from AKS. For more information, see [Use an Azure managed identity to authenticate to an Azure container registry](../container-registry/container-registry-authentication-managed-identity.md).
 
 ## Create a new AKS cluster with ACR integration
 

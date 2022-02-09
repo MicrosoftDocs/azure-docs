@@ -13,7 +13,7 @@ ms.reviewer: cachai
 
 # Tutorial: Connect a function app to Azure SQL with managed identity and SQL bindings
 
-Azure Functions provides a [managed identity](/azure/active-directory/managed-identities-azure-resources/overview.md), which is a turn-key solution for securing access to [Azure SQL Database](/azure/sql-database/) and other Azure services. Managed identities make your app more secure by eliminating secrets from your app, such as credentials in the connection strings. In this tutorial, you'll add managed identity to an Azure Function that utilizes [Azure SQL bindings](/azure/azure-functions/functions-bindings-azure-sql).  A sample Azure Function project with SQL bindings is available in the [ToDo backend example](/samples/azure-samples/azure-sql-binding-func-dotnet-todo/todo-backend-dotnet-azure-sql-bindings-azure-functions/).
+Azure Functions provides a [managed identity](/azure/active-directory/managed-identities-azure-resources/overview), which is a turn-key solution for securing access to [Azure SQL Database](/azure/sql-database/) and other Azure services. Managed identities make your app more secure by eliminating secrets from your app, such as credentials in the connection strings. In this tutorial, you'll add managed identity to an Azure Function that utilizes [Azure SQL bindings](/azure/azure-functions/functions-bindings-azure-sql).  A sample Azure Function project with SQL bindings is available in the [ToDo backend example](/samples/azure-samples/azure-sql-binding-func-dotnet-todo/todo-backend-dotnet-azure-sql-bindings-azure-functions/).
 
 
 When you're finished with this tutorial, your Azure Function will connect to Azure SQL database without the need of username and password.

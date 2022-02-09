@@ -93,8 +93,6 @@
         href: observability.md
       - name: CI/CD using ARM templates
         href: devops-api-development-templates.md
-      - name: Soft-delete
-        href: soft-delete.md
       - name: Compute platform
         href: compute-infrastructure.md
 
@@ -332,6 +330,8 @@
               href: api-management-role-based-access-control.md
             - name: Move instances between regions
               href: api-management-howto-migrate.md
+            - name: Recover a deleted instance
+              href: soft-delete.md
             - name: Use managed identities for Azure resources
               href: api-management-howto-use-managed-service-identity.md
             - name: Self-hosted gateway
