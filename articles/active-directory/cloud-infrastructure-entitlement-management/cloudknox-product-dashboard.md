@@ -1,6 +1,6 @@
 ---
 title: View data about the activity in your authorization system in CloudKnox Permissions Management
-description: How to view data about the activity in your authorization system in the Dashboard in CloudKnox Permissions Management.
+description: How to view data about the activity in your authorization system in the CloudKnox Dashboard in CloudKnox Permissions Management.
 services: active-directory
 author: Yvonne-deQ
 manager: karenh444
@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/02/2022
+ms.date: 02/08/2022
 ms.author: v-ydequadros
 ---
 
@@ -20,36 +20,38 @@ ms.author: v-ydequadros
 > CloudKnox Permissions Management (CloudKnox) is currently in PREVIEW.
 > Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
 
-The CloudKnox Permissions Management (CloudKnox) home page provides an overview of the authorization system and account activity being monitored. You can use this page to view data collected from your Amazon Web Services (AWS), Microsoft Azure, and Google Cloud Platform (GCP) authorization systems.
+The CloudKnox Permissions Management (CloudKnox) **Dashboard** provides an overview of the authorization system and account activity being monitored. You can use this dashboard to view data collected from your Amazon Web Services (AWS), Microsoft Azure, and Google Cloud Platform (GCP) authorization systems.
 
 ## View data about your authorization system
 
-1. In CloudKnox, select **Dashboard**.
-1. From the **Authorization systems** dropdown menu, select **AWS**, **Azure**, or **GCP**.
+1. In the CloudKnox home page, select **Dashboard**.
+1. From the **Authorization systems type** dropdown, select **AWS**, **Azure**, or **GCP**.
 1. Select the **Authorization system** box to display a **List** of accounts and **Folders** available to you. 
 1. Select the accounts and folders you want, and then select **Apply**. 
 
    The **Permission creep index (PCI)** chart updates to display information about the accounts and folders you selected. The number of days since the information was last updated displays in the upper right corner.
 
-1. In the Permission creep index (PCI) graph, select a bubble. The bubble displays
+1. In the Permission creep index (PCI) graph, select a bubble.
 
-    A box appears, displaying the number of identities that are considered high-risk. *High-risk* refers to the number of users who have permissions that exceed their normal or required usage.
+    The bubble displays the number of identities that are considered high-risk. 
+
+    *High-risk* refers to the number of users who have permissions that exceed their normal or required usage.
 
 1. Select the box to display detailed information about the identities contributing to the **Low PCI**, **Medium PCI**, and **High PCI**. 
 
 1. The **Highest PCI change** displays the authorization system name with the PCI number and the change number for the last seven days, if applicable.
  
-    -To view all the changes and PCI in your authorization system, select **View all**.
+    -To view all the changes and PCI ratings in your authorization system, select **View all**.
 
 1. To return to the PCI graph, select the **Graph** icon in the upper right of the list box. 
 
-For more information about the Dashboard, see [View key statistics and data about your authorization system](cloudknox-ui-dashboard.md).
+For more information about the CloudKnox **Dashboard**, see [View key statistics and data about your authorization system](cloudknox-ui-dashboard.md).
 
 ## View user data on the PCI heat map
 
 The **Permission creep index (PCI)** heat map shows the incurred risk of users with access to high-risk privileges. The distribution graph displays all the users who contribute to the privilege creep. It displays how many users contribute to a particular score. For example, if the score from the PCI chart is 14, the graph shows how many users have a score of 14.
 
-- To view detailed data about a user, hover over the number.
+- To view detailed data about a user, select the number.
 
     The PCI trend graph shows you the historical trend of the PCI score over the last 90 days. 
 
@@ -73,7 +75,7 @@ The **Identity** section below the heat map on the left side of the page shows a
 
 ## View resource findings
 
-The **Resource** section below the heat map on the right side of the page shows all the relevant findings about resources. It includes unencrypted S3 buckets, open security groups, and so on.
+The **Resource** section below the heat map on the right side of the page shows all the relevant findings about your resources. It includes unencrypted S3 buckets, open security groups, managed keys, and so on.
 
 ## Next steps
 

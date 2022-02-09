@@ -1,6 +1,6 @@
 ---
-title: View analytic information about serverless functions in CloudKnox Permissions Management - Amazon Web Services (AWS only)
-description: How to view analytic information about serverless functions in CloudKnox Permissions Management - for Amazon Web Services (AWS only).
+title: View analytic information about serverless functions in CloudKnox Permissions Management
+description: How to view analytic information about serverless functions in CloudKnox Permissions Management.
 services: active-directory
 author: Yvonne-deQ
 manager: karenh444
@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/02/2022
+ms.date: 02/08/2022
 ms.author: v-ydequadros
 ---
 
-# View analytic information about serverless functions - Amazon Web Services (AWS only)
+# View analytic information about serverless functions
 
 > [!IMPORTANT]
 > CloudKnox Permissions Management (CloudKnox) is currently in PREVIEW.
 > Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
 
-The **Usage Analytics** dashboard in CloudKnox Permissions Management (CloudKnox) provides details about identities, resources, and tasks that you can use make informed decisions about granting permissions, and reducing risk on unused permissions.
+The **Analytics** dashboard in CloudKnox Permissions Management (CloudKnox) collects detailed information, analyzes, reports on, and visualizes data about all identity types. System administrators can use the information to make informed decisions about granting permissions and reducing risk on unused permissions for: 
 
 - **Users**: Tracks assigned permissions and usage of various identities.
 - **Groups**: Tracks assigned permissions and usage of the group and the group members.
@@ -27,23 +27,22 @@ The **Usage Analytics** dashboard in CloudKnox Permissions Management (CloudKnox
 - **Access keys**: Tracks the permission usage of access keys for a given user.
 - **Serverless functions**: Tracks assigned permissions and usage of the serverless functions.
 
-The **Usage Analytics** dashboard allows system administrators to collect, analyze, report on, and visualize data about all identity types.
-
-This article describes how to view usage analytics about active tasks.
+This article describes how to view usage analytics about serverless functions.
 
 ## Create a query to view serverless functions
 
-When you select **Serverless functions**, the **Usage Analytics** dashboard provides a high-level overview of tasks used by various identities. 
+When you select **Serverless functions**, the **Analytics** dashboard provides a high-level overview of tasks used by various identities. 
 
-- On the main **Usage Analytics** dashboard, select **Serverless functions** from the  drop-down list at the top of the screen. 
+1. On the main **Analytics** dashboard, select **Serverless functions** from the  dropdown list at the top of the screen. 
 
-The following components make up the **Serverless functions** dashboard:
+    The following components make up the **Serverless functions** dashboard:
 
-- **Authorization system type**: Select the authorization you want to use: Amazon Web Services (AWS), Microsoft Azure, or Google Cloud Platform (GCP).
-- **Authorization system**: Select from a **List** of accounts and **Folders***.
-- **Search**: Enter criteria to find specific tasks.
-- **Apply**: Select to display the criteria you've selected.
-- **Reset filter**: Select to discard your changes.
+    - **Authorization system type**: Select the authorization you want to use: Amazon Web Services (AWS), Microsoft Azure, or Google Cloud Platform (GCP).
+    - **Authorization system**: Select from a **List** of accounts and **Folders***.
+    - **Search**: Enter criteria to find specific tasks.
+1. Select **Apply** to display the criteria you've selected.
+
+    Select **Reset filter** to discard your changes.
 
 
 ## View the results of your query
@@ -69,8 +68,6 @@ The **Serverless functions** table displays the results of your query.
 1. In the **Value (Optional)** box, enter a value.
 1. Select the ellipses **(...)** to select **Advanced save** options, and then select **Save**.
 1. To add the tag to the serverless function, select **Add tag**.
-
-
 
 ## View detailed information about a serverless function
 

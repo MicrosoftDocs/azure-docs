@@ -21,13 +21,18 @@ The **Account settings** dashboard in CloudKnox Permissions Management (CloudKno
 ## View personal information
 
 1. In the CloudKnox home page, select the down arrow to the right of the **User** (your initials) menu, and then select **Account settings**.
-1. On the **Account settings** dashboard, under **Personal information**, you can view your **First name**, **Last name**, and **Email address**that was used to register your account on CloudKnox.
+
+    The **Personal information** box displays your **First name**, **Last name**, and the **Email address** that was used to register your account on CloudKnox.
 
 ## View current organization information
 
 1. In the CloudKnox home page, select the down arrow to the right of the **User** (your initials) menu, and then select **Account settings**.
-1. On the **Account settings** dashboard, under **Current organization information**, you can view the **Name** and **Tenant ID**.
-1. In **User session timeout (min)** box, you can enter the number of minutes before you want a user session to time out.
+
+    The **Current organization information** displays the **Name** of your organization, the **Tenant ID** box, and the **User session timeout (min)**.
+
+1. To change duration of the **User session timeout (min)**, select **Edit** (the pencil icon), and then enter the number of minutes before you want a user session to time out.
+1. Select the check mark to confirm your new setting.
+
 
 ## Next steps
 
