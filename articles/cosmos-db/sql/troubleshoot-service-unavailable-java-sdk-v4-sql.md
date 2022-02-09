@@ -44,8 +44,8 @@ Follow the [request timeout troubleshooting steps](troubleshoot-request-timeout-
 #### UnknownHostException
 UnknownHostException means that the Java framework cannot resolve the DNS entry for the Cosmos DB endpoint in the affected machine. You should verify that the machine can resolve the DNS entry or if you have any custom DNS resolution software (such as VPN or Proxy, or a custom solution), make sure it contains the right configuration for the DNS endpoint that the error is claiming cannot be resolved. If the error is constant, you can verify the machine's DNS resolution through a `curl` command to the endpoint described in the error.
 
-### Private Endpoint ports closed
-When in Direct mode the full list of ports is required to be open. Not opening all the ports can cause direct calls to fail with the following error, but calls to gateway can succeed. To fix the issue open all the [required ports](how-to-configure-private-endpoints.md#port-range-when-using-direct-mode) for private endpoints.
+### Ports are blocked
+When in Direct mode the full list of ports is required to be open. Not opening all the ports can cause direct calls to fail with the following error, but calls to gateway can succeed. To fix the issue open all the [required ports](sql-sdk-connection-modes.md#service-port-ranges). If the account is configured with private endpoint then additional ports are required to be opened.
 
 ```
 failed to establish connection to {account name}.documents.azure.com/<unresolved>:3044 due to io.netty.channel.ConnectTimeoutException:
