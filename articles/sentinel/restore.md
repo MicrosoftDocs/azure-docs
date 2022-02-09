@@ -57,7 +57,7 @@ View the status and results of the log data restore by going to the **Restoratio
 
 ## Delete restored data tables
 
-The restored data is available as long as the underlying source data is available. You can delete restored data tables at any time. When you delete a restored table, Azure doesn't delete the underlying source data.
+To save costs, we recommend you delete the restored table when you no longer need it. When you delete a restored table, Azure doesn't delete the underlying source data.
 
 
 1. In your Microsoft Sentinel workspace, select **Search** > **Restoration**.
