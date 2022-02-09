@@ -44955,6 +44955,11 @@
         "redirect_document_id": false
       },
       {
+        "source_path": "articles/machine-learning/classic/deploy-with-resource-manager-template.md",
+        "redirect_url": "/previous-versions/azure/machine-learning/classic/deploy-with-resource-manager-template",
+        "redirect_document_id": false
+      },
+      {
         "source_path_from_root": "/articles/governance/policy/how-to/guest-configuration-create-group-policy.md",
         "redirect_url": "/azure/governance/policy/how-to/guest-configuration-create",
         "redirect_document_id": false
