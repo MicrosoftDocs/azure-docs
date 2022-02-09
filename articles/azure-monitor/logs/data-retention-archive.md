@@ -11,7 +11,7 @@ ms.date: 01/27/2022
 ---
 
 # Configure data retention and archive in Azure Monitor Logs (Preview)
-Data in each table in a [Log Analytics workspace](log-analytics-workspace-overview.md) is retained for a specified period of time. At the end of the retention period, Azure Monitor removes or archives the data with a reduced retention fee. 
+Each table in a [Log Analytics workspace](log-analytics-workspace-overview.md) retains data for a specified period of time, after which the data is removed or archived the data with a reduced retention fee. 
 
 Set the retention time to balance your requirement for having data available with reducing your cost for data retention. This article describes the detailed operation of data retention and archive and how to configure it for your workspace or for individual tables.
 

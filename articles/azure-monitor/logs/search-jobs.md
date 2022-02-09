@@ -14,7 +14,7 @@ Search jobs are asynchronous queries that fetch records into a new search table 
 
 ## When to use search jobs
 
-Use a search job when the default query time out of 10 minutes is not enough time to search through large volumes of data or when you are running a slow query.
+Use a search job when the log query timeout of 10 minutes is not enough time to search through large volumes of data or when you are running a slow query.
 
 Search jobs also let you retrieve records from [Archived Logs](data-retention-archive.md) and [Basic Logs](basic-logs-configure.md) tables, into a temporary Custom Log table you can use for log queries. In this way, running a search job can be an alternative to:
 

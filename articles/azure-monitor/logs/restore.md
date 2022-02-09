@@ -1,6 +1,6 @@
 ---
-title: Restore archived logs in Azure Monitor (preview) 
-description: Restore a specific time range of archived data in a Log Analytics workspace.
+title: Restore logs in Azure Monitor (preview) 
+description: Restore a specific time range of data in a Log Analytics workspace for high-performance queries.
 author: bwren
 ms.author: bwren
 ms.topic: conceptual
@@ -8,16 +8,21 @@ ms.date: 01/19/2022
 
 ---
 
-# Restore archived logs in Azure Monitor (preview)
-[Archived Logs](data-retention-archive.md) are stored for up to seven years in a Log Analytics workspace at a reduced cost, but you can't directly access them. Restore makes a specific time range of archived data in a table available for querying and allocates additional compute resources to handle their processing. This article describes how to restore archived data, query that data, and then dismiss it when you're done with it. 
+# Restore logs in Azure Monitor (preview)
+The restore operation makes a specific time range of data in a table available for high-performance queries. This article describes how to restore data, query that data, and then dismiss the data when you're done.
+
+## When to restore logs
+Use the restore operation to query data in [Archived Logs](data-retention-archive.md). You can also use the restore operation to run powerful queries within a specific time range on any table when the log queries you run on the table source table cannot complete within the log query timeout of 10 minutes.
 
 > [!NOTE]
-> Restore is one method for accessing archived data. Use restore to run queries against a set of data in a particular time range. Use [Search jobs](search-jobs.md) to access data based on specific criteria.
+> Restore is one method for accessing archived data. Use restore to run queries against a set of data within a particular time range. Use [Search jobs](search-jobs.md) to access data based on specific criteria.
 
 ## What does restore do?
-When you restore data, you specify the source table that contains the archived data and a destination table to store the restored data. This table is in the same workspace as the source table and provides a view of the underlying source data. You can then use regular [log queries](log-query-overview.md) to retrieve data from the restored table. 
+When you restore data, you specify the source table that contains the data you want to query and a destination table, which is created in the same workspace and provides a view of the data in the source table. 
 
-The restored table has no retention setting, and you must explicitly [delete the table](#delete-restored-table) when you no longer require it. 
+The restore operation also allocates additional compute resources for querying the restored data using [log queries](log-query-overview.md).
+
+The destination table provides a view of the underlying source data, but does not affect it in any way. The table has no retention setting, and you must explicitly [dismiss the restored data](#dismiss-restored-data) when you no longer require it. 
 
 ## Cost
 The charge for the restore operation is based on the volume of the data restored and the amount of time the data is available. 
@@ -26,7 +31,7 @@ The charge for the restore operation is based on the volume of the data restored
 > There is no charge for restored data during the preview period.
 
 ## Limits
-Restore is subject to the following limitations.
+Restore is subject to the following limitations. 
 
 You can: 
 
@@ -38,7 +43,7 @@ You can:
 - Run only one active restore on a specific table at a given time. Executing a second restore on a table that already has an active restore will fail. 
 
 ## Restore data using API
-Call the **Tables - Create** or **Tables - Update** API to restore archived data:
+Call the **Tables - Create** or **Tables - Update** API to restore data from a table:
 
 ```http
 PUT https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/tables/{user defined name}_RST?api-version=2021-12-01-preview
@@ -48,7 +53,7 @@ The body of the request must include the following values:
 
 |Name | Type | Description |
 |:---|:---|:---|
-|properties.restoredLogs.sourceTable | string  | Table with the archived data to restore. |
+|properties.restoredLogs.sourceTable | string  | Table with the data to restore. |
 |properties.restoredLogs.startRestoreTime | string  | Start of the time range to restore. |
 |properties.restoredLogs.endRestoreTime | string  | End of the time range to restore. |
 
@@ -83,7 +88,7 @@ PUT https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000
 }
 ```
 
-## Delete restored table
+## Dismiss restored data
 
 We recommend deleting a restored table when you're done querying the table. This reduces workspace clutter and additional charges for data retention. 
 
