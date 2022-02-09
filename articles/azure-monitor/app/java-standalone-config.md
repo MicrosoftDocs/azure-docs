@@ -582,6 +582,16 @@ and the console, corresponding to this configuration:
 Starting from version 3.0.2, you can also set the self-diagnostics `level` using the environment variable `APPLICATIONINSIGHTS_SELF_DIAGNOSTICS_LEVEL`
 (which will then take precedence over self-diagnostics level specified in the json configuration).
 
+
+## Thread dump
+
+We use thread dump to troubleshoot Java Codeless Agent's startup performance. 
+If you experience that the agent startup takes longer than usual, you can submit the thread dump to us and we can help you investigate the cause of the slowness. 
+
+If you use a JVM arg `-Dapplicationinsights.debug.startupProfiling=true`, it will automatically generate a thread dump file under the default temp folder `applicationinsights/stacktrace.txt`.
+
+`applicationinsights.log` will have the file path. It has something like `Writing startup profiler to C:\Users\${USER_NAME}\AppData\Local\Temp\applicationinsights\stacktrace.txt`.
+
 ## An example
 
 This is just an example to show what a configuration file looks like with multiple components.
