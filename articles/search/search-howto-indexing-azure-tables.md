@@ -24,10 +24,10 @@ This article supplements [**Create an indexer**](search-howto-create-indexers.md
 
 + Tables containing text. If you have binary data, you can include [AI enrichment](cognitive-search-concept-intro.md) for image analysis.
 
-+ Permissions to access Azure Storage. A full access storage account connection string brings along the necessary permissions, but if you're using Azure role-based access, make sure the [search service managed identity](search-how-to-connect-managed-identity.md) has "Data and Reader" permissions.
++ Read permissions to access Azure Storage. A full access storage account connection string brings along the necessary permissions, but if you're using Azure roles, make sure the [search service managed identity](search-how-to-connect-managed-identity.md) has "Data and Reader" permissions.
 
 > [!NOTE]
-> If you're using Azure roles, write permissions are necessary if the indexer runs these AI enrichment tasks, writing to an enrichment cache, a knowledge store, or a debug session. Assignment to the "Storage Blob Data Contributor" role is sufficient for caching, debug sessions, and blob projections. Include "Storage Table Data Contributor" if your knowledge store also has table projections. Finally, if Azure Storage is firewall-protected, make sure you have [inbound rules](search-how-to-connect-managed-identity.md#allow-firewall-access) for admitting search service requests.
+> If you're using Azure roles, write permissions are necessary if AI enrichment creates any of these features: enrichment cache, knowledge store, debug session. You can assign the "Storage Blob Data Contributor" role for caching, debug sessions, and blob projections. You should also include "Storage Table Data Contributor" if your knowledge store has table projections. Finally, if Azure Storage is firewall-protected, make sure you have [inbound rules](search-how-to-connect-managed-identity.md#allow-firewall-access) for admitting search service requests.
 
 ## Define the data source
 
@@ -68,7 +68,7 @@ Indexers can connect to a table using the following connections.
 | Managed identity connection string |
 |------------------------------------|
 |`{ "connectionString" : "ResourceId=/subscriptions/<your subscription ID>/resourceGroups/<your resource group name>/providers/Microsoft.Storage/storageAccounts/<your storage account name>/;" }`|
-|This connection string does not require an account key, but you must have previously configured a search service to [connect using a managed identity](search-howto-managed-identities-storage.md).|
+|This connection string does not require an account key, but you must have previously configured a search service to [connect using a managed identity](search-how-to-connect-managed-identity.md).|
 
 | Storage account shared access signature** (SAS) connection string |
 |-------------------------------------------------------------------|

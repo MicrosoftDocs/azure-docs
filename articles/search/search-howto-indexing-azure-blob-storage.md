@@ -28,9 +28,12 @@ This article supplements [**Create an indexer**](search-howto-create-indexers.md
 
 + [Access tiers](../storage/blobs/access-tiers-overview.md) for Blob storage include hot, cool, and archive. Only hot and cool can be accessed by search indexers.
 
-+ Blobs containing text. If you have binary data, you can include [AI enrichment](cognitive-search-concept-intro.md) for image analysis.
++ Blobs containing text. If you have binary data, you can include [AI enrichment](cognitive-search-concept-intro.md) for image analysis. Note that blob content cannot exceed the [indexer limits](search-limits-quotas-capacity.md#indexer-limits) for your search service tier.
 
-Note that blob content cannot exceed the [indexer limits](search-limits-quotas-capacity.md#indexer-limits) for your search service tier.
++ Read permissions to access Azure Storage. A full access storage account connection string brings along the necessary permissions, but if you're using Azure roles, make sure the [search service managed identity](search-how-to-connect-managed-identity.md) has "Data and Reader" permissions.
+
+> [!NOTE]
+> If you're using Azure roles, write permissions are necessary if AI enrichment creates any of these features: enrichment cache, knowledge store, debug session. You can assign the "Storage Blob Data Contributor" role for caching, debug sessions, and blob projections. You should also include "Storage Table Data Contributor" if your knowledge store has table projections. Finally, if Azure Storage is firewall-protected, make sure you have [inbound rules](search-how-to-connect-managed-identity.md#allow-firewall-access) for admitting search service requests.
 
 <a name="SupportedFormats"></a>
 
@@ -69,15 +72,15 @@ A data source definition can also include [soft deletion policies](search-howto-
 
 Indexers can connect to a blob container using the following connections.
 
-| Managed identity connection string |
-|------------------------------------|
-|`{ "connectionString" : "ResourceId=/subscriptions/<your subscription ID>/resourceGroups/<your resource group name>/providers/Microsoft.Storage/storageAccounts/<your storage account name>/;" }`|
-|This connection string does not require an account key, but you must have previously configured a search service to [connect using a managed identity](search-howto-managed-identities-storage.md).|
-
 | Full access storage account connection string |
 |-----------------------------------------------|
 |`{ "connectionString" : "DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>;" }` |
 | You can get the connection string from the Storage account page in Azure portal by selecting **Access keys** in the left navigation pane. Make sure to select a full connection string and not just a key. |
+
+| Managed identity connection string |
+|------------------------------------|
+|`{ "connectionString" : "ResourceId=/subscriptions/<your subscription ID>/resourceGroups/<your resource group name>/providers/Microsoft.Storage/storageAccounts/<your storage account name>/;" }`|
+|This connection string does not require an account key, but you must have previously configured a search service to [connect using a managed identity](search-how-to-connect-managed-identity.md).|
 
 | Storage account shared access signature** (SAS) connection string |
 |-------------------------------------------------------------------|

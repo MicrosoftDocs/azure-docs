@@ -13,13 +13,13 @@ ms.date: 02/08/2022
 
 # Connect a search service to other Azure resources using a managed identity
 
-You can configure an Azure Cognitive Search service to connect to other Azure resources under a [system-assigned or user-assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md) that's assigned to a role on the remote service.
+You can configure an Azure Cognitive Search service to connect to other Azure resources under a [system-assigned or user-assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md) that's been assigned to a role on the remote service.
 
 ## Prerequisites
 
 + A search service at the [Basic tier or above](search-sku-tier.md).
 
-+ Azure resources that accept requests from a managed identity having a valid role assignment
++ An Azure resource that accepts incoming requests from a managed identity having a valid role assignment
 
 ## Supported scenarios
 
@@ -27,12 +27,12 @@ Connections using a user-assigned managed identity require an "identity" propert
 
 | Scenario | System managed identity | User managed identity (preview) |
 |----------|-------------------------|---------------------------------|
-| Indexer connections to supported Azure data sources | Yes | Yes |
-| Azure Key Vault for customer-managed keys | Yes | No |
+| [Indexer connections](search-indexer-overview.md) to supported Azure data sources | Yes | Yes |
+| [Azure Key Vault for customer-managed keys](search-security-manage-encryption-keys.md) | Yes | No |
 | [Debug sessions](cognitive-search-debug-session.md) in Azure Storage | Yes | No |
-| Enrichment cache in Azure Storage | Yes <sup>1</sup>| No |
-| Knowledge Store in Azure Storage | Yes | No |
-| Custom skills | Yes | No |
+| [Enrichment cache](search-howto-incremental-index.md) in Azure Storage | Yes <sup>1</sup>| No |
+| [Knowledge Store](knowledge-store-create-rest.md) in Azure Storage | Yes | No |
+| [Custom skills](cognitive-search-custom-skill-interface.md) | Yes | No |
 
 <sup>1</sup> The Import data wizard doesn't currently accept a system managed identity connection string for incremental enrichment, but after the wizard completes, you can update the indexer JSON definition to include the connection string, and then rerun the indexer.
 
@@ -56,7 +56,7 @@ A system-assigned managed identity is unique to your search service and bound to
 
 ## Create a user managed identity (preview)
 
-A user-assigned managed identity is useful if you need more precision in role assignments. You can create separate identifies for different applications and scenarios.
+A user-assigned managed identity is useful if you need more precision in role assignments. You can create separate identifies for different applications and scenarios that are related to indexer-based indexing.
 
 > [!IMPORTANT]
 >This feature is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). The REST API version 2021-04-30-Preview and [Management REST API 2021-04-01-Preview](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update) provide this feature.
@@ -168,7 +168,7 @@ The following steps are for Azure Storage. If your resource is Cosmos DB or Azur
 
 1. Select **Review + assign**.
 
-## Connection strings for managed identities
+## Connection string examples
 
 Once a managed identity is defined and given a role assignment, outbound connections use it in connection strings. Here are some examples of connection strings for various scenarios.
 
@@ -199,7 +199,7 @@ A user-assigned managed identity is specified in the "identity" property, curren
 
 **Knowledge store:**
 
-Container and table names are part of a projection definition, not the connection string.
+A knowledge store's container and table names are part of a projection definition, not the connection string.
 
 ```json
 "knowledgeStore": {
@@ -208,7 +208,7 @@ Container and table names are part of a projection definition, not the connectio
 
 **Enrichment cache:**
 
-An indexer creates, uses, and remembers the container used for the cache. It's not necessary to include the container in the connection string.
+An indexer creates, uses, and remembers the container used for the cached enrichments. It's not necessary to include the container in the connection string. You can find the object ID on the **Identity** page of your search service in the portal.
 
 ```json
 "cache": {
