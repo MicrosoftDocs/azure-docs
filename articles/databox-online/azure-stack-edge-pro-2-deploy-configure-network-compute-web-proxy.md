@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 01/21/2022
+ms.date: 02/09/2022
 ms.author: alkohli
 # Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge Pro so I can use it to transfer data to Azure. 
 ---
@@ -31,8 +31,8 @@ In this tutorial, you learn about:
 
 Before you configure and set up your Azure Stack Edge Pro device with GPU, make sure that:
 
-* You've installed the physical device as detailed in [Install Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-install.md).
-* You've connected to the local web UI of the device as detailed in [Connect to Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-connect.md)
+* You've installed the physical device as detailed in [Install Azure Stack Edge Pro](azure-stack-edge-pro-2-deploy-install.md).
+* You've connected to the local web UI of the device as detailed in [Connect to Azure Stack Edge Pro](azure-stack-edge-pro-2-deploy-connect.md)
 
 
 ## Configure network

@@ -13,7 +13,7 @@ metadata:
   ms.collection: collection
   author: alkohli #Required; your GitHub user alias, with correct capitalization.
   ms.author: alkohli #Required; microsoft alias of author; optional team alias.
-  ms.date: 04/20/2021 #Required; mm/dd/yyyy format.
+  ms.date: 02/09/2022 #Required; mm/dd/yyyy format.
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -74,15 +74,17 @@ landingContent:
     linkLists:
       - linkListType: tutorial
         links:
-          - text: View deployment checklist
-            url: azure-stack-edge-gpu-deploy-checklist.md
-          - text: View deployment checklist
-            url: azure-stack-edge-pro-2-deploy-checklist.md         
-          - text: Azure Stack Edge Pro GPU
+          - text: View Azure Stack Edge Pro 2 checklist
+            url: azure-stack-edge-pro-2-deploy-checklist.md
+          - text: View Azure Stack Edge Pro GPU checklist
+            url: azure-stack-edge-gpu-deploy-checklist.md    
+          - text: Deploy Azure Stack Edge Pro 2
+            url: azure-stack-edge-pro-2-deploy-prep.md     
+          - text: Deploy Azure Stack Edge Pro GPU
             url: azure-stack-edge-gpu-deploy-prep.md
-          - text: Azure Stack Edge Pro R
+          - text: Deploy Azure Stack Edge Pro R
             url: azure-stack-edge-pro-r-deploy-prep.md
-          - text: Azure Stack Edge Mini R
+          - text: Deploy Azure Stack Edge Mini R
             url: azure-stack-edge-mini-r-deploy-prep.md 
 
   # Card
