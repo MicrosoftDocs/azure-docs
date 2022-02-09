@@ -64,63 +64,63 @@ Admins of federated domains should set up this section of the HRD policy in a fo
 
 ::: zone pivot="graph-hrd"
 
-    ```json
-    "DomainHintPolicy": { 
-        "IgnoreDomainHintForDomains": [ "testDomain.com" ], 
-        "RespectDomainHintForDomains": [], 
-        "IgnoreDomainHintForApps": [], 
-        "RespectDomainHintForApps": [] 
-    } 
-    ```
+```json
+"DomainHintPolicy": { 
+    "IgnoreDomainHintForDomains": [ "testDomain.com" ], 
+    "RespectDomainHintForDomains": [], 
+    "IgnoreDomainHintForApps": [], 
+    "RespectDomainHintForApps": [] 
+} 
+```
 ::: zone-end
 
 ::: zone pivot="powershell-hrd"
 
-    ```powershell 
-    New-AzureADPolicy -Definition @("{`"DomainHintPolicy`": { `"IgnoreDomainHintForDomains`": [ `"testDomain.com`" ], `"RespectDomainHintForDomains`": [], `"IgnoreDomainHintForApps`": [], `"RespectDomainHintForApps`": [] } }") -DisplayName BasicBlockAccelerationPolicy -Type HomeRealmDiscoveryPolicy
-    ```
+```powershell 
+New-AzureADPolicy -Definition @("{`"DomainHintPolicy`": { `"IgnoreDomainHintForDomains`": [ `"testDomain.com`" ], `"RespectDomainHintForDomains`": [], `"IgnoreDomainHintForApps`": [], `"RespectDomainHintForApps`": [] } }") -DisplayName BasicBlockAccelerationPolicy -Type HomeRealmDiscoveryPolicy
+```
 ::: zone-end
 
 2. Gather feedback from the test domain users. Collect details for applications that broke as a result of this change - they have a dependency on domain hint usage, and should be updated. For now, add them to the `RespectDomainHintForApps` section:
 
 ::: zone pivot="graph-hrd"
 
-    ```json
-    "DomainHintPolicy": { 
-        "IgnoreDomainHintForDomains": [ "testDomain.com" ], 
-        "RespectDomainHintForDomains": [], 
-        "IgnoreDomainHintForApps": [], 
-        "RespectDomainHintForApps": ["app1-clientID-Guid", "app2-clientID-Guid] 
-    } 
-    ```
+```json
+"DomainHintPolicy": { 
+    "IgnoreDomainHintForDomains": [ "testDomain.com" ], 
+    "RespectDomainHintForDomains": [], 
+    "IgnoreDomainHintForApps": [], 
+    "RespectDomainHintForApps": ["app1-clientID-Guid", "app2-clientID-Guid] 
+} 
+```
 ::: zone-end
 
 ::: zone pivot="powershell-hrd"
 
-    ```powershell
-    New-AzureADPolicy -Definition @("{`"DomainHintPolicy`": { `"IgnoreDomainHintForDomains`": [ `"testDomain.com`" ], `"RespectDomainHintForDomains`": [], `"IgnoreDomainHintForApps`": [], `"RespectDomainHintForApps`": ["app1-clientID-Guid", "app2-clientID-Guid] } }") -DisplayName BasicBlockAccelerationPolicy -Type HomeRealmDiscoveryPolicy
-    ```
+```powershell
+New-AzureADPolicy -Definition @("{`"DomainHintPolicy`": { `"IgnoreDomainHintForDomains`": [ `"testDomain.com`" ], `"RespectDomainHintForDomains`": [], `"IgnoreDomainHintForApps`": [], `"RespectDomainHintForApps`": ["app1-clientID-Guid", "app2-clientID-Guid] } }") -DisplayName BasicBlockAccelerationPolicy -Type HomeRealmDiscoveryPolicy
+```
 ::: zone-end
 
 3. Continue expanding rollout of the policy to new domains, collecting more feedback.
 
 ::: zone pivot="graph-hrd"
 
-    ```json
-    "DomainHintPolicy": { 
-        "IgnoreDomainHintForDomains": [ "testDomain.com", "otherDomain.com", "anotherDomain.com"], 
-        "RespectDomainHintForDomains": [], 
-        "IgnoreDomainHintForApps": [], 
-        "RespectDomainHintForApps": ["app1-clientID-Guid", "app2-clientID-Guid] 
-    } 
-    ```
+```json
+"DomainHintPolicy": { 
+    "IgnoreDomainHintForDomains": [ "testDomain.com", "otherDomain.com", "anotherDomain.com"], 
+    "RespectDomainHintForDomains": [], 
+    "IgnoreDomainHintForApps": [], 
+    "RespectDomainHintForApps": ["app1-clientID-Guid", "app2-clientID-Guid] 
+} 
+```
 ::: zone-end
 
 ::: zone pivot="powershell-hrd"
 
-    ```powershell
-    New-AzureADPolicy -Definition @("{`"DomainHintPolicy`": { `"IgnoreDomainHintForDomains`": [ `"testDomain.com`", "otherDomain.com", "anotherDomain.com"], `"RespectDomainHintForDomains`": [], `"IgnoreDomainHintForApps`": [], `"RespectDomainHintForApps`": ["app1-clientID-Guid", "app2-clientID-Guid] } }") -DisplayName BasicBlockAccelerationPolicy -Type HomeRealmDiscoveryPolicy
-    ```
+```powershell
+New-AzureADPolicy -Definition @("{`"DomainHintPolicy`": { `"IgnoreDomainHintForDomains`": [ `"testDomain.com`", "otherDomain.com", "anotherDomain.com"], `"RespectDomainHintForDomains`": [], `"IgnoreDomainHintForApps`": [], `"RespectDomainHintForApps`": ["app1-clientID-Guid", "app2-clientID-Guid] } }") -DisplayName BasicBlockAccelerationPolicy -Type HomeRealmDiscoveryPolicy
+```
 
 ::: zone-end
 
@@ -128,22 +128,22 @@ Admins of federated domains should set up this section of the HRD policy in a fo
 
 ::: zone pivot="graph-hrd"
 
-    ```json
-    "DomainHintPolicy": { 
-        "IgnoreDomainHintForDomains": [ "*" ], 
-        "RespectDomainHintForDomains": ["guestHandlingDomain.com"], 
-        "IgnoreDomainHintForApps": [], 
-        "RespectDomainHintForApps": ["app1-clientID-Guid", "app2-clientID-Guid] 
-    } 
-    ```
+```json
+"DomainHintPolicy": { 
+    "IgnoreDomainHintForDomains": [ "*" ], 
+    "RespectDomainHintForDomains": ["guestHandlingDomain.com"], 
+    "IgnoreDomainHintForApps": [], 
+    "RespectDomainHintForApps": ["app1-clientID-Guid", "app2-clientID-Guid] 
+} 
+```
 ::: zone-end
 
 
 ::: zone pivot="powershell-hrd"
 
-    ```powershell
-    New-AzureADPolicy -Definition @("{`"DomainHintPolicy`": { `"IgnoreDomainHintForDomains`": [ `"*`" ], `"RespectDomainHintForDomains`": [guestHandlingDomain.com], `"IgnoreDomainHintForApps`": [], `"RespectDomainHintForApps`": ["app1-clientID-Guid", "app2-clientID-Guid] } }") -DisplayName BasicBlockAccelerationPolicy -Type HomeRealmDiscoveryPolicy
-    ```
+```powershell
+New-AzureADPolicy -Definition @("{`"DomainHintPolicy`": { `"IgnoreDomainHintForDomains`": [ `"*`" ], `"RespectDomainHintForDomains`": [guestHandlingDomain.com], `"IgnoreDomainHintForApps`": [], `"RespectDomainHintForApps`": ["app1-clientID-Guid", "app2-clientID-Guid] } }") -DisplayName BasicBlockAccelerationPolicy -Type HomeRealmDiscoveryPolicy
+```
 
 ::: zone-end
 
@@ -161,15 +161,15 @@ Set the [Home Realm Discovery policy](/graph/api/resources/homeRealmDiscoveryPol
 
 POST or PATCH contents:
 
-    ```json
-    {
-        "displayName":"Home Realm Discovery Domain Hint Exclusion Policy",
-        "definition":[
-            "{\"HomeRealmDiscoveryPolicy\" : {\"DomainHintPolicy\": { \"IgnoreDomainHintForDomains\": [ \"Contoso.com\" ], \"RespectDomainHintForDomains\": [], \"IgnoreDomainHintForApps\": [\"sample-guid-483c-9dea-7de4b5d0a54a\"], \"RespectDomainHintForApps\": [] } } }"
-        ],
-        "isOrganizationDefault":true
-    }
-    ```
+```json
+{
+    "displayName":"Home Realm Discovery Domain Hint Exclusion Policy",
+    "definition":[
+        "{\"HomeRealmDiscoveryPolicy\" : {\"DomainHintPolicy\": { \"IgnoreDomainHintForDomains\": [ \"Contoso.com\" ], \"RespectDomainHintForDomains\": [], \"IgnoreDomainHintForApps\": [\"sample-guid-483c-9dea-7de4b5d0a54a\"], \"RespectDomainHintForApps\": [] } } }"
+    ],
+    "isOrganizationDefault":true
+}
+```
 
 Be sure to use slashes to escape the `Definition` JSON section when using Graph.  
 

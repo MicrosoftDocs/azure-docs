@@ -86,36 +86,37 @@ The following policy auto-accelerates users to an federated identity provider si
 
 ::: zone pivot="powershell-hrd"
 
-    ```powershell
-    New-AzureADPolicy -Definition @("{`"HomeRealmDiscoveryPolicy`":{`"AccelerateToFederatedDomain`":true}}") -DisplayName BasicAutoAccelerationPolicy -Type HomeRealmDiscoveryPolicy
-    ```
+```powershell
+New-AzureADPolicy -Definition @("{`"HomeRealmDiscoveryPolicy`":{`"AccelerateToFederatedDomain`":true}}") -DisplayName BasicAutoAccelerationPolicy -Type HomeRealmDiscoveryPolicy
+```
 ::: zone-end
 
 ::: zone pivot="graph-hrd"
 
-    ```json
-    "HomeRealmDiscoveryPolicy": {
-    "AccelerateToFederatedDomain": true
-    }
-    ```
+```json
+"HomeRealmDiscoveryPolicy": {
+"AccelerateToFederatedDomain": true
+}
+```
 ::: zone-end
 
 The following policy auto-accelerates users to an federated identity provider sign-in screen when there is more than one federated domain in your tenant. If you have more than one federated domain that authenticates users for applications, you need to specify the domain to auto-accelerate.
 
 ::: zone pivot="powershell-hrd"
-    ```powershell
-    New-AzureADPolicy -Definition @("{`"HomeRealmDiscoveryPolicy`":{`"AccelerateToFederatedDomain`":true, `"PreferredDomain`":`"federated.example.edu`"}}") -DisplayName MultiDomainAutoAccelerationPolicy -Type HomeRealmDiscoveryPolicy
-    ```
+
+```powershell
+New-AzureADPolicy -Definition @("{`"HomeRealmDiscoveryPolicy`":{`"AccelerateToFederatedDomain`":true, `"PreferredDomain`":`"federated.example.edu`"}}") -DisplayName MultiDomainAutoAccelerationPolicy -Type HomeRealmDiscoveryPolicy
+```
 ::: zone-end
 
 ::: zone pivot="graph-hrd"
 
-    ```json
-    "HomeRealmDiscoveryPolicy": {
-    "AccelerateToFederatedDomain": true
-    "PreferredDomain": ["federated.example.edu"]
-    }
-    ```
+```json
+"HomeRealmDiscoveryPolicy": {
+"AccelerateToFederatedDomain": true
+"PreferredDomain": ["federated.example.edu"]
+}
+```
 ::: zone-end
 
 The following policy enables username/password authentication for federated users directly with Azure AD for specific applications:
@@ -123,27 +124,27 @@ The following policy enables username/password authentication for federated user
 
 ::: zone pivot="graph-hrd"
 
-    ```json
+```json
 
-    "EnableDirectAuthPolicy": {
-    "AllowCloudPasswordValidation": true
-    }
+"EnableDirectAuthPolicy": {
+"AllowCloudPasswordValidation": true
+}
 
-    ```
+```
 
 ::: zone-end
 
 ::: zone pivot="powershell-hrd"
 
-    ```powershell
-    New-AzureADPolicy -Definition @("{`"HomeRealmDiscoveryPolicy`":{`"AllowCloudPasswordValidation`":true}}") -DisplayName EnableDirectAuthPolicy -Type HomeRealmDiscoveryPolicy
-    ```
+```powershell
+New-AzureADPolicy -Definition @("{`"HomeRealmDiscoveryPolicy`":{`"AllowCloudPasswordValidation`":true}}") -DisplayName EnableDirectAuthPolicy -Type HomeRealmDiscoveryPolicy
+```
 
 To see your new policy and get its **ObjectID**, run the following command:
 
-    ```powershell
-    Get-AzureADPolicy
-    ```
+```powershell
+Get-AzureADPolicy
+```
 
 To apply the HRD policy after you have created it, you can assign it to multiple application service principals.
 
@@ -155,17 +156,17 @@ You can use the [Azure portal](https://portal.azure.com), or you can query [Micr
 
 Because you are using PowerShell, you can use the following cmdlet to list the service principals and their IDs.
 
-    ```powershell
-    Get-AzureADServicePrincipal
-    ```
+```powershell
+Get-AzureADServicePrincipal
+```
 
 ## Assign the policy to your service principal
 
 After you have the **ObjectID** of the service principal of the application for which you want to configure auto-acceleration, run the following command. This command associates the HRD policy that you created in step 1 with the service principal that you located in step 2.
 
-    ```powershell
-    Add-AzureADServicePrincipalPolicy -Id <ObjectID of the Service Principal> -RefObjectId <ObjectId of the Policy>
-    ```
+```powershell
+Add-AzureADServicePrincipalPolicy -Id <ObjectID of the Service Principal> -RefObjectId <ObjectId of the Policy>
+```
 
 You can repeat this command for each service principal to which you want to add the policy.
 
@@ -175,9 +176,9 @@ In the case where an application already has a HomeRealmDiscovery policy assigne
 
 To check which applications have HRD policy configured, use the **Get-AzureADPolicyAppliedObject** cmdlet. Pass it the **ObjectID** of the policy that you want to check on.
 
-    ```powershell
-    Get-AzureADPolicyAppliedObject -id <ObjectId of the Policy>
-    ```
+```powershell
+Get-AzureADPolicyAppliedObject -id <ObjectId of the Policy>
+```
 Try the application to check that the new policy is working.
 
 ### List the applications for which HRD policy is configured
@@ -225,8 +226,7 @@ From the Microsoft Graph explorer window:
 1. Grant the Policy.ReadWrite.ApplicationConfiguration permission under the **Modify permissions** tab.
 1. Use the URL https://graph.microsoft.com/v1.0/policies/homeRealmDiscoveryPolicies
 1. POST the new policy to this URL, or PATCH to /policies/homerealmdiscoveryPolicies/{policyID} if overwriting an existing one.
-1. 
-POST or PATCH contents:
+1. POST or PATCH contents:
 
     ```json
     {
