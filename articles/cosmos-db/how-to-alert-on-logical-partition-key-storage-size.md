@@ -97,9 +97,9 @@ Follow the instructions in [Monitor Azure Cosmos DB data by using diagnostic set
 
         * Select your desired **Frequency of evaluation** based on your requirements. In our example, we’ll select **1 hour**. Note this value must be less than or equal to the alert evaluation period.
 
-    After completing Step 5, the **Condition** section will look like the example below. 
-
-    :::image type="content" source="media/how-to-alert-on-logical-partition-key-storage-size/alert-signal-logic.png" alt-text="Example configuration for signal logic":::
+        After completing Step 5, the **Condition** section will look like the example below. 
+    
+        :::image type="content" source="media/how-to-alert-on-logical-partition-key-storage-size/alert-signal-logic.png" alt-text="Screenshot of an example configuration for signal logic":::
 
 1. Fill out the **Actions** section:
 
@@ -145,7 +145,7 @@ When the alert is fired, it will include:
 
 For example, in the alert that was fired below, we see the logical partition of "ContosoTenant" has reached 0.78 of the 20GB logical partition storage limit, with 16GB of data in a particular database and collection. 
 
-:::image type="content" source="media/how-to-alert-on-logical-partition-key-storage-size/alert-when-logical-partition-key-exceeds-threshold.png" alt-text="Example alert fired when logical partition key size exceeds threshold":::
+:::image type="content" source="media/how-to-alert-on-logical-partition-key-storage-size/alert-when-logical-partition-key-exceeds-threshold.png" alt-text="Screenshot of an alert fired when logical partition key size exceeds threshold":::
 
 ## Remediation steps
 When the 20 GB logical partition size limit is reached, you won't be able to write any more data to that logical partition. As a result, it's recommended to rearchitect your application with a different partition key as a long-term solution. 

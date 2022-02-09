@@ -30,8 +30,6 @@ This section shows how to create an alert when you receive an HTTP status code 4
 > [!TIP]
 > The scenario of alerting based on number of 429s exceeding a threshold is used here for illustration purposes. It does not mean that there is anything inherently wrong with seeing 429s on your database or container. In general, if you see 1-5% of requests with 429s in a production workload and your overall application latency is within your requirements, this is a normal and healthy sign that you are fully using the throughput (RU/s) you've provisioned. [Learn more about how to interpret and debug 429 exceptions](sql/troubleshoot-request-rate-too-large.md).
 
- [Diagnose and troubleshoot Azure Cosmos DB request rate too large (429) exceptions]
-
 1. Sign into the [Azure portal.](https://portal.azure.com/)
 
 1. Select **Monitor** from the left-hand navigation bar and select **Alerts**.
