@@ -1,10 +1,10 @@
 ---
 title: 'Register and scan an Azure database for PostgreSQL'
-description: This tutorial describes how to scan an Azure database for PostgreSQL database
+description: This tutorial describes how to scan an Azure database for PostgreSQL database in Azure Purview.
 author: evwhite
 ms.author: evwhite
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: tutorial
 ms.date: 06/30/2021
 # Customer intent: As a data steward or catalog administrator, I need to understand how to scan data into the catalog.
@@ -33,7 +33,7 @@ Purview supports only SQL authentication for Azure database for PostgreSQL.
 
 #### SQL authentication for an Azure database for PostgreSQL
 
-Connecting to an Azure Database for PostgreSQL database requires the fully qualified server name and login credentials. You can follow the instructions in [CONNECT AND QUERY](/azure/postgresql/connect-python) to create a login for your Azure database for PostgreSQL if you don't have this available. You will need **username** and **password** for the next steps.
+Connecting to an Azure Database for PostgreSQL database requires the fully qualified server name and login credentials. You can follow the instructions in [CONNECT AND QUERY](../postgresql/connect-python.md) to create a login for your Azure database for PostgreSQL if you don't have this available. You will need **username** and **password** for the next steps.
 
 1. Navigate to your key vault in the Azure portal
 1. Select **Settings > Secrets**
@@ -69,7 +69,7 @@ On the **Register sources Azure Database for PostgreSQL** screen, do the followi
 
 To create and run a new scan, do the following:
 
-1. Select the **Data Map** tab on the left pane in the Purview Studio.
+1. Select the **Data Map** tab on the left pane in the [Purview Studio](https://web.purview.azure.com/resource/).
 
 1. Select the Azure Database for PostgreSQL source that you registered.
 

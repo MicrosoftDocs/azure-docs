@@ -193,7 +193,7 @@ The commands in this section complete the following actions:
 -
 ### Set variables
 
-First, set the variables to be used by the PowerShell cmdlets in the following steps. Be sure to update the <YourStorageAccountName> and <YourKeyVaultName> placeholders.
+First, set the variables to be used by the PowerShell cmdlets in the following steps. Be sure to update the \<YourStorageAccountName\> and \<YourKeyVaultName\> placeholders.
 
 We will also use the Azure PowerShell [New-AzStorageContext](/powershell/module/az.storage/new-azstoragecontext) cmdlets to get the context of your Azure storage account.
 

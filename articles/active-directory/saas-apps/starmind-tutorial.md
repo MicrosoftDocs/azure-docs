@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Starmind | Microsoft Docs'
+title: 'Tutorial: Azure AD SSO integration with Starmind'
 description: Learn how to configure single sign-on between Azure Active Directory and Starmind.
 services: active-directory
 author: jeevansd
@@ -9,12 +9,12 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/25/2020
+ms.date: 09/20/2021
 ms.author: jeedes
 
 ---
 
-# Tutorial: Azure Active Directory single sign-on (SSO) integration with Starmind
+# Tutorial: Azure AD SSO integration with Starmind
 
 In this tutorial, you'll learn how to integrate Starmind with Azure Active Directory (Azure AD). When you integrate Starmind with Azure AD, you can:
 
@@ -33,10 +33,10 @@ To get started, you need the following items:
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-* Starmind supports **SP** initiated SSO
-* Starmind supports **Just In Time** user provisioning
+* Starmind supports **SP** initiated SSO.
+* Starmind supports **Just In Time** user provisioning.
 
-## Adding Starmind from the gallery
+## Add Starmind from the gallery
 
 To configure the integration of Starmind into Azure AD, you need to add Starmind from the gallery to your list of managed SaaS apps.
 
@@ -46,7 +46,6 @@ To configure the integration of Starmind into Azure AD, you need to add Starmind
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **Starmind** in the search box.
 1. Select **Starmind** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
-
 
 ## Configure and test Azure AD SSO for Starmind
 
@@ -67,27 +66,26 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. In the Azure portal, on the **Starmind** application integration page, find the **Manage** section and select **single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
-1. On the **Set up single sign-on with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
+1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. On the **Basic SAML Configuration** section, enter the values for the following fields:
+1. On the **Basic SAML Configuration** section, perform the following steps:
 
-	a. In the **Sign-on URL** text box, type a URL using the following pattern:
-    `https://<SUBDOMAIN>.starmind.com`
-
-    b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
+    a. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
     `https://<SUBDOMAIN>.starmind.com/auth/realms/<ID>`
 
-	c. In the **Reply URL** text box, type a URL using the following pattern:
+	b. In the **Reply URL** text box, type a URL using the following pattern:
     `https://<SUBDOMAIN>.starmind.com/auth/realms/<ID>/broker/saml/endpoint`
+
+    c. In the **Sign-on URL** text box, type a URL using the following pattern:
+    `https://<SUBDOMAIN>.starmind.com`
 
     d. In the **Logout URL** text box, type a URL using the following pattern:
     `https://<SUBDOMAIN>.starmind.com/auth/realms/<ID>/broker/saml/endpoint`
 
-
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Sign on URL, Identifier, Reply URL and Logout URL. Contact [Starmind Client support team](mailto:support@starmind.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Identifier, Reply URL, Sign on URL and Logout URL. Contact [Starmind Client support team](mailto:support@starmind.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
@@ -133,11 +131,11 @@ In this section, a user called Britta Simon is created in Starmind. Starmind sup
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
 
-1. Click on **Test this application** in Azure portal. This will redirect to Starmind Sign-on URL where you can initiate the login flow. 
+* Click on **Test this application** in Azure portal. This will redirect to Starmind Sign-on URL where you can initiate the login flow. 
 
-2. Go to Starmind Sign-on URL directly and initiate the login flow from there.
+* Go to Starmind Sign-on URL directly and initiate the login flow from there.
 
-3. You can use Microsoft Access Panel. When you click the Starmind tile in the Access Panel, this will redirect to Starmind Sign-on URL. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
+* You can use Microsoft My Apps. When you click the Starmind tile in the My Apps, this will redirect to Starmind Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
 ## Next steps
 

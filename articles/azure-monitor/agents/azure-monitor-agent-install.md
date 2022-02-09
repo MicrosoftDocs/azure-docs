@@ -4,7 +4,7 @@ description: Options for installing the Azure Monitor Agent (AMA) on Azure virtu
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 07/19/2021
+ms.date: 09/21/2021
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 
 ---
@@ -23,7 +23,7 @@ The following prerequisites are required prior to installing the Azure Monitor a
   - *.control.monitor.azure.com
 
 > [!IMPORTANT]
-> The Azure Monitor agent does not currently support network proxies or private links.
+> The Azure Monitor agent does not currently support private links.
 
 ## Virtual machine extension details
 The Azure Monitor Agent is implemented as an [Azure VM extension](../../virtual-machines/extensions/overview.md) with the details in the following table. It can be installed using any of the methods to install virtual machine extensions including those described in this article.
@@ -33,6 +33,16 @@ The Azure Monitor Agent is implemented as an [Azure VM extension](../../virtual-
 | Publisher | Microsoft.Azure.Monitor  | Microsoft.Azure.Monitor |
 | Type      | AzureMonitorWindowsAgent | AzureMonitorLinuxAgent  |
 | TypeHandlerVersion  | 1.0 | 1.5 |
+
+## Extension versions
+It is strongly recommended to update to GA+ versions instead of using preview versions.
+
+| Release Date | Release notes | Windows | Linux |
+|:---|:---|:---|:---|:---|
+| June 2021 | General availability announced. <ul><li>All features except metrics destination now generally available</li><li>Production quality, security and compliance</li><li>Availability in all public regions</li><li>Performance and scale improvements for higher EPS</li></ul> [Learn more](https://azure.microsoft.com/updates/azure-monitor-agent-and-data-collection-rules-now-generally-available/) | 1.0.12.0 | 1.9.1.0 |
+| July 2021 | <ul><li>Support for direct proxies</li><li>Support for Log Analytics gateway</li></ul> [Learn more](https://azure.microsoft.com/updates/general-availability-azure-monitor-agent-and-data-collection-rules-now-support-direct-proxies-and-log-analytics-gateway/) | 1.1.1.0 | 1.10.5.0 |
+| August 2021 | Fixed issue allowing Azure Monitor Metrics as the only destination | 1.1.2.0 | 1.10.9.0 (do not use 1.10.7.0) |
+| September 2021 | Fixed issue causing data loss on restarting the agent | 1.1.3.1 | 1.12.2.0 |
 
 
 ## Install with Azure portal
@@ -104,11 +114,11 @@ Use the following CLI commands to install the Azure Monitor agent onAzure Arc en
 
 # [Windows](#tab/CLIWindowsArc)
 ```azurecli
-az connectedmachine extension create --name AzureMonitorWindowsAgent --publisher Microsoft.Azure.Monitor --machine-name <arc-server-name> --resource-group <resource-group-name> --location <arc-server-location>
+az connectedmachine extension create --name AzureMonitorWindowsAgent --publisher Microsoft.Azure.Monitor --type AzureMonitorWindowsAgent --machine-name <arc-server-name> --resource-group <resource-group-name> --location <arc-server-location>
 ```
 # [Linux](#tab/CLILinuxArc)
 ```azurecli
-az connectedmachine extension create --name AzureMonitorLinuxAgent --publisher Microsoft.Azure.Monitor --machine-name <arc-server-name> --resource-group <resource-group-name> --location <arc-server-location>
+az connectedmachine extension create --name AzureMonitorLinuxAgent --publisher Microsoft.Azure.Monitor --type AzureMonitorLinuxAgent --machine-name <arc-server-name> --resource-group <resource-group-name> --location <arc-server-location>
 ```
 ---
 

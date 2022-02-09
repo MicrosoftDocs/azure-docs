@@ -2,8 +2,9 @@
 metadata:
   title: FAQ - Back up SAP HANA databases on Azure VMs
   description: In this article, discover answers to common questions about backing up SAP HANA databases using the Azure Backup service.
-  ms.topic: conceptual
-  ms.date: 06/23/2021
+  ms.topic: article
+  ms.service: backup
+  ms.date: 09/27/2021
     
 title: Frequently asked questions – Back up SAP HANA databases on Azure VMs
 summary: This article answers common questions about backing up SAP HANA databases using the Azure Backup service.
@@ -26,12 +27,42 @@ sections:
           Where can I find backup related alerts?
         answer: |
           Today, successful backup jobs don’t generate alerts. Alerts are generated only for backup jobs that fail. [Learn how](backup-azure-monitoring-built-in-monitor.md) to use the Azure portal to view Backup alerts.
+
+      - question: |
+          How do I check if my backup (scheduled/on-demand) is executed successfully?
+        answer: |
+          You can check the status of your backups (scheduled/on-demand) from any of the following locations:
+
+          1. **Backup jobs**: Azure Backup shows all manually triggered jobs in the Backup jobs section in the Azure portal.  <br><br>   The jobs you see in the Azure portal include database discovery and registering operations, and backup and restore operations. Scheduled jobs, including log backups aren't shown in this section. Manually triggered backups from the SAP HANA native clients (Studio/Cockpit/DBA Cockpit), are also not shown here.
+
+             :::image type="content" source="./media/sap-hana-faq-backup-azure-vm/manually-triggered-jobs.png" alt-text="Screenshot showing manually triggered jobs in the Backup jobs section in the Azure portal.":::
+
+             :::image type="content" source="./media/sap-hana-faq-backup-azure-vm/jobs-and-operations-list.png" alt-text="Screenshot showing jobs including database discovery and registering, and backup and restore operations.":::
+           
+          1. **Backup alerts**: Alerts help you monitor backups of SAP HANA databases. These help you to focus on the required events, thus eliminating the effort to frequently check multitude of events that a backup generates. For more details, see [View backup alerts](/azure/backup/sap-hana-db-manage#view-backup-alerts).
+
+          1. **Backup Reports**: Reports are another way to view the status of your backup jobs. Your reports will be as follows:
+
+             :::image type="content" source="./media/sap-hana-faq-backup-azure-vm/backup-reports.png" alt-text="Screenshot showing a type of report in Azure portal.":::
+
+             :::image type="content" source="./media/sap-hana-faq-backup-azure-vm/backup-reports-mabs.png" alt-text="Screenshot showing the other type of report in Azure portal.":::
+
+             Learn about [how to configure Azure Backup reports](/azure/backup/configure-reports).
+
+          1. **SAP HANA Native clients**: If you're a SAP HANA customer, you can also use HANA Studio, one of the most common HANA clients. In this client, navigate to **Backup Console** -> **Backup Catalog** to see the **Backup status**.
+
+             :::image type="content" source="./media/sap-hana-faq-backup-azure-vm/sap-hana-native-client-reports.png" alt-text="Screenshot showing reports in SAP HANA Native clients.":::
           
       - question: |
           Can I see scheduled backup jobs in the Backup Jobs menu?
         answer: |
           The Backup Job menu will only show on-demand backup jobs that are either in progress, have succeeded or failed. For scheduled jobs, use [Azure Monitor](./backup-azure-monitoring-use-azuremonitor.md).
           
+      - question: |
+          What’s the retention period of Auto-heal full backups triggered due to the LSNValidation errors?
+        answer: |
+          Azure Backup doesn’t set an explicit retention period on the Auto-heal full backups. This backup is retained till the time you retain the dependent Delta (differential or incremental) and Log backups. Once you delete the last dependent backup on this Auto-heal backup, the Auto-heal backup is also deleted.
+
       - question: |
           Are future databases automatically added for backup?
         answer: |
@@ -100,7 +131,7 @@ sections:
           To perform this **switch protection**, follow these steps:
           
           - [Stop protection](sap-hana-db-manage.md#stop-protection-for-an-sap-hana-database) (with retain data) on primary
-          - Run the [pre-registration script](https://aka.ms/scriptforpermsonhana) on the secondary node
+          - Run the [pre-registration script](https://go.microsoft.com/fwlink/?linkid=2173610) on the secondary node
           - [Discover the databases](tutorial-backup-sap-hana-db.md#discover-the-databases) on the secondary node and [configure backups](tutorial-backup-sap-hana-db.md#configure-backup) on them
           
           These steps must be performed manually after every fail-over. You can perform these steps through command line / HTTP REST in addition to the Azure portal. To automate these steps, you can use an Azure runbook.
@@ -124,7 +155,34 @@ sections:
           1. Then [Resume backup](sap-hana-db-manage.md#resume-protection-for-an-sap-hana-database) on Node 1 with the required policy (as the backups were stopped earlier on Node 1).
           
           Then full backup will again be triggered on Node 1 and after that completes, log backups start.
+
+          >[!Note]
+          >[Running the pre-registration script](./tutorial-backup-sap-hana-db.md#prerequisites) with custom backup user as input could help you manage your HSR backups better. This is because it ensures that both the nodes of the HSR set up have the same backup key, thereby reduces the backup sync and failure issues.
+
+      - question: |
+          What happens if I don’t Stop protection (with retain data) on the secondary/inactive node on the HSR set-up?
+        answer: |
+          1. For HANA system replication (HSR), the secondary node doesn’t accept any connections at all. Once the backup is configured, the Azure Backup service  pings periodically and fails. Sometimes, these failed attempts reflect on the primary node. After multiple failures, the user is locked, and then the primary node starts to fail with _ODBCConnectionError_.   <br><br>We’ve observed that all users don’t experience this issue. We recommend you/SAP to investigate the cause of users getting locked in the primary node when user connection fails on the secondary node.
           
+          1. Once you run the pre-registration script, the user information is updated with new password on the primary node. Then  the connection to attempt backup will be re-established. But, you might again experience the same scenario.
+          
+          1. Also, the backups (full backups) that fail on the secondary node create alerts.
+          
+          To avoid the above issues, we recommend you to stop protection for a node after it becomes secondary (so that connections aren’t attempted and user is not locked) and resume protection on it, once it becomes primary. If you don’t face this locking situation on their HSR setups and are comfortable with alerts being raised, you can configure backups on both the nodes so that the service handles the take-over and fail-back.
+
+      - question: |
+          What’s the backup and restore throughput performance that Azure Backup provides and how to set up my HANA system to use this maximum throughput?
+        answer: |
+          Refer to [the backup and restore throughput performance](/azure/backup/tutorial-backup-sap-hana-db#understanding-backup-and-restore-throughput-performance) that Azure Backup provides for HANA workloads. <br><br> To set up your HANA system to leverage the improved performance, use the following resources:
+          
+           - [Select a disk type for Azure IaaS VMs - managed disks](/azure/virtual-machines/disks-types#premium-ssd)
+           - [Performance tiers for Azure managed disks](/azure/virtual-machines/disks-change-performance)
+           - [M-series](/azure/virtual-machines/m-series)
+           - [SAP HANA Azure virtual machine storage configurations](/azure/virtual-machines/workloads/sap/hana-vm-operations-storage#solutions-with-premium-storage-and-azure-write-accelerator-for-azure-m-series-virtual-machines)
+
+          >[!Note]
+          >You can also limit the backup throughput performance. [Learn more](/azure/backup/tutorial-backup-sap-hana-db#limiting-backup-throughput-performance).
+
   - name: Restore
     questions:
       - question: |

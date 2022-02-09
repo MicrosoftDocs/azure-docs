@@ -15,7 +15,7 @@ ms.reviewer: jmprieur
 ms.custom: aaddev
 #Customer intent: As a tenant administrator, I want to restrict an application that I have registered in Azuren-e AD to a select set of users available in my Azure AD tenant
 ---
-# How to: Restrict your Azure AD app to a set of users in an Azure AD tenant
+# Restrict your Azure AD app to a set of users in an Azure AD tenant
 
 Applications registered in an Azure Active Directory (Azure AD) tenant are, by default, available to all users of the tenant who authenticate successfully.
 

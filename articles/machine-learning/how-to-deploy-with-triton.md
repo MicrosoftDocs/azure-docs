@@ -5,8 +5,6 @@ description: 'Learn to deploy your model with NVIDIA Triton Inference Server in 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.author: gopalv
-author: gvashishtha
 ms.date: 05/17/2021
 ms.topic: how-to
 ms.reviewer: larryfr
@@ -195,6 +193,16 @@ az ml service delete -n triton-densenet-onnx
 [!notebook-python[] (~/Azureml-examples-main/python-sdk/experimental/deploy-triton/1.bidaf-ncd-local.ipynb?name=delete-service)]
 
 ---
+
+## How to use Azure Machine Learning Triton Inference Server container image
+
+Learn how to use Azure Machine Learning Triton Inference Server container image with new [CLI(v2)](/cli/azure/ml?view=azure-cli-latest&preserve-view=true). The examples below use [online endpoint and deployments](concept-endpoints.md#what-are-online-endpoints-preview) concept. 
+
+1. [Deploy single Triton model](https://github.com/Azure/azureml-examples/blob/main/cli/deploy-triton-managed-online-endpoint.sh).
+1. [Deploy Triton multiple models](https://github.com/Azure/azureml-examples/blob/main/cli/deploy-triton-multiple-models-online-endpoint.sh).
+1. [Deploy Triton ensemble model](https://github.com/Azure/azureml-examples/blob/main/cli/deploy-triton-ensemble-managed-online-endpoint.sh).
+1. Check out [Triton examples](https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/online/triton).
+
 ## Troubleshoot
 
 * [Troubleshoot a failed deployment](how-to-troubleshoot-deployment.md), learn how to troubleshoot and solve, or work around, common errors you may encounter when deploying a model.

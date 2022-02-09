@@ -1,8 +1,8 @@
 ---
 title: 'Quickstart: Azure Queue Storage client library v12 - Java'
 description: Learn how to use the Azure Queue Storage client library v12 for Java to create a queue and add messages to it. Then learn how to read and delete messages from the queue. You'll also learn how to delete a queue.
-author: twooley
-ms.author: twooley
+author: normesta
+ms.author: normesta
 ms.date: 12/01/2020
 ms.topic: quickstart
 ms.service: storage

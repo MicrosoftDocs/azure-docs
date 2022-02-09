@@ -2,7 +2,7 @@
 title: Tutorial - Understand Cryptography and X.509 certificates for Azure IoT Hub | Microsoft Docs
 description: Tutorial - Understand cryptography and X.509 PKI for Azure IoT Hub
 author: v-gpettibone
-manager: philmea
+
 ms.service: iot-hub
 services: iot-hub
 ms.topic: tutorial

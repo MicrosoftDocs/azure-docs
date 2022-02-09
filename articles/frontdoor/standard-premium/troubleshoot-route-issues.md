@@ -5,8 +5,8 @@ services: frontdoor
 author: duongau
 ms.service: frontdoor
 ms.topic: how-to
-ms.date: 02/18/2021
-ms.author: qixwang
+ms.date: 09/08/2021
+ms.author: duau
 ---
 
 # Troubleshooting common routing problems with Azure Front Door Standard/Premium
@@ -19,19 +19,31 @@ This article describes how to troubleshoot common routing problems that you migh
 
 * Regular requests sent to your backend without going through Azure Front Door are succeeding. Going via Azure Front Door results in 503 error responses.
 * The failure from Azure Front Door typically shows after about 30 seconds.
+* Intermittent 503 errors with log `ErrorInfo: OriginInvalidResponse`.
 
 ### Cause
 
-The cause of this problem can be one of two things:
+The cause of this problem can be one of three things:
  
 * Your origin is taking longer than the timeout configured (default is 30 seconds) to receive the request from Azure Front Door.
-* The time it takes to send a response to the request from Azure Front Door is taking longer than the timeout value. 
+* The time it takes to send a response to the request from Azure Front Door is taking longer than the timeout value.
+* Client sent a byte range request with `Accept-Encoding header` (compression enabled).
 
 ### Troubleshooting steps
 
 * Send the request to your backend directly (without going through Azure Front Door). See how long your backend usually takes to respond.
 * Send the request via Azure Front Door and see if you're getting any 503 responses. If not, the problem might not be a timeout issue. Contact support.
-* If going through Azure Front Door results in a 503 error response code, configure the `sendReceiveTimeout` field for Azure Front Door. You can extend the default timeout up to 4 minutes (240 seconds). The setting is under `Endpoint Setting` and is called `Origin response timeout`. 
+* If requests going through Azure Front Door results in a 503 error response code, configure the **Origin response timeout (in seconds)** for the endpoint. You can extend the default timeout to up to 4 minutes (240 seconds). The setting can be configured by going to the *Endpoint manager* and selecting **Edit endpoint**.
+
+    :::image type="content" source="..\media\troubleshoot-route-issues\origin-response-timeout-1.png" alt-text="Screenshot of selecting edit endpoint from Endpoint manager.":::
+
+    Then select **Endpoint properties** to configure the **Origin response timeout**:
+
+    :::image type="content" source="..\media\troubleshoot-route-issues\origin-response-timeout-2.png" alt-text="Screenshot of select endpoint properties and Origin response timeout field." lightbox="..\media\troubleshoot-route-issues\origin-response-timeout-2-expanded.png":::
+
+* If the timeout doesn’t resolve the issue, use a tool like Fiddler or your browser's developer tool to check if the client is sending byte range requests with Accept-Encoding headers, leading to the origin responding with different content lengths. If yes, then you can either disable compression on the Origin/Azure Front Door or create a Rules Set rule to remove `accept-encoding` from the request for byte range requests.
+
+    :::image type="content" source="..\media\troubleshoot-route-issues\remove-encoding-rule.png" alt-text="Screenshot of accept-encoding rule in a Rule Set.":::
 
 ## Requests sent to the custom domain return a 400 status code
 

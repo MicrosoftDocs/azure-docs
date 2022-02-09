@@ -5,7 +5,7 @@ services: event-hubs
 author: spelluru
 ms.service: event-hubs
 ms.topic: include
-ms.date: 03/15/2021
+ms.date: 08/30/2021
 ms.author: spelluru
 ms.custom: "include file"
 

@@ -5,7 +5,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: how-to
-ms.date: 03/20/2020
+ms.date: 08/26/2021
 author: gahl-levy
 ms.author: gahllevy
 ms.custom: seodec18, devx-track-js
@@ -48,12 +48,14 @@ After you create the database, you'll use the name in the `COSMOSDB_DBNAME` envi
 
 1. To create a Node.js application in the folder of your choice, run the following command in a node command prompt.
 
-    ```npm init```
+   `npm init`
 
-    Answer the questions and your project will be ready to go.
+   Answer the questions and your project will be ready to go.
 
 2. Add a new file to the folder and name it ```index.js```.
+
 3. Install the necessary packages using one of the ```npm install``` options:
+
    * Mongoose: ```npm install mongoose@5 --save```
 
      > [!Note]
@@ -64,7 +66,7 @@ After you create the database, you'll use the name in the `COSMOSDB_DBNAME` envi
      >[!Note]
      > The ```--save``` flag adds the dependency to the package.json file.
 
-4. Import the dependencies in your index.js file.
+4. Import the dependencies in your `index.js` file.
 
     ```JavaScript
    var mongoose = require('mongoose');
@@ -320,5 +322,8 @@ As you can see, it is easy to work with Mongoose discriminators. So, if you have
 - Learn how to [use Studio 3T](connect-using-mongochef.md) with Azure Cosmos DB's API for MongoDB.
 - Learn how to [use Robo 3T](connect-using-robomongo.md) with Azure Cosmos DB's API for MongoDB.
 - Explore MongoDB [samples](nodejs-console-app.md) with Azure Cosmos DB's API for MongoDB.
+- Trying to do capacity planning for a migration to Azure Cosmos DB? You can use information about your existing database cluster for capacity planning.
+    - If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](../convert-vcore-to-request-unit.md) 
+    - If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-capacity-planner.md)
 
 [dbleveltp]: ./media/connect-using-mongoose/db-level-throughput.png

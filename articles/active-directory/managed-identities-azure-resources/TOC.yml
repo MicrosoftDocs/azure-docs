@@ -54,6 +54,8 @@
     href: ../../event-hubs/authenticate-managed-identity.md?context=%2fazure%2factive-directory%2fmanaged-identities-azure-resources%2fcontext%2fmsi-context
   - name: Azure Container Instances
     href: ../../container-instances/container-instances-managed-identity.md?context=%2fazure%2factive-directory%2fmanaged-identities-azure-resources%2fcontext%2fmsi-context
+  - name: View managed identity activity
+    href: how-to-view-managed-identity-activity.md
 - name: Concepts
   items:
     - name: Managed identities and Azure VMs
@@ -121,6 +123,8 @@
     items:
     - name: PowerShell
       href: how-to-assign-app-role-managed-identity-powershell.md
+  - name: View managed identity activity
+    href: how-to-view-managed-identity-activity.md
 
 - name: Reference
   items:

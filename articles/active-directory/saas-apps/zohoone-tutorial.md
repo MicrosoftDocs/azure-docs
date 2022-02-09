@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Zoho One | Microsoft Docs'
+title: 'Tutorial: Azure AD SSO integration with Zoho One'
 description: Learn how to configure single sign-on between Azure Active Directory and Zoho One.
 services: active-directory
 author: jeevansd
@@ -9,10 +9,10 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/20/2021
+ms.date: 09/14/2021
 ms.author: jeedes
 ---
-# Tutorial: Azure Active Directory integration with Zoho One
+# Tutorial: Azure AD SSO integration with Zoho One
 
 In this tutorial, you'll learn how to integrate Zoho One with Azure Active Directory (Azure AD). When you integrate Zoho One with Azure AD, you can:
 
@@ -31,7 +31,7 @@ To configure Azure AD integration with Zoho One, you need the following items:
 
 In this tutorial, you configure and test Azure AD single sign-on in a test environment.
 
-* Zoho One supports **SP** and **IDP** initiated SSO
+* Zoho One supports **SP** and **IDP** initiated SSO.
 
 > [!NOTE]
 > Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
@@ -60,7 +60,7 @@ To configure and test Azure AD SSO with Zoho One, perform the following steps:
     1. **[Create Zoho One test user](#create-zoho-one-test-user)** - to have a counterpart of B.Simon in Zoho One that is linked to the Azure AD representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-### Configure Azure AD SSO
+## Configure Azure AD SSO
 
 Follow these steps to enable Azure AD SSO in the Azure portal.
 
@@ -72,7 +72,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 4. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, perform the following steps:
 
-    a. In the **Identifier** text box, type the URL:
+    a. In the **Identifier** text box, type the value:
     `one.zoho.com`
 
     b. In the **Reply URL** text box, type a URL using the following pattern:
@@ -126,7 +126,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
 1. In the **Add Assignment** dialog, click the **Assign** button.
 
-### Configure Zoho One SSO
+## Configure Zoho One SSO
 
 1. In a different web browser window, sign in to your Zoho One company site as an administrator.
 
@@ -190,7 +190,7 @@ To enable Azure AD users to sign in to Zoho One, they must be provisioned into Z
 
 	c. Click **Add**.
 
-### Test SSO
+## Test SSO
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
 
@@ -204,7 +204,7 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Click on **Test this application** in Azure portal and you should be automatically signed in to the Zoho One for which you set up the SSO. 
 
-You can also use Microsoft My Apps to test the application in any mode. When you click the Zoho One tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Zoho One for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+You can also use Microsoft My Apps to test the application in any mode. When you click the Zoho One tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Zoho One for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Next steps
 

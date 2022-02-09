@@ -4,7 +4,7 @@ title: Configure autoscale of an Azure API Management instance | Microsoft Docs
 description: This topic describes how to set up autoscale behavior for an Azure API Management instance.
 services: api-management
 documentationcenter: ''
-author: mikebudzynski
+author: dlepow
 manager: anneta
 editor: ''
 
@@ -12,7 +12,7 @@ ms.service: api-management
 ms.workload: integration
 ms.topic: article
 ms.date: 06/20/2018
-ms.author: apimpm
+ms.author: danlep
 ---
 
 # Automatically scale an Azure API Management instance  

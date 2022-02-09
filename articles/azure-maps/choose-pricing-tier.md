@@ -7,7 +7,7 @@ ms.date: 04/27/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: philmea
+
 ---
 
 # Choose the right pricing tier in Azure Maps

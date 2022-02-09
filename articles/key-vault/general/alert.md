@@ -1,5 +1,5 @@
 ---
-title: Azure Key Vault monitoring and alerting | Microsoft Docs
+title: Azure Key Vault alerts
 description: Create a dashboard to monitor the health of your key vault and configure alerts.
 services: key-vault
 author: msmbaldwin
@@ -14,7 +14,7 @@ ms.author: mbaldwin
 ---
 
 
-# Monitoring and alerting for Azure Key Vault
+# Alerting for Azure Key Vault
 
 ## Overview
 
@@ -26,63 +26,6 @@ This document will cover the following topics:
 + How to create alerts at specified thresholds
 
 Azure Monitor for Key Vault combines both logs and metrics to provide a global monitoring solution. [Learn more about Azure Monitor for Key Vault here](../../azure-monitor/insights/key-vault-insights-overview.md#introduction-to-key-vault-insights)
-
-## Basic Key Vault metrics to monitor
-
-+ Vault Availability  
-+ Vault Saturation 
-+ Service API Latency 
-+ Total Service API Hits (Filter by Activity Type) 
-+ Error Codes (Filter by Status Code) 
-
-**Vault Availability** -  This metric should always be at 100% this is an important metric to monitor, since it can quickly show you if your key vault experienced an outage. 
-
-**Vault Saturation** – The number of requests per second that a key vault can serve is based on the type of operation being performed. Some vault operations have a lower requests-per-second threshold. This metric aggregates the total usage of your key vault across all operation types to come up with a percentage value that indicates your current key vault usage. For a full list of key vault service limits, see the following document. [Azure Key Vault Service Limits](service-limits.md)
-
-**Service API Latency** - This metric shows the average latency of calls to key vault, measured at the service. It does not include time consumed by client or by the network between client and service.
-
-**Total API Hits** - This metric shows all of the calls made to your key vault. This will help you identify which applications are calling your key vault. 
-
-**Error Codes** – This metric will show you if your key vault is experiencing an unusual amount of errors. For a full list of error codes and troubleshooting guidance, see the following document. [Azure Key Vault REST API Error Codes](rest-error-codes.md)
-
-## How to configure metrics and create a dashboard
-
-1. Login to the Azure portal
-2. Navigate to your Key Vault
-3. Select **Metrics** under **Monitoring** 
-
-> [!div class="mx-imgBorder"]
-> ![Screenshot that highlights the Metrics option under the Monitoring section.](../media/alert-1.png)
-
-4. Update the title of the chart to what you want to see on your dashboard. 
-5. Select the scope. In this example we will select a single key vault. 
-6. Select the Metric **Overall Vault Availability** and Aggregation **Avg** 
-7. Update the time range to the Last 24 Hours and update the time granularity to 1 minute. 
-
-> [!div class="mx-imgBorder"]
-> ![Screenshot that shows the Overall Vault Availablility metric.](../media/alert-2.png)
-
-8. Repeat the steps above for the Vault Saturation and Service API Latency metrics. Select **Pin to Dashboard** to save your metrics into a dashboard. 
-
-> [!IMPORTANT]
-> Select "Pin to Dashboard" and save every metric you configure. If you leave the page and return to it without saving, your configuration changes will be lost. 
-
-9. To monitor all of the types of operations on the key vault, use the **Total Service API Hits** Metric, and Select **Apply Splitting by Activity Type**
-
-> [!div class="mx-imgBorder"]
-> ![Screenshot that shows the Apply Splitting button.](../media/alert-3.png)
-
-10. To monitor for error codes on the key vault, use the **Total Service API Results** Metric, and Select **Apply Splitting by Activity Type**
-
-> [!div class="mx-imgBorder"]
-> ![Screenshot that shows the selected Total Service API Results metric.](../media/alert-4.png)
-
-Now you will have a dashboard that looks like this. You can click the 3 dots on the top right of each tile and you can rearrange and resize the tiles as you need. 
-
-Once you save and publish the dashboard, it will create a new resource in your Azure subscription. You will be able to see it at anytime by searching for "shared dashboard". 
-
-> [!div class="mx-imgBorder"]
-> ![Screenshot that shows the published dashboard.](../media/alert-5.png)
 
 ## How to configure alerts on your Key Vault 
 
@@ -209,5 +152,9 @@ Please see the following configuration parameters.
 
 ## Next steps
 
-Congratulations, you have now successfully created a monitoring dashboard and configured alerts for your key vault! 
+Congratulations, you have now successfully created a monitoring dashboard and configured alerts for your key vault!
+
 Once you have followed all of the steps above, you should receive email alerts when your key vault meets the alert criteria you configured. An example is shown below. Use the tools you have set up in this article to actively monitor the health of your key vault.
+
+- [Monitor Key Vault](monitor-key-vault.md)
+- [Monitoring Key Vault data reference](monitor-key-vault-reference.md)

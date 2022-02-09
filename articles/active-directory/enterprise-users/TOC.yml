@@ -2,7 +2,7 @@
   href: index.yml
 - name: Overview
   items:
-  - name: Azure AD users, groups, licensing, and roles
+  - name: Azure AD users, groups, and licensing
     href: directory-overview-user-model.md
 - name: Quickstarts
   items:
@@ -30,7 +30,7 @@
 - name: How-to guides
   expanded: true
   items:
-  - name: Manage users
+  - name: Users
     items: 
     - name: Create users 
       href: ../fundamentals/add-users-azure-active-directory.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
@@ -62,25 +62,25 @@
       href: users-restrict-guest-permissions.md
     - name: Dynamic groups and guests   
       href: ../external-identities/use-dynamic-groups.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
-  - name: Manage your organization
+  - name: Organization
     items:
-    - name: Azure AD organizations    
+    - name: Azure AD tenant organizations    
       href: ../fundamentals/active-directory-whatis.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
+    - name: Delete a tenant    
+      href: directory-delete-howto.md
+    - name: Multiple tenants    
+      href: licensing-directory-independence.md
+    - name: Take over a tenant
+      href: domains-admin-takeover.md
     - name: Manage domain names
       href: domains-manage.md
     - name: Verify subdomains as managed
       href: domains-verify-custom-subdomain.md
-    - name: Delete a directory    
-      href: directory-delete-howto.md
-    - name: Multiple directories    
-      href: licensing-directory-independence.md
-    - name: Self-service signup    
+    - name: Self-service sign-up    
       href: directory-self-service-signup.md
-    - name: Take over a directory    
-      href: domains-admin-takeover.md
     - name: Azure AD Connect    
       href: ../hybrid/whatis-hybrid-identity.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
-  - name: Manage groups
+  - name: Groups
     items: 
     - name: Manage access with groups
       href: ../fundamentals/active-directory-manage-groups.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context  
@@ -130,7 +130,7 @@
       href: groups-self-service-management.md
     - name: Assign sensitivity labels
       href: groups-assign-sensitivity-labels.md
-  - name: Assign licenses
+  - name: Licenses
     items:
     - name: Assign licenses to users    
       href: ../fundamentals/license-users-groups.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
@@ -148,7 +148,7 @@
       href: licensing-ps-examples.md
     - name: Service plan IDs for licensing
       href: licensing-service-plan-reference.md
-  - name: Manage sign-in
+  - name: Sign-in
     items:    
     - name: Customize company branding    
       href: ../fundamentals/customize-branding.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context

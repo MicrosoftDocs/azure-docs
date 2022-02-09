@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Tutorial to build an Azure Digital Twins scenario using a sample command-line application
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 5/8/2020
+ms.date: 9/1/2021
 ms.topic: tutorial
 ms.service: digital-twins
 
@@ -42,7 +42,7 @@ Now that the app and authentication are set up, run the project with this button
 
 A console window will open, carry out authentication, and wait for a command. 
 
-Here is a screenshot of what the project console looks like:
+Here's a screenshot of what the project console looks like:
 
 :::image type="content" source="media/tutorial-command-line/app/command-line-app.png" alt-text="Screenshot of the welcome message from the command-line app." lightbox="media/tutorial-command-line/app/command-line-app.png":::
 
@@ -57,7 +57,7 @@ Now that the Azure Digital Twins instance and sample app are set up, you can beg
 
 The first step in creating an Azure Digital Twins solution is defining twin [models](concepts-models.md) for your environment. 
 
-Models are similar to classes in object-oriented programming languages; they provide user-defined templates for [digital twins](concepts-twins-graph.md) to follow and instantiate later. They are written in a JSON-like language called **Digital Twins Definition Language (DTDL)**, and can define a twin's *properties*, *telemetry*, *relationships*, and *components*.
+Models are similar to classes in object-oriented programming languages; they provide user-defined templates for [digital twins](concepts-twins-graph.md) to follow and instantiate later. They're written in a JSON-like language called **Digital Twins Definition Language (DTDL)**, and can define a twin's *properties*, *telemetry*, *relationships*, and *components*.
 
 > [!NOTE]
 > DTDL also allows for the definition of *commands* on digital twins. However, commands are not currently supported in the Azure Digital Twins service.
@@ -70,11 +70,11 @@ Select *Room.json* to open it in the editing window, and change it in the follow
 
 ### Upload models to Azure Digital Twins
 
-After designing models, you need to upload them to your Azure Digital Twins instance. This configures your Azure Digital Twins service instance with your own custom domain vocabulary. Once you have uploaded the models, you can create twin instances that use them.
+After designing models, you need to upload them to your Azure Digital Twins instance. Doing so configures your Azure Digital Twins service instance with your own custom domain vocabulary. Once you've uploaded the models, you can create twin instances that use them.
 
 1. After editing the Room.json file in the previous section, start running the console app again.
 
-1. In the project console window, run the following command to upload your updated Room model, as well as a Floor model that you'll also use in the next section to create different types of twins.
+1. In the project console window, run the following command to upload your updated Room model along with a Floor model that you'll also use in the next section to create different types of twins.
 
     ```cmd/sh
     CreateModels Room Floor
@@ -82,7 +82,7 @@ After designing models, you need to upload them to your Azure Digital Twins inst
     
     The output should indicate the models were created successfully.
 
-1. Verify the models were created by running the command `GetModels true`. This will query the Azure Digital Twins instance for all models that have been uploaded, and print out their full information. Look for the edited Room model in the results:
+1. Verify the models were created by running the command `GetModels true`. This command will print the full information for all the models that have been uploaded to your Azure Digital Twins instance. Look for the edited Room model in the results:
 
     :::image type="content" source="media/tutorial-command-line/app/output-get-models.png" alt-text="Screenshot of the result from GetModels, showing the updated Room model." lightbox="media/tutorial-command-line/app/output-get-models.png":::
 
@@ -90,13 +90,13 @@ After designing models, you need to upload them to your Azure Digital Twins inst
 
 The sample application also handles errors from the service. 
 
-Re-run the `CreateModels` command to try re-uploading one of the same models you just uploaded, for a second time:
+Rerun the `CreateModels` command to try re-uploading one of the same models you uploaded, for a second time:
 
 ```cmd/sh
 CreateModels Room
 ```
 
-As models cannot be overwritten, this will now return a service error.
+As models cannot be overwritten, this command will now return a service error.
 For the details on how to delete existing models, see [Manage DTDL models](how-to-manage-model.md).
 ```cmd/sh
 Response 409: Service request failed.
@@ -116,9 +116,9 @@ Content-Type: application/json; charset=utf-8
 
 Now that some models have been uploaded to your Azure Digital Twins instance, you can create [digital twins](concepts-twins-graph.md) based on the model definitions. Digital twins represent the entities within your business environment—things like sensors on a farm, rooms in a building, or lights in a car. 
 
-To create a digital twin, you use the `CreateDigitalTwin` command. You must reference the model that the twin is based on, and can optionally define initial values for any properties in the model. You do not have to pass any relationship information at this stage.
+To create a digital twin, you use the `CreateDigitalTwin` command. You must reference the model that the twin is based on, and can optionally define initial values for any properties in the model. You don't have to pass any relationship information at this stage.
 
-1. Run this code in the running project console to create several twins, based on the Room model you updated earlier and another model, Floor. Recall that Room has three properties, so you can provide arguments with the initial values for these. (Initializing property values is optional in general, but they're needed for this tutorial.)
+1. Run this code in the running project console to create several twins, based on the Room model you updated earlier and another model, Floor. Recall that Room has three properties, so you can provide arguments with the initial values for these properties. (Initializing property values is optional in general, but they're needed for this tutorial.)
 
     ```cmd/sh
     CreateDigitalTwin dtmi:example:Room;2 room0 RoomName string Room0 Temperature double 70 HumidityLevel double 30
@@ -132,6 +132,8 @@ To create a digital twin, you use the `CreateDigitalTwin` command. You must refe
     :::image type="content" source="media/tutorial-command-line/app/output-create-digital-twin.png" alt-text="Screenshot showing an excerpt from the result of the CreateDigitalTwin commands, which includes floor0, floor1, room0, and room1." lightbox="media/tutorial-command-line/app/output-create-digital-twin.png":::
 
 1. You can verify that the twins were created by running the `Query` command. This command queries your Azure Digital Twins instance for all the digital twins it contains. Look for the room0, room1, floor0, and floor1 twins in the results.
+
+[!INCLUDE [digital-twins-query-latency-note.md](../../includes/digital-twins-query-latency-note.md)]
 
 ### Modify a digital twin
 
@@ -161,7 +163,7 @@ You can also modify the properties of a twin you've created.
 
 Next, you can create some **relationships** between these twins, to connect them into a [twin graph](concepts-twins-graph.md). Twin graphs are used to represent an entire environment. 
 
-The types of relationships that you can create from one twin to another are defined within the [models](#model-a-physical-environment-with-dtdl) that you uploaded earlier. The [model definition for Floor](https://github.com/azure-Samples/digital-twins-samples/blob/master/AdtSampleApp/SampleClientApp/Models/Floor.json) specifies that floors can have a type of relationship called *contains*. This makes it possible to create a *contains*-type relationship from each Floor twin to the corresponding room that it contains.
+The types of relationships that you can create from one twin to another are defined within the [models](#model-a-physical-environment-with-dtdl) that you uploaded earlier. The [model definition for Floor](https://github.com/azure-Samples/digital-twins-samples/blob/master/AdtSampleApp/SampleClientApp/Models/Floor.json) specifies that floors can have a type of relationship called *contains*, which makes it possible to create a *contains*-type relationship from each Floor twin to the corresponding room that it contains.
 
 To add a relationship, use the `CreateRelationship` command. Specify the twin that the relationship is coming from, the type of relationship, and the twin that the relationship is connecting to. Lastly, give the relationship a unique ID.
 
@@ -183,7 +185,7 @@ To add a relationship, use the `CreateRelationship` command. Specify the twin th
     
     :::image type="content" source="media/tutorial-command-line/app/output-create-relationship.png" alt-text="Screenshot of an excerpt from the result of the CreateRelationship commands, which includes relationship0 and relationship1." lightbox="media/tutorial-command-line/app/output-create-relationship.png":::
 
-1. You can verify the relationships with any of the following commands, which query the relationships in your Azure Digital Twins instance.
+1. You can verify the relationships with any of the following commands, which will print the relationships in your Azure Digital Twins instance.
     * To see all relationships coming off of each floor (viewing the relationships from one side):
         ```cmd/sh
         GetRelationships floor0
@@ -208,6 +210,8 @@ The twins and relationships you have set up in this tutorial form the following 
 
 A main feature of Azure Digital Twins is the ability to [query](concepts-query-language.md) your twin graph easily and efficiently to answer questions about your environment. 
 
+[!INCLUDE [digital-twins-query-latency-note.md](../../includes/digital-twins-query-latency-note.md)]
+
 Run the following commands in the running project console to answer some questions about the sample environment.
 
 1. **What are all the entities from my environment represented in Azure Digital Twins?** (query all)
@@ -216,11 +220,11 @@ Run the following commands in the running project console to answer some questio
     Query
     ```
 
-    This allows you to take stock of your environment at a glance, and make sure everything is represented as you want it to be within Azure Digital Twins. The result of this is an output containing each digital twin with its details. Here is an excerpt:
+    This command allows you to take stock of your environment at a glance, and make sure everything is represented as you want it to be within Azure Digital Twins. The result of this command is an output containing each digital twin with its details. Here's an excerpt:
 
     :::image type="content" source="media/tutorial-command-line/app/output-query-all.png" alt-text="Screenshot showing a partial result from the twin query, including room0 and floor1.":::
 
-    >[!NOTE]
+    >[!TIP]
     >In the sample project, the command `Query` without any additional arguments is the equivalent of `Query SELECT * FROM DIGITALTWINS`. To query all the twins in your instance using the [Query APIs](/rest/api/digital-twins/dataplane/query) or the [CLI commands](/cli/azure/dt?view=azure-cli-latest&preserve-view=true), use the longer (complete) query.
 
 1. **What are all the rooms in my environment?** (query by model)
@@ -229,7 +233,7 @@ Run the following commands in the running project console to answer some questio
     Query SELECT * FROM DIGITALTWINS T WHERE IS_OF_MODEL(T, 'dtmi:example:Room;2')
     ```
 
-    You can restrict your query to twins of a certain type, to get more specific information about what's represented. The result of this shows room0 and room1, but does **not** show floor0 or floor1 (since they are floors, not rooms).
+    You can restrict your query to twins of a certain type, to get more specific information about what's represented. The result of this shows room0 and room1, but does **not** show floor0 or floor1 (since they're floors, not rooms).
     
     :::image type="content" source="media/tutorial-command-line/app/output-query-model.png" alt-text="Screenshot of the result from the model query, showing only room0 and room1.":::
 
@@ -249,7 +253,7 @@ Run the following commands in the running project console to answer some questio
     Query SELECT * FROM DigitalTwins T WHERE T.Temperature > 75
     ```
 
-    You can query the graph based on properties to answer a variety of questions, including finding outliers in your environment that might need attention. Other comparison operators (*<*,*>*, *=*, or *!=*) are also supported. room1 shows up in the results here, because it has a temperature of 80.
+    You can query the graph based on properties to answer various questions, including finding outliers in your environment that might need attention. Other comparison operators (*<*,*>*, *=*, or *!=*) are also supported. room1 shows up in the results here, because it has a temperature of 80.
 
     :::image type="content" source="media/tutorial-command-line/app/output-query-property.png" alt-text="Screenshot of the result from the property query, showing only room1.":::
 

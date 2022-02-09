@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/18/2021
+ms.date: 09/16/2021
 ms.author: justinha
 
 ---
@@ -24,7 +24,7 @@ In a hybrid environment, DNS zones and records configured in other DNS namespace
 This article shows you how to install the DNS Server tools then use the DNS console to manage records and create conditional forwarders in Azure AD DS.
 
 >[!NOTE]
->Creating or changing server-level DNS forwarders is not supported and will cause issues for the Azure AD DS managed domain.
+>Creating or changing root hints or server-level DNS forwarders is not supported and will cause issues for the Azure AD DS managed domain. 
 
 ## Before you begin
 

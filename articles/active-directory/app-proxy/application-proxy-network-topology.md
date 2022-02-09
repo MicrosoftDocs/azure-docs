@@ -22,7 +22,7 @@ This article explains how to optimize traffic flow and network topology consider
 When an application is published through Azure AD Application Proxy, traffic from the users to the applications flows through three connections:
 
 1. The user connects to the Azure AD Application Proxy service public endpoint on Azure
-1. The Application Proxy service connects to the Application Proxy connector
+1. The Application Proxy connector connects to the Application Proxy service (outbound)
 1. The Application Proxy connector connects to the target application
 
 :::image type="content" source="./media/application-proxy-network-topology/application-proxy-three-hops.png" alt-text="Diagram showing traffic flow from user to target application." lightbox="./media/application-proxy-network-topology/application-proxy-three-hops.png":::

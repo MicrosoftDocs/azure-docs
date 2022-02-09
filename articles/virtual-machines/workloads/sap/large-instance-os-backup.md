@@ -113,12 +113,12 @@ The information below describes the steps to do an operating system file-level b
 
 ### Take a manual backup
 
-Get the latest Microsoft Snapshot Tools for SAP HANA as explained in a series of articles starting with [What is Azure Application Consistent Snapshot tool](../../../azure-netapp-files/azacsnap-introduction.md) and configure and test them as described in these articles:
+Get the latest Microsoft Snapshot Tools for SAP HANA as explained in a series of articles starting with [What is Azure Application Consistent Snapshot tool](../../../azure-netapp-files/azacsnap-introduction.md). Configure and test them as described in these articles:
 
 - [Configure Azure Application Consistent Snapshot tool](../../../azure-netapp-files/azacsnap-cmd-ref-configure.md)
 - [Test Azure Application Consistent Snapshot tool](../../../azure-netapp-files/azacsnap-cmd-ref-test.md) 
 
-to run regularly via `crontab` as described in [Back up using Azure Application Consistent Snapshot tool](../../../azure-netapp-files/azacsnap-cmd-ref-backup.md). 
+This review will prepare you to run backup regularly via `crontab` as described in [Back up using Azure Application Consistent Snapshot tool](../../../azure-netapp-files/azacsnap-cmd-ref-backup.md). 
 
 For more information, see these references:
 

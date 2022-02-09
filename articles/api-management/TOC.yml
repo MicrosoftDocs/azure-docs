@@ -84,6 +84,8 @@
         href: automation-manage-api-management.md
       - name: API import restrictions
         href: api-management-api-import-restrictions.md
+      - name: Virtual network overview
+        href: virtual-network-concepts.md
       - name: Self-hosted gateway overview
         href: self-hosted-gateway-overview.md
       - name: Observability
@@ -92,6 +94,8 @@
         href: devops-api-development-templates.md
       - name: Soft-delete
         href: soft-delete.md
+      - name: Compute platform
+        href: compute-infrastructure.md
 
 
 
@@ -218,6 +222,12 @@
                   href: developer-portal-use-community-widgets.md
                 - name: Test self-hosted portal
                   href: developer-portal-testing.md
+            - name: Monetize APIs 
+              items:  
+                - name: Monetization with Azure API Management
+                  href: monetization-overview.md
+                - name: How API Management supports monetization
+                  href: monetization-support.md
             - name: Deprecated portal
               items:
                 - name: Deprecated portal - customize the portal
@@ -311,7 +321,7 @@
               href: api-management-configuration-repository-git.md
             - name: Use role-based access control
               href: api-management-role-based-access-control.md
-            - name: Migrate API Management instances
+            - name: Move instances between regions
               href: api-management-howto-migrate.md
             - name: Use managed identities for Azure resources
               href: api-management-howto-use-managed-service-identity.md

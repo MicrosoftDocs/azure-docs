@@ -95,23 +95,23 @@ In this section, you create a self-hosted integration runtime and associate it w
 
 8. On the **Register Integration Runtime (Self-hosted)** page, paste the key you saved in the previous section, and select **Register**. 
 
-    ![Register the integration runtime](media/data-factory-create-install-integration-runtime/register-integration-runtime.png)
+    :::image type="content" source="media/data-factory-create-install-integration-runtime/register-integration-runtime.png" alt-text="Register the integration runtime":::
 
 9. On the **New Integration Runtime (Self-hosted) Node** page, select **Finish**. 
 
 10. When the self-hosted integration runtime is registered successfully, you see the following message:
 
-    ![Registered successfully](media/data-factory-create-install-integration-runtime/registered-successfully.png)
+    :::image type="content" source="media/data-factory-create-install-integration-runtime/registered-successfully.png" alt-text="Registered successfully":::
 
 14. On the **Register Integration Runtime (Self-hosted)** page, select **Launch Configuration Manager**.
 
 15. When the node is connected to the cloud service, you see the following page:
 
-    ![Node is connected page](media/data-factory-create-install-integration-runtime/node-is-connected.png)
+    :::image type="content" source="media/data-factory-create-install-integration-runtime/node-is-connected.png" alt-text="Node is connected page":::
 
 16. Now, test the connectivity to your SQL Server database.
 
-    ![Diagnostics tab](media/data-factory-create-install-integration-runtime/config-manager-diagnostics-tab.png)   
+    :::image type="content" source="media/data-factory-create-install-integration-runtime/config-manager-diagnostics-tab.png" alt-text="Diagnostics tab":::   
 
     a. On the **Configuration Manager** page, go to the **Diagnostics** tab.
 

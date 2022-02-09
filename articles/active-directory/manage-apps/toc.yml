@@ -5,26 +5,22 @@
     items:
     - name: What is application management?
       href: what-is-application-management.md
-    - name: What is single sign-on (SSO)?
-      href: what-is-single-sign-on.md
     - name: What's new in docs?
       href: whats-new-docs.md
   - name: Quickstarts
     expanded: true
     items:
-    - name: Add an app
+    - name: Add an application
       href: add-application-portal.md
-    - name: Configure an app
-      href: add-application-portal-configure.md
-    - name: Assign users to an app
+    - name: Assign a user
       href: add-application-portal-assign-users.md
-    - name: Set up SAML-based single sign-on
+    - name: Enable single sign-on
       href: add-application-portal-setup-sso.md
-    - name: Set up OIDC-based single sign-on
-      href: add-application-portal-setup-oidc-sso.md
-    - name: View your apps
+    - name: Configure properties
+      href: add-application-portal-configure.md
+    - name: View applications
       href: view-applications-portal.md
-    - name: Delete an app
+    - name: Delete applications
       href: delete-application-portal.md
   - name: Tutorials
     items:
@@ -49,6 +45,8 @@
       href: application-management-fundamentals.md
     - name: App management common scenarios
       href: common-scenarios.md
+    - name: Home realm discovery policy
+      href: home-realm-discovery-policy.md
     - name: Planning a cloud app integration
       items:
       - name: Get started with app integration
@@ -57,22 +55,10 @@
         href: my-apps-deployment-plan.md
     - name: Single sign-on
       items:
-      - name: Plan a single sign-on deployment
+      - name: Plan for deployment
         href: plan-sso-deployment.md
-      - name: Single sign-on options
-        href: sso-options.md
-      - name: OIDC-based SSO
-        href: configure-oidc-single-sign-on.md
-      - name: SAML-based SSO
-        href: configure-saml-single-sign-on.md
-      - name: Password-based SSO
-        href: configure-password-single-sign-on-non-gallery-applications.md
-      - name: Linked-based SSO
-        href: configure-linked-sign-on.md
-      - name: Header-based SSO (on-prem apps)
-        href: ../app-proxy/application-proxy-configure-single-sign-on-with-headers.md
-      - name: One-click SSO
-        href: one-click-sso-tutorial.md
+      - name: What is single sign-on?
+        href: what-is-single-sign-on.md
     - name: Application security
       items:
       - name: App access options
@@ -81,6 +67,8 @@
         href: certificate-signing-options.md
       - name: Manage certificates
         href: manage-certificates-for-federated-single-sign-on.md
+      - name: Protect against consent phishing
+        href: protect-against-consent-phishing.md
       - name: Tenant restrictions
         href: tenant-restrictions.md
       - name: Configure SAML token encryption
@@ -92,7 +80,9 @@
   - name: How-to guides
     expanded: false
     items:
-    - name: Assign users and manage access to apps
+    - name: Assign owners
+      href: assign-app-owners.md
+    - name: Manage access
       items:
       - name: Consent and permissions
         items:
@@ -112,25 +102,21 @@
           href: grant-admin-consent.md
         - name: Review permissions granted to apps
           href: manage-application-permissions.md
-      - name: Manage user assignment for an app
+      - name: Manage user assignment
         href: assign-user-or-group-access-portal.md
       - name: Create collections on My Apps
         href: access-panel-collections.md
-      - name: Use self-service app access
-        href: access-panel-manage-self-service-access.md
-      - name: Methods for removing a user's access to an app
-        href: methods-for-removing-user-access.md
-      - name: Hide app from a user
+      - name: Enable self-service app access
+        href: manage-self-service-access.md
+      - name: Hide an app
         href: hide-application-from-user-portal.md
       - name: Disable user sign-on
         href: disable-user-sign-in-portal.md
-      - name: Configure self-service app assignment
-        href: manage-self-service-access.md
-      - name: Force auto-acceleration through Home Realm Discovery policy
+      - name: Force auto-acceleration
         href: configure-authentication-for-federated-users-portal.md
-      - name: Prevent sign-in auto-acceleration using Home Realm Discovery policy
+      - name: Prevent sign-in auto-acceleration
         href: prevent-domain-hints-with-home-realm-discovery.md
-    - name: Migrate identity management to Azure AD
+    - name: Migrate applications
       items:
       - name: Migration resources
         href: migration-resources.md
@@ -140,6 +126,16 @@
         href: migrate-application-authentication-to-azure-active-directory.md
       - name: Use the AD FS application activity report
         href: migrate-adfs-application-activity.md
+      - name: Migrate applications from Okta to Azure AD 
+        items:
+        - name: Migrate applications from Okta to Azure AD
+          href: migrate-applications-from-okta-to-azure-active-directory.md
+        - name: Migrate Okta sign on policies to Azure AD Conditional Access
+          href: migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access.md
+        - name: Migrate Okta sync provisioning to Azure AD Connect based synchronization
+          href: migrate-okta-sync-provisioning-to-azure-active-directory.md
+        - name: Migrate Okta federation to Azure AD managed authentication
+          href: migrate-okta-federation-to-azure-active-directory.md
     - name: Secure legacy apps 
       items:
       - name: Secure hybrid access with Azure AD 
@@ -150,6 +146,14 @@
         href: f5-bigip-deployment-guide.md
       - name: F5 Big-IP with Azure AD for passwordless VPN
         href: f5-aad-password-less-vpn.md
+    - name: Single sign-on
+      items:
+      - name: Linked
+        href: configure-linked-sign-on.md
+      - name: OpenID Connect
+        href: add-application-portal-setup-oidc-sso.md
+      - name: Password
+        href: configure-password-single-sign-on-non-gallery-applications.md
     - name: Troubleshoot
       items:
       - name: Troubleshoot password-based single sign-on
@@ -176,6 +180,8 @@
       href: application-types.md
     - name: Reasons users are assigned to an app
       href: ways-users-get-assigned-to-applications.md
+    - name: Methods of removing user access to an app
+      href: methods-for-removing-user-access.md
   - name: Resources
     items:
         - name: Support and help options for developers

@@ -8,7 +8,7 @@ ms.custom: devx-track-java
 ms.author: jgol
 ---
 
-# Java codeless application monitoring Azure Monitor Application Insights
+# Java codeless application monitoring with Azure Monitor Application Insights
 
 > [!NOTE]
 > If you are looking for the old 2.x docs, go [here](./java-2x-get-started.md).

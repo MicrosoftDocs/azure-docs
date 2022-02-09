@@ -10,7 +10,7 @@ ms.date: 07/12/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
+manager: karenhoran
 ms.reviewer: jocastel
 
 ms.collection: M365-identity-device-management
@@ -302,7 +302,7 @@ If the user's device is not joined, they will receive a message that they need t
 
 ### Join a Windows 10 device
 
-If a user is using Windows 10 and Microsoft Edge, they will receive a message similar to the following to [join their device](../user-help/user-help-join-device-on-network.md#to-join-an-already-configured-windows-10-device).
+If a user is using Windows 10 and Microsoft Edge, they will receive a message similar to the following to [join their device](https://support.microsoft.com/account-billing/join-your-work-device-to-your-work-or-school-network-ef4d6adb-5095-4e51-829e-5457430f3973#to-join-an-already-configured-windows-10-device).
 
 ![Windows 10 and Microsoft Edge - Message indicating your device must be registered](./media/terms-of-use/per-device-win10-edge.png)
 

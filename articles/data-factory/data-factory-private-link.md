@@ -70,8 +70,8 @@ For the illustrated example above, the DNS resource records for the Data Factory
 
 | Name | Type | Value |
 | ---------- | -------- | --------------- |
-| DataFactoryA.{region}.datafactory.azure.net |	CNAME	| DataFactoryA.{region}.privatelink.datafactory.azure.net |
-| DataFactoryA.{region}.privatelink.datafactory.azure.net |	CNAME	| < data factory service public endpoint > |
+| DataFactoryA.{region}.datafactory.azure.net |	CNAME	| DataFactoryA.{region}.datafactory.azure.net |
+| DataFactoryA.{region}.datafactory.azure.net |	CNAME	| < data factory service public endpoint > |
 | < data factory service public endpoint >	| A | < data factory service public IP address > |
 
 The DNS resource records for DataFactoryA, when resolved in the VNet hosting the private endpoint, will be:
@@ -81,7 +81,7 @@ The DNS resource records for DataFactoryA, when resolved in the VNet hosting the
 | DataFactoryA.{region}.datafactory.azure.net | CNAME	| DataFactoryA.{region}.privatelink.datafactory.azure.net |
 | DataFactoryA.{region}.privatelink.datafactory.azure.net	| A | < private endpoint IP address > |
 
-If you are using a custom DNS server on your network, clients must be able to resolve the FQDN for the Data Factory endpoint to the private endpoint IP address. You should configure your DNS server to delegate your private link subdomain to the private DNS zone for the VNet, or configure the A records for ' DataFactoryA.{region}.privatelink.datafactory.azure.net' with the private endpoint IP address.
+If you are using a custom DNS server on your network, clients must be able to resolve the FQDN for the Data Factory endpoint to the private endpoint IP address. You should configure your DNS server to delegate your private link subdomain to the private DNS zone for the VNet, or configure the A records for ' DataFactoryA.{region}.datafactory.azure.net' with the private endpoint IP address.
 
 For more information on configuring your own DNS server to support private endpoints, refer to the following articles:
 - [Name resolution for resources in Azure virtual networks](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server)
@@ -236,7 +236,7 @@ Finally, you must create the private endpoint in your data factory.
 > Disabling public network access is applicable only to the self-hosted integration runtime, not to Azure Integration Runtime and SQL Server Integration Services (SSIS) Integration Runtime.
 
 > [!NOTE]
-> You can still access the Azure Data Factory portal through a public network after you create private endpoint for portal.
+> You can still access the Azure Data Factory portal through a public network after you create private endpoint for the portal.
 
 ## Next steps
 

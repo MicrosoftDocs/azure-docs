@@ -22,7 +22,7 @@ Synapse RBAC is used to manage who can:
 - Monitor or cancel job execution, review job output, and execution logs.  
 
 >[!Note]
->While Synapse RBAC is used to manage access to published SQL scripts, it provides only limited access control to serverless SQL pools and is _not_ used to control access to dedicated SQL pools.  Access to SQL pools is primarily controlled using SQL security.
+>While Synapse RBAC is used to manage access to published SQL scripts, it provides only limited access control to serverless and dedicated SQL pools. Access to SQL pools is primarily controlled using SQL security.
 
 ## What can I do with Synapse RBAC?
 

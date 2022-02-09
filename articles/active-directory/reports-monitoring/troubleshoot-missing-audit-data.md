@@ -93,5 +93,5 @@ You have two options to retain the data for longer than 30 days. You can use the
 
 * [Azure AD reporting retention](reference-reports-data-retention.md).
 * [Azure Active Directory reporting latencies](reference-reports-latencies.md).
-* [Azure Active Directory reporting FAQ](reports-faq.md).
+* [Azure Active Directory reporting FAQ](reports-faq.yml).
 

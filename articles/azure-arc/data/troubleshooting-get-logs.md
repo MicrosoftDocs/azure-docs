@@ -181,4 +181,3 @@ The following folder hierarchy is an example. It's organized by pod name, then c
             ├───journal
             └───openvpn
 ```
-

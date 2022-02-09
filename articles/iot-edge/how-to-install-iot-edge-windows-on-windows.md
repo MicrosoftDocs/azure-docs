@@ -2,7 +2,7 @@
 title: Install Azure IoT Edge for Windows | Microsoft Docs
 description: Install Azure IoT Edge for Windows containers on Windows devices 
 author: kgremban
-manager: philmea
+
 # this is the PM responsible
 ms.reviewer: veyalla
 ms.service: iot-edge

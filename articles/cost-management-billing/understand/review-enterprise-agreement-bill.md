@@ -7,7 +7,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: tutorial
-ms.date: 08/20/2020
+ms.date: 09/08/2021
 ms.author: banders
 
 ---
@@ -37,7 +37,7 @@ This section doesn't apply to Azure customers in Australia, Japan, or Singapore.
 You receive an Azure invoice when any of the following events occur during your billing cycle:
 
 - **Service overage**: Your organization's usage charges exceed your credit balance.
-- **Charges billed separately**: The services your organization used aren't covered by the credit. You're invoiced for the following services despite your credit balance:
+- **Charges billed separately**: The services your organization used aren't covered by the credit. You're invoiced for the following services despite your credit balance. The services shown are examples of charges billed separately. You can get a full list of the services where charges are billed separately by submitting a [support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
     - Canonical
     - Citrix XenApp Essentials
     - Citrix XenDesktop
@@ -70,7 +70,7 @@ This section only applies to Azure customers in Australia, Japan, or Singapore.
 You receive one or more Azure invoices when any of the following events occur:
 
 - **Service overage**: Your organization's usage charges exceed your credit balance.
-- **Charges billed separately**: The services your organization used aren't covered by the credit. You're invoiced for the following services:
+- **Charges billed separately**: The services your organization used aren't covered by the credit. You're invoiced for the following services. The services shown are examples of charges billed separately. You can get a full list of the services where charges are billed separately by submitting a [support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).:
     - Canonical
     - Citrix XenApp Essentials
     - Citrix XenDesktop
@@ -363,7 +363,7 @@ See [Power BI self-service sign up](https://powerbi.microsoft.com/documentation/
 
 ### To access Microsoft Azure Consumption Insights:
 
-1. Go to [Microsoft Azure Consumption Insights](https://app.powerbi.com/getdata/services/azureconsumption?cpcode=MicrosoftAzureConsumptionInsights&amp;getDataForceConnect=true&amp;WT.mc_id=azurebg_email_Trans_33675_1378_Service_Notice_EA_Customer_Power_BI_EA_Content_Pack_Apr26).
+1. Go to Microsoft Azure Consumption Insights.
 1. Select **Get It Now**.
 1. Provide an enrollment number and the number of months, and then select **Next**.
 1. Provide your API access key to connect. You can find the key for your enrollment in the [Enterprise portal](https://ea.azure.com/?WT.mc_id=azurebg_email_Trans_33675_1378_Service_Notice_EA_Customer_Power_BI_EA_Content_Pack_Apr26).

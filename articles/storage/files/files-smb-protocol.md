@@ -4,7 +4,7 @@ description: Learn about file shares hosted in Azure Files using the Server Mess
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 06/25/2021
+ms.date: 09/10/2021
 ms.author: rogarana
 ms.subservice: files
 
@@ -41,50 +41,44 @@ All data stored in Azure Files is encrypted at rest using Azure storage service 
 
 By default, all Azure storage accounts have encryption in transit enabled. This means that when you mount a file share over SMB (or access it via the FileREST protocol), Azure Files will only allow the connection if it is made with SMB 3.x with encryption or HTTPS. Clients that do not support SMB 3.x with SMB channel encryption will not be able to mount the Azure file share if encryption in transit is enabled. 
 
-Azure Files supports industry leading AES-256-GCM with SMB 3.1.1 when used with Windows 10, version 21H1. SMB 3.1.1 also supports AES-128-GCM and SMB 3.0 supports AES-128-CCM. AES-128-GCM is negotiated by default on Windows 10, version 21H1 for performance reasons.
+Azure Files supports AES-256-GCM with SMB 3.1.1 when used with Windows Server 2022 or Windows 11. SMB 3.1.1 also supports AES-128-GCM and SMB 3.0 supports AES-128-CCM. AES-128-GCM is negotiated by default on Windows 10, version 21H1 for performance reasons.
 
 You can disable encryption in transit for an Azure storage account. When encryption is disabled, Azure Files will also allow SMB 2.1 and SMB 3.x without encryption. The primary reason to disable encryption in transit is to support a legacy application that must be run on an older operating system, such as Windows Server 2008 R2 or older Linux distribution. Azure Files only allows SMB 2.1 connections within the same Azure region as the Azure file share; an SMB 2.1 client outside of the Azure region of the Azure file share, such as on-premises or in a different Azure region, will not be able to access the file share.
 
 ## SMB protocol settings
-Azure Files offers multiple settings for the SMB protocol.
+Azure Files offers multiple settings that affect the behavior, performance, and security of the SMB protocol. These are configured for all Azure file shares within a storage account.
 
-- **SMB Multichannel**: Enable/disable SMB Multichannel (premium file shares only). To learn how to enable SMB Multichannel, see [Enable SMB Multichannel on a FileStorage storage account](storage-files-enable-smb-multichannel.md). The default value for SMB Multichannel is disabled.
-- **SMB versions**: Which versions of SMB are allowed. Supported protocol versions are SMB 3.1.1, SMB 3.0, and SMB 2.1. By default, all SMB versions are allowed, although SMB 2.1 is disallowed if "require secure transit" is enabled, since SMB 2.1 does not support encryption in transit.
-- **Authentication methods**: Which SMB authentication methods are allowed. Supported authentication methods are NTLMv2 and Kerberos. By default, all authentication methods are allowed. Removing NTLMv2 disallows using the storage account key to mount the Azure file share.
-- **Kerberos ticket encryption**: Which encryption algorithms are allowed. Supported encryption algorithms are RC4-HMAC and AES-256.
-- **SMB channel encryption**: Which SMB channel encryption algorithms are allowed. Supported encryption algorithms are AES-256-GCM, AES-128-GCM, and AES-128-CCM.
-
-SMB protocol settings can be toggled via the Azure PowerShell module.
+### SMB Multichannel
+SMB Multichannel enables an SMB 3.x client to establish multiple network connections to an SMB file share. Azure Files supports SMB Multichannel on premium file shares (file shares in the FileStorage storage account kind). There is no additional cost for enabling SMB Multichannel in Azure Files. SMB Multichannel is disabled by default.
 
 # [Portal](#tab/azure-portal)
-The SMB protocol settings can be viewed and changed using PowerShell or CLI. Please select the desired tab to see the steps on how to get and set the SMB protocol settings.
+To view the status of SMB Multichannel, navigate to the storage account containing your premium file shares and select **File shares** under the **Data storage** heading in the storage account table of contents. The status of the SMB Multichannel can be seen under the **File share settings** section.
+
+![A screenshot of the file shares section with in the storage account highlighting the SMB Multichannel setting](./media/files-smb-protocol/1-smb-multichannel-enable.png)
+
+To enable or disable SMB Multichannel, select the current status (**Enabled** or **Disabled** depending on the status). The resulting dialog provides a toggle to enable or disable SMB Multichannel. Select the desired state and select **Save**.
+
+:::image type="content" source="media/files-smb-protocol/2-smb-multichannel-enable.png" alt-text="A screenshot of the dialog to enable/disable the SMB Multichannel feature":::
 
 # [PowerShell](#tab/azure-powershell)
-To get or set the SMB protocol settings, you must provide a reference to a storage account, either directly by providing the resource group and storage account names, or by providing a storage account object you've acquired from the `Get-AzStorageAccount` cmdlet. The following examples use the latter method to get and set the SMB protocol settings.
-
-Remember to replace `<resource-group>` and `<storage-account>` with the appropriate values for your environment before running these PowerShell commands.
+To get the status of SMB Multichannel, use the `Get-AzStorageFileServiceProperty` cmdlet. Remember to replace `<resource-group>` and `<storage-account>` with the appropriate values for your environment before running these PowerShell commands.
 
 ```PowerShell
 $resourceGroupName = "<resource-group>"
 $storageAccountName = "<storage-account>"
 
+# Get reference to storage account
 $storageAccount = Get-AzStorageAccount `
     -ResourceGroupName $resourceGroupName `
     -StorageAccountName $storageAccountName
-```
 
-To get the SMB protocol settings, use the `Get-AzStorageFileServiceProperty` cmdlet. If you've never modified the SMB protocol settings, the values returned by the cmdlet will be null. Null returned values should be interpreted as "default settings are in effect". To make this more user-friendly, the following PowerShell commands replace null values with the human-readable default values. 
+# If you've never enabled or disabled SMB Multichannel, the value for the SMB Multichannel 
+# property returned by Azure Files will be null. Null returned values should be interpreted 
+# as "default settings are in effect". To make this more user-friendly, the following 
+# PowerShell commands replace null values with the human-readable default values. 
+$defaultSmbMultichannelEnabled = $false
 
-```PowerShell
-# Replacement values for null parameters. If you copy this into your own 
-# scripts, you will need to ensure that you keep these variables up-to-date with any new 
-# options we may add to these parameters in the future.
-$smbMultichannelEnabled = $false
-$smbProtocolVersions = "SMB2.1", "SMB3.0", "SMB3.1.1"
-$smbAuthenticationMethods = "NTLMv2", "Kerberos"
-$smbKerberosTicketEncryption = "RC4-HMAC", "AES-256"
-$smbChannelEncryption = "AES-128-CCM", "AES-128-GCM", "AES-256-GCM"
-
+# Get the current value for SMB Multichannel
 Get-AzStorageFileServiceProperty -StorageAccount $storageAccount | `
     Select-Object -Property `
         ResourceGroupName, `
@@ -93,12 +87,107 @@ Get-AzStorageFileServiceProperty -StorageAccount $storageAccount | `
             Name = "SmbMultichannelEnabled"; 
             Expression = { 
                 if ($null -eq $_.ProtocolSettings.Smb.Multichannel.Enabled) { 
-                    $smbMultichannelEnabled 
+                    $defaultSmbMultichannelEnabled 
                 } else { 
                     $_.ProtocolSettings.Smb.Multichannel.Enabled 
                 } 
             } 
-        }, 
+        }
+```
+
+To enable/disable SMB Multichannel, use the `Update-AzStorageFileServiceProperty` cmdlet.
+
+```PowerShell
+Update-AzStorageFileServiceProperty `
+    -StorageAccount $storageAccount `
+    -EnableSmbMultichannel $true
+```
+
+# [Azure CLI](#tab/azure-cli)
+To get the status of SMB Multichannel, use the `az storage account file-service-properties show` command. Remember to replace `<resource-group>` and `<storage-account>` with the appropriate values for your environment before running these Bash commands.
+
+```bash
+resourceGroupName="<resource-group>"
+storageAccountName="<storage-account>"
+
+# If you've never enabled or disabled SMB Multichannel, the value for the SMB Multichannel 
+# property returned by Azure Files will be null. Null returned values should be interpreted 
+# as "default settings are in effect". To make this more user-friendly, the following 
+# PowerShell commands replace null values with the human-readable default values. 
+
+## Search strings
+replaceSmbMultichannel="\"smbMultichannelEnabled\": null"
+
+# Replacement values for null parameters. 
+defaultSmbMultichannelEnabled="\"smbMultichannelEnabled\": false"
+
+# Build JMESPath query string
+query="{" 
+query="${query}smbMultichannelEnabled: protocolSettings.smb.multichannel.enabled"
+query="${query}}"
+
+# Get protocol settings from the Azure Files FileService object
+protocolSettings=$(az storage account file-service-properties show \
+    --resource-group $resourceGroupName \
+    --account-name $storageAccountName \
+    --query "${query}")
+
+# Replace returned values if null with default values 
+protocolSettings="${protocolSettings/$replaceSmbMultichannel/$defaultSmbMultichannelEnabled}"
+
+# Print returned settings
+echo $protocolSettings
+```
+
+To enable/disable SMB Multichannel, use the `az storage account file-service-properties update` command.
+
+```bash
+az storage account file-service-properties update \
+    --resource-group $resourceGroupName \
+    --account-name $storageAccountName \
+    --enable-smb-multichannel "true"
+```
+---
+
+### SMB security settings
+Azure Files exposes settings that let you toggle the SMB protocol to be more compatible or more secure, depending on your organization's requirements. By default, Azure Files is configured to be maximally compatible, so keep in mind that restricting these settings may cause some clients not to be able to connect.
+
+Azure Files exposes the following settings:
+
+- **SMB versions**: Which versions of SMB are allowed. Supported protocol versions are SMB 3.1.1, SMB 3.0, and SMB 2.1. By default, all SMB versions are allowed, although SMB 2.1 is disallowed if "require secure transit" is enabled, since SMB 2.1 does not support encryption in transit.
+- **Authentication methods**: Which SMB authentication methods are allowed. Supported authentication methods are NTLMv2 and Kerberos. By default, all authentication methods are allowed. Removing NTLMv2 disallows using the storage account key to mount the Azure file share.
+- **Kerberos ticket encryption**: Which encryption algorithms are allowed. Supported encryption algorithms are RC4-HMAC and AES-256.
+- **SMB channel encryption**: Which SMB channel encryption algorithms are allowed. Supported encryption algorithms are AES-256-GCM, AES-128-GCM, and AES-128-CCM.
+
+# [Portal](#tab/azure-portal)
+The SMB security settings can be viewed and changed using PowerShell or CLI. Please select the desired tab to see the steps on how to get and set the SMB security settings.
+
+# [PowerShell](#tab/azure-powershell)
+To get the SMB protocol settings, use the `Get-AzStorageFileServiceProperty` cmdlet. Remember to replace `<resource-group>` and `<storage-account>` with the appropriate values for your environment before running these PowerShell commands.
+
+```PowerShell
+$resourceGroupName = "<resource-group>"
+$storageAccountName = "<storage-account>"
+
+# Get reference to storage account
+$storageAccount = Get-AzStorageAccount `
+    -ResourceGroupName $resourceGroupName `
+    -StorageAccountName $storageAccountName
+
+# If you've never changed any SMB security settings, the values for the SMB security 
+# settings returned by Azure Files will be null. Null returned values should be interpreted 
+# as "default settings are in effect". To make this more user-friendly, the following 
+# PowerShell commands replace null values with the human-readable default values. 
+$smbProtocolVersions = "SMB2.1", "SMB3.0", "SMB3.1.1"
+$smbAuthenticationMethods = "NTLMv2", "Kerberos"
+$smbKerberosTicketEncryption = "RC4-HMAC", "AES-256"
+$smbChannelEncryption = "AES-128-CCM", "AES-128-GCM", "AES-256-GCM"
+
+# Gets the current values of the SMB security settings
+Get-AzStorageFileServiceProperty -StorageAccount $storageAccount | `
+    Select-Object -Property `
+        ResourceGroupName, `
+        StorageAccountName, `
         @{ 
             Name = "SmbProtocolVersions";
             Expression = {
@@ -144,7 +233,7 @@ Get-AzStorageFileServiceProperty -StorageAccount $storageAccount | `
 Depending on your organization's security, performance, and compatibility requirements, you may wish to modify the SMB protocol settings. The following PowerShell command restricts your SMB file shares to only the most secure options.
 
 > [!Important]  
-> Restricting SMB Azure file shares to only the most secure options may result in some clients not being able to connect if they do not meet the requirements. For example, AES-256-GCM was introduced as an option for SMB channel encryption starting in Windows 10, version 21H1. This means that older clients that do not support AES-256-GCM will not be able to connect.
+> Restricting SMB Azure file shares to only the most secure options may result in some clients not being able to connect if they do not meet the requirements. For example, AES-256-GCM was introduced as an option for SMB channel encryption starting in Windows Server 2022 and Windows 11. This means that older clients that do not support AES-256-GCM will not be able to connect.
 
 ```PowerShell
 Update-AzStorageFileServiceProperty `
@@ -157,14 +246,18 @@ Update-AzStorageFileServiceProperty `
 ```
 
 # [Azure CLI](#tab/azure-cli)
-To get the SMB protocol settings, use the `az storage account file-service-properties show` command. If you've never modified the SMB protocol settings, the values returned by the command will be null. Null returned values should be interpreted as "default settings are in effect". To make this more user-friendly, the following Bash commands replace null values with the human-readable default values. 
+To get the status of the SMB security settings, use the `az storage account file-service-properties show` command. Remember to replace `<resource-group>` and `<storage-account>` with the appropriate values for your environment before running these Bash commands.
 
 ```bash
 resourceGroupName="<resource-group>"
 storageAccountName="<storage-account>"
 
+# If you've never changed any SMB security settings, the values for the SMB security 
+# settings returned by Azure Files will be null. Null returned values should be interpreted 
+# as "default settings are in effect". To make this more user-friendly, the following 
+# PowerShell commands replace null values with the human-readable default values.
+
 # Values to be replaced
-replaceSmbMultichannel="\"smbMultichannelEnabled\": null"
 replaceSmbProtocolVersion="\"smbProtocolVersions\": null"
 replaceSmbChannelEncryption="\"smbChannelEncryption\": null"
 replaceSmbAuthenticationMethods="\"smbAuthenticationMethods\": null"
@@ -173,15 +266,13 @@ replaceSmbKerberosTicketEncryption="\"smbKerberosTicketEncryption\": null"
 # Replacement values for null parameters. If you copy this into your own 
 # scripts, you will need to ensure that you keep these variables up-to-date with any new 
 # options we may add to these parameters in the future.
-defaultSmbMultichannelEnabled="\"smbMultichannelEnabled\": false"
 defaultSmbProtocolVersions="\"smbProtocolVersions\": \"SMB2.1;SMB3.0;SMB3.1.1\""
 defaultSmbChannelEncryption="\"smbChannelEncryption\": \"AES-128-CCM;AES-128-GCM;AES-256-GCM\""
 defaultSmbAuthenticationMethods="\"smbAuthenticationMethods\": \"NTLMv2;Kerberos\""
 defaultSmbKerberosTicketEncryption="\"smbKerberosTicketEncryption\": \"RC4-HMAC;AES-256\""
 
 # Build JMESPath query string
-query="{" 
-query="${query}smbMultichannelEnabled: protocolSettings.smb.multichannel.enabled,"
+query="{"
 query="${query}smbProtocolVersions: protocolSettings.smb.versions,"
 query="${query}smbChannelEncryption: protocolSettings.smb.channelEncryption,"
 query="${query}smbAuthenticationMethods: protocolSettings.smb.authenticationMethods,"
@@ -195,7 +286,6 @@ protocolSettings=$(az storage account file-service-properties show \
     --query "${query}")
 
 # Replace returned values if null with default values 
-protocolSettings="${protocolSettings/$replaceSmbMultichannel/$defaultSmbMultichannelEnabled}"
 protocolSettings="${protocolSettings/$replaceSmbProtocolVersion/$defaultSmbProtocolVersion}"
 protocolSettings="${protocolSettings/$replaceSmbChannelEncryption/$defaultSmbChannelEncryption}"
 protocolSettings="${protocolSettings/$replaceSmbAuthenticationMethods/$defaultSmbAuthenticationMethods}"
@@ -208,7 +298,7 @@ echo $protocolSettings
 Depending on your organizations security, performance, and compatibility requirements, you may wish to modify the SMB protocol settings. The following Azure CLI command restricts your SMB file shares to only the most secure options.
 
 > [!Important]  
-> Restricting SMB Azure file shares to only the most secure options may result in some clients not being able to connect if they do not meet the requirements. For example, AES-256-GCM was introduced as an option for SMB channel encryption starting in Windows 10, version 21H1. This means that older clients that do not support AES-256-GCM will not be able to connect.
+> Restricting SMB Azure file shares to only the most secure options may result in some clients not being able to connect if they do not meet the requirements. For example, AES-256-GCM was introduced as an option for SMB channel encryption starting in Windows Server 2022 and Windows 11. This means that older clients that do not support AES-256-GCM will not be able to connect.
 
 ```bash
 az storage account file-service-properties update \

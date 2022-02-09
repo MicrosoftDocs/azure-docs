@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with VIDA | Microsoft Docs'
+title: 'Tutorial: Azure AD SSO integration with VIDA'
 description: Learn how to configure single sign-on between Azure Active Directory and VIDA.
 services: active-directory
 author: jeevansd
@@ -9,12 +9,12 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/16/2021
+ms.date: 09/17/2021
 ms.author: jeedes
 
 ---
 
-# Tutorial: Azure Active Directory single sign-on (SSO) integration with VIDA
+# Tutorial: Azure AD SSO integration with VIDA
 
 In this tutorial, you'll learn how to integrate VIDA with Azure Active Directory (Azure AD). When you integrate VIDA with Azure AD, you can:
 
@@ -74,11 +74,18 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Basic SAML Configuration** section, enter the values for the following fields:
 
-    In the **Sign-on URL** text box, type a URL using the following pattern:
+    a. In the **Identifier (Entity ID)** text box, type the value: 
+    `urn:amazon:cognito:sp:eu-west-2_IDmTxjGr6`
+    
+    b. In the **Reply URL** text box, type the URL:
+    `https://vitruevida.auth.eu-west-2.amazoncognito.com/saml2/idpresponse`
+    
+    c. In the **Sign-on URL** text box, type a URL using the following pattern:
+    
     `https://vitruevida.com/?teamid=<ID>&idp=<IDP_NAME>`
 
 	> [!NOTE]
-	> The value is not real. Update the value with the actual Sign-On URL. Contact [VIDA Client support team](mailto:support@vitruehealth.com) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> The Sign-on URL value is not real. Update the value with the actual Sign-On URL. Contact [VIDA Client support team](mailto:support@vitruehealth.com) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. VIDA application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
@@ -89,9 +96,6 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	| Name | Source Attribute|
 	| ---------------- | --------- |
 	| assignedroles | user.assignedroles |
-
-	> [!NOTE]
-	> VIDA expects roles for users assigned to the application. Please set up these roles in Azure AD so that users can be assigned the appropriate roles. To understand how to configure roles in Azure AD, see [here](../develop/howto-add-app-roles-in-azure-ad-apps.md#app-roles-ui).
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
@@ -125,6 +129,105 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
 1. In the **Add Assignment** dialog, click the **Assign** button.
 
+## Configure Role-Based Single Sign-On in VIDA
+
+1. To associate a VIDA role with the Azure AD user, you must create a role in Azure AD by following these steps:
+
+    a. Sign on to the [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
+
+    b. Click **modify permissions** to obtain required permissions for creating a role.
+
+    ![Graph config1](./media/vida-tutorial/graph.png)
+
+    c. Select the following permissions from the list and click **Modify Permissions**, as shown in the following figure.
+
+    ![Graph config2](./media/vida-tutorial/modify-permissions.png)
+
+    >[!NOTE]
+    >After permissions are granted, log on to the Graph Explorer again.
+
+    d. On the Graph Explorer page, select **GET** from the first drop-down list and **beta** from the second drop-down list. Then enter `https://graph.microsoft.com/beta/servicePrincipals` in the field next to the drop-down lists, and click **Run Query**.
+
+    ![Graph configuration.](./media/vida-tutorial/get-beta.png)
+
+    >[!NOTE]
+    >If you are using multiple directories, you can enter `https://graph.microsoft.com/beta/contoso.com/servicePrincipals` in the field of the query.
+
+    e. In the **Response Preview** section, extract the appRoles property from the 'Service Principal' for subsequent use.
+
+    ![Response Preview.](./media/vida-tutorial/preview.png)
+
+    >[!NOTE]
+    >You can locate the appRoles property by entering `https://graph.microsoft.com/beta/servicePrincipals/<objectID>` in the field of the query. Note that the `objectID` is the object ID you have copied from the Azure AD **Properties** page.
+
+    f. Go back to the Graph Explorer, change the method from **GET** to **PATCH**, paste the following content into the **Request Body** section, and click **Run Query**:
+    
+   ```
+   { 
+   "appRoles": [
+       {
+           "allowedMemberTypes": [
+           "User"
+           ],
+           "description": "User",
+           "displayName": "User",
+           "id": "18d14569-c3bd-439b-9a66-3a2aee01****",
+           "isEnabled": true,
+           "origin": "Application",
+           "value": null
+       },
+       {
+           "allowedMemberTypes": [
+           "User"
+           ],
+           "description": "msiam_access",
+           "displayName": "msiam_access",
+           "id": "b9632174-c057-4f7e-951b-be3adc52****",
+           "isEnabled": true,
+           "origin": "Application",
+           "value": null
+       },
+       {
+       "allowedMemberTypes": [
+           "User"
+       ],
+       "description": "VIDACompanyAdmin",
+       "displayName": "VIDACompanyAdmin",
+       "id": "293414bb-2215-48b4-9864-64520937d437",
+       "isEnabled": true,
+       "origin": "ServicePrincipal",
+       "value": "VIDACompanyAdmin"
+       },
+       {
+       "allowedMemberTypes": [
+           "User"
+       ],
+       "description": "VIDATeamAdmin",
+       "displayName": "VIDATeamAdmin",
+       "id": "2884f1ae-5c0d-4afd-bf28-d7d11a3d7b2c",
+       "isEnabled": true,
+       "origin": "ServicePrincipal",
+       "value": "VIDATeamAdmin"
+       },
+       {
+       "allowedMemberTypes": [
+           "User"
+       ],
+       "description": "VIDAUser",
+       "displayName": "VIDAUser",
+       "id": "37b3218c-0c06-484f-90e6-4390ce5a8787",
+       "isEnabled": true,
+       "origin": "ServicePrincipal",
+       "value": "VIDAUser"
+       }
+   ]
+   }
+   ```
+   > [!NOTE]
+   > Azure AD will send the value of these roles as the claim value in SAML response. However, you can only add new roles after the `msiam_access` part for the patch operation. To smooth the creation process, we recommend that you use an ID generator, such as GUID Generator, to generate IDs in real time.
+
+   g. After the 'Service Principal' is patched with the required role, attach the role with the Azure AD user (B.Simon) by following the steps of **Assign the Azure AD test user** section of the tutorial.
+
 ## Configure VIDA SSO
 
 To configure single sign-on on **VIDA** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [VIDA support team](mailto:support@vitruehealth.com). They set this setting to have the SAML SSO connection set properly on both sides.
@@ -146,5 +249,4 @@ In this section, you test your Azure AD single sign-on configuration with follow
 ## Next steps
 
 Once you configure VIDA you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
-
 

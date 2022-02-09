@@ -7,7 +7,7 @@ ms.date: 04/26/2021
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
-manager: philmea
+
 ms.custom: mvc, devx-track-python
 ---
 

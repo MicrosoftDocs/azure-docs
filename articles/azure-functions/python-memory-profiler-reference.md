@@ -2,8 +2,6 @@
 title: Memory profiling on Python apps in Azure Functions
 description: Learn how to profile Python apps memory usage and identify memory bottleneck.
 ms.topic: how-to
-author: hazhzeng
-ms.author: hazeng
 ms.date: 3/22/2021
 ms.custom: devx-track-python
 ---

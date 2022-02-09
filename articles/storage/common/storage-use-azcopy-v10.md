@@ -41,7 +41,7 @@ For convenience, consider adding the directory location of the AzCopy executable
 
 If you choose not to add the AzCopy directory to your path, you'll have to change directories to the location of your AzCopy executable and type `azcopy` or `.\azcopy` in Windows PowerShell command prompts.
 
-As an owner of your Azure Storage account, you aren't automatically assigned permissions to access data. Before you can do anything meaningful with AzCopy, you need to decide how you'll provide authorization credentials to the storage service. 
+As an owner of your Azure Storage account, you aren't automatically assigned permissions to access data. Before you can do anything meaningful with AzCopy, you need to decide how you'll provide authorization credentials to the storage service.
 
 <a id="choose-how-youll-provide-authorization-credentials"></a>
 
@@ -59,7 +59,7 @@ Use this table as a guide:
 
 #### Option 1: Use Azure Active Directory
 
-This option is available for blob Storage only. By using Azure Active Directory, you can provide credentials once instead of having to append a SAS token to each command.  
+This option is available for blob Storage only. By using Azure Active Directory, you can provide credentials once instead of having to append a SAS token to each command.
 
 > [!NOTE]
 > In the current release, if you plan to copy blobs between storage accounts, you'll have to append a SAS token to each source URL. You can omit the SAS token only from the destination URL. For examples, see [Copy blobs between storage accounts](#transfer-data).
@@ -79,7 +79,7 @@ azcopy copy "C:\local\path" "https://account.blob.core.windows.net/mycontainer1/
 To learn more about SAS tokens and how to obtain one, see [Using shared access signatures (SAS)](./storage-sas-overview.md).
 
 > [!NOTE]
-> The [Secure transfer required](storage-require-secure-transfer.md) setting of a storage account determines whether the connection to a storage account is secured with Transport Layer Security (TLS). This setting is enabled by default.   
+> The [Secure transfer required](storage-require-secure-transfer.md) setting of a storage account determines whether the connection to a storage account is secured with Transport Layer Security (TLS). This setting is enabled by default.
 
 <a id="transfer-data"></a>
 
@@ -111,7 +111,7 @@ To learn about a specific command, just include the name of the command (For exa
 
 ### List of commands
 
-The following table lists all AzCopy v10 commands. Each command links to a reference article. 
+The following table lists all AzCopy v10 commands. Each command links to a reference article.
 
 |Command|Description|
 |---|---|
@@ -135,7 +135,7 @@ The following table lists all AzCopy v10 commands. Each command links to a refer
 |[azcopy sync](storage-ref-azcopy-sync.md?toc=/azure/storage/blobs/toc.json)|Replicates the source location to the destination location.|
 
 > [!NOTE]
-> AzCopy does not have a command to rename files. 
+> AzCopy does not have a command to rename files.
 
 ## Use in a script
 

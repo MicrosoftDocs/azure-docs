@@ -10,7 +10,7 @@ ms.date: 12/04/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
+manager: karenhoran
 ms.reviewer: calebb
 
 #Customer intent: As an IT admin, I need to understand what a policy migration is in Conditional Access so that I can get rid of my classic policies.

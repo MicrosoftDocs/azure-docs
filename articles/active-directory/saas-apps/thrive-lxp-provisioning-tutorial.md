@@ -3,8 +3,8 @@ title: 'Tutorial: Configure Thrive LXP for automatic user provisioning with Azur
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Thrive LXP.
 services: active-directory
 documentationcenter: ''
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: beatrizd
 
 ms.assetid: 1b4993b3-7fb1-4128-a399-3bad8e26559f
@@ -13,9 +13,9 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/14/2021
-ms.author: Zhchia
+ms.author: thwimmer
 ---
 
 # Tutorial: Configure Thrive LXP for automatic user provisioning

@@ -81,12 +81,12 @@ This section walks through the process to add customer managed key encryption in
 
 1. Launch Azure Data Factory portal, and using the navigation bar on the left, jump to Data Factory Management Portal
 
-1. Click on the __Customer manged key__ icon
+1. Click on the __Customer managed key__ icon
   :::image type="content" source="media/enable-customer-managed-key/05-customer-managed-key-configuration.png" alt-text="Screenshot how to enable Customer-managed Key in Data Factory UI.":::
 
 1. Enter the URI for customer-managed key that you copied before
 
-1. Click __Save__ and customer-manged key encryption is enabled for Data Factory
+1. Click __Save__ and customer-managed key encryption is enabled for Data Factory
 
 ### During factory creation in Azure portal
 
@@ -125,7 +125,7 @@ To change key used for Data Factory encryption, you have to manually update the 
 
 1. Locate the URI for the new key through Azure Key Vault Portal
 
-1. Navigate to __Customer manged key__ setting
+1. Navigate to __Customer managed key__ setting
 
 1. Replace and paste in the URI for the new key
 
@@ -145,7 +145,7 @@ By default, CMK configuration is not included in the factory Azure Resource Mana
 
   :::image type="content" source="media/enable-customer-managed-key/07-include-in-template.png" alt-text="Screenshot of including customer managed key setting in ARM template.":::
 
-The following settings will be added in ARM template. These properties can be parameterized in Continuous Integration and Delivery pipelines by editing the [Azure Resource Manager parameters configuration](continuous-integration-deployment.md#use-custom-parameters-with-the-resource-manager-template)
+The following settings will be added in ARM template. These properties can be parameterized in Continuous Integration and Delivery pipelines by editing the [Azure Resource Manager parameters configuration](continuous-integration-delivery-resource-manager-custom-parameters.md)
 
   :::image type="content" source="media/enable-customer-managed-key/08-template-with-customer-managed-key.png" alt-text="Screenshot of including customer managed key setting in Azure Resource Manager template.":::
 

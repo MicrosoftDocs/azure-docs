@@ -3,11 +3,11 @@ title: Azure EA portal administration
 description: This article explains the common tasks that an administrator accomplishes in the Azure EA portal.
 author: bandersmsft
 ms.author: banders
-ms.date: 06/22/2021
+ms.date: 09/28/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
-ms.reviewer: boalcsva
+ms.reviewer: sapnakeshari
 ms.custom: contperf-fy21q1
 ---
 
@@ -138,9 +138,11 @@ To confirm account ownership:
 
 ## Change Azure subscription or account ownership
 
-This section only applies when a subscription owner is being changed. Changing a subscription ownership does not require an Azure support ticket. Enterprise administrators can use the Azure Enterprise portal to transfer account ownership of selected or all subscriptions in an enrollment. They also have the option to change the subscription directory (tenant). 
+This section only applies when a subscription owner is being changed. Changing a subscription ownership doesn't require an Azure support ticket. Enterprise administrators can use the Azure Enterprise portal to transfer account ownership of selected or all subscriptions in an enrollment. They also have the option to change the subscription directory (tenant). 
 
 However, an EA admin can't transfer an account from one enrollment to another enrollment. To transfer an account from one enrollment to another, a support request is required. For information about transferring an account from one enrollment to another enrollment, see [Transfer an enterprise account to a new enrollment](ea-transfers.md#transfer-an-enterprise-account-to-a-new-enrollment).
+
+Pay-as-you-go subscription administrators can also transfer account ownership of their subscriptions to an EA enrollment using this same process.
 
 When you complete a subscription or account ownership transfer, Microsoft updates the account owner.
 
@@ -191,7 +193,7 @@ Enterprise Administrators can associate existing accounts to Departments under t
 
 1. Sign in to the Azure EA Portal as an enterprise administrator.
 1. Select **Manage** on the left navigation.
-1. Select **Department**.
+1. Select **Account**.
 1. Hover over the row with the account and select the pencil icon on the right.
 1. Select the department from the drop-down menu.
 1. Select **Save**.

@@ -182,7 +182,7 @@ Maven also lets you specify the operating system on which your function app runs
 
 | Element |  Windows | Linux | Docker |
 | ---- | ---- | ---- | --- |
-| **`os`** | windows | linux | docker |
+| **`os`** | `windows` | `linux` | `docker` |
 
 The following example shows the operating system setting in the `runtime` section of the pom.xml file:
 

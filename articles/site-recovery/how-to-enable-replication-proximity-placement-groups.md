@@ -24,7 +24,7 @@ Site Recovery replicates the data from one Azure region to another region. It br
 
 ## Considerations
 
-- The best effort will be to fail over and fail back the virtual machines into a proximity placement group. If you can't bring up the VMs inside a proximity placement group, the failover and failback will still happen, but VMs will be created outside the proximity placement group.
+- The best effort will be to fail over and fail back the virtual machines into a proximity placement group. If there is a capacity allocation constraint due to which we are unable to bring up the VMs inside a proximity placement group, the failover and failback will still execute, but VMs will be created outside the proximity placement group.
 - If an availability set is pinned to a proximity placement group and VMs in the availability set have an allocation constraint during failback or failover, the VMs will be created outside both the availability set and the proximity placement group.
 - Site Recovery for proximity placement groups is not supported for unmanaged disks.
 

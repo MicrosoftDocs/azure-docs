@@ -1,9 +1,9 @@
 ---
-author: trevorbye
+author: PatrickFarley
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/06/2020
-ms.author: trbye
+ms.author: pafarley
 ---
 One of the core features of the Speech service is the ability to recognize and transcribe human speech (often referred to as speech-to-text). In this quickstart, you learn how to use the Speech SDK in your apps and products to perform high-quality speech-to-text conversion.
 
@@ -227,7 +227,7 @@ Single words or complete phrases can be added to a Phrase List. During recogniti
 >
 > The Phrase List feature should be used with no more than a few hundred phrases. If you have a larger list or for languages that are not currently supported, [training a custom model](../../../custom-speech-overview.md) will likely be the better choice to improve accuracy.
 >
-> Do not use the Phrase List feature with custom endpoints. Instead, train a custom model that includes the phrases.
+> The Phrase List feature is not supported with custom endpoints. Do not use it with custom endpoints. Instead, train a custom model that includes the phrases.
 
 To use a phrase list, first create a [`PhraseListGrammar`](/cpp/cognitive-services/speech/phraselistgrammar) object, then add specific words and phrases with [`AddPhrase`](/cpp/cognitive-services/speech/phraselistgrammar#addphrase).
 

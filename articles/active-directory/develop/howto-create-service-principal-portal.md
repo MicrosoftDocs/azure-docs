@@ -14,7 +14,7 @@ ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40, subject-rbac-steps
 ---
 
-# How to: Use the portal to create an Azure AD application and service principal that can access resources
+# Use the portal to create an Azure AD application and service principal that can access resources
 
 This article shows you how to create a new Azure Active Directory (Azure AD) application and service principal that can be used with the role-based access control. When you have applications, hosted services, or automated tools that needs to access or modify resources, you can create an identity for the app. This identity is known as a service principal. Access to resources is restricted by the roles assigned to the service principal, giving you control over which resources can be accessed and at which level. For security reasons, it's always recommended to use service principals with automated tools rather than allowing them to log in with a user identity.
 

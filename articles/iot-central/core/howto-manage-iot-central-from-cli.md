@@ -71,7 +71,7 @@ These commands first create a resource group in the east US region for the appli
 | Parameter         | Description |
 | ----------------- | ----------- |
 | resource-group    | The resource group that contains the application. This resource group must already exist in your subscription. |
-| location          | By default, this command uses the location from the resource group. Currently, you can create an IoT Central application in the **Australia**, **Asia Pacific**, **Europe**, **United States**, **United Kingdom**, and **Japan** geographies. |
+| location          | By default, this command uses the location from the resource group. Currently, you can create an IoT Central application in the **Australia East**, **Central US**, **East US**, **East US 2**, **Japan East**, **North Europe**, **Southeast Asia**, **UK South**, **West Europe** and **West US** regions. |
 | name              | The name of the application in the Azure portal. Avoid special characters - instead, use lower case letters (a-z), numbers (0-9), and dashes (-).|
 | subdomain         | The subdomain in the URL of the application. In the example, the application URL is `https://mysubdomain.azureiotcentral.com`. |
 | sku               | Currently, you can use either **ST1** or **ST2**. See [Azure IoT Central pricing](https://azure.microsoft.com/pricing/details/iot-central/). |
@@ -101,7 +101,7 @@ The script first creates a resource group in the east US region for the applicat
 |Parameter         |Description |
 |------------------|------------|
 |ResourceGroupName |The resource group that contains the application. This resource group must already exist in your subscription. |
-|Location |By default, this cmdlet uses the location from the resource group. Currently, you can create an IoT Central application in the **Australia**, **Asia Pacific**, **Europe**, **United States**, **United Kingdom**, and **Japan** geographies. |
+|Location |By default, this cmdlet uses the location from the resource group. Currently, you can create an IoT Central application  in the **Australia East**, **Central US**, **East US**, **East US 2**, **Japan East**, **North Europe**, **Southeast Asia**, **UK South**, **West Europe** and **West US** regions. |
 |Name              |The name of the application in the Azure portal. Avoid special characters - instead, use lower case letters (a-z), numbers (0-9), and dashes (-). |
 |Subdomain         |The subdomain in the URL of the application. In the example, the application URL is `https://mysubdomain.azureiotcentral.com`. |
 |Sku               |Currently, you can use either **ST1** or **ST2**. See [Azure IoT Central pricing](https://azure.microsoft.com/pricing/details/iot-central/). |

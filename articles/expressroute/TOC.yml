@@ -142,6 +142,8 @@
       href: expressroute-howto-add-ipv6-portal.md
     - name: Azure PowerShell
       href: expressroute-howto-add-ipv6-powershell.md
+    - name: Azure CLI
+      href: expressroute-howto-add-ipv6-cli.md
   - name: Monitoring
     items:
     - name: Monitoring ExpressRoute
@@ -154,8 +156,6 @@
       href: expressroute-monitoring-metrics-alerts.md
     - name: View and configure maintenance alerts
       href: maintenance-alerts.md
-    - name: Configure Network Performance Monitor for ExpressRoute (deprecated)
-      href: how-to-npm.md
     - name: Configure custom alerts to monitor advertised routes
       href: how-to-custom-route-alert.md
   - name: Managing peerings
@@ -298,3 +298,5 @@
       href: expressroute-howto-add-gateway-classic.md
     - name: Create and modify public peering
       href: about-public-peering.md
+    - name: Configure Network Performance Monitor for ExpressRoute (deprecated)
+      href: how-to-npm.md

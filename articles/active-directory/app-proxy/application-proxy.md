@@ -30,7 +30,7 @@ Application Proxy is a feature of Azure AD that enables users to access on-premi
 
 Application Proxy works with:
 
-* Web applications that use [Integrated Windows Authentication](./application-proxy-configure-single-sign-on-with-kcd.md) for authentication
+* Web applications that use [Integrated Windows authentication](./application-proxy-configure-single-sign-on-with-kcd.md) for authentication
 * Web applications that use form-based or [header-based](./application-proxy-configure-single-sign-on-with-headers.md) access
 * Web APIs that you want to expose to rich applications on different devices
 * Applications hosted behind a [Remote Desktop Gateway](./application-proxy-integrate-with-remote-desktop-services.md)

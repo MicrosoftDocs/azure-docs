@@ -2,7 +2,7 @@
 title: 'App Service on Azure Arc'
 description: An introduction to App Service integration with Azure Arc for Azure operators.
 ms.topic: article
-ms.date: 05/03/2021
+ms.date: 08/17/2021
 ---
 
 # App Service, Functions, and Logic Apps on Azure Arc (Preview)
@@ -68,8 +68,10 @@ Only one Kubernetes environment resource may be created in a custom location. In
 - [Which App Service features are supported?](#which-app-service-features-are-supported)
 - [Are networking features supported?](#are-networking-features-supported)
 - [Are managed identities supported?](#are-managed-identities-supported)
+- [Are there any scaling limits?](#are-there-any-scaling-limits)
 - [What logs are collected?](#what-logs-are-collected)
 - [What do I do if I see a provider registration error?](#what-do-i-do-if-i-see-a-provider-registration-error)
+- [Can I deploy the Application services extension on an ARM64 based cluster?](#can-i-deploy-the-application-services-extension-on-an-arm64-based-cluster)
 
 ### How much does it cost?
 
@@ -98,6 +100,10 @@ No. Networking features such as hybrid connections, Virtual Network integration,
 ### Are managed identities supported?
 
 No. Apps cannot be assigned managed identities when running in Azure Arc. If your app needs an identity for working with another Azure resource, consider using an [application service principal](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) instead.
+
+### Are there any scaling limits?
+
+All applications deployed with Azure App Service on Kubernetes with Azure Arc are able to scale within the limits of the underlying Kubernetes cluster.  If the underlying Kubernetes Cluster runs out of available compute resources (CPU and memory primarily), then applications will only be able to scale to the number of instances of the application that Kubernetes can schedule with available resource.
 
 ### What logs are collected?
 

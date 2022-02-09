@@ -2,7 +2,7 @@
 title: 'Tutorial: Deploy Azure Functions as modules - Azure IoT Edge'
 description: In this tutorial, you develop an Azure Function as an IoT Edge module, then deploy it to an edge device.
 author: kgremban
-manager: philmea
+
 ms.author: kgremban
 ms.date: 07/29/2020
 ms.topic: tutorial

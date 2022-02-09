@@ -11,7 +11,7 @@ metadata:
   ms.topic: landing-page
   author: kgremban
   ms.author: kgremban
-  manager: philmea
+  
   ms.date: 08/05/2019
   ms.custom: e2e-hybrid
 
@@ -51,7 +51,7 @@ landingContent:
           - text: Register a single device
             url: how-to-register-device.md
           - text: Register and provision devices at scale
-            url: how-to-auto-provision-symmetric-keys.md
+            url: how-to-provision-devices-at-scale-linux-symmetric.md
           - text: Install the IoT Edge runtime on Linux devices
             url: how-to-install-iot-edge.md
           - text: Install the IoT Edge runtime on Windows devices

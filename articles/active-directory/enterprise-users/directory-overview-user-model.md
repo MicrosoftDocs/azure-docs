@@ -6,7 +6,7 @@ author: curtand
 manager: daveba
 ms.author: curtand
 ms.reviewer: krbain
-ms.date: 12/02/2020
+ms.date: 09/01/2021
 ms.topic: overview
 ms.service: active-directory
 ms.subservice: enterprise-users

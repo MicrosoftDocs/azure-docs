@@ -1,7 +1,7 @@
 ---
-title: Manage autoshutdown policies in Azure DevTest Labs and Compute VMs | Microsoft Docs
+title: Manage autoshutdown policies in Azure DevTest Labs and Compute VMs
 description: Learn how to set autoshutdown policy for a lab so that virtual machines are automatically shut down when they aren't in use. 
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
 ---
 

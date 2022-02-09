@@ -74,6 +74,7 @@ Read the following articles to understand concepts essential to creating and man
 - [Azure Monitor for Azure Virtual Desktop glossary](../azure-monitor-glossary.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json)
 - [Azure Virtual Desktop for the enterprise](/azure/architecture/example-scenario/wvd/windows-virtual-desktop)
 - [Estimate total deployment costs](total-costs.md)
+- [Estimate per-user app streaming costs](streaming-costs.md)
 - [Architecture recommendations](architecture-recs.md)
 - [Start VM on Connect FAQ](../start-virtual-machine-connect-faq.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json)
 

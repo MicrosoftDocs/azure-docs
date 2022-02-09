@@ -2,7 +2,7 @@
 title: Use IoT Edge device local storage from a module - Azure IoT Edge | Microsoft Docs
 description: Use environment variables and create options to enable module access to IoT Edge device local storage.
 author: kgremban
-manager: philmea
+
 ms.author: kgremban
 ms.date: 08/14/2020
 ms.topic: conceptual

@@ -101,7 +101,7 @@ The following services are in scope for DoD IL5 PA in Azure Government DoD regio
 - [Network Watcher Traffic Analytics](../network-watcher/traffic-analytics.md)
 - [Power Apps](/powerapps/powerapps-overview)
 - [Power Apps portal](https://powerapps.microsoft.com/portals/)
-- [Power Automate](/power-automate/) (formerly Microsoft Flow)
+- [Power Automate](/power-automate/getting-started) (formerly Microsoft Flow)
 - [Power BI](https://powerbi.microsoft.com/)
 - [Power BI Embedded](https://azure.microsoft.com/services/power-bi-embedded/)
 - [Service Bus](https://azure.microsoft.com/services/service-bus/)

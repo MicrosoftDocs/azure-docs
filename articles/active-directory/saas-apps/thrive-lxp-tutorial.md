@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/10/2021
+ms.date: 09/02/2021
 ms.author: jeedes
 
 ---
@@ -34,6 +34,7 @@ To get started, you need the following items:
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Thrive LXP supports **SP** initiated SSO.
+* Thrive LXP supports [Automated user provisioning](thrive-lxp-provisioning-tutorial.md).
 
 ## Adding Thrive LXP from the gallery
 
@@ -45,7 +46,6 @@ To configure the integration of Thrive LXP into Azure AD, you need to add Thrive
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **Thrive LXP** in the search box.
 1. Select **Thrive LXP** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
-
 
 ## Configure and test Azure AD SSO for Thrive LXP
 
@@ -91,6 +91,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. On the **Set up Thrive LXP** section, copy the appropriate URL(s) based on your requirement.
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
+
 ### Create an Azure AD test user
 
 In this section, you'll create a test user in the Azure portal called B.Simon.
@@ -123,6 +124,8 @@ To configure single sign-on on **Thrive LXP** side, you need to send the downloa
 
 In this section, you create a user called Britta Simon in Thrive LXP. Work with [Thrive LXP support team](mailto:support@thrivelearning.com) to add the users in the Thrive LXP platform. Users must be created and activated before you use single sign-on.
 
+Thrive LXP also supports automatic user provisioning, you can find more details [here](./thrive-lxp-provisioning-tutorial.md) on how to configure automatic user provisioning.
+
 ## Test SSO 
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
@@ -131,7 +134,7 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Go to Thrive LXP Sign-on URL directly and initiate the login flow from there.
 
-* You can use Microsoft My Apps. When you click the Thrive LXP tile in the My Apps, this will redirect to Thrive LXP Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+* You can use Microsoft My Apps. When you click the Thrive LXP tile in the My Apps, this will redirect to Thrive LXP Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Next steps
 

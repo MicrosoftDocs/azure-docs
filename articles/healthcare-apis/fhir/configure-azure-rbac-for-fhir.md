@@ -4,7 +4,7 @@ description: This article describes how to configure Azure RBAC for FHIR.
 author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.topic: tutorial
-ms.date: 08/03/2021
+ms.date: 09/10/2021
 ms.author: zxue
 ---
 
@@ -33,7 +33,7 @@ In the Role selection, search for one of the built-in roles for the FHIR data pl
 
 In the **Select** section, type the client application registration name. If the name is found, the application name is listed. Select the application name, and then select **Save**. 
 
-If the client application is not found, check your application registration, to ensure that the name is correct. Ensure that the client application is created in the same tenant where the FHIR service is deployed in.
+If the client application is not found, check your application registration, to ensure that the name is correct. Ensure that the client application is created in the same tenant where the FHIR service in the Azure Healthcare APIs (hereby called the FHIR service) is deployed in.
 
 
 [ ![Select role assignment.](media/rbac/select-role-assignment.png) ](media/rbac/select-role-assignment.png#lightbox)
@@ -49,4 +49,4 @@ You can verify the role assignment by selecting the **Role assignments** tab fro
 In this article, you've learned how to assign Azure roles for the FHIR data plane. To learn how to access the FHIR service using Postman, see
 
 >[!div class="nextstepaction"]
->[Access FHIR service with Postman](using-postman.md)
+>[Access FHIR service with Postman](../use-postman.md)

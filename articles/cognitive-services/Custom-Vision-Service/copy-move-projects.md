@@ -99,6 +99,9 @@ You'll get a `200/OK` response with metadata about the exported project and a re
 }
 ```
 
+> [!TIP]
+> If you get an "Invalid Token" error when you import your project, it could be that the token URL string isn't web encoded. You can encode the token using a [URL Encoder](https://meyerweb.com/eric/tools/dencoder/).
+
 ## Import the project
 
 Call **[ImportProject](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc7548b571998fddee3)** using your target training key and endpoint, along with the reference token. You can also give your project a name in its new account.

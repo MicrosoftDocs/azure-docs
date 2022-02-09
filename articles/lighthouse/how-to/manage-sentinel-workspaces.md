@@ -1,7 +1,7 @@
 ---
 title: Manage Azure Sentinel workspaces at scale
 description: Azure Lighthouse helps you effectively manage Azure Sentinel across delegated customer resources.
-ms.date: 03/02/2021
+ms.date: 08/16/2021
 ms.topic: how-to
 ---
 
@@ -33,6 +33,9 @@ This centralized model of deployment has the following advantages:
 
 > [!NOTE]
 > You can manage delegated resources that are located in different [regions](../../availability-zones/az-overview.md#regions). However, delegation of subscriptions across a [national cloud](../../active-directory/develop/authentication-national-cloud.md) and the Azure public cloud, or across two separate national clouds, isn't supported.
+
+> [!IMPORTANT]
+> If all workspaces are created in customer tenants, the Microsoft.SecurityInsights & Microsoft.OperationalInsights resource provider must also be [registered](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider) on a subscription in the managing tenant.
 
 ## Granular Azure role-based access control (Azure RBAC)
 
@@ -77,9 +80,9 @@ You can use automation to manage multiple Azure Sentinel workspaces and configur
 
 ## Monitor security of Office 365 environments
 
-Use Azure Lighthouse in conjunction with Azure Sentinel to monitor the security of Office 365 environments across tenants. First, out-of-the box [Office 365 data connectors must be enabled in the managed tenant](../../sentinel/connect-office-365.md) so that information about user and admin activities in Exchange and SharePoint (including OneDrive) can be ingested to an Azure Sentinel workspace within the managed tenant. This includes details about actions such as file downloads, access requests sent, changes to group events, and mailbox operations, along with information about the users who performed the actions. [Office 365 DLP alerts](https://techcommunity.microsoft.com/t5/azure-sentinel/ingest-office-365-dlp-events-into-azure-sentinel/ba-p/1031820) are also supported as part of the built-in Office 365 connector.
+Use Azure Lighthouse in conjunction with Azure Sentinel to monitor the security of Office 365 environments across tenants. First, out-of-the box [Office 365 data connectors must be enabled in the managed tenant](../../sentinel/data-connectors-reference.md#microsoft-office-365) so that information about user and admin activities in Exchange and SharePoint (including OneDrive) can be ingested to an Azure Sentinel workspace within the managed tenant. This includes details about actions such as file downloads, access requests sent, changes to group events, and mailbox operations, along with information about the users who performed the actions. [Office 365 DLP alerts](https://techcommunity.microsoft.com/t5/azure-sentinel/ingest-office-365-dlp-events-into-azure-sentinel/ba-p/1031820) are also supported as part of the built-in Office 365 connector.
 
-You can enable the [Microsoft Cloud App Security (MCAS) connector](../../sentinel/connect-cloud-app-security.md) to stream alerts and Cloud Discovery logs into Azure Sentinel. This lets you gain visibility into cloud apps, get sophisticated analytics to identify and combat cyberthreats, and control how data travels. Activity logs for MCAS can be [consumed using the Common Event Format (CEF)](https://techcommunity.microsoft.com/t5/azure-sentinel/ingest-box-com-activity-events-via-microsoft-cloud-app-security/ba-p/1072849).
+You can enable the [Microsoft Cloud App Security (MCAS) connector](../../sentinel/data-connectors-reference.md#microsoft-cloud-app-security-mcas) to stream alerts and Cloud Discovery logs into Azure Sentinel. This lets you gain visibility into cloud apps, get sophisticated analytics to identify and combat cyberthreats, and control how data travels. Activity logs for MCAS can be [consumed using the Common Event Format (CEF)](https://techcommunity.microsoft.com/t5/azure-sentinel/ingest-box-com-activity-events-via-microsoft-cloud-app-security/ba-p/1072849).
 
 After setting up Office 365 data connectors, you can use cross-tenant Azure Sentinel capabilities such as viewing and analyzing the data in workbooks, using queries to create custom alerts, and configuring playbooks to respond to threats.
 
@@ -87,5 +90,5 @@ After setting up Office 365 data connectors, you can use cross-tenant Azure Sent
 
 - Learn about [Azure Sentinel](../../sentinel/overview.md).
 - Review the [Azure Sentinel pricing page](https://azure.microsoft.com/pricing/details/azure-sentinel/).
+- Explore [Azure Sentinel All in One](https://github.com/Azure/Azure-Sentinel/tree/master/Tools/Sentinel-All-In-One), a project to speed up deployment and initial configuration tasks of an Azure Sentinel environment.
 - Learn about [cross-tenant management experiences](../concepts/cross-tenant-management-experience.md).
-

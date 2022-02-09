@@ -281,7 +281,6 @@ Azure Machine Learning provides several ways to use your models for scoring. Som
 | ----- | :-----: | ----- |
 | [Batch prediction](./tutorial-pipeline-batch-scoring-classification.md) | ✔ | Make predictions on large quantities of data asynchronously. |
 | [Web service](how-to-deploy-and-where.md) | &nbsp; | Deploy models as a web service. |
-| [Azure IoT Edge module](how-to-deploy-and-where.md) | &nbsp; | Deploy models to IoT Edge devices. |
 
 For situations where the SDK doesn't provide access to datastores, you might be able to create custom code by using the relevant Azure SDK to access the data. For example, the [Azure Storage SDK for Python](https://github.com/Azure/azure-storage-python) is a client library that you can use to access data stored in blobs or files.
 

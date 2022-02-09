@@ -68,15 +68,12 @@ The table summarizes agentless migration requirements for VMware VMs.
 > [!Note]
 > In addition to the Internet connectivity, for Linux VMs, ensure that the following packages are installed for successful installation of Microsoft Azure Linux agent (waagent):
 >- Python 2.6+
->- Python-setuptool
->- systemmd
 >- OpenSSL 1.0+
 >- OpenSSH 5.3+
 >- Filesystem utilities: sfdisk, fdisk, mkfs, parted
 >- Password tools: chpasswd, sudo
 >- Text processing tools: sed, grep
 >- Network tools: ip-route
->- Enable rc.local service on the source VM
 
 > [!TIP]
 >  Using the Azure portal you'll  be able to select up to 10 VMs at a time to configure replication. To replicate more VMs you can use the portal and add the VMs to be replicated in multiple batches of 10 VMs, or use the Azure Migrate PowerShell interface to configure replication. Ensure that you don't configure simultaneous replication on more than the maximum supported number of VMs for simultaneous replications.

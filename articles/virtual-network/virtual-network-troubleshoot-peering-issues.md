@@ -44,7 +44,7 @@ To configure virtual network peering for the virtual networks that are in the sa
 > * Virtual machine scale sets (uses Basic ILB SKU)
 > * Azure Service Fabric clusters (uses Basic ILB SKU)
 > * SQL Server Always On (uses Basic ILB SKU)
-> * Azure App Service Environment for PowerApps (uses Basic ILB SKU)
+> * Azure App Service Environment for Power Apps (uses Basic ILB SKU)
 > * Azure API Management (uses Basic ILB SKU)
 > * Azure Active Directory Domain Services (Azure AD DS) (uses Basic ILB SKU)
 

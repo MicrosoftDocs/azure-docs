@@ -5,36 +5,24 @@ description: Use loops and arrays in a Bicep file to deploy multiple instances o
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 07/19/2021
+ms.date: 09/30/2021
 ---
 
 # Resource iteration in Bicep
 
-This article shows you how to create more than one instance of a resource in your Bicep file. You can add a loop to the `resource` section of your file and dynamically set the number of resources to deploy. You also avoid repeating syntax in your Bicep file.
+This article shows you how to create more than one instance of a resource in your Bicep file. You can add a loop to a `resource` declaration and dynamically set the number of resources to deploy. You avoid repeating syntax in your Bicep file.
 
-You can also use a loop with [properties](loop-properties.md), [variables](loop-variables.md), and [outputs](loop-outputs.md).
+You can also use a loop with [modules](loop-modules.md), [properties](loop-properties.md), [variables](loop-variables.md), and [outputs](loop-outputs.md).
 
 If you need to specify whether a resource is deployed at all, see [condition element](conditional-resource-deployment.md).
+
+### Microsoft Learn
+
+To learn more about loops, and for hands-on guidance, see [Build flexible Bicep templates by using conditions and loops](/learn/modules/build-flexible-bicep-templates-conditions-loops/) on **Microsoft Learn**.
 
 ## Syntax
 
 Loops can be used declare multiple resources by:
-
-- Iterating over an array.
-
-  ```bicep
-  resource <resource-symbolic-name> '<resource-type>@<api-version>' = [for <item> in <collection>: {
-    <resource-properties>
-  }]
-  ```
-
-- Iterating over the elements of an array.
-
-  ```bicep
-  resource <resource-symbolic-name> '<resource-type>@<api-version>' = [for (<item>, <index>) in <collection>: {
-    <resource-properties>
-  }]
-  ```
 
 - Using a loop index.
 
@@ -44,11 +32,37 @@ Loops can be used declare multiple resources by:
   }]
   ```
 
+  For more information, see [Loop index](#loop-index).
+
+- Iterating over an array.
+
+  ```bicep
+  resource <resource-symbolic-name> '<resource-type>@<api-version>' = [for <item> in <collection>: {
+    <resource-properties>
+  }]
+  ```
+
+  For more information, see [Loop array](#loop-array).
+
+- Iterating over an array and index.
+
+  ```bicep
+  resource <resource-symbolic-name> '<resource-type>@<api-version>' = [for (<item>, <index>) in <collection>: {
+    <resource-properties>
+  }]
+  ```
+
+  For more information, see [Loop array and index](#loop-array-and-index).
+
 ## Loop limits
 
-The Bicep file's loop iterations can't be a negative number or exceed 800 iterations. To deploy Bicep files, install the latest version of [Bicep tools](install.md).
+Bicep loop has these limitations:
 
-## Resource iteration
+- Can't loop a resource with nested child resources. You must change the child resources to top-level resources.  See [Iteration for a child resource](#iteration-for-a-child-resource).
+- Can't loop on multiple levels of properties. See [Property iteration in Bicep](./loop-properties.md).
+- Loop iterations can't be a negative number or exceed 800 iterations.
+
+## Loop index
 
 The following example creates the number of storage accounts specified in the `storageCount` parameter.
 
@@ -67,6 +81,8 @@ resource storageAcct 'Microsoft.Storage/storageAccounts@2021-02-01' = [for i in 
 ```
 
 Notice the index `i` is used in creating the storage account resource name.
+
+## Loop array
 
 The following example creates one storage account for each name provided in the `storageNames` parameter.
 
@@ -90,6 +106,49 @@ resource storageAcct 'Microsoft.Storage/storageAccounts@2021-02-01' = [for name 
 
 If you want to return values from the deployed resources, you can use a loop in the [output section](loop-outputs.md).
 
+## Loop array and index
+
+The following example uses both the array element and index value when defining the storage account.
+
+```bicep
+param storageAccountNamePrefix string
+
+var storageConfigurations = [
+  {
+    suffix: 'local'
+    sku: 'Standard_LRS'
+  }
+  {
+    suffix: 'geo'
+    sku: 'Standard_GRS'
+  }
+]
+
+resource storageAccountResources 'Microsoft.Storage/storageAccounts@2021-02-01' = [for (config, i) in storageConfigurations: {
+  name: '${storageAccountNamePrefix}${config.suffix}${i}'
+  location: resourceGroup().location
+  properties: {
+    supportsHttpsTrafficOnly: true
+    accessTier: 'Hot'
+    encryption: {
+      keySource: 'Microsoft.Storage'
+      services: {
+        blob: {
+          enabled: true
+        }
+        file: {
+          enabled: true
+        }
+      }
+    }
+  }
+  kind: 'StorageV2'
+  sku: {
+    name: config.sku
+  }
+}]
+```
+
 ## Resource iteration with condition
 
 The following example shows a nested loop combined with a filtered resource loop. Filters must be expressions that evaluate to a boolean value.
@@ -106,7 +165,7 @@ resource parentResources 'Microsoft.Example/examples@2020-06-06' = [for parent i
 }]
 ```
 
-Filters are also supported with module loops.
+Filters are also supported with [module loops](loop-modules.md).
 
 ## Deploy in batches
 
@@ -114,7 +173,7 @@ By default, Resource Manager creates resources in parallel. When you use a loop 
 
 You might not want to update all instances of a resource type at the same time. For example, when updating a production environment, you may want to stagger the updates so only a certain number are updated at any one time. You can specify that a subset of the instances be batched together and deployed at the same time. The other instances wait for that batch to complete.
 
-To serially deploy instances of a resource, add the [batchSize decorator](./file.md#resource-and-module-decorators). Set its value to the number of instances to deploy at a time. A dependency is created on earlier instances in the loop, so it doesn't start one batch until the previous batch completes.
+To serially deploy instances of a resource, add the [batchSize decorator](./file.md#resource-and-module-decorators). Set its value to the number of instances to deploy concurrently. A dependency is created on earlier instances in the loop, so it doesn't start one batch until the previous batch completes.
 
 ```bicep
 param rgLocation string = resourceGroup().location
@@ -129,6 +188,10 @@ resource storageAcct 'Microsoft.Storage/storageAccounts@2021-02-01' = [for i in 
   kind: 'Storage'
 }]
 ```
+
+For purely sequential deployment, set the batch size to 1.
+
+The `batchSize` decorator is in the [sys namespace](bicep-functions.md#namespaces-for-functions). If you need to differentiate this decorator from another item with the same name, preface the decorator with **sys**: `@sys.batchSize(2)`
 
 ## Iteration for a child resource
 
@@ -178,24 +241,10 @@ resource share 'Microsoft.Storage/storageAccounts/fileServices/shares@2021-02-01
 }]
 ```
 
-## Example templates
-
-The following examples show common scenarios for creating more than one instance of a resource or property.
-
-|Template  |Description  |
-|---------|---------|
-|[Loop storage](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/loopstorage.bicep) |Deploys more than one storage account with an index number in the name. |
-|[Serial loop storage](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/loopserialstorage.bicep) |Deploys several storage accounts one at time. The name includes the index number. |
-|[Loop storage with array](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/loopstoragewitharray.bicep) |Deploys several storage accounts. The name includes a value from an array. |
-
 ## Next steps
 
 - For other uses of the loop, see:
-  - [Property iteration in Bicep files](loop-properties.md)
-  - [Variable iteration in Bicep files](loop-variables.md)
-  - [Output iteration in Bicep files](loop-outputs.md)
-- If you want to learn about the sections of a Bicep file, see [Understand the structure and syntax of Bicep files](file.md).
-- For information about how to deploy multiple resources, see [Use Bicep modules](modules.md).
+  - [Property iteration in Bicep](loop-properties.md)
+  - [Variable iteration in Bicep](loop-variables.md)
+  - [Output iteration in Bicep](loop-outputs.md)
 - To set dependencies on resources that are created in a loop, see [Set resource dependencies](./resource-declaration.md#set-resource-dependencies).
-- To learn how to deploy with PowerShell, see [Deploy resources with Bicep and Azure PowerShell](deploy-powershell.md).
-- To learn how to deploy with Azure CLI, see [Deploy resources with Bicep and Azure CLI](deploy-cli.md).

@@ -7,7 +7,7 @@ ms.date: 05/20/2021
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
-manager: philmea
+
 ---
 
 # Implement dynamic styling for Creator indoor maps

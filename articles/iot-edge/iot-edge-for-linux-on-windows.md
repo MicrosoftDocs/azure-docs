@@ -2,7 +2,7 @@
 title: What is Azure IoT Edge for Linux on Windows | Microsoft Docs
 description: Overview of you can run Linux IoT Edge modules on Windows 10 devices
 author: kgremban
-manager: philmea
+
 # this is the PM responsible
 ms.reviewer: twarwick
 ms.service: iot-edge

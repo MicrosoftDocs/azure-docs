@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: See how to create a function in Azure for propagating events through the twin graph.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 8/5/2021
+ms.date: 8/13/2021
 ms.topic: how-to
 ms.service: digital-twins
 

@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/15/2021
+ms.date: 08/27/2021
 ms.author: jeedes
 ---
 # Tutorial: Azure Active Directory integration with Bonusly
@@ -32,6 +32,7 @@ To configure Azure AD integration with Bonusly, you need the following items:
 In this tutorial, you configure and test Azure AD single sign-on in a test environment.
 
 * Bonusly supports **IDP** initiated SSO.
+* Bonusly supports [Automated user provisioning](bonusly-provisioning-tutorial.md).
 
 > [!NOTE]
 > Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
@@ -177,7 +178,10 @@ In order to enable Azure AD users to sign in to Bonusly, they must be provisione
     d. Click **Save**.
 
     > [!NOTE]
-    > The Azure AD account holder receives an email that includes a link to confirm the account before it becomes active.  
+    > The Azure AD account holder receives an email that includes a link to confirm the account before it becomes active.
+
+> [!NOTE]
+>Bonusly also supports automatic user provisioning, you can find more details [here](./bonusly-provisioning-tutorial.md) on how to configure automatic user provisioning.
 
 ## Test SSO
 
@@ -185,7 +189,7 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Click on Test this application in Azure portal and you should be automatically signed in to the Bonusly for which you set up the SSO.
 
-* You can use Microsoft My Apps. When you click the Bonusly tile in the My Apps, you should be automatically signed in to the Bonusly for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+* You can use Microsoft My Apps. When you click the Bonusly tile in the My Apps, you should be automatically signed in to the Bonusly for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Next steps
 

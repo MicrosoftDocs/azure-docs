@@ -66,36 +66,36 @@ The connection strings for the published route-specific endpoints can be copied 
 
 Routing preference for Azure Storage is available in the following regions:
 
-- Central US 
-- Central US EUAP
-- East US 
-- East US 2
-- East US 2 
-- East US 2 EUAP
-- South Central US
-- West Central US
-- West US 
-- West US 2 
-- France Central 
-- France South 
-- Germany North 
-- Germany West Central 
-- North Central US
-- North Europe 
-- Norway East 
-- Switzerland North
-- Switzerland West
-- UK South 
-- UK West 
-- West Europe 
-- UAE Central
-- East Asia 
-- Southeast Asia 
-- Japan East 
-- Japan West 
-- West India
-- Australia East 
-- Australia Southeast 
+- Central US 
+- Central US EUAP
+- East US 
+- East US 2
+- East US 2 
+- East US 2 EUAP
+- South Central US
+- West Central US
+- West US 
+- West US 2 
+- France Central 
+- France South 
+- Germany North 
+- Germany West Central 
+- North Central US
+- North Europe 
+- Norway East 
+- Switzerland North
+- Switzerland West
+- UK South 
+- UK West 
+- West Europe 
+- UAE Central
+- East Asia 
+- Southeast Asia 
+- Japan East 
+- Japan West 
+- West India
+- Australia East 
+- Australia Southeast 
 
 The following known issues affect the routing preference for Azure Storage:
 

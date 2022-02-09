@@ -7,7 +7,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.topic: how-to
-ms.date: 08/20/2020
+ms.date: 09/15/2021
 ms.author: banders
 ---
 
@@ -55,7 +55,7 @@ Using an [Azure Automation runbook](../../automation/automation-runbook-types.md
 1. Once the runbook has completed the import process, select **Edit** to display the graphical runbook editor and publishing option.  
     ![Azure - Edit graphical runbook](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-01.png)
 1. Select **Publish** to publish the runbook and then select **Yes** when prompted. When you publish a runbook, you override any existing published version with the draft version. In this case, you've no published version because you've created the runbook.
-    For more information about publishing a runbook, see [Create a graphical runbook](../../automation/learn/automation-tutorial-runbook-graphical.md).
+    For more information about publishing a runbook, see [Create a graphical runbook](../../automation/learn/powershell-runbook-managed-identity.md).
 
 ## Create webhooks for the runbook
 

@@ -66,11 +66,11 @@ A [skillset](cognitive-search-defining-skillset.md) that's assembled using built
 
 ### Use-cases for custom skills
 
-Custom skills can support more complex scenarios, such as recognizing forms, or custom entity detection using a model that you provide and wrap in the [custom skill web interface](cognitive-search-custom-skill-interface.md). Several examples of custom skills include [Forms Recognizer](../cognitive-services/form-recognizer/overview.md), integration of the [Bing Entity Search API](./cognitive-search-create-custom-skill-example.md), and [custom entity recognition](https://github.com/Microsoft/SkillsExtractorCognitiveSearch).
+Custom skills can support more complex scenarios, such as recognizing forms, or custom entity detection using a model that you provide and wrap in the [custom skill web interface](cognitive-search-custom-skill-interface.md). Several examples of custom skills include [Forms Recognizer](../applied-ai-services/form-recognizer/overview.md), integration of the [Bing Entity Search API](./cognitive-search-create-custom-skill-example.md), and [custom entity recognition](https://github.com/Microsoft/SkillsExtractorCognitiveSearch).
 
 ## Enrichment steps <a name="enrichment-steps"></a>
 
-An enrichment pipeline consists of [*indexers*](search-indexer-overview.md) that have [*skillsets*](cognitive-search-working-with-skillsets.md). A skillset defines the enrichment steps, and the indexer drives the skillset. When configuring an indexer, you can include properties like output field mappings that send enriched content to a [search index](search-what-is-an-index.md) or a [knowledge store](knowledge-store-concept-intro.md).
+An enrichment pipeline consists of [*indexers*](search-indexer-overview.md) that have [*skillsets*](cognitive-search-working-with-skillsets.md). A skillset defines the enrichment steps, and the indexer drives the skillset. When configuring an indexer, you can include properties like output field mappings that send enriched content to a [search index](search-what-is-an-index.md) or projections that define data structures in a [knowledge store](knowledge-store-concept-intro.md).
 
 Post-indexing, you can access content via search requests through all [query types supported by Azure Cognitive Search](search-query-overview.md).
 
@@ -138,5 +138,7 @@ To iterate over the above steps, [reset the indexer](search-howto-reindex.md) be
 
 + [Quickstart: Try AI enrichment in a portal walk-through](cognitive-search-quickstart-blob.md)
 + [Tutorial: Learn about the AI enrichment REST APIs](cognitive-search-tutorial-blob.md)
-+ [Knowledge store](knowledge-store-concept-intro.md)
-+ [Create a knowledge store in REST](knowledge-store-create-rest.md)
++ [Skillset concepts](cognitive-search-working-with-skillsets.md)
++ [Knowledge store concepts](knowledge-store-concept-intro.md)
++ [Create a skillset](cognitive-search-defining-skillset.md)
++ [Create a knowledge store](knowledge-store-create-rest.md)

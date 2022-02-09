@@ -17,7 +17,7 @@ ms.custom: aaddev
 # Customer intent: As a web app or web API developer, I want to learn how to ensure that my app is resilient to outages due to Azure AD OpenID Connect metadata refresh.
 ---
 
-# How to: Build services that are resilient to Azure AD's OpenID Connect metadata refresh
+# Build services that are resilient to Azure AD's OpenID Connect metadata refresh
 
 Protected web APIs need to validate access tokens. Web apps also validate the ID tokens. Token Validation has multiple parts, checking whether the token belongs to the application, has been issued by a trusted Identity Provider (IDP), has a lifetime that's still in range and hasn't been tampered with. There can also be special validations. For instance, the app needs to validate the signature and that signing keys (when embedded in a token) are trusted and that the token isn't being replayed. When the signing keys aren't embedded in the token, they need to be fetched from the identity provider (Discovery or Metadata). Sometimes it's also necessary to obtain keys dynamically at runtime.
 

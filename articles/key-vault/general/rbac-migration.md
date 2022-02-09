@@ -26,7 +26,7 @@ Azure RBAC key benefits over vault access policies:
 
 Azure RBAC disadvantages:
 - Latency for role assignments - it can take several minutes for role assignments to be applied. Vault access policies are assigned instantly.
-- Limited number of role assignments - 2000 roles assignments per subscription versus 1024 access policies per Key Vault
+- Limited number of role assignments - Azure RBAC allows only 2000 roles assignments across all services per subscription versus 1024 access policies per Key Vault
 
 ## Access policies to Azure roles mapping
 
@@ -71,7 +71,7 @@ Access policy predefined permission templates:
 | Certificate Management | Certificates: all operations | Key Vault Certificates Officer|
 | SQL Server Connector | Keys: get, list, wrap key, unwrap key | Key Vault Crypto Service Encryption User|
 | Azure Data Lake Storage or Azure Storage | Keys: get, list,  unwrap key | N/A<br> Custom role required|
-| Azure Backup | Keys: get, list, backup<br> Certificate: get, list, backup | N/A<br> Custom role required|
+| Azure Backup | Keys: get, list, backup<br> Secrets: get, list, backup | N/A<br> Custom role required|
 | Exchange Online Customer Key | Keys: get, list, wrap key, unwrap key | Key Vault Crypto Service Encryption User|
 | Exchange Online Customer Key | Keys: get, list, wrap key, unwrap key | Key Vault Crypto Service Encryption User|
 | Azure Information BYOK | Keys: get, decrypt, sign | N/A<br>Custom role required|

@@ -7,8 +7,9 @@ services: azure-communication-services
 
 ms.author: bobazile
 ms.date: 06/30/2021
-ms.topic: overview
+ms.topic: conceptual
 ms.service: azure-communication-services
+ms.subservice: pstn
 ---
 
 # Telephony concepts

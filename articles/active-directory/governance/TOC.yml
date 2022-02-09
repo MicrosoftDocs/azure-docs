@@ -18,6 +18,10 @@
       href: entitlement-management-access-package-first.md
     - name: Manage access to resources - Microsoft Graph
       href: /graph/tutorial-access-package-api?toc=/azure/active-directory/governance/toc.json&bc=/azure/active-directory/governance/breadcrumb/toc.json
+    - name: Onboard external users to Azure AD through an approval process
+      href: entitlement-management-onboard-external-user.md
+    - name: Manage the lifecycle of your group-based licenses in Azure AD
+      href: entitlement-management-group-licenses.md
 - name: Concepts
   expanded: true
   items:
@@ -133,22 +137,14 @@
         href: review-your-access.md
       - name: Complete an access review
         href: complete-access-review.md
-    - name: Azure AD roles
+    - name: Azure AD roles and Azure resource roles
       items:
       - name: Create an access review
-        href: ../privileged-identity-management/pim-how-to-start-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json
-      - name: Review access
-        href: ../privileged-identity-management/pim-how-to-perform-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json
+        href: ../privileged-identity-management/pim-create-azure-ad-roles-and-resource-roles-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json
+      - name: Perform an access review
+        href: ../privileged-identity-management/pim-perform-azure-ad-roles-and-resource-roles-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json
       - name: Complete an access review
-        href: ../privileged-identity-management/pim-how-to-complete-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json
-    - name: Azure resource roles
-      items:
-      - name: Create an access review
-        href: ../privileged-identity-management/pim-resource-roles-start-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json
-      - name: Review access
-        href: ../privileged-identity-management/pim-resource-roles-perform-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json
-      - name: Complete an access review
-        href: ../privileged-identity-management/pim-resource-roles-complete-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json
+        href: ../privileged-identity-management/pim-complete-azure-ad-roles-and-resource-roles-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json
 - name: Reference
   expanded: true
   items:

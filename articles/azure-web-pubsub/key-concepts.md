@@ -12,4 +12,6 @@ ms.date: 08/06/2021
 
 Azure Web PubSub Service helps you build real-time messaging web applications. The clients connect to the service using the [standard WebSocket protocol](https://datatracker.ietf.org/doc/html/rfc6455), and the service exposes [REST APIs](/rest/api/webpubsub) and SDKs for you to manage these clients.
 
+Here are some important terms used by the service:
+
 [!INCLUDE [Terms](includes/terms.md)]

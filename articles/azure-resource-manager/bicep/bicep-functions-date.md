@@ -4,21 +4,20 @@ description: Describes the functions to use in a Bicep file to work with dates.
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 06/01/2021
+ms.date: 09/30/2021
 ---
 
 # Date functions for Bicep
 
-Resource Manager provides the following functions for working with dates in your Bicep file:
-
-* [dateTimeAdd](#datetimeadd)
-* [utcNow](#utcnow)
+This article describes the Bicep functions for working with dates.
 
 ## dateTimeAdd
 
 `dateTimeAdd(base, duration, [format])`
 
 Adds a time duration to a base value. ISO 8601 format is expected.
+
+Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### Parameters
 
@@ -83,6 +82,8 @@ resource scheduler 'Microsoft.Automation/automationAccounts/schedules@2015-10-31
 `utcNow(format)`
 
 Returns the current (UTC) datetime value in the specified format. If no format is provided, the ISO 8601 (`yyyyMMddTHHmmssZ`) format is used. **This function can only be used in the default value for a parameter.**
+
+Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### Parameters
 

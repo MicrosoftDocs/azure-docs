@@ -23,9 +23,30 @@ This feature can only be set at cluster creation or node pool creation time.
 
 ### Prerequisites
 
-
 - Ensure you have the CLI extension v2.23 or higher version installed.
+- Ensure you have the `EncryptionAtHost` feature flag under `Microsoft.Compute` enabled.
 
+### Register `EncryptionAtHost`  preview features
+
+To create an AKS cluster that uses host-based encryption, you must enable the `EncryptionAtHost` feature flags on your subscription.
+
+Register the `EncryptionAtHost` feature flag using the [az feature register][az-feature-register] command as shown in the following example:
+
+```azurecli-interactive
+az feature register --namespace "Microsoft.Compute" --name "EncryptionAtHost"
+```
+
+It takes a few minutes for the status to show *Registered*. You can check on the registration status using the [az feature list][az-feature-list] command:
+
+```azurecli-interactive
+az feature list -o table --query "[?contains(name, 'Microsoft.Compute/EncryptionAtHost')].{Name:name,State:properties.state}"
+```
+
+When ready, refresh the registration of the `Microsoft.Compute` resource providers using the [az provider register][az-provider-register] command:
+
+```azurecli-interactive
+az provider register --namespace Microsoft.Compute
+```
 
 ### Limitations
 

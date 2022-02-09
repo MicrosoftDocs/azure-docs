@@ -1,6 +1,6 @@
 ---
 title: Soft delete for blobs
-titleSuffix: Azure Storage 
+titleSuffix: Azure Storage
 description: Soft delete for blobs protects your data so that you can more easily recover your data when it is erroneously modified or deleted by an application or by another storage account user.
 services: storage
 author: tamram
@@ -22,7 +22,6 @@ Blob soft delete protects an individual blob, snapshot, or version from accident
 >
 >
 > To enroll in the preview, see [this form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR4mEEwKhLjlBjU3ziDwLH-pUOVRVOUpDRUtHVUtDUUtMVTZUR0tUMjZWNy4u).
-
 
 ## Recommended data protection configuration
 
@@ -65,13 +64,13 @@ If a blob has snapshots, the blob cannot be deleted unless the snapshots are als
 
 You can also delete one or more active snapshots without deleting the base blob. In this case, the snapshot is soft-deleted.
 
-If a directory is deleted in an account that has the hierarchical namespace feature enabled on it, the directory and all its contents are marked as soft-deleted. 
+If a directory is deleted in an account that has the hierarchical namespace feature enabled on it, the directory and all its contents are marked as soft-deleted.
 
 Soft-deleted objects are invisible unless they are explicitly displayed or listed. For more information about how to list soft-deleted objects, see [Manage and restore soft-deleted blobs](soft-delete-blob-manage.md).
 
 ### How overwrites are handled when soft delete is enabled
 
->[!IMPORTANT]
+> [!IMPORTANT]
 > This section doesn't apply to accounts that have a hierarchical namespace.
 
 Calling an operation such as [Put Blob](/rest/api/storageservices/put-blob), [Put Block List](/rest/api/storageservices/put-block-list), or [Copy Blob](/rest/api/storageservices/copy-blob) overwrites the data in a blob. When blob soft delete is enabled, overwriting a blob automatically creates a soft-deleted snapshot of the blob's state prior to the write operation. When the retention period expires, the soft-deleted snapshot is permanently deleted.
@@ -102,7 +101,7 @@ For more information on how to restore soft-deleted objects, see [Manage and res
 
 ## Blob soft delete and versioning
 
->[!IMPORTANT]
+> [!IMPORTANT]
 > Versioning is not supported for accounts that have a hierarchical namespace.
 
 If blob versioning and blob soft delete are both enabled for a storage account, then overwriting a blob automatically creates a new version. The new version is not soft-deleted and is not removed when the soft-delete retention period expires. No soft-deleted snapshots are created. When you delete a blob, the current version of the blob becomes a previous version, and there is no longer a current version. No new version is created and no soft-deleted snapshots are created.
@@ -118,7 +117,7 @@ Microsoft recommends enabling both versioning and blob soft delete for your stor
 
 ## Blob soft delete protection by operation
 
-The following table describes the expected behavior for delete and write operations when blob soft delete is enabled, either with or without blob versioning. 
+The following table describes the expected behavior for delete and write operations when blob soft delete is enabled, either with or without blob versioning.
 
 ### Storage account (no hierarchical namespace)
 
@@ -144,6 +143,21 @@ The following table describes the expected behavior for delete and write operati
 |[Delete Blob](/rest/api/storageservices/delete-blob)|A soft deleted object is created. The soft deleted object is deleted after the retention period. Soft delete will not be supported for blobs with snapshots and snapshots.|
 |[Path - Create](/rest/api/storageservices/datalakestoragegen2/path/create) that renames a blob or directory | Existing destination blob or empty directory will get soft deleted and the source will replace it. The soft deleted object is deleted after the retention period.|
 
+## Feature support
+
+This table shows how this feature is supported in your account and the impact on support when you enable certain capabilities.
+
+| Storage account type                | Blob Storage (default support)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>
+|-----------------------------|---------------------------------|------------------------------------|--------------------------------------------------|
+| Standard general-purpose v2 | ![Yes](../media/icons/yes-icon.png) |![Yes](../media/icons/yes-icon.png)  <sup>2</sup>  <sup>3</sup>            | ![No](../media/icons/no-icon.png) |
+| Premium block blobs          | ![Yes](../media/icons/yes-icon.png) |![Yes](../media/icons/yes-icon.png)  <sup>2</sup>  <sup>3</sup>            | ![No](../media/icons/no-icon.png) |
+
+<sup>1</sup>    Data Lake Storage Gen2 and the Network File System (NFS) 3.0 protocol both require a storage account with a hierarchical namespace enabled.
+
+<sup>2</sup>    Feature is supported at the preview level.
+
+<sup>3</sup>    For more information, see [Known issues with Azure Data Lake Storage Gen2](data-lake-storage-known-issues.md). These issues apply to all accounts that have the hierarchical namespace feature enabled.
+
 ## Pricing and billing
 
 All soft deleted data is billed at the same rate as active data. You will not be charged for data that is permanently deleted after the retention period elapses.
@@ -156,7 +170,7 @@ You are not billed for transactions related to the automatic generation of snaps
 
 For more information on pricing for Blob Storage, see the [Blob Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs/) page.
 
-## Blob soft delete and virtual machine disks  
+## Blob soft delete and virtual machine disks
 
 Blob soft delete is available for both premium and standard unmanaged disks, which are page blobs under the covers. Soft delete can help you recover data deleted or overwritten by the [Delete Blob](/rest/api/storageservices/delete-blob), [Put Blob](/rest/api/storageservices/put-blob), [Put Block List](/rest/api/storageservices/put-block-list), and [Copy Blob](/rest/api/storageservices/copy-blob) operations only.
 

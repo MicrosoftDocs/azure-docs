@@ -75,6 +75,7 @@ If the original purchase was made as an overage, the original invoice on which t
 ### Pay-as-you-go invoice payments and CSP program
 
 The original reservation purchase invoice is canceled and then a new invoice is created for the refund. For exchanges, the new invoice shows the refund and the new purchase. The refund amount is adjusted against the purchase. If you only refunded a reservation, then the prorated amount stays with Microsoft and it's adjusted against a future reservation purchase. If you bought a reservation at pay-as-you-go rates and later move to a CSP, the reservation can be returned and repurchased without a penalty.
+You cannot do a serf-service refund in CSP, for any refund request contact your CSP.
 
 ### Pay-as-you-go credit card customers
 

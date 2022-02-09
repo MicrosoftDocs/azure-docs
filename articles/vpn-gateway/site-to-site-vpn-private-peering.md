@@ -19,6 +19,8 @@ You can configure a Site-to-Site VPN to a virtual network gateway over an Expres
 
 * Point-to-site users connecting to a virtual network gateway can use ExpressRoute (via the Site-to-Site tunnel) to access on-premises resources.
 
+* It is possible to deploy Site-to-Site VPN connections over ExpressRoute private peering at the same time as Site-to-Site VPN connections via the Internet on the same VPN gateway.
+
 >[!NOTE]
 >This feature is only supported on zone-redundant gateways. For example, VpnGw1AZ, VpnGw2AZ, etc.
 >
