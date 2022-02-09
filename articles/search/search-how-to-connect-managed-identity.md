@@ -15,18 +15,26 @@ ms.date: 02/08/2022
 
 You can configure an Azure Cognitive Search service to connect to other Azure resources under a [system-assigned or user-assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md) that's assigned to a role on the remote service.
 
-The following outbound connections from search can be made under a managed identity:
-
-+ Indexer connections to supported Azure data sources
-+ Service connections to Azure Key Vault, retrieving customer-managed keys for supplemental encryption
-+ [Debug sessions](cognitive-search-debug-session.md) in Azure Storage (applies to AI enrichment)
-+ Knowledge Store in Azure Storage (applies to AI enrichment)
-+ Enrichment cache in Azure Storage (applies to AI enrichment)
-+ Custom skills (applies to AI enrichment)
-
 ## Prerequisites
 
 + A search service at the [Basic tier or above](search-sku-tier.md).
+
++ Azure resources that accept requests from a managed identity having a valid role assignment
+
+## Supported scenarios
+
+Connections using a user-assigned managed identity require an "identity" property. Currently, only indexer data sources support this property.
+
+| Scenario | System managed identity | User managed identity (preview) |
+|----------|-------------------------|---------------------------------|
+| Indexer connections to supported Azure data sources | Yes | Yes |
+| Azure Key Vault for customer-managed keys | Yes | No |
+| [Debug sessions](cognitive-search-debug-session.md) in Azure Storage | Yes | No |
+| Enrichment cache in Azure Storage | Yes <sup>1</sup>| No |
+| Knowledge Store in Azure Storage | Yes | No |
+| Custom skills | Yes | No |
+
+<sup>1</sup> The Import data wizard doesn't currently accept a system managed identity connection string for incremental enrichment, but after the wizard completes, you can update the indexer JSON definition to include the connection string, and then rerun the indexer.
 
 ## Create a system managed identity
 
@@ -102,7 +110,7 @@ You can use the Management REST API instead of the portal to assign a managed id
     } 
     ```
 
-1. Set the "identity" property to specify a fully-qualified managed identity:
+1. Set the "identity" property to specify a fully qualified managed identity:
 
    + "type" is the type of identity. Valid values are "SystemAssigned", "UserAssigned", or "SystemAssigned, UserAssigned" for both. A value of "None" will clear any previously assigned identities from the search service.
 
@@ -112,7 +120,7 @@ You can use the Management REST API instead of the portal to assign a managed id
 
 ## Allow firewall access
 
-If your Azure resource is behind a firewall, make sure there is an exception for connections from a trusted service.
+If your Azure resource is behind a firewall, make sure there's an exception for connections from a trusted service.
 
 The following steps are for Azure Storage. If your resource is Cosmos DB or Azure SQL, the steps will be similar.
 
@@ -159,6 +167,64 @@ The following steps are for Azure Storage. If your resource is Cosmos DB or Azur
    :::image type="content" source="media/search-managed-identities/add-role-assignment-storage-managed-identity.png" alt-text="Screenshot of the select managed identity pane in the role assignment wizard." border="true":::
 
 1. Select **Review + assign**.
+
+## Connection strings for managed identities
+
+Once a managed identity is defined and given a role assignment, outbound connections use it in connection strings. Here are some examples of connection strings for various scenarios.
+
+**Blob data source (system):**
+
+A container name is specified in the "container" property (not shown), not the connection string.
+
+```json
+"credentials": {
+    "connectionString": "ResourceId=/subscriptions/{subscription-ID}/resourceGroups/{resource-group-name}/providers/Microsoft.Storage/storageAccounts/{storage-account-name};"
+    }
+```
+
+**Blob data source (user):**
+
+A user-assigned managed identity is specified in the "identity" property, currently only supported for indexer data sources.
+
+```json
+"credentials": {
+    "connectionString": "ResourceId=/subscriptions/{subscription-ID}/resourceGroups/{resource-group-name}/providers/Microsoft.Storage/storageAccounts/{storage-account-name};"
+    },
+  . . .
+"identity": {
+    "@odata.type": "#Microsoft.Azure.Search.DataUserAssignedIdentity",
+    "userAssignedIdentity": "/subscriptions/{subscription-ID}/resourceGroups/{resource-group-name}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{user-assigned-managed-identity-name}"
+  }
+```
+
+**Knowledge store:**
+
+Container and table names are part of a projection definition, not the connection string.
+
+```json
+"knowledgeStore": {
+  "storageConnectionString": "ResourceId=/subscriptions/{subscription-ID}/resourceGroups/{resource-group-name}/providers/Microsoft.Storage/storageAccounts/storage-account-name};",
+```
+
+**Enrichment cache:**
+
+An indexer creates, uses, and remembers the container used for the cache. It's not necessary to include the container in the connection string.
+
+```json
+"cache": {
+  "id": "{object-id}",
+  "enableReprocessing": true,
+  "storageConnectionString": "ResourceId=/subscriptions/{subscription-ID}/resourceGroups/{resource-group-name}/providers/Microsoft.Storage/storageAccounts/storage-account-name};"
+},
+```
+
+**Debug session:**
+
+A debug session targets a container. Be sure to include the name of an existing container in the connection string. You can paste a string similar to the following example in the debug session that you start up in the portal.
+
+```json
+"ResourceId=/subscriptions/{subscription-ID}/resourceGroups/{resource-group-name}/providers/Microsoft.Storage/storageAccounts/{storage-account-name}/{container-name};",
+```
 
 ## See also
 

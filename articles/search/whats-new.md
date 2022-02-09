@@ -80,7 +80,7 @@ Learn what's new in the service. Bookmark this page to keep up to date with serv
 |-------|---------|-------------|
 | November | [Customer-managed key encryption (extended)](search-security-manage-encryption-keys.md) | Extends customer-managed encryption over the full range of assets created and managed by a search service. Generally available.|
 | September | [Visual Studio Code extension for Azure Cognitive Search](search-get-started-vs-code.md) | Adds a workspace, navigation, intellisense, and templates for creating indexes, indexers, data sources, and skillsets. This feature is currently in public preview.| 
-| September | [Managed service identity (indexers)](search-howto-managed-identities-data-sources.md) | Generally available.  |
+| September | [System managed service identity (indexers)](search-howto-managed-identities-data-sources.md) | Generally available.  |
 | September | [Outbound requests using a private link](search-indexer-howto-access-private.md) | Generally available.  |
 | September | [Management REST API (2020-08-01)](/rest/api/searchmanagement/management-api-versions) | Generally available. |
 | September | [Management REST API (2020-08-01-Preview)](/rest/api/searchmanagement/management-api-versions) | Adds shared private link resource for Azure Functions and Azure SQL for MySQL Databases. |
