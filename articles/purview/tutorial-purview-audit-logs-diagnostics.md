@@ -1,4 +1,3 @@
-
 ---
 title: Enable and Capture Azure Purview Audit Logs and time series activity history via Azure Diagnostics Event Hub
 description:  This tutorial lists step-by-step configuration on how to Enable and Capture Azure Purview Audit Logs and time series activity history via Azure Diagnostics Event Hub.
@@ -20,7 +19,7 @@ As an Azure Purview administrator, or Azure Purview data source admin, I want to
 
 ### Enable Diagnostics
 
-1. Create [Azure EventHub Namespace and Azure EventHub using Azure ARM Template (GitHub)](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.eventhub/eventhubs-create-namespace-and-enable-capture). While this automated Azure ARM Template should one-click deploy and finish creating your EventHub with the required configuration desirable for Purview Audit logging; follow these guides for more detailed step by step explanantions and manual setup: [Azure Event-Hub: Use Azure Resource Manager Template to enable eventhub capture](../event-hubs/event-hubs-resource-manager-namespace-event-hub-enable-capture.md) and [Azure Event-Hub: Enable capturing of events streaming manually using Azure Portal](../event-hubs/event-hubs-capture-enable-through-portal.md)
+1. Create an [Azure EventHub Namespace and Azure EventHub using Azure ARM Template (GitHub)](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.eventhub/eventhubs-create-namespace-and-enable-capture). While this automated Azure ARM Template should one-click deploy and finish creating your EventHub with the required configuration desirable for Purview Audit logging; follow these guides for more detailed step by step explanantions and manual setup: [Azure Event-Hub: Use Azure Resource Manager Template to enable eventhub capture](../event-hubs/event-hubs-resource-manager-namespace-event-hub-enable-capture.md) and [Azure Event-Hub: Enable capturing of events streaming manually using Azure Portal](../event-hubs/event-hubs-capture-enable-through-portal.md)
 
 2. Now that the Event-Hub is deployed and created, connect Azure Purview diagnostics audit logging to this Event-Hub.
 - Go To your Purview Account home page (where the overview information is displayed, not the Purview Studio home page.) Instructions as shown in the screenshot below.
