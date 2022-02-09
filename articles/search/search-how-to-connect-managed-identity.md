@@ -13,18 +13,20 @@ ms.date: 02/08/2022
 
 # Connect a search service to other Azure resources using a managed identity
 
-You can configure an Azure Cognitive Search service to connect to other Azure resources under a system-assigned or user-assigned managed identity. The following outbound connections from search can be made under a managed identity:
+You can configure an Azure Cognitive Search service to connect to other Azure resources under a [system-assigned or user-assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md) that's assigned to a role on the remote service.
 
-+ Azure Key Vault for customer-managed encryption
-+ Supported Azure data sources (applies to indexers)
-+ [Debug sessions](cognitive-search-debug-session.md) (applies to AI enrichment)
-+ Knowledge Store on Azure Storage (applies to AI enrichment)
-+ Enrichment cache on Azure Storage (applies to AI enrichment)
+The following outbound connections from search can be made under a managed identity:
+
++ Indexer connections to supported Azure data sources
++ Service connections to Azure Key Vault, retrieving customer-managed keys for supplemental encryption
++ [Debug sessions](cognitive-search-debug-session.md) in Azure Storage (applies to AI enrichment)
++ Knowledge Store in Azure Storage (applies to AI enrichment)
++ Enrichment cache in Azure Storage (applies to AI enrichment)
 + Custom skills (applies to AI enrichment)
 
 ## Prerequisites
 
-+ A search service at the Basic tier or above.
++ A search service at the [Basic tier or above](search-sku-tier.md).
 
 ## Create a system managed identity
 
@@ -46,8 +48,12 @@ A system-assigned managed identity is unique to your search service and bound to
 
 ## Create a user managed identity (preview)
 
+A user-assigned managed identity is useful if you need more precision in role assignments. You can create separate identifies for different applications and scenarios.
+
 > [!IMPORTANT]
 >This feature is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). The REST API version 2021-04-30-Preview and [Management REST API 2021-04-01-Preview](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update) provide this feature.
+
+### [**Azure portal**](#tab/portal)
 
 1. [Sign in to Azure portal](https://portal.azure.com/)
 
@@ -59,64 +65,54 @@ A system-assigned managed identity is unique to your search service and bound to
 
 1. Select the subscription, resource group, and region. Give the identity a descriptive name.
 
-1. Select **Create** and wait for the resource to finish deploying.
+1. Select **Create** and wait for the resource to finish deploying. 
 
-### Assign a user managed identity (preview) to Search
-
-#### [**Azure portal**](#tab/portal)
+   In the next several steps, you'll assign the user managed identity to your search service.
 
 1. In your search service page, under **Settings**, select **Identity**.
 
 1. On the **User assigned** tab, select **Add**.
 
-1. Choose the subscription and user-assigned managed resource that you created in the previous step.
+1. Choose the subscription and then select the user-assigned managed resource that you created in the previous step.
 
-1. Select **Save**.
+### [**REST API**](#tab/rest)
 
-#### [**REST API**](#tab/rest)
+You can use the Management REST API instead of the portal to assign a managed identity. Be sure to use the [2021-04-01-preview management API](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update) for this task.
 
-If you're using the Management REST API instead of the portal, be sure to use the [2021-04-01-preview management API](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update).
+1. Formulate a request to [Create or Update a search service](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update).
 
-The identity property takes a type and one or more fully-qualified user-assigned identities:
+    ```http
+    PUT https://management.azure.com/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Search/searchServices/mysearchservice?api-version=2021-04-01-preview
+    {
+      "location": "[region]",
+      "sku": {
+        "name": "[sku]"
+      },
+      "properties": {
+        "replicaCount": [replica count],
+        "partitionCount": [partition count],
+        "hostingMode": "default"
+      },
+      "identity": {
+        "type": "UserAssigned",
+        "userAssignedIdentities": {
+          "/subscriptions/[subscription ID]/resourcegroups/[resource group name]/providers/Microsoft.ManagedIdentity/userAssignedIdentities/[name of managed identity]": {}
+        }
+      }
+    } 
+    ```
 
-+ "type" is the type of identity. Valid values are "SystemAssigned", "UserAssigned", or "SystemAssigned, UserAssigned" for both. A value of "None" will clear any previously assigned identities from the search service.
+1. Set the "identity" property to specify a fully-qualified managed identity:
 
-+ "userAssignedIdentities" includes the details of the user assigned managed identity. The format is:
+   + "type" is the type of identity. Valid values are "SystemAssigned", "UserAssigned", or "SystemAssigned, UserAssigned" for both. A value of "None" will clear any previously assigned identities from the search service.
 
-  ```bash
-    /subscriptions/<your-subscription-ID>/resourcegroups/<your-resource-group-name>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<your-managed-identity-name>
-  ```
-
-##### Example of a user-assigned managed identity assignment
-
-```http
-PUT https://management.azure.com/subscriptions/[subscription ID]/resourceGroups/[resource group name]/providers/Microsoft.Search/searchServices/[search service name]?api-version=2021-04-01-preview
-Content-Type: application/json
-
-{
-  "location": "[region]",
-  "sku": {
-    "name": "[sku]"
-  },
-  "properties": {
-    "replicaCount": [replica count],
-    "partitionCount": [partition count],
-    "hostingMode": "default"
-  },
-  "identity": {
-    "type": "UserAssigned",
-    "userAssignedIdentities": {
-      "/subscriptions/[subscription ID]/resourcegroups/[resource group name]/providers/Microsoft.ManagedIdentity/userAssignedIdentities/[name of managed identity]": {}
-    }
-  }
-} 
-```
+   + "userAssignedIdentities" includes the details of the user assigned managed identity. This identity [must already exist](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md) before you can specify it in the Create or Update Service request.
 
 ---
 
 ## Allow firewall access
 
-If your Azure resource is behind a firewall, make sure there is an exception for connections from a trusted service. A search service with a managed identity will be on the trusted service list. 
+If your Azure resource is behind a firewall, make sure there is an exception for connections from a trusted service.
 
 The following steps are for Azure Storage. If your resource is Cosmos DB or Azure SQL, the steps will be similar.
 
@@ -138,9 +134,9 @@ The following steps are for Azure Storage. If your resource is Cosmos DB or Azur
 
 A managed identity must be paired with an Azure role that determines permissions on the Azure resource. 
 
-+ For Azure Key Vault and indexer data retrieval, the role must grant data reader rights. 
++ For indexer data connections and Azure Key Vault, the role must grant data reader rights. 
 
-+ For AI enrichment, the search service submits data for processing or storage on the Azure resource. Write permissions are required for AI enrichment. 
++ For AI enrichment features, the search service submits data for processing or storage on the Azure resource. Write permissions are required for AI enrichment. 
 
 The following steps are for Azure Storage. If your resource is Cosmos DB or Azure SQL, the steps will be similar.
 
