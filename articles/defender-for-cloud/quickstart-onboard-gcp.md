@@ -26,6 +26,90 @@ Adding a GCP account to an Azure subscription connects Defender for Cloud with G
 
 :::image type="content" source="./media/quickstart-onboard-gcp/gcp-account-in-overview.png" alt-text="Screenshot of GCP projects shown in Microsoft Defender for Cloud's overview dashboard." lightbox="./media/quickstart-onboard-gcp/gcp-account-in-overview.png":::
 
+::: zone pivot="env-settings"
+
+## Availability
+
+|Aspect|Details|
+|----|:----|
+|Required/Preferred Environmental Requirements:| Have workloads in GCP, and are looking for CSPM solution (can be either replacement or new deployment)|
+|Required roles and permissions:| **Contributor** on the relevant Azure Subscription|
+|Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National (Azure Government, Azure China 21Vianet, Other Gov)|
+|||
+
+## Connect your GCP account
+
+When connecting your GCP accounts to specific Azure subscriptions, consider the [Google Cloud resource hierarchy](https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy#resource-hierarchy-detail) and these guidelines:
+
+- You can connect your GCP accounts to Defender for Cloud in the *organization* level
+- You can connect multiple organizations to one Azure subscription
+- You can connect multiple organizations to multiple Azure subscriptions
+- When you connect an organization, all *projects* within that organization are added to Defender for Cloud
+
+Follow the steps below to create your GCP cloud connector. 
+
+**To connect your GCP account**:
+
+1. Sign in to the [Azure portal](https://portal.azure.com). 
+
+1. Navigate to **Defender for Cloud** > **Environment settings**.
+
+1. Select **+ Add environment**.
+
+1. Select **Google Cloud**.
+
+    :::image type="content" source="media/quickstart-onboard-gcp/google-cloud.png" border="false" alt-text="Screenshot of the location of the Google cloud environment button.":::
+
+1. Enter a Connector name.
+
+    :::image type="content" source="media/quickstart-onboard-gcp/create-connector.png" alt-text="Screenshot of the Create GCP connector page where you need to enter all relevant information.":::
+
+1. Select a Subscription from the drop down menu
+
+1. Select a Resource group, or create a new one.
+
+1. Select a Location from the drop down menu.
+
+1. Enter a GCP project number.
+
+1. Enter a GCP project ID
+
+1. Select the **Next: Select Plans** button.
+
+1. Toggle the plans you want to connect to **On**.
+
+1. Select the **Next: Configure access** button.
+
+1. Select the copy button.
+
+    :::image type="content" source="media/quickstart-onboard-gcp/copy-button.png" alt-text="Screenshot showing the location of the copy button.":::
+
+1. Select the **GCP Cloud Shell >** button.
+
+1. The GCP Cloud Shell will open.
+
+1. Paste the script into the Cloud Shell terminal and run it.
+
+1. Ensure that the following resources were created:
+
+    - CSPM service account reader role
+    - MDFC identity federation
+    - CSPM identity pool
+
+1. Navigate back to the Microsoft Defender for Cloud portal.
+
+1. (Optional) If you changed any of the names of any of the resources, update the names in the appropriate field.
+
+1. Select the **Next: Review and generate >** button.
+
+1. Ensure the information presented is correct.
+
+1. Select the **Create** button. 
+
+::: zone-end
+
+::: zone pivot="classic-connector"
+
 ## Availability
 
 |Aspect|Details|
