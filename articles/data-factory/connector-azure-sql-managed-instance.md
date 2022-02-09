@@ -766,8 +766,8 @@ The below table lists the properties supported by Azure SQL Managed Instance sou
 | Isolation Level | Choose one of the following isolation levels:<br>- Read Committed<br>- Read Uncommitted (default)<br>- Repeatable Read<br>- Serializable<br>- None (ignore isolation level) | No | <small>READ_COMMITTED<br/>READ_UNCOMMITTED<br/>REPEATABLE_READ<br/>SERIALIZABLE<br/>NONE</small> |isolationLevel |
 
 > [!TIP]
-> The [common table expression (CTE)](/sql/t-sql/queries/with-common-table-expression-transact-sql?view=sql-server-ver15&preserve-view=true) in SQL is not supported in the mapping data flow **Query** mode, because the prerequisite of using this mode is that queries can be used in the SQL query FROM clause but CTE cannot do this.
->To use CTE, you need to create a stored procedure using the following query:
+> The [common table expression (CTE)](/sql/t-sql/queries/with-common-table-expression-transact-sql?view=sql-server-ver15&preserve-view=true) in SQL is not supported in the mapping data flow **Query** mode, because the prerequisite of using this mode is that queries can be used in the SQL query FROM clause but CTEs cannot do this.
+>To use CTEs, you need to create a stored procedure using the following query:
 >```SQL
 > CREATE PROC CTESP @query nvarchar(max)
 > AS
@@ -775,7 +775,7 @@ The below table lists the properties supported by Azure SQL Managed Instance sou
 > EXECUTE sp_executesql @query;
 > END
 >```
->Then use the **Stored procedure** mode in the source transformation of mapping data flow and set the `@query` as `with CTE as (select 'test' as a) select * from CTE`. Then you can use CTE as expected.
+>Then use the **Stored procedure** mode in the source transformation of the mapping data flow and set the `@query` as `with CTE as (select 'test' as a) select * from CTE`. Then you can use CTEs as expected.
 
 #### Azure SQL Managed Instance source script example
 
