@@ -38,7 +38,7 @@ As an Azure Purview administrator or Azure Purview data source admin, I want to 
 3. Analyzing and making sense of the captured Audit and Diagnostics log data from Purview.
 - Navigate to "Process Data" on the Event-Hub page left pane navigation menu to see a preview of the captured Purview audit logs and diagnostics.
 - Switch between "Table" and "Raw" view of the JSON output. Click "Download Sample Data" to download and analyse the results carefully.
-- Lastly, you can use scripts to extract and perform additional analytics and operations, and build additional utilities and custom code to extract business value out of the captured audit and diagnostics. While you can use any programming/scripting language, here is a Python-based tutorial on how to [Capture Event Hubs data in Azure Storage and read it by using Python (azure-eventhub)](../event-hubs/event-hubs-capture-python.md) 
+- Lastly, you can use scripts to extract and perform additional analytics and operations, and build additional utilities and custom code to extract business value out of the captured audit and diagnostics. You can even use these audit logs and transform them to Excel, any database, Dataverse or Synapse, for analytics and reporting using PowerBI. While you can use any programming/scripting language to read the event hub, here is a readymade [Python-based script](https://github.com/Azure/Azure-Purview-API-PowerShell/blob/main/purview_atlas_eventhub_sample.py) and Python tutorial on how to [Capture Event Hubs data in Azure Storage and read it by using Python (azure-eventhub)](../event-hubs/event-hubs-capture-python.md) 
 
 ## Next steps
 
