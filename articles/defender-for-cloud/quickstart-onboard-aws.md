@@ -70,15 +70,15 @@ If you have any existing connectors created with the classic cloud connectors ex
 
 1. Sign in to the [Azure portal](https://portal.azure.com). 
 
-1. Navigate to **Defender for Cloud** > **Environment settings**
+1. Navigate to **Defender for Cloud** > **Environment settings**.
 
 1. Select the option to switch back to the classic connectors experience.
 
-    :::image type="content" source="media/quickstart-onboard-gcp/classic-connectors-experience.png" alt-text="Switching back to the classic cloud connectors experience in Defender for Cloud.":::From Defender for Cloud's menu, open **Environment settings**.
+    :::image type="content" source="media/quickstart-onboard-gcp/classic-connectors-experience.png" alt-text="Switching back to the classic cloud connectors experience in Defender for Cloud.":::
 
-1. For each connector, select the three dot button "…" at the end of the row, and select **Delete**.
+1. For each connector, select the three dot button **…** at the end of the row, and select **Delete**.
 
-1. On AWS, delete the role ARN or the credentials created for the integration.
+1. On AWS, delete the role ARN, or the credentials created for the integration.
 
 ### Create a new connector
 
@@ -111,10 +111,8 @@ Additional extensions should be enabled on Arc-connected machines. These extensi
 
 1. Select **Next: Select plans**.
 
-1. The select plans tab, is where you choose which Defender for Cloud capabilities to enable for this AWS account. 
-
     > [!NOTE]
-    > Each capability has its own requirements for permissions and might incur charges.
+    > Each plan has its own requirements for permissions, and might incur charges.
 
     :::image type="content" source="media/quickstart-onboard-aws/add-aws-account-plans-selection.png" alt-text="The select plans tab is where you choose which Defender for Cloud capabilities to enable for this AWS account.":::
 
