@@ -4,7 +4,7 @@ titleSuffix:  Microsoft Azure Maps
 description: 'Quickstart: Learn how to create an Android app using the Azure Maps Android SDK.'
 author: stevemunk
 ms.author: v-munksteve
-ms.date: 01/11/2021
+ms.date: 02/09/2022
 ms.topic: quickstart
 ms.service: azure-maps
 services: azure-maps
@@ -164,7 +164,7 @@ The next step in building your application is to install the Azure Maps Android 
     * Add imports for the Azure Maps SDK.
     * Set your Azure Maps authentication information.
     * Get the map control instance in the **onCreate** method.
-        
+
     > [!TIP]
     > By setting the authentication information globally in the `AzureMaps` class using the `setSubscriptionKey` or `setAadProperties` methods, you won't need to add your authentication information in every view.
 
@@ -361,6 +361,17 @@ The next step in building your application is to install the Azure Maps Android 
     }
     ```
 
+<!-------------------------------------------------------------------------------------------------------
+If you need a map with no borders, such as is shown in the screenshot of the map used in this article, 
+replace 'mapControl?.onReady(OnReady { map: AzureMap ->})' in the above code sample with the following:
+
+ mapControl?.onReady(OnReady { map: AzureMap ->
+    var layers = map.layers.layerIds.toString();
+    var transitLayer = map.layers.getById("transit");
+    map.layers.remove(transitLayer);
+ })
+----------------------------------------------------------------------------------------------------------->
+
 ::: zone-end
 
 1. Select the run button from the toolbar, as shown in the following image (or press `Control` + `R` on a Mac), to build your application.
@@ -397,7 +408,7 @@ For more code examples, see these guides:
 
 ## Next steps
 
-In this quickstart, you created your Azure Maps account and created a demo application. Take a look at the following tutorials to learn more about Azure Maps:
+In this quickstart, you created your Azure Maps account and created a demo application. Take a look at the following tutorial to learn more about Azure Maps:
 
 > [!div class="nextstepaction"]
 > [Load GeoJSON data into Azure Maps](tutorial-load-geojson-file-android.md)
