@@ -1,6 +1,6 @@
 ---
-title: Call Azure Functions from logic app workflows
-description: Run your own code in workflows created with Azure Logic Apps by calling Azure Functions.
+title: Call Azure Functions from workflows
+description: Create and run code from workflows in Azure Logic Apps by calling Azure Functions.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
@@ -9,7 +9,7 @@ ms.date: 02/01/2022
 ms.custom: devx-track-js
 ---
 
-# Create and run your own code from workflows in Azure Logic Apps by using Azure Functions
+# Create and run code from workflows in Azure Logic Apps using Azure Functions
 
 When you want to run code that performs a specific job in your logic app workflow, you can create a function by using [Azure Functions](../azure-functions/functions-overview.md). This service helps you create Node.js, C#, and F# functions so you don't have to build a complete app or infrastructure to run code. You can also [call logic app workflows from inside an Azure function](#call-logic-app). Azure Functions provides serverless computing in the cloud and is useful for performing certain tasks, for example:
 
@@ -31,23 +31,23 @@ You can also run code snippets without using Azure Functions. For more informati
 
   If you don't have a function app, [create your function app first](../azure-functions/functions-get-started.md). You can then create your function either outside your logic app in the Azure portal or [from inside your logic app](#create-function-designer) in the workflow designer.
 
-* When working with logic apps, the same requirements apply to both function apps and functions, existing or new:
+* When working with logic app resources, the same requirements apply to both function apps and functions, existing or new:
 
-  * Your function app and logic app must use the same Azure subscription.
+  * Your function app resource and logic app resource must use the same Azure subscription.
 
   * New function apps must use either the .NET or JavaScript as the runtime stack. When you add a new function to existing function apps, you can select either C# or JavaScript.
 
   * Your function uses the **HTTP trigger** template.
 
-    The HTTP trigger template can accept content that has `application/json` type from your logic app. When you add a function to your logic app, the workflow designer shows custom functions that are created from this template within your Azure subscription.
+    The HTTP trigger template can accept content that has `application/json` type from your logic app workflow. When you add a function to your workflow, the designer shows custom functions that are created from this template within your Azure subscription.
 
   * Your function doesn't use custom routes unless you've defined an [OpenAPI definition](../azure-functions/functions-openapi-definition.md) ([Swagger file](https://swagger.io/)).
 
   * If you have an OpenAPI definition for your function, the workflow designer gives you a richer experience when your work with function parameters. Before your logic app workflow can find and access functions that have OpenAPI definitions, [set up your function app by following these steps](#function-swagger).
 
-* Either a [Consumption or Standard](logic-apps-overview.md#resource-type-and-host-environment-differences) logic app resource and workflow where you want to use the function, including a [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts) as the first step in your workflow.
+* Either a [Consumption or Standard](logic-apps-overview.md#resource-type-and-host-environment-differences) logic app resource and workflow where you want to use the function.
 
-  Before you can add actions that run functions, your workflow must start with a trigger. If you're new to logic apps, review [What is Azure Logic Apps](../logic-apps/logic-apps-overview.md) and [Quickstart: Create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+  Before you can add an action that runs a function in your workflow, the workflow must start with a trigger as the first step. If you're new to logic app workflows, review [What is Azure Logic Apps](logic-apps-overview.md) and [Quickstart: Create your first logic app](quickstart-create-first-logic-app-workflow.md).
 
 <a name="function-swagger"></a>
 
@@ -69,7 +69,7 @@ For a richer experience when you work with function parameters in the workflow d
 
 ## Access property values inside HTTP requests
 
-Webhook functions can accept HTTP requests as inputs and pass those requests to other functions. For example, although Logic Apps has [functions that convert DateTime values](../logic-apps/workflow-definition-language-functions-reference.md), this basic sample JavaScript function shows how you can access a property inside a request object that's passed to the function and perform operations on that property value. To access properties inside objects, this example uses the [dot (.) operator](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Operators/Property_accessors):
+Webhook functions can accept HTTP requests as inputs and pass those requests to other functions. For example, although Azure Logic Apps has [functions that convert DateTime values](workflow-definition-language-functions-reference.md), this basic sample JavaScript function shows how you can access a property inside a request object that's passed to the function and perform operations on that property value. To access properties inside objects, this example uses the [dot (.) operator](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Operators/Property_accessors):
 
 ```javascript
 function convertToDateString(request, response){
@@ -227,52 +227,57 @@ To call existing functions from your logic app workflow, you can add functions l
 
 <a name="call-logic-app"></a>
 
-## Call logic apps from functions
+## Call workflows from functions
 
-When you want to trigger a logic app from inside a function, the logic app must start with a trigger that provides a callable endpoint. For example, you can start the logic app with the **HTTP**, **Request**, **Azure Queues**, or **Event Grid** trigger. Inside your function, send an HTTP POST request to the trigger's URL, and include the payload you want that logic app to process. For more information, review [Call, trigger, or nest logic apps](logic-apps-http-endpoint.md).
+When you want to trigger a logic app workflow from inside a function, the workflow must start with a trigger that provides a callable endpoint. For example, you can start the workflow with the **HTTP**, **Request**, **Azure Queues**, or **Event Grid** trigger. Inside your function, send an HTTP POST request to the trigger's URL, and include the payload you want that workflow to process. For more information, review [Call, trigger, or nest logic app workflows](logic-apps-http-endpoint.md).
 
 <a name="enable-authentication-functions"></a>
 
-## Enable authentication for functions
+## Enable authentication for function calls
 
-Your logic app can use a [managed identity](../active-directory/managed-identities-azure-resources/overview.md) (formerly known as Managed Service Identity or MSI), if you want to easily authenticate access to resources protected by Azure Active Directory (Azure AD) without having to sign in and provide credentials or secrets. Azure manages this identity for you and helps secure your credentials because you don't have to provide or rotate secrets. Learn more about [Azure services that support managed identities for Azure AD authentication](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
+Your logic app resource can use a [managed identity](../active-directory/managed-identities-azure-resources/overview.md) (formerly known as Managed Service Identity or MSI) for authentication. A managed identity helps you authenticate access to resources protected by Azure Active Directory (Azure AD) without having to sign in and provide credentials or secrets. Azure manages this identity for you and helps secure your credentials because you don't have to provide or rotate secrets. Learn more about [Azure services that support managed identities for Azure AD authentication](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
 
-If you set up your logic app to use the system-assigned identity or a manually created, user-assigned identity, the function in your logic app workflow can also use that same identity for authentication. For more information about authentication support for functions in logic app workflows, review [Add authentication to outbound calls](logic-apps-securing-a-logic-app.md#add-authentication-outbound).
+If you set up your logic app to use the system-assigned identity or a manually created, user-assigned identity, your logic app can use that identity to authenticate access to your function. For more information about authentication support for Azure function calls in logic app workflows, review [Add authentication to outbound calls](logic-apps-securing-a-logic-app.md#add-authentication-outbound).
 
-To set up and use the managed identity with your function, follow these steps:
+To set up and use your logic app's managed identity to call your function, follow these steps:
 
 1. Enable the managed identity on your logic app resource, and set up that identity's access to the target resource. For more information, review [Authenticate access to Azure resources by using managed identities in Azure Logic Apps](create-managed-service-identity.md).
 
 1. Enable authentication in your function and function app by following these steps:
 
-   * [Set up anonymous authentication in your function](#set-authentication-function-app)
-   * [Set up Azure AD authentication in your function app](#set-azure-ad-authentication)
+   1. [Set up anonymous authentication for your function](#set-authentication-function-app).
+
+   1. [Set up Azure AD authentication for your function app](#set-azure-ad-authentication).
 
 <a name="set-authentication-function-app"></a>
 
-### Set up anonymous authentication in your function
+## Set up anonymous authentication for your function
 
-To use your logic app's managed identity in your function, you must set your function's authentication level to anonymous. Otherwise, your logic app workflow throws a "BadRequest" error.
+To set up and use your logic app's managed identity to authenticate function calls, you must set your function's authentication level to anonymous. Otherwise, your logic app workflow throws a **BadRequest** error.
 
-1. In the [Azure portal](https://portal.azure.com), find and select your function app. These steps use "FabrikamFunctionApp" as the example function app.
+1. In the [Azure portal](https://portal.azure.com), find and select your function app.
+
+   The following steps use an example function app named **FabrikamFunctionApp**.
 
 1. On the function app resource menu, under **Development tools**, select **Advanced Tools** > **Go**.
 
    ![Screenshot showing function app menu with "Advanced Tools" and "Go" selected.](./media/logic-apps-azure-functions/open-advanced-tools-kudu.png)
 
-1. After the Kudu Services page opens, on the Kudu website's title bar, from the **Debug Console** menu, select **CMD**.
+1. After the **Kudu Services** page opens, on the Kudu website's title bar, from the **Debug Console** menu, select **CMD**.
 
    ![Screenshot showing Kudu Services page with "Debug Console" menu opened, and "CMD" option selected.](./media/logic-apps-azure-functions/open-debug-console-kudu.png)
 
-1. After the next page appears, from the folder list, select **site** > **wwwroot** > *your-function*. These steps use "FabrikamAzureFunction" as the example function.
+1. After the next page appears, from the folder list, select **site** > **wwwroot** > *your-function*.
+
+   The following steps use an example function named **FabrikamAzureFunction**.
 
    ![Screenshot showing folder list with "site" > "wwwroot" > your function selected.](./media/logic-apps-azure-functions/select-site-wwwroot-function-folder.png)
 
-1. Open the `function.json` file for editing.
+1. Open the **function.json** file for editing.
 
    ![Screenshot showing "function.json" file with edit command selected.](./media/logic-apps-azure-functions/edit-function-json-file.png)
 
-1. In the `bindings` object, check whether the `authLevel` property exists. If the property exists, set the property value to `anonymous`. Otherwise, add that property and set the value.
+1. In the **bindings** object, check whether the **authLevel** property exists. If the property exists, set the property value to **anonymous**. Otherwise, add that property and set the value.
 
    ![Screenshot showing the "bindings" object with the "authLevel" property set to "anonymous".](./media/logic-apps-azure-functions/set-authentication-level-function-app.png)
 
@@ -280,29 +285,56 @@ To use your logic app's managed identity in your function, you must set your fun
 
 <a name="set-azure-ad-authentication"></a>
 
-### Set up Azure AD authentication for your function app
+## Set up Azure AD authentication for your function app
 
-Before you start this task, find and put these values aside for later use:
+Before you start this task, find and save the following values aside for later use. The following sections show how to find these values.
 
-* The object (principal) ID that's generated for the system-assigned identity that represents your logic app resource
-
-  * To get this object ID, [enable your logic app's system-assigned identity](create-managed-service-identity.md#azure-portal-system-logic-app).
-
-  * Otherwise, to find this object ID, open your logic app in the designer. On your logic app resource menu, under **Settings**, select **Identity** > **System assigned**.
-
+* The object (principal) ID for your logic app's managed identity
 * The tenant ID for your Azure Active Directory (Azure AD)
+* Client secret (optional)
+* The application ID URI (resource ID) for your function app
 
-  To get your tenant ID, you can run the [`Get-AzureAccount`](/powershell/module/servicemanagement/azure.service/get-azureaccount) PowerShell command. Or, in the Azure portal, follow these steps:
+### Find the object ID for your logic app's managed identity
 
-  1. In the [Azure portal](https://portal.azure.com), open your Azure AD tenant. These steps use "Fabrikam" as the example tenant.
+If your logic app doesn't have a managed identity set up yet, [enable the managed identity for your logic app](create-managed-service-identity.md). Based on the whether you have a Consumption or Standard logic app resource, follow the respective steps:
 
-  1. On the tenant menu, under **Manage**, select **Properties**.
+#### [Consumption](#tab/consumption)
 
-  1. Copy your tenant ID, for example, and save that ID for later use.
+1. After your logic app has its managed identity enabled, on the logic app menu, under **Settings**, select **Identity**, and then select either **System assigned** or **User assigned**.
 
-     ![Screenshot showing your Azure AD "Properties" pane with tenant ID's copy button selected.](./media/logic-apps-azure-functions/azure-active-directory-tenant-id.png)
+   * **System assigned**
 
-* The application ID URI (resource ID) for the target resource that you want to access
+     For the system-assigned identity, copy the identity's object ID, for example:
+
+     ![Screenshot showing the Consumption logic app "Identity" pane with the "System assigned" tab selected.](./media/logic-apps-azure-functions/system-identity-consumption.png)
+
+   * **User assigned**
+
+     1. For the user-assigned identity, select the identity to find the object ID, for example:
+
+        ![Screenshot showing the Consumption logic app "Identity" pane with the "User assigned" tab selected.](./media/logic-apps-azure-functions/user-identity-consumption.png)
+
+     1. On the managed identity's **Overview** pane, you can find the identity's object ID, for example:
+
+        ![Screenshot showing the user-assigned identity's "Overview" pane with the object ID selected.](./media/logic-apps-azure-functions/user-identity-consumption-object-id.png)
+
+#### [Standard](#tab/standard)
+
+---
+
+### Find the tenant ID for your Azure AD
+
+1. For your Azure Active Directory (Azure AD), find the tenant ID. You can either run the PowerShell command named [**Get-AzureAccount**](/powershell/module/servicemanagement/azure.service/get-azureaccount), or in the Azure portal, follow these steps:
+
+   1. In the [Azure portal](https://portal.azure.com), open your Azure AD tenant. These steps use "Fabrikam" as the example tenant.
+
+   1. On the tenant menu, under **Manage**, select **Properties**.
+
+   1. Copy your tenant ID, for example, and save that ID for later use.
+
+      ![Screenshot showing your Azure AD "Properties" pane with tenant ID's copy button selected.](./media/logic-apps-azure-functions/azure-active-directory-tenant-id.png)
+
+1. For the target resource that you want to access, which is your function app in this case, find the application ID URI (resource ID).
 
   * To find these resource IDs, review the [Azure services that support Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
 
@@ -345,8 +377,8 @@ Now you're ready to set up Azure AD authentication for your function app by crea
 
    When you're done, the **Authentication** page now lists the identity provider. From here, you can edit or delete this provider configuration. You're now ready to use the Microsoft identity platform for authentication in your function app.
 
-1. Return to the designer and follow the [steps to authenticate access with the managed identity](../logic-apps/create-managed-service-identity.md#authenticate-access-with-identity).
+1. Return to the designer and follow the [steps to authenticate access with the managed identity](create-managed-service-identity.md#authenticate-access-with-identity).
 
 ## Next steps
 
-* Learn about [Logic Apps connectors](../connectors/apis-list.md)
+* Learn about [connectors in Azure Logic Apps](../connectors/apis-list.md)
