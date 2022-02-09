@@ -223,6 +223,8 @@ The following tables display the current Microsoft Sentinel feature availability
 | - [Notebook integration with Azure Synapse](../../sentinel/notebooks-with-synapse.md) | Public Preview | Not Available|
 | **Watchlists** | | |
 |- [Watchlists](../../sentinel/watchlists.md) | GA | GA |
+|- [Large watchlists from Azure Storage](../../sentinel/watchlists.md) | Public Preview | Not Available |
+|- [Watchlist templates](../../sentinel/watchlists.md) | Public Preview | Not Available |
 | **Hunting** | | |
 | - [Hunting](../../sentinel/hunting.md) | GA | GA |
 | **Content  and content management** | | |
