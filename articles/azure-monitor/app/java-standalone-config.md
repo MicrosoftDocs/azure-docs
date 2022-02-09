@@ -65,6 +65,20 @@ Connection string is required. You can find your connection string in your Appli
 You can also set the connection string using the environment variable `APPLICATIONINSIGHTS_CONNECTION_STRING`
 (which will then take precedence over connection string specified in the json configuration).
 
+you can also set the connectiong string by loading it from a file. 
+
+```json
+{
+  "connectionString": "${file:connection-string-file.txt}"
+}
+```
+
+`connection-string-file.txt` only contains the connection string: 
+
+```
+InstrumentationKey=...;IngestionEndpoint=...
+```
+
 Not setting the connection string will disable the Java agent.
 
 ## Cloud role name
