@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/02/2022
+ms.date: 02/09/2022
 ms.author: v-ydequadros
 ---
 
@@ -25,22 +25,14 @@ This article describes how to generate and download the **Permissions analytics 
 
 ## Generate the Permissions analytics report 
 
-1. In the CloudKnox home page, select the **Reports** tab, and then select the **Systems reports** subtab.
-    The **Systems Reports** subtab displays the following options in the **Reports** table:
+1. In the CloudKnox home page, select the **Reports** tab, and then select the **Systems Reports** subtab.
 
-    - **Report Name** — The name of the report.
-    - **Category** — The type of report: **Permission** or **Compliance**.
-    - **Authorization System** — The authorization system in which you can view the report: Amazon Web Services (**AWS**), Microsoft Azure (**Azure**), or Google Cloud Platform (**GCP**).
-    - **Format** — The format of the report.
-    
-1. In the **Report Name** table, find **Permissions analytics report**, and then select the down arrow to the right of the report name to download the report.
+    The **Systems Reports** subtab displays a list of reports the **Reports** table.
+1. Find **Permissions analytics report** in the list, and to download the report, select the down arrow to the right of the report name, or from the ellipses **(...)** menu, select **Download**.
 
-    The following message displays: **Successfully started to generate on-demand report.
+    The following message displays: **Successfully started to generate on-demand report.**
 
-	> [!NOTE]
-    > If you select one authorization system, the report includes a summary. If you select more than one authorization system, the report does not include a summary.
-
-1. For detailed information, select the right arrow next to one of the following categories. Or, select the required category under the **Findings** column.
+1. For detailed information in the report, select the right arrow next to one of the following categories. Or, select the required category under the **Findings** column.
 
 	- **AWS**
 		- Inactive Identities
@@ -98,19 +90,19 @@ This article describes how to generate and download the **Permissions analytics 
 
 1. Select a category and view the following columns of information:
 
-	- **User**, **Role**, **Resource**, **Serverless function name** — Displays the name of the identity.
-	- **Authorization system** — Displays the authorization system that the identity belongs to.
-	- **Domain** — Displays the domain name that the identity belongs to.
-	- **Permissions** — Displays the maximum number of permissions that the identity can be granted.
-		- **Used** — Displays how many permissions that the identity has used.
-		- **Granted** — Displays how many permissions that the identity has been granted.
-	- **PCI** — Displays the permission creep index (PCI) score of the identity.
-	- **Date last active on** — Displays the date that the identity was last active.
-	- **Date created on** — Displays the date when the identity was created.
+	- **User**, **Role**, **Resource**, **Serverless function name**: Displays the name of the identity.
+	- **Authorization system**: Displays the authorization system that the identity belongs to.
+	- **Domain**: Displays the domain name that the identity belongs to.
+	- **Permissions**: Displays the maximum number of permissions that the identity can be granted.
+		- **Used**: Displays how many permissions that the identity has used.
+		- **Granted**: Displays how many permissions that the identity has been granted.
+	- **PCI**: Displays the permission creep index (PCI) score of the identity.
+	- **Date last active on**: Displays the date that the identity was last active.
+	- **Date created on**: Displays the date when the identity was created.
 
 
 
-## Add and remove tags in the Permissions analytics report
+<!---## Add and remove tags in the Permissions analytics report
 
 1. Select **Tags**.
 1. Select one of the categories from the **Permissions analytics report**.
@@ -124,11 +116,11 @@ This article describes how to generate and download the **Permissions analytics 
     - To remove a tag, select **Delete**.
 
 1. In the **Value (optional)** box, enter a value, if necessary.
-1. Select **Save**.
+1. Select **Save**.--->
  
 ## Next steps
 
-- For a brief overview of available system reports, see [View an overview of available system report types](cloudknox-product-reports.md).
+- For information on how to view system reports in the **Reports** dashboard, see [View system reports in the Reports dashboard](cloudknox-product-reports.md).
 - For a detailed overview of available system reports, see [View a list and description of system reports](cloudknox-all-reports.md).
 - For information about how to generate and view a system report, see [Generate and view a system report](cloudknox-report-view-system-report.md).
-- For information about how to create and view a custom report, see [Generate and view a custom report](cloudknox-report-create-custom-report.md).
+- For information about how to create, view, and share a system report, see [Create, view, and share a custom report](cloudknox-report-view-system-report.md).

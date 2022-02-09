@@ -93,7 +93,7 @@
         # href: cloudknox-product-define-permission-levels.md
       - name: Select group-based permissions settings
         href: cloudknox-howto-create-group-based-permissions.md
-    - name: View how users access information
+    - name: Use queries to view information about user access
       expanded: false
       items:
       - name: Use queries to see how users access information 
@@ -131,13 +131,13 @@
     - name: Create and view reports 
       expanded: false
       items: 
-      - name: View an overview of available system report types
+      - name: View system reports in the Reports dashboard
         href: cloudknox-product-reports.md
       - name: View a list and description of system reports
         href: cloudknox-all-reports.md
       - name: Generate and view a system report
         href: cloudknox-report-view-system-report.md
-      - name: Generate and view a custom report
+      - name: Create, view, and share a custom report
         href: cloudknox-report-create-custom-report.md
       - name: Generate and download the Permissions analytics report
         href: cloudknox-product-permissions-analytics-reports.md
