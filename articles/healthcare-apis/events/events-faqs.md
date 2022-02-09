@@ -45,7 +45,7 @@ There are no extra charges for using Azure Healthcare APIs Events. However, appl
 
 ### How do I subscribe to multiple FHIR services in the same workspace separately?
 
-You can use the Event Grid filtering feature. There're unique identifiers in the event message payload to differentiate different accounts and workspaces. You can find a global unique identifier for workspace in the `source` field, which is the Azure Resource ID. You can locate the unique FHIR account name in that workspace in the `data.resourceFhirAccount` field. When you create a subscription, you can use the filtering operators to select the events you want to get in that subscription.
+You can use the Event Grid filtering feature. There are unique identifiers in the event message payload to differentiate different accounts and workspaces. You can find a global unique identifier for workspace in the `source` field, which is the Azure Resource ID. You can locate the unique FHIR account name in that workspace in the `data.resourceFhirAccount` field. When you create a subscription, you can use the filtering operators to select the events you want to get in that subscription.
 
   :::image type="content" source="media\event-grid\event-grid-filters.png" alt-text="Screenshot of the Event Grid filters tab." lightbox="media\event-grid\event-grid-filters.png":::     
 
