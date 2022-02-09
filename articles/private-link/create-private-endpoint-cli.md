@@ -221,7 +221,7 @@ Next, create and configure the private DNS zone by using [az network private-dns
 
 ## Test connectivity to the private endpoint
 
-Finally, use the VM that you created earlier to connect to the SQL server across the private endpoint.
+Finally, use the VM that you created earlier to connect to the SQL Server instance across the private endpoint.
 
 1. Sign in to the [Azure portal](https://portal.azure.com). 
  
