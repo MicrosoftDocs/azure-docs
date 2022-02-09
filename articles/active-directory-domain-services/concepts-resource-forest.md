@@ -64,8 +64,8 @@ The transitivity of forest trusts is limited to the two forest partners. The for
 
 You can create different domain and forest trust configurations depending on the AD DS structure of the organization. Azure AD DS only supports a one-way forest trust. In this configuration, resources in the managed domain can trust all domains in an on-premises forest.
 
-   > [!NOTE]
-   > Only *resource* forests can create trusts. If the forest type is *User*, you can't create trusts. There's currently no way to change the forest type of a managed domain. You need to delete and recreate the managed domain as a resource forest.
+> [!NOTE]
+> Only *resource* forests can create trusts. If the forest type is *User*, you can't create trusts. There's currently no way to change the forest type of a managed domain. In this scenario, delete the managed domain and re-create it as a resource forest.
 
 ## Supporting technology for trusts
 
