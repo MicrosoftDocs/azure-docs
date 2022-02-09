@@ -12,7 +12,7 @@ ms.custom: template-how-to
 
 # Collect the required information for a service for Azure Private 5G Core Preview
 
-A service is a set of quality of service (QoS) characteristics you want to offer SIMs. For example, you may want to configure a service that provides higher bandwidth limits for particular traffic. You can also use services to block particular traffic types or traffic from specific sources.
+A *service* is a set of quality of service (QoS) characteristics you want to offer SIMs. For example, you may want to configure a service that provides higher bandwidth limits for particular traffic. You can also use services to block particular traffic types or traffic from specific sources.
 
 Each service has a set of rules to identify the service data flows (SDFs) to which the QoS characteristics should be applied. For more information, see [Policy control](policy-control.md). 
 
