@@ -154,7 +154,8 @@ For your SQL Server availability group or failover cluster instance, consider th
    - Use a unique DNN port in the connection string when connecting to the DNN listener for an availability group. 
 - Use a database mirroring connection string for a basic availability group to bypass the need for a load balancer or DNN. 
 - Validate the sector size of your VHDs before deploying your high availability solution to avoid having misaligned I/Os. See [KB3009974](https://support.microsoft.com/topic/kb3009974-fix-slow-synchronization-when-disks-have-different-sector-sizes-for-primary-and-secondary-replica-log-files-in-sql-server-ag-and-logshipping-environments-ed181bf3-ce80-b6d0-f268-34135711043c) to learn more. 
-
+- If SQL Server Database engine, SQL Listener, or Health probe port is configured to use a port from the Default dynamic port range for TCP/IP (https://docs.microsoft.com/en-us/windows/client-management/troubleshoot-tcpip-port-exhaust#default-dynamic-port-range-for-tcpip) between 49,152 and 65,536, it is recommended to add one exclusion for each port, this will prevent any system process taking this port, here an example: 
+netsh int ipv4 add excludedportrange tcp startport=59999 numberofports=1 store=persistent
 
 To learn more, see the comprehensive [HADR best practices](hadr-cluster-best-practices.md). 
 
