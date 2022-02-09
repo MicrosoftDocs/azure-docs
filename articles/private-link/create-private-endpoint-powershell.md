@@ -179,7 +179,7 @@ Next, create a VM that you can use to test the private endpoint.
     * [New-AzPrivateLinkServiceConnection](/powershell/module/az.network/New-AzPrivateLinkServiceConnection)
     * [New-AzPrivateEndpoint](/powershell/module/az.network/new-azprivateendpoint)
 
-1. Place the web app into a variable. Replace <webapp-resource-group-name> with the resource group name of your web app, and replace <your-webapp-name> with your web app name.
+1. Place the web app into a variable. Replace \<webapp-resource-group-name> with the resource group name of your web app, and replace \<your-webapp-name> with your web app name.
 
     ```azurepowershell-interactive
     $webapp = Get-AzWebApp -ResourceGroupName <webapp-resource-group-name> -Name <your-webapp-name>
