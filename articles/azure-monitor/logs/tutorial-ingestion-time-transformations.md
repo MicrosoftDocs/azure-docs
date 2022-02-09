@@ -26,7 +26,7 @@ To complete this tutorial, you need the following:
 
 
 ## Overview of tutorial
-The [LAQueryLogs table](https://docs.microsoft.com/azure/azure-monitor/logs/query-audit#audit-data) is created when you enable [log query auditing](query-audit.md) in a workspace. In this tutorial, we'll add a column to the `LAQueryLogs` table and reduce its storage requirement table by filtering out certain records and removing the contents of a column. You can use this same basic process for any [supported table](ingestion-time-transformations-supported-tables.md) in a Log Analytics workspace.  
+The [LAQueryLogs table](query-audit.md#audit-data) is created when you enable [log query auditing](query-audit.md) in a workspace. In this tutorial, we'll add a column to the `LAQueryLogs` table and reduce its storage requirement table by filtering out certain records and removing the contents of a column. You can use this same basic process for any [supported table](ingestion-time-transformations-supported-tables.md) in a Log Analytics workspace.  
 
 This tutorial will use the Azure portal which provides a wizard to walk you through the process of creating an ingestion-time transformation. The following actions are performed when you complete this wizard:
 
@@ -44,7 +44,7 @@ From the **Log Analytics workspaces** menu in the Azure portal, select **Diagnos
 
 Provide a name for the diagnostic setting and select the workspace so that the auditing data is stored in the same workspace. Select the **Audit** category and  then click **Save** to save the diagnostic setting and close the diagnostic setting page.
 
-:::image type="content" source="media/tutorial-ingestion-time-transformations/new-diagnostic-setting.png" lightbox="media/tutorial-ingestion-time-transformations/new-diagnostic-settings.png" alt-text="Screenshot of new diagnostic setting":::
+:::image type="content" source="media/tutorial-ingestion-time-transformations/new-diagnostic-settings.png" lightbox="media/tutorial-ingestion-time-transformations/new-diagnostic-settings.png" alt-text="Screenshot of new diagnostic setting":::
 
 Select **Logs** and then run some queries to populate `LAQuery Logs` with some data. These queries don't need to return data to be added to the audit log.
 
@@ -87,11 +87,11 @@ source
 
 Copy the query into the transformation editor and click **Run** to view results from the sample data. You can verify that the new `Workspace_CF` column is in the query.
 
-:::image type="content" source="media/transformation-editor/sample-data.png" lightbox="media/transformation-editor/sample-data.png" alt-text="Screenshot of transformation editor":::
+:::image type="content" source="media/tutorial-ingestion-time-transformations/sample-data.png" lightbox="media/tutorial-ingestion-time-transformations/sample-data.png" alt-text="Screenshot of transformation editor":::
 
 Click **Apply** to save the transformation and then **Next** to review the configuration. Click **Create** to update the data collection rule with the new transformation.
 
-:::image type="content" source="media/transformation-editor/save-transformation.png" lightbox="media/transformation-editor/save-transformation.png" alt-text="Screenshot of saving transformation":::
+:::image type="content" source="media/tutorial-ingestion-time-transformations/save-transformation.png" lightbox="media/tutorial-ingestion-time-transformations/save-transformation.png" alt-text="Screenshot of saving transformation":::
 
 ## Test transformation
 Allow about 30 minutes for the transformation to take effect, and you can then test it by running a query against the table. Only data sent to the table after the transformation was applied will be affected. 

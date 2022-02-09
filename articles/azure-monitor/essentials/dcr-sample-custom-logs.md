@@ -10,7 +10,7 @@ ms.custom: references_region
 ---
 
 # Sample data collection rule - custom logs
-The sample [data collection rule](data-collection-rule-overview.md) below is for use with [direct log ingestion](../logs/direct-ingestion-overview.md). It has the following details:
+The sample [data collection rule](data-collection-rule-overview.md) below is for use with [custom logs](../logs/custom-logs-overview.md). It has the following details:
 
 - Sends data to a table called MyTable_CL in a workspace called my-workspace.
 - Applies a transformation to the incoming data that .

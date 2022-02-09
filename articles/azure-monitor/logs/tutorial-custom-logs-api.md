@@ -34,7 +34,7 @@ The Data Collection Endpoint uses standard Azure Resource Manager (ARM) authenti
 For this tutorial, a new table called "MyTable_CL" will be created. Note that any completely custom table name must end in "_CL". Also note that it is possible to ingest data directly into most system tables - simply skip this step and reference the required system table in steps 4 and 7 instead of this custom one. 
 
 ## Configure application
-You need to start by registering an Azure Active Directory application to authenticate against the API. Any ARM authentication scheme is supported, but we'll follow the [Client Credential Grant Flow scheme](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow) for this tutorial.
+You need to start by registering an Azure Active Directory application to authenticate against the API. Any ARM authentication scheme is supported, but we'll follow the [Client Credential Grant Flow scheme](../../active-directory/develop/v2-oauth2-client-creds-grant-flow.md) for this tutorial.
 
 From the **Azure Active Directory** menu in the Azure portal, select **App registrations** and then **New registration**.
 
@@ -267,7 +267,7 @@ Select **Monitoring Metrics Publisher** and click **Next**.  You could instead c
 
 Select **User, group, or service principal** for **Assign access to** and click **Select members**. Select the application that you created and click **Select**.
 
-:::image type="content" source="media/tutorial-custom-logs/add-role-assignment-select-member.png" lightbox="media/tutorial-custom-logs/custom-log-create-select-member.png" alt-text="Screenshot for selecting members for DCR role assignment":::
+:::image type="content" source="media/tutorial-custom-logs/add-role-assignment-select-member.png" lightbox="media/tutorial-custom-logs/add-role-assignment-select-member.png" alt-text="Screenshot for selecting members for DCR role assignment":::
 
 
 Click **Review + assign** and verify the details before saving your role assignment.

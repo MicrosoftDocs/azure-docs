@@ -152,36 +152,36 @@ All [Datetime and Timespan arithmetic operators](/azure/data-explorer/kusto/quer
 #### String operators
 The following [String operators](/azure/data-explorer/kusto/query/datatypes-string-operators) are supported.
 
-– `==`
-– `!=`
-– `=~`
-– `!~`
-– `contains`
-– `!contains`
-– `contains_cs`
-– `!contains_cs`
-– `startswith`
-– `!startswith`
-– `startswith_cs`
-– `!startswith_cs`
-– `endswith`
-– `!endswith`
-– `endswith_cs`
-– `!endswith_cs`
-– `matches regex`
-– `in`
-– `!in`
+– /=/=
+– /!/=
+– /=/~
+– /!/~
+– contains
+– /!contains
+– contains_cs
+– /!contains_cs
+– startswith
+– /!startswith
+– startswith_cs
+– /!startswith_cs
+– endswith
+– /!endswith
+– endswith_cs
+– /!endswith_cs
+– matches regex
+– in
+– /!in
 
 #### Bitwise operators
 
 The following [Bitwise operators](/azure/data-explorer/kusto/query/binoperators) are supported.
 
-– `binary_and()`
-– `binary_or()`
-– `binary_xor()`
-– `binary_not()`
-– `binary_shift_left()`
-– `binary_shift_right()`
+– binary_and()
+– binary_or()
+– binary_xor()
+– binary_not()
+– binary_shift_left()
+– binary_shift_right()
 
 ### Scalar functions
 

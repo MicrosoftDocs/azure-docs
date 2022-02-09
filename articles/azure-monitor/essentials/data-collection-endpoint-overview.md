@@ -47,7 +47,7 @@ Click **Review + create** to review the details of the data collection endpoint.
 Next, you can use 'Data collection rules' in the portal to associate endpoints with a resource (e.g. a virtual machine) or a set of resources.  
 Create a new rule or open an existing rule. In the **Resources** tab, click on the **Data collection endpoint** drop-down to associate an existing endpoint for your resource in the same region (or select multiple resources in the same region to bulk-assign an endpoint for them). Doing this creates an association per resource which links the endpoint to the resource. The Azure Monitor agent running on these resources will now start using the endpoint instead for uploading data to Azure Monitor.
 
-[![Data Collection Rule virtual machines](media/data-collection-rule-azure-monitor-agent/data-collection-rule-virtual-machines-with-endpoint.png)](media/data-collection-rule-azure-monitor-agent/data-collection-rule-virtual-machines-with-endpoint.png#lightbox) 
+[![Data Collection Rule virtual machines](media/data-collection-rule-azure-monitor-agent/data-collection-rule-virtual-machines-with-endpoint.png)](../agents/media/data-collection-rule-azure-monitor-agent/data-collection-rule-virtual-machines-with-endpoint.png#lightbox) 
 
 ## Create endpoint and association using REST API
 
@@ -106,5 +106,5 @@ You can use data collection endpoints to enable the Azure Monitor agent to commu
 	![Data collection endpoint network isolation](media/data-collection-endpoint-overview/data-collection-endpoint-network-isolation.png)
 
 ## Next steps
-- [Associate endpoint to machines](data-collection-rule-azure-monitor-agent.md#create-rule-and-association-in-azure-portal)
+- [Associate endpoint to machines](../agents/data-collection-rule-azure-monitor-agent.md#create-rule-and-association-in-azure-portal)
 - [Add endpoint to AMPLS resource](../logs/private-link-configure.md#connect-azure-monitor-resources) 
