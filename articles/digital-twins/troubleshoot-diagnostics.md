@@ -1,28 +1,27 @@
 ---
 # Mandatory fields.
-title: Enable and query diagnostics logs
+title: "Troubleshooting: Diagnostics logs"
 titleSuffix: Azure Digital Twins
-description: See how to enable logging with diagnostics settings and query the logs for immediate viewing.
+description: In this article, learn how to enable logging with diagnostics settings and query the logs for immediate viewing. Also, learn about the log categories and their schemas.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 2/24/2021
+ms.date: 9/24/2021
 ms.topic: how-to
 ms.service: digital-twins
+ms.custom: contperf-fy22q1
 ---
 
-# Troubleshooting Azure Digital Twins: Diagnostics logging
+# Troubleshooting Azure Digital Twins: Diagnostics logs
 
-Azure Digital Twins can collect logs for your service instance to monitor its performance, access, and other data. You can use these logs to get an idea of what is happening in your Azure Digital Twins instance, and perform root-cause analysis on issues without needing to contact Azure support.
+This article shows you how to configure diagnostic settings in the [Azure portal](https://portal.azure.com), including what types of logs to collect and where to store them (such as Log Analytics or a storage account of your choice). Then, you can query the logs to quickly gather custom insights.
 
-This article shows you how to [configure diagnostic settings](#turn-on-diagnostic-settings) in the [Azure portal](https://portal.azure.com) to start collecting logs from your Azure Digital Twins instance. You can also specify where the logs should be stored (such as Log Analytics or a storage account of your choice).
+Azure Digital Twins can collect **logs** for your service instance to monitor its performance, access, and other data. You can use these logs to get an idea of what is happening in your Azure Digital Twins instance, and analyze root causes on issues without needing to contact Azure support.
 
-This article also contains lists of all [log categories](#log-categories) and [log schemas](#log-schemas) that Azure Digital Twins collects.
-
-After setting up logs, you can also [query the logs](#view-and-query-logs) to quickly gather custom insights.
+This article also contains information about all the **log categories** that Azure Digital Twins can collect, and their **schemas**.
 
 ## Turn on diagnostic settings 
 
-Turn on diagnostic settings to start collecting logs on your Azure Digital Twins instance. You can also choose the destination where the exported logs should be stored. Here is how to enable diagnostic settings for your Azure Digital Twins instance.
+Turn on diagnostic settings to start collecting logs on your Azure Digital Twins instance. You can also choose the destination where the exported logs should be stored. Here's how to enable diagnostic settings for your Azure Digital Twins instance.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your Azure Digital Twins instance. You can find it by typing its name into the portal search bar. 
 
@@ -45,7 +44,7 @@ Turn on diagnostic settings to start collecting logs on your Azure Digital Twins
         - Archive to a storage account
         - Stream to an event hub
 
-        You may be asked to fill in additional details if they are necessary for your destination selection.  
+        You may be asked to fill in more details if they're necessary for your destination selection.  
     
 4. Save the new settings. 
 
@@ -55,18 +54,44 @@ New settings take effect in about 10 minutes. After that, logs appear in the con
 
 For more detailed information on diagnostic settings and their setup options, you can visit [Create diagnostic settings to send platform logs and metrics to different destinations](../azure-monitor/essentials/diagnostic-settings.md).
 
+## View and query logs
+
+After configuring storage details of your Azure Digital Twins logs, you can write **custom queries** for them to generate insights and troubleshoot issues. The service also provides a few example queries that can help you get started, by addressing common questions that customers may have about their instances.
+
+Here's how to query the logs for your instance.
+
+1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your Azure Digital Twins instance. You can find it by typing its name into the portal search bar. 
+
+2. Select **Logs** from the menu to open the log query page. The page opens to a window called *Queries*.
+
+    :::image type="content" source="media/troubleshoot-diagnostics/logs.png" alt-text="Screenshot showing the Logs page for an Azure Digital Twins instance in the Azure portal with the Queries window overlaid, showing prebuilt queries." lightbox="media/troubleshoot-diagnostics/logs.png":::
+
+    These queries are prebuilt examples written for various logs. You can select one of the queries to load it into the query editor and run it to see these logs for your instance.
+
+    You can also close the *Queries* window without running anything to go straight to the query editor page, where you can write or edit custom query code.
+
+3. After exiting the *Queries* window, you'll see the main query editor page. Here you can view and edit the text of the example queries, or write your own queries from scratch.
+    :::image type="content" source="media/troubleshoot-diagnostics/logs-query.png" alt-text="Screenshot showing the Logs page for an Azure Digital Twins instance in the Azure portal. It includes a list of logs, query code, and Queries History." lightbox="media/troubleshoot-diagnostics/logs-query.png":::
+
+    In the left pane, 
+    - The *Tables* tab shows the different Azure Digital Twins [log categories](#log-categories) that are available to use in your queries. 
+    - The *Queries* tab contains the example queries that you can load into the editor.
+    - The *Filter* tab lets you customize a filtered view of the data that the query returns.
+
+For more detailed information on log queries and how to write them, you can visit [Overview of log queries in Azure Monitor](../azure-monitor/logs/log-query-overview.md).
+
 ## Log categories
 
 Here are more details about the categories of logs that Azure Digital Twins collects.
 
 | Log category | Description |
 | --- | --- |
-| ADTModelsOperation | Log all API calls pertaining to Models |
-| ADTQueryOperation | Log all API calls pertaining to Queries |
-| ADTEventRoutesOperation | Log all API calls pertaining to Event Routes as well as egress of events from Azure Digital Twins to an endpoint service like Event Grid, Event Hubs and Service Bus |
-| ADTDigitalTwinsOperation | Log all API calls pertaining individual twins |
+| ADTModelsOperation | Log all API calls related to Models |
+| ADTQueryOperation | Log all API calls related to Queries |
+| ADTEventRoutesOperation | Log all API calls related to to Event Routes and egress of events from Azure Digital Twins to an endpoint service like Event Grid, Event Hubs, and Service Bus |
+| ADTDigitalTwinsOperation | Log all API calls related to individual twins |
 
-Each log category consists of operations of write, read, delete, and action.  These map to REST API calls as follows:
+Each log category consists of operations of write, read, delete, and action. These categories map to REST API calls as follows:
 
 | Event type | REST API operations |
 | --- | --- |
@@ -75,7 +100,7 @@ Each log category consists of operations of write, read, delete, and action.  Th
 | Delete | DELETE |
 | Action | POST |
 
-Here is a comprehensive list of the operations and corresponding [Azure Digital Twins REST API calls](/rest/api/azure-digitaltwins/) that are logged in each category. 
+Here's a comprehensive list of the operations and corresponding [Azure Digital Twins REST API calls](/rest/api/azure-digitaltwins/) that are logged in each category. 
 
 >[!NOTE]
 > Each log category contains several operations/REST API calls. In the table below, each log category maps to all operations/REST API calls underneath it until the next log category is listed. 
@@ -104,7 +129,7 @@ Each log category has a schema that defines how events in that category are repo
 
 ### API log schemas
 
-This log schema is consistent for `ADTDigitalTwinsOperation`, `ADTModelsOperation`, `ADTQueryOperation`. The same schema is also used for `ADTEventRoutesOperation`, with the **exception** of the `Microsoft.DigitalTwins/eventroutes/action` operation name (for more information about that schema, see the next section, [Egress log schemas](#egress-log-schemas)).
+This log schema is consistent for `ADTDigitalTwinsOperation`, `ADTModelsOperation`, `ADTQueryOperation`. The same schema is also used for `ADTEventRoutesOperation`, **except** the `Microsoft.DigitalTwins/eventroutes/action` operation name (for more information about that schema, see the next section, [Egress log schemas](#egress-log-schemas)).
 
 The schema contains information pertinent to API calls to an Azure Digital Twins instance.
 
@@ -115,7 +140,7 @@ Here are the field and property descriptions for API logs.
 | `Time` | DateTime | The date and time that this event occurred, in UTC |
 | `ResourceId` | String | The Azure Resource Manager Resource ID for the resource where the event took place |
 | `OperationName` | String  | The type of action being performed during the event |
-| `OperationVersion` | String | The API Version utilized during the event |
+| `OperationVersion` | String | The API Version used during the event |
 | `Category` | String | The type of resource being emitted |
 | `ResultType` | String | Outcome of the event |
 | `ResultSignature` | String | Http status code for the event |
@@ -126,11 +151,11 @@ Here are the field and property descriptions for API logs.
 | `ApplicationId` | Guid | Application ID used in bearer authorization |
 | `Level` | Int | The logging severity of the event |
 | `Location` | String | The region where the event took place |
-| `RequestUri` | Uri | The endpoint utilized during the event |
+| `RequestUri` | Uri | The endpoint used during the event |
 | `TraceId` | String | `TraceId`, as part of [W3C's Trace Context](https://www.w3.org/TR/trace-context/). The ID of the whole trace used to uniquely identify a distributed trace across systems. |
 | `SpanId` | String | `SpanId` as part of [W3C's Trace Context](https://www.w3.org/TR/trace-context/). The ID of this request in the trace. |
 | `ParentId` | String | `ParentId` as part of [W3C's Trace Context](https://www.w3.org/TR/trace-context/). A request without a parent ID is the root of the trace. |
-| `TraceFlags` | String | `TraceFlags` as part of [W3C's Trace Context](https://www.w3.org/TR/trace-context/). Controls tracing flags such as sampling, trace level, etc. |
+| `TraceFlags` | String | `TraceFlags` as part of [W3C's Trace Context](https://www.w3.org/TR/trace-context/). Controls tracing flags such as sampling, trace level, and so on. |
 | `TraceState` | String | `TraceState` as part of [W3C's Trace Context](https://www.w3.org/TR/trace-context/). Additional vendor-specific trace identification information to span across different distributed tracing systems. |
 
 Below are example JSON bodies for these types of logs.
@@ -239,7 +264,7 @@ Below are example JSON bodies for these types of logs.
 
 #### ADTEventRoutesOperation
 
-Here is an example JSON body for an `ADTEventRoutesOperation` that is **not** of `Microsoft.DigitalTwins/eventroutes/action` type (for more information about that schema, see the next section, [Egress log schemas](#egress-log-schemas)).
+Here's an example JSON body for an `ADTEventRoutesOperation` that is **not** of `Microsoft.DigitalTwins/eventroutes/action` type (for more information about that schema, see the next section, [Egress log schemas](#egress-log-schemas)).
 
 ```json
   {
@@ -275,7 +300,7 @@ Here is an example JSON body for an `ADTEventRoutesOperation` that is **not** of
 
 ### Egress log schemas
 
-This is the schema for `ADTEventRoutesOperation` logs specific to the `Microsoft.DigitalTwins/eventroutes/action` operation name. These contain details pertaining to exceptions and the API operations around egress endpoints connected to an Azure Digital Twins instance.
+The following example is the schema for `ADTEventRoutesOperation` logs specific to the `Microsoft.DigitalTwins/eventroutes/action` operation name. These contain details related to exceptions and the API operations around egress endpoints connected to an Azure Digital Twins instance.
 
 |Field name | Data type | Description |
 |-----|------|-------------|
@@ -291,7 +316,7 @@ This is the schema for `ADTEventRoutesOperation` logs specific to the `Microsoft
 | `TraceId` | String | `TraceId`, as part of [W3C's Trace Context](https://www.w3.org/TR/trace-context/). The ID of the whole trace used to uniquely identify a distributed trace across systems. |
 | `SpanId` | String | `SpanId` as part of [W3C's Trace Context](https://www.w3.org/TR/trace-context/). The ID of this request in the trace. |
 | `ParentId` | String | `ParentId` as part of [W3C's Trace Context](https://www.w3.org/TR/trace-context/). A request without a parent ID is the root of the trace. |
-| `TraceFlags` | String | `TraceFlags` as part of [W3C's Trace Context](https://www.w3.org/TR/trace-context/). Controls tracing flags such as sampling, trace level, etc. |
+| `TraceFlags` | String | `TraceFlags` as part of [W3C's Trace Context](https://www.w3.org/TR/trace-context/). Controls tracing flags such as sampling, trace level, and so on. |
 | `TraceState` | String | `TraceState` as part of [W3C's Trace Context](https://www.w3.org/TR/trace-context/). Additional vendor-specific trace identification information to span across different distributed tracing systems. |
 | `EndpointName` | String | The name of egress endpoint created in Azure Digital Twins |
 
@@ -299,7 +324,7 @@ Below are example JSON bodies for these types of logs.
 
 #### ADTEventRoutesOperation for Microsoft.DigitalTwins/eventroutes/action
 
-Here is an example JSON body for an `ADTEventRoutesOperation` that of `Microsoft.DigitalTwins/eventroutes/action` type.
+Here's an example JSON body for an `ADTEventRoutesOperation` that of `Microsoft.DigitalTwins/eventroutes/action` type.
 
 ```json
 {
@@ -335,36 +360,8 @@ Here is an example JSON body for an `ADTEventRoutesOperation` that of `Microsoft
 },
 ```
 
-## View and query logs
-
-Earlier in this article, you configured the types of logs to store and specified their storage location.
-
-To troubleshoot issue and generate insights from these logs, you can generate **custom queries**. To get started, you can also take advantage of a few example queries provided for you by the service, which address common questions that customers may have about their instance.
-
-Here is how to query the logs for your instance.
-
-1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your Azure Digital Twins instance. You can find it by typing its name into the portal search bar. 
-
-2. Select **Logs** from the menu to open the log query page. The page opens to a window called *Queries*.
-
-    :::image type="content" source="media/troubleshoot-diagnostics/logs.png" alt-text="Screenshot showing the Logs page for an Azure Digital Twins instance in the Azure portal with the Queries window overlaid, showing prebuilt queries." lightbox="media/troubleshoot-diagnostics/logs.png":::
-
-    These are prebuilt example queries written for various logs. You can select one of the queries to load it into the query editor and run it to see these logs for your instance.
-
-    You can also close the *Queries* window without running anything to go straight to the query editor page, where you can write or edit custom query code.
-
-3. After exiting the *Queries* window, you'll see the main query editor page. Here you can view and edit the text of the example queries, or write your own queries from scratch.
-    :::image type="content" source="media/troubleshoot-diagnostics/logs-query.png" alt-text="Screenshot showing the Logs page for an Azure Digital Twins instance in the Azure portal. It includes a list of logs, query code, and Queries History." lightbox="media/troubleshoot-diagnostics/logs-query.png":::
-
-    In the left pane, 
-    - The *Tables* tab shows the different Azure Digital Twins [log categories](#log-categories) that are available to use in your queries. 
-    - The *Queries* tab contains the example queries that you can load into the editor.
-    - The *Filter* tab lets you customize a filtered view of the data that the query returns.
-
-For more detailed information on log queries and how to write them, you can visit [Overview of log queries in Azure Monitor](../azure-monitor/logs/log-query-overview.md).
-
 ## Next steps
 
 * For more information about configuring diagnostics, see [Collect and consume log data from your Azure resources](../azure-monitor/essentials/platform-logs-overview.md).
-* For information about the Azure Digital Twins metrics, see [Troubleshooting: View metrics with Azure Monitor](troubleshoot-metrics.md).
-* To see how to enable alerts for your metrics, see [Troubleshooting: Set up alerts](troubleshoot-alerts.md).
+* For information about the Azure Digital Twins metrics, see [Troubleshooting: Metrics](troubleshoot-metrics.md).
+* To see how to enable alerts for your metrics, see [Troubleshooting: Alerts](troubleshoot-alerts.md).

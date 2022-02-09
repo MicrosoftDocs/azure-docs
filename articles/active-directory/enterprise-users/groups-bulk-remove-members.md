@@ -4,8 +4,8 @@ description: Remove group members in bulk operations in the Azure admin center.
 services: active-directory 
 author: curtand
 ms.author: curtand
-manager: daveba
-ms.date: 11/15/2020
+manager: karenhoran
+ms.date: 09/22/2021
 ms.topic: how-to
 ms.service: active-directory
 ms.subservice: enterprise-users
@@ -52,7 +52,7 @@ The rows in a downloaded CSV template are as follows:
 
 1. Open the CSV file and add a line for each group member you want to remove from the group (required values are Member object ID or User principal name). Then save the file.
 
-    :::image type="content" source="./media/groups-bulk-import-members/csv-file.png" alt-text="The CSV file contains names and IDs of the group members to remove":::
+    :::image type="content" source="./media/groups-bulk-remove-members/csv-file.png" alt-text="The CSV file contains names and IDs of the group members to remove":::
 
 1. On the **Bulk remove group members** page, under **Upload your csv file**, browse to the file. When you select the file, validation of the CSV file starts.
 1. When the file contents are validated, the bulk import page displays **File uploaded successfully**. If there are errors, you must fix them before you can submit the job.

@@ -25,7 +25,7 @@
     href: documentation-government-connect-vs.md
 - name: Tutorials
   items:
-  - name: Deploy App Services
+  - name: Deploy App Service
     href: documentation-government-howto-deploy-webandmobile.md
   - name: Create Virtual Machines
     href: documentation-government-quickstarts-vm.md
@@ -63,14 +63,14 @@
     items:
     - name: Guidance for developers
       href: documentation-government-developer-guide.md
-    - name: Use SQL Server Management Studio
-      href: documentation-government-connect-ssms.md
-    - name: Use Azure Storage
-      href: documentation-government-get-started-connect-to-storage.md    
-    - name: Use Cognitive Services API
-      href: documentation-government-cognitiveservices.md     
+    - name: Azure Storage
+      href: documentation-government-get-started-connect-to-storage.md
+    - name: Cognitive Services
+      href: documentation-government-cognitiveservices.md
     - name: Integrate Azure AD authentication
       href: documentation-government-aad-auth-qs.md
+    - name: SQL Server Management Studio
+      href: documentation-government-connect-ssms.md
   - name: Secure
     items:
     - name: Impact Level 5 isolation guidance 
@@ -112,13 +112,13 @@
 - name: Resources
   items:
   - name: Azure Government Website
-    href: https://azure.microsoft.com/overview/clouds/government/
+    href: https://azure.microsoft.com/global-infrastructure/government/
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Videos
     href: https://azure.microsoft.com/resources/videos/index/?tag=azure-government
   - name: Blog
-    href: https://blogs.msdn.microsoft.com/azuregov/
+    href: https://devblogs.microsoft.com/azuregov/
   - name: Pricing
     href: https://azure.microsoft.com/pricing/
   - name: Pricing calculator

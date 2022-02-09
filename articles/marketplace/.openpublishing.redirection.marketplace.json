@@ -1,10 +1,40 @@
 {
     "redirections": [
         {
-            "source_path_from_root": "/articles/azure-resource-manager/managed-application-author-marketplace.md",
-            "redirect_url": "/azure/marketplace/azure-app-offer-setup",
+            "source_path_from_root": "/articles/azure/marketplace/reference-architecture-diagram.md",
+            "redirect_url": "/partner-center/reference-architecture-diagram",
             "redirect_document_id": false
         },
+        {
+            "source_path_from_root": "/articles/azure/marketplace/commercial-marketplace-co-sell-states.md",
+            "redirect_url": "/partner-center/commercial-marketplace-co-sell-location-codes",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure/marketplace/commercial-marketplace-co-sell-countries.md",
+            "redirect_url": "/partner-center/commercial-marketplace-co-sell-location-codes",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure/marketplace/co-sell-status.md",
+            "redirect_url": "/partner-center/co-sell-status",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure/marketplace/co-sell-requirements.md",
+            "redirect_url": "/partner-center/co-sell-requirements",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure/marketplace/co-sell-configure.md",
+            "redirect_url": "/partner-center/co-sell-configure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure/marketplace/co-sell-overview.md",
+            "redirect_url": "/partner-center/co-sell-overview",
+            "redirect_document_id": false
+        },            
         {
             "source_path_from_root": "/articles/azure-resource-manager/managed-application-consume-marketplace.md",
             "redirect_url": "/azure/marketplace/azure-app-offer-setup",
@@ -129,7 +159,7 @@
             "source_path_from_root": "/articles/marketplace-publishing/marketplace-publishing-vm-image-test-in-staging.md",
             "redirect_url": "/azure/marketplace/azure-vm-image-test",
             "redirect_document_id": false
-        },
+        },       
         {
             "source_path_from_root": "/articles/marketplace/account-migration-from-cpp-to-pc.md",
             "redirect_url": "/partner-center/overview",
@@ -148,6 +178,61 @@
         {
             "source_path_from_root": "/articles/marketplace/azure-consumption-commitment-benefit.md",
             "redirect_url": "/azure/marketplace/azure-consumption-commitment-enrollment",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/azure-vm-create.md",
+            "redirect_url": "/azure/marketplace/azure-vm-offer-setup",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/azure-vm-create-certification-faq.yml",
+            "redirect_url": "/azure/marketplace/azure-vm-certification-faq",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/azure-vm-create-faq.yml",
+            "redirect_url": "/azure/marketplace/azure-vm-faq",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/azure-vm-create-listing.md",
+            "redirect_url": "/azure/marketplace/azure-vm-offer-listing",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/azure-vm-create-plans.md",
+            "redirect_url": "/azure/marketplace/azure-vm-plan-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/azure-vm-create-preview.md",
+            "redirect_url": "/azure/marketplace/azure-vm-preview-audience",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/azure-vm-create-properties.md",
+            "redirect_url": "/azure/marketplace/azure-vm-properties",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/azure-vm-create-resell-csp.md",
+            "redirect_url": "/azure/marketplace/azure-vm-resell-csp",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/azure-vm-create-using-approved-base.md",
+            "redirect_url": "/azure/marketplace/azure-vm-use-approved-base",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/azure-vm-create-using-own-image.md",
+            "redirect_url": "/azure/marketplace/azure-vm-use-own-image",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/azure-vm-sas-failure-messages.md",
+            "redirect_url": "/azure/marketplace/azure-vm-get-sas-uri",
             "redirect_document_id": false
         },
         {
@@ -1127,9 +1212,14 @@
         },
         {
             "source_path_from_root": "/articles/marketplace/cloud-partner-portal/saas-app/cpp-saas-fulfillment-api-v2.md",
-            "redirect_url": "/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2",
+            "redirect_url": "/azure/marketplace/partner-center-portal/pc-saas-fulfillment-life-cycle",
             "redirect_document_id": false
         },
+        {
+            "source_path_from_root": "/articles/marketplace/support-azure-marketplace.md",
+            "redirect_url": "/azure/marketplace/support",
+            "redirect_document_id": false
+        },        
         {
             "source_path_from_root": "/articles/marketplace/cloud-partner-portal/saas-app/cpp-saas-fulfillment-apis.md",
             "redirect_url": "/azure/marketplace/partner-center-portal/pc-saas-fulfillment-apis",
@@ -1511,6 +1601,16 @@
             "redirect_document_id": true
         },
         {
+            "source_path_from_root": "/articles/marketplace/marketplace-managed-apps.md",
+            "redirect_url": "/azure/marketplace/plan-azure-app-managed-app",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/marketplace-solution-templates.md",
+            "redirect_url": "/azure/marketplace/plan-azure-app-solution-template",
+            "redirect_document_id": true
+        },                
+        {
             "source_path_from_root": "/articles/marketplace/marketplace-co-sell.md",
             "redirect_url": "/azure/marketplace/co-sell-overview",
             "redirect_document_id": false
@@ -1550,6 +1650,11 @@
             "redirect_url": "/azure/marketplace/enable-appsource-marketplace-using-azure-ad",
             "redirect_document_id": false
         },
+        {
+            "source_path_from_root": "/articles/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2.md",
+            "redirect_url": "/azure/marketplace/partner-center-portal/pc-saas-fulfillment-life-cycle",
+            "redirect_document_id": false
+        },        
         {
             "source_path_from_root": "/articles/marketplace/partner-center-portal/account-migration-from-cpp-to-pc.md",
             "redirect_url": "/partner-center/overview",
@@ -1851,6 +1956,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/marketplace/private-offers.md",
+            "redirect_url": "/azure/marketplace/private-plans",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/marketplace/promote-your-business-with-microsoft.md",
             "redirect_url": "/azure/marketplace/gtm-your-marketplace-benefits",
             "redirect_document_id": false
@@ -1873,6 +1983,11 @@
         {
             "source_path_from_root": "/articles/marketplace/register-dev-center.md",
             "redirect_url": "/azure/marketplace/partner-center-portal/create-account",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/revenue-dashboard-faq.yml",
+            "redirect_url": "/azure/marketplace/analytics-faq",
             "redirect_document_id": false
         },
         {

@@ -3,7 +3,7 @@ title: 'Azure AD Pass-through Authentication: Version release history | Microsof
 description: This article lists all releases of the Azure AD Pass-through Authentication agent
 services: active-directory
 author: billmath
-manager: daveba
+manager: karenhoran
 ms.assetid: ef2797d7-d440-4a9a-a648-db32ad137494
 ms.service: active-directory
 ms.topic: reference
@@ -14,7 +14,7 @@ ms.author: billmath
 ms.collection: M365-identity-device-management
 ---
 
-# Azure AD Pass-through Authentication agent: Version release history 
+# Azure AD Pass-through Authentication agent: Version release history
  
 The agents installed on-premises that enable Pass-through Authentication are updated regularly to provide new capabilities. This article lists the versions and features that are added when new functionality is introduced. Pass-through authentication agents are updated automatically when a new version is released. 
 
@@ -22,6 +22,14 @@ Here are related topics:
 
 - [User sign-in with Azure AD Pass-through Authentication](how-to-connect-pta.md) 
 - [Azure AD Pass-through Authentication agent installation](how-to-connect-pta-quick-start.md) 
+
+## 1.5.2482.0
+### Release Status: 
+07/07/2021: Released for download
+
+### New features and improvements
+
+- Upgraded the packages/libraries to newer versions signed using SHA-256RSA.
 
 ## 1.5.1742.0
 ### Release Status: 

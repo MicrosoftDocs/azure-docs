@@ -15,7 +15,7 @@ ms.author: chrupa
 > [!IMPORTANT]
 > Azure Healthcare APIs is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-The FHIR service in the Azure Healthcare APIs enables rapid exchange of data through Fast Healthcare Interoperability Resources (FHIR®) APIs, backed by a managed Platform-as-a Service (PaaS) offering in the cloud. It makes it easier for anyone working with health data to ingest, manage, and persist Protected Health Information [PHI](https://www.hhs.gov/answers/hipaa/what-is-phi/index.html) in the cloud: 
+The FHIR service in the Azure Healthcare APIs (hereby called the FHIR service) enables rapid exchange of data through Fast Healthcare Interoperability Resources (FHIR®) APIs, backed by a managed Platform-as-a Service (PaaS) offering in the cloud. It makes it easier for anyone working with health data to ingest, manage, and persist Protected Health Information [PHI](https://www.hhs.gov/answers/hipaa/what-is-phi/index.html) in the cloud: 
 
 - Managed FHIR service, provisioned in the cloud in minutes 
 - Enterprise-grade, FHIR-based endpoint in Azure for data access, and storage in FHIR format
@@ -57,7 +57,7 @@ Protect your PHI with unparalleled security intelligence. Your data is isolated 
 
 FHIR servers are key tools for interoperability of health data. The FHIR service is designed as an API and service that you can create, deploy, and begin using quickly. As the FHIR standard expands in healthcare, use cases will continue to grow, but some initial customer applications where FHIR service is useful are below: 
 
-- **Startup/IoT and App Development:**  Customers developing a patient or provider centric app (mobile or web) can leverage FHIR service as a fully managed backend service. The FHIR service provides a valuable resource in that customers can managing data and exchanging data in a secure cloud environment designed for health data, leverage SMART on FHIR implementation guidelines, and enable their technology to be utilized by all provider systems (for example, most EHRs have enabled FHIR read APIs).   
+- **Startup/IoT and App Development:**  Customers developing a patient or provider centric app (mobile or web) can leverage FHIR service as a fully managed backend service. The FHIR service provides a valuable resource in that customers can manage and exchange data in a secure cloud environment designed for health data, leverage SMART on FHIR implementation guidelines, and enable their technology to be utilized by all provider systems (for example, most EHRs have enabled FHIR read APIs).   
 
 - **Healthcare Ecosystems:**  While EHRs exist as the primary ‘source of truth’ in many clinical settings, it is not uncommon for providers to have multiple databases that aren’t connected to one another or store data in different formats.  Utilizing the FHIR service as a service that sits on top of those systems allows you to standardize data in the FHIR format.  This helps to enable data exchange across multiple systems with a consistent data format. 
 

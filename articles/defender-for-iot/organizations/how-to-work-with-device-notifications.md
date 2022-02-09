@@ -1,7 +1,7 @@
 ---
 title: Work with device notifications
 description: Notifications provide information about network activity that might require your attention, along with recommendations for handling this activity.
-ms.date: 12/12/2020
+ms.date: 11/09/2021
 ms.topic: how-to
 ---
 

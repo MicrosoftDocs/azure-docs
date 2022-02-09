@@ -3,7 +3,7 @@ title: Metrics for Azure NetApp Files | Microsoft Docs
 description: Azure NetApp Files provides metrics on allocated storage, actual storage usage, volume IOPS, and latency. Use these metrics to understand usage and performance.
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 
@@ -11,10 +11,9 @@ ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/16/2021
-ms.author: b-juche
+ms.date: 09/29/2021
+ms.author: anfdocs
 ---
 # Metrics for Azure NetApp Files
 
@@ -78,9 +77,6 @@ You can find metrics for a capacity pool or volume by selecting the **capacity p
 
 - *Is volume replication transferring*    
     Whether the status of the volume replication is ‘transferring’. 
- 
-- *Volume replication lag time*   
-    The amount of time in seconds by which the data on the mirror lags behind the source. 
 
 - *Volume replication last transfer duration*   
     The amount of time in seconds it took for the last transfer to complete. 
@@ -117,9 +113,25 @@ You can find metrics for a capacity pool or volume by selecting the **capacity p
 * *Other throughput*   
     Other throughput (that is not read or write) in bytes per second.
 
+## Volume backup metrics  
+
+* *Is Volume Backup Enabled*   
+    Shows whether backup is enabled for the volume. `1` is enabled. `0` is disabled.
+
+* *Is Volume Backup Operation Complete*   
+    Shows whether the last volume backup or restore operation is successfully completed.  `1` is successful. `0` is unsuccessful.
+
+* *Is Volume Backup Suspended*   
+    Shows whether the backup policy is suspended for the volume.  `1` is not suspended. `0` is suspended.
+
+* *Volume Backup Bytes*   
+    The total bytes backed up for this volume.
+
+* *Volume Backup Last Transferred Bytes*   
+    The total bytes transferred for the last backup or restore operation.  
 
 ## Next steps
 
 * [Understand the storage hierarchy of Azure NetApp Files](azure-netapp-files-understand-storage-hierarchy.md)
-* [Set up a capacity pool](azure-netapp-files-set-up-capacity-pool.md)
+* [Create a capacity pool](azure-netapp-files-set-up-capacity-pool.md)
 * [Create a volume for Azure NetApp Files](azure-netapp-files-create-volumes.md)

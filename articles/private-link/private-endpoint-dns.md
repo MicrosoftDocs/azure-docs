@@ -5,8 +5,10 @@ services: private-link
 author: asudbring
 ms.service: private-link
 ms.topic: conceptual
-ms.date: 01/14/2021
+ms.date: 01/25/2022
 ms.author: allensu
+ms.custom: fasttrack-edit
+
 ---
 # Azure Private Endpoint DNS configuration
 
@@ -38,9 +40,11 @@ For Azure services, use the recommended zone names as described in the following
 |---|---|---|
 | Azure Automation / (Microsoft.Automation/automationAccounts) / Webhook, DSCAndHybridWorker | privatelink.azure-automation.net | azure-automation.net |
 | Azure SQL Database (Microsoft.Sql/servers) / sqlServer | privatelink.database.windows.net | database.windows.net |
+| **Azure SQL Managed Instance** (Microsoft.Sql/managedInstances) | privatelink.{dnsPrefix}.database.windows.net | {instanceName}.{dnsPrefix}.database.windows.net |
 | Azure Synapse Analytics (Microsoft.Synapse/workspaces) / Sql  | privatelink.sql.azuresynapse.net | sql.azuresynapse.net |
 | Azure Synapse Analytics (Microsoft.Synapse/workspaces) / SqlOnDemand  | privatelink.sql.azuresynapse.net | sqlondemand.azuresynapse.net |
 | Azure Synapse Analytics (Microsoft.Synapse/workspaces) / Dev  | privatelink.dev.azuresynapse.net | dev.azuresynapse.net |
+| Azure Synapse Studio (Microsoft.Synapse/privateLinkHubs) / Web | privatelink.azuresynapse.net | azuresynapse.net |
 | Storage account (Microsoft.Storage/storageAccounts) / Blob (blob, blob_secondary) | privatelink.blob.core.windows.net | blob.core.windows.net |
 | Storage account (Microsoft.Storage/storageAccounts) / Table (table, table_secondary) | privatelink.table.core.windows.net | table.core.windows.net |
 | Storage account (Microsoft.Storage/storageAccounts) / Queue (queue, queue_secondary) | privatelink.queue.core.windows.net | queue.core.windows.net |
@@ -62,7 +66,7 @@ For Azure services, use the recommended zone names as described in the following
 | Azure Container Registry (Microsoft.ContainerRegistry/registries) / registry | privatelink.azurecr.io | azurecr.io |
 | Azure App Configuration (Microsoft.AppConfiguration/configurationStores) / configurationStores | privatelink.azconfig.io | azconfig.io |
 | Azure Backup (Microsoft.RecoveryServices/vaults) / AzureBackup | privatelink.{region}.backup.windowsazure.com | {region}.backup.windowsazure.com |
-| Azure Site Recovery (Microsoft.RecoveryServices/vaults) / AzureSiteRecovery | {region}.privatelink.siterecovery.windowsazure.com | {region}.hypervrecoverymanager.windowsazure.com |
+| Azure Site Recovery (Microsoft.RecoveryServices/vaults) / AzureSiteRecovery | privatelink.siterecovery.windowsazure.com | {region}.hypervrecoverymanager.windowsazure.com |
 | Azure Event Hubs (Microsoft.EventHub/namespaces) / namespace | privatelink.servicebus.windows.net | servicebus.windows.net |
 | Azure Service Bus (Microsoft.ServiceBus/namespaces) / namespace | privatelink.servicebus.windows.net | servicebus.windows.net |
 | Azure IoT Hub (Microsoft.Devices/IotHubs) / iotHub | privatelink.azure-devices.net<br/>privatelink.servicebus.windows.net<sup>1</sup> | azure-devices.net<br/>servicebus.windows.net |
@@ -80,7 +84,9 @@ For Azure services, use the recommended zone names as described in the following
 | Azure Cache for Redis (Microsoft.Cache/Redis) / redisCache | privatelink.redis.cache.windows.net | redis.cache.windows.net |
 | Azure Cache for Redis Enterprise (Microsoft.Cache/RedisEnterprise) / redisCache | privatelink.redisenterprise.cache.azure.net | redisenterprise.cache.azure.net |
 | Azure Purview (Microsoft.Purview)| privatelink.purview.azure.com | purview.azure.com |
-
+| Azure Purview (Microsoft.Purview)| privatelink.purviewstudio.azure.com | purview.azure.com |
+| Azure Digital Twins (Microsoft.DigitalTwins) / digitalTwinsInstances | privatelink.digitaltwins.azure.net | digitaltwins.azure.net |
+| Azure HDInsight (Microsoft.HDInsight) | privatelink.azurehdinsight.net | azurehdinsight.net |
 
 <sup>1</sup>To use with IoT Hub's built-in Event Hub compatible endpoint. To learn more, see [private link support for IoT Hub's built-in endpoint](../iot-hub/virtual-network-support.md#built-in-event-hub-compatible-endpoint)
 
@@ -88,7 +94,14 @@ For Azure services, use the recommended zone names as described in the following
 
 | Private link resource type / Subresource |Private DNS zone name | Public DNS zone forwarders |
 |---|---|---|
+| Azure Automation / (Microsoft.Automation/automationAccounts) / Webhook, DSCAndHybridWorker | privatelink.azure-automation.cn | azure-automation.cn |
 | Azure SQL Database (Microsoft.Sql/servers) / SQL Server | privatelink.database.chinacloudapi.cn | database.chinacloudapi.cn |
+| Storage account (Microsoft.Storage/storageAccounts) / Blob (blob, blob_secondary) | privatelink.blob.core.chinacloudapi.cn | blob.core.chinacloudapi.cn |
+| Storage account (Microsoft.Storage/storageAccounts) / Table (table, table_secondary) | privatelink.table.core.chinacloudapi.cn | table.core.chinacloudapi.cn |
+| Storage account (Microsoft.Storage/storageAccounts) / Queue (queue, queue_secondary) | privatelink.queue.core.chinacloudapi.cn | queue.core.chinacloudapi.cn |
+| Storage account (Microsoft.Storage/storageAccounts) / File (file, file_secondary) | privatelink.file.core.chinacloudapi.cn | file.core.chinacloudapi.cn |
+| Storage account (Microsoft.Storage/storageAccounts) / Web (web, web_secondary) | privatelink.web.core.chinacloudapi.cn | web.core.chinacloudapi.cn |
+| Azure Data Lake File System Gen2 (Microsoft.Storage/storageAccounts) / Data Lake File System Gen2 (dfs, dfs_secondary) | privatelink.dfs.core.chinacloudapi.cn | dfs.core.chinacloudapi.cn |
 | Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts) / SQL | privatelink.documents.azure.cn | documents.azure.cn |
 | Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts) / MongoDB | privatelink.mongo.cosmos.azure.cn | mongo.cosmos.azure.cn |
 | Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts) / Cassandra | privatelink.cassandra.cosmos.azure.cn | cassandra.cosmos.azure.cn |
@@ -97,6 +110,23 @@ For Azure services, use the recommended zone names as described in the following
 | Azure Database for PostgreSQL - Single server (Microsoft.DBforPostgreSQL/servers) / postgresqlServer | privatelink.postgres.database.chinacloudapi.cn | postgres.database.chinacloudapi.cn |
 | Azure Database for MySQL (Microsoft.DBforMySQL/servers) / mysqlServer | privatelink.mysql.database.chinacloudapi.cn  | mysql.database.chinacloudapi.cn  |
 | Azure Database for MariaDB (Microsoft.DBforMariaDB/servers) / mariadbServer | privatelink.mariadb.database.chinacloudapi.cn | mariadb.database.chinacloudapi.cn |
+| Azure Key Vault (Microsoft.KeyVault/vaults) / vault | privatelink.vaultcore.azure.cn | vaultcore.azure.cn |
+| Azure Event Hubs (Microsoft.EventHub/namespaces) / namespace | privatelink.servicebus.chinacloudapi.cn | servicebus.chinacloudapi.cn |
+| Azure Service Bus (Microsoft.ServiceBus/namespaces) / namespace | privatelink.servicebus.chinacloudapi.cn | servicebus.chinacloudapi.cn |
+| Azure IoT Hub (Microsoft.Devices/IotHubs) / iotHub | privatelink.azure-devices.cn<br/>privatelink.servicebus.chinacloudapi.cn<sup>1</sup> | azure-devices.cn<br/>servicebus.chinacloudapi.cn |
+| Azure Relay (Microsoft.Relay/namespaces) / namespace | privatelink.servicebus.chinacloudapi.cn | servicebus.chinacloudapi.cn |
+| Azure Event Grid (Microsoft.EventGrid/topics) / topic | privatelink.eventgrid.azure.cn | eventgrid.azure.cn |
+| Azure Event Grid (Microsoft.EventGrid/domains) / domain | privatelink.eventgrid.azure.cn | eventgrid.azure.cn |
+| Azure Web Apps (Microsoft.Web/sites) / sites | privatelink.chinacloudsites.cn | chinacloudsites.cn |
+| Azure Machine Learning (Microsoft.MachineLearningServices/workspaces) / amlworkspace | privatelink.api.ml.azure.cn<br/>privatelink.notebooks.chinacloudapi.cn | api.ml.azure.cn<br/>notebooks.chinacloudapi.cn |
+| SignalR (Microsoft.SignalRService/SignalR) / signalR | privatelink.signalr.azure.cn | service.signalr.azure.cn |
+| Azure File Sync (Microsoft.StorageSync/storageSyncServices) / afs |  privatelink.afs.azure.cn  |  afs.azure.cn  |
+| Azure Data Factory (Microsoft.DataFactory/factories) / dataFactory |  privatelink.datafactory.azure.cn  |  datafactory.azure.cn  |
+| Azure Data Factory (Microsoft.DataFactory/factories) / portal |  privatelink.adf.azure.cn  |  adf.azure.cn  |
+| Azure Cache for Redis (Microsoft.Cache/Redis) / redisCache | privatelink.redis.cache.chinacloudapi.cn | redis.cache.chinacloudapi.cn |
+| Azure HDInsight (Microsoft.HDInsight) | privatelink.azurehdinsight.cn | azurehdinsight.cn |
+
+<sup>1</sup>To use with IoT Hub's built-in Event Hub compatible endpoint. To learn more, see [private link support for IoT Hub's built-in endpoint](../iot-hub/virtual-network-support.md#built-in-event-hub-compatible-endpoint)
 
 ## DNS configuration scenarios
 
@@ -212,6 +242,20 @@ To configure properly, you need the following resources:
 The following diagram shows the DNS resolution for both networks, on-premises and virtual networks. The resolution is using a DNS forwarder. The resolution is made by a private DNS zone [linked to a virtual network](../dns/private-dns-virtual-network-links.md):
 
 :::image type="content" source="media/private-endpoint-dns/hybrid-scenario.png" alt-text="Hybrid scenario":::
+
+## Private DNS zone group
+
+If you choose to integrate your private endpoint with a private DNS zone, a private DNS zone group is also created. The DNS zone group is a strong association between the private DNS zone and the private endpoint that helps auto-updating the private DNS zone when there is an update on the private endpoint.  For example, when you add or remove regions, the private DNS zone is automatically updated. 
+
+Previously, the DNS records for the private endpoint were created via scripting (retrieving certain information about the private endpoint and then adding it on the DNS zone). With the DNS zone group, there is no need to write any additional CLI/Powershell lines for every DNS zone. Also, when you delete the private endpoint, all the DNS records within the DNS zone group will be deleted as well.
+
+A common scenario for DNS zone group is in a hub-and-spoke topology, where it allows the private DNS zones to be created only once in the hub and allows the spokes to register to it, rather than creating differents zones in each spoke. 
+
+> [!NOTE]
+> Each DNS zone group can support up to 5 DNS zones.
+
+> [!NOTE]
+> Adding multiple DNS zone groups to a single Private Endpoint is not supported. 
 
 ## Next steps
 - [Learn about private endpoints](private-endpoint-overview.md)

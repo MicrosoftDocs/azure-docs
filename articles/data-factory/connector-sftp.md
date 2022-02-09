@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 03/17/2021
+ms.date: 12/13/2021
 ---
 
 # Copy data from and to the SFTP server using Azure Data Factory or Azure Synapse Analytics
@@ -41,6 +41,30 @@ Specifically, the SFTP connector supports:
 ## Get started
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
+
+## Create an SFTP linked service using UI
+
+Use the following steps to create an SFTP linked service in the Azure portal UI.
+
+1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then click New:
+
+    # [Azure Data Factory](#tab/data-factory)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Screenshot of creating a new linked service with Azure Data Factory UI.":::
+
+    # [Azure Synapse](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Screenshot of creating a new linked service with Azure Synapse UI.":::
+
+2. Search for SFTP and select the SFTP connector.
+
+    :::image type="content" source="media/connector-sftp/sftp-connector.png" alt-text="Screenshot of the SFTP connector.":::    
+
+1. Configure the service details, test the connection, and create the new linked service.
+
+    :::image type="content" source="media/connector-sftp/configure-sftp-linked-service.png" alt-text="Screenshot of configuration for an SFTP linked service.":::
+
+## Connector configuration details
 
 The following sections provide details about properties that are used to define entities specific to SFTP.
 
@@ -264,11 +288,12 @@ The following properties are supported for SFTP under the `storeSettings` settin
 | ***Additional settings*** |  | |
 | recursive | Indicates whether the data is read recursively from the subfolders or only from the specified folder. When recursive is set to true and the sink is a file-based store, an empty folder or subfolder isn't copied or created at the sink. <br>Allowed values are *true* (default) and *false*.<br>This property doesn't apply when you configure `fileListPath`. |No |
 | deleteFilesAfterCompletion | Indicates whether the binary files will be deleted from source store after successfully moving to the destination store. The file deletion is per file, so when copy activity fails, you will see some files have already been copied to the destination and deleted from source, while others are still remaining on source store. <br/>This property is only valid in binary files copy scenario. The default value: false. |No |
-| modifiedDatetimeStart    | Files are filtered based on the attribute *Last Modified*. <br>The files are selected if their last modified time is within the range of `modifiedDatetimeStart` to `modifiedDatetimeEnd`. The time is applied to the UTC time zone in the format of *2018-12-01T05:00:00Z*. <br> The properties can be NULL, which means that no file attribute filter is applied to the dataset.  When `modifiedDatetimeStart` has a datetime value but `modifiedDatetimeEnd` is NULL, it means that the files whose last modified attribute is greater than or equal to the datetime value are selected.  When `modifiedDatetimeEnd` has a datetime value but `modifiedDatetimeStart` is NULL, it means that the files whose last modified attribute is less than the datetime value are selected.<br/>This property doesn't apply when you configure `fileListPath`. | No                                            |
+| modifiedDatetimeStart    | Files are filtered based on the attribute *Last Modified*. <br>The files are selected if their last modified time is greater than or equal to `modifiedDatetimeStart` and less than `modifiedDatetimeEnd`. The time is applied to the UTC time zone in the format of *2018-12-01T05:00:00Z*. <br> The properties can be NULL, which means that no file attribute filter is applied to the dataset.  When `modifiedDatetimeStart` has a datetime value but `modifiedDatetimeEnd` is NULL, it means that the files whose last modified attribute is greater than or equal to the datetime value are selected.  When `modifiedDatetimeEnd` has a datetime value but `modifiedDatetimeStart` is NULL, it means that the files whose last modified attribute is less than the datetime value are selected.<br/>This property doesn't apply when you configure `fileListPath`. | No                                            |
 | modifiedDatetimeEnd      | Same as above.                                               | No                                            |
 | enablePartitionDiscovery | For files that are partitioned, specify whether to parse the partitions from the file path and add them as additional source columns.<br/>Allowed values are **false** (default) and **true**. | No                                            |
 | partitionRootPath | When partition discovery is enabled, specify the absolute root path in order to read partitioned folders as data columns.<br/><br/>If it is not specified, by default,<br/>- When you use file path in dataset or list of files on source, partition root path is the path configured in dataset.<br/>- When you use wildcard folder filter, partition root path is the sub-path before the first wildcard.<br/><br/>For example, assuming you configure the path in dataset as "root/folder/year=2020/month=08/day=27":<br/>- If you specify partition root path as "root/folder/year=2020", copy activity will generate two more columns `month` and `day` with value "08" and "27" respectively, in addition to the columns inside the files.<br/>- If partition root path is not specified, no extra column will be generated. | No                                            |
 | maxConcurrentConnections | The upper limit of concurrent connections established to the data store during the activity run. Specify a value only when you want to limit concurrent connections.| No                                            |
+| disableChunking | When copying data from SFTP, the service tries to get the file length first, then divide the file into multiple parts and read them in parallel. Specify whether your SFTP server supports getting file length or seeking to read from a certain offset. <br/>Allowed values are **false** (default), **true**. | No |
 
 **Example:**
 
@@ -300,7 +325,8 @@ The following properties are supported for SFTP under the `storeSettings` settin
                     "type": "SftpReadSettings",
                     "recursive": true,
                     "wildcardFolderPath": "myfolder*A",
-                    "wildcardFileName": "*.csv"
+                    "wildcardFileName": "*.csv",
+                    "disableChunking": false
                 }
             },
             "sink": {
@@ -406,8 +432,8 @@ For information about Delete activity properties, see [Delete activity](delete-a
 | type | The *type* property of the dataset must be set to *FileShare*. |Yes |
 | folderPath | The path to the folder. A wildcard filter is supported. Allowed wildcards are `*` (matches zero or more characters) and `?` (matches zero or a single character); use `^` to escape if your actual file name has a wildcard or this escape char inside. <br/><br/>Examples: rootfolder/subfolder/, see more examples in [Folder and file filter examples](#folder-and-file-filter-examples). |Yes |
 | fileName |  **Name or wildcard filter** for the files under the specified "folderPath". If you don't specify a value for this property, the dataset points to all files in the folder. <br/><br/>For filter, the allowed wildcards are `*` (matches zero or more characters) and `?` (matches zero or a single character).<br/>- Example 1: `"fileName": "*.csv"`<br/>- Example 2: `"fileName": "???20180427.txt"`<br/>Use `^` to escape if your actual folder name has wildcard or this escape char inside. |No |
-| modifiedDatetimeStart | Files are filtered based on the attribute *Last Modified*. The files are selected if their last modified time is within the range of `modifiedDatetimeStart` to `modifiedDatetimeEnd`. The time is applied to UTC time zone in the format of *2018-12-01T05:00:00Z*. <br/><br/> The overall performance of data movement will be affected by enabling this setting when you want to do file filter from large numbers of files. <br/><br/> The properties can be NULL, which means that no file attribute filter is applied to the dataset.  When `modifiedDatetimeStart` has a datetime value but `modifiedDatetimeEnd` is NULL, it means that the files whose last modified attribute is greater than or equal to the datetime value are selected.  When `modifiedDatetimeEnd` has a datetime value but `modifiedDatetimeStart` is NULL, it means that the files whose last modified attribute is less than the datetime value are selected.| No |
-| modifiedDatetimeEnd | Files are filtered based on the attribute *Last Modified*. The files are selected if their last modified time is within the range of `modifiedDatetimeStart` to `modifiedDatetimeEnd`. The time is applied to UTC time zone in the format of *2018-12-01T05:00:00Z*. <br/><br/> The overall performance of data movement will be affected by enabling this setting when you want to do file filter from large numbers of files. <br/><br/> The properties can be NULL, which means that no file attribute filter is applied to the dataset.  When `modifiedDatetimeStart` has a datetime value but `modifiedDatetimeEnd` is NULL, it means that the files whose last modified attribute is greater than or equal to the datetime value are selected.  When `modifiedDatetimeEnd` has a datetime value but `modifiedDatetimeStart` is NULL, it means that the files whose last modified attribute is less than the datetime value are selected.| No |
+| modifiedDatetimeStart | Files are filtered based on the attribute *Last Modified*. The files are selected if their last modified time is greater than or equal to `modifiedDatetimeStart` and less than `modifiedDatetimeEnd`. The time is applied to UTC time zone in the format of *2018-12-01T05:00:00Z*. <br/><br/> The overall performance of data movement will be affected by enabling this setting when you want to do file filter from large numbers of files. <br/><br/> The properties can be NULL, which means that no file attribute filter is applied to the dataset.  When `modifiedDatetimeStart` has a datetime value but `modifiedDatetimeEnd` is NULL, it means that the files whose last modified attribute is greater than or equal to the datetime value are selected.  When `modifiedDatetimeEnd` has a datetime value but `modifiedDatetimeStart` is NULL, it means that the files whose last modified attribute is less than the datetime value are selected.| No |
+| modifiedDatetimeEnd | Files are filtered based on the attribute *Last Modified*. The files are selected if their last modified time is greater than or equal to `modifiedDatetimeStart` and less than `modifiedDatetimeEnd`. The time is applied to UTC time zone in the format of *2018-12-01T05:00:00Z*. <br/><br/> The overall performance of data movement will be affected by enabling this setting when you want to do file filter from large numbers of files. <br/><br/> The properties can be NULL, which means that no file attribute filter is applied to the dataset.  When `modifiedDatetimeStart` has a datetime value but `modifiedDatetimeEnd` is NULL, it means that the files whose last modified attribute is greater than or equal to the datetime value are selected.  When `modifiedDatetimeEnd` has a datetime value but `modifiedDatetimeStart` is NULL, it means that the files whose last modified attribute is less than the datetime value are selected.| No |
 | format | If you want to copy files as is between file-based stores (binary copy), skip the format section in both input and output dataset definitions.<br/><br/>If you want to parse files with a specific format, the following file format types are supported: *TextFormat*, *JsonFormat*, *AvroFormat*, *OrcFormat*, and *ParquetFormat*. Set the *type* property under format to one of these values. For more information, see [Text format](supported-file-formats-and-compression-codecs-legacy.md#text-format), [Json format](supported-file-formats-and-compression-codecs-legacy.md#json-format), [Avro format](supported-file-formats-and-compression-codecs-legacy.md#avro-format), [Orc format](supported-file-formats-and-compression-codecs-legacy.md#orc-format), and [Parquet format](supported-file-formats-and-compression-codecs-legacy.md#parquet-format) sections. |No (only for binary copy scenario) |
 | compression | Specify the type and level of compression for the data. For more information, see [Supported file formats and compression codecs](supported-file-formats-and-compression-codecs-legacy.md#compression-support).<br/>Supported types are *GZip*, *Deflate*, *BZip2*, and *ZipDeflate*.<br/>Supported levels are *Optimal* and *Fastest*. |No |
 

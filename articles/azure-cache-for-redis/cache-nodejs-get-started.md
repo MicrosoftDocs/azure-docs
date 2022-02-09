@@ -1,14 +1,13 @@
 ---
 title: 'Quickstart: Use Azure Cache for Redis in Node.js'
-description: In this quickstart you will learn how to use Azure Cache for Redis with Node.js and node_redis.
-author: yegu-ms
-
+description: In this quickstart, you'll learn how to use Azure Cache for Redis with Node.js and node_redis.
+author: flang-msft
 ms.service: cache
-ms.devlang: nodejs
+ms.devlang: javascript
 ms.topic: quickstart
-ms.date: 05/21/2018
-ms.author: yegu
-ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-track-js
+ms.date: 02/04/2022
+ms.author: franlanglois
+ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-track-js, mode-api
 #Customer intent: As a Node.js developer, new to Azure Cache for Redis, I want to create a new Node.js app that uses Azure Cache for Redis.
 ---
 # Quickstart: Use Azure Cache for Redis in Node.js
@@ -28,16 +27,11 @@ For examples of using other Node.js clients, see the individual documentation fo
 
 ## Create a cache
 
-[!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
+[!INCLUDE [redis-cache-create](includes/redis-cache-create.md)]
 
-[!INCLUDE [redis-cache-access-keys](../../includes/redis-cache-access-keys.md)]
+[!INCLUDE [redis-cache-access-keys](includes/redis-cache-access-keys.md)]
 
 Add environment variables for your **HOST NAME** and **Primary** access key. Use these variables from your code instead of including the sensitive information directly in your code.
-
-```powershell
-set REDISCACHEHOSTNAME=contosoCache.redis.cache.windows.net
-set REDISCACHEKEY=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-```
 
 ```powershell
 set REDISCACHEHOSTNAME=contosoCache.redis.cache.windows.net
@@ -66,39 +60,43 @@ Add the following example JavaScript to the file. This code shows you how to con
 
 ```js
 var redis = require("redis");
-var bluebird = require("bluebird");
-
-// Convert Redis client API to use promises, to make it usable with async/await syntax
-bluebird.promisifyAll(redis.RedisClient.prototype);
-bluebird.promisifyAll(redis.Multi.prototype);
 
 async function testCache() {
 
     // Connect to the Azure Cache for Redis over the TLS port using the key.
-    var cacheConnection = redis.createClient(6380, process.env.REDISCACHEHOSTNAME, 
-        {auth_pass: process.env.REDISCACHEKEY, tls: {servername: process.env.REDISCACHEHOSTNAME}});
-        
+    var cacheHostName = process.env.REDISCACHEHOSTNAME;
+    var cachePassword = process.env.REDISCACHEKEY;
+    var cacheConnection = redis.createClient({
+        // rediss for TLS
+        url: "rediss://" + cacheHostName + ":6380",
+        password: cachePassword,
+    });
+    await cacheConnection.connect();
+
     // Perform cache operations using the cache connection object...
 
     // Simple PING command
     console.log("\nCache command: PING");
-    console.log("Cache response : " + await cacheConnection.pingAsync());
+    console.log("Cache response : " + await cacheConnection.ping());
 
     // Simple get and put of integral data types into the cache
     console.log("\nCache command: GET Message");
-    console.log("Cache response : " + await cacheConnection.getAsync("Message"));    
+    console.log("Cache response : " + await cacheConnection.get("Message"));
 
     console.log("\nCache command: SET Message");
-    console.log("Cache response : " + await cacheConnection.setAsync("Message",
-        "Hello! The cache is working from Node.js!"));    
+    console.log("Cache response : " + await cacheConnection.set("Message",
+        "Hello! The cache is working from Node.js!"));
 
     // Demonstrate "SET Message" executed as expected...
     console.log("\nCache command: GET Message");
-    console.log("Cache response : " + await cacheConnection.getAsync("Message"));    
+    console.log("Cache response : " + await cacheConnection.get("Message"));
 
     // Get the client list, useful to see if connection list is growing...
     console.log("\nCache command: CLIENT LIST");
-    console.log("Cache response : " + await cacheConnection.clientAsync("LIST"));    
+    console.log("Cache response : " + await cacheConnection.sendCommand(["CLIENT", "LIST"]));
+
+    console.log("\nDone");
+    process.exit();
 }
 
 testCache();

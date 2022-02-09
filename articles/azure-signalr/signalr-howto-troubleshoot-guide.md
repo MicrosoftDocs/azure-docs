@@ -1,11 +1,12 @@
 ---
 title: "Troubleshooting guide for Azure SignalR Service"
 description: Learn how to troubleshoot common issues
-author: yjin81
+author: vicancy
 ms.service: signalr
 ms.topic: conceptual
 ms.date: 11/06/2020
-ms.author: yajin1
+ms.author: lianwei
+ms.devlang: csharp
 ---
 # Troubleshooting guide for Azure SignalR Service common issues
 
@@ -67,7 +68,7 @@ services.MapAzureSignalR(GetType().FullName, options =>
 
 * ASP.NET "No server available" error [#279](https://github.com/Azure/azure-signalr/issues/279)
 * ASP.NET "The connection is not active, data cannot be sent to the service." error [#324](https://github.com/Azure/azure-signalr/issues/324)
-* "An error occurred while making the HTTP request to https://<API endpoint>. This error could be because the server certificate is not configured properly with HTTP.SYS in the HTTPS case. This error could also be caused by a mismatch of the security binding between the client and the server."
+* "An error occurred while making the HTTP request to `https://<API endpoint>`. This error could be because the server certificate is not configured properly with HTTP.SYS in the HTTPS case. This error could also be caused by a mismatch of the security binding between the client and the server."
 
 ### Root cause
 
@@ -423,33 +424,34 @@ To find the root cause of thread pool starvation:
 
 <a name="view_request"></a>
 
-* How to view the outgoing request from client?
+### How to view the outgoing request from the client?
+
 Take ASP.NET Core one for example (ASP.NET one is similar):
-    * From browser:
 
-        Take Chrome as an example, you can use **F12** to open the console window, and switch to **Network** tab. You might need to refresh the page using **F5** to capture the network from the very beginning.
+* From browser:
+    Take Chrome as an example, you can use **F12** to open the console window, and switch to **Network** tab. You might need to refresh the page using **F5** to capture the network from the very beginning.
 
-        :::image type="content" source="./media/signalr-howto-troubleshoot-guide/chrome-network.gif" alt-text="Chrome View Network":::
+    :::image type="content" source="./media/signalr-howto-troubleshoot-guide/chrome-network.gif" alt-text="Chrome View Network":::
 
-    * From C# client:
+* From C# client:
 
-        You can view local web traffics using [Fiddler](https://www.telerik.com/fiddler). WebSocket traffics are supported since Fiddler 4.5.
+    You can view local web traffics using [Fiddler](https://www.telerik.com/fiddler). WebSocket traffics are supported since Fiddler 4.5.
 
-        :::image type="content" source="./media/signalr-howto-troubleshoot-guide/fiddler-view-network-inline.png" alt-text="Fiddler View Network" lightbox="./media/signalr-howto-troubleshoot-guide/fiddler-view-network.png":::
+    :::image type="content" source="./media/signalr-howto-troubleshoot-guide/fiddler-view-network-inline.png" alt-text="Fiddler View Network" lightbox="./media/signalr-howto-troubleshoot-guide/fiddler-view-network.png":::
 
 <a name="restart_connection"></a>
 
-* How to restart client connection?
+### How to restart client connection?
 	
-	Here are the [Sample codes](https://github.com/Azure/azure-signalr/tree/dev/samples) containing restarting connection logic with *ALWAYS RETRY* strategy:
+Here are the [Sample codes](https://github.com/Azure/azure-signalr/tree/dev/samples) containing restarting connection logic with *ALWAYS RETRY* strategy:
 
-	* [ASP.NET Core C# Client](https://github.com/Azure/azure-signalr/tree/dev/samples/ChatSample/ChatSample.CSharpClient/Program.cs#L64)
+* [ASP.NET Core C# Client](https://github.com/Azure/azure-signalr/tree/dev/samples/ChatSample/ChatSample.CSharpClient/Program.cs#L64)
 
-	* [ASP.NET Core JavaScript Client](https://github.com/Azure/azure-signalr/blob/release/1.0.0-preview1/samples/ChatSample/wwwroot/index.html#L164)
+* [ASP.NET Core JavaScript Client](https://github.com/Azure/azure-signalr/blob/dev/samples/ChatSample/ChatSample.Net50/wwwroot/index.html#L171)
 
-	* [ASP.NET C# Client](https://github.com/Azure/azure-signalr/tree/dev/samples/AspNet.ChatSample/AspNet.ChatSample.CSharpClient/Program.cs#L78)
+* [ASP.NET C# Client](https://github.com/Azure/azure-signalr/tree/dev/samples/AspNet.ChatSample/AspNet.ChatSample.CSharpClient/Program.cs#L78)
 
-	* [ASP.NET JavaScript Client](https://github.com/Azure/azure-signalr/tree/dev/samples/AspNet.ChatSample/AspNet.ChatSample.JavaScriptClient/wwwroot/index.html#L71)
+* [ASP.NET JavaScript Client](https://github.com/Azure/azure-signalr/tree/dev/samples/AspNet.ChatSample/AspNet.ChatSample.JavaScriptClient/wwwroot/index.html#L71)
 
 [Having issues or feedback about the troubleshooting? Let us know.](https://aka.ms/asrs/survey/troubleshooting)
 

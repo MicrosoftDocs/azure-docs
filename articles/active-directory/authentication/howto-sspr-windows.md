@@ -10,7 +10,7 @@ ms.date: 07/17/2020
 
 ms.author: justinha
 author: justinha
-manager: daveba
+manager: karenhoran
 ms.reviewer: rhicock
 
 ms.collection: M365-identity-device-management
@@ -48,7 +48,7 @@ The following limitations apply to using SSPR from the Windows sign-in screen:
 - The combination of the following specific three settings can cause this feature to not work.
     - Interactive logon: Do not require CTRL+ALT+DEL = Disabled
     - *DisableLockScreenAppNotifications* = 1 or Enabled
-    - Windows SKU isn't Home or Professional edition
+    - Windows SKU is Home edition
 
 > [!NOTE]
 > These limitations also apply to Windows Hello for Business PIN reset from the device lock screen.
@@ -119,7 +119,7 @@ If you have problems with using SSPR from the Windows sign-in screen, the Azure 
 
 When users reset their password from the sign-in screen of a Windows 10 device, a low-privilege temporary account called `defaultuser1` is created. This account is used to keep the password reset process secure.
 
-The account itself has a randomly generated password, doesn't show up for device sign-in, and is automatically removed after the user resets their password. Multiple `defaultuser` profiles may exist but can be safely ignored.
+The account itself has a randomly generated password, which is validated against an organizations password policy, doesn't show up for device sign-in, and is automatically removed after the user resets their password. Multiple `defaultuser` profiles may exist but can be safely ignored.
 
 ## Windows 7, 8, and 8.1 password reset
 
@@ -183,7 +183,7 @@ With SSPR configured for your Windows devices, what changes for the user? How do
 
 When users attempt to sign in, they see a **Reset password** or **Forgot password** link that opens the self-service password reset experience at the login screen. This functionality allows users to reset their password without having to use another device to access a web browser.
 
-More information for users on using this feature can be found in [Reset your work or school password](../user-help/active-directory-passwords-update-your-own-password.md)
+More information for users on using this feature can be found in [Reset your work or school password](https://support.microsoft.com/account-billing/reset-your-work-or-school-password-using-security-info-23dde81f-08bb-4776-ba72-e6b72b9dda9e)
 
 ## Next steps
 

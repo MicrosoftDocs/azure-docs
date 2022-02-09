@@ -1,13 +1,13 @@
 ---
 title: Quickstart - Set up Azure IoT Hub Device Provisioning Service using Azure CLI
 description: Quickstart - Set up the Azure IoT Hub Device Provisioning Service (DPS) using Azure CLI
-author: wesmc7777
-ms.author: wesmc
+author: kgremban
+ms.author: kgremban
 ms.date: 11/08/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
-ms.custom: mvc, devx-track-azurecli
+ms.custom: mvc, devx-track-azurecli, mode-api
 ---
 
 # Quickstart: Set up the IoT Hub Device Provisioning Service with Azure CLI
@@ -137,4 +137,4 @@ az group delete --name my-sample-resource-group
 In this quickstart, you’ve deployed an IoT hub and a Device Provisioning Service instance, and linked the two resources. To learn how to use this setup to provision a simulated device, continue to the quickstart for creating a simulated device.
 
 > [!div class="nextstepaction"]
-> [Quickstart to create a simulated device](./quick-create-simulated-device.md)
+> [Quickstart to create a simulated device](./quick-create-simulated-device-tpm.md)

@@ -1,24 +1,24 @@
 ---
 title: Data consistency verification in copy activity 
 titleSuffix: Azure Data Factory & Azure Synapse
-description: 'Learn about how to enable data consistency verification in copy activity in Azure Data Factory.'
+description: Learn about how to enable data consistency verification in a copy activity in Azure Data Factory and Synapse Analytics pipelines.
 author: dearandyxu
 ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 3/27/2020
+ms.date: 01/27/2022
 ms.author: yexu
 ---
 #  Data consistency verification in copy activity
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-When you move data from source to destination store, Azure Data Factory copy activity provides an option for you to do additional data consistency verification to ensure the data is not only successfully copied from source to destination store, but also verified to be consistent between source and destination store. Once inconsistent files have been found during the data movement, you can either abort the copy activity or continue to copy the rest by enabling fault tolerance setting to skip inconsistent files. You can get the skipped file names by enabling session log setting in copy activity. You can refer to [session log in copy activity](copy-activity-log.md) for more details.
+When you move data from source to destination store, the copy activity provides an option for you to do additional data consistency verification to ensure the data is not only successfully copied from source to destination store, but also verified to be consistent between source and destination store. Once inconsistent files have been found during the data movement, you can either abort the copy activity or continue to copy the rest by enabling fault tolerance setting to skip inconsistent files. You can get the skipped file names by enabling session log setting in copy activity. You can refer to [session log in copy activity](copy-activity-log.md) for more details.
 
 ## Supported data stores and scenarios
 
--   Data consistency verification is supported by all the connectors except FTP, sFTP, and HTTP. 
+-   Data consistency verification is supported by all the connectors except FTP, SFTP, HTTP, Snowflake, Office 365 and Azure Databricks Delta Lake. 
 -   Data consistency verification is not supported in staging copy scenario.
 -   When copying binary files, data consistency verification is only available when 'PreserveHierarchy' behavior is set in copy activity.
 -   When copying multiple binary files in single copy activity with data consistency verification enabled, you have an option to either abort the copy activity or continue to copy the rest by enabling fault tolerance setting to skip inconsistent files. 
@@ -73,8 +73,8 @@ linkedServiceName | The linked service of [Azure Blob Storage](connector-azure-b
 path | The path of the log files. | Specify the path that you want to store the log files. If you do not provide a path, the service creates a container for you. | No
 
 >[!NOTE]
->- When copying binary files from, or to Azure Blob or Azure Data Lake Storage Gen2, ADF does block level MD5 checksum verification leveraging [Azure Blob API](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions?view=azure-dotnet-legacy&preserve-view=true) and [Azure Data Lake Storage Gen2 API](/rest/api/storageservices/datalakestoragegen2/path/update#request-headers). If ContentMD5 on files exist on Azure Blob or Azure Data Lake Storage Gen2 as data sources, ADF does file level MD5 checksum verification after reading the files as well. After copying files to Azure Blob or Azure Data Lake Storage Gen2 as data destination, ADF writes ContentMD5 to Azure Blob or Azure Data Lake Storage Gen2 which can be further consumed by downstream applications for data consistency verification.
->- ADF does file size verification when copying binary files between any storage stores.
+>- When copying binary files from, or to Azure Blob or Azure Data Lake Storage Gen2, the service does block level MD5 checksum verification leveraging [Azure Blob API](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions?view=azure-dotnet-legacy&preserve-view=true) and [Azure Data Lake Storage Gen2 API](/rest/api/storageservices/datalakestoragegen2/path/update#request-headers). If ContentMD5 on files exist on Azure Blob or Azure Data Lake Storage Gen2 as data sources, the service does file level MD5 checksum verification after reading the files as well. After copying files to Azure Blob or Azure Data Lake Storage Gen2 as data destination, the service writes ContentMD5 to Azure Blob or Azure Data Lake Storage Gen2 which can be further consumed by downstream applications for data consistency verification.
+>- The service does file size verification when copying binary files between any storage stores.
 
 ## Monitoring
 
@@ -106,9 +106,9 @@ Value of **VerificationResult**:
 -   **Unsupported**: Your copied data has not been verified to be consistent because data consistency verification is not supported for this particular copy pair. 
 
 Value of **InconsistentData**: 
--   **Found**: ADF copy activity has found inconsistent data. 
--   **Skipped**: ADF copy activity has found and skipped inconsistent data. 
--   **None**: ADF copy activity has not found any inconsistent data. It can be either because your data has been verified to be consistent between source and destination store or because you disabled validateDataConsistency in copy activity. 
+-   **Found**: The copy activity has found inconsistent data. 
+-   **Skipped**: The copy activity has found and skipped inconsistent data. 
+-   **None**: The copy activity has not found any inconsistent data. It can be either because your data has been verified to be consistent between source and destination store or because you disabled validateDataConsistency in copy activity. 
 
 ### Session log from copy activity
 
@@ -118,9 +118,9 @@ The schema of a log file is as following:
 
 Column | Description 
 -------- | -----------  
-Timestamp | The timestamp when ADF skips the inconsistent files.
+Timestamp | The timestamp when the service skips the inconsistent files.
 Level | The log level of this item. It will be in 'Warning' level for the item showing file skipping.
-OperationName | ADF copy activity operational behavior on each file. It will be 'FileSkip' to specify the file to be skipped.
+OperationName | The copy activity operational behavior on each file. It will be 'FileSkip' to specify the file to be skipped.
 OperationItem | The file name to be skipped.
 Message | More information to illustrate why files being skipped.
 
@@ -129,7 +129,7 @@ The example of a log file is as following:
 Timestamp, Level, OperationName, OperationItem, Message
 2020-02-26 06:22:56.3190846, Warning, FileSkip, "sample1.csv", "File is skipped after read 548000000 bytes: ErrorCode=DataConsistencySourceDataChanged,'Type=Microsoft.DataTransfer.Common.Shared.HybridDeliveryException,Message=Source file 'sample1.csv' is changed by other clients during the copy activity run.,Source=,'." 
 ```
-From the log file above, you can see sample1.csv has been skipped because it failed to be verified to be consistent between source and destination store. You can get more details about why sample1.csv becomes inconsistent is because it was being changed by other applications when ADF copy activity is copying at the same time. 
+From the log file above, you can see sample1.csv has been skipped because it failed to be verified to be consistent between source and destination store. You can get more details about why sample1.csv becomes inconsistent is because it was being changed by other applications when the copy activity is copying at the same time. 
 
 
 

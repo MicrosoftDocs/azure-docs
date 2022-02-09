@@ -13,6 +13,8 @@ keywords: visualstudio
 ---
 
 # Visual Studio images on Azure
+**Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
+
 Using Visual Studio in a preconfigured Azure virtual machine (VM) is a quick, easy way to go from nothing to an up-and-running development environment. System images with different Visual Studio configurations are available in the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute?filters=virtual-machine-images%3Bmicrosoft%3Bwindows&page=1&subcategories=application-infrastructure).
 
 New to Azure? [Create a free Azure account](https://azure.microsoft.com/free).
@@ -39,7 +41,7 @@ For more information, see the [Visual Studio Servicing Policy](https://www.visua
 ## What features are installed?
 Each image contains the recommended feature set for that Visual Studio edition. Generally, the installation includes:
 
-* All available workloads, including each workload’s recommended optional components. More details on the workloads, components, and SDKs included Visual Studio could be found in the [Visual Studio documentation](/visualstudio/install/workload-and-component-ids)
+* All available workloads, including each workload's recommended optional components. More details on the workloads, components, and SDKs included Visual Studio could be found in the [Visual Studio documentation](/visualstudio/install/workload-and-component-ids)
 * .NET 4.6.2 and .NET 4.7 SDKs, Targeting Packs, and Developer Tools
 * Visual F#
 * GitHub Extension for Visual Studio
@@ -74,32 +76,32 @@ Azure offers a full range of virtual machine sizes. Because Visual Studio is a p
     
 For more information on the latest machine sizes, see [Sizes for Windows virtual machines in Azure](../sizes.md).
 
-With Azure, you can rebalance your initial choice by resizing the VM. You can either provision a new VM with a more appropriate size, or resize your existing VM to different underlying hardware. For more information, see [Resize a Windows VM](./resize-vm.md).
+With Azure, you can rebalance your initial choice by resizing the VM. You can either provision a new VM with a more appropriate size, or resize your existing VM to different underlying hardware. For more information, see [Resize a Windows VM](../resize-vm.md).
 
 ## After the VM is running, what's next?
-Visual Studio follows the “bring your own license” model in Azure. As with an installation on proprietary hardware, one of the first steps is licensing your Visual Studio installation. To unlock Visual Studio, either:
-- Sign in with a Microsoft account that’s associated with a Visual Studio subscription 
+Visual Studio follows the "bring your own license" model in Azure. As with an installation on proprietary hardware, one of the first steps is licensing your Visual Studio installation. To unlock Visual Studio, either:
+- Sign in with a Microsoft account that's associated with a Visual Studio subscription 
 - Unlock Visual Studio with the product key that came with your initial purchase
 
 For more information, see [Sign in to Visual Studio](/visualstudio/ide/signing-in-to-visual-studio) and [How to unlock Visual Studio](/visualstudio/ide/how-to-unlock-visual-studio).
 
 ## How do I save the development VM for future or team use?
 
-The spectrum of development environments is huge, and there’s real cost associated with building out the more complex environments. Regardless of your environment’s configuration, you can save, or capture, your configured VM as a "base image" for future use or for other members of your team. Then, when booting a new VM, you provision it from the base image rather than the Azure Marketplace image.
+The spectrum of development environments is huge, and there's real cost associated with building out the more complex environments. Regardless of your environment's configuration, you can save, or capture, your configured VM as a "base image" for future use or for other members of your team. Then, when booting a new VM, you provision it from the base image rather than the Azure Marketplace image.
 
-A quick summary: Use the System Preparation tool (Sysprep) and shut down the running VM, and then capture *(Figure 1)* the VM as an image through the UI in the Azure portal. Azure saves the `.vhd` file that contains the image in the storage account of your choosing. The new image then shows up as an Image resource in your subscription’s list of resources.
+A quick summary: Use the System Preparation tool (Sysprep) and shut down the running VM, and then capture *(Figure 1)* the VM as an image through the UI in the Azure portal. Azure saves the `.vhd` file that contains the image in the storage account of your choosing. The new image then shows up as an Image resource in your subscription's list of resources.
 
-<img src="media/using-visual-studio-vm/capture-vm.png" alt="Capture an image through the Azure portal UI" style="border:3px solid Silver; display: block; margin: auto;"><center>*(Figure 1) Capture an image through the Azure portal UI.*</center>
+<img src="media/using-visual-studio-vm/capture-vm.png" alt="Capture an image through the Azure portal UI"><center>*(Figure 1) Capture an image through the Azure portal UI.*</center>
 
 For more information, see [Create a managed image of a generalized VM in Azure](./capture-image-resource.md).
 
 > [!IMPORTANT]
-> Don’t forget to use Sysprep to prepare the VM. If you miss that step, Azure can't provision a VM from the image.
+> Don't forget to use Sysprep to prepare the VM. If you miss that step, Azure can't provision a VM from the image.
 
 > [!NOTE]
 > You still incur some cost for storage of the images, but that incremental cost can be insignificant compared to the overhead costs to rebuild the VM from scratch for each team member who needs one. For instance, it costs a few dollars to create and store a 127-GB image for a month that's reusable by your entire team. However, these costs are insignificant compared to hours each employee invests to build out and validate a properly configured dev box for their individual use.
 
-Additionally, your development tasks or technologies might need more scale, like varieties of development configurations and multiple machine configurations. You can use Azure DevTest Labs to create _recipes_ that automate construction of your "golden image." You can also use DevTest Labs to manage policies for your team’s running VMs. [Using Azure DevTest Labs for developers](../../devtest-labs/devtest-lab-developer-lab.md) is the best source for more information on DevTest Labs.
+Additionally, your development tasks or technologies might need more scale, like varieties of development configurations and multiple machine configurations. You can use Azure DevTest Labs to create _recipes_ that automate construction of your "golden image." You can also use DevTest Labs to manage policies for your team's running VMs. [Using Azure DevTest Labs for developers](../../devtest-labs/devtest-lab-developer-lab.md) is the best source for more information on DevTest Labs.
 
 ## Next steps
 Now that you know about the preconfigured Visual Studio images, the next step is to create a new VM:

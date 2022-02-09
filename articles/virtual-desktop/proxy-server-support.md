@@ -31,9 +31,9 @@ If your organization's network and security policies require proxy servers for w
 
 - Azure service tags on the Azure firewall
 - Proxy server bypass using Proxy Auto Configuration (.PAC) files
-- Bypass list in the local proxy configuration 
-- Using proxy servers for per-user configuration 
-- Using RDP shortpath for the RDP connection while keeping the service traffic over the proxy 
+- Bypass list in the local proxy configuration
+- Using proxy servers for per-user configuration
+- Using RDP Shortpath for the RDP connection while keeping the service traffic over the proxy
 
 ## Recommendations for using proxy servers
 
@@ -43,9 +43,9 @@ Some organizations require that all user traffic goes through a proxy server for
 
 When you use a proxy server, it handles all communication with the Azure Virtual Desktop infrastructure and performs DNS resolution and Anycast routing to the nearest Azure Front Door. If your proxy servers are distant or distributed across an Azure geography, your geographical resolution will be less accurate. Less accurate geographical resolution means connections will be routed to a more distant Azure Virtual Desktop cluster. To avoid this issue, only use proxy servers that are geographically close to your Azure Virtual Desktop cluster.
 
-### Use RDP shortpath for desktop connectivity
+### Use RDP Shortpath for managed networks for desktop connectivity
 
-When you enable RDP shortpath, RDP data will bypass the proxy server, if possible. Bypassing the proxy server ensures optimal routing while using the UDP transport. Other Azure Virtual Desktop traffic, such as brokering, orchestration, and diagnostics will still go through the proxy server. 
+When you enable RDP Shortpath for managed networks, RDP data will bypass the proxy server, if possible. Bypassing the proxy server ensures optimal routing while using the UDP transport. Other Azure Virtual Desktop traffic, such as brokering, orchestration, and diagnostics will still go through the proxy server.
 
 ### Don't use SSL termination on the proxy server
 

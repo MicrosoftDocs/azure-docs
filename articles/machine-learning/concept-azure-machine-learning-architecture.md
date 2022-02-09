@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
-ms.date: 07/27/2021
+ms.date: 10/21/2021
 ms.custom: seoapril2019, seodec18
 #Customer intent: As a data scientist, I want to understand the big picture about how Azure Machine Learning works.
 ---
@@ -160,7 +160,7 @@ You can bring a model that was trained outside of Azure Machine Learning. Or you
 
 Azure Machine Learning is framework agnostic. When you create a model, you can use any popular machine learning framework, such as Scikit-learn, XGBoost, PyTorch, TensorFlow, and Chainer.
 
-For an example of training a model using Scikit-learn, see [Tutorial: Train an image classification model with Azure Machine Learning](tutorial-train-models-with-aml.md).
+For an example of training a model using Scikit-learn, see [Tutorial: Train an image classification model with Azure Machine Learning](tutorial-train-deploy-notebook.md).
 
 
 ### <a name="register-model"></a> Model registry
@@ -178,7 +178,7 @@ When you register the model, you can provide additional metadata tags and then u
 
 You can't delete a registered model that is being used by an active deployment.
 
-For an example of registering a model, see [Train an image classification model with Azure Machine Learning](tutorial-train-models-with-aml.md).
+For an example of registering a model, see [Train an image classification model with Azure Machine Learning](tutorial-train-deploy-notebook.md).
 
 ## Deployment
 
@@ -216,7 +216,7 @@ Here are the details:
 [![Inference workflow](media/concept-azure-machine-learning-architecture/inferencing.png)](media/concept-azure-machine-learning-architecture/inferencing.png#lightbox)
 
 
-For an example of deploying a model as a web service, see [Deploy an image classification model in Azure Container Instances](tutorial-deploy-models-with-aml.md).
+For an example of deploying a model as a web service, see [Tutorial: Train and deploy a model](tutorial-train-deploy-notebook.md).
 
 #### Real-time endpoints
 
@@ -265,7 +265,7 @@ The studio is also where you access the interactive tools that are part of Azure
 + [Azure Machine Learning designer](concept-designer.md) to perform workflow steps without writing code
 + Web experience for [automated machine learning](concept-automated-ml.md)
 + [Azure Machine Learning notebooks](how-to-run-jupyter-notebooks.md) to write and run your own code in integrated Jupyter notebook servers.
-+ [Data labeling projects](how-to-create-labeling-projects.md) to create, manage, and monitor projects to label your data
++ Data labeling projects to create, manage, and monitor projects for labeling [images](how-to-create-image-labeling-projects.md) or [text](how-to-create-text-labeling-projects.md).
 
 ### Programming tools
 
@@ -284,4 +284,4 @@ To get started with Azure Machine Learning, see:
 
 * [What is Azure Machine Learning?](overview-what-is-azure-machine-learning.md)
 * [Create an Azure Machine Learning workspace](how-to-manage-workspace.md)
-* [Tutorial (part 1): Train a model](tutorial-train-models-with-aml.md)
+* [Tutorial: Train and deploy a model](tutorial-train-deploy-notebook.md)

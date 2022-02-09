@@ -1,23 +1,22 @@
 ---
-title: Reference guide for functions in expressions
-description: Reference guide to functions in expressions for Azure Logic Apps and Power Automate
+title: Reference guide for expression functions
+description: Reference guide to expression functions for Azure Logic Apps and Power Automate
 services: logic-apps
 ms.suite: integration
-ms.reviewer: estfan, logicappspm, azla
+ms.reviewer: estfan, azla
 ms.topic: reference
-ms.date: 07/16/2021
+ms.date: 01/27/2022
 ---
 
-# Reference guide to using functions in expressions for Azure Logic Apps and Power Automate
+# Reference guide to expression functions for Azure Logic Apps and Power Automate
 
-For workflow definitions in [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and [Power Automate](/flow/getting-started), some [expressions](../logic-apps/logic-apps-workflow-definition-language.md#expressions) get their values from runtime actions that might not yet exist when your workflow starts running. To reference these values or process the values in these expressions, you can use *functions* provided by the [Workflow Definition Language](../logic-apps/logic-apps-workflow-definition-language.md).
+For workflow definitions in [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and [Power Automate](/power-automate/getting-started), some [expressions](../logic-apps/logic-apps-workflow-definition-language.md#expressions) get their values from runtime actions that might not yet exist when your workflow starts running. To reference these values or process the values in these expressions, you can use *expression functions* provided by the [Workflow Definition Language](../logic-apps/logic-apps-workflow-definition-language.md).
 
 > [!NOTE]
-> This reference page applies to both Azure Logic Apps and Power Automate, 
-> but appears in the Azure Logic Apps documentation. Although this page refers 
-> specifically to logic apps, these functions work for both flows and logic apps. 
-> For more information about functions and expressions in Power Automate, see 
-> [Use expressions in conditions](/flow/use-expressions-in-conditions).
+> This reference page applies to both Azure Logic Apps and Power Automate, but appears in the 
+> Azure Logic Apps documentation. Although this page refers specifically to logic app workflows, 
+> these functions work for both flows and logic app workflows. For more information about functions 
+> and expressions in Power Automate, see [Use expressions in conditions](/power-automate/use-expressions-in-conditions).
 
 For example, you can calculate values by using math functions, such as the [add()](../logic-apps/workflow-definition-language-functions-reference.md#add) function, when you want the sum from integers or floats. Here are other example tasks that you can perform with functions:
 
@@ -63,11 +62,25 @@ you get a combined string, for example, "SophiaOwen":
 
 Either way, both examples assign the result to the `customerName` property.
 
-Here are some other notes about functions in expressions:
+<a name="function-considerations"></a>
+
+## Considerations for using functions
+
+* The designer doesn't evaluate runtime expressions that are used as function parameters at design time. The designer requires that all expressions can be fully evaluated at design time.
 
 * Function parameters are evaluated from left to right.
-
+ 
 * In the syntax for parameter definitions, a question mark (?) that appears after a parameter means the parameter is optional. For example, see [getFutureTime()](#getFutureTime).
+
+* Function expressions that appear inline with plain text require enclosing curly braces ({}) to use the expression's interpolated format instead. This format helps avoid parsing problems. If your function expression doesn't appear inline with plain text, no curly braces are necessary.
+
+  The following example shows the correct and incorrect syntax:
+
+  **Correct**: `"<text>/@{<function-name>('<parameter-name>')}/<text>"`
+
+  **Incorrect**: `"<text>/@<function-name>('<parameter-name>')/<text>"`
+
+  **OK**: `"@<function-name>('<parameter-name>')"`
 
 The following sections organize functions based on their general purpose, or you can browse these functions in [alphabetical order](#alphabetical-list).
 
@@ -108,7 +121,7 @@ To work with collections, generally arrays, strings, and sometimes, dictionaries
 | [empty](../logic-apps/workflow-definition-language-functions-reference.md#empty) | Check whether a collection is empty. |
 | [first](../logic-apps/workflow-definition-language-functions-reference.md#first) | Return the first item from a collection. |
 | [intersection](../logic-apps/workflow-definition-language-functions-reference.md#intersection) | Return a collection that has *only* the common items across the specified collections. |
-| [item](../logic-apps/workflow-definition-language-functions-reference.md#item) | When inside a repeating action over an array, return the current item in the array during the action's current iteration. |
+| [item](../logic-apps/workflow-definition-language-functions-reference.md#item) | If this function appears inside a repeating action over an array, return the current item in the array during the action's current iteration. |
 | [join](../logic-apps/workflow-definition-language-functions-reference.md#join) | Return a string that has *all* the items from an array, separated by the specified character. |
 | [last](../logic-apps/workflow-definition-language-functions-reference.md#last) | Return the last item from a collection. |
 | [length](../logic-apps/workflow-definition-language-functions-reference.md#length) | Return the number of items in a string or array. |
@@ -124,7 +137,7 @@ To work with collections, generally arrays, strings, and sometimes, dictionaries
 To work with conditions, compare values and expression results, or evaluate various kinds of logic, you can use these logical comparison functions. For the full reference about each function, see the [alphabetical list](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list).
 
 > [!NOTE]
-> If you use logical functions or conditions to compare values, null values are converted to empty string (`""`) values. The behavior of conditions differs when you compare with an empty string instead of a null value. For more information, see the [string() function](#string). 
+> If you use logical functions or conditions to compare values, null values are converted to empty string (`""`) values. The behavior of conditions differs when you compare with an empty string instead of a null value. For more information, see the [string() function](#string).
 
 | Logical comparison function | Task |
 | --------------------------- | ---- |
@@ -143,7 +156,7 @@ To work with conditions, compare values and expression results, or evaluate vari
 
 ## Conversion functions
 
-To change a value's type or format, you can use these conversion functions. For example, you can change a value from a Boolean to an integer. For more information about how Logic Apps handles content types during conversion, see [Handle content types](../logic-apps/logic-apps-content-type.md). For the full reference about each function, see the [alphabetical list](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list).
+To change a value's type or format, you can use these conversion functions. For example, you can change a value from a Boolean to an integer. For more information about how Azure Logic Apps handles content types during conversion, see [Handle content types](../logic-apps/logic-apps-content-type.md). For the full reference about each function, see the [alphabetical list](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list).
 
 > [!NOTE]
 > Azure Logic Apps automatically or implicitly performs base64 encoding and decoding, so you don't have to manually perform these conversions by using 
@@ -187,7 +200,7 @@ For example, suppose a trigger returns a numerical value as output:
 
 `triggerBody()?['123']`
 
-If you use this numerical output where string input is expected, such as a URL, Logic Apps automatically converts the value into a string by using the curly braces (`{}`) notation:
+If you use this numerical output where string input is expected, such as a URL, Azure Logic Apps automatically converts the value into a string by using the curly braces (`{}`) notation:
 
 `@{triggerBody()?['123']}`
 
@@ -206,11 +219,13 @@ Logic Apps automatically or implicitly performs base64 encoding or decoding, so 
 * `decodeDataUri(<value>)`
 
 > [!NOTE]
-> If you manually add any of these functions to your workflow through the Logic App Designer, for example, by using the expression editor, navigate away 
-> from the designer, and return to the designer, the function disappears from the designer, leaving behind only the parameter values. This behavior also 
-> happens if you select a trigger or action that uses this function without editing the function's parameter values. This result affects only the function's 
-> visibility and not the effect. In code view, the function is unaffected. However, if you edit the function's parameter values, the function and its effect 
-> are both removed from code view, leaving behind only the function's parameter values.
+> If you manually add any of these functions while using the workflow designer, either directly to a trigger 
+> or action or by using the expression editor, navigate away from the designer, and then return to the designer, 
+> the function disappears from the designer, leaving behind only the parameter values. This behavior also happens 
+> if you select a trigger or action that uses this function without editing the function's parameter values. 
+> This result affects only the function's visibility and not the effect. In code view, the function is unaffected. 
+> However, if you edit the function's parameter values, the function and its effect are both removed from code view, 
+> leaving behind only the function's parameter values.
 
 <a name="math-functions"></a>
 
@@ -289,9 +304,9 @@ For the full reference about each function, see the
 | [body](#body) | Return an action's `body` output at runtime. See also [actionBody](../logic-apps/workflow-definition-language-functions-reference.md#actionBody). |
 | [formDataMultiValues](../logic-apps/workflow-definition-language-functions-reference.md#formDataMultiValues) | Create an array with the values that match a key name in *form-data* or *form-encoded* action outputs. |
 | [formDataValue](../logic-apps/workflow-definition-language-functions-reference.md#formDataValue) | Return a single value that matches a key name in an action's *form-data* or *form-encoded output*. |
-| [item](../logic-apps/workflow-definition-language-functions-reference.md#item) | When inside a repeating action over an array, return the current item in the array during the action's current iteration. |
-| [items](../logic-apps/workflow-definition-language-functions-reference.md#items) | When inside a Foreach or Until loop, return the current item from the specified loop.|
-| [iterationIndexes](../logic-apps/workflow-definition-language-functions-reference.md#iterationIndexes) | When inside an Until loop, return the index value for the current iteration. You can use this function inside nested Until loops. |
+| [item](../logic-apps/workflow-definition-language-functions-reference.md#item) | If this function appears inside a repeating action over an array, return the current item in the array during the action's current iteration. |
+| [items](../logic-apps/workflow-definition-language-functions-reference.md#items) | If this function appears inside a Foreach or Until loop, return the current item from the specified loop.|
+| [iterationIndexes](../logic-apps/workflow-definition-language-functions-reference.md#iterationIndexes) | If this function appears inside an Until loop, return the index value for the current iteration. You can use this function inside nested Until loops. |
 | [listCallbackUrl](../logic-apps/workflow-definition-language-functions-reference.md#listCallbackUrl) | Return the "callback URL" that calls a trigger or action. |
 | [multipartBody](../logic-apps/workflow-definition-language-functions-reference.md#multipartBody) | Return the body for a specific part in an action's output that has multiple parts. |
 | [outputs](../logic-apps/workflow-definition-language-functions-reference.md#outputs) | Return an action's output at runtime. |
@@ -344,11 +359,15 @@ For the full reference about each function, see the
 | [xpath](../logic-apps/workflow-definition-language-functions-reference.md#xpath) | Check XML for nodes or values that match an XPath (XML Path Language) expression, and return the matching nodes or values. |
 |||
 
+## ---------------------------------
+
 <a name="alphabetical-list"></a>
 
 ## All functions - alphabetical list
 
 This section lists all the available functions in alphabetical order.
+
+## A
 
 <a name="action"></a>
 
@@ -973,6 +992,8 @@ array('hello')
 
 And returns this result: `["hello"]`
 
+## B
+
 <a name="base64"></a>
 
 ### base64
@@ -1043,9 +1064,7 @@ This example converts the "aGVsbG8=" base64-encoded string to a binary string:
 base64ToBinary('aGVsbG8=')
 ```
 
-And returns this result:
-
-`"0110000101000111010101100111001101100010010001110011100000111101"`
+For example, suppose you're using an HTTP action to send a request. You can use `base64ToBinary()` to convert a base64-encoded string to binary data and send that data using the `application/octet-stream` content type in the request.
 
 <a name="base64ToString"></a>
 
@@ -1106,6 +1125,7 @@ binary('<value>')
 *Example*
 
 For example, you're using an HTTP action that returns an image or video file. You can use `binary()` to convert the value to a base-64 encoded content envelope model. Then, you can reuse the content envelope in other actions, such as `Compose`.
+You can use this function expression to send the string bytes with the `application/octet-stream` content type in the request.
 
 <a name="body"></a>
 
@@ -1186,6 +1206,8 @@ These examples show the different supported types of input for `bool()`:
 | `bool('true')` | String | `true` |
 | `bool('false')` | String | `false` |
 
+## C
+
 <a name="coalesce"></a>
 
 ### coalesce
@@ -1230,17 +1252,6 @@ And returns these results:
 
 Combine two or more strings, and return the combined string.
 
-> [!NOTE]
-> Azure Logic Apps automatically or implicitly performs base64 encoding and decoding, so you don't have to manually perform these conversions when you use the 
-> `concat()` function with data that needs encoding or decoding:
-> 
-> * `concat('data:;base64,',<value>)`
-> * `concat('data:,',encodeUriComponent(<value>))`
-> 
-> However, if you use this function anyway in the designer, you might experience unexpected rendering behaviors in the designer. These behaviors affect only 
-> the function's visibility and not the effect unless you edit the function's parameter values, which removes the function and the effect from your code. 
-> For more information, see [Base64 encoding and decoding](#base64-encoding-decoding).
-
 ```
 concat('<text1>', '<text2>', ...)
 ```
@@ -1252,8 +1263,20 @@ concat('<text1>', '<text2>', ...)
 
 | Return value | Type | Description |
 | ------------ | ---- | ----------- |
-| <*text1text2...*> | String | The string created from the combined input strings |
+| <*text1text2...*> | String | The string created from the combined input strings. <p><p>**Note**: The length of the result must not exceed 104,857,600 characters. |
 ||||
+
+> [!NOTE]
+> Azure Logic Apps automatically or implicitly performs base64 encoding and decoding, so you don't have to manually 
+> perform these conversions when you use the `concat()` function with data that needs encoding or decoding:
+>
+> * `concat('data:;base64,',<value>)`
+> * `concat('data:,',encodeUriComponent(<value>))`
+>
+> However, if you use this function anyway in the designer, you might experience unexpected rendering behaviors in 
+> the designer. These behaviors affect only the function's visibility and not the effect unless you edit the function's 
+> parameter values, which removes the function and the effect from your code. For more information, review 
+> [Base64 encoding and decoding](#base64-encoding-decoding).
 
 *Example*
 
@@ -1264,9 +1287,6 @@ concat('Hello', 'World')
 ```
 
 And returns this result: `"HelloWorld"`
-  
-> [!NOTE]
-> The length of the result must not exceed 104,857,600 characters.
 
 <a name="contains"></a>
 
@@ -1327,7 +1347,7 @@ convertFromUtc('<timestamp>', '<destinationTimeZone>', '<format>'?)
 | Parameter | Required | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | Yes | String | The string that contains the timestamp |
-| <*destinationTimeZone*> | Yes | String | The name for the target time zone. For time zone names, see [Microsoft Windows Default Time Zones](/windows-hardware/manufacture/desktop/default-time-zones), but you might have to remove any punctuation from the time zone name. |
+| <*destinationTimeZone*> | Yes | String | The name for the target time zone. For time zone names, please review: [Microsoft Windows Default Time Zones](/windows-hardware/manufacture/desktop/default-time-zones). |
 | <*format*> | No | String | Either a [single format specifier](/dotnet/standard/base-types/standard-date-and-time-format-strings) or a [custom format pattern](/dotnet/standard/base-types/custom-date-and-time-format-strings). The default format for the timestamp is ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss.fffffffK), which complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and preserves time zone information. |
 |||||
 
@@ -1471,6 +1491,8 @@ createArray('h', 'e', 'l', 'l', 'o')
 ```
 
 And returns this result: `["h", "e", "l", "l", "o"]`
+
+## D
 
 <a name="dataUri"></a>
 
@@ -1777,6 +1799,8 @@ div(11,5.0)
 div(11.0,5)
 ```
 
+## E
+
 <a name="encodeUriComponent"></a>
 
 ### encodeUriComponent
@@ -1930,6 +1954,8 @@ And returns these results:
 * First example: Both values are equivalent, so the function returns `true`.
 * Second example: Both values aren't equivalent, so the function returns `false`.
 
+## F
+
 <a name="first"></a>
 
 ### first
@@ -1969,10 +1995,7 @@ And return these results:
 
 ### float
 
-Convert a string version for a floating-point
-number to an actual floating point number.
-You can use this function only when passing custom
-parameters to an app, for example, a logic app or flow.
+Convert a string version for a floating-point number to an actual floating point number. You can use this function only when passing custom parameters to an app, for example, a logic app or flow.
 
 ```
 float('<value>')
@@ -1980,12 +2003,12 @@ float('<value>')
 
 | Parameter | Required | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*value*> | Yes | String | The string that has a valid floating-point number to convert |
+| <*value*> | Yes | String | The string that has a valid floating-point number to convert. The minimum and maximum values are the same as the limits for the float data type. |
 |||||
 
 | Return value | Type | Description |
 | ------------ | ---- | ----------- |
-| <*float-value*> | Float | The floating-point number for the specified string |
+| <*float-value*> | Float | The floating-point number for the specified string. The minimum and maximum values are the same as the limits for the float data type. |
 ||||
 
 *Example*
@@ -2150,6 +2173,8 @@ Suppose that you want to format the number `17.35`. This example formats the num
 ```
 formatNumber(17.35, 'C2', 'is-is')
 ```
+
+## G
 
 <a name="getFutureTime"></a>
 
@@ -2355,6 +2380,8 @@ guid('P')
 
 And returns this result: `"(c2ecc88d-88c8-4096-912c-d6f2e2b138ce)"`
 
+## I
+
 <a name="if"></a>
 
 ### if
@@ -2425,7 +2452,7 @@ And returns this result: `6`
 
 ### int
 
-Return the integer version for a string.
+Convert the string version for an integer to an actual integer number.
 
 ```
 int('<value>')
@@ -2433,12 +2460,12 @@ int('<value>')
 
 | Parameter | Required | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*value*> | Yes | String | The string to convert |
+| <*value*> | Yes | String | The string version for the integer to convert. The minimum and maximum values are the same as the limits for the integer data type. |
 |||||
 
 | Return value | Type | Description |
 | ------------ | ---- | ----------- |
-| <*integer-result*> | Integer | The integer version for the specified string |
+| <*integer-result*> | Integer | The integer version for the specified string. The minimum and maximum values are the same as the limits for the integer data type. |
 ||||
 
 *Example*
@@ -2510,23 +2537,23 @@ items('myForEachLoopName')
 
 ### iterationIndexes
 
-Return the index value for the current iteration inside an Until loop. You can use this function inside nested Until loops. 
+Return the index value for the current iteration inside an Until loop. You can use this function inside nested Until loops.
 
 ```
 iterationIndexes('<loopName>')
 ```
 
-| Parameter | Required | Type | Description | 
-| --------- | -------- | ---- | ----------- | 
-| <*loopName*> | Yes | String | The name for the Until loop | 
-||||| 
+| Parameter | Required | Type | Description |
+| --------- | -------- | ---- | ----------- |
+| <*loopName*> | Yes | String | The name for the Until loop |
+|||||
 
-| Return value | Type | Description | 
-| ------------ | ---- | ----------- | 
-| <*index*> | Integer | The index value for the current iteration inside the specified Until loop | 
-|||| 
+| Return value | Type | Description |
+| ------------ | ---- | ----------- |
+| <*index*> | Integer | The index value for the current iteration inside the specified Until loop |
+||||
 
-*Example* 
+*Example*
 
 This example creates a counter variable and increments that variable by one during each iteration in an Until loop until the counter value reaches five. The example also creates a variable that tracks the current index for each iteration. In the Until loop, during each iteration, the example increments the counter and then assigns the counter value to the current index value and then increments the counter. While in the loop, this example references the current iteration index by using the `iterationIndexes` function:
 
@@ -2607,6 +2634,8 @@ This example creates a counter variable and increments that variable by one duri
 }
 ```
 
+## J
+
 <a name="json"></a>
 
 ### json
@@ -2621,7 +2650,7 @@ json(xml('value'))
 > [!IMPORTANT]
 > Without an XML schema that defines the output's structure, the function might return results 
 > where the structure greatly differs from the expected format, depending on the input.
->  
+>
 > This behavior makes this function unsuitable for scenarios where the output must conform 
 > to a well-defined contract, for example, in critical business systems or solutions.
 
@@ -2718,12 +2747,8 @@ And returns this result:
 
 ### intersection
 
-Return a collection that has *only* the
-common items across the specified collections.
-To appear in the result, an item must appear in
-all the collections passed to this function.
-If one or more items have the same name,
-the last item with that name appears in the result.
+Return a collection that has *only* the common items across the specified collections. To appear in the result, an item must appear in
+all the collections passed to this function. If one or more items have the same name, the last item with that name appears in the result.
 
 ```
 intersection([<collection1>], [<collection2>], ...)
@@ -2769,7 +2794,7 @@ join([<collection>], '<delimiter>')
 
 | Return value | Type | Description |
 | ------------ | ---- | ----------- |
-| <*char1*><*delimiter*><*char2*><*delimiter*>... | String | The resulting string created from all the items in the specified array |
+| <*char1*><*delimiter*><*char2*><*delimiter*>... | String | The resulting string created from all the items in the specified array. <p><p>**Note**: The length of the result must not exceed 104,857,600 characters. |
 ||||
 
 *Example*
@@ -2782,9 +2807,8 @@ join(createArray('a', 'b', 'c'), '.')
 ```
 
 And returns this result: `"a.b.c"`
-  
-> [!NOTE]
-> The length of the result must not exceed 104,857,600 characters.
+
+## L
 
 <a name="last"></a>
 
@@ -2976,10 +3000,7 @@ And return these results:
 
 ### listCallbackUrl
 
-Return the "callback URL" that calls a trigger or action.
-This function works only with triggers and actions for the
-**HttpWebhook** and **ApiConnectionWebhook** connector types,
-but not the **Manual**, **Recurrence**, **HTTP**, and **APIConnection** types.
+Return the "callback URL" that calls a trigger or action. This function works only with triggers and actions for the **HttpWebhook** and **ApiConnectionWebhook** connector types, but not the **Manual**, **Recurrence**, **HTTP**, and **APIConnection** types.
 
 ```
 listCallbackUrl()
@@ -2995,6 +3016,8 @@ listCallbackUrl()
 This example shows a sample callback URL that this function might return:
 
 `"https://prod-01.westus.logic.azure.com:443/workflows/<*workflow-ID*>/triggers/manual/run?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=<*signature-ID*>"`
+
+## M
 
 <a name="max"></a>
 
@@ -3085,7 +3108,7 @@ mod(<dividend>, <divisor>)
 | <*modulo-result*> | Integer or Float | The remainder from dividing the first number by the second number |
 ||||
 
-*Example*
+*Example 1*
 
 This example divides the first number by the second number:
 
@@ -3093,7 +3116,21 @@ This example divides the first number by the second number:
 mod(3, 2)
 ```
 
-And return this result: `1`
+And returns this result: `1`
+ 
+*Example 2*
+
+This example shows that if one or both values are negative, the result matches the sign of the dividend:
+
+```
+mod(-5, 2)
+mod(4, -3)
+```
+
+The example returns these results:
+
+* First example: `-1`
+* Second example: `1`
 
 <a name="mul"></a>
 
@@ -3152,6 +3189,8 @@ multipartBody('<actionName>', <index>)
 | <*body*> | String | The body for the specified part |
 ||||
 
+## N
+
 <a name="not"></a>
 
 ### not
@@ -3201,6 +3240,8 @@ And return these results:
 
 * First example: The expression is false, so the function returns `true`.
 * Second example: The expression is true, so the function returns `false`.
+
+## O
 
 <a name="or"></a>
 
@@ -3315,12 +3356,13 @@ And returns this result:
 }
 ```
 
+## P
+
 <a name="parameters"></a>
 
 ### parameters
 
-Return the value for a parameter that is
-described in your workflow definition.
+Return the value for a parameter that is described in your workflow definition.
 
 ```
 parameters('<parameterName>')
@@ -3354,12 +3396,13 @@ parameters('fullName')
 
 And returns this result: `"Sophia Owen"`
 
+## R
+
 <a name="rand"></a>
 
 ### rand
 
-Return a random integer from a specified range,
-which is inclusive only at the starting end.
+Return a random integer from a specified range, which is inclusive only at the starting end.
 
 ```
 rand(<minValue>, <maxValue>)
@@ -3399,7 +3442,7 @@ range(<startIndex>, <count>)
 | Parameter | Required | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*startIndex*> | Yes | Integer | An integer value that starts the array as the first item |
-| <*count*> | Yes | Integer | The number of integers in the array |
+| <*count*> | Yes | Integer | The number of integers in the array. The `count` parameter value must be a positive integer that doesn't exceed 100,000. <p><p>**Note**: The sum of the `startIndex` and `count` values must not exceed 2,147,483,647. |
 |||||
 
 | Return value | Type | Description |
@@ -3409,17 +3452,13 @@ range(<startIndex>, <count>)
 
 *Example*
 
-This example creates an integer array that starts from
-the specified index and has the specified number of integers:
+This example creates an integer array that starts from the specified index and has the specified number of integers:
 
 ```
 range(1, 4)
 ```
 
 And returns this result: `[1, 2, 3, 4]`
-  
-> [!NOTE]
-> The `count` parameter value must be a positive integer that doesn't exceed 100,000. The sum of the `startIndex` and `count` values must not exceed 2,147,483,647.
 
 <a name="replace"></a>
 
@@ -3447,8 +3486,7 @@ replace('<text>', '<oldText>', '<newText>')
 
 *Example*
 
-This example finds the "old" substring in "the old string"
-and replaces "old" with "new":
+This example finds the "old" substring in "the old string" and replaces "old" with "new":
 
 ```
 replace('the old string', 'old', 'new')
@@ -3679,6 +3717,8 @@ Here's how the example returned array might look where the outer `outputs` objec
 ]
 ```
 
+## S
+
 <a name="setProperty"></a>
 
 ### setProperty
@@ -3775,8 +3815,7 @@ Here's the updated JSON object:
 
 ### skip
 
-Remove items from the front of a collection,
-and return *all the other* items.
+Remove items from the front of a collection, and return *all the other* items.
 
 ```
 skip([<collection>], <count>)
@@ -3808,8 +3847,7 @@ And returns this array with the remaining items: `[1,2,3]`
 
 ### split
 
-Return an array that contains substrings, separated by commas,
-based on the specified delimiter character in the original string.
+Return an array that contains substrings, separated by commas, based on the specified delimiter character in the original string.
 
 ```
 split('<text>', '<delimiter>')
@@ -3826,16 +3864,25 @@ split('<text>', '<delimiter>')
 | [<*substring1*>,<*substring2*>,...] | Array | An array that contains substrings from the original string, separated by commas |
 ||||
 
-*Example*
+*Example 1*
 
-This example creates an array with substrings from the specified
-string based on the specified character as the delimiter:
+This example creates an array with substrings from the specified string based on the specified character as the delimiter:
 
 ```
 split('a_b_c', '_')
 ```
 
 And returns this array as the result: `["a","b","c"]`
+
+*Example 2*
+  
+This example creates an array with a single element when no delimiter exists in the string:
+
+```
+split('a_b_c', ' ')
+```
+
+And returns this array as the result: `["a_b_c"]`
 
 <a name="startOfDay"></a>
 
@@ -3944,9 +3991,7 @@ And returns this result: `"2018-03-01"`
 
 ### startsWith
 
-Check whether a string starts with a specific substring.
-Return true when the substring is found, or return false when not found.
-This function is not case-sensitive.
+Check whether a string starts with a specific substring. Return true when the substring is found, or return false when not found. This function is not case-sensitive.
 
 ```
 startsWith('<text>', '<searchText>')
@@ -3965,8 +4010,7 @@ startsWith('<text>', '<searchText>')
 
 *Example 1*
 
-This example checks whether the "hello world"
-string starts with the "hello" substring:
+This example checks whether the "hello world" string starts with the "hello" substring:
 
 ```
 startsWith('hello world', 'hello')
@@ -3976,8 +4020,7 @@ And returns this result: `true`
 
 *Example 2*
 
-This example checks whether the "hello world"
-string starts with the "greetings" substring:
+This example checks whether the "hello world" string starts with the "greetings" substring:
 
 ```
 startsWith('hello world', 'greetings')
@@ -4005,10 +4048,6 @@ string(<value>)
 | <*string-value*> | String | The string version for the specified value. If the *value* parameter is null or evaluates to null, this value is returned as an empty string (`""`) value. |
 ||||
 
-
-
-
-
 *Example 1*
 
 This example creates the string version for this number:
@@ -4021,9 +4060,7 @@ And returns this result: `"10"`
 
 *Example 2*
 
-This example creates a string for the specified JSON object
-and uses the backslash character (\\)
-as an escape character for the double-quotation mark (").
+This example creates a string for the specified JSON object and uses the backslash character (\\) as an escape character for the double-quotation mark (").
 
 ```
 string( { "name": "Sophie Owen" } )
@@ -4091,8 +4128,7 @@ substring('<text>', <startIndex>, <length>)
 
 *Example*
 
-This example creates a five-character substring from the specified string,
-starting from the index value 6:
+This example creates a five-character substring from the specified string, starting from the index value 6:
 
 ```
 substring('hello world', 6, 5)
@@ -4104,8 +4140,7 @@ And returns this result: `"world"`
 
 ### subtractFromTime
 
-Subtract a number of time units from a timestamp.
-See also [getPastTime](#getPastTime).
+Subtract a number of time units from a timestamp. See also [getPastTime](#getPastTime).
 
 ```
 subtractFromTime('<timestamp>', <interval>, '<timeUnit>', '<format>'?)
@@ -4144,6 +4179,8 @@ subtractFromTime('2018-01-02T00:00:00Z', 1, 'Day', 'D')
 
 And returns this result using the optional "D" format: `"Monday, January, 1, 2018"`
 
+## T
+
 <a name="take"></a>
 
 ### take
@@ -4168,8 +4205,7 @@ take([<collection>], <count>)
 
 *Example*
 
-These examples get the specified number of
-items from the front of these collections:
+These examples get the specified number of items from the front of these collections:
 
 ```
 take('abcde', 3)
@@ -4205,9 +4241,7 @@ ticks('<timestamp>')
 
 ### toLower
 
-Return a string in lowercase format. If a character
-in the string doesn't have a lowercase version,
-that character stays unchanged in the returned string.
+Return a string in lowercase format. If a character in the string doesn't have a lowercase version, that character stays unchanged in the returned string.
 
 ```
 toLower('<text>')
@@ -4237,9 +4271,7 @@ And returns this result: `"hello world"`
 
 ### toUpper
 
-Return a string in uppercase format. If a character
-in the string doesn't have an uppercase version,
-that character stays unchanged in the returned string.
+Return a string in uppercase format. If a character in the string doesn't have an uppercase version, that character stays unchanged in the returned string.
 
 ```
 toUpper('<text>')
@@ -4269,20 +4301,14 @@ And returns this result: `"HELLO WORLD"`
 
 ### trigger
 
-Return a trigger's output at runtime,
-or values from other JSON name-and-value pairs,
-which you can assign to an expression.
+Return a trigger's output at runtime, or values from other JSON name-and-value pairs, which you can assign to an expression.
 
-* Inside a trigger's inputs, this function
-returns the output from the previous execution.
+* Inside a trigger's inputs, this function returns the output from the previous execution.
 
-* Inside a trigger's condition, this function
-returns the output from the current execution.
+* Inside a trigger's condition, this function returns the output from the current execution.
 
-By default, the function references the entire trigger object,
-but you can optionally specify a property whose value that you want.
-Also, this function has shorthand versions available,
-see [triggerOutputs()](#triggerOutputs) and [triggerBody()](#triggerBody).
+By default, the function references the entire trigger object, but you can optionally specify a property whose value that you want.
+Also, this function has shorthand versions available, see [triggerOutputs()](#triggerOutputs) and [triggerBody()](#triggerBody).
 
 ```
 trigger()
@@ -4297,9 +4323,7 @@ trigger()
 
 ### triggerBody
 
-Return a trigger's `body` output at runtime.
-Shorthand for `trigger().outputs.body`.
-See [trigger()](#trigger).
+Return a trigger's `body` output at runtime. Shorthand for `trigger().outputs.body`. See [trigger()](#trigger).
 
 ```
 triggerBody()
@@ -4344,10 +4368,7 @@ And returns this array as an example result: `["https://feeds.a.dj.com/rss/RSSMa
 
 ### triggerFormDataValue
 
-Return a string with a single value that matches a key
-name in a trigger's *form-data* or *form-encoded* output.
-If the function finds more than one match,
-the function throws an error.
+Return a string with a single value that matches a key name in a trigger's *form-data* or *form-encoded* output. If the function finds more than one match, the function throws an error.
 
 ```
 triggerFormDataValue('<key>')
@@ -4365,8 +4386,7 @@ triggerFormDataValue('<key>')
 
 *Example*
 
-This example creates a string from the "feedUrl" key value in
-an RSS trigger's form-data or form-encoded output:
+This example creates a string from the "feedUrl" key value in an RSS trigger's form-data or form-encoded output:
 
 ```
 triggerFormDataValue('feedUrl')
@@ -4398,10 +4418,7 @@ triggerMultipartBody(<index>)
 
 ### triggerOutputs
 
-Return a trigger's output at runtime,
-or values from other JSON name-and-value pairs.
-Shorthand for `trigger().outputs`.
-See [trigger()](#trigger).
+Return a trigger's output at runtime, or values from other JSON name-and-value pairs. Shorthand for `trigger().outputs`. See [trigger()](#trigger).
 
 ```
 triggerOutputs()
@@ -4416,8 +4433,7 @@ triggerOutputs()
 
 ### trim
 
-Remove leading and trailing whitespace from a string,
-and return the updated string.
+Remove leading and trailing whitespace from a string, and return the updated string.
 
 ```
 trim('<text>')
@@ -4435,8 +4451,7 @@ trim('<text>')
 
 *Example*
 
-This example removes the leading and trailing
-whitespace from the string " Hello World  ":
+This example removes the leading and trailing whitespace from the string " Hello World  ":
 
 ```
 trim(' Hello World  ')
@@ -4444,14 +4459,14 @@ trim(' Hello World  ')
 
 And returns this result: `"Hello World"`
 
+## U
+
 <a name="union"></a>
 
 ### union
 
-Return a collection that has *all* the items from the specified collections.
-To appear in the result, an item can appear in any collection
-passed to this function. If one or more items have the same name,
-the last item with that name appears in the result.
+Return a collection that has *all* the items from the specified collections. To appear in the result, an item can appear in any collection
+passed to this function. If one or more items have the same name, the last item with that name appears in the result.
 
 ```
 union('<collection1>', '<collection2>', ...)
@@ -4482,11 +4497,7 @@ And returns this result: `[1, 2, 3, 10, 101]`
 
 ### uriComponent
 
-Return a uniform resource identifier (URI) encoded version for a
-string by replacing URL-unsafe characters with escape characters.
-Use this function rather than [encodeUriComponent()](#encodeUriComponent).
-Although both functions work the same way,
-`uriComponent()` is preferred.
+Return a uniform resource identifier (URI) encoded version for a string by replacing URL-unsafe characters with escape characters. Use this function rather than [encodeUriComponent()](#encodeUriComponent). Although both functions work the same way, `uriComponent()` is preferred.
 
 ```
 uriComponent('<value>')
@@ -4551,8 +4562,7 @@ And returns this result:
 
 ### uriComponentToString
 
-Return the string version for a uniform resource identifier (URI) encoded string,
-effectively decoding the URI-encoded string.
+Return the string version for a uniform resource identifier (URI) encoded string, effectively decoding the URI-encoded string.
 
 ```
 uriComponentToString('<value>')
@@ -4803,6 +4813,8 @@ utcNow('D')
 
 And returns this result: `"Sunday, April 15, 2018"`
 
+## V
+
 <a name="variables"></a>
 
 ### variables
@@ -4825,14 +4837,15 @@ variables('<variableName>')
 
 *Example*
 
-Suppose the current value for a "numItems" variable is 20.
-This example gets the integer value for this variable:
+Suppose the current value for a "numItems" variable is 20. This example gets the integer value for this variable:
 
 ```
 variables('numItems')
 ```
 
 And returns this result: `20`
+
+## W
 
 <a name="workflow"></a>
 
@@ -4862,6 +4875,8 @@ If you use Power Automate, you can create a `@workflow()` expression that uses t
 For example, you can send custom email notifications from the flow itself that link back to your flow. These notifications can include an HTML link that contains the flow's display name in the email title and follows this syntax:
 
 `<a href=https://flow.microsoft.com/manage/environments/@{workflow()['tags']['environmentName']}/flows/@{workflow()['name']}/details>Open flow @{workflow()['tags']['flowDisplayName']}</a>`
+
+## X
 
 <a name="xml"></a>
 
@@ -4897,8 +4912,7 @@ And returns this result XML:
 
 *Example 2*
 
-This example creates the XML version for this string,
-which contains a JSON object:
+This example creates the XML version for this string, which contains a JSON object:
 
 `xml(json('{ "name": "Sophia Owen" }'))`
 
@@ -4983,7 +4997,7 @@ This example passes in the XPath expression, `'/produce/item/name'`, to find the
 
 The example also uses the [parameters()](#parameters) function to get the XML string from `'items'` and convert the string to XML format by using the [xml()](#xml) function.
 
-Here is the result array with the nodes that match `<name></name`:
+Here's the result array with the nodes that match `<name></name`:
 
 `[ <name>Gala</name>, <name>Honeycrisp</name> ]`
 
@@ -4993,7 +5007,7 @@ Following on Example 1, this example passes in the XPath expression, `'/produce/
 
 `xpath(xml(parameters('items')), '/produce/item/name[1]')`
 
-Here is the result: `Gala`
+Here's the result: `Gala`
 
 *Example 3*
 
@@ -5001,7 +5015,7 @@ Following on Example 1, this example pass in the XPath expression, `'/produce/it
 
 `xpath(xml(parameters('items')), '/produce/item/name[last()]')`
 
-Here is the result: `Honeycrisp`
+Here's the result: `Honeycrisp`
 
 *Example 4*
 
@@ -5027,7 +5041,7 @@ This example passes in the XPath expression, `'//name[@expired]'`, to find all t
 
 `xpath(xml(parameters('items')), '//name[@expired]')`
 
-Here is the result: `[ Gala, Honeycrisp ]`
+Here's the result: `[ Gala, Honeycrisp ]`
 
 *Example 5*
 
@@ -5053,7 +5067,7 @@ This example passes in the XPath expression, `'//name[@expired = 'true']'`, to f
 
 `xpath(xml(parameters('items')), '//name[@expired = 'true']')`
 
-Here is the result: `[ Gala ]`
+Here's the result: `[ Gala ]`
 
 *Example 6*
 
@@ -5082,7 +5096,7 @@ This example passes in the XPath expression, `'//name[price>35]'`, to find all t
 
 `xpath(xml(parameters('items')), '//name[price>35]')`
 
-Here is the result: `Honeycrisp`
+Here's the result: `Honeycrisp`
 
 *Example 7*
 
@@ -5108,7 +5122,7 @@ This example finds nodes that match the `<count></count>` node and adds those no
 
 `xpath(xml(parameters('items')), 'sum(/produce/item/count)')`
 
-Here is the result: `30`
+Here's the result: `30`
 
 *Example 8*
 
@@ -5123,7 +5137,7 @@ These expressions use either XPath expression, `/*[name()="file"]/*[name()="loca
 * `xpath(xml(body('Http')), '/*[name()="file"]/*[name()="location"]')`
 * `xpath(xml(body('Http')), '/*[local-name()="file" and namespace-uri()="https://contoso.com"]/*[local-name()="location"]')`
 
-Here is the result node that matches the `<location></location>` node: 
+Here's the result node that matches the `<location></location>` node: 
 
 `<location xmlns="https://contoso.com">Paris</location>`
 
@@ -5144,7 +5158,7 @@ Following on Example 8, this example uses the XPath expression, `'string(/*[name
 
 `xpath(xml(body('Http')), 'string(/*[name()="file"]/*[name()="location"])')`
 
-Here is the result: `Paris`
+Here's the result: `Paris`
 
 ## Next steps
 

@@ -1,21 +1,18 @@
 ---
 title: Access Azure AD logs with the Microsoft Graph API  | Microsoft Docs
 description: In this quickstart, you learn how you can access the sign-ins log using the Graph API.
-
 services: active-directory
 ms.service: active-directory
 ms.subservice: report-monitor
-ms.topic: quickstart 
+ms.topic: quickstart
 ms.date: 06/03/2021
-
 ms.author: markvi
 author: MarkusVi
-manager: mtillman
+manager: karenhoran
 ms.reviewer: besiler
-
-# Customer intent: As an IT admin, you need to how to use the Graph API to access the log files so that you can fix issues.
-
 ms.collection: M365-identity-device-management
+ms.custom: mode-api
+#Customer intent: As an IT admin, you need to how to use the Graph API to access the log files so that you can fix issues.
 ---
 # Quickstart: Access Azure AD logs with the Microsoft Graph API 
 
@@ -46,15 +43,15 @@ The goal of this step is to create a record of a failed sign-in in the Azure AD 
 
 This section provides you with the steps to get information about your sign-in using the Graph API.
 
- ![Graph explorer query](./media/quickstart-access-log-with-graph-api/graph-explorer-query.png)   
+ ![Microsoft Graph Explorer query](./media/quickstart-access-log-with-graph-api/graph-explorer-query.png)   
 
 **To review the failed sign-in:**
 
-1. Navigate to the [Microsoft Graph explorer](https://developer.microsoft.com/en-us/graph/graph-explorer).
+1. Navigate to [Microsoft Graph Explorer](https://developer.microsoft.com/en-us/graph/graph-explorer).
 
 2. Sign-in to your tenant as global administrator.
 
-    ![Microsoft Graph explorer authentication](./media/quickstart-access-log-with-graph-api/graph-explorer-authentication.png)   
+    ![Microsoft Graph Explorer authentication](./media/quickstart-access-log-with-graph-api/graph-explorer-authentication.png)   
 
 3. In the **HTTP verb drop-down list**, select **GET**.
 
@@ -66,7 +63,7 @@ This section provides you with the steps to get information about your sign-in u
 
 Review the outcome of your query.
 
- ![Microsoft Graph explorer response preview](./media/quickstart-access-log-with-graph-api/response-preview.png)   
+ ![Microsoft Graph Explorer response preview](./media/quickstart-access-log-with-graph-api/response-preview.png)   
 
 
 ## Clean up resources

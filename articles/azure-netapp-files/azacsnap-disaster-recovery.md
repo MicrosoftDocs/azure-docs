@@ -11,7 +11,6 @@ ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.date: 04/21/2021
 ms.author: phjensen
@@ -121,7 +120,7 @@ tmpfs 76G 0 76G 0% /run/user/0
 
 If performing a complete failover of production workloads, and it is possible to connect to the Primary production site, then shut down the SAP HANA instance(s) being failed over to DR.
 
-For example, if logged in as root the following example shows how SAP HANA can be shut down.  Replace <sid> with your SAP HANA SID.
+For example, if logged in as root the following example shows how SAP HANA can be shut down.  Replace \<sid\> with your SAP HANA SID.
 
 ```bash
 su - <sid>adm
@@ -132,7 +131,7 @@ HDB stop
 
 It is important to shut down SAP HANA on the DR site before restoring the volumes.
 
-For example, if logged in as root the following example shows how SAP HANA can be shut down.  Replace <sid> with your SAP HANA SID.
+For example, if logged in as root the following example shows how SAP HANA can be shut down.  Replace \<sid\> with your SAP HANA SID.
 
 ```bash
 su - <sid>adm

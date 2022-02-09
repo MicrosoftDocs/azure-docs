@@ -5,28 +5,29 @@ author: normesta
 ms.service: storage
 ms.subservice: blobs
 ms.topic: tutorial
-ms.date: 1/22/2020
+ms.date: 11/04/2021
 ms.author: normesta
 ms.reviewer: dineshm
+#Customer intent: I want to host files for a static website in Blob storage and access the website from an Azure endpoint.
 ---
-
-<!---Customer intent: I want to host files for a static website in Blob storage and access the website from an Azure endpoint.--->
 
 # Tutorial: Host a static website on Blob Storage
 
-In this tutorial, you'll learn how to build and deploy a static website to Azure Storage. When you're finished, you will have a static website that users can access publicly. 
+In this tutorial, you'll learn how to build and deploy a static website to Azure Storage. When you're finished, you will have a static website that users can access publicly.
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Configure static website hosting
-> * Deploy a Hello World website
+> - Configure static website hosting
+> - Deploy a Hello World website
+
+[!INCLUDE [static websites vs static web apps](../../../includes/storage-blob-static-website-vs-static-web-app.md)]
 
 ## Prerequisites
 
 [!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
-> [!NOTE] 
+> [!NOTE]
 > Static websites are now available for general-purpose v2 Standard storage accounts as well as storage accounts with hierarchical namespace enabled.
 
 This tutorial uses [Visual Studio Code](https://code.visualstudio.com/download), a free tool for programmers, to build the static website and deploy it to an Azure Storage account.
@@ -44,15 +45,15 @@ Sign in to the [Azure portal](https://portal.azure.com/) to get started.
 
 ## Configure static website hosting
 
-The first step is to configure your storage account to host a static website in the Azure portal. When you configure your account for static website hosting, Azure Storage automatically creates a container named *$web*. The *$web* container will contain the files for your static website. 
+The first step is to configure your storage account to host a static website in the Azure portal. When you configure your account for static website hosting, Azure Storage automatically creates a container named *$web*. The *$web* container will contain the files for your static website.
 
-1. Open the [Azure portal](https://portal.azure.com/) in your web browser. 
+1. Open the [Azure portal](https://portal.azure.com/) in your web browser.
 1. Locate your storage account and display the account overview.
 1. Select **Static website** to display the configuration page for static websites.
 1. Select **Enabled** to enable static website hosting for the storage account.
-1. In the **Index document name** field, specify a default index page of *index.html*. The default index page is displayed when a user navigates to the root of your static website.  
+1. In the **Index document name** field, specify a default index page of *index.html*. The default index page is displayed when a user navigates to the root of your static website.
 1. In the **Error document path** field, specify a default error page of *404.html*. The default error page is displayed when a user attempts to navigate to a page that does not exist in your static website.
-1. Click **Save**. The Azure portal now displays your static website endpoint. 
+1. Click **Save**. The Azure portal now displays your static website endpoint.
 
     ![Enable static website hosting for a storage account](media/storage-blob-static-website-host/enable-static-website-hosting.png)
 
@@ -60,7 +61,7 @@ The first step is to configure your storage account to host a static website in 
 
 Next, create a Hello World web page with Visual Studio Code and deploy it to the static website hosted in your Azure Storage account.
 
-1. Create an empty folder named *mywebsite* on your local file system. 
+1. Create an empty folder named *mywebsite* on your local file system.
 1. Launch Visual Studio Code, and open the folder that you just created from the **Explorer** panel.
 
     ![Open folder in Visual Studio Code](media/storage-blob-static-website-host/open-folder-vs-code.png)
@@ -99,6 +100,17 @@ Next, create a Hello World web page with Visual Studio Code and deploy it to the
 Visual Studio Code will now upload your files to your web endpoint, and show the success status bar. Launch the website to view it in Azure.
 
 You've successfully completed the tutorial and deployed a static website to Azure.
+
+## Feature support
+
+This table shows how this feature is supported in your account and the impact on support when you enable certain capabilities.
+
+| Storage account type                | Blob Storage (default support)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>
+|-----------------------------|---------------------------------|------------------------------------|--------------------------------------------------|
+| Standard general-purpose v2 | ![Yes](../media/icons/yes-icon.png) |![Yes](../media/icons/yes-icon.png)              | ![Yes](../media/icons/yes-icon.png) |
+| Premium block blobs          | ![Yes](../media/icons/yes-icon.png) |![Yes](../media/icons/yes-icon.png)              | ![Yes](../media/icons/yes-icon.png) |
+
+<sup>1</sup>    Data Lake Storage Gen2 and the Network File System (NFS) 3.0 protocol both require a storage account with a hierarchical namespace enabled.
 
 ## Next steps
 

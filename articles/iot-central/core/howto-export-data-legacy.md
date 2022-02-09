@@ -2,9 +2,9 @@
 title: Export data from Azure IoT Central (legacy) | Microsoft Docs
 description: How to export data from your Azure IoT Central application to Azure Event Hubs, Azure Service Bus, and Azure Blob storage
 services: iot-central
-author: viv-liu
-ms.author: viviali
-ms.date: 06/25/2020
+author: dominicbetts
+ms.author: dobett
+ms.date: 01/06/2022
 ms.topic: how-to
 ms.service: iot-central
 ---
@@ -37,7 +37,7 @@ Your export destination must exist before you configure your data export.
 
 If you don't have an existing Event Hubs namespace to export to, follow these steps:
 
-1. Create a [new Event Hubs namespace in the Azure portal](https://ms.portal.azure.com/#create/Microsoft.EventHub). You can learn more in [Azure Event Hubs docs](../../event-hubs/event-hubs-create.md).
+1. Create a [new Event Hubs namespace in the Azure portal](https://portal.azure.com/#create/Microsoft.EventHub). You can learn more in [Azure Event Hubs docs](../../event-hubs/event-hubs-create.md).
 
 2. Choose a subscription. You can export data to other subscriptions that aren't in the same subscription as your IoT Central application. You connect using a connection string in this case.
 
@@ -47,7 +47,7 @@ If you don't have an existing Event Hubs namespace to export to, follow these st
 
 If you don't have an existing Service Bus namespace to export to, follow these steps:
 
-1. Create a [new Service Bus namespace in the Azure portal](https://ms.portal.azure.com/#create/Microsoft.ServiceBus.1.0.5). You can learn more in [Azure Service Bus docs](../../service-bus-messaging/service-bus-create-namespace-portal.md).
+1. Create a [new Service Bus namespace in the Azure portal](https://portal.azure.com/#create/Microsoft.ServiceBus.1.0.5). You can learn more in [Azure Service Bus docs](../../service-bus-messaging/service-bus-create-namespace-portal.md).
 2. Choose a subscription. You can export data to other subscriptions that aren't in the same subscription as your IoT Central application. You connect using a connection string in this case.
 
 3. To create a queue or topic to export to, go to your Service Bus namespace, and select **+ Queue** or **+ Topic**.
@@ -58,7 +58,7 @@ When you choose Service Bus as an export destination, the queues and topics must
 
 If you don't have an existing Azure storage account to export to, follow these steps:
 
-1. Create a [new storage account in the Azure portal](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). You can learn more about creating new [Azure Blob storage accounts](../../storage/blobs/storage-quickstart-blobs-portal.md) or [Azure Data Lake Storage v2 storage accounts](../../storage/common/storage-account-create.md). Data export can only write data to storage accounts that support block blobs. The following list shows the known compatible storage account types:
+1. Create a [new storage account in the Azure portal](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM). You can learn more about creating new [Azure Blob storage accounts](../../storage/blobs/storage-quickstart-blobs-portal.md) or [Azure Data Lake Storage v2 storage accounts](../../storage/common/storage-account-create.md). Data export can only write data to storage accounts that support block blobs. The following list shows the known compatible storage account types:
 
     |Performance Tier|Account Type|
     |-|-|
@@ -550,7 +550,7 @@ This example snapshot shows a message that contains device and properties data i
 
 If you have an existing data export in your preview application with the *Devices* and *Device templates* streams turned on, update your export by **30 June 2020**. This requirement applies to exports to Azure Blob storage, Azure Event Hubs, and Azure Service Bus.
 
-Starting 3 February 2020, all new exports in applications with Devices and Device templates enabled will have the data format described above. All exports created before this date remain on the old data format until 30 June 2020, at which time these exports will automatically be migrated to the new data format. The new data format matches the [device](/rest/api/iotcentral/2021-04-30preview/devices/get), [device property](/rest/api/iotcentral/2021-04-30preview/devices/getproperties), [device cloud property](/rest/api/iotcentral/2021-04-30preview/devices/getcloudproperties), and [device template](/rest/api/iotcentral/2021-04-30preview/devicetemplates/get) objects in the IoT Central public API.
+Starting 3 February 2020, all new exports in applications with Devices and Device templates enabled will have the data format described above. All exports created before this date remain on the old data format until 30 June 2020, at which time these exports will automatically be migrated to the new data format. The new data format matches the [device](/rest/api/iotcentral/1.0dataplane/devices/get), [device property](/rest/api/iotcentral/1.0dataplane/devices/get-properties),  and [device template](/rest/api/iotcentral/1.0dataplane/device-templates/get) objects in the IoT Central public API.
 
 For **Devices**, notable differences between the old data format and the new data format include:
 - `@id` for device is removed, `deviceId` is renamed to `id` 

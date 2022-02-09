@@ -1,13 +1,13 @@
 ---
 title: Make API requests with Postman
 titleSuffix: Azure Digital Twins
-description: Learn how to configure and use Postman to call the Azure Digital Twins APIs.
+description: Learn how to authorize, configure, and use Postman to call the Azure Digital Twins APIs.
 ms.author: baanders
 author: baanders
 ms.service: digital-twins
 services: digital-twins
 ms.topic: how-to
-ms.date: 6/16/2021
+ms.date: 10/8/2021
 ms.custom: contperf-fy21q4
 ---
 
@@ -52,7 +52,7 @@ Otherwise, you can open an [Azure Cloud Shell](https://shell.azure.com) window i
     az login
     ```
 
-2. Next, use the [az account get-access-token](/cli/azure/account?view=azure-cli-latest&preserve-view=true#az_account_get_access_token) command to get a bearer token with access to the Azure Digital Twins service. In this command, you'll pass in the resource ID for the Azure Digital Twins service endpoint, in order to get an access token that can access Azure Digital Twins resources. 
+2. Next, use the [az account get-access-token](/cli/azure/account#az_account_get_access_token) command to get a bearer token with access to the Azure Digital Twins service. In this command, you'll pass in the resource ID for the Azure Digital Twins service endpoint, in order to get an access token that can access Azure Digital Twins resources. 
 
     The required context for the token depends on which set of APIs you're using, so use the tabs below to select between [data plane](concepts-apis-sdks.md#overview-data-plane-apis) and [control plane](concepts-apis-sdks.md#overview-control-plane-apis) APIs.
 

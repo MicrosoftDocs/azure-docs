@@ -10,7 +10,7 @@ ms.date: 05/28/2021
 
 ms.author: baselden
 author: BarbaraSelden
-manager: daveba
+manager: martinco
 ms.reviewer: dawoo
 
 ms.collection: M365-identity-device-management
@@ -37,7 +37,7 @@ The [Azure portal](https://portal.azure.com/) now has a passwordless methods wiz
 
 ## Passwordless authentication scenarios
 
-Microsoft’s passwordless authentication methods enable many scenarios. Consider your organizational needs, prerequisites, and the capabilities of each authentication method to select your passwordless authentication strategy. 
+Microsoft's passwordless authentication methods enable many scenarios. Consider your organizational needs, prerequisites, and the capabilities of each authentication method to select your passwordless authentication strategy. 
 
 The following table lists the passwordless authentication methods by device types. Our recommendations are in **bold**.
 
@@ -74,17 +74,17 @@ The prerequisites are determined by your selected passwordless authentication me
 
 | Prerequisite| Microsoft Authenticator app| FIDO2 Security Keys|
 | - | -|-|
-| [Combined registration for Azure AD Multi-Factor Authentication (MFA) and self-service password reset (SSPR)](howto-registration-mfa-sspr-combined.md) is enabled| √| √|  |
-| [Users can perform Azure AD MFA](howto-mfa-getstarted.md)| √| √|  |
-| [Users have registered for Azure AD MFA and SSPR](howto-registration-mfa-sspr-combined.md)| √| √|  |
-| [Users have registered their mobile devices to Azure Active Directory](../devices/overview.md)| √| |  |
-| Windows 10 version 1809 or higher using a supported browser like Microsoft Edge or Mozilla Firefox (version 67 or higher). Microsoft recommends version 1903 or higher for native support.| | √|  |
-| Compatible security keys. Ensure that you’re using a [Microsoft-tested and verified FIDO2 security key](concept-authentication-passwordless.md), or other compatible FIDO2 security key.| | √|  |
+| [Combined registration for Azure AD Multi-Factor Authentication (MFA) and self-service password reset (SSPR)](howto-registration-mfa-sspr-combined.md) is enabled| √| √|
+| [Users can perform Azure AD MFA](howto-mfa-getstarted.md)| √| √|
+| [Users have registered for Azure AD MFA and SSPR](howto-registration-mfa-sspr-combined.md)| √| √|
+| [Users have registered their mobile devices to Azure Active Directory](../devices/overview.md)| √| |
+| Windows 10 version 1809 or higher using a supported browser like Microsoft Edge or Mozilla Firefox (version 67 or higher). Microsoft recommends version 1903 or higher for native support.| | √|
+| Compatible security keys. Ensure that you're using a [Microsoft-tested and verified FIDO2 security key](concept-authentication-passwordless.md), or other compatible FIDO2 security key.| | √|
 
 
 ### Windows Hello for Business
 
-The prerequisites and deployment paths for Windows Hello for Business are highly dependent on whether you’re deploying in an on-premises, hybrid, or cloud-only configuration. It’s also dependent on your device join strategy. 
+The prerequisites and deployment paths for Windows Hello for Business are highly dependent on whether you're deploying in an on-premises, hybrid, or cloud-only configuration. It's also dependent on your device join strategy. 
 
 Select Windows Hello for Business and [complete the wizard](https://aka.ms/passwordlesswizard) to determine the prerequisites and deployment appropriate for your organization.
 
@@ -95,7 +95,7 @@ The wizard will use your inputs to craft a step-by-step plan for you to follow.
 
 ## Plan the project
 
-When technology projects fail, it’s typically because of mismatched expectations on impact, outcomes, and responsibilities. To avoid these pitfalls, [ensure that you’re engaging the right stakeholders](../fundamentals/active-directory-deployment-plans.md) and that stakeholder roles in the project are well understood.
+When technology projects fail, it's typically because of mismatched expectations on impact, outcomes, and responsibilities. To avoid these pitfalls, [ensure that you're engaging the right stakeholders](../fundamentals/active-directory-deployment-plans.md) and that stakeholder roles in the project are well understood.
 
 ### Plan a pilot
 
@@ -107,11 +107,11 @@ Your communications to end users should include the following information:
 
 * [Guidance on combined registration for both Azure AD MFA and SSPR](howto-registration-mfa-sspr-combined.md)
 
-* [Downloading the Microsoft Authenticator app](../user-help/user-help-auth-app-download-install.md)
+* [Downloading the Microsoft Authenticator app](https://support.microsoft.com/account-billing/download-and-install-the-microsoft-authenticator-app-351498fc-850a-45da-b7b6-27e523b8702a)
 
 * [Registering in the Microsoft Authenticator app](howto-authentication-passwordless-phone.md)
 
-* [Signing in with your phone](../user-help/user-help-auth-app-sign-in.md)
+* [Signing in with your phone](https://support.microsoft.com/account-billing/sign-in-to-your-accounts-using-the-microsoft-authenticator-app-582bdc07-4566-4c97-a7aa-56058122714c)
 
 Microsoft provides communication templates for end users. Download the [authentication rollout material](https://aka.ms/MFAtemplates) to help draft your communications. The rollout materials include customizable posters and email templates that you can use to inform your users about upcoming passwordless authentication options in your organization.
 
@@ -124,22 +124,22 @@ For the first-time user who doesn't have a password, admins can provide a [Tempo
 This method can also be used for easy recovery when the user has lost or forgotten their authentication factor such as security key or Microsoft Authenticator app but needs to sign in to **register a new strong authentication method**. 
 
 >[!NOTE] 
-> If you can’t use the security key or Microsoft Authenticator app for some scenarios, multifactor authentication with a username and password along with another registered method can be used as a fallback option.
+> If you can't use the security key or Microsoft Authenticator app for some scenarios, multifactor authentication with a username and password along with another registered method can be used as a fallback option.
 
 ## Plan for and deploy the Microsoft Authenticator app
 
-The [Microsoft Authenticator app](concept-authentication-passwordless.md) turns any iOS or Android phone into a strong, passwordless credential. It’s a free download from Google Play or the Apple App Store. Have users [download the Microsoft Authenticator app](../user-help/user-help-auth-app-download-install.md) and follow the directions to enable phone sign-in.
+The [Microsoft Authenticator app](concept-authentication-passwordless.md) turns any iOS or Android phone into a strong, passwordless credential. It's a free download from Google Play or the Apple App Store. Have users [download the Microsoft Authenticator app](https://support.microsoft.com/account-billing/download-and-install-the-microsoft-authenticator-app-351498fc-850a-45da-b7b6-27e523b8702a) and follow the directions to enable phone sign-in.
 
 ### Technical considerations
 
-**Active Directory Federation Services (AD FS) Integration** - When a user enables the Microsoft Authenticator passwordless credential, authentication for that user defaults to sending a notification for approval. Users in a hybrid tenant are prevented from being directed to AD FS for sign-in unless they select “Use your password instead.” This process also bypasses any on-premises Conditional Access policies, and pass-through authentication (PTA) flows. However, if a login_hint is specified, the user is forwarded to AD FS and bypasses the option to use the passwordless credential.
+**Active Directory Federation Services (AD FS) Integration** - When a user enables the Microsoft Authenticator passwordless credential, authentication for that user defaults to sending a notification for approval. Users in a hybrid tenant are prevented from being directed to AD FS for sign-in unless they select "Use your password instead." This process also bypasses any on-premises Conditional Access policies, and pass-through authentication (PTA) flows. However, if a login_hint is specified, the user is forwarded to AD FS and bypasses the option to use the passwordless credential.
 
-**Azure MFA server** - End users enabled for multi-factor authentication through an organization’s on-premises Azure MFA server can create and use a single passwordless phone sign-in credential. If the user attempts to upgrade multiple installations (5 or more) of the Microsoft Authenticator app with the credential, this change may result in an error.
+**Azure MFA server** - End users enabled for multi-factor authentication through an organization's on-premises Azure MFA server can create and use a single passwordless phone sign-in credential. If the user attempts to upgrade multiple installations (5 or more) of the Microsoft Authenticator app with the credential, this change may result in an error.
 
 > [!IMPORTANT]
 > As of July 1, 2019, Microsoft no longer offers MFA Server for new deployments. New customers that want to require multi-factor authentication (MFA) during sign-in events should use cloud-based Azure AD Multi-Factor Authentication. Existing customers that activated MFA Server before July 1, 2019 can download the latest version, future updates, and generate activation credentials as usual. We recommend moving from Azure MFA Server to Azure Active Directory MFA.
 
-**Device registration** - To use the Authenticator app for passwordless authentication, the device must be registered in the Azure AD tenant and can’t be a shared device. A device can only be registered in a single tenant. This limit means that only one work or school account is supported for phone sign-in using the Microsoft Authenticator app.
+**Device registration** - To use the Authenticator app for passwordless authentication, the device must be registered in the Azure AD tenant and can't be a shared device. A device can only be registered in a single tenant. This limit means that only one work or school account is supported for phone sign-in using the Microsoft Authenticator app.
 
 ### Deploy phone sign-in with the Microsoft Authenticator app
 
@@ -180,7 +180,7 @@ Prepare for and plan the key lifecycle.
 
  **Key activation** - End users must self-activate the security key. End users register their security keys at [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo) and enable the second factor (PIN or biometric) at first use. For first-time users, they can use TAP to register their security information.
 
- **Disabling a key** - If an administrator wishes to remove a FIDO2 key associated with a User Account, they can do so by deleting the key from the user’s authentication method as shown below. For more information, see [Disable a key](howto-authentication-passwordless-security-key.md#disable-a-key)
+ **Disabling a key** - If an administrator wishes to remove a FIDO2 key associated with a User Account, they can do so by deleting the key from the user's authentication method as shown below. For more information, see [Disable a key](howto-authentication-passwordless-security-key.md#disable-a-key)
 
  
 
@@ -222,7 +222,7 @@ Enabling Windows 10 sign-in using FIDO2 security keys requires you to enable the
 
 * [Enable credential provider with a provisioning package](howto-authentication-passwordless-security-key-windows.md)
 
-  * If Intune deployment isn’t possible, administrators must deploy a package on each machine to enable the credential provider functionality. The package installation can be carried out by one of the following options:
+  * If Intune deployment isn't possible, administrators must deploy a package on each machine to enable the credential provider functionality. The package installation can be carried out by one of the following options:
     * Group Policy or Configuration Manager
     * Local installation on a Windows 10 machine
 
@@ -287,26 +287,24 @@ Here are the sample test cases for passwordless authentication with security key
 | The user can register FIDO2 device at aka.ms/mysecurityinfo using Firefox| Registration should succeed |
 | The user can sign in to OneDrive online using FIDO2 device using Microsoft Edge| Sign-in should succeed |
 | The user can sign in to OneDrive online using FIDO2 device using Firefox| Sign-in should succeed |
-| Test rolling back FIDO2 device registration by turning off FIDO2 Security Keys within the Authentication method window in the Azure Active Directory portal| Users will: <li> be prompted to sign in using their security key <li> successfully sign in and see an error: “Your company policy requires that you use a different method to sign in”. <li>be able to select a different method and successfully sign in. Close the window and sign in again to verify they do not see the same error message. |
+| Test rolling back FIDO2 device registration by turning off FIDO2 Security Keys within the Authentication method window in the Azure Active Directory portal| Users will: <li> be prompted to sign in using their security key <li> successfully sign in and see an error: "Your company policy requires that you use a different method to sign in". <li>be able to select a different method and successfully sign in. Close the window and sign in again to verify they do not see the same error message. |
 
 
 ### Troubleshoot security key sign-in
 
-
 | Scenario| Solution |
 | - | -|
-| User can’t perform combined registration.| Ensure [combined registration](concept-registration-mfa-sspr-combined.md) is enabled. |
-| User can’t add a security key in their [security settings](https://aka.ms/mysecurityinfo).| Ensure that [security keys](howto-authentication-passwordless-security-key.md) are enabled. |
-| User can’t add security key in Windows 10 sign-in options.| [Ensure that security keys for Windows sign in](concept-authentication-passwordless.md) are enabled |
-| **Error message**: We detected that this browser or OS doesn’t support FIDO2 security keys.| Passwordless FIDO2 security devices can only be registered in supported browsers (Microsoft Edge, Firefox version 67) o Windows 10 version 1809 or higher. |
+| User can't perform combined registration.| Ensure [combined registration](concept-registration-mfa-sspr-combined.md) is enabled. |
+| User can't add a security key in their [security settings](https://aka.ms/mysecurityinfo).| Ensure that [security keys](howto-authentication-passwordless-security-key.md) are enabled. |
+| User can't add security key in Windows 10 sign-in options.| [Ensure that security keys for Windows sign in](concept-authentication-passwordless.md) are enabled |
+| **Error message**: We detected that this browser or OS doesn't support FIDO2 security keys.| Passwordless FIDO2 security devices can only be registered in supported browsers (Microsoft Edge, Firefox version 67) on Windows 10 version 1809 or higher. |
 | **Error message**: Your company policy requires that you use a different method to sign in.| Ensure security keys are enabled in the tenant. |
 | User unable to manage my security key on Windows 10 version 1809| Version 1809 requires that you use the security key management software provided by the FIDO2 key vendor. Contact the vendor for support. |
 | I think my FIDO2 security key may be defective—how can I test it.| Navigate to [https://webauthntest.azurewebsites.net/](https://webauthntest.azurewebsites.net/), enter credentials for a test account, plug in the suspect security key, select the + button at the top right of the screen, select create, and go through the creation process. If this scenario fails, your device may be defective. |
 
-
 ## Manage passwordless authentication
 
-To manage your user’s passwordless authentication methods in the [Azure portal](https://portal.azure.com/), select your user account, and then select Authentication methods.
+To manage your user's passwordless authentication methods in the [Azure portal](https://portal.azure.com/), select your user account, and then select Authentication methods.
 
 ### Microsoft Graph APIs 
 
@@ -318,7 +316,7 @@ You can also manage the passwordless authentication methods using the authentica
 
 * Manage your authentication method policies for security keys and Microsoft Authenticator app.
 
-For more information on what authentication methods can be managed in Microsoft Graph, see [Azure AD authentication methods API overview](/graph/api/resources/authenticationmethods-overview?view=graph-rest-beta).
+For more information on what authentication methods can be managed in Microsoft Graph, see [Azure AD authentication methods API overview](/graph/api/resources/authenticationmethods-overview).
 
 ### Rollback
 
@@ -334,16 +332,15 @@ Users who have already registered FIDO2 security devices are prompted to use the
 
 ### Reporting and monitoring
 
-Azure AD has reports that provide technical and business insights. Have your business and technical application owners assume ownership of and consume these reports based on your organization’s requirements.
+Azure AD has reports that provide technical and business insights. Have your business and technical application owners assume ownership of and consume these reports based on your organization's requirements.
 
 The following table provides some examples of typical reporting scenarios:
 
-| Manage risk| Increase productivity| Governance and compliance|
-|-|-|-|
+| Manage risk| Increase productivity| Governance and compliance| other|
+|-|-|-|-|
 | Report types| Authentication methods- users registered for combined security registration| Authentication methods – users registered for app notification| Sign-ins: review who is accessing the tenant and how |
 | Potential actions| Target users not yet registered| Drive adoption of Microsoft Authenticator app or security keys| Revoke access or enforce additional security policies for admins |
 
- 
 
 #### Track usage and insights
 
@@ -355,7 +352,7 @@ Azure AD adds entries to the audit logs when:
 
 * A user enables or disables their account on a security key or resets the second factor for the security key on their Win 10 machine. See event IDs: 4670 and 5382.
 
-**Azure AD keeps most auditing data for 30 days** and makes the data available via Azure Admin portal or API for you to download into your analysis systems. If you require longer retention, export and consume logs in a SIEM tool such as [Azure Sentinel](../../sentinel/connect-azure-active-directory.md), Splunk, or Sumo Logic. We recommend longer retention for auditing, trend analysis, and other business needs as applicable
+**Azure AD keeps most auditing data for 30 days** and makes the data available via Azure Admin portal or API for you to download into your analysis systems. If you require longer retention, export and consume logs in a SIEM tool such as [Microsoft Sentinel](../../sentinel/connect-azure-active-directory.md), Splunk, or Sumo Logic. We recommend longer retention for auditing, trend analysis, and other business needs as applicable
 
 There are two tabs in the Authentication methods activity dashboard - Registration and Usage.
 

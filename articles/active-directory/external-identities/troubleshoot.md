@@ -5,13 +5,11 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: troubleshooting
-ms.date: 07/13/2021
+ms.date: 01/31/2022
 tags: active-directory
 ms.author: mimart
 author: msmimart
-ms.custom:
-  - it-pro
-  - seo-update-azuread-jan"
+ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ---
 
@@ -23,7 +21,33 @@ Here are some remedies for common problems with Azure Active Directory (Azure AD
    >
    > - **Starting July 12, 2021**,  if Azure AD B2B customers set up new Google integrations for use with self-service sign-up for their custom or line-of-business applications, authentication with Google identities won’t work until authentications are moved to system web-views. [Learn more](google-federation.md#deprecation-of-web-view-sign-in-support).
    > - **Starting September 30, 2021**, Google is [deprecating embedded web-view sign-in support](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html). If your apps authenticate users with an embedded web-view and you're using Google federation with [Azure AD B2C](../../active-directory-b2c/identity-provider-google.md) or Azure AD B2B for [external user invitations](google-federation.md) or [self-service sign-up](identity-providers.md), Google Gmail users won't be able to authenticate. [Learn more](google-federation.md#deprecation-of-web-view-sign-in-support).
-   > - **Starting October 2021**, Microsoft will no longer support the redemption of invitations by creating unmanaged Azure AD accounts and tenants for B2B collaboration scenarios. In preparation, we encourage customers to opt into [email one-time passcode authentication](one-time-passcode.md), which is now generally available.
+   > - **As of November 1, 2021**, we began rolling out a change to turn on the email one-time passcode feature for all existing tenants and enable it by default for new tenants. As part of this change, Microsoft will stop creating new, unmanaged ("viral") Azure AD accounts and tenants during B2B collaboration invitation redemption. To minimize disruptions during the holidays and deployment lockdowns, the majority of tenants will see changes rolled out in January 2022. We're enabling the email one-time passcode feature because it provides a seamless fallback authentication method for your guest users. However, if you don't want to allow this feature to turn on automatically, you can [disable it](one-time-passcode.md#disable-email-one-time-passcode).
+
+## An error similar to "Failure to update policy due to object limit" appears while configuring cross-tenant access settings
+
+While configuring [cross-tenant access settings](cross-tenant-access-settings-b2b-collaboration.md), if you receive an error that says “Failure to update policy due to object limit” you have reached the policy object limit of 25 KB. We're working toward increasing this limit. If you need to be able to calculate how close the current policy is to this limit, do the following:
+
+1. Open Microsoft Graph Explorer and run the following:  
+
+   `GET https://graph.microsoft.com/beta/policies/crosstenantaccesspolicy`
+
+1. Copy the entire JSON response and save it as a txt file, for example `policyobject.txt`.
+
+1. Open PowerShell and run the following script, substituting the file location in the first line with your text file:
+
+```powershell
+$policy = Get-Content “C:\policyobject.txt” | ConvertTo-Json 
+$maxSize = 1024*25 
+$size = [System.Text.Encoding]::UTF8.GetByteCount($policy) 
+write-host "Remaining Bytes available in policy object" 
+$maxSize - $size 
+write-host "Is current policy within limits?" 
+if ($size -le $maxSize) { return “valid” }; else { return “invalid” } 
+```
+
+## Users can no longer read email encrypted with Microsoft Rights Management Service (OME))
+
+When [configuring cross-tenant access settings](cross-tenant-access-settings-b2b-collaboration.md), if you block access to all apps by default, users will be unable to read emails encrypted with Microsoft Rights Management Service (also known as OME). To avoid this issue, we recommend configuring your outbound settings to allow your users to access this app ID: 00000012-0000-0000-c000-000000000000. If this is the only application you allow, access to all other apps will be blocked by default.
 
 ## I’ve added an external user but do not see them in my Global Address Book or in the people picker
 
@@ -68,11 +92,11 @@ When we check whether a user is able to be invited to your tenant, one of the th
 
 ## I can't invite an email address because of a conflict in proxyAddresses
 
-This happens when another object in the directory has the same invited email address as one of its proxyAddresses. To fix this conflict, remove the email from the [user](/graph/api/resources/user?view=graph-rest-1.0&preserve-view=true) object, and also delete the associated [contact](/graph/api/resources/contact?view=graph-rest-1.0&preserve-view=true) object before trying to invite this email again.
+This happens when another object in the directory has the same invited email address as one of its proxyAddresses. To fix this conflict, remove the email from the [user](/graph/api/resources/user) object, and also delete the associated [contact](/graph/api/resources/contact) object before trying to invite this email again.
 
 ## The guest user object doesn't have a proxyAddress
 
-When inviting an external guest user, sometimes this will conflict with an existing [Contact object](/graph/api/resources/contact?view=graph-rest-1.0&preserve-view=true). When this occurs, the guest user is created without a proxyAddress. This means that the user will not be able to redeem this account using [just-in-time redemption](redemption-experience.md#redemption-through-a-direct-link) or [email one-time passcode authentication](one-time-passcode.md#user-experience-for-one-time-passcode-guest-users).
+When inviting an external guest user, sometimes this will conflict with an existing [Contact object](/graph/api/resources/contact). When this occurs, the guest user is created without a proxyAddress. This means that the user will not be able to redeem this account using [just-in-time redemption](redemption-experience.md#redemption-through-a-direct-link) or [email one-time passcode authentication](one-time-passcode.md#user-experience-for-one-time-passcode-guest-users).
 
 ## How does ‘\#’, which is not normally a valid character, sync with Azure AD?
 

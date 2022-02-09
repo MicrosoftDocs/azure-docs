@@ -28,9 +28,6 @@ Azure AD stores reports and security signals for a defined period of time. When 
 
 Organizations can choose to store data for longer periods by changing diagnostic settings in Azure AD to send **RiskyUsers** and **UserRiskEvents** data to a Log Analytics workspace, archive data to a storage account, stream data to an Event Hub, or send data to a partner solution. Find these options in the **Azure portal** > **Azure Active Directory**, **Diagnostic settings** > **Edit setting**. If you don't have a diagnostic setting, follow the instructions in the article [Create diagnostic settings to send platform logs and metrics to different destinations](../../azure-monitor/essentials/diagnostic-settings.md) to create one.
 
->[!NOTE]
->The diagnostic settings for RiskyUsers and UserRiskEvents are currently in public preview.
-
 [ ![Diagnostic settings screen in Azure AD showing existing configuration](./media/howto-export-risk-data/change-diagnostic-setting-in-portal.png) ](./media/howto-export-risk-data/change-diagnostic-setting-in-portal.png#lightbox)
 
 ## Log Analytics
@@ -70,7 +67,7 @@ Azure Event Hubs can look at incoming data from sources like Azure AD Identity P
 
 ## Other options
 
-Organizations can choose to [connect Azure AD data to Azure Sentinel](../../sentinel/connect-azure-ad-identity-protection.md) as well for further processing.
+Organizations can choose to [connect Azure AD data to Microsoft Sentinel](../../sentinel/data-connectors-reference.md#azure-active-directory-identity-protection) as well for further processing.
 
 Organizations can use the [Microsoft Graph API to programatically interact with risk events](howto-identity-protection-graph-api.md).
 
@@ -78,6 +75,6 @@ Organizations can use the [Microsoft Graph API to programatically interact with 
 
 - [What is Azure Active Directory monitoring?](../reports-monitoring/overview-monitoring.md)
 - [Install and use the log analytics views for Azure Active Directory](../reports-monitoring/howto-install-use-log-analytics-views.md)
-- [Connect data from Azure Active Directory (Azure AD) Identity Protection](../../sentinel/connect-azure-ad-identity-protection.md)
+- [Connect data from Azure Active Directory (Azure AD) Identity Protection](../../sentinel/data-connectors-reference.md#azure-active-directory-identity-protection)
 - [Azure Active Directory Identity Protection and the Microsoft Graph PowerShell SDK](howto-identity-protection-graph-api.md)
 - [Tutorial: Stream Azure Active Directory logs to an Azure event hub](../reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md)

@@ -4,14 +4,15 @@ description: Provides an overview of Azure AD Privileged Identity Management (PI
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: daveba
+manager: karenhoran
 editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: pim
 ms.topic: overview
-ms.date: 06/25/2021
+ms.date: 10/07/2021
 ms.author: curtand
+ms.reviewer: shaunliu
 ms.custom: pim,azuread-video-2020,contperf-fy21q3-portal
 ms.collection: M365-identity-device-management
 ---
@@ -118,7 +119,7 @@ Privileged Identity Management supports the following scenarios:
 In Privileged Identity Management (PIM), you can now assign eligibility for membership or ownership of privileged access groups. Starting with this preview, you can assign Azure Active Directory (Azure AD) built-in roles to cloud groups and use PIM to manage group member and owner eligibility and activation. For more information about role-assignable groups in Azure AD, see [Use Azure AD groups to manage role assignments](../roles/groups-concept.md).
 
 >[!Important]
-> To assign a privileged access group to a role for administrative access to Exchange, Security and Compliance center, or SharePoint, use the Azure AD portal **Roles and Administrators** experience and not in the Privileged Access Groups experience to make the user or group eligible for activation into the group.
+> To assign a privileged access group to a role for administrative access to Exchange, Security & Compliance Center, or SharePoint, use the Azure AD portal **Roles and Administrators** experience and not in the Privileged Access Groups experience to make the user or group eligible for activation into the group.
 
 ### Different just-in-time policies for each group
 
@@ -144,7 +145,7 @@ Here are a couple examples of when you might invite guests to your organization:
 
 When you use B2B collaboration, you can invite an external user to your organization as a guest. The guest can be managed as a user in your organization, but a guest has to be authenticated in their home organization and not in your Azure AD organization. This means that if the guest no longer has access to their home organization, they also lose access to your organization. For example, if the guest leaves their organization, they automatically lose access to any resources you shared with them in Azure AD without you having to do anything. For more information about B2B collaboration, see [What is guest user access in Azure Active Directory B2B?](../external-identities/what-is-b2b.md).
 
-![Diagram showing how a guest user is authenticated in their home directory](./media/pim-resource-roles-external-users/b2b-external-user.png)
+![Diagram showing how a guest user is authenticated in their home directory](./media/pim-configure/b2b-external-user.png)
 
 ## Next steps
 

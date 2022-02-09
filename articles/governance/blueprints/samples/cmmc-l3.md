@@ -1,7 +1,7 @@
 ---
 title: CMMC Level 3 blueprint sample
 description: Overview of the CMMC Level 3 blueprint sample. This blueprint sample helps customers assess specific controls.
-ms.date: 03/24/2021
+ms.date: 09/08/2021
 ms.topic: sample
 ---
 # CMMC Level 3 blueprint sample
@@ -99,7 +99,7 @@ to make each deployment of the copy of the blueprint sample unique.
        assignment will be created for each using the parameters entered.
      - **Assignment name**: The name is pre-populated for you based on the name of the blueprint.
        Change as needed or leave as is.
-     - **Location**: Select a region for the managed identity to be created in. Azure Blueprint uses
+     - **Location**: Select a region for the managed identity to be created in. Azure Blueprints uses
        this managed identity to deploy all artifacts in the assigned blueprint. To learn more, see
        [managed identities for Azure resources](../../../active-directory/managed-identities-azure-resources/overview.md).
      - **Blueprint definition version**: Pick a **Published** version of your copy of the blueprint
@@ -316,8 +316,8 @@ The following table provides a list of the blueprint artifact parameters:
 |CMMC Level 3|Policy Assignment|Namespaces excluded from evaluation of policy: Kubernetes cluster pods should only use approved host network and port range|List of Kubernetes namespaces to exclude from policy evaluation.|
 |CMMC Level 3|Policy Assignment|Latest Java version for App Services|Latest supported Java version for App Services|
 |CMMC Level 3|Policy Assignment|Latest Python version for Linux for App Services|Latest supported Python version for App Services|
-|CMMC Level 3|Policy Assignment|Optional: List of VM images that have supported Linux OS to add to scope when auditing Log Analytics agent deployment|Example value: '/subscriptions/<subscriptionId>/resourceGroups/YourResourceGroup/providers/Microsoft.Compute/images/ContosoStdImage'|
-|CMMC Level 3|Policy Assignment|Optional: List of VM images that have supported Windows OS to add to scope when auditing Log Analytics agent deployment|Example value: '/subscriptions/<subscriptionId>/resourceGroups/YourResourceGroup/providers/Microsoft.Compute/images/ContosoStdImage'|
+|CMMC Level 3|Policy Assignment|Optional: List of VM images that have supported Linux OS to add to scope when auditing Log Analytics agent deployment|Example value: `/subscriptions/<subscriptionId>/resourceGroups/YourResourceGroup/providers/Microsoft.Compute/images/ContosoStdImage`|
+|CMMC Level 3|Policy Assignment|Optional: List of VM images that have supported Windows OS to add to scope when auditing Log Analytics agent deployment|Example value: `/subscriptions/<subscriptionId>/resourceGroups/YourResourceGroup/providers/Microsoft.Compute/images/ContosoStdImage`|
 |CMMC Level 3|Policy Assignment|List of regions where Network Watcher should be enabled|Audit if Network Watcher is not enabled for region(s).|
 |CMMC Level 3|Policy Assignment|List of resource types that should have diagnostic logs enabled||
 |CMMC Level 3|Policy Assignment|Maximum value in the allowable host port range that pods can use in the host network namespace|The maximum value in the allowable host port range that pods can use in the host network namespace.|

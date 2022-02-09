@@ -25,13 +25,13 @@ Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculato
 
 2. Scroll down the page and locate the **Storage Accounts** section of your estimate.
 
-3. Choose options from the drop-down lists. 
+3. Choose options from the drop-down lists.
 
    As you modify the value of these drop-down lists, the cost estimate changes. That estimate appears in the upper corner as well as the bottom of the estimate.
 
    ![Screenshot showing your estimate](media/storage-plan-manage-costs/price-calculator-storage-type.png)
 
-   As you change the value of the **Type** drop-down list, other options that appear on this worksheet change as well. Use the links in the **More Info** section to learn more about what each option means and how these options affect the price of storage-related operations. 
+   As you change the value of the **Type** drop-down list, other options that appear on this worksheet change as well. Use the links in the **More Info** section to learn more about what each option means and how these options affect the price of storage-related operations.
 
 4. Modify the remaining options to see their affect on your estimate.
 
@@ -41,9 +41,9 @@ Azure Blob Storage runs on Azure infrastructure that accrues costs when you depl
 
 ### How you're charged for Azure Blob Storage
 
-When you create or use Blob Storage resources, you'll be charged for the following meters: 
+When you create or use Blob Storage resources, you'll be charged for the following meters:
 
-| Meter | Unit | 
+| Meter | Unit |
 |---|---|
 | Data storage | Per GB / per month|
 | Operations | Per transaction |
@@ -61,19 +61,19 @@ Data traffic might also incur networking costs. See the [Bandwidth pricing](http
 
 At the end of your billing cycle, the charges for each meter are summed. Your bill or invoice shows a section for all Azure Blob Storage costs. There's a separate line item for each meter.
 
-Data storage and metadata are billed per GB on a monthly basis. For data and metadata stored for less than a month, you can estimate the impact on your monthly bill by calculating the cost of each GB per day. You can use a similar approach to estimating the cost of encryption scopes that are in use for less than a month. The number of days in any given month varies. Therefore, to obtain the best approximation of your costs in a given month, make sure to divide the monthly cost by the number of days that occur in that month. 
+Data storage and metadata are billed per GB on a monthly basis. For data and metadata stored for less than a month, you can estimate the impact on your monthly bill by calculating the cost of each GB per day. You can use a similar approach to estimating the cost of encryption scopes that are in use for less than a month. The number of days in any given month varies. Therefore, to obtain the best approximation of your costs in a given month, make sure to divide the monthly cost by the number of days that occur in that month.
 
 ### Finding the unit price for each meter
 
 To find unit prices, open the correct pricing page. If you've enabled the hierarchical namespace feature on your account, see the [Azure Data Lake Storage Gen2 pricing](https://azure.microsoft.com/pricing/details/storage/data-lake/) page. If you haven't enabled this feature, see the [Block blob pricing](https://azure.microsoft.com/pricing/details/storage/blobs/) page.
 
-In the pricing page, apply the appropriate redundancy, region, and currency filters. Prices for each meter appear in a table. Prices differ based on other settings in your account such as data redundancy options, access tier and performance tier. 
+In the pricing page, apply the appropriate redundancy, region, and currency filters. Prices for each meter appear in a table. Prices differ based on other settings in your account such as data redundancy options, access tier and performance tier.
 
 ### Flat namespace accounts and transaction pricing
 
 Clients can make a request by using either the Blob Storage endpoint or the Data Lake Storage endpoint of your account. To learn more about storage account endpoints, see [Storage account endpoints](storage-account-overview.md#storage-account-endpoints).
 
-Transaction prices that appear in the [Block blob pricing](https://azure.microsoft.com/pricing/details/storage/blobs/) page apply only to requests that use the Blob Storage endpoint (For example: `https://<storage-account>.blob.core.windows.net`). The listed prices do not apply to requests that use the Data Lake Storage Gen2 endpoint (For example: `https://<storage-account>.dfs.core.windows.net`). For the transaction price of those requests, open the [Azure Data Lake Storage Gen2 pricing](https://azure.microsoft.com/pricing/details/storage/data-lake/) page and select the **Flat Namespace** option. 
+Transaction prices that appear in the [Block blob pricing](https://azure.microsoft.com/pricing/details/storage/blobs/) page apply only to requests that use the Blob Storage endpoint (For example: `https://<storage-account>.blob.core.windows.net`). The listed prices do not apply to requests that use the Data Lake Storage Gen2 endpoint (For example: `https://<storage-account>.dfs.core.windows.net`). For the transaction price of those requests, open the [Azure Data Lake Storage Gen2 pricing](https://azure.microsoft.com/pricing/details/storage/data-lake/) page and select the **Flat Namespace** option.
 
 > [!div class="mx-imgBorder"]
 > ![flat namespace option](media/storage-plan-manage-costs/select-flat-namespace.png)
@@ -84,8 +84,7 @@ Requests to the Data Lake Storage Gen2 endpoint can originate from any of the fo
 
 - REST calls that use the [Azure Data Lake Store REST API](/rest/api/storageservices/data-lake-storage-gen2)
 
-- Applications that use Data Lake Storage Gen2 APIs from an Azure Storage client library.  
-
+- Applications that use Data Lake Storage Gen2 APIs from an Azure Storage client library.
 
 ### Using Azure Prepayment with Azure Blob Storage
 
@@ -93,7 +92,7 @@ You can pay for Azure Blob Storage charges with your Azure Prepayment (previousl
 
 ## Optimize costs
 
-Consider using these options to reduce costs. 
+Consider using these options to reduce costs.
 
 - Reserve storage capacity
 
@@ -101,25 +100,25 @@ Consider using these options to reduce costs.
 
 - Automatically move data between access tiers
 
-This section covers each option in more detail. 
+This section covers each option in more detail.
 
 #### Reserve storage capacity
 
-You can save money on storage costs for blob data with Azure Storage reserved capacity. Azure Storage reserved capacity offers you a discount on capacity for block blobs and for Azure Data Lake Storage Gen2 data in standard storage accounts when you commit to a reservation for either one year or three years. A reservation provides a fixed amount of storage capacity for the term of the reservation. Azure Storage reserved capacity can significantly reduce your capacity costs for block blobs and Azure Data Lake Storage Gen2 data. 
+You can save money on storage costs for blob data with Azure Storage reserved capacity. Azure Storage reserved capacity offers you a discount on capacity for block blobs and for Azure Data Lake Storage Gen2 data in standard storage accounts when you commit to a reservation for either one year or three years. A reservation provides a fixed amount of storage capacity for the term of the reservation. Azure Storage reserved capacity can significantly reduce your capacity costs for block blobs and Azure Data Lake Storage Gen2 data.
 
 To learn more, see [Optimize costs for Blob Storage with reserved capacity](../blobs/storage-blob-reserved-capacity.md).
 
 #### Organize data into access tiers
 
-You can reduce costs by placing blob data into the most cost effective access tiers. Choose from three tiers that are designed to optimize your costs around data use. For example, the *hot* tier has a higher storage cost but lower access cost. Therefore, if you plan to access data frequently, the hot tier might be the most cost-efficient choice. If you plan to access data less frequently, the *cold* or *archive* tier might make the most sense because it raises the cost of accessing data while reducing the cost of storing data.    
+You can reduce costs by placing blob data into the most cost effective access tiers. Choose from three tiers that are designed to optimize your costs around data use. For example, the *hot* tier has a higher storage cost but lower access cost. Therefore, if you plan to access data frequently, the hot tier might be the most cost-efficient choice. If you plan to access data less frequently, the *cold* or *archive* tier might make the most sense because it raises the cost of accessing data while reducing the cost of storing data.
 
-To learn more, see [Azure Blob Storage: hot, cool, and archive access tiers](../blobs/storage-blob-storage-tiers.md?tabs=azure-portal).
+To learn more, see [Hot, Cool, and Archive access tiers for blob data](../blobs/access-tiers-overview.md?tabs=azure-portal).
 
 #### Automatically move data between access tiers
 
 Use lifecycle management policies to periodically move data between tiers to save the most money. These policies can move data to by using rules that you specify. For example, you might create a rule that moves blobs to the archive tier if that blob hasn't been modified in 90 days. By creating policies that adjust the access tier of your data, you can design the least expensive storage options for your needs.
 
-To learn more, see [Manage the Azure Blob Storage lifecycle](../blobs/storage-lifecycle-management-concepts.md?tabs=azure-portal)
+To learn more, see [Manage the Azure Blob Storage lifecycle](../blobs/lifecycle-management-overview.md?tabs=azure-portal)
 
 ## Create budgets
 
@@ -131,7 +130,7 @@ As you use Azure resources with Azure Storage, you incur costs. Resource usage u
 
 When you use cost analysis, you can view Azure Storage costs in graphs and tables for different time intervals. Some examples are by day, current and prior month, and year. You can also view costs against budgets and forecasted costs. Switching to longer views over time can help you identify spending trends and see where overspending might have occurred. If you've created budgets, you can also easily see where they exceeded.
 
->[!NOTE]
+> [!NOTE]
 > Cost analysis supports different kinds of Azure account types. To view the full list of supported account types, see [Understand Cost Management data](../../cost-management-billing/costs/understand-cost-mgt-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn). To view cost data, you need at least read access for your Azure account. For information about assigning access to Azure Cost Management data, see [Assign access to data](../../cost-management-billing/costs/assign-access-acm-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 
 To view Azure Storage costs in cost analysis:
@@ -142,7 +141,7 @@ To view Azure Storage costs in cost analysis:
 
    ![Screenshot showing scope](./media/storage-plan-manage-costs/cost-analysis-pane.png)
 
-4. To view only costs for Azure Storage, select **Add filter** and then select **Service name**. Then, choose **storage** from the list. 
+4. To view only costs for Azure Storage, select **Add filter** and then select **Service name**. Then, choose **storage** from the list.
 
    Here's an example showing costs for just Azure Storage:
 
@@ -160,7 +159,6 @@ You can also [export your cost data](../../cost-management-billing/costs/tutoria
 **If I use Azure Storage for only a few days a month, is the cost prorated?**
 
 Storage capacity is billed in units of the average daily amount of data stored, in gigabytes (GB), over a monthly period. For example, if you consistently used 10 GB of storage for the first half of the month, and none for the second half of the month, you would be billed for your average usage of 5 GB of storage.
-
 
 ## Next steps
 

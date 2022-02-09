@@ -5,8 +5,6 @@ ms.topic: conceptual
 author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
-
-ms.reviewer: mbullwin
 ---
 
 # Profile live Azure App Service apps with Application Insights
@@ -50,7 +48,7 @@ Here are the settings needed to enable the profiler:
 |DiagnosticServices_EXTENSION_VERSION | ~3 |
 
 
-You can set these values using [Azure Resource Manager Templates](./azure-web-apps.md#app-service-application-settings-with-azure-resource-manager), [Azure PowerShell](/powershell/module/az.websites/set-azwebapp),  [Azure CLI](/cli/azure/webapp/config/appsettings).
+You can set these values using [Azure Resource Manager Templates](./azure-web-apps-net-core.md#app-service-application-settings-with-azure-resource-manager), [Azure PowerShell](/powershell/module/az.websites/set-azwebapp),  [Azure CLI](/cli/azure/webapp/config/appsettings).
 
 ## Enable Profiler for other clouds
 
@@ -60,6 +58,34 @@ Currently the only regions that require endpoint modifications are [Azure Govern
 |---------------|---------------------|-------------|
 |ApplicationInsightsProfilerEndpoint         | `https://profiler.monitor.azure.us`    | `https://profiler.monitor.azure.cn` |
 |ApplicationInsightsEndpoint | `https://dc.applicationinsights.us` | `https://dc.applicationinsights.azure.cn` |
+
+## Enable Azure Active Directory authentication for profile ingestion
+
+Application Insights Profiler supports Azure AD authentication for profiles ingestion. This means, for all profiles of your application to be ingested, your application must be authenticated and provide the required application settings to the Profiler agent.
+
+As of today, Profiler only supports Azure AD authentication when you reference and configure Azure AD using the Application Insights SDK in your application.
+
+Below you can find all the steps required to enable Azure AD for profiles ingestion:
+1. Create and add the managed identity you want to use to authenticate against your Application Insights resource to your App Service.
+
+   a.  For System-Assigned Managed identity, see the following [documentation](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=portal%2Chttp#add-a-system-assigned-identity)
+
+   b.  For User-Assigned Managed identity, see the following [documentation](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=portal%2Chttp#add-a-user-assigned-identity)
+
+2. Configure and enable Azure AD in your Application Insights resource. For more information, see the following [documentation](https://docs.microsoft.com/azure/azure-monitor/app/azure-ad-authentication?tabs=net#configuring-and-enabling-azure-ad-based-authentication)
+3. Add the following application setting, used to let Profiler agent know which managed identity to use:
+
+For System-Assigned Identity:
+
+|App Setting    | Value    |
+|---------------|----------|
+|APPLICATIONINSIGHTS_AUTHENTICATION_STRING         | Authentication=AAD    |
+
+For User-Assigned Identity:
+
+|App Setting    | Value    |
+|---------------|----------|
+|APPLICATIONINSIGHTS_AUTHENTICATION_STRING         | Authentication=AAD;ClientId={Client id of the User-Assigned Identity}    |
 
 ## Disable Profiler
 

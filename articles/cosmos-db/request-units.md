@@ -5,7 +5,7 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/23/2020
+ms.date: 08/26/2021
 ms.custom: "seo-nov-2020"
 
 ---
@@ -87,3 +87,6 @@ Your choice of [consistency model](consistency-levels.md) also affects the throu
 - Learn how to [optimize reads and writes cost in Azure Cosmos DB](optimize-cost-reads-writes.md).
 - Learn how to [optimize query cost in Azure Cosmos DB](./optimize-cost-reads-writes.md).
 - Learn how to [use metrics to monitor throughput](use-metrics.md).
+- Trying to do capacity planning for a migration to Azure Cosmos DB?
+    - If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](convert-vcore-to-request-unit.md) 
+    - If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md)

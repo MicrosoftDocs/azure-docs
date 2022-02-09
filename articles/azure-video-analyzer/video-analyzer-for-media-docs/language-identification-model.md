@@ -1,13 +1,7 @@
 ---
 title: Use Azure Video Analyzer for Media (formerly Video Indexer) to auto identify spoken languages  - Azure
-titleSuffix: Azure Video Analyzer for Media
 description: This article describes how the Azure Video Analyzer for Media (formerly Video Indexer) language identification model is used to automatically identifying the spoken language in a video.
-services: azure-video-analyzer
-author: juliako
-manager: femila
-
-ms.topic: article
-ms.subservice: azure-video-analyzer-media
+ms.topic: conceptual
 ms.date: 04/12/2020
 ms.author: ellbe
 ---

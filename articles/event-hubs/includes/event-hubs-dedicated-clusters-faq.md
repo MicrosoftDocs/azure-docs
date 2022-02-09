@@ -5,7 +5,7 @@ services: event-hubs
 author: spelluru
 ms.service: event-hubs
 ms.topic: include
-ms.date: 10/23/2020
+ms.date: 09/28/2021
 ms.author: spelluru
 ms.custom: "include file"
 
@@ -31,7 +31,7 @@ In the testing, the following criteria was used:
 
 ### Can I scale up/down my cluster?
 
-After creation, clusters are billed for a minimum of 4 hours of usage. In the Preview release of the self-serve experience, you can submit a [support request](https://ms.portal.azure.com/#create/Microsoft.Support) to the Event Hubs team under **Technical** > **Quota** > **Request to Scale Up or Scale Down Dedicated Cluster** to scale your cluster up or down. It may take up to 7 days to complete the request to scale down your cluster. 
+After creation, clusters are billed for a minimum of 4 hours of usage. In the Preview release of the self-serve experience, you can submit a [support request](https://portal.azure.com/#create/Microsoft.Support) to the Event Hubs team under **Technical** > **Quota** > **Request to Scale Up or Scale Down Dedicated Cluster** to scale your cluster up or down. It may take up to 7 days to complete the request to scale down your cluster. 
 
 ### How does Geo-DR work with my cluster?
 

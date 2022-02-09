@@ -1,6 +1,6 @@
 ---
 title:  How to do custom search in Azure API for FHIR 
-description: This article describes how you can define your own custom search parameters to be used in the database. 
+description: This article describes how you can define your own custom search parameters in Azure API for FHIR to be used in the database. 
 author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.subservice: fhir
@@ -150,7 +150,7 @@ To update a search parameter, use `PUT` to create a new version of the search pa
 > If you don't know the ID for your search parameter, you can search for it. Using `GET {{FHIR_URL}}/SearchParameter` will return all custom search parameters, and you can scroll through the search parameter to find the search parameter you need. You could also limit the search by name. With the example below, you could search for name using `USCoreRace: GET {{FHIR_URL}}/SearchParameter?name=USCoreRace`.
 
 ```rest
-PUT {{FHIR_ULR}}/SearchParameter/{SearchParameter ID}
+PUT {{FHIR_URL}}/SearchParameter/{SearchParameter ID}
 
 {
   "resourceType" : "SearchParameter",

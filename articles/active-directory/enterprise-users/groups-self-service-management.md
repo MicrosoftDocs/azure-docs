@@ -4,7 +4,7 @@ description: Create and manage security groups or Microsoft 365 groups in Azure 
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: daveba
+manager: karenhoran
 editor: ''
 ms.service: active-directory
 ms.subservice: enterprise-users
@@ -79,7 +79,7 @@ The group settings enable to control who can create security and Microsoft 365 g
 | Setting | Value | Effect on your tenant |
 | --- | :---: | --- |
 | Users can create security groups in Azure portals, API or PowerShell | Yes | All users in your Azure AD organization are allowed to create new security groups and add members to these groups in Azure portals, API, or PowerShell. These new groups would also show up in the Access Panel for all other users. If the policy setting on the group allows it, other users can create requests to join these groups. |
-|  | No | Users can't security create groups and can't change existing groups for which they are an owner. However, they can still manage the memberships of those groups and approve requests from other users to join their groups. |
+|  | No | Users can't create security groups and can't change existing groups for which they are an owner. However, they can still manage the memberships of those groups and approve requests from other users to join their groups. |
 | Users can create Microsoft 365 groups in Azure portals, API or PowerShell | Yes | All users in your Azure AD organization are allowed to create new Microsoft 365 groups and add members to these groups in Azure portals, API, or PowerShell. These new groups would also show up in the Access Panel for all other users. If the policy setting on the group allows it, other users can create requests to join these groups. |
 |  | No | Users can't create Microsoft 365 groups and can't change existing groups for which they are an owner. However, they can still manage the memberships of those groups and approve requests from other users to join their groups. |
 

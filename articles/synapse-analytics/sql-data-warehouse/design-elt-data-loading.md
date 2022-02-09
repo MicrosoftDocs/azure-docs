@@ -2,13 +2,13 @@
 title: Instead of ETL, design ELT 
 description: Implement flexible data loading strategies for dedicated SQL pools within Azure Synapse Analytics.
 services: synapse-analytics
-author: julieMSFT
+author: joannapea
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw 
 ms.date: 11/20/2020
-ms.author: jrasnick
+ms.author: joanpo
 ms.reviewer: igorstan
 ms.custom: azure-synapse
 ---
@@ -65,7 +65,7 @@ You might need to prepare and clean the data in your storage account before load
 
 ### Define the tables
 
-You must first defined the table(s) you are loading to in your dedicated SQL pool when using the COPY statement.
+You must first define the table(s) you are loading to in your dedicated SQL pool when using the COPY statement.
 
 If you are using PolyBase, you need to define external tables in your dedicated SQL pool before loading. PolyBase uses external tables to define and access the data in Azure Storage. An external table is similar to a database view. The external table contains the table schema and points to data that is stored outside the dedicated SQL pool.
 
@@ -110,8 +110,8 @@ Use the following SQL data type mapping when loading Parquet files:
 |                            INT64                             |                DECIMAL                |     decimal      |
 |                            INT64                             |         TIME (MILLIS)                 |       time       |
 |                            INT64                             | TIMESTAMP   (MILLIS)                  |    datetime2     |
-| [Complex   type](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fgithub.com%2Fapache%2Fparquet-format%2Fblob%2Fmaster%2FLogicalTypes.md%23lists&data=02\|01\|kevin%40microsoft.com\|19f74d93f5ca45a6b73c08d7d7f5f111\|72f988bf86f141af91ab2d7cd011db47\|1\|0\|637215323617803168&sdata=6Luk047sK26ijTzfvKMYc%2FNu%2Fz0AlLCX8lKKTI%2F8B5o%3D&reserved=0) |                 LIST                  |   varchar(max)   |
-| [Complex   type](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fgithub.com%2Fapache%2Fparquet-format%2Fblob%2Fmaster%2FLogicalTypes.md%23maps&data=02\|01\|kevin%40microsoft.com\|19f74d93f5ca45a6b73c08d7d7f5f111\|72f988bf86f141af91ab2d7cd011db47\|1\|0\|637215323617803168&sdata=FiThqXxjgmZBVRyigHzfh5V7Z%2BPZHjud2IkUUM43I7o%3D&reserved=0) |                  MAP                  |   varchar(max)   |
+| [Complex   type](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md) |                 LIST                  |   varchar(max)   |
+| [Complex   type](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md |                  MAP                  |   varchar(max)   |
 
 >[!IMPORTANT] 
 >- SQL dedicated pools do not currently support Parquet data types with MICROS and NANOS precision. 
@@ -138,8 +138,8 @@ It is best practice to load data into a staging table. Staging tables allow you 
 
 To load data, you can use any of these loading options:
 
-- The [COPY statement](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true) is the recommended loading utility as it enables you to seamlessly and flexibly load data. The statement has many additional loading capabilities that PolyBase does not provide. 
-- [PolyBase with T-SQL](./load-data-from-azure-blob-storage-using-copy.md) requires you to define external data objects.
+- The [COPY statement](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true) is the recommended loading utility as it enables you to seamlessly and flexibly load data. The statement has many additional loading capabilities that PolyBase does not provide. See the [NY taxi cab COPY tutorial](./load-data-from-azure-blob-storage-using-copy.md) to run through a sample tutorial.  
+- [PolyBase with T-SQL](./sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md) requires you to define external data objects.
 - [PolyBase and COPY statement with Azure Data Factory (ADF)](../../data-factory/load-azure-sql-data-warehouse.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) is another orchestration tool.  It defines a pipeline and schedules jobs.
 - [PolyBase with SSIS](/sql/integration-services/load-data-to-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) works well when your source data is in SQL Server. SSIS defines the source to destination table mappings, and also orchestrates the load. If you already have SSIS packages, you can modify the packages to work with the new data warehouse destination.
 - [PolyBase with Azure Databricks](/azure/databricks/scenarios/databricks-extract-load-sql-data-warehouse?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json) transfers data from a table to a Databricks dataframe and/or writes data from a Databricks dataframe to a table using PolyBase.
@@ -167,4 +167,4 @@ Many of our partners have loading solutions. To find out more, see a list of our
 
 ## Next steps
 
-For loading guidance, see [Guidance for loading data](guidance-for-loading-data.md).
+For loading guidance, see [Data loading best practices](../sql/data-loading-best-practices.md).

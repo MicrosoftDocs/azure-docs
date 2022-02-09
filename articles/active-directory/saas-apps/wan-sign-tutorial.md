@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with WAN-Sign | Microsoft Docs'
+title: 'Tutorial: Azure AD SSO integration with WAN-Sign'
 description: Learn how to configure single sign-on between Azure Active Directory and WAN-Sign.
 services: active-directory
 author: jeevansd
@@ -9,12 +9,12 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/09/2021
+ms.date: 10/21/2021
 ms.author: jeedes
 
 ---
 
-# Tutorial: Azure Active Directory single sign-on (SSO) integration with WAN-Sign
+# Tutorial: Azure AD SSO integration with WAN-Sign
 
 In this tutorial, you'll learn how to integrate WAN-Sign with Azure Active Directory (Azure AD). When you integrate WAN-Sign with Azure AD, you can:
 
@@ -33,10 +33,9 @@ To get started, you need the following items:
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
+* WAN-Sign supports both **SP** and **IDP** initiated SSO.
 
-* WAN-Sign supports **IDP** initiated SSO.
-
-## Adding WAN-Sign from the gallery
+## Add WAN-Sign from the gallery
 
 To configure the integration of WAN-Sign into Azure AD, you need to add WAN-Sign from the gallery to your list of managed SaaS apps.
 
@@ -46,7 +45,6 @@ To configure the integration of WAN-Sign into Azure AD, you need to add WAN-Sign
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **WAN-Sign** in the search box.
 1. Select **WAN-Sign** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
-
 
 ## Configure and test Azure AD SSO for WAN-Sign
 
@@ -71,16 +69,21 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. On the **Set up single sign-on with SAML** page, enter the values for the following fields:
+1. On the **Basic SAML Configuration** section, perform the following steps:
 
     a. In the **Identifier** text box, type a URL using the following pattern:
-    `https://service10.wanbishi.ne.jp/saml/metadata/azuread/<CUSTOMER_ID>`
+    `https://service10.wanbishi.ne.jp/saml/metadata/azuread/<CustomerID>`
 
     b. In the **Reply URL** text box, type a URL using the following pattern:
-    `https://service10.wanbishi.ne.jp/saml/azuread/<CUSTOMER_ID>`
+    `https://service10.wanbishi.ne.jp/saml/azuread/<CustomerID>`
+
+1. Click **Set additional URLs** and perform the following step if you wish to configure the application in SP initiated mode:
+
+    In the **Sign on URL** textbox, type a URL using the following pattern:
+    `https://service10.wanbishi.ne.jp/saml/login/azuread/<CustomerID>`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [WAN-Sign Client support team](mailto:wansign-help@wanbishi.ne.jp) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign on URL. Contact [WAN-Sign Client support team](mailto:wansign-help@wanbishi.ne.jp) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
@@ -124,15 +127,20 @@ In this section, you create a user called Britta Simon in WAN-Sign. Work with [
 
 ## Test SSO 
 
-In this section, you test your Azure AD single sign-on configuration with following options.
+In this section, you test your Azure AD single sign-on configuration with following options. 
 
-* Click on Test this application in Azure portal and you should be automatically signed in to the WAN-Sign for which you set up the SSO
+#### SP initiated:
 
-* You can use Microsoft My Apps. When you click the WAN-Sign tile in the My Apps, you should be automatically signed in to the WAN-Sign for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+* Click on **Test this application** in Azure portal. This will redirect to WAN-Sign Sign on URL where you can initiate the login flow.  
 
+* Go to WAN-Sign Sign-on URL directly and initiate the login flow from there.
+
+#### IDP initiated:
+
+* Click on **Test this application** in Azure portal and you should be automatically signed in to the WAN-Sign for which you set up the SSO. 
+
+You can also use Microsoft My Apps to test the application in any mode. When you click the WAN-Sign tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the WAN-Sign for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
 ## Next steps
 
-Once you configure WAN-Sign you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
-
-
+Once you configure WAN-Sign you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).

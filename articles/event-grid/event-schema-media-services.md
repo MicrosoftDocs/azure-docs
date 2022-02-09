@@ -2,7 +2,7 @@
 title: Azure Media Services as Event Grid source
 description: Describes the properties that are provided for Media Services events with Azure Event Grid
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 09/15/2021
 ---
 
 # Azure Media Services as an Event Grid source

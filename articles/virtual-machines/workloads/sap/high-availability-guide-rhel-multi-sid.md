@@ -12,7 +12,7 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/03/2021
+ms.date: 01/24/2022
 ms.author: radeltch
 
 ---
@@ -25,7 +25,6 @@ ms.author: radeltch
 
 [anf-azure-doc]:../../../azure-netapp-files/azure-netapp-files-introduction.md
 [anf-avail-matrix]:https://azure.microsoft.com/global-infrastructure/services/?products=storage&regions=all
-[anf-register]:../../../azure-netapp-files/azure-netapp-files-register.md
 [anf-sap-applications-azure]:https://www.netapp.com/us/media/tr-4746.pdf
 
 [2002167]:https://launchpad.support.sap.com/#/notes/2002167
@@ -261,7 +260,7 @@ This documentation assumes that:
      --group g-NW2_ASCS
 
     sudo pcs resource create vip_NW2_ASCS IPaddr2 \
-    ip=10.3.1.52 cidr_netmask=24 \
+    ip=10.3.1.52 \
      --group g-NW2_ASCS
   
     sudo pcs resource create nc_NW2_ASCS azure-lb port=62010 \
@@ -273,7 +272,7 @@ This documentation assumes that:
     --group g-NW3_ASCS
 
     sudo pcs resource create vip_NW3_ASCS IPaddr2 \
-    ip=10.3.1.54 cidr_netmask=24 \
+    ip=10.3.1.54 \
     --group g-NW3_ASCS
 
     sudo pcs resource create nc_NW3_ASCS azure-lb port=62020 \
@@ -305,7 +304,7 @@ This documentation assumes that:
      --group g-NW2_AERS
 
     sudo pcs resource create vip_NW2_AERS IPaddr2 \
-    ip=10.3.1.53 cidr_netmask=24 \
+    ip=10.3.1.53 \
      --group g-NW2_AERS
 
     sudo pcs resource create nc_NW2_AERS azure-lb port=62112 \
@@ -317,7 +316,7 @@ This documentation assumes that:
      --group g-NW3_AERS
 
     sudo pcs resource create vip_NW3_AERS IPaddr2 \
-    ip=10.3.1.55 cidr_netmask=24 \
+    ip=10.3.1.55 \
      --group g-NW3_AERS
 
     sudo pcs resource create nc_NW3_AERS azure-lb port=62122 \

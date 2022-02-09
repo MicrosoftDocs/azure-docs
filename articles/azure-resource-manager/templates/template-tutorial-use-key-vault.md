@@ -35,11 +35,13 @@ For a Microsoft Learn module that uses a secure value from a key vault, see [Man
 To complete this article, you need:
 
 * Visual Studio Code with Resource Manager Tools extension. See [Quickstart: Create ARM templates with Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
-* To increase security, use a generated password for the VM administrator account. Here's a sample for generating a password:
+* To increase security, use a generated password for the VM administrator account. You can use [Azure Cloud Shell](../../cloud-shell/overview.md) to run the following command in PowerShell or Bash:
 
-    ```console
+    ```shell
     openssl rand -base64 32
     ```
+
+    To learn more, run `man openssl rand` to open the manual page.
 
     Verify that the generated password meets the VM password requirements. Each Azure service has specific password requirements. For the VM password requirements, see [What are the password requirements when you create a VM?](../../virtual-machines/windows/faq.yml#what-are-the-password-requirements-when-creating-a-vm-).
 
@@ -53,7 +55,7 @@ In this section, you create a key vault and add a secret to it, so that you can 
 > [!NOTE]
 > As the user who's deploying the virtual machine template, if you're not the Owner of or a Contributor to the key vault, the Owner or a Contributor must grant you access to the `Microsoft.KeyVault/vaults/deploy/action` permission for the key vault. For more information, see [Use Azure Key Vault to pass a secure parameter value during deployment](./key-vault-parameter.md).
 
-To run the following Azure PowerShell script, select **Try it** to open Azure Cloud Shell. To paste the script, right-click the shell pane, and then select **Paste**.
+To run the following Azure PowerShell script, select **Try it** to open Cloud Shell. To paste the script, right-click the shell pane, and then select **Paste**.
 
 ```azurepowershell-interactive
 $projectName = Read-Host -Prompt "Enter a project name that is used for generating resource names"
@@ -166,7 +168,7 @@ By using the static ID method, you don't need to make any changes to the templat
 
 ## Deploy the template
 
-1. Sign in to the [Azure Cloud Shell](https://shell.azure.com)
+1. Sign in to [Cloud Shell](https://shell.azure.com).
 
 1. Choose your preferred environment by selecting either **PowerShell** or **Bash** (for CLI) on the upper left corner.  Restarting the shell is required when you switch.
 

@@ -87,7 +87,7 @@ An enriched document is a temporary tree-like data structure created during skil
 
 Initially, an enriched document is simply the content extracted from a data source during [*document cracking*](search-indexer-overview.md#document-cracking), where text and images are extracted from the source and made available for language or image analysis. 
 
-The initial content is the *root node*. It's usually a whole document or a normalized image. How it's articulated in an enrichment tree varies for each data source type. The following table shows the state of a document entering into the enrichment pipeline for several supported data sources:
+The initial content is the *root node* (`document\content`) and is usually a whole document or a normalized image that is extracted from a data source during document cracking. How it's articulated in an enrichment tree varies for each data source type. The following table shows the state of a document entering into the enrichment pipeline for several supported data sources:
 
 |Data Source\Parsing Mode|Default|JSON, JSON Lines & CSV|
 |---|---|---|
@@ -95,7 +95,7 @@ The initial content is the *root node*. It's usually a whole document or a norma
 |Azure SQL|/document/{column1}<br>/document/{column2}<br>…|N/A |
 |Cosmos DB|/document/{key1}<br>/document/{key2}<br>…|N/A|
 
-As skills execute, output is added  to the enrichment tree as new nodes. These nodes can then be used as inputs for downstream skills, and will eventually be projected into a knowledge store, or mapped to index fields. Skills that create content, such as translated strings, will write their output to the enriched document. Likewise, skills that consume the output of upstream skills will read from the enriched document to get the necessary inputs. 
+As skills execute, output is added  to the enrichment tree as new nodes. These nodes can then be used as inputs for downstream skills, and will eventually be projected into a knowledge store, or mapped to index fields. Skills that create content, such as translated strings, will write their output to the enriched document. Likewise, skills that consume the output of upstream skills will read from the enriched document to get the necessary inputs.
 
 :::image type="content" source="media/cognitive-search-working-with-skillsets/skillset-def-enrichment-tree.png" alt-text="Skills read and write from enrichment tree" border="false":::
 
@@ -110,7 +110,7 @@ Because a skill's inputs and outputs are reading from and writing to enrichment 
 
 ## Context
 
-Each skill has a context, which can be the entire document (`/document`) or a node lower in the tree (`/document/countries/`). A context determines:
+Each skill has a context, which can be the entire document (`/document`) or a node lower in the tree (`/document/countries/*`). A context determines:
 
 + The number of times the skill executes, over a single value (once per field, per document), or for context values of type collection, where adding an `/*` results in skill invocation, once for each instance in the collection. 
 
@@ -242,7 +242,7 @@ The Shaper skill is easy to work with because it focuses shaping under one skill
       "sourceContext": "/document/reviews_text/pages/*",
       "inputs": [
         {
-          "name": "SentimentScore",
+          "name": "Sentiment",
           "source": "/document/reviews_text/pages/*/Sentiment"
         },
         {

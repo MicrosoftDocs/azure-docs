@@ -2,15 +2,15 @@
 title: Call flows in Azure Communication Services
 titleSuffix: An Azure Communication Services concept document
 description: Learn about call flows in Azure Communication Services.
-author: mikben
-manager: jken
+author: probableprime
+manager: chpalm
 services: azure-communication-services
 
-ms.author: mikben
+ms.author: rifox
 ms.date: 06/30/2021
-ms.topic: overview
+ms.topic: conceptual
 ms.service: azure-communication-services
-
+ms.subservice: calling
 ---
 # Call flow basics
 
@@ -20,7 +20,7 @@ The section below gives an overview of the call flows in Azure Communication Ser
 
 When you establish a peer-to-peer or group call, two protocols are used behind the scenes - HTTP (REST) for signaling and SRTP for media.
 
-Signaling between the SDKs or between SDKs and Communication Services Signaling Controllers is handled with HTTP REST (TLS). For Real-Time Media Traffic (RTP), the User Datagram Protocol (UDP) is preferred. If the use of UDP is prevented by your firewall, the SDK will use the Transmission Control Protocol (TCP) for media.
+Signaling between the SDKs or between SDKs and Communication Services Signaling Controllers is handled with HTTP REST (TLS). The ACS uses TLS 1.2. For Real-Time Media Traffic (RTP), the User Datagram Protocol (UDP) is preferred. If the use of UDP is prevented by your firewall, the SDK will use the Transmission Control Protocol (TCP) for media.
 
 Let's review the signaling and media protocols in various scenarios.
 

@@ -29,10 +29,10 @@ In the sign-in page, or the navigation bar, or any other location of your app, a
 
 When the user clicks on one of the links, the respective sign-in page opens to sign in the user.
 
-To redirect the user post-sign-in to a custom URL, use the `post_login_redirect_url` query string parameter (not to be confused with the Redirect URI in your identity provider configuration). For example, to navigate the user to `/Home/Index` after sign-in, use the following HTML code:
+To redirect the user post-sign-in to a custom URL, use the `post_login_redirect_uri` query string parameter (not to be confused with the Redirect URI in your identity provider configuration). For example, to navigate the user to `/Home/Index` after sign-in, use the following HTML code:
 
 ```html
-<a href="/.auth/login/<provider>?post_login_redirect_url=/Home/Index">Log in</a>
+<a href="/.auth/login/<provider>?post_login_redirect_uri=/Home/Index">Log in</a>
 ```
 
 ## Client-directed sign-in
@@ -125,13 +125,22 @@ az webapp config appsettings set --name <app_name> --resource-group <group_name>
 
 Both Microsoft Account and Azure Active Directory lets you sign in from multiple domains. For example, Microsoft Account allows _outlook.com_, _live.com_, and _hotmail.com_ accounts. Azure AD allows any number of custom domains for the sign-in accounts. However, you may want to accelerate your users straight to your own branded Azure AD sign-in page (such as `contoso.com`). To suggest the domain name of the sign-in accounts, follow these steps.
 
-In [https://resources.azure.com](https://resources.azure.com), navigate to **subscriptions** > **_\<subscription\_name_** > **resourceGroups** > **_\<resource\_group\_name>_** > **providers** > **Microsoft.Web** > **sites** > **_\<app\_name>_** > **config** > **authsettings**. 
+1. In [https://resources.azure.com](https://resources.azure.com), At the top of the page, select **Read/Write**.
+2. In the left browser, navigate to **subscriptions** > **_\<subscription-name_** > **resourceGroups** > **_\<resource-group-name>_** > **providers** > **Microsoft.Web** > **sites** > **_\<app-name>_** > **config** > **authsettingsV2**.
+3. Click **Edit**.
+4. Add a `loginParameters` array with a `domain_hint` item.
 
-Click **Edit**, modify the following property, and then click **Put**. Be sure to replace _\<domain\_name>_ with the domain you want.
+    ```json
+    "identityProviders": {
+        "azureActiveDirectory": {
+            "login": {
+                "loginParameters": ["domain_hint=<domain-name>"],
+            }
+        }
+    }
+    ```
 
-```json
-"additionalLoginParams": ["domain_hint=<domain_name>"]
-```
+5. Click **Put**.
 
 This setting appends the `domain_hint` query string parameter to the login redirect URL. 
 

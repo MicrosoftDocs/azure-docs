@@ -14,6 +14,8 @@ ms.custom: seodec18
 ---
 # Azure Disk Encryption troubleshooting guide
 
+**Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets 
+
 This guide is for IT professionals, information security analysts, and cloud administrators whose organizations use Azure Disk Encryption. This article is to help with troubleshooting disk-encryption-related problems.
 
 Before taking any of the steps below, first ensure that the VMs you are attempting to encrypt are among the [supported VM sizes and operating systems](disk-encryption-overview.md#supported-vms-and-operating-systems), and that you have met all the prerequisites:
@@ -83,5 +85,5 @@ To disable Azure Disk Encryption with CLI, use [az vm encryption disable](/cli/a
 
 In this document, you learned more about some common problems in Azure Disk Encryption and how to troubleshoot those problems. For more information about this service and its capabilities, see the following articles:
 
-- [Apply disk encryption in Azure Security Center](../../security-center/asset-inventory.md)
+- [Apply disk encryption in Microsoft Defender for Cloud](../../security-center/asset-inventory.md)
 - [Azure data encryption at rest](../../security/fundamentals/encryption-atrest.md)

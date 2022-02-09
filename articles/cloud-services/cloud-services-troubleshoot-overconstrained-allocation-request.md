@@ -12,6 +12,8 @@ ms.date: 02/22/2021
 
 # Troubleshoot OverconstrainedAllocationRequest when deploying Cloud services (classic) to Azure
 
+[!INCLUDE [Cloud Services (classic) deprecation announcement](includes/deprecation-announcement.md)]
+
 In this article, you'll troubleshoot over constrained allocation failures that prevent deployment of Azure Cloud Services (classic).
 
 When you deploy instances to a Cloud Service or add new web or worker role instances, Microsoft Azure allocates compute resources.

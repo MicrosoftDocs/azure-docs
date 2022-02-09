@@ -9,7 +9,6 @@ ms.subservice: disk
 ms.topic: tutorial
 ms.date: 09/04/2019
 ms.author: alkohli
-ms.localizationpriority: high
 
 # Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
 ---
@@ -220,24 +219,26 @@ If you run into any issues while unlocking the disks, see how to [troubleshoot u
 
 6. Run the Data Box Disk Unlock tool. Supply the passkey from the Azure portal you obtained in [Connect to disks and get the passkey](#connect-to-disks-and-get-the-passkey). Optionally specify a list of BitLocker encrypted volumes to unlock. The passkey and volume list should be specified within single quotes. 
 
-    Type the following command.
+   Type the following command.
  
-    `sudo ./DataBoxDiskUnlock_x86_64 /PassKey:'<Your passkey from Azure portal>'          
+   ```bash
+   sudo ./DataBoxDiskUnlock_x86_64 /PassKey:'<Your passkey from Azure portal>'
+   ```
 
-    The sample output is shown below. 
+   The sample output is shown below. 
  
-    ```
-    [user@localhost Downloads]$ sudo ./DataBoxDiskUnlock_x86_64 /Passkey:'qwerqwerqwer'  
-    
-    START: Mon Aug 13 14:25:49 2018 
-    Volumes: /dev/sdbl 
-    Passkey: qwerqwerqwer 
-    
-    Volumes for data copy : 
-    /dev/sdbl: /mnt/DataBoxDisk/mountVoll/ 
-    END: Mon Aug 13 14:26:02 2018
-    ```
-    The mount point for the volume that you can copy your data to is displayed.
+   ```output
+   [user@localhost Downloads]$ sudo ./DataBoxDiskUnlock_x86_64 /Passkey:'qwerqwerqwer'  
+   
+   START: Mon Aug 13 14:25:49 2018 
+   Volumes: /dev/sdbl 
+   Passkey: qwerqwerqwer 
+   
+   Volumes for data copy : 
+   /dev/sdbl: /mnt/DataBoxDisk/mountVoll/ 
+   END: Mon Aug 13 14:26:02 2018
+   ```
+   The mount point for the volume that you can copy your data to is displayed.
 
 7. Repeat unlock steps for any future disk reinserts. Use the `help` command if you need help with the Data Box Disk unlock tool. 
     

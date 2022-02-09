@@ -5,14 +5,16 @@ author: dcstwh
 ms.author: weetok
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
-ms.date: 01/10/2018
+ms.date: 10/22/2021
 ---
 
 # Azure Data Factory - Samples
 > [!NOTE]
 > This article applies to version 1 of Data Factory. If you are using the current version of the Data Factory service, see [PowerShell samples in Data Factory](../samples-powershell.md) and [code samples in the Azure Code Samples gallery](https://azure.microsoft.com/resources/samples/?service=data-factory).
 
+[!INCLUDE[ML Studio (classic) retirement](../../../includes/machine-learning-studio-classic-deprecation.md)] 
 
 ## Samples on GitHub
 The [GitHub Azure-DataFactory repository](https://github.com/azure/azure-datafactory) contains several samples that help you quickly ramp up with Azure Data Factory service (or) modify the scripts and use it in own application. The Samples\JSON folder contains JSON snippets for common scenarios.
@@ -25,14 +27,14 @@ The [GitHub Azure-DataFactory repository](https://github.com/azure/azure-datafac
 | [Cross AppDomain Dot Net Activity Sample](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/CrossAppDomainDotNetActivitySample) |This sample allows you to author a custom .NET activity that is not constrained to assembly versions used by the ADF launcher (For example, WindowsAzure.Storage v4.3.0, Newtonsoft.Json v6.0.x, etc.). |
 | [Run R script](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/RunRScriptUsingADFSample) |This sample includes the Data Factory custom activity that can be used to invoke RScript.exe. This sample works only with your own (not on-demand) HDInsight cluster that already has R Installed on it. |
 | [Invoke Spark jobs on HDInsight Hadoop cluster](../tutorial-transform-data-spark-portal.md) |This sample shows how to use MapReduce activity to invoke a Spark program. The spark program just copies data from one Azure Blob container to another. |
-| [Twitter Analysis using Azure Machine Learning Studio (classic) Batch Scoring Activity](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/TwitterAnalysisSample-AzureMLBatchScoringActivity) |This sample shows how to use AzureMLBatchScoringActivity to invoke an Azure Machine Learning model that performs twitter sentiment analysis, scoring, prediction etc. |
-| [Twitter Analysis using custom activity](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/TwitterAnalysisSample-CustomC%23Activity) |This sample shows how to use a custom .NET activity to invoke an Azure Machine Learning model that performs twitter sentiment analysis, scoring, prediction etc. |
-| [Parameterized Pipelines for Azure Machine Learning](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/ParameterizedPipelinesForAzureML) |The sample provides an end-to-end C# code to deploy N pipelines for scoring and retraining each with a different region parameter where the list of regions is coming from a parameters.txt file, which is included with this sample. |
-| [Reference Data Refresh for Azure Stream Analytics jobs](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/ReferenceDataRefreshForASAJobs) |This sample shows how to use Azure Data Factory and Azure Stream Analytics together to run the queries with reference data and setup the refresh for reference data on a schedule. |
+| [Twitter Analysis using ML Studio (classic) Batch Scoring Activity](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/TwitterAnalysisSample-AzureMLBatchScoringActivity) |This sample shows how to use AzureMLBatchScoringActivity to invoke an ML model that performs twitter sentiment analysis, scoring, prediction etc. |
+| [Twitter Analysis using custom activity](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/TwitterAnalysisSample-CustomC%23Activity) |This sample shows how to use a custom .NET activity to invoke an ML Studio (classic) model that performs twitter sentiment analysis, scoring, prediction etc. |
+| [Parameterized Pipelines for ML Studio (classic)](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/ParameterizedPipelinesForAzureML) |The sample provides an end-to-end C# code to deploy N pipelines for scoring and retraining each with a different region parameter where the list of regions is coming from a parameters.txt file, which is included with this sample. |
+| [Reference Data Refresh for Azure Stream Analytics jobs](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/ReferenceDataRefreshForASAJobs) |This sample shows how to use Azure Data Factory and Azure Stream Analytics together to run the queries with reference data and set up the refresh for reference data on a schedule. |
 | [Hybrid Pipeline with On-premises Hortonworks Hadoop](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/HybridPipelineWithOnPremisesHortonworksHadoop) |The sample uses an on-premises Hadoop cluster as a compute target for running jobs in Data Factory just like you would add other compute targets like an HDInsight based Hadoop cluster in cloud. |
 | [JSON Conversion Tool](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/JSONConversionTool) |This tool allows you to convert JSONs from version prior to 2015-07-01-preview to latest or 2015-07-01-preview (default). |
 | [U-SQL sample input file](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/U-SQL%20Sample%20Input%20File) |This file is a sample file used by an U-SQL activity. |
-| [Delete blob file](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/DeleteBlobFileFolderCustomActivity) | This sample showcases a C# file which can be used as part of ADF custom .net activity to delete files from the source Azure Blob location once the files have been copied.|
+| [Delete blob file](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/DeleteBlobFileFolderCustomActivity) | This sample showcases a C# file which can be used as part of ADF custom .NET activity to delete files from the source Azure Blob location once the files have been copied.|
 
 ## Azure Resource Manager templates
 You can find the following Azure Resource Manager templates for Data Factory on GitHub.
@@ -49,21 +51,21 @@ You can use the **Sample pipelines** tile on the home page of your data factory 
 1. Create a data factory or open an existing data factory. See [Copy data from Blob Storage to SQL Database using Data Factory](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) for steps to create a data factory.
 2. In the **DATA FACTORY** blade for the data factory, click the **Sample pipelines** tile.
 
-    ![Sample pipelines tile](./media/data-factory-samples/SamplePipelinesTile.png)
+    :::image type="content" source="./media/data-factory-samples/SamplePipelinesTile.png" alt-text="Sample pipelines tile":::
 3. In the **Sample pipelines** blade, click the **sample** that you want to deploy.
 
-    ![Sample pipelines blade](./media/data-factory-samples/SampleTile.png)
+    :::image type="content" source="./media/data-factory-samples/SampleTile.png" alt-text="Sample pipelines blade":::
 4. Specify configuration settings for the sample. For example, your Azure storage account name and account key, logical SQL server name, database, User ID, and password, etc.
 
-    ![Sample blade](./media/data-factory-samples/SampleBlade.png)
+    :::image type="content" source="./media/data-factory-samples/SampleBlade.png" alt-text="Sample blade":::
 5. After you are done with specifying the configuration settings, click **Create** to create/deploy the sample pipelines and linked services/tables used by the pipelines.
 6. You see the status of deployment on the sample tile you clicked earlier on the **Sample pipelines** blade.
 
-    ![Deployment status](./media/data-factory-samples/DeploymentStatus.png)
+    :::image type="content" source="./media/data-factory-samples/DeploymentStatus.png" alt-text="Deployment status":::
 7. When you see the **Deployment succeeded** message on the tile for the sample, close the **Sample pipelines** blade.  
 8. On **DATA FACTORY** blade, you see that linked services, data sets, and pipelines are added to your data factory.  
 
-    ![Data Factory blade](./media/data-factory-samples/DataFactoryBladeAfter.png)
+    :::image type="content" source="./media/data-factory-samples/DataFactoryBladeAfter.png" alt-text="Data Factory blade":::
 
 ## Samples in Visual Studio
 ### Prerequisites
@@ -83,10 +85,10 @@ You must have the following installed on your computer:
    4. Select a **location** for the project.
    5. Click **OK**.
 
-      ![New project dialog box](./media/data-factory-samples/vs-new-project-adf-templates.png)
+      :::image type="content" source="./media/data-factory-samples/vs-new-project-adf-templates.png" alt-text="New project dialog box":::
 3. In the **Data Factory Templates** dialog box, select the sample template from the **Use-Case Templates** section, and click **Next**. The following steps walk you through using the **Customer Profiling** template. Steps are similar for the other samples.
 
-    ![Data Factory Templates dialog box](./media/data-factory-samples/vs-data-factory-templates-dialog.png)
+    :::image type="content" source="./media/data-factory-samples/vs-data-factory-templates-dialog.png" alt-text="Data Factory Templates dialog box":::
 4. In the **Data Factory Configuration** dialog, click **Next** on the **Data Factory Basics** page.
 5. On the **Configure data factory** page, do the following steps:
    1. Select **Create New Data Factory**. You can also select **Use existing data factory**.
@@ -103,7 +105,7 @@ You must have the following installed on your computer:
 11. If you see **Sign in to your Microsoft account** dialog box, enter your credentials for the account that has Azure subscription, and click **sign in**.
 12. You should see the following dialog box:
 
-    ![Publish dialog box](./media/data-factory-build-your-first-pipeline-using-vs/publish.png)
+    :::image type="content" source="./media/data-factory-build-your-first-pipeline-using-vs/publish.png" alt-text="Publish dialog box":::
 13. In the **Configure data factory** page, do the following steps:
 
     1. Confirm that **Use existing data factory** option.

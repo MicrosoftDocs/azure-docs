@@ -1,11 +1,11 @@
 ---
 title: Create an Azure HPC Cache
 description: How to create an Azure HPC Cache instance
-author: ekpgh
+author: ronhogue
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 07/15/2021
-ms.author: v-erkel 
+ms.date: 01/26/2022
+ms.author: rohogue 
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -14,10 +14,10 @@ ms.custom: devx-track-azurepowershell
 Use the Azure portal or the Azure CLI to create your cache.
 
 ![screenshot of cache overview in Azure portal, with create button at the bottom](media/hpc-cache-home-page.png)
-
+<!--
 Click the image below to watch a [video demonstration](https://azure.microsoft.com/resources/videos/set-up-hpc-cache/) of creating a cache and adding a storage target.
 
-[![video thumbnail: Azure HPC Cache: Setup (click to visit the video page)](media/video-4-setup.png)](https://azure.microsoft.com/resources/videos/set-up-hpc-cache/)
+[![video thumbnail: Azure HPC Cache: Setup (click to visit the video page)](media/video-4-setup.png)](https://azure.microsoft.com/resources/videos/set-up-hpc-cache/) -->
 
 ## [Portal](#tab/azure-portal)
 
@@ -30,6 +30,9 @@ In **Project Details**, select the subscription and resource group that will hos
 In **Service Details**, set the cache name and these other attributes:
 
 * Location - Select one of the [supported regions](hpc-cache-overview.md#region-availability).
+
+  If that region supports [availability zones](../availability-zones/az-overview.md), select the zone that will host your cache resources. Azure HPC Cache is a zonal service.
+
 * Virtual network - You can select an existing one or create a new virtual network.
 * Subnet - Choose or create a subnet with at least 64 IP addresses (/24). This subnet must be used only for this Azure HPC Cache instance.
 
@@ -109,7 +112,7 @@ For a complete explanation of the customer-managed key encryption process, read 
 
 Select **Customer managed** to choose customer-managed key encryption. The key vault specification fields appear. Select the Azure Key Vault to use, then select the key and version to use for this cache. The key must be a 2048-bit RSA key. You can create a new key vault, key, or key version from this page.
 
-Check the **Always use current key version** box if you want to use [automatic key rotation](../virtual-machines/disk-encryption.md#automatic-key-rotation-of-customer-managed-keys-preview).
+Check the **Always use current key version** box if you want to use [automatic key rotation](../virtual-machines/disk-encryption.md#automatic-key-rotation-of-customer-managed-keys).
 
 If you want to use a specific managed identity for this cache, configure it in the **Managed identities** section. Read [What are managed identities for Azure resources?](../active-directory/managed-identities-azure-resources/overview.md) to learn more.
 
@@ -158,7 +161,7 @@ Supply these values:
 * Azure region
 * Cache subnet, in this format:
 
-  ``--subnet "/subscriptions/<subscription_id>/resourceGroups/<cache_resource_group>/providers/Microsoft.Network/virtualNetworks/<virtual_network_name>/subnets/<cache_subnet_name>"``
+  `--subnet "/subscriptions/<subscription_id>/resourceGroups/<cache_resource_group>/providers/Microsoft.Network/virtualNetworks/<virtual_network_name>/subnets/<cache_subnet_name>"`
 
   The cache subnet needs at least 64 IP addresses (/24), and it can't house any other resources.
 

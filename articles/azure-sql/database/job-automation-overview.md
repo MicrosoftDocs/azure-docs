@@ -11,7 +11,7 @@ dev_langs:
 ms.topic: conceptual
 author: williamdassafMSFT
 ms.author: wiassaf
-ms.reviewer:
+ms.reviewer: kendralittle, mathoma
 ms.date: 2/1/2021
 ---
 # Automate management tasks using elastic jobs (preview)

@@ -27,6 +27,7 @@ Use the Face client library for JavaScript to:
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
 * The latest version of [Node.js](https://nodejs.org/en/)
+* [!INCLUDE [contributor-requirement](../../../includes/quickstarts/contributor-requirement.md)]
 * Once you have your Azure subscription, [Create a Face resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesFace) in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
     * You will need the key and endpoint from the resource you create to connect your application to the Face API. You'll paste your key and endpoint into the code below later in the quickstart.
     * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
@@ -133,6 +134,8 @@ Face detection is required as a first step in  Face Analysis and Identity Verifi
 Create a new method to detect faces. The `DetectFaceExtract` method processes three of the images at the given URL and creates a list of **[DetectedFace](/javascript/api/@azure/cognitiveservices-face/detectedface)** objects in program memory. The list of **[FaceAttributeType](/javascript/api/@azure/cognitiveservices-face/faceattributetype)** values specifies which features to extract. 
 
 The `DetectFaceExtract` method then parses and prints the attribute data for each detected face. Each attribute must be specified separately in the original face detection API call (in the **[FaceAttributeType](/javascript/api/@azure/cognitiveservices-face/faceattributetype)** list). The following code processes every attribute, but you will likely only need to use one or a few.
+
+The "QualityForRecognition" attribute is an indicator of the overall image quality regarding whether the image being used in the detection is of sufficient quality to attempt face recognition on. To leverage the quality attribute, users need to assign the model version by setting the detectionModel parameter to detection_01 or detection_03, recognitionModel parameter to recognition_03 or recognition_04, and include the QualityForRecognition attribute in the request as shown in the example above.    
 
 :::code language="js" source="~/cognitive-services-quickstart-code/javascript/Face/sdk_quickstart.js" id="detect":::
 

@@ -3,11 +3,11 @@ title: Compare Azure Content Delivery Network (CDN) product features
 description: Learn about the features that each Azure Content Delivery Network (CDN) product supports.
 services: cdn
 documentationcenter: ''
-author: asudbring
+author: duongau
 ms.service: azure-cdn
 ms.topic: overview
 ms.date: 11/15/2019
-ms.author: allensu
+ms.author: duau
 ms.custom: mvc
 
 ---
@@ -53,7 +53,7 @@ The following table compares the features available with each product.
 | [Token authentication](cdn-token-auth.md)  |  |  |  |**&#x2713;**| 
 | [DDOS protection](https://www.us-cert.gov/ncas/tips/ST04-015)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Bring your own certificate](cdn-custom-ssl.md?tabs=option-2-enable-https-with-your-own-certificate#tlsssl-certificates) |**&#x2713;** |  | **&#x2713;** | **&#x2713;** |
-| Supported TLS Versions | TLS 1.2, TLS 1.0/1.1 - [Configurable](/rest/api/cdn/cdn/customdomains/enablecustomhttps#usermanagedhttpsparameters) | TLS 1.2 | TLS 1.2 | TLS 1.2 |
+| Supported TLS Versions | TLS 1.2, TLS 1.0/1.1 - [Configurable](/rest/api/cdn/custom-domains/enable-custom-https#usermanagedhttpsparameters) | TLS 1.2 | TLS 1.2 | TLS 1.2 |
 ||||
 | **Analytics and reporting** | **Standard Microsoft** | **Standard Akamai** | **Standard Verizon** | **Premium Verizon** | 
 | [Azure diagnostic logs](cdn-azure-diagnostic-logs.md)  | **&#x2713;** | **&#x2713;** |**&#x2713;** |**&#x2713;** |
@@ -68,7 +68,7 @@ The following table compares the features available with each product.
 | Easy integration with Azure services, such as [Storage](cdn-create-a-storage-account-with-cdn.md), [Web Apps](cdn-add-to-web-app.md), and [Media Services](../media-services/previous/media-services-portal-manage-streaming-endpoints.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | Management via [REST API](/rest/api/cdn/), [.NET](cdn-app-dev-net.md), [Node.js](cdn-app-dev-node.md), or [PowerShell](cdn-manage-powershell.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Compression MIME types](./cdn-improve-performance.md)  |Configurable |Configurable |Configurable  |Configurable  |
-| Compression encodings  |gzip, brotli |gzip |gzip, deflate, bzip2, brotli  |gzip, deflate, bzip2, brotli  |
+| Compression encodings  |gzip, brotli |gzip |gzip, deflate, bzip2  |gzip, deflate, bzip2  |
 
 ## Migration
 

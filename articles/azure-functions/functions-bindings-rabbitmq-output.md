@@ -7,6 +7,7 @@ ms.assetid:
 ms.topic: reference
 ms.date: 12/17/2020
 ms.author: cachai
+ms.devlang: csharp, java, javascript, python
 ms.custom: 
 ---
 
@@ -149,7 +150,7 @@ Here's JavaScript code:
 
 ```javascript
 module.exports = function (context, input) {
-    context.bindings.myQueueItem = input.body;
+    context.bindings.outputMessage = input.body;
     context.done();
 };
 ```
@@ -304,7 +305,7 @@ When working with C# Script functions:
 
 # [JavaScript](#tab/javascript)
 
-The queue message is available via context.bindings.<NAME> where <NAME> matches the name defined in function.json. If the payload is JSON, the value is deserialized into an object.
+The queue message is available via context.bindings.\<NAME\> where \<NAME\> matches the name defined in function.json. If the payload is JSON, the value is deserialized into an object.
 
 # [Python](#tab/python)
 

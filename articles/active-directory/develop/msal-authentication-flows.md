@@ -24,11 +24,11 @@ The Microsoft Authentication Library (MSAL) supports several authentication flow
 |--|--|--|
 | [Authorization code](#authorization-code) | Used in apps that are installed on a device to gain access to protected resources, such as web APIs. Enables you to add sign-in and API access to your mobile and desktop apps. | [Desktop apps](scenario-desktop-overview.md), [mobile apps](scenario-mobile-overview.md), [web apps](scenario-web-app-call-api-overview.md) |
 | [Client credentials](#client-credentials) | Allows you to access web-hosted resources by using the identity of an application. Commonly used for server-to-server interactions that must run in the background, without immediate interaction with a user. | [Daemon apps](scenario-daemon-overview.md) |
-| [Device code](#device-code) | Allows users to sign in to input-constrained devices such as a smart TV, IoT device, or printer. | [Desktop/mobile apps](scenario-desktop-acquire-token.md#command-line-tool-without-a-web-browser) |
+| [Device code](#device-code) | Allows users to sign in to input-constrained devices such as a smart TV, IoT device, or printer. | [Desktop/mobile apps](scenario-desktop-acquire-token-device-code-flow.md) |
 | [Implicit grant](#implicit-grant) | Allows the app to get tokens without performing a back-end server credential exchange. Enables the app to sign in the user, maintain session, and get tokens to other web APIs, all within the client JavaScript code. | [Single-page applications (SPA)](scenario-spa-overview.md) |
 | [On-behalf-of](#on-behalf-of) | An application invokes a service or web API, which in turn needs to call another service or web API. The idea is to propagate the delegated user identity and permissions through the request chain. | [Web APIs](scenario-web-api-call-api-overview.md) |
-| [Username/password](#usernamepassword) | Allows an application to sign in the user by directly handling their password. This flow isn't recommended. | [Desktop/mobile apps](scenario-desktop-acquire-token.md#username-and-password) |
-| [Integrated Windows Authentication](#integrated-windows-authentication) | Allows applications on domain or Azure Active Directory (Azure AD) joined computers to acquire a token silently (without any UI interaction from the user). | [Desktop/mobile apps](scenario-desktop-acquire-token.md#integrated-windows-authentication) |
+| [Username/password](#usernamepassword) | Allows an application to sign in the user by directly handling their password. This flow isn't recommended. | [Desktop/mobile apps](scenario-desktop-acquire-token-username-password.md) |
+| [Integrated Windows authentication](#integrated-windows-authentication) | Allows applications on domain or Azure Active Directory (Azure AD) joined computers to acquire a token silently (without any UI interaction from the user). | [Desktop/mobile apps](scenario-desktop-acquire-token-integrated-windows-authentication.md) |
 
 ## How each flow emits tokens and codes
 
@@ -80,7 +80,7 @@ The [OAuth 2 client credentials flow](v2-oauth2-client-creds-grant-flow.md) allo
 The client credentials grant flow permits a web service (a confidential client) to use its own credentials, instead of impersonating a user, to authenticate when calling another web service. In this scenario, the client is typically a middle-tier web service, a daemon service, or a website. For a higher level of assurance, the Microsoft identity platform also allows the calling service to use a certificate (instead of a shared secret) as a credential.
 
 > [!NOTE]
-> The confidential client flow isn't available on mobile platforms like UWP, Xamarin.iOS, and Xamarin.Android because they support only public client applications. Public client applications don't know how to prove the application's identity to the identity provider. A secure connection can be achieved on web app or web API back-ends by deploying a certificate.
+> The confidential client flow isn't available on mobile platforms like UWP, iOS, and Android because they support only public client applications. Public client applications don't know how to prove the application's identity to the identity provider. A secure connection can be achieved on web app or web API back-ends by deploying a certificate.
 
 ### Application secrets
 
@@ -164,7 +164,7 @@ In the preceding diagram, the application:
 > [!WARNING]
 > This flow isn't recommended. It requires a high degree of trust and credential exposure. You should use this flow *only* when more secure flows can't be used. For more information, see [What's the solution to the growing problem of passwords?](https://news.microsoft.com/features/whats-solution-growing-problem-passwords-says-microsoft/).
 
-The preferred flow for acquiring a token silently on Windows domain-joined machines is [Integrated Windows Authentication](#integrated-windows-authentication). In other cases, use the [device code flow](#device-code).
+The preferred flow for acquiring a token silently on Windows domain-joined machines is [Integrated Windows authentication](#integrated-windows-authentication). In other cases, use the [device code flow](#device-code).
 
 Although the username/password flow might be useful in some scenarios like DevOps, avoid it if you want to use username/password in interactive scenarios where you provide your own UI.
 
@@ -175,27 +175,27 @@ By using username/password:
 
 ### Constraints
 
-Apart from the [Integrated Windows Authentication constraints](#integrated-windows-authentication), the following constraints also apply:
+Apart from the [integrated Windows authentication constraints](#integrated-windows-authentication), the following constraints also apply:
 
 - The username/password flow isn't compatible with Conditional Access and multi-factor authentication. As a consequence, if your app runs in an Azure AD tenant where the tenant admin requires multi-factor authentication, you can't use this flow. Many organizations do that.
 - ROPC works only for work and school accounts. You can't use ROPC for Microsoft accounts (MSA).
 - The flow is available on .NET desktop and .NET Core, but not on Universal Windows Platform.
 - In Azure AD B2C, the ROPC flow works only for local accounts. For information about ROPC in MSAL.NET and Azure AD B2C, see [Using ROPC with Azure AD B2C](msal-net-aad-b2c-considerations.md#resource-owner-password-credentials-ropc).
 
-## Integrated Windows Authentication
+## Integrated Windows authentication
 
-MSAL supports Integrated Windows Authentication (IWA) for desktop and mobile applications that run on a domain-joined or Azure AD-joined Windows computer. Using IWA, these applications can acquire a token silently without requiring UI interaction by user.
+MSAL supports integrated Windows authentication (IWA) for desktop and mobile applications that run on a domain-joined or Azure AD-joined Windows computer. Using IWA, these applications can acquire a token silently without requiring UI interaction by user.
 
-![Diagram of Integrated Windows Authentication](media/msal-authentication-flows/integrated-windows-authentication.png)
+![Diagram of integrated Windows authentication](media/msal-authentication-flows/integrated-windows-authentication.png)
 
 In the preceding diagram, the application:
 
-1. Acquires a token by using Integrated Windows Authentication.
+1. Acquires a token by using integrated Windows authentication.
 2. Uses the token to make requests of the resource.
 
 ### Constraints
 
-Integrated Windows Authentication (IWA) supports federated users *only* - users created in Active Directory and backed by Azure AD. Users created directly in Azure AD without Active Directory backing (managed users) can't use this authentication flow. This limitation doesn't affect the [username/password flow](#usernamepassword).
+Integrated Windows authentication (IWA) supports federated users *only* - users created in Active Directory and backed by Azure AD. Users created directly in Azure AD without Active Directory backing (managed users) can't use this authentication flow. This limitation doesn't affect the [username/password flow](#usernamepassword).
 
 IWA is for .NET Framework, .NET Core, and Universal Windows Platform applications.
 

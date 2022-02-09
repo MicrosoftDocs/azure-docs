@@ -4,12 +4,12 @@ description: In this tutorial, you use groups with user membership rules to add 
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: daveba
+manager: karenhoran
 ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/02/2020
+ms.date: 09/02/2021
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: "it-pro;seo-update-azuread-jan"

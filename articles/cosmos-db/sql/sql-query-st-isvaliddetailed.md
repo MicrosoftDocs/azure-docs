@@ -5,7 +5,7 @@ author: ginamr
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 11/23/2020
+ms.date: 09/21/2021
 ms.author: girobins
 ms.custom: query-reference
 ---
@@ -50,6 +50,9 @@ SELECT ST_ISVALIDDETAILED({
   }  
 }]  
 ```  
+
+> [!NOTE]
+> The GeoJSON specification requires that points within a Polygon be specified in counter-clockwise order. A Polygon specified in clockwise order represents the inverse of the region within it.
 
 ## Next steps
 

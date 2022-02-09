@@ -6,7 +6,7 @@ services: cognitive-services
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 08/22/2019    
+ms.date: 10/28/2021
 ---
 # Cognitive Services and machine learning
 
@@ -88,8 +88,6 @@ The following data categorizes each service by which kind of data it allows or r
 |[Content Moderator](./Content-Moderator/overview.md)|x||x|
 |[Custom Vision](./custom-vision-service/overview.md)||x||
 |[Face](./Face/Overview.md)|x|x||
-|[Form Recognizer](./form-recognizer/overview.md)||x||
-|[Immersive Reader](../applied-ai-services/immersive-reader/overview.md)|x|||
 |[Ink Recognizer](/previous-versions/azure/cognitive-services/Ink-Recognizer/overview)|x|x||
 |[Language Understanding (LUIS)](./LUIS/what-is-luis.md)||x||
 |[Personalizer](./personalizer/what-is-personalizer.md)|x*|x*|x|
@@ -98,8 +96,8 @@ The following data categorizes each service by which kind of data it allows or r
 |[Speech Text-to-speech (TTS)](speech-service/text-to-speech.md)|x|x||
 |[Speech Speech-to-text (STT)](speech-service/speech-to-text.md)|x|x||
 |[Speech Translation](speech-service/speech-translation.md)|x|||
-|[Text Analytics](./text-analytics/overview.md)|x|||
-|[Translator](./translator/translator-info-overview.md)|x|||
+|[Language service](./language-service/overview.md)|x|||
+|[Translator](./translator/translator-overview.md)|x|||
 |[Translator - custom translator](./translator/custom-translator/overview.md)||x||
 
 *Personalizer only needs training data collected by the service (as it operates in real-time) to evaluate your policy and data. Personalizer does not need large historical datasets for up-front or batch training. 

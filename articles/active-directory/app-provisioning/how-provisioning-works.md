@@ -3,12 +3,12 @@ title: Understand how Application Provisioning in Azure Active Directory
 description: Understand how Application Provisioning works in Azure Active Directory.
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: karenhoran
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 06/11/2021
+ms.date: 02/03/2022
 ms.author: kenwith
 ms.reviewer: arvinh
 ---
@@ -33,7 +33,7 @@ The **Azure AD Provisioning Service** provisions users to SaaS apps and other sy
 
 The Azure AD provisioning service uses the [SCIM 2.0 protocol](https://techcommunity.microsoft.com/t5/Identity-Standards-Blog/bg-p/IdentityStandards) for automatic provisioning. The service connects to the SCIM endpoint for the application, and uses SCIM user object schema and REST APIs to automate the provisioning and de-provisioning of users and groups. A SCIM-based provisioning connector is provided for most applications in the Azure AD gallery. When building apps for Azure AD, developers can use the SCIM 2.0 user management API to build a SCIM endpoint that integrates Azure AD for provisioning. For details, see [Build a SCIM endpoint and configure user provisioning](../app-provisioning/use-scim-to-provision-users-and-groups.md).
 
-To request an automatic Azure AD provisioning connector for an app that doesn't currently have one, fill out an [Azure Active Directory Application Request](https://aka.ms/aadapprequest).
+To request an automatic Azure AD provisioning connector for an app that doesn't currently have one, see [Azure Active Directory Application Request](../manage-apps/v2-howto-app-gallery-listing.md).
 
 ## Authorization
 
@@ -77,7 +77,10 @@ You can use scoping filters to define attribute-based rules that determine which
 It's possible to use the Azure AD user provisioning service to provision B2B (or guest) users in Azure AD to SaaS applications. 
 However, for B2B users to sign in to the SaaS application using Azure AD, the SaaS application must have its SAML-based single sign-on capability configured in a specific way. For more information on how to configure SaaS applications to support sign-ins from B2B users, see [Configure SaaS apps for B2B collaboration](../external-identities/configure-saas-apps.md).
 
-Note that the userPrincipalName for a guest user is often stored as "alias#EXT#@domain.com". when the userPrincipalName is included in your attribute mappings as a source attribute, the #EXT# is stripped from the userPrincipalName. If you require the #EXT# to be present, replace userPrincipalName with originalUserPrincipalName as the source attribute. 
+> [!NOTE]
+> The userPrincipalName for a guest user is often displayed as "alias#EXT#@domain.com". When the userPrincipalName is included in your attribute mappings as a source attribute, the #EXT# is stripped from the userPrincipalName. If you require the #EXT# to be present, replace userPrincipalName with originalUserPrincipalName as the source attribute. 
+userPrincipalName = alias@domain.com
+originalUserPrincipalName = alias#EXT#@domain.com
 
 ## Provisioning cycles: Initial and incremental
 
@@ -192,6 +195,19 @@ By default, the Azure AD provisioning service soft deletes or disables users tha
 If one of the above four events occurs and the target application does not support soft deletes, the provisioning service will send a DELETE request to permanently delete the user from the app.
 
 If you see an attribute IsSoftDeleted in your attribute mappings, it is used to determine the state of the user and whether to send an update request with active = false to soft delete the user.
+
+**Deprovisioning events**
+
+The following table describes how you can configure deprovisioning actions with the Azure AD provisioning service. These rules are written with the non-gallery / custom application in mind, but generally apply to applications in the gallery. However, the behavior for gallery applications can differ as they have been optimized to meet the needs of the application. For example, the Azure AD provisioning service may always sende a request to hard delete users in certain applications rather than soft deleting, if the target application doesn't support soft deleting users. 
+
+|Scenario|How to configure in Azure AD|
+|--|--|
+|If a user is unassigned from an app, soft-deleted in Azure AD, or blocked from sign-in, do nothing.|Remove isSoftDeleted from the attribute mappings and / or set the [skip out of scope deletions](skip-out-of-scope-deletions.md) property to true.|
+|If a user is unassigned from an app, soft-deleted in Azure AD, or blocked from sign-in, set a specific attribute to true / false.|Map isSoftDeleted to the attribute that you would like to set to false.|
+|When a user is disabled in Azure AD, unassigned from an app, soft-deleted in Azure AD, or blocked from sign-in, send a DELETE request to the target application.|This is currently supported for a limited set of gallery applications where the functionality is required. It is not configurable by customers.|
+|When a user is deleted in Azure AD, do nothing in the target application.|Ensure that "Delete" is not selected as one of the target object actions in the [attriubte configuration experience](skip-out-of-scope-deletions.md).|
+|When a user is deleted in Azure AD, set the value of an attribute in the target application.|Not supported.|
+|When a user is deleted in Azure AD, delete the user in the target application|This is supported. Ensure that Delete is selected as one of the target object actions in the [attribute configuration experience](skip-out-of-scope-deletions.md).|
 
 **Known limitations**
 

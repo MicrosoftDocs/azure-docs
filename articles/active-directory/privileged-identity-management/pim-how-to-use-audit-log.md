@@ -4,15 +4,15 @@ description: Learn how to view the audit log history for Azure AD roles in Azure
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: daveba
+manager: karenhoran
 editor: ''
-
 ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 06/03/2021
+ms.date: 10/07/2021
 ms.author: curtand
+ms.reviewer: shaunliu
 ms.custom: pim
 
 ms.collection: M365-identity-device-management
@@ -35,7 +35,7 @@ Resource audit gives you a view of all activity associated with your Azure AD ro
 
 1. Filter the history using a predefined date or custom range.
 
-    ![Resource audit list with filters](media/azure-pim-resource-rbac/rbac-resource-audit.png)
+    ![Azure AD role audit list with filters](media/azure-pim-resource-rbac/rbac-resource-audit.png)
 
 ## View my audit
 

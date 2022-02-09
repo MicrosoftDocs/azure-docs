@@ -12,6 +12,8 @@ ms.custom: contperf-fy21q3-portal, devx-track-azurecli
 ---
 # Find Azure Marketplace image information using the Azure CLI
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
+
 This topic describes how to use the Azure CLI to find VM images in the Azure Marketplace. Use this information to specify a Marketplace image when you create a VM programmatically with the CLI, Resource Manager templates, or other tools.
 
 You can also browse available images and offers using the [Azure Marketplace](https://azuremarketplace.microsoft.com/) or  [Azure PowerShell](../windows/cli-ps-findimage.md). 
@@ -266,7 +268,7 @@ If you still have the original VM, or another VM created using the same marketpl
 az vm get-instance-view -g myResourceGroup -n myVM --query plan
 ```
 
-If you didn't get the plan information before the original VM was deleted, you can file a [support request](https://ms.portal.azure.com/#create/Microsoft.Support). They will need the VM name, subscription ID and the time stamp of the delete operation.
+If you didn't get the plan information before the original VM was deleted, you can file a [support request](https://portal.azure.com/#create/Microsoft.Support). They will need the VM name, subscription ID and the time stamp of the delete operation.
 
 Once you have the plan information, you can create the new VM using the `--attach-os-disk` parameter to specify the VHD.
 

@@ -25,6 +25,10 @@ This article shows how to use the Request trigger and Response action so that yo
 
 For more information about security, authorization, and encryption for inbound calls to your logic app, such as [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security), previously known as Secure Sockets Layer (SSL), [Azure Active Directory Open Authentication (Azure AD OAuth)](../active-directory/develop/index.yml), exposing your logic app with Azure API Management, or restricting the IP addresses that originate inbound calls, see [Secure access and data - Access for inbound calls to request-based triggers](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests).
 
+> [!NOTE]
+> For the **Logic App (Standard)** resource type in single-tenant Azure Logic Apps, Azure AD OAuth is currently 
+> unavailable for inbound calls to request-based triggers, such as the Request trigger and HTTP Webhook trigger.
+
 ## Prerequisites
 
 * An Azure account and subscription. If you don't have a subscription, you can [sign up for a free Azure account](https://azure.microsoft.com/free/).
@@ -276,6 +280,11 @@ When you use the Request trigger to handle inbound requests, you can model the r
 1. To specify additional properties, such as a JSON schema for the response body, open the **Add new parameter** list, and select the parameters that you want to add.
 
 1. When you're done, save your logic app. On the designer toolbar, select **Save**.
+
+> [!IMPORTANT]
+> If you have one or more Response actions in a complex workflow with branches, make sure 
+> that the workflow run processes at least one Response action during runtime. 
+> Otherwise, if all Response actions are skipped, the caller receives a **502 Bad Gateway** error, even if the workflow finishes successfully.
 
 ## Next steps
 

@@ -4,10 +4,10 @@ titleSuffix: Azure Machine Learning
 description: Learn how to work around, solve, and troubleshoot some common Docker deployment errors with Azure Kubernetes Service and Azure Container Instances.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
-author: gvashishtha
-ms.author:  gopalv
-ms.date: 11/25/2020
+ms.subservice: mlops
+ms.date: 10/21/2021
+author: blackmist
+ms.author: larryfr
 ms.topic: troubleshooting
 ms.custom: contperf-fy20q4, devx-track-python, deploy, contperf-fy21q2
 #Customer intent: As a data scientist, I want to figure out why my model deployment fails so that I can fix it.
@@ -115,6 +115,12 @@ After the image is successfully built, the system attempts to start a container 
 
 Use the info in the [Inspect the Docker log](how-to-troubleshoot-deployment-local.md#dockerlog) article.
 
+## Container azureml-fe-aci launch fails
+
+When deploying a service to an Azure Container Instance compute target, Azure Machine Learning attempts to create a front-end container that has the name `azureml-fe-aci` for the inference request. If `azureml-fe-aci` crashes, you can see logs by running `az container logs --name MyContainerGroup --resource-group MyResourceGroup --subscription MySubscription --container-name azureml-fe-aci`. You can follow the error message in the logs to make the fix. 
+
+The most common failure for `azureml-fe-aci` is that the provided SSL certificate or key is invalid.
+
 ## Function fails: get_model_path()
 
 Often, in the `init()` function in the scoring script, [Model.get_model_path()](/python/api/azureml-core/azureml.core.model.model#get-model-path-model-name--version-none---workspace-none-) function is called to locate a model file or a folder of model files in the container. If the model file or folder cannot be found, the function fails. The easiest way to debug this error is to run the below Python code in the Container shell:
@@ -209,9 +215,11 @@ Take these actions for the following errors:
 
 |Error  | Resolution  |
 |---------|---------|
+| 409 conflict error| When an operation is already in progress, any new operation on that same web service will respond with 409 conflict error. For example, If create or update web service operation is in progress and if you trigger a new Delete operation it will throw an error. |
 |Image building failure when deploying web service     |  Add "pynacl==1.2.1" as a pip dependency to Conda file for image configuration       |
 |`['DaskOnBatch:context_managers.DaskOnBatch', 'setup.py']' died with <Signals.SIGKILL: 9>`     |   Change the SKU for VMs used in your deployment to one that has more memory. |
 |FPGA failure     |  You will not be able to deploy models on FPGAs until you have requested and been approved for FPGA quota. To request access, fill out the quota request form: https://aka.ms/aml-real-time-ai       |
+
 
 ## Advanced debugging
 
@@ -226,5 +234,5 @@ For more information, visit the [interactive debugging in VS Code guide](how-to-
 Learn more about deployment:
 
 * [How to deploy and where](how-to-deploy-and-where.md)
-* [Tutorial: Train & deploy models](tutorial-train-models-with-aml.md)
+* [Tutorial: Train & deploy models](tutorial-train-deploy-notebook.md)
 * [How to run and debug experiments locally](./how-to-debug-visual-studio-code.md)

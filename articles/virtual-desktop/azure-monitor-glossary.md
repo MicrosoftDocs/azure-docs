@@ -52,7 +52,7 @@ When an error or alert appears in Azure Monitor for Azure Virtual Desktop, it's 
 
      - Errors marked as "service" or "ServiceError = TRUE" happened in the Azure Virtual Desktop service.
      - Errors marked as "deployment" or tagged "ServiceError = FALSE" happened outside of the Azure Virtual Desktop service.
-     - To learn more about the ServiceError tag, see [Common error scenarios](diagnostics-role-service.md#common-error-scenarios).
+     - To learn more about the ServiceError tag, see [Common error scenarios](./troubleshoot-set-up-overview.md).
 
 - Source: this category gives a more specific description of where the error happened.
 
@@ -66,7 +66,7 @@ When an error or alert appears in Azure Monitor for Azure Virtual Desktop, it's 
 
      - Client: software running on the end-user machine that provides the interface to the Azure Virtual Desktop service. It displays the list of published resources and hosts the Remote Desktop connection once you've made a selection.
 
-Each diagnostics issue or error includes a message that explains what went wrong. To learn more about troubleshooting errors, see [Identify and diagnose Azure Virtual Desktop issues](diagnostics-role-service.md).
+Each diagnostics issue or error includes a message that explains what went wrong. To learn more about troubleshooting errors, see [Identify and diagnose Azure Virtual Desktop issues](./troubleshoot-set-up-overview.md).
 
 ## Input delay
 
@@ -185,7 +185,7 @@ To learn more about Windows Event Logs, see [Windows Event records properties](.
 - If you encounter a problem, check out our [troubleshooting guide](troubleshoot-azure-monitor.md) for help and known issues.
 
 
-You can also set up Azure Advisor to help you figure out how to resolve or prevent common issues. Learn more at [Use Azure Advisor with Azure Virtual Desktop](azure-advisor.md).
+You can also set up Azure Advisor to help you figure out how to resolve or prevent common issues. Learn more at [Introduction to Azure Advisor](../advisor/advisor-overview.md).
 
 If you need help or have any questions, check out our community resources:
 

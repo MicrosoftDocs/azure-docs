@@ -6,26 +6,28 @@ ms.author: makromer
 ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
-ms.date: 05/10/2021
+ms.date: 02/03/2022
 ---
 
 # Parse transformation in mapping data flow
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Use the Parse transformation to parse columns in your data that are in document form. The current supported types of embedded documents that can be parsed are JSON, XML, and delimited text.
+[!INCLUDE[data-flow-preamble](includes/data-flow-preamble.md)]
+
+Use the Parse transformation to parse text columns in your data that are strings in document form. The current supported types of embedded documents that can be parsed are JSON, XML, and delimited text.
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWykdO]
 
 ## Configuration
 
-In the parse transformation configuration panel, you will first pick the type of data contained in the columns that you wish to parse inline. The parse transformation also contains the following configuration settings.
+In the parse transformation configuration panel, you'll first pick the type of data contained in the columns that you wish to parse inline. The parse transformation also contains the following configuration settings.
 
-![Parse settings](media/data-flow/data-flow-parse-1.png "Parse")
+:::image type="content" source="media/data-flow/data-flow-parse-1.png" alt-text="Parse settings":::
 
 ### Column
 
-Similar to derived columns and aggregates, this is where you will either modify an exiting column by selecting it from the drop-down picker. Or you can type in the name of a new column here. ADF will store the parsed source data in this column. In most cases, you will want to define a new column that parses the incoming embedded document field.
+Similar to derived columns and aggregates, this is where you'll either modify an exiting column by selecting it from the drop-down picker. Or you can type in the name of a new column here. ADF will store the parsed source data in this column. In most cases, you'll want to define a new column that parses the incoming embedded document string field.
 
 ### Expression
 
@@ -44,13 +46,13 @@ Use the expression builder to set the source for your parsing. This can be as si
 
 ### Output column type
 
-Here is where you will configure the target output schema from the parsing that will be written into a single column.
+Here is where you'll configure the target output schema from the parsing that will be written into a single column. The easiest way to set a schema for your output from parsing is to click the 'Detect Type' button on the top right of the expression builder. ADF will attempt to autodetect the schema from the string field which you are parsing and set it for you in the output expression.
 
-![Parse example](media/data-flow/data-flow-parse-2.png "Parse example")
+:::image type="content" source="media/data-flow/data-flow-parse-2.png" alt-text="Parse example":::
 
 In this example, we have defined parsing of the incoming field "jsonString" which is plain text, but formatted as a JSON structure. We're going to store the parsed results as JSON in a new column called "json" with this schema:
 
-```(trade as boolean, customers as string[])```
+`(trade as boolean, customers as string[])`
 
 Refer to the inspect tab and data preview to verify your output is mapped properly.
 
@@ -128,4 +130,4 @@ parse(csv = csvString ? (id as integer,
 ## Next steps
 
 * Use the [Flatten transformation](data-flow-flatten.md) to pivot rows to columns.
-* Use the [Derived column transformation](data-flow-derived-column.md) to pivot columns to rows.
+* Use the [Derived column transformation](data-flow-derived-column.md) to transform rows.

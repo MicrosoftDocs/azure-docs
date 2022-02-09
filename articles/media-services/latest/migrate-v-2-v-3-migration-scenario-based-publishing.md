@@ -21,16 +21,24 @@ ms.author: inhenkel
 
 This article gives you scenario-based guidance for packaging and delivery that will assist you in migrating from Azure Media Services v2 to v3.
 
-Major changes to the way content is published in v3 API. The new publishing model is simplified and uses fewer entities to create a Streaming Locator. The API reduced down to just two entities vs. the four entities previously required. Content Key Policies and Streaming Locators now replace the need for `ContentKeyAuthoriationPolicy`, `AssetDeliveyPolicy`, `ContentKey`, and `AccessPolicy`.
+Major changes to the way content is published in v3 API. The new publishing model is simplified and uses fewer entities to create a Streaming Locator. The API reduced down to just two entities vs. the four entities previously required. Content Key Policies and Streaming Locators now replace the need for `ContentKeyAuthorizationPolicy`, `AssetDeliveryPolicy`, `ContentKey`, and `AccessPolicy`.
 
 ## Packaging and delivery in v3
 
 1. Create [Content Key Policies](drm-content-key-policy-concept.md).
 1. Create [Streaming Locators](stream-streaming-locators-concept.md).
 1. Get the [Streaming paths](create-streaming-locator-build-url.md) 
-    1. Configure it for a [DASH](encode-dynamic-packaging-concept.md#mpeg-dash-protocol) or [HLS](encode-dynamic-packaging-concept.md#hls-protocol) player.
+    1. Configure it for a [DASH](encode-dynamic-packaging-concept.md#deliver-dash) or [HLS](encode-dynamic-packaging-concept.md#deliver-hls) player.
 
 See publishing concepts, tutorials and how to guides below for specific steps.
+
+## Will v2 streaming locators continue to work after February 2024?
+
+Streaming locators created with v2 API will continue to work after our v2 API is turned off. Once the Streaming Locator data is created in the Media Services backend database, there is no dependency on the v2 REST API for streaming. We will not remove v2 specific records from the database when v2 is turned off in February 2024.
+ 
+There are some properties of assets and locators created with v2 that cannot be accessed or updated using the new v3 API. For example, v2 exposes an **Asset Files** API that does not have an equivalent feature in the v3 API. Often this is not a problem for most of our customers, since it is not a widely used feature and you can still stream old locators and delete them when they are no longer needed.
+
+After migration, you should avoid making any calls to the v2 API to modify streaming locators or assets.
 
 ## Publishing concepts, tutorials and how to guides
 

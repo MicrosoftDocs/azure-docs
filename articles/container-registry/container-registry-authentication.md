@@ -26,7 +26,7 @@ The following table lists available authentication methods and typical scenarios
 | [Individual AD identity](#individual-login-with-azure-ad)                | `az acr login` in Azure CLI<br/><br/> `Connect-AzContainerRegistry` in Azure PowerShell                             | Interactive push/pull by developers, testers                                    | Yes                              | AD token must be renewed every 3 hours     |
 | [AD service principal](#service-principal)                  | `docker login`<br/><br/>`az acr login` in Azure CLI<br/><br/> `Connect-AzContainerRegistry` in Azure PowerShell<br/><br/> Registry login settings in APIs or tooling<br/><br/> [Kubernetes pull secret](container-registry-auth-kubernetes.md)                                           | Unattended push from CI/CD pipeline<br/><br/> Unattended pull to Azure or external services  | Yes                              | SP password default expiry is 1 year       |
 | [Managed identity for Azure resources](container-registry-authentication-managed-identity.md)  | `docker login`<br/><br/> `az acr login` in Azure CLI<br/><br/> `Connect-AzContainerRegistry` in Azure PowerShell                                       | Unattended push from Azure CI/CD pipeline<br/><br/> Unattended pull to Azure services<br/><br/>   | Yes                              | Use only from select Azure services that [support managed identities for Azure resources](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-managed-identities-for-azure-resources)              |
-| [AKS cluster managed identity](../aks/cluster-container-registry-integration.md?toc=/azure/container-registry/toc.json&bc=/azure/container-registry/breadcrumb/toc.json)                    | Attach registry when AKS cluster created or updated  | Unattended pull to AKS cluster in the same or a different subscription                                                 | No, pull access only             | Only available with AKS cluster            |
+| [AKS cluster managed identity](../aks/cluster-container-registry-integration.md?toc=/azure/container-registry/toc.json&bc=/azure/container-registry/breadcrumb/toc.json)                    | Attach registry when AKS cluster created or updated  | Unattended pull to AKS cluster in the same or a different subscription                                                 | No, pull access only             | Only available with AKS cluster<br/><br/>Can't be used for cross-tenant authentication            |
 | [AKS cluster service principal](authenticate-aks-cross-tenant.md)                    | Enable when AKS cluster created or updated  | Unattended pull to AKS cluster from registry in another AD tenant                                                  | No, pull access only             | Only available with AKS cluster            |
 | [Admin user](#admin-account)                            | `docker login`                                          | Interactive push/pull by individual developer or tester<br/><br/>Portal deployment of image from registry to Azure App Service or Azure Container Instances                      | No, always pull and push access  | Single account per registry, not recommended for multiple users         |
 | [Repository-scoped access token](container-registry-repository-scoped-permissions.md)               | `docker login`<br/><br/>`az acr login` in Azure CLI<br/><br/> `Connect-AzContainerRegistry` in Azure PowerShell<br/><br/> [Kubernetes pull secret](container-registry-auth-kubernetes.md)    | Interactive push/pull to repository by individual developer or tester<br/><br/> Unattended pull from repository by individual system or external device                  | Yes                              | Not currently integrated with AD identity  |
@@ -79,6 +79,13 @@ Then, run `docker login`, passing `00000000-0000-0000-0000-000000000000` as the 
 
 ```console
 docker login myregistry.azurecr.io --username 00000000-0000-0000-0000-000000000000 --password $TOKEN
+```
+Likewise, you can use the token returned by `az acr login` with the `helm registry login` command to authenticate with the registry:
+
+```console
+echo $TOKEN | helm registry login myregistry.azurecr.io \
+            --username 00000000-0000-0000-0000-000000000000 \
+            --password-stdin
 ```
 
 ### [Azure PowerShell](#tab/azure-powershell)

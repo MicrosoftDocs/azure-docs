@@ -19,9 +19,13 @@ The Azure Storage platform is Microsoft's cloud storage solution for modern data
 - **Secure.** All data written to an Azure storage account is encrypted by the service. Azure Storage provides you with fine-grained control over who has access to your data.
 - **Scalable.** Azure Storage is designed to be massively scalable to meet the data storage and performance needs of today's applications.
 - **Managed.** Azure handles hardware maintenance, updates, and critical issues for you.
-- **Accessible.** Data in Azure Storage is accessible from anywhere in the world over HTTP or HTTPS. Microsoft provides client libraries for Azure Storage in a variety of languages, including .NET, Java, Node.js, Python, PHP, Ruby, Go, and others, as well as a mature REST API. Azure Storage supports scripting in Azure PowerShell or Azure CLI. And the Azure portal and Azure Storage Explorer offer easy visual solutions for working with your data.  
+- **Accessible.** Data in Azure Storage is accessible from anywhere in the world over HTTP or HTTPS. Microsoft provides client libraries for Azure Storage in a variety of languages, including .NET, Java, Node.js, Python, PHP, Ruby, Go, and others, as well as a mature REST API. Azure Storage supports scripting in Azure PowerShell or Azure CLI. And the Azure portal and Azure Storage Explorer offer easy visual solutions for working with your data.
 
-## Core storage services
+## Review options for storage in Azure
+
+Azure provides a variety of storage tools and services, including Azure Storage. To determine which Azure technology is best suited for your scenario, see [Review your storage options](/azure/cloud-adoption-framework/ready/considerations/storage-options) in the Azure Cloud Adoption Framework.
+
+## About the core Azure Storage services
 
 The Azure Storage platform includes the following data services:
 
@@ -147,7 +151,7 @@ You can access resources in a storage account by any language that can make HTTP
 - [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage)
 - [Azure Storage client library for Java/Android](/java/api/overview/azure/storage)
 - [Azure Storage client library for Node.js](/javascript/api/overview/azure/storage-overview)
-- [Azure Storage client library for Python](https://github.com/Azure/azure-storage-python)
+- [Azure Storage client library for Python](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/storage/azure-storage-blob)
 - [Azure Storage client library for PHP](https://github.com/Azure/azure-storage-php)
 - [Azure Storage client library for Ruby](https://github.com/Azure/azure-storage-ruby)
 - [Azure Storage client library for C++](https://github.com/Azure/azure-storage-cpp)

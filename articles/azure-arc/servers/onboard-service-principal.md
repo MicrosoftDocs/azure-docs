@@ -1,7 +1,7 @@
 ---
 title: Connect hybrid machines to Azure at scale
 description: In this article, you learn how to connect machines to Azure using Azure Arc-enabled servers using a service principal.
-ms.date: 07/16/2021
+ms.date: 08/17/2021
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
 ---
@@ -52,7 +52,7 @@ To create the service principal using PowerShell, perform the following steps.
     $credential.GetNetworkCredential().password
     ```
 
-3. In the output, find the password value under the field **password** and copy it. Also find the value under the field **ApplicationId** and copy it also. Save them for later in a secure place. If you forget or lose your service principal password, you can reset it using the [`New-AzADSpCredential`](/powershell/module/azurerm.resources/new-azurermadspcredential) cmdlet.
+3. In the output, find the password value under the field **password** and copy it. Also find the value under the field **ApplicationId** and copy it also. Save them for later in a secure place. If you forget or lose your service principal password, you can reset it using the [`New-AzADSpCredential`](/powershell/module/az.resources/new-azadspcredential) cmdlet.
 
 The values from the following properties are used with parameters passed to the `azcmagent`:
 
@@ -84,7 +84,7 @@ The script to automate the download and installation, and to establish the conne
     1. In the **Resource group** drop-down list, select the resource group the machine will be managed from.
     1. In the **Region** drop-down list, select the Azure region to store the servers metadata.
     1. In the **Operating system** drop-down list, select the operating system that the script is configured to run on.
-    1. If the machine is communicating through a proxy server to connect to the internet, specify the proxy server IP address or the name and port number that the machine will use to communicate with the proxy server. Enter the value in the format `http://<proxyURL>:<proxyport>`.
+    1. If the machine is communicating through a proxy server to connect to the internet, specify the proxy server IP address or the name and port number that the machine will use to communicate with the proxy server. Using this configuration, the agent communicates through the proxy server using the HTTP protocol. Enter the value in the format `http://<proxyURL>:<proxyport>`.
     1. Select **Next: Authentication**.
 
 1. On the **Authentication** page, under the **service principal** drop-down list, select **Arc-for-servers**.  Then select, **Next: Tags**.

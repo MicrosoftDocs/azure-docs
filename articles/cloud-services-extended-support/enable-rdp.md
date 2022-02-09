@@ -43,6 +43,42 @@ Once remote desktop is enabled on the roles, you can initiate a connection direc
     
 4. Open the file to connect to the role instance.
 
+## Update Remote Desktop Extension using PowerShell
+Follow the below steps to update your cloud service to the latest module with an RDP extension
+
+1.	Update Az.CloudService module to the [latest version](https://www.powershellgallery.com/packages/Az.CloudService/0.5.0)
+
+```powershell
+Update-Module -Name Az.CloudService 
+```
+ 
+2.	Remove existing RDP extension to the cloud service 
+
+```powershell
+$resourceGroupName='<Resource Group Name>'  
+$cloudServiceName='<Cloud Service Name>' 
+ 
+# Get existing cloud service  
+$cloudService = Get-AzCloudService -ResourceGroup $resourceGroupName -CloudServiceName $cloudServiceName  
+ 
+# Remove existing RDP Extension from cloud service object  
+$cloudService.ExtensionProfile.Extension = $cloudService.ExtensionProfile.Extension | Where-Object { $_.Type-ne "RDP" }  
+ ```
+ 
+3.	Add new RDP extension to the cloud service with the latest module
+
+```powershell
+# Create new RDP extension object  
+$credential = Get-Credential  
+$expiration='<Expiration Date>'  
+$rdpExtension = New-AzCloudServiceRemoteDesktopExtensionObject -Name "RDPExtension" -Credential $credential -Expiration $expiration -TypeHandlerVersion "1.2.1"  
+ 
+# Add RDP extension to existing cloud service extension object  
+$cloudService.ExtensionProfile.Extension = $cloudService.ExtensionProfile.Extension + $rdpExtension  
+ 
+# Update cloud service  
+$cloudService | Update-AzCloudService  
+```
 
 ## Next steps 
 - Review the [deployment prerequisites](deploy-prerequisite.md) for Cloud Services (extended support).

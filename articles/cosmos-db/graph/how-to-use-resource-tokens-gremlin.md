@@ -7,6 +7,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 09/06/2019
+ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
 

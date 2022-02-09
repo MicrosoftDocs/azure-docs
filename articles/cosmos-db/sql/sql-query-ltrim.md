@@ -5,25 +5,28 @@ author: ginamr
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 09/14/2021
 ms.author: girobins
 ms.custom: query-reference
 ---
 # LTRIM (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
- Returns a string expression after it removes leading blanks.  
+ Returns a string expression after it removes leading whitespace or specified characters.   
   
 ## Syntax
   
 ```sql
-LTRIM(<str_expr>)  
+LTRIM(<str_expr1>[, <str_expr2>])  
 ```  
   
 ## Arguments
   
-*str_expr*  
-   Is a string expression.  
+*str_expr1*  
+   Is a string expression
+
+*str_expr2*  
+   Is an optional string expression to be trimmed from str_expr1. If not set, the default is whitespace.
   
 ## Return types
   
@@ -34,14 +37,28 @@ LTRIM(<str_expr>)
   The following example shows how to use `LTRIM` inside a query.  
   
 ```sql
-SELECT LTRIM("  abc") AS l1, LTRIM("abc") AS l2, LTRIM("abc   ") AS l3 
+SELECT LTRIM("   abc") AS t1, 
+LTRIM("   abc   ") AS t2, 
+LTRIM("abc   ") AS t3, 
+LTRIM("abc") AS t4,
+LTRIM("abc", "ab") AS t5,
+LTRIM("abc", "abc") AS t6
 ```  
   
  Here is the result set.  
   
 ```json
-[{"l1": "abc", "l2": "abc", "l3": "abc   "}]  
-```  
+[
+    {
+        "t1": "abc",
+        "t2": "abc   ",
+        "t3": "abc   ",
+        "t4": "abc",
+        "t5": "c",
+        "t6": ""
+    }
+]
+``` 
 
 ## Remarks
 

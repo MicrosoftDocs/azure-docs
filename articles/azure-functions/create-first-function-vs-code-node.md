@@ -1,12 +1,14 @@
 ---
 title: Create a JavaScript function using Visual Studio Code - Azure Functions
-description: Learn how to create a JavaScript function, then publish the local Node.js project to serverless hosting in Azure Functions using the Azure Functions extension in Visual Studio Code.  
+description: Learn how to create a JavaScript function, then publish the local Node.js project to serverless hosting in Azure Functions using the Azure Functions extension in Visual Studio Code.
 ms.topic: quickstart
-ms.date: 07/01/2021
+ms.date: 11/18/2021
 adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
 adobe-target-experience: Experience B
 adobe-target-content: ./create-first-function-vs-code-node_uiex
+ms.devlang: javascript
+ms.custom: mode-api
 ---
 
 # Quickstart: Create a JavaScript function in Azure using Visual Studio Code
@@ -25,11 +27,13 @@ Before you get started, make sure you have the following requirements in place:
 
 + An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-+ [Node.js 10.14.1+](https://nodejs.org/). Use the `node --version` command to check your version.  
++ [Node.js 14.x](https://nodejs.org/en/download/releases/) or [Node.js 16.x](https://nodejs.org/en/download/releases/) (preview). Use the `node --version` command to check your version.  
 
 + [Visual Studio Code](https://code.visualstudio.com/) on one of the [supported platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms).
 
 + The [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) for Visual Studio Code.
+
++ [Azure Functions Core Tools 4.x](functions-run-local.md#install-the-azure-functions-core-tools).
 
 ## <a name="create-an-azure-functions-project"></a>Create your local project
 
@@ -115,8 +119,8 @@ In this section, you create a function app and related resources in your Azure s
             context.log('JavaScript HTTP trigger function processed a request.');
     
             // Read incoming data
-            const name = req.query.name;
-            const sport = req.query.sport;
+            const name = (req.query.name || (req.body && req.body.name));
+            const sport = (req.query.sport || (req.body && req.body.sport));
         
             // fail if incoming data is required
             if (!name || !sport) {
@@ -180,13 +184,11 @@ Use the table below to resolve the most common issues encountered when using thi
 
 ## Next steps
 
-You have used [Visual Studio Code](functions-develop-vs-code.md?tabs=javascript) to create a function app with a simple HTTP-triggered function. In the next article, you expand that function by connecting to either Azure Cosmos DB or Azure Storage. To learn more about connecting to other Azure services, see [Add bindings to an existing function in Azure Functions](add-bindings-existing-function.md?tabs=javascript).  
+You have used [Visual Studio Code](functions-develop-vs-code.md?tabs=javascript) to create a function app with a simple HTTP-triggered function. In the next article, you expand that function by connecting to either Azure Cosmos DB or Azure Storage. To learn more about connecting to other Azure services, see [Add bindings to an existing function in Azure Functions](add-bindings-existing-function.md?tabs=javascript). If you want to learn more about security, see [Securing Azure Functions](security-concepts.md).
 
 > [!div class="nextstepaction"]
-> [Connect to a database](functions-add-output-binding-cosmos-db-vs-code.md?pivots=programming-language-javascript)
-> [!div class="nextstepaction"]
-> [Connect to an Azure Storage queue](functions-add-output-binding-storage-queue-vs-code.md?pivots=programming-language-javascript)
-> [Securing your Function](security-concepts.md)
+> [Connect to Azure Cosmos DB](functions-add-output-binding-cosmos-db-vs-code.md?pivots=programming-language-javascript)
+> [Connect to Azure Queue Storage](functions-add-output-binding-storage-queue-vs-code.md?pivots=programming-language-javascript)
 
 [Azure Functions Core Tools]: functions-run-local.md
 [Azure Functions extension for Visual Studio Code]: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions

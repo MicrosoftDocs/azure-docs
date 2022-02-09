@@ -1,7 +1,6 @@
 ---
-title: Rewrite HTTP headers and URL with Azure Application Gateway | Microsoft Docs
+title: Rewrite HTTP headers and URL with Azure Application Gateway
 description: This article provides an overview of rewriting HTTP headers and URL in Azure Application Gateway
-services: application-gateway
 author: azhar2005
 ms.service: application-gateway
 ms.topic: conceptual
@@ -76,11 +75,14 @@ Application Gateway uses regular expressions for pattern matching in the conditi
 
 To capture a substring for later use, put parentheses around the subpattern that matches it in the condition regex definition. The first pair of parentheses stores its substring in 1, the second pair in 2, and so on. You may use as many parentheses as you like; Perl just keeps defining more numbered variables for you to represent these captured strings. Some examples from [ref](https://docstore.mik.ua/orelly/perl/prog3/ch05_07.htm): 
 
-*  /(\d)(\d)/ # Match two digits, capturing them into groups 1 and 2 
+* (\d)(\d) # Match two digits, capturing them into groups 1 and 2 
 
-* /(\d+)/ # Match one or more digits, capturing them all into group 1 
+* (\d+) # Match one or more digits, capturing them all into group 1 
 
-* /(\d)+/ # Match a digit one or more times, capturing the last into group 1
+* (\d)+ # Match a digit one or more times, capturing the last into group 1
+
+> [!Note]
+> Use of */* to prefix and suffix the pattern should not be specified in the pattern to match value. For example, (\d)(\d) will match two digits. /(\d)(\d)/ will not match two digits.
 
 Once captured, you can reference them in the action set using the following format:
 
@@ -88,11 +90,14 @@ Once captured, you can reference them in the action set using the following form
 * For a response header capture, you must use {http_resp_headerName_groupNumber}. For example, {http_resp_Location_1} or {http_resp_Location_2}
 * For a server variable, you must use {var_serverVariableName_groupNumber}. For example, {var_uri_path_1} or {var_uri_path_2}
 
+> [!Note]
+> The case of the condition variable needs to match case of the capture variable.  For example, if my condition variable is User-Agent, my capture variable must be in the case of User-Agent (i.e. {http_req_User-Agent_2}).  If my condition variable is defined as user-agent, my capture variable must be in the case of user-agent (i.e. {http_req_user-agent_2}).
+
 If you want to use the whole value, you should not mention the number. Simply use the format {http_req_headerName}, etc. without the groupNumber.
 
 ## Server variables
 
-Application Gateway uses server variables to store useful information about the server, the connection with the client, and the current request on the connection. Examples of information stored include the client’s IP address and the web browser type. Server variables change dynamically, for example, when a new page loads or when a form is posted. You can use these variables to evaluate rewrite conditions and rewrite headers. In order to use the value of server variables to rewrite headers, you will need to specify these variables in the syntax {var_*serverVariableName*}
+Application Gateway uses server variables to store useful information about the server, the connection with the client, and the current request on the connection. Examples of information stored include the client's IP address and the web browser type. Server variables change dynamically, for example, when a new page loads or when a form is posted. You can use these variables to evaluate rewrite conditions and rewrite headers. In order to use the value of server variables to rewrite headers, you will need to specify these variables in the syntax {var_*serverVariableName*}
 
 Application gateway supports the following server variables:
 
@@ -118,7 +123,7 @@ Application gateway supports the following server variables:
 | sent_bytes                | The number of bytes sent to a client.                        |
 | server_port               | The port of the server that accepted a request.              |
 | ssl_connection_protocol   | The protocol of an established TLS connection.               |
-| ssl_enabled               | “On” if the connection operates in TLS mode. Otherwise, an   empty string. |
+| ssl_enabled               | "On" if the connection operates in TLS mode. Otherwise, an   empty string. |
 | uri_path                  | Identifies the specific resource in the host that the web   client wants to access. This is the part of the request URI without the   arguments. Example: In the request `http://contoso.com:8080/article.aspx?id=123&title=fabrikam`,   uri_path value will be `/article.aspx` |
 
 ### Mutual authentication server variables (Preview)
@@ -134,7 +139,7 @@ Application Gateway supports the following server variables for mutual authentic
 | client_certificate_serial | The serial number of the client certificate for an established SSL connection.  |
 | client_certificate_start_date| The start date of the client certificate. |
 | client_certificate_subject| The "subject DN" string of the client certificate for an established SSL connection. |
-| client_certificate_verification| The result of the client certificate verification: *SUCCESS*, *FAILED:<reason>*, or *NONE* if a certificate was not present. | 
+| client_certificate_verification| The result of the client certificate verification: *SUCCESS*, *FAILED:\<reason\>*, or *NONE* if a certificate was not present. | 
 
 ## Rewrite configuration
 

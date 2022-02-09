@@ -4,7 +4,7 @@ description: This tutorial provides an overview on how to create a Power BI dash
 services: synapse-analytics
 author: midesa
 ms.author: midesa 
-ms.reviewer: jrasnick 
+ms.reviewer: sngun 
 ms.service: synapse-analytics
 ms.subservice: spark
 ms.topic: tutorial

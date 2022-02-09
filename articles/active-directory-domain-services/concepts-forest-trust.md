@@ -3,13 +3,13 @@ title: How trusts work for Azure AD Domain Services | Microsoft Docs
 description: Learn more about how forest trust work with Azure AD Domain Services
 services: active-directory-ds
 author: justinha
-manager: daveba
+manager: karenhoran
 
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 06/18/2021
+ms.date: 09/15/2021
 ms.author: justinha
 ---
 
@@ -151,6 +151,9 @@ If the account does not exist in the database, the domain controller determines 
 When two forests are connected by a forest trust, authentication requests made using the Kerberos V5 or NTLM protocols can be routed between forests to provide access to resources in both forests.
 
 When a forest trust is first established, each forest collects all of the trusted namespaces in its partner forest and stores the information in a [trusted domain object](#trusted-domain-object). Trusted namespaces include domain tree names, user principal name (UPN) suffixes, service principal name (SPN) suffixes, and security ID (SID) namespaces used in the other forest. TDO objects are replicated to the global catalog.
+
+>[!NOTE]
+>Alternate UPN suffixes on trusts are not supported. If an on-premises domain uses the same UPN suffix as Azure AD DS, sign in must use **sAMAccountName**.  
 
 Before authentication protocols can follow the forest trust path, the service principal name (SPN) of the resource computer must be resolved to a location in the other forest. An SPN can be one of the following names:
 

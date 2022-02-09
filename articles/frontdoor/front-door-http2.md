@@ -5,7 +5,6 @@ services: frontdoor
 documentationcenter: ''
 author: duongau
 ms.service: frontdoor
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
@@ -17,7 +16,7 @@ ms.author: duau
 
 Currently, HTTP/2 support is active for all Azure Front Door configurations. No further action is required from customers.
 
-HTTP/2 is a major revision to HTTP/1.1 that provides you with faster web performance by reducing response time. HTTP/2 is done by maintaining the familiar HTTP methods, status codes, and semantics to improve user experience. Although HTTP/2 is designed to work with HTTP and HTTPS, many client web browsers only support HTTP/2 over Transport Layer Security (TLS).
+HTTP/2 is a major revision to HTTP/1.1 that provides you with faster web performance by reducing response time. HTTP/2 maintains the familiar HTTP methods, status codes, and semantics of HTTP/1.1 to improve user experience. Although HTTP/2 is designed to work with HTTP and HTTPS, many client web browsers only support HTTP/2 over Transport Layer Security (TLS).
 
 > [!NOTE]
 > HTTP/2 protocol support is available only for requests from clients to Front Door. The communication from Front Door to back ends in the back-end pool happens over HTTP/1.1. 
@@ -28,11 +27,11 @@ The benefits of HTTP/2 include:
 
 *   **Multiplexing and concurrency**
 
-    Using HTTP 1.1, making multiple resource requests requires multiple TCP connections, and each connection has performance overhead associated with it. HTTP/2 allows multiple resources to be requested on a single TCP connection.
+    Using HTTP 1.1, making multiple resource requests requires multiple TCP connections, and each connection imposes its own performance cost. HTTP/2 allows multiple resources to be requested on a single TCP connection.
 
 *   **Header compression**
 
-    By compressing the HTTP headers for served resources, time on the wire is reduced significantly.
+    By compressing the HTTP headers for served resources, significantly less data is sent over the wire.
 
 *   **Stream dependencies**
 

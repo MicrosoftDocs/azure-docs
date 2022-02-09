@@ -4,17 +4,17 @@ description: Learn how to create Azure custom roles using the Azure portal and A
 services: active-directory
 documentationcenter: ''
 author: rolyon
-manager: mtillman
+manager: karenhoran
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 12/11/2020
+ms.date: 08/27/2021
 ms.author: rolyon
 ---
 
 # Create or update Azure custom roles using the Azure portal
 
-If the [Azure built-in roles](built-in-roles.md) don't meet the specific needs of your organization, you can create your own Azure custom roles. Just like built-in roles, you can assign custom roles to users, groups, and service principals at subscription and resource group scopes. Custom roles are stored in an Azure Active Directory (Azure AD) directory and can be shared across subscriptions. Each directory can have up to 5000 custom roles. Custom roles can be created using the Azure portal, Azure PowerShell, Azure CLI, or the REST API. This article describes how to create custom roles using the Azure portal.
+If the [Azure built-in roles](built-in-roles.md) don't meet the specific needs of your organization, you can create your own Azure custom roles. Just like built-in roles, you can assign custom roles to users, groups, and service principals at management group (in preview only), subscription and resource group scopes. Custom roles are stored in an Azure Active Directory (Azure AD) directory and can be shared across subscriptions. Each directory can have up to 5000 custom roles. Custom roles can be created using the Azure portal, Azure PowerShell, Azure CLI, or the REST API. This article describes how to create custom roles using the Azure portal.
 
 ## Prerequisites
 
@@ -43,7 +43,7 @@ If an existing role does not quite have the permissions you need, you can clone 
 
     The following screenshot shows the Access control (IAM) page opened for a subscription.
 
-    ![Access control (IAM) page for a subscription](./media/custom-roles-portal/access-control-subscription.png)
+    ![Access control (IAM) page for a subscription](./media/shared/sub-access-control.png)
 
 1. Click the **Roles** tab to see a list of all the built-in and custom roles.
 
@@ -171,15 +171,15 @@ Follow these steps to add or remove permissions for your custom role.
 
     A list of resource provider cards will be displayed based on your search string. For a list of how resource providers map to Azure services, see [Resource providers for Azure services](../azure-resource-manager/management/azure-services-resource-providers.md).
 
-    ![Add permissions pane with resource provider](./media/custom-roles-portal/add-permissions-provider.png)
+    ![Add permissions pane with resource provider](./media/shared/add-permissions-provider.png)
 
 1. Click a resource provider card that might have the permissions you want to add to your custom role, such as **Microsoft Billing**.
 
     A list of the management permissions for that resource provider is displayed based on your search string.
 
-    ![Add permissions list](./media/custom-roles-portal/add-permissions-list.png)
+    ![Add permissions list](./media/shared/add-permissions-list.png)
 
-1. If you are looking for permissions that apply to the data plane, click **Data Actions**. Otherwise, leave the actions toggle set to **Actions** to list permissions that apply to the management plane. For more information, about the differences between the management plane and data plane, see [Management and data operations](role-definitions.md#management-and-data-operations).
+1. If you are looking for permissions that apply to the data plane, click **Data Actions**. Otherwise, leave the actions toggle set to **Actions** to list permissions that apply to the control plane. For more information, about the differences between the control plane and data plane, see [Control and data actions](role-definitions.md#control-and-data-actions).
 
 1. If necessary, update the search string to further refine your search.
 
@@ -236,7 +236,9 @@ When you exclude a permission, it is added as a `NotActions` or `NotDataActions`
 
 ## Step 5: Assignable scopes
 
-On the **Assignable scopes** tab, you specify where your custom role is available for assignment, such as subscription or resource group. Depending on how you chose to start, this tab might list the scope where you opened the Access control (IAM) page. Setting assignable scope to root scope ("/") is not supported. Currently, you cannot add a management group as an assignable scope.
+On the **Assignable scopes** tab, you specify where your custom role is available for assignment, such as management group, subscriptions, or resource groups. Depending on how you chose to start, this tab might already list the scope where you opened the Access control (IAM) page.
+
+ You can only define one management group in assignable scopes. Adding a management group to assignable scopes is currently in preview. Setting assignable scope to root scope ("/") is not supported.
 
 1. Click **Add assignable scopes** to open the Add assignable scopes pane.
 

@@ -44,7 +44,7 @@ Before you begin, note that:
 Get a Microsoft [Azure account](https://azure.microsoft.com/).
 
 - You can start with a [free trial](https://azure.microsoft.com/pricing/free-trial/).
-- Learn about [Site Recovery pricing](/azure/site-recovery/site-recovery-faq#pricing), and get [pricing details](https://azure.microsoft.com/pricing/details/site-recovery/).
+- Learn about [Site Recovery pricing](./site-recovery-faq.yml), and get [pricing details](https://azure.microsoft.com/pricing/details/site-recovery/).
 - Find out which [regions are supported](https://azure.microsoft.com/pricing/details/site-recovery/) for Site Recovery.
 
 ### Verify Azure account permissions
@@ -79,7 +79,7 @@ The Mobility service must be installed on each server you want to replicate. Sit
 - You can use a domain or local account
 - For Windows VMs, if you're not using a domain account, disable Remote User Access control on the local machine. To do this, in the register under **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System**, add the DWORD entry **LocalAccountTokenFilterPolicy**, with a value of 1.
 - To add the registry entry to disable the setting from a CLI, type:
-        ``REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1.``
+  `REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1.`
 - For Linux, the account should be root on the source Linux server.
 
 
@@ -148,13 +148,13 @@ Select and verify target resources.
 1. To create a new replication policy, click **Site Recovery infrastructure** > **Replication Policies** > **+Replication Policy**.
 2. In **Create replication policy**, specify a policy name.
 3. In **RPO threshold**, specify the recovery point objective (RPO) limit. This value specifies how often data recovery points are created. An alert is generated if continuous replication exceeds this limit.
-4. In **Recovery point retention**, specify how long (in hours) the retention window is for each recovery point. Replicated VMs can be recovered to any point in a window. Up to 24 hours retention is supported for machines replicated to premium storage, and 72 hours for standard storage.
-5. In **App-consistent snapshot frequency**, specify how often (in minutes) recovery points containing application-consistent snapshots will be created. Click **OK** to create the policy.
+4. In **Recovery point retention**, specify how long (in days) the retention window is for each recovery point. Replicated VMs can be recovered to any point in a window. Up to 15 days retention is supported.
+5. In **App-consistent snapshot frequency**, specify how often (in hours) recovery points containing application-consistent snapshots will be created. Click **OK** to create the policy.
 
     ![Screenshot of the options for creating a replication policy.](./media/physical-azure-disaster-recovery/replication-policy.png)
 
 
-The policy is automatically associated with the configuration server. By default, a matching policy is automatically created for failback. For example, if the replication policy is **rep-policy** then a failback policy **rep-policy-failback** is created. This policy isn't used until you initiate a failback from Azure.
+By default, a matching policy is automatically created for failback. For example, if the replication policy is **rep-policy** then a failback policy **rep-policy-failback** is created. This policy isn't used until you initiate a failback from Azure.
 
 ## Enable replication
 

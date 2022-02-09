@@ -1,11 +1,9 @@
 ---
 title: 'Quickstart: Create a shared query with Azure PowerShell'
 description: In this quickstart, you follow the steps to create a Resource Graph shared query using Azure PowerShell.
-ms.date: 05/01/2021
+ms.date: 08/17/2021
 ms.topic: quickstart
-ms.custom:
-  - devx-track-azurepowershell
-  - mode-api
+ms.custom: devx-track-azurepowershell, mode-api
 ---
 # Quickstart: Create a Resource Graph shared query using Azure PowerShell
 
