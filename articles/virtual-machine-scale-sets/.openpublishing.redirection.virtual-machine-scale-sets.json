@@ -8,12 +8,12 @@
         {
             "source_path_from_root": "/articles/virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-cli.md",
             "redirect_url": "/azure/virtual-machine-scale-sets/disk-encryption-cli",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-ps.md",
             "redirect_url": "/azure/virtual-machine-scale-sets/disk-encryption-powershell",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md",
@@ -48,7 +48,7 @@
         {
             "source_path_from_root": "/articles/virtual-machine-scale-sets/virtual-machine-scale-sets-deploy-scaling-app-template.md",
             "redirect_url": "/azure/virtual-machine-scale-sets/quick-create-template-linux",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/virtual-machine-scale-sets/virtual-machine-scale-sets-create-template-windows.md",
@@ -93,7 +93,7 @@
         {
             "source_path_from_root": "/articles/virtual-machine-scale-sets/virtual-machine-scale-sets-use-low-priority.md",
             "redirect_url": "/azure/virtual-machine-scale-sets/use-spot",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/virtual-machine-scale-sets/virtual-machine-scale-sets-linux-autoscale.md",
