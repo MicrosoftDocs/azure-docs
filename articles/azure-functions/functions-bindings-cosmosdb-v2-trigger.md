@@ -36,7 +36,7 @@ C# script is used primarily when creating C# functions in the Azure portal.
 
 ---
 
-The following 
+The following examples depend on the extension version for the given C# mode.
 
 # [Functions 2.x+](#tab/functionsv2/in-process)
 

@@ -20,7 +20,7 @@ ms.custom: include file
     "createLeaseCollectionIfNotExists": true
 }
 ```
-# [Functions 4.x+ (preview)](#tab/functionsv4)
+# [Functions 4.x+ (preview)](#tab/extensionv4)
 ```json
 {
     "type": "cosmosDBTrigger",
