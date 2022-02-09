@@ -64,6 +64,7 @@ You can create a read replica in any of the following regions, regardless of whe
 | North Central US | :heavy_check_mark: | 
 | South Central US | :heavy_check_mark: | 
 | Southeast Asia | :heavy_check_mark: | 
+| Switzerland North | :heavy_check_mark: |
 | UK South | :heavy_check_mark: | 
 | UK West | :heavy_check_mark: | 
 | West Central US | :heavy_check_mark: | 
