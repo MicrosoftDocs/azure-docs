@@ -107,8 +107,13 @@ The Cosmos DB is part of an [extension bundle], which is specified in your host.
 
 # [Bundle v3.x](#tab/extensionv4)
 
-This version of the bundle contains a preview version of the Cosmos DB bindings extension that introduces the ability to [connect using an identity instead of a secret](./functions-reference.md#configure-an-identity-based-connection). For a tutorial on configuring your function apps with managed identities, see the [creating a function app with identity-based connections tutorial](./functions-identity-based-connections-tutorial.md).
+This version of the bundle contains a preview version of the Cosmos DB bindings extension (version 4.x) that introduces the ability to [connect using an identity instead of a secret](./functions-reference.md#configure-an-identity-based-connection). For a tutorial on configuring your function apps with managed identities, see the [creating a function app with identity-based connections tutorial](./functions-identity-based-connections-tutorial.md).
 
+::: zone-end  
+::: zone pivot="programming-language-java"   
+[!INCLUDE [functions-cosmosdb-extension-java-note](../../includes/functions-cosmosdb-extension-java-note.md)]
+::: zone-end  
+::: zone pivot="programming-language-javascript,programming-language-python,programming-language-java,programming-language-powershell"   
 You can add this version of the extension from the preview extension bundle v3 by adding or replacing the following code in your `host.json` file:
 
 ```json

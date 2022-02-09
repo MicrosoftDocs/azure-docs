@@ -384,7 +384,7 @@ C# script is used primarily when creating C# functions in the Azure portal.
 
 Choose a version to see usage details for the mode and version. 
 
-# [Extension 5.x and higher](#tab/extensionv5/in-process)
+# [Extension 5.x+](#tab/extensionv5/in-process)
 
 Access the message data by using a method parameter such as `string paramName`. The `paramName` is the value specified in the [QueueTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Extensions.Storage/Queues/QueueTriggerAttribute.cs). You can bind to any of the following types:
 
@@ -397,7 +397,7 @@ When binding to an object, the Functions runtime tries to deserializes the JSON 
 
 [!INCLUDE [functions-bindings-storage-attribute](../../includes/functions-bindings-storage-attribute.md)]
 
-# [Extension 2.x and higher](#tab/extensionv2/in-process)
+# [Extension 2.x+](#tab/extensionv2/in-process)
 
 Access the message data by using a method parameter such as `string paramName`. The `paramName` is the value specified in the [QueueTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Extensions.Storage/Queues/QueueTriggerAttribute.cs). You can bind to any of the following types:
 
@@ -410,15 +410,15 @@ When binding to an object, the Functions runtime tries to deserializes the JSON 
 
 [!INCLUDE [functions-bindings-storage-attribute](../../includes/functions-bindings-storage-attribute.md)]
 
-# [Extension 5.x and higher](#tab/extensionv5/isolated-process)
+# [Extension 5.x+](#tab/extensionv5/isolated-process)
 
 Isolated process currently only supports binding to string parameters.
 
-# [Extension 2.x and higher](#tab/extensionv2/isolated-process)
+# [Extension 2.x+](#tab/extensionv2/isolated-process)
 
 Isolated process currently only supports binding to string parameters.
 
-# [Extension 5.x and higher](#tab/extensionv5/csharp-script)
+# [Extension 5.x+](#tab/extensionv5/csharp-script)
 
 Access the message data by using a method parameter such as `string paramName`. The `paramName` is the value specified in the *function.json* file. You can bind to any of the following types:
 
@@ -430,7 +430,7 @@ Access the message data by using a method parameter such as `string paramName`. 
 When binding to an object, the Functions runtime tries to deserializes the JSON payload into an instance of an arbitrary class defined in your code. For examples using [QueueMessage], see [the GitHub repository for the extension](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Microsoft.Azure.WebJobs.Extensions.Storage.Queues#examples).
 
 
-# [Extension 2.x and higher](#tab/extensionv2/csharp-script)
+# [Extension 2.x+](#tab/extensionv2/csharp-script)
 
 Access the message data by using a method parameter such as `string paramName`. The `paramName` is the value specified in the *function.json* file. You can bind to any of the following types:
 

@@ -17,20 +17,20 @@ The Azure Cosmos DB input binding uses the SQL API to retrieve one or more Azure
 For information on setup and configuration details, see the [overview](./functions-bindings-cosmosdb-v2.md).
 
 > [!NOTE]
-> If the collection is [partitioned](../cosmos-db/partitioning-overview.md#logical-partitions), lookup operations need to also specify the partition key value.
+> When the collection is [partitioned](../cosmos-db/partitioning-overview.md#logical-partitions), lookup operations must also specify the partition key value.
 >
-
-<a id="example" name="example"></a>
 
 ## Example
 
-::: zone pivot="programming-language-csharp"
+Unless otherwise noted, examples in this article target version 3.x of the [Azure Cosmos DB extension](functions-bindings-cosmosdb-v2.md). For use with extension version 4.x, you need to replace the string `collection` in property and attribute names with `container`. 
 
-This section contains the following examples:
+::: zone pivot="programming-language-csharp"
 
 [!INCLUDE [functions-bindings-csharp-intro](../../includes/functions-bindings-csharp-intro.md)]
 
 # [In-process](#tab/in-process)
+
+This section contains the following examples for using [in-process C# class library functions](functions-dotnet-class-library.md) with extension version 3.x:
 
 * [Queue trigger, look up ID from JSON](#queue-trigger-look-up-id-from-json-c)
 * [HTTP trigger, look up ID from query string](#http-trigger-look-up-id-from-query-string-c)
@@ -425,11 +425,7 @@ namespace CosmosDBSamplesV2
 
 # [Isolated process](#tab/isolated-process)
 
-<!--add a link to the extension-specific code example in this repo: https://github.com/Azure/azure-functions-dotnet-worker/blob/main/samples/Extensions/ as in the following example:
-
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/EventGrid/EventGridFunction.cs" range="35-49":::
--->
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/CosmosDB/CosmosDBFunction.cs" range="37-47":::
+Example pending.
 
 # [C# Script](#tab/csharp-script)
 
@@ -800,8 +796,6 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, Docume
 ::: zone-end
 ::: zone pivot="programming-language-java"
 
-# [Java](#tab/java)
-
 This section contains the following examples:
 
 * [HTTP trigger, look up ID from query string - String parameter](#http-trigger-look-up-id-from-query-string---string-parameter-java)
@@ -1067,8 +1061,6 @@ public class DocsFromRouteSqlQuery {
 ::: zone-end  
 ::: zone pivot="programming-language-javascript"  
 
-# [JavaScript](#tab/javascript)
-
 This section contains the following examples that read a single document by specifying an ID value from various sources:
 
 * [Queue trigger, look up ID from JSON](#queue-trigger-look-up-id-from-json-javascript)
@@ -1278,8 +1270,6 @@ module.exports = function (context, input) {
 
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  
-
-# [PowerShell](#tab/powershell)
 
 * [Queue trigger, look up ID from JSON](#queue-trigger-look-up-id-from-json-ps)
 * [HTTP trigger, look up ID from query string](#http-trigger-id-query-string-ps)
@@ -1497,8 +1487,6 @@ foreach ($Document in $Documents) {
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
 
-# [Python](#tab/python)
-
 This section contains the following examples that read a single document by specifying an ID value from various sources:
 
 * [Queue trigger, look up ID from JSON](#queue-trigger-look-up-id-from-json-python)
@@ -1692,80 +1680,31 @@ Here's the binding data in the *function.json* file:
 ::: zone pivot="programming-language-csharp"
 ## Attributes
 
-Both [in-process](functions-dotnet-class-library.md) and [isolated process](dotnet-isolated-process-guide.md) C# libraries use the [CosmosDB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.CosmosDB/CosmosDBAttribute.cs) attribute to define the function. C# script instead uses a function.json configuration file.
+Both [in-process](functions-dotnet-class-library.md) and [isolated process](dotnet-isolated-process-guide.md) C# libraries use attributes to define the function. C# script instead uses a function.json configuration file.
 
-<!-- If the attribute's constructor takes parameters, you'll need to include a table like this, where the values are from the original table in the Configuration section:
+# [Functions 2.x+](#tab/functionsv2/in-process)
 
-The attribute's constructor takes the following parameters:
+[!INCLUDE [functions-cosmosdb-input-attributes-v3](../../includes/functions-cosmosdb-input-attributes-v3.md)]
 
-|Parameter | Description|
-|---------|----------------------|
-|**Parameter1** |Description 1|
-|**Parameter2** | Description 2|
+# [Extension 4.x+ (preview)](#tab/extensionv4/in-process)
 
--->
-The attribute's constructor takes the database name and collection name. In [extension version 4.x](./functions-bindings-cosmosdb-v2.md#cosmos-db-extension-4x-and-higher) some settings and properties have been removed or renamed. 
+[!INCLUDE [functions-cosmosdb-input-attributes-v4](../../includes/functions-cosmosdb-input-attributes-v4.md)]
 
-The attribute's constructor takes the following parameters:
+# [Functions 2.x+](#tab/functionsv2/isolated-process)
 
-|Parameter | Description|
-|---------|----------------------|
-|**databaseName** |The database containing the document.|
-|**collectionName** | The name of the collection that contains the document. <br><br> In [version 4.x of the extension](./functions-bindings-cosmosdb-v2.md#cosmos-db-extension-4x-and-higher) this property is called `ContainerName`.|
+[!INCLUDE [functions-cosmosdb-input-attributes-v3](../../includes/functions-cosmosdb-input-attributes-v3.md)]
 
-For information about settings and other properties that you can configure for all versions, see [the following configuration section](#configuration).
+# [Extension 4.x+ (preview)](#tab/functionsv4/isolated-process)
 
-# [In-process](#tab/in-process)
+[!INCLUDE [functions-cosmosdb-input-attributes-v4](../../includes/functions-cosmosdb-input-attributes-v4.md)]
 
-Both [in-process](functions-dotnet-class-library.md) and [isolated process](dotnet-isolated-process-guide.md) C# libraries use the [CosmosDB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.CosmosDB/CosmosDBAttribute.cs) attribute to define the function. C# script instead uses a function.json configuration file.
+# [Functions 2.x+](#tab/functionsv2/csharp-script)
 
-The attribute's constructor takes the database name and collection name. In [extension version 4.x](./functions-bindings-cosmosdb-v2.md#cosmos-db-extension-4x-and-higher) some settings and properties have been removed or renamed. 
+[!INCLUDE [functions-cosmosdb-input-settings-v3](../../includes/functions-cosmosdb-input-settings-v3.md)]
 
-The attribute's constructor takes the following parameters:
+# [Extension 4.x+ (preview)](#tab/functionsv4/csharp-script)
 
-|Parameter | Description|
-|---------|----------------------|
-|**databaseName** |The database containing the document.|
-|**collectionName** | The name of the collection that contains the document. <br><br> In [version 4.x of the extension](./functions-bindings-cosmosdb-v2.md#cosmos-db-extension-4x-and-higher) this property is called `ContainerName`.|
-
-For information about settings and other properties that you can configure for all versions, see [the following configuration section](#configuration).
-
-# [Isolated process](#tab/isolated-process)
-
-<!-- C# attribute information for the trigger goes here with an intro sentence. Use a code link like the following to show the method definition: 
-
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/EventGrid/EventGridFunction.cs" range="13-16":::
--->
-Both [in-process](functions-dotnet-class-library.md) and [isolated process](dotnet-isolated-process-guide.md) C# libraries use the [CosmosDB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.CosmosDB/CosmosDBAttribute.cs) attribute to define the function. C# script instead uses a function.json configuration file.
-
-The attribute's constructor takes the database name and collection name. In [extension version 4.x](./functions-bindings-cosmosdb-v2.md#cosmos-db-extension-4x-and-higher) some settings and properties have been removed or renamed. 
-
-The attribute's constructor takes the following parameters:
-
-|Parameter | Description|
-|---------|----------------------|
-|**databaseName** |The database containing the document.|
-|**collectionName** | The name of the collection that contains the document. <br><br> In [version 4.x of the extension](./functions-bindings-cosmosdb-v2.md#cosmos-db-extension-4x-and-higher) this property is called `ContainerName`.|
-
-For information about settings and other properties that you can configure for all versions, see [the following configuration section](#configuration).
-
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/CosmosDB/CosmosDBFunction.cs" range="13-19":::
-
-# [C# script](#tab/csharp-script)
-
-C# script uses a function.json file for configuration instead of attributes.
-
-The following table explains the binding configuration properties for C# script that you set in the *function.json* file. 
-
-|function.json property | Description|
-|---------|----------------------|
-|**name**     | Name of the binding parameter that represents the document in the function.  |
-|**type**     | Must be set to `cosmosDB`.        |
-|**direction**     | Must be set to `in`.         |
-|**databaseName** | The database containing the document.        |
-|**collectionName** <br> or <br> **containerName** **CollectionName** <br> or <br> **ContainerName**| The name of the collection that contains the document. <br><br> In [version 4.x of the extension](./functions-bindings-cosmosdb-v2.md#cosmos-db-extension-4x-and-higher) this property is called `ContainerName`. |
-|**sqlQuery**  | An Azure Cosmos DB SQL query used for retrieving multiple documents. The property supports runtime bindings, as in this example: `SELECT * FROM c where c.departmentId = {departmentId}`. Don't set both the `id` and `sqlQuery` properties. If you don't set either one, the entire collection is retrieved.|
-|**connectionStringSetting** <br> or <br> **connection**  **ConnectionStringSetting** <br> or <br> **Connection**|The name of the app setting containing your Azure Cosmos DB connection string. <br><br> In [version 4.x of the extension](./functions-bindings-cosmosdb-v2.md#cosmos-db-extension-4x-and-higher) this property is called `Connection`. The value is the name of an app setting that either contains the connection string or contains a configuration section or prefix which defines the connection. See [Connections](./functions-reference.md#connections). |
+[!INCLUDE [functions-cosmosdb-input-settings-v4](../../includes/functions-cosmosdb-input-settings-v4.md)]
 
 ---
 
@@ -1773,27 +1712,32 @@ The following table explains the binding configuration properties for C# script 
 ::: zone pivot="programming-language-java"  
 ## Annotations
 
-From the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `@CosmosDBOutput` annotation on parameters that write to Cosmos DB. The annotation parameter type should be `OutputBinding<T>`, where `T` is either a native Java type or a POJO.
+From the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `@CosmosDBInput` annotation on parameters that read from Azure Cosmos DB. The annotation supports the following properties:
+
++ [name](/java/api/com.microsoft.azure.functions.annotation.cosmosdbinput.name)
++ [connectionStringSetting](/java/api/com.microsoft.azure.functions.annotation.cosmosdbinput.connectionstringsetting)
++ [databaseName](/java/api/com.microsoft.azure.functions.annotation.cosmosdbinput.databasename)
++ [collectionName](/java/api/com.microsoft.azure.functions.annotation.cosmosdbinput.collectionname)
++ [dataType](/java/api/com.microsoft.azure.functions.annotation.cosmosdbinput.datatype)
++ [id](/java/api/com.microsoft.azure.functions.annotation.cosmosdbinput.id)
++ [partitionKey](/java/api/com.microsoft.azure.functions.annotation.cosmosdbinput.partitionkey)
++ [sqlQuery](/java/api/com.microsoft.azure.functions.annotation.cosmosdbinput.sqlquery)
+
 ::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"  
 ## Configuration
 
-The following table explains the binding configuration properties that you set in the *function.json* file. 
+The following table explains the binding configuration properties that you set in the *function.json* file, where properties differ by extension version:  
 
-The following table explains the binding configuration properties that you set in the *function.json* file and the `CosmosDB` attribute.
+# [Functions 2.x+](#tab/functionsv2)
 
-|function.json property | Description|
-|---------|----------------------|
-|**type**     | Must be set to `cosmosDB`.        |
-|**direction**     | Must be set to `in`.         |
-|**name**     | Name of the binding parameter that represents the document in the function.  |
-|**databaseName** | The database containing the document.        |
-|**collectionName** <br> or <br> **containerName**| The name of the collection that contains the document. <br><br> In [version 4.x of the extension](./functions-bindings-cosmosdb-v2.md#cosmos-db-extension-4x-and-higher) this property is called `ContainerName`. |
-|**id**    | The ID of the document to retrieve. This property supports [binding expressions](./functions-bindings-expressions-patterns.md). Don't set both the `id` and **sqlQuery** properties. If you don't set either one, the entire collection is retrieved. |
-|**sqlQuery**  | An Azure Cosmos DB SQL query used for retrieving multiple documents. The property supports runtime bindings, as in this example: `SELECT * FROM c where c.departmentId = {departmentId}`. Don't set both the `id` and `sqlQuery` properties. If you don't set either one, the entire collection is retrieved.|
-|**connectionStringSetting** <br> or <br> **connection**  | The name of the app setting containing your Azure Cosmos DB connection string. <br><br> In [version 4.x of the extension](./functions-bindings-cosmosdb-v2.md#cosmos-db-extension-4x-and-higher) this property is called `Connection`. The value is the name of an app setting that either contains the connection string or contains a configuration section or prefix which defines the connection. See [Connections](./functions-reference.md#connections). |
-|**partitionKey**| Specifies the partition key value for the lookup. May include binding parameters. It is required for lookups in [partitioned](../cosmos-db/partitioning-overview.md#logical-partitions) collections.|
-|**preferredLocations**| (Optional) Defines preferred locations (regions) for geo-replicated database accounts in the Azure Cosmos DB service. Values should be comma-separated. For example, "East US,South Central US,North Europe". |
+[!INCLUDE [functions-cosmosdb-settings-v3](../../includes/functions-cosmosdb-input-settings-v3.md)]
+
+# [Extension 4.x+ (preview)](#tab/functionsv4)
+
+[!INCLUDE [functions-cosmosdb-settings-v4](../../includes/functions-cosmosdb-input-settings-v4.md)]
+
+---
 ::: zone-end  
 
 See the [Example section](#example) for complete examples.
@@ -1803,17 +1747,30 @@ See the [Example section](#example) for complete examples.
 ::: zone pivot="programming-language-csharp"  
 The parameter type supported by the Event Grid trigger depends on the Functions runtime version, the extension package version, and the C# modality used.
 
-# [In-process](#tab/in-process)
 
-When the function exits successfully, any changes made to the input document via named input parameters are automatically persisted.
+# [Functions 2.x+](#tab/functionsv2/in-process)
 
-# [Isolated process](#tab/isolated-process)
+[!INCLUDE [functions-cosmosdb-usage](../../includes/functions-cosmosdb-usage.md)]
 
-When the function exits successfully, any changes made to the input document via named input parameters are automatically persisted.
+# [Extension 4.x+ (preview)](#tab/extensionv4/in-process)
 
-# [C# script](#tab/csharp-script)
+[!INCLUDE [functions-cosmosdb-usage](../../includes/functions-cosmosdb-usage.md)]
 
-When the function exits successfully, any changes made to the input document via named input parameters are automatically persisted.
+# [Functions 2.x+](#tab/functionsv2/isolated-process)
+
+[!INCLUDE [functions-cosmosdb-usage](../../includes/functions-cosmosdb-usage.md)]
+
+# [Extension 4.x+ (preview)](#tab/functionsv4/isolated-process)
+
+Only JSON string inputs are currently supported. 
+
+# [Functions 2.x+](#tab/functionsv2/csharp-script)
+
+[!INCLUDE [functions-cosmosdb-settings-v3](../../includes/functions-cosmosdb-input-settings-v3.md)]
+
+# [Extension 4.x+ (preview)](#tab/functionsv4/csharp-script)
+
+[!INCLUDE [functions-cosmosdb-settings-v4](../../includes/functions-cosmosdb-input-settings-v4.md)]
 
 ---
 

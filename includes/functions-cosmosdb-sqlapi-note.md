@@ -1,10 +1,8 @@
 ---
-title: include file
-description: include file
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 08/22/2018
+ms.date: 01/31/2022
 ms.author: glenga
 ms.custom: include file
 ---

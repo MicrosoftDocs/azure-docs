@@ -446,7 +446,7 @@ C# script is used primarily when creating C# functions in the Azure portal.
 
 Choose a version to see usage details for the mode and version. 
 
-# [Extension 5.x and higher](#tab/extensionv5/in-process)
+# [Extension 5.x+](#tab/extensionv5/in-process)
 
 Write a single queue message by using a method parameter such as `out T paramName`. You can use the method return type instead of an `out` parameter, and `T` can be any of the following types:
 
@@ -466,7 +466,7 @@ For examples using [QueueMessage] and [QueueClient], see [the GitHub repository 
 
 [!INCLUDE [functions-bindings-storage-attribute](../../includes/functions-bindings-storage-attribute.md)]
 
-# [Extension 2.x and higher](#tab/extensionv2/in-process)
+# [Extension 2.x+](#tab/extensionv2/in-process)
 
 Write a single queue message by using a method parameter such as `out T paramName`. You can use the method return type instead of an `out` parameter, and `T` can be any of the following types:
 
@@ -484,15 +484,15 @@ You can write multiple messages to the queue by using one of the following types
 
 [!INCLUDE [functions-bindings-storage-attribute](../../includes/functions-bindings-storage-attribute.md)]
 
-# [Extension 5.x and higher](#tab/extensionv5/isolated-process)
+# [Extension 5.x+](#tab/extensionv5/isolated-process)
 
 Isolated process currently only supports binding to string parameters.
 
-# [Extension 2.x and higher](#tab/extensionv2/isolated-process)
+# [Extension 2.x+](#tab/extensionv2/isolated-process)
 
 Isolated process currently only supports binding to string parameters.
 
-# [Extension 5.x and higher](#tab/extensionv5/csharp-script)
+# [Extension 5.x+](#tab/extensionv5/csharp-script)
 
 Write a single queue message by using a method parameter such as `out T paramName`. You can use the method return type instead of an `out` parameter, and `T` can be any of the following types:
 
@@ -510,7 +510,7 @@ You can write multiple messages to the queue by using one of the following types
 
 For examples using [QueueMessage] and [QueueClient], see [the GitHub repository for the extension](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Microsoft.Azure.WebJobs.Extensions.Storage.Queues#examples).
 
-# [Extension 2.x and higher](#tab/extensionv2/csharp-script)
+# [Extension 2.x+](#tab/extensionv2/csharp-script)
 
 Write a single queue message by using a method parameter such as `out T paramName`. You can use the method return type instead of an `out` parameter, and `T` can be any of the following types:
 
