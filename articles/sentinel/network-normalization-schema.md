@@ -45,7 +45,7 @@ Microsoft Sentinel provides the following out-of-the-box, product-specific Netwo
 | **Source** | **Built-in parsers** | **Workspace deployed parsers** | 
 | --- | --------------------------- | ------------------------------ | 
 | **AWS VPC** collected using the AWS S3 connector |`_ASim_NetworkSession_AWSVPC` (regular)<br> `_Im_NetworkSession_AWSVPC` (filtering)  | `ASimNetworkSessionAWSVPC` (regular)<br> `vimNetworkSessionAWSVPC` (filtering)  |
-| **Azure Monitor VMConnection** collected as part of the Azure Monitor [VM Insights soluton](https://docs.microsoft.com//azure/azure-monitor/vm/vminsights-overview) |`_ASim_NetworkSession_VMConnection` (regular)<br> `_Im_NetworkSession_VMConnection` (filtering)  | `ASimNetworkSessionVMConnection` (regular)<br> `vimNetworkSessionVMConnection` (filtering)  |
+| **Azure Monitor VMConnection** collected as part of the Azure Monitor [VM Insights solution](https://docs.microsoft.com//azure/azure-monitor/vm/vminsights-overview) |`_ASim_NetworkSession_VMConnection` (regular)<br> `_Im_NetworkSession_VMConnection` (filtering)  | `ASimNetworkSessionVMConnection` (regular)<br> `vimNetworkSessionVMConnection` (filtering)  |
 | **Microsoft 365 Defender for Endpoint** | `_ASim_NetworkSession_Microsoft365Defender` (regular)<br><br>`_Im_NetworkSession_Microsoft365Defender` (filtering) | `ASimNetworkSessionMicrosoft365Defender` (regular)<br><br> `vimNetworkSessionMicrosoft365Defender` (filtering) |
 | **Microsoft Defender for IoT - Endpoint** |`_ASim_NetworkSession_MD4IoT` (regular)<br><br>`_Im_NetworkSession_MD4IoT` (filtering) | `ASimNetworkSessionMD4IoT` (regular)<br><br> `vimNetworkSessionMD4IoT` (filtering) |
 | **Palo Alto PanOS** collected using CEF |`_ASim_NetworkSession_PaloAltoCEF` (regular)<br> `_Im_NetworkSession_PaloAltoCEF` (filtering)  | `ASimNetworkSessionPaloAltoCEF` (regular)<br> `vimNetworkSessionPaloAltoCEF` (filtering)  |
@@ -96,7 +96,7 @@ _Im_NetworkSession (hostname_has_any = torProxies)
 
 The Network Session information model is aligned with the [OSSEM Network entity schema](https://github.com/OTRF/OSSEM/blob/master/docs/cdm/entities/network.md).
 
-Network session events use the descriptors `Src` and `Dst` to denote the roles of the devices and related users and applications involved in he session. So, for example, the source device hostname and IP address are named `SrcHostname` and `SrcIpAddr`. Note that other ASIM schemas typically use `Target` instead of `Dst`.
+Network session events use the descriptors `Src` and `Dst` to denote the roles of the devices and related users and applications involved in the session. So, for example, the source device hostname and IP address are named `SrcHostname` and `SrcIpAddr`. Note that other ASIM schemas typically use `Target` instead of `Dst`.
 
 For events reported by an endpoint and for which the event type is `EndpointNetworkSession`, the descriptors `Local` and `Remote` denote the endpoint itself and the device at the other end of the network session respectively.
 
@@ -227,7 +227,7 @@ The descriptor 'Dvc' is used for the reporting device, which is the local system
 
 | Field | Class | Type | Description |
 |-------|-------|------|-------------|
-| <a name="srcuserid"></a>**SrcUserId** | Optional | String | A machine-readable, alphanumeric, unique representation of the soruce user. For the supported format for different ID types, refer to [the User entity](normalization-about-schemas.md#the-user-entity). <br><br>Example: `S-1-12` |
+| <a name="srcuserid"></a>**SrcUserId** | Optional | String | A machine-readable, alphanumeric, unique representation of the source user. For the supported format for different ID types, refer to [the User entity](normalization-about-schemas.md#the-user-entity). <br><br>Example: `S-1-12` |
 | <a name="srcuseridtype"></a>**SrcUserIdType** | Optional | UserIdType | The type of the ID stored in the [SrcUserId](#srcuserid) field. For a list of allowed values and further information refer to [UserIdType](normalization-about-schemas.md#useridtype) in the [Schema Overview article](normalization-about-schemas.md). |
 | <a name="srcusername"></a>**SrcUsername** | Optional | String | The source username, including domain information when available. For the supported format for different ID types, refer to [the User entity](normalization-about-schemas.md#the-user-entity). Use the simple form only if domain information isn't available.<br><br>Store the Username type in the [SrcUsernameType](#srcusernametype) field. If other username formats are available, store them in the fields `SrcUsername<UsernameType>`.<br><br>Example: `AlbertE` |
 | <a name="srcusernametype"></a>**SrcUsernameType** | Optional | UsernameType | Specifies the type of the username stored in the [SrcUsername](#srcusername) field. For a list of allowed values and further information refer to [UsernameType](normalization-about-schemas.md#usernametype) in the [Schema Overview article](normalization-about-schemas.md).<br><br>Example: `Windows` |
@@ -253,7 +253,7 @@ For such events the descriptors `Local` and `Remote` denote the endpoint itself 
 
 For example, for an inbound event, the field `LocalIpAddr` is an alias to `DstIpAddr` and the field `RemoteIpAddr` is an alias to `SrcIpAddr`.
 
-### Hostnamd and IP addresss aliases
+### Hostname and IP address aliases
 
 | Field | Class | Type | Description |
 | --- | --- | --- | --- |
@@ -265,13 +265,13 @@ For example, for an inbound event, the field `LocalIpAddr` is an alias to `DstIp
 
 The following fields are useful if the record includes information about an intermediary device, such as a firewall or a proxy, which relays the network session.
 
-Intermidiary systems often use address translation and therefore the original address and the address observed exernally are not the same. In such cases, the primary address fields such as [SrcIPAddr](#srcipaddr) and [DstIpAddr](#dstipaddr) represent the addresses observed externally, while the NAT address fields, [SrcNatIpAddr](#srcnatipaddr) and [DstNatIpAddr](#dstnatipaddr) represent the internal address of the original device before translation.
+Intermediary systems often use address translation and therefore the original address and the address observed externally are not the same. In such cases, the primary address fields such as [SrcIPAddr](#srcipaddr) and [DstIpAddr](#dstipaddr) represent the addresses observed externally, while the NAT address fields, [SrcNatIpAddr](#srcnatipaddr) and [DstNatIpAddr](#dstnatipaddr) represent the internal address of the original device before translation.
 
 | Field | Class | Type | Description |
 | --- | --- | --- | --- |
-| <a name="dstnatipaddr"></a>**DstNatIpAddr** | Optional | IP address | The **DstNatIpAddr** represents either of:<br> - The original address of the destination device if network address translation was used.<br> - The IP address used by the intermidiary device for communication with the source.<br><br>Example: `2::1` | 
+| <a name="dstnatipaddr"></a>**DstNatIpAddr** | Optional | IP address | The **DstNatIpAddr** represents either of:<br> - The original address of the destination device if network address translation was used.<br> - The IP address used by the intermediary device for communication with the source.<br><br>Example: `2::1` | 
 | **DstNatPortNumber** | Optional | Integer | If reported by an intermediary NAT device, the port used by the NAT device for communication with the source.<br><br>Example: `443` |
-| <a name="srcnatipaddr"></a>**SrcNatIpAddr** | Optional | IP address | The **SrcNatIpAddr** represents either of:<br> - The original address of the source device if network address translation was used.<br> - The IP address used by the intermidiary device for communication with the destination.<br><br>Example: `4.3.2.1` |
+| <a name="srcnatipaddr"></a>**SrcNatIpAddr** | Optional | IP address | The **SrcNatIpAddr** represents either of:<br> - The original address of the source device if network address translation was used.<br> - The IP address used by the intermediary device for communication with the destination.<br><br>Example: `4.3.2.1` |
 | **SrcNatPortNumber** | Optional | Integer | If reported by an intermediary NAT device, the port used by the NAT device for communication with the destination.<br><br>Example: `345` |
 | <a name="dvcinboundinterface"></a>**DvcInboundInterface** | Optional | String | If reported by an intermediary device, the network interface used by the NAT device for the connection to the source device.<br><br>Example: `eth0` |
 | <a name="dvcoutboundinterface"></a>**DvcOutboundInterface** | Optional | String | If reported by an intermediary device, the network interface used by the NAT device for the connection to the destination device.<br><br>Example: `Ethernet adapter Ethernet 4e` |
