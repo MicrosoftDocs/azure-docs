@@ -5,7 +5,7 @@ author: flang-msft
 ms.author: franlanglois
 ms.service: cache
 ms.topic: conceptual
-ms.date: 3/31/2021
+ms.date: 02/09/2022
 ---
 
 # Azure Cache for Redis with Azure Private Link
@@ -316,6 +316,7 @@ az network private-endpoint delete --name MyPrivateEndpoint --resource-group MyR
 
 ## FAQ
 
+- [How do I connect to my cache with private endpoint?](#how-do-i-connect-to-my-cache-with-private-endpoint)
 - [Why can't I connect to a private endpoint?](#why-cant-i-connect-to-a-private-endpoint)
 - [What features aren't supported with private endpoints?](#what-features-arent-supported-with-private-endpoints)
 - [How do I verify if my private endpoint is configured correctly?](#how-do-i-verify-if-my-private-endpoint-is-configured-correctly)
@@ -325,6 +326,15 @@ az network private-endpoint delete --name MyPrivateEndpoint --resource-group MyR
 - [What happens if I delete all the private endpoints on my cache?](#what-happens-if-i-delete-all-the-private-endpoints-on-my-cache)
 - [Are network security groups (NSG) enabled for private endpoints?](#are-network-security-groups-nsg-enabled-for-private-endpoints)
 - [My private endpoint instance isn't in my VNet, so how is it associated with my VNet?](#my-private-endpoint-instance-isnt-in-my-vnet-so-how-is-it-associated-with-my-vnet)
+
+
+### How do I connect to my cache with private endpoint?
+
+Your application should connect to `<cachename>.redis.cache.windows.net` on port `6380`. We recommend avoiding the use of `<cachename>.privatelink.redis.cache.windows.net` in configuration or connection string.
+
+A private DNS zone, named `*.privatelink.redis.cache.windows.net`, is automatically created in your subscription. The private DNS zone is vital for establishing the TLS connection with the private endpoint.
+
+For more information, see [Azure services DNS zone configuration](/azure/private-link/private-endpoint-dns).
 
 ### Why can't I connect to a private endpoint?
 
@@ -339,7 +349,9 @@ Trying to connect from the Azure portal console is an unsupported scenario where
 
 ### How do I verify if my private endpoint is configured correctly?
 
-You can run a command like `nslookup` from within the VNet that is linked to the private endpoint to verify that the command resolves to the private IP address for the cache. The private IP address is found by selecting your **Private endpoint** from your resources. On the resource menu on the left, select **DNS configuration**. In the working pane on the right, you see the IP address for the **Network Interface**.
+ Go to **Overview** in the Resource menu on the portal. You see the **Host name** for you cache in the working pane. Run a command like `nslookup <hostname>` from within the VNet that is linked to the private endpoint to verify that the command resolves to the private IP address for the cache.
+
+<!-- You can run a command like `nslookup` from within the VNet that is linked to the private endpoint to verify that the command resolves to the private IP address for the cache. The private IP address is found by selecting your **Private endpoint** from your resources. On the resource menu on the left, select **DNS configuration**. In the working pane on the right, you see the IP address for the **Network Interface**. -->
 
 :::image type="content" source="media/cache-private-link/cache-private-ip-address.png" alt-text="In the Azure portal, private endpoint D N S settings.":::
 
