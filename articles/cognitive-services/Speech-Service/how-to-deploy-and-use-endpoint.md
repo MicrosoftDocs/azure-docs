@@ -95,17 +95,9 @@ This section describes how to suspend or resume a custom neural voice endpoint i
 
 This section will show you how to [get](#get-endpoint), [suspend](#suspend-endpoint), or [resume](#resume-endpoint) a custom neural voice endpoint via REST API.
 
-#### Request parameters
+#### Application settings
 
-You use these request parameters with calls to the REST API.
-
-| Name                        | Location     | Required | Type   | Description                                                                    |
-| --------------------------- | ------ | -------- | ------ | ------------------------------------------------------------------------------ |
-| `YourServiceRegion` | Path   | `True` | string | The Azure region the endpoint is associated with.        |
-| `YourEndpointId` | Path   | `True` | string | The identifier of the endpoint.                                |
-| `Ocp-Apim-Subscription-Key` | Header | `True` | string | The subscription key the endpoint is associated with. |
-
-The application settings are available on the **Deploy model** tab in [Speech Studio](https://aka.ms/custom-voice-portal).
+The application settings that you use as REST API [request parameters](#request-parameters) are available on the **Deploy model** tab in [Speech Studio](https://aka.ms/custom-voice-portal).
 
 :::image type="content" source="./media/custom-voice/cnv-endpoint-app-settings-zoom.png" alt-text="Screenshot of custom endpoint app settings in Speech Studio." lightbox="./media/custom-voice/cnv-endpoint-app-settings-full.png":::
 
@@ -114,26 +106,25 @@ The application settings are available on the **Deploy model** tab in [Speech St
 * The **Endpoint URL** shows your endpoint ID. Use the value appended to the `?deploymentId=` query parameter as the value of your endpoint ID request parameter.
 * The Azure region the endpoint is associated with.
 
-
 #### Get endpoint
 
 Get the endpoint by endpoint ID. The operation returns details about an endpoint such as model ID, project ID, and status.  
 
-For example, you can check the status property in response payload to track the progress for [suspend](#suspend-endpoint) or [resume](#resume-endpoint) operations.
+For example, you might want to track the status progression for [suspend](#suspend-endpoint) or [resume](#resume-endpoint) operations. Use the `status` property in the response payload to determine the status of the endpoint.
 
-The definition of status property:
+The possible ``status` property values are:
 
 | Status | Description |
 | ------------- | ------------------------------------------------------------ |
-| `NotStarted` | The endpoint is waiting for processing for Deploy, and it's not ready to synthesize speech. |
-| `Running` | The endpoint is in processing state for Deploy or Resume, and it's not ready to synthesize speech. |
-| `Succeeded` | The endpoint succeeded to Deploy or Resume, and it's ready to synthesize speech. |
-| `Failed` | The endpoint is in processing state for Suspend. |
-| `Disabling` | The endpoint is waiting for processing for Deploy, and it's not ready to synthesize speech. |
-| `Disabled` | The endpoint succeeded to Suspend or failed to Resume. |
+| `NotStarted` | The endpoint has not yet been deployed, and it's not available for speech synthesis. |
+| `Running` | The endpoint is in the process of being deployed or resumed, and it's not available for speech synthesis. |
+| `Succeeded` | The endpoint is active and available for speech synthesis. The endpoint has been deployed or the resume operation succeeded. |
+| `Failed` | The endpoint is in the process of being suspended. |
+| `Disabling` | The endpoint is in the process of being deployed, and it's not available for speech synthesis. |
+| `Disabled` | The endpoint is inactive, and it's not available for speech synthesis. The suspend operation succeeded or the resume operation failed. |
 
 > [!Tip]
-> If the status goes to `Failed` or `Disabled` for Resume, you can check the `properties.error` for the detailed error message.
+> If the status is `Failed` or `Disabled`, check `properties.error` for a detailed error message. However, there won't be error details if the status is `Disabled` due to a successful suspend operation. 
 
 ##### Request example
 
@@ -182,11 +173,11 @@ Response body example:
 
 #### Suspend endpoint
 
-Suspend the endpoint identified by the given ID, which applies to the endpoint in `Succeeded` status.
+You can suspend an endpoint to limit spend and conserve resources that are not in use. You will not be charged while the endpoint is suspended. When you resume an endpoint, you can use the same endpoint URL in your application to synthesize speech. 
 
-Follow the sample request below to call the API, and you'll receive the response with `HTTP 202 Status code`.
+You suspend an endpoint with its unique deployment ID. The endpoint status must be `Succeeded` before you can suspend it.
 
-Follow the [Get endpoint](#get-endpoint) steps to track the operation progress. You can poll the get endpoint API in a loop until the status becomes `Disabled`, and the status property will change from `Succeeded` status, to `Disabling`, and finally to `Disabled`.
+Use the [get endpoint](#get-endpoint) operation to poll and track the status progression from `Succeeded`, to `Disabling`, and finally to `Disabled`. 
 
 ##### Request example
 
@@ -218,11 +209,11 @@ For more information, see [response header](#response-header).
 
 #### Resume endpoint
 
-Resume the endpoint identified by the given ID, which applies to the endpoint in `Disabled` status.
+When you resume an endpoint, you can use the same endpoint URL that you used before it was suspended. 
 
-Follow the sample request below to call the API, and you'll receive the response with `HTTP 202 Status code`.
+You resume an endpoint with its unique deployment ID. The endpoint status must be `Disabled` before you can resume it.
 
-Follow the [Get endpoint](#get-endpoint) steps to track the operation progress. You can poll the API in a loop until the status becomes `Succeeded` or `Disabled`, and the status property will change from `Disabled` status, to `Running`, and finally to `Succeeded` or `Disabled` if failed.
+Use the [get endpoint](#get-endpoint) operation to poll and track the status progression from `Disabled`, to `Running`, and finally to `Succeeded`. If the the resume operation failed, the endpoint status will be `Disabled`. 
 
 For information about endpoint ID, region, and subscription key parameters, see [request parameters](#request-parameters).
 
@@ -249,6 +240,17 @@ Status code: 202 Accepted
 
 For more information, see [response header](#response-header).
 
+
+#### Request parameters
+
+You use these request parameters with calls to the REST API. For information about where to get your region, endpoint ID, and subscription key in Speech Studio, see [application settings](#application-settings).
+
+| Name                        | Location     | Required | Type   | Description                                                                    |
+| --------------------------- | ------ | -------- | ------ | ------------------------------------------------------------------------------ |
+| `YourServiceRegion` | Path   | `True` | string | The Azure region the endpoint is associated with.        |
+| `YourEndpointId` | Path   | `True` | string | The identifier of the endpoint.                                |
+| `Ocp-Apim-Subscription-Key` | Header | `True` | string | The subscription key the endpoint is associated with. |
+
 #### Response header
 
 Status code: 202 Accepted
@@ -265,8 +267,8 @@ The HTTP status code for each response indicates success or common errors.
 | HTTP status code | Description       | Possible reason                                                                                                                                                           |
 | ---------------- | ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 200              | OK                | The request was successful.                                                                                                                                               |
-| 202              | Accepted          | The request has been accepted for processing, but the processing hasn't been completed.                                                                                  |
-| 400              | Bad Request       | A required parameter is missing, empty, or null. Or, the value passed to either a required or optional parameter is invalid. A common issue is a header that is too long. |
+| 202              | Accepted          | The request has been accepted and is being processed.                                                                                  |
+| 400              | Bad Request       | The value of a parameter is invalid, or a required parameter is missing, empty, or null. One common issue is a header that is too long. |
 | 401              | Unauthorized      | The request isn't authorized. Check to make sure your subscription key or token is valid and in the correct region.                                                      |
 | 429              | Too Many Requests | You've exceeded the quota or rate of requests allowed for your subscription.                                                                                            |
 | 502              | Bad Gateway       | Network or server-side issue. May also indicate invalid headers.                                                                                                          |
