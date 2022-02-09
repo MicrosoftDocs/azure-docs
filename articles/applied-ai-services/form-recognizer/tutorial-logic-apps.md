@@ -33,7 +33,7 @@ For more information, *see* [Logic Apps Overview](../../logic-apps/logic-apps-ov
 
 ## Prerequisites
 
-To complete this tutorial, you'll need the following:
+To complete this tutorial, You'll need the following resources:
 
 * **An Azure subscription**. You can [create a free Azure subscription](https://azure.microsoft.com/free/cognitive-services/)
 

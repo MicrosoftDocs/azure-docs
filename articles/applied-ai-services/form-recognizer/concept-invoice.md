@@ -24,13 +24,13 @@ ms.custom: ignite-fall-2021
 
 ## Development options
 
-The following resources are supported by Form Recognizer v2.1:
+The following tools are supported by Form Recognizer v2.1:
 
 | Feature | Resources |
 |----------|-------------------------|
 |**Invoice model**| <ul><li>[**Form Recognizer labeling tool**](https://fott-2-1.azurewebsites.net/prebuilts-analyze)</li><li>[**REST API**](quickstarts/try-sdk-rest-api.md?pivots=programming-language-rest-api#analyze-invoices)</li><li>[**Client-library SDK**](quickstarts/try-sdk-rest-api.md)</li><li>[**Form Recognizer Docker container**](containers/form-recognizer-container-install-run.md?tabs=invoice#run-the-container-with-the-docker-compose-up-command)</li></ul>|
 
-The following resources are supported by Form Recognizer v3.0:
+The following tools are supported by Form Recognizer v3.0:
 
 | Feature | Resources | Model ID |
 |----------|-------------|-----------|
@@ -38,7 +38,7 @@ The following resources are supported by Form Recognizer v3.0:
 
 ### Try Form Recognizer
 
-See how data, including customer information, vendor details, and line items, is extracted from invoices using  the Form Recognizer Studio or our Sample Labeling tool. You'll need the following:
+See how data, including customer information, vendor details, and line items, is extracted from invoices using  the Form Recognizer Studio or our Sample Labeling tool. You'll need the following resources:
 
 * An Azure subscription—you can [create one for free](https://azure.microsoft.com/free/cognitive-services/)
 

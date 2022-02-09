@@ -36,7 +36,7 @@ The general document API supports most form types and will analyze your document
 
 ## Development options
 
-The following resources are supported by Form Recognizer v3.0:
+The following tools are supported by Form Recognizer v3.0:
 
 | Feature | Resources |
 |----------|-------------------------|
@@ -44,7 +44,7 @@ The following resources are supported by Form Recognizer v3.0:
 
 ### Try Form Recognizer
 
-See how data, including tables, values, and entities, is extracted from forms and documents using the Form Recognizer Studio or our Sample Labeling tool. You'll need the following:
+See how data, including tables, values, and entities, is extracted from forms and documents using the Form Recognizer Studio or our Sample Labeling tool. You'll need the following resources:
 
 * An Azure subscription—you can [create one for free](https://azure.microsoft.com/free/cognitive-services/)
 
