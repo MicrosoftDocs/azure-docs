@@ -77,7 +77,7 @@ sections:
           - 20MB in commercial (Microsoft 365, GCC)
           - 45MB in US Government (GCC High, Dept. of Defense)
 
-          We are reviewing the impact of these limits during public preview and plan to increase (or remove them entirely) prior to general availability.
+          We are reviewing the impact of these limits during public preview.
 
       - question: |
           Will the changes to authentication policy change take effect immediately?
