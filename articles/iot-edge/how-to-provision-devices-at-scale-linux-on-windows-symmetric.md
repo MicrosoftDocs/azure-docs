@@ -3,7 +3,7 @@ title: Create and provision IoT Edge devices using symmetric keys on Linux on Wi
 description: Use symmetric key attestation to test provisioning Linux on Windows devices at scale for Azure IoT Edge with device provisioning service
 author: kgremban
 ms.author: kgremban
-ms.date: 01/21/2022
+ms.date: 02/09/2022
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -14,6 +14,13 @@ services: iot-edge
 [!INCLUDE [iot-edge-version-201806-or-202011](../../includes/iot-edge-version-201806-or-202011.md)]
 
 This article provides end-to-end instructions for autoprovisioning one or more [IoT Edge for Linux on Windows](iot-edge-for-linux-on-windows.md) devices using symmetric keys. You can automatically provision Azure IoT Edge devices with the [Azure IoT Hub device provisioning service](../iot-dps/index.yml) (DPS). If you're unfamiliar with the process of autoprovisioning, review the [provisioning overview](../iot-dps/about-iot-dps.md#provisioning-process) before continuing.
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+>[!NOTE]
+>The latest version of IoT Edge for Linux on Windows continuous release (CR), based on IoT Edge version 1.2, is in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). A clean installation may be required for devices going into production use once the general availability (GA) release is available. For more information, see [EFLOW continuous release](https://github.com/Azure/iotedge-eflow/wiki/EFLOW-Continuous-Release).
+:::moniker-end
+<!-- end 1.2 -->
 
 The tasks are as follows:
 
