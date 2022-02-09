@@ -7,7 +7,7 @@ ms.service: private-link
 ms.topic: quickstart
 ms.date: 11/07/2020
 ms.author: allensu
-ms.custom: mode-api
+ms.custom: mode-api, devx-track-azurecli
 #Customer intent: As someone with a basic network background, but is new to Azure, I want to create an Azure private endpoint
 ---
 # Quickstart: Create a Private Endpoint using Azure CLI
@@ -128,7 +128,7 @@ It can take a few minutes for the Azure Bastion host to deploy.
 
 In this section, you'll create a virtual machine that will be used to test the private endpoint.
 
-Create a VM with [az vm create](/cli/azure/vm#az_vm_create). When prompted, provide a password to be used as the credentials for the VM:
+Create a VM with???[az vm create](/cli/azure/vm#az_vm_create). When prompted, provide a password to be used as the credentials for the VM:
 
 * Named **myVM**.
 * In **CreatePrivateEndpointQS-rg**.

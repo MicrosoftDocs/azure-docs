@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 01/20/2022
 ms.author: cynthn
-ms.custom: template-how-to 
+ms.custom: template-how-to , devx-track-azurecli
 
 ---
 
@@ -107,7 +107,7 @@ https://management.azure.com/subscriptions/subid/resourceGroups/rg1/providers/Mi
           "name": "myVMdatadisk", 
           "createOption": "Empty", 
           "lun": 0, 
-          "deleteOption": “Delete” 
+          "deleteOption": ???Delete??? 
        }    ] 
 },  
 "networkProfile": { 
@@ -115,7 +115,7 @@ https://management.azure.com/subscriptions/subid/resourceGroups/rg1/providers/Mi
         { "id": "/subscriptions/.../Microsoft.Network/networkInterfaces/myNIC", 
           "properties": { 
             "primary": true, 
-  	    "deleteOption": “Delete” 
+  	    "deleteOption": ???Delete??? 
           }        } 
       ]  
 } 
@@ -144,8 +144,8 @@ PUT https://management.azure.com/subscriptions/subid/resourceGroups/rg1/provider
 
             "id": "/subscriptions/../publicIPAddresses/test-ip", 
 
-          "properties": { 
-            “deleteOption”: “Delete” 
+??????????????????????????? "properties": { 
+??????????????????????????? ??? ???deleteOption???: ???Delete??? 
             } 
           }, 
 
@@ -268,14 +268,14 @@ PATCH https://management.azure.com/subscriptions/subID/resourceGroups/resourcegr
 
 ## FAQ
 
-### Q: Does this feature work with shared disks?
+### Q: Does??this feature work with shared disks?
 
-A: For shared disks, you can't set the ‘deleteOption’ property to ‘Delete’. You can leave it blank or set it to ‘Detach’
+A: For shared disks, you can't set the ???deleteOption?????property to?????Delete???. You can leave it blank or set it to ???Detach???
 
 
 ### Q: Which Azure resources support this feature?
 
-A: This feature is supported on all managed disk types used as OS disks and Data disks, NICs, and Public IPs
+A: This feature is supported on all managed disk types used as OS disks and Data disks,??NICs, and Public IPs
 
 
 ### Q: Can I use this feature on disks and NICs that aren't associated with a VM?
@@ -287,7 +287,7 @@ A: No, this feature is only available on disks and NICs associated with a VM.
 
 A: For Flexible virtual machine scale sets the disks, NICs, and PublicIPs have `deleteOption` set to `Delete` by default so these resources are automatically cleaned up when the VMs are deleted. 
 
-For data disks that were explicitly created and attached to the VMs, you can modify this property to ‘Detach’ instead of ‘Delete’ if you want the disks to persist after the VM is deleted.
+For data disks that were explicitly created and attached to the VMs, you can modify this property to ???Detach??? instead of ???Delete??? if you want the disks to persist after the VM is deleted.
 
 
 ### Q: Do Spot VMs support this feature?

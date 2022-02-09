@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.date: 11/09/2021
 ms.author: rogarana
 ms.subservice: disks
-ms.custom: ignite-fall-2021
+ms.custom: ignite-fall-2021, devx-track-azurecli
 ---
 # Deploy an Azure disk pool (preview)
 

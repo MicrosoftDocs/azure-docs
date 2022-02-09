@@ -8,7 +8,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 11/23/2021
 ms.topic: how-to
-ms.custom: ignite-fall-2021
+ms.custom: ignite-fall-2021, devx-track-azurecli
 ---
 
 # Configure Kubernetes clusters for machine learning (preview)
@@ -17,7 +17,7 @@ Learn how to configure Azure Kubernetes Service (AKS) and Azure Arc-enabled Kube
 
 ## What is Azure Arc-enabled machine learning?
 
-Azure Arc enables you to run Azure services in any Kubernetes environment, whether it’s on-premises, multicloud, or at the edge.
+Azure Arc enables you to run Azure services in any Kubernetes environment, whether it???s on-premises, multicloud, or at the edge.
 
 Azure Arc-enabled machine learning lets you configure and use Azure Kubernetes Service or Azure Arc-enabled Kubernetes clusters to train, inference, and manage machine learning models in Azure Machine Learning.
 

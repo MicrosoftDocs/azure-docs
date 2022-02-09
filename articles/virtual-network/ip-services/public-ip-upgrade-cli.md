@@ -7,7 +7,7 @@ ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: how-to
 ms.date: 05/20/2021
-ms.custom: template-how-to 
+ms.custom: template-how-to , devx-track-azurecli
 ---
 
 # Upgrade a public IP address using the Azure CLI

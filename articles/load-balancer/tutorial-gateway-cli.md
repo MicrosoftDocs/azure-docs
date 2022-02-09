@@ -7,7 +7,7 @@ ms.author: allensu
 ms.service: load-balancer
 ms.topic: tutorial
 ms.date: 11/02/2021
-ms.custom: template-tutorial, ignite-fall-2021
+ms.custom: template-tutorial, ignite-fall-2021, devx-track-azurecli
 ---
 
 # Tutorial: Create a gateway load balancer using the Azure CLI

@@ -9,7 +9,7 @@ ms.workload: integration
 ms.topic: tutorial
 ms.date: 01/11/2022
 ms.author: barclayn
-ms.custom: ep-miar
+ms.custom: ep-miar, devx-track-azurecli
 #Customer intent: As an administrator, I want to know how to access Cosmos DB from a virtual machine using a managed identity
 ---
 

@@ -8,7 +8,7 @@ ms.author: parkerra
 ms.date: 03/18/2021
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.custom: mode-other
+ms.custom: mode-other, devx-track-azurecli
 ---
 
 # Quickstart: Create a Unity iOS app with Azure Spatial Anchors

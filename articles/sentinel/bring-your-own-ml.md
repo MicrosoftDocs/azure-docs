@@ -5,7 +5,7 @@ author: yelevin
 ms.topic: conceptual
 ms.date: 11/09/2021
 ms.author: yelevin
-ms.custom: ignite-fall-2021
+ms.custom: ignite-fall-2021, devx-track-azurecli
 ---
 
 # Bring your own Machine Learning (ML) into Microsoft Sentinel
@@ -49,7 +49,7 @@ The BYO-ML platform and package significantly reduce the time and effort you'll 
 
 **Modify an ML algorithm template to get customized model:** You can modify an ML algorithm template (shared by Microsoft or by the user community), and train the modified algorithm on your own data, to derive a customized model to fit to your specific problem.
 
-**Create your own model:** Create your own model from scratch using Microsoft Sentinel’s BYO-ML platform and utilities.
+**Create your own model:** Create your own model from scratch using Microsoft Sentinel???s BYO-ML platform and utilities.
 
 **Integrate your Databricks/Spark Environment:** Integrate your existing Databricks/Spark environment into Microsoft Sentinel, and use BYO-ML libraries and templates to build ML models for their unique situations.
 
@@ -87,7 +87,7 @@ Now that you're acquainted with the key components of the BYO-ML platform, here'
 
 ### Setup the Databricks/Spark Environment
 
-You will need to setup your own Databricks environment if you don’t already have one. Refer to the [Databricks quickstart](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal?tabs=azure-portal) document for instructions.
+You will need to setup your own Databricks environment if you don???t already have one. Refer to the [Databricks quickstart](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal?tabs=azure-portal) document for instructions.
 
 ### Auto-export instruction
 
@@ -103,7 +103,7 @@ Here is a sample set of commands to setup automatic exporting:
 
 ```azurecli
 
-az –version
+az ???version
 
 # Login with Azure CLI
 az login
@@ -115,10 +115,10 @@ az monitor log-analytics cluster list
 az account set --subscription "SUBSCRIPTION_NAME"
  
 # Export to Storage - all tables
-az monitor log-analytics workspace data-export create --resource-group "RG_NAME" --workspace-name "WS_NAME" -n LAExportCLIStr --destination “DESTINATION_NAME" --enable "true" --tables SecurityEvent
+az monitor log-analytics workspace data-export create --resource-group "RG_NAME" --workspace-name "WS_NAME" -n LAExportCLIStr --destination ???DESTINATION_NAME" --enable "true" --tables SecurityEvent
  
 # Export to EventHub - all tables
-az monitor log-analytics workspace data-export create --resource-group "RG_NAME" --workspace-name "WS_NAME" -n LAExportCLIEH --destination “DESTINATION_NAME" --enable "true" --tables SecurityEvent Heartbeat"]
+az monitor log-analytics workspace data-export create --resource-group "RG_NAME" --workspace-name "WS_NAME" -n LAExportCLIEH --destination ???DESTINATION_NAME" --enable "true" --tables SecurityEvent Heartbeat"]
 
 # List export settings
 az monitor log-analytics workspace data-export list --resource-group "RG_NAME" --workspace-name "WS_NAME"

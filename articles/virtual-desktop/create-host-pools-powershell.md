@@ -5,7 +5,7 @@ author: Heidilohr
 ms.topic: how-to
 ms.date: 07/23/2021
 ms.author: helohr 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 manager: femila
 ---
 # Create an Azure Virtual Desktop host pool with PowerShell or the Azure CLI
@@ -113,7 +113,7 @@ To successfully domain-join, do the following things on each virtual machine:
 
 1. [Connect to the virtual machine](../virtual-machines/windows/quick-create-portal.md#connect-to-virtual-machine) with the credentials you provided when creating the virtual machine.
 2. On the virtual machine, launch **Control Panel** and select **System**.
-3. Select **Computer name**, select **Change settings**, and then select **Change…**
+3. Select **Computer name**, select **Change settings**, and then select **Change???**
 4. Select **Domain** and then enter the Active Directory domain on the virtual network.
 5. Authenticate with a domain account that has privileges to domain-join machines.
 

@@ -7,7 +7,7 @@ ms.author: chez
 ms.reviewer: jburchel
 ms.service: data-factory
 ms.subservice: orchestration
-ms.custom: synapse
+ms.custom: synapse, devx-track-azurecli
 ms.topic: conceptual
 ms.date: 09/09/2021
 ---
@@ -48,8 +48,8 @@ A tumbling window has the following trigger type properties:
             "frequency": <<Minute/Hour>>,
             "interval": <<int>>,
             "startTime": "<<datetime>>",
-            "endTime": <<datetime – optional>>,
-            "delay": <<timespan – optional>>,
+            "endTime": <<datetime ??? optional>>,
+            "delay": <<timespan ??? optional>>,
             "maxConcurrency": <<int>> (required, max allowed: 50),
             "retryPolicy": {
                 "count": <<int - optional, default: 0>>,
@@ -58,8 +58,8 @@ A tumbling window has the following trigger type properties:
             "dependsOn": [
                 {
                     "type": "TumblingWindowTriggerDependencyReference",
-                    "size": <<timespan – optional>>,
-                    "offset": <<timespan – optional>>,
+                    "size": <<timespan ??? optional>>,
+                    "offset": <<timespan ??? optional>>,
                     "referenceTrigger": {
                         "referenceName": "MyTumblingWindowDependency1",
                         "type": "TriggerReference"
@@ -67,7 +67,7 @@ A tumbling window has the following trigger type properties:
                 },
                 {
                     "type": "SelfDependencyTumblingWindowTriggerReference",
-                    "size": <<timespan – optional>>,
+                    "size": <<timespan ??? optional>>,
                     "offset": <<timespan>>
                 }
             ]
@@ -103,7 +103,7 @@ The following table provides a high-level overview of the major JSON elements th
 | **interval** | A positive integer that denotes the interval for the **frequency** value, which determines how often the trigger runs. For example, if the **interval** is 3 and the **frequency** is "hour," the trigger recurs every 3 hours. <br/>**Note**: The minimum window interval is 5 minutes. | Integer | A positive integer. | Yes |
 | **startTime**| The first occurrence, which can be in the past. The first trigger interval is (**startTime**, **startTime** + **interval**). | DateTime | A DateTime value. | Yes |
 | **endTime**| The last occurrence, which can be in the past. | DateTime | A DateTime value. | Yes |
-| **delay** | The amount of time to delay the start of data processing for the window. The pipeline run is started after the expected execution time plus the amount of **delay**. The **delay** defines how long the trigger waits past the due time before triggering a new run. The **delay** doesn’t alter the window **startTime**. For example, a **delay** value of 00:10:00 implies a delay of 10 minutes. | Timespan<br/>(hh:mm:ss)  | A timespan value where the default is 00:00:00. | No |
+| **delay** | The amount of time to delay the start of data processing for the window. The pipeline run is started after the expected execution time plus the amount of **delay**. The **delay** defines how long the trigger waits past the due time before triggering a new run. The **delay** doesn???t alter the window **startTime**. For example, a **delay** value of 00:10:00 implies a delay of 10 minutes. | Timespan<br/>(hh:mm:ss)  | A timespan value where the default is 00:00:00. | No |
 | **maxConcurrency** | The number of simultaneous trigger runs that are fired for windows that are ready. For example, to back fill hourly runs for yesterday results in 24 windows. If **maxConcurrency** = 10, trigger events are fired only for the first 10 windows (00:00-01:00 - 09:00-10:00). After the first 10 triggered pipeline runs are complete, trigger runs are fired for the next 10 windows (10:00-11:00 - 19:00-20:00). Continuing with this example of **maxConcurrency** = 10, if there are 10 windows ready, there are 10 total pipeline runs. If there's only 1 window ready, there's only 1 pipeline run. | Integer | An integer between 1 and 50. | Yes |
 | **retryPolicy: Count** | The number of retries before the pipeline run is marked as "Failed."  | Integer | An integer, where the default is 0 (no retries). | No |
 | **retryPolicy: intervalInSeconds** | The delay between retry attempts specified in seconds. | Integer | The number of seconds, where the default is 30. | No |

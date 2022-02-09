@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 07/23/2020
 ms.author: aarthiv
 ms.subservice: disks 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Ephemeral OS disks for Azure VMs
@@ -47,7 +47,7 @@ Key differences between persistent and ephemeral OS disks:
 ## Size requirements
 
 You can choose to deploy Ephemeral OS Disk on VM cache or VM temp disk.
-The image OS disk’s size should be less than or equal to the temp/cache size of the VM size chosen.
+The image OS disk???s size should be less than or equal to the temp/cache size of the VM size chosen.
 
 For example, if you want to opt for **OS cache placement**: Standard Windows Server images from the marketplace are about 127 GiB, which means that you need a VM size that has a cache equal to or larger than 127 GiB. The Standard_DS3_v2 has a cache size of 127 GiB, which is large enough. In this case, the Standard_DS3_v2 is the smallest size in the DSv2 series that you can use with this image. 
 

@@ -10,7 +10,7 @@ ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
 ms.date: 11/30/2021
-ms.custom: devx-track-python, ignite-fall-2021
+ms.custom: devx-track-python, ignite-fall-2021, devx-track-azurecli
 ---
 
 # Configure inbound and outbound network traffic

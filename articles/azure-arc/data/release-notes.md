@@ -9,7 +9,7 @@ ms.service: azure-arc
 ms.subservice: azure-arc-data
 ms.date: 01/27/2022
 ms.topic: conceptual
-ms.custom: references_regions
+ms.custom: references_regions, devx-track-azurecli
 # Customer intent: As a data professional, I want to understand why my solutions would benefit from running with Azure Arc-enabled data services so that I can leverage the capability of the feature.
 ---
 
@@ -259,7 +259,7 @@ Use the following tools:
 - You can still use `kubectl` to create resources directly on a Kubernetes cluster, however they will not be reflected in the Azure portal if you are using direct connected mode.
 
 - In directly connected mode, upload of usage, metrics, and logs using `az arcdata dc upload` is blocked by design. Usage is automatically uploaded. Upload for data controller created in indirect connected mode should continue to work.
-- Automatic upload of usage data in direct connectivity mode will not succeed if using proxy via `–proxy-cert <path-t-cert-file>`.
+- Automatic upload of usage data in direct connectivity mode will not succeed if using proxy via `???proxy-cert <path-t-cert-file>`.
 - Azure Arc-enabled SQL Managed instance and Azure Arc-enabled PostgreSQL Hyperscale are not GB18030 certified.
 - Currently, only one Azure Arc data controller per Kubernetes cluster is supported.
 

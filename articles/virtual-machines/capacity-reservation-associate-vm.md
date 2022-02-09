@@ -7,7 +7,7 @@ ms.service: virtual-machines
 ms.topic: how-to
 ms.date: 01/03/2022
 ms.reviewer: cynthn, jushiman
-ms.custom: template-how-to
+ms.custom: template-how-to, devx-track-azurecli
 ---
 
 # Associate a VM to a Capacity Reservation group (preview) 
@@ -40,19 +40,19 @@ In the request body, include the `capacityReservationGroup` property:
     "hardwareProfile": { 
       "vmSize": "Standard_D2s_v3" 
     }, 
-    … 
+    ??? 
    "CapacityReservation":{ 
     "capacityReservationGroup":{ 
         "id":"subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/CapacityReservationGroups/{CapacityReservationGroupName}" 
     } 
     "storageProfile": { 
-    … 
+    ??? 
     }, 
     "osProfile": { 
-    … 
+    ??? 
     }, 
     "networkProfile": { 
-     …     
+     ???     
     } 
   } 
 } 
@@ -112,7 +112,7 @@ To learn more, go to Azure PowerShell command [New-AzVM](/powershell/module/az.c
 
 ### [ARM template](#tab/arm1)
 
-An [ARM template](../azure-resource-manager/templates/overview.md) is a JavaScript Object Notation (JSON) file that defines the infrastructure and configuration for your project. The template uses declarative syntax. In declarative syntax, you describe your intended deployment without writing the sequence of programming commands to create the deployment. 
+An???[ARM template](../azure-resource-manager/templates/overview.md)???is a JavaScript Object Notation (JSON) file that defines the infrastructure and configuration for your project. The template uses declarative syntax. In declarative syntax, you describe your intended deployment without writing the sequence of programming commands to create the deployment. 
 
 ARM templates let you deploy groups of related resources. In a single template, you can create Capacity Reservation group and capacity reservations. You can deploy templates through the Azure portal, Azure CLI, or Azure PowerShell, or from continuous integration/continuous delivery (CI/CD) pipelines. 
 
@@ -217,7 +217,7 @@ To learn more, go to Azure PowerShell commands [Stop-AzVM](/powershell/module/az
 
 ## View VM association with Instance View 
 
-Once the `capacityReservationGroup` property is set, an association now exists between the VM and the group. Azure automatically finds the matching Capacity Reservation in the group and consumes a reserved slot. The Capacity Reservation’s *Instance View* will reflect the new VM in the `virtualMachinesAllocated` property: 
+Once the `capacityReservationGroup` property is set, an association now exists between the VM and the group. Azure automatically finds the matching Capacity Reservation in the group and consumes a reserved slot. The Capacity Reservation???s *Instance View* will reflect the new VM in the `virtualMachinesAllocated` property: 
 
 ### [API](#tab/api3)
 

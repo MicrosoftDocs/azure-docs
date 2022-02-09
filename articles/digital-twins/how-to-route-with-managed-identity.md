@@ -107,7 +107,7 @@ az dt create --dt-name <name-of-existing-instance> --resource-group <resource-gr
 Once a system-assigned identity is created for your Azure Digital Twins instance, you'll need to assign it appropriate roles to authenticate with different types of [endpoints](concepts-route-events.md) for routing events to supported destinations. This section describes the role options and how to assign them to the system-assigned identity.
 
 >[!NOTE]
-> This is an important step—without it, the identity won't be able to access your endpoints and events won't be delivered.
+> This is an important step???without it, the identity won't be able to access your endpoints and events won't be delivered.
 
 ### Supported destinations and Azure roles 
 

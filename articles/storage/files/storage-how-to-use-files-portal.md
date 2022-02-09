@@ -7,7 +7,7 @@ ms.topic: quickstart
 ms.date: 09/17/2021
 ms.author: rogarana
 ms.subservice: files
-ms.custom: mode-ui
+ms.custom: mode-ui, devx-track-azurecli
 #Customer intent: As a < type of user >, I want < what? > so that < why? >.
 ---
 

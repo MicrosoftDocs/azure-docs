@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 06/01/2021
 ms.author: jushiman 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 #pmcontact: shants
 ---
 

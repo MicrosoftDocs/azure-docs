@@ -3,7 +3,7 @@ title: Use Azure Monitor logs to monitor Azure HDInsight clusters
 description: Learn how to use Azure Monitor logs to monitor jobs running in an HDInsight cluster.
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: seoapr2020, devx-track-azurepowershell, references_regions
+ms.custom: seoapr2020, devx-track-azurepowershell, references_regions, devx-track-azurecli
 ms.date: 09/21/2021
 ---
 
@@ -52,13 +52,13 @@ In this section, you configure an existing HDInsight Hadoop cluster to use an Az
 
 1. From the [Azure portal](https://portal.azure.com/), select your cluster. The cluster is opened in a new portal page.
 
-2. From the left, under Monitoring, select **Monitor Integration**. 
+2. From the left, under???Monitoring, select???**Monitor Integration**. 
 
-3. From the main view, under **Azure Monitor for HDInsight Clusters Integration**, select **Enable**. 
+3. From the main view, under???**Azure Monitor for HDInsight Clusters Integration**, select???**Enable**. 
 
-4. From the **Select a workspace** drop-down list, select an existing Log Analytics workspace. 
+4. From the???**Select a workspace**???drop-down list, select an existing Log Analytics workspace. 
 
-5. Select **Save**. It takes a few moments to save the setting. 
+5. Select???**Save**. It takes a few moments to save the setting. 
 
     :::image type="content" source="./media/hdinsight-hadoop-oms-log-analytics-tutorial/hdinsight-enable-azure-monitor.png" alt-text="Enable monitoring for HDInsight clusters":::
 
@@ -350,7 +350,7 @@ When Azure Monitor integration is enabled on a cluster, the Log Analytics agent,
 If you have Azure Monitor Integration enabled on a cluster, updating the OMS agent will also update the Open Management Infrastructure (OMI) version. You can check the OMI version on the cluster by running the following command: 
 
 ```
- sudo /opt/omi/bin/omiserver –version
+ sudo /opt/omi/bin/omiserver ???version
 ```
 
 ## Next steps

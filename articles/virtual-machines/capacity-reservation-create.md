@@ -7,14 +7,14 @@ ms.service: virtual-machines #Required
 ms.topic: how-to
 ms.date: 08/09/2021
 ms.reviewer: cynthn, jushiman
-ms.custom: template-how-to
+ms.custom: template-how-to, devx-track-azurecli
 ---
 
 # Create a Capacity Reservation (preview)
 
-Capacity Reservation is always created as part of a Capacity Reservation group. The first step is to create a group if a suitable one doesn’t exist already, then create reservations. Once successfully created, reservations are immediately available for use with virtual machines. The capacity is reserved for your use as long as the reservation is not deleted.     
+Capacity Reservation is always created as part of a Capacity Reservation group. The first step is to create a group if a suitable one doesn???t exist already, then create reservations. Once successfully created, reservations are immediately available for use with virtual machines. The capacity is reserved for your use as long as the reservation is not deleted.     
 
-A well-formed request for Capacity Reservation group should always succeed as it does not reserve any capacity. It just acts as a container for reservations. However, a request for Capacity Reservation could fail if you do not have the required quota for the VM series or if Azure doesn’t have enough capacity to fulfill the request. Either request more quota or try a different VM size, location, or zone combination. 
+A well-formed request for Capacity Reservation group should always succeed as it does not reserve any capacity. It just acts as a container for reservations. However, a request for Capacity Reservation could fail if you do not have the required quota for the VM series or if Azure doesn???t have enough capacity to fulfill the request. Either request more quota or try a different VM size, location, or zone combination. 
 
 A Capacity Reservation creation succeeds or fails in its entirety. For a request to reserve 10 instances, success is returned only if all 10 could be allocated. Otherwise, the Capacity Reservation creation will fail. 
 
@@ -82,8 +82,8 @@ The Capacity Reservation must meet the following rules:
         "name": "Standard_D2s_v3", 
         "capacity": 5 
       }, 
-     "tags": { 
-            "environment": "testing" 
+    ???"tags":???{ 
+    ????????????????????????"environment":???"testing" 
     } 
     ```
     
@@ -186,7 +186,7 @@ To learn more, go to Azure PowerShell commands [New-AzResourceGroup](/powershell
 
 ### [ARM template](#tab/arm1)
 
-An [ARM template](../azure-resource-manager/templates/overview.md) is a JavaScript Object Notation (JSON) file that defines the infrastructure and configuration for your project. The template uses declarative syntax. In declarative syntax, you describe your intended deployment without writing the sequence of programming commands to create the deployment. 
+An???[ARM template](../azure-resource-manager/templates/overview.md)???is a JavaScript Object Notation (JSON) file that defines the infrastructure and configuration for your project. The template uses declarative syntax. In declarative syntax, you describe your intended deployment without writing the sequence of programming commands to create the deployment. 
 
 ARM templates let you deploy groups of related resources. In a single template, you can create Capacity Reservation group and Capacity Reservations. You can deploy templates through the Azure portal, Azure CLI, or Azure PowerShell, or from continuous integration/continuous delivery (CI/CD) pipelines. 
 
@@ -207,28 +207,28 @@ Once successfully created, the Capacity Reservation is immediately available for
 ### [API](#tab/api2)
 
 ```rest
-GET  
+GET??? 
 https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/CapacityReservationGroups/{CapacityReservationGroupName}/capacityReservations/{capacityReservationName}?api-version=2021-04-01
 ```
  
 ```json
 { 
-    "name": "<CapacityReservationName>", 
-    "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/capacityReservationGroups/{CapacityReservationGroupName}/capacityReservations/{CapacityReservationName}", 
-    "type": "Microsoft.Compute/capacityReservationGroups/capacityReservations", 
-    "location": "eastus", 
-    "tags": { 
-        "environment": "testing" 
-    }, 
-    "sku": { 
-        "name": "Standard_D2s_v3", 
-        "capacity": 5 
-    }, 
-    "properties": { 
-        "reservationId": "<reservationId>", 
-         "provisioningTime": "<provisioningTime>", 
-         "provisioningState": "Updating" 
-    } 
+????????????"name":???"<CapacityReservationName>", 
+????????????"id":???"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/capacityReservationGroups/{CapacityReservationGroupName}/capacityReservations/{CapacityReservationName}", 
+????????????"type":???"Microsoft.Compute/capacityReservationGroups/capacityReservations", 
+????????????"location":???"eastus", 
+????????????"tags":???{ 
+????????????????????????"environment":???"testing" 
+????????????}, 
+????????????"sku":???{ 
+????????????????????????"name":???"Standard_D2s_v3", 
+????????????????????????"capacity":???5 
+????????????}, 
+????????????"properties":???{ 
+????????????????????????"reservationId":???"<reservationId>", 
+?????????????????????  "provisioningTime":???"<provisioningTime>", 
+         "provisioningState":???"Updating" 
+????????????} 
 } 
 ```
 

@@ -9,7 +9,7 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: kendralittle, vanto, mathoma
 ms.date: 11/03/2021
-ms.custom: ignite-fall-2021
+ms.custom: ignite-fall-2021, devx-track-azurecli
 ---
 
 # Azure AD-only authentication with Azure SQL
@@ -237,14 +237,14 @@ For more information, see the [Managed Instance Azure AD Only Authentications](/
 **Enable**
 
 ```rest
-$body = @{   properties = @{  azureADOnlyAuthentication = 1 }  } | ConvertTo-Json 
+$body = @{   properties = @{  azureADOnlyAuthentication = 1???}  } | ConvertTo-Json 
 Invoke-RestMethod -Uri "https://management.azure.com/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Sql/managedInstances/$serverName/azureADOnlyAuthentications/default?api-version=2020-02-02-preview" -Method PUT -Headers $authHeader -Body $body -ContentType "application/json"
 ```
 
 **Disable**
 
 ```rest
-$body = @{   properties = @{  azureADOnlyAuthentication = 0 }  } | ConvertTo-Json 
+$body = @{   properties = @{  azureADOnlyAuthentication = 0???}  } | ConvertTo-Json 
 Invoke-RestMethod -Uri "https://management.azure.com/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Sql/managedInstances/$serverName/azureADOnlyAuthentications/default?api-version=2020-02-02-preview" -Method PUT -Headers $authHeader -Body $body -ContentType "application/json"
 ```
 

@@ -8,7 +8,7 @@ metadata:
   ms.service: virtual-machine-scale-sets
   ms.date: 06/30/2020
   ms.reviewer: jushiman
-  ms.custom: mimckitt
+  ms.custom: mimckitt, devx-track-azurecli
 
 
 title: FAQ for Azure virtual machine scale sets
@@ -331,7 +331,7 @@ sections:
         answer: |
           To deploy .cer public keys to a virtual machine scale set, you can generate a .pfx file that contains only .cer files. To do this, use `X509ContentType = Pfx`. For example, load the .cer file as an `x509Certificate2` object in C# or PowerShell, and then call the method.
 
-          For more information, see [X509Certificate.Export Method (X509ContentType, String)](/dotnet/api/system.security.cryptography.x509certificates.x509certificate.export?#system-security-cryptography-x509certificates-x509certificate-export(system-security-cryptography-x509certificates-x509contenttype-system-string)).
+          For more information, see [X509Certificate.Export Method (X509ContentType,???String)](/dotnet/api/system.security.cryptography.x509certificates.x509certificate.export?#system-security-cryptography-x509certificates-x509certificate-export(system-security-cryptography-x509certificates-x509contenttype-system-string)).
 
       - question: |
           How do I pass in certificates as base64 strings?

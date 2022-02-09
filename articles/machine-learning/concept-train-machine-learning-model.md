@@ -9,7 +9,7 @@ ms.author: larryfr
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 09/23/2021
-ms.custom: devx-track-python
+ms.custom: devx-track-python, devx-track-azurecli
 ---
 
 # Train models with Azure Machine Learning

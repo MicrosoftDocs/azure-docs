@@ -7,7 +7,7 @@ ms.author: franlanglois
 ms.service: cache
 ms.topic: how-to 
 ms.date: 11/3/2021
-ms.custom: template-how-to 
+ms.custom: template-how-to , devx-track-azurecli
 ---
 
 # Monitor Azure Cache for Redis data using diagnostic settings

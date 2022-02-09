@@ -8,7 +8,7 @@ ms.subservice: heavy
 ms.topic: quickstart
 ms.date: 11/04/2020
 ms.author: alkohli
-ms.custom: mode-ui
+ms.custom: mode-ui, devx-track-azurecli
 #Customer intent: As an IT admin, I need to quickly deploy Data Box Heavy so as to import data into Azure.
 ---
 
@@ -28,7 +28,7 @@ Complete the following configuration prerequisites for the installation site, Da
 
 Before you begin, make sure that:
 
-- The device can fit through all your entryways. Device dimensions are: width: 26” length: 48” height: 28”.
+- The device can fit through all your entryways. Device dimensions are: width: 26??? length: 48??? height: 28???.
 - You have access for the device via an elevator or a ramp if you plan to install on a floor other than the ground floor.
 - You have two people to handle the device. The device weighs approximately ~500 lbs. and comes on wheels.
 - You have a flat site in the datacenter with proximity to an available network connection that can accommodate a device with this footprint.
@@ -119,13 +119,13 @@ Use these Azure CLI commands to create a Data Box Heavy job.
    Run the [az databox job cancel](/cli/azure/databox/job#az_databox_job_cancel) command to cancel a job:
 
    ```azurecli
-   az databox job cancel –resource-group databox-rg --name databox-job --reason "Cancel job."
+   az databox job cancel ???resource-group databox-rg --name databox-job --reason "Cancel job."
    ```
 
    Run the [az databox job delete](/cli/azure/databox/job#az_databox_job_delete) command to delete a job:
 
    ```azurecli
-   az databox job delete –resource-group databox-rg --name databox-job
+   az databox job delete ???resource-group databox-rg --name databox-job
    ```
 
 1. Use the [az databox job list-credentials]( /cli/azure/databox/job#az_databox_job_list_credentials) command to list credentials for a Data Box job:
@@ -175,7 +175,7 @@ This step takes about 5-7 minutes to complete.
 
 1. To get the device password, go to **General > Device details** in the [Azure portal](https://portal.azure.com). Same password is used for both nodes of the device.
 2. Assign a static IP address of 192.168.100.5 and subnet 255.255.255.0 to the Ethernet adapter on the computer you are using to connect to Data Box Heavy. Access the local web UI of the device at `https://192.168.100.10`. The connection could take up to 5 minutes after you turned on the device.
-3. Sign in using the password from the Azure portal. You see an error indicating a problem with the website’s security certificate. Follow the browser-specific instructions to proceed to the web page.
+3. Sign in using the password from the Azure portal. You see an error indicating a problem with the website???s security certificate. Follow the browser-specific instructions to proceed to the web page.
 4. By default, the network settings for the interfaces (excluding the MGMT) are configured as DHCP. If needed, you can configure these interfaces as static and provide an IP address.
 
 ## Cable and configure the second node
@@ -234,7 +234,7 @@ This step takes 2-3 minutes to complete.
 
 ## Next steps
 
-In this quickstart, you’ve deployed a Data Box Heavy to help import your data into Azure. To learn more about Azure Data Box Heavy management, advance to the following tutorial:
+In this quickstart, you???ve deployed a Data Box Heavy to help import your data into Azure. To learn more about Azure Data Box Heavy management, advance to the following tutorial:
 
 > [!div class="nextstepaction"]
 > [Use the Azure portal to administer Data Box Heavy](data-box-portal-admin.md)

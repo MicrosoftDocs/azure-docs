@@ -7,7 +7,7 @@ author: duongau
 ms.author: duau
 ms.topic: how-to
 ms.date: 05/07/2021 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # How to protect private DNS zones and records

@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, devx-track-azurecli
 ---
 
 # Manage streaming endpoints with  Media Services v3

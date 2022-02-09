@@ -6,7 +6,7 @@ ms.suite: integration
 ms.reviewer: estfan, reylons, archidda, sopai, azla
 ms.topic: how-to
 ms.date: 11/02/2021
-ms.custom: ignite-fall-2021
+ms.custom: ignite-fall-2021, devx-track-azurecli
 #Customer intent: As a developer, I want to learn how to create and deploy automated Logic Apps workflows that can run anywhere that Kubernetes can run.
 ---
 
@@ -797,15 +797,15 @@ az logicapp show --name MyLogicAppName
 
 To view the activity for a workflow in your logic app, follow these steps: 
 
-1. In the Azure portal, find and open your deployed logic app.
+1. In the???Azure portal, find and open your deployed logic app.
 
-1. On the logic app menu, select **Workflows**, and then select your workflow. 
+1. On the logic app menu, select???**Workflows**, and then select your workflow. 
 
-1. On the workflow menu, select **Monitor**.
+1. On the workflow menu, select???**Monitor**.
 
 ### Collect logs
 
-To get logged data about your logic app, enable Application Insights on your logic app if not already enabled.
+To get logged data about your logic app, enable???Application Insights???on your logic app if not already enabled.
 
 ## Next steps
 

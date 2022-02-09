@@ -4,7 +4,7 @@ description: "Learn how to configure minimal TLS version for managed instance"
 services: sql-database
 ms.service: sql-managed-instance
 ms.subservice: security
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.topic: how-to
 author: srdan-bozovic-msft
 ms.author: srbozovi

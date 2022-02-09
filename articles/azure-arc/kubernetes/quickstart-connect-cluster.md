@@ -4,7 +4,7 @@ description: "In this quickstart, learn how to connect an Azure Arc-enabled Kube
 ms.service: azure-arc
 ms.topic: quickstart
 ms.date: 09/09/2021
-ms.custom: template-quickstart, mode-other
+ms.custom: template-quickstart, mode-other, devx-track-azurecli
 keywords: "Kubernetes, Arc, Azure, cluster"
 ---
 

@@ -6,7 +6,7 @@ ms.topic: quickstart
 ms.date: 05/02/2021
 ms.devlang: php
 zone_pivot_groups: app-service-platform-windows-linux
-ms.custom: mode-other
+ms.custom: mode-other, devx-track-azurecli
 ---
 
 # Create a PHP web app in Azure App Service

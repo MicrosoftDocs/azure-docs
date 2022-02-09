@@ -6,7 +6,7 @@ ms.author: franlanglois
 ms.date: 1/5/2021
 ms.topic: quickstart
 ms.service: cache
-ms.custom: mode-api
+ms.custom: mode-api, devx-track-azurecli
 ---
 
 # Quickstart: Route Azure Cache for Redis events to web endpoint with Azure CLI
@@ -91,9 +91,9 @@ View your web app again, and notice that a subscription validation event has bee
 Now, let's trigger an event to see how Event Grid distributes the message to your endpoint. Let's export the data stored in your Azure Cache for Redis instance. Again, use the values for `{cache_name}` and `{resource_group_name}` you created earlier.
 
 ```azurecli-interactive
-az redis export  --ids '/subscriptions/{subscription_id}/resourceGroups/{resource_group_name}/providers/Microsoft.Cache/Redis/{cache_name}' \
+az redis export ??--ids '/subscriptions/{subscription_id}/resourceGroups/{resource_group_name}/providers/Microsoft.Cache/Redis/{cache_name}' \
     --prefix '<prefix_for_exported_files>' \
-    --container '<SAS_url>'  
+    --container '<SAS_url>' ??
 ```
 
 You've triggered the event, and Event Grid sent the message to the endpoint you configured when subscribing. View your web app to see the event you just sent.

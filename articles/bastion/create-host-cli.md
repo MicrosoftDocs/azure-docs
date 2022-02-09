@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 09/22/2021
 ms.author: cherylmc
 # Customer intent: As someone with a networking background, I want to create an Azure Bastion host.
-ms.custom: ignite-fall-2021
+ms.custom: ignite-fall-2021, devx-track-azurecli
 ---
 
 # Create an Azure Bastion host using Azure CLI

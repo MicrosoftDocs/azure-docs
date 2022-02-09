@@ -3,7 +3,7 @@ title: Enable partitioning in Azure Service Bus queues and topics
 description: This article explains how to enable partitioning in Azure Service Bus queues and topics by using Azure portal, PowerShell, CLI, and programming languages (C#, Java, Python, and JavaScript)
 ms.topic: how-to
 ms.date: 04/19/2021 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Enable partitioning for an Azure Service Bus queue or a topic

@@ -7,7 +7,7 @@ ms.service: private-link
 ms.topic: quickstart
 ms.date: 01/22/2021
 ms.author: allensu
-ms.custom: mode-api
+ms.custom: mode-api, devx-track-azurecli
 #Customer intent: As someone with a basic network background, but is new to Azure, I want to create an Azure private link service using Azure CLI
 ---
 # Quickstart: Create a Private Link service using Azure CLI

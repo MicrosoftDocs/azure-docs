@@ -3,7 +3,7 @@ title: Azure Virtual Desktop host pool Azure portal - Azure
 description: How to create an Azure Virtual Desktop host pool by using the Azure portal.
 author: Heidilohr
 ms.topic: tutorial
-ms.custom: references_regions
+ms.custom: references_regions, devx-track-azurecli
 ms.date: 08/06/2021
 ms.author: helohr
 manager: femila
@@ -186,7 +186,7 @@ To set up your virtual machine within the Azure portal host pool setup process:
 
     - If you choose **Storage Blob**, you can use your own image build through Hyper-V or on an Azure VM. All you have to do is enter the location of the image in the storage blob as a URI.
    
-   The image's location is independent of the availability option, but the image’s zone resiliency determines whether that image can be used with availability zone. If you select an availability zone while creating your image, make sure you're using an image from the gallery with zone resiliency enabled. To learn more about which zone resiliency option you should use, see [the FAQ](./faq.yml#which-availability-option-is-best-for-me-).
+   The image's location is independent of the availability option, but the image???s zone resiliency determines whether that image can be used with availability zone. If you select an availability zone while creating your image, make sure you're using an image from the gallery with zone resiliency enabled. To learn more about which zone resiliency option you should use, see [the FAQ](./faq.yml#which-availability-option-is-best-for-me-).
 
 7. After that, choose the **Virtual machine size** you want to use. You can either keep the default size as-is or select **Change size** to change the size. If you select **Change size**, in the window that appears, choose the size of the virtual machine suitable for your workload. To learn more about virtual machine sizes and which size you should choose, see [Virtual machine sizing guidelines](/windows-server/remote/remote-desktop-services/virtual-machine-recs?context=/azure/virtual-desktop/context/context).
 
@@ -257,7 +257,7 @@ With that, we're ready to start the next phase of setting up your host pool: reg
 The host pool setup process creates a desktop application group by default. For the host pool to work as intended, you'll need to publish this app group to users or user groups, and you must register the app group to a workspace.
 
 >[!NOTE]
->If you're an app developer trying to publish your organization’s apps, you can dynamically attach MSIX apps to user sessions or add your app packages to a custom VM image. See How to serve your custom app with Azure Virtual Desktop for more information.
+>If you're an app developer trying to publish your organization???s apps, you can dynamically attach MSIX apps to user sessions or add your app packages to a custom VM image. See How to serve your custom app with Azure Virtual Desktop for more information.
 
 ### [Portal](#tab/azure-portal)
 

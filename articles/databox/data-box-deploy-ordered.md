@@ -8,7 +8,7 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 01/11/2022
 ms.author: alkohli 
-ms.custom: devx-track-azurepowershell, contperf-fy22q3
+ms.custom: devx-track-azurepowershell, contperf-fy22q3, devx-track-azurecli
 #Customer intent: As an IT admin, I need to be able to order Data Box to upload on-premises data from my server onto Azure.
 ---
 # Tutorial: Order Azure Data Box
@@ -88,9 +88,9 @@ You have logged in. Now let us find all the subscriptions to which you have acce
 
 **Install the Azure Data Box CLI extension**
 
-Before you can use the Azure Data Box CLI commands, you need to install the extension. Azure CLI extensions give you access to experimental and pre-release commands that haven't yet shipped as part of the core CLI. For more information about extensions, see [Use extensions with Azure CLI](/cli/azure/azure-cli-extensions-overview).
+Before you can use the Azure Data Box CLI commands, you need to install the extension. Azure CLI extensions give you access to experimental and pre-release commands that haven't yet shipped as part of the core CLI. For more information about extensions, see [Use??extensions??with??Azure??CLI](/cli/azure/azure-cli-extensions-overview).
 
-To install the extension for Azure Data Box, run the following command: `az extension add --name databox`:
+To install??the??extension for Azure Data Box, run??the??following??command: `az extension add --name databox`:
 
 ```azurecli
 
@@ -157,7 +157,7 @@ You'll see the following output:
     GitCommitId                    6.2.3
     OS                             Microsoft Windows 10.0.18363
     Platform                       Win32NT
-    PSCompatibleVersions           {1.0, 2.0, 3.0, 4.0…}
+    PSCompatibleVersions           {1.0, 2.0, 3.0, 4.0???}
     PSRemotingProtocolVersion      2.3
     SerializationVersion           1.1.0.1
     WSManStackVersion              3.0
@@ -178,7 +178,7 @@ PS C:\PowerShell\Modules> Get-InstalledModule -Name "Az.DataBox"
 
 Version              Name                                Repository           Description
 -------              ----                                ----------           -----------
-0.1.1                Az.DataBox                          PSGallery            Microsoft Azure PowerShell - DataBox ser…
+0.1.1                Az.DataBox                          PSGallery            Microsoft Azure PowerShell - DataBox ser???
 ```
 
 #### Sign in to Azure

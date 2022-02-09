@@ -8,7 +8,7 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 12/27/2021
 ms.author: allensu 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 
 ---
 # Backend pool management
@@ -28,7 +28,7 @@ In scenarios with pre-populated backend pools, use IP and virtual network.
 All backend pool management is done directly on the backend pool object as highlighted in the examples below.
 
 ### PowerShell
-Create new backend pool:
+Create new??backend pool:
 
 ```azurepowershell-interactive
 $resourceGroup = "myResourceGroup"
@@ -38,18 +38,18 @@ $vnetName = "myVnet"
 $location = "eastus"
 $nicName = "myNic"
 
-$backendPool = New-AzLoadBalancerBackendAddressPool -ResourceGroupName $resourceGroup -LoadBalancerName $loadBalancerName -Name $backendPoolName  
+$backendPool??= New-AzLoadBalancerBackendAddressPool??-ResourceGroupName??$resourceGroup -LoadBalancerName??$loadBalancerName??-Name??$backendPoolName????
 ```
 
-Update backend pool with a new IP from existing virtual network:
- 
+Update backend pool with a new IP from??existing virtual network:
+??
 ```azurepowershell-interactive
-$virtualNetwork = 
-Get-AzVirtualNetwork -Name $vnetName -ResourceGroupName $resourceGroup 
- 
-$ip1 = New-AzLoadBalancerBackendAddressConfig -IpAddress "10.0.0.5" -Name "TestVNetRef" -VirtualNetwork $virtualNetwork  
- 
-$backendPool.LoadBalancerBackendAddresses.Add($ip1) 
+$virtualNetwork??=??
+Get-AzVirtualNetwork??-Name??$vnetName??-ResourceGroupName??$resourceGroup??
+??
+$ip1??=??New-AzLoadBalancerBackendAddressConfig??-IpAddress??"10.0.0.5"??-Name??"TestVNetRef" -VirtualNetwork??$virtualNetwork????
+??
+$backendPool.LoadBalancerBackendAddresses.Add($ip1)??
 
 Set-AzLoadBalancerBackendAddressPool -InputObject $backendPool
 ```
@@ -57,7 +57,7 @@ Set-AzLoadBalancerBackendAddressPool -InputObject $backendPool
 Retrieve the backend pool information for the load balancer to confirm that the backend addresses are added to the backend pool:
 
 ```azurepowershell-interactive
-Get-AzLoadBalancerBackendAddressPool -ResourceGroupName $resourceGroup -LoadBalancerName $loadBalancerName -Name $backendPoolName 
+Get-AzLoadBalancerBackendAddressPool??-ResourceGroupName??$resourceGroup??-LoadBalancerName $loadBalancerName??-Name??$backendPoolName??
 ```
 Create a network interface and add it to the backend pool. Set the IP address to one of the backend addresses:
 

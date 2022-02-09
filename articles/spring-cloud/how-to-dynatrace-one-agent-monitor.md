@@ -8,7 +8,7 @@ ms.author: karler
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 08/31/2021
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-azurecli
 ---
 
 # How to monitor Spring Boot apps with Dynatrace Java OneAgent

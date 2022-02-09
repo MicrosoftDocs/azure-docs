@@ -6,7 +6,7 @@ ms.author: duau
 ms.service: virtual-network-manager
 ms.topic: quickstart
 ms.date: 11/16/2021
-ms.custom: mode-api
+ms.custom: mode-api, devx-track-azurecli
 ---
 
 # Quickstart: Create a mesh network topology with Azure Virtual Network Manager via the Azure CLI

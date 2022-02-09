@@ -7,7 +7,7 @@ ms.service: firewall
 ms.topic: how-to
 ms.date: 01/27/2022
 ms.author: victorh 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Scale SNAT ports with Azure Virtual Network NAT
@@ -18,9 +18,9 @@ Another challenge with using a large number of public IP addresses is when there
 
 A better option to scale outbound SNAT ports is to use an [Azure Virtual Network NAT](../virtual-network/nat-gateway/nat-overview.md) as a NAT gateway. It provides 64,000 SNAT ports per public IP address and supports up to 16 public IP addresses, effectively providing up to 1,024,000 outbound SNAT ports.
 
-When a NAT gateway resource is associated with an Azure Firewall subnet, all outbound Internet traffic automatically uses the public IP address of the NAT gateway. There’s no need to configure [User Defined Routes](../virtual-network/tutorial-create-route-table-portal.md). Response traffic uses the Azure Firewall public IP address to maintain flow symmetry. If there are multiple IP addresses associated with the NAT gateway, the IP address is randomly selected. It isn't possible to specify what address to use.
+When a NAT gateway resource is associated with an Azure Firewall subnet, all outbound Internet traffic automatically uses the public IP address of the NAT gateway. There???s no need to configure [User Defined Routes](../virtual-network/tutorial-create-route-table-portal.md). Response traffic uses the Azure Firewall public IP address to maintain flow symmetry. If there are multiple IP addresses associated with the NAT gateway, the IP address is randomly selected. It isn't possible to specify what address to use.
 
-There’s no double NAT with this architecture. Azure Firewall instances send the traffic to NAT gateway using their private IP address rather than Azure Firewall public IP address.
+There???s no double NAT with this architecture. Azure Firewall instances send the traffic to NAT gateway using their private IP address rather than Azure Firewall public IP address.
 
 > [!NOTE]
 > Using Azure Virtual Network NAT is currently incompatible with Azure Firewall if you have deployed your [Azure Firewall across multiple availability zones](deploy-availability-zone-powershell.md).

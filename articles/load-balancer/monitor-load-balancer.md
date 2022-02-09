@@ -5,7 +5,7 @@ author: asudbring
 ms.author: allensu
 ms.service: load-balancer
 ms.topic: how-to
-ms.custom: subject-monitoring
+ms.custom: subject-monitoring, devx-track-azurecli
 ms.date: 06/29/2021
 ---
 

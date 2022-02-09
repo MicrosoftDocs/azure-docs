@@ -8,7 +8,7 @@ ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: how-to
 ms.date: 11/11/2021
-ms.custom: template-how-to
+ms.custom: template-how-to, devx-track-azurecli
 ---
 
 # Create an Azure Virtual Machine with a dual-stack network using the Azure CLI

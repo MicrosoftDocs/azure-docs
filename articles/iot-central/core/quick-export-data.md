@@ -7,7 +7,7 @@ ms.date: 12/28/2021
 ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
-ms.custom: mvc, mode-other
+ms.custom: mvc, mode-other, devx-track-azurecli
 ---
 
 # Quickstart: Export data from an IoT Central application

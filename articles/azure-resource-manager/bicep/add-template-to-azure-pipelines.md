@@ -5,7 +5,7 @@ author: mumian
 ms.topic: quickstart
 ms.author: jgao
 ms.date: 11/16/2021
-ms.custom: mode-api
+ms.custom: mode-api, devx-track-azurecli
 ---
 # Quickstart: Integrate Bicep with Azure Pipelines
 

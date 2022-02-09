@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.date: 11/02/2021
 ms.author: rogarana
 ms.subservice: disks
-ms.custom: ignite-fall-2021
+ms.custom: ignite-fall-2021, devx-track-azurecli
 ---
 
 # Manage an Azure disk pool (preview)
@@ -129,7 +129,7 @@ diskPoolUpdateArgs+=(--resource-group $resourceGroupName --Name $diskPoolName)
 
 diskIds=$(echo $(az disk-pool show --name $diskPoolName --resource-group $resourceGroupName --query disks[].id -o json) | sed -e 's/\[ //g' -e 's/\ ]//g' -e 's/\,//g')
 for disk in $diskIds; do
-    diskPoolUpdateArgs+=(--disks $(echo $disk | sed 's/"//g'))
+??? ??? diskPoolUpdateArgs+=(--disks $(echo $disk | sed 's/"//g'))
 done
 
 diskId=$(az disk show --resource-group $resourceGroupName --name $diskName --query id | sed 's/"//g')
@@ -145,9 +145,9 @@ luns=$(az disk-pool iscsi-target show --name $iscsiTargetName --disk-pool-name $
 lunsCounts=$(echo $luns | jq length)
 
 for (( i=0; i < $lunCounts; i++ )); do
-    tmpLunName=$(echo $luns | jq .[$i].name | sed 's/"//g')
-    tmpLunId=$(echo $luns | jq .[$i].managedDiskAzureResourceId | sed 's/"//g')
-    targetUpdateArgs+=(--luns name=$tmpLunName managed-disk-azure-resource-id=$tmpLunId)
+??? ??? tmpLunName=$(echo $luns | jq .[$i].name | sed 's/"//g')
+??? ??? tmpLunId=$(echo $luns | jq .[$i].managedDiskAzureResourceId | sed 's/"//g')
+??? ??? targetUpdateArgs+=(--luns name=$tmpLunName managed-disk-azure-resource-id=$tmpLunId)
 done
 
 targetUpdateArgs+=(--luns name=$lunName managed-disk-azure-resource-id=$diskId)
@@ -245,11 +245,11 @@ luns=$(az disk-pool iscsi-target show --name $iscsiTargetName --disk-pool-name $
 lunCounts=$(echo $luns | jq length)
 
 for (( i=0; i < $lunCounts; i++ )); do
-    tmpLunName=$(echo $luns | jq .[$i].name | sed 's/"//g')
-    if [ $tmpLunName != $lunName ]; then
-        tmpLunId=$(echo $luns | jq .[$i].managedDiskAzureResourceId | sed 's/"//g')
-        targetUpdateArgs+=(--luns name=$tmpLunName managed-disk-azure-resource-id=$tmpLunId)
-    fi
+??? ??? tmpLunName=$(echo $luns | jq .[$i].name | sed 's/"//g')
+??? ??? if [ $tmpLunName != $lunName ]; then
+??? ??? ??? ??? tmpLunId=$(echo $luns | jq .[$i].managedDiskAzureResourceId | sed 's/"//g')
+??? ??? ??? ??? targetUpdateArgs+=(--luns name=$tmpLunName managed-disk-azure-resource-id=$tmpLunId)
+??? ??? fi
 done
 
 az disk-pool iscsi-target update "${targetUpdateArgs[@]}"
@@ -264,11 +264,11 @@ diskIds=$(az disk-pool show --name $diskPoolName --resource-group $resourceGroup
 diskLength=$(echo diskIds | jq length)
 
 for (( i=0; i < $diskLength; i++ )); do
-    tmpDiskId=$(echo $diskIds | jq .[$i] | sed 's/"//g')
+??? ??? tmpDiskId=$(echo $diskIds | jq .[$i] | sed 's/"//g')
 
-    if [ $tmpDiskId != $diskId ]; then
-        diskPoolUpdateArgs+=(--disks $tmpDiskId)
-    fi
+??? ??? if [ $tmpDiskId != $diskId ]; then
+??? ??? ??? ??? diskPoolUpdateArgs+=(--disks $tmpDiskId)
+??? ??? fi
 done
 
 az disk-pool update "${diskPoolUpdateArgs[@]}"

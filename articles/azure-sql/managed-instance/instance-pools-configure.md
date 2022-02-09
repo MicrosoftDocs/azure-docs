@@ -5,7 +5,7 @@ description: This article describes how to create and manage Azure SQL Managed I
 services: sql-database
 ms.service: sql-managed-instance
 ms.subservice: deployment-configuration
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.devlang: 
 ms.topic: how-to
 author: urosmil
@@ -200,7 +200,7 @@ $instancePool | Get-AzSqlInstancePoolUsage
 To get detailed usage overview of the pool and instances inside it:
 
 ```powershell
-$instancePool | Get-AzSqlInstancePoolUsage –ExpandChildren
+$instancePool | Get-AzSqlInstancePoolUsage ???ExpandChildren
 ```
 
 To list the databases in an instance:

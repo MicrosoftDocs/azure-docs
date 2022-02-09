@@ -9,7 +9,7 @@ ms.author: larryfr
 author: blackmist
 ms.date: 01/07/2022
 ms.topic: how-to
-ms.custom: devplatv2
+ms.custom: devplatv2, devx-track-azurecli
 
 ---
 

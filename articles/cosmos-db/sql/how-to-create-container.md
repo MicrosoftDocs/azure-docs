@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 01/03/2022
 ms.author: mjbrown
 ms.devlang: csharp
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, devx-track-azurecli
 ---
 
 # Create a container in Azure Cosmos DB SQL API
@@ -19,7 +19,7 @@ This article explains the different ways to create an container in Azure Cosmos 
 This article explains the different ways to create a container in Azure Cosmos DB SQL API. If you are using a different API, see [API for MongoDB](../mongodb/how-to-create-container-mongodb.md), [Cassandra API](../cassandra/how-to-create-container-cassandra.md), [Gremlin API](../graph/how-to-create-container-gremlin.md), and [Table API](../table/how-to-create-container.md) articles to create the container.
 
 > [!NOTE]
-> When creating containers, make sure you don’t create two containers with the same name but different casing. That’s because some parts of the Azure platform are not case-sensitive, and this can result in confusion/collision of telemetry and actions on containers with such names.
+> When creating containers, make sure you don???t create two containers with the same name but different casing. That???s because some parts of the Azure platform are not case-sensitive, and this can result in confusion/collision of telemetry and actions on containers with such names.
 
 ## <a id="portal-sql"></a>Create a container using Azure portal
 

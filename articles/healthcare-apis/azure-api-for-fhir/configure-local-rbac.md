@@ -7,7 +7,7 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 01/05/2022
 ms.author: zxue
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 # Configure local RBAC for FHIR
 

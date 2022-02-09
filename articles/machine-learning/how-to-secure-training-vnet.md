@@ -10,7 +10,7 @@ ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
 ms.date: 01/06/2022
-ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1, references_regions
+ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1, references_regions, devx-track-azurecli
 
 ---
 

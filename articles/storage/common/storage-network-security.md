@@ -9,7 +9,7 @@ ms.date: 12/08/2021
 ms.author: normesta
 ms.reviewer: santoshc
 ms.subservice: common 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Configure Azure Storage firewalls and virtual networks
@@ -493,7 +493,7 @@ You can use PowerShell commands to add or remove resource network rules.
 Install the latest version of the PowershellGet module. Then, close and reopen the PowerShell console.
 
 ```powershell
-install-Module PowerShellGet –Repository PSGallery –Force  
+install-Module PowerShellGet ???Repository PSGallery ???Force  
 ```
 
 Install **Az. Storage** preview module.

@@ -5,7 +5,7 @@ author: juliakm
 ms.topic: conceptual
 ms.date: 12/08/2021
 ms.author: jukullam
-ms.custom: "devx-track-csharp, devx-track-python"
+ms.custom: "devx-track-csharp, devx-track-python, devx-track-azurecli"
 ---
 
 # Continuous delivery with Azure Pipelines

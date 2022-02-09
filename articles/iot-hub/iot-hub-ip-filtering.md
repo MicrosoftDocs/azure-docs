@@ -7,7 +7,7 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 03/22/2021
 ms.author: jlian 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Use IP filters
@@ -36,7 +36,7 @@ After selecting **Add IP Filter Rule**, fill in the fields. These fields are pre
 
 :::image type="content" source="./media/iot-hub-ip-filtering/ip-filter-after-selecting-add.png" alt-text="Screenshot that shows what to do after adding an IP filter rule.":::
 
-* Provide a **name** for the IP Filter rule. This name must be a unique, case-insensitive, alphanumeric string up to 128 characters long. Only the ASCII 7-bit alphanumeric characters plus `{'-', ':', '/', '\', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '''}` are accepted.
+* Provide a **name** for the IP Filter rule. This name must be a unique, case-insensitive, alphanumeric string up to 128 characters long. Only the ASCII 7-bit alphanumeric characters plus `{'-', ':', '/', '\', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';',??'''}` are accepted.
 
 * Provide a single IPv4 address or a block of IP addresses in CIDR notation. For example, in CIDR notation 192.168.100.0/22 represents the 1024 IPv4 addresses from 192.168.100.0 to 192.168.103.255.
 
@@ -102,7 +102,7 @@ This will return a JSON object where your existing IP filters are listed under t
 {
 ...
     "properties": {
-        "networkRuleSets": {
+        "networkRuleSets":??{
             "defaultAction": "Deny",
             "applyToBuiltInEventHubEndpoint": true,
             "ipRules": [{

@@ -6,7 +6,7 @@ ms.author: johnkem
 ms.service: chaos-studio
 ms.topic: how-to
 ms.date: 11/10/2021
-ms.custom: template-how-to, ignite-fall-2021
+ms.custom: template-how-to, ignite-fall-2021, devx-track-azurecli
 ---
 
 # Create a chaos experiment that uses a service-direct fault with the Azure CLI

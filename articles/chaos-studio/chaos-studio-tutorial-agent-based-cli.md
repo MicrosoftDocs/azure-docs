@@ -6,7 +6,7 @@ ms.topic: how-to
 ms.date: 11/10/2021
 ms.author: johnkem
 ms.service: chaos-studio
-ms.custom: template-how-to, ignite-fall-2021
+ms.custom: template-how-to, ignite-fall-2021, devx-track-azurecli
 ---
 
 # Create a chaos experiment that uses an agent-based fault on a virtual machine or virtual machine scale set with the Azure CLI

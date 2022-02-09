@@ -3,7 +3,7 @@ title: Enable Disk Encryption for Service Fabric managed cluster nodes
 description: Learn how to enable disk encryption for Azure Service Fabric managed cluster nodes in Windows using an ARM template.
 ms.topic: how-to
 ms.date: 11/8/2021 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 # Enable disk encryption for Service Fabric managed cluster nodes
 
@@ -147,19 +147,19 @@ The following step will walk you through the required template changes to enable
 1. Add the following parameters to the template, substituting your own subscription, resource group name, and vault name under `keyVaultResourceId`:
 
    ```json
-   "parameters": {
-    "keyVaultResourceId": { 
-      "type": "string", 
-      "defaultValue": "/subscriptions/########-####-####-####-############/resourceGroups/<rg-name>/providers/Microsoft.KeyVault/vaults/<kv-name>", 
-      "metadata": { 
-      "description": "Full resource id of the Key Vault used for disk encryption." 
+   "parameters":???{
+    "keyVaultResourceId":???{ 
+      "type":???"string", 
+      "defaultValue":???"/subscriptions/########-####-####-####-############/resourceGroups/<rg-name>/providers/Microsoft.KeyVault/vaults/<kv-name>", 
+      "metadata":???{ 
+      "description":???"Full???resource???id???of???the???Key???Vault???used???for???disk???encryption." 
    } 
     },
-    "volumeType": { 
-     "type": "string", 
-     "defaultValue": "All", 
-     "metadata": { 
-      "description": "Type of the volume OS or Data to perform encryption operation" 
+    "volumeType":???{ 
+     "type":???"string", 
+     "defaultValue":???"All", 
+     "metadata":???{ 
+      "description":???"Type???of???the???volume???OS???or???Data???to???perform???encryption???operation" 
    }
    }
    }, 
@@ -168,20 +168,20 @@ The following step will walk you through the required template changes to enable
 2. Next, add the `AzureDiskEncryption` VM extension to the managed cluster node types in the template:
 
    ```json
-   "properties": { 
-   "vmExtensions": [ 
+   "properties":???{ 
+   "vmExtensions":???[ 
    { 
-   "name": "AzureDiskEncryption", 
-   "properties": { 
-     "publisher": "Microsoft.Azure.Security", 
-     "type": "AzureDiskEncryption", 
-     "typeHandlerVersion": "2.2", 
-     "autoUpgradeMinorVersion": true, 
-     "settings": {      
-           "EncryptionOperation": "EnableEncryption", 
-           "KeyVaultURL": "[reference(parameters('keyVaultResourceId'),'2016-10-01').vaultUri]", 
-        "KeyVaultResourceId": "[parameters('keyVaultResourceID')]",
-        "VolumeType": "[parameters('volumeType')]" 
+   "name":???"AzureDiskEncryption", 
+   "properties":???{ 
+     "publisher":???"Microsoft.Azure.Security", 
+     "type":???"AzureDiskEncryption", 
+     "typeHandlerVersion":???"2.2", 
+     "autoUpgradeMinorVersion":???true, 
+     "settings":???{      
+           "EncryptionOperation":???"EnableEncryption", 
+    ???      "KeyVaultURL":???"[reference(parameters('keyVaultResourceId'),'2016-10-01').vaultUri]", 
+    ??????  "KeyVaultResourceId":???"[parameters('keyVaultResourceID')]",
+    ??????  "VolumeType":???"[parameters('volumeType')]" 
         } 
       } 
    } 
@@ -192,14 +192,14 @@ The following step will walk you through the required template changes to enable
 3. Finally, update the parameters file, substituting your own subscription, resource group, and key vault name in *keyVaultResourceId*:
 
    ```json
-   "parameters": { 
+   "parameters":???{ 
    ...
-    "keyVaultResourceId": { 
-     "value": "/subscriptions/########-####-####-####-############/resourceGroups/<rg-name>/providers/Microsoft.KeyVault/vaults/<kv-name>" 
-    },   
-    "volumeType": { 
-     "value": "All" 
-    }    
+    "keyVaultResourceId":???{ 
+     "value":???"/subscriptions/########-####-####-####-############/resourceGroups/<rg-name>/providers/Microsoft.KeyVault/vaults/<kv-name>" 
+    },?????? 
+    "volumeType":???{ 
+     "value":???"All" 
+    }????????? 
    } 
    ```
 

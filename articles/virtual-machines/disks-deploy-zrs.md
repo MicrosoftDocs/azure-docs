@@ -7,7 +7,7 @@ ms.date: 09/01/2021
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: disks
-ms.custom: references_regions, devx-track-azurepowershell
+ms.custom: references_regions, devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Deploy a managed disk that uses zone-redundant storage

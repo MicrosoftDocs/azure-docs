@@ -10,7 +10,7 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 10/14/2021
 ms.author: pafarley
-ms.custom: ignite-fall-2021
+ms.custom: ignite-fall-2021, devx-track-azurecli
 ---
 
 # Install and run the Spatial Analysis container (Preview)
@@ -89,13 +89,13 @@ Spatial Analysis uses the compute features of the Azure Stack Edge to run an AI 
 
 ### Set up an Edge compute role and create an IoT Hub resource
 
-In the [Azure portal](https://portal.azure.com/), navigate to your Azure Stack Edge resource. On the **Overview** page or navigation list, click the Edge compute **Get started** button. In the **Configure Edge compute** tile, click **Configure**. 
+In the [Azure portal](https://portal.azure.com/), navigate to your Azure Stack Edge resource. On the **Overview** page or navigation list, click the Edge compute **Get started** button. In the???**Configure Edge compute**???tile, click **Configure**. 
 
 ![Link](media/spatial-analysis/configure-edge-compute-tile.png)
 
-In the **Configure Edge compute** page, choose an existing IoT Hub, or choose to create a new one. By default, a Standard (S1) pricing tier is used to create an IoT Hub resource. To use a free tier IoT Hub resource, create one and then select it. The IoT Hub resource uses the same subscription and resource group that is used by the Azure Stack Edge resource 
+In the???**Configure Edge compute**???page, choose an existing IoT Hub, or choose to create a new one. By default, a Standard (S1) pricing tier is used to create an IoT Hub resource. To use a free tier IoT Hub resource, create one and then select it. The IoT Hub resource uses the same subscription and resource group that is used by the Azure Stack Edge resource 
 
-Click **Create**. The IoT Hub resource creation may take a couple of minutes. After the IoT Hub resource is created, the **Configure Edge compute** tile will update to show the new configuration. To confirm that the Edge compute role has been configured, select **View config** on the **Configure compute** tile.
+Click **Create**. The IoT Hub resource creation may take a couple of minutes. After the IoT Hub resource is created, the???**Configure Edge compute** tile will update to show the new configuration. To confirm that the Edge compute role has been configured, select???**View config** on the???**Configure compute**???tile.
 
 When the Edge compute role is set up on the Edge device, it creates two devices: an IoT device and an IoT Edge device. Both devices can be viewed in the IoT Hub resource. The Azure IoT Edge Runtime will already be running on the IoT Edge device.
 
@@ -124,7 +124,7 @@ Follow these steps to remotely connect from a Windows client.
 
     Replace `<Node serial number>` and `<DNS domain of the device>` with the node serial number and DNS domain of your device. You can get the values for node serial number from the **Certificates** page and DNS domain from the **Device** page in the local web UI of your device.
 
-4. To add this connection string for your device to the client’s trusted hosts list, type the following command:
+4. To add this connection string for your device to the client???s trusted hosts list, type the following command:
 
     ```powershell
     Set-Item WSMan:\localhost\Client\TrustedHosts $Name -Concatenate -Force
@@ -528,9 +528,9 @@ sudo az iot edge set-modules --hub-name "<iothub-name>" --device-id "<device-nam
 | `--hub-name` | Your Azure IoT Hub name. |
 | `--content` | The name of the deployment file. |
 | `--target-condition` | Your IoT Edge device name for the host computer. |
-| `-–subscription` | Subscription ID or name. |
+| `-???subscription` | Subscription ID or name. |
 
-This command will start the deployment. Navigate to the page of your Azure IoT Hub instance in the Azure portal to see the deployment status. The status may show as *417 – The device's deployment configuration is not set* until the device finishes downloading the container images and starts running.
+This command will start the deployment. Navigate to the page of your Azure IoT Hub instance in the Azure portal to see the deployment status. The status may show as *417 ??? The device's deployment configuration is not set* until the device finishes downloading the container images and starts running.
 
 ## Validate that the deployment is successful
 

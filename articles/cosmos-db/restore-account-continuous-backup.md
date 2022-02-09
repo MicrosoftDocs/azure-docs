@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.date: 12/09/2021
 ms.author: govindk
 ms.reviewer: sngun
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 
 ---
 
@@ -32,15 +32,15 @@ You can use Azure portal to restore an entire live account or selected databases
 
 1. Fill the following details to restore:
 
-   * **Restore Point (UTC)** – A timestamp within the last 30 days. The account should exist at that timestamp. You can specify the restore point in UTC. It can be as close to the second when you want to restore it. Select the **Click here** link to get help on [identifying the restore point](#event-feed).
+   * **Restore Point (UTC)** ??? A timestamp within the last 30 days. The account should exist at that timestamp. You can specify the restore point in UTC. It can be as close to the second when you want to restore it. Select the **Click here** link to get help on [identifying the restore point](#event-feed).
 
-   * **Location** – The destination region where the account is restored. The account should exist in this region at the given timestamp (for example, West US or East US). An account can be restored only to the regions in which the source account existed.
+   * **Location** ??? The destination region where the account is restored. The account should exist in this region at the given timestamp (for example, West US or East US). An account can be restored only to the regions in which the source account existed.
 
-   * **Restore Resource** – You can either choose **Entire account** or a **selected database/container** to restore. The databases and containers should exist at the given timestamp. Based on the restore point and location selected, restore resources are populated, which allows user to select specific databases or containers that need to be restored.
+   * **Restore Resource** ??? You can either choose **Entire account** or a **selected database/container** to restore. The databases and containers should exist at the given timestamp. Based on the restore point and location selected, restore resources are populated, which allows user to select specific databases or containers that need to be restored.
 
    * **Resource group** - Resource group under which the target account will be created and restored. The resource group must already exist.
 
-   * **Restore Target Account** – The target account name. The target account name needs to follow same guidelines as when you are creating a new account. This account will be created by the restore process in the same region where your source account exists.
+   * **Restore Target Account** ??? The target account name. The target account name needs to follow same guidelines as when you are creating a new account. This account will be created by the restore process in the same region where your source account exists.
  
    :::image type="content" source="./media/restore-account-continuous-backup/restore-live-account-portal.png" alt-text="Restore a live account from accidental modification Azure portal." border="true" lightbox="./media/restore-account-continuous-backup/restore-live-account-portal.png":::
 
@@ -79,13 +79,13 @@ You can use Azure portal to completely restore a deleted account within 30 days 
 
 1. Select an account to restore and input the following details to restore a deleted account:
 
-   * **Restore Point (UTC)** – A timestamp within the last 30 days. The account should have existed at that timestamp. Specify the restore point in UTC. It can be as close to the second when you want to restore it.
+   * **Restore Point (UTC)** ??? A timestamp within the last 30 days. The account should have existed at that timestamp. Specify the restore point in UTC. It can be as close to the second when you want to restore it.
 
-   * **Location** – The destination region where the account needs to be restored. The source account should exist in this region at the given timestamp. Example West US or East US.  
+   * **Location** ??? The destination region where the account needs to be restored. The source account should exist in this region at the given timestamp. Example West US or East US.  
 
    * **Resource group** - Resource group under which the target account will be created and restored. The resource group must already exist.
 
-   * **Restore Target Account** – The target account name needs to follow same guidelines as when you are creating a new account. This account will be created by the restore process in the same region where your source account exists.
+   * **Restore Target Account** ??? The target account name needs to follow same guidelines as when you are creating a new account. This account will be created by the restore process in the same region where your source account exists.
 
 ### <a id="track-restore-status"></a>Track the status of restore operation
 

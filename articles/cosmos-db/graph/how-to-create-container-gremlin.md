@@ -8,7 +8,7 @@ ms.date: 10/16/2020
 author: manishmsfte
 ms.author: mansha
 ms.devlang: csharp
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, devx-track-azurecli
 ---
 
 # Create a container in Azure Cosmos DB Gremlin API
@@ -19,13 +19,13 @@ This article explains the different ways to create a container in Azure Cosmos D
 This article explains the different ways to create a container in Azure Cosmos DB Gremlin API. If you are using a different API, see [API for MongoDB](../mongodb/how-to-create-container-mongodb.md), [Cassandra API](../cassandra/how-to-create-container-cassandra.md), [Table API](../table/how-to-create-container.md), and [SQL API](../how-to-create-container.md) articles to create the container.
 
 > [!NOTE]
-> When creating containers, make sure you don’t create two containers with the same name but different casing. That’s because some parts of the Azure platform are not case-sensitive, and this can result in confusion/collision of telemetry and actions on containers with such names.
+> When creating containers, make sure you don???t create two containers with the same name but different casing. That???s because some parts of the Azure platform are not case-sensitive, and this can result in confusion/collision of telemetry and actions on containers with such names.
 
 ## <a id="portal-gremlin"></a>Create using Azure portal
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-1. [Create a new Azure Cosmos account](create-graph-dotnet.md#create-a-database-account), or select an existing account.
+1. [Create a new Azure Cosmos account](create-graph-dotnet.md#create-a-database-account), or select???an existing account.
 
 1. Open the **Data Explorer** pane, and select **New Graph**. Next, provide the following details:
 

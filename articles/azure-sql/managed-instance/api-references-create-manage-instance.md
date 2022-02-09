@@ -9,7 +9,8 @@ ms.topic: reference
 author: urosmil
 ms.author: urmilano
 ms.reviewer: mathoma
-ms.date: 03/12/2019
+ms.date: 03/12/2019 
+ms.custom: devx-track-azurecli
 ---
 # Managed API reference for Azure SQL Managed Instance
 

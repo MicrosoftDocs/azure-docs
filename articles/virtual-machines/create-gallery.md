@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 10/05/2021
 ms.author: cynthn
-ms.custom: template-how-to 
+ms.custom: template-how-to , devx-track-azurecli
 
 ---
 

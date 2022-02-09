@@ -8,7 +8,7 @@ ms.workload: infrastructure-services
 ms.date: 12/13/2021
 ms.topic: how-to
 ms.author: cynthn 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 
 ---
 # How to use SSH keys with Windows on Azure

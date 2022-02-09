@@ -11,7 +11,7 @@ ms.subservice: keys
 ms.topic: conceptual
 ms.date: 02/04/2021
 ms.author: mbaldwin 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 
 ---
 
@@ -37,8 +37,8 @@ Target Key|RSA, EC, AES (Managed HSM only)|Vendor HSM|The key to be transferred 
 
 **Key Exchange Key**: An HSM-backed key that customer generates in the key vault where the BYOK key will be imported. This KEK must have following properties:
 
-* It’s an RSA-HSM key (4096-bit or 3072-bit or 2048-bit)
-* It will have fixed key_ops (ONLY ‘import’), that will allow it to be used ONLY during BYOK
+* It???s an RSA-HSM key (4096-bit or 3072-bit or 2048-bit)
+* It will have fixed key_ops (ONLY ???import???), that will allow it to be used ONLY during BYOK
 * Must be in the same vault where the Target Key will be imported
 
 ## User steps
@@ -122,7 +122,7 @@ If CKM_RSA_AES_KEY_WRAP_PAD is used, the JSON serialization of the transfer blob
 * dir = Direct mode, i.e. the referenced kid is used to directly protect the ciphertext which is an accurate representation of CKM_RSA_AES_KEY_WRAP
 * generator = an informational field that denotes the name and version of BYOK tool and the source HSM manufacturer and model. This information is intended for use in troubleshooting and support.
 
-The JSON blob is stored in a file with a ".byok" extension so that the Azure PowerShell/CLI clients treats it correctly when ‘Add-AzKeyVaultKey’ (PSH) or ‘az keyvault key import’ (CLI) commands are used.
+The JSON blob is stored in a file with a ".byok" extension so that the Azure PowerShell/CLI clients treats it correctly when ???Add-AzKeyVaultKey??? (PSH) or ???az keyvault key import??? (CLI) commands are used.
 
 ### Step 4: Upload key transfer blob to import HSM-key
 
@@ -180,7 +180,7 @@ Request body when importing an EC key:
 }
 ```
 
-“key_hsm” value is the entire contents of the KeyTransferPackage-ContosoFirstHSMkey.byok encoded in the Base64 format.
+???key_hsm??? value is the entire contents of the KeyTransferPackage-ContosoFirstHSMkey.byok encoded in the Base64 format.
 
 ## References
 - [Key Vault Developer's Guide](../general/developers-guide.md)

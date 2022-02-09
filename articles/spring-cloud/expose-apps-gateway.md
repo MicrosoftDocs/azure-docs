@@ -7,7 +7,7 @@ ms.author: karler
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 11/09/2021
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-azurecli
 ---
 
 # Expose applications to the internet using Application Gateway

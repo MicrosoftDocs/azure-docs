@@ -11,7 +11,7 @@ ms.date: 07/13/2021
 ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: common 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Assign an Azure role for access to table data (preview)

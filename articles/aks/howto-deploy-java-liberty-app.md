@@ -8,7 +8,7 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/01/2021
 keywords: java, jakartaee, javaee, microprofile, open-liberty, websphere-liberty, aks, kubernetes
-ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-javaee-liberty-aks
+ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-javaee-liberty-aks, devx-track-azurecli
 ---
 
 # Deploy a Java application with Open Liberty or WebSphere Liberty on an Azure Kubernetes Service (AKS) cluster
@@ -177,21 +177,21 @@ There are three samples in the repository. We will use *javaee-app-db-using-acti
 
 ```
 javaee-app-db-using-actions/mssql
-├─ src/main/
-│  ├─ aks/
-│  │  ├─ db-secret.yaml
-│  │  ├─ openlibertyapplication.yaml
-│  ├─ docker/
-│  │  ├─ Dockerfile
-│  │  ├─ Dockerfile-local
-│  │  ├─ Dockerfile-wlp
-│  │  ├─ Dockerfile-wlp-local
-│  ├─ liberty/config/
-│  │  ├─ server.xml
-│  ├─ java/
-│  ├─ resources/
-│  ├─ webapp/
-├─ pom.xml
+?????? src/main/
+???  ?????? aks/
+???  ???  ?????? db-secret.yaml
+???  ???  ?????? openlibertyapplication.yaml
+???  ?????? docker/
+???  ???  ?????? Dockerfile
+???  ???  ?????? Dockerfile-local
+???  ???  ?????? Dockerfile-wlp
+???  ???  ?????? Dockerfile-wlp-local
+???  ?????? liberty/config/
+???  ???  ?????? server.xml
+???  ?????? java/
+???  ?????? resources/
+???  ?????? webapp/
+?????? pom.xml
 ```
 
 The directories *java*, *resources*, and *webapp* contain the source code of the sample application. The code declares and uses a data source named `jdbc/JavaEECafeDB`.
@@ -289,7 +289,7 @@ docker push ${LOGIN_SERVER}/${IMAGE_NAME}:${IMAGE_VERSION}
    ```
 1. Run `cd target` to change directory to the build of the sample.
 1. Run one of the following commands to build the application image and push it to the ACR instance.
-   * Build with Open Liberty base image if you prefer to use Open Liberty as a lightweight open source Java™ runtime:
+   * Build with Open Liberty base image if you prefer to use Open Liberty as a lightweight open source Java??? runtime:
 
      ```azurecli-interactive
      # Build and tag application image. This will cause the ACR instance to pull the necessary Open Liberty base images.

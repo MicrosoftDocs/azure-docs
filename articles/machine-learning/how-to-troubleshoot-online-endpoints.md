@@ -10,7 +10,7 @@ ms.author:  petrodeg
 ms.reviewer: laobri
 ms.date: 11/03/2021
 ms.topic: troubleshooting
-ms.custom: devplatv2
+ms.custom: devplatv2, devx-track-azurecli
 #Customer intent: As a data scientist, I want to figure out why my online endpoint deployment failed so that I can fix it.
 ---
 
@@ -84,7 +84,7 @@ By default the logs are pulled from the inference server. Logs include the conso
 > If you use Python logging, ensure you use the correct logging level order for the messages to be published to logs. For example, INFO.
 
 
-You can also get logs from the storage initializer container by passing `–-container storage-initializer`. These logs contain information on whether code and model data were successfully downloaded to the container.
+You can also get logs from the storage initializer container by passing `???-container storage-initializer`. These logs contain information on whether code and model data were successfully downloaded to the container.
 
 Add `--help` and/or `--debug` to commands to see more information. Include the `x-ms-client-request-id` header to help with troubleshooting.
 
@@ -245,7 +245,7 @@ If you are having trouble with autoscaling, see [Troubleshooting Azure autoscale
 
 Managed online endpoints have bandwidth limits for each endpoints. You find the limit configuration in [Manage and increase quotas for resources with Azure Machine Learning](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints-preview) here. If your bandwidth usage exceeds the limit, your request will be delayed. To monitor the bandwidth delay:
 
-- Use metric “Network bytes” to understand the current bandwidth usage. For more information, see [Monitor managed online endpoints](how-to-monitor-online-endpoints.md).
+- Use metric ???Network bytes??? to understand the current bandwidth usage. For more information, see [Monitor managed online endpoints](how-to-monitor-online-endpoints.md).
 - There are two response trailers will be returned if the bandwidth limit enforced: 
     - `ms-azureml-bandwidth-request-delay-ms`: delay time in milliseconds it took for the request stream transfer.
     - `ms-azureml-bandwidth-response-delay-ms`: delay time in milliseconds it took for the response stream transfer.

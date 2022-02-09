@@ -7,7 +7,7 @@ ms.service: container-apps
 ms.topic: conceptual
 ms.date: 11/02/2021
 ms.author: joarteir
-ms.custom: ignite-fall-2021
+ms.custom: ignite-fall-2021, devx-track-azurecli
 ---
 
 # Tutorial: Deploy a background processing application with Azure Container Apps Preview
@@ -127,7 +127,7 @@ az storage queue create \
 # [PowerShell](#tab/powershell)
 
 ```powershell
-$queue = New-AzStorageQueue –Name "myqueue" `
+$queue = New-AzStorageQueue ???Name "myqueue" `
   -Context $STORAGE_ACCOUNT.Context
 ```
 

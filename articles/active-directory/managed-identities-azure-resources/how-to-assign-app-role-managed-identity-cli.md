@@ -15,7 +15,7 @@ ms.workload: identity
 ms.date: 11/03/2021
 ms.author: christoc
 ms.collection: M365-identity-device-management 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Assign a managed identity access to an application role using Azure CLI

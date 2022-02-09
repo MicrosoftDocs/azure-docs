@@ -8,7 +8,7 @@ ms.date: 01/27/2021
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: image-builder
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Azure Image Builder Service DevOps Task (preview)

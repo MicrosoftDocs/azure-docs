@@ -10,7 +10,7 @@ ms.reviewer: laobri
 author: shivanissambare
 ms.date: 12/22/2021
 ms.topic: how-to
-ms.custom: how-to, devplatv2
+ms.custom: how-to, devplatv2, devx-track-azurecli
 ---
 
 # How to deploy an AutoML model to an online endpoint (preview)

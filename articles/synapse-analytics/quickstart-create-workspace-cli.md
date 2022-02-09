@@ -9,7 +9,7 @@ ms.subservice: workspace
 ms.date: 02/04/2022
 ms.author: wiassaf
 ms.reviewer: sngun
-ms.custom: mode-api
+ms.custom: mode-api, devx-track-azurecli
 ---
 
 # Quickstart: Create an Azure synapse workspace with Azure CLI
@@ -34,7 +34,7 @@ In this quickstart, you learn to create a Synapse workspace by using the Azure C
 
 1. Define necessary environment variables to create resources for Azure Synapse workspace.
 
-    | Environment Variable Name | Description |
+    | Environment Variable Name | Description???|
     |---|---|---|
     |StorageAccountName| Name for your existing ADLS Gen2 storage account.|
     |StorageAccountResourceGroup| Name of your existing ADLS Gen2 storage account resource group. |

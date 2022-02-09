@@ -10,7 +10,7 @@ ms.collection: linux
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 
 ---
 # Key Vault virtual machine extension for Linux
@@ -65,7 +65,7 @@ The Key Vault VM extension supports these Linux distributions:
 * If you prefer to upgrade to `v2.0`, you would need to delete `v1.0` first, then install `v2.0`.
 ```
   az vm extension delete --name KeyVaultForLinux --resource-group ${resourceGroup} --vm-name ${vmName}
-  az vm extension set -n "KeyVaultForLinux" --publisher Microsoft.Azure.KeyVault --resource-group "${resourceGroup}" --vm-name "${vmName}" –settings .\akvvm.json –version 2.0
+  az vm extension set -n "KeyVaultForLinux" --publisher Microsoft.Azure.KeyVault --resource-group "${resourceGroup}" --vm-name "${vmName}" ???settings .\akvvm.json ???version 2.0
 ```  
   The flag --version 2.0 is optional because the latest version will be installed by default.	
 
@@ -301,7 +301,7 @@ Symbolic links or Symlinks are basically advanced shortcuts. To avoid monitoring
 ### Frequently Asked Questions
 
 * Is there is a limit on the number of observedCertificates you can setup?
-  No, Key Vault VM Extension doesn’t have limit on the number of observedCertificates.
+  No, Key Vault VM Extension doesn???t have limit on the number of observedCertificates.
   
 
 ### Support

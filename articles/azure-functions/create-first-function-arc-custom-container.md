@@ -3,7 +3,7 @@ title: 'Quickstart: Create a function app on Azure Arc in a custom container'
 description: Get started with Azure Functions on Azure Arc by deploying your first function app in a custom Linux container.
 ms.topic: quickstart
 ms.date: 05/11/2021
-ms.custom: mode-other
+ms.custom: mode-other, devx-track-azurecli
 ---
 
 # Create your first function on Azure Arc using a custom container (preview)

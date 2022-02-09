@@ -8,7 +8,7 @@ ms.service: virtual-network
 ms.topic: quickstart
 ms.date: 10/01/2021
 ms.author: allensu
-ms.custom: mode-api
+ms.custom: mode-api, devx-track-azurecli
 ---
 # Quickstart: Create a public IP address using the Azure CLI
 

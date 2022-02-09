@@ -10,7 +10,7 @@ ms.subservice: language-service
 ms.topic: conceptual
 ms.date: 11/29/2021
 ms.author: aahi
-ms.custom: language-service-health, ignite-fall-2021
+ms.custom: language-service-health, ignite-fall-2021, devx-track-azurecli
 ---
 
 # Use Text Analytics for health containers

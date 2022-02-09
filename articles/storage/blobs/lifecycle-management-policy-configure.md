@@ -10,7 +10,7 @@ ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
-ms.custom: "devx-track-azurepowershell"
+ms.custom: "devx-track-azurepowershell, devx-track-azurecli"
 ---
 
 # Configure a lifecycle management policy

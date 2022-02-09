@@ -8,7 +8,7 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
 ms.date: 10/16/2020
 ms.devlang: csharp
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, devx-track-azurecli
 ---
 
 # Create a container in Azure Cosmos DB Cassandra API
@@ -19,13 +19,13 @@ This article explains the different ways to create a container in Azure Cosmos D
 This article explains the different ways to create a container in Azure Cosmos DB Cassandra API. If you are using a different API, see [API for MongoDB](../mongodb/how-to-create-container-mongodb.md), [Gremlin API](../how-to-create-container-gremlin.md), [Table API](../table/how-to-create-container.md), and [SQL API](../how-to-create-container.md) articles to create the container.
 
 > [!NOTE]
-> When creating containers, make sure you don’t create two containers with the same name but different casing. That’s because some parts of the Azure platform are not case-sensitive, and this can result in confusion/collision of telemetry and actions on containers with such names.
+> When creating containers, make sure you don???t create two containers with the same name but different casing. That???s because some parts of the Azure platform are not case-sensitive, and this can result in confusion/collision of telemetry and actions on containers with such names.
 
 ## <a id="portal-cassandra"></a>Create using Azure portal
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-1. [Create a new Azure Cosmos account](manage-data-dotnet.md#create-a-database-account), or select an existing account.
+1. [Create a new Azure Cosmos account](manage-data-dotnet.md#create-a-database-account), or select???an existing account.
 
 1. Open the **Data Explorer** pane, and select **New Table**. Next, provide the following details:
 

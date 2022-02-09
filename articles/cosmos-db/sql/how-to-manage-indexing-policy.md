@@ -7,7 +7,7 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 05/25/2021
 ms.author: tisande
-ms.custom: devx-track-python, devx-track-js, devx-track-csharp
+ms.custom: devx-track-python, devx-track-js, devx-track-csharp, devx-track-azurecli
 ---
 
 # Manage indexing policies in Azure Cosmos DB
@@ -354,7 +354,7 @@ Azure Cosmos containers store their indexing policy as a JSON document that the 
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-1. Create a new Azure Cosmos account or select an existing account.
+1. Create a new Azure Cosmos account or select???an existing account.
 
 1. Open the **Data Explorer** pane and select the container that you want to work on.
 

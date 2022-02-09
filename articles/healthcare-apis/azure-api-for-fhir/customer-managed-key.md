@@ -8,7 +8,7 @@ ms.subservice: fhir
 ms.topic: overview
 ms.date: 05/04/2021
 ms.author: ginle 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Configure customer-managed keys at rest

@@ -7,7 +7,7 @@ services: azure-arc
 ms.service: azure-arc-data
 ms.topic: quickstart 
 ms.date: 12/09/2021
-ms.custom: template-quickstart 
+ms.custom: template-quickstart , devx-track-azurecli
 ---
 
 # Quickstart: Deploy Azure Arc-enable data services - indirectly connected mode - Azure CLI
@@ -153,7 +153,7 @@ NAME          STATE
 <namespace>   DeployingMonitoring
 ```
 
-Once the state of the data controller is ‘READY’, then this step is completed. For example:
+Once the state of the data controller is ???READY???, then this step is completed. For example:
 
 ```output
 NAME          STATE
@@ -174,7 +174,7 @@ To know when the instance has been created, run:
 kubectl get sqlmi -n <namespace>[
 ```
 
-Once the state of the managed instance namespace is ‘READY’, then this step is completed. For example:
+Once the state of the managed instance namespace is ???READY???, then this step is completed. For example:
 
 ```output
 NAME          STATE

@@ -8,7 +8,7 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/16/2019
 ms.author: duau 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 
 ---
 # Create and manage ExpressRoute public peering
@@ -50,7 +50,7 @@ This section shows the services available over public peering. Because public pe
   * Multi-factor Authentication Server (legacy)
   * Traffic Manager
 
-To validate availability for a specific service, you can check the documentation for that service to see if there is a reserved range published for that service. Then you may look up the IP ranges of the target service and compare with the ranges listed in the [Azure IP Ranges and Service Tags – Public Cloud XML file](https://www.microsoft.com/download/details.aspx?id=56519). Alternatively, you can open a support ticket for the service in question for clarification.
+To validate availability for a specific service, you can check the documentation for that service to see if there is a reserved range published for that service. Then you may look up the IP ranges of the target service and compare with the ranges listed in the [Azure IP Ranges and Service Tags ??? Public Cloud XML file](https://www.microsoft.com/download/details.aspx?id=56519). Alternatively, you can open a support ticket for the service in question for clarification.
 
 ## <a name="compare"></a>Peering comparison
 

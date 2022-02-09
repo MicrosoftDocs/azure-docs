@@ -3,7 +3,7 @@ title: Azure Service Bus - message count
 description: Retrieve the count of messages held in queues and subscriptions by using Azure Resource Manager and the Azure Service Bus NamespaceManager APIs.
 ms.topic: article
 ms.date: 09/20/2021 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Get message counters

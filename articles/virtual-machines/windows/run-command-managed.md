@@ -9,7 +9,7 @@ ms.author: cynthn
 ms.date: 10/28/2021
 ms.topic: how-to  
 ms.reviewer: jushiman
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 
 ---
 # Preview: Run scripts in your Windows VM by using managed Run Commands
@@ -76,7 +76,7 @@ az vm run-command delete --name "myRunCommand" --vm-name "myVM" --resource-group
 This command will deliver the script to the VM, execute it, and return the captured output.
 
 ```powershell-interactive
-Set-AzVMRunCommand -ResourceGroupName "myRG" -VMName "myVM" -Name "RunCommandName" – Script "Write-Host Hello World!"
+Set-AzVMRunCommand -ResourceGroupName "myRG" -VMName "myVM" -Name "RunCommandName" ??? Script "Write-Host Hello World!"
 ```
 
 ### List all deployed RunCommand resources on a VM 
@@ -183,16 +183,16 @@ To deploy scripts sequentially, use a deployment template, specifying a `depends
 
 ```json
 { 
-    "type": "Microsoft.Compute/virtualMachines/runCommands", 
-    "name": "secondRunCommand", 
-    "apiVersion": "2019-12-01", 
-    "location": "[parameters('location')]", 
-    "dependsOn": <full resourceID of the previous other Run Command>, 
-    "properties": { 
-        "source": {  
-            "script": "Write-Host Hello World!"  
+    "type":???"Microsoft.Compute/virtualMachines/runCommands", 
+    "name":???"secondRunCommand", 
+    "apiVersion":???"2019-12-01", 
+    "location":???"[parameters('location')]", 
+    "dependsOn":???<full resourceID of the previous other Run Command>, 
+    "properties":???{ 
+        "source":???{??? 
+            "script":???"Write-Host???Hello???World!"??? 
         }, 
-        "timeoutInSeconds": 60  
+        "timeoutInSeconds":???60??? 
     }
 } 
 ```

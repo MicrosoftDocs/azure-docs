@@ -6,7 +6,7 @@ ms.author: pariks
 ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: sample
-ms.custom: mvc, devx-track-, seo-azure-cli
+ms.custom: mvc, devx-track-, seo-azure-cli, devx-track-azurecli
 ms.date: 01/11/2022
 Keywords: azure cli samples, azure cli code samples, azure cli script samples
 ---

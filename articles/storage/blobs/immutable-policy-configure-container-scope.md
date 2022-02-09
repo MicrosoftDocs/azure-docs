@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.date: 12/01/2021
 ms.author: tamram
 ms.subservice: blobs
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Configure immutability policies for containers

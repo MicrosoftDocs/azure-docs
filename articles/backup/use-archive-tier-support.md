@@ -3,7 +3,7 @@ title: Use Archive Tier
 description: Learn about using Archive Tier Support for Azure Backup.
 ms.topic: conceptual
 ms.date: 10/23/2021
-ms.custom: devx-track-azurepowershell-azurecli
+ms.custom: devx-track-azurepowershell-azurecli, devx-track-azurecli
 zone_pivot_groups: backup-client-powershelltier-clitier-portaltier
 author: v-amallick
 ms.service: backup
@@ -157,7 +157,7 @@ For recovery points in archive, Azure Backup provides an integrated restore meth
 The integrated restore is a two-step process.
 
 1. Involves rehydrating the recovery points stored in archive.
-2. Temporarily store it in the vault-standard tier for a duration (also known as the rehydration duration) ranging from a period of 10 to 30 days. The default is 15 days. There are two different priorities of rehydration – Standard and High priority. Learn more about [rehydration priority](../storage/blobs/archive-rehydrate-overview.md#rehydration-priority).
+2. Temporarily store it in the vault-standard tier for a duration (also known as the rehydration duration) ranging from a period of 10 to 30 days. The default is 15 days. There are two different priorities of rehydration ??? Standard and High priority. Learn more about [rehydration priority](../storage/blobs/archive-rehydrate-overview.md#rehydration-priority).
 
 >[!NOTE]
 >
@@ -222,7 +222,7 @@ This article provides the procedure to backup of long-term retention points in t
 3. Set Subscription Context:
 
    ```azurecli
-   az account set –s <subscriptionId>
+   az account set ???s <subscriptionId>
    ```
 ## View archivable recovery points
 
@@ -373,7 +373,7 @@ Follow these steps:
 
    :::image type="content" source="./media/use-archive-tier-support/view-old-recovery-points-inline.png" alt-text="Screenshot showing the process to view recovery points that are older than 7 days." lightbox="./media/use-archive-tier-support/view-old-recovery-points-expanded.png":::
 
-3. To view all eligible archivable points to be moved to archive, select _Long term retention points can be moved to archive. To move all ‘eligible recovery points’ to archive tier, click here_.
+3. To view all eligible archivable points to be moved to archive, select _Long term retention points can be moved to archive. To move all ???eligible recovery points??? to archive tier, click here_.
 
    :::image type="content" source="./media/use-archive-tier-support/view-all-eligible-archivable-points-for-move-inline.png" alt-text="Screenshot showing the process to view all eligible archivable points to be moved to archive." lightbox="./media/use-archive-tier-support/view-all-eligible-archivable-points-for-move-expanded.png":::
 

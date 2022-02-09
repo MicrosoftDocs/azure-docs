@@ -5,7 +5,7 @@ description: Learn about logical SQL servers used by Azure SQL Database and Azur
 services: sql-database
 ms.service: sql-database
 ms.subservice: service-overview
-ms.custom: 
+ms.custom: devx-track-azurecli
 ms.devlang: 
 ms.topic: conceptual
 author: LitKnd

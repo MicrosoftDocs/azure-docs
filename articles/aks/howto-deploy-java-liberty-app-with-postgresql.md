@@ -8,7 +8,7 @@ ms.service: container-service
 ms.topic: how-to
 ms.date: 11/19/2021
 keywords: java, jakartaee, javaee, microprofile, open-liberty, websphere-liberty, aks, kubernetes
-ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-javaee-liberty-aks
+ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-javaee-liberty-aks, devx-track-azurecli
 ---
 
 # Deploy a Java application with Azure Database for PostgreSQL server to Open Liberty or WebSphere Liberty on an Azure Kubernetes Service (AKS) cluster
@@ -124,21 +124,21 @@ There are three samples in the repository. We will use *javaee-app-db-using-acti
 
 ```
 javaee-app-db-using-actions/postgres
-├─ src/main/
-│  ├─ aks/
-│  │  ├─ db-secret.yaml
-│  │  ├─ openlibertyapplication.yaml
-│  ├─ docker/
-│  │  ├─ Dockerfile
-│  │  ├─ Dockerfile-local
-│  │  ├─ Dockerfile-wlp
-│  │  ├─ Dockerfile-wlp-local
-│  ├─ liberty/config/
-│  │  ├─ server.xml
-│  ├─ java/
-│  ├─ resources/
-│  ├─ webapp/
-├─ pom.xml
+?????? src/main/
+???  ?????? aks/
+???  ???  ?????? db-secret.yaml
+???  ???  ?????? openlibertyapplication.yaml
+???  ?????? docker/
+???  ???  ?????? Dockerfile
+???  ???  ?????? Dockerfile-local
+???  ???  ?????? Dockerfile-wlp
+???  ???  ?????? Dockerfile-wlp-local
+???  ?????? liberty/config/
+???  ???  ?????? server.xml
+???  ?????? java/
+???  ?????? resources/
+???  ?????? webapp/
+?????? pom.xml
 ```
 
 The directories *java*, *resources*, and *webapp* contain the source code of the sample application. The code declares and uses a data source named `jdbc/JavaEECafeDB`.

@@ -8,12 +8,12 @@ ms.date: 11/04/2021
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Link a partner ID to your Azure accounts
 
-Microsoft partners provide services that help customers achieve business and mission objectives using Microsoft products. When acting on behalf of the customer managing, configuring, and supporting Azure services, the partner users will need access to the customer’s environment. Using Partner Admin Link (PAL), partners can associate their partner network ID with the credentials used for service delivery.
+Microsoft partners provide services that help customers achieve business and mission objectives using Microsoft products. When acting on behalf of the customer managing, configuring, and supporting Azure services, the partner users will need access to the customer???s environment. Using Partner Admin Link (PAL), partners can associate their partner network ID with the credentials used for service delivery.
 
 PAL enables Microsoft to identify and recognize partners who drive Azure customer success. Microsoft can attribute influence and Azure consumed revenue to your organization based on the account's permissions (Azure role) and scope (subscription, resource group, resource ). If a group has Azure RBAC access, then PAL is recognized for all the users in the group.
 
@@ -162,12 +162,12 @@ In order for Azure Lighthouse activities to be recognized, you'll need to associ
 
 **How do I explain Partner Admin Link (PAL) to my Customer?**
 
-Partner Admin Link (PAL) enables Microsoft to identify and recognize those partners who are helping customers achieve business objectives and realize value in the cloud. Customers must first provide a partner access to their Azure resource. Once access is granted, the partner’s Microsoft Partner Network ID (MPN ID) is associated. This association helps Microsoft understand the ecosystem of IT service providers and to refine the tools and programs needed to best support our common customers.
+Partner Admin Link (PAL) enables Microsoft to identify and recognize those partners who are helping customers achieve business objectives and realize value in the cloud. Customers must first provide a partner access to their Azure resource. Once access is granted, the partner???s Microsoft Partner Network ID (MPN ID) is associated. This association helps Microsoft understand the ecosystem of IT service providers and to refine the tools and programs needed to best support our common customers.
 
 **What data does PAL collect?**
 
-The PAL association to existing credentials provides no new customer data to Microsoft. It simply provides the telemetry to Microsoft where a partner is actively involved in a customer’s Azure environment. Microsoft can attribute influence and Azure consumed revenue from customer environment to partner organization based on the account's permissions (Azure role) and scope (Management Group, Subscription, Resource Group, Resource) provided to the partner by customer. 
+The PAL association to existing credentials provides no new customer data to Microsoft. It simply provides the telemetry to Microsoft where a partner is actively involved in a customer???s Azure environment. Microsoft can attribute influence and Azure consumed revenue from customer environment to partner organization based on the account's permissions (Azure role) and scope (Management Group, Subscription, Resource Group, Resource) provided to the partner by customer. 
 
-**Does this impact the security of a customer’s Azure Environment?**
+**Does this impact the security of a customer???s Azure Environment?**
 
-PAL association only adds partner’s MPN ID to the credential already provisioned and it does not alter any permissions (Azure role) or provide additional Azure service data to partner or Microsoft.
+PAL association only adds partner???s MPN ID to the credential already provisioned and it does not alter any permissions (Azure role) or provide additional Azure service data to partner or Microsoft.

@@ -8,7 +8,7 @@ author: amjads1
 ms.author: amjads
 ms.collection: linux
 ms.date: 02/05/2021 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 
 ---
 # Use the Linux diagnostic extension 4.0 to monitor metrics and logs

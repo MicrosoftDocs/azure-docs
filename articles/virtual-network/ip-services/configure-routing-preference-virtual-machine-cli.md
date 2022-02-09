@@ -7,7 +7,7 @@ ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: tutorial
 ms.date: 10/01/2021
-ms.custom: template-tutorial
+ms.custom: template-tutorial, devx-track-azurecli
 ---
 
 # Tutorial: Configure routing preference for a VM using the Azure CLI

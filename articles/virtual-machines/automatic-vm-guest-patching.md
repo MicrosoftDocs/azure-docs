@@ -8,7 +8,7 @@ ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 10/20/2021
 ms.author: mimckitt
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 
 ---
 # Automatic VM guest patching for Azure VMs
@@ -44,7 +44,7 @@ For a group of virtual machines undergoing an update, the Azure platform will or
 - A monthly update is orchestrated across Azure globally in a phased manner to prevent global deployment failures.
 - A phase can have one or more regions, and an update moves to the next phases only if eligible VMs in a phase update successfully.
 - Geo-paired regions are not updated concurrently and can't be in the same regional phase.
-- The success of an update is measured by tracking the VM’s health post update. VM Health is tracked through platform health indicators for the VM.
+- The success of an update is measured by tracking the VM???s health post update. VM Health is tracked through platform health indicators for the VM.
 
 **Within a region:**
 - VMs in different Availability Zones are not updated concurrently with the same update.
@@ -155,7 +155,7 @@ PUT on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/
 
 ```json
 {
-  "location": "<location>",
+  "location":???"<location>",
   "properties": {
     "osProfile": {
       "linuxConfiguration": {
@@ -178,7 +178,7 @@ PUT on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/
 
 ```json
 {
-  "location": "<location>",
+  "location":???"<location>",
   "properties": {
     "osProfile": {
       "windowsConfiguration": {

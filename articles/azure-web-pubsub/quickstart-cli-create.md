@@ -6,7 +6,7 @@ ms.author: lianwei
 ms.service: azure-web-pubsub
 ms.topic: quickstart
 ms.date: 11/08/2021
-ms.custom: mode-api
+ms.custom: mode-api, devx-track-azurecli
 ---
 
 # Quickstart: Create a Web PubSub instance with the Azure CLI

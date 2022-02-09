@@ -3,7 +3,7 @@ title: Encryption of backup data using customer-managed keys
 description: Learn how Azure Backup allows you to encrypt your backup data using customer-managed keys (CMK).
 ms.topic: conceptual
 ms.date: 12/02/2021 
-ms.custom: devx-track-azurepowershell-azurecli
+ms.custom: devx-track-azurepowershell-azurecli, devx-track-azurecli
 author: v-amallick
 ms.service: backup
 ms.author: v-amallick
@@ -50,7 +50,7 @@ If you haven't created and configured your Recovery Services vault, see [how to 
 
 ## Configure a vault to encrypt using customer-managed keys
 
-To configure a vault, perform the following actions in the given sequence to achieve the intended results. Each action is discussed in detail in the sections below:
+To configure a vault, perform the following??actions in the given sequence to achieve the intended results. Each action is discussed in detail in the sections below:
 
 1. Enable managed identity for your Recovery Services vault.
 

@@ -8,7 +8,7 @@ ms.date: 08/26/2021
 author: gahl-levy
 ms.author: gahllevy
 ms.devlang: csharp
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, devx-track-azurecli
 ---
 
 # Create a container in Azure Cosmos DB API for MongoDB
@@ -19,13 +19,13 @@ This article explains the different ways to create a container in Azure Cosmos D
 This article explains the different ways to create a container in Azure Cosmos DB API for MongoDB. If you are using a different API, see [SQL API](../how-to-create-container.md), [Cassandra API](../cassandra/how-to-create-container-cassandra.md), [Gremlin API](../how-to-create-container-gremlin.md), and [Table API](../table/how-to-create-container.md) articles to create the container.
 
 > [!NOTE]
-> When creating containers, make sure you don’t create two containers with the same name but different casing. That’s because some parts of the Azure platform are not case-sensitive, and this can result in confusion/collision of telemetry and actions on containers with such names.
+> When creating containers, make sure you don???t create two containers with the same name but different casing. That???s because some parts of the Azure platform are not case-sensitive, and this can result in confusion/collision of telemetry and actions on containers with such names.
 
 ## <a id="portal-mongodb"></a>Create using Azure portal
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-1. [Create a new Azure Cosmos account](create-mongodb-dotnet.md#create-a-database-account), or select an existing account.
+1. [Create a new Azure Cosmos account](create-mongodb-dotnet.md#create-a-database-account), or select???an existing account.
 
 1. Open the **Data Explorer** pane, and select **New Container**. Next, provide the following details:
 

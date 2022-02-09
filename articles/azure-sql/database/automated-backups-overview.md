@@ -5,7 +5,7 @@ description: Azure SQL Database and Azure SQL Managed Instance automatically cre
 services: sql-database
 ms.service: sql-db-mi
 ms.subservice: backup-restore
-ms.custom: references_regions, devx-track-azurepowershell
+ms.custom: references_regions, devx-track-azurepowershell, devx-track-azurecli
 ms.topic: conceptual
 author: SudhirRaparla 
 ms.author: nvraparl
@@ -64,14 +64,14 @@ You can use these backups to:
 
 This table summarizes the capabilities and features of [point in time restore (PITR)](recovery-using-backups.md#point-in-time-restore), [geo-restore](recovery-using-backups.md#geo-restore), and [long-term retention backups](long-term-retention-overview.md).
 
-| **Backup Properties** | Point in time recovery (PITR) | Geo-restore | Long-term backup restore |           
+| **Backup Properties** |??Point in time recovery (PITR)??| Geo-restore | Long-term backup restore |?? ?? ?? ?? ?? ??
 |----|--|--|--|
-| **Types of SQL backup** | Full, Differential, Log | Replicated copies of PITR backups | Only the full backups | 
-| **Recovery Point Objective (RPO)** |  5-10 minutes, based on compute size and amount of database activity. | Up to 1 hour, based on geo-replication.\*  |  One week (or user's policy).|
-| **Recovery Time Objective (RTO)** | Restore usually takes <12 hours, but could take longer dependent on size and activity. See [Recovery](recovery-using-backups.md#recovery-time). | Restore usually takes <12 hours, but could take longer dependent on size and activity. See [Recovery](recovery-using-backups.md#recovery-time). | Restore usually takes <12 hours, but could take longer dependent on size and activity. See [Recovery](recovery-using-backups.md#recovery-time). | 
-| **Retention** | 7 days by default, Up to 35 days |  Enabled by default, same as source.\*\* | Not enabled by default, Retention Up to 10 years. |     
-| **Azure storage**  | Geo-redundant by default. Can optionally configure zone or locally redundant storage. | Available when PITR backup storage redundancy is set to Geo-redundant. Not available when PITR backup store is zone or locally redundant storage. | Geo-redundant by default. Can configure zone or locally redundant storage. | 
-| **Use to create new database in same region** | Supported | Supported | Supported |
+| **Types of SQL backup** | Full, Differential, Log | Replicated copies of PITR backups | Only the full backups |??
+| **Recovery Point Objective (RPO)** |?? 5-10 minutes, based on compute size and amount of database activity.??|??Up to 1 hour, based on geo-replication.\* ??|?? One week??(or user's policy).|
+| **Recovery Time Objective (RTO)** | Restore usually takes <12 hours, but could take longer dependent on size and activity. See [Recovery](recovery-using-backups.md#recovery-time).??| Restore usually takes <12 hours, but could take longer dependent on size and activity. See [Recovery](recovery-using-backups.md#recovery-time). | Restore usually takes <12 hours, but could take longer dependent on size and activity. See [Recovery](recovery-using-backups.md#recovery-time). | 
+| **Retention** | 7 days by default, Up to 35 days |?? Enabled by default, same as source.\*\* | Not enabled by default, Retention Up to 10 years. |?? ?? ??
+| **Azure storage**?? |??Geo-redundant by default. Can optionally configure zone or locally redundant storage. | Available when PITR backup storage redundancy is set to Geo-redundant. Not available when PITR backup store is zone or locally redundant storage. |??Geo-redundant by default. Can configure zone or locally redundant storage. |??
+| **Use to create new database in same region** | Supported | Supported |??Supported |
 | **Use to create new database in another region** | Not Supported | Supported in any Azure region | Supported in any Azure region |
 | **Use to create new database in another Subscription** |  Not Supported  |  Not Supported\*\*\* | Not Supported\*\*\*  | 
 | **Restore via Azure portal**|Yes|Yes|Yes|
@@ -79,7 +79,7 @@ This table summarizes the capabilities and features of [point in time restore (P
 | **Restore via Azure CLI** |Yes|Yes|Yes| 
 | | | | |
 
-\* For business-critical applications that require large databases and must ensure business continuity, use [Auto-failover groups](auto-failover-group-overview.md). 
+\* For business-critical applications that require large databases and must ensure business continuity, use??[Auto-failover groups](auto-failover-group-overview.md). 
 
 \*\* All PITR backups are stored on geo-redundant storage by default. Hence, geo-restore is enabled by default. 
 
@@ -187,7 +187,7 @@ For single databases in SQL Database, a backup storage amount equal to 100 perce
 
 For single databases, this equation is used to calculate the total billable backup storage usage:
 
-`Total billable backup storage size = (size of full backups + size of differential backups + size of log backups) – maximum data storage`
+`Total billable backup storage size = (size of full backups + size of differential backups + size of log backups) ??? maximum data storage`
 
 For pooled databases, the total billable backup storage size is aggregated at the pool level and is calculated as follows:
 
@@ -195,7 +195,7 @@ For pooled databases, the total billable backup storage size is aggregated at th
 
 For managed instances, the total billable backup storage size is aggregated at the instance level and is calculated as follows:
 
-`Total billable backup storage size = (total size of full backups + total size of differential backups + total size of log backups) – maximum instance data storage`
+`Total billable backup storage size = (total size of full backups + total size of differential backups + total size of log backups) ??? maximum instance data storage`
 
 Total billable backup storage, if any, will be charged in GB/month as per the rate of the backup storage redundancy used. This backup storage consumption will depend on the workload and size of individual databases, elastic pools, and managed instances. Heavily modified databases have larger differential and log backups, because the size of these backups is proportional to the amount of changed data. Therefore, such databases will have higher backup charges.
 

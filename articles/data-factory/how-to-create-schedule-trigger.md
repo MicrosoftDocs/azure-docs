@@ -9,7 +9,7 @@ ms.service: data-factory
 ms.subservice: orchestration
 ms.topic: conceptual
 ms.date: 09/09/2021
-ms.custom: devx-track-python, devx-track-azurepowershell, synapse
+ms.custom: devx-track-python, devx-track-azurepowershell, synapse, devx-track-azurecli
 ---
 
 # Create a trigger that runs a pipeline on a schedule
@@ -525,7 +525,7 @@ Under these conditions, the first execution is at `2017-04-09` at `14:00`. The S
 
 The first execution time is the same even if the **startTime** value is `2017-04-05 14:00` or `2017-04-01 14:00`. After the first execution, subsequent executions are calculated by using the schedule. Therefore, the subsequent executions are at `2017-04-11` at `2:00pm`, then `2017-04-13` at `2:00pm`, then `2017-04-15` at `2:00pm`, and so on.
 
-Finally, when the hours or minutes aren’t set in the schedule for a trigger, the hours or minutes of the first execution are used as the defaults.
+Finally, when the hours or minutes aren???t set in the schedule for a trigger, the hours or minutes of the first execution are used as the defaults.
 
 ### schedule property
 

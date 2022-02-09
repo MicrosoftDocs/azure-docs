@@ -3,7 +3,7 @@ title: Managed identities for Azure resources with Service Bus
 description: This article describes how to use managed identities to access with Azure Service Bus entities (queues, topics, and subscriptions).
 ms.topic: article
 ms.date: 01/06/2022
-ms.custom: subject-rbac-steps
+ms.custom: subject-rbac-steps, devx-track-azurecli
 ---
 
 # Authenticate a managed identity with Azure Active Directory to access Azure Service Bus resources
@@ -17,7 +17,7 @@ With managed identities, the Azure platform manages this runtime identity. You d
 ## Overview
 When a security principal (a user, group, or application) attempts to access a Service Bus entity, the request must be authorized. With Azure AD, access to a resource is a two-step process. 
 
- 1. First, the security principal’s identity is authenticated, and an OAuth 2.0 token is returned. The resource name to request a token is `https://servicebus.azure.net`.
+ 1. First, the security principal???s identity is authenticated, and an OAuth 2.0 token is returned. The resource name to request a token is `https://servicebus.azure.net`.
  1. Next, the token is passed as part of a request to the Service Bus service to authorize access to the specified resource.
 
 The authentication step requires that an application request contains an OAuth 2.0 access token at runtime. If an application is running within an Azure entity such as an Azure VM,  a virtual machine scale set, or an Azure Function app, it can use a managed identity to access the resources. 

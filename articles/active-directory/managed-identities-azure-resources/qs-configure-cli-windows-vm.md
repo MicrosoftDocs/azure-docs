@@ -10,7 +10,7 @@ ms.workload: identity
 ms.date: 01/11/2022
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.custom: mode-api
+ms.custom: mode-api, devx-track-azurecli
 ---
 
 # Configure managed identities for Azure resources on an Azure VM using Azure CLI

@@ -7,7 +7,7 @@ ms.subservice: gallery
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 7/1/2021
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Use customer-managed keys for encrypting images

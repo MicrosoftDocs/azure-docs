@@ -8,7 +8,7 @@ ms.author: parkerra
 ms.date: 11/20/2020
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.custom: mode-api
+ms.custom: mode-api, devx-track-azurecli
 ---
 
 # Quickstart: Create an Android app with Azure Spatial Anchors

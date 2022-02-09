@@ -10,7 +10,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/29/2021
 ms.author: rohink 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Configure reverse DNS for services hosted in Azure
@@ -159,7 +159,7 @@ Set-AzPublicIpAddress -PublicIpAddress $pip
 #### Azure Classic CLI
 
 ```azurecli
-azure network public-ip set -n PublicIp -g MyResourceGroup –f ""
+azure network public-ip set -n PublicIp -g MyResourceGroup ???f ""
 ```
 
 #### Azure CLI
@@ -177,7 +177,7 @@ This section provides detailed instructions for how to configure reverse DNS for
 To add a reverse DNS record to an existing Cloud Service:
 
 ```powershell
-Set-AzureService –ServiceName "contosoapp1" –Description "App1 with Reverse DNS" –ReverseDnsFqdn "contosoapp1.cloudapp.net."
+Set-AzureService ???ServiceName "contosoapp1" ???Description "App1 with Reverse DNS" ???ReverseDnsFqdn "contosoapp1.cloudapp.net."
 ```
 
 ### Create a Cloud Service with reverse DNS
@@ -185,7 +185,7 @@ Set-AzureService –ServiceName "contosoapp1" –Description "App1 with Reverse 
 To create a new Cloud Service with the reverse DNS property already specified:
 
 ```powershell
-New-AzureService –ServiceName "contosoapp1" –Location "West US" –Description "App1 with Reverse DNS" –ReverseDnsFqdn "contosoapp1.cloudapp.net."
+New-AzureService ???ServiceName "contosoapp1" ???Location "West US" ???Description "App1 with Reverse DNS" ???ReverseDnsFqdn "contosoapp1.cloudapp.net."
 ```
 
 ### View reverse DNS for existing Cloud Services
@@ -201,7 +201,7 @@ Get-AzureService "contosoapp1"
 To remove a reverse DNS property from an existing Cloud Service:
 
 ```powershell
-Set-AzureService –ServiceName "contosoapp1" –Description "App1 with Reverse DNS" –ReverseDnsFqdn ""
+Set-AzureService ???ServiceName "contosoapp1" ???Description "App1 with Reverse DNS" ???ReverseDnsFqdn ""
 ```
 
 ## FAQ
@@ -240,7 +240,7 @@ No. Azure currently supports reverse DNS only for IPv4 PublicIpAddress resources
 
 ### Can I send emails to external domains from my Azure Compute services?
 
-The technical ability to send email directly from an Azure deployment depends on the subscription type. No matter the subscription type, Microsoft recommends using trusted mail relay services to send outgoing mail. For more information, see [Enhanced Azure Security for sending Emails – November 2017 Update](../virtual-network/troubleshoot-outbound-smtp-connectivity.md).
+The technical ability to send email directly from an Azure deployment depends on the subscription type. No matter the subscription type, Microsoft recommends using trusted mail relay services to send outgoing mail. For more information, see [Enhanced Azure Security for sending Emails ??? November 2017 Update](../virtual-network/troubleshoot-outbound-smtp-connectivity.md).
 
 ## Next steps
 

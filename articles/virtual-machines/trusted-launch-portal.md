@@ -8,7 +8,7 @@ ms.service: virtual-machines
 ms.subservice: trusted-launch
 ms.topic: how-to
 ms.date: 12/07/2021
-ms.custom: template-how-to
+ms.custom: template-how-to, devx-track-azurecli
 ---
 
 # Deploy a VM with trusted launch enabled
@@ -106,36 +106,36 @@ $version = latest
 $cred = Get-Credential `
    -Message "Enter a username and password for the virtual machine."
 
-$vm = New-AzVMConfig -VMName $vmName -VMSize $vmSize 
+$vm???=???New-AzVMConfig???-VMName???$vmName???-VMSize???$vmSize 
 
-$vm = Set-AzVMOperatingSystem `
-   -VM $vm -Windows `
-   -ComputerName $vmName `
-   -Credential $cred `
-   -ProvisionVMAgent `
+$vm???=???Set-AzVMOperatingSystem???`
+   -VM???$vm???-Windows???`
+   -ComputerName???$vmName???`
+   -Credential???$cred???`
+   -ProvisionVMAgent???`
    -EnableAutoUpdate 
 
-$vm = Add-AzVMNetworkInterface -VM $vm `
-   -Id $NIC.Id 
+$vm???=???Add-AzVMNetworkInterface???-VM???$vm???`
+   -Id???$NIC.Id 
 
-$vm = Set-AzVMSourceImage -VM $vm `
-   -PublisherName $publisher `
-   -Offer $offer `
-   -Skus $sku `
-   -Version $version 
+$vm???=???Set-AzVMSourceImage???-VM???$vm???`
+   -PublisherName???$publisher???`
+   -Offer???$offer???`
+   -Skus???$sku???`
+   -Version???$version 
 
-$vm = Set-AzVMOSDisk -VM $vm `
-   -StorageAccountType "StandardSSD_LRS" `
-   -CreateOption "FromImage" 
+$vm???=???Set-AzVMOSDisk???-VM???$vm???`
+   -StorageAccountType???"StandardSSD_LRS"???`
+   -CreateOption???"FromImage" 
 
-$vm = Set-AzVmSecurityType -VM $vm `
-   -SecurityType "TrustedLaunch" 
+$vm???=???Set-AzVmSecurityType???-VM???$vm???`
+   -SecurityType???"TrustedLaunch" 
 
-$vm = Set-AzVmUefi -VM $vm `
-   -EnableVtpm $true `
-   -EnableSecureBoot $true 
+$vm???=???Set-AzVmUefi???-VM???$vm???`
+   -EnableVtpm???$true???`
+   -EnableSecureBoot???$true 
 
-New-AzVM -ResourceGroupName $resourceGroup -Location $location -VM $vm 
+New-AzVM???-ResourceGroupName???$resourceGroup???-Location???$location???-VM???$vm 
 ```
  
 
@@ -156,15 +156,15 @@ You can deploy trusted launch VMs using a quickstart template:
 
 ## Verify or update your settings
 
-For VMs created with trusted launch enabled, you can view the trusted launch configuration by visiting the **Overview** page for the VM in the portal. The **Properties** tab will show the status of Trusted Launch features:
+For VMs created with trusted launch enabled, you can view the trusted launch configuration by visiting the???**Overview**???page for the VM in the portal. The **Properties** tab will show the status of Trusted Launch features:
 
 :::image type="content" source="media/trusted-launch/overview-properties.png" alt-text="Screenshot of the Trusted Launch properties of the VM.":::
 
-To change the trusted launch configuration, in the left menu, select **Configuration** under the **Settings** section. You can enable or disable Secure Boot and vTPM from the Trusted LaunchSecurity type section. Select Save at the top of the page when you are done. 
+To change the trusted launch configuration, in the left menu, select???**Configuration**???under the???**Settings**???section. You can enable or disable Secure Boot and vTPM from the???Trusted LaunchSecurity type???section. Select???Save???at the top of the page when you are done. 
 
 :::image type="content" source="media/trusted-launch/update.png" alt-text="Screenshot showing check boxes to change the Trusted Launch settings.":::
 
-If the VM is running, you will receive a message that the VM will be restarted. Select **Yes** then wait for the VM to restart for changes to take effect. 
+If the VM is running, you will receive a message that the VM will be restarted. Select???**Yes**???then wait for the VM to restart for changes to take effect. 
 
 
 ## Next steps

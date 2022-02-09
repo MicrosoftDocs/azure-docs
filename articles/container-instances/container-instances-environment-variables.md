@@ -3,7 +3,7 @@ title: Set environment variables in container instance
 description: Learn how to set environment variables in the containers you run in Azure Container Instances
 ms.topic: article
 ms.date: 04/17/2019 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 # Set environment variables in container instances
 

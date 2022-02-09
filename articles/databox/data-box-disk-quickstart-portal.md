@@ -8,7 +8,7 @@ ms.subservice: disk
 ms.topic: quickstart
 ms.date: 11/04/2020
 ms.author: alkohli
-ms.custom: mode-ui
+ms.custom: mode-ui, devx-track-azurecli
 #Customer intent: As an IT admin, I need to quickly deploy Data Box Disk so as to import data into Azure.
 ---
 
@@ -95,7 +95,7 @@ Use these Azure CLI commands to create a Data Box Disk job.
    ```azurecli
    az databox job create --resource-group databox-rg --name databoxdisk-job \
        --location westus --sku DataBoxDisk --contact-name "Jim Gan" --phone=4085555555 \
-       –-city Sunnyvale --email-list JimGan@contoso.com --street-address1 "1020 Enterprise Way" \
+       ???-city Sunnyvale --email-list JimGan@contoso.com --street-address1 "1020 Enterprise Way" \
        --postal-code 94089 --country US --state-or-province CA \
        --storage-account databoxtestsa --expected-data-size 1
    ```
@@ -121,13 +121,13 @@ Use these Azure CLI commands to create a Data Box Disk job.
    Run the [az databox job cancel](/cli/azure/databox/job#az_databox_job_cancel) command to cancel a job:
 
    ```azurecli
-   az databox job cancel –resource-group databox-rg --name databox-job --reason "Cancel job."
+   az databox job cancel ???resource-group databox-rg --name databox-job --reason "Cancel job."
    ```
 
    Run the [az databox job delete](/cli/azure/databox/job#az_databox_job_delete) command to delete a job:
 
    ```azurecli
-   az databox job delete –resource-group databox-rg --name databox-job
+   az databox job delete ???resource-group databox-rg --name databox-job
    ```
 
 1. Use the [az databox job list-credentials]( /cli/azure/databox/job#az_databox_job_list_credentials) command to list credentials for a Data Box job:
@@ -214,7 +214,7 @@ To clean up, you can cancel the Data Box order and then delete it.
 
 ## Next steps
 
-In this quickstart, you’ve deployed Azure Data Box Disk to help import your data into Azure. To learn more about Azure Data Box Disk management, advance to the following tutorial:
+In this quickstart, you???ve deployed Azure Data Box Disk to help import your data into Azure. To learn more about Azure Data Box Disk management, advance to the following tutorial:
 
 > [!div class="nextstepaction"]
 > [Use the Azure portal to administer Data Box Disk](data-box-portal-ui-admin.md)

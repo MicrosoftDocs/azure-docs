@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 12/09/2021
 ms.author: jroth
 ms.devlang: csharp
-ms.custom: devx-track-js, devx-track-csharp
+ms.custom: devx-track-js, devx-track-csharp, devx-track-azurecli
 ---
 
 # Configure time to live in Azure Cosmos DB
@@ -24,7 +24,7 @@ Use the following steps to enable time to live on a container with no expiration
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-2. Create a new Azure Cosmos account or select an existing account.
+2. Create a new Azure Cosmos account or select???an existing account.
 
 3. Open the **Data Explorer** pane.
 
@@ -211,7 +211,7 @@ Use the following steps to enable time to live on an item:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-2. Create a new Azure Cosmos account or select an existing account.
+2. Create a new Azure Cosmos account or select???an existing account.
 
 3. Open the **Data Explorer** pane.
 

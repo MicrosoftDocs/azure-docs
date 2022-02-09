@@ -5,7 +5,7 @@ description: This article describes the two layers of encryption available for d
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/10/2020 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 # Azure HDInsight double encryption for data at rest
 

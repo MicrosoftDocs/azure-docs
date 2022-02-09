@@ -7,7 +7,7 @@ ms.service: storage
 ms.topic: include
 ms.date: 6/01/2021
 ms.author: fauhse
-ms.custom: include file
+ms.custom: include file, devx-track-azurecli
 ---
 
 # [Portal](#tab/azure-portal)

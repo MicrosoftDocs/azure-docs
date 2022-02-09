@@ -6,7 +6,7 @@ manager: gwallace
 ms.topic: article
 ms.date: 11/11/2021
 ms.author: stevelas
-ms.custom: references_regions
+ms.custom: references_regions, devx-track-azurecli
 ---
 
 # Push and pull supply chain artifacts, using a private container registry in Azure (Preview)
@@ -199,10 +199,10 @@ The output shows the beginning of a graph of artifacts, where the signature and 
 
 ```output
 myregistry.azurecr.io/net-monitor:v1
-├── signature/example
-│   └── sha256:555ea91f39e7fb30c06f3b7aa483663f067f2950dcb...
-└── readme/example
-    └── sha256:1a118663d1085e229ff1b2d4d89b5f6d67911f22e55...
+????????? signature/example
+??????? ????????? sha256:555ea91f39e7fb30c06f3b7aa483663f067f2950dcb...
+????????? readme/example
+    ????????? sha256:1a118663d1085e229ff1b2d4d89b5f6d67911f22e55...
 ```
 
 ## Creating a deep graphs of artifacts
@@ -259,14 +259,14 @@ Generates the following output:
 
 ```output
 myregistry.azurecr.io/net-monitor:v1
-├── signature/example
-│   └── sha256:555ea91f39e7fb30c06f3b7aa483663f067f2950dcb...
-├── readme/example
-│   └── sha256:1a118663d1085e229ff1b2d4d89b5f6d67911f22e55...
-└── sbom/example
-    └── sha256:4280eef9adb632b42cf200e7cd5a822a456a558e4f3142da6b...
-        └── signature/example
-            └── sha256:a31ab875d37eee1cca68dbb14b2009979d05594d44a075bdd7...
+????????? signature/example
+??????? ????????? sha256:555ea91f39e7fb30c06f3b7aa483663f067f2950dcb...
+????????? readme/example
+??????? ????????? sha256:1a118663d1085e229ff1b2d4d89b5f6d67911f22e55...
+????????? sbom/example
+    ????????? sha256:4280eef9adb632b42cf200e7cd5a822a456a558e4f3142da6b...
+        ????????? signature/example
+            ????????? sha256:a31ab875d37eee1cca68dbb14b2009979d05594d44a075bdd7...
 ```
 
 ## Pull a referenced artifact

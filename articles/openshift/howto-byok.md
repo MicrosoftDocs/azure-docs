@@ -7,7 +7,7 @@ ms.service: azure-redhat-openshift
 keywords: encryption, byok, aro, deploy, openshift, red hat
 ms.topic: how-to
 ms.date: 10/18/2021
-ms.custom: template-how-to, ignite-fall-2021
+ms.custom: template-how-to, ignite-fall-2021, devx-track-azurecli
 ---
 
 # Encrypt OS disks with a customer-managed key (CMK) on Azure Red Hat OpenShift (ARO) (preview)

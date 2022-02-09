@@ -6,7 +6,7 @@
  ms.topic: include
  ms.date: 10/07/2021
  ms.author: timlt
- ms.custom: include file
+ ms.custom: include file, devx-track-azurecli
 ---
 
 [![Browse code](../articles/iot-develop/media/common/browse-code.svg)](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/iot-hub/Samples/device/PnpDeviceSamples)

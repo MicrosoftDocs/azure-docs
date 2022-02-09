@@ -4,7 +4,7 @@ description: Learn how to configure geo-replication for an SQL database using th
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
-ms.custom: sqldbrb=1
+ms.custom: sqldbrb=1, devx-track-azurecli
 ms.devlang: 
 ms.topic: tutorial
 author: emlisa

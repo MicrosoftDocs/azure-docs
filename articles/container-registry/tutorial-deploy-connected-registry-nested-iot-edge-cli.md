@@ -5,7 +5,7 @@ ms.topic: quickstart
 ms.date: 10/21/2021
 ms.author: memladen
 author: toddysm
-ms.custom: ignite-fall-2021, mode-other
+ms.custom: ignite-fall-2021, mode-other, devx-track-azurecli
 ---
 
 # Tutorial: Deploy a connected registry to a nested IoT Edge hierarchy
@@ -262,7 +262,7 @@ Use the `iotedge-config` tool to create and configure your hierarchy by followin
 
     The tool could run for several minutes.
 
-1. Copy the generated `top-layer.zip` and `lower-layer.zip` files generated in the previous step to the corresponding top and lower layer VMs using `scp`。
+1. Copy the generated `top-layer.zip` and `lower-layer.zip` files generated in the previous step to the corresponding top and lower layer VMs using `scp`???
 
     ```bash
     scp <PATH_TO_CONFIGURATION_BUNDLE>   <USER>@<VM_IP_OR_FQDN>:~

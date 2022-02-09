@@ -6,7 +6,7 @@ ms.topic: how-to
 ms.date: 11/02/2021
 ms.author: helohr
 manager: femila
-ms.custom: ignite-fall-2021
+ms.custom: ignite-fall-2021, devx-track-azurecli
 ---
 # Set up Azure Virtual Desktop for Azure Stack HCI (preview)
 
@@ -67,7 +67,7 @@ To create a profile container using a file share:
 
 3. On the virtual machine, launch **Control Panel** and select **System**.
 
-4. Select Computer name, select **Change settings**, and then select **Change…**.
+4. Select Computer name, select **Change settings**, and then select **Change???**.
 
 5. Select **Domain**, then enter the Active Directory domain on the virtual network.
 
@@ -140,7 +140,7 @@ To create an Azure managed disk:
 1. Run the following commands in an Azure command-line prompt to set the parameters of your managed disk. Make sure to replace the items in brackets with the values relevant to your scenario.
 
 ```azure
-$urn = <URN of the Marketplace image> #Example: “MicrosoftWindowsServer:WindowsServer:2019-Datacenter:Latest”
+$urn = <URN of the Marketplace image> #Example: ???MicrosoftWindowsServer:WindowsServer:2019-Datacenter:Latest???
 $diskName = <disk name> #Name for new disk to be created
 $diskRG = <resource group> #Resource group that contains the new disk
 ```
@@ -167,7 +167,7 @@ To export the VHD:
 >If you're running azcopy, you may need to skip the md5check by running this command:
 >
 > ```azure
-> azcopy copy “$sas" "destination_path_on_cluster" --check-md5 NoCheck
+> azcopy copy ???$sas" "destination_path_on_cluster" --check-md5 NoCheck
 > ```
 
 ### Clean up the managed disk

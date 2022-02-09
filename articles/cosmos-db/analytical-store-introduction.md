@@ -6,7 +6,7 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/02/2021
 ms.author: rosouz
-ms.custom: "seo-nov-2020"
+ms.custom: "seo-nov-2020, devx-track-azurecli"
 ---
 
 # What is Azure Cosmos DB analytical store?
@@ -306,7 +306,7 @@ This is achieved by translating the leaf properties of the operational data into
 
 In the full fidelity schema representation, each datatype of each property will generate a column for that datatype. Each of them count as one of the 1000 maximum properties.
 
-For example, let’s take the following sample document in the transactional store:
+For example, let???s take the following sample document in the transactional store:
 
 ```json
 {
@@ -322,7 +322,7 @@ salary: 1000000
 }
 ```
 
-The leaf property `streetNo` within the nested object `address` will be represented in the analytical store schema as a column `address.object.streetNo.int32`. The datatype is added as a suffix to the column. This way, if another document is added to the transactional store where the value of leaf property `streetNo` is "123" (note it’s a string), the schema of the analytical store automatically evolves without altering the type of a previously written column. A new column added to the analytical store as `address.object.streetNo.string` where this value of "123" is stored.
+The leaf property `streetNo` within the nested object `address` will be represented in the analytical store schema as a column `address.object.streetNo.int32`. The datatype is added as a suffix to the column. This way, if another document is added to the transactional store where the value of leaf property `streetNo` is "123" (note it???s a string), the schema of the analytical store automatically evolves without altering the type of a previously written column. A new column added to the analytical store as `address.object.streetNo.string` where this value of "123" is stored.
 
 **Data type to suffix map**
 
@@ -418,7 +418,7 @@ If you have a globally distributed Azure Cosmos DB account, after you enable ana
 
 ## Partitioning
 
-Analytical store partitioning is completely independent of partitioning in the transactional store. By default, data in analytical store isn't partitioned. If your analytical queries have frequently used filters, you have the option to partition based on these fields for better query performance. To learn more, see the [introduction to custom partitioning](custom-partitioning-analytical-store.md) and [how to configure custom partitioning](configure-custom-partitioning.md) articles.  
+Analytical store partitioning is???completely???independent of partitioning in???the???transactional store. By default, data in analytical store isn't partitioned. If your analytical queries have frequently used filters, you have the option to partition based on these fields for better query performance. To learn more, see the [introduction to custom partitioning](custom-partitioning-analytical-store.md) and [how to configure custom partitioning](configure-custom-partitioning.md) articles.  
 
 ## Security
 
