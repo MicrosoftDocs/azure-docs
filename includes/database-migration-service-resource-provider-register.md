@@ -7,6 +7,8 @@ ms.author: pehewitt
 ---
 ## Register the Microsoft.DataMigration resource provider
 
+Register the Microsoft.DataMigration resource provider before you create your first instance of the Database Migration Service.
+
 1. Sign in to the Azure portal. Search for and select **Subscriptions**.
 
    ![Show portal subscriptions](./media/database-migration-service-resource-provider-register/portal-select-subscription.png)
