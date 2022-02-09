@@ -30,18 +30,18 @@ The following diagram shows the key resources you'll use to manage your private 
 
 :::image type="content" source="media/key-components-of-a-private-mobile-network/private-5g-core-resources.png" alt-text="Diagram displaying the resources used to manage a private mobile network":::
 
-- The **mobile network** resource represents the private mobile network as a whole.
-- Each **SIM** resource represents a physical SIM or eSIM. The physical SIMs and eSIMs are used by UEs that will be served by the private mobile network.
-- **SIM policy** resources are a key component of Azure Private 5G Core's customizable policy control, which allows you to provide flexible traffic handling. You can determine exactly how your packet core instance applies Quality of Service (QoS) characteristics to Service Data Flows (SDFs) to meet your deployment's needs. You can also use policy control to block or limit certain flows.
+- The *mobile network* resource represents the private mobile network as a whole.
+- Each *SIM* resource represents a physical SIM or eSIM. The physical SIMs and eSIMs are used by UEs that will be served by the private mobile network.
+- *SIM policy* resources are a key component of Azure Private 5G Core's customizable policy control, which allows you to provide flexible traffic handling. You can determine exactly how your packet core instance applies Quality of Service (QoS) characteristics to Service Data Flows (SDFs) to meet your deployment's needs. You can also use policy control to block or limit certain flows.
 
     Each SIM policy defines a set of policies and interoperability settings, which can each be assigned to a group of SIMs. You'll need to assign a SIM policy to a SIM before the UE using that SIM can access the private mobile network.
 
-    A SIM policy will also reference one or more **services**. Each service is a representation of a set of QoS characteristics that you want to offer to UEs on SDFs that match particular properties, such as their destination, or the protocol used. You can also use services to limit or block particular SDFs based on these properties.
+    A SIM policy will also reference one or more *services*. Each service is a representation of a set of QoS characteristics that you want to offer to UEs on SDFs that match particular properties, such as their destination, or the protocol used. You can also use services to limit or block particular SDFs based on these properties.
 
     For detailed information on policy control, see [Policy control](policy-control.md).
 
-- The **site** and **packet core** resources allow you to manage the sites in your private mobile network and the packet core instances that run in them.
-- Each **attached data network** resource allows you to manage how its associated packet core instance will connect to the data network. 
+- The *site* and *packet core* resources allow you to manage the sites in your private mobile network and the packet core instances that run in them.
+- Each *attached data network* resource allows you to manage how its associated packet core instance will connect to the data network. 
 
 ## Next steps
 
