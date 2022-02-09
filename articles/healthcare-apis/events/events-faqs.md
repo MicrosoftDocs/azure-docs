@@ -21,9 +21,12 @@ No. The Azure Healthcare APIs Events feature only currently supports the Azure H
 ### What FHIR resource events does Events support?
 
 Events are generated from the following FHIR service types:
-**FhirResourceCreated** - The event emitted after a FHIR resource gets created successfully.
-**FhirResourceCreated** - The event emitted after a FHIR resource gets created successfully.
-**FhirResourceDeleted** - The event emitted after a FHIR resource gets soft deleted successfully.
+
+- **FhirResourceCreated** - The event emitted after a FHIR resource gets created successfully.
+
+- **FhirResourceCreated** - The event emitted after a FHIR resource gets created successfully.
+
+- **FhirResourceDeleted** - The event emitted after a FHIR resource gets soft deleted successfully.
 
 For more information about the FHIR service delete types, see [FHIR Rest API capabilities for Azure Healthcare APIs FHIR service](../../healthcare-apis/fhir/fhir-rest-api-capabilities.md)
 
