@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/04/2022
+ms.date: 02/09/2022
 ms.author: v-ydequadros
 ---
 
@@ -23,7 +23,7 @@ This article describes how you can create and view activity alerts and alert tri
 ## Create an activity trigger
 
 1. In the CloudKnox home page, select **Activity triggers** (the bell icon).
-1. In the **Activity** tab, select **Create activity trigger**.
+1. In the **Activity** tab, select **Create alert trigger**.
 1. In **Alert name**, enter a name for your activity trigger.
 1. In **Authorization system type**, select your authorization system: Amazon Web Services (**AWS**), Microsoft **Azure**, or Google Cloud Platform (**GCP**).
 1. In **Authorization system**, select **Is** or **In**, and then select one or more accounts and folders from the **List** and **Folders** options.
@@ -52,7 +52,7 @@ This article describes how you can create and view activity alerts and alert tri
 1. From the **Date** dropdown, select **Last 24 Hours**, **Last 2 Days**, **Last Week**, or **Custom Range**.
 
     If you select **Custom range**, select date and time settings, and then select **Apply**.
-1. To run the alert, select **Apply**
+1. To run the alert, select **Apply**.
 
     The **Alerts** table displays information about your alert.
 
@@ -77,7 +77,7 @@ This article describes how you can create and view activity alerts and alert tri
     - **Subscription**: A switch that displays if the alert is **On** or **Off**.
 
          - If the column displays **Off**, the current user isn't subscribed to that alert. Switch the toggle to **On** to subscribe to the alert.
-         - The person who creates an alert trigger is automatically subscribed to the alert, and will receive emails about the alert.
+         - The user who creates an alert trigger is automatically subscribed to the alert, and will receive emails about the alert.
 
 1. To see only activated or only deactivated triggers, from the **Status** dropdown, select **Activated** or **Deactivated**, and then select **Apply**. 
 
@@ -111,4 +111,3 @@ This article describes how you can create and view activity alerts and alert tri
 - For information on rule-based anomalies and anomaly triggers, see [Create and view rule-based anomalies and anomaly triggers](cloudknox-product-rule-based-anomalies.md).
 - For information on finding outliers in identity's behavior, see [Create and view statistical anomalies and anomaly triggers](cloudknox-product-statistical-anomalies.md).
 - For information on permission analytics triggers, see [Create and view permission analytics triggers](cloudknox-product-permission-analytics.md).
-

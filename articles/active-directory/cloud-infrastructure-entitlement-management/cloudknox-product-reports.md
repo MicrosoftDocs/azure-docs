@@ -1,6 +1,6 @@
 ---
-title: View an overview of available system report types in CloudKnox Permissions Management 
-description: How to view an overview of available system report types in CloudKnox Permissions Management.
+title: View system reports in the Reports dashboard in CloudKnox Permissions Management 
+description: How to view system reports in the Reports dashboard in CloudKnox Permissions Management.
 services: active-directory
 author: Yvonne-deQ
 manager: karenh444
@@ -8,11 +8,11 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/02/2022
+ms.date: 02/09/2022
 ms.author: v-ydequadros
 ---
 
-# View an overview of available system report types
+# View system reports in the Reports dashboard
 
 > [!IMPORTANT]
 > CloudKnox Permissions Management (CloudKnox) is currently in PREVIEW.
@@ -26,14 +26,14 @@ CloudKnox Permissions Management (CloudKnox) has various types of system report 
 
 ## Explore the Reports dashboard
 
-The reports dashboard provides a table of information with both system reports and custom reports. The **Reports** page defaults to the **System reports** tab, which has the following details:
+The **Reports** dashboard provides a table of information with both system reports and custom reports. The **Reports** dashboard defaults to the **System reports** tab, which has the following details:
 
 - **Report Name**: Lists the name of the report.
-- **Category**: Lists the type of report. For example, **Permission**, **Compliance**, and so on.
+- **Category**: Lists the type of report. For example, **Permission**.
 - **Authorization System**: Displays which authorizations the custom report applies to.
 - **Format**: Displays the output format the report can be generated in. For example, CSV.
 
-    - To download a report, select the menu, select **Download**.
+    - To download a report, select the down arrow to the right of the report name, or from the ellipses **(...)** menu, select **Download**.
 
       The following message displays across the top of the screen in green if the download is successful: **Successfully started to generate on demand report**.
 
@@ -101,7 +101,7 @@ CloudKnox offers the following reports for management associated with the author
 	- **Use cases**: 
 		 - This report lists the different key findings in the selected auth systems. The key findings include super identities, inactive identities, over provisioned active identities, storage bucket hygiene, and access key age (for AWS only). The report helps administrators to visualize the findings across the organization. 
 
-	<!---For more information, see Permissions analytics report.--->
+	For more information about this report, see [Permissions analytics report](cloudknox-product-permissions-analytics-reports.md).
 
 - **Role/Policy Details**
 	- **Summary of report**: Provides information about roles and policies.
@@ -113,7 +113,7 @@ CloudKnox offers the following reports for management associated with the author
 		 - Assigned/Unassigned, custom/system policy, and the used/unused condition is captured in this report for any specific, or all, AWS accounts. Similar data can be captured for Azure/GCP for the assigned/unassigned roles.
 
 - **PCI History**
-	- **Summary of report**: Provides a report of PCI history.
+	- **Summary of report**: Provides a report of privilege creep index (PCI) history.
 	- **Applies to**: AWS, Azure, GCP
 	- **Report output type**: CSV
 	- **Ability to collate report**: Yes
@@ -136,6 +136,6 @@ CloudKnox offers the following reports for management associated with the author
 ## Next steps
 
 - For a detailed overview of available system reports, see [View a list and description of system reports](cloudknox-all-reports.md).
-- For information about how to generate and view a system report, see [Generate and view a system report](cloudknox-report-view-system-report.md).
+- For information about how to create, view, and share a system report, see [Create, view, and share a custom report](cloudknox-report-view-system-report.md).
 - For information about how to create and view a custom report, see [Generate and view a custom report](cloudknox-report-create-custom-report.md).
 - For information about how to create and view the Permissions analytics report, see [Generate and download the Permissions analytics report](cloudknox-product-permissions-analytics-reports.md).

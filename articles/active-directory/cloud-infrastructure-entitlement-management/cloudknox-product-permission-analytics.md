@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/04/2022
+ms.date: 02/09/2022
 ms.author: v-ydequadros
 ---
 
@@ -42,7 +42,8 @@ This article describes how you can create and view permission analytics triggers
 1. To filter the alerts, select the appropriate alert name or, from the **Alert Name** menu,select **All**. 
 
       - From the **Date** dropdown menu, select **Last 24 Hours**, **Last 2 Days**, **Last Week**, or **Custom Range**, and then select **Apply**.
-      - **View Trigger**: Displays the current trigger settings and applicable authorization system details.
+
+        If you select **Custom range**, select date and time settings, and then select **Apply**.      - **View Trigger**: Displays the current trigger settings and applicable authorization system details.
 
 1. To view the following details, select the ellipses (**...**):
 
@@ -95,6 +96,7 @@ This article describes how you can create and view permission analytics triggers
 
 ## Next steps
 
+- For an overview on activity triggers, see [View information about activity triggers](cloudknox-ui-triggers.md).
 - For information on activity alerts and alert triggers, see [Create and view activity alerts and alert triggers](cloudknox-howto-create-alert-trigger.md). 
 - For information on rule-based anomalies and anomaly triggers, see [Create and view rule-based anomalies and anomaly triggers](cloudknox-product-rule-based-anomalies.md).
 - For information on finding outliers in identity's behavior, see [Create and view statistical anomalies and anomaly triggers](cloudknox-product-statistical-anomalies.md).

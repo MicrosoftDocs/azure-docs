@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: overview
-ms.date: 02/02/2022
+ms.date: 02/09/2022
 ms.author: v-ydequadros
 ---
 
@@ -24,7 +24,17 @@ CloudKnox Permissions Management (CloudKnox) has various types of system reports
 - Analyze trends and system/user performance.
 - Identify trends in data and high risk areas so that management can address issues more quickly and improve their efficiency.
 
-This article provides you with a list and description of all system reports available in CloudKnox in comma-separated values (**CSV**) format, portable document format (**PDF**), or Microsoft Excel Open XML Spreadsheet (**XLSX**) format.
+This article provides you with a list and description of the system reports available in CloudKnox. Depending on the report, you can download it in comma-separated values (**CSV**) format, portable document format (**PDF**), or Microsoft Excel Open XML Spreadsheet (**XLSX**) format.
+
+## Download a system report
+
+1. In the CloudKnox home page, select the **Reports** tab, and then select the **Systems reports** subtab.
+1. In the **Report Name** column, find the report you want, and then select the down arrow to the right of the report name to download the report.
+
+    Or, from the ellipses **(...)** menu, select **Download**.
+
+    The following message displays: **Successfully started to generate on demand report.**
+
 
 ## Summary of available system reports
 
@@ -43,7 +53,7 @@ This article provides you with a list and description of all system reports avai
 
 ## Next steps
 
-- For a brief overview of available system reports, see [View an overview of available system report types](cloudknox-product-reports.md).
-- For information about how to generate and view a system report, see [Generate and view a system report](cloudknox-report-view-system-report.md).
+- For information on how to view system reports in the **Reports** dashboard, see [View system reports in the Reports dashboard](cloudknox-product-reports.md).
+- For information about how to create, view, and share a system report, see [Create, view, and share a custom report](cloudknox-report-view-system-report.md).
 - For information about how to create and view a custom report, see [Generate and view a custom report](cloudknox-report-create-custom-report.md).
 - For information about how to create and view the Permissions analytics report, see [Generate and download the Permissions analytics report](cloudknox-product-permissions-analytics-reports.md).
