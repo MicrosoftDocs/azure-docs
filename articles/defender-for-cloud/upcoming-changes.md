@@ -28,8 +28,8 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 | [Changes to recommendations for managing endpoint protection solutions](#changes-to-recommendations-for-managing-endpoint-protection-solutions) | March 2022 |
 | [AWS recommendations to GA](#aws-recommendations-to-ga) | March 2022 |
 | [Relocation of custom recommendations](#relocation-of-custom-recommendations) | March 2022 |
-| [Deprecating Microsoft Defender for IoT device assessments](#Deprecating-microsoft-defender-for-iot-device-assessments) | March 2022 |
-| [Deprecating Microsoft Defender for IoT device alerts](#Deprecating-microsoft-defender-for-iot-device-alerts) | March 2022 |
+| [Deprecating Microsoft Defender for IoT device assessments](#deprecating-microsoft-defender-for-iot-device-assessments)| March 2022 |
+| [Deprecating Microsoft Defender for IoT device alerts](#deprecating-microsoft-defender-for-iot-device-alerts) | March 2022 |
 ### Deprecating a preview alert: ARM.MCAS_ActivityFromAnonymousIPAddresses
 
 **Estimated date for change:** January 2022 
