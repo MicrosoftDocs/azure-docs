@@ -89,4 +89,4 @@ This article describes how to generate and view rule recommendations in the Clou
 
 - For more information about viewing rules, see [View roles in the Autopilot dashboard](cloudknox-ui-autopilot.md).
 - For information about creating rules, see [Create a rule](cloudknox-howto-create-rule.md).
-- For information about notification settings for rules, see [View notification settings for a rule](cloudknox-howto-notification-rule.md).
+- For information about notification settings for rules, see [View notification settings for a rule](cloudknox-howto-notifications-rule.md).

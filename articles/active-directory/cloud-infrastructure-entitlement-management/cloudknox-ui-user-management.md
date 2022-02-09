@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: overview
-ms.date: 02/02/2022
+ms.date: 02/08/2022
 ms.author: v-ydequadros
 ---
 
@@ -37,6 +37,7 @@ Use the **Users** tab to display the following information about users:
 - **Joined on**: The date the user registered on the system.
 - **Recent activity**: The date the user last used their permissions to access the system.
 - The ellipses **(...)** (**View Permissions**) menu - Select the ellipses to open the **View user permission** box.
+
     - To view details about the user's permissions, select one of the following options:
         - **Admin for all authorization system types** provides **View**, **Control**, and **Approve** permissions for all authorization system types.
         - **Admin for selected authorization system types** provides **View**, **Control**, and **Approve** permissions for selected authorization system types.

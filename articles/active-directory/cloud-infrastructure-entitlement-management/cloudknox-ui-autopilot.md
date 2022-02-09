@@ -68,4 +68,4 @@ You can also select:
 
 - For information about creating rules, see [Create a rule](cloudknox-howto-create-rule.md).
 - For information about generating, viewing, and applying rule recommendations for rules, see [Generate, view, and apply rule recommendations for rules](cloudknox-howto-recommendations-rule.md).
-- For information about notification settings for rules, see [View notification settings for a rule](cloudknox-howto-notification-rule.md).
+- For information about notification settings for rules, see [View notification settings for a rule](cloudknox-howto-notifications-rule.md).

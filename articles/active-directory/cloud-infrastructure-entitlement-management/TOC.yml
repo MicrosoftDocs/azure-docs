@@ -111,11 +111,6 @@
         href: cloudknox-howto-audit-trail-results.md
       - name: Filter and query user activity
         href: cloudknox-product-audit-trail.md
-    - name: Set up and view authorization systems
-      expanded: false
-      items:
-      - name: View available authorization systems
-        href: cloudknox-ui-integrations.md
     - name: Set activity alerts and triggers 
       expanded: false
       items: 
@@ -139,7 +134,7 @@
       - name: Generate, view, and apply rule recommendations
         href: cloudknox-howto-recommendations-rule.md 
       - name: View notification settings for a rule
-        href: cloudknox-howto-notification-rule.md
+        href: cloudknox-howto-notifications-rule.md
     - name: Create and view reports 
       expanded: false
       items: 

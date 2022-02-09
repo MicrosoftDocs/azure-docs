@@ -67,4 +67,4 @@ This article describes how to create a rule in the CloudKnox Permissions Managem
 
 - For more information about viewing rules, see [View roles in the Autopilot dashboard](cloudknox-ui-autopilot.md).
 - For information about generating, viewing, and applying rule recommendations for rules, see [Generate, view, and apply rule recommendations for rules](cloudknox-howto-recommendations-rule.md).
-- For information about notification settings for rules, see [View notification settings for a rule](cloudknox-howto-notification-rule.md).
+- For information about notification settings for rules, see [View notification settings for a rule](cloudknox-howto-notifications-rule.md).
