@@ -206,7 +206,7 @@ Use the VM that you created earlier to connect to the web app across the private
 
 1. After you've connected, open PowerShell on the server.
 
-1. Enter `nslookup <your-webapp-name>.azurewebsites.net`. Replace **\<your-webapp-name>** with the name of the web app that you created earlier. You'll receive a message that's similar to the following:
+1. Enter `nslookup <your-webapp-name>.azurewebsites.net`, replacing *\<your-webapp-name>* with the name of the web app that you created earlier. You'll receive a message that's similar to the following:
 
     ```powershell
     Server:  UnKnown
