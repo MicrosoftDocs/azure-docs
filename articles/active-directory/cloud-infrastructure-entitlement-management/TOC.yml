@@ -45,12 +45,8 @@
     - name: View information about identities, resources, and tasks
       expanded: false
       items:
-      - name: View information in the Usage analytics dashboard
-        href: cloudknox-product-view-information.md
-      - name: View analytic information with the Usage Analytics dashboard
+      - name: View analytic information with the Analytics dashboard
         href: cloudknox-usage-analytics-home.md
-      - name: Analyze usage for an identity, a task, or an authorization system
-        href: cloudknox-howto-analyze-usage.md
       - name: View analytic information about users
         href: cloudknox-usage-analytics-users.md
       - name: View analytic information about groups
@@ -63,11 +59,6 @@
         href: cloudknox-usage-analytics-access-keys.md
       - name: View analytic information about serverless functions
         href: cloudknox-usage-analytics-serverless-functions.md
-    - name: View active and completed tasks
-      expanded: false
-      items:
-      - name: View information about active and completed tasks
-        href: cloudknox-ui-tasks.md
     - name: Manage roles/policies and permission requests
       expanded: false
       items:
@@ -75,6 +66,8 @@
         href: cloudknox-ui-remediation.md
       - name: View information about roles/policies
         href: cloudknox-howto-view-role-policy.md
+      - name: View information about active and completed tasks
+        href: cloudknox-ui-tasks.md
       - name: Create a role/policy
         href: cloudknox-howto-create-role-policy.md
       - name: Clone a role/policy
