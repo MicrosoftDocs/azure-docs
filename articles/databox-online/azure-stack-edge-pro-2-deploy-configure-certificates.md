@@ -62,7 +62,7 @@ Before you configure and set up your Azure Stack Edge Pro 2 device, make sure th
 
 3. When you have a full set of valid certificates for your device, the device is ready for activation. Select **< Back to Get started** to proceed to the next deployment step, [Activate your device](azure-stack-edge-gpu-deploy-activate.md).
 
-     ![Screenshot of the Certificates page on an Azure Stack Edge device with a full set of valid certificates. The certificate states and the Back To Get Started button are highlighted.](./media/azure-stack-edge-gpu-deploy-configure-certificates/procede-to-activate-1.png)  
+    <!--![Screenshot of the Certificates page on an Azure Stack Edge device with a full set of valid certificates. The certificate states and the Back To Get Started button are highlighted.](./media/azure-stack-edge-gpu-deploy-configure-certificates/proceed-to-activate-1.png)-->
 
 
 ## Generate device certificates
