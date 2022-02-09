@@ -11,68 +11,33 @@ items:
   items:
   - name: Launch your first app
     href: quickstart.md
-
-  # Consolidated version
-  - name: Build and run apps - version A
-    expanded: false
+  - name: Introduction to PetClinic sample
+    href: quickstart-sample-app-introduction.md
+  - name: Run apps on Basic/Standard tier
+    expanded: true
     items:
-    - name: Introduction to the sample app
-      href: quickstart-sample-app-introduction.md
-    - name: Provision a service instance - Basic/Standard tier
+    - name: Provision a service instance
       href: quickstart-provision-service-instance.md
-    - name: Set up configuration server - Basic/Standard tier
+    - name: Set up configuration server
       href: quickstart-setup-config-server.md
-    - name: Build and deploy apps - Basic/Standard tier
+    - name: Build and deploy apps
       href: quickstart-deploy-apps.md
-    - name: Provision a service instance - Enterprise tier
-      href: quickstart-provision-service-instance-enterprise.md
-    - name: Set up Application Configuration Service - Enterprise tier
-      href: quickstart-setup-application-configuration-service-enterprise.md
-    - name: Build and deploy apps - Enterprise tier
-      href: quickstart-deploy-apps-enterprise.md
-    - name: Set up Service Registry - Enterprise tier
-      href: quickstart-setup-service-registry-enterprise.md
-    - name: Set up Log Analytics
-      href: quickstart-setup-log-analytics.md
-    - name: Use logs, metrics and tracing
-      href: quickstart-logs-metrics-tracing.md
-    - name: Integrate with Azure Database for MySQL
-      href: quickstart-integrate-azure-database-mysql.md
-
-
-  # Consolidated, nested version
-  - name: Build and run apps - version B
-    expanded: false
+  - name: Run apps on Enterprise tier
     items:
-    - name: Introduction to the sample app
-      href: quickstart-sample-app-introduction.md
-    - name: Basic/Standard tier
-      expanded: true
-      items:
-      - name: Provision a service instance
-        href: quickstart-provision-service-instance.md
-      - name: Set up configuration server
-        href: quickstart-setup-config-server.md
-      - name: Build and deploy apps
-        href: quickstart-deploy-apps.md
-    - name: Enterprise tier
-      expanded: true
-      items:
-      - name: Provision a service instance
-        href: quickstart-provision-service-instance-enterprise.md
-      - name: Use Application Configuration Service
-        href: quickstart-setup-application-configuration-service-enterprise.md
-      - name: Build and deploy apps
-        href: quickstart-deploy-apps-enterprise.md
-      - name: Set up Service Registry
-        href: quickstart-setup-service-registry-enterprise.md
-    - name: Set up Log Analytics
-      href: quickstart-setup-log-analytics.md
-    - name: Use logs, metrics and tracing
-      href: quickstart-logs-metrics-tracing.md
-    - name: Integrate with Azure Database for MySQL
-      href: quickstart-integrate-azure-database-mysql.md
-
+    - name: Provision a service instance
+      href: quickstart-provision-service-instance-enterprise.md
+    - name: Use Application Configuration Service
+      href: quickstart-setup-application-configuration-service-enterprise.md
+    - name: Build and deploy apps
+      href: quickstart-deploy-apps-enterprise.md
+    - name: Set up Service Registry
+      href: quickstart-setup-service-registry-enterprise.md
+  - name: Set up Log Analytics
+    href: quickstart-setup-log-analytics.md
+  - name: Use logs, metrics and tracing
+    href: quickstart-logs-metrics-tracing.md
+  - name: Integrate with Azure Database for MySQL
+    href: quickstart-integrate-azure-database-mysql.md
   - name: Provisioning
     expanded: true
     items:
