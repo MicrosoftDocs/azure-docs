@@ -109,6 +109,8 @@ For more information, use the command `Get-Help Copy-EflowVMFile -full`.
 
 The **Deploy-Eflow** command is the main deployment method. The deployment command creates the virtual machine, provisions files, and deploys the IoT Edge agent module. While none of the parameters are required, they can be used to modify settings for the virtual machine during creation.
 
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
 | Parameter | Accepted values | Comments |
 | --------- | --------------- | -------- |
 | acceptEula | **Yes** or **No** | A shortcut to accept/deny EULA and bypass the EULA prompt. |
@@ -124,6 +126,31 @@ The **Deploy-Eflow** command is the main deployment method. The deployment comma
 | gpuName | GPU Device name |  Name of GPU device to be used for passthrough. |
 | gpuPassthroughType | **DirectDeviceAssignment**, **ParaVirtualization**, or none (CPU only) |  GPU Passthrough type |
 | gpuCount | Integer value between 1 and the number of the device's GPU cores | Number of GPU devices for the VM. <br><br>**Note**: If using ParaVirtualization, make sure to set gpuCount = 1 |
+:::moniker-end
+<!-- end 1.1 -->
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+| Parameter | Accepted values | Comments |
+| --------- | --------------- | -------- |
+| acceptEula | **Yes** or **No** | A shortcut to accept/deny EULA and bypass the EULA prompt. |
+| acceptOptionalTelemetry | **Yes** or **No** |  A shortcut to accept/deny optional telemetry and bypass the telemetry prompt. |
+| cpuCount | Integer value between 1 and the device's CPU cores |  Number of CPU cores for the VM.<br><br>**Default value**: 1 vCore. |
+| memoryInMB | Integer value between 1024 and the maximum amount of free memory of the device |Memory allocated for the VM.<br><br>**Default value**: 1024 MB. |
+| vmDiskSize | Between 21 GB and 2 TB | Maximum disk size of the dynamically expanding virtual hard disk.<br><br>**Default value**: 29 GB. |
+| vmDataSize | Between 2 GB and 2 TB | Maximum data partition size of the resulting hard disk, in GB.<br><br>**Default value**: 10 GB. |
+| vmLogSize | **Small** or **Large** | Specificy the log partition size - Small = 1GB, Large = 6GB.<br><br>**Default value**: Small.  |
+| vswitchName | Name of the virtual switch |  Name of the virtual switch assigned to the EFLOW VM. |
+| vswitchType | **Internal** or **External** | Type of the virtual switch assigned to the EFLOW VM. |
+| ip4Address | IPv4 Address in the range of the DCHP Server Scope | Static Ipv4 address of the EFLOW VM. |
+| ip4PrefixLength | IPv4 Prefix Length of the subnet | Ipv4 subnet prefix length, only valid when static Ipv4 address is specified. |
+| ip4GatewayAddress | IPv4 Address of the subnet gateway | Gateway Ipv4 address, only valid when static Ipv4 address is specified. |
+| gpuName | GPU Device name |  Name of GPU device to be used for passthrough. |
+| gpuPassthroughType | **DirectDeviceAssignment**, **ParaVirtualization**, or none (CPU only) |  GPU Passthrough type |
+| gpuCount | Integer value between 1 and the number of the device's GPU cores | Number of GPU devices for the VM. <br><br>**Note**: If using ParaVirtualization, make sure to set gpuCount = 1 |
+:::moniker-end
+<!-- end 1.2 -->
+
 
 For more information, use the command `Get-Help Deploy-Eflow -full`.  
 
