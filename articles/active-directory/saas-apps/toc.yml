@@ -63,7 +63,7 @@
         href: adobe-creative-cloud-tutorial.md
       - name: Adobe Experience Manager
         href: adobeexperiencemanager-tutorial.md
-      - name: Adobe Identity Management
+      - name: Adobe Identity Management (SAML)
         href: adobe-identity-management-tutorial.md
       - name: Adobe Sign
         href: adobe-echosign-tutorial.md
@@ -693,6 +693,8 @@
         href: elium-tutorial.md
       - name: eLuminate
         href: eluminate-tutorial.md
+      - name: Embark
+        href: embark-tutorial.md
       - name: embed signage
         href: embed-signage-tutorial.md  
       - name: Empactis
@@ -725,7 +727,7 @@
         href: easysso-for-jira-tutorial.md
       - name: EthicsPoint Incident Management (EPIM)
         href: ethicspoint-incident-management-tutorial.md
-      - name: Euromonitor Passport
+      - name: Euromonitor International
         href: euromonitor-passport-tutorial.md
       - name: EverBridge
         href: everbridge-tutorial.md
@@ -838,6 +840,8 @@
         href: fortigate-ssl-vpn-tutorial.md
       - name: FortiSASE SIA
         href: fortisase-sia-tutorial.md
+      - name: FortiWeb Web Application Firewall
+        href: fortiweb-web-application-firewall-tutorial.md 
       - name: foundU
         href: foundu-tutorial.md
       - name: Freedcamp
@@ -1282,7 +1286,7 @@
         href: linkedinsalesnavigator-tutorial.md
       - name: LiquidFiles
         href: liquidfiles-tutorial.md
-      - name: Litmos
+      - name: SAP Litmos
         href: litmos-tutorial.md
       - name: LockPath Keylight
         href: keylight-tutorial.md
@@ -1296,6 +1300,8 @@
         href: logzio-cloud-observability-for-engineers-tutorial.md
       - name: Loop Flow CRM
         href: loop-flow-crm-tutorial.md  
+      - name: Lucid (All Products)
+        href: lucid-tutorial.md  
       - name: Lucidchart
         href: lucidchart-tutorial.md
       - name: Luum
@@ -1352,7 +1358,7 @@
         href: mihcm-tutorial.md  
       - name: Mimecast Admin Console
         href: mimecast-admin-console-tutorial.md
-      - name: Mimecast Personal Portal
+      - name: Mimecast
         href: mimecast-personal-portal-tutorial.md
       - name: Mindflash
         href: mindflash-tutorial.md
@@ -1508,6 +1514,8 @@
         href: opal-tutorial.md
       - name: OpenAthens
         href: openathens-tutorial.md
+      - name: OpenID Connect OAuth
+        href: openidoauth-tutorial.md
       - name: OpenText Directory Services
         href: opentext-directory-services-tutorial.md
       - name: OpsGenie
@@ -2000,6 +2008,8 @@
         href: softeon-tutorial.md
       - name: Software AG Cloud
         href: software-ag-cloud-tutorial.md
+      - name: SolarWinds Orion
+        href: solarwinds-orion-tutorial.md  
       - name: SolarWinds Service Desk
         href: samanage-tutorial.md  
       - name: Soloinsight-CloudGate SSO

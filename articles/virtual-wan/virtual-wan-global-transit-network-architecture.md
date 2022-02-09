@@ -113,7 +113,7 @@ The Remote User-to-branch path lets remote users who are using a point-to-site c
 The VNet-to-VNet transit enables VNets to connect to each other in order to interconnect multi-tier applications that are implemented across multiple VNets. Optionally, you can connect VNets to each other through VNet Peering and this may be suitable for some scenarios where transit via the VWAN hub is not necessary.
 
 
-## <a name="DefaultRoute"></a>Force Tunneling and Default Route in Azure Virtual WAN
+## <a name="DefaultRoute"></a>Force tunneling and default route
 
 Force Tunneling can be enabled by configuring the enable default route on a VPN, ExpressRoute, or Virtual Network connection in Virtual WAN.
 

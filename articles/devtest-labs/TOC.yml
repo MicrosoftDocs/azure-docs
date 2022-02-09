@@ -25,17 +25,6 @@
     href: https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates
   - name: Azure PowerShell
     href: samples-powershell.md
-    items:
-    - name: Add an external user to a lab
-      href: scripts/add-external-user-to-lab.md
-    - name: Add marketplace images to a lab
-      href: scripts/add-marketplace-images-to-lab.md
-    - name: Create a custom image from a VHD
-      href: scripts/create-custom-image-from-vhd.md
-    - name: Create a custom role in a lab
-      href: scripts/create-custom-role-in-lab.md
-    - name: Set allowed VM sizes in a lab
-      href: scripts/set-allowed-vm-sizes-in-lab.md
   - name: Azure PowerShell - Az.DevTestLabs2 module
     href: https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Modules/Library
   - name: Azure CLI
@@ -84,7 +73,7 @@
       href: configure-lab-remote-desktop-gateway.md
     - name: Post announcement in a lab
       href: devtest-lab-announcements.md
-    - name: Enable browser connection on VMs
+    - name: Connect via browser on VMs with Bastion
       href: enable-browser-connection-lab-virtual-machines.md
     - name: Configure cost management
       href: devtest-lab-configure-cost-management.md

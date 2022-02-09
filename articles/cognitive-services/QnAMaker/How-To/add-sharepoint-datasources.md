@@ -22,7 +22,7 @@ If the QnA Maker knowledge base manager is not the Active Directory manager, you
 
 ## Add supported file types to knowledge base
 
-You can add all QnA Maker-supported [file types](https://docs.microsoft.com/azure/cognitive-services/qnamaker/concepts/data-sources-and-content#file-and-url-data-types) from a SharePoint site to your knowledge base. You may have to grant [permissions](#permissions) if the file resource is secured.
+You can add all QnA Maker-supported [file types](/azure/cognitive-services/qnamaker/concepts/data-sources-and-content#file-and-url-data-types) from a SharePoint site to your knowledge base. You may have to grant [permissions](#permissions) if the file resource is secured.
 
 1. From the library with the SharePoint site, select the file's ellipsis menu, `...`.
 1. Copy the file's URL.
@@ -84,7 +84,7 @@ The Active Directory manager will get a pop-up window requesting permissions to 
 
 ### Grant access from the App Registrations list
 
-1. The Active Directory manager signs in to the Azure portal and opens **[App registrations list](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ApplicationsListBlade)**.
+1. The Active Directory manager signs in to the Azure portal and opens **[App registrations list](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ApplicationsListBlade)**.
 
 1. Search for and select the **QnAMakerPortalSharePoint** app. Change the second filter box from **My apps** to **All apps**. The app information will open on the right side.
 
@@ -187,4 +187,4 @@ Use the **@microsoft.graph.downloadUrl** from the previous section as the `fileu
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Collaborate on your knowledge base](https://docs.microsoft.com/azure/cognitive-services/qnamaker/concepts/data-sources-and-content#file-and-url-data-types.yml)
+> [Collaborate on your knowledge base](/azure/cognitive-services/qnamaker/concepts/data-sources-and-content#file-and-url-data-types.yml)
