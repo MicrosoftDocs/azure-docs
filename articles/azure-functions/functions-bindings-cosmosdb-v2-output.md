@@ -686,7 +686,7 @@ The following table explains the binding configuration properties that you set i
 
 [!INCLUDE [functions-cosmosdb-settings-v3](../../includes/functions-cosmosdb-output-settings-v3.md)]
 
-# [Extension 4.x+ (preview)](#tab/functionsv4)
+# [Extension 4.x+ (preview)](#tab/extensionv4)
 
 [!INCLUDE [functions-cosmosdb-settings-v4](../../includes/functions-cosmosdb-output-settings-v4.md)]
 
@@ -701,7 +701,7 @@ By default, when you write to the output parameter in your function, a document 
 > [!NOTE]  
 > When you specify the ID of an existing document, it gets overwritten by the new output document.
 
-[!INCLUDE [functions-cosmosdb-connections](../../includes/functions-cosmosdb-connections.md)]
+[!INCLUDE [functions-cosmosdb-connections](../../includes/functions-cosmosdb-connections.md)]    
 
 ## Exceptions and return codes
 

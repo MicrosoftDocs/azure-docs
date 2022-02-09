@@ -397,7 +397,7 @@ static async Task Main()
 }
 ```
 
-For more information, see the [Azure CosmosDB binding](../azure-functions/functions-bindings-cosmosdb-v2-output.md#hostjson-settings) article.
+For more information, see the [Azure CosmosDB binding](../azure-functions/functions-bindings-cosmosdb-v2.md#hostjson-settings) article.
 
 #### Event Hubs trigger configuration (version 3.*x*)
 

@@ -395,4 +395,4 @@ The trigger doesn't indicate whether a document was updated or inserted, it just
 - [Read an Azure Cosmos DB document (Input binding)](./functions-bindings-cosmosdb-v2-input.md)
 - [Save changes to an Azure Cosmos DB document (Output binding)](./functions-bindings-cosmosdb-v2-output.md)
 
-[version 4.x of the extension]: ./functions-bindings-cosmosdb-v2.md#cosmos-db-extension-4x-and-higher
+[version 4.x of the extension]: ./functions-bindings-cosmosdb-v2.md?tabs=extensionv4
