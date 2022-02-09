@@ -31,7 +31,7 @@ You can bulk-invite external users to an organization from email addresses that 
 
 
 2. Get the latest Azure AD PowerShell
-   To use the new cmdlets, you must install the updated Azure AD PowerShell module, which you can download from [the Powershell module's release page](https://www.powershellgallery.com/packages/AzureADPreview)
+   To use the new cmdlets, you must install the updated Azure AD PowerShell module, which you can download from [the PowerShell module's release page](https://www.powershellgallery.com/packages/AzureADPreview)
 
 3. Sign in to your tenancy
 
