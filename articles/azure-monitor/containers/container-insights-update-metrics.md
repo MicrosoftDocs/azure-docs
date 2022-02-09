@@ -28,7 +28,7 @@ To support these capabilities, the feature includes these containerized agents:
 - Version *microsoft/oms:ciprod05262020* for AKS
 - Version *microsoft/oms:ciprod09252020* for Azure Arc-enabled Kubernetes clusters
 
-New deployments of AKS automatically include this configuration and capabilities. You can update your cluster to support this feature from the Azure portal, Azure PowerShell, or the Azure CLI. With Azure PowerShell and the Azure CLI, you can enable the feature for each cluster or for all clusters in your subscription.
+New deployments of AKS automatically include this configuration and the metric-collecting capabilities. You can update your cluster to support this feature from the Azure portal, Azure PowerShell, or the Azure CLI. With Azure PowerShell and the Azure CLI, you can enable the feature for each cluster or for all clusters in your subscription.
 
 Either process assigns the *Monitoring Metrics Publisher* role to the cluster's service principal or the user-assigned MSI for the monitoring add-on. The data that the agent collects from the agent can then be published to your cluster resource. 
 
