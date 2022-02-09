@@ -1,13 +1,13 @@
 ---
 title: Form Recognizer models
 titleSuffix: Azure Applied AI Services
-description: Concepts encompassing data extraction and analysis using prebuilt models
+description: Concepts encompassing data extraction and analysis using prebuilt models.
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 10/07/2021
+ms.date: 02/07/2022
 ms.author: lajanuar
 recommendations: false
 ms.custom: ignite-fall-2021
@@ -40,7 +40,7 @@ ms.custom: ignite-fall-2021
 
 * The general document model supports named entity recognition (NER) for several entity categories. NER is the ability to identify different entities in text and categorize them into pre-defined classes or types such as: person, location, event, product, and organization. Extracting entities can be useful in scenarios where you want to validate extracted values. The entities are extracted from the entire content.
 
-***Sample document processed in the [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=document)***:
+***Sample document processed using the [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/document)***:
 
 :::image type="content" source="media/studio/general-document-analyze.png" alt-text="Screenshot: general document analysis in the Form Recognizer Studio.":::
 
@@ -53,9 +53,9 @@ ms.custom: ignite-fall-2021
 
 The Layout API analyzes and extracts text, tables and headers, selection marks, and structure information from forms and documents.
 
-***Sample form processed with [Form Recognizer Sample Labeling tool](https://fott-2-1.azurewebsites.net/)  layout feature***:
+***Sample form processed using the [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/layout)***:
 
-:::image type="content" source="media/overview-layout.png" alt-text="Screenshot: analyze sample document processed in Form Recognizer studio":::
+:::image type="content" source="media/studio/analyze-layout.png" alt-text="Screenshot: Screenshot of sample document processed using Form Recognizer studio":::
 
 > [!div class="nextstepaction"]
 > [Learn more: layout model](concept-layout.md)
@@ -66,9 +66,9 @@ The Layout API analyzes and extracts text, tables and headers, selection marks, 
 
 The invoice model analyzes and extracts key information from sales invoices. The API analyzes invoices in various formats and extracts key information such as customer name, billing address, due date, and amount due.
 
-***Sample invoice processed with [Form Recognizer Sample Labeling tool](https://fott-2-1.azurewebsites.net/)***:
+***Sample invoice processed using [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=invoice)***:
 
-:::image type="content" source="./media/overview-invoices.jpg" alt-text="sample invoice" lightbox="./media/overview-invoices.jpg":::
+:::image type="content" source="./media/studio/analyze-invoice.png" alt-text="Screenshot of a sample invoice." lightbox="./media/overview-invoices.jpg":::
 
 > [!div class="nextstepaction"]
 > [Learn more: invoice model](concept-invoice.md)
@@ -79,9 +79,9 @@ The invoice model analyzes and extracts key information from sales invoices. The
 
 The receipt model analyzes and extracts key information from sales receipts. The API analyzes printed and handwritten receipts and extracts key information such as merchant name, merchant phone number, transaction date, tax, and transaction total. 
 
-***Sample receipt processed with [Form Recognizer Sample Labeling tool](https://fott-2-1.azurewebsites.net/)***:
+***Sample receipt processed using [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=receipt)***:
 
-:::image type="content" source="./media/overview-receipt.jpg" alt-text="sample receipt" lightbox="./media/overview-receipt.jpg":::
+:::image type="content" source="./media/studio/analyze-receipt.png" alt-text="Screenshot of a sample receipt." lightbox="./media/overview-receipt.jpg":::
 
 > [!div class="nextstepaction"]
 > [Learn more: receipt model](concept-receipt.md)
@@ -90,11 +90,11 @@ The receipt model analyzes and extracts key information from sales receipts. The
 
 :::image type="content" source="media/studio/id-document.png" alt-text="Screenshot: Studio identity document icon.":::
 
-The ID document model analyzes and extracts key information from U.S. Driver's Licenses (all 50 states and District of Columbia) and biographical pages for international passports (excluding visa and other travel documents). The API analyzes identity documents and extracts key information such as first name, last name, address, and date of birth.
+The ID document model analyzes and extracts key information from U.S. Driver's Licenses (all 50 states and District of Columbia) and biographical pages from international passports (excluding visa and other travel documents). The API analyzes identity documents and extracts key information such as first name, last name, address, and date of birth.
 
-***Sample U.S. Driver's License processed with [Form Recognizer Sample Labeling tool](https://fott-2-1.azurewebsites.net/)***:
+***Sample U.S. Driver's License processed using [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=idDocument)***:
 
-:::image type="content" source="./media/id-example-drivers-license.jpg" alt-text="sample identification card" lightbox="./media/overview-id.jpg":::
+:::image type="content" source="./media/studio/analyze-drivers-license.png" alt-text="Screenshot of a sample identification card." lightbox="./media/overview-id.jpg":::
 
 > [!div class="nextstepaction"]
 > [Learn more: identity document model](concept-id-document.md)
@@ -103,11 +103,11 @@ The ID document model analyzes and extracts key information from U.S. Driver's L
 
 :::image type="content" source="media/studio/business-card.png" alt-text="Screenshot: Studio business card icon.":::
 
-The business card model analyzes and extracts key information from business card images. The API analyzes printed business card images and  extracts key information such as first name, last name, company name, email address, and phone number.
+The business card model analyzes and extracts key information from business card images. The API analyzes printed business card images and extracts key information such as first name, last name, company name, email address, and phone number.
 
-***Sample business card processed with [Form Recognizer Sample Labeling tool](https://fott-2-1.azurewebsites.net/)***:
+***Sample business card processed using [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=businessCard)***:
 
-:::image type="content" source="./media/overview-business-card.jpg" alt-text="sample business card" lightbox="./media/overview-business-card.jpg":::
+:::image type="content" source="./media/studio/analyze-business-card.png" alt-text="Screenshot of a sample business card." lightbox="./media/overview-business-card.jpg":::
 
 > [!div class="nextstepaction"]
 > [Learn more: business card model](concept-business-card.md)
@@ -118,9 +118,9 @@ The business card model analyzes and extracts key information from business card
 
 The custom model analyzes and extracts data from forms and documents specific to your business. The API is a machine-learning program trained to recognize form fields within your distinct content and extract key-value pairs and table data. You only need five examples of the same form type to get started and your custom model can be trained with or without labeled datasets.
 
-***Sample custom form processed with [Form Recognizer Sample Labeling tool](https://fott-2-1.azurewebsites.net/)***:
+***Sample custom form processed using [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/customform/projects)***:
 
-:::image type="content" source="media/analyze.png" alt-text="Screenshot: Form Recognizer tool analyze-a-custom-form window.":::
+:::image type="content" source="media/studio/train-model.png" alt-text="Screenshot: Form Recognizer tool analyze-a-custom-form window.":::
 
 > [!div class="nextstepaction"]
 > [Learn more: custom model](concept-custom.md)
@@ -143,7 +143,7 @@ The custom model analyzes and extracts data from forms and documents specific to
 * Supported file formats: JPEG, PNG, BMP, TIFF, and PDF (text-embedded or scanned). Text-embedded PDFs are best to eliminate the possibility of error in character extraction and location.
 * For PDF and TIFF, up to 2000 pages can be processed (with a free tier subscription, only the first two pages are processed).
 * The file size must be less than 50 MB.
-* Image dimensions must be between 50 x 50 pixels and 10000 x 10000 pixels.
+* Image dimensions must be between 50 x 50 pixels and 10,000 x 10,000 pixels.
 * PDF dimensions are up to 17 x 17 inches, corresponding to Legal or A3 paper size, or smaller.
 * The total size of the training data is 500 pages or less.
 * If your PDFs are password-locked, you must remove the lock before submission.

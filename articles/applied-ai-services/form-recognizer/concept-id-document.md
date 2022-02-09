@@ -16,11 +16,11 @@ ms.custom: ignite-fall-2021
 
 # Form Recognizer ID document model
 
-The ID document model combines powerful Optical Character Recognition (OCR) capabilities with deep learning models to analyze and extracts key information from U.S. Driver's Licenses (all 50 states and District of Columbia) and international passport biographical pages (excluding visa and other travel documents). The API analyzes identity documents; extracts key information such as first name, last name, address, and date of birth; and returns a structured JSON data representation.
+The ID document model combines Optical Character Recognition (OCR) with deep learning models to analyze and extracts key information from US Drivers Licenses (all 50 states and District of Columbia) and international passport biographical pages (excludes visa and other travel documents). The API analyzes identity documents, extracts key information, and returns a structured JSON data representation.
 
 ***Sample U.S. Driver's License processed with Form Recognizer Studio***
 
-:::image type="content" source="media/studio/drivers-license.png" alt-text="sample identification card" lightbox="media/overview-id.jpg":::
+:::image type="content" source="media/studio/analyze-drivers-license.png" alt-text="Image of a sample driver's license." lightbox="media/overview-id.jpg":::
 
 ## Development options
 
@@ -38,7 +38,7 @@ The following resources are supported by Form Recognizer v3.0:
 
 ### Try Form Recognizer
 
-See how data, including name, birth date, machine-readable zone, and expiration date, is extracted from ID documents using the Form Recognizer Studio or our Sample Labeling tool. You'll need the following:
+See how to extract data, including name, birth date, machine-readable zone, and expiration date, from ID documents using the Form Recognizer Studio or our Sample Labeling tool. You'll need the following resources:
 
 * An Azure subscription—you can [create one for free](https://azure.microsoft.com/free/cognitive-services/)
 
@@ -64,7 +64,7 @@ See how data, including name, birth date, machine-readable zone, and expiration 
 
 #### Sample Labeling tool
 
-You will need an ID document. You can use our [sample ID document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/DriverLicense.png).
+You'll need an ID document. You can use our [sample ID document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/DriverLicense.png).
 
 1. On the Sample Labeling tool home page, select **Use prebuilt model to get data**.
 
@@ -81,7 +81,7 @@ You will need an ID document. You can use our [sample ID document](https://raw.g
 * Supported file formats: JPEG, PNG, BMP, TIFF, and PDF (text-embedded or scanned). Text-embedded PDFs are best to eliminate the possibility of error in character extraction and location.
 * For PDF and TIFF, up to 2000 pages can be processed (with a free tier subscription, only the first two pages are processed).
 * The file size must be less than 50 MB.
-* Image dimensions must be between 50 x 50 pixels and 10000 x 10000 pixels.
+* Image dimensions must be between 50 x 50 pixels and 10,000 x 10,000 pixels.
 * PDF dimensions are up to 17 x 17 inches, corresponding to Legal or A3 paper size, or smaller.
 * The total size of the training data is 500 pages or less.
 * If your PDFs are password-locked, you must remove the lock before submission.
