@@ -40,7 +40,7 @@ The following table describes the limits for the Azure Stack Edge Pro 2 device.
 
 [!INCLUDE [data-box-edge-gateway-storage-data-upload-caveats](../../includes/data-box-edge-gateway-storage-data-upload-caveats.md)]
 
-## Azure storage account size and object size limits
+## Azure storage account size limits
 
 [!INCLUDE [data-box-edge-gateway-storage-acct-limits](../../includes/data-box-edge-gateway-storage-acct-limits.md)]
 
