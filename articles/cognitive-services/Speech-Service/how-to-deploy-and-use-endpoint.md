@@ -77,65 +77,43 @@ This section describes how to suspend or resume a custom neural voice endpoint i
 
 #### Suspend endpoint
 
-1. On the **Deploy model** tab of [Speech Studio](https://aka.ms/custom-voice-portal), select the endpoint you want to suspend.
+1. To suspend and deactivate your endpoint, select **Suspend** from the **Deploy** tab in [Speech Studio](https://aka.ms/custom-voice-portal).
 
-   :::image type="content" source="media/custom-voice/select-endpoint.png" alt-text="select endpoint":::
+   :::image type="content" source="media/custom-voice/cnv-endpoint-suspend.png" alt-text="Screenshot of the select suspend endpoint option":::
 
-1. Select **Suspend** option above or the option displayed on the endpoint details page to suspend the endpoint. 
-
-   :::image type="content" source="media/custom-voice/select-suspend.png" alt-text="select suspend":::
-
-1. Select **Submit** to suspend the endpoint.
-
-   :::image type="content" source="media/custom-voice/suspend-endpoint.png" alt-text="suspend endpoint":::
-
-#### Endpoint status after suspension
-
-After you successfully suspend the endpoint, the status will change from **Suspended** to **Succeeded**.
-
-:::image type="content" source="media/custom-voice/status-after-suspension.png" alt-text="status after suspension":::
+1. In the dialog box that appears, select **Submit**. After the endpoint is suspended, Speech Studio will show the **Successfully suspended endpoint** notification.
 
 #### Resume endpoint
 
-1. To reactivate your endpoint, select **Resume** option shown below or the option displayed on the endpoint details page.
+1. To resume and activate your endpoint, select **Resume** from the **Deploy** tab in [Speech Studio](https://aka.ms/custom-voice-portal).
 
-   :::image type="content" source="media/custom-voice/select-resume.png" alt-text="select resume":::
+   :::image type="content" source="media/custom-voice/cnv-endpoint-resume.png" alt-text="Screenshot of the select resume endpoint option":::
 
-1. Select **Submit** to resume the endpoint. 
-
-   :::image type="content" source="media/custom-voice/resume-endpoint.png" alt-text="resume endpoint":::
-
-####  Endpoint status after resumption
-
-After you successfully reactivate the endpoint, the status will change back to  **Succeeded**.
-
-:::image type="content" source="media/custom-voice/status-after-resumption.png" alt-text="status after resumption":::
+1. In the dialog box that appears, select **Submit**. After you successfully reactivate the endpoint, the status will change from **Suspended** to **Succeeded**.
 
 ### Suspend and resume endpoint via REST API
 
 This section will show you how to [get](#get-endpoint), [suspend](#suspend-endpoint), or [resume](#resume-endpoint) a custom neural voice endpoint via REST API.
 
-#### Endpoint configuration
-
-For an existing endpoint you want to suspend or resume, you'll need to prepare:
-
-* The identifier of the endpoint (Deployment ID).
-* The Azure region the endpoint is associated with.
-* The subscription key the endpoint is associated with (Endpoint key).
-
-These details are available on the **Deploy model** tab in [Speech Studio](https://aka.ms/custom-voice-portal).
-
-:::image type="content" source="media/custom-voice/endpoint-parameter-for-rest-api.png" alt-text="Endpoint parameter for rest API":::
-
 #### Request parameters
 
-Use settings from the [endpoint configuration](#endpoint-configuration) as request parameters when you call the REST API.
+You use these request parameters with calls to the REST API.
 
-| Name                        | In     | Required | Type   | Description                                                                    |
+| Name                        | Location     | Required | Type   | Description                                                                    |
 | --------------------------- | ------ | -------- | ------ | ------------------------------------------------------------------------------ |
-| `YourServiceRegion` | Path   | `True` | string | <YourServiceRegion> - The Azure region the endpoint is associated with.        |
-| `YourEndpointId` | Path   | `True` | string | <YourEndpointId> - The identifier of the endpoint.                                |
-| `Ocp-Apim-Subscription-Key` | Header | `True` | string | <YourSubscriptionKey > The subscription key the endpoint is associated with. |
+| `YourServiceRegion` | Path   | `True` | string | The Azure region the endpoint is associated with.        |
+| `YourEndpointId` | Path   | `True` | string | The identifier of the endpoint.                                |
+| `Ocp-Apim-Subscription-Key` | Header | `True` | string | The subscription key the endpoint is associated with. |
+
+The application settings are available on the **Deploy model** tab in [Speech Studio](https://aka.ms/custom-voice-portal).
+
+:::image type="content" source="./media/custom-voice/cnv-endpoint-app-settings-zoom.png" alt-text="Screenshot of custom endpoint app settings in Speech Studio." lightbox="./media/custom-voice/cnv-endpoint-app-settings-full.png":::
+
+* The **Endpoint key** shows the subscription key the endpoint is associated with. Use the endpoint key as the value of your `Ocp-Apim-Subscription-Key` request header. 
+* The **Endpoint URL** shows your service region. Use the value that precedes `voice.speech.microsoft.com` as your service region request parameter. For example, use `eastus` if the endpoint URL is `https://eastus.voice.speech.microsoft.com/cognitiveservices/v1`.
+* The **Endpoint URL** shows your endpoint ID. Use the value appended to the `?deploymentId=` query parameter as the value of your endpoint ID request parameter.
+* The Azure region the endpoint is associated with.
+
 
 #### Get endpoint
 
@@ -159,7 +137,7 @@ The definition of status property:
 
 ##### Request example
 
-For information about endpoint ID, region, and subscription key parameters, see [request parameters](#request-parameters) and [endpoint configuration](#endpoint-configuration).
+For information about endpoint ID, region, and subscription key parameters, see [request parameters](#request-parameters) and [application settings](#application-settings).
 
 HTTP example:
 
@@ -212,7 +190,7 @@ Follow the [Get endpoint](#get-endpoint) steps to track the operation progress. 
 
 ##### Request example
 
-For information about endpoint ID, region, and subscription key parameters, see [request parameters](#request-parameters) and [endpoint configuration](#endpoint-configuration).
+For information about endpoint ID, region, and subscription key parameters, see [request parameters](#request-parameters) and [application settings](#application-settings).
 
 HTTP example:
 
@@ -246,7 +224,7 @@ Follow the sample request below to call the API, and you'll receive the response
 
 Follow the [Get endpoint](#get-endpoint) steps to track the operation progress. You can poll the API in a loop until the status becomes `Succeeded` or `Disabled`, and the status property will change from `Disabled` status, to `Running`, and finally to `Succeeded` or `Disabled` if failed.
 
-For information about endpoint ID, region, and subscription key parameters, see [request parameters](#request-parameters) and [endpoint configuration](#endpoint-configuration).
+For information about endpoint ID, region, and subscription key parameters, see [request parameters](#request-parameters) and [application settings](#application-settings).
 
 HTTP example:
 
