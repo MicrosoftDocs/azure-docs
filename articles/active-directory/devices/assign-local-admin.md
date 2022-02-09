@@ -73,7 +73,8 @@ Starting with Windows 10 version 2004, you can use Azure AD groups to manage adm
 > [!NOTE]
 > Starting in the Windows 10 20H2 update, we recommend using [Local Users and Groups](/windows/client-management/mdm/policy-csp-localusersandgroups) policy instead of the Restricted Groups policy.
 
-Currently, there's no UI in Intune to manage these policies and they need to be configured using [Custom OMA-URI Settings](/mem/intune/configuration/custom-settings-windows-10). A few considerations for using either of these policies: 
+These policies can be configured in Intune using either [Custom OMA-URI Settings](/mem/intune/configuration/custom-settings-windows-10) or the [Local user group membership profile](/mem/intune/protect/endpoint-security-account-protection-policy#manage-local-groups-on-windows-devices) which is currently in preview as per the following [blog](https://techcommunity.microsoft.com/t5/intune-customer-success/new-settings-available-to-configure-local-user-group-membership/ba-p/3093207).  
+A few considerations for using either of these policies: 
 
 - Adding Azure AD groups through the policy requires the group's SID that can be obtained by executing the [Microsoft Graph API for Groups](/graph/api/resources/group). The SID is defined by the property `securityIdentifier` in the API response.
 
