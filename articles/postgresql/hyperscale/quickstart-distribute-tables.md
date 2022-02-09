@@ -46,6 +46,7 @@ CREATE TABLE github_users
 	url text,
 	login text,
 	avatar_url text,
+	gravatar_id text,
 	display_login text
 );
 
@@ -55,10 +56,15 @@ CREATE TABLE github_events
 	event_type text,
 	event_public boolean,
 	repo_id bigint,
+	payload jsonb,
 	repo jsonb,
 	user_id bigint,
+	org jsonb,
 	created_at timestamp
 );
+
+CREATE INDEX event_type_index ON github_events (event_type);
+CREATE INDEX payload_index ON github_events USING GIN (payload jsonb_path_ops);
 ```
 
 ## Shard tables across worker nodes
@@ -97,42 +103,12 @@ SELECT table_name, count(*)
 
 ## Load data into distributed tables
 
-We're ready to fill the tables with sample data. For this quickstart, we can
-use random data, modeled loosely on results from the Github API.
+We're ready to fill the tables with sample data. For this quickstart, we'll use
+a dataset previously captured from the GitHub API.
 
 ```sql
--- generate random 10,000 users
-INSERT INTO github_users
-SELECT
-	id, 
-	'https://api.github.com/users/' || handle,
-	handle,
-	'https://avatars.githubusercontent.com/u/' || id,
-	handle
-FROM (
-	SELECT generate_series(1,10000) id, md5(random()::text) handle
-) AS rnd;
-
--- generate random 250,000 events
-INSERT INTO github_events
-SELECT
-	id, event_type, public, repo_id,
-	json_build_object(
-		'id', repo_id,
-		'url', 'https://api.github.com/repos/' || display_login || '/' || repo_name,
-		'name', display_login || '/' || repo_name
-	) repo,
-	rnd.user_id, created_at
-FROM (
-	SELECT generate_series(1,250000) id,
-	('{CreateEvent,DeleteEvent,ForkEvent,IssueCommentEvent,IssuesEvent,MemberEvent,PullRequestEvent,PushEvent}'::text[])[ceil(random()*8)] event_type,
-	1=trunc(random()*2) public,
-	trunc(random()*50000) repo_id,
-	trunc(random()*10000) user_id,
-	date_trunc('year', now()) + (trunc(random()*365*24*60*60) * interval '1 second') created_at,
-	md5(random()::text) repo_name
-) rnd
-INNER JOIN github_users u ON (u.user_id = rnd.user_id);
+\COPY github_users FROM PROGRAM 'curl https://examples.citusdata.com/users.csv' WITH (FORMAT CSV)
+\COPY github_events FROM PROGRAM 'curl https://examples.citusdata.com/events.csv' WITH (FORMAT CSV)
 ```
 
 We can confirm the shards now hold data:
@@ -146,8 +122,8 @@ SELECT table_name, pg_size_pretty(sum(shard_size))
 ```
   table_name   | pg_size_pretty
 ---------------+----------------
- github_events | 29 MB
- github_users  | 2248 kB
+ github_users  | 38 MB
+ github_events | 95 MB
 (2 rows)
 ```
 

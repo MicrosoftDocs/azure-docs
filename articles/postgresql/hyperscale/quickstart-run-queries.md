@@ -36,8 +36,8 @@ SELECT count(*) FROM github_users;
 
 ```
  count
--------
- 10000
+--------
+ 264308
 (1 row)
 ```
 
@@ -48,7 +48,7 @@ the shards in parallel, and combines the results.
 ```sql
 -- find all events for a single user (common transactional/operational query)
 
-SELECT * from github_events where user_id = 85;
+SELECT * from github_events where user_id = 973676;
 ```
 
 ## More complicated queries
@@ -57,47 +57,46 @@ Hyperscale (Citus) uses an advanced query planner to transform arbitrary SQL
 queries into tasks running across shards. The tasks run in parallel on
 horizontally scalable worker nodes.
 
-Here's an example of a more complicated query, which retrieves minute-by-minute
-statistics for requests at each site:
+Here's an example of a more complicated query, which retrieves hourly
+statistics for push events on GitHub. It uses PostgreSQL's JSONB feature to
+handle semi-structured data.
 
 ```sql
 -- Querying JSONB type. Query is parallelized across nodes.
--- Find the number of commits to the postgres repo on master per hour 
-
-SELECT repo_name, hour,
-       count(*) OVER (PARTITION BY repo_id) AS repo_events,
-       count(*) OVER (PARTITION BY repo_id, hour) AS hourly_events
-  FROM (
-	SELECT *,
-	       repo->>'name' AS repo_name,
-	       date_trunc('hour', created_at) AS hour
-	  FROM github_events
-  ) evts
- ORDER BY repo_events DESC;
+-- Find the number of commits on the master branch per hour 
+SELECT date_trunc('hour', created_at) AS hour,
+       sum((payload->>'distinct_size')::int) AS num_commits
+FROM   github_events
+WHERE  event_type = 'PushEvent' AND
+       payload @> '{"ref":"refs/heads/master"}'
+GROUP BY hour
+ORDER BY hour;
 ```
 
 ```
-┌─────────┬────────────────────────┬───────────┬────────────┬─────────────┬───────────────┐
-│ site_id │         minute         │ req_count │ good_count │ error_count │ avg_resp_time │
-├─────────┼────────────────────────┼───────────┼────────────┼─────────────┼───────────────┤
-│     994 │ 2022-02-02 00:55:00+00 │         9 │          3 │           6 │            57 │
-│     611 │ 2022-02-02 00:55:00+00 │         9 │          4 │           5 │            64 │
-│     146 │ 2022-02-02 00:55:00+00 │         6 │          4 │           2 │            73 │
-│     139 │ 2022-02-02 00:55:00+00 │         7 │          3 │           4 │            73 │
-│     132 │ 2022-02-02 00:55:00+00 │        16 │          6 │          10 │            83 │
-│     989 │ 2022-02-02 00:55:00+00 │        10 │          6 │           4 │            61 │
-│       8 │ 2022-02-02 00:55:00+00 │        10 │          3 │           7 │            86 │
-│     443 │ 2022-02-02 00:55:00+00 │         5 │          5 │           0 │           117 │
-│     968 │ 2022-02-02 00:55:00+00 │         4 │          3 │           1 │            96 │
-│      20 │ 2022-02-02 00:55:00+00 │         4 │          0 │           4 │            95 │
-└─────────┴────────────────────────┴───────────┴────────────┴─────────────┴───────────────┘
+        hour         | num_commits
+---------------------+-------------
+ 2016-12-01 05:00:00 |       13051
+ 2016-12-01 06:00:00 |       43480
+ 2016-12-01 07:00:00 |       34254
+ 2016-12-01 08:00:00 |       29307
+(4 rows)
+```
+
+Hyperscale (Citus) also automatically applies changes to data definition across
+the shards of a distributed table.
+
+```sql
+-- DDL commands that are also parallelized
+
+ALTER TABLE github_users ADD COLUMN dummy_column integer;
 ```
 
 ## Next steps
 
 The quickstart is now complete. You've successfully created a scalable
-Hyperscale (Citus) server group, created a table, sharded it, loaded data,
-and run distributed queries.
+Hyperscale (Citus) server group, created tables, sharded them, loaded data, and
+run distributed queries.
 
 Here are good resources to begin to deepen your knowledge.
 
