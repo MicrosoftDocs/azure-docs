@@ -6,38 +6,42 @@ author: djrmetaswitch
 ms.author: drichards
 ms.service: private-5g-core
 ms.topic: conceptual 
-ms.date: 01/14/2022
+ms.date: 02/09/2022
 ms.custom: template-concept 
 ---
 
 # Key components of a private mobile network
 
-This article introduces the key components of a private mobile network deployed through Azure Private 5G Core Preview.
+This article introduces the key physical components of a private mobile network deployed through Azure Private 5G Core Preview. It also details the resources you'll use to manage the private mobile network through Azure.
 
-:::image type="content" source="media/key-components-of-a-private-mobile-network/private-mobile-network-components.png" alt-text="Diagram displaying the key components of a private mobile network, including SIMs, sites and policy control":::
+Each private mobile network contains one or more sites. A site is a physical enterprise location (for example, Contoso Corporation's Chicago Factory) that will provide coverage for 5G user equipment (UEs). The following diagram shows the main components of a single site.
 
-## SIMs
+:::image type="content" source="media/key-components-of-a-private-mobile-network/site-physical-components.png" alt-text="Diagram displaying the main components of a site in a private mobile network":::
 
-Each SIM resource represents a physical SIM or eSIM. The physical SIMs and eSIMs are used by User Equipment (UEs) that will be served by the private mobile network.
+- Each site contains an Azure Stack Edge device that hosts a packet core instance. The packet core instance is a cloud-native implementation of the 3GPP standards-defined 5G Next Generation Core (5G NGC or 5GC).
 
-## Sites
+    When you add a site to your private mobile network, you'll create a Kubernetes cluster on the Azure Stack Edge device. This serves as the platform for the packet core instance.
 
-Each site resource represents a physical enterprise location (for example, Contoso Corporation's Chicago factory) containing an Azure Stack Edge device that hosts a packet core instance. The packet core instance is a cloud-native implementation of the 3GPP standards-defined 5G Next Generation Core (5G NGC or 5GC).
+- Each packet core instance connects to a Radio Access Network (RAN) to provide coverage for 5G UEs. You'll source your RAN from a third party.
 
-During the deployment of your private mobile network, you'll create a Kubernetes cluster on each Azure Stack Edge device. This serves as the platform for the packet core instance in the site. 
+## Azure Private 5G Core resources
 
-Each packet core instance connects to a Radio Access Network (RAN) to provide coverage for 5G UEs. You'll source your RAN from a third party; it can be managed using Azure.
+The following diagram shows the key resources you'll use to manage your private mobile network through Azure. 
 
-## Policy control
+:::image type="content" source="media/key-components-of-a-private-mobile-network/private-5g-core-resources.png" alt-text="Diagram displaying the resources used to manage a private mobile network":::
 
-Azure Private 5G Core provides flexible traffic handling through customizable policy control. You can determine exactly how your packet core instance applies Quality of Service (QoS) characteristics to Service Data Flows (SDFs) to meet your deployment's needs. You can also use policy control to block or limit certain flows.
+- The **mobile network** represents the private mobile network as a whole.
+- Each **SIM** resource represents a physical SIM or eSIM. The physical SIMs and eSIMs are used by UEs that will be served by the private mobile network.
+- **SIM policy** resources are a key component of Azure Private 5G Core's customizable policy control, which allows you to provide flexible traffic handling. You can determine exactly how your packet core instance applies Quality of Service (QoS) characteristics to Service Data Flows (SDFs) to meet your deployment's needs. You can also use policy control to block or limit certain flows.
 
-You'll configure two primary types of resource to manage policy control for your private mobile network.
+    Each SIM policy defines a set of policies and interoperability settings, which can each be assigned to a group of SIMs. You'll need to assign a SIM policy to a SIM before the UE using that SIM can access the private mobile network.
 
-- **Services** - Each service is a representation of a set of QoS characteristics that you want to offer to UEs on SDFs that match particular properties, such as their destination, or the protocol used. You can also use services to limit or block particular SDFs based on these properties.
-- **SIM policies** - SIM policies allow you to define different sets of policies and interoperability settings, which can each be assigned to a group of SIMs. SIM policies also allow you to determine which services will be offered to the SIMs. You'll need to assign a SIM policy to a SIM before the UE using that SIM can access the private mobile network.
+    A SIM policy will also reference one or more **services**. Each service is a representation of a set of QoS characteristics that you want to offer to UEs on SDFs that match particular properties, such as their destination, or the protocol used. You can also use services to limit or block particular SDFs based on these properties.
 
-For detailed information on policy control, see [Policy control](policy-control.md).
+    For detailed information on policy control, see [Policy control](policy-control.md).
+
+- The **site** and **packet core** resources allow you to manage the sites in your private mobile network and the packet core instances that run in them.
+- Each **attached data network** resource allows you to manage how its associated packet core instance will connect to the data network. 
 
 ## Next steps
 
