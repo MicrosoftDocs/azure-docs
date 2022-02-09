@@ -90,12 +90,12 @@ PUT https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000
 
 ## Dismiss restored data
 
-We recommend deleting a restored table when you're done querying the table. This reduces workspace clutter and additional charges for data retention. 
+Dismiss restored data as soon as you're done with it because you are charged based on how long the data is available. To release the data from restore, delete the restored table.
 
-Deleting the restored table does not delete the source table.
+Deleting the restored table does not delete the data in the source table.
 
 > [!NOTE]
-> Restored data is available as long as the underlying source data is available. Restored data is deleted when you delete the source table from the workspace or when the source table's retention period ends. However, the empty table will remain if you do not delete it explicitly.   
+> Restored data is available as long as the underlying source data is available. When you delete the source table from the workspace or when the source table's retention period ends, the data is dismissed from the restored table. However, the empty table will remain if you do not delete it explicitly.   
 
 Call the **Tables - Delete** API to delete the (logical) restore table.
 
