@@ -77,6 +77,8 @@ These policies can be configured in Intune using either [Custom OMA-URI Settings
 A few considerations for using either of these policies: 
 
 - Adding Azure AD groups through the policy requires the group's SID that can be obtained by executing the [Microsoft Graph API for Groups](/graph/api/resources/group). The SID is defined by the property `securityIdentifier` in the API response.
+ 
+- By default, all Azure AD Joined devices will have two members automatically added to the local administrators group: Global Administrator and Azure AD Joined Device Local Administrator. These are not traditional Azure AD groups, they are roles. You can list these roles and their ObjectID using the PowerShell command: [Get-AzureADDirectoryRole(https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole)]. If you intend to use these roles with local users and groups, you will need to convert the unique ObjectID for these roles in your tenant, to a SID. The SID will also be unique to your tenant, and will start with: S-1-12-
 
 - When Restricted Groups policy is enforced, any current member of the group that is not on the Members list is removed. So enforcing this policy with new members or groups will remove the existing administrators namely user who joined the device, the Device administrator role and Global administrator role from the device. To avoid removing existing members, you need to configure them as part of the Members list in the Restricted Groups policy. This limitation is addressed if you use the Local Users and Groups policy that allows incremental updates to group membership
 
