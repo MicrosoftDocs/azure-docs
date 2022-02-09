@@ -13,7 +13,35 @@ items:
     href: quickstart.md
 
   # Consolidated version
-  - name: Build and run apps
+  - name: Build and run apps - version A
+    expanded: true
+    items:
+    - name: Introduction to the sample app
+      href: quickstart-sample-app-introduction.md
+    - name: Provision a service instance - Basic/Standard tier
+      href: quickstart-provision-service-instance.md
+    - name: Set up configuration server - Basic/Standard tier
+      href: quickstart-setup-config-server.md
+    - name: Build and deploy apps - Basic/Standard tier
+      href: quickstart-deploy-apps.md
+    - name: Provision a service instance - Enterprise tier
+      href: quickstart-provision-service-instance-enterprise.md
+    - name: Set up Application Configuration Service - Enterprise tier
+      href: quickstart-setup-application-configuration-service-enterprise.md
+    - name: Build and deploy apps - Enterprise tier
+      href: quickstart-deploy-apps-enterprise.md
+    - name: Set up Service Registry - Enterprise tier
+      href: quickstart-setup-service-registry-enterprise.md
+    - name: Set up Log Analytics
+      href: quickstart-setup-log-analytics.md
+    - name: Use logs, metrics and tracing
+      href: quickstart-logs-metrics-tracing.md
+    - name: Integrate with Azure Database for MySQL
+      href: quickstart-integrate-azure-database-mysql.md
+
+
+  # Consolidated, nested version
+  - name: Build and run apps - version B
     expanded: true
     items:
     - name: Introduction to the sample app
@@ -21,7 +49,7 @@ items:
     - name: Basic/Standard tier
       expanded: true
       items:
-      - name: Provision an Azure Spring Cloud instance
+      - name: Provision a service instance
         href: quickstart-provision-service-instance.md
       - name: Set up configuration server
         href: quickstart-setup-config-server.md
@@ -30,11 +58,11 @@ items:
     - name: Enterprise tier
       expanded: true
       items:
-      - name: Provision an Azure Spring Cloud instance
+      - name: Provision a service instance
         href: quickstart-provision-service-instance-enterprise.md
-      - name: Set up Application Configuration Service
+      - name: Use Application Configuration Service
         href: quickstart-setup-application-configuration-service-enterprise.md
-      - name: Build and deploy applications
+      - name: Build and deploy apps
         href: quickstart-deploy-apps-enterprise.md
       - name: Set up Service Registry
         href: quickstart-setup-service-registry-enterprise.md
@@ -44,6 +72,7 @@ items:
       href: quickstart-logs-metrics-tracing.md
     - name: Integrate with Azure Database for MySQL
       href: quickstart-integrate-azure-database-mysql.md
+
 
   # Version with duplicate entries
   - name: Build and run apps in Basic/Standard tier
