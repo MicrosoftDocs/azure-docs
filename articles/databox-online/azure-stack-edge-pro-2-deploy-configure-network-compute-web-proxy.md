@@ -23,7 +23,7 @@ In this tutorial, you learn about:
 >
 > * Prerequisites
 > * Configure network
-> * Enable compute network
+> * Enable advanced networking
 > * Configure web proxy
 
 
