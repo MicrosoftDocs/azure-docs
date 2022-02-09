@@ -39,9 +39,9 @@ To enable or disable this feature (these prerequisites are not required to use t
 
 1. From the Microsoft Sentinel navigation menu, select **Entity behavior**.
 
-1. Under the heading **Turn it on**, switch the toggle to **On**.
+1. In the top menu, Click the **Entity behavior settings** button
 
-1. Click the **Select data sources** button.
+1. Toggle the top switch to **On**
 
 1. In the **Data source selection** pane, mark the check boxes next to the data sources on which you want to enable UEBA, then select **Apply**.
 
