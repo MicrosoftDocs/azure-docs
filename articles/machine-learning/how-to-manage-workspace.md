@@ -381,11 +381,7 @@ In the [Azure portal](https://portal.azure.com/), select **Delete**  at the top 
 ### Resource provider errors
 
 [!INCLUDE [machine-learning-resource-provider](../../includes/machine-learning-resource-provider.md)]
-
-### Moving the workspace
-
-> [!WARNING]
-> Moving your Azure Machine Learning workspace to a different subscription, or moving the owning subscription to a new tenant, is not supported. Doing so may cause errors.
+ 
 
 ### Deleting the Azure Container Registry
 

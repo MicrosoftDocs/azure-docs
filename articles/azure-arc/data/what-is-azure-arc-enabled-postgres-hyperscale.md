@@ -48,7 +48,7 @@ Microsoft offers Postgres database services in Azure in two ways:
 - As a semi-managed service with Azure Arc as it is operated by customers or their partners/vendors
 
 ### In Azure PaaS
-**In [Azure PaaS](https://ms.portal.azure.com/#create/Microsoft.PostgreSQLServer)**, Microsoft offers several deployment options for PostgreSQL as a managed service:
+**In [Azure PaaS](https://portal.azure.com/#create/Microsoft.PostgreSQLServer)**, Microsoft offers several deployment options for PostgreSQL as a managed service:
 
 :::row:::
     :::column:::

@@ -6,7 +6,7 @@ ms.subservice: language-understanding
 author: aahill
 ms.author: aahi
 ms.topic: reference
-ms.date: 05/27/2021
+ms.date: 02/08/2022
 ms.custom: references_regions
 ---
 
@@ -18,6 +18,8 @@ LUIS authoring regions are supported by the LUIS portal. To publish a LUIS app t
 <a name="luis-website"></a>
 
 ## LUIS Authoring regions
+
+Authoring regions are the regions where the application gets created and the training take place.
 
 LUIS has the following authoring regions available:
 	
@@ -33,6 +35,9 @@ LUIS has one portal you can use regardless of region, [www.luis.ai](https://www.
 
 ## Publishing regions and Azure resources
 
+Publishing regions are the regions where the application will be used in runtime. To use the application in a publishing region, you must create a resource in this region and publish your application to it.
+
+
 The app is published to all regions associated with the LUIS resources added in the LUIS portal. For example, for an app created on [www.luis.ai][www.luis.ai], if you create a LUIS or Cognitive Service resource in **westus** and [add it to the app as a resource](luis-how-to-azure-subscription.md), the app is published in that region.
 
 ## Public apps
@@ -42,6 +47,8 @@ A public app is published in all regions so that a user with a region-based LUIS
 
 ## Publishing regions are tied to authoring regions
 
+When you first create our LUIS application, you are required to choose an [authoring region](#luis-authoring-regions). To use the application in runtime, you are required to create a publishing region.
+
 The authoring region app can only be published to a corresponding publish region. If your app is currently in the wrong authoring region, export the app, and import it into the correct authoring region for your publishing region.
 
 > [!NOTE]
@@ -49,13 +56,17 @@ The authoring region app can only be published to a corresponding publish region
 
 ## Single data residency
 
-The following publishing regions do not have a backup region:
+Regions that fall under single data residency are the regions where data do not leave the boundaries of the region. 
+
+The following publishing regions do not have a failover region:
+
 
 * Brazil South
 * Southeast Asia
 
 > [!Note]
-> Make sure to set `log=false` for [V3 APIs](https://westus.dev.cognitive.microsoft.com/docs/services/luis-endpoint-api-v3-0/operations/5cb0a91e54c9db63d589f433) to disable active learning. By default this value is `false`, to ensure that data does not leave the boundaries of the publishing region. If `log=true`, data is returned to the authoring region for active learning even if it is one of the single publishing regions.
+> * Make sure to set `log=false` for [V3 APIs](https://westus.dev.cognitive.microsoft.com/docs/services/luis-endpoint-api-v3-0/operations/5cb0a91e54c9db63d589f433) to disable active learning. By default this value is `false`, to ensure that data does not leave the boundaries of the publishing region. 
+> * If `log=true`, data is returned to the authoring region for active learning even if the publishing region is one of the single data residnecy regions.
 
 
 ## Publishing to Europe
@@ -107,6 +118,9 @@ Learn more about the [authoring and prediction endpoints](developer-reference-re
 ## Failover regions
 
 Each region has a secondary region to fail over to. Europe fails over inside Europe and Australia fails over inside Australia.
+
+Publishing regions that fall under [single data residency](#single-data-residency) do not have a failover region.
+
 
 Authoring regions have [paired fail-over regions](../../availability-zones/cross-region-replication-azure.md).
 
