@@ -1,6 +1,6 @@
 ---
-title: Device Update for Azure IoT Hub tutorial using the Raspberry Pi 3 B+ Reference Yocto Image | Microsoft Docs
-description: Get started with Device Update for Azure IoT Hub by using the Raspberry Pi 3 B+ Reference Yocto Image.
+title: Device Update for IoT Hub tutorial using the Raspberry Pi 3 B+ reference Yocto image | Microsoft Docs
+description: Get started with Device Update for Azure IoT Hub by using the Raspberry Pi 3 B+ reference Yocto image.
 author: ValOlson
 ms.author: valls
 ms.date: 1/26/2022
@@ -8,13 +8,13 @@ ms.topic: tutorial
 ms.service: iot-hub-device-update
 ---
 
-# Tutorial: Device Update for Azure IoT Hub by using the Raspberry Pi 3 B+ Reference Image
+# Tutorial: Device Update for Azure IoT Hub using the Raspberry Pi 3 B+ reference image
 
-Device Update for IoT Hub supports image-based, package-based, and script-based updates.
+Device Update for Azure IoT Hub supports image-based, package-based, and script-based updates.
 
-Image updates provide a higher level of confidence in the end-state of the device. It's typically easier to replicate the results of an image-update between a pre-production environment and a production environment, because it doesn't pose the same challenges as packages and their dependencies. Because of their atomic nature, you can also adopt an A/B failover model easily.
+Image updates provide a higher level of confidence in the end state of the device. It's typically easier to replicate the results of an image update between a preproduction environment and a production environment because it doesn't pose the same challenges as packages and their dependencies. Because of their atomic nature, you can also adopt an A/B failover model easily.
 
-This tutorial shows you how to complete an end-to-end image-based update by using Device Update for Azure IoT Hub on a Raspberry Pi 3 B+ board.
+This tutorial shows you how to complete an end-to-end image-based update by using Device Update for IoT Hub on a Raspberry Pi 3 B+ board.
 
 In this tutorial, you'll learn how to:
 > [!div class="checklist"]
@@ -25,20 +25,20 @@ In this tutorial, you'll learn how to:
 > * Deploy an image update.
 > * Monitor the update deployment.
 
-> [NOTE!] 
-> Image updates in this tutorial have been validated on the Raspberry Pi B3 board.
+> [NOTE!]
+> Image updates in this tutorial were validated on the Raspberry Pi B3 board.
 
 ## Prerequisites
 
-If you haven't already done so, create a [Device Update account and instance](create-device-update-account.md)and configure an IoT hub.
+If you haven't already done so, create a [Device Update account and instance](create-device-update-account.md) and configure an IoT hub.
 
 ## Download the image
 
-We provide sample images in "Assets" on the [Device Update GitHub releases page](https://github.com/Azure/iot-hub-device-update/releases). The .gz file is the base image that you can flash onto a Raspberry Pi B3+ board. The swUpdate file is the update you would import through Device Update for IoT Hub.
+We provide sample images in **Assets** on the [Device Update GitHub releases page](https://github.com/Azure/iot-hub-device-update/releases). The .gz file is the base image that you can flash on to a Raspberry Pi 3 B+ board. The swUpdate file is the update you would import through Device Update for IoT Hub.
 
 ## Flash an SD card with the image
 
-Using your favorite OS flashing tool, install the Device Update base image (adu-base-image) on the SD card that will be used in the Raspberry Pi 3 B+ device.
+Use your favorite OS flashing tool to install the Device Update base image (adu-base-image) on the SD card that will be used in the Raspberry Pi 3 B+ device.
 
 ### Use bmaptool to flash the SD card
 
@@ -62,7 +62,7 @@ Using your favorite OS flashing tool, install the Device Update base image (adu-
    sudo chmod a+rw /dev/<device>
    ```
 
-1. Optional: For faster flashing, download the bimap file along with the image file and place them in the same directory.
+1. Optional: For faster flashing, download the bimap file and the image file and put them in the same directory.
 
 1. Flash the SD card.
 
@@ -72,7 +72,7 @@ Using your favorite OS flashing tool, install the Device Update base image (adu-
 
 Device Update for IoT Hub software is subject to the following license terms:
 
-   * [Device update for IoT Hub license](https://github.com/Azure/iot-hub-device-update/blob/main/LICENSE.md)
+   * [Device Update for IoT Hub license](https://github.com/Azure/iot-hub-device-update/blob/main/LICENSE.md)
    * [Delivery optimization client license](https://github.com/microsoft/do-client/blob/main/LICENSE)
 
 Read the license terms before you use the agent. Your installation and use constitutes your acceptance of these terms. If you don't agree with the license terms, don't use the Device Update for IoT Hub agent.
@@ -87,14 +87,13 @@ Now, add the device to IoT Hub. From within IoT Hub, a connection string is gene
 
 1. On the left pane, select **IoT Devices**. Then select **New**.
 
-1. Provide a name for the device under **Device ID**. Ensure that the **Autogenerate keys** checkbox is selected.
+1. Under **Device ID**, enter a name for the device. Ensure that the **Autogenerate keys** checkbox is selected.
 
 1. Select **Save**. On the **Devices** page, the device you created should be in the list.
 
 1. Get the device connection string by using one of two options:
 
-   - Option 1: Use the Device Update agent with a module identity: On the same **Devices** page, select  **Add Module Identity** at the top. Create a new Device Update module with the name **IoTHubDeviceUpdate**. Choose other options as they apply to your use case and then select **Save**. Select the newly created module. In the module view, select the **Copy** icon next to **Primary Connection String**.
-
+   - Option 1: Use the Device Update agent with a module identity: On the same **Devices** page, select **Add Module Identity** at the top. Create a new Device Update module with the name **IoTHubDeviceUpdate**. Choose other options as they apply to your use case and then select **Save**. Select the newly created module. In the module view, select the **Copy** icon next to **Primary Connection String**.
    - Option 2: Use the Device Update agent with the device identity: In the device view, select the **Copy** icon next to **Primary Connection String**.
 
 1. Paste the copied characters somewhere for later use in the following steps:
@@ -103,7 +102,7 @@ Now, add the device to IoT Hub. From within IoT Hub, a connection string is gene
 
 ## Prepare on-device configurations for Device Update for IoT Hub
 
-Two configuration files are required to be on the device for Device Update for IoT Hub to be configured properly. The first is the `du-config.json` file, which must exist at `/adu/du-config.json`. The second is the `du-diagnostics-config.json` file, which must exist at `/adu/du-diagnostics-config.json`.
+Two configuration files must be on the device so that Device Update for IoT Hub configures properly. The first file is the `du-config.json` file, which must exist at `/adu/du-config.json`. The second file is the `du-diagnostics-config.json` file, which must exist at `/adu/du-diagnostics-config.json`.
 
 Here are two examples for the `du-config.json` and the `du-diagnostics-config.json` files:
 
@@ -153,79 +152,84 @@ Here are two examples for the `du-config.json` and the `du-diagnostics-config.js
 
 ## Configure the Device Update agent on Raspberry Pi
 
-1. Make sure that the Raspberry Pi3 is connected to the network.
+1. Make sure that Raspberry Pi 3 is connected to the network.
 
-2. Follow these instructions to add the configuration details:
+1. Follow these instructions to add the configuration details:
 
-   1. First ssh in to the machine by using the following command in the PowerShell window:
+   1. First, ssh in to the machine by using the following command in the PowerShell window:
    
 	   ```shell
 	      ssh raspberrypi3 -l root
 	   ```
-   1. After you sign in to the device, you can create or open the du-config.json file for editing by using:
+
+   1. Create or open the `du-config.jso` file for editing by using:
    
 	   ```bash
 	      nano /adu/du-config.json
 	   ```
-   2. After running the command you should see an open editor with the file. If you have never created the file it will be empty. Now copy the above example du-config.json contents and substitute the configurations required for your device. You will also need to replace the example connection string with the one for the device you created in the steps above.
+
+   1. After you run the command, you should see an open editor with the file. If you've never created the file, it will be empty. Now copy the preceding example du-config.json contents, and substitute the configurations required for your device. Then replace the example connection string with the one for the device you created in the preceding steps.
   
-   4. Once you have completed your changes press `Ctrl+X` to exit the editor and then enter `y` to confirm you want to save the changes. 
+   1. After you finish your changes, select **Ctrl+X** to exit the editor. Then enter **y** to save the changes.
   
-   6. Now we need to create the du-diagnostics-config.json file using similar commands. Start by creating/openning the du-diagnostics-config.json file for editing using:
+   1. Now you need to create the `du-diagnostics-config.jso` file by using similar commands. Start by creating or opening the `du-diagnostics-config.json` file for editing by using:
+   
 	   ```bash
 	      nano /adu/du-diagnostics-config.json
 	   ```
-   5. Copy the above example du-diagnostics-config.json contents and substitute any configurations which differ from the default build. Please note the example du-diagnostics-config.json file represents the default log locations for Device Update for IotHub. You will only need to change these if your implementation differs. 
+
+   1. Copy the preceding example du-diagnostics-config.json contents, and substitute any configurations that differ from the default build. The example du-diagnostics-config.json file represents the default log locations for Device Update for IoT Hub. You only need to change these if your implementation differs.
   
-   7. Once you have completed your changes press `Ctrl+X` to exit the editor and then enter `y` to confirm you want to save the changes.
- 
-   9. Now use the following command to show the files located in the `/adu/` directory. You should see both of your configuration files.du-diagnostics-config.json file for editing using:
+   1. After you finish your changes, select **Ctrl+X** to exit the editor. Then enter **y** to save the changes.
+
+   1. Use the following command to show the files located in the `/adu/` directory. You should see both of your configuration files.du-diagnostics-config.json files for editing by using:
 
 	   ```bash
 	      ls -la /adu/
 	   ```
- 
-3. You will need to restart the Device Update system daemon to make sure that the configurations have been applied. You can do so using the following command within the terminal logged into the raspberrypi.
 
-```markdown
-   systemctl start adu-agent
-```
+1. Restart the Device Update system daemon to make sure that the configurations were applied. Use the following command within the terminal logged in to the `raspberrypi`:
+    
+    ```markdown
+       systemctl start adu-agent
+    ```
 
-4. You now need to check that the agent is live using the following command:  
+1. Check that the agent is live by using the following command:
   
-```markdown
-   systemctl status adu-agent
-```
-   You should see the status come back as alive and green. 
+    ```markdown
+       systemctl status adu-agent
+    ```
 
-## Connect the device in Device Update IoT Hub
+   You should see the status come back as alive and green.
 
-1. On the left-hand side of the page, select 'IoT Devices'.
-2. Select the link with your device name.
-3. At the top of the page, select 'Device Twin' if directly connecting to Device Update using the IoT device identity. Otherwise select the module you created above and click on its ‘Module Twin’.
-4. Under the 'reported' section of the Device Twin properties, look for the Linux kernel version.
+## Connect the device in Device Update for IoT Hub
+
+1. On the left pane, select **IoT Devices**.
+1. Select the link with your device name.
+1. At the top of the page, select **Device Twin** if you're connecting directly to Device Update by using the IoT device identity. Otherwise, select the module you created above and select its **Module Twin**.
+1. Under the **reported** section of the **Device Twin** properties, look for the Linux kernel version.
 For a new device, which hasn't received an update from Device Update, the
-[DeviceManagement:DeviceInformation:1.swVersion](device-update-plug-and-play.md) value will represent
-the firmware version running on the device.  Once an update has been applied to a device, Device Update will
-use [AzureDeviceUpdateCore:ClientMetadata:4.installedUpdateId](device-update-plug-and-play.md) property
+[DeviceManagement:DeviceInformation:1.swVersion](device-update-plug-and-play.md) value represents
+the firmware version running on the device. After an update has been applied to a device, Device Update
+uses the [AzureDeviceUpdateCore:ClientMetadata:4.installedUpdateId](device-update-plug-and-play.md) property
 value to represent the firmware version running on the device.
-5. The base and update image files have a version number in the filename.
+1. The base and update image files have a version number in the file name.
 
    ```markdown
    adu-<image type>-image-<machine>-<version number>.<extension>
    ```
 
-Use that version number in the Import Update step below.
+Use that version number in the later "Import update" section.
 
 ## Add a tag to your device
 
-1. Log into [Azure portal](https://portal.azure.com) and navigate to the IoT Hub.
+1. Sign in to the [Azure portal](https://portal.azure.com) and go to the IoT hub.
 
-2. From 'IoT Devices' or 'IoT Edge' on the left navigation pane find your IoT device and navigate to the Device Twin or Module Twin.
+1. From **IoT Devices** or **IoT Edge** on the left pane, find your IoT device and go to the device twin or module twin.
 
-3. In the Module Twin of the Device Update agent module, delete any existing Device Update tag value by setting them to null. If you are using Device identity with Device Update agent make these changes on the Device Twin.
+1. In the module twin of the Device Update agent module, delete any existing Device Update tag values by setting them to null. If you're using device identity with the Device Update agent, make these changes on the device twin.
 
-4. Add a new Device Update tag value as shown below.
+1. Add a new Device Update tag value, as shown:
 
 ```JSON
     "tags": {
@@ -235,98 +239,102 @@ Use that version number in the Import Update step below.
 
 ## Import update
 
-1. Download the Download the sample tutorial manifest (Tutorial Import Manifest_Pi.json) and sample update (adu-update-image-raspberrypi3-0.6.5073.1.swu) from [Release Assets](https://github.com/Azure/iot-hub-device-update/releases) for the latest agent.
+1. Download the sample tutorial manifest (Tutorial Import Manifest_Pi.json) and sample update (adu-update-image-raspberrypi3-0.6.5073.1.swu) from [Release Assets](https://github.com/Azure/iot-hub-device-update/releases) for the latest agent.
 
-2. Log in to the [Azure portal](https://portal.azure.com/) and navigate to your IoT Hub with Device Update. Then, select the Updates option under Automatic Device Management from the left-hand navigation bar.
+1. Sign in to the [Azure portal](https://portal.azure.com/) and go to your IoT hub with Device Update. On the left pane, under **Automatic Device Management**, select **Updates**.
 
-3. Select the Updates tab.
+1. Select the **Updates** tab.
 
-4. Select "+ Import New Update".
+1. Select **+ Import New Update**.
 
-5. Select "+ Select from storage container". Select an existing account or create a new account using "+ Storage account". Then select an existing container or create a new container using "+ Container". This container will be used to stage your update files for importing. 
+1. Select **+ Select from storage container**. Select an existing account or create a new account by using **+ Storage account**. Then select an existing container or create a new container by using **+ Container**. This container will be used to stage your update files for importing.
+
    > [!NOTE]
-   > We recommend using a new container each time you import an update to avoid accidentally importing files from previous updates. If you don't use a new container, be sure to delete any files from the existing container before completing this step.
+   > We recommend that you use a new container each time you import an update to avoid accidentally importing files from previous updates. If you don't use a new container, be sure to delete any files from the existing container before you finish this step.
    
-   :::image type="content" source="media/import-update/storage-account-ppr.png" alt-text="Storage Account" lightbox="media/import-update/storage-account-ppr.png":::
+   :::image type="content" source="media/import-update/storage-account-ppr.png" alt-text="Screenshot that shows Storage accounts and Containers." lightbox="media/import-update/storage-account-ppr.png":::
 
-6. In your container, select "Upload" and navigate to files downloaded in **Step 1**. When you've selected all your update files, select "Upload" Then click the "Select" button to return to the "Import update" page.
+1. In your container, select **Upload** and go to files downloaded in step 1. After you've selected all your update files, select **Upload**. Then select the **Select** button to return to the **Import update** page.
 
-   :::image type="content" source="media/import-update/import-select-ppr.png" alt-text="Select Uploaded Files" lightbox="media/import-update/import-select-ppr.png":::
-   _This screenshot shows the import step and file names may not match the ones used in the example_
+   :::image type="content" source="media/import-update/import-select-ppr.png" alt-text="Screenshot that shows Select Uploaded Files." lightbox="media/import-update/import-select-ppr.png":::
 
-8. On the Import update page, review the files to be imported. Then select "Import update" to start the import process.
+   *This screenshot shows the import step, and file names might not match the ones used in the example.*
 
-   :::image type="content" source="media/import-update/import-start-2-ppr.png" alt-text="Import Start" lightbox="media/import-update/import-start-2-ppr.png":::
+1. On the **Import update** page, review the files to be imported. Then select **Import update** to start the import process.
 
-9. The import process begins, and the screen switches to the "Import History" section. When the `Status` column indicates the import has succeeded, select the "Available Updates" header. You should see your imported update in the list now.
+   :::image type="content" source="media/import-update/import-start-2-ppr.png" alt-text="Screenshot that shows Import update." lightbox="media/import-update/import-start-2-ppr.png":::
 
-   :::image type="content" source="media/import-update/update-ready-ppr.png" alt-text="Job Status" lightbox="media/import-update/update-ready-ppr.png":::
-       
-[Learn more](import-update.md) about importing updates.
+1. The import process begins, and the screen switches to the **Import history** section. When the **Status** column indicates the import has succeeded, select the **Available updates** header. You should see your imported update in the list now.
 
-## Create update group
+   :::image type="content" source="media/import-update/update-ready-ppr.png" alt-text="Screenshot that shows job status." lightbox="media/import-update/update-ready-ppr.png":::
 
-1. Go to the Groups and Deployments tab at the top of the page. 
-   :::image type="content" source="media/create-update-group/ungrouped-devices.png" alt-text="Screenshot of ungrouped devices." lightbox="media/create-update-group/ungrouped-devices.png":::
+[Learn more](import-update.md) about how to import updates.
 
-2. Select the "Add group" button to create a new group.
-   :::image type="content" source="media/create-update-group/add-group.png" alt-text="Screenshot of device group addition." lightbox="media/create-update-group/add-group.png":::
+## Create an update group
 
-3. Select an IoT Hub tag and Device Class from the list and then select Create group.
-   :::image type="content" source="media/create-update-group/select-tag.png" alt-text="Screenshot of tag selection." lightbox="media/create-update-group/select-tag.png":::
+1. Go to the **Groups and Deployments** tab at the top of the page.
 
-4. Once the group is created, you will see that the update compliance chart and groups list are updated.  Update compliance chart shows the count of devices in various states of compliance: On latest update, New updates available, and Updates in Progress. [Learn  about update compliance.](device-update-compliance.md)
-   :::image type="content" source="media/create-update-group/updated-view.png" alt-text="Screenshot of update compliance view." lightbox="media/create-update-group/updated-view.png":::
+   :::image type="content" source="media/create-update-group/ungrouped-devices.png" alt-text="Screenshot that shows ungrouped devices." lightbox="media/create-update-group/ungrouped-devices.png":::
 
-5. You should see your newly created group and any available updates for the devices in the new group. If there are devices that don't meet the device class requirements of the group, they will show up in a corresponding invalid group. You can deploy the best available update to the new user-defined group from this view by clicking on the "Deploy" button next to the group.
+1. Select the **Add group** button to create a new group.
 
-[Learn more](create-update-group.md) about adding tags and creating update groups
+   :::image type="content" source="media/create-update-group/add-group.png" alt-text="Screenshot that shows device group addition." lightbox="media/create-update-group/add-group.png":::
 
+1. Select an **IoT Hub** tag and **Device class** from the list. Then select **Create group**.
 
-## Deploy update
+   :::image type="content" source="media/create-update-group/select-tag.png" alt-text="Screenshot that shows tag selection." lightbox="media/create-update-group/select-tag.png":::
 
-1. Once the group is created, you should see a new update available for your device group, with a link to the update under Best Update (you may need to Refresh once). [Learn More about update compliance.](device-update-compliance.md) 
+1. After the group is created, the update compliance chart and groups list are updated. The update compliance chart shows the count of devices in various states of compliance: **On latest update**, **New updates available**, and **Updates in progress**. [Learn about update compliance](device-update-compliance.md).
 
-2. Select the target group by clicking on the group name. You will be directed to the group details under Group basics.
+   :::image type="content" source="media/create-update-group/updated-view.png" alt-text="Screenshot that shows the update compliance view." lightbox="media/create-update-group/updated-view.png":::
 
-  :::image type="content" source="media/deploy-update/group-basics.png" alt-text="Group details" lightbox="media/deploy-update/group-basics.png":::
+1. You should see your newly created group and any available updates for the devices in the new group. If there are devices that don't meet the device class requirements of the group, they'll show up in a corresponding invalid group. You can deploy the best available update to the new user-defined group from this view by selecting the **Deploy** button next to the group.
 
-3. To initiate the deployment, go to the Current deployment tab. Click the deploy link next to the desired update from the Available updates section. The best, available update for a given group will be denoted with a "Best" highlight. 
+[Learn more](create-update-group.md) about how to add tags and create update groups.
 
-  :::image type="content" source="media/deploy-update/select-update.png" alt-text="Select update" lightbox="media/deploy-update/select-update.png":::
+## Deploy an update
 
-4. Schedule your deployment to start immediately or in the future, then select Create.
+1. After the group is created, you should see a new update available for your device group. A link to the update should be under **Best Update**. You might need to refresh once. [Learn more about update compliance](device-update-compliance.md).
 
- :::image type="content" source="media/deploy-update/create-deployment.png" alt-text="Create deployment" lightbox="media/deploy-update/create-deployment.png":::
+1. Select the target group by selecting the group name. You're directed to the group details under **Group basics**.
 
-5. The Status under Deployment details should turn to Active, and the deployed update should be marked with "(deploying)".
+   :::image type="content" source="media/deploy-update/group-basics.png" alt-text="Screenshot that shows Group details." lightbox="media/deploy-update/group-basics.png":::
 
- :::image type="content" source="media/deploy-update/deployment-active.png" alt-text="Deployment active" lightbox="media/deploy-update/deployment-active.png":::
+1. To start the deployment, go to the **Current deployment** tab. Select the **deploy** link next to the desired update from the **Available updates** section. The best available update for a given group will be denoted with a **Best** highlight.
 
-6. View the compliance chart. You should see the update is now in progress. 
+   :::image type="content" source="media/deploy-update/select-update.png" alt-text="Screenshot that shows selecting an update." lightbox="media/deploy-update/select-update.png":::
 
-7. After your device is successfully updated, you should see your compliance chart and deployment details update to reflect the same. 
+1. Schedule your deployment to start immediately or in the future. Then select **Create**.
 
-   :::image type="content" source="media/deploy-update/update-succeeded.png" alt-text="Update succeeded" lightbox="media/deploy-update/update-succeeded.png":::
+   :::image type="content" source="media/deploy-update/create-deployment.png" alt-text="Screenshot that shows the Create button." lightbox="media/deploy-update/create-deployment.png":::
+
+1. Under **Deployment details**, **Status** should turn to **Active**. The deployed update should be marked with **(deploying)**.
+
+   :::image type="content" source="media/deploy-update/deployment-active.png" alt-text="Screenshot that shows Deployment active." lightbox="media/deploy-update/deployment-active.png":::
+
+1. View the compliance chart. You should see the update is now in progress.
+
+1. After your device is successfully updated, you should see your compliance chart and deployment details update to reflect the same.
+
+   :::image type="content" source="media/deploy-update/update-succeeded.png" alt-text="Screenshot that shows Update succeeded." lightbox="media/deploy-update/update-succeeded.png":::
 
 ## Monitor an update deployment
 
-1. Select the Deployment history tab at the top of the page.
+1. Select the **Deployment history** tab at the top of the page.
 
-   :::image type="content" source="media/deploy-update/deployments-history.png" alt-text="Deployment History" lightbox="media/deploy-update/deployments-history.png":::
+   :::image type="content" source="media/deploy-update/deployments-history.png" alt-text="Screenshot that shows Deployment history." lightbox="media/deploy-update/deployments-history.png":::
 
-2. Select the details link next to the deployment you created.
+1. Select the **Details** link next to the deployment you created.
 
-   :::image type="content" source="media/deploy-update/deployment-details.png" alt-text="Deployment details" lightbox="media/deploy-update/deployment-details.png":::
+   :::image type="content" source="media/deploy-update/deployment-details.png" alt-text="Screenshot that shows Deployment details." lightbox="media/deploy-update/deployment-details.png":::
 
-3. Select Refresh to view the latest status details.
+1. Select **Refresh** to view the latest status details.
 
-
-You have now completed a successful end-to-end image update using Device Update for IoT Hub on a Raspberry Pi 3 B+ device. 
+You've now completed a successful end-to-end image update by using Device Update for IoT Hub on a Raspberry Pi 3 B+ device.
 
 ## Clean up resources
 
-When no longer needed, clean up your Device Update account, instance, IoT Hub and IoT device. 
+When no longer needed, clean up your Device Update account, instance, IoT hub, and IoT device.
 
 ## Next steps
 
