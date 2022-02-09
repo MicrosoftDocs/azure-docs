@@ -8,57 +8,59 @@ ms.date: 01/06/2022
 ms.topic: how-to
 ms.service: iot-central
 ---
-# Migrate from legacy data export
-The legacy data export feature is schedueld to be retired on 31 March 2023. We strongly encourage you to migrate to new data export. The legacy data export lacks important capabilities including availability of different data types, filtering, and message transformation. See the following table for a comparison of legacy data export with new data export. 
+# Export IoT data to cloud destinations using data export (legacy)
 
-### Comparison of legacy data export and data export
+The legacy data export feature is now deprecated and you should plan to migrate to the new [data export feature](howto-export-data.md). The legacy data export lacks important capabilities such as the availability of different data types, filtering, and message transformation. See the following table for a comparison of legacy data export with new data export:
 
-| Capabilities  | Legacy data export | New data export |
+| Capability  | Legacy data export | New data export |
 | :------------- | :---------- | :----------- |
-| Available data types | Telemetry, Devices, Device templates | Telemetry, Property changes, Device connectivity changes, Device lifecycle changes, Device template lifecycle changes |
+| Available data types | Telemetry, devices, device templates | Telemetry, property changes, device connectivity changes, device lifecycle changes, device template lifecycle changes |
 | Filtering | None | Depends on the data type exported. For telemetry, filtering by telemetry, message properties, property values |
 | Enrichments | None | Enrich with a custom string or a property value on the device |
 | Transforms| None | Transform the export message to your desired shape |
-| Destinations | Azure Event Hubs, Azure Service Bus queues and topics, Azure Blob Storage | Same as for legacy data export plus webhooks|
+| Destinations | Azure Event Hubs, Azure Service Bus queues and topics, Azure Blob Storage | Same as for legacy data export plus Azure Data Explorer and webhooks|
 | Supported application versions | V2, V3 | V3 only |
-| Notable limits | Five exports per app, one destination per export | 10 exports-destination connections per app |
+| Notable limits | Five exports per app, one destination per export | 10 export-destination connections per app |
 
-## Migration Considerations
-To migrate a legacy data export to new data export, we recommend you to 
-1. 	Use a test IoT Central application and create a new data export with the same data type and destination. You can optionally leverage the Enrichments and Data transformation functionalities to make your export message shape similar to the message shape from your legacy data export.
-2. Once you thoroughly tested your new data export and when you are ready to go to production, ensure any workflows or dependencies on your active legacy data exports are safely removed.
-3. Create your new data exports in your production environments and verify that the export messages are meeting your requirements. You can then add any workflows or dependencies to your new data export.
-4. Once you successfully migrated all your legacy data exports to new data exports, you can delete the legacy data exports.
+## Migration considerations
 
-## Data type related considerations
+To migrate a legacy data export to new data export, you should:
 
-The default data format varies for data types between legacy data export and new data export. For more information, see [data formats for new data export](./howto-export-data.md#data-formats) and see [data formats for legacy data export](./howto-export-data-legacy.md#export-contents-and-format). When migrating to new data export, we recommend you remove any dependencies on data format of your legacy data export. However, if you have strong dependencies or workflows tied to your legacy data exports then the following considerations can help address any migration challenges.
+1. Use a test IoT Central application and create a new data export with the same data type and destination. You can optionally use the enrichments and data transformation functionality to make your export message shape similar to the message shape from your legacy data export.
+1. When you've tested your new data export and are ready to go to production, ensure any workflows or dependencies on your active legacy data exports are safely removed.
+1. Create your new data exports in your production environments and verify that the export messages are meeting your requirements. You can then add any workflows or dependencies to your new data export.
+1. After you've successfully migrated all your legacy data exports to new data exports, you can delete the legacy data exports.
 
-Telemetry: If you choose to match the legacy data export format for your telemetry in your new data export, you can use the Transform functionality and build a transformation query similar to the following example
+### Data type migration considerations
+
+The default data format varies for data types between legacy data export and new data export. For more information, see [data formats for new data export](howto-export-data.md#data-formats) and [data formats for legacy data export](#export-contents-and-format). When you migrate to the new data export, you should remove any dependencies on data format of your legacy data export. However, if you have strong dependencies or workflows tied to your legacy data exports then the following considerations can help address any migration challenges.
+
+Telemetry: If you choose to match the legacy data export format for your telemetry in your new data export, you can use the transform functionality and build a transformation query similar to the following example:
 
 ```jq
 .telemetry | map({ key: .name, value: .value }) | from_entries
 ```
 
-Devices: If you are currently using legacy data exports with devices data type then you can use both the Property changes and Device lifecycle events data types in new export to export the same data. You can achieve a comparable data structure using the following transformation query on both data types  
+Devices: If you're currently using legacy data exports with the devices data type then you can use both the property changes and device lifecycle events data types in new export to export the same data. You can achieve a comparable data structure using the following transformation query on both data types:
 
 ```jq
-   approved: .device.approved, 
-   provisioned: .device.provisioned, 
-   simulated: .device.simulated, 
-   cloudProperties: .device.cloudProperties | map({ key: .name, value: .value }) | from_entries, 
-   displayName: .device.name, 
-   id: .device.id, 
-   instanceOf: .device.templateId, 
-   properties: .device.properties.reported | map({ key: .name, value: .value }) | from_entries 
+approved: .device.approved, 
+provisioned: .device.provisioned, 
+simulated: .device.simulated, 
+cloudProperties: .device.cloudProperties | map({ key: .name, value: .value }) | from_entries, 
+displayName: .device.name, 
+id: .device.id, 
+instanceOf: .device.templateId, 
+properties: .device.properties.reported | map({ key: .name, value: .value }) | from_entries 
 ```
 
-Device templates: : If you are currently using legacy data exports with device templates data type then you can obtain the same data using the [Device Templates -Get API call](https://docs.microsoft.com/en-us/rest/api/iotcentral/1.0dataplane/device-templates/get)
+Device templates: If you're currently using legacy data exports with the device templates data type, then you can obtain the same data using the [Device Templates - Get API call](/rest/api/iotcentral/1.0dataplane/device-templates/get).
 
-## Destination related considerations 
-In new data export, you can create destination and reuse it across different data exports. When migrating from legacy data exports, we recommend you create destinations in new data exports that store information on your existing legacy data export destinations.  
+### Destination migration considerations
 
-## Export IoT data to cloud destinations using data export (legacy)
+In the new data export, you can create a destination and reuse it across different data exports. When you migrate from legacy data exports, you should create destinations in the new data exports that store information on your existing legacy data export destinations.  
+
+## Export IoT data to cloud destinations (legacy)
 
 > [!Note]
 > This article describes the legacy data export features in IoT Central
