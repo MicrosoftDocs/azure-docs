@@ -1324,7 +1324,7 @@ productDirectory:
       url: private-link/index.yml
     # Card
     - title: Azure Private 5G Core (Preview)
-      summary: Rapidly deploy and manage private 5G networks at the enterprise with Azure Private 5G Core
+      summary: Rapidly deploy and manage private 5G networks at the enterprise edge with Azure Private 5G Core
       imageSrc: ./media/index/private-5g-core.svg
       azureCategories:
         - networking
