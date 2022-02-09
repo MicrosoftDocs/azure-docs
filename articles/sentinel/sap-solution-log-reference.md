@@ -712,7 +712,7 @@ The **SAPUsersGetPrivileged** Microsoft Sentinel Function returns the following 
 
 ### SAPUsersAuthorizations
 
-lists user assignments to authorizations, including the following data:
+The **SAPUsersAuthorizations** function lists user assignments to authorizations, including the following data:
 The **SAPUsersAuthorizations** Microsoft Sentinel Function brings together data from several tables to produce a user-centric view of the current roles and authorizations assigned.  Only users with active role and authorization assignments are returned.
 
 **Parameters:**
