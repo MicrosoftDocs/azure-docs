@@ -13,7 +13,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: troubleshooting
-ms.date: 10/04/2021
+ms.date: 02/09/2022
 ms.author: anfdocs
 ---
 # Troubleshoot Azure NetApp Files Resource Provider errors 
@@ -682,6 +682,12 @@ You try to create a volume from a snapshot and volume ends in an error state.
 * Solution:   
 Delete the volume, then retry the volume creation operation from the snapshot.
 
+***Deletion of resource group fails during the NIC clearing process*** 
+
+* Cause:   
+ The resource group you try to delete might have volumes associated with it.
+* Solution:   
+ Before deleting the resource group, delete all volume associated with it. 
  
 ## Next steps
 
