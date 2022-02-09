@@ -1693,3 +1693,12 @@ groups:
     title: Basic/Standard tier
   - id: sc-enterprise-tier
     title: Enterprise tier
+# Owner: jomondi
+- id: home-realm-discovery
+  title: hrd-policy
+  prompt: Choose an option
+  pivots:
+  - id: powershell-hrd
+    title: PowerShell
+  - id: graph-hrd
+    title: Graph
