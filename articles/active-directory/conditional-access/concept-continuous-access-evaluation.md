@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 01/28/2022
+ms.date: 02/08/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -26,6 +26,8 @@ Timely response to policy violations or security issues really requires a "conve
 The initial implementation of continuous access evaluation focuses on Exchange, Teams, and SharePoint Online.
 
 To prepare your applications to use CAE, see [How to use Continuous Access Evaluation enabled APIs in your applications](../develop/app-resilience-continuous-access-evaluation.md).
+
+Continuous access evaluation isn't currently available in Azure Government GCC High tenants.
 
 ### Key benefits
 

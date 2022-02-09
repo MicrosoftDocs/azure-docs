@@ -32,7 +32,7 @@ Azure Cognitive Services are cloud-based services with REST APIs, and client lib
 
 ### [Multi-service resource](#tab/multiservice)
 
-The multi-service resource is named **Cognitive Services** in the portal. [Create a Cognitive Services resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne).
+The multi-service resource is named **Cognitive Services** in the portal. [Create a Cognitive Services resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne).
 
 At this time, the multi-service resource enables access to the following Cognitive Services:
 
@@ -47,11 +47,11 @@ Use the below links to create a resource for the available Cognitive Services:
 
 | Vision                      | Speech                  | Language                          | Decision             |
 |-----------------------------|-------------------------|-----------------------------------|----------------------|
-| [Computer vision](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision)         | [Speech Services](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices)     | [Immersive reader](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesImmersiveReader)              | [Anomaly Detector](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector) | 
-| [Custom vision service](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesCustomVision) |  | [Language Understanding (LUIS)](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne) | [Content Moderator](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator) | 
-| [Face](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFace)                    |                         | [QnA Maker](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker)                     | [Personalizer](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer)     |
-|        |                         | [Language service](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics)                |  [Metrics Advisor](https://go.microsoft.com/fwlink/?linkid=2142156)                    |
-| | | [Translator](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) | |
+| [Computer vision](https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision)         | [Speech Services](https://portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices)     | [Immersive reader](https://portal.azure.com/#create/Microsoft.CognitiveServicesImmersiveReader)              | [Anomaly Detector](https://portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector) | 
+| [Custom vision service](https://portal.azure.com/#create/Microsoft.CognitiveServicesCustomVision) |  | [Language Understanding (LUIS)](https://portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne) | [Content Moderator](https://portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator) | 
+| [Face](https://portal.azure.com/#create/Microsoft.CognitiveServicesFace)                    |                         | [QnA Maker](https://portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker)                     | [Personalizer](https://portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer)     |
+|        |                         | [Language service](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics)                |  [Metrics Advisor](https://go.microsoft.com/fwlink/?linkid=2142156)                    |
+| | | [Translator](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) | |
 
 ---
 

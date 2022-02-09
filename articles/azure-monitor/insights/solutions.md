@@ -19,7 +19,7 @@ You can add monitoring solutions to Azure Monitor for any applications and servi
 
 ## Use monitoring solutions
 
-The **Overview** page in Azure Monitor displays a tile for each solution installed in a Log Analytics workspace. To open this page, go to **Azure Monitor** in the [Azure portal](https://ms.portal.azure.com). On the **Insights** menu, select **More** to open **Insights Hub**, and then select **Log Analytics workspaces**.
+The **Overview** page in Azure Monitor displays a tile for each solution installed in a Log Analytics workspace. To open this page, go to **Azure Monitor** in the [Azure portal](https://portal.azure.com). On the **Insights** menu, select **More** to open **Insights Hub**, and then select **Log Analytics workspaces**.
 
 [![Screenshot that shows selections for opening Insights Hub.](media/solutions/insights-hub.png)](media/solutions/insights-hub.png#lightbox)
 
@@ -36,7 +36,7 @@ Monitoring solutions can contain multiple types of Azure resources. You can view
 
 To list the monitoring solutions installed in your subscription:
 
-1. Go to the [Azure portal](https://ms.portal.azure.com). Search for and select **Solutions**.
+1. Go to the [Azure portal](https://portal.azure.com). Search for and select **Solutions**.
 
    Solutions installed in all your workspaces are listed. The name of the solution is followed by the name of the workspace where it's installed.
 1. Use the dropdown boxes at the top of the screen to filter by subscription or resource group.

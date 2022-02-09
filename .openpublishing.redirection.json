@@ -34091,7 +34091,22 @@
     },
     {
       "source_path_from_root": "/articles/cognitive-services/Speech-Service/concepts-gating-overview.md",
-      "redirect_url": "http://docs.microsoft.com/legal/cognitive-services/speech-service/custom-neural-voice/transparency-note-custom-neural-voice",
+      "redirect_url": "https://docs.microsoft.com/legal/cognitive-services/speech-service/custom-neural-voice/transparency-note-custom-neural-voice",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/Speech-Service/concepts-guidelines-responsible-deployment-synthetic.md",
+      "redirect_url": "https://docs.microsoft.com/legal/cognitive-services/speech-service/custom-neural-voice/concepts-guidelines-responsible-deployment-synthetic",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/Speech-Service/concepts-disclosure-guidelines.md",
+      "redirect_url": "https://docs.microsoft.com/legal/cognitive-services/speech-service/custom-neural-voice/concepts-disclosure-guidelines",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/Speech-Service/concepts-disclosure-patterns.md",
+      "redirect_url": "https://docs.microsoft.com/legal/cognitive-services/speech-service/custom-neural-voice/concepts-disclosure-patterns",
       "redirect_document_id": false
     },
     {
@@ -44932,6 +44947,11 @@
       {
         "source_path_from_root": "/articles/azure/cognitive-services/translator/tutorial-build-flask-app-translation-synthesis.md",
         "redirect_url": "/learn/modules/translate-text-with-translator-service?toc=/azure/cognitive-services/translator/toc.json&bc=/azure/cognitive-services/translator/breadcrumb/toc.json",
+        "redirect_document_id": false
+      },
+      {
+        "source_path": "articles/machine-learning/classic/deploy-with-resource-manager-template.md",
+        "redirect_url": "/previous-versions/azure/machine-learning/classic/deploy-with-resource-manager-template",
         "redirect_document_id": false
       },
       {
