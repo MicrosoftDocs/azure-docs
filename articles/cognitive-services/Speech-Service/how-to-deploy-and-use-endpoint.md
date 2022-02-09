@@ -16,9 +16,9 @@ ms.author: caoling
 
 After you've successfully created and tested your voice model, you deploy it in a custom text-to-speech endpoint. Use this endpoint instead of the usual endpoint when you're making text-to-speech requests through the REST API. The subscription that you've used to deploy the model is the only one that can call your custom endpoint.
 
-## Create a Custom Neural Voice endpoint
+## Create a custom neural voice endpoint
 
-To create a Custom Neural Voice endpoint:
+To create a custom neural voice endpoint:
 
 1. On the **Deploy model** tab, select **Deploy model**. 
 1. Enter a **Name** and **Description** for your custom endpoint.
@@ -43,28 +43,28 @@ The custom endpoint is functionally identical to the standard endpoint that's us
 
 ## Copy your voice model to another project
 
-You can copy your voice model to another project for the same region or another region. Do the following steps to easily deploy the voice model to a different region or project.
+You can copy your voice model to another project for the same region or another region. For example, you can copy a neural voice model that was trained in one region, to a project for another region.
 
-To Copy your voice model to another project:
+> [!NOTE]
+> Custom neural voice training is only available in the these regions: East US, Southeast Asia, and UK South. But you can copy a neural voice model from those regions to other regions. For more information, see the [regions for custom neural voice](regions.md#text-to-speech).
+
+To copy your custom neural voice model to another project:
 
 1. On the **Train model** tab, select a voice model that you want to copy, and then select **Copy to project**.
 
-   :::image type="content" source="media/custom-voice/copy-to-project.png" alt-text="Copy to project":::
+   :::image type="content" source="media/custom-voice/cnv-model-copy.png" alt-text="Copy to project":::
 
 1. Select the **Region**, **Speech resource**, and **Project** where you want to copy the model. You must have a speech resource and project in the target region, otherwise you need to create them first. 
 
-    :::image type="content" source="media/custom-voice/copy-voice-model.png" alt-text="Copy voice model":::
+    :::image type="content" source="media/custom-voice/cnv-model-copy-dialog.png" alt-text="Copy voice model":::
 
 1. Select **Submit** to copy the model.
 1. Select **View model** under the notification message for copy success. 
-1. On the **Train model** page, select the newly copied model and then select **Deploy model**.
-
-> [!NOTE]
-> Custom Neural Voice training is only available in the three regions: East US, Southeast Asia, and UK South. But you can easily copy a neural voice model from the three regions to other regions. For more information, see the [regions for Custom Neural Voice](regions.md#text-to-speech).
+1. On the **Train model** tab, select the newly copied model and then select **Deploy model**.
 
 ## Suspend and resume an endpoint
 
-You can suspend or resume an endpoint, to limit spend and conserve resources that are not in use. You will not be charged while the endpoint is suspended. When you resume an endpoint, you can use the same endpoint URL in your application to synthesize speech. 
+You can suspend or resume an endpoint, to limit spend and conserve resources that aren't in use. You won't be charged while the endpoint is suspended. When you resume an endpoint, you can use the same endpoint URL in your application to synthesize speech. 
 
 You can suspend and resume an endpoint in Speech Studio or via the REST API.
 
@@ -116,7 +116,7 @@ The possible ``status` property values are:
 
 | Status | Description |
 | ------------- | ------------------------------------------------------------ |
-| `NotStarted` | The endpoint has not yet been deployed, and it's not available for speech synthesis. |
+| `NotStarted` | The endpoint hasn't yet been deployed, and it's not available for speech synthesis. |
 | `Running` | The endpoint is in the process of being deployed or resumed, and it's not available for speech synthesis. |
 | `Succeeded` | The endpoint is active and available for speech synthesis. The endpoint has been deployed or the resume operation succeeded. |
 | `Failed` | The endpoint is in the process of being suspended. |
@@ -173,7 +173,7 @@ Response body example:
 
 #### Suspend endpoint
 
-You can suspend an endpoint to limit spend and conserve resources that are not in use. You will not be charged while the endpoint is suspended. When you resume an endpoint, you can use the same endpoint URL in your application to synthesize speech. 
+You can suspend an endpoint to limit spend and conserve resources that aren't in use. You won't be charged while the endpoint is suspended. When you resume an endpoint, you can use the same endpoint URL in your application to synthesize speech. 
 
 You suspend an endpoint with its unique deployment ID. The endpoint status must be `Succeeded` before you can suspend it.
 
@@ -213,7 +213,7 @@ When you resume an endpoint, you can use the same endpoint URL that you used bef
 
 You resume an endpoint with its unique deployment ID. The endpoint status must be `Disabled` before you can resume it.
 
-Use the [get endpoint](#get-endpoint) operation to poll and track the status progression from `Disabled`, to `Running`, and finally to `Succeeded`. If the the resume operation failed, the endpoint status will be `Disabled`. 
+Use the [get endpoint](#get-endpoint) operation to poll and track the status progression from `Disabled`, to `Running`, and finally to `Succeeded`. If the resume operation failed, the endpoint status will be `Disabled`. 
 
 For information about endpoint ID, region, and subscription key parameters, see [request parameters](#request-parameters).
 
@@ -243,7 +243,7 @@ For more information, see [response header](#response-header).
 
 #### Request parameters
 
-You use these request parameters with calls to the REST API. For information about where to get your region, endpoint ID, and subscription key in Speech Studio, see [application settings](#application-settings).
+You use these request parameters with calls to the REST API. See [application settings](#application-settings) for information about where to get your region, endpoint ID, and subscription key in Speech Studio.
 
 | Name                        | Location     | Required | Type   | Description                                                                    |
 | --------------------------- | ------ | -------- | ------ | ------------------------------------------------------------------------------ |
