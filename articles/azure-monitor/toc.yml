@@ -280,10 +280,10 @@ items:
         href: logs/basic-logs-configure.md
       - name: Set retention and archive
         href: logs/data-retention-archive.md
+      - name: Run a search job
+        href: logs/search-jobs.md
       - name: Restore archived data
         href: logs/restore.md
-      - name: Create a search job
-        href: logs/search-jobs.md
     - name: Log Analytics
       items:
       - name: Overview

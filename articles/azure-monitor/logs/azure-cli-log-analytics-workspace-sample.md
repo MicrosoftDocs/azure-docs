@@ -53,6 +53,44 @@ The retention time is between 30 and 730 days.
 
 For more information about tables, see [Data structure](./log-analytics-workspace-overview.md#data-structure).
 
+## Delete a table
+
+You can delete [Custom Log](custom-logs-overview.md), [Search Results](search-jobs.md) and [Restored Logs](restore.md) tables.
+
+To delete a table, run the [az monitor log-analytics workspace table delete](cli/azure/monitor/log-analytics/workspace/table#az-monitor-log-analytics-workspace-data-export-delete) command:
+
+```azurecli
+az monitor log-analytics workspace table delete –subscription ContosoSID --resource-group ContosoRG  --workspace-name ContosoWorkspace \
+   --name MySearchTable_SRCH
+```
+
+## Configure Basic Log and Analytics tables
+
+You can configure specific tables as [Basic Log tables](./basic-logs-configure.md) to lower ingestion costs in exchange for reduced features if, for example, you need the logs in these tables for debugging, troubleshooting and auditing.
+
+To configure a Basic Log table, run the [az monitor log-analytics workspace table update](/cli/azure/monitor/log-analytics/workspace/table#az_monitor_log_analytics_workspace_table_update) command with the `--plan Basic` flag:
+
+```azurecli
+az monitor log-analytics workspace table update –subscription ContosoSID --resource-group ContosoRG  --workspace-name ContosoWorkspace \
+   --name ContainerLog  --plan Basic
+``` 
+
+To a configure an Analytics table, run the [az monitor log-analytics workspace table update](/cli/azure/monitor/log-analytics/workspace/table#az_monitor_log_analytics_workspace_table_update) command with the `--plan Analytics` flag:
+
+```azurecli
+az monitor log-analytics workspace table update –subscription ContosoSID --resource-group ContosoRG  --workspace-name ContosoWorkspace \
+   --name ContainerLog  --plan Analytics
+```
+
+To view the table configuration, run the [az monitor log-analytics workspace table show](/cli/azure/monitor/log-analytics/workspace/table?view=azure-cli-latest#az-monitor-log-analytics-workspace-table-show) command:
+
+```azurecli
+az monitor log-analytics workspace table show –subscription ContosoSID --resource-group ContosoRG  --workspace-name ContosoWorkspace \
+   --name Syslog  --output table \ 
+```
+
+For more information about Basic Log and Analytics tables, see [Log data plans](log-analytics-workspace-overview.md#log-data-plans-preview). 
+
 ## Export data from selected tables
 
 You can continuously export data from selected tables to an Azure storage account or Azure Event Hubs. Use the [az monitor log-analytics workspace data-export create](/cli/azure/monitor/log-analytics/workspace/data-export#az_monitor_log_analytics_workspace_data_export_create) command:
@@ -79,6 +117,56 @@ az monitor log-analytics workspace data-export delete --resource-group ContosoRG
 ```
 
 For more information about data export, see [Log Analytics workspace data export in Azure Monitor](./logs-data-export.md).
+
+
+## Set the data retention time for a table
+
+By default, all tables in a workspace retain data for a period of time you set at the workspace level. At the end of the retention period, Azure Monitor removes or archives the data with a reduced retention fee.
+
+To change the retention time for a specific table, run the [az monitor log-analytics workspace table update](/cli/azure/monitor/log-analytics/workspace/table#az_monitor_log_analytics_workspace_table_update) command:
+
+```azurecli
+az monitor log-analytics workspace table update –subscription ContosoSID --resource-group ContosoRG  --workspace-name ContosoWorkspace \
+   --name AzureMetrics --retention-time 45 --total-retention-time 365
+```
+
+To restore a table's default retention time, run the [az monitor log-analytics workspace table update](/cli/azure/monitor/log-analytics/workspace/table#az_monitor_log_analytics_workspace_table_update) command
+
+```azurecli
+az monitor log-analytics workspace table update –subscription ContosoSID --resource-group ContosoRG  --workspace-name ContosoWorkspace \
+   --name Syslog --retention-time -1 --total-retention-time -1
+```
+
+For more information about data retention, see [Configure data retention and archive in Azure Monitor Logs](data-retention-archive.md).
+
+## Trigger a search job
+
+A search job lets you retrieve data matching particular criteria from Archived Logs and Basic Logs.
+
+To trigger a search job, run the [az monitor log-analytics workspace table update](/cli/azure/monitor/log-analytics/workspace/table#az_monitor_log_analytics_workspace_table_update) command, specifying the name of the new search results table and the search parameters:
+
+```azurecli
+z monitor log-analytics workspace table update –subscription ContosoSID --resource-group ContosoRG  --workspace-name ContosoWorkspace \
+   --name HeartbeatByIp_SRCH --search 'Heartbeat | where ComputerIP has "00.000.00.000"' --limit 1500 \ 
+   --start-search-time "2022-01-01T00:00:00.000Z" --end-search-time "2022-01-08T00:00:00.000Z"
+```
+
+The search job has a timeout of 60 minutes.
+
+For long operations, pass the `--no-wait` flag: 
+
+```azurecli 
+z monitor log-analytics workspace table update –subscription ContosoSID --resource-group ContosoRG  --workspace-name ContosoWorkspace \
+   --name HeartbeatByIp_SRCH --search 'Heartbeat | where ComputerIP has "00.000.00.000"' --limit 1500 \ 
+   --start-search-time "2022-01-01T00:00:00.000Z" --end-search-time "2022-01-08T00:00:00.000Z” --no-wait
+```
+
+To view the search results table, run the [az monitor log-analytics workspace table show](/cli/azure/monitor/log-analytics/workspace/table?view=azure-cli-latest#az-monitor-log-analytics-workspace-table-show) command:
+
+```azurecli 
+az monitor log-analytics workspace table show –subscription ContosoSID --resource-group ContosoRG  --workspace-name ContosoWorkspace \
+   --name HeartbeatByIp_SRCH  --output table 
+```
 
 ## Manage a linked service
 
