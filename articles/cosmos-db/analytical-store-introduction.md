@@ -148,16 +148,16 @@ The following constraints are applicable on the operational data in Azure Cosmos
   * There's not schema versioning. The last version inferred from transactional store is what you'll see in analytical store.
 
 * Currently Azure Synapse Spark can't read properties that contain some special characters in their names, listed below. Azure Synapse SQL serverless isn't affected.
-  * `:` 
-  * ``` 
-  * `,` 
-  * `;` 
-  * `{}`
-  * `()`
-  * `\n`
-  * `\t`
-  * `=`
-  * `"`
+  * : 
+  * ` 
+  * , 
+  * ; 
+  * {}
+  * ()
+  * \n
+  * \t
+  * =
+  * "
 
 > [!NOTE]
 > White spaces are also listed in the Spark error message returned when you reach this limitation. But we have added a special treatment for white spaces, please check out more details in the items below.
