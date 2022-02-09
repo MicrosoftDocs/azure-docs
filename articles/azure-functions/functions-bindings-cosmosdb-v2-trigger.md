@@ -72,7 +72,7 @@ namespace CosmosDBSamplesV2
 
 # [Extension 4.x+ (preview)](#tab/extensionv4/in-process)
 
-Apps using Cosmos DB [extension version 4.x](./functions-bindings-cosmosdb-v2.md#cosmos-db-extension-4x-and-higher) or higher will have different attribute properties which are shown below. This example refers to a simple `ToDoItem` type.
+Apps using Cosmos DB [extension version 4.x](./functions-bindings-cosmosdb-v2.md?tabs=extensionv4) or higher will have different attribute properties, which are shown below. This example refers to a simple `ToDoItem` type.
 
 ```cs
 namespace CosmosDBSamplesV2
