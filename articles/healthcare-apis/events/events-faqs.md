@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 01/31/2022
+ms.date: 02/08/2022
 ms.author: jasteppe
 ---
 
@@ -16,22 +16,24 @@ The following are some of the frequently asked questions about Events.
 
 ### Can I use Events with a different Fast Hospital Interoperability Resources (FHIR®) service other than the Azure Healthcare APIs FHIR service?
 
-No. The Azure Healthcare APIs Events feature only currently supports the Azure Healthcare APIs Fast Healthcare Interoperability Resources (FHIR®) service.
+No. The Azure Healthcare APIs Events feature only currently supports the Azure Healthcare APIs FHIR service.
 
 ### What FHIR resource events does Events support?
 
 Events are generated from the following FHIR service types:
- * Microsoft.HealthcareApis.FhirResourceCreated
- * Microsoft.HealthcareApis.FhirResourceUpdated
- * Microsoft.HealthcareApis.FhirResourceDeleted (Note: Soft delete is the default)
+**FhirResourceCreated** - The event emitted after a FHIR resource gets created successfully.
+**FhirResourceCreated** - The event emitted after a FHIR resource gets created successfully.
+**FhirResourceDeleted** - The event emitted after a FHIR resource gets soft deleted successfully.
+
+For more information about the FHIR service delete types, see [FHIR Rest API capabilities for Azure Healthcare APIs FHIR service](../../healthcare-apis/fhir/fhir-rest-api-capabilities.md)
 
 ### What is the payload of an Events message? 
 
-For a detailed description of the Events message structure and both required and non-required elements, see  [**Events troubleshooting guide**]. 
+For a detailed description of the Events message structure and both required and non-required elements, see  [Events troubleshooting guide](events-troubleshooting-guide.md). 
 
 ### What is the throughput for the Events messages?
 
-Events throughput is governed by the throughput of the FHIR service. If a request to the FHIR service is successful (for example, a 2XX return code) and would normally generate a FHIR Resource event (for example: create, update, delete), you should expect the event to be delivered within a 5-second period after receiving the successful response from the FHIR service.
+Events throughput is governed by the throughput of the FHIR service. When a request made to the FHIR service is successful, it will display a return code (for example, 2XX). It will also generate a FHIR Resources event such as create, update, and delete. The event is estimated to be delivered within a 5-second period after receiving the successful response from the FHIR service. 
 
 ### How am I charged for using Events?
 

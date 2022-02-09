@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: troubleshooting
-ms.date: 02/01/2022
+ms.date: 02/08/2022
 ms.author: jasteppe
 ---
 # Troubleshoot Events
@@ -17,11 +17,14 @@ This article provides guides and resources to troubleshoot Events.
 
 ## Events resources for troubleshooting
 
-> [!NOTE]
-> Events are generated from the following Fast Healthcare Interoperability Resources (FHIR&#174;) service types:
-> * Microsoft.HealthcareApis.FhirResourceCreated
-> * Microsoft.HealthcareApis.FhirResourceUpdated
-> * Microsoft.HealthcareApis.FhirResourceDeleted (Note: Soft delete is the default)
+>  [!Important]
+>  Events currently supports only the following FHIR resource operations:
+>
+>  **FhirResourceCreated** - The event emitted after a FHIR resource gets created successfully.
+>  **FhirResourceCreated** - The event emitted after a FHIR resource gets created successfully.
+>  **FhirResourceDeleted** - The event emitted after a FHIR resource gets soft deleted successfully.
+> 
+>  For more information about the FHIR service delete types, see [FHIR Rest API capabilities for Azure Healthcare APIs FHIR service](../../healthcare-apis/fhir/fhir-rest-api-capabilities.md)
 
 ### Events message structure
 

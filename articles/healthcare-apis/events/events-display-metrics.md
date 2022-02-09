@@ -12,7 +12,7 @@ ms.author: jasteppe
 
 # How to display Events metrics
 
-In this article, you will learn how to display Events metrics in the Azure portal. 
+In this article, you'll learn how to display Events metrics in the Azure portal. 
 
 > [!NOTE]
 > For the purposes of this article, an Azure Event Hubs event hub was used as the Events message endpoint. 
@@ -23,15 +23,15 @@ In this article, you will learn how to display Events metrics in the Azure porta
 
    :::image type="content" source="media\events-display-metrics\events-metrics-workspace-select.png" alt-text="Screenshot of select the Events button from the Workspace." lightbox="media\events-display-metrics\events-metrics-workspace-select.png"::: 
 
-2. The Events page displays the combined metrics for all Events Subscriptions. We have one subscription named (for this example: **fhir-events**) and one processed message. Select the subscription in the lower left-hand corner to view the metrics for that subscription.
+2. The Events page displays the combined metrics for all Events Subscriptions. For example, we have one subscription named  **fhir-events** and one processed message. Select the subscription in the lower left-hand corner to view the metrics for that subscription.
 
    :::image type="content" source="media\events-display-metrics\events-metrics-main.png" alt-text="Screenshot of Events you would like to display metrics for." lightbox="media\events-display-metrics\events-metrics-main.png":::
     
-3. From this page, we can see that the subscription (for this example: **fhir-events**) has one processed message. To view the Event Hubs metrics, select the name of the Event Hubs (for this example: **azuredocsfhirservice**) from the lower right-hand corner of the page.
+3. From this page, you'll notice that the subscription named **fhir-events** has one processed message. To view the Event Hubs metrics, select the name of the Event Hubs (for this example, **azuredocsfhirservice**) from the lower right-hand corner of the page.
 
    :::image type="content" source="media\events-display-metrics\events-metrics-subscription.png" alt-text="Screenshot of select the Metrics button." lightbox="media\events-display-metrics\events-metrics-subscription.png"::: 
 
-4. From this page, we can see that the Event Hubs received the incoming message presented in the previous Events subscription metrics pages.
+4. From this page, you'll notice that the Event Hubs received the incoming message presented in the previous Events subscription metrics pages.
 
    :::image type="content" source="media\events-display-metrics\events-metrics-event-hub.png" alt-text="Screenshot of displaying Event Hubs metrics." lightbox="media\events-display-metrics\events-metrics-event-hub.png"::: 
 

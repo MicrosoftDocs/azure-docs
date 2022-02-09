@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 02/01/2022
+ms.date: 02/08/2022
 ms.author: jasteppe
 ---
 
@@ -14,11 +14,15 @@ ms.author: jasteppe
 
 In this article, you'll learn about the Events message structure, required and non-required elements, and you'll be provided with samples of Events message payloads.
 
-> [!NOTE]
-> Events are generated from the following Fast Hospital Interoperability Resources (FHIR®) service resource types:
-> * Microsoft.HealthcareApis.FhirResourceCreated
-> * Microsoft.HealthcareApis.FhirResourceUpdated
-> * Microsoft.HealthcareApis.FhirResourceDeleted (Note: Soft delete is the default)
+>  [!Important]
+>  Events currently supports only the following FHIR resource operations:
+>
+>  **FhirResourceCreated** - The event emitted after a FHIR resource gets created successfully.
+>  **FhirResourceCreated** - The event emitted after a FHIR resource gets created successfully.
+>  **FhirResourceDeleted** - The event emitted after a FHIR resource gets soft deleted successfully.
+>
+>  For more information about the FHIR service delete types, see [FHIR Rest API capabilities for Azure Healthcare APIs FHIR service](../../healthcare-apis/fhir/fhir-rest-api-capabilities.md)
+
 
 ## Events message structure
 
@@ -28,7 +32,7 @@ In this article, you'll learn about the Events message structure, required and n
 |subject|string|Yes|The Uniform Resource Identifier (URI) of the FHIR resource that was changed. Customer can access the resource with the subject with https:// scheme. Customer should use the dataVersion or data.resourceVersionId to visit specific data version regarding this event.|
 |eventType|string(enum)|Yes|The type of change on the FHIR resource.|
 |eventTime|string(datetime)|Yes|The UTC time when the FHIR resource change committed.|
-|ID|string|Yes|Unique identifier for the event.|
+|id|string|Yes|Unique identifier for the event.|
 |data|object|Yes|FHIR resource change event details.|
 |data.resourceType|string(enum)|Yes|The FHIR Resource Type.|
 |data.resourceFhirAccount|string|Yes|The service name of FHIR account in the Healthcare APIs Workspace.|
@@ -39,8 +43,10 @@ In this article, you'll learn about the Events message structure, required and n
 
 ## Events message samples
 
-* FhirResourceCreated
-
+### FhirResourceCreated event
+ 
+# [Event Grid event schema](#tab/event-grid-event-schema)
+ 
 ```json
 {
   "id": "e4c7f556-d72c-e7f7-1069-1e82ac76ab41",
@@ -58,9 +64,31 @@ In this article, you'll learn about the Events message structure, required and n
   "eventTime": "2021-09-08T01:14:04.5613214Z"
 }
 ```
+# [CloudEvent schema](#tab/cloud-event-schema)
+ 
+```json
+{
+  "id": "d674b9b7-7d1c-9b0a-8c48-139f3eb86c48",
+  "source": "/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.HealthcareApis/workspaces/{workspace-name}",
+  "specversion": "1.0",
+  "type": "Microsoft.HealthcareApis.FhirResourceCreated",
+  "dataschema": "#1",
+  "subject": "{fhir-account}.fhir.azurehealthcareapis.com/Patient/e87ef649-abe1-485c-8c09-549d85dfe30b",
+  "time": "2022-02-03T16:48:09.6223354Z",
+  "data": {
+    "resourceType": "Patient",
+    "resourceFhirAccount": "{fhir-account}.fhir.azurehealthcareapis.com",
+    "resourceFhirId": "e87ef649-abe1-485c-8c09-549d85dfe30b",
+    "resourceVersionId": 1
+  }
+}
+```
+---
 
-* FhirResourceUpdated
-
+### FhirResourceUpdated event
+ 
+# [Event Grid event schema](#tab/event-grid-event-schema)
+ 
 ```json
 {
   "id": "634bd421-8467-f23c-b8cb-f6a31e41c32a",
@@ -78,9 +106,31 @@ In this article, you'll learn about the Events message structure, required and n
   "eventTime": "2021-09-08T01:29:12.0618739Z"
 }
 ```
+# [CloudEvent schema](#tab/cloud-event-schema)
+ 
+```json
+{
+  "id": "5e45229e-c663-ea98-72d2-833428f48ad0",
+  "source": "/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.HealthcareApis/workspaces/{workspace-name}",
+  "specversion": "1.0",
+  "type": "Microsoft.HealthcareApis.FhirResourceUpdated",
+  "dataschema": "#2",
+  "subject": "{fhir-account}.fhir.azurehealthcareapis.com/Patient/e87ef649-abe1-485c-8c09-549d85dfe30b",
+  "time": "2022-02-03T16:48:33.5147352Z",
+  "data": {
+    "resourceType": "Patient",
+    "resourceFhirAccount": "{fhir-account}.fhir.azurehealthcareapis.com",
+    "resourceFhirId": "e87ef649-abe1-485c-8c09-549d85dfe30b",
+    "resourceVersionId": 2
+  }
+}
+```
+---
 
-* FhirResourceDeleted
-
+### FhirResourceDeleted event
+ 
+# [Event Grid event schema](#tab/event-grid-event-schema)
+ 
 ```json
 {
   "id": "ef289b93-3159-b833-3a44-dc6b86ed1a8a",
@@ -98,6 +148,27 @@ In this article, you'll learn about the Events message structure, required and n
   "eventTime": "2021-09-08T01:31:58.5175837Z"
 }
 ```
+# [CloudEvent schema](#tab/cloud-event-schema)
+ 
+```json
+{
+  "id": "14648a6e-d978-950e-ee9c-f84c70dba8d3",
+  "source": "/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.HealthcareApis/workspaces/{workspace-name}",
+  "specversion": "1.0",
+  "type": "Microsoft.HealthcareApis.FhirResourceDeleted",
+  "dataschema": "#3",
+  "subject": "{fhir-account}.fhir.azurehealthcareapis.com/Patient/e87ef649-abe1-485c-8c09-549d85dfe30b",
+  "time": "2022-02-03T16:48:38.7338799Z",
+  "data": {
+    "resourceType": "Patient",
+    "resourceFhirAccount": "{fhir-account}.fhir.azurehealthcareapis.com",
+    "resourceFhirId": "e87ef649-abe1-485c-8c09-549d85dfe30b",
+    "resourceVersionId": 3
+  }
+}
+```
+---
+
 ## Next steps
 
 For more information about deploying Events, see:

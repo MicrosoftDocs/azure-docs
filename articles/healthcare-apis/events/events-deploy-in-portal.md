@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 02/01/2022
+ms.date: 02/08/2022
 ms.author: jasteppe
 ---
 
@@ -36,11 +36,11 @@ It's important that you have the following prerequisites completed before you be
 
    :::image type="content" source="media/events-deploy-in-portal/events-new-subscription-select.png" alt-text="Screenshot of Workspace. Select + Events Subscription button" lightbox="media/events-deploy-in-portal/events-new-subscription-select.png":::
 
-3. The **Create Event Subscription** box opens up requiring the following information for a basic subscription set-up:
+3. In the **Create Event Subscription** box, enter the following subscription information.
 
-    * **Name: Provide a name for your Events subscription.
-    * **Event: Type of FHIR events to send messages for (for example: create, updated, and deleted).
-    * **Endpoint Details: Endpoint to send Events messages to (for example: an Event Hubs).
+    * **Name**: Provide a name for your Events subscription.
+    * **Event**: Type of FHIR events to send messages for (for example: create, updated, and deleted).
+    * **Endpoint Details**: Endpoint to send Events messages to (for example: an Event Hubs).
 
 >[!NOTE]
 > For the purposes of this quickstart, we'll use the **Event Schema** and the **Managed Identity Type** settings as their defaults.
@@ -49,7 +49,7 @@ It's important that you have the following prerequisites completed before you be
 
    :::image type="content" source="media/events-deploy-in-portal/events-create-new-subscription.png" alt-text="Screenshot of Create Event Subscription box"  lightbox="media/events-deploy-in-portal/events-create-new-subscription.png":::
 
-5. While the subscription is being created, it’s unavailable for use until the deployment has successfully completed.
+5. While the system topic is being created, it's unavailable for use until the deployment has successfully completed.
 
    :::image type="content" source="media/events-deploy-in-portal/events-new-subscription-creating.png" alt-text="Screenshot of an Events subscription being deployed"  lightbox="media/events-deploy-in-portal/events-new-subscription-creating.png":::
 
