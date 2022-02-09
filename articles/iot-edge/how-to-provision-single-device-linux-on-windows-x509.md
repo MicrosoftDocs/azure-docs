@@ -5,7 +5,7 @@ author: kgremban
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 01/21/2022
+ms.date: 02/09/2022
 ms.author: kgremban
 ---
 
@@ -14,6 +14,13 @@ ms.author: kgremban
 [!INCLUDE [iot-edge-version-201806-or-202011](../../includes/iot-edge-version-201806-or-202011.md)]
 
 This article provides end-to-end instructions for registering and provisioning an IoT Edge for Linux on Windows device.
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+>[!NOTE]
+>The latest version of IoT Edge for Linux on Windows continuous release (CR), based on IoT Edge version 1.2, is in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). A clean installation may be required for devices going into production use once the general availability (GA) release is available. For more information, see [EFLOW continuous release](https://github.com/Azure/iotedge-eflow/wiki/EFLOW-Continuous-Release).
+:::moniker-end
+<!-- end 1.2 -->
 
 Every device that connects to an IoT hub has a device ID that's used to track cloud-to-device or device-to-cloud communications. You configure a device with its connection information, which includes the IoT hub hostname, the device ID, and the information the device uses to authenticate to IoT Hub.
 
