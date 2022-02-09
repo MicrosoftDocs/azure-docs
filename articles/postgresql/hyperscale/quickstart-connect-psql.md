@@ -7,7 +7,7 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.custom: mvc, mode-ui
 ms.topic: quickstart
-ms.date: 02/02/2022
+ms.date: 02/09/2022
 ---
 
 # Connect to a Hyperscale (Citus) server group with psql
@@ -38,11 +38,11 @@ When you create your Hyperscale (Citus) server group, a default database named *
      coordinator node of the server group.
    * The default dbname and username is `citus` and can't be changed.
 
-2. Open the Azure cloud shell. Select the **Cloud Shell** icon in the Azure portal.
+2. Open the Azure Cloud Shell. Select the **Cloud Shell** icon in the Azure portal.
 
    ![cloud shell icon](../media/quickstart-connect-psql/open-cloud-shell.png)
 
-   If prompted, choose an Azure subscription in which to store cloud shell data.
+   If prompted, choose an Azure subscription in which to store Cloud Shell data.
 
 3. In the shell, paste the psql connection string, *substituting your password
    for the string `{your_password}`*, then press enter. For example:
@@ -50,7 +50,7 @@ When you create your Hyperscale (Citus) server group, a default database named *
    ![run psql in cloud
    shell](../media/quickstart-connect-psql/cloud-shell-run-psql.png)
 
-   When psql successfully connects to the database, you will see a new prompt:
+   When psql successfully connects to the database, you'll see a new prompt:
 
    ```
    psql (13.0 (Debian 13.0-1.pgdg100+1), server 13.5)

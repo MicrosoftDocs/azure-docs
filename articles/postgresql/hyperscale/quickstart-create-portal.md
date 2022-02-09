@@ -7,7 +7,7 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.custom: mvc, mode-ui
 ms.topic: quickstart
-ms.date: 02/02/2022
+ms.date: 02/09/2022
 #Customer intent: As a developer, I want to provision a hyperscale server group so that I can run queries quickly on large datasets.
 ---
 
@@ -50,9 +50,9 @@ To follow this quickstart, you'll first need to:
 
    ![compute and storage](../media/quickstart-hyperscale-create-portal/compute.png)
 
-5. For the purpose of this quickstart, you can accept the default value of
-   **Basic** for **Tiers**. The other option, standard tier, creates worker
-   nodes for greater total data capacity and query parallelism. See
+5. For this quickstart, you can accept the default value of **Basic** for
+   **Tiers**. The other option, standard tier, creates worker nodes for
+   greater total data capacity and query parallelism. See
    [tiers](concepts-server-group.md#tiers) for a more in-depth comparison.
 6. Select **Next : Networking >** at the bottom of the screen.
 7. In the **Networking** tab, select **Allow public access from Azure services

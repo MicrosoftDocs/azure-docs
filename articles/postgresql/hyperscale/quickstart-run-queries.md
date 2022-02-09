@@ -7,7 +7,7 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.custom: mvc, mode-ui
 ms.topic: quickstart
-ms.date: 02/02/2022
+ms.date: 02/09/2022
 ---
 
 # Run queries
@@ -46,7 +46,8 @@ between multiple shards. Hyperscale (Citus) automatically runs the count on all
 the shards in parallel, and combines the results.
 
 ```sql
--- find all events for a single user (common transactional/operational query)
+-- Find all events for a single user.
+-- (A common transactional/operational query)
 
 SELECT * from github_events where user_id = 973676;
 ```
