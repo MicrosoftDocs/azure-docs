@@ -69,6 +69,10 @@ landingContent:
             url: device-update-raspberry-pi.md
           - text: Device update on Ubuntu Server 18.04 x64 Package agent
             url: device-update-ubuntu-agent.md
+          - text: Device update for Azure Real-time-operating-system
+            url: device-update-azure-real-time-operating-system.md
+          - text: Proxy update using device update binary agent
+            url: device-update-howto-proxy-updates.md
 
   - title: API and SDK reference
     linkLists:
