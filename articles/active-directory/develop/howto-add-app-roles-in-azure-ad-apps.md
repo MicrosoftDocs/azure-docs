@@ -175,7 +175,7 @@ The **Status** column should reflect that consent has been **Granted for \<tenan
 
 ## Usage scenario of app roles
 
-If you are implementing app role business logic in your application scenario which signs-in the users, then you would define the app roles and assign them to a user/group in the app registration. These assigned app roles will be included as part of the id token that was issued by Azure AD after user signs into the app. However, please do note that, if the app requests for an access token to call any other resources(for example graph), then role claim will not be present in the access token claims.  
+If you are implementing app role business logic in your application scenario which signs-in the users, then you would define the app roles in the App Registration and then an admin would assign them to users and groups in the Enterprise Apps blade. These assigned app roles will be included as part of any token that is issued for your application - either access tokens when your app is the API being called by an app, or ID tokens when your app is signing in a user. 
 
 If you are implementing app role business logic in app-calling-API scenario, then you will have two app registrations. One for app and second one for API. In this case, define the app roles and assign them to user/group in the app registration of API. When the user authenticates with the app and requests for an access token to call the API, roles claim will be included in the access token. Your next step is to add code to your web API that checks for those roles when the API is called.
 
