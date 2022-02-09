@@ -65,9 +65,6 @@ conceptualContent:
         - url: ../iot-hub/quickstart-control-device.md
           itemType: quickstart
           text: Control a device from the cloud
-        - url: /azure-stack/operator/iot-hub-rp-overview
-          itemType: overview
-          text: Explore IoT Hub on Azure Stack Hub
       footerLink:
         url: ../iot-hub/index.yml
         text: See more
