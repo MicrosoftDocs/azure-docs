@@ -83,7 +83,7 @@ IMDS is **not** intended to be used behind a proxy and doing so is unsupported. 
 
 ## Rate limiting
 
-In general, requests to IMDS are limited to 5 requests per second. Requests exceeding this threshold will be rejected with 429 responses. Requests to the [Managed Identity](#managed-identity) category are limited to 20 requests per second and 5 concurrent requests.
+In general, requests to IMDS are limited to 5 requests per second (on a per VM basis). Requests exceeding this threshold will be rejected with 429 responses. Requests to the [Managed Identity](#managed-identity) category are limited to 20 requests per second and 5 concurrent requests.
 
 ## HTTP verbs
 
@@ -254,6 +254,7 @@ When you don't specify a version, you get an error with a list of the newest sup
 - 2021-02-01
 - 2021-03-01
 - 2021-05-01
+- 2021-10-01
 
 ### Swagger
 
@@ -356,6 +357,7 @@ Schema breakdown:
 | `plan` | [Plan](/rest/api/compute/virtualmachines/createorupdate#plan) containing name, product, and publisher for a VM if it is an Azure Marketplace Image | 2018-04-02
 | `platformUpdateDomain` |  [Update domain](../articles/virtual-machines/availability.md) the VM is running in | 2017-04-02
 | `platformFaultDomain` | [Fault domain](../articles/virtual-machines/availability.md) the VM is running in | 2017-04-02
+| `platformSubFaultDomain` | Sub fault domain the VM is running in, if applicable. | 2021-10-01
 | `priority` | Priority of the VM. Refer to [Spot VMs](../articles/virtual-machines/spot-vms.md) for more information | 2020-12-01
 | `provider` | Provider of the VM | 2018-10-01
 | `publicKeys` | [Collection of Public Keys](/rest/api/compute/virtualmachines/createorupdate#sshpublickey) assigned to the VM and paths | 2018-04-02
