@@ -52,7 +52,7 @@ This article describes how you can create and view activity alerts and alert tri
 1. From the **Date** dropdown, select **Last 24 Hours**, **Last 2 Days**, **Last Week**, or **Custom Range**.
 
     If you select **Custom range**, select date and time settings, and then select **Apply**.
-1. To run the alert, select **Apply**
+1. To run the alert, select **Apply**.
 
     The **Alerts** table displays information about your alert.
 

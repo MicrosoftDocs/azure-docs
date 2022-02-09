@@ -91,8 +91,8 @@ This article describes how to generate and download the **Permissions analytics 
 1. Select a category and view the following columns of information:
 
 	- **User**, **Role**, **Resource**, **Serverless function name**: Displays the name of the identity.
-	- **Authorization system**: Displays the authorization system that the identity belongs to.
-	- **Domain**: Displays the domain name that the identity belongs to.
+	- **Authorization system**: Displays the authorization system to which the identity belongs.
+	- **Domain**: Displays the domain name to which the identity belongs.
 	- **Permissions**: Displays the maximum number of permissions that the identity can be granted.
 		- **Used**: Displays how many permissions that the identity has used.
 		- **Granted**: Displays how many permissions that the identity has been granted.

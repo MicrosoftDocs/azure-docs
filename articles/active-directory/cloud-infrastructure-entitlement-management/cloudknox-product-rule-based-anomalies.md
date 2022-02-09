@@ -39,7 +39,7 @@ Rule-based anomalies identify recent activity in CloudKnox Permissions Managemen
       - **Authorization system**: Displays which authorization systems the alert applies to, Amazon Web Services (**AWS**), Microsoft **Azure**, or Google Cloud Platform (**GCP**). 
       - **Date/Time**: Lists the date and time of the alert.
       - **Date/Time (UTC)**: Lists the date and time of the alert in Coordinated Universal Time (UTC).
-      - **View trigger**: Displays the current trigger settings and applicable authorization system details
+      - **View trigger**: Displays the current trigger settings and applicable authorization system details.
       - **Activity**: Displays details about the **Identity Name**, **Resource Name**, **Task Name**, **Date**, and **IP Address**.
 
 1. To filter alerts:
@@ -61,9 +61,9 @@ Rule-based anomalies identify recent activity in CloudKnox Permissions Managemen
 1. In the **Alert Name** box, enter a name for the alert.
 1. Select the **Authorization system**, **AWS**, **Azure**, or **GCP**.
 1. Select one of the following conditions:
-      - **Any Resource Accessed for the First Time**: The identity accesses a resource for the first time during the specified time interval
-      - **Identity Performs a Particular Task for the First Time**: The identity does a specific task for the first time during the specified time interval 
-      - **Inactive Identity Becomes Active**: An identity that hasn't been active for 90 days becomes active and does any task in the selected time interval
+      - **Any Resource Accessed for the First Time**: The identity accesses a resource for the first time during the specified time interval.
+      - **Identity Performs a Particular Task for the First Time**: The identity does a specific task for the first time during the specified time interval.
+      - **Inactive Identity Becomes Active**: An identity that hasn't been active for 90 days becomes active and does any task in the selected time interval.
 1. Select **Next**.
 1. On the **Authorization systems** tab, select the available authorization systems accounts and folders, or select **All**. 
 
@@ -95,7 +95,7 @@ Rule-based anomalies identify recent activity in CloudKnox Permissions Managemen
 
     If the **Subscription** is **On**, the following options are available:
 
-    - **Edit**: Enables you to modify alert parameters 
+    - **Edit**: Enables you to modify alert parameters. 
 
        Only the user who created the alert can edit the trigger screen, rename an alert, deactivate an alert, and delete an alert. Changes made by other users aren't saved.
 
