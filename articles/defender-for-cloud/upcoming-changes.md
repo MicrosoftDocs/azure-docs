@@ -28,8 +28,8 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 | [Changes to recommendations for managing endpoint protection solutions](#changes-to-recommendations-for-managing-endpoint-protection-solutions) | March 2022 |
 | [AWS recommendations to GA](#aws-recommendations-to-ga) | March 2022 |
 | [Relocation of custom recommendations](#relocation-of-custom-recommendations) | March 2022 |
-| [Deprecate Microsoft Defender for IoT Device assessments](#deprecate-microsoft-defender-for-iot-device-assessments) | March 2022 |
-| [Deprecate Microsoft Defender for IoT Device alerts](#deprecate-microsoft-defender-for-iot-device-alerts) | March 2022 |
+| [Deprecate Microsoft Defender for IoT device recommendations](#deprecate-microsoft-defender-for-iot-device-recommendations) | March 2022 |
+| [Deprecate Microsoft Defender for IoT device alerts](#deprecate-microsoft-defender-for-iot-device-alerts) | March 2022 |
 ### Deprecating a preview alert: ARM.MCAS_ActivityFromAnonymousIPAddresses
 
 **Estimated date for change:** January 2022 
@@ -178,7 +178,7 @@ When the move occurs, the custom recommendations will be found via a new "recomm
 Learn more: 
 - [Create custom security initiatives and policies](custom-security-policies.md).
 
-### Deprecate Microsoft Defender for IoT Device assessments
+### Deprecate Microsoft Defender for IoT device recommendations
 
 **Estimated date for change:** March 2022 
 
@@ -197,7 +197,7 @@ The following recommendation types will be deprecated:
 | 2acc27c6-5fdb-405e-9080-cb66b850c8f5: IoT Devices | TLS cipher suite upgrade needed |
 |d74d2738-2485-4103-9919-69c7e63776ec: IoT Devices | Auditd process stopped sending events |
 
-### Deprecate Microsoft Defender for IoT Device alerts
+### Deprecate Microsoft Defender for IoT device alerts
 
 **Estimated date for change:** March 2022 
 
