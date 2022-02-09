@@ -26,7 +26,7 @@ This article shows you how to add the Azure Maps to an Android app. It walks you
 
 1. A subscription to [Microsoft Azure](https://azure.microsoft.com). If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
-1. [Android Studio](https://developer.android.com/studio/) for free from Google.
+1. [Android Studio](https://developer.android.com/studio/). If you don't have Android Studio, you can get it for free from Google.
 
 > [!NOTE]
 > Many of the instructions in this quickstart were created using Android Studio Arctic Fox (2020.3.1). If you use a different version of Android Studio, the steps specific to Android Studio may vary.
@@ -37,7 +37,7 @@ Create a new Azure Maps account using the following steps:
 
 1. In the upper left-hand corner of the [Azure portal](https://portal.azure.com), select **Create a resource**.
 2. In the *Search the Marketplace* box, type **Azure Maps**, then select **Azure Maps** from the search results.
-3. Select the **Create** button that appears below the map.
+3. Select the **Create** button.
 4. On the **Create Maps Account** page, enter the following values:
     * The *Subscription* that you want to use for this account.
     * The *Resource group* name for this account. You may choose to *Create new* or *Use existing* resource group.
@@ -60,7 +60,7 @@ Once your Azure Maps account is successfully created, retrieve the primary key t
 >[!NOTE]
 > If you use the Azure subscription key instead of the Azure Maps primary key, your map won't render properly. Also, for security purposes, it is recommended that you rotate between your primary and secondary keys. To rotate keys, update your app to use the secondary key, deploy, then press the cycle/refresh button beside the primary key to generate a new primary key. The old primary key will be disabled. For more information on key rotation, see [Set up Azure Key Vault with key rotation and auditing](../key-vault/secrets/tutorial-rotation-dual.md)
 
-:::image type="content" source="./media/quick-demo-map-app/get-key.png" alt-text="A screenshot showing the Azure Maps Primary key in the Azure portal.":::
+:::image type="content" source="./media/quick-android-map/get-key.png" alt-text="A screenshot showing the Azure Maps Primary key in the Azure portal.":::
 
 ## Create a project in Android Studio
 
