@@ -218,6 +218,8 @@ The following tables display the current Microsoft Sentinel feature availability
 | - [Microsoft 365 Defender incident integration](../../sentinel/microsoft-365-defender-sentinel-integration.md#incident-integration) |Public Preview |Public Preview|
 | - [Microsoft Teams integrations](../../sentinel/collaborate-in-microsoft-teams.md) |Public Preview |Not Available |
 |- [Bring Your Own ML (BYO-ML)](../../sentinel/bring-your-own-ml.md) | Public Preview | Public Preview |
+|- [Search large datasets](../../sentinel/investigate-large-dataset.md) | Public Preview | Not Available |
+|- [Restore historical data](../../sentinel/investigate-large-dataset.md) | Public Preview | Not Available |
 | **Notebooks** | | |
 |- [Notebooks](../../sentinel/notebooks.md) | GA | GA |
 | - [Notebook integration with Azure Synapse](../../sentinel/notebooks-with-synapse.md) | Public Preview | Not Available|
