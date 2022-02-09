@@ -19,7 +19,7 @@ The Events feature enables you to receive event notification messages from Azure
 
 :::image type="content" source="media/events-overview/events-overview-flow.png" alt-text="Diagram of data flow from users to a FHIR service and then into the Events pipeline" lightbox="media/events-overview/events-overview-flow.png":::
 
->  [!Important]
+>  [!IMPORTANT]
 >  Events currently supports only the following FHIR resource operations:
 >
 >  **FhirResourceCreated** - The event emitted after a FHIR resource gets created successfully.

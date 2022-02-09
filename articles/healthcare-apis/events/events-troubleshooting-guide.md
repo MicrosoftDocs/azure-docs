@@ -17,7 +17,7 @@ This article provides guides and resources to troubleshoot Events.
 
 ## Events resources for troubleshooting
 
->  [!Important]
+>  [!IMPORTANT]
 >  Events currently supports only the following FHIR resource operations:
 >
 >  **FhirResourceCreated** - The event emitted after a FHIR resource gets created successfully.
