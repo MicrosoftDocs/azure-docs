@@ -5,7 +5,6 @@ ms.topic: include
 ms.date: 02/08/2022
 ms.author: justinha
 ---
-... include content ...
 
 To modify a trusted certificate authority, use the [Set-AzureADTrustedCertificateAuthority](/powershell/module/azuread/set-azureadtrustedcertificateauthority) cmdlet:
 

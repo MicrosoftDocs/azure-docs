@@ -51,7 +51,7 @@ Let's cover each step:
 
 1. After the user clicks the link, the client is redirected to the certauth endpoint [http://certauth.login.microsoftonline.com](http://certauth.login.microsoftonline.com). The endpoint performs mutual authentication and requests the client certificate as part of the TLS handshake. You will see an entry for this request in the Sign-in logs. There is a [known issue](#known-issues) where User ID is displayed instead of Username.
 
-   :::image type="content" border="true" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/sign-in-log.png" alt-text="Screenshot of the Sign-in log in Azure AD.":::
+   :::image type="content" border="true" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/sign-in-log.png" alt-text="Screenshot of the Sign-in log in Azure AD." lightbox="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/sign-in-log.png":::
    
    >[!NOTE]
    >The network administrator should allow access to certauth endpoint for the customer’s cloud environment in addition to login.microsoftonline.com. Disable TLS inspection on the certauth endpoint to make sure the client certificate request succeeds as part of the TLS handshake.
@@ -65,7 +65,7 @@ Let's cover each step:
    >[!NOTE] 
    >Username hints are not supported so the list of certificates can't be further scoped.
 
-   :::image type="content" border="true" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/cert-picker.png" alt-text="Screenshot of the certificate picker.":::
+   :::image type="content" border="true" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/cert-picker.png" alt-text="Screenshot of the certificate picker." lightbox="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/cert-picker.png":::
 
 1. Azure AD verifies the certificate revocation list to make sure the certificate is not revoked and is valid. Azure AD identifies the user in the tenant by using the [username binding configured](how-to-certificate-based-authentication.md#step-3-configure-username-binding-policy) on the tenant by mapping the certificate field value to user attribute value.
 1. If a unique user is found and the user has a conditional access policy and needs multifactor authentication (MFA) and the [certificate authentication binding rule](how-to-certificate-based-authentication.md#step-2-configure-authentication-binding-policy) satisfies MFA, then Azure AD signs the user in immediately. If the certificate satisfies only a single factor, then it requests the user for a second factor to complete Azure AD Multi-Factor Authentication.
@@ -160,7 +160,7 @@ The user certificate should be configured like this screenshot:
 
 For the first test scenario, configure the authentication policy where the Issuer subject rule satisfies single-factor authentication.
 
-:::image type="content" border="true" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/single-factor.png" alt-text="Screenshot of the Authentication policy configuration showing single-factor authentication required." :::  
+:::image type="content" border="true" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/single-factor.png" alt-text="Screenshot of the Authentication policy configuration showing single-factor authentication required." lightbox="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/single-factor.png":::  
 
 1. Sign in to the Azure portal as the test user by using CBA. The authentication policy is set where Issuer subject rule satisfies single-factor authentication, but the user has MFA required by the conditional access policy, so a second authentication factor is requested.
 1. After sign-in was succeeds, click **Azure Active Directory** > **Sign-in logs**.
@@ -185,7 +185,7 @@ For the first test scenario, configure the authentication policy where the Issue
 
    These additional entries show that the authentication is complete and a primary refresh token is sent back to the browser and user is given access to the resource.
 
-   :::image type="content" border="true" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/refresh-token.png" alt-text="Screenshot of refresh token entry in the sign-in logs." :::  
+   :::image type="content" border="true" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/refresh-token.png" alt-text="Screenshot of refresh token entry in the sign-in logs." lightbox="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/refresh-token.png":::  
 
    Click **Additional Details** to MFA succeeded. 
 
@@ -196,14 +196,14 @@ For the first test scenario, configure the authentication policy where the Issue
 
 For the next test scenario, configure the authentication policy where the Issuer subject rule satisfies multifactor authentication.
 
-:::image type="content" border="true" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/multifactor.png" alt-text="Screenshot of the Authentication policy configuration showing multifactor authentication required." :::  
+:::image type="content" border="true" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/multifactor.png" alt-text="Screenshot of the Authentication policy configuration showing multifactor authentication required." lightbox="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/multifactor.png":::  
 
 1. Sign in to the Azure portal using CBA. since the policy was set to satisfy multifactor authentication, the user sign-in is successful without a second factor.
 1. Click **Azure Active Directory** > **Sign-in logs**, including and entry with **Interrupted** status.
 
    You will see several entries in the Sign-in logs. 
 
-   :::image type="content" border="true" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/several-entries.png" alt-text="Screenshot of several entries in the sign-in logs." :::  
+   :::image type="content" border="true" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/several-entries.png" alt-text="Screenshot of several entries in the sign-in logs." lightbox="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/several-entries.png":::  
 
    The entry with **Interrupted** status provides has more diagnostic info in the **Additional Details** tab. 
 

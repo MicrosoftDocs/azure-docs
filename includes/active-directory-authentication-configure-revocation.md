@@ -5,7 +5,6 @@ ms.topic: include
 ms.date: 02/08/2022
 ms.author: justinha
 ---
-... include content ...
 
 To revoke a client certificate, Azure Active Directory fetches the certificate revocation list (CRL) from the URLs uploaded as part of certificate authority information and caches it. The last publish timestamp (**Effective Date** property) in the CRL is used to ensure the CRL is still valid. The CRL is periodically referenced to revoke access to certificates that are a part of the list.
 

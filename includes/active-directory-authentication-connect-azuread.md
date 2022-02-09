@@ -5,7 +5,6 @@ ms.topic: include
 ms.date: 02/08/2022
 ms.author: justinha
 ---
-... include content ...
 
 To establish a connection with your tenant, use the [Connect-AzureAD](/powershell/module/azuread/connect-azuread) cmdlet:
 

@@ -90,7 +90,7 @@ For example, if a user certificate is revoked and is part of a Certificate Revoc
 
 To get more diagnostic information, look in **Sign-in logs**. If a user authentication fails due to CRL validation for example, sign-in logs show the error information correctly.
 
-:::image type="content" border="true" source="./media/troubleshoot-cloud-native-certificate-based-authentication/details.png" alt-text="Screenshot of Authentication Details." :::
+:::image type="content" border="true" source="./media/troubleshoot-cloud-native-certificate-based-authentication/details.png" alt-text="Screenshot of Authentication Details." lightbox="./media/troubleshoot-cloud-native-certificate-based-authentication/details.png":::
 
 ## Why didn't my changes to authentication policy changes take effect?
 

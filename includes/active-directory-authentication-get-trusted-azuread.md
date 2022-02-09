@@ -5,7 +5,6 @@ ms.topic: include
 ms.date: 02/08/2022
 ms.author: justinha
 ---
-... include content ...
 
 To retrieve the trusted certificate authorities that are defined in your directory, use the [Get-AzureADTrustedCertificateAuthority](/powershell/module/azuread/get-azureadtrustedcertificateauthority) cmdlet.
 
