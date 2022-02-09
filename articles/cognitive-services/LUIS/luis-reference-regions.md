@@ -56,17 +56,11 @@ The authoring region app can only be published to a corresponding publish region
 
 ## Single data residency
 
-Regions that fall under single data residency are the regions where data do not leave the boundaries of the region. 
+Single data residency is where the data does not leave the boundaries of the region. 
 
-The following publishing regions do not have a failover region:
+To ensure single data residency, make sure to set `log=false` for [V3 APIs](https://westus.dev.cognitive.microsoft.com/docs/services/luis-endpoint-api-v3-0/operations/5cb0a91e54c9db63d589f433) to disable active learning. By default this value is `false`, to ensure that data does not leave the boundaries of the publishing region. 
 
-
-* Brazil South
-* Southeast Asia
-
-> [!Note]
-> * Make sure to set `log=false` for [V3 APIs](https://westus.dev.cognitive.microsoft.com/docs/services/luis-endpoint-api-v3-0/operations/5cb0a91e54c9db63d589f433) to disable active learning. By default this value is `false`, to ensure that data does not leave the boundaries of the publishing region. 
-> * If `log=true`, data is returned to the authoring region for active learning even if the publishing region is one of the single data residnecy regions.
+If `log=true`, data is returned to the authoring region for active learning even if the publishing region does not have a [failover region](#Failover regions)
 
 
 ## Publishing to Europe
@@ -119,10 +113,12 @@ Learn more about the [authoring and prediction endpoints](developer-reference-re
 
 Each region has a secondary region to fail over to. Europe fails over inside Europe and Australia fails over inside Australia.
 
-Publishing regions that fall under [single data residency](#single-data-residency) do not have a failover region.
-
-
 Authoring regions have [paired fail-over regions](../../availability-zones/cross-region-replication-azure.md).
+
+The following publishing regions do not have a failover region:
+
+* Brazil South
+* Southeast Asia
 
 ## Next steps
 
