@@ -33,7 +33,7 @@ This documentation contains the following types of articles:
 
 [!INCLUDE [Text Analytics for health](includes/features.md)]
 
-## Get started with Text anlaytics for health
+## Get started with Text analytics for health
 
 To use this feature, you submit raw unstructured text for analysis and handle the API output in your application. Analysis is performed as-is, with no additional customization to the model used on your data. There are three ways to use Text Analytics for health:
 
