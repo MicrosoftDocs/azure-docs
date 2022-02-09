@@ -2,12 +2,49 @@
 title: "What's new in Azure Monitor documentation"
 description: "What's new in Azure Monitor documentation"
 ms.topic: conceptual
-ms.date: 01/04/2022
+ms.date: 02/09/2022
 ---
 
 # What's new in Azure Monitor documentation
 
 This article lists significant changes to Azure Monitor documentation.
+
+## January, 2022
+
+## Agents
+
+**Updated articles**
+
+- [Manage the Azure Monitor agent](agents/azure-monitor-agent-manage.md)
+
+## Alerts
+
+**New articles**
+
+- [Non-common alert schema definitions for Test Action Group (Preview)](alerts/alerts-non-common-schema-definitions.md)
+
+**Updated articles**
+
+- [Create and manage action groups in the Azure portal](alerts/action-groups.md)
+- [Upgrade legacy rules management to the current Log Alerts API from legacy Log Analytics Alert API](alerts/alerts-log-api-switch.md)
+- [Log alerts in Azure Monitor](alerts/alerts-unified-log.md)
+
+## Application Insights
+
+**Updated articles**
+
+- [Usage analysis with Application Insights](app/usage-overview.md)
+- [Tips for updating your JVM args - Azure Monitor Application Insights for Java](app/java-standalone-arguments.md)
+- [Configuration options - Azure Monitor Application Insights for Java](app/java-standalone-config.md)
+- [Troubleshooting SDK load failure for JavaScript web apps](app/javascript-sdk-load-failure.md)
+
+## Logs
+
+**Updated articles**
+
+- [Azure Monitor customer-managed key](logs/customer-managed-keys.md)
+- [Log Analytics workspace data export in Azure Monitor (preview)](logs/logs-data-export.md)
+- [Manage usage and costs with Azure Monitor Logs](logs/manage-cost-storage.md)
 
 ## December, 2021
 
