@@ -13,9 +13,9 @@ Watchlists in Microsoft Sentinel allow you to correlate data from a data source 
 
 Upload a watchlist file from a local folder or from your Azure Storage account. To create a watchlist file, you have the option to download one of the watchlist templates from Microsoft Sentinel to populate with your data. Then upload that file when you create the watchlist in Microsoft Sentinel.  
 
-The features for watchlist templates and the ability to create a watchlist from a file in Azure Storage are currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
 Local file uploads are currently limited to files of up to 3.8 MB in size. If you have large watchlist file that's up to 500 MB in size, upload the file to your Azure Storage account. Before you create a watchlist, review the [limitations of watchlists](watchlists.md).
+
+The features for watchlist templates and the ability to create a watchlist from a file in Azure Storage are currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Upload a watchlist from a local folder
 
@@ -36,7 +36,7 @@ If you didn't use a watchlist template to create your file,
 
 1. On the **General** page, provide the name, description, and alias for the watchlist.
 
-    :::image type="content" source="./media/watchlists-create/sentinel-watchlist-general.png" alt-text="Screenshot of watchlist general tab in the watchlists wizard.":::
+    :::image type="content" source="./media/watchlists-create/sentinel-watchlist-general-country.png" alt-text="Screenshot of watchlist general tab in the watchlists wizard.":::
 
 1. Select **Next: Source**.
 1. Use the information in the following table to upload your watchlist data.
@@ -59,8 +59,6 @@ If you didn't use a watchlist template to create your file,
     :::image type="content" source="./media/watchlists-create/sentinel-watchlist-review.png" alt-text="Screenshot of the watchlist review page.":::
 
     A notification appears once the watchlist is created.
-
-    :::image type="content" source="./media/watchlists-create/sentinel-watchlist-complete.png" alt-text="Screenshot of the watchlist successful creation notification." lightbox="./media/watchlists-create/sentinel-watchlist-complete.png":::
 
 It might take several minutes for the watchlist to be created and the new data to be available in queries.
 
@@ -158,7 +156,7 @@ Create a shared access signature URL for Microsoft Sentinel to retrieve the watc
 1. Review the information, verify that it's correct, wait for the **Validation passed** message.
 1. Select **Create**.
 
-It might take up to an hour for a large watchlist to be created and the new data to be available in queries.
+It might an hour or more for a large watchlist to be created and the new data to be available in queries.
 
 ## View watchlist status
 
@@ -171,7 +169,9 @@ View the status by selecting the watchlist in your workspace.
 
     :::image type="content" source="./media/watchlists-create/view-status-uploading.png" alt-text="Screenshot that shows the upload status on the watchlist." lightbox="./media/watchlists-create/view-status-uploading.png":::
 
-1. If the status is **Succeeded**, select **View in Log Analytics** to use the watchlist in a query. It might take several minutes for the watchlist to show in Log Analytics.
+1. When the status is **Succeeded**, select **View in Log Analytics** to use the watchlist in a query. It might take several minutes for the watchlist to show in Log Analytics.
+
+   :::image type="content" source="media/watchlists-create/large-watchlist-status-view-in-log.png" alt-text="Screenshot of ":::
 
 ## Download watchlist template (preview)
 
