@@ -81,7 +81,7 @@ namespace CosmosDBSamplesV2
 
 ### Queue trigger, write one doc (v4 extension)
 
-Apps using Cosmos DB [extension version 4.x](./functions-bindings-cosmosdb-v2.md#cosmos-db-extension-4x-and-higher) or higher will have different attribute properties which are shown below. The following example shows a [C# function](functions-dotnet-class-library.md) that adds a document to a database, using data provided in message from Queue storage.
+Apps using Cosmos DB [extension version 4.x] or higher will have different attribute properties which are shown below. The following example shows a [C# function](functions-dotnet-class-library.md) that adds a document to a database, using data provided in message from Queue storage.
 
 ```cs
 using Microsoft.Azure.WebJobs;
@@ -150,133 +150,6 @@ namespace CosmosDBSamplesV2
 ```
 
 [!INCLUDE [functions-bindings-csharp-intro](../../includes/functions-bindings-csharp-intro.md)]
-
-# [In-process](#tab/in-process)
-
-This section contains the following examples:
-
-* [Queue trigger, write one doc](#queue-trigger-write-one-doc-c)
-* [Queue trigger, write one doc (v4 extension)](#queue-trigger-write-one-doc-v4-c)
-* [Queue trigger, write docs using IAsyncCollector](#queue-trigger-write-docs-using-iasynccollector-c)
-
-The examples refer to a simple `ToDoItem` type:
-
-```cs
-namespace CosmosDBSamplesV2
-{
-    public class ToDoItem
-    {
-        public string id { get; set; }
-        public string Description { get; set; }
-    }
-}
-```
-
-<a id="queue-trigger-write-one-doc-c"></a>
-
-### Queue trigger, write one doc
-
-The following example shows a [C# function](functions-dotnet-class-library.md) that adds a document to a database, using data provided in message from Queue storage.
-
-```cs
-using Microsoft.Azure.WebJobs;
-using Microsoft.Azure.WebJobs.Host;
-using Microsoft.Extensions.Logging;
-using System;
-
-namespace CosmosDBSamplesV2
-{
-    public static class WriteOneDoc
-    {
-        [FunctionName("WriteOneDoc")]
-        public static void Run(
-            [QueueTrigger("todoqueueforwrite")] string queueMessage,
-            [CosmosDB(
-                databaseName: "ToDoItems",
-                collectionName: "Items",
-                ConnectionStringSetting = "CosmosDBConnection")]out dynamic document,
-            ILogger log)
-        {
-            document = new { Description = queueMessage, id = Guid.NewGuid() };
-
-            log.LogInformation($"C# Queue trigger function inserted one row");
-            log.LogInformation($"Description={queueMessage}");
-        }
-    }
-}
-```
-
-<a id="queue-trigger-write-one-doc-v4-c"></a>
-
-### Queue trigger, write one doc (v4 extension)
-
-Apps using Cosmos DB [extension version 4.x](./functions-bindings-cosmosdb-v2.md#cosmos-db-extension-4x-and-higher) or higher will have different attribute properties which are shown below. The following example shows a [C# function](functions-dotnet-class-library.md) that adds a document to a database, using data provided in message from Queue storage.
-
-```cs
-using Microsoft.Azure.WebJobs;
-using Microsoft.Azure.WebJobs.Host;
-using Microsoft.Extensions.Logging;
-using System;
-
-namespace CosmosDBSamplesV2
-{
-    public static class WriteOneDoc
-    {
-        [FunctionName("WriteOneDoc")]
-        public static void Run(
-            [QueueTrigger("todoqueueforwrite")] string queueMessage,
-            [CosmosDB(
-                databaseName: "ToDoItems",
-                containerName: "Items",
-                Connection = "CosmosDBConnection")]out dynamic document,
-            ILogger log)
-        {
-            document = new { Description = queueMessage, id = Guid.NewGuid() };
-
-            log.LogInformation($"C# Queue trigger function inserted one row");
-            log.LogInformation($"Description={queueMessage}");
-        }
-    }
-}
-```
-
-<a id="queue-trigger-write-docs-using-iasynccollector-c"></a>
-
-### Queue trigger, write docs using IAsyncCollector
-
-The following example shows a [C# function](functions-dotnet-class-library.md) that adds a collection of documents to a database, using data provided in a queue message JSON.
-
-```cs
-using Microsoft.Azure.WebJobs;
-using Microsoft.Azure.WebJobs.Host;
-using System.Threading.Tasks;
-using Microsoft.Extensions.Logging;
-
-namespace CosmosDBSamplesV2
-{
-    public static class WriteDocsIAsyncCollector
-    {
-        [FunctionName("WriteDocsIAsyncCollector")]
-        public static async Task Run(
-            [QueueTrigger("todoqueueforwritemulti")] ToDoItem[] toDoItemsIn,
-            [CosmosDB(
-                databaseName: "ToDoItems",
-                collectionName: "Items",
-                ConnectionStringSetting = "CosmosDBConnection")]
-                IAsyncCollector<ToDoItem> toDoItemsOut,
-            ILogger log)
-        {
-            log.LogInformation($"C# Queue trigger function processed {toDoItemsIn?.Length} items");
-
-            foreach (ToDoItem toDoItem in toDoItemsIn)
-            {
-                log.LogInformation($"Description={toDoItem.Description}");
-                await toDoItemsOut.AddAsync(toDoItem);
-            }
-        }
-    }
-}
-```
 
 # [Isolated process](#tab/isolated-process)
 
@@ -759,8 +632,6 @@ def main(req: func.HttpRequest, doc: func.Out[func.Document]) -> func.HttpRespon
 ::: zone pivot="programming-language-csharp" 
 ## Attributes
 
-## Attributes
-
 Both [in-process](functions-dotnet-class-library.md) and [isolated process](dotnet-isolated-process-guide.md) C# libraries use attributes to define the function. C# script instead uses a function.json configuration file.
 
 # [Functions 2.x+](#tab/functionsv2/in-process)
@@ -830,63 +701,17 @@ By default, when you write to the output parameter in your function, a document 
 > [!NOTE]  
 > When you specify the ID of an existing document, it gets overwritten by the new output document.
 
+[!INCLUDE [functions-cosmosdb-connections](../../includes/functions-cosmosdb-connections.md)]
+
 ## Exceptions and return codes
 
 | Binding | Reference |
 |---|---|
 | CosmosDB | [CosmosDB Error Codes](/rest/api/cosmos-db/http-status-codes-for-cosmosdb) |
 
-<a name="host-json"></a>
-
-## host.json settings
-
-[!INCLUDE [functions-host-json-section-intro](../../includes/functions-host-json-section-intro.md)]
-
-# [Functions 2.x+](#tab/functionsv2)
-
-```json
-{
-    "version": "2.0",
-    "extensions": {
-        "cosmosDB": {
-            "connectionMode": "Gateway",
-            "protocol": "Https",
-            "leaseOptions": {
-                "leasePrefix": "prefix1"
-            }
-        }
-    }
-}
-```
-
-|Property  |Default |Description |
-|----------|--------|------------|
-|**connectionMode**|`Gateway`|The connection mode used by the function when connecting to the Azure Cosmos DB service. Options are `Direct` and `Gateway`|
-|**protocol**|`Https`|The connection protocol used by the function when connection to the Azure Cosmos DB service. Read [here for an explanation of both modes](../cosmos-db/performance-tips.md#networking). |
-|**leasePrefix**|n/a|Lease prefix to use across all functions in an app. |
-
-# [Extension 4.x+ (preview)](#tab/functionsv4)
-
-```json
-{
-    "version": "2.0",
-    "extensions": {
-        "cosmosDB": {
-            "connectionMode": "Gateway"
-        }
-    }
-}
-```
-
-|Property  |Default |Description |
-|----------|--------|------------|
-|**connectioMode**|`Gateway`|The connection mode used by the function when connecting to the Azure Cosmos DB service. Options are `Direct` and `Gateway`|
-
----
-
 ## Next steps
 
 - [Run a function when an Azure Cosmos DB document is created or modified (Trigger)](./functions-bindings-cosmosdb-v2-trigger.md)
 - [Read an Azure Cosmos DB document (Input binding)](./functions-bindings-cosmosdb-v2-input.md)
 
-[version 4.x of the extension]: ./functions-bindings-cosmosdb-v2.md#cosmos-db-extension-4x-and-higher
+[extension version 4.x]: ./functions-bindings-cosmosdb-v2.md?tabs=extensionv4

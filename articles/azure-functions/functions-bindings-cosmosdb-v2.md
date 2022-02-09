@@ -105,6 +105,10 @@ This extension version is available from the extension bundle v3 by adding the f
 
 The Cosmos DB is part of an [extension bundle], which is specified in your host.json project file. You may need to modify this bundle to change the version of the binding, or if bundles aren't already installed. To learn more, see [extension bundle].
 
+# [Bundle v2.x](#tab/functionsv2)
+
+You can install this version of the extension in your function app by registering the [extension bundle], version 2.x.
+
 # [Bundle v3.x](#tab/extensionv4)
 
 This version of the bundle contains a preview version of the Cosmos DB bindings extension (version 4.x) that introduces the ability to [connect using an identity instead of a secret](./functions-reference.md#configure-an-identity-based-connection). For a tutorial on configuring your function apps with managed identities, see the [creating a function app with identity-based connections tutorial](./functions-identity-based-connections-tutorial.md).
@@ -128,10 +132,6 @@ You can add this version of the extension from the preview extension bundle v3 b
 
 To learn more, see [Update your extensions].
 
-# [Bundle v2.x](#tab/functionsv2)
-
-You can install this version of the extension in your function app by registering the [extension bundle], version 2.x.
-
 ---
 
 ::: zone-end
@@ -147,6 +147,8 @@ You can install this version of the extension in your function app by registerin
 ## host.json settings
 
 [!INCLUDE [functions-host-json-section-intro](../../includes/functions-host-json-section-intro.md)]
+
+# [Functions 2.x+](#tab/functionsv2)
 
 ```json
 {
@@ -165,10 +167,28 @@ You can install this version of the extension in your function app by registerin
 
 |Property  |Default |Description |
 |----------|--------|------------|
-|GatewayMode|Gateway|The connection mode used by the function when connecting to the Azure Cosmos DB service. Options are `Direct` and `Gateway`|
-|Protocol|Https|The connection protocol used by the function when connection to the Azure Cosmos DB service. Read [here for an explanation of both modes](../cosmos-db/performance-tips.md#networking). <br><br> This setting is not available in [version 4.x of the extension](#cosmos-db-extension-4x-and-higher). |
-|leasePrefix|n/a|Lease prefix to use across all functions in an app. <br><br> This setting is not available in [version 4.x of the extension](#cosmos-db-extension-4x-and-higher).|
+|**connectionMode**|`Gateway`|The connection mode used by the function when connecting to the Azure Cosmos DB service. Options are `Direct` and `Gateway`|
+|**protocol**|`Https`|The connection protocol used by the function when connection to the Azure Cosmos DB service. Read [here for an explanation of both modes](../cosmos-db/performance-tips.md#networking). |
+|**leasePrefix**|n/a|Lease prefix to use across all functions in an app. |
 
+# [Extension 4.x+ (preview)](#tab/extensionv4)
+
+```json
+{
+    "version": "2.0",
+    "extensions": {
+        "cosmosDB": {
+            "connectionMode": "Gateway"
+        }
+    }
+}
+```
+
+|Property  |Default |Description |
+|----------|--------|------------|
+|**connectioMode**|`Gateway`|The connection mode used by the function when connecting to the Azure Cosmos DB service. Options are `Direct` and `Gateway`|
+
+---
 
 ## Next steps
 
@@ -177,3 +197,4 @@ You can install this version of the extension in your function app by registerin
 - [Save changes to an Azure Cosmos DB document (Output binding)](./functions-bindings-cosmosdb-v2-output.md)
 
 [extension bundle]: ./functions-bindings-register.md#extension-bundles
+[Update your extensions]: ./functions-bindings-register.md

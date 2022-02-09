@@ -124,7 +124,7 @@ This document type is the type of the [`IReadOnlyList<T>`](/dotnet/api/system.co
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/CosmosDB/CosmosDBFunction.cs" range="4-35":::
 
 
-# [Extension 4.x+ (preview)](#tab/functionsv4/isolated-process)
+# [Extension 4.x+ (preview)](#tab/extensionv4/isolated-process)
 
 Example pending.
 
@@ -164,7 +164,7 @@ Here's the C# script code:
     }
 ```
 
-# [Extension 4.x+ (preview)](#tab/functionsv4/csharp-script)
+# [Extension 4.x+ (preview)](#tab/extensionv4/csharp-script)
 
 The following example shows a Cosmos DB trigger binding in a *function.json* file and a [C# script function](functions-reference-csharp.md) that uses the binding. The function writes log messages when Cosmos DB records are added or modified.
 
@@ -222,7 +222,7 @@ This function is invoked when there are inserts or updates in the specified data
                 context.getLogger().info(items.length + "item(s) is/are changed.");
             }
 ```
-# [Extension 4.x+ (preview)](#tab/functionsv4)
+# [Extension 4.x+ (preview)](#tab/extensionv4)
 
 [!INCLUDE [functions-cosmosdb-extension-java-note](../../includes/functions-cosmosdb-extension-java-note.md)]
 ---
@@ -302,7 +302,7 @@ Both [in-process](functions-dotnet-class-library.md) and [isolated process](dotn
 
 [!INCLUDE [functions-cosmosdb-attributes-v3](../../includes/functions-cosmosdb-attributes-v3.md)]
 
-# [Extension 4.x+ (preview)](#tab/functionsv4/isolated-process)
+# [Extension 4.x+ (preview)](#tab/extensionv4/isolated-process)
 
 [!INCLUDE [functions-cosmosdb-attributes-v4](../../includes/functions-cosmosdb-attributes-v4.md)]
 
@@ -310,7 +310,7 @@ Both [in-process](functions-dotnet-class-library.md) and [isolated process](dotn
 
 [!INCLUDE [functions-cosmosdb-settings-v3](../../includes/functions-cosmosdb-settings-v3.md)]
 
-# [Extension 4.x+ (preview)](#tab/functionsv4/csharp-script)
+# [Extension 4.x+ (preview)](#tab/extensionv4/csharp-script)
 
 [!INCLUDE [functions-cosmosdb-settings-v4](../../includes/functions-cosmosdb-settings-v4.md)]
 
@@ -344,7 +344,7 @@ From the [Java functions runtime library](/java/api/overview/azure/functions/run
 + [startFromBeginning](/java/api/com.microsoft.azure.functions.annotation.cosmosdbtrigger.startfrombeginning)
 + [preferredLocations](/java/api/com.microsoft.azure.functions.annotation.cosmosdbtrigger.preferredlocations)
 
-# [Extension 4.x+ (preview)](#tab/functionsv4)
+# [Extension 4.x+ (preview)](#tab/extensionv4)
 
 [!INCLUDE [functions-cosmosdb-extension-java-note](../../includes/functions-cosmosdb-extension-java-note.md)]
 
@@ -360,7 +360,7 @@ The following table explains the binding configuration properties that you set i
 
 [!INCLUDE [functions-cosmosdb-settings-v3](../../includes/functions-cosmosdb-settings-v3.md)]
 
-# [Extension 4.x+ (preview)](#tab/functionsv4)
+# [Extension 4.x+ (preview)](#tab/extensionv4)
 
 [!INCLUDE [functions-cosmosdb-settings-v4](../../includes/functions-cosmosdb-settings-v4.md)]
 

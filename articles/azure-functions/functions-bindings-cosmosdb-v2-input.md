@@ -365,7 +365,7 @@ namespace CosmosDBSamplesV2
 
 ### HTTP trigger, get multiple docs, using CosmosClient
 
-The following example shows a [C# function](functions-dotnet-class-library.md) that retrieves a list of documents. The function is triggered by an HTTP request. The code uses a `CosmosClient` instance provided by the Azure Cosmos DB binding, available in [extension version 4.x](./functions-bindings-cosmosdb-v2.md#cosmos-db-extension-4x-and-higher), to read a list of documents. The `CosmosClient` instance could also be used for write operations.
+The following example shows a [C# function](functions-dotnet-class-library.md) that retrieves a list of documents. The function is triggered by an HTTP request. The code uses a `CosmosClient` instance provided by the Azure Cosmos DB binding, available in [extension version 4.x](./functions-bindings-cosmosdb-v2.md?tabs=extensionv4), to read a list of documents. The `CosmosClient` instance could also be used for write operations.
 
 ```csharp
 using System.Linq;
@@ -1694,7 +1694,7 @@ Both [in-process](functions-dotnet-class-library.md) and [isolated process](dotn
 
 [!INCLUDE [functions-cosmosdb-input-attributes-v3](../../includes/functions-cosmosdb-input-attributes-v3.md)]
 
-# [Extension 4.x+ (preview)](#tab/functionsv4/isolated-process)
+# [Extension 4.x+ (preview)](#tab/extensionv4/isolated-process)
 
 [!INCLUDE [functions-cosmosdb-input-attributes-v4](../../includes/functions-cosmosdb-input-attributes-v4.md)]
 
@@ -1702,7 +1702,7 @@ Both [in-process](functions-dotnet-class-library.md) and [isolated process](dotn
 
 [!INCLUDE [functions-cosmosdb-input-settings-v3](../../includes/functions-cosmosdb-input-settings-v3.md)]
 
-# [Extension 4.x+ (preview)](#tab/functionsv4/csharp-script)
+# [Extension 4.x+ (preview)](#tab/extensionv4/csharp-script)
 
 [!INCLUDE [functions-cosmosdb-input-settings-v4](../../includes/functions-cosmosdb-input-settings-v4.md)]
 
@@ -1733,7 +1733,7 @@ The following table explains the binding configuration properties that you set i
 
 [!INCLUDE [functions-cosmosdb-settings-v3](../../includes/functions-cosmosdb-input-settings-v3.md)]
 
-# [Extension 4.x+ (preview)](#tab/functionsv4)
+# [Extension 4.x+ (preview)](#tab/extensionv4)
 
 [!INCLUDE [functions-cosmosdb-settings-v4](../../includes/functions-cosmosdb-input-settings-v4.md)]
 
@@ -1760,7 +1760,7 @@ The parameter type supported by the Event Grid trigger depends on the Functions 
 
 [!INCLUDE [functions-cosmosdb-usage](../../includes/functions-cosmosdb-usage.md)]
 
-# [Extension 4.x+ (preview)](#tab/functionsv4/isolated-process)
+# [Extension 4.x+ (preview)](#tab/extensionv4/isolated-process)
 
 Only JSON string inputs are currently supported. 
 
@@ -1768,7 +1768,7 @@ Only JSON string inputs are currently supported.
 
 [!INCLUDE [functions-cosmosdb-settings-v3](../../includes/functions-cosmosdb-input-settings-v3.md)]
 
-# [Extension 4.x+ (preview)](#tab/functionsv4/csharp-script)
+# [Extension 4.x+ (preview)](#tab/extensionv4/csharp-script)
 
 [!INCLUDE [functions-cosmosdb-settings-v4](../../includes/functions-cosmosdb-input-settings-v4.md)]
 
@@ -1788,6 +1788,8 @@ Updates to documents are not made automatically upon function exit. To update do
 ::: zone pivot="programming-language-python"  
 Data is made available to the function via a `DocumentList` parameter. Changes made to the document are not automatically persisted.
 ::: zone-end  
+
+[!INCLUDE [functions-cosmosdb-connections](../../includes/functions-cosmosdb-connections.md)]
 
 ## Next steps
 
