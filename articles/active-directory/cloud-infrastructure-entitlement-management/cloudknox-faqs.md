@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: faq
-ms.date: 02/04/2022
+ms.date: 02/08/2022
 ms.author: v-ydequadros
 ---
 

@@ -132,10 +132,14 @@
     - name: Manage rules for authorization systems
       expanded: false
       items:
-      - name: Create a rule
-        href: cloudknox-howto-create-rule.md 
       - name: View rules in the Autopilot dashboard
         href: cloudknox-ui-autopilot.md
+      - name: Create a rule
+        href: cloudknox-howto-create-rule.md 
+      - name: Generate, view, and apply rule recommendations
+        href: cloudknox-howto-recommendations-rule.md 
+      - name: View notification settings for a rule
+        href: cloudknox-howto-notification-rule.md
     - name: Create and view reports 
       expanded: false
       items: 

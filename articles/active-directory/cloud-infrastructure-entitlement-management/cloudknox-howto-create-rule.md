@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/01/2022
+ms.date: 02/08/2022
 ms.author: v-ydequadros
 ---
 
@@ -23,24 +23,30 @@ This article describes how to create a rule in the CloudKnox Permissions Managem
 > [!NOTE]
 > Only users with **Administrator** permissions can view and make changes on the Autopilot tab. If you don’t have these permissions, contact your system administrator.
 
-## Create a rule for Amazon Web Services (AWS) 
+## Create a rule 
 
-1. In CloudKnox, select the **Autopilot** tab.
-1. Select **New rule**.
-1. In the **Rule name** box, enter a name for your rule, and then select **Next**.
-1. Select **AWS**, and then select **Next**. 
-1. Select **All** or the account names that you want.
+1. In the CloudKnox home page, select the **Autopilot** tab.
+1. In the **Autopilot** dashboard, from the **Authorization system types** dropdown, select Amazon Web Services (**AWS**), Microsoft **Azure**, or Google Cloud Platform (**GCP**).
+1. From the **Authorization system**dropdown, in the **List** and **Folders** box, select the account and folder names that you want, and then select **Apply**.  
+1. In the **Autopilot** dashboard, select **New rule**.
+1. In the **Rule name** box, enter a name for your rule.
+1. Select **AWS**, **Azure**, **GCP**, and then select **Next**.
+1. Select **Authorization systems**, and then select **All** or the account names that you want.
 1. From the **Folders** dropdown, select a folder, and then select **Apply**.
 
-     To change your folder settings, select **Reset**.
+    To change your folder settings, select **Reset**.
 
-1. In the **Configure** tab, select the following parameters for your rule:
+    - The **Status** column displays if the authorization system is **Online** or **Offline**.
+    - The **Controller** column displays if the controller is **Enabled** or **Not enabled**.
+
+
+1. Select **Configure** , and then select the following parameters for your rule:
 
     - **Role created on is**: Select the duration in days.
     - **Role last used on is**: Select the duration in days when the role was last used.
     - **Cross account role**: Select **True** or **False**.
 
-1. In the **Mode** tab, if you want recommendations to be generated and applied manually, select **On-demand**.
+1. Select **Mode**, and then, if you want recommendations to be generated and applied manually, select **On-demand**.
 1. Select **Save**
 
     The following information displays in the **Autopilot rules** table:
@@ -54,63 +60,11 @@ This article describes how to create a rule in the CloudKnox Permissions Managem
     - **Last Modified**: The date and time the rule was last modified.
     - **Subscription**: Provides an **On** or **Off** subscription that allows you to receive email notifications when recommendations have been generated, applied, or unapplied.
 
-## Create a rule for Microsoft Azure 
 
-1. In CloudKnox, select the **Autopilot** tab.
-1. Select **New rule**.
-1. Select **Azure**, and then select **Next**.
-1. In the **Rule name** box, enter a name for your rule, and then select **Next**.
-1. Select **All** or the account names that you want.
-1. From the **Folders** dropdown, select a folder, and then select **Apply**.
-
-     To change your folder settings, select **Reset**.
-
-1. In the **Configure** tab, select a duration in days for how long your rule hasn't been used.
-1. In the **Mode** tab, if you want recommendations to be generated and applied manually, select **On-demand**.
-1. Select **Save**
-
-    The following information displays in the **Autopilot rules** table:
-
-    - **Rule Name**: The name of the rule.
-    - **State**: The status of the rule: idle (not being use) or active (being used).
-    - **Rule Type**: The type of rule being applied. 
-    - **Mode**: The status of the mode: on-demand or not.
-    - **Last Generated**: The date and time the rule was last generated.
-    - **Created By**: The email address of the user who created the rule.
-    - **Last Modified**: The date and time the rule was last modified.
-    - **Subscription**: Provides an **On** or **Off** subscription that allows you to receive email notifications when recommendations have been generated, applied, or unapplied.
-
-## Create a rule for Google Cloud Platform (GCP) 
-
-1. In CloudKnox, select the **Autopilot** tab.
-1. Select **New rule**.
-1. Select **GCP**, and then select **Next**.
-1. In the **Rule name** box, enter a name for your rule, and then select **Next**.
-1. Select **All** or the account names that you want.
-1. From the **Folders** dropdown, select a folder, and then select **Apply**.
-
-     To change your folder settings, select **Reset**.
-
-1. The **Configure** tab displays the following options:
-
-    - **Cross project**: Select **True** or **False**.
-    - **Unused**: Select a duration in days for how long your rule hasn't been used.
-
-1. In the **Mode** tab, if you want recommendations to be generated and applied manually, select **On-demand**.
-1. Select **Save**
-
-    The following information displays in the **Autopilot rules** table:
-
-    - **Rule Name**: The name of the rule.
-    - **State**: The status of the rule: idle (not being use) or active (being used).
-    - **Rule Type**: The type of rule being applied. 
-    - **Mode**: The status of the mode: on-demand or not.
-    - **Last Generated**: The date and time the rule was last generated.
-    - **Created By**: The email address of the user who created the rule.
-    - **Last Modified**: The date and time the rule was last modified.
-    - **Subscription**: Provides an **On** or **Off** subscription that allows you to receive email notifications when recommendations have been generated, applied, or unapplied.
 
 
 ## Next steps
 
 - For more information about viewing rules, see [View roles in the Autopilot dashboard](cloudknox-ui-autopilot.md).
+- For information about generating, viewing, and applying rule recommendations for rules, see [Generate, view, and apply rule recommendations for rules](cloudknox-howto-recommendations-rule.md).
+- For information about notification settings for rules, see [View notification settings for a rule](cloudknox-howto-notification-rule.md).

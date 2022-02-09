@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: overview
-ms.date: 02/04/2022
+ms.date: 02/08/2022
 ms.author: v-ydequadros
 ---
 
@@ -37,19 +37,32 @@ Organizations have to consider permissions management as a central piece of thei
 ## Key use cases
  
 CloudKnox  allows customers to address three key use cases: 
-- Discover: customers can assess permission risks by evaluating the gap between permissions granted and permissions used.
 
-    - Cross-cloud permissions discovery: granular and normalized metrics for key cloud platforms: AWS, Azure, and GCP.
-    - Permission Creep Index: an aggregated metric that periodically evaluates the level of risk associated with the number of unused or excessive permissions across your identities and resources. It measures how much damage identities can cause based on the permissions they have. 
-    - Permission usage analytics: multi-dimensional view of permissions risk for all identities, actions, and resources.
-- Remediate: customers can right-size permissions based on usage, grant new permissions on-demand, and automate just-in-time access for cloud resources.
-    - Automated deletion of permissions unused for the past 90 days.
-    - Permissions on-demand: grant identities permissions on-demand for a time-limited period or an as-needed basis.
-- Monitor: customers can detect anomalous activities with ML-powered alerts and generate detailed forensic reports.
-    - Machine Learning-powered anomaly detections
-    - Forensic reports: context-rich reports around identities, actions, and resources to support rapid investigation and remediation.
+### Discover
+
+Customers can assess permission risks by evaluating the gap between permissions granted and permissions used.
+
+- Cross-cloud permissions discovery: Granular and normalized metrics for key cloud platforms: AWS, Azure, and GCP.
+- Permission Creep Index (PCI): An aggregated metric that periodically evaluates the level of risk associated with the number of unused or excessive permissions across your identities and resources. It measures how much damage identities can cause based on the permissions they have. 
+- Permission usage analytics: Multi-dimensional view of permissions risk for all identities, actions, and resources.
+
+### Remediate
+
+Customers can right-size permissions based on usage, grant new permissions on-demand, and automate just-in-time access for cloud resources.
+
+- Automated deletion of permissions unused for the past 90 days.
+- Permissions on-demand: Grant identities permissions on-demand for a time-limited period or an as-needed basis.
+
+
+### Monitor
+
+Customers can detect anomalous activities with ML-powered alerts and generate detailed forensic reports.
+
+- Machine learning-powered anomaly detections.
+- Forensic reports: Context-rich reports around identities, actions, and resources to support rapid investigation and remediation.
 
 CloudKnox  deepens Zero Trust security strategies by augmenting the least privilege access principle, allowing customers to: 
+
 - Get comprehensive visibility: Discover which identity is doing what, where, and when. 
 - Automate least privilege access: Use access analytics to ensure identities have the right permissions, at the right time. 
 - Unify access policies across IaaS platforms: Implement consistent security policies across your cloud infrastructure. 
