@@ -27,7 +27,7 @@ At the end of this article, you run the following Swift iOS project:
 * **sample-device**, the same app created in [Send telemetry from a device to an IoT hub](../iot-develop/quickstart-send-telemetry-iot-hub.md), which connects to your IoT hub and receives cloud-to-device messages.
 
 > [!NOTE]
-> IoT Hub has SDK support for many device platforms and languages (including C, Java, Python, and Javascript) through Azure IoT device SDKs. For step-by-step instructions on how to connect your device to this tutorial's code, and generally to Azure IoT Hub, see the [Azure IoT Developer Center](https://www.azure.com/develop/iot).
+> IoT Hub has SDK support for many device platforms and languages (including C, Java, Python, and JavaScript) through Azure IoT device SDKs. For step-by-step instructions on how to connect your device to this tutorial's code, and generally to Azure IoT Hub, see the [Azure IoT Developer Center](https://www.azure.com/develop/iot).
 
 ## Prerequisites
 
