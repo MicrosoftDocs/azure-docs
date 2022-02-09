@@ -111,7 +111,7 @@ Different colors and line styles (**dashed**, **dotted**, and so on) for horizon
 
 The messages appear in the diagram in the order in which they occurred. An axis break on all of the vertical lines in the diagram between two consecutive messages indicates a gap of 10 seconds or more occurred between these two messages.
 
-If the call flow diagram is too large to fit in the browser window, you can use the vertical and horizontal **scrollbars** to move around the display.
+If the call flow diagram is too large to fit in the browser window, you can use the vertical and horizontal scrollbars to move around the display.
 
 ## Viewing help information
 
