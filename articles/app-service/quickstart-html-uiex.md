@@ -37,7 +37,7 @@ git clone https://github.com/Azure-Samples/html-docs-hello-world.git
 
 Change to the directory that contains the sample code and run the `az webapp up` command. **Replace** `<app-name>` with a globally unique name.
 
-```bash
+```azurecli
 cd html-docs-hello-world
 
 az webapp up --location westeurope --name <app_name> --html
@@ -113,7 +113,7 @@ In the `<h1>` heading tag, change "Azure App Service - Sample Static HTML Site" 
 
 Redeploy the app with `az webapp up` command.
 
-```bash
+```azurecli
 az webapp up --html
 ```
 
@@ -149,7 +149,7 @@ The left menu provides different pages for configuring your app.
 
 In the preceding steps, you created Azure resources in a resource group. If you don't expect to need these resources in the future, delete the resource group by running the following command in the Cloud Shell. Remember that the resource group name was automatically generated for you in the [create a web app](#2-create-a-web-app) step.
 
-```bash
+```azurecli
 az group delete --name appsvc_rg_Windows_westeurope
 ```
 

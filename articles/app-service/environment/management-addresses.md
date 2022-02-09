@@ -38,7 +38,7 @@ With Network Security Groups, you do not need to worry about the individual addr
 
 The management addresses can be placed in a route table with a next hop of internet to ensure that all inbound management traffic is able to go back through the same path. These routes are needed when configuring forced tunneling. To create the route table, you can use the portal, PowerShell or Azure CLI.  The commands to create a route table using Azure CLI from a PowerShell prompt are below. 
 
-```azurepowershell-interactive
+```azurecli
 $rg = "resource group name"
 $rt = "route table name"
 $location = "azure location"

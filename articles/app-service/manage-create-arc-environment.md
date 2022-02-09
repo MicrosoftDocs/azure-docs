@@ -71,7 +71,7 @@ az extension add --upgrade --yes --name appservice-kube
 
     # [PowerShell](#tab/powershell)
 
-    ```powershell
+    ```azurecli-interactive
     $aksClusterGroupName="<group-name>" # Name of resource group for the AKS cluster
     $aksName="${aksClusterGroupName}-aks" # Name of the AKS cluster
     $resourceLocation="eastus" # "eastus" or "westeurope"
@@ -102,7 +102,7 @@ az extension add --upgrade --yes --name appservice-kube
 
     # [PowerShell](#tab/powershell)
 
-    ```powershell
+    ```azurecli-interactive
     $groupName="<group-name>" # Name of resource group for the connected cluster
 
     az group create -g $groupName -l $resourceLocation
@@ -123,7 +123,7 @@ az extension add --upgrade --yes --name appservice-kube
     # [PowerShell](#tab/powershell)
 
 
-    ```powershell
+    ```azurecli-interactive
     $clusterName="${groupName}-cluster" # Name of the connected cluster resource
 
     az connectedk8s connect --resource-group $groupName --name $clusterName
@@ -155,7 +155,7 @@ While a [Log Analytic workspace](../azure-monitor/logs/quick-create-workspace.md
 
     # [PowerShell](#tab/powershell)
 
-    ```powershell
+    ```azurecli-interactive
     $workspaceName="$groupName-workspace"
 
     az monitor log-analytics workspace create `
@@ -186,7 +186,7 @@ While a [Log Analytic workspace](../azure-monitor/logs/quick-create-workspace.md
 
     # [PowerShell](#tab/powershell)
 
-    ```powershell
+    ```azurecli-interactive
     $logAnalyticsWorkspaceId=$(az monitor log-analytics workspace show `
         --resource-group $groupName `
         --workspace-name $workspaceName `
@@ -255,7 +255,7 @@ While a [Log Analytic workspace](../azure-monitor/logs/quick-create-workspace.md
 
     # [PowerShell](#tab/powershell)
 
-    ```powershell
+    ```azurecli-interactive
     az k8s-extension create `
         --resource-group $groupName `
         --name $extensionName `
@@ -318,7 +318,7 @@ While a [Log Analytic workspace](../azure-monitor/logs/quick-create-workspace.md
 
     # [PowerShell](#tab/powershell)
 
-    ```powershell
+    ```azurecli-interactive
     $extensionId=$(az k8s-extension show `
         --cluster-type connectedClusters `
         --cluster-name $clusterName `
@@ -354,7 +354,7 @@ The [custom location](../azure-arc/kubernetes/custom-locations.md) in Azure is u
 
     # [bash](#tab/bash)
 
-    ```bash
+    ```azurecli-interactive
     customLocationName="my-custom-location" # Name of the custom location
     
     connectedClusterId=$(az connectedk8s show --resource-group $groupName --name $clusterName --query id --output tsv)
@@ -362,7 +362,7 @@ The [custom location](../azure-arc/kubernetes/custom-locations.md) in Azure is u
 
     # [PowerShell](#tab/powershell)
 
-    ```powershell
+    ```azurecli-interactive
     $customLocationName="my-custom-location" # Name of the custom location
     
     $connectedClusterId=$(az connectedk8s show --resource-group $groupName --name $clusterName --query id --output tsv)

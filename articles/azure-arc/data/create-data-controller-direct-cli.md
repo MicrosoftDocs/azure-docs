@@ -81,14 +81,14 @@ The following command creates the Arc data services extension.
 
 #### [Linux](#tab/linux)
 
-```console
+```azurecli
 az k8s-extension create --cluster-name ${clusterName} --resource-group ${resourceGroup} --name ${adsExtensionName} --cluster-type connectedClusters --extension-type microsoft.arcdataservices --auto-upgrade false --scope cluster --release-namespace ${namespace} --config Microsoft.CustomLocation.ServiceAccount=sa-arc-bootstrapper
 az k8s-extension show --resource-group ${resourceGroup} --cluster-name ${resourceName} --name ${adsExtensionName} --cluster-type connectedclusters
 ```
 
 #### [Windows (PowerShell)](#tab/windows)
 
-```PowerShell
+```azurecli
 az k8s-extension create --cluster-name $ENV:clusterName --resource-group $ENV:resourceGroup --name $ENV:adsExtensionName --cluster-type connectedClusters --extension-type microsoft.arcdataservices --auto-upgrade false --scope cluster --release-namespace $ENV:namespace --config Microsoft.CustomLocation.ServiceAccount=sa-arc-bootstrapper
 az k8s-extension show --resource-group $ENV:resourceGroup --cluster-name $ENV:clusterName --name $ENV:adsExtensionName --cluster-type connectedclusters
 ```
@@ -151,7 +151,7 @@ When the Arc data services extension is created, Azure creates a managed identit
 
 ### Retrieve managed identity of the Arc data controller extension
 
-```powershell
+```azurecli
 $Env:MSI_OBJECT_ID = (az k8s-extension show --resource-group <resource group>  --cluster-name <connectedclustername> --cluster-type connectedClusters --name <name of extension> | convertFrom-json).identity.principalId
 #Example
 $Env:MSI_OBJECT_ID = (az k8s-extension show --resource-group myresourcegroup  --cluster-name myconnectedcluster --cluster-type connectedClusters --name ads-extension | convertFrom-json).identity.principalId
@@ -174,7 +174,7 @@ A custom location is an Azure resource that is equivalent to a namespace in a Ku
 
 #### [Linux](#tab/linux)
 
-```bash
+```azurecli
 export clName=mycustomlocation
 export hostClusterId=$(az connectedk8s show --resource-group ${resourceGroup} --name ${clusterName} --query id -o tsv)
 export extensionId=$(az k8s-extension show --resource-group ${resourceGroup} --cluster-name ${clusterName} --cluster-type connectedClusters --name ${adsExtensionName} --query id -o tsv)
@@ -183,7 +183,7 @@ az customlocation create --resource-group ${resourceGroup} --name ${clName} --na
 
 #### [Windows (PowerShell)](#tab/windows)
 
-```PowerShell
+```azurecli
 $ENV:clName="mycustomlocation"
 $ENV:hostClusterId=(az connectedk8s show --resource-group $ENV:resourceGroup --name $ENV:clusterName --query id -o tsv)
 $ENV:extensionId=(az k8s-extension show --resource-group $ENV:resourceGroup --cluster-name $ENV:clusterName --cluster-type connectedClusters --name $ENV:adsExtensionName --query id -o tsv)

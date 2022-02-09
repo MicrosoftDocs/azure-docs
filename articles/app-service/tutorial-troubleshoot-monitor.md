@@ -36,7 +36,7 @@ To complete this tutorial, you'll need:
 
 First, you run several commands locally to setup a sample app to use with this tutorial. The commands create Azure resources, create a deployment user, and deploy the sample app to Azure. You'll be prompted for the password supplied as a part of the creation of the deployment user. 
 
-```bash
+```azurecli
 az group create --name myResourceGroup --location "South Central US"
 az webapp deployment user set --user-name <username> --password <password>
 az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku B1 --is-linux
@@ -57,7 +57,7 @@ Now that you've deployed the sample app to Azure App Service, you'll configure m
 
 In this step, you create a Log Analytics workspace to configure Azure Monitor with your app.
 
-```bash
+```azurecli
 az monitor log-analytics workspace create --resource-group myResourceGroup --workspace-name myMonitorWorkspace
 ```
 
@@ -75,7 +75,7 @@ You run the following commands to create diagnostic settings for AppServiceConso
 > The first two commands, `resourceID` and `workspaceID`, are variables to be used in the `az monitor diagnostic-settings create` command. See [Create diagnostic settings using Azure CLI](../azure-monitor/essentials/diagnostic-settings.md#create-using-azure-cli) for more information on this command.
 >
 
-```bash
+```azurecli
 resourceID=$(az webapp show -g myResourceGroup -n <app-name> --query id --output tsv)
 
 workspaceID=$(az monitor log-analytics workspace show -g myResourceGroup --workspace-name <workspace-name> --query id --output tsv)
@@ -252,7 +252,7 @@ Converting images should not longer produce the HTTP 500 errors.
 
 Delete the diagnostic setting with the following command:
 
-```bash
+```azurecli
 az monitor diagnostic-settings delete --resource $resourceID -n myMonitorLogs
 ```
 What you learned:
