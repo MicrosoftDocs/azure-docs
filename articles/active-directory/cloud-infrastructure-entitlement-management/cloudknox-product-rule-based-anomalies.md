@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/04/2022
+ms.date: 02/09/2022
 ms.author: v-ydequadros
 ---
 
@@ -36,7 +36,7 @@ Rule-based anomalies identify recent activity in CloudKnox Permissions Managemen
       - **Task**: How many tasks are affected by the alert.
       - **Resources**: How many resources are affected by the alert.
       - **Identity**: How many identities are affected by the alert.
-      - **Authorization system**: Displays which authorization systems the alert applies to
+      - **Authorization system**: Displays which authorization systems the alert applies to, Amazon Web Services (**AWS**), Microsoft **Azure**, or Google Cloud Platform (**GCP**). 
       - **Date/Time**: Lists the date and time of the alert.
       - **Date/Time (UTC)**: Lists the date and time of the alert in Coordinated Universal Time (UTC).
       - **View trigger**: Displays the current trigger settings and applicable authorization system details
@@ -47,6 +47,7 @@ Rule-based anomalies identify recent activity in CloudKnox Permissions Managemen
     - From the **Alert Name** dropdown, select **All** or the appropriate alert name.  
     - From the **Date** dropdown menu, select **Last 24 Hours**, **Last 2 Days**, **Last Week**, or **Custom Range**, and select **Apply**.
 
+        - If you select **Custom Range**, also enter **From** and **To** duration settings.
 1. To view details that match the alert criteria, select the ellipses (**...**). 
 
     For example, **Authorization System Type**, **Authorization Systems**, **Resources**, **Tasks**, and **Identities**.
@@ -55,10 +56,10 @@ Rule-based anomalies identify recent activity in CloudKnox Permissions Managemen
 
 1. In the CloudKnox home page, select **Activity triggers** (the bell icon).
 1. Select **Rule-based anomaly**, and then select the **Alerts** subtab.
-1. Select the **Create Anomaly Trigger** button.
+1. Select **Create Anomaly Trigger**.
 
 1. In the **Alert Name** box, enter a name for the alert.
-1. Select the **Authorization system**.
+1. Select the **Authorization system**, **AWS**, **Azure**, or **GCP**.
 1. Select one of the following conditions:
       - **Any Resource Accessed for the First Time**: The identity accesses a resource for the first time during the specified time interval
       - **Identity Performs a Particular Task for the First Time**: The identity does a specific task for the first time during the specified time interval 
@@ -96,8 +97,7 @@ Rule-based anomalies identify recent activity in CloudKnox Permissions Managemen
 
     - **Edit**: Enables you to modify alert parameters 
 
-       > [!NOTE]
-         > Only the user who created the alert can perform the following actions: edit the trigger screen, rename an alert, deactivate an alert, and delete an alert. Changes made by other users aren't saved.
+       Only the user who created the alert can edit the trigger screen, rename an alert, deactivate an alert, and delete an alert. Changes made by other users aren't saved.
 
     - **Duplicate**: Create a duplicate of the alert called "**Copy of XXX**".
     - **Rename**: Enter the new name of the query, and then select **Save.**
@@ -117,6 +117,7 @@ Rule-based anomalies identify recent activity in CloudKnox Permissions Managemen
 
 ## Next steps
 
+- For an overview on activity triggers, see [View information about activity triggers](cloudknox-ui-triggers.md).
 - For information on activity alerts and alert triggers, see [Create and view activity alerts and alert triggers](cloudknox-howto-create-alert-trigger.md). 
 - For information on finding outliers in identity's behavior, see [Create and view statistical anomalies and anomaly triggers](cloudknox-product-statistical-anomalies.md).
 - For information on permission analytics triggers, see [Create and view permission analytics triggers](cloudknox-product-permission-analytics.md).

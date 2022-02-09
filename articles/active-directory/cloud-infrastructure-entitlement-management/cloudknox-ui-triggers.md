@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: overview
-ms.date: 02/02/2022
+ms.date: 02/09/2022
 ms.author: v-ydequadros
 ---
 
@@ -38,19 +38,25 @@ This article describes how to use the **Activity triggers** dashboard in CloudKn
 
 ## The Alerts subtab
 
-The **Alerts** subtab in the **Activity**, **Rule-based anomaly**, **Statistical anomaly**, and **Permission analytics** tab displays the following information:
+The **Alerts** subtab in the **Activity**, **Rule-based anomaly**, **Statistical anomaly**, and **Permission analytics** tabs display the following information:
 
-- **Alert Name**: You can display **All** triggers or specific triggers.
-- **Date**: You can select **Last 24 hours**, **Last 2 Days**, **Last week**, or **Custom range.**
-    - To specify a **Custom range**, enter a **From** and **To** duration.
-    - Select **Apply** to activate your settings or **Reset filter** to discard your settings.
-- **Reload**: Select **Reload** to refresh the displayed information.  
-- **Create Alert Trigger**: Select this option to create a new alert trigger. 
-    <!---Add link - For more information, see Create a new alert trigger.--->
+- **Alert Name**: Select **All** alert names or specific ones.
+- **Date**: Select **Last 24 hours**, **Last 2 Days**, **Last week**, or **Custom range.**
+
+    - If you select **Custom range**, also enter **From** and **To** duration settings.
+- **Apply**: Select this option to activate your settings.
+- **Reset filter**: Select this option to discard your settings.
+- **Reload**: Select this option to refresh the displayed information.  
+- **Create Activity Trigger**: Select this option to [create a new alert trigger](cloudknox-howto-create-alert-trigger.md). 
+- The **Alerts** table displays a list of alerts with the following information:
+    - **Alerts**: The name of the alert.
+    - **# of users subscribed**: The number of users who have subscribed to the alert.
+    - **Created by**: The name of the user who created the alert.
+    - **Modified By**: The name of the user who modified the alert.
 
 The **Rule-based anomaly** tab and the **Statistical anomaly** tab both have one more option:
 
-- **||| Columns**: Select the columns you want to display: **Task**, **Resource**, and **Identity**.
+- **Columns**: Select the columns you want to display: **Task**, **Resource**, and **Identity**.
     - To return to the system default settings, select **Reset to default**.
 
 ## The Alert triggers subtab
@@ -61,24 +67,21 @@ The **Alert triggers** subtab in the **Activity**, **Rule-based anomaly**, **Sta
 - **Apply**: Select this option to activate your settings. 
 - **Reset filter**: Select this option to discard your settings.
 - **Reload**: Select **Reload** to refresh the displayed information.  
-- **Create alert trigger**: Select this option to create a new alert trigger. 
-    <!---Add link - For more information, see Create a new alert trigger.--->
-- A list of alert triggers that displays:
+- **Create Activity Trigger**: Select this option to [create a new alert trigger](cloudknox-howto-create-alert-trigger.md).
+- The **Triggers** table displays a list of triggers with the following information:
     - **Alerts**: The name of the alert.
     - **# of users subscribed**: The number of users who have subscribed to the alert.
-    - **Created by**: The name of the person who created the alert.
-    - **Modified By**: The name of the person who modified the alert.
+    - **Created by**: The name of the user who created the alert.
+    - **Modified By**: The name of the user who modified the alert.
 
 
-The **Rule-based anomaly** tab and the **Statistical anomaly** tab both have one more option:
-
-- **||| Columns**: Select the columns you want to display: **Task**, **Resource**, and **Identity**.
-    - To return to the system default settings, select **Reset to default**.
 
 
 
 
 ## Next steps
 
-- For information on how to create and view an alert, see [Create and view an alert](cloudknox-howto-create-alert-trigger.md).
-
+- For information on activity alerts and alert triggers, see [Create and view activity alerts and alert triggers](cloudknox-howto-create-alert-trigger.md). 
+- For information on rule-based anomalies and anomaly triggers, see [Create and view rule-based anomalies and anomaly triggers](cloudknox-product-rule-based-anomalies.md).
+- For information on finding outliers in identity's behavior, see [Create and view statistical anomalies and anomaly triggers](cloudknox-product-statistical-anomalies.md).
+- For information on permission analytics triggers, see [Create and view permission analytics triggers](cloudknox-product-permission-analytics.md).

@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/04/2022
+ms.date: 02/09/2022
 ms.author: v-ydequadros
 ---
 
@@ -41,6 +41,8 @@ Statistical anomalies can detect outliers in an identity's behavior if recent ac
 
 1. To filter the alerts, select the appropriate alert name or choose **All** from the **Alert Name** dropdown menu. 
 1. From the **Date** dropdown menu, select **Last 24 Hours**, **Last 2 Days**, **Last Week**, or **Custom Range**, and select **Apply**.
+
+    - If you select **Custom Range**, also enter **From** and **To** duration settings.
 1. To view the following details, select the ellipses (**...**):
 
       - **Details**: Displays **Authorization System Type**, **Authorization Systems**, **Resources**, **Tasks**, and **Identities** that matched the alert criteria.
@@ -54,7 +56,7 @@ Statistical anomalies can detect outliers in an identity's behavior if recent ac
 1. In the CloudKnox home page, select **Activity triggers** (the bell icon).
 1. Select **Statistical anomaly**, select the **Alerts** subtab, and then select **Create alert trigger**.
 1. Enter a name for the alert in the **Alert Name** box.
-1. Select the **Authorization system**.
+1. Select the **Authorization system**, Amazon Web Services (**AWS**), Microsoft **Azure**, or Google Cloud Platform (**GCP**).
 1. Select one of the following conditions:
 
       - **Identity Performed High Number of Tasks**: The identity performs at a higher volume than usual. The typical performance is 25 tasks per day and they're now performing 100 tasks per day.
@@ -112,6 +114,7 @@ Statistical anomalies can detect outliers in an identity's behavior if recent ac
 
 ## Next steps
 
+- For an overview on activity triggers, see [View information about activity triggers](cloudknox-ui-triggers.md).
 - For information on activity alerts and alert triggers, see [Create and view activity alerts and alert triggers](cloudknox-howto-create-alert-trigger.md). 
 - For information on rule-based anomalies and anomaly triggers, see [Create and view rule-based anomalies and anomaly triggers](cloudknox-product-rule-based-anomalies.md).
 - For information on permission analytics triggers, see [Create and view permission analytics triggers](cloudknox-product-permission-analytics.md).
