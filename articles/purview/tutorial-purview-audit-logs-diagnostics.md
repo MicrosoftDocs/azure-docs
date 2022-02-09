@@ -15,7 +15,7 @@ This guide lists step-by-step configuration on how to enable and capture Azure P
 
 ## Customer Intent
 
-As an Azure Purview administrator, or Azure Purview data source admin, I want to view and monitor timestamped activity history on actions taken by every user on [Azure Purview](https://ms.web.purview.azure.com). To enable audit logging on Purview, there is an easy and clean technique to capture streaming audit events via Azure Diagnostics Event Hub. Let's go through the step-by-step guide on how to configure this Diagnostics Audit logging on Azure Purview.
+As an Azure Purview administrator or Azure Purview data source admin, I want to view and monitor audit and diagnostics logs captured from [Azure Purview](https://ms.web.purview.azure.com) including timestamped activity history on actions taken by every user on [Azure Purview portal](https://ms.web.purview.azure.com). To enable audit logging on Purview, there is an easy and clean technique to capture streaming audit events via Azure Diagnostics Event Hub. Let's go through the step-by-step guide on how to configure this Diagnostics Audit logging on Azure Purview.
 
 ## Enable Azure Purview Audit & Diagnostics 
 
