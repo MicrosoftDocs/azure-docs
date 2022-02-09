@@ -40,7 +40,7 @@ Begin by making a change in your repository. You can do it directly on GitHub as
 
 1. Navigate to your project's repository on GitHub, then click on the **Branch** button to create a new branch.
 
-    :::image type="content" source="./media/review-publish-pull-requests/create-branch.png" alt-text="Create new branch using GitHub interface":::]
+    :::image type="content" source="./media/review-publish-pull-requests/create-branch.png" alt-text="Create new branch using GitHub interface":::
 
     Type a branch name and click on **Create branch**.
 
