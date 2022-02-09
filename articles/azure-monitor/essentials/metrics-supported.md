@@ -154,14 +154,14 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
-|active-timer-count|Yes|System.Runtime|active-timer-count|Count|Average|Number of timers that are currently active|Deployment, AppName, Pod|
-|alloc-rate|Yes|System.Runtime|alloc-rate|Bytes|Average|Number of bytes allocated in the managed heap|Deployment, AppName, Pod|
-|AppCpuUsage|Yes|App CPU Usage (Deprecated)|Percent|Average|The recent CPU usage for the app. This metric is being deprecated. Please use "App CPU Usage" with metric id "PodCpuUsage".|Deployment, AppName, Pod|
-|assembly-count|Yes|System.Runtime|assembly-count|Count|Average|Number of Assemblies Loaded|Deployment, AppName, Pod|
-|cpu-usage|Yes|System.Runtime|cpu-usage|Percent|Average|% time the process has utilized the CPU|Deployment, AppName, Pod|
-|current-requests|Yes|Microsoft.AspNetCore.Hosting|current-requests|Count|Average|Total number of requests in processing in the lifetime of the process|Deployment, AppName, Pod|
-|exception-count|Yes|System.Runtime|exception-count|Count|Total|Number of Exceptions|Deployment, AppName, Pod|
-|failed-requests|Yes|Microsoft.AspNetCore.Hosting|failed-requests|Count|Average|Total number of failed requests in the lifetime of the process|Deployment, AppName, Pod|
+|active-timer-count|Yes|active-timer-count|Count|Average|Number of timers that are currently active|Deployment, AppName, Pod|
+|alloc-rate|Yes|alloc-rate|Bytes|Average|Number of bytes allocated in the managed heap|Deployment, AppName, Pod|
+|AppCpuUsage|Yes|App CPU Usage |Percent|Average|The recent CPU usage for the app|Deployment, AppName, Pod|
+|assembly-count|Yes|assembly-count|Count|Average|Number of Assemblies Loaded|Deployment, AppName, Pod|
+|cpu-usage|Yes|cpu-usage|Percent|Average|% time the process has utilized the CPU|Deployment, AppName, Pod|
+|current-requests|Yes|current-requests|Count|Average|Total number of requests in processing in the lifetime of the process|Deployment, AppName, Pod|
+|exception-count|Yes|exception-count|Count|Total|Number of Exceptions|Deployment, AppName, Pod|
+|failed-requests|Yes|failed-requests|Count|Average|Total number of failed requests in the lifetime of the process|Deployment, AppName, Pod|
 |GatewayHttpServerRequestsMilliSecondsMax|Yes|Max time of requests|Milliseconds|Maximum|The max time of requests|Pod, httpStatusCode, outcome, httpMethod|
 |GatewayHttpServerRequestsMilliSecondsSum|Yes|Total time of requests|Milliseconds|Total|The total time of requests|Pod, httpStatusCode, outcome, httpMethod|
 |GatewayHttpServerRequestsSecondsCount|Yes|Request count|Count|Total|The number of requests|Pod, httpStatusCode, outcome, httpMethod|
@@ -177,13 +177,13 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |GatewayProcessCpuUsage|Yes|process.cpu.usage|Percent|Average|The recent CPU usage for the JVM process|Pod|
 |GatewayRatelimitThrottledCount|Yes|Throttled requests count|Count|Total|The count of the throttled requests|Pod|
 |GatewaySystemCpuUsage|Yes|system.cpu.usage|Percent|Average|The recent CPU usage for the whole system|Pod|
-|gc-heap-size|Yes|System.Runtime|gc-heap-size|Count|Average|Total heap size reported by the GC (MB)|Deployment, AppName, Pod|
-|gen-0-gc-count|Yes|System.Runtime|gen-0-gc-count|Count|Average|Number of Gen 0 GCs|Deployment, AppName, Pod|
-|gen-0-size|Yes|System.Runtime|gen-0-size|Bytes|Average|Gen 0 Heap Size|Deployment, AppName, Pod|
-|gen-1-gc-count|Yes|System.Runtime|gen-1-gc-count|Count|Average|System.Runtime|Number of Gen 1 GCs|Deployment, AppName, Pod|
-|gen-1-size|Yes|System.Runtime|gen-1-size|Bytes|Average|Gen 1 Heap Size|Deployment, AppName, Pod|
-|gen-2-gc-count|Yes|System.Runtime|gen-2-gc-count|Count|Average|Number of Gen 2 GCs|Deployment, AppName, Pod|
-|gen-2-size|Yes|System.Runtime|gen-2-size|Bytes|Average|Gen 2 Heap Size|Deployment, AppName, Pod|
+|gc-heap-size|Yes|gc-heap-size|Count|Average|Total heap size reported by the GC (MB)|Deployment, AppName, Pod|
+|gen-0-gc-count|Yes|gen-0-gc-count|Count|Average|Number of Gen 0 GCs|Deployment, AppName, Pod|
+|gen-0-size|Yes|gen-0-size|Bytes|Average|Gen 0 Heap Size|Deployment, AppName, Pod|
+|gen-1-gc-count|Yes|gen-1-gc-count|Count|Average|Number of Gen 1 GCs|Deployment, AppName, Pod|
+|gen-1-size|Yes|gen-1-size|Bytes|Average|Gen 1 Heap Size|Deployment, AppName, Pod|
+|gen-2-gc-count|Yes|gen-2-gc-count|Count|Average|Number of Gen 2 GCs|Deployment, AppName, Pod|
+|gen-2-size|Yes|gen-2-size|Bytes|Average|Gen 2 Heap Size|Deployment, AppName, Pod|
 |IngressBytesReceived|Yes|Bytes Received|Bytes|Average|Count of bytes received by Azure Spring Cloud from the clients|Hostname, HttpStatus|
 |IngressBytesReceivedRate|Yes|Throughput In (bytes/s)|BytesPerSecond|Average|Bytes received per second by Azure Spring Cloud from the clients|Hostname, HttpStatus|
 |IngressBytesSent|Yes|Bytes Sent|Bytes|Average|Count of bytes sent by Azure Spring Cloud to the clients|Hostname, HttpStatus|
@@ -602,9 +602,9 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
 |Availability|Yes|Availability|Percent|Average|The percentage of availability for the storage service or the specified API operation. Availability is calculated by taking the TotalBillableRequests value and dividing it by the number of applicable requests, including those that produced unexpected errors. All unexpected errors result in reduced availability for the storage service or the specified API operation.|GeoType, ApiName, Authentication|
-|BlobCapacity|No|Blob Capacity|Bytes|Average|The amount of storage used by the storage account�s Blob service in bytes.|BlobType, Tier|
-|BlobCount|No|Blob Count|Count|Average|The number of Blob in the storage account�s Blob service.|BlobType, Tier|
-|ContainerCount|Yes|Blob Container Count|Count|Average|The number of containers in the storage account�s Blob service.|No Dimensions|
+|BlobCapacity|No|Blob Capacity|Bytes|Average|The amount of storage used by the storage account's Blob service in bytes.|BlobType, Tier|
+|BlobCount|No|Blob Count|Count|Average|The number of Blob in the storage account's Blob service.|BlobType, Tier|
+|ContainerCount|Yes|Blob Container Count|Count|Average|The number of containers in the storage account's Blob service.|No Dimensions|
 |Egress|Yes|Egress|Bytes|Total|The amount of egress data, in bytes. This number includes egress from an external client into Azure Storage as well as egress within Azure. As a result, this number does not reflect billable egress.|GeoType, ApiName, Authentication|
 |IndexCapacity|No|Index Capacity|Bytes|Average|The amount of storage used by ADLS Gen2 (Hierarchical) Index in bytes.|No Dimensions|
 |Ingress|Yes|Ingress|Bytes|Total|The amount of ingress data, in bytes. This number includes ingress from an external client into Azure Storage as well as ingress within Azure.|GeoType, ApiName, Authentication|
@@ -619,12 +619,12 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |---|---|---|---|---|---|---|
 |Availability|Yes|Availability|Percent|Average|The percentage of availability for the storage service or the specified API operation. Availability is calculated by taking the TotalBillableRequests value and dividing it by the number of applicable requests, including those that produced unexpected errors. All unexpected errors result in reduced availability for the storage service or the specified API operation.|GeoType, ApiName, Authentication, FileShare|
 |Egress|Yes|Egress|Bytes|Total|The amount of egress data, in bytes. This number includes egress from an external client into Azure Storage as well as egress within Azure. As a result, this number does not reflect billable egress.|GeoType, ApiName, Authentication, FileShare|
-|FileCapacity|No|File Capacity|Bytes|Average|The amount of storage used by the storage account�s File service in bytes.|FileShare|
-|FileCount|No|File Count|Count|Average|The number of file in the storage account�s File service.|FileShare|
-|FileShareCount|No|File Share Count|Count|Average|The number of file shares in the storage account�s File service.|No Dimensions|
+|FileCapacity|No|File Capacity|Bytes|Average|The amount of storage used by the storage account's File service in bytes.|FileShare|
+|FileCount|No|File Count|Count|Average|The number of file in the storage account's File service.|FileShare|
+|FileShareCount|No|File Share Count|Count|Average|The number of file shares in the storage account's File service.|No Dimensions|
 |FileShareQuota|No|File share quota size|Bytes|Average|The upper limit on the amount of storage that can be used by Azure Files Service in bytes.|FileShare|
-|FileShareSnapshotCount|No|File Share Snapshot Count|Count|Average|The number of snapshots present on the share in storage account�s Files Service.|FileShare|
-|FileShareSnapshotSize|No|File Share Snapshot Size|Bytes|Average|The amount of storage used by the snapshots in storage account�s File service in bytes.|FileShare|
+|FileShareSnapshotCount|No|File Share Snapshot Count|Count|Average|The number of snapshots present on the share in storage account's Files Service.|FileShare|
+|FileShareSnapshotSize|No|File Share Snapshot Size|Bytes|Average|The amount of storage used by the snapshots in storage account's File service in bytes.|FileShare|
 |Ingress|Yes|Ingress|Bytes|Total|The amount of ingress data, in bytes. This number includes ingress from an external client into Azure Storage as well as ingress within Azure.|GeoType, ApiName, Authentication, FileShare|
 |SuccessE2ELatency|Yes|Success E2E Latency|Milliseconds|Average|The end-to-end latency of successful requests made to a storage service or the specified API operation, in milliseconds. This value includes the required processing time within Azure Storage to read the request, send the response, and receive acknowledgment of the response.|GeoType, ApiName, Authentication, FileShare|
 |SuccessServerLatency|Yes|Success Server Latency|Milliseconds|Average|The latency used by Azure Storage to process a successful request, in milliseconds. This value does not include the network latency specified in SuccessE2ELatency.|GeoType, ApiName, Authentication, FileShare|
@@ -638,9 +638,9 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |Availability|Yes|Availability|Percent|Average|The percentage of availability for the storage service or the specified API operation. Availability is calculated by taking the TotalBillableRequests value and dividing it by the number of applicable requests, including those that produced unexpected errors. All unexpected errors result in reduced availability for the storage service or the specified API operation.|GeoType, ApiName, Authentication|
 |Egress|Yes|Egress|Bytes|Total|The amount of egress data, in bytes. This number includes egress from an external client into Azure Storage as well as egress within Azure. As a result, this number does not reflect billable egress.|GeoType, ApiName, Authentication|
 |Ingress|Yes|Ingress|Bytes|Total|The amount of ingress data, in bytes. This number includes ingress from an external client into Azure Storage as well as ingress within Azure.|GeoType, ApiName, Authentication|
-|QueueCapacity|Yes|Queue Capacity|Bytes|Average|The amount of storage used by the storage account�s Queue service in bytes.|No Dimensions|
-|QueueCount|Yes|Queue Count|Count|Average|The number of queue in the storage account�s Queue service.|No Dimensions|
-|QueueMessageCount|Yes|Queue Message Count|Count|Average|The approximate number of queue messages in the storage account�s Queue service.|No Dimensions|
+|QueueCapacity|Yes|Queue Capacity|Bytes|Average|The amount of storage used by the storage account's Queue service in bytes.|No Dimensions|
+|QueueCount|Yes|Queue Count|Count|Average|The number of queue in the storage account's Queue service.|No Dimensions|
+|QueueMessageCount|Yes|Queue Message Count|Count|Average|The approximate number of queue messages in the storage account's Queue service.|No Dimensions|
 |SuccessE2ELatency|Yes|Success E2E Latency|Milliseconds|Average|The end-to-end latency of successful requests made to a storage service or the specified API operation, in milliseconds. This value includes the required processing time within Azure Storage to read the request, send the response, and receive acknowledgment of the response.|GeoType, ApiName, Authentication|
 |SuccessServerLatency|Yes|Success Server Latency|Milliseconds|Average|The latency used by Azure Storage to process a successful request, in milliseconds. This value does not include the network latency specified in SuccessE2ELatency.|GeoType, ApiName, Authentication|
 |Transactions|Yes|Transactions|Count|Total|The number of requests made to a storage service or the specified API operation. This number includes successful and failed requests, as well as requests which produced errors. Use ResponseType dimension for the number of different type of response.|ResponseType, GeoType, ApiName, Authentication|
@@ -655,9 +655,9 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |Ingress|Yes|Ingress|Bytes|Total|The amount of ingress data, in bytes. This number includes ingress from an external client into Azure Storage as well as ingress within Azure.|GeoType, ApiName, Authentication|
 |SuccessE2ELatency|Yes|Success E2E Latency|Milliseconds|Average|The end-to-end latency of successful requests made to a storage service or the specified API operation, in milliseconds. This value includes the required processing time within Azure Storage to read the request, send the response, and receive acknowledgment of the response.|GeoType, ApiName, Authentication|
 |SuccessServerLatency|Yes|Success Server Latency|Milliseconds|Average|The latency used by Azure Storage to process a successful request, in milliseconds. This value does not include the network latency specified in SuccessE2ELatency.|GeoType, ApiName, Authentication|
-|TableCapacity|Yes|Table Capacity|Bytes|Average|The amount of storage used by the storage account�s Table service in bytes.|No Dimensions|
-|TableCount|Yes|Table Count|Count|Average|The number of table in the storage account�s Table service.|No Dimensions|
-|TableEntityCount|Yes|Table Entity Count|Count|Average|The number of table entities in the storage account�s Table service.|No Dimensions|
+|TableCapacity|Yes|Table Capacity|Bytes|Average|The amount of storage used by the storage account's Table service in bytes.|No Dimensions|
+|TableCount|Yes|Table Count|Count|Average|The number of table in the storage account's Table service.|No Dimensions|
+|TableEntityCount|Yes|Table Entity Count|Count|Average|The number of table entities in the storage account's Table service.|No Dimensions|
 |Transactions|Yes|Transactions|Count|Total|The number of requests made to a storage service or the specified API operation. This number includes successful and failed requests, as well as requests which produced errors. Use ResponseType dimension for the number of different type of response.|ResponseType, GeoType, ApiName, Authentication|
 
 
@@ -1194,10 +1194,10 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |d2c.endpoints.latency.serviceBusQueues|Yes|Routing: message latency for Service Bus Queue|Milliseconds|Average|The average latency (milliseconds) between message ingress to IoT Hub and telemetry message ingress into a Service Bus queue endpoint.|No Dimensions|
 |d2c.endpoints.latency.serviceBusTopics|Yes|Routing: message latency for Service Bus Topic|Milliseconds|Average|The average latency (milliseconds) between message ingress to IoT Hub and telemetry message ingress into a Service Bus topic endpoint.|No Dimensions|
 |d2c.endpoints.latency.storage|Yes|Routing: message latency for storage|Milliseconds|Average|The average latency (milliseconds) between message ingress to IoT Hub and telemetry message ingress into a storage endpoint.|No Dimensions|
-|d2c.telemetry.egress.dropped|Yes|Routing: telemetry messages dropped�|Count|Total|The number of times messages were dropped by IoT Hub routing due to dead endpoints. This value does not count messages delivered to fallback route as dropped messages are not delivered there.|No Dimensions|
+|d2c.telemetry.egress.dropped|Yes|Routing: telemetry messages dropped|Count|Total|The number of times messages were dropped by IoT Hub routing due to dead endpoints. This value does not count messages delivered to fallback route as dropped messages are not delivered there.|No Dimensions|
 |d2c.telemetry.egress.fallback|Yes|Routing: messages delivered to fallback|Count|Total|The number of times IoT Hub routing delivered messages to the endpoint associated with the fallback route.|No Dimensions|
 |d2c.telemetry.egress.invalid|Yes|Routing: telemetry messages incompatible|Count|Total|The number of times IoT Hub routing failed to deliver messages due to an incompatibility with the endpoint. This value does not include retries.|No Dimensions|
-|d2c.telemetry.egress.orphaned|Yes|Routing: telemetry messages orphaned�|Count|Total|The number of times messages were orphaned by IoT Hub routing because they didn't match any routing rules (including the fallback rule).�|No Dimensions|
+|d2c.telemetry.egress.orphaned|Yes|Routing: telemetry messages orphaned|Count|Total|The number of times messages were orphaned by IoT Hub routing because they didn't match any routing rules (including the fallback rule).|No Dimensions|
 |d2c.telemetry.egress.success|Yes|Routing: telemetry messages delivered|Count|Total|The number of times messages were successfully delivered to all endpoints using IoT Hub routing. If a message is routed to multiple endpoints, this value increases by one for each successful delivery. If a message is delivered to the same endpoint multiple times, this value increases by one for each successful delivery.|No Dimensions|
 |d2c.telemetry.ingress.allProtocol|Yes|Telemetry message send attempts|Count|Total|Number of device-to-cloud telemetry messages attempted to be sent to your IoT hub|No Dimensions|
 |d2c.telemetry.ingress.sendThrottle|Yes|Number of throttling errors|Count|Total|Number of throttling errors due to device throughput throttles|No Dimensions|
@@ -1269,10 +1269,10 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |d2c.endpoints.latency.serviceBusQueues|Yes|Routing: message latency for Service Bus Queue|Milliseconds|Average|The average latency (milliseconds) between message ingress to IoT Hub and telemetry message ingress into a Service Bus queue endpoint.|No Dimensions|
 |d2c.endpoints.latency.serviceBusTopics|Yes|Routing: message latency for Service Bus Topic|Milliseconds|Average|The average latency (milliseconds) between message ingress to IoT Hub and telemetry message ingress into a Service Bus topic endpoint.|No Dimensions|
 |d2c.endpoints.latency.storage|Yes|Routing: message latency for storage|Milliseconds|Average|The average latency (milliseconds) between message ingress to IoT Hub and telemetry message ingress into a storage endpoint.|No Dimensions|
-|d2c.telemetry.egress.dropped|Yes|Routing: telemetry messages dropped�|Count|Total|The number of times messages were dropped by IoT Hub routing due to dead endpoints. This value does not count messages delivered to fallback route as dropped messages are not delivered there.|No Dimensions|
+|d2c.telemetry.egress.dropped|Yes|Routing: telemetry messages dropped|Count|Total|The number of times messages were dropped by IoT Hub routing due to dead endpoints. This value does not count messages delivered to fallback route as dropped messages are not delivered there.|No Dimensions|
 |d2c.telemetry.egress.fallback|Yes|Routing: messages delivered to fallback|Count|Total|The number of times IoT Hub routing delivered messages to the endpoint associated with the fallback route.|No Dimensions|
 |d2c.telemetry.egress.invalid|Yes|Routing: telemetry messages incompatible|Count|Total|The number of times IoT Hub routing failed to deliver messages due to an incompatibility with the endpoint. This value does not include retries.|No Dimensions|
-|d2c.telemetry.egress.orphaned|Yes|Routing: telemetry messages orphaned�|Count|Total|The number of times messages were orphaned by IoT Hub routing because they didn't match any routing rules (including the fallback rule).�|No Dimensions|
+|d2c.telemetry.egress.orphaned|Yes|Routing: telemetry messages orphaned|Count|Total|The number of times messages were orphaned by IoT Hub routing because they didn't match any routing rules (including the fallback rule).|No Dimensions|
 |d2c.telemetry.egress.success|Yes|Routing: telemetry messages delivered|Count|Total|The number of times messages were successfully delivered to all endpoints using IoT Hub routing. If a message is routed to multiple endpoints, this value increases by one for each successful delivery. If a message is delivered to the same endpoint multiple times, this value increases by one for each successful delivery.|No Dimensions|
 |d2c.telemetry.ingress.allProtocol|Yes|Telemetry message send attempts|Count|Total|Number of device-to-cloud telemetry messages attempted to be sent to your IoT hub|No Dimensions|
 |d2c.telemetry.ingress.sendThrottle|Yes|Number of throttling errors|Count|Total|Number of throttling errors due to device throughput throttles|No Dimensions|
@@ -1763,7 +1763,7 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |CacheUtilization|Yes|Cache utilization|Percent|Average|Utilization level in the cluster scope|No Dimensions|
 |CacheUtilizationFactor|Yes|Cache utilization factor|Percent|Average|Percentage difference between the current number of instances and the optimal number of instances (per cache utilization)|No Dimensions|
 |ContinuousExportMaxLatenessMinutes|Yes|Continuous Export Max Lateness|Count|Maximum|The lateness (in minutes) reported by the continuous export jobs in the cluster|No Dimensions|
-|ContinuousExportNumOfRecordsExported|Yes|Continuous export � num of exported records|Count|Total|Number of records exported, fired for every storage artifact written during the export operation|ContinuousExportName, Database|
+|ContinuousExportNumOfRecordsExported|Yes|Continuous export - num of exported records|Count|Total|Number of records exported, fired for every storage artifact written during the export operation|ContinuousExportName, Database|
 |ContinuousExportPendingCount|Yes|Continuous Export Pending Count|Count|Maximum|The number of pending continuous export jobs ready for execution|No Dimensions|
 |ContinuousExportResult|Yes|Continuous Export Result|Count|Count|Indicates whether Continuous Export succeeded or failed|ContinuousExportName, Result, Database|
 |CPU|Yes|CPU|Percent|Average|CPU utilization level|No Dimensions|
@@ -1786,7 +1786,7 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |MaterializedViewHealth|Yes|Materialized View Health|Count|Average|The health of the materialized view (1 for healthy, 0 for non-healthy)|Database, MaterializedViewName|
 |MaterializedViewRecordsInDelta|Yes|Materialized View Records In Delta|Count|Average|The number of records in the non-materialized part of the view|Database, MaterializedViewName|
 |MaterializedViewResult|Yes|Materialized View Result|Count|Average|The result of the materialization process|Database, MaterializedViewName, Result|
-|QueryDuration|Yes|Query duration|Milliseconds|Average|Queries� duration in seconds|QueryStatus|
+|QueryDuration|Yes|Query duration|Milliseconds|Average|Queries' duration in seconds|QueryStatus|
 |QueryResult|No|Query Result|Count|Count|Total number of queries.|QueryStatus|
 |QueueLength|Yes|Queue Length|Count|Average|Number of pending messages in a component's queue.|ComponentType|
 |QueueOldestMessage|Yes|Queue Oldest Message|Count|Average|Time in seconds from when the oldest message in queue was inserted.|ComponentType|
@@ -2815,9 +2815,9 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
 |Availability|Yes|Availability|Percent|Average|The percentage of availability for the storage service or the specified API operation. Availability is calculated by taking the TotalBillableRequests value and dividing it by the number of applicable requests, including those that produced unexpected errors. All unexpected errors result in reduced availability for the storage service or the specified API operation.|GeoType, ApiName, Authentication|
-|BlobCapacity|No|Blob Capacity|Bytes|Average|The amount of storage used by the storage account�s Blob service in bytes.|BlobType, Tier|
+|BlobCapacity|No|Blob Capacity|Bytes|Average|The amount of storage used by the storage account's Blob service in bytes.|BlobType, Tier|
 |BlobCount|No|Blob Count|Count|Average|The number of blob objects stored in the storage account.|BlobType, Tier|
-|BlobProvisionedSize|No|Blob Provisioned Size|Bytes|Average|The amount of storage provisioned in the storage account�s Blob service in bytes.|BlobType, Tier|
+|BlobProvisionedSize|No|Blob Provisioned Size|Bytes|Average|The amount of storage provisioned in the storage account's Blob service in bytes.|BlobType, Tier|
 |ContainerCount|Yes|Blob Container Count|Count|Average|The number of containers in the storage account.|No Dimensions|
 |Egress|Yes|Egress|Bytes|Total|The amount of egress data. This number includes egress to external client from Azure Storage as well as egress within Azure. As a result, this number does not reflect billable egress.|GeoType, ApiName, Authentication|
 |IndexCapacity|No|Index Capacity|Bytes|Average|The amount of storage used by Azure Data Lake Storage Gen2 hierarchical index.|No Dimensions|
@@ -2838,8 +2838,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |FileShareCapacityQuota|No|File Share Capacity Quota|Bytes|Average|The upper limit on the amount of storage that can be used by Azure Files Service in bytes.|FileShare|
 |FileShareCount|No|File Share Count|Count|Average|The number of file shares in the storage account.|No Dimensions|
 |FileShareProvisionedIOPS|No|File Share Provisioned IOPS|CountPerSecond|Average|The baseline number of provisioned IOPS for the premium file share in the premium files storage account. This number is calculated based on the provisioned size (quota) of the share capacity.|FileShare|
-|FileShareSnapshotCount|No|File Share Snapshot Count|Count|Average|The number of snapshots present on the share in storage account�s Files Service.|FileShare|
-|FileShareSnapshotSize|No|File Share Snapshot Size|Bytes|Average|The amount of storage used by the snapshots in storage account�s File service in bytes.|FileShare|
+|FileShareSnapshotCount|No|File Share Snapshot Count|Count|Average|The number of snapshots present on the share in storage account's Files Service.|FileShare|
+|FileShareSnapshotSize|No|File Share Snapshot Size|Bytes|Average|The amount of storage used by the snapshots in storage account's File service in bytes.|FileShare|
 |Ingress|Yes|Ingress|Bytes|Total|The amount of ingress data, in bytes. This number includes ingress from an external client into Azure Storage as well as ingress within Azure.|GeoType, ApiName, Authentication, FileShare|
 |SuccessE2ELatency|Yes|Success E2E Latency|Milliseconds|Average|The average end-to-end latency of successful requests made to a storage service or the specified API operation, in milliseconds. This value includes the required processing time within Azure Storage to read the request, send the response, and receive acknowledgment of the response.|GeoType, ApiName, Authentication, FileShare|
 |SuccessServerLatency|Yes|Success Server Latency|Milliseconds|Average|The average time used to process a successful request by Azure Storage. This value does not include the network latency specified in SuccessE2ELatency.|GeoType, ApiName, Authentication, FileShare|
@@ -3011,7 +3011,7 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |BlobsReceived|Yes|Blobs Received|Count|Total|Number of blobs received from input stream by a component.|Database, ComponentType, ComponentName|
 |CacheUtilization|Yes|Cache utilization|Percent|Average|Utilization level in the cluster scope|No Dimensions|
 |ContinuousExportMaxLatenessMinutes|Yes|Continuous Export Max Lateness|Count|Maximum|The lateness (in minutes) reported by the continuous export jobs in the cluster|No Dimensions|
-|ContinuousExportNumOfRecordsExported|Yes|Continuous export � num of exported records|Count|Total|Number of records exported, fired for every storage artifact written during the export operation|ContinuousExportName, Database|
+|ContinuousExportNumOfRecordsExported|Yes|Continuous export - num of exported records|Count|Total|Number of records exported, fired for every storage artifact written during the export operation|ContinuousExportName, Database|
 |ContinuousExportPendingCount|Yes|Continuous Export Pending Count|Count|Maximum|The number of pending continuous export jobs ready for execution|No Dimensions|
 |ContinuousExportResult|Yes|Continuous Export Result|Count|Count|Indicates whether Continuous Export succeeded or failed|ContinuousExportName, Result, Database|
 |CPU|Yes|CPU|Percent|Average|CPU utilization level|No Dimensions|
@@ -3033,7 +3033,7 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |MaterializedViewHealth|Yes|Materialized View Health|Count|Average|The health of the materialized view (1 for healthy, 0 for non-healthy)|Database, MaterializedViewName|
 |MaterializedViewRecordsInDelta|Yes|Materialized View Records In Delta|Count|Average|The number of records in the non-materialized part of the view|Database, MaterializedViewName|
 |MaterializedViewResult|Yes|Materialized View Result|Count|Average|The result of the materialization process|Database, MaterializedViewName, Result|
-|QueryDuration|Yes|Query duration|Milliseconds|Average|Queries� duration in seconds|QueryStatus|
+|QueryDuration|Yes|Query duration|Milliseconds|Average|Queries' duration in seconds|QueryStatus|
 |QueryResult|No|Query Result|Count|Count|Total number of queries.|QueryStatus|
 |QueueLength|Yes|Queue Length|Count|Average|Number of pending messages in a component's queue.|ComponentType|
 |QueueOldestMessage|Yes|Queue Oldest Message|Count|Average|Time in seconds from when the oldest message in queue was inserted.|ComponentType|
@@ -3240,7 +3240,7 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |AverageResponseTime|Yes|Average Response Time (deprecated)|Seconds|Average|The average time taken for the app to serve requests, in seconds.|Instance|
 |BytesReceived|Yes|Data In|Bytes|Total|The amount of incoming bandwidth consumed by the app, in MiB.|Instance|
 |BytesSent|Yes|Data Out|Bytes|Total|The amount of outgoing bandwidth consumed by the app, in MiB.|Instance|
-|CpuTime|Yes|CPU Time|Seconds|Total|The amount of CPU consumed by the app, in seconds. For more information about this metric. Please see�https://aka.ms/website-monitor-cpu-time-vs-cpu-percentage (CPU time vs CPU percentage).|Instance|
+|CpuTime|Yes|CPU Time|Seconds|Total|The amount of CPU consumed by the app, in seconds. For more information about this metric. Please see: https://aka.ms/website-monitor-cpu-time-vs-cpu-percentage (CPU time vs CPU percentage).|Instance|
 |CurrentAssemblies|Yes|Current Assemblies|Count|Average|The current number of Assemblies loaded across all AppDomains in this application.|Instance|
 |FileSystemUsage|Yes|File System Usage|Bytes|Average|Percentage of filesystem quota consumed by the app.|No Dimensions|
 |FunctionExecutionCount|Yes|Function Execution Count|Count|Total|Function Execution Count|Instance|
@@ -3286,7 +3286,7 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |AverageResponseTime|Yes|Average Response Time (deprecated)|Seconds|Average|The average time taken for the app to serve requests, in seconds.|Instance|
 |BytesReceived|Yes|Data In|Bytes|Total|The amount of incoming bandwidth consumed by the app, in MiB.|Instance|
 |BytesSent|Yes|Data Out|Bytes|Total|The amount of outgoing bandwidth consumed by the app, in MiB.|Instance|
-|CpuTime|Yes|CPU Time|Seconds|Total|The amount of CPU consumed by the app, in seconds. For more information about this metric. Please see�https://aka.ms/website-monitor-cpu-time-vs-cpu-percentage (CPU time vs CPU percentage).|Instance|
+|CpuTime|Yes|CPU Time|Seconds|Total|The amount of CPU consumed by the app, in seconds. For more information about this metric. Please see: https://aka.ms/website-monitor-cpu-time-vs-cpu-percentage (CPU time vs CPU percentage).|Instance|
 |CurrentAssemblies|Yes|Current Assemblies|Count|Average|The current number of Assemblies loaded across all AppDomains in this application.|Instance|
 |FileSystemUsage|Yes|File System Usage|Bytes|Average|Percentage of filesystem quota consumed by the app.|No Dimensions|
 |FunctionExecutionCount|Yes|Function Execution Count|Count|Total|Function Execution Count|Instance|
