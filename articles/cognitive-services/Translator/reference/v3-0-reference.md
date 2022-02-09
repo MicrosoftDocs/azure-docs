@@ -126,7 +126,7 @@ Alternatively, you can exchange your secret key for an access token. This token 
 | Global          | `https://api.cognitive.microsoft.com/sts/v1.0/issueToken` |
 | Regional or Multi-Service | `https://<your-region>.api.cognitive.microsoft.com/sts/v1.0/issueToken` |
 
-Here are example requests to obtain a token given a secret key:
+Here are example requests to obtain a token given a secret key for a global resource:
 
 ```curl
 // Pass secret key using header
@@ -134,6 +134,16 @@ curl --header 'Ocp-Apim-Subscription-Key: <your-key>' --data "" 'https://api.cog
 
 // Pass secret key using query string parameter
 curl --data "" 'https://api.cognitive.microsoft.com/sts/v1.0/issueToken?Subscription-Key=<your-key>'
+```
+
+And here are example requests to obtain a token given a secret key for a regional resource located in Central US:
+
+```curl
+// Pass secret key using header
+curl --header "Ocp-Apim-Subscription-Key: <your-key>" --data "" "https://centralus.api.cognitive.microsoft.com/sts/v1.0/issueToken"
+
+// Pass secret key using query string parameter
+curl --data "" "https://centralus.api.cognitive.microsoft.com/sts/v1.0/issueToken?Subscription-Key=<your-key>"
 ```
 
 A successful request returns the encoded access token as plain text in the response body. The valid token is passed to the Translator service as a bearer token in the Authorization.
