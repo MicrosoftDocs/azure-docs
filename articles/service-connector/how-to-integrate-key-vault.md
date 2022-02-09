@@ -63,6 +63,7 @@ This page shows the supported authentication types and client types of Azure Key
 ### Java - Spring Boot
 
 **Service Principal**
+
 | Default environment variable name | Description | Example value |
 | --- | --- | --- |
 | azure.keyvault.uri | Your Key Vault endpoint URL | `"https://{yourKeyVaultName}.vault.azure.net/"` |

@@ -1,7 +1,7 @@
 ---
 author: cherylmc
 ms.author: cherylmc
-ms.date: 01/14/2022
+ms.date: 02/03/2022
 ms.service: bastion
 ms.topic: include
 
@@ -17,3 +17,4 @@ ms.topic: include
 | Connect to Linux VM using RDP | N/A| [Available](../articles/bastion/bastion-connect-vm-rdp-linux.md)|
 | Connect to Windows VM using RDP | [Available](../articles/bastion/bastion-connect-vm-rdp-windows.md) | [Available](../articles/bastion/bastion-connect-vm-rdp-windows.md)|
 | Connect to Windows VM using SSH | N/A | [Available](../articles/bastion/bastion-connect-vm-ssh-windows.md)|
+| File transfer | N/A | [Available](../articles/bastion/vm-upload-download-native.md)|

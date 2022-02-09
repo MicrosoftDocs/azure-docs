@@ -25,6 +25,17 @@ As you create an Azure Container Apps [environment](environment.md), a virtual n
 
 :::image type="content" source="media/networking/azure-container-apps-virtual-network.png" alt-text="Azure Container Apps environments use an existing VNET, or you can provide your own.":::
 
+## Restrictions
+
+Subnet address ranges can't overlap with the following reserved ranges:
+
+- 169.254.0.0/16
+- 172.30.0.0/16
+- 172.31.0.0/16
+- 192.0.2.0/24
+
+Additionally, subnets must have a size between /21 and /12.
+
 ## Subnet types
 
 As a Container Apps environment is created, you provide resource IDs for two different subnets. Both subnets must be defined in the same container apps.
@@ -32,7 +43,11 @@ As a Container Apps environment is created, you provide resource IDs for two dif
 - **App subnet**: Subnet for user app containers. Subnet that contains IP ranges mapped to applications deployed as containers.
 - **Control plane subnet**: Subnet for [control plane infrastructure](/azure/azure-resource-manager/management/control-plane-and-data-plane) components and user app containers.
 
+::: zone pivot="azure-cli"
+
 If the [platformReservedCidr](#networking-parameters) range is defined, both subnets must not overlap with the IP range defined in `platformReservedCidr`.
+
+::: zone-end
 
 ## Accessibility level
 
@@ -46,7 +61,11 @@ Container Apps environments deployed as external resources are available for pub
 
 When set to internal, the environment has no public endpoint. Internal environments are deployed with a virtual IP (VIP) mapped to an internal IP address. The internal endpoint is an Azure internal load balancer (ILB) and IP addresses are issued from the custom VNET's list of private IP addresses.
 
+::: zone pivot="azure-cli"
+
 To create an internal only environment, provide the `--internal-only` parameter to the `az containerapp env create` command.
+
+::: zone-end
 
 ## Example
 
@@ -234,6 +253,9 @@ az containerapp env create `
 
 ---
 
+> [!NOTE]
+> As you call `az conatinerapp create` to create the container app inside your environment, make sure the value for the `--image` parameter is in lower case.
+
 The following table describes the parameters used in for `containerapp env create`.
 
 | Parameter | Description |
@@ -326,7 +348,7 @@ az network private-dns zone create `
 ```powershell
 az network private-dns link vnet create `
   --resource-group $RESOURCE_GROUP `
-  --record-set-name $VNET_NAME `
+  --name $VNET_NAME `
   --virtual-network $VNET_ID `
   --zone-name $ENVIRONMENT_DEFAULT_DOMAIN -e true
 ```
@@ -334,7 +356,7 @@ az network private-dns link vnet create `
 ```powershell
 az network private-dns record-set a add-record `
   --resource-group $RESOURCE_GROUP `
-  --name "*" `
+  --record-set-name "*" `
   --ipv4-address $ENVIRONMENT_STATIC_IP `
   --zone-name $ENVIRONMENT_DEFAULT_DOMAIN
 ```
@@ -343,7 +365,9 @@ az network private-dns record-set a add-record `
 
 #### Networking parameters
 
-There are three optional networking parameters you can choose to define when calling `containerapp env create`. You must either provide values for all three of these properties, or none of them. If they aren’t provided, the CLI generates the values for you.
+There are three optional networking parameters you can choose to define when calling `containerapp env create`. Use these options when you have a peered VNET with separate address ranges. Explicitly configuring these ranges ensures the addresses used by the Container Apps environment doesn't conflict with other ranges in the network infrastructure.
+
+You must either provide values for all three of these properties, or none of them. If they aren’t provided, the CLI generates the values for you.
 
 | Parameter | Description |
 |---|---|
@@ -380,17 +404,6 @@ az group delete `
 ---
 
 ::: zone-end
-
-## Restrictions
-
-Subnet address ranges can't overlap with the following reserved ranges:
-
-- 169.254.0.0/16
-- 172.30.0.0/16
-- 172.31.0.0/16
-- 192.0.2.0/24
-
-Additionally, subnets must have a size between /21 and /12.
 
 ## Additional resources
 
