@@ -718,7 +718,7 @@ The **SAPUsersAuthorizations** Microsoft Sentinel Function brings together data 
 **Parameters:**
   - TimeAgo
       - Optional
-      - default vaule: 7 days
+      - Default value: 7 days
       - Function will only seek User master data from TimeAgo until now()
 
 The **SAPUsersAuthorizations** Microsoft Sentinel Function returns the following data:
