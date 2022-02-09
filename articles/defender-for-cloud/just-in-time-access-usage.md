@@ -121,7 +121,7 @@ You can enable JIT on a VM from the Azure virtual machines pages of the Azure po
 > [!TIP]
 > If a VM already has just-in-time enabled, when you go to its configuration page you'll see that just-in-time is enabled and you can use the link to open the just-in-time VM access page in Defender for Cloud, and view and change the settings.
 
-1. From the [Azure portal](https://ms.portal.azure.com), search for and select **Virtual machines**. 
+1. From the [Azure portal](https://portal.azure.com), search for and select **Virtual machines**. 
 
 1. Select the virtual machine you want to protect with JIT.
 

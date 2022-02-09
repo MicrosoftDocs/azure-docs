@@ -41,7 +41,8 @@ NAT can be created in a specific Availability Zone and has redundancy built in w
 
 NAT is fully scaled out from the start. There's no ramp up or scale-out operation required.  Azure manages the operation of NAT for you.  NAT always has multiple fault domains and can sustain multiple failures without service outage.
 
-* Outbound connectivity can be defined for each subnet with NAT.  Multiple subnets within the same virtual network can have different NATs. Or multiple subnets within the same virtual network can use the same NAT. A subnet is configured by specifying which NAT gateway resource to use.  All outbound traffic for the subnet is processed by NAT automatically without any customer configuration.  User-defined routes aren't necessary. NAT takes precedence over other outbound scenarios and replaces the default Internet destination of a subnet.
+* Outbound connectivity can be defined for each subnet with NAT.  Multiple subnets within the same virtual network can have different NATs. Or multiple subnets within the same virtual network can use the same NAT. A subnet is configured by specifying which NAT gateway resource to use.  All outbound traffic for the subnet is processed by NAT automatically without any customer configuration.  NAT takes precedence over other outbound scenarios and replaces the default Internet destination of a subnet.
+* UDRs that have been set up to direct traffic outbound to the internet take precedence over NAT gateway. See [Troubleshooting NAT gateway](/azure/virtual-network/nat-gateway/troubleshoot-nat#udr-supersedes-nat-gateway-for-going-outbound) to learn more.
 * NAT supports TCP and UDP protocols only. ICMP is not supported.
 * A NAT gateway resource can use a:
 
@@ -53,7 +54,7 @@ NAT is fully scaled out from the start. There's no ramp up or scale-out operatio
 * NAT is the recommended method for outbound connectivity. A NAT gateway does not have the same limitations of SNAT port exhaustion as does [default outbound access](../ip-services/default-outbound-access.md) and [outbound rules of a load balancer](../../load-balancer/outbound-rules.md). 
   * To migrate outbound access to NAT gateway from default outbound access or from outbound rules of a load balancer, see [Migrate outbound access to Azure Virtual Network NAT](./tutorial-migrate-outbound-nat.md)
 * NAT cannot be associated to an IPv6 Public IP address or IPv6 Public IP Prefix. However, it can be associated to a dual stack subnet.
-* NAT allows flows to be created from the virtual network to the services outside your VNet. Return traffic from the Internet is only allowed in response to an active flow. Services outside your VNet cannot initiate a connection to instances.
+* NAT allows flows to be created from the virtual network to the services outside your VNet. Return traffic from the Internet is only allowed in response to an active flow. Services outside your VNet cannot initiate an inbound connection through NAT gateway.
 * NAT cannot span multiple virtual networks.
 * Multiple NATs cannot be attached to a single subnet. 
 * NAT cannot be deployed in a [Gateway Subnet](../../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsub)
