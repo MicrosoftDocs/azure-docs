@@ -225,6 +225,7 @@ This function is invoked when there are inserts or updates in the specified data
 # [Extension 4.x+ (preview)](#tab/extensionv4)
 
 [!INCLUDE [functions-cosmosdb-extension-java-note](../../includes/functions-cosmosdb-extension-java-note.md)]
+
 ---
 
 In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `@CosmosDBTrigger` annotation on parameters whose value would come from Cosmos DB.  This annotation can be used with native Java types, POJOs, or nullable values using `Optional<T>`.
