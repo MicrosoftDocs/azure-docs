@@ -18,16 +18,17 @@ The service could be an Azure service such as:
 * Azure Storage
 * Azure Cosmos DB
 * Azure SQL Database
-* Your own service, using a [Private Link service](private-link-service-overview.md).
+* Your own service, using [Private Link service](private-link-service-overview.md).
   
 ## Private endpoint properties 
- A private endpoint specifies the following properties: 
+
+A private endpoint specifies the following properties: 
 
 |Property  |Description |
 |---------|---------|
 |Name    |    A unique name within the resource group.      |
 |Subnet    |  The subnet to deploy, where the private IP address is assigned. For subnet requirements, see the [Limitations](#limitations) section later in this article.         |
-|Private link resource    |   The private-link resource to connect by using a resource ID or alias, from the list of available types. A unique network identifier is generated for all traffic that's sent to this resource.       |
+|Private-link resource    |   The private-link resource to connect by using a resource ID or alias, from the list of available types. A unique network identifier is generated for all traffic that's sent to this resource.       |
 |Target subresource   |      The subresource to connect. Each private-link resource type has various options to select based on preference.    |
 |Connection approval method    |  Automatic or manual. Depending on the Azure role-based access control (RBAC) permissions, your private endpoint can be approved automatically. If you're connecting to a private-link resource without Azure RBAC permissions, use the manual method to allow the owner of the resource to approve the connection.        |
 |Request message     |  You can specify a message for requested connections to be approved manually. This message can be used to identify a specific request.        |
@@ -58,9 +59,7 @@ As you're creating private endpoints, consider the following:
 - The subscription from the private-link resource must also be registered with the Microsoft network resource provider. For more information, see [Azure Resource Providers](../azure-resource-manager/management/resource-providers-and-types.md).
  
 ## Private-link resource 
-A private-link resource is the destination target of a specified private endpoint. 
-
-The following table lists the available resources that support a private endpoint: 
+A private-link resource is the destination target of a specified private endpoint. The following table lists the available resources that support a private endpoint: 
  
 | Private-link resource&nbsp;name | Resource type | Subresources |
 | ---------------------------| ------------- | ------------- |
@@ -90,7 +89,7 @@ The following table lists the available resources that support a private endpoin
 | Azure Machine Learning | Microsoft.MachineLearningServices/workspaces | amlworkspace |
 | Azure Migrate | Microsoft.Migrate/assessmentProjects | project |
 | Application Gateway | Microsoft.Network/applicationgateways | application gateway |
-| Private Link Service (your own service) |  Microsoft.Network/privateLinkServices | empty |
+| Private Link service (your own service) |  Microsoft.Network/privateLinkServices | empty |
 | Power BI | Microsoft.PowerBI/privateLinkServicesForPowerBI | Power BI |
 | Azure Purview | Microsoft.Purview/accounts | account |
 | Azure Purview | Microsoft.Purview/accounts | portal |
