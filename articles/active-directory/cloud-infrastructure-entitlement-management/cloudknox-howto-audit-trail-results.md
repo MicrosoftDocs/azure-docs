@@ -1,6 +1,6 @@
 ---
-title: Generate an on-demand report from a query in CloudKnox Permissions Management 
-description: How to generate an on-demand report from a query in CloudKnox Permissions Management.
+title: Generate an on-demand report from a query in the Audit dashboard in CloudKnox Permissions Management 
+description: How to generate an on-demand report from a query in the **Audit** dashboard in CloudKnox Permissions Management.
 services: active-directory
 author: Yvonne-deQ
 manager: karenh444
@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/02/2022
+ms.date: 02/08/2022
 ms.author: v-ydequadros
 ---
 
@@ -18,29 +18,26 @@ ms.author: v-ydequadros
 > CloudKnox Permissions Management (CloudKnox) is currently in PREVIEW.
 > Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
 
-This article describes how you can generate an on-demand report from a query in the Audit trail dashboard in CloudKnox Permissions Management (CloudKnox).
+This article describes how you can generate an on-demand report from a query in the **Audit** dashboard in CloudKnox Permissions Management (CloudKnox). You can:
 
-- Run on-demand.
-- Schedule and run as often as you want.
-- Share with other members of your team and management.
-
-## Open the Audit trail dashboard
-
-- In CloudKnox, select the **Audit trail** tab.
-
-    CloudKnox displays the query options available to you.
+- Run a report on-demand.
+- Schedule and run a report as often as you want.
+- Share a report with other members of your team and management.
 
 ## Generate a custom report on-demand
 
-1. In the **Audit trail** tab, load the query you want.
-2. Select **Export**.
+1. In the CloudKnox home page, select the **Audit** tab.
+
+    CloudKnox displays the query options available to you.
+1. In the **Audit** tab, load the query you want.
+1. Select **Export**.
 
     CloudKnox generates the report and exports it in comma-separated values (**CSV**) format, portable document format (**PDF**), or Microsoft Excel Open XML Spreadsheet (**XLSX**) format.
 
 <!---
 ## Create a schedule to automatically generate and share a report
 
-1. In the **Audit trail** tab, load the query you want to use to generate your report.
+1. In the **Audit** tab, load the query you want to use to generate your report.
 2. Select **Settings** (the gear icon).
 3. In **Repeat on**, select on which days of the week you want the report to run.
 4. In **Date**, select the date when you want the query to run.
@@ -54,7 +51,7 @@ This article describes how you can generate an on-demand report from a query in 
 
 ## Delete the schedule for a report
 
-1. In the **Audit trail** tab, load the query whose report schedule you want to delete.
+1. In the **Audit** tab, load the query whose report schedule you want to delete.
 2. Select the ellipses menu **(…)** on the far right, and then select **Delete schedule**.
 
     CloudKnox deletes the schedule for running the query. The query itself isn't deleted.

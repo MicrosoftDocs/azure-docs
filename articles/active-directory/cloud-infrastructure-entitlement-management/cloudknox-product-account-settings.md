@@ -6,7 +6,7 @@ manager: karenh444
 ms.service: active-directory
 ms.topic: overview
 author: Yvonne-deQ
-ms.date: 02/07/2022
+ms.date: 02/08/2022
 ms.author: v-ydequadros
 ---
 
@@ -16,7 +16,7 @@ ms.author: v-ydequadros
 > CloudKnox Permissions Management (CloudKnox) is currently in PREVIEW.
 > Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
 
-The **Account settings** dashboard in CloudKnox Permissions Management (CloudKnox) allows you to set personal information, passwords, and account preferences.
+The **Account settings** dashboard in CloudKnox Permissions Management (CloudKnox) allows you to view personal and current organization information.
 
 ## View personal information
 
@@ -28,10 +28,11 @@ The **Account settings** dashboard in CloudKnox Permissions Management (CloudKno
 
 1. In the CloudKnox home page, select the down arrow to the right of the **User** (your initials) menu, and then select **Account settings**.
 
-    The **Current organization information**, displays the **Name** of your organization, the **Tenant ID** box, and the **User session timeout (min)**.
+    The **Current organization information** displays the **Name** of your organization, the **Tenant ID** box, and the **User session timeout (min)**.
 
 1. To change duration of the **User session timeout (min)**, select **Edit** (the pencil icon), and then enter the number of minutes before you want a user session to time out.
 1. Select the check mark to confirm your new setting.
+
 
 ## Next steps
 

@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 02/02/2022
+ms.date: 02/08/2022
 ms.author: v-ydequadros
 ---
 
@@ -22,7 +22,7 @@ This section answers troubleshoot issues with CloudKnox Permissions Management (
 
 ## One time passcode (OTP) email
 
-### The user did not receive the OTP email.
+### The user didn't receive the OTP email.
 
 - Check your junk or Spam mail folder for the email.  
 

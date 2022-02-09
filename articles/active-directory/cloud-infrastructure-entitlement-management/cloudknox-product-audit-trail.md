@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/02/2022
+ms.date: 02/08/2022
 ms.author: v-ydequadros
 ---
 
@@ -18,12 +18,10 @@ ms.author: v-ydequadros
 > CloudKnox Permissions Management (CloudKnox) is currently in PREVIEW.
 > Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
 
-The **Audit trail** dashboard in CloudKnox Permissions Management (CloudKnox) details all user activity performed in your authorization system. It captures all high risk activity in a centralized location, and allows system administrators to query the logs. 
+The **Audit** dashboard in CloudKnox Permissions Management (CloudKnox) details all user activity performed in your authorization system. It captures all high risk activity in a centralized location, and allows system administrators to query the logs. The **Audit** dashboard enables you to: 
 
-The **Audit trail** dashboard enables you to: 
-
-- Create and save new queries so you can access key data points.
-- Query across multiple authorization systems on one query.
+- Create and save new queries so you can access key data points easily.
+- Query across multiple authorization systems in one query.
 
 ## Filter information by authorization system
 
@@ -31,7 +29,7 @@ If you haven't used filters before, the default filter is the first authorizatio
 
 If you have used filters before, the default filter is last filter you selected.
 
-1. To display the **Audit trail** dashboard, on the CloudKnox home page, select **Audit trail**.
+1. To display the **Audit** dashboard, on the CloudKnox home page, select **Audit**.
 
 1. To select your authorization system type, in the **Authorization system type** box, select Amazon Web Services (**AWS**), Microsoft Azure (**Azure**), or Google Cloud Platform (**GCP**). 
 
@@ -47,10 +45,10 @@ If you have used filters before, the default filter is last filter you selected.
 There are several different query parameters you can configure individually or in combination. The query parameters and corresponding instructions are listed in the following sections.
 
 - To create a new query, select **New query**.
-- To view an existing query, select **View**.
-- To edit an existing query, select **Edit**.
+- To view an existing query, select **View** (the eye icon).
+- To edit an existing query, select **Edit** (the pencil icon).
 - To delete a function line in a query, select **Delete**.
-- To create multiple queries at one time, select the icon next to the **New query** tab. 
+- To create multiple queries at one time, select **Add new tab** (the plus sign **+** icon) to the right of the **Query** tabs that are displayed. 
 
   You can open a maximum number of six query tab pages at the same time. A message will appear when you've reached the maximum.
 
@@ -367,7 +365,6 @@ The **Operator** menu displays the following options depending on the identity y
 1. After selecting your options, select **Schedule**.
 
 
-
 ### Save a query under a different name
 
 - Select the ellipses (**...**).  
@@ -393,7 +390,7 @@ The **Operator** menu displays the following options depending on the identity y
 
 ## Export the results of a query as a report
 
-- To export the results of the query, select the down arrow icon.
+- To export the results of the query, select **Export**.
 
     CloudKnox exports the results in comma-separated values (**CSV**) format, portable document format (**PDF**), or Microsoft Excel Open XML Spreadsheet (**XLSX**) format.
 
@@ -401,5 +398,5 @@ The **Operator** menu displays the following options depending on the identity y
 ## Next steps
 
 - For information on how to view how users access information, see [Use queries to see how users access information](cloudknox-ui-audit-trail.md).
-- For information on how to create a query,see [Create a custom query](cloudknox-howto-create-custom-queries.md).
-- For information on how to generate an on-demand report from a custom query, see [Generate an on-demand report from a query](cloudknox-howto-audit-trail-results.md).
+- For information on how to create a query, see [Create a custom query](cloudknox-howto-create-custom-queries.md).
+- For information on how to generate an on-demand report from a query, see [Generate an on-demand report from a query](cloudknox-howto-audit-trail-results.md).

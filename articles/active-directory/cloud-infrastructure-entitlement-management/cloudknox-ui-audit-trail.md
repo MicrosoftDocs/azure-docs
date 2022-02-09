@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: overview
-ms.date: 02/02/2022
+ms.date: 02/08/2022
 ms.author: v-ydequadros
 ---
 
@@ -18,30 +18,30 @@ ms.author: v-ydequadros
 > CloudKnox Permissions Management (CloudKnox) is currently in PREVIEW.
 > Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
 
-The **Audit trail** dashboard in CloudKnox Permissions Management (CloudKnox) provides an overview of queries a CloudKnox user has created to review how users access their authorization systems and accounts. 
+The **Audit** dashboard in CloudKnox Permissions Management (CloudKnox) provides an overview of queries a CloudKnox user has created to review how users access their authorization systems and accounts. 
 
-This article provides an overview of the components of the **Audit trail** dashboard.
+This article provides an overview of the components of the **Audit** dashboard.
 
-## View information in the Audit trail dashboard
+## View information in the Audit dashboard
 
 
-1. In CloudKnox, select the **Audit trail** tab.
+1. In CloudKnox, select the **Audit** tab.
 
     CloudKnox displays the query options available to you.
 
-1. The following options display at the top of the **Audit trail** dashboard: 
+1. The following options display at the top of the **Audit** dashboard: 
 
     - A tab for each existing query. Select the tab to see details about the query.
     - **New query**: Select the tab to create a new query.
     - **New tab (+)**: Select the tab to add a **New query** tab.
     - **Saved queries**: Select to view a list of saved queries.
 
-1. To return to the main page, select **Back to Audit trail**.
+1. To return to the main page, select **Back to Audit**.
 
 
 ## Use a query to view information  
 
-1. In CloudKnox, select the **Audit trail** tab.
+1. In CloudKnox, select the **Audit** tab.
 1. The **New query** tab displays the following options:
 
     - **Authorization systems type**: A list of your authorization systems: Amazon Web Services (**AWS**), Microsoft Azure (**Azure**), or Google Cloud Platform (**GCP**).
@@ -50,7 +50,7 @@ This article provides an overview of the components of the **Audit trail** dashb
 
         - To display a **List** of accounts and **Folders** in the authorization system, select the down arrow, and then select **Apply**.
 
-1. To add an **Audit trail condition**, select **Conditions** (the eye icon), select the conditions you want to add, and then select **Close**.
+1. To add an **Audit condition**, select **Conditions** (the eye icon), select the conditions you want to add, and then select **Close**.
     
 1. To edit existing parameters, select **Edit** (the pencil icon).
 
@@ -72,4 +72,4 @@ This article provides an overview of the components of the **Audit trail** dashb
 
 - For information on how to filter and view user activity, see [Filter and query user activity](cloudknox-product-audit-trail.md).
 - For information on how to create a query,see [Create a custom query](cloudknox-howto-create-custom-queries.md).
-- For information on how to generate an on-demand report from a custom query, see [Generate an on-demand report from a query](cloudknox-howto-audit-trail-results.md).
+- For information on how to generate an on-demand report from a query, see [Generate an on-demand report from a query](cloudknox-howto-audit-trail-results.md).

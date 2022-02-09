@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: overview
-ms.date: 02/02/2022
+ms.date: 02/08/2022
 ms.author: v-ydequadros
 ---
 
@@ -26,10 +26,10 @@ The **Autopilot** dashboard in CloudKnox Permissions Management (CloudKnox) prov
 
 ## View a list of rules 
 
-1. In CloudKnox, select the **Autopilot** tab.
-1. From the **Authorization system types** dropdown, select the authorization system types you want: Amazon Web Services (**AWS**), Microsoft **Azure**, or Google Cloud Platform (**GCP**).
-1. Select **All** or the account names that you want.
-From the **Folders** dropdown, select a folder, and then select **Apply**. 
+1. In the CloudKnox home page, select the **Autopilot** tab.
+1. In the **Autopilot** dashboard, from the **Authorization system types** dropdown, select the authorization system types you want: Amazon Web Services (**AWS**), Microsoft **Azure**, or Google Cloud Platform (**GCP**).
+1. From the **Authorization system** dropdown, in the **List** and **Folders** box, select the account and folder names that you want.
+1. Select **Apply**. 
 
     The following information displays in the **Autopilot rules** table:
 
@@ -48,8 +48,7 @@ From the **Folders** dropdown, select a folder, and then select **Apply**.
 
     The following options are available:
 
-    - **Edit rule**: Select to change the details of the rule.
-    - **Delete rule**: Select to change the details of the rule.
+    - **View rule**: Select to view details of the rule.
     - **Delete rule**: Select to delete the rule. Only the user who created the selected rule can delete the rule. 
     - **Generate recommendations**: Creates recommendations for each user and the authorization system. Only the user who created the selected rule can create recommendations.
     - **View recommendations**: Displays the recommendations for each user and authorization system.
@@ -59,7 +58,7 @@ You can also select:
 
 - **Reload**: Select to refresh the displayed list of roles/policies.
 - **Search**: Select to search for a specific role/policy.
-- **||| Columns**: From the dropdown list, select the columns you want to display.
+- **Columns**: From the dropdown list, select the columns you want to display.
     - Select **Reset to default** to return to the system defaults. 
 - **New Rule**: Select to create a new rule. For more information, see [Create a rule](cloudknox-howto-create-rule.md).
 
@@ -67,4 +66,6 @@ You can also select:
 
 ## Next steps
 
-- For more information about creating rules, see [Create a rule](cloudknox-howto-create-rule.md).
+- For information about creating rules, see [Create a rule](cloudknox-howto-create-rule.md).
+- For information about generating, viewing, and applying rule recommendations for rules, see [Generate, view, and apply rule recommendations for rules](cloudknox-howto-recommendations-rule.md).
+- For information about notification settings for rules, see [View notification settings for a rule](cloudknox-howto-notifications-rule.md).
