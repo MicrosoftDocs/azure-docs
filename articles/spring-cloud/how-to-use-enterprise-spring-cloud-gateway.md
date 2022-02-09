@@ -77,7 +77,7 @@ Cross-origin resource sharing (CORS) allows restricted resources on a web page t
 | exposedHeaders | HTTP response headers to expose for cross-site requests |
 
 > [!NOTE]
-> Be sure you have the correct CORS configuration if you want to integrated with the [API portal](./how-to-use-enterprise-api-portal.md). For an example, see [Get started with Enterprise Tier](./get-started-enterprise.md).
+> Be sure you have the correct CORS configuration if you want to integrate with the [API portal](./how-to-use-enterprise-api-portal.md). For an example, see the [Create an example application](#create-an-example-application) section.
 
 ### Configure single sign-on (SSO)
 
@@ -113,7 +113,7 @@ The route definition includes the following parts:
 - appResourceId: The full app resource id to route traffic to
 - routes: A list of route rules about how the traffic goes to one app
 
-The followint tables list the route definitions. All the properties are optional.
+The following tables list the route definitions. All the properties are optional.
 
 | Property | Description |
 | - | - |
@@ -132,7 +132,9 @@ Not all the filters/predicates are supported in Azure Spring Cloud because of se
 - BasicAuth
 - JWTKey
 
-## A quick start example
+## Create an example application
+
+Use the following steps to create an example application using Spring Cloud Gateway.
 
 1. To create an app in Azure Spring Cloud which the Spring Cloud Gateway would route traffic to, follow the instructions in [Quickstart: Build and deploy apps to Azure Spring Cloud using the Enterprise tier](quickstart-deploy-apps-enterprise.md). Select `customers-service` for this example.
 

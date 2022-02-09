@@ -22,7 +22,7 @@ With Application Configuration Service, you have a central place to manage exter
 
 ## Prerequisites
 
-- An already provisioned Azure Spring Cloud Enterprise tier service instance with Application Configuration Service enabled. For more information, see [Get started with Enterprise Tier](./get-started-enterprise.md)
+- An already provisioned Azure Spring Cloud Enterprise tier instance with Application Configuration Service enabled. For more information, see [Quickstart: Provision an Azure Spring Cloud service instance using the Enterprise tier](quickstart-provision-service-instance-enterprise.md).
 
 ## Manage Application Configuration Service settings
 

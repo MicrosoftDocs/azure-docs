@@ -22,13 +22,17 @@ Managed identities for Azure resources provide an automatically managed identity
 If you're unfamiliar with managed identities for Azure resources, see the [Managed identities for Azure resources overview section](../active-directory/managed-identities-azure-resources/overview.md).
 
 ::: zone pivot="sc-enterprise-tier"
-- An already provisioned Azure Spring Cloud Enterprise tier instance. For more information, see [Get started with Enterprise Tier](./get-started-enterprise.md).
+
+- An already provisioned Azure Spring Cloud Enterprise tier instance. For more information, see [Quickstart: Provision an Azure Spring Cloud service instance using the Enterprise tier](quickstart-provision-service-instance-enterprise.md).
 - [Azure CLI version 2.0.67 or later](/cli/azure/install-azure-cli).
 - [!INCLUDE [install-enterprise-extension](includes/install-enterprise-extension.md)]
+
 ::: zone-end
 
 ::: zone pivot="sc-standard-tier"
+
 - An already provisioned Azure Spring Cloud instance. For more information, see [Quickstart: Deploy your first application to Azure Spring Cloud](./quickstart.md).
+
 ::: zone-end
 
 ## Add a system-assigned identity

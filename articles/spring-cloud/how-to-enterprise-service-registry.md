@@ -20,7 +20,7 @@ This article shows you how to use Service Registry with Azure Spring Cloud Enter
 
 ## Prerequisites
 
-- An already provisioned Azure Spring Cloud Enterprise tier service instance with Service Registry enabled. For more information, see [Get started](./get-started-enterprise.md).
+- An already provisioned Azure Spring Cloud Enterprise tier instance with Service Registry enabled. For more information, see [Quickstart: Provision an Azure Spring Cloud service instance using the Enterprise tier](quickstart-provision-service-instance-enterprise.md).
 
 ## Use Service Registry with apps
 
