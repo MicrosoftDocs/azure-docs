@@ -55,7 +55,7 @@ The Layout API analyzes and extracts text, tables and headers, selection marks, 
 
 ***Sample form processed using the [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/layout)***:
 
-:::image type="content" source="media/studio/analyze-layout.png" alt-text="Screenshot: analyze sample document processed in Form Recognizer studio":::
+:::image type="content" source="media/studio/analyze-layout.png" alt-text="Screenshot: Screenshot of sample document processed using Form Recognizer studio":::
 
 > [!div class="nextstepaction"]
 > [Learn more: layout model](concept-layout.md)
@@ -68,7 +68,7 @@ The invoice model analyzes and extracts key information from sales invoices. The
 
 ***Sample invoice processed using [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=invoice)***:
 
-:::image type="content" source="./media/studio/analyze-invoice.png" alt-text="sample invoice" lightbox="./media/overview-invoices.jpg":::
+:::image type="content" source="./media/studio/analyze-invoice.png" alt-text="Screenshot of a sample invoice." lightbox="./media/overview-invoices.jpg":::
 
 > [!div class="nextstepaction"]
 > [Learn more: invoice model](concept-invoice.md)
@@ -81,7 +81,7 @@ The receipt model analyzes and extracts key information from sales receipts. The
 
 ***Sample receipt processed using [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=receipt)***:
 
-:::image type="content" source="./media/studio/analyze-receipt.png" alt-text="sample receipt" lightbox="./media/overview-receipt.jpg":::
+:::image type="content" source="./media/studio/analyze-receipt.png" alt-text="Screenshot of a sample receipt." lightbox="./media/overview-receipt.jpg":::
 
 > [!div class="nextstepaction"]
 > [Learn more: receipt model](concept-receipt.md)
@@ -94,7 +94,7 @@ The ID document model analyzes and extracts key information from U.S. Driver's L
 
 ***Sample U.S. Driver's License processed using [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=idDocument)***:
 
-:::image type="content" source="./media/studio/analyze-drivers-license.png" alt-text="sample identification card" lightbox="./media/overview-id.jpg":::
+:::image type="content" source="./media/studio/analyze-drivers-license.png" alt-text="Screenshot of a sample identification card." lightbox="./media/overview-id.jpg":::
 
 > [!div class="nextstepaction"]
 > [Learn more: identity document model](concept-id-document.md)
@@ -107,7 +107,7 @@ The business card model analyzes and extracts key information from business card
 
 ***Sample business card processed using [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=businessCard)***:
 
-:::image type="content" source="./media/studio/analyze-business-card.png" alt-text="sample business card" lightbox="./media/overview-business-card.jpg":::
+:::image type="content" source="./media/studio/analyze-business-card.png" alt-text="Screenshot of a sample business card." lightbox="./media/overview-business-card.jpg":::
 
 > [!div class="nextstepaction"]
 > [Learn more: business card model](concept-business-card.md)
@@ -143,7 +143,7 @@ The custom model analyzes and extracts data from forms and documents specific to
 * Supported file formats: JPEG, PNG, BMP, TIFF, and PDF (text-embedded or scanned). Text-embedded PDFs are best to eliminate the possibility of error in character extraction and location.
 * For PDF and TIFF, up to 2000 pages can be processed (with a free tier subscription, only the first two pages are processed).
 * The file size must be less than 50 MB.
-* Image dimensions must be between 50 x 50 pixels and 10000 x 10,000 pixels.
+* Image dimensions must be between 50 x 50 pixels and 10,000 x 10,000 pixels.
 * PDF dimensions are up to 17 x 17 inches, corresponding to Legal or A3 paper size, or smaller.
 * The total size of the training data is 500 pages or less.
 * If your PDFs are password-locked, you must remove the lock before submission.
