@@ -39,7 +39,6 @@ Use Log Analytics Data Collection Rules (DCRs) to configure your data transforma
 - MMA-based data connectors,
 - Data connectors that use Diagnostic settings
 - Service-to-service data connectors
-- Logstash-based data connectors
 
 Custom data connectors are currently supported only for direct API-based and Logstash-based data connectors.
 

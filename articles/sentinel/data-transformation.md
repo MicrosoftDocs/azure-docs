@@ -50,7 +50,7 @@ Microsoft Sentinel data connectors collect data into the Log Analytics workspace
 
 In Log Analytics, data collection rules (DCRs) determine the data flow for different input streams. Each data flow includes: the data stream to be transformed (standard or custom), the destination workspace, the KQL transformation, and the output table. For standard input streams, the output table is the same as the input stream.
 
-Support for DCRs in Microsoft Sentinel includeS:
+Support for DCRs in Microsoft Sentinel includes:
 
 - *Standard* DCRs<!--native? normal?-->, currently supported only for AMA-based connectors and the custom logs workflow.
 
@@ -76,7 +76,7 @@ The following table describes DCR support for Microsoft Sentinel data connector 
 
 ## Data transformation support for custom data connectors
 
-If you've created custom data connectors for Microsoft Sentinel, you can still use DCRs for ingestion-time data transformation.
+If you've created custom data connectors for Microsoft Sentinel, you can still use DCRs to configure how the data will be parsed and stored in your workspace.
 
 When using DCRs with custom connectors, data is ingested similarly to custom log ingestion, such as with built-in data connectors that use direct API, Azure Functions, or Logstash.
 
@@ -108,7 +108,7 @@ Ingestion-time data transformation currently has the following known issues for 
 
 ## Next steps
 
-Learn more about ingestion-time data transformation. For more information, see <x>.
+Learn more about ingestion-time data transformation. For more information, see [Configure ingestion-time data transformation for Microsoft Sentinel](configure-data-transformation.md).
 
 Link to LA docs
 
