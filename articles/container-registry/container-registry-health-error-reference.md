@@ -102,8 +102,8 @@ This error means that the CLI was unable to find the login server of the given r
 
 ## NOTARY_VERSION_ERROR
 
-This error means that the CLI is not compatible with the currently installed version of Docker/Notary. Try downgrading your notary.exe version to a version earlier than 0.6.0 by replacing your Docker installation's Notary client manually to resolve this issue.
-
+This error means that the CLI is not compatible with the currently installed version of Docker/Notary. Try downgrading your notary.exe version to a version earlier than 0.6.0 by replacing your Docker installation's Notary client manually to resolve this issue. You can also try downloading and installing a pre-compiled binary of Notary earlier than 0.6.0 for 64 bit Linux or Mac OS X from the Notary repository's releases page on GitHub.For windows download the .exe, place it in the(default path:  C:\ProgramFiles\Docker\Docker\resources\bin )and rename it to notary.exe. 
+ 
 ## Next steps
 
 For options to check the health of a registry, see [Check the health of an Azure container registry](container-registry-check-health.md).
