@@ -14,7 +14,7 @@ ms.custom: template-tutorial
 
 # Tutorial: Create an example policy control configuration set for Azure Private 5G Core
 
-Azure Private 5G Core Preview provides flexible traffic handling. You can customize how your packet core instance applies quality of service (QoS) characteristics to traffic to meet its needs. You can also block or limit certain flows. The following tutorial takes you through the steps of creating services and SIM policies for common use cases, and then provisioning SIMs to use the new policy control configuration.
+Azure Private 5G Core Preview provides flexible traffic handling. You can customize how your packet core instance applies quality of service (QoS) characteristics to traffic to meet its needs. You can also block or limit certain flows. This tutorial takes you through the steps of creating services and SIM policies for common use cases, and then provisioning SIMs to use the new policy control configuration.
 
 In this tutorial, you'll learn how to:
 
@@ -94,7 +94,7 @@ To create the service:
 
     :::image type="content" source="media/tutorial-create-example-set-of-policy-control-configuration/add-a-data-flow-template.png" alt-text="Screenshot of the Azure portal. The Add a data flow template pop-up is shown and the Add button is highlighted.":::
 
-1. We'll now create another data flow template for the same rule that matches on UDP packets flowing away from UEs on port 11. 
+1. Let's create another data flow template for the same rule that matches on UDP packets flowing away from UEs on port 11. 
 
     Under **Data flow templates**, select **Add a data flow template**. In the **Add a data flow template** pop-up, fill out the fields as follows.
 
@@ -121,7 +121,7 @@ To create the service:
     |**Policy rule precedence**     | Select **15**.        |
     |**Allow traffic**     | Select **Enabled**.        |
 
-1. We're now back at the **Create a service** screen. We'll now create a data flow template that matches on all ICMP and UDP in both directions.
+1. We're now back at the **Create a service** screen. We'll create a data flow template that matches on all ICMP and UDP in both directions.
 
     Under **Data flow policy rules**, select **Add a data flow template**. In the **Add a data flow template** pop-up, fill out the fields as follows.
 
@@ -371,7 +371,7 @@ Let's create the SIM policies.
     :::image type="content" source="media/configure-sim-policy-azure-portal/sim-policy-deployment-confirmation.png" alt-text="Screenshot of the Azure portal showing confirmation of the successful deployment of a SIM policy.":::
 
 1. Select **Go to resource group**.
-1. In the **Resource group** that appears, select the **Mobile network** resource representing your private mobile network.
+1. In the **Resource group** that appears, select the **Mobile Network** resource representing your private mobile network.
 1. In the **Resource** menu, select **SIM policies**.
 
     :::image type="content" source="media/configure-sim-policy-azure-portal/sim-policies-resource-menu-option.png" alt-text="Screenshot of the Azure portal showing the SIM policies option in the resource menu of a Mobile Network resource.":::
@@ -384,7 +384,7 @@ Let's create the SIM policies.
 
     - The top level settings for the SIM policy are shown under the **Essentials** heading.
     - The network scope configuration is shown under the **Network scope** and **Quality of service (QoS)** headings.
-    - The configured services are shown under the **Service configuration heading**.
+    - The configured services are shown under the **Service configuration** heading.
     
     :::image type="content" source="media/tutorial-create-example-set-of-policy-control-configuration/complete-example-sim-policy-1.png" alt-text="Screenshot of the Azure portal showing the first SIM policy resource. Essentials, network scope, and service configuration are highlighted." lightbox="media/tutorial-create-example-set-of-policy-control-configuration/complete-example-sim-policy-1.png":::
 
@@ -427,7 +427,7 @@ Let's create the SIM policies.
     :::image type="content" source="media/configure-sim-policy-azure-portal/sim-policy-deployment-confirmation.png" alt-text="Screenshot of the Azure portal showing confirmation of the successful deployment of a SIM policy.":::
 
 1. Select **Go to resource group**.
-1. In the **Resource group** that appears, select the **Mobile network** resource representing your private mobile network.
+1. In the **Resource group** that appears, select the **Mobile Network** resource representing your private mobile network.
 1. In the **Resource** menu, select **SIM policies**.
 1. Select **sim-policy-2**.
 
@@ -485,7 +485,7 @@ In this step, we will provision two SIMs and assign a SIM policy to each one. Th
 
     :::image type="content" source="media/provision-sims-azure-portal/multiple-sim-resource-deployment.png" alt-text="Screenshot of the Azure portal showing a completed deployment of SIM resources through a J S O N file and the Go to resource button.":::
 
-1. In the **Resource group** that appears, select the **Mobile network** resource representing your private mobile network.
+1. In the **Resource group** that appears, select the **Mobile Network** resource representing your private mobile network.
 1. In the **Resource** menu, select **SIMs**.
 
     :::image type="content" source="media/tutorial-create-example-set-of-policy-control-configuration/sims-resource-menu-option.png" alt-text="Screenshot of the Azure portal. The SIMs option in the resource menu for a private mobile network is highlighted.":::
