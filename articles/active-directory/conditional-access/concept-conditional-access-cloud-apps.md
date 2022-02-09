@@ -78,7 +78,7 @@ The Office 365 suite makes it possible to target these services all at once. We 
 
 Targeting this group of applications helps to avoid issues that may arise because of inconsistent policies and dependencies. For example: The Exchange Online app is tied to traditional Exchange Online data like mail, calendar, and contact information. Related metadata may be exposed through different resources like search. To ensure that all metadata is protected by as intended, administrators should assign policies to the Office 365 app.
 
-Administrators can exclude the entire Office 365 suite from the Conditional Acess policy, or the specific Office 365 client apps.
+Administrators can exclude the entire Office 365 suite or specific Office 365 client apps from the Conditional Acess policy.
 
 The following key applications are included in the Office 365 client app:
 
