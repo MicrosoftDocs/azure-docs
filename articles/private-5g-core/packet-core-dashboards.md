@@ -32,7 +32,7 @@ You can access the following packet core dashboards:
     
     :::image type="content" source="media/packet-core-dashboards/packet-core-dashboard-panel-link.png" alt-text="Screenshot of the packet core dashboard. The link to the device and session statistics dashboard is shown.":::
 
-- The **Alerts dashboard** provides descriptions and information on the severity and effect of each currently firing alert. The **Alarm Severity** selector in the upper-left hand corner of the alerts dashboard allows you to filter out alerts of certain severity levels.
+- The **Alerts dashboard** provides descriptions and information on the severity and effect of each currently firing alert. The **Alarm Severity** selector in the upper-left hand corner of the Alerts dashboard allows you to filter out alerts of certain severity levels.
 
     :::image type="content" source="media/packet-core-dashboards/packet-core-alerts-dashboard.png" alt-text="Screenshot of the packet core Alerts dashboard. Panels related to currently active alerts are shown." lightbox="media/packet-core-dashboards/packet-core-alerts-dashboard.png":::
 
@@ -70,8 +70,8 @@ The packet core dashboards use the following types of panel. For all panels, you
 
     :::image type="content" source="media/packet-core-dashboards/packet-core-graph-panel.png" alt-text="Screenshot of a graph panel in the packet core dashboards. The panel displays information on total throughput statistics.":::
 
-<!-- Singlestat is deprecated in the Grafana docs, replaced by Stat (https://grafana.com/docs/grafana/latest/visualizations/stat-panel/). Is 5G using a specific version we should refer to, or should we update the information here to reflect the latest Grafana docs? -->
-- **Single stat** panels (called "Singlestat" panels in the Grafana documentation) display a single statistic. The statistic may be presented as a simple count or as a gauge. These panels indicate whether a single statistic has exceeded a threshold by their color.
+<!-- Singlestat is deprecated in the Grafana docs, replaced by Stat (https://grafana.com/docs/grafana/latest/visualizations/stat-panel/). Is 5G using a specific version we should refer to, or should we update the information here to reflect the latest Grafana docs? (Removing the Singlestat reference for now) -->
+- **Single stat** panels display a single statistic. The statistic may be presented as a simple count or as a gauge. These panels indicate whether a single statistic has exceeded a threshold by their color.
 
     - The value displayed on a gauge single stat panel is shown in green at normal operational levels, amber when approaching a threshold, and red when the threshold has been breached. 
     - The entirety of a count single stat panel will turn red if a threshold is breached.

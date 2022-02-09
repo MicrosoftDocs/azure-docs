@@ -33,7 +33,7 @@ To begin, collect the values in the following table for each SIM you want to pro
 | The Integrated Circuit Card Identification Number (ICCID). The ICCID identifies a specific physical SIM or eSIM, and includes information on the SIM's country and issuer. The ICCID is a unique numerical value between 19 and 20 digits in length, beginning with 89. | **ICCID** | `integratedCircuitCardIdentifier` |
 | The international mobile subscriber identity (IMSI). The IMSI is a unique number (usually 15 digits) identifying a device or user in a mobile network. | **IMSI** | `internationalMobileSubscriberIdentity` |
 | The Authentication Key (Ki). The Ki is a unique 128-bit value assigned to the SIM by an operator, and is used with the derived operator code (OPc) to authenticate a user. It must be a 32-character string, containing hexadecimal characters only. | **Ki** | `authenticationKey` |
-| The Derived Operator Code (OPc). The OPc is taken from the SIM's Ki and the network's OP (Operator Code). The packet core instance uses it to authenticate a user using a standards-based algorithm. The OPc must be a 32-character string, containing hexadecimal characters only. | **Opc** | `operatorKeyCode` |
+| The derived operator code (OPc). The OPc is taken from the SIM's Ki and the network's operator code (OP). The packet core instance uses it to authenticate a user using a standards-based algorithm. The OPc must be a 32-character string, containing hexadecimal characters only. | **Opc** | `operatorKeyCode` |
 | The type of device using this SIM. This value is an optional free-form string. You can use it as required to easily identify device types using the enterprise's private mobile network. | **Device type** | `deviceType` |
 
 ## If applicable, create the JSON file
@@ -81,8 +81,8 @@ You'll now begin the SIM provisioning process through the Azure portal.
 
     :::image type="content" source="media/provision-sims-azure-portal/create-new-sim.png" alt-text="Screenshot of the Azure portal showing the Create button and its options - Upload J S O N from file and Add manually.":::
 
-1. If you selected **Add manually**, move to [Manually provision a SIM](#manually-provision-a-sim).
-1. If you selected **Upload JSON from file**, move to [Provision SIMs using a JSON file](#provision-sims-using-a-json-file).
+    - If you selected **Add manually**, move to [Manually provision a SIM](#manually-provision-a-sim).
+    - If you selected **Upload JSON from file**, move to [Provision SIMs using a JSON file](#provision-sims-using-a-json-file).
 
 ## Manually provision a SIM
 
@@ -99,7 +99,7 @@ In this step, you'll enter provisioning values for your SIMs directly into the A
     :::image type="content" source="media/provision-sims-azure-portal/new-sim-resource.png" alt-text="Screenshot of the Azure portal showing the configuration a new SIM resource." lightbox="media/provision-sims-azure-portal/new-sim-resource.png":::
 
 1. Repeat this entire step for any other SIMs that you want to provision.
-1. If you decided in [Prerequisites](#prerequisites) you wanted to assign a SIM policy to any of your provisioned SIMs, move to [Optionally, assign a SIM policy](#optionally-assign-a-sim-policy). Otherwise, you've finished your provisioning.
+1. If you decided in [Prerequisites](#prerequisites) that you wanted to assign a SIM policy to any of your provisioned SIMs, move to [Optionally, assign a SIM policy](#optionally-assign-a-sim-policy). Otherwise, you've finished your provisioning.
 
 ## Provision SIMs using a JSON file
 
@@ -111,7 +111,7 @@ In this step, you'll provision SIMs using a JSON file.
 
     :::image type="content" source="media/provision-sims-azure-portal/multiple-sim-resource-deployment.png" alt-text="Screenshot of the Azure portal. It shows a completed deployment of SIM resources through a J S O N file and the Go to resource group button.":::
 
-1. The Azure portal will display the resource group containing your private mobile network. Select the **Mobile network** resource.
+1. The Azure portal will display the resource group containing your private mobile network. Select the **Mobile Network** resource.
 1. In the resource menu, select **SIMs**.
 1. Check the list of SIMs to ensure your new SIMs are present and provisioned correctly. 
 
@@ -132,7 +132,7 @@ In this step, you'll assign a SIM policy to your SIMs. SIMs need an assigned SIM
     1. Tick the checkbox next to the name of each SIM to which you assign the SIM policy.
     1. Select **Assign SIM policy**.
     1. In **Assign SIM policy** on the right, select your chosen SIM policy from the **SIM policy** drop-down menu.
-    1. Select the **Assign SIM policy** button.
+    1. Select **Assign SIM policy**.
     
         :::image type="content" source="media/provision-sims-azure-portal/assign-sim-policy.png" alt-text="Screenshot of the Azure portal. It shows a list of provisioned SIMs and fields to assign a SIM policy." lightbox="media/provision-sims-azure-portal/assign-sim-policy.png":::
 
