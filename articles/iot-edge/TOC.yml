@@ -113,6 +113,8 @@
     href: support.md
   - name: Production deployment checklist
     href: production-checklist.md
+  - name: Limits and restrictions
+    href: iot-edge-limits-and-restrictions.md
 - name: How-to guides
   items:
   - name: Install and provision IoT Edge

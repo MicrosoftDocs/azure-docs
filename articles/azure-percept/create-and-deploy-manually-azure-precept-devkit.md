@@ -77,4 +77,4 @@ context so the customer can determine why they would click the link.
 -->
 
 ## Next steps
-Navigate to the [Azure Percept portal](https://ms.portal.azure.com/#blade/AzureEdgeDevices/Main/overview) for more AI models. 
+Navigate to the [Azure Percept portal](https://portal.azure.com/#blade/AzureEdgeDevices/Main/overview) for more AI models. 
