@@ -143,10 +143,122 @@ To get the web app sample code, you can do either of the following:
 
 ### Step 3.2: Configure the sample web app
 
+Open your web app in a code editor such as Visual Studio Code. Under the `call-protected-api` folder, open the `.env` file. This file contains information about your Azure AD B2C identity provider. Update the following app settings:
 
+|Key  |Value  |
+|---------|---------|
+|`APP_CLIENT_ID`|The **Application (client) ID** for the web app you registered in [step 2.3](#step-23-register-the-web-app). |
+|`APP_CLIENT_SECRET`|The client secret for the web app you created in [step 2.4](#step-24-create-a-client-secret) |
+|`SIGN_UP_SIGN_IN_POLICY_AUTHORITY`|The **Sign in and sign up** user flow authority for the user flow you created in [step 1](#step-1-configure-your-user-flow) such as `https://<your-tenant-name>.b2clogin.com/<your-tenant-name>.onmicrosoft.com/<sign-in-sign-up-user-flow-name>`. Replace `<your-tenant-name>` with the name of your tenant and `<sign-in-sign-up-user-flow-name>` with the name of your Sign in and Sign up user flow such as `B2C_1_susi_node_app`. Learn how to [Get your tenant name](tenant-management.md#get-your-tenant-name). |
+|`AUTHORITY_DOMAIN`| The Azure AD B2C authority domain such as `https://<your-tenant-name>.b2clogin.com`. Replace `<your-tenant-name>` with the name of your tenant.|
+|`APP_REDIRECT_URI`| The application redirect URI where Azure AD B2C will return authentication responses (tokens). It matches the **Redirect URI** you set while registering your app in Azure portal. This URL need to be publicly accessible. Leave the value as is.|
+|`LOGOUT_ENDPOINT`| The Azure AD B2C sign out endpoint such as `https://<your-tenant-name>.b2clogin.com/<your-tenant-name>.onmicrosoft.com/<sign-in-sign-up-user-flow-name>/oauth2/v2.0/logout?post_logout_redirect_uri=http://localhost:3000`. Replace `<your-tenant-name>` with the name of your tenant and `<sign-in-sign-up-user-flow-name>` with the name of your Sign in and Sign up user flow such as `B2C_1_susi_node_app`.|
 
+After the update, your final configuration file should look similar to the following sample:
+
+:::code language="text" source="~/active-directory-b2c-msal-node-sign-in-sign-out-webapp/call-protected-api/.env":::
 
 ## Step 4: Get the web API sample code
 
+Now that the web API is registered and you've defined its scopes, configure the web API code to work with your Azure AD B2C tenant. 
+
+To get the web API sample code, do one of the following:
+
+* [Download a \*.zip archive](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi/archive/master.zip).
+
+* Clone the sample web API project from GitHub by running the following command:
+
+    ```bash
+    git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi.git
+    ```
+
+* You can also go directly to the [Azure-Samples/active-directory-b2c-javascript-nodejs-webapi](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi) project on GitHub.
+
+### Step 4.1: Update the web API
+
+1. In your code editor, open the `config.json` file.
+
+1. Modify the variable values with the user flow and application registration you created earlier: 
+
+    - For `tenantName`, use the [name of your tenant name](tenant-management.md#get-your-tenant-name) such as `fabrikamb2c`.
+    
+    - For `clientID`, use the **Application (Client) ID** for the web API you created in [step 2.1](#step-21-register-the-web-api-application).
+    
+    - For `policyName`, use the name of the **Sing in and sign up** user flow you created in [step 1](#step-1-configure-your-user-flow) such as `B2C_1_susi_node_app`.
+   
+   After the update, your code should look similar to the following sample: 
+    
+    *config.json*:
+
+    :::code language="json" source="~/active-directory-b2c-javascript-nodejs-webapi/config.json":::
+
+### Step 4.2: Install app dependencies
+
+1. Open a console window, and change to the directory that contains the Node.js web API sample. For example:
+
+    ```console
+    cd active-directory-b2c-javascript-nodejs-webapi
+    ```
+
+1. Run the following commands:
+
+    ```console
+    npm install && npm update
+    ```
+
+## Step 5: Run the web app and API
+
+You're now ready to test the web application's scoped access to the web API. Run both the Node.js web API and the sample web application on your local machine. 
+
+1. In your terminal, navigate to the sample web API and run start the Node.js web API server. For example:
+`
+    ```console
+    cd active-directory-b2c-javascript-nodejs-webapi
+    node index.js
+    ```
+
+    The console window displays the port number of where the application is hosted.
+
+    ```console
+    Listening on port 5000...
+    ```
+
+1. In another terminal instance, navigate to the sample web app and run start the Node.js web app server. For example:
+
+    ```
+        cd active-directory-b2c-msal-node-sign-in-sign-out-webapp/call-protected-api
+        node index.js
+    ```
+
+    The console window displays the port number of where the application is hosted.
+
+    ```console
+    Msal Node Auth Code Sample app listening on port !3000
+    ```
+1. In your browser, go to `http://localhost:3000`. You should see the page with two buttons, **Sign in to call PROTECTED API** and **Or call the ANONYMOUS API**.
+
+    :::image type="content" source="./media/tutorial-call-api-using-access-token/sign-in-call-api.png" alt-text="Web page for sign in to call protected api.":::
+
+1. To call the anonymous API, select the **Or call the ANONYMOUS API**. The API responds with JSON object with `date` key such as:     
+
+    ```json
+        {"date":"2022-01-27T14:21:22.681Z"}
+    ```
+    The anonymous API is an unprotected endpoint in the web API. You don't need an access token to access it. 
+
+1. To call the protected API endpoint, select the **Sign in to call PROTECTED API** button. You're prompted to sign in. 
+
+1. Enter your sign-in credentials, such as email address and password. If you don't have an account, select **Sign up now** to create an account. If you have an account but have forgotten your password, select **Forgot your password?** to recover your password. After you successfully sign in or sign up, you should see the following page with **Call the PROTECTED API** button.
 
 
+    :::image type="content" source="./media/tutorial-call-api-using-access-token/signed-in-to-call-api.png" alt-text="Web page for signed to call protected api.":::
+
+1. To call the protected API, select the **Call the PROTECTED API** button. The API responds with JSON object with a `name` key whose value is your account's surname such as:
+
+    ```json
+        {"name": "User 1"}
+    ``` 
+
+## Next steps
+
+Learn how to [Enable authentication in your own web API by using Azure AD B2C](enable-authentication-in-node-web-api.md)
