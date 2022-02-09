@@ -9,7 +9,7 @@ ms.topic: tutorial
 ms.date: 02/10/2022
 ---
 
-# Azure Purview Audit & Diagnostics Logs
+# Azure Purview: Capture & Analyze Audit & Diagnostics Logs
 
 This guide lists step-by-step configuration on how to enable and capture Azure Purview Audit Logs via Azure Diagnostics Event Hub. 
 
