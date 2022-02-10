@@ -60,7 +60,7 @@ In this step, you'll create the Mobile Network resource representing your privat
 
     If the validation fails, you'll see an error message and the configuration tab(s) containing the invalid configuration will be flagged with red dots. Select the flagged tab(s) and use the error messages to correct invalid configuration before returning to the **Review + create** tab.
 
-1. Once the configuration has been validated, select **Create** to create the private Mobile Network resource and any SIM resources.
+1. Once the configuration has been validated, select **Create** to create the Mobile Network resource and any SIM resources.
 1. The Azure portal will now deploy the resources into your chosen resource group. You'll see the following confirmation screen when your deployment is complete.
 
     :::image type="content" source="media/pmn-deployment-complete.png" alt-text="Screenshot of the Azure portal. It shows confirmation of the successful creation of a private mobile network.":::

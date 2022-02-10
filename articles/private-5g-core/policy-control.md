@@ -36,7 +36,7 @@ A *QoS profile* has two main components.
 
 Each unique QoS Flow is assigned a unique *QoS Flow ID (QFI)*, which is used by network elements to map SDFs to QoS Flows.
 
-## Azure Private 5G Core QoS configuration
+## Azure Private 5G Core policy control configuration
 
 Azure Private 5G Core provides configuration to allow you to determine the QoS Flows the packet core instance will create and bind to SDFs during PDU session establishment. You can configure two primary resource types - *services* and *SIM policies*.
 
