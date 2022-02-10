@@ -17,7 +17,7 @@ We strongly encourage customers to apply the fixes to on-premises HCX connector 
  
 We also recommend customers to review the security advisory and apply the fixes for other affected VMware products or workloads.
  
-If you need any assistance or have questions, please [contact us](https://ms.portal.azure.com/#home).
+If you need any assistance or have questions, please [contact us](https://portal.azure.com/#home).
 
 
 
@@ -31,7 +31,7 @@ Please note that you may experience intermittent connectivity to these component
 
 We strongly recommend that you read the advisory and patch or apply the recommended workarounds for any additional VMware products that you may have deployed in Azure VMware Solution.
 
-If you need any assistance or have questions, please [contact us](https://ms.portal.azure.com).
+If you need any assistance or have questions, please [contact us](https://portal.azure.com).
 
 ## November 23, 2021
 

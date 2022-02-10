@@ -140,7 +140,7 @@ You can use jobs to do application-wide operations. The jobs in this application
 
 ## Clean up resources
 
-If you're not going to continue to use this application, delete the application template by visiting **Administration** > **Application settings** and select **Delete**.
+If you're not going to continue to use this application, delete the application template by visiting **Application** > **Management** and select **Delete**.
 
 :::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-cleanup.png" alt-text="Template cleanup":::
 

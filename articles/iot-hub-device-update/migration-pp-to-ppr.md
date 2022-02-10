@@ -10,7 +10,7 @@ ms.service: iot-hub-device-update
 
 # Migrate devices and groups from Public Preview to Public Preview Refresh
 
-As the Device Update for IoT Hub service releases new versions, you'll want to update your devices for the latest features and security improvements. This article provides information about how to migrate from the Public Preview release to the current, Public Preview Refresh (PPR) release. This article also explains the group and UX behavior across these releases. If you do not have devices, groups, and deployments that use the Public Preview release, you can ignore this page.
+As the Device Update for IoT Hub service releases new versions, you'll want to update your devices for the latest features and security improvements. This article provides information about how to migrate from the [Public Preview release](/previous-versions/azure/iot-hub-device-update) to the current, [Public Preview Refresh (PPR) release](understand-device-update.md). This article also explains the group and UX behavior across these releases. If you do not have devices, groups, and deployments that use the Public Preview release, you can ignore this page.
 
 To migrate successfully, you will have to upgrade the DU agent running on your devices. You will also have to create new device groups to deploy and manage updates. Note that as there are major changes with the PPR release, we recommend that you follow the instructions closely to avoid errors.
 
