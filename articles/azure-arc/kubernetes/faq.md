@@ -38,7 +38,7 @@ The system assigned managed identity associated with your Azure Arc-enabled Kube
 
 To check when the certificate is about to expire for any given cluster, run the following command:
 
-```console
+```azurecli
 az connectedk8s show -n <name> -g <resource-group>
 ```
 
@@ -48,13 +48,13 @@ If the value of `managedIdentityCertificateExpirationTime` indicates a timestamp
 
 1. Delete Azure Arc-enabled Kubernetes resource and agents on the cluster. 
 
-    ```console
+    ```azurecli
     az connectedk8s delete -n <name> -g <resource-group>
     ```
 
 1. Recreate the Azure Arc-enabled Kubernetes resource by deploying agents on the cluster.
     
-    ```console
+    ```azurecli
     az connectedk8s connect -n <name> -g <resource-group>
     ```
 

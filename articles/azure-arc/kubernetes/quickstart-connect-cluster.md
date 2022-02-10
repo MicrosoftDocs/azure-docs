@@ -22,7 +22,7 @@ In this quickstart, you'll learn the benefits of Azure Arc-enabled Kubernetes an
 
 * Install the **connectedk8s** Azure CLI extension of version >= 1.2.0:
 
-  ```console
+  ```azurecli
   az extension add --name connectedk8s
   ```
 
