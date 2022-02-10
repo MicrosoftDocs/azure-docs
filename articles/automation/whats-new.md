@@ -26,6 +26,19 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 
 To strengthen the overall Azure Automation security posture, the built-in RBAC Reader role would not have access to Automation account keys through the API call - `GET /automationAccounts/agentRegistrationInformation`. Read [here](/azure/automation/automation-role-based-access-control#reader) for more information.
 
+## December 2021
+
+### New scripts added for Azure VM management based on Azure Monitor Alert
+
+**Type:** New feature
+
+New scripts are added to the Azure Automation [GitHub repository](https://github.com/azureautomation) to address one of Azure Automation's key scenarios of VM management based on Azure Monitor alert. For more information, see [Trigger runbook from Azure alert](/azure/automation/automation-create-alert-triggered-runbook).
+
+- Stop-Azure-VM-On-Alert
+- Restart-Azure-VM-On-Alert
+- Delete-Azure-VM-On-Alert
+- ScaleDown-Azure-VM-On-Alert
+- ScaleUp-Azure-VM-On-Alert
 
 ## November 2021 
 
