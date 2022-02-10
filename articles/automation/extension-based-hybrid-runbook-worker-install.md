@@ -531,9 +531,9 @@ Review the parameters used in this template.
 
 ### Prerequisites
 
-- You would require an Azure VM or Arc-enabled server. You can follow the steps [here](/azure/azure-arc/servers/onboard-portal) create an Arc connected machine.
+You would require an Azure VM or Arc-enabled server. You can follow the steps [here](/azure/azure-arc/servers/onboard-portal) create an Arc connected machine.
 
-### Install and use Hybrid Worker extension using REST API**
+### Install and use Hybrid Worker extension using REST API
 
 To install and use Hybrid Worker extension using REST API, follow these steps. The WestCentral US region is considered in this example.
 
@@ -611,7 +611,7 @@ To install and use Hybrid Worker extension using REST API, follow these steps. T
 
 1. Go to the **Portal** page of the VM and in the **Extensions** tab, you can check the status of the Hybrid Worker Extension installation.
  
-1. Run the below API call to start executing jobs on the new Hybrid worker
+1. Run the below API call to start executing jobs on the new Hybrid worker.
   
   ```http
   PUT
@@ -626,14 +626,14 @@ To install and use Hybrid Worker extension using REST API, follow these steps. T
        "properties": {
        "runbook": {
        "name": "{RunbookName}"
-       },
+     },
        "parameters": {
        "key01": "value01",
        "key02": "value02"
-       },
+     },
        "runOn": "{hybridRunbookWorkerGroupName}"
-       }
-       } 
+     }
+     } 
    ```
 
 ## Manage Role permissions for Hybrid Worker Groups
