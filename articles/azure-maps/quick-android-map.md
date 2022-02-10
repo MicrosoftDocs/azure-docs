@@ -110,7 +110,7 @@ The next step in building your application is to install the Azure Maps Android 
     maven {url "https://atlas.microsoft.com/sdk/android"}
     ```
 
-1. In the same project settings file **settings.gradle**, change repositoriesMode to `PREFER_SETTINGS`:
+2. In the same project settings file **settings.gradle**, change repositoriesMode to `PREFER_SETTINGS`:
 
     ```gradle
     repositoriesMode.set(RepositoriesMode.PREFER_SETTINGS)
@@ -120,7 +120,7 @@ The next step in building your application is to install the Azure Maps Android 
 
    :::image type="content" source="./media/quick-android-map/project-settings-file.png" alt-text="A screenshot of the project settings file in Android Studio.":::
 
-1. Open the application **build.gradle** file and do the following:
+3. Open the application **build.gradle** file and do the following:
 
     1. Verify your project's **minSdk** is **21** or higher.
 
@@ -143,7 +143,7 @@ The next step in building your application is to install the Azure Maps Android 
 
       :::image type="content" source="./media/quick-android-map/build-gradle-file.png" alt-text="A screenshot showing the application build dot gradle file in Android Studio.":::
 
-1. Add a map fragment to the main activity:
+4. Add a map fragment to the main activity:
 
     ```xml
     <com.azure.android.maps.control.MapControl
@@ -159,7 +159,7 @@ The next step in building your application is to install the Azure Maps Android 
 
 ::: zone pivot="programming-language-java-android"
 
-1. In the **MainActivity.java** file you'll need to:
+5. In the **MainActivity.java** file you'll need to:
 
     * Add imports for the Azure Maps SDK.
     * Set your Azure Maps authentication information.
@@ -267,7 +267,7 @@ The next step in building your application is to install the Azure Maps Android 
 
 ::: zone pivot="programming-language-kotlin"
 
-1. In the **MainActivity.kt** file you'll need to:
+5. In the **MainActivity.kt** file you'll need to:
 
     * add imports for the Azure Maps SDK
     * set your Azure Maps authentication information
@@ -361,20 +361,19 @@ The next step in building your application is to install the Azure Maps Android 
     }
     ```
 
-<!-------------------------------------------------------------------------------------------------------
-If you need a map with no borders, such as is shown in the screenshot of the map used in this article, 
-replace 'mapControl?.onReady(OnReady { map: AzureMap ->})' in the above code sample with the following:
-
- mapControl?.onReady(OnReady { map: AzureMap ->
-    var layers = map.layers.layerIds.toString();
-    var transitLayer = map.layers.getById("transit");
-    map.layers.remove(transitLayer);
- })
------------------------------------------------------------------------------------------------------------>
+    <!-------------------------------------------------------------------------------------------------------
+    If you need a map with no borders, such as is shown in the screenshot of the map used in this article,
+    replace 'mapControl?.onReady(OnReady { map: AzureMap ->})' in the above code sample with the following:
+     mapControl?.onReady(OnReady { map: AzureMap ->
+        var layers = map.layers.layerIds.toString();
+        var transitLayer = map.layers.getById("transit");
+        map.layers.remove(transitLayer);
+     })
+    ----------------------------------------------------------------------------------------------------------->
 
 ::: zone-end
 
-1. Select the run button from the toolbar, as shown in the following image (or press `Control` + `R` on a Mac), to build your application.
+6. Select the run button from the toolbar, as shown in the following image (or press `Control` + `R` on a Mac), to build your application.
 
     :::image type="content" source="media/quick-android-map/run-app.png" alt-text="A screenshot showing the run button in Android Studio.":::
 
