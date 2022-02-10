@@ -20,6 +20,8 @@ This article outlines how to register Azure Synapse Analytics workspaces and how
 |---|---|---|---|---|---|---|
 | [Yes](#register) | [Yes](#scan)| [Yes](#scan) | No| [Yes](#scan)| No| [Yes- Synapse pipelines](how-to-lineage-azure-synapse-analytics.md)|
 
+>![!NOTE]
+>Currently, Azure Synapse lake databases are not supported.
 
 <!-- 4. Prerequisites
 Required. Add any relevant/source-specific prerequisites for connecting with this source. Authentication/Registration should be covered by the sections below and does not need to be covered here.
