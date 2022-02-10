@@ -16,13 +16,13 @@ This article describes common troubleshooting concerns for Azure Data Catalog re
 
 ## Functionality limitations
 
-When using Azure Data Catalog, the following functionality is limited:
+In Azure Data Catalog, the following functionality is limited:
 
-- Accounts with type **Guest Role** are not supported. You cannot add guest accounts as users of Azure Data Catalog, and guest users cannot use the portal at [https://www.azuredatacatalog.com](https://www.azuredatacatalog.com).
+- Accounts with type **Guest Role** aren't supported. You can't add guest accounts as users of Azure Data Catalog, and guest users can't use the portal at [https://www.azuredatacatalog.com](https://www.azuredatacatalog.com).
 
-- Creating Azure Data Catalog resources using Azure Resource Manager Templates or Azure PowerShell commands is not supported.
+- Creating Azure Data Catalog resources using Azure Resource Manager Templates or Azure PowerShell commands isn't supported.
 
-- The Azure Data Catalog resource cannot be moved between Azure Tenants.
+- The Azure Data Catalog resource can't be moved between Azure Tenants.
 
 ## Azure Active Directory policy configuration
 
