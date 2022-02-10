@@ -15,7 +15,7 @@ Although spreading an application across Availability Zones in a single region w
 
 The aforementioned services are recommended for getting users to the best application location over the public Internet using public IP addressing, but they don't support private networks and IP addresses. This document will explore the usage of a route-based approach (anycast) to provide multi-regional, private-networked application deployments.
 
-Anycast essentially consists of advertising exactly the same IP address from more than one location, so that packets from the application users are routed to the closest (in terms of routing) region. Providing multi-region reachability over anycast offers some advantages over DNS-based approaches, such as not having to relay on clients not caching their DNS answers, and not requiring to modify the DNS design of the application.
+Anycast essentially consists of advertising exactly the same IP address from more than one location, so that packets from the application users are routed to the closest (in terms of routing) region. Providing multi-region reachability over anycast offers some advantages over DNS-based approaches, such as not having to rely on clients not caching their DNS answers, and not requiring to modify the DNS design of the application.
 
 ## Topology
 
@@ -28,7 +28,7 @@ The decision of which of the available regions is selected is entirely based on 
 > [!IMPORTANT]
 > The NVAs advertising the routes should include some health check mechanism to stop advertising the route when the application is not available in their respective regions.
 
-When the application traffic from the client arrives to one of the NVAs, it will either reverse-proxy the connection or perform Destination Network Address Translation (DNAT) to the actual application. The application will typically reside in a spoke VNet peered to the hub VNet where the NVA is deployed. Traffic back from the application needs to be attracted by the NVA too, which would happen naturally if the NVA is reverse-proxying the connection, or can be achieved with Source Network Address Translation (SNAT) or User Defined Routes (UDRs) in the application subnet. This is no different of providing access to an application in a single region, hence it is not covered in this article.
+When the application traffic from the client arrives to one of the NVAs, it will either reverse-proxy the connection or perform Destination Network Address Translation (DNAT) to the actual application. The application will typically reside in a spoke VNet peered to the hub VNet where the NVA is deployed. Traffic back from the application needs to be attracted by the NVA too, which would happen naturally if the NVA is reverse-proxying the connection, or can be achieved with Source Network Address Translation (SNAT) or User Defined Routes (UDRs) in the application subnet. This is not different of providing access to an application in a single region, hence it is not covered in this article.
 
 ## Next steps
 
