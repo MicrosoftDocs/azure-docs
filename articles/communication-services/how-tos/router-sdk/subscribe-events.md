@@ -13,7 +13,9 @@ ms.custom: template-how-to
 
 # Subscribe to Job Router events
 
-This guide outlines the steps to subscribe to Job Router events from your Azure Communication Services Event Grid subscription. Receiving events is a critical capability your custom applications will need to perform. The actions Job Router will perform on Jobs you submit happen asynchronously and while the SDK provides endpoints to query the status and state of objects in the system, building a reactive event-driven custom application has significant benefits.
+This guide outlines the steps to setup a subscription for Job Router events and how to receive them.
+
+For more details on Event Grid, please see the [Event Grid documentation][event-grid-overview].
 
 [!INCLUDE [Private Preview Disclaimer](../../includes/private-preview-include-section.md)]
 
@@ -33,7 +35,7 @@ If the storage account, queue or system topic do not exist, they will be created
 
 :::code language="json" source="media/deploy-subscription.json":::
 
-[![Deploy To Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fcommunication-services%2Fhow-tos%2Frouter-sdk%2Fmedia%2Fdeploy-subscription.json)
+[![Deploy To Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Fcommunication-services%2Fhow-tos%2Frouter-sdk%2Fmedia%2Fdeploy-subscription.json)
 
 ### Parameters
 
@@ -86,7 +88,7 @@ Copy the following code snippet and paste into source file: **Program.cs**
 using Azure.Storage.Queues;
 using Azure.Messaging.EventGrid;
 
-// For more detailed tutorials on storage queues, see: https://docs.microsoft.com/en-us/azure/storage/queues/storage-tutorial-queues
+// For more detailed tutorials on storage queues, see: https://docs.microsoft.com/azure/storage/queues/storage-tutorial-queues
 
 var queueClient = new QueueClient("<Storage Account Connection String>", "router-events");
 
@@ -805,5 +807,5 @@ dotnet run
 | workerId | `string` | ❌ |
 
 <!-- LINKS -->
-[event-grid-overview]: https://docs.microsoft.com/en-us/azure/event-grid/overview
-[filter-events]: https://docs.microsoft.com/en-us/azure/event-grid/how-to-filter-events
+[event-grid-overview]: https://docs.microsoft.com/azure/event-grid/overview
+[filter-events]: https://docs.microsoft.com/azure/event-grid/how-to-filter-events
