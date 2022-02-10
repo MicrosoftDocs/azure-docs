@@ -47,13 +47,13 @@ Follow these steps to configure the network for your device.
     
     ![Screenshot of the Get started page in the local web UI of an Azure Stack Edge device. The Needs setup is highlighted on the Network tile.](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/network-1.png)
 
-    On your physical device, there are four network interfaces. Port 1 and Port 2 are 1-Gbps network interfaces that can also serve as 10-Gbps network interfaces. Port 3 and Port 4 are 100-Gbps network interfaces . Port 1 is automatically configured as a management-only port, and Port 2 to Port 4 are all data ports. For a new device, the **Network** page is as shown below.
+    On your physical device, there are four network interfaces. Port 1 and Port 2 are 1-Gbps network interfaces that can also serve as 10-Gbps network interfaces. Port 3 and Port 4 are 100-Gbps network interfaces. Port 1 is automatically configured as a management-only port, and Port 2 to Port 4 are all data ports. For a new device, the **Network** page is as shown below.
     
     ![Screenshot of the Network page in the local web UI of an Azure Stack Edge device whose network isn't configured.](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/network-2.png)
 
 3. To change the network settings, select a port and in the right pane that appears, modify the IP address, subnet, gateway, primary DNS, and secondary DNS. 
 
-    - If you select Port 1, you can see that it is preconfigured as static. 
+    - If you select Port 1, you can see that it's preconfigured as static. 
 
         ![Screenshot of the Port 1 Network settings in the local web UI of an Azure Stack Edge device.](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/network-3.png)
 
@@ -68,7 +68,7 @@ Follow these steps to configure the network for your device.
     * If DHCP isn't enabled, you can assign static IPs if needed.
     * You can configure your network interface as IPv4.
     * ENGG TO VERIFY - Network Interface Card (NIC) Teaming or link aggregation isn’t supported with Azure Stack Edge. 
-    * ENGG TO VERIFY - In this release, the 100-GbE interfaces are not configured for RDMA mode.
+    * ENGG TO VERIFY - In this release, the 100-GbE interfaces aren't configured for RDMA mode.
     * Serial number for any port corresponds to the node serial number.
 
     Once the device network is configured, the page updates as shown below.
@@ -127,7 +127,7 @@ Follow these steps to configure advanced network settings such as creating a swi
 
 1. Optionally you can create a virtual network and associate it with your virtual switches. Select **Add virtual network** and then input the following information.
 
-    1. Select a **Virtual switch** to which you will add a virtual network.
+    1. Select a **Virtual switch** to which you'll add a virtual network.
     1. Provide a **Name** for the virtual network.
     1. Supply a unique number from 1-4096 as your **VLAN ID**.
     1. Enter a **Subnet mask** and a **Gateway** depending on the configuration of your physical network in the environment.
