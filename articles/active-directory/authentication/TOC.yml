@@ -72,8 +72,6 @@
       href: concept-password-ban-bad-on-premises.md
   - name: Security information registration
     href: concept-registration-mfa-sspr-combined.md
-  - name: Kerberos authentication (Preview)
-    href: how-to-authentication-kerberos.md
   - name: Resilient access controls
     href: concept-resilient-controls.md
 - name: How-to guides
