@@ -229,6 +229,8 @@
         href: azure-vm-faq.yml
       - name: VM certification troubleshooting
         href: azure-vm-certification-faq.yml
+    - name: Update pricing
+      href: azure-vm-plan-manage.md
   - name: Consulting services offer
     items: 
     - name: Plan the offer
@@ -531,8 +533,6 @@
       items:
       - name: API prerequisites
         href: submission-api-onboard.md
-      - name: Partner Center submission APIs
-        href: https://apidocs.microsoft.com/services/partneringestion/
     - name: Legacy submission APIs
       items: 
       - name: Legacy API overview
