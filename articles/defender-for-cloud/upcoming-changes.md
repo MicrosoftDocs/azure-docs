@@ -28,7 +28,7 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 | [Changes to recommendations for managing endpoint protection solutions](#changes-to-recommendations-for-managing-endpoint-protection-solutions) | March 2022 |
 | [AWS recommendations to GA](#aws-recommendations-to-ga) | March 2022 |
 | [Relocation of custom recommendations](#relocation-of-custom-recommendations) | March 2022 |
-| [Deprecating Microsoft Defender for IoT device assessments](#deprecating-microsoft-defender-for-iot-device-assessments)| March 2022 |
+| [Deprecating Microsoft Defender for IoT device recommendations](#deprecating-microsoft-defender-for-iot-device-recommendations)| March 2022 |
 | [Deprecating Microsoft Defender for IoT device alerts](#deprecating-microsoft-defender-for-iot-device-alerts) | March 2022 |
 ### Deprecating a preview alert: ARM.MCAS_ActivityFromAnonymousIPAddresses
 
@@ -177,15 +177,15 @@ When the move occurs, the custom recommendations will be found via a new "recomm
 
 Learn more in [Create custom security initiatives and policies](custom-security-policies.md).
 
-### Deprecating Microsoft Defender for IoT device assessments
+### Deprecating Microsoft Defender for IoT device recommendations
 
 **Estimated date for change:** March 2022 
 
 Microsoft Defender for IoT device recommendations will no longer be visible in Microsoft Defender for Cloud. These recommendations will still be available on Microsoft Defender for IoT's Recommendations page, and in Microsoft Sentinel.
 
-The following assessments will be deprecated:
+The following recommendations will be deprecated:
 
-| Assessment key | Display name |
+| Assessment key | Recommendations |
 |--|--|
 | 1a36f14a-8bd8-45f5-abe5-eef88d76ab5b: IoT Devices | Open Ports On Device |
 | ba975338-f956-41e7-a9f2-7614832d382d: IoT Devices | Permissive firewall rule in the input chain was found |
