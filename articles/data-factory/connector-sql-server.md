@@ -650,7 +650,7 @@ The below table lists the properties supported by SQL Server source. You can edi
 > EXECUTE sp_executesql @query;
 > END
 >```
->Then use the **Stored procedure** mode in the source transformation of the mapping data flow and set the `@query` like `with CTE as (select 'test' as a) select * from CTE`. Then you can use CTEs as expected.
+>Then use the **Stored procedure** mode in the source transformation of the mapping data flow and set the `@query` like example `with CTE as (select 'test' as a) select * from CTE`. Then you can use CTEs as expected.
 
 #### SQL Server source script example
 
