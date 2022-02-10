@@ -86,6 +86,8 @@ Follow these steps to configure the network for your device.
 
 Follow these steps to configure advanced network settings such as creating a switch for compute and associating it with a virtual network. 
 
+> [!NOTE]
+> ENGG TO VERIFY - You can enable compute only on one virtual switch on your device. You can however move the virtual switch on which you enabled compute.
 
 1. In the local web UI of your device, go to the **Advanced networking** page. Select **Add virtual switch** to create a new virtual switch or use an existing virtual switch. This virtual switch will be used for the compute infrastructure on the device. 
 
@@ -95,7 +97,7 @@ Follow these steps to configure advanced network settings such as creating a swi
 1. In **Add virtual switch** blade:
 
     1. Provide a name for your virtual switch.
-    1. Associate a network interface on your device with the virtual switch you'll create.
+    1. Associate a network interface on your device with the virtual switch you'll create. You can only have one virtual switch associated with a network interface on your device.
     1. Assign an intent for your virtual switch. To deploy compute workloads, you'll select compute as the intent.    
     1. Assign **Kubernetes node IPs**. These static IP addresses are for the compute VM that will be created on this virtual switch.  
 
@@ -113,30 +115,40 @@ Follow these steps to configure advanced network settings such as creating a swi
 
     ![Compute page in local UI 3](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/advanced-networking-2.png)
 
-1. You'll see a warning to the effect that you may need to wait for a couple minutes and then refresh the browser. Select OK.
+1. You'll see a warning to the effect that you may need to wait for a couple minutes and then refresh the browser. Select **OK**.
 
     ![Compute page in local UI 3](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/advanced-networking-3.png)
 
 
 1. After the configuration is applied and you've refreshed the browser, you can see that the specified port is enabled for compute. 
  
-    ![Compute page in local UI 4](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/compute-network-4.png)
+    ![Compute page in local UI 4](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/advanced-networking-4.png)
+
+
+1. Optionally you can create a virtual network and associate it with your virtual switches. Select **Add virtual network** and then input the following information.
+
+    1. Select a **Virtual switch** to which you will add a virtual network.
+    1. Provide a **Name** for the virtual network.
+    1. Supply a unique number from 1-4096 as your **VLAN ID**.
+    1. Enter a **Subnet mask** and a **Gateway** depending on the configuration of your physical network in the environment.
+    1. Select **Apply**.
+
+    ![Compute page in local UI 4](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/advanced-networking-5.png)
+    
+1. After the configuration is applied, you can see that the specified virtual network is created.
+
+    ![Compute page in local UI 4](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/advanced-networking-6.png)
 
     Select **Next: Web proxy** to configure web proxy.  
 
   
 ## Configure web proxy
 
-This is an optional configuration.
+This is an optional configuration. However, if you use a web proxy, you can configure it only on this page.
 
 > [!IMPORTANT]
-> * Proxy-auto config (PAC) files are not supported. A PAC file defines how web browsers and other user agents can automatically choose the appropriate proxy server (access method) for fetching a given URL. 
-> * Transparent proxies work well with Azure Stack Edge Pro. For non-transparent proxies that intercept and read all the traffic (via their own certificates installed on the proxy server), upload the public key of the proxy's certificate as the signing chain on your Azure Stack Edge Pro device. You can then configure the proxy server settings on your Azure Stack Edge device. For more information, see [Bring your own certificates and upload through the local UI](azure-stack-edge-gpu-deploy-configure-certificates.md#bring-your-own-certificates).  
-
-<!--1. Go to the **Get started** page in the local web UI of your device.
-2. On the **Network** tile, configure your web proxy server settings. Although web proxy configuration is optional, if you use a web proxy, you can configure it on this page only.
-
-   ![Local web UI "Web proxy settings" page](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/web-proxy-1.png)-->
+> * ENGG TO VERIFY - Proxy-auto config (PAC) files are not supported. A PAC file defines how web browsers and other user agents can automatically choose the appropriate proxy server (access method) for fetching a given URL. 
+> * ENGG TO VERIFY - Transparent proxies work well with Azure Stack Edge Pro 2. For non-transparent proxies that intercept and read all the traffic (via their own certificates installed on the proxy server), upload the public key of the proxy's certificate as the signing chain on your Azure Stack Edge Pro device. You can then configure the proxy server settings on your Azure Stack Edge device. For more information, see [Bring your own certificates and upload through the local UI](azure-stack-edge-gpu-deploy-configure-certificates.md#bring-your-own-certificates).  
 
 1. On the **Web proxy settings** page, take the following steps:
 
@@ -144,7 +156,7 @@ This is an optional configuration.
 
    2. To validate and apply the configured web proxy settings, select **Apply**.
 
-   ![Local web UI "Web proxy settings" page 2](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/web-proxy-2.png)<!--UI text update for instruction text is needed.-->
+   ![Local web UI "Web proxy settings" page 2](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/web-proxy-1.png)
 
 2. After the settings are applied, select **Next: Device**.
 
@@ -156,11 +168,11 @@ In this tutorial, you learned about:
 > [!div class="checklist"]
 > * Prerequisites
 > * Configure network
-> * Enable compute network
+> * Configure advanced networking
 > * Configure web proxy
 
 
-To learn how to set up your Azure Stack Edge Pro device, see:
+To learn how to set up your Azure Stack Edge Pro 2 device, see:
 
 > [!div class="nextstepaction"]
-> [Configure device settings](./azure-stack-edge-gpu-deploy-set-up-device-update-time.md)
+> [Configure device settings](./azure-stack-edge-placeholder.md)
