@@ -10,7 +10,7 @@ ms.date: 11/11/2021
 
 # Guidelines to develop secure embedded applications with Azure RTOS
 
-This article provides guidance to help you implement security measures on devices that you build using Azure RTOS. Azure RTOS is middleware. It incorporates many features that can help you build secure devices. However, the security of your devices will depend heavily on your choice of hardware and your implementation of secure firmware. The measures in this topic are primarily meant for devices that connect directly to the internet 
+This article contains guidance to help you implement security measures on devices that you build using Azure RTOS. Azure RTOS is middleware. It incorporates many features that can help you build secure devices. However, the security of your devices will depend heavily on your choice of hardware and your implementation of secure firmware. The measures in this topic are primarily meant for devices that connect directly to the internet 
 
 Microsoft recommends an approach based on the principle of zero-trust when designing IoT devices. We highly recommend reading the [Zero Trust: Cyber security for IoT](https://azure.microsoft.com/mediahandler/files/resourcefiles/zero-trust-cybersecurity-for-the-internet-of-things/Zero%20Trust%20Security%20Whitepaper_4.30_3pm.pdf) whitepaper as a prerequisite to this article. This brief paper outlines several categories to consider when implementing security across an IoT ecosystem with an emphasis on device security. For devices, these categories are:
 
@@ -24,16 +24,14 @@ Microsoft recommends an approach based on the principle of zero-trust when desig
 
 - **Least-privileged access** Devices should enforce least-privileged access control on local resources across workloads. For example, a firmware component that reports battery level shouldn't be able to access a camera component.
 
-- **Device health** Devices should be able to report 
+- **Continual updates** A device should enable the Over-the-Air (OTA) feature, such as the [Device Update for IoT Hub](https://docs.microsoft.com/en-us/azure/iot-hub-device-update/device-update-azure-real-time-operating-system) to push the firmware that contains the patches or bug fixes.
 
-- **Continual updates**
-
-- **Security monitoring and responses**
+- **Security monitoring and responses** A device should be able to proactively report the security postures for the solution builder to monitor the potential threats of fleet of devices. The [Microsoft Defender for IoT](https://docs.microsoft.com/en-us/azure/defender-for-iot/device-builders/concept-rtos-security-module) can be used for that purpose.
 
 
 ## Embedded Security Components - Cryptography
 
-Cryptography is a foundation of security in networked devices. There may exist some cases where cryptography may not be necessary for security. However, networking protocols such as TLS rely on cryptography to protect and authenticate information traveling over a network or the public Internet. A secure IoT device that connects to a server or cloud service using TLS or similar protocols requires strong cryptography with protection for keys and secrets based in hardware. Most other security mechanisms provided by those protocols are built on cryptographic concepts. Therefore, having proper cryptographic support is the single most critical consideration in developing a secure connected IoT device.
+Cryptography is a foundation of security in networked devices. There may exist some cases where cryptography may not be necessary for security. However, networking protocols such as TLS rely on cryptography to protect and authenticate information traveling over a network or the public Internet. A secure IoT device that connects to a server or cloud service using Transport Layer Security (TLS) or similar protocols requires strong cryptography with protection for keys and secrets based in hardware. Most other security mechanisms provided by those protocols are built on cryptographic concepts. Therefore, having proper cryptographic support is the single most critical consideration in developing a secure connected IoT device.
 
 ### True random hardware-based entropy source
 
@@ -52,7 +50,7 @@ Hardware Random Number Generators (HRNG) supply some of the best sources of entr
 
 ### Real-time capability
 
-Real-time capability is primarily needed for checking the expiration date of X.509 certificates. TLS also uses timestamps as part of its session negotiation, and certain applications may require accurate time reporting. There are many options for obtaining accurate time such as a Real-Time Clock (RTC) device, NTP to obtain time over a network, and GPS, which includes timekeeping.
+Real-time capability is primarily needed for checking the expiration date of X.509 certificates. TLS also uses timestamps as part of its session negotiation, and certain applications may require accurate time reporting. There are many options for obtaining accurate time such as a Real-Time Clock (RTC) device, Network Time Protocol (NTP) to obtain time over a network, and a Global Positioning System (GPS), which includes timekeeping.
 
 > [!IMPORTANT]
 > Having an accurate time is nearly as critical as having a TRNG for secure applications that use TLS and X.509.
@@ -75,9 +73,9 @@ An invalid time will disrupt all TLS communication, possibly rendering the devic
 
 There are a wide variety of cryptographic routines available today. When you design an application, research the cryptographic routines that you'll need and choose the strongest (largest) keys possible. Look to NIST or other organizations that provide guidance on appropriate cryptography for different applications.
 
-- Choose key sizes that are appropriate for your application. RSA is still acceptable in some organizations but only if the key is 2048 bits or larger. For AES, minimum key sizes of 128 bits are often required.
+- Choose key sizes that are appropriate for your application. Rivest Shamir Adleman encryption (RSA) is still acceptable in some organizations but only if the key is 2048 bits or larger. For the Advanced Encryption Standard (AES), minimum key sizes of 128 bits are often required.
 - Choose modern, widely accepted algorithms and choose cipher modes that provide the highest level of security available for your application.
-- Avoid using algorithms that are considered obsolete like DES and MDS.
+- Avoid using algorithms that are considered obsolete like the Data Encryption Standard (DES) and the Message Digest Algorithm 5 (MD5).
 - Consider the lifetime of your application, and adjust your choices to account for continued reduction in the security of current routines and key sizes.
 - Consider making key sizes and algorithms updatable to adjust to changing security requirements.
 - Constant-time cryptography should be used whenever possible to mitigate timing attack vulnerabilities.
@@ -95,14 +93,14 @@ Use of hardware cryptographic peripherals can speed up your application and prov
 > [!IMPORTANT]
 > Hardware cryptographic acceleration doesn't necessarily equate to enhanced security. For example:
 >
-> - Some cryptographic accelerators implement only the ECB mode of the cipher, and it's left to the software developer to implement more secure modes like GCM, CCM, or CBC. ECB is not semantically secure.
+> - Some cryptographic accelerators implement only the Electronic Codebook (ECB) mode of the cipher, and it's left to the software developer to implement more secure modes like Galois/Counter Mode (GCM), Counter with CBC-MAC (CCM), or Cipher Block Chaining (CBC). ECB is not semantically secure.
 >
 > - Cryptographic accelerators often leave key protection to the software developer.
 >
 
 Combining hardware cryptography acceleration that implements secure cipher modes with hardware-based protection for keys provides a higher level of security for cryptographic operations.
 
-**Hardware**: There are few standards for hardware cryptographic acceleration so each platform will vary in available functionality. Consult with your MCU vendor for more information.
+**Hardware**: There are few standards for hardware cryptographic acceleration so each platform will vary in available functionality. Consult with your Micro Controller Unit (MCU) vendor for more information.
 
 **Azure RTOS**: Azure RTOS provides drivers for select cryptographic hardware platforms. Check your Azure RTOS Cryptography documentation for more information on hardware-based cryptography.
 
@@ -122,7 +120,7 @@ In most modern connected devices, the device ID will be tied to cryptography. Fo
 - It may be a private-public key pair, where the private key is associated with a set of devices and is used in combination with another identifier that is unique to the device.
 - It may be cryptographic material that is used to derive private keys unique to the device.
 
-Regardless of implementation, the device ID and any associated cryptographic material must be hardware-protected, for example by using an HSM.
+Regardless of implementation, the device ID and any associated cryptographic material must be hardware-protected, for example by using a Hardware Security Module (HSM).
 
 While the device ID can be used for client authentication with a cloud service or server, it is highly advisable to split the device ID from operational certificates typically used for such purposes. To lessen the attack surface, operational certificates should be relatively short-lived, and the public portion of the device ID shouldn't be widely distributed. Instead, the device ID can be used to sign and/or derive private keys associated with operational certificates.
 
@@ -141,7 +139,7 @@ If your device utilizes a certificate from a Public Key Infrastructure (PKI), yo
 
 **Hardware**:  All certificate private keys should be tied to your device. Ideally, the key should be generated internally by the hardware and never exposed to your application. You should mandate the ability to generate X.509 certificate requests on the device.
 
-**Azure RTOS**: Azure RTOS TLS provides basic X.509 certificate support. Certificate Revocation Lists (CRLs) and policy parsing are supported but require manual management in your application without a supporting SDK.
+**Azure RTOS**: Azure RTOS TLS provides basic X.509 certificate support. Certificate Revocation Lists (CRLs) and policy parsing are supported but require manual management in your application without a supporting Software Development Kit (SDK).
 
 **Application**: Make use of CRLs or Online Certificate Status Protocol (OCSP) to validate that certificates haven't been revoked by your PKI. Make sure to enforce X.509 policies, including validity periods and expiration dates, as required by your PKI.
 
@@ -185,7 +183,7 @@ If your hardware platform has a Memory Management Unit (MMU) or Memory Protectio
 **Azure RTOS**: Azure RTOS allows for ‘ThreadX Modules’ that are built independently/separately and are provided with their own instruction and data area addresses at run-time. Memory protection can then be enabled such that a context switch to a thread in a module will disallow code from accessing memory outside of the assigned area.
 
 > [!NOTE]
-> TLS and MQTT aren’t yet supported from ThreadX Modules.
+> TLS and Message Queuing Telemetry Transport (MQTT) aren’t yet supported from ThreadX Modules.
 
 **Application**: The application developer may be required to enable memory protection when the device is first booted – refer to secure boot and ThreadX Modules documentation. Note: Use of ThreadX Modules may introduce additional memory and CPU overhead.
 
@@ -235,7 +233,7 @@ It is vital that a device can be proven to be running valid firmware upon reset.
 
 ### Firmware or OTA update
 
-Over-the-Air (OTA) update, sometimes referred to as “firmware update”, involves updating the firmware image on your device to a new version to add features or fix bugs. OTA update is important for security because any vulnerabilities that are discovered must be patched as soon as possible.
+An OTA update, sometimes referred to as “firmware update”, involves updating the firmware image on your device to a new version to add features or fix bugs. OTA update is important for security because any vulnerabilities that are discovered must be patched as soon as possible.
 
 > [!NOTE]
 > OTA updates MUST be tied to secure boot and code signing, or it is impossible to validate that new images aren’t compromised.
@@ -431,7 +429,7 @@ The previous sections detailed specific design considerations with descriptions 
 
 - DO use approved cipher suites in the Azure RTOS Crypto library
 
-  - Supplied examples provide the required cipher suites to be compatible with TLS RFCs, but stronger cipher suites may be more suitable.  Cipher suites include multiple ciphers for different TLS operations, so choose carefully. For example, using ECDHE may be preferable to RSA for key exchange, but the benefits can be lost if the cipher suite also uses RC4 for application data. Make sure every cipher in a cipher suite meets your security needs.
+  - Supplied examples provide the required cipher suites to be compatible with TLS RFCs, but stronger cipher suites may be more suitable.  Cipher suites include multiple ciphers for different TLS operations, so choose carefully. For example, using Elliptic-Curve Diffie-Hellman Ephemeral (ECDHE) may be preferable to RSA for key exchange, but the benefits can be lost if the cipher suite also uses RC4 for application data. Make sure every cipher in a cipher suite meets your security needs.
 
   - Remove cipher suites that aren't needed. Doing so saves space and provides extra protection against attack.
 
@@ -483,7 +481,7 @@ The previous sections detailed specific design considerations with descriptions 
 
 - DO NOT embed function pointers in data packets where overflow can overwrite function pointers.
 
-- DO NOT try to implement your own cryptography. Accepted cryptographic routines like ECC and AES have been developed by experts in cryptography and have gone through rigorous analysis over many years (sometimes decades) to prove their security. It's highly unlikely that any algorithm you develop on your own will have the security required to protect sensitive communications and data.
+- DO NOT try to implement your own cryptography. Accepted cryptographic routines like Elliptic Curve Cryptography (ECC) and AES have been developed by experts in cryptography and have gone through rigorous analysis over many years (sometimes decades) to prove their security. It's highly unlikely that any algorithm you develop on your own will have the security required to protect sensitive communications and data.
 
 - DO NOT implement roll-your-own cryptography schemes. Simply using AES doesn't mean your application is secure. Protocols like TLS use various methods to mitigate well-known attacks. For example:
 
