@@ -175,7 +175,7 @@ Scenarios in which you may need the same identity in 2 different Tenants or Azur
     * Backend process for Azure will not allow you to re-enable sync for up to 72 hours
 	* Due to users being removed and added as possible B2B accounts, updates to RBAC and Conditional Access Policies, etc. will need to be considered.
 * <u>No migration path to a B2B</u> solution is currently planned
-* <u>Not ALL Azure products</u> have been tested with the Dual Sync solution
+* <u>Not ALL Azure products</u> have been tested with Multiple Azure AD tenants
 
 #### How to Configure AAD Connect for Dual Sync
 
