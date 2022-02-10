@@ -1,6 +1,6 @@
 ---
 title: SAP deployment automation framework DevOps hands-on lab
-description: DevOps Hands-on lab for the SAP Deployment Automation Framework on Azure
+description: DevOps Hands-on lab for the SAP Deployment Automation Framework on Azure.
 author: mimergel
 ms.author: mimergel
 ms.reviewer: kimforss
@@ -28,11 +28,11 @@ You will perform the following tasks during this lab:
 
 ## Prerequisites
 
-1. An Azure subscription. If you don't have an Azure subscription, you can [create a free account here](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure subscription. If you don't have an Azure subscription, you can [create a free account here](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-1. A configured Azure DevOps instance, follow the steps here [Configure Azure DevOps Services for SAP Deployment Automation](automation-configure-devops.md)
+- A configured Azure DevOps instance, follow the steps here [Configure Azure DevOps Services for SAP Deployment Automation](automation-configure-devops.md)
 
-1. For the 'SAP software acquisition' and the 'Configuration and SAP installation' pipelines a configured self hosted agent, see [Configure a self-hosted agent for SAP Deployment Automation](automation-configure-devops.md#register-the-deployer-as-an-self-hosted-agent-for-azure-devops)
+- For the 'SAP software acquisition' and the 'Configuration and SAP installation' pipelines a configured self hosted agent, see [Configure a self-hosted agent for SAP Deployment Automation](automation-configure-devops.md#register-the-deployer-as-an-self-hosted-agent-for-azure-devops)
 
 > [!Note]
 > The free Azure account may not be sufficient to run the deployment.
@@ -65,7 +65,7 @@ The deployed infrastructure is shown in the diagram below.
 > * ASCS VM SKU: Standard_D4s_v3
 > * APP VM SKU: Standard_D4s_v3
 
-## Deploying the Control Plane
+## Deploy the Control Plane
 
 The deployment will use the configuration defined in the Terraform variable files located in the 'samples/WORKSPACES/DEPLOYER/MGMT-WEEU-DEP00-INFRASTRUCTURE' and 'samples/WORKSPACES/LIBRARY/MGMT-WEEU-SAP_LIBRARY' folders. 
 
@@ -78,11 +78,11 @@ SAP Library configuration name: MGMT-WEEU-SAP_LIBRARY
 
 :::image type="content" source="media/automation-devops/automation-run-pipeline.png" alt-text="DevOps tutorial, run pipeline dialog":::
 
-You can track the progress in the Azure DevOps portal. Once the deployment is complete you can see the Control Plane details in the _Extensions_ tab.
+You can track the progress in the Azure DevOps portal. Once the deployment is complete, you can see the Control Plane details in the _Extensions_ tab.
 
  :::image type="content" source="media/automation-devops/automation-run-pipeline-control-plane.png" alt-text="DevOps tutorial, run pipeline results":::
 
-## Deploying the Workload zone
+## Deploy the Workload zone
 
 The deployment will use the configuration defined in the Terraform variable file located in the 'samples/WORKSPACES/LANDSCAPE/DEV-WEEU-SAP01-INFRASTRUCTURE' folder.
 
@@ -91,9 +91,9 @@ Run the pipeline by navigating to the Pipelines section in the [Azure DevOps Por
 Workload zone configuration name: DEV-WEEU-SAP01-INFRASTRUCTURE
 Deployer Environment Name: MGMT
 
-You can track the progress in the Azure DevOps portal. Once the deployment is complete you can see the Workload Zone details in the _Extensions_ tab.
+You can track the progress in the Azure DevOps portal. Once the deployment is complete, you can see the Workload Zone details in the _Extensions_ tab.
 
-## Deploying the SAP System
+## Deploy the SAP System
 
 The deployment will use the configuration defined in the Terraform variable file located in the 'samples/WORKSPACES/SYSTEM/DEV-WEEU-SAP01-X00' folder.
 
@@ -101,9 +101,9 @@ Run the pipeline by navigating to the Pipelines section in the [Azure DevOps Por
 
 SAP System configuration name: DEV-WEEU-SAP01-X00
 
-You can track the progress in the Azure DevOps portal. Once the deployment is complete you can see the SAP System details in the _Extensions_ tab.
+You can track the progress in the Azure DevOps portal. Once the deployment is complete, you can see the SAP System details in the _Extensions_ tab.
 
-## Downloading the SAP Software
+## Download the SAP Software
 
 Run the pipeline by navigating to the Pipelines section in the [Azure DevOps Portal](https://dev.azure.com) and selecting the _SAP software acquisition_ pipeline. Run the pipeline and when prompted enter the following values:
 
@@ -113,7 +113,7 @@ Control Plane (SAP Library) location code: WEEU
 
 You can track the progress in the Azure DevOps portal. 
 
-## Running the Configuration and SAP Installation pipeline
+## Run the Configuration and SAP Installation pipeline
 
 Run the pipeline by navigating to the Pipelines section in the [Azure DevOps Portal](https://dev.azure.com) and selecting the _Configuration and SAP installation_ pipeline. Run the pipeline and when prompted enter the following values:
 
@@ -126,7 +126,7 @@ Choose the playbooks to execute.
 
 You can track the progress in the Azure DevOps portal. 
 
-## Running the Repository update pipeline
+## Run the Repository update pipeline
 
 Run the pipeline by navigating to the Pipelines section in the [Azure DevOps Portal](https://dev.azure.com) and selecting the _Repository updater_ pipeline. Run the pipeline and when prompted enter the following values:
 
@@ -136,7 +136,7 @@ Source branch to update from: main
 Only choose 'Force the update' if the update fails.
 
 
-## Running the removal pipeline
+## Run the removal pipeline
 
 Run the pipeline by navigating to the Pipelines section in the [Azure DevOps Portal](https://dev.azure.com) and selecting the _Deployment removal _ pipeline. Run the pipeline and select which deployment to remove.
 

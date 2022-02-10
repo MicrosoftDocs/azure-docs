@@ -15,7 +15,7 @@ ms.service: virtual-machines-sap
 
 This tutorial shows how to do enterprise scaling for deployments using the [SAP deployment automation framework on Azure](automation-deployment-framework.md). This example uses Azure Cloud Shell to deploy the control plane infrastructure. The deployer virtual machine (VM) creates the remaining infrastructure and SAP HANA configurations. 
 
-You will perform the following tasks during this lab:
+You'll perform the following tasks during this lab:
 
 > [!div class="checklist"]
 > * Deploy the Control Plane (Deployer Infrastructure & Library)
@@ -135,7 +135,7 @@ A valid SAP user account (SAP-User or S-User account) with software download pri
     az account list --output=table | grep True
     ```
 
-1. If required, change your active subscription.
+1. If necessary, change your active subscription.
   
     ```cloudshell-interactive
     az account set --subscription <Subscription ID>
@@ -426,7 +426,7 @@ Make sure you can connect to your deployer VM:
 
 ## Get SAP software using the Bill of Materials (BOM)
 
-The Automation Framework gives you tools to download software from SAP using the SAP Bill Of Materials (BOM). The software will be downloaded to the SAP library which acts as the archive for all media required to deploy SAP.
+The Automation Framework gives you tools to download software from SAP using the SAP Bill Of Materials (BOM). The software will be downloaded to the SAP library, which acts as the archive for all media required to deploy SAP.
 
 The SAP Bill of Materials (BOM) mimics the SAP maintenance planner. There are relevant product identifiers and a set of download URLs. 
 
@@ -585,7 +585,7 @@ For this example configuration, the resource group is `MGMT-NOEU-DEP00-INFRASTRU
         - Library resource group -> state storage account -> containers -> tfstate -> Copy the **name** of the Deployer state file.
         - Following from the example above, the name of the blob will be: *MGMT-NOEU-DEP00-INFRASTRUCTURE.terraform.tfstate*
 
-1. If required, register the SPN
+1. If necessary, register the SPN
 
     > [!IMPORTANT]
     > The first time an Environment is instantiated, a SPN must be registered. In this tutorial the Control Plane is in the MGMT environment, and the Workload Zone is in DEV, therefore an SPN must be registered for DEV at this time.
@@ -621,7 +621,7 @@ For this example configuration, the resource group is `MGMT-NOEU-DEP00-INFRASTRU
     git pull
     ```
 
-1. Go into the *WORKSPACES/LANDSCAPE* folder and copy the sample configuration files that you will be using from from the repository.
+1. Go into the *WORKSPACES/LANDSCAPE* folder and copy the sample configuration files that you'll be using from from the repository.
 
     ```bash
     cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/LANDSCAPE
@@ -685,7 +685,7 @@ Use the [install_workloadzone](bash/automation-install_workloadzone.md) script t
 
 1. Connect to your deployer VM for the following steps. A copy of the repo is now there.
 
-1. Go into the *WORKSPACES/SYSTEM* folder and copy the sample configuration files that you will be using from from the repository.
+1. Go into the *WORKSPACES/SYSTEM* folder and copy the sample configuration files that you'll be using from the repository.
 
     ```bash
     cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/SYSTEM
@@ -763,7 +763,7 @@ This playbook does the generic OS configuration setup on all the machines, which
 
 ### Playbook: SAP-Specific OS config
 
-This playbook does the SAP OS configuration setup on all the machines, which includes creation of volume groups, file systems, configuring of software repositories, packages, and services.
+This playbook does the SAP OS configuration setup on all the machines. The steps include creation of volume groups, file systems, configuring of software repositories, packages, and services.
 
 ### Playbook: BOM Processing
 
