@@ -93,7 +93,7 @@ You can use the CreateReleaseAnnotation PowerShell script to create annotations 
         Id = [GUID]::NewGuid();
         AnnotationName = $releaseName;
         EventTime = (Get-Date).ToUniversalTime().GetDateTimeFormats("s")[0];
-        Category = "Deployment";
+        Category = "Deployment"; #Application Insights only displays annotations from the "Deployment" Category
         Properties = ConvertTo-Json $releaseProperties -Compress
     }
     
@@ -103,6 +103,9 @@ You can use the CreateReleaseAnnotation PowerShell script to create annotations 
     # Use the following command for Linux Azure DevOps Hosts or other PowerShell scenarios
     # Invoke-AzRestMethod -Path "$aiResourceId/Annotations?api-version=2015-05-01" -Method PUT -Payload $body
     ```
+
+    [!NOTE]
+    Your annotations must have **Category** set to **Deployment** in order to be displayed in the Azure Portal.
 
 3. Call the PowerShell script with the following code, replacing the angle-bracketed placeholders with your values. The -releaseProperties are optional.
 
@@ -154,6 +157,9 @@ Select any annotation marker to open details about the release, including reques
 ## Release annotations using API keys
 
 Release annotations are a feature of the cloud-based Azure Pipelines service of Azure DevOps.
+
+> [!IMPORTANT]
+> Annotations using API keys is deprecated. We recommend using [Azure CLI](https://docs.microsoft.com/azure/azure-monitor/app/annotations#create-release-annotations-with-azure-cli) instead.
 
 ### Install the annotations extension (one time)
 
