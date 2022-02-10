@@ -1171,7 +1171,7 @@ Users in this role can manage Azure Active Directory B2B guest user invitations 
 
 ## Helpdesk Administrator
 
-Users with this role can change passwords, invalidate refresh tokens, create and manage service requests, and monitor service health. Invalidating a refresh token forces the user to sign in again. Whether a Helpdesk Administrator can reset a user's password and invalidate refresh tokens depends on the role the user is assigned. For a list of the roles that a Helpdesk Administrator can reset passwords for and invalidate refresh tokens, see [Password reset permissions](#password-reset-permissions).
+Users with this role can change passwords, invalidate refresh tokens, create and manage support requests with Microsoft for Azure and Microsoft 365 services, and monitor service health. Invalidating a refresh token forces the user to sign in again. Whether a Helpdesk Administrator can reset a user's password and invalidate refresh tokens depends on the role the user is assigned. For a list of the roles that a Helpdesk Administrator can reset passwords for and invalidate refresh tokens, see [Password reset permissions](#password-reset-permissions).
 
 > [!IMPORTANT]
 > Users with this role can change passwords for people who may have access to sensitive or private information or critical configuration inside and outside of Azure Active Directory. Changing the password of a user may mean the ability to assume that user's identity and permissions. For example:
@@ -1892,7 +1892,7 @@ Identity Protection Center | Read all security reports and settings information 
 
 ## Service Support Administrator
 
-Users with this role can open support requests with Microsoft for Azure and Microsoft 365 services, and views the service dashboard and message center in the [Azure portal](https://portal.azure.com) and [Microsoft 365 admin center](https://admin.microsoft.com). More information at [About admin roles](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
+Users with this role can create and manage support requests with Microsoft for Azure and Microsoft 365 services, and view the service dashboard and message center in the [Azure portal](https://portal.azure.com) and [Microsoft 365 admin center](https://admin.microsoft.com). More information at [About admin roles](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
 > [!NOTE]
 > Previously, this role was called "Service Administrator" in [Azure portal](https://portal.azure.com) and [Microsoft 365 admin center](https://admin.microsoft.com). We have renamed it to "Service Support Administrator" to align with the existing name in Microsoft Graph API and Azure AD PowerShell.
