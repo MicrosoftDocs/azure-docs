@@ -227,7 +227,7 @@ It is vital that a device can be proven to be running valid firmware upon reset.
 
 **Hardware**: MCU vendors may provide their own proprietary secure boot mechanisms as secure boot is tied to the hardware.
 
-**Azure RTOS**: No specific Azure RTOS functionality is required for secure boot. There are 3rd-party commercial vendors that offer secure boot products.
+**Azure RTOS**: No specific Azure RTOS functionality is required for secure boot. There are third-party commercial vendors that offer secure boot products.
 
 **Application**: The application may be affected by secure boot if over-the-air updates are enabled because the application itself may need to be responsible for retrieving and loading new firmware images (OTA update is tied to secure boot). The application will also need to be built with versioning and code-signing to support updates with secure boot.
 
@@ -281,7 +281,7 @@ Support current TLS versions:
 
 **Hardware**: No specific hardware requirements.
 
-**Azure RTOS**: TLS 1.2 is enabled by default. TLS 1.3 support must be explicitly enabled in Azure RTOS as TLS 1.2 is still the de-facto standard.
+**Azure RTOS**: TLS 1.2 is enabled by default. TLS 1.3 support must be explicitly enabled in Azure RTOS as TLS 1.2 is still the de facto standard.
 
 **Application**: To use TLS with cloud services, a certificate will be required. The certificate must be managed by the application.
 
@@ -363,7 +363,7 @@ Use cloud resources to record and analyze device failures remotely. Aggregate er
 
 ### Disable unused protocols and features
 
-RTOS and MCU-based applications will typically have a few dedicated functions. This is in sharp contrast to general-purpose computing machines running higher-level operating systems, such as Windows and Linux, that enable dozens or hundreds of protocols and features by default. When designing an RTOS MCU application, look closely at what networking protocols are actually required. Every protocol that is enabled represents a different avenue for attackers to gain a foothold within the device. If you don’t need a feature or protocol, don’t enable it.
+RTOS and MCU-based applications will typically have a few dedicated functions. This is in sharp contrast to general purpose computing machines running higher-level operating systems, such as Windows and Linux, that enable dozens or hundreds of protocols and features by default. When designing an RTOS MCU application, look closely at what networking protocols are actually required. Every protocol that is enabled represents a different avenue for attackers to gain a foothold within the device. If you don’t need a feature or protocol, don’t enable it.
 
 **Hardware**: No specific hardware requirements, but if the platform allows unused peripherals and ports to be disabled, use that functionality to reduce your attack surface.
 
@@ -380,8 +380,6 @@ Modern compilers and linkers provide numerous options for additional security at
 **Azure RTOS**: As an RTOS, some compiler-based security features may interfere with the real-time guarantees of Azure RTOS. Consider your RTOS needs when selecting compiler options and test them thoroughly.
 
 **Application**: If using GCC, the following list of options should be considered. For more information, see the GCC documentation.
-
-- -Wconversion, -Wsign-conversion,​ -Wformat-security,​ -fstack-protector, -fstack-protector-all, -Wstack-protector​ -fpie -Wl,-pie, -ftrapv , -D_FORTIFY_SOURCE=2​, -Wl,-z,relro,-z,now​
 
 If using other development tools, consult your documentation for appropriate options. In general, the following guidelines should help in building a more secure configuration:
 
@@ -437,7 +435,7 @@ The previous sections detailed specific design considerations with descriptions 
 
 - DO favor ephemeral public-key algorithms (like ECDHE) over static algorithms (like classic RSA) when possible as these provide forward secrecy. Note that TLS 1.3 ONLY supports ephemeral cipher modes so moving to TLS 1.3 (when possible) will satisfy this goal.
 
-- DO make use of memory checking functionality provided by your tools (for example, compiler and 3rd-party memory checking tools) and libraries (for example, Azure RTOS ThreadX stack checking).
+- DO make use of memory checking functionality provided by your tools (for example, compiler and third-party memory checking tools) and libraries (for example, Azure RTOS ThreadX stack checking).
 
 - DO scrutinize all input data for length/buffer overflow conditions. Any data coming from outside a functional block (the device, thread, and even each function/method) should be considered suspect and checked thoroughly with application logic. Some of the easiest vulnerabilities to exploit come from unchecked input data causing buffer overflows.
 
@@ -483,7 +481,7 @@ The previous sections detailed specific design considerations with descriptions 
 
 - DO NOT try to implement your own cryptography. Accepted cryptographic routines like Elliptic Curve Cryptography (ECC) and AES have been developed by experts in cryptography and have gone through rigorous analysis over many years (sometimes decades) to prove their security. It's highly unlikely that any algorithm you develop on your own will have the security required to protect sensitive communications and data.
 
-- DO NOT implement roll-your-own cryptography schemes. Simply using AES doesn't mean your application is secure. Protocols like TLS use various methods to mitigate well-known attacks. For example:
+- DO NOT implement roll-your-own cryptography schemes. Simply using AES doesn't mean your application is secure. Protocols like TLS use various methods to mitigate well known attacks. For example:
 
   - Known plaintext attacks, which use known, unencrypted data to derive information about encrypted data.
   - Padding oracles, which use modified cryptographic padding to gain access to secret data.
