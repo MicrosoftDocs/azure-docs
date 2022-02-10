@@ -154,13 +154,13 @@ The sensor name is defined by the name assigned during the registration. The nam
 
 1. Delete the sensor from the page.
 
-1. Register with the new name by selecting **Onboard sensor** from the Getting Started page.
+1. Register with the new name by selecting **Set up OT/ICS Security** from the Getting Started page.
 
 1. Download the new activation file.
 
 1. Sign in to the Defender for IoT sensor console.
 
-1. In the sensor console, select **System settings** > Sensor management and then select
+1. In the sensor console, select **System settings** > **Sensor management** and then select
 **Subscription & Activation Mode**.
 
 1. Select **Upload** and select the file you saved.
