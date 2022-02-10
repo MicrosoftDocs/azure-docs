@@ -9,7 +9,7 @@ ms.custom: mvc
 ---
 # Create a WordPress site
 
-In this quickstart, you'll learn how to create and deploy your first [WordPress](https://www.wordpress.org) site to [Azure App Service](overview.md) using [Azure Portal](https://portal.azure.com). 
+In this quickstart, you'll learn how to create and deploy your first [WordPress](https://www.wordpress.org) site to [Azure App Service](overview.md) using [Azure portal](https://portal.azure.com). 
 
 This quickstart configures WordPress in App Service on Linux.  It uses the **Basic** tier and [**incurs a cost**](https://azure.microsoft.com/pricing/details/app-service/linux/) for your Azure subscription.
 
@@ -22,15 +22,15 @@ This quickstart configures WordPress in App Service on Linux.  It uses the **Bas
 
 Sign in to the Azure portal at https://portal.azure.com.
 
-## Create WordPress site using Azure Portal
+## Create WordPress site using Azure portal
 
-1. In the Azure Portal, click **Create a resource**.
+1. In the Azure portal, click **Create a resource**.
 
-     :::image type="content" source="./media/quickstart-wordpress/01-portal-create-resource.png?text=Azure Portal create a resource" alt-text="Screenshot of Azure Portal create resource":::
+     :::image type="content" source="./media/quickstart-wordpress/01-portal-create-resource.png?text=Azure portal create a resource" alt-text="Screenshot of Azure portal create resource":::
 
 1. In **Create a resource**, type **WordPress** in the search and press **enter**.
 
-     :::image type="content" source="./media/quickstart-wordpress/02-portal-create-resource-search-wordpress.png?text=Azure Portal Create Resource WordPress Details" alt-text="Screenshot of WordPress in Create Resource search":::
+     :::image type="content" source="./media/quickstart-wordpress/02-portal-create-resource-search-wordpress.png?text=Azure portal Create Resource WordPress Details" alt-text="Screenshot of WordPress in Create Resource search":::
 
 1. Select the **WordPress** product for **App Service**. 
 
@@ -54,7 +54,7 @@ Sign in to the Azure portal at https://portal.azure.com.
 
 1. <a name="wordpress-settings"></a>Under **WordPress Settings**, type an **Admin Email**, **Admin Username**, and **Admin Password**. The **Admin Email** here is used for WordPress administrative sign-in only.
 
-     :::image type="content" source="./media/quickstart-wordpress/06-wordpress-basics-wordpress-settings.png?text=Azure Portal WordPress settings" alt-text="Screenshot of WordPress settings":::
+     :::image type="content" source="./media/quickstart-wordpress/06-wordpress-basics-wordpress-settings.png?text=Azure portal WordPress settings" alt-text="Screenshot of WordPress settings":::
 
 1. Select the **Review + create** tab. After validation runs, select the **Create** button at the bottom of the page to create the WordPress site.
  
@@ -75,7 +75,7 @@ Sign in to the Azure portal at https://portal.azure.com.
 
 When no longer needed, you can delete the resource group, App service, and all related resources.
 
-1. From your App Service *overview* page, click the *resource group* you created in the [Create WordPress site using Azure Portal](#create-wordpress-site-using-azure-portal) step.
+1. From your App Service *overview* page, click the *resource group* you created in the [Create WordPress site using Azure portal](#create-wordpress-site-using-azure-portal) step.
 
     :::image type="content" source="./media/quickstart-wordpress/resource-group.png" alt-text="Resource group in App Service overview page":::
 
