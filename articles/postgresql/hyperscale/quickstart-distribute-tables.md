@@ -106,6 +106,10 @@ SELECT table_name, count(*) AS shards
 We're ready to fill the tables with sample data. For this quickstart, we'll use
 a dataset previously captured from the GitHub API.
 
+Run the following commands to download example CSV files and load them into the
+database tables. (The `curl` command downloads the files, and comes
+pre-installed in the Azure Cloud Shell.)
+
 ```
 \COPY github_users FROM PROGRAM 'curl https://examples.citusdata.com/users.csv' WITH (FORMAT CSV)
 \COPY github_events FROM PROGRAM 'curl https://examples.citusdata.com/events.csv' WITH (FORMAT CSV)
