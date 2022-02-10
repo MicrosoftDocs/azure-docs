@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 01/23/2022
+ms.date: 02/02/2022
 ms.author: eur
 ms.custom: ignite-fall-2021
 ---
@@ -63,23 +63,6 @@ If you change the base model that's used for training, and you have audio in the
 If you face the problem described in the previous paragraph, you can quickly decrease the training time by reducing the amount of audio in the dataset or removing it completely and leaving only the text. 
 
 In regions with dedicated hardware for training, the Speech service will use up to 20 hours of audio for training. In other regions, it will only use up to 8 hours of audio.
-
-### Supported locales
-
-Training with structured text is supported only for these locales: 
-
-* en-US
-* en-UK
-* en-IN
-* de-DE
-* fr-FR
-* fr-CA
-* es-ES
-* es-MX
-
-You must use the latest base model for these locales. 
-
-For locales that don't support training with structured text, the service will take any training sentences that don't reference any classes as part of training with plain-text data.
 
 ## Upload data
 
@@ -207,6 +190,8 @@ Expected utterances often follow a certain pattern. One common pattern is that u
 * "I have a question about `product`," where `product` is a list of possible products. 
 * "Make that `object` `color`," where `object` is a list of geometric shapes and `color` is a list of colors. 
 
+For a list of supported base models and locales for training with structured text, see [Language support](language-support.md#speech-to-text). You must use the latest base model for these locales. For locales that don't support training with structured text, the service will take any training sentences that don't reference any classes as part of training with plain-text data.
+
 To simplify the creation of training data and to enable better modeling inside the Custom Language model, you can use a structured text in Markdown format to define lists of items. You can then reference these lists inside your training utterances. The Markdown format also supports specifying the phonetic pronunciation of words. 
 
 The Markdown file should have an .md extension. The syntax of the Markdown is the same as that from the Language Understanding models, in particular list entities and example utterances. For more information about the complete Markdown syntax, see the <a href="/azure/bot-service/file-format/bot-builder-lu-file-format" target="_blank"> Language Understanding Markdown</a>.
@@ -272,25 +257,28 @@ The following table specifies the limits and other properties for the Markdown f
 
 ## Pronunciation data for training
 
-If there are uncommon terms without standard pronunciations that your users will encounter or use, you can provide a custom pronunciation file to improve recognition. For a list of languages that support custom pronunciation, see **Pronunciation** in the **Customizations** column in [the Speech-to-text table](language-support.md#speech-to-text).
-
-> [!IMPORTANT]
-> We don't recommend that you use custom pronunciation files to alter the pronunciation of common words.
+If there are uncommon terms without standard pronunciations that your users will encounter or use, you can provide a custom pronunciation file to improve recognition. Don't use custom pronunciation files to alter the pronunciation of common words. For a list of languages that support custom pronunciation, see **Pronunciation** in the **Customizations** column in [the Speech-to-text table](language-support.md#speech-to-text).
 
 > [!NOTE]
 > You can't combine this type of pronunciation file with structured-text training data. For structured-text data, use the phonetic pronunciation capability that's included in the structured-text Markdown format.
 
-Provide pronunciations in a single text file. This file includes examples of a spoken utterance and a custom pronunciation for each:
+The spoken form is the phonetic sequence spelled out. It can be composed of letters, words, syllables, or a combination of all three. This table includes some examples:
 
-| Recognized/displayed form | Spoken form |
+| Recognized displayed form | Spoken form |
 |--------------|--------------------------|
 | 3CPO | three c p o |
 | CNTK | c n t k |
 | IEEE | i triple e |
 
-The spoken form is the phonetic sequence spelled out. It can be composed of letters, words, syllables, or a combination of all three.
+You provide pronunciations in a single text file. Include the spoken utterance and a custom pronunciation for each. Each row in the file should begin with the recognized form, then a tab character, and then the space-delimited phonetic sequence. 
 
-Use the following table to ensure that your related data file for pronunciations is correctly formatted. Pronunciation files are small and should be only a few kilobytes in size.
+```tsv
+3CPO    three c p o
+CNTK    c n t k
+IEEE    i triple e
+```
+
+Refer to the following table to ensure that your related data file for pronunciations is correctly formatted. The size of pronunciation files should be limited to a few kilobytes.
 
 | Property | Value |
 |----------|-------|

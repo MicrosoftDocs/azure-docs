@@ -141,7 +141,7 @@ The **Commands** tab lets you run commands on the device.
 
 ## Clean up resources
 
-If you're not going to continue to use this application, delete the application by visiting **Administration > Application settings** and click **Delete**.
+If you're not going to continue to use this application, delete the application by visiting **Application > Management** and click **Delete**.
 
 :::image type="content" source="media/admin-delete.png" alt-text="Tidy resources":::
 

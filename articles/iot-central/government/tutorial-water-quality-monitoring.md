@@ -174,7 +174,7 @@ The water quality monitoring application you created from the application templa
 
     :::image type="content" source="media/tutorial-waterqualitymonitoring/water-quality-monitor-device1.png" alt-text="Select device 1":::
 
-1. On the **Cloud Properties** tab, change the **Acidity (pH) threshold** value from **8** to **9** and select **Save**.
+1. On the **Cloud Properties** tab, change the **Acidity (pH) threshold** value to **9** and select **Save**.
 1. Explore the **Device Properties** tab and the **Device Dashboard** tab.
 
 > [!NOTE]
@@ -233,7 +233,7 @@ With Azure IoT Central jobs, you can trigger updates to device or cloud properti
 
 As a builder, you can change several settings to customize the user experience in your application.
 
-1. Select **Administration** > **Customize your application**.
+1. Select **Application** > **Management**.
 1. Under **Masthead logo**, select **Change** to choose the image to upload as the logo.
 1. Under **Browser icon**, select **Change** to choose the image that appears on browser tabs.
 1. Under **Browser colors**, you can replace the default values with HTML hexadecimal color codes.
@@ -242,7 +242,7 @@ As a builder, you can change several settings to customize the user experience i
 
 ### Update the application image
 
-1. Select **Administration** > **Your application**.
+1. Select **Application** > **Management**.
 
 1. Select **Change** to choose an image to upload as the application image.
 
@@ -250,7 +250,7 @@ As a builder, you can change several settings to customize the user experience i
 
 If you're not going to continue to use your application, delete the application with the following steps:
 
-1. Open the **Administration** tab on the leftmost pane of your application.
+1. Open the **Application** > **Management** tab on the leftmost pane of your application.
 1. Select **Your application** and select the **Delete** button.
 
     :::image type="content" source="media/tutorial-waterqualitymonitoring/water-quality-monitoring-application-settings-delete-app1.png" alt-text="Delete your application.":::

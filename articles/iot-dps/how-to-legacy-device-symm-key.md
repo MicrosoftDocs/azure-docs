@@ -1,8 +1,8 @@
 ---
 title: Provision devices using symmetric keys - Azure IoT Hub Device Provisioning Service
 description: How to use symmetric keys to provision devices with your Device Provisioning Service (DPS) instance
-author: wesmc7777
-ms.author: wesmc
+author: kgremban
+ms.author: kgremban
 ms.date: 04/23/2021
 ms.topic: conceptual
 ms.service: iot-dps

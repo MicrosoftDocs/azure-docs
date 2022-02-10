@@ -11,7 +11,7 @@ metadata:
   ms.topic: landing-page
   author: cherylmc
   ms.author: cherylmc
-  ms.date: 06/30/2021
+  ms.date: 02/01/2022
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -69,3 +69,5 @@ landingContent:
             url: bastion-vm-copy-paste.md
           - text: Full screen view
             url: bastion-vm-full-screen.md
+          - text: Upload and download files (Preview)
+            url: vm-upload-download-native.md

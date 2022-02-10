@@ -19,7 +19,7 @@ Learn how to deploy the language detection container. This procedure shows you h
 
 ## Prerequisites
 
-This procedure requires several tools that must be installed and run locally. Do not use Azure Cloud shell.
+This procedure requires several tools that must be installed and run locally. Do not use Azure Cloud Shell.
 
 * Use an Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services) before you begin.
 * [Git](https://git-scm.com/downloads) for your operating system so you can clone the [sample](https://github.com/Azure-Samples/cognitive-services-containers-samples) used in this procedure.
@@ -399,5 +399,4 @@ az group delete --name cogserv-container-rg
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Cognitive Services Containers](../cognitive-services-container-support.md)
+[Cognitive Services Containers](../cognitive-services-container-support.md)
