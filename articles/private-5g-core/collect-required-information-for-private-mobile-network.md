@@ -35,12 +35,12 @@ Collect all of the following values for the resource that will represent your pr
 
 Each SIM resource represents a physical SIM or eSIM that will be served by the private mobile network.
 
-As part of creating your private mobile network, you can provision one or more SIMs that will use it. If you decide not to provision SIMs at this point, you can do so after deploying your private mobile network using the instructions in [Provisioning SIMs](provision-sims-azure-portal.md).
+As part of creating your private mobile network, you can provision one or more SIMs that will use it. If you decide not to provision SIMs at this point, you can do so after deploying your private mobile network using the instructions in [Provisioning SIMs](provisioning-sims-azure-portal.md).
 
 If you want to provision SIMs as part of deploying your private mobile network, you must choose one of the following provisioning methods:
 
 - Manually entering values for each SIM into fields in the Azure portal. This option is best when provisioning a small number of SIMs.
-- Importing a JSON file containing values for one or more SIM resources. This option is best when provisioning a large number of SIMs. The file format required for this JSON file is given in [Provisioning SIM resources through the Azure portal using a JSON file](#provisioning-sim-resources-through-the-azure-portal-using-a-json-file).
+- Importing a JSON file containing values for one or more SIM resources. This option is best when provisioning a large number of SIMs. The file format required for this JSON file is given in [Provision SIM resources through the Azure portal using a JSON file](#provision-sim-resources-through-the-azure-portal-using-a-json-file).
 
 You must then collect each of the values given in the following table for each SIM resource you want to provision.
 
