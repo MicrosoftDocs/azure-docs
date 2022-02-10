@@ -64,7 +64,7 @@ Knowledge center is where you can find all the videos and tutorials related to A
 
 ## Localization
 
-Azure Purview is localized in 18 languages. To change the language used, go to the **Settings** from the top bar and select the desired language from teh dropdown.
+Azure Purview is localized in 18 languages. To change the language used, go to the **Settings** from the top bar and select the desired language from the dropdown.
 
 :::image type="content" source="./media/use-purview-studio/localization.png" alt-text="Screenshot of how to localize Azure Purview studio.":::
 
