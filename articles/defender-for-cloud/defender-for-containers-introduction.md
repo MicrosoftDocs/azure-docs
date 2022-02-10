@@ -77,13 +77,15 @@ The **Azure Policy add-on for Kubernetes** collects cluster and workload configu
 
 :::image type="content" source="./media/defender-for-containers/architecture-aks-cluster.png" alt-text="High-level architecture of the interaction between Microsoft Defender for Containers, Azure Kubernetes Service, and Azure Policy." lightbox="./media/defender-for-containers/architecture-aks-cluster.png":::
 
-#### Defender profile agent component details
+#### Defender profile component details
 
-| Pod Name | Namespace | Kind | Short Description | Capabilities | Resource limits * | Egress Required |
+| Pod Name | Namespace | Kind | Short Description | Capabilities | Resource limits | Egress Required |
 |--|--|--|--|--|--|--|
-| azuredefender-collector-ds-* | kube-system | [DeamonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) | The azuredefender-collector Pod contains a set of containers that focus on collecting inventory and security events from the Kubernetes environment. | Capabilities: <br><br>"SYS_ADMIN", <br><br>"SYS_RESOURCE", <br><br>"SYS_PTRACE" | limits: <br> <br> memory: "64Mi"<br> <br>   cpu: "60m" | No |
-| azuredefender-collector-misc-* | kube-system | [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) | The azuredefender-collector-misc Pod contains a set of containers that focus on collecting inventory and security events from the Kubernetes environment that aren't bounded to a specific node. | N/A | limits: <br> <br> memory: "64Mi" <br> <br>cpu: "60m" | No |
-| azuredefender-publisher-ds-* | kube-system | [DeamonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) | The azuredefender-publisher Pod responsible to publish the collected data to Microsoft Defender for Containers' backend service where the data will be processed for and analyzed. | N/A | limits: <br> <br> memory: "64Mi"  <br> <br> cpu: "60m" | Yes <br> Https 443 <br> <br> Learn more about the [outbound access prerequisites](defender-for-containers-enable.md) |
+| azuredefender-collector-ds-* | kube-system | [DeamonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) | A set of containers that focus on collecting inventory and security events from the Kubernetes environment. | SYS_ADMIN, SYS_RESOURCE, SYS_PTRACE | memory: 64Mi<br> <br> cpu: 60m | No |
+| azuredefender-collector-misc-* | kube-system | [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) | A set of containers that focus on collecting inventory and security events from the Kubernetes environment that aren't bounded to a specific node. | N/A | memory: 64Mi <br> <br>cpu: 60m | No |
+| azuredefender-publisher-ds-* | kube-system | [DeamonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) | Publish the collected data to Microsoft Defender for Containers' backend service where the data will be processed for and analyzed. | N/A | limits: <br> <br> memory: 64Mi  <br> <br> cpu: 60m | Https 443 <br> <br> Learn more about the [outbound access prerequisites](defender-for-containers-enable.md) |
+
+\* resource limits are not configurable
 
 ### [**Azure Arc-enabled Kubernetes**](#tab/defender-for-container-arch-arc)
 
