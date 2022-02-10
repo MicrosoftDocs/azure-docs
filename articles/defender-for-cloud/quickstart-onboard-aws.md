@@ -2,7 +2,7 @@
 title: Connect your AWS account to Microsoft Defender for Cloud
 description: Defend your AWS resources with Microsoft Defender for Cloud
 ms.topic: quickstart
-ms.date: 02/09/2022
+ms.date: 02/10/2022
 zone_pivot_groups: connect-aws-accounts
 ms.custom: mode-other
 ---
@@ -45,7 +45,7 @@ This screenshot shows AWS accounts displayed in Defender for Cloud's [overview d
 
 ## Prerequisites
 
-- To connect an AWS account to your Azure subscription, you'll obviously need access to an AWS account.
+- Access to an AWS account.
 
 - **To enable the Defender for Kubernetes plan**, you'll need:
     - At least one Amazon EKS cluster with permission to access to the EKS K8s API server. If you need to create a new EKS cluster, follow the instructions in [Getting started with Amazon EKS – eksctl](https://docs.aws.amazon.com/eks/latest/userguide/getting-started-eksctl.html).
