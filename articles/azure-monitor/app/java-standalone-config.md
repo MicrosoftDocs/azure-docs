@@ -75,7 +75,7 @@ If you specify a relative path, it will be resolved relative to the directory wh
 }
 ```
 
-`connection-string-file.txt` only contains the connection string: 
+The file should contain only the connection string, for example:
 
 ```
 InstrumentationKey=...
