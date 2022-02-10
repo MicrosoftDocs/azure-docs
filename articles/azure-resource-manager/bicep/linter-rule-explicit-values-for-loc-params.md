@@ -57,7 +57,7 @@ resource stg 'Microsoft.Storage/storageAccounts@2021-02-01' = {
 }
 ```
 
-You can the failure by explicitly passing in a value for the module's `location` property:
+You can fix the failure by explicitly passing in a value for the module's `location` property:
 
 *main.bicep*:
 ```bicep

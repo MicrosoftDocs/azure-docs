@@ -37,7 +37,7 @@ You can fix it by creating a new `location` string parameter (which may optional
   }
 ```
 
-The following examples fails this test because the resource's `location` property uses a variable with a string literal.
+The following example fails this test because the resource's `location` property uses a variable with a string literal.
 
 ```bicep
   var location = 'westus'
