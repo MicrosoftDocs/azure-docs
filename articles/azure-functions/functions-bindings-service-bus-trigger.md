@@ -7,6 +7,7 @@ ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
 ms.topic: reference
 ms.date: 02/19/2020
 ms.author: cshoe
+ms.devlang: csharp, java, javascript, powershell, python
 ms.custom: "devx-track-csharp, devx-track-python"
 ---
 
@@ -223,7 +224,7 @@ def main(msg: func.ServiceBusMessage):
         'to': msg.to,
         'user_properties': msg.user_properties,
         'metadata' : msg.metadata
-    })
+    }, default=str)
 
     logging.info(result)
 ```

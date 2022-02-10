@@ -181,6 +181,8 @@
         href: ddv5-ddsv5-series.md
       - name: Dasv5 and Dadsv5-series
         href: dasv5-dadsv5-series.md
+      - name: DCasv5 and DCadsv5-series
+        href: dcasv5-dcadsv5-series.md
     - name: Compute optimized
       items:
       - name: Overview
@@ -211,6 +213,8 @@
         href: edv5-edsv5-series.md
       - name: Easv5 and Eadsv5-series
         href: easv5-eadsv5-series.md
+      - name: ECasv5 and ECadsv5-series
+        href: ecasv5-ecadsv5-series.md
       - name: M-series
         href: m-series.md
       - name: Msv2 and Mdsv2 Medium Memory series
@@ -277,7 +281,7 @@
       - name: NCv2-series retirement
         href: ncv2-series-retirement.md
       - name: ND-series retirement
-        href: nd-series-retirement.md 
+        href: nd-series-retirement.md
       - name: GPU compute migration guide
         displayName: GPU compute migration guide
         href: ./n-series-migration.md
@@ -360,7 +364,7 @@
       href: create-gallery.md
     - name: Share a gallery
       href: share-gallery.md
-    - name: Images 
+    - name: Images
       items:
       - name: Capture a VM in the portal
         href: capture-image-portal.md
@@ -404,7 +408,7 @@
         href: managed-disk-from-image-version.md
       - name: Purchase plan information
         href: marketplace-images.md
-    - name: VM Applications 
+    - name: VM Applications
       items:
       - name: Overview
         href: vm-applications.md
@@ -414,17 +418,17 @@
     items:
     - name: Find Azure Marketplace images
       items:
-      - name: CLI
-        displayName: Images, imaging, marketplace, publisher, plan, offer, URN, purchase plan, terms
+      - name: Use CLI to find images
+        displayName: Images, imaging, marketplace, publisher, plan, offer, URN, purchase plan, terms, find
         href: ./linux/cli-ps-findimage.md
-      - name: PowerShell
-        displayName: Images, imaging, marketplace, URN, purchase plan, terms
+      - name: Use PowerShell to find images
+        displayName: Images, imaging, marketplace, URN, purchase plan, terms, find
         href: ./windows/cli-ps-findimage.md
       - name: Windows client images
-        displayName: Images, imaging, marketplace, Windows, Client
+        displayName: Windows, Client, find
         href: ./windows/client-images.md
-      - name: Multitenant Hosting Rights for Windows 10
-        displayName: MTHR, multi-tenant, multitenant, hosting, rights
+      - name: Windows 10 images
+        displayName: MTHR, multi-tenant, multitenant, hosting, rights, windows 10, windows, find
         href: ./windows/windows-desktop-multitenant-hosting-deployment.md
     - name: Linux custom images
       items:
@@ -433,6 +437,8 @@
         href: ./linux/imaging.md
       - name: Linux provisioning
         href: ./linux/provisioning.md
+      - name: Endorsed Linux distributions
+        href: ./linux/endorsed-distros.md
       - name: Linux distribution specific requirements
         items:
         - name: Generic steps
@@ -530,7 +536,7 @@
         - name: Windows
           displayName: Image builder, images, building, PowerShell
           href: ./windows/image-builder-powershell.md
-        - name: Windows Virtual Desktop
+        - name: Azure Virtual Desktop
           href: ./windows/image-builder-virtual-desktop.md
       - name: Security
         items:
@@ -599,11 +605,23 @@
       displayName: Dedicated hosts, ADH
       href: dedicated-hosts.md
     - name: How-to
-      displayName: dedicated adh 
+      displayName: dedicated adh
       href: dedicated-hosts-how-to.md
-    - name: VM Packing
-      displayName: dedicated, packing, dedicated host
-      href: dedicated-host-packing.md
+    - name: General Purpose SKUs
+      displayName: dedicated, packing, dedicated host, general purpose
+      href: dedicated-host-general-purpose-skus.md
+    - name: Compute Optimized SKUs
+      displayName: dedicated, packing, dedicated host, compute optimized
+      href: dedicated-host-compute-optimized-skus.md
+    - name: Memory Optimized SKUs
+      displayName: dedicated, packing, dedicated host, memory optimized
+      href: dedicated-host-memory-optimized-skus.md
+    - name: Storage Optimized SKUs
+      displayName: dedicated, packing, dedicated host, storage optimized
+      href: dedicated-host-storage-optimized-skus.md
+    - name: GPU Optimized SKUs
+      displayName: dedicated, packing, dedicated host, GPU optimized
+      href: dedicated-host-gpu-optimized-skus.md
   - name: Azure Spot Virtual Machines
     items:
     - name: Overview
@@ -629,6 +647,9 @@
     - name: Linux
       displayName: Azure Hybrid Benefit, Linux, AHB
       href: ./linux/azure-hybrid-benefit-linux.md
+    - name: Linux BYOS
+      displayName: Azure Hybrid Benefit BYOS, Linux, AHB
+      href: ./linux/azure-hybrid-benefit-byos-linux.md
     - name: Windows
       displayName: Azure Hybrid Benefit, AHB
       href: ./windows/hybrid-use-benefit-licensing.md
@@ -649,7 +670,7 @@
   - name: Capacity reservation (preview)
     items:
     - name: Overview
-      displayName: on-demand capacity reservation 
+      displayName: on-demand capacity reservation
       href: capacity-reservation-overview.md
     - name: Create a capacity reservation
       displayName: on-demand capacity reservation
@@ -676,8 +697,6 @@
     items:
     - name: Linux
       items:
-      - name: Endorsed distributions
-        href: ./linux/endorsed-distros.md
       - name: CLI
         displayName: Create VM, Create
         href: ./linux/create-cli-complete.md
@@ -714,6 +733,8 @@
         href: ./windows/ps-template.md
       - name: Secure web server with TLS\SSL
         href: ./windows/tutorial-secure-web-server.md
+  - name: Delete a VM and it's resources
+    href: delete.md
   - name: Connect to Virtual Machines
     items:
     - name: Linux
@@ -722,6 +743,8 @@
         href: ./linux/create-ssh-keys-detailed.md
       - name: Create and manage SSH keys in the portal
         href: ssh-keys-portal.md
+      - name: Create and manage SSH keys with the Azure CLI
+        href: ssh-keys-azure-cli.md
       - name: SSH on Linux or macOS
         href: ./linux/mac-create-ssh-keys.md
       - name: SSH on Windows
@@ -742,10 +765,10 @@
     - name: Windows
       displayName: Time sync
       href: ./windows/time-sync.md
-  - name: Run Command 
+  - name: Run Command
     items:
-    - name: Overview 
-      displayName: Run command 
+    - name: Overview
+      displayName: Run command
       href: run-command-overview.md
     - name: Action Run Commands for Linux
       href: ./linux/run-command.md
@@ -847,7 +870,7 @@
     - name: Azure Monitor
       items:
       - name: Azure Monitor agent
-        href: ../azure-monitor/agents/azure-monitor-agent-install.md?context=/azure/virtual-machines/context/context
+        href: ../azure-monitor/agents/azure-monitor-agent-manage.md?context=/azure/virtual-machines/context/context
       - name: Diagnostics extension
         href: ../azure-monitor/agents/diagnostics-extension-overview.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
       - name: Log Analytics
@@ -969,29 +992,29 @@
     - name: Portal
       displayName: proximity placement groups, ppg
       href: ./windows/proximity-placement-groups-portal.md
-  - name: Virtual machine scale sets 
+  - name: Virtual machine scale sets
     items:
-    - name: Overview 
-      displayName: Flexible orchestration mode for virtual machine scale sets 
+    - name: Overview
+      displayName: Flexible orchestration mode for virtual machine scale sets
       href: flexible-virtual-machine-scale-sets.md
-    - name: Portal 
-      displayName: Flexible orchestration mode for virtual machine scale sets 
-      href: flexible-virtual-machine-scale-sets-portal.md 
-    - name: CLI  
-      displayName: Flexible orchestration mode for virtual machine scale sets 
-      href: flexible-virtual-machine-scale-sets-cli.md 
-    - name: PowerShell 
-      displayName: Flexible orchestration mode for virtual machine scale sets 
-      href: flexible-virtual-machine-scale-sets-powershell.md 
-    - name: ARM template 
-      displayName: Flexible orchestration mode for virtual machine scale sets 
-      href: flexible-virtual-machine-scale-sets-rest-api.md  
+    - name: Portal
+      displayName: Flexible orchestration mode for virtual machine scale sets
+      href: flexible-virtual-machine-scale-sets-portal.md
+    - name: CLI
+      displayName: Flexible orchestration mode for virtual machine scale sets
+      href: flexible-virtual-machine-scale-sets-cli.md
+    - name: PowerShell
+      displayName: Flexible orchestration mode for virtual machine scale sets
+      href: flexible-virtual-machine-scale-sets-powershell.md
+    - name: ARM template
+      displayName: Flexible orchestration mode for virtual machine scale sets
+      href: flexible-virtual-machine-scale-sets-rest-api.md
     - name: Autoscale
-      href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview.md?context=/azure/virtual-machines/context/context 
-    - name: Orchestration modes 
+      href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview.md?context=/azure/virtual-machines/context/context
+    - name: Orchestration modes
       displayName: VMSS, flex, scale set, scale, virtual machine scale set
       href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md?context=/azure/virtual-machines/context/context
-    - name: Migration and considerations 
+    - name: Migration and considerations
       displayName: VMSS, flex, scale set, scale, virtual machine scale set
       href: flexible-virtual-machine-scale-sets-migration-resources.md
   - name: Understand VM reboots
@@ -1511,7 +1534,7 @@
     - name: Overview
       href: trusted-launch.md
       DisplayName: Trusted Launch, shielded VM
-    - name: Deploy using the portal
+    - name: Deploy Trusted Launch VM
       href: trusted-launch-portal.md
   - name: Just-in-time access
     href: ../security-center/security-center-just-in-time.md
@@ -1599,14 +1622,12 @@
     - name: Azure SDKs
       displayName: Configured managed identies
       href: ../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md?context=/azure/virtual-machines/context/context
-  - name: Linux Active Directory sign-in
-    displayName: aad
-    items:
-    - name: SSH with Azure Active Directory
-      href: ../active-directory/devices/howto-vm-sign-in-azure-ad-linux.md
-      items:
-      - name: Previous version being deprecated August 15, 2021
-        href: ./linux/login-using-aad.md
+  - name: Linux VMs SSH with Azure AD
+    displayName: aad, ssh, active directory
+    href: ../active-directory/devices/howto-vm-sign-in-azure-ad-linux.md?context=/azure/virtual-machines/context/context
+  - name: Windows VMs and Azure AD
+    displayname: aad, active directory
+    href: ../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md?context=/azure/virtual-machines/context/context
 - name: Updates and maintenance
   items:
   - name: Overview
@@ -1682,8 +1703,11 @@
         href: ./linux/scheduled-events.md
         displayname: Scheduled events
       - name: Windows
-        displayName: Scheduled events
-        href: ./windows/scheduled-events.md
+        items:
+        - name: Scheduled events
+          href: ./windows/scheduled-events.md
+        - name: Monitor scheduled events
+          href: ./windows/scheduled-event-service.md
     - name: Track and update VMs
       items:
       - name: Linux
@@ -1716,20 +1740,20 @@
     - name: Azure Monitor Agent
       items:
       - name: Overview
-        displayname: Azure Monitor agent
         href: ../azure-monitor/agents/azure-monitor-agent-overview.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
-      - name: Install
         displayname: Azure Monitor agent
-        href: ../azure-monitor/agents/azure-monitor-agent-install.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
+      - name: Install and manage
+        href: ../azure-monitor/agents/azure-monitor-agent-manage.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
+        displayname: Azure Monitor agent
       - name: Data collection
-        displayname: data collection rule,Azure Monitor agent
         href: ../azure-monitor/agents/data-collection-rule-azure-monitor-agent.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
+        displayname: data collection rule,Azure Monitor agent
       - name: Migrate from legacy agents
-        displayname: Migrate to Azure Monitor agent
         href: ../azure-monitor/agents/azure-monitor-agent-migration.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
+        displayname: Migrate to Azure Monitor agent
       - name: FAQ
-        displayname: Azure Monitor agent FAQ
         href: ../azure-monitor/faq.yml?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
+        displayname: Azure Monitor agent FAQ
     - name: Log Analytics agent
       items:
       - name: Overview
@@ -1864,6 +1888,8 @@
     - name: Overview
       href: ../backup/backup-azure-vms-introduction.md?context=/azure/virtual-machines/context/context
       dispayName: backup VMs, Azure Backup, recovery
+    - name: Creating restore points
+      href: virtual-machines-create-restore-points.md
     - name: Quickstarts
       items:
       - name: CLI

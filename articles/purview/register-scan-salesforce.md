@@ -1,12 +1,12 @@
 ---
 title: Connect to and manage Salesforce
-description: This guide describes how to connect to Salesforce in Azure Purview, and use Purview's features to scan and manage your Salesforce source.
+description: This guide describes how to connect to Salesforce in Azure Purview, and use Azure Purview's features to scan and manage your Salesforce source.
 author: linda33wj
 ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to #Required; leave this attribute/value as-is.
-ms.date: 11/02/2021
+ms.date: 01/11/2022
 ms.custom: template-how-to #Required; leave this attribute/value as-is.
 ---
 
@@ -14,26 +14,30 @@ ms.custom: template-how-to #Required; leave this attribute/value as-is.
 
 This article outlines how to register Salesforce, and how to authenticate and interact with Salesforce in Azure Purview. For more information about Azure Purview, read the [introductory article](overview.md).
 
-> [!IMPORTANT]
-> Salesforce as a source is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
 ## Supported capabilities
 
 |**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|
 |---|---|---|---|---|---|---|
-| [Yes](#register)| [Yes](#scan)| No | No | No | No| No|
+| [Yes](#register)| [Yes](#scan)| No | [Yes](#scan) | No | No| No|
 
-When scanning Salesforce, Purview supports extracting metadata including Salesforce organizations, objects, fields, foreign keys, and unique_constraints.
+When scanning Salesforce source, Azure Purview supports extracting technical metadata including:
+
+- Organization
+- Objects including the fields, foreign keys, and unique_constraints
+
+When setting up scan, you can choose to scan an entire Salesforce organization, or scope the scan to a subset of objects matching the given name(s) or name pattern(s).
 
 ## Prerequisites
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* An active [Purview resource](create-catalog-portal.md).
+* An active [Azure Purview resource](create-catalog-portal.md).
 
-* You will need to be a Data Source Administrator and Data Reader to register a source and manage it in the Purview Studio. See our [Azure Purview Permissions page](catalog-permissions.md) for details.
+* You will need to be a Data Source Administrator and Data Reader to register a source and manage it in the Azure Purview Studio. See our [Azure Purview Permissions page](catalog-permissions.md) for details.
 
-* Set up the latest [self-hosted integration runtime](https://www.microsoft.com/download/details.aspx?id=39717). For more information, see [the create and configure a self-hosted integration runtime guide](../data-factory/create-self-hosted-integration-runtime.md).
+* Set up the latest [self-hosted integration runtime](https://www.microsoft.com/download/details.aspx?id=39717). For more information, see [the create and configure a self-hosted integration runtime guide](manage-integration-runtimes.md). The minimal supported Self-hosted Integration Runtime version is 5.11.7953.1.
 
 * Ensure [JDK 11](https://www.oracle.com/java/technologies/javase/jdk11-archive-downloads.html) is installed on the virtual machine where the self-hosted integration runtime is installed.
 
@@ -50,13 +54,13 @@ When scanning Salesforce, Purview supports extracting metadata including Salesfo
 
 ## Register
 
-This section describes how to register Salesforce in Azure Purview using the [Purview Studio](https://web.purview.azure.com/).
+This section describes how to register Salesforce in Azure Purview using the [Azure Purview Studio](https://web.purview.azure.com/).
 
 ### Steps to register
 
 To register a new Salesforce source in your data catalog, do the following:
 
-1. Navigate to your Purview account in the [Purview Studio](https://web.purview.azure.com/resource/).
+1. Navigate to your Azure Purview account in the [Azure Purview Studio](https://web.purview.azure.com/resource/).
 1. Select **Data Map** on the left navigation.
 1. Select **Register**
 1. On Register sources, select **Salesforce**. Select **Continue**.
@@ -78,6 +82,10 @@ On the **Register sources (Salesforce)** screen, do the following:
 Follow the steps below to scan Salesforce to automatically identify assets and classify your data. For more information about scanning in general, see our [introduction to scans and ingestion](concept-scans-and-ingestion.md).
 
 Azure Purview uses Salesforce REST API version 41.0 to extract metadata, including REST requests like 'Describe Global' URI (/v41.0/sobjects/),'sObject Basic Information' URI (/v41.0/sobjects/sObject/), and 'SOQL Query' URI (/v41.0/query?).
+
+### Authentication for a scan
+
+The supported authentication type for a Salesforce source is **Consumer key authentication**.
 
 ### Create and run scan
 
@@ -112,7 +120,7 @@ To create and run a new scan, do the following:
     1. **Maximum memory available**: Maximum memory (in GB) available on customer's VM to be used by scanning processes. This is dependent on the size of Salesforce source to be scanned.
 
         > [!Note]
-        > As a thumb rule, please provide 1GB memory for every 1000 tables
+        > As a rule of thumb, please provide 1GB memory for every 1000 tables
 
         :::image type="content" source="media/register-scan-salesforce/scan.png" alt-text="scan Salesforce" border="true":::
 
@@ -126,7 +134,7 @@ To create and run a new scan, do the following:
 
 ## Next steps
 
-Now that you have registered your source, follow the below guides to learn more about Purview and your data.
+Now that you have registered your source, follow the below guides to learn more about Azure Purview and your data.
 
 - [Data insights in Azure Purview](concept-insights.md)
 - [Lineage in Azure Purview](catalog-lineage-user-guide.md)

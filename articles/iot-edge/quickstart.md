@@ -9,7 +9,7 @@ ms.date: 06/18/2021
 ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
-ms.custom: mvc, devx-track-azurecli
+ms.custom: mvc, devx-track-azurecli, mode-other
 monikerRange: "=iotedge-2018-06"
 ---
 

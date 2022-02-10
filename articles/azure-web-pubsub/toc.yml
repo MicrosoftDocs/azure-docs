@@ -63,7 +63,7 @@
       - name: Create `WebPubSubServiceClient` with Azure Identity and JavaScript
         href: howto-create-serviceclient-with-javascript-and-azure-identity.md
       - name: Create `WebPubSubServiceClient` with Azure Identity and Python
-        href: howto-create-serviceclient-with-python-and-azure-identity.md 
+        href: howto-create-serviceclient-with-python-and-azure-identity.md
   - name: Monitor
     items:
     - name: Audit compliance using Azure Policy
@@ -94,6 +94,8 @@
       href: howto-troubleshoot-network-trace.md
     - name: Capture resource logs
       href: howto-troubleshoot-resource-logs.md
+  - name: Move across regions
+    href: howto-move-across-regions.md
 
 - name: Concepts
   expanded: true
@@ -137,7 +139,7 @@
     - name: Server SDK - Python
       href: reference-server-sdk-python.md
   - name: REST API
-    href: /rest/api/webpubsub
+    href: /rest/api/webpubsub/
 
 - name: Resources
   items:

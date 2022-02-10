@@ -4,7 +4,7 @@ description: This quickstart shows you how to use Terraform to deploy a Spring C
 author: karlerickson
 ms.service: spring-cloud
 ms.topic: quickstart
-ms.custom: devx-track-java
+ms.custom: devx-track-java, mode-other
 ms.author: ariel
 ms.date: 11/12/2021
 ---

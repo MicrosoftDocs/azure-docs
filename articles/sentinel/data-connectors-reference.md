@@ -3,7 +3,7 @@ title: Find your Microsoft Sentinel data connector | Microsoft Docs
 description: Learn about specific configuration steps for Microsoft Sentinel data connectors.
 author: batamig
 ms.topic: reference
-ms.date: 11/09/2021
+ms.date: 01/04/2022
 ms.author: bagol
 ms.custom: ignite-fall-2021
 ---
@@ -49,6 +49,10 @@ This article describes how to deploy data connectors in Microsoft Sentinel, list
 
 > [!IMPORTANT]
 > Noted Microsoft Sentinel data connectors are currently in **Preview**. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
+### Data connector prerequisites
+
+[!INCLUDE [data-connector-prereq](includes/data-connector-prereq.md)]
 
 ## Agari Phishing Defense and Brand Protection (Preview)
 
@@ -188,7 +192,7 @@ For more information, see the Cognito Detect Syslog Guide, which can be download
 | **Supported by** | Microsoft |
 | | |
 
-## Amazon Web Services S3
+## Amazon Web Services S3 (Preview)
 
 | Connector attribute | Description |
 | --- | --- |
@@ -330,25 +334,9 @@ Before setting up the new Azure Activity log connector, you must disconnect the 
 | **Supported by** | Microsoft |
 | | |
 
-## Microsoft Defender for Cloud
+## Azure Defender
 
-| Connector attribute | Description |
-| --- | --- |
-| **Data ingestion method** | **Azure service-to-service integration:<br>[Connect security alerts from Microsoft Defender for Cloud](connect-defender-for-cloud.md)** (Top connector article) |
-| **Log Analytics table(s)** | SecurityAlert |
-| **Supported by** | Microsoft |
-| | |
-
-<a name="azure-defender-for-iot"></a>
-
-## Microsoft Defender for IoT
-
-| Connector attribute | Description |
-| --- | --- |
-| **Data ingestion method** | **Azure service-to-service integration: <br>[API-based connections](connect-azure-windows-microsoft-services.md#api-based-connections)** |
-| **Log Analytics table(s)** | SecurityAlert |
-| **Supported by** | Microsoft |
-| | |
+See [Microsoft Defender for Cloud](#microsoft-defender-for-cloud).
 
 ## Azure Firewall
 
@@ -360,7 +348,7 @@ Before setting up the new Azure Activity log connector, you must disconnect the 
 | **Supported by** | Microsoft |
 | | |
 
-## Azure Information Protection
+## Azure Information Protection (Preview)
 
 | Connector attribute | Description |
 | --- | --- |
@@ -445,11 +433,13 @@ You will only see the storage types that you actually have defined resources for
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | [**Log Analytics agent - custom logs**](connect-custom-logs.md) |
-| **Log Analytics table(s)** | Syslog |
+| **Data ingestion method** | [**Syslog**](connect-syslog.md) |
+| **Log Analytics table(s)** | CommonSecurityLog (Barracuda)<br>Barracuda_CL |
 | **Vendor documentation/<br>installation instructions** | https://aka.ms/asi-barracuda-connector |
 | **Supported by** | [Barracuda](https://www.barracuda.com/support) |
 | | |
+
+See Barracuda instructions - note the assigned facilities for the different types of logs and be sure to add them to the default Syslog configuration.
 
 ## BETTER Mobile Threat Defense (MTD) (Preview)
 
@@ -595,7 +585,7 @@ Configure eNcore to stream data via TCP to the Log Analytics Agent. This configu
 | --- | --- |
 | **Data ingestion method** | [**Microsoft Sentinel Data Collector API**](connect-rest-api-template.md) |
 | **Log Analytics table(s)** | CitrixAnalytics_SAlerts_CL​ |
-| **Vendor documentation/<br>installation instructions** | [Connect Citrix to Microsoft Sentinel](https://aka.ms/Sentinel-Citrix-Connector) |
+| **Vendor documentation/<br>installation instructions** | [Connect Citrix to Microsoft Sentinel](https://docs.citrix.com/en-us/security-analytics/getting-started-security/siem-integration/azure-sentinel-integration.html) |
 | **Supported by** | [Citrix Systems](https://www.citrix.com/support/) |
 | | |
 
@@ -902,7 +892,7 @@ For more information, see the Eset documentation.
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | **[Common Event Format (CEF)](connect-common-event-format.md) over Syslog** <br><br>[Send Fortinet logs to the log forwarder](#send-fortinet-logs-to-the-log-forwarder) <br<br>Available in the [Fortinet Fortigate solution](sentinel-solutions-catalog.md#fortinet-fortigate)|
+| **Data ingestion method** | **[Common Event Format (CEF)](connect-common-event-format.md) over Syslog** <br><br>[Send Fortinet logs to the log forwarder](#send-fortinet-logs-to-the-log-forwarder) <br><br>Available in the [Fortinet Fortigate solution](sentinel-solutions-catalog.md#fortinet-fortigate)|
 | **Log Analytics table(s)** | CommonSecurityLog |
 | **Vendor documentation/<br>installation instructions** | [Fortinet Document Library](https://aka.ms/asi-syslog-fortinet-fortinetdocumentlibrary)<br>Choose your version and use the *Handbook* and *Log Message Reference* PDFs. |
 | **Supported by** | [Fortinet](https://support.fortinet.com/) |
@@ -925,6 +915,35 @@ end
 - Set the **syslog port** to **514** or the port set on the Syslog daemon on the forwarder.
 - To enable CEF format in early FortiOS versions, you might need to run the command set **csv disable**.
 
+
+## GitHub (Preview)
+
+
+| Connector attribute | Description |
+| --- | --- |
+| **Data ingestion method** |[**Microsoft Sentinel Data Collector API**](connect-rest-api-template.md)<br><br>Only available after installing the [Continuous Threat Monitoring for GitHub](sentinel-solutions-catalog.md#github) solution. |
+| **Log Analytics table(s)** | GitHubAuditLogPolling_CL |
+| **API credentials** | GitHub access token |
+| **Connector deployment instructions** | [Extra configuration for the GitHub connector](#extra-configuration-for-the-github-connector) |
+| **Supported by** | Microsoft |
+| | |
+
+### Extra configuration for the GitHub connector
+
+**Prerequisite**: You must have a GitHub enterprise account and an accessible organization in order to connect to GitHub from Microsoft Sentinel.
+
+1. Install the **Continuous Threat Monitoring for GitHub** solution in your Microsoft Sentinel workspace. For more information, see [Centrally discover and deploy Microsoft Sentinel out-of-the-box content and solutions (Public preview)](sentinel-solutions-deploy.md).
+
+1. Create a GitHub personal access token for use in the Microsoft Sentinel connector. For more information, see the relevant [GitHub documentation](https://docs.github.com/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token).
+
+1. In the Microsoft Sentinel **Data connectors** area, search for and locate the GitHub connector. On the right, select **Open connector page**.
+
+1. On the **Instructions** tab, in the **Configuration** area, enter the following details:
+
+    - **Organization Name**: Enter the name of the organization who's logs you want to connect to.
+    - **API Key**: Enter the GitHub personal access token you'd created earlier in this procedure.
+
+1. Select **Connect** to start ingesting your GitHub logs to Microsoft Sentinel.
 
 
 ## Google Workspace (G-Suite) (Preview)
@@ -1030,7 +1049,17 @@ Add http://localhost:8081/ under **Authorized redirect URIs** while creating [We
 | **Data ingestion method** | **Azure service-to-service integration: <br>[API-based connections](connect-azure-windows-microsoft-services.md#api-based-connections)**<br><br>Also available in the [Microsoft 365 Insider Risk Management solution](sentinel-solutions-catalog.md#domain-solutions) |
 | **License and other prerequisites** | <ul><li>Valid subscription for Microsoft 365 E5/A5/G5, or their accompanying Compliance or IRM add-ons.<li>[Microsoft 365 Insider risk management](/microsoft-365/compliance/insider-risk-management) fully onboarded, and [IRM policies](/microsoft-365/compliance/insider-risk-management-policies) defined and producing alerts.<li>[Microsoft 365 IRM configured](/microsoft-365/compliance/insider-risk-management-settings#export-alerts-preview) to enable the export of IRM alerts to the Office 365 Management Activity API in order to receive the alerts through the Microsoft Sentinel connector.)
 | **Log Analytics table(s)** | SecurityAlert |
-| **Data query filter** | `SecurityAlert`<br>`\| where ProductName == "Microsoft 365 Insider Risk Management"` |
+| **Data query filter** | `SecurityAlert`<br>`| where ProductName == "Microsoft 365 Insider Risk Management"` |
+| **Supported by** | Microsoft |
+| | |
+
+            
+## Microsoft Defender for Cloud
+
+| Connector attribute | Description |
+| --- | --- |
+| **Data ingestion method** | **Azure service-to-service integration:<br>[Connect security alerts from Microsoft Defender for Cloud](connect-defender-for-cloud.md)** (Top connector article) |
+| **Log Analytics table(s)** | SecurityAlert |
 | **Supported by** | Microsoft |
 | | |
 
@@ -1064,6 +1093,17 @@ Add http://localhost:8081/ under **Authorized redirect URIs** while creating [We
 | **Supported by** | Microsoft |
 | | |
 
+<a name="azure-defender-for-iot"></a>
+
+## Microsoft Defender for IoT
+
+| Connector attribute | Description |
+| --- | --- |
+| **Data ingestion method** | **Azure service-to-service integration: <br>[API-based connections](connect-azure-windows-microsoft-services.md#api-based-connections)** |
+| **Log Analytics table(s)** | SecurityAlert |
+| **Supported by** | Microsoft |
+| | |
+
 ## Microsoft Defender for Office 365
 
 | Connector attribute | Description |
@@ -1079,11 +1119,37 @@ Add http://localhost:8081/ under **Authorized redirect URIs** while creating [We
 | Connector attribute | Description |
 | --- | --- |
 | **Data ingestion method** | **Azure service-to-service integration: <br>[API-based connections](connect-azure-windows-microsoft-services.md#api-based-connections)** |
-| **License prerequisites/<br>Cost information** | Your Office 365 deployment must be on the same tenant as your Microsoft Sentinel workspace.<br>Other charges may apply |
+| **License prerequisites/<br>Cost information** | Your Office 365 deployment must be on the same tenant as your Microsoft Sentinel workspace.<br>Other charges may apply. |
 | **Log Analytics table(s)** | OfficeActivity |
 | **Supported by** | Microsoft |
 | | |
+     
+## Microsoft Power BI (Preview)
+| Connector attribute | Description |
+| --- | --- |
+| **Data ingestion method** | **Azure service-to-service integration: <br>[API-based connections](connect-azure-windows-microsoft-services.md#api-based-connections)** |
+| **License prerequisites/<br>Cost information** | Your Office 365 deployment must be on the same tenant as your Microsoft Sentinel workspace.<br>Other charges may apply. |
+| **Log Analytics table(s)** | PowerBIActivity |
+| **Supported by** | Microsoft |
+| | |
+        
+## Microsoft Project (Preview)
+| Connector attribute | Description |
+| --- | --- |
+| **Data ingestion method** | **Azure service-to-service integration: <br>[API-based connections](connect-azure-windows-microsoft-services.md#api-based-connections)** |
+| **License prerequisites/<br>Cost information** | Your Office 365 deployment must be on the same tenant as your Microsoft Sentinel workspace.<br>Other charges may apply. |
+| **Log Analytics table(s)** | ProjectActivity |
+| **Supported by** | Microsoft |
+| | |      
 
+## Microsoft Sysmon for Linux (Preview)
+
+| Connector attribute | Description |
+| --- | --- |
+| **Data ingestion method** | [**Syslog**](connect-syslog.md), with, [ASIM parsers](normalization-about-parsers.md) based on Kusto functons |
+| **Log Analytics table(s)** | Syslog |
+| **Supported by** | Microsoft |
+| | |
 
 
 ## Morphisec UTPP (Preview)
@@ -1394,17 +1460,17 @@ If a longer timeout duration is required, consider upgrading to an [App Service 
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | **Azure service-to-service integration: <br>[Log Analytics agent-based connections](connect-azure-windows-microsoft-services.md?tabs=LAA#windows-agent-based-connections)** |
+| **Data ingestion method** | **Azure service-to-service integration: <br>[Log Analytics agent-based connections](connect-azure-windows-microsoft-services.md?tabs=LAA#windows-agent-based-connections) (Legacy)** |
 | **Log Analytics table(s)** | SecurityEvents |
 | **Supported by** | Microsoft |
 | | |
 
+For more information, see:
 
-For more information, see [Insecure protocols workbook setup](./get-visibility.md#use-built-in-workbooks).
-
-See also: [**Windows Security Events via AMA**](#windows-security-events-via-ama) connector based on Azure Monitor Agent (AMA)
-
-[Configure the **Security events / Windows Security Events connector** for **anomalous RDP login detection**](#configure-the-security-events--windows-security-events-connector-for-anomalous-rdp-login-detection).
+- [Windows security event sets that can be sent to Microsoft Sentinel](windows-security-event-id-reference.md)
+- [Insecure protocols workbook setup](./get-visibility.md#use-built-in-workbooks)
+- [**Windows Security Events via AMA**](#windows-security-events-via-ama) connector based on Azure Monitor Agent (AMA)
+- [Configure the **Security events / Windows Security Events connector** for **anomalous RDP login detection**](#configure-the-security-events--windows-security-events-connector-for-anomalous-rdp-login-detection).
 
 ## SentinelOne (Preview)
 
@@ -1636,10 +1702,21 @@ Follow the instructions to obtain the credentials.
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | **Azure service-to-service integration: <br>[Log Analytics agent-based connections](connect-azure-windows-microsoft-services.md?tabs=LAA#windows-agent-based-connections)** |
+| **Data ingestion method** | **Azure service-to-service integration: <br>[Log Analytics agent-based connections](connect-azure-windows-microsoft-services.md?tabs=LAA#windows-agent-based-connections) (Legacy)** |
 | **Log Analytics table(s)** | DnsEvents<br>DnsInventory |
 | **Supported by** | Microsoft |
 | | |
+
+### Troubleshooting your Windows DNS Server data connector
+
+If your DNS events don't show up in Microsoft Sentinel:
+
+1. Make sure that DNS analytics logs on your servers are [enabled](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn800669(v=ws.11)#to-enable-dns-diagnostic-logging).
+1. Go to Azure DNS Analytics.
+1. In the **Configuration** area, change any of the settings and save your changes. Change your settings back if you need to, and then save your changes again.
+1. Check your Azure DNS Analytics to make sure that your events and queries display properly.
+
+For more information, see [Gather insights about your DNS infrastructure with the DNS Analytics Preview solution](../azure-monitor/insights/dns-analytics.md).
 
 ## Windows Forwarded Events (Preview)
 
@@ -1660,7 +1737,7 @@ We recommend installing the [Advanced SIEM Information Model (ASIM)](normalizati
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | **Azure service-to-service integration: <br>[Log Analytics agent-based connections](connect-azure-windows-microsoft-services.md?tabs=LAA#windows-agent-based-connections)** |
+| **Data ingestion method** | **Azure service-to-service integration: <br>[Log Analytics agent-based connections](connect-azure-windows-microsoft-services.md?tabs=LAA#windows-agent-based-connections) (Legacy)** |
 | **Log Analytics table(s)** | WindowsFirewall |
 | **Supported by** | Microsoft |
 | | |

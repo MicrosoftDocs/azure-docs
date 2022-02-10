@@ -32,7 +32,7 @@ Billing for the Premium plan is based on the number of core seconds and memory a
 
 ## Create a Premium plan
 
-When you create a function app in the Azure portal, the Consumption plan is the default. To create a function app that runs in a Premium plan, you must explicitly create an App Service plan using one of the _Elastic Premium_ SKUs. The function app you create is then hosted in this plan. The Azure portal makes it easy to create both the Premium plan and the function app at the same time. You can run more than one function app in the same Premium plan, but they most both run on the same operating system (Windows or Linux). 
+When you create a function app in the Azure portal, the Consumption plan is the default. To create a function app that runs in a Premium plan, you must explicitly create an App Service plan using one of the _Elastic Premium_ SKUs. The function app you create is then hosted in this plan. The Azure portal makes it easy to create both the Premium plan and the function app at the same time. You can run more than one function app in the same Premium plan, but they must both run on the same operating system (Windows or Linux). 
 
 The following articles show you how to create a function app with a Premium plan, either programmatically or in the Azure portal:
 
@@ -166,7 +166,7 @@ See the complete regional availability of Functions on the [Azure web site](http
 |Brazil South| 100 | 20 |
 |Canada Central| 100 | 20 |
 |Central India| 100 | 20 |
-|Central US| 100 | 20 |
+|Central US| 100 | 40 |
 |China East 2| 100 | 20 |
 |China North 2| 100 | 20 |
 |East Asia| 100 | 20 |
@@ -180,7 +180,7 @@ See the complete regional availability of Functions on the [Azure web site](http
 |Korea Central| 100 | 20 |
 |Korea South| Not Available | 20 |
 |North Central US| 100 | 20 |
-|North Europe| 100 | 20 |
+|North Europe| 100 | 40 |
 |Norway East| 100 | 20 |
 |South Africa North| 100 | 20 |
 |South Central US| 100 | 20 |
@@ -195,7 +195,7 @@ See the complete regional availability of Functions on the [Azure web site](http
 |USGov Texas| 100 | Not Available |
 |USGov Virginia| 100 | 20 |
 |West Central US| 100 | 20 |
-|West Europe| 100 | 20 |
+|West Europe| 100 | 40 |
 |West India| 100 | 20 |
 |West US| 100 | 20 |
 |West US 2| 100 | 20 |

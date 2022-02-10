@@ -9,8 +9,8 @@ ms.custom: sqldbrb=2
 ms.topic: conceptual
 author: emlisa
 ms.author: emlisa
-ms.reviewer: mathoma
-ms.date: 10/25/2021
+ms.reviewer: kendralittle, mathoma
+ms.date: 2/2/2022
 ---
 
 # Use auto-failover groups to enable transparent and coordinated geo-failover of multiple databases
@@ -21,7 +21,6 @@ The auto-failover groups feature allows you to manage the replication and failov
 > [!NOTE]
 > Auto-failover groups support geo-replication of all databases in the group to only one secondary server or instance in a different region. If you need to create multiple Azure SQL Database geo-secondary replicas (in the same or different regions) for the same primary replica, use [active geo-replication](active-geo-replication-overview.md).
 > 
-> Auto-failover groups are not currently supported in the [Hyperscale](service-tier-hyperscale.md) service tier. For geographic failover of a Hyperscale database, use [active geo-replication](active-geo-replication-overview.md).
 
 When you are using auto-failover groups with automatic failover policy, an outage that impacts one or several of the databases in the group will result in an automatic geo-failover. Typically, these are outages that cannot be automatically mitigated by the built-in high availability infrastructure. Examples of geo-failover triggers include an incident caused by a SQL Database tenant ring or control ring being down due to an OS kernel memory leak on compute nodes, or an incident caused by one or more tenant rings being down because a wrong network cable was accidentally cut during routine hardware decommissioning. For more information, see [SQL Database High Availability](high-availability-sla.md).
 
@@ -226,6 +225,9 @@ The following diagram illustrates a typical configuration of a geo-redundant clo
 > [!NOTE]
 > See [Add managed instance to a failover group](../managed-instance/failover-group-add-instance-tutorial.md) for a detailed step-by-step tutorial adding a SQL Managed Instance to use failover group.
 
+> [!IMPORTANT]
+> If you deploy auto-failover groups in a hub-and-spoke network topology cross-region, replication traffic should go directly between the two managed instance subnets rather than be directed through the hub networks.
+
 If your application uses SQL Managed Instance as the data tier, follow these general guidelines when designing for business continuity:
 
 ### <a name="creating-the-secondary-instance"></a> Create the geo-secondary managed instance
@@ -239,7 +241,7 @@ For more information about creating the secondary SQL Managed Instance in the sa
 
 ### <a name="using-geo-paired-regions"></a> Use paired regions
 
-Deploy both managed instances to [paired regions](../../best-practices-availability-paired-regions.md) for performance reasons. SQL Managed Instance failover groups in paired regions have better performance compared to unpaired regions.
+Deploy both managed instances to [paired regions](../../availability-zones/cross-region-replication-azure.md) for performance reasons. SQL Managed Instance failover groups in paired regions have better performance compared to unpaired regions.
 
 ### <a name="enabling-replication-traffic-between-two-instances"></a> Enable geo-replication traffic between two managed instances
 
@@ -261,11 +263,11 @@ The failover group will manage geo-failover of all databases on the primary mana
 
 ### <a name="using-read-write-listener-for-oltp-workload"></a> Use the read-write listener to connect to the primary managed instance
 
-For read-write workloads, use `<fog-name>.zone_id.database.windows.net` as the server name. Connections will be automatically directed to the primary. This name does not change after failover. The geo-failover involves updating the DNS record, so the client connections are redirected to the new primary only after the client DNS cache is refreshed. Because the secondary instance shares the DNS zone with the primary, the client application will be able to reconnect to it using the same server-side SAN certificate.
+For read-write workloads, use `<fog-name>.zone_id.database.windows.net` as the server name. Connections will be automatically directed to the primary. This name does not change after failover. The geo-failover involves updating the DNS record, so the client connections are redirected to the new primary only after the client DNS cache is refreshed. Because the secondary instance shares the DNS zone with the primary, the client application will be able to reconnect to it using the same server-side SAN certificate. The read-write listener and read-only listener cannot be reached via [public endpoint for managed instance](../managed-instance/public-endpoint-configure.md).
 
 ### <a name="using-read-only-listener-to-connect-to-the-secondary-instance"></a> Use the read-only listener to connect to the geo-secondary managed instance
 
-If you have logically isolated read-only workloads that are tolerant to data latency, you can run them on the geo-secondary. To connect directly to the geo-secondary, use `<fog-name>.secondary.<zone_id>.database.windows.net` as the server name.
+If you have logically isolated read-only workloads that are tolerant to data latency, you can run them on the geo-secondary. To connect directly to the geo-secondary, use `<fog-name>.secondary.<zone_id>.database.windows.net` as the server name. The read-write listener and read-only listener cannot be reached via [public endpoint for managed instance](../managed-instance/public-endpoint-configure.md).
 
 > [!NOTE]
 > In the Business Critical tier, SQL Managed Instance supports the use of [read-only replicas](read-scale-out.md) to offload read-only query workloads, using the `ApplicationIntent=ReadOnly` parameter in the connection string. When you have configured a geo-replicated secondary, you can use this capability to connect to either a read-only replica in the primary location or in the geo-replicated location.
@@ -387,7 +389,7 @@ When you set up a failover group between primary and secondary SQL Managed Insta
 
 ## <a name="upgrading-or-downgrading-primary-database"></a> Scale primary database
 
-You can scale up or scale down the primary database to a different compute size (within the same service tier) without disconnecting any geo-secondaries. WWhen scaling up, we recommend that you scale up the geo-secondary first, and then scale up the primary. When scaling down, reverse the order: scale down the primary first, and then scale down the secondary. When you scale a database to a different service tier, this recommendation is enforced.
+You can scale up or scale down the primary database to a different compute size (within the same service tier) without disconnecting any geo-secondaries. When scaling up, we recommend that you scale up the geo-secondary first, and then scale up the primary. When scaling down, reverse the order: scale down the primary first, and then scale down the secondary. When you scale a database to a different service tier, this recommendation is enforced.
 
 This sequence is recommended specifically to avoid the problem where the geo-secondary at a lower SKU gets overloaded and must be re-seeded during an upgrade or downgrade process. You could also avoid the problem by making the primary read-only, at the expense of impacting all read-write workloads against the primary.
 

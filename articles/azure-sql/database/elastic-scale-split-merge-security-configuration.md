@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: conceptual
 author: VanMSFT
 ms.author: vanto
-ms.reviewer: mathoma
+ms.reviewer: kendralittle, mathoma
 ms.date: 12/18/2018
 ---
 # Split-merge security configuration

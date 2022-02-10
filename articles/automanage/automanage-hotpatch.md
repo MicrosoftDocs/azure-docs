@@ -2,8 +2,7 @@
 title: Hotpatch for Windows Server Azure Edition (preview)
 description: Learn how Hotpatch for Windows Server Azure Edition works and how to enable it
 author: ju-shim
-ms.service: virtual-machines
-ms.subservice: hotpatch
+ms.service: automanage
 ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 02/22/2021
@@ -63,7 +62,7 @@ To start using Hotpatch on a new VM, follow these steps:
 The following example describes how to enable the preview for your subscription:
 
 ```
-POST on `/subscriptions/{subscriptionId}/providers/Microsoft.Features/providers/Microsoft.Compute/features/ InGuestHotPatchVMPreview/register?api-version=2015-12-01`
+POST on `/subscriptions/{subscriptionId}/providers/Microsoft.Features/providers/Microsoft.Compute/features/InGuestHotPatchVMPreview/register?api-version=2015-12-01`
 POST on `/subscriptions/{subscriptionId}/providers/Microsoft.Features/providers/Microsoft.Compute/features/InGuestAutoPatchVMPreview/register?api-version=2015-12-01`
 POST on `/subscriptions/{subscriptionId}/providers/Microsoft.Features/providers/Microsoft.Compute/features/InGuestPatchVMPreview/register?api-version=2015-12-01`
 ```

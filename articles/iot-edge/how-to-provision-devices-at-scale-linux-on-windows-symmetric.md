@@ -3,7 +3,6 @@ title: Create and provision IoT Edge devices using symmetric keys on Linux on Wi
 description: Use symmetric key attestation to test provisioning Linux on Windows devices at scale for Azure IoT Edge with device provisioning service
 author: kgremban
 ms.author: kgremban
-ms.reviewer: v-tcassi
 ms.date: 10/29/2021
 ms.topic: conceptual
 ms.service: iot-edge
@@ -64,7 +63,7 @@ For Windows Admin Center, use the following steps:
 
 1. On the **Azure IoT Edge device provisioning** pane, select **Symmetric Key (DPS)** from the provisioning method dropdown.
 
-1. In the [Azure portal](https://ms.portal.azure.com/), navigate to your DPS instance.
+1. In the [Azure portal](https://portal.azure.com/), navigate to your DPS instance.
 
 1. Provide your DPS scope ID, device registration ID, and enrollment primary key or derived key in the Windows Admin Center fields.
 

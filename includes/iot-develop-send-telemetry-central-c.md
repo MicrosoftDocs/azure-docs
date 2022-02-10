@@ -18,7 +18,7 @@ This quickstart runs on Windows, Linux, and Raspberry Pi. It's been tested on th
 
 - Windows 10
 - Ubuntu 20.04 LTS
-- Raspberry Pi OS version 10 (buster) running on a Raspberry Pi 3 Model B+
+- Raspberry Pi OS (Raspbian) version 10, running on a Raspberry Pi 3 Model B+
 
 Install the remaining prerequisites for your operating system.
 

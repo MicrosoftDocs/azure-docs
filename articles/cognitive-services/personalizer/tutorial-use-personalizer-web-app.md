@@ -8,6 +8,7 @@ ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: tutorial
 ms.date: 06/10/2020
+ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
 # Tutorial: Add Personalizer to a .NET web app
@@ -228,7 +229,7 @@ Install the following software:
 
 ### Set up Azure Personalizer Service
 
-1. [Create a Personalizer resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer) in the Azure portal.
+1. [Create a Personalizer resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer) in the Azure portal.
 
 1. In the Azure portal, find the `Endpoint` and either `Key1` or `Key2` (either will work) in the **Keys and Endpoints** tab. These are your `PersonalizerServiceEndpoint` and your `PersonalizerApiKey`.
 1. Fill in the `PersonalizerServiceEndpoint` in **appsettings.json**.

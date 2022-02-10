@@ -64,6 +64,7 @@ You can create a read replica in any of the following regions, regardless of whe
 | North Central US | :heavy_check_mark: | 
 | South Central US | :heavy_check_mark: | 
 | Southeast Asia | :heavy_check_mark: | 
+| Switzerland North | :heavy_check_mark: |
 | UK South | :heavy_check_mark: | 
 | UK West | :heavy_check_mark: | 
 | West Central US | :heavy_check_mark: | 
@@ -81,7 +82,7 @@ You can create a read replica in any of the following regions, regardless of whe
 
 ### Paired regions
 
-In addition to the universal replica regions, you can create a read replica in the Azure paired region of your source server. If you don't know your region's pair, you can learn more from the [Azure Paired Regions article](../best-practices-availability-paired-regions.md).
+In addition to the universal replica regions, you can create a read replica in the Azure paired region of your source server. If you don't know your region's pair, you can learn more from the [Azure Paired Regions article](../availability-zones/cross-region-replication-azure.md).
 
 If you're using cross-region replicas for disaster recovery planning, we recommend you create the replica in the paired region instead of one of the other regions. Paired regions avoid simultaneous updates and prioritize physical isolation and data residency.  
 

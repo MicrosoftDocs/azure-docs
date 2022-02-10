@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
-ms.date: 11/08/2021
+ms.date: 11/19/2021
 ---
 
 
@@ -49,12 +49,23 @@ In general, data access from studio involves the following checks:
     - Create, read, update, and delete (CRUD) operations on a data store/dataset are handled by Azure Machine Learning.
     - Data Access calls (such as preview or schema) go to the underlying storage and need extra permissions.
 5. Where is this operation being run; compute resources in your Azure subscription or resources hosted in a Microsoft subscription?
-    - All calls to dataset and datastore services (except the "Generate Profile" option,) use resources hosted in a __Microsoft subscription__ to run the operations.
-    - Jobs, including a the "Generate Profile" option for datasets, run on a compute resource in __your subscription__, and access the data from there. So the compute identity needs permission to the storage rather than the identity of the user submitting the job.
+    - All calls to dataset and datastore services (except the "Generate Profile" option) use resources hosted in a __Microsoft subscription__ to run the operations.
+    - Jobs, including the "Generate Profile" option for datasets, run on a compute resource in __your subscription__, and access the data from there. So the compute identity needs permission to the storage rather than the identity of the user submitting the job.
 
 The following diagram shows the general flow of a data access call. In this example, a user is trying to make a data access call through a machine learning workspace, without using any compute resource.
 
 :::image type="content" source="./media/concept-network-data-access/data-access-flow.svg" alt-text="Diagram of the logic flow when accessing data":::
+
+### Scenarios and identities
+
+The following table lists what identities should be used for specific scenarios:
+
+| Scenario | Use workspace</br>Managed Service Identity (MSI) | Identity to use |
+|--|--|--|
+| Access from UI | Yes | Workspace MSI |
+| Access from UI | No | User's Identity |
+| Access from Job | Yes/No | Compute MSI |
+| Access from Notebook | Yes/No | User's identity |
 
 ## Azure Storage Account
 
@@ -66,15 +77,21 @@ When using an Azure Storage Account from Azure Machine Learning studio, you must
 For more information, see [Use Azure Machine Learning studio in an Azure Virtual Network](how-to-enable-studio-virtual-network.md).
 
 See the following sections for information on limitations when using Azure Storage Account with your workspace in a VNet.
-### Using an existing storage account
 
-If you use an existing storage account as the __default storage__ when creating a workspace, the `azureml-filestore` folder in the file store doesn't automatically get created. This folder is required when submitting [AutoML](concept-automated-ml.md) experiments.
+### Secure communication with Azure Storage Account 
 
-To avoid this issue, you can either allow Azure Machine Learning to create the default storage for you when creating the workspace or make sure the existing storage account  is __not__ in the VNet when creating the workspace. For more information on networking with Azure Storage Account, see [Configure Azure Storage Accounts with virtual networks](../storage/common/storage-network-security.md).
+To secure communication between Azure Machine Learning and Azure Storage Accounts, configure storage to [Grant access to trusted Azure services](../storage/common/storage-network-security.md#grant-access-to-trusted-azure-services).
 
 ### Azure Storage firewall
 
-When an Azure Storage account is behind a virtual network, the storage firewall can normally be used to allow your client to directly connect over the internet. However, when using studio it isn't  your client that connects to the storage account; it's the Azure Machine Learning service that makes the request. The IP address of the service isn't documented and changes frequently. __Enabling the storage firewall will not allow studio to access the storage account in a VNet configuration__.
+When an Azure Storage account is behind a virtual network, the storage firewall can normally be used to allow your client to directly connect over the internet. However, when using studio it isn't your client that connects to the storage account; it's the Azure Machine Learning service that makes the request. The IP address of the service isn't documented and changes frequently. __Enabling the storage firewall will not allow studio to access the storage account in a VNet configuration__.
+
+### Azure Storage endpoint type
+
+When the workspace uses a private endpoint and the storage account is also in the VNet, there are extra validation requirements when using studio:
+
+* If the storage account uses a __service endpoint__, the workspace private endpoint and storage service endpoint must be in the same subnet of the VNet.
+* If the storage account uses a __private endpoint__, the workspace private endpoint and storage service endpoint must be in the same VNet. In this case, they can be in different subnets.
 
 ## Azure Data Lake Storage Gen1
 
@@ -94,9 +111,25 @@ To access data stored in an Azure SQL Database with a managed identity, you must
 
 After you create a SQL contained user, grant permissions to it by using the [GRANT T-SQL command](/sql/t-sql/statements/grant-object-permissions-transact-sql).
 
-### Deny public network access
+### Secure communication with Azure SQL Database
 
-In Azure SQL Database, the __Deny public network access__ allows you to block public access to the database. We __do not support__ accessing SQL Database if this option is enabled. When using a SQL Database with Azure Machine Learning studio, the data access is always made through the public endpoint for the SQL Database.
+To secure communication between Azure Machine Learning and Azure SQL Database, there are two options:
+
+> [!IMPORTANT]
+> Both options allow the possibility of services outside your subscription connecting to your SQL Database. Make sure that your SQL login and user permissions limit access to authorized users only.
+
+* __Allow Azure services and resources to access the Azure SQL Database server__. Enabling this setting _allows all connections from Azure_, including __connections from the subscriptions of other customers__, to your database server.
+
+    For information on enabling this setting, see [IP firewall rules - Azure SQL Database and Synapse Analytics](/azure/azure-sql/database/firewall-configure).
+
+* __Allow the IP address range of the Azure Machine Learning service in Firewalls and virtual networks__ for the Azure SQL Database. Allowing the IP addresses through the firewall limits __connections to the Azure Machine Learning service for a region__.
+
+    > [!WARNING]
+    > The IP ranges for the Azure Machine Learning service may change over time. There is no built-in way to automatically update the firewall rules when the IPs change.
+
+    To get a list of the IP addresses for Azure Machine Learning, download the [Azure IP Ranges and Service Tags](https://www.microsoft.com/download/details.aspx?id=56519) and search the file for `AzureMachineLearning.<region>`, where `<region>` is the Azure region that contains your Azure Machine Learning workspace.
+
+    To add the IP addresses to your Azure SQL Database, see [IP firewall rules - Azure SQL Database and Synapse Analytics](/azure/azure-sql/database/firewall-configure).
 
 ## Next steps
 

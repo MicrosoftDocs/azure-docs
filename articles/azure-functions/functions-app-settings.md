@@ -145,6 +145,18 @@ Path to the compiler used for TypeScript. Allows you to override the default if 
 |---|------------|
 |AzureWebJobs_TypeScriptPath|`%HOME%\typescript`|
 
+## DOCKER_SHM_SIZE
+
+Sets the shared memory size (in bytes) when the Python worker is using shared memory. To learn more, see [Shared memory](functions-reference-python.md#shared-memory).
+
+|Key|Sample value|
+|---|------------|
+|DOCKER_SHM_SIZE|`268435456`|
+
+The value above sets a shared memory size of ~256 MB. 
+
+Requires that [FUNCTIONS\_WORKER\_SHARED\_MEMORY\_DATA\_TRANSFER\_ENABLED](#functions_worker_shared_memory_data_transfer_enabled) be set to `1`.
+
 ## FUNCTION\_APP\_EDIT\_MODE
 
 Dictates whether editing in the Azure portal is enabled. Valid values are "readwrite" and "readonly".
@@ -200,6 +212,16 @@ Valid values:
 | `node` | [JavaScript](functions-reference-node.md)<br/>[TypeScript](functions-reference-node.md#typescript) |
 | `powershell` | [PowerShell](functions-reference-powershell.md) |
 | `python` | [Python](functions-reference-python.md) |
+
+## FUNCTIONS\_WORKER\_SHARED\_MEMORY\_DATA\_TRANSFER\_ENABLED
+
+This setting enables the Python worker to use shared memory to improve throughput. Enable shared memory when your Python function app is hitting memory bottlenecks. 
+
+|Key|Sample value|
+|---|------------|
+|FUNCTIONS_WORKER_SHARED_MEMORY_DATA_TRANSFER_ENABLED|`1`|
+
+With this setting enabled, you can use the [DOCKER_SHM_SIZE](#docker_shm_size) setting to set the shared memory size. To learn more, see [Shared memory](functions-reference-python.md#shared-memory).
 
 ## MDMaxBackgroundUpgradePeriod
 
@@ -259,6 +281,12 @@ The configuration is specific to Python function apps. It defines the prioritiza
 |PYTHON\_ISOLATE\_WORKER\_DEPENDENCIES|`0`| Prioritize loading the Python libraries from internal Python worker's dependencies. Third-party libraries defined in requirements.txt may be shadowed. |
 |PYTHON\_ISOLATE\_WORKER\_DEPENDENCIES|`1`| Prioritize loading the Python libraries from application's package defined in requirements.txt. This prevents your libraries from colliding with internal Python worker's libraries. |
 
+## PYTHON_ENABLE_DEBUG_LOGGING
+Enables debug-level logging in a Python function app. A value of `1` enables debug-level logging. Without this setting or with a value of `0`, only information and higher level logs are sent from the Python worker to the Functions host. Use this setting when debugging or tracing your Python function executions.
+
+When debugging Python functions, make sure to also set a debug or trace [logging level](functions-host-json.md#logging) in the host.json file, as needed. To learn more, see [How to configure monitoring for Azure Functions](configure-monitoring.md).
+
+
 ## PYTHON\_ENABLE\_WORKER\_EXTENSIONS
 
 The configuration is specific to Python function apps. Setting this to `1` allows the worker to load in [Python worker extensions](functions-reference-python.md#python-worker-extensions) defined in requirements.txt. It enables your function app to access new features provided by third-party packages. It may also change the behavior of function load and invocation in your app. Please ensure the extension you choose is trustworthy as you bear the risk of using it. Azure Functions gives no express warranties to any extensions. For how to use an extension, please visit the extension's manual page or readme doc. By default, this value sets to `0`.
@@ -302,7 +330,7 @@ The above sample value of `1800` sets a timeout of 30 minutes. To learn more, se
 
 ## WEBSITE\_CONTENTAZUREFILECONNECTIONSTRING
 
-Connection string for storage account where the function app code and configuration are stored in event-driven scaling plans running on Windows. For more information, see [Create a function app](functions-infrastructure-as-code.md#windows).
+Connection string for storage account where the function app code and configuration are stored in event-driven scaling plans running on Windows. For more information, see [Create a function app](functions-infrastructure-as-code.md?tabs=windows#create-a-function-app).
 
 |Key|Sample value|
 |---|------------|
@@ -322,7 +350,7 @@ Supported on [Premium](functions-premium-plan.md) and [Dedicated (App Service) p
 
 ## WEBSITE\_CONTENTSHARE
 
-The file path to the function app code and configuration in an event-driven scaling plan on Windows. Used with WEBSITE_CONTENTAZUREFILECONNECTIONSTRING. Default is a unique string that begins with the function app name. See [Create a function app](functions-infrastructure-as-code.md#windows).
+The file path to the function app code and configuration in an event-driven scaling plan on Windows. Used with WEBSITE_CONTENTAZUREFILECONNECTIONSTRING. Default is a unique string that begins with the function app name. See [Create a function app](functions-infrastructure-as-code.md?tabs=windows#create-a-function-app).
 
 |Key|Sample value|
 |---|------------|
@@ -330,7 +358,7 @@ The file path to the function app code and configuration in an event-driven scal
 
 Only used when deploying to a Premium plan or to a Consumption plan running on Windows. Not supported for Consumptions plans running Linux. Changing or removing this setting may cause your function app to not start. To learn more, see [this troubleshooting article](functions-recover-storage-account.md#storage-account-application-settings-were-deleted).
 
-When using an Azure Resource Manager template to create a function app during deployment, don't include WEBSITE_CONTENTSHARE in the template. This slot setting is generated during deployment. To learn more, see [Automate resource deployment for your function app](functions-infrastructure-as-code.md#windows).
+When using an Azure Resource Manager template to create a function app during deployment, don't include WEBSITE_CONTENTSHARE in the template. This slot setting is generated during deployment. To learn more, see [Automate resource deployment for your function app](functions-infrastructure-as-code.md?tabs=windows#create-a-function-app).
 
 ## WEBSITE\_DNS\_SERVER
 

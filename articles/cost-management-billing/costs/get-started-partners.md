@@ -74,7 +74,7 @@ Partners also filter costs in a specific billing currency across customers in th
 
 ![Example showing Actual cost selection for currencies](./media/get-started-partners/actual-cost-selector.png)
 
-Use the [amortized cost view](quick-acm-cost-analysis.md#customize-cost-views) in billing scopes to view reserved instance amortized costs across a reservation term.
+Use the [amortized cost view](quick-acm-cost-analysis.md#switch-between-actual-and-amortized-cost) in billing scopes to view reserved instance amortized costs across a reservation term.
 
 ### Billing profile scope
 
@@ -172,7 +172,7 @@ The retail rates used to compute costs shown in the view are the same prices sho
 
 ## Analyze costs in cost analysis
 
-Partners with access to billing scopes in the partner tenant can explore and analyze invoiced costs in cost analysis across customers for a specific customer or for an invoice. In the [cost analysis](quick-acm-cost-analysis.md) view, you can also [save views](quick-acm-cost-analysis.md#saving-and-sharing-customized-views).
+Partners with access to billing scopes in the partner tenant can explore and analyze invoiced costs in cost analysis across customers for a specific customer or for an invoice. In cost analysis, you can also save views.
 
 Azure RBAC users with access to the subscription in the customer tenant can also analyze retail costs for subscriptions in the customer tenant, save views, and export data to CSV and PNG files.
 

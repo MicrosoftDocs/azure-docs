@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: troubleshooting
 author: NikaKinska
 ms.author: nnikolic
-ms.reviewer: mathoma, wiassaf
+ms.reviewer: mathoma, wiassaf, kendralittle
 ms.date: 11/04/2021
 ---
 
@@ -216,11 +216,10 @@ DMVs that track Query Store and wait statistics show results for only successful
 > - [TigerToolbox waits and latches](https://github.com/Microsoft/tigertoolbox/tree/master/Waits-and-Latches)
 > - [TigerToolbox usp_whatsup](https://github.com/Microsoft/tigertoolbox/tree/master/usp_WhatsUp)
 
-## See also
-
-* [Configure the max degree of parallelism (MAXDOP) in Azure SQL Database](database/configure-max-degree-of-parallelism.md)
-* [Understand and resolve Azure SQL Database blocking problems in Azure SQL Database](database/understand-resolve-blocking.md)
-
 ## Next steps
 
-* [SQL Database monitoring and tuning overview](database/monitor-tune-overview.md)
+- [Configure the max degree of parallelism (MAXDOP) in Azure SQL Database](database/configure-max-degree-of-parallelism.md)
+- [Understand and resolve Azure SQL Database blocking problems in Azure SQL Database](database/understand-resolve-blocking.md)
+- [Diagnose and troubleshoot high CPU on Azure SQL Database](database/high-cpu-diagnose-troubleshoot.md)
+- [SQL Database monitoring and tuning overview](database/monitor-tune-overview.md)
+- [Monitoring Microsoft Azure SQL Database and Azure SQL Managed Instance performance using dynamic management views](database/monitoring-with-dmvs.md)

@@ -4,7 +4,7 @@ description: Describes the configuration set pattern.
 author: johndowns
 ms.author: jodowns
 ms.topic: conceptual
-ms.date: 08/18/2021
+ms.date: 11/30/2021
 ---
 # Configuration set pattern
 
@@ -43,7 +43,7 @@ Suppose you have a template that can be deployed to two types of environment: no
 
 You could use the configuration set pattern for this template.
 
-Accept a single parameter that indicates the environment type, such as production or non-production. Use the `@allowedValues` parameter decorator to ensure that your template's users only provide values that you expect:
+Accept a single parameter that indicates the environment type, such as production or non-production. Use the `@allowed` parameter decorator to ensure that your template's users only provide values that you expect:
 
 ::: code language="bicep" source="~/azure-docs-bicep-samples/samples/patterns-configuration-set/main.bicep" range="5-9" :::
 

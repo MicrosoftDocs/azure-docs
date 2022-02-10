@@ -252,8 +252,7 @@ $vm1 = New-AzVm `
         -SubnetName $($vmNamePrefix+"_subnet") `
         -SecurityGroupName $($vmNamePrefix+"01_sg") `
         -PublicIpAddressName $($vmNamePrefix+"01_ip") `
-        -Credential $credential `
-        -OpenPorts 80,3389
+        -Credential $credential 
 
 
 $vm1 = Add-AzVMDataDisk -VM $vm1 -Name $sharedDiskName -CreateOption Attach -ManagedDiskId $sharedDisk.Id -Lun 0

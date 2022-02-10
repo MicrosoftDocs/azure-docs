@@ -1,12 +1,12 @@
 ### YamlMime:Landing
-title:  Flexible Server (Preview) documentation
-summary: "Azure Database for PostgreSQL - Flexible Server (Preview) is a fully managed PostgreSQL database as a service offering that can handle mission-critical workloads with predictable performance and dynamic scalability. Develop applications with Azure Database for PostgreSQL leveraging the open-source tools and platform of your choice. Learn how to use Flexible servers with our quickstarts, tutorials, and samples."
+title:  Flexible Server documentation
+summary: "Azure Database for PostgreSQL - Flexible Server is a fully managed PostgreSQL database as a service offering that can handle mission-critical workloads with predictable performance and dynamic scalability. Develop applications with Azure Database for PostgreSQL leveraging the open-source tools and platform of your choice. Learn how to use Flexible servers with our quickstarts, tutorials, and samples."
 metadata:
-  title: Azure Database for PostgreSQL - Flexible Server (Preview)
-  description: "Azure Database for PostgreSQL - Flexible Server (Preview) is a relational database service in the Microsoft cloud that is built for developers and powered by the PostgreSQL community edition."
+  title: Azure Database for PostgreSQL - Flexible Server
+  description: "Azure Database for PostgreSQL - Flexible Server  is a relational database service in the Microsoft cloud that is built for developers and powered by the PostgreSQL community edition."
   author: sunilagarwal
   ms.author: sunila
-  ms.date: 09/22/2020
+  ms.date: 11/30/2021
   ms.service: postgresql
   ms.topic: landing-page
 
@@ -16,7 +16,7 @@ metadata:
 
 landingContent:
   # Card
-  - title: About Flexible Server (Preview)
+  - title: About Flexible Server 
     linkLists:
       - linkListType: overview
         links:

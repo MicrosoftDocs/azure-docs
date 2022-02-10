@@ -3,7 +3,7 @@ title: Use Container Storage Interface (CSI) drivers for Azure Files on Azure Ku
 description: Learn how to use the Container Storage Interface (CSI) drivers for Azure Files in an Azure Kubernetes Service (AKS) cluster.
 services: container-service
 ms.topic: article
-ms.date: 11/18/2021
+ms.date: 12/10/2021
 author: palma21
 
 ---
@@ -18,6 +18,12 @@ To create an AKS cluster with CSI driver support, see [Enable CSI drivers for Az
 
 > [!NOTE]
 > *In-tree drivers* refers to the current storage drivers that are part of the core Kubernetes code versus the new CSI drivers, which are plug-ins.
+
+## Azure File CSI driver new features
+Besides original in-tree driver features, Azure File CSI driver already provides following new features:
+- NFS 4.1
+- Private endpoint
+- support creating large mount of file shares in parallel 
 
 ## Use a persistent volume with Azure Files
 
@@ -331,6 +337,10 @@ $ kubectl exec -it busybox-azurefile-0 -- cat c:\mnt\azurefile\data.txt # on Win
 (...)
 ```
 
+## Using Azure tags
+
+For more details on using Azure tags, see [Use Azure tags in Azure Kubernetes Service (AKS)][use-tags].
+
 ## Next steps
 
 - To learn how to use CSI drivers for Azure disks, see [Use Azure disks with CSI drivers](azure-disk-csi.md).
@@ -366,3 +376,4 @@ $ kubectl exec -it busybox-azurefile-0 -- cat c:\mnt\azurefile\data.txt # on Win
 [az-provider-register]: /cli/azure/provider#az_provider_register
 [node-resource-group]: faq.md#why-are-two-resource-groups-created-with-aks
 [storage-skus]: ../storage/common/storage-redundancy.md
+[use-tags]: use-tags.md

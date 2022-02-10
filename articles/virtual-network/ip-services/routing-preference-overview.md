@@ -6,7 +6,6 @@ documentationcenter: na
 author: asudbring
 ms.service: virtual-network
 # Customer intent: As an Azure customer, I want to learn more about routing choices for my internet egress traffic.
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services

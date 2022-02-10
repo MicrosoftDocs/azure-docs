@@ -8,7 +8,7 @@ ms.subservice: ip-services
 ms.topic: quickstart
 ms.date: 10/01/2021
 ms.author: allensu
-
+ms.custom: mode-api
 ---
 # Quickstart: Create a public IP address using PowerShell
 

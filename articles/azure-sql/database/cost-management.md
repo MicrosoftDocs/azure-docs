@@ -1,11 +1,12 @@
 ---
 title: Plan and manage costs
 description: Learn how to plan for and manage costs for Azure SQL Database by using cost analysis in the Azure portal.
-author: MashaMSFT
-ms.author: mathoma
+author: LitKnd
+ms.author: kendralittle
 ms.custom: subject-cost-optimization
 ms.service: sql-database
 ms.subservice: service-overview
+ms.reviewer: mathoma
 ms.topic: how-to
 ms.date: 06/30/2021
 ---
@@ -15,9 +16,6 @@ ms.date: 06/30/2021
 This article describes how you plan for and manage costs for Azure SQL Database. 
 
 First, you use the Azure pricing calculator to add Azure resources, and review the estimated costs. After you've started using Azure SQL Database resources, use Cost Management features to set budgets and monitor costs. You can also review forecasted costs and identify spending trends to identify areas where you might want to act. Costs for Azure SQL Database are only a portion of the monthly costs in your Azure bill. Although this article explains how to plan for and manage costs for Azure SQL Database, you're billed for all Azure services and resources used in your Azure subscription, including any third-party services.
-
-> [!div class="nextstepaction"]
-> [Survey to improve Azure SQL!](https://aka.ms/AzureSQLSurveyNov2021)
 
 ## Prerequisites
 
@@ -73,7 +71,8 @@ Billing depends on the SKU of your product, the generation hardware of your SKU,
 - And for storage: geo-redundant storage (GRS), locally redundant storage (LRS), and zone-redundant storage (ZRS)
 - It's also possible to have a deprecated SKU from deprecated resource offerings
 
-To learn more, see [service tiers](service-tiers-general-purpose-business-critical.md). 
+For more information, see [vCore-based purchasing model](service-tiers-vcore.md), [DTU-based purchasing model](service-tiers-dtu.md), or [compare purchasing models](purchasing-models.md). 
+
 
 The following table shows the most common billing meters and their possible SKUs for **single databases**: 
 

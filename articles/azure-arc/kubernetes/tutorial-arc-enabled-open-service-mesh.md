@@ -371,7 +371,7 @@ You can start with a [demo application](https://release-v0-11.docs.openserviceme
 
 ### Configuring your own Jaeger, Prometheus and Grafana instances
 
-The OSM extension does not install add-ons like [Jaeger](https://www.jaegertracing.io/docs/getting-started/), [Prometheus](https://prometheus.io/docs/prometheus/latest/installation/) and [Grafana](https://grafana.com/docs/grafana/latest/installation/) so that users can integrate OSM with their own running instances of those tools instead. To integrate with your own instances, check the following documentation:
+The OSM extension does not install add-ons like [Flagger](https://docs.flagger.app/), [Jaeger](https://www.jaegertracing.io/docs/getting-started/), [Prometheus](https://prometheus.io/docs/prometheus/latest/installation/) and [Grafana](https://grafana.com/docs/grafana/latest/installation/) so that users can integrate OSM with their own running instances of those tools instead. To integrate with your own instances, check the following documentation:
 
 > [!NOTE]
 > Use the commands provided in the OSM GitHub documentation with caution. Ensure that you use the correct namespace name 'arc-osm-system' when making changes to `osm-mesh-config`.
@@ -379,7 +379,7 @@ The OSM extension does not install add-ons like [Jaeger](https://www.jaegertraci
 - [BYO-Jaeger instance](https://docs.openservicemesh.io/docs/guides/observability/tracing/#byo-bring-your-own)
 - [BYO-Prometheus instance](https://docs.openservicemesh.io/docs/guides/observability/metrics/#byo-prometheus)
 - [BYO-Grafana dashboard](https://docs.openservicemesh.io/docs/guides/observability/metrics/#importing-dashboards-on-a-byo-grafana-instance)
-
+- [OSM Progressive Delivery with Flagger](https://docs.flagger.app/tutorials/osm-progressive-delivery)
 
 ## Monitoring application using Azure Monitor and Applications Insights
 

@@ -3,11 +3,11 @@ title: 'Install the Azure AD Connect provisioning agent'
 description: Learn how to install the Azure AD Connect provisioning agent and how to configure it in the Azure portal.
 services: active-directory
 author: billmath
-manager: daveba
+manager: karenhoran
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/19/2021
+ms.date: 12/13/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -100,7 +100,7 @@ To verify that the agent is running:
 >[!IMPORTANT]
 >The agent has been installed, but it must be configured and enabled before it will start synchronizing users. To configure a new agent, see [Create a new configuration for Azure AD Connect cloud sync](how-to-configure.md).
 
-### Enable password writeback in Azure AD Connect cloud sync 
+## Enable password writeback in Azure AD Connect cloud sync 
 
 To use password writeback and enable the SSPR service to detect the cloud sync agent , you need to use the `Set-AADCloudSyncPasswordWritebackConfiguration` cmdlet and tenant’s global administrator credentials: 
 
@@ -109,7 +109,7 @@ To use password writeback and enable the SSPR service to detect the cloud sync a
    Set-AADCloudSyncPasswordWritebackConfiguration -Enable $true -Credential $(Get-Credential)
   ```
 
-For more information on using password writeback with Azure AD Connect cloud sync, see.
+For more information on using password writeback with Azure AD Connect cloud sync, see [Tutorial: Enable cloud sync self-service password reset writeback to an on-premises environment (preview)](../../active-directory/authentication/tutorial-enable-cloud-sync-sspr-writeback.md).
 
 
 ## Next steps 

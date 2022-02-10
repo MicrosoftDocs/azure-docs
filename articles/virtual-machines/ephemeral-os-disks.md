@@ -156,23 +156,9 @@ You can deploy a VM with an ephemeral OS disk using a template. The process to c
  } 
 ```
 
-> [!NOTE] 
-> Ephemeral OS disk placement option (VM cache disk or VM temp/resource disk) is coming soon on PowerShell and CLI
-
-## PowerShell
-To use an ephemeral disk for a PowerShell VM deployment, use [Set-AzVMOSDisk](/powershell/module/az.compute/set-azvmosdisk) in your VM configuration. Set the `-DiffDiskSetting` to `Local` and `-Caching` to `ReadOnly`.     
-```powershell
-Set-AzVMOSDisk -DiffDiskSetting Local -Caching ReadOnly
-```
-For scale set deployments, use the [Set-AzVmssStorageProfile](/powershell/module/az.compute/set-azvmssstorageprofile) cmdlet in your configuration. Set the `-DiffDiskSetting` to `Local` and `-Caching` to `ReadOnly`.
-
-```powershell
-Set-AzVmssStorageProfile -DiffDiskSetting Local -OsDiskCaching ReadOnly
-```
-
 ## CLI
 
-To use an ephemeral disk for a CLI VM deployment, set the `--ephemeral-os-disk` parameter in [az vm create](/cli/azure/vm#az_vm_create) to `true` and the `--os-disk-caching` parameter to `ReadOnly`.
+To use an ephemeral disk for a CLI VM deployment, set the `--ephemeral-os-disk` parameter in [az vm create](/cli/azure/vm#az_vm_create) to `true` and the `--ephemeral-os-disk-placement` parameter to `ResourceDisk` for temp disk placement or `CacheDisk` for cache disk placement and the `--os-disk-caching` parameter to `ReadOnly`.
 
 ```azurecli-interactive
 az vm create \
@@ -180,12 +166,13 @@ az vm create \
   --name myVM \
   --image UbuntuLTS \
   --ephemeral-os-disk true \
+  --ephemeral-os-disk-placement ResourceDisk \
   --os-disk-caching ReadOnly \
   --admin-username azureuser \
   --generate-ssh-keys
 ```
 
-For scale sets, you use the same `--ephemeral-os-disk true` parameter for [az-vmss-create](/cli/azure/vmss#az_vmss_create) and set the `--os-disk-caching` parameter to `ReadOnly`.
+For scale sets, you use the same `--ephemeral-os-disk true` parameter for [az-vmss-create](/cli/azure/vmss#az_vmss_create) and set the `--os-disk-caching` parameter to `ReadOnly` and the `--ephemeral-os-disk-placement` parameter to `ResourceDisk` for temp disk placement or `CacheDisk` for cache disk placement.
 
 ## Reimage a VM using REST
 You can reimage a Virtual Machine instance with ephemeral OS disk using REST API as described below and via Azure portal by going to Overview pane of the VM. For scale sets, reimaging is already available through PowerShell, CLI, and the portal.
@@ -193,6 +180,21 @@ You can reimage a Virtual Machine instance with ephemeral OS disk using REST API
 ```
 POST https://management.azure.com/subscriptions/{sub-
 id}/resourceGroups/{rgName}/providers/Microsoft.Compute/VirtualMachines/{vmName}/reimage?a pi-version=2019-12-01" 
+```
+
+## PowerShell
+To use an ephemeral disk for a PowerShell VM deployment, use [Set-AzVMOSDisk](/powershell/module/az.compute/set-azvmosdisk) in your VM configuration. Set the `-DiffDiskSetting` to `Local` and `-Caching` to `ReadOnly` and  `-DiffDiskPlacement` to `ResourceDisk`.     
+```powershell
+Set-AzVMOSDisk -DiffDiskSetting Local -DiffDiskPlacement ResourceDisk -Caching ReadOnly
+
+```
+To use an ephemeral disk on cache disk for a PowerShell VM deployment, use [Set-AzVMOSDisk](/powershell/module/az.compute/set-azvmosdisk) in your VM configuration. Set the `-DiffDiskSetting` to `Local` , `-Caching` to `ReadOnly` and  `-DiffDiskPlacement` to `CacheDisk`.     
+```PowerShell
+Set-AzVMOSDisk -DiffDiskSetting Local -DiffDiskPlacement CacheDisk -Caching ReadOnly
+```
+For scale set deployments, use the [Set-AzVmssStorageProfile](/powershell/module/az.compute/set-azvmssstorageprofile) cmdlet in your configuration. Set the `-DiffDiskSetting` to `Local` , `-Caching` to `ReadOnly` and  `-DiffDiskPlacement` to `ResourceDisk` or `CacheDisk`.
+```PowerShell
+Set-AzVmssStorageProfile -DiffDiskSetting Local -DiffDiskPlacement ResourceDisk -OsDiskCaching ReadOnly
 ```
  
 ## Frequently asked questions

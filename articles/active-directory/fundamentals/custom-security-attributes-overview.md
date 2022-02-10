@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/16/2021
+ms.date: 02/04/2022
 ms.collection: M365-identity-device-management
 ---
 
@@ -108,7 +108,7 @@ To better understand custom security attributes, you can refer back to the follo
 | Term | Definition |
 | --- | --- |
 | attribute definition | The schema of a custom security attribute or key-value pair. For example, the custom security attribute name, description, data type, and predefined values. |
-| attribute set | A group of related custom security attributes. Attribute sets can be delegated to other users for defining and assigning custom security attributes. |
+| attribute set | A collection of related custom security attributes. Attribute sets can be delegated to other users for defining and assigning custom security attributes. |
 | attribute name | A unique name of a custom security attribute within an attribute set. The combination of attribute set and attribute name forms a unique attribute for your tenant. |
 | attribute assignment | The assignment of a custom security attribute to an Azure AD object, such as users, enterprise applications (service principals), and managed identities. |
 | predefined value | A value that is allowed for a custom security attribute. |
@@ -122,7 +122,7 @@ The following table lists the properties you can specify for attribute sets and 
 | Attribute set name  | :heavy_check_mark: |  | Name of the attribute set. Must be unique within a tenant. Cannot include spaces or special characters. |
 | Attribute set description |  | :heavy_check_mark: | Description of the attribute set. |
 | Maximum number of attributes |  | :heavy_check_mark: | Maximum number of custom security attributes that can be defined in an attribute set. Default value is `null`. If not specified, the administrator can add up to the maximum of 500 active attributes per tenant. |
-| Attribute set | :heavy_check_mark: |  | A group of related custom security attributes. Every custom security attribute must be part of an attribute set. |
+| Attribute set | :heavy_check_mark: |  | A collection of related custom security attributes. Every custom security attribute must be part of an attribute set. |
 | Attribute name  | :heavy_check_mark: |  | Name of the custom security attribute. Must be unique within an attribute set. Cannot include spaces or special characters. |
 | Attribute description |  | :heavy_check_mark: | Description of the custom security attribute. |
 | Data type | :heavy_check_mark: |  | Data type for the custom security attribute values. Supported types are `Boolean`, `Integer`, and `String`. |
@@ -167,16 +167,20 @@ Azure AD provides built-in roles to work with custom security attributes. The At
 > [!IMPORTANT]
 > By default, [Global Administrator](../roles/permissions-reference.md#global-administrator) and other administrator roles do not have permissions to read, define, or assign custom security attributes.
 
+## Graph Explorer
+
+If you use the Microsoft Graph API, you can use [Graph Explorer](/graph/graph-explorer/graph-explorer-overview) to more easily try the Microsoft Graph APIs for custom security attributes. For more information, see [Overview of custom security attributes using the Microsoft Graph API](/graph/api/resources/custom-security-attributes-overview).
+
+![Screenshot that shows a Microsoft Graph API call for custom security attributes.](./media/custom-security-attributes-overview/graph-explorer-success.png)
+
 ## Known issues
 
 Here are some of the known issues with custom security attributes:
 
-- You can only add the predefined values after you add the custom security attribute by using the **Edit attribute** page.
 - Users with attribute set-level role assignments can see other attribute sets and custom security attribute definitions.
 - Global Administrators can read audit logs for custom security attribute definitions and assignments.
 - If you have an Azure AD Premium P2 license, you can't add eligible role assignments at attribute set scope.
 - If you have an Azure AD Premium P2 license, the **Assigned roles** page for a user does not list permanent role assignments at attribute set scope. The role assignments exist, but aren't listed.
-- If you use the Microsoft Graph API, delegated and application permissions are available to both read and write (*CustomSecAttributeAssignment.ReadWrite.All* and *CustomSecAttributeDefinition.ReadWrite.All*). However, read-only permissions currently are not available.
 
 Depending on whether you have an Azure AD Premium P1 or P2 license, here are the role assignment tasks that are currently supported for custom security attribute roles:
 

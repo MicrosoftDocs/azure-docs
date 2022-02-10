@@ -4,7 +4,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
-ms.date: 11/02/2021
+ms.date: 01/25/2022
 ms.author: aahi
 ms.custom: language-service-custom-classification, ignite-fall-2021
 ---
@@ -22,7 +22,7 @@ Before you can use custom text classification, you will need to create a Languag
 >
 > If you have a pre-existing resource you'd like to use, you will need to configure it and a storage account separately. See the [**Project requirements**](../../how-to/create-project.md#using-a-pre-existing-azure-resource)  for information.
 
-1. Go to the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) to create a new Azure Language resource. If you're asked to select additional features, select **Skip this step**. When you create your resource, ensure it has the following parameters.  
+1. Go to the [Azure portal](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) to create a new Azure Language resource. If you're asked to select additional features, select **Skip this step**. When you create your resource, ensure it has the following parameters.  
 
     |Azure resource requirement  |Required value  |
     |---------|---------|
@@ -36,23 +36,17 @@ Before you can use custom text classification, you will need to create a Languag
     | Name | Any name |
     | Performance | Standard | 
     | Account kind| Storage (general purpose v1) |
-    | Replication | Locally-redundant storage (LRS)
+    | Replication | Locally redundant storage (LRS)
     |Location | Any location closest to you, for best latency.        |
 
 
 ## Upload sample data to blob container
 
-After you have created an Azure storage account and linked it to your Language resource, you will need to upload the example files for this quickstart. These files will later be used to train your model.
-
-1. [Download sample data](https://go.microsoft.com/fwlink/?linkid=2175083) for this quickstart from GitHub.
-
-2. Go to your Azure storage account in the [Azure portal](https://ms.portal.azure.com). Navigate to your account, and upload the sample data to it.
-
-The provided sample dataset contains around 200 movie summaries that belongs to one or more of the following classes: "Mystery", "Drama", "Thriller", "Comedy", "Action".
+[!INCLUDE [Uploading sample data for custom classification](blob-storage-upload.md)]
 
 ### Get your resource keys and endpoint
 
-* Go to your resource overview page in the [Azure portal](https://ms.portal.azure.com/#home)
+* Go to your resource overview page in the [Azure portal](https://portal.azure.com/#home)
 
 * From the menu on the left side, select **Keys and Endpoint**. You will use the endpoint and key for the API requests 
 
@@ -72,22 +66,12 @@ Create a **POST** request using the following URL, headers, and JSON body to cre
 Use the following URL to create a project and import your tags file. Replace the placeholder values below with your own values. 
 
 ```rest
-{YOUR-ENDPOINT}/language/analyze-text/projects/{projectName}/:import. 
+{YOUR-ENDPOINT}/language/analyze-text/projects/{projectName}/:import?api-version=2021-11-01-preview
 ```
 
 |Placeholder  |Value  | Example |
 |---------|---------|---------|
 |`{YOUR-ENDPOINT}`     | The endpoint for authenticating your API request.   | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
-
-### Parameters
-
-Pass the following parameter with your request. 
-
-|Key|Explanation|Value|
-|--|--|--|
-|`api-version`| The API version used.| `2021-11-01-preview` |
-
-To pass the parameter, add `?api-version=2021-11-01-preview` to the end of your request URL.
 
 ### Headers
 
@@ -107,7 +91,7 @@ Use the following JSON in your request. Replace the placeholder values below wit
     "metadata": {
         "name": "MyProject",
         "multiLingual": true,
-        "description": "Tryong out custom text classification",
+        "description": "Trying out custom text classification",
         "modelType": "multiClassification",
         "language": "string",
         "storageInputContainerName": "YOUR-CONTAINER-NAME",
@@ -153,23 +137,13 @@ After your project has been created, you can begin training a text classificatio
 Use the following URL when creating your API request. Replace the placeholder values below with your own values. 
 
 ```rest
-{YOUR-ENDPOINT}/language/analyze-text/projects/{PROJECT-NAME}/:train
+{YOUR-ENDPOINT}/language/analyze-text/projects/{PROJECT-NAME}/:train?api-version=2021-11-01-preview
 ```
 
 |Placeholder  |Value  | Example |
 |---------|---------|---------|
 |`{YOUR-ENDPOINT}`     | The endpoint for authenticating your API request.   | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
 |`{PROJECT-NAME}`     | The name for your project. This value is case-sensitive.  | `myProject` |
-
-### Parameters
-
-Pass the following parameter with your request. 
-
-|Key|Explanation|Value|
-|--|--|--|
-|`api-version`| The API version used.| `2021-11-01-preview` |
-
-To pass the parameter, add `?api-version=2021-11-01-preview` to the end of your request URL.
 
 ### Headers
 
@@ -198,7 +172,7 @@ Use the following JSON in your request. The model will be named `MyModel` once t
 Once you send your API request, you will receive a `202` response indicating success. In the response headers, extract the `location` value. It will be formatted like this: 
 
 ```rest
-{YOUR-ENDPOINT}/language/analyze-text/projects/{YOUR-PROJECT-NAME}/train/jobs/{JOB-ID}?api-version=xxxx-xx-xx-xxxxxxx
+{YOUR-ENDPOINT}/language/analyze-text/projects/{YOUR-PROJECT-NAME}/train/jobs/{JOB-ID}?api-version=2021-11-01-preview
 ``` 
 
 `JOB-ID` is used to identify your request, since this operation is asynchronous. You will use this URL in the next step to get the training status. 
@@ -209,7 +183,7 @@ Use the following **GET** request to query the status of your model's training p
 
 
 ```rest
-{YOUR-ENDPOINT}/language/analyze-text/projects/{YOUR-PROJECT-NAME}/train/jobs/{JOB-ID}
+{YOUR-ENDPOINT}/language/analyze-text/projects/{YOUR-PROJECT-NAME}/train/jobs/{JOB-ID}?api-version=2021-11-01-preview
 ```
 
 |Placeholder  |Value  | Example |
@@ -217,16 +191,6 @@ Use the following **GET** request to query the status of your model's training p
 |`{YOUR-ENDPOINT}`     | The endpoint for authenticating your API request.   | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
 |`{PROJECT-NAME}`     | The name for your project. This value is case-sensitive.  | `myProject` |
 |`{JOB-ID}`     | The ID for locating your model's training status. This is in the `location` header value you received in the previous step.  | `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx` |
-
-### Parameters
-
-Pass the following parameter with your request. 
-
-|Key|Explanation|Value|
-|--|--|--|
-|`api-version`| The API version used.| `2021-11-01-preview` |
-
-To pass the parameter, add `?api-version=2021-11-01-preview` to the end of your request URL.
 
 ### Headers
 
@@ -277,7 +241,7 @@ Once you send the request, you will get the following response.
 Create a **PUT** request using the following URL, headers, and JSON body to start deploying a text classification model.
 
 ```rest
-{YOUR-ENDPOINT}/language/analyze-text/projects/{PROJECT-NAME}/deployments/{DEPLOYMENT-NAME}
+{YOUR-ENDPOINT}/language/analyze-text/projects/{PROJECT-NAME}/deployments/{DEPLOYMENT-NAME}?api-version=2021-11-01-preview
 ```
 
 |Placeholder  |Value  | Example |
@@ -285,16 +249,6 @@ Create a **PUT** request using the following URL, headers, and JSON body to star
 |`{YOUR-ENDPOINT}`     | The endpoint for authenticating your API request.   | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
 |`{PROJECT-NAME}`     | The name for your project. This value is case-sensitive.  | `myProject` |
 |`{DEPLOYMENT-NAME}`     | The name of your deployment. This value is case-sensitive.  | `prod` |
-
-### Parameters
-
-Pass the following parameter with your request. 
-
-|Key|Explanation|Value|
-|--|--|--|
-|`api-version`| The API version used.| `2021-11-01-preview` |
-
-To pass the parameter, add `?api-version=2021-11-01-preview` to the end of your request URL.
 
 ### Headers
 
@@ -310,7 +264,6 @@ Use the following JSON in your request. The model will be named `MyModel` once t
 
 ```json
 {
-{
   "trainedModelLabel": "MyModel"
 }
 ```
@@ -318,7 +271,7 @@ Use the following JSON in your request. The model will be named `MyModel` once t
 Once you send your API request, you will receive a `202` response indicating success. In the response headers, extract the `location` value. It will be formatted like this: 
 
 ```rest
-{YOUR-ENDPOINT}/language/analyze-text/projects/{YOUR-PROJECT-NAME}/deployments/{DEPLOYMENT-NAME}/jobs/{JOB-ID}?api-version=xxxx-xx-xx-xxxxxxx
+{YOUR-ENDPOINT}/language/analyze-text/projects/{YOUR-PROJECT-NAME}/deployments/{DEPLOYMENT-NAME}/jobs/{JOB-ID}?api-version=2021-11-01-preview
 ``` 
 
 `JOB-ID` is used to identify your request, since this operation is asynchronous. You will use this URL in the next step to get the publishing status.
@@ -328,7 +281,7 @@ Once you send your API request, you will receive a `202` response indicating suc
 Use the following **GET** request to query the status of your model's publishing process. You can use the URL you received from the previous step, or replace the placeholder values below with your own values. 
 
 ```rest
-{YOUR-ENDPOINT}/language/analyze-text/projects/{YOUR-PROJECT-NAME}/deployments/{DEPLOYMENT-NAME}/jobs/{JOB-ID}
+{YOUR-ENDPOINT}/language/analyze-text/projects/{YOUR-PROJECT-NAME}/deployments/{DEPLOYMENT-NAME}/jobs/{JOB-ID}?api-version=2021-11-01-preview
 ```
 
 |Placeholder  |Value  | Example |
@@ -337,16 +290,6 @@ Use the following **GET** request to query the status of your model's publishing
 |`{PROJECT-NAME}`     | The name for your project. This value is case-sensitive.  | `myProject` |
 |`{DEPLOYMENT-NAME}`     | The name of your deployment. This value is case-sensitive.  | `prod` |
 |`{JOB-ID}`     | The ID for locating your model's training status. This is in the `location` header value you received in the previous step.  | `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx` |
-
-### Parameters
-
-Pass the following parameter with your request. 
-
-|Key|Explanation|Value|
-|--|--|--|
-|`api-version`| The API version used.| `2021-11-01-preview` |
-
-To pass the parameter, add `?api-version=2021-11-01-preview` to the end of your request URL.
 
 ### Headers
 

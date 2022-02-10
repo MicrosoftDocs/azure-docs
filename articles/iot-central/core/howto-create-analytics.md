@@ -3,7 +3,7 @@ title: Analyze device data in your Azure IoT Central application | Microsoft Doc
 description: Analyze device data in your Azure IoT Central application.
 author: dominicbetts
 ms.author: dobett
-ms.date: 08/16/2021
+ms.date: 12/21/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
@@ -15,7 +15,7 @@ services: iot-central
 
 Azure IoT Central provides rich analytics capabilities to analyze historical trends and correlate telemetry from your devices. To get started, select **Analytics** on the left pane.
 
-## Understand the analytics UI
+## Understand the data explorer UI
 
 The analytics user interface has three main components:
 

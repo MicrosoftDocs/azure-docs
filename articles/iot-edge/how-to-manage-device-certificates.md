@@ -161,7 +161,7 @@ If you are using IoT Edge for Linux on Windows, you need to use the SSH key loca
    * The certificate files should be owned by the **aziotcs** group.
 
    >[!TIP]
-   >If your certificate is read-only, meaning you created it and don't want the IoT Edge service to rotate it, set the private key file to mode 0440 and the certificate file to mode 0444. If you created the initial files and then configured the cert service to rotate the certificate in the future, set the private key file to mode 0660 and the certificate file to mode 0664.
+   >If your device CA certificate is read-only, meaning you created it and don't want the IoT Edge service to rotate it, set the private key file to mode 0440 and the certificate file to mode 0444. If you created the initial files and then configured the cert service to rotate the device CA certificate in the future, set the private key file to mode 0660 and the certificate file to mode 0664.
 
 1. If you've used any other certificates for IoT Edge on the device before, delete the files in the following directory. IoT Edge will recreate them with the new CA certificate you provided.
 
@@ -188,7 +188,7 @@ For more information about the function of the different certificates on an IoT 
 For these two automatically generated certificates, you have the option of setting a flag in the config file to configure the number of days for the lifetime of the certificates.
 
 >[!NOTE]
->There is a third auto-generated certificate that the IoT Edge security manager creates, the **IoT Edge hub server certificate**. This certificate always has a 90 day lifetime, but is automatically renewed before expiring. The auto-generated CA lifetime value set in the config file doesn't affect this certificate.
+>There is a third auto-generated certificate that the IoT Edge security manager creates, the **IoT Edge hub server certificate**. This certificate always has a 30 day lifetime, but is automatically renewed before expiring. The auto-generated CA lifetime value set in the config file doesn't affect this certificate.
 
 Upon expiry after the specified number of days, IoT Edge has to be restarted to regenerate the device CA certificate. The device CA certificate won't be renewed automatically.
 

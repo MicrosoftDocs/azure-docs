@@ -4,7 +4,7 @@ metadata:
   description: Common questions and answers about Azure and Azure Active Directory, password management, and application access.
   services: active-directory
   author: ajburnle
-  manager: daveba
+  manager: karenhoran
   ms.assetid: b8207760-9714-4871-93d5-f9893de31c8f
   ms.service: active-directory
   ms.subservice: fundamentals

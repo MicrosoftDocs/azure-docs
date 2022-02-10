@@ -3,6 +3,7 @@ title: 'Quickstart: Create a function app on Azure Arc'
 description: Get started with Azure Functions on Azure Arc by deploying your first function app.
 ms.topic: quickstart
 ms.date: 05/10/2021
+ms.custom: mode-other
 ---
 
 # Create your first function on Azure Arc (preview)
@@ -21,19 +22,19 @@ On your local computer:
 # [C\#](#tab/csharp)
 
 + [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download)
-+ [Azure Functions Core Tools](functions-run-local.md#v2) version 3.0.3245 or later.
++ [Azure Functions Core Tools](functions-run-local.md#v2) version 3.0.3245.
 + [Azure CLI](/cli/azure/install-azure-cli) version 2.4 or later.
 
 # [JavaScript](#tab/nodejs)
 
 + [Node.js](https://nodejs.org/) version 12. Node.js version 10 is also supported.
-+ [Azure Functions Core Tools](functions-run-local.md#v2) version 3.0.3245 or later.
++ [Azure Functions Core Tools](functions-run-local.md#v2) version 3.0.3245. 
 + [Azure CLI](/cli/azure/install-azure-cli) version 2.4 or later.
 
 # [Python](#tab/python)
 
 + [Python versions that are supported by Azure Functions](supported-languages.md#languages-by-runtime-version)
-+ [Azure Functions Core Tools](functions-run-local.md#v2) version 3.0.3245 or later.
++ [Azure Functions Core Tools](functions-run-local.md#v2) version 3.0.3245. 
 + [Azure CLI](/cli/azure/install-azure-cli) version 2.4 or later.
 
 ---

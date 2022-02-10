@@ -130,6 +130,9 @@ You can set DNS server for each module's *createOptions* in the IoT Edge deploym
 }
 ```
 
+> [!WARNING]
+> If you use this method and specify the wrong DNS address, *edgeAgent* loses connection with IoT Hub and can't receive new deployments to fix the issue. To resolve this issue, you can reinstall the IoT Edge runtime. Before you install a new instance of IoT Edge, be sure to remove any *edgeAgent* containers from the previous installation.
+
 Be sure to set this configuration for the *edgeAgent* and *edgeHub* modules as well.
 
 ## IoT Edge hub fails to start
@@ -397,7 +400,7 @@ IoT Edge modules that connect directly to cloud services, including the runtime 
 
 **Root cause:**
 
-Containers rely on IP packet forwarding in order to connect to the internet so that they can communicate with cloud services. IP packet forwarding is enabled by default in Docker, but if it gets disabled then any modules that connect to cloud services will not work as expected. For more information, see [Understand container communication](http://docs.docker.oeynet.com/engine/userguide/networking/default_network/container-communication/) in the Docker documentation.
+Containers rely on IP packet forwarding in order to connect to the internet so that they can communicate with cloud services. IP packet forwarding is enabled by default in Docker, but if it gets disabled then any modules that connect to cloud services will not work as expected. For more information, see [Understand container communication](https://apimirror.com/docker~1.12/engine/userguide/networking/default_network/container-communication/index) in the Docker documentation.
 
 **Resolution:**
 

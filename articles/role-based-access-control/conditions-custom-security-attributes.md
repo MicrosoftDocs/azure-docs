@@ -60,7 +60,7 @@ For more information about conditions, see [What is Azure attribute-based access
 
 ## Step 1: Add a new custom security attribute
 
-1. Sign in to the [Azure portal](https://azure.portal.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Click **Azure Active Directory** > **Custom security attributes (Preview)**.
 
@@ -97,7 +97,7 @@ For more information about conditions, see [What is Azure attribute-based access
  
 ## Step 4: Assign Storage Blob Data Reader role with a condition
 
-1. Open a new tab and sign in to the [Azure portal](https://azure.portal.com).
+1. Open a new tab and sign in to the [Azure portal](https://portal.azure.com).
 
 1. Open the resource group that has the storage account.
 
@@ -171,7 +171,7 @@ For more information about conditions, see [What is Azure attribute-based access
 
 ## Step 6: Test the condition
 
-1. In a new window, open the [Azure portal](https://azure.portal.com).
+1. In a new window, open the [Azure portal](https://portal.azure.com).
 
 1. Sign in as the user you created with the `Project=Cascade` custom security attribute.
 

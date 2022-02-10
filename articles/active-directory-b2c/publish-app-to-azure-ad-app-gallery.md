@@ -72,10 +72,10 @@ In production environments, the app registration redirect URI is ordinarily a pu
 
 ## Step 4: Publish your Azure AD B2C app
 
-Finally, add the multitenant app to the Azure AD app gallery. Follow the instructions in [Publish your app to the Azure AD app gallery](../active-directory/develop/v2-howto-app-gallery-listing.md). To add your app to the app gallery, do the following:
+Finally, add the multitenant app to the Azure AD app gallery. Follow the instructions in [Publish your app to the Azure AD app gallery](../active-directory/manage-apps/v2-howto-app-gallery-listing.md). To add your app to the app gallery, do the following:
 
-1. [Create and publish documentation](../active-directory/develop/v2-howto-app-gallery-listing.md#step-5---create-and-publish-documentation).
-1. [Submit your app](../active-directory/develop/v2-howto-app-gallery-listing.md#step-6---submit-your-app) with the following information:
+1. [Create and publish documentation](../active-directory/manage-apps/v2-howto-app-gallery-listing.md#create-and-publish-documentation).
+1. [Submit your app](../active-directory/manage-apps/v2-howto-app-gallery-listing.md#submit-your-application) with the following information:
 
     |Question  |Answer you should provide  |
     |---------|---------|
@@ -89,4 +89,4 @@ Finally, add the multitenant app to the Azure AD app gallery. Follow the instruc
 
 ## Next steps
 
-- Learn how to [Publish your app to the Azure AD app gallery](../active-directory/develop/v2-howto-app-gallery-listing.md).
+- Learn how to [Publish your app to the Azure AD app gallery](../active-directory/manage-apps/v2-howto-app-gallery-listing.md).

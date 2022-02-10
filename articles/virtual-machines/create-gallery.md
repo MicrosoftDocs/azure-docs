@@ -15,7 +15,7 @@ ms.custom: template-how-to
 # Create a gallery for storing and sharing resources
 
 
-An [Azure Compute Gallery](./shared-image-galleries.md) (formerly known as Shared Image Gallery)simplifies sharing resources, like images and application packages, across your organization.  
+An [Azure Compute Gallery](./shared-image-galleries.md) (formerly known as Shared Image Gallery) simplifies sharing resources, like images and application packages, across your organization.  
 
 The Azure Compute Gallery lets you share custom VM images and application packages with others in your organization, within or across regions, within an AAD tenant. Choose what you want to share, which regions you want to make them available in, and who you want to share them with. You can create multiple galleries so that you can logically group resources. 
 

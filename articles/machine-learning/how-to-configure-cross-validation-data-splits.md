@@ -44,6 +44,9 @@ For this article you need,
 
 Use the [AutoMLConfig](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig) object to define your experiment and training settings. In the following code snippet, notice that only the required parameters are defined, that is the parameters for `n_cross_validations` or `validation_data` are **not** included.
 
+> [!NOTE]
+> The default data splits and cross-validation are not supported in forecasting scenarios. 
+
 ```python
 data = "https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/creditcard.csv"
 
@@ -121,6 +124,7 @@ To perform k-fold cross-validation, include the `n_cross_validations` parameter 
 
 > [!NOTE]
 > The `n_cross_validations` parameter is not supported in classification scenarios that use deep neural networks.
+> For forecasting scenarios, see how cross validation is applied in [Set up AutoML to train a time-series forecasting model](how-to-auto-train-forecast.md#training-and-validation-data).
  
 In the following code, five folds for cross-validation are defined. Hence, five different trainings, each training using 4/5 of the data, and each validation using 1/5 of the data with a different holdout fold each time.
 
@@ -168,6 +172,10 @@ automl_config = AutoMLConfig(compute_target = aml_remote_compute,
 ## Specify custom cross-validation data folds
 
 You can also provide your own cross-validation (CV) data folds. This is considered a more advanced scenario because you are specifying which columns to split and use for validation.  Include custom CV split columns in your training data, and specify which columns by populating the column names in the `cv_split_column_names` parameter. Each column represents one cross-validation split, and is filled with integer values 1 or 0--where 1 indicates the row should be used for training and 0 indicates the row should be used for validation.
+
+> [!NOTE]
+> The `cv_split_column_names` parameter is not supported in forecasting scenarios. 
+
 
 The following code snippet contains bank marketing data with two CV split columns 'cv1' and 'cv2'.
 

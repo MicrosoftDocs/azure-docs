@@ -44,7 +44,7 @@ spname=<sp-name>
 
 kvname=<keyvaultname>
 # Optional when Azure MI not enabled - Create sp user for AZ cli connection, save details for env.list file
-az ad sp create-for-rbac –name $spname 
+az ad sp create-for-rbac –name $spname --role Contributor
 
 SpID=$(az ad sp list –display-name $spname –query “[].appId” --output tsv
 
@@ -175,6 +175,8 @@ We recommend that you perform this procedure after you have a key vault ready wi
     # env.list template for Credentials
     SAPADMUSER=<SET_SAPCONTROL_USER>
     SAPADMPASSWORD=<SET_SAPCONTROL_PASS>
+    LOGWSID=<SET SENTINEL WORKSPACE id>
+    LOGWSPUBLICKEY=<SET SENTINEL WORKSPACE KEY>
     ABAPUSER=SET_ABAP_USER>
     ABAPPASS=<SET_ABAP_PASS>
     JAVAUSER=<SET_JAVA_OS_USER>
@@ -349,6 +351,7 @@ To ingest SAP Control Web Service logs into Microsoft Sentinel, configure the fo
 |**javainstance**     |Enter your SAP Control ABAP instance number. <br>For example: `10`         |
 |**javatz**     |Enter the time zone configured on your SAP Control Java server, in GMT format. <br>For example: `GMT+3`         |
 |**javaseverity**     |Enter the lowest, inclusive, severity level for which you want to ingest Web Service logs into Microsoft Sentinel.  Values include: <br><br>- **0** = All logs <br>- **1** = Warning <br>- **2** = Error     |
+
 
 ## Next steps
 

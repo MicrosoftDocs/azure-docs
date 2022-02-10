@@ -37,7 +37,7 @@ Using this strategy, Azure Purview would map the following resources to the same
 
 ### File types that Azure Purview will not detect as resource sets
 
-Purview intentionally doesn't try to classify most document file types like Word, Excel, or PDF as Resource Sets. The exception is CSV format since that is a common partitioned file format.
+Azure Purview intentionally doesn't try to classify most document file types like Word, Excel, or PDF as Resource Sets. The exception is CSV format since that is a common partitioned file format.
 
 ## How Azure Purview scans resource sets
 
