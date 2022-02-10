@@ -139,7 +139,7 @@ sections:
           - You can trigger clean-up/pruning of HANA catalog through HANA native clients (such as cockpit or studio) or through SQL commands.
           - This clean-up task generates a catalog backup that's not moved to the Azure Backup vault (as there is no associated data backup).
           - The catalog backup is therefore shown as a failure in the Cockpit/Studio. However, note that this catalog backup failure doesn't mean  the catalog clean-up activity has failed.
-          - Note that this catalog backup failure also doesn't affect your point-in-time recoverability.
+          - Note that this **catalog backup failure also doesn't affect your point-in-time recoverability**.
           - The catalog clean-up activity may cause the log backups triggered at the same time to be queued. These logs are then moved to the vault after the catalog backup (triggered by catalog clean-up) fails.
           - Manually check the success of the catalog clean-up activity.
 
