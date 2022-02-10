@@ -16,7 +16,7 @@ ms.subservice: B2C
 
 # Configure authentication in a sample Node.js web API by using Azure AD B2C
 
-In this article, you'll learn how to configure a sample Node.js web application to call a sample Node.js web API. The web API need to be protected by Azure AD B2C itself. In this setup, a web app, such as *App ID: 1* calls a web API, such as *App ID: 2*. Users authenticate into the web app to acquire an access token, which is then used to call a protected web API.
+In this article, you'll learn how to configure a sample Node.js web application to call a sample Node.js web API. The web API needs to be protected by Azure AD B2C itself. In this setup, a web app, such as *App ID: 1* calls a web API, such as *App ID: 2*. Users authenticate into the web app to acquire an access token, which is then used to call a protected web API.
 
 ## Overview
 
