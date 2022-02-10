@@ -60,7 +60,7 @@ The **roleDefinitionIds** property uses the full resource identifier and doesn't
 following code:
 
 ```azurecli-interactive
-az role definition list --name 'Contributor'
+az role definition list --name "Contributor"
 ```
 
 ## Manually configure the managed identity
