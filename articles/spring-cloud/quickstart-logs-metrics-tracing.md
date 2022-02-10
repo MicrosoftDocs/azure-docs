@@ -208,7 +208,7 @@ Navigate to the `Live Metrics` blade - you can see live metrics on screen with l
 
 ## Tracing
 
-Open the Application Insights created by Azure Spring Cloud and start monitoring microservice applications.
+Open the Application Insights created by Azure Spring Cloud and start monitoring Spring applications.
 
 Navigate to the `Application Map` blade:
 [ ![Application map](media/spring-cloud-quickstart-logs-metrics-tracing/update-logs-metrics-tracing/distributed-tracking-new-ai-agent.jpg) ](media/spring-cloud-quickstart-logs-metrics-tracing/update-logs-metrics-tracing/distributed-tracking-new-ai-agent.jpg#lightbox)

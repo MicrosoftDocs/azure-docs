@@ -36,7 +36,7 @@ This command tells Config Server to find the configuration data in the [steeltoe
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
-Azure Spring Cloud Config Server is centralized configuration service for distributed systems. It uses a pluggable repository layer that currently supports local storage, Git, and Subversion.  Set up the Config Server to deploy microservice apps to Azure Spring Cloud.
+Azure Spring Cloud Config Server is centralized configuration service for distributed systems. It uses a pluggable repository layer that currently supports local storage, Git, and Subversion. Set up the Config Server to deploy Spring apps to Azure Spring Cloud.
 
 ## Prerequisites
 

@@ -15,7 +15,7 @@ zone_pivot_groups: programming-languages-spring-cloud
 **This article applies to:** ✔️ Basic/Standard tier ❌ Enterprise tier
 
 ::: zone pivot="programming-language-csharp"
-In this quickstart, you build and deploy microservice applications to Azure Spring Cloud using the Azure CLI.
+In this quickstart, you build and deploy Spring applications to Azure Spring Cloud using the Azure CLI.
 
 ## Prerequisites
 
@@ -167,11 +167,11 @@ The output is JSON:
 [{"Key":"Mercury","Value":"very warm"},{"Key":"Venus","Value":"quite unpleasant"},{"Key":"Mars","Value":"very cool"},{"Key":"Saturn","Value":"a little bit sandy"}]
 ```
 
-This response shows that both microservice apps are working. The `SolarSystemWeather` app returns data that it retrieved from the `PlanetWeatherProvider` app.
+This response shows that both Spring apps are working. The `SolarSystemWeather` app returns data that it retrieved from the `PlanetWeatherProvider` app.
 ::: zone-end
 ---
 ::: zone pivot="programming-language-java"
-This document explains how to build and deploy microservice applications to Azure Spring Cloud using:
+This document explains how to build and deploy Spring applications to Azure Spring Cloud using:
 * Azure CLI
 * Maven Plugin
 * Intellij
@@ -189,7 +189,7 @@ Before deployment using Azure CLI or Maven, complete the examples that [provisio
 
 #### [CLI](#tab/Azure-CLI)
 
-## Build the microservices applications locally
+## Build the Spring applications locally
 
 1. Clone the sample app repository to your Azure Cloud account.  Change the directory, and build the project.
 
@@ -209,7 +209,7 @@ Compiling the project takes 5-10 minutes. Once completed, you should have indivi
    az configure --defaults group=<resource-group-name> spring-cloud=<service-name>
    ```
 
-1. Create the 2 core microservices for PetClinic: API gateway and customers-service.
+1. Create the 2 core Spring applications for PetClinic: API gateway and customers-service.
 
    ```azurecli
    az spring-cloud app create --name api-gateway --instance-count 1 --memory 2 --assign-endpoint
@@ -268,7 +268,7 @@ az spring-cloud app deploy --name visits-service --jar-path spring-petclinic-vis
 
 #### [Maven](#tab/Maven)
 
-## Build the microservices applications locally
+## Build the Spring applications locally
 
 1. Clone the sample app repository to your Azure Cloud account.  Change the directory, and build the project.
 
@@ -335,7 +335,7 @@ You can also navigate the Azure portal to find the URL.
 
 ## Deploy extra apps
 
-To get the PetClinic app functioning with all features like Admin Server, Visits and Veterinarians, you can deploy the other microservices. Rerun the configuration command and select the following microservices.
+To get the PetClinic app functioning with all features like Admin Server, Visits and Veterinarians, you can deploy the other Spring applications. Rerun the configuration command and select the following applications.
 
 * admin-server
 * vets-service
@@ -407,7 +407,7 @@ You can also navigate the Azure portal to find the URL.
 
 ## Deploy extra apps
 
-Other microservices included in this sample can be deployed similarly.
+Other Spring applications included in this sample can be deployed similarly.
 
 * admin-server
 * vets-service

@@ -16,11 +16,11 @@ zone_pivot_groups: programming-languages-spring-cloud
 
 **This article applies to:** ✔️ Basic/Standard tier ❌ Enterprise tier
 
-This series of quickstarts uses a sample app composed of two microservices to show how to deploy a .NET Core Steeltoe app to the Azure Spring Cloud service. You'll use Azure Spring Cloud capabilities such as service discovery, config server, logs, metrics, and distributed tracing.
+This series of quickstarts uses a sample app composed of two Spring apps to show how to deploy a .NET Core Steeltoe app to the Azure Spring Cloud service. You'll use Azure Spring Cloud capabilities such as service discovery, config server, logs, metrics, and distributed tracing.
 
 ## Functional services
 
-The sample app is composed of two microservices:
+The sample app is composed of two Spring apps:
 
 * The `planet-weather-provider` service returns weather text in response to an HTTP request that specifies the planet name. For example, it may return "very warm" for planet Mercury. It gets the weather data from the Config server. The Config server gets the weather data from a YAML file in a Git repository, for example:
 
@@ -65,13 +65,13 @@ The instructions in the following quickstarts refer to the source code as needed
 
 **This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
 
-In this quickstart, we use the microservices version of the well-known sample app [PetClinic](https://github.com/spring-petclinic/spring-petclinic-microservices) that will show you how to deploy apps to the Azure Spring Cloud service. The **Pet Clinic** sample demonstrates the microservice architecture pattern and highlights the services breakdown. You will see how services are deployed to Azure with Azure Spring Cloud capabilities, including service discovery, config server, logs, metrics, distributed tracing, and developer-friendly tooling support.
+In this quickstart, we use the well-known sample app [PetClinic](https://github.com/spring-petclinic/spring-petclinic-microservices) that will show you how to deploy apps to the Azure Spring Cloud service. The **Pet Clinic** sample demonstrates the microservice architecture pattern and highlights the services breakdown. You will see how services are deployed to Azure with Azure Spring Cloud capabilities, including service discovery, config server, logs, metrics, distributed tracing, and developer-friendly tooling support.
 
 To follow the Azure Spring Cloud deployment examples, you only need the location of the source code, which is provided as needed.
 
 ## Functional services to be deployed
 
-PetClinic is decomposed into 4 core microservices. All of them are independently deployable applications organized by business domains.
+PetClinic is decomposed into 4 core Spring apps. All of them are independently deployable applications organized by business domains.
 
 * **Customers service**: Contains general user input logic and validation including pets and owners information (Name, Address, City, Telephone).
 * **Visits service**: Stores and shows visits information for each pets' comments.
@@ -89,8 +89,8 @@ There are several common patterns in distributed systems that support core servi
 
 ### [Enterprise tier](#tab/enterprise-tier)
 
-* **Application Configuration Service**: Application Configuration Service is one of the proprietary VMware Tanzu components. It enables the management of Kubernetes-native ConfigMap resources that are populated from properties defined in one or more Git repositories.
-* **Service Registry**: Service Registry is one of the proprietary VMware Tanzu components. It provides your apps with an implementation of the Service Discovery pattern, one of the key tenets of a microservice-based architecture. Your apps can use the Service Registry to dynamically discover and call registered services.
+* **Application Configuration Service**: Application Configuration Service is one of the commercial VMware Tanzu components. It enables the management of Kubernetes-native ConfigMap resources that are populated from properties defined in one or more Git repositories.
+* **Service Registry**: Service Registry is one of the commercial VMware Tanzu components. It provides your apps with an implementation of the Service Discovery pattern, one of the key tenets of a Spring-based architecture. Your apps can use the Service Registry to dynamically discover and call registered services.
 
 ---
 

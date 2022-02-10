@@ -1,6 +1,6 @@
 ---
 title: How to use Application Insights Java In-Process Agent in Azure Spring Cloud
-description: How to monitor apps and microservices using Application Insights Java In-Process Agent in Azure Spring Cloud.
+description: How to monitor apps using Application Insights Java In-Process Agent in Azure Spring Cloud.
 author: karlerickson
 ms.author: karler
 ms.service: spring-cloud
@@ -19,7 +19,7 @@ This article explains how to monitor applications by using the Application Insig
 With this feature you can:
 
 * Search tracing data with different filters.
-* View a dependency map of microservices.
+* View a dependency map of Spring applications.
 * Check request performance.
 * Monitor real-time live metrics.
 * Check request failures.

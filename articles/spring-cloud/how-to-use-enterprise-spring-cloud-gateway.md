@@ -16,7 +16,7 @@ ms.custom: devx-track-java, devx-track-azurecli
 
 This article shows you how to use Spring Cloud Gateway with Azure Spring Cloud Enterprise Tier.
 
-[Spring Cloud Gateway](https://docs.vmware.com/en/VMware-Spring-Cloud-Gateway-for-Kubernetes/index.html) is one of the proprietary VMware Tanzu components. It's based on the open-source Spring Cloud Gateway project. Spring Cloud Gateway handles cross-cutting concerns for API development teams, such as: Single Sign-On (SSO), access control, rate-limiting, resiliency, security, and more. Accelerate API delivery using modern cloud native patterns, and any programming language you choose for API development.
+[Spring Cloud Gateway](https://docs.vmware.com/en/VMware-Spring-Cloud-Gateway-for-Kubernetes/index.html) is one of the commercial VMware Tanzu components. It's based on the open-source Spring Cloud Gateway project. Spring Cloud Gateway handles cross-cutting concerns for API development teams, such as: Single Sign-On (SSO), access control, rate-limiting, resiliency, security, and more. Accelerate API delivery using modern cloud native patterns, and any programming language you choose for API development.
 
 Spring Cloud Gateway also has other commercial API route filters for transporting authorized JSON Web Token (JWT) claims to application services, client certificate authorization, rate-limiting approaches, circuit breaker configuration, and support for accessing application services via HTTP Basic Authentication credentials.
 

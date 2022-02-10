@@ -207,7 +207,7 @@ Yes. For more information, see [Launch your Spring Cloud application from source
 
 ### Does Azure Spring Cloud support autoscaling in app instances?
 
-Yes. For more information, see [Set up autoscale for microservice applications](./how-to-setup-autoscale.md).
+Yes. For more information, see [Set up autoscale for applications](./how-to-setup-autoscale.md).
 
 ### How does Azure Spring Cloud monitor the health status of my application?
 
@@ -221,7 +221,7 @@ Azure Spring Cloud continuously probes port 1025 for customer's applications. Th
 Yes. For more information, see [Monitor app lifecycle events using Azure Activity log and Azure Service Health](./monitor-app-lifecycle-events.md).
 
 ::: zone pivot="programming-language-java"
-### What are the best practices for migrating existing Spring Cloud microservices to Azure Spring Cloud?
+### What are the best practices for migrating existing Spring Cloud applications to Azure Spring Cloud?
 
 For more information, see [Migrate Spring Cloud applications to Azure Spring Cloud](/azure/developer/java/migration/migrate-spring-cloud-to-azure-spring-cloud).
 ::: zone-end

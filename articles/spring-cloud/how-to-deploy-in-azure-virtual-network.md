@@ -50,9 +50,9 @@ The virtual network to which you deploy your Azure Spring Cloud instance must me
 * **Subnets**: The virtual network must include two subnets dedicated to an Azure Spring Cloud instance:
 
     * One for the service runtime.
-    * One for your Spring Boot microservice applications.
+    * One for your Spring applications.
     * There's a one-to-one relationship between these subnets and an Azure Spring Cloud instance. Use a new subnet for each service instance you deploy. Each subnet can only include a single service instance.
-* **Address space**: CIDR blocks up to */28* for both the service runtime subnet and the Spring Boot microservice applications subnet.
+* **Address space**: CIDR blocks up to */28* for both the service runtime subnet and the Spring applications subnet.
 * **Route table**: By default the subnets do not need existing route tables associated. You can [bring your own route table](#bring-your-own-route-table).
 
 The following procedures describe setup of the virtual network to contain the instance of Azure Spring Cloud.
@@ -205,7 +205,7 @@ To deploy an Azure Spring Cloud instance in the virtual network:
     |Deploy in your own virtual network     |Select **Yes**.                                   |
     |Virtual network                        |Select **azure-spring-cloud-vnet**.               |
     |Service runtime subnet                 |Select **service-runtime-subnet**.                |
-    |Spring Boot microservice apps subnet   |Select **apps-subnet**.                           |
+    |Spring apps subnet   |Select **apps-subnet**.                           |
 
     ![Screenshot that shows the Networking tab on the Azure Spring Cloud Create page.](./media/spring-cloud-v-net-injection/creation-blade-networking-tab.png)
 
@@ -240,7 +240,7 @@ The resource group named as **ap-svc-rt_{service instance name}_{service instanc
 
   ![Screenshot that shows the service runtime.](./media/spring-cloud-v-net-injection/service-runtime-resource-group.png)
 
-The resource group named as **ap-app_{service instance name}_{service instance region}** contains network resources for your Spring Boot microservice applications of the service instance.
+The resource group named as **ap-app_{service instance name}_{service instance region}** contains network resources for your Spring applications of the service instance.
 
   ![Screenshot that shows apps resource group.](./media/spring-cloud-v-net-injection/apps-resource-group.png)
 
@@ -282,7 +282,7 @@ If your custom subnets do not contain route tables, Azure Spring Cloud creates t
 The route tables to which your custom vnet is associated must meet the following requirements:
 
 * You can associate your Azure route tables with your vnet only when you create a new Azure Spring Cloud service instance. You cannot change to use another route table after Azure Spring Cloud has been created.
-* Both the microservice application subnet and the service runtime subnet must associate with different route tables or neither of them.
+* Both the Spring application subnet and the service runtime subnet must associate with different route tables or neither of them.
 * Permissions must be assigned before instance creation. Be sure to grant **Azure Spring Cloud Resource Provider** the *Owner* permission to your route tables.
 * The associated route table resource cannot be updated after cluster creation. While the route table resource cannot be updated, custom rules can be modified on the route table.
 * You cannot reuse a route table with multiple instances due to potential conflicting routing rules.

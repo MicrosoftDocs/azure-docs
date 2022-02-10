@@ -15,7 +15,7 @@ ms.custom: devx-track-java, devx-track-azurecli
 
 This article shows you how to view the Azure Spring Cloud Enterprise Tier with VMware Tanzu offering through Azure Marketplace and how to redirect to the Azure Spring Cloud Enterprise tier creation page from Azure Marketplace.
 
-Azure Spring Cloud Enterprise Tier is optimized for the needs of enterprise Spring developers through advanced configurability, flexibility, portability, and enterprise-ready VMware Spring Runtime 24x7 support. Developers also benefit from proprietary Tanzu components, such as Tanzu Build Service, Tanzu Application Configuration Service, and Tanzu Service Registry, and access to Spring experts.
+Azure Spring Cloud Enterprise Tier is optimized for the needs of enterprise Spring developers through advanced configurability, flexibility, portability, and enterprise-ready VMware Spring Runtime 24x7 support. Developers also benefit from commercial Tanzu components, such as Tanzu Build Service, Tanzu Application Configuration Service, and Tanzu Service Registry, and access to Spring experts.
 
 You can obtain and pay for a license to Tanzu components through an [Azure Marketplace offering](https://aka.ms/ascmpoffer). Azure Spring Cloud manages the license acquisition so you won't have to do it yourself.
 

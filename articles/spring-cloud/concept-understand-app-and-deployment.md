@@ -15,11 +15,11 @@ ms.custom: devx-track-java
 
 **This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
 
-**App** and **Deployment** are the two key concepts in the resource model of Azure Spring Cloud. In Azure Spring Cloud, an *App* is an abstraction of one business app or one microservice.  One version of code or binary deployed as the *App* runs in a *Deployment*.  Apps run in an *Azure Spring Cloud Service Instance*, or simply *service instance*, as shown next.
+**App** and **Deployment** are the two key concepts in the resource model of Azure Spring Cloud. In Azure Spring Cloud, an *App* is an abstraction of one business app.  One version of code or binary deployed as the *App* runs in a *Deployment*.  Apps run in an *Azure Spring Cloud Service Instance*, or simply *service instance*, as shown next.
 
  ![Apps and Deployments](./media/spring-cloud-app-and-deployment/app-deployment-rev.png)
 
-You can have multiple service instances within a single Azure subscription, but the Azure Spring Cloud Service is easiest to use when all of the Apps that make up a business app or microservice reside within a single service instance.
+You can have multiple service instances within a single Azure subscription, but the Azure Spring Cloud Service is easiest to use when all of the Apps that make up a business app reside within a single service instance.
 
 Azure Spring Cloud standard tier allows one App to have one production deployment and one staging deployment, so that you can do blue/green deployment on it easily.
 

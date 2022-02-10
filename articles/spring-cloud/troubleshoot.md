@@ -158,7 +158,7 @@ However, note that one Azure Spring Cloud service instance can trigger only one 
 
 ### My application can't be registered
 
-In most cases, this situation occurs when *Required Dependencies* and *Service Discovery* aren't properly configured in your Project Object Model (POM) file. Once it's configured, the built-in Service Registry server endpoint is injected as an environment variable with your application. Applications then register themselves with the Service Registry server and discover other dependent microservices.
+In most cases, this situation occurs when *Required Dependencies* and *Service Discovery* aren't properly configured in your Project Object Model (POM) file. Once it's configured, the built-in Service Registry server endpoint is injected as an environment variable with your application. Applications then register themselves with the Service Registry server and discover other dependent applications.
 
 Wait at least two minutes before a newly registered instance starts receiving traffic.
 

@@ -130,7 +130,7 @@ Before running this example, you can try the [basic quickstart](./quickstart.md)
 Other examples explain how to deploy an application to Azure Spring Cloud when the POM file is configured.
 
 * [Launch your first App](./quickstart.md)
-* [Build and run Microservices](./quickstart-sample-app-introduction.md)
+* [Introduction to the sample app](./quickstart-sample-app-introduction.md)
 
 This article explains the required dependencies and how to add them to the POM file.
 
@@ -223,7 +223,7 @@ To use the managed Azure Service Registry service, include the `spring-cloud-sta
     </dependency>
 ```
 
-The endpoint of the Service Registry server is automatically injected as environment variables with your app. Applications can register themselves with the Service Registry server and discover other dependent microservices.
+The endpoint of the Service Registry server is automatically injected as environment variables with your app. Applications can register themselves with the Service Registry server and discover other dependent applications.
 
 #### EnableDiscoveryClient annotation
 

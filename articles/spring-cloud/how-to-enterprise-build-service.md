@@ -40,7 +40,7 @@ The following image shows the resources given to the Build Service Agent Pool af
 
 ## Default Builder and Tanzu Buildpacks
 
-In the Enterprise Tier, a default builder is provided within Build Service with a list of proprietary Tanzu Buildpacks.
+In the Enterprise Tier, a default builder is provided within Build Service with a list of commercial Tanzu Buildpacks.
 
 Tanzu Buildpacks make it easier to integrate with other software like New Relic. They're configured as optional and will only run with proper configuration. For more information, see the [Buildpack bindings](#buildpack-bindings) section.
 
