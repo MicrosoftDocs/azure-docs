@@ -37,29 +37,31 @@ It also contains a sample twin graph and telemetry scenario that you can use to 
 
 ### Set up local variables for CLI session
 
-This article provides CLI commands that you can use to create the data history resources. In order to make it easy to copy and run those commands later, you can set up local variables in your CLI session now, and then refer to those variables later in the CLI commands when creating your resources. Update the placeholders (identified with `<...>` brackets) in the commands below, and run these commands to create the variables. These values will be used later when creating the new resources.
+This article provides CLI commands that you can use to create the data history resources. In order to make it easy to copy and run those commands later, you can set up local variables in your CLI session now, and then refer to those variables later in the CLI commands when creating your resources. Update the placeholders (identified with `<...>` brackets) in the commands below, and run these commands to create the variables. Make sure to follow the naming rules described in the comments. These values will be used later when creating the new resources.
 
 >[!NOTE]
 >These commands are written for the Bash environment. They can be adjusted for PowerShell if you prefer to use a PowerShell CLI environment.
 
->[!NOTE]
->When choosing a name for your Kusto cluster (the following `clustername` variable), avoid using hyphens as it will result in an error when running the relevant command later on in this guide.
-
 ```azurecli-interactive
-# General Setup
+## General Setup
 location="<your-resource-region>"
 resourcegroup="<your-resource-group-name>"
 
-# Azure Digital Twins Setup
+## Azure Digital Twins Setup
+# Instance name can contain letters, numbers, and hyphens. It must start and end with a letter or number, and be between 4 and 62 characters long.
 dtname="<name-for-your-digital-twins-instance>"
 connectionname="<name-for-your-data-history-connection>"
 
-# Event Hub Setup
+## Event Hub Setup
+# Namespace can contain letters, numbers, and hyphens. It must start with a letter, end with a letter or number, and be between 6 and 50 characters long.
 eventhubnamespace="<name-for-your-event-hub-namespace>"
+# Event hub name can contain only letters, numbers, periods, hyphens and underscores. It must start and end with a letter or number.
 eventhub="<name-for-your-event-hub>"
 
-# Azure Data Explorer Setup
-clustername="<name-for-your-cluster>"
+## Azure Data Explorer Setup
+# Cluster name can contain only lowercase alphanumeric characters. It must start with a letter, and be between 4 and 22 characters long.
+clustername="<name-for-your-cluster>"  
+# Database name can contain only alphanumeric, spaces, dash and dot characters, and be up to 260 characters in length.
 databasename="<name-for-your-database>"
 ```
 
