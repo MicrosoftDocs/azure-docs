@@ -212,6 +212,7 @@ Malware engine alerts describe detected malicious network activity.
 | Suspicion of Remote Windows Service Management | Suspicious network activity was detected. This activity may be associated with an attack exploiting a method used by known malware. | Major |
 | Suspicious Executable File Detected on Endpoint | Suspicious network activity was detected. This activity may be associated with an attack exploiting a method used by known malware. | Major |
 | Suspicious Traffic Detected | Suspicious network activity was detected. This activity may be associated with an attack exploiting a method used by known malware. | Critical |
+| Backup Activity with Antivirus Signatures  | Traffic detected between the source device and the destination backup server triggered this alert. The traffic includes backup of antivirus software that might contain malware signatures. This is most likely legitimate backup activity. | Warning |
 
 ## Operational engine alerts
 
