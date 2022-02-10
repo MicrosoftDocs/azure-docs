@@ -22,7 +22,7 @@ In this article, you'll learn how to configure a sample Node.js web application 
 
 Token-based authentication ensures that requests to a web API are accompanied by a valid access token.
 
-The web app accomplishes the following events:
+The web app completes the following events:
 
 - It authenticates users with Azure AD B2C.
 
@@ -34,7 +34,7 @@ The web app accomplishes the following events:
 Authorization: Bearer <token>
 ```
 
-The accomplishes following events are  by the web API:
+The web API completes the following events: 
 
 - It reads the bearer token from the authorization header in the HTTP request.
 

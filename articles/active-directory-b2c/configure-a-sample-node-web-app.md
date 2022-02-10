@@ -17,7 +17,7 @@ ms.subservice: B2C
 
 This sample article uses a sample Node.js application to show how to add Azure Active Directory B2C (Azure AD B2C) authentication to a Node.js web application. The sample application enables users to sign in, sign out, update profile and reset password using Azure AD B2C user flows. The sample web application uses [Microsoft Authentication Library (MSAL) for Node](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node) to handle authentication and authorization. 
 
-In this article, you’ll accomplish the following tasks:
+In this article, you’ll do the following tasks:
 
 - Register a web application in the Azure portal.
 - Create combined **Sign in and sign up**, **Profile editing**, and **Password reset** user flows for the app in the Azure portal.
@@ -44,7 +44,7 @@ Azure AD B2C prepends `B2C_1_` to the user flow name. For example, `susi` become
 
 To enable your application sign in with Azure AD B2C, register your app in the Azure AD B2C directory. The app registration establishes a trust relationship between the app and Azure AD B2C.  
 
-During app registration, you'll specify the *Redirect URI*. The redirect URI is the endpoint to which you're redirected by Azure AD B2C after they authenticate with Azure AD B2C. The app registration process generates an *Application ID*, also known as the *client ID*, that uniquely identifies your app. After your app is registered, Azure AD B2C uses both the application ID and the redirect URI to create authentication requests. 
+During app registration, you'll specify the *Redirect URI*. The redirect URI is the endpoint to which the user is redirected by Azure AD B2C after they authenticate with Azure AD B2C. The app registration process generates an *Application ID*, also known as the *client ID*, that uniquely identifies your app. After your app is registered, Azure AD B2C uses both the application ID and the redirect URI to create authentication requests. 
 
 ### Step 2.1: Register the app 
 
