@@ -8,7 +8,7 @@ author: AndreasWolter
 ms.author: anwolter
 ms.topic: conceptual
 ms.date: 09/02/2021
-ms.reviewer: "vanto"
+ms.reviewer: kendralittle, vanto, mathoma
 ---
 
 # Azure SQL Database server roles for permission management

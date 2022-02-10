@@ -4,7 +4,7 @@ description: This quickstart provides the steps to use MySQL Workbench to connec
 author: savjani
 ms.author: pariks
 ms.service: mariadb
-ms.custom: mvc
+ms.custom: mvc, mode-other
 ms.topic: quickstart
 ms.date: 3/18/2020
 ---

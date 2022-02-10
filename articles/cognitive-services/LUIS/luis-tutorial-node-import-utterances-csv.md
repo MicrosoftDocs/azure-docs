@@ -5,6 +5,7 @@ description: Learn how to build a LUIS app programmatically from preexisting dat
 services: cognitive-services
 
 manager: nitinme
+ms.devlang: javascript
 ms.custom: seodec18, devx-track-js
 ms.service: cognitive-services
 ms.subservice: language-understanding
@@ -183,8 +184,7 @@ Once the script completes, you can sign in to [LUIS](luis-reference-regions.md) 
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Test and train your app in LUIS website](luis-interactive-test.md)
+[Test and train your app in LUIS website](luis-interactive-test.md)
 
 ## Additional resources
 

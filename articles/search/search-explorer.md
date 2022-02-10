@@ -2,13 +2,13 @@
 title: "Quickstart: Search explorer query tool"
 titleSuffix: Azure Cognitive Search
 description: Search explorer is a query tool in the Azure portal that sends query requests to a search index in Azure Cognitive Search. Use it to learn syntax, test query expressions, or inspect a search document.
-
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 08/24/2021
+ms.date: 12/01/2021
+ms.custom: mode-ui
 ---
 
 # Quickstart: Use Search explorer to run queries in the portal
@@ -23,13 +23,15 @@ Before you begin, have the following prerequisites in place:
 
 + An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
 
-+ An Azure Cognitive Search service. [Create a service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this quickstart. 
++ An Azure Cognitive Search service. [Create a service](search-create-service-portal.md) or [find an existing service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this quickstart. 
 
-+ The *realestate-us-sample-index* is used for this quickstart. Use the [Quickstart: Create an index](search-import-data-portal.md) to create the index using default values. A built-in sample data source hosted by Microsoft (**realestate-us-sample**) provides the data.
++ The *realestate-us-sample-index* is used for this quickstart. To create the index, use the [**Import data wizard**](search-import-data-portal.md), choose the sample data, and step through the wizard using all of the default values.
+
+  :::image type="content" source="media/search-explorer/search-explorer-sample-data.png" alt-text="Screenshot of the sample data sets available in the Import data wizard." border="true":::  
 
 ## Start Search explorer
 
-1. In the [Azure portal](https://portal.azure.com), open the search overview page from the dashboard or [find your service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices).
+1. In the [Azure portal](https://portal.azure.com), open the search overview page from the dashboard or [find your service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices).
 
 1. Open Search explorer from the command bar:
 
@@ -121,7 +123,7 @@ Use the [**$filter**](search-query-odata-filter.md) parameter when you want to s
 
    :::image type="content" source="media/search-explorer/search-explorer-example-filter.png" alt-text="Filter by criteria" border="true":::
 
-## Order-by expressions
+## Sorting results
 
 Add [**$orderby**](search-query-odata-orderby.md) to sort results by another field besides search score. The field must be attributed as **Sortable** in the index. An example expression you can use to test this out is:
 
@@ -143,11 +145,11 @@ In this quickstart, you used **Search explorer** to query an index using the RES
 
 + Results are returned as verbose JSON documents so that you can view document construction and content, in entirety. The **$select** parameter in a query expression can limit which fields are returned.
 
-+ Documents are composed of all fields marked as **Retrievable** in the index. To view index attributes in the portal, click *realestate-us-sample* in the **Indexes** list on the search overview page.
++ Search results are composed of all fields marked as **Retrievable** in the index. To view field attributes in the portal, click *realestate-us-sample* in the **Indexes** list on the search overview page, and then open the **Fields** tab.
 
-+ Free-form queries, similar to what you might enter in a commercial web browser, are useful for testing an end-user experience. For example, assuming the built-in realestate sample index, you could enter "Seattle apartments lake washington", and then you can use Ctrl-F to find terms within the search results. 
++ Keyword search, similar to what you might enter in a commercial web browser, are useful for testing an end-user experience. For example, assuming the built-in real estate sample index, you could enter "Seattle apartments lake washington", and then you can use Ctrl-F to find terms within the search results. 
 
-+ Query and filter expressions are articulated in a syntax implemented by Azure Cognitive Search. The default is a [simple syntax](/rest/api/searchservice/simple-query-syntax-in-azure-search), but you can optionally use [full Lucene](/rest/api/searchservice/lucene-query-syntax-in-azure-search) for more powerful queries. [Filter expressions](/rest/api/searchservice/odata-expression-syntax-for-azure-search) are an OData syntax.
++ Query and filter expressions are articulated in a syntax implemented by Azure Cognitive Search. The default is a [simple syntax](/rest/api/searchservice/simple-query-syntax-in-azure-search), but you can optionally use [full Lucene](/rest/api/searchservice/lucene-query-syntax-in-azure-search) for more powerful queries. [Filter expressions](/rest/api/searchservice/odata-expression-syntax-for-azure-search) are articulated in an OData syntax.
 
 ## Clean up resources
 

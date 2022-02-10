@@ -1,16 +1,15 @@
 ---
-title: Quickstart - Create a blob with Azure CLI
+title: 'Quickstart: Upload, download, and list blobs - Azure CLI'
 titleSuffix: Azure Storage
 description: In this quickstart, you learn how to use the Azure CLI upload a blob to Azure Storage, download a blob, and list the blobs in a container.
 services: storage
-author: tamram
-
+author: stevenmatthew
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.date: 08/17/2020
-ms.author: tamram 
-ms.custom: devx-track-azurecli
+ms.author: shaas
+ms.custom: devx-track-azurecli, mode-api
 ---
 
 # Quickstart: Create, download, and list blobs with Azure CLI

@@ -1,11 +1,11 @@
 ---
 title: Load balance client connections to Azure HPC Cache
 description: How to configure a DNS server for round-robin load balancing for Azure HPC Cache
-author: ekpgh
+author: femila
 ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 09/20/2021
-ms.author: v-erkel
+ms.author: femila
 ---
 
 # Load balance HPC Cache client traffic
@@ -32,7 +32,9 @@ Read [Mount the Azure HPC Cache](hpc-cache-mount.md) for details.
 
 ## Use scripted load balancing
 
-There are several ways to programmatically rotate client mounts among the available IP addresses.
+There are several ways to programmatically rotate client mounts among the available IP addresses. Here are two examples.
+
+### Mount command script cksum example
 
 This example mount command uses the hash function ``cksum`` and the client host name to automatically distribute the client connections among all available IP addresses on your HPC Cache. If all of the client machines have unique host names, you can run this command on each client to ensure that all available mount points are used.
 
@@ -62,6 +64,35 @@ Here is an example of a populated client mount command:
 
 ```bash
 mount -o hard,proto=tcp,mountproto=tcp,retry=30 $(X=(10.7.0.{1..3});echo ${X[$(($(hostname|cksum|cut -f 1 -d ' ')%3))]}):/blob-target-1 /hpc-cache/blob1 
+```
+
+### Round robin function example
+
+This code example uses client IP addresses as a randomizing element to distribute clients to all of the HPC Cache's available IP addresses.
+
+```bash
+function mount_round_robin() {
+
+  # to ensure the clients are spread out somewhat evenly the default
+  # mount point is based on this client's IP octet4 % number of HPC cache mount IPs.
+
+  declare -a MOUNT_IPS="($(echo ${NFS_IP_CSV} | sed "s/,/ /g"))"
+  HASH=$(hostname | cksum | cut -f 1 -d ' ')
+  DEFAULT_MOUNT_INDEX=$((${HASH} % ${#MOUNT_IPS[@]}))
+  ROUND_ROBIN_IP=${MOUNT_IPS[${DEFAULT_MOUNT_INDEX}]}
+
+  DEFAULT_MOUNT_POINT="${BASE_DIR}/default"
+
+  # no need to write again if it is already there
+  if ! grep --quiet "${DEFAULT_MOUNT_POINT}" /etc/fstab; then
+      echo "${ROUND_ROBIN_IP}:${NFS_PATH} ${DEFAULT_MOUNT_POINT} nfs hard,proto=tcp,mountproto=tcp,retry=30 0 0" >> /etc/fstab
+      mkdir -p "${DEFAULT_MOUNT_POINT}"
+      chown nfsnobody:nfsnobody "${DEFAULT_MOUNT_POINT}"
+  fi
+  if ! grep -qs "${DEFAULT_MOUNT_POINT} " /proc/mounts; then
+      retrycmd_if_failure 12 20 mount "${DEFAULT_MOUNT_POINT}" || exit 1
+  fi
+}
 ```
 
 ## Use DNS load balancing

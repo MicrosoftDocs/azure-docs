@@ -44,7 +44,7 @@
     - name: Azure code samples
       href: https://azure.microsoft.com/resources/samples/?service=batch
     - name: Batch samples repo
-      href: https://github.com/Azure/azure-batch-samples
+      href: https://github.com/Azure-Samples/azure-batch-samples
   - name: Azure CLI
     items:
     - name: Create a Batch account in Batch service mode
@@ -116,6 +116,8 @@
       href: batch-customer-managed-key.md
     - name: Move between regions
       href: account-move.md
+    - name: Use simplified compute node communication
+      href: simplified-compute-node-communication.md
   - name: Authenticate with Azure AD
     items:
     - name: Azure AD with Batch service
@@ -183,9 +185,9 @@
       href: batch-pool-compute-intensive-sizes.md
     - name: Use Linux compute nodes
       href: batch-linux-nodes.md
-    - name: Use low-priority VMs
+    - name: Use Azure Spot VMs
       displayName: preempted, surplus, capacity
-      href: batch-low-pri-vms.md
+      href: batch-spot-vms.md
     - name: Checking for pool and node errors
       displayName: troubleshoot, failure
       href: batch-pool-node-error-checking.md
@@ -278,7 +280,7 @@
   - name: Azure CLI
     href: /cli/azure/batch
   - name: Azure PowerShell
-    href: /powershell/module/az.batch
+    href: /powershell/module/az.batch/
   - name: .NET
     href: /dotnet/api/overview/azure/batch
   - name: Java
@@ -290,7 +292,7 @@
   - name: REST
     items:
     - name: Batch Service
-      href: /rest/api/batchservice
+      href: /rest/api/batchservice/
     - name: Batch Management
       href: /rest/api/batchmanagement/
   - name: Resource Manager template
@@ -330,13 +332,13 @@
   - name: Batch Explorer
     href: https://azure.github.io/BatchExplorer/
   - name: Batch feedback
-    href: https://feedback.azure.com/forums/269742-batch
+    href: https://feedback.azure.com/d365community/forum/7462aa60-0c25-ec11-b6e6-000d3a4f07b8
   - name: Batch Shipyard
     href: https://github.com/Azure/batch-shipyard
   - name: Blog
     href: /archive/blogs/windowshpc/
   - name: HPC on Azure
-    href: /azure/architecture/topics/high-performance-computing/
+    href: /azure/architecture/topics/high-performance-computing
   - name: Microsoft Q&A question page for Batch
     href: /answers/topics/azure-batch.html
   - name: Pricing

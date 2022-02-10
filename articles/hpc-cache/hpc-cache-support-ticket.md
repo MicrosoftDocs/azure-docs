@@ -1,11 +1,11 @@
 ---
 title: Open a support ticket for Azure HPC Cache
 description: How to open a help request for Azure HPC Cache 
-author: ekpgh
+author: femila
 ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 08/19/2021
-ms.author: v-erkel
+ms.author: femila
 ---
 
 # Contact support for help with Azure HPC Cache

@@ -4,10 +4,9 @@ description: "This article indexes various time points in our 81 minutes video a
 services: sql-database
 ms.service: sql-database
 ms.subservice: scenario
-author: MashaMSFT
-ms.author: mathoma
-
-ms.reviewer: 
+author: LitKnd
+ms.author: kendralittle
+ms.reviewer: mathoma
 ms.custom: sqldbrb=1
 ms.date: 12/18/2018
 ms.topic: conceptual
@@ -435,9 +434,6 @@ Clicking any screenshot image takes you to the exact time location in the video.
 
 
 [video-on-youtube-com-478y]: https://www.youtube.com/watch?v=jjNmcKBVjrc&t=1
-
-[video-on-channel9-479c]: https://channel9.msdn.com/Events/Ignite/Microsoft-Ignite-Orlando-2017/BRK3120
-
 
 [resource-blog-saas-patterns-app-dev-sql-db-768h]: https://azure.microsoft.com/blog/saas-patterns-accelerate-saas-application-development-on-sql-database/
 

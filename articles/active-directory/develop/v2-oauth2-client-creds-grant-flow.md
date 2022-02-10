@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/27/2021
+ms.date: 01/24/2022
 ms.author: hirsin
 ms.reviewer: marsma
 ms.custom: aaddev, identityplatformtop40
@@ -17,11 +17,11 @@ ms.custom: aaddev, identityplatformtop40
 
 # Microsoft identity platform and the OAuth 2.0 client credentials flow
 
-You can use the [OAuth 2.0 client credentials grant](https://tools.ietf.org/html/rfc6749#section-4.4) specified in RFC 6749, sometimes called *two-legged OAuth*, to access web-hosted resources by using the identity of an application. This type of grant is commonly used for server-to-server interactions that must run in the background, without immediate interaction with a user. These types of applications are often referred to as *daemons* or *service accounts*.
+You can use the OAuth 2.0 client credentials grant specified in [RFC 6749](https://tools.ietf.org/html/rfc6749#section-4.4), sometimes called *two-legged OAuth*, to access web-hosted resources by using the identity of an application. This type of grant is commonly used for server-to-server interactions that must run in the background, without immediate interaction with a user. These types of applications are often referred to as *daemons* or *service accounts*.
 
 This article describes how to program directly against the protocol in your application. When possible, we recommend you use the supported Microsoft Authentication Libraries (MSAL) instead to [acquire tokens and call secured web APIs](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows).  Also take a look at the [sample apps that use MSAL](sample-v2-code.md).
 
-The OAuth 2.0 client credentials grant flow permits a web service (confidential client) to use its own credentials, instead of impersonating a user, to authenticate when calling another web service. For a higher level of assurance, the Microsoft identity platform also allows the calling service to use a certificate (instead of a shared secret) as a credential.  Because the applications own credentials are being used, these credentials must be kept safe - _never_ publish that credential in your source code, embed it in web pages, or use it in a widely distributed native application. 
+The OAuth 2.0 client credentials grant flow permits a web service (confidential client) to use its own credentials, instead of impersonating a user, to authenticate when calling another web service. For a higher level of assurance, the Microsoft identity platform also allows the calling service to authenticate using a [certificate](#second-case-access-token-request-with-a-certificate) or federated credential instead of a shared secret.  Because the applications own credentials are being used, these credentials must be kept safe - _never_ publish that credential in your source code, embed it in web pages, or use it in a widely distributed native application. 
 
 In the client credentials flow, permissions are granted directly to the application itself by an administrator. When the app presents a token to a resource, the resource enforces that the app itself has authorization to perform an action since there is no user involved in the authentication.  This article covers both the steps needed to [authorize an application to call an API](#application-permissions), as well as [how to get the tokens needed to call that API](#get-a-token).
 
@@ -54,7 +54,7 @@ This type of authorization is common for daemons and service accounts that need 
 
 In order to enable this ACL-based authorization pattern, Azure AD doesn't require that applications be authorized to get tokens for another application. Thus, app-only tokens can be issued without a `roles` claim. Applications that expose APIs must implement permission checks in order to accept tokens.
 
-If you'd like to prevent applications from getting role-less app-only access tokens for your application, [ensure that user assignment requirements are enabled for your app](../manage-apps/assign-user-or-group-access-portal.md). This will block users and applications without assigned roles from being able to get a token for this application. 
+If you'd like to prevent applications from getting role-less app-only access tokens for your application, [ensure that assignment requirements are enabled for your app](../manage-apps/what-is-access-management.md#requiring-user-assignment-for-an-app). This will block users and applications without assigned roles from being able to get a token for this application. 
 
 ### Application permissions
 
@@ -65,9 +65,9 @@ Instead of using ACLs, you can use APIs to expose a set of **application permiss
 * Send mail as any user
 * Read directory data
 
-To use application permissions with your own API (as opposed to Microsoft Graph), you must first [expose the API](howto-add-app-roles-in-azure-ad-apps.md) by defining scopes in the API's app registration in the Azure portal. Then, [configure access to the API](howto-add-app-roles-in-azure-ad-apps.md#assign-app-roles-to-applications) by selecting those permissions in your client application's app registration. If you haven't exposed any scopes in your API's app registration, you won't be able to specify application permissions to that API in your client application's app registration in the Azure portal.
+To use app roles (application permissions) with your own API (as opposed to Microsoft Graph), you must first [expose the app roles](howto-add-app-roles-in-azure-ad-apps.md) in the API's app registration in the Azure portal. Then, [configure the required app roles](howto-add-app-roles-in-azure-ad-apps.md#assign-app-roles-to-applications) by selecting those permissions in your client application's app registration. If you haven't exposed any app roles in your API's app registration, you won't be able to specify application permissions to that API in your client application's app registration in the Azure portal.
 
-When authenticating as an application (as opposed to with a user), you can't use *delegated permissions* - scopes that are granted by a user - because there is no user for you app to act on behalf of. You must use application permissions, also known as roles, that are granted by an admin for the application or via pre-authorization by the web API.
+When authenticating as an application (as opposed to with a user), you can't use *delegated permissions* because there is no user for your app to act on behalf of. You must use application permissions, also known as app roles, that are granted by an admin or by the API's owner.
 
 For more information about application permissions, see [Permissions and consent](v2-permissions-and-consent.md#permission-types).
 
@@ -100,7 +100,7 @@ https://login.microsoftonline.com/common/adminconsent?client_id=6731de76-14a6-49
 | --- | --- | --- |
 | `tenant` | Required | The directory tenant that you want to request permission from. This can be in GUID or friendly name format. If you don't know which tenant the user belongs to and you want to let them sign in with any tenant, use `common`. |
 | `client_id` | Required | The **Application (client) ID** that the [Azure portal – App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) experience assigned to your app. |
-| `redirect_uri` | Required | The redirect URI where you want the response to be sent for your app to handle. It must exactly match one of the redirect URIs that you registered in the portal, except that it must be URL encoded, and it can have additional path segments. |
+| `redirect_uri` | Required | The redirect URI where you want the response to be sent for your app to handle. It must exactly match one of the redirect URIs that you registered in the portal, except that it must be URL-encoded, and it can have additional path segments. |
 | `state` | Recommended | A value that's included in the request that's also returned in the token response. It can be a string of any content that you want. The state is used to encode information about the user's state in the app before the authentication request occurred, such as the page or view they were on. |
 
 At this point, Azure AD enforces that only a tenant administrator can sign into complete the request. The administrator will be asked to approve all the direct application permissions that you have requested for your app in the app registration portal.
@@ -189,9 +189,29 @@ scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
 
 The parameters for the certificate-based request differ in only one way from the shared secret-based request: the `client_secret` parameter is replaced by the `client_assertion_type` and `client_assertion` parameters.
 
+### Third case: Access token request with a federated credential
+
+```HTTP
+POST /{tenant}/oauth2/v2.0/token HTTP/1.1               // Line breaks for clarity
+Host: login.microsoftonline.com
+Content-Type: application/x-www-form-urlencoded
+
+scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
+&client_id=97e0a5b7-d745-40b6-94fe-5f77d35c6e05
+&client_assertion_type=urn%3Aietf%3Aparams%3Aoauth%3Aclient-assertion-type%3Ajwt-bearer
+&client_assertion=eyJhbGciOiJSUzI1NiIsIng1dCI6Imd4OHRHeXN5amNScUtqRlBuZDdSRnd2d1pJMCJ9.eyJ{a lot of characters here}M8U3bSUKKJDEg
+&grant_type=client_credentials
+```
+
+| Parameter | Condition | Description |
+| --- | --- | --- |
+| `client_assertion` | Required | An assertion (a JWT, or JSON web token) that your application gets from another identity provider outside of Microsoft identity platform, like  Kubernetes. The specifics of this JWT must be registered on your application as a [federated identity credential](workload-identity-federation-create-trust.md). Read about [workload identity federation](workload-identity-federation.md) to learn how to setup and use assertions generated from other identity providers.|
+
+Everything in the request is the same as the certificate-based flow above, with one crucial exception - the source of the `client_assertion`. In this flow, your application does not create the JWT assertion itself.  Instead, your app uses a JWT created by another identity provider.  This is called "[workload identity federation](workload-identity-federation.md)", where your apps identity in another identity platform is used to acquire tokens inside the Microsoft identity platform.  This is best suited for cross-cloud scenarios, such as hosting your compute outside Azure but accessing APIs protected by Microsoft identity platform. 
+
 ### Successful response
 
-A successful response from either method looks like this:
+A successful response from any method looks like this:
 
 ```json
 {
@@ -211,7 +231,7 @@ A successful response from either method looks like this:
 
 ### Error response
 
-An error response looks like this:
+An error response (400 Bad Request) looks like this:
 
 ```json
 {

@@ -4,21 +4,21 @@ metadata:
   description: Learn answers to frequently asked questions (FAQ) about using Azure AD Application Proxy to publish internal, on-premises applications to remote users.  
   services: active-directory
   author: kenwith
-  manager: mtillman
+  manager: karenhoran
   ms.service: active-directory
   ms.subservice: app-proxy
   ms.workload: identity
   ms.topic: reference
-  ms.date: 04/27/2021
+  ms.date: 01/10/2022
   ms.author: kenwith
-  ms.reviewer: japere
+  ms.reviewer: ashishj
     
 title: Active Directory (Azure AD) Application Proxy frequently asked questions
 summary: This page answers frequently asked questions about Azure Active Directory (Azure AD) Application Proxy.
 
 
 sections:
-  - name: Ignored
+  - name: General
     questions:
       - question: |
          Can I delete an App Proxy app from the App registrations page in the Azure portal? 
@@ -39,10 +39,8 @@ sections:
         answer: |
               Make sure you have at least an Azure AD Premium P1 or P2 license and an Azure AD Application Proxy Connector installed. After you successfully install your first connector, the Azure AD Application Proxy service will be enabled automatically.
 
-      - question: |
-         Connector configuration
-        answer: |
-
+  - name: Connector configuration
+    questions:
       - question: |
          Why is my connector still using an older version and not auto-upgraded to latest version?
         answer: |
@@ -55,7 +53,7 @@ sections:
           
               To manually upgrade a connector:
           
-              - Download the latest version of the connector. (You will find it under Application Proxy on the Azure Portal. You can also find the link at [Azure AD Application Proxy: Version release history](./application-proxy-release-version-history.md).
+              - Download the latest version of the connector. (You will find it under Application Proxy on the Azure portal. You can also find the link at [Azure AD Application Proxy: Version release history](./application-proxy-release-version-history.md).
               -	The installer restarts the Azure AD Application Proxy Connector services. In some cases, a reboot of the server might be required if the installer cannot replace all files. Therefore we recommend closing all applications (i.e. Event Viewer) before you start the upgrade.
               -	Run the installer. The upgrade process is quick and does not require providing any credentials and the connector will not be re-registered.
           
@@ -64,8 +62,8 @@ sections:
         answer: |
           No, this scenario isn't supported. The default settings are:
           
-          - Microsoft AAD Application Proxy Connector - WAPCSvc - Network Service
-          - Microsoft AAD Application Proxy Connector Updater - WAPCUpdaterSvc - NT Authority\System
+          - Microsoft Azure Active Directory Application Proxy Connector - WAPCSvc - Network Service
+          - Microsoft Azure Active Directory Application Proxy Connector Updater - WAPCUpdaterSvc - NT Authority\System
           
       - question: |
          Can a guest user with the Global Administrator or the Application Administrator role register the connector for the (guest) tenant?
@@ -104,7 +102,7 @@ sections:
           
           1. Select **Start**, type "Perfmon", and press ENTER.
           2. Select **Performance Monitor** and click the green **+** icon.
-          3. Add the **Microsoft AAD Application Proxy Connector** counters you want to monitor.
+          3. Add the **Microsoft Azure Active Directory Application Proxy Connector** counters you want to monitor.
           
       - question: |
          Does the Azure AD Application Proxy connector have to be on the same subnet as the resource?
@@ -121,9 +119,13 @@ sections:
           ```
           
       - question: |
-         Application configuration
+         Why is the connector still showing in Azure AD portal after I uninstalled the connector from the Server?
         answer: |
-
+           When a connector is running, it remains active as it connects to the service. Uninstalled /Unused connectors are tagged as inactive and are removed after 10 days of inactivity from the portal.
+           There is no way to remove the Inactive connector manually from the Azure portal.
+          
+  - name: Application configuration
+    questions:
       - question: |
          I am receiving an error about an invalid certificate or possible wrong password
         answer: |
@@ -158,7 +160,19 @@ sections:
          How do I change the landing page my application loads?
         answer: |
               From the Application Registrations page, you can change the homepage URL to the desired external URL of the landing page. The specified page will load when the application is launched from My Apps or the Office 365 Portal. For configuration steps, see [Set a custom home page for published apps by using Azure AD Application Proxy](application-proxy-configure-custom-home-page.md)
-          
+
+      - question: |
+         Why do I get redirected to a truncated URL when I try to access my published application whenever the  URL contains a "#"  (hashtag) character?
+        answer: |
+              If Azure AD pre-authentication is configured, and the application URL contains a “#” character when you try to access the application for the first time, you get redirected to Azure AD (login.microsoftonline.com) for the authentication. Once you complete the authentication you get redirected to the URL part prior to the ”#” character and everything that comes after the “#“ seems to be ignored/ removed. For example if the URL is `https://www.contoso.com/#/home/index.html`, once the Azure AD authentication is done the user will be redirected to `https://www.contoso.com/`.
+              This behavior is by design due to how the “#” character is handled by the browser.
+              
+              Possible solutions/  alternatives:
+
+              - Setup a redirection from `https://www.contoso.com` to `https://contoso.com/#/home/index.html`. The user must first access `https://www.contoso.com`.
+              - The URL used for the first access attempt must include the “#” character in encoded form (%23). The published server might not accept this.
+              - Configure passthrough pre-authentication type (not recommended).
+              
       - question: |
          Can only IIS-based applications be published? What about web applications running on non-Windows web servers? Does the connector have to be installed on a server with IIS installed?
         answer: |
@@ -167,12 +181,10 @@ sections:
       - question: |
          Can I configure Application Proxy to add the HSTS header?
         answer: |
-              Application Proxy does not automatically add the HTTP Strict-Transport-Security header to HTTPS responses, but it will maintain the header if it is in the original response sent by the published application. Proving a setting to enable this functionality is on the roadmap. If you are interested in a preview that enables adding this to responses, reach out to aadapfeedback@microsoft.com for details.
+              Application Proxy does not automatically add the HTTP Strict-Transport-Security header to HTTPS responses, but it will maintain the header if it is in the original response sent by the published application. Proving a setting to enable this functionality is on the roadmap.
 
-      - question: |
-         Integrated Windows authentication
-        answer: |
-
+  - name: Integrated Windows authentication
+    questions:
       - question: |
          When should I use the PrincipalsAllowedToDelegateToAccount method when setting up Kerberos Constrained Delegation (KCD)?
         answer: |
@@ -194,10 +206,8 @@ sections:
           
               In this case there will be a fallback to “User principal name”. For more details on the B2B scenario please read [Grant B2B users in Azure AD access to your on-premises applications](../external-identities/hybrid-cloud-to-on-premises.md).
           
-      - question: |
-         Pass-through authentication
-        answer: |
-
+  - name: Pass-through authentication
+    questions:
       - question: |
          Can I use Conditional Access Policies for applications published with pass-through authentication?
         answer: |
@@ -208,10 +218,8 @@ sections:
         answer: |
               No, this scenario isn't supported because Application Proxy will terminate TLS traffic.  
 
-      - question: |
-         Remote Desktop Gateway publishing
-        answer: |
-
+  - name: Remote Desktop Gateway publishing
+    questions:
       - question: |
          How can I publish Remote Desktop Gateway over Azure AD Application Proxy?
         answer: |
@@ -240,10 +248,8 @@ sections:
           Can I use the Resources Launch Method option "Download the rdp file" under Settings on the Remote Desktop Web Client Portal in Azure AD pre-authentication scenario?
         answer:      This option enables the user to download the rdp file and use it by another RDP client (outside of the Remote Desktop Web Client). Typically, another RDP clients (like the Microsoft Remote Desktop Client) cannot handle the pre-authentication natively. That's why this will not work.
 
-      - question: |
-         SharePoint publishing
-        answer: |
-
+  - name: SharePoint publishing
+    questions:
       - question: |
          How can I publish SharePoint over Azure AD Application Proxy?
         answer: |
@@ -254,10 +260,9 @@ sections:
         answer: |
               The [SharePoint mobile app](/sharepoint/administration/supporting-the-sharepoint-mobile-apps-online-and-on-premises) does not support Azure Active Directory pre-authentication currently.
           
-      - question: |
-         Active Directory Federation Services (AD FS) publishing 
-        answer: |
-
+  
+  - name: Active Directory Federation Services (AD FS) publishing
+    questions:
       - question: |
          Can I use Azure AD Application Proxy as AD FS proxy (like Web Application Proxy)?
         answer: |
@@ -268,20 +273,20 @@ sections:
         answer: |
               No, this is not supported.
                        
+  - name: WebSocket
+    questions:
       - question: |
-         WebSocket
+         Does Azure AD Application Proxy support the WebSocket protocol?
         answer: |
-      - question: |
-         Does WebSocket support work for applications other than QlikSense and Remote Desktop Web Client (HTML5)?
-        answer: |
-              Currently, WebSocket protocol support is still in public preview and it may not work for other applications. Some customers have had mixed success using WebSocket protocol with other applications. If you test such scenarios, we would love to hear your results. Please send us your feedback at aadapfeedback@microsoft.com.
+              Applications that use the WebSocket protocol, for example QlikSense and Remote Desktop Web Client (HTML5), are now supported. The following are known limitations:
+              * Application proxy discards the cookie that is set on the server response while opening the WebSocket connection.
+              * There is no SSO applied to the WebSocket request.
+              * Features (Eventlogs, PowerShell and Remote Desktop Services) in the Windows Admin Center (WAC) do not work through Azure AD Application Proxy.
+              
+              The WebSocket application doesn't have any unique publishing requirements, and can be [published](application-proxy-add-on-premises-application.md) the same way as all your other Application Proxy applications. 
           
-              Features (Eventlogs, PowerShell and Remote Desktop Services) in Windows Admin Center (WAC) do not work through Azure AD Application Proxy presently.
-          
-      - question: |
-         Link translation
-        answer: |
-
+  - name: Link translation
+    questions:
       - question: |
          Does using Link translation affect performance?
         answer: |
@@ -289,10 +294,8 @@ sections:
           
               For best performance, we recommend using identical internal and external URLs by configuring [custom domains](./application-proxy-configure-custom-domain.md). If using custom domains isn't possible, you can improve link translation performance by using the My Apps Secure Sign in Extension or Microsoft Edge Browser on mobile. See [Redirect hardcoded links for apps published with Azure AD Application Proxy](./application-proxy-configure-hard-coded-link-translation.md).
           
-      - question: |
-         Wildcards
-        answer: |
-
+  - name: Wildcards
+    questions:
       - question: |
          How do I use wildcards to publish two applications with the same custom domain name but with different protocols, one for HTTP and one for HTTPS?
         answer: |

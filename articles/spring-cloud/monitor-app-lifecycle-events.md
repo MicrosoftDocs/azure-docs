@@ -18,7 +18,7 @@ Azure Spring Cloud provides built-in tools to monitor the status and health of y
 ## Prerequisites
 
 - An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-- A deployed Azure Spring Cloud service instance and at least one application already created in your service instance. For more information, see [Quickstart: Deploy your first Azure Spring Cloud application](quickstart.md). 
+- A deployed Azure Spring Cloud service instance and at least one application already created in your service instance. For more information, see [Quickstart: Deploy your first Spring Boot app in Azure Spring Cloud](quickstart.md). 
 
 ## Monitor app lifecycle events triggered by users in Azure Activity logs
 
@@ -58,6 +58,9 @@ Your app may be restarted during platform maintenance. You can receive a mainten
 When platform maintenance happens, your Azure Spring Cloud instance will also show a status of **degraded**. If restarting is needed during platform maintenance, Azure Spring Cloud will perform a rolling update to incrementally update your applications. Rolling updates are designed to update your workloads without downtime. You can find the latest status in the health history page.
 
 :::image type="content" source="media/monitor-app-lifecycle-events/planned-maintenance-in-progress.png" lightbox="media/monitor-app-lifecycle-events/planned-maintenance-in-progress.png" alt-text="Screenshot of an example log for planned maintenance in progress":::
+
+>[!NOTE]
+> Currently, Azure Spring Cloud performs one regular planned maintenance to upgrade the underlying Kubernetes version every 2-4 months. For a detailed maintenance timeline, check the notifications on the Azure Service Health page.
 
 ## Set up alerts
 

@@ -5,7 +5,7 @@ author: enkrumah
 ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 07/7/2021
+ms.date: 12/15/2021
 ---
 
 # Blob storage and Azure Data Lake Gen2 output from Azure Stream Analytics
@@ -58,7 +58,8 @@ For the maximum message size, see [Azure Storage limits](../azure-resource-manag
 ## Limitations
 
 * If "/" is used in the path pattern (e.g /folder2/folder3), then empty folders will be created and they will not be visible in Storage Explorer
-* Stream Analytics appends to the same file in cases where a new blob file is not needed. Please note that this could cause additional triggers to be generated if azure services like event grid are configured to be triggered on blob file update
+* Azure Stream Analytics appends to the same file in cases where a new blob file is not needed. Please note that this could cause additional triggers to be generated if azure services like event grid are configured to be triggered on blob file update
+* Azure Stream Analytics appends to blob by default. When the output format is a Json array, it completes the file on shutdown or when the output moves to the next time partition for time partitioned outputs. Note that, in some cases such as an unclean restart, it is possible that the closing "]" for json array may be missing. 
 
 ## Next steps
 

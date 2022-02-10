@@ -8,7 +8,6 @@ manager: femila
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
@@ -143,6 +142,9 @@ player.configure('drm.advanced.com\\.apple\\.fps\\.1_0.serverCertificate', new U
 ```
 
 For more information, see [Shaka player DRM protection documentation](https://shaka-player-demo.appspot.com/docs/api/tutorial-drm-config.html).
+
+
+[!INCLUDE [Warning on captions and encryption](./includes/warning-captions-encryption.md)]
 
 ## Next steps
 

@@ -1,13 +1,13 @@
 ---
 title: Troubleshoot viewing your billing account in the Azure portal
 description: This article helps you troubleshoot problems when trying to view your billing account in the Azure portal.
-author: amberbhargava
-ms.reviewer: banders
+author: bandersmsft
+ms.reviewer: amberb
 tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 09/15/2021
+ms.date: 10/07/2021
 ms.author: banders
 ---
 
@@ -15,7 +15,7 @@ ms.author: banders
 
 A billing account is created when you sign up to use Azure. You use your billing account to manage your invoices, payments, and track costs. You might have access to multiple billing accounts. For example, you might have signed up for Azure for personal use. You could also have access to Azure through your organization's Enterprise Agreement or Microsoft Customer Agreement. For each of these scenarios, you would have a separate billing account. This article helps you troubleshoot problems when trying to view your billing account in the Azure portal.
 
-You can view your billing accounts one the [Azure Cost Management + Billing](https://portal.azure.com/#blade/Microsoft_Azure_GTM/ModernBillingMenuBlade) page.
+You can view your billing accounts one the [Cost Management + Billing](https://portal.azure.com/#blade/Microsoft_Azure_GTM/ModernBillingMenuBlade) page.
 
 To learn more about billing accounts and identify your billing account type, see [View billing accounts in Azure portal](view-all-accounts.md).
 
@@ -48,7 +48,7 @@ Some users have two identities with the same email address - a work or school ac
 
 ## Contact us for help
 
-If you have questions or need help, [create a support request](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+If you have questions or need help, [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
 ## Next steps
 

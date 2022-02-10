@@ -1,6 +1,8 @@
 ---
-title: Azure AD secure hybrid access | Microsoft Docs
+title: Secure hybrid access
 description: This article describes partner solutions for integrating your legacy on-premises, public cloud, or private cloud applications with Azure AD. 
+titleSuffix: Azure AD
+services: active-directory
 author: gargi-sinha
 manager: martinco
 ms.service: active-directory
@@ -23,13 +25,13 @@ You can bridge the gap and strengthen your security posture across all applicati
 
 ## Secure hybrid access through Azure AD Application Proxy
   
-Using [Application Proxy](../app-proxy/what-is-application-proxy.md) you can provide [secure remote access](../app-proxy/application-proxy-add-on-premises-application.md) to your on-premises web applications. Your users don't need to use a VPN. Users benefit by easily connecting to their applications from any device after a [SSO](../app-proxy/application-proxy-config-sso-how-to.md#how-to-configure-single-sign-on). Application Proxy provides remote access as a service and allows you to [easily publish your on-premise applications](../app-proxy/application-proxy-add-on-premises-application.md) to users outside the corporate network. It helps you scale your cloud access management without requiring you to modify your on-premises applications. [Plan an Azure AD Application Proxy](../app-proxy/application-proxy-deployment-plan.md) deployment as a next step.
+Using [Application Proxy](../app-proxy/what-is-application-proxy.md) you can provide [secure remote access](../app-proxy/application-proxy-add-on-premises-application.md) to your on-premises web applications. Your users don’t need to use a VPN. Users benefit by easily connecting to their applications from any device after a [SSO](../app-proxy/application-proxy-config-sso-how-to.md#how-to-configure-single-sign-on). Application Proxy provides remote access as a service and allows you to [easily publish your on-premise applications](../app-proxy/application-proxy-add-on-premises-application.md) to users outside the corporate network. It helps you scale your cloud access management without requiring you to modify your on-premises applications. [Plan an Azure AD Application Proxy](../app-proxy/application-proxy-deployment-plan.md) deployment as a next step.
 
 ## Secure hybrid access through Azure AD partner integrations  
 
 In addition to [Azure AD Application Proxy](../app-proxy/what-is-application-proxy.md), Microsoft partners with third-party providers to enable secure access to your on-premises applications and applications that use legacy authentication.
 
-![Image shows secure hybrid access with app proxy and partners](./media/secure-hybrid-access/secure-hybrid-access.png)
+![Illustration of Secure Hybrid Access partner integrations and Application Proxy providing access to legacy and on-premises applications after authentication with Azure AD.](./media/secure-hybrid-access/secure-hybrid-access.png)
 
 The following partners offer pre-built solutions to support **conditional access policies per application** and provide detailed guidance for integrating with Azure AD. 
 
@@ -39,9 +41,9 @@ The following partners offer pre-built solutions to support **conditional access
 
 - [Datawiza Access Broker](../manage-apps/datawiza-with-azure-ad.md)
 
-- [F5 Big-IP APM ADC](../manage-apps/f5-aad-integration.md)
+- [F5 BIG-IP APM (ADC)](../manage-apps/f5-aad-integration.md)
 
-- [F5 Big-IP APM VPN](../manage-apps/f5-aad-password-less-vpn.md)
+- [F5 BIG-IP APM VPN](../manage-apps/f5-aad-password-less-vpn.md)
 
 - [Kemp](../saas-apps/kemp-tutorial.md)
 

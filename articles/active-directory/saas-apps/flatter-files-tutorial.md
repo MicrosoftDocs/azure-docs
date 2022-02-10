@@ -118,12 +118,12 @@ To configure Azure AD single sign-on with Flatter Files, perform the following s
     ![Screenshot that shows "DASHBOARD" selected in the "Flatter Files" app.](./media/flatter-files-tutorial/tutorial_flatter_files_05.png)  
 
 3. Click **Settings**, and then perform the following steps on the **Company** tab: 
-   
+
     ![Screenshot that shows the "Company" tab with "Use S A M L 2.0 for Authentication" checked and the "Configure S A M L" button selected.](./media/flatter-files-tutorial/tutorial_flatter_files_06.png)  
+
+    1. Select **Use SAML 2.0 for Authentication**.
     
-	a. Select **Use SAML 2.0 for Authentication**.
-    
-	b. Click **Configure SAML**.
+    1. Click **Configure SAML**.
 
 4. On the **SAML Configuration** dialog, perform the following steps: 
    

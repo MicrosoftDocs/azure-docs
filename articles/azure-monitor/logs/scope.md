@@ -4,7 +4,7 @@ description: Describes the scope and time range for a log query in Azure Monitor
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 09/09/2020
+ms.date: 10/20/2021
 
 ---
 

@@ -40,8 +40,9 @@ Using an authentication broker such as WAM has numerous benefits.
 
 ## WAM limitations
 
-- B2C authorities are not supported.
-- Available on Win10, Win Server 2016, Win Server 2019. On Mac, Linux and earlier Windows, MSAL will fallback to a browser.
+- B2C and ADFS authorities are not supported. MSAL will fallback to a browser.
+- Available on Win10+ and Win Server 2019+. On Mac, Linux and earlier Windows MSAL will fallback to a browser.
+- Not available on Xbox.
 
 ## WAM calling pattern
 
@@ -137,7 +138,7 @@ Applications cannot remove accounts from Windows!
 
 - WAM's interactive operations require being on the UI thread. MSAL throws a meaningful exception when not on UI thread. This does NOT apply to console apps.
 - `WithAccount` provides an accelerated authentication experience if the MSAL account was originally obtained via WAM, or, WAM can find a work and school account in Windows.
-- WAM is not able to pre-populate the username field with a login hint, unless an Work and School account with the same username is found in Windows.
+- WAM is not able to pre-populate the username field with a login hint, unless a Work and School account with the same username is found in Windows.
 - If WAM is unable to offer an accelerated authentication experience, it will show an account picker. Users can add new accounts.
 
 !["WAM account picker"](media/scenario-desktop-acquire-token-wam/wam-account-picker.png)

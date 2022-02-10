@@ -63,8 +63,6 @@
     items:
     - name: Create a virtual machine scale set
       href: ./scripts/cli-sample-create-simple-scale-set.md
-    - name: Create and manage virtual machine scale set
-      href: ./scripts/cli-sample-manage-scale-set.md
     - name: Create a scale set from a custom VM image
       href: ./scripts/cli-sample-create-scale-set-from-custom-image.md
     - name: Install applications to a scale set
@@ -190,7 +188,7 @@
   - name: Endorsed Linux distros
     href: ../virtual-machines/linux/endorsed-distros.md
     maintainContext: true
-  - name: Orchestration modes (preview)
+  - name: Orchestration modes
     items:
     - name: Overview 
       href: virtual-machine-scale-sets-orchestration-modes.md
@@ -264,13 +262,13 @@
       href: virtual-machine-scale-sets-design-overview.md
     - name: Understand instance IDs
       href: virtual-machine-scale-sets-instance-ids.md
-  - name: Shared Image Galleries
+  - name: Azure Compute Gallery
     items:
     - name: Overview
-      displayName: Shared Image Gallery, SIG, sig, gallery, image
+      displayName: Shared Image Gallery, SIG, sig, gallery, image, Azure Compute Gallery
       href: ../virtual-machines/shared-image-galleries.md
     - name: Create a gallery
-      displayName: Shared Image Gallery, SIG, sig, gallery, image
+      displayName: Shared Image Gallery, SIG, sig, gallery, image, Azure Compute Gallery
       href: ../virtual-machines/create-gallery.md
     - name: Share a gallery
       href: ../virtual-machines/share-gallery.md

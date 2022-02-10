@@ -45,7 +45,7 @@ the package provides functions to construct Relay URIs and tokens.
    code does not differ significantly from the regular use of the Node.js
    HTTPS client; it just adds the authorization header.
    
-    ```js
+   ```js
    https.get({
         hostname : ns,
         path : (!path || path.length == 0 || path[0] !== '/'?'/':'') + path,
@@ -54,7 +54,7 @@ the package provides functions to construct Relay URIs and tokens.
             'ServiceBusAuthorization' : 
                 https.createRelayToken(https.createRelayHttpsUri(ns, path), keyrule, key)
         }
-    }, (res) => {
+   }, (res) => {
         let error;
         if (res.statusCode !== 200) {
             console.error('Request Failed.\n Status Code: ${statusCode}');
@@ -69,10 +69,10 @@ the package provides functions to construct Relay URIs and tokens.
                 console.log('No more data in response.');
             });
         };
-    }).on('error', (e) => {
+   }).on('error', (e) => {
         console.error(`Got error: ${e.message}`);
-    });
-    ```
+   });
+   ```
     Here is what your sender.js file should look like:
    
     ```js

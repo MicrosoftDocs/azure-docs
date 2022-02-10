@@ -67,7 +67,7 @@ sections:
       - question: |
           How do I request support for another data source?
         answer: |
-          To submit feature requests and other feedback, go to the [Data Catalog on the Azure Feedback Forums](https://feedback.azure.com/forums/906052-data-catalog/category/320788-data-sources).
+          To submit feature requests and other feedback, go to the [Data Catalog on the Azure Feedback Forums](https://feedback.azure.com/d365community/forum/3bedd14b-6b26-ec11-b6e6-000d3a4f032c?c=47edd14b-6b26-ec11-b6e6-000d3a4f032c#).
           
       - question: |
           Why do I get an error 'Catalog already exists' when I try to create a new catalog?
@@ -144,7 +144,7 @@ sections:
       - question: |
           Does the catalog work with another data source that I’m interested in?
         answer: |
-          We’re actively working on adding more data sources to Data Catalog. If you want to see a specific data source supported, suggest it (or voice your support if it has already been suggested) by going to the [Data Catalog on the Azure Feedback Forums](https://feedback.azure.com/forums/906052-data-catalog).
+          We’re actively working on adding more data sources to Data Catalog. If you want to see a specific data source supported, suggest it (or voice your support if it has already been suggested) by going to the [Data Catalog on the Azure Feedback Forums](https://feedback.azure.com/d365community/forum/3bedd14b-6b26-ec11-b6e6-000d3a4f032c).
           
       - question: |
           What permissions do I need to register assets with Data Catalog?
@@ -161,7 +161,7 @@ sections:
       - question: |
           Can I extract more or richer metadata from the data sources I register?
         answer: |
-          We’re actively working to expand the capabilities of Data Catalog. If you want to have additional metadata extracted from the data source during registration, suggest it (or vote for it, if it has already been suggested) in the [Data Catalog on the Azure Feedback Forums](https://feedback.azure.com/forums/906052-data-catalog). 
+          We’re actively working to expand the capabilities of Data Catalog. If you want to have additional metadata extracted from the data source during registration, suggest it (or vote for it, if it has already been suggested) in the [Data Catalog on the Azure Feedback Forums](https://feedback.azure.com/d365community/forum/3bedd14b-6b26-ec11-b6e6-000d3a4f032c). 
           
           If you would like to include column/schema metadata, previews, or data profiles, for data sources where this metadata is not extracted by the data source registration tool, you can use the Data Catalog API to add this metadata. For additional information, see [Azure Data Catalog REST API](/rest/api/datacatalog/).
           

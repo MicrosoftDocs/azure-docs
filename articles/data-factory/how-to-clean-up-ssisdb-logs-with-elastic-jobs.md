@@ -4,7 +4,7 @@ description: This article describes how to clean up SSIS project deployment and 
 ms.service: data-factory
 ms.subservice: integration-services
 ms.topic: conceptual
-ms.date: 08/28/2021
+ms.date: 10/22/2021
 author: swinarko
 ms.author: sawinark
 ms.custom: devx-track-azurepowershell
@@ -284,7 +284,7 @@ $Job | Set-AzureRmSqlElasticJob -IntervalType $IntervalType -IntervalCount $Inte
 
 The following T-SQL scripts create a new Elastic Job that invokes your selected SSISDB log clean-up stored procedure. For more info, see [Use T-SQL to create and manage Elastic Database Jobs](../azure-sql/database/elastic-jobs-tsql-create-manage.md).
 
-1. Identify an empty S0/higher service tier of Azure SQL Database or create a new one for your job database. Then create an Elastic Job Agent in [Azure portal](https://ms.portal.azure.com/#create/Microsoft.SQLElasticJobAgent).
+1. Identify an empty S0/higher service tier of Azure SQL Database or create a new one for your job database. Then create an Elastic Job Agent in [Azure portal](https://portal.azure.com/#create/Microsoft.SQLElasticJobAgent).
 
 2. In your job database, create credentials for connecting to SSISDB in your target server.
 

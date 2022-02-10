@@ -15,7 +15,7 @@ ms.author: lajanuar
 
 > [!IMPORTANT]
 >
-> Managed identity for Document Translation is currently unavailable in the global region. If you intend to use managed identity for Document Translation operations, [create your Translator resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) in a non-global Azure region.
+> Managed identity for Document Translation is currently unavailable in the global region. If you intend to use managed identity for Document Translation operations, [create your Translator resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) in a non-global Azure region.
 
 ## What is managed identity?
 
@@ -29,11 +29,11 @@ To get started, you'll need:
 
 * An active [**Azure account**](https://azure.microsoft.com/free/cognitive-services/)—if you don't have one, you can [**create a free account**](https://azure.microsoft.com/free/).
 
-* A [**single-service Translator**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) (not a multi-service Cognitive Services) resource assigned to a **non-global** region. For detailed steps, _see_ [Create a Cognitive Services resource using the Azure portal](../../cognitive-services-apis-create-account.md?tabs=multiservice%2cwindows).
+* A [**single-service Translator**](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) (not a multi-service Cognitive Services) resource assigned to a **non-global** region. For detailed steps, _see_ [Create a Cognitive Services resource using the Azure portal](../../cognitive-services-apis-create-account.md?tabs=multiservice%2cwindows).
 
 * A brief understanding of [**Azure role-based access control (Azure RBAC)**](../../../role-based-access-control/role-assignments-portal.md) using the Azure portal.
 
-* An [**Azure blob storage account**](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM) in the same region as your Translator resource. You'll create containers to store and organize your blob data within your storage account. 
+* An [**Azure blob storage account**](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM) in the same region as your Translator resource. You'll create containers to store and organize your blob data within your storage account. 
 
 * **If your storage account is behind a firewall, you must enable the following configuration**: </br>
 
@@ -43,7 +43,7 @@ To get started, you'll need:
   * In the main window, select **Allow access from Selected networks**.
   :::image type="content" source="../media/managed-identities/firewalls-and-virtual-networks.png" alt-text="Screenshot: Selected networks radio button selected.":::
 
-  * On the selected networks page navigate to the **Exceptions** category and make certain that the  [**Allow Azure services on the trusted services list to access this storage account**](/azure/storage/common/storage-network-security?tabs=azure-portal#manage-exceptions) checkbox is enabled.
+  * On the selected networks page navigate to the **Exceptions** category and make certain that the  [**Allow Azure services on the trusted services list to access this storage account**](../../../storage/common/storage-network-security.md?tabs=azure-portal#manage-exceptions) checkbox is enabled.
 
     :::image type="content" source="../media/managed-identities/allow-trusted-services-checkbox-portal-view.png" alt-text="Screenshot: allow trusted services checkbox, portal view":::
 
@@ -108,4 +108,4 @@ In the following steps, we'll enable a system-assigned managed identity and gran
 > [Managed identities for Azure resources: frequently asked questions](../../../active-directory/managed-identities-azure-resources/managed-identities-faq.md)
 
 > [!div class="nextstepaction"]
->[Use managed identities to acquire an access token](../../../app-service/overview-managed-identity.md?tabs=dotnet#obtain-tokens-for-azure-resources)
+>[Use managed identities to acquire an access token](../../../app-service/overview-managed-identity.md?tabs=dotnet#configure-target-resource)

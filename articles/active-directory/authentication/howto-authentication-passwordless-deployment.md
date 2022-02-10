@@ -10,7 +10,7 @@ ms.date: 05/28/2021
 
 ms.author: baselden
 author: BarbaraSelden
-manager: daveba
+manager: martinco
 ms.reviewer: dawoo
 
 ms.collection: M365-identity-device-management
@@ -297,7 +297,7 @@ Here are the sample test cases for passwordless authentication with security key
 | User can't perform combined registration.| Ensure [combined registration](concept-registration-mfa-sspr-combined.md) is enabled. |
 | User can't add a security key in their [security settings](https://aka.ms/mysecurityinfo).| Ensure that [security keys](howto-authentication-passwordless-security-key.md) are enabled. |
 | User can't add security key in Windows 10 sign-in options.| [Ensure that security keys for Windows sign in](concept-authentication-passwordless.md) are enabled |
-| **Error message**: We detected that this browser or OS doesn't support FIDO2 security keys.| Passwordless FIDO2 security devices can only be registered in supported browsers (Microsoft Edge, Firefox version 67) o Windows 10 version 1809 or higher. |
+| **Error message**: We detected that this browser or OS doesn't support FIDO2 security keys.| Passwordless FIDO2 security devices can only be registered in supported browsers (Microsoft Edge, Firefox version 67) on Windows 10 version 1809 or higher. |
 | **Error message**: Your company policy requires that you use a different method to sign in.| Ensure security keys are enabled in the tenant. |
 | User unable to manage my security key on Windows 10 version 1809| Version 1809 requires that you use the security key management software provided by the FIDO2 key vendor. Contact the vendor for support. |
 | I think my FIDO2 security key may be defective—how can I test it.| Navigate to [https://webauthntest.azurewebsites.net/](https://webauthntest.azurewebsites.net/), enter credentials for a test account, plug in the suspect security key, select the + button at the top right of the screen, select create, and go through the creation process. If this scenario fails, your device may be defective. |
@@ -316,7 +316,7 @@ You can also manage the passwordless authentication methods using the authentica
 
 * Manage your authentication method policies for security keys and Microsoft Authenticator app.
 
-For more information on what authentication methods can be managed in Microsoft Graph, see [Azure AD authentication methods API overview](/graph/api/resources/authenticationmethods-overview?view=graph-rest-beta&preserve-view=true).
+For more information on what authentication methods can be managed in Microsoft Graph, see [Azure AD authentication methods API overview](/graph/api/resources/authenticationmethods-overview).
 
 ### Rollback
 
@@ -352,7 +352,7 @@ Azure AD adds entries to the audit logs when:
 
 * A user enables or disables their account on a security key or resets the second factor for the security key on their Win 10 machine. See event IDs: 4670 and 5382.
 
-**Azure AD keeps most auditing data for 30 days** and makes the data available via Azure Admin portal or API for you to download into your analysis systems. If you require longer retention, export and consume logs in a SIEM tool such as [Azure Sentinel](../../sentinel/connect-azure-active-directory.md), Splunk, or Sumo Logic. We recommend longer retention for auditing, trend analysis, and other business needs as applicable
+**Azure AD keeps most auditing data for 30 days** and makes the data available via Azure Admin portal or API for you to download into your analysis systems. If you require longer retention, export and consume logs in a SIEM tool such as [Microsoft Sentinel](../../sentinel/connect-azure-active-directory.md), Splunk, or Sumo Logic. We recommend longer retention for auditing, trend analysis, and other business needs as applicable
 
 There are two tabs in the Authentication methods activity dashboard - Registration and Usage.
 

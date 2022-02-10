@@ -62,6 +62,8 @@
     href: virtual-network-support.md
   - name: Reprovisioning
     href: concepts-device-reprovision.md  
+  - name: High availabilty and disaster recovery
+    href: iot-dps-ha-dr.md
   - name: Understanding DPS IP addresses
     href: iot-dps-understand-ip-address.md
   - name: TLS support
@@ -96,16 +98,22 @@
       href: how-to-control-access.md
     - name: Configure IP filtering
       href: iot-dps-ip-filtering.md
+    - name: Managing public network access
+      href: public-network-access.md
   - name: Provision IoT Edge devices
     items: 
     - name: Linux
-      href: ../iot-edge/how-to-auto-provision-simulated-device-linux.md
+      href: ../iot-edge/how-to-provision-devices-at-scale-linux-tpm.md
       maintainContext: true
     - name: Windows
-      href: ../iot-edge/how-to-auto-provision-simulated-device-windows.md
+      href: ../iot-edge/how-to-provision-devices-at-scale-windows-tpm.md
       maintainContext: true
-  - name: Troubleshooting
-    href: how-to-troubleshoot-dps.md 
+  - name: Troubleshooting and FAQ
+    items:
+    - name: Troubleshooting DPS
+      href: how-to-troubleshoot-dps.md
+    - name: DPS FAQ
+      href: dps-faq.yml
 - name: Reference
   items:
   - name: REST API
@@ -135,17 +143,17 @@
     - name: IoT Hub
       href: ../iot-hub/index.yml
     - name: IoT Hub Device Provisioning Service
-      href: ./index.yml
+      href: ../iot-dps/index.yml
     - name: IoT Central
-      href: /microsoft-iot-central/
+      href: ../iot-central/index.yml
     - name: IoT Edge
       href: ../iot-edge/index.yml
-    - name: IoT Plug and Play
-      href: ../iot-develop/index.yml
     - name: Azure Maps
       href: ../azure-maps/index.yml
     - name: Time Series Insights
       href: ../time-series-insights/index.yml
+  - name: IoT device developer
+    href: ../iot-develop/index.yml
   - name: Azure IoT SDKs
     items:
     - name: IoT Service SDKs

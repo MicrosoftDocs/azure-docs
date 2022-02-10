@@ -1,13 +1,13 @@
 ---
 title: Key advantages
 description: Learn about basic Defender for IoT concepts.
-ms.date: 09/09/2021
+ms.date: 11/09/2021
 ms.topic: article
 ---
 
 # Basic concepts
 
-This article describes key advantages of Azure Defender for IoT.
+This article describes key advantages of Microsoft Defender for IoT.
 
 ## Rapid non-invasive deployment and passive monitoring
 
@@ -52,7 +52,7 @@ The platform provides an intuitive data-mining interface for granular searching 
 
 The Sensor Cloud Management mode determines where device, alert, and other information that the sensor detects is displayed.
 
-For **cloud-connected sensors**, information that the sensor detects is displayed in the sensor console. Alert information is delivered through an IoT hub and can be shared with other Azure services, such as Azure Sentinel.
+For **cloud-connected sensors**, information that the sensor detects is displayed in the sensor console. Alert information is delivered through an IoT hub and can be shared with other Azure services, such as Microsoft Sentinel.
 
 For **locally connected sensors**, information that the sensor detects is displayed in the sensor console. Detection information is also shared with the on-premises management console if the sensor is connected to it.
 
@@ -109,6 +109,76 @@ In addition, working with Horizon custom alerts lets you write your own alert ti
 Using custom, condition-based alert triggering and messaging helps pinpoint specific network activity and effectively update your security, IT, and operational teams.
 
 For a complete list of supported protocols see, [Supported Protocols](concept-supported-protocols.md#supported-protocols).
+
+
+### Secure development environment 
+
+The Horizon ODE enables development of custom or proprietary protocols that cannot be shared outside an organization. For example, because of legal regulations or corporate policies.
+
+Develop dissector plugins without: 
+
+- revealing any proprietary information about how your protocols are defined.
+
+- sharing any of your sensitive PCAPs.
+
+- violating compliance regulations.
+
+Contact <ms-horizon-support@microsoft.com> for information about developing protocol plugins.
+
+### Customization and localization  
+
+The SDK supports various customization options, including:
+
+  - Text for function codes. 
+
+  - Full localization text for alerts, events, and protocol parameters.
+
+  :::image type="content" source="media/references-horizon-sdk/localization.png" alt-text="View fully localized alerts.":::
+
+## Horizon architecture
+
+The architectural model includes three product layers.
+
+:::image type="content" source="media/references-horizon-sdk/architecture.png" alt-text="https://lh6.googleusercontent.com/YFePqJv_6jbI_oy3lCQv-hHB1Qly9a3QQ05uMnI8UdTwhOuxpNAedj_55wseYEQQG2lue8egZS-mlnQZPWfFU1dF4wzGQSJIlUqeXEHg9CG4M7ASCZroKgbghv-OaNoxr3AIZtIh":::
+
+### Defender for IoT platform layer
+
+Enables immediate integration and real-time monitoring of custom dissector plugins in the Defender for IoT platform, without the need to upgrade the Defender for IoT platform version.
+
+### Defender for IoT services layer
+
+Each service is designed as a pipeline, decoupled from a specific protocol, enabling more efficient, independent development.
+
+Each service is designed as a pipeline, decoupled from a specific protocol. Services listens for traffic on the pipeline. They interact with the plugin data and the traffic captured by the sensors to index deployed protocols and analyze the traffic payload, and enable a more efficient and independent development.
+
+### Custom dissector layer 
+
+Enables creation of plugins using the Defender for IoT proprietary SDK (including C++ implementation and JSON configuration) to: 
+
+- Define how to identify the protocol
+
+- Define how to map the fields you want to extract from the traffic, and extract them 
+
+- Define how to integrate with the Defender for IoT services
+
+  :::image type="content" source="media/references-horizon-sdk/layers.png" alt-text="The built-in layers.":::
+
+Defender for IoT provides basic dissectors for common protocols. You can build your dissectors on top of these protocols.
+
+
+## What is an Inventory Device
+
+The Defender for IoT Device inventory displays an extensive range of asset attributes that are detected by sensors monitoring the organizations networks and managed endpoints.
+
+Defender for IoT will identify and classify devices as a single unique network device in the inventory for:
+
+1. Standalone IT/OT/IoT devices (w/ 1 or multiple NICs)
+1. Devices composed of multiple backplane components (including all racks/slots/modules)
+1. Devices acting as network infrastructure such as Switch/Router (w/ multiple NICs). 
+
+Public internet IP addresses, multicast groups, and broadcast groups are not considered inventory devices.
+Devices that have been inactive for more than 60 days are classified as inactive Inventory devices.
+
 
 ## High availability
 

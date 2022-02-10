@@ -6,6 +6,7 @@ ms.suite: integration
 ms.reviewer: rarayudu, azla
 ms.topic: how-to
 ms.date: 09/13/2021
+ms.custom: ignite-fall-2021
 ---
 
 # Secure access and data in Azure Logic Apps
@@ -976,7 +977,7 @@ This table identifies the authentication types that are available on the trigger
 | [Client Certificate](#client-certificate-authentication) | Azure API Management, Azure App Services, HTTP, HTTP + Swagger, HTTP Webhook |
 | [Active Directory OAuth](#azure-active-directory-oauth-authentication) | Azure API Management, Azure App Services, Azure Functions, HTTP, HTTP + Swagger, HTTP Webhook |
 | [Raw](#raw-authentication) | Azure API Management, Azure App Services, Azure Functions, HTTP, HTTP + Swagger, HTTP Webhook |
-| [Managed identity](#managed-identity-authentication) | **Built-in triggers and actions** <p><p>Azure API Management, Azure App Services, Azure Functions, HTTP, HTTP Webhook <p><p>**Managed connectors** <p><p>Azure AD Identity Protection, Azure Automation, Azure Container Instance, Azure Data Explorer, Azure Data Factory, Azure Data Lake, Azure Event Grid, Azure IoT Central V3, Azure Key Vault, Azure Resource Manager, Azure Sentinel, HTTP with Azure AD <p><p>**Note**: Support for managed connectors is currently in preview. |
+| [Managed identity](#managed-identity-authentication) | **Logic App (Consumption)**: <p><p>- **Built-in**: Azure API Management, Azure App Services, Azure Functions, HTTP, HTTP Webhook <p><p>- **Managed connector** (preview): <p><p>--- **Single-authentication**: Azure AD Identity Protection, Azure Automation, Azure Container Instance, Azure Data Explorer, Azure Data Factory, Azure Data Lake, Azure Event Grid, Azure Key Vault, Azure Resource Manager, Microsoft Sentinel, HTTP with Azure AD <p><p>--- **Multi-authentication**: Azure Blob Storage, SQL Server <p><p>___________________________________________________________________________________________<p><p>**Logic App (Standard)**: <p><p>- **Built-in**: HTTP, HTTP Webhook <p><p>- **Managed connector** (preview): <p>--- **Single-authentication**: Azure AD Identity Protection, Azure Automation, Azure Container Instance, Azure Data Explorer, Azure Data Factory, Azure Data Lake, Azure Event Grid, Azure Key Vault, Azure Resource Manager, Microsoft Sentinel, HTTP with Azure AD <p><p>--- **Multi-authentication**: Azure Blob Storage, SQL Server |
 |||
 
 <a name="basic-authentication"></a>
@@ -1156,7 +1157,13 @@ When the [managed identity](../active-directory/managed-identities-azure-resourc
 
 * The **Logic App (Consumption)** resource type can use the system-assigned identity or a *single* manually created user-assigned identity.
 
-* The **Logic App (Standard)** resource type can use only the system-assigned identity, which is automatically enabled. The user-assigned identity is currently unavailable.
+* The **Logic App (Standard)** resource type supports having the [system-assigned managed identity *and* multiple user-assigned managed identities](create-managed-service-identity.md) enabled at the same time, though you still can only select one identity to use at any time.
+
+  > [!NOTE]
+  > By default, the system-assigned identity is already enabled to authenticate connections at run time. 
+  > This identity differs from the authentication credentials or connection string that you use when you 
+  > create a connection. If you disable this identity, connections won't work at run time. To view 
+  > this setting, on your logic app's menu, under **Settings**, select **Identity**.
 
 1. Before your logic app can use a managed identity, follow the steps in [Authenticate access to Azure resources by using managed identities in Azure Logic Apps](../logic-apps/create-managed-service-identity.md). These steps enable the managed identity on your logic app and set up that identity's access to the target Azure resource.
 
@@ -1169,7 +1176,7 @@ When the [managed identity](../active-directory/managed-identities-azure-resourc
    | Property (designer) | Property (JSON) | Required | Value | Description |
    |---------------------|-----------------|----------|-------|-------------|
    | **Authentication** | `type` | Yes | **Managed Identity** <br>or <br>`ManagedServiceIdentity` | The authentication type to use |
-   | **Managed Identity** | `identity` | Yes | * **System Assigned Managed Identity** <br>or <br>`SystemAssigned` <p><p>* <*user-assigned-identity-ID*> | The managed identity to use |
+   | **Managed Identity** | `identity` | No | <*user-assigned-identity-ID*> | The user-assigned managed identity to use. **Note**: Don't include this property when using the system-assigned managed identity. |
    | **Audience** | `audience` | Yes | <*target-resource-ID*> | The resource ID for the target resource that you want to access. <p>For example, `https://storage.azure.com/` makes the [access tokens](../active-directory/develop/access-tokens.md) for authentication valid for all storage accounts. However, you can also specify a root service URL, such as `https://fabrikamstorageaccount.blob.core.windows.net` for a specific storage account. <p>**Note**: The **Audience** property might be hidden in some triggers or actions. To make this property visible, in the trigger or action, open the **Add new parameter** list, and select **Audience**. <p><p>**Important**: Make sure that this target resource ID *exactly matches* the value that Azure AD expects, including any required trailing slashes. So, the `https://storage.azure.com/` resource ID for all Azure Blob Storage accounts requires a trailing slash. However, the resource ID for a specific storage account doesn't require a trailing slash. To find these resource IDs, see [Azure services that support Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication). |
    |||||
 
@@ -1183,7 +1190,6 @@ When the [managed identity](../active-directory/managed-identities-azure-resourc
          "uri": "@parameters('endpointUrlParam')",
          "authentication": {
             "type": "ManagedServiceIdentity",
-            "identity": "SystemAssigned",
             "audience": "https://management.azure.com/"
          },
       },

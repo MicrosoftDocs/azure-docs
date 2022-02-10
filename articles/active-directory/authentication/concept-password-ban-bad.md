@@ -10,7 +10,7 @@ ms.date: 07/13/2021
 
 ms.author: justinha
 author: justinha
-manager: daveba
+manager: karenhoran
 ms.reviewer: rogoya
 
 ms.collection: M365-identity-device-management
@@ -203,9 +203,13 @@ Let's look a slightly different example to show how additional complexity in a p
 
 ## What do users see
 
-When a user attempts to reset a password to something that would be banned, the following error message is displayed:
+When a user attempts to reset or change a password to something that would be banned, one of the following error messages are displayed:
 
 *"Unfortunately, your password contains a word, phrase, or pattern that makes your password easily guessable. Please try again with a different password."*
+
+*"We've seen that password too many times before. Choose something harder to guess."*
+
+*"Choose a password that's harder for people to guess."*
 
 ## License requirements
 

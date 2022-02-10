@@ -214,7 +214,7 @@ For an end-to-end overview of this procedure, view the [Azure VMware Solution: S
 
 ## Next steps
 
-Now that you've configure the HCX Connector, you can also learn about:
+Now that you've configured the HCX Connector, you can also learn about:
 
 - [Create a HCX network extension](configure-hcx-network-extension.md)
 

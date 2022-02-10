@@ -1,23 +1,23 @@
 ---
 title: Common Event Format (CEF) key and CommonSecurityLog field mapping
-description: This article maps CEF keys to the corresponding field names in the CommonSecurityLog in Azure Sentinel.
-services: sentinel
+description: This article maps CEF keys to the corresponding field names in the CommonSecurityLog in Microsoft Sentinel.
 author: batamig
 ms.author: bagol
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
 ms.topic: reference
-ms.date: 07/26/2021
+ms.date: 11/09/2021
+ms.custom: ignite-fall-2021
 ---
 
 # CEF and CommonSecurityLog field mapping
 
-The following tables map Common Event Format (CEF) field names to the names they use in Azure Sentinel's CommonSecurityLog, and may be helpful when you are working with a CEF data source in Azure Sentinel.
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+
+The following tables map Common Event Format (CEF) field names to the names they use in Microsoft Sentinel's CommonSecurityLog, and may be helpful when you are working with a CEF data source in Microsoft Sentinel.
 
 For more information, see [Connect your external solution using Common Event Format](connect-common-event-format.md).
 
 > [!NOTE]
-> An Azure Sentinel workspace is required in order to [ingest CEF data](connect-common-event-format.md#prerequisites) into Log Analytics.
+> A Microsoft Sentinel workspace is required in order to [ingest CEF data](connect-common-event-format.md#prerequisites) into Log Analytics.
 >
 
 ## A - C
@@ -231,7 +231,7 @@ The following table maps CEF key and CommonSecurityLog names for the *integer* f
 
 ## Enrichment fields
 
-The following **CommonSecurityLog** fields are added by Azure Sentinel to enrich the original events received from the source devices, and don't have mappings in CEF keys:
+The following **CommonSecurityLog** fields are added by Microsoft Sentinel to enrich the original events received from the source devices, and don't have mappings in CEF keys:
 
 ### Threat intelligence fields
 

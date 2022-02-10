@@ -8,7 +8,8 @@
     href: overview-monitoring.md
   - name: What is the sign-in diagnostic?
     href: overview-sign-in-diagnostics.md
-   
+  - name: What are flagged sign-ins?
+    href: overview-flagged-sign-ins.md
 - name: Quickstarts
   expanded: true
   items:
@@ -56,6 +57,8 @@
   items:
   - name: Reports
     items:
+    - name: Access activity logs
+      href: howto-access-activity-logs.md
     - name: Download logs
       href: howto-download-logs.md
     - name: Manage inactive user accounts in Azure AD
@@ -98,8 +101,8 @@
 - name: Reference
   expanded: true
   items:
-  - name: Basic info identifiers in the sign-in log
-    href: reference-basic-info-identifiers.md
+  - name: Basic info in the sign-in logs
+    href: reference-basic-info-sign-in-logs.md
   - name: Azure AD PowerShell cmdlets for reporting
     href: reference-powershell-reporting.md
   - name: Audit logs API reference
@@ -116,3 +119,11 @@
     href: reports-faq.yml
   - name: Sign-in log schema
     href: reference-azure-monitor-sign-ins-log-schema.md
+  - name: Workbooks
+    items:
+    - name: Conditional access gap analyzer
+      href: workbook-conditional-access-gap-analyzer.md
+    - name: Cross-tenant access activity 
+      href: workbook-cross-tenant-access-activity.md
+    - name: Sensitive Operations Report 
+      href: workbook-sensitive-operations-report.md

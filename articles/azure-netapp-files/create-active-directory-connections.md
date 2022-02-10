@@ -3,7 +3,7 @@ title: Create and manage Active Directory connections for Azure NetApp Files | M
 description: This article shows you how to create and manage Active Directory connections for Azure NetApp Files.
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 
@@ -11,10 +11,9 @@ ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
-ms.date: 09/09/2021
-ms.author: b-juche
+ms.date: 01/21/2022
+ms.author: anfdocs
 ---
 # Create and manage Active Directory connections for Azure NetApp Files
 
@@ -22,7 +21,7 @@ Several features of Azure NetApp Files require that you have an Active Directory
 
 ## Before you begin  
 
-* You must have already set up a capacity pool. See [Set up a capacity pool](azure-netapp-files-set-up-capacity-pool.md).   
+* You must have already set up a capacity pool. See [Create a capacity pool](azure-netapp-files-set-up-capacity-pool.md).   
 * A subnet must be delegated to Azure NetApp Files. See [Delegate a subnet to Azure NetApp Files](azure-netapp-files-delegate-subnet.md).
 
 ## <a name="requirements-for-active-directory-connections"></a>Requirements and considerations for Active Directory connections
@@ -34,6 +33,8 @@ Several features of Azure NetApp Files require that you have an Active Directory
     The AD connection is visible only through the NetApp account it is created in. However, you can enable the Shared AD feature to allow NetApp accounts that are under the same subscription and same region to use an AD server created in one of the NetApp accounts. See [Map multiple NetApp accounts in the same subscription and region to an AD connection](#shared_ad). When you enable this feature, the AD connection becomes visible in all NetApp accounts that are under the same subscription and same region. 
 
 * The admin account you use must have the capability to create machine accounts in the organizational unit (OU) path that you will specify.  
+
+* The admin account you use must have the capability to create machine accounts in the organizational unit (OU) path that you will specify. In some cases, `msDS-SupportedEncryptionTypes` write permission is required to set account attributes within AD.
 
 * If you change the password of the Active Directory user account that is used in Azure NetApp Files, be sure to update the password configured in the [Active Directory Connections](#create-an-active-directory-connection). Otherwise, you will not be able to create new volumes, and your access to existing volumes might also be affected depending on the setup.  
 
@@ -73,6 +74,8 @@ Several features of Azure NetApp Files require that you have an Active Directory
     If you have domain controllers that are unreachable by the Azure NetApp Files delegated subnet, you can specify an Active Directory site during creation of the Active Directory connection.  Azure NetApp Files needs to communicate only with domain controllers in the site where the Azure NetApp Files delegated subnet address space is.
 
     See [Designing the site topology](/windows-server/identity/ad-ds/plan/designing-the-site-topology) about AD sites and services. 
+
+* Avoid configuring overlapping subnets in the AD machine. Even if the site name is defined in the Active Directory connections, overlapping subnets might result in the wrong site being discovered, thus affecting the service. It might also affect new volume creation or AD modification. 
     
 * You can enable AES encryption for AD Authentication by checking the **AES Encryption** box in the [Join Active Directory](#create-an-active-directory-connection) window. Azure NetApp Files supports DES, Kerberos AES 128, and Kerberos AES 256 encryption types (from the least secure to the most secure). If you enable AES encryption, the user credentials used to join Active Directory must have the highest corresponding account option enabled that matches the capabilities enabled for your Active Directory.    
 
@@ -86,7 +89,20 @@ Several features of Azure NetApp Files require that you have an Active Directory
 
     [LDAP channel binding](https://support.microsoft.com/help/4034879/how-to-add-the-ldapenforcechannelbinding-registry-entry) configuration alone has no effect on the Azure NetApp Files service. However, if you use both LDAP channel binding and secure LDAP (for example, LDAPS or `start_tls`), then the SMB volume creation will fail.
 
-* For non-AD integrated DNS, you should add a DNS A/PTR record to enable Azure NetApp Files to function by using a “friendly name". 
+* Azure NetApp Files will attempt to add an A/PTR record in DNS for AD integrated DNS servers. Add a reverse lookup zone if one is missing under Reverse Lookup Zones on AD server. For non-AD integrated DNS, you should add a DNS A/PTR record to enable Azure NetApp Files to function by using a “friendly name".
+
+* The following table describes the Time to Live (TTL) settings for the LDAP cache. You need to wait until the cache is refreshed before trying to access a file or directory through a client. Otherwise, an access or permission denied message appears on the client. 
+
+    |     Error condition    |     Resolution    |
+    |-|-|
+    | Cache |  Default Timeout |
+    | Group membership list  | 24-hour TTL  |
+    | Unix groups  | 24-hour TTL, 1-minute negative TTL  |
+    | Unix users  | 24-hour TTL, 1-minute negative TTL  |
+
+    Caches have a specific timeout period called *Time to Live*. After the timeout period, entries age out so that stale entries do not linger. The *negative TTL* value is where a lookup that has failed resides to help avoid performance issues due to LDAP queries for objects that might not exist.
+    
+* Azure NetApp Files does not support the use of Active Directory Domain Services Read-Only Domain Controllers (RODC). To ensure that Azure NetApp Files does not try to use an RODC domain controller, configure the **AD Site** field of the Azure NetApp Files Active Directory connection with an Active Directory site that does not contain any RODC domain controllers.
 
 ## Decide which Domain Services to use 
 
@@ -212,10 +228,22 @@ This setting is configured in the **Active Directory Connections** under **NetAp
         
         You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
 
-     * **Security privilege users**   <!-- SMB CA share feature -->   
-        You can grant security privilege (`SeSecurityPrivilege`) to users that require elevated privilege to access the Azure NetApp Files volumes. The specified user accounts will be allowed to perform certain actions on Azure NetApp Files SMB shares that require security privilege not assigned by default to domain users.   
+    * **LDAP over TLS**   
+        See [Configure ADDS LDAP over TLS](configure-ldap-over-tls.md) for information about this option.
 
-        For example, user accounts used for installing SQL Server in certain scenarios must be granted elevated security privilege. If you are using a non-administrator (domain) account to install SQL Server and the account does not have the security privilege assigned, you should add security privilege to the account.  
+    * **LDAP Search Scope**, **User DN**, **Group DN**, and **Group Membership Filter**   
+        See [Configure ADDS LDAP with extended groups for NFS volume access](configure-ldap-extended-groups.md#ldap-search-scope) for information about these options.
+
+     * **Security privilege users**   <!-- SMB CA share feature -->   
+        You can grant security privilege (`SeSecurityPrivilege`) to AD users or groups that require elevated privilege to access the Azure NetApp Files volumes. The specified AD users or groups will be allowed to perform certain actions on Azure NetApp Files SMB shares that require security privilege not assigned by default to domain users.   
+
+        The following privilege applies when you use the **Security privilege users** setting:
+
+        |  Privilege  |  Description  |
+        |---|---|
+        |  `SeSecurityPrivilege`  |  Manage log operations.  |
+
+        For example, user accounts used for installing SQL Server in certain scenarios must (temporarily) be granted elevated security privilege. If you are using a non-administrator (domain) account to install SQL Server and the account does not have the security privilege assigned, you should add security privilege to the account.  
 
         > [!IMPORTANT]
         > Using the **Security privilege users** feature requires that you submit a waitlist request through the **[Azure NetApp Files SMB Continuous Availability Shares Public Preview waitlist submission page](https://aka.ms/anfsmbcasharespreviewsignup)**. Wait for an official confirmation email from the Azure NetApp Files team before using this feature.        
@@ -227,7 +255,15 @@ This setting is configured in the **Active Directory Connections** under **NetAp
         ![Screenshot showing the Security privilege users box of Active Directory connections window.](../media/azure-netapp-files/security-privilege-users.png) 
 
      * **Backup policy users**  
-        You can include additional accounts that require elevated privileges to the computer account created for use with Azure NetApp Files. The specified accounts will be allowed to change the NTFS permissions at the file or folder level. For example, you can specify a non-privileged service account used for migrating data to an SMB file share in Azure NetApp Files.  
+        You can grant additional security privileges to AD users or groups that require elevated backup privileges to access the Azure NetApp Files volumes. The specified AD user accounts or groups will have elevated NTFS permissions at the file or folder level. For example, you can specify a non-privileged service account used for backing up, restoring, or migrating data to an SMB file share in Azure NetApp Files.
+
+        The following privileges apply when you use the **Backup policy users**  setting:
+
+        |  Privilege  |  Description  |
+        |---|---|
+        |  `SeBackupPrivilege`  |  Back up files and directories, overriding any ACLs.  |
+        |  `SeRestorePrivilege`  |  Restore files and directories, overriding any ACLs. <br> Set any valid user or group SID as the file owner.    |
+        |  `SeChangeNotifyPrivilege`  |  Bypass traverse checking. <br> Users with this privilege are not required to have traverse (`x`) permissions to traverse folders or symlinks.  |
 
         ![Active Directory backup policy users](../media/azure-netapp-files/active-directory-backup-policy-users.png)
 
@@ -248,9 +284,20 @@ This setting is configured in the **Active Directory Connections** under **NetAp
         
         You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status.  
 
-    * **Administrators** 
+    * **Administrators privilege users** 
 
-        You can specify users or groups that will be given administrator privileges on the volume. 
+        You can grant additional security privileges to AD users or groups that require even more elevated privileges to access the Azure NetApp Files volumes. The specified accounts will have further elevated permissions at the file or folder level.
+
+        The following privileges apply when you use the **Administrators privilege users** setting:
+
+        |  Privilege  |  Description  |
+        |---|---|
+        |  `SeBackupPrivilege`  |  Back up files and directories, overriding any ACLs. |  
+        |  `SeRestorePrivilege`  |  Restore files and directories, overriding any ACLs. <br> Set any valid user or group SID as the file owner.  |  
+        |  `SeChangeNotifyPrivilege`  |  Bypass traverse checking. <br> Users with this privilege are not required to have traverse (`x`) permissions to traverse folders or symlinks.  |  
+        |  `SeTakeOwnershipPrivilege`  |  Take ownership of files or other objects. |  
+        |  `SeSecurityPrivilege`  |  Manage log operations. |  
+        |  `SeChangeNotifyPrivilege`  |  Bypass traverse checking. <br> Users with this privilege are not required to have traverse (`x`) permissions to traverse folders or symlinks.  |  
 
         ![Screenshot that shows the Administrators box of Active Directory connections window.](../media/azure-netapp-files/active-directory-administrators.png) 
         
@@ -309,3 +356,5 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 * [Create a dual-protocol volume](create-volumes-dual-protocol.md)
 * [Configure NFSv4.1 Kerberos encryption](configure-kerberos-encryption.md)
 * [Install a new Active Directory forest using Azure CLI](/windows-server/identity/ad-ds/deploy/virtual-dc/adds-on-azure-vm) 
+* [Configure ADDS LDAP over TLS](configure-ldap-over-tls.md)
+* [ADDS LDAP with extended groups for NFS volume access](configure-ldap-extended-groups.md)

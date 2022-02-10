@@ -15,7 +15,7 @@ This article provides details about technical support policies and limitations f
 ## Service updates and releases
 
 * For release information, see [AKS release notes](https://github.com/Azure/AKS/releases).
-* For information on features in preview, see [AKS preview features and related projects](https://awesomeopensource.com/projects/aks?categoryPage=11).
+* For information on features in preview, see the [AKS roadmap](https://github.com/Azure/AKS/projects/1).
 
 ## Managed features in AKS
 
@@ -51,7 +51,7 @@ Microsoft provides technical support for the following examples:
 
 * Connectivity to all Kubernetes components that the Kubernetes service provides and supports, such as the API server.
 * Management, uptime, QoS, and operations of Kubernetes control plane services (Kubernetes control plane, API server, etcd, and coreDNS, for example).
-* Etcd data store. Support includes automated, transparent backups of all etcd data every 30 minutes for disaster planning and cluster state restoration. These backups aren't directly available to you or any users. They ensure data reliability and consistency. Etcd. on-demand rollback or restore is not supported as a feature.
+* Etcd data store. Support includes automated, transparent backups of all etcd data every 30 minutes for disaster planning and cluster state restoration. These backups aren't directly available to you or any users. They ensure data reliability and consistency. On-demand rollback or restore is not supported as a feature.
 * Any integration points in the Azure cloud provider driver for Kubernetes. These include integrations into other Azure services such as load balancers, persistent volumes, or networking (Kubernetes and Azure CNI).
 * Questions or issues about customization of control plane components such as the Kubernetes API server, etcd, and coreDNS.
 * Issues about networking, such as Azure CNI, kubenet, or other network access and functionality issues. Issues could include DNS resolution, packet loss, routing, and so on. Microsoft supports various networking scenarios:
@@ -102,7 +102,7 @@ Similarly, AKS regularly releases new kubernetes patches and minor versions. The
 
 #### User customization of agent nodes
 > [!NOTE]
-> AKS agent nodes appear in the Azure portal as regular Azure IaaS resources. But these virtual machines are deployed into a custom Azure resource group (usually prefixed with MC_\*). You cannot change the base OS image or do any direct customizations to these nodes using the IaaS APIs or resources. Any custom changes that are not done via the AKS API will not persist through an upgrade, scale, update or reboot. 
+> AKS agent nodes appear in the Azure portal as regular Azure IaaS resources. But these virtual machines are deployed into a custom Azure resource group (usually prefixed with MC_\*). You cannot change the base OS image or do any direct customizations to these nodes using the IaaS APIs or resources. Any custom changes that are not done via the AKS API will not persist through an upgrade, scale, update or reboot. Also any change to the nodes' extensions like the CustomScriptExtension one can lead to unexpected behavior and should be prohibited.
 > Avoid performing changes to the agent nodes unless Microsoft Support directs you to make changes.
 
 AKS manages the lifecycle and operations of agent nodes on your behalf - modifying the IaaS resources associated with the agent nodes is **not supported**. An example of an unsupported operation is customizing a node pool virtual machine scale set by manually changing configurations through the virtual machine scale set portal or API.

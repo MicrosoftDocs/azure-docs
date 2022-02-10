@@ -5,7 +5,7 @@ services: media-services
 author: xpouyat
 ms.service: media-services
 ms.workload: media
-ms.devlang: dotnet
+ms.devlang: csharp
 ms.topic: article
 ms.date: 06/09/2021
 ms.author: xpouyat

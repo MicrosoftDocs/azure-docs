@@ -1,18 +1,19 @@
 ---
-title: Use the Shared Image Gallery to create a custom image pool
+title: Use the Azure Compute Gallery to create a custom image pool
 description: Custom image pools are an efficient way to configure compute nodes to run your Batch workloads.
 ms.topic: conceptual
 ms.date: 03/04/2021
+ms.devlang: csharp, python
 ms.custom: devx-track-python, devx-track-azurecli
 ---
 
-# Use the Shared Image Gallery to create a custom image pool
+# Use the Azure Compute Gallery to create a custom image pool
 
-When you create an Azure Batch pool using the Virtual Machine Configuration, you specify a VM image that provides the operating system for each compute node in the pool. You can create a pool of virtual machines either with a supported Azure Marketplace image or create a custom image with a [Shared Image Gallery image](../virtual-machines/shared-image-galleries.md).
+When you create an Azure Batch pool using the Virtual Machine Configuration, you specify a VM image that provides the operating system for each compute node in the pool. You can create a pool of virtual machines either with a supported Azure Marketplace image or create a custom image with a [Azure Compute Gallery image](../virtual-machines/shared-image-galleries.md).
 
-## Benefits of the Shared Image Gallery
+## Benefits of the Azure Compute Gallery
 
-When you use the Shared Image Gallery for your custom image, you have control over the operating system type and configuration, as well as the type of data disks. Your Shared Image can include applications and reference data that become available on all the Batch pool nodes as soon as they are provisioned.
+When you use the Azure Compute Gallery for your custom image, you have control over the operating system type and configuration, as well as the type of data disks. Your Shared Image can include applications and reference data that become available on all the Batch pool nodes as soon as they are provisioned.
 
 You can also have multiple versions of an image as needed for your environment. When you use an image version to create a VM, the image version is used to create new disks for the VM.
 
@@ -24,7 +25,7 @@ Using a Shared Image configured for your scenario can provide several advantages
 - **Configure the operating system (OS).** You can customize the configuration of the image's operating system disk.
 - **Pre-install applications.** Pre-installing applications on the OS disk is more efficient and less error-prone than installing applications after provisioning the compute nodes with a start task.
 - **Copy large amounts of data once.** Make static data part of the managed Shared Image by copying it to a managed image's data disks. This only needs to be done once and makes data available to each node of the pool.
-- **Grow pools to larger sizes.** With the Shared Image Gallery, you can create larger pools with your customized images along with more Shared Image replicas.
+- **Grow pools to larger sizes.** With the Azure Compute Gallery, you can create larger pools with your customized images along with more Shared Image replicas.
 - **Better performance than using just a managed image as a custom image.** For a Shared Image custom image pool, the time to reach the steady state is up to 25% faster, and the VM idle latency is up to 30% shorter.
 - **Image versioning and grouping for easier management.** The image grouping definition contains information about why the image was created, what OS it is for, and information about using the image. Grouping images allows for easier image management. For more information, see [Image definitions](../virtual-machines/shared-image-galleries.md#image-definitions).
 
@@ -35,14 +36,14 @@ Using a Shared Image configured for your scenario can provide several advantages
 
 - **An Azure Batch account.** To create a Batch account, see the Batch quickstarts using the [Azure portal](quick-create-portal.md) or [Azure CLI](quick-create-cli.md).
 
-- **A Shared Image Gallery image**. To create a Shared Image, you need to have or create a managed image resource. The image should be created from snapshots of the VM's OS disk and optionally its attached data disks.
+- **an Azure Compute Gallery image**. To create a Shared Image, you need to have or create a managed image resource. The image should be created from snapshots of the VM's OS disk and optionally its attached data disks.
 
 > [!NOTE]
 > If the Shared Image is not in the same subscription as the Batch account, you must [register the Microsoft.Batch resource provider](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider) for that subscription. The two subscriptions must be in the same Azure AD tenant.
 >
 > The image can be in a different region as long as it has replicas in the same region as your Batch account.
 
-If you use an Azure AD application to create a custom image pool with a Shared Image Gallery image, that application must have been granted an [Azure built-in role](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles) that gives it access to the the Shared Image. You can grant this access in the Azure portal by navigating to the Shared Image, selecting **Access control (IAM)** and adding a role assignment for the application.
+If you use an Azure AD application to create a custom image pool with an Azure Compute Gallery image, that application must have been granted an [Azure built-in role](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles) that gives it access to the the Shared Image. You can grant this access in the Azure portal by navigating to the Shared Image, selecting **Access control (IAM)** and adding a role assignment for the application.
 
 ## Prepare a Shared Image
 
@@ -82,9 +83,9 @@ A snapshot is a full, read-only copy of a VHD. To create a snapshot of a VM's OS
 
 To create a managed image from a snapshot, use Azure command-line tools such as the [az image create](/cli/azure/image) command. Create an image by specifying an OS disk snapshot and optionally one or more data disk snapshots.
 
-### Create a Shared Image Gallery
+### Create an Azure Compute Gallery
 
-Once you have successfully created your managed image, you need to create a Shared Image Gallery to make your custom image available. To learn how to create a Shared Image Gallery for your images, see [Create a Shared Image Gallery](../virtual-machines/create-gallery.md).
+Once you have successfully created your managed image, you need to create an Azure Compute Gallery to make your custom image available. To learn how to create an Azure Compute Gallery for your images, see [Create an Azure Compute Gallery](../virtual-machines/create-gallery.md).
 
 ## Create a pool from a Shared Image using the Azure CLI
 
@@ -174,7 +175,7 @@ start_task = batchmodels.StartTask(
 start_task.run_elevated = True
 
 # Create an ImageReference which specifies the image from
-# Shared Image Gallery to install on the nodes.
+# Azure Compute Gallery to install on the nodes.
 ir = batchmodels.ImageReference(
     virtual_machine_image_id="/subscriptions/{sub id}/resourceGroups/{resource group name}/providers/Microsoft.Compute/galleries/{gallery name}/images/{image definition name}/versions/{version id}"
 )
@@ -207,7 +208,7 @@ Use the following steps to create a pool from a Shared Image in the Azure portal
 1. Open the [Azure portal](https://portal.azure.com).
 1. Go to **Batch accounts** and select your account.
 1. Select **Pools** and then **Add** to create a new pool.
-1. In the **Image Type** section, select **Shared Image Gallery**.
+1. In the **Image Type** section, select **Azure Compute Gallery**.
 1. Complete the remaining sections with information about your managed image.
 1. Select **OK**.
 
@@ -217,11 +218,11 @@ Use the following steps to create a pool from a Shared Image in the Azure portal
 
 If you plan to create a pool with hundreds or thousands of VMs or more using a Shared Image, use the following guidance.
 
-- **Shared Image Gallery replica numbers.**  For every pool with up to 300 instances, we recommend you keep at least one replica. For example, if you are creating a pool with 3000 VMs, you should keep at least 10 replicas of your image. We always suggest keeping more replicas than minimum requirements for better performance.
+- **Azure Compute Gallery replica numbers.**  For every pool with up to 300 instances, we recommend you keep at least one replica. For example, if you are creating a pool with 3000 VMs, you should keep at least 10 replicas of your image. We always suggest keeping more replicas than minimum requirements for better performance.
 
 - **Resize timeout.** If your pool contains a fixed number of nodes (if it doesn't autoscale), increase the `resizeTimeout` property of the pool depending on the pool size. For every 1000 VMs, the recommended resize timeout is at least 15 minutes. For example, the recommended resize timeout for a pool with 2000 VMs is at least 30 minutes.
 
 ## Next steps
 
 - For an in-depth overview of Batch, see [Batch service workflow and resources](batch-service-workflow-features.md).
-- Learn about the [Shared Image Gallery](../virtual-machines/shared-image-galleries.md).
+- Learn about the [Azure Compute Gallery](../virtual-machines/shared-image-galleries.md).

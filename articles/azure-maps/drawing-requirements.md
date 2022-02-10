@@ -1,8 +1,8 @@
 ---
 title: Drawing package requirements in Microsoft Azure Maps Creator 
 description: Learn about the Drawing package requirements to convert your facility design files to map data
-author: anastasia-ms
-ms.author: v-stharr
+author: stevemunk
+ms.author: v-munksteve
 ms.date: 07/02/2021
 ms.topic: conceptual
 ms.service: azure-maps
@@ -16,7 +16,6 @@ You can convert uploaded Drawing packages into map data by using the [Azure Maps
 
 For a guide on how to prepare your Drawing package, see [Conversion Drawing Package Guide](drawing-package-guide.md).
 
-
 ## Prerequisites
 
 The Drawing package includes drawings saved in DWG format, which is the native file format for Autodesk's AutoCAD® software.
@@ -24,7 +23,6 @@ The Drawing package includes drawings saved in DWG format, which is the native f
 You can choose any CAD software to produce the drawings in the Drawing package.  
 
 The [Azure Maps Conversion service](/rest/api/maps/v2/conversion) converts the Drawing package into map data. The Conversion service works with the AutoCAD DWG file format `AC1032`.
-
 
 ## Glossary of terms
 
@@ -106,7 +104,7 @@ The sections below describe the requirements for each layer.
 
 The DWG file for each level must contain a layer to define that level's perimeter. This layer is referred to as the *exterior* layer. For example, if a facility contains two levels, then it needs to have two DWG files, with an exterior layer for each file.
 
-No matter how many entity drawings are in the exterior layer, the [resulting facility dataset](tutorial-creator-indoor-maps.md#create-a-feature-stateset) will contain only one level feature for each DWG file. Additionally:
+No matter how many entity drawings are in the exterior layer, the [resulting facility dataset](tutorial-creator-feature-stateset.md) will contain only one level feature for each DWG file. Additionally:
 
 - Exteriors must be drawn as Polygon, PolyLine (closed), Circle, or Ellipse (closed).
 - Exteriors may overlap, but are dissolved into one geometry.

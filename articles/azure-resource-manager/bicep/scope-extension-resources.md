@@ -1,10 +1,8 @@
 ---
 title: Scope on extension resource types (Bicep)
 description: Describes how to use the scope property when deploying extension resource types with Bicep.
-author: mumian
-ms.author: jgao
 ms.topic: conceptual
-ms.date: 07/30/2021
+ms.date: 02/07/2022
 ---
 
 # Set scope for extension resources in Bicep
@@ -20,7 +18,7 @@ This article shows how to set the scope for an extension resource type when depl
 
 ### Microsoft Learn
 
-To learn more about extension resources, and for hands-on guidance, see [Deploy child and extension resources by using Bicep](/learn/modules/child-extension-bicep-templates) on **Microsoft Learn**.
+If you would rather learn about extension resources through step-by-step guidance, see [Deploy child and extension resources by using Bicep](/learn/modules/child-extension-bicep-templates) on **Microsoft Learn**.
 
 ## Apply at deployment scope
 
@@ -54,8 +52,8 @@ param principalId string
 @description('Built-in role to assign')
 param builtInRoleType string
 
-@description('A new GUID used to identify the role assignment')
-param roleNameGuid string = newGuid()
+@description('The role assignment name')
+param roleNameGuid string
 
 var role = {
   Owner: '/subscriptions/${subscription().subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/8e3af657-a8ff-443c-a75c-2fe8c4bcb635'
@@ -138,11 +136,13 @@ resource createStorageLock 'Microsoft.Authorization/locks@2016-09-01' = {
 }
 ```
 
-## Next steps
-
-To learn about deploying to scopes, see:
+The same requirements apply to extension resources as other resource when targeting a scope that is different than the target scope of the deployment. To learn about deploying to more than one scope, see:
 
 * [Resource group deployments](deploy-to-resource-group.md)
 * [Subscription deployments](deploy-to-subscription.md)
 * [Management group deployments](deploy-to-management-group.md)
 * [Tenant deployments](deploy-to-tenant.md)
+
+## Next steps
+
+For a full list of extension resource types, see [Resource types that extend capabilities of other resources](../management/extension-resource-types.md).

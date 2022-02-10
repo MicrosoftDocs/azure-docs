@@ -7,6 +7,7 @@ ms.assetid:
 ms.topic: reference
 ms.date: 12/17/2020
 ms.author: cachai
+ms.devlang: csharp, java, javascript, python
 ms.custom:
 ---
 
@@ -230,7 +231,7 @@ The default message type is [RabbitMQ Event](https://rabbitmq.github.io/rabbitmq
 * `An object serializable as JSON` - The message is delivered as a valid JSON string.
 * `string`
 * `byte[]`
-* `POCO` - The message is formatted as a C# object. For a complete example, see C# [example](#example).
+* `POCO` - The message is formatted as a C# object. For complete code, see C# [example](#example).
 
 # [C# Script](#tab/csharp-script)
 
@@ -260,7 +261,7 @@ Dead letter queues and exchanges can't be controlled or configured from the Rabb
 
 ## host.json settings
 
-This section describes the global configuration settings available for this binding in versions 2.x and higher. The example *host.json* file below contains only the settings for this binding. For more information about global configuration settings, see [host.json reference for Azure Functions version](functions-host-json.md).
+[!INCLUDE [functions-host-json-section-intro](../../includes/functions-host-json-section-intro.md)]
 
 ```json
 {

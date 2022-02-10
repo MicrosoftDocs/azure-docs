@@ -7,13 +7,14 @@ ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 07/30/2021
+ms.date: 11/03/2021
 ms.topic: how-to
 ---
 
 # View logs and metrics using Kibana and Grafana
 
-Kibana and Grafana web dashboards are provided to bring insight and clarity to the Kubernetes namespaces being used by Azure Arc-enabled data services.
+Kibana and Grafana web dashboards are provided to bring insight and clarity to the Kubernetes namespaces being used by Azure Arc-enabled data services. To access Kibana and Grafana web dashboards view service endpoints check [Azure Data Studio dashboards](/azure/azure-arc/data/azure-data-studio-dashboards) documentation. 
+
 
 
 
@@ -22,7 +23,7 @@ Kibana and Grafana web dashboards are provided to bring insight and clarity to t
 To access the logs and monitoring dashboards for Azure Arc-enabled SQL Managed Instance, run the following `azdata` CLI command
 
 ```azurecl
-az sql mi-arc endpoint list -n <name of SQL instance>
+az sql mi-arc endpoint list -n <name of SQL instance> --use-k8s
 
 ```
 The relevant Grafana dashboards are:

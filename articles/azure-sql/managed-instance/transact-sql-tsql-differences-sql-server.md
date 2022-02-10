@@ -9,7 +9,7 @@ ms.topic: reference
 author: danimir
 ms.author: danil
 ms.reviewer: mathoma, bonova, danil
-ms.date: 8/18/2021
+ms.date: 10/21/2021
 ms.custom: seoapril2019, sqldbrb=1
 ---
 
@@ -33,7 +33,7 @@ There are some PaaS limitations that are introduced in SQL Managed Instance and 
 
 Most of these features are architectural constraints and represent service features.
 
-Temporary known issues that are discovered in SQL Managed Instance and will be resolved in the future are described in [release notes page](../database/doc-changes-updates-release-notes.md).
+Temporary known issues that are discovered in SQL Managed Instance and will be resolved in the future are described in [What's new?](doc-changes-updates-release-notes-whats-new.md).
 
 ## Availability
 
@@ -140,14 +140,14 @@ SQL Managed Instance can't access files, so cryptographic providers can't be cre
     SQL Managed Instance supports Azure AD database principals with the syntax `CREATE USER [AADUser/AAD group] FROM EXTERNAL PROVIDER`. This feature is also known as Azure AD contained database users.
 
 - Windows logins created with the `CREATE LOGIN ... FROM WINDOWS` syntax aren't supported. Use Azure Active Directory logins and users.
-- The Azure AD user who created the instance has [unrestricted admin privileges](../database/logins-create-manage.md).
+- The Azure AD admin for the instance has [unrestricted admin privileges](../database/logins-create-manage.md).
 - Non-administrator Azure AD database-level users can be created by using the `CREATE USER ... FROM EXTERNAL PROVIDER` syntax. See [CREATE USER ... FROM EXTERNAL PROVIDER](../database/authentication-aad-configure.md#create-contained-users-mapped-to-azure-ad-identities).
 - Azure AD server principals (logins) support SQL features within one SQL Managed Instance only. Features that require cross-instance interaction, no matter whether they're within the same Azure AD tenant or different tenants, aren't supported for Azure AD users. Examples of such features are:
 
   - SQL transactional replication.
   - Link server.
 
-- Setting an Azure AD login mapped to an Azure AD group as the database owner isn't supported.
+- Setting an Azure AD login mapped to an Azure AD group as the database owner isn't supported. A member of the Azure AD group can be a database owner, even if the login hasn't been created in the database.
 - Impersonation of Azure AD server-level principals by using other Azure AD principals is supported, such as the [EXECUTE AS](/sql/t-sql/statements/execute-as-transact-sql) clause. EXECUTE AS limitations are:
 
   - EXECUTE AS USER isn't supported for Azure AD users when the name differs from the login name. An example is when the user is created through the syntax CREATE USER [myAadUser] FROM LOGIN [john@contoso.com] and impersonation is attempted through EXEC AS USER = _myAadUser_. When you create a **USER** from an Azure AD server principal (login), specify the user_name as the same login_name from **LOGIN**.
@@ -170,15 +170,13 @@ SQL Managed Instance can't access files, so cryptographic providers can't be cre
 - If the login is a SQL principal, only logins that are part of the `sysadmin` role can use the create command to create logins for an Azure AD account.
 - The Azure AD login must be a member of an Azure AD within the same directory that's used for Azure SQL Managed Instance.
 - Azure AD server principals (logins) are visible in Object Explorer starting with SQL Server Management Studio 18.0 preview 5.
-- Overlapping Azure AD server principals (logins) with an Azure AD admin account is allowed. Azure AD server principals (logins) take precedence over the Azure AD admin when you resolve the principal and apply permissions to SQL Managed Instance.
+- A server principal with *sysadmin* access level is automatically created for the Azure AD admin account once it’s enabled on an instance.
 - During authentication, the following sequence is applied to resolve the authenticating principal:
 
     1. If the Azure AD account exists as directly mapped to the Azure AD server principal (login), which is present in sys.server_principals as type "E," grant access and apply permissions of the Azure AD server principal (login).
-    2. If the Azure AD account is a member of an Azure AD group that's mapped to the Azure AD server principal (login), which is present in sys.server_principals as type "X," grant access and apply permissions of the Azure AD group login.
-    3. If the Azure AD account is a special portal-configured Azure AD admin for SQL Managed Instance, which doesn't exist in SQL Managed Instance system views, apply special fixed permissions of the Azure AD admin for SQL Managed Instance (legacy mode).
-    4. If the Azure AD account exists as directly mapped to an Azure AD user in a database, which is present in sys.database_principals as type "E," grant access and apply permissions of the Azure AD database user.
-    5. If the Azure AD account is a member of an Azure AD group that's mapped to an Azure AD user in a database, which is present in sys.database_principals as type "X," grant access and apply permissions of the Azure AD group login.
-    6. If there's an Azure AD login mapped to either an Azure AD user account or an Azure AD group account, which resolves to the user who's authenticating, all permissions from this Azure AD login are applied.
+    1. If the Azure AD account is a member of an Azure AD group that's mapped to the Azure AD server principal (login), which is present in sys.server_principals as type "X," grant access and apply permissions of the Azure AD group login.
+    1. If the Azure AD account exists as directly mapped to an Azure AD user in a database, which is present in sys.database_principals as type "E," grant access and apply permissions of the Azure AD database user.
+    1. If the Azure AD account is a member of an Azure AD group that's mapped to an Azure AD user in a database, which is present in sys.database_principals as type "X," grant access and apply permissions of the Azure AD group user.
 
 ### Service key and service master key
 
@@ -313,7 +311,7 @@ The following table types aren't supported:
 
 - [FILESTREAM](/sql/relational-databases/blob/filestream-sql-server)
 - [FILETABLE](/sql/relational-databases/blob/filetables-sql-server)
-- [EXTERNAL TABLE](/sql/t-sql/statements/create-external-table-transact-sql) (Polybase)
+- [EXTERNAL TABLE](/sql/t-sql/statements/create-external-table-transact-sql) (except Polybase, in preview)
 - [MEMORY_OPTIMIZED](/sql/relational-databases/in-memory-oltp/introduction-to-memory-optimized-tables) (not supported only in General Purpose tier)
 
 For information about how to create and alter tables, see [CREATE TABLE](/sql/t-sql/statements/create-table-transact-sql) and [ALTER TABLE](/sql/t-sql/statements/alter-table-transact-sql).
@@ -388,7 +386,7 @@ For more information, see [FILESTREAM](/sql/relational-databases/blob/filestream
 
 ### Linked servers
 
-Linked servers in SQL Managed Instance support a limited number of targets:
+[Linked servers](/sql/relational-databases/linked-servers/linked-servers-database-engine) in SQL Managed Instance support a limited number of targets:
 
 - Supported targets are SQL Managed Instance, SQL Database, Azure Synapse SQL [serverless](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance/) and dedicated pools, and SQL Server instances. 
 - Distributed writable transactions are possible only among Managed Instances. For more information, see [Distributed Transactions](../database/elastic-transactions-overview.md). However, MS DTC is not supported.
@@ -400,13 +398,13 @@ Operations:
 - `sp_dropserver` is supported for dropping a linked server. See [sp_dropserver](/sql/relational-databases/system-stored-procedures/sp-dropserver-transact-sql).
 - The `OPENROWSET` function can be used to execute queries only on SQL Server instances. They can be either managed, on-premises, or in virtual machines. See [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql).
 - The `OPENDATASOURCE` function can be used to execute queries only on SQL Server instances. They can be either managed, on-premises, or in virtual machines. Only the `SQLNCLI`, `SQLNCLI11`, and `SQLOLEDB` values are supported as a provider. An example is `SELECT * FROM OPENDATASOURCE('SQLNCLI', '...').AdventureWorks2012.HumanResources.Employee`. See [OPENDATASOURCE](/sql/t-sql/functions/opendatasource-transact-sql).
-- Linked servers cannot be used to read files (Excel, CSV) from the network shares. Try to use [BULK INSERT](/sql/t-sql/statements/bulk-insert-transact-sql#e-importing-data-from-a-csv-file), [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql#g-accessing-data-from-a-csv-file-with-a-format-file) that reads CSV files from Azure Blob Storage, or a [linked server that references a serverless SQL pool in Synapse Analytics](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance/). Track this requests on [SQL Managed Instance Feedback item](https://feedback.azure.com/forums/915676-sql-managed-instance/suggestions/35657887-linked-server-to-non-sql-sources)|
+- Linked servers cannot be used to read files (Excel, CSV) from the network shares. Try to use [BULK INSERT](/sql/t-sql/statements/bulk-insert-transact-sql#e-importing-data-from-a-csv-file), [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql#g-accessing-data-from-a-csv-file-with-a-format-file) that reads CSV files from Azure Blob Storage, or a [linked server that references a serverless SQL pool in Synapse Analytics](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance/). Track this requests on [SQL Managed Instance Feedback item](https://feedback.azure.com/d365community/idea/db80cf6e-3425-ec11-b6e6-000d3a4f0f84)|
 
-Linked servers on Azure SQL Managed Instance support only SQL authentication. AAD authentication is not supported yet.
+Linked servers on Azure SQL Managed Instance support SQL authentication and [AAD authentication](/sql/relational-databases/linked-servers/create-linked-servers-sql-server-database-engine#linked-servers-with-azure-sql-managed-instance).
 
 ### PolyBase
 
-Work on enabling Polybase support in SQL Managed Instance is [in progress](https://feedback.azure.com/forums/915676-sql-managed-instance/suggestions/35698078-enable-polybase-on-sql-managed-instance). In the meantime, as a workaround you can use linked servers to [a serverless SQL pool in Synapse Analytics](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance/) or SQL Server to query data from files stored in Azure Data Lake or Azure Storage.   
+Work on enabling Polybase support in SQL Managed Instance is [in progress](https://feedback.azure.com/d365community/idea/ccc44856-3425-ec11-b6e6-000d3a4f0f84). In the meantime, as a workaround you can use linked servers to [a serverless SQL pool in Synapse Analytics](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance/) or SQL Server to query data from files stored in Azure Data Lake or Azure Storage.   
 For general information about PolyBase, see [PolyBase](/sql/relational-databases/polybase/polybase-guide).
 
 ### Replication
@@ -556,5 +554,6 @@ SQL Managed Instance places verbose information in error logs. There are many in
 
 - For more information about SQL Managed Instance, see [What is SQL Managed Instance?](sql-managed-instance-paas-overview.md)
 - For a features and comparison list, see [Azure SQL Managed Instance feature comparison](../database/features-comparison.md).
-- For release updates and known issues state, see [SQL Managed Instance release notes](../database/doc-changes-updates-release-notes.md)
+- For release updates, see [What's new?](doc-changes-updates-release-notes-whats-new.md).
+- For issues, workarounds, and resolutions, see [Known issues](doc-changes-updates-known-issues.md).
 - For a quickstart that shows you how to create a new SQL Managed Instance, see [Create a SQL Managed Instance](instance-create-quickstart.md).
