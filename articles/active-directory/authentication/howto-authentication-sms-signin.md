@@ -1,12 +1,12 @@
 ---
 title: SMS-based user sign in for Azure Active Directory
-description: Learn how to configure and enable users to sign in to Azure Active Directory using SMS (preview)
+description: Learn how to configure and enable users to sign in to Azure Active Directory using SMS
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 08/18/2021
+ms.date: 02/10/2022
 ms.author: justinha
 author: justinha
 manager: karenhoran
@@ -15,11 +15,11 @@ ms.reviewer: anjusingh
 ms.collection: M365-identity-device-management
 ---
 
-# Configure and enable users for SMS-based authentication using Azure Active Directory (preview)
+# Configure and enable users for SMS-based authentication using Azure Active Directory 
 
 To simplify and secure sign in to applications and services, Azure Active Directory (Azure AD) provides multiple authentication options. SMS-based authentication lets users sign in without providing, or even knowing, their user name and password. After their account is created by an identity administrator, they can enter their phone number at the sign-in prompt. They receive an authentication code via text message that they can provide to complete the sign in. This authentication method simplifies access to applications and services, especially for Frontline workers.
 
-This article shows you how to enable SMS-based authentication for select users or groups in Azure AD. For a list apps that support using SMS-based sign-in, see [App support for SMS-based authentication](how-to-authentication-sms-supported-apps.md).
+This article shows you how to enable SMS-based authentication for select users or groups in Azure AD. For a list of apps that support using SMS-based sign-in, see [App support for SMS-based authentication](how-to-authentication-sms-supported-apps.md).
 
 ## Before you begin
 
@@ -45,6 +45,7 @@ Here are some known issues:
 * SMS-based authentication isn't recommended for B2B accounts.
 * Federated users won't authenticate in the home tenant. They only authenticate in the cloud.
 * If a user's default sign-in method is a text or call to your phone number, then the SMS code or voice call is sent automatically during multifactor authentication. As of June 2021, some apps will ask users to choose **Text** or **Call** first. This option prevents sending too many security codes for different apps. If the default sign-in method is the Microsoft Authenticator app ([which we highly recommend](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/it-s-time-to-hang-up-on-phone-transports-for-authentication/ba-p/1751752)), then the app notification is sent automatically.
+* SMS-based authentication reached general availability in January 2021, but the **(Preview)** label remains in the Azure portal due to ongoing work related to authentication methods. 
 
 ## Enable the SMS-based authentication method
 
