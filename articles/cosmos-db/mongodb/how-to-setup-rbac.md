@@ -27,19 +27,25 @@ Privileges are actions that can be take on a specific resource. For example, rea
 ### Role
 A role has one or more privileges. Roles are assigned to users (zero or more) to enable them to perform the actions defined in those privileges. Roles are stored within a single database.
 
-### User
-A database user that performs operation. Users are stored within a single database.
+### Diagnostic log auditing
+An additional column called "userId" has been added to the MongoRequests table in the Azure Portal Diagnostics feature. This column will identify which user performed which data plan operation. The value is in this column is empyty when RBAC is not enabled. 
+
+## Concepts
 
 ## Create a role (CLI, PowerShell)
+# Abhijit
 
 ## Assign privileges to a role
-We should list the available privileges here as well.
+# Abhijit
 
 ## Create a user
+# Abhijit
 
 ## Assign roles to a user
+# Abhijit
 
 ## Delete a role or user
+# Abhijit
 
 ## <a id="disable-local-auth"></a> Enforcing RBAC as the only authentication method
 
@@ -69,7 +75,7 @@ When creating or updating your Azure Cosmos DB account using Azure Resource Mana
 - You can only assign role definitions to Azure AD identities belonging to the same Azure AD tenant as your Azure Cosmos DB account.
 - Azure AD group resolution is not currently supported for identities that belong to more than 200 groups.
 - The Azure AD token is currently passed as a header with each individual request sent to the Azure Cosmos DB service, increasing the overall payload size.
-- listCollections and listDatabases are excluded from RBAC in the preview.
+- listCollections, listDatabases, killCursors are excluded from RBAC in the preview.
 
 ## Frequently asked questions
 
