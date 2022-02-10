@@ -124,6 +124,7 @@ OpenCensus doesn't have an extension for FastAPI. To write your own FastAPI midd
 1. The following dependencies are required: 
     - [fastapi](https://pypi.org/project/fastapi/)
     - [uvicorn](https://pypi.org/project/uvicorn/)
+      - Deploying [uvicorn with gunicorn](https://www.uvicorn.org/deployment/#gunicorn) for production grade setting is recommended.
 
 2. Add [FastAPI middleware](https://fastapi.tiangolo.com/tutorial/middleware/). Make sure that you set the span kind server: `span.span_kind = SpanKind.SERVER`.
 
