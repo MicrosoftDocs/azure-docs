@@ -18,9 +18,9 @@ ms.author: saibandaru
 
 # Overview of enterprise application ownership in Azure Active Directory
 
-A user in Azure Active Directory (Azure AD) is automatically added as an application owner when they register an application. This ownership of an enterprise application is assigned by default only when a user with no administrator roles (Global Administrator, Application Administrator etc.) creates a new application registration. In all other cases, ownership\ is not assigned by default to an enterprise application. Users can be owners of enterprise applications but groups can't be assigned as owners. 
+A user in Azure Active Directory (Azure AD) is automatically added as an application owner when they register an application. This ownership of an enterprise application is assigned by default only when a user with no administrator roles (Global Administrator, Application Administrator etc.) creates a new application registration. In all other cases, ownership\ isn't assigned by default to an enterprise application. Users can be owners of enterprise applications but groups can't be assigned as owners. 
 
-As an owner of an enterprise application in Azure AD, a user can manage the organization-specific configuration of the application, such as single sign-on, provisioning, and user assignments. An owner can also add or remove other owners. Unlike Global Administrators, owners can manage only the enterprise applications they own.  Owners can add credentials to an application and use those credentials to impersonate the application’s identity. To see the learn more about the permissions that owners of application have, see [Ownership permissions](../fundamentals/users-default-permissions.md#owned-enterprise-applications)
+As an owner of an enterprise application in Azure AD, a user can manage the organization-specific configuration of the application, such as single sign-on, provisioning, and user assignments. An owner can also add or remove other owners. Unlike Global Administrators, owners can manage only the enterprise applications they own.  Owners can add credentials to an application and use those credentials to impersonate the application’s identity. To learn more about the permissions that owners of application have, see [Ownership permissions](../fundamentals/users-default-permissions.md#owned-enterprise-applications)
  
 > [!NOTE]
 > Owners of applications have the same permissions as application administrators scoped to an individual application. For more information, see [Azure AD built-in roles](../roles/permissions-reference.md#application-administrator). 
@@ -34,7 +34,7 @@ If you have an ownerless application in your tenant, you can access the audit lo
 
 You may also see other users who have scoped permissions on the application by navigating to “Roles and Administrators” tab. Once you find the right person to own the application, a user with a highly privileged administrative role in the organization can assign the new owner for the application. See [Assign enterprise application owners](assign-app-owners.md).
 
-As a best practice, we recommend proactive monitoring applications in your environment to ensure there are at least 2 owners, where possible, to avoid the situation of ownerless apps. Additionally, you should utilize the serviceManagementReference property on the application object to reference the team contact information from your enterprise Service or Asset Management Database. This ensures you have team contact even if an individual leaves the organization. 
+As a best practice, we recommend proactive monitoring applications in your environment to ensure there are at least two owners, where possible, to avoid the situation of ownerless apps. Additionally, you should utilize the serviceManagementReference property on the application object to reference the team contact information from your enterprise Service or Asset Management Database. The serviceManagementReference property ensures you have team contact even if an individual leaves the organization. 
 
 **How do you add yourself as an owner of an enterprise application?**
 
