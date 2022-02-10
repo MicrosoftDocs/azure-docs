@@ -45,7 +45,7 @@ Here are some known issues:
 * SMS-based authentication isn't recommended for B2B accounts.
 * Federated users won't authenticate in the home tenant. They only authenticate in the cloud.
 * If a user's default sign-in method is a text or call to your phone number, then the SMS code or voice call is sent automatically during multifactor authentication. As of June 2021, some apps will ask users to choose **Text** or **Call** first. This option prevents sending too many security codes for different apps. If the default sign-in method is the Microsoft Authenticator app ([which we highly recommend](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/it-s-time-to-hang-up-on-phone-transports-for-authentication/ba-p/1751752)), then the app notification is sent automatically.
-* SMS-based authentication reached general availability in January 2021, but the **(Preview)** label remains in the Azure portal until improvements related to authentication methods are complete. 
+* SMS-based authentication reached general availability in January 2021, but the **(Preview)** label remains in the Azure portal until improvements related to authentication methods are complete.
 
 ## Enable the SMS-based authentication method
 
