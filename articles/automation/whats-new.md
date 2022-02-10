@@ -20,11 +20,11 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 
 ## February 2022
 
-### Permissions changes in the built-in Reader role for the Automation Account.
+### Permissions change in the built-in Reader role for the Automation Account.
 
-**Type:** New feature
+**Type:** New change
 
-To strengthen the security and avoid any risk due to the potential elevation of privilege at the Automation account level, the built-in Reader would not have access to Automation account keys through the API call - ```GET /automationAccounts/agentRegistrationInformation```. Read [here](/azure/automation/automation-role-based-access-control#reader) for more information.
+To strengthen the overall Azure Automation security posture, the built-in RBAC Reader role would not have access to Automation account keys through the API call - `GET /automationAccounts/agentRegistrationInformation`. Read [here](/azure/automation/automation-role-based-access-control#reader) for more information.
 
 
 ## November 2021 
