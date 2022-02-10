@@ -8,7 +8,7 @@ editor:
 ms.service: active-directory
 ms.subservice: msi
 ms.devlang: 
-ms.topic: howto
+ms.topic: how-to
 ms.workload: identity
 ms.date: 08/10/2021
 ms.author: vakarand
@@ -40,7 +40,7 @@ In the customer's tenant, (the service provider's customer) users with the appro
 
 | No | Step | Least privileged Azure Roles | Least privileged Azure AD Roles | 
 | -- | ----------------------------------- | -------------- | --------------| 
-| 1. | Create a multi-tenant Azure AD application registration or start with an existing application registration. Note the ApplicationId (aka ClientId) of the application registration. <br>[Azure Portal](../develop/quickstart-register-app) / [Microsoft Graph API](https://docs.microsoft.com/graph/api/application-post-applications?view=graph-rest-1.0&tabs=http) / [Azure AD owerShell](https://docs.microsoft.com/powershell/module/azuread/new-azureadapplication?view=azureadps-2.0) / [Azure CLI](https://docs.microsoft.com/cli/azure/ad/app?view=azure-cli-latest#az_ad_app_create) | None | User with permissions to create Applications 
+| 1. | Create a multi-tenant Azure AD application registration or start with an existing application registration. Note the ApplicationId (aka ClientId) of the application registration. <br>[Azure Portal](../../develop/quickstart-register-app) / [Microsoft Graph API](https://docs.microsoft.com/graph/api/application-post-applications?view=graph-rest-1.0&tabs=http&preserve-view=true) / [Azure AD owerShell](https://docs.microsoft.com/en-us/powershell/module/azuread/new-azureadapplication) / [Azure CLI](https://docs.microsoft.com/cli/azure/ad/app?view=azure-cli-latest#az_ad_app_create&preserve-view=true) | None | User with permissions to create Applications 
 | 2. | Create a user-assigned managed identity (to be used as a Federated Identity Credential). <br> [Azure Portal](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp) / [Azure CLI](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azcli) / [Azure PowerShell](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-powershell)/ [Azure Resource Manager Templates](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-arm) | [Manage identity contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#managed-identity-contributor) | None | 
 | 3. | Configure user-assigned managed identity as a *federated identity credential* on the application, so that it can impersonate the identity of the application. <br> [Graph API reference](https://aka.ms/fedcredentialapi) | None | Owner of the application | 
 | 4. | Share the ApplicationId with the customer, so that they can install the application. | None | None| 
