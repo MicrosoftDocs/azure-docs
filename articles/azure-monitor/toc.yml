@@ -373,12 +373,6 @@ items:
               href: logs/api/prefer-options.md
           - name: Errors
             href: logs/api/errors.md
-    - name: Ingestion time transformations
-      items:
-      - name: Overview
-        href: logs/ingestion-time-transformations.md
-      - name: Tutorial
-        href: logs/tutorial-ingestion-time-transformations.md
     - name: Data export
       items:
       - name: Workspace data export
@@ -389,22 +383,6 @@ items:
         href: logs/azure-data-explorer-query-storage.md
       - name: Send to Excel
         href: logs/log-excel.md
-    - name: Custom logs
-      items: 
-      - name: Overview 
-        href: logs/custom-logs-overview.md
-      - name: Tutorial (portal) 
-        href: logs/tutorial-custom-logs.md
-      - name: Tutorial (API)
-        href: logs/tutorial-custom-logs-api.md
-      - name: Data collector API 
-        items:
-        - name: Overview
-          href: logs/data-collector-api.md
-        - name: Log Analytics Data collector API 
-          href: logs/data-collector-api.md
-        - name: Log Analytics Data Collector API Pipeline example
-          href: logs/create-pipeline-datacollector-api.md
     - name: Logic Apps
       items: 
       - name: Azure Monitor Logs connector
@@ -433,8 +411,30 @@ items:
       - name: Transformations
         displayName: Data collection rules
         href: essentials/data-collection-rule-transformations.md
-      - name: Data collection endpoints
-        href: essentials/data-collection-endpoint-overview.md
+    - name: Data collection endpoints
+      href: essentials/data-collection-endpoint-overview.md
+    - name: Custom logs
+      items: 
+      - name: Overview 
+        href: logs/custom-logs-overview.md
+      - name: Tutorial (portal) 
+        href: logs/tutorial-custom-logs.md
+      - name: Tutorial (API)
+        href: logs/tutorial-custom-logs-api.md
+      - name: Data collector API 
+        items:
+        - name: Overview
+          href: logs/data-collector-api.md
+        - name: Log Analytics Data collector API 
+          href: logs/data-collector-api.md
+        - name: Log Analytics Data Collector API Pipeline example
+          href: logs/create-pipeline-datacollector-api.md
+    - name: Ingestion time transformations
+      items:
+      - name: Overview
+        href: logs/ingestion-time-transformations.md
+      - name: Tutorial
+        href: logs/tutorial-ingestion-time-transformations.md
   - name: Agents
     items:
     - name: Overview
