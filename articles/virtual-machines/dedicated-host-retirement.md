@@ -31,7 +31,7 @@ Note: If you are running a Dsv3-Type3, Dsv3-Type4, an Esv3-Type3, or an Esv3-Typ
 
 ## What actions should you take?
 
-You will need to create a Dedicated Host of a newer SKU, stop the VM(s) on your existing Dedicated Host, reassign them to the new host, and start the VM(s). Please refer to the Azure Dedicated Host Migration Guide for more detailed instructions. We recommend moving to the latest generation of Dedicated Host for your VM family.
+You will need to create a Dedicated Host of a newer SKU, stop the VM(s) on your existing Dedicated Host, reassign them to the new host, and start the VM(s). Please refer to the [Azure Dedicated Host Migration Guide](dedicated-host-migration-guide.md) for more detailed instructions. We recommend moving to the latest generation of Dedicated Host for your VM family.
 
 If you have any questions, please contact us through customer support.
 
