@@ -29,7 +29,7 @@ You can quickly identify the vCore count for a database in the Azure portal if y
 
 For databases in the [serverless](serverless-tier-overview.md) compute tier, vCore count will always be equivalent to the max vCore setting for the database. VCore count will show in the **pricing tier** listed for the database on its **Overview** page. For example, a database's pricing tier might be 'General Purpose: Serverless, Gen5, 16 vCores'.
 
-If you're using a database under the [DTU-based purchase model](service-tiers-dtu.md), you will need to use Transact-SQL to query the database's vCore count.
+If you're using a database under the [DTU-based purchasing model](service-tiers-dtu.md), you will need to use Transact-SQL to query the database's vCore count.
 
 ### Identify vCore count with Transact-SQL
 
@@ -374,9 +374,9 @@ Consider experimenting with small changes in the MAXDOP configuration at the dat
 
 You may find that your workload's queries and indexes are properly tuned, or that performance tuning requires changes that you cannot make in the short term due to internal processes or other reasons. Adding more CPU resources may be beneficial for these databases. You can [scale database resources with minimal downtime](scale-resources.md).
 
-You can add more CPU resources to your Azure SQL Database by configuring the vCore count or the [hardware generation](service-tiers-sql-database-vcore.md#hardware-generations) for databases using the [vCore purchase model](service-tiers-sql-database-vcore.md).
+You can add more CPU resources to your Azure SQL Database by configuring the vCore count or the [hardware generation](service-tiers-sql-database-vcore.md#hardware-generations) for databases using the [vCore purchasing model](service-tiers-sql-database-vcore.md).
 
-Under the [DTU-based purchase model](service-tiers-dtu.md), you can raise your service tier and increase the number of database transaction units (DTUs). A DTU represents a blended measure of CPU, memory, reads, and writes.  One benefit of the vCore purchase model is that it allows more granular control over the hardware in use and the number of vCores. You can [migrate Azure SQL Database from the DTU-based model to the vCore-based model](migrate-dtu-to-vcore.md) to transition between purchase models.
+Under the [DTU-based purchasing model](service-tiers-dtu.md), you can raise your service tier and increase the number of database transaction units (DTUs). A DTU represents a blended measure of CPU, memory, reads, and writes.  One benefit of the vCore purchasing model is that it allows more granular control over the hardware in use and the number of vCores. You can [migrate Azure SQL Database from the DTU-based model to the vCore-based model](migrate-dtu-to-vcore.md) to transition between purchasing models.
 
 ## Next steps
 

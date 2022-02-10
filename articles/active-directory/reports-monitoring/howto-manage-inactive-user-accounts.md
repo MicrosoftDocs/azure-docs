@@ -90,7 +90,7 @@ To generate a lastSignInDateTime timestamp, you need a successful sign-in. Becau
 
 ### For how long is the last sign-in retained?
 
-The last sign-in date is associated with the user object. The value is retained until the sign-in of the user. 
+The last sign-in date is associated with the user object. The value is retained until the next sign-in of the user. 
 
 ## Next steps
 

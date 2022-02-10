@@ -48,7 +48,7 @@ The secure hybrid access solution for this scenario is made up of:
 - **BIG-IP**: Reverse proxy and SAML service provider (SP) to the application, delegating authentication to the SAML IdP, before
 performing header-based SSO to the backend application.
 
-![Screenshot shows the architecture flow diagram](./media/f5-big-ip-header-advanced/flow-diagram.png)
+![Screenshot shows the architecture flow diagram](./media/f5-big-ip-easy-button-header/sp-initiated-flow.png)
 
 | Step | Description |
 |:-------|:-----------|

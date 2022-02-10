@@ -416,21 +416,19 @@
         href: vm-applications-how-to.md
   - name: Images
     items:
-    - name: Endorsed Linux distributions
-      href: ./linux/endorsed-distros.md
     - name: Find Azure Marketplace images
       items:
-      - name: CLI
-        displayName: Images, imaging, marketplace, publisher, plan, offer, URN, purchase plan, terms
+      - name: Use CLI to find images
+        displayName: Images, imaging, marketplace, publisher, plan, offer, URN, purchase plan, terms, find
         href: ./linux/cli-ps-findimage.md
-      - name: PowerShell
-        displayName: Images, imaging, marketplace, URN, purchase plan, terms
+      - name: Use PowerShell to find images
+        displayName: Images, imaging, marketplace, URN, purchase plan, terms, find
         href: ./windows/cli-ps-findimage.md
       - name: Windows client images
-        displayName: Windows, Client
+        displayName: Windows, Client, find
         href: ./windows/client-images.md
       - name: Windows 10 images
-        displayName: MTHR, multi-tenant, multitenant, hosting, rights, windows 10, windows
+        displayName: MTHR, multi-tenant, multitenant, hosting, rights, windows 10, windows, find
         href: ./windows/windows-desktop-multitenant-hosting-deployment.md
     - name: Linux custom images
       items:
@@ -439,6 +437,8 @@
         href: ./linux/imaging.md
       - name: Linux provisioning
         href: ./linux/provisioning.md
+      - name: Endorsed Linux distributions
+        href: ./linux/endorsed-distros.md
       - name: Linux distribution specific requirements
         items:
         - name: Generic steps
@@ -647,6 +647,9 @@
     - name: Linux
       displayName: Azure Hybrid Benefit, Linux, AHB
       href: ./linux/azure-hybrid-benefit-linux.md
+    - name: Linux BYOS
+      displayName: Azure Hybrid Benefit BYOS, Linux, AHB
+      href: ./linux/azure-hybrid-benefit-byos-linux.md
     - name: Windows
       displayName: Azure Hybrid Benefit, AHB
       href: ./windows/hybrid-use-benefit-licensing.md
@@ -731,7 +734,7 @@
       - name: Secure web server with TLS\SSL
         href: ./windows/tutorial-secure-web-server.md
   - name: Delete a VM and it's resources
-    item: delete.md
+    href: delete.md
   - name: Connect to Virtual Machines
     items:
     - name: Linux

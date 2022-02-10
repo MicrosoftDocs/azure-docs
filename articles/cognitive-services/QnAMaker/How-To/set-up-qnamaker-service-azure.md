@@ -22,7 +22,7 @@ A solid understanding of the following concepts is helpful before creating your 
 
 This procedure creates the Azure resources needed to manage the knowledge base content. After you complete these steps, you'll find the _subscription_ keys on the **Keys** page for the resource in the Azure portal.
 
-1. Sign in to the Azure portal and [create a QnA Maker](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) resource.
+1. Sign in to the Azure portal and [create a QnA Maker](https://portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) resource.
 
 1. Select **Create** after you read the terms and conditions:
 

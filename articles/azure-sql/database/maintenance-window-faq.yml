@@ -51,7 +51,7 @@ sections:
 
       - question: In which regions is choosing a maintenance window available?
         answer: | 
-          For a list of available regions, see [Maintenance window availability](maintenance-window.md#availability).
+          For a list of available regions, see [Maintenance window availability](maintenance-window.md#feature-availability).
       
       - question: I don’t see my region in the available regions list, what can I do? 
         answer: |
@@ -59,7 +59,7 @@ sections:
       
       - question: What is the pricing for maintenance window? 
         answer: |
-          Configuring and using maintenance window is free of charge to all eligible Azure subscription types, see [Maintenance window cost](maintenance-window.md#cost-and-eligibility).
+          Configuring and using maintenance window is free of charge to all eligible Azure subscription types, see [Maintenance window feature availability](maintenance-window.md#feature-availability).
         
       - question: Would I receive a notification of the maintenance window?
         answer: |
