@@ -121,7 +121,7 @@ The following feature enhancements are available with version 10.5.3 of Microsof
 
 ## October 2021
 
-The following feature enhancements are available with version 10.5.2 of Azure Defender for IoT.
+The following feature enhancements are available with version 10.5.2 of Microsoft Defender for IoT.
 
 - [PLC operating mode detections (Public Preview)](#plc-operating-mode-detections-public-preview)
 
@@ -150,7 +150,7 @@ If the Key state is detected as Program or the Run state is detected as either R
 
     :::image type="content" source="media/release-notes/device-inventory-plc.png" alt-text="Device inventory showing PLC operating mode.":::
 
-- View PLC secure status and last change information per PLC in the Attributes section of the Device Properties screen. If the Key state is detected as Program or the Run state is detected as either Remote or Program the PLC is defined by Defender for IoT as *unsecure*. The Device Properties PLC Secured option will read false. For more information, see [View and manage device properties](how-to-work-with-the-sensor-device-map.md#view-and-manage-device-properties).
+- View PLC secure status and last change information per PLC in the Attributes section of the Device Properties screen. If the Key state is detected as Program or the Run state is detected as either Remote or Program the PLC is defined by Defender for IoT as *unsecure*. The Device Properties PLC Secured option will read false.
 
     :::image type="content" source="media/release-notes/attributes-plc.png" alt-text="Attributes screen showing PLC information.":::
 
@@ -197,7 +197,7 @@ New threat intelligence packages can now be automatically pushed to cloud connec
 Working with automatic updates helps reduce operational efforts and ensure greater security.
 Enable automatic updating by onboarding your cloud connected sensor on the Defender for IoT portal with the **Automatic Threat Intelligence Updates** toggle turned on.
 
-If you would like to take a more conservative approach to updating your threat intelligence data, you can manually push packages from the Azure Defender for IoT portal to cloud connected sensors only when you feel it is required.
+If you would like to take a more conservative approach to updating your threat intelligence data, you can manually push packages from the Microsoft Defender for IoT portal to cloud connected sensors only when you feel it is required.
 This gives you the ability to control when a package is installed, without the need to download and then upload it to your sensors. Manually push updates to sensors from the Defender for IoT **Sites and Sensors** page.
 
 You can also review the following information about threat intelligence packages:
@@ -292,20 +292,20 @@ For Fresh Installations:
 
 #### Password recovery
   
-Sensor and on-premises management console Administrative users can now recover passwords from the Azure Defender for IoT portal. Previously password recovery required intervention by the support team.
+Sensor and on-premises management console Administrative users can now recover passwords from the Microsoft Defender for IoT portal. Previously password recovery required intervention by the support team.
 
 ### Onboarding
 
 #### On-premises management console - committed devices
 
 Following initial sign-in to the on-premises management console, users are now required to upload an activation file. The file contains the aggregate number of devices to be monitored on the organizational  network. This number is referred to as the number of committed devices.
-Committed devices are defined during the onboarding process on the Azure Defender for IoT portal, where the activation file is generated.
+Committed devices are defined during the onboarding process on the Microsoft Defender for IoT portal, where the activation file is generated.
 First-time users and users upgrading are required to upload the activation file.
 After initial activation, the number of devices detected on the network might exceed the number of committed devices. This event might happen, for example, if you connect more sensors to the management console. If there is a discrepancy between the number of detected devices and the number of committed devices, a warning appears in the management console. If this event occurs, you should upload a new activation file.
 
 #### Pricing page options
 
-Pricing page lets you onboard new subscriptions to Azure Defender for IoT and define committed devices in your network.  
+Pricing page lets you onboard new subscriptions to Microsoft Defender for IoT and define committed devices in your network.  
 Additionally, the Pricing page now lets you manage existing subscriptions associated with a sensor and update device commitment.
 
 #### View and manage onboarded sensors
@@ -319,7 +319,7 @@ A new Site and Sensors portal page lets you:
 
 #### Azure Sentinel new connector page
 
-The Azure Defender for IoT data connector page in Azure Sentinel has been redesigned. The data connector is now based on subscriptions rather than IoT Hubs; allowing customers to better manage their configuration connection to Azure Sentinel.
+The Microsoft Defender for IoT data connector page in Azure Sentinel has been redesigned. The data connector is now based on subscriptions rather than IoT Hubs; allowing customers to better manage their configuration connection to Azure Sentinel.
 
 #### Azure portal permission updates  
 

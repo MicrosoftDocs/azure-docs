@@ -1,6 +1,6 @@
 ---
 title: Set up your network
-description: Learn about solution architecture, network preparation, prerequisites, and other information needed to ensure that you successfully set up your network to work with Azure Defender for IoT appliances.
+description: Learn about solution architecture, network preparation, prerequisites, and other information needed to ensure that you successfully set up your network to work with Microsoft Defender for IoT appliances.
 ms.date: 12/19/2021
 ms.topic: how-to
 ---

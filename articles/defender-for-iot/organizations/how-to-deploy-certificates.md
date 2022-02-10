@@ -1,7 +1,7 @@
 ---
 title: Deploy certificates
 description: Learn how to set up and deploy certificates for Defender for IoT.
-ms.date: 11/09/2021
+ms.date: 02/06/2022
 ms.topic: how-to
 ---
 
@@ -18,7 +18,7 @@ Defender for IoT uses SSL/TLS certificates to secure communication between the f
 
 Defender for IoT Admin users can upload a certificate  to sensor consoles and their on-premises management console from the SSL/TLS Certificates dialog box.
 
-:::image type="content" source="media/how-to-deploy-certificates/certificate-upload.png" alt-text="Certificate-upload dialog box.":::
+:::image type="content" source="media/how-to-activate-and-set-up-your-sensor/wizard-upload-activation-certificates-1.png" alt-text="Initial sensor login certificates":::
 
 ## About certificate generation methods
 
@@ -152,7 +152,7 @@ When using a key length of 4096 bits, the SSL handshake at the start of each con
 
 ### Certificate chain file requirements (if .pem is used)
 
-A .pem file containing the certificates of all the certificate authorities in the chain of trust that led to your certificate.  
+A .pem file containing the certificates of all the certificate authorities in the chain of trust that led to your certificate. 
 
 Bag attributes are supported in the certificate chain file.
 
