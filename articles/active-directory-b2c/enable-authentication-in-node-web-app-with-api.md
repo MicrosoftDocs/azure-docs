@@ -16,7 +16,7 @@ ms.subservice: B2C
 
 # Enable authentication in your own Node.js web API by using Azure AD B2C
 
-In this article, you learn how to create your own web app that calls your own web API that's protected by Azure Active Directory B2C (Azure AD B2C). To authorize access to a the web API, serve only requests that include a valid Azure Active Directory B2C (Azure AD B2C)-issued access token. 
+In this article, you learn how to create your web app that calls your web API that's protected by Azure Active Directory B2C (Azure AD B2C). To authorize access to a the web API, serve only requests that include a valid Azure Active Directory B2C (Azure AD B2C)-issued access token. 
 
 ## Prerequisites
 

@@ -140,9 +140,11 @@
     - name: Node.js web app that calls a web API
       items:
       - name: Configure a sample Node.js web API
-        href: configure-authentication-in-sample-node-web-api.md
+        href: configure-authentication-in-sample-node-web-app-with-api.md
       - name: Enable authentication in Node.js web API
-        href: enable-authentication-in-node-web-api.md
+        href: enable-authentication-in-node-web-app-with-api.md
+      - name: Authentication options
+        href: enable-authentication-in-node-web-app-with-api-options.md
     - name: Angular single-page application
       items:
       - name: Configure a sample Angular app
