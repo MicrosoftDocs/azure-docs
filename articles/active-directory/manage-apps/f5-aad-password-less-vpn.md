@@ -27,7 +27,7 @@ Enabling a BIG-IP SSL-VPN for Azure AD single sign-on (SSO) provides many benefi
 
 To learn about all of the benefits, see [Integrate F5 BIG-IP with Azure Active Directory](./f5-aad-integration.md) and [What is single sign-on in Azure Active Directory?](/azure/active-directory/active-directory-appssoaccess-whatis).
 
-Despite these great value adds, classic VPNs do however remain network orientated, often providing little to zero fine grained access to corporate applications. For this reason, we encourage moving to a more Identity centric approach at achieving Zero Trust [access on a per application basis](/fundamentals/five-steps-to-full-application-integration-with-azure-ad).
+Despite these great value adds, classic VPNs do however remain network orientated, often providing little to zero fine grained access to corporate applications. For this reason, we encourage moving to a more Identity centric approach at achieving Zero Trust [access on a per application basis](/azure/active-directory/fundamentals/five-steps-to-full-application-integration-with-azure-ad).
 
 ## Scenario description
 
@@ -307,6 +307,6 @@ The F5 VPN application should also be visible as a target resource in Azure AD C
 
 - [The end of passwords, go passwordless](https://www.microsoft.com/security/business/identity/passwordless)
 
-- [Five steps to full application integration with Azure AD](../fundamentals/five-steps-to-full-application-integration-with-azure-ad.md)
+- [Five steps to full application integration with Azure AD](../azure/active-directory/fundamentals/five-steps-to-full-application-integration-with-azure-ad.md)
 
 - [Microsoft Zero Trust framework to enable remote work](https://www.microsoft.com/security/blog/2020/04/02/announcing-microsoft-zero-trust-assessment-tool/)
