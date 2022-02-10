@@ -312,7 +312,7 @@ The [Authentication Policy Administrator](#authentication-policy-administrator) 
 >* Non-administrators like executives, legal counsel, and human resources employees who may have access to sensitive or private information.
 
 > [!IMPORTANT]
-> This role can't manage MFA settings in the legacy MFA management portal or Hardware OATH tokens. The same functions can be accomplished using the [Set-MsolUser](/powershell/module/msonline/set-msoluser) commandlet Azure AD Powershell module.
+> This role can't manage MFA settings in the legacy MFA management portal or Hardware OATH tokens. The same functions can be accomplished using the [Set-MsolUser](/powershell/module/msonline/set-msoluser) commandlet Azure AD PowerShell module.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -875,7 +875,7 @@ Users with this role have read access to recipients and write access to the attr
 
 ## External ID User Flow Administrator
 
-Users with this role can create and manage user flows (also called "built-in" policies) in the Azure portal. These users can customize HTML/CSS/JavaScript content, change MFA requirements, select claims in the token, manage API connectors, and configure session settings for all user flows in the Azure AD organization. On the other hand, this role does not include the ability to review user data or make changes to the attributes that are included in the organization schema. Changes to Identity Experience Framework policies (also known as custom policies) are also outside the scope of this role.
+Users with this role can create and manage user flows (also called "built-in" policies) in the Azure portal. These users can customize HTML/CSS/JavaScript content, change MFA requirements, select claims in the token, manage API connectors and their credentials, and configure session settings for all user flows in the Azure AD organization. On the other hand, this role does not include the ability to review user data or make changes to the attributes that are included in the organization schema. Changes to Identity Experience Framework policies (also known as custom policies) are also outside the scope of this role.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -1171,7 +1171,7 @@ Users in this role can manage Azure Active Directory B2B guest user invitations 
 
 ## Helpdesk Administrator
 
-Users with this role can change passwords, invalidate refresh tokens, manage service requests, and monitor service health. Invalidating a refresh token forces the user to sign in again. Whether a Helpdesk Administrator can reset a user's password and invalidate refresh tokens depends on the role the user is assigned. For a list of the roles that a Helpdesk Administrator can reset passwords for and invalidate refresh tokens, see [Password reset permissions](#password-reset-permissions).
+Users with this role can change passwords, invalidate refresh tokens, create and manage support requests with Microsoft for Azure and Microsoft 365 services, and monitor service health. Invalidating a refresh token forces the user to sign in again. Whether a Helpdesk Administrator can reset a user's password and invalidate refresh tokens depends on the role the user is assigned. For a list of the roles that a Helpdesk Administrator can reset passwords for and invalidate refresh tokens, see [Password reset permissions](#password-reset-permissions).
 
 > [!IMPORTANT]
 > Users with this role can change passwords for people who may have access to sensitive or private information or critical configuration inside and outside of Azure Active Directory. Changing the password of a user may mean the ability to assume that user's identity and permissions. For example:
@@ -1669,7 +1669,7 @@ The [Authentication Policy Administrator](#authentication-policy-administrator) 
 
 
 > [!IMPORTANT]
-> This role is not currently capable of managing per-user MFA in the legacy MFA management portal. The same functions can be accomplished using the [Set-MsolUser](/powershell/module/msonline/set-msoluser) commandlet Azure AD Powershell module.
+> This role is not currently capable of managing per-user MFA in the legacy MFA management portal. The same functions can be accomplished using the [Set-MsolUser](/powershell/module/msonline/set-msoluser) commandlet Azure AD PowerShell module.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -1892,7 +1892,7 @@ Identity Protection Center | Read all security reports and settings information 
 
 ## Service Support Administrator
 
-Users with this role can open support requests with Microsoft for Azure and Microsoft 365 services, and views the service dashboard and message center in the [Azure portal](https://portal.azure.com) and [Microsoft 365 admin center](https://admin.microsoft.com). More information at [About admin roles](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
+Users with this role can create and manage support requests with Microsoft for Azure and Microsoft 365 services, and view the service dashboard and message center in the [Azure portal](https://portal.azure.com) and [Microsoft 365 admin center](https://admin.microsoft.com). More information at [About admin roles](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
 > [!NOTE]
 > Previously, this role was called "Service Administrator" in [Azure portal](https://portal.azure.com) and [Microsoft 365 admin center](https://admin.microsoft.com). We have renamed it to "Service Support Administrator" to align with the existing name in Microsoft Graph API and Azure AD PowerShell.

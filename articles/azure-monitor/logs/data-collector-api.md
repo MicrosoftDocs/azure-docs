@@ -381,6 +381,13 @@ namespace OIAPIExample
 ```
 
 ### Python sample
+
+>[!NOTE]
+> If using Python 2, you may need to change the line:
+> `bytes_to_hash = bytes(string_to_hash, encoding="utf-8")`
+> to
+> `bytes_to_hash = bytes(string_to_hash).encode("utf-8")`
+
 ```python
 import json
 import requests
