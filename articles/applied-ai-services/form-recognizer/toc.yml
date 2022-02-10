@@ -116,6 +116,8 @@ items:
     href: concept-form-recognizer-studio.md
   - name: General document model | preview
     href: concept-general-document.md
+  - name:  W-2 tax model | preview
+    href: concept-w2.md
   - name: Layout model
     href: concept-layout.md
   - name: Invoice model

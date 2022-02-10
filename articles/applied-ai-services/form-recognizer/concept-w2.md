@@ -47,14 +47,14 @@ See how data, including employee, employer, wage, and tax information is extract
 
 * A [Form Recognizer instance](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) in the Azure portal. You can use the free pricing tier (`F0`) to try the service. After your resource deploys, select **Go to resource** to get your API key and endpoint.
 
- :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
+ :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot of keys and endpoint location in the Azure portal.":::
 
 #### Form Recognizer Studio
 
 > [!NOTE]
 > Form Recognizer studio is available with v3.0 preview API.
 
-1. On the Form Recognizer Studio home page, select **W-2 form**.
+1. On the [Form Recognizer Studio home page](https://formrecognizer.appliedai.azure.com/studio), select **W-2 form**.
 
 1. You can analyze the sample invoice or select the **➕ Add** button to upload your own sample.
 
