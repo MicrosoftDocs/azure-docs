@@ -11,10 +11,10 @@ ms.date: 02/10/2022
 
 # Update core sizes for an Azure virtual machine offer
 
-Complete these steps when you are notified that new core sizes are now supported. These steps apply regardless of the selected price entry option (free, flat rate, per core, per core size, per market and core size).
+Complete these steps when you are notified that new core sizes are now supported.
 
 > [!NOTE]
-> These steps must be completed within the timeframe specified in the notification from Microsoft. Otherwise, we’ll publish the new core sizes at the price that we calculate for you.
+> These steps apply regardless of the selected price entry option (free, flate rate, per core, per core size, per market and core size) and must be completed within the timeframe specified in the notification from Microsoft. Otherwise, we’ll publish the new core sizes at the price that we calculate for you.
 
 1. Sign in to [Partner Center](https://go.microsoft.com/fwlink/?linkid=2166002).
 1. On the Home page, select the **Marketplace offers** tile.
