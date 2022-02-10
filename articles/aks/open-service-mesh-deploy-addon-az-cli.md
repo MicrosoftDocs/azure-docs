@@ -12,7 +12,7 @@ ms.author: pgibson
 This article shows you how to install the OSM add-on on an AKS cluster and verify it is installed and running.
 
 > [!IMPORTANT]
-> The OSM add-on installs version *0.11.1* of OSM on your cluster.
+> The OSM add-on installs version *1.0.0* of OSM on your cluster.
 
 ## Prerequisites
 
