@@ -43,7 +43,9 @@ To secure your cloud resource, set up a claims rule so that Active Directory Fed
 6. Give your rule a name. 
 7. Select **Authentication Methods References** as the Incoming claim type.
 8. Select **Pass through all claim values**.
+
     ![Screenshot shows Add Transform Claim Rule Wizard where you select Pass through all claim values.](./media/howto-mfa-adfs/configurewizard.png)
+
 9. Click **Finish**. Close the AD FS Management console.
 
 ## Trusted IPs for federated users
@@ -59,24 +61,35 @@ The first thing we need to do is to configure the AD FS claims. Create two claim
 1. Open AD FS Management.
 2. On the left, select **Relying Party Trusts**.
 3. Right-click on **Microsoft Office 365 Identity Platform** and select **Edit Claim Rules…**
+
    ![ADFS Console - Edit Claim Rules](./media/howto-mfa-adfs/trustedip1.png)
+
 4. On Issuance Transform Rules, click **Add Rule.**
+
    ![Adding a Claim Rule](./media/howto-mfa-adfs/trustedip2.png)
+
 5. On the Add Transform Claim Rule Wizard, select **Pass Through or Filter an Incoming Claim** from the drop-down and click **Next**.
+
    ![Screenshot shows Add Transform Claim Rule Wizard where you select Pass Through or Filter an Incoming Claim.](./media/howto-mfa-adfs/trustedip3.png)
+
 6. In the box next to Claim rule name, give your rule a name. For example: InsideCorpNet.
 7. From the drop-down, next to Incoming claim type, select **Inside Corporate Network**.
+
    ![Adding Inside Corporate Network claim](./media/howto-mfa-adfs/trustedip4.png)
+
 8. Click **Finish**.
 9. On Issuance Transform Rules, click **Add Rule**.
 10. On the Add Transform Claim Rule Wizard, select **Send Claims Using a Custom Rule** from the drop-down and click **Next**.
 11. In the box under Claim rule name: enter *Keep Users Signed In*.
 12. In the Custom rule box, enter:
+
     ```ad-fs-claim-rule
         c:[Type == "http://schemas.microsoft.com/2014/03/psso"]
             => issue(claim = c); 
     ```
+
     ![Create custom claim to keep users signed in](./media/howto-mfa-adfs/trustedip5.png)
+
 13. Click **Finish**.
 14. Click **Apply**.
 15. Click **Ok**.
