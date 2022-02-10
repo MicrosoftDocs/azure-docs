@@ -40,7 +40,7 @@ Azure private MEC includes several capabilities from Microsoft. These include a 
 
 Azure Private 5G Core enables a single private mobile network distributed across one or more sites around the world. Each site contains a packet core instance deployed on an Azure Stack Edge device.
 
-Azure Private 5G Core allows you to use Azure easily carry out the following tasks. 
+Azure Private 5G Core allows you to use Azure to easily carry out the following tasks. 
 
 - Deliver and automate the lifecycle of packet core instances on Azure Stack Edge devices. 
 - Manage configuration. 
