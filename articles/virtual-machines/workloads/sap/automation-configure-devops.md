@@ -218,7 +218,7 @@ You must use the Deployer as a [self-hosted agent for Azure DevOps](/azure/devop
 
 1. Sign in with the user account you plan to use in your Azure DevOps organization (https://dev.azure.com).
 
-  1. From your home page, open your user settings, and then select _Personal access tokens_.
+1. From your home page, open your user settings, and then select _Personal access tokens_.
 
 :::image type="content" source="./media/automation-devops/automation-select-personal-access-tokens.jpg" alt-text="Diagram showing the creation of the Personal Access Token (PAT).":::
 

@@ -55,7 +55,7 @@ These steps reference and use the [default naming convention](automation-naming.
 
 The deployed infrastructure is shown in the diagram below.
 
- :::image type="content" source="media/automation-devops/automation-devops-tutorial-design.png" alt-text="DevOps tutorial infrastructure design":::
+ :::image type="content" source="media/automation-devops/automation-devops-tutorial-design.png" alt-text="Picture showing the DevOps tutorial infrastructure design":::
 
 
 > [!Note]
@@ -76,11 +76,11 @@ Run the pipeline by navigating to the Pipelines section in the [Azure DevOps Por
 Deployer configuration name: MGMT-WEEU-DEP00-INFRASTRUCTURE
 SAP Library configuration name: MGMT-WEEU-SAP_LIBRARY
 
-:::image type="content" source="media/automation-devops/automation-run-pipeline.png" alt-text="DevOps tutorial, run pipeline dialog":::
+:::image type="content" source="media/automation-devops/automation-run-pipeline.png" alt-text="Picture showing the DevOps tutorial run pipeline dialog":::
 
 You can track the progress in the Azure DevOps portal. Once the deployment is complete, you can see the Control Plane details in the _Extensions_ tab.
 
- :::image type="content" source="media/automation-devops/automation-run-pipeline-control-plane.png" alt-text="DevOps tutorial, run pipeline results":::
+ :::image type="content" source="media/automation-devops/automation-run-pipeline-control-plane.png" alt-text="Picture showing the DevOps tutorial run pipeline results":::
 
 ## Deploy the Workload zone
 
@@ -122,7 +122,7 @@ Bill of Materials name: S41909SPS03_v0010ms
 
 Choose the playbooks to execute.
 
-:::image type="content" source="media/automation-devops/automation-os-sap.png" alt-text="DevOps tutorial, OS and SAP configuration":::
+:::image type="content" source="media/automation-devops/automation-os-sap.png" alt-text="Picture showing the DevOps tutorial, OS and SAP configuration":::
 
 You can track the progress in the Azure DevOps portal. 
 
