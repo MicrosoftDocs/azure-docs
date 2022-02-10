@@ -46,14 +46,18 @@ To follow this quickstart, you'll first need to:
    | Admin username    | Currently required to be the value `citus`, and can't be changed. |
    | Password          | A new password for the server admin account. It must contain between 8 and 128 characters. Your password must contain characters from three of the following categories: English uppercase letters, English lowercase letters, numbers (0 through 9), and non-alphanumeric characters (!, $, #, %, etc.). |
    | Version           | The latest PostgreSQL major version, unless you have specific requirements. |
-   | Compute + storage | The compute, storage, and Tier configurations for your new server. Select **Configure server group**. |
+
+5. Select **Configure server group**.
 
    ![compute and storage](../media/quickstart-hyperscale-create-portal/compute.png)
 
-5. For this quickstart, you can accept the default value of **Basic** for
+   For this quickstart, you can accept the default value of **Basic** for
    **Tiers**. The other option, standard tier, creates worker nodes for
    greater total data capacity and query parallelism. See
    [tiers](concepts-server-group.md#tiers) for a more in-depth comparison.
+
+   Select **Save**.
+
 6. Select **Next : Networking >** at the bottom of the screen.
 7. In the **Networking** tab, select **Allow public access from Azure services
    and resources within Azure to this server group**.
