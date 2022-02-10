@@ -807,5 +807,5 @@ dotnet run
 | workerId | `string` | ❌ |
 
 <!-- LINKS -->
-[event-grid-overview]: ../../../event-grid/overview
-[filter-events]: ../../../event-grid/how-to-filter-events
+[event-grid-overview]: https://docs.microsoft.com/azure/event-grid/overview
+[filter-events]: https://docs.microsoft.com/azure/event-grid/how-to-filter-events
