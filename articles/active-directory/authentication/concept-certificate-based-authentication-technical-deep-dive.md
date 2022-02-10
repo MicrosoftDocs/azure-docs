@@ -63,7 +63,7 @@ Let's cover each step:
 1. Azure AD will request a client certificate and the user picks the client certificate and clicks **Ok**.
 
    >[!NOTE] 
-   >Username hints are not supported so the list of certificates can't be further scoped.
+   >TrustedCA hints are not supported, so the list of certificates can't be further scoped.
 
    :::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/cert-picker.png" alt-text="Screenshot of the certificate picker." lightbox="./media/concept-certificate-based-authentication-technical-deep-dive/cert-picker.png":::
 

@@ -1,9 +1,29 @@
 {
     "redirections": [
         {
+          "source_path_from_root": "/articles/active-directory/authentication/cloud-native-certificate-based-authentication-faq.yml",
+          "redirect_url": "/azure/active-directory/authentication/certificate-based-authentication-faq",
+          "redirect_document_id": false
+        },
+        {
+          "source_path_from_root": "/articles/active-directory/authentication/concept-cloud-native-certificate-based-authentication-limitations.md",
+          "redirect_url": "/azure/active-directory/authentication/concept-certificate-based-authentication-limitations",
+          "redirect_document_id": false
+        },
+        {
+          "source_path_from_root": "/articles/active-directory/authentication/concept-cloud-native-certificate-based-authentication-technical-deep-dive.md",
+          "redirect_url": "/azure/active-directory/authentication/concept-certificate-based-authentication-technical-deep-dive",
+          "redirect_document_id": false
+        },
+        {
+          "source_path_from_root": "/articles/active-directory/authentication/concept-cloud-native-certificate-based-authentication.md",
+          "redirect_url": "/azure/active-directory/authentication/concept-certificate-based-authentication",
+          "redirect_document_id": false
+        {
           "source_path_from_root": "/articles/active-directory/manage-apps/common-scenarios.md",
           "redirect_url": "/azure/active-directory/manage-apps/what-is-application-management",
           "redirect_document_id": false
+        },
         },
         {
            "source_path_from_root": "/articles/active-directory/authentication/how-to-authentication-kerberos.md",
