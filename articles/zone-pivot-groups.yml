@@ -498,8 +498,6 @@ groups:
   pivots:
   - id: devlang-asp-net
     title: ASP.NET
-  - id: devlang-openjdk
-    title: OpenJDK
   - id: devlang-python-flask
     title: Python Flask
   - id: devlang-java-spring

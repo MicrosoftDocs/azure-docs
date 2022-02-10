@@ -30,12 +30,6 @@ zone_pivot_groups: web-app-tutorial
 
 ::: zone-end
 
-::: zone pivot="devlang-openjdk"
-
-[!INCLUDE [openjdk](./includes/web-app/open-jdk-tutorial-01-prepare-app.md)]
-
-::: zone-end
-
 ::: zone pivot="devlang-python-flask"
 
 [!INCLUDE [python-flask](./includes/web-app/python-flask-tutorial-01-prepare-app.md)]
