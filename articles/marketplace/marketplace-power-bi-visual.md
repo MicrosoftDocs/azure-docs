@@ -2,7 +2,7 @@
 title: Planning a Power BI visual offer in Partner Center for Microsoft AppSource
 description: Learn what information you'll need on hand to submit your Power BI visual offer in Partner Center.
 author: posurnis
-ms.author: pooja.surnis
+ms.author: posurnis
 ms.reviewer: pooja.surnis
 ms.service: powerbi
 ms.subservice: powerbi-custom-visuals

@@ -2,7 +2,7 @@
 title: Set up Power BI visual offer technical configuration in Partner Center for Microsoft AppSource
 description: Learn how to set up Power BI visual offer technical configuration in Partner Center for Microsoft AppSource.
 author: posurnis
-ms.author: pooja.surnis
+ms.author: posurnis
 ms.reviewer: pooja.surnis
 ms.service: powerbi
 ms.subservice: powerbi-custom-visuals
