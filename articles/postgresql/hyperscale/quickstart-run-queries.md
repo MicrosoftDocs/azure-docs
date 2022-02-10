@@ -49,11 +49,21 @@ the shards in parallel, and combines the results.
 -- Find all events for a single user.
 -- (A common transactional/operational query)
 
-SELECT * FROM github_events WHERE user_id = 973676;
+SELECT created_at, event_type, repo->>'name' AS repo_name
+  FROM github_events
+ WHERE user_id = 3861633;
 ```
 
-The output of `SELECT *` is very large. You can press space to page through it,
-and `q` to stop the output and return to the psql command prompt.
+```
+     created_at      |  event_type  |              repo_name
+---------------------+--------------+--------------------------------------
+ 2016-12-01 06:28:44 | PushEvent    | sczhengyabin/Google-Image-Downloader
+ 2016-12-01 06:29:27 | CreateEvent  | sczhengyabin/Google-Image-Downloader
+ 2016-12-01 06:36:47 | ReleaseEvent | sczhengyabin/Google-Image-Downloader
+ 2016-12-01 06:42:35 | WatchEvent   | sczhengyabin/Google-Image-Downloader
+ 2016-12-01 07:45:58 | IssuesEvent  | sczhengyabin/Google-Image-Downloader
+(5 rows)
+```
 
 ## More complicated queries
 

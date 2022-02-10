@@ -36,8 +36,8 @@ To follow this quickstart, you'll first need to:
 
 ## Create tables
 
-Once you've connected via psql, let's create our table. In the psql console,
-run:
+Once you've connected via psql, let's create our table. Copy and paste the
+following commands into the psql terminal window, and hit enter to run:
 
 ```sql
 CREATE TABLE github_users
@@ -106,7 +106,7 @@ SELECT table_name, count(*)
 We're ready to fill the tables with sample data. For this quickstart, we'll use
 a dataset previously captured from the GitHub API.
 
-```sql
+```
 \COPY github_users FROM PROGRAM 'curl https://examples.citusdata.com/users.csv' WITH (FORMAT CSV)
 \COPY github_events FROM PROGRAM 'curl https://examples.citusdata.com/events.csv' WITH (FORMAT CSV)
 ```
