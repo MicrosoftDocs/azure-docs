@@ -840,7 +840,7 @@
     ".openpublishing.redirection.media-services.json",
     ".openpublishing.redirection.security-benchmark.json",
     ".openpublishing.redirection.sql-database.json",
-    ".openpublishing.redirection.synapse-analytics.json",
+    "articles/synapse-analytics/.openpublishing.redirection.synapse-analytics.json",
     ".openpublishing.redirection.azure-web-pubsub.json",
     ".openpublishing.redirection.azure-monitor.json",
     ".openpublishing.redirection.azure-percept.json",
@@ -871,6 +871,7 @@
     "articles/stream-analytics/.openpublishing.redirection.stream-analytics.json",
     "articles/azure-video-analyzer/.openpublishing.redirection.azure-video-analyzer.json",
     "articles/virtual-machines/.openpublishing.redirection.virtual-machines.json",
+    "articles/virtual-machine-scale-sets/.openpublishing.redirection.virtual-machine-scale-sets.json",
     "articles/mysql/.openpublishing.redirection.mysql.json"
   ]
 }
