@@ -24,9 +24,9 @@ Microsoft recommends an approach based on the principle of zero-trust when desig
 
 - **Least-privileged access** Devices should enforce least-privileged access control on local resources across workloads. For example, a firmware component that reports battery level shouldn't be able to access a camera component.
 
-- **Continual updates** A device should enable the Over-the-Air (OTA) feature, such as the [Device Update for IoT Hub](https://docs.microsoft.com/en-us/azure/iot-hub-device-update/device-update-azure-real-time-operating-system) to push the firmware that contains the patches or bug fixes.
+- **Continual updates** A device should enable the Over-the-Air (OTA) feature, such as the [Device Update for IoT Hub](https://docs.microsoft.com/azure/iot-hub-device-update/device-update-azure-real-time-operating-system) to push the firmware that contains the patches or bug fixes.
 
-- **Security monitoring and responses** A device should be able to proactively report the security postures for the solution builder to monitor the potential threats for a large number of devices. The [Microsoft Defender for IoT](https://docs.microsoft.com/en-us/azure/defender-for-iot/device-builders/concept-rtos-security-module) can be used for that purpose.
+- **Security monitoring and responses** A device should be able to proactively report the security postures for the solution builder to monitor the potential threats for a large number of devices. The [Microsoft Defender for IoT](https://docs.microsoft.com/azure/defender-for-iot/device-builders/concept-rtos-security-module) can be used for that purpose.
 
 
 ## Embedded Security Components - Cryptography
