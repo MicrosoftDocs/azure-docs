@@ -138,6 +138,9 @@ Name | Description
 ## Azure Monitor Logs tables
 Azure Event Hubs uses Kusto tables from Azure Monitor Logs. You can query these tables with Log Analytics. For a list of Kusto tables the service uses, see [Azure Monitor Logs table reference](/azure/azure-monitor/reference/tables/tables-resourcetype#event-hubs).
 
+> [!IMPORTANT]
+> Dimensions aren't exported to a Log Analytics workspace. 
+
 
 ## Next steps
 - For details on monitoring Azure Event Hubs, see [Monitoring Azure Event Hubs](monitor-event-hubs.md).

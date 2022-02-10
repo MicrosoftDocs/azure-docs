@@ -3,7 +3,7 @@ title: Monitoring Azure Service Bus
 description: Learn how to use Azure Monitor to view, analyze, and create alerts on metrics from Azure Service Bus. 
 ms.topic: conceptual
 ms.custom: subject-monitoring
-ms.date: 05/18/2021
+ms.date: 02/10/2022
 ---
 
 # Monitor Azure Service Bus
@@ -108,7 +108,9 @@ For metrics that support dimensions, you can apply filters using a dimension val
 Using Azure Monitor Log Analytics requires you to create a diagnostic configuration and enable __Send information to Log Analytics__. For more information, see the [Collection and routing](#collection-and-routing) section. Data in Azure Monitor Logs is stored in tables, with each table having its own set of unique properties. Azure Service Bus stores data in the following tables: **AzureDiagnostics** and **AzureMetrics**.
 
 > [!IMPORTANT]
-> When you select **Logs** from the Azure Service Bus menu, Log Analytics is opened with the query scope set to the current workspace. This means that log queries will only include data from that resource. If you want to run a query that includes data from other databases or data from other Azure services, select **Logs** from the **Azure Monitor** menu. See [Log query scope and time range in Azure Monitor Log Analytics](../azure-monitor/logs/scope.md) for details.
+> - When you select **Logs** from the Azure Service Bus menu, Log Analytics is opened with the query scope set to the current workspace. This means that log queries will only include data from that resource. If you want to run a query that includes data from other databases or data from other Azure services, select **Logs** from the **Azure Monitor** menu. See [Log query scope and time range in Azure Monitor Log Analytics](../azure-monitor/logs/scope.md) for details.
+> - Dimensions aren't exported to a Log Analytics workspace. 
+
 
 For a detailed reference of the logs and metrics, see [Azure Service Bus monitoring data reference](monitor-service-bus-reference.md).
 
