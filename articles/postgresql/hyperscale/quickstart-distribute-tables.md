@@ -88,16 +88,16 @@ By default, `create_distributed_table()` splits tables into 32 shards.  We can
 verify using the `citus_shards` view:
 
 ```sql
-SELECT table_name, count(*)
+SELECT table_name, count(*) AS shards
   FROM citus_shards
  GROUP BY 1;
 ```
 
 ```
-  table_name   | count
----------------+-------
- github_events |    32
- github_users  |    32
+  table_name   | shards
+---------------+--------
+ github_users  |     32
+ github_events |     32
 (2 rows)
 ```
 
