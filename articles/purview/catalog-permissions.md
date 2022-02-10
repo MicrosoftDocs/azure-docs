@@ -18,31 +18,36 @@ A collection is a tool Azure Purview uses to group assets, sources, and other ar
 
 > [!NOTE]
 > As of November 8th, 2021, ***Insights*** is accessible to Data Curators. Data Readers do not have access to Insights.
->
->
+
 ## Roles
 
 Azure Purview uses a set of predefined roles to control who can access what within the account. These roles are currently:
 
-- **Collection admins** - a role for users that will need to assign roles to other users in Azure Purview or manage collections. Collection admins can add users to roles on collections where they're admins. They can also edit collections, their details, and add subcollections.
+- **Collection administrator** - a role for users that will need to assign roles to other users in Azure Purview or manage collections. Collection admins can add users to roles on collections where they're admins. They can also edit collections, their details, and add subcollections.
 - **Data curators** - a role that provides access to the data catalog to manage assets, configure custom classifications, set up glossary terms, and view insights. Data curators can create, read, modify, move, and delete assets. They can also apply annotations to assets.
 - **Data readers** - a role that provides read-only access to data assets, classifications, classification rules, collections and glossary terms.
-- **Data source admins** - a role that allows a user to manage data sources and scans. If a user is granted only to **Data source admin** role on a given data source, they can run new scans using an existing scan rule. To create new scan rules, the user must be also granted as either **Data reader** or **Data curator** roles.
+- **Data source administrators** - a role that allows a user to manage data sources and scans. If a user is granted only to **Data source admin** role on a given data source, they can run new scans using an existing scan rule. To create new scan rules, the user must be also granted as either **Data reader** or **Data curator** roles.
+- **Policy author (Preview)** - a role that allows a user to view, update, and delete Azure Purview policies through the policy management app within Azure Purview.
+> [!NOTE] 
+> At this time, Azure Purview Policy author role is not sufficient to create policies. The Azure Purview Data source admin role is also required.
 
 ## Who should be assigned to what role?
 
 |User Scenario|Appropriate Role(s)|
 |-------------|-----------------|
-|I just need to find assets, I don't want to edit anything|Data Reader|
-|I need to edit information about assets, assign classifications, associate them with glossary entries, and so on.|Data Curator|
-|I need to edit the glossary or set up new classification definitions|Data Curator|
-|I need to view Insights to understand the governance posture of my data estate|Data Curator|
-|My application's Service Principal needs to push data to Azure Purview|Data Curator|
-|I need to set up scans via the Azure Purview Studio|Data Curator on the collection **or** Data Curator **And** Data Source Administrator where the source is registered|
-|I need to enable a Service Principal or group to set up and monitor scans in Azure Purview without allowing them to access the catalog's information |Data Source Admin|
-|I need to put users into roles in Azure Purview | Collection Admin |
+|I just need to find assets, I don't want to edit anything|Data reader|
+|I need to edit information about assets, assign classifications, associate them with glossary entries, and so on.|Data curator|
+|I need to edit the glossary or set up new classification definitions|Data curator|
+|I need to view Insights to understand the governance posture of my data estate|Data curator|
+|My application's Service Principal needs to push data to Azure Purview|Data curator|
+|I need to set up scans via the Azure Purview Studio|Data curator on the collection **or** data curator **and** data source administrator where the source is registered.|
+|I need to enable a Service Principal or group to set up and monitor scans in Azure Purview without allowing them to access the catalog's information |Data source administrator|
+|I need to put users into roles in Azure Purview | Collection administrator |
+|I need to create and publish access policies | Data source admin and policy author |
 
-:::image type="content" source="./media/catalog-permissions/collection-permissions-roles.png" alt-text="Chart showing Azure Purview roles" lightbox="./media/catalog-permissions/collection-permissions-roles.png":::
+:::image type="content" source="./media/catalog-permissions/collection-permission-roles.png" alt-text="Chart showing Azure Purview roles" lightbox="./media/catalog-permissions/collection-permission-roles.png":::
+>[!NOTE]
+> **\*Data source admin permissions on Policies** - Data source administrators are also able to publish data policies.
 
 ## Understand how to use Azure Purview's roles and collections
 
