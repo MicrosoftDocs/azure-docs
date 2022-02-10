@@ -36,7 +36,7 @@ Let's cover each step:
 1. If the user is not already signed in, the user is redirected to the Azure AD **User Sign-in** page at [https://login.microsoftonline.com/](https://login.microsoftonline.com/).
 1. The user enters their username into the Azure AD sign in page, and then clicks **Next**.
    
-   :::image type="content" border="true" source="./media/concept-cloud-certificate-based-authentication-technical-deep-dive/sign-in.png" alt-text="Screenshot of the Sign-in for MyApps portal.":::
+   :::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/sign-in.png" alt-text="Screenshot of the Sign-in for MyApps portal.":::
   
 1. Azure AD checks whether CBA is enabled for the tenant. If CBA is enabled for the tenant, the user sees a link to **Sign in with a certificate** on the password page. If you do not see the sign-in link, make sure CBA is enabled on the tenant. For more information, see [How do I enable Azure AD CBA?](certificate-based-authentication-faq.yml#how-do-i-enable-azure-ad-cba-).
    

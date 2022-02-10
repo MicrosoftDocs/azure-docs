@@ -113,7 +113,7 @@ This is a known issue, and we are working on graceful error handling. This error
 
 - [Overview of Azure AD CBA](concept-certificate-based-authentication.md)
 - [Technical deep dive for Azure AD CBA](concept-certificate-based-authentication-technical-deep-dive.md)   
-- [Limitations with Azure AD CBA](concept-cloud-certificate-based-authentication-limitations.md)
+- [Limitations with Azure AD CBA](concept-certificate-based-authentication-limitations.md)
 - [How to configure Azure AD CBA](how-to-certificate-based-authentication.md)
 - [FAQ](certificate-based-authentication-faq.yml)
 
