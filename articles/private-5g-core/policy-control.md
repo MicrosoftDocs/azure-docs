@@ -15,16 +15,15 @@ ms.custom: template-concept
 Azure Private 5G Core Preview provides *flexible traffic handling*. You can customize how your packet core instance applies quality of service (QoS) characteristics to traffic. You can also block or limit certain flows.
 
 ## 5G quality of service (QoS) and QoS flows
-<!-- Are SDFs, PDUs, QoS flows, services and other bold terms below UI elements? If not, they should be italic instead when introduced with a definition or explanation -->
-The packet core instance is a key component in establishing **protocol data unit (PDU) sessions**, which are used to transport user plane traffic between a UE and the data network. Within each PDU session, there are one or more **service data flows (SDFs)**. Each SDF is a single IP flow or a set of aggregated IP flows of UE traffic that is used for a specific service.
+The packet core instance is a key component in establishing *protocol data unit (PDU) sessions*, which are used to transport user plane traffic between a UE and the data network. Within each PDU session, there are one or more *service data flows (SDFs)*. Each SDF is a single IP flow or a set of aggregated IP flows of UE traffic that is used for a specific service.
 
 Each SDF may require a different set of QoS characteristics, including prioritization and bandwidth limits. For example, an SDF carrying traffic used for industrial automation will need to be handled differently to an SDF used for internet browsing.
 
-To ensure the correct QoS characteristics are applied, each SDF is bound to a **QoS flow**. Each QoS flow has a unique **QoS profile**, which identifies the QoS characteristics that should be applied to any SDFs bound to the QoS flow. Multiple SDFs with the same QoS requirements can be bound to the same QoS flow.
+To ensure the correct QoS characteristics are applied, each SDF is bound to a *QoS flow*. Each QoS flow has a unique *QoS profile*, which identifies the QoS characteristics that should be applied to any SDFs bound to the QoS flow. Multiple SDFs with the same QoS requirements can be bound to the same QoS flow.
 
-A **QoS profile** has two main components.
+A *QoS profile* has two main components.
 
-- A **5G QoS identifier (5QI)**. The 5QI value corresponds to a set of QoS characteristics that should be used for the QoS flow. These characteristics include guaranteed and maximum bitrates, priority levels, and limits on latency, jitter, and error rate. The 5QI is given as a scalar number.
+- A *5G QoS identifier (5QI)*. The 5QI value corresponds to a set of QoS characteristics that should be used for the QoS flow. These characteristics include guaranteed and maximum bitrates, priority levels, and limits on latency, jitter, and error rate. The 5QI is given as a scalar number.
 
   You can find more information on 5QI and each of the QoS characteristics in 3GPP TS 23.501. You can also find definitions for standardized (or non-dynamic) 5QI values.
 
@@ -33,17 +32,17 @@ A **QoS profile** has two main components.
 > [!NOTE]
 > Azure Private 5G Core does not support dynamically assigned 5QI, where specific QoS characteristics are signalled to the gNB during QoS flow creation.
 
-- An **allocation and retention priority (ARP) value**. The ARP value defines a QoS flow's importance. It controls whether a particular QoS flow should be retained or preempted when there's resource constraint in the network, based on its priority compared to other QoS flows. The QoS profile may also define whether the QoS flow can preempt or be preempted by another QoS flow.
+- An *allocation and retention priority (ARP) value*. The ARP value defines a QoS flow's importance. It controls whether a particular QoS flow should be retained or preempted when there's resource constraint in the network, based on its priority compared to other QoS flows. The QoS profile may also define whether the QoS flow can preempt or be preempted by another QoS flow.
 
-Each unique QoS flow is assigned a unique **QoS flow ID (QFI)**, which is used by network elements to map SDFs to QoS flows.
+Each unique QoS flow is assigned a unique *QoS flow ID (QFI)*, which is used by network elements to map SDFs to QoS flows.
 
 ## Azure Private 5G Core QoS configuration
 
-Azure Private 5G Core provides configuration to allow you to determine the QoS flows the packet core instance will create and bind to SDFs during PDU session establishment. You can configure two primary resource types - **services** and **SIM policies**.
+Azure Private 5G Core provides configuration to allow you to determine the QoS flows the packet core instance will create and bind to SDFs during PDU session establishment. You can configure two primary resource types - *services* and *SIM policies*.
 
 ### Services
 
-A **service** is a representation of a set of QoS characteristics that you want to apply to SDFs that match particular properties, such as their destination, or the protocol used. You can also use services to limit or block particular SDFs based on these properties.
+A *service* is a representation of a set of QoS characteristics that you want to apply to SDFs that match particular properties, such as their destination, or the protocol used. You can also use services to limit or block particular SDFs based on these properties.
 
 Each service includes:
 
@@ -56,9 +55,9 @@ Each service includes:
   - A preemption capability setting. This setting determines whether the QoS flow created for this service can preempt another QoS flow with a lower ARP priority level.
   - A preemption vulnerability setting. This setting determines whether the QoS flow created for this service can be preempted by another QoS flow with a higher ARP priority level.
 
-- One or more **data flow policy rules**, which identify the SDFs to which the service should be applied. You can configure each rule with the following to determine when it's applied and the effect it will have:
+- One or more *data flow policy rules*, which identify the SDFs to which the service should be applied. You can configure each rule with the following to determine when it's applied and the effect it will have:
 
-  - One or more **data flow templates**, which provide the packet filters that identify the SDFs on which to match. You can match on an SDF's direction, protocol, target IP address, and target port. The target IP address and port refer to the component on the data network's end of the connection.
+  - One or more *data flow templates*, which provide the packet filters that identify the SDFs on which to match. You can match on an SDF's direction, protocol, target IP address, and target port. The target IP address and port refer to the component on the data network's end of the connection.
   - A traffic control setting, which determines whether the packet core instance should allow or block traffic matching the SDF(s).
   - A precedence value, which the packet core instance can use to rank data flow policy rules by importance. 
 
@@ -69,7 +68,7 @@ Each service includes:
 Each SIM policy includes:
 
 - Top-level settings that are applied to every SIM assigned to the SIM policy. These settings include the UE aggregated maximum bit rate (UE-AMBR) for downloads and uploads, and the RAT/Frequency Priority ID (RFSP ID).
-- A **network scope**, which defines how SIMs assigned to this SIM policy will connect to the data network. You can use the network scope to determine the following settings:
+- A *network scope*, which defines how SIMs assigned to this SIM policy will connect to the data network. You can use the network scope to determine the following settings:
 
   - The services (as described in [Services](#services)) offered to SIMs on this data network.
   - A set of QoS characteristics that will be used to form the default QoS flow for PDU sessions involving assigned SIMs on this data network.
