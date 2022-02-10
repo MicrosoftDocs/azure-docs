@@ -37,7 +37,7 @@ The following scenarios are supported:
 The following scenarios aren't supported:
 
 - Public Key Infrastructure for creating client certificates. Customers need to configure their own Public Key Infrastructure (PKI) and provision certificates to their users and devices. 
-- Certificate Authority hints are not supported so the list of certificates that appears for users in the UI isn't scoped.
+- Certificate Authority hints aren't supported, so the list of certificates that appears for users in the UI isn't scoped.
 - Windows login using smart cards on Windows devices.
 - Only one Certificate Distribution Point for a trusted CA is supported.
 - The Certificate Distribution Point can be only HTTP URLs. We don't support Online Certificate Status Protocol (OSCP), or Lightweight Directory Access Protocol (LDAP) URLs.

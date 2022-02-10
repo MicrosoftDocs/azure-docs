@@ -58,7 +58,7 @@ sections:
       - question: |
           How do I turn certificate revocation checking on or off for a particular CA?
         answer: |
-          We highly recommend not to disable certificate revocation list (CRL) checking as you will not be able to revoke certificates. 
+          We highly recommend not to disable certificate revocation list (CRL) checking as you won't be able to revoke certificates. 
           However, to disable CRL checking if there are issues with CRL for a particular CA, you can update a trusted certificate authority and set the crlDistributionPoint attribute to """.
           
           Use the [Set-AzureADTrustedCertificateAuthority](https://docs.microsoft.com/powershell/module/azuread/set-azureadtrustedcertificateauthority) cmdlet:
@@ -74,10 +74,10 @@ sections:
         answer: |
           Today as part of the public preview CRL sizes are limited as follows:
           
-          - 20MB in commercial (Microsoft 365, GCC)
-          - 45MB in US Government (GCC High, Dept. of Defense)
+          - 20 MB in commercial (Microsoft 365, GCC)
+          - 45 MB in US Government (GCC High, Dept. of Defense)
 
-          We are reviewing the impact of these limits during public preview.
+          We're reviewing the impact of these limits during public preview.
 
       - question: |
           Will the changes to authentication policy change take effect immediately?
@@ -87,7 +87,7 @@ sections:
       - question: |
           How do I instantly revoke a certificate?
         answer: |
-          Please follow the steps to [manually revoke a certificate](active-directory-certificate-based-authentication-get-started.md#step-3-configure-revocation). 
+          Follow the steps to [manually revoke a certificate](active-directory-certificate-based-authentication-get-started.md#step-3-configure-revocation). 
           
 additionalContent: |
   ## Next steps
