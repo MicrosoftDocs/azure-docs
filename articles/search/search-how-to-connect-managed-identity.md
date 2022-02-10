@@ -23,22 +23,22 @@ You can configure an Azure Cognitive Search connection to other Azure resources 
 
 ## Supported scenarios
 
-A user-assigned managed identity is specified through an "identity" property. Currently, only indexer connections to Azure data sources support this property.
+A user-assigned managed identity is specified through an "identity" property. Currently, only indexer connections to Azure data sources can be made under a user-assigned managed identity.
 
 | Scenario | System managed identity | User managed identity (preview) |
 |----------|-------------------------|---------------------------------|
 | [Indexer connections](search-indexer-overview.md) to supported Azure data sources | Yes | Yes |
 | [Azure Key Vault for customer-managed keys](search-security-manage-encryption-keys.md) | Yes | No |
-| [Debug sessions](cognitive-search-debug-session.md) in Azure Storage | Yes | No |
-| [Enrichment cache](search-howto-incremental-index.md) in Azure Storage | Yes <sup>1</sup>| No |
-| [Knowledge Store](knowledge-store-create-rest.md) in Azure Storage | Yes | No |
+| [Debug sessions (hosted in Azure Storage)](cognitive-search-debug-session.md)| Yes | No |
+| [Enrichment cache (hosted in Azure Storage)](search-howto-incremental-index.md)| Yes <sup>1</sup>| No |
+| [Knowledge Store (hosted in Azure Storage)](knowledge-store-create-rest.md) | Yes | No |
 | [Custom skills](cognitive-search-custom-skill-interface.md) | Yes | No |
 
 <sup>1</sup> The Import data wizard doesn't currently accept a system managed identity connection string for incremental enrichment, but after the wizard completes, you can update the indexer JSON definition to include the connection string, and then rerun the indexer.
 
-Debug sessions, enrichment cache, and knowledge store are features that need write permissions in Azure Storage. All of them write to Blob Storage. The **Storage Blob Data Contributor** role is required for these features.
+Debug sessions, enrichment cache, and knowledge store are features that write to Blob Storage. Assign a system managed identity to the **Storage Blob Data Contributor** role to support these features.
 
-Knowledge store will also write to Table Storage. The **Storage Table Data Contributor** is necessary for creating table projections.
+Knowledge store will also write to Table Storage. Assign a system managed identity to the **Storage Table Data Contributor** role to support table projections.
 
 ## Create a system managed identity
 
@@ -146,11 +146,11 @@ The following steps are for Azure Storage. If your resource is Cosmos DB or Azur
 
 A managed identity must be paired with an Azure role that determines permissions on the Azure resource. 
 
-+ Data reader permissions are needed for indexer data connections and Azure Key Vault 
++ Data reader permissions are needed for indexer data connections and Azure Key Vault.
 
-+ Contributor (write) permissions are needed for AI enrichment features, where the search service submits a data payload for processing or storage on the Azure resource. These features include: enrichment cache, knowledge store, debug session.
++ Contributor (write) permissions are needed for AI enrichment features that use Azure Storage for session data, caching, and long-term content storage. These features include: enrichment cache, knowledge store, debug session.
 
-The following steps are for Azure Storage. If your resource is Cosmos DB or Azure SQL, the steps will be similar.
+The following steps are for Azure Storage. If your resource is Cosmos DB or Azure SQL, the steps for role assignment will be similar.
 
 1. [Sign in to Azure portal](https://portal.azure.com) and [find your Azure resource](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) to which the search service must have access.
 
@@ -179,7 +179,7 @@ Once a managed identity is defined and given a role assignment, outbound connect
 
 **Blob data source (system):**
 
-A container name is specified in the "container" property (not shown), not the connection string.
+An indexer data source includes a "credentials" property that determines how the connection is made tot he data source. The following example shows a connection string that uses a system managed identity. Notice that the connection string doesn't include a container. In a data source definition, a container name is specified in the "container" property (not shown), not the connection string.
 
 ```json
 "credentials": {
@@ -189,7 +189,7 @@ A container name is specified in the "container" property (not shown), not the c
 
 **Blob data source (user):**
 
-A user-assigned managed identity is a preview feature. It's specified in the "identity" property, currently only supported for indexer data sources. You can use either the portal or the REST API preview version 2021-04-30-Preview to create an indexer data source that supports a user-assigned managed identity.
+A user-assigned managed identity is a preview feature. It's specified in an additional "identity" property, currently only supported for indexer data sources. You can use either the portal or the REST API preview version 2021-04-30-Preview to create an indexer data source that supports a user-assigned managed identity.
 
 ```json
 "credentials": {
@@ -204,7 +204,7 @@ A user-assigned managed identity is a preview feature. It's specified in the "id
 
 **Knowledge store:**
 
-A knowledge store's container and table names are part of a projection definition, not the connection string.
+A knowledge store definition includes a connection string to Azure Storage. On Azure Storage, a knowledge store will create projections as blobs and tables. Any container and table names that are defined in the knowledge store will be specified in the embedded projection definition, not the connection string.
 
 ```json
 "knowledgeStore": {
@@ -213,7 +213,7 @@ A knowledge store's container and table names are part of a projection definitio
 
 **Enrichment cache:**
 
-An indexer creates, uses, and remembers the container used for the cached enrichments. It's not necessary to include the container in the connection string. You can find the object ID on the **Identity** page of your search service in the portal.
+An indexer creates, uses, and remembers the container used for the cached enrichments. It's not necessary to include the container in the cache connection string. You can find the object ID on the **Identity** page of your search service in the portal.
 
 ```json
 "cache": {
