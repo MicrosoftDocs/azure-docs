@@ -138,7 +138,7 @@ To create a hybrid worker group in the Azure portal, follow these steps:
 
 1. Select **Add machines** to go to the **Add machines as hybrid worker** page. You'll only see machines that aren't part of any other hybrid worker group.
 
-1. Select the checkbox next to the machine(s) you want to add to the hybrid worker group. If you don't see your non-Azure machine listed, ensure 3Azure Arc Connected Machine agent is installed on the machine.
+1. Select the checkbox next to the machine(s) you want to add to the hybrid worker group. If you don't see your non-Azure machine listed, ensure Azure Arc Connected Machine agent is installed on the machine.
 
 1. Select **Add**.
 
@@ -149,7 +149,7 @@ To create a hybrid worker group in the Azure portal, follow these steps:
     The hybrid worker extension installs on the machine and the hybrid worker gets registered to the hybrid worker group. Adding a hybrid worker to the group happens immediately, while installation of the extension might take a few minutes. Select **Refresh** to see the new group. Select the group name to view the hybrid worker details.
 
    > [!NOTE]
-   > A selected machine won'n be added to a hybrid worker group if it is already part of another hybrid worker group.
+   > A selected machine won't be added to a hybrid worker group if it is already part of another hybrid worker group.
 
 ## Add a machine to a hybrid worker group
 
@@ -607,7 +607,7 @@ To install and use Hybrid Worker extension using REST API, follow these steps. T
    ```azurepowershell-interactive
     New-AzConnectedMachineExtension -ResourceGroupName <VMResourceGroupName> -Location <VMLocation> -VMName <VMName> -Name "HybridWorkerExtension" -Publisher "Microsoft.Azure.Automation.HybridWorker" -ExtensionType <HybridWorkerForWindows/HybridWorkerForLinux> -TypeHandlerVersion 0.1 -Settings $settings 
    ```
-   The Output of the above commands will confirm if the extension is successfully installed or not on the targeted VM. You can also go to the VM in the Azure Portal, and check status of extensions installed on the target VM under **Extensions** tab.
+   The Output of the above commands will confirm if the extension is successfully installed or not on the targeted VM. You can also go to the VM in the Azure portal, and check status of extensions installed on the target VM under **Extensions** tab.
 
 1. Go to the **Portal** page of the VM and in the **Extensions** tab, you can check the status of the Hybrid Worker Extension installation.
  
