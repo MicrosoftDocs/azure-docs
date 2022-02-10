@@ -16,7 +16,7 @@ ms.custom: ignite-fall-2021
 
 # Form Recognizer invoice model
 
- The invoice model combines powerful Optical Character Recognition (OCR) capabilities with deep learning models to analyze and extract key fields and line items from sales invoices.  Invoices can be of various formats and quality including phone-captured images, scanned documents, and digital PDFs. The API analyzes invoice text; extracts key information such as customer name, billing address, due date, and amount due; and returns a structured JSON data representation.
+ The invoice model combines powerful Optical Character Recognition (OCR) capabilities with deep learning models to analyze and extract key fields and line items from sales invoices.  Invoices can be of various formats and quality including phone-captured images, scanned documents, and digital PDFs. The API analyzes invoice text; extracts key information such as customer name, billing address, due date, and amount due; and returns a structured JSON data representation. The model currently supports both English and Spanish invoices.
 
 **Sample invoice processed with [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=invoice)**:
 
@@ -59,7 +59,9 @@ See how data, including customer information, vendor details, and line items, is
 > [!div class="nextstepaction"]
 > [Try Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=invoice)
 
-#### Sample Labeling tool
+#### Sample Labeling tool (API v2.1)
+> [!NOTE]
+> Unless you must use API v2.1, it is strongly suggested that you use the [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com) for testing purposes instead of the sample labeling tool.
 
 You will need an invoice document. You can use our [sample invoice document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-invoice.pdf).
 
@@ -94,6 +96,7 @@ You will need an invoice document. You can use our [sample invoice document](htt
 | Model | Language—Locale code | Default |
 |--------|:----------------------|:---------|
 |Invoice| <ul><li>English (United States)—en-US</li></ul>| English (United States)—en-US|
+|Invoice| <ul><li>Spanish —es</li></ul>| Spanish (United States)—es|
 
 ## Field extraction
 
@@ -106,16 +109,20 @@ You will need an invoice document. You can use our [sample invoice document](htt
 | InvoiceDate | Date | Date the invoice was issued | yyyy-mm-dd|
 | DueDate | Date | Date payment for this invoice is due | yyyy-mm-dd|
 | VendorName | String | Vendor name |  |
+| VendorTaxId | String | The taxpayer number associated with the vendor | |
 | VendorAddress | String |  Vendor mailing address|  |
 | VendorAddressRecipient | String | Name associated with the VendorAddress |  |
 | CustomerAddress | String | Mailing address for the Customer | |
+| CustomerTaxId | String | The taxpayer number associated with the customer | |
 | CustomerAddressRecipient | String | Name associated with the CustomerAddress | |
 | BillingAddress | String | Explicit billing address for the customer |  |
 | BillingAddressRecipient | String | Name associated with the BillingAddress | |
 | ShippingAddress | String | Explicit shipping address for the customer | |
 | ShippingAddressRecipient | String | Name associated with the ShippingAddress |  |
+| PaymentTerm | String | The terms of payment for the invoice | |
 | SubTotal | Number | Subtotal field identified on this invoice | Integer |
 | TotalTax | Number | Total tax field identified on this invoice | Integer |
+| TotalVAT | Number | Total VAT field identified on this invoice | Integer |
 | InvoiceTotal | Number (USD) | Total new charges associated with this invoice | Integer |
 | AmountDue |  Number (USD) | Total Amount Due to the vendor | Integer |
 | ServiceAddress | String | Explicit service address or property address for the customer | |
@@ -141,16 +148,17 @@ Following are the line items extracted from an invoice in the JSON output respon
 | Unit | String| The unit of the line item, e.g,  kg, lb etc. | Hours | |
 | Date | Date| Date corresponding to each line item. Often it is a date the line item was shipped | 3/4/2021| 2021-03-04 |
 | Tax | Number | Tax associated with each line item. Possible values include tax amount, tax %, and tax Y/N | 10% | |
+| VAT | Number | Stands for Value added tax. This is a flat tax levied on an item. Common in european countries | €20.00 | |
 
 The invoice key-value pairs and line items extracted are in the `documentResults` section of the JSON output. 
 
 ## Form Recognizer preview v3.0
 
- The Form Recognizer preview introduces several new features and capabilities.
+ The Form Recognizer preview introduces several new features and capabilities as well as general AI quality improvments to underlying technologies.
 
 * Follow our [**Form Recognizer v3.0 migration guide**](v3-migration-guide.md) to learn how to use the preview version in your applications and workflows.
 
-* Explore our [**REST API (preview)**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument) to learn more about the preview version and new capabilities.
+* Explore our [**REST API (preview)**](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-2/operations/AnalyzeDocument) to learn more about the preview version and new capabilities.
 
 ## Next steps
 
@@ -160,6 +168,8 @@ The invoice key-value pairs and line items extracted are in the `documentResults
   > [Form Recognizer quickstart](quickstarts/try-sdk-rest-api.md)
 
 * Explore our REST API:
-
+    > [!div class="nextstepaction"]
+    > [Form Recognizer API v3.0 (Preview)](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-2/operations/AnalyzeDocument)
+    
     > [!div class="nextstepaction"]
     > [Form Recognizer API v2.1](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/5ed8c9843c2794cbb1a96291)
