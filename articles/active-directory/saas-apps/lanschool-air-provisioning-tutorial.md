@@ -48,15 +48,15 @@ The scenario outlined in this tutorial assumes that you already have the followi
 1. Log into LanSchool Air as Site Admin.
 1. Click on the menu at the top left then click **Settings**.
 
-	![Settings](media/lanschool-air-provisioning-tutorial/settings.png)
+	![Settings menu](media/lanschool-air-provisioning-tutorial/settings.png)
 
 1. Click on **SSO Configuration**.
 
-	![SSO](media/lanschool-air-provisioning-tutorial/sso-configuration.png)
+	![Configuration](media/lanschool-air-provisioning-tutorial/sso-configuration.png)
 
 1. Click **Generate New**. The system generates a random secrete token. **Click Copy**.
 
-	![Token](media/lanschool-air-provisioning-tutorial/generate-token.png)
+	![Token generation](media/lanschool-air-provisioning-tutorial/generate-token.png)
 
 ## Step 3. Add LanSchool Air from the Azure AD application gallery
 
