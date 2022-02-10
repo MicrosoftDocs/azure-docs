@@ -265,6 +265,9 @@ Use the following commands on your device to verify that the IoT Edge installed 
 :::moniker-end
 <!-- end 1.2 -->
 
+<!-- Uninstall IoT Edge for Linux on Windows H2 and content -->
+[!INCLUDE [uninstall-iot-edge-linux-on-windows.md](../../includes/iot-edge-uninstall-linux-on-windows.md)]
+
 ## Next steps
 
 The device provisioning service enrollment process lets you set the device ID and device twin tags at the same time as you provision the new device. You can use those values to target individual devices or groups of devices by using automatic device management.
