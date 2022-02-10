@@ -78,7 +78,7 @@ If you specify a relative path, it will be resolved relative to the directory wh
 `connection-string-file.txt` only contains the connection string: 
 
 ```
-InstrumentationKey=...;IngestionEndpoint=...
+InstrumentationKey=...
 ```
 
 Not setting the connection string will disable the Java agent.
