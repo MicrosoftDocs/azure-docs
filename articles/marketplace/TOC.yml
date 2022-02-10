@@ -531,8 +531,6 @@
       items:
       - name: API prerequisites
         href: submission-api-onboard.md
-      - name: Partner Center submission APIs
-        href: https://apidocs.microsoft.com/services/partneringestion/
     - name: Legacy submission APIs
       items: 
       - name: Legacy API overview
