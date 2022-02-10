@@ -225,7 +225,7 @@ In addition to tools for monitoring and analyzing your network, you can send inf
 
     | Export category | Description |
     |--|--|
-    | **Support Ticket Diagnostics** | Select this option to provide the support team with basic deployment information. |
+    | **Support Ticket Diagnostics** | Select this option to get a summary of log and system information that will be added to support tickets you open with your Microsoft support team. |
     | **Operating System Logs** | Select this option to get information about the operating system state. |
     | **Installation/Upgrade logs** | Select this option for investigation of the installation and upgrade configuration parameters. |
     | **System Sanity Output** | Select this option to check system performance. |
