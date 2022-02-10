@@ -159,7 +159,7 @@ Select any annotation marker to open details about the release, including reques
 Release annotations are a feature of the cloud-based Azure Pipelines service of Azure DevOps.
 
 [!WARNING]
-Annotations using API keys is deprecated. We recommend using [Azure CLI](https://docs.microsoft.com/en-us/azure/azure-monitor/app/annotations#create-release-annotations-with-azure-cli) instead.
+Annotations using API keys is deprecated. We recommend using [Azure CLI](https://docs.microsoft.com/azure/azure-monitor/app/annotations#create-release-annotations-with-azure-cli) instead.
 
 ### Install the annotations extension (one time)
 
