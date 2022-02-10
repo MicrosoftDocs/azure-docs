@@ -35,7 +35,7 @@ Collect all of the following values for the resource that will represent your pr
 
 Each SIM resource represents a physical SIM or eSIM that will be served by the private mobile network.
 
-As part of creating your private mobile network, you can provision one or more SIMs that will use it. If you decide not to provision SIMs at this point, you can do so after deploying your private mobile network using the instructions in [Provisioning SIMs](provisioning-sims-azure-portal.md).
+As part of creating your private mobile network, you can provision one or more SIMs that will use it. If you decide not to provision SIMs at this point, you can do so after deploying your private mobile network using the instructions in [Provision SIMs](provision-sims-azure-portal.md).
 
 If you want to provision SIMs as part of deploying your private mobile network, you must choose one of the following provisioning methods:
 
