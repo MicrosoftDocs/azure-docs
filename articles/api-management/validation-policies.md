@@ -14,7 +14,9 @@ ms.author: danlep
 
 This article provides a reference for the following API Management policies. For information on adding and configuring policies, see [Policies in API Management](./api-management-policies.md).
 
-Use validation policies to validate API requests and responses against a JSON or XML schema in the API definition (for example, OpenAPI or WSDL) and protect from vulnerabilities such as injection of headers or payload. While not a replacement for a Web Application Firewall, validation policies provide flexibility to respond to an additional class of threats that aren’t covered by security products that rely on static, predefined rules.
+Use validation policies to validate REST or SOAP API requests and responses against schemas defined in the API definition or supplementary JSON or XML schemas. Validation policies protect from vulnerabilities such as injection of headers or payload or leaking sensitive data.
+
+While not a replacement for a Web Application Firewall, validation policies provide flexibility to respond to an additional class of threats that aren’t covered by security products that rely on static, predefined rules.
 
 ## Validation policies
 
@@ -25,34 +27,6 @@ Use validation policies to validate API requests and responses against a JSON or
 
 > [!NOTE]
 > The maximum size of the API schema that can be used by a validation policy is 4 MB. If the schema exceeds this limit, validation policies will return errors on runtime. To increase it, please contact [support](https://azure.microsoft.com/support/options/). 
-
-## Schemas for content validation
-
-By default, validation of request or response content uses the schema that API Management generates automatically from a JSON- or XML-based API definition. Examples include schemas generated when API Management imports OpenAPI and WSDL specifications.
-
-Using the `validate-content` policy, you may optionally validate against one or more JSON or XML schemas that you’ve added to your API Management instance.
-
-You can add a schema to your API Management instance using the Azure portal:
-
-1. In the [portal](https://portal.azure.com), navigate to your API Management instance.
-1. In the left-hand menu, under **APIs**, select **Schemas** > **+ Add**.
-1. In the **Create schema** window, do the following:
-    1. Enter a **Name** for the schema.
-    1. In **Schema type**, select **JSON** or **XML**.
-    1. Enter a **Description**.
-    1. In **Create method**, do one of the following:
-        * Select **Create new** and enter or paste the schema. 
-        * Select **Import from file** or **Import from URL** and enter a schema location.
-    1. Select **Save**.
-
-
-    :::image type="content" source="media/validation-policies/add-schema.png" alt-text="Create schema":::
-
-After the schema is created, it appears in the list on the **Schemas** page. Select a schema to view its properties or to edit in a schema editor.
-
-> [!NOTE]
-> * A schema may cross-reference another schema that is added to the API Management instance. 
-> * Open-source tools to resolve WSDL and XSD schema references and to batch-import generated schemas to API Management are available on [GitHub](https://github.com/Azure-Samples/api-management-schema-import).
 
 ## Actions
 
@@ -149,8 +123,39 @@ Content types other than `application/soap+xml`, including messages without the 
 | type | Content type to execute body validation for, checked against the `content-type` header. This value is case insensitive. If empty, it applies to every content type specified in the API schema.<br/><br/>To validate SOAP requests and responses (`validate-as` attribute set to "soap"), set `type` to `application/soap+xml` for SOAP 1.2 APIs or `text/xml` for SOAP 1.1 APIs. |   No    |  N/A  |
 | validate-as | Validation engine to use for validation of the body of a request or response with a matching `type`. Supported values: "json", "xml", "soap".<br/><br/>When "soap" is specified, the XML from the request or response is extracted from the SOAP envelope and validated against an XML schema.  |  Yes     |  N/A  |
 | schema-id | Name of an existing schema that was [added](#schemas-for-content-validation) to the API Management instance for content validation. If not specified, the default schema that was generated when the API was imported is used. | No | N/A |
-| schema-ref| For a JSON schema specified in `schema-id`, optional reference to be a valid local reference path in the JSON document, for example, `#/components/schemas/address`.<br/><br/>The attribute should return a JSON object that API Management handles as a valid JSON schema. | No | N/A |
+| schema-ref| For a JSON schema specified in `schema-id`, optional reference to a valid local reference path in the JSON document. Example: `#/components/schemas/address`.<br/><br/>The attribute should return a JSON object that API Management handles as a valid JSON schema. | No | N/A |
 | action | [Action](#actions) to perform for requests or responses whose body doesn't match the specified content type.  |  Yes      | N/A   |
+
+### Schemas for content validation
+
+By default, validation of request or response content uses JSON or XML schemas from the API definition. These schemas can be specified manually or generated automatically when importing an API from an OpenAPI or WSDL specification into API Management.
+
+Using the `validate-content` policy, you may optionally validate against one or more JSON or XML schemas that you’ve added to your API Management instance.
+
+To add a schema to your API Management instance using the Azure portal:
+
+1. In the [portal](https://portal.azure.com), navigate to your API Management instance.
+1. In the **APIs** section of the left-hand menu, select **Schemas** > **+ Add**.
+1. In the **Create schema** window, do the following:
+    1. Enter a **Name** for the schema.
+    1. In **Schema type**, select **JSON** or **XML**.
+    1. Enter a **Description**.
+    1. In **Create method**, do one of the following:
+        * Select **Create new** and enter or paste the schema. 
+        * Select **Import from file** or **Import from URL** and enter a schema location.
+            > [!NOTE]
+            > To import a schema from URL, the schema needs to be accessible over the internet from the browser.
+    1. Select **Save**.
+
+
+    :::image type="content" source="media/validation-policies/add-schema.png" alt-text="Create schema":::
+
+After the schema is created, it appears in the list on the **Schemas** page. Select a schema to view its properties or to edit in a schema editor.
+
+> [!NOTE]
+> * A schema may cross-reference another schema that is added to the API Management instance. 
+> * Open-source tools to resolve WSDL and XSD schema references and to batch-import generated schemas to API Management are available on [GitHub](https://github.com/Azure-Samples/api-management-schema-import).
+
 
 ### Usage
 
