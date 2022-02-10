@@ -135,16 +135,14 @@ You can offer a one-month, three-month, or six-month **Free Trial** to your cust
 
 ### Plan visibility
 
-You can design each plan to be visible to everyone or only to a preselected audience. Assign memberships in this restricted audience by using Azure tenant IDs, subscription IDs, or both.
+You can design each plan to be visible to everyone or only to a preselected private audience.
 
 **Public**: Your plan can be seen by everyone.
 
-**Private**: Make your plan visible only to a preselected audience. After it's published as a private plan, you can update the audience or change it to public. After you make a plan public, it must remain public. It can't be changed back to a private plan.
-
-Assign the audience that will have access to this private plan using *Azure tenant IDs*, *subscription IDs*, or both. Optionally, include a **Description** of each Azure tenant ID or subscription ID that you assign. Add up to 10 subscription IDs and tenant IDs manually or import a CSV spreadsheet if more than 10 IDs are required. For a published offer, select **Sync private audience** for the changes to the private audience to take effect automatically without needing to republish the offer.
+**Private**: Make your plan visible only to a preselected audience. After it's published as a private plan, you can update the private audience or change it to public. After you make a plan public, it must remain public. It can't be changed back to a private plan. If the plan is private, you can specify the private audience that will have access to this plan using *Azure tenant IDs*, *subscription IDs*, or both. Optionally, include a **Description** of each Azure tenant ID or subscription ID that you assign. Add up to 10 subscription IDs and tenant IDs manually or import a CSV spreadsheet if more than 10 IDs are required. For a published offer, select **Sync private audience** for the changes to the private audience to take effect automatically without needing to republish the offer.
 
 > [!NOTE]
-> A private or restricted audience is different from the preview audience that you defined on the **Preview** pane. A preview audience can access your offer *before* it's published live to Azure Marketplace. Although the private audience choice applies only to a specific plan, the preview audience can view all private and public plans for validation purposes.
+> A private audience is different from the preview audience that you defined on the **Preview audience** pane. A preview audience can access and view all private and public plans for validation purposes before it's published live to Azure Marketplace. A private audience can only access the specific plans that they are authorized to have access to once the offer is live.
 
 Private offers are not supported with Azure subscriptions established through a reseller of the Cloud Solution Provider program (CSP).
 
