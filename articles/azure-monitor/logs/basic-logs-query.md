@@ -10,7 +10,7 @@ ms.date: 01/27/2022
 ---
 
 # Query Basic Logs in Azure Monitor (Preview)
-Basic Logs is a feature of Azure Monitor that reduces the cost for high-value verbose logs that don’t require analytics and alerts. Tables in a Log Analytics workspace that are configured as Basic logs have a reduced cost for ingestion with limitations on log queries and other Azure Monitor features. This article describes how to query data from tables configured for Basic Logs. This includes guidance for running queries from Log Analytics in the Azure portal and from the Log Analytics REST API.
+Basic Logs is a feature of Azure Monitor that reduces the cost for high-volume verbose logs that don’t require analytics and alerts. Tables in a Log Analytics workspace that are configured as Basic logs have a reduced cost for ingestion with limitations on log queries and other Azure Monitor features. This article describes how to query data from tables configured for Basic Logs. This includes guidance for running queries from Log Analytics in the Azure portal and from the Log Analytics REST API.
 
 ### Cost
 Log queries on Basic Logs are charged according to the amount of data they scan, not just the amount of data they return. For example, If a query is scanning three days of data for a table that ingests 100 GB/day, it would be charged on 300 GB. Calculation is based on chunks of up to one day of data. 
@@ -22,7 +22,7 @@ Log queries on Basic Logs are charged according to the amount of data they scan,
 ## Limits
 Queries with Basic Logs are subject to the following limitations:
 ### KQL language limits
-Log queries in against Basic Logs are intended for simple data retrieval and use a subset of the KQL language. Queries in search jobs are limited to the following operators: 
+Log queries against Basic Logs are intended for simple data retrieval and use a subset of the KQL language, including the following operators: 
 
 - [where](/azure/data-explorer/kusto/query/whereoperator)
 - [extend](/azure/data-explorer/kusto/query/extendoperator)
@@ -33,6 +33,8 @@ Log queries in against Basic Logs are intended for simple data retrieval and use
 - [project-reorder](/azure/data-explorer/kusto/query/projectreorderoperator)
 - [parse](/azure/data-explorer/kusto/query/parseoperator)
 - [parse-where](/azure/data-explorer/kusto/query/parsewhereoperator)
+
+All functions and binary operators are supported when used within these operators.
 
 ### Time range
 The time range must be specified in the query header in Log Analytics or in the API call. You can't specify the time range in the query body using a **where** statement.

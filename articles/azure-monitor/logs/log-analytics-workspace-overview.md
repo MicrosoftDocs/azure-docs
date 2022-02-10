@@ -31,14 +31,14 @@ There is no direct cost for creating or maintaining a workspace. You're charged 
 See [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/) for detailed pricing and [Manage usage and costs with Azure Monitor Logs](manage-cost-storage.md) for guidance on reducing your costs. If you are using your Log Analytics workspace with services other than Azure Monitor, then see the documentation for those services for pricing information.
 
 ## Log data plans (preview)
-By default, all tables in a workspace are **Archive Logs** which are available to all features of Azure Monitor and any other services that use the workspace. You can configure certain tables as **Basic Logs (preview)** which reduces the cost for high-value verbose logs that don’t require analytics and alerts. Tables configured for Basic Logs have a lower ingestion cost in exchange for reduced features. The following table gives a brief summary of the two plans. See [Configure Basic Logs in Azure Monitor (Preview)](basic-logs-configure.md) for more details on Basic Logs and how to configure them.
+By default, all tables in a workspace are **Analytics** tables, which are available to all features of Azure Monitor and any other services that use the workspace. You can configure certain tables as **Basic Logs (preview)** which reduces the cost for high-volume verbose logs that don’t require analytics and alerts. Tables configured for Basic Logs have a lower ingestion cost in exchange for reduced features. The following table gives a brief summary of the two plans. See [Configure Basic Logs in Azure Monitor (Preview)](basic-logs-configure.md) for more details on Basic Logs and how to configure them.
 
 > [!NOTE]
 > Basic Logs are currently in public preview.
 
 The following table summarizes the differences between the plans.
 
-| Category | Archive Logs | Basic Logs |
+| Category | Analytics Logs | Basic Logs |
 |:---|:---|:---|
 | Ingestion | Cost for ingestion. | Reduced cost for ingestion. |
 | Log queries | No additional cost. Full query language. | Additional cost. Subset of query language. |
@@ -54,7 +54,7 @@ For example, you might have [diagnostic settings](../essentials/diagnostic-setti
 
 
 ## Data retention and archive
-Data in each table in a [Log Analytics workspace](log-analytics-workspace-overview.md) is retained for a specified period of time after which it's either removed or moved to archive with a reduced retention fee. Set the retention time to balance your requirement for having data available with reducing your cost for data retention.
+Data in each table in a [Log Analytics workspace](log-analytics-workspace-overview.md) is retained for a specified period of time after which it's either removed or archived with a reduced retention fee. Set the retention time to balance your requirement for having data available with reducing your cost for data retention.
 
 > [!NOTE]
 > Archive is currently in public preview.
