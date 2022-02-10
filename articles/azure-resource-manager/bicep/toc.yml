@@ -101,6 +101,10 @@
           href: linter-rule-admin-username-should-not-be-literal.md
         - name: No hardcoded environment URLs
           href: linter-rule-no-hardcoded-environment-urls.md
+        - name: No hard-coded locations
+          href: linter-rule-no-hardcoded-location.md
+        - name: No location expressions outside of parameter default values
+          href: linter-rule-no-loc-expr-outside-params.md
         - name: No unnecessary dependsOn entries
           href: linter-rule-no-unnecessary-dependson.md
         - name: No unused parameters
@@ -117,6 +121,8 @@
           href: linter-rule-simplify-interpolation.md
         - name: Use protectedSettings for commandToExecute secrets
           href: linter-rule-use-protectedsettings-for-commandtoexecute-secrets.md
+        - name: Use explicit values for module location parameters
+          href: linter-rule-explicit-values-for-loc-params.md
         - name: Use stable VM image
           href: linter-rule-use-stable-vm-image.md
     - name: Best practices
