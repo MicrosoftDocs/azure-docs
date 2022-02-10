@@ -17,13 +17,13 @@ Use the following value in the [Bicep configuration file](bicep-config-linter.md
 
 ## Solution
 
-When consuming a module, any location-related parameters that have a default value should be assigned an explicit value. Location-related parameters include parameters that have a default value referencing `resourceGroup().location` or `deployment().location` and also any parameter that is referenced from a resource's location property.
+When you consume a module, any location-related parameters that have a default value should be assigned an explicit value. Location-related parameters include parameters that have a default value referencing `resourceGroup().location` or `deployment().location` and also any parameter that is referenced from a resource's location property.
 
-A parameter that defaults to a resource group's or deployment's location is convenient when a bicep file is used as a main deployment template. However, when such a default value is used in a module, it may cause unexpected behavior if the main template's resources are not located in the same region as the resource group.
+A parameter that defaults to a resource group's or deployment's location is convenient when a bicep file is used as a main deployment template. However, when such a default value is used in a module, it may cause unexpected behavior if the main template's resources aren't located in the same region as the resource group.
 
 ### Examples
 
-The following example fails this test. Module `m1`'s parameter `location` isn't assigned an explicit value, so it will default to `resourceGroup().location`, as specified in *module1.bicep*. But this may not be the intended behavior, since other resources in *main.bicep* may be created in a different location that the resource group's location.
+The following example fails this test. Module `m1`'s parameter `location` isn't assigned an explicit value, so it will default to `resourceGroup().location`, as specified in *module1.bicep*. But using the resource group location may not be the intended behavior, since other resources in *main.bicep* might be created in a different location than the resource group's location.
 
 *main.bicep*:
 ```bicep
@@ -57,7 +57,7 @@ resource stg 'Microsoft.Storage/storageAccounts@2021-02-01' = {
 }
 ```
 
-You can fix this by explicitly passing in a value for the module's `location` property:
+You can the failure by explicitly passing in a value for the module's `location` property:
 
 *main.bicep*:
 ```bicep

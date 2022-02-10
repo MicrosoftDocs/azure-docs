@@ -21,7 +21,7 @@ Use the following value in the [Bicep configuration file](bicep-config-linter.md
 
 Template users may have limited access to regions where they can create resources. The expressions `resourceGroup().location` or `deployment().location` could block users if the resource group or deployment was created in a region the user can't access, thus preventing them from using the template.
 
-Best practice suggests that to set your resources' locations, your template should have a string parameter named `location`. By defaulting the `location` parameter to `resourceGroup().location` or `deployment().location` instead of using these functions elsewhere in the template, users can use the default value when convenient but also specify a different location when needed.
+Best practice suggests that to set your resources' locations, your template should have a string parameter named `location`. If you default the `location` parameter to `resourceGroup().location` or `deployment().location` instead of using these functions elsewhere in the template, iusers of the template can use the default value when convenient but also specify a different location when needed.
 
 ```bicep
 resource storageaccount 'Microsoft.Storage/storageAccounts@2021-02-01' = {
@@ -29,7 +29,7 @@ resource storageaccount 'Microsoft.Storage/storageAccounts@2021-02-01' = {
 }
 ```
 
-You can fix this by creating a `location` property that defaults to `resourceGroup().location` and use this new parameter instead:
+You can the failure by creating a `location` property that defaults to `resourceGroup().location` and use this new parameter instead:
 
 ```bicep
 param location string = resourceGroup().location
@@ -39,13 +39,13 @@ resource storageaccount 'Microsoft.Storage/storageAccounts@2021-02-01' = {
 }
 ```
 
-The following example fails this test because `location` is using `resourceGroup().location` but is not a parameter:
+The following example fails this test because `location` is using `resourceGroup().location` but isn't a parameter:
 
 ```bicep
   var location = resourceGroup().location
 ```
 
-You can fix this by turning the variable into a parameter:
+You can fix the failure by turning the variable into a parameter:
 
 ```bicep
   param location string  = resourceGroup().location

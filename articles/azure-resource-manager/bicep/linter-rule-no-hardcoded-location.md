@@ -7,7 +7,7 @@ ms.date: 1/6/2022
 
 # Linter rule - no hard-coded locations
 
-This rule finds uses of Azure location values that are not parameterized.
+This rule finds uses of Azure location values that aren't parameterized.
 
 ## Linter rule code
 
@@ -21,14 +21,14 @@ Template users may have limited access to regions where they can create resource
 
 Rather than using a hard-coded string or variable value, use a parameter, the string 'global', or an expression (but not `resourceGroup().location` or `deployment().location`, see [no-loc-expr-outside-params](./linter-rule-no-loc-expr-outside-params.md)). Best practice suggests that to set your resources' locations, your template should have a string parameter named `location`. This parameter may default to the resource group or deployment location (`resourceGroup().location` or `deployment().location`).
 
-The following examples fails this test because the resource's `location` property uses a string literal:
+The following example fails this test because the resource's `location` property uses a string literal:
 
 ```bicep
   resource stg 'Microsoft.Storage/storageAccounts@2021-02-01' = {
       location: 'westus'
   }
 ```
-You can fix it by creating a new `location` string parameter (which may optionally have a default value - resourceGroup().location is frequently used for this):
+You can fix it by creating a new `location` string parameter (which may optionally have a default value - resourceGroup().location is frequently used as a default):
 
 ```bicep
   param location string = resourceGroup().location
@@ -55,7 +55,7 @@ You can fix it by turning the variable into a parameter:
   }
 ```
 
-The following fails this test because a string literal is being passed in to a module parameter that is in turn used for a resource's `location` property:
+The following example fails this test because a string literal is being passed in to a module parameter that is in turn used for a resource's `location` property:
 
 ```bicep
 module m1 'module1.bicep' = {
@@ -79,7 +79,7 @@ resource storageaccount 'Microsoft.Storage/storageAccounts@2021-02-01' = {
 }
 ```
 
-You can fix this by creating a new paramter for the value:
+You can fix the failure by creating a new parameter for the value:
 ```bicep
 param location string // optionally with a default value
 module m1 'module1.bicep' = {
