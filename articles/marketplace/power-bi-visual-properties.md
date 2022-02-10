@@ -7,7 +7,7 @@ ms.reviewer: pooja.surnis
 ms.service: powerbi
 ms.subservice: powerbi-custom-visuals
 ms.topic: how-to
-ms.date: 02/02/2022
+ms.date: 02/10/2022
 ---
 
 # Configure Power BI visual offer properties
@@ -16,7 +16,7 @@ This page lets you define the [categories](./categories.md) used to group your o
 
 ## Categories
 
-Select up to three **[Categories](./categories.md)** for grouping your offer into the appropriate marketplace search areas. This table shows the categories that are available for Power BI Visuals.
+Select up to three **[Categories](./categories.md)** for grouping your offer into the appropriate marketplace search areas. This table shows the categories that are available for Power BI visuals.
 
 | Category | Description |
 | ------------ | ------------- |
@@ -38,7 +38,7 @@ Select up to three **[Categories](./categories.md)** for grouping your offer int
 
 ## Industries
 
-Select up to two **Industries** industries which will be used to display your offer when customers filter their search on industries in the online store. This table shows the industries available for Power BI Visuals.
+Select up to two **Industries** which will be used to display your offer when customers filter their search on industries in the online store. This table shows the industries available for Power BI visuals.
 
 | Industry |
 | ------------ |
