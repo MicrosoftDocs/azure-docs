@@ -26,11 +26,11 @@ The following tables show gap analyses for the log types that currently rely on 
 
 |Log type / Support  |Azure Monitor agent support |Log Analytics agent support  |
 |---------|---------|---------|
-|**Security Events**     |  [Windows Security Events data connector](../../sentinel/data-connectors-reference.md#windows-security-events-via-ama)  (Public preview)     |  [Windows Security Events data connector (Legacy)](../../sentinel/data-connectors-reference.md#security-events-via-legacy-agent-windows)       |
-|**Filtering by security event ID**     |   [Windows Security Events data connector (AMA)](../../sentinel/data-connectors-reference.md#windows-security-events-via-ama)  (Public preview)    |     -     |
+|**Security Events**     |  [Windows Security Events data connector](data-connectors-reference.md#windows-security-events-via-ama)  (Public preview)     |  [Windows Security Events data connector (Legacy)](data-connectors-reference.md#security-events-via-legacy-agent-windows)       |
+|**Filtering by security event ID**     |   [Windows Security Events data connector (AMA)](data-connectors-reference.md#windows-security-events-via-ama)  (Public preview)    |     -     |
 |**Filtering by event ID**     | Collection only        |   -       |
-|**Windows Event Forwarding**     |  [Windows Forwarded Events](../../sentinel/data-connectors-reference.md#windows-forwarded-events-preview) (Public Preview)       |     -     |
-|**Windows Firewall Logs**     |  -        |  [Windows Firewall data connector](../../sentinel/data-connectors-reference.md#windows-firewall)       |
+|**Windows Event Forwarding**     |  [Windows Forwarded Events](data-connectors-reference.md#windows-forwarded-events-preview) (Public Preview)       |     -     |
+|**Windows Firewall Logs**     |  -        |  [Windows Firewall data connector](data-connectors-reference.md#windows-firewall)       |
 |**Performance counters**     |   Collection only      |  Collection only       |
 |**Windows Event Logs**     |  Collection only       | Collection only        |
 |**Custom logs**     |   -       |    Collection only     |
@@ -45,8 +45,8 @@ The following tables show gap analyses for the log types that currently rely on 
 
 |Log type / Support  |Azure Monitor agent support |Log Analytics agent support  |
 |---------|---------|---------|
-|**Syslog**     |  [Local Collection only Only](#capacity-planning)      |   [Syslog data connector](../../sentinel/connect-syslog.md)      |
-|**Common Event Format (CEF)**     |  Collection only       |  [CEF data connector](../../sentinel/connect-common-event-format.md)       |
+|**Syslog**     |  [Local Collection only Only](../azure-monitor/agents/azure-monitor-agent-migration.md#capacity-planning)      |   [Syslog data connector](connect-syslog.md)      |
+|**Common Event Format (CEF)**     |  Collection only       |  [CEF data connector](connect-common-event-format.md)       |
 |**Sysmon**     |   Collection only    |  Collection only      |
 |**Custom logs**     |   -       |  Collection only       |
 |**Multi-homing**     |   Collection only      |     -     |
