@@ -18,9 +18,9 @@ Microsoft recommends an approach based on the principle of zero-trust when desig
 
   - *Hardware root of trust (RoT)* A strong, hardware-based identity. This identity should be immutable and backed by hardware isolation and protection mechanisms.
 
-  - *Password-less authentication* is often achieved using X.509 certificates and asymmetric cryptography, where private keys are secured and isolated in hardware. Password-less authentication should be used both for the device identity often used in onboarding and/or attestation scenarios, as well as the device's operational identity with other cloud services.
+  - *Password-less authentication* is often achieved using X.509 certificates and asymmetric cryptography, where private keys are secured and isolated in hardware. Password-less authentication should be used both for the device identity often used in onboarding and/or attestation scenarios, and the device's operational identity with other cloud services.
 
-  - *Renewable credentials* The device's operational identity should be secured using renewable, relatively short-lived credentials. X.509 certificates backed by a secure PKI with a renewal period appropriate for the device's security posture provide a good mechanism.
+  - *Renewable credentials* The device's operational identity should be secured using renewable, relatively short-lived credentials. X.509 certificates that are backed by a secure PKI with a renewal period appropriate for the device's security posture provide an excellent solution.
 
 - **Least-privileged access** Devices should enforce least-privileged access control on local resources across workloads. For example, a firmware component that reports battery level shouldn't be able to access a camera component.
 
@@ -31,13 +31,13 @@ Microsoft recommends an approach based on the principle of zero-trust when desig
 
 ## Embedded Security Components - Cryptography
 
-Cryptography is a foundation of security in networked devices. There may exist some cases where cryptography may not be necessary for security. However, networking protocols such as TLS rely on cryptography to protect and authenticate information traveling over a network or the public Internet. A secure IoT device that connects to a server or cloud service using Transport Layer Security (TLS) or similar protocols requires strong cryptography with protection for keys and secrets based in hardware. Most other security mechanisms provided by those protocols are built on cryptographic concepts. Therefore, having proper cryptographic support is the single most critical consideration in developing a secure connected IoT device.
+Cryptography is a foundation of security in networked devices. There may exist some cases where cryptography may not be necessary for security. However, networking protocols such as TLS rely on cryptography to protect and authenticate information traveling over a network or the public Internet. A secure IoT device that connects to a server or cloud service using Transport Layer Security (TLS) or similar protocols requires strong cryptography with protection for keys and secrets that are based in hardware. Most other security mechanisms provided by those protocols are built on cryptographic concepts. Therefore, having proper cryptographic support is the single most critical consideration in developing a secure connected IoT device.
 
 ### True random hardware-based entropy source
 
-Any cryptographic application using TLS or cryptographic operations that require random values for keys or secrets must have an approved random entropy source. Without proper true randomness, statistical methods can be used to derive keys and secrets much faster than brute-force attacks, weakening otherwise strong cryptography. Modern embedded devices should support some form of Cryptographic Random Number Generator (CRNG) or “True” Random Number Generator (TRNG) that can be used to feed the random number generator passed into a TLS application.
+Any cryptographic application using TLS or cryptographic operations that require random values for keys or secrets must have an approved random entropy source. Without proper true randomness, statistical methods can be used to derive keys and secrets much faster than brute-force attacks, weakening otherwise strong cryptography. Modern embedded devices should support some form of Cryptographic Random Number Generator (CRNG) or “True” Random Number Generator (TRNG) that can be used to feed the random number generator that is passed into a TLS application.
 
-Hardware Random Number Generators (HRNG) supply some of the best sources of entropy. HRNGs typically generate values based on statistically random noise signals generated in a physical process rather than from a software algorithm. Many government agencies and standards bodies around the world provide guidelines for random number generators. Some examples include the National Institute of Standards and Technology (NIST) in the US, the National Cypersecurity Agency of France (ANSSI) in France, and the Federal Office for Information Security (BSI) in Germany.
+Hardware Random Number Generators (HRNG) supply some of the best sources of entropy. HRNGs typically generate values based on statistically random noise signals generated in a physical process rather than from a software algorithm. Many government agencies and standards bodies around the world provide guidelines for random number generators. Some examples are the National Institute of Standards and Technology (NIST) in the US, the National Cypersecurity Agency of France (ANSSI) in France, and the Federal Office for Information Security (BSI) in Germany.
 
 **Hardware**: True entropy can only come from hardware sources. There are various methods to obtain cryptographic randomness, but all require physical processes to be considered secure.
 
@@ -88,7 +88,7 @@ There are a wide variety of cryptographic routines available today. When you des
 
 ### Hardware-based cryptography acceleration
 
-Use of hardware cryptographic peripherals can speed up your application and provide additional security against timing attacks. Timing attacks exploit the duration of a cryptographic operation to derive information about a secret key. By performing cryptographic operations in constant time regardless of the key or data properties, hardware cryptographic peripherals prevent this kind of attack. Every platform will likely be different as there's no accepted standard for cryptographic hardware (other than the accepted cryptographic algorithms like AES and RSA).
+Use of hardware cryptographic peripherals can speed up your application and provide extra security against timing attacks. Timing attacks exploit the duration of a cryptographic operation to derive information about a secret key. When you perform cryptographic operations in constant time, regardless of the key or data properties, hardware cryptographic peripherals prevent this kind of attack. Every platform will likely be different as there's no accepted standard for cryptographic hardware (other than the accepted cryptographic algorithms like AES and RSA).
 
 > [!IMPORTANT]
 > Hardware cryptographic acceleration doesn't necessarily equate to enhanced security. For example:
@@ -100,7 +100,7 @@ Use of hardware cryptographic peripherals can speed up your application and prov
 
 Combining hardware cryptography acceleration that implements secure cipher modes with hardware-based protection for keys provides a higher level of security for cryptographic operations.
 
-**Hardware**: There are few standards for hardware cryptographic acceleration so each platform will vary in available functionality. Consult with your Micro Controller Unit (MCU) vendor for more information.
+**Hardware**: There are few standards for hardware cryptographic acceleration so each platform will vary in available functionality. For more information, consult with your Micro Controller Unit (MCU) vendor.
 
 **Azure RTOS**: Azure RTOS provides drivers for select cryptographic hardware platforms. Check your Azure RTOS Cryptography documentation for more information on hardware-based cryptography.
 
@@ -108,7 +108,7 @@ Combining hardware cryptography acceleration that implements secure cipher modes
 
 ## Embedded Security Components – Device Identity
 
-In IoT systems, the notion that each endpoint represents a unique physical device challenges some of the assumptions that are built into the modern Internet. As a result, a secure IoT device must be able to uniquely identify itself or an attacker could imitate a valid device for the purposes of stealing data, sending fraudulent information, or tampering with device functionality. Therefore, you should make certain that each IoT device that connects to a cloud service has a way to identify itself that is not easily bypassed.
+In IoT systems, the notion that each endpoint represents a unique physical device challenges some of the assumptions that are built into the modern Internet. As a result, a secure IoT device must be able to uniquely identify itself or an attacker could imitate a valid device to steal data, send fraudulent information, or tamper with device functionality. Therefore, you should make certain that each IoT device that connects to a cloud service has a way to identify itself that's not easily bypassed.
 
 ### Unique verifiable device identifier
 
@@ -117,15 +117,15 @@ A unique device identifier (device ID) allows a cloud service to verify the iden
 In most modern connected devices, the device ID will be tied to cryptography. For example:
 
 - It may be a private-public key pair, where the private key is globally unique and associated only with the device.
-- It may be a private-public key pair, where the private key is associated with a set of devices and is used in combination with another identifier that is unique to the device.
+- It may be a private-public key pair, where the private key is associated with a set of devices and is used in combination with another identifier that's unique to the device.
 - It may be cryptographic material that is used to derive private keys unique to the device.
 
 Regardless of implementation, the device ID and any associated cryptographic material must be hardware-protected, for example by using a Hardware Security Module (HSM).
 
-While the device ID can be used for client authentication with a cloud service or server, it is highly advisable to split the device ID from operational certificates typically used for such purposes. To lessen the attack surface, operational certificates should be relatively short-lived, and the public portion of the device ID shouldn't be widely distributed. Instead, the device ID can be used to sign and/or derive private keys associated with operational certificates.
+While the device ID can be used for client authentication with a cloud service or server, it's highly advisable to split the device ID from operational certificates typically used for such purposes. To lessen the attack surface, operational certificates should be relatively short-lived, and the public portion of the device ID shouldn't be widely distributed. Instead, the device ID can be used to sign and/or derive private keys associated with operational certificates.
 
 > [!NOTE]
-> This recommendation is very closely related to the “Attestation” recommendation below, with slightly different semantics.
+> A device ID is tied to a physical device (usually in a cryptographic manner) and provides a root of trust. It can be thought of as a “birth certificate” for the device – it represents a unique identity that applies to the entire lifespan of the device. An “attestation” or “operational” ID is designed to be updated periodically – it is equivalent to a driver’s license (following the birth certificate analogy)–it frequently identifies the owner, and security is maintained by requiring periodic updates or renewals. Just like a birth certificate can be provided to procure a driver's license, the device ID can be used to procure an operational ID. Note that within IoT, both the device ID and operational ID are frequently provided as X.509 certificates, utilizing the associated private keys to cryptographically tie the IDs to the specific hardware.
 
 **Hardware**: A device ID must be tied to the hardware and must not be easily replicated. You should require hardware-based cryptographic features such as those found in an HSM. Some MCU devices may provide similar functionality.
 
@@ -135,7 +135,7 @@ While the device ID can be used for client authentication with a cloud service o
 
 ### Certificate management
 
-If your device utilizes a certificate from a Public Key Infrastructure (PKI), your application will need the ability to update those certificates periodically (both for the device and any trusted certificates used for verifying servers). The more frequent the update, the more secure your application will be.
+If your device utilizes a certificate from a Public Key Infrastructure (PKI), your application will need the ability to update those certificates periodically. This is true for both for the device and any trusted certificates used for verifying servers. The more frequent the update, the more secure your application will be.
 
 **Hardware**:  All certificate private keys should be tied to your device. Ideally, the key should be generated internally by the hardware and never exposed to your application. You should mandate the ability to generate X.509 certificate requests on the device.
 
@@ -166,7 +166,7 @@ Many successful hacking attacks utilize buffer overflow errors to gain access to
 
 ### Protection against reading/writing memory
 
-An MCU may provide a latching mechanism to enable a tamper-resistant state, either by preventing reading of sensitive data or by locking areas of memory from being overwritten. This may be part of, or in addition to, a Memory Protection Unit (MPU) or a Memory Management Unit (MMU).
+An MCU may provide a latching mechanism that enables a tamper-resistant state, either by preventing reading of sensitive data or by locking areas of memory from being overwritten. This may be part of, or in addition to, a Memory Protection Unit (MPU) or a Memory Management Unit (MMU).
 
 **Hardware**: The MCU must provide the appropriate hardware and interface to use memory protection.
 
@@ -497,4 +497,20 @@ The previous sections detailed specific design considerations with descriptions 
 
 - The [Seven Properties of Highly Secured Devices](https://www.microsoft.com/research/publication/seven-properties-2nd-edition/) whitepaper published by Microsoft Research provides an overview of security properties that must be addressed to produce highly secure devices: Hardware root of trust, Defense in depth, Small trusted computing base, Dynamic compartments, Password-less authentication, Error reporting, and Renewable security. These properties are applicable, depending on cost constraints and target application and environment, too many embedded devices.
 
-- **MORE LINKS COMING**
+- ARM PSA Certified (https://www.psacertified.org/, https://www.psacertified.org/blog/psa-certified-10-security-goals-explained/)
+ARM’s Platform Security Architecture provides a standardized framework for building secure embedded devices using ARM TrustZone technology. Microcontroller manufacturers can certify designs with ARM’s PSA Certified program giving a level of confidence about the security of applications built on ARM technologies.
+
+- Common Criteria (https://www.commoncriteriaportal.org/)
+The Common Criteria is an international agreement that provides standardized guidelines and an authorized laboratory program to evaluate products for IT security. Certification provides a level of confidence in the security posture of applications using devices that have been evaluated using the program guidelines.
+
+- SESIP (https://globalplatform.org/sesip/)
+The Security Evaluation Standard for IoT Platforms is a standardized methodology for evaluating the security of connected IoT products and components.
+
+- IoT Security Maturity Model (https://www.iiconsortium.org/smm.htm) 
+The SMM is a framework for building customized IoT security models, allowing IoT manufacturers to create detailed models to evaluate and measure the security posture of their products.
+
+- ISO 27000 family (https://www.iso.org/isoiec-27001-information-security.html)
+ISO 27000 is a collection of standards regarding the management and security of information assets, providing baseline guarantees about the security of digital information in certified products.
+
+- FIPS 140-2/3 (https://csrc.nist.gov/publications/detail/fips/140/3/final)
+FIPS 140 is a US government program that standardizes cryptographic algorithms and implementations used in US government and military applications. Along with documented standards, certified laboratories provide FIPS certification to guarantee specific cryptographic implementations adhere to regulations.
