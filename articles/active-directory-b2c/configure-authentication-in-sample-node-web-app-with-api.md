@@ -258,9 +258,9 @@ You're now ready to test the web application's scoped access to the web API. Run
 1. To call the protected API, select the **Call the PROTECTED API** button. The API responds with JSON object with a `name` key whose value is your account's surname such as:
 
     ```json
-        {"name": "User 1"}
+        {"name": "User 1"} 
     ``` 
 
-## Next steps
+## Next steps  
 
-Learn how to [Enable authentication in your own web API by using Azure AD B2C](enable-authentication-in-node-web-api.md)
+Learn how to [Enable authentication in your own web API by using Azure AD B2C](enable-authentication-in-node-web-app-with-api.md)
