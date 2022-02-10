@@ -1,8 +1,8 @@
 ---
 title: Azure IoT Hub Device Provisioning Service - TPM Attestation
 description: This article provides a conceptual overview of the TPM attestation flow using IoT Device Provisioning Service (DPS).
-author: wesmc7777
-ms.author: wesmc
+author: kgremban
+ms.author: kgremban
 ms.date: 09/22/2021
 ms.topic: conceptual
 ms.service: iot-dps

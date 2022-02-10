@@ -8,7 +8,7 @@ ms.subservice: enterprise-readiness
 ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
-ms.date: 01/18/2022
+ms.date: 02/01/2022
 ms.topic: how-to
 ms.custom: contperf-fy21q3, devx-track-azurepowershell
 ---
@@ -241,7 +241,7 @@ Once the list of FQDNs and corresponding IP addresses are gathered, proceed to c
 
 This architecture uses the common Hub and Spoke virtual network topology. One virtual network contains the DNS server and one contains the private endpoint to the Azure Machine Learning workspace and associated resources. There must be a valid route between both virtual networks. For example, through a series of peered virtual networks.
 
-:::image type="content" source="./media/how-to-custom-dns/custom-dns-topology.svg" alt-text="Diagram of custom DNS hosted in Azure topology":::
+:::image type="content" source="./media/how-to-custom-dns/custom-dns-topology.svg" alt-text="Diagram of custom DNS hosted in Azure topology"  lightbox ="./media/how-to-custom-dns/custom-dns-topology-expanded.png":::
 
 The following steps describe how this topology works:
 
@@ -338,7 +338,7 @@ If you cannot access the workspace from a virtual machine or jobs fail on comput
 1. **Locate the workspace FQDNs on the Private Endpoint**:
 
     Navigate to the Azure portal using one of the following links:
-    - [Azure Public regions](https://ms.portal.azure.com/?feature.privateendpointmanagedns=false)
+    - [Azure Public regions](https://portal.azure.com/?feature.privateendpointmanagedns=false)
     - [Azure China regions](https://portal.azure.cn/?feature.privateendpointmanagedns=false)
     - [Azure US Government regions](https://portal.azure.us/?feature.privateendpointmanagedns=false)
 
@@ -367,7 +367,7 @@ If you cannot access the workspace from a virtual machine or jobs fail on comput
 
 This architecture uses the common Hub and Spoke virtual network topology. ExpressRoute is used to connect from your on-premises network to the Hub virtual network. The Custom DNS server is hosted on-premises. A separate virtual network contains the private endpoint to the Azure Machine Learning workspace and associated resources. With this topology, there needs to be another virtual network hosting a DNS server that can send requests to the Azure DNS Virtual Server IP address.
 
-:::image type="content" source="./media/how-to-custom-dns/custom-dns-express-route.svg" alt-text="Diagram of custom DNS hosted on-premises topology":::
+:::image type="content" source="./media/how-to-custom-dns/custom-dns-express-route.svg" alt-text="Diagram of custom DNS hosted on-premises topology" lightbox ="./media/how-to-custom-dns/custom-dns-express-route-expanded.png" :::
 
 The following steps describe how this topology works:
 
@@ -416,7 +416,7 @@ The following steps describe how this topology works:
     **Azure Public regions**:
     - ```api.azureml.ms```
     - ```notebooks.azure.net```
-    - ```instances.azureml.us```     
+    - ```instances.azureml.ms```     
     
     **Azure China regions**:
     - ```api.ml.azure.cn```
@@ -440,7 +440,7 @@ The following steps describe how this topology works:
     **Azure Public regions**:
     - ```api.azureml.ms```
     - ```notebooks.azure.net```
-    - ```instances.azureml.us```
+    - ```instances.azureml.ms```
     
     **Azure China regions**:
     - ```api.ml.azure.cn```
@@ -537,7 +537,7 @@ If after running through the above steps you are unable to access the workspace 
 1. **Locate the workspace FQDNs on the Private Endpoint**:
 
     Navigate to the Azure portal using one of the following links:
-    - [Azure Public regions](https://ms.portal.azure.com/?feature.privateendpointmanagedns=false)
+    - [Azure Public regions](https://portal.azure.com/?feature.privateendpointmanagedns=false)
     - [Azure China regions](https://portal.azure.cn/?feature.privateendpointmanagedns=false)
     - [Azure US Government regions](https://portal.azure.us/?feature.privateendpointmanagedns=false)
 
