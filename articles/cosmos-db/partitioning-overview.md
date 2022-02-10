@@ -5,7 +5,7 @@ author: deborahc
 ms.author: dech
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/26/2021
+ms.date: 02/08/2022
 
 ---
 
@@ -26,7 +26,9 @@ A logical partition consists of a set of items that have the same partition key.
 
 A logical partition also defines the scope of database transactions. You can update items within a logical partition by using a [transaction with snapshot isolation](database-transactions-optimistic-concurrency.md). When new items are added to a container, new logical partitions are transparently created by the system. You don't have to worry about deleting a logical partition when the underlying data is deleted.
 
-There is no limit to the number of logical partitions in your container. Each logical partition can store up to 20GB of data. Good partition key choices have a wide range of possible values. For example, in a container where all items contain a `foodGroup` property, the data within the `Beef Products` logical partition can grow up to 20 GB. [Selecting a partition key](#choose-partitionkey) with a wide range of possible values ensures that the container is able to scale.
+There is no limit to the number of logical partitions in your container. Each logical partition can store up to 20GB of data. Good partition key choices have a wide range of possible values. For example, in a container where all items contain a `foodGroup` property, the data within the `Beef Products` logical partition can grow up to 20 GB. [Selecting a partition key](#choose-partitionkey) with a wide range of possible values ensures that the container is able to scale. 
+
+You can use Azure Monitor Alerts to [monitor if a logical partition's size is approaching 20 GB](how-to-alert-on-logical-partition-key-storage-size.md).
 
 ## Physical partitions
 
