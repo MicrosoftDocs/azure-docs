@@ -143,18 +143,54 @@ We recommend having a single tenant in Azure AD for an organization. Before you 
 > [!NOTE]
 > This topology is currently in Public Preview. As the supported scenarios might still change, we recommend not deploying this topology in a production environment.
 
-This topology implements the following use cases:
+AADConnect can synchronize the same users, groups, and contacts from a single Active Directory to multiple Azure AD tenants. These tenants can be in different Azure environments, such as the Azure China environment or the Azure Government environment, but they could also be in the same Azure environment, such as two tenants that are both in Azure Commercial.
 
-* AADConnect can synchronize the same users, groups, and contacts from a single Active Directory to multiple Azure AD tenants. These tenants can be in different Azure environments, such as the Azure China environment or the Azure Government environment, but they could also be in the same Azure environment, such as two tenants that are both in Azure Commercial. 
-*	The same Source Anchor can be used for a single object in separate tenants (but not for multiple objects in the same tenant)
-*	You will need to deploy an AADConnect server for every Azure AD tenant you want to synchronize to - one AADConnect server cannot synchronize to more than one Azure AD tenant.
-*	It is supported to have different sync scopes and different sync rules for different tenants.
-*	Only one Azure AD tenant sync can be configured to write back to Active Directory for the same object. This includes device and group writeback as well as Hybrid Exchange configurations – these features can only be configured in one tenant. The only exception here is Password Writeback – see below.
-*	It is supported to configure Password Hash Sync from Active Directory to multiple Azure AD tenants for the same user object. If Password Hash Sync is enabled for a tenant, then Password Writeback may be enabled as well, and this can be done on multiple tenants: if the password is changed on one tenant, then password writeback will update it in Active Directory, and Password Hash Sync will update the password in the other tenants.
-*	It is not supported to add and verify the same custom domain name in more than one Azure AD tenant, even if these tenants are in different Azure environments.
-*	It is not supported to configure hybrid experiences such as Seamless SSO and Hybrid Azure AD Join on more than one tenant. Doing so would overwrite the configuration of the other tenant and would make it unusable. 
-*	You can synchronize device objects to more than one tenant but only one tenant can be configured to trust a device.
+#### Use Cases
+
+Scenarios in which you may need the same identity in 2 different Tenants or Azure Environments.
+
+* Identities established in one cloud but workloads need to be deployed and accessed while using a single on-prem identity. (For example, Office 365 in Commercial and workloads in Azure US Government) 
+* B2B has been tested and will not work for your solution (i.e. Guest Accounts not supported)
+* The application will not support, or can not be written to support, modern authentication directly from where your identities currently reside. (i.e. SAML, OAuth, etc.)
+* You have a requirement for user accounts in the same forest to exist in Azure Commercial, Azure Government and/or Azure China
+
+#### Requirements
+
+* Separate AAD Connect Servers (1 for each tenant)
+* PHS is the only supported Authentication (Not Federation or PTA)
+* Custom Domain Names **MUST** be Unique
+    * Child domain names can exist in the same cloud  
+        _(Contoso.com and Corp.Contoso.com)_
+
+#### Known Limitations
+
+* <u>Device Registration</u> via AAD Join and Hybrid Join can only be with a single tenant even when identities are in another cloud
+* <u>Conditional Access Policies</u> that use device health can only be used in one tenant
+* <u>Write-Back options</u> for AAD Connect should only be on 1 tenant even when in another cloud
+    * This includes device and group write-back as well as Hybrid Exchange configurations
+    * **IF** Password Hash Sync (PHS) is configured on both tenants, then password write-back is supported **ONLY** on 1 tenant
+* <u>Additional Licenses for AAD</u> will be required (i.e. P1 or P2) in the other tenant
+* <u>Office licenses</u> cannot be assigned across tenants
+* <u>Rollback or move to B2B</u> solution will require down time due to need to disable sync on one of the Tenants
+    * Backend process for Azure will not allow you to re-enable sync for up to 72 hours
+	* Due to users being removed and added as possible B2B accounts, updates to RBAC and Conditional Access Policies, etc. will need to be considered.
+* <u>No migration path to a B2B</u> solution is currently planned
+* <u>Not ALL Azure products</u> have been tested with the Dual Sync solution
+
+#### How to Configure AAD Connect for Dual Sync
+
+You will need to deploy an AADConnect server for every Azure AD tenant you want to synchronize to - one AADConnect server cannot synchronize to more than one Azure AD tenant.  
+
+* The same Source Anchor can be used for a single object in separate tenants but not for multiple objects in the same tenant
+* You can synchronize device objects to more than one tenant but only one tenant can be configured to trust a device.
 * Each Azure AD Connect instance should be running on a domain-joined machine.
+
+1. Ensure you have Password Hash Sync (PHS) enabled on the initial AAD Connect Server.
+2. On a secondary on-prem AD joined Windows Server, install [Azure AD Connect.](https://go.microsoft.com/fwlink/?LinkId=615771)
+3. When prompted to connect to your tenant, use appropriate AAD Global Admin credentials for the **additional tenant.**  
+4. Ensure you select Password Hash Sync selected during the setup process.
+
+[AAD Connect Install Reference](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/how-to-connect-install-custom)
 
 >[!NOTE]
 >Global Address List Synchronization (GalSync) is not done automatically in this topology and requires an additional custom MIM implementation to ensure each tenant has a complete Global Address List (GAL) in Exchange Online and Skype for Business Online.
