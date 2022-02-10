@@ -20,7 +20,7 @@ items:
   items:
    - name: Form Recognizer v2.1
      items:
-     - name: Sample-labeling tool
+     - name: Sample Labeling tool
        href: quickstarts/try-sample-label-tool.md
      - name: Client libraries and REST API
        href: quickstarts/get-started-sdk-rest-api.md
@@ -128,8 +128,14 @@ items:
     href: concept-business-card.md
   - name: Custom model
     href: concept-custom.md
-  - name: "Custom models: accuracy and confidence"
+  - name: Custom form model 
+    href: concept-custom-form.md
+  - name: Custom document model
+    href: concept-custom-document.md
+  - name: "Custom models: accuracy and confidence scores"
     href: concept-accuracy-confidence.md
+  - name: "Compose custom models"
+    href:  concept-compose-models.md
 - name: Tutorials
   items:
   - name: Use Form Recognizer with Azure Logic Apps

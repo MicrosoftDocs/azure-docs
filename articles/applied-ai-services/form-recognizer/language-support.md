@@ -18,7 +18,7 @@ ms.author: lajanuar
 <!-- markdownlint-disable MD001 -->
 <!-- markdownlint-disable MD024 -->
 
-## Layout and custom model
+## Layout and custom form model
 
 The following lists cover the currently GA languages in the the 2.1 version and new previews in the 3.0 preview version of Form Recognizer. These languages are supported by Layout and Custom models. The preview release may include enhancements to the currently GA languages.
 
@@ -30,6 +30,7 @@ The following lists cover the currently GA languages in the the 2.1 version and 
 To use the preview languages in Layout and custom models, refer to the [v3.0 REST API migration guide](/rest/api/media/#changes-to-the-rest-api-endpoints) to understand the differences from the v2.1 GA API and explore the [v3.0 preview SDK quickstarts](quickstarts/try-v3-python-sdk.md) and the [preview REST API quickstart](quickstarts/try-v3-rest-api.md).
 
 ### Handwritten languages
+
 The following table lists the handwritten languages supported by Form Recognizer's Layout and Custom model features.
 
 |Language| Language code (optional) | Preview?  |
@@ -43,6 +44,7 @@ The following table lists the handwritten languages supported by Form Recognizer
 |Spanish |`es`| preview
 
 ### Print languages
+
 The following table lists the print languages supported by Form Recognizer's Layout and Custom model features.
 
 |Language| Language code (optional) | Preview? |
@@ -169,6 +171,12 @@ The following table lists the print languages supported by Form Recognizer's Lay
 |Yucatec Maya | `yua` |  |
 |Zhuang | `za` | |
 |Zulu  | `zu` |  |
+
+## Custom document model
+
+Language| Locale code |
+|:-----|:----:|
+|English (United States)|en-us|
 
 ## Receipt and business card models
 

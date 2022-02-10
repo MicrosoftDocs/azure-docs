@@ -17,6 +17,23 @@ ms.custom: ignite-fall-2021
 
 Form Recognizer service is updated on an ongoing basis. Bookmark this page to stay up to date with release notes, feature enhancements, and documentation updates.
 
+## January 2022
+
+### Form Recognizer v3.0 preview update 2
+
+* [**Custom document**](concept-custom-document.md) model is a new custom model to extract text and selection marks from structured forms and **unstructured documents**.
+
+* [**W-2 prebuilt model**](concept-w2.md) is a new prebuilt model to extract fields from W-2 tax documents.
+
+* [**General document**](concept-general-document.md) pre-trained model now updated to support selection marks in addition to API  text, tables, structure, key-value pairs, and named entities from forms and documents.
+
+* [**Spanish language invoices**](concept-invoice.md) model adds support for Spanish language invoices.
+
+* Read API, Form Recognizer customers can now call the Read API from Form Recognizer.
+
+* [Expanded language support](language-support.md) With this preview, Read, Layout and Custom form now support 164 languages for print text including Russian, Hindi and Arabic and similar regional languages. The preview also expands the handwritten support to Japanese and Korean resulting in a total of 9 supported languages.
+
+
 ## November 2021
 
 ### Form Recognizer v3.0 preview SDK release update (beta.2)

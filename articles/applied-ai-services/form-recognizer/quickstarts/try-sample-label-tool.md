@@ -138,7 +138,7 @@ Train a custom model to analyze and extract data from forms and documents specif
 
     1. Start by creating a new CORS entry in the Blob service.
 
-    1. Set the **Allowed origins** to **https://formrecognizer.appliedai.azure.com**.
+    1. Set the **Allowed origins** to **https://fott-2-1.azurewebsites.net**.
 
     1. Select all the available 8 options for **Allowed methods**.
 
@@ -255,7 +255,7 @@ Choose the Train icon on the left pane to open the Training page. Then select th
 * **Model ID** - The ID of the model that was created and trained. Each training call creates a new model with its own ID. Copy this string to a secure location; you'll need it if you want to do prediction calls through the [REST API](./try-sdk-rest-api.md?pivots=programming-language-rest-api) or [client library](./try-sdk-rest-api.md).
 
 * **Average Accuracy** - The model's average accuracy. You can improve model accuracy by labeling additional forms and retraining to create a new model. We recommend starting by labeling five forms analyzing and testing the results and then if needed adding more forms as needed.
-* The list of tags, and the estimated accuracy per tag.
+* The list of tags, and the estimated accuracy per tag. For more information, _see_ [Interpret and improve accuracy and confidence](concept-accuracy-confidence.md).
 
     :::image type="content" source="../media/label-tool/custom-3.jpg" alt-text="Training view tool.":::
 

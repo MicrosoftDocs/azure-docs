@@ -74,6 +74,7 @@ There are several prebuilt models to choose from, each of which has its own set 
 * [**Receipt**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=receipt): extracts text and key information from receipts.
 * [**ID document**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=idDocument): extracts text and key information from driver licenses and international passports.
 * [**Business card**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=businessCard): extracts text and key information from business cards.
+* [**W-2**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=tax.us.w2): extracts text and key information from W-2 tax forms.
 
 In the Prebuilt view:
 
@@ -95,10 +96,10 @@ In addition to the Azure account and a Form Recognizer or Cognitive Services res
 
 ### Azure Blob Storage container
 
-A **standard performance** [**Azure Blob Storage account**](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM). You'll create containers to store and organize your blob data within your storage account. If you don't know how to create an Azure storage account with a container, following these quickstarts:
+A **standard performance** [**Azure Blob Storage account**](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM). You'll create containers to store and organize your training documents within your storage account. If you don't know how to create an Azure storage account with a container, following these quickstarts:
 
-  * [**Create a storage account**](../../../storage/common/storage-account-create.md). When creating your storage account, make sure to select **Standard** performance in the **Instance details → Performance** field.
-  * [**Create a container**](../../../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container). When creating your container, set the **Public access level** field to **Container** (anonymous read access for containers and blobs) in the **New Container** window.
+* [**Create a storage account**](../../../storage/common/storage-account-create.md). When creating your storage account, make sure to select **Standard** performance in the **Instance details → Performance** field.
+* [**Create a container**](../../../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container). When creating your container, set the **Public access level** field to **Container** (anonymous read access for containers and blobs) in the **New Container** window.
 
 ### Configure CORS
 
@@ -135,7 +136,7 @@ CORS should now be configured to use the storage account from Form Recognizer St
     :::image border="true" type="content" source="../media/sas-tokens/upload-blob-window.png" alt-text="Screenshot: upload blob window in the Azure portal.":::
 
 > [!NOTE]
-> By default, the Studio will use form documents that are located at the root of your container. However, you can use data organized in folders if specified in the Custom form project creation steps. *See* [**Organize your data in subfolders**](../build-training-data-set.md#organize-your-data-in-subfolders-optional)
+> By default, the Studio will use form documents that are located at the root of your container. However, you can use data organized in folders by specifying the folder path in the Custom form project creation steps. *See* [**Organize your data in subfolders**](../build-training-data-set.md#organize-your-data-in-subfolders-optional)
 
 ## Custom projects
 
@@ -143,7 +144,7 @@ CORS should now be configured to use the storage account from Form Recognizer St
 
 To create custom models, you start with configuring your project:
 
-1. From the Studio home, select the [Custom form project](https://formrecognizer.appliedai.azure.com/studio/customform/projects) to open the Custom form home page.
+1. From the Studio home, select the [Custom model](https://formrecognizer.appliedai.azure.com/studio/custommodel/projects) to open the Custom form home page.
 
 1. Use the "Create a project" command to start the new project configuration wizard.
 
@@ -163,7 +164,7 @@ After the project creation step, in the custom model phase:
 
 1. Label four more documents to get at least five documents labeled.
 
-1. Select the Train command and enter model name and description to start training your custom model.
+1. Select the Train command and enter model name, description, and build mode to start training your custom model.
 
 1. Once the model is ready, use the Test command to validate it with your test documents and observe the results.
 
@@ -182,6 +183,9 @@ In addition, view all your models using the Models tab on the left. From the lis
 1. Select multiple models and compose them into a new model to be used in your applications.
 
 ## Labeling as tables
+
+[!NOTE]
+> Tables are currently only supported for custom form models. When training a custom document model, labeled tables are ignored.
 
 While creating your custom models, you may need to extract data collections from your documents. These may appear in a couple of formats. Using tables as the visual pattern:
 
@@ -214,6 +218,9 @@ Use fixed tables to extract specific collection of values for a given set of fie
 :::image border="true" type="content" source="../media/quickstarts/custom-tables-fixed.gif" alt-text="Form Recognizer Labeling as fixed table example":::
 
 ## Labeling for signature detection
+
+>[!NOTE]
+> Signature fields are currently only supported for custom form models. When training a custom document model, labeled signature fields are ignored. 
 
 To label for signature detection:
 

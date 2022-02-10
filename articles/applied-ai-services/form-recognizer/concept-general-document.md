@@ -2,33 +2,37 @@
 title: Form Recognizer general document model | Preview
 titleSuffix: Azure Applied AI Services
 description: Concepts encompassing data extraction and analysis using prebuilt general document preview model
-author: vkurpad
+author: laujan
 manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 10/07/2021
-ms.author: lajanuar
+ms.date: 01/07/2022
+ms.author: vkurpad
 recommendations: false
-ms.custom: ignite-fall-2021
 ---
-<!-- markdownlint-disable MD033 -->
+<!-- markdownlint-disable MD033 -->
 
 # Form Recognizer general document model (preview)
 
-The General document preview model combines powerful Optical Character Recognition (OCR) capabilities with deep learning models to extract key-value pairs and entities from documents. General document is only available with the preview (v3.0) API.  For more information on using the preview (v3.0) API, see our [migration guide](v3-migration-guide.md).
+The General document preview model combines powerful Optical Character Recognition (OCR) capabilities with deep learning models to extract key-value pairs, selection marks, and entities from documents. General document is only available with the preview (v3.0) API.  For more information on using the preview (v3.0) API, see our [migration guide](v3-migration-guide.md).
 
-The general document API supports most form types and will analyze your documents and associate values to keys and entries to tables that it discovers. It is ideal for extracting common key-value pairs from documents. You can use the general document model as an alternative to [training a custom model without labels](compose-custom-models.md#train-without-labels).
+The general document API supports most form types and will analyze your documents and extract keys and associated values. It is ideal for extracting common key-value pairs from documents. You can use the general document model as an alternative to [training a custom model without labels](compose-custom-models.md#train-without-labels).
+
+> [!NOTE]
+> The ```2022-01-30-preview``` update to the general document model adds support for selection marks. 
 
 ## General document features
 
-* There is no need to train a custom model to extract key-value pairs.
+* The general document model is a pre-trained model, does not require labels or training.
 
-* A single API is used to extract key value pairs, entities, text, tables, and structure from documents.
+* A single API extracts key value pairs, selection marks entities, text, tables, and structure from documents.
 
-* It is a pre-trained model that will be periodically trained on new data to improve coverage and accuracy.
+* The general document model supports structured, semi-structured, and unstructured documents.
 
-* The general document model supports structured, semi-structured, and unstructured data.
+* Key names are spans of text within the document that are associated with a value.
+
+* Selection marks are identified as fields with a value of ```:selected:``` or ```:unselected:``` 
 
 ***Sample document processed in the Form Recognizer Studio***
 
@@ -48,7 +52,7 @@ See how data, including tables, values, and entities, is extracted from forms an
 
 * An Azure subscription—you can [create one for free](https://azure.microsoft.com/free/cognitive-services/)
 
-* A [Form Recognizer instance](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) in the Azure portal. You can use the free pricing tier (`F0`) to try the service. After your resource deploys, select **Go to resource** to get your API key and endpoint.
+* A [Form Recognizer instance](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) in the Azure portal. You can use the free pricing tier (`F0`) to try the service. After your resource deploys, select **Go to resource** to get your API key and endpoint.
 
  :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
 

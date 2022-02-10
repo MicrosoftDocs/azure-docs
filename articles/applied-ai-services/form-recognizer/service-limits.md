@@ -23,7 +23,8 @@ For the usage with [Form Recognizer SDK](quickstarts/try-v3-csharp-sdk.md), [For
 | **Concurrent Request limit** | 1 | 15 (default value) |
 | Adjustable | No<sup>2</sup> | Yes<sup>2</sup> |
 | **Compose Model limit** | 5 | 100 (default value) |
-
+| **Custom document model train** | 10 per month | 10 per month |
+| Adjustable | No<sup>2</sup> | Yes<sup>2</sup> |
 
 <sup>1</sup> For **Free (F0)** pricing tier see also monthly allowances at the [pricing page](https://azure.microsoft.com/pricing/details/form-recognizer/).
 <sup>2</sup> See [best practices](#example-of-a-workload-pattern-best-practice),  and [adjustment instructions](#create-and-submit-support-request).

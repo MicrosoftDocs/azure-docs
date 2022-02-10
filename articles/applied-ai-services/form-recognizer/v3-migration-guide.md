@@ -23,9 +23,10 @@ Form Recognizer v3.0 (preview) introduces several new features and capabilities:
 
 * [Form Recognizer REST API](quickstarts/try-v3-rest-api.md) has been redesigned for better usability.
 * [**General document (v3.0)**](concept-general-document.md) model is a new API that extracts text, tables, structure, key-value pairs, and named entities from forms and documents.
+* [**Custom form model (v3.0)**](concept-custom.md) supports signature detection for custom forms.
+* [**Custom document model (v3.0)**](concept-custom-document.md) is a new custom model type to extract fields from structured and unstructured documents.
 * [**Receipt (v3.0)**](concept-receipt.md) model supports single-page hotel receipt processing.
 * [**ID document (v3.0)**](concept-id-document.md) model supports endorsements, restrictions, and vehicle classification extraction from US driver's licenses.
-* [**Custom model API (v3.0)**](concept-custom.md) supports signature detection for custom forms.
 
 In this article, you'll learn the differences between Form Recognizer v2.1 and v3.0 and how to move to the newer version of the API.
 
@@ -36,14 +37,14 @@ In this article, you'll learn the differences between Form Recognizer v2.1 and v
 ### POST request
 
 ```http
-https://{your-form-recognizer-endpoint}/formrecognizer/documentModels/{modelId}?api-version=2021-07-30-preview
+https://{your-form-recognizer-endpoint}/formrecognizer/documentModels/{modelId}?api-version=2022-01-30-preview
 
 ```
 
 ### GET request
 
 ```http
-https://{your-form-recognizer-endpoint}/formrecognizer/documentModels/{modelId}/AnalyzeResult/{resultId}?api-version=2021-07-30-preview
+https://{your-form-recognizer-endpoint}/formrecognizer/documentModels/{modelId}/AnalyzeResult/{resultId}?api-version=2022-01-30-preview
 ```
 
 ### Analyze operation
@@ -116,7 +117,7 @@ Analyze response has been refactored to the following top-level results to suppo
 
 {
 // Basic analyze result metadata
-"apiVersion": "2021-07-30-preview", // REST API version used
+"apiVersion": "2022-01-30-preview", // REST API version used
 "modelId": "prebuilt-invoice", // ModelId used
 "stringIndexType": "textElements", // Character unit used for string offsets and lengths:
 // textElements, unicodeCodePoint, utf16CodeUnit // Concatenated content in global reading order across pages.
@@ -245,17 +246,18 @@ Analyze response has been refactored to the following top-level results to suppo
 
 ## Build or train model
 
-The model object has two updates in the new API
+The model object has three updates in the new API
 
 * ```modelId``` is now a property that can be set on a model for a human readable name.
 * ```modelName``` has been renamed to ```description```
+* ```buildMode``` is a new proerty with values of ```template``` for custom form models or ```neural``` for custom document models.
 
 The ```build``` operation is invoked to train a model. The request payload and call pattern remain unchanged. The build operation specifies the model and training dataset, it returns the result via the Operation-Location header in the response. Poll this model operation URL, via a GET request to check the status of the build operation (minimum recommended interval between requests is 1 second). Unlike v2.1, this URL is not the resource location of the model. Instead, the model URL can be constructed from the given modelId, also retrieved from the resourceLocation property in the response. Upon success, status is set to ```succeeded``` and result contains the custom model info. If errors are encountered, status is set to ```failed``` and the error is returned.
 
 The following code is a sample build request using a SAS token. Note the trailing slash when setting the prefix or folder path.
 
 ```json
-POST https://{your-form-recognizer-endpoint}/formrecognizer/documentModels:build?api-version=2021-09-30-preview
+POST https://{your-form-recognizer-endpoint}/formrecognizer/documentModels:build?api-version=2022-01-30-preview
 
 {
   "modelId": {modelId},
@@ -272,7 +274,7 @@ POST https://{your-form-recognizer-endpoint}/formrecognizer/documentModels:build
 Model compose is now limited to single level of nesting. Composed models are now consistent with custom models with the addition of ```modelId``` and ```description``` properties.
 
 ```json
-POST https://{your-form-recognizer-endpoint}/formrecognizer/documentModels:compose?api-version=2021-09-30-preview
+POST https://{your-form-recognizer-endpoint}/formrecognizer/documentModels:compose?api-version=2022-01-30-preview
 {
   "modelId": "{composedModelId}",
   "description": "{composedModelDescription}",
@@ -300,7 +302,7 @@ The only changes to the copy model function are:
 ***Authorize the copy***
 
 ```json
-POST https://{targetHost}/formrecognizer/documentModels:authorizeCopy?api-version=2021-09-30-preview
+POST https://{targetHost}/formrecognizer/documentModels:authorizeCopy?api-version=2022-01-30-preview
 {
   "modelId": "{targetModelId}",
   "description": "{targetModelDescription}",
@@ -310,7 +312,7 @@ POST https://{targetHost}/formrecognizer/documentModels:authorizeCopy?api-versio
 Use the response body from the authorize action to construct the request for the copy.
 
 ```json
-POST https://{sourceHost}/formrecognizer/documentModels/{sourceModelId}:copy-to?api-version=2021-09-30-preview
+POST https://{sourceHost}/formrecognizer/documentModels/{sourceModelId}:copy-to?api-version=2022-01-30-preview
 {
   "targetResourceId": "{targetResourceId}",
   "targetResourceRegion": "{targetResourceRegion}",
@@ -328,7 +330,7 @@ List models have been extended to now return prebuilt and custom models. All pre
 ***Sample list models request***
 
 ```json
-GET https://{your-form-recognizer-endpoint}/formrecognizer/documentModels?api-version=2021-09-30-preview
+GET https://{your-form-recognizer-endpoint}/formrecognizer/documentModels?api-version=2022-01-30-preview
 ```
 
 ## Change to get model
@@ -336,7 +338,7 @@ GET https://{your-form-recognizer-endpoint}/formrecognizer/documentModels?api-ve
 As get model now includes prebuilt models, the get operation returns a ```docTypes``` dictionary. Each document type is described by its name, optional description, field schema, and optional field confidence. The field schema describes the list of fields potentially returned with the document type.
 
 ```json
-GET https://{your-form-recognizer-endpoint}/formrecognizer/documentModels/{modelId}?api-version=2021-09-30-preview
+GET https://{your-form-recognizer-endpoint}/formrecognizer/documentModels/{modelId}?api-version=2022-01-30-preview
 ```
 
 ## New get info operation
@@ -344,7 +346,7 @@ GET https://{your-form-recognizer-endpoint}/formrecognizer/documentModels/{model
 The ```info``` operation on the service returns the custom model count and custom model limit.
 
 ```json
-GET https://{your-form-recognizer-endpoint}/formrecognizer/info? api-version=2021-09-30-preview
+GET https://{your-form-recognizer-endpoint}/formrecognizer/info? api-version=2022-01-30-preview
 ```
 
 ***Sample response***

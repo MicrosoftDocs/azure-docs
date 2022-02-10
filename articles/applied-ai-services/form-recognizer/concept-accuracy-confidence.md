@@ -1,23 +1,24 @@
 ---
-title:  Interpret and improve accuracy and confidence scores
+title:  Interpret and improve model accuracy and analysis confidence scores
 titleSuffix: Azure Applied AI Services
-description: Best practices for how to interpret the accuracy score from the train model operation and the confidence score from analysis operations.
+description: Best practices to interpret the accuracy score from the train model operation and the confidence score from analysis operations.
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 02/03/2022
+ms.date: 02/14/2022
 ms.author: vikurpad
 ---
 
 # Interpret and improve accuracy and confidence for custom models
 
 > [!NOTE]
+>
 > * **Custom models do not provide accuracy scores during training**.
 > * Confidence scores for structured fields such as tables are currently unavailable.
 
-Custom models generate an estimated accuracy score when trained. Documents analyzed with a Custom model produce a confidence score for extracted fields. In this document, you'll learn to interpret accuracy and confidence scores and best practices for using those scores to improve accuracy and confidence results.
+Custom models generate an estimated accuracy score when trained. Documents analyzed with a custom model produce a confidence score for extracted fields. In this article, you'll learn to interpret accuracy and confidence scores and best practices for using those scores to improve accuracy and confidence results.
 
 ## Accuracy scores
 
