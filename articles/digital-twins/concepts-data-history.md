@@ -25,17 +25,17 @@ Once twin property values are historized to Azure Data Explorer, you can run joi
 
 Data history requires the following resources:
 * Azure Digital Twins instance, with a [managed identity](concepts-security.md#managed-identity-for-accessing-other-resources) enabled
-* [Event Hubs](../event-hubs/event-hubs-about.md) namespace containing an Event Hub
+* [Event Hubs](../event-hubs/event-hubs-about.md) namespace containing an event hub
 * [Azure Data Explorer](/azure/data-explorer/data-explorer-overview) cluster containing a database 
 
 These resources are connected into the following flow:
 
-:::image type="content" source="media/concepts-data-history/data-history-architecture.png" alt-text="Diagram showing the flow of telemetry data into Azure Digital Twins, through Event Hub, to Azure Data Explorer.":::
+:::image type="content" source="media/concepts-data-history/data-history-architecture.png" alt-text="Diagram showing the flow of telemetry data into Azure Digital Twins, through an event hub, to Azure Data Explorer.":::
 
 Data moves through these resources in this order:
 1. A property of a digital twin in Azure Digital Twins is updated.
-1. Data history forwards a message containing the twin's updated property value and metadata to Event Hub. 
-1. The Event Hub forwards the message to the target Azure Data Explorer cluster. 
+1. Data history forwards a message containing the twin's updated property value and metadata to the event hub. 
+1. The event hub forwards the message to the target Azure Data Explorer cluster. 
 1. The Azure Data Explorer cluster maps the message fields to the data history schema, and stores the data as a timestamped record in a data history table.
 
 ### Required permissions
@@ -116,7 +116,7 @@ Ensure that `<table_name>` is replaced with the name of the table that was set u
 ### Streaming ingestion 
 
 Enabling **streaming ingestion** is a 2-step process: 
-1. Enable streaming ingestion for your cluster. This only has to be done once. (Warning: This will have an effect on the amount of storage available for hot cache, and may introduce extra limitations).  For instructions, see [Configure streaming ingestion on your Azure Data Explorer cluster](/azure/data-explorer/ingest-data-streaming?tabs=azure-portal%2Ccsharp).
+1. Enable streaming ingestion for your cluster. This action only has to be done once. (Warning: Doing so will have an effect on the amount of storage available for hot cache, and may introduce extra limitations).  For instructions, see [Configure streaming ingestion on your Azure Data Explorer cluster](/azure/data-explorer/ingest-data-streaming?tabs=azure-portal%2Ccsharp).
 2. Add a streaming ingestion policy for the desired table. You can read more about enabling streaming ingestion for your cluster in the Azure Data Explorer documentation: [Kusto IngestionBatching policy management command](/azure/data-explorer/kusto/management/batching-policy). 
 
 To enable streaming ingestion for your Azure Digital Twins data history table, the following command must be issued in the Azure Data Explorer query pane: 
