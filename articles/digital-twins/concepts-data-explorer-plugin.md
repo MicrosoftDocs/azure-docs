@@ -74,7 +74,7 @@ To see example queries and complete a walkthrough with sample data, see [Azure D
 
 ## Ingesting Azure Digital Twins data into Azure Data Explorer
 
-Before querying with the plugin, you'll need to ingest your Azure Digital Twins data into Azure Data Explorer. There are two main ways you can do this: through the **data history** feature, or through direct ingestion. The following sections describe these options in more detail.
+Before querying with the plugin, you'll need to ingest your Azure Digital Twins data into Azure Data Explorer. There are two main ways you can do so: through the **data history** feature, or through direct ingestion. The following sections describe these options in more detail.
 
 ### Ingesting with data history
 
@@ -82,7 +82,7 @@ The simplest way to ingest IoT data from Azure Digital Twins into Azure Data Exp
 
 ### Direct ingestion
 
-You can also opt to [ingest IoT data directly into your Azure Data Explorer cluster from IoT Hub](/azure/data-explorer/ingest-data-iot-hub), or from other sources. Then, the Azure Digital Twins graph will be used to contextualize the time series data using joint Azure Digital Twins/Azure Data Explorer queries. This is a good choice for direct-ingestion workloads. For more information about this process, continue through the rest of this section.
+You can also opt to [ingest IoT data directly into your Azure Data Explorer cluster from IoT Hub](/azure/data-explorer/ingest-data-iot-hub), or from other sources. Then, the Azure Digital Twins graph will be used to contextualize the time series data using joint Azure Digital Twins/Azure Data Explorer queries. This option is a good choice for direct-ingestion workloads. For more information about this process, continue through the rest of this section.
 
 #### Mapping data across Azure Data Explorer and Azure Digital Twins
 
