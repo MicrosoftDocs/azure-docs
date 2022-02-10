@@ -65,11 +65,13 @@ The application registrations and the application architecture are described in 
 
 ## Step 1: Configure your user flow
 
-When users try to sign in to your app, the app starts an authentication request to the authorization endpoint via a [user flow](user-flow-overview.md). The user flow defines and controls the user experience. After users complete the user flow, Azure AD B2C generates a token and then redirects users back to your application.
+[!INCLUDE [active-directory-b2c-app-integration-add-user-flow](../../includes/active-directory-b2c-app-integration-add-user-flow.md)] Repeat the steps to create three separate user flows as follows: 
 
-Complete the steps in [Tutorial: Create user flows and custom policies in Azure Active Directory B2C](tutorial-create-user-flows.md?pivots=b2c-user-flow) to create a **Sign in and sign up**  user flow. Use the following settings:
-- For **Name** of your user flow, use something like `susi_node_app`.
-- For **User attributes and token claims**, make sure you select **Surname** for both **Collect attribute** and **Return claim**.
+- A combined **Sign in and sign up** user flow, such as `susi`. This user flow also supports the **Forgot your password** experience.
+- A **Profile editing** user flow, such as `edit_profile`.
+- A **Password reset** user flow, such as `reset_password`.
+
+Azure AD B2C prepends `B2C_1_` to the user flow name. For example, `susi` becomes `B2C_1_susi`.
 
 ## Step 2: Register your web app and API
 
