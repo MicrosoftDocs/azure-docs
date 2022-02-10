@@ -63,7 +63,7 @@
         href: adobe-creative-cloud-tutorial.md
       - name: Adobe Experience Manager
         href: adobeexperiencemanager-tutorial.md
-      - name: Adobe Identity Management
+      - name: Adobe Identity Management (SAML)
         href: adobe-identity-management-tutorial.md
       - name: Adobe Sign
         href: adobe-echosign-tutorial.md
@@ -693,6 +693,8 @@
         href: elium-tutorial.md
       - name: eLuminate
         href: eluminate-tutorial.md
+      - name: Embark
+        href: embark-tutorial.md
       - name: embed signage
         href: embed-signage-tutorial.md  
       - name: Empactis
@@ -725,7 +727,7 @@
         href: easysso-for-jira-tutorial.md
       - name: EthicsPoint Incident Management (EPIM)
         href: ethicspoint-incident-management-tutorial.md
-      - name: Euromonitor Passport
+      - name: Euromonitor International
         href: euromonitor-passport-tutorial.md
       - name: EverBridge
         href: everbridge-tutorial.md
@@ -1284,7 +1286,7 @@
         href: linkedinsalesnavigator-tutorial.md
       - name: LiquidFiles
         href: liquidfiles-tutorial.md
-      - name: Litmos
+      - name: SAP Litmos
         href: litmos-tutorial.md
       - name: LockPath Keylight
         href: keylight-tutorial.md
@@ -1356,7 +1358,7 @@
         href: mihcm-tutorial.md  
       - name: Mimecast Admin Console
         href: mimecast-admin-console-tutorial.md
-      - name: Mimecast Personal Portal
+      - name: Mimecast
         href: mimecast-personal-portal-tutorial.md
       - name: Mindflash
         href: mindflash-tutorial.md
@@ -1512,6 +1514,8 @@
         href: opal-tutorial.md
       - name: OpenAthens
         href: openathens-tutorial.md
+      - name: OpenID Connect OAuth
+        href: openidoauth-tutorial.md
       - name: OpenText Directory Services
         href: opentext-directory-services-tutorial.md
       - name: OpsGenie
@@ -2513,6 +2517,8 @@
         href: britive-provisioning-tutorial.md
       - name: BrowserStack Single Sign-on
         href: browserstack-single-sign-on-provisioning-tutorial.md
+      - name: BullseyeTDP
+        href: bullseyetdp-provisioning-tutorial.md
       - name: Cato Networks Provisioning
         href: cato-networks-provisioning-tutorial.md
       - name: Cerner Central
@@ -2667,6 +2673,8 @@
         href: klaxoon-saml-provisioning-tutorial.md
       - name: kpifire
         href: kpifire-provisioning-tutorial.md
+      - name: LanSchool Air
+        href: lanschool-air-provisioning-tutorial.md
       - name: LimbleCMMS
         href: limblecmms-provisioning-tutorial.md
       - name: LinkedIn Elevate
@@ -2743,6 +2751,8 @@
         href: printer-logic-saas-provisioning-tutorial.md
       - name: Priority Matrix
         href: priority-matrix-provisioning-tutorial.md
+      - name: ProdPad
+        href: prodpad-provisioning-tutorial.md
       - name: Promapp
         href: promapp-provisioning-tutorial.md     
       - name: Proxyclick
