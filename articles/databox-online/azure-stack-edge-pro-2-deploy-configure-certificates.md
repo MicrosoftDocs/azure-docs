@@ -47,11 +47,13 @@ Before you configure and set up your Azure Stack Edge Pro 2 device, make sure th
 
     You're ready to [Activate your device](azure-stack-edge-gpu-deploy-activate.md) with the existing device certificates.
 
-1. Follow these steps only if you've changed the device name or the DNS domain for your device. In these instances, the status of your device certificates will be **Not valid**. That's because the device name and DNS domain in the certificates' `subject name` and `subject alternative` settings are out of date. You can select a certificate to view status details.   
+1. Follow these steps only if you've changed the device name or the DNS domain for your device. In these instances, the status of your device certificates will be **Not valid**. That's because the device name and DNS domain in the certificates' `subject name` and `subject alternative` settings are out of date. 
+
+    You can select a certificate to view status details.   
 
      ![Screenshot of Certificate Details for a certificate on the Certificates page in the local web UI of an Azure Stack Edge device. The selected certificate and certificate details are highlighted.](./media/azure-stack-edge-pro-2-deploy-configure-certificates/generate-certificate-1.png)  
 
-1. To use a new set of certificates on your device, choose one of the following options:
+1. If you've changed the device name or DNS domain of your device, and you don't provide new certificates, **activation of the device will be blocked**.To use a new set of certificates on your device, choose one of the following options:
     
      - **Generate all the device certificates**. Select this option, and then complete the steps in [Generate device certificates](#generate-device-certificates), if you plan to use automatically generated device certificates and need to generate new device certificates. You should only use these device certificates for testing, not with production workloads.
 
@@ -59,8 +61,7 @@ Before you configure and set up your Azure Stack Edge Pro 2 device, make sure th
     
      - You can choose to bring some of your own certificates and generate some device certificates. The **Generate all the device certificates** option only regenerates the device certificates.
     
-    > [!NOTE]
-    > If you've changed the device name or DNS domain of your device, and you don't provide new certificates, **activation of the device will be blocked**.
+
 
 3. When you have a full set of valid certificates for your device, the device is ready for activation. Select **< Back to Get started** to proceed to the next deployment step, [Activate your device](azure-stack-edge-gpu-deploy-activate.md).
 

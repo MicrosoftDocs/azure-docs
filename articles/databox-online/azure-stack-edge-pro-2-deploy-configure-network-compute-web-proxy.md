@@ -45,75 +45,80 @@ Follow these steps to configure the network for your device.
 
 2. On the **Network** tile, select **Configure**.  
     
-    ![Local web UI "Network settings" tile](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/network-1.png)
+    ![Local web UI "Network settings" tile](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/network-1.png)
 
-    On your physical device, there are six network interfaces. PORT 1 and PORT 2 are 1-Gbps network interfaces. PORT 3, PORT 4, PORT 5, and PORT 6 are all 25-Gbps network interfaces that can also serve as 10-Gbps network interfaces. PORT 1 is automatically configured as a management-only port, and PORT 2 to PORT 6 are all data ports. For a new device, the **Network settings** page is as shown below.
+    On your physical device, there are four network interfaces. Port 1 and Port 2 are 1-Gbps network interfaces that can also serve as 10-Gbps network interfaces. Port 3 and Port 4 are 100-Gbps network interfaces . Port 1 is automatically configured as a management-only port, and Port 2 to Port 4 are all data ports. For a new device, the **Network settings** page is as shown below.
     
-    ![Local web UI "Network settings" page](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/network-2a.png)
+    ![Local web UI "Network settings" page](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/network-2.png)
 
 3. To change the network settings, select a port and in the right pane that appears, modify the IP address, subnet, gateway, primary DNS, and secondary DNS. 
 
     - If you select Port 1, you can see that it is preconfigured as static. 
 
-        ![Local web UI "Port 1 Network settings"](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/network-3.png)
+        ![Local web UI "Port 1 Network settings"](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/network-3.png)
 
-    - If you select Port 2, Port 3, Port 4, or Port 5, all of these ports are configured as DHCP by default.
+    - If you select Port 2, Port 3, or Port 4, all of these ports are configured as DHCP by default.
 
-        ![Local web UI "Port 3 Network settings"](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/network-4.png)
+        ![Local web UI "Port 3 Network settings"](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/network-4.png)
 
     As you configure the network settings, keep in mind:
 
-    * Make sure that Port 5 and Port 6 are connected for Network Function Manager deployments. For more information, see [Tutorial: Deploy network functions on Azure Stack Edge (Preview)](../network-function-manager/deploy-functions.md).
+    * ENGG TO VERIFY - Make sure that Port 3 and Port 4 are connected for Network Function Manager deployments. For more information, see [Tutorial: Deploy network functions on Azure Stack Edge](../network-function-manager/deploy-functions.md).
     * If DHCP is enabled in your environment, network interfaces are automatically configured. An IP address, subnet, gateway, and DNS are automatically assigned.
     * If DHCP isn't enabled, you can assign static IPs if needed.
     * You can configure your network interface as IPv4.
-    * On 25-Gbps interfaces, you can set the RDMA (Remote Direct Access Memory) mode to iWarp or RoCE (RDMA over Converged Ethernet). Where low latencies are the primary requirement and scalability isn’t a concern, use RoCE. When latency is a key requirement, but ease-of-use and scalability are also high priorities, iWARP is the best candidate.
-    * Network Interface Card (NIC) Teaming or link aggregation isn’t supported with Azure Stack Edge. 
+    * ENGG TO VERIFY - Network Interface Card (NIC) Teaming or link aggregation isn’t supported with Azure Stack Edge. 
+    * ENGG TO VERIFY - In this release, the 100-GbE interfaces are not configured for RDMA mode.
     * Serial number for any port corresponds to the node serial number.
 
     Once the device network is configured, the page updates as shown below.
 
-    ![Local web UI "Network settings" page 2](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/network-2.png)
+    ![Local web UI "Network settings" page 2](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/network-5.png)
 
 
      > [!NOTE]
      > We recommend that you do not switch the local IP address of the network interface from static to DCHP, unless you have another IP address to connect to the device. If using one network interface and you switch to DHCP, there would be no way to determine the DHCP address. If you want to change to a DHCP address, wait until after the device has activated with the service, and then change. You can then view the IPs of all the adapters in the **Device properties** in the Azure portal for your service.
 
 
-    After you’ve configured and applied the network settings, select **Next: Compute** to configure compute network.
+    After you’ve configured and applied the network settings, select **Next: Advanced networking** to configure compute network.
 
-## Enable compute network
+## Configure advanced networking
 
-Follow these steps to enable compute and configure compute network. 
+Follow these steps to configure advanced network settings such as creating a switch for compute and associating it with a virtual network. 
 
-<!--1. Go to the **Get started** page in the local web UI of your device. On the **Network** tile, select **Compute network**.  
 
-    ![Compute page in local UI 1](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/compute-network-1.png)-->
+1. In the local web UI of your device, go to the **Advanced networking** page. Select **Add virtual switch** to create a new virtual switch or use an existing virtual switch. This virtual switch will be used for the compute infrastructure on the device. 
 
-1. In the **Compute** page, select a network interface that you want to enable for compute. 
 
-    ![Compute page in local UI 2](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/compute-network-2.png)
+    ![Advanced networking page in local UI 2](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/advanced-networking-1.png)
 
-1. In the **Network settings** dialog, select **Enable**. When you enable compute, a virtual switch is created on your device on that network interface. The virtual switch is used for the compute infrastructure on the device. 
+1. In **Add virtual switch** blade:
+
+    1. Provide a name for your virtual switch.
+    1. Associate a network interface on your device with the virtual switch you'll create.
+    1. Assign an intent for your virtual switch. To deploy compute workloads, you'll select compute as the intent.    
+    1. Assign **Kubernetes node IPs**. These static IP addresses are for the compute VM that will be created on this virtual switch.  
+
+        For an *n*-node device, a contiguous range of a minimum of *n+1* IPv4 addresses (or more) are provided for the compute VM using the start and end IP addresses. For a 1-node device, provide a minimum of 2 contiguous IPv4 addresses.
     
-1. Assign **Kubernetes node IPs**. These static IP addresses are for the compute VM.  
+        > [!IMPORTANT]
+        > Kubernetes on Azure Stack Edge uses 172.27.0.0/16 subnet for pod and 172.28.0.0/16 subnet for service. Make sure that these are not in use in your network. If these subnets are already in use in your network, you can change these subnets by running the `Set-HcsKubeClusterNetworkInfo` cmdlet from the PowerShell interface of the device. For more information, see [Change Kubernetes pod and service subnets](azure-stack-edge-gpu-connect-powershell-interface.md#change-kubernetes-pod-and-service-subnets).
 
-    For an *n*-node device, a contiguous range of a minimum of *n+1* IPv4 addresses (or more) are provided for the compute VM using the start and end IP addresses. Given Azure Stack Edge is a 1-node device, a minimum of 2 contiguous IPv4 addresses are provided.
-
-    > [!IMPORTANT]
-    > Kubernetes on Azure Stack Edge uses 172.27.0.0/16 subnet for pod and 172.28.0.0/16 subnet for service. Make sure that these are not in use in your network. If these subnets are already in use in your network, you can change these subnets by running the `Set-HcsKubeClusterNetworkInfo` cmdlet from the PowerShell interface of the device. For more information, see [Change Kubernetes pod and service subnets](azure-stack-edge-gpu-connect-powershell-interface.md#change-kubernetes-pod-and-service-subnets).
-
-
-1. Assign **Kubernetes external service IPs**. These are also the load-balancing IP addresses. These contiguous IP addresses are for services that you want to expose outside of the Kubernetes cluster and you specify the static IP range depending on the number of services exposed. 
+    1. Assign **Kubernetes external service IPs**. These are also the load-balancing IP addresses. These contiguous IP addresses are for services that you want to expose outside of the Kubernetes cluster and you specify the static IP range depending on the number of services exposed. 
     
-    > [!IMPORTANT]
-    > We strongly recommend that you specify a minimum of 1 IP address for Azure Stack Edge Hub service to access compute modules. You can then optionally specify additional IP addresses for other services/IoT Edge modules (1 per service/module) that need to be accessed from outside the cluster. The service IP addresses can be updated later. 
+        > [!IMPORTANT]
+        > We strongly recommend that you specify a minimum of 1 IP address for Azure Stack Edge Hub service to access compute modules. You can then optionally specify additional IP addresses for other services/IoT Edge modules (1 per service/module) that need to be accessed from outside the cluster. The service IP addresses can be updated later. 
     
-1. Select **Apply**.
+    1. Select **Apply**.
 
-    ![Compute page in local UI 3](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/compute-network-3.png)
+    ![Compute page in local UI 3](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/advanced-networking-2.png)
 
-1. The configuration takes a couple minutes to apply and you may need to refresh the browser. You can see that the specified port is enabled for compute. 
+1. You'll see a warning to the effect that you may need to wait for a couple minutes and then refresh the browser. Select OK.
+
+    ![Compute page in local UI 3](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/advanced-networking-3.png)
+
+
+1. After the configuration is applied and you've refreshed the browser, you can see that the specified port is enabled for compute. 
  
     ![Compute page in local UI 4](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/compute-network-4.png)
 
