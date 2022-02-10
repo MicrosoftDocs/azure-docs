@@ -197,15 +197,17 @@ Install Azure IoT Edge for Linux on Windows on your device.
    ```
 
    >[!TIP]
-   >By default, the `Deploy-Eflow` command creates your Linux virtual machine with 1 GB of RAM, 1 vCPU core, and 21 GB of disk space. However, the resources your VM needs are highly dependent on the workloads you deploy. If your VM does not have sufficient memory to support your workloads, it will fail to start.
+   >By default, the `Deploy-Eflow` command creates your Linux virtual machine with 1 GB of RAM, 1 vCPU core, and 10 GB of data parition. However, the resources your VM needs are highly dependent on the workloads you deploy. If your VM does not have sufficient memory to support your workloads, it will fail to start.
    >
    >You can customize the virtual machine's available resources using the `Deploy-Eflow` command's optional parameters.
    >
-   >For example, the command below creates a virtual machine with 4 vCPU cores, 4 GB of RAM (represented in MB), and 30 GB of disk space:
+   >For example, the command below creates a virtual machine with 4 vCPU cores, 4 GB of RAM (represented in MB), and 20 GB of data partition:
    >
    >   ```powershell
-   >   Deploy-Eflow -cpuCount 4 -memoryInMB 4096 -vmDiskSize 30
+   >   Deploy-Eflow -cpuCount 4 -memoryInMB 4096 -vmDataSize 20
    >   ```
+   >
+   >**Note:** _vmDataSize_ is a new parameter introduced in EFLOW CR version.  
    >
    >For information about all the optional parameters available, see [PowerShell functions for IoT Edge for Linux on Windows](../articles/iot-edge/reference-iot-edge-for-linux-on-windows-functions.md#deploy-eflow).
 
