@@ -98,8 +98,7 @@ By default, the Azure Active Directory (Azure AD) Connect provisioning agent ins
 - In step #8 above, add **ENVIRONMENTNAME=AzureUSGovernment** to the command line like the example below.
     ```
     $installerProcess = Start-Process -FilePath "c:\temp\AADConnectProvisioningAgent.Installer.exe" -ArgumentList "/quiet ENVIRONMENTNAME=AzureUSGovernment" -NoNewWindow -PassThru 
-$installerProcess.WaitForExit()
-
+    $installerProcess.WaitForExit()
    ```
 
 ## Next steps 
