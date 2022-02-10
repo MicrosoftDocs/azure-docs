@@ -775,7 +775,7 @@ The below table lists the properties supported by Azure SQL Managed Instance sou
 > EXECUTE sp_executesql @query;
 > END
 >```
->Then use the **Stored procedure** mode in the source transformation of the mapping data flow and set the `@query` as `with CTE as (select 'test' as a) select * from CTE`. Then you can use CTEs as expected.
+>Then use the **Stored procedure** mode in the source transformation of the mapping data flow and set the `@query` like example `with CTE as (select 'test' as a) select * from CTE`. Then you can use CTEs as expected.
 
 #### Azure SQL Managed Instance source script example
 

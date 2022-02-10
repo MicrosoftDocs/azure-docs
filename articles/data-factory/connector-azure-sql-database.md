@@ -766,7 +766,7 @@ Settings specific to Azure SQL Database are available in the **Source Options** 
 > EXECUTE sp_executesql @query;
 > END
 >```
->Then use the **Stored procedure** mode in the source transformation of the mapping data flow and set the `@query` as `with CTE as (select 'test' as a) select * from CTE`. Then you can use CTEs as expected.
+>Then use the **Stored procedure** mode in the source transformation of the mapping data flow and set the `@query` like example `with CTE as (select 'test' as a) select * from CTE`. Then you can use CTEs as expected.
 
 **Stored procedure**: Choose this option if you wish to generate a projection and source data from a stored procedure that is executed from your source database. You can type in the schema, procedure name, and parameters, or click on Refresh to ask the service to discover the schemas and procedure names. Then you can click on Import to import all procedure parameters using the form ``@paraName``.
 
