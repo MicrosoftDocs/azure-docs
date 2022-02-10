@@ -87,7 +87,7 @@ API Portal for VMware Tanzu provides API consumers with the ability to find and 
 
 ### Use flexible and configurable VMware Tanzu components
 
-With Azure Spring Cloud Enterprise tier, you can use VMware Tanzu components on managed Azure infrastructure. Tanzu Build Service, Tanzu Spring Cloud Gateway, API Portal for VMware Tanzu, Tanzu Application Configuration Service, and Tanzu Service Registry are available during public preview. You'll have the flexibility to select which Tanzu components you want during or after instance creation.
+With Azure Spring Cloud Enterprise tier, you can use VMware Tanzu components on managed Azure infrastructure. Tanzu Build Service, Tanzu Spring Cloud Gateway, API Portal for VMware Tanzu, Tanzu Application Configuration Service, and Tanzu Service Registry are available during public preview. You'll have the flexibility to select which Tanzu components you want during instance creation.
 
 Tanzu components deliver increased value so you can:
 
