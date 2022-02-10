@@ -93,7 +93,7 @@ Once the Device Update agent is running on an IoT device, the device needs to be
    ```
    
 Device Update for Azure IoT Hub software is subject to the following license terms:
-   * [Device Update for IoT Hub license](https://github.com/Azure/iot-hub-device-update/blob/main/LICENSE.md)
+   * [Device Update for IoT Hub license](https://github.com/Azure/iot-hub-device-update/blob/main/LICENSE)
    * [Delivery optimization client license](https://github.com/microsoft/do-client/blob/main/LICENSE)
    
 Read the license terms prior to using the agent. Your installation and use constitutes your acceptance of these terms. If you do not agree with the license terms, do not use the Device Update for IoT Hub agent.
@@ -219,4 +219,3 @@ When no longer needed, clean up your Device Update account, instance, IoT Hub an
 
 > [!div class="nextstepaction"]
 > [Troubleshooting](troubleshoot-device-update.md)
-
