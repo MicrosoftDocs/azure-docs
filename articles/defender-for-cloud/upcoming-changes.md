@@ -175,8 +175,7 @@ Custom recommendation are those created by a user, and have no impact on the sec
 
 When the move occurs, the custom recommendations will be found via a new "recommendation type" filter.
 
-Learn more: 
-- [Create custom security initiatives and policies](custom-security-policies.md).
+Learn more in [Create custom security initiatives and policies](custom-security-policies.md).
 
 ### Deprecating Microsoft Defender for IoT device assessments
 
