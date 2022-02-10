@@ -17,7 +17,7 @@ This article assumes you're familiar with [.NET](https://dotnet.microsoft.com/do
 
 ## 1 - Set up the Sample Application
 
-To follow along with this tutorial, [Download the Sample Project](https://github.com/Azure-Samples/msdocs-app-service-sql-db-dotnetcore/archive/refs/heads/main.zip) from the repository [https://github.com/Azure-Samples/msdocs-app-service-sql-db-dotnetcore](https://github.com/Azure-Samples/msdocs-app-service-sql-db-dotnetcore) or clone it using the Git command below.
+To follow along with this tutorial, [Download the Sample Project](https://github.com/Azure-Samples/msdocs-app-service-sqldb-dotnetcore/archive/refs/heads/main.zip) from the repository [https://github.com/Azure-Samples/msdocs-app-service-sqldb-dotnetcore](https://github.com/Azure-Samples/msdocs-app-service-sqldb-dotnetcore) or clone it using the Git command below.
 
 ```terminal
 git clone https://github.com/Azure-Samples/msdocs-app-service-sql-db-dotnetcore.git
