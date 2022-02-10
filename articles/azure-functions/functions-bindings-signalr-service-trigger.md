@@ -211,7 +211,7 @@ Say you have a JavaScript SignalR client trying to invoke method `broadcast` in 
 await connection.invoke("broadcast", message1, message2);
 ```
 
-After you set `parameterNames`, the name you defined will respectively correspond to the arguments sent on the client side. 
+After you set `parameterNames`, the name you defined will respectively correspond to the arguments sent on the client side.
 
 ```cs
 [SignalRTrigger(parameterNames: new string[] {"arg1, arg2"})]
@@ -228,7 +228,7 @@ For the parameter binding, the order matters. If you are using `ParameterNames`,
 
 ## SignalR Service integration
 
-SignalR Service needs a URL to access Function App when you're using SignalR Service trigger binding. The URL should be configured in **Upstream Settings** on the SignalR Service side. 
+SignalR Service needs a URL to access Function App when you're using SignalR Service trigger binding. The URL should be configured in **Upstream Settings** on the SignalR Service side.
 
 :::image type="content" source="../azure-signalr/media/concept-upstream/upstream-portal.png" alt-text="Upstream Portal":::
 
@@ -251,3 +251,4 @@ You can follow the sample in GitHub to deploy a chat room on Function App with S
 
 * [Azure Functions development and configuration with Azure SignalR Service](../azure-signalr/signalr-concept-serverless-development-config.md)
 * [SignalR Service Trigger binding sample](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/BidirectionChat)
+* [SignalR Service Trigger binding sample in isolated process](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/DotnetIsolated-BidirectionChat)
