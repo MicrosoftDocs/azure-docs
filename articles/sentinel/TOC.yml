@@ -308,7 +308,7 @@
       href: sap-deploy-solution.md
     - name: Deployment requirements
       href: sap-solution-detailed-requirements.md
-    - name: SAP solution data reference
+    - name: Available SAP logs
       href: sap-solution-log-reference.md
     - name: SAP workbook, rules, and watchlists
       href: sap-solution-security-content.md
