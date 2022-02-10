@@ -1,5 +1,6 @@
 ---
-title: Configure a SIM policy for Azure Private 5G Core Preview
+title: Configure a SIM policy
+titleSuffix: Azure Private 5G Core Preview
 description: With this how-to guide, learn how to configure a SIM policy for Azure Private 5G Core Preview through the Azure portal. 
 author: djrmetaswitch
 ms.author: drichards
@@ -11,7 +12,7 @@ ms.custom: template-how-to
 
 # Configure a SIM policy for Azure Private 5G Core Preview - Azure portal
 
-SIM policies allow you to define different sets of policies and interoperability settings that can each be assigned to a group of SIMs. You'll need to assign a SIM policy to a SIM before the User Equipment (UE) using that SIM can access the private mobile network. In this how-to-guide, you'll learn how to configure a SIM policy.
+*SIM policies* allow you to define different sets of policies and interoperability settings that can each be assigned to a group of SIMs. You'll need to assign a SIM policy to a SIM before the user equipment (UE) using that SIM can access the private mobile network. In this how-to-guide, you'll learn how to configure a SIM policy.
 
 ## Prerequisites
 
@@ -23,16 +24,16 @@ SIM policies allow you to define different sets of policies and interoperability
 ## Configure the SIM policy
 
 1. Sign in to the Azure portal at [https://aka.ms/AP5GCPortal](https://aka.ms/AP5GCPortal).
-1. Search for and select the Mobile Network resource representing the private mobile network for which you want to configure a SIM policy.
+1. Search for and select the **Mobile Network** resource representing the private mobile network for which you want to configure a SIM policy.
 
     :::image type="content" source="media/mobile-network-search.png" alt-text="Screenshot of the Azure portal. It shows the results of a search for a Mobile Network resource.":::
 
-1. In the resource menu, select **SIM policies**.
+1. In the **Resource** menu, select **SIM policies**.
 
     :::image type="content" source="media/configure-sim-policy-azure-portal/sim-policies-resource-menu-option.png" alt-text="Screenshot of the Azure portal. It shows the SIM policies option in the resource menu of a Mobile Network resource.":::
 
-1. In the command bar, select **Create**.
-1. Under **Create a SIM policy**, do the following.
+1. In the **Command** bar, select **Create**.
+1. Under **Create a SIM policy**:
     
     - Set the **Default slice** field to **slice-1 (Default)**.
     - Fill out all the other fields using the information you collected from [Collect top-level setting values](collect-required-information-for-sim-policy.md#collect-top-level-setting-values).

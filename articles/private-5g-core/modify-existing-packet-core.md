@@ -1,7 +1,7 @@
 ---
 title: Modify the packet core instance in an existing site
-titlesuffix: Azure Private 5G Core Preview
-description: Learn how to make changes to the packet core instance in an existing Azure Private 5G Core site.  
+titleSuffix: Azure Private 5G Core Preview
+description: This how-to guide shows how to make changes to the packet core instance in an existing Azure Private 5G Core site.  
 author: djrmetaswitch
 ms.author: drichards
 ms.service: private-5g-core
@@ -12,15 +12,15 @@ ms.custom: template-how-to
 
 # Modify the packet core instance in an existing site
 
-A packet core instance is a cloud native implementation of the 3GPP standards-defined 5G Next Generation Core (5G NGC or 5GC). Each Azure Private 5G Core Preview site hosts a packet core instance.
+A *packet core instance* is a cloud native implementation of the 3GPP standards-defined 5G Next Generation Core (5G NGC or 5GC). Each Azure Private 5G Core Preview site hosts a packet core instance.
 
-In this how-to guide, you'll learn how to make changes to the packet core instance in an existing site. You may want to do this if you need to change the way the packet core instance connects to the access or data networks. You can also change configuration for Network Address and Port Translation (NAPT).
+In this how-to guide, you'll learn how to make changes to the packet core instance in an existing site. You may want to do this if you need to change the way the packet core instance connects to the access or data networks. You can also change configuration for network address and port translation (NAPT).
 
 ## Prerequisites
 
 Ensure you can sign in to the Azure portal using an account with access to the active subscription you used to create your private mobile network. This account must have the built-in Contributor or Owner role at the subscription scope.
 
-If you want to make changes to any of the following, you must first update the configuration on the Azure Kubernetes Service on Azure Stack HCI (AKS-HCI) cluster on the Azure Stack Edge Pro device in the site. 
+If you want to make changes to any of the following, you must first update the configuration on the Azure Kubernetes Service on Azure Stack HCI (AKS-HCI) cluster on the Azure Stack Edge Pro device in the site:
 
 - IP addresses for the packet core instance's N2 signaling, N3, and N6 interfaces.
 - Network addresses and default gateways for the access and data subnets.
@@ -36,15 +36,15 @@ In this step, you'll modify configuration for your chosen packet core instance i
 
     :::image type="content" source="media/mobile-network-search.png" alt-text="Screenshot of the Azure portal. It shows the results of a search for a Mobile Network resource.":::
 
-1. In the resource menu, select **Sites**.
+1. In the **Resource** menu, select **Sites**.
 
-    :::image type="content" source="media/modify-existing-packet-core/sites-resource-menu-option.png" alt-text="Screenshot of the Azure portal. It shows the sites resource menu option for a mobile network resource.":::
+    :::image type="content" source="media/modify-existing-packet-core/sites-resource-menu-option.png" alt-text="Screenshot of the Azure portal. It shows the sites resource menu option for a Mobile Network resource.":::
 
 1. From the list, select the site containing the packet core instance you want to update.
 
     :::image type="content" source="media/modify-existing-packet-core/sites-list.png" alt-text="Screenshot of the Azure portal. It shows a list of existing sites in a private mobile network.":::
 
-1. In the resource menu, select **Network functions**.
+1. In the **Resource** menu, select **Network functions**.
 
     :::image type="content" source="media/modify-existing-packet-core/network-functions-resource-menu-option.png" alt-text="Screenshot of the Azure portal. It shows the network functions resource menu option for a site.":::
 
@@ -78,7 +78,7 @@ Once you have made your changes, select **Modify**.
 
 ### Change NAPT configuration for the data network
 
-Network Address and Port Translation (NAPT) lets you translate a large pool of private IP addresses for User Equipment (UEs) to a small number of public IP addresses. This translation is carried out when traffic enters the core network. NAPT maximizes the utility of a limited supply of public IP addresses.
+Network address and port translation (NAPT) lets you translate a large pool of private IP addresses for user equipment (UEs) to a small number of public IP addresses. This translation is carried out when traffic enters the core network. NAPT maximizes the utility of a limited supply of public IP addresses.
 
 The **Data network** tab lets you manage NAPT configuration.
 

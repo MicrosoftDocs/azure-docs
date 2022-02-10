@@ -1,7 +1,7 @@
 ---
 title: Collect information for your private mobile network
-titlesuffix: Azure Private 5G Core Preview
-description: Learn about the information you'll need to deploy a private mobile network through Azure Private 5G Core Preview using the Azure portal.
+titleSuffix: Azure Private 5G Core Preview
+description: This how-to guide shows how to collect the information you need to deploy a private mobile network through Azure Private 5G Core Preview using the Azure portal.
 author: djrmetaswitch
 ms.author: drichards
 ms.service: private-5g-core
@@ -35,12 +35,12 @@ Collect all of the following values for the resource that will represent your pr
 
 Each SIM resource represents a physical SIM or eSIM that will be served by the private mobile network.
 
-As part of creating your private mobile network, you can provision one or more SIMs that will use it. If you decide not to provision SIMs at this point, you can do so after deploying your private mobile network using the instructions in [Provisioning SIMs](provision-sims-azure-portal.md).
+As part of creating your private mobile network, you can provision one or more SIMs that will use it. If you decide not to provision SIMs at this point, you can do so after deploying your private mobile network using the instructions in [Provision SIMs](provision-sims-azure-portal.md).
 
-If you want to provision SIMs as part of deploying your private mobile network, you must choose one of the following provisioning methods.
+If you want to provision SIMs as part of deploying your private mobile network, you must choose one of the following provisioning methods:
 
 - Manually entering values for each SIM into fields in the Azure portal. This option is best when provisioning a small number of SIMs.
-- Importing a JSON file containing values for one or more SIM resources. This option is best when provisioning a large number of SIMs. The file format required for this JSON file is given in [Provisioning SIM resources through the Azure portal using a JSON file](#provisioning-sim-resources-through-the-azure-portal-using-a-json-file).
+- Importing a JSON file containing values for one or more SIM resources. This option is best when provisioning a large number of SIMs. The file format required for this JSON file is given in [Provision SIM resources through the Azure portal using a JSON file](#provision-sim-resources-through-the-azure-portal-using-a-json-file).
 
 You must then collect each of the values given in the following table for each SIM resource you want to provision.
 
@@ -50,10 +50,10 @@ You must then collect each of the values given in the following table for each S
    |The Integrated Circuit Card Identification Number (ICCID). This identifies a specific physical SIM or eSIM, and includes information on the SIM's country and issuer. This is a unique numerical value between 19 and 20 digits in length, beginning with 89. |**ICCID**|`integratedCircuitCardIdentifier`|
    |The international mobile subscriber identity (IMSI). This is a unique number (usually 15 digits) identifying a device or user in a mobile network. |**IMSI**|`internationalMobileSubscriberIdentity`|
    |The Authentication Key (Ki). This is a unique 128-bit value assigned to the SIM by an operator, and is used in conjunction with the derived operator code (OPc) to authenticate a user. This must be a 32-character string, containing hexadecimal characters only. |**Ki**|`authenticationKey`|
-   |The derived operator code (OPc). This is derived from the SIM's Ki and the network's OP (Operator Code) and is used by the packet core to authenticate a user using a standards-based algorithm. This must be a 32-character string, containing hexadecimal characters only. |**Opc**|`operatorKeyCode`|
+   |The derived operator code (OPc). This is derived from the SIM's Ki and the network's operator code (OP), and is used by the packet core to authenticate a user using a standards-based algorithm. This must be a 32-character string, containing hexadecimal characters only. |**Opc**|`operatorKeyCode`|
    |The type of device that is using this SIM. This is an optional, free-form string. You can use it as required to easily identify device types that are using the enterprise's mobile networks. |**Device type**|`deviceType`|
 
-### Provisioning SIM resources through the Azure portal using a JSON file
+### Provision SIM resources through the Azure portal using a JSON file
 
 The following example shows the file format you'll need if you want to provision your SIM resources using a JSON file. It contains the parameters required to provision two SIMs (SIM1 and SIM2).
 
@@ -118,8 +118,8 @@ Collect all the values in the following table to define the packet core instance
    |The IP address for the packet core instance N6 interface. This must match the value you used when deploying the AKS-HCI cluster.                      |**N6 address**|
    |The network address of the data subnet in CIDR notation. This must match the value you used when deploying the AKS-HCI cluster.                  |**N6 subnet**|
    |The data subnet default gateway. This must match the value you used when deploying the AKS-HCI cluster.                                |**N6 gateway**|
-   |The network address of the subnet from which IP addresses must be allocated to User Equipment (UEs), given in CIDR notation. The following example shows the network address format.<br>`198.51.100.0/24`<br>Note that the UE subnets aren't related to the access subnet.    |**UE IP subnet**|
-   |Whether Network Address and Port Translation (NAPT) should be enabled for this data network. NAPT allows you to translate a large pool of private IP addresses for UEs to a small number of public IP addresses. The translation is performed at the point where traffic enters the core network, maximizing the utility of a limited supply of public IP addresses.    |**NAPT**|
+   |The network address of the subnet from which IP addresses must be allocated to user equipment (UEs), given in CIDR notation. The following example shows the network address format.<br>`198.51.100.0/24`<br>Note that the UE subnets aren't related to the access subnet.    |**UE IP subnet**|
+   |Whether network address and port translation (NAPT) should be enabled for this data network. NAPT allows you to translate a large pool of private IP addresses for UEs to a small number of public IP addresses. The translation is performed at the point where traffic enters the core network, maximizing the utility of a limited supply of public IP addresses.    |**NAPT**|
 
 ## Next steps
 
