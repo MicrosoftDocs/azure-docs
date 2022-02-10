@@ -76,7 +76,7 @@ In this step, you'll create the site resource representing the physical enterpri
 
 ## Verify that your Azure Stack Edge Pro cluster resources have been created and that the connection is active
 
-1. Search for and select the resource group you created when commissioning the **AKS-HCI** cluster. 
+1. Search for and select the resource group you created when commissioning the AKS-HCI cluster. 
 1. Check the contents of the resource group to confirm it contains **Custom Location** and **Kubernetes - Azure Arc** resources. 
 1. Make a note of the name of the **Custom location** resource. You'll need this in the next step.
 1. Select the **Kubernetes - Azure Arc** resource and confirm that the **Status** field is set to **Connected**.
