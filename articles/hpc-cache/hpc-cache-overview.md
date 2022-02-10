@@ -46,13 +46,17 @@ Azure HPC Cache also can be leveraged to improve efficiency in tasks like second
 
 The silicon design industry’s design verification workloads, known as “electronic design automation (EDA) tools” are compute-intensive tools that can be run on large-scale virtual machine compute grids.
 
-Azure HPC Cache can provide on-cloud caching of design data, libraries, binaries, and rule database files from on-premises storage systems, This provides local-like response times for directory listings, metadata, and data reads, and eliminates the need for complex data migration, syncing, and copying operations.
+Azure HPC Cache can provide on-cloud caching of design data, libraries, binaries, and rule database files from on-premises storage systems. This provides local-like response times for directory listings, metadata, and data reads, and eliminates the need for complex data migration, syncing, and copying operations.
 
 Azure HPC Cache also can be set up to cache output files being written by the compute jobs. This configuration gives immediate acknowledgement to the compute workflow and subsequently writes the changes back to the on-premises NAS.
 
 HPC Cache allows chip designers to scale EDA verification jobs to tens of thousands of cores with ease, and pay minimal attention to storage performance.
 
 Learn more about [High-performance computing for silicon](https://azure.microsoft.com/solutions/high-performance-computing/silicon/)
+
+### Financial services analytics
+
+An Azure HPC Cache deployment can help speed up quantitative analysis calculations, risk analysis workloads, and Monte Carlo simulations to give financial services companies better insight to make strategic decisions.
 
 ## Region availability
 
