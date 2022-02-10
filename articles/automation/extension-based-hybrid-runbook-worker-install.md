@@ -531,7 +531,7 @@ Review the parameters used in this template.
 
 ### Prerequisites
 
-You would require an Azure VM or Arc-enabled server. You can follow the steps [here](/azure/azure-arc/servers/onboard-portal) create an Arc connected machine.
+You would require an Azure VM or Arc-enabled server. You can follow the steps [here](/azure/azure-arc/servers/onboard-portal) to create an Arc connected machine.
 
 ### Install and use Hybrid Worker extension using REST API
 
