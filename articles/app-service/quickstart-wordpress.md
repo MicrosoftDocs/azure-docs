@@ -9,7 +9,7 @@ ms.custom: mvc
 ---
 # Create a WordPress site
 
-In this quickstart, you'll learn how to create and deploy your first ([WordPress](https://www.wordpress.org)) site to [Azure App Service](overview.md) using [Azure Portal](https://portal.azure.com). 
+In this quickstart, you'll learn how to create and deploy your first [WordPress](https://www.wordpress.org) site to [Azure App Service](overview.md) using [Azure Portal](https://portal.azure.com). 
 
 This quickstart configures WordPress in App Service on Linux.  It uses the **Basic** tier and [**incurs a cost**](https://azure.microsoft.com/pricing/details/app-service/linux/) for your Azure subscription.
 
