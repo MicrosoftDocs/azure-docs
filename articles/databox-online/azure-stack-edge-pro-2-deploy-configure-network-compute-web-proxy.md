@@ -87,7 +87,7 @@ Follow these steps to configure the network for your device.
 Follow these steps to configure advanced network settings such as creating a switch for compute and associating it with a virtual network. 
 
 > [!NOTE]
-> <!--ENGG TO VERIFY --> You can enable compute only on one virtual switch on your device. You can however move the virtual switch on which you enabled compute.
+> There is no restriction on the number of virtual switches that you can create on your device. However, you can enable compute only on one virtual switch at a time. 
 
 1. In the local web UI of your device, go to the **Advanced networking** page. Select **Add virtual switch** to create a new virtual switch or use an existing virtual switch. This virtual switch will be used for the compute infrastructure on the device. 
 
@@ -125,7 +125,7 @@ Follow these steps to configure advanced network settings such as creating a swi
     ![Screenshot of the Advanced networking page in the local web UI of an Azure Stack Edge device. The newly added virtual switch is highlighted.](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/advanced-networking-4.png)
 
 
-1. Optionally you can create a virtual network and associate it with your virtual switches. Select **Add virtual network** and then input the following information.
+1. Optionally you can create a virtual network and associate it with your virtual switch if you wish to route your traffic. Select **Add virtual network** and then input the following information.
 
     1. Select a **Virtual switch** to which you'll add a virtual network.
     1. Provide a **Name** for the virtual network.
