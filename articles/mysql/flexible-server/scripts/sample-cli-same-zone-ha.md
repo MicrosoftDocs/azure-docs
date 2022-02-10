@@ -15,7 +15,7 @@ ms.date: 02/10/2022
 This sample CLI script configures and manages [Same-Zone high availability](../concepts-high-availability.md) in an Azure Database for MySQL - Flexible Server.
 Currently, Same-Zone high availability is supported only for the General purpose and Memory optimized pricing tiers.
 
-[![!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../../includes/azure-cli-prepare-your-environment.md)]
 

@@ -19,7 +19,7 @@ Once the script runs successfully, the MySQL Flexible Server will be accessible 
 > [!NOTE]
 > The connectivity method cannot be changed after creating the server. For example, if you create server using *Public access (allowed IP addresses)*, you cannot change to *Private access (VNet Integration)* after creation. To learn more about connectivity methods, see [Networking concepts](../concepts-networking.md).
 
-[![!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../../includes/azure-cli-prepare-your-environment.md)]
 

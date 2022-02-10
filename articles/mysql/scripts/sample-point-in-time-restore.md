@@ -16,7 +16,7 @@ ms.date: 02/10/2022
 
 This sample CLI script restores a single Azure Database for MySQL server to a previous point in time.
 
-[![!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 

@@ -21,7 +21,7 @@ During the time server is stopped, no management operations can be performed on 
 
 Also, see [stop/start limitations](../concepts-limitations.md#stopstart-operation) before performing stop/start operations.
 
-[![!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../../includes/azure-cli-prepare-your-environment.md)]
 

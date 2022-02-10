@@ -16,8 +16,6 @@ This sample CLI script enables [audit logs](../concepts-audit-logs.md) on an Azu
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
-
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../../includes/azure-cli-prepare-your-environment.md)]
 
 - This article requires version 2.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.

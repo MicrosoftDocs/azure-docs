@@ -17,7 +17,7 @@ You can enable Zone-Redundant high availability only during Flexible Server crea
 
 Currently, Zone-Redundant high availability is supported only for the General purpose and Memory optimized pricing tiers.
 
-[![!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../../includes/azure-cli-prepare-your-environment.md)]
 
