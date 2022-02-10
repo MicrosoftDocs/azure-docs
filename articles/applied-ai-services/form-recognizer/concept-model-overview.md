@@ -24,7 +24,7 @@ ms.custom: ignite-fall-2021
 | --- | --- |
 | 🆕[General document (preview)](#general-document-preview) | Extract text, tables, structure, key-value pairs, and named entities.  |
 | [Layout](#layout)  | Extracts text and layout information from documents.  |
-| [Invoice](#invoice)  | Extract key information from English invoices.  |
+| [Invoice](#invoice)  | Extract key information from English and Spanish invoices.  |
 | [Receipt](#receipt)  | Extract key information from English receipts.  |
 | [ID document](#id-document)  | Extract key information from US driver licenses and international passports.  |
 | [Business card](#business-card)  | Extract key information from English business cards.  |
@@ -64,7 +64,7 @@ The Layout API analyzes and extracts text, tables and headers, selection marks, 
 
 :::image type="content" source="media/studio/invoice.png" alt-text="Screenshot: Studio invoice icon.":::
 
-The invoice model analyzes and extracts key information from sales invoices. The API analyzes invoices in various formats and extracts key information such as customer name, billing address, due date, and amount due.
+The invoice model analyzes and extracts key information from sales invoices. The API analyzes invoices in various formats and extracts key information such as customer name, billing address, due date, and amount due. Currently, the model supports both English and Spanish invoices. 
 
 ***Sample invoice processed using [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=invoice)***:
 
