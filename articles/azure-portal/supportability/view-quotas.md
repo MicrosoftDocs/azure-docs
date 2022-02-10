@@ -14,10 +14,10 @@ To view the **Quotas** page, sign in the to the [Azure portal](https://portal.az
 > [!TIP]
 > After you've accessed **Quotas**, the service will appear at the top of the Home page in the Azure portal. You can also [add **Quotas** to your **Favorites** list](../azure-portal-add-remove-sort-favorites.md) so that you can quickly go back to it.
 
-## View and increase quotas
+## View quota details
 
 To view detailed information about your quotas, select **My quotas** in the left men on the **Quotas** page.
- 
+
 > [!NOTE]
 > You can also select a specific Azure provider from the main **Quotas** page to view quotas and usage for that provider. If you don't see a provider, check the [Azure subscription and service limits page](../..//azure-resource-manager/management/azure-subscription-service-limits.md) for more information.
 
