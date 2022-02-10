@@ -1,6 +1,6 @@
 ---
 title:  View quotas
-description: Learn how to view quotas and request increases in the Azure portal .
+description: Learn how to view quotas and request increases in the Azure portal.
 ms.date: 02/10/2022
 ms.topic: how-to
 ---
@@ -9,7 +9,7 @@ ms.topic: how-to
 
 The **Quotas** page in the Azure portal is the centralized location where you can view your quotas. **My quotas** provides a comprehensive, customizable view of usage and other quota information so that you can assess quota usage. You can also request quota increases directly from **My quotas**.
 
-To view the **Quotas** page, sign in the to the [Azure portal](https://portal.azure.com) and enter "quotas" into the search box.
+To view the **Quotas** page, sign in to the [Azure portal](https://portal.azure.com) and enter "quotas" into the search box.
 
 > [!TIP]
 > After you've accessed **Quotas**, the service will appear at the top of the Home page in the Azure portal. You can also [add **Quotas** to your **Favorites** list](../azure-portal-add-remove-sort-favorites.md) so that you can quickly go back to it.
