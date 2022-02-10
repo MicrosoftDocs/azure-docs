@@ -2,7 +2,7 @@
 title: Use managed identities in Azure Kubernetes Service
 description: Learn how to use managed identities in Azure Kubernetes Service (AKS)
 ms.topic: article
-ms.date: 05/12/2021
+ms.date: 01/25/2022
 ---
 
 # Use managed identities in Azure Kubernetes Service
@@ -90,6 +90,9 @@ az aks update -g <RGName> -n <AKSName> --enable-managed-identity
 > If your cluster was using --attach-acr to pull from image from Azure Container Registry, after updating your cluster to Managed Identity, you need to rerun `az aks update --attach-acr <ACR Resource ID>` to let the newly created kubelet used for managed identity get the permission to pull from ACR. Otherwise you will not be able to pull from ACR after the upgrade.
 >
 > The Azure CLI will ensure your addon's permission is correctly set after migrating, if you're not using the Azure CLI to perform the migrating operation, you will need to handle the addon identity's permission by yourself. Here is one example using [ARM](../role-based-access-control/role-assignments-template.md). 
+
+> [!WARNING]
+> Nodepool upgrade will cause downtime for your AKS cluster as the nodes in the nodepools will be cordoned/drained and then reimaged.
 
 ## Obtain and use the system-assigned managed identity for your AKS cluster
 
@@ -264,7 +267,7 @@ az identity list --query "[].{Name:name, Id:id, Location:location}" -o table
 
 ### Create a cluster using kubelet identity
 
-Now you can use the following command to create your cluster with your existing identities. Provide the control plane identity id via `assign-identity` and the kubelet managed identity via `assign-kublet-identity`:
+Now you can use the following command to create your cluster with your existing identities. Provide the control plane identity id via `assign-identity` and the kubelet managed identity via `assign-kubelet-identity`:
 
 ```azurecli-interactive
 az aks create \

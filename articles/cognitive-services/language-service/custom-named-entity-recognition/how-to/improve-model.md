@@ -36,7 +36,7 @@ After you have reviewed your [model's evaluation](view-model-evaluation.md), you
 > [!NOTE]
 > This guide focuses on data from the [validation set](train-model.md#data-split) that was created during training.
 
-### Review validation set
+### Review test set
 
 Using Language Studio, you can review how your model performs against how you expected it to perform. You can review predicted and tagged classes for each model you have trained.
 
@@ -46,7 +46,7 @@ Using Language Studio, you can review how your model performs against how you ex
 
 2. Select **Improve model** from the left side menu.
 
-3. Select **Review validation set**.
+3. Select **Review test set**.
 
 4. Choose your trained model from **Model** drop-down menu.
 

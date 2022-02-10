@@ -30,7 +30,7 @@ Azure Synapse data security and privacy are non-negotiable. The purpose of this 
 
 This white paper targets all enterprise security stakeholders. They include security administrators, network administrations, Azure administrators, workspace administrators, and database administrators.
 
-**Writers:** Vengatesh Parasuraman, Fretz Nuson, Ron Dunn, Khendr'a Reid, John Hoang, Nithesh Krishnappa, Mykola Kovalenko, Brad Schacht, Pedro Matinez, and Mark Pryce-Maher.
+**Writers:** Vengatesh Parasuraman, Fretz Nuson, Ron Dunn, Khendr'a Reid, John Hoang, Nithesh Krishnappa, Mykola Kovalenko, Brad Schacht, Pedro Matinez, Mark Pryce-Maher, and Arshad Ali.
 
 **Technical Reviewers:** Nandita Valsan, Rony Thomas, Daniel Crawford, and Tammy Richter Jones.
 

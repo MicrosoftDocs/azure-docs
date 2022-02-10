@@ -13,7 +13,8 @@ ms.topic: how-to
 
 # View logs and metrics using Kibana and Grafana
 
-Kibana and Grafana web dashboards are provided to bring insight and clarity to the Kubernetes namespaces being used by Azure Arc-enabled data services.
+Kibana and Grafana web dashboards are provided to bring insight and clarity to the Kubernetes namespaces being used by Azure Arc-enabled data services. To access Kibana and Grafana web dashboards view service endpoints check [Azure Data Studio dashboards](/azure/azure-arc/data/azure-data-studio-dashboards) documentation. 
+
 
 
 

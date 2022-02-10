@@ -241,8 +241,29 @@ items:
         href: concepts-data-flow-expression-builder.md
         displayName: regex, regular expressions
       - name: Expression language
-        href: data-flow-expression-functions.md
+        href: data-transformation-functions.md
         displayName: regex, regular expressions
+        items:
+          - name: Aggregate functions
+            href: data-flow-aggregate-functions.md
+          - name: Array functions
+            href: data-flow-array-functions.md
+          - name: Cached lookup functions
+            href: data-flow-cached-lookup-functions.md
+          - name: Conversion functions
+            href: data-flow-conversion-functions.md
+          - name: Date and time functions
+            href: data-flow-date-time-functions.md
+          - name: Expression functions
+            href: data-flow-expression-functions.md
+          - name: Map functions
+            href: data-flow-map-functions.md
+          - name: Metafunctions
+            href: data-flow-metafunctions.md
+          - name: Window functions
+            href: data-flow-window-functions.md
+          - name: Alphabetical usage details for all functions
+            href: data-flow-expressions-usage.md
     - name: Prepare data with Power Query data wrangling
       items:
       - name: Data wrangling overview
@@ -904,7 +925,7 @@ items:
       href: connect-data-factory-to-azure-purview.md
     - name: Access a secured Azure Purview account
       href: ./how-to-access-secured-purview-account.md
-    - name: Discover and explore data in ADF using Purview
+    - name: Discover and explore data in ADF using Azure Purview
       href: how-to-discover-explore-purview-data.md
   - name: Scenarios
     items: 

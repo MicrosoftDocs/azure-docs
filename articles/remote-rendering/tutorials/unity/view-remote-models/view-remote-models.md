@@ -43,73 +43,92 @@ To get access to the Azure Remote Rendering service, you first need to [create a
 From the Unity Hub, create a new project.
 In this example, we'll assume the project is being created in a folder called **RemoteRendering**.
 
-:::image type="content" source="./media/unity-new-project.PNG" alt-text="New Unity Project":::
+:::image type="content" source="./media/unity-new-project.PNG" alt-text="Screenshot of Unity Hub showing the Create a New Unity Project dialog. The panel 3D is selected.":::
 
-## Include the Azure Remote Rendering package
+## Include the Azure Remote Rendering and OpenXR packages
 
-[Follow the instructions](../../../how-tos/unity/install-remote-rendering-unity-package.md) on how to add the Azure Remote Rendering package to a Unity Project.
-
+Follow the instructions on how to [add the Azure Remote Rendering and OpenXR packages](../../../how-tos/unity/install-remote-rendering-unity-package.md) to your Unity Project.
 
 ## Configure the camera
 
 1. Select the **Main Camera** node.
 
-1. Open the context menu by right clicking on the *Transform* component and select the **Reset** option:
+1. Open the context menu by right-clicking on the *Transform* component and select the **Reset** option:
 
-    ![reset camera transform](./media/camera-reset-transform.png)
+    ![Screenshot of the Unity inspector for a Transform component. The context menu is opened and Reset is selected.](./media/camera-reset-transform.png)
 
 1. Set **Clear flags** to *Solid Color*
 
 1. Set **Background** to *Black* (#000000), with fully transparent (0) alpha (A)
 
-    ![Color wheel](./media/color-wheel-black.png)
+    ![Screenshot of the Unity Color wheel dialog. The color is set to 0 for all R G B A components.](./media/color-wheel-black.png)
 
 1. Set **Clipping Planes** to *Near = 0.3* and *Far = 20*. This means rendering will clip geometry that is closer than 30 cm or farther than 20 meters.
 
-    ![Unity camera properties](./media/camera-properties.png)
+    ![Screenshot of the Unity inspector for a Camera component.](./media/camera-properties.png)
 
 ## Adjust the project settings
 
 1. Open *Edit > Project Settings...*
 1. Select **Quality** from the left list menu
-1. Change the **Default Quality Level** of all platforms to *Low*. This setting will enable more efficient rendering of local content and doesn't affect the quality of remotely rendered content.
+    1. Change the **Default Quality Level** of all platforms to *Low*. This setting will enable more efficient rendering of local content and doesn't affect the quality of remotely rendered content.
 
-    ![change project quality settings](./media/settings-quality.png)
+        ![Screenshot of the Unity Project Settings dialog. The Quality entry is selected in the list on the left. The context menu for the default quality level is opened on the right. The low entry is selected.](./media/settings-quality.png)
 
 1. Select **Graphics** from the left list menu
-1. Change the **Scriptable Rendering Pipeline** setting to *HybridRenderingPipeline*.\
-    ![Screenshot that points out where you change the Scriptable Rendering Pipeline setting to HybridRenderingPipeline.](./media/settings-graphics-render-pipeline.png)\
-    Sometimes the UI does not populate the list of available pipeline types from the packages. If this occurs, the *HybridRenderingPipeline* asset must be dragged onto the field manually:\
-    ![changing project graphics settings](./media/hybrid-rendering-pipeline.png)
+    1. Change the **Scriptable Rendering Pipeline** setting to *HybridRenderingPipeline*.\
+        ![Screenshot of the Unity Project Settings dialog. The Graphics entry is selected in the list on the left. The button to select a Universal Render Pipeline asset is highlighted.](./media/settings-graphics-render-pipeline.png)\
+        Sometimes the UI does not populate the list of available pipeline types from the packages. If this occurs, the *HybridRenderingPipeline* asset must be dragged onto the field manually:\
+        ![Screenshot of the Unity asset browser and Project Settings dialog. The HybridRenderingPipeline asset is highlighted in the asset browser. An arrow points from the asset to the UniversalRenderPipelineAsset field in project settings.](./media/hybrid-rendering-pipeline.png)
+
+        > [!NOTE]
+        > If you're unable to drag and drop the *HybridRenderingPipeline* asset into the Render Pipeline Asset field (possibly because the field doesn't exist!), ensure your package configuration contains the `com.unity.render-pipelines.universal` package.
+
+1. Select **XR Plugin Management** from the left list menu
+    1. Click the **Install XR Plugin Management** button.
+    1. Select the **Universal Windows Platform settings** tab, represented as a Windows icon.
+    1. Click the **Open XR** checkbox under **Plug-In Providers**
+    1. If a dialog opens that asks you to enable the native platform backends for the new input system click **No**.
+
+    ![Screenshot of the Unity Project Settings dialog. The X R Plug-in Management entry is selected in the list on the left. The tab with the windows logo is highlighted on the right. The Open X R checkbox below it is also highlighted.](./media/xr-plugin-management-settings.png)
 
     > [!NOTE]
-    > If you're unable to drag and drop the *HybridRenderingPipeline* asset into the Render Pipeline Asset field (possibly because the field doesn't exist!), ensure your package configuration contains the `com.unity.render-pipelines.universal` package.
+    > If the **Microsoft HoloLens feature group** is disabled the Windows Mixed Reality OpenXR Plugin is missing from your project. Follow the instructions on how to [add the Azure Remote Rendering and OpenXR packages](../../../how-tos/unity/install-remote-rendering-unity-package.md) to install it.
+
+1. Select **OpenXR** from the left list menu
+    1. Set **Depth Submission Mode** to *Depth 16 Bit*
+    1. Add the **Microsoft Hand Interaction Profile** to **Interaction Profiles**.
+    1. Enable these OpenXR features:
+        * **Hand Tracking**
+        * **Mixed Reality Features**
+        * **Motion Controller Model**
+
+    ![Screenshot of the Unity Project Settings dialog. The Open X R sub-entry is selected in the list on the left. Highlights on the right side are placed on the Depth Submission Mode, Interaction Profiles, and Open X R feature settings.](./media/xr-plugin-management-openXR-settings.png)
+
+    > [!NOTE]
+    > If you don't see the required OpenXR features listed the Windows Mixed Reality OpenXR Plugin is missing from your project. Follow the instructions on how to [add the Azure Remote Rendering and OpenXR packages](../../../how-tos/unity/install-remote-rendering-unity-package.md) to install it.
 
 1. Select **Player** from the left list menu
-1. Select the **Universal Windows Platform settings** tab, represented as a Windows icon.
-1. Change the **XR Settings** to support Windows Mixed Reality as shown below:
-    1. Enable **Virtual Reality Supported**
-    1. Press the '+' button and add **Windows Mixed Reality**
-    1. Set **Depth Format** to *16-Bit Depth*
-    1. Ensure **Depth Buffer Sharing** is enabled
-    1. Set **Stereo Rendering Mode** to *Single Pass Instanced*
+    1. Select the **Universal Windows Platform settings** tab, represented as a Windows icon.
+    1. Expand **Other Settings**
+    1. Under **Rendering** change **Color Space** to **Linear** and restart Unity when it asks you to.
+    1. Under **Configuration** change **Active Input Handling** to **Both** and restart Unity when it asks you to.
+        ![Screenshot of the Unity Project Settings dialog. The Player entry is selected in the list on the left. Highlights on the right side are placed on the tab with the Windows logo, the Color Space setting, and the Active input Handling setting.](./media/player-settings-other-settings.png)
+    1. Expand **Publishing Settings**
+    1. Scroll down to **Capabilities** and select:
+        * **InternetClient**
+        * **InternetClientServer**
+        * **SpatialPerception**
+        * **PrivateNetworkClientServer** (*optional*). Select this option if you want to connect the Unity remote debugger to your device.
+    1. Under **Supported Device Families**, enable **Holographic** and **Desktop**
+        ![Screenshot of the Unity Project Settings dialog. The Player entry is selected in the list on the left. Highlights on the right side are placed on the Capabilities and the Supported Device Families settings.](./media/player-settings-publishing-settings.png)
 
-    ![player settings](./media/xr-player-settings.png)
-
-1. In the same window, above **XR Settings**, expand **Publishing Settings**
-1. Scroll down to **Capabilities** and select:
-    * **InternetClient**
-    * **InternetClientServer**
-    * **SpatialPerception**
-    * **PrivateNetworkClientServer** (*optional*). Select this option if you want to connect the Unity remote debugger to your device.
-
-1. Under **Supported Device Families**, enable **Holographic** and **Desktop**
 1. Close or dock the **Project Settings** panel
 1. Open *File->Build Settings*
-1. Select **Universal Windows Platform**
-1. Configure your settings to match those found below
-1. Press the **Switch Platform** button.\
-![build settings](./media/build-settings.png)
+    1. Select **Universal Windows Platform**
+    1. Configure your settings to match those found below
+    1. Press the **Switch Platform** button.\
+    ![Screenshot of the Unity Build Settings dialog. The Universal Windows Platform entry is selected in the list on the left. Highlights on the right side are placed on the settings dropdown boxes and the Switch Platform button.](./media/build-settings.png)
 1. After Unity changes platforms, close the build panel.
 
 ## Validate project setup
@@ -119,7 +138,7 @@ Perform the following steps to validate that the project settings are correct.
 1. Choose the **ValidateProject** entry from the **RemoteRendering** menu in the Unity editor toolbar.
 1. Review the **ValidateProject** window for errors and fix project settings where necessary.
 
-    ![Unity editor project validation](./media/remote-render-unity-validation.png)
+    ![Screenshot of the Unity Validate Project dialog. The dialog shows a mixture of successful checks, warnings, and errors.](./media/remote-render-unity-validation.png)
 
 > [!NOTE]
 > If you use MRTK in your project and you enable the camera subsystem, MRTK will override manual changes that you apply to the camera. This includes fixes from the ValidateProject tool.
@@ -128,14 +147,14 @@ Perform the following steps to validate that the project settings are correct.
 
 There are four basic stages to show remotely rendered models, outlined in the flowchart below. Each stage must be performed in order. The next step is to create a script which will manage the application state and proceed through each required stage.
 
-![ARR stack 0](./media/remote-render-stack-0.png)
+![Diagram of the four stages required to load a model.](./media/remote-render-stack-0.png)
 
 1. In the *Project* pane, under **Assets**, create a new folder called *RemoteRenderingCore*. Then inside *RemoteRenderingCore*, create another folder called *Scripts*.
 
 1. Create a [new C# script](https://docs.unity3d.com/Manual/CreatingAndUsingScripts.html) called **RemoteRenderingCoordinator**.
 Your project should look like this:
 
-    ![Project hierarchy](./media/project-structure.png)
+    ![Screenshot of Unity Project hierarchy containing the new script.](./media/project-structure.png)
 
     This coordinator script will track and manage the remote rendering state. Of note, some of this code is used for maintaining state, exposing functionality to other components, triggering events, and storing application-specific data that is not *directly* related to Azure Remote Rendering. Use the code below as a starting point, and we'll address and implement the specific Azure Remote Rendering code later in the tutorial.
 
@@ -528,16 +547,16 @@ The remote rendering coordinator and its required script (*ARRServiceUnity*) are
 
 1. Create a new GameObject in the scene (Ctrl+Shift+N or *GameObject->Create Empty*) and name it **RemoteRenderingCoordinator**.
 1. Add the *RemoteRenderingCoordinator* script to the **RemoteRenderingCoordinator** GameObject.\
-![Add RemoteRenderingCoordinator component](./media/add-coordinator-script.png)
+![Screenshot of the Unity Add Component dialog. The search text field contains the text RemoteRenderingCoordinator.](./media/add-coordinator-script.png)
 1. Confirm the *ARRServiceUnity* script, appearing as *Service* in the inspector, is automatically added to the GameObject. In case you're wondering, this is a result having `[RequireComponent(typeof(ARRServiceUnity))]` at the top of the **RemoteRenderingCoordinator** script.
 1. Add your Azure Remote Rendering credentials, your Account Domain, and the Remote Rendering Domain to the coordinator script:\
-![Add your credentials](./media/configure-coordinator-script.png)
+![Screenshot of the Unity inspector of the Remote Rendering Coordinator Script. The credential input fields are highlighted.](./media/configure-coordinator-script.png)
 
 ## Initialize Azure Remote Rendering
 
 Now that we have the framework for our coordinator, we will implement each of the four stages starting with **Initialize Remote Rendering**.
 
-![ARR stack 1](./media/remote-render-stack-1.png)
+![Diagram of the four stages required to load a model. The first stage "Initialize Remote Rendering" is highlighted.](./media/remote-render-stack-1.png)
 
 **Initialize** tells Azure Remote Rendering which camera object to use for rendering and progresses the state machine into **NotAuthorized**. This means it's initialized but not yet authorized to connect to a session. Since starting an ARR session incurs a cost, we need to confirm the user wants to proceed.
 
@@ -594,16 +613,16 @@ In order to progress from **NotAuthorized** to **NoSession**, we'd typically pre
 1. Select the **RemoteRenderingCoordinator** GameObject and find the **OnRequestingAuthorization** Unity Event exposed in the Inspector of the **RemoteRenderingCoordinator** component.
 
 1. Add a new event by pressing the '+' in the lower right.
-1. Drag the component on to its own event, to reference itself.\
-![Bypass Authentication](./media/bypass-authorization-add-event.png)\
+1. Drag the component on to its own event, to reference itself.
+![Screenshot of the Unity inspector of the Remote Rendering Coordinator Script. The title bar of the component is highlighted and an arrow connects it to the On Requesting Authorization event.](./media/bypass-authorization-add-event.png)
 1. In the drop down select **RemoteRenderingCoordinator -> BypassAuthorization**.\
-![Screenshot that shows the selected RemoteRenderingCoordinator.BypassAuthorization option.](./media/bypass-authorization-event.png)
+![Screenshot of the On Requesting Authorization event.](./media/bypass-authorization-event.png)
 
 ## Create or join a remote session
 
 The second stage is to Create or Join a Remote Rendering Session (see [Remote Rendering Sessions](../../../concepts/sessions.md) for more information).
 
-![ARR stack 2](./media/remote-render-stack-2.png)
+![Diagram of the four stages required to load a model. The second stage "Create or Join Remote Rendering Session" is highlighted.](./media/remote-render-stack-2.png)
 
 The remote session is where the models will be rendered. The **JoinRemoteSession( )** method will attempt to join an existing session, tracked with the **LastUsedSessionID** property or if there is an assigned active session ID on **SessionIDOverride**. **SessionIDOverride** is intended for your debugging purposes only, it should only be used when you know the session exists and would like to explicitly connect to it.
 
@@ -667,7 +686,7 @@ If you want to save time by reusing sessions, make sure to deactivate the option
 
 Next, the application needs to connect its local runtime to the remote session.
 
-![ARR stack 3](./media/remote-render-stack-3.png)
+![Diagram of the four stages required to load a model. The third stage "Connect Local Runtime to Remote Session" is highlighted.](./media/remote-render-stack-3.png)
 
 The application also needs to listen for events about the connection between the runtime and the current session; those state changes are handled in **OnLocalRuntimeStatusChanged**. This code will advance our state to **ConnectingToRuntime**. Once connected in **OnLocalRuntimeStatusChanged**, the state will advance to **RuntimeConnected**. Connecting to the runtime is the last state the coordinator concerns itself with, which means the application is done with all the common configuration and is ready to begin the session-specific work of loading and rendering models.
 
@@ -724,7 +743,7 @@ private void LateUpdate()
 
 With the required foundation in place, you are ready to load a model into the remote session and start receiving frames.
 
-![Diagram that shows the process flow for preparing to load and view a model.](./media/remote-render-stack-4.png)
+![Diagram of the four stages required to load a model. The fourth stage "Load and view a Model" is highlighted.](./media/remote-render-stack-4.png)
 
 The **LoadModel** method is designed to accept a model path, progress handler, and parent transform. These arguments will be used to load a model into the remote session, update the user on the loading progress, and orient the remotely rendered model based on the parent transform.
 
@@ -777,7 +796,7 @@ The code above is performing the following steps:
 
 We now have all the code required to view a remotely rendered model, all four of the required stages for remote rendering are complete. Now we need to add a little code to start the model load process.
 
-![ARR stack 4](./media/remote-render-stack-5.png)
+![Diagram of the four stages required to load a model. All stages are marked as completed.](./media/remote-render-stack-5.png)
 
 1. Add the following code to the **RemoteRenderingCoordinator** class, just below the **LoadModel** method is fine:
 
@@ -816,7 +835,7 @@ We now have all the code required to view a remotely rendered model, all four of
 1. Monitor the Console output - waiting for the state to change to **RuntimeConnected**.
 1. Once the runtime is connected, right-click on the **RemoteRenderingCoordinator** in the inspector to expose the context menu. Then, click the **Load Test Model** option in the context menu, added by the `[ContextMenu("Load Test Model")]` part of our code above.
 
-    ![Load from context menu](./media/load-test-model.png)
+    ![Screenshot of the Unity inspector of the Remote Rendering Coordinator Script. Highlights instruct to first right-click on the title bar and then select Load Test Model from the context menu.](./media/load-test-model.png)
 
 1. Watch the Console for the output of the **ProgressHandler** we passed into the **LoadModel** method.
 1. See the remotely rendered model!
@@ -826,7 +845,7 @@ We now have all the code required to view a remotely rendered model, all four of
 
 ## Next steps
 
-![Model loaded](./media/test-model-rendered.png)
+![Screenshot of Unity running the project in Play mode. A car engine is rendered in the center of the viewport.](./media/test-model-rendered.png)
 
 Congratulations! You've created a basic application capable of viewing remotely rendered models using Azure Remote Rendering. In the next tutorial, we will integrate MRTK and import our own models.
 

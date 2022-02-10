@@ -37,7 +37,7 @@ Data is encrypted at rest and in transit.
 
 By default, Azure Storage [automatically encrypts all data](../../storage/common/storage-service-encryption.md) using 256-bit Advanced Encryption Standard encryption (AES 256). It's one of the strongest block ciphers available and is FIPS 140-2 compliant. The platform manages the encryption key, and it forms the *first layer* of data encryption. This encryption applies to both user and system databases, including the **master** database.
 
-Enabling [Transparent Data Encryption](../../azure-sql/database/transparent-data-encryption-tde-overview.md) (TDE) can add a *second layer* of data encryption. It performs real-time I/O encryption and decryption of database files, transaction logs files, and backups at rest without requiring any changes to the application. By default, it uses AES 256.
+Enabling [Transparent Data Encryption](../../azure-sql/database/transparent-data-encryption-tde-overview.md) (TDE) can add a *second layer* of data encryption for dedicated SQL pools. It performs real-time I/O encryption and decryption of database files, transaction logs files, and backups at rest without requiring any changes to the application. By default, it uses AES 256.
 
 By default, TDE protects the database encryption key (DEK) with a built-in server certificate (service managed). There's an option to bring your own key (BYOK) that can be securely stored in [Azure Key Vault](../../key-vault/general/basic-concepts.md).
 

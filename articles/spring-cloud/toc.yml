@@ -23,7 +23,7 @@
         href: quickstart-deploy-apps.md
       - name: Set up Log Analytics
         href: quickstart-setup-log-analytics.md
-      - name: Use logs, metrics and tracing
+      - name: Use logs, metrics, and tracing
         href: quickstart-logs-metrics-tracing.md
       - name: Integrate with Azure Database for MySQL
         href: quickstart-integrate-azure-database-mysql.md
@@ -58,6 +58,8 @@
       href: concepts-blue-green-deployment-strategies.md
     - name: Quotas and limits
       href: quotas.md
+    - name: Understand app status
+      href: concept-app-status.md
     - name: Metrics
       href: concept-metrics.md
     - name: Azure Spring Boot Actuator
@@ -70,8 +72,6 @@
       href: /security/benchmark/azure/baselines/spring-cloud-security-baseline?toc=/azure/spring-cloud/toc.json
     - name: Azure Policy Security controls
       href: ./security-controls-policy.md
-    - name: Understand app status
-      href: concept-app-status.md
     - name: Plan for disaster recovery
       href: disaster-recovery.md
 - name: How-to guides
@@ -108,6 +108,8 @@
           href: how-to-custom-persistent-storage.md
         - name: Identify outbound public IP addresses
           href: how-to-outbound-public-ip.md
+        - name: Move across regions
+          href: how-to-move-across-regions.md
     - name: Scale
       items:
         - name: Manually scale an app
@@ -116,7 +118,7 @@
           href: how-to-setup-autoscale.md
     - name: Integrate
       items:
-        - name: Azure CosmosDB
+        - name: Azure Cosmos DB
           href: how-to-bind-cosmos.md
         - name: Azure Cache for Redis
           href: how-to-bind-redis.md
@@ -132,7 +134,7 @@
           href: how-to-distributed-tracing.md
         - name: Analyze logs and metrics
           href: diagnostic-services.md
-        - name: Stream logs in real-time
+        - name: Stream logs in real time
           href: how-to-log-streaming.md
         - name: Application Insights using Java In-Process Agent
           href: how-to-application-insights.md
@@ -150,6 +152,10 @@
           href: monitor-app-lifecycle-events.md
         - name: Logback with custom persistent storage
           href: how-to-write-log-to-custom-persistent-storage.md
+        - name: Elastic APM Java Agent
+          href: how-to-elastic-apm-java-agent-monitor.md
+        - name: Analyze logs with ELK
+          href: how-to-elastic-diagnostic-settings.md
     - name: Network
       items:
         - name: Deploy Azure Spring Cloud in a virtual network
@@ -192,10 +198,10 @@
           href: how-to-self-diagnose-running-in-vnet.md
         - name: Troubleshooting guide
           href: troubleshoot.md
-        - name: Manually capture heap dump/thread dump/JFR
+        - name: Capture heap/thread dump and use JFR
           href: how-to-capture-dumps.md
-        - name: JVM option based troubleshooting
-          href: tutorial-dump-jvm-options.md
+        - name: Use JVM options for troubleshooting
+          href: how-to-dump-jvm-options.md
     - name: Migrate
       items:
         - name: Spring Cloud

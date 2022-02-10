@@ -2,7 +2,7 @@
 title: Workload protections for your Kubernetes workloads
 description: Learn how to use Microsoft Defender for Cloud's set of Kubernetes workload protection security recommendations
 ms.topic: how-to
-ms.date: 12/12/2021
+ms.date: 01/26/2022
 ---
 
 # Protect your Kubernetes workloads
@@ -26,7 +26,7 @@ Defender for Cloud offers more container security features if you enable Microso
 | Release state:                  | General availability (GA)                                                                                                                    |
 | Pricing:                        | Free for AKS workloads<br>For Azure Arc-enabled Kubernetes or EKS, it's billed according to the Microsoft Defender for Containers plan       |
 | Required roles and permissions: | **Owner** or **Security admin** to edit an assignment<br>**Reader** to view the recommendations                                              |
-| Environment requirements:       | Kubernetes v1.14 (or higher) is required<br>No PodSecurityPolicy resource (old PSP model) on the clusters<br>Windows nodes are not supported |
+| Environment requirements:       | Kubernetes v1.14 (or newer) is required<br>No PodSecurityPolicy resource (old PSP model) on the clusters<br>Windows nodes are not supported |
 | Clouds:                         | :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National (Azure Government, Azure China 21Vianet) |
 |                                 |                                                                                                                                              |
 
@@ -34,6 +34,12 @@ Defender for Cloud offers more container security features if you enable Microso
 ## Set up your workload protection
 
 Microsoft Defender for Cloud includes a bundle of recommendations that are available when you've installed the **Azure Policy add-on for Kubernetes**.
+
+## Prerequisites
+
+Validate the following endpoints are configured for outbound access so that the Azure Policy add-on for Kubernetes can connect to Azure Policy to synchronize Kubernetes policies:
+
+See [Required FQDN/application rules for Azure policy](../aks/limit-egress-traffic.md#azure-policy) for the required FQDN/application rules.
 
 ### Step 1: Deploy the add-on
 
@@ -71,23 +77,22 @@ To configure the recommendations, install the  **Azure Policy add-on for Kuberne
 
     | Recommendation name                                                         | Security control                         | Configuration required |
     |-----------------------------------------------------------------------------|------------------------------------------|------------------------|
+    | Container CPU and memory limits should be enforced                          | Protect applications against DDoS attack | **Yes**                |
+    | Container images should be deployed only from trusted registries            | Remediate vulnerabilities                | **Yes**                |
     | Containers should listen on allowed ports only                              | Restrict unauthorized network access     | **Yes**                |
+    | Least privileged Linux capabilities should be enforced for containers       | Manage access and permissions            | **Yes**                |
+    | Overriding or disabling of containers AppArmor profile should be restricted | Remediate security configurations        | **Yes**                |
     | Services should listen on allowed ports only                                | Restrict unauthorized network access     | **Yes**                |
     | Usage of host networking and ports should be restricted                     | Restrict unauthorized network access     | **Yes**                |
-    | Overriding or disabling of containers AppArmor profile should be restricted | Remediate security configurations        | **Yes**                |
-    | Container images should be deployed only from trusted registries            | Remediate vulnerabilities                | **Yes**                |
-    | Least privileged Linux capabilities should be enforced for containers       | Manage access and permissions            | **Yes**                |
     | Usage of pod HostPath volume mounts should be restricted to a known list    | Manage access and permissions            | **Yes**                |
-    | Privileged containers should be avoided                                     | Manage access and permissions            | No                     |
     | Container with privilege escalation should be avoided                       | Manage access and permissions            | No                     |
-    | Kubernetes clusters should disable automounting API credentials             | Manage access and permissions            | No                     |
-    | Immutable (read-only) root filesystem should be enforced for containers     | Manage access and permissions            | No                     |
-    | Container with privilege escalation should be avoided                       | Manage access and permissions            | No                     |
-    | Running containers as root user should be avoided                           | Manage access and permissions            | No                     |
     | Containers sharing sensitive host namespaces should be avoided              | Manage access and permissions            | No                     |
-    | Container CPU and memory limits should be enforced                          | Protect applications against DDoS attack | No                     |
+    | Immutable (read-only) root filesystem should be enforced for containers     | Manage access and permissions            | No                     |
     | Kubernetes clusters should be accessible only over HTTPS                    | Encrypt data in transit                  | No                     |
+    | Kubernetes clusters should disable automounting API credentials             | Manage access and permissions            | No                     |
     | Kubernetes clusters should not use the default namespace                    | Implement security best practices        | No                     |
+    | Privileged containers should be avoided                                     | Manage access and permissions            | No                     |
+    | Running containers as root user should be avoided                           | Manage access and permissions            | No                     |
     ||||
 
 

@@ -1,5 +1,5 @@
 ---
-title: Set up a connection to a Cosmos DB account using a managed identity
+title: Connect to Cosmos DB
 titleSuffix: Azure Cognitive Search
 description: Learn how to set up an indexer connection to a Cosmos DB account using a managed identity
 

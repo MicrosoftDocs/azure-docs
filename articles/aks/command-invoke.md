@@ -3,12 +3,12 @@ title: Use `command invoke` to access a private Azure Kubernetes Service (AKS) c
 description: Learn how to use `command invoke` to access a private Azure Kubernetes Service (AKS) cluster
 services: container-service
 ms.topic: article
-ms.date: 11/30/2021
+ms.date: 1/14/2022
 ---
 
 # Use `command invoke` to access a private Azure Kubernetes Service (AKS) cluster
 
-Accessing a private AKS cluster requires that you connect to that cluster either from the cluster virtual network or from a peered network. These approaches require configuring a VPN, Express Route, or deploying a *jumpbox* within the cluster virtual network. Alternatively, you can use `command invoke` to access private clusters without having to configure a VPN or Express Route. Using `command invoke` allows you to remotely invoke commands like `kubectl` and `helm` on your private cluster through the Azure API without directly connecting to the cluster. Permissions for using `command invoke` are controlled through the `Microsoft.ContainerService/managedClusters/runcommand/action` and `Microsoft.ContainerService/managedclusters/commandResults/read` roles.
+Accessing a private AKS cluster requires that you connect to that cluster either from the cluster virtual network, from a peered network, or via a configured private endpoint. These approaches require configuring a VPN, Express Route, deploying a *jumpbox* within the cluster virtual network, or creating a private endpoint inside of another virtual network. Alternatively, you can use `command invoke` to access private clusters without having to configure a VPN or Express Route. Using `command invoke` allows you to remotely invoke commands like `kubectl` and `helm` on your private cluster through the Azure API without directly connecting to the cluster. Permissions for using `command invoke` are controlled through the `Microsoft.ContainerService/managedClusters/runcommand/action` and `Microsoft.ContainerService/managedclusters/commandResults/read` roles.
 
 ## Prerequisites
 

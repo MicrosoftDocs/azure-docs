@@ -12,7 +12,7 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/11/2021
+ms.date: 01/24/2022
 ms.author: radeltch
 
 ---
@@ -472,7 +472,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
      --group g-QAS_ASCS
    
    sudo pcs resource create vip_QAS_ASCS IPaddr2 \
-     ip=192.168.14.9 cidr_netmask=24 \
+     ip=192.168.14.9 \
      --group g-QAS_ASCS
    
    sudo pcs resource create nc_QAS_ASCS azure-lb port=62000 \
@@ -535,7 +535,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
     --group g-QAS_AERS
    
    sudo pcs resource create vip_QAS_AERS IPaddr2 \
-     ip=192.168.14.10 cidr_netmask=24 \
+     ip=192.168.14.10 \
     --group g-QAS_AERS
    
    sudo pcs resource create nc_QAS_AERS azure-lb port=62101 \

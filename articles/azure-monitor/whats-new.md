@@ -2,29 +2,66 @@
 title: "What's new in Azure Monitor documentation"
 description: "What's new in Azure Monitor documentation"
 ms.topic: conceptual
-ms.date: 01/04/2022
+ms.date: 02/09/2022
 ---
 
 # What's new in Azure Monitor documentation
 
 This article lists significant changes to Azure Monitor documentation.
 
+## January, 2022
+
+### Agents
+
+**Updated articles**
+
+- [Manage the Azure Monitor agent](agents/azure-monitor-agent-manage.md)
+
+### Alerts
+
+**New articles**
+
+- [Non-common alert schema definitions for Test Action Group (Preview)](alerts/alerts-non-common-schema-definitions.md)
+
+**Updated articles**
+
+- [Create and manage action groups in the Azure portal](alerts/action-groups.md)
+- [Upgrade legacy rules management to the current Log Alerts API from legacy Log Analytics Alert API](alerts/alerts-log-api-switch.md)
+- [Log alerts in Azure Monitor](alerts/alerts-unified-log.md)
+
+### Application Insights
+
+**Updated articles**
+
+- [Usage analysis with Application Insights](app/usage-overview.md)
+- [Tips for updating your JVM args - Azure Monitor Application Insights for Java](app/java-standalone-arguments.md)
+- [Configuration options - Azure Monitor Application Insights for Java](app/java-standalone-config.md)
+- [Troubleshooting SDK load failure for JavaScript web apps](app/javascript-sdk-load-failure.md)
+
+### Logs
+
+**Updated articles**
+
+- [Azure Monitor customer-managed key](logs/customer-managed-keys.md)
+- [Log Analytics workspace data export in Azure Monitor (preview)](logs/logs-data-export.md)
+- [Manage usage and costs with Azure Monitor Logs](logs/manage-cost-storage.md)
+
 ## December, 2021
 
-## General
+### General
 
 **Updated articles**
 
 - [What is monitored by Azure Monitor?](monitor-reference.md)
 
-## Agents
+### Agents
 
 **Updated articles**
 
 - [Install Log Analytics agent on Windows computers](agents/agent-windows.md)
 - [Log Analytics agent overview](agents/log-analytics-agent.md)
 
-## Alerts
+### Alerts
 
 **New articles**
 
@@ -39,7 +76,7 @@ This article lists significant changes to Azure Monitor documentation.
 - [Create, view, and manage activity log alerts by using Azure Monitor](alerts/alerts-activity-log.md)
 - [Create, view, and manage metric alerts using Azure Monitor](alerts/alerts-metric.md)
 
-## Application Insights
+### Application Insights
 
 **New articles**
 
@@ -52,7 +89,7 @@ This article lists significant changes to Azure Monitor documentation.
 - [Set up Azure Monitor for your Python application](app/opencensus-python.md)
 - [Click Analytics Auto-collection plugin for Application Insights JavaScript SDK](app/javascript-click-analytics-plugin.md)
 
-## Logs
+### Logs
 
 **New articles**
 
@@ -74,7 +111,7 @@ This article lists significant changes to Azure Monitor documentation.
 - [Log Analytics workspace data export in Azure Monitor (preview)](logs/logs-data-export.md)
 - [Resource Manager template samples for Log Analytics workspaces in Azure Monitor](logs/resource-manager-workspace.md)
 
-## Virtual Machines
+### Virtual Machines
 
 **Updated articles**
 
@@ -184,7 +221,7 @@ This article lists significant changes to Azure Monitor documentation.
 
 - [How to troubleshoot issues with the Log Analytics agent for Linux](agents/agent-linux-troubleshoot.md)
 - [Overview of Azure Monitor agents](agents/agents-overview.md)
-- [Install the Azure Monitor agent](agents/azure-monitor-agent-install.md)
+- [Install the Azure Monitor agent](agents/azure-monitor-agent-manage.md)
 
 ### Alerts
 

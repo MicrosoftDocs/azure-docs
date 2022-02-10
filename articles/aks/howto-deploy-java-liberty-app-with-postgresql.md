@@ -33,7 +33,7 @@ For more information on Open Liberty, see [the Open Liberty project page](https:
   * Install a Java SE implementation (for example, [AdoptOpenJDK OpenJDK 8 LTS/OpenJ9](https://adoptopenjdk.net/?variant=openjdk8&jvmVariant=openj9)).
   * Install [Maven](https://maven.apache.org/download.cgi) 3.5.0 or higher.
   * Install [Docker](https://docs.docker.com/get-docker/) for your OS.
-  * Create a user-assigned managed identity and assign `Contributor` role to that identity by following the steps in [Manage user-assigned managed identities](/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities). Return to this document after creating the identity and assigning it the necessary role.
+  * Create a user-assigned managed identity and assign `Owner` role or `Contributor` and `User Access Administrator` roles to that identity by following the steps in [Manage user-assigned managed identities](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md). Assign `Directory readers` role to the identity in Azure AD by following [Assign Azure AD roles to users](../active-directory/roles/manage-roles-portal.md). Return to this document after creating the identity and assigning it the necessary roles.
 
 ## Create a Jakarta EE runtime using the portal
 
@@ -111,7 +111,7 @@ The steps in this section guide you through creating an Azure Database for Postg
                                            --end-ip-address YOUR_IP_ADDRESS
    ```
 
-If you don't want to use the CLI, you may use the Azure portal by following the steps in [Quickstart: Create an Azure Database for PostgreSQL server by using the Azure portal](/azure/postgresql/quickstart-create-server-database-portal). You must also grant access to Azure services by following the steps in [Firewall rules in Azure Database for PostgreSQL - Single Server](/azure/postgresql/concepts-firewall-rules#connecting-from-azure). Return to this document after creating and configuring the database server.
+If you don't want to use the CLI, you may use the Azure portal by following the steps in [Quickstart: Create an Azure Database for PostgreSQL server by using the Azure portal](../postgresql/quickstart-create-server-database-portal.md). You must also grant access to Azure services by following the steps in [Firewall rules in Azure Database for PostgreSQL - Single Server](../postgresql/concepts-firewall-rules.md#connecting-from-azure). Return to this document after creating and configuring the database server.
 
 ## Configure and deploy the sample application
 
@@ -151,7 +151,7 @@ In directory *liberty/config*, the *server.xml* is used to configure the DB conn
 
 ### Acquire necessary variables from AKS deployment
 
-After the offer is successfully deployed, an AKS cluster with a namespace will be generated automatically. The AKS cluster is configured to connect to the ACR using a pre-created secret under the generated namespace. Before we get started with the application, we need to extract the namespace and the pull-secret name of the ACR configured for the AKS.
+After the offer is successfully deployed, an AKS cluster will be generated automatically. The AKS cluster is configured to connect to the ACR. Before we get started with the application, we need to extract the namespace configured for the AKS.
 
 1. Run following command to print the current deployment file, using the `appDeploymentTemplateYamlEncoded` you saved above. The output contains all the variables we need.
 
@@ -159,7 +159,7 @@ After the offer is successfully deployed, an AKS cluster with a namespace will b
    echo <appDeploymentTemplateYamlEncoded> | base64 -d
    ```
 
-1. Save the `metadata.namespace` and `spec.pullSecret` from this yaml output aside for later use in this article.
+1. Save the `metadata.namespace` from this yaml output aside for later use in this article.
 
 ### Build the project
 
@@ -179,7 +179,6 @@ export DB_TYPE=postgres
 export DB_USER=${DB_ADMIN_USERNAME}@${DB_NAME}
 export DB_PASSWORD=${DB_ADMIN_PASSWORD}
 export NAMESPACE=<metadata.namespace>
-export PULL_SECRET=<pullSecret>
 
 mvn clean install
 ```

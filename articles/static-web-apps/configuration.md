@@ -5,7 +5,7 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: conceptual
-ms.date: 12/30/2021
+ms.date: 02/03/2022
 ms.author: cshoe
 ---
 
@@ -137,9 +137,12 @@ Common uses cases for wildcard routes include:
 - Enforcing authentication and authorization rules
 - Implementing specialized caching rules
 
-### Securing routes with roles
+### <a name="securing-routes-with-roles"></a>Securing routes with roles
 
 Routes are secured by adding one or more role names into a rule's `allowedRoles` array. See the [example configuration file](#example-configuration-file) for usage examples.
+
+> [!IMPORTANT]
+> Routing rules can only secure HTTP requests to routes that are served from Static Web Apps. Many front-end frameworks use client-side routing that modifies routes in the browser without issuing requests to Static Web Apps. Routing rules don't secure client-side routes. Clients should call [HTTP APIs](apis.md) to retrieve sensitive data. Ensure APIs validate a [user's identity](user-information.md) before returning data.
 
 By default, every user belongs to the built-in `anonymous` role, and all logged-in users are members of the `authenticated` role. Optionally, users are associated to custom roles via [invitations](./authentication-authorization.md).
 
@@ -166,6 +169,30 @@ You can create new roles as needed in the `allowedRoles` array. To restrict a ro
 
 > [!IMPORTANT]
 > When securing content, specify exact files when possible. If you have many files to secure, use wildcards after a shared prefix. For example: `/profile*` secures all possible routes that start with _/profile_, including _/profile_.
+
+#### Restricting access to entire application
+
+It's common to require authentication for every route in an application. To enable this, add a rule that matches all routes and include the built-in `authenticated` role in the `allowedRoles` array.
+
+The following example configuration blocks anonymous access and redirects all unauthenticated users to the Azure Active Directory login page.
+
+```json
+{
+  "routes": {
+    "route": "/*",
+    "allowedRoles": ["authenticated"]
+  },
+  "responseOverrides": {
+    "401": {
+      "statusCode": 302,
+      "redirect": "/.auth/login/aad"
+    }
+  }
+}
+```
+
+> [!NOTE]
+> By default, all managed identity providers are enabled. To block an authentication provider, see [Authentication and authorization](authentication-authorization.md#block-an-authentication-provider).
 
 ## Fallback routes
 
@@ -245,6 +272,9 @@ The following example implements a custom CORS configuration.
 }
 ```
 
+> [!NOTE]
+> Global headers do not affect API responses. Headers in API responses are preserved and returned to the client.
+
 ## Response overrides
 
 The `responseOverrides` section provides an opportunity to define a custom response when the server would otherwise return an error code. See the [example configuration file](#example-configuration-file) for usage examples.
@@ -316,6 +346,26 @@ In addition to IP address blocks, you can also specify [service tags](../virtual
 * [Default authentication providers](authentication-authorization.md#login), don't require settings in the configuration file. 
 * [Custom authentication providers](authentication-custom.md) use the `auth` section of the settings file.
 
+For details on how to restrict routes to authenticated users, see [Securing routes with roles](#securing-routes-with-roles).
+
+### Disable cache for authenticated paths
+
+If you have enabled [enterprise-grade edge](enterprise-edge.md), or set up [manual integration with Azure Front Door](front-door-manual.md), you may want to disable caching for your secured routes.
+
+To disable Azure Front Door caching for secured routes, add `"Cache-Control": "no-store"` to the route header definition.
+
+For example:
+
+```json
+{
+    "route": "/members",
+    "allowedRoles": ["authenticated, members"],
+    "headers": {
+        "Cache-Control": "no-store"
+    }
+}
+```
+
 ## Forwarding gateway
 
 The `forwardingGateway` section configures how a static web app is accessed from a forwarding gateway such as a CDN or Azure Front Door.
@@ -357,7 +407,7 @@ For example, the following configuration shows how you can add a unique identifi
 
 - Key/value pairs can be any set of arbitrary strings
 - Keys are case insensitive
-- Values are case sensitive
+- Values are case-sensitive
 
 ## Example configuration file
 

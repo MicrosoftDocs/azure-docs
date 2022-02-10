@@ -11,7 +11,7 @@ ms.date: 12/20/2021
 
 # SAP ABAP function module deployment guide
 
-When you scan [SAP ECC](register-scan-sapecc-source.md) or [SAP S/4HANA](register-scan-saps4hana-source.md) sources in Azure Purview, you need to create the dependent ABAP function module in your SAP server. Purview invokes this function module to extract the metadata from your SAP system during scan.
+When you scan [SAP ECC](register-scan-sapecc-source.md) or [SAP S/4HANA](register-scan-saps4hana-source.md) sources in Azure Purview, you need to create the dependent ABAP function module in your SAP server. Azure Purview invokes this function module to extract the metadata from your SAP system during scan.
 
 This document details the steps required to deploy this module.
 
@@ -20,9 +20,9 @@ This document details the steps required to deploy this module.
 
 ## Prerequisites
 
-Download the SAP ABAP function module source code from Purview Studio. After you register a source for [SAP ECC](register-scan-sapecc-source.md) or [SAP S/4HANA](register-scan-saps4hana-source.md), you can find a download link on top as follows. 
+Download the SAP ABAP function module source code from Azure Purview Studio. After you register a source for [SAP ECC](register-scan-sapecc-source.md) or [SAP S/4HANA](register-scan-saps4hana-source.md), you can find a download link on top as follows. 
 
-:::image type="content" source="media/abap-functions-deployment-guide/download-abap-code.png" alt-text="Download ABAP function module source code from Purview Studio" border="true":::
+:::image type="content" source="media/abap-functions-deployment-guide/download-abap-code.png" alt-text="Download ABAP function module source code from Azure Purview Studio" border="true":::
 
 ## Deployment of the Module
 
@@ -70,7 +70,7 @@ When the module has been created, specify the following information:
 
 3. Navigate to the **Source code** tab. There are two ways how to deploy code for the function:
 
-   a. From the main menu, upload the text file you downloaded from Purview Studio as described in [Prerequisites](#prerequisites). To do so, select **Utilities**, **More Utilities**, then **Upload/Download**, then **Upload**.
+   a. From the main menu, upload the text file you downloaded from Azure Purview Studio as described in [Prerequisites](#prerequisites). To do so, select **Utilities**, **More Utilities**, then **Upload/Download**, then **Upload**.
 
    b. Alternatively, open the file, copy its content and paste into **Source code** area.
 
