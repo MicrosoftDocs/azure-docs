@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot the sensor and on-premises management console
 description: Troubleshoot your sensor and on-premises management console to eliminate any problems you might be having.
-ms.date: 11/09/2021
+ms.date: 02/10/2022
 ms.topic: article
 ---
 # Troubleshoot the sensor and on-premises management console
@@ -216,11 +216,8 @@ In addition to tools for monitoring and analyzing your network, you can send inf
 
 **To export logs**:
 
-1. On the left pane, select **System Settings**.
+1. On the left pane, select **System settings** > **Health and troubleshooting** > **Backup & Restore**.
 
-1. Select **Export Logs**.
-
-    :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/sensor-export-log.png" alt-text="Screenshot of the export a log to system support screen.":::
 
 1. In the **File Name** field, enter the file name that you want to use for the log export. The default is the current date.
 
@@ -228,6 +225,7 @@ In addition to tools for monitoring and analyzing your network, you can send inf
 
     | Export category | Description |
     |--|--|
+    | **Support Ticket Diagnostics** | Select this option to provide the support team with basic deployment information. |
     | **Operating System Logs** | Select this option to get information about the operating system state. |
     | **Installation/Upgrade logs** | Select this option for investigation of the installation and upgrade configuration parameters. |
     | **System Sanity Output** | Select this option to check system performance. |
