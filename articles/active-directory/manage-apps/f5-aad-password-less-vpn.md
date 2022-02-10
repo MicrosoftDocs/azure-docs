@@ -21,7 +21,7 @@ In this tutorial, learn how to integrate F5’s BIG-IP based Secure socket layer
 
 Enabling a BIG-IP SSL-VPN for Azure AD single sign-on (SSO) provides many benefits, including:
 
-- Improved Zero trust governance through Azure AD pre-authentication and [Conditional Access](/conditional-access/overview)
+- Improved Zero trust governance through Azure AD pre-authentication and [Conditional Access](/azure/active-directory/conditional-access/overview)
 - [Password-less authentication to the VPN service](https://www.microsoft.com/security/business/identity/passwordless)
 - Manage Identities and access from a single control plane, the [Azure portal](https://azure.microsoft.com/features/azure-portal/)
 
@@ -61,7 +61,7 @@ Familiarizing yourself with [F5 BIG-IP terminology](https://www.f5.com/services/
 
 ## Add F5 BIG-IP from the Azure AD gallery
 
-Setting up a SAML federation trust between the BIG-IP allows the Azure AD BIG-IP to hand off the pre-authentication and [Conditional Access](../conditional-access/overview.md) to Azure AD, before granting access to the published VPN service.
+Setting up a SAML federation trust between the BIG-IP allows the Azure AD BIG-IP to hand off the pre-authentication and [Conditional Access](../azure/active-directory/conditional-access/overview.md) to Azure AD, before granting access to the published VPN service.
 
 1. Sign in to the Azure AD portal using an account with application admin rights
 
