@@ -62,7 +62,7 @@ The multi-tenant version of Azure App Service contains numerous features to enab
 
 ## Feature differences
 
-Compared to earlier versions of the App Service Environment, there are some differences with App Service Environment v3. With App Service Environment v3:
+Compared to earlier versions of the App Service Environment, there are some differences with App Service Environment v3:
 
 - There are no networking dependencies in the customer virtual network. You can secure all inbound and outbound as desired. Outbound traffic can be routed also as desired. 
 - You can deploy it enabled for zone redundancy. Zone redundancy can only be set during creation and only in regions where all App Service Environment v3 dependencies are zone redundant. 
@@ -96,39 +96,39 @@ Reserved Instance pricing for Isolated v2 is available and is described in [How 
 
 The App Service Environment v3 is available in the following regions.
 
-|Normal and dedicated host regions|Availability zone regions|
-|---------------------------------------|------------------|
-|Australia East|Australia East|
-|Australia Southeast|Brazil South|
-|Brazil South|Canada Central|
-|Canada Central|Central US|
-|Central India|East US|
-|Central US|East US 2|
-|East Asia|France Central|
-|East US|Germany West Central|
-|East US 2|Japan East|
-|France Central|North Europe|
-|Germany West Central|South Africa North|
-|Japan East|South Central US|
-|Korea Central|Southeast Asia|
-|North Central US|UK South|
-|North Europe|West Europe|
-|Norway East|West US 2|
-|South Africa North| |
-|South Central US| |
-|Southeast Asia| |
-|Switzerland North| |
-|UAE North| |
-|UK South| |
-|UK West| |
-|West Central US| |
-|West Europe| |
-|West US| |
-|West US 2| |
-|West US 3| |
-|US Gov Texas| |
-|US Gov Arizona| |
-|US Gov Virginia| |
+| Normal and dedicated host regions | Availability zone regions |
+|---|---|
+| Australia East | Australia East |
+| Australia Southeast | Brazil South |
+| Brazil South | Canada Central |
+| Canada Central | Central India |
+| Central India | Central US |
+| Central US | East Asia |
+| East Asia | East US |
+| East US | East US 2 |
+| East US 2 | France Central |
+| France Central | Germany West Central |
+| Germany West Central | Japan East |
+| Japan East | Korea Central |
+| Korea Central | North Europe |
+| North Central US | Norway East |
+| North Europe | South Africa North |
+| Norway East | South Central US |
+| South Africa North | Southeast Asia |
+| South Central US | UK South |
+| Southeast Asia | West Europe |
+| Switzerland North | West US 2 |
+| UAE North | West US 3 |
+| UK South |  |
+| UK West |  |
+| West Central US |  |
+| West Europe |  |
+| West US |  |
+| West US 2 |  |
+| West US 3 |  |
+| US Gov Texas |  |
+| US Gov Arizona |  |
+| US Gov Virginia |  |
 
 ## App Service Environment v2
 

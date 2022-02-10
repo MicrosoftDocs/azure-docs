@@ -3,7 +3,7 @@ title: Work with indoor maps in Azure Maps Creator
 description: This article introduces concepts that apply to Azure Maps Creator services
 author: stevemunk
 ms.author: v-munksteve
-ms.date: 11/11/2021
+ms.date: 01/26/2022
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -26,7 +26,7 @@ The following diagram illustrates the entire workflow.
 
 ## Create Azure Maps Creator
 
-To use Creator services, Azure Maps Creator must be created in an Azure Maps account with the Gen 2 pricing tier. For information about how to create Azure Maps Creator in Azure Maps, see [Manage Azure Maps Creator](how-to-manage-creator.md).
+To use Creator services, an Azure Maps Creator resource must be created and associated to an Azure Maps account with the Gen 2 pricing tier. For information about how to create an Azure Maps Creator resource in Azure, see [Manage Azure Maps Creator](how-to-manage-creator.md).
 
 > [!TIP]
 > For pricing information see the *Creator* section in [Azure Maps pricing](https://aka.ms/CreatorPricing).

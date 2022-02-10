@@ -3,7 +3,7 @@ title: Diagnose and troubleshoot Azure Cosmos DB Java SDK v4
 description: Use features like client-side logging and other third-party tools to identify, diagnose, and troubleshoot Azure Cosmos DB issues in Java SDK v4.
 author: rothja
 ms.service: cosmos-db
-ms.date: 01/25/2022
+ms.date: 02/03/2022
 ms.author: jroth
 ms.devlang: java
 ms.subservice: cosmosdb-sql
@@ -108,7 +108,7 @@ Also follow the [Connection limit on a host machine](#connection-limit-on-host).
 
 #### UnknownHostException
 
-UnknownHostException means that the Java framework cannot resolve the DNS entry for the Cosmos DB endpoint in the affected machine. You should verify that the machine can resolve the DNS entry or if you have any custom DNS resolution software (such as VPN or Proxy, or a custom solution), make sure it contains the right configuration for the DNS endpoint that the error is claiming cannot be resolved.
+UnknownHostException means that the Java framework cannot resolve the DNS entry for the Cosmos DB endpoint in the affected machine. You should verify that the machine can resolve the DNS entry or if you have any custom DNS resolution software (such as VPN or Proxy, or a custom solution), make sure it contains the right configuration for the DNS endpoint that the error is claiming cannot be resolved. If the error is constant, you can verify the machine's DNS resolution through a `curl` command to the endpoint described in the error.
 
 #### HTTP proxy
 

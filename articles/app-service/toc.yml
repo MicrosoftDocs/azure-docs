@@ -62,26 +62,34 @@
           href: tutorial-custom-container.md
         - name: Multi-container app
           href: tutorial-multi-container-app.md
-    - name: Secretless back end connectivity
-      items:
-        - name: Access SQL DB with managed identity
-          href: tutorial-connect-msi-sql-database.md
-        - name: Access services without managed identity support
-          href: tutorial-connect-msi-key-vault.md
     - name: Authenticate users
       href: tutorial-auth-aad.md
-    - name: Secure app accesses storage, and Microsoft Graph
+    - name: Securely connect to Azure resources
+      items:
+        - name: Overview
+          href: tutorial-connect-overview.md
+        - name: With secrets in App Settings
+          href: configure-common.md?tabs=portal
+        - name: With Managed Identity
+          items: 
+          - name: Connect to SQL DB
+            href: tutorial-connect-msi-sql-database.md
+          - name: Connect to Storage
+            href: scenario-secure-app-access-storage.md
+          - name: Connect to Microsoft Graph
+            href: scenario-secure-app-access-microsoft-graph-as-app.md            
+        - name: With Key Vault
+          items: 
+          - name: Connect to Cognitive Services
+            href: tutorial-connect-msi-key-vault.md
+    - name: Securely connect to Azure resources on behalf of user
       items:
         - name: Overview
           href: scenario-secure-app-overview.md
         - name: Set up App Service authentication
           href: scenario-secure-app-authentication-app-service.md
-        - name: Secure app accesses storage
-          href: scenario-secure-app-access-storage.md
-        - name: Secure app accesses Microsoft Graph as the user
+        - name: Access Microsoft Graph as the user
           href: scenario-secure-app-access-microsoft-graph-as-user.md
-        - name: Secure app accesses Microsoft Graph as the app
-          href: scenario-secure-app-access-microsoft-graph-as-app.md
         - name: Clean up resources
           href: scenario-secure-app-clean-up-resources.md
     - name: Isolate network traffic

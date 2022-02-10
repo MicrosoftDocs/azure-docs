@@ -12,6 +12,10 @@ manager: abjork
 
 # Tutorial:  Deploy and walk through the water consumption monitoring application
 
+Traditional water consumption tracking relies on water operators manually reading water consumption meters at the meter sites. More cities are replacing traditional meters with advanced smart meters enabling remote monitoring of consumption and remotely controlling valves to control water flow. Water consumption monitoring coupled with digital feedback message to the citizen can increase awareness and reduce water consumption.
+
+The water consumption monitoring app is an IoT Central app template to help you kickstart your IoT solution development to enable water utilities and cities to remotely monitor and control water flow to reduce consumption.
+
 Use the IoT Central *water consumption monitoring* application template and the guidance in this article to develop an end-to-end water consumption monitoring solution.
 
 ![Water consumption monitoring architecture](./media/tutorial-waterconsumptionmonitoring/concepts-waterconsumptionmonitoring-architecture1.png)
@@ -24,7 +28,7 @@ Devices in smart water solutions may connect through low-power wide area network
 
 ### IoT Central
 
-Azure IoT Central is an IoT App platform that helps you quickly build and deploy an IoT solution. You can brand, customize, and integrate your solution with third-party services.
+When you build an IoT solution, Azure IoT Central simplifies the build process and helps to reduce the burden and costs of IoT management, operations, and development. You can brand, customize, and integrate your solution with third-party services.
 
 When you connect your smart water devices to IoT Central, the application provides device command and control, monitoring and alerting, a user interface with built-in RBAC, configurable dashboards, and extensibility options.
 
@@ -245,24 +249,23 @@ To learn more, see [How to run a job](../core/howto-manage-devices-in-bulk.md).
 
 ## Customize your application
 
-As a administrator, you can change several settings to customize the user experience in your application.
+As an administrator, you can change several settings to customize the user experience in your application.
 
-1. Select **Administration** > **Customize your application**.
+1. Select **Application** > **Management**.
 1. To choose an image to upload as the **Application logo**, select the **Change** button.
 1. To choose a **Browser icon** image that will appear on browser tabs, select the **Change** button.
 1. You can also replace the default **Browser colors** by adding HTML hexadecimal color codes. For more information about **HEX Value** color notation, see [HTML Colors](https://www.w3schools.com/html/html_colors.asp).
 
    ![Selections for application logo, browser icon, and browser colors](./media/tutorial-waterconsumptionmonitoring/water-consumption-monitoring-customize-your-application.png)
 
-1. You can also change application images by selecting **Administration** > **Application settings**. To choose an image to upload as the application image, select the **Select image** button.
+1. You can also change application images by selecting  **Application** > **Management**. To choose an image to upload as the application image, select the **Select image** button.
 
 
 ## Clean up resources
 
 If you're not going to continue to use this application, delete it.
 
-1. Select **Administration** on the left pane of your Azure IoT Central application.
-1. Select **Application settings**, and then select **Delete** at the bottom of the page.
+1. Select **Application** > **Management** on the left pane of your Azure IoT Central application and then select **Delete** at the bottom of the page.
 
 ## Next steps
  

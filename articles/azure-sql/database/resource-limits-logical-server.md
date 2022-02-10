@@ -10,22 +10,35 @@ ms.topic: reference
 author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: kendralittle, mathoma
-ms.date: 01/18/2022
+ms.date: 01/31/2022
 ---
 
 # Resource management in Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-This article provides an overview of resource management in Azure SQL Database. It provides information on what happens when resource limits are reached, and describes resource governance mechanisms that are used to enforce these limits.
+> [!div class="op_single_selector"]
+> * [Azure SQL Database](resource-limits-logical-server.md)
+> * [Azure SQL Managed Instance](../managed-instance/resource-limits.md)
+
+This article provides an overview of resource management in Azure SQL Database. It provides information on what happens when resource limits are reached, and describes  resource governance mechanisms that are used to enforce these limits.
 
 For specific resource limits per pricing tier (also known as service objective) for single databases, refer to either [DTU-based single database resource limits](resource-limits-dtu-single-databases.md) or [vCore-based single database resource limits](resource-limits-vcore-single-databases.md). For elastic pool resource limits, refer to either [DTU-based elastic pool resource limits](resource-limits-dtu-elastic-pools.md) or [vCore-based elastic pool resource limits](resource-limits-vcore-elastic-pools.md).
 
 > [!TIP]
-> For Azure SQL Managed Instance limits, see [resource limits for managed instances](../managed-instance/resource-limits.md).
->
 > For Azure Synapse Analytics dedicated SQL pool limits, see [capacity limits](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md) and [memory and concurrency limits](../../synapse-analytics/sql-data-warehouse/memory-concurrency-limits.md).
 
 ## Logical server limits
+
+<!---
+vCore resource limits are listed in the following articles, please be sure to update all of them: 
+/database/resource-limits-vcore-single-databases.md
+/database/resource-limits-vcore-elastic-pools.md
+/database/resource-limits-logical-server.md
+/database/service-tier-general-purpose.md
+/database/service-tier-business-critical.md
+/database/service-tier-hyperscale.md
+/managed-instance/resource-limits.md
+--->
 
 | Resource | Limit |
 | :--- | :--- |
@@ -224,8 +237,16 @@ Because all data is copied to local storage volumes on different machines, movin
 > [!NOTE]
 > Database movement due to insufficient local storage only occurs in the Premium or Business Critical service tiers. It does not occur in the Hyperscale, General Purpose, Standard, and Basic service tiers, because in those tiers data files are not stored in local storage.
 
+## Tempdb sizes
+
+Size limits for tempdb in Azure SQL Database depend on the purchasing and deployment model. 
+
+To learn more, review tempdb size limits for: 
+- vCore purchasing model: [single databases](resource-limits-vcore-single-databases.md), [pooled databases](resource-limits-vcore-elastic-pools.md)
+- DTU purchasing model: [single databases](resource-limits-dtu-single-databases.md#tempdb-sizes),  [pooled databases](resource-limits-dtu-elastic-pools.md#tempdb-sizes). 
+
 ## Next steps
 
 - For information about general Azure limits, see [Azure subscription and service limits, quotas, and constraints](../../azure-resource-manager/management/azure-subscription-service-limits.md).
-- For information about DTUs and eDTUs, see [DTUs and eDTUs](purchasing-models.md#dtu-based-purchasing-model).
-- For information about tempdb size limits, see [TempDB in Azure SQL Database](/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database).
+- For information about DTUs and eDTUs, see [DTUs and eDTUs](purchasing-models.md#dtu-purchasing-model).
+- For information about tempdb size limits, see [single vCore databases](resource-limits-vcore-single-databases.md), [pooled vCore databases](resource-limits-vcore-elastic-pools.md), [single DTU databases](resource-limits-dtu-single-databases.md#tempdb-sizes), and [pooled DTU databases](resource-limits-dtu-elastic-pools.md#tempdb-sizes). 
