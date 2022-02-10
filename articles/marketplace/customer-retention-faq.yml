@@ -104,7 +104,9 @@ sections:
           Do these views filter out trial users or customers who are only doing a trial of my product?
         answer: |
           No, the functionality to filter only paid customers is not available yet.
-
+          
+  - name: End of FAQs
+  
 additionalContent: |
 
   ## Next steps
