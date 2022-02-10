@@ -166,11 +166,11 @@ Now that you've created the required resources, use the command below to create 
 
 # [CLI](#tab/cli) 
 
-Use the following command to create a data history connection. By default, this command assumes all resources are in the same resource group as the Azure Digital Twins instance. You can also specify resources that are in different resource groups using the parameter options for this command, which can be displayed by running `az dt data-history create adx -h`.
+Use the following command to create a data history connection. By default, this command assumes all resources are in the same resource group as the Azure Digital Twins instance. You can also specify resources that are in different resource groups using the parameter options for this command, which can be displayed by running `az dt data-history connection create adx -h`.
 The command uses several local variables (`$connectionname`, `$dtname`, `$clustername`, `$databasename`, `$eventhub`, and `$eventhubnamespace`) that were created earlier in [Set up local variables for CLI session](#set-up-local-variables-for-cli-session).
 
 ```azurecli-interactive
-az dt data-history create adx --cn $connectionname --dt-name $dtname --adx-cluster-name $clustername --adx-database-name $databasename --eventhub $eventhub --eventhub-namespace $eventhubnamespace
+az dt data-history connection create adx --cn $connectionname --dt-name $dtname --adx-cluster-name $clustername --adx-database-name $databasename --eventhub $eventhub --eventhub-namespace $eventhubnamespace
 ```
 
 When executing the above command, you'll be given the option of assigning the necessary permissions required for setting up your data history connection on your behalf (if you've already assigned the necessary permissions, you can skip these prompts). These permissions are granted to the managed identity of your Azure Digital Twins instance. The minimum required roles are:
