@@ -9,9 +9,9 @@ ms.topic: how-to
 ms.date: 02/09/2022
 
 ms.author: justinha
-author: justinha
-manager: daveba
-ms.reviewer: tommma
+author: vimrang
+manager: karenhoran
+ms.reviewer: vimrang
 
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
