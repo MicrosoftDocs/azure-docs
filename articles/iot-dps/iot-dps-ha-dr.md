@@ -1,12 +1,12 @@
 ---
 title: Azure IoT Hub Device Provisioning Service high availability and disaster recovery | Microsoft Docs
 description: Describes the Azure and Device Provisioning Service features that help you to build highly available Azure IoT solutions with disaster recovery capabilities.
-author: JimacoMS4
+author: kgremban
 ms.service: iot-dps
 services: iot-dps
 ms.topic: conceptual
 ms.date: 02/04/2022
-ms.author: v-jbrannian
+ms.author: kgremban
 ms.custom: references_regions
 ---
 
