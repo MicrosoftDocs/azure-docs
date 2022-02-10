@@ -533,7 +533,7 @@ Review the parameters used in this template.
 
 - You would require an Azure VM or Arc-enabled server. You can follow the steps [here](/azure/azure-arc/servers/onboard-portal) create an Arc connected machine.
 
-**Install and use Hybrid Worker extension using REST API**
+### Install and use Hybrid Worker extension using REST API**
 
 To install and use Hybrid Worker extension using REST API, follow these steps. The WestCentral US region is considered in this example.
 
@@ -612,14 +612,18 @@ To install and use Hybrid Worker extension using REST API, follow these steps. T
 1. Go to the **Portal** page of the VM and in the **Extensions** tab, you can check the status of the Hybrid Worker Extension installation.
  
 1. Run the below API call to start executing jobs on the new Hybrid worker
+  
+  ```http
   PUT
   https://westcentralus.management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/jobs/{jobName}?api-version=2017-05-15-preview
+ 
+  ```
 
    The request body should contain the following information:
 
    ```
      {
-       `"properties": {
+       "properties": {
        "runbook": {
        "name": "{RunbookName}"
        },
