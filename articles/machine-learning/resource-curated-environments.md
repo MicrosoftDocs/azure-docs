@@ -27,7 +27,7 @@ This article lists the curated environments with latest framework versions in Az
 * Only have required dependencies and access right in the image/container. 
 
 >[!IMPORTANT] 
-> To view more information about curated environment packages and versions, visit the Environments tab in the Azure Machine Learning studio. 
+> To view more information about curated environment packages and versions, visit the Environments tab in the Azure Machine Learning [studio](ml.azure.com). 
 
 ## Training curated environments
 
@@ -94,5 +94,5 @@ For more information on AutoML and Azure ML pipelines, see [use automated ML in 
 [!INCLUDE [list-of-inference-prebuilt-docker-images](../../includes/aml-inference-list-prebuilt-docker-images.md)]
 
 ## Support
-Version updates for supported environments are released every two weeks to address vulnerabilities no older than 30 days. 
+Version updates for supported environments, including the base images they reference, are released every two weeks to address vulnerabilities no older than 30 days. 
 
