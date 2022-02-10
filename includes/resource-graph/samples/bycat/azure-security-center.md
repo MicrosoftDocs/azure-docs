@@ -193,9 +193,9 @@ Search-AzGraph -Query "SecurityResources | where type =~ 'microsoft.security/iot
 
 ---
 
-### List Azure Security Center recommendations
+### List Microsoft Defender for Cloud recommendations
 
-Returns all Azure Security Center assessments, organized in tabular manner with field per property.
+Returns all Microsoft Defender for Cloud assessments, organized in tabular manner with field per property.
 
 ```kusto
 SecurityResources
