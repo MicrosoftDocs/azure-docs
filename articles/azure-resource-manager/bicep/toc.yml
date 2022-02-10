@@ -28,8 +28,10 @@
   - name: CI/CD
     items:
     - name: Bicep with pipelines
+      displayName: continuous, ci, cd, CI/CD
       href: add-template-to-azure-pipelines.md
     - name: Bicep with GitHub Actions
+      displayName: continuous, ci, cd, CI/CD
       href: deploy-github-actions.md
 - name: Tutorials
   items:
@@ -170,6 +172,14 @@
       items:
       - name: Admin user name not literal
         href: linter-rule-admin-username-should-not-be-literal.md
+      - name: Max outputs
+        href: linter-rule-max-outputs.md
+      - name: Max parameters
+        href: linter-rule-max-parameters.md
+      - name: Max resources
+        href: linter-rule-max-resources.md
+      - name: Max variables
+        href: linter-rule-max-variables.md
       - name: No hardcoded environment URLs
         href: linter-rule-no-hardcoded-environment-urls.md
       - name: No unnecessary dependsOn entries

@@ -162,7 +162,7 @@ definitions as `constraintTemplate` is deprecated.
       create a custom definition from an existing
       [Open Policy Agent](https://www.openpolicyagent.org/) (OPA) GateKeeper v3
       [constraint template](https://open-policy-agent.github.io/gatekeeper/website/docs/howto/#constraint-templates).
-- **constraint** (optional)
+- **constraint** (deprecated)
   - Can't be used with `templateInfo`.
   - The CRD implementation of the Constraint template. Uses parameters passed via **values** as
     `{{ .Values.<valuename> }}`. In example 2 below, these values are

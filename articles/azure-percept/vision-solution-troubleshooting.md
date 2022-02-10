@@ -82,7 +82,7 @@ Using the azureeyemodule module twin, it's possible change the interval rate for
 
 Follow these steps to update the message interval:
 
-1. Sign in to the [Azure portal](https://ms.portal.azure.com/?feature.canmodifystamps=true&Microsoft_Azure_Iothub=aduprod#home), and open **All resources**.
+1. Sign in to the [Azure portal](https://portal.azure.com/?feature.canmodifystamps=true&Microsoft_Azure_Iothub=aduprod#home), and open **All resources**.
 
 1. On the **All resources** page, select the name of the IoT hub that was provisioned to your development kit during setup.
 
