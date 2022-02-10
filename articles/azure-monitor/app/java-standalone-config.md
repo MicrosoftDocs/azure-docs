@@ -65,7 +65,9 @@ Connection string is required. You can find your connection string in your Appli
 You can also set the connection string using the environment variable `APPLICATIONINSIGHTS_CONNECTION_STRING`
 (which will then take precedence over connection string specified in the json configuration).
 
-you can also set the connectiong string by loading it from a file. 
+You can also set the connection string by specifying a file to load the connection string from.
+
+If you specify a relative path, it will be resolved relative to the directory where `applicationinsights-agent-3.2.6.jar` is located.
 
 ```json
 {
