@@ -61,17 +61,17 @@ Follow these steps to configure device-related settings:
 
         ![Screenshot of the Device page in the local web UI of an Azure Stack Edge device. The SMB server and Next: Update server > is highlighted.](./media/azure-stack-edge-pro-2-deploy-set-up-device-update-time/device-3.png)
 
-## Configure update
+## Configure update server
 
-1. On the **Update** page of the local web UI of your device, you can now configure the location from where to download the updates for your device.  
+1. On the **Update server** page of the local web UI of your device, you can now configure the location from where to download the updates for your device.  
 
     - You can get the updates directly from the **Microsoft Update server**.
 
-        ![Local web UI "Update Server" page](./media/azure-stack-edge-pro-2-deploy-set-up-device-update-time/update-1.png)
+        ![Screenshot of the Update server page with Microsoft update server configured in the local web UI of an Azure Stack Edge device. The Apply button is highlighted.](./media/azure-stack-edge-pro-2-deploy-set-up-device-update-time/update-1.png)
 
         You can also choose to deploy updates from the **Windows Server Update services** (WSUS). Provide the path to the WSUS server.
         
-        ![Local web UI "Update Server" page 2](./media/azure-stack-edge-pro-2-deploy-set-up-device-update-time/update-2.png)
+        ![Screenshot of the Update server page with Windows Server Update Services configured in the local web UI of an Azure Stack Edge device. The Apply button is highlighted.](./media/azure-stack-edge-pro-2-deploy-set-up-device-update-time/update-2.png)
 
         > [!NOTE] 
         > If a separate Windows Update server is configured and if you choose to connect over *https* (instead of *http*), then signing chain certificates required to connect to the update server are needed. For information on how to create and upload certificates, go to [Manage certificates](azure-stack-edge-gpu-manage-certificates.md). 
@@ -101,7 +101,7 @@ NTP servers are required because your device must synchronize time so that it ca
 
     4. To validate and apply the configured time settings, select **Apply**.
 
-        ![Local web UI "Time" page](./media/azure-stack-edge-pro-2-deploy-set-up-device-update-time/time-1.png)
+        ![Screenshot of the Time page in the local web UI of an Azure Stack Edge device. The Apply button is highlighted.](./media/azure-stack-edge-pro-2-deploy-set-up-device-update-time/time-1.png)
 
 2. After the settings are applied, select **Next: Certificates**.
 
