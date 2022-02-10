@@ -34,7 +34,7 @@ For metrics to be scraped from a particular namespace monitored by the mesh, the
 osm metrics enable --namespace <namespace>
 ```
 
-For instance, if you are running the [bookstore demo](https://docs.openservicemesh.io/docs/getting_started/quickstart/manual_demo/), you would run the `osm metrics enable` command on the following namespaces:
+For instance, if you are running the [bookstore demo](https://release-v1-0.docs.openservicemesh.io/docs/demos/), you would run the `osm metrics enable` command on the following namespaces:
 
 ```sh
 osm metrics enable --namespace bookbuyer
