@@ -138,31 +138,21 @@ To connect:
 
 ## Change the name of a sensor
 
-You can change the name of your sensor console. The new name will appear in the console web browser, in various console windows, and in troubleshooting logs.
+You can change the name of your sensor console. The new name will appear in:
+- The sensor console web browser
+- Various console windows
+- Troubleshooting logs
+- The Sites and sensors page in the Defender for IoT portal on Azure.
 
-The process for changing sensor names varies for locally connected sensors and cloud-connected sensors. The default name is **sensor**.
+The process for changing sensor names is the same for locally managed sensors and cloud-connected sensors.
 
-### Change the name of a locally connected sensor
+The sensor name is defined by the name assigned during the registration. The name is included in the activation file that you uploaded when signing in for the first time. To change the name of the sensor, you need to upload a new activation file.
 
-To change the name:
+**To change the name:**
 
-1. In the bottom of the left pane of the console, select the current sensor label.
+1. In the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started), go to the Sites and sensors page.
 
-   :::image type="content" source="media/how-to-change-the-name-of-your-azure-consoles/label-name.png" alt-text="Screenshot that shows the sensor label.":::
-
-1. In the **Edit sensor name** dialog box, enter a name.
-
-1. Select **Save**. The new name is applied.
-
-### Change the name of a cloud-connected sensor
-
-If your sensor was registered as a cloud-connected sensor, the sensor name is defined by the name assigned during the registration. The name is included in the activation file that you uploaded when signing in for the first time. To change the name of the sensor, you need to upload a new activation file.
-
-To change the name:
-
-1. In the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started), go to the Sites and Sensors page.
-
-1. Delete the sensor from the Sites and Sensors page.
+1. Delete the sensor from the page.
 
 1. Register with the new name by selecting **Onboard sensor** from the Getting Started page.
 
@@ -170,9 +160,8 @@ To change the name:
 
 1. Sign in to the Defender for IoT sensor console.
 
-1. In the sensor console, select **System Settings** and then select **Reactivation**.
-
-   :::image type="content" source="media/how-to-manage-sensors-on-the-cloud/reactivate.png" alt-text="Upload your activation file to reactivate the sensor.":::
+1. In the sensor console, select **System settings** > Sensor management and then select
+**Subscription & Activation Mode**.
 
 1. Select **Upload** and select the file you saved.
 
