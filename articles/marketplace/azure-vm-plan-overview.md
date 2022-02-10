@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: iqshahmicrosoft
 ms.author: iqshah
-ms.date: 12/07/2021
+ms.date: 02/10/2022
 ---
 
 # Create plans for a virtual machine offer
@@ -125,6 +125,9 @@ Some things to consider when selecting a pricing option:
 - For the first four options, Microsoft does the currency conversion.
 - Microsoft suggests using a flat rate pricing for software solutions.
 - Prices are fixed, so once the plan is published the prices cannot be adjusted. However, if you would like to reduce prices for your VM offers you can open a [support ticket](support.md).
+
+> [!IMPORTANT]
+> Occasionally, Microsoft expands the list of supported core sizes available. When this occurs, we will notify you and request that you take action on your offer within a specified timeframe. If you do not review your offer within the timeframe specified, we’ll publish the new core sizes at the price that we have calculated for you. For details about updating core sizes, see [Update core size for an Azure virtual machine offer](azure-vm-plan-manage.md).
 
 ### Free Trial
 
