@@ -25,7 +25,7 @@ Search results remain in a search results table that has a *_SRCH suffix.
 
 The following image shows example search criteria for a search job.
 
-:::image type="content" source="media/search-jobs/search-job-criteria.png" alt-text="Screenshot of search page with search criteria of administrator, time range last 90 days, and a table selected.":::
+:::image type="content" source="media/investigate-large-datasets/search-job-criteria.png" alt-text="Screenshot of search page with search criteria of administrator, time range last 1 year, and a table selected.":::
 
 ### Supported log types
 
@@ -58,7 +58,7 @@ A restored log table is available in a new table that has a *_RST suffix. The re
 
 The following image shows the restore option on a saved search.
 
-:::image type="content" source="media/restore/search-results-restore.png" alt-text="Screenshot of the restore link on a saved search.":::
+:::image type="content" source="media/investigate-large-datasets/search-results-restore.png" alt-text="Screenshot of the restore link on a saved search.":::
 
 ### Limitations of log restore
 
