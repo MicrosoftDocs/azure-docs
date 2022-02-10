@@ -111,20 +111,26 @@ database tables. (The `curl` command downloads the files, and comes
 pre-installed in the Azure Cloud Shell.)
 
 ```
+-- download users and store in table
+
 \COPY github_users FROM PROGRAM 'curl https://examples.citusdata.com/users.csv' WITH (FORMAT CSV)
+
+-- download events and store in table
+
 \COPY github_events FROM PROGRAM 'curl https://examples.citusdata.com/events.csv' WITH (FORMAT CSV)
 ```
 
 We can confirm the shards now hold data:
 
 ```sql
-SELECT table_name, pg_size_pretty(sum(shard_size))
+SELECT table_name,
+       pg_size_pretty(sum(shard_size)) AS shard_size_sum
   FROM citus_shards
  GROUP BY 1;
 ```
 
 ```
-  table_name   | pg_size_pretty
+  table_name   | shard_size_sum
 ---------------+----------------
  github_users  | 38 MB
  github_events | 95 MB

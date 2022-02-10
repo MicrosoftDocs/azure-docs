@@ -56,17 +56,17 @@ To follow this quickstart, you'll first need to:
    greater total data capacity and query parallelism. See
    [tiers](concepts-server-group.md#tiers) for a more in-depth comparison.
 
-   Select **Save**.
+6. Select **Save**.
 
-6. Select **Next : Networking >** at the bottom of the screen.
-7. In the **Networking** tab, select **Allow public access from Azure services
+7. Select **Next : Networking >** at the bottom of the screen.
+8. In the **Networking** tab, select **Allow public access from Azure services
    and resources within Azure to this server group**.
 
    ![networking configuration](../media/quickstart-hyperscale-create-portal/networking.png)
 
-8. Select **Review + create** and then **Create** to create the server.
+9. Select **Review + create** and then **Create** to create the server.
    Provisioning takes a few minutes.
-9. The page will redirect to monitor deployment. When the live status changes
+10. The page will redirect to monitor deployment. When the live status changes
    from **Deployment is in progress** to **Your deployment is complete**.
    After this transition, select **Go to resource**.
 

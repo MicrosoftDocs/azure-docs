@@ -44,7 +44,7 @@ SELECT count(*) FROM github_users;
 Recall that `github_users` is a distributed table, meaning its data is divided
 between multiple shards. Hyperscale (Citus) automatically runs the count on all
 shards in parallel, and combines the results. To see this in action, let's
-temporarily enable logging and look at the queries running on shards.
+temporarily enable remote logging and look at the queries running on shards.
 
 ```sql
 -- reveal the per-shard queries behind the scenes
@@ -67,13 +67,12 @@ DETAIL:  on server citus@private-c.demo.postgres.database.azure.com:5432 connect
 ... etc, one for each of the 32 shards
 ```
 
-Hyperscale (Citus) uses an advanced query planner to transform arbitrary SQL
-queries into tasks running across shards. The tasks run in parallel on
-horizontally scalable worker nodes.
+The advanced Hyperscale (Citus) query planner can transform almost all
+PostgreSQL queries into tasks running across shards. Its broad SQL support
+means that applications written for PostgreSQL can use Hyperscale (Citus) with
+minimal modification.
 
-The broad SQL support means that applications written for PostgreSQL can use
-Hyperscale (Citus) with minimal modification. Let's continue looking at a small
-sampling of supported query features.
+Let's continue looking at a few more query examples:
 
 ```sql
 -- hide the remote queries again
@@ -143,7 +142,7 @@ The quickstart is now complete. You've successfully created a scalable
 Hyperscale (Citus) server group, created tables, sharded them, loaded data, and
 run distributed queries.
 
-Here are good resources to begin to deepen your knowledge.
+Here are good resources to deepen your knowledge.
 
 * See a more detailed [illustration](tutorial-shard.md) of distributed query
   execution.
