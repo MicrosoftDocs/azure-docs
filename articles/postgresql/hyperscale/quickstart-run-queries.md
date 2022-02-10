@@ -147,8 +147,10 @@ Here are good resources to begin to deepen your knowledge.
 
 * See a more detailed [illustration](tutorial-shard.md) of distributed query
   execution.
-* Discover [useful diagnostic queries](howto-useful-diagnostic-queries.md) to
-  inspect distributed tables.
+* Scale your server group by [adding
+  nodes](https://docs.microsoft.com/azure/postgresql/hyperscale/howto-scale-grow#add-worker-nodes)
+  and [rebalancing
+  shards](https://docs.microsoft.com/azure/postgresql/hyperscale/howto-scale-rebalance).
 * Learn how to speed up the per-minute `http_request` aggregation from this
   example with "roll-ups" in the [real-time
   dashboard](tutorial-design-database-realtime.md) tutorial.
