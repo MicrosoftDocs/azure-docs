@@ -1,8 +1,7 @@
 ### YamlMime:Landing
 
 title: Azure Spring Cloud documentation # < 60 chars
-summary: Azure Spring Cloud provides a managed service that lets you run Spring apps on Azure using Spring-boot or Steeltoe (preview) with no code changes. # < 160 chars
-
+summary: "Azure Spring Cloud is a managed service for hosting Spring apps, with Basic, Standard, and Enterprise tiers, each one adding features to the previous tier." # < 160 chars
 metadata:
   title: Azure Spring Cloud # Required; page title displayed in search results. Include the brand. < 60 chars.
   description: Azure Spring Cloud provides a managed service that lets you run Spring apps on Azure using Spring-boot or Steeltoe (preview) with no code changes.  # Required; article description that is displayed in search results. < 160 chars.
@@ -28,8 +27,6 @@ landingContent:
             url: overview.md
           - text: Understanding Azure Spring Cloud quotas and limits
             url: quotas.md
-          - text: Enterprise tier documentation
-            url: enterprise/index.yml
 
   - title: Get started
     linkLists:
@@ -43,6 +40,39 @@ landingContent:
         links:
           - text: Prepare a Spring or Steeltoe app for deployment
             url: how-to-prepare-app-deployment.md
+
+  - title: Use Enterprise tier
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Provision an Enterprise tier Azure Spring Cloud instance
+            url: quickstart-provision-service-instance-enterprise.md
+          - text: Set up Application Configuration Service
+            url: quickstart-setup-application-configuration-service-enterprise.md
+          - text: Build and deploy applications
+            url: quickstart-deploy-apps-enterprise.md
+          - text: Set up Service Registry
+            url: quickstart-setup-service-registry-enterprise.md
+      - linkListType: how-to-guide
+        links:
+          - text: Use Application Configuration Service
+            url: how-to-enterprise-application-configuration-service.md
+          - text: Use Build Service
+            url: how-to-enterprise-build-service.md
+          - text: Use Service Registry
+            url: how-to-enterprise-service-registry.md
+          - text: Use API portal
+            url: how-to-use-enterprise-api-portal.md
+          - text: Use Spring Cloud Gateway
+            url: how-to-use-enterprise-spring-cloud-gateway.md
+          - text: Deploy non-Java enterprise applications
+            url: how-to-enterprise-deploy-non-java-apps.md
+          - text: View Enterprise Tier offering
+            url: how-to-enterprise-marketplace-offer.md
+          - text: Application Insights using Java In-Process Agent
+            url: how-to-application-insights.md?pivots=sc-enterprise-tier
+          - text: Enable system-assigned managed identity
+            url: how-to-enable-system-assigned-managed-identity.md?pivots=sc-enterprise-tier
 
   - title: Configure your service
     linkLists:
@@ -84,39 +114,6 @@ landingContent:
             url: how-to-bind-mysql.md
           - text: Bind your application to Azure CosmosDB
             url: how-to-bind-cosmos.md
-
-  - title: Use Enterprise tier
-    linkLists:
-      - linkListType: quickstart
-        links:
-          - text: Provision an Enterprise tier Azure Spring Cloud instance
-            url: quickstart-provision-service-instance-enterprise.md
-          - text: Set up Application Configuration Service
-            url: quickstart-setup-application-configuration-service-enterprise.md
-          - text: Build and deploy applications
-            url: quickstart-deploy-apps-enterprise.md
-          - text: Set up Service Registry
-            url: quickstart-setup-service-registry-enterprise.md
-      - linkListType: how-to-guide
-        links:
-          - text: Use Application Configuration Service
-            url: how-to-enterprise-application-configuration-service.md
-          - text: Use Build Service
-            url: how-to-enterprise-build-service.md
-          - text: Use Service Registry
-            url: how-to-enterprise-service-registry.md
-          - text: Use API portal
-            url: how-to-use-enterprise-api-portal.md
-          - text: Use Spring Cloud Gateway
-            url: how-to-use-enterprise-spring-cloud-gateway.md
-          - text: Deploy non-Java enterprise applications
-            url: how-to-enterprise-deploy-non-java-apps.md
-          - text: View Enterprise Tier offering
-            url: how-to-enterprise-marketplace-offer.md
-          - text: Application Insights using Java In-Process Agent
-            url: how-to-application-insights.md?pivots=sc-enterprise-tier
-          - text: Enable system-assigned managed identity
-            url: how-to-enable-system-assigned-managed-identity.md?pivots=sc-enterprise-tier
 
   - title: API reference
     linkLists:
