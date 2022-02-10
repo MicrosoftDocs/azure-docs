@@ -42,7 +42,7 @@ The accomplishes following events are  by the web API:
 
 - It validates the permissions (scopes) in the token.
 
-- It responds to the HTTP request. If the token isn't valid, the web API endpoint responds with `401 Unauthorized` HTTP error.
+- It responds to the HTTP request. If the token isn't valid, the web API endpoint responds with a `401 Unauthorized` HTTP error.
 
 ### App registration overview
 
