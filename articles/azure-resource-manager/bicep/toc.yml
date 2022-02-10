@@ -28,8 +28,10 @@
   - name: CI/CD
     items:
     - name: Bicep with pipelines
+      displayName: continuous, ci, cd, CI/CD
       href: add-template-to-azure-pipelines.md
     - name: Bicep with GitHub Actions
+      displayName: continuous, ci, cd, CI/CD
       href: deploy-github-actions.md
 - name: Tutorials
   items:
