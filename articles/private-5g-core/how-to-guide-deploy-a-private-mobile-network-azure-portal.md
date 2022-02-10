@@ -73,7 +73,6 @@ In this step, you'll create the Mobile Network resource representing your privat
 
 ## Create the site resource
 
-<!-- Should we change "site resource" to "Mobile Network Site resource" in all sections? -->
 In this step, you'll create the **Mobile Network Site** resource representing the physical enterprise location of your Azure Stack Edge device, which will host the packet core instance.
 
 1. On the **Get started** tab, select **Create sites**.

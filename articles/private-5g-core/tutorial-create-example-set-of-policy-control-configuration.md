@@ -9,8 +9,6 @@ ms.topic: tutorial
 ms.date: 01/16/2022
 ms.custom: template-tutorial
 ---
-<!-- One of the images (add-a-data-flow-template.png) has a thicker grey outline. -->
-<!-- Some images can be zoomed into, others cannot. -->
 
 # Tutorial: Create an example policy control configuration set for Azure Private 5G Core
 

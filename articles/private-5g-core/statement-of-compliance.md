@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 01/20/2022
 ms.custom: template-concept
 ---
-<!-- Should the bulleted lists be italics (due to being new terms), or remain unformatted? -->
+
 # Statement of compliance - Azure Private 5G Core Preview
 
 This article provides information on the standards for which Azure Private 5G Core provides support.
