@@ -38,7 +38,7 @@ sections:
       - question: |
           Can I filter the graphs to show a specific date range?
         answer: |
-          No. As the documentation on Widget 3 indicates, it is a normalized view of 18 months of data. The monthly view in [Widget 10](customer-retention#widget-10-retention-heat-map) shows monthly views, but you cannot filter to specific dates.
+          No. As the documentation on Widget 3 indicates, it is a normalized view of 18 months of data. The monthly view in [Widget 10](/customer-retention#widget-10-retention-heat-map) shows monthly views, but you cannot filter to specific dates.
 
       - question: |
           What is the difference between Widget 4 Total offers and Offer count?
@@ -107,6 +107,11 @@ sections:
           
   - name: End of FAQs
     questions:
+      - question: |
+           
+        answer: |
+           
+
 
 additionalContent: |
 

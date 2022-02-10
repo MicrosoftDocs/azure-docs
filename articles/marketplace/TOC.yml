@@ -462,7 +462,7 @@
   - name: Customer retention dashboard
     href: customer-retention.md
   - name: Customer retention FAQ
-    href: customer-retention-faq.md
+    href: customer-retention-faq.yml
   - name: Programmatic access to analytics
     items:
     - name: Get started
