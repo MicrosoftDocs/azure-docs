@@ -225,10 +225,10 @@
         href: troubleshoot-shared-private-link-resources.md
     - name: Outbound connections
       items:
+      - name: Connect using a managed identity
+        href: search-howto-managed-identities-data-sources.md
       - name: Connect over an IP range
         href: search-indexer-howto-access-ip-restricted.md
-      - name: Connect using a managed identity
-        href: search-how-to-connect-managed-identity.md
       - name: Connect as a trusted service
         href: search-indexer-howto-access-trusted-service-exception.md
       - name: Connect through private endpoints
@@ -325,8 +325,6 @@
         href: search-howto-index-json-blobs.md
     - name: Connect with managed identities
       items:
-      - name: Managed identities overview
-        href: search-howto-managed-identities-data-sources.md
       - name: Azure Storage
         href: search-howto-managed-identities-storage.md
       - name: Azure Cosmos DB

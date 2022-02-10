@@ -17,7 +17,7 @@ Indexers in an Azure Cognitive Search service that access blob data in Azure Sto
 
 ## Prerequisites 
 
-+ A search service with a [system-assigned managed identity](search-how-to-connect-managed-identity.md).
++ A search service with a [system-assigned managed identity](search-howto-managed-identities-data-sources.md).
 
 + Azure Storage with the **Allow trusted Microsoft services to access this storage account** option.
 
@@ -64,8 +64,8 @@ The easiest way to test the connection is by running the Import data wizard.
 
 ## See also
 
-+ [Connect to other Azure resources using a managed identity](search-how-to-connect-managed-identity.md)
++ [Connect to other Azure resources using a managed identity](search-howto-managed-identities-data-sources.md)
 + [Azure Blob indexer](search-howto-indexing-azure-blob-storage.md)
 + [Azure Data Lake Storage Gen2 indexer](search-howto-index-azure-data-lake-storage.md)
-+ [Authenticate with Azure Active Directory](../architecture/framework/security/design-identity-authentication.md)
++ [Authenticate with Azure Active Directory](/azure/architecture/framework/security/design-identity-authentication.md)
 + [About managed identities (Azure Active Directory)](../active-directory/managed-identities-azure-resources/overview.md)

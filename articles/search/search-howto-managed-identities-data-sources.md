@@ -1,65 +1,270 @@
 ---
-title: Use a managed identity for indexer connections
+title: Create a managed identity
 titleSuffix: Azure Cognitive Search
-description: Learn how to set up an indexer connection to a data source using a managed identity
+description: Create a managed identity for your search service for Azure Active Directory authentication to other cloud services.
 
-author: gmndrg
-ms.author: gimondra
 manager: nitinme
-
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
-ms.topic: conceptual
-ms.date: 07/02/2021
+ms.topic: how-to
+ms.date: 02/09/2022
 ---
 
-# Set up an indexer connection to a data source using a managed identity
+# Connect a search service to other Azure resources using a managed identity
 
-> [!IMPORTANT] 
-> Setting up a connection to a data source using a managed identity is not supported with the Free Azure Cognitive Search tier.
+You can configure an Azure Cognitive Search connection to other Azure resources using a [system-assigned or user-assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md) and an Azure role assignment on the remote service. Managed identities and role assignments eliminate the need for passing secrets and credentials in a connection strings or code.
 
-An [indexer](search-indexer-overview.md) in Azure Cognitive Search is a crawler that provides a way to pull data from your data source into Azure Cognitive Search. An indexer obtains a data source connection from the data source object that you create. The data source object usually includes credentials for the target data source. For example, the data source object could include an Azure Storage account key if you want to index data from a blob storage container.
+## Prerequisites
 
-In many cases providing credentials directly in the data source object is not a problem, but there are some challenges that can come up:
-* How do I keep the credentials secure in my code that creates the data source object?
-* If my account key or password is compromised and I need to change it, I now need to update my data source objects with the new account key or password so that my indexer can connect to the data source again.
++ A search service at the [Basic tier or above](search-sku-tier.md).
 
-These concerns can be resolved by setting up your connection using a managed identity.
++ An Azure resource that accepts incoming requests from a managed identity having a valid role assignment.
 
-## Using managed identities
+## Supported scenarios
 
-[Managed identities](../active-directory/managed-identities-azure-resources/overview.md) is a feature that provides applications with an automatically managed identity in Azure Active Directory (Azure AD). You can use this feature in Azure Cognitive Search to create a data source object with a connection string that does not include any credentials. Instead, your search service will be granted access to the data source through Azure role-based access control (Azure RBAC).
+Cognitive Search supports system-assigned managed identity in all scenarios, and user-assigned managed identities in the indexer data access scenario. A user-assigned managed identity is specified through an "identity" property. Currently, only an indexer data source definition has the "identity" property.
 
-When setting up a data source using a managed identity, you can change your data source credentials and your indexers will still be able to connect to the data source. You can also create data source objects in your code without having to include an account key or use Key Vault to retrieve an account key.
+| Scenario | System managed identity | User managed identity (preview) |
+|----------|-------------------------|---------------------------------|
+| [Indexer connections to supported Azure data sources](search-indexer-overview.md) | Yes | Yes |
+| [Azure Key Vault for customer-managed keys](search-security-manage-encryption-keys.md) | Yes | No |
+| [Debug sessions (hosted in Azure Storage)](cognitive-search-debug-session.md)| Yes | No |
+| [Enrichment cache (hosted in Azure Storage)](search-howto-incremental-index.md)| Yes <sup>1</sup>| No |
+| [Knowledge Store (hosted in Azure Storage)](knowledge-store-create-rest.md) | Yes | No |
+| [Custom skills (hosted in Azure Functions or equivalent)](cognitive-search-custom-skill-interface.md) | Yes | No |
 
-There are two types of managed identities. Azure Cognitive Search supports system-assigned managed identities and user-assigned managed identities.
+<sup>1</sup> The Import data wizard doesn't currently accept a system managed identity connection string for incremental enrichment, but after the wizard completes, you can update the indexer JSON definition to include the connection string, and then rerun the indexer.
 
-### System-assigned managed identity
+Debug sessions, enrichment cache, and knowledge store are features that write to Blob Storage. Assign a system managed identity to the **Storage Blob Data Contributor** role to support these features.
 
-A [system-assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) can be assigned to a single Azure service. You can assign a system-assigned managed identity to a single Azure Cognitive Search service and it is tied to the lifecycle of that search service.
+Knowledge store will also write to Table Storage. Assign a system managed identity to the **Storage Table Data Contributor** role to support table projections.
 
-### User-assigned managed identity (preview)
+## Create a system managed identity
+
+A system-assigned managed identity is unique to your search service and bound to the service for its lifetime.
+
+### [**Azure portal**](#tab/portal-sys)
+
+1. [Sign in to Azure portal](https://portal.azure.com) and [find your search service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/).
+
+1. Under **Settings**, select **Identity**.
+
+1. On the **System assigned** tab, under **Status**, select **On**.
+
+1. Select **Save**.
+
+   :::image type="content" source="media/search-managed-identities/turn-on-system-assigned-identity.png" alt-text="Screenshot of the Identity page in Azure portal." border="true":::
+
+   After saving, you'll see an object identifier that's been assigned to your search service. 
+
+   :::image type="content" source="media/search-managed-identities/system-assigned-identity-object-id.png" alt-text="Screenshot of a system identity object identifier." border="true":::
+
+### [**REST API**](#tab/rest-sys)
+
+See [Create or Update Service (Management REST API)](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#searchcreateorupdateservicewithidentity).
+
+You can use the Management REST API instead of the portal to assign a user managed identity. Be sure to use the [2021-04-01-preview management API](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#searchcreateorupdateservicewithidentity) for this task.
+
+1. Formulate a request to [Create or Update a search service](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update).
+
+    ```http
+    PUT https://management.azure.com/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Search/searchServices/mysearchservice?api-version=2021-04-01-preview
+    {
+      "location": "[region]",
+      "sku": {
+        "name": "[sku]"
+      },
+      "properties": {
+        "replicaCount": [replica count],
+        "partitionCount": [partition count],
+        "hostingMode": "default"
+      },
+      "identity": {
+        "type": "SystemAssigned"
+      }
+    } 
+    ```
+
+1. Confirmation and an object identifier for the system managed identity is returned in the response.
+
+### [**Azure PowerShell**](#tab/ps-sys)
+
+See [Create a search service with a system assigned managed identity (Azure PowerShellP](search-manage-powershell.md#create-a-service-with-a-system-assigned-managed-identity).
+
+### [**Azure CLI**](#tab/cli-sys)
+
+See [Create a search service with a system assigned managed identity (Azure CLI)](search-manage-azure-cli.md#create-a-service-with-a-system-assigned-managed-identity).
+
+---
+
+## Create a user managed identity (preview)
+
+A user-assigned managed identity is useful if you need more precision in role assignments. You can create separate identifies for different applications and scenarios that are related to indexer-based indexing.
 
 > [!IMPORTANT]
->This feature is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). The REST API version 2021-04-30-Preview and [Management REST API 2021-04-01-Preview](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update) provide this feature.
+>This feature is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). The [Management REST API 2021-04-01-Preview](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#searchcreateorupdateservicewithidentity) provides this feature.
 
-A [user-assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) is a standalone Azure resource that can be assigned to one or more Azure services. A single Azure Cognitive Search service can have one or more user-assigned managed identities assigned to it. A single user-assigned managed identity can be assigned to multiple search services.
+### [**Azure portal**](#tab/portal-user)
 
-## Limitations
+1. [Sign in to Azure portal](https://portal.azure.com/)
 
-The following data sources support setting up an indexer connection using managed identities. 
+1. Select **+ Create a resource**.
 
-* [Azure Blob Storage,  Azure Data Lake Storage Gen2 (preview), Azure Table Storage](search-howto-managed-identities-storage.md)
-* [Azure Cosmos DB](search-howto-managed-identities-cosmos-db.md)
-* [Azure SQL Database](search-howto-managed-identities-sql.md)
+1. In the "Search services and marketplace" search bar, search for "User Assigned Managed Identity" and then select **Create**.
 
-The following features do not currently support using managed identities to set up the connection:
-* Knowledge Store
-* Custom skills
- 
-## Next steps
+   :::image type="content" source="media/search-managed-identities/user-assigned-managed-identity.png" alt-text="Screenshot of the user assigned managed identity tile in Azure marketplace.":::
 
-Learn more about how to set up an indexer connection using managed identities:
+1. Select the subscription, resource group, and region. Give the identity a descriptive name.
 
-* [Azure Blob storage,  Azure Data Lake Storage Gen2 (preview), Azure Table Storage](search-howto-managed-identities-storage.md)
-* [Azure Cosmos DB](search-howto-managed-identities-cosmos-db.md)
-* [Azure SQL Database](search-howto-managed-identities-sql.md)
+1. Select **Create** and wait for the resource to finish deploying. 
+
+   In the next several steps, you'll assign the user managed identity to your search service.
+
+1. In your search service page, under **Settings**, select **Identity**.
+
+1. On the **User assigned** tab, select **Add**.
+
+1. Choose the subscription and then select the user-assigned managed resource that you created in the previous step.
+
+### [**REST API**](#tab/rest-user)
+
+You can use the Management REST API instead of the portal to assign a user managed identity. Be sure to use the [2021-04-01-preview management API](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update) for this task.
+
+1. Formulate a request to [Create or Update a search service](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update).
+
+    ```http
+    PUT https://management.azure.com/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Search/searchServices/mysearchservice?api-version=2021-04-01-preview
+    {
+      "location": "[region]",
+      "sku": {
+        "name": "[sku]"
+      },
+      "properties": {
+        "replicaCount": [replica count],
+        "partitionCount": [partition count],
+        "hostingMode": "default"
+      },
+      "identity": {
+        "type": "UserAssigned",
+        "userAssignedIdentities": {
+          "/subscriptions/[subscription ID]/resourcegroups/[resource group name]/providers/Microsoft.ManagedIdentity/userAssignedIdentities/[name of managed identity]": {}
+        }
+      }
+    } 
+    ```
+
+1. Set the "identity" property to specify a fully qualified managed identity:
+
+   + "type" is the type of identity. Valid values are "SystemAssigned", "UserAssigned", or "SystemAssigned, UserAssigned" for both. A value of "None" will clear any previously assigned identities from the search service.
+
+   + "userAssignedIdentities" includes the details of the user assigned managed identity. This identity [must already exist](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md) before you can specify it in the Create or Update Service request.
+
+---
+
+## Allow firewall access
+
+If your Azure resource is behind a firewall, make sure there's an inbound rule that admits requests from your search service. 
+
++ For same-region connections to Azure Blob Storage or Azure Data Lake Storage Gen2, use the  [trusted service exception](search-indexer-howto-access-trusted-service-exception.md) to admit requests.
+
++ For all other resources and connections, [configure an IP firewall rule](search-indexer-howto-access-ip-restricted.md). See [Indexer access to content protected by Azure network security features](search-indexer-securing-resources.md) for more detail.
+
+## Assign a role
+
+A managed identity must be paired with an Azure role that determines permissions on the Azure resource. 
+
++ Data reader permissions are needed for indexer data connections and for accessing a customer-managed key in Azure Key Vault.
+
++ Contributor (write) permissions are needed for AI enrichment features that use Azure Storage for hosting session data, caching, and long-term content storage. These features include: enrichment cache, knowledge store, debug session.
+
+The following steps are for Azure Storage. If your resource is Cosmos DB or Azure SQL, the steps for role assignment will be similar.
+
+1. [Sign in to Azure portal](https://portal.azure.com) and [find your Azure resource](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) to which the search service must have access.
+
+1. In Azure Storage, select **Access control** on the left navigation pane.
+
+1. Select **Add role assignment**.
+
+1. On the **Role** page, choose a role:
+
+   | Role | Usage |
+   |------|-------|
+   | **Reader and Data Access** | Grants read permissions for indexer access to content in Azure Table Storage and Azure File Storage. |
+   | **Storage Blob Data Reader** | Grants read permissions for indexer access to content in Blob Storage and Azure Data Lake Storage Gen2. |
+   | **Storage Blob Data Contributor** | Grants write permissions necessary for debug sessions, knowledge store object projections, and enrichment cache. |
+   | **Storage Table Data Contributor** | Grants write permissions necessary for knowledge store table projections. |
+
+1. On the **Members** page, select **Managed Identity**.
+
+1. Select members. In the **Select managed identity** page, choose your subscription and then filter by service type, and then select the service. Only those services that have a managed identity will be available to select.
+
+   :::image type="content" source="media/search-managed-identities/add-role-assignment-storage-managed-identity.png" alt-text="Screenshot of the select managed identity pane in the role assignment wizard." border="true":::
+
+1. Select **Review + assign**.
+
+## Connection string examples
+
+Once a managed identity is defined and given a role assignment, outbound connections use it in connection strings. Here are some examples of connection strings for various scenarios.
+
+**Blob data source (system):**
+
+An indexer data source includes a "credentials" property that determines how the connection is made to the data source. The following example shows a connection string that uses a system managed identity. Notice that the connection string doesn't include a container. In a data source definition, a container name is specified in the "container" property (not shown), not the connection string.
+
+```json
+"credentials": {
+    "connectionString": "ResourceId=/subscriptions/{subscription-ID}/resourceGroups/{resource-group-name}/providers/Microsoft.Storage/storageAccounts/{storage-account-name};"
+    }
+```
+
+**Blob data source (user):**
+
+A user-assigned managed identity is a preview feature. It's specified in an additional "identity" property, currently only supported for indexer data sources. You can use either the portal or the REST API preview version 2021-04-30-Preview to create an indexer data source that supports a user-assigned managed identity.
+
+```json
+"credentials": {
+    "connectionString": "ResourceId=/subscriptions/{subscription-ID}/resourceGroups/{resource-group-name}/providers/Microsoft.Storage/storageAccounts/{storage-account-name};"
+    },
+  . . .
+"identity": {
+    "@odata.type": "#Microsoft.Azure.Search.DataUserAssignedIdentity",
+    "userAssignedIdentity": "/subscriptions/{subscription-ID}/resourceGroups/{resource-group-name}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{user-assigned-managed-identity-name}"
+  }
+```
+
+**Knowledge store:**
+
+A knowledge store definition includes a connection string to Azure Storage. On Azure Storage, a knowledge store will create projections as blobs and tables. The connection string is a straightforward connection to Azure Storage. Notice that the string does not include containers or tables in the path. These are defined in the embedded projection definition, not the connection string.
+
+```json
+"knowledgeStore": {
+  "storageConnectionString": "ResourceId=/subscriptions/{subscription-ID}/resourceGroups/{resource-group-name}/providers/Microsoft.Storage/storageAccounts/storage-account-name};",
+```
+
+**Enrichment cache:**
+
+An indexer creates, uses, and remembers the container used for the cached enrichments. It's not necessary to include the container in the cache connection string. You can find the object ID on the **Identity** page of your search service in the portal.
+
+```json
+"cache": {
+  "id": "{object-id}",
+  "enableReprocessing": true,
+  "storageConnectionString": "ResourceId=/subscriptions/{subscription-ID}/resourceGroups/{resource-group-name}/providers/Microsoft.Storage/storageAccounts/storage-account-name};"
+},
+```
+
+**Debug session:**
+
+A debug session targets a container. Be sure to include the name of an existing container in the connection string. You can paste a string similar to the following example in the debug session that you start up in the portal.
+
+```json
+"ResourceId=/subscriptions/{subscription-ID}/resourceGroups/{resource-group-name}/providers/Microsoft.Storage/storageAccounts/{storage-account-name}/{container-name};",
+```
+
+## See also
+
++ [Security overview](search-security-overview.md)
++ [AI enrichment overview](cognitive-search-concept-intro.md)
++ [Indexers overview](search-indexer-overview.md)
++ [Authenticate with Azure Active Directory](/azure/architecture/framework/security/design-identity-authentication.md)
++ [About managed identities (Azure Active Directory)](../active-directory/managed-identities-azure-resources/overview.md)
