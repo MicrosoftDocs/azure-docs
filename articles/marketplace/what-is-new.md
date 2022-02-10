@@ -32,6 +32,9 @@ Learn about important updates in the commercial marketplace program of Partner C
 
 | Category | Description | Date |
 | --- | --- | --- |
+| Taxation | For the consumer marketplace (Microsoft Store) the following countries moved from a developer managed country to a Microsoft managed country. For the Commercial marketplace (Microsoft AppSource and Azure Marketplace) the status is the same as Publisher managed. These countries moved from the Publisher/Developer managed list to the [End-customer taxation with differences in marketplace](/partner-center/tax-details-marketplace) to show the difference in treatment between the two Marketplaces. The countries effected are: <ul><li>Kenya</li><li>Moldova</li><li>Tajikistan</li><li>Uzbekistan</li></ul>| 2022-02-10 |
+| Taxation | The [Publisher/Developer managed countries](/partner-center/tax-details-marketplace) list was updated to include Rwanda and Qatar. | 2022-02-10 |
+|Taxation | Barbados was moved from the Publisher/Developer managed country list to [Microsoft Managed country](/partner-center/tax-details-marketplace) list. | 2022-01-06 |
 | Payouts | We've updated the external tax form page, including instructions on how to reconcile 1099-k forms; see questions about tax forms at [Understand IRS tax forms issued by Microsoft](/partner-center/understand-irs-tax-forms). | 2022-01-06 |
 | Taxation | Nigeria and Thailand are now [Microsoft-managed countries](/partner-center/tax-details-marketplace) in Azure Marketplace. | 2021-09-13 |
 | Taxation | End-customer taxation in Australia is managed by Microsoft, except for customer purchases made through an enterprise agreement, which are managed by the publisher. | 2021-07-01 |
