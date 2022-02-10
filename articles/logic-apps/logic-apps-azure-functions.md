@@ -43,11 +43,11 @@ You can also run code snippets without using Azure Functions. For more informati
 
   * Your function doesn't use custom routes unless you've defined an [OpenAPI definition](../azure-functions/functions-openapi-definition.md) ([Swagger file](https://swagger.io/)).
 
-  * If you have an OpenAPI definition for your function, the workflow designer gives you a richer experience when your work with function parameters. Before your logic app workflow can find and access functions that have OpenAPI definitions, [set up your function app by following these steps](#function-swagger).
+  * If you have an OpenAPI definition for your function, the workflow designer gives you a richer experience when your work with function parameters. Before your logic app workflow can find and access functions that have OpenAPI definitions, [set up your function app by following these later steps](#function-swagger).
 
 * Either a [Consumption or Standard](logic-apps-overview.md#resource-type-and-host-environment-differences) logic app resource and workflow where you want to use the function.
 
-  Before you can add an action that runs a function in your workflow, the workflow must start with a trigger as the first step. If you're new to logic app workflows, review [What is Azure Logic Apps](logic-apps-overview.md) and [Quickstart: Create your first logic app](quickstart-create-first-logic-app-workflow.md).
+  Before you can add an action that runs a function in your workflow, the workflow must start with a trigger as the first step. If you're new to logic app workflows, review [What is Azure Logic Apps](logic-apps-overview.md) and [Quickstart: Create your first logic app workflow](quickstart-create-first-logic-app-workflow.md).
 
 <a name="function-swagger"></a>
 
@@ -316,9 +316,27 @@ If your logic app doesn't have a managed identity set up yet, [enable the manage
 
      1. On the managed identity's **Overview** pane, you can find the identity's object ID, for example:
 
-        ![Screenshot showing the user-assigned identity's "Overview" pane with the object ID selected.](./media/logic-apps-azure-functions/user-identity-consumption-object-id.png)
+        ![Screenshot showing the user-assigned identity's "Overview" pane with the object ID selected.](./media/logic-apps-azure-functions/user-identity-object-id.png)
 
 #### [Standard](#tab/standard)
+
+1. After your logic app has its managed identity enabled, on the logic app menu, under **Settings**, select **Identity**, and then select either **System assigned** or **User assigned**.
+
+   * **System assigned**
+
+     For the system-assigned identity, copy the identity's object ID, for example:
+
+     ![Screenshot showing the Standard logic app "Identity" pane with the "System assigned" tab selected.](./media/logic-apps-azure-functions/system-identity-standard.png)
+
+   * **User assigned**
+
+     1. For the user-assigned identity, select the identity to find the object ID, for example:
+
+        ![Screenshot showing the Standard logic app "Identity" pane with the "User assigned" tab selected.](./media/logic-apps-azure-functions/user-identity-standard.png)
+
+     1. On the managed identity's **Overview** pane, you can find the identity's object ID, for example:
+
+        ![Screenshot showing the user-assigned managed identity's "Overview" pane with the object ID selected.](./media/logic-apps-azure-functions/user-identity-object-id.png)
 
 ---
 
