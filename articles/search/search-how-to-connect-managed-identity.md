@@ -8,12 +8,12 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 02/08/2022
+ms.date: 02/09/2022
 ---
 
 # Connect a search service to other Azure resources using a managed identity
 
-You can configure an Azure Cognitive Search service to connect to other Azure resources under a [system-assigned or user-assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md) that's been assigned to a role on the remote service.
+You can configure an Azure Cognitive Search connection to other Azure resources that uses a [system-assigned or user-assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md) and an Azure role assignment on the remote service. Managed identities and role assignments eliminate the need for passing keys and credentials in a connection strings.
 
 ## Prerequisites
 
@@ -36,9 +36,9 @@ A user-assigned managed identity is specified through an "identity" property. Cu
 
 <sup>1</sup> The Import data wizard doesn't currently accept a system managed identity connection string for incremental enrichment, but after the wizard completes, you can update the indexer JSON definition to include the connection string, and then rerun the indexer.
 
-Debug sessions, enrichment cache, and knowledge store are features that need write permissions in Azure Storage. All of them write to Blob Storage. **Storage Blob Data Contributor** role is required for these features.
+Debug sessions, enrichment cache, and knowledge store are features that need write permissions in Azure Storage. All of them write to Blob Storage. The **Storage Blob Data Contributor** role is required for these features.
 
-Knowledge store will also write to Table Storage. **Storage Table Data Contributor** is necessary for creating table projections.
+Knowledge store will also write to Table Storage. The **Storage Table Data Contributor** is necessary for creating table projections.
 
 ## Create a system managed identity
 
@@ -63,7 +63,7 @@ A system-assigned managed identity is unique to your search service and bound to
 A user-assigned managed identity is useful if you need more precision in role assignments. You can create separate identifies for different applications and scenarios that are related to indexer-based indexing.
 
 > [!IMPORTANT]
->This feature is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). The REST API version 2021-04-30-Preview and [Management REST API 2021-04-01-Preview](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update) provide this feature.
+>This feature is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). The [Management REST API 2021-04-01-Preview](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update) provide this feature.
 
 ### [**Azure portal**](#tab/portal)
 
@@ -148,7 +148,7 @@ A managed identity must be paired with an Azure role that determines permissions
 
 + Data reader permissions are needed for indexer data connections and Azure Key Vault 
 
-+ Contributor (write) permissions are needed For AI enrichment features, where the search service submits a data payload for processing or storage on the Azure resource. These features include: enrichment cache, knowledge store, debug session.
++ Contributor (write) permissions are needed for AI enrichment features, where the search service submits a data payload for processing or storage on the Azure resource. These features include: enrichment cache, knowledge store, debug session.
 
 The following steps are for Azure Storage. If your resource is Cosmos DB or Azure SQL, the steps will be similar.
 
@@ -189,7 +189,7 @@ A container name is specified in the "container" property (not shown), not the c
 
 **Blob data source (user):**
 
-A user-assigned managed identity is specified in the "identity" property, currently only supported for indexer data sources.
+A user-assigned managed identity is a preview feature. It's specified in the "identity" property, currently only supported for indexer data sources. You can use either the portal or the REST API preview version 2021-04-30-Preview to create an indexer data source that supports a user-assigned managed identity.
 
 ```json
 "credentials": {

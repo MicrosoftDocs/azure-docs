@@ -184,7 +184,7 @@ By default, most blobs are indexed as a single search document in the index, inc
 + [Indexing JSON blobs](search-howto-index-json-blobs.md)
 + [Indexing CSV blobs](search-howto-index-csv-blobs.md)
 
-A compound or embedded document (such as a ZIP archive, a Word document with embedded Outlook email containing attachments, or a .MSG file with attachments) is also indexed as a single document. For example, all images extracted from the attachments of an .MSG file will be returned in the normalized_images field. If you have images, consider adding [AI enrichment](cognitive-search-concept-intro.md) to get more search utility from that content.
+A compound or embedded document (such as a ZIP archive, a Word document with embedded Outlook email containing attachments, or an .MSG file with attachments) is also indexed as a single document. For example, all images extracted from the attachments of an .MSG file will be returned in the normalized_images field. If you have images, consider adding [AI enrichment](cognitive-search-concept-intro.md) to get more search utility from that content.
 
 Textual content of a document is extracted into a string field named "content".
 
