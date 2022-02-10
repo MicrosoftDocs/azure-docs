@@ -6,7 +6,7 @@ ms.author: thvankra
 ms.service: managed-instance-apache-cassandra
 ms.topic: quickstart
 ms.date: 11/02/2021
-ms.custom: ignite-fall-2021, mode-other
+ms.custom: ignite-fall-2021, mode-ui
 ---
 # Frequently asked questions about Azure Managed Instance for Apache Cassandra
 
@@ -72,7 +72,7 @@ Yes, you can configure a hybrid cluster with Azure Virtual Network injected data
 
 Provide feedback via [user voice feedback](https://feedback.azure.com/d365community/forum/3002b3be-0d25-ec11-b6e6-000d3a4f0858?c=e6e5c7c4-0d25-ec11-b6e6-000d3a4f0858#) using the category "Managed Apache Cassandra".
 
-To fix an issue with your account, file a [support request](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) in the Azure portal.
+To fix an issue with your account, file a [support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) in the Azure portal.
 
 ## Deployment-specific FAQ
 

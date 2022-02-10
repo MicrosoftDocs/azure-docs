@@ -1,8 +1,6 @@
 ---
 title: 'Quickstart: Connect an existing Kubernetes cluster to Azure Arc'
 description: "In this quickstart, learn how to connect an Azure Arc-enabled Kubernetes cluster."
-author: mgoedtel
-ms.author: magoedte
 ms.service: azure-arc
 ms.topic: quickstart
 ms.date: 09/09/2021
@@ -20,7 +18,7 @@ In this quickstart, you'll learn the benefits of Azure Arc-enabled Kubernetes an
 
 ### [Azure CLI](#tab/azure-cli)
 
-* [Install or upgrade Azure CLI](/cli/azure/install-azure-cli) to version >= 2.16.0
+* [Install or upgrade Azure CLI](/cli/azure/install-azure-cli) to version >= 2.16.0 and <= 2.29.0
 
 * Install the **connectedk8s** Azure CLI extension of version >= 1.2.0:
 

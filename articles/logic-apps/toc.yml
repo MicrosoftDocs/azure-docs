@@ -77,6 +77,8 @@
       href: create-single-tenant-workflows-visual-studio-code.md
     - name: Set up SQL storage for single-tenant workflows
       href: set-up-sql-db-storage-single-tenant-standard-workflows.md
+    - name: Built-in versus Azure connector operations
+      href: ../connectors/compare-built-in-azure-connectors.md
     - name: Edit host and app settings for logic apps in single-tenant
       href: edit-app-settings-host-settings.md
     - name: Create parameters for single-tenant workflows
@@ -85,8 +87,10 @@
       href: devops-deployment-single-tenant-azure-logic-apps.md
     - name: Set up DevOps deployment for single-tenant
       href: set-up-devops-deployment-single-tenant-azure-logic-apps.md
-    - name: Secure traffic between single-tenant workflows and virtual networks
+    - name: Secure traffic between single-tenant logic apps and virtual networks
       href: secure-single-tenant-workflow-virtual-network-private-endpoint.md
+    - name: Deploy single-tenant Standard logic apps to private storage accounts
+      href: deploy-single-tenant-logic-apps-private-storage-account.md
     - name: Estimate storage costs for single-tenant workflows
       href: estimate-storage-costs.md
   - name: Azure Arc-enabled Logic Apps

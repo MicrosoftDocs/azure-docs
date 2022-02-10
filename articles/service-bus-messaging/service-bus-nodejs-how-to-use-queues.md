@@ -5,8 +5,8 @@ author: spelluru
 ms.author: spelluru
 ms.date: 11/09/2020
 ms.topic: quickstart
-ms.devlang: nodejs
-ms.custom: devx-track-js, mode-other
+ms.devlang: javascript
+ms.custom: devx-track-js, mode-api
 ---
 
 # Send messages to and receive messages from Azure Service Bus queues (JavaScript)

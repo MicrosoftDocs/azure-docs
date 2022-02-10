@@ -143,3 +143,4 @@ Follow these steps to configure high-density hosting for your apps:
 
 - [Azure App Service plans in-depth overview](overview-hosting-plans.md)
 - [Introduction to App Service Environment](environment/app-service-app-service-environment-intro.md)
+- [Tutorial: Run a load test to identify performance bottlenecks in a web app](../load-testing/tutorial-identify-bottlenecks-azure-portal.md)

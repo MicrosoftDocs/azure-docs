@@ -24,16 +24,16 @@ landingContent:
             url: overview.md
       - linkListType: concept
         links:
-          - text: Deployment best practices
-            url: deployment-best-practices.md
-          - text: Use Purview Studio
-            url: use-purview-studio.md
-          - text: Understand Purview access control
+          - text: Use Azure Purview Studio
+            url: use-azure-purview-studio.md
+          - text: Understand Azure Purview access control
             url: catalog-permissions.md
           - text: Understand the elastic data map
             url: catalog-permissions.md
           - text: Scan and ingest sources
             url: concept-scans-and-ingestion.md
+          - text: Data classification
+            url: concept-classification.md
       - linkListType: learn
         links:
           - text: Introduction to Azure Purview
@@ -41,9 +41,9 @@ landingContent:
   # Card
   - title: Get started
     linkLists:
-      - linkListType: quickstart
+      - linkListType: get-started
         links:
-          - text: Create a Purview account - Portal
+          - text: Create an Azure Purview account - Portal
             url: create-catalog-portal.md
           - text: Create a Collection - Portal
             url: quickstart-create-collection.md
@@ -53,20 +53,11 @@ landingContent:
             url: how-to-create-and-manage-collections.md
           - text: Connect to sources
             url: manage-credentials.md
-      - linkListType: tutorial
+      - linkListType: deploy
         links:
-          - text: Run starter kit and scan data 
-            url: tutorial-scan-data.md
-          - text: Navigate Purview home page and search
-            url: tutorial-asset-search.md
-          - text: Browse assets and view lineage 
-            url: tutorial-browse-and-view-lineage.md
-          - text: Explore resource sets, assets, schemas, classifications 
-            url: tutorial-schemas-and-classifications.md
-          - text: Create glossary terms
-            url: tutorial-import-create-glossary-terms.md
-          - text: Use the REST APIs
-            url: tutorial-using-rest-apis.md
+          - text: Deployment best practices
+            url: deployment-best-practices.md
+
   # Card
   - title: Register and scan Azure data sources
     linkLists:
@@ -161,10 +152,20 @@ landingContent:
     linkLists:
     - linkListType: how-to-guide
       links:
-        - text: Use private endpoints with Purview
+        - text: Use private endpoints with Azure Purview
           url: catalog-private-link.md
         - text: Network configuration
           url: catalog-private-link-name-resolution.md
         - text: Connect to private networks
           url: manage-integration-runtimes.md
- 
+  #Card
+  - title: Secure your data
+    linkLists:
+    - linkListType: tutorial
+      links:
+        - text: Authoring data owner access policies
+          url: how-to-data-owner-policy-authoring-generic.md
+        - text: Data owner policies for Azure Storage
+          url: tutorial-data-owner-policies-storage.md
+        - text: Data owner policies on resource groups or subscriptions
+          url: tutorial-data-owner-policies-resource-group.md  

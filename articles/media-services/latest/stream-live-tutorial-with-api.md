@@ -11,7 +11,6 @@ editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.custom: "mvc, devx-track-csharp"
 ms.date: 06/13/2019

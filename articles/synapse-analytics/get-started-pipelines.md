@@ -4,8 +4,7 @@ description: In this tutorial, you'll learn how to integrate pipelines and activ
 services: synapse-analytics
 author: saveenr
 ms.author: saveenr
-manager: julieMSFT
-ms.reviewer: jrasnick
+ms.reviewer: sngun
 ms.service: synapse-analytics
 ms.subservice: pipeline
 ms.topic: tutorial

@@ -137,7 +137,7 @@ For desktop applications, however, launching a System Webview leads to a subpar 
 
 ## Enable embedded webviews on iOS and Android
 
-You can also enable embedded webviews in Xamarin.iOS and Xamarin.Android apps. Starting with MSAL.NET 2.0.0-preview, MSAL.NET also supports using the **embedded** webview option. For ADAL.NET, embedded webview is the only option supported.
+You can also enable embedded webviews in Xamarin.iOS and Xamarin.Android apps. Starting with MSAL.NET 2.0.0-preview, MSAL.NET also supports using the **embedded** webview option. 
 
 As a developer using MSAL.NET targeting Xamarin, you may choose to use either embedded webviews or system browsers. This is your choice depending on the user experience and security concerns you want to target.
 

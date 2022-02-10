@@ -7,7 +7,7 @@ ms.topic: conceptual
 author: swinarko
 ms.author: sawinark
 ms.custom: seo-lt-2019
-ms.date: 05/14/2020
+ms.date: 01/28/2022
 ---
 
 # Built-in and preinstalled components on Azure-SSIS Integration Runtime

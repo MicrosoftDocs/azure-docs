@@ -9,7 +9,7 @@ ms.subservice: security
 ms.topic: overview 
 ms.custom: sqldbrb=1, fasttrack-edit
 ms.reviewer: kendralittle, vanto, mathoma
-ms.date: 03/09/2020
+ms.date: 01/20/2022
 ---
 
 # Azure Private Link for Azure SQL Database and Azure Synapse Analytics
@@ -159,6 +159,8 @@ To establish connectivity from an on-premises environment to the database in SQL
 - [Point-to-Site connection](../../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)
 - [Site-to-Site VPN connection](../../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)
 - [ExpressRoute circuit](../../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md)
+
+Consider [DNS configuration scenarios](/azure/private-link/private-endpoint-dns#dns-configuration-scenarios) as well, as the FQDN of the service can resolve to the public IP address.
 
 ## Connecting from Azure Synapse Analytics to Azure Storage using Polybase and the COPY statement
 

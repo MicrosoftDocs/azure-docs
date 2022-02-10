@@ -5,7 +5,7 @@ services: iot-central
 ms.service: iot-central
 author: dominicbetts
 ms.author: dobett
-ms.date: 07/06/2021
+ms.date: 12/27/2021
 ms.topic: how-to
 ---
 
@@ -17,7 +17,7 @@ You can use the [Azure portal](https://portal.azure.com) to create, manage, and 
 
 [!INCLUDE [Warning About Access Required](../../../includes/iot-central-warning-contribitorrequireaccess.md)]
 
-To create an application, navigate to the [IoT Central Application](https://ms.portal.azure.com/#create/Microsoft.IoTCentral) page in the Azure portal:
+To create an application, navigate to the [IoT Central Application](https://portal.azure.com/#create/Microsoft.IoTCentral) page in the Azure portal:
 
 ![Create IoT Central form](media/howto-manage-iot-central-from-portal/create-form.png)
 

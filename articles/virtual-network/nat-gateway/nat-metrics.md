@@ -9,7 +9,6 @@ manager: KumudD
 ms.service: virtual-network
 ms.subservice: nat
 # Customer intent: As an IT administrator, I want to understand available Azure Monitor metrics and alerts for Virtual Network NAT.
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
@@ -36,8 +35,8 @@ NAT gateway resources provide the following multi-dimensional metrics in Azure M
 | Bytes | Bytes processed inbound and outbound | Sum | Direction (In; Out), Protocol (6 TCP; 17 UDP) |
 | Packets | Packets processed inbound and outbound | Sum | Direction (In; Out), Protocol (6 TCP; 17 UDP) |
 | Dropped packets | Packets dropped by the NAT gateway | Sum | / |
-| SNAT Connection Count | State transitions per interval | Sum | Connection State, Protocol (6 TCP; 17 UDP) |
-| Total SNAT connection count | Current active SNAT connections (~ SNAT ports in use) | Sum | Protocol (6 TCP; 17 UDP) |
+| SNAT Connection Count | Number of SNAT connections / State transitions per interval of time | Sum | Connection State, Protocol (6 TCP; 17 UDP) |
+| Total SNAT connection count | Current active SNAT connections (~ SNAT ports currently in use by NAT gateway) | Sum | Protocol (6 TCP; 17 UDP) |
 | Datapath availability (Preview) | Availability of the data path of the NAT gateway. Used to determine whether the NAT gateway endpoints are available for outbound traffic flow. | Avg | Availability (0, 100) |
 
 ## Alerts

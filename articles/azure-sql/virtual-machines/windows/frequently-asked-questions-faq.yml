@@ -199,7 +199,7 @@ sections:
       - question: |
           Can I use the Azure portal to manage multiple instances on the same VM?
         answer: |
-             No. Portal management is provided by the SQL IaaS Agent extension, which relies on the SQL Server IaaS Agent extension. As such, the same limitations apply to the extension as the extension. The portal can either only manage one default instance, or one named instance as long as its configured correctly. For more information, see [SQL Server IaaS Agent extension](sql-server-iaas-agent-extension-automate-management.md) 
+             No. Portal management is provided by the SQL IaaS Agent extension, which relies on the SQL Server IaaS Agent extension. As such, the same limitations apply to the portal as the extension. The portal can either only manage one default instance, or one named instance as long as its configured correctly. For more information, see [SQL Server IaaS Agent extension](sql-server-iaas-agent-extension-automate-management.md) 
           
           
   - name: Updating and patching

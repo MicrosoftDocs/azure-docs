@@ -1,5 +1,5 @@
 ---
-title: Deploy Azure Video Analyzer to an IoT Edge device - Azure
+title: Deploy Video Analyzer to an IoT Edge device
 description: This article lists the steps that will help you deploy Azure Video Analyzer to your IoT Edge device. You would do this, for example, if you have access to a local Linux machine.
 ms.topic: how-to
 ms.date: 11/04/2021

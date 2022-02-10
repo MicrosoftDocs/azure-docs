@@ -32,15 +32,17 @@ Microsoft Sentinel provides the following built-in, product-specific registry ev
 - **Sysmon registry monitoring events (Events 12, 13, and 14)**, collected using the Log Analytics Agent or Azure Monitor Agent
 - **Microsoft 365 Defender for Endpoint registry events**
 
-To use the source-agnostic parser that unifies all of the built-in parsers, and ensure that your analysis runs across all the configured sources, use **imRegistry** as the table name in your query.
+To use the unifying parser that unifies all of the built-in parsers, and ensure that your analysis runs across all the configured sources, use **imRegistry** as the table name in your query.
 
-Deploy the [source-agnostic and source-specific parsers](normalization-about-parsers.md) from the [Microsoft Sentinel GitHub repository](https://aka.ms/AzSentinelRegistry).
+Deploy the [unifying and source-specific parsers](normalization-about-parsers.md) from the [Microsoft Sentinel GitHub repository](https://aka.ms/AzSentinelRegistry).
+
+For more information, see [ASIM parsers](normalization-parsers-overview.md) and [Use ASIM parsers](normalization-about-parsers.md).
 
 ### Add your own normalized parsers
 
 When implementing custom parsers for the Registry Event information model, name your KQL functions using the following syntax: `imRegistry<vendor><Product>`.
 
-Add your KQL functions to the `imRegistry` source-agnostic parsers to ensure that any content using the Registry Event model also uses your new parser.
+Add your KQL functions to the `imRegistry` unifying parsers to ensure that any content using the Registry Event model also uses your new parser.
 
 ## Normalized content
 

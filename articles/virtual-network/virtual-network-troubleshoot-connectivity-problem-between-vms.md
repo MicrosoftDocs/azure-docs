@@ -9,7 +9,6 @@ editor: ''
 tags: azure-resource-manager
 
 ms.service: virtual-network
-ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services

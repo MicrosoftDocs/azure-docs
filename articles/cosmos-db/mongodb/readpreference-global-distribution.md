@@ -5,7 +5,7 @@ author: gahl-levy
 ms.author: gahllevy
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
-ms.devlang: nodejs
+ms.devlang: javascript
 ms.topic: how-to
 ms.date: 02/26/2019
 ms.custom: devx-track-js
@@ -168,4 +168,4 @@ If you're not going to continue to use this app, delete all resources created by
 
 * [Import MongoDB data into Azure Cosmos DB](../../dms/tutorial-mongodb-cosmos-db.md?toc=%2fazure%2fcosmos-db%2ftoc.json%253ftoc%253d%2fazure%2fcosmos-db%2ftoc.json)
 * [Setup a globally distributed database with Azure Cosmos DB's API for MongoDB](tutorial-global-distribution-mongodb.md)
-* [Develop locally with the Azure Cosmos DB emulator](../local-emulator.md)
+* [Develop locally with the Azure Cosmos DB Emulator](../local-emulator.md)

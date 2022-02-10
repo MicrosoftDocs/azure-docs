@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.subservice: security 
 ms.date: 12/01/2020 
 ms.author: NanditaV
-ms.reviewer: jrasnick
+ms.reviewer: sngun
 ---
 
 # Create a workspace with data exfiltration protection enabled

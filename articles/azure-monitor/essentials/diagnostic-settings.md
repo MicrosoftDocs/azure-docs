@@ -14,7 +14,7 @@ This article provides details on creating and configuring diagnostic settings to
 
 [Platform metrics](./metrics-supported.md) are sent automatically to [Azure Monitor Metrics](./data-platform-metrics.md) by default and without configuration.
 
-[Platform logs](./platform-logs-overview.md), including the Azure Activity log and resource logs, provide detailed diagnostic and auditing information for Azure resources and the Azure platform they depend on. The Activity Log exists on it own but can be routed to other locations.  Resource logs are not collected until they are routed to a destination.
+[Platform logs](./platform-logs-overview.md), including the Azure Activity log and resource logs, provide detailed diagnostic and auditing information for Azure resources and the Azure platform they depend on. The Activity Log exists on its own but can be routed to other locations.  Resource logs are not collected until they are routed to a destination.
 
 Each Azure resource requires its own diagnostic setting, which defines the following criteria:
 
@@ -92,11 +92,6 @@ Any destinations for the diagnostic setting must be created before creating the 
 | Azure storage account | Do not use an existing storage account that has other, non-monitoring data stored in it so that you can better control access to the data. If you are archiving the Activity log and resource logs together though, you may choose to use the same storage account to keep all monitoring data in a central location.<br><br>To send the data to immutable storage, set the immutable policy for the storage account as described in [Set and manage immutability policies for Blob storage](../../storage/blobs/immutable-policy-configure-version-scope.md). You must follow all steps in this linked article including enabling protected append blobs writes.<br><br>The storage account needs to be in the same region as the resource being monitored if the resource is regional.|
 | Event Hubs | The shared access policy for the namespace defines the permissions that the streaming mechanism has. Streaming to Event Hubs requires Manage, Send, and Listen permissions. To update the diagnostic setting to include streaming, you must have the ListKey permission on that Event Hubs authorization rule.<br><br>The event hub namespace needs to be in the same region as the resource being monitored if the resource is regional. <br><br> Diagnostic settings can't access Event Hubs resources when virtual networks are enabled. You have to enable the *Allow trusted Microsoft services* to bypass this firewall setting in Event Hub, so that Azure Monitor (Diagnostic Settings) service is granted access to your Event Hubs resources.|
 | Partner integrations | Varies by partner.  Check the [Azure Monitor partner integrations documentation](../../partner-solutions/overview.md) for details.  
-
-### Azure Data Lake Storage Gen2 as a destination
-
-> [!NOTE]
-> Azure Data Lake Storage Gen2 accounts are not currently supported as a destination for diagnostic settings even though they may be listed as a valid option in the Azure portal.
 
 ## Create in Azure portal
 
@@ -304,9 +299,9 @@ When you create the assignment by using the Azure portal, you have the option of
 
 ### Metric category is not supported
 
-When deploying a diagnostic setting, you receive an error message, similar to *Metric category 'xxxx' is not supported*. You may receive this error even though a previous your deployment succeeded. 
+When deploying a diagnostic setting, you receive an error message, similar to *Metric category 'xxxx' is not supported*. You may receive this error even though your previous deployment succeeded. 
 
-The problem occurs when using a Resource Manager template, the diagnostic settings REST API, Azure CLI, or Azure PowerShell. Diagnostic settings created via the Azure portal are not affected as only the supported category names are presented.
+The problem occurs when using a Resource Manager template, REST API, Azure CLI, or Azure PowerShell. Diagnostic settings created via the Azure portal are not affected as only the supported category names are presented.
 
 The problem is caused by a recent change in the underlying API. Metric categories other than 'AllMetrics' are not supported and never were except for a few specific Azure services. In the past, other category names were ignored when deploying a diagnostic setting. The Azure Monitor backend redirected these categories to 'AllMetrics'.  As of February 2021, the backend was updated to specifically confirm the metric category provided is accurate. This change has caused some deployments to fail.
 

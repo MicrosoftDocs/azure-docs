@@ -56,6 +56,17 @@ The following diagram shows the general flow of a data access call. In this exam
 
 :::image type="content" source="./media/concept-network-data-access/data-access-flow.svg" alt-text="Diagram of the logic flow when accessing data":::
 
+### Scenarios and identities
+
+The following table lists what identities should be used for specific scenarios:
+
+| Scenario | Use workspace</br>Managed Service Identity (MSI) | Identity to use |
+|--|--|--|
+| Access from UI | Yes | Workspace MSI |
+| Access from UI | No | User's Identity |
+| Access from Job | Yes/No | Compute MSI |
+| Access from Notebook | Yes/No | User's identity |
+
 ## Azure Storage Account
 
 When using an Azure Storage Account from Azure Machine Learning studio, you must add the managed identity of the workspace to the following Azure RBAC roles for the storage account:
@@ -66,6 +77,10 @@ When using an Azure Storage Account from Azure Machine Learning studio, you must
 For more information, see [Use Azure Machine Learning studio in an Azure Virtual Network](how-to-enable-studio-virtual-network.md).
 
 See the following sections for information on limitations when using Azure Storage Account with your workspace in a VNet.
+
+### Secure communication with Azure Storage Account 
+
+To secure communication between Azure Machine Learning and Azure Storage Accounts, configure storage to [Grant access to trusted Azure services](../storage/common/storage-network-security.md#grant-access-to-trusted-azure-services).
 
 ### Azure Storage firewall
 
@@ -96,9 +111,25 @@ To access data stored in an Azure SQL Database with a managed identity, you must
 
 After you create a SQL contained user, grant permissions to it by using the [GRANT T-SQL command](/sql/t-sql/statements/grant-object-permissions-transact-sql).
 
-### Deny public network access
+### Secure communication with Azure SQL Database
 
-In Azure SQL Database, the __Deny public network access__ allows you to block public access to the database. We __do not support__ accessing SQL Database if this option is enabled. When using a SQL Database with Azure Machine Learning studio, the data access is always made through the public endpoint for the SQL Database.
+To secure communication between Azure Machine Learning and Azure SQL Database, there are two options:
+
+> [!IMPORTANT]
+> Both options allow the possibility of services outside your subscription connecting to your SQL Database. Make sure that your SQL login and user permissions limit access to authorized users only.
+
+* __Allow Azure services and resources to access the Azure SQL Database server__. Enabling this setting _allows all connections from Azure_, including __connections from the subscriptions of other customers__, to your database server.
+
+    For information on enabling this setting, see [IP firewall rules - Azure SQL Database and Synapse Analytics](/azure/azure-sql/database/firewall-configure).
+
+* __Allow the IP address range of the Azure Machine Learning service in Firewalls and virtual networks__ for the Azure SQL Database. Allowing the IP addresses through the firewall limits __connections to the Azure Machine Learning service for a region__.
+
+    > [!WARNING]
+    > The IP ranges for the Azure Machine Learning service may change over time. There is no built-in way to automatically update the firewall rules when the IPs change.
+
+    To get a list of the IP addresses for Azure Machine Learning, download the [Azure IP Ranges and Service Tags](https://www.microsoft.com/download/details.aspx?id=56519) and search the file for `AzureMachineLearning.<region>`, where `<region>` is the Azure region that contains your Azure Machine Learning workspace.
+
+    To add the IP addresses to your Azure SQL Database, see [IP firewall rules - Azure SQL Database and Synapse Analytics](/azure/azure-sql/database/firewall-configure).
 
 ## Next steps
 

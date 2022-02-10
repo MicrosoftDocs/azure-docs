@@ -1,15 +1,18 @@
 ---
 title: Register a client application in Azure AD using CLI and REST API - Azure Healthcare APIs
-description: This article describes how to register a client application Azure ADusing CLI and REST API.
+description: This article describes how to register a client application Azure AD using CLI and REST API.
 services: healthcare-apis
 author: SteveWohl
 ms.service: healthcare-apis
 ms.topic: tutorial
-ms.date: 12/06/2021
+ms.date: 12/10/2021
 ms.author: zxue
 ---
 
 # Register a client application using CLI and REST API
+
+> [!IMPORTANT]
+> Azure Healthcare APIs is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 In this article, you'll learn how to register a client application in the Azure Active Directory (Azure AD) using Azure Command-Line Interface (CLI) and REST API to access the Healthcare APIs. While you can register a client application using the Azure portal, the scripting approach enables you to test and deploy resources directly. For more information, see [Register a client application with the Azure portal](register-application.md).
 
@@ -29,7 +32,7 @@ az extension add --name healthcareapis
 az provider register --namespace 'Microsoft.HealthcareApis'
 az provider show --namespace Microsoft.HealthcareApis --query "resourceTypes[?resourceType=='services'].locations"
 ```
-You can sign in to Azure using the CLI login command, and list the Azure subscription and tenant you are in by default. For more information, see [change the default subscription](/cli/azure/account?view=azure-cli-latest&preserve-view=true#az_account_set). For more information about how to sign in to a specific tenant, see [Azure login](/cli/azure/authenticate-azure-cli).
+You can sign in to Azure using the CLI login command, and list the Azure subscription and tenant you are in by default. For more information, see [change the default subscription](/cli/azure/account#az_account_set). For more information about how to sign in to a specific tenant, see [Azure login](/cli/azure/authenticate-azure-cli).
 
 ```
 az login

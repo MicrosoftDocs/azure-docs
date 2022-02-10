@@ -5,7 +5,7 @@ author: lrtoyou1223
 ms.service: data-factory
 ms.subservice: integration-runtime
 ms.topic: conceptual
-ms.date: 01/15/2018
+ms.date: 01/27/2022
 ms.author: lle 
 ms.custom: devx-track-azurepowershell
 ---

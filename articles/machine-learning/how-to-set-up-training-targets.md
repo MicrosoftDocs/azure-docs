@@ -228,7 +228,7 @@ method, or from the Experiment tab view in Azure Machine Learning studio client 
 
 ## Next steps
 
-* [Tutorial: Train a model](tutorial-train-models-with-aml.md) uses a managed compute target to  train a model.
+* [Tutorial: Train and deploy a model](tutorial-train-deploy-notebook.md) uses a managed compute target to  train a model.
 * See how to train models with specific ML frameworks, such as [Scikit-learn](how-to-train-scikit-learn.md), [TensorFlow](how-to-train-tensorflow.md), and [PyTorch](how-to-train-pytorch.md).
 * Learn how to [efficiently tune hyperparameters](how-to-tune-hyperparameters.md) to build better models.
 * Once you have a trained model, learn [how and where to deploy models](how-to-deploy-and-where.md).

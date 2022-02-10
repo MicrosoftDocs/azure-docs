@@ -8,7 +8,7 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 08/24/2021
-ms.custom: mode-other
+ms.custom: mode-ui
 ---
 
 # Quickstart: Create a demo app in the portal (Azure Cognitive Search)
@@ -23,7 +23,7 @@ Before you begin, you must have the following:
 
 + An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
 
-+ An Azure Cognitive Search service. [Create a service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this quickstart. 
++ An Azure Cognitive Search service. [Create a service](search-create-service-portal.md) or [find an existing service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this quickstart. 
 
 + [Microsoft Edge (latest version)](https://www.microsoft.com/edge) or Google Chrome.
 
@@ -39,7 +39,7 @@ When the index is ready to use, move on to the next step.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) with your Azure account.
 
-1. [Find your search service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) and on the Overview page, from the links on the middle of the page, select **Indexes**. 
+1. [Find your search service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) and on the Overview page, from the links on the middle of the page, select **Indexes**. 
 
 1. Choose *realestate-us-sample-index* from the list of existing indexes.
 

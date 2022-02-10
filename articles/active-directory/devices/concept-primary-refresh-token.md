@@ -76,6 +76,8 @@ A PRT is used by two key components in Windows:
 
 * **Azure AD CloudAP plugin**: During Windows sign in, the Azure AD CloudAP plugin requests a PRT from Azure AD using the credentials provided by the user. It also caches the PRT to enable cached sign in when the user does not have access to an internet connection.
 * **Azure AD WAM plugin**: When users try to access applications, the Azure AD WAM plugin uses the PRT to enable SSO on Windows 10. Azure AD WAM plugin uses the PRT to request refresh and access tokens for applications that rely on WAM for token requests. It also enables SSO on browsers by injecting the PRT into browser requests. Browser SSO in Windows 10 is supported on Microsoft Edge (natively), Chrome (via the [Windows 10 Accounts](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji?hl=en) or [Office Online](https://chrome.google.com/webstore/detail/office/ndjpnladcallmjemlbaebfadecfhkepb?hl=en) extensions) or Mozilla Firefox v91+ (Firefox [Windows SSO setting](https://support.mozilla.org/kb/windows-sso))
+  > [!NOTE]
+  >  In instances where a user has two accounts from the same Azure AD tenant signed in to a browser application, the device authentication provided by the PRT of the primary account is automatically applied to the second account as well. As a result, the second account also satisfies any device-based Conditional Access policy on the tenant.
 
 ## How is a PRT renewed?
 
@@ -202,7 +204,7 @@ The following diagrams illustrate the underlying details in issuing, renewing, a
 | F | Azure AD validates the Session key signature on the PRT cookie, validates the nonce, verifies that the device is valid in the tenant, and issues an ID token for the web page and an encrypted session cookie for the browser. |
 
 > [!NOTE]
-> The Browser SSO flow described in the steps above does not apply for sessions in private modes such as InPrivate in Microsoft Edge, Incognito in Google Chrome (when using the Microsoft Accounts extension) or in private mode in Mozilla Firefox v91+
+> The Browser SSO flow described in the steps above does not apply for sessions in private modes such as InPrivate in Microsoft Edge, Incognito in Google Chrome (when using the Microsoft Accounts or Office Online extensions) or in private mode in Mozilla Firefox v91+
 
 ## Next steps
 

@@ -22,6 +22,8 @@ ms.date: 11/11/2021
 > [!NOTE] 
 > The Flowlet feature in mapping data flow is currently in public preview
 
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWQK3m]
+
 ## Getting started
 To create a flowlet, click the new flowlet action from the mapping data flow menu options.
 

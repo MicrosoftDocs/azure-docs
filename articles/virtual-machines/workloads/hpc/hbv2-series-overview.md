@@ -8,7 +8,7 @@ ms.service: virtual-machines
 ms.subservice: hpc
 ms.workload: infrastructure-services 
 ms.topic: article 
-ms.date: 09/28/2020 
+ms.date: 12/15/2020 
 ms.author: amverma 
 ms.reviewer: cynthn
 --- 
@@ -26,7 +26,7 @@ To provide room for the Azure hypervisor to operate without interfering with the
 
 `(30 vNUMA domains) * (4 cores/vNUMA) = 120` cores per VM 
 
-The VM itself has no awareness that pNUMA 0 and 16 are reserved. It enumerates the vNUMA it sees as 0-29, with 15 vNUMA per socket symmetrically, vNUMA 0-14 on vSocket 0, and vNUMA 15-29 on vSocket 1. In the next section, there are instructions on how best to run MPI applications on this asymmetric NUMA layout. 
+The VM itself has no awareness that pNUMA 0 and 16 are reserved. It enumerates the vNUMA it sees as 0-29, with 15 vNUMA per socket symmetrically, vNUMA 0-14 on vSocket 0, and vNUMA 15-29 on vSocket 1.
 
 Process pinning will work on HBv2-series VMs because we expose the underlying silicon as-is to the guest VM. We strongly recommend process pinning for optimal performance and consistency. 
 

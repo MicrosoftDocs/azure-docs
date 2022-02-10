@@ -4,7 +4,7 @@ description: Understand the available actions you can use with Chaos Studio incl
 services: chaos-studio
 author: johnkemnetz
 ms.topic: article
-ms.date: 11/10/2021
+ms.date: 02/09/2022
 ms.author: johnkem
 ms.service: chaos-studio
 ms.custom: ignite-fall-2021
@@ -700,7 +700,7 @@ Known issues on Linux:
 |-|-|
 | Capability Name | Failover-1.0 |
 | Target type | Microsoft-CosmosDB |
-| Description | Causes a Cosmos DB account with a single write region to fail over to a specified read region to simulate a [write region outage](../cosmos-db/high-availability.md#multi-region-accounts-with-a-single-write-region-write-region-outage) |
+| Description | Causes a Cosmos DB account with a single write region to fail over to a specified read region to simulate a [write region outage](../cosmos-db/high-availability.md) |
 | Prerequisites | None. |
 | Urn | urn:csci:microsoft:cosmosDB:failover/1.0 |
 | Parameters (key, value) |  |
@@ -734,6 +734,7 @@ Known issues on Linux:
 |-|-|
 | Capability Name | NetworkChaos-2.1 |
 | Target type | Microsoft-AzureKubernetesServiceChaosMesh |
+| Supported node pool OS types | Linux |
 | Description | Causes a network fault available through [Chaos Mesh](https://chaos-mesh.org/docs/simulate-network-chaos-on-kubernetes/) to run against your AKS cluster. Useful for recreating AKS incidents resulting from network outages, delays, duplications, loss, and corruption. |
 | Prerequisites | The AKS cluster must [have Chaos Mesh deployed](chaos-studio-tutorial-aks-portal.md). |
 | Urn | urn:csci:microsoft:azureKubernetesServiceChaosMesh:networkChaos/2.1 |
@@ -755,7 +756,6 @@ Known issues on Linux:
             "value": "{\"action\":\"delay\",\"mode\":\"one\",\"selector\":{\"namespaces\":[\"default\"],\"labelSelectors\":{\"app\":\"web-show\"}},\"delay\":{\"latency\":\"10ms\",\"correlation\":\"100\",\"jitter\":\"0ms\"}}"
         }
     ],
-      "duration": "PT10M",
       "selectorid": "myResources"
     }
   ]
@@ -768,6 +768,7 @@ Known issues on Linux:
 |-|-|
 | Capability Name | PodChaos-2.1 |
 | Target type | Microsoft-AzureKubernetesServiceChaosMesh |
+| Supported node pool OS types | Linux |
 | Description | Causes a pod fault available through [Chaos Mesh](https://chaos-mesh.org/docs/simulate-pod-chaos-on-kubernetes/) to run against your AKS cluster. Useful for recreating AKS incidents that are a result of pod failures or container issues. |
 | Prerequisites | The AKS cluster must [have Chaos Mesh deployed](chaos-studio-tutorial-aks-portal.md). |
 | Urn | urn:csci:microsoft:azureKubernetesServiceChaosMesh:podChaos/2.1 |
@@ -789,7 +790,6 @@ Known issues on Linux:
             "value": "{\"action\":\"pod-failure\",\"mode\":\"one\",\"duration\":\"30s\",\"selector\":{\"labelSelectors\":{\"app.kubernetes.io\/component\":\"tikv\"}}}"
         }
     ],
-      "duration": "PT10M",
       "selectorid": "myResources"
     }
   ]
@@ -802,6 +802,7 @@ Known issues on Linux:
 |-|-|
 | Capability Name | StressChaos-2.1 |
 | Target type | Microsoft-AzureKubernetesServiceChaosMesh |
+| Supported node pool OS types | Linux |
 | Description | Causes a stress fault available through [Chaos Mesh](https://chaos-mesh.org/docs/simulate-heavy-stress-on-kubernetes/) to run against your AKS cluster. Useful for recreating AKS incidents due to stresses over a collection of pods, for example, due to high CPU or memory consumption. |
 | Prerequisites | The AKS cluster must [have Chaos Mesh deployed](chaos-studio-tutorial-aks-portal.md). |
 | Urn | urn:csci:microsoft:azureKubernetesServiceChaosMesh:stressChaos/2.1 |
@@ -823,7 +824,6 @@ Known issues on Linux:
             "value": "{\"mode\":\"one\",\"selector\":{\"labelSelectors\":{\"app\":\"app1\"}},\"stressors\":{\"memory\":{\"workers\":4,\"size\":\"256MB\"}}}"
         }
     ],
-      "duration": "PT10M",
       "selectorid": "myResources"
     }
   ]
@@ -836,6 +836,7 @@ Known issues on Linux:
 |-|-|
 | Capability Name | IOChaos-2.1 |
 | Target type | Microsoft-AzureKubernetesServiceChaosMesh |
+| Supported node pool OS types | Linux |
 | Description | Causes an IO fault available through [Chaos Mesh](https://chaos-mesh.org/docs/simulate-io-chaos-on-kubernetes/) to run against your AKS cluster. Useful for recreating AKS incidents due to IO delays and read/write failures when using IO system calls such as `open`, `read`, and `write`. |
 | Prerequisites | The AKS cluster must [have Chaos Mesh deployed](chaos-studio-tutorial-aks-portal.md). |
 | Urn | urn:csci:microsoft:azureKubernetesServiceChaosMesh:IOChaos/2.1 |
@@ -857,7 +858,6 @@ Known issues on Linux:
             "value": "{\"action\":\"latency\",\"mode\":\"one\",\"selector\":{\"labelSelectors\":{\"app\":\"etcd\"}},\"volumePath\":\"\/var\/run\/etcd\",\"path\":\"\/var\/run\/etcd\/**\/*\",\"delay\":\"100ms\",\"percent\":50,\"duration\":\"400s\"}"
         }
     ],
-      "duration": "PT10M",
       "selectorid": "myResources"
     }
   ]
@@ -870,6 +870,7 @@ Known issues on Linux:
 |-|-|
 | Capability Name | TimeChaos-2.1 |
 | Target type | Microsoft-AzureKubernetesServiceChaosMesh |
+| Supported node pool OS types | Linux |
 | Description | Causes a change in the system clock on your AKS cluster using  [Chaos Mesh](https://chaos-mesh.org/docs/simulate-time-chaos-on-kubernetes/). Useful for recreating AKS incidents that result from distributed systems falling out of sync, missing/incorrect leap year/leap second logic, and more. |
 | Prerequisites | The AKS cluster must [have Chaos Mesh deployed](chaos-studio-tutorial-aks-portal.md). |
 | Urn | urn:csci:microsoft:azureKubernetesServiceChaosMesh:timeChaos/2.1 |
@@ -891,7 +892,6 @@ Known issues on Linux:
             "value": "{\"mode\":\"one\",\"selector\":{\"labelSelectors\":{\"app\":\"app1\"}},\"timeOffset\":\"-10m100ns\"}"
         }
     ],
-      "duration": "PT10M",
       "selectorid": "myResources"
     }
   ]
@@ -904,6 +904,7 @@ Known issues on Linux:
 |-|-|
 | Capability Name | KernelChaos-2.1 |
 | Target type | Microsoft-AzureKubernetesServiceChaosMesh |
+| Supported node pool OS types | Linux |
 | Description | Causes a kernel fault available through [Chaos Mesh](https://chaos-mesh.org/docs/simulate-kernel-chaos-on-kubernetes/) to run against your AKS cluster. Useful for recreating AKS incidents due to Linux kernel-level errors such as a mount failing or memory not being allocated. |
 | Prerequisites | The AKS cluster must [have Chaos Mesh deployed](chaos-studio-tutorial-aks-portal.md). |
 | Urn | urn:csci:microsoft:azureKubernetesServiceChaosMesh:kernelChaos/2.1 |
@@ -925,7 +926,6 @@ Known issues on Linux:
             "value": "{\"mode\":\"one\",\"selector\":{\"namespaces\":[\"chaos-mount\"]},\"failKernRequest\":{\"callchain\":[{\"funcname\":\"__x64_sys_mount\"}],\"failtype\":0}}"
         }
     ],
-      "duration": "PT10M",
       "selectorid": "myResources"
     }
   ]
@@ -938,6 +938,7 @@ Known issues on Linux:
 |-|-|
 | Capability Name | HTTPChaos-2.1 |
 | Target type | Microsoft-AzureKubernetesServiceChaosMesh |
+| Supported node pool OS types | Linux |
 | Description | Causes an HTTP fault available through [Chaos Mesh](https://chaos-mesh.org/docs/simulate-http-chaos-on-kubernetes/) to run against your AKS cluster. Useful for recreating incidents due HTTP request and response processing failures, such as delayed or incorrect responses. |
 | Prerequisites | The AKS cluster must [have Chaos Mesh deployed](chaos-studio-tutorial-aks-portal.md). |
 | Urn | urn:csci:microsoft:azureKubernetesServiceChaosMesh:httpChaos/2.1 |
@@ -959,7 +960,6 @@ Known issues on Linux:
             "value": "{\"mode\":\"all\",\"selector\":{\"labelSelectors\":{\"app\":\"nginx\"}},\"target\":\"Request\",\"port\":80,\"method\":\"GET\",\"path\":\"\/api\",\"abort\":true,\"duration\":\"5m\",\"scheduler\":{\"cron\":\"@every 10m\"}}"
         }
     ],
-      "duration": "PT10M",
       "selectorid": "myResources"
     }
   ]
@@ -972,6 +972,7 @@ Known issues on Linux:
 |-|-|
 | Capability Name | DNSChaos-2.1 |
 | Target type | Microsoft-AzureKubernetesServiceChaosMesh |
+| Supported node pool OS types | Linux |
 | Description | Causes a DNS fault available through [Chaos Mesh](https://chaos-mesh.org/docs/simulate-dns-chaos-on-kubernetes/) to run against your AKS cluster. Useful for recreating incidents due to DNS failures. |
 | Prerequisites | The AKS cluster must [have Chaos Mesh deployed](chaos-studio-tutorial-aks-portal.md) and the [DNS service must be installed](https://chaos-mesh.org/docs/simulate-dns-chaos-on-kubernetes/#deploy-chaos-dns-service). |
 | Urn | urn:csci:microsoft:azureKubernetesServiceChaosMesh:dnsChaos/2.1 |
@@ -993,7 +994,6 @@ Known issues on Linux:
             "value": "{\"action\":\"random\",\"mode\":\"all\",\"patterns\":[\"google.com\",\"chaos-mesh.*\",\"github.?om\"],\"selector\":{\"namespaces\":[\"busybox\"]}}"
         }
     ],
-      "duration": "PT10M",
       "selectorid": "myResources"
     }
   ]

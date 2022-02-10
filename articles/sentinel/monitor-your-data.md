@@ -65,6 +65,11 @@ You must have at least **Workbook reader** or **Workbook contributor** permissio
 
 1. When building a query, make sure the **Data source** is set to **Logs** and **Resource type** is set to **Log Analytics**, and then choose the relevant workspace(s). 
 
+   > [!IMPORTANT]
+   >
+   > We recommend that your query uses an [Advanced SIEM Information model (ASIM) parser](normalization-about-parsers.md) and not a built-in table. This ensures that the query will support any current or future relevant data source rather than a single data source.
+   >
+    
 1. After you create your workbook, save the workbook, making sure you save it under the subscription and resource group of your Microsoft Sentinel workspace.
 
 1. If you want to let others in your organization use the workbook, under **Save to** select **Shared reports**. If you want this workbook to be available only to you, select **My reports**.
