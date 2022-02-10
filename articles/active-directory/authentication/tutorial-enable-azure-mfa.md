@@ -124,7 +124,7 @@ In this tutorial, configure the access controls to require multi-factor authenti
 
 1. Select **Require multi-factor authentication**, and then choose **Select**.
 
-   :::image type="content" alt-text="A screenshot of the options for granting access, where you select 'Require multi-factor authentication'." source="media/tutorial-enable-azure-mfa/tutorial-enable-azure-mfa-conditional-access-select-require-multifactor-authentication.png":::
+   :::image type="content" alt-text="A screenshot of the options for granting access, where you select 'Require multi-factor authentication'." source="media/tutorial-enable-azure-mfa/tutorial-enable-azure-mfa-conditional-access-select-require-mfa.png":::
 
 
 ### Activate the policy
