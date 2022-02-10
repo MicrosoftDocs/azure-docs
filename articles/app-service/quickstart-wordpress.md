@@ -7,13 +7,15 @@ ms.devlang: wordpress
 ms.author: msangapu
 ms.custom: mvc
 ---
-# Create a WordPress site in Azure
+# Create a WordPress site
 
-In this quickstart, you'll learn how to create and deploy your first  ([WordPress](https://www.wordpress.org)) site to [Azure App Service](overview.md) using [Azure Portal](https://portal.azure.com). 
+In this quickstart, you'll learn how to create and deploy your first ([WordPress](https://www.wordpress.org)) site (Preview) to [Azure App Service](overview.md) using [Azure Portal](https://portal.azure.com). 
 
-This quickstart configures WordPress in App Service on Linux. It uses the **Basic** tier and [**incurs a cost**](https://azure.microsoft.com/pricing/details/app-service/linux/) for your Azure subscription.
+This quickstart configures WordPress in App Service on Linux.  It uses the **Basic** tier and [**incurs a cost**](https://azure.microsoft.com/pricing/details/app-service/linux/) for your Azure subscription.
 
 > [!IMPORTANT]
+> WordPress in App Service on Linux is in preview.
+>
 > [After November 28, 2022, PHP will only be supported on App Service on Linux.](https://github.com/Azure/app-service-linux-docs/blob/master/Runtime_Support/php_support.md#end-of-life-for-php-74)
 
 ### Sign in to Azure portal
@@ -40,6 +42,9 @@ Sign in to the Azure portal at https://portal.azure.com.
 
 1. Under **Instance details**, type a globally unique name for your web app and choose **Linux** for **Operating System**. Select **Basic** for **Hosting plan**. See the table below for app and database SKUs for given hosting plans. For pricing, visit [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/linux/) and [Azure Database for MySQL pricing](https://azure.microsoft.com/pricing/details/mysql/flexible-server/). 
 
+> [!IMPORTANT]
+> WordPress in App Service on Linux is in preview.
+
     > [!div class="mx-tdCol2BreakAll mx-tdCol3BreakAll"]
     > |Hosting Plan | App Service SKU | Database SKU |
     > |-------------|-------------|-------------|
@@ -61,7 +66,7 @@ Sign in to the Azure portal at https://portal.azure.com.
     > [!NOTE]
     > App Service creates environment variables and application settings needed for WordPress/PHP configuration. See [Environment variables and app settings in Azure App Service](reference-app-settings.md#wordpress) for more information.
 
-1. Browse to your site URL and verify the app is running properly.
+1. Browse to your site URL and verify the app is running properly. The site may take a few minutes to load. If you receive an error, allow a few more minutes then refresh the browser.
 
     :::image type="content" source="./media/quickstart-wordpress/wordpress-sample-site.png?text=WordPress sample site" alt-text="Screenshot of WordPress site":::
 
