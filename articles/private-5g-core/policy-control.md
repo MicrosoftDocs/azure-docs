@@ -1,6 +1,6 @@
 ---
 title: Policy control
-titlesuffix: Azure Private 5G Core Preview
+titleSuffix: Azure Private 5G Core Preview
 description: Information on Azure Private 5G Core Preview's policy control configuration, which allows for flexible traffic handling in your private mobile network. 
 author: djrmetaswitch
 ms.author: drichards

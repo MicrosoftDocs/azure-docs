@@ -1,6 +1,6 @@
 ---
 title: Key components of a private mobile network
-titlesuffix: Azure Private 5G Core Preview
+titleSuffix: Azure Private 5G Core Preview
 description: Learn about the key components of a private mobile network deployed through Azure Private 5G Core Preview.
 author: djrmetaswitch
 ms.author: drichards

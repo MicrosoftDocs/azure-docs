@@ -1,6 +1,6 @@
 ---
 title: Configure a SIM policy
-titlesuffix: Azure Private 5G Core Preview
+titleSuffix: Azure Private 5G Core Preview
 description: With this how-to guide, learn how to configure a SIM policy for Azure Private 5G Core Preview through the Azure portal. 
 author: djrmetaswitch
 ms.author: drichards

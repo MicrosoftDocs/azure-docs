@@ -1,6 +1,6 @@
 ---
 title: Statement of compliance
-titlesuffix: Azure Private 5G Core Preview
+titleSuffix: Azure Private 5G Core Preview
 description: Information on Azure Private 5G Core Preview's compliance with specifications. 
 author: djrmetaswitch
 ms.author: drichards

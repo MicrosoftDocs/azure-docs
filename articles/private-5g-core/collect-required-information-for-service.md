@@ -1,6 +1,6 @@
 ---
 title: Collect the required information for a service
-titlesuffix: Azure Private 5G Core Preview
+titleSuffix: Azure Private 5G Core Preview
 description: In this how-to guide, you'll learn how to collect all the required information to configure a service for Azure Private 5G Core Preview.
 author: djrmetaswitch
 ms.author: drichards
