@@ -23,7 +23,7 @@ You can configure an Azure Cognitive Search service to connect to other Azure re
 
 ## Supported scenarios
 
-Connections using a user-assigned managed identity require an "identity" property. Currently, only indexer data sources support this property.
+A user-assigned managed identity is specified through an "identity" property. Currently, only indexer connections to Azure data sources support this property.
 
 | Scenario | System managed identity | User managed identity (preview) |
 |----------|-------------------------|---------------------------------|
@@ -35,6 +35,10 @@ Connections using a user-assigned managed identity require an "identity" propert
 | [Custom skills](cognitive-search-custom-skill-interface.md) | Yes | No |
 
 <sup>1</sup> The Import data wizard doesn't currently accept a system managed identity connection string for incremental enrichment, but after the wizard completes, you can update the indexer JSON definition to include the connection string, and then rerun the indexer.
+
+Debug sessions, enrichment cache, and knowledge store are features that need write permissions in Azure Storage. All of them write to Blob Storage. **Storage Blob Data Contributor** role is required for these features.
+
+Knowledge store will also write to Table Storage. **Storage Table Data Contributor** is necessary for creating table projections.
 
 ## Create a system managed identity
 
@@ -142,9 +146,9 @@ The following steps are for Azure Storage. If your resource is Cosmos DB or Azur
 
 A managed identity must be paired with an Azure role that determines permissions on the Azure resource. 
 
-+ For indexer data connections and Azure Key Vault, the role must grant data reader rights. 
++ Data reader permissions are needed for indexer data connections and Azure Key Vault 
 
-+ For AI enrichment features, the search service submits data for processing or storage on the Azure resource. Write permissions are required for AI enrichment. 
++ Contributor (write) permissions are needed For AI enrichment features, where the search service submits a data payload for processing or storage on the Azure resource. These features include: enrichment cache, knowledge store, debug session.
 
 The following steps are for Azure Storage. If your resource is Cosmos DB or Azure SQL, the steps will be similar.
 
@@ -156,7 +160,8 @@ The following steps are for Azure Storage. If your resource is Cosmos DB or Azur
 
 1. On the **Role** page, choose a role:
 
-   + **Storage Blob Data Contributor** grants write permissions necessary for debug sessions, knowledge store, and enrichment cache.
+   + **Storage Blob Data Contributor** grants write permissions necessary for debug sessions, knowledge store object projections, and enrichment cache.
+   + **Storage Table Data Contributor** grants write permissions necessary for knowledge store table projections.
    + **Storage Blob Data Reader** grants read permissions for indexer access to content in Blob Storage and Azure Data Lake Storage Gen2.
    + **Reader and Data Access** grants read permissions for indexer access to content in Azure Table Storage and Azure File Storage.
 

@@ -24,10 +24,7 @@ This article supplements [**Create an indexer**](search-howto-create-indexers.md
 
 + Tables containing text. If you have binary data, you can include [AI enrichment](cognitive-search-concept-intro.md) for image analysis.
 
-+ Read permissions to access Azure Storage. A full access storage account connection string brings along the necessary permissions, but if you're using Azure roles, make sure the [search service managed identity](search-how-to-connect-managed-identity.md) has "Data and Reader" permissions.
-
-> [!NOTE]
-> If you're using Azure roles, write permissions are necessary if AI enrichment creates any of these features: enrichment cache, knowledge store, debug session. You can assign the "Storage Blob Data Contributor" role for caching, debug sessions, and blob projections. You should also include "Storage Table Data Contributor" if your knowledge store has table projections. Finally, if Azure Storage is firewall-protected, make sure you have [inbound rules](search-how-to-connect-managed-identity.md#allow-firewall-access) for admitting search service requests.
++ Read permissions to access Azure Storage. A "full access" connection string includes a key that gives access to the content, but if you're using Azure roles, make sure the [search service managed identity](search-how-to-connect-managed-identity.md) has **Data and Reader** permissions.
 
 ## Define the data source
 
