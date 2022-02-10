@@ -48,7 +48,7 @@ The accomplishes following events are  by the web API:
 
 To enable your app to sign in with Azure AD B2C and call a web API, you must register two applications in the Azure AD B2C directory.  
 
-- The **web application** registration enables your app to sign in with Azure AD B2C. During the registration, you specify the *redirect URI*. The redirect URI is the endpoint to which users are redirected by Azure AD B2C after their authentication with Azure AD B2C is completed. The app registration process generates an *application ID*, also known as the *client ID*, which uniquely identifies your app. You'll also generate a *client secret* for your app. Your app uses the client secret to exchange an authorization code for an access token. 
+- The **web application** registration enables your app to sign in with Azure AD B2C. During registration, you specify the *redirect URI*. The redirect URI is the endpoint to which users are redirected by Azure AD B2C after they complete authentication. The app registration process generates an *application ID*, also known as the *client ID*, which uniquely identifies your app. You'll also generate a *client secret* for your app. Your app uses the client secret to exchange an authorization code for an access token. 
 
 - The **web API** registration enables your app to call a secure web API. The registration includes the web API *scopes*. The scopes provide a way to manage permissions to protected resources, such as your web API. You grant the web application permissions to the web API scopes. When an access token is requested, your app specifies the desired permissions in the scope parameter of the request.
 
