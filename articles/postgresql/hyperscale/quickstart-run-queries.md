@@ -43,7 +43,7 @@ SELECT count(*) FROM github_users;
 
 Recall that `github_users` is a distributed table, meaning its data is divided
 between multiple shards. Hyperscale (Citus) automatically runs the count on all
-shards in parallel, and combines the results. To see this in action, let's
+shards in parallel, and combines the results. To see it in action, let's
 temporarily enable remote logging and look at the queries running on shards.
 
 ```sql
