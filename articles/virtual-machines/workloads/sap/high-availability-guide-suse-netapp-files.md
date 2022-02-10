@@ -13,7 +13,7 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 12/07/2021
+ms.date: 01/24/2022
 ms.author: radeltch
 
 ---
@@ -523,7 +523,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
      op monitor interval=20s timeout=40s
    
    sudo crm configure primitive vip_<b>QAS</b>_ASCS IPaddr2 \
-     params ip=<b>10.1.1.20</b> cidr_netmask=<b>24</b> \
+     params ip=<b>10.1.1.20</b> \
      op monitor interval=10 timeout=20
    
    sudo crm configure primitive nc_<b>QAS</b>_ASCS azure-lb port=620<b>00</b>
@@ -582,7 +582,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
      op monitor interval=20s timeout=40s
    
    sudo crm configure primitive vip_<b>QAS</b>_ERS IPaddr2 \
-     params ip=<b>10.1.1.21</b> cidr_netmask=<b>24</b> \
+     params ip=<b>10.1.1.21</b> \
      op monitor interval=10 timeout=20
    
    sudo crm configure primitive nc_<b>QAS</b>_ERS azure-lb port=621<b>01</b>

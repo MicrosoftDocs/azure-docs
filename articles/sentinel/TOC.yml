@@ -15,18 +15,20 @@
   items:
   - name: Investigate with UEBA
     href: investigate-with-ueba.md
-  - name: Create KQL queries for Microsoft Sentinel (Learn module)
-    href: /learn/paths/sc-200-utilize-kql-for-azure-sentinel/
   - name: Use automation to respond to threats
     href: tutorial-respond-threats-playbook.md
   - name: Integrate with Microsoft Defender for IoT
     href: iot-solution.md
+  - name: Write your first query with Kusto Query Language (Learn module)
+    href: /learn/modules/write-first-query-kusto-query-language/
   - name: Get started with notebooks and MSTICPy
     href: notebook-get-started.md
   - name: Create a Power BI report from Microsoft Sentinel
     href: powerbi.md
   - name: Deploy and monitor decoy honeytokens
     href: monitor-key-vault-honeytokens.md
+  - name: Build and monitor Zero Trust
+    href: /security/zero-trust/integrate/sentinel-solution
 - name: Concepts
   items:
   - name: Microsoft Sentinel prerequisites
@@ -61,18 +63,30 @@
     items:
     - name: Data collection methods
       href: connect-data-sources.md
-    - name: Normalization and the Advanced SIEM Information Model (ASIM)
-      items:
-      - name: ASIM overview
-        href: normalization.md
-      - name: ASIM schemas
-        href: normalization-about-schemas.md
-      - name: ASIM parsers
-        href: normalization-about-parsers.md
-      - name: ASIM content
-        href: normalization-content.md
     - name: Classifying data with entities
       href: entities.md
+  - name: Normalization with ASIM
+    items:
+    - name: ASIM overview
+      href: normalization.md
+    - name: ASIM schemas
+      href: normalization-about-schemas.md
+    - name: ASIM parsers
+      href: normalization-parsers-overview.md
+  - name: Kusto Query Language in Microsoft Sentinel
+    items:
+    - name: Overview
+      href: kusto-overview.md
+    - name: Query best practices
+      href: /azure/data-explorer/kusto/query/best-practices
+    - name: SQL to KQL cheat sheet
+      href: /azure/data-explorer/kusto/query/sqlcheatsheet
+    - name: Splunk to KQL cheat sheet
+      href: /azure/data-explorer/kusto/query/splunk-cheat-sheet
+    - name: KQL quick reference
+      href: /azure/data-explorer/kql-quick-reference
+    - name: Other KQL resources
+      href: kusto-resources.md
   - name: Threat intelligence
     items:
     - name: Understand threat intelligence in Microsoft Sentinel
@@ -91,6 +105,8 @@
       href: soc-ml-anomalies.md
     - name: Multistage attacks (Fusion)
       href: fusion.md
+    - name: Watchlists
+      href: watchlists.md
   - name: Threat hunting
     href: hunting.md
   - name: SOAR
@@ -156,6 +172,8 @@
         href: connect-azure-functions-template.md
       - name: Custom log sources
         href: connect-custom-logs.md
+      - name: Azure Virtual Desktop
+        href: connect-azure-virtual-desktop.md
     - name: Deploy a log forwarder
       href: connect-log-forwarder.md
     - name: Troubleshoot CEF/Syslog data collection
@@ -164,12 +182,24 @@
       href: connect-logstash.md
     - name: Create a custom connector
       href: create-custom-connector.md
+    - name: Create a codeless connector
+      href: create-codeless-connector.md
     - name: Connect Azure Stack VMs
       href: connect-azure-stack.md
     - name: Monitor data connector health
       href: monitor-data-connector-health.md
     - name: Integrate Azure Data Explorer
       href: store-logs-in-azure-data-explorer.md
+  - name: Use ASIM to normalize data
+    items:
+    - name: Develop ASIM parsers
+      href: normalization-develop-parsers.md
+    - name: Manage ASIM parsers
+      href: normalization-manage-parsers.md
+    - name: Use ASIM parsers
+      href: normalization-about-parsers.md
+    - name: Modify content to use ASIM
+      href: normalization-modify-content.md
   - name: Use threat intelligence
     items:
     - name: Connect threat intelligence platforms
@@ -219,7 +249,13 @@
     - name: Create incidents from Microsoft Security alerts
       href: create-incidents-from-alerts.md
     - name: Use watchlists
-      href: watchlists.md
+      items:
+      - name: Create watchlists
+        href: watchlists-create.md
+      - name: Build queries or rules
+        href: watchlists-queries.md
+      - name: Manage watchlists
+        href: watchlists-manage.md
   - name: Hunt for threats
     items:
     - name: Hunt with Jupyter notebooks
@@ -300,32 +336,40 @@
         href: ../role-based-access-control/built-in-roles.md#all
       - name: Microsoft Sentinel roles
         href: ../role-based-access-control/built-in-roles.md#security
+  - name: Advanced SIEM Information Model (ASIM)
+    items:
+      - name: ASIM content
+        href: normalization-content.md
+      - name: ASIM schemas
+        items:
+        - name: ASIM authentication schema
+          href: authentication-normalization-schema.md
+        - name: ASIM DNS schema
+          href: dns-normalization-schema.md
+        - name: ASIM DHCP schema
+          href: dhcp-normalization-schema.md
+        - name: ASIM file event schema
+          href: file-event-normalization-schema.md
+        - name: ASIM network session schema
+          href: network-normalization-schema.md
+        - name: ASIM process event schema
+          href: process-events-normalization-schema.md
+        - name: ASIM registry event schema
+          href: registry-event-normalization-schema.md
+        - name: ASIM user management schema
+          href: user-management-normalization-schema.md
+        - name: ASIM web session schema
+          href: web-normalization-schema.md
+        - name: Legacy network normalization schema
+          href: normalization-schema-v1.md
   - name: Data collection references
     items:
     - name: Data source schema reference
       href: data-source-schema-reference.md
+    - name: Security alert schema reference
+      href: security-alert-schema.md
     - name: CEF log field mapping
       href: cef-name-mapping.md
-    - name: Normalization
-      items:
-      - name: Authentication normalization schema
-        href: authentication-normalization-schema.md
-      - name: DNS normalization schema
-        href: dns-normalization-schema.md
-      - name: DHCP normalization schema
-        href: dhcp-normalization-schema.md
-      - name: File event normalization schema
-        href: file-event-normalization-schema.md
-      - name: Network normalization schema
-        href: network-normalization-schema.md
-      - name: Process event normalization schema
-        href: process-events-normalization-schema.md
-      - name: Registry event normalization schema
-        href: registry-event-normalization-schema.md
-      - name: Web normalization schema
-        href: web-normalization-schema.md
-      - name: Legacy network normalization schema
-        href: normalization-schema-v1.md
     - name: Windows security event sets
       href: windows-security-event-id-reference.md
   - name: Detection and analysis references
@@ -340,14 +384,6 @@
       href: fusion-scenario-reference.md
     - name: Watchlist template schemas
       href: watchlist-schemas.md
-    - name: Kusto Query Language
-      items:
-      - name: Kusto query overview
-        href: /azure/data-explorer/kusto/query/
-      - name: Kusto Query Language quick reference
-        href: /azure/data-explorer/kql-quick-reference
-      - name: Azure Monitor log query optimizations
-        href: ../azure-monitor/logs/query-optimization.md
     - name: REST APIs - samples
       items:
       - name: Manage hunting queries with REST-API

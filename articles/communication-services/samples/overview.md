@@ -25,7 +25,7 @@ Azure Communication Services has many samples available, which you can use to te
 | [Contoso Medical App](https://github.com/Azure-Samples/communication-services-contoso-med-app)       | Sample app demonstrating a patient-doctor flow.                     | Web & Node.js                      |
 | [Contoso Retail App](https://github.com/Azure-Samples/communication-services-contoso-retail-app)     | Sample app demonstrating a retail support flow.                     | ASP.NET, .NET Core, JavaScript/Web |
 | [WPF Calling Sample](https://github.com/Azure-Samples/communication-services-web-calling-wpf-sample) | Sample app for Windows demonstrating calling functionality          | WPF / Node.js                      |
-| [WPF Network Traversal Sample]( https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/communication/communication-network-traversal) | Sample app demonstrating network traversal functionality          | WPF / Node.js 
+| [Network Traversal Sample]( https://github.com/Azure-Samples/communication-services-network-traversal-hero) | Sample app demonstrating network traversal functionality          | Node.js 
 
 ## Quickstart samples
 Access code samples for quickstarts found on our documentation.

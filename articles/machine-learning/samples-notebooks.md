@@ -66,6 +66,6 @@ For more GitHub sample projects and examples, see these repos:
 
 Try these tutorials:
 
-- [Train and deploy an image classification model with MNIST](tutorial-train-models-with-aml.md)
+- [Train and deploy an image classification model with MNIST](tutorial-train-deploy-notebook.md)
 
 - [Prepare data and use automated machine learning to train a regression model with the NYC taxi data set](tutorial-auto-train-models.md)

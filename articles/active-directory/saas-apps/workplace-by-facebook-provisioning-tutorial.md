@@ -94,6 +94,9 @@ This section guides you through the steps to configure the Azure AD provisioning
 
  	![authorize](./media/workplace-by-facebook-provisioning-tutorial/workplace-login.png)
 
+> [!NOTE]
+> Failure to change the URL to https://scim.workplace.com/ will result in a failure when trying to save the configuration 
+
 6. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and select the **Send an email notification when a failure occurs** check box.
 
 	![Notification Email](common/provisioning-notification-email.png)
@@ -172,7 +175,8 @@ In December 2021, Facebook released a SCIM 2.0 connector. Completing the steps b
 * Scoping filters
 * Custom attribute mappings
 
-Be sure to note any changes that have been made to the settings listed above before completing the steps below. Failure to do so will result in the loss of customized settings. 
+> [!NOTE]
+> Be sure to note any changes that have been made to the settings listed above before completing the steps below. Failure to do so will result in the loss of customized settings. 
 
 1. Sign into the Azure portal at https://portal.azure.com 
 2. Navigate to your current Workplace by Facebook app under Azure Active Directory > Enterprise Applications
@@ -213,6 +217,9 @@ POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronizat
 ![Screenshot of Admin Credentials in the Workplace by Facebook app in the Azure portalt](./media/workplace-by-facebook-provisioning-tutorial/provisionings.png)
 
 11. Restore any previous changes you made to the application (Authentication details, Scoping filters, Custom attribute mappings) and re-enable provisioning. 
+
+> [!NOTE] 
+> Failure to restore the previous settings may results in attributes (name.formatted for example) updating in Workplace unexpectedly. Be sure to check the configuration before enabling  provisioning 
 
 ## Change log
 

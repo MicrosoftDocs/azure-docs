@@ -30,6 +30,15 @@ If you don't have an Azure subscription, [create a free trial account](https://a
 
 Next, open Visual Studio Code and go to **File > Open Folder** to open the cloned repository in the editor.
 
+## Install Azure Static Web Apps extension
+
+If you don't already have the [Azure Static Web Apps extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestaticwebapps) extension, you can install it in Visual Studio Code.
+
+1. Select **View** > **Extensions**.
+1. In the **Search Extensions in Marketplace**, type **Azure Static Web Apps**.
+1. Select **Install** for **Azure Static Web Apps**.
+1. The extension will install into Visual Studio Code.
+
 ## Create a static web app
 
 1. Inside Visual Studio Code, select the Azure logo in the Activity Bar to open the Azure extensions window.

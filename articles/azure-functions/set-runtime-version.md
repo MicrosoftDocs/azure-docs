@@ -60,7 +60,7 @@ You can change the runtime version used by your function app. Because of the pot
 
 You can also view and set the `FUNCTIONS_EXTENSION_VERSION` from the Azure CLI.  
 
-Using the Azure CLI, view the current runtime version with the [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings) command.
+Using the Azure CLI, view the current runtime version with the [az functionapp config appsettings list](/cli/azure/functionapp/config/appsettings) command.
 
 ```azurecli-interactive
 az functionapp config appsettings list --name <function_app> \
@@ -102,7 +102,7 @@ az functionapp config appsettings set --name <FUNCTION_APP> \
 --settings FUNCTIONS_EXTENSION_VERSION=<VERSION>
 ```
 
-Replace `<FUNCTION_APP>` with the name of your function app. Also replace `<RESOURCE_GROUP>` with the name of the resource group for your function app. Also, replace `<VERSION>` with either a specific version, or `~3`, `~2`, or `~1`.
+Replace `<FUNCTION_APP>` with the name of your function app. Also replace `<RESOURCE_GROUP>` with the name of the resource group for your function app. Also, replace `<VERSION>` with either a specific version, or `~4`, `~3`, `~2`, or `~1`.
 
 Choose **Try it** in the previous code example to run the command in [Azure Cloud Shell](../cloud-shell/overview.md). You can also run the [Azure CLI locally](/cli/azure/install-azure-cli) to execute this command. When running locally, you must first run [az login](/cli/azure/reference-index#az_login) to sign in.
 

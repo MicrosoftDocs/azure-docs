@@ -4,7 +4,7 @@ titleSuffix: Azure
 description: Best practices for keeping your Azure Virtual Desktop environment secure.
 author: heidilohr
 ms.topic: conceptual
-ms.date: 12/15/2020
+ms.date: 01/12/2022
 ms.author: helohr
 ms.service: virtual-desktop
 manager: femila
@@ -52,11 +52,11 @@ We recommend enabling Microsoft Defender for Cloud's enhanced security features 
 - Assess compliance with common frameworks like PCI.
 - Strengthen the overall security of your environment.
 
-To learn more, see [Enable enhanced security features](../security-center/enable-enhanced-security.md).
+To learn more, see [Enable enhanced security features](../defender-for-cloud/enable-enhanced-security.md).
 
 ### Improve your Secure Score
 
-Secure Score provides recommendations and best practice advice for improving your overall security. These recommendations are prioritized to help you pick which ones are most important, and the Quick Fix options help you address potential vulnerabilities quickly. These recommendations also update over time, keeping you up to date on the best ways to maintain your environment’s security. To learn more, see [Improve your Secure Score in Microsoft Defender for Cloud](../security-center/secure-score-security-controls.md).
+Secure Score provides recommendations and best practice advice for improving your overall security. These recommendations are prioritized to help you pick which ones are most important, and the Quick Fix options help you address potential vulnerabilities quickly. These recommendations also update over time, keeping you up to date on the best ways to maintain your environment’s security. To learn more, see [Improve your Secure Score in Microsoft Defender for Cloud](../defender-for-cloud/secure-score-security-controls.md).
 
 ## Azure Virtual Desktop security best practices
 
@@ -78,7 +78,6 @@ Enabling audit log collection lets you view user and admin activity related to A
 -   [Azure Active Directory Activity Log](../active-directory/reports-monitoring/concept-activity-logs-azure-monitor.md)
 -   [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md)
 -   [Session hosts](../azure-monitor/agents/agent-windows.md)
--   [Azure Virtual Desktop Diagnostic Log](../virtual-desktop/diagnostics-log-analytics.md)
 -   [Key Vault logs](../key-vault/general/logging.md)
 
 ### Use RemoteApps
@@ -101,11 +100,11 @@ For profile solutions like FSLogix or other solutions that mount VHD files, we r
 
 ### Install an endpoint detection and response product
 
-We recommend you install an endpoint detection and response (EDR) product to provide advanced detection and response capabilities. For server operating systems with [Microsoft Defender for Cloud](../security-center/security-center-services.md) enabled, installing an EDR product will deploy Defender ATP. For client operating systems, you can deploy [Defender ATP](/windows/security/threat-protection/microsoft-defender-atp/onboarding) or a third-party product to those endpoints.
+We recommend you install an endpoint detection and response (EDR) product to provide advanced detection and response capabilities. For server operating systems with [Microsoft Defender for Cloud](../defender-for-cloud/integration-defender-for-endpoint.md) enabled, installing an EDR product will deploy Microsoft Defender for Endpoint. For client operating systems, you can deploy [Microsoft Defender for Endpoint](/windows/security/threat-protection/microsoft-defender-atp/onboarding) or a third-party product to those endpoints.
 
 ### Enable threat and vulnerability management assessments
 
-Identifying software vulnerabilities that exist in operating systems and applications is critical to keeping your environment secure. Microsoft Defender for Cloud can help you identify problem spots through vulnerability assessments for server operating systems. You can also use Defender ATP, which provides threat and vulnerability management for desktop operating systems. You can also use third-party products if you're so inclined, although we recommend using Microsoft Defender for Cloud and Defender ATP.
+Identifying software vulnerabilities that exist in operating systems and applications is critical to keeping your environment secure. Microsoft Defender for Cloud can help you identify problem spots through [Microsoft Defender for Endpoint's threat and vulnerability management solution](../defender-for-cloud/deploy-vulnerability-assessment-tvm.md). You can also use third-party products if you're so inclined, although we recommend using Microsoft Defender for Cloud and Microsoft Defender for Endpoint.
 
 ### Patch software vulnerabilities in your environment
 
@@ -139,7 +138,7 @@ By restricting operating system capabilities, you can strengthen the security of
 
 - Restrict Windows Explorer access by hiding local and remote drive mappings. This prevents users from discovering unwanted information about system configuration and users.
 
-- Avoid direct RDP access to session hosts in your environment. If you need direct RDP access for administration or troubleshooting, enable [just-in-time](../security-center/security-center-just-in-time.md) access to limit the potential attack surface on a session host.
+- Avoid direct RDP access to session hosts in your environment. If you need direct RDP access for administration or troubleshooting, enable [just-in-time](../defender-for-cloud/just-in-time-access-usage.md) access to limit the potential attack surface on a session host.
 
 - Grant users limited permissions when they access local and remote file systems. You can restrict permissions by making sure your local and remote file systems use access control lists with least privilege. This way, users can only access what they need and can't change or delete critical resources.
 
@@ -147,7 +146,7 @@ By restricting operating system capabilities, you can strengthen the security of
 
 ## Azure Virtual Desktop support for Trusted Launch
 
-Trusted launch are Gen2 Azure VMs with enhanced security features aimed to protect against “bottom of the stack” threats through attack vectors such as rootkits, boot kits, and kernel-level malware. The following are the enhanced security features of trusted launch, all of which are supported in Azure Virtual Desktop. To learn more about trusted launch, visit [Trusted launch for Azure virtual machines (preview)](../virtual-machines/trusted-launch.md).
+Trusted launch are Gen2 Azure VMs with enhanced security features aimed to protect against “bottom of the stack” threats through attack vectors such as rootkits, boot kits, and kernel-level malware. The following are the enhanced security features of trusted launch, all of which are supported in Azure Virtual Desktop. To learn more about trusted launch, visit [Trusted launch for Azure virtual machines](../virtual-machines/trusted-launch.md).
 
 ### Secure Boot
 

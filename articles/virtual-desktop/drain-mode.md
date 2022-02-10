@@ -49,6 +49,6 @@ Update-AzWvdSessionHost -ResourceGroupName <resourceGroupName> -HostPoolName <ho
 
 ## Next steps
 
-If you want to learn more about the Azure portal for Azure Virtual Desktop, check out [our tutorials](create-host-pools-azure-marketplace.md). If you're already familiar with the basics, check out some of the other features you can use with the Azure portal, such as [MSIX app attach](app-attach-azure-portal.md) and [Azure Advisor](azure-advisor.md).
+If you want to learn more about the Azure portal for Azure Virtual Desktop, check out [our tutorials](create-host-pools-azure-marketplace.md). If you're already familiar with the basics, check out some of the other features you can use with the Azure portal, such as [MSIX app attach](app-attach-azure-portal.md) and [Azure Advisor](../advisor/advisor-overview.md).
 
 If you're using the PowerShell method and want to see what else the module can do, check out [Set up the PowerShell module for Azure Virtual Desktop](powershell-module.md) and our [PowerShell reference](/powershell/module/az.desktopvirtualization/).

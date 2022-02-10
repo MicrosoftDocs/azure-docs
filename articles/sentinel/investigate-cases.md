@@ -3,7 +3,7 @@ title: Investigate incidents with Microsoft Sentinel| Microsoft Docs
 description: In this article, learn how to use Microsoft Sentinel to create advanced alert rules that generate incidents you can assign and investigate.
 author: yelevin
 ms.topic: how-to
-ms.date: 11/09/2021
+ms.date: 01/30/2022
 ms.author: yelevin
 ms.custom: ignite-fall-2021
 ---
@@ -40,7 +40,7 @@ An incident can include multiple alerts. It's an aggregation of all the relevant
 
 1. You can filter the incidents as needed, for example by status or severity. For more information, see [Search for incidents](#search-for-incidents).
 
-1. To begin an investigation, select a specific incident. On the right, you can see detailed information for the incident including its severity, summary of the number of entities involved, the raw events that triggered this incident, and the incident’s unique ID.
+1. To begin an investigation, select a specific incident. On the right, you can see detailed information for the incident including its severity, summary of the number of entities involved, the raw events that triggered this incident, the incident’s unique ID, and any mapped MITRE ATT&CK tactics or techniques.
 
 1. To view more details about the alerts and entities in the incident, select **View full details** in the incident page and review the relevant tabs that summarize the incident information. 
 

@@ -3,7 +3,7 @@ title: Quickstart -  Azure Key Vault secret client library for JavaScript (versi
 description: Learn how to create, retrieve, and delete secrets from an Azure key vault using the JavaScript client library
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 12/13/2021
+ms.date: 02/03/2022
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
@@ -132,6 +132,9 @@ The code samples below will show you how to create a client, set a secret, retri
       const client = new SecretClient(url, credential);
     
       // Create a secret
+      // The secret can be a string of any kind. For example,
+      // a multiline text block such as an RSA private key with newline characters,
+      // or a stringified JSON object, like `JSON.stringify({ mySecret: 'MySecretValue'})`.
       const uniqueString = new Date().getTime();
       const secretName = `secret${uniqueString}`;
       const result = await client.setSecret(secretName, "MySecretValue");
@@ -202,7 +205,7 @@ The code samples below will show you how to create a client, set a secret, retri
 
 ## Integrating with App Configuration
 
-The Azure SDK provides a helper method, [parseKeyVaultSecretIdentifier](/javascript/api/@azure/keyvault-secrets/#parseKeyVaultSecretIdentifier_string_), to parse the given Key Vault Secret ID. This is necessary if you use [App Configuration](/azure/azure-app-configuration/) references to Key Vault. App Config stores the Key Vault Secret ID. You need the _parseKeyVaultSecretIdentifier_ method to parse that ID to get the secret name. Once you have the secret name, you can get the current secret value using code from this quickstart.  
+The Azure SDK provides a helper method, [parseKeyVaultSecretIdentifier](/javascript/api/@azure/keyvault-secrets/#parseKeyVaultSecretIdentifier_string_), to parse the given Key Vault Secret ID. This is necessary if you use [App Configuration](../../azure-app-configuration/index.yml) references to Key Vault. App Config stores the Key Vault Secret ID. You need the _parseKeyVaultSecretIdentifier_ method to parse that ID to get the secret name. Once you have the secret name, you can get the current secret value using code from this quickstart.  
 
 ## Next steps
 

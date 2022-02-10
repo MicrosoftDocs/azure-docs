@@ -16,11 +16,11 @@ If your Visual Studio subscription expires or is removed, all the subscription b
 > [!IMPORTANT]
 > You must transfer your resources to another Azure subscription before your current Azure subscription is disabled or you will lose access to your data.
 >
-> If you don’t take one of these actions, your Azure subscription will be disabled at the time specified in your email notification. If the subscription is disabled, you can reenable it as a pay-as-you-go subscription by following [these steps](/azure/cost-management-billing/manage/switch-azure-offer).
+> If you don’t take one of these actions, your Azure subscription will be disabled at the time specified in your email notification. If the subscription is disabled, you can reenable it as a pay-as-you-go subscription by following [these steps](../../cost-management-billing/manage/switch-azure-offer.md).
 
 ## Maintain a subscription to use monthly credits
  
-There are several ways to continue using a monthly credit for Azure. To save your Azure resources, you must [transfer your resources](/azure/azure-resource-manager/management/move-resource-group-and-subscription) to another Azure subscription, regardless of which of the following action you choose:
+There are several ways to continue using a monthly credit for Azure. To save your Azure resources, you must [transfer your resources](../../azure-resource-manager/management/move-resource-group-and-subscription.md) to another Azure subscription, regardless of which of the following action you choose:
 
 - **If you purchase your Visual Studio subscription directly**, purchase a new subscription or renew your subscription through Microsoft Store.
 
@@ -36,4 +36,4 @@ There are several ways to continue using a monthly credit for Azure. To save you
 
 ## Convert your Azure subscription to pay-as-you-go
 
-If you no longer need a Visual Studio subscription or credit but you want to continue using your Azure resources, convert your Azure subscription to pay-as-you-go pricing by [removing your spending limit](/azure/cost-management-billing/manage/spending-limit#remove-the-spending-limit-in-azure-portal).
+If you no longer need a Visual Studio subscription or credit but you want to continue using your Azure resources, convert your Azure subscription to pay-as-you-go pricing by [removing your spending limit](../../cost-management-billing/manage/spending-limit.md#remove-the-spending-limit-in-azure-portal).

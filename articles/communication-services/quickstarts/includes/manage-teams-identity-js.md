@@ -39,7 +39,7 @@ Use the `npm install` command to install the Azure Communication Services Identi
 
 ```console
 
-npm install @azure/communication-identity@beta --save
+npm install @azure/communication-identity@next --save
 npm install @azure/msal-node --save
 npm install express --save
 
@@ -115,7 +115,7 @@ app.get('/redirect', async (req, res) => {
     };
 
     pca.acquireTokenByCode(tokenRequest).then((response) => {
-        console.log("Response: ", response);
+        console.log("Response:", response);
         //TODO: the following code snippets go here
         res.sendStatus(200);
     }).catch((error) => {
@@ -140,14 +140,14 @@ const connectionString = process.env['COMMUNICATION_SERVICES_CONNECTION_STRING']
 const identityClient = new CommunicationIdentityClient(connectionString);
 ```
 
-### Step 3: Exchange the Azure AD user token for the Teams access token
+### Step 3: Exchange the Azure AD access token of the Teams User for a Communication Identity access token
 
 Use the `getTokenForTeamsUser` method to issue an access token for the Teams user that can be used with the Azure Communication Services SDKs.
 
 ```javascript
 let teamsToken = response.accessToken;
 let accessToken = await identityClient.getTokenForTeamsUser(teamsToken);
-console.log(`Token: ${accessToken}`);
+console.log("Token:", accessToken);
 ```
 
 ## Run the code

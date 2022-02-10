@@ -68,6 +68,7 @@ This article provides the steps for deploying self-hosted gateway component of A
 
 * To learn more about the self-hosted gateway, see [Azure API Management self-hosted gateway overview](self-hosted-gateway-overview.md).
 * Learn [how to deploy API Management self-hosted gateway to Azure Arc-enabled Kubernetes clusters](how-to-deploy-self-hosted-gateway-azure-arc.md).
+* Learn more about guidance to [run the self-hosted gateway on Kubernetes in production](how-to-self-hosted-gateway-on-kubernetes-in-production.md).
 * Learn more about [Azure Kubernetes Service](../aks/intro-kubernetes.md).
 * Learn [how to configure and persist logs in the cloud](how-to-configure-cloud-metrics-logs.md).
 * Learn [how to configure and persist logs locally](how-to-configure-local-metrics-logs.md).

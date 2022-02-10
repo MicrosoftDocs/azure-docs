@@ -1,8 +1,8 @@
 ---
 title: Quickstart - Provision a simulated TPM device to Microsoft Azure IoT Hub
 description: Quickstart - Learn how to provision a TPM simulated device to the Azure IoT Hub Device Provisioning Service
-author: wesmc7777
-ms.author: wesmc
+author: kgremban
+ms.author: kgremban
 ms.date: 12/14/2021
 ms.topic: quickstart
 ms.service: iot-dps
@@ -44,7 +44,7 @@ The following prerequisites are for a Windows development environment. For Linux
 
 * A TPM 2.0 hardware security module on your Windows-based machine.
 
-* Install [.NET 6.0 SDK](https://dotnet.microsoft.com/download) on your Windows-based machine. You can use the following command to check your version.
+* Install [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download) or later on your Windows-based machine. You can use the following command to check your version.
 
     ```bash
     dotnet --info

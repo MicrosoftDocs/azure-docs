@@ -33,10 +33,6 @@ The [Usage dashboard](https://go.microsoft.com/fwlink/?linkid=2166106) displays 
 
 ## Access the Usage dashboard
 
-[!INCLUDE [Workspaces view note](./includes/preview-interface.md)]
-
-#### [Workspaces view](#tab/workspaces-view)
-
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
 1. On the Home page, select the **Insights** tile.
 
@@ -44,32 +40,15 @@ The [Usage dashboard](https://go.microsoft.com/fwlink/?linkid=2166106) displays 
 
 1. In the left menu, select **Usage**.
 
-#### [Current view](#tab/current-view)
-
-1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
-1. In the left-nav, select **Commercial Marketplace** > **Analyze** > **Usage**.
-
----
-
 ## Elements of the Usage dashboard
 
 The following sections describe how to use the Usage dashboard and how to read the data.
 
 ### Month range
 
-#### [Workspaces view](#tab/workspaces-view)
-
 You can find a month range selection at the top-right corner of each page. Customize the output of the **Usage** page graphs by selecting a month range based on the past 6 or 12 months, or by selecting a custom month range with a maximum duration of 12 months. The default month range (computation period) is six months.
 
 [ ![Illustrates the Month filters on the Usage dashboard.](./media/usage-dashboard/usage-dashboard-filters.png) ](./media/usage-dashboard/usage-dashboard-filters.png#lightbox)
-
-#### [Current view](#tab/current-view)
-
-You can find a month range selection at the top-right corner of each page. Customize the output of the **Usage** page graphs by selecting a month range based on the past 6 or 12 months, or by selecting a custom month range with a maximum duration of 12 months. The default month range (computation period) is six months.
-
-:::image type="content" source="./media/usage-dashboard/month-filter.png" alt-text="Illustrates the Month filters on the Usage dashboard.":::
-
----
 
 ### Usage trend
 

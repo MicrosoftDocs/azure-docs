@@ -40,7 +40,7 @@ These system variables can be referenced anywhere in the pipeline JSON.
 
 ## Schedule trigger scope
 
-These system variables can be referenced anywhere in the trigger JSON for triggers of type [ScheduleTrigger](concepts-pipeline-execution-triggers.md#schedule-trigger).
+These system variables can be referenced anywhere in the trigger JSON for triggers of type [ScheduleTrigger](concepts-pipeline-execution-triggers.md#schedule-trigger-with-json).
 
 | Variable Name | Description |
 | --- | --- |
@@ -80,7 +80,7 @@ These system variables can be referenced anywhere in the trigger JSON for trigge
 
 | Variable Name | Description
 | --- | --- |
-| @triggerBody().event.eventType | Type of events that triggered the Custom Event Trigger run. Event type is customer defined field and take on any values of string type. |
+| @triggerBody().event.eventType | Type of events that triggered the Custom Event Trigger run. Event type is customer-defined field and take on any values of string type. |
 | @triggerBody().event.subject | Subject of the custom event that caused the trigger to fire. |
 | @triggerBody().event.data._keyName_ | Data field in custom event is a free from JSON blob, which customer can use to send messages and data. Please use data._keyName_ to reference each field. For example, @triggerBody().event.data.callback returns the value for the _callback_ field stored under _data_. |
 | @trigger().startTime | Time at which the trigger fired to invoke the pipeline run. |

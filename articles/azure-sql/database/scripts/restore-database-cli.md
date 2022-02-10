@@ -7,10 +7,10 @@ ms.subservice: backup-restore
 ms.custom: devx-track-azurecli
 ms.devlang: azurecli
 ms.topic: sample
-author: SQLSourabh
-ms.author: sourabha
-ms.reviewer: carlrab
-ms.date: 01/05/2022
+author: SudhirRaparla 
+ms.author: nvraparl 
+ms.reviewer: carlrab, kendralittle, mathoma
+ms.date: 01/26/2022 
 ---
 
 # Use CLI to restore a single database in Azure SQL Database to an earlier point in time
@@ -18,6 +18,8 @@ ms.date: 01/05/2022
 [!INCLUDE[appliesto-sqldb](../../includes/appliesto-sqldb.md)]
 
 This Azure CLI example restores a single database in Azure SQL Database to a specific point in time.  
+
+[!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../../includes/azure-cli-prepare-your-environment.md)]
 

@@ -50,7 +50,7 @@ None.
 - Application admin
 - Cloud application admin
 
-Find more details in [Azure Active Directory documentation](https://docs.microsoft.com/azure/active-directory/roles/permissions-reference).
+Find more details in [Azure Active Directory documentation](../../active-directory/roles/permissions-reference.md).
 
 ## Next steps
 
