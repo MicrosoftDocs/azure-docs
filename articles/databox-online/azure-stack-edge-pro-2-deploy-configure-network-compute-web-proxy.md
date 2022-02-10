@@ -63,12 +63,12 @@ Follow these steps to configure the network for your device.
 
     As you configure the network settings, keep in mind:
 
-    * ENGG TO VERIFY - Make sure that Port 3 and Port 4 are connected for Network Function Manager deployments. For more information, see [Tutorial: Deploy network functions on Azure Stack Edge](../network-function-manager/deploy-functions.md).
+    * <!--ENGG TO VERIFY --> Make sure that Port 3 and Port 4 are connected for Network Function Manager deployments. For more information, see [Tutorial: Deploy network functions on Azure Stack Edge](../network-function-manager/deploy-functions.md).
     * If DHCP is enabled in your environment, network interfaces are automatically configured. An IP address, subnet, gateway, and DNS are automatically assigned.
     * If DHCP isn't enabled, you can assign static IPs if needed.
     * You can configure your network interface as IPv4.
-    * ENGG TO VERIFY - Network Interface Card (NIC) Teaming or link aggregation isn’t supported with Azure Stack Edge. 
-    * ENGG TO VERIFY - In this release, the 100-GbE interfaces aren't configured for RDMA mode.
+    * <!--ENGG TO VERIFY --> Network Interface Card (NIC) Teaming or link aggregation isn’t supported with Azure Stack Edge. 
+    * <!--ENGG TO VERIFY --> In this release, the 100-GbE interfaces aren't configured for RDMA mode.
     * Serial number for any port corresponds to the node serial number.
 
     Once the device network is configured, the page updates as shown below.
@@ -87,7 +87,7 @@ Follow these steps to configure the network for your device.
 Follow these steps to configure advanced network settings such as creating a switch for compute and associating it with a virtual network. 
 
 > [!NOTE]
-> ENGG TO VERIFY - You can enable compute only on one virtual switch on your device. You can however move the virtual switch on which you enabled compute.
+> <!--ENGG TO VERIFY --> You can enable compute only on one virtual switch on your device. You can however move the virtual switch on which you enabled compute.
 
 1. In the local web UI of your device, go to the **Advanced networking** page. Select **Add virtual switch** to create a new virtual switch or use an existing virtual switch. This virtual switch will be used for the compute infrastructure on the device. 
 
@@ -147,8 +147,8 @@ Follow these steps to configure advanced network settings such as creating a swi
 This is an optional configuration. However, if you use a web proxy, you can configure it only on this page.
 
 > [!IMPORTANT]
-> * ENGG TO VERIFY - Proxy-auto config (PAC) files are not supported. A PAC file defines how web browsers and other user agents can automatically choose the appropriate proxy server (access method) for fetching a given URL. 
-> * ENGG TO VERIFY - Transparent proxies work well with Azure Stack Edge Pro 2. For non-transparent proxies that intercept and read all the traffic (via their own certificates installed on the proxy server), upload the public key of the proxy's certificate as the signing chain on your Azure Stack Edge Pro device. You can then configure the proxy server settings on your Azure Stack Edge device. For more information, see [Bring your own certificates and upload through the local UI](azure-stack-edge-gpu-deploy-configure-certificates.md#bring-your-own-certificates).  
+> * <!--ENGG TO VERIFY --> Proxy-auto config (PAC) files are not supported. A PAC file defines how web browsers and other user agents can automatically choose the appropriate proxy server (access method) for fetching a given URL. 
+> * <!--ENGG TO VERIFY --> Transparent proxies work well with Azure Stack Edge Pro 2. For non-transparent proxies that intercept and read all the traffic (via their own certificates installed on the proxy server), upload the public key of the proxy's certificate as the signing chain on your Azure Stack Edge Pro device. You can then configure the proxy server settings on your Azure Stack Edge device. For more information, see [Bring your own certificates and upload through the local UI](azure-stack-edge-gpu-deploy-configure-certificates.md#bring-your-own-certificates).  
 
 1. On the **Web proxy settings** page, take the following steps:
 
