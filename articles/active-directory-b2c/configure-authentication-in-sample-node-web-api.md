@@ -16,7 +16,7 @@ ms.subservice: B2C
 
 # Configure authentication in a sample Node.js web API by using Azure AD B2C
 
-In this article, you'll learn how to configure a sample Node.js web application to call a sample Node.js web API. The web API need to be protected by Azure AD B2C itself. In this setup, a web app, such as *App ID: 1* calls a web API, such as *App ID: 2*. Users authenticate into the web app to acquire an access token, which is then used to call a protected web API.
+In this article, you'll learn how to configure a sample Node.js web application to call a sample Node.js web API. The web API needs to be protected by Azure AD B2C itself. In this setup, a web app, such as *App ID: 1* calls a web API, such as *App ID: 2*. Users authenticate into the web app to acquire an access token, which is then used to call a protected web API.
 
 ## Overview
 
@@ -42,13 +42,13 @@ The web API completes the following events:
 
 - It validates the permissions (scopes) in the token.
 
-- It responds to the HTTP request. If the token isn't valid, the web API endpoint responds with `401 Unauthorized` HTTP error.
+- It responds to the HTTP request. If the token isn't valid, the web API endpoint responds with a `401 Unauthorized` HTTP error.
 
 ### App registration overview
 
 To enable your app to sign in with Azure AD B2C and call a web API, you must register two applications in the Azure AD B2C directory.  
 
-- The **web application** registration enables your app to sign in with Azure AD B2C. During the registration, you specify the *redirect URI*. The redirect URI is the endpoint to which users are redirected by Azure AD B2C after their authentication with Azure AD B2C is completed. The app registration process generates an *application ID*, also known as the *client ID*, which uniquely identifies your app. You'll also generate a *client secret* for your app. Your app uses the client secret to exchange an authorization code for an access token. 
+- The **web application** registration enables your app to sign in with Azure AD B2C. During registration, you specify the *redirect URI*. The redirect URI is the endpoint to which users are redirected by Azure AD B2C after they complete authentication. The app registration process generates an *application ID*, also known as the *client ID*, which uniquely identifies your app. You'll also generate a *client secret* for your app. Your app uses the client secret to exchange an authorization code for an access token. 
 
 - The **web API** registration enables your app to call a secure web API. The registration includes the web API *scopes*. The scopes provide a way to manage permissions to protected resources, such as your web API. You grant the web application permissions to the web API scopes. When an access token is requested, your app specifies the desired permissions in the scope parameter of the request.
 
@@ -65,11 +65,13 @@ The application registrations and the application architecture are described in 
 
 ## Step 1: Configure your user flow
 
-When users try to sign in to your app, the app starts an authentication request to the authorization endpoint via a [user flow](user-flow-overview.md). The user flow defines and controls the user experience. After users complete the user flow, Azure AD B2C generates a token and then redirects users back to your application.
+[!INCLUDE [active-directory-b2c-app-integration-add-user-flow](../../includes/active-directory-b2c-app-integration-add-user-flow.md)] Repeat the steps to create three separate user flows as follows: 
 
-Complete the steps in [Tutorial: Create user flows and custom policies in Azure Active Directory B2C](tutorial-create-user-flows.md?pivots=b2c-user-flow) to create a **Sign in and sign up**  user flow. Use the following settings:
-- For **Name** of your user flow, use something like `susi_node_app`.
-- For **User attributes and token claims**, make sure you select **Surname** for both **Collect attribute** and **Return claim**.
+- A combined **Sign in and sign up** user flow, such as `susi`. This user flow also supports the **Forgot your password** experience.
+- A **Profile editing** user flow, such as `edit_profile`.
+- A **Password reset** user flow, such as `reset_password`.
+
+Azure AD B2C prepends `B2C_1_` to the user flow name. For example, `susi` becomes `B2C_1_susi`.
 
 ## Step 2: Register your web app and API
 

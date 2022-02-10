@@ -8,7 +8,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/25/2022
+ms.date: 02/09/2022
 ms.author: kengaderdus
 ms.subservice: B2C
 ---
@@ -48,7 +48,7 @@ During app registration, you'll specify the *Redirect URI*. The redirect URI is 
 
 ### Step 2.1: Register the app 
 
-To create the web app registration, use the following steps
+To register the web app, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
