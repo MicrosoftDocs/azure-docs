@@ -94,5 +94,5 @@ For more information on AutoML and Azure ML pipelines, see [use automated ML in 
 [!INCLUDE [list-of-inference-prebuilt-docker-images](../../includes/aml-inference-list-prebuilt-docker-images.md)]
 
 ## Support
-Version updates for supported environments, including the base images they reference, are released every two weeks to address vulnerabilities no older than 30 days. 
+Version updates for supported environments, including the base images they reference, are released every two weeks to address vulnerabilities no older than 30 days. Based on usage, some environments may be deprecated (hidden from the product but usable) to support more common machine learning scenarios. 
 
