@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 02/09/2022
+ms.date: 02/10/2022
 ms.author: alkohli
 # Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge Pro so I can use it to transfer data to Azure. 
 ---
@@ -45,21 +45,21 @@ Follow these steps to configure the network for your device.
 
 2. On the **Network** tile, select **Configure**.  
     
-    ![Local web UI "Network settings" tile](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/network-1.png)
+    ![Screenshot of the Get started page in the local web UI of an Azure Stack Edge device. The Needs setup is highlighted on the Network tile.](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/network-1.png)
 
-    On your physical device, there are four network interfaces. Port 1 and Port 2 are 1-Gbps network interfaces that can also serve as 10-Gbps network interfaces. Port 3 and Port 4 are 100-Gbps network interfaces . Port 1 is automatically configured as a management-only port, and Port 2 to Port 4 are all data ports. For a new device, the **Network settings** page is as shown below.
+    On your physical device, there are four network interfaces. Port 1 and Port 2 are 1-Gbps network interfaces that can also serve as 10-Gbps network interfaces. Port 3 and Port 4 are 100-Gbps network interfaces . Port 1 is automatically configured as a management-only port, and Port 2 to Port 4 are all data ports. For a new device, the **Network** page is as shown below.
     
-    ![Local web UI "Network settings" page](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/network-2.png)
+    ![Screenshot of the Network page in the local web UI of an Azure Stack Edge device whose network isn't configured.](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/network-2.png)
 
 3. To change the network settings, select a port and in the right pane that appears, modify the IP address, subnet, gateway, primary DNS, and secondary DNS. 
 
     - If you select Port 1, you can see that it is preconfigured as static. 
 
-        ![Local web UI "Port 1 Network settings"](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/network-3.png)
+        ![Screenshot of the Port 1 Network settings in the local web UI of an Azure Stack Edge device.](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/network-3.png)
 
     - If you select Port 2, Port 3, or Port 4, all of these ports are configured as DHCP by default.
 
-        ![Local web UI "Port 3 Network settings"](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/network-4.png)
+        ![Screenshot of the Port 3 Network settings in the local web UI of an Azure Stack Edge device.](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/network-4.png)
 
     As you configure the network settings, keep in mind:
 
@@ -73,7 +73,7 @@ Follow these steps to configure the network for your device.
 
     Once the device network is configured, the page updates as shown below.
 
-    ![Local web UI "Network settings" page 2](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/network-5.png)
+    ![Screenshot of the Network page in the local web UI of an Azure Stack Edge device whose network is configured.](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/network-5.png)
 
 
      > [!NOTE]
@@ -92,7 +92,7 @@ Follow these steps to configure advanced network settings such as creating a swi
 1. In the local web UI of your device, go to the **Advanced networking** page. Select **Add virtual switch** to create a new virtual switch or use an existing virtual switch. This virtual switch will be used for the compute infrastructure on the device. 
 
 
-    ![Advanced networking page in local UI 2](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/advanced-networking-1.png)
+    ![Screenshot of the Advanced networking page in the local web UI of an Azure Stack Edge device. The Add virtual switch button is highlighted.](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/advanced-networking-1.png)
 
 1. In **Add virtual switch** blade:
 
@@ -113,16 +113,16 @@ Follow these steps to configure advanced network settings such as creating a swi
     
     1. Select **Apply**.
 
-    ![Compute page in local UI 3](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/advanced-networking-2.png)
+    ![Screenshot of the Add virtual switch blade in the local web UI of an Azure Stack Edge device. The Apply button is highlighted.](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/advanced-networking-2.png)
 
 1. You'll see a warning to the effect that you may need to wait for a couple minutes and then refresh the browser. Select **OK**.
 
-    ![Compute page in local UI 3](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/advanced-networking-3.png)
+    ![Screenshot of the Refresh warning in the local web UI of an Azure Stack Edge device. The OK button is highlighted.](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/advanced-networking-3.png)
 
 
 1. After the configuration is applied and you've refreshed the browser, you can see that the specified port is enabled for compute. 
  
-    ![Compute page in local UI 4](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/advanced-networking-4.png)
+    ![Screenshot of the Advanced networking page in the local web UI of an Azure Stack Edge device. The newly added virtual switch is highlighted.](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/advanced-networking-4.png)
 
 
 1. Optionally you can create a virtual network and associate it with your virtual switches. Select **Add virtual network** and then input the following information.
@@ -133,11 +133,11 @@ Follow these steps to configure advanced network settings such as creating a swi
     1. Enter a **Subnet mask** and a **Gateway** depending on the configuration of your physical network in the environment.
     1. Select **Apply**.
 
-    ![Compute page in local UI 4](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/advanced-networking-5.png)
+    ![Screenshot of the Add virtual network blade in the local web UI of an Azure Stack Edge device. The Apply button is highlighted.](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/advanced-networking-5.png)
     
 1. After the configuration is applied, you can see that the specified virtual network is created.
 
-    ![Compute page in local UI 4](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/advanced-networking-6.png)
+    ![Screenshot of the Advanced networking page in the local web UI of an Azure Stack Edge device. The newly added virtual network is highlighted.](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/advanced-networking-6.png)
 
     Select **Next: Web proxy** to configure web proxy.  
 
@@ -156,7 +156,7 @@ This is an optional configuration. However, if you use a web proxy, you can conf
 
    2. To validate and apply the configured web proxy settings, select **Apply**.
 
-   ![Local web UI "Web proxy settings" page 2](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/web-proxy-1.png)
+   ![Screenshot of the Web proxy page in the local web UI of an Azure Stack Edge device. The Apply button is highlighted.](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/web-proxy-1.png)
 
 2. After the settings are applied, select **Next: Device**.
 
@@ -175,4 +175,4 @@ In this tutorial, you learned about:
 To learn how to set up your Azure Stack Edge Pro 2 device, see:
 
 > [!div class="nextstepaction"]
-> [Configure device settings](./azure-stack-edge-placeholder.md)
+> [Configure device settings](./azure-stack-edge-pro-2-deploy-set-up-device-update-time.md)
