@@ -147,9 +147,5 @@ Here are good resources to deepen your knowledge.
 * See a more detailed [illustration](tutorial-shard.md) of distributed query
   execution.
 * Scale your server group by [adding
-  nodes](https://docs.microsoft.com/azure/postgresql/hyperscale/howto-scale-grow#add-worker-nodes)
-  and [rebalancing
-  shards](https://docs.microsoft.com/azure/postgresql/hyperscale/howto-scale-rebalance).
-* Learn how to speed up the per-minute `http_request` aggregation from this
-  example with "roll-ups" in the [real-time
-  dashboard](tutorial-design-database-realtime.md) tutorial.
+  nodes](howto-scale-grow.md#add-worker-nodes) and [rebalancing
+  shards](howto-scale-rebalance.md).
