@@ -50,7 +50,7 @@
           href: authentication-custom.md
     - name: Review pull requests in pre-production environments
       href: review-publish-pull-requests.md
-    - name: Custom domain
+    - name: Custom domains
       href: custom-domain.md
 - name: How-to guides
   items:
@@ -60,6 +60,14 @@
           href: add-api.md
         - name: Bring your own functions
           href: functions-bring-your-own.md
+    - name: Add a custom domain
+      items:
+      - name: Use Azure DNS
+        href: custom-domain.md
+      - name: Use an external provider
+        href: custom-domain-external.md
+      - name: Manage default domain
+        href: custom-domain-default.md
     - name: Security
       items:
         - name: Set up a private endpoint
