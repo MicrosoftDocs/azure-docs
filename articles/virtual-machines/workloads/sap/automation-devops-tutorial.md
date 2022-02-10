@@ -69,7 +69,7 @@ The deployed infrastructure is shown in the diagram below.
 
 The deployment will use the configuration defined in the Terraform variable files located in the 'samples/WORKSPACES/DEPLOYER/MGMT-WEEU-DEP00-INFRASTRUCTURE' and 'samples/WORKSPACES/LIBRARY/MGMT-WEEU-SAP_LIBRARY' folders. 
 
-Update the 'Deployment_Configuration_Path' variable in the 'SDAF-General' variable group to 'samples/WORKSPACES'
+Ensure that the 'Deployment_Configuration_Path' variable in the 'SDAF-General' variable group is set to 'samples/WORKSPACES'
 
 Run the pipeline by navigating to the Pipelines section in the [Azure DevOps Portal](https://dev.azure.com) and selecting the _Deploy control plane_ pipeline. Run the pipeline and when prompted enter the following values:
 

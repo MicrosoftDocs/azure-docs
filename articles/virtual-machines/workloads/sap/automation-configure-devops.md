@@ -177,7 +177,7 @@ Create a new variable group 'SDAF-General' using the Library page in the Pipelin
 | ---------------------------------- | --------------------------------------- | ---------------------------------------------------------------- |
 | `ANSIBLE_HOST_KEY_CHECKING`        | false                                   |                                                                  |
 | `ANSIBLE_CALLBACK_WHITELIST`       | profile_tasks                           |                                                                  |
-| Deployment_Configuration_Path      | WORKSPACES                              | You can populate this folder with the sample configurations from the samples/WORKSPACES folder.                    |
+| Deployment_Configuration_Path      | WORKSPACES                              | For testing use samples/WORKSPACES instead of WORKSPACES.                    |
 | Repository                         | https://github.com/Azure/sap-automation |                                                                  |
 | Branch                             | main                                    |                                                                  |
 | S-Username                         | `<SAP Support user account name>`       |                                                                  |
