@@ -1,8 +1,9 @@
 ---
 title: Configure Power BI visual offer properties in Partner Center for Microsoft AppSource
 description: Learn how to configure Power BI visual offer properties in Partner Center for Microsoft AppSource.
-author: KesemSharabi
-ms.author: kesharab
+author: posurnis
+ms.author: pooja.surnis
+ms.reviewer: pooja.surnis
 ms.service: powerbi
 ms.subservice: powerbi-custom-visuals
 ms.topic: how-to
