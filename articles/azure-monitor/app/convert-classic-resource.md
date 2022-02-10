@@ -22,7 +22,7 @@ Workspace-based Application Insights allows you to take advantage of all the lat
 * [Customer-Managed Keys (CMK)](../logs/customer-managed-keys.md) provides encryption at rest for your data with encryption keys that only you have access to.
 * [Azure Private Link](../logs/private-link-security.md) allows you to securely link Azure PaaS services to your virtual network using private endpoints.
 * [Bring Your Own Storage (BYOS) for Profiler and Snapshot Debugger](./profiler-bring-your-own-storage.md) gives you full control over the encryption-at-rest policy, the lifetime management policy, and network access for all data associated with Application Insights Profiler and Snapshot Debugger. 
-* [Commitment Tiers](../logs/manage-cost-storage.md#pricing-model) enable you to save as much as 30% compared to the Pay-As-You-Go price. 
+* [Commitment Tiers](../logs/manage-cost-storage.md#pricing-model) enable you to save as much as 30% compared to the Pay-As-You-Go price. Otherwise, Pay-as-you-go data ingestion and data retention are billed similarly in Log Anaytics as they are in Application Insights. 
 * Faster data ingestion via Log Analytics streaming ingestion.
 
 ## Migration process
@@ -33,7 +33,7 @@ Your classic resource data will persist and be subject to the retention settings
 The migration process is **permanent, and cannot be reversed**. Once you migrate a resource to workspace-based Application Insights, it will always be a workspace-based resource. However, once you migrate you are able to change the target workspace as often as needed. 
 
 > [!NOTE]
-> Data ingestion and retention for workspace-based Application Insights resources are [billed through the Log Analytics workspace](../logs/manage-cost-storage.md) where the data is located. If you’ve selected data retention greater than 90 days on data ingested into the Classic Application Insights resource prior to migration, data retention will continue to be billed to through that Application Insights resource. [Learn more]( ./pricing.md#workspace-based-application-insights) about billing for workspace-based Application Insights resources.
+> Data ingestion and retention for workspace-based Application Insights resources are [billed through the Log Analytics workspace](../logs/manage-cost-storage.md) where the data is located. Pay-as-you-go data ingestion and data retention are billed similarly in Log Anaytics as they are in Application Insights. If you’ve selected data retention greater than 90 days on data ingested into the Classic Application Insights resource prior to migration, data retention will continue to be billed to through that Application Insights resource until that data exceeds the retention period. [Learn more]( ./pricing.md#workspace-based-application-insights) about billing for workspace-based Application Insights resources. 
 
 If you don't need to migrate an existing resource, and instead want to create a new workspace-based Application Insights resource use the [workspace-based resource creation guide](create-workspace-resource.md).
 
@@ -86,6 +86,9 @@ We still provide full backwards compatibility for your Application Insights clas
 To write queries against the [new workspace-based table structure/schema](apm-tables.md), you must first navigate to your Log Analytics workspace. 
 
 When you query directly from the Log Analytics UI within your workspace, you will only see the data that is ingested post migration. To see both your classic Application Insights data + new data ingested after migration in a unified query experience use the Logs (Analytics) query view from within your migrated Application Insights resource.
+
+> [!NOTE]
+> If you rename your Application Insights resource after migrating to workspace-based model, the Application Insights Logs tab will no longer show the telemetry collected before renaming. You will be able to see all data (old and new) on the Logs tab of the associated Log Analytics resource.
 
 ## Programmatic resource migration
 

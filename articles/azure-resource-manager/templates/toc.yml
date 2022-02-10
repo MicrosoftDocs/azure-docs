@@ -437,8 +437,10 @@
   - name: CI/CD
     items:
     - name: ARM templates with pipelines
+      displayName: continuous,ci,cd, CI/CD
       href: add-template-to-azure-pipelines.md
     - name: Deploy - GitHub Actions
+      displayName: continuous,ci,cd,CI/CD
       href: deploy-github-actions.md
   - name: Use authoring tools
     items:

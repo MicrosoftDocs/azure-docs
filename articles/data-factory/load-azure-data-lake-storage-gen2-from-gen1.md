@@ -28,7 +28,7 @@ This article shows you how to use the Data Factory copy data tool to copy data f
 
 * An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 * Azure Data Lake Storage Gen1 account with data in it.
-* Azure Storage account with Data Lake Storage Gen2 enabled. If you don't have a Storage account, [create an account](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM).
+* Azure Storage account with Data Lake Storage Gen2 enabled. If you don't have a Storage account, [create an account](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM).
 
 ## Create a data factory
 

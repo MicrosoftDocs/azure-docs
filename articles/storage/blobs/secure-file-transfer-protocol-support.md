@@ -5,7 +5,7 @@ author: normesta
 ms.subservice: blobs
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/15/2021
+ms.date: 02/03/2022
 ms.custom: references_regions
 ms.author: normesta
 ms.reviewer: ylunagaria
@@ -95,6 +95,20 @@ sftp myaccount.mycontainer.myusername@myaccount.blob.core.windows.net
 cd mydirectory
 put logfile.txt  
 ```
+
+## Supported algorithms
+
+You can use any SFTP client to securely connect and then transfer files. Connecting clients must use one the algorithms listed below. 
+
+| Host key | Key exchange | Ciphers/encryption | Integrity/MAC | Public key |
+|----------|--------------|--------------------|---------------|------------|
+| rsa-sha2-256 | ecdh-sha2-nistp384 | aes128-gcm@openssh.com | hmac-sha2-256 | ssh-rsa |
+| rsa-sha2-512 | ecdh-sha2-nistp256 | aes256-gcm@openssh.com | hmac-sha2-512 | ecdsa-sha2-nistp256 |
+| ecdsa-sha2-nistp256 | diffie-hellman-group14-sha256 | aes128-cbc| | ecdsa-sha2-nistp384 |
+| ecdsa-sha2-nistp384| diffie-hellman-group16-sha512 | aes256-cbc |  | 
+||| aes192-cbc ||
+
+SFTP support in Azure Blob Storage currently limits its cryptographic algorithm support in accordance to the Microsoft Security Development Lifecycle (SDL). We strongly recommend that customers utilize SDL approved algorithms to securely access their data. More details can be found [here](/security/sdl/cryptographic-recommendations)
 
 ## Known issues and limitations
 
