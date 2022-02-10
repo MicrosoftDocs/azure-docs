@@ -9,7 +9,7 @@
             "source_path_from_root": "/articles/application-insights/app-insights-performance-counters.md",
             "redirect_url": "/azure/azure-monitor/app/performance-counters",
             "redirect_document_id": true
-        }
+        },
         {
             "source_path_from_root": "/articles/application-insights/cloudservices.md",
             "redirect_url": "/azure/azure-monitor/app/azure-web-apps-net",
