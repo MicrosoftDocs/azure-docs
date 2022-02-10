@@ -22,169 +22,98 @@ This guide outlines the steps to subscribe to Job Router events from your Azure 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 - A deployed Communication Services resource. [Create a Communication Services resource](../../quickstarts/create-communication-resource.md).
 - Optional: Complete the quickstart to [get started with Job Router](../../quickstarts/router/get-started-router.md)
-- Install the [Azure Resource Manager (ARM) client](https://github.com/projectkudu/ARMClient)
-- Review the [GitHub sample project using a customized version of the Event Grid Viewer for Job Router](https://github.com/Azure/communication-preview/tree/master/samples/Job-Router/Event-Grid-Viewer)
 
 ## Create an Event Grid subscription
 
 > [!NOTE]
-> The following scripts are being executed using PowerShell
+> Since Job Router is still in preview, the events are not included in the portal UI. You have to use an ARM template to create a subscription that references them.
 
-**Log into your Azure account**
+This template deploys an EventGrid subscription on a Storage Queue for Job Router events.
+If the storage account, queue or system topic do not exist, they will be created as well.
 
-```powershell
-armclient azlogin
+:::code language="json" source="media/deploy-subscription.json":::
+
+[![Deploy To Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fcommunication-services%2Fhow-tos%2Frouter-sdk%2Fmedia%2Fdeploy-subscription.json)
+
+### Parameters
+
+- **Azure Communication Services Resource Name**: The name of your Azure Communication Services resource. For example, if the endpoint to your resource is https://contoso.communication.azure.net, then set to `contoso`.
+- **Storage Name**: The name of your Azure Storage Account. If it does not exist, it will be created.
+- **Event Sub Name**: The name of the event subscription to create.
+- **System Topic Name**: If you have existing event subscriptions on your ACS resource, find the `System Topic` name in the `Events` tab of your ACS resource. Otherwise, specify a unique name such as the ACS resource name itself.
+- **Queue Name**: The name of your Queue within your Storage Account. If it does not exist, it will be created.
+
+### Deployed resources
+
+The following resources are deployed as part of the solution
+
+- **Storage Account**: If the storage account name does not exist.
+- **Storage Queue**: If the queue does not exist within the storage account.
+- **Event Grid System Topic**: If the topic does not exist.
+- **Event Grid Subscription**: A subscription for all Job Router events on the storage queue.
+
+## Quick-start: Receive EventGrid events via an Azure Storage Queue
+
+### Create a new C# application
+
+In a console window (such as cmd, PowerShell, or Bash), use the `dotnet new` command to create a new console app with the name `EventReceiver`. This command creates a simple "Hello World" C# project with a single source file: **Program.cs**.
+
+```console
+dotnet new console -o EventReceiver
 ```
 
-**Set subscription and resource group name**
-```powershell
-$env:SUB = 'subscriptions/<insert_subscription_id>'
-$env:RG = 'resourcegroups/<insert_resource_group_name>'
+Change your directory to the newly created app folder and use the `dotnet build` command to compile your application.
+
+```console
+cd EventReceiver
+dotnet build
 ```
 
-**List all ACS resources in subscription**
-```powershell
-armclient get "/$env:SUB/$env:RG/providers/Microsoft.Communication/communicationservices?api-version=2020-08-20"
-```
-**Output**
+### Install the packages
 
-:::image type="content" source="media/create-subscription-output.png" alt-text="Output of PowerShell command":::
+Install the Azure Storage Queues and EventGrid packages.
 
-As we can see, there is currently only one Azure Communication Services resource under the given subscription and resource group.
-
-**Set PowerShell variables**
-
-Set the name of your Azure Communication Services resource. For example, if the endpoint to your resource is `https://contoso.communication.azure.net`, then set `ACS_RESOURCE_NAME` to the prefix of the DNS name; `contoso`.
-
-```powershell
-$env:ACS_RESOURCE_NAME = "<insert_acs_resource_name>"
-$env:ACS_RESOURCE_ARM_ID = "/$env:SUB/$env:RG/providers/Microsoft.Communication/CommunicationServices/$env:ACS_RESOURCE_NAME"
-$env:API_VERSION = "?api-version=2020-06-01"
-$env:EVENT_SUBSCRIPTIONS_PATH = "providers/Microsoft.EventGrid/eventSubscriptions"
-$env:EVENT_SUBSCRIPTION_NAME = "RouterEventsSubScription_All"
+```console
+dotnet add package Azure.Storage.Queues
+dotnet add package Azure.Messaging.EventGrid
 ```
 
-**Create a new event subscription for Router events**
+### Receive messages from the queue
 
-Copy and paste the following json payload in a text file named `test.json`.
+Copy the following code snippet and paste into source file: **Program.cs**
 
-*Sample payload*
-```json
+```csharp
+using Azure.Storage.Queues;
+using Azure.Messaging.EventGrid;
+
+// For more detailed tutorials on storage queues, see: https://docs.microsoft.com/en-us/azure/storage/queues/storage-tutorial-queues
+
+var queueClient = new QueueClient("<Storage Account Connection String>", "router-events");
+
+while (true)
 {
-  "properties": {
-    "destination": {
-      "endpointType": "WebHook",
-      "properties": {
-        "endpointUrl": "<insert_webhook_path_here>"
-      }
-    },
-    "filter": {
-      "includedEventTypes": [
-        "Microsoft.Communication.RouterJobReceived",
-        "Microsoft.Communication.RouterJobClassified",
-        "Microsoft.Communication.RouterJobLabelsUpdated",
-        "Microsoft.Communication.RouterJobClassificationFailed",
-        "Microsoft.Communication.RouterJobCompleted",
-        "Microsoft.Communication.RouterJobClosed",
-        "Microsoft.Communication.RouterJobCancelled",
-        "Microsoft.Communication.RouterJobExceptionTriggered",
-        "Microsoft.Communication.RouterWorkerOfferIssued",
-        "Microsoft.Communication.RouterWorkerOfferAccepted",
-        "Microsoft.Communication.RouterWorkerOfferDeclined",
-        "Microsoft.Communication.RouterWorkerOfferRevoked",
-        "Microsoft.Communication.RouterWorkerOfferExpired",
-        "Microsoft.Communication.RouterWorkerRegistered",
-        "Microsoft.Communication.RouterWorkerDeregistered"
-      ],
-      "subjectBeginsWith": "",
-      "subjectEndsWith": ""
+    var msg = await queueClient.ReceiveMessageAsync();
+    if (msg.Value == null)
+    {
+        await Task.Delay(TimeSpan.FromSeconds(1));
+        continue;
     }
-  }
+    var json = Convert.FromBase64String(msg.Value.Body.ToString());
+    var evt = EventGridEvent.Parse(BinaryData.FromBytes(json));
+
+    Console.WriteLine($"Received event: {evt.EventType} - {evt.Subject} - {evt.Data}");
+
+    await queueClient.DeleteMessageAsync(msg.Value.MessageId, msg.Value.PopReceipt);
 }
 ```
 
-**Create the event subscription**
-```powershell
-armclient put "$env:ACS_RESOURCE_ARM_ID/$env:EVENT_SUBSCRIPTIONS_PATH/$env:EVENT_SUBSCRIPTION_NAME/$env:API_VERSION" .\test.json
+### Run the code
+
+Run the application from your application directory with the `dotnet run` command.
+
+```console
+dotnet run
 ```
-**Output**
-
-:::image type="content" source="media/create-subscription.png" alt-text="Create event subscription":::
-
-As we can see, the event subscription is being created and is currently in a state of `Creating`. It generally takes a few seconds to create.
-
-**Verify the event subscription was successfully created**
-```powershell
-armclient get "$env:ACS_RESOURCE_ARM_ID/$env:EVENT_SUBSCRIPTIONS_PATH/$env:API_VERSION"
-```
-
-**Output**
-
-:::image type="content" source="media/verify-subscription-created.png" alt-text="Verify subscription was created":::
-
-As we can see the event subscription has been successfully created now for all Router events.
-
-## Creating a subscription with filters
-
-While setting up event subscriptions, you can also use advanced filters controlling the exact events that needs to sent to a particular subscription. For example, given the sample below, only `RouterJobCancelled` events are subscribed to and sent to the webhook under the following conditions:
-
-- The job **priority** is greater than `5`
-- The job was assigned to an escalation queue
-- The job was canceled due to inactivity
-- The disposition code for canceled Jobs ends with `_JobCancelledDueToInactivity`
-- The Queue ID ends with the name `EscalationQueue`
-
-```json
-{
-  "properties": {
-    "destination": {
-      "endpointType": "WebHook",
-      "properties": {
-        "endpointUrl": "<insert_webhook_path_here>",
-        "maxEventsPerBatch": 1,
-        "preferredBatchSizeInKilobytes": 64
-      }
-    },
-    "filter": {
-      "subjectEndsWith": "_JobCancelledDueToInactivity",
-      "isSubjectCaseSensitive": true,
-      "includedEventTypes": [
-        "Microsoft.Communication.RouterJobCancelled"
-      ],
-      "advancedFilters": [
-        {
-          "operatorType": "NumberGreaterThan",
-          "key": "data.priority",
-          "value": 5
-        },
-        {
-          "operatorType": "StringEndsWith",
-          "key": "data.queueId",
-          "values": [
-            "EscalationQueue"
-          ]
-        }
-      ],
-      "enableAdvancedFilteringOnArrays": true
-    }
-  }
-}
-```
-
-Copy and paste the above json payload in a text and name it `test-with-advanced-filters.json` then execute the following PowerShell code:
-
-```powershell
-$env:API_VERSION = "?api-version=2020-10-15-preview"
-$env:EVENT_SUBSCRIPTION_NAME = "RouterEventsSubScription_WithFilters"
-armclient put "$env:ACS_RESOURCE_ARM_ID/$env:EVENT_SUBSCRIPTIONS_PATH/$env:EVENT_SUBSCRIPTION_NAME/$env:API_VERSION" .\test-with-advanced-filters.json
-```
-
-**Output**
-
-:::image type="content" source="media/advanced-filters.png" alt-text="Advanced filters output":::
-
-> [!NOTE]
-> For a complete list of operators that can be used while creating subscriptions, refer to [Event Grid | Event Filtering - Operators](../../../event-grid/event-filtering.md)
 
 ## Events Catalog
 
@@ -874,3 +803,7 @@ armclient put "$env:ACS_RESOURCE_ARM_ID/$env:EVENT_SUBSCRIPTIONS_PATH/$env:EVENT
 | Attribute | Type | Nullable |Description | Notes |
 |:--------- |:-----:|:-------:|-------------|-------|
 | workerId | `string` | ❌ |
+
+<!-- LINKS -->
+[event-grid-overview]: https://docs.microsoft.com/en-us/azure/event-grid/overview
+[filter-events]: https://docs.microsoft.com/en-us/azure/event-grid/how-to-filter-events
