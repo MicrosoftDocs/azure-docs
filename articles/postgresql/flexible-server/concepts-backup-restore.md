@@ -26,11 +26,11 @@ These backup files can't be exported or used to create servers outside Azure Dat
 
 Backups on flexible servers are snapshot based. The first snapshot backup is scheduled immediately after a server is created. Snapshot backups are currently taken once daily. 
 
-Transaction log backups happen at a varied frequencies, depending on the workload and when the WAL file is filled and ready to be archived. In general, the delay (recovery point objective, or RPO) can be up to 15 minutes.
+Transaction log backups happen at varied frequencies, depending on the workload and when the WAL file is filled and ready to be archived. In general, the delay (recovery point objective, or RPO) can be up to 15 minutes.
 
 ## Backup redundancy options
 
-Azure Database for PostgreSQL stores multiple copies of your backups to help protect your data from planned and unplanned events. Events can include transient hardware failures, network or power outages, and natural disasters. Backup redundancy helps ensure that your database meets its availability and durability targets, even if failures happen. 
+Azure Database for PostgreSQL stores multiple copies of your backups to help protect your data from planned and unplanned events. These events can include transient hardware failures, network or power outages, and natural disasters. Backup redundancy helps ensure that your database meets its availability and durability targets, even if failures happen. 
 
 Azure Database for PostgreSQL offers three options: 
 
@@ -180,7 +180,7 @@ After you restore the database, you can perform the following tasks to get your 
   
     You can manually take a backup by using the PostgreSQL tool [pg_dump](https://www.postgresql.org/docs/current/app-pgdump.html). For examples, see [Migrate your PostgreSQL database by using dump and restore](../howto-migrate-using-dump-and-restore.md). 
     
-    If you want to back up Azure Database for PostgreSQL to Blob Storage, refer to [Back up Azure Database for PostgreSQL to Blob Storage](https://techcommunity.microsoft.com/t5/azure-database-for-postgresql/backup-azure-database-for-postgresql-to-a-blob-storage/ba-p/803343) on our tech community blog. 
+    If you want to back up Azure Database for PostgreSQL to Blob Storage, see [Back up Azure Database for PostgreSQL to Blob Storage](https://techcommunity.microsoft.com/t5/azure-database-for-postgresql/backup-azure-database-for-postgresql-to-a-blob-storage/ba-p/803343) on our tech community blog. 
 
 * **What are the backup windows for my server? Can I customize them?**
   
