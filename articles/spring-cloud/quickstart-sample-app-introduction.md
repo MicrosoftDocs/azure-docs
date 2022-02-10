@@ -12,9 +12,9 @@ zone_pivot_groups: programming-languages-spring-cloud
 
 # Introduction to the sample app
 
-::: zone pivot="programming-language-csharp"
+**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
 
-**This article applies to:** ✔️ Basic/Standard tier ❌ Enterprise tier
+::: zone pivot="programming-language-csharp"
 
 This series of quickstarts uses a sample app composed of two Spring apps to show how to deploy a .NET Core Steeltoe app to the Azure Spring Cloud service. You'll use Azure Spring Cloud capabilities such as service discovery, config server, logs, metrics, and distributed tracing.
 
@@ -53,6 +53,9 @@ The following diagram illustrates the sample app architecture:
 
 :::image type="content" source="media/spring-cloud-quickstart-sample-app-introduction/sample-app-diagram.png" alt-text="Sample app diagram":::
 
+> [!NOTE]
+> When the application is hosted in Enterprise tier, Config Server is replaced with Application Configuration Service, and Eureka Server is replaced with Service Registry. For more information, see [Use Application Configuration Service](how-to-enterprise-application-configuration-service.md) and [Use Service Registry](how-to-enterprise-service-registry.md).
+
 ## Code repository
 
 The sample app is located in the [steeltoe-sample](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/tree/master/steeltoe-sample) folder of the Azure-Samples/Azure-Spring-Cloud-Samples repository on GitHub.
@@ -63,11 +66,16 @@ The instructions in the following quickstarts refer to the source code as needed
 
 ::: zone pivot="programming-language-java"
 
-**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
-
 In this quickstart, we use the well-known sample app [PetClinic](https://github.com/spring-petclinic/spring-petclinic-microservices) that will show you how to deploy apps to the Azure Spring Cloud service. The **Pet Clinic** sample demonstrates the microservice architecture pattern and highlights the services breakdown. You will see how services are deployed to Azure with Azure Spring Cloud capabilities, including service discovery, config server, logs, metrics, distributed tracing, and developer-friendly tooling support.
 
 To follow the Azure Spring Cloud deployment examples, you only need the location of the source code, which is provided as needed.
+
+The following diagram shows the architecture of the PetClinic application.
+
+![Architecture of PetClinic](media/build-and-deploy/microservices-architecture-diagram.jpg)
+
+> [!NOTE]
+> When the application is hosted in Enterprise tier, Spring Cloud Config Server is replaced with Application Configuration Service, and Eureka Service Discovery is replaced with Service Registry. For more information, see the [Infrastructure services hosted by Azure Spring Cloud](#infrastructure-services-hosted-by-azure-spring-cloud) section later in this article.
 
 ## Functional services to be deployed
 
