@@ -16,26 +16,26 @@ To view the **Quotas** page, sign in the to the [Azure portal](https://portal.az
 
 ## View quota details
 
-To view detailed information about your quotas, select **My quotas** in the left men on the **Quotas** page.
+To view detailed information about your quotas, select **My quotas** in the left menu on the **Quotas** page.
 
 > [!NOTE]
 > You can also select a specific Azure provider from the main **Quotas** page to view quotas and usage for that provider. If you don't see a provider, check the [Azure subscription and service limits page](../..//azure-resource-manager/management/azure-subscription-service-limits.md) for more information.
 
 On the **My quotas** page, you can choose which quotas and usage data to display. The filter options at the top of the page let you filter by location, provider, subscription, and usage. You can also use the search box to look for a specific quota.
 
-**insert image here**
+:::image type="content" source="media/view-quotas/my-quotas.png" alt-text="Screenshot of the My quotas screen in the Azure portal.":::
 
-Toggle the arrow next to Quotas to expand and close the categories based on your filter choice. You can do the same next to each category to drill down and create a view of the information you need.
-The pencil icon indicates a quota that you can request an increase for. Clicking it opens the Quota details pane and you can enter an amount for the increase.
-The support icon indicates that to request an increase for that quota, you must submit a support request. Clicking the icon opens a support form where you can enter the details of your request.
+In the list of quotas, you can toggle the arrow shown next to **Quota** to expand and close categories. You can do the same next to each category to drill down and create a view of the information you need.
 
 ## Request quota increases
 
-You can request quota increases directly from **My quotas**. The process for requesting an increase depends on the type of quota.
+You can request quota increases directly from **My quotas**. The process for requesting an increase will depend on the type of quota.
 
-### Request an automatic increase from My quotas
+### Request an automatic increase
 
 Some quotas display a pencil icon. Select this icon to quickly request an increase for that quota.
+
+:::image type="content" source="media/view-quotas/quota-pencil-icon.png" alt-text="Screenshot of the pencil icon to request a quota increase in the Azure portal.":::
 
 After you select the pencil icon, enter the new limit for your request in the **Quota Details** pane, then select **Save and Continue**. After a few minutes, you'll see a status update confirming whether the increase was automatically approved. If you close **Quota details** before the update appears, you can check it later in the Azure Activity Log.
 
@@ -43,7 +43,11 @@ If your request wasn't automatically approved, you can select **Create a support
 
 ### Create a support request
 
-If the quota displays a support icon rather than a pencil, you'll need to create a support request in order to increase the quota. Selecting the support icon will take you to the **New support request** page, where you can enter details about your new request. A support engineer will then assist you with the quota increase request.
+If the quota displays a support icon rather than a pencil, you'll need to create a support request in order to increase the quota.
+
+:::image type="content" source="media/view-quotas/quota-support-icon.png" alt-text="Screenshot of the support icon to request a quota increase in the Azure portal.":::
+
+Selecting the support icon will take you to the **New support request** page, where you can enter details about your new request. A support engineer will then assist you with the quota increase request.
 
 For more information about opening a support request, see [Create an Azure support request](how-to-create-azure-support-request.md).
 
