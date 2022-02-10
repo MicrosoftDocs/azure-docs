@@ -287,12 +287,11 @@ To set up and use your logic app's managed identity to authenticate function cal
 
 ## Set up Azure AD authentication for your function app
 
-Before you start this task, find and save the following values aside for later use. The following sections show how to find these values.
+Before you start this task, find and save the following values so that you can set up Azure AD authentication on your function app. The following sections show how to find these values.
 
 * The object (principal) ID for your logic app's managed identity
 * The tenant ID for your Azure Active Directory (Azure AD)
 * Client secret (optional)
-* The application ID URI (resource ID) for your function app
 
 ### Find the object ID for your logic app's managed identity
 
@@ -342,30 +341,23 @@ If your logic app doesn't have a managed identity set up yet, [enable the manage
 
 ### Find the tenant ID for your Azure AD
 
-1. For your Azure Active Directory (Azure AD), find the tenant ID. You can either run the PowerShell command named [**Get-AzureAccount**](/powershell/module/servicemanagement/azure.service/get-azureaccount), or in the Azure portal, follow these steps:
+For your Azure Active Directory (Azure AD), find the tenant ID. You can either run the PowerShell command named [**Get-AzureAccount**](/powershell/module/servicemanagement/azure.service/get-azureaccount), or in the Azure portal, follow these steps:
 
-   1. In the [Azure portal](https://portal.azure.com), open your Azure AD tenant. These steps use "Fabrikam" as the example tenant.
+1. In the [Azure portal](https://portal.azure.com), open your Azure AD tenant. These steps use **Fabrikam** as the example tenant.
 
-   1. On the tenant menu, under **Manage**, select **Properties**.
+1. On the Azure AD tenant menu, under **Manage**, select **Properties**.
 
-   1. Copy your tenant ID, for example, and save that ID for later use.
+1. Copy and save your tenant ID for later use, for example:
 
-      ![Screenshot showing your Azure AD "Properties" pane with tenant ID's copy button selected.](./media/logic-apps-azure-functions/azure-active-directory-tenant-id.png)
+   ![Screenshot showing your Azure AD "Properties" pane with tenant ID's copy button selected.](./media/logic-apps-azure-functions/azure-active-directory-tenant-id.png)
 
-1. For the target resource that you want to access, which is your function app in this case, find the application ID URI (resource ID).
+### Create an app registration for your function app
 
-  * To find these resource IDs, review the [Azure services that support Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
-
-  > [!IMPORTANT]
-  > This resource ID must exactly match the value that Azure AD expects, including any required trailing slashes.
-
-  This resource ID is also the same value that you later use in the **Audience** property when you [set up your function action to use the system-assigned identity](create-managed-service-identity.md#authenticate-access-with-identity).
-
-Now you're ready to set up Azure AD authentication for your function app by creating a new app registration. For more information, review [Configure your App Service or Azure Functions app to use Azure AD login](../app-service/configure-authentication-provider-aad.md#-enable-azure-active-directory-in-your-app-service-app).
+Now you're ready to set up Azure AD authentication for your function app by creating an app registration. For more information, review [Configure your App Service or Azure Functions app to use Azure AD login](../app-service/configure-authentication-provider-aad.md#-enable-azure-active-directory-in-your-app-service-app).
 
 1. In the [Azure portal](https://portal.azure.com), open your function app.
 
-1. On the function app menu, under **Settings**, select **Authentication**, then select **Add identity provider**.
+1. On the function app menu, under **Settings**, select **Authentication**, and then select **Add identity provider**.
 
    ![Screenshot showing function app menu with "Authentication" pane and "Add identity provider" selected.](./media/logic-apps-azure-functions/open-authentication-pane.png)
 
@@ -375,12 +367,12 @@ Now you're ready to set up Azure AD authentication for your function app by crea
 
 1. For **App registration type**, select **Provide the details of an existing app registration**, and provide the previously saved information:
 
-   | Property | Value | Description |
-   |----------|-------|-------------|
-   | **Application (client) ID** | <*object-ID*> | The object ID for your logic app's system-assigned identity |
-   | **Client secret** | <*client-secret*> | (Recommended) The secret value that the app uses to prove its identity when requesting a token. The client secret is created and stored as a slot-sticky [app setting](../app-service/configure-common.md#configure-app-settings) named `MICROSOFT_PROVIDER_AUTHENTICATION_SECRET`. If you want to manage the secret in Azure Key Vault, you can update this setting later to use Key Vault references. |
-   | **Issuer URL** | `https://sts.windows.net/<Azure-AD-tenant-ID>` | The issuer URL appended with your Azure AD tenant ID |
-   | **Allowed token audiences** | <*application-resource-ID-URI*> | The resource ID URI for the target resource that you want to access. This resource ID is the same **Audience** property value that you use later when you [set up your function action in your workflow to use the system-assigned identity for authentication](create-managed-service-identity.md#authenticate-access-with-identity). |
+   | Property | Required | Value | Description |
+   |----------|----------|-------|-------------|
+   | **Application (client) ID** | Yes | <*object-ID*> | The object ID for your logic app's managed identity. |
+   | **Client secret** | <*client-secret*> | No, but recommended | The secret value that the app uses to prove its identity when requesting a token. The client secret is created and stored as a slot-sticky [app setting](../app-service/configure-common.md#configure-app-settings) named `MICROSOFT_PROVIDER_AUTHENTICATION_SECRET`. If you want to manage the secret in Azure Key Vault, you can update this setting later to use Key Vault references. |
+   | **Issuer URL** | No | `https://sts.windows.net/<Azure-AD-tenant-ID>` | The issuer URL appended with your Azure AD tenant ID |
+   | **Allowed token audiences** | No | <*application-ID-URI*> | The application ID URI (resource ID) for the function app. Later, you use this same URI in the **Audience** property when you [set up your function action in your workflow to use the managed identity for authentication](create-managed-service-identity.md#authenticate-access-with-identity). <p><p>In this example, the value is **https://management.azure.com**. |
    ||||
 
    At this point, your version looks similar to this example:
@@ -394,6 +386,18 @@ Now you're ready to set up Azure AD authentication for your function app by crea
 1. To finish creating the app registration, select **Add**.
 
    When you're done, the **Authentication** page now lists the identity provider. From here, you can edit or delete this provider configuration. You're now ready to use the Microsoft identity platform for authentication in your function app.
+
+### Find the application ID URI (resource ID) for your function app
+
+
+* The application ID URI (resource ID) for your function app
+
+For the function app that you want to access with the managed identity, get the application ID URI (resource ID). To find this application ID URI, review 
+
+> [!IMPORTANT]
+> This application ID URI (resource ID) must exactly match the value that Azure AD expects, 
+> including any required trailing slashes. Later, you use this same URI in the **Audience** 
+> property when you [set up your function action in your workflow to use the managed identity for authentication](create-managed-service-identity.md#authenticate-access-with-identity).
 
 1. Return to the designer and follow the [steps to authenticate access with the managed identity](create-managed-service-identity.md#authenticate-access-with-identity).
 
