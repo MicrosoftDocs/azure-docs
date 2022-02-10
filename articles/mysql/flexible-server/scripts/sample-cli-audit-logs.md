@@ -16,6 +16,8 @@ This sample CLI script enables [audit logs](../concepts-audit-logs.md) on an Azu
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
+[!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
+
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../../includes/azure-cli-prepare-your-environment.md)]
 
 - This article requires version 2.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
@@ -26,7 +28,7 @@ This sample CLI script enables [audit logs](../concepts-audit-logs.md) on an Azu
 
 ### Run the script
 
-:::code language="azurecli" source="~/azure_cli_scripts/mysql/flexible-server/configure-logs/server-logs.sh" range="4-49":::
+:::code language="azurecli" source="~/azure_cli_scripts/mysql/flexible-server/configure-logs/configure-audit-logs.sh" range="4-49":::
 
 ## Clean up resources
 

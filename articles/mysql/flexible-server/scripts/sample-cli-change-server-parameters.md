@@ -24,7 +24,7 @@ This sample CLI script lists all available [server parameters](../concepts-serve
 
 ### Run the script
 
-:::code language="azurecli" source="~/azure_cli_scripts/mysql/flexible-server/manage-server/change-server-configurations.sh" range="4-35":::
+:::code language="azurecli" source="~/azure_cli_scripts/mysql/flexible-server/manage-server/change-server-parameters.sh" range="4-35":::
 
 ## Clean up resources
 
