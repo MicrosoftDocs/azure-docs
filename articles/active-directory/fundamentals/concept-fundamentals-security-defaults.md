@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 09/27/2021
+ms.date: 02/10/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 
 ms.custom: contperf-fy20q4
 ---
-# What are security defaults?
+# Security defaults in Azure AD
 
 Managing security can be difficult with common identity-related attacks like password spray, replay, and phishing becoming more popular. Security defaults make it easier to help protect your organization from these attacks with preconfigured security settings:
 
@@ -27,11 +27,13 @@ Managing security can be difficult with common identity-related attacks like pas
 - Requiring users to do multi-factor authentication when necessary.
 - Protecting privileged activities like access to the Azure portal.
 
-![Screenshot of the Azure portal with the toggle to enable security defaults](./media/concept-fundamentals-security-defaults/security-defaults-azure-ad-portal.png)
- 
-More details on why security defaults are being made available can be found in Alex Weinert's blog post, [Introducing security defaults](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/introducing-security-defaults/ba-p/1061414).
+## Why security defaults?
 
-## Availability
+Quoting Alex Weinert, Director of Identity Security at Microsoft:
+
+> ...our telemetry tells us that more than 99.9% of organization account compromise could be stopped by simply using MFA, and that disabling legacy authentication correlates to a 67% reduction in compromise risk (and completely stops password spray attacks, 100% of which come in via legacy authentication)...
+
+More details on why security defaults are being made available can be found in Alex Weinert's blog post, [Introducing security defaults](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/introducing-security-defaults/ba-p/1061414).
 
 Microsoft is making security defaults available to everyone. The goal is to ensure that all organizations have a basic level of security enabled at no extra cost. You turn on security defaults in the Azure portal. If your tenant was created on or after October 22, 2019, security defaults may be enabled in your tenant. To protect all of our users, security defaults are being rolled out to new tenants at creation.
 
@@ -54,7 +56,7 @@ All users in your tenant must register for multi-factor authentication (MFA) in 
 
 ### Protecting administrators
 
-Users with privileged access have increased access to your environment. Because of the power these accounts have, you should treat them with special care. One common method to improve the protection of privileged accounts is to require a stronger form of account verification for sign-in. In Azure AD, you can get a stronger account verification by requiring multi-factor authentication.
+Users with privileged access have increased access to your environment. Because of the power these accounts have, you should treat them with special care. One common method to improve the protection of privileged accounts is to require a stronger form of account verification for sign-in. In Azure AD, you can get a stronger account verification by requiring multi-factor authentication. We recommend having separate accounts for administration and standard productivity tasks to significantly reduce the number of times your admins are prompted for MFA.
 
 After registration with Azure AD Multi-Factor Authentication is finished, the following Azure AD administrator roles will be required to do extra authentication every time they sign in:
 
@@ -72,8 +74,34 @@ After registration with Azure AD Multi-Factor Authentication is finished, the fo
 - SharePoint administrator
 - User administrator
 
-> [!WARNING]
-> Ensure your directory has at least two accounts with global administrator privileges assigned to them. This will help in the case that one global administrator is locked out. For more detail see the article, [Manage emergency access accounts in Azure AD](../roles/security-emergency-access.md).
+#### Emergency access accounts
+
+Every organization should have at least two emergency access account configured. 
+
+These accounts may be used in scenarios where your normal administrator accounts can't be used. For example: The person with the most recent Global Administrator access has left the organization. Azure AD prevents the last Global Administrator account from being deleted, but it doesn't prevent the account from being deleted or disabled on-premises. Either situation might make the organization unable to recover the account.
+
+Emergency access accounts are:
+
+- Assigned Global Administrator rights in Azure AD
+- Aren't used on a daily basis
+- Are protected with a long complex password
+ 
+The credentials for these emergency access accounts should be stored offline in a secure location such as a fireproof safe. Only authorized individuals should have access to these credentials.
+
+For more detailed information about emergency access accounts, see the article [Manage emergency access accounts in Azure AD](../roles/security-emergency-access.md).
+
+To create an emergency access account: 
+
+1. Sign in to the **Azure portal** as an existing Global Administrator.
+1. Browse to **Azure Active Directory** > **Users**.
+1. Select **New user**.
+1. Select **Create user**.
+1. Give the account a **User name**.
+1. Give the account a **Name**.
+1. Create a long and complex password for the account.
+1. Under **Roles**, assign the **Global Administrator** role.
+1. Under **Usage location**, select the appropriate location.
+1. Select **Create**.
 
 ### Protecting all users
 
@@ -167,6 +195,8 @@ To enable security defaults in your directory:
 1. Select **Manage security defaults**.
 1. Set the **Enable security defaults** toggle to **Yes**.
 1. Select **Save**.
+
+![Screenshot of the Azure portal with the toggle to enable security defaults](./media/concept-fundamentals-security-defaults/security-defaults-azure-ad-portal.png)
 
 ## Disabling security defaults
 
