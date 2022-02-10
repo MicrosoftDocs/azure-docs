@@ -12,6 +12,8 @@ zone_pivot_groups: programming-languages-spring-cloud
 
 # Quickstart: Deploy your first application to Azure Spring Cloud
 
+**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+
 ::: zone pivot="programming-language-csharp"
 This quickstart explains how to deploy a small application to run on Azure Spring Cloud.
 

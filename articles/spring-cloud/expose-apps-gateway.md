@@ -12,6 +12,8 @@ ms.custom: devx-track-java
 
 # Expose applications to the internet using Application Gateway
 
+**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+
 This article explains how to expose applications to the internet using Application Gateway. When an Azure Spring Cloud service instance is deployed in your virtual network, applications on the service instance are only accessible in the private network. To make the applications accessible on the Internet, you need to integrate with Azure Application Gateway.
 
 ## Prerequisites
@@ -339,7 +341,7 @@ az network public-ip show \
 
 You can now access the application using the public domain name.
 
-## See also
+## Next steps
 
 - [Troubleshooting Azure Spring Cloud in VNET](./troubleshooting-vnet.md)
 - [Customer Responsibilities for Running Azure Spring Cloud in VNET](./vnet-customer-responsibilities.md)

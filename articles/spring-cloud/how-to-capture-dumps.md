@@ -13,6 +13,8 @@ ms.custom: devx-track-java
 
 **This article applies to:** ✔️ Java ❌ C#
 
+**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+
 This article describes how to manually generate a heap dump or thread dump, and how to start Java Flight Recorder (JFR).
 
 Effective troubleshooting is critical to ensure you can fix issues in production environments and keep your business online. Azure Spring Cloud provides application log streaming and query, rich metrics emitting, alerts, distributed tracing, and so forth. However, when you get alerts about requests with high latency, JVM heap leak, or high CPU usage, there's no last-mile solution. For this reason, we've enabled you to manually generate a heap dump, generate a thread dump, and start JFR.

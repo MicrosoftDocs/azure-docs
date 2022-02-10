@@ -11,7 +11,9 @@ ms.custom: devx-track-java
 
 # How to use Logback to write logs to custom persistent storage
 
-**This article applies to:** ✔️ Java
+**This article applies to:** ✔️ Java ❌ C#
+
+**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
 
 This article shows you how to load Logback and write logs to custom persistent storage in Azure Spring Cloud.
 

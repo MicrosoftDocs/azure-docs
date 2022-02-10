@@ -13,6 +13,10 @@ ms.custom: devx-track-java
 
 **This article applies to:** ✔️ Java ✔️ C#
 
+**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+
+This article shows you how to analyze diagnostics data in Azure Spring Cloud.
+
 Using the diagnostics functionality of Azure Spring Cloud, you can analyze logs and metrics with any of the following services:
 
 * Use Azure Log Analytics, where the data is written to Azure Storage. There is a delay when exporting logs to Log Analytics.

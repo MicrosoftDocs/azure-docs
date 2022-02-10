@@ -13,7 +13,9 @@ ms.custom: devx-track-java
 
 **This article applies to:** ✔️ Java ✔️ C#
 
-This article describes how to view app status for Azure Spring Cloud.
+**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+
+This article shows you how to view app status for Azure Spring Cloud.
 
 The Azure Spring Cloud UI delivers information about the status of running applications. There is an **Apps** option for each resource group in a subscription that displays general status of application types. For each application type, there's a display of **Application instances**.
 
@@ -70,6 +72,6 @@ The discovery status of the instance is reported as one of the following values:
 | OUT_OF_SERVICE | The app instance is registered to Eureka and able to receive traffic. but shuts down for traffic intentionally. |
 | DOWN           | The app instance is not registered to Eureka or is registered but not able to receive traffic. |
 
-## See also
+## Next steps
 
 * [Prepare a Spring or Steeltoe application for deployment in Azure Spring Cloud](how-to-prepare-app-deployment.md)

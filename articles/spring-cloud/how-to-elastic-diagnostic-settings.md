@@ -13,7 +13,9 @@ ms.custom: devx-track-java
 
 **This article applies to:** ✔️ Java ✔️ C#
 
-This article explains how to use the diagnostics functionality of Azure Spring Cloud to analyze logs with Elastic (ELK).
+**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+
+This article shows you how to use the diagnostics functionality of Azure Spring Cloud to analyze logs with Elastic (ELK).
 
 The following video introduces unified observability for Spring Boot applications using Elastic.
 

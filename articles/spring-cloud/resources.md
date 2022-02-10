@@ -13,6 +13,8 @@ ms.custom: devx-track-java
 
 **This article applies to:** ✔️ Java ✔️ C#
 
+**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+
 As a developer, you might find the following Azure Spring Cloud resources useful:
 
 * [Azure roadmap](https://azure.microsoft.com/updates)

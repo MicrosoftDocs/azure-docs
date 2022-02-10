@@ -12,6 +12,8 @@ ms.custom: devx-track-java
 
 # How to monitor Spring Boot apps with the AppDynamics Java Agent (Preview)
 
+**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+
 This article explains how to use the AppDynamics Java Agent to monitor Spring Boot applications in Azure Spring Cloud.
 
 With the AppDynamics Java Agent, you can:

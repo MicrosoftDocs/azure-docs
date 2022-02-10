@@ -12,6 +12,8 @@ zone_pivot_groups: programming-languages-spring-cloud
 
 # Quickstart: Build and deploy apps to Azure Spring Cloud
 
+**This article applies to:** ✔️ Basic/Standard tier ❌ Enterprise tier
+
 ::: zone pivot="programming-language-csharp"
 In this quickstart, you build and deploy microservice applications to Azure Spring Cloud using the Azure CLI.
 

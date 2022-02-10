@@ -12,6 +12,8 @@ zone_pivot_groups: programming-languages-spring-cloud
 
 # Quickstart: Set up Azure Spring Cloud Config Server
 
+**This article applies to:** ✔️ Basic/Standard tier ❌ Enterprise tier
+
 Azure Spring Cloud Config Server is a centralized configuration service for distributed systems. It uses a pluggable repository layer that currently supports local storage, Git, and Subversion. In this quickstart, you set up the Config Server to get data from a Git repository.
 
 ::: zone pivot="programming-language-csharp"

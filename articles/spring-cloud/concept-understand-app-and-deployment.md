@@ -13,6 +13,8 @@ ms.custom: devx-track-java
 
 **This article applies to:** ✔️ Java ✔️ C#
 
+**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+
 **App** and **Deployment** are the two key concepts in the resource model of Azure Spring Cloud. In Azure Spring Cloud, an *App* is an abstraction of one business app or one microservice.  One version of code or binary deployed as the *App* runs in a *Deployment*.  Apps run in an *Azure Spring Cloud Service Instance*, or simply *service instance*, as shown next.
 
  ![Apps and Deployments](./media/spring-cloud-app-and-deployment/app-deployment-rev.png)
@@ -53,6 +55,6 @@ The following features/properties are defined on Deployment level, and will be e
 * **An App can have at most two Deployments**: Creating more than two deployments is blocked by the API. Deploy your new binary to either the existing production or staging deployment.
 * **Deployment management is not available in Basic Tier**: Use Standard tier for Blue-Green deployment capability.
 
-## See also
+## Next steps
 
 * [Set up a staging environment in Azure Spring Cloud](./how-to-staging-environment.md)

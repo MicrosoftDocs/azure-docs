@@ -13,6 +13,8 @@ ms.custom: devx-track-java
 
 **This article applies to:** ✔️ Java ✔️ C#
 
+**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+
 This guide explains how to change an application's state in Azure Spring Cloud by using either the Azure portal or the Azure CLI.
 
 ## Using the Azure portal

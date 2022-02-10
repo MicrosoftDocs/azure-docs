@@ -12,6 +12,8 @@ zone_pivot_groups: programming-languages-spring-cloud
 
 # Quickstart: Provision an Azure Spring Cloud service instance
 
+**This article applies to:** ✔️ Basic/Standard tier ❌ Enterprise tier
+
 ::: zone pivot="programming-language-csharp"
 In this quickstart, you use the Azure CLI to provision an instance of the Azure Spring Cloud service.
 

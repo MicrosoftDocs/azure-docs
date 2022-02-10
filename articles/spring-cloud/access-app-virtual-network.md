@@ -11,6 +11,8 @@ ms.custom: devx-track-java
 
 # Access your application in a private network
 
+**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+
 This document explains how to access an endpoint for your application in a private network.
 
 When **Assign Endpoint** on applications in an Azure Spring Cloud service instance is deployed in your virtual network, the endpoint is a private fully qualified domain name (FQDN). The domain is only accessible in the private network. Apps and services use the application endpoint. They include the *Test Endpoint* described in [View apps and deployments](./how-to-staging-environment.md#view-apps-and-deployments). *Log streaming*, described in [Stream Azure Spring Cloud app logs in real-time](./how-to-log-streaming.md), also works only within the private network.
@@ -209,8 +211,5 @@ After the assignment, you can access the application's private FQDN in the priva
 ## Next steps
 
 - [Expose applications to Internet - using Application Gateway](./expose-apps-gateway.md)
-
-## See also
-
 - [Troubleshooting Azure Spring Cloud in VNET](./troubleshooting-vnet.md)
 - [Customer Responsibilities for Running Azure Spring Cloud in VNET](./vnet-customer-responsibilities.md)

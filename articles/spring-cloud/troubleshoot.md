@@ -11,6 +11,8 @@ ms.custom: devx-track-java
 
 # Troubleshoot common Azure Spring Cloud issues
 
+**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+
 This article provides instructions for troubleshooting Azure Spring Cloud development issues. For additional information, see [Azure Spring Cloud FAQ](./faq.md).
 
 ## Availability, performance, and application issues

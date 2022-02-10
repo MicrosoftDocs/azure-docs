@@ -491,7 +491,7 @@ When data is stored in Application Insights, it contains the history of Azure Sp
   * Two instances in Application Map with time ranges in last hour, as well as Failures, Performance, and Metrics.
   * Two instances in Live Metrics.
 
-## See also
+## Next steps
 
 * [Use distributed tracing with Azure Spring Cloud](./how-to-distributed-tracing.md)
 * [Analyze logs and metrics](diagnostic-services.md)

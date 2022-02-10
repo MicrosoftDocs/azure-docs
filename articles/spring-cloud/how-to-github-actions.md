@@ -1,6 +1,6 @@
 ---
-title:  Azure Spring Cloud CI/CD with GitHub Actions
-description: How to build up CI/CD workflow for Azure Spring Cloud with GitHub Actions
+title: Use Azure Spring Cloud CI/CD with GitHub Actions
+description: How to build up a CI/CD workflow for Azure Spring Cloud with GitHub Actions
 author: karlerickson
 ms.author: karler
 ms.service: spring-cloud
@@ -10,7 +10,11 @@ ms.custom: devx-track-java, devx-track-azurecli
 zone_pivot_groups: programming-languages-spring-cloud
 ---
 
-# Azure Spring Cloud CI/CD with GitHub Actions
+# Use Azure Spring Cloud CI/CD with GitHub Actions
+
+**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+
+This article shows you how to build up a CI/CD workflow for Azure Spring Cloud with GitHub Actions.
 
 GitHub Actions support an automated software development lifecycle workflow. With GitHub Actions for Azure Spring Cloud you can create workflows in your repository to build, test, package, release, and deploy to Azure.
 

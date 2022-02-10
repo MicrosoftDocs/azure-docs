@@ -13,6 +13,8 @@ ms.custom: devx-track-java
 
 **This article applies to:** ✔️ Java ✔️ C#
 
+**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+
 This article explains some strategies you can use to protect your applications in Azure Spring Cloud from experiencing downtime.  Any region or data center may experience downtime caused by regional disasters, but careful planning can mitigate impact on your customers.
 
 ## Plan your application deployment

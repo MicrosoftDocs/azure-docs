@@ -13,6 +13,8 @@ ms.custom: devx-track-java
 
 **This article applies to:** ✔️ Java ✔️ C#
 
+**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+
 Domain Name Service (DNS) is a technique for storing network node names throughout a network. This tutorial maps a domain, such as www.contoso.com, using a CNAME record. It secures the custom domain with a certificate and shows how to enforce Transport Layer Security (TLS), also known as Secure Sockets Layer (SSL).
 
 Certificates encrypt web traffic. These TLS/SSL certificates can be stored in Azure Key Vault.
@@ -241,7 +243,7 @@ az spring-cloud app update -n <app name> --resource-group <resource group name> 
 
 When the operation is complete, navigate to any of the HTTPS URLs that point to your app. Note that HTTP URLs don't work.
 
-## See also
+## Next steps
 
 * [What is Azure Key Vault?](../key-vault/general/overview.md)
 * [Import a certificate](../key-vault/certificates/certificate-scenarios.md#import-a-certificate)

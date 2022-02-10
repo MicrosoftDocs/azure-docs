@@ -11,6 +11,8 @@ ms.custom: devx-track-java
 
 # How to monitor Spring Boot apps with Elastic APM Java Agent
 
+**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+
 This article explains how to use Elastic APM Agent to monitor Spring Boot applications running in Azure Spring Cloud.
 
 With the Elastic Observability Solution, you can achieve unified observability to:

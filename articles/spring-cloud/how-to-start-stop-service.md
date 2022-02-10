@@ -11,6 +11,8 @@ ms.custom: devx-track-java
 
 # Start or stop your Azure Spring Cloud service instance
 
+**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+
 This article shows you how to start or stop your Azure Spring Cloud service instance.
 
 > [!NOTE]

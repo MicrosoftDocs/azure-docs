@@ -12,6 +12,8 @@ zone_pivot_groups: programming-languages-spring-cloud
 
 # Azure Spring Cloud FAQ
 
+**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+
 This article answers frequently asked questions about Azure Spring Cloud.
 
 ## General
