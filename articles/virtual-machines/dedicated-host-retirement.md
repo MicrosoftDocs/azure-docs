@@ -1,3 +1,15 @@
+---
+title: Azure Dedicated Host SKU Retirement
+description: Azure Dedicated Host SKU Retirement landing page
+author: brittanyrowe
+ms.author: brittanyrowe
+ms.reviewer: mimckitt
+ms.service: virtual-machines
+ms.subservice: dedicated-hosts
+ms.topic: conceptual
+ms.date: 3/15/2021
+---
+
 # Azure Dedicated Host SKU Retirement
 
 We continue to modernize and optimize Azure Dedicated Host by using the latest innovations in processor and datacenter technologies. Azure Dedicated Host is a combination of a virtual machine (VM) series and a specific Intel or AMD-based physical server. As we innovate and work with our technology partners, we also need to plan how we retire aging technology.

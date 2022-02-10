@@ -1,3 +1,15 @@
+---
+title: Azure Dedicated Host SKU Retirement Migration Guide
+description: Walkthrough on how to migrate a retiring Dedicated Host SKU
+author: brittanyrowe
+ms.author: brittanyrowe
+ms.reviewer: mimckitt
+ms.service: virtual-machines
+ms.subservice: dedicated-hosts
+ms.topic: how-to
+ms.date: 3/015/2021
+---
+
 # Azure Dedicated Host SKU Retirement Migration Guide
 
 As hardware ages, it must be retired and workloads must be migrated to newer, faster, and more efficient Azure Dedicated Host SKUs. The legacy Dedicated Host SKUs should be migrated to newer Dedicated Host SKUs. 
@@ -46,21 +58,21 @@ More detailed instructions can be found in the following sections.
 
 ### Get quota for the target VM family
 
-Follow this guide to [request an increase in vCPU quota](https://docs.microsoft.com/en-us/azure/azure-portal/supportability/per-vm-quota-requests) for your target VM family in your target region. Select the Dsv3-series or Esv3-series as the VM family, depending on the target Dedicated Host SKU.
+Follow this guide to [request an increase in vCPU quota](../azure-portal/supportability/per-vm-quota-requests.md) for your target VM family in your target region. Select the Dsv3-series or Esv3-series as the VM family, depending on the target Dedicated Host SKU.
 
 ### Create a new Dedicated Host
 
-Within the same Host Group as the existing Dedicated Host, [create a Dedicated Host](https://docs.microsoft.com/en-us/azure/virtual-machines/dedicated-hosts-how-to?tabs=portal%2Cportal2#create-a-dedicated-host) of the target Dedicated Host SKU.
+Within the same Host Group as the existing Dedicated Host, [create a Dedicated Host](dedicated-hosts-how-to.md#create-a-dedicated-host) of the target Dedicated Host SKU.
 
 ### Stop the VM(s)
 
 #### PowerShell
 
-Refer to the PowerShell documentation to [stop a VM through PowerShell](https://docs.microsoft.com/en-us/powershell/module/servicemanagement/azure.service/stop-azurevm?view=azuresmps-4.0.0).
+Refer to the PowerShell documentation to [stop a VM through PowerShell](/powershell/module/servicemanagement/stop-azurevm).
 
 #### Command Line Interface
 
-Refer to the Command Line Interface (CLI) documentation to [stop a VM through CLI](https://docs.microsoft.com/en-us/cli/azure/vm?view=azure-cli-latest#az-vm-stop).
+Refer to the Command Line Interface (CLI) documentation to [stop a VM through CLI](/cli/azure/vm#az-vm-stop).
 
 #### Portal
 
@@ -71,13 +83,27 @@ On Azure portal, please go through the following steps:
 
 #### Reassign the VM(s) to the target Dedicated Host
 
-Once the target Dedicated Host has been created and the VM has been stopped, [reassign the VM to the target Dedicated Host](https://docs.microsoft.com/en-us/azure/virtual-machines/dedicated-hosts-how-to?tabs=portal%2Cportal2#add-an-existing-vm).
+Once the target Dedicated Host has been created and the VM has been stopped, [reassign the VM to the target Dedicated Host](dedicated-hosts-how-to.md#add-an-existing-vm).
 
-#### Start the VM(s) on the target Dedicated Host
+### Start the VM(s)
+
+#### PowerShell
+Refer to the PowerShell documentation to [start a VM through PowerShell](/powershell/module/servicemanagement/start-azurevm).
+
+#### Command Line Interface
+
+Refer to the Command Line Interface (CLI) documentation to [start a VM through CLI](/cli/azure/vm#az-vm-start).
+
+#### Portal
+
+On Azure portal, please go through the following steps:
+
+1.	Navigate to your VM.
+2.	On the top navigation bar, click “Start”.
 
 #### Delete the old Dedicated Host
 
-Once all VMs have been migrated from your old Dedicated Host to the target Dedicated Host, [delete the old Dedicated Host](https://docs.microsoft.com/en-us/azure/virtual-machines/dedicated-hosts-how-to?tabs=portal%2Cportal2#deleting-hosts).
+Once all VMs have been migrated from your old Dedicated Host to the target Dedicated Host, [delete the old Dedicated Host](dedicated-hosts-how-to.md#deleting-hosts).
 
 ## Help and support
 
