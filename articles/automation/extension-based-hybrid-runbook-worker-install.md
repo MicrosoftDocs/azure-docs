@@ -535,7 +535,7 @@ You would require an Azure VM or Arc-enabled server. You can follow the steps [h
 
 ### Install and use Hybrid Worker extension using REST API
 
-To install and use Hybrid Worker extension using REST API, follow these steps. The WestCentral US region is considered in this example.
+To install and use Hybrid Worker extension using REST API, follow these steps. The West Central US region is considered in this example.
 
 1. Create a Hybrid Worker Group by making this API call.
 
