@@ -1,12 +1,12 @@
 ---
-title: Cloud-native certificate-based authentication technical deep dive (Preview) - Azure Active Directory
-description: Learn how cloud-native certificate-based authentication works in Azure Active Directory
+title: Azure AD certificate-based authentication technical deep dive (Preview) - Azure Active Directory
+description: Learn how Azure AD certificate-based authentication works
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 02/03/2022
+ms.date: 02/09/2022
 
 ms.author: justinha
 author: justinha
@@ -17,18 +17,18 @@ ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
 ---
 
-# Cloud-native certificate-based authentication technical deep dive (Preview)
+# Azure AD certificate-based authentication technical deep dive (Preview)
 
-This article explains how cloud-native certificate-based authentication (CBA) against Azure Active Directory (Azure AD) works, with background information and testing scenarios.
+This article explains how Azure Active Directory (Azure AD) certificate-based authentication (CBA) works, with background information and testing scenarios.
 
 >[!NOTE]
->Cloud-native certificate-based authentication is currently in public preview. Some features might not be supported or have limited capabilities. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
+>Azure AD certificate-based authentication is currently in public preview. Some features might not be supported or have limited capabilities. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
 
 ## How does Azure Active Directory certificate-based authentication work?
 
-This diagram shows what happens when a user tries to sign into an application secured by Azure AD and cloud-native CBA is enabled on the tenant:
+This diagram shows what happens when a user tries to sign into an application secured by Azure AD CBA is enabled on the tenant:
 
-:::image type="content" border="false" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/how-it-works.png" alt-text="Illustration with steps about how cloud-native certificate-based authentication works in Azure AD." :::
+:::image type="content" border="false" source="./media/concept-certificate-based-authentication-technical-deep-dive/how-it-works.png" alt-text="Illustration with steps about how Azure AD certificate-based authentication works." :::
 
 Let's cover each step:
 
@@ -36,36 +36,36 @@ Let's cover each step:
 1. If the user is not already signed in, the user is redirected to the Azure AD **User Sign-in** page at [https://login.microsoftonline.com/](https://login.microsoftonline.com/).
 1. The user enters their username into the Azure AD sign in page, and then clicks **Next**.
    
-   :::image type="content" border="true" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/sign-in.png" alt-text="Screenshot of the Sign-in for MyApps portal.":::
+   :::image type="content" border="true" source="./media/concept-cloud-certificate-based-authentication-technical-deep-dive/sign-in.png" alt-text="Screenshot of the Sign-in for MyApps portal.":::
   
-1. Azure AD checks whether CBA is enabled for the tenant. If CBA is enabled for the tenant, the user sees a link to **Sign in with a certificate** on the password page. If you do not see the sign-in link, make sure CBA is enabled on the tenant. For more information, see [How do I enable native CBA?](cloud-native-certificate-based-authentication-faq.yml#how-do-i-enable-cloud-native-cba-).
+1. Azure AD checks whether CBA is enabled for the tenant. If CBA is enabled for the tenant, the user sees a link to **Sign in with a certificate** on the password page. If you do not see the sign-in link, make sure CBA is enabled on the tenant. For more information, see [How do I enable Azure AD CBA?](certificate-based-authentication-faq.yml#how-do-i-enable-azure-ad-cba-).
    
    >[!NOTE]
    > If CBA is enabled on the tenant, all users will see the link to **Sign in with a certificate** on the password page. However, only the users in scope for CBA will be able to authenticate successfully against an application that uses Azure Active Directory as their Identity provider.
 
-   :::image type="content" border="true" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/sign-in-cert.png" alt-text="Screenshot of the Sign-in with a certificate.":::
+   :::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/sign-in-cert.png" alt-text="Screenshot of the Sign-in with a certificate.":::
 
    If you have enabled other authentication methods like **Phone sign-in** or **FIDO2**, users may see a different sign-in screen.
 
-   :::image type="content" border="true" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/sign-in-alt.png" alt-text="Screenshot of the Sign-in if FIDO2 is also enabled.":::
+   :::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/sign-in-alt.png" alt-text="Screenshot of the Sign-in if FIDO2 is also enabled.":::
 
 1. After the user clicks the link, the client is redirected to the certauth endpoint [http://certauth.login.microsoftonline.com](http://certauth.login.microsoftonline.com). The endpoint performs mutual authentication and requests the client certificate as part of the TLS handshake. You will see an entry for this request in the Sign-in logs. There is a [known issue](#known-issues) where User ID is displayed instead of Username.
 
-   :::image type="content" border="true" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/sign-in-log.png" alt-text="Screenshot of the Sign-in log in Azure AD." lightbox="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/sign-in-log.png":::
+   :::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/sign-in-log.png" alt-text="Screenshot of the Sign-in log in Azure AD." lightbox="./media/concept-certificate-based-authentication-technical-deep-dive/sign-in-log.png":::
    
    >[!NOTE]
    >The network administrator should allow access to certauth endpoint for the customer’s cloud environment in addition to login.microsoftonline.com. Disable TLS inspection on the certauth endpoint to make sure the client certificate request succeeds as part of the TLS handshake.
 
    Click the log entry to bring up **Activity Details** and click **Authentication Details**. You will see an entry for X.509 certificate.
 
-   :::image type="content" border="true" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/entry.png" alt-text="Screenshot of the entry for X.509 certificate.":::
+   :::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/entry.png" alt-text="Screenshot of the entry for X.509 certificate.":::
 
 1. Azure AD will request a client certificate and the user picks the client certificate and clicks **Ok**.
 
    >[!NOTE] 
    >Username hints are not supported so the list of certificates can't be further scoped.
 
-   :::image type="content" border="true" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/cert-picker.png" alt-text="Screenshot of the certificate picker." lightbox="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/cert-picker.png":::
+   :::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/cert-picker.png" alt-text="Screenshot of the certificate picker." lightbox="./media/concept-certificate-based-authentication-technical-deep-dive/cert-picker.png":::
 
 1. Azure AD verifies the certificate revocation list to make sure the certificate is not revoked and is valid. Azure AD identifies the user in the tenant by using the [username binding configured](how-to-certificate-based-authentication.md#step-3-configure-username-binding-policy) on the tenant by mapping the certificate field value to user attribute value.
 1. If a unique user is found and the user has a conditional access policy and needs multifactor authentication (MFA) and the [certificate authentication binding rule](how-to-certificate-based-authentication.md#step-2-configure-authentication-binding-policy) satisfies MFA, then Azure AD signs the user in immediately. If the certificate satisfies only a single factor, then it requests the user for a second factor to complete Azure AD Multi-Factor Authentication.
@@ -110,7 +110,7 @@ Azure AD downloads and caches the customers certificate revocation list (CRL) fr
 An admin can configure the CRL distribution point during the setup process of the trusted issuers in the Azure AD tenant. Each trusted issuer should have a CRL that can be referenced via an internet-facing URL.
  
 >[!IMPORTANT]
->The maximum size of a CRL for Azure Active Directory to successfully download and cache is 20MB in Azure Global and 45MB in Azure US Government clouds, and the time required to download the CRL must not exceed 10 seconds. If Azure Active Directory can't download a CRL, certificate-based authentications using certificates issued by the corresponding CA will fail. Best practices to ensure CRL files are within size constraints are to keep certificate lifetimes to within reasonable limits and to clean up expired certificates. For more information, see [Is there a limit for CRL size?](cloud-native-certificate-based-authentication-faq.yml#is-there-a-limit-for-crl-size-).
+>The maximum size of a CRL for Azure Active Directory to successfully download and cache is 20MB in Azure Global and 45MB in Azure US Government clouds, and the time required to download the CRL must not exceed 10 seconds. If Azure Active Directory can't download a CRL, certificate-based authentications using certificates issued by the corresponding CA will fail. Best practices to ensure CRL files are within size constraints are to keep certificate lifetimes to within reasonable limits and to clean up expired certificates. For more information, see [Is there a limit for CRL size?](certificate-based-authentication-faq.yml#is-there-a-limit-for-crl-size-).
 
 >[!IMPORTANT]
 >If the admin skips the configuration of the CRL, Azure AD will not perform any CRL checks during the certificate-based authentication of the user. This can be helpful for initial troubleshooting but should not be considered for production use.
@@ -125,7 +125,7 @@ As of now, we don't support Online Certificate Status Protocol (OCSP) because of
    - A CRL has been configured for the trusted issuer and Azure AD cannot download the CRL, due to availability, size, or latency constraints.
    - The user's certificate is listed as revoked on the CRL.
    
-      :::image type="content" border="true" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/user-cert.png" alt-text="Screenshot of the revoked user certificate in the CRL." :::  
+      :::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/user-cert.png" alt-text="Screenshot of the revoked user certificate in the CRL." :::  
 
    - Azure AD will attempt to download a new CRL from the distribution point if the cached CRL document is expired. 
 
@@ -154,13 +154,13 @@ Configure the user binding policy by mapping SAN Principal Name to UserPrincipal
 
 The user certificate should be configured like this screenshot:
 
-:::image type="content" border="true" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/user-certificate.png" alt-text="Screenshot of the user certificate." :::  
+:::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/user-certificate.png" alt-text="Screenshot of the user certificate." :::  
 
 ### Test single-factor authentication 
 
 For the first test scenario, configure the authentication policy where the Issuer subject rule satisfies single-factor authentication.
 
-:::image type="content" border="true" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/single-factor.png" alt-text="Screenshot of the Authentication policy configuration showing single-factor authentication required." lightbox="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/single-factor.png":::  
+:::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/single-factor.png" alt-text="Screenshot of the Authentication policy configuration showing single-factor authentication required." lightbox="./media/concept-certificate-based-authentication-technical-deep-dive/single-factor.png":::  
 
 1. Sign in to the Azure portal as the test user by using CBA. The authentication policy is set where Issuer subject rule satisfies single-factor authentication, but the user has MFA required by the conditional access policy, so a second authentication factor is requested.
 1. After sign-in was succeeds, click **Azure Active Directory** > **Sign-in logs**.
@@ -169,45 +169,45 @@ For the first test scenario, configure the authentication policy where the Issue
 
    The first entry requests the X.509 certificate from the user. The status **Success** means that Azure AD validated that CBA is enabled in the tenant and a certificate is requested for authentication.
 
-   :::image type="content" border="true" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/entry-one.png" alt-text="Screenshot of single-factor authentication entry in the sign-in logs." lightbox="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/entry-one.png":::  
+   :::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/entry-one.png" alt-text="Screenshot of single-factor authentication entry in the sign-in logs." lightbox="./media/concept-certificate-based-authentication-technical-deep-dive/entry-one.png":::  
 
    The next entry provides more information about the authentication request and the certificate used. We can see that since the certificate satisfies only a single-factor and the user requires MFA, a second factor was requested.
 
-   :::image type="content" border="true" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/second-factor.png" alt-text="Screenshot of second-factor sign-in details in the sign-in logs." :::  
+   :::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/second-factor.png" alt-text="Screenshot of second-factor sign-in details in the sign-in logs." :::  
 
    The **Authentication Details** also show the second factor request.
 
-   :::image type="content" border="true" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/sign-in-details-mfa.png" alt-text="Screenshot of multifactor sign-in details in the sign-in logs." :::  
+   :::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/sign-in-details-mfa.png" alt-text="Screenshot of multifactor sign-in details in the sign-in logs." :::  
 
    The **Additional Details** show the certificate information.
 
-   :::image type="content" border="true" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/additional-details.png" alt-text="Screenshot of multifactor additional details in the sign-in logs." :::  
+   :::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/additional-details.png" alt-text="Screenshot of multifactor additional details in the sign-in logs." :::  
 
    These additional entries show that the authentication is complete and a primary refresh token is sent back to the browser and user is given access to the resource.
 
-   :::image type="content" border="true" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/refresh-token.png" alt-text="Screenshot of refresh token entry in the sign-in logs." lightbox="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/refresh-token.png":::  
+   :::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/refresh-token.png" alt-text="Screenshot of refresh token entry in the sign-in logs." lightbox="./media/concept-certificate-based-authentication-technical-deep-dive/refresh-token.png":::  
 
    Click **Additional Details** to MFA succeeded. 
 
-   :::image type="content" border="true" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/refresh-token-details.png" alt-text="Screenshot of refresh token authentication details in the sign-in logs." :::  
+   :::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/refresh-token-details.png" alt-text="Screenshot of refresh token authentication details in the sign-in logs." :::  
 
 
 ### Test multifactor authentication
 
 For the next test scenario, configure the authentication policy where the Issuer subject rule satisfies multifactor authentication.
 
-:::image type="content" border="true" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/multifactor.png" alt-text="Screenshot of the Authentication policy configuration showing multifactor authentication required." lightbox="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/multifactor.png":::  
+:::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/multifactor.png" alt-text="Screenshot of the Authentication policy configuration showing multifactor authentication required." lightbox="./media/concept-certificate-based-authentication-technical-deep-dive/multifactor.png":::  
 
 1. Sign in to the Azure portal using CBA. since the policy was set to satisfy multifactor authentication, the user sign-in is successful without a second factor.
 1. Click **Azure Active Directory** > **Sign-in logs**, including and entry with **Interrupted** status.
 
    You will see several entries in the Sign-in logs. 
 
-   :::image type="content" border="true" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/several-entries.png" alt-text="Screenshot of several entries in the sign-in logs." lightbox="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/several-entries.png":::  
+   :::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/several-entries.png" alt-text="Screenshot of several entries in the sign-in logs." lightbox="./media/concept-certificate-based-authentication-technical-deep-dive/several-entries.png":::  
 
    The entry with **Interrupted** status provides has more diagnostic info in the **Additional Details** tab. 
 
-   :::image type="content" border="true" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/interrupted-user-details.png" alt-text="Screenshot of interrupted attempt details in the sign-in logs." :::  
+   :::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/interrupted-user-details.png" alt-text="Screenshot of interrupted attempt details in the sign-in logs." :::  
 
    The following table has a description of each field.
 
@@ -223,15 +223,15 @@ For the next test scenario, configure the authentication policy where the Issuer
 
 - The Sign-in log shows the User ID instead of the username in one of the log entries.
 
-  :::image type="content" border="true" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/known-issue.png" alt-text="Screenshot of username in the sign-in logs." :::
+  :::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/known-issue.png" alt-text="Screenshot of username in the sign-in logs." :::
  
 - The **Additional Details** tab shows **User certificate subject name** as the attribute name but it is actually "User certificate binding identifier". It is the value of the certificate field that username binding is configured to use.
 
 ## Next steps
 
-- [Overview of cloud-native CBA](concept-cloud-native-certificate-based-authentication.md)
-- [Limitations with cloud-native CBA](concept-cloud-native-certificate-based-authentication-limitations.md)
-- [How to configure cloud-native CBA](how-to-certificate-based-authentication.md)
-- [FAQ](cloud-native-certificate-based-authentication-faq.yml)
-- [Troubleshoot cloud-native CBA](troubleshoot-cloud-native-certificate-based-authentication.md)
+- [Overview of Azure AD CBA](concept-certificate-based-authentication.md)
+- [Limitations with Azure AD CBA](concept-certificate-based-authentication-limitations.md)
+- [How to configure Azure AD CBA](how-to-certificate-based-authentication.md)
+- [FAQ](certificate-based-authentication-faq.yml)
+- [Troubleshoot Azure AD CBA](troubleshoot-certificate-based-authentication.md)
 

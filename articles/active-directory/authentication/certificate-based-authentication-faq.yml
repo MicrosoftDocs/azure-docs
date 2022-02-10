@@ -1,7 +1,7 @@
 ### YamlMime:FAQ
 metadata:
-  title: Cloud-native certificate-based authentication (CBA) FAQ - Azure Active Directory
-  description: Frequently asked questions and answers related to cloud-native certificate-based authentication (CBA). 
+  title: Azure AD certificate-based authentication (CBA) FAQ - Azure Active Directory
+  description: Frequently asked questions and answers related to Azure AD certificate-based authentication (CBA). 
   
   services: multi-factor-authentication
   ms.service: active-directory
@@ -14,13 +14,13 @@ metadata:
   ms.reviewer: michmcla
   ms.collection: M365-identity-device-management
     
-title: Frequently asked questions about cloud-native certificate-based authentication (CBA)
+title: Frequently asked questions about Azure AD certificate-based authentication (CBA)
 summary: |
-  This article addresses frequently asked questions about how cloud-native certificate-based authentication (CBA) against Azure Active Directory (Azure AD) works. 
+  This article addresses frequently asked questions about how Azure AD certificate-based authentication (CBA) works. 
   Keep checking back for updated content.
 
   >[!NOTE]
-  >Cloud-native certificate-based authentication is currently in public preview. Some features might not be supported or have limited capabilities. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
+  >Azure AD certificate-based authentication is currently in public preview. Some features might not be supported or have limited capabilities. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
 
   
 
@@ -28,20 +28,20 @@ sections:
   - name: General
     questions:
       - question: |
-          How do I enable cloud-native CBA?
+          How do I enable Azure AD CBA?
         answer: |
           1. Sign in to the [Azure portal](https://portal.azure.com) as a Global Administrator.
           1. Click **Azure Active Directory** > **Security** > **Authentication methods** > **Certificate-based Authentication** > **Basics**, click **On** to enable certificate-based authentication.
 
       - question: |
-          Is cloud-native CBA a free feature?
+          Is Azure AD CBA a free feature?
         answer: |
           Certificate-based authentication is a free feature. 
-          Every edition of Azure AD includes cloud-native CBA.
+          Every edition of Azure AD includes Azure AD CBA.
           For more information about features in each Azure AD edition, see [Azure AD pricing](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 
       - question: |
-          Does cloud-native CBA support Alternate ID as the username instead of userPrincipalName?
+          Does Azure AD CBA support Alternate ID as the username instead of userPrincipalName?
         answer: |
           No, sign-in using a non-UPN value, such as an alternate email, isn't supported now.
           
@@ -93,9 +93,9 @@ additionalContent: |
   ## Next steps
     If your question isn't answered here, the following support options are available:
           
-    * [Overview of cloud-native CBA](concept-cloud-native-certificate-based-authentication.md)
-    * [Technical deep dive for cloud-native CBA](concept-cloud-native-certificate-based-authentication-technical-deep-dive.md)
-    * [Limitations with cloud-native CBA](concept-cloud-native-certificate-based-authentication-limitations.md)
-    * [How to configure cloud-native CBA](how-to-certificate-based-authentication.md)
-    * [Troubleshoot cloud-native CBA](troubleshoot-cloud-native-certificate-based-authentication.md)
+    * [Overview of Azure AD CBA](concept-certificate-based-authentication.md)
+    * [Technical deep dive for Azure AD CBA](concept-certificate-based-authentication-technical-deep-dive.md)
+    * [Limitations with Azure AD CBA](concept-certificate-based-authentication-limitations.md)
+    * [How to configure Azure AD CBA](how-to-certificate-based-authentication.md)
+    * [Troubleshoot Azure AD CBA](troubleshoot-certificate-based-authentication.md)
 

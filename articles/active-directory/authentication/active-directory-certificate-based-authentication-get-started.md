@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 01/31/2022
+ms.date: 02/09/2022
 
 ms.author: justinha
 author: justinha
@@ -26,7 +26,7 @@ Certificate-based authentication (CBA) with federation enables you to be authent
 Configuring this feature eliminates the need to enter a username and password combination into certain mail and Microsoft Office applications on your mobile device.
 
 >[!NOTE]
->As an alternative, organizations can deploy cloud-native CBA against Azure Active Directory without needing federation. For more information, see [Overview of cloud-native certificate-based authentication against Azure Active Directory](concept-cloud-native-certificate-based-authentication.md).
+>As an alternative, organizations can deploy Azure AD CBA without needing federation. For more information, see [Overview of Azure AD certificate-based authentication against Azure Active Directory](concept-certificate-based-authentication.md).
 
 This topic:
 
@@ -37,7 +37,7 @@ This topic:
 
 To configure CBA with federation, the following statements must be true:
 
-- CBA with federation is only supported for Federated environments for browser applications, native clients using modern authentication (ADAL), or MSAL libraries. The one exception is Exchange Active Sync (EAS) for Exchange Online (EXO), which can be used for federated and managed accounts. To configure cloud-native CBA without needing federation, see [How to configure cloud-native certificate-based authentication in Azure Active Directory](how-to-certificate-based-authentication.md).
+- CBA with federation is only supported for Federated environments for browser applications, native clients using modern authentication (ADAL), or MSAL libraries. The one exception is Exchange Active Sync (EAS) for Exchange Online (EXO), which can be used for federated and managed accounts. To configure Azure AD CBA without needing federation, see [How to configure AZure AD certificate-based authentication](how-to-certificate-based-authentication.md).
 - The root certificate authority and any intermediate certificate authorities must be configured in Azure Active Directory.
 - Each certificate authority must have a certificate revocation list (CRL) that can be referenced via an internet-facing URL.
 - You must have at least one certificate authority configured in Azure Active Directory. You can find related steps in the [Configure the certificate authorities](#step-2-configure-the-certificate-authorities) section.
