@@ -60,7 +60,7 @@ Many devices will use a hardware RTC backed by synchronization over a network se
 **Hardware**: If you implement a hardware RTC and NTP or other network-based solutions are unavailable for synching, the RTC should:
 
 - Be accurate enough for certificate expiration checks (hour resolution or better).
-- Be either updateable or resistant to drift over the lifetime of the device.
+- Be either updatable or resistant to drift over the lifetime of the device.
 - Maintain time across power failures or resets.
 
 An invalid time will disrupt all TLS communication, possibly rendering the device unreachable.
@@ -497,20 +497,20 @@ The previous sections detailed specific design considerations with descriptions 
 
 - The [Seven Properties of Highly Secured Devices](https://www.microsoft.com/research/publication/seven-properties-2nd-edition/) whitepaper published by Microsoft Research provides an overview of security properties that must be addressed to produce highly secure devices: Hardware root of trust, Defense in depth, Small trusted computing base, Dynamic compartments, Password-less authentication, Error reporting, and Renewable security. These properties are applicable, depending on cost constraints and target application and environment, too many embedded devices.
 
-- ARM PSA Certified (https://www.psacertified.org/, https://www.psacertified.org/blog/psa-certified-10-security-goals-explained/)
+- The [PSA Certified 10 Security Goals Explained](https://www.psacertified.org/blog/psa-certified-10-security-goals-explained/)
 ARM’s Platform Security Architecture provides a standardized framework for building secure embedded devices using ARM TrustZone technology. Microcontroller manufacturers can certify designs with ARM’s PSA Certified program giving a level of confidence about the security of applications built on ARM technologies.
 
-- Common Criteria (https://www.commoncriteriaportal.org/)
+- [Common Criteria](https://www.commoncriteriaportal.org/)
 The Common Criteria is an international agreement that provides standardized guidelines and an authorized laboratory program to evaluate products for IT security. Certification provides a level of confidence in the security posture of applications using devices that have been evaluated using the program guidelines.
 
-- SESIP (https://globalplatform.org/sesip/)
+- [SESIP](https://globalplatform.org/sesip/)
 The Security Evaluation Standard for IoT Platforms is a standardized methodology for evaluating the security of connected IoT products and components.
 
-- IoT Security Maturity Model (https://www.iiconsortium.org/smm.htm) 
+- [IoT Security Maturity Model](https://www.iiconsortium.org/smm.htm) 
 The SMM is a framework for building customized IoT security models, allowing IoT manufacturers to create detailed models to evaluate and measure the security posture of their products.
 
-- ISO 27000 family (https://www.iso.org/isoiec-27001-information-security.html)
+- [ISO 27000 family](https://www.iso.org/isoiec-27001-information-security.html)
 ISO 27000 is a collection of standards regarding the management and security of information assets, providing baseline guarantees about the security of digital information in certified products.
 
-- FIPS 140-2/3 (https://csrc.nist.gov/publications/detail/fips/140/3/final)
+- [FIPS 140-2/3](https://csrc.nist.gov/publications/detail/fips/140/3/final)
 FIPS 140 is a US government program that standardizes cryptographic algorithms and implementations used in US government and military applications. Along with documented standards, certified laboratories provide FIPS certification to guarantee specific cryptographic implementations adhere to regulations.
