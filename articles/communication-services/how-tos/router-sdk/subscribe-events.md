@@ -33,8 +33,6 @@ For more details on Event Grid, please see the [Event Grid documentation][event-
 This template deploys an EventGrid subscription on a Storage Queue for Job Router events.
 If the storage account, queue or system topic do not exist, they will be created as well.
 
-[Download the template](media/deploy-subscription.json)
-
 [![Deploy To Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Fcommunication-services%2Fhow-tos%2Frouter-sdk%2Fmedia%2Fdeploy-subscription.json)
 
 ### Parameters
@@ -807,5 +805,5 @@ dotnet run
 | workerId | `string` | ❌ |
 
 <!-- LINKS -->
-[event-grid-overview]: https://docs.microsoft.com/azure/event-grid/overview
-[filter-events]: https://docs.microsoft.com/azure/event-grid/how-to-filter-events
+[event-grid-overview]: ../../../event-grid/overview.md
+[filter-events]: ../../../event-grid/how-to-filter-events.md
