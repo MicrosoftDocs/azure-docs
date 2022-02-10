@@ -16,11 +16,11 @@ ms.subservice: B2C
 
 # Enable authentication in your own Node.js web API by using Azure AD B2C
 
-In this article, you learn how to create your web app that calls your web API that's protected by Azure Active Directory B2C (Azure AD B2C). To authorize access to a the web API, serve only requests that include a valid Azure Active Directory B2C (Azure AD B2C)-issued access token. 
+In this article, you learn how to create your web app that calls your web API that's protected by Azure Active Directory B2C (Azure AD B2C). To authorize access to a the web API, serve only requests that include a valid Azure AD B2C-issued access token. 
 
 ## Prerequisites
 
-- Before you begin read and complete the steps in the [Configure authentication in a sample Node.js web API by using Azure AD B2C](configure-authentication-in-sample-node-web-api.md). Then, follow the steps in this article to replace the sample web app and web API with your own web API. 
+- Before you begin read and complete the steps in the [Configure authentication in a sample Node.js web API by using Azure AD B2C](configure-authentication-in-sample-node-web-app-with-api.md). Then, follow the steps in this article to replace the sample web app and web API with your own web API. 
 
 - [Visual Studio Code](https://code.visualstudio.com/), or another code editor
 
@@ -208,7 +208,7 @@ npm install @azure/msal-node
 
 ## Step 3: Run the web app and API
 
-Follow the steps in [Run the web app and API](configure-authentication-in-sample-node-web-api.md?#step-5-run-the-web-app-and-api) to test your web app and web API. 
+Follow the steps in [Run the web app and API](configure-authentication-in-sample-node-web-app-with-api.md?#step-5-run-the-web-app-and-api) to test your web app and web API. 
  
 
 ## Next steps
