@@ -80,13 +80,13 @@ For System-Assigned Identity:
 
 |App Setting    | Value    |
 |---------------|----------|
-|APPLICATIONINSIGHTS_AUTHENTICATION_STRING         | Authentication=AAD    |
+|APPLICATIONINSIGHTS_AUTHENTICATION_STRING         | Authorization=AAD    |
 
 For User-Assigned Identity:
 
 |App Setting    | Value    |
 |---------------|----------|
-|APPLICATIONINSIGHTS_AUTHENTICATION_STRING         | Authentication=AAD;ClientId={Client id of the User-Assigned Identity}    |
+|APPLICATIONINSIGHTS_AUTHENTICATION_STRING         | Authorization=AAD;ClientId={Client id of the User-Assigned Identity}    |
 
 ## Disable Snapshot Debugger
 

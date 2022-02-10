@@ -352,6 +352,7 @@ To ingest SAP Control Web Service logs into Microsoft Sentinel, configure the fo
 |**javatz**     |Enter the time zone configured on your SAP Control Java server, in GMT format. <br>For example: `GMT+3`         |
 |**javaseverity**     |Enter the lowest, inclusive, severity level for which you want to ingest Web Service logs into Microsoft Sentinel.  Values include: <br><br>- **0** = All logs <br>- **1** = Warning <br>- **2** = Error     |
 
+
 ## Next steps
 
 After you have your SAP data connector installed, you can add the SAP-related security content.
