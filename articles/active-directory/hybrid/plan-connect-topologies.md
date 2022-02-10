@@ -188,7 +188,7 @@ You will need to deploy an AADConnect server for every Azure AD tenant you want 
 1. Ensure you have Password Hash Sync (PHS) enabled on the initial AAD Connect Server.
 2. On a secondary on-prem AD joined Windows Server, install [Azure AD Connect.](https://go.microsoft.com/fwlink/?LinkId=615771)
 3. When prompted to connect to your tenant, use appropriate AAD Global Admin credentials for the **additional tenant.**  
-4. Ensure you select Password Hash Sync selected during the setup process.
+4. Ensure you select Password Hash Sync during the setup process.
 
 [AAD Connect Install Reference](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/how-to-connect-install-custom)
 
