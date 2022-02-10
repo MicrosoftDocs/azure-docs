@@ -67,14 +67,12 @@ Azure services are presented in the following tables by category. Note that some
 > | Virtual Machines: Bs-series            | Azure Monitor: Application Insights               | 
 > | Virtual Machines: DSv2-series          | Azure Monitor: Log Analytics                      | 
 > | Virtual Machines: DSv3-series          | Azure Private Link                                | 
-> | Virtual Machines: Dv2-series           | Azure Site Recovery                               | 
-> | Virtual Machines: Dv3-series           | Azure Synapse Analytics                           |     
-> | Virtual Machines: ESv3-series          | Azure Batch                                       | 
-> | Virtual Machines: Ev3-series           | Azure Cloud Service: M-series                     | 
-> | Azure Virtual Network                  | Azure Container Instances                         | 
-> | Azure VPN Gateway                      | Azure Container Registry                          | 
-> |                                        | Azure Data Factory                                | 
-> |                                        | Azure Event Grid                                  | 
+> | Virtual Machines: Dv2-series           | Azure Batch                                       | 
+> | Virtual Machines: Dv3-series           | Azure Cloud Service: M-series                     |     
+> | Virtual Machines: ESv3-series          | Azure Container Instances                         | 
+> | Virtual Machines: Ev3-series           | Azure Container Registry                          | 
+> | Azure Virtual Network                  | Azure Data Factory                                | 
+> | Azure VPN Gateway                      | Azure Event Grid                                  | 
 > |                                        | Azure HDInsight                                   |  
 > |                                        | Azure Logic Apps                                  | 
 > |                                        | Azure Media Services                              | 
