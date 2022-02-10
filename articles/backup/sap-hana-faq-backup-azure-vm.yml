@@ -118,7 +118,7 @@ sections:
           How can I move on-demand backups (triggered from HANA native clients) to the local file system instead of the Azure vault?
         answer: |
           1. Wait for the currently running backup to complete on the desired database (check from studio for completion).
-          1. Disable log backups and set the catalog backup to **Filesystem** for the desired DB using the following steps:
+          1. Disable log backups and set the catalog backup to **Filesystem** for the desired database using the following steps:
           1. Double-click **SYSTEMDB** -> **configuration** -> **Select Database** -> **Filter (log)**
               1. Set enable_auto_log_backup to **no**.
               1. Set catalog_backup_using_backint to **false**.
