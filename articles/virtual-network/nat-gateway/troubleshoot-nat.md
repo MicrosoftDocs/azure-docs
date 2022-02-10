@@ -71,7 +71,7 @@ NAT gateway is not compatible with basic resources, such as Basic Load Balancer 
 
 ### NAT gateway cannot be attached to a gateway subnet
 
-NAT gateway cannot be deployed in a gateway subnet. VPN gateway uses gateway subnets for VPN connections between site-to-site Azure virtual networks and local networks or between two Azure virtual networks. See [VPN gateway overview](/azure/vpn-gateway-about-vpngateways) to learn more about how gateway subnets are used.
+NAT gateway cannot be deployed in a gateway subnet. VPN gateway uses gateway subnets for VPN connections between site-to-site Azure virtual networks and local networks or between two Azure virtual networks. See [VPN gateway overview](/azure/vpn-gateway/vpn-gateway-about-vpngateways) to learn more about how gateway subnets are used.
 
 ### IPv6 coexistence
 
