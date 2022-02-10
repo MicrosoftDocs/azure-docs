@@ -1,0 +1,118 @@
+### YamlMime:FAQ
+metadata:
+  title: "Customer retention dashboard frequently asked questions"
+  description: Get answers to frequently asked questions about customer retention dashboard analytics in Partner Center.
+  ms.service: marketplace 
+  ms.subservice: partnercenter-marketplace-publisher
+  ms.topic: conceptual
+  author: smannepalle
+  ms.author: smannepalle
+  ms.reviewer: sroy
+  ms.date: 02/10/2022
+    
+title: Customer retention dashboard Frequently Asked Questions
+summary: This article addresses frequently asked questions about the Customer retention dashboard in Partner Center.
+
+sections:
+  - name: General
+    questions:
+      - question: |
+          How should I be using this dashboard?
+        answer: |
+          This dashboard helps business teams understand customer behavior in terms of retention and churn after a customer has deployed your marketplace offer. Use it to answer questions like, “How many customers am I retaining, and for how long?” and “Compared to other offers in a category, are my retention numbers good or bad?”
+
+          Use the monthly tab to look at a group of users over a longer time frame. For example, if you run a promotional campaign in a certain month, you can see whether that month had higher retention than months when you did not run the campaign.
+
+      - question: |
+          What insights can I get from this dashboard?
+        answer: |
+          Discover whether customers are continuing to use your VM offer over a period of time and whether they churn right away. When you identify which customers are churning, you can contact them or include them in a campaign.
+
+          Determine if your investments in marketing are working: the monthly view shows if months when you ran campaigns out-perform months when you didn't.
+
+      - question: |
+          The retention widget looks like it's showing me 45 days of data. What day is it counting from?
+        answer: |
+          Read the documentation on Widget 3 in [DRAFT - Learn about the Customer retention dashboard in Partner Center](/customer-retention#widget-3-retained-customers). The data shown here is a normalized view of 18 months of customer data, and so is not “to” or “from” a specific date.
+
+      - question: |
+          Can I filter the graphs to show a specific date range?
+        answer: |
+          No. As the documentation on Widget 3 indicates, it is a normalized view of 18 months of data. The monthly view in [Widget 10](customer-retention#widget-10-retention-heat-map) shows monthly views, but you cannot filter to specific dates.
+
+      - question: |
+          What is the difference between Widget 4 Total offers and Offer count?
+        answer: |
+          Total offers is how many there are in the entire category. For example, if you set the “category” filter to security, it is showing how many offers there are in the marketplace under the category Security. Offer count shows the count of offers in the category whose retention scores are above 0. So if you have the Category filter set to Security, the Y axis of the graph is showing how many offers in security have retention scores above 0.
+
+      - question: |
+          What is this green or red arrow on Widget 4?
+        answer: |
+          The arrow shows the change in your retention rank. The time period is determined by the filter at the top; choose days, weeks, or months.
+
+      - question: |
+          How do I know which customers are retaining and which are churning?
+        answer: |
+          [Widget 6](/customer-retention#widget-6-customers) shows this information.
+
+      - question: |
+          What does dormant mean?
+        answer: |
+          Dormant means a customer has not used that offer for several days. They are not labeled Churned because they could reengage and start using the offer again.
+
+      - question: |
+          I want to know about the orders or usage of these customers, but that data is in separate reports.
+        answer: |
+          The best way to get that information is to download details from the orders or usage reports and cross-check based on a shared field: customer name.
+
+      - question: |
+          Why does the retention percentage sometimes fluctuate in the monthly waterfall view (Widget 10)?
+        answer: |
+          Note the Cohort column. This tells you how many customers started using your offer in a month. If the column says 60 users in the cohort, then the percentage is calculated month-over-month by dividing the total number of users still using the offer by 60. If it is showing 35%, for example, that means 21 users are still using the offer. If the next month shows 40%, that means that three users came back (24/60). Retention percentages increase when users come back.
+
+      - question: |
+          What does Cohort mean?
+        answer: |
+          In Widget 10, a Cohort is the number of customers who started using your offer in a given month.
+
+      - question: |
+          How do you define a customer?
+        answer: |
+          A customer is one billing account ID.
+
+      - question: |
+          Can I filter this by a billing model? For example, can I see all my PAYGO or BYOL offers in one view?
+        answer: |
+          No, you can only view one offer at a time.
+
+      - question: |
+          Can I see the different SKUs/plans per offer?
+        answer: |
+          No, you can only look at the offer level.
+
+      - question: |
+          Can I see this data quarterly?
+        answer: |
+          There is no quarterly filter. However, looking at the monthly view (Widget 10) will help you see patterns over a quarterly time frame.
+
+      - question: |
+          Do these views filter out internal users from my company who might be testing the offer?
+        answer: |
+          No, the only identifier available for these users would be email domain; we can't know with confidence whether or not they are internal to your company.
+
+      - question: |
+          Do these views filter out trial users or customers who are only doing a trial of my product?
+        answer: |
+          No, the functionality to filter only paid customers is not available yet.
+
+additionalContent: |
+
+  ## Next steps
+  
+  - For an overview of analytics reports available in Partner Center, see [Access analytics reports for the commercial marketplace in Partner Center](analytics.md).
+  - For information about your orders in a graphical and downloadable format, see  [Orders dashboard in commercial marketplace analytics](orders-dashboard.md).
+  - For Virtual Machine (VM) offers usage and metered billing metrics, see [Usage dashboard in commercial marketplace analytics](usage-dashboard.md).
+  - For detailed information about your customers, including growth trends, see [Customers dashboard in commercial marketplace analytics](customer-dashboard.md).
+  - For a list of your download requests over the last 30 days, see [Downloads dashboard in commercial marketplace analytics](downloads-dashboard.md).
+  - To see a consolidated view of customer feedback for offers on Azure Marketplace and Microsoft AppSource, see [Ratings & reviews analytics dashboard in Partner Center](ratings-reviews.md).
+  
