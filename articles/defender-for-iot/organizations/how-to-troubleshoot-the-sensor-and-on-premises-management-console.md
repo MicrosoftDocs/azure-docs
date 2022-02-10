@@ -160,29 +160,6 @@ Another indication of the same problem is when multiple internet-related alerts 
 
 1. In the data-mining report, select :::image type="icon" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/administrator-mode.png" border="false"::: to enter the administrator mode and delete the IP addresses of your ICS devices.
 
-### Tweak the sensor's Quality of Service (QoS)
-
-To save your network resources, you can limit the interface bandwidth that the sensor uses for day-to-day procedures.
-
-To limit the interface bandwidth, use the `cyberx-xsense-limit-interface` CLI tool that needs to be run with sudo permissions. The tool gets the following arguments:
-
-- `* -i`: interfaces (example: eth0).
-
-- `* -l`: limit (example: 30 kbit / 1 mbit). You can use the following bandwidth units: kbps, mbps, kbit, mbit, or bps.
-
-- `* -c`: clear (to clear the interface bandwidth limitation).
-
-**To tweak the Quality of Service (QoS)**:
-
-1. Sign in to the sensor CLI as a Defender for IoT user, and enter `sudo cyberx-xsense-limit-interface-I eth0 -l value`.
-
-   For example: `sudo cyberx-xsense-limit-interface -i eth0 -l 30kbit`
-
-   > [!NOTE]
-   > For a physical appliance, use the em1 interface.
-
-1. To clear interface limitation, enter `sudo cyberx-xsense-limit-interface -i eth0 -l 1mbps -c`.
-
 ## On-premises management console troubleshooting tools
 
 ### Investigate a lack of expected alerts on the management console
