@@ -70,9 +70,13 @@ This section explains how to enable communication with storage. Ensure the stora
 
 # [Oracle](#tab/oracle)
 
-The snapshot tools communicate with the Oracle database and need a user with appropriate permissions to enable/disable backup mode. The following example
-shows the setup of the Oracle database user, the use of `mkstore` to create an Oracle Wallet, and the `sqlplus` configuration files required for 
+The snapshot tools communicate with the Oracle database and need a user with appropriate permissions to enable/disable backup mode.  After putting the database in backup 
+mode, `azacsnap` will query the Oracle database to get a list of files which have backup-mode as active.  This file list is output into an external file which is in 
+the same location and basename as the log file, but with a ".protected-tables" extension (output filename detailed in the AzAcSnap log file). 
+
+The following examples show the setup of the Oracle database user, the use of `mkstore` to create an Oracle Wallet, and the `sqlplus` configuration files required for 
 communication to the Oracle database. 
+
 The following example commands set up a user (AZACSNAP) in the Oracle database, change the IP address, usernames, and passwords as appropriate:
 
 1. From the Oracle database installation
