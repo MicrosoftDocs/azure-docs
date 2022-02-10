@@ -54,7 +54,7 @@ The following images show how Azure AD CBA simplifies the customer environment b
 - Provides support for unphishable multifactor authentication.
 - Supports user sign-in against cloud Azure AD using X.509 certificates into all web browser-based applications and into Microsoft Office client applications that use modern authentication.
 - The feature works seamlessly with Conditional Access features such as MFA to help secure your users.
-- It is a free feature, and you do not need any paid editions of Azure AD to use it.
+- It's a free feature, and you don't need any paid editions of Azure AD to use it.
 - Eliminates the need for federated AD FS and reduces the cost and on-premises footprint.
 
 ## Next steps
