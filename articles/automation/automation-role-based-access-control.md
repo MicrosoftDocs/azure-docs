@@ -65,14 +65,14 @@ A Reader can view all the resources in an Automation account but can't make any 
 |Microsoft.Automation/automationAccounts/read|View all resources in an Automation account. |
 
 **Issue description** </br>
-Built-in Reader role for the Automation Account can't use the API – ```GET /automationAccounts/agentRegistrationInformation``` to fetch the Automation Account keys. This is a high privilege operation that could pose a risk of a malicious actor trying to exploit the automation account keys to perform operations beyond their privilege level.
+Built-in Reader role for the Automation Account can't use the `API – GET /AUTOMATIONACCOUNTS/AGENTREGISTRATIONINFORMATION` to fetch the Automation Account keys. This is a high privilege operation providing sensitive information that could pose a security risk of an unwanted malicious actor with low privileges who can get access to automation account keys and can perform actions with elevated privilege level.
 
 **Fix** </br>
-To strengthen the security and avoid any risk due to the potential elevation of privilege at the Automation account level, the built-in Reader would not have access to Automation account keys through the API call - ```GET /automationAccounts/agentRegistrationInformation```. 
+To strengthen the overall Azure Automation security posture, the built-in RBAC Reader would not have access to Automation account keys through the API call - `GET /AUTOMATIONACCOUNTS/AGENTREGISTRATIONINFORMATION`. 
 
 **Action Required**</br>
-You can use the other built-in roles like Owner, Contributor or Automation Contributor to access the Automation account keys. By default, these roles have the *listKeys* permission. As a best practice, we recommend creating a custom role with limited permissions needed to access the Automation account keys. For a custom role, you need to add 
-```Microsoft.Automation/automationAccounts/listKeys/action``` permission added to the role definition.
+You can use the other built-in Reader role and encounter a permission error while getting the Automation Account keys, you can switch to the built-in roles like Owner, Contributor or Automation Contributor to access the Automation account keys. These roles, by default, will have the *listKeys* permission. As a best practice, we recommend creating a custom role with limited permissions needed to access the Automation account keys. For a custom role, you need to add 
+`Microsoft.Automation/automationAccounts/listKeys/action` permission to the role definition.
 [Learn more](/azure/role-based-access-control/custom-roles) about how to create custom role from the Azure portal.
 
 
