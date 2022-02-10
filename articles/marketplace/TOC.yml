@@ -230,7 +230,7 @@
       - name: VM certification troubleshooting
         href: azure-vm-certification-faq.yml
     - name: Update core sizes
-      href: azure-vm-plan-manage
+      href: azure-vm-plan-manage.md
   - name: Consulting services offer
     items: 
     - name: Plan the offer
