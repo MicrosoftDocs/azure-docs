@@ -21,7 +21,7 @@ ms.service: digital-twins
 
 This article shows how to set up a working data history connection between Azure Digital Twins and Azure Data Explorer. It uses the [Azure CLI](/cli/azure/what-is-azure-cli) and the [Azure portal](https://portal.azure.com) to set up and connect the required data history resources, including:
 * an Azure Digital Twins instance
-* an [Event Hubs](../event-hubs/event-hubs-about.md) namespace containing an Event Hub
+* an [Event Hubs](../event-hubs/event-hubs-about.md) namespace containing an event hub
 * an [Azure Data Explorer](/azure/data-explorer/data-explorer-overview) cluster containing a database
 
 It also contains a sample twin graph and telemetry scenario that you can use to see the historized twin updates in Azure Data Explorer. 
@@ -41,6 +41,9 @@ This article provides CLI commands that you can use to create the data history r
 
 >[!NOTE]
 >These commands are written for the Bash environment. They can be adjusted for PowerShell if you prefer to use a PowerShell CLI environment.
+
+>[!NOTE]
+>When choosing a name for your Kusto cluster (the following `clustername` variable), avoid using hyphens as it will result in an error when running the relevant command later on in this guide.
 
 ```azurecli-interactive
 # General Setup
@@ -62,7 +65,7 @@ databasename="<name-for-your-database>"
 
 ## Create an Azure Digital Twins instance with a managed identity
 
-If you already have an Azure Digital Twins instance, ensure that you have enabled a [system-managed identity](how-to-route-with-managed-identity.md#add-a-system-managed-identity-to-an-existing-instance) for it.
+If you already have an Azure Digital Twins instance, ensure that you've enabled a [system-managed identity](how-to-route-with-managed-identity.md#add-a-system-managed-identity-to-an-existing-instance) for it.
 
 If you don't have an Azure Digital Twins instance, set one up using the instructions in this section.
 
@@ -71,13 +74,13 @@ If you don't have an Azure Digital Twins instance, set one up using the instruct
 Use the following command to create a **new instance with a system-managed identity**. The command uses three local variables (`$dtname`, `$resourcegroup`, and `$location`) that were created earlier in [Set up local variables for CLI session](#set-up-local-variables-for-cli-session).
 
 ```azurecli-interactive
-az dt create -n $dtname -g $resourcegroup -l $location --assign-identity
+az dt create --dt-name $dtname --resource-group $resourcegroup --location $location --assign-identity
 ```
 
 Next, use the following command to grant yourself the **Azure Digital Twins Data Owner** role on the instance. The command has one placeholder, `<owneruser@microsoft.com>`, that you should replace with your own Azure account information, and uses a local variable (`$dtname`) that was created earlier in [Set up local variables for CLI session](#set-up-local-variables-for-cli-session).
 
 ```azurecli-interactive
-az dt role-assignment create -n $dtname --assignee "<owneruser@microsoft.com>" --role "Azure Digital Twins Data Owner"
+az dt role-assignment create --dt-name $dtname --assignee "<owneruser@microsoft.com>" --role "Azure Digital Twins Data Owner"
 ```
 
 >[!NOTE]
@@ -91,7 +94,7 @@ Remember the name you give to your instance so you can use it later.
 
 ---
 
-## Create an Event Hubs namespace and Event Hub
+## Create an Event Hubs namespace and event hub
 
 The next step is to create an Event Hubs namespace and an event hub. This hub will receive digital twin property update notifications from the Azure Digital Twins instance and then forward the messages to the target Azure Data Explorer cluster. The Azure Digital Twins instance also needs to be granted the **Azure Event Hubs Data Owner** role on the event hub resource in order to set up the data history connection later.
 
@@ -104,7 +107,7 @@ Use the following CLI commands to create the required resources. The commands us
 Create an **Event Hubs namespace**:
 
 ```azurecli-interactive
-az eventhubs namespace create --name $eventhubnamespace --resource-group $resourcegroup -l $location
+az eventhubs namespace create --name $eventhubnamespace --resource-group $resourcegroup --location $location
 ```
 
 Create an **event hub** in your namespace:
@@ -132,7 +135,7 @@ Use the following CLI commands to create the required resources. The commands us
 Start by adding the **Kusto extension** to your CLI session, if you don't have it already.
 
 ```azurecli-interactive
-az extension add -n kusto
+az extension add --name kusto
 ```
 
 Next, create the **Kusto cluster**. The command below requires 5-10 minutes to execute, and will create an E2a v4 cluster in the developer tier. This type of cluster has a single node for the engine and data-management cluster, and is applicable for development and test scenarios. For more information about the tiers in Azure Data Explorer and how to select the right options for your production workload, see [Select the correct compute SKU for your Azure Data Explorer cluster](/azure/data-explorer/manage-cluster-choose-sku) and [Azure Data Explorer Pricing](https://azure.microsoft.com/pricing/details/data-explorer).
@@ -157,7 +160,7 @@ Remember the names you give to these resources so you can use them later.
 
 ## Set up data history connection
 
-Now that you've created the required resources, use the command below to create a data history connection between the Azure Digital Twins instance, the Event Hub, and the Azure Data Explorer cluster. 
+Now that you've created the required resources, use the command below to create a data history connection between the Azure Digital Twins instance, the event hub, and the Azure Data Explorer cluster. 
 
 # [CLI](#tab/cli) 
 
@@ -168,7 +171,7 @@ The command uses several local variables (`$connectionname`, `$dtname`, `$cluste
 az dt data-history create adx --cn $connectionname --dt-name $dtname --adx-cluster-name $clustername --adx-database-name $databasename --eventhub $eventhub --eventhub-namespace $eventhubnamespace
 ```
 
-When executing the above command, you will be given the option of assigning the necessary permissions required for setting up your data history connection on your behalf. These permissions are granted to the managed identity of your Azure Digital Twins instance. The minimum required roles are:
+When executing the above command, you'll be given the option of assigning the necessary permissions required for setting up your data history connection on your behalf (if you've already assigned the necessary permissions, you can skip these prompts). These permissions are granted to the managed identity of your Azure Digital Twins instance. The minimum required roles are:
 * Azure Event Hubs Data Owner on the event hub
 * Contributor scoped at least to the specified database
 * Database principal assignment with role Admin (for table creation / management) scoped to the specified database
@@ -187,7 +190,7 @@ Start by navigating to your Azure Digital Twins instance in the Azure portal (yo
 1. Select **Data history** from the Connect Outputs section of the instance's menu.
     :::image type="content"  source="media/how-to-use-data-history/select-data-history.png" alt-text="Screenshot of the Azure portal showing the data history option in the menu for an Azure Digital Twins instance." lightbox="media/how-to-use-data-history/select-data-history.png":::
 
-    Select **Create a connection**. This will begin the process of creating a data history connection.
+    Select **Create a connection**. Doing so will begin the process of creating a data history connection.
 
 2. **(SOME USERS)** If you **don't** already have a [managed identity enabled for your Azure Digital Twins instance](how-to-route-with-managed-identity.md), you'll see this page first, asking you to turn on Identity for the instance as the first step for the data history connection.
 
@@ -244,7 +247,7 @@ Start by opening the [Azure Digital Twins Data Simulator](https://explorer.digit
 
 Enter the **host name** of your Azure Digital Twins instance in the Instance URL field. The host name can be found in the [portal](https://portal.azure.com) page for your instance, and has a format like `<Azure-Digital-Twins-instance-name>.api.<region-code>.digitaltwins.azure.net`. Select **Generate Environment**. 
 
-You will see confirmation messages on the screen as models, twins, and relationships are created in your environment. When the simulation is ready, the **Start simulation** button will become enabled. Select **Start simulation** to push simulated data to your Azure Digital Twins instance. To continuously update the twins in your Azure Digital Twins instance, keep this browser window in the foreground on your desktop (and complete other browser actions in a separate window). 
+You'll see confirmation messages on the screen as models, twins, and relationships are created in your environment. When the simulation is ready, the **Start simulation** button will become enabled. Select **Start simulation** to push simulated data to your Azure Digital Twins instance. To continuously update the twins in your Azure Digital Twins instance, keep this browser window in the foreground on your desktop (and complete other browser actions in a separate window). 
 
 To verify that data is flowing through the data history pipeline, navigate to the [Azure portal](https://portal.azure.com) and open the Event Hubs namespace resource you created. You should see charts showing the flow of messages into and out of the namespace, indicating the flow of incoming messages from Azure Digital Twins and outgoing messages to Azure Data Explorer.
 
@@ -314,7 +317,7 @@ The results should show the outflow numbers changing over time.
 
 :::image type="content"  source="media/how-to-use-data-history/data-history-run-query-2.png" alt-text="Screenshot of the Azure portal showing the query view for the database. The result for the example query is a line graph showing changing values over time for the salt machine outflows." lightbox="media/how-to-use-data-history/data-history-run-query-2.png":::
 
-To keep exploring the dairy scenario, you can view [additional sample queries on GitHub](https://github.com/Azure-Samples/azure-digital-twins-getting-started/blob/main/adt-adx-queries/ContosoDairyDataHistoryQueries.kql) that show how you can monitor the performance of the dairy operation based on machine type, factory, maintenance technician, and various combinations of these parameters.
+To keep exploring the dairy scenario, you can view [more sample queries on GitHub](https://github.com/Azure-Samples/azure-digital-twins-getting-started/blob/main/adt-adx-queries/ContosoDairyDataHistoryQueries.kql) that show how you can monitor the performance of the dairy operation based on machine type, factory, maintenance technician, and various combinations of these parameters.
 
 For more information on using the Azure Digital Twins query plugin for Azure Data Explorer, see [Querying with the Azure Data Explorer plugin](concepts-data-explorer-plugin.md) and [blog](https://techcommunity.microsoft.com/t5/internet-of-things/adding-context-to-iot-data-just-became-easier/ba-p/2459987).
 
