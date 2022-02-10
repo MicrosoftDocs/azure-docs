@@ -1,13 +1,13 @@
 ---
 title: Troubleshooting Azure IoT Hub error 401003 IoTHubUnauthorized
 description: Understand how to fix error 401003 IoTHubUnauthorized 
-author: jlian
+author: kgremban
 manager: briz
 ms.service: iot-hub
 services: iot-hub
 ms.topic: troubleshooting
 ms.date: 11/06/2020
-ms.author: jlian
+ms.author: kgremban
 ms.custom: [amqp, mqtt]
 #Customer intent: As a developer or operator for Azure IoT Hub, I want to resolve 401003 IoTHubUnauthorized errors.
 ---

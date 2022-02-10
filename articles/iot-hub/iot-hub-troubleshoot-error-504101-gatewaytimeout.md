@@ -1,13 +1,13 @@
 ---
 title: Troubleshooting Azure IoT Hub error 504101 GatewayTimeout
 description: Understand how to fix error 504101 GatewayTimeout 
-author: jlian
+author: kgremban
 manager: briz
 ms.service: iot-hub
 services: iot-hub
 ms.topic: troubleshooting
 ms.date: 01/30/2020
-ms.author: jlian
+ms.author: kgremban
 ms.custom: amqp
 #Customer intent: As a developer or operator for Azure IoT Hub, I want to resolve 504101 GatewayTimeout errors.
 ---
