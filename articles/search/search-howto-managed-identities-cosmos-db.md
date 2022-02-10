@@ -23,82 +23,13 @@ Before learning more about this feature, it is recommended that you have an unde
 * [Indexer overview](search-indexer-overview.md)
 * [Azure Cosmos DB indexer](search-howto-index-cosmosdb.md)
 
-## 1 - Set up a managed identity
+## Prerequisites
 
-Set up the [managed identity](../active-directory/managed-identities-azure-resources/overview.md) using one of the following options.
+* [Create a managed identity](search-howto-managed-identities-data-sources.md) for your search service.
 
-### Option 1 - Turn on system-assigned managed identity
+* [Assign a role](search-howto-managed-identities-data-sources.md#assign-roles). For data access, you'll need the **Cosmos DB Account Reader** role and the identity used to make the request.
 
-When a system-assigned managed identity is enabled, Azure creates an identity for your search service that can be used to authenticate to other Azure services within the same tenant and subscription. You can then use this identity in Azure role-based access control (Azure RBAC) assignments that allow access to data during indexing.
-
-![Turn on system assigned managed identity](./media/search-managed-identities/turn-on-system-assigned-identity.png "Turn on system assigned managed identity")
-
-After selecting **Save** you will see an Object ID that has been assigned to your search service.
-
-![Object ID](./media/search-managed-identities/system-assigned-identity-object-id.png "Object ID")
- 
-### Option 2 - Assign a user-assigned managed identity to the search service (preview)
-
-If you don't already have a user-assigned managed identity created, you'll need to create one. A user-assigned managed identity is a resource on Azure.
-
-1. Sign into the [Azure portal](https://portal.azure.com/).
-1. Select **+ Create a resource**.
-1. In the "Search services and marketplace" search bar, search for "User Assigned Managed Identity" and then select **Create**.
-1. Give the identity a descriptive name.
-
-Next, assign the user-assigned managed identity to the search service. This can be done using the [2021-04-01-preview management API](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update).
-
-The identity property takes a type and one or more fully-qualified user-assigned identities:
-
-* **type** is the type of identity. Valid values are "SystemAssigned", "UserAssigned", or "SystemAssigned, UserAssigned" if you want to use both. A value of "None" will clear any previously assigned identities from the search service.
-* **userAssignedIdentities** includes the details of the user assigned managed identity.
-    * User-assigned managed identity format: 
-        * /subscriptions/**subscription ID**/resourcegroups/**resource group name**/providers/Microsoft.ManagedIdentity/userAssignedIdentities/**name of managed identity**
-
-Example of how to assign a user-assigned managed identity to a search service:
-
-```http
-PUT https://management.azure.com/subscriptions/[subscription ID]/resourceGroups/[resource group name]/providers/Microsoft.Search/searchServices/[search service name]?api-version=2021-04-01-preview
-Content-Type: application/json
-
-{
-  "location": "[region]",
-  "sku": {
-    "name": "[sku]"
-  },
-  "properties": {
-    "replicaCount": [replica count],
-    "partitionCount": [partition count],
-    "hostingMode": "default"
-  },
-  "identity": {
-    "type": "UserAssigned",
-    "userAssignedIdentities": {
-      "/subscriptions/[subscription ID]/resourcegroups/[resource group name]/providers/Microsoft.ManagedIdentity/userAssignedIdentities/[name of managed identity]": {}
-    }
-  }
-} 
-```
- 
-## 2 - Add a role assignment
-
-In this step you will either give your Azure Cognitive Search service or user-assigned managed identity permission to read data from your Cosmos DB database.
-
-1. In the Azure portal, navigate to the Cosmos DB account that contains the data that you would like to index.
-2. Select **Access control (IAM)**
-3. Select **Add** then **Add role assignment**
-
-    ![Add role assignment](./media/search-managed-identities/add-role-assignment-cosmos-db.png "Add role assignment")
-
-4. Select the **Cosmos DB Account Reader Role**
-5. Leave **Assign access to** as **Azure AD user, group or service principal**
-6. If you're using a system-assigned managed identity, search for your search service, then select it. If you're using a user-assigned managed identity, search for the name of the user-assigned managed identity, then select it. Select **Save**.
-
-    Example for Cosmos DB using a system-assigned managed identity:
-
-    ![Add reader and data access role assignment](./media/search-managed-identities/add-role-assignment-cosmos-db-account-reader-role.png "Add reader and data access role assignment")
-
-## 3 - Create the data source
+## Create the data source
 
 Create the data source and provide either a system-assigned managed identity or a user-assigned managed identity (preview). Note that you are no longer using the Management REST API in the below steps.
 
@@ -179,7 +110,7 @@ The body of the request contains the data source definition, which should includ
 | **dataChangeDetectionPolicy** | Recommended |
 |**dataDeletionDetectionPolicy** | Optional |
 
-## 4 - Create the index
+## Create the index
 
 The index specifies the fields in a document, attributes, and other constructs that shape the search experience.
 
@@ -201,11 +132,11 @@ api-key: [admin key]
 
 For more on creating indexes, see [Create Index](/rest/api/searchservice/create-index)
 
-## 5 - Create the indexer
+## Create the indexer
 
 An indexer connects a data source with a target search index and provides a schedule to automate the data refresh.
 
-Once the index and data source have been created, you're ready to create the indexer.
+Once the index and data source have been created, you're ready to create and run the indexer.
 
 Example indexer definition:
 

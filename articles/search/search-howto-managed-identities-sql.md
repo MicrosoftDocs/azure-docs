@@ -23,70 +23,17 @@ Before learning more about this feature, it is recommended that you have an unde
 * [Indexer overview](search-indexer-overview.md)
 * [Azure SQL indexer](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 
-## 1 - Set up a managed identity
+## Prerequisites
 
-Set up the [managed identity](../active-directory/managed-identities-azure-resources/overview.md) using one of the following options.
+* [Create a managed identity](search-howto-managed-identities-data-sources.md) for your search service.
 
-### Option 1 - Turn on system-assigned managed identity
-
-When a system-assigned managed identity is enabled, Azure creates an identity for your search service that can be used to authenticate to other Azure services within the same tenant and subscription. You can then use this identity in Azure role-based access control (Azure RBAC) assignments that allow access to data during indexing.
-
-![Turn on system assigned managed identity](./media/search-managed-identities/turn-on-system-assigned-identity.png "Turn on system assigned managed identity")
-
-After selecting **Save** you will see an Object ID that has been assigned to your search service.
-
-![Object ID](./media/search-managed-identities/system-assigned-identity-object-id.png "Object ID")
- 
-### Option 2 - Assign a user-assigned managed identity to the search service (preview)
-
-If you don't already have a user-assigned managed identity created, you'll need to create one. A user-assigned managed identity is a resource on Azure.
-
-1. Sign into the [Azure portal](https://portal.azure.com/).
-1. Select **+ Create a resource**.
-1. In the "Search services and marketplace" search bar, search for "User Assigned Managed Identity" and then select **Create**.
-1. Give the identity a descriptive name.
-
-Next, assign the user-assigned managed identity to the search service. This can be done using the [2021-04-01-preview management API](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update).
-
-The identity property takes a type and one or more fully-qualified user-assigned identities:
-
-* **type** is the type of identity. Valid values are "SystemAssigned", "UserAssigned", or "SystemAssigned, UserAssigned" if you want to use both. A value of "None" will clear any previously assigned identities from the search service.
-* **userAssignedIdentities** includes the details of the user assigned managed identity.
-    * User-assigned managed identity format: 
-        * /subscriptions/**subscription ID**/resourcegroups/**resource group name**/providers/Microsoft.ManagedIdentity/userAssignedIdentities/**name of managed identity**
-
-Example of how to assign a user-assigned managed identity to a search service:
-
-```http
-PUT https://management.azure.com/subscriptions/[subscription ID]/resourceGroups/[resource group name]/providers/Microsoft.Search/searchServices/[search service name]?api-version=2021-04-01-preview
-Content-Type: application/json
-
-{
-  "location": "[region]",
-  "sku": {
-    "name": "[sku]"
-  },
-  "properties": {
-    "replicaCount": [replica count],
-    "partitionCount": [partition count],
-    "hostingMode": "default"
-  },
-  "identity": {
-    "type": "UserAssigned",
-    "userAssignedIdentities": {
-      "/subscriptions/[subscription ID]/resourcegroups/[resource group name]/providers/Microsoft.ManagedIdentity/userAssignedIdentities/[name of managed identity]": {}
-    }
-  }
-} 
-```
-
-## 2 - Provision Azure Active Directory Admin for SQL Server
+## 1 - Provision Azure Active Directory Admin for SQL Server
 
 When connecting to the database in the next step, you will need to connect with an Azure Active Directory (Azure AD) account that has admin access to the database in order to give your search service permission to access the database.
 
 Look at [Configure and manage Azure AD authentication with Azure SQL](../azure-sql/database/authentication-aad-configure.md?tabs=azure-powershell) to give your Azure AD account admin access to the database.
 
-## 3 - Assign permissions to read the database
+## 2 - Assign permissions to read the database
 
 Follow the below steps to assign the search service or user-assigned managed identity permission to read the database.
 
@@ -119,7 +66,7 @@ Follow the below steps to assign the search service or user-assigned managed ide
 > DROP USER IF EXISTS [insert your search service name or user-assigned managed identity name];
 > ```
 
-## 4 - Add a role assignment
+## 3 - Add a role assignment
 
 In this step you will give your Azure Cognitive Search service permission to read data from your SQL Server.
 
@@ -137,7 +84,7 @@ In this step you will give your Azure Cognitive Search service permission to rea
 
     ![Add reader role assignment](./media/search-managed-identities/add-role-assignment-sql-server-reader-role.png "Add reader role assignment")
 
-## 5 - Create the data source
+## 4 - Create the data source
 
 Create the data source and provide either a system-assigned managed identity or a user-assigned managed identity (preview). Note that you are no longer using the Management REST API in the below steps.
 
@@ -215,7 +162,7 @@ api-key: [admin key]
 }   
 ```
 
-## 6 - Create the index
+## 5 - Create the index
 
 The index specifies the fields in a document, attributes, and other constructs that shape the search experience.
 
@@ -237,7 +184,7 @@ api-key: [admin key]
 
 For more on creating indexes, see [Create Index](/rest/api/searchservice/create-index)
 
-## 7 - Create the indexer
+## 6 - Create the indexer
 
 An indexer connects a data source with a target search index, and provides a schedule to automate the data refresh.
 

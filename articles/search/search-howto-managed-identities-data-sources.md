@@ -42,6 +42,8 @@ Knowledge store will also write to Table Storage. Assign a system managed identi
 
 ## Create a system managed identity
 
+When a system-assigned managed identity is enabled, Azure creates an identity for your search service that can be used to authenticate to other Azure services within the same tenant and subscription. You can then use this identity in Azure role-based access control (Azure RBAC) assignments that allow access to data during indexing.
+
 A system-assigned managed identity is unique to your search service and bound to the service for its lifetime.
 
 ### [**Azure portal**](#tab/portal-sys)
@@ -99,6 +101,8 @@ See [Create a search service with a system assigned managed identity (Azure CLI)
 ---
 
 ## Create a user managed identity (preview)
+
+If you don't already have a user-assigned managed identity, you'll need to create one. A user-assigned managed identity is a resource on Azure.
 
 A user-assigned managed identity is useful if you need more precision in role assignments. You can create separate identifies for different applications and scenarios that are related to indexer-based indexing.
 
@@ -178,11 +182,11 @@ A managed identity must be paired with an Azure role that determines permissions
 
 + Contributor (write) permissions are needed for AI enrichment features that use Azure Storage for hosting session data, caching, and long-term content storage. These features include: enrichment cache, knowledge store, debug session.
 
-The following steps are for Azure Storage. If your resource is Cosmos DB or Azure SQL, the steps for role assignment will be similar.
+The following steps are for Azure Storage. If your resource is Cosmos DB or Azure SQL, the steps are similar.
 
 1. [Sign in to Azure portal](https://portal.azure.com) and [find your Azure resource](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) to which the search service must have access.
 
-1. In Azure Storage, select **Access control** on the left navigation pane.
+1. In Azure Storage, select **Access control (AIM)** on the left navigation pane.
 
 1. Select **Add role assignment**.
 

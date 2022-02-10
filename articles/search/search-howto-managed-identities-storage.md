@@ -9,12 +9,12 @@ manager: nitinme
 
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 10/01/2021
+ms.date: 02/10/2022
 ---
 
 # Set up a connection to an Azure Storage account using a managed identity
 
-This page describes how to set up an indexer connection to an Azure storage account using a managed identity instead of providing credentials in the data source object connection string.
+This page describes how to set up an indexer connection to an Azure Storage account using a managed identity instead of providing credentials in the data source object connection string.
 
 You can use a system-assigned managed identity or a user-assigned managed identity (preview).
 
@@ -25,104 +25,18 @@ This article assumes familiarity with indexer concepts and configuration. If you
 * [Azure Data Lake Storage Gen2 indexer](search-howto-index-azure-data-lake-storage.md)
 * [Azure Table indexer](search-howto-indexing-azure-tables.md)
 
-## 1 - Set up a managed identity
+For a code example in C#, see [Index Data Lake Gen2 using Azure AD](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/data-lake-gen2-acl-indexing/README.md) on GitHub.
 
-Set up the [managed identity](../active-directory/managed-identities-azure-resources/overview.md) for an Azure Cognitive Search service using one of the following options. 
+## Prerequisites
 
-The search service must be Basic tier or above.
+* [Create a managed identity](search-howto-managed-identities-data-sources.md) for your search service.
 
-### Option 1 - Turn on system-assigned managed identity
+* [Assign a role](search-howto-managed-identities-data-sources.md#assign-roles). 
 
-When a system-assigned managed identity is enabled, Azure creates an identity for your search service that can be used to authenticate to other Azure services within the same tenant and subscription. You can then use this identity in Azure role-based access control (Azure RBAC) assignments that allow access to data during indexing.
+  * Assign **Storage Blob Data Reader** for read permissions to content in Blob Storage and Azure Data Lake Storage Gen2. 
+  * Assign **Reader and Data** for read permissions to content in Table Storage and File Storage.
 
-![Turn on system assigned managed identity](./media/search-managed-identities/turn-on-system-assigned-identity.png "Turn on system assigned managed identity")
-
-After selecting **Save** you will see an Object ID that has been assigned to your search service.
-
-![Object ID](./media/search-managed-identities/system-assigned-identity-object-id.png "Object ID")
-
-### Option 2 - Assign a user-assigned managed identity to the search service (preview)
-
-If you don't already have a user-assigned managed identity created, you'll need to create one. A user-assigned managed identity is a resource on Azure.
-
-1. Sign into the [Azure portal](https://portal.azure.com/).
-
-1. Select **+ Create a resource**.
-
-1. In the "Search services and marketplace" search bar, search for "User Assigned Managed Identity" and then select **Create**.
-
-1. Give the identity a descriptive name.
-
-Next, assign the user-assigned managed identity to the search service. This can be done using the [2021-04-01-preview management API](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update).
-
-The identity property takes a type and one or more fully-qualified user-assigned identities:
-
-* **type** is the type of identity. Valid values are "SystemAssigned", "UserAssigned", or "SystemAssigned, UserAssigned" for both. A value of "None" will clear any previously assigned identities from the search service.
-
-* **userAssignedIdentities** includes the details of the user assigned managed identity. The format is:
-
-  ```bash
-    /subscriptions/<your-subscription-ID>/resourcegroups/<your-resource-group-name>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<your-managed-identity-name>
-  ```
-
-Example of a user-assigned managed identity assignment:
-
-```http
-PUT https://management.azure.com/subscriptions/[subscription ID]/resourceGroups/[resource group name]/providers/Microsoft.Search/searchServices/[search service name]?api-version=2021-04-01-preview
-Content-Type: application/json
-
-{
-  "location": "[region]",
-  "sku": {
-    "name": "[sku]"
-  },
-  "properties": {
-    "replicaCount": [replica count],
-    "partitionCount": [partition count],
-    "hostingMode": "default"
-  },
-  "identity": {
-    "type": "UserAssigned",
-    "userAssignedIdentities": {
-      "/subscriptions/[subscription ID]/resourcegroups/[resource group name]/providers/Microsoft.ManagedIdentity/userAssignedIdentities/[name of managed identity]": {}
-    }
-  }
-} 
-```
-
-## 2 - Add a role assignment
-
-In this step, you will either give your Azure Cognitive Search service or user-assigned managed identity permission to read data from your storage account.
-
-1. In the Azure portal, navigate to the Storage account that contains the data that you would like to index.
-
-2. Select **Access control (IAM)**
-
-3. Select **Add** then **Add role assignment**
-
-    ![Add role assignment](./media/search-managed-identities/add-role-assignment-storage.png "Add role assignment")
-
-4. Select the appropriate role(s) based on the storage account type that you would like to index:
-
-    * Azure Blob Storage requires that you add your search service to the **Storage Blob Data Reader** role.
-    * Azure Data Lake Storage Gen2 requires that you add your search service to the **Storage Blob Data Reader** role.
-    * Azure Table Storage requires that you add your search service to the **Reader and Data Access** role.
-
-5. Leave **Assign access to** as **Azure AD user, group or service principal**
-
-6. If you're using a system-assigned managed identity, search for your search service, then select it. If you're using a user-assigned managed identity, search for the name of the user-assigned managed identity, then select it. Select **Save**.
-
-    Example for Azure Blob Storage and Azure Data Lake Storage Gen2 using a system-assigned managed identity:
-
-    ![Add Storage Blob Data Reader role assignment](./media/search-managed-identities/add-role-assignment-storage-blob-data-reader.png "Add Storage Blob Data Reader role assignment")
-
-    Example for Azure Table Storage using a system-assigned managed identity:
-
-    ![Add reader and data access role assignment](./media/search-managed-identities/add-role-assignment-reader-and-data-access.png "Add reader and data access role assignment")
-
-For a code examples in C#, see [Index Data Lake Gen2 using Azure AD](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/data-lake-gen2-acl-indexing/README.md) on GitHub.
-
-## 3 - Create the data source
+## Create the data source
 
 Create the data source and provide either a system-assigned managed identity or a user-assigned managed identity (preview). Note that you are no longer using the Management REST API in the below steps.
 
@@ -206,7 +120,7 @@ api-key: [admin key]
 }   
 ```
 
-## 4 - Create the index
+## Create the index
 
 The index specifies the fields in a document, attributes, and other constructs that shape the search experience.
 
@@ -228,11 +142,11 @@ Here's how to create an index with a searchable `content` field to store the tex
 
 For more on creating indexes, see [Create Index](/rest/api/searchservice/create-index)
 
-## 5 - Create the indexer
+## Create the indexer
 
 An indexer connects a data source with a target search index, and provides a schedule to automate the data refresh.
 
-Once the index and data source have been created, you're ready to create the indexer.
+Once the index and data source have been created, you're ready to create and run the indexer.
 
 Example indexer definition for a blob indexer:
 
