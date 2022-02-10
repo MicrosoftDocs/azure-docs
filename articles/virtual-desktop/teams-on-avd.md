@@ -16,7 +16,7 @@ manager: femila
 >Media optimization for Microsoft Teams is only available for the following two clients:
 >
 >- Windows Desktop and client on Windows 10 machines. Windows Desktop client version 1.2.1026.0 or later.
->- macOS Remote Desktop client, version 10.7.6 or later (preview)
+>- macOS Remote Desktop client, version 10.7.7 or later (preview)
 
 > [!IMPORTANT]
 > Teams for macOS is currently in PREVIEW.
@@ -133,7 +133,7 @@ You can deploy the Teams desktop app using a per-machine or per-user installatio
       > When you install Teams with the MSI setting ALLUSER=1, automatic updates will be disabled. We recommend you make sure to update Teams at least once a month. To learn more about deploying the Teams desktop app, check out [Deploy the Teams desktop app to the VM](/microsoftteams/teams-for-vdi#deploy-the-teams-desktop-app-to-the-vm/).
 
 >[!IMPORTANT]
->If you're using macOS with a version of the Remote Desktop client earlier than 10.7.6, in order to actually use the client, go to **Microsoft Remote Desktop Preferences** > **General** and enable Teams optimizations. If you're using Remote Desktop version 10.7.6 and later, you won't need to do this, because Teams optimizations are enabled by default.
+>If you're using macOS with a version of the Remote Desktop client earlier than 10.7.7, in order to actually use the client, go to **Microsoft Remote Desktop Preferences** > **General** and enable Teams optimizations. If you're using Remote Desktop version 10.7.7 and later, you won't need to do this, because Teams optimizations are enabled by default.
 
 ### Verify media optimizations loaded
 
