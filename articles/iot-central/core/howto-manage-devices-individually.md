@@ -68,7 +68,7 @@ To move a device to a different organization, you must have access to both the s
 
 1. Select the device to move in the device list.
 
-1. Select **Organization**.
+1. Select **Manage Device** and **Organization** from the drop down menu.
 
 1. Select the new organization for the device:
 

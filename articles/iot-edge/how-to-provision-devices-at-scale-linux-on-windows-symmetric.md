@@ -63,7 +63,7 @@ For Windows Admin Center, use the following steps:
 
 1. On the **Azure IoT Edge device provisioning** pane, select **Symmetric Key (DPS)** from the provisioning method dropdown.
 
-1. In the [Azure portal](https://ms.portal.azure.com/), navigate to your DPS instance.
+1. In the [Azure portal](https://portal.azure.com/), navigate to your DPS instance.
 
 1. Provide your DPS scope ID, device registration ID, and enrollment primary key or derived key in the Windows Admin Center fields.
 

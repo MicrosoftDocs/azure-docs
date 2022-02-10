@@ -18,14 +18,6 @@ Azure Automation receives improvements on an ongoing basis. To stay up to date w
 
 This page is updated monthly, so revisit it regularly. If you're looking for items older than six months, you can find them in [Archive for What's new in Azure Automation](whats-new-archive.md).
 
-## February 2022
-
-### Permissions change in the built-in Reader role for the Automation Account.
-
-**Type:** New change
-
-To strengthen the overall Azure Automation security posture, the built-in RBAC Reader role would not have access to Automation account keys through the API call - `GET /automationAccounts/agentRegistrationInformation`. Read [here](/azure/automation/automation-role-based-access-control#reader) for more information.
-
 ## December 2021
 
 ### New scripts added for Azure VM management based on Azure Monitor Alert

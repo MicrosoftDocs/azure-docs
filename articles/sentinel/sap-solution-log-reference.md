@@ -625,6 +625,7 @@ To have this log sent to Microsoft Sentinel, you must [add it manually to the **
 | User             | User                 |
 | | |
 
+
 ## Next steps
 
 For more information, see:
