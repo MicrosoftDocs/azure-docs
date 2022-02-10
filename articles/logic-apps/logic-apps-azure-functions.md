@@ -243,11 +243,15 @@ To set up and use your logic app's managed identity to call your function, follo
 
 1. Enable the managed identity on your logic app resource, and set up that identity's access to the target resource. For more information, review [Authenticate access to Azure resources by using managed identities in Azure Logic Apps](create-managed-service-identity.md).
 
-1. Enable authentication in your function and function app by following these steps:
+1. Enable authentication for your function app and function by following these steps:
 
    1. [Set up anonymous authentication for your function](#set-authentication-function-app).
 
    1. [Set up Azure AD authentication for your function app](#set-azure-ad-authentication).
+
+1. [Create an app registration for your function app](#create-app-registration).
+
+1. [Get the application ID (resource ID) from your app registration](#find-application-id) to later use in the **Audience** property in your workflow.
 
 <a name="set-authentication-function-app"></a>
 
@@ -287,13 +291,15 @@ To set up and use your logic app's managed identity to authenticate function cal
 
 ## Set up Azure AD authentication for your function app
 
-Before you start this task, find and save the following values so that you can set up Azure AD authentication on your function app. The following sections show how to find these values.
+Before you start this task, find and save the following values so that you can set up Azure AD authentication on your function app. The following steps show how to find these values.
 
-* The object (principal) ID for your logic app's managed identity
-* The tenant ID for your Azure Active Directory (Azure AD)
-* Client secret (optional)
+1. [Find the object (principal) ID for your logic app's managed identity](#find-object-id).
 
-### Find the object ID for your logic app's managed identity
+1. [Find the tenant ID for your Azure Active Directory (Azure AD)](#find-tenant-id).
+
+<a name="find-object-id"></a>
+
+### Step 1 - Find the object ID for your logic app's managed identity
 
 If your logic app doesn't have a managed identity set up yet, [enable the managed identity for your logic app](create-managed-service-identity.md). Based on the whether you have a Consumption or Standard logic app resource, follow the respective steps:
 
@@ -339,7 +345,9 @@ If your logic app doesn't have a managed identity set up yet, [enable the manage
 
 ---
 
-### Find the tenant ID for your Azure AD
+<a name="find-tenant-id"></a>
+
+### Step 2 - Find the tenant ID for your Azure AD
 
 For your Azure Active Directory (Azure AD), find the tenant ID. You can either run the PowerShell command named [**Get-AzureAccount**](/powershell/module/servicemanagement/azure.service/get-azureaccount), or in the Azure portal, follow these steps:
 
@@ -351,7 +359,9 @@ For your Azure Active Directory (Azure AD), find the tenant ID. You can either r
 
    ![Screenshot showing your Azure AD "Properties" pane with tenant ID's copy button selected.](./media/logic-apps-azure-functions/azure-active-directory-tenant-id.png)
 
-### Create an app registration for your function app
+<a name="create-app-registration"></a>
+
+### Step 3 - Create an app registration for your function app
 
 Now you're ready to set up Azure AD authentication for your function app by creating an app registration. For more information, review [Configure your App Service or Azure Functions app to use Azure AD login](../app-service/configure-authentication-provider-aad.md#-enable-azure-active-directory-in-your-app-service-app).
 
@@ -372,7 +382,7 @@ Now you're ready to set up Azure AD authentication for your function app by crea
    | **Application (client) ID** | Yes | <*object-ID*> | The object ID for your logic app's managed identity. |
    | **Client secret** | <*client-secret*> | No, but recommended | The secret value that the app uses to prove its identity when requesting a token. The client secret is created and stored as a slot-sticky [app setting](../app-service/configure-common.md#configure-app-settings) named `MICROSOFT_PROVIDER_AUTHENTICATION_SECRET`. If you want to manage the secret in Azure Key Vault, you can update this setting later to use Key Vault references. |
    | **Issuer URL** | No | `https://sts.windows.net/<Azure-AD-tenant-ID>` | The issuer URL appended with your Azure AD tenant ID |
-   | **Allowed token audiences** | No | <*application-ID-URI*> | The application ID URI (resource ID) for the function app. Later, you use this same URI in the **Audience** property when you [set up your function action in your workflow to use the managed identity for authentication](create-managed-service-identity.md#authenticate-access-with-identity). <p><p>In this example, the value is **https://management.azure.com**. |
+   | **Allowed token audiences** | No | <*application-ID-URI*> | The application ID URI (resource ID) for the function app. In this example, the value is **https://management.azure.com**. Later, you can use the same URI in the **Audience** property when you [set up your function action in your workflow to use the managed identity for authentication](create-managed-service-identity.md#authenticate-access-with-identity). <p><p>**Important**: The application ID URI (resource ID) must exactly match the value that Azure AD expects, including any required trailing slashes. |
    ||||
 
    At this point, your version looks similar to this example:
@@ -385,22 +395,12 @@ Now you're ready to set up Azure AD authentication for your function app by crea
 
 1. To finish creating the app registration, select **Add**.
 
-   When you're done, the **Authentication** page now lists the identity provider. From here, you can edit or delete this provider configuration. You're now ready to use the Microsoft identity platform for authentication in your function app.
+   When you're done, the **Authentication** page now lists the identity provider and app ID (client ID) for the app registration. You're can now use this app registration for authentication in your function app.
 
-### Find the application ID URI (resource ID) for your function app
+1. Copy the app ID (client ID) for the app registration to later use in your workflow.
 
-
-* The application ID URI (resource ID) for your function app
-
-For the function app that you want to access with the managed identity, get the application ID URI (resource ID). To find this application ID URI, review 
-
-> [!IMPORTANT]
-> This application ID URI (resource ID) must exactly match the value that Azure AD expects, 
-> including any required trailing slashes. Later, you use this same URI in the **Audience** 
-> property when you [set up your function action in your workflow to use the managed identity for authentication](create-managed-service-identity.md#authenticate-access-with-identity).
-
-1. Return to the designer and follow the [steps to authenticate access with the managed identity](create-managed-service-identity.md#authenticate-access-with-identity).
+1. Return to the designer and follow the [steps to authenticate access with the managed identity](create-managed-service-identity.md#authenticate-access-with-identity) by using the built-in Azure Functions action.
 
 ## Next steps
 
-* Learn about [connectors in Azure Logic Apps](../connectors/apis-list.md)
+* [Authentication access to Azure resources with managed identities in Azure Logic Apps](create-managed-service-identity.md#authentication-access-with-identity)
