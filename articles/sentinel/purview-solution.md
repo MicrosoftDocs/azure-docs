@@ -142,6 +142,8 @@ For more information, see [Create custom analytics rules to detect threats](dete
 
 In Microsoft Sentinel, under **Threat management**, select **Workbooks** > **My workbooks**, and locate the **Azure Purview** workbook deployed with the **Azure Purview** solution. Open the workbook and customize any parameters as needed.
 
+:::image type="content" source="media/purview-solution/purview-workbook.png" alt-text="Screenshot of the Azure Purview workbook.":::
+
 The Azure Purview workbook displays the following tabs:
 
 - **Overview**: Displays the regions and resources types where the data is located.
