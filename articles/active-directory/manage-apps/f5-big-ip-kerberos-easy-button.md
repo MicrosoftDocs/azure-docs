@@ -101,7 +101,7 @@ The advanced approach provides a more flexible way of implementing SHA by manual
 
 ## Register Easy Button
 
-Before a client or service can access Microsoft Graph, it must be [trusted by the Microsoft identity platform.](/develop/quickstart-register-app)
+Before a client or service can access Microsoft Graph, it must be [trusted by the Microsoft identity platform.](/azure/active-directory/develop/quickstart-register-app)
 
 The Easy Button client must also be registered in Azure AD, before it is allowed to establish a trust between each SAML SP instance of a BIG-IP published application, and Azure AD as the SAML IdP.
 
