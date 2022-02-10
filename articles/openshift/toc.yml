@@ -132,7 +132,7 @@
     - name: Frequently asked questions
       href: openshift-faq.yml
     - name: Openshift Service Definitions
-      href: openshift-service-definition.md
+      href: openshift-service-definitions.md
     - name: Troubleshooting
       href: troubleshoot.md
     - name: Support policies for ARO 4
