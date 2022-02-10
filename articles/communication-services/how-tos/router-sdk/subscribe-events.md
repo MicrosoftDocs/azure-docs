@@ -28,7 +28,7 @@ For more details on Event Grid, please see the [Event Grid documentation][event-
 ## Create an Event Grid subscription
 
 > [!NOTE]
-> Since Job Router is still in preview, the events are not included in the portal UI. You have to use an ARM template to create a subscription that references them.
+> Since Job Router is still in preview, the events are not included in the portal UI. You have to use an Azure Resource Manager (ARM) template to create a subscription that references them.
 
 This template deploys an EventGrid subscription on a Storage Queue for Job Router events.
 If the storage account, queue or system topic do not exist, they will be created as well.
