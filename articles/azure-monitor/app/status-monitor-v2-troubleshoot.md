@@ -2,8 +2,8 @@
 title: Azure Application Insights Agent troubleshooting and known issues | Microsoft Docs
 description: The known issues of Application Insights Agent and troubleshooting examples. Monitor website performance without redeploying the website. Works with ASP.NET web apps hosted on-premises, in VMs, or on Azure.
 ms.topic: conceptual
-author: TimothyMothra
-ms.author: tilee
+author: yingqunpku
+ms.author: quying
 ms.date: 04/23/2019
 
 ---
