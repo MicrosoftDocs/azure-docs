@@ -11,11 +11,11 @@ ms.service: virtual-machines-sap
 
 # Use SAP Deployment Automation Framework from Azure DevOps Services
 
-You can use Azure DevOps Services (Azure Repos and Azure Pipelines) as your configuration repository and as the deployment and configuration environment for the SAP Deployment Automation Framework. This page describes how you can set up Azure DevOps Services.
+You can use Azure Repos to store your configuration files and Azure Pipelines to deploy and configure the infrastructure and the SAP application. 
 
 ## Sign up for Azure DevOps Services
 
-To use Azure DevOps Services, you'll need an Azure DevOps organization. An organization is used to connect groups of related projects. Use your work or school account to automatically connect your organization to your Azure Active Directory (Azure AD). To create an account open [Azure DevOps](https://azure.microsoft.com/services/devops/) and either _sign-in_ or create a new account. Record the URL of the project.
+To use Azure DevOps Services, you'll need an Azure DevOps organization. An organization is used to connect groups of related projects. Use your work or school account to automatically connect your organization to your Azure Active Directory (Azure AD). To create an account, open [Azure DevOps](https://azure.microsoft.com/services/devops/) and either _sign-in_ or create a new account. Record the URL of the project.
 
 ## Create a new project
 
@@ -30,7 +30,7 @@ Open (https://dev.azure.com) and create a new project by clicking on the _New Pr
 
 Start by importing the SAP Deployment Automation Framework GitHub repository into Azure Repos. Navigate to the Repositories section and choose Import a repository. Import the 'https://github.com/Azure/sap-automation.git' repository into Azure DevOps. For more info, see [Import a repository](/azure/devops/repos/git/import-git-repository?view=azure-devops&preserve-view=true)
 
-Some of the pipelines will add files to the Azure Repos and therefore require pull permissions. Assign the permissions using Security tab of the source code repository in the Repositories section in Project settings. Assign "Contribute" permissions to the Build Service.
+Some of the pipelines will add files to the Azure Repos and therefore require pull permissions. Assign "Contribute" permissions to the 'Build Service' using the Security tab of the source code repository in the Repositories section in Project settings. 
 
 :::image type="content" source="./media/automation-devops/automation-repo-permissions.png" alt-text="Picture showing repository permissions":::
 
@@ -51,9 +51,9 @@ To create the service connection, go to Project settings and navigate to the Ser
 
 :::image type="content" source="./media/automation-devops/automation-create-service-connection.png" alt-text="Picture showing how to create a Service connection":::
 
-Choose _Azure Resource Manager_ as the service connection type and _Service principal (manual)_ as the authentication method. Specify the target subscription (typically the control plane subscription) and provide the service principal details (verify that they're valid using the _Verify_ button). If you don't have a service principal see [Creating a Service Principal](automation-deploy-control-plane.md#prepare-the-deployment-credentials) for more information.
+Choose _Azure Resource Manager_ as the service connection type and _Service principal (manual)_ as the authentication method. Enter the target subscription, typically the control plane subscription, and provide the service principal details (verify that they're valid using the _Verify_ button). For more information on how to create a service principal, see [Creating a Service Principal](automation-deploy-control-plane.md#prepare-the-deployment-credentials).
 
-Finally provide a Service connection name, for instance 'Connection to DEV subscription' and ensure that the _Grant access permission to all pipelines_ checkbox is checked. Select _Verify and save_ to save the service connection.
+Enter a Service connection name, for instance 'Connection to DEV subscription' and ensure that the _Grant access permission to all pipelines_ checkbox is checked. Select _Verify and save_ to save the service connection.
 
 ## Create Azure Pipelines
 
@@ -165,11 +165,11 @@ The pipelines use a custom task to perform cleanup activities post deployment. T
 
 ## Variable definitions
 
-The deployment pipelines are configured to use a set of predefined parameter values. I Azure DevOps these can be defined using variable groups.
+The deployment pipelines are configured to use a set of predefined parameter values. I Azure DevOps the variables are defined using variable groups.
 
 ### Common variables
 
-There are a set of common variables that are used by all the workload zones. These are stored in their own variable group 'SDAF-General'
+There's a set of common variables that are used by all the deployment pipelines. These variables are stored in a variable group called 'SDAF-General'.
 
 Create a new variable group 'SDAF-General' using the Library page in the Pipelines section. Add the following variables:
 
@@ -201,14 +201,14 @@ Create a new variable group 'SDAF-DEV' using the Library page in the Pipelines s
 | ARM_SUBSCRIPTION_ID   | Target subscription ID                         |                                                          |
 | ARM_TENANT_ID         | Tenant ID for service principal                |                                                          |
 | AZURE_CONNECTION_NAME | Previously created connection name             |                                                          |
-| sap_fqdn              | SAP Fully Qualified Domain Name, for example sap.contoso.net | Only needed if Private DNS is not used.                                           |
+| sap_fqdn              | SAP Fully Qualified Domain Name, for example sap.contoso.net | Only needed if Private DNS isn't used.                                           |
 
 
 Save the variables and assign permissions for all pipelines using _Pipeline permissions_.
 
 ## Register the Deployer as a self-hosted agent for Azure DevOps
 
-You must use the Deployer as a [self-hosted agent for Azure DevOps](/azure/devops/pipelines/agents/v2-linux) to perform the Ansible configuration activities. As a one-time step, you must register the Deployer as an self-hosted agent.
+You must use the Deployer as a [self-hosted agent for Azure DevOps](/azure/devops/pipelines/agents/v2-linux) to perform the Ansible configuration activities. As a one-time step, you must register the Deployer as a self-hosted agent.
 
 ### Prerequisites
 

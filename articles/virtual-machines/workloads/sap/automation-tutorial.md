@@ -113,7 +113,7 @@ A valid SAP user account (SAP-User or S-User account) with software download pri
 
 1. Go to [Azure Cloud Shell](https://shell.azure.com)
 
-1. Log in to your Azure account.
+1. Sign in your Azure account.
 
     ```cloudshell-interactive
     az login
@@ -147,7 +147,7 @@ A valid SAP user account (SAP-User or S-User account) with software download pri
     az account list --query "[?isDefault].{Name: name, CloudName: cloudName, SubscriptionId: id, State: state, IsDefault: isDefault}" --output=table
     ```
 
-1. Optionally remove all the deployment artifacts. Use this if you want to remove all remnants of previous deployment artifacts.
+1. Optionally remove all the deployment artifacts. Use when you want to remove all remnants of previous deployment artifacts.
 
     ```cloudshell-interactive
     
@@ -391,7 +391,7 @@ The sample SAP Library configuration file `MGMT-NOEU-SAP_LIBRARY.tfvars` is in t
 
 ## Connect to deployer VM
 
-After preparing the region, the Terraform state file moves to a remote backend, `azurerm`. All secrets for connecting to the deployer VM are available in a key vault within the deployer's resource group.
+After the control plane is deployed, the Terraform state is stored using a remote backend, `azurerm`. All secrets for connecting to the deployer VM are available in a key vault in the deployer's resource group.
 
 Make sure you can connect to your deployer VM:
 
@@ -523,7 +523,7 @@ For this example configuration, the resource group is `MGMT-NOEU-DEP00-INFRASTRU
 
     ```
     
-1. Replace `<Deployer KeyVault Name>` with the name of the deployer resource group key vault
+1. Replace `<Deployer KeyVault Name>` with the name of the deployer resource group Azure key vault
   
     Your file should look similar to the following example configuration:
 
@@ -581,7 +581,7 @@ For this example configuration, the resource group is `MGMT-NOEU-DEP00-INFRASTRU
 
 1. Additionally, the following piece of information needs to be collected.
 
-    1. The name of deployer state file, can be found under Library resource group
+    1. The name of deployer state file can be found under Library resource group
         - Library resource group -> state storage account -> containers -> tfstate -> Copy the **name** of the Deployer state file.
         - Following from the example above, the name of the blob will be: *MGMT-NOEU-DEP00-INFRASTRUCTURE.terraform.tfstate*
 
@@ -621,7 +621,7 @@ For this example configuration, the resource group is `MGMT-NOEU-DEP00-INFRASTRU
     git pull
     ```
 
-1. Go into the *WORKSPACES/LANDSCAPE* folder and copy the sample configuration files that you'll be using from from the repository.
+1. Go into the *WORKSPACES/LANDSCAPE* folder and copy the sample configuration files that you'll be using from the repository.
 
     ```bash
     cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/LANDSCAPE
@@ -775,7 +775,7 @@ This playbook will install the HANA database instances.
 
 ### Playbook: SCS Install
   
-This playbook will install SAP Central Services. If, high availability is configured the playbook will also install the ERS instance and configure Pacemaker.
+This playbook will install SAP Central Services. For highly available configurations, the playbook will also install the SAP ERS instance and configure Pacemaker.
 
 ### Playbook: DB Load
 
@@ -787,7 +787,7 @@ This playbook will install the primary application server.
   
 ### Playbook: APP Install
 
-This playbook will install the additional application servers.
+This playbook will install the application servers.
 
 You've now deployed and configured a stand-alone HANA system, if you need to configure a highly available SAP HANA database run the HANA HA playbook
 
@@ -809,7 +809,7 @@ To remove the entire SAP infrastructure you deployed, you need to:
 
 Execute the removal of your SAP infrastructure resources and workload zones from the deployer VM. Execute the removal of the control plane from Cloud Shell.
 
-Before you begin, log in to your Azure account. Then, check that you're in the correct subscription.
+Before you begin, sign in your Azure account. Then, check that you're in the correct subscription.
 
 ### Remove SAP infrastructure
 

@@ -13,7 +13,7 @@ ms.service: virtual-machines-sap
 
 This tutorial shows how to perform the deployment activities of the [SAP deployment automation framework on Azure](automation-deployment-framework.md) using Azure DevOps Services.
 
-You will perform the following tasks during this lab:
+You'll perform the following tasks during this lab:
 
 > [!div class="checklist"]
 > * Deploy the Control Plane (Deployer Infrastructure & Library)
@@ -44,8 +44,8 @@ These steps reference and use the [default naming convention](automation-naming.
 - Azure DevOps repository name is `sap-automation` 
 - The control plane environment is named `MGMT`, in the region West Europe (`WEEU`) and installed in the virtual network `DEP00`, giving a deployer configuration name: `MGMT-WEEU-DEP00-INFRASTRUCTURE`
 
-- The SAP workload zone has the environment name `DEV` and is in the same region as the control plane using the virtual network `SAP01`, leading to the SAP workload zone configuration name: `DEV-WEEU-SAP01-INFRASTRUCTURE`
-- The SAP System with SID `X00` will be installed in this SAP workload zone. This leads to the configuration name for the SAP System: `DEV-WEEU-SAP01-X00`
+- The SAP workload zone has the environment name `DEV` and is in the same region as the control plane using the virtual network `SAP01`, giving the SAP workload zone configuration name: `DEV-WEEU-SAP01-INFRASTRUCTURE`
+- The SAP System with SID `X00` will be installed in this SAP workload zone. The configuration name for the SAP System: `DEV-WEEU-SAP01-X00`
 
 | Artifact type | Configuration name              | Location        |
 | ------------- | ------------------------------- | --------------- |
@@ -71,10 +71,7 @@ The deployment will use the configuration defined in the Terraform variable file
 
 Ensure that the 'Deployment_Configuration_Path' variable in the 'SDAF-General' variable group is set to 'samples/WORKSPACES'
 
-Run the pipeline by navigating to the Pipelines section in the [Azure DevOps Portal](https://dev.azure.com) and selecting the _Deploy control plane_ pipeline. Run the pipeline and when prompted enter the following values:
-
-Deployer configuration name: MGMT-WEEU-DEP00-INFRASTRUCTURE
-SAP Library configuration name: MGMT-WEEU-SAP_LIBRARY
+Run the pipeline by selecting the _Deploy control plane_ pipeline from the Pipelines section. Enter 'MGMT-WEEU-DEP00-INFRASTRUCTURE' as the Deployer configuration name and 'MGMT-WEEU-SAP_LIBRARY' as the SAP Library configuration name.
 
 :::image type="content" source="media/automation-devops/automation-run-pipeline.png" alt-text="Picture showing the DevOps tutorial run pipeline dialog":::
 
@@ -86,10 +83,7 @@ You can track the progress in the Azure DevOps portal. Once the deployment is co
 
 The deployment will use the configuration defined in the Terraform variable file located in the 'samples/WORKSPACES/LANDSCAPE/DEV-WEEU-SAP01-INFRASTRUCTURE' folder.
 
-Run the pipeline by navigating to the Pipelines section in the [Azure DevOps Portal](https://dev.azure.com) and selecting the _Deploy workload zone_ pipeline. Run the pipeline and when prompted enter the following values:
-
-Workload zone configuration name: DEV-WEEU-SAP01-INFRASTRUCTURE
-Deployer Environment Name: MGMT
+Run the pipeline by selecting the _Deploy workload zone_ pipeline from the Pipelines section. Enter 'DEV-WEEU-SAP01-INFRASTRUCTURE' as the Workload zone configuration name and 'MGMT' as the Deployer Environment Name.
 
 You can track the progress in the Azure DevOps portal. Once the deployment is complete, you can see the Workload Zone details in the _Extensions_ tab.
 
@@ -97,28 +91,20 @@ You can track the progress in the Azure DevOps portal. Once the deployment is co
 
 The deployment will use the configuration defined in the Terraform variable file located in the 'samples/WORKSPACES/SYSTEM/DEV-WEEU-SAP01-X00' folder.
 
-Run the pipeline by navigating to the Pipelines section in the [Azure DevOps Portal](https://dev.azure.com) and selecting the _SAP system deployment_ pipeline. Run the pipeline and when prompted enter the following values:
-
-SAP System configuration name: DEV-WEEU-SAP01-X00
+Run the pipeline by selecting the _SAP system deployment_ pipeline from the Pipelines section. Enter 'DEV-WEEU-SAP01-X00' as the SAP System configuration name.
 
 You can track the progress in the Azure DevOps portal. Once the deployment is complete, you can see the SAP System details in the _Extensions_ tab.
 
 ## Download the SAP Software
 
-Run the pipeline by navigating to the Pipelines section in the [Azure DevOps Portal](https://dev.azure.com) and selecting the _SAP software acquisition_ pipeline. Run the pipeline and when prompted enter the following values:
-
-Name of Bill of Materials (BoM): S41909SPS03_v0010ms
-Control Plane Environment name: MGMT
-Control Plane (SAP Library) location code: WEEU
+Run the pipeline by selecting the _SAP software acquisition_ pipeline from the Pipelines section. Enter 'S41909SPS03_v0010ms' as the Name of Bill of Materials (BoM), 'MGMT' as the Control Plane Environment name: MGMT and 'WEEU' as the
+Control Plane (SAP Library) location code.
 
 You can track the progress in the Azure DevOps portal. 
 
 ## Run the Configuration and SAP Installation pipeline
 
-Run the pipeline by navigating to the Pipelines section in the [Azure DevOps Portal](https://dev.azure.com) and selecting the _Configuration and SAP installation_ pipeline. Run the pipeline and when prompted enter the following values:
-
-SAP System configuration name: DEV-WEEU-SAP01-X00
-Bill of Materials name: S41909SPS03_v0010ms
+Run the pipeline by selecting the _Configuration and SAP installation_ pipeline from the Pipelines section. Enter 'DEV-WEEU-SAP01-X00' as the SAP System configuration name and 'S41909SPS03_v0010ms' as the Bill of Materials name.
 
 Choose the playbooks to execute.
 
@@ -128,36 +114,27 @@ You can track the progress in the Azure DevOps portal.
 
 ## Run the Repository update pipeline
 
-Run the pipeline by navigating to the Pipelines section in the [Azure DevOps Portal](https://dev.azure.com) and selecting the _Repository updater_ pipeline. Run the pipeline and when prompted enter the following values:
-
-Source repository: https://github.com/Azure/sap-automation.git
-Source branch to update from: main
+Run the pipeline by selecting the _Repository updater_ pipeline from the Pipelines section. Enter 'https://github.com/Azure/sap-automation.git' as the Source repository and 'main' as the source branch to update from.
 
 Only choose 'Force the update' if the update fails.
 
 
 ## Run the removal pipeline
 
-Run the pipeline by navigating to the Pipelines section in the [Azure DevOps Portal](https://dev.azure.com) and selecting the _Deployment removal _ pipeline. Run the pipeline and select which deployment to remove.
+Run the pipeline by selecting the _Deployment removal_ pipeline from the Pipelines section.
 
 ### SAP System removal
 
-When prompted enter the following values:
-
-SAP System configuration name: DEV-WEEU-SAP01-X00
+Enter 'DEV-WEEU-SAP01-X00' as the SAP System configuration name.
 
 ### SAP Workload Zone removal
 
-When prompted enter the following values:
-
-SAP workload zone configuration name: DEV-WEEU-SAP01-INFRASTRUCTURE
+Enter 'DEV-WEEU-SAP01-INFRASTRUCTURE' as the SAP workload zone configuration name.
 
 ### Control Plane removal
 
-When prompted enter the following values:
-
-Deployer configuration name: MGMT-WEEU-DEP00-INFRASTRUCTURE
-SAP Library configuration name: MGMT-WEEU-SAP_LIBRARY
+Enter 'MGMT-WEEU-DEP00-INFRASTRUCTURE' as the Deployer configuration name and 'MGMT-WEEU-SAP_LIBRARY' as the 
+SAP Library configuration name.
 ## Next step
 
 > [!div class="nextstepaction"]
