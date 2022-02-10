@@ -19,7 +19,7 @@ In this article, you’ll learn to implement Secure Hybrid Access (SHA) with sin
 
 Configuring BIG-IP published applications with Azure AD provides many benefits, including:
 
-- Improved Zero trust governance through Azure AD pre-authentication and [Conditional Access](/conditional-access/overview)
+- Improved Zero trust governance through Azure AD pre-authentication and [Conditional Access](/azure/active-directory/conditional-access/overview)
 
 - Full Single sign-on (SSO) between Azure AD and BIG-IP published
   services.
@@ -101,7 +101,7 @@ There are many methods to configure BIG-IP for this scenario, including two temp
 ## Adding F5 BIG-IP from the Azure AD gallery
 
 Setting up a SAML federation trust between BIG-IP APM and Azure AD is one of the first step in implementing SHA. It establishes the integration required for BIG-IP to hand off pre-authentication and [conditional
-access](../conditional-access/overview.md) to Azure AD, before granting access to the published service.
+access](/azure/active-directory/conditional-access/overview) to Azure AD, before granting access to the published service.
 
 1. Sign-in to the Azure AD portal using an account with application administrative rights.
 
@@ -428,7 +428,7 @@ For more information refer to these articles:
 
 - [The end of passwords, go password-less](https://www.microsoft.com/security/business/identity/passwordless)
 
-- [What is Conditional Access?](../conditional-access/overview.md)
+- [What is Conditional Access?](/azure/active-directory/conditional-access/overview)
 
 - [Microsoft Zero Trust framework to enable remote
   work](https://www.microsoft.com/security/blog/2020/04/02/announcing-microsoft-zero-trust-assessment-tool/)
