@@ -16,6 +16,10 @@ ms.date: 10/25/2021
 * After enabling autoscale for a node type, configure `vmInstanceCount` property to `-1` when redeploying the resource.
 * Only [Azure Monitor published metrics](../azure-monitor/essentials/metrics-supported.md) are supported.
 
+>[!NOTE] 
+> If using an OS Image "-with-containers” memory metrics from Azure Monitor will not be available. 
+
+
 A common scenario where autoscaling is useful is when the load on a particular service varies over time. For example, a service such as a gateway can scale based on the amount of resources necessary to handle incoming requests. Let's take a look at an example of what those scaling rules could look like and we'll use them later in the article:
 * If all instances of my gateway are using more than 70% on average, then scale the gateway service out by adding two more instance. Do this every 30 minutes, but never have more than twenty instances in total.
 * If all instances of my gateway are using less than 40% cores on average, then scale the service in by removing one instance. Do this every 30 minutes, but never have fewer than three instances in total.
