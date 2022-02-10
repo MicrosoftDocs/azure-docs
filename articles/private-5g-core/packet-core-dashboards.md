@@ -14,11 +14,11 @@ ms.custom: template-concept
 
 The *packet core dashboards* provide a flexible way to monitor key statistics relating to your deployment in real time. They also allow you to view information on firing alerts, allowing you to quickly react to emerging issues.
 
-The packet core dashboards are powered by *Grafana*, an open-source, metric analytics and visualization suite. For more information, see the [Grafana documentation](https://grafana.com/docs/).
+The packet core dashboards are powered by *Grafana*, an open-source, metric analytics and visualization suite. For more information, see the [Grafana documentation](https://grafana.com/docs/grafana/v6.1/).
 
 ## Use the packet core dashboards
 
-We'll go through the common concepts and operations you'll need to understand before you can use the packet core dashboards. If you need more information on using Grafana, see the [Grafana documentation](https://grafana.com/docs/).
+We'll go through the common concepts and operations you'll need to understand before you can use the packet core dashboards. If you need more information on using Grafana, see the [Grafana documentation](https://grafana.com/docs/grafana/v6.1/).
 
 ### Dashboards
 
@@ -70,8 +70,7 @@ The packet core dashboards use the following types of panel. For all panels, you
 
     :::image type="content" source="media/packet-core-dashboards/packet-core-graph-panel.png" alt-text="Screenshot of a graph panel in the packet core dashboards. The panel displays information on total throughput statistics.":::
 
-<!-- Singlestat is deprecated in the Grafana docs, replaced by Stat (https://grafana.com/docs/grafana/latest/visualizations/stat-panel/). Is 5G using a specific version we should refer to, or should we update the information here to reflect the latest Grafana docs? (Removing the Singlestat reference for now) -->
-- **Single stat** panels display a single statistic. The statistic may be presented as a simple count or as a gauge. These panels indicate whether a single statistic has exceeded a threshold by their color.
+- **Single stat** panels (called "Singlestat" panels in the Grafana documentation) display a single statistic. The statistic may be presented as a simple count or as a gauge. These panels indicate whether a single statistic has exceeded a threshold by their color.
 
     - The value displayed on a gauge single stat panel is shown in green at normal operational levels, amber when approaching a threshold, and red when the threshold has been breached. 
     - The entirety of a count single stat panel will turn red if a threshold is breached.
@@ -98,9 +97,7 @@ You can choose to use the search bar to find a dashboard by name or select from 
 
 ## Adjusting the time range
 
-The **Time picker** icon in the upper-right corner of each packet core dashboard allows you to adjust the time range for which the dashboard will display statistics. You can use the time picker to retrieve diagnostics for historical problems. You can choose a relative time range (such as the last 15 minutes), or an absolute time range (such as statistics for a particular month). 
-
-You can also use the **Refresh dashboard** icon to immediately update your dashboards. To configure how regularly the statistics displayed on the dashboard will be updated, you can use the down arrow icon next to **Refresh dashboard**. For detailed information on using the time range controls, see [Time range controls](https://grafana.com/docs/grafana/latest/dashboards/time-range-controls/) in the Grafana documentation.
+The **Time picker** in the top right-hand corner of each packet core dashboard allows you to adjust the time range for which the dashboard will display statistics. You can use the time picker to retrieve diagnostics for historical problems. You can choose a relative time range (such as the last 15 minutes), or an absolute time range (such as statistics for a particular month). You can also use the **Refresh dashboard** icon to configure how regularly the statistics displayed on the dashboard will be updated. For detailed information on using the time range controls, see [Time range controls](https://grafana.com/docs/grafana/v6.1/reference/timerange/) in the Grafana documentation.
 
 :::image type="content" source="media/packet-core-dashboards/packet-core-dashboard-time-picker.png" alt-text="Screenshot showing the time picker for the packet core dashboards. There are options for setting a custom time range or choosing one of several commonly used quick ranges.":::
 
