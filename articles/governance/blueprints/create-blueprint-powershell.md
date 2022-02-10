@@ -366,7 +366,7 @@ After you've published a blueprint by using PowerShell, it's assignable to a sub
    - User-assigned managed identity
 
      A blueprint assignment can also use a
-     [user-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md). In this case, the **identity** portion of the JSON assignment file changes as follows. Replace `{tenantId}`, `{subscriptionId}`, `{yourRG}`, and `{userIdentity}` with your tenant ID, subscription ID, resource group name, and the name of your user-assigned managed identity, respectively.
+     [user-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md). In this case, the `identity` portion of the JSON assignment file changes as follows. Replace `{tenantId}`, `{subscriptionId}`, `{yourRG}`, and `{userIdentity}` with your tenant ID, subscription ID, resource group name, and the name of your user-assigned managed identity, respectively.
 
      ```json
      "identity": {

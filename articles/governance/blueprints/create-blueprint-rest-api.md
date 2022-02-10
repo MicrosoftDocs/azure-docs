@@ -19,7 +19,7 @@ In this tutorial, you learn to use Azure Blueprints to do some of the common tas
 
 ## Get started with REST API
 
-If you're unfamiliar with REST API, start by reviewing the [Azure REST API Reference](/rest/api/azure/), specifically the sections about request URI and request body. This quickstart uses these concepts to provide directions for working with Azure Blueprints, and assumes a working knowledge of them. Tools such as [ARMClient](https://github.com/projectkudu/ARMClient)can handle authorization automatically, and are recommended for beginners.
+If you're unfamiliar with REST API, start by reviewing the [Azure REST API Reference](/rest/api/azure/), specifically the sections about request URI and request body. This quickstart uses these concepts to provide directions for working with Azure Blueprints, and assumes a working knowledge of them. Tools such as [ARMClient](https://github.com/projectkudu/ARMClient) can handle authorization automatically, and are recommended for beginners.
 
 For the Azure Blueprints specs, see [Azure Blueprints REST API](/rest/api/blueprints/).
 
@@ -205,7 +205,7 @@ uses the `Apply tag and its default value to resource groups` built-in policy, w
      ```
 
 1. Add a template under the resource group. The `Request Body` for an ARM template includes the normal JSON component of the template, and defines the target resource group with
-`properties.resourceGroup`. The template also reuses the `storageAccountType`, `tagName`, and `tagValue` blueprint parameters by passing each to the template. The blueprint parameters are available to the template by defining **properties.parameters**, and inside the template JSON that key-value pair is used to inject the value. The blueprint and template parameter names can be the same, but are different here to illustrate how each passes from the blueprint to the
+`properties.resourceGroup`. The template also reuses the `storageAccountType`, `tagName`, and `tagValue` blueprint parameters by passing each to the template. The blueprint parameters are available to the template by defining `properties.parameters`, and inside the template JSON that key-value pair is used to inject the value. The blueprint and template parameter names can be the same, but are different here to illustrate how each passes from the blueprint to the
 template artifact.
 
    - REST API URI
@@ -399,7 +399,7 @@ In each REST API URI, replace the following variables with your own values:
 
      A blueprint assignment can also use a
      [user-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md).
-     In this case, the **identity** portion of the request body changes as follows. Replace
+     In this case, the `identity` portion of the request body changes as follows. Replace
      `{yourRG}` and `{userIdentity}` with your resource group name and the name of your
      user-assigned managed identity, respectively.
 
