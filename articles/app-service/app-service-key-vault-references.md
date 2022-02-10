@@ -54,8 +54,8 @@ Once you have granted permissions to the user-assigned identity, follow these st
 1. Configure the app to use this identity for Key Vault reference operations by setting the `keyVaultReferenceIdentity` property to the resource ID of the user-assigned identity.
 
     ```azurecli-interactive
-    userAssignedIdentityResourceId=$(az identity show -g MyResourceGroupName -n MyUserAssignedIdentityName --query id -o tsv)
-    appResourceId=$(az webapp show -g MyResourceGroupName -n MyAppName --query id -o tsv)
+    $userAssignedIdentityResourceId=$(az identity show -g MyResourceGroupName -n MyUserAssignedIdentityName --query id -o tsv)
+    $appResourceId=$(az webapp show -g MyResourceGroupName -n MyAppName --query id -o tsv)
     az rest --method PATCH --uri "${appResourceId}?api-version=2021-01-01" --body "{'properties':{'keyVaultReferenceIdentity':'${userAssignedIdentityResourceId}'}}"
     ```
 
