@@ -161,7 +161,7 @@ npm install @azure/msal-node
 
    :::code language="html" source="~/active-directory-b2c-msal-node-sign-in-sign-out-webapp/call-protected-api/.env":::
 
-    Modify the values in the `.env` files as explained in [Configure the sample web app](configure-authentication-in-sample-node-web-api.md?#step-32-configure-the-sample-web-app)
+    Modify the values in the `.env` files as explained in [Configure the sample web app](configure-authentication-in-sample-node-web-app-with-api.md?#step-32-configure-the-sample-web-app)
     
 
 1. In your `index.js` file, add the following code:

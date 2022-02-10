@@ -15,12 +15,12 @@ ms.custom: "b2c-support"
 
 # Enable Node.js web API authentication options using Azure Active Directory B2C
 
-This article describes how to enable, customize, and enhance the Azure Active Directory B2C (Azure AD B2C) authentication experience for your Node.js web application. 
+This article describes how to enable, customize, and enhance the Azure Active Directory B2C (Azure AD B2C) authentication experience for your Node.js web API. 
 
 Before you start, it's important to familiarize yourself with the following articles: 
 
-- [Configure authentication in a Node.js sample web app](configure-a-sample-node-web-app.md)
-- [Enable authentication in your own Node.js web app](enable-authentication-in-node-web-app.md).
+- [Configure authentication in a sample Node.js web API](configure-authentication-in-sample-node-web-app-with-api.md)
+- [Enable authentication in your own Node.js web API](enable-authentication-in-node-web-app-with-api.md).
 
 [!INCLUDE [active-directory-b2c-app-integration-custom-domain](../../includes/active-directory-b2c-app-integration-custom-domain.md)]
 
@@ -36,10 +36,6 @@ The following configuration shows the app settings before the change:
 ```text
 #B2C sign up and sign in user flow/policy authority
 SIGN_UP_SIGN_IN_POLICY_AUTHORITY=https://contoso.b2clogin.com/contoso.onmicrosoft.com/B2C_1_susi
-#B2C password reset user flow/policy authority
-RESET_PASSWORD_POLICY_AUTHORITY=https://contoso.b2clogin.com/contoso.onmicrosoft.com/B2C_1_passwordreset
-#B2C edit profile user flow/policy authority
-EDIT_PROFILE_POLICY_AUTHORITY=https://contoso.b2clogin.com/contoso.onmicrosoft.com/B2C_1_edit
 #B2C authority domain
 AUTHORITY_DOMAIN=https://contoso.b2clogin.com
 #client redirect url
@@ -53,10 +49,6 @@ The following configuration shows the app settings after the change:
 ```text
 #B2C sign up and sign in user flow/policy authority
 SIGN_UP_SIGN_IN_POLICY_AUTHORITY=https://login.contoso.com/12345678-0000-0000-0000-000000000000/B2C_1_susi
-#B2C password reset user flow/policy authority
-RESET_PASSWORD_POLICY_AUTHORITY=https://login.contoso.com/12345678-0000-0000-0000-000000000000/B2C_1_passwordreset
-#B2C edit profile user flow/policy authority
-EDIT_PROFILE_POLICY_AUTHORITY=https://login.contoso.com/12345678-0000-0000-0000-000000000000/B2C_1_edit
 #B2C authority domain
 AUTHORITY_DOMAIN=https://login.contoso.com
 #client redirect url
