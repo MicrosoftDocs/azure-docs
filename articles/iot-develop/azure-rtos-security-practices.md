@@ -26,7 +26,7 @@ Microsoft recommends an approach based on the principle of zero-trust when desig
 
 - **Continual updates** A device should enable the Over-the-Air (OTA) feature, such as the [Device Update for IoT Hub](https://docs.microsoft.com/en-us/azure/iot-hub-device-update/device-update-azure-real-time-operating-system) to push the firmware that contains the patches or bug fixes.
 
-- **Security monitoring and responses** A device should be able to proactively report the security postures for the solution builder to monitor the potential threats of fleet of devices. The [Microsoft Defender for IoT](https://docs.microsoft.com/en-us/azure/defender-for-iot/device-builders/concept-rtos-security-module) can be used for that purpose.
+- **Security monitoring and responses** A device should be able to proactively report the security postures for the solution builder to monitor the potential threats for a large number of devices. The [Microsoft Defender for IoT](https://docs.microsoft.com/en-us/azure/defender-for-iot/device-builders/concept-rtos-security-module) can be used for that purpose.
 
 
 ## Embedded Security Components - Cryptography
