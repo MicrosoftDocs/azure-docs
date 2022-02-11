@@ -7,7 +7,7 @@ author: shonohs
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/05/2022
 ms.author: shono
 ---
