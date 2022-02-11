@@ -27,7 +27,7 @@ Before learning more about this feature, it is recommended that you have an unde
 
 * [Create a managed identity](search-howto-managed-identities-data-sources.md) for your search service.
 
-* [Assign a role](search-howto-managed-identities-data-sources.md#assign-roles). For data reader access, you'll need the **Cosmos DB Account Reader** role and the identity used to make the request.
+* [Assign a role](search-howto-managed-identities-data-sources.md#assign-a-role). For data reader access, you'll need the **Cosmos DB Account Reader** role and the identity used to make the request.
 
 ## Create the data source
 

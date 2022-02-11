@@ -32,9 +32,10 @@ For a code example in C#, see [Index Data Lake Gen2 using Azure AD](https://gith
 
 * [Create a managed identity](search-howto-managed-identities-data-sources.md) for your search service.
 
-* [Assign a role](search-howto-managed-identities-data-sources.md#assign-roles): 
+* [Assign a role](search-howto-managed-identities-data-sources.md#assign-a-role): 
 
   * **Storage Blob Data Reader** for data read access in Blob Storage and ADLS Gen2. 
+
   * **Reader and Data** for data read access in Table Storage and File Storage.
 
 ## Create the data source
