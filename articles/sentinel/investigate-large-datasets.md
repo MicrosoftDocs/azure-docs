@@ -48,7 +48,7 @@ Before you start a search job, be aware of the following limitations:
 - Limited to 100 search results tables per workspace.
 - Limited to 100 search job executions per day per workspace.
 
-To learn more, see [Search job](../azure-monitor/logs/azure-monitor-archived-logs.md#search-job) in the Azure Monitor documentation.
+To learn more, see [Search job in Azure Monitor](../azure-monitor/logs/search-jobs.md) in the Azure Monitor documentation.
 
 ## Restore historical data from archived logs
 
@@ -64,11 +64,15 @@ The following image shows the restore option on a saved search.
 
 Before you start to restore an archived log table, be aware of the following limitations:
 
+
+- Restore data for a minimum of two days.
+- Restore data more than 14 days old.
+- Restore up to 60TB.
 - Restore is limited to one active restore per table.
 - Restore up to four archived tables per workspace per week.
 - Limited to two concurrent restore jobs per workspace.
 
-To learn more, see [Restore](../azure-monitor/logs/azure-monitor-archived-logs.md#restore).
+To learn more, see [Restore logs in Azure Monitor](../azure-monitor/logs/restore.md).
 
 ## Bookmark search results or restored data rows
 

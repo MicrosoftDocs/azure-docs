@@ -7,11 +7,11 @@ ms.date: 01/20/2022
 ms.author: cwatson
 ---
 
-# Restore archived logs from search (Preview)
+# Restore archived logs from search (preview)
 
 Restore data from an archived log to use in high performing queries and analytics.
 
-Before you restore data in an archived log, see [Start an investigation by searching large datasets (Preview)](investigate-large-datasets.md).
+Before you restore data in an archived log, see [Start an investigation by searching large datasets (preview)](investigate-large-datasets.md) and [Restore in Azure Monitor](../azure-monitor/logs/restore.md).
 
 The search job and restore features are currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
@@ -69,4 +69,3 @@ To save costs, we recommend you delete the restored table when you no longer nee
 ## Next steps
 
 - [Hunt with bookmarks](bookmarks.md)
-- [Restore](../azure-monitor/logs/azure-monitor-archived-logs.md#restore)

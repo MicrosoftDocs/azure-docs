@@ -7,11 +7,11 @@ ms.date: 01/14/2022
 ms.author: cwatson
 ---
 
-# Search across long time spans in large datasets (Preview)
+# Search across long time spans in large datasets (preview)
 
 Use a search job when you start an investigation to find specific events in logs within a given time frame. You can search all your logs, filter through them, and look for events that match your criteria.
 
-Before you start a search job, see [Start an investigation by searching large datasets (Preview)](investigate-large-datasets.md).
+Before you start a search job, see [Start an investigation by searching large datasets (Preview)](investigate-large-datasets.md) and [Search jobs in Azure Monitor](../azure-monitor/logs/search-jobs.md).
 
 The search job feature is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
@@ -63,5 +63,4 @@ To learn more, see the following topics.
 
 - [Hunt with bookmarks](bookmarks.md)
 - [Restore archived logs](restore.md)
-- [Archived logs (preview)](../azure-monitor/logs/azure-monitor-archived-logs.md)
-- [Search job in Azure Monitor](../azure-monitor/logs/azure-monitor-archived-logs.md#search-job)
+- [Archived logs in Azure Monitor](../azure-monitor/logs/azure-monitor-archived-logs.md)
