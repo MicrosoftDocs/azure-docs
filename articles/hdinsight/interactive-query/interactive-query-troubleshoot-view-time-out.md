@@ -8,7 +8,7 @@ ms.date: 02/11/2022
 
 # Scenario: Apache Hive View times out when fetching a query result in Azure HDInsight
 
-This article describes troubleshooting steps and possible resolutions for issues when using Interactive Query components in Azure HDInsight clusters. Future HDI 4.0 clusters will have a default timeout at 5 mins.
+This article describes troubleshooting steps and possible resolutions for issues when using Interactive Query components in Azure HDInsight clusters. The default timeout was 1 minutes in HDI 3.6 and HDI 4.0 clusters.
 
 ## Issue
 
