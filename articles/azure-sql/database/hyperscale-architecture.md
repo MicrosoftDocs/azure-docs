@@ -51,7 +51,7 @@ Page servers also maintain covering SSD-based caches to enhance performance. Lon
 
 ## Log service
 
-The log service accepts transaction log records from the primary compute replica and persists them in a durable cache. The log service  forwards log records to the rest of the compute replicas, so they can update their caches, as well as the relevant page servers, so that the data can be updated there. In this way, all data changes from the primary compute replica are propagated through the log service to all the secondary compute replicas and page servers. 
+The log service accepts transaction log records from the primary compute replica and persists them in a durable cache. The log service forwards log records to the rest of the compute replicas, so they can update their caches, as well as the relevant page servers, so that the data can be updated there. In this way, all data changes from the primary compute replica are propagated through the log service to all the secondary compute replicas and page servers. 
 
 Finally, transaction log records are pushed out to long-term storage in Azure Storage, which is a virtually infinite storage repository. This mechanism removes the need for frequent log truncation. 
 

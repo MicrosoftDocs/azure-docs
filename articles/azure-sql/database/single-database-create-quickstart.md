@@ -180,7 +180,7 @@ Use the [az sql up](/cli/azure/sql#az_sql_up) command to create and configure a 
 
 # [PowerShell](#tab/azure-powershell)
 
-You can create a resource group, server, and single database using Windows PowerShell.
+You can create a resource group, server, and single database using Azure PowerShell.
 
 ### Launch Azure Cloud Shell
 
