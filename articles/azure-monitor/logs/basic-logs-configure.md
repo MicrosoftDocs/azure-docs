@@ -20,10 +20,12 @@ All tables in your Log Analytics are Analytics tables, by default. You can confi
 
 You can currently configure the following tables for Basic Logs:
 
-- All custom logs. Tables created with the [Data Collector API](data-collector-api.md) do not support Basic Logs.
+- All tables created with [custom logs.](custom-logs-overview.md) 
 -	[ContainerLog](/azure/azure-monitor/reference/tables/containerlog) and [ContainerLogV2](/azure/azure-monitor/reference/tables/containerlogv2), which [Container Insights](../containers/container-insights-overview.md) uses and which include verbose text-based log records.
 - [AppTraces](/azure/azure-monitor/reference/tables/apptraces), which contains freeform log records for application traces in Application Insights.
 
+> [!NOTE]
+> Tables created with the [Data Collector API](data-collector-api.md) do not support Basic Logs.
 ## Data retention and archiving of Basic Logs
 
 Analytics tables retain data for a retention period you set.

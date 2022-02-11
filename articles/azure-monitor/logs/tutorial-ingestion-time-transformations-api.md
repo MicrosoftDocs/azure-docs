@@ -64,6 +64,12 @@ Use the **Tables - Update** API to configure the table with the PowerShell code 
 > [!IMPORTANT]
 > A custom column in a built-in table must use a suffix of *_CF*. A column in a custom table does not require this suffix.
 
+Click the **Cloud Shell** button and ensure the environment is set to **PowerShell**.
+
+:::image type="content" source="media/tutorial-ingestion-time-transformations-api/open-cloud-shell.png" lightbox="media/tutorial-ingestion-time-transformations-api/open-cloud-shell.png" alt-text="Screenshot of opening cloud shell":::
+
+Copy the following PowerShell code and replace the **Path** parameter with the **Resource ID** of your workspace. Paste it into the cloud shell prompt to run it.
+
 ```PowerShell
 $tableParams = @'
 {
@@ -86,6 +92,11 @@ $tableParams = @'
 
 Invoke-AzRestMethod -Path "/subscriptions/{subscription}/resourcegroups/{resourcegroup}/providers/microsoft.operationalinsights/workspaces/{workspace}/tables/LAQueryLogs?api-version=2021-12-01-preview" -Method PUT -payload $tableParams
 ```
+
+
+:::image type="content" source="media/tutorial-ingestion-time-transformations-api/cloud-shell-script.png" lightbox="media/tutorial-ingestion-time-transformations-api/cloud-shell-script.png" alt-text="Screenshot of opening cloud shell":::
+
+
 
 ## Define transformation query
 The first step is to write the query that you'll us in the transformation. You can use Log Analytics to test this query before adding it to the data collection rule.
@@ -212,8 +223,19 @@ Paste the resource manager template below into the editor and then click **Save*
     }
 }
 ```
-On the **Custom deployment** screen, select 
+On the **Custom deployment** screen, specify a **Subscription** and **Resource group** to store the data collection rule and then provide values defined in the template. This includes a **Name** for the data collection rule and the **Workspace Resource ID** that you collected in a previous step. The **Location** should be the same location as the workspace. The **Region** will already be populated and is used for the location of the data collection rule.
 
+:::image type="content" source="media/tutorial-ingestion-time-transformations-api/custom-deployment-values.png" lightbox="media/tutorial-ingestion-time-transformations-api/custom-deployment-values.png" alt-text="Screenshot to edit  custom deployment values":::
+
+Click **Review + create** and then **Create** when you review the details.
+
+When the deployment is complete, expand the **Deployment details** box and click on your data collection rule to view its details. Click **JSON View**.
+
+:::image type="content" source="media/tutorial-ingestion-time-transformations-api/data-collection-rule-details.png" lightbox="media/tutorial-ingestion-time-transformations-api/data-collection-rule-details.png" alt-text="Screenshot for data collection rule details":::
+
+Copy the **Resource ID** for the data collection rule. You'll use this in the next step.
+
+:::image type="content" source="media/tutorial-ingestion-time-transformations-api/data-collection-rule-json-view.png" lightbox="media/tutorial-ingestion-time-transformations-api/data-collection-rule-json-view.png" alt-text="Screenshot for data collection rule JSON view":::
 
 ## Link workspace to DCR
 The final step to enable the transformation is to link the data collection rule to the workspace.
@@ -222,6 +244,8 @@ The final step to enable the transformation is to link the data collection rule 
 > A workspace can only be connected to a single DCR, and the linked DCR must contain this workspace as a destination.
 
 Use the **Workspaces - Update** API to configure the table with the PowerShell code below. 
+
+Click the **Cloud shell** button to open cloud shell again. Copy the following PowerShell code and replace the **Path** parameter with the **Resource ID** of your workspace. Paste it into the cloud shell prompt to run it.
 
 ```PowerShell
 $defaultDcrParams = @'
@@ -234,4 +258,8 @@ $defaultDcrParams = @'
 
 Invoke-AzRestMethod -Path "/subscriptions/{subscription}/resourcegroups/{resourcegroup}/providers/microsoft.operationalinsights/workspaces/{workspace}?api-version=2021-12-01-preview" -Method PATCH -payload $defaultDcrParams
 ```
+
+:::image type="content" source="media/tutorial-ingestion-time-transformations-api/cloud-shell-script-link-workspace.png" lightbox="media/tutorial-ingestion-time-transformations-api/cloud-shell-script-link-workspace.png" alt-text="Screenshot of script to link workspace to DCR":::
+
+## Next steps
 
