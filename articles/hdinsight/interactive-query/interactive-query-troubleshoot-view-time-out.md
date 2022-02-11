@@ -59,7 +59,7 @@ The Hive View default timeout value may not be suitable for the query you are ru
    ```
    views.ambari.hive.AUTO_HIVE20_INSTANCE.result.fetch.timeout=300000
    ```
-   Confirm the Hive View instance name `AUTO_HIVE20_INSTANCE` by going to YOUR_USERNAME > Manage Ambari > Views. Get the instance name from the Name column. If it doesn't match, the replace this value. **Do not use the URL Name column**.
+   Confirm the Hive View instance name `AUTO_HIVE20_INSTANCE` by going to YOUR_USERNAME > Manage Ambari > Views. Get the instance name from the Name column. If it doesn't match, then replace this value. **Do not use the URL Name column**.
 
 2. Restart the active Ambari server by running the following. If you get an error message saying it's not the active Ambari server, just ssh into the next headnode and repeat this step. Note down the PID of the current Ambari server process.
    ```
