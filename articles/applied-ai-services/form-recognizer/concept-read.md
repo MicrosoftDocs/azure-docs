@@ -15,7 +15,7 @@ ms.custom: ignite-fall-2021
 
 # Form Recognizer read model
 
-Azure the Form Recognizer Read API extracts text lines and words from documents (PDF, TIFF) and images (JPG, PNG, BMP).
+Form Recognizer v3.0 preview introduces a new Read API. Read extracts text lines and words from documents (PDF, TIFF) and images (JPG, PNG, BMP).
 
 **Data extraction features**
 
@@ -48,7 +48,7 @@ See how text is extracted from forms and documents using the Form Recognizer Stu
 
 ***Sample form processed with [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/read)***
 
-:::image type="content" source="media/studio/form-recognizer-studio-layout-v3p2.png" alt-text="Screenshot: Layout processing in Form Recognizer Studio.":::
+:::image type="content" source="media/studio/form-recognizer-studio-read-v3p2.png" alt-text="Screenshot: Read processing in Form Recognizer Studio.":::
 
 1. On the Form Recognizer Studio home page, select **Read**
 
@@ -56,7 +56,7 @@ See how text is extracted from forms and documents using the Form Recognizer Stu
 
 1. Select the **Analyze** button:
 
-    :::image type="content" source="media/studio/layout-analyze.png" alt-text="Screenshot: analyze layout menu.":::
+    :::image type="content" source="media/studio/form-recognizer-studio-read-analyze-v3p2.png" alt-text="Screenshot: analyze read menu.":::
 
    > [!div class="nextstepaction"]
    > [Try Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/layout)
@@ -95,14 +95,6 @@ The response includes classifying whether each text line is of handwriting style
 
 For large multi-page documents, use the `pages` query parameter to indicate specific page numbers or page ranges for text extraction. 
 
-## Form Recognizer preview v3.0
-
- The Form Recognizer preview introduces several new features and capabilities.
-
-* Follow our [**Form Recognizer v3.0 migration guide**](v3-migration-guide.md) to learn how to use the preview version in your applications and workflows.
-
-* Explore our [**REST API (preview)**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument) to learn more about the preview version and new capabilities.
-
 ## Next steps
 
 * Complete a Form Recognizer quickstart:
@@ -113,4 +105,4 @@ For large multi-page documents, use the `pages` query parameter to indicate spec
 * Explore our REST API:
 
     > [!div class="nextstepaction"]
-    > [Form Recognizer API v2.1](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeLayoutAsync)
+    > [Form Recognizer API v2.1](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-2/operations/AnalyzeDocument)
