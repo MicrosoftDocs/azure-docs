@@ -32,6 +32,9 @@ Then, when you're ready to make your offer available and remove the preview rest
 
 Select **Save draft** before continuing to the next tab in the left-nav menu, **Technical configuration**.
 
+> [!IMPORTANT]
+> Only the offer listing in the marketplace will be available in Preview. You will not be able to install the app in Business Central environment until you have completed the publishing process in Partner Center.
+
 ## Next steps
 
 - [Set offer technical configuration](dynamics-365-business-central-technical-configuration.md)
