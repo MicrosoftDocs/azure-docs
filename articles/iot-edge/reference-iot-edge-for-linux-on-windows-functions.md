@@ -116,7 +116,7 @@ The **Deploy-Eflow** command is the main deployment method. The deployment comma
 | acceptEula | **Yes** or **No** | A shortcut to accept/deny EULA and bypass the EULA prompt. |
 | acceptOptionalTelemetry | **Yes** or **No** |  A shortcut to accept/deny optional telemetry and bypass the telemetry prompt. |
 | cpuCount | Integer value between 1 and the device's CPU cores |  Number of CPU cores for the VM.<br><br>**Default value**: 1 vCore. |
-| memoryInMB | Integer value between 1024 and the maximum amount of free memory of the device |Memory allocated for the VM.<br><br>**Default value**: 1024 MB. |
+| memoryInMB | Integer **even** value between 1024 and the maximum amount of free memory of the device |Memory allocated for the VM.<br><br>**Default value**: 1024 MB. |
 | vmDiskSize | Between 8 GB and 2 TB | Maximum logical disk size of the dynamically expanding virtual hard disk.<br><br>**Default value**: 16 GB. |
 | vswitchName | Name of the virtual switch |  Name of the virtual switch assigned to the EFLOW VM. |
 | vswitchType | **Internal** or **External** | Type of the virtual switch assigned to the EFLOW VM. |
@@ -136,7 +136,7 @@ The **Deploy-Eflow** command is the main deployment method. The deployment comma
 | acceptEula | **Yes** or **No** | A shortcut to accept/deny EULA and bypass the EULA prompt. |
 | acceptOptionalTelemetry | **Yes** or **No** |  A shortcut to accept/deny optional telemetry and bypass the telemetry prompt. |
 | cpuCount | Integer value between 1 and the device's CPU cores |  Number of CPU cores for the VM.<br><br>**Default value**: 1 vCore. |
-| memoryInMB | Integer value between 1024 and the maximum amount of free memory of the device |Memory allocated for the VM.<br><br>**Default value**: 1024 MB. |
+| memoryInMB | Integer **even** value between 1024 and the maximum amount of free memory of the device |Memory allocated for the VM.<br><br>**Default value**: 1024 MB. |
 | vmDiskSize | Between 21 GB and 2 TB | Maximum logical disk size of the dynamically expanding virtual hard disk.<br><br>**Default value**: 29 GB. <br><br>**Note**: Either _vmDiskSize_ or _vmDataSize_ can be used, but not both together. |
 | vmDataSize | Between 2 GB and 2 TB | Maximum data partition size of the resulting hard disk, in GB.<br><br>**Default value**: 10 GB. <br><br>**Note**: Either _vmDiskSize_ or _vmDataSize_ can be used, but not both together. |
 | vmLogSize | **Small** or **Large** | Specificy the log partition size. Small = 1GB, Large = 6GB.<br><br>**Default value**: Small.  |
