@@ -43,7 +43,7 @@ When running, the task shouldn't stop the job until its metrics are healthy. The
 
 As an example, let's consider N = 5 minutes, and M = 10 minutes. With these settings, a job has at least 5 minutes to process all the data received in 15. Potential cost savings are up to 66%.
 
-To restart the job, we'll use the `When Last Stopped` [start option](./start-job.md#start-options). This option tells ASA to process all the events that were backlogged upstream since the job was stopped. There are two caveats in this situation. First, the job can't stay stopped longer than the retention period of the input stream. If we only run the job once a day, we need to make sure that the [event hub retention period](/azure/event-hubs/event-hubs-faq#what-is-the-maximum-retention-period-for-events-) is more than one day. Second, the job needs to have been started at least once for the mode `When Last Stopped` to be accepted (else it has literally never been stopped before). So the first run of a job needs to be manual, or we would need to extend the script to cover for that case.
+To restart the job, we'll use the `When Last Stopped` [start option](./start-job.md#start-options). This option tells ASA to process all the events that were backlogged upstream since the job was stopped. There are two caveats in this situation. First, the job can't stay stopped longer than the retention period of the input stream. If we only run the job once a day, we need to make sure that the [event hub retention period](../event-hubs/event-hubs-faq.yml#what-is-the-maximum-retention-period-for-events-) is more than one day. Second, the job needs to have been started at least once for the mode `When Last Stopped` to be accepted (else it has literally never been stopped before). So the first run of a job needs to be manual, or we would need to extend the script to cover for that case.
 
 The last consideration is to make these actions idempotent. This way, they can be repeated at will with no side effects, for both ease of use and resiliency.
 
@@ -240,7 +240,7 @@ Once it's provisioned, let's start with its overall configuration.
 
 The Function needs permissions to start and stop the ASA job. We'll assign these permissions via a [managed identity](../active-directory/managed-identities-azure-resources/overview.md).
 
-The first step is to enable a **system-assigned managed identity** for the Function, following that [procedure](/azure/app-service/overview-managed-identity?toc=%2Fazure%2Fazure-functions%2Ftoc.json&tabs=ps%2Cportal).
+The first step is to enable a **system-assigned managed identity** for the Function, following that [procedure](../app-service/overview-managed-identity.md?tabs=ps%2cportal&toc=%2fazure%2fazure-functions%2ftoc.json).
 
 Now we can grant the right permissions to that identity on the ASA job we want to auto-pause. For that, in the Portal for the **ASA job** (not the Function one), in **Access control (IAM)**, add a **role assignment** to the role *Contributor* for a member of type *Managed Identity*, selecting the name of the Function above.
 
