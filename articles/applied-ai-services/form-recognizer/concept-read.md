@@ -15,7 +15,7 @@ ms.custom: ignite-fall-2021
 
 # Form Recognizer read model
 
-Form Recognizer v3.0 preview introduces a new Read API. Read extracts text lines and words from documents (PDF, TIFF) and images (JPG, PNG, BMP).
+The Form Recognizer v3.0 preview includes the new Read API. Read extracts text lines and words from documents (PDF, TIFF) and images (JPG, PNG, BMP).
 
 **Data extraction features**
 
