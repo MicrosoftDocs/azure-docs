@@ -3,12 +3,15 @@ title: Monitoring Azure Event Hubs data reference
 description: Important reference material needed when you monitor Azure Event Hubs. 
 ms.topic: reference
 ms.custom: subject-monitoring
-ms.date: 01/20/2022
+ms.date: 02/10/2022
 ---
 
 
 # Monitoring Azure Event Hubs data reference
 See [Monitoring Azure Event Hubs](monitor-event-hubs.md) for details on collecting and analyzing monitoring data for Azure Event Hubs.
+
+> [!NOTE]
+> Azure Monitor doesn't include dimensions in the exported metrics data that's sent to a destination (Azure Storage, Azure Event Hubs, or Log Analytics).
 
 ## Metrics
 This section lists all the automatically collected platform metrics collected for Azure Event Hubs. The resource provider for these metrics is **Microsoft.EventHub/clusters** or **Microsoft.EventHub/clusters**.
@@ -137,6 +140,9 @@ Name | Description
 
 ## Azure Monitor Logs tables
 Azure Event Hubs uses Kusto tables from Azure Monitor Logs. You can query these tables with Log Analytics. For a list of Kusto tables the service uses, see [Azure Monitor Logs table reference](/azure/azure-monitor/reference/tables/tables-resourcetype#event-hubs).
+
+> [!IMPORTANT]
+> Dimensions aren't exported to a Log Analytics workspace. 
 
 
 ## Next steps
