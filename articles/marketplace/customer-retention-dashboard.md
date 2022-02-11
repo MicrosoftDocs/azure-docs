@@ -7,16 +7,16 @@ ms.topic: article
 author: smannepalle
 ms.author: smannepalle
 ms.reviewer: sroy
-ms.date: 01/28/2021
+ms.date: 02/11/2021
 ---
 
 # Customer retention dashboard
 
-This article describes the Customer retention dashboard in Partner Center. This dashboard displays information about your retained customers, including offer performance, valuable customers, monthly cohort views, and potential revenue opportunities, all presented in a graphical and downloadable format. It is currently only available for virtual machine offers.
+This article describes the Customer retention dashboard in Partner Center. This dashboard displays information about your retained customers, including offer performance, valuable customers, and monthly cohort views, all presented in a graphical and downloadable format. It is currently only available for virtual machine offers.
 
 This dashboard uses the 18 months of data prior to the current system date to plot different widgets and a monthly cohort view. This same information can also be downloaded.
 
-The following illustration shows the offer usage timeline of two customers and introduces the concept of retention days (Day 0, Day 1, … Day _n_). Retention day is a normalized concept, meaning customer 1 can start their usage journey on Jan 1st (absolute date) and customer 2 can start theirs on March 1st (absolute date). Still, each specific date will be referred as normalized "Day 0" for both customer 1 and 2. The same convention is extended to other customers. The following image illustrates customer offer usage across time:
+The following illustration shows the offer usage timeline of two customers and introduces the concept of retention days (Day 0, Day 1, … Day _n_). Retention day is a normalized concept, meaning customer 1 can start their usage journey on Jan 1st (absolute date) and customer 2 can start theirs on March 1st (absolute date). Still, each specific date will be referred to as normalized "Day 0" for both customer 1 and 2. The same convention is extended to other customers. The following image illustrates customer offer usage across time:
 
 :::image type="content" source="media/retention/usage-across-time.png" lightbox="media/retention/usage-across-time.png" alt-text="Table shows customer usage across time.":::
 
@@ -94,7 +94,7 @@ This section uses offer usage and generated revenue to identify the value of ret
 4. Revenue generated per day(USD) is the revenue for the specific day selected in drop down
 5. Sort on different columns as needed.
 
-View additional pages of data using the page links at the bottom right.Retained customer information:
+View additional pages of data using the page links at the bottom right. Retained customer information:
 
 :::image type="content" source="media/retention/retained-information-day-1.png" lightbox="media/retention/retained-information-day-1.png" alt-text="Shows the use of offer usage and generated revenue to identify the value of retained and dormant customers at Day 1.":::
 

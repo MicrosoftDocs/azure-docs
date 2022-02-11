@@ -252,12 +252,12 @@ sections:
       - question: |
           The retention widget looks like it's showing me 45 days of data. What day is it counting from?
         answer: |
-          Read the documentation on Widget 3 in [DRAFT - Learn about the Customer retention dashboard in Partner Center](/customer-retention#widget-3-retained-customers). The data shown here is a normalized view of 18 months of customer data, and so is not “to” or “from” a specific date.
+          Read the documentation on Widget 3 in the [Customer retention dashboard](/customer-retention#widget-3-retained-customers) article. The data shown here is a normalized view of 18 months of customer data, and so is not “to” or “from” a specific date.
 
       - question: |
           Can I filter the graphs to show a specific date range?
         answer: |
-          No. As the documentation on Widget 3 indicates, it is a normalized view of 18 months of data. The monthly view in [Widget 10](/customer-retention#widget-10-retention-heat-map) shows monthly views, but you cannot filter to specific dates.
+          No. As the documentation on Widget 3 indicates, it is a normalized view of 18 months of data. The monthly view in [Widget 9](/customer-retention#widget-9-retention-heat-map) shows monthly views, but you cannot filter to specific dates.
 
       - question: |
           What is the difference between Widget 4 Total offers and Offer count?
@@ -285,14 +285,14 @@ sections:
           The best way to get that information is to download details from the orders or usage reports and cross-check based on a shared field: customer name.
 
       - question: |
-          Why does the retention percentage sometimes fluctuate in the monthly waterfall view (Widget 10)?
+          Why does the retention percentage sometimes fluctuate in the monthly waterfall view (Widget 9)?
         answer: |
           Note the Cohort column. This tells you how many customers started using your offer in a month. If the column says 60 users in the cohort, then the percentage is calculated month-over-month by dividing the total number of users still using the offer by 60. If it is showing 35%, for example, that means 21 users are still using the offer. If the next month shows 40%, that means that three users came back (24/60). Retention percentages increase when users come back.
 
       - question: |
           What does Cohort mean?
         answer: |
-          In Widget 10, a Cohort is the number of customers who started using your offer in a given month.
+          In Widget 9, a Cohort is the number of customers who started using your offer in a given month.
 
       - question: |
           How do you define a customer?
@@ -312,7 +312,7 @@ sections:
       - question: |
           Can I see this data quarterly?
         answer: |
-          There is no quarterly filter. However, looking at the monthly view (Widget 10) will help you see patterns over a quarterly time frame.
+          There is no quarterly filter. However, looking at the monthly view (Widget 9) will help you see patterns over a quarterly time frame.
 
       - question: |
           Do these views filter out internal users from my company who might be testing the offer?
