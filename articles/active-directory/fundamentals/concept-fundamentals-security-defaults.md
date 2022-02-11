@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 02/10/2022
+ms.date: 02/11/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -74,35 +74,6 @@ After registration with Azure AD Multi-Factor Authentication is finished, the fo
 - SharePoint administrator
 - User administrator
 
-#### Emergency access accounts
-
-Every organization should have at least two emergency access account configured. 
-
-These accounts may be used in scenarios where your normal administrator accounts can't be used. For example: The person with the most recent Global Administrator access has left the organization. Azure AD prevents the last Global Administrator account from being deleted, but it doesn't prevent the account from being deleted or disabled on-premises. Either situation might make the organization unable to recover the account.
-
-Emergency access accounts are:
-
-- Assigned Global Administrator rights in Azure AD
-- Aren't used on a daily basis
-- Are protected with a long complex password
- 
-The credentials for these emergency access accounts should be stored offline in a secure location such as a fireproof safe. Only authorized individuals should have access to these credentials.
-
-For more detailed information about emergency access accounts, see the article [Manage emergency access accounts in Azure AD](../roles/security-emergency-access.md).
-
-To create an emergency access account: 
-
-1. Sign in to the **Azure portal** as an existing Global Administrator.
-1. Browse to **Azure Active Directory** > **Users**.
-1. Select **New user**.
-1. Select **Create user**.
-1. Give the account a **User name**.
-1. Give the account a **Name**.
-1. Create a long and complex password for the account.
-1. Under **Roles**, assign the **Global Administrator** role.
-1. Under **Usage location**, select the appropriate location.
-1. Select **Create**.
-
 ### Protecting all users
 
 We tend to think that administrator accounts are the only accounts that need extra layers of authentication. Administrators have broad access to sensitive information and can make changes to subscription-wide settings. But attackers frequently target end users. 
@@ -150,6 +121,35 @@ After you enable security defaults in your tenant, any user who's accessing the 
 ## Deployment considerations
 
 The following extra considerations are related to deployment of security defaults.
+
+### Emergency access accounts
+
+Every organization should have at least two emergency access account configured. 
+
+These accounts may be used in scenarios where your normal administrator accounts can't be used. For example: The person with the most recent Global Administrator access has left the organization. Azure AD prevents the last Global Administrator account from being deleted, but it doesn't prevent the account from being deleted or disabled on-premises. Either situation might make the organization unable to recover the account.
+
+Emergency access accounts are:
+
+- Assigned Global Administrator rights in Azure AD
+- Aren't used on a daily basis
+- Are protected with a long complex password
+ 
+The credentials for these emergency access accounts should be stored offline in a secure location such as a fireproof safe. Only authorized individuals should have access to these credentials.
+
+For more detailed information about emergency access accounts, see the article [Manage emergency access accounts in Azure AD](../roles/security-emergency-access.md).
+
+To create an emergency access account: 
+
+1. Sign in to the **Azure portal** as an existing Global Administrator.
+1. Browse to **Azure Active Directory** > **Users**.
+1. Select **New user**.
+1. Select **Create user**.
+1. Give the account a **User name**.
+1. Give the account a **Name**.
+1. Create a long and complex password for the account.
+1. Under **Roles**, assign the **Global Administrator** role.
+1. Under **Usage location**, select the appropriate location.
+1. Select **Create**.
 
 ### Authentication methods
 
