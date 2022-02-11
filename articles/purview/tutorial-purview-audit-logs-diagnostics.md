@@ -15,7 +15,7 @@ This guide lists step-by-step configuration on how to enable and capture Azure P
 
 ## Customer Intent
 
-As an Azure Purview administrator or Azure Purview data-source admin, I want to view and monitor audit and diagnostics logs captured from [Azure Purview](https://ms.web.purview.azure.com) service. This includes timestamped activity history on actions taken by every user on [Azure Purview portal](https://ms.web.purview.azure.com). To enable audit logging on Purview, there is an easy and clean technique to capture streaming audit events via Azure Diagnostics Event Hubs. Let's go through the step-by-step guide on how to configure this Diagnostics Audit logging on Azure Purview.
+As an Azure Purview administrator or Azure Purview data-source admin, I want to view and monitor audit and diagnostics logs captured from [Azure Purview](https://ms.web.purview.azure.com) service. This includes timestamped activity history on actions taken by every user on [Azure Purview portal](https://ms.web.purview.azure.com). To enable audit logging on Purview, there's an easy and clean technique to capture streaming audit events via Azure Diagnostics Event Hubs. Let's go through the step-by-step guide on how to configure this Diagnostics Audit logging on Azure Purview.
 
 
 ### Purview Audit History - Categorization of Events
@@ -58,7 +58,7 @@ As an Azure Purview administrator or Azure Purview data-source admin, I want to 
 
 :::image type="content" source="./media/tutorial-purview-audit-logs-diagnostics/E.png" alt-text="Click Azure Purview Diagnostic Settings" lightbox="./media/tutorial-purview-audit-logs-diagnostics/E.png":::
 
-- Click "Add Diagnostic Settings" or "Edit Setting". Adding more than one row of diagnostic setting in the context of Purview is not recommended. In other words, if you already have a dignostic setting row added, don't click "Add Diagnostic"; click "Edit" instead.
+- Click "Add Diagnostic Settings" or "Edit Setting". Adding more than one row of diagnostic setting in the context of Purview isn't recommended. In other words, if you already have a dignostic setting row added, don't click "Add Diagnostic"; click "Edit" instead.
 
 :::image type="content" source="./media/tutorial-purview-audit-logs-diagnostics/F.png" alt-text="Add or Edit Diagnostic Settings screen." lightbox="./media/tutorial-purview-audit-logs-diagnostics/F.png":::
 
@@ -100,11 +100,11 @@ As an Azure Purview administrator or Azure Purview data-source admin, I want to 
 
 :::image type="content" source="./media/tutorial-purview-audit-logs-diagnostics/B.png" alt-text="Query and Process Purview Audit data on Event Hubs." lightbox="./media/tutorial-purview-audit-logs-diagnostics/B.png":::
 
-- Lastly, you can use scripts to extract and perform additional analytics and operations, and build additional utilities and custom code to extract business value out of the captured audit and diagnostics. You can even use these audit logs and transform them to Excel, any database, Dataverse or Synapse, for analytics and reporting using PowerBI. While you can use any programming/scripting language to read the event hub, here is a readymade [Python-based script](https://github.com/Azure/Azure-Purview-API-PowerShell/blob/main/purview_atlas_eventhub_sample.py) and Python tutorial on how to [Capture Event Hubss data in Azure Storage and read it by using Python (azure-eventhub)](../event-hubs/event-hubs-capture-python.md) 
+- Lastly, you can use scripts to extract and perform additional analytics and operations, and build additional utilities and custom code to extract business value out of the captured audit and diagnostics. You can even use these audit logs and transform them to Excel, any database, Dataverse or Synapse, for analytics and reporting using PowerBI. While you can use any programming/scripting language to read the event hub, here's one readymade [Python-based script](https://github.com/Azure/Azure-Purview-API-PowerShell/blob/main/purview_atlas_eventhub_sample.py) and Python tutorial on how to [Capture Event Hubss data in Azure Storage and read it by using Python (azure-eventhub)](../event-hubs/event-hubs-capture-python.md) 
 
 
 ## Next steps
 
 Kickstart your Azure Purview journey in less than 5 minutes. Enable Diagnostic Audit Logging from the beginning of your journey!
 > [!div class="nextstepaction"] 
-> [Purview-API-PowerShell](https://aka.ms/PurviewKickstart) 
+> [Azure Purview: automated New Account Setup](https://aka.ms/PurviewKickstart) 
