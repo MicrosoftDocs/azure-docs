@@ -82,6 +82,7 @@ When encountering high space utilization, mitigation options include:
 - Shrink a database to reclaim unused space. In elastic pools, shrinking a database provides more storage for other databases in the pool. For more information, see [Manage file space in Azure SQL Database](file-space-manage.md).
 - Check if high space utilization is due to a spike in the size of Persistent Version Store (PVS). PVS is a part of each database, and is used to implement  [Accelerated Database Recovery](../accelerated-database-recovery.md). To determine current PVS size, see [PVS troubleshooting](/sql/relational-databases/accelerated-database-recovery-management#troubleshooting). A common reason for large PVS size is a transaction that is open for a long time (hours), preventing cleanup of older versions in PVS.
 - For large databases in Premium and Business Critical service tiers, you may receive an out-of-space error even though used space in the database is below its maximum data size limit. This may happen if tempdb or transaction log consume a large amount of storage toward the maximum local storage limit. [Fail over](high-availability-sla.md#testing-application-fault-resiliency) the database or elastic pool to reset tempdb to its initial smaller size, or [shrink](file-space-manage.md#shrinking-transaction-log-file) transaction log to reduce local storage consumption.
+
 ### Sessions, workers, and requests
 
 Sessions, workers, and requests are defined as follows:
@@ -90,7 +91,7 @@ Sessions, workers, and requests are defined as follows:
 - A request is the logical representation of a query or batch. A request is issued by a client connected to a session. Over time, multiple requests may be issued on the same session.
 - A worker thread, also known as a worker or thread, is a logical representation of an operating system thread. A request may have many workers when executed with a parallel query execution plan, or a single worker when executed with a serial (single threaded) execution plan. Workers are also required to support activities outside of requests: for example, a worker is required to process a login request as a session connects.
 
-For more information about these concepts, see the [Thread and Task Architecture Guide](/sql/relational-databases/thread-and-task-architecture-guide.md).
+For more information about these concepts, see the [Thread and Task Architecture Guide](/sql/relational-databases/thread-and-task-architecture-guide).
 
 The maximum numbers of sessions and workers are determined by the service tier and compute size. New requests are rejected when session or worker limits are reached, and clients receive an error message. While the number of connections available can be controlled by the application, the number of concurrent workers is often harder to estimate and control. This is especially true during peak load periods when database resource limits are reached and workers pile up due to longer running queries, large blocking chains, or excessive query parallelism.
 
