@@ -15,6 +15,10 @@ ms.custom: devx-track-csharp
 
 [!INCLUDE [Prerequisites](../../common/azure-prerequisites.md)]
 
+> [!div class="nextstepaction"]
+> [I have the prerequisites](~/articles/cognitive-services/speech-service/get-started-speech-to-text.md#recognize-speech-from-a-microphone)
+> [I ran into an issue](~/articles/cognitive-services/speech-service/get-started-speech-to-text.md#recognize-speech-from-a-microphone)
+
 ## Set up the environment
 
 The Speech SDK is available as a [NuGet package](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech) and implements .NET Standard 2.0. 
@@ -32,6 +36,10 @@ Install-Package Microsoft.CognitiveServices.Speech
 ```
 
 For platform-specific installation instructions, see the [Speech SDK setup guide](/azure/cognitive-services/speech-service/quickstarts/setup-platform?pivots=programming-language-csharp).
+
+> [!div class="nextstepaction"]
+> [I have the tools I need](~/articles/cognitive-services/speech-service/get-started-speech-to-text.md#recognize-speech-from-a-microphone)
+> [I ran into an issue](~/articles/cognitive-services/speech-service/get-started-speech-to-text.md#recognize-speech-from-a-microphone)
 
 ## Create a new project
 
@@ -105,6 +113,10 @@ Follow this example to create a new console application from a command prompt.
 
 1. In Program.cs, replace `YourSubscriptionKey` with your Speech resource key, and replace `YourServiceRegion` with your Speech resource region.
 
+> [!div class="nextstepaction"]
+> [My project is ready to run](~/articles/cognitive-services/speech-service/get-started-speech-to-text.md#recognize-speech-from-a-microphone)
+> [I ran into an issue](~/articles/cognitive-services/speech-service/get-started-speech-to-text.md#recognize-speech-from-a-microphone)
+
 ## Recognize speech from a microphone
 
 Run the following command to start speech recognition from your microphone:
@@ -113,27 +125,26 @@ Run the following command to start speech recognition from your microphone:
 dotnet run
 ```
 
-Speak into your microphone when prompted. This example uses the `RecognizeOnceAsync` operation to transcribe utterances up to 30 seconds, or when silence is detected. 
-
-What you speak should be output as text: 
+Speak into your microphone when prompted. What you speak should be output as text: 
 
 ```console
 Speak into your microphone.
-RECOGNIZED: Text=This is a test for the code sample.
-RECOGNIZED: Text=This is a test for the code sample.
+RECOGNIZED: Text=I'm excited to use speech to text.
+RECOGNIZED: Text=I'm excited to use speech to text.
 ```
 
+This example uses the `RecognizeOnceAsync` operation to transcribe utterances up to 30 seconds, or when silence is detected. For information about continuous recognition for longer audio, including multi-lingual conversations, see [How to recognize speech](~/articles/cognitive-services/speech-service/how-to-recognize-speech.md).
+
 > [!div class="nextstepaction"]
-> [It works](get-started-speech-to-text.md#recognize-speech-from-a-microphone)
-> [!div class="nextstepaction"]
-> [It does not work](get-started-speech-to-text.md#recognize-speech-from-a-microphone)
+> [My speech was recognized](~/articles/cognitive-services/speech-service/get-started-speech-to-text.md#recognize-speech-from-a-microphone)
+> [I ran into an issue](~/articles/cognitive-services/speech-service/get-started-speech-to-text.md#recognize-speech-from-a-microphone)
 
 Here's some suggested modifications to try out:
 - To recognize speech from a file, use `FromWavFileInput` instead of `FromDefaultMicrophoneInput`:
     ```csharp
     using var audioConfig = AudioConfig.FromWavFileInput("PathToFile.wav");
     ```
-- To improve recognition accuracy of specific words or utterances, use a phrase list. You can add these lines right after the new `SpeechRecognizer` object is created:
+- To improve recognition accuracy of specific words or utterances, use a [phrase list](~/articles/cognitive-services/speech-service/improve-accuracy-phrase-list.md). You can add these lines right after the new `SpeechRecognizer` object is created:
     ```csharp
     var phraseList = PhraseListGrammar.FromRecognizer(recognizer);
     phraseList.AddPhrase("Contoso");
@@ -149,4 +160,4 @@ Here's some suggested modifications to try out:
 
 ## Clean up resources
 
-You can use the [Azure Portal](../../../cognitive-services-apis-create-account.md#clean-up-resources) or [Azure Command Line Interface (CLI)](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources) to remove the Speech resource you created.
+You can use the [Azure Portal](~/articles/cognitive-services/cognitive-services-apis-create-account.md#clean-up-resources) or [Azure Command Line Interface (CLI)](~/articles/cognitive-services/cognitive-services-apis-create-account-cli.md#clean-up-resources) to remove the Speech resource you created.
