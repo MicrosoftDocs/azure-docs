@@ -43,4 +43,4 @@ Select **Create**. The **Plan setup** page appears.
 
 ## Next steps
 
-- [Plan setup](azure-vm-plan-setup)
+- [Plan setup](azure-vm-plan-setup.md)

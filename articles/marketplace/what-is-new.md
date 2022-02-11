@@ -24,7 +24,7 @@ Learn about important updates in the commercial marketplace program of Partner C
 | Offers | While [private plans](private-plans.md) were previously only available on the Azure portal, they are now also available on Microsoft AppSource. | 2021-09-10 |
 | Analytics | Publishers of Azure application offers can view offer deployment health in the Quality of service (QoS) reports. QoS helps publishers understand the reasons for offer deployment failures and provides actionable insights for their remediation. For details, see [Quality of service (QoS) dashboard](quality-of-service-dashboard.md). | 2021-09-07 |
 | Policy | The SaaS customer [refund window](/marketplace/refund-policies) is now [72 hours](/azure/marketplace/marketplace-faq-publisher-guide) for all offers. | 2021-09-01 |
-| Offers | Additional properties at the plan level are now available for Azure Virtual Machine offers. See the [virtual machine technical configuration properties](azure-vm-plan-overview.md#properties) article for more information. | 2021-07-26 |
+| Offers | Additional properties at the plan level are now available for Azure Virtual Machine offers. See the [virtual machine technical configuration properties](azure-vm-plan-technical-configuration.md#properties) article for more information. | 2021-07-26 |
 | Fees | Microsoft has reduced its standard store service fee to 3%. See [Commercial marketplace transact capabilities](marketplace-commercial-transaction-capabilities-and-considerations.md#examples-of-pricing-and-store-fees) and Common questions about payouts and taxes, "[How do I find the current Store Service Fee and the payout rate?](/partner-center/payout-faq)". | 2021-07-14 |
 |
 

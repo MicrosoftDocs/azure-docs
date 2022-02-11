@@ -218,9 +218,9 @@
         - name: Plan listing
           href: azure-vm-plan-listing.md
         - name: Pricing and availability
-          href: azure-vm-pricing-and-availability.md
+          href: azure-vm-plan-pricing-and-availability.md
         - name: Technical configuration
-          href: azure-vm-technical-configuration.md    
+          href: azure-vm-plan-technical-configuration.md    
       - name: Resell through CSPs
         href: azure-vm-resell-csp.md
       - name: Configure a test drive

@@ -11,11 +11,9 @@ ms.date: 02/10/2022
 
 # Technical configuration for a virtual machine offer
 
-## Technical configuration
-
 Provide the images and other technical properties associated with this plan.
 
-### Reuse technical configuration
+## Reuse technical configuration
 
 This option lets you use the same technical configuration settings across plans within the same offer and therefore leverage the same set of images. If you enable the _reuse technical configuration_ option, your plan will inherit the same technical configuration settings as the base plan you select.  When you change the base plan, the changes are reflected on the plan reusing the configuration.
 
@@ -29,7 +27,7 @@ Leverage [Azure Instance Metadata Service](../virtual-machines/windows/instance-
 
 If you later decide to publish different changes between your plans, you can detach them. Detach the plan reusing the technical configuration by deselecting this option with your plan. Once detached, your plan will carry the same technical configuration settings at the place of your last setting and your plans may diverge in configuration. A plan that has been published independently in the past cannot reuse a technical configuration later.
 
-### Operating system
+## Operating system
 
 Select the **Windows** or **Linux** operating system family.
 
@@ -37,15 +35,15 @@ Select the Windows **Release** or Linux **Vendor**.
 
 Enter an **OS friendly name** for the operating system. This name is visible to customers.
 
-### Recommended VM sizes
+## Recommended VM sizes
 
 Select the link to choose up to six recommended virtual machine sizes to display on Azure Marketplace.
 
-### Open ports
+## Open ports
 
 Add open public or private ports on a deployed virtual machine.
 
-### Properties
+## Properties
 
 Here is a list of properties that can be selected for your VM.
 
@@ -65,7 +63,7 @@ Here is a list of properties that can be selected for your VM.
 
 - **Requires custom ARM template for deployment**: Enable this property if the images in this plan can only be deployed using a custom ARM template. To learn more see the [Custom templates section of Troubleshoot virtual machine certification](./azure-vm-certification-faq.yml#custom-templates).
 
-### Generations
+## Generations
 
 Generating a virtual machine defines the virtual hardware it uses. Based on your customer’s needs, you can publish a Generation 1 VM, Generation 2 VM, or both.
 
@@ -90,7 +88,7 @@ To learn more about the differences between Generation 1 and Generation 2 capabi
 > [!NOTE]
 > A published generation requires at least one image version to remain available for customers. To remove the entire plan (along with all its generations and images), select **Deprecate plan** on the **Plan Overview** page (see first section in this article).
 
-### VM images
+## VM images
 
 Provide a disk version and the shared access signature (SAS) URI for the virtual machine images. Add up to 16 data disks for each VM image. Provide only one new image version per plan in a specified submission. After an image has been published, you can't edit it, but you can delete it. Deleting a version prevents both new and existing users from deploying a new instance of the deleted version.
 

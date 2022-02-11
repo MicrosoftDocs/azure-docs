@@ -1,6 +1,6 @@
 ---
 title: Configure plan listing for a virtual machine offer on Azure Marketplace
-description: Create plans for a virtual machine offer on Azure Marketplace.
+description: Configure plan listing for a virtual machine offer in the Microsoft commercial marketplace.
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
