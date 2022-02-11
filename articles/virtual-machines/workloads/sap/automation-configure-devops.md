@@ -55,6 +55,37 @@ Choose _Azure Resource Manager_ as the service connection type and _Service prin
 
 Enter a Service connection name, for instance 'Connection to DEV subscription' and ensure that the _Grant access permission to all pipelines_ checkbox is checked. Select _Verify and save_ to save the service connection.
 
+## Set up the Web App
+
+The automation framework provisions a web app as a part of the control plane to assist with the deployment of SAP workload zones and systems. In order to successfully do so, you must first create an app registration for authentication purposes. Open the Azure cloud shell and execute the following commands:
+
+# [Linux](#tab/linux)
+Replace MGMT with your environment if needed.
+```bash
+echo '[{"resourceAppId":"00000003-0000-0000-c000-000000000000","resourceAccess":[{"id":"e1fe6dd8-ba31-4d61-89e7-88639da4683d","type":"Scope"}]}]' >> manifest.json 
+
+TF_VAR_app_registration_app_id=$(az ad app create --display-name MGMT-webapp-registration --available-to-other-tenants false --required-resource-access @manifest.json --query "appId" | tr -d '"')
+
+echo $TF_VAR_app_registration_app_id
+
+az ad app credential reset --id $TF_VAR_app_registration_app_id --append --query "password" 
+
+rm manifest.json
+```
+# [Windows](#tab/windows)
+Replace MGMT with your environment if needed.
+```powershell
+Add-Content -Path manifest.json -Value '[{"resourceAppId":"00000003-0000-0000-c000-000000000000","resourceAccess":[{"id":"e1fe6dd8-ba31-4d61-89e7-88639da4683d","type":"Scope"}]}]'
+
+$TF_VAR_app_registration_app_id=(az ad app create --display-name MGMT-webapp-registration --available-to-other-tenants false --required-resource-access ./manifest.json --query "appId").Replace('"',"")
+
+az ad app credential reset --id $TF_VAR_app_registration_app_id --append --query "password" 
+
+rm ./manifest.json
+```
+---
+Save the app registration id and password values for later.
+
 ## Create Azure Pipelines
 
 Azure Pipelines are implemented as YAML files and they're stored in the 'deploy/pipelines' folder in the GitHub repo. 
@@ -93,6 +124,18 @@ Create the SAP system deployment pipeline by choosing _New Pipeline_ from the Pi
 | Name    | SAP system deployment (infrastructure)           |
 
 Save the Pipeline, to see the Save option select the chevron next to the Run button. Navigate to the Pipelines section and select the pipeline. Rename the pipeline to 'SAP system deployment (infrastructure)' by choosing 'Rename/Move' from the three-dot menu on the right.
+
+## SAP web app deployment pipeline
+
+Create the SAP web app deployment pipeline by choosing _New Pipeline_ from the Pipelines section, select 'Azure Repos Git' as the source for your code. Configure your Pipeline to use an existing Azure Pipeline YAML File. Specify the pipeline with the following settings:
+
+| Setting | Value                                            |
+| ------- | ------------------------------------------------ |
+| Branch  | main                                             |
+| Path    | `deploy/pipelines/21-deploy-web-app.yaml`        |
+| Name    | Web app deployment                               |
+
+Save the Pipeline, to see the Save option select the chevron next to the Run button. Navigate to the Pipelines section and select the pipeline. Rename the pipeline to 'Web app deployment' by choosing 'Rename/Move' from the three-dot menu on the right.
 
 ## SAP software acquisition pipeline
 
@@ -193,18 +236,21 @@ As each environment may have different deployment credentials you'll need to cre
 
 Create a new variable group 'SDAF-DEV' using the Library page in the Pipelines section. Add the following variables:
 
-| Variable              | Value                                          | Notes                                                    |
-| --------------------- | ---------------------------------------------- | -------------------------------------------------------- |
-| Agent                 | Either 'Azure Pipelines' or the name of the agent pool containing the deployer, for instance 'DEV-WEEU-POOL' Note, this pool will be created in a later step. |
-| ARM_CLIENT_ID         | Service principal application id               |                                                          |
-| ARM_CLIENT_SECRET     | Service principal password                     | Change variable type to secret by clicking the lock icon |
-| ARM_SUBSCRIPTION_ID   | Target subscription ID                         |                                                          |
-| ARM_TENANT_ID         | Tenant ID for service principal                |                                                          |
-| AZURE_CONNECTION_NAME | Previously created connection name             |                                                          |
-| sap_fqdn              | SAP Fully Qualified Domain Name, for example sap.contoso.net | Only needed if Private DNS isn't used.                                           |
+| Variable                       | Value                                          | Notes                                                    |
+| ---------------------          | ---------------------------------------------- | -------------------------------------------------------- |
+| Agent                          | Either 'Azure Pipelines' or the name of the agent pool containing the deployer, for instance 'DEV-WEEU-POOL' Note, this pool will be created in a later step. |
+| ARM_CLIENT_ID                  | Service principal application id               |                                                          |
+| ARM_CLIENT_SECRET              | Service principal password                     | Change variable type to secret by clicking the lock icon |
+| ARM_SUBSCRIPTION_ID            | Target subscription ID                         |                                                          |
+| ARM_TENANT_ID                  | Tenant ID for service principal                |                                                          |
+| AZURE_CONNECTION_NAME          | Previously created connection name             |                                                          |
+| TF_VAR_app_registration_app_id | App registration application ID                | See section ["Set up the web app"](#set-up-the-web-app)  |
+| TF_VAR_webapp_client_secret    | App registration password                      | Change variable type to secret                           |
+| PAT                            | Your personal access token                     | Change variable type to secret                           |
+| sap_fqdn                       | SAP Fully Qualified Domain Name, for example sap.contoso.net | Only needed if Private DNS isn't used.     |
 
 
-Save the variables and assign permissions for all pipelines using _Pipeline permissions_.
+Save the variables and assign permissions for all pipelines using _Pipeline permissions_. For use with the web app, assign the administrator role to the build service using _Security_.
 
 ## Register the Deployer as a self-hosted agent for Azure DevOps
 
@@ -222,7 +268,7 @@ You must use the Deployer as a [self-hosted agent for Azure DevOps](/azure/devop
 
    :::image type="content" source="./media/automation-devops/automation-select-personal-access-tokens.jpg" alt-text="Diagram showing the creation of the Personal Access Token (PAT).":::
 
-1. Create a personal access token. Ensure that _Read & manage_ is selected for _Agent Pools_ and _Read & write_ is selected for _Code_. Write down the created token value.
+1. Create a personal access token. Ensure that _Read & manage_ is selected for _Agent Pools_, _Read & write_ is selected for _Code_. For use with the web app, ensure that _Read & execute_ is selected for _Build_. Write down the created token value.
 
    :::image type="content" source="./media/automation-devops/automation-new-pat.png" alt-text="Diagram showing the attributes of the Personal Access Token (PAT).":::
 
@@ -248,6 +294,27 @@ The agent will now be configured and started.
 Newly created pipelines might not be visible in the default view. Select on recent tab and go back to All tab to view the new pipelines.
 
 Select the _Control plane deployment_ pipeline and choose "Run" to deploy the control plane.
+
+## Deploying the web app
+
+Before running the "Deploy web app" pipeline, you must update the reply-url values for the app registration. Part of the URL needed will be stored in a variable called "WEBAPP_URL_BASE" in your environment-specific variable group. Copy this value, and use it in the following command:
+
+# [Linux](#tab/linux)
+
+```bash
+webapp_url_base=<WEBAPP_URL_BASE>
+az ad app update --id $TF_VAR_app_registration_app_id --homepage https://${webapp_url_base}.azurewebsites.net --reply-urls https://${webapp_url_base}.azurewebsites.net/ https://${webapp_url_base}.azurewebsites.net/.auth/login/aad/callback
+```
+# [Windows](#tab/windows)
+
+```powershell
+$webapp_url_base="<WEBAPP_URL_BASE>"
+az ad app update --id $TF_VAR_app_registration_app_id --homepage https://${webapp_url_base}.azurewebsites.net --reply-urls https://${webapp_url_base}.azurewebsites.net/ https://${webapp_url_base}.azurewebsites.net/.auth/login/aad/callback
+```
+---
+After updating the reply-urls, run the pipeline.
+
+After running the pipeline, by default there will be no public internet access to the website. To change the access restrictions, navigate to the Azure portal. In the deployer resource group, find the web app. Then under settings on the left hand side, click on networking. From here, click Access restriction. Add any allow or deny rules you would like. For more information on configuring access restrictions, [click here](https://docs.microsoft.com/en-us/azure/app-service/app-service-ip-restrictions).
 
 ## Next step
 
