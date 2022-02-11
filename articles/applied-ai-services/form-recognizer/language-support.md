@@ -157,7 +157,7 @@ Pre-Built Receipt and Business Cards support all English receipts and business c
 Language| Locale code |
 |:-----|:----:|
 |English (United States)|en-us|
-}Spanish (preview) | es |
+|Spanish (preview) | es |
 
 ## ID documents
 
