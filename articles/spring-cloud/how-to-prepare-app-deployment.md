@@ -155,20 +155,22 @@ The following table lists the supported Spring Boot and Spring Cloud combination
 
 ### [Enterprise tier](#tab/enterprise-tier)
 
-| Spring Boot version | Spring Cloud version |
-|---------------------|----------------------|
-| 2.6.x               | 2021.0.0+            |
-| 2.5.x               | 2020.0+ aka Ilford+  |
-| 2.4.x               | 2020.0+ aka Ilford+  |
+| Spring Boot version | Spring Cloud version       |
+|---------------------|----------------------------|
+| 2.6.x               | 2021.0.0+                  |
+| 2.5.x               | 2020.0+ aka Ilford+        |
+| 2.4.x               | 2020.0+ aka Ilford+        |
+| 2.3.x               | Hoxton (starting with SR5) |
 
 ---
 
-For more information, see the following support pages:
+For more information, see the following pages:
 
 * [Spring Boot support](https://spring.io/projects/spring-boot#support)
 * [Spring Cloud Config support](https://spring.io/projects/spring-cloud-config#support)
 * [Spring Cloud Netflix support](https://spring.io/projects/spring-cloud-netflix#support)
 * [Spring Cloud 2020.0.0 (aka Ilford) Is Available](https://spring.io/blog/2020/12/22/spring-cloud-2020-0-0-aka-ilford-is-available)
+* [Adding Spring Cloud To An Existing Spring Boot Application](https://spring.io/projects/spring-cloud#adding-spring-cloud-to-an-existing-spring-boot-application)
 
 > [!NOTE]
 > - Upgrade Spring Boot to 2.5.2 or 2.4.8 to address the following CVE report [CVE-2021-22119: Denial-of-Service attack with spring-security-oauth2-client](https://tanzu.vmware.com/security/cve-2021-22119). If you're using Spring Security, upgrade it to 5.5.1, 5.4.7, 5.3.10 or 5.2.11.
@@ -233,7 +235,7 @@ To enable the built-in features of Azure Spring Cloud from service registry to d
 
 ### Service Registry
 
-To use the managed Azure Service Registry service, include the `spring-cloud-starter-netflix-eureka-client` dependency in the pom.xml file as shown here:
+To use the managed Azure Service Registry service, include the `spring-cloud-starter-netflix-eureka-client` dependency in the *pom.xml* file as shown here:
 
 ```xml
     <dependency>
@@ -275,7 +277,7 @@ public class GatewayApplication {
 
 ### Distributed configuration
 
-To enable Distributed Configuration, include the following `spring-cloud-config-client` dependency in the dependencies section of your pom.xml file:
+To enable distributed configuration, include the following `spring-cloud-config-client` dependency in the dependencies section of your *pom.xml* file:
 
 ```xml
 <dependency>
@@ -293,7 +295,7 @@ To enable Distributed Configuration, include the following `spring-cloud-config-
 
 ### Metrics
 
-Include the `spring-boot-starter-actuator` dependency in the dependencies section of your pom.xml file as shown here:
+Include the `spring-boot-starter-actuator` dependency in the dependencies section of your *pom.xml* file as shown here:
 
 ```xml
 <dependency>
