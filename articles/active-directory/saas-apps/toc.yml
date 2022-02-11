@@ -106,7 +106,9 @@
       - name: Ally.io
         href: ally-tutorial.md
       - name: Altoura
-        href: altoura-tutorial.md  
+        href: altoura-tutorial.md
+      - name: Amazing People Schools
+        href: amazing-people-schools-tutorial.md 
       - name: Amazon Business
         href: amazon-business-tutorial.md
       - name: Amazon Managed Grafana
