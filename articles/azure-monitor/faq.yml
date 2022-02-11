@@ -198,8 +198,11 @@ sections:
       - question: |
           What's the difference between the Azure Monitor agents?
         answer: |
-          Azure Diagnostic extension is for Azure virtual machines and collects data to Azure Monitor Metrics, Azure Storage, and Azure Event Hubs. The Log Analytics agent is for virtual machines in Azure, another cloud environment, or on-premises and collects data to Azure Monitor Logs. The Dependency agent requires the Log Analytics agent and collected process details and dependencies. 
-          The Azure Monitor Agent is the new, improved agent that will consolidate the features from all the above mentioned agents over time, whilst providing additional benefits like centralized data collection, filtering, multihoming and more. See [Overview of the Azure Monitor agents](agents/agents-overview.md).
+          The Azure Monitor Agent is the new, improved agent that will consolidate the features from all the other legacy monitoring agents, whilst providing additional benefits like centralized data collection, filtering, multihoming and more. See [Overview of the Azure Monitor agents](agents/agents-overview.md).
+          The legacy agents include:
+          - Azure Diagnostic extension is for Azure virtual machines and collects data to Azure Monitor Metrics, Azure Storage, and Azure Event Hubs.  
+          - The Log Analytics agent is for virtual machines in Azure, another cloud environment, or on-premises and collects data to Azure Monitor Logs. These agents will be deprecated by August, 2024.
+          - The Dependency agent requires the Log Analytics agent and collected process details and dependencies.           
           
       - question: |
           Does my agent traffic use my ExpressRoute connection?
@@ -355,7 +358,7 @@ sections:
       - question: |
           Does the new Azure Monitor agent have hardening support for Linux?
         answer: |
-          This is not available currently for the agent in preview, and is planned to be added post GA.
+          This is not available currently for the agent in preview, and is planned to be added post general availability.
           
           
   - name: Visualizations
@@ -975,7 +978,14 @@ sections:
           Is there support for collecting of Kubernetes Audit logs for ARO clusters?
         answer:
           No, Container Insights doesn’t support collection of Kubernetes Audit Logs.
-          
+
+      - question: |
+          Why don’t I see Normal Event Types when I query the KubeEvents table?
+        answer:
+          By default, Normal Event Types are not collected unless *collect_all_kube_events* configmap setting is enabled. If you need the collection of Normal events, enable *collect_all_kube_events setting* in *container-azm-ms-agentconfig* configmap. See [Configure agent data collection for Container insights](containers/container-insights-agent-config.md) for details on configuring the configmap.
+
+
+      
   - name: VM insights
     questions:
       - question: |

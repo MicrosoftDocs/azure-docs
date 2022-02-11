@@ -122,8 +122,7 @@ In this tutorial, you created a container image that can be deployed in Azure Co
 
 Advance to the next tutorial in the series to learn about storing your container image in Azure Container Registry:
 
-> [!div class="nextstepaction"]
-> [Push image to Azure Container Registry](container-instances-tutorial-prepare-acr.md)
+[Push image to Azure Container Registry](container-instances-tutorial-prepare-acr.md)
 
 <!--- IMAGES --->
 [aci-tutorial-app]:./media/container-instances-quickstart/aci-app-browser.png

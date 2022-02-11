@@ -34,6 +34,9 @@ The following providers and their corresponding Kubernetes distributions have su
 | Nutanix      | [Karbon](https://www.nutanix.com/products/karbon)    | Version 2.2.1 |
 | Platform9      | [Platform9 Managed Kubernetes (PMK)](https://platform9.com/managed-kubernetes/)    | PMK Version [5.3.0](https://platform9.com/docs/kubernetes/release-notes#platform9-managed-kubernetes-version-53-release-notes); Kubernetes versions: v1.20.5, v1.19.6, v1.18.10 |
 | Cisco	| [Intersight Kubernetes Service (IKS)](https://www.cisco.com/c/en/us/products/cloud-systems-management/cloud-operations/intersight-kubernetes-service.html) Distribution | Upstream K8s version: 1.19.5 |
+| Kublr	| [Kublr Managed K8s](https://kublr.com/managed-kubernetes/) Distribution | Upstream K8s Version: 1.21.3 |
+| Mirantis | [Mirantis Kubernetes Engine](https://www.mirantis.com/software/mirantis-kubernetes-engine/) | MKE Version 3.5.1 <br> MKE Version 3.4.7 |
+| Wind River | [Wind River Cloud Platform](https://www.windriver.com/studio/operator/cloud-platform) | Wind River Cloud Platform 21.05; Upstream K8s version: 1.18.1 |
 
 The Azure Arc team also ran the conformance tests and validated Azure Arc-enabled Kubernetes scenarios on the following public cloud providers:
 

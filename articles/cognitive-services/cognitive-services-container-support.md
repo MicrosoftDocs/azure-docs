@@ -7,7 +7,7 @@ author: aahill
 manager: nitinme
 ms.custom: cog-serv-seo-aug-2020, ignite-fall-2021
 ms.service: cognitive-services
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/12/2022
 ms.author: aahi
 keywords: on-premises, Docker, container, Kubernetes

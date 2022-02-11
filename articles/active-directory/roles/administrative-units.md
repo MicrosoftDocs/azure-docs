@@ -82,8 +82,8 @@ The following sections describe current support for administrative unit scenario
 | Permissions | Microsoft Graph/PowerShell | Azure portal | Microsoft 365 admin center |
 | --- | :---: | :---: | :---: |
 | Create or delete administrative units | :heavy_check_mark: | :heavy_check_mark: | :x: |
-| Add or remove administrative unit members individually | :heavy_check_mark: |   :heavy_check_mark: | :x: |
-| Add or remove administrative unit members in bulk by using CSV files | :x: |  :heavy_check_mark: | No plan to support |
+| Add or remove administrative unit members individually | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| Add or remove administrative unit members in bulk by using CSV files | :x: | :heavy_check_mark: | No plan to support |
 | Assign administrative unit-scoped administrators | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | Add or remove administrative unit members dynamically based on attributes | :x: | :x: | :x: |
 
@@ -91,7 +91,8 @@ The following sections describe current support for administrative unit scenario
 
 | Permissions | Microsoft Graph/PowerShell | Azure portal | Microsoft 365 admin center |
 | --- | :---: | :---: | :---: |
-| Administrative unit-scoped management of user properties, passwords, and licenses |    :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Administrative unit-scoped management of user properties, passwords | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Administrative unit-scoped management of user licenses | :heavy_check_mark: | :x: | :heavy_check_mark: |
 | Administrative unit-scoped blocking and unblocking of user sign-ins | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Administrative unit-scoped management of user multifactor authentication credentials | :heavy_check_mark: | :heavy_check_mark: | :x: |
 
@@ -100,7 +101,7 @@ The following sections describe current support for administrative unit scenario
 | Permissions | Microsoft Graph/PowerShell | Azure portal | Microsoft 365 admin center |
 | --- | :---: | :---: | :---: |
 | Administrative unit-scoped management of group properties and membership | :heavy_check_mark: | :heavy_check_mark: | :x: |
-| Administrative unit-scoped management of group licensing | :heavy_check_mark: |    :heavy_check_mark: | :x: |
+| Administrative unit-scoped management of group licensing | :heavy_check_mark: | :heavy_check_mark: | :x: |
 
 > [!NOTE]
 > Adding a group to an administrative unit does not grant scoped group administrators the ability to manage properties for individual members of that group. For example, a scoped group administrator can manage group membership, but they can't manage authentication methods of users who are members of the group added to an administrative unit. To manage authentication methods of users who are members of the group that is added to an administrative unit, the individual group members must be directly added as users of the administrative unit, and the group administrator must also be assigned a role that can manage user authentication methods.

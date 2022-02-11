@@ -1,5 +1,5 @@
 ---
-title: How to use speech SDK for pronunciation assessment
+title: How to use pronunciation assessment
 titleSuffix: Azure Cognitive Services
 description: The Speech SDK supports pronunciation assessment, which assesses the pronunciation quality of speech input, with indicators of accuracy, fluency, completeness, etc.
 services: cognitive-services
@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 01/12/2021
+ms.date: 01/23/2022
 ms.author: yulili
 ms.devlang: cpp, csharp, java, javascript, objective-c, python
 ms.custom: references_regions 
@@ -17,7 +17,7 @@ zone_pivot_groups: programming-languages-speech-services-nomore-variant
 
 # Pronunciation assessment
 
-Pronunciation assessment evaluates speech pronunciation and gives speakers feedback on the accuracy and fluency of spoken audio. With pronunciation assessment, language learners can practice, get instant feedback, and improve their pronunciation so that they can speak and present with confidence. Educators can use the capability to evaluate pronunciation of multiple speakers in real-time.
+Pronunciation assessment evaluates speech pronunciation and gives speakers feedback on the accuracy and fluency of spoken audio. With pronunciation assessment, language learners can practice, get instant feedback, and improve their pronunciation so that they can speak and present with confidence. Educators can use the capability to evaluate pronunciation of multiple speakers in real time.
 
 In this article, you'll learn how to set up `PronunciationAssessmentConfig` and retrieve the `PronunciationAssessmentResult` using the speech SDK.
 
@@ -180,7 +180,7 @@ This table lists the result parameters of pronunciation assessment.
 
 | Parameter | Description |
 |-----------|-------------|
-| `AccuracyScore` | Pronunciation accuracy of the speech. Accuracy indicates how closely the phonemes match a native speaker's pronunciation. Word and full text level accuracy scores are aggregated from phoneme level accuracy score. |
+| `AccuracyScore` | Pronunciation accuracy of the speech. Accuracy indicates how closely the phonemes match a native speaker's pronunciation. Word and full text accuracy scores are aggregated from phoneme-level accuracy score. |
 | `FluencyScore` | Fluency of the given speech. Fluency indicates how closely the speech matches a native speaker's use of silent breaks between words. |
 | `CompletenessScore` | Completeness of the speech, calculated by the ratio of pronounced words to the input reference text. |
 | `PronScore` | Overall score indicating the pronunciation quality of the given speech. This is aggregated from `AccuracyScore`, `FluencyScore`, and `CompletenessScore` with weight. |
@@ -238,9 +238,10 @@ A typical pronunciation assessment result in JSON:
 
 ## Next steps
 
-* Watch the [video introduction](https://www.youtube.com/watch?v=cBE8CUHOFHQ) and [video tutorial](https://www.youtube.com/watch?v=zFlwm7N4Awc) of pronunciation assessment
 
-* Try out the [pronunciation assessment demo](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/PronunciationAssessment/BrowserJS)
+* To learn more about released use cases, read the [Azure tech blog](https://techcommunity.microsoft.com/t5/azure-ai-blog/speech-service-update-pronunciation-assessment-is-generally/ba-p/2505501).
+
+* Try out the [pronunciation assessment demo](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/PronunciationAssessment/BrowserJS) and watch the [video tutorial](https://www.youtube.com/watch?v=zFlwm7N4Awc) of pronunciation assessment.
 
 ::: zone pivot="programming-language-csharp"
 * See the [sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/csharp/sharedcontent/console/speech_recognition_samples.cs#L949) on GitHub for pronunciation assessment.
@@ -261,7 +262,3 @@ A typical pronunciation assessment result in JSON:
 ::: zone pivot="programming-language-objectivec"
 * See the [sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/objective-c/ios/speech-samples/speech-samples/ViewController.m#L642) on GitHub for pronunciation assessment.
 ::: zone-end
-
-* [Speech SDK reference documentation](speech-sdk.md)
-
-* [Create a free Azure account](https://azure.microsoft.com/free/cognitive-services/)

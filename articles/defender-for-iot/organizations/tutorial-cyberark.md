@@ -4,7 +4,7 @@ description: In this tutorial, you will learn how to integrate Microsoft Defende
 author: ElazarK
 ms.author: v-ekrieg
 ms.topic: tutorial
-ms.date: 11/09/2021
+ms.date: 02/08/2022
 ms.custom: template-tutorial
 ---
 
@@ -117,11 +117,10 @@ Whenever PSM authorizes a remote connection, it is  visible in the Defender for 
 
 1. Sign in to the Defender for IoT sensor.
 
-1. Select **Event Timeline** from the left side panel.
+1. Select **Event timeline** from the left side panel.
 
 1. Locate any event titled PSM Remote Session.
 
-    :::image type="content" source="media/tutorial-cyberark/event.png" alt-text="A view of the Event Log screen.":::
 
 ### Auditing & forensics
 
@@ -131,11 +130,9 @@ Administrators can audit, and investigate remote access sessions by querying the
 
 1. Sign in to the Defender for IoT sensor.
 
-1. Select **Data Mining** from the left side panel.
+1. Select **Data mining** from the left side panel.
 
 1. Select **Remote Access**.
-
-    :::image type="content" source="media/tutorial-cyberark/data-mining.png" alt-text="A view of the data mining interface.":::
 
 ## Stop the Integration
 

@@ -23,6 +23,9 @@ After you enable the Start/Stop VMs v2 (preview) feature to manage the running s
 
 To delete the resource group, follow the steps outlined in the [Azure Resource Manager resource group and resource deletion](../../azure-resource-manager/management/delete-resource-group.md) article.
 
+> [!NOTE]
+> You might need to manually remove the managed identity associated with the removed Start Stop V2 function app. You can determine whether you need to do this by going to your subscription and selecting **Access Control (IAM)**. From there you can filter by Type: `App Services or Function Apps`. If you find a managed identity that was left over from your removed Start Stop V2 installation, you must remove it. Leaving this managed identity could interfere with future installations. 
+
 ## Next steps
 
 To re-deploy this feature, see [Deploy Start/Stop v2](deploy.md) (preview).
