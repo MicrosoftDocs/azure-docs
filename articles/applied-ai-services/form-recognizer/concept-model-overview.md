@@ -172,6 +172,7 @@ The custom model analyzes and extracts data from forms and documents specific to
 
   Form Recognizer v3.0 (preview) introduces several new features and capabilities:
 
+* [**Read (preview)**](concept-read.md) model is a new API that extracts text lines, words, their locations, detected languages, and handwrting style if detected.
 * [**General document (preview)**](concept-general-document.md) model is a new API that uses a pre-trained model to extract text, tables, structure, key-value pairs, and named entities from forms and documents.
 * [**Receipt (preview)**](concept-receipt.md) model supports single-page hotel receipt processing.
 * [**ID document (preview)**](concept-id-document.md) model supports endorsements, restrictions, and vehicle classification extraction from US driver's licenses.
