@@ -18,16 +18,16 @@ Azure Private 5G Core private mobile networks include one or more sites. Each si
 
 You must have completed all of the steps in [Allocate subnets and IP addresses](complete-private-mobile-network-prerequisites.md#allocate-subnets-and-ip-addresses) and [Order and set up your Azure Stack Edge Pro device(s)](complete-private-mobile-network-prerequisites.md#order-and-set-up-your-azure-stack-edge-pro-devices) for your new site.
 
-## Collect site resource values
+## Collect Mobile Network Site resource values
 
-Collect all the values in the following table for the site you want to create.
+Collect all the values in the following table for the Mobile Network Site resource that will represent your site.
 
    |Value  |Field name in Azure portal  |
    |---------|---------|
-   |The Azure subscription to use to create the site resource. You must use the same subscription for all resources in your private mobile network deployment.                  |**Project details: Subscription**|
-   |The Azure resource group in which to create the site resource. We recommend that you use the same resource group that already contains your private mobile network.                |**Project details: Resource group**|
+   |The Azure subscription to use to create the Mobile Network Site resource. You must use the same subscription for all resources in your private mobile network deployment.                  |**Project details: Subscription**|
+   |The Azure resource group in which to create the Mobile Network Site resource. We recommend that you use the same resource group that already contains your private mobile network.                |**Project details: Resource group**|
    |The name for the site.           |**Instance details: Name**|
-   |The region in which you’re creating the site. We recommend that you use the East US region.                         |**Instance details: Region**|
+   |The region in which you’re creating the Mobile Network Site resource. We recommend that you use the East US region.                         |**Instance details: Region**|
    |The private mobile network resource representing the network to which you’re adding the site. |**Instance details: Mobile network**|
 
 ## Collect custom location information
