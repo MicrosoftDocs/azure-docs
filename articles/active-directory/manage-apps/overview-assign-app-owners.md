@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: app-mgmt
 ms.topic: conceptual
-ms.date: 02/10/2021
+ms.date: 02/11/2022
 ms.author: saibandaru
 
 #Customer intent: As an Azure AD administrator, I want to learn about enterprise application ownership.
@@ -40,8 +40,9 @@ As a best practice, we recommend proactive monitoring applications in your envir
 Existing owners of an application can add other users as the owners. Also, users with a privileged role such as Application Administrator or the Cloud Application Administrator can assign owners to applications in the organization. If you aren't an administrator, work with an administrator in your organization to [assign you as the owner](assign-app-owners.md) of the application. 
 
 **How can you find all the applications that you own?**
-- You can navigate to “Enterprise Applications” -> “All Applications”
-- Add filter -> Use owned by to search for apps owned by you or any other person.
+
+- You can navigate to **Enterprise Applications**, then select **All Applications**
+- Select **Add filter**, then use **owned by** to search for apps owned by you or any other person.
  
 
 ## Next steps
