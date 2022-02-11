@@ -151,6 +151,8 @@
         href: appneta-tutorial.md
       - name: Appraisd
         href: appraisd-tutorial.md
+      - name: AppRemo
+        href: appremo-tutorial.md
       - name: AppSec Flow SSO
         href: appsec-flow-sso-tutorial.md
       - name: Apptio
