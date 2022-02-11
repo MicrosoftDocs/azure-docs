@@ -6,7 +6,7 @@ author: caitlinv39
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 02/10/2022
+ms.date: 02/11/2022
 ms.author: cavoeg
 ---
 
@@ -28,7 +28,13 @@ Azure Healthcare APIs is a set of managed API services based on open standards a
 |Export FHIR data behind firewalls  |This new feature enables exporting FHIR data to storage accounts behind firewalls. For more information, see [Configure export settings and set up a storage account](./././fhir/configure-export-data.md). |
 |Deploy Healthcare APIs with Azure Bicep |This new feature enables you to deploy Healthcare APIs using Azure Bicep. For more information, see [Deploy Healthcare APIs Using Azure Bicep](deploy-healthcare-apis-using-bicep.md). |
 
+### DICOM service
 
+#### **Feature enhancements**
+
+|Enhancements | Related information |
+| :------------------------ | -------------------------------: |
+|Customers can define their own query tags using the Extended Query Tags feature |With Extended Query Tags feature, customers now efficiently query non-DICOM metadata for capabilities like multitenancy and cohorts. It's available for all customers in Azure Healthcare APIs.  |
 ## December 2021
 
 ### Azure Healthcare APIs 
