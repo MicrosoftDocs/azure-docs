@@ -242,7 +242,7 @@ To create a backup policy that configures multiple backups a day, follow these s
    $retPol.DailySchedule.DurationCountInDays=15
    ```
 
-1. Create a new backup policy using **New-AzRecoveryServicesBackupProtectionPolicy**.
+1. Create a new backup policy using [New-AzRecoveryServicesBackupProtectionPolicy](/powershell/module/az.recoveryservices/new-azrecoveryservicesbackupprotectionpolicy).
 
    You can pass the schedule and retention policy objects set previously as inputs.
 
