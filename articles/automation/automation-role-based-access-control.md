@@ -68,6 +68,7 @@ A Reader can view all the resources in an Automation account but can't make any 
 |---------|---------|
 |Microsoft.Automation/automationAccounts/read|View all resources in an Automation account. |
 
+[Learn more](#best-practices-to-configure-azure-automation-role-based-access-control) on the best practices in configuring Azure automation role based access control.
 
 ### Automation Contributor
 
@@ -547,6 +548,18 @@ Once the script has run, have the user log in to the Azure portal and select **A
 When a user assigned to the Automation Operator role on the Runbook scope views an assigned runbook, the user can only start the runbook and view the runbook jobs.
 
 ![Only has access to start](media/automation-role-based-access-control/automation-only-start.png)
+
+## Best Practices to configure Azure Automation role-based access control
+
+ 1. When you plan your access control strategy, it’s best to grant users the least privilege to get the required work done. You must avoid assigning broader roles or scopes like subscription level. When creating the custom roles, only include the permissions users need. By limiting roles and scopes, you limit the resources that are at risk if the security principal is ever compromised. 
+ 
+1. Avoid roles include Actions that have a wildcard _*_ as it means full access to the Automation resource or a sub-resource, example _automationaccounts/*/read_. 
+ 
+1. Limit the number of highly privileged roles like Automation Contributor to reduce the potential breach by a compromised owner.  
+ 
+1. Use Azure AD Privileged Identity Management to protect privileged accounts from malicious cyber-attacks that attempt to increase your visibility into their use through reports and alerts.  
+ 
+1. Create a custom role for managing operations against Hybrid runbook workers and Hybrid runbook worker groups as defined in [Manage Role permissions for Hybrid Worker Groups](/azure/automation/extension-based-hybrid-runbook-worker-install?tabs=windows#manage-role-permissions-for-hybrid-worker-groups). 
 
 ## Next steps
 
