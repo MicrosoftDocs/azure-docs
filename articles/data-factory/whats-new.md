@@ -30,7 +30,7 @@ This page is updated monthly, so revisit it regularly.
  
 <tr><td>Retrieve your custom Assert description</td><td>In the Assert transformation, you can define your own dynamic description message. We’ve added a new function called assertErrorMessage() that you can use to retrieve the row-by-row message and store it in your destination data.<br><a href="data-flow-expressions-usage.md#assertErrorMessages">Learn more</a></td></tr>
   
-<tr><td>Automatic schema detection in Parse transformation</td><td>A new feature has been added to the Parse transformation to make it easy to automatically detect the schema of an embedded complex field inside a string column. Click on the **Detect schema** button to set your target schema automatically.<br><a href="data-flow-parse.md">Learn more</a></td></tr>
+<tr><td>Automatic schema detection in Parse transformation</td><td>A new feature has been added to the Parse transformation to make it easy to automatically detect the schema of an embedded complex field inside a string column. Click on the <b>Detect schema</b> button to set your target schema automatically.<br><a href="data-flow-parse.md">Learn more</a></td></tr>
   
 <tr><td>Support Dynamics 365 Connector as both sink and source</td><td>You can now connect directly to Dynamics 365 to transform your Dynamics data at scale using the new mapping data flow connector for Dynamics 365.<br><a href="connector-dynamics-crm-office-365.md?tabs=data-factory#mapping-data-flow-properties">Learn more</a></td></tr>
 
