@@ -74,7 +74,7 @@ Each SIM policy includes the following.
   - The services (as described in [Services](#services)) offered to SIMs on this data network.
   - A set of QoS characteristics that will be used to form the default QoS Flow for PDU sessions involving assigned SIMs on this data network.
 
-You can create multiple SIM policies to offer separate QoS policy settings to different groups of SIMs on the same data network. For example, you may want to create SIM policies with differing sets of services.
+You can create multiple SIM policies to offer different QoS policy settings to separate groups of SIMs on the same data network. For example, you may want to create SIM policies with differing sets of services.
 
 ## Creating and assigning QoS Flows during PDU session establishment
 
