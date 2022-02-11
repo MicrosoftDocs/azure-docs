@@ -46,7 +46,7 @@ As an Azure Purview administrator or Azure Purview data-source admin, I want to 
 
 ### Configure Azure Event Hubs
 
-1. Create an [Azure Event Hubs Namespace and an Azure event hub using Azure ARM Template (GitHubs)](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.eventhub/eventhubs-create-namespace-and-enable-capture). While this automated Azure ARM Template will deploy and finish creating your Event Hubs with the required configuration at t; follow these guides for more detailed step by step explanantions and manual setup: [Azure Event Hubs: Use Azure Resource Manager Template to enable eventhub capture](../event-hubs/event-hubs-resource-manager-namespace-event-hub-enable-capture.md) and [Azure Event Hubs: Enable capturing of events streaming manually using Azure portal](../event-hubs/event-hubs-capture-enable-through-portal.md)
+1. Create an [Azure Event Hubs Namespace and an Azure event hub using Azure ARM Template (GitHub)](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.eventhub/eventhubs-create-namespace-and-enable-capture). While this automated Azure ARM Template will deploy and finish creating your Event Hubs with the required configuration at t; follow these guides for more detailed step by step explanations and manual setup: [Azure Event Hubs: Use Azure Resource Manager Template to enable eventhub capture](../event-hubs/event-hubs-resource-manager-namespace-event-hub-enable-capture.md) and [Azure Event Hubs: Enable capturing of events streaming manually using Azure portal](../event-hubs/event-hubs-capture-enable-through-portal.md)
 
 ### Connect Purview Account to Diagnostics Event Hubs
 
@@ -58,7 +58,7 @@ As an Azure Purview administrator or Azure Purview data-source admin, I want to 
 
 :::image type="content" source="./media/tutorial-purview-audit-logs-diagnostics/E.png" alt-text="Click Azure Purview Diagnostic Settings" lightbox="./media/tutorial-purview-audit-logs-diagnostics/E.png":::
 
-- Click "Add Diagnostic Settings" or "Edit Setting". Adding more than one row of diagnostic setting in the context of Purview isn't recommended. In other words, if you already have a dignostic setting row added, don't click "Add Diagnostic"; click "Edit" instead.
+- Click "Add Diagnostic Settings" or "Edit Setting". Adding more than one row of diagnostic setting in the context of Purview isn't recommended. In other words, if you already have a diagnostic setting row added, don't click "Add Diagnostic"; click "Edit" instead.
 
 :::image type="content" source="./media/tutorial-purview-audit-logs-diagnostics/F.png" alt-text="Add or Edit Diagnostic Settings screen." lightbox="./media/tutorial-purview-audit-logs-diagnostics/F.png":::
 
@@ -96,11 +96,11 @@ As an Azure Purview administrator or Azure Purview data-source admin, I want to 
 
 :::image type="content" source="./media/tutorial-purview-audit-logs-diagnostics/A.png" alt-text="Explore Purview Audit Events on Event Hubs." lightbox="./media/tutorial-purview-audit-logs-diagnostics/A.png":::
 
-- Click "Download Sample Data" to download and analyse the results carefully.
+- Click "Download Sample Data" to download and analyze the results carefully.
 
 :::image type="content" source="./media/tutorial-purview-audit-logs-diagnostics/B.png" alt-text="Query and Process Purview Audit data on Event Hubs." lightbox="./media/tutorial-purview-audit-logs-diagnostics/B.png":::
 
-- Lastly, you can use scripts to extract and perform additional analytics and operations, and build additional utilities and custom code to extract business value out of the captured audit and diagnostics. You can even use these audit logs and transform them to Excel, any database, Dataverse or Synapse, for analytics and reporting using PowerBI. While you can use any programming/scripting language to read the event hub, here's one readymade [Python-based script](https://github.com/Azure/Azure-Purview-API-PowerShell/blob/main/purview_atlas_eventhub_sample.py) and Python tutorial on how to [Capture Event Hubss data in Azure Storage and read it by using Python (azure-eventhub)](../event-hubs/event-hubs-capture-python.md) 
+- Lastly, you can use scripts to extract and perform additional analytics and operations, and build additional utilities and custom code to extract business value out of the captured audit and diagnostics. You can even use these audit logs and transform them to Excel, any database, Dataverse or Synapse, for analytics and reporting using PowerBI. While you can use any programming/scripting language to read the event hub, here's one ready-made [Python-based script](https://github.com/Azure/Azure-Purview-API-PowerShell/blob/main/purview_atlas_eventhub_sample.py) and Python tutorial on how to [Capture Event Hubs data in Azure Storage and read it by using Python (azure-eventhub)](../event-hubs/event-hubs-capture-python.md) 
 
 
 ## Next steps
