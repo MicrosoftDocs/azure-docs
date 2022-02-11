@@ -47,7 +47,7 @@ Private offers can be created for all transactable marketplace offer types. This
 
 The **Private offers** dashboard in the left-nav menu of Partner Center is your centralized location to create and manage private offers. This dashboard has two tabs:
 
-1. **Customers**: Learn more about private offers for customers.
+1. **Customers**: *Coming soon*
 2. **CSP partners**: Opens the CSP partners private offer dashboard, which lets you:
 
     - Create new private offers
@@ -90,7 +90,7 @@ The offer setup page lets you define private offer terms, notification contact, 
 
     1. Select **+Add CSP partners**.
     2. Search for your CSP partners by name/tenant ID. Or, search by applying filters such as regions, skills, or competencies.
-    3. Choose the Cloud Resellers and select **Add**.
+    3. Choose the CSP partners and select **Add**.
 
     > [!NOTE]
     > - You can only select CSP partners who are part of Microsoft’s Cloud Solution Provider (CSP) program. 
