@@ -1,6 +1,6 @@
 ---
 title: Enable and Capture Azure Purview Audit Logs and time series activity history via Azure Diagnostics Event Hubs
-description:  This tutorial lists step-by-step configuration on how to Enable and Capture Azure Purview Audit Logs and time series activity history via Azure Diagnostics Event Hubs.
+description:  This tutorial lists step-by-step configuration on how to enable and capture Azure Purview Audit Logs and time series activity history via Diagnostics Event Hubs.
 author: abandyop
 ms.author: arindamba
 ms.service: purview
@@ -9,7 +9,7 @@ ms.topic: tutorial
 ms.date: 02/10/2022
 ---
 
-# Azure Purview: Capture & Analyze Audit & Diagnostics Logs
+# Azure Purview: Audit Logs, Diagnostics & Activity History
 
 This guide lists step-by-step configuration on how to enable and capture Azure Purview Audit & Diagnostics Logs via Azure Event Hubs. 
 
@@ -80,7 +80,7 @@ As an Azure Purview administrator or Azure Purview data-source admin, I want the
 
 :::image type="content" source="./media/tutorial-purview-audit-logs-diagnostics/I.png" alt-text="Event Hubs properties - message retention period." lightbox="./media/tutorial-purview-audit-logs-diagnostics/I.png":::
 
-- At this stage, the Event Hubs configuration will be complete. Purview will start streaming all its audit history and diagnostics data to this eventhub. You can now proceed to read, extract and perform additional analytics and operations on the captured diagnostics and audit events.
+- At this stage, the Event Hubs configuration will be complete. Purview will start streaming all its audit history and diagnostics data to this eventhub. You can now proceed to read, extract and perform further analytics and operations on the captured diagnostics and audit events.
 
 ### Reading Captured Events
 
@@ -100,7 +100,7 @@ As an Azure Purview administrator or Azure Purview data-source admin, I want the
 
 :::image type="content" source="./media/tutorial-purview-audit-logs-diagnostics/B.png" alt-text="Query and Process Purview Audit data on Event Hubs." lightbox="./media/tutorial-purview-audit-logs-diagnostics/B.png":::
 
-- Lastly, you can use scripts to extract and perform additional analytics and operations on the Event Hubs audit and diagnostics data. You can even build additional utilities and custom code to extract business value out of the captured audit events. What's more, you can even use these audit logs and transform them to Excel, any database, Dataverse or Synapse, for analytics and reporting using Power BI. While you are free to use any programming or scripting language of your choice to read the event hub, here's one ready-made [Python-based script](https://github.com/Azure/Azure-Purview-API-PowerShell/blob/main/purview_atlas_eventhub_sample.py). Python tutorial on how to [Capture Event Hubs data in Azure Storage and read it by using Python (azure-eventhub)](../event-hubs/event-hubs-capture-python.md) 
+- Lastly, you can use automatic, periodically scheduled scripts to extract, read and perform further analytics and operations on the Event Hubs audit and diagnostics data. You can even build your own utilities and custom code to extract business value out of the captured audit events. What's more, you can even use these audit logs and transform them to Excel, any database, Dataverse or Synapse, for analytics and reporting using Power BI. While you are free to use any programming or scripting language of your choice to read the event hub, here's one ready-made [Python-based script](https://github.com/Azure/Azure-Purview-API-PowerShell/blob/main/purview_atlas_eventhub_sample.py). Python tutorial on how to [Capture Event Hubs data in Azure Storage and read it by using Python (azure-eventhub)](../event-hubs/event-hubs-capture-python.md) 
 
 
 ## Next steps
