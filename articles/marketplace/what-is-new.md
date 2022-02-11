@@ -16,14 +16,14 @@ Learn about important updates in the commercial marketplace program of Partner C
 
 | Category | Description | Date |
 | --- | --- | --- |
-| Offers | Added a [Revenue Dashboard](revenue-dashboard.md) to Partner Center, including a revenue report, [sample queries](analytics-sample-queries.md#revenue-report-queries), and [FAQs](./analytics-faq.yml#revenue) page. | 2021-12-08 |
+| Offers | Added a [Revenue Dashboard](revenue-dashboard.md) to Partner Center, including a revenue report, [sample queries](analytics-sample-queries.md#revenue-report-queries), and [FAQs](/azure/marketplace/analytics-faq#revenue) page. | 2021-12-08 |
 | Offers | Container and container apps offers can now use the Microsoft [Standard Contract](standard-contract.md). | 2021-11-02 |
 | Offers | Private plans for [SaaS offers](plan-saas-offer.md) are now available on AppSource. | 2021-10-06 |
 | Offers | In [Set up an Azure Marketplace subscription for hosted test drives](test-drive-azure-subscription-setup.md), for **Set up for Dynamics 365 apps on Dataverse and Power Apps**, we added a new method to remove users from your Azure tenant. | 2021-10-01 |
 | Offers | Setup and maintenance of Power BI Visuals is migrating from the Office Store to the commercial marketplace this month. [This FAQ](power-bi-visual-faq.yml) provides a summary of improvements to the offer submission process. To start, see [Plan a Power BI visual offer](marketplace-power-bi-visual.md).| 2021-09-21 |
 | Offers | While [private plans](private-plans.md) were previously only available on the Azure portal, they are now also available on Microsoft AppSource. | 2021-09-10 |
 | Analytics | Publishers of Azure application offers can view offer deployment health in the Quality of service (QoS) reports. QoS helps publishers understand the reasons for offer deployment failures and provides actionable insights for their remediation. For details, see [Quality of service (QoS) dashboard](quality-of-service-dashboard.md). | 2021-09-07 |
-| Policy | The SaaS customer [refund window](/marketplace/refund-policies) is now [72 hours](./marketplace-faq-publisher-guide.yml) for all offers. | 2021-09-01 |
+| Policy | The SaaS customer [refund window](/marketplace/refund-policies) is now [72 hours](/azure/marketplace/marketplace-faq-publisher-guide) for all offers. | 2021-09-01 |
 | Offers | Additional properties at the plan level are now available for Azure Virtual Machine offers. See the [virtual machine technical configuration properties](azure-vm-plan-overview.md#properties) article for more information. | 2021-07-26 |
 | Fees | Microsoft has reduced its standard store service fee to 3%. See [Commercial marketplace transact capabilities](marketplace-commercial-transaction-capabilities-and-considerations.md#examples-of-pricing-and-store-fees) and Common questions about payouts and taxes, "[How do I find the current Store Service Fee and the payout rate?](/partner-center/payout-faq)". | 2021-07-14 |
 |
