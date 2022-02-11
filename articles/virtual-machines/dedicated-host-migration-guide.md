@@ -20,7 +20,7 @@ The main differences between the retiring Dedicated Host SKUs and the newly reco
 - Increased available vCPUs
 - Greater regional capacity compared to the retiring Dedicated Host SKUs
 
-The next section will go over which Dedicated Host SKUs to migrate to help aid in migration planning and execution.
+Review the [FAQs](dedicated-host-retirement.md#faqs) before you get started on migration. The next section will go over which Dedicated Host SKUs to migrate to help aid in migration planning and execution.
 
 ## Dsv3-Type1 and Dsv3-Type2
 
