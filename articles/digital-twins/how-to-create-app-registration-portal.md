@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Learn how to create an Azure AD app registration, as an authentication option for client apps, using the Azure portal.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 1/5/2022
+ms.date: 1/24/2022
 ms.topic: how-to
 ms.service: digital-twins
 
@@ -98,9 +98,41 @@ To set up a **client secret** for your app registration, start on your app regis
 >[!IMPORTANT]
 >Make sure to copy the values now and store them in a safe place, as they can't be retrieved again. If you can't find them later, you'll have to create a new secret.
 
-## Provide Azure Digital Twins API permission
+## Provide Azure Digital Twins permissions
 
-Next, configure the app registration you've created with baseline permissions to the Azure Digital Twins APIs.
+Next, configure the app registration you've created with permissions to access Azure Digital Twins. First, **create a role assignment** for the app registration within the Azure Digital Twins instance. Then, **provide API permissions** for the app to read and write to the Azure Digital Twins APIs.
+
+### Create role assignment
+
+In this section, you'll create a role assignment for the app registration on the Azure Digital Twins instance. This role will determine what permissions the app registration holds on the instance, so you should select the role that matches the appropriate level of permission for your situation. One possible role is [Azure Digital Twins Data Owner](../role-based-access-control/built-in-roles.md#azure-digital-twins-data-owner). For a full list of roles and their descriptions, see [Azure built-in roles](../role-based-access-control/built-in-roles.md).
+
+1. First, open the page for your Azure Digital Twins instance in the Azure portal. 
+
+1. Select **Access control (IAM)**.
+
+1. Select **Add** > **Add role assignment** to open the Add role assignment page.
+
+1. Assign the appropriate role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+    
+    | Setting | Value |
+    | --- | --- |
+    | Role | Select as appropriate |
+    | Assign access to | User, group, or service principal |
+    | Members | Search for the name or [client ID](#collect-client-id-and-tenant-id) of the app registration |
+    
+    ![Add role assignment page](../../includes/role-based-access-control/media/add-role-assignment-page.png)
+
+#### Verify role assignment
+
+You can view the role assignment you've set up under *Access control (IAM) > Role assignments*.
+
+:::image type="content" source="media/how-to-create-app-registration/verify-role-assignment.png" alt-text="Screenshot of the Role Assignments page for an Azure Digital Twins instance in the Azure portal.":::
+
+The app registration should show up in the list along with the role you assigned to it. 
+
+### Provide API permissions
+
+In this section, you'll grant your app baseline read/write permissions to the Azure Digital Twins APIs.
 
 From the portal page for your app registration, select *API permissions* from the menu. On the following permissions page, select the *+ Add a permission* button.
 
@@ -120,7 +152,7 @@ Next, you'll select which permissions to grant for these APIs. Expand the **Read
 
 Select *Add permissions* when finished.
 
-### Verify success
+#### Verify API permissions
 
 On the *API permissions* page, verify that there's now an entry for Azure Digital Twins reflecting Read/Write permissions:
 
@@ -136,7 +168,7 @@ These values are shown in the screenshot below:
 
 :::image type="content" source="media/how-to-create-app-registration/verify-manifest.png" alt-text="Screenshot of the manifest for the Azure AD app registration in the Azure portal.":::
 
-If these values are missing, retry the steps in the [section for adding the API permission](#provide-azure-digital-twins-api-permission).
+If these values are missing, retry the steps in the [section for adding the API permission](#provide-api-permissions).
 
 ## Other possible steps for your organization
 

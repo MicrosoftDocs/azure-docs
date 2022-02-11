@@ -7,7 +7,7 @@ ms.service: sql-edge
 ms.topic: reference
 author: rothja
 ms.author: jroth
-ms.reviewer: sstein
+ms.reviewer: jroth
 ms.date: 09/03/2020
 ---
 
