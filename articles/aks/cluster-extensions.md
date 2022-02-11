@@ -31,6 +31,19 @@ A conceptual overview of this feature is available in [Cluster extensions - Azur
 * An Azure subscription. If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free).
 * [Azure CLI](/cli/azure/install-azure-cli) version >= 2.16.0 installed.
 
+> [!NOTE]
+> If you have enabled [AAD-based pod identity][./use-azure-ad-pod-identity.md] on your AKS cluster, please add the following `AzurePodIdentityException` to the release namespace of your extension instance on the AKS cluster:
+> ```yml
+> apiVersion: aadpodidentity.k8s.io/v1
+> kind: AzurePodIdentityException
+> metadata:
+>  name: extension-exception
+>  namespace: <release-namespace-of-extension>
+> spec:
+>  podLabels:
+>    clusterconfig.azure.com/managedby: k8s-extension
+> ```
+
 ### Register provider for cluster extensions
 
 #### [Azure CLI](#tab/azure-cli)
