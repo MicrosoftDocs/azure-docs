@@ -10,9 +10,20 @@ ms.date: 11/11/2021
 
 # Guidelines to develop secure embedded applications with Azure RTOS
 
+## Introduction
+
 This article contains guidance to help you implement security measures on devices that you build using Azure RTOS. Azure RTOS is middleware. It incorporates many features that can help you build secure devices. However, the security of your devices will depend heavily on your choice of hardware and your implementation of secure firmware. The measures in this topic are primarily meant for devices that connect directly to the internet 
 
-Microsoft recommends an approach based on the principle of zero-trust when designing IoT devices. We highly recommend reading the [Zero Trust: Cyber security for IoT](https://azure.microsoft.com/mediahandler/files/resourcefiles/zero-trust-cybersecurity-for-the-internet-of-things/Zero%20Trust%20Security%20Whitepaper_4.30_3pm.pdf) whitepaper as a prerequisite to this article. This brief paper outlines several categories to consider when implementing security across an IoT ecosystem with an emphasis on device security. For devices, these categories are:
+Microsoft recommends an approach based on the principle of zero-trust when designing IoT devices. We highly recommend reading the [Zero Trust: Cyber security for IoT](https://azure.microsoft.com/mediahandler/files/resourcefiles/zero-trust-cybersecurity-for-the-internet-of-things/Zero%20Trust%20Security%20Whitepaper_4.30_3pm.pdf) whitepaper as a prerequisite to this article. This brief paper outlines several categories to consider when implementing security across an IoT ecosystem with an emphasis on device security.
+
+For devices, the categories of Zero Trust are:
+ - Strong identity
+ - Least-privileged access
+ - Device health
+ - Continual updates
+ - Security monitoring and response
+
+Following are brief discussions of these categories.
 
 - **Strong identity**
 
@@ -31,7 +42,7 @@ Microsoft recommends an approach based on the principle of zero-trust when desig
 
 ## Embedded Security Components - Cryptography
 
-Cryptography topics in this section
+Cryptography topics in this section:
  - True random hardware-based entropy source
  - True random hardware-based entropy sourceReal-time capability
  - Use approved cryptographic routines with strong key sizes
@@ -114,7 +125,7 @@ Combining hardware cryptography acceleration that implements secure cipher modes
 
 ## Embedded Security Components – Device Identity
 
-Device Identity topics in this section
+Device Identity topics in this section:
  - Unique verifiable device identifier
  - Certificate management
  - Attestation
@@ -173,7 +184,7 @@ Device status in attestation scenarios can include information like firmware ver
 
 ## Embedded Security Components – Memory Protection
 
-Memory Protection topics in this section
+Memory Protection topics in this section:
  - Protection against reading/writing memory
  - Application Memory Isolation
  - Protection against execution from RAM
@@ -237,7 +248,7 @@ Preventing stack overflow is a primary security concern for any application. Azu
 
 ## Embedded Security Components – Secure Boot and Firmware Update
 
-Secure Boot and Firmware Update topics in this section
+Secure Boot and Firmware Update topics in this section:
  - Secure boot
  - Firmware or OTA update
  - Rollback or downgrade protection
@@ -292,7 +303,7 @@ Make use of any features for signing and verifying code or credential updates. C
 
 ## Embedded Security Components – Protocols
 
-Protocols topics in this section
+Protocols topics in this section:
  - Use the latest version of TLS possible for connectivity
  - Use X.509 Certificates for TLS authentication
  - Use strongest cryptographic options and cipher suites for TLS
@@ -362,7 +373,7 @@ If your device uses MQTT for cloud communication, only use MQTT over TLS.
 
 ## Embedded Security Components – Application Design and Development
 
-Application Design and Development topics in this section
+Application Design and Development topics in this section:
  - Disable debugging features
  - Watchdog timers
  - Remote error logging
@@ -451,7 +462,7 @@ Connected IoT devices may not have the necessary resources to implement all secu
 
 ## Azure RTOS IoT Application Security Checklist
 
-IoT Application Security Checklist topics
+IoT Application Security Checklist topics:
  - Security DOs
  - Security DON'Ts
 
