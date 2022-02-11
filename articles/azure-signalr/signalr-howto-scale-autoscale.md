@@ -83,7 +83,7 @@ Follow these steps to configure the rule to scale to a specific units. Again, th
 
     :::image type="content" source="./media/signalr-howto-scale-autoscale/default-specific-units.png" alt-text="Default - scale to specific units":::       
 
-## Custom autoscale - additional conditions
+## Custom autoscale - Additional conditions
 The previous section shows you how to add a default condition for the autoscale setting. This section shows you how to add more conditions to the autoscale setting. For these additional non-default conditions, you can set a schedule based on specific days of a week or a date range. 
 
 ### Scale based on a metric
