@@ -1,6 +1,6 @@
 ---
-title: Azure Red Hat OpenShift Service Definition 
-description: Azure Red Hat OpenShift Service Definition
+title: Azure Red Hat OpenShift service definition 
+description: Azure Red Hat OpenShift service definition
 ms.service: azure-redhat-openshift
 ms.topic: article
 author: rahulm23
@@ -10,7 +10,9 @@ keywords: azure, openshift, aro, red hat, service, definition
 #Customer intent: I need to understand Azure Red Hat OpenShift services to manage my subscription.
 ---
 
-# Account management
+# Azure Red Hat OpenShift account management
+
+The following sections provide service definitions to help you manage your Azure Red Hat OpenShift account.
 
 ## Billing
 
@@ -29,6 +31,7 @@ For more information about pricing, see [Azure Red Hat OpenShift pricing](https:
 Customers can create and delete their clusters using the Azure command-line utility (CLI). Azure Red Hat OpenShift clusters deploy with a kubeadmin user whose credentials are available from the Azure CLI after a cluster is successfully deployed. 
 
 You can perform all other Azure Red Hat OpenShift cluster actions, such as scaling nodes, by interacting with the OpenShift API using tools such as the OpenShift web console or the OpenShift CLI (oc).
+
 ## Azure resource architecture
 
 An Azure Red Hat OpenShift deployment requires two resource groups within an Azure subscription. The first resource group is created by the customer and contains the virtual networking components for the cluster. Keeping the networking elements separate allows the customer to configure Azure Red Hat OpenShift to meet requirements and to add any peering options.
@@ -74,9 +77,8 @@ az provider show -n Microsoft.RedHatOpenShift --query "resourceTypes[?resourceTy
 Once deployed, an Azure Red Hat OpenShift cluster can't be moved to a different region. Similarly, you can't transfer Azure Red Hat OpenShift clusters between subscriptions.
 
 ## Service level agreement
-Microsoft and Red Hat operate and support Azure Red Hat OpenShift jointly. It is operated and supported with a service level agreement (SLA) of 99.95 percent availability
 
-* For more SLA details, see [SLA for Azure Red Hat OpenShift](https://azure.microsoft.com/support/legal/sla/openshift/v1_0/).
+For  SLA details, see [SLA for Azure Red Hat OpenShift](https://azure.microsoft.com/support/legal/sla/openshift/v1_0/).
 
 ## Support
 
@@ -90,6 +92,8 @@ Requests will be triaged and addressed by Microsoft and Red Hat support engineer
 To open support tickets directly with Red Hat, your cluster will need to have a pull secret. You can add it during cluster creation, or add it or update it on an existing cluster.
 
 ## Logging
+
+The following sections provide information about Azure Red Hat OpenShift security.
 
 ### Cluster operations and audit logging
 
@@ -106,6 +110,8 @@ The logging stack, [Logging Operator](https://operatorhub.io/operator/logging-op
 If the cluster logging stack is installed, application logs sent to STDOUT are collected by Fluentd. The application logs are made available through the cluster logging stack. Retention is set to seven days, but won't exceed 200 GiB of logs per shard. For longer term retention, customers should follow the sidecar container design in their deployments. Customers should forward logs to the log aggregation or analytics service of their choice.
 
 ## Monitoring
+
+The following section provides information about Azure Red Hat OpenShift security.
 ### Cluster metrics
 
 Azure Red Hat OpenShift deploys with services for maintaining the health and performance of the cluster and its components. These services include the streaming of important metrics to an Azure aggregation system for support and troubleshooting purposes. This data is only accessible to authorized support staff via approved mechanisms.
@@ -115,6 +121,8 @@ Azure Red Hat OpenShift clusters come with an integrated Prometheus/Grafana stac
 These metrics, which are accessible via the web console, can also be used to view cluster-level status and capacity/usage through a Grafana dashboard. These metrics also allow for horizontal pod autoscaling that is based on CPU or memory metrics provided by an Azure Red Hat OpenShift customer.
 
 ## Network
+The following sections provide information about the Azure Red Hat OpenShift network.
+
 ### Domain-validated certificates
 
 By default, Azure Red Hat OpenShift includes TLS security certificates needed for both internal and external services on the cluster. For external routes, a Transport Layer Security (TLS) wildcard certificate is provided and installed in the cluster. A TLS certificate is also used for the OpenShift API endpoint. DigiCert is the certificate authority (CA) used for these certificates.
@@ -132,13 +140,14 @@ By default, Azure Red Hat OpenShift uses self-signed certificates for all of the
 
 Azure Red Hat OpenShift supports the use of CAs to be trusted by builds when pulling images from an image registry.
 
-### Load Balancers
+### Load balancers
 
  Azure Red Hat OpenShift deploys with two Azure load balancers. The first is used for ingress traffic to applications and for the OpenShift and Kubernetes APIs. The second is used for internal communications between cluster components.
 
 ### Cluster ingress
 
 Project administrators can add route annotations for many different purposes, including ingress control via an IP allowlist.
+
 Ingress policies can be changed by using NetworkPolicy objects, which use the ovs-networkpolicy plugin. Using NetworkPolicy objects allows for full control over ingress network policy down to the pod level, including between pods on the same cluster and even in the same namespace.
 
 All cluster ingress traffic traverses the defined load balancer.
@@ -164,6 +173,9 @@ No monitoring of these private network connections is provided by Red Hat SRE. M
 Azure Red Hat OpenShift customers can specify their own DNS servers. For more information, see [Configure custom DNS for your Azure Red Hat OpenShift cluster](./howto-custom-dns.md).
 
 ## Storage
+
+The following sections provide information about Azure Red Hat OpenShift storage.
+
 ### Encryption-at-rest
 
 Azure Storage uses server-side encryption (SSE) to automatically encrypt your data when it's persisted to the cloud. By default, data is encrypted with Microsoft platform-managed keys.
@@ -184,6 +196,8 @@ Azure limits how many PVs of type block store can be attached to a single node. 
 Shared storage for Azure Red Hat OpenShift clusters must be configured by the customer. For an example of how to configure a storage class for Azure files, see [Create an Azure Files StorageClass on Azure Red Hat OpenShift 4](./howto-create-a-storageclass.md)
 
 ## Platform
+
+The following sections provide information about the  Azure Red Hat OpenShift platform.
 
 ### Cluster backup policy
 
@@ -213,17 +227,19 @@ For information about the Azure Red Hat OpenShift support lifecycle, see [Suppor
 
 Azure Red Hat OpenShift runs on OpenShift 4 and uses the CRI-O implementation of the Kubernetes container runtime interface as the only available container engine.
 
-### Operating System
+### Operating system
 
 Azure Red Hat OpenShift runs on OpenShift 4 using Red Hat Enterprise Linux CoreOS (RHCOS) as the operating system for all control plane and worker nodes.
 
-### Kubernetes Operator Support
+### Kubernetes operator support
 
 Azure Red Hat OpenShift supports operators created by Red Hat and certified independent software vendors (ISVs). Operators provided by Red Hat are supported by Red Hat. ISV operators are supported by the ISV.
 
 To use OperatorHub, your cluster must be configured with a Red Hat pull secret. For more information about using OperatorHub, see [Understanding OperatorHub](https://docs.openshift.com/container-platform/latest/operators/understanding/olm-understanding-operatorhub.html)
 
 ## Security
+
+The following sections provide information about Azure OpenShift security.
 
 ### Authentication provider
 
@@ -234,6 +250,10 @@ Customers need to configure their own providers, such as Azure Active Directory.
 * [Azure Active Directory Authentication](./configure-azure-ad-cli.md)
 * [OpenShift identity providers](https://docs.openshift.com/container-platform/4.7/authentication/understanding-identity-provider.html)
 
-### Regulatory Compliance
+### Regulatory compliance
 
 For details about Azure Red Hat OpenShift’s regulatory compliance certifications, see [Microsoft Azure Compliance Offerings](https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/).
+
+## Next Steps
+
+For more information, see the [support policies](support-policies-v4.md) documentation.
