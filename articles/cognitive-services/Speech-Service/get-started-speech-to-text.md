@@ -61,4 +61,4 @@ keywords: speech to text, speech to text software
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [See the quickstart samples on GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart)
+> [How to recognize speech](how-to-recognize-speech.md)

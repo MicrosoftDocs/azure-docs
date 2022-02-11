@@ -35,14 +35,16 @@ For platform-specific installation instructions, see the [Speech SDK setup guide
 
 ## Create a new project
 
-1. Go to the directory where you want to create the new project.
-1. Create a new console application
+Follow this example to create a new console application from a command prompt.
+
+1. Open a command prompt and go to the directory where you want to create the new project.
+1. Create a new console application with the .NET CLI.
     ```console
     dotnet new console
     ```
-1. Install the Speech SDK
+1. Install the Speech SDK in your new project with the .NET CLI.
     ```console
-    dotnet new console
+    dotnet add package Microsoft.CognitiveServices.Speech
     ```
 1. Replace the contents of Program.cs with the following:
     
@@ -55,15 +57,11 @@ For platform-specific installation instructions, see the [Speech SDK setup guide
     
     class Program 
     {
-        async static Task FromMicrophone(SpeechConfig speechConfig)
+        static var YourSubscriptionKey = "YourSubscriptionKey";
+        static var YourServiceRegion = "YourServiceRegion";
+
+        static void OutputSpeechRecognitionResult(SpeechRecognitionResult result)
         {
-            using var audioConfig = AudioConfig.FromDefaultMicrophoneInput();
-            using var speechRecognizer = new SpeechRecognizer(speechConfig, audioConfig);
-    
-            Console.WriteLine("Speak into your microphone.");
-            var speechRecognitionResult = await speechRecognizer.RecognizeOnceAsync();
-            Console.WriteLine($"RECOGNIZED: Text={speechRecognitionResult.Text}");
-    
             switch (speechRecognitionResult.Reason)
             {
                 case ResultReason.RecognizedSpeech:
@@ -85,25 +83,39 @@ For platform-specific installation instructions, see the [Speech SDK setup guide
                     break;
             }
         }
+
+        async static Task FromMicrophone(SpeechConfig speechConfig)
+        {
+            using var audioConfig = AudioConfig.FromDefaultMicrophoneInput();
+            using var speechRecognizer = new SpeechRecognizer(speechConfig, audioConfig);
+    
+            Console.WriteLine("Speak into your microphone.");
+            var speechRecognitionResult = await speechRecognizer.RecognizeOnceAsync();
+            OutputSpeechRecognitionResult(speechRecognitionResult);
+        }
     
         async static Task Main(string[] args)
         {
-            var speechConfig = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");        
+            var speechConfig = SpeechConfig.FromSubscription(YourSubscriptionKey, YourServiceRegion);        
             speechConfig.SpeechRecognitionLanguage = "en-US";
             await FromMicrophone(speechConfig);
         }
     }
     ```
 
+1. In Program.cs, replace `YourSubscriptionKey` with your Speech resource key, and replace `YourServiceRegion` with your Speech resource region.
+
 ## Recognize speech from a microphone
 
-Run the following command to run the application:
+Run the following command to start speech recognition from your microphone:
 
 ```console
 dotnet run
 ```
 
-Output should be:
+Speak into your microphone when prompted. This example uses the `RecognizeOnceAsync` operation to transcribe utterances up to 30 seconds, or when silence is detected. 
+
+What you speak should be output as text: 
 
 ```console
 Speak into your microphone.
@@ -111,11 +123,30 @@ RECOGNIZED: Text=This is a test for the code sample.
 RECOGNIZED: Text=This is a test for the code sample.
 ```
 
+> [!div class="nextstepaction"]
+> [It works](get-started-speech-to-text.md#recognize-speech-from-a-microphone)
+> [!div class="nextstepaction"]
+> [It does not work](get-started-speech-to-text.md#recognize-speech-from-a-microphone)
+
+Here's some suggested modifications to try out:
+- To recognize speech from a file, use `FromWavFileInput` instead of `FromDefaultMicrophoneInput`:
+    ```csharp
+    using var audioConfig = AudioConfig.FromWavFileInput("PathToFile.wav");
+    ```
+- To improve recognition accuracy of specific words or utterances, use a phrase list. You can add these lines right after the new `SpeechRecognizer` object is created:
+    ```csharp
+    var phraseList = PhraseListGrammar.FromRecognizer(recognizer);
+    phraseList.AddPhrase("Contoso");
+    phraseList.AddPhrase("Jessie");
+    phraseList.AddPhrase("Rehaan");
+    ```
+- To change the speech recognition language, replace `en-US` with another [supported language](~/articles/cognitive-services/speech-service/supported-languages.md).
+    ```csharp
+    speechConfig.SpeechRecognitionLanguage = "en-US";
+    ```
+- For details about how to identify the language, in case one of several languages might be spoken, see [language identification](~/articles/cognitive-services/speech-service/supported-languages.md). 
+
+
 ## Clean up resources
 
 You can use the [Azure Portal](../../../cognitive-services-apis-create-account.md#clean-up-resources) or [Azure Command Line Interface (CLI)](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources) to remove the Speech resource you created.
-
-## Next steps
-
-* [Language detection overview](overview.md)
-
