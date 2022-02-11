@@ -6,7 +6,7 @@ manager: karenhoran
 ms.service: active-directory
 ms.subservice: verifiable-credentials
 ms.topic: reference
-ms.date: 02/08/2022
+ms.date: 02/11/2022
 ms.custom: references_regions
 ms.author: barclayn
 
