@@ -39,7 +39,7 @@ OSM runs an Envoy-based control plane on Kubernetes, can be configured with [SMI
 
 ## Basic Installation of Azure Arc-enabled OSM on an Azure Arc-enabled Kubernetes Cluster
 
-The following steps assume that you already have a cluster with supported a Kubernetes distribution connected to Azure Arc.
+The following steps assume that you already have a cluster with a supported Kubernetes distribution connected to Azure Arc.
 Ensure that your KUBECONFIG environment variable points to the kubeconfig of the Arc-enabled Kubernetes cluster.
 
 Set the environment variables:
@@ -90,30 +90,8 @@ You should see output similar to the output shown below. It may take 3-5 minutes
 ```
 
 ## Custom Installations of Azure Arc-enabled OSM
-The following sections describe certain custom installations of Azure Arc-enabled OSM.
-
-### Setting values during OSM installation
-
-Setting custom values of OSM requires creating a JSON file containing the required settings and passing them into `k8s-extension create` CLI command. 
-For example, to change the log level of logs emitted by the OSM controller to `info`, the JSON file would be as follows:
-   ```json
-   {
-       "osm.osm.controllerLogLevel": "info"
-   }
-   ```
-
-Refer to sections below to determine the contents of the JSON file you require. 
-
-Then, set the file path as an environment variable:
-   ```azurecli-interactive
-   export SETTINGS_FILE=<json-file-path>
-   ```
-
-Finally, run the `az k8s-extension create` command to 
-create the OSM extension, passing in the settings file using the `--configuration-settings` flag:
-   ```azurecli-interactive
-   az k8s-extension create --cluster-name $CLUSTER_NAME --resource-group $RESOURCE_GROUP --cluster-type connectedClusters --extension-type Microsoft.openservicemesh --scope cluster --release-train pilot --name osm --version $VERSION --configuration-settings-file $SETTINGS_FILE
-   ```
+The following sections describe certain custom installations of Azure Arc-enabled OSM. Custom installations require setting 
+values of OSM by in a JSON file and passing them into `k8s-extension create` CLI command as described below.
 
 ### Install OSM on an OpenShift cluster
 
@@ -123,7 +101,6 @@ create the OSM extension, passing in the settings file using the `--configuratio
        "osm.osm.enablePrivilegedInitContainer": "true"
    }
    ```
-
    
 2. [Install OSM with custom values](#setting-values-during-osm-installation).
    
@@ -178,6 +155,21 @@ To set required values for configuring Contour during OSM installation, create t
 ```
 
 [Now, install OSM with custom values](#setting-values-during-osm-installation).
+
+### Setting values during OSM installation
+Values that need to be set during OSM installation need to be saved to a JSON file and passed in through the Azure CLI
+install command.
+
+Once you have created a JSON file with applicable values as described above, set the file path as an environment variable:
+   ```azurecli-interactive
+   export SETTINGS_FILE=<json-file-path>
+   ```
+
+Run the `az k8s-extension create` command to create the OSM extension, passing in the settings file using the 
+`--configuration-settings` flag:
+   ```azurecli-interactive
+   az k8s-extension create --cluster-name $CLUSTER_NAME --resource-group $RESOURCE_GROUP --cluster-type connectedClusters --extension-type Microsoft.openservicemesh --scope cluster --release-train pilot --name osm --version $VERSION --configuration-settings-file $SETTINGS_FILE
+   ```
 
 ## Install Azure Arc-enabled OSM using ARM template
 
