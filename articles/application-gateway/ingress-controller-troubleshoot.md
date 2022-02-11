@@ -129,7 +129,7 @@ Finally we can use the `cURL` command from within [Cloud Shell](https://shell.az
 establish an HTTP connection to the newly deployed app:
 
 1. Use `kubectl get ingress` to get the Public IP address of Application Gateway
-2. Use `curl -I -H 'test.agic.contoso.com' <publitc-ip-address-from-previous-command>`
+2. Use `curl -I -H 'Host: test.agic.contoso.com' <publitc-ip-address-from-previous-command>`
 
 ![Screenshot of the Bash window in Azure Cloud Shell showing a cURL command successfully establishing an HTTP connection to the test app.](./media/application-gateway-ingress-controller-troubleshooting/tsg--curl.png)
 
