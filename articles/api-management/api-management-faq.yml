@@ -103,7 +103,7 @@ sections:
         answer: |
           Yes. This can be done through PowerShell or by directly submitting to the API. This will disable certificate chain validation and will allow you to use self-signed or privately-signed certificates when communicating from API Management to the back end services.
           
-          ### Powershell method
+          ### PowerShell method
           Use the [`New-AzApiManagementBackend`](/powershell/module/az.apimanagement/new-azapimanagementbackend) (for new back end) or [`Set-AzApiManagementBackend`](/powershell/module/az.apimanagement/set-azapimanagementbackend) (for existing back end) PowerShell cmdlets and set the `-SkipCertificateChainValidation` parameter to `True`.
           
           ```powershell

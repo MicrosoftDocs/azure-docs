@@ -92,8 +92,8 @@ items:
       href: export-data.md
     - name: De-identified export
       href: de-identified-export.md
-    - name: Export to Synapse
-      href: move-to-synapse.md
+    - name: Copy data to Synapse
+      href: copy-to-synapse.md
   - name: Convert data
     expanded: true
     items:

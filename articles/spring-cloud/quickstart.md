@@ -189,7 +189,7 @@ In Visual Studio, create an ASP.NET Core Web application named as "hello-world" 
 
 The following procedure creates an instance of Azure Spring Cloud using the Azure portal.
 
-1. Open the [Azure portal](https://ms.portal.azure.com/).
+1. Open the [Azure portal](https://portal.azure.com/).
 
 1. From the top search box, search for *Azure Spring Cloud*.
 
@@ -370,7 +370,7 @@ This example uses Java version 8.  If you want to use Java version 11, change th
 
 The following procedure creates an instance of Azure Spring Cloud using the Azure portal.
 
-1. In a new tab, open the [Azure portal](https://ms.portal.azure.com/).
+1. In a new tab, open the [Azure portal](https://portal.azure.com/).
 
 2. From the top search box, search for **Azure Spring Cloud**.
 

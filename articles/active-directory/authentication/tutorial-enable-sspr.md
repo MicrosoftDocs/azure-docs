@@ -29,6 +29,10 @@ In this tutorial you learn how to:
 > * Set up authentication methods and registration options
 > * Test the SSPR process as a user
 
+## Video tutorial
+
+You can also follow along in a related video: [How to enable and configure SSPR in Azure AD](https://www.youtube.com/embed/rA8TvhNcCvQ?azure-portal=true).
+
 ## Prerequisites
 
 To finish this tutorial, you need the following resources and privileges:

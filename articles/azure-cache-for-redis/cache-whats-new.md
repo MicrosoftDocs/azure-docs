@@ -5,11 +5,19 @@ author: flang-msft
 ms.author: franlanglois
 ms.service: cache
 ms.topic: reference
-ms.date: 01/21/2022
+ms.date: 02/02/2022
 
 ---
 
 # What's New in Azure Cache for Redis
+
+## February 2022
+
+### Active geo-replication for Azure Cache For Redis Enterprise GA
+
+Active geo-replication for Azure Cache for Redis Enterprise is now generally available (GA).
+
+Active geo-replication is a powerful tool that enables Azure Cache for Redis clusters to be linked together for seamless active-active replication of data. Your applications can write to one Redis cluster and your data is automatically copied to the other linked clusters, and vice versa. For more information, see this [post](https://aka.ms/ActiveGeoGA) in the *Azure Developer Community Blog*.
 
 ## January 2022
 
@@ -38,7 +46,7 @@ Get started with Azure Cache for Redis 6.0, today, and select Redis 6.0 during c
 
 ### Diagnostics for connected clients
 
-Azure Cache for Redis now integrates with Azure diagnostic settings to log information on all client connections to your cache. Logging and then analyzing this diagnostic setting helps you understand who is connecting to your caches and the timestamp of those connections. This data could be used to identify the scope of a security breach and for security auditing purposes. Users can route these logs to a destination of their choice, such as a storage account or event hub.
+Azure Cache for Redis now integrates with Azure diagnostic settings to log information on all client connections to your cache. Logging and then analyzing this diagnostic setting helps you understand who is connecting to your caches and the timestamp of those connections. This data could be used to identify the scope of a security breach and for security auditing purposes. Users can route these logs to a destination of their choice, such as a storage account or Event Hub.
 
 For more information, see [Monitor Azure Cache for Redis data using diagnostic settings](cache-monitor-diagnostic-settings.md).
 

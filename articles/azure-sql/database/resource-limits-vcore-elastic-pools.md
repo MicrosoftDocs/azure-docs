@@ -42,6 +42,17 @@ If all vCores of an elastic pool are busy, then each database in the pool receiv
 
 ## General purpose - provisioned compute - Gen4
 
+<!---
+vCore resource limits are listed in the following articles, please be sure to update all of them: 
+/database/resource-limits-vcore-single-databases.md
+/database/resource-limits-vcore-elastic-pools.md
+/database/resource-limits-logical-server.md
+/database/service-tier-general-purpose.md
+/database/service-tier-business-critical.md
+/database/service-tier-hyperscale.md
+/managed-instance/resource-limits.md
+--->
+
 > [!IMPORTANT]
 > New Gen4 databases are no longer supported in the Australia East or Brazil South regions.
 

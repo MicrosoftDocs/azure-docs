@@ -38,7 +38,7 @@ Add-AzWebAppAccessRestrictionRule -ResourceGroupName "<resource group name>" -We
 
 The App Service Environment (ASE) can be used to host the QnA Maker App Service instance. Follow the steps below:
 
-1. Create a [new Azure Cognitive Search Resource](https://ms.portal.azure.com/#create/Microsoft.Search).
+1. Create a [new Azure Cognitive Search Resource](https://portal.azure.com/#create/Microsoft.Search).
 2. Create an external ASE with App Service.
     - Follow this [App Service quickstart](../../../app-service/environment/create-external-ase.md#create-an-ase-and-an-app-service-plan-together) for instructions. This process can take up to 1-2 hours.
     - Finally, you will have an App Service endpoint that will appear similar to: `https://<app service name>.<ASE name>.p.azurewebsite.net` . 

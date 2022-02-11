@@ -41,7 +41,7 @@ To complete this tutorial, you need to:
 * Have an Azure account that is assigned to one of the built-in roles listed below:
     - Contributor for the target Azure SQL Managed Instance (and Storage Account to upload your database backup files from SMB network share).
     - Owner or Contributor role for the Azure Resource Groups containing the target Azure SQL Managed Instance or the Azure storage account.
-    - Owner or Contributor role for the Azure subscription.
+    - Owner or Contributor role for the Azure subscription (required if creating a new DMS service).
 * Create a SQL Managed Instance by following the detail in the article [Create a SQL Managed Instance in the Azure portal](../azure-sql/managed-instance/instance-create-quickstart.md).
 * Ensure that the logins used to connect the source SQL Server are members of the *sysadmin* server role or have `CONTROL SERVER` permission. 
 * Provide an SMB network share, Azure storage account file share, or Azure storage account blob container that contains your full database backup files and subsequent transaction log backup files, which Azure Database Migration Service can use for database migration.

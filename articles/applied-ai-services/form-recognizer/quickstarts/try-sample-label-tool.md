@@ -17,7 +17,7 @@ keywords: document processing
 <!-- markdownlint-disable MD033 -->
 <!-- markdownlint-disable MD034 -->
 <!-- markdownlint-disable MD029 -->
-# Get started with the Sample Labeling tool
+# Get started with the Form Recognizer Sample Labeling tool
 
 Azure Form Recognizer is a cloud-based Azure Applied AI Service that uses machine-learning models to extract and analyze form fields, text, and tables from your documents. You can use Form Recognizer to automate your data processing in applications and workflows, enhance data-driven strategies, and enrich document search capabilities. 
 
@@ -35,7 +35,7 @@ You will need the following to get started:
 
 * An Azure subscription—you can [create one for free](https://azure.microsoft.com/free/cognitive-services/)
 
-* A Cognitive Services or Form Recognizer resource. Once you have your Azure subscription, create a [single-service](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [multi-service](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) Form Recognizer resource in the Azure portal to get your key and endpoint. You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
+* A Cognitive Services or Form Recognizer resource. Once you have your Azure subscription, create a [single-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [multi-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) Form Recognizer resource in the Azure portal to get your key and endpoint. You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
     > [!TIP]
     > Create a Cognitive Services resource if you plan to access multiple cognitive services under a single endpoint/key. For Form Recognizer access only, create a Form Recognizer resource. Please note that you'll need a single-service resource if you intend to use [Azure Active Directory authentication](../../../active-directory/authentication/overview-authentication.md).

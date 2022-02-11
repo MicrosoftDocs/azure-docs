@@ -54,13 +54,13 @@ To add a Cascade 500 device template:
 
 To connect the Cascade 500 device to your IoT Central application, you need to retrieve the **ID Scope** and **Primary key** for your application.
 
-1. Navigate to **Administration**  in the left pane and select **Device connection**.
+1. Navigate to **Permissions**  in the left pane and select **Device connection groups**.
 
 1. Make a note of the **ID Scope** for your IoT Central application:
 
     ![App ID Scope](./media/howto-connect-rigado-cascade-500/app-scope-id.png)
 
-1. Now select **View Keys** and make a note of the **Primary key**:
+1. Now select **SAS-IoT-Edge-Devices** and make a note of the **Primary key**:
 
     ![Primary Key](./media/howto-connect-rigado-cascade-500/primary-key-sas.png)  
 
