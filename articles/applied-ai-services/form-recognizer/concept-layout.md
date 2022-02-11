@@ -15,7 +15,7 @@ ms.custom: ignite-fall-2021
 
 # Form Recognizer layout model
 
-Azure the Form Recognizer Layout API extracts text, tables, selection marks, and structure information from documents (PDF, TIFF) and images (JPG, PNG, BMP).  The layout model combines an enhanced version of our powerful [Optical Character Recognition (OCR)](../../cognitive-services/computer-vision/overview-ocr.md) capabilities with deep learning models to extract text, tables, selection marks, and document structure.
+Azure the Form Recognizer Layout API extracts text, tables, selection marks, and structure information from documents (PDF, TIFF) and images (JPG, PNG, BMP).
 
 ***Sample form processed with [Form Recognizer Sample Labeling tool](https://fott-2-1.azurewebsites.net/)  layout feature***
 
