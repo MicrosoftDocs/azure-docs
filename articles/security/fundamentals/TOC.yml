@@ -12,10 +12,20 @@
 
 - name: Detect and mitigate threats
   items:
-  - name: Backup and restore plan for ransomware
-    href: backup-plan-to-protect-against-ransomware.md
-  - name: Recovering from systemic identity compromise
-    href: recover-from-identity-compromise.md
+  - name: Protect against ransomware and extortion 
+    items:
+      - name: Ransomware protection in Azure
+        href: ransomware-protection.md
+      - name: Prepare for an attack
+        href: ransomware-prepare.md
+      - name: Detect and respond to an attack
+        href: ransomware-detect-respond.md
+      - name: Azure features & resources that help you protect, detect, and respond
+        href: ransomware-features-resources.md
+      - name: Backup and restore plan for ransomware
+        href: backup-plan-to-protect-against-ransomware.md
+      - name: Recovering from systemic identity compromise
+        href: recover-from-identity-compromise.md
   - name: Threat protection
     href: threat-detection.md
 
@@ -115,6 +125,8 @@
   items: 
   - name: Data security and encryption
     href: encryption-overview.md
+  - name: Key management in Azure
+    href: key-management.md
   - name: Double encryption
     href: double-encryption.md
   - name: TLS certificate changes

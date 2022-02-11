@@ -5,7 +5,7 @@ author: flang-msft
 ms.author: franlanglois
 ms.service: cache
 ms.topic: overview
-ms.date: 02/08/2021
+ms.date: 02/02/2022
 
 #Customer intent: As a developer, I want to understand what Azure Cache for Redis is and how it can improve performance in my application.
 ---
@@ -60,7 +60,7 @@ The [Azure Cache for Redis Pricing](https://azure.microsoft.com/pricing/details/
 | [OSS clustering](cache-how-to-premium-clustering.md) |-|-|✔|✔|✔|
 | [Data persistence](cache-how-to-premium-persistence.md) |-|-|✔|Preview|Preview|
 | [Zone redundancy](cache-how-to-zone-redundancy.md) |-|-|✔|✔|✔|
-| [Geo-replication](cache-how-to-geo-replication.md) |-|-|✔|Preview|Preview|
+| [Geo-replication](cache-how-to-geo-replication.md) |-|-|✔|✔|✔|
 | [Redis Modules](#choosing-the-right-tier) |-|-|-|✔|-|
 | [Import/Export](cache-how-to-import-export-data.md) |-|-|✔|✔|✔|
 | [Reboot](cache-administration.md#reboot) |✔|✔|✔|-|-|

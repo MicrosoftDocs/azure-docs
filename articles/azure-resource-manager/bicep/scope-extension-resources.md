@@ -1,10 +1,8 @@
 ---
 title: Scope on extension resource types (Bicep)
 description: Describes how to use the scope property when deploying extension resource types with Bicep.
-author: mumian
-ms.author: jgao
 ms.topic: conceptual
-ms.date: 11/16/2021
+ms.date: 02/07/2022
 ---
 
 # Set scope for extension resources in Bicep
@@ -54,8 +52,8 @@ param principalId string
 @description('Built-in role to assign')
 param builtInRoleType string
 
-@description('A new GUID used to identify the role assignment')
-param roleNameGuid string = newGuid()
+@description('The role assignment name')
+param roleNameGuid string
 
 var role = {
   Owner: '/subscriptions/${subscription().subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/8e3af657-a8ff-443c-a75c-2fe8c4bcb635'

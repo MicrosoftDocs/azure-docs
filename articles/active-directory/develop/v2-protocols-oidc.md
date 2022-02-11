@@ -278,7 +278,7 @@ When you have an authorization code and an ID token, you can sign the user in an
 
 ### Calling the UserInfo endpoint
 
-Review the [UserInfo documentation](userinfo.md#calling-the-api) to look over how the call the UserInfo endpoint with this token.
+Review the [UserInfo documentation](userinfo.md#calling-the-api) to look over how to call the UserInfo endpoint with this token.
 
 ## Send a sign-out request
 

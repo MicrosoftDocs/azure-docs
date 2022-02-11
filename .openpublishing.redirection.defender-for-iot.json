@@ -554,6 +554,16 @@
             "source_path_from_root": "/articles/defender-for-iot/device-builders/architecture-agent-based.md",
             "redirect_url": "/azure/defender-for-iot/device-builders/overview",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-iot/organizations/references-horizon-api.md",
+            "redirect_url": "/azure/defender-for-iot/organizations",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-iot/organizations/references-horizon-sdk.md",
+            "redirect_url": "/azure/defender-for-iot/organizations",
+            "redirect_document_id": false
         }
     ]
 }

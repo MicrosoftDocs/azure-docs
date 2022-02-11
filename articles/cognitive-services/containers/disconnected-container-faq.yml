@@ -126,15 +126,15 @@ sections:
           > [!TIP]
           > To find the pricing information for disconnected containers on these pricing pages, scroll down to **Commitment Tiers** section.
 
-          * [Speech Services](/pricing/details/cognitive-services/speech-services) for:
+          * [Speech Services](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) for:
             * Speech to Text (Standard)
-          * [Text Translation (Standard)](/pricing/details/cognitive-services/translator/)
-          *	[Azure Cognitive Service for Language pricing](/pricing/details/cognitive-services/language-service/) for
+          * [Text Translation (Standard)](https://azure.microsoft.com/pricing/details/cognitive-services/translator/)
+          *	[Azure Cognitive Service for Language pricing](https://azure.microsoft.com/pricing/details/cognitive-services/language-service/) for
             * Sentiment Analysis
             * Key Phrase Extraction
             * Language Detection
-          *	[Computer Vision - Read](/pricing/details/cognitive-services/computer-vision/)
-          *	[Form Recognizer - Custom/Invoice](/pricing/details/form-recognizer/)
+          *	[Computer Vision - Read](https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision/)
+          *	[Form Recognizer - Custom/Invoice](https://azure.microsoft.com/pricing/details/form-recognizer/)
       - question: How do I monitor the container's usage?
         answer: | 
           Docker containers running in a disconnected environment will write usage records to a volume where they are collected over time. These containers also provide a REST endpoint to generate a report about usage. See [Use containers in disconnected environments](disconnected-containers.md#usage-records) for more information.
