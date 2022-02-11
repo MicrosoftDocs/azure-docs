@@ -236,20 +236,7 @@ This property can only be written using the latest version of the [Azure Digital
 
 Here's an example of a JSON Patch document that updates both the value and the `sourceTime` field of a `Temperature` property:
 
-```json
-[
-  {
-    "op": "replace",
-    "path": "/Temperature",
-    "value": "22.3"
-  },
-{
-    "op": "replace",
-    "path": "/$metadata/Temperature/sourceTime",
-    "value": "2021-11-30T18:47:53.7648958Z"
-  }
-]
-```
+:::code language="json" source="~/digital-twins-docs-samples/models/patch-sourcetime.json":::
 
 >[!TIP]
 >To update the `sourceTime` field on a property that's part of a component, include the component at the start of the path. In the previous example, this would mean changing the path from `/$metadata/Temperature/sourceTime` to `myComponent/$metadata/Temperature/sourceTime`.
