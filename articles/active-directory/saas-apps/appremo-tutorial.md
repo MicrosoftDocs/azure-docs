@@ -75,8 +75,15 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Basic SAML Configuration** section, enter the values for the following fields:
 
-	a. In the **Sign on URL** text box, type the URL:
-    `https://ardm-systemexe.exexwf.com/wf`
+	a. In the **Sign on URL** text box, type a URL using one of the following patterns:
+
+    | Reply URL |
+    |------------|
+    | `https://<ENVIRONMENT>.exexwf.com/wf`|
+    | `https://<ENVIRONMENT>.appremo.jp/wf`|
+    | `https://<ENVIRONMENT>.fr.appremo.jp/wf`|
+    | `https://<ENVIRONMENT>.mlt.appremo.jp/wf`|
+    |
 
     b. In the **Reply URL** text box, type a URL using one of the following patterns:
 
