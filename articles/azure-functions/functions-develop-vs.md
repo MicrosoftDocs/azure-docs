@@ -25,41 +25,11 @@ Unless otherwise noted, procedures and examples shown are for Visual Studio 2022
 
 ## Prerequisites
 
-- Azure Functions Tools. To add Azure Function Tools, include the **Azure development** workload in your Visual Studio installation. Azure Functions Tools is available in the Azure development workload starting with Visual Studio 2017.
+- Azure Functions Tools. To add Azure Function Tools, include the **Azure development** workload in your Visual Studio installation. If you are using Visual Studio 2017, you may need to [follow some additional installation steps](#azure-functions-tools-with-visual-studio-2017).
 
 - Other resources that you need, such as an Azure Storage account, are created in your subscription during the publishing process.
 
 - [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-
-> [!NOTE]
-> In Visual Studio 2017, the Azure development workload installs Azure Functions Tools as a separate extension. When you update your Visual Studio 2017 installation, make sure that you're using the [most recent version](#check-your-tools-version) of the Azure Functions Tools. The following sections show you how to check and (if needed) update your Azure Functions Tools extension in Visual Studio 2017.
->
-> Skip these sections if you're using Visual Studio 2022.
-
-### <a name="check-your-tools-version"></a>Check your tools version in Visual Studio 2017
-
-1. From the **Tools** menu, choose **Extensions and Updates**. Expand **Installed** > **Tools**, and then choose **Azure Functions and Web Jobs Tools**.
-
-    ![Verify the Functions tools version](./media/functions-develop-vs/functions-vstools-check-functions-tools.png)
-
-1. Note the installed **Version** and compare this version with the latest version listed in the [release notes](https://github.com/Azure/Azure-Functions/blob/master/VS-AzureTools-ReleaseNotes.md). 
-
-1. If your version is older, update your tools in Visual Studio as shown in the following section.
-
-### Update your tools in Visual Studio 2017
-
-1. In the **Extensions and Updates** dialog, expand **Updates** > **Visual Studio Marketplace**, choose **Azure Functions and Web Jobs Tools** and select **Update**.
-
-    ![Update the Functions tools version](./media/functions-develop-vs/functions-vstools-update-functions-tools.png)   
-
-1. After the tools update is downloaded, select **Close**, and then close Visual Studio to trigger the tools update with VSIX Installer.
-
-1. In VSIX Installer, choose **Modify** to update the tools. 
-
-1. After the update is complete, choose **Close**, and then restart Visual Studio.
-
-> [!NOTE]  
-> In Visual Studio 2019 and later, the Azure Functions tools extension is updated as part of Visual Studio.  
 
 ## Create an Azure Functions project
 
@@ -72,7 +42,7 @@ After you create an Azure Functions project, the project template creates a C# p
 * **local.settings.json**: Maintains settings used when running functions locally. These settings aren't used when running in Azure. For more information, see [Local settings file](#local-settings).
 
     >[!IMPORTANT]
-    >Because the local.settings.json file can contain secrets, you must exclude it from your project source control. Ensure the **Copy to Output Directory** setting for this file is set to **Copy if newer**. 
+    >Because the local.settings.json file can contain secrets, you must exclude it from your project source control. Make sure the **Copy to Output Directory** setting for this file is set to **Copy if newer**. 
 
 For more information, see [Functions class library project](functions-dotnet-class-library.md#functions-class-library-project).
 
@@ -468,7 +438,7 @@ The members implemented in this class are:
 
 - **Http_trigger_should_return_string_from_member_data**: This test uses xUnit attributes to provide sample data to the HTTP function.
 
-- **Timer_should_log_message**: This test creates an instance of `ListLogger` and passes it to a timer function. Once the function is run, then the log is checked to ensure the expected message is present.
+- **Timer_should_log_message**: This test creates an instance of `ListLogger` and passes it to a timer function. Once the function is run, then the log is checked to make sure the expected message is present.
 
 If you want to access application settings in your tests, you can [inject](functions-dotnet-dependency-injection.md) an `IConfiguration` instance with mocked environment variable values into your function.
 
@@ -482,6 +452,33 @@ To run the tests, navigate to the **Test Explorer** and select **Run All Tests i
 
 To debug the tests, set a breakpoint on a test, navigate to the **Test Explorer** and select **Run > Debug Last Run**.
 
+## Azure Functions tools with Visual Studio 2017
+
+Azure Functions Tools is available in the Azure development workload starting with Visual Studio 2017. In Visual Studio 2017, the Azure development workload installs Azure Functions Tools as a separate extension. In Visual Studio 2019 and later, the Azure Functions tools extension is updated as part of Visual Studio. 
+
+When you update your Visual Studio 2017 installation, make sure that you're using the [most recent version](#check-your-tools-version) of the Azure Functions Tools. The following sections show you how to check and (if needed) update your Azure Functions Tools extension in Visual Studio 2017.
+
+### <a name="check-your-tools-version"></a>Check your tools version in Visual Studio 2017
+
+1. From the **Tools** menu, choose **Extensions and Updates**. Expand **Installed** > **Tools**, and then choose **Azure Functions and Web Jobs Tools**.
+
+    ![Verify the Functions tools version](./media/functions-develop-vs/functions-vstools-check-functions-tools.png)
+
+1. Note the installed **Version** and compare this version with the latest version listed in the [release notes](https://github.com/Azure/Azure-Functions/blob/master/VS-AzureTools-ReleaseNotes.md). 
+
+1. If your version is older, update your tools in Visual Studio as shown in the following section.
+
+### Update your tools in Visual Studio 2017
+
+1. In the **Extensions and Updates** dialog, expand **Updates** > **Visual Studio Marketplace**, choose **Azure Functions and Web Jobs Tools** and select **Update**.
+
+    ![Update the Functions tools version](./media/functions-develop-vs/functions-vstools-update-functions-tools.png)   
+
+1. After the tools update is downloaded, select **Close**, and then close Visual Studio to trigger the tools update with VSIX Installer.
+
+1. In VSIX Installer, choose **Modify** to update the tools. 
+
+1. After the update is complete, choose **Close**, and then restart Visual Studio.
 
 ## Next steps
 
