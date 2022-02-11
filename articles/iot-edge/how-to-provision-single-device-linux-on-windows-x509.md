@@ -211,6 +211,9 @@ Verify that IoT Edge for Linux on Windows was successfully installed and configu
 
 When you create a new IoT Edge device, it will display the status code `417 -- The device's deployment configuration is not set` in the Azure portal. This status is normal, and means that the device is ready to receive a module deployment.
 
+<!-- Uninstall IoT Edge for Linux on Windows H2 and content -->
+[!INCLUDE [uninstall-iot-edge-linux-on-windows.md](../../includes/iot-edge-uninstall-linux-on-windows.md)]
+
 ## Next steps
 
 * Continue to [deploy IoT Edge modules](how-to-deploy-modules-portal.md) to learn how to deploy modules onto your device.
