@@ -37,6 +37,9 @@ Resource Logs aren't collected and stored until you create a diagnostic setting 
 
 See [Create diagnostic setting to collect platform logs and metrics in Azure](../azure-monitor/essentials/diagnostic-settings.md) for the detailed process for creating a diagnostic setting using the Azure portal, CLI, or PowerShell. When you create a diagnostic setting, you specify which categories of logs to collect. The categories for Azure Service Bus are listed in [Azure Service Bus monitoring data reference](monitor-service-bus-reference.md#resource-logs).
 
+> [!NOTE]
+> Azure Monitor doesn't include dimensions in the exported metrics data that's sent to a destination (Azure Storage, Azure Event Hubs, or Log Analytics).
+
 ### Azure Storage 
 The diagnostic logging information is stored in containers named **insights-logs-operationlogs** and **insights-metrics-pt1m**.
 
@@ -108,8 +111,7 @@ For metrics that support dimensions, you can apply filters using a dimension val
 Using Azure Monitor Log Analytics requires you to create a diagnostic configuration and enable __Send information to Log Analytics__. For more information, see the [Collection and routing](#collection-and-routing) section. Data in Azure Monitor Logs is stored in tables, with each table having its own set of unique properties. Azure Service Bus stores data in the following tables: **AzureDiagnostics** and **AzureMetrics**.
 
 > [!IMPORTANT]
-> - When you select **Logs** from the Azure Service Bus menu, Log Analytics is opened with the query scope set to the current workspace. This means that log queries will only include data from that resource. If you want to run a query that includes data from other databases or data from other Azure services, select **Logs** from the **Azure Monitor** menu. See [Log query scope and time range in Azure Monitor Log Analytics](../azure-monitor/logs/scope.md) for details.
-> - Dimensions aren't exported to a Log Analytics workspace. 
+> When you select **Logs** from the Azure Service Bus menu, Log Analytics is opened with the query scope set to the current workspace. This means that log queries will only include data from that resource. If you want to run a query that includes data from other databases or data from other Azure services, select **Logs** from the **Azure Monitor** menu. See [Log query scope and time range in Azure Monitor Log Analytics](../azure-monitor/logs/scope.md) for details.
 
 
 For a detailed reference of the logs and metrics, see [Azure Service Bus monitoring data reference](monitor-service-bus-reference.md).

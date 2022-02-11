@@ -10,6 +10,9 @@ ms.date: 01/20/2022
 # Monitoring Azure Event Hubs data reference
 See [Monitoring Azure Event Hubs](monitor-event-hubs.md) for details on collecting and analyzing monitoring data for Azure Event Hubs.
 
+> [!NOTE]
+> Azure Monitor doesn't include dimensions in the exported metrics data that's sent to a destination (Azure Storage, Azure Event Hubs, or Log Analytics).
+
 ## Metrics
 This section lists all the automatically collected platform metrics collected for Azure Event Hubs. The resource provider for these metrics is **Microsoft.EventHub/clusters** or **Microsoft.EventHub/clusters**.
 
