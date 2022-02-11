@@ -71,9 +71,9 @@ Enabling predictive autoscale or forecast only with Azure Portal
 
 6. You see three charts:
 
-    :::image type="content" source="media/autoscale-predictive/predictive-charts-6.png" alt-text="three predictive autoscale charts":::
+    :::image type="content" source="media/autoscale-predictive/predictive-charts-6.png" alt-text="three predictive autoscale charts" lightbox="media/autoscale-predictive/predictive-charts-6.png":::
 
-- The top chart shows an overlaid comparison of actual vs predicted total CPU percentage. The timespan of the graph shown is from the last 48 hours to the next 24 hours.
+- The top chart shows an overlaid comparison of actual vs predicted total CPU percentage. The timespan of the graph shown is from the last 24 hours to the next 24 hours.
 - The second chart shows the number of instances running at specific times over the last 24 hours.
 - The third chart shows the current Average CPU utilization over the last 24 hours.
 
