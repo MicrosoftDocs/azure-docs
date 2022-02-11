@@ -125,7 +125,8 @@ The **AllowMultipleStatelessInstancesOnNode** placement policy allows placement 
 
 If you've ever seen a health message such as "`The Load Balancer has detected a Constraint Violation for this Replica:fabric:/<some service name> Secondary Partition <some partition ID> is violating the Constraint: ReplicaExclusion`", then you've hit this condition or something like it. 
 
-To opt-in to apply this placement policy onto your service, please enable the following configurations:
+To opt in to apply this placement policy on your service, enable the following configurations:
+
 ```xml
 <Section Name="Common">
   <Parameter Name="AllowCreateUpdateMultiInstancePerNodeServices" Value="True" />
