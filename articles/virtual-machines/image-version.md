@@ -164,7 +164,7 @@ Image definitions create a logical grouping for images. When making your image d
 
 For more information about the values you can specify for an image definition, see [Image definitions](./shared-image-galleries.md#image-definitions).
 
-Create the image definition using [New-AzGalleryImageDefinition](/powershell/module/az.compute/new-azgalleryimageversion). 
+Create the image definition using [New-AzGalleryImageDefinition](/powershell/module/az.compute/new-azgalleryimagedefinition). 
 
 In this example, the image definition is named *myImageDefinition*, and is for a specialized VM running Windows. To create a definition for images using Linux, use `-OsType Linux`. 
 
