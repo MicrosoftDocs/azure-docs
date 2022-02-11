@@ -14,7 +14,7 @@ ms.devlang: golang
 
 In this quickstart, you'll learn to use the Azure SDK for Go to create, retrieve, update, list, and delete Azure Key Vault keys.
 
-Azure Key Vault is a cloud service that works as a secure secrets store. You can securely store keys, passwords, certificates, and other secrets. For more information on Key Vault you may review the [Overview](azure/key-vault/general/overview). 
+Azure Key Vault is a cloud service that works as a secure secrets store. You can securely store keys, passwords, certificates, and other secrets. For more information on Key Vault, you may review the [Overview](azure/key-vault/general/overview). 
 
 Follow this guide to learn how to use the [azkeys](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/keyvault/azkeys) package to manage your Azure Key Vault keys using Go.
 
@@ -25,7 +25,7 @@ Follow this guide to learn how to use the [azkeys](https://pkg.go.dev/github.com
 - [Azure CLI](/cli/azure/install-azure-cli)
 
 
-## Setup your environment
+## Set up your environment
 
 1. Sign into Azure.
 
@@ -172,7 +172,7 @@ Successfully deleted key https://quickstart-kv.vault.azure.net/keys/new-rsa-key4
 
 ## Code examples
 
-These code examples show how to create a key client, create a key vault RSA and EC key, retrieve a key, list keys, update a key property, and delete a key.
+These code examples show how to create, retrieve, list, update key properties, and delete a key from Azure Key Vault.
 
 **Authenticate and create a client**
 
