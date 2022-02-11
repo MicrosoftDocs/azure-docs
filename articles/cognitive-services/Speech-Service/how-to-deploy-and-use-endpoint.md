@@ -14,7 +14,7 @@ ms.author: caoling
 
 # Deploy and use your voice model
 
-After you've successfully created and trained your voice model, you deploy it to a custom text-to-speech endpoint. Use the custom model endpoint instead of the usual endpoint when you're making text-to-speech requests through the REST API. The subscription that you've used to deploy the model is the only one that can call your custom endpoint.
+After you've successfully created and trained your voice model, you deploy it to a custom neural voice endpoint. Use the custom neural voice endpoint instead of the usual text-to-speech endpoint for requests with the REST API. Use the speech studio to create a custom neural voice endpoint. Use the REST API to suspend or resume a custom neural voice endpoint. 
 
 ## Create a custom neural voice endpoint
 
@@ -77,7 +77,7 @@ This section describes how to suspend or resume a custom neural voice endpoint i
 
 #### Suspend endpoint
 
-1. To suspend and deactivate your endpoint, select **Suspend** from the **Deploy** tab in [Speech Studio](https://aka.ms/custom-voice-portal).
+1. To suspend and deactivate your endpoint, select **Suspend** from the **Deploy model** tab in [Speech Studio](https://aka.ms/custom-voice-portal).
 
    :::image type="content" source="media/custom-voice/cnv-endpoint-suspend.png" alt-text="Screenshot of the select suspend endpoint option":::
 
@@ -85,7 +85,7 @@ This section describes how to suspend or resume a custom neural voice endpoint i
 
 #### Resume endpoint
 
-1. To resume and activate your endpoint, select **Resume** from the **Deploy** tab in [Speech Studio](https://aka.ms/custom-voice-portal).
+1. To resume and activate your endpoint, select **Resume** from the **Deploy model** tab in [Speech Studio](https://aka.ms/custom-voice-portal).
 
    :::image type="content" source="media/custom-voice/cnv-endpoint-resume.png" alt-text="Screenshot of the select resume endpoint option":::
 
@@ -112,7 +112,7 @@ Get the endpoint by endpoint ID. The operation returns details about an endpoint
 
 For example, you might want to track the status progression for [suspend](#suspend-endpoint) or [resume](#resume-endpoint) operations. Use the `status` property in the response payload to determine the status of the endpoint.
 
-The possible ``status` property values are:
+The possible `status` property values are:
 
 | Status | Description |
 | ------------- | ------------------------------------------------------------ |
@@ -120,7 +120,7 @@ The possible ``status` property values are:
 | `Running` | The endpoint is in the process of being deployed or resumed, and it's not available for speech synthesis. |
 | `Succeeded` | The endpoint is active and available for speech synthesis. The endpoint has been deployed or the resume operation succeeded. |
 | `Failed` | The endpoint deploy or suspend operation failed. The endpoint can only be viewed or deleted in [Speech Studio](https://aka.ms/custom-voice-portal).|
-| `Disabling` | The endpoint is in the process of being deployed, and it's not available for speech synthesis. |
+| `Disabling` | The endpoint is in the process of being suspended, and it's not available for speech synthesis. |
 | `Disabled` | The endpoint is inactive, and it's not available for speech synthesis. The suspend operation succeeded or the resume operation failed. |
 
 > [!Tip]
@@ -147,7 +147,7 @@ curl -v -X GET "https://<YourServiceRegion>.customvoice.api.speech.microsoft.com
 Response header example:
 
 ```
-Status code: 202 OK
+Status code: 200 OK
 ```
 
 Response body example:
