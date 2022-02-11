@@ -68,7 +68,7 @@ First, ensure that your private endpoint connections are enabled and configured.
 1. Go to the **Firewalls and virtual network** pane of your Azure SQL logical server.    
 1. Select the **Deny public network access** checkbox.
 
-   ![Screenshot that shows selecting the Deny public network access option.](./media/private-endpoint/pec-deny-public-access.png)
+![Screenshot that shows selecting the Deny public network access option.](./media/private-endpoint/pec-deny-public-access.png)
 
 ## Test connectivity to SQL Database from an Azure VM in same virtual network
 For this scenario, assume you've created an Azure Virtual Machine (VM) running a recent version of Windows in the same virtual network as the private endpoint.
