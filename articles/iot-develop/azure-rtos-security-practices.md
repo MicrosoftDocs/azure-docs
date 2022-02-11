@@ -14,7 +14,7 @@ ms.date: 11/11/2021
 
 This article contains guidance to help you implement security measures on devices that you build using Azure RTOS. Azure RTOS is middleware. It incorporates many features that can help you build secure devices. However, the security of your devices will depend heavily on your choice of hardware and your implementation of secure firmware. The measures in this topic are primarily meant for devices that connect directly to the internet 
 
-Microsoft recommends an approach based on the principle of zero-trust when designing IoT devices. We highly recommend reading the [Zero Trust: Cyber security for IoT](https://azure.microsoft.com/mediahandler/files/resourcefiles/zero-trust-cybersecurity-for-the-internet-of-things/Zero%20Trust%20Security%20Whitepaper_4.30_3pm.pdf) whitepaper as a prerequisite to this article. This brief paper outlines several categories to consider when implementing security across an IoT ecosystem with an emphasis on device security.
+Microsoft recommends an approach based on the principle of *Zero Trust* when designing IoT devices. We highly recommend reading the [Zero Trust: Cyber security for IoT](https://azure.microsoft.com/mediahandler/files/resourcefiles/zero-trust-cybersecurity-for-the-internet-of-things/Zero%20Trust%20Security%20Whitepaper_4.30_3pm.pdf) whitepaper as a prerequisite to this article. This brief paper outlines several categories that should be considered when implementing security across an IoT ecosystem with an emphasis on device security.
 
 For devices, the categories of Zero Trust are:
  - Strong identity
@@ -27,7 +27,7 @@ Following are brief discussions of these categories.
 
 - **Strong identity**
 
-  - *Hardware root of trust (RoT)* A strong, hardware-based identity. This identity should be immutable and backed by hardware isolation and protection mechanisms.
+  - *Hardware Root of Trust (RoT)* A strong, hardware-based identity. This identity should be immutable and backed by hardware isolation and protection mechanisms.
 
   - *Password-less authentication* is often achieved using X.509 certificates and asymmetric cryptography, where private keys are secured and isolated in hardware. Password-less authentication should be used both for the device identity often used in onboarding and/or attestation scenarios, and the device's operational identity with other cloud services.
 
@@ -303,7 +303,7 @@ Make use of any features for signing and verifying code or credential updates. C
 
 ## Embedded Security Components – Protocols
 
-Protocols topics in this section:
+Protocol topics in this section:
  - Use the latest version of TLS possible for connectivity
  - Use X.509 Certificates for TLS authentication
  - Use strongest cryptographic options and cipher suites for TLS
