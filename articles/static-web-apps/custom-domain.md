@@ -11,6 +11,14 @@ ms.author: cshoe
 
 # Custom domains with Azure Static Web Apps
 
+TODO
+
+alias record
+TXT record
+cname record
+
+If GoDaddy or Google, you can manage your registration from those providers, but use Azure DNS to manage DNS records.
+
 ## Next steps
 
 > [!div class="nextstepaction"]

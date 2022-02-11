@@ -63,10 +63,18 @@
     - name: Add a custom domain
       items:
       - name: Use Azure DNS
-        href: custom-domain.md
+        items:
+        - name: Set up a custom domain
+          href: custom-domain-azure-dns.md
+        - name: Set up the apex domain
+          href: apex-domain-azure-dns.md
       - name: Use an external provider
-        href: custom-domain-external.md
-      - name: Manage default domain
+        items:
+        - name: Set up a custom domain
+          href: custom-domain-external.md
+        - name: Set up the apex domain
+          href: apex-domain-external.md
+      - name: Set up the apex domain
         href: custom-domain-default.md
     - name: Security
       items:
