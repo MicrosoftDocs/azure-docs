@@ -41,7 +41,7 @@ To *create* these resources, you need to be an Azure Owner or Contributor on the
 
 An Azure Owner or Contributor can enable or disable Azure AD-only authentication for Azure Synapse workspaces. For more information on Azure AD-only authentication, see [Disabling local authentication in Azure Synapse Analytics](../sql/active-directory-authentication.md).
 
-### Developing and executing code in Synapse 
+### Develop and execute code in Azure Synapse 
 Synapse supports two development models.
 
 - **Synapse live development**. You develop and debug code in Synapse Studio and then **publish** it to save and execute.  The Synapse service is the source of truth for code editing and execution.  Any unpublished work is lost when you close Synapse Studio.  
