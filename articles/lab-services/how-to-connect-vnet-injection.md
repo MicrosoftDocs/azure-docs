@@ -57,7 +57,7 @@ Only one lab plan at a time can be delegated for use with one subnet.
 
 1. Verify  the lab plan service appears in the **Delegated to** column.  Verify the NSG appears in the **Security group** column.
 
-   :::image type="content" source="./media/how-to-connect-vnet-injection/delegated-subnet.png" alt-text="Screenshot of list of subnets for a virtual network.  The Delegated to and Security group columns are highlighted.":::
+   :::image type="content" source="./media/how-to-connect-vnet-injection/delegated-subnet.png" alt-text="Screenshot of list of subnets for a virtual network.  The Delegated to and Security group columns are highlighted." lightbox="./media/how-to-connect-vnet-injection/delegated-subnet.png":::
 
 ## Connect the virtual network during lab plan creation
 
