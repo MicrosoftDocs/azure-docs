@@ -12,7 +12,7 @@ ms.custom: template-how-to
 
 # Collect the required information for a site
 
-Azure Private 5G Core private mobile networks include one or more sites. Each site represents a physical enterprise location (for example, Contoso Corporation's Chicago factory) containing an Azure Stack Edge device that hosts a packet core instance. This how-to guide takes you through the process of collecting the information you'll need to create a new site. You'll use this information to complete the steps in [Create a site](create-an-additional-site.md).
+Azure Private 5G Core private mobile networks include one or more sites. Each site represents a physical enterprise location (for example, Contoso Corporation's Chicago factory) containing an Azure Stack Edge device that hosts a packet core instance. This how-to guide takes you through the process of collecting the information you'll need to create a new site. You'll use this information to complete the steps in [Create a site](create-a-site.md).
 
 ## Prerequisites
 
@@ -70,4 +70,4 @@ Collect all the values in the following table to define the packet core instance
 
 You can now use the information you've collected to create the site.
 
-- [Create a site](create-an-additional-site.md)
+- [Create a site](create-a-site.md)
