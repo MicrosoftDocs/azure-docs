@@ -163,6 +163,12 @@ The following table lists the supported Spring Boot and Spring Cloud combination
 
 ---
 
+| Spring Boot version<br/>Basic/Standard | Spring Cloud version<br/>Basic/Standard | Spring Boot version<br/>Enterprise | Spring Cloud version<br>Enterprise |
+|----------------------------------------|-----------------------------------------|------------------------------------|------------------------------------|
+| not applicable                         | not applicable                          | 2.4.x                              | 2020.0+ aka Ilford+                |
+| 2.5.x                                  | 2020.0+ aka Ilford+                     | 2.5.x                              | 2020.0+ aka Ilford+                |
+| 2.6.x                                  | 2021.0.0+                               | 2.6.x                              | 2021.0.0+                          |
+
 For more information, see the following support pages:
 
 * [Spring Boot support](https://spring.io/projects/spring-boot#support)
@@ -176,7 +182,7 @@ For more information, see the following support pages:
 
 ### Dependencies for Spring Boot version 2.4/2.5/2.6
 
-For Spring Boot version 2.4/2.5 add the following dependencies to the application POM file.
+For Spring Boot version 2.4/2.5, add the following dependencies to the application POM file.
 
 ```xml
     <!-- Spring Boot dependencies -->
@@ -200,7 +206,7 @@ For Spring Boot version 2.4/2.5 add the following dependencies to the applicatio
     </dependencyManagement>
 ```
 
-For Spring Boot version 2.6 add the following dependencies to the application POM file.
+For Spring Boot version 2.6, add the following dependencies to the application POM file.
 
 ```xml
     <!-- Spring Boot dependencies -->
