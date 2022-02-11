@@ -26,7 +26,7 @@ Before you start, it's important to familiarize yourself with the following arti
 
 To use a custom domain and your tenant ID in the authentication URL, follow the guidance in [Enable custom domains](custom-domain.md). Under the project root folder, open the *.env* file. This file contains information about your Azure AD B2C identity provider.
 
-In the *.env* file, do the following:
+In the `.env` file of your web app, do the following:
 
 - Replace all instances of `tenant-name.b2clogin.com` with your custom domain. For example, replace `tenant-name.b2clogin.com`, to `login.contoso.com`.
 - Replace all instances of `tenant-name.onmicrosoft.com` with your [tenant ID](tenant-management.md#get-your-tenant-id). For more information, see [Use tenant ID](custom-domain.md#optional-use-tenant-id).
@@ -56,6 +56,32 @@ APP_REDIRECT_URI=http://localhost:3000/redirect
 #Logout endpoint 
 LOGOUT_ENDPOINT=https://login.contoso.com/12345678-0000-0000-0000-000000000000/B2C_1_susi/oauth2/v2.0/logout?post_logout_redirect_uri=http://localhost:3000
 ``` 
+
+In the `index.js` file of your web API, do the following:
+
+- Replace all instances of `tenant-name.b2clogin.com` with your custom domain. For example, replace `tenant-name.b2clogin.com`, to `login.contoso.com`.
+
+- Replace all instances of `tenant-name.onmicrosoft.com` with your [tenant ID](tenant-management.md#get-your-tenant-id). For more information, see [Use tenant ID](custom-domain.md#optional-use-tenant-id).
+
+The following configuration shows the app settings before the change: 
+
+```javascript
+const options = {
+    identityMetadata: `https://${config.credentials.tenantName}.b2clogin.com/${config.credentials.tenantName}.onmicrosoft.com/${config.policies.policyName}/${config.metadata.version}/${config.metadata.discovery}`,
+    clientID: config.credentials.clientID,
+    ......
+}
+```
+
+The following configuration shows the app settings after the change: 
+
+```javascript
+const options = {
+    identityMetadata: `https://login.contoso.com/12345678-0000-0000-0000-000000000000/${config.policies.policyName}/${config.metadata.version}/${config.metadata.discovery}`,
+    clientID: config.credentials.clientID,
+    ......
+}
+```
 
 [!INCLUDE [active-directory-b2c-app-integration-login-hint](../../includes/active-directory-b2c-app-integration-login-hint.md)]
 
