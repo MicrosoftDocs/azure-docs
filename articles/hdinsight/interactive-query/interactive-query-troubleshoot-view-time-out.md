@@ -72,7 +72,9 @@ The Hive View default timeout value may not be suitable for the query you are ru
    ```
    
 ## Notes
-If you get a 502 error timing out at 2 mins (web request trace), then that is coming from the HDI gateway. The query is not suited for Hive View. It is recommended that you either try the following instead:
+If you get a 502 error, then that is coming from the HDI gateway. You can confirm by opening web inspector, go to network tab, then re-submit query. You'll see a request fail, returning a 502 status code, and the time will show 2 mins elapsed.
+
+The query is not suited for Hive View. It is recommended that you either try the following instead:
 - Use beeline
 - Re-write the query to be more optimal
 
