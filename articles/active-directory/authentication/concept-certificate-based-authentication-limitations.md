@@ -40,7 +40,7 @@ The following scenarios aren't supported:
 - Certificate Authority hints aren't supported, so the list of certificates that appears for users in the UI isn't scoped.
 - Windows login using smart cards on Windows devices.
 - Only one Certificate Distribution Point for a trusted CA is supported.
-- The Certificate Distribution Point can be only HTTP URLs. We don't support Online Certificate Status Protocol (OSCP), or Lightweight Directory Access Protocol (LDAP) URLs.
+- The Certificate Distribution Point can be only HTTP URLs. We don't support Online Certificate Status Protocol (OCSP), or Lightweight Directory Access Protocol (LDAP) URLs.
 - Configuring other certificate-to-user account bindings, such as using the **subject field**, or **keyid** and **issuer**, aren’t available in this release.
 - Currently, password can't be disabled when CBA is enabled and the option to sign in using a password is displayed.
 
