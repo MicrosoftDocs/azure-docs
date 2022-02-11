@@ -50,6 +50,7 @@ resourcegroup="<your-resource-group-name>"
 ## Azure Digital Twins Setup
 # Instance name can contain letters, numbers, and hyphens. It must start and end with a letter or number, and be between 4 and 62 characters long.
 dtname="<name-for-your-digital-twins-instance>"
+# Connection name can contain letters, numbers, and hyphens. It must contain at least one letter, and be between 3 and 50 characters long.
 connectionname="<name-for-your-data-history-connection>"
 
 ## Event Hub Setup
