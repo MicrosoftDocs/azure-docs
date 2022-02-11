@@ -2,7 +2,7 @@
 title: Monitor Azure Service Bus with Azure Monitor insights
 description: This article describes the Service Bus insights feature of Azure Monitor that provides Service Bus consumers with a quick understanding of performance issues.
 ms.topic: conceptual
-ms.date: 11/16/2021
+ms.date: 02/10/2022
 
 ---
 
@@ -62,7 +62,7 @@ The **Overview** page shows you the following values and also the timeline for a
 |Successful Requests| The number of successful requests made to the Service Bus service over a specified period. |
 |Throttled Requests| The number of requests that were throttled because the usage was exceeded. |  
 
-For more information about these metrics, see [Service Bus metrics](../../service-bus-messaging/monitor-service-bus-reference.md).
+For more information about these metrics, see [Service Bus metrics](monitor-service-bus-reference.md).
 
 Selecting the Service Bus resource name highlighted in blue will take you to the default **Overview** for that resource. 
 
@@ -82,7 +82,7 @@ This page shows you the following values and also the timeline for incoming requ
 |Server Errors| The number of requests not processed because of an error in the Service Bus service over a specified period. |
 |User Errors | The number of requests not processed because of user errors over a specified period. |
 
-For more information about these metrics, see [Service Bus - request metrics](../../service-bus-messaging/monitor-service-bus-reference.md#request-metrics).
+For more information about these metrics, see [Service Bus - request metrics](monitor-service-bus-reference.md#request-metrics).
 
 
 ### Messages
@@ -100,7 +100,7 @@ This page shows you the following values and also the timeline for incoming mess
 | Messages| Count of messages in a queue/topic. | 
 | Scheduled messages| Count of scheduled messages in a queue/topic. |
 
-For more information about these metrics, see [Service Bus - message metrics](../../service-bus-messaging/monitor-service-bus-reference.md#message-metrics).
+For more information about these metrics, see [Service Bus - message metrics](monitor-service-bus-reference.md#message-metrics).
 
 
 ## View from a Service Bus resource
@@ -113,7 +113,7 @@ For more information about these metrics, see [Service Bus - message metrics](..
 You see the same tabs (**Overview**, **Requests**, and **Messages**) on this page, similar to the ones you see on the **Azure Monitor - Service Bus (Preview)** page. You'll see more information on these tabs compared to the ones on the Azure Monitor page though. 
 
 > [!NOTE]
-> For more information about metrics you see on this page, see [Service Bus metrics](../../service-bus-messaging/monitor-service-bus-reference.md).
+> For more information about metrics you see on this page, see [Service Bus metrics](monitor-service-bus-reference.md).
 
 ### Overview tab
 You see the following information for the Service Bus **namespace** for the selected **time range**: number of active connections, connections opened, successful requests, throttled requests, and incoming messages.
