@@ -39,8 +39,8 @@ The following scenarios aren't supported:
 - Public Key Infrastructure for creating client certificates. Customers need to configure their own Public Key Infrastructure (PKI) and provision certificates to their users and devices. 
 - Certificate Authority hints aren't supported, so the list of certificates that appears for users in the UI isn't scoped.
 - Windows login using smart cards on Windows devices.
-- Only one Certificate Distribution Point for a trusted CA is supported.
-- The Certificate Distribution Point can be only HTTP URLs. We don't support Online Certificate Status Protocol (OSCP), or Lightweight Directory Access Protocol (LDAP) URLs.
+- Only one CRL Distribution Point for a trusted CA is supported.
+- The CRL Distribution Point can be only HTTP URLs. We don't support Online Certificate Status Protocol (OSCP), or Lightweight Directory Access Protocol (LDAP) URLs.
 - Configuring other certificate-to-user account bindings, such as using the **subject field**, or **keyid** and **issuer**, aren’t available in this release.
 - Currently, password can't be disabled when CBA is enabled and the option to sign in using a password is displayed.
 
