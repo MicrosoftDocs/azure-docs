@@ -46,7 +46,7 @@ As an Azure Purview administrator or Azure Purview data-source admin, I want to 
 
 ### Configure Azure Event Hubs
 
-1. Create an [Azure Event Hubs Namespace and an Azure event hub using Azure ARM Template (GitHubs)](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.eventhub/eventhubs-create-namespace-and-enable-capture). While this automated Azure ARM Template will deploy and finish creating your Event Hubs with the required configuration at t; follow these guides for more detailed step by step explanantions and manual setup: [Azure Event Hubs: Use Azure Resource Manager Template to enable eventhub capture](../event-hubs/event-hubs-resource-manager-namespace-event-hub-enable-capture.md) and [Azure Event Hubs: Enable capturing of events streaming manually using Azure Portal](../event-hubs/event-hubs-capture-enable-through-portal.md)
+1. Create an [Azure Event Hubs Namespace and an Azure event hub using Azure ARM Template (GitHubs)](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.eventhub/eventhubs-create-namespace-and-enable-capture). While this automated Azure ARM Template will deploy and finish creating your Event Hubs with the required configuration at t; follow these guides for more detailed step by step explanantions and manual setup: [Azure Event Hubs: Use Azure Resource Manager Template to enable eventhub capture](../event-hubs/event-hubs-resource-manager-namespace-event-hub-enable-capture.md) and [Azure Event Hubs: Enable capturing of events streaming manually using Azure portal](../event-hubs/event-hubs-capture-enable-through-portal.md)
 
 ### Connect Purview Account to Diagnostics Event Hubs
 
@@ -58,7 +58,7 @@ As an Azure Purview administrator or Azure Purview data-source admin, I want to 
 
 :::image type="content" source="./media/tutorial-purview-audit-logs-diagnostics/E.png" alt-text="Click Azure Purview Diagnostic Settings" lightbox="./media/tutorial-purview-audit-logs-diagnostics/E.png":::
 
-- Click "Add Diagnostic Settings" or "Edit Setting". Adding more than one row of diagnostic setting in the context of Purview is not recommended. In other words, if you already have a dignostic setting row added, do not click "Add Diagnostic"; click "Edit" instead.
+- Click "Add Diagnostic Settings" or "Edit Setting". Adding more than one row of diagnostic setting in the context of Purview is not recommended. In other words, if you already have a dignostic setting row added, don't click "Add Diagnostic"; click "Edit" instead.
 
 :::image type="content" source="./media/tutorial-purview-audit-logs-diagnostics/F.png" alt-text="Add or Edit Diagnostic Settings screen." lightbox="./media/tutorial-purview-audit-logs-diagnostics/F.png":::
 
@@ -68,7 +68,7 @@ As an Azure Purview administrator or Azure Purview data-source admin, I want to 
 
 - Diagnostics Configuration on the Azure Purview account is complete at this stage. 
 
-- Next, go to [Azure Portal](https://portal.azure.com) home page and search the name of the Event Hubs Namespace you created in *Step-1*.
+- Next, go to [Azure portal](https://portal.azure.com) home page and search the name of the Event Hubs Namespace you created in *Step-1*.
 
 - Navigate to the Event Hubs Namespace and then consequently the event hub and click "Capture Data". 
 
@@ -76,7 +76,7 @@ As an Azure Purview administrator or Azure Purview data-source admin, I want to 
 
 :::image type="content" source="./media/tutorial-purview-audit-logs-diagnostics/H.png" alt-text="Capture Settings on Event Hubs Namespace and event hub." lightbox="./media/tutorial-purview-audit-logs-diagnostics/H.png":::
 
-- Optionally, go to "Properties" on the left navigation menu and change the "Message Retention" to any value between 1-7 days. This depends on the frequency of scheduled jobs/scripts you have created to continuously listen and capture the streaming events. If you schedule a capture once every week, take the slider to 7 days.
+- Optionally, go to "Properties" on the left navigation menu and change the "Message Retention" to any value between 1-7 days. This depends on the frequency of scheduled jobs/scripts you've created to continuously listen and capture the streaming events. If you schedule a capture once every week, take the slider to 7 days.
 
 :::image type="content" source="./media/tutorial-purview-audit-logs-diagnostics/I.png" alt-text="Event Hubs properties - message retention period." lightbox="./media/tutorial-purview-audit-logs-diagnostics/I.png":::
 
