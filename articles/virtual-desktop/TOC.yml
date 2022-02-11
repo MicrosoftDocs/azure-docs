@@ -91,8 +91,6 @@
         href: azure-stack-hci-faq.yml
   - name: Tag Azure Virtual Desktop resources
     href: tag-virtual-desktop-resources.md
-  - name: Compare Azure Virtual Desktop with Windows 365
-    href: compare-virtual-desktop-windows-365.md
 - name: How-to guides
   items:
   - name: Migrate your deployment
