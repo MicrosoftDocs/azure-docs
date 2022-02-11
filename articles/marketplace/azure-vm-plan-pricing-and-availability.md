@@ -19,7 +19,7 @@ On this pane, you configure:
 
 ### Markets
 
-Every plan must be available in at least one market. Most markets are selected by default. To edit the list, select **Edit markets** and select or clear check boxes for each market location where this plan should (or shouldn't) be available for purchase. Users in selected markets can still deploy the offer to all Azure regions selected in the ["Plan setup"](#plan-setup) section.
+Every plan must be available in at least one market. Most markets are selected by default. To edit the list, select **Edit markets** and select or clear check boxes for each market location where this plan should (or shouldn't) be available for purchase. Users in selected markets can still deploy the offer to all Azure regions selected in the ["Plan setup"](azure-vm-plan-plan-setup.md) section.
 
 Select **Select only Microsoft Tax Remitted** to select only countries/regions in which Microsoft remits sales and use tax on your behalf. Publishing to China is limited to plans that are either *Free* or *Bring-your-own-license* (BYOL).
 
@@ -83,4 +83,4 @@ Select **Save draft** before continuing to the next tab in the left-nav Plan men
 
 ## Next step
 
-- [Technical configuration](azure-vm-technical-configuration.md)
+- [Technical configuration](azure-vm-plan-technical-configuration.md)
