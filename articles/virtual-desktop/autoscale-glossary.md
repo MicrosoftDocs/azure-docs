@@ -20,7 +20,7 @@ Autoscale is Azure Virtual Desktop’s native scaling service that turns VMs on 
 
 ## Scaling tool
 
-Azure Virtual Desktop’s scaling tool using Azure Automation and Logic Apps based on the number of sessions per CPU core. 
+Azure Virtual Desktop’s scaling tool uses Azure Automation and Azure Logic Apps to scale the amount of active VMs throughout the day to maximize performance. The scaling tool shuts down and deallocates session host VMs during off-peak usage hours, then turns them back on and reallocates them during peak hours.
 
 ## Scaling plan
 
