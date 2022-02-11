@@ -3,7 +3,7 @@ title: Scale session hosts Azure Automation - Azure
 description: How to automatically scale Azure Virtual Desktop session hosts with Azure Automation.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 03/09/2021
+ms.date: 02/10/2022
 ms.author: helohr
 manager: femila
 ---
@@ -112,11 +112,16 @@ First, you'll need an Azure Automation account to run the PowerShell runbook. Th
     .\CreateOrUpdateAzAutoAccount.ps1 @Params
     ```
 
+    >[!NOTE]
+    >If your policy doesn't let you create scaling script resources in a specific region, update the policy assignment and add the region you want to the list of allowed regions.
+
 5. If you haven't created an automation account before, the cmdlet's output will include a webhook URI that is encrypted in the automation account variable. Make sure to keep a record of the URI because you'll use it as a parameter when you set up the execution schedule for the Azure Logic App. If you are updating an existing automation account, you can retrieve the webhook URI using [PowerShell to access variables](../automation/shared-resources/variables.md#powershell-cmdlets-to-access-variables).
 
-6. If you specified the parameter **WorkspaceName** for Log Analytics, the cmdlet's output will also include the Log Analytics Workspace ID and its Primary Key. Make sure to remember URI because you'll need to use it again later as a parameter when you set up the execution schedule for the Azure Logic App.
+6. The cmdlet's output will include a webhook URI. Make sure to keep a record of the URI because you'll use it as a parameter when you set up the execution schedule for the Azure Logic App.
 
-7. After you've set up your Azure Automation account, sign in to your Azure subscription and check to make sure your Azure Automation account and the relevant runbook have appeared in your specified resource group, as shown in the following image:
+7. If you specified the parameter **WorkspaceName** for Log Analytics, the cmdlet's output will also include the Log Analytics Workspace ID and its Primary Key. Make sure to remember URI because you'll need to use it again later as a parameter when you set up the execution schedule for the Azure Logic App.
+
+8. After you've set up your Azure Automation account, sign in to your Azure subscription and check to make sure your Azure Automation account and the relevant runbook have appeared in your specified resource group, as shown in the following image:
 
     >[!div class="mx-imgBorder"]
     >![An image of the Azure overview page showing the newly created Azure Automation account and runbook.](media/automation-account.png)
@@ -143,7 +148,7 @@ To create a Run As account in your Azure Automation account:
 
 5. Wait a few minutes for Azure to create the Run As account. You can track the creation progress in the menu under Notifications.
 
-6. When the process finishes, it will create an asset named **AzureRunAsConnection** in the specified Azure Automation account. Select **Azure Run As account**. The connection asset holds the application ID, tenant ID, subscription ID, and certificate thumbprint. You can also find the same information on the **Connections** page. To go to this page, in the pane on the left side of the window, select **Connections** under the **Shared Resources** section and click on the connection asset named **AzureRunAsConnection**.
+6. When the process finishes, it will create an asset named **AzureRunAsConnection** in the specified Azure Automation account. Select **Azure Run As account**. The connection asset holds the application ID, tenant ID, subscription ID, and certificate thumbprint. You can also find the same information on the **Connections** page. To go to this page, in the pane on the left side of the window, select **Connections** under the **Shared Resources** section and select the connection asset named **AzureRunAsConnection**.
 
 ## Create the Azure Logic App and execution schedule
 
