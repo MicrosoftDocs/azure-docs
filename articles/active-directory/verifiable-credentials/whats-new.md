@@ -33,7 +33,7 @@ We are rolling out some important updates to our service that are breaking chang
 
 Since the beginning of the Azure AD Verifiable Credentials service public preview, the service has only been available in our Azure North America region. Now, the service is also available in our Azure Europe region.
 
-- Customers with Azure AD European tenants now have their Verifiable Credentials data located and processed in our Azure Europe region.
+- New customers with Azure AD European tenants now have their Verifiable Credentials data located and processed in our Azure Europe region.
 - Customers with Azure AD tenants setup in Europe who start using the Azure AD Verifiable Credentials service after February 15, 2022, have their data automatically processed in Europe and don't need to take any further actions.
 - Customers with Azure AD tenants setup in Europe that started using the Azure AD Verifiable Credentials service before February 15, 2022, are required to reconfigure the service on their tenants before March 31, 2022.
 
