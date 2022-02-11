@@ -27,7 +27,7 @@ Kerberos authentication in Azure AD enables:
 
 - Traditional on-premises applications to move to the cloud without changing their fundamental authentication scheme.
 
-- Applications to trust Azure AD directly. There is no need for traditional Active Directory (AD).
+- Applications runing on enlightened clients authenticate using Azure AD directly.
 
 
 *TODO: Insert the diagram from the Word doc here. Does the diagram apply to both authentication flows? Or is the diagram specific to the incoming trust-based flow? If the latter, it should go into the 'incoming trust-based flow section.*
