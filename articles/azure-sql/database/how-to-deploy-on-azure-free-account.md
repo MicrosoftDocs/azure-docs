@@ -122,7 +122,7 @@ You're not charged for Azure SQL Database service included for free with your Az
 
 1. Locate the meters related to **Azure SQL Database** to track usage.
 
-    :::image type="content" source="media/how-to-deploy-on-azure-free-account/free-services-tracking1.png" alt-text="Screenshot that shows the View and track usage information blade on Azure Portal for all free services.":::
+    :::image type="content" source="media/how-to-deploy-on-azure-free-account/free-services-tracking.png" alt-text="Screenshot that shows the View and track usage information blade on Azure Portal for all free services.":::
 
     |Meter    |Description    |Monthly Limit  |
     |---------|---------|---------|
