@@ -119,7 +119,7 @@ The possible ``status` property values are:
 | `NotStarted` | The endpoint hasn't yet been deployed, and it's not available for speech synthesis. |
 | `Running` | The endpoint is in the process of being deployed or resumed, and it's not available for speech synthesis. |
 | `Succeeded` | The endpoint is active and available for speech synthesis. The endpoint has been deployed or the resume operation succeeded. |
-| `Failed` | The endpoint is in the process of being suspended. |
+| `Failed` | The endpoint deploy or suspend operation failed. The endpoint can only be viewed or deleted in [Speech Studio](https://aka.ms/custom-voice-portal).|
 | `Disabling` | The endpoint is in the process of being deployed, and it's not available for speech synthesis. |
 | `Disabled` | The endpoint is inactive, and it's not available for speech synthesis. The suspend operation succeeded or the resume operation failed. |
 
@@ -272,7 +272,7 @@ The HTTP status code for each response indicates success or common errors.
 | 200              | OK                | The request was successful.                                                                                                                                               |
 | 202              | Accepted          | The request has been accepted and is being processed.                                                                                  |
 | 400              | Bad Request       | The value of a parameter is invalid, or a required parameter is missing, empty, or null. One common issue is a header that is too long. |
-| 401              | Unauthorized      | The request isn't authorized. Check to make sure your subscription key or token is valid and in the correct region.                                                      |
+| 401              | Unauthorized      | The request isn't authorized. Check to make sure your subscription key or [token](rest-speech-to-text.md#authentication) is valid and in the correct region.                                                      |
 | 429              | Too Many Requests | You've exceeded the quota or rate of requests allowed for your subscription.                                                                                            |
 | 502              | Bad Gateway       | Network or server-side issue. May also indicate invalid headers.                                                                                                          |
 
