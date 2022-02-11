@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Send custom logs to Azure Monitor Logs
+title: Tutorial - Send custom logs to Azure Monitor Logs (preview)
 description: Tutorial on how to send custom logs to a Log Analytics workspace in Azure Monitor using the Azure portal.
 ms.subservice: logs
 ms.topic: tutorial
@@ -8,8 +8,8 @@ ms.author: bwren
 ms.date: 01/19/2022
 ---
 
-# Tutorial: Add ingestion-time transformation to Azure Monitor Logs (preview)
-[Custom logs](custom-logs-ovewrview.md) in Azure Monitor allow you to send custom data to any table in a Log Analytics workspace with a REST API. This tutorial walks through configuration of a new table and a sample application to send custom logs to Azure Monitor using the Azure portal.
+# Tutorial: Send custom logs to Azure Monitor Logs (preview)
+[Custom logs](custom-logs-ovewrview.md) in Azure Monitor allow you to send external data to any table in a Log Analytics workspace with a REST API. This tutorial walks through configuration of a new table and a sample application to send custom logs to Azure Monitor using the Azure portal.
 
 In this tutorial, you learn to:
 

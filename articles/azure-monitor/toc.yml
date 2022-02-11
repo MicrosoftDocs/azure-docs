@@ -405,7 +405,7 @@ items:
     items:
     - name: Data collection rules
       items:
-      - name: Create
+      - name: Overview
         displayName: Data collection rules
         href: essentials/data-collection-rule-create.md
       - name: Transformations

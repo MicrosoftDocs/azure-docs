@@ -9,7 +9,7 @@ ms.date: 01/19/2022
 ---
 
 # Tutorial: Add ingestion-time transformation to Azure Monitor Logs
-[Ingestion-time transformations](ingestion-time-transformations.md) allow you to manipulate incoming data before it's stored in a Log Analytics workspace. You can add data filtering, parsing and extraction and control the structure of the data that gets ingested. 
+[Ingestion-time transformations](ingestion-time-transformations.md) allow you to manipulate incoming data before it's stored in a Log Analytics workspace. You can add data filtering, parsing and extraction, and control the structure of the data that gets ingested. This tutorial walks through configuration of an ingestion time transformation using the Azure portal.
 
 In this tutorial, you learn to:
 
@@ -22,21 +22,21 @@ In this tutorial, you learn to:
 To complete this tutorial, you need the following: 
 
 - Log Analytics workspace where you have at least contributor rights. 
-- Permissions to create Data Collection Rule objects.
+- Permissions to create Data Collection Rule objects in the workspace.
 
 
 ## Overview of tutorial
-The [LAQueryLogs table](query-audit.md#audit-data) is created when you enable [log query auditing](query-audit.md) in a workspace. In this tutorial, we'll add a column to the `LAQueryLogs` table and reduce its storage requirement table by filtering out certain records and removing the contents of a column. You can use this same basic process for any [supported table](ingestion-time-transformations-supported-tables.md) in a Log Analytics workspace.  
+In this tutorial, you'll add a column to the `LAQueryLogs` table and reduce its storage requirement by filtering out certain records and removing the contents of a column. The [LAQueryLogs table](query-audit.md#audit-data) is created when you enable [log query auditing](query-audit.md) in a workspace. You can use this same basic process to create a transformation for any [supported table](ingestion-time-transformations-supported-tables.md) in a Log Analytics workspace.  
 
-This tutorial will use the Azure portal which provides a wizard to walk you through the process of creating an ingestion-time transformation. The following actions are performed when you complete this wizard:
+This tutorial will use the Azure portal which provides a wizard to walk you through the process of creating an ingestion-time transformation. The following actions are performed for you when you complete this wizard:
 
-- Updates the table schema with any additional columns from the query
-- Creates a `WorkspaceTransforms` data collection rule (DCR) and links it to the workspace if a default DCR isn't already linked to the workspace
-- Creats an ingestion-time transformation and adds it to the DCR
+- Updates the table schema with any additional columns from the query.
+- Creates a `WorkspaceTransforms` data collection rule (DCR) and links it to the workspace if a default DCR isn't already linked to the workspace.
+- Creates an ingestion-time transformation and adds it to the DCR.
 
 
 ## Enable query audit logs
-You need to enable [query auditing](query-audit.md) for your workspace to create the `LAQueryLogs` table that we'll be working with. This is not required for ingestion time transformations. It's just to generate the sample data that we'll be working with. 
+You need to enable [query auditing](query-audit.md) for your workspace to create the `LAQueryLogs` table that you'll be working with. This is not required for all ingestion time transformations. It's just to generate the sample data that we'll be working with. 
 
 From the **Log Analytics workspaces** menu in the Azure portal, select **Diagnostic settings** and then **Add diagnostic setting**.
 
@@ -44,7 +44,7 @@ From the **Log Analytics workspaces** menu in the Azure portal, select **Diagnos
 
 Provide a name for the diagnostic setting and select the workspace so that the auditing data is stored in the same workspace. Select the **Audit** category and  then click **Save** to save the diagnostic setting and close the diagnostic setting page.
 
-:::image type="content" source="media/tutorial-ingestion-time-transformations/new-diagnostic-settings.png" lightbox="media/tutorial-ingestion-time-transformations/new-diagnostic-settings.png" alt-text="Screenshot of new diagnostic setting":::
+:::image type="content" source="media/tutorial-ingestion-time-transformations/new-diagnostic-setting.png" lightbox="media/tutorial-ingestion-time-transformations/new-diagnostic-setting.png" alt-text="Screenshot of new diagnostic setting":::
 
 Select **Logs** and then run some queries to populate `LAQuery Logs` with some data. These queries don't need to return data to be added to the audit log.
 
