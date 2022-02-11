@@ -16,7 +16,7 @@ In this article, you will learn how to add a pie chart layer to an Azure Maps Po
 
 The **Pie Chart layer** renders location data as scaled circles which divided into sectors of pie that each represent a proportion of the whole on the map. A pie chart displays data, information, and statistics in the pie-slice format with varying slice sizes represent to one data element exists. The greater portion of the slice in eah pie chart, the more of the data was gathered and represented.
 
-:::image type="content" source="./media/power-bi-visual/pie-chart-layer-with-legend-color.png" alt-text="A map displaying point data using the pie chart layer":::
+> ![A map displaying point data using the pie chart layer](media/power-bi-visual/pie-chart-layer-with-legend-color.png)
 
 ## Prerequisites
 
