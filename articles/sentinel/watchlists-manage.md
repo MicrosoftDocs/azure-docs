@@ -11,7 +11,7 @@ ms.date: 1/04/2022
 
 We recommend you edit an existing watchlist instead of deleting and recreating a watchlist. Log analytics has a five-minute SLA for data ingestion. If you delete and recreate a watchlist, you might see both the deleted and recreated entries in Log Analytics during this five-minute window. If you see these duplicate entries in Log Analytics for a longer period of time, submit a support ticket.
 
-## Edit a watchlist in Microsoft Sentinel
+## Edit a watchlist item
 
 Edit a watchlist to edit or add an item to the watchlist.
 
@@ -39,6 +39,13 @@ Edit a watchlist to edit or add an item to the watchlist.
 
    :::image type="content" source="./media/watchlists/sentinel-watchlist-edit-add.png" alt-text="Screen shot showing how to add a new item to your watchlist.":::
 
+## Bulk update a watchlist
+
+- Appends and dedups
+- Doesn't delete
+- Search needs to be the same 
+- Can't have blank fields in search key it will error out
+-
 ## Next steps
 
 To learn more about Microsoft Sentinel, see the following articles:
