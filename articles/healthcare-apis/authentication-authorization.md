@@ -1,23 +1,23 @@
 ---
-title: Azure Healthcare APIs Authentication and Authorization
-description: This article provides an overview of the authentication and authorization of the Healthcare APIs.
+title: Azure Health Data Services Authentication and Authorization
+description: This article provides an overview of the authentication and authorization of the Azure Health Data Services.
 services: healthcare-apis
 author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.topic: overview
-ms.date: 01/31/2022
+ms.date: 02/11/2022
 ms.author: ginle
 ---
 
-# Authentication & Authorization for the Healthcare APIs 
+# Authentication & Authorization for Azure Health Data Services
 
 ## Authentication
 
-The Healthcare APIs is a collection of secured managed services using [Azure Active Directory (Azure AD)](../active-directory/index.yml), a global identity provider that supports [OAuth 2.0](https://oauth.net/2/).
+ Azure Health Data Services is a collection of secured managed services using [Azure Active Directory (Azure AD)](../active-directory/index.yml), a global identity provider that supports [OAuth 2.0](https://oauth.net/2/).
 
-For the Healthcare APIs services to access Azure resources, such as storage accounts and event hubs, you must **enable the system managed identity**, and **grant proper permissions** to the managed identity. For more information, see [Azure managed identities](../active-directory/managed-identities-azure-resources/overview.md).
+For the Azure Health Data Services to access Azure resources, such as storage accounts and event hubs, you must **enable the system managed identity**, and **grant proper permissions** to the managed identity. For more information, see [Azure managed identities](../active-directory/managed-identities-azure-resources/overview.md).
 
-The Healthcare APIs don’t support other identity providers. However, customers can use their own identity provider to secure applications, and enable them to interact with the Healthcare APIs by managing client applications and user data access controls.
+Azure Health Data Services doesn't support other identity providers. However, customers can use their own identity provider to secure applications, and enable them to interact with the Healthcare APIs by managing client applications and user data access controls.
 
 The client applications are registered in the Azure AD and can be used to access the Healthcare APIs. User data access controls are done in the applications or services that implement business logic.
 
@@ -25,7 +25,7 @@ The client applications are registered in the Azure AD and can be used to access
 
 Authenticated users and client applications of the Healthcare APIs must be granted with proper application roles.
 
-The FHIR service of the Healthcare APIs provides the following roles:
+The FHIR service of the Azure Health Data Services provides the following roles:
 
 * **FHIR Data Reader**: Can read (and search) FHIR data.
 * **FHIR Data Writer**: Can read, write, and soft delete FHIR data.
@@ -33,16 +33,16 @@ The FHIR service of the Healthcare APIs provides the following roles:
 * **FHIR Data Contributor**: Can perform all data plane operations.
 * **FHIR Data Converter**: Can use the converter to perform data conversion.
 
-The DICOM service of the Healthcare APIs provides the following roles:
+The DICOM service of the Azure Health Data Services provides the following roles:
 
 * **DICOM Data Owner**: Can read, write, and delete DICOM data.
 * **DICOM Data Read**: Can read DICOM data.
 
-The IoT Connector doesn’t require application roles, but it does rely on the “Azure Event Hubs Data Receiver” to retrieve data stored in the event hub of the customer’s subscription.
+The MedTech service doesn't require application roles, but it does rely on the "Azure Event Hubs Data Receiver" to retrieve data stored in the event hub of the customer's subscription.
 
 ## Authorization
 
-After being granted with proper application roles, the authenticated users and client applications can access the Healthcare APIs services by obtaining a **valid access token** issued by Azure AD, and perform specific operations defined by the application roles.
+After being granted with proper application roles, the authenticated users and client applications can access the Azure Health Data Services by obtaining a **valid access token** issued by Azure AD, and perform specific operations defined by the application roles.
  
 * For the FHIR service, the access token is specific to the service or resource.
 * For the DICOM service, the access token is granted to the `dicom.healthcareapis.azure.com` resource, not a specific service.
@@ -52,7 +52,7 @@ After being granted with proper application roles, the authenticated users and c
 
 There are two common ways to obtain an access token, outlined in detail by the Azure AD documentation: [authorization code flow](../active-directory/develop/v2-oauth2-auth-code-flow.md) and [client credentials flow](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md).
 
-For obtaining an access token for the Healthcare APIs, these are the steps using **authorization code flow**:
+For obtaining an access token for the Azure Health Data Services, these are the steps using **authorization code flow**:
 
 1. **The client sends a request to the Azure AD authorization endpoint.** Azure AD redirects the client to a sign-in page where the user authenticates using appropriate credentials (for example: username and password, or a two-factor authentication). **Upon successful authentication, an authorization code is returned to the client.** Azure AD only allows this authorization code to be returned to a registered reply URL configured in the client application registration.
 
@@ -105,7 +105,7 @@ To obtain an access token, you can use tools such as Postman, the Rest Client ex
 
 ## Encryption
 
-When you create a new service of Azure Healthcare APIs, your data is encrypted using **Microsoft-managed keys** by default. 
+When you create a new service of Azure Health Data Services, your data is encrypted using **Microsoft-managed keys** by default. 
 
 * FHIR service provides encryption of data at rest when data is persisted in the data store.
 * DICOM service provides encryption of data at rest when imaging data including embedded metadata is persisted in the data store. When metadata is extracted and persisted in the FHIR service, it’s encrypted automatically.
@@ -113,7 +113,7 @@ When you create a new service of Azure Healthcare APIs, your data is encrypted u
 
 ## Next steps
 
-In this document, you learned the authentication and authorization of the Healthcare APIs. To learn how to deploy an instance of the Healthcare APIs service, see
+In this document, you learned the authentication and authorization of the Azure Health Data Services. To learn how to deploy an instance of the Azure Health Data Services, see
 
 >[!div class="nextstepaction"]
->[Deploy Healthcare APIs workspace using Azue portal](healthcare-apis-quickstart.md)
+>[Deploy Azure Health Data Services workspace using the Azure portal](healthcare-apis-quickstart.md)

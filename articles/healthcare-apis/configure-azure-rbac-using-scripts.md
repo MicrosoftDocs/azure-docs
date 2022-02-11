@@ -1,17 +1,17 @@
 ---
-title: Grant permissions to users and client applications using CLI and REST API - Azure Healthcare APIs
+title: Grant permissions to users and client applications using CLI and REST API - Azure Health Data Services
 description: This article describes how to grant permissions to users and client applications using CLI and REST API.
 services: healthcare-apis
 author: SteveWohl
 ms.service: healthcare-apis
 ms.topic: tutorial
-ms.date: 01/31/2022
+ms.date: 02/11/2022
 ms.author: zxue
 ---
 
 # Configure Azure RBAC role Using Azure CLI and REST API
 
-In this article, you'll learn how to grant permissions to client applications (and users) to access Healthcare APIs using Azure Command-Line Interface (CLI) and REST API. This step is referred to as "role assignment" or Azure 
+In this article, you'll learn how to grant permissions to client applications (and users) to access Azure Health Data Services using Azure Command-Line Interface (CLI) and REST API. This step is referred to as "role assignment" or Azure 
 [role-based access control (Azure RBAC role)](./../role-based-access-control/role-assignments-cli.md). To further your understanding about the application roles defined for Healthcare APIs, see [Configure Azure RBAC role](configure-azure-rbac.md).
 
 You can view and download the [CLI scripts](https://github.com/microsoft/healthcare-apis-samples/blob/main/src/scripts/role-assignment-using-cli.http) and [REST API scripts](https://github.com/microsoft/healthcare-apis-samples/blob/main/src/scripts/role-assignment-using-rest-api.http) from [Healthcare APIs Samples](https://github.com/microsoft/healthcare-apis-samples).
@@ -188,7 +188,7 @@ Now that you've granted proper permissions to the client application, you can ac
 
 ## Next steps
 
-In this article, you learned how to grant permissions to client applications using Azure CLI and REST API. For information on how to access Healthcare APIs, see 
+In this article, you learned how to grant permissions to client applications using Azure CLI and REST API. For information on how to access Azure Health Data Services using the REST Client Extension in Visual Studio Code, see 
 
 >[!div class="nextstepaction"]
->[Access using Rest Client](./fhir/using-rest-client.md) 
+>[Access using REST Client](./fhir/using-rest-client.md) 

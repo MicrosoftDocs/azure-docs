@@ -1,18 +1,18 @@
 ---
-title: Access Azure Healthcare APIs
-description: This article describes the different ways for accessing the services in your applications using tools and programming languages.
+title: Access Azure Health Data Services
+description: This article describes the different ways to access Azure Health Data Services in your applications using tools and programming languages.
 services: healthcare-apis
 author: SteveWohl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 02/07/2022
+ms.date: 02/11/2022
 ms.author: zxue
 ---
 
-# Access Healthcare APIs
+# Access Azure Health Data Services
 
-In this article, you will learn about the different ways to access the services in your applications. After you've provisioned a FHIR service, DICOM service, or IoT connector, you can then access them in your applications using tools like Postman, cURL, REST Client in Visual Studio Code, and with programming languages such as Python and C#.
+In this article, you'll learn about the different ways to access Azure Health Data Services in your applications. After you've provisioned a FHIR service, DICOM service, or IoT connector, you can then access them in your applications using tools like Postman, cURL, REST Client in Visual Studio Code, and with programming languages such as Python and C#.
 
 ## Access the FHIR service
 
@@ -38,10 +38,10 @@ The IoT connector works with the IoT Hub and Event Hubs in your subscription to 
 
 ## Next steps
 
-In this document, you learned about the tools and programming languages that you can use to access the services in your applications. To learn how to deploy an instance of the Healthcare APIs service using the Azure portal, see
+In this document, you learned about the tools and programming languages that you can use to access Azure Health Data Services in your applications. To learn how to deploy an instance of Azure Health Data Services using the Azure portal, see
 
 >[!div class="nextstepaction"]
->[Deploy Healthcare APIs workspace using Azure portal](healthcare-apis-quickstart.md)
+>[Deploy Azure Health Data Services workspace using the Azure portal](healthcare-apis-quickstart.md)
 
 
 
