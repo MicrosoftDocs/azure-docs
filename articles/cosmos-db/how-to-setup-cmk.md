@@ -6,7 +6,7 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 02/03/2022
 ms.author: thweiss 
-ms.custom: devx-track-azurepowershell, azurecli 
+ms.custom: devx-track-azurepowershell, devx-track-azurecli 
 ms.devlang: azurecli
 ---
 
