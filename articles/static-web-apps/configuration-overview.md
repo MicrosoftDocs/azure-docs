@@ -23,11 +23,11 @@ The following different concepts apply to configuring a static web app.
 
 | If you want to... | then... |
 |---|---|
-| Define routing rules | [Create rules in the staticwebapps.config.json file](./configuration.md) |
+| Define routing rules | [Create rules in the staticwebapp.config.json file](./configuration.md) |
 | Set which branch triggers builds | [Update the tracked branch name in the build configuration file](./build-configuration.md)  |
-| Define which security roles have access to a route | [Secure routes with roles in the staticwebapps.config.json file](./configuration.md#securing-routes-with-roles) |
-| Set which HTML file is served if a route doesn't match an actual file | [Define fallback route in the staticwebapps.config.json file](./configuration.md#fallback-routes) |
-| Set global headers for HTTP requests | [Define global headers in the staticwebapps.config.json file](./configuration.md#global-headers)|
+| Define which security roles have access to a route | [Secure routes with roles in the staticwebapp.config.json file](./configuration.md#securing-routes-with-roles) |
+| Set which HTML file is served if a route doesn't match an actual file | [Define fallback route in the staticwebapp.config.json file](./configuration.md#fallback-routes) |
+| Set global headers for HTTP requests | [Define global headers in the staticwebapp.config.json file](./configuration.md#global-headers)|
 | Define a custom build command | [Set a custom build command value in the application configuration file](./build-configuration.md) |
 | Set an environment variable for a frontend build | [Define an environment variable in the build configuration file](./build-configuration.md#environment-variables) |
 | Set an environment variable for an API | [Set an application setting in the portal](./application-settings.md) |
