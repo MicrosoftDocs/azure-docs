@@ -134,8 +134,8 @@ items:
     href: concept-custom-document.md
   - name: "Custom models: accuracy and confidence scores"
     href: concept-accuracy-confidence.md
-  - name: "Compose custom models"
-    href:  concept-compose-models.md
+  - name: "Composed custom models"
+    href:  concept-composed-models.md
 - name: Tutorials
   items:
   - name: Use Form Recognizer with Azure Logic Apps

@@ -1,18 +1,18 @@
 ---
-title: Form Recognizer compose models
+title: Form Recognizer composed models
 titleSuffix: Azure Applied AI Services
-description: Learn about composing multiple models
+description: Learn about composed custom models
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 01/10/2022
+ms.date: 02/10/2022
 ms.author: vikurpad
 recommendations: false
 ---
 
-# Compose models
+# Composed custom models
 
 **Composed models**. A composed model is created by taking a collection of custom models and assigning them to a single model that encompasses your form types. When a document is submitted for analysis to a composed model, the service performs a classification to decide which custom model accurately represents the form presented for analysis.
 
@@ -49,79 +49,10 @@ The limit for maximum number of custom models that can be composed is 100.
 ## Create a composed model
 
 
-# [v2.1 API](#tab/v2.1)
-
-Using the Form Recognizer Sample Labeling tool, the REST API, or the Client-library SDKs, follow the steps below to set up a composed model:
-
-1. [**Gather your custom model IDs**](#gather-your-custom-model-ids)
-1. [**Compose your custom models**](#compose-your-custom-models)
-
-#### Gather your custom model IDs
-
-Once the training process has successfully completed, your custom model will be assigned a model ID. You can retrieve a model ID as follows:
-
-### [**Form Recognizer Sample Labeling tool**](#tab/fott)
-
-When you train models using the [**Form Recognizer Sample Labeling tool**](https://fott-2-1.azurewebsites.net/), the model ID is located in the Train Result window:
-
-:::image type="content" source="media/fott-training-results.png" alt-text="Screenshot: training results window.":::
-
-### [**REST API**](#tab/rest-api)
-
-The [**REST API**](./quickstarts/try-sdk-rest-api.md?pivots=programming-language-rest-api#train-a-custom-model), will return a `201 (Success)` response with a **Location** header. The value of the last parameter in this header is the model ID for the newly trained model:
-
-:::image type="content" source="media/model-id.png" alt-text="Screenshot: the returned location header containing the model ID.":::
-
-### [**Client-library SDKs**](#tab/sdks)
-
- The [**client-library SDKs**](./quickstarts/try-sdk-rest-api.md?pivots=programming-language-csharp#train-a-custom-model) return a model object that can be queried to return the trained model ID:
-
-* C\#  | [CustomFormModel Class](/dotnet/api/azure.ai.formrecognizer.training.customformmodel?view=azure-dotnet&preserve-view=true#properties "Azure SDK for .NET")
-
-* Java | [CustomFormModelInfo Class](/java/api/com.azure.ai.formrecognizer.training.models.customformmodelinfo?view=azure-java-stable&preserve-view=true#methods "Azure SDK for Java")
-
-* JavaScript | [CustomFormModelInfo interface](/javascript/api/@azure/ai-form-recognizer/customformmodelinfo?view=azure-node-latest&preserve-view=true&branch=main#properties "Azure SDK for JavaScript")
-
-* Python | [CustomFormModelInfo Class](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.customformmodelinfo?view=azure-python&preserve-view=true&branch=main#variables "Azure SDK for Python")
 
 
-# [v3.0 API (preview)](#tab/v3.0)
-
-Using the Form Recognizer Studio, the REST API, or the Client-library SDKs, follow the steps below to set up a composed model:
-
-1. [**Gather your custom model IDs**](#gather-your-custom-model-ids)
-1. [**Compose your custom models**](#compose-your-custom-models)
-
-#### Gather your custom model IDs
-
-Once the training process has successfully completed, your custom model will be assigned a model ID. You can retrieve a model ID as follows:
-
-### [**Form Recognizer Studio**](#tab/studio)
-
-When you train models using the [**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com/), the model ID is located in the models menu under a project:
-
-:::image type="content" source="media/fott-training-results.png" alt-text="Screenshot: training results window.":::
-
-### [**REST API**](#tab/rest-api)
-
-The [**REST API**](./quickstarts/try-v3-rest-api#manage-custom-models), will return a `201 (Success)` response with a **Location** header. The value of the last parameter in this header is the model ID for the newly trained model:
-
-:::image type="content" source="media/model-id.png" alt-text="Screenshot: the returned location header containing the model ID.":::
-
-### [**Client-library SDKs**](#tab/sdks)
-
- The [**client-library SDKs**](./quickstarts/try-sdk-rest-api.md?pivots=programming-language-csharp#train-a-custom-model) return a model object that can be queried to return the trained model ID:
-
-* C\#  | [CustomFormModel Class](/dotnet/api/azure.ai.formrecognizer.training.customformmodel?view=azure-dotnet&preserve-view=true#properties "Azure SDK for .NET")
-
-* Java | [CustomFormModelInfo Class](/java/api/com.azure.ai.formrecognizer.training.models.customformmodelinfo?view=azure-java-stable&preserve-view=true#methods "Azure SDK for Java")
-
-* JavaScript | [CustomFormModelInfo interface](/javascript/api/@azure/ai-form-recognizer/customformmodelinfo?view=azure-node-latest&preserve-view=true&branch=main#properties "Azure SDK for JavaScript")
-
-* Python | [CustomFormModelInfo Class](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.customformmodelinfo?view=azure-python&preserve-view=true&branch=main#variables "Azure SDK for Python")
 
 
----
 
 #### Compose your custom models
 
