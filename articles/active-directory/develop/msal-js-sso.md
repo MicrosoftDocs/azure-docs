@@ -104,7 +104,7 @@ To get the values for login_hint and domain_hint by reading the claims returned 
 
 - **domain_hint** is only required to be passed when using the /common authority. The domain hint is determined by tenant ID(tid). If the `tid` claim in the ID token is `9188040d-6c67-4c5b-b112-36a304b66dad` it's consumers. Otherwise, it's organizations.
 
-For more information about **login_hint** and **domain_hint**, see [auth code grant](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-oauth2-auth-code-flow).
+For more information about **login_hint** and **domain_hint**, see [auth code grant](v2-oauth2-auth-code-flow.md).
 
 ## SSO without MSAL.js login
 
