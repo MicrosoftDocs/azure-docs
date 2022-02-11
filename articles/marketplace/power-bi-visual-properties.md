@@ -3,7 +3,6 @@ title: Configure Power BI visual offer properties in Partner Center for Microsof
 description: Learn how to configure Power BI visual offer properties in Partner Center for Microsoft AppSource.
 author: KesemSharabi
 ms.author: kesharab
-ms.reviewer: ""
 ms.service: powerbi
 ms.subservice: powerbi-custom-visuals
 ms.topic: how-to
@@ -56,7 +55,6 @@ Select up to two **Industries** industries which will be used to display your of
 | Nonprofit & IGO |
 | Professional services |
 | Retail |
-|||
 
 ## Legal and support info
 

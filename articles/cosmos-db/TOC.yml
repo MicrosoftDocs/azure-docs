@@ -1587,7 +1587,11 @@
             - name: Audit control plane logs
               href: audit-control-plane-logs.md
         - name: Configure alerts
-          href: create-alerts.md
+          items:
+            - name: Create alert on Metrics
+              href: create-alerts.md
+            - name: Create alert on logical partition key size
+              href: how-to-alert-on-logical-partition-key-storage-size.md
         - name: Monitoring data reference
           href: monitor-cosmos-db-reference.md
         - name: Application logging with Logic Apps
