@@ -39,7 +39,7 @@ As an Azure Purview administrator or Azure Purview data source admin, I want to 
 
 - Ensure to select checkbox "audit" and "allLogs" to enable collection of Purview audit logs. Optionally, select "allMetrics" if you wish to capture DataMap Capacity Units and Data Map size metrics of the Purview account as well.
 
-:::image type="content" source="./media/tutorial-purview-audit-logs-diagnostics/G.png" alt-text="Configure Azure Purview Diagnostic Settings screen." lightbox="./media/tutorial-purview-audit-logs-diagnostics/G.png":::
+:::image type="content" source="./media/tutorial-purview-audit-logs-diagnostics/G.png" alt-text="Configure Azure Purview Diagnostic settings - select diagnostics types" lightbox="./media/tutorial-purview-audit-logs-diagnostics/G.png":::
 
 - Diagnostics Configuration on the Azure Purview account is complete at this stage. 
 
@@ -63,9 +63,9 @@ As an Azure Purview administrator or Azure Purview data source admin, I want to 
 
 - Navigate to "Process Data" on the EventHubs page to see a preview of the captured Purview audit logs and diagnostics.
 
-:::image type="content" source="./media/tutorial-purview-audit-logs-diagnostics/D.png" alt-text="Configure Azure Purview Diagnostic Settings screen." lightbox="./media/tutorial-purview-audit-logs-diagnostics/D.png":::
+:::image type="content" source="./media/tutorial-purview-audit-logs-diagnostics/D.png" alt-text="Configure EventHubs - Process Data." lightbox="./media/tutorial-purview-audit-logs-diagnostics/D.png":::
 
-:::image type="content" source="./media/tutorial-purview-audit-logs-diagnostics/C.png" alt-text="Configure Azure Purview Diagnostic Settings screen." lightbox="./media/tutorial-purview-audit-logs-diagnostics/C.png":::
+:::image type="content" source="./media/tutorial-purview-audit-logs-diagnostics/C.png" alt-text="Navigating Azure EventHubs." lightbox="./media/tutorial-purview-audit-logs-diagnostics/C.png":::
 
 -- Switch between "Table" and "Raw" view of the JSON output.
 
