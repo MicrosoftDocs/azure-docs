@@ -3,7 +3,7 @@ title: Azure Virtual Desktop required URL list - Azure
 description: A list of URLs you must unblock to ensure your Azure Virtual Desktop deployment works as intended.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 02/02/2020
+ms.date: 02/11/2022
 ms.author: helohr
 manager: femila
 ---
@@ -98,6 +98,7 @@ The Azure virtual machines you create for Azure Virtual Desktop must have access
 |*xt.blob.core.usgovcloudapi.net|443|Agent traffic|AzureCloud|
 |*.servicebus.usgovcloudapi.net|443|Agent traffic|AzureCloud|
 |*xt.table.core.usgovcloudapi.net|443|Agent traffic|AzureCloud|
+|*.prod.warm.ingest.monitor.core.usgovcloudapi.net|443|Agent traffic|AzureCloud|
 |Kms.core.usgovcloudapi.net|1688|Windows activation|Internet|
 |mrsglobalstugviffx.blob.core.usgovcloudapi.net|443|Agent and SXS stack updates|AzureCloud|
 |wvdportalstorageblob.blob.core.usgovcloudapi.net|443|Azure portal support|AzureCloud|
