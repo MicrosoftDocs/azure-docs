@@ -62,7 +62,7 @@ The following prerequisites are required to implement the incoming trust-based a
 
 See [How to set up Windows Authentication for Azure Active Directory with the incoming trust based flow (Preview)](winauth-azuread-setup-incoming-trust-based-flow.md) for instructions on enabling this authentication flow.
 
-### Modern interactive flow (recommended)
+### Modern interactive flow
 
 The modern interactive flow works with enlightened clients running Windows 10 21H1 and higher that are Azure AD or Hybrid Azure AD joined. In the modern interactive flow,  users can access Azure SQL Managed Instance without requiring a line of sight to Domain Controllers (DCs). There is no need for a trust object to be created in the customer's AD.
 
