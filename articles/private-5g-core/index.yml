@@ -51,7 +51,7 @@ landingContent:
           - text: Create a site
             url: create-an-additional-site.md
   # Card                   
-  - title: Customize Quality of Service (QoS) and traffic control
+  - title: Customize quality of service (QoS) and traffic control
     linkLists:
       - linkListType: concept
         links:

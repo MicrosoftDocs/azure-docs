@@ -1,6 +1,7 @@
 ---
-title: Create a site for Azure Private 5G Core Preview
-description: Learn how to create a site in an existing private mobile network. 
+title: Create a site
+titleSuffix: Azure Private 5G Core Preview
+description: This how-to guide shows how to create a site in your private mobile network. 
 author: djrmetaswitch
 ms.author: drichards
 ms.service: private-5g-core
@@ -11,7 +12,7 @@ ms.custom: template-how-to
 
 # Create a site - Azure Private 5G Core Preview
 
-Azure Private 5G Core private mobile networks include one or more sites. Each site represents a physical enterprise location (for example, Contoso Corporation's Chicago factory) containing an Azure Stack Edge device that hosts a packet core instance. In this how-to guide, you'll learn how to create a site in your private mobile network.
+Azure Private 5G Core private mobile networks include one or more *sites*. Each site represents a physical enterprise location (for example, Contoso Corporation's Chicago factory) containing an Azure Stack Edge device that hosts a packet core instance. In this how-to guide, you'll learn how to create a site in your private mobile network.
 
 ## Prerequisites
 
@@ -40,13 +41,13 @@ In this step, you'll create the **Mobile Network Site** resource representing th
 
     :::image type="content" source="media/how-to-guide-deploy-a-private-mobile-network-azure-portal/create-site-packet-core-tab.png" alt-text="Screenshot of the Azure portal showing the Packet core configuration tab for a site resource.":::
 
-1. In the **Packet core** section, set the fields as follows.
+1. In the **Packet core** section, set the fields as follows:
 
     - Set **Technology type** to *5G*.
     - Leave the **Version** field blank unless you've been instructed to do otherwise by your support representative.
     - Set **Custom location** to the custom location you collected in [Collect custom location information](collect-required-information-for-a-site.md#collect-custom-location-information).
 
-1. Use the information you collected in [Collect access network values](collect-required-information-for-a-site.md#collect-access-network-values) to fill out the fields in the **Access network** section. Note the following.
+1. Use the information you collected in [Collect access network values](collect-required-information-for-a-site.md#collect-access-network-values) to fill out the fields in the **Access network** section. Note the following:
 
     - Use the same value for both the **N2 subnet** and **N3 subnet** fields.
     - Use the same value for both the **N2 gateway** and **N3 gateway** fields.
@@ -63,7 +64,7 @@ In this step, you'll create the **Mobile Network Site** resource representing th
 
     :::image type="content" source="media/site-deployment-complete.png" alt-text="Screenshot of the Azure portal showing the confirmation of a successful deployment of a site.":::
 
-1. Select **Go to resource group**, and confirm that it contains the following new resources.
+1. Select **Go to resource group**, and confirm that it contains the following new resources:
 
     - A **Mobile Network Site** resource representing the site as a whole.
     - A **Packet Core Control Plane** resource representing the control plane function of the packet core instance in the site.

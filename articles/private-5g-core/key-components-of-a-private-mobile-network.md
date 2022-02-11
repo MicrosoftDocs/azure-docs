@@ -1,6 +1,6 @@
 ---
 title: Key components of a private mobile network
-titlesuffix: Azure Private 5G Core Preview
+titleSuffix: Azure Private 5G Core Preview
 description: Learn about the key components of a private mobile network deployed through Azure Private 5G Core Preview.
 author: djrmetaswitch
 ms.author: drichards
@@ -14,15 +14,15 @@ ms.custom: template-concept
 
 This article introduces the key physical components of a private mobile network deployed through Azure Private 5G Core Preview. It also details the resources you'll use to manage the private mobile network through Azure.
 
-Each private mobile network contains one or more sites. A site is a physical enterprise location (for example, Contoso Corporation's Chicago Factory) that will provide coverage for 5G user equipment (UEs). The following diagram shows the main components of a single site.
+Each private mobile network contains one or more *sites*. A site is a physical enterprise location (for example, Contoso Corporation's Chicago Factory) that will provide coverage for 5G user equipment (UEs). The following diagram shows the main components of a single site.
 
 :::image type="content" source="media/key-components-of-a-private-mobile-network/site-physical-components.png" alt-text="Diagram displaying the main components of a site in a private mobile network":::
 
-- Each site contains an Azure Stack Edge device that hosts a packet core instance. The packet core instance is a cloud-native implementation of the 3GPP standards-defined 5G Next Generation Core (5G NGC or 5GC).
+- Each site contains an Azure Stack Edge device that hosts a *packet core instance*. The packet core instance is a cloud-native implementation of the 3GPP standards-defined 5G Next Generation Core (5G NGC or 5GC).
 
-    When you add a site to your private mobile network, you'll create a Kubernetes cluster on the Azure Stack Edge device. This serves as the platform for the packet core instance.
+    When you add a site to your private mobile network, you'll create a *Kubernetes cluster* on the Azure Stack Edge device. This serves as the platform for the packet core instance.
 
-- Each packet core instance connects to a Radio Access Network (RAN) to provide coverage for 5G UEs. You'll source your RAN from a third party.
+- Each packet core instance connects to a radio access network (RAN) to provide coverage for 5G UEs. You'll source your RAN from a third party.
 
 ## Azure Private 5G Core resources
 
@@ -40,7 +40,7 @@ The following diagram shows the key resources you'll use to manage your private 
 
     For detailed information on policy control, see [Policy control](policy-control.md).
 
-- The *site* and *packet core* resources allow you to manage the sites in your private mobile network and the packet core instances that run in them.
+- The *mobile network site* and *packet core* resources allow you to manage the sites in your private mobile network and the packet core instances that run in them.
 - Each *attached data network* resource allows you to manage how its associated packet core instance will connect to the data network. 
 
 ## Next steps
