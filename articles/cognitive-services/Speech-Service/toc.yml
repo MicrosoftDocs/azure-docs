@@ -455,13 +455,13 @@ items:
             - name: Limited access
               href: /legal/cognitive-services/speech-service/custom-neural-voice/limited-access-custom-neural-voice?context=/azure/cognitive-services/speech-service/context/context
             - name: Responsible deployment of synthetic speech
-              href: concepts-guidelines-responsible-deployment-synthetic.md
+              href: /legal/cognitive-services/speech-service/custom-neural-voice/concepts-guidelines-responsible-deployment-synthetic?context=/azure/cognitive-services/speech-service/context/context
             - name: Disclosure for voice talent
               href: /legal/cognitive-services/speech-service/disclosure-voice-talent?context=/azure/cognitive-services/speech-service/context/context
             - name: Disclosure design guidelines
-              href: concepts-disclosure-guidelines.md
+              href: /legal/cognitive-services/speech-service/custom-neural-voice/concepts-disclosure-guidelines?context=/azure/cognitive-services/speech-service/context/context
             - name: Disclosure design patterns
-              href: concepts-disclosure-patterns.md
+              href: /legal/cognitive-services/speech-service/custom-neural-voice/concepts-disclosure-patterns?context=/azure/cognitive-services/speech-service/context/context
             - name: Code of conduct
               href: /legal/cognitive-services/speech-service/tts-code-of-conduct?context=/azure/cognitive-services/speech-service/context/context
         - name: Data, privacy, and security

@@ -487,8 +487,8 @@ The document below will have only two columns in analytical store, `id` and `con
 {
     "id": "1",
     "contactDetails": [
-        {"email": thomas@andersen.com},
-        {"phone": "+1 555 555-5555", "extension": 5555}
+        {"email": "thomas@andersen.com"},
+        {"phone": "+1 555 555-5555"}
     ]
 }
 ```
@@ -499,8 +499,8 @@ The document below will have three columns in analytical store, `id`, `email`, a
 
 {
     "id": "1",
-    "email": thomas@andersen.com,
-    "phone": "+1 555 555-5555", "extension": 5555
+    "email": "thomas@andersen.com",
+    "phone": "+1 555 555-5555"
 }
 ```
 

@@ -42,7 +42,7 @@ NAT can be created in a specific Availability Zone and has redundancy built in w
 NAT is fully scaled out from the start. There's no ramp up or scale-out operation required.  Azure manages the operation of NAT for you.  NAT always has multiple fault domains and can sustain multiple failures without service outage.
 
 * Outbound connectivity can be defined for each subnet with NAT.  Multiple subnets within the same virtual network can have different NATs. Or multiple subnets within the same virtual network can use the same NAT. A subnet is configured by specifying which NAT gateway resource to use.  All outbound traffic for the subnet is processed by NAT automatically without any customer configuration.  NAT takes precedence over other outbound scenarios and replaces the default Internet destination of a subnet.
-* UDRs that have been set up to direct traffic outbound to the internet take precedence over NAT gateway. See [Troubleshooting NAT gateway](/azure/virtual-network/nat-gateway/troubleshoot-nat) to learn more.
+* UDRs that have been set up to direct traffic outbound to the internet take precedence over NAT gateway. See [Troubleshooting NAT gateway](/azure/virtual-network/nat-gateway/troubleshoot-nat#udr-supersedes-nat-gateway-for-going-outbound) to learn more.
 * NAT supports TCP and UDP protocols only. ICMP is not supported.
 * A NAT gateway resource can use a:
 

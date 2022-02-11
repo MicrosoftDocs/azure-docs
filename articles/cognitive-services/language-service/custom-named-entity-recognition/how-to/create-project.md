@@ -114,7 +114,7 @@ Your Language resource must have identity management, which can be enabled eithe
 
 After you've enabled managed identities for your resource, add the appropriate owner or contributor role assignments for your account, and your contributors' Azure accounts:
 
-1. Go to your Language resource in the [Azure portal](https://ms.portal.azure.com/).
+1. Go to your Language resource in the [Azure portal](https://portal.azure.com/).
 2. Select **Access Control (IAM)** in the left navigation menu.
 3. Select **Add** then **Add Role Assignments**, and choose the **Owner** or **Contributor** role. You can search for user names in the **Select** field.
 
@@ -130,7 +130,7 @@ Your Language resource must have the below roles assigned within your Azure blob
 
 To set proper roles on your storage account:
 
-1. Go to your storage account page in the [Azure portal](https://ms.portal.azure.com/).
+1. Go to your storage account page in the [Azure portal](https://portal.azure.com/).
 2. Select **Access Control (IAM)** in the left navigation menu.
 3. Select **Add** then **Add Role Assignments**, and choose the appropriate role for your Language resource. You can search for your resource in the **Select** field. Repeat this for all roles. 
 

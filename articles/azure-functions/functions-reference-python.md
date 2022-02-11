@@ -351,25 +351,25 @@ First, the function.json file must be updated to include a `route` in the HTTP t
 
 ```json
 {
-  "scriptFile": "__init__.py",
-  "bindings": [
-    {
-      "route": "test",
-      "authLevel": "anonymous",
-      "type": "httpTrigger",
-      "direction": "in",
-      "name": "req",
-      "methods": [
-        "get",
-        "post"
-      ]
-    },
-    {
-      "type": "http",
-      "direction": "out",
-      "name": "$return"
-    }
-  ]
+"scriptFile": "__init__.py",
+"bindings": [
+  {
+  "authLevel": "anonymous",
+  "type": "httpTrigger",
+  "direction": "in",
+  "name": "req",
+  "methods": [
+  "get",
+  "post"
+  ],
+  "route": "/{*route}"
+  },
+  {
+  "type": "http",
+  "direction": "out",
+  "name": "$return"
+  }
+]
 }
 ```
 
@@ -378,18 +378,28 @@ The host.json file must also be updated to include an HTTP `routePrefix`, as sho
 ```json
 {
   "version": "2.0",
-  "logging": {
-    "applicationInsights": {
-      "samplingSettings": {
+  "logging": 
+  {
+    "applicationInsights": 
+    {
+      "samplingSettings": 
+      {
         "isEnabled": true,
         "excludedTypes": "Request"
       }
-    },
-    "extensions": { "http": { "routePrefix": "" }}
+    }
   },
-  "extensionBundle": {
+  "extensionBundle": 
+  {
     "id": "Microsoft.Azure.Functions.ExtensionBundle",
     "version": "[2.*, 3.0.0)"
+  },
+  "extensions": 
+  {
+    "http": 
+    {
+        "routePrefix": ""
+    }
   }
 }
 ```

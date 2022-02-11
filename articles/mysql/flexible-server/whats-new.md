@@ -29,6 +29,10 @@ This release of Azure Database for MySQL - Flexible Server includes the followin
    The public preview of Azure Database for MySQL - Flexible Server is now available in the following Azure regions:
   - China East 2
   - China North 2
+  
+- **Reserving 36 IOPs for Azure Database for MySQL Flexible Server which has HA enabled**
+ 
+    We're adding 36 IOPs and reserving it for supporting standby failover operation on the servers, which has High Availability enabled. This IOPs is in addition to the configured IOPs on your servers, so additional charges per month would apply based on your Azure region. The extra IOPS help us ensure our commitment to providing smooth failover experience from primary to standby replica.The extra charge can be estimated by navigating to the [Azure Database for MySQL – Flexible Server pricing page](https://azure.microsoft.com/pricing/details/mysql/flexible-server), choosing the Azure region for your server, and multiplying IOPs/month cost by 36 IOPs. For example: if your server is hosted in East US, the extra IO costs, which you can expect is $0.05*36 = $1.8 USD per month.
 
 - **Bug fixes**
 
@@ -322,7 +326,7 @@ This release of Azure Database for MySQL - Flexible Server includes the followin
 If you have questions about or suggestions for working with Azure Database for MySQL, consider the following points of contact as appropriate:
 
 - To contact Azure Support, [file a ticket from the Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
-- To fix an issue with your account, file a [support request](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) in the Azure portal.
+- To fix an issue with your account, file a [support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) in the Azure portal.
 - To provide feedback or to request new features, email us at AskAzureDBforMySQL@service.microsoft.com.
 
 ## Next steps

@@ -127,17 +127,17 @@ The table below describes two common scenarios in which outbound connectivity ma
 NAT gateway can be used with Azure app services to allow applications to make outbound calls from a virtual network. To use this integration between Azure app services and NAT gateway, regional virtual network integration must be enabled. See [how regional virtual network integration works](/azure/app-service/overview-vnet-integration#how-regional-virtual-network-integration-works) to learn more.
 
 To use NAT gateway with Azure App services, follow these steps: 
-1. Ensure that your application(s) are integrated with a subnet. 
-2. Ensure that regional Virtual network integration is enabled for the subnet that your apps will use for going outbound by turning on **Route All**.
+1. Ensure that your application(s) have virtual network integration configured, see [Enable virtual network integration](/azure/app-service/configure-vnet-integration-enable). 
+2. Ensure that **Route All** is enabled for your virtual network integration, see [Configure virtual network integration routing](/azure/app-service/configure-vnet-integration-routing).
 3. Create a NAT gateway resource. 
 4. Create a new public IP address or attach an existing public IP address in your network to NAT gateway.
 5. Assign NAT gateway to the same subnet being used for Virtual network integration with your application(s). 
 
-To see step-by-step instructions on how to configure NAT gateway with Virtual network integration, see [Configuring NAT gateway integration](/azure/app-service/networking/nat-gateway-integration#configuring-nat-gateway-integration)
+To see step-by-step instructions on how to configure NAT gateway with virtual network integration, see [Configuring NAT gateway integration](/azure/app-service/networking/nat-gateway-integration#configuring-nat-gateway-integration)
 
 A couple important notes about the NAT gateway and Azure App Services integration: 
 * Virtual network integration does not provide inbound private access to your app from the virtual network. 
-* Because of the nature of how Virtual network integration operates, the traffic from virtual network integration does not show up in Azure Network Watcher or NSG flow logs. 
+* Because of the nature of how virtual network integration operates, the traffic from virtual network integration does not show up in Azure Network Watcher or NSG flow logs. 
 
 ### Port 25 cannot be used for regional VNet integration with NAT gateway
 

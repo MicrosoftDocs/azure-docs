@@ -37,14 +37,14 @@ You will find more details and additional configuration options below.
 
 ## Configuration file path
 
-By default, Application Insights Java 3.x expects the configuration file to be named `applicationinsights.json`, and to be located in the same directory as `applicationinsights-agent-3.2.5.jar`.
+By default, Application Insights Java 3.x expects the configuration file to be named `applicationinsights.json`, and to be located in the same directory as `applicationinsights-agent-3.2.6.jar`.
 
 You can specify your own configuration file path using either
 
 * `APPLICATIONINSIGHTS_CONFIGURATION_FILE` environment variable, or
 * `applicationinsights.configuration.file` Java system property
 
-If you specify a relative path, it will be resolved relative to the directory where `applicationinsights-agent-3.2.5.jar` is located.
+If you specify a relative path, it will be resolved relative to the directory where `applicationinsights-agent-3.2.6.jar` is located.
 
 Alternatively, instead of using a configuration file, you can specify the entire _content_ of the json configuration
 via the environment variable `APPLICATIONINSIGHTS_CONFIGURATION_CONTENT`.
@@ -64,6 +64,22 @@ Connection string is required. You can find your connection string in your Appli
 
 You can also set the connection string using the environment variable `APPLICATIONINSIGHTS_CONNECTION_STRING`
 (which will then take precedence over connection string specified in the json configuration).
+
+You can also set the connection string by specifying a file to load the connection string from.
+
+If you specify a relative path, it will be resolved relative to the directory where `applicationinsights-agent-3.2.6.jar` is located.
+
+```json
+{
+  "connectionString": "${file:connection-string-file.txt}"
+}
+```
+
+The file should contain only the connection string, for example:
+
+```
+InstrumentationKey=...
+```
 
 Not setting the connection string will disable the Java agent.
 
@@ -326,7 +342,7 @@ To disable auto-collection of Micrometer metrics (including Spring Boot Actuator
 
 ## HTTP headers
 
-Starting from 3.2.5, you can capture request and response headers on your server (request) telemetry:
+Starting from 3.2.6, you can capture request and response headers on your server (request) telemetry:
 
 ```json
 {
@@ -372,7 +388,7 @@ Again, the header names are case-insensitive, and the examples above will be cap
 
 By default, http server requests that result in 4xx response codes are captured as errors.
 
-Starting from version 3.2.5, you can change this behavior to capture them as success if you prefer:
+Starting from version 3.2.6, you can change this behavior to capture them as success if you prefer:
 
 ```json
 {
@@ -474,7 +490,7 @@ Starting from version 3.2.0, the following preview instrumentations can be enabl
 ```
 > [!NOTE]
 > Akka instrumentation is available starting from version 3.2.2
-> Vertx HTTP Library instrumentation is available starting from version 3.2.5
+> Vertx HTTP Library instrumentation is available starting from version 3.2.6
 
 ## Metric interval
 
@@ -541,7 +557,7 @@ you can configure Application Insights Java 3.x to use an HTTP proxy:
 Application Insights Java 3.x also respects the global `https.proxyHost` and `https.proxyPort` system properties
 if those are set (and `http.nonProxyHosts` if needed).
 
-Starting from 3.2.5, authenticated proxies are supported. You can add `"user"` and `"password"` under `"proxy"` in
+Starting from 3.2.6, authenticated proxies are supported. You can add `"user"` and `"password"` under `"proxy"` in
 the json above (or if you are using the system properties above, you can add `https.proxyUser` and `https.proxyPassword`
 system properties).
 
@@ -573,7 +589,7 @@ and the console, corresponding to this configuration:
 `level` can be one of `OFF`, `ERROR`, `WARN`, `INFO`, `DEBUG`, or `TRACE`.
 
 `path` can be an absolute or relative path. Relative paths are resolved against the directory where
-`applicationinsights-agent-3.2.5.jar` is located.
+`applicationinsights-agent-3.2.6.jar` is located.
 
 `maxSizeMb` is the max size of the log file before it rolls over.
 
