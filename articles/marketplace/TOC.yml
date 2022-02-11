@@ -460,7 +460,7 @@
   - name: Ratings and reviews dashboard
     href: ratings-reviews.md
   - name: Customer retention dashboard
-    href: customer-retention.md
+    href: customer-retention-dashboard.md
   - name: Customer retention FAQ
     href: customer-retention-faq.yml
   - name: Programmatic access to analytics
